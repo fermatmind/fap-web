@@ -25575,6 +25575,71 @@
           "note": "Opened GitHub PR #1305 from commit 3ca2dbf9d6de51eac69079add53730d155b1a19a after local validation passed and scope stayed within the registered manifest boundaries."
         }
       ]
+    },
+    {
+      "id": "FA30-WEB-01",
+      "repo": "fap-web",
+      "branch": "codex/fa30-web-01-six-assessment-hub-parity",
+      "base": "main",
+      "status": "pr_open",
+      "train_scope": "six_assessment_hub_parity_verifier",
+      "title": "FA30-WEB-01: test(seo): add six-assessment hub parity verifier",
+      "depends_on": [],
+      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1314",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized manifest/state registration for FA30-WEB-01 on 2026-06-22 and instructed Codex to execute this item only from a clean worktree."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "FA30-WEB-01 is a standalone read-only verifier contract with no declared merged-pr dependency."
+        },
+        "scope": {
+          "status": "authorized",
+          "allowed_paths": [
+            "package.json",
+            "scripts/seo/check-six-assessment-hub-parity.mjs",
+            "docs/seo/six-assessment-hub-parity.md",
+            "docs/seo/generated/six-assessment-hub-parity.v1.json",
+            "tests/contracts/six-assessment-hub-parity.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Authorized scope is restricted to the verifier script, its static artifact/doc, one contract test, scope registration, and PR-train metadata. No runtime files are in scope."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: node scripts/seo/check-six-assessment-hub-parity.mjs --plan --write docs/seo/generated/six-assessment-hub-parity.v1.json; pnpm exec vitest run tests/contracts/six-assessment-hub-parity.contract.test.ts; pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; pnpm test:contract (513 files, 2925 tests); python3 JSON parse; ruby YAML parse; git diff --check; explicit path allowlist scope validation. Build-generated public/sitemap.xml was restored out of scope before commit."
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1314 after local validation and scope validation passed. The branch head was amended once to include PR-train ledger closeout, so GitHub branch head is the source of truth for the exact current SHA."
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-22T18:26:13+08:00",
+          "status": "in_progress",
+          "note": "Started FA30-WEB-01 from a clean origin/main worktree. Scope is a read-only six-assessment parity verifier only; no app, component, lib, CMS, deploy, or runtime behavior changes are allowed."
+        },
+        {
+          "at": "2026-06-22T18:38:59+08:00",
+          "status": "local_checks_passed",
+          "note": "Generated the static parity plan, added the read-only live verifier, validated package/doc/artifact wiring, reran build and full contracts, restored postbuild sitemap churn out of scope, and confirmed the diff stays inside the eight authorized FA30-WEB-01 files."
+        },
+        {
+          "at": "2026-06-22T18:40:18+08:00",
+          "status": "pr_open",
+          "note": "Opened GitHub PR #1314 and amended the branch once to include the ledger closeout. The branch diff remained inside the FA30-WEB-01 allowlist, and GitHub branch head is the source of truth for the exact current SHA."
+        }
+      ]
     }
   ]
 }

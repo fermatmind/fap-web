@@ -16128,3 +16128,60 @@ prs:
     api_runtime_change: false
     publish_allowed: false
     deploy_allowed: false
+
+  - id: FA30-WEB-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/fa30-web-01-six-assessment-hub-parity
+    base: main
+    title: "FA30-WEB-01: test(seo): add six-assessment hub parity verifier"
+    depends_on: []
+    mode: execute
+    train_scope: six_assessment_hub_parity_verifier
+    status: pr_open
+    goal: "Add a read-only verifier for the six flagship public test detail hubs so parity across page HTML, canonical, alternate links, sitemap, llms, llms-full, scale lookup, and sitemap-source can be checked without changing runtime behavior."
+    artifacts:
+      - package.json
+      - scripts/seo/check-six-assessment-hub-parity.mjs
+      - docs/seo/six-assessment-hub-parity.md
+      - docs/seo/generated/six-assessment-hub-parity.v1.json
+      - tests/contracts/six-assessment-hub-parity.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - package.json
+      - scripts/seo/check-six-assessment-hub-parity.mjs
+      - docs/seo/six-assessment-hub-parity.md
+      - docs/seo/generated/six-assessment-hub-parity.v1.json
+      - tests/contracts/six-assessment-hub-parity.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - frontend runtime changes
+      - CMS writes, publish actions, or provider calls
+      - search submission or queue execution
+      - sitemap, robots, llms, canonical, hreflang, or indexability runtime mutation
+      - payment, report, attempt, take, scoring, or result behavior changes
+      - pnpm-lock.yaml
+      - env files
+    required_local_checks:
+      - node scripts/seo/check-six-assessment-hub-parity.mjs --plan --json >/dev/null
+      - pnpm exec vitest run tests/contracts/six-assessment-hub-parity.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -m json.tool docs/seo/generated/six-assessment-hub-parity.v1.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
