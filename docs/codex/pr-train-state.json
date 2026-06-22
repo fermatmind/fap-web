@@ -1802,7 +1802,7 @@
       "checks": [],
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": "e591d2210a7ee1d534943af14a20b75e037049f7",
+      "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -25428,14 +25428,14 @@
       "repo": "fap-web",
       "branch": "codex/riasec-result-fapweb-rendered-preview-qa-01",
       "base": "main",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "train_scope": "riasec_result_ops_agent_release_chain",
       "title": "RIASEC-RESULT-FAPWEB-RENDERED-PREVIEW-QA-01: test(riasec): add rendered preview QA",
       "depends_on": [
         "RIASEC-OPS-AGENT-REPORTING-SIDECAR-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "e591d2210a7ee1d534943af14a20b75e037049f7",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1301",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -25463,6 +25463,10 @@
             "docs/codex/pr-train-state.json"
           ],
           "evidence": "Changed files are limited to the rendered preview QA contract, RIASEC result_page_v2 fixture bundle, current PR scope helper, and PR train metadata."
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1301 after local checks and scope validation passed."
         }
       },
       "history": [
@@ -25475,6 +25479,11 @@
           "at": "2026-06-22T09:12:22+08:00",
           "status": "local_checks_passed",
           "note": "Rendered preview fixture contract, parse checks, diff check, and explicit allowed-path scope validation passed locally."
+        },
+        {
+          "at": "2026-06-22T09:13:44+08:00",
+          "status": "pr_open",
+          "note": "Opened fap-web PR #1301 after local checks and scope validation passed."
         }
       ]
     }
