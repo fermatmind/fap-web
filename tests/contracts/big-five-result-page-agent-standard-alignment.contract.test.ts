@@ -115,13 +115,15 @@ describe("Big Five result-page agent standard alignment", () => {
         "fap-api:backend/docs/big5/result-asset-agent-gates.md",
         "fap-api:backend/docs/big5/result-asset-agent-schema.md",
         "fap-api:backend/artifacts/big5_result_page_v2_agent/20260622T122842Z/ops_report_summary.json",
+        "fap-api:PR #2326 BIG5-RESULT-PAGE-AGENT-GENERATED-READINESS-ARTIFACT-01 generated sanitized readiness.json from strict audit evidence",
       ])
     );
 
     expect(report).toContain("BigFiveResultPageV2AssetAgentAuditCommand");
     expect(report).toContain("BigFiveResultPageV2AssetAgent.php");
     expect(report).toContain("Big5ResultPageV2Shell.tsx");
-    expect(report).toContain("share_safety_missing_count:1");
+    expect(report).toContain("share_safety_missing_count:0");
+    expect(report).toContain("share_safe_reading_mode_count:13");
     expect(report).toContain("No `SPLIT_REQUIRED` for this task");
   });
 
@@ -136,23 +138,19 @@ describe("Big Five result-page agent standard alignment", () => {
         "required_fields",
         "route_api_access_pdf_share_renderer_backend_authority_map",
         "existing_backend_asset_agent_evidence",
+        "generated_backend_readiness_artifact_evidence",
         "frontend_renderer_contracts",
         "negative_guarantees",
         "source_classification",
       ])
     );
     expect(asStringArray(alignment.doc_needs_update)).toEqual([]);
-    expect(asStringArray(alignment.evidence_missing)).toEqual(
-      expect.arrayContaining([
-        "future generated/result-page-agents/big_five/<run_id>/readiness.json was not generated in this docs/contracts task",
-        "share_safety_missing_count remains 1 in latest existing backend ops artifact, so pilot/production readiness remains blocked",
-      ])
-    );
+    expect(asStringArray(alignment.evidence_missing)).toEqual([]);
     expect(asStringArray(alignment.blocked)).toEqual([]);
 
     expect(report).toContain("| Required fields | `DOC_MATCH`");
-    expect(report).toContain("| Share public/private boundary | `DOC_MATCH_WITH_EXISTING_GAP`");
-    expect(report).toContain("| Generated readiness artifact | `EVIDENCE_MISSING`");
+    expect(report).toContain("| Share public/private boundary | `DOC_MATCH_CLOSED`");
+    expect(report).toContain("| Generated readiness artifact | `DOC_MATCH_REFRESHED`");
     expect(report).toContain("| Runtime/CMS/search/provider actions | `BLOCKED`");
   });
 
@@ -180,7 +178,7 @@ describe("Big Five result-page agent standard alignment", () => {
         "asset_agent_output_not_schema_valid",
         "private_boundary_failure",
         "auto_merge_or_live_pilot_requested_without_approval",
-        "share_safety_gap_blocks_pilot_or_production_claim",
+        "share_safety_regression_blocks_pilot_or_production_claim",
       ])
     );
     expect(serialized).toContain("BigFiveResultPageV2AssetAgent");
@@ -191,11 +189,11 @@ describe("Big Five result-page agent standard alignment", () => {
   it("keeps the report as fap-web docs/contracts alignment without fap-api mutation", () => {
     const report = readText(REPORT_PATH);
 
-    expect(report).toContain("docs/contracts alignment and read-only validation");
-    expect(report).toContain("It did not run the backend asset-agent command");
-    expect(report).toContain("no fap-api edits");
-    expect(report).toContain("fap-api first: resolve `share_safety_missing_count=1`");
-    expect(report).toContain("fap-web second: consume the sanitized artifact path");
+    expect(report).toContain("docs/contracts alignment refreshed from sanitized backend readiness evidence");
+    expect(report).toContain("It did not run the backend asset-agent command in fap-web");
+    expect(report).toContain("fap-api PR #2326");
+    expect(report).toContain("fap-api first: run `BIG5-FREE-FULL-REPORT-RUNTIME-QA-READINESS-01`");
+    expect(report).toContain("fap-web second, only if needed");
     expect(report).toContain("runtime code changed: no");
     expect(report).toContain("private result data accessed: none");
   });

@@ -2549,6 +2549,13 @@ const BIG5_RESULT_PAGE_AGENT_STANDARD_ALIGN_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const BIG5_RESULT_PAGE_AGENT_READINESS_DOC_REFRESH_01_ALLOWED_FILES = new Set([
+  "docs/result-page-agents/big-five-result-page-agent-readiness.proposal.json",
+  "docs/result-page-agents/big-five-result-page-agent-standard-alignment-2026-06-22.md",
+  "tests/contracts/big-five-result-page-agent-standard-alignment.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const ENNEAGRAM_RESULT_PAGE_AGENT_STANDARD_ALIGN_01_ALLOWED_FILES = new Set([
   "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json",
   "docs/result-page-agents/enneagram-result-page-agent-standard-alignment-2026-06-22.md",
@@ -2707,6 +2714,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/big5-result-page-agent-standard-align-01" &&
     BIG5_RESULT_PAGE_AGENT_STANDARD_ALIGN_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/big5-readiness-doc-refresh" &&
+    BIG5_RESULT_PAGE_AGENT_READINESS_DOC_REFRESH_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }

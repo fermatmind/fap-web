@@ -2,7 +2,7 @@
 
 Task: `BIG5-RESULT-PAGE-AGENT-STANDARD-ALIGN-01`
 
-Status: docs/contracts alignment and read-only validation.
+Status: docs/contracts alignment refreshed from sanitized backend readiness evidence.
 
 Verdict: `BIG5_RESULT_PAGE_AGENT_STANDARD_ALIGNED`
 
@@ -17,7 +17,7 @@ Verdict: `BIG5_RESULT_PAGE_AGENT_STANDARD_ALIGNED`
 - payment/order mutation: none
 - env changes: none
 
-This alignment used repository source files, existing docs/contracts, and sanitized existing backend artifact summaries only. It did not run the backend asset-agent command because that command writes artifact files by design. It did not read raw private attempts, live report payloads, production database rows, Search Channel Queue state, sitemap/robots/llms/schema/hreflang outputs, provider consoles, payment/order rows, or environment variables.
+This alignment used repository source files, existing docs/contracts, sanitized existing backend artifact summaries, and the merged backend readiness artifact evidence from fap-api PR #2326 only. It did not run the backend asset-agent command in fap-web because that command writes artifact files by design and belongs to fap-api. It did not read raw private attempts, live report payloads, production database rows, Search Channel Queue state, sitemap/robots/llms/schema/hreflang outputs, provider consoles, payment/order rows, or environment variables.
 
 ## Platform Inputs
 
@@ -41,7 +41,7 @@ This alignment used repository source files, existing docs/contracts, and saniti
 | Existing Big Five V2 runbook | `fap-api:backend/docs/big5/result-asset-agent-runbook.md` | Backend-only runbook forbids CMS import, runtime wiring, pilot access, production rollout, frontend fallback interpretation copy, public SEO output, private score/vector leaks, and BFI-2/proprietary copy-paste. |
 | Existing Big Five V2 schemas | `fap-api:backend/docs/big5/result-asset-agent-schema.md` | Artifact protocol requires `runtime_use`, `production_use_allowed:false`, `ready_for_runtime:false`, `ready_for_production:false`, `cms_write_performed:false`, `runtime_change_performed:false`, `frontend_fallback_allowed:false`, and `private_payload_exported:false`. |
 | Existing Big Five V2 gates | `fap-api:backend/docs/big5/result-asset-agent-gates.md` | Gate model separates runbook, source ledger, validator harness, gap audit, selector QA repair, share-safety pilot batch, route/golden-case QA, and render preview handoff. |
-| Existing backend artifact summary | `fap-api:backend/artifacts/big5_result_page_v2_agent/20260622T122842Z/*` | Existing sanitized artifact reports `runtime_use: staging_only`, `production_use_allowed:false`, validation error count `0`, leak hit count `0`, `ready_for_runtime:false`, and `ready_for_production:false`. It also reports `share_safety_missing_count:1`, so pilot/production claims remain blocked. |
+| Existing backend artifact summary | `fap-api:backend/artifacts/big5_result_page_v2_agent/20260622T122842Z/*`; fap-api PR #2326 readiness artifact evidence | Existing sanitized artifact reports `runtime_use: staging_only`, `production_use_allowed:false`, validation error count `0`, leak hit count `0`, `ready_for_runtime:false`, and `ready_for_production:false`. Merged fap-api PR #2326 adds sanitized readiness evidence with `share_safety_missing_count:0`, `share_safe_reading_mode_count:13`, `validation_error_count:0`, `leak_hit_count:0`, and `readiness_pass:true`, while `ready_for_pilot`, `ready_for_runtime`, and `ready_for_production` remain false. |
 | Result route | `app/(localized)/[locale]/(app)/result/[id]/page.tsx` | Localized private result route is dynamic, `noindex`, `revalidate=0`, and passes `attemptId` into `ResultClient`. |
 | Report API | `lib/api/v0_3.ts`, `fap-api:backend/routes/api.php`, `fap-api:backend/app/Http/Controllers/API/V0_3/AttemptReadController.php` | Frontend calls `/api/v0.3/attempts/{attempt_id}/report`; backend route/controller remain the authority. |
 | Report-access API | `lib/api/v0_3.ts`, `fap-api:backend/routes/api.php`, `fap-api:backend/app/Http/Controllers/API/V0_3/AttemptReadController.php` | Frontend calls `/api/v0.3/attempts/{attempt_id}/report-access`; report-access remains the unlock/PDF action authority. |
@@ -91,22 +91,22 @@ Backend authority/API tests observed in `fap-api`:
 | Required fields | `DOC_MATCH` | Proposal includes every field required by `six-scale-result-agent-readiness.template.json`. | Added `docs/result-page-agents/big-five-result-page-agent-readiness.proposal.json`. |
 | Agent identity | `DOC_MATCH` | `agent_id=big_five_result_page`, `scale_code=BIG5_OCEAN`, canonical slug `big-five-personality-test-ocean-model`. | Locked by contract test. |
 | Existing backend asset agent | `DOC_MATCH` | fap-api command/service/runbook/schema/gates exist and are mapped. | Documented as backend authority; no fap-api edits. |
-| Existing artifact evidence | `DOC_MATCH` | Latest existing sanitized artifact has validation errors `0`, leak hits `0`, `production_use_allowed=false`, runtime/production readiness false. | Mapped without rerunning write-producing command. |
+| Existing artifact evidence | `DOC_MATCH_REFRESHED` | Merged fap-api PR #2326 generated sanitized readiness artifact evidence with validation errors `0`, leak hits `0`, `share_safety_missing_count=0`, `production_use_allowed=false`, and pilot/runtime/production readiness false. | Mapped without rerunning the backend write-producing command in fap-web. |
 | Result route/API/access/PDF/share map | `DOC_MATCH` | fap-web shared result route and API adapter plus fap-api route/controller authority. | Documented in report and proposal. |
 | Frontend renderer | `DOC_MATCH` | `ResultClient -> RichResultReport -> Big5ResultPageV2Shell`; invalid V2 payloads fail closed to legacy path without synthetic copy. | Documented and contract-covered. |
 | PDF/print private boundary | `DOC_MATCH` | Existing PDF rendered QA and private print/redaction contracts. | Documented and contract-covered. |
-| Share public/private boundary | `DOC_MATCH_WITH_EXISTING_GAP` | Existing share-card rendered QA and backend share-safe summary adapter tests. Existing ops artifact still has `share_safety_missing_count=1`. | Readiness remains read-only; pilot/production blocked until backend share-safety gap is resolved. |
+| Share public/private boundary | `DOC_MATCH_CLOSED` | Existing share-card rendered QA and backend share-safe summary adapter tests plus fap-api PR #2326 strict audit evidence. | Backend share-safety coverage is closed with `share_safety_missing_count=0` and `share_safe_reading_mode_count=13`; pilot/runtime/production remain deferred to later gates. |
 | Source classification | `DOC_MATCH` | fap-web source = consumer code; fap-api source = backend authority; fixtures = fixture; existing backend artifacts = sanitized generated artifact; live/private/provider surfaces not accessed. | Added explicit classification in proposal. |
 | fap-api docs update | `DOC_MATCH` | Required backend runbook/schema/gate docs already exist. | No split required for this fap-web docs/contracts alignment. |
-| Generated readiness artifact | `EVIDENCE_MISSING` | No `generated/result-page-agents/big_five/<run_id>/readiness.json` was produced in this docs/contracts task. | Deferred to next safe goal with explicit approval. |
+| Generated readiness artifact | `DOC_MATCH_REFRESHED` | fap-api PR #2326 generated a sanitized `readiness.json` artifact from strict audit evidence. | fap-web references backend authority evidence only and does not copy backend artifacts into frontend docs. |
 | Runtime/CMS/search/provider actions | `BLOCKED` by policy | Frozen standard hard HOLD actions and task safety boundary. | Not performed. |
 
 ## Alignment Result
 
 - `DOC_MATCH`: Big Five now has a fap-web docs/contracts readiness proposal aligned with the frozen result-page agent standard.
 - `DOC_NEEDS_UPDATE`: none within fap-web after this task.
-- `EVIDENCE_MISSING`: future sanitized generated readiness artifact was not generated; latest existing backend ops artifact still reports `share_safety_missing_count=1`.
-- `BLOCKED`: pilot, production, CMS, runtime, search, provider, private data, and payment/order actions remain blocked.
+- `EVIDENCE_MISSING`: none for the docs refresh scope.
+- `BLOCKED`: CMS, production, search, provider, private data, and payment/order actions remain blocked. Pilot/runtime remain deferred to their own scoped gates even though the share-safety coverage gap is closed.
 
 ## Readiness Artifact Proposal
 
@@ -118,12 +118,12 @@ The proposal intentionally does not contain raw attempt IDs, live report URLs, a
 
 ## Next Safe Goal
 
-`BIG5-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01`
+`BIG5-FREE-FULL-REPORT-RUNTIME-QA-READINESS-01`
 
 Scope:
 
-- run read-only fap-web route/API/PDF/share/render/leak contract review from sanitized fixtures and source evidence;
-- optionally consume a pre-existing sanitized backend artifact path supplied by fap-api;
+- verify the free full-report experience across route, report API, report-access, PDF, share, history, and compare;
+- consume backend-authoritative payload/fixture evidence only;
 - do not run backend commands that write artifacts unless explicitly authorized and scoped in fap-api;
 - do not implement runtime code, CMS writes, publish, search submissions, provider calls, private result access, payment/order mutation, env changes, or sitemap/robots/llms/schema/hreflang mutation.
 
@@ -133,7 +133,7 @@ If the next step is a generated readiness artifact or backend asset-agent runboo
 
 Recommended order:
 
-1. fap-api first: resolve `share_safety_missing_count=1` or produce a sanitized read-only readiness artifact under a scoped fap-api PR.
-2. fap-web second: consume the sanitized artifact path in route/API/PDF/share/render/leak review contracts.
+1. fap-api first: run `BIG5-FREE-FULL-REPORT-RUNTIME-QA-READINESS-01` against backend-authoritative fixtures and report-access/PDF/share adapters.
+2. fap-web second, only if needed: consume sanitized backend fixtures in consumer QA contracts without adding result-page copy.
 
 No `SPLIT_REQUIRED` for this task because the fap-api runbook/schema/gate docs already exist and this PR only aligns fap-web docs/contracts.
