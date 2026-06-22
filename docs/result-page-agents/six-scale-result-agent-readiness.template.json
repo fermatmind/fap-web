@@ -1,0 +1,470 @@
+{
+  "schema_version": "fermatmind.result_page_agent_readiness.v1",
+  "artifact_id": "six-scale-result-agent-readiness-template",
+  "created_at": "2026-06-22",
+  "run_mode": "template",
+  "approval_state": "not_requested",
+  "negative_guarantees": [
+    "no_runtime_code_implementation",
+    "no_cms_write",
+    "no_publish",
+    "no_search_url_submission",
+    "no_indexing_request",
+    "no_google_baidu_indexnow_bing_provider_call",
+    "no_search_channel_queue_mutation",
+    "no_sitemap_robots_llms_schema_hreflang_generated_seo_artifact_mutation",
+    "no_production_db_or_env_mutation",
+    "no_payment_order_mutation",
+    "no_private_result_data_access"
+  ],
+  "required_fields_per_scale": [
+    "agent_id",
+    "scale_code",
+    "canonical_test_slug",
+    "result_route",
+    "report_api",
+    "report_access_api",
+    "pdf_behavior",
+    "share_behavior",
+    "frontend_renderer",
+    "backend_authority",
+    "source_of_truth",
+    "allowed_inputs",
+    "allowed_outputs",
+    "forbidden_actions",
+    "evidence_labels",
+    "output_artifacts",
+    "checks",
+    "stop_conditions",
+    "human_approval_required",
+    "current_readiness",
+    "next_goal"
+  ],
+  "readiness_states": [
+    "ready_readonly",
+    "existing_agent_stack_align_required",
+    "missing_agent_stack",
+    "blocked_missing_backend_authority",
+    "blocked_private_data_required",
+    "hold_exact_approval_required"
+  ],
+  "common_forbidden_actions": [
+    "private_result_indexing",
+    "raw_private_result_access",
+    "cms_write_import_publish_or_media_upload",
+    "search_channel_enqueue_approve_or_submit",
+    "gsc_request_indexing",
+    "google_indexing_api",
+    "baidu_push",
+    "indexnow_submit",
+    "sitemap_robots_llms_schema_hreflang_canonical_redirect_or_noindex_mutation",
+    "production_db_or_env_change",
+    "payment_order_mutation",
+    "deterministic_career_recommendation",
+    "iq_eq_diagnostic_guarantee"
+  ],
+  "common_checks": [
+    "json_schema_validation",
+    "result_route_contract_check",
+    "report_api_contract_check",
+    "report_access_api_contract_check",
+    "frontend_renderer_contract_check",
+    "pdf_print_private_url_redaction_check",
+    "share_surface_public_private_boundary_check",
+    "private_result_noindex_check",
+    "analytics_event_contract_check",
+    "claim_privacy_safety_gate_check",
+    "source_classification_check"
+  ],
+  "common_stop_conditions": [
+    "backend_authority_missing_or_contradictory",
+    "private_result_or_raw_attempt_required",
+    "public_profile_and_private_result_content_blended",
+    "fixture_mock_unknown_or_stale_data_would_drive_production_action",
+    "default_denied_action_without_exact_human_approval",
+    "unsupported_scientific_career_or_conversion_claim"
+  ],
+  "scales": [
+    {
+      "agent_id": "mbti_result_page",
+      "scale_code": "MBTI",
+      "canonical_test_slug": "personality-test",
+      "result_route": "/[locale]/result/[id]",
+      "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+      "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+      "pdf_behavior": "report_pdf_url_or_api_pdf_when_available",
+      "share_behavior": "share_surface_must_not_expose_private_attempt_or_report_payload",
+      "frontend_renderer": "components/result/mbti/MbtiResultShell.tsx",
+      "backend_authority": [
+        "fap-api MBTI report builders",
+        "fap-api MBTI report authority adapters"
+      ],
+      "source_of_truth": [
+        "backend_report_payload",
+        "fap-web renderer contract",
+        "report-access response"
+      ],
+      "allowed_inputs": [
+        "sanitized_report_contract",
+        "renderer_contract",
+        "fixture_render_output"
+      ],
+      "allowed_outputs": [
+        "result_page_agent_readiness",
+        "runbook_schema_gate_proposal"
+      ],
+      "forbidden_actions": [
+        "raw_private_result_access",
+        "private_result_indexing",
+        "private_result_text_publication",
+        "cms_or_search_mutation"
+      ],
+      "evidence_labels": [
+        "mbti_report_authority",
+        "frontend_renderer",
+        "missing_agent_stack"
+      ],
+      "output_artifacts": [
+        "generated/result-page-agents/mbti/<run_id>/readiness.json"
+      ],
+      "checks": [
+        "result_route_contract_check",
+        "report_api_contract_check",
+        "report_access_api_contract_check",
+        "private_leak_check"
+      ],
+      "stop_conditions": [
+        "backend_report_authority_missing",
+        "private_attempt_required"
+      ],
+      "human_approval_required": [
+        "implementing_agent_command_or_service",
+        "using_live_private_samples",
+        "changing_result_renderer"
+      ],
+      "current_readiness": "missing_agent_stack",
+      "next_goal": "MBTI-RESULT-PAGE-AGENT-SCAFFOLD-SCAN-01"
+    },
+    {
+      "agent_id": "big_five_result_page",
+      "scale_code": "BIG5_OCEAN",
+      "canonical_test_slug": "big-five-personality-test",
+      "result_route": "/[locale]/result/[id]",
+      "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+      "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+      "pdf_behavior": "report_pdf_url_or_api_pdf_when_available",
+      "share_behavior": "share_surface_must_not_expose_private_attempt_or_report_payload",
+      "frontend_renderer": "components/result/big5/Big5ResultPageV2Shell.tsx",
+      "backend_authority": [
+        "backend/app/Console/Commands/BigFiveResultPageV2AssetAgentAuditCommand.php",
+        "backend/app/Services/BigFive/ResultPageV2/AssetAgent/BigFiveResultPageV2AssetAgent.php",
+        "backend/docs/big5/result-asset-agent-runbook.md"
+      ],
+      "source_of_truth": [
+        "big5_result_page_v2_payload",
+        "backend_asset_agent_output",
+        "fap-web renderer contract"
+      ],
+      "allowed_inputs": [
+        "asset_agent_audit_output",
+        "sanitized_result_page_v2_payload",
+        "renderer_contract"
+      ],
+      "allowed_outputs": [
+        "result_page_agent_readiness",
+        "shared_standard_alignment_report"
+      ],
+      "forbidden_actions": [
+        "raw_private_result_access",
+        "private_result_indexing",
+        "auto_merge_live_asset_without_approval",
+        "cms_or_search_mutation"
+      ],
+      "evidence_labels": [
+        "existing_agent_stack",
+        "big5_result_page_v2",
+        "asset_agent"
+      ],
+      "output_artifacts": [
+        "generated/result-page-agents/big_five/<run_id>/readiness.json"
+      ],
+      "checks": [
+        "asset_agent_audit_check",
+        "result_page_v2_payload_schema_check",
+        "frontend_renderer_contract_check",
+        "pdf_print_redaction_check"
+      ],
+      "stop_conditions": [
+        "asset_agent_output_not_schema_valid",
+        "private_boundary_failure"
+      ],
+      "human_approval_required": [
+        "live_asset_merge",
+        "production_import",
+        "using_live_private_samples"
+      ],
+      "current_readiness": "existing_agent_stack_align_required",
+      "next_goal": "BIG5-RESULT-PAGE-AGENT-STANDARD-ALIGN-01"
+    },
+    {
+      "agent_id": "riasec_result_page",
+      "scale_code": "RIASEC",
+      "canonical_test_slug": "holland-career-interest-test-riasec",
+      "result_route": "/[locale]/result/[id]",
+      "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+      "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+      "pdf_behavior": "report_pdf_url_or_api_pdf_when_available",
+      "share_behavior": "share_surface_must_not_expose_private_attempt_or_report_payload",
+      "frontend_renderer": "components/result/riasec/RiasecResultShell.tsx",
+      "backend_authority": [
+        "backend/app/Console/Commands/RiasecResultPageAssetAgentAuditCommand.php",
+        "backend/app/Console/Commands/RiasecResultPageOpsRunnerCommand.php",
+        "backend/app/Services/Riasec/AssetAgent/RiasecResultPageAssetAgent.php",
+        "backend/app/Services/Riasec/Ops/RiasecResultPageOpsAgentRunOrchestrator.php"
+      ],
+      "source_of_truth": [
+        "riasec_public_projection_v2",
+        "backend_asset_agent_output",
+        "backend_ops_agent_output",
+        "fap-web renderer contract"
+      ],
+      "allowed_inputs": [
+        "riasec_public_projection_v2",
+        "asset_agent_audit_output",
+        "ops_agent_output",
+        "renderer_contract"
+      ],
+      "allowed_outputs": [
+        "result_page_agent_readiness",
+        "shared_standard_alignment_report",
+        "manual_gate_gap_report"
+      ],
+      "forbidden_actions": [
+        "parallel_riasec_stack_creation",
+        "raw_private_result_access",
+        "raw_score_to_career_recommendation",
+        "cms_or_search_mutation"
+      ],
+      "evidence_labels": [
+        "existing_agent_stack",
+        "riasec_public_projection_v2",
+        "one_flagship_two_forms"
+      ],
+      "output_artifacts": [
+        "generated/result-page-agents/riasec/<run_id>/readiness.json"
+      ],
+      "checks": [
+        "riasec_public_projection_contract_check",
+        "asset_agent_audit_check",
+        "ops_agent_permission_check",
+        "frontend_renderer_contract_check"
+      ],
+      "stop_conditions": [
+        "frontend_inference_or_fallback_required",
+        "parallel_stack_required",
+        "raw_scores_needed_for_public_output"
+      ],
+      "human_approval_required": [
+        "production_import",
+        "manual_production_gate",
+        "result_route_change"
+      ],
+      "current_readiness": "existing_agent_stack_align_required",
+      "next_goal": "RIASEC-RESULT-PAGE-AGENT-STANDARD-ALIGN-01"
+    },
+    {
+      "agent_id": "iq_raven_result_page",
+      "scale_code": "IQ_RAVEN",
+      "canonical_test_slug": "iq-test",
+      "result_route": "/[locale]/result/[id]",
+      "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+      "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+      "pdf_behavior": "report_pdf_url_or_api_pdf_when_available",
+      "share_behavior": "share_surface_must_not_expose_private_attempt_or_report_payload",
+      "frontend_renderer": "components/result/iq/IqResultShell.tsx",
+      "backend_authority": [
+        "backend/docs/iq/iq-production-norm-authority.md",
+        "backend/docs/iq/iq-beta-30-original-bank-spec.md",
+        "backend/docs/iq/iq-beta-50-bank-spec.md"
+      ],
+      "source_of_truth": [
+        "iq_report_contract",
+        "iq_norm_authority",
+        "fap-web renderer contract"
+      ],
+      "allowed_inputs": [
+        "sanitized_iq_report_contract",
+        "norm_authority_refs",
+        "renderer_contract",
+        "fixture_render_output"
+      ],
+      "allowed_outputs": [
+        "result_page_agent_readiness",
+        "runbook_schema_gate_proposal",
+        "non_diagnostic_claim_report"
+      ],
+      "forbidden_actions": [
+        "iq_diagnostic_guarantee",
+        "raw_private_result_access",
+        "norm_claim_without_authority",
+        "cms_or_search_mutation"
+      ],
+      "evidence_labels": [
+        "iq_norm_authority",
+        "frontend_renderer",
+        "missing_agent_stack"
+      ],
+      "output_artifacts": [
+        "generated/result-page-agents/iq_raven/<run_id>/readiness.json"
+      ],
+      "checks": [
+        "iq_report_contract_check",
+        "norm_authority_check",
+        "non_diagnostic_claim_check",
+        "private_leak_check"
+      ],
+      "stop_conditions": [
+        "diagnostic_claim_required",
+        "norm_authority_missing",
+        "private_attempt_required"
+      ],
+      "human_approval_required": [
+        "implementing_agent_command_or_service",
+        "using_live_private_samples",
+        "changing_result_renderer"
+      ],
+      "current_readiness": "missing_agent_stack",
+      "next_goal": "IQ-RAVEN-RESULT-PAGE-AGENT-SCAFFOLD-SCAN-01"
+    },
+    {
+      "agent_id": "eq60_result_page",
+      "scale_code": "EQ_60",
+      "canonical_test_slug": "eq-test",
+      "result_route": "/[locale]/result/[id]",
+      "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+      "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+      "pdf_behavior": "report_pdf_url_or_api_pdf_when_available",
+      "share_behavior": "share_surface_must_not_expose_private_attempt_or_report_payload",
+      "frontend_renderer": "components/result/eq/EQResultV5.tsx",
+      "backend_authority": [
+        "fap-api EQ60 report composers",
+        "fap-api EQ60 norms"
+      ],
+      "source_of_truth": [
+        "eq60_report_contract",
+        "eq60_norm_authority",
+        "fap-web renderer contract"
+      ],
+      "allowed_inputs": [
+        "sanitized_eq60_report_contract",
+        "norm_authority_refs",
+        "renderer_contract",
+        "fixture_render_output"
+      ],
+      "allowed_outputs": [
+        "result_page_agent_readiness",
+        "runbook_schema_gate_proposal",
+        "non_diagnostic_claim_report"
+      ],
+      "forbidden_actions": [
+        "eq_diagnostic_guarantee",
+        "raw_private_result_access",
+        "clinical_or_medical_claim",
+        "cms_or_search_mutation"
+      ],
+      "evidence_labels": [
+        "eq60_report_authority",
+        "frontend_renderer",
+        "missing_agent_stack"
+      ],
+      "output_artifacts": [
+        "generated/result-page-agents/eq60/<run_id>/readiness.json"
+      ],
+      "checks": [
+        "eq60_report_contract_check",
+        "norm_authority_check",
+        "non_diagnostic_claim_check",
+        "private_leak_check"
+      ],
+      "stop_conditions": [
+        "diagnostic_claim_required",
+        "norm_authority_missing",
+        "private_attempt_required"
+      ],
+      "human_approval_required": [
+        "implementing_agent_command_or_service",
+        "using_live_private_samples",
+        "changing_result_renderer"
+      ],
+      "current_readiness": "missing_agent_stack",
+      "next_goal": "EQ60-RESULT-PAGE-AGENT-SCAFFOLD-SCAN-01"
+    },
+    {
+      "agent_id": "enneagram_result_page",
+      "scale_code": "ENNEAGRAM",
+      "canonical_test_slug": "enneagram-test",
+      "result_route": "/[locale]/result/[id]",
+      "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+      "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+      "pdf_behavior": "report_pdf_url_or_api_pdf_when_available",
+      "share_behavior": "share_surface_must_not_expose_private_attempt_or_report_payload",
+      "frontend_renderer": "components/result/enneagram/EnneagramResultShell.tsx",
+      "backend_authority": [
+        "backend/app/Console/Commands/EnneagramResultPageAgentReadinessCommand.php",
+        "backend/app/Console/Commands/EnneagramResultPageOpsRunnerCommand.php",
+        "backend/app/Services/Enneagram/Assets/Agent/EnneagramResultPageAgentReadiness.php",
+        "backend/app/Services/Enneagram/Assets/Agent/EnneagramResultPageOpsAgentRunOrchestrator.php",
+        "backend/docs/enneagram/result-page-agent-runbook.md"
+      ],
+      "source_of_truth": [
+        "enneagram_result_projection",
+        "backend_agent_readiness_output",
+        "backend_ops_agent_output",
+        "fap-web renderer contract"
+      ],
+      "allowed_inputs": [
+        "agent_readiness_output",
+        "ops_agent_output",
+        "renderer_contract"
+      ],
+      "allowed_outputs": [
+        "result_page_agent_readiness",
+        "shared_standard_alignment_report",
+        "candidate_gate_gap_report"
+      ],
+      "forbidden_actions": [
+        "candidate_to_production_without_manual_gate",
+        "raw_private_result_access",
+        "unsupported_psychological_claim",
+        "cms_or_search_mutation"
+      ],
+      "evidence_labels": [
+        "existing_agent_stack",
+        "readiness_command",
+        "ops_agent",
+        "manual_gate"
+      ],
+      "output_artifacts": [
+        "generated/result-page-agents/enneagram/<run_id>/readiness.json"
+      ],
+      "checks": [
+        "agent_readiness_check",
+        "ops_agent_permission_check",
+        "frontend_renderer_contract_check",
+        "private_leak_check"
+      ],
+      "stop_conditions": [
+        "manual_gate_missing",
+        "candidate_payload_unverified",
+        "private_attempt_required"
+      ],
+      "human_approval_required": [
+        "production_candidate_activation",
+        "using_live_private_samples",
+        "changing_result_renderer"
+      ],
+      "current_readiness": "existing_agent_stack_align_required",
+      "next_goal": "ENNEAGRAM-RESULT-PAGE-AGENT-STANDARD-ALIGN-01"
+    }
+  ]
+}

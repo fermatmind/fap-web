@@ -1,0 +1,1271 @@
+{
+  "schema_version": "fermatmind.agent_registry.v1",
+  "created_at": "2026-06-22",
+  "scope": "full_assessment_platform_after_free_full_report_mode",
+  "mode": "docs_contracts_only",
+  "free_full_report_scales": [
+    "MBTI",
+    "BIG5_OCEAN",
+    "RIASEC",
+    "IQ_RAVEN",
+    "EQ_60",
+    "ENNEAGRAM"
+  ],
+  "recommended_counts": {
+    "core_operating_agents": 12,
+    "mandatory_scale_result_agents": 6,
+    "active_agent_units": 18
+  },
+  "approval_states": [
+    "not_requested",
+    "review_requested",
+    "approved_for_dry_run_only",
+    "approved_for_single_canary_write",
+    "approved_for_publish_or_submit",
+    "rejected"
+  ],
+  "readiness_states": [
+    "ready_docs_contract",
+    "ready_readonly_control",
+    "ready_dry_run_contract",
+    "ready_gate_contract",
+    "partial_ready_readonly",
+    "partial_six_hub_runtime",
+    "partial_asset_factory",
+    "partial_profile_agent",
+    "partial_hold_scoring",
+    "proposal_ready",
+    "research_only",
+    "hold_exact_approval_required",
+    "missing_agent_stack",
+    "existing_agent_stack_align_required",
+    "blocked_missing_backend_authority",
+    "blocked_private_data_required"
+  ],
+  "hard_hold_actions": [
+    "automatic_cms_publish",
+    "automatic_search_submission",
+    "gsc_request_indexing",
+    "google_indexing_api",
+    "baidu_push",
+    "indexnow_submit",
+    "search_channel_enqueue",
+    "search_channel_approve",
+    "search_channel_submit",
+    "production_env_changes",
+    "payment_order_mutation",
+    "private_result_indexing",
+    "raw_private_result_access",
+    "deterministic_career_recommendation",
+    "iq_eq_diagnostic_guarantee",
+    "schema_hreflang_sitemap_llms_mutation_without_exact_approval"
+  ],
+  "common_stop_conditions": [
+    "changed_files_outside_declared_scope",
+    "mock_fixture_unknown_or_stale_data_would_drive_production_action",
+    "default_denied_action_without_exact_human_approval",
+    "raw_private_result_attempt_order_payment_pii_or_credential_access_required",
+    "source_truth_conflict_without_backend_authority_resolution",
+    "artifact_contains_unsanitized_private_or_secret_material"
+  ],
+  "artifact_contract": {
+    "required_fields": [
+      "schema_version",
+      "artifact_id",
+      "created_at",
+      "producing_agent_id",
+      "receiving_agent_id",
+      "source_refs",
+      "evidence_labels",
+      "approval_state",
+      "allowed_next_actions",
+      "forbidden_actions",
+      "negative_guarantees",
+      "checks",
+      "stop_conditions",
+      "next_goal"
+    ],
+    "file_reference_fields": [
+      "path",
+      "byte_size",
+      "sha256",
+      "schema_version",
+      "sanitized_summary"
+    ]
+  },
+  "agents": [
+    {
+      "agent_id": "agent_os_release_coordination",
+      "agent_type": "core",
+      "display_name": "Agent OS / Release Coordination Agent",
+      "mission": "Own the registry, GO/HOLD matrix, PR-train sequencing, scope boundaries, and cross-agent execution order.",
+      "owner_repo": "fap-web",
+      "source_of_truth": [
+        "AGENTS.md",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json",
+        "docs/agent-os/agent-registry.v1.json",
+        "docs/agent-os/go-hold-matrix.v1.json"
+      ],
+      "allowed_inputs": [
+        "repo_rules",
+        "pr_train_manifest",
+        "pr_train_state",
+        "agent_registry",
+        "go_hold_matrix",
+        "scope_declarations"
+      ],
+      "allowed_outputs": [
+        "agent_registry",
+        "go_hold_matrix",
+        "execution_order",
+        "scope_validation_report",
+        "proposed_pr_train_entries"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "runtime_code_changes",
+          "unapproved_pr_train_mutation",
+          "scope_widening"
+        ]
+      },
+      "evidence_labels": [
+        "repo_rule",
+        "manifest_state",
+        "scope_guard",
+        "docs_contract"
+      ],
+      "output_artifacts": [
+        "docs/agent-os/agent-registry.v1.json",
+        "docs/agent-os/go-hold-matrix.v1.json",
+        "docs/agent-os/AGENT_OPERATING_MODEL.md"
+      ],
+      "checks": [
+        "json_parse_agent_registry",
+        "json_parse_go_hold_matrix",
+        "changed_file_allowlist",
+        "git_diff_check"
+      ],
+      "stop_conditions": [
+        "pr_train_entries_missing_and_mutation_not_authorized",
+        "worktree_scope_not_isolated",
+        "changed_files_outside_docs_contract_scope"
+      ],
+      "human_approval_required": [
+        "modifying_docs_codex_pr_train_yaml",
+        "modifying_docs_codex_pr_train_state_json",
+        "opening_or_merging_pr"
+      ],
+      "current_readiness": "ready_docs_contract",
+      "go_hold_state": "GO_DOCS_CONTRACTS_ONLY",
+      "next_goal": "RESULT-PAGE-AGENT-PLATFORM-STANDARD-01"
+    },
+    {
+      "agent_id": "seo_geo_control",
+      "agent_type": "core",
+      "display_name": "SEO / GEO Control Agent",
+      "mission": "Collect SEO/GEO evidence, classify source authority, produce control packets, and route safe next lanes.",
+      "owner_repo": "fap-web",
+      "source_of_truth": [
+        "docs/seo/agent/SEO_AGENT_CONTROL_PACKET_SPEC.md",
+        "docs/seo/agent/AGENT_ACTION_LANES_AND_GUARDRAILS.md",
+        "docs/seo/agent/schemas/SEO_AGENT_CONTROL_PACKET.schema.json",
+        "fap-api seo_intel read models",
+        "public runtime HTML"
+      ],
+      "allowed_inputs": [
+        "public_runtime_get_evidence",
+        "cms_or_public_api_read_evidence",
+        "seo_intel_read_model_evidence",
+        "gsc_baidu_ga4_exports_as_observation",
+        "search_channel_readonly_exports",
+        "gpt_review_response"
+      ],
+      "allowed_outputs": [
+        "seo_control_packet",
+        "runtime_qa_request",
+        "cms_draft_package_request",
+        "search_readiness_report",
+        "blocked_mutation_report"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "local_editorial_fallback_creation",
+          "generated_seo_artifact_hand_edit",
+          "provider_dashboard_mutation"
+        ]
+      },
+      "evidence_labels": [
+        "backend_cms_authority",
+        "public_runtime_html",
+        "seo_intel_read_model",
+        "search_observation",
+        "review_only_model_output"
+      ],
+      "output_artifacts": [
+        "generated/agent-control-packets/<run_id>/control_packet.json",
+        "docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json"
+      ],
+      "checks": [
+        "seo_control_packet_schema_validation",
+        "source_classification_check",
+        "hard_hold_action_check",
+        "claim_boundary_check"
+      ],
+      "stop_conditions": [
+        "runtime_truth_conflicts_with_backend_authority",
+        "gsc_or_provider_data_treated_as_content_truth",
+        "schema_hreflang_sitemap_llms_mutation_needed_without_exact_approval"
+      ],
+      "human_approval_required": [
+        "cms_mutation",
+        "provider_submission",
+        "schema_hreflang_sitemap_llms_enablement",
+        "production_mutation"
+      ],
+      "current_readiness": "ready_readonly_control",
+      "go_hold_state": "GO_READONLY_HOLD_MUTATION",
+      "next_goal": "SEO-GSC-OPPORTUNITY-GO-HOLD-01"
+    },
+    {
+      "agent_id": "runtime_qa",
+      "agent_type": "core",
+      "display_name": "Runtime QA Agent",
+      "mission": "Verify rendered public and result surfaces through read-only route, HTML, contract, PDF/print, and leakage checks.",
+      "owner_repo": "fap-web",
+      "source_of_truth": [
+        "public runtime/live HTML",
+        "fap-web result renderers",
+        "fap-web contract and e2e tests",
+        "docs/seo/agent/runtime-qa"
+      ],
+      "allowed_inputs": [
+        "public_get_evidence",
+        "fixture_render_evidence",
+        "contract_test_output",
+        "route_matrix",
+        "result_page_agent_readiness"
+      ],
+      "allowed_outputs": [
+        "runtime_qa_report",
+        "result_render_qa_report",
+        "private_leakage_report",
+        "follow_up_pr_proposal"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "revalidation",
+          "deploy",
+          "cms_edit",
+          "provider_submit",
+          "raw_private_payload_capture"
+        ]
+      },
+      "evidence_labels": [
+        "public_runtime_html",
+        "fixture_render",
+        "contract_test",
+        "private_boundary"
+      ],
+      "output_artifacts": [
+        "generated/runtime-qa/<run_id>/runtime_qa.json",
+        "generated/runtime-qa/<run_id>/private_leakage_report.json"
+      ],
+      "checks": [
+        "route_status_check",
+        "render_nonblank_check",
+        "private_url_redaction_check",
+        "pdf_print_leak_check",
+        "contract_test_check"
+      ],
+      "stop_conditions": [
+        "private_result_data_required",
+        "live_runtime_mutation_required",
+        "render_qa_cannot_cover_claimed_surface"
+      ],
+      "human_approval_required": [
+        "live_sample_private_access",
+        "deploy",
+        "runtime_revalidation"
+      ],
+      "current_readiness": "partial_ready_readonly",
+      "go_hold_state": "GO_READONLY_QA",
+      "next_goal": "SIX-HUB-FREE-FULL-REPORT-RUNTIME-QA-01"
+    },
+    {
+      "agent_id": "cms_draft_package",
+      "agent_type": "core",
+      "display_name": "CMS Draft Package Agent",
+      "mission": "Build review-only CMS draft packages with claim gates, source refs, proposed fields, and approvals required.",
+      "owner_repo": "fap-web",
+      "source_of_truth": [
+        "docs/seo/agent/CMS_DRAFT_PACKAGE_CONTRACT.md",
+        "docs/seo/agent/schemas/SEO_CMS_DRAFT_PACKAGE_CONTRACT.schema.json",
+        "backend CMS authority",
+        "SEO control packet"
+      ],
+      "allowed_inputs": [
+        "seo_control_packet",
+        "opportunity_queue_readonly_contract",
+        "claim_gate_inputs",
+        "source_evidence_refs"
+      ],
+      "allowed_outputs": [
+        "cms_draft_package",
+        "claim_gate_report",
+        "preview_checklist",
+        "operator_approval_text"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "cms_save",
+          "cms_draft_creation",
+          "cms_import",
+          "cms_publish",
+          "media_upload"
+        ]
+      },
+      "evidence_labels": [
+        "dry_run_only",
+        "claim_gate",
+        "cms_authority",
+        "review_material"
+      ],
+      "output_artifacts": [
+        "generated/cms-dry-run-packages/<package_id>/package.json"
+      ],
+      "checks": [
+        "cms_draft_package_schema_validation",
+        "claim_gate_check",
+        "media_policy_check",
+        "no_cms_write_check"
+      ],
+      "stop_conditions": [
+        "blocked_claim_present",
+        "package_requires_cms_write",
+        "source_evidence_missing_or_unknown"
+      ],
+      "human_approval_required": [
+        "any_cms_mutation",
+        "media_upload",
+        "publish_or_unpublish"
+      ],
+      "current_readiness": "ready_dry_run_contract",
+      "go_hold_state": "GO_DRY_RUN_ONLY",
+      "next_goal": "SEO-CMS-DRAFT-PILOT-READONLY-01"
+    },
+    {
+      "agent_id": "cms_publish_readback",
+      "agent_type": "core",
+      "display_name": "CMS Publish / Readback Agent",
+      "mission": "Execute controlled CMS write, publish, and readback evidence only after exact human approval.",
+      "owner_repo": "fap-api",
+      "source_of_truth": [
+        "backend CMS",
+        "backend content_pages/articles/landing_surfaces/page_blocks",
+        "operator exact approval",
+        "publish readback artifacts"
+      ],
+      "allowed_inputs": [
+        "approved_cms_draft_package",
+        "exact_human_approval",
+        "target_entity_id",
+        "rollback_expectation"
+      ],
+      "allowed_outputs": [
+        "publish_readback_report",
+        "cms_revision_evidence",
+        "blocked_publish_report"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "unapproved_cms_write",
+          "unapproved_publish",
+          "bulk_import_without_gate",
+          "frontend_fallback_content"
+        ]
+      },
+      "evidence_labels": [
+        "exact_approval_required",
+        "cms_readback",
+        "revision_evidence",
+        "manual_gate"
+      ],
+      "output_artifacts": [
+        "generated/cms-readback/<run_id>/publish_readback_report.json"
+      ],
+      "checks": [
+        "approval_text_check",
+        "target_entity_check",
+        "readback_diff_check",
+        "no_search_side_effect_check"
+      ],
+      "stop_conditions": [
+        "approval_text_missing_exact_action_or_entity",
+        "readback_target_mismatch",
+        "search_or_provider_action_requested"
+      ],
+      "human_approval_required": [
+        "cms_save",
+        "cms_import",
+        "cms_publish",
+        "cms_unpublish",
+        "media_upload"
+      ],
+      "current_readiness": "hold_exact_approval_required",
+      "go_hold_state": "HOLD_EXACT_APPROVAL",
+      "next_goal": "HOLD-CMS-PUBLISH-READBACK-CANARY-01"
+    },
+    {
+      "agent_id": "analytics_gsc_opportunity",
+      "agent_type": "core",
+      "display_name": "Analytics / GSC / Opportunity Agent",
+      "mission": "Validate analytics and GSC source quality, maintain smoke exclusions, and decide whether opportunity queue work is eligible.",
+      "owner_repo": "fap-api",
+      "source_of_truth": [
+        "fap-api seo_intel",
+        "GSC quality gate",
+        "analytics daily builders",
+        "operator-provided analytics exports",
+        "Search Channel read-only exports"
+      ],
+      "allowed_inputs": [
+        "gsc_export_or_read_model",
+        "analytics_summary",
+        "runtime_qa_report",
+        "smoke_exclusion_ledger",
+        "search_channel_readonly_export"
+      ],
+      "allowed_outputs": [
+        "analytics_quality_report",
+        "gsc_quality_report",
+        "opportunity_queue_eligibility_report",
+        "smoke_exclusion_report"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "live_provider_call_without_approval",
+          "production_metric_row_write",
+          "treat_fixture_data_as_live"
+        ]
+      },
+      "evidence_labels": [
+        "live_gsc_api",
+        "fixture_blocked",
+        "analytics_observation",
+        "smoke_exclusion"
+      ],
+      "output_artifacts": [
+        "generated/analytics-quality/<run_id>/quality_report.json",
+        "generated/opportunity-queue/<run_id>/eligibility_report.json"
+      ],
+      "checks": [
+        "gsc_data_origin_check",
+        "freshness_window_check",
+        "fixture_mock_unknown_block_check",
+        "analytics_exclusion_check"
+      ],
+      "stop_conditions": [
+        "gsc_rows_not_live_api",
+        "required_metrics_missing",
+        "opportunity_scoring_requested_before_quality_pass"
+      ],
+      "human_approval_required": [
+        "live_provider_activation",
+        "production_backfill",
+        "search_channel_mutation"
+      ],
+      "current_readiness": "partial_hold_scoring",
+      "go_hold_state": "GO_READONLY_HOLD_SCORING",
+      "next_goal": "SEO-GSC-OPPORTUNITY-GO-HOLD-01"
+    },
+    {
+      "agent_id": "assessment_hub",
+      "agent_type": "core",
+      "display_name": "Assessment Hub Agent",
+      "mission": "Operate the six public assessment hub/take/result entry surfaces as a read-only QA and planning lane.",
+      "owner_repo": "fap-web",
+      "source_of_truth": [
+        "app/(localized)/[locale]/tests/[slug]",
+        "app/(localized)/[locale]/tests/[slug]/take",
+        "backend scale registry",
+        "public runtime HTML",
+        "Free Full Report Mode scale list"
+      ],
+      "allowed_inputs": [
+        "route_matrix",
+        "public_runtime_get_evidence",
+        "scale_registry",
+        "result_page_agent_readiness",
+        "analytics_exclusion_report"
+      ],
+      "allowed_outputs": [
+        "assessment_hub_qa_report",
+        "take_flow_qa_report",
+        "result_redirect_matrix",
+        "follow_up_pr_proposal"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "frontend_public_editorial_content_addition",
+          "cms_surface_override",
+          "runtime_route_mutation_without_scope"
+        ]
+      },
+      "evidence_labels": [
+        "six_hub_route",
+        "take_flow",
+        "free_full_report",
+        "public_runtime"
+      ],
+      "output_artifacts": [
+        "generated/assessment-hub/<run_id>/six_hub_qa_report.json"
+      ],
+      "checks": [
+        "six_scale_route_matrix_check",
+        "take_flow_check",
+        "result_redirect_check",
+        "no_frontend_content_authority_check"
+      ],
+      "stop_conditions": [
+        "scale_missing_from_free_full_report_mode",
+        "hub_runtime_evidence_missing",
+        "local_editorial_fallback_required"
+      ],
+      "human_approval_required": [
+        "runtime_code_pr",
+        "cms_landing_surface_change",
+        "publish_or_indexability_change"
+      ],
+      "current_readiness": "partial_six_hub_runtime",
+      "go_hold_state": "GO_READONLY_QA",
+      "next_goal": "SIX-HUB-FREE-FULL-REPORT-RUNTIME-QA-01"
+    },
+    {
+      "agent_id": "result_page_agent_platform",
+      "agent_type": "core",
+      "display_name": "Result Page Agent Platform",
+      "mission": "Own the shared six-scale result-page agent standard, readiness template, and platform-level QA requirements.",
+      "owner_repo": "fap-web",
+      "source_of_truth": [
+        "docs/result-page-agents/RESULT_PAGE_AGENT_PLATFORM_STANDARD.md",
+        "docs/result-page-agents/six-scale-result-agent-readiness.template.json",
+        "fap-api result-page agent runbooks",
+        "fap-web result renderers"
+      ],
+      "allowed_inputs": [
+        "scale_result_agent_readiness",
+        "frontend_renderer_contracts",
+        "backend_report_authority_refs",
+        "runtime_qa_report",
+        "claim_privacy_safety_report"
+      ],
+      "allowed_outputs": [
+        "result_page_platform_standard",
+        "six_scale_readiness_template",
+        "result_page_gap_report",
+        "first_week_execution_order"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "result_renderer_implementation",
+          "backend_report_logic_implementation",
+          "private_result_sample_collection"
+        ]
+      },
+      "evidence_labels": [
+        "result_page_contract",
+        "scale_agent_readiness",
+        "private_boundary",
+        "renderer_contract"
+      ],
+      "output_artifacts": [
+        "docs/result-page-agents/RESULT_PAGE_AGENT_PLATFORM_STANDARD.md",
+        "docs/result-page-agents/six-scale-result-agent-readiness.template.json"
+      ],
+      "checks": [
+        "six_scale_coverage_check",
+        "result_agent_field_completeness_check",
+        "json_parse_readiness_template",
+        "hard_hold_action_check"
+      ],
+      "stop_conditions": [
+        "any_free_full_report_scale_missing_from_registry",
+        "result_page_agent_blurs_public_and_private_surfaces",
+        "private_result_data_required"
+      ],
+      "human_approval_required": [
+        "implementing_scale_agent_runtime",
+        "using_live_private_samples",
+        "changing_result_page_routes"
+      ],
+      "current_readiness": "proposal_ready",
+      "go_hold_state": "GO_DOCS_CONTRACTS_ONLY",
+      "next_goal": "RESULT-PAGE-AGENT-PLATFORM-STANDARD-01"
+    },
+    {
+      "agent_id": "career_content_graph",
+      "agent_type": "core",
+      "display_name": "Career Content / Graph Agent",
+      "mission": "Coordinate career content assets and RIASEC/public-projection graph planning without deterministic career promises.",
+      "owner_repo": "fap-web",
+      "source_of_truth": [
+        "generated/career-content-agent-*",
+        "generated/career-salary-*",
+        "fap-api career public APIs",
+        "approved RIASEC public projection artifacts"
+      ],
+      "allowed_inputs": [
+        "approved_public_projection_refs",
+        "career_asset_manifest",
+        "evidence_ledger",
+        "claim_privacy_safety_report"
+      ],
+      "allowed_outputs": [
+        "career_graph_bridge_packet",
+        "career_asset_planning_report",
+        "claim_gate_request",
+        "blocked_recommendation_report"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "raw_score_ingestion",
+          "deterministic_career_recommendation",
+          "employment_guarantee",
+          "frontend_career_editorial_fallback"
+        ]
+      },
+      "evidence_labels": [
+        "career_asset",
+        "approved_public_projection",
+        "claim_gate",
+        "non_deterministic_fit"
+      ],
+      "output_artifacts": [
+        "generated/career-graph/<run_id>/career_graph_bridge_packet.json"
+      ],
+      "checks": [
+        "public_projection_only_check",
+        "deterministic_claim_block_check",
+        "career_claim_gate_check",
+        "source_evidence_check"
+      ],
+      "stop_conditions": [
+        "raw_result_or_score_required",
+        "deterministic_fit_claim_present",
+        "career_evidence_missing"
+      ],
+      "human_approval_required": [
+        "cms_career_content_write",
+        "career_recommendation_policy_change",
+        "public_launch"
+      ],
+      "current_readiness": "partial_asset_factory",
+      "go_hold_state": "GO_ASSET_PLANNING_HOLD_DETERMINISTIC_RECOMMENDATION",
+      "next_goal": "RIASEC-CAREER-GRAPH-BRIDGE-POLICY-01"
+    },
+    {
+      "agent_id": "public_personality_content",
+      "agent_type": "core",
+      "display_name": "Public Personality Content Agent",
+      "mission": "Generate and audit public MBTI64, Big Five, and Enneagram profile content packages while preserving private-result separation.",
+      "owner_repo": "fap-web",
+      "source_of_truth": [
+        "generated/public-profile-assets",
+        "docs/seo/personality",
+        "fap-api personality public APIs",
+        "public-profile-seo-asset-factory skill"
+      ],
+      "allowed_inputs": [
+        "public_taxonomy",
+        "public_profile_assets",
+        "source_ledger",
+        "claim_gate_inputs",
+        "private_boundary_report"
+      ],
+      "allowed_outputs": [
+        "public_profile_package",
+        "schema_validation_report",
+        "private_result_boundary_report",
+        "backend_import_map_preview"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "private_result_text_reuse",
+          "cms_publish",
+          "search_queue_release",
+          "frontend_static_public_editorial_content"
+        ]
+      },
+      "evidence_labels": [
+        "public_profile",
+        "taxonomy",
+        "private_boundary",
+        "asset_package"
+      ],
+      "output_artifacts": [
+        "generated/public-profile-assets/<run_id>/run-manifest.json",
+        "generated/public-profile-assets/<run_id>/qa/private-result-boundary-report.md"
+      ],
+      "checks": [
+        "schema_validation",
+        "private_result_boundary_check",
+        "duplicate_risk_check",
+        "claim_gate_check"
+      ],
+      "stop_conditions": [
+        "private_result_content_detected",
+        "cms_publish_requested_without_approval",
+        "source_ledger_missing"
+      ],
+      "human_approval_required": [
+        "backend_import",
+        "cms_publish",
+        "search_queue_release"
+      ],
+      "current_readiness": "partial_profile_agent",
+      "go_hold_state": "GO_PACKAGE_PLANNING_HOLD_PUBLISH",
+      "next_goal": "PUBLIC-PERSONALITY-PROFILE-AGENT-GO-HOLD-01"
+    },
+    {
+      "agent_id": "competitor_alternative_research",
+      "agent_type": "core",
+      "display_name": "Competitor / Alternative Research Agent",
+      "mission": "Produce public-only competitor and alternative-page pattern ledgers without copying content or generating publishable pages.",
+      "owner_repo": "fap-web",
+      "source_of_truth": [
+        "public competitor pages",
+        "robots.txt",
+        "sitemap.xml",
+        "search snippets",
+        "FermatMind claim/privacy/safety gates"
+      ],
+      "allowed_inputs": [
+        "public_page_observations",
+        "robots_sitemap_evidence",
+        "search_snippet_evidence",
+        "source_classification"
+      ],
+      "allowed_outputs": [
+        "competitor_pattern_ledger",
+        "alternative_page_strategy_notes",
+        "blocked_page_generation_report"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "competitor_copy_reuse",
+          "fake_rankings",
+          "fake_reviews",
+          "defamatory_comparison",
+          "login_or_form_interaction",
+          "page_generation_without_policy"
+        ]
+      },
+      "evidence_labels": [
+        "public_competitor_pattern",
+        "robots_sitemap",
+        "search_snippet",
+        "research_only"
+      ],
+      "output_artifacts": [
+        "generated/competitor-research/<run_id>/competitor_pattern_ledger.json"
+      ],
+      "checks": [
+        "public_only_source_check",
+        "no_copied_copy_check",
+        "claim_risk_check",
+        "robots_boundary_check"
+      ],
+      "stop_conditions": [
+        "competitor_login_or_form_required",
+        "page_generation_requested_without_policy",
+        "claim_cannot_be_supported"
+      ],
+      "human_approval_required": [
+        "alternative_page_generation",
+        "cms_draft_or_publish",
+        "search_release"
+      ],
+      "current_readiness": "research_only",
+      "go_hold_state": "GO_RESEARCH_ONLY_HOLD_PAGE_GENERATION",
+      "next_goal": "COMPETITOR-ALTERNATIVE-PAGE-POLICY-01"
+    },
+    {
+      "agent_id": "claim_privacy_safety_gate",
+      "agent_type": "core",
+      "display_name": "Claim / Privacy / Safety Gate Agent",
+      "mission": "Fail closed on unsupported claims, private-result leakage, public/private surface mixing, and unsafe automation.",
+      "owner_repo": "fap-web",
+      "source_of_truth": [
+        "AGENTS.md content authority rules",
+        "docs/claims",
+        "result leak contract tests",
+        "docs/seo/agent/AGENT_ACTION_LANES_AND_GUARDRAILS.md"
+      ],
+      "allowed_inputs": [
+        "agent_handoff_artifacts",
+        "claim_text",
+        "evidence_refs",
+        "private_boundary_reports",
+        "result_page_readiness"
+      ],
+      "allowed_outputs": [
+        "claim_privacy_safety_report",
+        "blocked_claim_report",
+        "private_leakage_report",
+        "approval_boundary_report"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "approving_unsupported_claims",
+          "weakening_privacy_boundaries",
+          "using_private_result_as_public_content"
+        ]
+      },
+      "evidence_labels": [
+        "claim_gate",
+        "privacy_boundary",
+        "safety_gate",
+        "blocked_mutation"
+      ],
+      "output_artifacts": [
+        "generated/safety-gate/<run_id>/claim_privacy_safety_report.json"
+      ],
+      "checks": [
+        "claim_evidence_check",
+        "private_result_boundary_check",
+        "hard_hold_action_check",
+        "public_content_authority_check"
+      ],
+      "stop_conditions": [
+        "unsupported_claim",
+        "private_result_leak_detected",
+        "agent_attempts_to_approve_default_denied_action"
+      ],
+      "human_approval_required": [
+        "overriding_a_blocked_claim",
+        "changing_privacy_policy_boundary",
+        "public_claim_policy_change"
+      ],
+      "current_readiness": "ready_gate_contract",
+      "go_hold_state": "GO_GATE_ENFORCEMENT",
+      "next_goal": "CLAIM-PRIVACY-SAFETY-GATE-STANDARD-01"
+    },
+    {
+      "agent_id": "mbti_result_page",
+      "agent_type": "scale_result_page",
+      "display_name": "MBTI Result Page Agent",
+      "scale_code": "MBTI",
+      "mission": "Create a dedicated MBTI result-page agent stack covering route, API, report-access, PDF/share, renderer, analytics, and private-result boundaries.",
+      "owner_repo": "fap-api",
+      "source_of_truth": [
+        "fap-api MBTI report builders and adapters",
+        "components/result/mbti/MbtiResultShell.tsx",
+        "components/result/RichResultReport.tsx",
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx"
+      ],
+      "allowed_inputs": [
+        "mbti_report_contracts",
+        "frontend_renderer_contracts",
+        "fixture_render_output",
+        "report_access_contracts"
+      ],
+      "allowed_outputs": [
+        "result_page_agent_readiness",
+        "mbti_agent_runbook_proposal",
+        "route_api_pdf_share_contract_map"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "raw_attempt_access",
+          "private_result_text_publication",
+          "diagnostic_claims"
+        ]
+      },
+      "evidence_labels": [
+        "mbti_report_authority",
+        "frontend_renderer",
+        "missing_agent_stack",
+        "private_result_boundary"
+      ],
+      "output_artifacts": [
+        "generated/result-page-agents/mbti/<run_id>/readiness.json"
+      ],
+      "checks": [
+        "result_route_contract_check",
+        "report_api_contract_check",
+        "report_access_contract_check",
+        "pdf_share_boundary_check",
+        "private_leak_check"
+      ],
+      "stop_conditions": [
+        "backend_report_authority_missing",
+        "private_attempt_required",
+        "public_profile_and_private_result_blended"
+      ],
+      "human_approval_required": [
+        "implementing_agent_command_or_service",
+        "using_live_private_samples",
+        "changing_result_renderer"
+      ],
+      "current_readiness": "missing_agent_stack",
+      "go_hold_state": "GO_SCAFFOLD_DOCS_ONLY",
+      "next_goal": "MBTI-RESULT-PAGE-AGENT-SCAFFOLD-SCAN-01"
+    },
+    {
+      "agent_id": "big_five_result_page",
+      "agent_type": "scale_result_page",
+      "display_name": "Big Five Result Page Agent",
+      "scale_code": "BIG5_OCEAN",
+      "mission": "Align the existing Big Five result-page asset agent with the shared six-scale result-page agent standard.",
+      "owner_repo": "fap-api",
+      "source_of_truth": [
+        "backend/app/Console/Commands/BigFiveResultPageV2AssetAgentAuditCommand.php",
+        "backend/app/Services/BigFive/ResultPageV2/AssetAgent/BigFiveResultPageV2AssetAgent.php",
+        "backend/docs/big5/result-asset-agent-runbook.md",
+        "backend/docs/big5/result-asset-agent-gates.md",
+        "backend/docs/big5/result-asset-agent-schema.md",
+        "components/result/big5/Big5ResultPageV2Shell.tsx"
+      ],
+      "allowed_inputs": [
+        "big_five_result_page_v2_payload",
+        "asset_agent_audit_output",
+        "frontend_renderer_contracts",
+        "runtime_qa_report"
+      ],
+      "allowed_outputs": [
+        "result_page_agent_readiness",
+        "big_five_alignment_report",
+        "asset_agent_gate_gap_report"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "auto_merge_live_asset",
+          "private_result_indexing",
+          "unsupported_psychometric_claim"
+        ]
+      },
+      "evidence_labels": [
+        "existing_agent_stack",
+        "big5_result_page_v2",
+        "asset_agent",
+        "shared_standard_alignment"
+      ],
+      "output_artifacts": [
+        "generated/result-page-agents/big_five/<run_id>/readiness.json"
+      ],
+      "checks": [
+        "asset_agent_audit_check",
+        "result_page_v2_payload_schema_check",
+        "frontend_renderer_contract_check",
+        "pdf_print_redaction_check"
+      ],
+      "stop_conditions": [
+        "asset_agent_output_not_schema_valid",
+        "private_boundary_failure",
+        "auto_merge_or_live_pilot_requested_without_approval"
+      ],
+      "human_approval_required": [
+        "live_asset_merge",
+        "production_import",
+        "using_live_private_samples"
+      ],
+      "current_readiness": "existing_agent_stack_align_required",
+      "go_hold_state": "GO_ALIGN_DOCS_AND_READONLY_CHECKS",
+      "next_goal": "BIG5-RESULT-PAGE-AGENT-STANDARD-ALIGN-01"
+    },
+    {
+      "agent_id": "riasec_result_page",
+      "agent_type": "scale_result_page",
+      "display_name": "RIASEC Result Page Agent",
+      "scale_code": "RIASEC",
+      "mission": "Align the existing RIASEC result-page asset and ops agent with the shared standard while preserving one flagship/two-form RIASEC rules.",
+      "owner_repo": "fap-api",
+      "source_of_truth": [
+        "backend/app/Console/Commands/RiasecResultPageAssetAgentAuditCommand.php",
+        "backend/app/Console/Commands/RiasecResultPageOpsRunnerCommand.php",
+        "backend/app/Services/Riasec/AssetAgent/RiasecResultPageAssetAgent.php",
+        "backend/app/Services/Riasec/Ops/RiasecResultPageOpsAgentRunOrchestrator.php",
+        "backend/docs/riasec/result-asset-agent-runbook.md",
+        "backend/docs/riasec/result-ops-agent-runbook.md",
+        "components/result/riasec/RiasecResultShell.tsx"
+      ],
+      "allowed_inputs": [
+        "riasec_public_projection_v2",
+        "riasec_asset_agent_audit_output",
+        "riasec_ops_agent_output",
+        "frontend_renderer_contracts"
+      ],
+      "allowed_outputs": [
+        "result_page_agent_readiness",
+        "riasec_alignment_report",
+        "manual_gate_gap_report"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "parallel_riasec_stack_creation",
+          "raw_score_to_career_recommendation",
+          "legacy_36q_source_revival"
+        ]
+      },
+      "evidence_labels": [
+        "existing_agent_stack",
+        "riasec_public_projection_v2",
+        "one_flagship_two_forms",
+        "manual_gate"
+      ],
+      "output_artifacts": [
+        "generated/result-page-agents/riasec/<run_id>/readiness.json"
+      ],
+      "checks": [
+        "riasec_public_projection_contract_check",
+        "result_asset_agent_check",
+        "ops_agent_permission_check",
+        "frontend_renderer_contract_check"
+      ],
+      "stop_conditions": [
+        "frontend_inference_or_fallback_required",
+        "parallel_stack_required",
+        "raw_scores_needed_for_public_output"
+      ],
+      "human_approval_required": [
+        "production_import",
+        "manual_production_gate",
+        "result_route_change"
+      ],
+      "current_readiness": "existing_agent_stack_align_required",
+      "go_hold_state": "GO_ALIGN_DOCS_AND_READONLY_CHECKS",
+      "next_goal": "RIASEC-RESULT-PAGE-AGENT-STANDARD-ALIGN-01"
+    },
+    {
+      "agent_id": "iq_raven_result_page",
+      "agent_type": "scale_result_page",
+      "display_name": "IQ Raven Result Page Agent",
+      "scale_code": "IQ_RAVEN",
+      "mission": "Create a dedicated IQ Raven result-page agent stack covering report authority, norms, route/API/PDF/share, renderer, analytics, and non-diagnostic claim safety.",
+      "owner_repo": "fap-api",
+      "source_of_truth": [
+        "backend/docs/iq/iq-production-norm-authority.md",
+        "backend/docs/iq/iq-beta-30-original-bank-spec.md",
+        "backend/docs/iq/iq-beta-50-bank-spec.md",
+        "components/result/iq/IqResultShell.tsx",
+        "components/result/iq/IqReportModule.tsx"
+      ],
+      "allowed_inputs": [
+        "iq_report_contracts",
+        "iq_norm_authority",
+        "frontend_renderer_contracts",
+        "fixture_render_output"
+      ],
+      "allowed_outputs": [
+        "result_page_agent_readiness",
+        "iq_raven_agent_runbook_proposal",
+        "iq_norm_claim_safety_report"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "iq_diagnostic_guarantee",
+          "raw_attempt_access",
+          "norm_claim_without_authority"
+        ]
+      },
+      "evidence_labels": [
+        "iq_norm_authority",
+        "frontend_renderer",
+        "missing_agent_stack",
+        "non_diagnostic_claim_gate"
+      ],
+      "output_artifacts": [
+        "generated/result-page-agents/iq_raven/<run_id>/readiness.json"
+      ],
+      "checks": [
+        "iq_report_contract_check",
+        "norm_authority_check",
+        "non_diagnostic_claim_check",
+        "pdf_share_boundary_check",
+        "private_leak_check"
+      ],
+      "stop_conditions": [
+        "diagnostic_claim_required",
+        "norm_authority_missing",
+        "private_attempt_required"
+      ],
+      "human_approval_required": [
+        "implementing_agent_command_or_service",
+        "using_live_private_samples",
+        "changing_result_renderer"
+      ],
+      "current_readiness": "missing_agent_stack",
+      "go_hold_state": "GO_SCAFFOLD_DOCS_ONLY",
+      "next_goal": "IQ-RAVEN-RESULT-PAGE-AGENT-SCAFFOLD-SCAN-01"
+    },
+    {
+      "agent_id": "eq60_result_page",
+      "agent_type": "scale_result_page",
+      "display_name": "EQ60 Result Page Agent",
+      "scale_code": "EQ_60",
+      "mission": "Create a dedicated EQ60 result-page agent stack covering EQ report composition, norms, route/API/PDF/share, renderer, analytics, and non-diagnostic claim safety.",
+      "owner_repo": "fap-api",
+      "source_of_truth": [
+        "fap-api EQ60 report composers and norms",
+        "components/result/eq/EQResultV5.tsx",
+        "tests/e2e/iq-eq-result-regression.spec.ts",
+        "tests/fixtures/eq/v5"
+      ],
+      "allowed_inputs": [
+        "eq60_report_contracts",
+        "eq60_norm_authority",
+        "frontend_renderer_contracts",
+        "fixture_render_output"
+      ],
+      "allowed_outputs": [
+        "result_page_agent_readiness",
+        "eq60_agent_runbook_proposal",
+        "eq60_claim_safety_report"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "eq_diagnostic_guarantee",
+          "raw_attempt_access",
+          "clinical_or_medical_claim"
+        ]
+      },
+      "evidence_labels": [
+        "eq60_report_authority",
+        "frontend_renderer",
+        "missing_agent_stack",
+        "non_diagnostic_claim_gate"
+      ],
+      "output_artifacts": [
+        "generated/result-page-agents/eq60/<run_id>/readiness.json"
+      ],
+      "checks": [
+        "eq60_report_contract_check",
+        "norm_authority_check",
+        "non_diagnostic_claim_check",
+        "pdf_share_boundary_check",
+        "private_leak_check"
+      ],
+      "stop_conditions": [
+        "diagnostic_claim_required",
+        "norm_authority_missing",
+        "private_attempt_required"
+      ],
+      "human_approval_required": [
+        "implementing_agent_command_or_service",
+        "using_live_private_samples",
+        "changing_result_renderer"
+      ],
+      "current_readiness": "missing_agent_stack",
+      "go_hold_state": "GO_SCAFFOLD_DOCS_ONLY",
+      "next_goal": "EQ60-RESULT-PAGE-AGENT-SCAFFOLD-SCAN-01"
+    },
+    {
+      "agent_id": "enneagram_result_page",
+      "agent_type": "scale_result_page",
+      "display_name": "Enneagram Result Page Agent",
+      "scale_code": "ENNEAGRAM",
+      "mission": "Align the existing Enneagram result-page readiness, batch, and ops agent model with the shared six-scale result-page agent standard.",
+      "owner_repo": "fap-api",
+      "source_of_truth": [
+        "backend/app/Console/Commands/EnneagramResultPageAgentReadinessCommand.php",
+        "backend/app/Console/Commands/EnneagramResultPageOpsRunnerCommand.php",
+        "backend/app/Services/Enneagram/Assets/Agent/EnneagramResultPageAgentReadiness.php",
+        "backend/app/Services/Enneagram/Assets/Agent/EnneagramResultPageOpsAgentRunOrchestrator.php",
+        "backend/docs/enneagram/result-page-agent-runbook.md",
+        "backend/docs/enneagram/result-page-agent-gates.md",
+        "backend/docs/enneagram/result-page-agent-schema.md",
+        "components/result/enneagram/EnneagramResultShell.tsx"
+      ],
+      "allowed_inputs": [
+        "enneagram_result_projection",
+        "agent_readiness_output",
+        "ops_agent_output",
+        "frontend_renderer_contracts"
+      ],
+      "allowed_outputs": [
+        "result_page_agent_readiness",
+        "enneagram_alignment_report",
+        "candidate_gate_gap_report"
+      ],
+      "forbidden_actions": {
+        "inherits": "hard_hold_actions",
+        "additional": [
+          "candidate_to_production_without_manual_gate",
+          "raw_attempt_access",
+          "unsupported_psychological_claim"
+        ]
+      },
+      "evidence_labels": [
+        "existing_agent_stack",
+        "readiness_command",
+        "ops_agent",
+        "manual_gate"
+      ],
+      "output_artifacts": [
+        "generated/result-page-agents/enneagram/<run_id>/readiness.json"
+      ],
+      "checks": [
+        "agent_readiness_check",
+        "ops_agent_permission_check",
+        "frontend_renderer_contract_check",
+        "private_leak_check"
+      ],
+      "stop_conditions": [
+        "manual_gate_missing",
+        "candidate_payload_unverified",
+        "private_attempt_required"
+      ],
+      "human_approval_required": [
+        "production_candidate_activation",
+        "using_live_private_samples",
+        "changing_result_renderer"
+      ],
+      "current_readiness": "existing_agent_stack_align_required",
+      "go_hold_state": "GO_ALIGN_DOCS_AND_READONLY_CHECKS",
+      "next_goal": "ENNEAGRAM-RESULT-PAGE-AGENT-STANDARD-ALIGN-01"
+    }
+  ],
+  "first_week_execution_order": [
+    "result_page_agent_platform",
+    "mbti_result_page",
+    "iq_raven_result_page",
+    "eq60_result_page",
+    "big_five_result_page",
+    "enneagram_result_page",
+    "riasec_result_page",
+    "assessment_hub",
+    "runtime_qa",
+    "analytics_gsc_opportunity"
+  ],
+  "negative_guarantees": [
+    "no_runtime_code_implementation",
+    "no_cms_write",
+    "no_publish",
+    "no_search_url_submission",
+    "no_indexing_request",
+    "no_google_baidu_indexnow_bing_provider_call",
+    "no_search_channel_queue_mutation",
+    "no_sitemap_robots_llms_schema_hreflang_generated_seo_artifact_mutation",
+    "no_production_db_or_env_mutation",
+    "no_payment_order_mutation",
+    "no_private_result_data_access"
+  ]
+}
