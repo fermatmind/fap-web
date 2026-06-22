@@ -2535,8 +2535,11 @@ export function isCurrentQuizPackPerformanceHotfixAllowedFile(file: string): boo
 }
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
-  if (CURRENT_BRANCH === "codex/enneagram-phase8c-configurable-timeout") {
-    return ENNEAGRAM_PHASE8C_CONFIGURABLE_TIMEOUT_SCOPE_GUARD_ALLOWED_FILES.has(file);
+  if (
+    CURRENT_BRANCH === "codex/enneagram-phase8c-configurable-timeout" &&
+    ENNEAGRAM_PHASE8C_CONFIGURABLE_TIMEOUT_SCOPE_GUARD_ALLOWED_FILES.has(file)
+  ) {
+    return true;
   }
 
   if (
