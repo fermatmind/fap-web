@@ -1,0 +1,757 @@
+{
+  "artifact": "MBTI64-AGENT-VISIBLE-EXPANSION-13-QUERY-EVIDENCE-DECISION-01",
+  "generated_at": "2026-06-22T05:27:26.617Z",
+  "status": "pass",
+  "final_decision": "PASS_VISIBLE_13_QUERY_EVIDENCE_DECISION_READY",
+  "input_artifacts": {
+    "visible_expansion_review": "docs/seo/personality/mbti64-agent-visible-expansion-13-review-2026-06-22.json",
+    "gsc_query_export": "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-query-export-2026-06-22.json",
+    "gsc_query_csv": "docs/seo/personality/mbti64-gsc-query-export-2026-06-22.csv",
+    "recommendations": "docs/seo/personality/mbti64-agent-expansion-88-recommendations-2026-06-21.json",
+    "qa": "docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.json"
+  },
+  "decision_policy": {
+    "ready_requires_visible_gsc_query_rows": true,
+    "empty_query_table_is_not_zero_demand": true,
+    "low_volume_query_evidence_only_allows_draft_review": true,
+    "direct_publish_or_promotion_allowed": false
+  },
+  "summary": {
+    "target_url_count": 13,
+    "ready_query_backed_low_risk_draft_review_count": 3,
+    "hold_query_evidence_suppressed_count": 10,
+    "query_rows_total": 3,
+    "cms_writes_allowed": false,
+    "search_mutations_allowed": false,
+    "direct_publish_allowed": false,
+    "direct_promotion_allowed": false,
+    "immediate_serp_rewrite_allowed": false
+  },
+  "ready_paths": [
+    "/en/personality/enfj-a",
+    "/zh/personality/intp-a",
+    "/zh/personality/esfp-a"
+  ],
+  "held_paths": [
+    "/en/personality/esfj-t",
+    "/en/personality/enfp-a",
+    "/zh/personality/istp-a",
+    "/zh/personality/intp-a-vs-intp-t",
+    "/en/personality/esfj-a",
+    "/zh/personality/esfj-a",
+    "/en/personality/intp-a",
+    "/en/personality/istp-a",
+    "/en/personality/entj-a",
+    "/en/personality/estp-t"
+  ],
+  "decisions": [
+    {
+      "target_url": "https://fermatmind.com/en/personality/enfj-a",
+      "path": "/en/personality/enfj-a",
+      "page_type": "variant",
+      "locale": "en",
+      "mbti_type": "ENFJ",
+      "variant": "A",
+      "page_level_gsc_metrics": {
+        "clicks": 0,
+        "impressions": 21,
+        "ctr": 0,
+        "average_position": 26.9,
+        "source_kind": "gsc_browser_page_table_snapshot"
+      },
+      "query_rows": [
+        {
+          "query": "enfj-a",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 4
+        }
+      ],
+      "query_rows_captured": 1,
+      "query_csv_rows": [
+        {
+          "target_url": "https://fermatmind.com/en/personality/enfj-a",
+          "path": "/en/personality/enfj-a",
+          "locale": "en",
+          "page_type": "variant",
+          "mbti_type": "ENFJ",
+          "variant": "A",
+          "query": "enfj-a",
+          "query_clicks": "0",
+          "query_impressions": "1",
+          "query_ctr": "0%",
+          "query_position": "4",
+          "page_clicks": "0",
+          "page_impressions": "21",
+          "page_ctr": "0%",
+          "page_average_position": "26.9",
+          "query_row_status": "QUERY_ROWS_CAPTURED_FROM_GSC_UI",
+          "capture_source": "chrome_gsc_ui_filtered_query_table"
+        }
+      ],
+      "recommendation_lookup": {
+        "found": true,
+        "recommendation_id": "mbti64-agent-expansion-88:/en/personality/enfj-a",
+        "status": "draft_recommendation",
+        "blocked_reason": "missing_recommendation"
+      },
+      "decision": "READY_QUERY_BACKED_LOW_RISK_DRAFT_REVIEW",
+      "allowed_next_action": "include_in_visible_3_cms_projection_draft_dry_run_only",
+      "blocked_reason": null,
+      "evidence_quality": "query_backed_low_volume",
+      "recommended_next_task": "MBTI64-CMS-PROJECTION-DRAFT-VISIBLE-3-DRY-RUN-01",
+      "no_direct_publish": true,
+      "no_direct_promotion": true,
+      "no_immediate_serp_rewrite": true
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/esfj-t",
+      "path": "/en/personality/esfj-t",
+      "page_type": "variant",
+      "locale": "en",
+      "mbti_type": "ESFJ",
+      "variant": "T",
+      "page_level_gsc_metrics": {
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0,
+        "average_position": 26.7,
+        "source_kind": "gsc_browser_page_table_snapshot"
+      },
+      "query_rows": [],
+      "query_rows_captured": 0,
+      "query_csv_rows": [
+        {
+          "target_url": "https://fermatmind.com/en/personality/esfj-t",
+          "path": "/en/personality/esfj-t",
+          "locale": "en",
+          "page_type": "variant",
+          "mbti_type": "ESFJ",
+          "variant": "T",
+          "query": "",
+          "query_clicks": "",
+          "query_impressions": "",
+          "query_ctr": "",
+          "query_position": "",
+          "page_clicks": "0",
+          "page_impressions": "15",
+          "page_ctr": "0%",
+          "page_average_position": "26.7",
+          "query_row_status": "GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE",
+          "capture_source": "chrome_gsc_ui_filtered_query_table"
+        }
+      ],
+      "recommendation_lookup": {
+        "found": true,
+        "recommendation_id": "mbti64-agent-expansion-88:/en/personality/esfj-t",
+        "status": "draft_recommendation",
+        "blocked_reason": "missing_recommendation"
+      },
+      "decision": "HOLD_QUERY_EVIDENCE_SUPPRESSED",
+      "allowed_next_action": "hold_until_gsc_api_or_manual_query_csv_available",
+      "blocked_reason": "filtered_gsc_query_table_empty_or_suppressed",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01",
+      "no_direct_publish": true,
+      "no_direct_promotion": true,
+      "no_immediate_serp_rewrite": true
+    },
+    {
+      "target_url": "https://fermatmind.com/zh/personality/intp-a",
+      "path": "/zh/personality/intp-a",
+      "page_type": "variant",
+      "locale": "zh",
+      "mbti_type": "INTP",
+      "variant": "A",
+      "page_level_gsc_metrics": {
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "average_position": 12.7,
+        "source_kind": "gsc_browser_page_table_snapshot"
+      },
+      "query_rows": [
+        {
+          "query": "intp-a",
+          "clicks": 0,
+          "impressions": 3,
+          "ctr": 0,
+          "position": 10.3
+        }
+      ],
+      "query_rows_captured": 1,
+      "query_csv_rows": [
+        {
+          "target_url": "https://fermatmind.com/zh/personality/intp-a",
+          "path": "/zh/personality/intp-a",
+          "locale": "zh",
+          "page_type": "variant",
+          "mbti_type": "INTP",
+          "variant": "A",
+          "query": "intp-a",
+          "query_clicks": "0",
+          "query_impressions": "3",
+          "query_ctr": "0%",
+          "query_position": "10.3",
+          "page_clicks": "0",
+          "page_impressions": "9",
+          "page_ctr": "0%",
+          "page_average_position": "12.7",
+          "query_row_status": "QUERY_ROWS_CAPTURED_FROM_GSC_UI",
+          "capture_source": "chrome_gsc_ui_filtered_query_table"
+        }
+      ],
+      "recommendation_lookup": {
+        "found": true,
+        "recommendation_id": "mbti64-agent-expansion-88:/zh/personality/intp-a",
+        "status": "draft_recommendation",
+        "blocked_reason": "missing_recommendation"
+      },
+      "decision": "READY_QUERY_BACKED_LOW_RISK_DRAFT_REVIEW",
+      "allowed_next_action": "include_in_visible_3_cms_projection_draft_dry_run_only",
+      "blocked_reason": null,
+      "evidence_quality": "query_backed_low_volume",
+      "recommended_next_task": "MBTI64-CMS-PROJECTION-DRAFT-VISIBLE-3-DRY-RUN-01",
+      "no_direct_publish": true,
+      "no_direct_promotion": true,
+      "no_immediate_serp_rewrite": true
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/enfp-a",
+      "path": "/en/personality/enfp-a",
+      "page_type": "variant",
+      "locale": "en",
+      "mbti_type": "ENFP",
+      "variant": "A",
+      "page_level_gsc_metrics": {
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "average_position": 38.4,
+        "source_kind": "gsc_browser_page_table_snapshot"
+      },
+      "query_rows": [],
+      "query_rows_captured": 0,
+      "query_csv_rows": [
+        {
+          "target_url": "https://fermatmind.com/en/personality/enfp-a",
+          "path": "/en/personality/enfp-a",
+          "locale": "en",
+          "page_type": "variant",
+          "mbti_type": "ENFP",
+          "variant": "A",
+          "query": "",
+          "query_clicks": "",
+          "query_impressions": "",
+          "query_ctr": "",
+          "query_position": "",
+          "page_clicks": "0",
+          "page_impressions": "10",
+          "page_ctr": "0%",
+          "page_average_position": "38.4",
+          "query_row_status": "GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE",
+          "capture_source": "chrome_gsc_ui_filtered_query_table"
+        }
+      ],
+      "recommendation_lookup": {
+        "found": true,
+        "recommendation_id": "mbti64-agent-expansion-88:/en/personality/enfp-a",
+        "status": "draft_recommendation",
+        "blocked_reason": "missing_recommendation"
+      },
+      "decision": "HOLD_QUERY_EVIDENCE_SUPPRESSED",
+      "allowed_next_action": "hold_until_gsc_api_or_manual_query_csv_available",
+      "blocked_reason": "filtered_gsc_query_table_empty_or_suppressed",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01",
+      "no_direct_publish": true,
+      "no_direct_promotion": true,
+      "no_immediate_serp_rewrite": true
+    },
+    {
+      "target_url": "https://fermatmind.com/zh/personality/istp-a",
+      "path": "/zh/personality/istp-a",
+      "page_type": "variant",
+      "locale": "zh",
+      "mbti_type": "ISTP",
+      "variant": "A",
+      "page_level_gsc_metrics": {
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "average_position": 7.3,
+        "source_kind": "gsc_browser_page_table_snapshot"
+      },
+      "query_rows": [],
+      "query_rows_captured": 0,
+      "query_csv_rows": [
+        {
+          "target_url": "https://fermatmind.com/zh/personality/istp-a",
+          "path": "/zh/personality/istp-a",
+          "locale": "zh",
+          "page_type": "variant",
+          "mbti_type": "ISTP",
+          "variant": "A",
+          "query": "",
+          "query_clicks": "",
+          "query_impressions": "",
+          "query_ctr": "",
+          "query_position": "",
+          "page_clicks": "0",
+          "page_impressions": "7",
+          "page_ctr": "0%",
+          "page_average_position": "7.3",
+          "query_row_status": "GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE",
+          "capture_source": "chrome_gsc_ui_filtered_query_table"
+        }
+      ],
+      "recommendation_lookup": {
+        "found": true,
+        "recommendation_id": "mbti64-agent-expansion-88:/zh/personality/istp-a",
+        "status": "draft_recommendation",
+        "blocked_reason": "missing_recommendation"
+      },
+      "decision": "HOLD_QUERY_EVIDENCE_SUPPRESSED",
+      "allowed_next_action": "hold_until_gsc_api_or_manual_query_csv_available",
+      "blocked_reason": "filtered_gsc_query_table_empty_or_suppressed",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01",
+      "no_direct_publish": true,
+      "no_direct_promotion": true,
+      "no_immediate_serp_rewrite": true
+    },
+    {
+      "target_url": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+      "path": "/zh/personality/intp-a-vs-intp-t",
+      "page_type": "comparison",
+      "locale": "zh",
+      "mbti_type": "INTP",
+      "variant": null,
+      "page_level_gsc_metrics": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "average_position": 11,
+        "source_kind": "gsc_browser_page_table_snapshot"
+      },
+      "query_rows": [],
+      "query_rows_captured": 0,
+      "query_csv_rows": [
+        {
+          "target_url": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+          "path": "/zh/personality/intp-a-vs-intp-t",
+          "locale": "zh",
+          "page_type": "comparison",
+          "mbti_type": "INTP",
+          "variant": "",
+          "query": "",
+          "query_clicks": "",
+          "query_impressions": "",
+          "query_ctr": "",
+          "query_position": "",
+          "page_clicks": "0",
+          "page_impressions": "2",
+          "page_ctr": "0%",
+          "page_average_position": "11",
+          "query_row_status": "GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE",
+          "capture_source": "chrome_gsc_ui_filtered_query_table"
+        }
+      ],
+      "recommendation_lookup": {
+        "found": true,
+        "recommendation_id": "mbti64-agent-expansion-88:/zh/personality/intp-a-vs-intp-t",
+        "status": "draft_recommendation",
+        "blocked_reason": "missing_recommendation"
+      },
+      "decision": "HOLD_QUERY_EVIDENCE_SUPPRESSED",
+      "allowed_next_action": "hold_until_gsc_api_or_manual_query_csv_available",
+      "blocked_reason": "filtered_gsc_query_table_empty_or_suppressed",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01",
+      "no_direct_publish": true,
+      "no_direct_promotion": true,
+      "no_immediate_serp_rewrite": true
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/esfj-a",
+      "path": "/en/personality/esfj-a",
+      "page_type": "variant",
+      "locale": "en",
+      "mbti_type": "ESFJ",
+      "variant": "A",
+      "page_level_gsc_metrics": {
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "average_position": 26.7,
+        "source_kind": "gsc_browser_page_table_snapshot"
+      },
+      "query_rows": [],
+      "query_rows_captured": 0,
+      "query_csv_rows": [
+        {
+          "target_url": "https://fermatmind.com/en/personality/esfj-a",
+          "path": "/en/personality/esfj-a",
+          "locale": "en",
+          "page_type": "variant",
+          "mbti_type": "ESFJ",
+          "variant": "A",
+          "query": "",
+          "query_clicks": "",
+          "query_impressions": "",
+          "query_ctr": "",
+          "query_position": "",
+          "page_clicks": "0",
+          "page_impressions": "3",
+          "page_ctr": "0%",
+          "page_average_position": "26.7",
+          "query_row_status": "GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE",
+          "capture_source": "chrome_gsc_ui_filtered_query_table"
+        }
+      ],
+      "recommendation_lookup": {
+        "found": true,
+        "recommendation_id": "mbti64-agent-expansion-88:/en/personality/esfj-a",
+        "status": "draft_recommendation",
+        "blocked_reason": "missing_recommendation"
+      },
+      "decision": "HOLD_QUERY_EVIDENCE_SUPPRESSED",
+      "allowed_next_action": "hold_until_gsc_api_or_manual_query_csv_available",
+      "blocked_reason": "filtered_gsc_query_table_empty_or_suppressed",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01",
+      "no_direct_publish": true,
+      "no_direct_promotion": true,
+      "no_immediate_serp_rewrite": true
+    },
+    {
+      "target_url": "https://fermatmind.com/zh/personality/esfp-a",
+      "path": "/zh/personality/esfp-a",
+      "page_type": "variant",
+      "locale": "zh",
+      "mbti_type": "ESFP",
+      "variant": "A",
+      "page_level_gsc_metrics": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 7,
+        "source_kind": "gsc_browser_page_table_snapshot"
+      },
+      "query_rows": [
+        {
+          "query": "esfp-a",
+          "clicks": 0,
+          "impressions": 1,
+          "ctr": 0,
+          "position": 7
+        }
+      ],
+      "query_rows_captured": 1,
+      "query_csv_rows": [
+        {
+          "target_url": "https://fermatmind.com/zh/personality/esfp-a",
+          "path": "/zh/personality/esfp-a",
+          "locale": "zh",
+          "page_type": "variant",
+          "mbti_type": "ESFP",
+          "variant": "A",
+          "query": "esfp-a",
+          "query_clicks": "0",
+          "query_impressions": "1",
+          "query_ctr": "0%",
+          "query_position": "7",
+          "page_clicks": "0",
+          "page_impressions": "1",
+          "page_ctr": "0%",
+          "page_average_position": "7",
+          "query_row_status": "QUERY_ROWS_CAPTURED_FROM_GSC_UI",
+          "capture_source": "chrome_gsc_ui_filtered_query_table"
+        }
+      ],
+      "recommendation_lookup": {
+        "found": true,
+        "recommendation_id": "mbti64-agent-expansion-88:/zh/personality/esfp-a",
+        "status": "draft_recommendation",
+        "blocked_reason": "missing_recommendation"
+      },
+      "decision": "READY_QUERY_BACKED_LOW_RISK_DRAFT_REVIEW",
+      "allowed_next_action": "include_in_visible_3_cms_projection_draft_dry_run_only",
+      "blocked_reason": null,
+      "evidence_quality": "query_backed_low_volume",
+      "recommended_next_task": "MBTI64-CMS-PROJECTION-DRAFT-VISIBLE-3-DRY-RUN-01",
+      "no_direct_publish": true,
+      "no_direct_promotion": true,
+      "no_immediate_serp_rewrite": true
+    },
+    {
+      "target_url": "https://fermatmind.com/zh/personality/esfj-a",
+      "path": "/zh/personality/esfj-a",
+      "page_type": "variant",
+      "locale": "zh",
+      "mbti_type": "ESFJ",
+      "variant": "A",
+      "page_level_gsc_metrics": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 8,
+        "source_kind": "gsc_browser_page_table_snapshot"
+      },
+      "query_rows": [],
+      "query_rows_captured": 0,
+      "query_csv_rows": [
+        {
+          "target_url": "https://fermatmind.com/zh/personality/esfj-a",
+          "path": "/zh/personality/esfj-a",
+          "locale": "zh",
+          "page_type": "variant",
+          "mbti_type": "ESFJ",
+          "variant": "A",
+          "query": "",
+          "query_clicks": "",
+          "query_impressions": "",
+          "query_ctr": "",
+          "query_position": "",
+          "page_clicks": "0",
+          "page_impressions": "1",
+          "page_ctr": "0%",
+          "page_average_position": "8",
+          "query_row_status": "GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE",
+          "capture_source": "chrome_gsc_ui_filtered_query_table"
+        }
+      ],
+      "recommendation_lookup": {
+        "found": true,
+        "recommendation_id": "mbti64-agent-expansion-88:/zh/personality/esfj-a",
+        "status": "draft_recommendation",
+        "blocked_reason": "missing_recommendation"
+      },
+      "decision": "HOLD_QUERY_EVIDENCE_SUPPRESSED",
+      "allowed_next_action": "hold_until_gsc_api_or_manual_query_csv_available",
+      "blocked_reason": "filtered_gsc_query_table_empty_or_suppressed",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01",
+      "no_direct_publish": true,
+      "no_direct_promotion": true,
+      "no_immediate_serp_rewrite": true
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/intp-a",
+      "path": "/en/personality/intp-a",
+      "page_type": "variant",
+      "locale": "en",
+      "mbti_type": "INTP",
+      "variant": "A",
+      "page_level_gsc_metrics": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 9,
+        "source_kind": "gsc_browser_page_table_snapshot"
+      },
+      "query_rows": [],
+      "query_rows_captured": 0,
+      "query_csv_rows": [
+        {
+          "target_url": "https://fermatmind.com/en/personality/intp-a",
+          "path": "/en/personality/intp-a",
+          "locale": "en",
+          "page_type": "variant",
+          "mbti_type": "INTP",
+          "variant": "A",
+          "query": "",
+          "query_clicks": "",
+          "query_impressions": "",
+          "query_ctr": "",
+          "query_position": "",
+          "page_clicks": "0",
+          "page_impressions": "1",
+          "page_ctr": "0%",
+          "page_average_position": "9",
+          "query_row_status": "GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE",
+          "capture_source": "chrome_gsc_ui_filtered_query_table"
+        }
+      ],
+      "recommendation_lookup": {
+        "found": true,
+        "recommendation_id": "mbti64-agent-expansion-88:/en/personality/intp-a",
+        "status": "draft_recommendation",
+        "blocked_reason": "missing_recommendation"
+      },
+      "decision": "HOLD_QUERY_EVIDENCE_SUPPRESSED",
+      "allowed_next_action": "hold_until_gsc_api_or_manual_query_csv_available",
+      "blocked_reason": "filtered_gsc_query_table_empty_or_suppressed",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01",
+      "no_direct_publish": true,
+      "no_direct_promotion": true,
+      "no_immediate_serp_rewrite": true
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/istp-a",
+      "path": "/en/personality/istp-a",
+      "page_type": "variant",
+      "locale": "en",
+      "mbti_type": "ISTP",
+      "variant": "A",
+      "page_level_gsc_metrics": {
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 11,
+        "source_kind": "gsc_browser_page_table_snapshot"
+      },
+      "query_rows": [],
+      "query_rows_captured": 0,
+      "query_csv_rows": [
+        {
+          "target_url": "https://fermatmind.com/en/personality/istp-a",
+          "path": "/en/personality/istp-a",
+          "locale": "en",
+          "page_type": "variant",
+          "mbti_type": "ISTP",
+          "variant": "A",
+          "query": "",
+          "query_clicks": "",
+          "query_impressions": "",
+          "query_ctr": "",
+          "query_position": "",
+          "page_clicks": "0",
+          "page_impressions": "1",
+          "page_ctr": "0%",
+          "page_average_position": "11",
+          "query_row_status": "GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE",
+          "capture_source": "chrome_gsc_ui_filtered_query_table"
+        }
+      ],
+      "recommendation_lookup": {
+        "found": true,
+        "recommendation_id": "mbti64-agent-expansion-88:/en/personality/istp-a",
+        "status": "draft_recommendation",
+        "blocked_reason": "missing_recommendation"
+      },
+      "decision": "HOLD_QUERY_EVIDENCE_SUPPRESSED",
+      "allowed_next_action": "hold_until_gsc_api_or_manual_query_csv_available",
+      "blocked_reason": "filtered_gsc_query_table_empty_or_suppressed",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01",
+      "no_direct_publish": true,
+      "no_direct_promotion": true,
+      "no_immediate_serp_rewrite": true
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/entj-a",
+      "path": "/en/personality/entj-a",
+      "page_type": "variant",
+      "locale": "en",
+      "mbti_type": "ENTJ",
+      "variant": "A",
+      "page_level_gsc_metrics": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "average_position": 25,
+        "source_kind": "gsc_browser_page_table_snapshot"
+      },
+      "query_rows": [],
+      "query_rows_captured": 0,
+      "query_csv_rows": [
+        {
+          "target_url": "https://fermatmind.com/en/personality/entj-a",
+          "path": "/en/personality/entj-a",
+          "locale": "en",
+          "page_type": "variant",
+          "mbti_type": "ENTJ",
+          "variant": "A",
+          "query": "",
+          "query_clicks": "",
+          "query_impressions": "",
+          "query_ctr": "",
+          "query_position": "",
+          "page_clicks": "0",
+          "page_impressions": "2",
+          "page_ctr": "0%",
+          "page_average_position": "25",
+          "query_row_status": "GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE",
+          "capture_source": "chrome_gsc_ui_filtered_query_table"
+        }
+      ],
+      "recommendation_lookup": {
+        "found": true,
+        "recommendation_id": "mbti64-agent-expansion-88:/en/personality/entj-a",
+        "status": "draft_recommendation",
+        "blocked_reason": "missing_recommendation"
+      },
+      "decision": "HOLD_QUERY_EVIDENCE_SUPPRESSED",
+      "allowed_next_action": "hold_until_gsc_api_or_manual_query_csv_available",
+      "blocked_reason": "filtered_gsc_query_table_empty_or_suppressed",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01",
+      "no_direct_publish": true,
+      "no_direct_promotion": true,
+      "no_immediate_serp_rewrite": true
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/estp-t",
+      "path": "/en/personality/estp-t",
+      "page_type": "variant",
+      "locale": "en",
+      "mbti_type": "ESTP",
+      "variant": "T",
+      "page_level_gsc_metrics": {
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "average_position": 46.5,
+        "source_kind": "gsc_browser_page_table_snapshot"
+      },
+      "query_rows": [],
+      "query_rows_captured": 0,
+      "query_csv_rows": [
+        {
+          "target_url": "https://fermatmind.com/en/personality/estp-t",
+          "path": "/en/personality/estp-t",
+          "locale": "en",
+          "page_type": "variant",
+          "mbti_type": "ESTP",
+          "variant": "T",
+          "query": "",
+          "query_clicks": "",
+          "query_impressions": "",
+          "query_ctr": "",
+          "query_position": "",
+          "page_clicks": "0",
+          "page_impressions": "2",
+          "page_ctr": "0%",
+          "page_average_position": "46.5",
+          "query_row_status": "GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE",
+          "capture_source": "chrome_gsc_ui_filtered_query_table"
+        }
+      ],
+      "recommendation_lookup": {
+        "found": true,
+        "recommendation_id": "mbti64-agent-expansion-88:/en/personality/estp-t",
+        "status": "draft_recommendation",
+        "blocked_reason": "missing_recommendation"
+      },
+      "decision": "HOLD_QUERY_EVIDENCE_SUPPRESSED",
+      "allowed_next_action": "hold_until_gsc_api_or_manual_query_csv_available",
+      "blocked_reason": "filtered_gsc_query_table_empty_or_suppressed",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01",
+      "no_direct_publish": true,
+      "no_direct_promotion": true,
+      "no_immediate_serp_rewrite": true
+    }
+  ],
+  "blockers": [],
+  "warnings": [
+    "HELD_QUERY_SUPPRESSED_URLS_10"
+  ],
+  "recommended_next_tasks": {
+    "ready_query_backed_pages": "MBTI64-CMS-PROJECTION-DRAFT-VISIBLE-3-DRY-RUN-01",
+    "held_query_suppressed_pages": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01"
+  }
+}
