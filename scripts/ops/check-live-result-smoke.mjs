@@ -19,7 +19,8 @@ const SMOKE_SCALES = [
     scaleCode: "ENNEAGRAM",
     formCode: "enneagram_likert_105",
     minQuestions: 105,
-    defaultCode: "3",
+    preferredOptionCodes: ["0"],
+    defaultCode: null,
     includeQuestionIndex: true,
   },
   {
@@ -179,14 +180,26 @@ function readQuestionId(question) {
   return String(question?.question_id ?? question?.id ?? "").trim();
 }
 
-function readOptionCode(question, options, defaultCode) {
-  if (defaultCode) return defaultCode;
-
+function readOptionCode(question, options, scale) {
   const questionOptions = Array.isArray(question?.options) ? question.options : [];
   const sharedOptions = Array.isArray(options?.format) ? options.format : [];
   const candidates = [...questionOptions, ...sharedOptions];
-  const first = candidates.find((item) => item && typeof item === "object");
-  const code = String(first?.code ?? first?.id ?? first?.value ?? "").trim();
+  const codes = candidates
+    .filter((item) => item && typeof item === "object")
+    .map((item) => String(item.code ?? item.id ?? item.value ?? "").trim())
+    .filter(Boolean);
+
+  for (const preferredCode of scale.preferredOptionCodes || []) {
+    if (codes.includes(preferredCode)) {
+      return preferredCode;
+    }
+  }
+
+  if (scale.defaultCode && codes.includes(scale.defaultCode)) {
+    return scale.defaultCode;
+  }
+
+  const code = codes[0] || "";
 
   if (!code) {
     throw new Error(`cannot infer answer code for question ${readQuestionId(question) || "(unknown)"}`);
@@ -243,7 +256,7 @@ async function startAttempt({ apiOrigin, token, anonId, locale, scale }) {
 async function submitAttempt({ apiOrigin, token, anonId, attemptId, questions, options, scale }) {
   const answers = questions.map((question, index) => ({
     question_id: readQuestionId(question),
-    code: readOptionCode(question, options, scale.defaultCode),
+    code: readOptionCode(question, options, scale),
     ...(scale.includeQuestionIndex ? { question_index: index } : {}),
   }));
 

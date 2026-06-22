@@ -2486,6 +2486,12 @@ const RESULT_SMOKE_PROXY_GENERATION_HINTS_ALLOWED_FILES = new Set([
   "tests/contracts/result-client-view-state.contract.test.tsx",
 ]);
 
+const ENNEAGRAM_LIVE_RESULT_SMOKE_ANSWER_CODE_FIX_01_ALLOWED_FILES = new Set([
+  "scripts/ops/check-live-result-smoke.mjs",
+  "tests/contracts/enneagram-api.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const RESULT_P0_LIVE_PDFS_EVIDENCE_REPORT_01_ALLOWED_FILES = new Set([
   "docs/seo/result-p0-post-deploy-smoke-rerun-live-pdfs-01.md",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -2785,6 +2791,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/result-smoke-proxy-generation-hints") {
     return RESULT_SMOKE_PROXY_GENERATION_HINTS_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/enneagram-live-result-smoke-answer-code-fix-01") {
+    return ENNEAGRAM_LIVE_RESULT_SMOKE_ANSWER_CODE_FIX_01_ALLOWED_FILES.has(file);
   }
 
   if (
