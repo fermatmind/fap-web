@@ -475,13 +475,6 @@ export function CareerDisplaySurface({
       </SectionGroup>
       {salaryClaimsRestricted ? <ClaimPermissionNotice locale={surface.locale} kind="salary" /> : null}
       {salarySlot}
-      <CareerDecisionActionBlock
-        surface={surface}
-        nextSteps={nextSteps}
-        riasecFit={riasecFit}
-        personalityFit={personalityFit}
-        primaryCtaHref={primaryCtaHref}
-      />
       <SectionGroup title={riskGroupTitle}>
         {careerRisks ? <EvidenceContainer section={careerRisks} testId="career-risks-block" /> : null}
         {contractRisks ? <EvidenceContainer section={contractRisks} testId="contract-risks-block" /> : null}
@@ -496,6 +489,13 @@ export function CareerDisplaySurface({
           </ClaimGuard>
         )}
       </SectionGroup>
+      <CareerDecisionActionBlock
+        surface={surface}
+        nextSteps={nextSteps}
+        riasecFit={riasecFit}
+        personalityFit={personalityFit}
+        primaryCtaHref={primaryCtaHref}
+      />
       <ClaimGuard
         allowed={claimPermissions.allowMarketSignal}
         fallback={marketSignal ? <ClaimPermissionNotice locale={surface.locale} kind="market" /> : null}
