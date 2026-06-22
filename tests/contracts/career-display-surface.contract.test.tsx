@@ -106,6 +106,33 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("career-source-disclosure")).toHaveTextContent("Last reviewed: 2026-05-03");
   });
 
+  it("renders preview salary, AI risk, and Fermat test action in the page assembly order", () => {
+    const surface = adaptCareerDisplaySurface(
+      buildSelectedCareerDisplaySurfaceFixture({
+        slug: "accountants-and-auditors",
+        titleEn: "Accountants and Auditors",
+      }),
+      "en"
+    );
+
+    render(
+      <CareerDisplaySurface
+        surface={surface}
+        salarySlot={<section data-testid="salary-preview-slot">Salary preview</section>}
+        aiImpactSlot={<section data-testid="ai-impact-preview-slot">AI impact preview</section>}
+      />
+    );
+
+    const salaryPreview = screen.getByTestId("salary-preview-slot");
+    const riskGroup = screen.getByTestId("career-display-group-risks-and-change");
+    const aiPreview = screen.getByTestId("ai-impact-preview-slot");
+    const decisionAction = screen.getByTestId("career-decision-action-block");
+
+    expect(riskGroup).toContainElement(aiPreview);
+    expect(salaryPreview.compareDocumentPosition(riskGroup) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(riskGroup.compareDocumentPosition(decisionAction) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+  });
+
   it.each(D5_SELECTED_DISPLAY_SLUGS)("adapts D5 selected display surfaces for %s", (slug, titleEn) => {
     const surface = adaptCareerDisplaySurface(
       buildSelectedCareerDisplaySurfaceFixture({ slug, titleEn }),
