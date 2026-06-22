@@ -12,6 +12,7 @@ const SMOKE_SCALES = [
     formCode: "big5_90",
     minQuestions: 90,
     defaultCode: "3",
+    includeQuestionIndex: false,
   },
   {
     label: "Enneagram",
@@ -19,6 +20,7 @@ const SMOKE_SCALES = [
     formCode: "enneagram_likert_105",
     minQuestions: 105,
     defaultCode: "3",
+    includeQuestionIndex: true,
   },
   {
     label: "RIASEC",
@@ -26,6 +28,7 @@ const SMOKE_SCALES = [
     formCode: "riasec_60",
     minQuestions: 60,
     defaultCode: "3",
+    includeQuestionIndex: true,
   },
   {
     label: "IQ",
@@ -33,6 +36,7 @@ const SMOKE_SCALES = [
     formCode: null,
     minQuestions: 30,
     defaultCode: null,
+    includeQuestionIndex: false,
   },
   {
     label: "EQ",
@@ -40,6 +44,7 @@ const SMOKE_SCALES = [
     formCode: null,
     minQuestions: 60,
     defaultCode: "3",
+    includeQuestionIndex: false,
   },
 ];
 
@@ -239,7 +244,7 @@ async function submitAttempt({ apiOrigin, token, anonId, attemptId, questions, o
   const answers = questions.map((question, index) => ({
     question_id: readQuestionId(question),
     code: readOptionCode(question, options, scale.defaultCode),
-    ...(scale.scaleCode === "RIASEC" ? { question_index: index } : {}),
+    ...(scale.includeQuestionIndex ? { question_index: index } : {}),
   }));
 
   const response = await requestJson({
