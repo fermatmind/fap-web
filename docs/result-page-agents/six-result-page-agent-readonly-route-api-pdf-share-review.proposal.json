@@ -1,0 +1,500 @@
+{
+  "schema_version": "fermatmind.six_result_page_agent_readonly_route_api_pdf_share_review.v1",
+  "artifact_id": "six-result-page-agent-readonly-route-api-pdf-share-review-2026-06-23",
+  "created_at": "2026-06-23",
+  "task_id": "SIX-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01",
+  "run_mode": "docs_contracts_readonly_route_api_pdf_share_review",
+  "approval_state": "not_requested",
+  "verdict": "SIX_RESULT_PAGE_AGENT_READONLY_REVIEW_PARTIAL",
+  "source_documents": [
+    "docs/result-page-agents/six-result-page-agent-readiness-matrix.v1.json",
+    "docs/result-page-agents/six-result-page-agent-readiness-matrix-2026-06-23.md",
+    "docs/result-page-agents/RESULT_PAGE_AGENT_PLATFORM_STANDARD.md",
+    "docs/result-page-agents/mbti-result-page-agent-readiness.proposal.json",
+    "docs/result-page-agents/iq-raven-result-page-agent-readiness.proposal.json",
+    "docs/result-page-agents/eq60-result-page-agent-readiness.proposal.json",
+    "docs/result-page-agents/big-five-result-page-agent-readiness.proposal.json",
+    "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json",
+    "docs/result-page-agents/riasec-result-page-agent-readiness.proposal.json",
+    "docs/result-page-agents/riasec-result-page-agent-readonly-route-api-pdf-share-review.v1.json",
+    "docs/result-page-agents/six-hub-free-full-report-runtime-qa.v1.json",
+    "docs/result-page-agents/result-page-agent-runtime-qa-handoff.v1.json",
+    "docs/result-page-agents/result-page-agent-analytics-handoff.v1.json"
+  ],
+  "matrix_source_resolution": {
+    "objective_requested": [
+      "docs/result-page-agents/six-scale-result-page-agent-readiness-matrix-2026-06-23.md",
+      "docs/result-page-agents/six-scale-result-page-agent-readiness-matrix.proposal.json"
+    ],
+    "current_repo_paths_used": [
+      "docs/result-page-agents/six-result-page-agent-readiness-matrix-2026-06-23.md",
+      "docs/result-page-agents/six-result-page-agent-readiness-matrix.v1.json"
+    ],
+    "reason": "The merged matrix artifact on origin/main uses the six-result-page-agent-readiness-matrix path family."
+  },
+  "status_vocabulary": [
+    "PASS",
+    "PARTIAL",
+    "HOLD",
+    "BLOCKED"
+  ],
+  "required_surfaces_per_scale": [
+    "route_contract",
+    "report_api_contract",
+    "report_access_api_contract",
+    "renderer_dispatch",
+    "pdf_private_print_boundary",
+    "share_public_private_boundary",
+    "private_result_noindex_boundary",
+    "claim_privacy_safety_gate",
+    "analytics_gate_and_smoke_exclusions",
+    "leak_boundary"
+  ],
+  "safety_confirmation": {
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "publish": "none",
+    "search_submissions": "none",
+    "provider_calls": "none",
+    "private_result_data_accessed": "none",
+    "payment_order_mutation": "none",
+    "env_changes": "none",
+    "backend_write_artifact_commands_run": "none",
+    "generated_readiness_artifacts": "not_generated_by_this_review"
+  },
+  "hard_holds": [
+    "no_runtime_code_implementation",
+    "no_cms_write",
+    "no_publish",
+    "no_search_url_submission",
+    "no_indexing_request",
+    "no_google_baidu_indexnow_bing_provider_call",
+    "no_search_channel_queue_mutation",
+    "no_sitemap_robots_llms_schema_hreflang_generated_seo_artifact_mutation",
+    "no_production_db_or_env_mutation",
+    "no_payment_order_mutation",
+    "no_private_result_data_access",
+    "no_backend_write_producing_asset_or_ops_command",
+    "no_generated_readiness_artifact",
+    "no_deterministic_career_recommendation",
+    "no_iq_eq_diagnostic_claim"
+  ],
+  "scales": [
+    {
+      "scale_code": "MBTI",
+      "agent_id": "mbti_result_page",
+      "canonical_test_slug": "mbti-personality-test-16-personality-types",
+      "overall_status": "PARTIAL",
+      "readiness_from_matrix": "missing_agent_stack",
+      "next_safe_goal": "MBTI-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01",
+      "review": {
+        "route_contract": {
+          "status": "PASS",
+          "evidence": "Shared localized private result route /[locale]/result/[id] is mapped and noindex in existing scaffold/matrix evidence."
+        },
+        "report_api_contract": {
+          "status": "PASS",
+          "endpoint": "/api/v0.3/attempts/{attempt_id}/report"
+        },
+        "report_access_api_contract": {
+          "status": "PASS",
+          "endpoint": "/api/v0.3/attempts/{attempt_id}/report-access"
+        },
+        "renderer_dispatch": {
+          "status": "PASS",
+          "renderer": "components/result/mbti/MbtiResultShell.tsx",
+          "evidence": "RichResultReport dispatches MBTI to MbtiResultShell when backend MBTI public projection exists."
+        },
+        "pdf_private_print_boundary": {
+          "status": "PASS",
+          "evidence": "Shared PDF/private print URL redaction contracts are mapped; no private PDF URL or token evidence was accessed."
+        },
+        "share_public_private_boundary": {
+          "status": "PASS",
+          "evidence": "Existing MBTI share consumer/e2e contracts map public-summary scoped share behavior."
+        },
+        "private_result_noindex_boundary": {
+          "status": "PASS",
+          "evidence": "Private result route noindex boundary is mapped."
+        },
+        "claim_privacy_safety_gate": {
+          "status": "PARTIAL",
+          "evidence": "Dedicated MBTI result-page agent claim/privacy/safety gate is still proposed."
+        },
+        "analytics_gate_and_smoke_exclusions": {
+          "status": "PARTIAL",
+          "evidence": "Existing result/share/report telemetry is mapped, but generated-agent analytics gates remain future work.",
+          "smoke_exclusions": [
+            "no provider call",
+            "no real user identifier",
+            "no private report token",
+            "no raw private result payload"
+          ]
+        },
+        "leak_boundary": {
+          "status": "PASS",
+          "evidence": "Shared private leak/redaction contracts are mapped."
+        }
+      },
+      "limitations": [
+        "Dedicated result-page agent stack is still missing.",
+        "No generated readiness artifact was produced."
+      ]
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "agent_id": "big_five_result_page",
+      "canonical_test_slug": "big-five-personality-test-ocean-model",
+      "overall_status": "PARTIAL",
+      "readiness_from_matrix": "ready_readonly",
+      "next_safe_goal": "BIG5-FREE-FULL-REPORT-RUNTIME-QA-READINESS-01",
+      "review": {
+        "route_contract": {
+          "status": "PASS",
+          "evidence": "Shared localized private result route is mapped in Big Five alignment evidence."
+        },
+        "report_api_contract": {
+          "status": "PASS",
+          "endpoint": "/api/v0.3/attempts/{attempt_id}/report"
+        },
+        "report_access_api_contract": {
+          "status": "PASS",
+          "endpoint": "/api/v0.3/attempts/{attempt_id}/report-access"
+        },
+        "renderer_dispatch": {
+          "status": "PASS",
+          "renderer": "components/result/big5/Big5ResultPageV2Shell.tsx",
+          "evidence": "ResultClient -> RichResultReport -> Big5ResultPageV2Shell through getBig5ResultPageV2Payload."
+        },
+        "pdf_private_print_boundary": {
+          "status": "PASS",
+          "evidence": "Big Five PDF QA and shared private print/redaction contracts cover backend-authored PDF boundaries."
+        },
+        "share_public_private_boundary": {
+          "status": "BLOCKED",
+          "evidence": "Prior matrix/runtime QA handoff evidence retains BIG5_SHARE_SAFETY_GAP_CONFIRMED with share_safety_missing_count=1. The newer Big Five readiness proposal cites sanitized fap-api PR #2326 evidence with share_safety_missing_count=0, but this unified review does not duplicate or replace the Big Five deep review. Follow-up reconciliation must decide whether to clear the historical blocker.",
+          "preserved_marker": "BIG5_SHARE_SAFETY_GAP_CONFIRMED"
+        },
+        "private_result_noindex_boundary": {
+          "status": "PASS",
+          "evidence": "Private result route noindex boundary is mapped."
+        },
+        "claim_privacy_safety_gate": {
+          "status": "PARTIAL",
+          "evidence": "Claim/privacy gates are mapped, but share-safety evidence conflict keeps Big Five out of PASS in this unified review."
+        },
+        "analytics_gate_and_smoke_exclusions": {
+          "status": "PARTIAL",
+          "evidence": "Analytics handoff preserves Big Five share-safety gap so analytics cannot hide the blocker.",
+          "smoke_exclusions": [
+            "no provider call",
+            "no private identifiers",
+            "no raw score/vector emission",
+            "no private report token"
+          ]
+        },
+        "leak_boundary": {
+          "status": "PASS",
+          "evidence": "Big Five share/PDF/render contracts block raw score, vector, private attempt, report payload, and internal metadata leakage."
+        }
+      },
+      "limitations": [
+        "Big Five deep review was not duplicated.",
+        "Historical share-safety blocker remains visible until a scoped reconciliation consumes the newer sanitized backend evidence."
+      ]
+    },
+    {
+      "scale_code": "RIASEC",
+      "agent_id": "riasec_result_page",
+      "canonical_test_slug": "holland-career-interest-test-riasec",
+      "overall_status": "PASS",
+      "readiness_from_matrix": "ready_readonly",
+      "next_safe_goal": "RESULT-PAGE-AGENT-RUNTIME-QA-HANDOFF-01",
+      "review": {
+        "route_contract": {
+          "status": "PASS",
+          "evidence": "RIASEC single-lane read-only review confirms the shared private route is dynamic, revalidate=0, and noindex."
+        },
+        "report_api_contract": {
+          "status": "PASS",
+          "endpoint": "/api/v0.3/attempts/{attempt_id}/report"
+        },
+        "report_access_api_contract": {
+          "status": "PASS",
+          "endpoint": "/api/v0.3/attempts/{attempt_id}/report-access"
+        },
+        "renderer_dispatch": {
+          "status": "PASS",
+          "renderer": "components/result/riasec/RiasecResultShell.tsx",
+          "evidence": "ResultClient -> RichResultReport -> RiasecResultShell through hasRiasecProjection and assembleRiasecResultViewModel."
+        },
+        "pdf_private_print_boundary": {
+          "status": "PASS",
+          "evidence": "RIASEC single-lane review confirms report-access governed, backend-authored, private/no-store PDF behavior."
+        },
+        "share_public_private_boundary": {
+          "status": "PASS",
+          "evidence": "RIASEC share scope is public-safe and blocks raw feedback, private report payloads, raw scores, vectors, and selector traces."
+        },
+        "private_result_noindex_boundary": {
+          "status": "PASS",
+          "evidence": "Private result noindex boundary is confirmed by RIASEC single-lane review."
+        },
+        "claim_privacy_safety_gate": {
+          "status": "PASS",
+          "evidence": "Career bridge remains examples-only with deterministic career recommendation, admissions, hiring, salary, performance, success, and ability claims forbidden."
+        },
+        "analytics_gate_and_smoke_exclusions": {
+          "status": "PASS",
+          "evidence": "Analytics handoff permits only public-safe coarse interest/result module events and forbids raw scores, vectors, percentiles, attempt/user/private report payload, and selector traces.",
+          "smoke_exclusions": [
+            "no provider call",
+            "no raw score/vector/percentile",
+            "no attempt id or user id",
+            "no deterministic career recommendation"
+          ]
+        },
+        "leak_boundary": {
+          "status": "PASS",
+          "evidence": "Forbidden public fields include raw_score, score_vector, percentile, selector_trace, source_refs, qa_trace, editor_notes, private_url, report_token, attempt_id, and user_id."
+        }
+      },
+      "limitations": [
+        "Generated readiness artifact remains future work unless separately authorized.",
+        "Runtime enablement, CMS import, production rollout, and SEO/search mutation remain NO_GO."
+      ]
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "agent_id": "iq_raven_result_page",
+      "canonical_scale_code": "IQ_INTELLIGENCE_QUOTIENT",
+      "canonical_test_slug": "iq-test-intelligence-quotient-assessment",
+      "overall_status": "PARTIAL",
+      "readiness_from_matrix": "missing_agent_stack",
+      "next_safe_goal": "IQ-RAVEN-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01",
+      "review": {
+        "route_contract": {
+          "status": "PASS",
+          "evidence": "Shared localized private result route is mapped for IQ result reports."
+        },
+        "report_api_contract": {
+          "status": "PASS",
+          "endpoint": "/api/v0.3/attempts/{attempt_id}/report"
+        },
+        "report_access_api_contract": {
+          "status": "PASS",
+          "endpoint": "/api/v0.3/attempts/{attempt_id}/report-access"
+        },
+        "renderer_dispatch": {
+          "status": "PASS",
+          "renderer": "components/result/iq/IqResultShell.tsx",
+          "evidence": "ResultClient dispatches IQ_RAVEN/IQ_INTELLIGENCE_QUOTIENT reports to IqResultShell before generic rendering."
+        },
+        "pdf_private_print_boundary": {
+          "status": "PARTIAL",
+          "evidence": "Shared report.pdf route is mapped, but IQ PDF/certificate remains a backend-authoritative placeholder boundary."
+        },
+        "share_public_private_boundary": {
+          "status": "PARTIAL",
+          "evidence": "Shared share routes are mapped; dedicated IQ share-surface boundary gate is still missing."
+        },
+        "private_result_noindex_boundary": {
+          "status": "PASS",
+          "evidence": "Private result route noindex boundary is mapped."
+        },
+        "claim_privacy_safety_gate": {
+          "status": "HOLD",
+          "evidence": "No diagnostic, school-placement, hiring, admissions, certification, or answer-key/correct-answer leakage certification is produced here."
+        },
+        "analytics_gate_and_smoke_exclusions": {
+          "status": "HOLD",
+          "evidence": "Analytics handoff blocks raw scores, answer key, diagnostic, school-placement, hiring, and certification claims; generated-agent analytics remain future work.",
+          "smoke_exclusions": [
+            "no answer key",
+            "no correct answer",
+            "no raw score",
+            "no diagnostic claim",
+            "no private identifiers"
+          ]
+        },
+        "leak_boundary": {
+          "status": "PASS",
+          "evidence": "IQ scaffold maps answer-key/correct-answer redaction and private leak boundaries."
+        }
+      },
+      "limitations": [
+        "Dedicated IQ result-page agent stack is still missing.",
+        "No generated readiness artifact was produced."
+      ]
+    },
+    {
+      "scale_code": "EQ_60",
+      "agent_id": "eq60_result_page",
+      "canonical_test_slug": "eq-test-emotional-intelligence-assessment",
+      "overall_status": "PARTIAL",
+      "readiness_from_matrix": "missing_agent_stack",
+      "next_safe_goal": "EQ60-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01",
+      "review": {
+        "route_contract": {
+          "status": "PASS",
+          "evidence": "Shared localized private result route is mapped for EQ60 reports."
+        },
+        "report_api_contract": {
+          "status": "PASS",
+          "endpoint": "/api/v0.3/attempts/{attempt_id}/report"
+        },
+        "report_access_api_contract": {
+          "status": "PASS",
+          "endpoint": "/api/v0.3/attempts/{attempt_id}/report-access"
+        },
+        "renderer_dispatch": {
+          "status": "PASS",
+          "renderer": "components/result/eq/EQResultV5.tsx",
+          "evidence": "ResultClient dispatches EQ V5 payloads to EQResultV5 and RichResultReport intentionally excludes EQ V5."
+        },
+        "pdf_private_print_boundary": {
+          "status": "PASS",
+          "evidence": "Shared and EQ PDF/private no-store contracts are mapped."
+        },
+        "share_public_private_boundary": {
+          "status": "PARTIAL",
+          "evidence": "Shared share route is mapped, but EQ V5 share button is disabled or a dedicated EQ gate is missing."
+        },
+        "private_result_noindex_boundary": {
+          "status": "PASS",
+          "evidence": "Private result route noindex boundary is mapped."
+        },
+        "claim_privacy_safety_gate": {
+          "status": "HOLD",
+          "evidence": "EQ60 remains self-report trait/mixed EI only; no diagnostic, clinical, medical, hiring, relationship, life-outcome, or guaranteed-success certification is produced here."
+        },
+        "analytics_gate_and_smoke_exclusions": {
+          "status": "HOLD",
+          "evidence": "Analytics handoff blocks raw scores, clinical, medical, hiring, success, and guaranteed-outcome claims; generated-agent analytics remain future work.",
+          "smoke_exclusions": [
+            "no raw score",
+            "no clinical or medical claim",
+            "no hiring claim",
+            "no success guarantee",
+            "no private identifiers"
+          ]
+        },
+        "leak_boundary": {
+          "status": "PASS",
+          "evidence": "EQ scaffold maps private PDF/share leak boundaries and no raw private result access."
+        }
+      },
+      "limitations": [
+        "Dedicated EQ60 result-page agent stack is still missing.",
+        "No generated readiness artifact was produced."
+      ]
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "agent_id": "enneagram_result_page",
+      "canonical_test_slug": "enneagram-personality-test-nine-types",
+      "overall_status": "PASS",
+      "readiness_from_matrix": "ready_readonly",
+      "next_safe_goal": "RESULT-PAGE-AGENT-RUNTIME-QA-HANDOFF-01",
+      "review": {
+        "route_contract": {
+          "status": "PASS",
+          "evidence": "Shared localized private result route is mapped in Enneagram alignment evidence."
+        },
+        "report_api_contract": {
+          "status": "PASS",
+          "endpoint": "/api/v0.3/attempts/{attempt_id}/report"
+        },
+        "report_access_api_contract": {
+          "status": "PASS",
+          "endpoint": "/api/v0.3/attempts/{attempt_id}/report-access"
+        },
+        "renderer_dispatch": {
+          "status": "PASS",
+          "renderer": "components/result/enneagram/EnneagramResultShell.tsx",
+          "evidence": "ResultClient -> RichResultReport -> EnneagramResultShell through hasEnneagramProjection and assembleEnneagramResultViewModel."
+        },
+        "pdf_private_print_boundary": {
+          "status": "PASS",
+          "evidence": "Enneagram PDF surface and shared print/redaction contracts are mapped."
+        },
+        "share_public_private_boundary": {
+          "status": "PASS",
+          "evidence": "Enneagram share-surface contracts and backend share summary/state variant tests keep public-summary scope."
+        },
+        "private_result_noindex_boundary": {
+          "status": "PASS",
+          "evidence": "Private result route noindex boundary is mapped."
+        },
+        "claim_privacy_safety_gate": {
+          "status": "PASS",
+          "evidence": "Backend readiness service, runbook, gates, and source ledger forbid diagnostic, clinical, final-typing, certainty, score-comparison, hiring, salary, performance, private identifier, and vector leakage families."
+        },
+        "analytics_gate_and_smoke_exclusions": {
+          "status": "PASS",
+          "evidence": "Analytics handoff allows shared public-safe event classes and blocks private payload/generated readiness analytics until separately authorized.",
+          "smoke_exclusions": [
+            "no private payload",
+            "no generated readiness analytics",
+            "no provider call",
+            "no private identifiers"
+          ]
+        },
+        "leak_boundary": {
+          "status": "PASS",
+          "evidence": "Existing Enneagram share/PDF/render contracts cover private payload leakage boundaries."
+        }
+      },
+      "limitations": [
+        "Generated readiness artifact remains future work unless separately authorized.",
+        "Runtime enablement, CMS import, production rollout, and SEO/search mutation remain NO_GO."
+      ]
+    }
+  ],
+  "summary": {
+    "pass": [
+      "RIASEC",
+      "ENNEAGRAM"
+    ],
+    "partial": [
+      "MBTI",
+      "BIG5_OCEAN",
+      "IQ_RAVEN",
+      "EQ_60"
+    ],
+    "hold": [
+      "MBTI runbook/schema/gates",
+      "IQ_RAVEN diagnostic and answer-key/correct-answer gates",
+      "EQ_60 non-clinical/non-medical/no-outcome gates"
+    ],
+    "blocked": [
+      "BIG5_OCEAN historical BIG5_SHARE_SAFETY_GAP_CONFIRMED until scoped reconciliation consumes newer sanitized evidence"
+    ]
+  },
+  "next_safe_goals": [
+    {
+      "scale_code": "MBTI",
+      "next_goal": "MBTI-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "next_goal": "BIG5-SHARE-SAFETY-EVIDENCE-RECONCILIATION-01"
+    },
+    {
+      "scale_code": "RIASEC",
+      "next_goal": "RESULT-PAGE-AGENT-RUNTIME-QA-HANDOFF-01"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "next_goal": "IQ-RAVEN-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01"
+    },
+    {
+      "scale_code": "EQ_60",
+      "next_goal": "EQ60-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "next_goal": "RESULT-PAGE-AGENT-RUNTIME-QA-HANDOFF-01"
+    }
+  ]
+}

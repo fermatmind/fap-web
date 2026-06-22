@@ -2612,6 +2612,13 @@ const RIASEC_RESULT_PAGE_AGENT_READONLY_ROUTE_API_PDF_SHARE_REVIEW_01_ALLOWED_FI
   "tests/contracts/riasec-result-page-agent-readonly-route-api-pdf-share-review.contract.test.ts",
 ]);
 
+const SIX_RESULT_PAGE_AGENT_READONLY_ROUTE_API_PDF_SHARE_REVIEW_01_ALLOWED_FILES = new Set([
+  "docs/result-page-agents/six-result-page-agent-readonly-route-api-pdf-share-review-2026-06-23.md",
+  "docs/result-page-agents/six-result-page-agent-readonly-route-api-pdf-share-review.proposal.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/six-result-page-agent-readonly-route-api-pdf-share-review.contract.test.ts",
+]);
+
 function isFrontendUiPolishBatch02ScopeActive(): boolean {
   if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
     return true;
@@ -2819,6 +2826,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/riasec-result-page-agent-readonly-route-api-pdf-share-review-01" &&
     RIASEC_RESULT_PAGE_AGENT_READONLY_ROUTE_API_PDF_SHARE_REVIEW_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/six-result-page-agent-readonly-route-api-pdf-share-review-01" &&
+    SIX_RESULT_PAGE_AGENT_READONLY_ROUTE_API_PDF_SHARE_REVIEW_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
