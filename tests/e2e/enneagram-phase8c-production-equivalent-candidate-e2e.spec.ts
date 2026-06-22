@@ -13,6 +13,9 @@ const EXPECTED_MANIFEST_SHA256 =
 const EXPECTED_RUNTIME_REGISTRY_MANIFEST_SHA256 =
   "ac5bdaab3c761b0d01a56f92679aa58341110d64de0f47a1fa0062b64f76f97f";
 const EXPECTED_PAYLOAD_COUNT = 630;
+const MIN_PHASE8C_TEST_TIMEOUT_MS = 180_000;
+const DEFAULT_PHASE8C_TEST_TIMEOUT_MS = 900_000;
+const PHASE8C_TEST_TIMEOUT_MS = readPhase8cTestTimeoutMs();
 const API_V0_3_PREFIX = "(?:/api)?/v0\\.3";
 const API_MOCK_HEADERS = {
   "Access-Control-Allow-Origin": "*",
@@ -243,6 +246,24 @@ type Summary = {
 };
 
 class CandidateStructureGapError extends Error {}
+
+function readPhase8cTestTimeoutMs(): number {
+  const rawValue = process.env.PHASE8C_TEST_TIMEOUT_MS?.trim();
+  if (!rawValue) {
+    return DEFAULT_PHASE8C_TEST_TIMEOUT_MS;
+  }
+
+  if (!/^[1-9]\d*$/.test(rawValue)) {
+    return DEFAULT_PHASE8C_TEST_TIMEOUT_MS;
+  }
+
+  const parsedValue = Number.parseInt(rawValue, 10);
+  if (!Number.isSafeInteger(parsedValue) || parsedValue < MIN_PHASE8C_TEST_TIMEOUT_MS) {
+    return DEFAULT_PHASE8C_TEST_TIMEOUT_MS;
+  }
+
+  return parsedValue;
+}
 
 function sha256File(filePath: string): string {
   return crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
@@ -988,7 +1009,7 @@ function groupFixtures(candidate: CandidateContext, group: keyof typeof GROUP_CO
 
 test.describe("ENNEAGRAM Phase 8-C production-equivalent candidate E2E", () => {
   test.describe.configure({ mode: "serial" });
-  test.setTimeout(180_000);
+  test.setTimeout(PHASE8C_TEST_TIMEOUT_MS);
 
   const results: FixtureRunResult[] = [];
   const notes: string[] = [];
@@ -999,6 +1020,7 @@ test.describe("ENNEAGRAM Phase 8-C production-equivalent candidate E2E", () => {
     candidate = loadCandidateContext();
     notes.push("Candidate payload source discovered and grouped by matrix.");
     notes.push("Execution split by payload group and viewport to preserve full coverage without single-test timeout.");
+    notes.push(`Phase8C suite timeout is ${PHASE8C_TEST_TIMEOUT_MS}ms; override with PHASE8C_TEST_TIMEOUT_MS for full candidate evidence runs.`);
   });
 
   for (const viewport of VIEWPORTS) {

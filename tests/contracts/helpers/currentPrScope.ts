@@ -1410,6 +1410,13 @@ const CODEQL_HYGIENE_ALLOWED_FILES = new Set([
   "tests/e2e/big5-flow.spec.ts",
 ]);
 
+const ENNEAGRAM_PHASE8C_CONFIGURABLE_TIMEOUT_SCOPE_GUARD_ALLOWED_FILES = new Set([
+  "scripts/seo/generate-mbti64-agent-expansion-88.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti64-agent-expansion-88-security.contract.test.ts",
+  "tests/e2e/enneagram-phase8c-production-equivalent-candidate-e2e.spec.ts",
+]);
+
 const CODEQL_HTTP_FILE_ACCESS_108_ALLOWED_FILES = new Set([
   "scripts/ops/check-big5-v2-live-result-pdf.mjs",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -2528,6 +2535,13 @@ export function isCurrentQuizPackPerformanceHotfixAllowedFile(file: string): boo
 }
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (
+    CURRENT_BRANCH === "codex/enneagram-phase8c-configurable-timeout" &&
+    ENNEAGRAM_PHASE8C_CONFIGURABLE_TIMEOUT_SCOPE_GUARD_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
   if (
     CURRENT_BRANCH === "codex/six-hub-test-detail-frontend-landing-surface-consumer-01" ||
     CURRENT_BRANCH === "codex/batch-1-riasec-boundary-runtime-fix-01"
