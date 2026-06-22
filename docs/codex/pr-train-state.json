@@ -1802,7 +1802,7 @@
       "checks": [],
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "e591d2210a7ee1d534943af14a20b75e037049f7",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
