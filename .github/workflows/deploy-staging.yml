@@ -1,0 +1,110 @@
+name: Deploy Web Staging
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy fap-web staging
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    concurrency:
+      group: deploy-web-staging-${{ github.repository }}
+      cancel-in-progress: false
+    environment:
+      name: staging
+    env:
+      DEPLOY_HOST: "49.234.55.28"
+      DEPLOY_USER: "ubuntu"
+      DEPLOY_PORT: "22"
+      APP_DIR: "/var/www/fap-web-staging/current"
+      APP_NAME: "fap-web-staging"
+      APP_PORT: "3000"
+      PUBLIC_BASE_URL: "https://staging.fermatmind.com"
+      NEXT_PUBLIC_API_URL: "https://staging.fermatmind.com"
+      NEXT_PUBLIC_SITE_URL: "https://staging.fermatmind.com"
+      GIT_BRANCH: "main"
+      RUN_SITEMAP_HEALTH: "0"
+      CORE_PUBLIC_PATH: "/zh/career/jobs/accountants-and-auditors"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Skip stale staging deploy
+        id: stale_guard
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "skip_deploy=false" >> "$GITHUB_OUTPUT"
+
+          if [ "$GITHUB_EVENT_NAME" != "push" ]; then
+            exit 0
+          fi
+
+          git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main
+          LATEST_MAIN_SHA="$(git rev-parse origin/main)"
+
+          if [ "$GITHUB_SHA" != "$LATEST_MAIN_SHA" ]; then
+            echo "Skip stale staging deploy: GITHUB_SHA=$GITHUB_SHA latest=$LATEST_MAIN_SHA"
+            echo "skip_deploy=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up SSH
+        if: steps.stale_guard.outputs.skip_deploy != 'true'
+        uses: webfactory/ssh-agent@v0.10.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Install pinned SSH known_hosts
+        if: steps.stale_guard.outputs.skip_deploy != 'true'
+        shell: bash
+        env:
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          test -n "$SSH_KNOWN_HOSTS"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: SSH preflight
+        if: steps.stale_guard.outputs.skip_deploy != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+            -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "whoami; hostname; test -d '$APP_DIR' && echo app_dir_ok"
+
+      - name: Deploy staging with PM2
+        if: steps.stale_guard.outputs.skip_deploy != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+            -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "APP_DIR='$APP_DIR' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' NEXT_PUBLIC_API_URL='$NEXT_PUBLIC_API_URL' NEXT_PUBLIC_SITE_URL='$NEXT_PUBLIC_SITE_URL' GIT_BRANCH='$GIT_BRANCH' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' bash '$APP_DIR/scripts/deploy_web_pm2.sh'"
+
+      - name: Verify deployed revision
+        if: steps.stale_guard.outputs.skip_deploy != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          DEPLOYED_SHA="$(ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+            -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "git -C '$APP_DIR' rev-parse HEAD")"
+          echo "deployed_sha=$DEPLOYED_SHA"
+          test "$DEPLOYED_SHA" = "$GITHUB_SHA"
+
+      - name: Smoke staging career page
+        if: steps.stale_guard.outputs.skip_deploy != 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl -fsSI "${PUBLIC_BASE_URL}${CORE_PUBLIC_PATH}" | sed -n '1,20p'
