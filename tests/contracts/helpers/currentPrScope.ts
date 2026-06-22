@@ -2523,6 +2523,13 @@ const IQ_RAVEN_RESULT_PAGE_AGENT_SCAFFOLD_SCAN_01_ALLOWED_FILES = new Set([
   "tests/contracts/iq-raven-result-page-agent-readiness-proposal.contract.test.ts",
 ]);
 
+const EQ60_RESULT_PAGE_AGENT_SCAFFOLD_SCAN_01_ALLOWED_FILES = new Set([
+  "docs/result-page-agents/eq60-result-page-agent-readiness.proposal.json",
+  "docs/result-page-agents/eq60-result-page-agent-scaffold-scan-2026-06-22.md",
+  "tests/contracts/eq60-result-page-agent-readiness-proposal.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 function isFrontendUiPolishBatch02ScopeActive(): boolean {
   if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
     return true;
@@ -2653,6 +2660,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/iq-raven-result-page-agent-scaffold-scan-01" &&
     IQ_RAVEN_RESULT_PAGE_AGENT_SCAFFOLD_SCAN_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/eq60-result-page-agent-scaffold-scan-01" &&
+    EQ60_RESULT_PAGE_AGENT_SCAFFOLD_SCAN_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
