@@ -2605,6 +2605,13 @@ const RESULT_PAGE_AGENT_SEO_CONTROL_HANDOFF_01_ALLOWED_FILES = new Set([
   "tests/contracts/result-page-agent-seo-control-handoff.contract.test.ts",
 ]);
 
+const RIASEC_RESULT_PAGE_AGENT_READONLY_ROUTE_API_PDF_SHARE_REVIEW_01_ALLOWED_FILES = new Set([
+  "docs/result-page-agents/riasec-result-page-agent-readonly-route-api-pdf-share-review-2026-06-23.md",
+  "docs/result-page-agents/riasec-result-page-agent-readonly-route-api-pdf-share-review.v1.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/riasec-result-page-agent-readonly-route-api-pdf-share-review.contract.test.ts",
+]);
+
 function isFrontendUiPolishBatch02ScopeActive(): boolean {
   if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
     return true;
@@ -2805,6 +2812,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/result-page-agent-seo-control-handoff-01" &&
     RESULT_PAGE_AGENT_SEO_CONTROL_HANDOFF_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/riasec-result-page-agent-readonly-route-api-pdf-share-review-01" &&
+    RIASEC_RESULT_PAGE_AGENT_READONLY_ROUTE_API_PDF_SHARE_REVIEW_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
