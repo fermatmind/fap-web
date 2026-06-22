@@ -84,6 +84,16 @@ const SEO_FREE_TEST_FLAGSHIP_LANDING_03_ALLOWED_FILES = new Set([
   "tests/contracts/seo-free-test-flagship-landing.contract.test.ts",
 ]);
 
+const SIX_HUB_TEST_DETAIL_FRONTEND_LANDING_SURFACE_CONSUMER_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/page.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/seo-free-test-flagship-landing.contract.test.ts",
+  "tests/contracts/test-detail-landing.contract.test.ts",
+  "tests/contracts/test-detail-softwareapplication-schema.contract.test.ts",
+]);
+
 const SEO_FREE_TEST_SECONDARY_CTA_04_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/career/tests/page.tsx",
   "app/(localized)/[locale]/personality/page.tsx",
@@ -2505,6 +2515,15 @@ export function isCurrentQuizPackPerformanceHotfixAllowedFile(file: string): boo
 }
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/six-hub-test-detail-frontend-landing-surface-consumer-01") {
+    return (
+      SIX_HUB_TEST_DETAIL_FRONTEND_LANDING_SURFACE_CONSUMER_01_ALLOWED_FILES.has(file) ||
+      HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
+    );
+  }
+
   if (isQuizPackContractMainReplayAllowedFile(file)) {
     return true;
   }
@@ -2569,6 +2588,15 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/seo-free-test-flagship-landing-03") {
     return SEO_FREE_TEST_FLAGSHIP_LANDING_03_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/six-hub-test-detail-frontend-landing-surface-consumer-01") {
+    return (
+      SIX_HUB_TEST_DETAIL_FRONTEND_LANDING_SURFACE_CONSUMER_01_ALLOWED_FILES.has(file) ||
+      HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
+      RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
+    );
   }
 
   if (CURRENT_BRANCH === "codex/seo-free-test-secondary-cta-04") {

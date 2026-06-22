@@ -21,6 +21,10 @@ import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import { SCALE_CANONICAL_SLUG_MAP, resolveCanonicalSlug } from "@/lib/assessmentSlugMap";
 import { computeManifestHash } from "@/lib/big5/manifest";
 import { getCmsArticlesWithLastKnownGood, type CmsArticle } from "@/lib/cms/articles";
+import {
+  getCmsLandingSurfaceWithLastKnownGood,
+  type CmsLandingSurface,
+} from "@/lib/cms/landing-surfaces";
 import { getAllTests, getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
@@ -123,6 +127,23 @@ type LookupResponse = {
   content_i18n_json?: Record<string, unknown> | null;
   report_summary_i18n_json?: Record<string, unknown> | null;
   landing_surface_v1?: LandingSurfaceRaw | null;
+};
+
+type TestDetailCmsLandingSurfacePayload = {
+  seo_title?: string | null;
+  seo_description?: string | null;
+  h1_or_hero_title?: string | null;
+  hero_copy?: string | null;
+  primary_cta_label?: string | null;
+  aeo_answer_block?: string | null;
+  methodology_boundary_note?: string | null;
+  approved_internal_link_targets?: unknown;
+  claim_risk_notes?: unknown;
+};
+
+const TEST_DETAIL_CMS_LANDING_SURFACE_KEYS: Partial<Record<string, string>> = {
+  [SCALE_CANONICAL_SLUG_MAP.MBTI]: "test_detail_mbti_personality_test_16_personality_types",
+  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: "test_detail_holland_career_interest_test_riasec",
 };
 
 async function fetchRelatedArticles(testSlug: string, locale: "en" | "zh"): Promise<CmsArticle[]> {
@@ -298,6 +319,37 @@ async function fetchLookup(slug: string, locale: "en" | "zh"): Promise<LookupRes
   } catch {
     return null;
   }
+}
+
+async function getTestDetailCmsLandingSurface(
+  slug: string,
+  locale: "en" | "zh"
+): Promise<CmsLandingSurface<TestDetailCmsLandingSurfacePayload> | null> {
+  const surfaceKey = TEST_DETAIL_CMS_LANDING_SURFACE_KEYS[slug];
+  if (!surfaceKey) {
+    return null;
+  }
+
+  try {
+    const surface = await getCmsLandingSurfaceWithLastKnownGood<TestDetailCmsLandingSurfacePayload>(surfaceKey, locale);
+    return surface.value;
+  } catch {
+    return null;
+  }
+}
+
+function resolveTestDetailCmsLandingSurfaceContent(
+  surface: CmsLandingSurface<TestDetailCmsLandingSurfacePayload> | null
+) {
+  const payload = surface?.payloadJson;
+
+  return {
+    seoTitle: toStringValue(payload?.seo_title) || toStringValue(surface?.title),
+    seoDescription: toStringValue(payload?.seo_description) || toStringValue(surface?.description),
+    heroTitle: toStringValue(payload?.h1_or_hero_title),
+    heroCopy: toStringValue(payload?.hero_copy),
+    primaryCtaLabel: toStringValue(payload?.primary_cta_label),
+  };
 }
 
 function buildFallbackFaq(testTitle: string, minutes: number, questions: number, locale: "en" | "zh"): FAQItem[] {
@@ -788,10 +840,14 @@ export async function generateMetadata({
     };
   }
 
-  const lookup = await fetchLookup(slug, locale);
+  const [lookup, cmsLandingSurface] = await Promise.all([
+    fetchLookup(slug, locale),
+    getTestDetailCmsLandingSurface(slug, locale),
+  ]);
   const alternates = alternatesForSlug(test.slug);
   const canonical = localizedPath(`/tests/${test.slug}`, locale);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
+  const cmsLandingSurfaceContent = resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface);
   const seoTitle = toStringValue(lookup?.seo_title);
   const seoDescription = toStringValue(lookup?.seo_description);
   const ogImageAuthority = toStringValue(lookup?.og_image_url);
@@ -800,8 +856,8 @@ export async function generateMetadata({
   const isClinicalDepressionPending = isClinicalDepressionPendingSlug(test.slug);
   const metadataAuthority = resolveTestDetailAuthority({
     slug: test.slug,
-    hasSeoTitle: seoTitle.length > 0,
-    hasSeoDescription: seoDescription.length > 0,
+    hasSeoTitle: cmsLandingSurfaceContent.seoTitle.length > 0 || seoTitle.length > 0,
+    hasSeoDescription: cmsLandingSurfaceContent.seoDescription.length > 0 || seoDescription.length > 0,
     hasOgImage: ogImageAuthority.length > 0,
     hasVisibleFaq: false,
     hasLandingSurface: false,
@@ -809,8 +865,15 @@ export async function generateMetadata({
     hasCtaBundle: false,
   });
 
-  const title = seoTitle || flagshipFreeTestCopy?.seoTitle || (metadataAuthority.metadata.allowed ? localizedTestTitle : test.slug);
-  const description = seoDescription || (metadataAuthority.metadata.allowed ? test.description : "");
+  const title =
+    cmsLandingSurfaceContent.seoTitle
+    || seoTitle
+    || flagshipFreeTestCopy?.seoTitle
+    || (metadataAuthority.metadata.allowed ? localizedTestTitle : test.slug);
+  const description =
+    cmsLandingSurfaceContent.seoDescription
+    || seoDescription
+    || (metadataAuthority.metadata.allowed ? test.description : "");
   const ogImage = ogImageAuthority || (metadataAuthority.metadata.allowed ? test.cover_image : "");
   const iqLaunchSeoGuard = resolveIqLaunchSeoGuard({
     slug: test.slug,
@@ -867,7 +930,11 @@ export default async function TestLandingPage({
   if (!test) return notFound();
 
   const dict = getDictSync(locale);
-  const lookup = await fetchLookup(slug, locale);
+  const [lookup, cmsLandingSurface] = await Promise.all([
+    fetchLookup(slug, locale),
+    getTestDetailCmsLandingSurface(slug, locale),
+  ]);
+  const cmsLandingSurfaceContent = resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface);
   const landingSurface = normalizeLandingSurface(lookup?.landing_surface_v1 ?? null);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
   const langNode = toRecord(toRecord(lookup?.content_i18n_json)[locale]);
@@ -1198,7 +1265,17 @@ export default async function TestLandingPage({
   const landingRating =
     typeof test.highlight_rating === "number" ? Math.max(0, Math.min(5, Math.round(test.highlight_rating))) : null;
   const detailLensCopy = getDetailPageLensCopy(test.scale_code, locale);
-  const heroTitle = flagshipFreeTestCopy?.h1 ?? localizedTestTitle;
+  const resolvedSeoTitle =
+    cmsLandingSurfaceContent.seoTitle
+    || toStringValue(lookup?.seo_title)
+    || flagshipFreeTestCopy?.seoTitle
+    || (testDetailAuthority.metadata.allowed ? localizedTestTitle : test.slug);
+  const resolvedSeoDescription =
+    cmsLandingSurfaceContent.seoDescription
+    || toStringValue(lookup?.seo_description)
+    || (testDetailAuthority.metadata.allowed ? test.description : "");
+  const heroTitle = cmsLandingSurfaceContent.heroTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;
+  const heroCopy = cmsLandingSurfaceContent.heroCopy || landingCopy || test.description;
   const heroTitleDisplay = formatCardTitleForUi({
     title: heroTitle,
     slug: test.slug,
@@ -1210,7 +1287,7 @@ export default async function TestLandingPage({
   const canonicalPath = localizedPath(`/tests/${test.slug}`, locale);
   const mbtiLandingContinuityItems = showsMbtiActions ? buildMbtiTestLandingContinuityItems(locale) : [];
   const softwareApplicationName = heroTitle;
-  const softwareApplicationDescription = landingCopy || test.description;
+  const softwareApplicationDescription = heroCopy;
   const softwareApplicationFeatureList = uniqueVisibleFeatureList([
     questionSummary,
     durationSummary,
@@ -1255,8 +1332,8 @@ export default async function TestLandingPage({
       : null;
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
-    title: toStringValue(lookup?.seo_title) || (testDetailAuthority.metadata.allowed ? localizedTestTitle : test.slug),
-    description: toStringValue(lookup?.seo_description) || (testDetailAuthority.metadata.allowed ? test.description : ""),
+    title: resolvedSeoTitle,
+    description: resolvedSeoDescription,
     locale,
   });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -1316,7 +1393,7 @@ export default async function TestLandingPage({
                   </div>
                 ) : null}
                 <div className="max-w-3xl space-y-2 text-[var(--fm-text-muted)]">
-                  <p className="m-0">{landingCopy || test.description}</p>
+                  <p className="m-0">{heroCopy}</p>
                   {flagshipFreeTestCopy?.freeBoundary ? (
                     <p className="m-0" data-testid="test-detail-free-boundary">
                       {flagshipFreeTestCopy.freeBoundary}

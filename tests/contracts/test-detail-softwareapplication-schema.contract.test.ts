@@ -115,7 +115,8 @@ describe("test detail SoftwareApplication schema contract", () => {
     expect(page).toContain("!testDetailAuthority.shouldNoindexMissingMetadataAuthority");
     expect(page).toContain("isSoftwareApplicationSchemaScaleEligible({ slug: test.slug, scaleCode: test.scale_code })");
     expect(page).toContain("!hasBlockedSoftwareApplicationClaim(softwareApplicationClaimText)");
-    expect(page).toContain("softwareApplicationDescription = landingCopy || test.description");
+    expect(page).toContain("const heroCopy = cmsLandingSurfaceContent.heroCopy || landingCopy || test.description;");
+    expect(page).toContain("softwareApplicationDescription = heroCopy");
     expect(page).toContain("featureList: softwareApplicationFeatureList");
   });
 
