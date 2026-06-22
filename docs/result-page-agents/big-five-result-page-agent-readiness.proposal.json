@@ -1,0 +1,270 @@
+{
+  "schema_version": "fermatmind.result_page_agent_readiness.v1",
+  "artifact_id": "big-five-result-page-agent-standard-alignment-2026-06-22",
+  "created_at": "2026-06-22",
+  "run_mode": "proposal_only",
+  "approval_state": "not_requested",
+  "verdict": "BIG5_RESULT_PAGE_AGENT_STANDARD_ALIGNED",
+  "agent_id": "big_five_result_page",
+  "scale_code": "BIG5_OCEAN",
+  "canonical_test_slug": "big-five-personality-test-ocean-model",
+  "result_route": "/[locale]/result/[id]",
+  "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+  "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+  "pdf_behavior": "report_access_actions_pdf_href_or_api_pdf_when_ready; backend report.pdf response must remain private no-store; Big Five V2 PDF payloads must be backend-authored, route-driven, and free of private attempt, raw score, vector, percentile, or internal metadata leaks",
+  "share_behavior": "create_attempt_share_for_public_safe_share_url; share reads use public summary scope only; Big Five V2 share-card payloads must be share-safe summary only and must not expose raw scores, vectors, private attempts, report payloads, or internal metadata",
+  "frontend_renderer": {
+    "route": "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+    "client": "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+    "dispatcher": "components/result/RichResultReport.tsx",
+    "renderer": "components/result/big5/Big5ResultPageV2Shell.tsx",
+    "payload_contract": "lib/big5/resultPageV2.ts",
+    "dispatch_contract": "ResultClient fetches report-access and report, canRenderRichResultReport returns true for BIG5_OCEAN only when getBig5ResultPageV2Payload finds a valid big5_result_page_v2 payload, and RichResultReport renders Big5ResultPageV2Shell before legacy Big Five fallback."
+  },
+  "backend_authority": [
+    "fap-api:backend/app/Console/Commands/BigFiveResultPageV2AssetAgentAuditCommand.php",
+    "fap-api:backend/app/Services/BigFive/ResultPageV2/AssetAgent/BigFiveResultPageV2AssetAgent.php",
+    "fap-api:backend/docs/big5/result-asset-agent-runbook.md",
+    "fap-api:backend/docs/big5/result-asset-agent-gates.md",
+    "fap-api:backend/docs/big5/result-asset-agent-schema.md",
+    "fap-api:backend/app/Http/Controllers/API/V0_3/AttemptReadController.php",
+    "fap-api:backend/app/Http/Controllers/API/V0_3/ShareController.php",
+    "fap-api:backend/artifacts/big5_result_page_v2_agent/20260622T122842Z/ops_report_summary.json",
+    "fap-api:backend/artifacts/big5_result_page_v2_agent/20260622T122842Z/qa_eval_summary.json",
+    "fap-api:backend/artifacts/big5_result_page_v2_agent/20260622T122842Z/go_no_go.md"
+  ],
+  "source_of_truth": [
+    "big5_result_page_v2_payload",
+    "backend_asset_agent_audit_output",
+    "backend_asset_agent_runbook_schema_and_gates",
+    "report_access_response",
+    "fap_web_renderer_contract",
+    "pdf_share_surface_boundary_contracts"
+  ],
+  "allowed_inputs": [
+    "asset_agent_audit_output",
+    "sanitized_big5_result_page_v2_payload",
+    "renderer_contract",
+    "source_code_evidence",
+    "fixture_render_output",
+    "backend_contract_test_names",
+    "sanitized_existing_artifact_summaries"
+  ],
+  "allowed_outputs": [
+    "result_page_agent_readiness",
+    "shared_standard_alignment_report",
+    "asset_agent_gate_gap_report",
+    "read_only_evidence_map"
+  ],
+  "forbidden_actions": [
+    "auto_merge_live_asset_without_approval",
+    "production_import",
+    "raw_private_result_access",
+    "private_result_indexing",
+    "private_result_text_publication",
+    "fixed_type_or_official_32_type_claim",
+    "unsupported_psychometric_claim",
+    "diagnosis_therapy_treatment_claim",
+    "hiring_screen_or_employment_suitability_claim",
+    "success_prediction_or_ability_measurement_claim",
+    "raw_score_vector_percentile_public_leak",
+    "pdf_or_share_private_boundary_violation",
+    "cms_or_search_mutation",
+    "provider_call",
+    "sitemap_robots_llms_schema_hreflang_generated_seo_artifact_mutation",
+    "production_db_or_env_mutation",
+    "payment_order_mutation"
+  ],
+  "evidence_labels": [
+    "existing_agent_stack",
+    "big5_result_page_v2",
+    "asset_agent",
+    "shared_standard_alignment",
+    "frontend_renderer",
+    "report_access_api",
+    "pdf_private_boundary",
+    "share_boundary",
+    "sanitized_proposal_only"
+  ],
+  "output_artifacts": [
+    "docs/result-page-agents/big-five-result-page-agent-standard-alignment-2026-06-22.md",
+    "docs/result-page-agents/big-five-result-page-agent-readiness.proposal.json",
+    "generated/result-page-agents/big_five/<run_id>/readiness.json (future sanitized artifact; not generated in this task)"
+  ],
+  "checks": [
+    {
+      "id": "json_schema_validation",
+      "status": "mapped_contract_added",
+      "evidence": "tests/contracts/big-five-result-page-agent-standard-alignment.contract.test.ts validates required fields against six-scale-result-agent-readiness.template.json."
+    },
+    {
+      "id": "result_route_contract_check",
+      "status": "DOC_MATCH",
+      "evidence": "app/(localized)/[locale]/(app)/result/[id]/page.tsx uses NOINDEX_ROBOTS, force-dynamic rendering, revalidate=0, and ResultClient."
+    },
+    {
+      "id": "report_api_contract_check",
+      "status": "DOC_MATCH",
+      "evidence": "lib/api/v0_3.ts fetchAttemptReport maps to /api/v0.3/attempts/{attempt_id}/report; fap-api route/controller authority remains AttemptReadController::report."
+    },
+    {
+      "id": "report_access_api_contract_check",
+      "status": "DOC_MATCH",
+      "evidence": "lib/api/v0_3.ts fetchAttemptReportAccess maps to /api/v0.3/attempts/{attempt_id}/report-access; fap-api route/controller authority remains AttemptReadController::reportAccess."
+    },
+    {
+      "id": "frontend_renderer_contract_check",
+      "status": "DOC_MATCH",
+      "evidence": "ResultClient calls canRenderRichResultReport; RichResultReport validates big5_result_page_v2 through getBig5ResultPageV2Payload and renders Big5ResultPageV2Shell."
+    },
+    {
+      "id": "backend_asset_agent_audit_check",
+      "status": "DOC_MATCH",
+      "evidence": "BigFiveResultPageV2AssetAgentAuditCommand supports audit --strict --json; BigFiveResultPageV2AssetAgent writes input_inventory, validation_report, safety_report, qa_eval_summary, ops_report_summary, and go_no_go artifacts."
+    },
+    {
+      "id": "asset_agent_artifact_boundary_check",
+      "status": "DOC_MATCH",
+      "evidence": "Existing 20260622T122842Z artifact summary is staging_only, production_use_allowed=false, ready_for_runtime=false, ready_for_production=false, validation_error_count=0, leak_hit_count=0."
+    },
+    {
+      "id": "pdf_print_private_url_redaction_check",
+      "status": "DOC_MATCH",
+      "evidence": "big5-pdf-rendered-qa, result-private-print-chrome, result-print-url-redaction, result-private-leak-regressions, and report-action-url-safety contracts cover private PDF/print boundaries."
+    },
+    {
+      "id": "share_surface_public_private_boundary_check",
+      "status": "DOC_MATCH_WITH_EXISTING_GAP",
+      "evidence": "big5-share-card-rendered-qa and backend share-safe adapter tests cover summary-only share payloads; latest backend ops artifact still reports share_safety_missing_count=1, so production/pilot remains blocked."
+    },
+    {
+      "id": "private_result_noindex_check",
+      "status": "DOC_MATCH",
+      "evidence": "Result route metadata uses NOINDEX_ROBOTS and private print root markers."
+    },
+    {
+      "id": "analytics_event_contract_check",
+      "status": "DOC_MATCH",
+      "evidence": "ResultClient emits result loading, email recovery, report-ready, and related telemetry; this alignment task did not add runtime analytics events."
+    },
+    {
+      "id": "claim_privacy_safety_gate_check",
+      "status": "DOC_MATCH",
+      "evidence": "Backend asset-agent schema/gates and fap-web V2 contracts forbid raw scores, vectors, unsupported type, diagnosis, therapy, hiring, success prediction, and private metadata leaks."
+    },
+    {
+      "id": "source_classification_check",
+      "status": "DOC_MATCH",
+      "evidence": "This proposal classifies fap-web source as backend-authority consumer code, fap-api source as backend authority code, fixtures as fixtures, existing artifacts as sanitized generated artifacts, and private/live/provider data as not accessed."
+    }
+  ],
+  "stop_conditions": [
+    "asset_agent_output_not_schema_valid",
+    "private_boundary_failure",
+    "auto_merge_or_live_pilot_requested_without_approval",
+    "private_attempt_required",
+    "public_profile_and_private_result_content_blended",
+    "fixture_mock_unknown_or_stale_data_would_drive_production_action",
+    "default_denied_action_without_exact_human_approval",
+    "unsupported_psychometric_career_or_conversion_claim",
+    "share_safety_gap_blocks_pilot_or_production_claim"
+  ],
+  "human_approval_required": [
+    "implementing_agent_command_or_service",
+    "using_live_private_samples",
+    "changing_result_renderer",
+    "running_asset_agent_write_artifact_command",
+    "live_asset_merge",
+    "production_import",
+    "cms_write_import_publish_or_media_upload",
+    "search_channel_enqueue_approve_or_submit",
+    "provider_call",
+    "production_db_or_env_change",
+    "payment_order_mutation"
+  ],
+  "current_readiness": "ready_readonly",
+  "previous_readiness_from_frozen_standard": "existing_agent_stack_align_required",
+  "next_goal": "BIG5-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01",
+  "alignment_status": {
+    "overall": "BIG5_RESULT_PAGE_AGENT_STANDARD_ALIGNED",
+    "doc_match": [
+      "required_fields",
+      "route_api_access_pdf_share_renderer_backend_authority_map",
+      "existing_backend_asset_agent_evidence",
+      "frontend_renderer_contracts",
+      "negative_guarantees",
+      "source_classification"
+    ],
+    "doc_needs_update": [],
+    "evidence_missing": [
+      "future generated/result-page-agents/big_five/<run_id>/readiness.json was not generated in this docs/contracts task",
+      "share_safety_missing_count remains 1 in latest existing backend ops artifact, so pilot/production readiness remains blocked"
+    ],
+    "blocked": []
+  },
+  "existing_tests": {
+    "fap_web_shared": [
+      "tests/contracts/result-client-view-state.contract.test.tsx",
+      "tests/contracts/result-access-token-api.contract.test.ts",
+      "tests/contracts/report-action-url-safety.contract.test.ts",
+      "tests/contracts/result-private-print-chrome.contract.test.ts",
+      "tests/contracts/result-print-url-redaction.contract.test.ts",
+      "tests/contracts/result-private-leak-regressions.contract.test.ts",
+      "tests/contracts/rich-result-report.contract.test.tsx"
+    ],
+    "fap_web_big5": [
+      "tests/contracts/big5-result-page-v2-consumer.contract.test.tsx",
+      "tests/contracts/big5-pdf-rendered-qa.contract.test.tsx",
+      "tests/contracts/big5-share-card-rendered-qa.contract.test.tsx",
+      "tests/contracts/big5-pilot-rendered-qa.contract.test.tsx",
+      "tests/contracts/big5-expanded-route-driven-rendered-cases.contract.test.tsx",
+      "tests/contracts/big5-v2-runtime-consumer.contract.test.ts",
+      "tests/contracts/big5-pilot-payload-only-renderer.contract.test.tsx"
+    ],
+    "fap_api_big5": [
+      "backend/tests/Feature/Console/BigFiveResultPageV2AgentAutomationTest.php",
+      "backend/tests/Feature/V0_3/BigFiveResultPageV2RuntimeGateTest.php",
+      "backend/tests/Unit/Services/BigFive/ResultPageV2/BigFiveResultPageV2AssetAgentTest.php",
+      "backend/tests/Unit/Services/BigFive/ResultPageV2/BigFiveResultPageV2SelectorAssetValidatorTest.php",
+      "backend/tests/Unit/Services/BigFive/ResultPageV2/BigFiveResultPageV2ShareSafeSummaryAdapterTest.php",
+      "backend/tests/Unit/Services/BigFive/ResultPageV2/BigFiveResultPageV2PdfPayloadAdapterTest.php",
+      "backend/tests/Feature/Ops/ReportPdfCenterTest.php",
+      "backend/tests/Feature/V0_3/AttemptReportAccessReadTest.php",
+      "backend/tests/Feature/V0_3/AttemptPublicReportPdfParityTest.php"
+    ]
+  },
+  "source_classification": {
+    "fap_web_source": "backend_authority_consumer_code",
+    "fap_api_source": "backend_authority_code",
+    "existing_backend_artifacts": "sanitized_generated_artifact",
+    "fixtures": "fixture",
+    "live_public": "not_accessed",
+    "private_result_data": "not_accessed",
+    "cms": "not_written",
+    "search_queue": "not_accessed_or_mutated",
+    "provider_consoles": "not_called"
+  },
+  "safety_confirmation": {
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "publish": "none",
+    "search_submissions": "none",
+    "provider_calls": "none",
+    "private_result_data_accessed": "none",
+    "payment_order_mutation": "none",
+    "env_changes": "none"
+  },
+  "negative_guarantees": [
+    "no_runtime_code_implementation",
+    "no_cms_write",
+    "no_publish",
+    "no_search_url_submission",
+    "no_indexing_request",
+    "no_google_baidu_indexnow_bing_provider_call",
+    "no_search_channel_queue_mutation",
+    "no_sitemap_robots_llms_schema_hreflang_generated_seo_artifact_mutation",
+    "no_production_db_or_env_mutation",
+    "no_payment_order_mutation",
+    "no_private_result_data_access"
+  ]
+}
