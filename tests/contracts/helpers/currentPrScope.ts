@@ -2528,12 +2528,16 @@ export function isCurrentQuizPackPerformanceHotfixAllowedFile(file: string): boo
 }
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
-  if (CURRENT_BRANCH === "codex/six-hub-test-detail-frontend-landing-surface-consumer-01") {
+  if (
+    CURRENT_BRANCH === "codex/six-hub-test-detail-frontend-landing-surface-consumer-01" ||
+    CURRENT_BRANCH === "codex/batch-1-riasec-boundary-runtime-fix-01"
+  ) {
     return (
       SIX_HUB_TEST_DETAIL_FRONTEND_LANDING_SURFACE_CONSUMER_01_ALLOWED_FILES.has(file) ||
       HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES.has(file) ||
       RIASEC_V2_POST_PUBLISH_SMOKE_02_ALLOWED_FILES.has(file) ||
-      RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file)
+      RIASEC_V2_SEARCH_SUBMISSION_PREFLIGHT_01_ALLOWED_FILES.has(file) ||
+      CODEQL_HYGIENE_ALLOWED_FILES.has(file)
     );
   }
 
@@ -2610,7 +2614,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return SEO_FREE_TEST_FLAGSHIP_LANDING_03_ALLOWED_FILES.has(file);
   }
 
-  if (CURRENT_BRANCH === "codex/six-hub-test-detail-frontend-landing-surface-consumer-01") {
+  if (
+    CURRENT_BRANCH === "codex/six-hub-test-detail-frontend-landing-surface-consumer-01" ||
+    CURRENT_BRANCH === "codex/batch-1-riasec-boundary-runtime-fix-01"
+  ) {
     return (
       SIX_HUB_TEST_DETAIL_FRONTEND_LANDING_SURFACE_CONSUMER_01_ALLOWED_FILES.has(file) ||
       HELP_SUPPORT_CONTACT_RUNTIME_01_ALLOWED_FILES.has(file) ||

@@ -21,6 +21,8 @@ describe("SEO-FREE-TEST-FLAGSHIP-LANDING-03 contract", () => {
     expect(source).toContain("cmsLandingSurfaceContent.seoTitle");
     expect(source).toContain("const heroTitle = cmsLandingSurfaceContent.heroTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;");
     expect(source).toContain("const heroCopy = cmsLandingSurfaceContent.heroCopy || landingCopy || test.description;");
+    expect(source).toContain("methodologyBoundaryNote: toStringValue(payload?.methodology_boundary_note),");
+    expect(source).toContain("const disclaimer = cmsLandingSurfaceContent.methodologyBoundaryNote || toStringValue(langNode.disclaimer);");
     expect(source).toContain("可免费开始，基础结果免费；高级报告如有付费需提前说明。");
     expect(source).toContain('data-testid="test-detail-free-boundary"');
   });

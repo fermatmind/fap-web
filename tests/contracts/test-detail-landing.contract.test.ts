@@ -21,6 +21,8 @@ describe("test detail landing contract", () => {
     expect(source).toContain('findLandingCta(landingSurface, "continue_public_content")');
     expect(source).toContain("const heroTitle = cmsLandingSurfaceContent.heroTitle || flagshipFreeTestCopy?.h1 || localizedTestTitle;");
     expect(source).toContain("const heroCopy = cmsLandingSurfaceContent.heroCopy || landingCopy || test.description;");
+    expect(source).toContain("methodologyBoundaryNote: toStringValue(payload?.methodology_boundary_note),");
+    expect(source).toContain("const disclaimer = cmsLandingSurfaceContent.methodologyBoundaryNote || toStringValue(langNode.disclaimer);");
     expect(source).toContain('data-testid="test-detail-landing-cta"');
     expect(source).toContain(') : canRenderStartCta ? (');
     expect(source).toContain("{testDetailAuthority.cta.allowed ? (");
