@@ -94,6 +94,17 @@ const SIX_HUB_TEST_DETAIL_FRONTEND_LANDING_SURFACE_CONSUMER_01_ALLOWED_FILES = n
   "tests/contracts/test-detail-softwareapplication-schema.contract.test.ts",
 ]);
 
+const FA30_WEB_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/generated/six-assessment-hub-parity.v1.json",
+  "docs/seo/six-assessment-hub-parity.md",
+  "package.json",
+  "scripts/seo/check-six-assessment-hub-parity.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/six-assessment-hub-parity.contract.test.ts",
+]);
+
 const SEO_FREE_TEST_SECONDARY_CTA_04_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/career/tests/page.tsx",
   "app/(localized)/[locale]/personality/page.tsx",
@@ -2612,6 +2623,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/seo-free-test-flagship-landing-03") {
     return SEO_FREE_TEST_FLAGSHIP_LANDING_03_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/fa30-web-01-six-assessment-hub-parity") {
+    return FA30_WEB_01_ALLOWED_FILES.has(file) || CODEQL_HYGIENE_ALLOWED_FILES.has(file);
   }
 
   if (
