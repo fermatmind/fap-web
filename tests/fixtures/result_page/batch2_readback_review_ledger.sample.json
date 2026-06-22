@@ -1,0 +1,110 @@
+{
+  "schema_version": "fap.result_page.batch2_readback_review_ledger.v0.1",
+  "task": "batch2_result_page_readback_review_ledger",
+  "run_id": "batch2-readback",
+  "runtime_use": "not_runtime",
+  "production_use_allowed": false,
+  "ready_for_pilot": false,
+  "ready_for_runtime": false,
+  "ready_for_production": false,
+  "authority_state": "backend_readback_review_authority_only",
+  "next_allowed_pr": "FA30-WEB-02",
+  "go_no_go": "GO_FOR_FA30-WEB-02_FRONTEND_RUNTIME_QA_ONLY",
+  "production_go_no_go": "NO_GO",
+  "bigfive": {
+    "status": "pass",
+    "candidate_dir": "content_assets/big5/result_page_v2/agent_runs/candidate_batch_001",
+    "review_manifest": {
+      "present": true,
+      "human_reviewed": true,
+      "review_status": "approved_for_staging",
+      "runtime_use": "staging_only",
+      "production_use_allowed": false,
+      "ready_for_pilot": false,
+      "ready_for_runtime": false,
+      "ready_for_production": false,
+      "reviewed_by": "operator",
+      "reviewed_at": "2026-06-22T00:00:00Z"
+    },
+    "summary": {
+      "selector_candidate_count": 5,
+      "content_candidate_count": 34,
+      "validation_error_count": 0,
+      "review_error_count": 0,
+      "leak_hit_count": 0,
+      "staging_write_performed": false
+    },
+    "readback_authority": {
+      "authority_layer": "review_manifest_and_candidate_validation",
+      "frontend_fallback_allowed": false,
+      "public_runtime_allowed": false,
+      "production_write_allowed": false
+    },
+    "negative_guarantees": {
+      "candidate_import_happened": false,
+      "production_activation_happened": false
+    },
+    "artifacts": {
+      "review_manifest": "content_assets/big5/result_page_v2/agent_runs/candidate_batch_001/review_manifest.json"
+    }
+  },
+  "enneagram": {
+    "status": "pass",
+    "source_ledger": {
+      "valid": true,
+      "candidate_dir_provided": false,
+      "candidate_contract_valid": true,
+      "ready_for_generation": false,
+      "ready_for_import": false,
+      "ready_for_activation": false
+    },
+    "batch_summary": {
+      "payload_count": 1,
+      "bulk_generation_allowed": false,
+      "source_mapping_zero_failures": true,
+      "metadata_leakage_zero": true,
+      "forbidden_claim_zero": true,
+      "fc144_boundary_zero": true,
+      "production_execution_allowed_for_agent": false
+    },
+    "readback_authority": {
+      "authority_layer": "source_ledger_and_batch_reports",
+      "frontend_fallback_allowed": false,
+      "public_runtime_allowed": false,
+      "production_write_allowed": false
+    },
+    "negative_guarantees": {
+      "readiness": {
+        "production_activation_happened": false
+      },
+      "batch": {
+        "frontend_change_happened": false
+      }
+    },
+    "artifacts": {
+      "readiness": {
+        "audit_report": "artifacts/enneagram-readiness/audit_report.json"
+      },
+      "batch": {
+        "batch_report": "artifacts/enneagram-batch/batch_report.json"
+      }
+    }
+  },
+  "negative_guarantees": {
+    "bigfive_staging_write_happened": false,
+    "enneagram_bulk_generation_happened": false,
+    "candidate_import_happened": false,
+    "production_activation_happened": false,
+    "runtime_switch_happened": false,
+    "production_write_happened": false,
+    "frontend_change_happened": false
+  },
+  "error_count": 0,
+  "errors": [],
+  "artifacts": {
+    "batch2_result_page_readback_review_ledger_report": {
+      "relative_path": "artifacts/result_page_batch2_readback_review_ledger/batch2-readback/batch2_result_page_readback_review_ledger_report.json",
+      "sha256": "sample"
+    }
+  }
+}

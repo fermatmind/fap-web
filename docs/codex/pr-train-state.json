@@ -21387,7 +21387,7 @@
       "repo_path": "<workspace>/fap-web",
       "branch": "codex/seo-ops-bilingual-homepage-recommended-articles-guard-00",
       "base": "main",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "title": "SEO-OPS-BILINGUAL-HOMEPAGE-RECOMMENDED-ARTICLES-GUARD-PR-00: test(seo): guard bilingual homepage recommended articles",
       "checks": [
         {
@@ -25638,6 +25638,73 @@
           "at": "2026-06-22T18:40:18+08:00",
           "status": "pr_open",
           "note": "Opened GitHub PR #1314 and amended the branch once to include the ledger closeout. The branch diff remained inside the FA30-WEB-01 allowlist, and GitHub branch head is the source of truth for the exact current SHA."
+        }
+      ]
+    },
+    {
+      "id": "FA30-WEB-02",
+      "repo": "fap-web",
+      "branch": "codex/fa30-web-02-runtime-qa-harness",
+      "base": "main",
+      "status": "pr_open",
+      "train_scope": "batch2_frontend_runtime_qa_harness",
+      "title": "FA30-WEB-02: test(result): add Batch 2 frontend runtime QA harness",
+      "depends_on": [
+        "FA30-API-03"
+      ],
+      "commit_sha": "1d08008f5f17bd027aa48adc2d580a9a458e94cc",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1319",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized manifest/state registration for FA30-WEB-02 on 2026-06-22 and asked Codex to continue the FA30 train in order through this frontend runtime QA harness."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "FA30-API-03 merged in fap-api PR #2309 with merge commit 64ee8149ee33738b847c9d4c775980ec9903489f, and the synced fap-api main worktree is clean at that revision."
+        },
+        "scope": {
+          "status": "authorized",
+          "allowed_paths": [
+            "package.json",
+            "scripts/ops/check-batch2-runtime-qa-handoff.mjs",
+            "tests/contracts/fa30-batch2-runtime-qa-harness.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "tests/fixtures/result_page/batch2_readback_review_ledger.sample.json",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Authorized scope is restricted to a read-only frontend-side handoff checker, one sample ledger fixture, one focused contract test, currentPrScope registration, package wiring, and PR-train metadata. No app, component, lib runtime, CMS, deploy, or public route files are in scope."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: node scripts/ops/check-batch2-runtime-qa-handoff.mjs tests/fixtures/result_page/batch2_readback_review_ledger.sample.json; pnpm exec vitest run tests/contracts/fa30-batch2-runtime-qa-harness.contract.test.ts; pnpm typecheck; NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build; pnpm test:contract (514 files, 2931 tests); JSON parse for docs/codex/pr-train-state.json and the Batch 2 sample fixture; YAML parse for docs/codex/pr-train.yaml; git diff --check; explicit path allowlist scope validation. Build-generated public/sitemap.xml was restored out of scope before validation closeout."
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1319 after local validation and scope validation passed. The branch head remains limited to the FA30-WEB-02 allowlist."
+        }
+      },
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-22T19:05:00+08:00",
+          "status": "in_progress",
+          "note": "Started FA30-WEB-02 from a clean origin/main worktree after FA30-API-03 merged. Scope is limited to a frontend-side read-only runtime QA harness that consumes the backend Batch 2 readback/review ledger without runtime, CMS, or deploy changes."
+        },
+        {
+          "at": "2026-06-22T20:41:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Added the Batch 2 frontend runtime QA handoff checker, registered FA30-WEB-02 in currentPrScope and docs/codex metadata, validated the focused contract, reran typecheck, production build, full contract suite, parse checks, diff check, and explicit scope validation, then restored postbuild sitemap churn out of scope."
+        },
+        {
+          "at": "2026-06-22T20:48:00+08:00",
+          "status": "pr_open",
+          "note": "Opened GitHub PR #1319 after local validation passed. Scope remains limited to the Batch 2 handoff checker, fixture, focused contract, currentPrScope registration, package wiring, and docs/codex metadata."
         }
       ]
     }
