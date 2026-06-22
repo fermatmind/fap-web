@@ -111,8 +111,15 @@ async function readGscCsv(filePath) {
   if (!filePath) return null;
   const text = await fs.readFile(filePath, "utf8");
   const rows = parseCsv(text);
+  const sourceKind =
+    getArgValue("--source-kind") ??
+    process.env.MBTI64_GSC_SOURCE_KIND ??
+    (filePath.toLowerCase().includes("page-snapshot")
+      ? "gsc_browser_page_table_snapshot"
+      : "gsc_performance_csv_export");
   return {
     path: filePath,
+    source_kind: sourceKind,
     sha256: sha256(text),
     row_count: rows.length,
     rows,
@@ -171,6 +178,12 @@ function aggregateGscRows(rows, cohortUrlSet) {
 }
 
 function classifyOpportunity(metrics) {
+  if (metrics.status === "GSC_IMPORTED_NO_ROW_FOR_URL") {
+    return {
+      tier: "P3_NO_GSC_VISIBILITY_YET",
+      reason: "The attached GSC page-level snapshot contains no row for this URL in the selected window.",
+    };
+  }
   if (metrics.status !== "GSC_IMPORTED") {
     return {
       tier: "PENDING_GSC_EXPORT",
@@ -253,6 +266,7 @@ async function main() {
           impressions,
           ctr,
           average_position: averagePosition,
+          source_kind: gsc.source_kind,
           queries: Array.from(gscItem.queries.values())
             .sort((a, b) => b.impressions - a.impressions || b.clicks - a.clicks)
             .slice(0, 10),
@@ -263,6 +277,7 @@ async function main() {
           impressions,
           ctr,
           average_position: averagePosition,
+          source_kind: gsc?.source_kind ?? null,
           queries: [],
         };
 
@@ -301,6 +316,9 @@ async function main() {
   const warnings = [];
   if (records.length !== 96) blockers.push(`expected_96_records_found_${records.length}`);
   if (!gsc) warnings.push("NO_GSC_EXPORT_ATTACHED");
+  if (gsc?.source_kind === "gsc_browser_page_table_snapshot") {
+    warnings.push("GSC_SOURCE_PAGE_TABLE_SNAPSHOT_QUERY_DIMENSION_UNAVAILABLE");
+  }
   if (aggregate && aggregate.unmatchedRows.length > 0) {
     warnings.push(`GSC_EXPORT_UNMATCHED_ROWS_${aggregate.unmatchedRows.length}`);
   }
@@ -319,6 +337,7 @@ async function main() {
       gsc_csv: gsc
         ? {
             path: gsc.path,
+            source_kind: gsc.source_kind,
             sha256: gsc.sha256,
             row_count: gsc.row_count,
           }
@@ -333,7 +352,7 @@ async function main() {
     safety_boundary: {
       repo_artifact_only: true,
       gsc_api_call_attempted: false,
-      browser_automation_attempted: false,
+      read_only_browser_table_snapshot_used: gsc?.source_kind === "gsc_browser_page_table_snapshot",
       cms_write_attempted: false,
       search_queue_mutation_attempted: false,
       live_search_submit_attempted: false,
@@ -370,8 +389,11 @@ async function main() {
     "## GSC Source",
     "",
     gsc
-      ? `- Imported CSV: ${gsc.path}\n- CSV SHA256: ${gsc.sha256}\n- CSV rows: ${gsc.row_count}`
-      : "- No verified GSC Performance export was attached. This artifact provides the importer and preserves the evidence boundary.",
+      ? `- Imported CSV: ${gsc.path}\n- Source kind: ${gsc.source_kind}\n- CSV SHA256: ${gsc.sha256}\n- CSV rows: ${gsc.row_count}`
+      : "- No verified GSC Performance export or browser table snapshot was attached. This artifact provides the importer and preserves the evidence boundary.",
+    gsc?.source_kind === "gsc_browser_page_table_snapshot"
+      ? "\nSource limitation: this is a GSC page-dimension browser table snapshot, so query-level rows are not available in this artifact."
+      : "",
     "",
     "## Required Export",
     "",
@@ -390,7 +412,9 @@ async function main() {
     "",
     "## Safety Boundary",
     "",
-    "- No GSC API call, browser automation, CMS write, Search Queue mutation, live submit, sitemap/llms mutation, or frontend runtime change was performed.",
+    gsc?.source_kind === "gsc_browser_page_table_snapshot"
+      ? "- Read-only Chrome/GSC table capture was used. No GSC API call, Request Indexing, CMS write, Search Queue mutation, live submit, sitemap/llms mutation, or frontend runtime change was performed."
+      : "- No GSC API call, CMS write, Search Queue mutation, live submit, sitemap/llms mutation, or frontend runtime change was performed.",
     "",
   ].join("\n");
 
