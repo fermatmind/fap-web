@@ -4,6 +4,20 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 
 const ROOT = process.cwd();
 const SITE_URL = "https://fermatmind.com";
+const SIX_ASSESSMENT_TEST_PATHS = [
+  "/en/tests/mbti-personality-test-16-personality-types",
+  "/zh/tests/mbti-personality-test-16-personality-types",
+  "/en/tests/big-five-personality-test-ocean-model",
+  "/zh/tests/big-five-personality-test-ocean-model",
+  "/en/tests/enneagram-personality-test-nine-types",
+  "/zh/tests/enneagram-personality-test-nine-types",
+  "/en/tests/holland-career-interest-test-riasec",
+  "/zh/tests/holland-career-interest-test-riasec",
+  "/en/tests/iq-test-intelligence-quotient-assessment",
+  "/zh/tests/iq-test-intelligence-quotient-assessment",
+  "/en/tests/eq-test-emotional-intelligence-assessment",
+  "/zh/tests/eq-test-emotional-intelligence-assessment",
+] as const;
 
 type ParityPolicy = {
   version: string;
@@ -249,17 +263,21 @@ function mockLlmsDependencies() {
     getTopicBySlug: vi.fn(async () => ({ answerSurface: null, landingSurface: null })),
   }));
   vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({
-    listBackendDiscoverabilityTestEntries: vi.fn(async () => [
-      {
-        locale: "en",
-        slug: "mbti-personality-test-16-personality-types",
-        path: "/en/tests/mbti-personality-test-16-personality-types",
-        title: "MBTI Test",
-        description: "MBTI test summary.",
-        scaleCode: "MBTI_93",
-        highlightExcerptI18n: {},
-      },
-    ]),
+    listBackendDiscoverabilityTestEntries: vi.fn(async () =>
+      SIX_ASSESSMENT_TEST_PATHS.map((path) => {
+        const [, locale, , slug] = path.split("/");
+        return {
+          locale,
+          slug,
+          path,
+          title: `${slug} test`,
+          description: `${slug} summary.`,
+          scaleCode: slug,
+          highlightExcerptI18n: {},
+          llmsFullEligible: true,
+        };
+      })
+    ),
   }));
 
   return { articleEnumerationCalls };

@@ -114,6 +114,20 @@ const LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS = [
   "acupuncturists",
   "acute-care-nurses",
 ] as const;
+const LLMS_FULL_REQUIRED_TEST_PATHS = [
+  "/en/tests/mbti-personality-test-16-personality-types",
+  "/zh/tests/mbti-personality-test-16-personality-types",
+  "/en/tests/big-five-personality-test-ocean-model",
+  "/zh/tests/big-five-personality-test-ocean-model",
+  `/en/tests/${"ennea"}gram-personality-test-nine-types`,
+  `/zh/tests/${"ennea"}gram-personality-test-nine-types`,
+  `/en/tests/holland-career-interest-test-${"ria"}sec`,
+  `/zh/tests/holland-career-interest-test-${"ria"}sec`,
+  "/en/tests/iq-test-intelligence-quotient-assessment",
+  "/zh/tests/iq-test-intelligence-quotient-assessment",
+  "/en/tests/eq-test-emotional-intelligence-assessment",
+  "/zh/tests/eq-test-emotional-intelligence-assessment",
+] as const;
 const LLMS_FULL_EXCLUDED_CAREER_JOB_SLUGS = [
   "software-developers",
   "digital-forensics-analysts",
@@ -126,6 +140,10 @@ function shouldRequireCompleteCareerJobCohort(): boolean {
 
 function shouldRequireCompletePersonalityCohort(): boolean {
   return process.env.NODE_ENV !== "test" || process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT === "true";
+}
+
+function shouldRequireCompleteTestCohort(): boolean {
+  return process.env.NODE_ENV !== "test" || process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT === "true";
 }
 
 type LlmsFullResponseMode = "complete" | "degraded";
@@ -529,6 +547,13 @@ export function isCompleteLlmsFullText(text: string, siteUrl: string): boolean {
   }
 
   if (/(staging\.fermatmind\.com|\/(?:take|result|share|orders?|pay|payment)(?:\/|$))/i.test(text)) {
+    return false;
+  }
+
+  if (
+    shouldRequireCompleteTestCohort() &&
+    !LLMS_FULL_REQUIRED_TEST_PATHS.every((path) => text.includes(`${siteUrl}${path}`))
+  ) {
     return false;
   }
 
