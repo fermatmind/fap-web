@@ -1,0 +1,255 @@
+{
+  "schema_version": "fermatmind.result_page_agent_readiness.v1",
+  "artifact_id": "iq-raven-result-page-agent-readiness-proposal-2026-06-22",
+  "created_at": "2026-06-22",
+  "run_mode": "proposal_only",
+  "approval_state": "not_requested",
+  "verdict": "IQ_RAVEN_RESULT_PAGE_AGENT_SCAFFOLD_READY",
+  "agent_id": "iq_raven_result_page",
+  "scale_code": "IQ_RAVEN",
+  "canonical_scale_code": "IQ_INTELLIGENCE_QUOTIENT",
+  "legacy_input_alias": "IQ_RAVEN",
+  "canonical_test_slug": "iq-test-intelligence-quotient-assessment",
+  "result_route": "/[locale]/result/[id]",
+  "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+  "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+  "pdf_behavior": "report_access_actions_pdf_href_or_api_pdf_when_available; iq_pro_pdf_payload_is_contract_defined_not_implemented_until_backend_file_generation_exists; backend_pdf_response_must_remain_private_no_store",
+  "share_behavior": "create_attempt_share_for_public_safe_share_url; share_view_reads_public_summary_scope_only and must not expose private attempt or report payload",
+  "frontend_renderer": {
+    "route": "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+    "client": "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+    "shell": "components/result/iq/IqResultShell.tsx",
+    "report_module": "components/result/iq/IqReportModule.tsx",
+    "view_model": "lib/iq/result.ts",
+    "constants": "lib/iq/constants.ts",
+    "rich_result_report": "components/result/RichResultReport.tsx",
+    "dispatch_contract": "ResultClient resolves report/result scale identity and dispatches IQ_RAVEN or IQ_INTELLIGENCE_QUOTIENT to IqResultShell before the generic RichResultReport branch."
+  },
+  "backend_authority": [
+    "fap-api:backend/app/Services/Report/IqReportBuilder.php",
+    "fap-api:backend/app/Services/Report/ReportComposerRegistry.php",
+    "fap-api:backend/app/Services/Iq/IqNormAuthorityContract.php",
+    "fap-api:backend/app/Services/Iq/IqResultPayloadRedactor.php",
+    "fap-api:backend/app/Http/Controllers/API/V0_3/AttemptReadController.php",
+    "fap-api:backend/app/Http/Controllers/API/V0_3/ShareController.php",
+    "fap-api:backend/docs/iq/iq-production-norm-authority.md",
+    "fap-api:backend/docs/iq/iq-beta-30-original-bank-spec.md",
+    "fap-api:backend/docs/iq/iq-beta-50-bank-spec.md"
+  ],
+  "source_of_truth": [
+    "iq_report_contract",
+    "iq_norm_authority",
+    "iq_answer_key_redaction_policy",
+    "report_access_response",
+    "fap_web_renderer_contract"
+  ],
+  "allowed_inputs": [
+    "sanitized_iq_report_contract",
+    "norm_authority_refs",
+    "renderer_contract",
+    "source_code_evidence",
+    "fixture_render_output",
+    "backend_contract_test_names"
+  ],
+  "allowed_outputs": [
+    "result_page_agent_readiness",
+    "runbook_schema_gate_proposal",
+    "read_only_evidence_map",
+    "non_diagnostic_claim_report"
+  ],
+  "forbidden_actions": [
+    "iq_diagnostic_guarantee",
+    "admissions_guarantee",
+    "career_outcome_prediction",
+    "norm_claim_without_authority",
+    "raw_private_result_access",
+    "answer_key_or_correct_answer_publication",
+    "private_result_indexing",
+    "cms_or_search_mutation",
+    "provider_call",
+    "sitemap_robots_llms_schema_hreflang_generated_seo_artifact_mutation",
+    "production_db_or_env_mutation",
+    "payment_order_mutation"
+  ],
+  "evidence_labels": [
+    "iq_norm_authority",
+    "iq_report_builder",
+    "iq_payload_redactor",
+    "frontend_renderer",
+    "report_access_api",
+    "pdf_certificate_boundary",
+    "share_boundary",
+    "missing_agent_stack",
+    "sanitized_proposal_only"
+  ],
+  "output_artifacts": [
+    "docs/result-page-agents/iq-raven-result-page-agent-scaffold-scan-2026-06-22.md",
+    "docs/result-page-agents/iq-raven-result-page-agent-readiness.proposal.json",
+    "generated/result-page-agents/iq_raven/<run_id>/readiness.json (future sanitized artifact; not generated in this task)"
+  ],
+  "checks": [
+    {
+      "id": "json_schema_validation",
+      "status": "proposed",
+      "evidence": "tests/contracts/iq-raven-result-page-agent-readiness-proposal.contract.test.ts validates required fields against six-scale-result-agent-readiness.template.json."
+    },
+    {
+      "id": "result_route_contract_check",
+      "status": "mapped",
+      "evidence": "app/(localized)/[locale]/(app)/result/[id]/page.tsx uses NOINDEX_ROBOTS, force-dynamic rendering, and ResultClient."
+    },
+    {
+      "id": "report_api_contract_check",
+      "status": "mapped",
+      "evidence": "lib/api/v0_3.ts fetchAttemptReport maps to /api/v0.3/attempts/{attempt_id}/report; fap-api route maps to AttemptReadController::report."
+    },
+    {
+      "id": "report_access_api_contract_check",
+      "status": "mapped",
+      "evidence": "lib/api/v0_3.ts fetchAttemptReportAccess maps to /api/v0.3/attempts/{attempt_id}/report-access; fap-api route maps to AttemptReadController::reportAccess."
+    },
+    {
+      "id": "frontend_renderer_contract_check",
+      "status": "mapped_existing_iq_contracts",
+      "evidence": "ResultClient dispatches IQ scale codes to IqResultShell; iq-result-renderer and iq-report-module contracts cover rendering behavior."
+    },
+    {
+      "id": "pdf_print_private_url_redaction_check",
+      "status": "mapped_existing_shared_contracts",
+      "evidence": "result-private-print-chrome, result-print-url-redaction, report-action-url-safety, and IQ report-module contracts cover PDF/placeholder boundaries."
+    },
+    {
+      "id": "share_surface_public_private_boundary_check",
+      "status": "mapped_shared_contract",
+      "evidence": "lib/api/v0_3.ts createAttemptShare/getShareSummary map to fap-api share routes; dedicated IQ share gate is still proposed."
+    },
+    {
+      "id": "private_result_noindex_check",
+      "status": "mapped",
+      "evidence": "Result route metadata uses NOINDEX_ROBOTS."
+    },
+    {
+      "id": "analytics_event_contract_check",
+      "status": "mapped_existing_runtime_events",
+      "evidence": "ResultClient emits result loading, email recovery, and report telemetry; dedicated IQ result-page agent analytics gate is still proposed."
+    },
+    {
+      "id": "claim_privacy_safety_gate_check",
+      "status": "mapped_existing_iq_claim_and_launch_guards",
+      "evidence": "iq-claim-seo-launch-guard, iq-launch-readiness-smoke, backend IqNormAuthorityContract, and IqResultPayloadRedactor cover no diagnostic/norm claim and no answer-key leakage boundaries."
+    },
+    {
+      "id": "source_classification_check",
+      "status": "proposed",
+      "evidence": "This proposal classifies source-code and test evidence only; future generated readiness artifacts need explicit source classification."
+    }
+  ],
+  "stop_conditions": [
+    "diagnostic_claim_required",
+    "admissions_guarantee_required",
+    "career_outcome_prediction_required",
+    "norm_authority_missing_or_not_claim_eligible",
+    "answer_key_or_correct_answer_access_required",
+    "private_attempt_required",
+    "public_profile_and_private_result_content_blended",
+    "fixture_mock_unknown_or_stale_data_would_drive_production_action",
+    "default_denied_action_without_exact_human_approval"
+  ],
+  "human_approval_required": [
+    "implementing_agent_command_or_service",
+    "using_live_private_samples",
+    "changing_result_renderer",
+    "cms_write_import_publish_or_media_upload",
+    "search_channel_enqueue_approve_or_submit",
+    "provider_call",
+    "production_db_or_env_change",
+    "payment_order_mutation",
+    "iq_norm_claim_unlock",
+    "pdf_or_certificate_download_enablement"
+  ],
+  "current_readiness": "missing_agent_stack",
+  "next_goal": "IQ-RAVEN-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01",
+  "missing_runbook_schema_gates": [
+    "dedicated_iq_raven_result_page_agent_runbook",
+    "result_page_agent_readiness_json_schema_or_validator",
+    "iq_raven_readiness_artifact_generator_command",
+    "iq_raven_specific_readiness_contract_gate",
+    "source_classification_gate",
+    "iq_claim_privacy_safety_gate",
+    "iq_pdf_certificate_boundary_gate",
+    "iq_share_surface_boundary_gate"
+  ],
+  "iq_specific_safety_gates": [
+    "no_answer_key_leak",
+    "no_correct_answer_leak",
+    "no_diagnostic_claim",
+    "no_admissions_guarantee",
+    "no_career_outcome_prediction",
+    "pdf_certificate_boundary"
+  ],
+  "existing_tests": {
+    "fap_web_shared": [
+      "tests/contracts/result-client-view-state.contract.test.tsx",
+      "tests/contracts/result-access-token-api.contract.test.ts",
+      "tests/contracts/report-action-url-safety.contract.test.ts",
+      "tests/contracts/result-private-print-chrome.contract.test.ts",
+      "tests/contracts/result-print-url-redaction.contract.test.ts",
+      "tests/contracts/result-private-leak-regressions.contract.test.ts",
+      "tests/contracts/rich-result-report.contract.test.tsx"
+    ],
+    "fap_web_iq": [
+      "tests/contracts/iq-result-renderer.contract.test.tsx",
+      "tests/contracts/iq-report-module.contract.test.tsx",
+      "tests/contracts/iq-frontend-api-contracts.contract.test.ts",
+      "tests/contracts/iq-question-renderer.contract.test.tsx",
+      "tests/contracts/iq-bank-display-model.contract.test.ts",
+      "tests/contracts/iq-claim-seo-launch-guard.contract.test.ts",
+      "tests/contracts/iq-launch-readiness-smoke.contract.test.ts",
+      "tests/contracts/iq-result-renderer.contract.test.tsx",
+      "tests/e2e/iq-eq-result-regression.spec.ts"
+    ],
+    "fap_api_iq": [
+      "backend/tests/Feature/V0_3/IqReportContractTest.php",
+      "backend/tests/Feature/Content/IqNormAuthorityTest.php",
+      "backend/tests/Unit/Services/Report/IqReportBuilderTest.php",
+      "backend/tests/Feature/Content/IqBeta30OriginalBankSpecTest.php",
+      "backend/tests/Feature/Content/IqBeta50BankSpecTest.php",
+      "backend/tests/Feature/Content/IqBeta30OriginalBankImportTest.php",
+      "backend/tests/Unit/Assessment/IqTestDriverTest.php"
+    ]
+  },
+  "source_classification": {
+    "fap_web_source": "backend_authority_consumer_code",
+    "fap_api_source": "backend_authority_code",
+    "iq_norm_docs": "backend_authority_documentation",
+    "fixtures": "fixture",
+    "live_public": "not_accessed",
+    "private_result_data": "not_accessed",
+    "cms": "not_written",
+    "search_queue": "not_accessed_or_mutated",
+    "provider_consoles": "not_called"
+  },
+  "safety_confirmation": {
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "publish": "none",
+    "search_submissions": "none",
+    "provider_calls": "none",
+    "private_result_data_accessed": "none",
+    "payment_order_mutation": "none",
+    "env_changes": "none"
+  },
+  "negative_guarantees": [
+    "no_runtime_code_implementation",
+    "no_cms_write",
+    "no_publish",
+    "no_search_url_submission",
+    "no_indexing_request",
+    "no_google_baidu_indexnow_bing_provider_call",
+    "no_search_channel_queue_mutation",
+    "no_sitemap_robots_llms_schema_hreflang_generated_seo_artifact_mutation",
+    "no_production_db_or_env_mutation",
+    "no_payment_order_mutation",
+    "no_private_result_data_access"
+  ]
+}
