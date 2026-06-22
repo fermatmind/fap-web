@@ -1396,8 +1396,10 @@ const CODEQL_HYGIENE_ALLOWED_FILES = new Set([
   "lib/tracking/seoCtaAttribution.ts",
   "next-sitemap.config.js",
   "scripts/seo/detect-internal-link-orphans.mjs",
+  "scripts/seo/generate-mbti64-agent-expansion-88.mjs",
   "tests/contracts/article-metadata-consumption-gate.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti64-agent-expansion-88-security.contract.test.ts",
   "tests/contracts/riasec-full-content-freeze.contract.test.tsx",
   "tests/e2e/big5-flow.spec.ts",
 ]);

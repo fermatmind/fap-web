@@ -119,10 +119,11 @@ function fullUrl(pagePath) {
 }
 
 async function fetchCurrentSurface(node) {
+  const targetUrl = fullUrl(node.path);
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 12_000);
   try {
-    const response = await fetch(node.url, {
+    const response = await fetch(targetUrl, {
       signal: controller.signal,
       headers: { "user-agent": "FermatMind MBTI64 agent expansion dry-run" },
     });
