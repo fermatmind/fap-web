@@ -945,7 +945,11 @@ export default async function TestLandingPage({
   const whenToUse = toStringValue(langNode.when_to_use);
   const audienceItems = parseStringList(langNode.audience);
   const howItWorksItems = parseStringList(langNode.how_it_works);
-  const disclaimer = cmsLandingSurfaceContent.methodologyBoundaryNote || toStringValue(langNode.disclaimer);
+  const disclaimer =
+    cmsLandingSurfaceContent.methodologyBoundaryNote
+    || toStringValue(langNode.disclaimer)
+    || flagshipFreeTestCopy?.freeBoundary
+    || "";
   const reportSummary = toStringValue(reportNode.summary);
   const faqItems = parseFaq(langNode.faq);
   const rollout = resolveScaleRollout({
@@ -1395,9 +1399,9 @@ export default async function TestLandingPage({
                 ) : null}
                 <div className="max-w-3xl space-y-2 text-[var(--fm-text-muted)]">
                   <p className="m-0">{heroCopy}</p>
-                  {flagshipFreeTestCopy?.freeBoundary ? (
+                  {disclaimer ? (
                     <p className="m-0" data-testid="test-detail-free-boundary">
-                      {flagshipFreeTestCopy.freeBoundary}
+                      {disclaimer}
                     </p>
                   ) : null}
                 </div>
