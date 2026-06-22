@@ -11,6 +11,7 @@ CORE_PUBLIC_PATH="${CORE_PUBLIC_PATH:-/zh/tests/clinical-depression-anxiety-asse
 SITEMAP_PATH="${SITEMAP_PATH:-/sitemap.xml}"
 SITEMAP_URL="${SITEMAP_URL:-${PUBLIC_BASE_URL%/}${SITEMAP_PATH}}"
 SITEMAP_CURL_TIMEOUT_SEC="${SITEMAP_CURL_TIMEOUT_SEC:-20}"
+RUN_SITEMAP_HEALTH="${RUN_SITEMAP_HEALTH:-1}"
 GIT_BRANCH="${GIT_BRANCH:-main}"
 EXPECTED_NODE_MAJOR="${EXPECTED_NODE_MAJOR:-24}"
 EXPECTED_NODE_BIN="${EXPECTED_NODE_BIN:-/usr/bin/node}"
@@ -169,7 +170,7 @@ cd "$APP_DIR"
 
 log "sync code with origin/${GIT_BRANCH}"
 git fetch --prune origin
-git checkout "$GIT_BRANCH"
+git checkout -B "$GIT_BRANCH" "origin/${GIT_BRANCH}"
 git reset --hard "origin/${GIT_BRANCH}"
 log "current commit: $(git rev-parse --short HEAD)"
 
@@ -215,7 +216,11 @@ probe_headers "${PUBLIC_BASE_URL}/en" 1
 probe_headers "${PUBLIC_BASE_URL}/zh" 1
 probe_headers "${PUBLIC_BASE_URL}/en/pay/wait" 1
 probe_headers "${PUBLIC_BASE_URL}${CORE_PUBLIC_PATH}" 1
-require_sitemap_health "$SITEMAP_URL"
+if [[ "$RUN_SITEMAP_HEALTH" == "1" ]]; then
+  require_sitemap_health "$SITEMAP_URL"
+else
+  log "skip sitemap health (RUN_SITEMAP_HEALTH=0)"
+fi
 
 if [[ "$RUN_CMS_BASELINE_STAGING_SMOKE" == "1" ]]; then
   log "run staging CMS baseline smoke"

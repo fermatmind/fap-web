@@ -1428,6 +1428,12 @@ const ENNEAGRAM_PHASE8C_CONFIGURABLE_TIMEOUT_SCOPE_GUARD_ALLOWED_FILES = new Set
   "tests/e2e/enneagram-phase8c-production-equivalent-candidate-e2e.spec.ts",
 ]);
 
+const MBTI64_AGENT_EXPANSION_88_SECURITY_ALLOWED_FILES = new Set([
+  "scripts/seo/generate-mbti64-agent-expansion-88.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti64-agent-expansion-88-security.contract.test.ts",
+]);
+
 const CODEQL_HTTP_FILE_ACCESS_108_ALLOWED_FILES = new Set([
   "scripts/ops/check-big5-v2-live-result-pdf.mjs",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -2599,6 +2605,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   }
 
   if (isAiImpactV5ExpandedPageQaAllowedFile(file)) {
+    return true;
+  }
+
+  if (MBTI64_AGENT_EXPANSION_88_SECURITY_ALLOWED_FILES.has(file)) {
     return true;
   }
 
