@@ -1,21 +1,26 @@
 {
   "artifact": "MBTI64-SEO-MEASUREMENT-COHORT-GSC-IMPORT-01",
-  "generated_at": "2026-06-22T00:22:07.391Z",
+  "generated_at": "2026-06-22T00:46:47.105Z",
   "status": "pass",
-  "final_decision": "PASS_IMPORTER_READY_GSC_EXPORT_REQUIRED",
+  "final_decision": "PASS_GSC_IMPORTED_PRIORITY_READY",
   "input_artifacts": {
     "cohort": "docs/seo/personality/mbti64-seo-measurement-cohort-2026-06-22.json",
-    "gsc_csv": null
+    "gsc_csv": {
+      "path": "docs/seo/personality/mbti64-gsc-performance-page-snapshot-2026-06-22.csv",
+      "source_kind": "gsc_browser_page_table_snapshot",
+      "sha256": "b0182ba26ca17088d620bcc3d460813af7d74db726f434815ca0f77fea907ae4",
+      "row_count": 145
+    }
   },
   "summary": {
     "total": 96,
-    "with_gsc_rows": 0,
-    "pending_gsc": 96,
-    "imported_no_row": 0,
+    "with_gsc_rows": 16,
+    "pending_gsc": 0,
+    "imported_no_row": 80,
     "p0": 0,
     "p1": 0,
-    "p2": 0,
-    "p3": 0
+    "p2": 16,
+    "p3": 80
   },
   "records": [
     {
@@ -54,16 +59,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 21,
+        "ctr": 0,
+        "average_position": 26.9,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -102,16 +108,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -150,16 +157,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -198,16 +206,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "average_position": 38.4,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -246,16 +255,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -294,16 +304,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -342,16 +353,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "average_position": 25,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -390,16 +402,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -438,16 +451,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -486,16 +500,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -534,16 +549,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -582,16 +598,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -630,16 +647,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "average_position": 26.7,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -678,16 +696,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -726,16 +745,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0,
+        "average_position": 26.7,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -774,16 +794,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -822,16 +843,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -870,16 +892,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -918,16 +941,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -966,16 +990,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1014,16 +1039,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1062,16 +1088,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1110,16 +1137,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1158,16 +1186,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "average_position": 46.5,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -1206,16 +1235,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1254,16 +1284,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1302,16 +1333,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1350,16 +1382,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1398,16 +1431,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1446,16 +1480,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1493,16 +1528,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1540,16 +1576,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 5,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -1587,16 +1624,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1635,16 +1673,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 9,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -1682,16 +1721,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "average_position": 10.8,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -1730,16 +1770,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1778,16 +1819,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1826,16 +1868,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1874,16 +1917,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1922,16 +1966,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -1970,16 +2015,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2018,16 +2064,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2066,16 +2113,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2114,16 +2162,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2162,16 +2211,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2210,16 +2260,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 11,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -2258,16 +2309,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2306,16 +2358,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2354,16 +2407,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2402,16 +2456,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2450,16 +2505,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2498,16 +2554,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2546,16 +2603,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2594,16 +2652,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2642,16 +2701,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2690,16 +2750,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2738,16 +2799,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2786,16 +2848,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2834,16 +2897,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2882,16 +2946,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -2930,16 +2995,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 8,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -2978,16 +3044,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3026,16 +3093,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3074,16 +3142,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 7,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -3122,16 +3191,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3170,16 +3240,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3218,16 +3289,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3266,16 +3338,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3314,16 +3387,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3362,16 +3436,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3410,16 +3485,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3458,16 +3534,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3506,16 +3583,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3554,16 +3632,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3602,16 +3681,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3650,16 +3730,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3698,16 +3779,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3745,16 +3827,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3792,16 +3875,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3840,16 +3924,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3887,16 +3972,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -3935,16 +4021,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "average_position": 12.7,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -3983,16 +4070,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "average_position": 11,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -4031,16 +4119,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -4079,16 +4168,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -4127,16 +4217,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -4175,16 +4266,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -4223,16 +4315,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -4271,16 +4364,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -4319,16 +4413,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -4366,16 +4461,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 1,
+        "impressions": 23,
+        "ctr": 0.043478,
+        "average_position": 9,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -4414,16 +4510,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -4462,16 +4559,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -4510,16 +4608,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
-        "clicks": null,
-        "impressions": null,
-        "ctr": null,
-        "average_position": null,
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "average_position": 7.3,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P2_EARLY_VISIBILITY_OBSERVE",
+        "reason": "Some visibility exists; observe trend before rewriting."
       }
     },
     {
@@ -4558,16 +4657,17 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     },
     {
@@ -4606,20 +4706,422 @@
         }
       },
       "gsc": {
-        "status": "GSC_EVIDENCE_PENDING",
+        "status": "GSC_IMPORTED_NO_ROW_FOR_URL",
         "clicks": null,
         "impressions": null,
         "ctr": null,
         "average_position": null,
+        "source_kind": "gsc_browser_page_table_snapshot",
         "queries": []
       },
       "opportunity": {
-        "tier": "PENDING_GSC_EXPORT",
-        "reason": "No verified GSC export was attached to this import run."
+        "tier": "P3_NO_GSC_VISIBILITY_YET",
+        "reason": "The attached GSC page-level snapshot contains no row for this URL in the selected window."
       }
     }
   ],
-  "unmatched_gsc_rows": [],
+  "unmatched_gsc_rows": [
+    {
+      "url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "query": "",
+      "clicks": 1,
+      "impressions": 59,
+      "ctr": 0.017,
+      "position": 9.1
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "query": "",
+      "clicks": 1,
+      "impressions": 14,
+      "ctr": 0.071,
+      "position": 14.7
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/how-personality-shapes-attitude-toward-ai",
+      "query": "",
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 7
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/college-major-choice-holland-mbti-career-test",
+      "query": "",
+      "clicks": 0,
+      "impressions": 47,
+      "ctr": 0,
+      "position": 8.5
+    },
+    {
+      "url": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
+      "query": "",
+      "clicks": 0,
+      "impressions": 38,
+      "ctr": 0,
+      "position": 19.7
+    },
+    {
+      "url": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+      "query": "",
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 43.2
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/big-five-tool-guide",
+      "query": "",
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 8.5
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "query": "",
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 10.5
+    },
+    {
+      "url": "https://fermatmind.com/en/career/jobs/market-research-analysts-and-marketing-specialists",
+      "query": "",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 5.8
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/mbti-vs-holland-career-choice",
+      "query": "",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 6.3
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "query": "",
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 8.3
+    },
+    {
+      "url": "https://fermatmind.com/en/career/jobs/dispatchers-except-police-fire-and-ambulance",
+      "query": "",
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles",
+      "query": "",
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 9.1
+    },
+    {
+      "url": "https://fermatmind.com/en/career/jobs/art-drama-and-music-teachers-postsecondary",
+      "query": "",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 5.6
+    },
+    {
+      "url": "https://fermatmind.com/zh/personality",
+      "query": "",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 6.1
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/iq-test-score-and-limits-explained",
+      "query": "",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 11.3
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/aircraft-and-avionics-equipment-mechanics-and-technicians",
+      "query": "",
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "url": "https://fermatmind.com/en",
+      "query": "",
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 49.3
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/mbti-basics",
+      "query": "",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 4.4
+    },
+    {
+      "url": "https://fermatmind.com/en/career/jobs/funeral-home-managers",
+      "query": "",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 7.2
+    },
+    {
+      "url": "https://fermatmind.com/en/career/jobs/web-and-digital-interface-designers",
+      "query": "",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 9.2
+    },
+    {
+      "url": "https://fermatmind.com/en/career/jobs/sales-representatives-wholesale-and-manufacturing-except-technical-and-scientific-products",
+      "query": "",
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 9.8
+    },
+    {
+      "url": "https://fermatmind.com/en/career/jobs/chemistry-teachers-postsecondary",
+      "query": "",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 5.2
+    },
+    {
+      "url": "https://fermatmind.com/en/career/jobs/postmasters-and-mail-superintendents",
+      "query": "",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 6.2
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "query": "",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 7.5
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/eq-test-tool-guide",
+      "query": "",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 8.8
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/archivists",
+      "query": "",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 9.5
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/enneagram-personality-test-explained",
+      "query": "",
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 14.8
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/are-infj-men-rare-or-socially-silenced",
+      "query": "",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 2.7
+    },
+    {
+      "url": "https://fermatmind.com/zh/careers",
+      "query": "",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "url": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "query": "",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 5.3
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/aerospace-engineers",
+      "query": "",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "url": "https://fermatmind.com/",
+      "query": "",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 9.3
+    },
+    {
+      "url": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "query": "",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 13.7
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/information-technology-project-managers",
+      "query": "",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/purchasing-managers",
+      "query": "",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 17
+    },
+    {
+      "url": "https://fermatmind.com/en/articles/mbti-personality-test-science-vs-pseudoscience",
+      "query": "",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 19.3
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/automotive-service-technicians-and-mechanics",
+      "query": "",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 33.7
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/floor-layers-except-carpet-wood-and-hard-tiles",
+      "query": "",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/costume-attendants",
+      "query": "",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "url": "https://fermatmind.com/en/career/jobs/reservation-and-transportation-ticket-agents-and-travel-clerks",
+      "query": "",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 3.5
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/police-identification-and-records-officers",
+      "query": "",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4.5
+    },
+    {
+      "url": "https://fermatmind.com/en/career/jobs/data-warehousing-specialists",
+      "query": "",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "url": "https://fermatmind.com/en/career/jobs/geoscientists-except-hydrologists-and-geographers",
+      "query": "",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/iq-test-tool-guide",
+      "query": "",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/guides",
+      "query": "",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/slaughterers-and-meat-packers",
+      "query": "",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/gaming-services-occupations",
+      "query": "",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6.5
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/substitute-teachers-short-term",
+      "query": "",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6.5
+    },
+    {
+      "url": "https://fermatmind.com/en/career/jobs/architects-except-landscape-and-naval",
+      "query": "",
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7.5
+    }
+  ],
   "export_instructions": {
     "source": "Google Search Console Performance > Search results",
     "property": "sc-domain:fermatmind.com",
@@ -4661,17 +5163,18 @@
   },
   "blockers": [],
   "warnings": [
-    "NO_GSC_EXPORT_ATTACHED"
+    "GSC_SOURCE_PAGE_TABLE_SNAPSHOT_QUERY_DIMENSION_UNAVAILABLE",
+    "GSC_EXPORT_UNMATCHED_ROWS_129"
   ],
   "safety_boundary": {
     "repo_artifact_only": true,
     "gsc_api_call_attempted": false,
-    "browser_automation_attempted": false,
+    "read_only_browser_table_snapshot_used": true,
     "cms_write_attempted": false,
     "search_queue_mutation_attempted": false,
     "live_search_submit_attempted": false,
     "sitemap_llms_mutation_attempted": false,
     "frontend_runtime_change_attempted": false
   },
-  "recommended_next_task": "MBTI64-SEO-MEASUREMENT-COHORT-GSC-EXPORT-ATTACH-01"
+  "recommended_next_task": "MBTI64-AGENT-OPTIMIZATION-PRIORITY-SELECTION-01"
 }
