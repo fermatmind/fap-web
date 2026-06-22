@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "task_id": "FA30-WEB-05",
+  "status": "planning_contract_only",
+  "runtime_behavior_changed": false,
+  "public_routes_changed": false,
+  "search_surfaces_changed": false,
+  "flagship_surface": {
+    "scale": "riasec",
+    "path": "/en/tests/holland-career-interest-test-riasec",
+    "status": "existing_runtime_surface",
+    "authority": "backend_landing_surface_or_public_api"
+  },
+  "future_surfaces": [
+    {
+      "surface": "major_cluster_index",
+      "status": "planned_not_implemented",
+      "purpose": "browse broad academic or training clusters through interest lenses",
+      "authority": "backend_cms_or_major_cluster_api"
+    },
+    {
+      "surface": "major_cluster_detail",
+      "status": "planned_not_implemented",
+      "purpose": "explain cluster activities and interest-pattern exploration boundaries",
+      "authority": "backend_cms_or_major_cluster_api"
+    },
+    {
+      "surface": "career_bridge_panel",
+      "status": "planned_not_implemented",
+      "purpose": "connect clusters to representative career families without guaranteed outcomes",
+      "authority": "backend_career_authority_api"
+    },
+    {
+      "surface": "evidence_review_ledger",
+      "status": "planned_not_implemented",
+      "purpose": "gate claims and indexability with reviewed evidence",
+      "authority": "backend_authority_ledger"
+    }
+  ],
+  "cluster_fields": [
+    "cluster_id",
+    "cluster_name",
+    "riasec_primary_codes",
+    "riasec_secondary_codes",
+    "discipline_family",
+    "learning_environment",
+    "work_activity_family",
+    "evidence_sources",
+    "review_status",
+    "claim_tier",
+    "indexability_status"
+  ],
+  "allowed_claims": [
+    "riasec_as_exploration_lens",
+    "cluster_as_research_starting_point",
+    "compare_broad_learning_activities",
+    "ask_better_advisor_questions",
+    "representative_career_families_only"
+  ],
+  "forbidden_claims": [
+    "best_major_selection",
+    "gaokao_score_prediction",
+    "admission_probability_prediction",
+    "school_fit_guarantee",
+    "employment_or_salary_guarantee",
+    "sole_basis_for_major_choice",
+    "replacement_for_advisor_guidance",
+    "reviewed_claim_without_backend_ledger"
+  ],
+  "seo_boundary": {
+    "programmatic_expansion_allowed": false,
+    "thin_page_generation_allowed": false,
+    "n_by_n_major_career_personality_expansion_allowed": false,
+    "sitemap_change_allowed": false,
+    "llms_change_allowed": false,
+    "canonical_change_allowed": false,
+    "hreflang_change_allowed": false,
+    "jsonld_change_allowed": false,
+    "search_submission_allowed": false
+  },
+  "authority_boundary": {
+    "frontend_publishable_content_authority": false,
+    "frontend_local_fallback_content_allowed": false,
+    "backend_or_cms_authority_required": true,
+    "review_ledger_required_before_indexability": true
+  },
+  "mvp_recommendation": {
+    "ship_cluster_pages_now": false,
+    "ship_planning_contract_now": true,
+    "next_backend_task": "define major-cluster authority schema and dry-run review ledger",
+    "next_frontend_task": "wait for backend projection before renderer work"
+  },
+  "negative_guarantees": [
+    "no_runtime_routes",
+    "no_public_frontend_copy",
+    "no_sitemap_or_llms_change",
+    "no_robots_canonical_hreflang_jsonld_change",
+    "no_cms_publish",
+    "no_search_submit",
+    "no_provider_calls",
+    "no_deploy"
+  ]
+}
