@@ -1,0 +1,143 @@
+{
+  "schema_version": "fermatmind.riasec_result_page_agent_readonly_route_api_pdf_share_review.v1",
+  "artifact_id": "riasec-result-page-agent-readonly-route-api-pdf-share-review-2026-06-23",
+  "created_at": "2026-06-23",
+  "task_id": "RIASEC-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01",
+  "run_mode": "docs_contracts_readonly_riasec_review",
+  "approval_state": "not_requested",
+  "verdict": "RIASEC_READONLY_ROUTE_API_PDF_SHARE_REVIEW_READY_WITH_RUNTIME_PRODUCTION_HOLDS",
+  "input_refs": {
+    "riasec_standard_alignment": "docs/result-page-agents/riasec-result-page-agent-standard-alignment-2026-06-23.md",
+    "riasec_readiness_proposal": "docs/result-page-agents/riasec-result-page-agent-readiness.proposal.json",
+    "runtime_qa_handoff": "docs/result-page-agents/result-page-agent-runtime-qa-handoff.v1.json",
+    "seo_control_handoff": "docs/result-page-agents/result-page-agent-seo-control-handoff.v1.json",
+    "render_preview_fixture_manifest": "tests/fixtures/riasec/result_page_v2/render_preview_fixture_manifest.v0_1.json"
+  },
+  "safety_confirmation": {
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "private_attempt_access": "none",
+    "backend_writing_command_run": "no",
+    "seo_search_mutation": "none",
+    "provider_calls": "none",
+    "production_import": "none",
+    "rollout": "none",
+    "generated_readiness_artifact": "future_not_generated"
+  },
+  "identity": {
+    "agent_id": "riasec_result_page",
+    "scale_code": "RIASEC",
+    "canonical_test_slug": "holland-career-interest-test-riasec",
+    "supported_forms": [
+      "riasec_60",
+      "riasec_140"
+    ],
+    "one_flagship_landing": "holland-career-interest-test-riasec"
+  },
+  "review_surfaces": [
+    {
+      "id": "private_result_route_noindex",
+      "status": "DOC_MATCH",
+      "evidence": "app/(localized)/[locale]/(app)/result/[id]/page.tsx is dynamic, revalidate=0, and noindex in existing alignment evidence."
+    },
+    {
+      "id": "renderer_dispatch",
+      "status": "DOC_MATCH",
+      "evidence": "ResultClient -> RichResultReport -> RiasecResultShell through hasRiasecProjection and assembleRiasecResultViewModel."
+    },
+    {
+      "id": "report_api",
+      "status": "DOC_MATCH",
+      "endpoint": "/api/v0.3/attempts/{attempt_id}/report"
+    },
+    {
+      "id": "report_access_api",
+      "status": "DOC_MATCH",
+      "endpoint": "/api/v0.3/attempts/{attempt_id}/report-access"
+    },
+    {
+      "id": "pdf_behavior",
+      "status": "DOC_MATCH",
+      "evidence": "PDF behavior remains report-access governed, backend-authored, private/no-store, and covered by existing redaction contracts."
+    },
+    {
+      "id": "share_behavior",
+      "status": "DOC_MATCH",
+      "evidence": "Share behavior uses public-safe share scope and must not expose raw feedback, private report payloads, raw scores, score vectors, or selector traces."
+    },
+    {
+      "id": "public_projection_consumption",
+      "status": "DOC_MATCH",
+      "projection_versions": [
+        "riasec_public_projection_v2",
+        "riasec_public_projection_v1"
+      ],
+      "evidence": "Renderer validates backend public projection before RIASEC rich rendering."
+    },
+    {
+      "id": "leak_redaction",
+      "status": "DOC_MATCH",
+      "forbidden_public_fields": [
+        "raw_score",
+        "raw_scores",
+        "score_vector",
+        "percentile",
+        "selector_trace",
+        "source_refs",
+        "qa_trace",
+        "editor_notes",
+        "private_url",
+        "report_token",
+        "attempt_id",
+        "user_id"
+      ]
+    },
+    {
+      "id": "career_bridge_boundary",
+      "status": "DOC_MATCH",
+      "allowed": "career bridge examples-only from public-safe projection",
+      "forbidden": [
+        "deterministic career recommendation",
+        "admissions guarantee",
+        "hiring screen",
+        "salary prediction",
+        "performance prediction",
+        "success prediction",
+        "ability guarantee"
+      ]
+    }
+  ],
+  "source_classification": {
+    "allowed_sources": [
+      "source evidence",
+      "sanitized fixtures",
+      "existing backend authority docs/tests",
+      "fap-web route/renderer/API adapter contracts"
+    ],
+    "forbidden_sources": [
+      "private attempts",
+      "raw private result payload",
+      "backend commands that write artifacts without explicit authorization",
+      "production database",
+      "provider consoles",
+      "Search Queue"
+    ]
+  },
+  "go_no_go": {
+    "readonly_review": "GO",
+    "runtime_enablement": "NO_GO",
+    "cms_import": "NO_GO",
+    "production_import": "NO_GO",
+    "production_rollout": "NO_GO",
+    "seo_search_mutation": "NO_GO",
+    "generated_readiness_artifact": "NO_GO_WITHOUT_EXPLICIT_AUTHORIZATION"
+  },
+  "future_release_chain_not_executed": [
+    "production import execution authorization",
+    "production import execution",
+    "post-import evidence",
+    "pilot preflight",
+    "pilot allowlist",
+    "rollout approval"
+  ]
+}
