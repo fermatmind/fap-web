@@ -15221,7 +15221,7 @@
       "depends_on": [
         "PR-EQ-PER-02"
       ],
-      "status": "pr_open",
+      "status": "ready_to_merge",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/938",
       "commit_sha": "e61fca746f00bfe0faff132fd229459a9088122c",
       "merge_sha": null,
@@ -25467,6 +25467,18 @@
         "pull_request": {
           "status": "open",
           "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1301 after local checks and scope validation passed."
+        },
+        "github_checks": {
+          "status": "pass",
+          "checks": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "evidence": "GitHub checks passed on PR #1301 head 8767f19548fae614e761469f30b6017a90dfd4b2 and mergeStateStatus was CLEAN; PR changed-file scope revalidation passed."
         }
       },
       "history": [
@@ -25484,6 +25496,11 @@
           "at": "2026-06-22T09:13:44+08:00",
           "status": "pr_open",
           "note": "Opened fap-web PR #1301 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-22T09:22:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1301 head 8767f19548fae614e761469f30b6017a90dfd4b2 and mergeStateStatus was CLEAN; scope revalidation stayed within PR6 allowed files."
         }
       ]
     }
