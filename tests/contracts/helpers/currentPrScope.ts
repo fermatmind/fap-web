@@ -284,6 +284,15 @@ const MBTI64_GSC_IMPORT_STABILIZE_01_ALLOWED_FILES = new Set([
   "tests/contracts/mbti64-gsc-import-stabilize.contract.test.ts",
 ]);
 
+const MBTI64_AGENT_PRIORITY_RANKER_01_ALLOWED_FILES = new Set([
+  "docs/seo/personality/mbti64-agent-priority-ranker-2026-06-23.csv",
+  "docs/seo/personality/mbti64-agent-priority-ranker-2026-06-23.json",
+  "docs/seo/personality/mbti64-agent-priority-ranker-2026-06-23.md",
+  "scripts/seo/rank-mbti64-agent-priorities.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti64-agent-priority-ranker.contract.test.ts",
+]);
+
 const CONTRACT_SCOPE_GUARD_STRATEGY_02_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/personality-public-profile-agent-split-01.contract.test.ts",
@@ -2739,6 +2748,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/mbti64-gsc-import-stabilize-01" &&
     MBTI64_GSC_IMPORT_STABILIZE_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/mbti64-agent-priority-ranker-01" &&
+    MBTI64_AGENT_PRIORITY_RANKER_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
