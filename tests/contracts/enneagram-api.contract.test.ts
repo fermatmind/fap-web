@@ -243,6 +243,17 @@ describe("enneagram frontend API contract", () => {
     expect(JSON.stringify(payload.answers)).not.toMatch(/score|raw|type_vector|ranked/i);
   });
 
+  it("keeps the production live-result smoke payload aligned with Enneagram submit contract", () => {
+    const source = fs.readFileSync(
+      path.join(process.cwd(), "scripts/ops/check-live-result-smoke.mjs"),
+      "utf8"
+    );
+
+    expect(source).toContain('label: "Enneagram"');
+    expect(source).toContain('includeQuestionIndex: true');
+    expect(source).toContain("...(scale.includeQuestionIndex ? { question_index: index } : {}),");
+  });
+
   it("consumes report, access, and history endpoints without introducing a frontend projection bridge", async () => {
     await fetchEnneagramReport({
       attemptId: "attempt_enneagram_1",
