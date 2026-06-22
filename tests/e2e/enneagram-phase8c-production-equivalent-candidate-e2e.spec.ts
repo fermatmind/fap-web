@@ -2,7 +2,7 @@ import * as crypto from "node:crypto";
 import * as fs from "node:fs";
 import * as path from "node:path";
 
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test, type Page, type Route } from "@playwright/test";
 import { buildReportOutputDir, writeReportFile } from "./helpers/report-output";
 
 const CANDIDATE_DIR = process.env.PHASE8B_CANDIDATE_DIR;
@@ -14,6 +14,11 @@ const EXPECTED_RUNTIME_REGISTRY_MANIFEST_SHA256 =
   "ac5bdaab3c761b0d01a56f92679aa58341110d64de0f47a1fa0062b64f76f97f";
 const EXPECTED_PAYLOAD_COUNT = 630;
 const API_V0_3_PREFIX = "(?:/api)?/v0\\.3";
+const API_MOCK_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Headers": "Authorization, Content-Type, X-Anon-Id, X-FAP-Locale, X-Locale, X-Result-Access-Token",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+};
 
 const GROUP_COUNTS = {
   baseline: 36,
@@ -430,6 +435,66 @@ function buildFixtureRecord(payloadDir: string, fileName: string): FixtureRecord
   };
 }
 
+async function fulfillApiJson(route: Route, status: number, payload: JsonRecord): Promise<void> {
+  await route.fulfill({
+    status,
+    headers: API_MOCK_HEADERS,
+    contentType: "application/json",
+    body: JSON.stringify(payload),
+  });
+}
+
+async function fulfillApiNoContent(route: Route): Promise<void> {
+  await route.fulfill({
+    status: 204,
+    headers: API_MOCK_HEADERS,
+    body: "",
+  });
+}
+
+async function installSameOriginApiFetchRewrite(page: Page): Promise<void> {
+  await page.addInitScript(() => {
+    const originalFetch = window.fetch.bind(window);
+    const localApiOrigins = new Set(["http://127.0.0.1:8000", "http://localhost:8000"]);
+
+    function rewriteApiInput(input: RequestInfo | URL): RequestInfo | URL {
+      const rawUrl =
+        typeof input === "string"
+          ? input
+          : input instanceof URL
+            ? input.toString()
+            : input instanceof Request
+              ? input.url
+              : "";
+
+      if (!rawUrl) {
+        return input;
+      }
+
+      try {
+        const url = new URL(rawUrl, window.location.origin);
+        if (!localApiOrigins.has(url.origin) || !url.pathname.startsWith("/api/")) {
+          return input;
+        }
+
+        const sameOriginPath = `${url.pathname}${url.search}${url.hash}`;
+        if (input instanceof Request) {
+          return new Request(sameOriginPath, input);
+        }
+        if (input instanceof URL) {
+          return new URL(sameOriginPath, window.location.origin);
+        }
+
+        return sameOriginPath;
+      } catch {
+        return input;
+      }
+    }
+
+    window.fetch = (input, init) => originalFetch(rewriteApiInput(input), init);
+  });
+}
+
 function inspectCandidateBase(): CandidateContext {
   if (!CANDIDATE_DIR) {
     throw new CandidateStructureGapError("Missing required env var: PHASE8B_CANDIDATE_DIR");
@@ -530,6 +595,8 @@ function loadCandidateContext(): CandidateContext {
 }
 
 async function installRouteMocks(page: Page, fixtureRecord: FixtureRecord): Promise<void> {
+  await installSameOriginApiFetchRewrite(page);
+
   const reportEnvelope = {
     ok: true,
     scale_code: "ENNEAGRAM",
@@ -543,90 +610,74 @@ async function installRouteMocks(page: Page, fixtureRecord: FixtureRecord): Prom
   };
 
   await page.route("**/api/track", async (route) => {
-    await route.fulfill({ status: 204, body: "" });
+    await fulfillApiNoContent(route);
   });
 
   await page.route(/.*(?:\/api)?\/v0\.3\/auth\/guest(?:\?.*)?$/, async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({ ok: true, fm_token: "fm_phase8c_enneagram_candidate" }),
-    });
+    await fulfillApiJson(route, 200, { ok: true, fm_token: "fm_phase8c_enneagram_candidate" });
   });
 
   await page.route(/.*(?:\/api)?\/v0\.3\/me\/attempts\/link-anon(?:\?.*)?$/, async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({ ok: true, linked_count: 0 }),
-    });
+    await fulfillApiJson(route, 200, { ok: true, linked_count: 0 });
   });
 
   await page.route(new RegExp(`${API_V0_3_PREFIX}/attempts/${fixtureRecord.attemptId}/report-access(?:\\?.*)?$`), async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        attempt_id: fixtureRecord.attemptId,
-        access_state: "ready",
-        report_state: "ready",
-        pdf_state: "unavailable",
-        reason_code: "report_ready",
-        actions: {
-          page_href: `/en/result/${fixtureRecord.attemptId}`,
-        },
-      }),
+    await fulfillApiJson(route, 200, {
+      ok: true,
+      attempt_id: fixtureRecord.attemptId,
+      access_state: "ready",
+      report_state: "ready",
+      pdf_state: "unavailable",
+      reason_code: "report_ready",
+      actions: {
+        page_href: `/en/result/${fixtureRecord.attemptId}`,
+      },
     });
   });
 
   await page.route(new RegExp(`${API_V0_3_PREFIX}/attempts/${fixtureRecord.attemptId}/report(?:\\?.*)?$`), async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify(reportEnvelope),
-    });
+    await fulfillApiJson(route, 200, reportEnvelope);
   });
 
   await page.route(new RegExp(`${API_V0_3_PREFIX}/attempts/${fixtureRecord.attemptId}/result(?:\\?.*)?$`), async (route) => {
-    await route.fulfill({
-      status: 200,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: true,
-        meta: { scale_code: "ENNEAGRAM" },
-        result: {
-          _meta: {
-            enneagram_report_v2: fixtureRecord.fixture,
-          },
+    await fulfillApiJson(route, 200, {
+      ok: true,
+      meta: { scale_code: "ENNEAGRAM" },
+      result: {
+        _meta: {
+          enneagram_report_v2: fixtureRecord.fixture,
         },
-      }),
+      },
     });
   });
 
   await page.route(new RegExp(`${API_V0_3_PREFIX}/attempts/${fixtureRecord.attemptId}/submission(?:\\?.*)?$`), async (route) => {
-    await route.fulfill({
-      status: 404,
-      contentType: "application/json",
-      body: JSON.stringify({
-        ok: false,
-        error: {
-          code: "ATTEMPT_NOT_FOUND",
-        },
-      }),
+    await fulfillApiJson(route, 404, {
+      ok: false,
+      error: {
+        code: "ATTEMPT_NOT_FOUND",
+      },
+    });
+  });
+
+  await page.route(new RegExp(`${API_V0_3_PREFIX}/attempts/${fixtureRecord.attemptId}/invite-unlocks(?:\\?.*)?$`), async (route) => {
+    await fulfillApiJson(route, 200, {
+      ok: true,
+      status: "not_required",
+      required_invitees: 0,
+      completed_invitees: 0,
+      target_attempt_id: fixtureRecord.attemptId,
+      unlock_stage: "full",
+      unlock_source: "none",
     });
   });
 
   await page.route(
     new RegExp(`${API_V0_3_PREFIX}/attempts/${fixtureRecord.attemptId}/enneagram/observation(?:\\?.*)?$`),
     async (route) => {
-      await route.fulfill({
-        status: 200,
-        contentType: "application/json",
-        body: JSON.stringify({
-          ok: true,
-          observation_state_v1: null,
-        }),
+      await fulfillApiJson(route, 200, {
+        ok: true,
+        observation_state_v1: null,
       });
     },
   );
