@@ -1,0 +1,220 @@
+{
+  "schema_version": "fermatmind.result_page_agent_readiness.v1",
+  "artifact_id": "mbti-result-page-agent-readiness-proposal-2026-06-22",
+  "created_at": "2026-06-22",
+  "run_mode": "proposal_only",
+  "approval_state": "not_requested",
+  "verdict": "MBTI_RESULT_PAGE_AGENT_SCAFFOLD_READY",
+  "agent_id": "mbti_result_page",
+  "scale_code": "MBTI",
+  "canonical_test_slug": "mbti-personality-test-16-personality-types",
+  "result_route": "/[locale]/result/[id]",
+  "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+  "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+  "pdf_behavior": "report_access_actions_pdf_href_or_mbti_access_hub_pdf_href_when_ready; backend_pdf_response_is_private_no_store",
+  "share_behavior": "create_attempt_share_for_public_safe_share_url; share_view_reads_public_summary_scope_only",
+  "frontend_renderer": {
+    "route": "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+    "client": "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+    "dispatcher": "components/result/RichResultReport.tsx",
+    "shell": "components/result/mbti/MbtiResultShell.tsx",
+    "dispatch_contract": "ResultClient fetches report-access and report, RichResultReport renders MBTI only when mbti_public_projection_v1 is present, then passes sanitized projection/access data into MbtiResultShell."
+  },
+  "backend_authority": [
+    "fap-api:backend/app/Services/Report/ReportComposer.php",
+    "fap-api:backend/app/Services/Mbti/Adapters/MbtiReportAuthoritySourceAdapter.php",
+    "fap-api:backend/app/Services/Mbti/MbtiPublicProjectionService.php",
+    "fap-api:backend/app/Http/Controllers/API/V0_3/AttemptReadController.php",
+    "fap-api:backend/app/Http/Controllers/API/V0_3/ShareController.php"
+  ],
+  "source_of_truth": [
+    "backend_report_payload",
+    "report_access_response",
+    "mbti_report_authority_adapter",
+    "mbti_public_projection_service",
+    "fap_web_renderer_contract"
+  ],
+  "allowed_inputs": [
+    "sanitized_report_contract",
+    "renderer_contract",
+    "source_code_evidence",
+    "fixture_render_output",
+    "backend_contract_test_names"
+  ],
+  "allowed_outputs": [
+    "result_page_agent_readiness",
+    "runbook_schema_gate_proposal",
+    "read_only_evidence_map"
+  ],
+  "forbidden_actions": [
+    "raw_private_result_access",
+    "private_result_indexing",
+    "private_result_text_publication",
+    "cms_or_search_mutation",
+    "provider_call",
+    "sitemap_robots_llms_schema_hreflang_generated_seo_artifact_mutation",
+    "production_db_or_env_mutation",
+    "payment_order_mutation"
+  ],
+  "evidence_labels": [
+    "mbti_report_authority",
+    "frontend_renderer",
+    "report_access_api",
+    "pdf_share_boundary",
+    "missing_agent_stack",
+    "sanitized_proposal_only"
+  ],
+  "output_artifacts": [
+    "docs/result-page-agents/mbti-result-page-agent-scaffold-scan-2026-06-22.md",
+    "docs/result-page-agents/mbti-result-page-agent-readiness.proposal.json",
+    "generated/result-page-agents/mbti/<run_id>/readiness.json (future sanitized artifact; not generated in this task)"
+  ],
+  "checks": [
+    {
+      "id": "json_schema_validation",
+      "status": "proposed",
+      "evidence": "tests/contracts/mbti-result-page-agent-readiness-proposal.contract.test.ts validates required fields against six-scale-result-agent-readiness.template.json."
+    },
+    {
+      "id": "result_route_contract_check",
+      "status": "mapped",
+      "evidence": "app/(localized)/[locale]/(app)/result/[id]/page.tsx uses noindex private route and ResultClient."
+    },
+    {
+      "id": "report_api_contract_check",
+      "status": "mapped",
+      "evidence": "lib/api/v0_3.ts fetchAttemptReport plus fap-api AttemptReadController::report."
+    },
+    {
+      "id": "report_access_api_contract_check",
+      "status": "mapped",
+      "evidence": "lib/api/v0_3.ts fetchAttemptReportAccess plus fap-api AttemptReadController::reportAccess."
+    },
+    {
+      "id": "frontend_renderer_contract_check",
+      "status": "mapped",
+      "evidence": "RichResultReport renders MbtiResultShell when MBTI projection exists."
+    },
+    {
+      "id": "pdf_print_private_url_redaction_check",
+      "status": "mapped_existing_shared_contracts",
+      "evidence": "result-private-print-chrome, result-print-url-redaction, and report-action-url-safety contracts exist; MBTI PDF href is gated by report access."
+    },
+    {
+      "id": "share_surface_public_private_boundary_check",
+      "status": "mapped_existing_mbti_contracts",
+      "evidence": "mbti-share-consumer contract, mbti-share e2e, and fap-api MbtiAttemptShareAccessTest exist."
+    },
+    {
+      "id": "private_result_noindex_check",
+      "status": "mapped",
+      "evidence": "Result route metadata uses NOINDEX_ROBOTS."
+    },
+    {
+      "id": "analytics_event_contract_check",
+      "status": "mapped_existing_runtime_events",
+      "evidence": "ResultClient and MbtiResultShell emit result/share/report loading events; dedicated agent gate still proposed."
+    },
+    {
+      "id": "claim_privacy_safety_gate_check",
+      "status": "proposed",
+      "evidence": "Dedicated MBTI result-page agent gate is not yet implemented."
+    },
+    {
+      "id": "source_classification_check",
+      "status": "proposed",
+      "evidence": "This proposal classifies source-code and test evidence only; future generated artifacts need explicit source classification."
+    }
+  ],
+  "stop_conditions": [
+    "backend_report_authority_missing",
+    "private_attempt_required",
+    "public_profile_and_private_result_content_blended",
+    "fixture_mock_unknown_or_stale_data_would_drive_production_action",
+    "default_denied_action_without_exact_human_approval",
+    "unsupported_scientific_career_or_conversion_claim"
+  ],
+  "human_approval_required": [
+    "implementing_agent_command_or_service",
+    "using_live_private_samples",
+    "changing_result_renderer",
+    "cms_write_import_publish_or_media_upload",
+    "search_channel_enqueue_approve_or_submit",
+    "provider_call",
+    "production_db_or_env_change",
+    "payment_order_mutation"
+  ],
+  "current_readiness": "missing_agent_stack",
+  "next_goal": "MBTI-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01",
+  "missing_runbook_schema_gates": [
+    "dedicated_mbti_result_page_agent_runbook",
+    "result_page_agent_readiness_json_schema_or_validator",
+    "mbti_readiness_artifact_generator_command",
+    "mbti_specific_readiness_contract_gate",
+    "source_classification_gate",
+    "claim_privacy_safety_gate"
+  ],
+  "existing_tests": {
+    "fap_web_shared": [
+      "tests/contracts/result-client-view-state.contract.test.tsx",
+      "tests/contracts/result-access-token-api.contract.test.ts",
+      "tests/contracts/report-action-url-safety.contract.test.ts",
+      "tests/contracts/result-private-print-chrome.contract.test.ts",
+      "tests/contracts/result-print-url-redaction.contract.test.ts",
+      "tests/contracts/result-private-leak-regressions.contract.test.ts",
+      "tests/contracts/rich-result-report.contract.test.tsx"
+    ],
+    "fap_web_mbti": [
+      "tests/contracts/mbti-share-consumer.contract.test.tsx",
+      "tests/contracts/mbti-private-relationship.consumer.contract.test.tsx",
+      "tests/contracts/mbti-preview-semantics.contract.test.tsx",
+      "tests/contracts/mbti-shell-authored-fields.contract.test.tsx",
+      "tests/contracts/mbti-shell-ui.contract.test.tsx",
+      "tests/e2e/mbti-share.spec.ts",
+      "tests/e2e/mbti-locked-unlock.spec.ts"
+    ],
+    "fap_api_mbti": [
+      "backend/tests/Feature/V0_3/MbtiReportHttpContractRegressionTest.php",
+      "backend/tests/Feature/V0_3/MbtiAttemptShareAccessTest.php",
+      "backend/tests/Feature/V0_3/AttemptReportAccessReadTest.php",
+      "backend/tests/Feature/V0_3/AttemptPublicReportPdfParityTest.php",
+      "backend/tests/Feature/Report/MbtiCanonicalPublicAuthorityScaffoldTest.php",
+      "backend/tests/Feature/Report/MbtiReportContentEnhancementContractTest.php",
+      "backend/tests/Unit/Services/Mbti/MbtiPublicProjectionServiceTest.php",
+      "backend/tests/Unit/Support/Mbti/MbtiCanonicalPublicResultSchemaTest.php"
+    ]
+  },
+  "source_classification": {
+    "fap_web_source": "backend_authority_consumer_code",
+    "fap_api_source": "backend_authority_code",
+    "fixtures": "fixture",
+    "live_public": "not_accessed",
+    "private_result_data": "not_accessed",
+    "cms": "not_written",
+    "search_queue": "not_accessed_or_mutated",
+    "provider_consoles": "not_called"
+  },
+  "safety_confirmation": {
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "publish": "none",
+    "search_submissions": "none",
+    "provider_calls": "none",
+    "private_result_data_accessed": "none",
+    "payment_order_mutation": "none",
+    "env_changes": "none"
+  },
+  "negative_guarantees": [
+    "no_runtime_code_implementation",
+    "no_cms_write",
+    "no_publish",
+    "no_search_url_submission",
+    "no_indexing_request",
+    "no_google_baidu_indexnow_bing_provider_call",
+    "no_search_channel_queue_mutation",
+    "no_sitemap_robots_llms_schema_hreflang_generated_seo_artifact_mutation",
+    "no_production_db_or_env_mutation",
+    "no_payment_order_mutation",
+    "no_private_result_data_access"
+  ]
+}

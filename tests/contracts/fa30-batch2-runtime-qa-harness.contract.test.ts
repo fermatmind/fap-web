@@ -11,7 +11,7 @@ import {
   EXPECTED_SCHEMA_VERSION,
   assessBatch2RuntimeQaHandoff,
 } from "../../scripts/ops/check-batch2-runtime-qa-handoff.mjs";
-import { isFa30Web02AllowedFile } from "./helpers/currentPrScope";
+import { isCurrentRiasecPack12AllowedFile, isFa30Web02AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const FIXTURE_PATH = "tests/fixtures/result_page/batch2_readback_review_ledger.sample.json";
@@ -150,6 +150,9 @@ describe("FA30-WEB-02 Batch 2 frontend runtime QA harness", () => {
       return;
     }
 
-    expect(files.every((file) => isFa30Web02AllowedFile(file)), files.join("\n")).toBe(true);
+    expect(
+      files.every((file) => isFa30Web02AllowedFile(file) || isCurrentRiasecPack12AllowedFile(file)),
+      files.join("\n")
+    ).toBe(true);
   });
 });

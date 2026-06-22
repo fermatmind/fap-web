@@ -2508,6 +2508,14 @@ const RESULT_PAGE_AGENT_PLATFORM_STANDARD_01_ALLOWED_FILES = new Set([
   "tests/contracts/mbti64-agent-expansion-88-security.contract.test.ts",
 ]);
 
+const MBTI_RESULT_PAGE_AGENT_SCAFFOLD_SCAN_01_ALLOWED_FILES = new Set([
+  "docs/result-page-agents/mbti-result-page-agent-readiness.proposal.json",
+  "docs/result-page-agents/mbti-result-page-agent-scaffold-scan-2026-06-22.md",
+  "tests/contracts/fa30-batch2-runtime-qa-harness.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-result-page-agent-readiness-proposal.contract.test.ts",
+]);
+
 function isFrontendUiPolishBatch02ScopeActive(): boolean {
   if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
     return true;
@@ -2624,6 +2632,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/result-page-agent-platform-standard-01" &&
     RESULT_PAGE_AGENT_PLATFORM_STANDARD_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/mbti-result-page-agent-scaffold-scan-01" &&
+    MBTI_RESULT_PAGE_AGENT_SCAFFOLD_SCAN_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
