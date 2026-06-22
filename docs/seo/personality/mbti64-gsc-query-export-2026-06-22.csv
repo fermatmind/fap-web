@@ -1,0 +1,14 @@
+target_url,path,locale,page_type,mbti_type,variant,query,query_clicks,query_impressions,query_ctr,query_position,page_clicks,page_impressions,page_ctr,page_average_position,query_row_status,capture_source
+https://fermatmind.com/en/personality/enfj-a,/en/personality/enfj-a,en,variant,ENFJ,A,enfj-a,0,1,0%,4,0,21,0%,26.9,QUERY_ROWS_CAPTURED_FROM_GSC_UI,chrome_gsc_ui_filtered_query_table
+https://fermatmind.com/en/personality/esfj-t,/en/personality/esfj-t,en,variant,ESFJ,T,,,,,,0,15,0%,26.7,GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE,chrome_gsc_ui_filtered_query_table
+https://fermatmind.com/zh/personality/intp-a,/zh/personality/intp-a,zh,variant,INTP,A,intp-a,0,3,0%,10.3,0,9,0%,12.7,QUERY_ROWS_CAPTURED_FROM_GSC_UI,chrome_gsc_ui_filtered_query_table
+https://fermatmind.com/en/personality/enfp-a,/en/personality/enfp-a,en,variant,ENFP,A,,,,,,0,10,0%,38.4,GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE,chrome_gsc_ui_filtered_query_table
+https://fermatmind.com/zh/personality/istp-a,/zh/personality/istp-a,zh,variant,ISTP,A,,,,,,0,7,0%,7.3,GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE,chrome_gsc_ui_filtered_query_table
+https://fermatmind.com/zh/personality/intp-a-vs-intp-t,/zh/personality/intp-a-vs-intp-t,zh,comparison,INTP,,,,,,,0,2,0%,11,GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE,chrome_gsc_ui_filtered_query_table
+https://fermatmind.com/en/personality/esfj-a,/en/personality/esfj-a,en,variant,ESFJ,A,,,,,,0,3,0%,26.7,GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE,chrome_gsc_ui_filtered_query_table
+https://fermatmind.com/zh/personality/esfp-a,/zh/personality/esfp-a,zh,variant,ESFP,A,esfp-a,0,1,0%,7,0,1,0%,7,QUERY_ROWS_CAPTURED_FROM_GSC_UI,chrome_gsc_ui_filtered_query_table
+https://fermatmind.com/zh/personality/esfj-a,/zh/personality/esfj-a,zh,variant,ESFJ,A,,,,,,0,1,0%,8,GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE,chrome_gsc_ui_filtered_query_table
+https://fermatmind.com/en/personality/intp-a,/en/personality/intp-a,en,variant,INTP,A,,,,,,0,1,0%,9,GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE,chrome_gsc_ui_filtered_query_table
+https://fermatmind.com/en/personality/istp-a,/en/personality/istp-a,en,variant,ISTP,A,,,,,,0,1,0%,11,GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE,chrome_gsc_ui_filtered_query_table
+https://fermatmind.com/en/personality/entj-a,/en/personality/entj-a,en,variant,ENTJ,A,,,,,,0,2,0%,25,GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE,chrome_gsc_ui_filtered_query_table
+https://fermatmind.com/en/personality/estp-t,/en/personality/estp-t,en,variant,ESTP,T,,,,,,0,2,0%,46.5,GSC_QUERY_TABLE_EMPTY_OR_SUPPRESSED_FOR_FILTERED_PAGE,chrome_gsc_ui_filtered_query_table
