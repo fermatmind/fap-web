@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -8,6 +7,7 @@ const AUDIT_DATE = process.env.AUDIT_DATE || "2026-06-21";
 const GENERATED_AT = process.env.GENERATED_AT || new Date().toISOString();
 const SITE_ORIGIN = "https://fermatmind.com";
 const GRAPH_PATH = "docs/seo/personality/internal-link-graph-2026-06-18.json";
+const INDEXATION_AUDIT_PATH = "docs/seo/personality/indexation-audit-2026-06-18.json";
 const REFERENCE_PACK_PATH = "docs/seo/personality/mbti64-optimized-pilot-reference-pack-2026-06-21.json";
 const SCHEMA_PATH = ".agents/skills/public-profile-seo-asset-factory/schemas/public-profile-agent-recommendation.schema.json";
 const OUTPUT_JSON = `docs/seo/personality/mbti64-agent-expansion-88-recommendations-${AUDIT_DATE}.json`;
@@ -86,10 +86,6 @@ function writeFile(relativePath, content) {
   fs.writeFileSync(absolute, content);
 }
 
-function sha256(value) {
-  return crypto.createHash("sha256").update(String(value)).digest("hex");
-}
-
 function normalizePath(value) {
   const raw = String(value || "").trim();
   if (!raw) return "";
@@ -106,54 +102,27 @@ function decodeHtml(value) {
   return String(value || "").replace(/&(amp|lt|gt|quot|#39|nbsp);/g, (match, entity) => entities[entity] || match);
 }
 
-function firstMatch(html, regex) {
-  return decodeHtml(String(html || "").match(regex)?.[1] || "").trim();
-}
-
-function stripTags(value) {
-  return String(value || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
-}
-
 function fullUrl(pagePath) {
   return `${SITE_ORIGIN}${normalizePath(pagePath)}`;
 }
 
-async function fetchCurrentSurface(node) {
-  const targetUrl = fullUrl(node.path);
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 12_000);
-  try {
-    const response = await fetch(targetUrl, {
-      signal: controller.signal,
-      headers: { "user-agent": "FermatMind MBTI64 agent expansion dry-run" },
-    });
-    const html = await response.text();
-    return {
-      status: response.status,
-      title: firstMatch(html, /<title[^>]*>([\s\S]*?)<\/title>/i),
-      description: firstMatch(html, /<meta[^>]+name=["']description["'][^>]+content=["']([^"']*)["'][^>]*>/i),
-      h1: firstMatch(html, /<h1[^>]*>([\s\S]*?)<\/h1>/i),
-      quick_answer: "",
-      faq_count: (stripTags(html).match(/\?/g) || []).length,
-      internal_link_count: (html.match(/href=["']\/(?:en|zh)\//g) || []).length,
-      html_sha256: sha256(html),
-      private_route_hits: PRIVATE_PATTERNS.filter((pattern) => pattern.test(html)).map((pattern) => pattern.toString()),
-    };
-  } catch (error) {
-    return {
-      status: null,
-      title: "",
-      description: "",
-      h1: "",
-      quick_answer: "",
-      faq_count: 0,
-      internal_link_count: 0,
-      fetch_error: error instanceof Error ? error.message : String(error),
-      private_route_hits: [],
-    };
-  } finally {
-    clearTimeout(timeout);
-  }
+function currentSurfaceFromAudit(node, auditRowsByPath) {
+  const row = auditRowsByPath.get(normalizePath(node.path));
+  const privateRouteSamples = Array.isArray(row?.private_url_samples) ? row.private_url_samples : [];
+  const privateRouteText = privateRouteSamples.join(" ");
+  const privateRouteHits = PRIVATE_PATTERNS.filter((pattern) => pattern.test(privateRouteText)).map((pattern) => pattern.toString());
+
+  return {
+    status: row?.actual_http_status ?? null,
+    title: decodeHtml(row?.title || ""),
+    description: decodeHtml(row?.description || ""),
+    h1: decodeHtml(row?.h1 || ""),
+    quick_answer: "",
+    faq_count: row?.faq_visible === "yes" ? 1 : 0,
+    internal_link_count: Number(row?.internal_link_count || 0),
+    private_route_hits: privateRouteHits,
+    source: "offline_indexation_audit",
+  };
 }
 
 function localeBucket(locale) {
@@ -335,7 +304,8 @@ function buildRecommendation(node, current, referencePack, graph) {
     framework: "mbti64",
     locale: localeBucket(node.locale) === "zh" ? "zh-CN" : "en",
     source_inputs: {
-      cms_or_api_snapshot: "live_html_surface_fetch",
+      cms_or_api_snapshot: "offline_indexation_audit",
+      indexation_audit: INDEXATION_AUDIT_PATH,
       reference_pack: REFERENCE_PACK_PATH,
       seo_signal: "GSC_EVIDENCE_PENDING",
       source_ledger: "docs/seo/personality/mbti64-optimized-pilot-reference-pack-2026-06-21.json",
@@ -347,6 +317,7 @@ function buildRecommendation(node, current, referencePack, graph) {
       quick_answer: current.quick_answer || "",
       faq_count: current.faq_count || 0,
       internal_link_count: current.internal_link_count || 0,
+      source: current.source || "offline_indexation_audit",
     },
     observed_signal: {
       evidence_state: "gsc_pending",
@@ -452,8 +423,10 @@ function markdown(report) {
 
 async function main() {
   const graph = readJson(GRAPH_PATH);
+  const indexationAudit = readJson(INDEXATION_AUDIT_PATH);
   const referencePack = readJson(REFERENCE_PACK_PATH);
   const schema = readJson(SCHEMA_PATH);
+  const auditRowsByPath = new Map((indexationAudit.rows || []).map((row) => [normalizePath(row.path), row]));
   const pilotPaths = new Set((graph.pilotUrls || []).map((item) => item.path));
   const expansionNodes = (graph.nodes || []).filter((node) => !pilotPaths.has(node.path));
   const blockers = [];
@@ -471,9 +444,9 @@ async function main() {
 
   const recommendations = [];
   for (const node of expansionNodes) {
-    const current = await fetchCurrentSurface(node);
+    const current = currentSurfaceFromAudit(node, auditRowsByPath);
     if (current.private_route_hits.length > 0) {
-      warnings.push(`${node.path}: live surface still reports private-route hints; recommendation body excludes them.`);
+      warnings.push(`${node.path}: offline indexation audit reports private-route hints; recommendation body excludes them.`);
     }
     recommendations.push(buildRecommendation(node, current, referencePack, graph));
   }
@@ -495,6 +468,7 @@ async function main() {
       "Artifact-only draft recommendations for 88 non-pilot MBTI64 public personality URLs. No CMS write, publish, indexability, sitemap/llms, Search Queue, approval, or submission action.",
     inputs: {
       internal_link_graph: GRAPH_PATH,
+      indexation_audit: INDEXATION_AUDIT_PATH,
       optimized_pilot_reference_pack: REFERENCE_PACK_PATH,
       runner_schema: SCHEMA_PATH,
     },
