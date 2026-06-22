@@ -143,7 +143,10 @@ function comparisonPath(locale, typeCode) {
 }
 
 function pathToPackageLocale(pagePath) {
-  return localeFromPath(pagePath) === "zh" ? "zh-CN" : "en";
+  const locale = localeFromPath(pagePath);
+  if (locale === "zh") return "zh-CN";
+  if (locale === "en") return "en";
+  return "";
 }
 
 function anchorFor(locale, edgeType, targetPath, typeCode, variant) {

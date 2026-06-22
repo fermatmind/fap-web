@@ -95,15 +95,6 @@ function safeUrlPath(value) {
   }
 }
 
-function slugFromText(value) {
-  return String(value || "seo")
-    .toLowerCase()
-    .replace(/https?:\/\//g, "")
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "")
-    .slice(0, 48) || "seo";
-}
-
 function normalizeLocale(locale) {
   return ["en", "zh"].includes(locale) ? locale : "en";
 }

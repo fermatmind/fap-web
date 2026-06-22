@@ -95,7 +95,6 @@ function buildCsv(rows) {
 
 async function main() {
   const review = await readJson(REVIEW_PATH);
-  const reviewByPath = new Map(review.reviewed_pages.map((page) => [page.path, page]));
   const blockers = [];
   const warnings = [];
 
