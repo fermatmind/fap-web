@@ -25509,14 +25509,14 @@
       "repo": "fap-web",
       "branch": "codex/six-hub-test-detail-frontend-landing-surface-consumer-01",
       "base": "main",
-      "status": "in_progress",
+      "status": "pr_open",
       "train_scope": "six_hub_test_detail_frontend_landing_surface_consumer",
       "title": "fix(seo): consume published CMS landing surfaces on flagship test detail pages",
       "depends_on": [
         "SEO-FREE-TEST-FLAGSHIP-LANDING-03"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "3ca2dbf9d6de51eac69079add53730d155b1a19a",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1305",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -25568,6 +25568,11 @@
           "at": "2026-06-22T13:52:00+08:00",
           "status": "local_validation_passed",
           "note": "Passed focused landing contracts, pnpm typecheck, production build, helper regression contracts, full pnpm test:contract, and git diff --check with the branch scope still confined to the declared runtime consumer files."
+        },
+        {
+          "at": "2026-06-22T13:56:00+08:00",
+          "status": "pr_open",
+          "note": "Opened GitHub PR #1305 from commit 3ca2dbf9d6de51eac69079add53730d155b1a19a after local validation passed and scope stayed within the registered manifest boundaries."
         }
       ]
     }
