@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-23T01:23:00+08:00",
+  "updated_at": "2026-06-23T03:18:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -25713,7 +25713,7 @@
       "repo": "fap-web",
       "branch": "codex/fa30-web-05-riasec-gaokao-major-cluster-ia",
       "base": "main",
-      "status": "ready_to_merge",
+      "status": "merged_cleanup_complete",
       "train_scope": "riasec_gaokao_major_cluster_ia_claim_boundary",
       "title": "FA30-WEB-05: docs(riasec): define Gaokao major cluster IA and claim boundary",
       "depends_on": [
@@ -25721,9 +25721,9 @@
       ],
       "commit_sha": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1338",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-22T17:12:03Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -25754,7 +25754,7 @@
         },
         "github": {
           "status": "pass",
-          "evidence": "GitHub PR #1338 required checks passed on branch head a9cafa7fb12a50d0c949f2dd1e57d60116202f5e: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL all completed successfully; mergeStateStatus was CLEAN."
+          "evidence": "PR #1338 merged via squash. GitHub reported merge commit ee3b27655f782df5fdc2b605266ce2465fa9a3cf; origin/main contains it; fap-web main was synced cleanly; remote branch and local task branch were deleted."
         }
       },
       "sidecar_issues": [],
@@ -25781,6 +25781,85 @@
         },
         {
           "at": "2026-06-23T01:23:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train ledger policy."
+        },
+        {
+          "at": "2026-06-23T02:55:00+08:00",
+          "status": "merged_cleanup_complete",
+          "note": "Reconciled stale FA30-WEB-05 ledger while starting dependent FA30-WEB-07: PR #1338 is merged, origin/main contains merge commit ee3b27655f782df5fdc2b605266ce2465fa9a3cf, and branch cleanup completed."
+        }
+      ]
+    },
+    {
+      "id": "FA30-WEB-07",
+      "repo": "fap-web",
+      "branch": "codex/fa30-web-07-competitor-alternative-policy",
+      "base": "main",
+      "status": "ready_to_merge",
+      "train_scope": "competitor_alternative_page_policy",
+      "title": "FA30-WEB-07: docs(seo): define competitor alternative page policy",
+      "depends_on": [
+        "FA30-WEB-05",
+        "FA30-API-08"
+      ],
+      "commit_sha": "b12929ccd515fd7119c003c97a9710e508e686e9",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1342",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly provided FA30-WEB-07 id, title, scope, and authorized manifest/state updates in the FA30-NON-AGENT-PR-TRAIN-01 /goal request."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "FA30-WEB-05 merged in fap-web PR #1338 with merge commit ee3b27655f782df5fdc2b605266ce2465fa9a3cf; FA30-API-08 merged in fap-api PR #2334 with merge commit 9bbb7a069216cb514af9aad89cc6d92aecf7efe2."
+        },
+        "scope": {
+          "status": "authorized",
+          "allowed_paths": [
+            "docs/seo/competitor-alternative-page-policy.md",
+            "docs/seo/generated/competitor-alternative-page-policy.v1.json",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Authorized scope is restricted to docs-only competitor alternative page policy planning plus PR-train metadata. No app, component, lib, public, tests, package, CMS, deploy, search, sitemap, llms, canonical, hreflang, JSON-LD, competitor fetch, or runtime route changes are in scope."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: python3 -m json.tool docs/seo/generated/competitor-alternative-page-policy.v1.json; python3 -m json.tool docs/codex/pr-train-state.json; ruby YAML parse for docs/codex/pr-train.yaml; git diff --check; explicit path allowlist scope validation. Scope remains docs-only and limited to two competitor alternative planning artifacts plus docs/codex metadata."
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1342 after local validation and scope validation passed. The branch head is the source of truth for the exact current SHA after metadata commits."
+        },
+        "github": {
+          "status": "pass",
+          "evidence": "GitHub PR #1342 required checks passed on branch head cc17ef215c366bc7bf9a0e4b82e49f6e70e24a95: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL all completed successfully; mergeStateStatus was CLEAN."
+        }
+      },
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-23T02:55:00+08:00",
+          "status": "in_progress",
+          "note": "Started FA30-WEB-07 from a clean origin/main fap-web worktree. Scope is docs-only competitor alternative page policy; no runtime, CMS, SEO runtime, competitor fetch, search submission, or deploy changes are allowed."
+        },
+        {
+          "at": "2026-06-23T03:02:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Added the competitor alternative page policy and generated policy contract, registered FA30-WEB-07 metadata, reconciled FA30-WEB-05 dependency state, and validated JSON, YAML, diff whitespace, and explicit path allowlist scope."
+        },
+        {
+          "at": "2026-06-23T03:08:00+08:00",
+          "status": "pr_open",
+          "note": "Opened GitHub PR #1342 after local validation passed. Scope remains limited to the competitor alternative policy doc, generated policy contract, and docs/codex metadata."
+        },
+        {
+          "at": "2026-06-23T03:18:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train ledger policy."
         }
