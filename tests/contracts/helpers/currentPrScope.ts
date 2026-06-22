@@ -2457,6 +2457,16 @@ const RESULT_P0_LIVE_PDFS_EVIDENCE_REPORT_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const AGENT_OS_REGISTRY_GO_HOLD_MATRIX_01_ALLOWED_FILES = new Set([
+  "docs/agent-os/AGENT_HANDOFF_PROTOCOL.md",
+  "docs/agent-os/AGENT_OPERATING_MODEL.md",
+  "docs/agent-os/agent-registry.v1.json",
+  "docs/agent-os/go-hold-matrix.v1.json",
+  "docs/result-page-agents/RESULT_PAGE_AGENT_PLATFORM_STANDARD.md",
+  "docs/result-page-agents/six-scale-result-agent-readiness.template.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 function isFrontendUiPolishBatch02ScopeActive(): boolean {
   if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
     return true;
@@ -2552,6 +2562,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/result-p0-live-pdfs-evidence-report-01" &&
     (RESULT_P0_LIVE_PDFS_EVIDENCE_REPORT_01_ALLOWED_FILES.has(file) || CODEQL_HYGIENE_ALLOWED_FILES.has(file))
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/agent-os-registry-go-hold-matrix-01" &&
+    (AGENT_OS_REGISTRY_GO_HOLD_MATRIX_01_ALLOWED_FILES.has(file) || CODEQL_HYGIENE_ALLOWED_FILES.has(file))
   ) {
     return true;
   }
