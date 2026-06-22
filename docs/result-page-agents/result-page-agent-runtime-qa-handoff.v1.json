@@ -1,0 +1,127 @@
+{
+  "schema_version": "fermatmind.result_page_agent_runtime_qa_handoff.v1",
+  "artifact_id": "result-page-agent-runtime-qa-handoff-2026-06-23",
+  "created_at": "2026-06-23",
+  "task_id": "RESULT-PAGE-AGENT-RUNTIME-QA-HANDOFF-01",
+  "run_mode": "docs_contracts_readonly_handoff",
+  "approval_state": "not_requested",
+  "verdict": "RUNTIME_QA_HANDOFF_READY_WITH_LIMITS",
+  "input_refs": {
+    "six_scale_readiness_matrix": "docs/result-page-agents/six-result-page-agent-readiness-matrix.v1.json",
+    "free_full_report_runtime_qa": "docs/result-page-agents/six-hub-free-full-report-runtime-qa.v1.json"
+  },
+  "safety_confirmation": {
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "private_result_data_accessed": "none",
+    "deployment_triggered": "no",
+    "seo_search_mutation": "none",
+    "provider_calls": "none",
+    "production_import": "none",
+    "rollout": "none"
+  },
+  "runtime_qa_allowed_inputs": [
+    "six-scale readiness matrix",
+    "free full report runtime QA artifact",
+    "existing route/report/report-access contracts",
+    "existing PDF/share/noindex/private-leak contracts",
+    "sanitized fixtures",
+    "public-safe projection summaries"
+  ],
+  "runtime_qa_forbidden_actions": [
+    "runtime code changes",
+    "CMS writes/import/publish/media upload",
+    "raw private attempt or result access",
+    "private report URL/token/account payload access",
+    "frontend fallback authority",
+    "SEO/search mutation",
+    "provider calls",
+    "deployment",
+    "production import",
+    "production rollout"
+  ],
+  "per_scale_handoff": [
+    {
+      "scale_code": "MBTI",
+      "agent_id": "mbti_result_page",
+      "handoff_status": "LIMITED_HANDOFF_SCAFFOLD_ONLY",
+      "runtime_qa_input_status": "route_api_access_mapped_agent_stack_missing",
+      "required_follow_up": "MBTI missing_agent_stack follow-up for runbook/schema/gates before generated readiness."
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "agent_id": "big_five_result_page",
+      "handoff_status": "HANDOFF_READY_WITH_SHARE_SAFETY_GAP",
+      "runtime_qa_input_status": "ready_readonly_with_share_safety_missing_count_1",
+      "required_follow_up": "Share-safety artifact repair remains outside this PR."
+    },
+    {
+      "scale_code": "RIASEC",
+      "agent_id": "riasec_result_page",
+      "handoff_status": "PRIORITY_HANDOFF_READY_READONLY",
+      "runtime_qa_input_status": "ready_readonly",
+      "required_follow_up": "RIASEC read-only route/API/PDF/share review is the final PR in this train."
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "agent_id": "iq_raven_result_page",
+      "handoff_status": "LIMITED_HANDOFF_SCAFFOLD_ONLY",
+      "runtime_qa_input_status": "route_api_access_mapped_agent_stack_missing",
+      "required_follow_up": "IQ Raven missing_agent_stack follow-up for runbook/schema/gates and diagnostic/answer-key safety."
+    },
+    {
+      "scale_code": "EQ_60",
+      "agent_id": "eq60_result_page",
+      "handoff_status": "LIMITED_HANDOFF_SCAFFOLD_ONLY",
+      "runtime_qa_input_status": "route_api_access_mapped_agent_stack_missing",
+      "required_follow_up": "EQ60 missing_agent_stack follow-up for runbook/schema/gates and non-clinical safety."
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "agent_id": "enneagram_result_page",
+      "handoff_status": "HANDOFF_READY_READONLY",
+      "runtime_qa_input_status": "ready_readonly",
+      "required_follow_up": "Generated readiness artifact remains future work unless separately authorized."
+    }
+  ],
+  "riasec_priority_review": {
+    "status": "PRIORITY_INPUT_FOR_RUNTIME_QA_AGENT",
+    "surfaces": [
+      "private result route",
+      "report API",
+      "report-access API",
+      "PDF behavior",
+      "share behavior",
+      "renderer dispatch",
+      "private noindex boundary",
+      "public projection v2/v1 consumption",
+      "no raw score/vector/percentile/selector/source/QA/editor/private URL leak",
+      "career-bridge boundary"
+    ],
+    "career_bridge_boundary": {
+      "allowed": "examples-only public-safe projection summaries",
+      "forbidden": [
+        "deterministic career recommendations",
+        "admissions decisions",
+        "hiring screens",
+        "salary prediction",
+        "performance prediction",
+        "success prediction",
+        "ability guarantees"
+      ]
+    }
+  },
+  "next_task": {
+    "id": "RESULT-PAGE-AGENT-ANALYTICS-HANDOFF-01",
+    "allowed_scope": [
+      "analytics event contract handoff",
+      "privacy exclusions",
+      "smoke event boundaries"
+    ],
+    "forbidden_scope": [
+      "runtime analytics mutation",
+      "provider calls",
+      "private payload emission"
+    ]
+  }
+}
