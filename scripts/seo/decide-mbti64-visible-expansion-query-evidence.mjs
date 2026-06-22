@@ -3,33 +3,43 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 const ROOT = process.cwd();
-const GENERATED_DATE = "2026-06-22";
-const REVIEW_PATH = path.join(
-  ROOT,
-  "docs/seo/personality/mbti64-agent-visible-expansion-13-review-2026-06-22.json",
+const GENERATED_DATE = getArgValue("--generated-date") ?? process.env.MBTI64_QUERY_DECISION_DATE ?? "2026-06-22";
+const REVIEW_PATH = resolveRepoPath(
+  getArgValue("--review") ?? "docs/seo/personality/mbti64-agent-visible-expansion-13-review-2026-06-22.json",
 );
-const QUERY_EXPORT_PATH = path.join(
-  ROOT,
-  "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-query-export-2026-06-22.json",
+const QUERY_EXPORT_PATH = resolveRepoPath(
+  getArgValue("--query-export") ??
+    "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-query-export-2026-06-22.json",
 );
-const QUERY_CSV_PATH = path.join(ROOT, "docs/seo/personality/mbti64-gsc-query-export-2026-06-22.csv");
-const RECOMMENDATIONS_PATH = path.join(
-  ROOT,
-  "docs/seo/personality/mbti64-agent-expansion-88-recommendations-2026-06-21.json",
+const QUERY_CSV_PATH = resolveRepoPath(
+  getArgValue("--query-csv") ?? "docs/seo/personality/mbti64-gsc-query-export-2026-06-22.csv",
 );
-const QA_PATH = path.join(ROOT, "docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.json");
-const OUTPUT_JSON = path.join(
-  ROOT,
-  `docs/seo/personality/mbti64-agent-visible-expansion-13-query-evidence-decision-${GENERATED_DATE}.json`,
+const RECOMMENDATIONS_PATH = resolveRepoPath(
+  getArgValue("--recommendations") ?? "docs/seo/personality/mbti64-agent-expansion-88-recommendations-2026-06-21.json",
 );
-const OUTPUT_MD = path.join(
-  ROOT,
-  `docs/seo/personality/mbti64-agent-visible-expansion-13-query-evidence-decision-${GENERATED_DATE}.md`,
+const QA_PATH = resolveRepoPath(getArgValue("--qa") ?? "docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.json");
+const OUTPUT_JSON = resolveRepoPath(
+  getArgValue("--output-json") ??
+    `docs/seo/personality/mbti64-agent-visible-expansion-13-query-evidence-decision-${GENERATED_DATE}.json`,
 );
-const OUTPUT_CSV = path.join(
-  ROOT,
-  `docs/seo/personality/mbti64-agent-visible-expansion-13-query-evidence-decision-${GENERATED_DATE}.csv`,
+const OUTPUT_MD = resolveRepoPath(
+  getArgValue("--output-md") ??
+    `docs/seo/personality/mbti64-agent-visible-expansion-13-query-evidence-decision-${GENERATED_DATE}.md`,
 );
+const OUTPUT_CSV = resolveRepoPath(
+  getArgValue("--output-csv") ??
+    `docs/seo/personality/mbti64-agent-visible-expansion-13-query-evidence-decision-${GENERATED_DATE}.csv`,
+);
+
+function getArgValue(name) {
+  const prefix = `${name}=`;
+  const found = process.argv.slice(2).find((arg) => arg.startsWith(prefix));
+  return found ? found.slice(prefix.length) : null;
+}
+
+function resolveRepoPath(filePath) {
+  return path.isAbsolute(filePath) ? filePath : path.join(ROOT, filePath);
+}
 
 const READY_PATHS = new Set(["/en/personality/enfj-a", "/zh/personality/intp-a", "/zh/personality/esfp-a"]);
 const READY_DECISION = "READY_QUERY_BACKED_LOW_RISK_DRAFT_REVIEW";

@@ -3,28 +3,35 @@ import fs from "node:fs/promises";
 import path from "node:path";
 
 const ROOT = process.cwd();
-const GENERATED_DATE = "2026-06-22";
-const GSC_IMPORT_PATH = path.join(
-  ROOT,
-  "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-2026-06-22.json",
+const GENERATED_DATE = getArgValue("--generated-date") ?? process.env.MBTI64_PRIORITY_SELECTION_DATE ?? "2026-06-22";
+const GSC_IMPORT_PATH = resolveRepoPath(
+  getArgValue("--gsc-import") ?? "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-2026-06-22.json",
 );
-const RECOMMENDATIONS_PATH = path.join(
-  ROOT,
-  "docs/seo/personality/mbti64-agent-expansion-88-recommendations-2026-06-21.json",
+const RECOMMENDATIONS_PATH = resolveRepoPath(
+  getArgValue("--recommendations") ?? "docs/seo/personality/mbti64-agent-expansion-88-recommendations-2026-06-21.json",
 );
-const QA_PATH = path.join(ROOT, "docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.json");
-const REFERENCE_PACK_PATH = path.join(
-  ROOT,
-  "docs/seo/personality/mbti64-optimized-pilot-reference-pack-2026-06-21.json",
+const QA_PATH = resolveRepoPath(getArgValue("--qa") ?? "docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.json");
+const REFERENCE_PACK_PATH = resolveRepoPath(
+  getArgValue("--reference-pack") ?? "docs/seo/personality/mbti64-optimized-pilot-reference-pack-2026-06-21.json",
 );
-const OUTPUT_JSON = path.join(
-  ROOT,
-  `docs/seo/personality/mbti64-agent-optimization-priority-selection-${GENERATED_DATE}.json`,
+const OUTPUT_JSON = resolveRepoPath(
+  getArgValue("--output-json") ??
+    `docs/seo/personality/mbti64-agent-optimization-priority-selection-${GENERATED_DATE}.json`,
 );
-const OUTPUT_MD = path.join(
-  ROOT,
-  `docs/seo/personality/mbti64-agent-optimization-priority-selection-${GENERATED_DATE}.md`,
+const OUTPUT_MD = resolveRepoPath(
+  getArgValue("--output-md") ??
+    `docs/seo/personality/mbti64-agent-optimization-priority-selection-${GENERATED_DATE}.md`,
 );
+
+function resolveRepoPath(filePath) {
+  return path.isAbsolute(filePath) ? filePath : path.join(ROOT, filePath);
+}
+
+function getArgValue(name) {
+  const prefix = `${name}=`;
+  const found = process.argv.slice(2).find((arg) => arg.startsWith(prefix));
+  return found ? found.slice(prefix.length) : null;
+}
 
 async function readJson(filePath) {
   return JSON.parse(await fs.readFile(filePath, "utf8"));
@@ -162,11 +169,10 @@ async function main() {
     status: blockers.length === 0 ? "pass" : "fail",
     final_decision: blockers.length === 0 ? "PASS_PRIORITY_SELECTION_READY" : "NO_GO_PRIORITY_SELECTION_BLOCKED",
     input_artifacts: {
-      gsc_import: "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-2026-06-22.json",
-      recommendations: "docs/seo/personality/mbti64-agent-expansion-88-recommendations-2026-06-21.json",
-      qa: "docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.json",
-      optimized_pilot_reference_pack:
-        "docs/seo/personality/mbti64-optimized-pilot-reference-pack-2026-06-21.json",
+      gsc_import: path.relative(ROOT, GSC_IMPORT_PATH),
+      recommendations: path.relative(ROOT, RECOMMENDATIONS_PATH),
+      qa: path.relative(ROOT, QA_PATH),
+      optimized_pilot_reference_pack: path.relative(ROOT, REFERENCE_PACK_PATH),
     },
     evidence_boundary: {
       source_kind: gscImport.input_artifacts?.gsc_csv?.source_kind ?? null,
