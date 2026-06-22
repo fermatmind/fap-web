@@ -103,10 +103,6 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
 
-function stable(value) {
-  return JSON.stringify(value);
-}
-
 function valueText(value) {
   if (value == null) return "";
   if (typeof value === "string") return value;
@@ -317,7 +313,6 @@ for (const row of rows) {
     blockers.push(`${row.url}: missing query intent map row.`);
     continue;
   }
-  const surface = `${row.seo?.seo_title || ""} ${row.seo?.h1 || ""} ${row.seo?.quick_answer_summary || ""} ${valueText(row.above_the_fold_module)} ${valueText(row.serp_ctr_package_v2)}`;
   const titleDescriptionSurface = `${row.seo?.seo_title || ""} ${row.seo?.seo_description || ""} ${row.seo?.h1 || ""} ${row.seo?.quick_answer_summary || ""} ${valueText(row.serp_ctr_package_v2)}`;
   if (row.primary_query !== intent.primary_query) {
     serpFindings.push({ url: row.url, severity: "blocker", issue: "primary_query differs from intent map" });

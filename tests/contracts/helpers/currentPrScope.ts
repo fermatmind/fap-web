@@ -1396,8 +1396,14 @@ const CODEQL_HYGIENE_ALLOWED_FILES = new Set([
   "lib/tracking/seoCtaAttribution.ts",
   "next-sitemap.config.js",
   "scripts/seo/detect-internal-link-orphans.mjs",
+  "scripts/seo/export-mbti64-gsc-query-evidence.mjs",
   "scripts/seo/generate-mbti64-agent-expansion-88.mjs",
+  "scripts/seo/generate-mbti64-internal-link-graph.mjs",
+  "scripts/seo/generate-seo-content-briefs.mjs",
+  "scripts/seo/validate-mbti64-content-package-gates.mjs",
   "tests/contracts/article-metadata-consumption-gate.contract.test.ts",
+  "tests/contracts/career-1046-frontend-discovery-ux-01.contract.test.tsx",
+  "tests/contracts/cms-ops-ia-permission-matrix.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/mbti64-agent-expansion-88-security.contract.test.ts",
   "tests/contracts/riasec-full-content-freeze.contract.test.tsx",
@@ -2936,7 +2942,11 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return DISCOVERABILITY_STAGING_META_NOINDEX_FIX_02_ALLOWED_FILES.has(file);
   }
 
-  if (CURRENT_BRANCH === "codex/codeql-hygiene-alerts" || CURRENT_BRANCH === "codex/codeql-mbti64-agent-offline-surface") {
+  if (
+    CURRENT_BRANCH === "codex/codeql-hygiene-alerts" ||
+    CURRENT_BRANCH === "codex/codeql-mbti64-agent-offline-surface" ||
+    CURRENT_BRANCH === "codex/codeql-hygiene-unused-conditionals"
+  ) {
     return CODEQL_HYGIENE_ALLOWED_FILES.has(file);
   }
 

@@ -43,7 +43,7 @@ function installBaseMocks() {
   });
 }
 
-function buildDirectoryItem(slug: string, indexable = true) {
+function buildDirectoryItem(slug: string) {
   return {
     slug,
     title_en: slug
@@ -55,10 +55,10 @@ function buildDirectoryItem(slug: string, indexable = true) {
       title_en: "Computer and information technology",
     },
     canonical_path: `/en/career/jobs/${slug}`,
-    indexability_state: indexable ? "indexable" : "noindex",
-    robots_policy: indexable ? "index,follow" : "noindex,nofollow",
-    indexable,
-    detail_ready: indexable,
+    indexability_state: "indexable",
+    robots_policy: "index,follow",
+    indexable: true,
+    detail_ready: true,
   };
 }
 
@@ -96,7 +96,7 @@ function installCareerAuthorityMocks(input: {
           },
         ],
       },
-      items: input.pageSlugs.map((slug) => buildDirectoryItem(slug, true)),
+      items: input.pageSlugs.map((slug) => buildDirectoryItem(slug)),
     })),
   }));
 }
