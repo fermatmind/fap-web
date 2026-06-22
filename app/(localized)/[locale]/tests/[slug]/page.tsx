@@ -349,6 +349,7 @@ function resolveTestDetailCmsLandingSurfaceContent(
     heroTitle: toStringValue(payload?.h1_or_hero_title),
     heroCopy: toStringValue(payload?.hero_copy),
     primaryCtaLabel: toStringValue(payload?.primary_cta_label),
+    methodologyBoundaryNote: toStringValue(payload?.methodology_boundary_note),
   };
 }
 
@@ -944,7 +945,7 @@ export default async function TestLandingPage({
   const whenToUse = toStringValue(langNode.when_to_use);
   const audienceItems = parseStringList(langNode.audience);
   const howItWorksItems = parseStringList(langNode.how_it_works);
-  const disclaimer = toStringValue(langNode.disclaimer);
+  const disclaimer = cmsLandingSurfaceContent.methodologyBoundaryNote || toStringValue(langNode.disclaimer);
   const reportSummary = toStringValue(reportNode.summary);
   const faqItems = parseFaq(langNode.faq);
   const rollout = resolveScaleRollout({
