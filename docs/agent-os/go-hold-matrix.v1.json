@@ -1,0 +1,450 @@
+{
+  "schema_version": "fermatmind.go_hold_matrix.v1",
+  "created_at": "2026-06-22",
+  "scope": "agent_os_registry_go_hold_matrix",
+  "mode": "docs_contracts_only",
+  "state_definitions": {
+    "GO_DOCS_CONTRACTS_ONLY": "May create or update docs, contracts, schemas, examples, and proposal artifacts inside the declared scope.",
+    "GO_READONLY_QA": "May run read-only local or public QA and produce sanitized evidence artifacts.",
+    "GO_READONLY_HOLD_MUTATION": "May collect/classify evidence and produce recommendations; all mutations remain held.",
+    "GO_DRY_RUN_ONLY": "May generate dry-run packages and review artifacts only.",
+    "GO_SCAFFOLD_DOCS_ONLY": "May scaffold runbooks, schemas, readiness templates, and implementation proposals only.",
+    "GO_ALIGN_DOCS_AND_READONLY_CHECKS": "May align existing agent docs/contracts and run read-only checks.",
+    "GO_ASSET_PLANNING_HOLD_DETERMINISTIC_RECOMMENDATION": "May plan or audit content assets; deterministic recommendation claims remain held.",
+    "GO_PACKAGE_PLANNING_HOLD_PUBLISH": "May generate package planning artifacts; publish/import/search release remains held.",
+    "GO_RESEARCH_ONLY_HOLD_PAGE_GENERATION": "May inspect public sources and summarize patterns; page generation remains held.",
+    "GO_GATE_ENFORCEMENT": "May block claims, unsafe actions, and privacy leaks.",
+    "HOLD_EXACT_APPROVAL": "Must not execute until exact action-specific human approval exists.",
+    "BLOCKED": "Must stop until missing authority, evidence, dependency, or safety issue is resolved."
+  },
+  "hard_hold_actions": [
+    {
+      "action": "automatic_cms_publish",
+      "state": "HOLD_EXACT_APPROVAL",
+      "approval_to_lift": "Exact CMS entity, environment, allowed fields, publish state, rollback expectation, and operator approval."
+    },
+    {
+      "action": "automatic_search_submission",
+      "state": "HOLD_EXACT_APPROVAL",
+      "approval_to_lift": "Exact channel, URL batch, environment, source truth, and operator approval."
+    },
+    {
+      "action": "gsc_request_indexing",
+      "state": "HOLD_EXACT_APPROVAL",
+      "approval_to_lift": "Exact Search Console action, verified live URL truth, and operator approval."
+    },
+    {
+      "action": "google_indexing_api",
+      "state": "HOLD_EXACT_APPROVAL",
+      "approval_to_lift": "Exact provider API action, credential boundary, URL batch, and operator approval."
+    },
+    {
+      "action": "baidu_push",
+      "state": "HOLD_EXACT_APPROVAL",
+      "approval_to_lift": "Exact Baidu channel, URL batch, source truth, and operator approval."
+    },
+    {
+      "action": "indexnow_submit",
+      "state": "HOLD_EXACT_APPROVAL",
+      "approval_to_lift": "Exact IndexNow batch, canonical proof, and operator approval."
+    },
+    {
+      "action": "search_channel_enqueue_approve_submit",
+      "state": "HOLD_EXACT_APPROVAL",
+      "approval_to_lift": "Exact queue operation, item IDs or URL batch, environment, and operator approval."
+    },
+    {
+      "action": "production_env_changes",
+      "state": "HOLD_EXACT_APPROVAL",
+      "approval_to_lift": "Exact env key/action, environment, target SHA or release, and operator approval."
+    },
+    {
+      "action": "payment_order_mutation",
+      "state": "BLOCKED",
+      "approval_to_lift": "Out of scope for this Agent OS registry."
+    },
+    {
+      "action": "private_result_indexing",
+      "state": "BLOCKED",
+      "approval_to_lift": "Out of scope; private result pages must not be indexed."
+    },
+    {
+      "action": "raw_private_result_access",
+      "state": "BLOCKED",
+      "approval_to_lift": "Requires a separate privacy-approved task with explicit sample IDs and redaction plan."
+    },
+    {
+      "action": "deterministic_career_recommendation",
+      "state": "HOLD_EXACT_APPROVAL",
+      "approval_to_lift": "Approved career recommendation policy, claim gate, and source evidence."
+    },
+    {
+      "action": "iq_eq_diagnostic_guarantee",
+      "state": "BLOCKED",
+      "approval_to_lift": "Out of scope; IQ/EQ result agents must keep non-diagnostic claim boundaries."
+    },
+    {
+      "action": "schema_hreflang_sitemap_llms_mutation_without_exact_approval",
+      "state": "HOLD_EXACT_APPROVAL",
+      "approval_to_lift": "Exact URL/type/channel approval plus runtime source truth."
+    }
+  ],
+  "agent_states": [
+    {
+      "agent_id": "agent_os_release_coordination",
+      "state": "GO_DOCS_CONTRACTS_ONLY",
+      "current_readiness": "ready_docs_contract",
+      "allowed_now": [
+        "registry_docs",
+        "go_hold_matrix",
+        "proposal_pr_train_entries",
+        "scope_validation"
+      ],
+      "held_now": [
+        "unapproved_pr_train_mutation",
+        "runtime_code_changes"
+      ],
+      "blocked_now": []
+    },
+    {
+      "agent_id": "seo_geo_control",
+      "state": "GO_READONLY_HOLD_MUTATION",
+      "current_readiness": "ready_readonly_control",
+      "allowed_now": [
+        "control_packet",
+        "source_classification",
+        "runtime_observation",
+        "strategy_review"
+      ],
+      "held_now": [
+        "cms_write",
+        "provider_submit",
+        "schema_hreflang_sitemap_llms_mutation"
+      ],
+      "blocked_now": []
+    },
+    {
+      "agent_id": "runtime_qa",
+      "state": "GO_READONLY_QA",
+      "current_readiness": "partial_ready_readonly",
+      "allowed_now": [
+        "public_get_checks",
+        "fixture_render_checks",
+        "contract_tests",
+        "private_leakage_reports"
+      ],
+      "held_now": [
+        "revalidation",
+        "deploy",
+        "cms_edit"
+      ],
+      "blocked_now": []
+    },
+    {
+      "agent_id": "cms_draft_package",
+      "state": "GO_DRY_RUN_ONLY",
+      "current_readiness": "ready_dry_run_contract",
+      "allowed_now": [
+        "dry_run_package",
+        "claim_gate",
+        "preview_checklist"
+      ],
+      "held_now": [
+        "cms_save",
+        "cms_import",
+        "cms_publish",
+        "media_upload"
+      ],
+      "blocked_now": []
+    },
+    {
+      "agent_id": "cms_publish_readback",
+      "state": "HOLD_EXACT_APPROVAL",
+      "current_readiness": "hold_exact_approval_required",
+      "allowed_now": [
+        "approval_text_draft",
+        "blocked_publish_report"
+      ],
+      "held_now": [
+        "cms_save",
+        "cms_publish",
+        "cms_unpublish",
+        "media_upload"
+      ],
+      "blocked_now": []
+    },
+    {
+      "agent_id": "analytics_gsc_opportunity",
+      "state": "GO_READONLY_HOLD_MUTATION",
+      "current_readiness": "partial_hold_scoring",
+      "allowed_now": [
+        "data_quality_report",
+        "smoke_exclusion_report",
+        "eligibility_report"
+      ],
+      "held_now": [
+        "opportunity_scoring_from_fixture_data",
+        "production_metric_backfill",
+        "search_channel_mutation"
+      ],
+      "blocked_now": [
+        "fixture_mock_unknown_data_as_production_truth"
+      ]
+    },
+    {
+      "agent_id": "assessment_hub",
+      "state": "GO_READONLY_QA",
+      "current_readiness": "partial_six_hub_runtime",
+      "allowed_now": [
+        "six_hub_route_matrix",
+        "take_flow_qa",
+        "result_redirect_qa"
+      ],
+      "held_now": [
+        "cms_landing_surface_change",
+        "frontend_content_authority_change",
+        "indexability_change"
+      ],
+      "blocked_now": []
+    },
+    {
+      "agent_id": "result_page_agent_platform",
+      "state": "GO_DOCS_CONTRACTS_ONLY",
+      "current_readiness": "proposal_ready",
+      "allowed_now": [
+        "platform_standard",
+        "readiness_template",
+        "six_scale_gap_report"
+      ],
+      "held_now": [
+        "runtime_result_agent_implementation",
+        "private_live_sample_access"
+      ],
+      "blocked_now": []
+    },
+    {
+      "agent_id": "career_content_graph",
+      "state": "GO_ASSET_PLANNING_HOLD_DETERMINISTIC_RECOMMENDATION",
+      "current_readiness": "partial_asset_factory",
+      "allowed_now": [
+        "career_asset_planning",
+        "public_projection_bridge_policy",
+        "claim_gate_request"
+      ],
+      "held_now": [
+        "deterministic_career_recommendation",
+        "raw_score_ingestion",
+        "cms_publish"
+      ],
+      "blocked_now": []
+    },
+    {
+      "agent_id": "public_personality_content",
+      "state": "GO_PACKAGE_PLANNING_HOLD_PUBLISH",
+      "current_readiness": "partial_profile_agent",
+      "allowed_now": [
+        "public_profile_package",
+        "schema_validation",
+        "private_result_boundary_report"
+      ],
+      "held_now": [
+        "backend_import",
+        "cms_publish",
+        "search_release"
+      ],
+      "blocked_now": [
+        "private_result_content_in_public_profile"
+      ]
+    },
+    {
+      "agent_id": "competitor_alternative_research",
+      "state": "GO_RESEARCH_ONLY_HOLD_PAGE_GENERATION",
+      "current_readiness": "research_only",
+      "allowed_now": [
+        "public_pattern_ledger",
+        "alternative_strategy_notes"
+      ],
+      "held_now": [
+        "alternative_page_generation",
+        "cms_draft",
+        "search_release"
+      ],
+      "blocked_now": [
+        "copied_competitor_content",
+        "fake_rankings_or_reviews"
+      ]
+    },
+    {
+      "agent_id": "claim_privacy_safety_gate",
+      "state": "GO_GATE_ENFORCEMENT",
+      "current_readiness": "ready_gate_contract",
+      "allowed_now": [
+        "claim_gate",
+        "privacy_boundary_check",
+        "blocked_action_report"
+      ],
+      "held_now": [
+        "privacy_policy_boundary_change"
+      ],
+      "blocked_now": [
+        "unsupported_claim",
+        "private_result_leak",
+        "payment_order_mutation"
+      ]
+    },
+    {
+      "agent_id": "mbti_result_page",
+      "state": "GO_SCAFFOLD_DOCS_ONLY",
+      "current_readiness": "missing_agent_stack",
+      "allowed_now": [
+        "runbook_schema_gate_scaffold",
+        "route_api_pdf_share_contract_map"
+      ],
+      "held_now": [
+        "runtime_agent_implementation",
+        "live_private_sample_use"
+      ],
+      "blocked_now": []
+    },
+    {
+      "agent_id": "big_five_result_page",
+      "state": "GO_ALIGN_DOCS_AND_READONLY_CHECKS",
+      "current_readiness": "existing_agent_stack_align_required",
+      "allowed_now": [
+        "existing_agent_standard_alignment",
+        "asset_agent_readiness_report"
+      ],
+      "held_now": [
+        "live_asset_merge",
+        "production_import"
+      ],
+      "blocked_now": []
+    },
+    {
+      "agent_id": "riasec_result_page",
+      "state": "GO_ALIGN_DOCS_AND_READONLY_CHECKS",
+      "current_readiness": "existing_agent_stack_align_required",
+      "allowed_now": [
+        "existing_agent_standard_alignment",
+        "manual_gate_gap_report"
+      ],
+      "held_now": [
+        "production_import",
+        "parallel_riasec_stack",
+        "raw_score_career_recommendation"
+      ],
+      "blocked_now": []
+    },
+    {
+      "agent_id": "iq_raven_result_page",
+      "state": "GO_SCAFFOLD_DOCS_ONLY",
+      "current_readiness": "missing_agent_stack",
+      "allowed_now": [
+        "runbook_schema_gate_scaffold",
+        "iq_norm_claim_safety_report"
+      ],
+      "held_now": [
+        "runtime_agent_implementation",
+        "live_private_sample_use"
+      ],
+      "blocked_now": [
+        "iq_diagnostic_guarantee"
+      ]
+    },
+    {
+      "agent_id": "eq60_result_page",
+      "state": "GO_SCAFFOLD_DOCS_ONLY",
+      "current_readiness": "missing_agent_stack",
+      "allowed_now": [
+        "runbook_schema_gate_scaffold",
+        "eq60_claim_safety_report"
+      ],
+      "held_now": [
+        "runtime_agent_implementation",
+        "live_private_sample_use"
+      ],
+      "blocked_now": [
+        "eq_diagnostic_guarantee"
+      ]
+    },
+    {
+      "agent_id": "enneagram_result_page",
+      "state": "GO_ALIGN_DOCS_AND_READONLY_CHECKS",
+      "current_readiness": "existing_agent_stack_align_required",
+      "allowed_now": [
+        "existing_agent_standard_alignment",
+        "candidate_gate_gap_report"
+      ],
+      "held_now": [
+        "production_candidate_activation",
+        "live_private_sample_use"
+      ],
+      "blocked_now": []
+    }
+  ],
+  "first_week_execution_order": [
+    {
+      "order": 1,
+      "agent_id": "result_page_agent_platform",
+      "goal": "Freeze shared six-scale result-page agent standard."
+    },
+    {
+      "order": 2,
+      "agent_id": "mbti_result_page",
+      "goal": "Scaffold missing MBTI result-page agent."
+    },
+    {
+      "order": 3,
+      "agent_id": "iq_raven_result_page",
+      "goal": "Scaffold missing IQ Raven result-page agent."
+    },
+    {
+      "order": 4,
+      "agent_id": "eq60_result_page",
+      "goal": "Scaffold missing EQ60 result-page agent."
+    },
+    {
+      "order": 5,
+      "agent_id": "big_five_result_page",
+      "goal": "Align existing Big Five agent to shared standard."
+    },
+    {
+      "order": 6,
+      "agent_id": "enneagram_result_page",
+      "goal": "Align existing Enneagram agent to shared standard."
+    },
+    {
+      "order": 7,
+      "agent_id": "riasec_result_page",
+      "goal": "Align existing RIASEC agent to shared standard."
+    },
+    {
+      "order": 8,
+      "agent_id": "assessment_hub",
+      "goal": "Run read-only six-hub Free Full Report Mode QA."
+    },
+    {
+      "order": 9,
+      "agent_id": "runtime_qa",
+      "goal": "Run result render/PDF/share/private leak QA."
+    },
+    {
+      "order": 10,
+      "agent_id": "analytics_gsc_opportunity",
+      "goal": "Reconcile analytics exclusions and GSC/opportunity GO/HOLD state."
+    }
+  ],
+  "negative_guarantees": [
+    "no_runtime_code_implementation",
+    "no_cms_write",
+    "no_publish",
+    "no_search_url_submission",
+    "no_indexing_request",
+    "no_google_baidu_indexnow_bing_provider_call",
+    "no_search_channel_queue_mutation",
+    "no_sitemap_robots_llms_schema_hreflang_generated_seo_artifact_mutation",
+    "no_production_db_or_env_mutation",
+    "no_payment_order_mutation",
+    "no_private_result_data_access"
+  ]
+}
