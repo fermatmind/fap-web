@@ -31,6 +31,8 @@ jobs:
       GIT_BRANCH: "main"
       RUN_SITEMAP_HEALTH: "0"
       CORE_PUBLIC_PATH: "/zh/career/jobs/accountants-and-auditors"
+      SSH_RETRY_ATTEMPTS: "3"
+      SSH_RETRY_DELAY_SECONDS: "10"
 
     steps:
       - name: Checkout code
@@ -78,8 +80,22 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
-            -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+          ssh_retry() {
+            local attempt rc
+            for attempt in $(seq 1 "$SSH_RETRY_ATTEMPTS"); do
+              if ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+                -p "$DEPLOY_PORT" "$@"; then
+                return 0
+              fi
+              rc=$?
+              if [ "$attempt" -eq "$SSH_RETRY_ATTEMPTS" ]; then
+                return "$rc"
+              fi
+              echo "SSH preflight attempt $attempt failed; retrying in ${SSH_RETRY_DELAY_SECONDS}s" >&2
+              sleep "$SSH_RETRY_DELAY_SECONDS"
+            done
+          }
+          ssh_retry "$DEPLOY_USER@$DEPLOY_HOST" \
             "whoami; hostname; test -d '$APP_DIR' && echo app_dir_ok"
 
       - name: Deploy staging with PM2
@@ -87,8 +103,22 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
-            -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+          ssh_retry() {
+            local attempt rc
+            for attempt in $(seq 1 "$SSH_RETRY_ATTEMPTS"); do
+              if ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+                -p "$DEPLOY_PORT" "$@"; then
+                return 0
+              fi
+              rc=$?
+              if [ "$attempt" -eq "$SSH_RETRY_ATTEMPTS" ]; then
+                return "$rc"
+              fi
+              echo "SSH deploy attempt $attempt failed; retrying in ${SSH_RETRY_DELAY_SECONDS}s" >&2
+              sleep "$SSH_RETRY_DELAY_SECONDS"
+            done
+          }
+          ssh_retry "$DEPLOY_USER@$DEPLOY_HOST" \
             "APP_DIR='$APP_DIR' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' NEXT_PUBLIC_API_URL='$NEXT_PUBLIC_API_URL' NEXT_PUBLIC_SITE_URL='$NEXT_PUBLIC_SITE_URL' GIT_BRANCH='$GIT_BRANCH' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' bash '$APP_DIR/scripts/deploy_web_pm2.sh'"
 
       - name: Verify deployed revision
@@ -96,9 +126,22 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          DEPLOYED_SHA="$(ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
-            -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
-            "git -C '$APP_DIR' rev-parse HEAD")"
+          ssh_retry() {
+            local attempt rc
+            for attempt in $(seq 1 "$SSH_RETRY_ATTEMPTS"); do
+              if ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+                -p "$DEPLOY_PORT" "$@"; then
+                return 0
+              fi
+              rc=$?
+              if [ "$attempt" -eq "$SSH_RETRY_ATTEMPTS" ]; then
+                return "$rc"
+              fi
+              echo "SSH verify attempt $attempt failed; retrying in ${SSH_RETRY_DELAY_SECONDS}s" >&2
+              sleep "$SSH_RETRY_DELAY_SECONDS"
+            done
+          }
+          DEPLOYED_SHA="$(ssh_retry "$DEPLOY_USER@$DEPLOY_HOST" "git -C '$APP_DIR' rev-parse HEAD")"
           echo "deployed_sha=$DEPLOYED_SHA"
           test "$DEPLOYED_SHA" = "$GITHUB_SHA"
 
