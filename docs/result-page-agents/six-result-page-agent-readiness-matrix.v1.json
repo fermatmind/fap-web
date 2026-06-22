@@ -1,0 +1,595 @@
+{
+  "schema_version": "fermatmind.six_result_page_agent_readiness_matrix.v1",
+  "artifact_id": "six-result-page-agent-readiness-matrix-2026-06-23",
+  "created_at": "2026-06-23",
+  "run_mode": "docs_contracts_readonly_synthesis",
+  "approval_state": "not_requested",
+  "verdict": "SIX_RESULT_PAGE_AGENT_MATRIX_READY",
+  "source_documents": [
+    "docs/result-page-agents/RESULT_PAGE_AGENT_PLATFORM_STANDARD.md",
+    "docs/result-page-agents/six-scale-result-agent-readiness.template.json",
+    "docs/result-page-agents/mbti-result-page-agent-scaffold-scan-2026-06-22.md",
+    "docs/result-page-agents/mbti-result-page-agent-readiness.proposal.json",
+    "docs/result-page-agents/iq-raven-result-page-agent-scaffold-scan-2026-06-22.md",
+    "docs/result-page-agents/iq-raven-result-page-agent-readiness.proposal.json",
+    "docs/result-page-agents/eq60-result-page-agent-scaffold-scan-2026-06-22.md",
+    "docs/result-page-agents/eq60-result-page-agent-readiness.proposal.json",
+    "docs/result-page-agents/big-five-result-page-agent-standard-alignment-2026-06-22.md",
+    "docs/result-page-agents/big-five-result-page-agent-readiness.proposal.json",
+    "docs/result-page-agents/enneagram-result-page-agent-standard-alignment-2026-06-22.md",
+    "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json",
+    "docs/result-page-agents/riasec-result-page-agent-standard-alignment-2026-06-23.md",
+    "docs/result-page-agents/riasec-result-page-agent-readiness.proposal.json"
+  ],
+  "verdict_vocabulary": [
+    "READY_READONLY",
+    "SCAFFOLD_READY",
+    "STANDARD_ALIGNED",
+    "NEEDS_READONLY_REVIEW",
+    "NEEDS_RUNBOOK_SCHEMA_GATES",
+    "BLOCKED_SHARE_SAFETY",
+    "BLOCKED_PRIVATE_DATA",
+    "HOLD_PRODUCTION",
+    "HOLD_RUNTIME",
+    "HOLD_CMS_SEARCH"
+  ],
+  "required_classifications_per_scale": [
+    "current_readiness",
+    "scaffold_alignment_status",
+    "route_api_report_access_status",
+    "frontend_renderer_status",
+    "backend_authority_status",
+    "pdf_boundary_status",
+    "share_boundary_status",
+    "private_noindex_status",
+    "analytics_gate_status",
+    "claim_privacy_safety_gate_status",
+    "generated_readiness_artifact_status",
+    "production_pilot_runtime_status"
+  ],
+  "hard_holds": [
+    "no_cms",
+    "no_publish",
+    "no_search_submit",
+    "no_provider_calls",
+    "no_production_db_or_env",
+    "no_private_result_access",
+    "no_result_page_indexing",
+    "no_deterministic_career_recommendation",
+    "no_iq_eq_diagnostic_claim"
+  ],
+  "safety_confirmation": {
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "publish": "none",
+    "search_submissions": "none",
+    "provider_calls": "none",
+    "private_result_data_accessed": "none",
+    "payment_order_mutation": "none",
+    "env_changes": "none"
+  },
+  "scales": [
+    {
+      "scale_code": "MBTI",
+      "agent_id": "mbti_result_page",
+      "canonical_test_slug": "mbti-personality-test-16-personality-types",
+      "source_artifacts": {
+        "scan_or_alignment": "docs/result-page-agents/mbti-result-page-agent-scaffold-scan-2026-06-22.md",
+        "proposal": "docs/result-page-agents/mbti-result-page-agent-readiness.proposal.json"
+      },
+      "current_readiness": "missing_agent_stack",
+      "scaffold_alignment_status": "SCAFFOLD_READY",
+      "route_api_report_access_status": {
+        "status": "MAPPED_READONLY",
+        "result_route": "/[locale]/result/[id]",
+        "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+        "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+        "evidence": "Localized private result route is dynamic, noindex, and uses ResultClient; report and report-access APIs map through lib/api/v0_3.ts and fap-api AttemptReadController."
+      },
+      "frontend_renderer_status": {
+        "status": "MAPPED_EXISTING_RENDERER",
+        "renderer": "components/result/mbti/MbtiResultShell.tsx",
+        "dispatch": "RichResultReport renders MbtiResultShell when MBTI public projection exists."
+      },
+      "backend_authority_status": {
+        "status": "MAPPED_BACKEND_AUTHORITY",
+        "authority": [
+          "fap-api:backend/app/Services/Report/ReportComposer.php",
+          "fap-api:backend/app/Services/Mbti/Adapters/MbtiReportAuthoritySourceAdapter.php",
+          "fap-api:backend/app/Services/Mbti/MbtiPublicProjectionService.php"
+        ]
+      },
+      "pdf_boundary_status": {
+        "status": "MAPPED_EXISTING_SHARED_CONTRACTS",
+        "evidence": "PDF href is gated by report-access actions or MBTI access hub; shared private print and URL redaction contracts exist."
+      },
+      "share_boundary_status": {
+        "status": "MAPPED_EXISTING_MBTI_CONTRACTS",
+        "evidence": "MBTI share CTA creates a share through the shared API and share reads remain public-summary scoped."
+      },
+      "private_noindex_status": {
+        "status": "MAPPED",
+        "evidence": "Private result route uses noindex metadata."
+      },
+      "analytics_gate_status": {
+        "status": "MAPPED_EXISTING_RUNTIME_EVENTS_PROPOSED_AGENT_GATE",
+        "evidence": "Result and share/report loading events exist; dedicated result-page agent analytics gate remains proposed."
+      },
+      "claim_privacy_safety_gate_status": {
+        "status": "PROPOSED_GATE",
+        "evidence": "Dedicated MBTI result-page agent gate is not yet implemented."
+      },
+      "generated_readiness_artifact_status": {
+        "status": "NOT_GENERATED",
+        "expected_artifact": "generated/result-page-agents/mbti/<run_id>/readiness.json"
+      },
+      "production_pilot_runtime_status": {
+        "status": "HOLD_PRODUCTION_AND_RUNTIME",
+        "reason": "Dedicated runbook, schema validator, readiness generator, source classification, and safety gates are still missing."
+      },
+      "verdicts": [
+        "SCAFFOLD_READY",
+        "NEEDS_RUNBOOK_SCHEMA_GATES",
+        "NEEDS_READONLY_REVIEW",
+        "HOLD_PRODUCTION",
+        "HOLD_RUNTIME",
+        "HOLD_CMS_SEARCH"
+      ],
+      "next_safe_goal": "MBTI-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "agent_id": "big_five_result_page",
+      "canonical_test_slug": "big-five-personality-test-ocean-model",
+      "source_artifacts": {
+        "scan_or_alignment": "docs/result-page-agents/big-five-result-page-agent-standard-alignment-2026-06-22.md",
+        "proposal": "docs/result-page-agents/big-five-result-page-agent-readiness.proposal.json"
+      },
+      "current_readiness": "ready_readonly",
+      "scaffold_alignment_status": "STANDARD_ALIGNED",
+      "route_api_report_access_status": {
+        "status": "DOC_MATCH",
+        "result_route": "/[locale]/result/[id]",
+        "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+        "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+        "evidence": "fap-web shared result route/API adapter maps to fap-api route/controller authority."
+      },
+      "frontend_renderer_status": {
+        "status": "DOC_MATCH",
+        "renderer": "components/result/big5/Big5ResultPageV2Shell.tsx",
+        "dispatch": "ResultClient to RichResultReport to Big5ResultPageV2Shell through getBig5ResultPageV2Payload."
+      },
+      "backend_authority_status": {
+        "status": "DOC_MATCH_EXISTING_AGENT_STACK",
+        "authority": [
+          "fap-api:backend/app/Console/Commands/BigFiveResultPageV2AssetAgentAuditCommand.php",
+          "fap-api:backend/app/Services/BigFive/ResultPageV2/AssetAgent/BigFiveResultPageV2AssetAgent.php",
+          "fap-api:backend/docs/big5/result-asset-agent-runbook.md",
+          "fap-api:backend/docs/big5/result-asset-agent-gates.md",
+          "fap-api:backend/docs/big5/result-asset-agent-schema.md"
+        ]
+      },
+      "pdf_boundary_status": {
+        "status": "DOC_MATCH",
+        "evidence": "Big Five PDF rendered QA plus shared private print/redaction contracts cover private PDF boundaries."
+      },
+      "share_boundary_status": {
+        "status": "DOC_MATCH_WITH_EXISTING_GAP",
+        "evidence": "Share card QA and backend share-safe adapter tests exist, but latest existing backend ops artifact still reports share_safety_missing_count=1."
+      },
+      "private_noindex_status": {
+        "status": "DOC_MATCH",
+        "evidence": "Private result route uses noindex metadata and private print markers."
+      },
+      "analytics_gate_status": {
+        "status": "DOC_MATCH",
+        "evidence": "Existing result telemetry was mapped; no runtime analytics changes were added."
+      },
+      "claim_privacy_safety_gate_status": {
+        "status": "DOC_MATCH_WITH_SHARE_SAFETY_HOLD",
+        "evidence": "Backend asset-agent schema/gates and fap-web V2 contracts forbid raw scores, unsupported psychometric claims, diagnosis, hiring, success prediction, and private metadata leaks."
+      },
+      "generated_readiness_artifact_status": {
+        "status": "NOT_GENERATED",
+        "expected_artifact": "generated/result-page-agents/big_five/<run_id>/readiness.json"
+      },
+      "production_pilot_runtime_status": {
+        "status": "HOLD_PRODUCTION_AND_RUNTIME",
+        "reason": "Generated readiness artifact was not produced and Big Five share-safety gap still blocks pilot/production readiness."
+      },
+      "verdicts": [
+        "READY_READONLY",
+        "STANDARD_ALIGNED",
+        "NEEDS_READONLY_REVIEW",
+        "BLOCKED_SHARE_SAFETY",
+        "HOLD_PRODUCTION",
+        "HOLD_RUNTIME",
+        "HOLD_CMS_SEARCH"
+      ],
+      "next_safe_goal": "BIG5-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01"
+    },
+    {
+      "scale_code": "RIASEC",
+      "agent_id": "riasec_result_page",
+      "canonical_test_slug": "holland-career-interest-test-riasec",
+      "source_artifacts": {
+        "scan_or_alignment": "docs/result-page-agents/riasec-result-page-agent-standard-alignment-2026-06-23.md",
+        "proposal": "docs/result-page-agents/riasec-result-page-agent-readiness.proposal.json"
+      },
+      "current_readiness": "ready_readonly",
+      "scaffold_alignment_status": "STANDARD_ALIGNED",
+      "route_api_report_access_status": {
+        "status": "DOC_MATCH",
+        "result_route": "/[locale]/result/[id]",
+        "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+        "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+        "evidence": "fap-web shared result route/API adapter maps to fap-api route/controller authority."
+      },
+      "frontend_renderer_status": {
+        "status": "DOC_MATCH",
+        "renderer": "components/result/riasec/RiasecResultShell.tsx",
+        "dispatch": "ResultClient to RichResultReport to RiasecResultShell through hasRiasecProjection and assembleRiasecResultViewModel."
+      },
+      "backend_authority_status": {
+        "status": "DOC_MATCH_EXISTING_AGENT_STACK",
+        "authority": [
+          "fap-api:backend/app/Console/Commands/RiasecResultPageAssetAgentAuditCommand.php",
+          "fap-api:backend/app/Console/Commands/RiasecResultPageOpsRunnerCommand.php",
+          "fap-api:backend/app/Services/Riasec/AssetAgent/RiasecResultPageAssetAgent.php",
+          "fap-api:backend/app/Services/Riasec/Ops/RiasecResultPageOpsAgentRunOrchestrator.php",
+          "fap-api:backend/app/Services/Riasec/RiasecPublicProjectionService.php",
+          "fap-api:backend/app/Services/Report/RiasecReportComposer.php",
+          "fap-api:backend/app/Services/Riasec/RiasecContentRegistrySlotContract.php"
+        ]
+      },
+      "pdf_boundary_status": {
+        "status": "DOC_MATCH",
+        "evidence": "RIASEC trusted smoke, backend flow tests, and shared private print/redaction contracts cover PDF boundaries."
+      },
+      "share_boundary_status": {
+        "status": "DOC_MATCH",
+        "evidence": "RIASEC share payloads stay public-safe and deny raw feedback/private report payload exposure."
+      },
+      "private_noindex_status": {
+        "status": "DOC_MATCH",
+        "evidence": "Private result route uses noindex metadata and private print markers."
+      },
+      "analytics_gate_status": {
+        "status": "DOC_MATCH",
+        "evidence": "Existing RIASEC tracking events were mapped; no runtime analytics changes were added."
+      },
+      "claim_privacy_safety_gate_status": {
+        "status": "DOC_MATCH_CAREER_BRIDGE_BOUNDARY",
+        "evidence": "Backend projection/report/slot authority keeps occupation examples examples-only and blocks deterministic career, hiring, salary, success, performance, raw-score-delta, and job-fit claims."
+      },
+      "generated_readiness_artifact_status": {
+        "status": "NOT_GENERATED",
+        "expected_artifact": "generated/result-page-agents/riasec/<run_id>/readiness.json"
+      },
+      "production_pilot_runtime_status": {
+        "status": "HOLD_PRODUCTION_AND_RUNTIME",
+        "reason": "Backend asset/ops commands were not run because they write artifacts, and production manual gate was not requested."
+      },
+      "verdicts": [
+        "READY_READONLY",
+        "STANDARD_ALIGNED",
+        "NEEDS_READONLY_REVIEW",
+        "HOLD_PRODUCTION",
+        "HOLD_RUNTIME",
+        "HOLD_CMS_SEARCH"
+      ],
+      "next_safe_goal": "RIASEC-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "agent_id": "iq_raven_result_page",
+      "canonical_scale_code": "IQ_INTELLIGENCE_QUOTIENT",
+      "canonical_test_slug": "iq-test-intelligence-quotient-assessment",
+      "source_artifacts": {
+        "scan_or_alignment": "docs/result-page-agents/iq-raven-result-page-agent-scaffold-scan-2026-06-22.md",
+        "proposal": "docs/result-page-agents/iq-raven-result-page-agent-readiness.proposal.json"
+      },
+      "current_readiness": "missing_agent_stack",
+      "scaffold_alignment_status": "SCAFFOLD_READY",
+      "route_api_report_access_status": {
+        "status": "MAPPED_READONLY",
+        "result_route": "/[locale]/result/[id]",
+        "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+        "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+        "evidence": "ResultClient resolves IQ_RAVEN or IQ_INTELLIGENCE_QUOTIENT and fap-api report/report-access routes remain authority."
+      },
+      "frontend_renderer_status": {
+        "status": "MAPPED_EXISTING_RENDERER",
+        "renderer": "components/result/iq/IqResultShell.tsx",
+        "dispatch": "ResultClient dispatches IQ reports to IqResultShell before generic rich-result rendering."
+      },
+      "backend_authority_status": {
+        "status": "MAPPED_BACKEND_AUTHORITY",
+        "authority": [
+          "fap-api:backend/app/Services/Report/IqReportBuilder.php",
+          "fap-api:backend/app/Services/Iq/IqNormAuthorityContract.php",
+          "fap-api:backend/app/Services/Iq/IqResultPayloadRedactor.php"
+        ]
+      },
+      "pdf_boundary_status": {
+        "status": "MAPPED_WITH_PLACEHOLDER_BOUNDARY",
+        "evidence": "Shared report.pdf API exists; IQ report payload may include contract-defined PDF/certificate payloads, but current frontend keeps placeholder boundaries."
+      },
+      "share_boundary_status": {
+        "status": "MAPPED_SHARED_CONTRACT_PROPOSED_IQ_GATE",
+        "evidence": "Shared share routes are mapped, but a dedicated IQ share-surface boundary gate is still missing."
+      },
+      "private_noindex_status": {
+        "status": "MAPPED",
+        "evidence": "Private result route uses noindex metadata."
+      },
+      "analytics_gate_status": {
+        "status": "MAPPED_EXISTING_RUNTIME_EVENTS_PROPOSED_AGENT_GATE",
+        "evidence": "Result telemetry exists; dedicated IQ result-page agent analytics gate remains proposed."
+      },
+      "claim_privacy_safety_gate_status": {
+        "status": "MAPPED_EXISTING_CLAIM_GUARDS_NEEDS_AGENT_GATE",
+        "evidence": "IQ claim/launch guards, norm authority, and payload redactor cover no diagnostic and no answer-key leakage boundaries; dedicated agent gate remains proposed."
+      },
+      "generated_readiness_artifact_status": {
+        "status": "NOT_GENERATED",
+        "expected_artifact": "generated/result-page-agents/iq_raven/<run_id>/readiness.json"
+      },
+      "production_pilot_runtime_status": {
+        "status": "HOLD_PRODUCTION_AND_RUNTIME",
+        "reason": "Dedicated runbook/schema/gates, IQ share boundary, and non-diagnostic readiness gate are still missing."
+      },
+      "verdicts": [
+        "SCAFFOLD_READY",
+        "NEEDS_RUNBOOK_SCHEMA_GATES",
+        "NEEDS_READONLY_REVIEW",
+        "BLOCKED_SHARE_SAFETY",
+        "HOLD_PRODUCTION",
+        "HOLD_RUNTIME",
+        "HOLD_CMS_SEARCH"
+      ],
+      "next_safe_goal": "IQ-RAVEN-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01"
+    },
+    {
+      "scale_code": "EQ_60",
+      "agent_id": "eq60_result_page",
+      "canonical_test_slug": "eq-test-emotional-intelligence-assessment",
+      "source_artifacts": {
+        "scan_or_alignment": "docs/result-page-agents/eq60-result-page-agent-scaffold-scan-2026-06-22.md",
+        "proposal": "docs/result-page-agents/eq60-result-page-agent-readiness.proposal.json"
+      },
+      "current_readiness": "missing_agent_stack",
+      "scaffold_alignment_status": "SCAFFOLD_READY",
+      "route_api_report_access_status": {
+        "status": "MAPPED_READONLY",
+        "result_route": "/[locale]/result/[id]",
+        "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+        "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+        "evidence": "ResultClient detects EQ V5 and fap-api report/report-access routes remain authority."
+      },
+      "frontend_renderer_status": {
+        "status": "MAPPED_EXISTING_RENDERER",
+        "renderer": "components/result/eq/EQResultV5.tsx",
+        "dispatch": "ResultClient dispatches EQ60 reports to EQResultV5; RichResultReport intentionally excludes EQ V5."
+      },
+      "backend_authority_status": {
+        "status": "MAPPED_BACKEND_AUTHORITY",
+        "authority": [
+          "fap-api:backend/app/Services/Report/Eq60ReportComposer.php",
+          "fap-api:backend/app/Services/Report/EqIntegratedReportComposer.php",
+          "fap-api:backend/app/Services/Content/Eq60PackLoader.php",
+          "fap-api:backend/app/Services/Psychometrics/Eq60/NormGroupResolver.php"
+        ]
+      },
+      "pdf_boundary_status": {
+        "status": "MAPPED_EXISTING_SHARED_AND_EQ_CONTRACTS",
+        "evidence": "report-access pdf_href and report.pdf remain backend-authoritative, private, and no-store when ready."
+      },
+      "share_boundary_status": {
+        "status": "MAPPED_SHARED_CONTRACT_PROPOSED_EQ_GATE",
+        "evidence": "Shared share routes are mapped; current EQ V5 frontend share button is disabled and needs a dedicated boundary gate before enablement."
+      },
+      "private_noindex_status": {
+        "status": "MAPPED",
+        "evidence": "Private result route uses noindex metadata."
+      },
+      "analytics_gate_status": {
+        "status": "MAPPED_EXISTING_RUNTIME_EVENTS_PROPOSED_AGENT_GATE",
+        "evidence": "Result telemetry exists; dedicated EQ result-page agent analytics gate remains proposed."
+      },
+      "claim_privacy_safety_gate_status": {
+        "status": "MAPPED_EXISTING_BOUNDARY_NEEDS_AGENT_GATE",
+        "evidence": "EQ60 remains self-report trait/mixed EI with no diagnostic, no clinical/medical, no relationship, no employment, and no life-outcome guarantee boundaries."
+      },
+      "generated_readiness_artifact_status": {
+        "status": "NOT_GENERATED",
+        "expected_artifact": "generated/result-page-agents/eq60/<run_id>/readiness.json"
+      },
+      "production_pilot_runtime_status": {
+        "status": "HOLD_PRODUCTION_AND_RUNTIME",
+        "reason": "Dedicated runbook/schema/gates, EQ PDF/share/privacy gates, norm authority gate, and non-diagnostic readiness gate are still missing."
+      },
+      "verdicts": [
+        "SCAFFOLD_READY",
+        "NEEDS_RUNBOOK_SCHEMA_GATES",
+        "NEEDS_READONLY_REVIEW",
+        "BLOCKED_SHARE_SAFETY",
+        "HOLD_PRODUCTION",
+        "HOLD_RUNTIME",
+        "HOLD_CMS_SEARCH"
+      ],
+      "next_safe_goal": "EQ60-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "agent_id": "enneagram_result_page",
+      "canonical_test_slug": "enneagram-personality-test-nine-types",
+      "source_artifacts": {
+        "scan_or_alignment": "docs/result-page-agents/enneagram-result-page-agent-standard-alignment-2026-06-22.md",
+        "proposal": "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json"
+      },
+      "current_readiness": "ready_readonly",
+      "scaffold_alignment_status": "STANDARD_ALIGNED",
+      "route_api_report_access_status": {
+        "status": "DOC_MATCH",
+        "result_route": "/[locale]/result/[id]",
+        "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+        "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+        "evidence": "fap-web shared result route/API adapter maps to fap-api route/controller authority."
+      },
+      "frontend_renderer_status": {
+        "status": "DOC_MATCH",
+        "renderer": "components/result/enneagram/EnneagramResultShell.tsx",
+        "dispatch": "ResultClient to RichResultReport to EnneagramResultShell through hasEnneagramProjection and assembleEnneagramResultViewModel."
+      },
+      "backend_authority_status": {
+        "status": "DOC_MATCH_EXISTING_AGENT_STACK",
+        "authority": [
+          "fap-api:backend/app/Console/Commands/EnneagramResultPageAgentReadinessCommand.php",
+          "fap-api:backend/app/Console/Commands/EnneagramResultPageOpsRunnerCommand.php",
+          "fap-api:backend/app/Services/Enneagram/Assets/Agent/EnneagramResultPageAgentReadiness.php",
+          "fap-api:backend/app/Services/Enneagram/Assets/Agent/EnneagramResultPageOpsAgentRunOrchestrator.php",
+          "fap-api:backend/docs/enneagram/result-page-agent-runbook.md",
+          "fap-api:backend/docs/enneagram/result-page-agent-gates.md",
+          "fap-api:backend/docs/enneagram/result-page-agent-schema.md"
+        ]
+      },
+      "pdf_boundary_status": {
+        "status": "DOC_MATCH",
+        "evidence": "Enneagram PDF surface contracts plus shared private print/redaction contracts cover private PDF boundaries."
+      },
+      "share_boundary_status": {
+        "status": "DOC_MATCH",
+        "evidence": "Enneagram share-surface contract and backend share summary/state variants keep share rendering public-summary scoped."
+      },
+      "private_noindex_status": {
+        "status": "DOC_MATCH",
+        "evidence": "Private result route uses noindex metadata and private print markers."
+      },
+      "analytics_gate_status": {
+        "status": "DOC_MATCH",
+        "evidence": "Existing result/share telemetry was mapped; no runtime analytics changes were added."
+      },
+      "claim_privacy_safety_gate_status": {
+        "status": "DOC_MATCH",
+        "evidence": "Backend readiness service, runbook, gates, and source ledger forbid diagnostic, clinical, final-typing, hiring, salary, performance, certainty, score-comparison, private identifier, and vector leakage families."
+      },
+      "generated_readiness_artifact_status": {
+        "status": "NOT_GENERATED",
+        "expected_artifact": "generated/result-page-agents/enneagram/<run_id>/readiness.json"
+      },
+      "production_pilot_runtime_status": {
+        "status": "HOLD_PRODUCTION_AND_RUNTIME",
+        "reason": "Backend readiness/ops commands were not run because they write artifacts, and production manual gate was not requested."
+      },
+      "verdicts": [
+        "READY_READONLY",
+        "STANDARD_ALIGNED",
+        "NEEDS_READONLY_REVIEW",
+        "HOLD_PRODUCTION",
+        "HOLD_RUNTIME",
+        "HOLD_CMS_SEARCH"
+      ],
+      "next_safe_goal": "ENNEAGRAM-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01"
+    }
+  ],
+  "cross_scale_sequencing": {
+    "next_global_task": {
+      "id": "SIX-HUB-FREE-FULL-REPORT-RUNTIME-QA-01",
+      "title": "Run six-hub free full report runtime QA for route/API/report-access/PDF/share/render/leak boundaries",
+      "repo": "fap-web",
+      "scope": [
+        "docs/result-page-agents/six-hub-free-full-report-runtime-qa-2026-06-23.md",
+        "docs/result-page-agents/six-hub-free-full-report-runtime-qa.v1.json",
+        "tests/contracts/six-hub-free-full-report-runtime-qa.contract.test.ts"
+      ],
+      "required_checks": [
+        "jq empty docs/result-page-agents/six-hub-free-full-report-runtime-qa.v1.json",
+        "pnpm exec vitest run tests/contracts/six-hub-free-full-report-runtime-qa.contract.test.ts",
+        "pnpm typecheck",
+        "pnpm test:contract",
+        "git diff --check"
+      ],
+      "dependency_assumptions": [
+        "six-scale matrix is merged or otherwise accepted as the current planning source",
+        "all inputs remain docs/contracts or sanitized fixtures",
+        "no raw private attempts or production report payloads are required"
+      ]
+    },
+    "repo_split_tasks": [
+      {
+        "id": "MBTI-IQ-EQ-RUNBOOK-SCHEMA-GATES",
+        "repo": "fap-web first, fap-api only if backend artifact generation is authorized",
+        "reason": "MBTI, IQ, and EQ need dedicated runbook/schema/contract gates before generated readiness artifacts."
+      },
+      {
+        "id": "BIG5-SHARE-SAFETY-ARTIFACT-REPAIR",
+        "repo": "fap-api first, fap-web consume second",
+        "reason": "Big Five share_safety_missing_count=1 is a backend artifact/ops gap and must be resolved before pilot or production claims."
+      },
+      {
+        "id": "ENNEAGRAM-GENERATED-READINESS-ARTIFACT",
+        "repo": "fap-api first or explicitly authorized artifact run, fap-web consume second",
+        "reason": "Existing readiness/ops commands write artifacts by design and were not run in docs/contracts alignment."
+      },
+      {
+        "id": "RIASEC-GENERATED-READINESS-ARTIFACT",
+        "repo": "fap-api first or explicitly authorized artifact run, fap-web consume second",
+        "reason": "Existing asset/ops commands write artifacts by design and production manual gate remains out of scope."
+      }
+    ],
+    "parallel_windows": [
+      {
+        "window": "runbook_schema_gates",
+        "can_parallelize": [
+          "MBTI-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01",
+          "IQ-RAVEN-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01",
+          "EQ60-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01"
+        ],
+        "guard": "separate PRs, no runtime changes, no shared generated artifact mutation"
+      },
+      {
+        "window": "existing_stack_readonly_reviews",
+        "can_parallelize": [
+          "BIG5-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01",
+          "ENNEAGRAM-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01",
+          "RIASEC-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01"
+        ],
+        "guard": "read-only fap-web contracts from sanitized fixtures/source evidence only"
+      },
+      {
+        "window": "claim_privacy_safety_review",
+        "can_parallelize": [
+          "IQ non-diagnostic and answer-key redaction gate review",
+          "EQ non-diagnostic, non-clinical, no relationship/employment/life-outcome guarantee review",
+          "RIASEC career-bridge examples-only and no deterministic recommendation review"
+        ],
+        "guard": "docs/contracts and sanitized fixture evidence only"
+      }
+    ],
+    "hold_tasks": [
+      "CMS writes/import/publish/media upload",
+      "Search Channel enqueue/approve/submit",
+      "GSC Request Indexing, Google Indexing API, Baidu push, IndexNow, Bing provider calls",
+      "sitemap, robots, llms, schema, hreflang, canonical, redirect, noindex mutation",
+      "production DB/env mutation",
+      "payment/order mutation",
+      "raw private attempts, report URLs, account context, report tokens, private result payloads",
+      "result page indexing",
+      "deterministic career recommendation or employment suitability output",
+      "IQ/EQ diagnostic, clinical, admissions, hiring, certification, or guaranteed-outcome claims"
+    ],
+    "next_10_goals": [
+      "SIX-HUB-FREE-FULL-REPORT-RUNTIME-QA-01",
+      "MBTI-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01",
+      "IQ-RAVEN-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01",
+      "EQ60-RESULT-PAGE-AGENT-RUNBOOK-SCHEMA-GATES-01",
+      "BIG5-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01",
+      "BIG5-RESULT-PAGE-SHARE-SAFETY-ARTIFACT-REPAIR-01",
+      "ENNEAGRAM-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01",
+      "RIASEC-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01",
+      "SIX-RESULT-PAGE-AGENT-GENERATED-READINESS-SCHEMA-GATE-01",
+      "SIX-RESULT-PAGE-AGENT-PILOT-GO-HOLD-PACKET-01"
+    ]
+  }
+}

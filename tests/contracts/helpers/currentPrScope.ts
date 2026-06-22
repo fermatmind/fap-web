@@ -2563,6 +2563,13 @@ const RIASEC_RESULT_PAGE_AGENT_STANDARD_ALIGN_01_ALLOWED_FILES = new Set([
   "tests/contracts/riasec-result-page-agent-standard-alignment.contract.test.ts",
 ]);
 
+const SIX_RESULT_PAGE_AGENT_READINESS_MATRIX_01_ALLOWED_FILES = new Set([
+  "docs/result-page-agents/six-result-page-agent-readiness-matrix-2026-06-23.md",
+  "docs/result-page-agents/six-result-page-agent-readiness-matrix.v1.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/six-result-page-agent-readiness-matrix.contract.test.ts",
+]);
+
 function isFrontendUiPolishBatch02ScopeActive(): boolean {
   if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
     return true;
@@ -2721,6 +2728,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/riasec-result-page-agent-standard-align-01" &&
     RIASEC_RESULT_PAGE_AGENT_STANDARD_ALIGN_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/six-result-page-agent-readiness-matrix-01" &&
+    SIX_RESULT_PAGE_AGENT_READINESS_MATRIX_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
