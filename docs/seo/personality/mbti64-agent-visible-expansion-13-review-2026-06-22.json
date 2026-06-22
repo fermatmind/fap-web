@@ -1,0 +1,677 @@
+{
+  "artifact": "MBTI64-AGENT-VISIBLE-EXPANSION-13-REVIEW-01",
+  "generated_at": "2026-06-22T01:11:43.500Z",
+  "status": "pass",
+  "final_decision": "PASS_VISIBLE_EXPANSION_13_REVIEW_READY",
+  "input_artifacts": {
+    "priority_selection": "docs/seo/personality/mbti64-agent-optimization-priority-selection-2026-06-22.json",
+    "recommendations": "docs/seo/personality/mbti64-agent-expansion-88-recommendations-2026-06-21.json",
+    "qa": "docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.json"
+  },
+  "evidence_boundary": {
+    "gsc_source_kind": "gsc_browser_page_table_snapshot",
+    "query_level_gsc_rows_available": false,
+    "no_cms_write": true,
+    "no_frontend_runtime_change": true,
+    "no_search_queue_mutation": true,
+    "no_live_search_submit": true
+  },
+  "summary": {
+    "reviewed_page_count": 13,
+    "ready_for_editorial_review_no_immediate_serp_rewrite": 13,
+    "ready_with_evidence_condition": 0,
+    "blocked_repair_required": 0,
+    "private_route_hit_count": 0,
+    "claim_boundary_hit_count": 0,
+    "contextual_claim_boundary_review_count": 1,
+    "query_level_required_before_serp_rewrite": 13
+  },
+  "reviewed_pages": [
+    {
+      "rank": 1,
+      "target_url": "https://fermatmind.com/en/personality/enfj-a",
+      "path": "/en/personality/enfj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "mbti_type": "ENFJ",
+      "variant": "A",
+      "priority_score": 23.31,
+      "gsc": {
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 21,
+        "ctr": 0,
+        "average_position": 26.9,
+        "source_kind": "gsc_browser_page_table_snapshot",
+        "query_rows_available": false
+      },
+      "source_recommendation_id": "mbti64-agent-expansion-88:/en/personality/enfj-a",
+      "current_surface": {
+        "title": "ENFJ-A Protagonist Personality: Traits, Careers & Relationships | FermatMind",
+        "description": "Explore the ENFJ-A Protagonist personality type, including traits, strengths, blind spots, relationships, career fit, and how to confirm your type with an MBTI test.",
+        "h1": "ENFJ-A Protagonist Personality",
+        "quick_answer": "",
+        "faq_count": 16,
+        "internal_link_count": 51
+      },
+      "recommended_surface": {
+        "title": "ENFJ-A Meaning: Assertive Protagonist Traits | FermatMind",
+        "description": "Explore ENFJ-A through people leadership, encouragement and shared direction, steady self-trust and follow-through, strengths, blind spots and relationships.",
+        "h1": "ENFJ-A Meaning",
+        "quick_answer": "ENFJ-A combines the ENFJ core pattern with an Assertive identity style. In practice, this points to steadier self-trust, post-decision follow-through and less repeated reassurance around people leadership, encouragement and shared direction. Read it as a public profile, not as a career or relationship verdict.",
+        "faq_count": 5,
+        "internal_link_count": 4
+      },
+      "review": {
+        "review_status": "early_visibility_review_ready",
+        "next_action": "review_existing_recommendation_no_immediate_rewrite",
+        "rationale": "The page has early visibility, but page-level evidence is insufficient for query-specific SERP copy changes."
+      },
+      "qa_spot_check": {
+        "existing_qa_ready": true,
+        "private_route_hits": [],
+        "claim_boundary_hits": [],
+        "contextual_claim_boundary_hits": [],
+        "safe_public_internal_links": true
+      },
+      "decision": "READY_FOR_EDITORIAL_REVIEW_NO_IMMEDIATE_SERP_REWRITE"
+    },
+    {
+      "rank": 2,
+      "target_url": "https://fermatmind.com/en/personality/esfj-t",
+      "path": "/en/personality/esfj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "mbti_type": "ESFJ",
+      "variant": "T",
+      "priority_score": 17.33,
+      "gsc": {
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 15,
+        "ctr": 0,
+        "average_position": 26.7,
+        "source_kind": "gsc_browser_page_table_snapshot",
+        "query_rows_available": false
+      },
+      "source_recommendation_id": "mbti64-agent-expansion-88:/en/personality/esfj-t",
+      "current_surface": {
+        "title": "ESFJ-T Consul Personality: Traits, Careers & Relationships | FermatMind",
+        "description": "Explore the ESFJ-T Consul personality type, including traits, strengths, blind spots, relationships, career fit, and how to confirm your type with an MBTI test.",
+        "h1": "ESFJ-T Consul Personality",
+        "quick_answer": "",
+        "faq_count": 16,
+        "internal_link_count": 51
+      },
+      "recommended_surface": {
+        "title": "ESFJ-T Meaning: Turbulent Consul Traits | FermatMind",
+        "description": "Explore ESFJ-T through support, belonging and practical coordination, active self-checking and feedback sensitivity, strengths, blind spots and relationships.",
+        "h1": "ESFJ-T Meaning",
+        "quick_answer": "ESFJ-T combines the ESFJ core pattern with a Turbulent identity style. In practice, this points to active self-checking, stronger feedback sensitivity and more pressure-based recalibration around support, belonging and practical coordination. Read it as a public profile, not as a career or relationship verdict.",
+        "faq_count": 5,
+        "internal_link_count": 4
+      },
+      "review": {
+        "review_status": "early_visibility_review_ready",
+        "next_action": "review_existing_recommendation_no_immediate_rewrite",
+        "rationale": "The page has early visibility, but page-level evidence is insufficient for query-specific SERP copy changes."
+      },
+      "qa_spot_check": {
+        "existing_qa_ready": true,
+        "private_route_hits": [],
+        "claim_boundary_hits": [],
+        "contextual_claim_boundary_hits": [],
+        "safe_public_internal_links": true
+      },
+      "decision": "READY_FOR_EDITORIAL_REVIEW_NO_IMMEDIATE_SERP_REWRITE"
+    },
+    {
+      "rank": 3,
+      "target_url": "https://fermatmind.com/zh/personality/intp-a",
+      "path": "/zh/personality/intp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "mbti_type": "INTP",
+      "variant": "A",
+      "priority_score": 12.73,
+      "gsc": {
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 9,
+        "ctr": 0,
+        "average_position": 12.7,
+        "source_kind": "gsc_browser_page_table_snapshot",
+        "query_rows_available": false
+      },
+      "source_recommendation_id": "mbti64-agent-expansion-88:/zh/personality/intp-a",
+      "current_surface": {
+        "title": "INTP-A 逻辑学家人格：特点、爱情、职业与适合工作 | FermatMind",
+        "description": "了解 INTP-A 逻辑学家人格的核心特点、优势盲点、爱情关系、职业倾向与适合工作，并通过 MBTI 测试确认自己的类型。",
+        "h1": "INTP-A 逻辑学家人格",
+        "quick_answer": "",
+        "faq_count": 17,
+        "internal_link_count": 51
+      },
+      "recommended_surface": {
+        "title": "INTP-A 人格特点：分析、好奇心和独立解题 | FermatMind",
+        "description": "系统了解 INTP-A 的分析、好奇心和独立解题、更偏向稳定自信、决策后持续推进和较少反复确认、优势盲点、工作风格和关系沟通。",
+        "h1": "INTP-A 人格特点",
+        "quick_answer": "INTP-A 是 INTP 核心加上 A 型身份风格的公开人格画像，通常会围绕分析、好奇心和独立解题展开，并呈现更偏向稳定自信、决策后持续推进和较少反复确认。它适合用于自我理解和沟通校准，不适合作为职业或关系结论。",
+        "faq_count": 5,
+        "internal_link_count": 4
+      },
+      "review": {
+        "review_status": "early_visibility_review_ready",
+        "next_action": "review_existing_recommendation_no_immediate_rewrite",
+        "rationale": "The page has early visibility, but page-level evidence is insufficient for query-specific SERP copy changes."
+      },
+      "qa_spot_check": {
+        "existing_qa_ready": true,
+        "private_route_hits": [],
+        "claim_boundary_hits": [],
+        "contextual_claim_boundary_hits": [],
+        "safe_public_internal_links": true
+      },
+      "decision": "READY_FOR_EDITORIAL_REVIEW_NO_IMMEDIATE_SERP_REWRITE"
+    },
+    {
+      "rank": 4,
+      "target_url": "https://fermatmind.com/en/personality/enfp-a",
+      "path": "/en/personality/enfp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "mbti_type": "ENFP",
+      "variant": "A",
+      "priority_score": 12,
+      "gsc": {
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "average_position": 38.4,
+        "source_kind": "gsc_browser_page_table_snapshot",
+        "query_rows_available": false
+      },
+      "source_recommendation_id": "mbti64-agent-expansion-88:/en/personality/enfp-a",
+      "current_surface": {
+        "title": "ENFP-A Campaigner Personality: Traits, Careers & Relationships | FermatMind",
+        "description": "Explore the ENFP-A Campaigner personality type, including traits, strengths, blind spots, relationships, career fit, and how to confirm your type with an MBTI test.",
+        "h1": "ENFP-A Campaigner Personality",
+        "quick_answer": "",
+        "faq_count": 16,
+        "internal_link_count": 51
+      },
+      "recommended_surface": {
+        "title": "ENFP-A Meaning: Assertive Campaigner Traits | FermatMind",
+        "description": "Explore ENFP-A through possibility, connection and creative momentum, steady self-trust and follow-through, strengths, blind spots and relationships.",
+        "h1": "ENFP-A Meaning",
+        "quick_answer": "ENFP-A combines the ENFP core pattern with an Assertive identity style. In practice, this points to steadier self-trust, post-decision follow-through and less repeated reassurance around possibility, connection and creative momentum. Read it as a public profile, not as a career or relationship verdict.",
+        "faq_count": 5,
+        "internal_link_count": 4
+      },
+      "review": {
+        "review_status": "early_visibility_review_ready",
+        "next_action": "review_existing_recommendation_no_immediate_rewrite",
+        "rationale": "The page has early visibility, but page-level evidence is insufficient for query-specific SERP copy changes."
+      },
+      "qa_spot_check": {
+        "existing_qa_ready": true,
+        "private_route_hits": [],
+        "claim_boundary_hits": [],
+        "contextual_claim_boundary_hits": [],
+        "safe_public_internal_links": true
+      },
+      "decision": "READY_FOR_EDITORIAL_REVIEW_NO_IMMEDIATE_SERP_REWRITE"
+    },
+    {
+      "rank": 5,
+      "target_url": "https://fermatmind.com/zh/personality/istp-a",
+      "path": "/zh/personality/istp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "mbti_type": "ISTP",
+      "variant": "A",
+      "priority_score": 11.27,
+      "gsc": {
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "average_position": 7.3,
+        "source_kind": "gsc_browser_page_table_snapshot",
+        "query_rows_available": false
+      },
+      "source_recommendation_id": "mbti64-agent-expansion-88:/zh/personality/istp-a",
+      "current_surface": {
+        "title": "ISTP-A 鉴赏家人格：特点、爱情、职业与适合工作 | FermatMind",
+        "description": "了解 ISTP-A 鉴赏家人格的核心特点、优势盲点、爱情关系、职业倾向与适合工作，并通过 MBTI 测试确认自己的类型。",
+        "h1": "ISTP-A 鉴赏家人格",
+        "quick_answer": "",
+        "faq_count": 16,
+        "internal_link_count": 51
+      },
+      "recommended_surface": {
+        "title": "ISTP-A 人格特点：动手解题、自主和冷静排障 | FermatMind",
+        "description": "系统了解 ISTP-A 的动手解题、自主和冷静排障、更偏向稳定自信、决策后持续推进和较少反复确认、优势盲点、工作风格和关系沟通。",
+        "h1": "ISTP-A 人格特点",
+        "quick_answer": "ISTP-A 是 ISTP 核心加上 A 型身份风格的公开人格画像，通常会围绕动手解题、自主和冷静排障展开，并呈现更偏向稳定自信、决策后持续推进和较少反复确认。它适合用于自我理解和沟通校准，不适合作为职业或关系结论。",
+        "faq_count": 5,
+        "internal_link_count": 4
+      },
+      "review": {
+        "review_status": "early_visibility_review_ready",
+        "next_action": "review_existing_recommendation_no_immediate_rewrite",
+        "rationale": "The page has early visibility, but page-level evidence is insufficient for query-specific SERP copy changes."
+      },
+      "qa_spot_check": {
+        "existing_qa_ready": true,
+        "private_route_hits": [],
+        "claim_boundary_hits": [],
+        "contextual_claim_boundary_hits": [],
+        "safe_public_internal_links": true
+      },
+      "decision": "READY_FOR_EDITORIAL_REVIEW_NO_IMMEDIATE_SERP_REWRITE"
+    },
+    {
+      "rank": 6,
+      "target_url": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+      "path": "/zh/personality/intp-a-vs-intp-t",
+      "locale": "zh",
+      "page_type": "comparison",
+      "mbti_type": "INTP",
+      "variant": null,
+      "priority_score": 5.9,
+      "gsc": {
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "average_position": 11,
+        "source_kind": "gsc_browser_page_table_snapshot",
+        "query_rows_available": false
+      },
+      "source_recommendation_id": "mbti64-agent-expansion-88:/zh/personality/intp-a-vs-intp-t",
+      "current_surface": {
+        "title": "INTP-A 和 INTP-T 区别：特点、职业、爱情与稀有度 | FermatMind",
+        "description": "对比 INTP-A 与 INTP-T 的 A/T 区别、核心特点、爱情关系、适合职业、优势盲点、稀有度，并通过 MBTI 测试确认自己的类型。",
+        "h1": "INTP-A 和 INTP-T 区别：特点、职业、爱情与稀有度",
+        "quick_answer": "",
+        "faq_count": 13,
+        "internal_link_count": 38
+      },
+      "recommended_surface": {
+        "title": "INTP-A vs INTP-T：差异、压力反应与关系沟通 | FermatMind",
+        "description": "比较 INTP-A 和 INTP-T 如何围绕分析、好奇心和独立解题处理自信、压力恢复、反馈、工作节奏和关系沟通。",
+        "h1": "INTP-A vs INTP-T：关键差异",
+        "quick_answer": "INTP-A 和 INTP-T 共享同一个 INTP 核心；在分析、好奇心和独立解题这个主题下，差异主要体现在自信稳定度、压力反应、反馈处理和自我修正方式。这个页面适合比较两种 A/T 风格，而不是判断哪一种更好。",
+        "faq_count": 5,
+        "internal_link_count": 4
+      },
+      "review": {
+        "review_status": "early_visibility_review_ready",
+        "next_action": "review_existing_recommendation_no_immediate_rewrite",
+        "rationale": "The page has early visibility, but page-level evidence is insufficient for query-specific SERP copy changes."
+      },
+      "qa_spot_check": {
+        "existing_qa_ready": true,
+        "private_route_hits": [],
+        "claim_boundary_hits": [],
+        "contextual_claim_boundary_hits": [
+          "官方 MBTI"
+        ],
+        "safe_public_internal_links": true
+      },
+      "decision": "READY_FOR_EDITORIAL_REVIEW_NO_IMMEDIATE_SERP_REWRITE"
+    },
+    {
+      "rank": 7,
+      "target_url": "https://fermatmind.com/en/personality/esfj-a",
+      "path": "/en/personality/esfj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "mbti_type": "ESFJ",
+      "variant": "A",
+      "priority_score": 5.33,
+      "gsc": {
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "average_position": 26.7,
+        "source_kind": "gsc_browser_page_table_snapshot",
+        "query_rows_available": false
+      },
+      "source_recommendation_id": "mbti64-agent-expansion-88:/en/personality/esfj-a",
+      "current_surface": {
+        "title": "ESFJ-A Consul Personality: Traits, Careers & Relationships | FermatMind",
+        "description": "Explore the ESFJ-A Consul personality type, including traits, strengths, blind spots, relationships, career fit, and how to confirm your type with an MBTI test.",
+        "h1": "ESFJ-A Consul Personality",
+        "quick_answer": "",
+        "faq_count": 16,
+        "internal_link_count": 51
+      },
+      "recommended_surface": {
+        "title": "ESFJ-A Meaning: Assertive Consul Traits | FermatMind",
+        "description": "Explore ESFJ-A through support, belonging and practical coordination, steady self-trust and follow-through, strengths, blind spots and relationships.",
+        "h1": "ESFJ-A Meaning",
+        "quick_answer": "ESFJ-A combines the ESFJ core pattern with an Assertive identity style. In practice, this points to steadier self-trust, post-decision follow-through and less repeated reassurance around support, belonging and practical coordination. Read it as a public profile, not as a career or relationship verdict.",
+        "faq_count": 5,
+        "internal_link_count": 4
+      },
+      "review": {
+        "review_status": "early_visibility_review_ready",
+        "next_action": "review_existing_recommendation_no_immediate_rewrite",
+        "rationale": "The page has early visibility, but page-level evidence is insufficient for query-specific SERP copy changes."
+      },
+      "qa_spot_check": {
+        "existing_qa_ready": true,
+        "private_route_hits": [],
+        "claim_boundary_hits": [],
+        "contextual_claim_boundary_hits": [],
+        "safe_public_internal_links": true
+      },
+      "decision": "READY_FOR_EDITORIAL_REVIEW_NO_IMMEDIATE_SERP_REWRITE"
+    },
+    {
+      "rank": 8,
+      "target_url": "https://fermatmind.com/zh/personality/esfp-a",
+      "path": "/zh/personality/esfp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "mbti_type": "ESFP",
+      "variant": "A",
+      "priority_score": 5.3,
+      "gsc": {
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 7,
+        "source_kind": "gsc_browser_page_table_snapshot",
+        "query_rows_available": false
+      },
+      "source_recommendation_id": "mbti64-agent-expansion-88:/zh/personality/esfp-a",
+      "current_surface": {
+        "title": "ESFP-A 表演者人格：特点、爱情、职业与适合工作 | FermatMind",
+        "description": "了解 ESFP-A 表演者人格的核心特点、优势盲点、爱情关系、职业倾向与适合工作，并通过 MBTI 测试确认自己的类型。",
+        "h1": "ESFP-A 表演者人格",
+        "quick_answer": "",
+        "faq_count": 16,
+        "internal_link_count": 51
+      },
+      "recommended_surface": {
+        "title": "ESFP-A 人格特点：活力、现场感和共同体验 | FermatMind",
+        "description": "系统了解 ESFP-A 的活力、现场感和共同体验、更偏向稳定自信、决策后持续推进和较少反复确认、优势盲点、工作风格和关系沟通。",
+        "h1": "ESFP-A 人格特点",
+        "quick_answer": "ESFP-A 是 ESFP 核心加上 A 型身份风格的公开人格画像，通常会围绕活力、现场感和共同体验展开，并呈现更偏向稳定自信、决策后持续推进和较少反复确认。它适合用于自我理解和沟通校准，不适合作为职业或关系结论。",
+        "faq_count": 5,
+        "internal_link_count": 4
+      },
+      "review": {
+        "review_status": "early_visibility_review_ready",
+        "next_action": "review_existing_recommendation_no_immediate_rewrite",
+        "rationale": "The page has early visibility, but page-level evidence is insufficient for query-specific SERP copy changes."
+      },
+      "qa_spot_check": {
+        "existing_qa_ready": true,
+        "private_route_hits": [],
+        "claim_boundary_hits": [],
+        "contextual_claim_boundary_hits": [],
+        "safe_public_internal_links": true
+      },
+      "decision": "READY_FOR_EDITORIAL_REVIEW_NO_IMMEDIATE_SERP_REWRITE"
+    },
+    {
+      "rank": 9,
+      "target_url": "https://fermatmind.com/zh/personality/esfj-a",
+      "path": "/zh/personality/esfj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "mbti_type": "ESFJ",
+      "variant": "A",
+      "priority_score": 5.2,
+      "gsc": {
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 8,
+        "source_kind": "gsc_browser_page_table_snapshot",
+        "query_rows_available": false
+      },
+      "source_recommendation_id": "mbti64-agent-expansion-88:/zh/personality/esfj-a",
+      "current_surface": {
+        "title": "ESFJ-A 执政官人格：特点、爱情、职业与适合工作 | FermatMind",
+        "description": "了解 ESFJ-A 执政官人格的核心特点、优势盲点、爱情关系、职业倾向与适合工作，并通过 MBTI 测试确认自己的类型。",
+        "h1": "ESFJ-A 执政官人格",
+        "quick_answer": "",
+        "faq_count": 16,
+        "internal_link_count": 51
+      },
+      "recommended_surface": {
+        "title": "ESFJ-A 人格特点：支持、归属和实际协调 | FermatMind",
+        "description": "系统了解 ESFJ-A 的支持、归属和实际协调、更偏向稳定自信、决策后持续推进和较少反复确认、优势盲点、工作风格和关系沟通。",
+        "h1": "ESFJ-A 人格特点",
+        "quick_answer": "ESFJ-A 是 ESFJ 核心加上 A 型身份风格的公开人格画像，通常会围绕支持、归属和实际协调展开，并呈现更偏向稳定自信、决策后持续推进和较少反复确认。它适合用于自我理解和沟通校准，不适合作为职业或关系结论。",
+        "faq_count": 5,
+        "internal_link_count": 4
+      },
+      "review": {
+        "review_status": "early_visibility_review_ready",
+        "next_action": "review_existing_recommendation_no_immediate_rewrite",
+        "rationale": "The page has early visibility, but page-level evidence is insufficient for query-specific SERP copy changes."
+      },
+      "qa_spot_check": {
+        "existing_qa_ready": true,
+        "private_route_hits": [],
+        "claim_boundary_hits": [],
+        "contextual_claim_boundary_hits": [],
+        "safe_public_internal_links": true
+      },
+      "decision": "READY_FOR_EDITORIAL_REVIEW_NO_IMMEDIATE_SERP_REWRITE"
+    },
+    {
+      "rank": 10,
+      "target_url": "https://fermatmind.com/en/personality/intp-a",
+      "path": "/en/personality/intp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "mbti_type": "INTP",
+      "variant": "A",
+      "priority_score": 5.1,
+      "gsc": {
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 9,
+        "source_kind": "gsc_browser_page_table_snapshot",
+        "query_rows_available": false
+      },
+      "source_recommendation_id": "mbti64-agent-expansion-88:/en/personality/intp-a",
+      "current_surface": {
+        "title": "INTP-A Logician Personality: Traits, Careers & Relationships | FermatMind",
+        "description": "Explore the INTP-A Logician personality type, including traits, strengths, blind spots, relationships, career fit, and how to confirm your type with an MBTI test.",
+        "h1": "INTP-A Logician Personality",
+        "quick_answer": "",
+        "faq_count": 16,
+        "internal_link_count": 51
+      },
+      "recommended_surface": {
+        "title": "INTP-A Meaning: Assertive Logician Traits | FermatMind",
+        "description": "Explore INTP-A through analysis, curiosity and independent problem solving, steady self-trust and follow-through, strengths, blind spots and relationships.",
+        "h1": "INTP-A Meaning",
+        "quick_answer": "INTP-A combines the INTP core pattern with an Assertive identity style. In practice, this points to steadier self-trust, post-decision follow-through and less repeated reassurance around analysis, curiosity and independent problem solving. Read it as a public profile, not as a career or relationship verdict.",
+        "faq_count": 5,
+        "internal_link_count": 4
+      },
+      "review": {
+        "review_status": "early_visibility_review_ready",
+        "next_action": "review_existing_recommendation_no_immediate_rewrite",
+        "rationale": "The page has early visibility, but page-level evidence is insufficient for query-specific SERP copy changes."
+      },
+      "qa_spot_check": {
+        "existing_qa_ready": true,
+        "private_route_hits": [],
+        "claim_boundary_hits": [],
+        "contextual_claim_boundary_hits": [],
+        "safe_public_internal_links": true
+      },
+      "decision": "READY_FOR_EDITORIAL_REVIEW_NO_IMMEDIATE_SERP_REWRITE"
+    },
+    {
+      "rank": 11,
+      "target_url": "https://fermatmind.com/en/personality/istp-a",
+      "path": "/en/personality/istp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "mbti_type": "ISTP",
+      "variant": "A",
+      "priority_score": 4.9,
+      "gsc": {
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "average_position": 11,
+        "source_kind": "gsc_browser_page_table_snapshot",
+        "query_rows_available": false
+      },
+      "source_recommendation_id": "mbti64-agent-expansion-88:/en/personality/istp-a",
+      "current_surface": {
+        "title": "ISTP-A Virtuoso Personality: Traits, Careers & Relationships | FermatMind",
+        "description": "Explore the ISTP-A Virtuoso personality type, including traits, strengths, blind spots, relationships, career fit, and how to confirm your type with an MBTI test.",
+        "h1": "ISTP-A Virtuoso Personality",
+        "quick_answer": "",
+        "faq_count": 16,
+        "internal_link_count": 51
+      },
+      "recommended_surface": {
+        "title": "ISTP-A Meaning: Assertive Virtuoso Traits | FermatMind",
+        "description": "Explore ISTP-A through hands-on problem solving, autonomy and calm troubleshooting, steady self-trust and follow-through, strengths, blind spots and relationships.",
+        "h1": "ISTP-A Meaning",
+        "quick_answer": "ISTP-A combines the ISTP core pattern with an Assertive identity style. In practice, this points to steadier self-trust, post-decision follow-through and less repeated reassurance around hands-on problem solving, autonomy and calm troubleshooting. Read it as a public profile, not as a career or relationship verdict.",
+        "faq_count": 5,
+        "internal_link_count": 4
+      },
+      "review": {
+        "review_status": "early_visibility_review_ready",
+        "next_action": "review_existing_recommendation_no_immediate_rewrite",
+        "rationale": "The page has early visibility, but page-level evidence is insufficient for query-specific SERP copy changes."
+      },
+      "qa_spot_check": {
+        "existing_qa_ready": true,
+        "private_route_hits": [],
+        "claim_boundary_hits": [],
+        "contextual_claim_boundary_hits": [],
+        "safe_public_internal_links": true
+      },
+      "decision": "READY_FOR_EDITORIAL_REVIEW_NO_IMMEDIATE_SERP_REWRITE"
+    },
+    {
+      "rank": 12,
+      "target_url": "https://fermatmind.com/en/personality/entj-a",
+      "path": "/en/personality/entj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "mbti_type": "ENTJ",
+      "variant": "A",
+      "priority_score": 4.5,
+      "gsc": {
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "average_position": 25,
+        "source_kind": "gsc_browser_page_table_snapshot",
+        "query_rows_available": false
+      },
+      "source_recommendation_id": "mbti64-agent-expansion-88:/en/personality/entj-a",
+      "current_surface": {
+        "title": "ENTJ-A Commander Personality: Traits, Careers & Relationships | FermatMind",
+        "description": "Explore the ENTJ-A Commander personality type, including traits, strengths, blind spots, relationships, career fit, and how to confirm your type with an MBTI test.",
+        "h1": "ENTJ-A Commander Personality",
+        "quick_answer": "",
+        "faq_count": 16,
+        "internal_link_count": 51
+      },
+      "recommended_surface": {
+        "title": "ENTJ-A Meaning: Assertive Commander Traits | FermatMind",
+        "description": "Explore ENTJ-A through leadership, execution and systems decisions, steady self-trust and follow-through, strengths, blind spots and relationships.",
+        "h1": "ENTJ-A Meaning",
+        "quick_answer": "ENTJ-A combines the ENTJ core pattern with an Assertive identity style. In practice, this points to steadier self-trust, post-decision follow-through and less repeated reassurance around leadership, execution and systems decisions. Read it as a public profile, not as a career or relationship verdict.",
+        "faq_count": 5,
+        "internal_link_count": 4
+      },
+      "review": {
+        "review_status": "early_visibility_review_ready",
+        "next_action": "review_existing_recommendation_no_immediate_rewrite",
+        "rationale": "The page has early visibility, but page-level evidence is insufficient for query-specific SERP copy changes."
+      },
+      "qa_spot_check": {
+        "existing_qa_ready": true,
+        "private_route_hits": [],
+        "claim_boundary_hits": [],
+        "contextual_claim_boundary_hits": [],
+        "safe_public_internal_links": true
+      },
+      "decision": "READY_FOR_EDITORIAL_REVIEW_NO_IMMEDIATE_SERP_REWRITE"
+    },
+    {
+      "rank": 13,
+      "target_url": "https://fermatmind.com/en/personality/estp-t",
+      "path": "/en/personality/estp-t",
+      "locale": "en",
+      "page_type": "variant",
+      "mbti_type": "ESTP",
+      "variant": "T",
+      "priority_score": 4,
+      "gsc": {
+        "status": "GSC_IMPORTED",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "average_position": 46.5,
+        "source_kind": "gsc_browser_page_table_snapshot",
+        "query_rows_available": false
+      },
+      "source_recommendation_id": "mbti64-agent-expansion-88:/en/personality/estp-t",
+      "current_surface": {
+        "title": "ESTP-T Entrepreneur Personality: Traits, Careers & Relationships | FermatMind",
+        "description": "Explore the ESTP-T Entrepreneur personality type, including traits, strengths, blind spots, relationships, career fit, and how to confirm your type with an MBTI test.",
+        "h1": "ESTP-T Entrepreneur Personality",
+        "quick_answer": "",
+        "faq_count": 16,
+        "internal_link_count": 51
+      },
+      "recommended_surface": {
+        "title": "ESTP-T Meaning: Turbulent Entrepreneur Traits | FermatMind",
+        "description": "Explore ESTP-T through action, opportunity and real-time adaptation, active self-checking and feedback sensitivity, strengths, blind spots and relationships.",
+        "h1": "ESTP-T Meaning",
+        "quick_answer": "ESTP-T combines the ESTP core pattern with a Turbulent identity style. In practice, this points to active self-checking, stronger feedback sensitivity and more pressure-based recalibration around action, opportunity and real-time adaptation. Read it as a public profile, not as a career or relationship verdict.",
+        "faq_count": 5,
+        "internal_link_count": 4
+      },
+      "review": {
+        "review_status": "early_visibility_review_ready",
+        "next_action": "review_existing_recommendation_no_immediate_rewrite",
+        "rationale": "The page has early visibility, but page-level evidence is insufficient for query-specific SERP copy changes."
+      },
+      "qa_spot_check": {
+        "existing_qa_ready": true,
+        "private_route_hits": [],
+        "claim_boundary_hits": [],
+        "contextual_claim_boundary_hits": [],
+        "safe_public_internal_links": true
+      },
+      "decision": "READY_FOR_EDITORIAL_REVIEW_NO_IMMEDIATE_SERP_REWRITE"
+    }
+  ],
+  "blockers": [],
+  "warnings": [
+    "QUERY_LEVEL_GSC_ROWS_UNAVAILABLE",
+    "CONTEXTUAL_CLAIM_BOUNDARY_REVIEW_1"
+  ],
+  "recommended_next_task": "MBTI64-SEO-MEASUREMENT-COHORT-GSC-QUERY-EXPORT-01",
+  "alternative_next_task_if_query_export_deferred": "MBTI64-CMS-PROJECTION-DRAFT-VISIBLE-13-DRY-RUN-01"
+}
