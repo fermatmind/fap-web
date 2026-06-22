@@ -2485,6 +2485,13 @@ const AGENT_OS_REGISTRY_GO_HOLD_MATRIX_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const RESULT_PAGE_AGENT_PLATFORM_STANDARD_01_ALLOWED_FILES = new Set([
+  "docs/result-page-agents/RESULT_PAGE_AGENT_PLATFORM_STANDARD.md",
+  "docs/result-page-agents/six-scale-result-agent-readiness.template.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti64-agent-expansion-88-security.contract.test.ts",
+]);
+
 function isFrontendUiPolishBatch02ScopeActive(): boolean {
   if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
     return true;
@@ -2594,6 +2601,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/agent-os-registry-go-hold-matrix-01" &&
     (AGENT_OS_REGISTRY_GO_HOLD_MATRIX_01_ALLOWED_FILES.has(file) || CODEQL_HYGIENE_ALLOWED_FILES.has(file))
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/result-page-agent-platform-standard-01" &&
+    RESULT_PAGE_AGENT_PLATFORM_STANDARD_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
