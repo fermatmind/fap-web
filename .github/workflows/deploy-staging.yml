@@ -25,6 +25,8 @@ jobs:
       APP_DIR: "/var/www/fap-web-staging/current"
       APP_NAME: "fap-web-staging"
       APP_PORT: "3000"
+      APP_MANAGER: "systemd"
+      SYSTEMD_SERVICE: "fap-web-staging.service"
       PUBLIC_BASE_URL: "https://staging.fermatmind.com"
       NEXT_PUBLIC_API_URL: "https://staging.fermatmind.com"
       NEXT_PUBLIC_SITE_URL: "https://staging.fermatmind.com"
@@ -83,11 +85,14 @@ jobs:
           ssh_retry() {
             local attempt rc
             for attempt in $(seq 1 "$SSH_RETRY_ATTEMPTS"); do
-              if ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
-                -p "$DEPLOY_PORT" "$@"; then
+              set +e
+              ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+                -p "$DEPLOY_PORT" "$@"
+              rc=$?
+              set -e
+              if [ "$rc" -eq 0 ]; then
                 return 0
               fi
-              rc=$?
               if [ "$attempt" -eq "$SSH_RETRY_ATTEMPTS" ]; then
                 return "$rc"
               fi
@@ -106,11 +111,14 @@ jobs:
           ssh_retry() {
             local attempt rc
             for attempt in $(seq 1 "$SSH_RETRY_ATTEMPTS"); do
-              if ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
-                -p "$DEPLOY_PORT" "$@"; then
+              set +e
+              ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+                -p "$DEPLOY_PORT" "$@"
+              rc=$?
+              set -e
+              if [ "$rc" -eq 0 ]; then
                 return 0
               fi
-              rc=$?
               if [ "$attempt" -eq "$SSH_RETRY_ATTEMPTS" ]; then
                 return "$rc"
               fi
@@ -119,7 +127,7 @@ jobs:
             done
           }
           ssh_retry "$DEPLOY_USER@$DEPLOY_HOST" \
-            "APP_DIR='$APP_DIR' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' NEXT_PUBLIC_API_URL='$NEXT_PUBLIC_API_URL' NEXT_PUBLIC_SITE_URL='$NEXT_PUBLIC_SITE_URL' GIT_BRANCH='$GIT_BRANCH' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' bash '$APP_DIR/scripts/deploy_web_pm2.sh'"
+            "cd '$APP_DIR' && git fetch --prune origin && git checkout -B '$GIT_BRANCH' 'origin/$GIT_BRANCH' && git reset --hard '$GITHUB_SHA' && APP_DIR='$APP_DIR' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' APP_MANAGER='$APP_MANAGER' SYSTEMD_SERVICE='$SYSTEMD_SERVICE' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' NEXT_PUBLIC_API_URL='$NEXT_PUBLIC_API_URL' NEXT_PUBLIC_SITE_URL='$NEXT_PUBLIC_SITE_URL' GIT_BRANCH='$GIT_BRANCH' DEPLOY_SHA='$GITHUB_SHA' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' bash '$APP_DIR/scripts/deploy_web_pm2.sh'"
 
       - name: Verify deployed revision
         if: steps.stale_guard.outputs.skip_deploy != 'true'
@@ -129,11 +137,14 @@ jobs:
           ssh_retry() {
             local attempt rc
             for attempt in $(seq 1 "$SSH_RETRY_ATTEMPTS"); do
-              if ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
-                -p "$DEPLOY_PORT" "$@"; then
+              set +e
+              ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+                -p "$DEPLOY_PORT" "$@"
+              rc=$?
+              set -e
+              if [ "$rc" -eq 0 ]; then
                 return 0
               fi
-              rc=$?
               if [ "$attempt" -eq "$SSH_RETRY_ATTEMPTS" ]; then
                 return "$rc"
               fi
