@@ -2584,6 +2584,13 @@ const SIX_HUB_FREE_FULL_REPORT_RUNTIME_QA_01_ALLOWED_FILES = new Set([
   "tests/contracts/six-hub-free-full-report-runtime-qa.contract.test.ts",
 ]);
 
+const RESULT_PAGE_AGENT_RUNTIME_QA_HANDOFF_01_ALLOWED_FILES = new Set([
+  "docs/result-page-agents/result-page-agent-runtime-qa-handoff-2026-06-23.md",
+  "docs/result-page-agents/result-page-agent-runtime-qa-handoff.v1.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/result-page-agent-runtime-qa-handoff.contract.test.ts",
+]);
+
 function isFrontendUiPolishBatch02ScopeActive(): boolean {
   if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
     return true;
@@ -2763,6 +2770,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/six-hub-free-full-report-runtime-qa-01" &&
     SIX_HUB_FREE_FULL_REPORT_RUNTIME_QA_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/result-page-agent-runtime-qa-handoff-01" &&
+    RESULT_PAGE_AGENT_RUNTIME_QA_HANDOFF_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
