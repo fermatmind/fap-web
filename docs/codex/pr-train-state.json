@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-23T03:02:00+08:00",
+  "updated_at": "2026-06-23T03:08:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -25796,15 +25796,15 @@
       "repo": "fap-web",
       "branch": "codex/fa30-web-07-competitor-alternative-policy",
       "base": "main",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "train_scope": "competitor_alternative_page_policy",
       "title": "FA30-WEB-07: docs(seo): define competitor alternative page policy",
       "depends_on": [
         "FA30-WEB-05",
         "FA30-API-08"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "b12929ccd515fd7119c003c97a9710e508e686e9",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1342",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -25833,8 +25833,8 @@
           "evidence": "Passed: python3 -m json.tool docs/seo/generated/competitor-alternative-page-policy.v1.json; python3 -m json.tool docs/codex/pr-train-state.json; ruby YAML parse for docs/codex/pr-train.yaml; git diff --check; explicit path allowlist scope validation. Scope remains docs-only and limited to two competitor alternative planning artifacts plus docs/codex metadata."
         },
         "pull_request": {
-          "status": "pending",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1342 after local validation and scope validation passed. The branch head is the source of truth for the exact current SHA after metadata commits."
         },
         "github": {
           "status": "pending",
@@ -25852,6 +25852,11 @@
           "at": "2026-06-23T03:02:00+08:00",
           "status": "local_checks_passed",
           "note": "Added the competitor alternative page policy and generated policy contract, registered FA30-WEB-07 metadata, reconciled FA30-WEB-05 dependency state, and validated JSON, YAML, diff whitespace, and explicit path allowlist scope."
+        },
+        {
+          "at": "2026-06-23T03:08:00+08:00",
+          "status": "pr_open",
+          "note": "Opened GitHub PR #1342 after local validation passed. Scope remains limited to the competitor alternative policy doc, generated policy contract, and docs/codex metadata."
         }
       ]
     }
