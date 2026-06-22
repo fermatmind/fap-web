@@ -164,7 +164,7 @@ function buildLead(options: {
       return "这次结果仍可阅读，但解释边界较宽，建议优先关注方法边界和后续观察。";
     }
 
-    return primaryLabel ? `这次结果最可能接近 ${primaryLabel}。` : "这次结果提供了一个当前最接近的主候选。";
+    return primaryLabel ? `这次结果当前更接近 ${primaryLabel}。` : "这次结果提供了一个当前更接近的主候选。";
   }
 
   if (scope === "close_call") {
@@ -181,7 +181,7 @@ function buildLead(options: {
     return "This result is still readable, but the interpretation boundary is wider than usual.";
   }
 
-  return primaryLabel ? `This result most likely points to ${primaryLabel}.` : "This result provides a current best-fit candidate.";
+  return primaryLabel ? `This result currently leans toward ${primaryLabel}.` : "This result provides a current best-fit candidate.";
 }
 
 function buildMethodologyBoundary(locale: Locale, formLabel: string, methodologyVariant: string): string {

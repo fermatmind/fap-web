@@ -142,7 +142,36 @@ describe("enneagram share surface contract", () => {
     render(<ShareClient locale="en" shareId="share-enneagram-123" />);
 
     expect(await screen.findByTestId("enneagram-share-headline")).toHaveTextContent("Type 1");
-    expect(screen.getByTestId("enneagram-share-lead")).toHaveTextContent("most likely points to Type 1");
+    expect(screen.getByTestId("enneagram-share-lead")).toHaveTextContent("currently leans toward Type 1");
+  });
+
+  it("does not render private identifiers, scores, or internal metadata", async () => {
+    hoisted.getShareSummary.mockResolvedValue(createFixture("clear"));
+
+    render(<ShareClient locale="en" shareId="share-enneagram-123" />);
+
+    const card = await screen.findByTestId("enneagram-share-summary-card");
+    const text = card.textContent ?? "";
+
+    for (const forbidden of [
+      "attempt-enneagram-123",
+      "Score",
+      "88",
+      "79",
+      "73",
+      "4.2",
+      "ctx-enneagram-123",
+      "sha256",
+      "frozen",
+      "enneagram.report.v2",
+      "projection",
+      "schema",
+      "Dominance gap",
+      "Snapshot",
+      "Scope comes from backend contract.",
+    ]) {
+      expect(text).not.toContain(forbidden);
+    }
   });
 
   it("renders close-call share state with a candidate pair", async () => {

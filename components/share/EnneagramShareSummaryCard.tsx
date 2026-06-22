@@ -3,21 +3,6 @@ import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import type { EnneagramShareViewModel } from "@/lib/enneagram/shareSurface";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-
-function formatDate(value: string | null, locale: Locale): string {
-  if (!value) return locale === "zh" ? "未提供" : "Not provided";
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) {
-    return value;
-  }
-  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
-}
-
-function formatGap(value: number | null): string {
-  if (value === null) return "--";
-  return Number.isInteger(value) ? String(value) : value.toFixed(2);
-}
 
 function resolveHeadline(viewModel: EnneagramShareViewModel, locale: Locale): string {
   const primary = viewModel.primaryCandidate?.label ?? "";
@@ -132,11 +117,6 @@ export default function EnneagramShareSummaryCard({
                     {locale === "zh" ? `Top ${type.rank ?? "-"}` : `Top ${type.rank ?? "-"}`}
                   </p>
                   <p className="m-0 mt-2 text-lg font-semibold text-slate-950">{type.label}</p>
-                  {type.score !== null ? (
-                    <p className="m-0 mt-1 text-sm text-slate-600">
-                      {locale === "zh" ? "分值" : "Score"} · {formatGap(type.score)}
-                    </p>
-                  ) : null}
                 </div>
               ))}
             </div>
@@ -147,20 +127,17 @@ export default function EnneagramShareSummaryCard({
                   {locale === "zh" ? "全部九型概览" : "All nine overview"}
                 </p>
                 <div data-testid="enneagram-share-all9-profile" className="mt-3 space-y-2">
-                  {viewModel.all9ProfileMini.map((type) => {
-                    const width = Math.max(8, Math.min(100, type.score ?? 0));
-                    return (
-                      <div key={`all9-${type.code}`} className="space-y-1">
-                        <div className="flex items-center justify-between gap-3 text-sm text-slate-700">
-                          <span>{type.label}</span>
-                          <span>{type.score === null ? "--" : formatGap(type.score)}</span>
-                        </div>
-                        <div className="h-2 overflow-hidden rounded-full bg-slate-100">
-                          <div className="h-full rounded-full bg-amber-500/70" style={{ width: `${width}%` }} />
-                        </div>
-                      </div>
-                    );
-                  })}
+                  {viewModel.all9ProfileMini.map((type) => (
+                    <div
+                      key={`all9-${type.code}`}
+                      className="flex items-center justify-between gap-3 rounded-lg border border-slate-100 bg-white/70 px-3 py-2 text-sm text-slate-700"
+                    >
+                      <span>{type.label}</span>
+                      <span className="text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
+                        {locale === "zh" ? `排序 ${type.rank ?? "-"}` : `Rank ${type.rank ?? "-"}`}
+                      </span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -212,54 +189,16 @@ export default function EnneagramShareSummaryCard({
           </section>
 
           <section className="space-y-4">
-            <Card className="border-white/70 bg-white/88 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
-              <CardHeader className="pb-3">
-                <CardTitle className="text-base text-slate-900">
-                  {locale === "zh" ? "公开摘要卡" : "Share-safe summary card"}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 text-sm text-slate-700">
-                <div>
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                    {locale === "zh" ? "解释状态" : "Interpretation state"}
-                  </p>
-                  <p data-testid="enneagram-share-scope" className="m-0 mt-2 font-semibold text-slate-900">
-                    {viewModel.interpretationScope}
-                  </p>
-                  {viewModel.interpretationReason ? (
-                    <p className="m-0 mt-1 leading-7">{viewModel.interpretationReason}</p>
-                  ) : null}
-                </div>
-
-                <div>
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                    {locale === "zh" ? "主导差距" : "Dominance gap"}
-                  </p>
-                  <p className="m-0 mt-2">
-                    abs {formatGap(viewModel.dominanceGapAbs)} / pct {formatGap(viewModel.dominanceGapPct)}
-                  </p>
-                </div>
-
-                <div className="rounded-2xl border border-slate-100 bg-slate-50/80 p-4">
-                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                    {locale === "zh" ? "快照与版本" : "Snapshot and versions"}
-                  </p>
-                  <p className="m-0 mt-2">
-                    {locale === "zh" ? "生成时间" : "Generated"} · {formatDate(viewModel.generatedAt, locale)}
-                  </p>
-                  {viewModel.contentSnapshotStatus ? (
-                    <p className="m-0 mt-1">
-                      {locale === "zh" ? "快照状态" : "Snapshot"} · {viewModel.contentSnapshotStatus}
-                    </p>
-                  ) : null}
-                  {viewModel.reportSchemaVersion ? (
-                    <p className="m-0 mt-1">
-                      schema · {viewModel.reportSchemaVersion}
-                    </p>
-                  ) : null}
-                </div>
-              </CardContent>
-            </Card>
+            <div className="rounded-[24px] border border-white/80 bg-white/88 p-5 text-sm leading-7 text-slate-700 shadow-[0_18px_40px_rgba(15,23,42,0.08)]">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                {locale === "zh" ? "公开摘要" : "Public-safe summary"}
+              </p>
+              <p className="m-0 mt-3">
+                {locale === "zh"
+                  ? "把它当作动机模式的反思线索，而不是固定身份或最终判断。"
+                  : "Use this as a reflection cue for motivation patterns, not as a fixed identity or final verdict."}
+              </p>
+            </div>
           </section>
         </div>
       </div>
