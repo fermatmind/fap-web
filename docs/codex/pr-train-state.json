@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-23T03:08:00+08:00",
+  "updated_at": "2026-06-23T03:18:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -25796,7 +25796,7 @@
       "repo": "fap-web",
       "branch": "codex/fa30-web-07-competitor-alternative-policy",
       "base": "main",
-      "status": "pr_open",
+      "status": "ready_to_merge",
       "train_scope": "competitor_alternative_page_policy",
       "title": "FA30-WEB-07: docs(seo): define competitor alternative page policy",
       "depends_on": [
@@ -25837,8 +25837,8 @@
           "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1342 after local validation and scope validation passed. The branch head is the source of truth for the exact current SHA after metadata commits."
         },
         "github": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub PR #1342 required checks passed on branch head cc17ef215c366bc7bf9a0e4b82e49f6e70e24a95: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL all completed successfully; mergeStateStatus was CLEAN."
         }
       },
       "sidecar_issues": [],
@@ -25857,6 +25857,11 @@
           "at": "2026-06-23T03:08:00+08:00",
           "status": "pr_open",
           "note": "Opened GitHub PR #1342 after local validation passed. Scope remains limited to the competitor alternative policy doc, generated policy contract, and docs/codex metadata."
+        },
+        {
+          "at": "2026-06-23T03:18:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train ledger policy."
         }
       ]
     }
