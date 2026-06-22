@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-23T01:10:00+08:00",
+  "updated_at": "2026-06-23T01:16:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -25713,14 +25713,14 @@
       "repo": "fap-web",
       "branch": "codex/fa30-web-05-riasec-gaokao-major-cluster-ia",
       "base": "main",
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "train_scope": "riasec_gaokao_major_cluster_ia_claim_boundary",
       "title": "FA30-WEB-05: docs(riasec): define Gaokao major cluster IA and claim boundary",
       "depends_on": [
         "FA30-API-04"
       ],
       "commit_sha": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1338",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -25749,8 +25749,8 @@
           "evidence": "Passed: python3 -m json.tool docs/seo/generated/riasec-gaokao-major-cluster-ia-claim-boundary.v1.json; python3 -m json.tool docs/codex/pr-train-state.json; ruby YAML parse for docs/codex/pr-train.yaml; git diff --check; explicit path allowlist scope validation. Scope remains docs-only and limited to two RIASEC planning artifacts plus docs/codex metadata."
         },
         "pull_request": {
-          "status": "pending",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1338 after local validation and scope validation passed. The branch head is the source of truth for the exact current SHA after this PR URL ledger commit."
         },
         "github": {
           "status": "pending",
@@ -25773,6 +25773,11 @@
           "at": "2026-06-23T01:10:00+08:00",
           "status": "committed",
           "note": "Committed FA30-WEB-05 docs-only scope. Because the ledger lives in the same commit, the GitHub branch head is the source of truth for the exact current SHA after amend/push."
+        },
+        {
+          "at": "2026-06-23T01:16:00+08:00",
+          "status": "pr_open",
+          "note": "Opened GitHub PR #1338 after local validation passed. Scope remains limited to the RIASEC planning doc, generated planning contract, and docs/codex metadata."
         }
       ]
     }
