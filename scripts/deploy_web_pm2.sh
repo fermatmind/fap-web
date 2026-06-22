@@ -6,6 +6,8 @@ APP_DIR="${APP_DIR:-/opt/apps/fap-web}"
 APP_USER="${APP_USER:-ubuntu}"
 APP_HOST="${APP_HOST:-127.0.0.1}"
 APP_PORT="${APP_PORT:-3000}"
+APP_MANAGER="${APP_MANAGER:-pm2}"
+SYSTEMD_SERVICE="${SYSTEMD_SERVICE:-${APP_NAME}.service}"
 PUBLIC_BASE_URL="${PUBLIC_BASE_URL:-https://fermatmind.com}"
 CORE_PUBLIC_PATH="${CORE_PUBLIC_PATH:-/zh/tests/clinical-depression-anxiety-assessment-professional-edition/take}"
 SITEMAP_PATH="${SITEMAP_PATH:-/sitemap.xml}"
@@ -13,6 +15,7 @@ SITEMAP_URL="${SITEMAP_URL:-${PUBLIC_BASE_URL%/}${SITEMAP_PATH}}"
 SITEMAP_CURL_TIMEOUT_SEC="${SITEMAP_CURL_TIMEOUT_SEC:-20}"
 RUN_SITEMAP_HEALTH="${RUN_SITEMAP_HEALTH:-1}"
 GIT_BRANCH="${GIT_BRANCH:-main}"
+DEPLOY_SHA="${DEPLOY_SHA:-}"
 EXPECTED_NODE_MAJOR="${EXPECTED_NODE_MAJOR:-24}"
 EXPECTED_NODE_BIN="${EXPECTED_NODE_BIN:-/usr/bin/node}"
 RUN_CMS_BASELINE_STAGING_SMOKE="${RUN_CMS_BASELINE_STAGING_SMOKE:-0}"
@@ -146,7 +149,14 @@ require_bin node
 require_bin git
 require_bin pnpm
 require_bin rsync
-require_bin pm2
+if [[ "$APP_MANAGER" == "pm2" ]]; then
+  require_bin pm2
+elif [[ "$APP_MANAGER" == "systemd" ]]; then
+  require_bin systemctl
+else
+  log "unsupported APP_MANAGER: ${APP_MANAGER}"
+  exit 1
+fi
 require_bin curl
 require_bin ss
 
@@ -171,7 +181,11 @@ cd "$APP_DIR"
 log "sync code with origin/${GIT_BRANCH}"
 git fetch --prune origin
 git checkout -B "$GIT_BRANCH" "origin/${GIT_BRANCH}"
-git reset --hard "origin/${GIT_BRANCH}"
+if [[ -n "$DEPLOY_SHA" ]]; then
+  git reset --hard "$DEPLOY_SHA"
+else
+  git reset --hard "origin/${GIT_BRANCH}"
+fi
 log "current commit: $(git rev-parse --short HEAD)"
 
 log "install/build"
@@ -187,23 +201,33 @@ fi
 log "sync standalone static assets"
 bash "$SYNC_STANDALONE_ASSETS_SCRIPT"
 
-if [[ ! -f ecosystem.config.cjs ]]; then
-  log "missing PM2 config: ecosystem.config.cjs"
-  exit 1
-fi
+if [[ "$APP_MANAGER" == "pm2" ]]; then
+  if [[ ! -f ecosystem.config.cjs ]]; then
+    log "missing PM2 config: ecosystem.config.cjs"
+    exit 1
+  fi
 
-if [[ ! -x "$ROLLING_RELOAD_SCRIPT" ]]; then
-  log "missing rolling reload script: ${ROLLING_RELOAD_SCRIPT}"
-  exit 1
-fi
+  if [[ ! -x "$ROLLING_RELOAD_SCRIPT" ]]; then
+    log "missing rolling reload script: ${ROLLING_RELOAD_SCRIPT}"
+    exit 1
+  fi
 
-log "rolling reload pm2 app ${APP_NAME}"
-APP_DIR="$APP_DIR" PM2_BIN="pm2" PM2_CONFIG="${APP_DIR}/ecosystem.config.cjs" "$ROLLING_RELOAD_SCRIPT" "$APP_NAME"
-pm2 save
+  log "rolling reload pm2 app ${APP_NAME}"
+  APP_DIR="$APP_DIR" PM2_BIN="pm2" PM2_CONFIG="${APP_DIR}/ecosystem.config.cjs" "$ROLLING_RELOAD_SCRIPT" "$APP_NAME"
+  pm2 save
+else
+  log "restart systemd service ${SYSTEMD_SERVICE}"
+  sudo -n systemctl restart "$SYSTEMD_SERVICE"
+fi
 
 log "runtime checks"
-pm2 status
-pm2 logs "$APP_NAME" --lines 80 --nostream || true
+if [[ "$APP_MANAGER" == "pm2" ]]; then
+  pm2 status
+  pm2 logs "$APP_NAME" --lines 80 --nostream || true
+else
+  systemctl is-active --quiet "$SYSTEMD_SERVICE"
+  systemctl status "$SYSTEMD_SERVICE" --no-pager -l | sed -n '1,80p'
+fi
 ss -ltnp | grep ":${APP_PORT}" >/dev/null
 ss -ltnp | grep ":${APP_PORT}"
 
