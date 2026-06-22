@@ -1,0 +1,138 @@
+{
+  "schema_version": "fermatmind.result_page_agent_seo_control_handoff.v1",
+  "artifact_id": "result-page-agent-seo-control-handoff-2026-06-23",
+  "created_at": "2026-06-23",
+  "task_id": "RESULT-PAGE-AGENT-SEO-CONTROL-HANDOFF-01",
+  "run_mode": "docs_contracts_readonly_seo_control_handoff",
+  "approval_state": "not_requested",
+  "verdict": "SEO_CONTROL_HANDOFF_READY_NO_MUTATION",
+  "input_refs": {
+    "readiness_matrix": "docs/result-page-agents/six-result-page-agent-readiness-matrix.v1.json",
+    "runtime_qa": "docs/result-page-agents/six-hub-free-full-report-runtime-qa.v1.json",
+    "runtime_qa_handoff": "docs/result-page-agents/result-page-agent-runtime-qa-handoff.v1.json",
+    "analytics_handoff": "docs/result-page-agents/result-page-agent-analytics-handoff.v1.json"
+  },
+  "safety_confirmation": {
+    "private_result_pages_noindex": "required",
+    "sitemap_mutation": "none",
+    "robots_mutation": "none",
+    "llms_mutation": "none",
+    "schema_json_ld_mutation": "none",
+    "hreflang_mutation": "none",
+    "search_queue_mutation": "none",
+    "provider_calls": "none",
+    "cms_writes": "none",
+    "runtime_code_changed": "no",
+    "production_import": "none",
+    "rollout": "none"
+  },
+  "allowed_seo_inputs": [
+    "public hub pages",
+    "public explanation pages",
+    "public-safe projection summaries",
+    "CMS/backend-authoritative public content APIs"
+  ],
+  "forbidden_seo_inputs": [
+    "private result pages",
+    "raw private result payload",
+    "private attempts",
+    "report URLs",
+    "report tokens",
+    "account/user identifiers",
+    "raw scores",
+    "score vectors",
+    "percentiles",
+    "selector traces",
+    "QA traces",
+    "source_refs from private payloads"
+  ],
+  "mutation_holds": [
+    "no sitemap mutation",
+    "no robots mutation",
+    "no llms mutation",
+    "no schema or JSON-LD mutation",
+    "no hreflang mutation",
+    "no canonical mutation",
+    "no noindex mutation",
+    "no Search Queue enqueue/approve/submit",
+    "no GSC Request Indexing",
+    "no Baidu push",
+    "no IndexNow",
+    "no Bing provider call"
+  ],
+  "private_result_control": {
+    "policy": "PRIVATE_RESULTS_STAY_NOINDEX",
+    "applies_to": [
+      "/[locale]/result/[id]",
+      "PDF private report surfaces",
+      "share flows that can reference private result context",
+      "history and compare private result surfaces",
+      "locked/free redaction states"
+    ],
+    "seo_agent_allowed_action": "read controls and report findings only",
+    "seo_agent_forbidden_action": "change noindex/canonical/schema/sitemap/search behavior"
+  },
+  "riasec_seo_boundary": {
+    "public_allowed": [
+      "public hub for Holland/RIASEC career interest topics",
+      "public explanation pages",
+      "public-safe projection summaries",
+      "career graph bridge via public-safe projection only"
+    ],
+    "private_forbidden": [
+      "private result page indexing",
+      "private result as SEO content source",
+      "raw RIASEC score/vector/percentile",
+      "deterministic career recommendation",
+      "admissions/hiring/salary/performance/success/ability guarantee"
+    ],
+    "canonical_public_slug": "holland-career-interest-test-riasec"
+  },
+  "per_scale_seo_control": [
+    {
+      "scale_code": "MBTI",
+      "agent_id": "mbti_result_page",
+      "seo_control_status": "PRIVATE_RESULT_NOINDEX_PUBLIC_HUB_ONLY"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "agent_id": "big_five_result_page",
+      "seo_control_status": "PRIVATE_RESULT_NOINDEX_PUBLIC_HUB_ONLY"
+    },
+    {
+      "scale_code": "RIASEC",
+      "agent_id": "riasec_result_page",
+      "seo_control_status": "PRIVATE_RESULT_NOINDEX_PUBLIC_HUB_AND_PUBLIC_SAFE_PROJECTION_ONLY"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "agent_id": "iq_raven_result_page",
+      "seo_control_status": "PRIVATE_RESULT_NOINDEX_PUBLIC_HUB_ONLY_NO_DIAGNOSTIC_SEO_CLAIMS"
+    },
+    {
+      "scale_code": "EQ_60",
+      "agent_id": "eq60_result_page",
+      "seo_control_status": "PRIVATE_RESULT_NOINDEX_PUBLIC_HUB_ONLY_NO_CLINICAL_SEO_CLAIMS"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "agent_id": "enneagram_result_page",
+      "seo_control_status": "PRIVATE_RESULT_NOINDEX_PUBLIC_HUB_ONLY"
+    }
+  ],
+  "next_task": {
+    "id": "RIASEC-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01",
+    "allowed_scope": [
+      "RIASEC route/API/PDF/share read-only review",
+      "sanitized fixture/source-evidence review",
+      "career-bridge examples-only boundary"
+    ],
+    "forbidden_scope": [
+      "production import",
+      "runtime switch",
+      "CMS write",
+      "private attempt access",
+      "SEO/search mutation"
+    ]
+  }
+}
