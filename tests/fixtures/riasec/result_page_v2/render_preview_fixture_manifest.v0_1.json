@@ -1,0 +1,79 @@
+{
+  "schema": "fap.riasec.result_page_v2.render_preview_fixture_manifest.web.v0_1",
+  "package_key": "riasec_result_page_v2.render_preview_handoff.web.v0_1",
+  "runtime_use": "staging_only",
+  "production_use_allowed": false,
+  "ready_for_runtime": false,
+  "ready_for_production": false,
+  "cms_write_performed": false,
+  "runtime_wrapper_enabled": false,
+  "frontend_fallback_allowed": false,
+  "backend_fixture_authority": true,
+  "surfaces": [
+    {
+      "surface_key": "result_page",
+      "fixture": "tests/fixtures/riasec/result_page_v2/result_page_ias_staging_payload.v0_1.json",
+      "expected_terms": ["IAS", "研究型", "艺术型", "社会型", "把问题拆开观察，再用作品或助人场景表达出来"],
+      "expected_assertion": "renders backend-authored result page fixture without fallback copy or private measurement leaks"
+    },
+    {
+      "surface_key": "pdf",
+      "fixture": "tests/fixtures/riasec/result_page_v2/pdf_ias_staging_payload.v0_1.json",
+      "expected_terms": ["RIASEC PDF", "研究型", "艺术型", "社会型"],
+      "expected_assertion": "renders backend-authored PDF fixture without share block or internal metadata"
+    },
+    {
+      "surface_key": "share",
+      "fixture": "tests/fixtures/riasec/result_page_v2/share_ias_staging_payload.v0_1.json",
+      "expected_terms": ["我更适合从观察、创作和支持他人的任务里理解职业方向"],
+      "expected_assertion": "renders only share-safe summary text"
+    },
+    {
+      "surface_key": "history",
+      "fixture": "tests/fixtures/riasec/result_page_v2/history_ias_staging_payload.v0_1.json",
+      "expected_terms": ["IAS", "本次结果保留为职业兴趣方向快照"],
+      "expected_assertion": "renders compact history snapshot without detailed module content"
+    },
+    {
+      "surface_key": "compare",
+      "fixture": "tests/fixtures/riasec/result_page_v2/compare_ias_staging_payload.v0_1.json",
+      "expected_terms": ["IAS", "适合与后续结果比较兴趣排序是否稳定"],
+      "expected_assertion": "renders compare-safe summary without private measurement detail"
+    }
+  ],
+  "access_redaction": {
+    "locked": {
+      "full_body_visible": false,
+      "private_measurements_visible": false,
+      "norm_rank_visible": false,
+      "share_summary_visible": false
+    },
+    "free": {
+      "full_body_visible": true,
+      "private_measurements_visible": false,
+      "norm_rank_visible": false,
+      "share_summary_visible": false
+    }
+  },
+  "forbidden_visible_terms": [
+    "FRONTEND_FALLBACK_BODY_SHOULD_NOT_RENDER",
+    "internal_metadata",
+    "selector_basis",
+    "source_reference",
+    "production_use_allowed",
+    "runtime_use",
+    "ready_for_runtime",
+    "ready_for_production",
+    "private URL",
+    "attempt id",
+    "percentile",
+    "raw_score",
+    "score_vector",
+    "share_summary_leak",
+    "diagnosis",
+    "diagnostic",
+    "招聘筛选",
+    "治疗",
+    "[object Object]"
+  ]
+}

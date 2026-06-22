@@ -1,0 +1,19 @@
+{
+  "riasec_result_page_v2_pdf": {
+    "schema_version": "fap.riasec.result_page_v2.pdf_payload.web_fixture.v0_1",
+    "surface_key": "pdf",
+    "title_zh": "RIASEC PDF",
+    "profile_code": "IAS",
+    "summary_zh": "研究型、艺术型、社会型兴趣在这个结果中共同指向探索、表达和支持他人的任务。",
+    "sections": [
+      {
+        "module_key": "pdf_profile_signature",
+        "content_zh": "这个 PDF 只呈现后端允许的职业兴趣解释，不包含分享块或内部审稿信息。"
+      },
+      {
+        "module_key": "pdf_method_boundary",
+        "content_zh": "RIASEC 结果只用于职业兴趣探索，不用于健康判断、录用决定或结果承诺。"
+      }
+    ]
+  }
+}

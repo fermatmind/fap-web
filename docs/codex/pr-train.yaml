@@ -16024,3 +16024,59 @@ prs:
       squash: true
       auto_merge: true
     next_task: SEO-OPPORTUNITY-QUEUE-READONLY-01
+
+  - id: RIASEC-RESULT-FAPWEB-RENDERED-PREVIEW-QA-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/riasec-result-fapweb-rendered-preview-qa-01
+    base: main
+    title: "RIASEC-RESULT-FAPWEB-RENDERED-PREVIEW-QA-01: test(riasec): add rendered preview QA"
+    depends_on:
+      - RIASEC-OPS-AGENT-REPORTING-SIDECAR-01
+    mode: execute
+    train_scope: riasec_result_ops_agent_release_chain
+    status: user_authorized
+    goal: "Add fap-web rendered preview QA fixtures and expected assertions for RIASEC result page V2 handoff without runtime, CMS, or production gate changes."
+    artifacts:
+      - tests/contracts/riasec-result-rendered-preview-qa.contract.test.tsx
+      - tests/fixtures/riasec/result_page_v2/render_preview_fixture_manifest.v0_1.json
+      - tests/fixtures/riasec/result_page_v2/result_page_ias_staging_payload.v0_1.json
+      - tests/fixtures/riasec/result_page_v2/pdf_ias_staging_payload.v0_1.json
+      - tests/fixtures/riasec/result_page_v2/share_ias_staging_payload.v0_1.json
+      - tests/fixtures/riasec/result_page_v2/history_ias_staging_payload.v0_1.json
+      - tests/fixtures/riasec/result_page_v2/compare_ias_staging_payload.v0_1.json
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - tests/contracts/riasec-result-rendered-preview-qa.contract.test.tsx
+      - tests/fixtures/riasec/result_page_v2/**
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - CMS writes, import, publish, unpublish, or media upload
+      - runtime wrapper enablement
+      - production rollout automation
+      - frontend fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/riasec-result-rendered-preview-qa.contract.test.tsx
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -m json.tool tests/fixtures/riasec/result_page_v2/render_preview_fixture_manifest.v0_1.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    api_runtime_change: false
+    publish_allowed: false
+    deploy_allowed: false

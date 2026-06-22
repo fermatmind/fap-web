@@ -1,0 +1,13 @@
+{
+  "riasec_result_page_v2_share_card": {
+    "schema_version": "fap.riasec.result_page_v2.share_card.web_fixture.v0_1",
+    "surface_key": "share",
+    "summary_zh": "我更适合从观察、创作和支持他人的任务里理解职业方向。",
+    "share_policy": {
+      "summary_only": true,
+      "private_measurements_visible": false,
+      "norm_rank_visible": false,
+      "full_body_visible": false
+    }
+  }
+}

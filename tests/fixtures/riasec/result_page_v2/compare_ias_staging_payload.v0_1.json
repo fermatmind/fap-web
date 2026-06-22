@@ -1,0 +1,14 @@
+{
+  "riasec_result_page_v2_compare_snapshot": {
+    "schema_version": "fap.riasec.result_page_v2.compare_snapshot.web_fixture.v0_1",
+    "surface_key": "compare",
+    "profile_code": "IAS",
+    "summary_zh": "适合与后续结果比较兴趣排序是否稳定，同时避免把兴趣差异解释成能力高低。",
+    "compare_policy": {
+      "summary_only": true,
+      "private_measurements_visible": false,
+      "norm_rank_visible": false,
+      "full_body_visible": false
+    }
+  }
+}

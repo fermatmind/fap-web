@@ -141,6 +141,19 @@ const RIASEC_PACK12_ALLOWED_FILES = new Set([
   "tests/contracts/fixtures/riasec/lifecycle-feedback-boundaries.projection.json",
 ]);
 
+const RIASEC_RESULT_FAPWEB_RENDERED_PREVIEW_QA_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/riasec-result-rendered-preview-qa.contract.test.tsx",
+  "tests/fixtures/riasec/result_page_v2/render_preview_fixture_manifest.v0_1.json",
+  "tests/fixtures/riasec/result_page_v2/result_page_ias_staging_payload.v0_1.json",
+  "tests/fixtures/riasec/result_page_v2/pdf_ias_staging_payload.v0_1.json",
+  "tests/fixtures/riasec/result_page_v2/share_ias_staging_payload.v0_1.json",
+  "tests/fixtures/riasec/result_page_v2/history_ias_staging_payload.v0_1.json",
+  "tests/fixtures/riasec/result_page_v2/compare_ias_staging_payload.v0_1.json",
+]);
+
 const QUIZ_PACK_PERFORMANCE_HOTFIX_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
   "docs/seo/agent/FAPWEB_CODE_PR_WRITER.md",
@@ -3468,6 +3481,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/article-hreflang-hold-decouple-00") {
     return ARTICLE_HREFLANG_HOLD_DECOUPLE_00_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/riasec-result-fapweb-rendered-preview-qa-01") {
+    return RIASEC_RESULT_FAPWEB_RENDERED_PREVIEW_QA_01_ALLOWED_FILES.has(file);
   }
 
   return CURRENT_BRANCH === "codex/riasec-full-content-pack-12" && RIASEC_PACK12_ALLOWED_FILES.has(file);

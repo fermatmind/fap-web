@@ -1,0 +1,47 @@
+{
+  "riasec_result_page_v2": {
+    "schema_version": "fap.riasec.result_page_v2.result_payload.web_fixture.v0_1",
+    "payload_key": "riasec_result_page_v2",
+    "surface_key": "result_page",
+    "content_version": "riasec_result_page_v2.render_preview_handoff.v0_1",
+    "profile": {
+      "code": "IAS",
+      "primary_label_zh": "研究型",
+      "secondary_label_zh": "艺术型",
+      "tertiary_label_zh": "社会型",
+      "headline_zh": "把问题拆开观察，再用作品或助人场景表达出来",
+      "summary_zh": "你的兴趣更容易被探索、表达和支持他人的任务激活。这个结果用于职业方向讨论，不用于能力判断或筛选。"
+    },
+    "sections": [
+      {
+        "module_key": "profile_signature",
+        "title_zh": "兴趣轮廓",
+        "body_zh": "IAS 组合通常先关注问题结构，再寻找有表达空间的解决方式，最后希望结果对他人有帮助。"
+      },
+      {
+        "module_key": "scenario",
+        "title_zh": "更容易投入的场景",
+        "body_zh": "适合先调研和观察，再把发现转成作品、方案或可被他人理解的说明。"
+      },
+      {
+        "module_key": "action_plan",
+        "title_zh": "下一步行动",
+        "body_zh": "选择一个小项目，记录你在探索、创作和协作环节里的能量变化。"
+      }
+    ],
+    "access_state": {
+      "locked": {
+        "full_body_visible": false,
+        "private_measurements_visible": false,
+        "norm_rank_visible": false,
+        "share_summary_visible": false
+      },
+      "free": {
+        "full_body_visible": true,
+        "private_measurements_visible": false,
+        "norm_rank_visible": false,
+        "share_summary_visible": false
+      }
+    }
+  }
+}
