@@ -1,0 +1,299 @@
+{
+  "schema_version": "fermatmind.result_page_agent_readiness.v1",
+  "artifact_id": "enneagram-result-page-agent-standard-alignment-2026-06-22",
+  "created_at": "2026-06-22",
+  "run_mode": "proposal_only",
+  "approval_state": "not_requested",
+  "verdict": "ENNEAGRAM_RESULT_PAGE_AGENT_STANDARD_ALIGNED",
+  "agent_id": "enneagram_result_page",
+  "scale_code": "ENNEAGRAM",
+  "canonical_test_slug": "enneagram-personality-test-nine-types",
+  "result_route": "/[locale]/result/[id]",
+  "report_api": "/api/v0.3/attempts/{attempt_id}/report",
+  "report_access_api": "/api/v0.3/attempts/{attempt_id}/report-access",
+  "pdf_behavior": "report_access_actions_pdf_href_or_api_pdf_when_ready; backend report.pdf response must remain private no-store; Enneagram PDF payloads must be backend-authored and free of private route tokens, raw scoring internals, editor notes, source-selection notes, or internal metadata leaks",
+  "share_behavior": "create_attempt_share_for_public_safe_share_url; share reads use public summary scope only; Enneagram share payloads must stay public-summary scoped and must not expose private attempts, raw report payloads, raw scoring internals, internal metadata, or final-type certainty claims",
+  "frontend_renderer": {
+    "route": "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
+    "client": "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+    "dispatcher": "components/result/RichResultReport.tsx",
+    "renderer": "components/result/enneagram/EnneagramResultShell.tsx",
+    "payload_contract": "lib/enneagram/resultAssembler.ts",
+    "dispatch_contract": "ResultClient fetches report-access and report, canRenderRichResultReport returns true for ENNEAGRAM only when hasEnneagramProjection validates the backend projection, and RichResultReport assembles the Enneagram view model before rendering EnneagramResultShell."
+  },
+  "backend_authority": [
+    "fap-api:backend/app/Console/Commands/EnneagramResultPageAgentReadinessCommand.php",
+    "fap-api:backend/app/Console/Commands/EnneagramResultPageOpsRunnerCommand.php",
+    "fap-api:backend/app/Services/Enneagram/Assets/Agent/EnneagramResultPageAgentReadiness.php",
+    "fap-api:backend/app/Services/Enneagram/Assets/Agent/EnneagramResultPageOpsAgentRunOrchestrator.php",
+    "fap-api:backend/docs/enneagram/result-page-agent-runbook.md",
+    "fap-api:backend/docs/enneagram/result-page-agent-gates.md",
+    "fap-api:backend/docs/enneagram/result-page-agent-schema.md",
+    "fap-api:backend/content_assets/enneagram/result_page/source_ledger/source_ledger.json",
+    "fap-api:backend/content_assets/enneagram/result_page/ops_agent_runner/run_orchestrator_contract_v0_1.json",
+    "fap-api:backend/content_assets/enneagram/result_page/production_manual_gate/production_manual_gate_contract_v0_1.json",
+    "fap-api:backend/app/Http/Controllers/API/V0_3/AttemptReadController.php",
+    "fap-api:backend/app/Http/Controllers/API/V0_3/ShareController.php"
+  ],
+  "source_of_truth": [
+    "enneagram_result_projection",
+    "backend_agent_readiness_output",
+    "backend_ops_agent_output",
+    "backend_runbook_schema_and_gates",
+    "report_access_response",
+    "fap_web_renderer_contract",
+    "pdf_share_surface_boundary_contracts"
+  ],
+  "allowed_inputs": [
+    "agent_readiness_output",
+    "ops_agent_output",
+    "sanitized_enneagram_result_projection",
+    "renderer_contract",
+    "source_code_evidence",
+    "fixture_render_output",
+    "backend_contract_test_names",
+    "backend_runbook_schema_gate_documents"
+  ],
+  "allowed_outputs": [
+    "result_page_agent_readiness",
+    "shared_standard_alignment_report",
+    "candidate_gate_gap_report",
+    "read_only_evidence_map"
+  ],
+  "forbidden_actions": [
+    "candidate_to_production_without_manual_gate",
+    "production_candidate_activation",
+    "runtime_registry_switch",
+    "content_pack_activation_write",
+    "bulk_content_generation",
+    "candidate_payload_generation_without_explicit_pr_authorization",
+    "raw_private_result_access",
+    "private_result_indexing",
+    "private_result_text_publication",
+    "final_typing_you_are_this_type_claim",
+    "fixed_type_certainty_claim",
+    "e105_fc144_score_comparison_claim",
+    "fc144_more_accurate_or_replacement_claim",
+    "diagnosis_therapy_treatment_claim",
+    "hiring_screen_or_employment_suitability_claim",
+    "success_salary_performance_prediction_claim",
+    "raw_score_vector_public_leak",
+    "pdf_or_share_private_boundary_violation",
+    "cms_or_search_mutation",
+    "provider_call",
+    "sitemap_robots_llms_schema_hreflang_generated_seo_artifact_mutation",
+    "production_db_or_env_mutation",
+    "payment_order_mutation"
+  ],
+  "evidence_labels": [
+    "existing_agent_stack",
+    "readiness_command",
+    "ops_agent",
+    "manual_gate",
+    "shared_standard_alignment",
+    "frontend_renderer",
+    "report_access_api",
+    "pdf_private_boundary",
+    "share_boundary",
+    "sanitized_proposal_only"
+  ],
+  "output_artifacts": [
+    "docs/result-page-agents/enneagram-result-page-agent-standard-alignment-2026-06-22.md",
+    "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json",
+    "generated/result-page-agents/enneagram/<run_id>/readiness.json (future sanitized artifact; not generated in this task)"
+  ],
+  "checks": [
+    {
+      "id": "json_schema_validation",
+      "status": "mapped_contract_added",
+      "evidence": "tests/contracts/enneagram-result-page-agent-standard-alignment.contract.test.ts validates required fields against six-scale-result-agent-readiness.template.json."
+    },
+    {
+      "id": "result_route_contract_check",
+      "status": "DOC_MATCH",
+      "evidence": "app/(localized)/[locale]/(app)/result/[id]/page.tsx uses NOINDEX_ROBOTS, force-dynamic rendering, revalidate=0, and ResultClient."
+    },
+    {
+      "id": "report_api_contract_check",
+      "status": "DOC_MATCH",
+      "evidence": "lib/api/v0_3.ts fetchAttemptReport maps to /api/v0.3/attempts/{attempt_id}/report; fap-api route/controller authority remains AttemptReadController::report."
+    },
+    {
+      "id": "report_access_api_contract_check",
+      "status": "DOC_MATCH",
+      "evidence": "lib/api/v0_3.ts fetchAttemptReportAccess maps to /api/v0.3/attempts/{attempt_id}/report-access; fap-api route/controller authority remains AttemptReadController::reportAccess."
+    },
+    {
+      "id": "frontend_renderer_contract_check",
+      "status": "DOC_MATCH",
+      "evidence": "ResultClient calls canRenderRichResultReport; RichResultReport validates ENNEAGRAM through hasEnneagramProjection and renders EnneagramResultShell after assembleEnneagramResultViewModel."
+    },
+    {
+      "id": "backend_agent_readiness_check",
+      "status": "DOC_MATCH",
+      "evidence": "EnneagramResultPageAgentReadinessCommand supports audit --strict --json; EnneagramResultPageAgentReadiness writes control_packet, readiness_inventory, source ledger, validator, leakage, claim, validation, safety, and go/no-go artifacts when explicitly run."
+    },
+    {
+      "id": "backend_ops_agent_permission_check",
+      "status": "DOC_MATCH",
+      "evidence": "EnneagramResultPageOpsRunnerCommand supports plan --strict --json; EnneagramResultPageOpsAgentRunOrchestrator reports production_execution_allowed_for_agent=false and production_manual_gate_required=true."
+    },
+    {
+      "id": "agent_runbook_schema_gate_check",
+      "status": "DOC_MATCH",
+      "evidence": "fap-api Enneagram runbook, gates, and schema forbid production import, registry activation, runtime switch, CMS writes, frontend fallback copy, sitemap/llms/search exposure, and unsupported claim families."
+    },
+    {
+      "id": "pdf_print_private_url_redaction_check",
+      "status": "DOC_MATCH",
+      "evidence": "enneagram-pdf-surface, result-private-print-chrome, result-print-url-redaction, result-private-leak-regressions, and report-action-url-safety contracts cover private PDF/print boundaries."
+    },
+    {
+      "id": "share_surface_public_private_boundary_check",
+      "status": "DOC_MATCH",
+      "evidence": "enneagram-share-surface plus fap-api EnneagramShareSummaryContract and EnneagramShareSummaryStateVariants cover public-summary scoped share rendering and state variants."
+    },
+    {
+      "id": "private_result_noindex_check",
+      "status": "DOC_MATCH",
+      "evidence": "Result route metadata uses NOINDEX_ROBOTS and private print root markers."
+    },
+    {
+      "id": "analytics_event_contract_check",
+      "status": "DOC_MATCH",
+      "evidence": "ResultClient and Enneagram share surface emit existing telemetry; this alignment task did not add runtime analytics events."
+    },
+    {
+      "id": "claim_privacy_safety_gate_check",
+      "status": "DOC_MATCH",
+      "evidence": "Backend Enneagram readiness service, runbook, gates, and source ledger forbid diagnostic, clinical, hiring, final-typing, certainty, score-comparison, salary, performance, private identifier, and vector leakage families."
+    },
+    {
+      "id": "source_classification_check",
+      "status": "DOC_MATCH",
+      "evidence": "This proposal classifies fap-web source as backend-authority consumer code, fap-api source as backend authority code, fixtures as fixtures, backend docs/contracts as backend authority documents, and private/live/provider data as not accessed."
+    }
+  ],
+  "stop_conditions": [
+    "manual_gate_missing",
+    "candidate_payload_unverified",
+    "candidate_manifest_hash_mismatch",
+    "payload_count_not_630",
+    "source_mapping_failure",
+    "metadata_leakage_hits",
+    "forbidden_claim_hits",
+    "fc144_boundary_violation",
+    "private_boundary_failure",
+    "private_attempt_required",
+    "public_profile_and_private_result_content_blended",
+    "fixture_mock_unknown_or_stale_data_would_drive_production_action",
+    "default_denied_action_without_exact_human_approval",
+    "unsupported_psychological_career_or_conversion_claim"
+  ],
+  "human_approval_required": [
+    "production_candidate_activation",
+    "using_live_private_samples",
+    "changing_result_renderer",
+    "running_agent_readiness_write_artifact_command",
+    "running_ops_agent_write_artifact_command",
+    "candidate_payload_generation",
+    "inactive_import_or_activation_gate",
+    "cms_write_import_publish_or_media_upload",
+    "search_channel_enqueue_approve_or_submit",
+    "provider_call",
+    "production_db_or_env_change",
+    "payment_order_mutation"
+  ],
+  "current_readiness": "ready_readonly",
+  "previous_readiness_from_frozen_standard": "existing_agent_stack_align_required",
+  "next_goal": "ENNEAGRAM-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01",
+  "alignment_status": {
+    "overall": "ENNEAGRAM_RESULT_PAGE_AGENT_STANDARD_ALIGNED",
+    "doc_match": [
+      "required_fields",
+      "route_api_access_pdf_share_renderer_backend_authority_map",
+      "existing_backend_readiness_and_ops_agent_evidence",
+      "backend_runbook_schema_gate_documents",
+      "frontend_renderer_contracts",
+      "negative_guarantees",
+      "source_classification"
+    ],
+    "doc_needs_update": [],
+    "evidence_missing": [
+      "future generated/result-page-agents/enneagram/<run_id>/readiness.json was not generated in this docs/contracts task",
+      "backend readiness and ops commands were not executed because they write artifacts by design",
+      "production manual gate approval packet was not requested or executed"
+    ],
+    "blocked": []
+  },
+  "existing_tests": {
+    "fap_web_shared": [
+      "tests/contracts/result-client-view-state.contract.test.tsx",
+      "tests/contracts/result-access-token-api.contract.test.ts",
+      "tests/contracts/report-action-url-safety.contract.test.ts",
+      "tests/contracts/result-private-print-chrome.contract.test.ts",
+      "tests/contracts/result-print-url-redaction.contract.test.ts",
+      "tests/contracts/result-private-leak-regressions.contract.test.ts",
+      "tests/contracts/rich-result-report.contract.test.tsx"
+    ],
+    "fap_web_enneagram": [
+      "tests/contracts/enneagram-result-shell.contract.test.tsx",
+      "tests/contracts/enneagram-rich-result-report.contract.test.tsx",
+      "tests/contracts/enneagram-share-surface.contract.test.tsx",
+      "tests/contracts/enneagram-pdf-surface.contract.test.tsx",
+      "tests/contracts/enneagram-asset-backed-renderer.contract.test.tsx",
+      "tests/contracts/enneagram-observation-surface.contract.test.tsx",
+      "tests/contracts/enneagram-result-assembler.contract.test.ts",
+      "tests/contracts/enneagram-api.contract.test.ts",
+      "tests/contracts/enneagram-observation-api.contract.test.ts"
+    ],
+    "fap_api_enneagram": [
+      "backend/tests/Feature/Console/EnneagramResultPageOpsRunnerCommandTest.php",
+      "backend/tests/Unit/Services/Enneagram/Assets/EnneagramResultPageAgentReadinessTest.php",
+      "backend/tests/Unit/Services/Enneagram/Assets/EnneagramResultPageOpsAgentRunOrchestratorTest.php",
+      "backend/tests/Feature/V0_3/EnneagramReadReportContractTest.php",
+      "backend/tests/Feature/V0_3/EnneagramShareSummaryContractTest.php",
+      "backend/tests/Feature/V0_3/EnneagramShareSummaryStateVariantsTest.php",
+      "backend/tests/Feature/Report/EnneagramPdfDeliveryTest.php",
+      "backend/tests/Feature/Report/EnneagramPdfMetadataContractTest.php",
+      "backend/tests/Feature/Ops/ReportPdfCenterTest.php",
+      "backend/tests/Feature/V0_3/AttemptReportAccessReadTest.php",
+      "backend/tests/Feature/V0_3/AttemptPublicReportPdfParityTest.php"
+    ]
+  },
+  "source_classification": {
+    "fap_web_source": "backend_authority_consumer_code",
+    "fap_api_source": "backend_authority_code",
+    "backend_runbook_schema_gate_docs": "backend_authority_document",
+    "backend_content_asset_contracts": "backend_authority_contract",
+    "fixtures": "fixture",
+    "live_public": "not_accessed",
+    "private_result_data": "not_accessed",
+    "cms": "not_written",
+    "search_queue": "not_accessed_or_mutated",
+    "provider_consoles": "not_called"
+  },
+  "safety_confirmation": {
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "publish": "none",
+    "search_submissions": "none",
+    "provider_calls": "none",
+    "private_result_data_accessed": "none",
+    "payment_order_mutation": "none",
+    "env_changes": "none"
+  },
+  "negative_guarantees": [
+    "no_runtime_code_implementation",
+    "no_cms_write",
+    "no_publish",
+    "no_search_url_submission",
+    "no_indexing_request",
+    "no_google_baidu_indexnow_bing_provider_call",
+    "no_search_channel_queue_mutation",
+    "no_sitemap_robots_llms_schema_hreflang_generated_seo_artifact_mutation",
+    "no_production_db_or_env_mutation",
+    "no_payment_order_mutation",
+    "no_private_result_data_access"
+  ]
+}
