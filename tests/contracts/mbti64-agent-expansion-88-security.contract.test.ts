@@ -11,12 +11,14 @@ function readSource(relativePath: string): string {
 }
 
 describe("MBTI64 agent expansion 88 security contract", () => {
-  it("fetches live surfaces from the canonical site origin plus node.path", () => {
+  it("uses offline indexation audit surfaces and performs no outbound fetch", () => {
     const source = readSource(SCRIPT_PATH);
 
-    expect(source).toContain("const targetUrl = fullUrl(node.path);");
-    expect(source).toContain("const response = await fetch(targetUrl, {");
-    expect(source).not.toContain("fetch(node.url");
+    expect(source).toContain('const INDEXATION_AUDIT_PATH = "docs/seo/personality/indexation-audit-2026-06-18.json";');
+    expect(source).toContain("function currentSurfaceFromAudit(node, auditRowsByPath)");
+    expect(source).toContain('cms_or_api_snapshot: "offline_indexation_audit"');
+    expect(source).not.toContain("fetch(");
+    expect(source).not.toContain("fetchCurrentSurface");
   });
 
   it("keeps this CodeQL hygiene repair within the registered scope guard files", () => {

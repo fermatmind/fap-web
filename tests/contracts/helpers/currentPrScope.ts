@@ -2936,7 +2936,7 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return DISCOVERABILITY_STAGING_META_NOINDEX_FIX_02_ALLOWED_FILES.has(file);
   }
 
-  if (CURRENT_BRANCH === "codex/codeql-hygiene-alerts") {
+  if (CURRENT_BRANCH === "codex/codeql-hygiene-alerts" || CURRENT_BRANCH === "codex/codeql-mbti64-agent-offline-surface") {
     return CODEQL_HYGIENE_ALLOWED_FILES.has(file);
   }
 
