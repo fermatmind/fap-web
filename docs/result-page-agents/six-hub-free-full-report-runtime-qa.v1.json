@@ -1,0 +1,290 @@
+{
+  "schema_version": "fermatmind.six_hub_free_full_report_runtime_qa.v1",
+  "artifact_id": "six-hub-free-full-report-runtime-qa-2026-06-23",
+  "created_at": "2026-06-23",
+  "task_id": "SIX-HUB-FREE-FULL-REPORT-RUNTIME-QA-01",
+  "run_mode": "docs_contracts_readonly_runtime_qa_synthesis",
+  "approval_state": "not_requested",
+  "verdict": "SIX_HUB_FREE_FULL_REPORT_RUNTIME_QA_READY_WITH_LIMITS",
+  "source_documents": [
+    "docs/result-page-agents/six-result-page-agent-readiness-matrix.v1.json",
+    "docs/result-page-agents/six-result-page-agent-readiness-matrix-2026-06-23.md",
+    "docs/result-page-agents/RESULT_PAGE_AGENT_PLATFORM_STANDARD.md",
+    "tests/contracts/result-v03-free-full-report-mode.contract.test.ts",
+    "tests/contracts/result-v03-free-full-report-route.contract.test.ts",
+    "tests/contracts/result-private-noindex.contract.test.tsx",
+    "tests/contracts/result-share-private-leak.contract.test.ts",
+    "tests/contracts/result-pdf-url-redaction.contract.test.ts",
+    "tests/contracts/riasec-result-rendered-preview-qa.contract.test.tsx"
+  ],
+  "safety_confirmation": {
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "private_result_data_accessed": "none",
+    "provider_calls": "none",
+    "search_submissions": "none",
+    "seo_runtime_mutation": "none",
+    "deployment_triggered": "no",
+    "frontend_fallback_authority_added": "no"
+  },
+  "runtime_qa_surfaces": [
+    "private_result_route",
+    "report_api",
+    "report_access_api",
+    "pdf_behavior",
+    "share_behavior",
+    "renderer_dispatch",
+    "private_noindex_boundary",
+    "no_raw_private_leak",
+    "no_frontend_fallback_authority"
+  ],
+  "hard_holds": [
+    "no_runtime_change",
+    "no_cms_write",
+    "no_private_result_access",
+    "no_deploy",
+    "no_search_or_seo_mutation",
+    "no_provider_call",
+    "no_production_import",
+    "no_rollout",
+    "no_frontend_fallback_authority"
+  ],
+  "scales": [
+    {
+      "scale_code": "MBTI",
+      "agent_id": "mbti_result_page",
+      "canonical_test_slug": "mbti-personality-test-16-personality-types",
+      "readiness_from_matrix": "missing_agent_stack",
+      "runtime_qa_status": "LIMITED_SCAFFOLD_ONLY",
+      "private_result_route": {
+        "status": "MAPPED_READONLY",
+        "evidence": "/[locale]/result/[id] dynamic route is shared and private noindex boundary is covered by existing contracts."
+      },
+      "report_api": {
+        "status": "MAPPED_READONLY",
+        "endpoint": "/api/v0.3/attempts/{attempt_id}/report"
+      },
+      "report_access_api": {
+        "status": "MAPPED_READONLY",
+        "endpoint": "/api/v0.3/attempts/{attempt_id}/report-access"
+      },
+      "pdf_behavior": {
+        "status": "MAPPED_SHARED_CONTRACTS"
+      },
+      "share_behavior": {
+        "status": "MAPPED_EXISTING_CONTRACTS"
+      },
+      "renderer_dispatch": {
+        "status": "MAPPED_EXISTING_RENDERER",
+        "renderer": "components/result/mbti/MbtiResultShell.tsx"
+      },
+      "private_noindex_boundary": "MAPPED",
+      "no_raw_private_leak": "MAPPED_BY_EXISTING_CONTRACTS",
+      "frontend_fallback_authority": "NOT_ALLOWED",
+      "qa_limitations": [
+        "Dedicated result-page agent stack is missing.",
+        "Read-only runtime QA can map shared route/API behavior but cannot certify generated agent readiness."
+      ],
+      "next_handoff": "RESULT-PAGE-AGENT-RUNTIME-QA-HANDOFF-01"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "agent_id": "big_five_result_page",
+      "canonical_test_slug": "big-five-personality-test-ocean-model",
+      "readiness_from_matrix": "ready_readonly",
+      "runtime_qa_status": "READONLY_QA_INPUT_READY_WITH_SHARE_SAFETY_GAP",
+      "private_result_route": {
+        "status": "DOC_MATCH"
+      },
+      "report_api": {
+        "status": "DOC_MATCH",
+        "endpoint": "/api/v0.3/attempts/{attempt_id}/report"
+      },
+      "report_access_api": {
+        "status": "DOC_MATCH",
+        "endpoint": "/api/v0.3/attempts/{attempt_id}/report-access"
+      },
+      "pdf_behavior": {
+        "status": "DOC_MATCH"
+      },
+      "share_behavior": {
+        "status": "DOC_MATCH_WITH_EXISTING_GAP",
+        "gap": "share_safety_missing_count=1"
+      },
+      "renderer_dispatch": {
+        "status": "DOC_MATCH",
+        "renderer": "components/result/big5/Big5ResultPageV2Shell.tsx"
+      },
+      "private_noindex_boundary": "DOC_MATCH",
+      "no_raw_private_leak": "MAPPED_BY_EXISTING_CONTRACTS",
+      "frontend_fallback_authority": "NOT_ALLOWED",
+      "qa_limitations": [
+        "Share-safety gap remains a blocker for pilot/production claims."
+      ],
+      "next_handoff": "RESULT-PAGE-AGENT-RUNTIME-QA-HANDOFF-01"
+    },
+    {
+      "scale_code": "RIASEC",
+      "agent_id": "riasec_result_page",
+      "canonical_test_slug": "holland-career-interest-test-riasec",
+      "readiness_from_matrix": "ready_readonly",
+      "runtime_qa_status": "READONLY_QA_INPUT_READY",
+      "private_result_route": {
+        "status": "DOC_MATCH",
+        "evidence": "Shared private result route dispatches through ResultClient and RichResultReport."
+      },
+      "report_api": {
+        "status": "DOC_MATCH",
+        "endpoint": "/api/v0.3/attempts/{attempt_id}/report"
+      },
+      "report_access_api": {
+        "status": "DOC_MATCH",
+        "endpoint": "/api/v0.3/attempts/{attempt_id}/report-access"
+      },
+      "pdf_behavior": {
+        "status": "DOC_MATCH"
+      },
+      "share_behavior": {
+        "status": "DOC_MATCH"
+      },
+      "renderer_dispatch": {
+        "status": "DOC_MATCH",
+        "renderer": "components/result/riasec/RiasecResultShell.tsx"
+      },
+      "private_noindex_boundary": "DOC_MATCH",
+      "no_raw_private_leak": "MAPPED_BY_EXISTING_CONTRACTS",
+      "frontend_fallback_authority": "NOT_ALLOWED",
+      "qa_limitations": [
+        "No private attempt was accessed in this PR.",
+        "Generated readiness artifact remains future work unless separately authorized."
+      ],
+      "next_handoff": "RESULT-PAGE-AGENT-RUNTIME-QA-HANDOFF-01"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "agent_id": "iq_raven_result_page",
+      "canonical_test_slug": "iq-test-intelligence-quotient-assessment",
+      "readiness_from_matrix": "missing_agent_stack",
+      "runtime_qa_status": "LIMITED_SCAFFOLD_ONLY",
+      "private_result_route": {
+        "status": "MAPPED_READONLY"
+      },
+      "report_api": {
+        "status": "MAPPED_READONLY",
+        "endpoint": "/api/v0.3/attempts/{attempt_id}/report"
+      },
+      "report_access_api": {
+        "status": "MAPPED_READONLY",
+        "endpoint": "/api/v0.3/attempts/{attempt_id}/report-access"
+      },
+      "pdf_behavior": {
+        "status": "MAPPED_WITH_CERTIFICATE_PLACEHOLDER_BOUNDARY"
+      },
+      "share_behavior": {
+        "status": "MAPPED_SHARED_ROUTE_DEDICATED_GATE_MISSING"
+      },
+      "renderer_dispatch": {
+        "status": "MAPPED_EXISTING_RENDERER",
+        "renderer": "components/result/iq/IqResultShell.tsx"
+      },
+      "private_noindex_boundary": "MAPPED",
+      "no_raw_private_leak": "MAPPED_BY_EXISTING_CONTRACTS",
+      "frontend_fallback_authority": "NOT_ALLOWED",
+      "qa_limitations": [
+        "Dedicated IQ result-page agent stack is missing.",
+        "No diagnostic, school-placement, hiring, certification, or answer-key leak certification is produced here."
+      ],
+      "next_handoff": "RESULT-PAGE-AGENT-RUNTIME-QA-HANDOFF-01"
+    },
+    {
+      "scale_code": "EQ_60",
+      "agent_id": "eq60_result_page",
+      "canonical_test_slug": "eq-test-emotional-intelligence-assessment",
+      "readiness_from_matrix": "missing_agent_stack",
+      "runtime_qa_status": "LIMITED_SCAFFOLD_ONLY",
+      "private_result_route": {
+        "status": "MAPPED_READONLY"
+      },
+      "report_api": {
+        "status": "MAPPED_READONLY",
+        "endpoint": "/api/v0.3/attempts/{attempt_id}/report"
+      },
+      "report_access_api": {
+        "status": "MAPPED_READONLY",
+        "endpoint": "/api/v0.3/attempts/{attempt_id}/report-access"
+      },
+      "pdf_behavior": {
+        "status": "MAPPED_SHARED_CONTRACTS"
+      },
+      "share_behavior": {
+        "status": "SHARE_DISABLED_OR_DEDICATED_GATE_MISSING"
+      },
+      "renderer_dispatch": {
+        "status": "MAPPED_EXISTING_RENDERER",
+        "renderer": "components/result/eq/EQResultV5.tsx"
+      },
+      "private_noindex_boundary": "MAPPED",
+      "no_raw_private_leak": "MAPPED_BY_EXISTING_CONTRACTS",
+      "frontend_fallback_authority": "NOT_ALLOWED",
+      "qa_limitations": [
+        "Dedicated EQ60 result-page agent stack is missing.",
+        "No clinical, medical, hiring, success, or guaranteed-outcome claim certification is produced here."
+      ],
+      "next_handoff": "RESULT-PAGE-AGENT-RUNTIME-QA-HANDOFF-01"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "agent_id": "enneagram_result_page",
+      "canonical_test_slug": "enneagram-personality-test-nine-types",
+      "readiness_from_matrix": "ready_readonly",
+      "runtime_qa_status": "READONLY_QA_INPUT_READY",
+      "private_result_route": {
+        "status": "DOC_MATCH"
+      },
+      "report_api": {
+        "status": "DOC_MATCH",
+        "endpoint": "/api/v0.3/attempts/{attempt_id}/report"
+      },
+      "report_access_api": {
+        "status": "DOC_MATCH",
+        "endpoint": "/api/v0.3/attempts/{attempt_id}/report-access"
+      },
+      "pdf_behavior": {
+        "status": "DOC_MATCH"
+      },
+      "share_behavior": {
+        "status": "DOC_MATCH"
+      },
+      "renderer_dispatch": {
+        "status": "DOC_MATCH",
+        "renderer": "components/result/enneagram/EnneagramResultShell.tsx"
+      },
+      "private_noindex_boundary": "DOC_MATCH",
+      "no_raw_private_leak": "MAPPED_BY_EXISTING_CONTRACTS",
+      "frontend_fallback_authority": "NOT_ALLOWED",
+      "qa_limitations": [
+        "Generated readiness artifact remains future work unless separately authorized."
+      ],
+      "next_handoff": "RESULT-PAGE-AGENT-RUNTIME-QA-HANDOFF-01"
+    }
+  ],
+  "handoff": {
+    "next_task_id": "RESULT-PAGE-AGENT-RUNTIME-QA-HANDOFF-01",
+    "allowed_inputs": [
+      "this runtime QA artifact",
+      "six-scale readiness matrix",
+      "existing route/API/PDF/share/noindex contracts",
+      "sanitized fixtures only"
+    ],
+    "forbidden_actions": [
+      "runtime code changes",
+      "CMS writes",
+      "private result access",
+      "frontend fallback authority",
+      "SEO/search mutation",
+      "deployment",
+      "production import",
+      "rollout"
+    ]
+  }
+}
