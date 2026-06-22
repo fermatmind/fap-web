@@ -1,0 +1,158 @@
+{
+  "artifact": "PRODUCTION-DEPLOY-AUTOMATION-READINESS-01",
+  "generated_at": "2026-06-22T20:00:00+08:00",
+  "status": "pass_with_follow_up_prs_required",
+  "scope": {
+    "type": "scan_only_artifact_only",
+    "production_deploy_executed": false,
+    "server_write_executed": false,
+    "cms_mutation_executed": false,
+    "search_mutation_executed": false,
+    "secret_values_recorded": false
+  },
+  "repositories": {
+    "fap_api": {
+      "source_ref": "origin/main",
+      "workflow_files_reviewed": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/deploy.yml",
+        ".github/workflows/release-train.yml"
+      ],
+      "deploy_scripts_reviewed": [
+        "deploy.php",
+        "backend/scripts/deploy/deploy_backend.sh",
+        "backend/scripts/deploy/post_deploy_validate.sh",
+        "backend/scripts/deploy/readiness.sh",
+        "backend/scripts/ci_verify_mbti.sh"
+      ],
+      "current_staging_flow": {
+        "trigger": "push to main and workflow_dispatch",
+        "checks_job": "Deploy checks (staging)",
+        "deploy_job": "Deploy (staging)",
+        "environment": "staging",
+        "concurrency": [
+          "deploy-checks-${repository}-staging",
+          "deploy-${repository}-staging"
+        ],
+        "smoke_checks": [
+          "healthz post deploy",
+          "auth guest contract post deploy",
+          "ops entry smoke",
+          "ops asset smoke",
+          "ci_verify_mbti deploy checks"
+        ],
+        "sidecar_notes": [
+          "Staging deploy has stale deploy guard and owned lock cleanup behavior.",
+          "Ops theme asset may be skipped when not directly exposed, while workflow can still pass."
+        ]
+      },
+      "current_production_path": {
+        "workflow_dispatch_supported": true,
+        "target_input": "env=production",
+        "environment": "production",
+        "current_operator_path": "local deploy-readiness skill plus exact SHA approval",
+        "existing_deploy_command_family": "Deployer production target",
+        "post_deploy_smoke_available": true
+      },
+      "production_automation_gap": [
+        "Production can be manually dispatched, but is not yet chained from successful staging deploy on main.",
+        "Production approval should be represented by GitHub Environment protection instead of chat-only SHA approval.",
+        "Production workflow must keep CMS write, publish, sitemap/llms, search queue, and external search submission out of deploy."
+      ]
+    },
+    "fap_web": {
+      "source_ref": "origin/main",
+      "workflow_files_reviewed": [
+        ".github/workflows/ci.yml",
+        ".github/workflows/deploy-staging.yml",
+        ".github/workflows/live-result-smoke.yml"
+      ],
+      "deploy_scripts_reviewed": [
+        "scripts/deploy_web_pm2.sh",
+        "scripts/rolling_reload_pm2.sh",
+        "scripts/healthcheck_web.sh",
+        "scripts/staging_cms_baseline_smoke.sh",
+        "scripts/content_release_revalidate_smoke.sh"
+      ],
+      "current_staging_flow": {
+        "trigger": "push to main and workflow_dispatch",
+        "deploy_job": "Deploy fap-web staging",
+        "environment": "staging",
+        "concurrency": "deploy-web-staging-${repository}",
+        "deploy_mechanism": "SSH to staging worktree, reset to GitHub SHA, run scripts/deploy_web_pm2.sh",
+        "smoke_checks": [
+          "deployed SHA equals GitHub SHA",
+          "staging career page HTTP 200",
+          "deploy_web_pm2 build/restart path",
+          "optional sitemap/CMS/content-release smoke controlled by env flags"
+        ]
+      },
+      "current_production_path": {
+        "workflow_dispatch_supported": false,
+        "current_operator_path": "local deploy-readiness skill plus exact SHA approval",
+        "existing_deploy_command_family": "Node1 worktree reset plus deploy:pm2",
+        "post_deploy_smoke_available": true
+      },
+      "production_automation_gap": [
+        "No fap-web production GitHub Actions workflow exists yet.",
+        "Production Node1 approval should use GitHub Environment protection.",
+        "Production workflow must fetch sitemap/llms only as read-only smoke, not regenerate or mutate them."
+      ]
+    }
+  },
+  "recommended_architecture": {
+    "stage_1": "Keep automatic staging deploy after main checks.",
+    "stage_2": "After staging deploy success on main, start a production deploy workflow or production job waiting on GitHub Environment approval.",
+    "stage_3": "After environment approval, run runtime deploy only and fail closed on smoke failure.",
+    "authorization_model": "GitHub Environment production required reviewers replace chat-only exact SHA approval for ordinary runtime deploys.",
+    "excluded_from_runtime_deploy": [
+      "CMS import/write/publish/promotion",
+      "sitemap generation or llms release",
+      "Search Queue enqueue/approve/submit",
+      "IndexNow/Baidu/GSC live submission",
+      "database content mutations outside normal deploy/migration mechanics"
+    ]
+  },
+  "github_environment_requirements": {
+    "environment_name": "production",
+    "required_reviewers": "configure in GitHub repository environment settings",
+    "branch_restriction": "main only",
+    "secrets_by_name_only": [
+      "SSH_PRIVATE_KEY",
+      "SSH_KNOWN_HOSTS"
+    ],
+    "recommended_concurrency": [
+      "deploy-${repository}-production",
+      "deploy-web-production-${repository}"
+    ],
+    "rollback_boundary": "Rollback remains a separate explicitly approved action or a separate environment-gated workflow.",
+    "incident_boundary": "Unlock, process termination, queue restart outside existing deploy mechanics, and PM2 restart outside deploy remain separate incident approvals."
+  },
+  "follow_up_prs": [
+    {
+      "id": "FAP-API-PRODUCTION-DEPLOY-WORKFLOW-01",
+      "repository": "fap-api",
+      "scope": [
+        ".github/workflows/**",
+        "deploy docs if needed"
+      ],
+      "summary": "Chain production backend deploy behind successful staging deploy and GitHub production environment approval."
+    },
+    {
+      "id": "FAP-WEB-PRODUCTION-DEPLOY-WORKFLOW-01",
+      "repository": "fap-web",
+      "scope": [
+        ".github/workflows/**",
+        "deploy docs if needed"
+      ],
+      "summary": "Add production Node1 deploy workflow behind successful staging deploy and GitHub production environment approval."
+    }
+  ],
+  "blockers": [],
+  "warnings": [
+    "GitHub Environment reviewer settings cannot be verified from repository files alone and must be configured in GitHub settings.",
+    "fap-api production target support exists in deploy.yml, but automatic chaining from staging success is not present yet.",
+    "fap-web needs a new production workflow because only staging deploy is currently automated."
+  ],
+  "decision": "PROCEED_TO_WORKFLOW_PRS"
+}
