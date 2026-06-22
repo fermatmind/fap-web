@@ -1,0 +1,143 @@
+{
+  "schema_version": "fermatmind.result_page_agent_analytics_handoff.v1",
+  "artifact_id": "result-page-agent-analytics-handoff-2026-06-23",
+  "created_at": "2026-06-23",
+  "task_id": "RESULT-PAGE-AGENT-ANALYTICS-HANDOFF-01",
+  "run_mode": "docs_contracts_readonly_analytics_handoff",
+  "approval_state": "not_requested",
+  "verdict": "ANALYTICS_HANDOFF_READY_NO_RUNTIME_MUTATION",
+  "input_refs": {
+    "readiness_matrix": "docs/result-page-agents/six-result-page-agent-readiness-matrix.v1.json",
+    "runtime_qa": "docs/result-page-agents/six-hub-free-full-report-runtime-qa.v1.json",
+    "runtime_qa_handoff": "docs/result-page-agents/result-page-agent-runtime-qa-handoff.v1.json"
+  },
+  "safety_confirmation": {
+    "runtime_analytics_mutation": "none",
+    "provider_calls": "none",
+    "private_payload_emitted": "none",
+    "cms_writes": "none",
+    "production_import": "none",
+    "rollout": "none"
+  },
+  "allowed_event_classes": [
+    "result_page_view",
+    "result_module_view",
+    "result_report_access_state",
+    "result_pdf_action_intent",
+    "result_share_action_intent",
+    "result_compare_action_intent",
+    "result_history_action_intent",
+    "result_redaction_state",
+    "result_error_boundary"
+  ],
+  "forbidden_private_payload_fields": [
+    "attempt_id",
+    "user_id",
+    "account_id",
+    "email",
+    "phone",
+    "report_token",
+    "report_url",
+    "raw_score",
+    "raw_scores",
+    "score_vector",
+    "percentile",
+    "answer_key",
+    "responses",
+    "selector_trace",
+    "qa_trace",
+    "source_refs",
+    "private_result_payload",
+    "payment_id",
+    "order_id"
+  ],
+  "smoke_test_exclusions": [
+    "no provider call",
+    "no analytics runtime mutation",
+    "no real user identifiers",
+    "no raw private result payload",
+    "no search submission",
+    "no production import",
+    "no rollout"
+  ],
+  "per_scale_analytics_readiness": [
+    {
+      "scale_code": "MBTI",
+      "agent_id": "mbti_result_page",
+      "analytics_readiness": "LIMITED_SCAFFOLD_ONLY",
+      "allowed": "shared public-safe result page event classes only",
+      "blocked": "generated agent readiness analytics"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "agent_id": "big_five_result_page",
+      "analytics_readiness": "READONLY_HANDOFF_WITH_SHARE_SAFETY_GAP",
+      "allowed": "shared public-safe result page event classes only",
+      "blocked": "share-safety gap must not be hidden by analytics events"
+    },
+    {
+      "scale_code": "RIASEC",
+      "agent_id": "riasec_result_page",
+      "analytics_readiness": "PRIORITY_READONLY_HANDOFF",
+      "allowed": "interest structure may be summarized as public-safe coarse labels",
+      "blocked": "raw scores, vectors, percentiles, attempt/user/private report payload"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "agent_id": "iq_raven_result_page",
+      "analytics_readiness": "LIMITED_SCAFFOLD_ONLY",
+      "allowed": "shared public-safe result page event classes only",
+      "blocked": "raw scores, answer key, diagnostic, school-placement, hiring, certification claims"
+    },
+    {
+      "scale_code": "EQ_60",
+      "agent_id": "eq60_result_page",
+      "analytics_readiness": "LIMITED_SCAFFOLD_ONLY",
+      "allowed": "shared public-safe result page event classes only",
+      "blocked": "raw scores, clinical, medical, hiring, success, guaranteed-outcome claims"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "agent_id": "enneagram_result_page",
+      "analytics_readiness": "READONLY_HANDOFF",
+      "allowed": "shared public-safe result page event classes only",
+      "blocked": "private payload and generated readiness analytics until separately authorized"
+    }
+  ],
+  "riasec_career_bridge_analytics_boundary": {
+    "allowed_summary": [
+      "public-safe interest structure label",
+      "coarse result module impression",
+      "redaction state",
+      "share/PDF/history/compare intent without private identifiers"
+    ],
+    "forbidden_emission": [
+      "raw scores",
+      "score vectors",
+      "percentiles",
+      "attempt id",
+      "user id",
+      "private report payload",
+      "selector trace",
+      "deterministic career recommendation",
+      "admissions/hiring/salary/performance/success/ability guarantee"
+    ]
+  },
+  "next_task": {
+    "id": "RESULT-PAGE-AGENT-SEO-CONTROL-HANDOFF-01",
+    "allowed_scope": [
+      "private result noindex control handoff",
+      "public hub/public explanation SEO boundary",
+      "search/provider mutation prohibitions"
+    ],
+    "forbidden_scope": [
+      "sitemap mutation",
+      "robots mutation",
+      "llms mutation",
+      "schema or JSON-LD mutation",
+      "hreflang mutation",
+      "Search Queue enqueue/approve/submit",
+      "GSC/Baidu/IndexNow provider call"
+    ]
+  }
+}
