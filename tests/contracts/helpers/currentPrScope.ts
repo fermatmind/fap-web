@@ -2556,6 +2556,13 @@ const ENNEAGRAM_RESULT_PAGE_AGENT_STANDARD_ALIGN_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const RIASEC_RESULT_PAGE_AGENT_STANDARD_ALIGN_01_ALLOWED_FILES = new Set([
+  "docs/result-page-agents/riasec-result-page-agent-readiness.proposal.json",
+  "docs/result-page-agents/riasec-result-page-agent-standard-alignment-2026-06-23.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/riasec-result-page-agent-standard-alignment.contract.test.ts",
+]);
+
 function isFrontendUiPolishBatch02ScopeActive(): boolean {
   if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
     return true;
@@ -2707,6 +2714,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/enneagram-result-page-agent-standard-align-01" &&
     ENNEAGRAM_RESULT_PAGE_AGENT_STANDARD_ALIGN_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/riasec-result-page-agent-standard-align-01" &&
+    RIASEC_RESULT_PAGE_AGENT_STANDARD_ALIGN_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
