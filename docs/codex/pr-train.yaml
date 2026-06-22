@@ -3778,6 +3778,55 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
+
+  - id: FA30-WEB-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/fa30-web-05-riasec-gaokao-major-cluster-ia
+    base: main
+    title: "FA30-WEB-05: docs(riasec): define Gaokao major cluster IA and claim boundary"
+    depends_on:
+      - FA30-API-04
+    mode: execute
+    train_scope: riasec_gaokao_major_cluster_ia_claim_boundary
+    status: user_authorized
+    goal: "Define a docs-only RIASEC Gaokao/major-cluster IA and claim boundary before any backend authority, frontend renderer, sitemap, llms, canonical, JSON-LD, CMS, or search submission work starts."
+    artifacts:
+      - docs/seo/riasec-gaokao-major-cluster-ia-claim-boundary.md
+      - docs/seo/generated/riasec-gaokao-major-cluster-ia-claim-boundary.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/seo/riasec-gaokao-major-cluster-ia-claim-boundary.md
+      - docs/seo/generated/riasec-gaokao-major-cluster-ia-claim-boundary.v1.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - tests/**
+      - package.json
+      - pnpm-lock.yaml
+      - frontend runtime route changes
+      - frontend publishable content or fallback copy
+      - backend authority substitution
+      - CMS writes, import, publish, or provider calls
+      - sitemap, robots, llms, canonical, hreflang, JSON-LD, or indexability runtime mutation
+      - search submission or queue execution
+      - deploy, restart, or rollout actions
+      - env files
+    required_local_checks:
+      - python3 -m json.tool docs/seo/generated/riasec-gaokao-major-cluster-ia-claim-boundary.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
     rollback_note: "Revert the BACKEND-RUNTIME-02D-RECONCILE architecture reconciliation edits and train metadata if the closure should remain represented only by BACKEND-RUNTIME-02D."
 
   - id: SEO-DASH-00B

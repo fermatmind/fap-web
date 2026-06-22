@@ -2,9 +2,9 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-21T11:20:59+08:00",
+  "updated_at": "2026-06-23T01:23:00+08:00",
   "status": "active",
-  "phase": "personality_public_profile_agent_split",
+  "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
   "branch_naming_convention": "codex/pr-prac-<nn>-<short-scope>",
   "mode": "local_clone_preferred",
@@ -25705,6 +25705,84 @@
           "at": "2026-06-22T20:48:00+08:00",
           "status": "pr_open",
           "note": "Opened GitHub PR #1319 after local validation passed. Scope remains limited to the Batch 2 handoff checker, fixture, focused contract, currentPrScope registration, package wiring, and docs/codex metadata."
+        }
+      ]
+    },
+    {
+      "id": "FA30-WEB-05",
+      "repo": "fap-web",
+      "branch": "codex/fa30-web-05-riasec-gaokao-major-cluster-ia",
+      "base": "main",
+      "status": "ready_to_merge",
+      "train_scope": "riasec_gaokao_major_cluster_ia_claim_boundary",
+      "title": "FA30-WEB-05: docs(riasec): define Gaokao major cluster IA and claim boundary",
+      "depends_on": [
+        "FA30-API-04"
+      ],
+      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1338",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized manifest/state entries for FA30-WEB-05 on 2026-06-23 as part of FA30-NON-AGENT-PR-TRAIN-01 and instructed Codex to execute the train one scope at a time."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "FA30-API-04 merged in fap-api PR #2327 with merge commit 3b3ce7143f3c9b3ac087db507089b97ca1aa0642 before this fap-web docs-only scope started."
+        },
+        "scope": {
+          "status": "authorized",
+          "allowed_paths": [
+            "docs/seo/riasec-gaokao-major-cluster-ia-claim-boundary.md",
+            "docs/seo/generated/riasec-gaokao-major-cluster-ia-claim-boundary.v1.json",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Authorized scope is restricted to docs-only RIASEC Gaokao/major-cluster IA and claim-boundary planning plus PR-train metadata. No app, component, lib, public, tests, package, CMS, deploy, search, sitemap, llms, canonical, hreflang, or JSON-LD changes are in scope."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Passed: python3 -m json.tool docs/seo/generated/riasec-gaokao-major-cluster-ia-claim-boundary.v1.json; python3 -m json.tool docs/codex/pr-train-state.json; ruby YAML parse for docs/codex/pr-train.yaml; git diff --check; explicit path allowlist scope validation. Scope remains docs-only and limited to two RIASEC planning artifacts plus docs/codex metadata."
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1338 after local validation and scope validation passed. The branch head is the source of truth for the exact current SHA after this PR URL ledger commit."
+        },
+        "github": {
+          "status": "pass",
+          "evidence": "GitHub PR #1338 required checks passed on branch head a9cafa7fb12a50d0c949f2dd1e57d60116202f5e: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL all completed successfully; mergeStateStatus was CLEAN."
+        }
+      },
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-23T00:45:00+08:00",
+          "status": "in_progress",
+          "note": "Started FA30-WEB-05 from a clean origin/main fap-web worktree. Scope is docs-only RIASEC Gaokao major-cluster IA and claim boundary; no runtime, CMS, SEO runtime, search submission, or deploy changes are allowed."
+        },
+        {
+          "at": "2026-06-23T01:02:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Added the RIASEC Gaokao major-cluster IA and claim-boundary planning artifacts, registered FA30-WEB-05 metadata, and validated JSON, YAML, diff whitespace, and explicit path allowlist scope."
+        },
+        {
+          "at": "2026-06-23T01:10:00+08:00",
+          "status": "committed",
+          "note": "Committed FA30-WEB-05 docs-only scope. Because the ledger lives in the same commit, the GitHub branch head is the source of truth for the exact current SHA after amend/push."
+        },
+        {
+          "at": "2026-06-23T01:16:00+08:00",
+          "status": "pr_open",
+          "note": "Opened GitHub PR #1338 after local validation passed. Scope remains limited to the RIASEC planning doc, generated planning contract, and docs/codex metadata."
+        },
+        {
+          "at": "2026-06-23T01:23:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train ledger policy."
         }
       ]
     }
