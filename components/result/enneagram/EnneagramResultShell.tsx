@@ -161,7 +161,7 @@ function stateLead(viewModel: EnneagramResultViewModel, locale: Locale): string 
       return locale === "zh" ? "这次结果可以阅读，但解释边界较宽" : "This result is readable, but the interpretation boundary is wider";
     case "clear":
     default:
-      return locale === "zh" ? `你最可能是 ${primary || "当前主候选"}` : `You are most likely ${primary || "the current lead"}`;
+      return locale === "zh" ? `当前结果更接近 ${primary || "当前主候选"}` : `This result currently leans toward ${primary || "the current lead"}`;
   }
 }
 

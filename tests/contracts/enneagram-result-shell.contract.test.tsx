@@ -1239,6 +1239,9 @@ describe("enneagram result shell contract", () => {
   it("renders all five V2 pages from the backend payload", async () => {
     await renderShell(createV2ReportResponse());
 
+    const shell = screen.getByTestId("enneagram-result-shell");
+    expect(within(shell).getByRole("heading", { name: "当前结果更接近 Type 1" })).toBeInTheDocument();
+    expect(within(shell).queryByText(/你最可能是/)).not.toBeInTheDocument();
     expect(screen.getByTestId("enneagram-v2-page-page_1_result_overview")).toBeInTheDocument();
     expect(screen.getByTestId("enneagram-v2-page-page_2_work_reality")).toBeInTheDocument();
     expect(screen.getByTestId("enneagram-v2-page-page_3_growth_spectrum")).toBeInTheDocument();
