@@ -19,6 +19,20 @@ const EXCLUDED_SLUGS = [
   "digital-forensics-analysts",
   "computer-occupations-all-other",
 ];
+const SIX_ASSESSMENT_TEST_PATHS = [
+  "/en/tests/mbti-personality-test-16-personality-types",
+  "/zh/tests/mbti-personality-test-16-personality-types",
+  "/en/tests/big-five-personality-test-ocean-model",
+  "/zh/tests/big-five-personality-test-ocean-model",
+  "/en/tests/enneagram-personality-test-nine-types",
+  "/zh/tests/enneagram-personality-test-nine-types",
+  "/en/tests/holland-career-interest-test-riasec",
+  "/zh/tests/holland-career-interest-test-riasec",
+  "/en/tests/iq-test-intelligence-quotient-assessment",
+  "/zh/tests/iq-test-intelligence-quotient-assessment",
+  "/en/tests/eq-test-emotional-intelligence-assessment",
+  "/zh/tests/eq-test-emotional-intelligence-assessment",
+] as const;
 
 function careerPathsFor(slugs: string[]): string[] {
   return slugs.flatMap((slug) => [`/en/career/jobs/${slug}`, `/zh/career/jobs/${slug}`]);
@@ -48,7 +62,8 @@ type MockArticleEntry = {
 
 function mockLlmsFullDependencies(
   paths: () => string[],
-  articles: { en?: MockArticleEntry[]; zh?: MockArticleEntry[] } = {}
+  articles: { en?: MockArticleEntry[]; zh?: MockArticleEntry[] } = {},
+  testPaths: () => readonly string[] = () => SIX_ASSESSMENT_TEST_PATHS
 ) {
   const listBackendSitemapCareerJobPaths = vi.fn(async () => paths());
   const listCmsArticlesForLlmsWithLastKnownGood = vi.fn(async ({ locale }: { locale: "en" | "zh" }) => ({
@@ -95,7 +110,21 @@ function mockLlmsFullDependencies(
     listTopics: vi.fn(async () => ({ items: [] })),
   }));
   vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({
-    listBackendDiscoverabilityTestEntries: vi.fn(async () => []),
+    listBackendDiscoverabilityTestEntries: vi.fn(async () =>
+      testPaths().map((path) => {
+        const [, locale, , slug] = path.split("/");
+        return {
+          locale,
+          slug,
+          path,
+          title: slug,
+          description: `${slug} test detail.`,
+          scaleCode: slug,
+          highlightExcerptI18n: {},
+          llmsFullEligible: true,
+        };
+      })
+    ),
   }));
 
   return { listBackendSitemapCareerJobPaths, listCmsArticlesForLlmsWithLastKnownGood };
@@ -108,6 +137,7 @@ afterEach(() => {
   delete process.env.FERMATMIND_LLMS_FULL_CACHE_DIR;
   delete process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE;
   delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT;
+  delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT;
 });
 
 describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
@@ -116,6 +146,8 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     process.env.FERMATMIND_LLMS_FULL_CACHE_DIR = cacheDir;
     process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE = "true";
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
     let currentPaths: string[] = [];
     mockLlmsFullDependencies(() => currentPaths);
     const { GET } = await import("@/app/llms-full.txt/route");
@@ -148,6 +180,26 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
       expect(cachedText).not.toContain(`${SITE_URL}/en/career/jobs/${slug}`);
       expect(cachedText).not.toContain(`${SITE_URL}/zh/career/jobs/${slug}`);
     }
+    for (const testPath of SIX_ASSESSMENT_TEST_PATHS) {
+      expect(cachedText).toContain(`${SITE_URL}${testPath}`);
+    }
+  });
+
+  it("does not cache otherwise complete artifacts when six assessment test routes are missing", async () => {
+    const cacheDir = fs.mkdtempSync(path.join(os.tmpdir(), "llms-full-missing-tests-"));
+    process.env.FERMATMIND_LLMS_FULL_CACHE_DIR = cacheDir;
+    process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
+    mockLlmsFullDependencies(() => fullCohortPaths(), {}, () => []);
+    const { GET } = await import("@/app/llms-full.txt/route");
+
+    const response = await GET();
+    const text = await response.text();
+
+    expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("degraded");
+    expect(text).not.toContain(`${SITE_URL}${SIX_ASSESSMENT_TEST_PATHS[0]}`);
   });
 
   it("shares the last-known-good llms-full artifact across module instances", async () => {
@@ -155,6 +207,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     process.env.FERMATMIND_LLMS_FULL_CACHE_DIR = cacheDir;
     process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE = "true";
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
     let currentPaths = fullCohortPaths();
     mockLlmsFullDependencies(() => currentPaths);
     const firstModule = await import("@/app/llms-full.txt/route");
