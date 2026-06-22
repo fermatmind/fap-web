@@ -16185,3 +16185,59 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
+
+  - id: FA30-WEB-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/fa30-web-02-runtime-qa-harness
+    base: main
+    title: "FA30-WEB-02: test(result): add Batch 2 frontend runtime QA harness"
+    depends_on:
+      - FA30-API-03
+    mode: execute
+    train_scope: batch2_frontend_runtime_qa_harness
+    status: user_authorized
+    goal: "Add a frontend-side read-only harness that consumes the backend Batch 2 readback/review ledger and allows Big Five plus Enneagram runtime QA only when the exact backend authority handoff remains fail-closed."
+    artifacts:
+      - package.json
+      - scripts/ops/check-batch2-runtime-qa-handoff.mjs
+      - tests/contracts/fa30-batch2-runtime-qa-harness.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/fixtures/result_page/batch2_readback_review_ledger.sample.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - package.json
+      - scripts/ops/check-batch2-runtime-qa-handoff.mjs
+      - tests/contracts/fa30-batch2-runtime-qa-harness.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/fixtures/result_page/batch2_readback_review_ledger.sample.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - frontend runtime route changes
+      - CMS writes, import, publish, or provider calls
+      - deploy, restart, or rollout actions
+      - production runtime enablement
+      - backend authority substitution
+      - env files
+      - pnpm-lock.yaml
+    required_local_checks:
+      - node scripts/ops/check-batch2-runtime-qa-handoff.mjs tests/fixtures/result_page/batch2_readback_review_ledger.sample.json >/dev/null
+      - pnpm exec vitest run tests/contracts/fa30-batch2-runtime-qa-harness.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -m json.tool tests/fixtures/result_page/batch2_readback_review_ledger.sample.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true

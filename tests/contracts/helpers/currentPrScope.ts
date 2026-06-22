@@ -105,6 +105,16 @@ const FA30_WEB_01_ALLOWED_FILES = new Set([
   "tests/contracts/six-assessment-hub-parity.contract.test.ts",
 ]);
 
+const FA30_WEB_02_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "package.json",
+  "scripts/ops/check-batch2-runtime-qa-handoff.mjs",
+  "tests/contracts/fa30-batch2-runtime-qa-harness.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/fixtures/result_page/batch2_readback_review_ledger.sample.json",
+]);
+
 const SEO_FREE_TEST_SECONDARY_CTA_04_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/career/tests/page.tsx",
   "app/(localized)/[locale]/personality/page.tsx",
@@ -2684,6 +2694,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return FA30_WEB_01_ALLOWED_FILES.has(file) || CODEQL_HYGIENE_ALLOWED_FILES.has(file);
   }
 
+  if (CURRENT_BRANCH === "codex/fa30-web-02-runtime-qa-harness") {
+    return FA30_WEB_02_ALLOWED_FILES.has(file) || CODEQL_HYGIENE_ALLOWED_FILES.has(file);
+  }
+
   if (
     CURRENT_BRANCH === "codex/six-hub-test-detail-frontend-landing-surface-consumer-01" ||
     CURRENT_BRANCH === "codex/batch-1-riasec-boundary-runtime-fix-01"
@@ -3637,6 +3651,10 @@ export function isPersonalityEnneagramV1NoindexRender01AllowedFile(file: string)
 
 export function isSeoConvTracking01AllowedFile(file: string): boolean {
   return SEO_CONV_TRACKING_01_ALLOWED_FILES.has(file);
+}
+
+export function isFa30Web02AllowedFile(file: string): boolean {
+  return FA30_WEB_02_ALLOWED_FILES.has(file);
 }
 
 export function isSeoConvRuntime03AllowedFile(file: string): boolean {

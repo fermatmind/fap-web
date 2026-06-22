@@ -44,6 +44,7 @@
     "seo:check-science-contentpage-live-exposure": "node scripts/seo/check-science-contentpage-live-exposure.mjs",
     "seo:check-science-contentpage-zh-footer-links": "node scripts/seo/check-science-contentpage-zh-footer-links.mjs",
     "seo:push-baidu": "node scripts/seo/push-baidu.mjs",
+    "ops:batch2-runtime-qa-handoff": "node scripts/ops/check-batch2-runtime-qa-handoff.mjs tests/fixtures/result_page/batch2_readback_review_ledger.sample.json",
     "ops:result-smoke": "node scripts/ops/check-live-result-smoke.mjs",
     "ops:big5-v2-post-deploy-smoke": "node scripts/ops/check-big5-v2-live-result-pdf.mjs",
     "content:check-translations": "node scripts/content/check-translations.mjs",
