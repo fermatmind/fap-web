@@ -1,0 +1,228 @@
+{
+  "schema_version": "fermatmind.riasec_runtime_qa_consumption_packet.v1",
+  "artifact_id": "riasec-runtime-qa-consumption-packet-2026-06-23",
+  "task_id": "RIASEC-RUNTIME-QA-CONSUMPTION-PACKET-01",
+  "verdict": "READY_TO_CONSUME_BY_RUNTIME_QA",
+  "run_mode": "docs_contracts_only",
+  "receiving_agent": "runtime_qa",
+  "producing_agent": "riasec_result_page",
+  "scale_code": "RIASEC",
+  "dependency": {
+    "task_id": "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01",
+    "status": "MERGED",
+    "merge_commit": "841dacd6592e8e45c43cd9d3945d04ff97a62d41"
+  },
+  "source_refs": {
+    "common_contract": "docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract.v1.json",
+    "standard_alignment": "docs/result-page-agents/riasec-result-page-agent-readiness.proposal.json",
+    "route_api_pdf_share_review": "docs/result-page-agents/riasec-result-page-agent-readonly-route-api-pdf-share-review.v1.json",
+    "runtime_qa_handoff": "docs/result-page-agents/result-page-agent-runtime-qa-handoff.v1.json",
+    "analytics_handoff": "docs/result-page-agents/result-page-agent-analytics-handoff.v1.json",
+    "render_preview_fixture_manifest": "tests/fixtures/riasec/result_page_v2/render_preview_fixture_manifest.v0_1.json",
+    "fap_api_runtime_career_analytics_handoff": "fap-api:backend/docs/riasec/riasec-result-page-agent-runtime-career-analytics-handoff-2026-06-23.md"
+  },
+  "consumed_evidence": {
+    "readiness_verdict": "RIASEC_RESULT_PAGE_AGENT_STANDARD_ALIGNED",
+    "readonly_review_verdict": "RIASEC_READONLY_ROUTE_API_PDF_SHARE_REVIEW_READY_WITH_RUNTIME_PRODUCTION_HOLDS",
+    "runtime_qa_handoff_status": "PRIORITY_HANDOFF_READY_READONLY",
+    "analytics_readiness": "PRIORITY_READONLY_HANDOFF",
+    "fap_api_handoff_scope": "planning_and_handoff_packet_only",
+    "one_flagship_landing": "holland-career-interest-test-riasec",
+    "supported_forms": [
+      "riasec_60",
+      "riasec_140"
+    ],
+    "career_bridge_policy": "examples_only_not_recommendations",
+    "ready_for_runtime": false,
+    "ready_for_production": false,
+    "production_use_allowed": false
+  },
+  "assertions": [
+    {
+      "id": "route_contract",
+      "status": "PASS",
+      "evidence": "RIASEC remains one flagship under holland-career-interest-test-riasec and the private result route stays /[locale]/result/[id]."
+    },
+    {
+      "id": "report_api_contract",
+      "status": "PASS",
+      "evidence": "/api/v0.3/attempts/{attempt_id}/report remains backend-authoritative and public-safe by reviewed projection."
+    },
+    {
+      "id": "report_access_api_contract",
+      "status": "PASS",
+      "evidence": "/api/v0.3/attempts/{attempt_id}/report-access remains the fail-closed access boundary."
+    },
+    {
+      "id": "renderer_dispatch",
+      "status": "PASS",
+      "evidence": "RIASEC dispatch remains ResultClient -> RichResultReport -> RiasecResultShell through reviewed public projection assembly."
+    },
+    {
+      "id": "pdf_private_print_boundary",
+      "status": "PASS",
+      "evidence": "PDF and private print behavior remains report-access governed, backend-authored, private/no-store, and redaction-contract covered."
+    },
+    {
+      "id": "share_public_private_boundary",
+      "status": "PASS",
+      "evidence": "Share behavior remains public-summary only and must not expose full report blocks, private URLs, raw scores, vectors, or selector data."
+    },
+    {
+      "id": "private_result_noindex_boundary",
+      "status": "PASS",
+      "evidence": "Private result/report/history/payment-linked surfaces remain noindex/private with no sitemap, llms, canonical, JSON-LD, hreflang, or search submission."
+    },
+    {
+      "id": "leak_boundary",
+      "status": "PASS",
+      "evidence": "Runtime QA must fail closed on raw scores, vectors, percentiles, selector traces, source/QA/editor metadata, private IDs, private URLs, tokens, or secrets."
+    },
+    {
+      "id": "claim_privacy_safety_gate",
+      "status": "PASS",
+      "evidence": "Career bridge language stays examples-only and blocks deterministic career recommendations plus admissions, hiring, salary, performance, success, ability, and life-outcome claims."
+    },
+    {
+      "id": "analytics_smoke_exclusion_gate",
+      "status": "PASS",
+      "evidence": "Analytics handoff allows public-safe coarse labels and result-page event classes only; raw score/private payload/runtime mutation remains blocked."
+    }
+  ],
+  "one_flagship_two_forms": {
+    "status": "PASS",
+    "canonical_landing": "holland-career-interest-test-riasec",
+    "supported_forms": [
+      "riasec_60",
+      "riasec_140"
+    ],
+    "parallel_stack_introduced": false,
+    "legacy_36q_surface_allowed": false
+  },
+  "public_projection_and_leak_boundary": {
+    "status": "PASS",
+    "allowed_projection_versions": [
+      "riasec_public_projection_v2",
+      "riasec_public_projection_v1"
+    ],
+    "forbidden_public_fields": [
+      "attempt_id",
+      "user_id",
+      "raw_score",
+      "raw_scores",
+      "score_vector",
+      "dimension_vector",
+      "percentile",
+      "selector_trace",
+      "share_block",
+      "source_refs",
+      "qa_trace",
+      "editor_notes",
+      "private_url",
+      "report_token",
+      "token",
+      "secret",
+      "private_result_payload",
+      "payment_id",
+      "order_id"
+    ]
+  },
+  "career_graph_bridge_boundary": {
+    "status": "PASS",
+    "allowed_inputs": [
+      "public RIASEC dimension labels and order",
+      "public top-code or profile-shape summary",
+      "public confidence or caution state",
+      "public low-quality or norm-unavailable state",
+      "public method boundary copy",
+      "reviewed public occupation or activity examples from backend-owned assets",
+      "locale and form code limited to zh-CN, riasec_60, and riasec_140 unless separately approved"
+    ],
+    "allowed_language": [
+      "examples to explore",
+      "work activities that may be worth comparing",
+      "career areas to learn about first",
+      "majors or roles that often involve similar activity patterns",
+      "use this as a starting point, not a decision"
+    ],
+    "forbidden_inputs": [
+      "raw item answers",
+      "raw scores",
+      "score vectors",
+      "percentiles",
+      "selector trace",
+      "private attempt ID or user ID",
+      "payment, report-access, or order state",
+      "unreviewed CMS text",
+      "frontend fallback copy",
+      "hidden editor notes, source notes, QA metadata, or repair drafts"
+    ],
+    "forbidden_claims": [
+      "deterministic career recommendation",
+      "best career for you",
+      "guaranteed fit",
+      "you should choose",
+      "you will succeed",
+      "hiring screen",
+      "admissions decision",
+      "salary prediction",
+      "performance prediction",
+      "success prediction",
+      "ability measurement",
+      "official Holland type determines your career",
+      "low score means cannot do this"
+    ]
+  },
+  "analytics_boundary": {
+    "status": "PASS",
+    "allowed": "public-safe coarse interest labels and shared result-page event classes only",
+    "blocked": [
+      "raw scores",
+      "score vectors",
+      "percentiles",
+      "attempt id",
+      "user id",
+      "private report payload",
+      "selector trace",
+      "deterministic career recommendation",
+      "admissions/hiring/salary/performance/success/ability guarantee",
+      "runtime analytics mutation"
+    ]
+  },
+  "holds": [
+    "production_import",
+    "runtime_wrapper_enablement",
+    "runtime_enablement",
+    "cms",
+    "search",
+    "career_graph_runtime_mutation",
+    "deterministic_career_recommendation",
+    "private_result_access",
+    "generated_readiness_artifact_write",
+    "fap_api_mutation",
+    "provider_call",
+    "deploy",
+    "rollout"
+  ],
+  "negative_guarantees": {
+    "runtime_code_changed": "no",
+    "fap_api_mutation": "none",
+    "riasec_import_command_run": "no",
+    "runtime_wrapper_enabled": "no",
+    "career_graph_runtime_mutation": "none",
+    "deterministic_career_recommendation_added": "no",
+    "raw_private_result_accessed": "none",
+    "cms_writes": "none",
+    "publishing": "none",
+    "search_submissions": "none",
+    "provider_calls": "none",
+    "deployment_triggered": "no",
+    "generated_readiness_artifact_written": "no"
+  },
+  "next_safe_output": {
+    "agent": "runtime_qa",
+    "output": "read_only_runtime_qa_report",
+    "status": "ALLOWED_LATER",
+    "requires_separate_authorization": true
+  }
+}

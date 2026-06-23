@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-23T12:03:00+08:00",
+  "updated_at": "2026-06-23T12:24:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12536,7 +12536,7 @@
       "depends_on": [
         "GLOBAL-EN-ZH-PARITY-P0-01"
       ],
-      "status": "ready_to_merge",
+      "status": "merged_cleanup_complete",
       "title": "GLOBAL-EN-ZH-PARITY-FOOTER-NAV-PARITY-01 footer nav bilingual parity",
       "commit_sha": "5f8284d9a38d45bd1d59e9b8cf246454b16acdff",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/904",
@@ -12724,8 +12724,8 @@
       ],
       "status": "planned",
       "title": "GLOBAL-EN-ZH-PARITY-RESULT-MEDIA-ASSET-BATCH-01 result report media parity batch",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "2063c166ad7e7cb7b367e999f11cd920e21a13ce",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1357",
       "checks": {},
       "failure_reason": null,
       "history": [
@@ -26039,11 +26039,11 @@
       "depends_on": [
         "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "fbc7b075fbe1b45a21811d95889ab4df03a2fbca",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1356",
+      "merged_at": "2026-06-23T04:07:50Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -26071,12 +26071,12 @@
           "evidence": "Local checks passed on codex/enneagram-runtime-qa-consumption-packet-01 after fast-forwarding to origin/main c8af412a: JSON parse for packet and state, YAML parse for manifest, focused Enneagram consumption contract (10 tests), pnpm typecheck, pnpm test:contract (536 files, 3077 tests), git diff --check, and changed-file scope validation for exactly 6 authorized files."
         },
         "pull_request": {
-          "status": "open",
-          "evidence": "Opened PR #1356: https://github.com/fermatmind/fap-web/pull/1356 at head c638e82a752d878f5446aea6b056bb6525059010."
+          "status": "merged",
+          "evidence": "PR #1356 was squash merged as fbc7b075fbe1b45a21811d95889ab4df03a2fbca."
         },
         "github": {
           "status": "pass",
-          "evidence": "GitHub checks passed for PR #1356 head 195dcf38af84dd7c8303fffd5d789b56e7c5b8b0: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
+          "evidence": "GitHub checks passed for PR #1356 final head 08454e68a65f16166bf605c0d89ed26f1d300504: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN before squash merge."
         }
       },
       "sidecar_issues": [],
@@ -26105,6 +26105,11 @@
           "at": "2026-06-23T12:03:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed and mergeStateStatus was CLEAN on PR #1356 head 195dcf38af84dd7c8303fffd5d789b56e7c5b8b0. Recording ready_to_merge before squash merge per PR-train policy."
+        },
+        {
+          "at": "2026-06-23T12:09:00+08:00",
+          "status": "merged_cleanup_complete",
+          "note": "PR #1356 was squash merged as fbc7b075fbe1b45a21811d95889ab4df03a2fbca. origin/main contains the merge commit, local main equals origin/main, the current worktree is clean, and task branch cleanup completed locally and remotely."
         }
       ]
     },
@@ -26113,7 +26118,7 @@
       "repo": "fap-web",
       "branch": "codex/riasec-runtime-qa-consumption-packet-01",
       "base": "main",
-      "status": "pending_dependency",
+      "status": "ready_to_merge",
       "train_scope": "riasec_runtime_qa_consumption_packet",
       "title": "RIASEC-RUNTIME-QA-CONSUMPTION-PACKET-01: docs(result): add RIASEC Runtime QA packet",
       "depends_on": [
@@ -26131,8 +26136,8 @@
           "evidence": "User authorized this PR id in ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-INTEGRATION-PR-TRAIN-01."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Blocked until ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01 is merged and cleaned up."
+          "status": "pass",
+          "evidence": "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01 merged in PR #1353 as 841dacd6592e8e45c43cd9d3945d04ff97a62d41 and post-merge cleanup completed before PR4 started."
         },
         "scope": {
           "status": "authorized",
@@ -26147,16 +26152,16 @@
           "evidence": "Authorized scope is fap-web docs/contracts-only RIASEC Runtime QA consumption packet plus current PR train metadata. fap-api is read-only evidence source only."
         },
         "local_validation": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "Local checks passed on codex/riasec-runtime-qa-consumption-packet-01 from origin/main fbc7b075: JSON parse for packet and state, YAML parse for manifest, focused RIASEC consumption contract (10 tests), pnpm typecheck, pnpm test:contract (537 files, 3087 tests), git diff --check, and changed-file scope validation for exactly 6 authorized files."
         },
         "pull_request": {
-          "status": "pending",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened PR #1357: https://github.com/fermatmind/fap-web/pull/1357 at head 2063c166ad7e7cb7b367e999f11cd920e21a13ce."
         },
         "github": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1357 head 4d63986353bb311de8437f89a9e2e6597c2edb37: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
         }
       },
       "sidecar_issues": [],
@@ -26165,6 +26170,26 @@
           "at": "2026-06-23T11:17:24+08:00",
           "status": "pending_dependency",
           "note": "Initialized from authorized five-PR Runtime QA integration train. Waiting for the common contract PR to merge."
+        },
+        {
+          "at": "2026-06-23T12:16:00+08:00",
+          "status": "in_progress",
+          "note": "Started PR4 from origin/main fbc7b075fbe1b45a21811d95889ab4df03a2fbca after PR3 merge and cleanup. Scope is fap-web docs/contracts-only RIASEC Runtime QA consumption packet plus current PR train metadata; fap-api is read-only evidence only."
+        },
+        {
+          "at": "2026-06-23T12:18:00+08:00",
+          "status": "local_checks_passed",
+          "note": "JSON/YAML parse, focused RIASEC contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed."
+        },
+        {
+          "at": "2026-06-23T12:20:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1357 at https://github.com/fermatmind/fap-web/pull/1357 with head 2063c166ad7e7cb7b367e999f11cd920e21a13ce. GitHub checks are in progress."
+        },
+        {
+          "at": "2026-06-23T12:24:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed and mergeStateStatus was CLEAN on PR #1357 head 4d63986353bb311de8437f89a9e2e6597c2edb37. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
