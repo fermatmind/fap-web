@@ -13405,7 +13405,7 @@ prs:
       - IQ-OWNER-30-FE-IMAGE-RENDERER-03
     mode: execute
     train_scope: iq_owner_original_30_launch
-    status: local_validation_passed
+    status: ready_to_merge
     title: "feat(iq): wire owner original bank form code"
     goal: "Wire IQ take page formCode/bank selection to question delivery and attempt start for the Owner Original 30 bank, without exposing answers or implementing sessionized delivery."
     in_scope:
