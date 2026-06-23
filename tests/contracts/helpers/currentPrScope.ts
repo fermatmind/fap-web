@@ -2740,6 +2740,51 @@ const RESULT_PAGE_AGENT_ANALYTICS_HANDOFF_01_ALLOWED_FILES = new Set([
   "tests/contracts/result-page-agent-analytics-handoff.contract.test.ts",
 ]);
 
+const ACTIVE_RESULT_PAGE_AGENTS_ANALYTICS_COMMON_CONTRACT_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/result-page-agents/active-result-page-agents-analytics-common-contract-2026-06-23.md",
+  "docs/result-page-agents/active-result-page-agents-analytics-common-contract.v1.json",
+  "tests/contracts/active-result-page-agents-analytics-common-contract.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+const BIG5_ANALYTICS_CONSUMPTION_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/result-page-agents/big5-analytics-consumption-packet-2026-06-23.md",
+  "docs/result-page-agents/big5-analytics-consumption-packet.v1.json",
+  "tests/contracts/big5-analytics-consumption-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+const ENNEAGRAM_ANALYTICS_CONSUMPTION_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/result-page-agents/enneagram-analytics-consumption-packet-2026-06-23.md",
+  "docs/result-page-agents/enneagram-analytics-consumption-packet.v1.json",
+  "tests/contracts/enneagram-analytics-consumption-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+const RIASEC_ANALYTICS_CONSUMPTION_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/result-page-agents/riasec-analytics-consumption-packet-2026-06-23.md",
+  "docs/result-page-agents/riasec-analytics-consumption-packet.v1.json",
+  "tests/contracts/riasec-analytics-consumption-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+const ACTIVE_RESULT_PAGE_AGENTS_ANALYTICS_MATRIX_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/result-page-agents/active-result-page-agents-analytics-matrix-2026-06-23.md",
+  "docs/result-page-agents/active-result-page-agents-analytics-matrix.v1.json",
+  "tests/contracts/active-result-page-agents-analytics-matrix.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const RESULT_PAGE_AGENT_SEO_CONTROL_HANDOFF_01_ALLOWED_FILES = new Set([
   "docs/result-page-agents/result-page-agent-seo-control-handoff-2026-06-23.md",
   "docs/result-page-agents/result-page-agent-seo-control-handoff.v1.json",
@@ -3042,6 +3087,41 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/result-page-agent-analytics-handoff-01" &&
     RESULT_PAGE_AGENT_ANALYTICS_HANDOFF_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/active-result-page-agents-analytics-common-contract-01" &&
+    ACTIVE_RESULT_PAGE_AGENTS_ANALYTICS_COMMON_CONTRACT_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/big5-analytics-consumption-packet-01" &&
+    BIG5_ANALYTICS_CONSUMPTION_PACKET_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/enneagram-analytics-consumption-packet-01" &&
+    ENNEAGRAM_ANALYTICS_CONSUMPTION_PACKET_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/riasec-analytics-consumption-packet-01" &&
+    RIASEC_ANALYTICS_CONSUMPTION_PACKET_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/active-result-page-agents-analytics-matrix-01" &&
+    ACTIVE_RESULT_PAGE_AGENTS_ANALYTICS_MATRIX_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
