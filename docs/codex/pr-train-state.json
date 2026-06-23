@@ -23155,12 +23155,12 @@
       "id": "RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-bridge-common-contract-01",
-      "status": "ready_to_merge",
-      "commit_sha": "6e448d4912e6ab7cbecdd3425968f9893db6d2ad",
+      "status": "merged_cleanup_complete",
+      "commit_sha": "a7a9d644dc2c941fc3326c630599eb0eb96841e9",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1378",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-23T13:04:29Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -23198,8 +23198,8 @@
           "evidence": "PR #1378 checks passed on head 6e448d49: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         },
         "post_merge": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub reports PR #1378 MERGED with squash merge commit 46d968520d0e4cf612da04e3fc45696e126dc073. origin/main contains the merge commit, local main was synced ff-only to origin/main, main == origin/main, worktree was clean, and the task branch was absent locally and remotely after merge cleanup."
         },
         "pull_request": {
           "status": "open",
@@ -23227,6 +23227,11 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "ready_to_merge",
           "note": "PR #1378 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. Ready for squash merge subject to final scope and mergeStateStatus checks."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "merged_cleanup_complete",
+          "note": "Reconciled PR #1378 post-merge facts before starting PR2: merged at 2026-06-23T13:04:29Z, origin/main contains 46d96852, local main synced clean, remote task branch deleted, and local task branch absent."
         }
       ]
     },
@@ -23234,7 +23239,7 @@
       "id": "RIASEC-CAREER-GRAPH-SOURCE-AUTHORITY-PACKET-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-source-authority-packet-01",
-      "status": "pending_dependency",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
       "merged_at": null,
@@ -23247,12 +23252,29 @@
           "evidence": "User explicitly authorized adding or updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json entries for the five RIASEC Career Graph bridge PR ids only."
         },
         "scope": {
-          "status": "pending_dependency",
-          "evidence": "Not started; waiting for declared dependencies to merge."
+          "status": "pass",
+          "allowed_paths": [
+            "docs/career-graph/riasec-career-graph-source-authority-packet-2026-06-23.md",
+            "docs/career-graph/riasec-career-graph-source-authority-packet.v1.json",
+            "tests/contracts/riasec-career-graph-source-authority-packet.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed-file scope validation passed for exactly the PR2 source authority docs/contracts artifacts, focused contract test, scope helper, and state reconciliation."
         },
         "local_validation": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "commands": [
+            "python3 -m json.tool docs/career-graph/riasec-career-graph-source-authority-packet.v1.json >/dev/null",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "pnpm exec vitest run tests/contracts/riasec-career-graph-source-authority-packet.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "evidence": "JSON and YAML parse passed; focused source authority contract passed 9 tests; pnpm typecheck passed; pnpm test:contract passed 550 files and 3217 tests; git diff --check passed; changed-file scope validation passed. Local next build was not run because this docs/contracts-only train forbids generated SEO artifact mutation; GitHub build remains the required build check."
         },
         "github_checks": {
           "status": "pending",
@@ -23261,6 +23283,10 @@
         "post_merge": {
           "status": "pending",
           "evidence": null
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01 is merged in PR #1378 and origin/main contains merge commit 46d968520d0e4cf612da04e3fc45696e126dc073."
         }
       },
       "history": [
@@ -23268,6 +23294,16 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "pending_dependency",
           "note": "Pending RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01 merge before creating the source authority packet; fap-api remains read-only evidence only."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "in_progress",
+          "note": "Started PR2 from latest origin/main after PR1 merge cleanup; scope is fap-web docs/contracts-only source authority packet, with fap-api read-only evidence and no runtime, CMS, deploy, search, provider, private-data, generated page, or production import action."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "local_checks_passed",
+          "note": "PR2 source authority packet passed JSON/YAML parse, focused contract, typecheck, full contract suite, diff check, and scope validation. Local build intentionally deferred to GitHub required check to avoid postbuild generated SEO artifact mutation in this docs/contracts-only scope."
         }
       ]
     },
