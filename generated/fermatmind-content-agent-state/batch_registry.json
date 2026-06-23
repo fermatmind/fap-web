@@ -26,6 +26,15 @@
       "manifest_path": "generated/career-fit-v1-batch-021/manifest.json",
       "gate_report_path": "generated/career-fit-v1-1046-final-independent-qa/final_qa_report.json",
       "status": "final_qa_pass"
+    },
+    {
+      "batch_index": 1046,
+      "block_name": "career-adjacent-comparison",
+      "control_count": 1000,
+      "new_count": 46,
+      "manifest_path": "generated/career-adjacent-comparison-v1-batch-021/career_adjacent_comparison_batch_021_manifest.json",
+      "gate_report_path": "generated/career-adjacent-comparison-v1-1046-final-independent-qa/final_qa_report.json",
+      "status": "final_qa_pass"
     }
   ],
   "completed_blocks": {
@@ -38,6 +47,11 @@
       "baseline_directory": "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired",
       "slug_count": 1046,
       "final_qa": "generated/career-fit-v1-1046-final-independent-qa/final_qa_report.json"
+    },
+    "career-adjacent-comparison": {
+      "baseline_directory": "generated/career-adjacent-comparison-v1-1046-pass-baseline-final-repaired",
+      "slug_count": 1046,
+      "final_qa": "generated/career-adjacent-comparison-v1-1046-final-independent-qa/final_qa_report.json"
     }
   }
 }
