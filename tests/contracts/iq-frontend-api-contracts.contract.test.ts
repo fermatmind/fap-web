@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import {
+  getIqAttemptQuestion,
   getIqQuestions,
   getIqQuestionsByScaleCode,
   getIqReport,
@@ -21,6 +22,7 @@ import {
 } from "@/lib/iq/constants";
 import {
   iqQuestionPayloadSchema,
+  iqAttemptQuestionDeliverySchema,
   iqReportAccessPayloadSchema,
   iqReportPayloadSchema,
   iqResultPayloadSchema,
@@ -29,6 +31,7 @@ import {
 const hoisted = vi.hoisted(() => ({
   fetchAttemptReport: vi.fn(),
   fetchAttemptReportAccess: vi.fn(),
+  fetchAttemptQuestions: vi.fn(),
   fetchAttemptResult: vi.fn(),
   fetchScaleQuestions: vi.fn(),
   getScaleLookup: vi.fn(),
@@ -51,6 +54,7 @@ vi.mock("@/lib/api/v0_3", async () => {
     ...actual,
     fetchAttemptReport: hoisted.fetchAttemptReport,
     fetchAttemptReportAccess: hoisted.fetchAttemptReportAccess,
+    fetchAttemptQuestions: hoisted.fetchAttemptQuestions,
     fetchAttemptResult: hoisted.fetchAttemptResult,
     fetchScaleQuestions: hoisted.fetchScaleQuestions,
     getScaleLookup: hoisted.getScaleLookup,
@@ -102,6 +106,62 @@ describe("IQ frontend API contract", () => {
             ],
           },
         ],
+      },
+    });
+
+    hoisted.fetchAttemptQuestions.mockResolvedValue({
+      ok: true,
+      schema_version: "fm.iq.question_delivery.v1",
+      attempt_id: "attempt_iq_1",
+      scale_code: IQ_CANONICAL_SCALE_CODE,
+      scale_code_legacy: IQ_LEGACY_SCALE_CODE,
+      bank_id: IQ_OWNER_ORIGINAL_30_BANK_ID,
+      form_code: IQ_OWNER_ORIGINAL_30_BANK_ID,
+      question_count: 30,
+      delivery: {
+        mode: "current_question",
+        index: 0,
+        window_size: 1,
+        has_previous: false,
+        has_next: true,
+      },
+      questions: {
+        schema_version: "fm.iq.owner_image_bank.items.public.v1",
+        items: [
+          {
+            question_id: "owner_q_01",
+            item_id: "owner_item_01",
+            order: 1,
+            title: "Owner original item 1",
+            stem: {
+              type: "image",
+              media_type: "image/webp",
+              assets: {
+                image: "/media/iq-owner/q1/stem.webp",
+              },
+              width: 840,
+              height: 552,
+              accessibility_label: "Owner original stem 1.",
+            },
+            options: [
+              {
+                code: "A",
+                label: "A",
+                type: "image",
+                media_type: "image/webp",
+                assets: {
+                  image: "/media/iq-owner/q1/a.webp",
+                },
+                width: 296,
+                height: 168,
+              },
+            ],
+          },
+        ],
+      },
+      meta: {
+        source: "attempt_bound_owner_bank",
+        public_payload: true,
       },
     });
 
@@ -313,6 +373,25 @@ describe("IQ frontend API contract", () => {
       region: undefined,
       anonId: "anon_owner_original",
     });
+  });
+
+  it("fetches one owner-original IQ question through the attempt-bound delivery helper", async () => {
+    const payload = await getIqAttemptQuestion({
+      attemptId: "attempt_iq_1",
+      index: 0,
+      anonId: "anon_owner_original",
+      locale: "zh",
+    });
+
+    expect(hoisted.fetchAttemptQuestions).toHaveBeenCalledWith({
+      attemptId: "attempt_iq_1",
+      index: 0,
+      anonId: "anon_owner_original",
+      locale: "zh",
+    });
+    expect(iqAttemptQuestionDeliverySchema.safeParse(payload).success).toBe(true);
+    expect(payload.questions.items).toHaveLength(1);
+    expect(JSON.stringify(payload)).not.toMatch(/answer_key|correct_answer|solution|generator|source_capture_url/i);
   });
 
   it("does not introduce checkout helpers or payment CTAs in the IQ API module", async () => {

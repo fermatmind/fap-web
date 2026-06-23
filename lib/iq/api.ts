@@ -1,4 +1,5 @@
 import {
+  fetchAttemptQuestions,
   fetchAttemptReport,
   fetchAttemptReportAccess,
   fetchAttemptResult,
@@ -17,6 +18,7 @@ import {
 } from "@/lib/iq/constants";
 import {
   assertIqContract,
+  iqAttemptQuestionDeliverySchema,
   iqQuestionPayloadSchema,
   iqReportAccessPayloadSchema,
   iqReportPayloadSchema,
@@ -26,6 +28,7 @@ import {
   iqSubmitResponseSchema,
   normalizeIqScaleCodeForApi,
   type IqAttemptAnswer,
+  type IqAttemptQuestionDeliveryPayload,
   type IqQuestionPayload,
   type IqReportAccessPayload,
   type IqReportPayload,
@@ -157,6 +160,37 @@ export async function getIqQuestionsByScaleCode(
   });
 
   return assertIqContract<IqQuestionPayload>("iqQuestionPayload", iqQuestionPayloadSchema, response);
+}
+
+export async function getIqAttemptQuestion({
+  attemptId,
+  index,
+  anonId,
+  locale,
+}: {
+  attemptId: string;
+  index: number;
+  anonId?: string;
+  locale?: string;
+}): Promise<IqAttemptQuestionDeliveryPayload> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const response = await withIqAuthRetry({
+    anonId: resolvedAnonId,
+    locale,
+    run: () =>
+      fetchAttemptQuestions({
+        attemptId,
+        index,
+        anonId: resolvedAnonId,
+        locale,
+      }),
+  });
+
+  return assertIqContract<IqAttemptQuestionDeliveryPayload>(
+    "iqAttemptQuestionDelivery",
+    iqAttemptQuestionDeliverySchema,
+    response
+  );
 }
 
 export async function startIqAttempt({

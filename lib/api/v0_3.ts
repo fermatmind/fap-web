@@ -149,7 +149,10 @@ export type QuestionsMeta = {
 export type QuestionsResponse = {
   ok: boolean;
   scale_code?: string;
+  scale_code_legacy?: string;
   pack_id?: string;
+  bank_id?: string;
+  form_code?: string;
   dir_version?: string;
   content_package_version?: string;
   manifest_hash?: string;
@@ -164,6 +167,20 @@ export type QuestionsResponse = {
     [key: string]: unknown;
   };
   meta?: QuestionsMeta;
+};
+
+export type AttemptQuestionDeliveryResponse = QuestionsResponse & {
+  schema_version?: string;
+  attempt_id?: string;
+  question_count?: number;
+  delivery?: {
+    mode?: string;
+    index?: number;
+    window_size?: number;
+    has_previous?: boolean;
+    has_next?: boolean;
+    [key: string]: unknown;
+  };
 };
 
 export type StartAttemptResponse = {
@@ -2996,6 +3013,41 @@ export async function fetchScaleQuestions({
       items,
     },
     options,
+    meta: response.meta && typeof response.meta === "object" ? response.meta : undefined,
+  };
+}
+
+export async function fetchAttemptQuestions({
+  attemptId,
+  index,
+  anonId,
+  locale,
+}: {
+  attemptId: string;
+  index: number;
+  anonId?: string;
+  locale?: string;
+}): Promise<AttemptQuestionDeliveryResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const query = new URLSearchParams();
+  query.set("index", String(index));
+  if (locale) query.set("locale", locale);
+
+  const response = await apiClient.get<AttemptQuestionDeliveryResponse>(
+    `/v0.3/attempts/${encodeURIComponent(attemptId)}/questions?${query.toString()}`,
+    anonHeader(resolvedAnonId)
+  );
+
+  assertApiOk(response, "Failed to load attempt question.");
+
+  const items = Array.isArray(response.questions?.items) ? response.questions.items : [];
+
+  return {
+    ...response,
+    questions: {
+      schema: response.questions?.schema,
+      items,
+    },
     meta: response.meta && typeof response.meta === "object" ? response.meta : undefined,
   };
 }
