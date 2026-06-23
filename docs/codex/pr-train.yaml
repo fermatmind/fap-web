@@ -10030,7 +10030,7 @@ prs:
     mode: execute
     train_scope: ops_api_public_tls_path_fix_01a_frontend_same_origin_foundation_api_proxy
     risk_level: scoped_public_api_proxy_rewrite
-    status: local_validation_passed
+    status: pr_open_checks_pending
     title: "OPS-API-PUBLIC-TLS-PATH-FIX-01A: Add Foundation Daily Giving same-origin API proxy"
     goal: "Add frontend same-origin rewrites for public Foundation Daily Giving API paths so apex /api can reach backend authority while api.fermatmind.com SNI/TLS edge repair remains separate."
     in_scope:
