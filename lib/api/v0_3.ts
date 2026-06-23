@@ -24,6 +24,26 @@ export type ScaleQuestionOption = {
     }>;
     [key: string]: unknown;
   };
+  image?: {
+    src?: string;
+    url?: string;
+    image_url?: string;
+    public_url?: string;
+    path?: string;
+    assets?: Record<string, unknown>;
+    width?: number | string;
+    height?: number | string;
+    alt?: string;
+    accessibility_label?: string;
+    [key: string]: unknown;
+  };
+  assets?: Record<string, unknown>;
+  type?: string;
+  media_type?: string;
+  width?: number | string;
+  height?: number | string;
+  accessibility_label?: string;
+  alt?: string;
   [key: string]: unknown;
 };
 
@@ -55,6 +75,26 @@ export type ScaleQuestionItem = {
       }>;
       [key: string]: unknown;
     };
+    image?: {
+      src?: string;
+      url?: string;
+      image_url?: string;
+      public_url?: string;
+      path?: string;
+      assets?: Record<string, unknown>;
+      width?: number | string;
+      height?: number | string;
+      alt?: string;
+      accessibility_label?: string;
+      [key: string]: unknown;
+    };
+    assets?: Record<string, unknown>;
+    type?: string;
+    media_type?: string;
+    width?: number | string;
+    height?: number | string;
+    accessibility_label?: string;
+    alt?: string;
     [key: string]: unknown;
   } | null;
   section_code?: string;

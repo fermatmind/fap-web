@@ -3,8 +3,9 @@ import path from "node:path";
 import { fireEvent, render, screen } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { IqOptionBoard } from "@/components/quiz/iq/IqOptionBoard";
-import { IqStemSvg, IqVectorSvg } from "@/components/quiz/iq/IqStemSvg";
+import { IqImageGraphic, IqStemSvg, IqVectorSvg } from "@/components/quiz/iq/IqStemSvg";
 import {
+  normalizeIqImageAsset,
   normalizeIqOptionForRenderer,
   normalizeIqQuestionForRenderer,
   normalizeIqStructuredSvg,
@@ -71,6 +72,81 @@ describe("IQ question renderer contract", () => {
     expect(source).not.toContain("dangerouslySetInnerHTML");
   });
 
+  it("normalizes owner image assets from assets.image without requiring answer fields", () => {
+    const normalized = normalizeIqQuestionForRenderer({
+      item_id: "IQ_OWNER_ORIGINAL_30_01",
+      stem: {
+        type: "image",
+        media_type: "image/webp",
+        assets: {
+          image: "assets/iq_owner_original_30/q01/q1-question.webp",
+        },
+        width: 840,
+        height: 552,
+        accessibility_label: "Owner original prompt 01",
+      },
+      options: [
+        {
+          code: "A",
+          type: "image",
+          assets: {
+            image: "assets/iq_owner_original_30/q01/q1-option-a.webp",
+          },
+          width: 295,
+          height: 168,
+          accessibility_label: "Option A for owner-original IQ item 01.",
+        },
+      ],
+      correct_answer: "D",
+      answer_key: "D",
+    });
+
+    expect(normalized?.stem?.image).toMatchObject({
+      src: "assets/iq_owner_original_30/q01/q1-question.webp",
+      width: 840,
+      height: 552,
+      alt: "Owner original prompt 01",
+    });
+    expect(normalized?.options[0]?.image).toMatchObject({
+      src: "assets/iq_owner_original_30/q01/q1-option-a.webp",
+      width: 295,
+      height: 168,
+      alt: "Option A for owner-original IQ item 01.",
+    });
+    expect(normalized && "answer_key" in normalized).toBe(false);
+    expect(normalized && "correct_answer" in normalized).toBe(false);
+  });
+
+  it("rejects unsafe image asset URLs", () => {
+    expect(normalizeIqImageAsset({ src: "javascript:alert(1)" })).toBeNull();
+    expect(normalizeIqImageAsset({ src: "data:image/svg+xml,<svg />" })).toBeNull();
+    expect(normalizeIqImageAsset({ src: "vbscript:msgbox(1)" })).toBeNull();
+    expect(normalizeIqImageAsset({ src: "ftp://cdn.example.com/q.webp" })).toBeNull();
+    expect(normalizeIqImageAsset({ src: "//cdn.example.com/q.webp" })).toBeNull();
+    expect(normalizeIqImageAsset({ src: "../private/q.webp" })).toBeNull();
+    expect(normalizeIqImageAsset({ src: "https://cdn.example.com/q.webp" })).toMatchObject({
+      src: "https://cdn.example.com/q.webp",
+    });
+  });
+
+  it("renders image assets with alt text and dimensions", () => {
+    render(
+      <IqImageGraphic
+        image={{
+          src: "/media/iq/q1-question.webp",
+          width: 840,
+          height: 552,
+          alt: "Owner original prompt 01",
+        }}
+      />
+    );
+
+    const image = screen.getByRole("img", { name: "Owner original prompt 01" });
+    expect(image).toHaveAttribute("src", "/media/iq/q1-question.webp");
+    expect(image).toHaveAttribute("width", "840");
+    expect(image).toHaveAttribute("height", "552");
+  });
+
   it("renders stem wrapper with normalized SVG payload", () => {
     render(
       <IqStemSvg
@@ -84,6 +160,24 @@ describe("IQ question renderer contract", () => {
     );
 
     expect(screen.getByTestId("iq-stem-svg")).toBeInTheDocument();
+  });
+
+  it("renders stem wrapper with normalized image payload", () => {
+    render(
+      <IqStemSvg
+        stem={{
+          image: {
+            src: "/media/iq/q1-question.webp",
+            width: 840,
+            height: 552,
+            alt: "Owner original prompt 01",
+          },
+        }}
+      />
+    );
+
+    expect(screen.getByTestId("iq-stem-svg")).toBeInTheDocument();
+    expect(screen.getByTestId("iq-image-graphic")).toBeInTheDocument();
   });
 
   it("renders 6 options in a 2x3-ready desktop grid", () => {
@@ -103,6 +197,35 @@ describe("IQ question renderer contract", () => {
     expect(radios).toHaveLength(6);
     const grid = screen.getByTestId("iq-option-board-desktop").querySelector(".grid") as HTMLElement | null;
     expect(grid?.style.gridTemplateColumns).toBe("repeat(3, minmax(0, 1fr))");
+  });
+
+  it("renders image options in the desktop board", () => {
+    render(
+      <IqOptionBoard
+        questionId="IQ_OWNER_ORIGINAL_30_01"
+        options={["A", "B", "C", "D", "E", "F"].map((code) => ({
+          option_code: code,
+          label: code,
+          image: {
+            src: `/media/iq/q1-option-${code.toLowerCase()}.webp`,
+            width: 296,
+            height: 168,
+            alt: `Owner option ${code}`,
+          },
+        }))}
+        value="D"
+        locale="en"
+        layoutMode="desktop"
+        noOptionsLabel="No options"
+        onChange={() => undefined}
+      />
+    );
+
+    expect(screen.getAllByTestId("iq-image-graphic")).toHaveLength(6);
+    expect(screen.getByRole("img", { name: "Owner option D" })).toHaveAttribute(
+      "src",
+      "/media/iq/q1-option-d.webp"
+    );
   });
 
   it("renders 5 legacy options gracefully", () => {

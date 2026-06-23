@@ -11,15 +11,24 @@ export type QuizVectorGraphic = {
   paths: QuizVectorPath[];
 };
 
+export type QuizImageGraphic = {
+  src: string;
+  width?: number;
+  height?: number;
+  alt?: string;
+};
+
 export type QuizQuestionStem = {
   prompt?: string;
   svg?: QuizVectorGraphic | null;
+  image?: QuizImageGraphic | null;
 };
 
 export type QuizOption = {
   id: string;
   text: string;
   svg?: QuizVectorGraphic | null;
+  image?: QuizImageGraphic | null;
 };
 
 export type QuizQuestion = {

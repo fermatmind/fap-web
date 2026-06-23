@@ -1,7 +1,12 @@
 import { cn } from "@/lib/utils";
 import type { IqStemPayload } from "@/lib/iq/contracts";
-import { normalizeIqStructuredSvg, type IqRenderableSvg } from "@/lib/iq/renderer";
-import type { QuizQuestionStem, QuizVectorGraphic } from "@/lib/quiz/types";
+import {
+  normalizeIqImageAsset,
+  normalizeIqStructuredSvg,
+  type IqRenderableImage,
+  type IqRenderableSvg,
+} from "@/lib/iq/renderer";
+import type { QuizImageGraphic, QuizQuestionStem, QuizVectorGraphic } from "@/lib/quiz/types";
 
 export function IqVectorSvg({
   svg,
@@ -41,6 +46,59 @@ export function IqVectorSvg({
   );
 }
 
+export function IqImageGraphic({
+  image,
+  className,
+  ariaLabel = "IQ matrix graphic",
+}: {
+  image: QuizImageGraphic | IqRenderableImage;
+  className?: string;
+  ariaLabel?: string;
+}) {
+  const normalizedImage = normalizeIqImageAsset(image);
+  if (!normalizedImage) {
+    return null;
+  }
+
+  const alt = normalizedImage.alt ?? ariaLabel;
+
+  return (
+    <img
+      src={normalizedImage.src}
+      alt={alt}
+      {...(normalizedImage.width ? { width: normalizedImage.width } : {})}
+      {...(normalizedImage.height ? { height: normalizedImage.height } : {})}
+      className={cn("h-full w-full object-contain", className)}
+      data-testid="iq-image-graphic"
+      loading="eager"
+      decoding="async"
+      draggable={false}
+    />
+  );
+}
+
+export function IqGraphic({
+  svg,
+  image,
+  className,
+  ariaLabel = "IQ matrix graphic",
+}: {
+  svg?: QuizVectorGraphic | IqRenderableSvg;
+  image?: QuizImageGraphic | IqRenderableImage;
+  className?: string;
+  ariaLabel?: string;
+}) {
+  if (image) {
+    return <IqImageGraphic image={image} className={className} ariaLabel={ariaLabel} />;
+  }
+
+  if (svg) {
+    return <IqVectorSvg svg={svg} className={className} ariaLabel={ariaLabel} />;
+  }
+
+  return null;
+}
+
 export function IqStemSvg({
   stem,
   className,
@@ -48,7 +106,7 @@ export function IqStemSvg({
   stem: QuizQuestionStem | IqStemPayload;
   className?: string;
 }) {
-  if (!stem.svg) return null;
+  if (!stem.svg && !stem.image) return null;
 
   return (
     <div
@@ -58,8 +116,8 @@ export function IqStemSvg({
         className
       )}
     >
-      <div className="mx-auto aspect-square w-full max-w-[460px] min-h-[220px] sm:min-h-[280px]">
-        <IqVectorSvg svg={stem.svg} />
+      <div className="mx-auto flex aspect-[3/2] w-full max-w-[620px] min-h-[220px] items-center justify-center sm:min-h-[280px]">
+        <IqGraphic svg={stem.svg} image={stem.image} ariaLabel={stem.image?.alt ?? stem.prompt ?? "IQ matrix graphic"} />
       </div>
     </div>
   );

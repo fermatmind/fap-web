@@ -10152,7 +10152,7 @@ prs:
     mode: audit
     train_scope: pr_fdn_02b_post_deploy_runtime_smoke
     risk_level: read_only_public_runtime_smoke
-    status: in_progress
+    status: ready_to_merge
     title: "PR-FDN-02B-POST-DEPLOY-RUNTIME-SMOKE: Verify Daily Giving frontend runtime"
     goal: "Record a read-only post-deploy runtime smoke for Foundation Daily Giving frontend pages and public same-origin API paths without runtime code changes, CMS mutation, deploy, Search Channel action, URL submission, external API calls, or discoverability exposure changes."
     in_scope:
@@ -13343,6 +13343,58 @@ prs:
       - Generated URL inventory is regenerated from production sitemap for review.
       - No CMS content, career jobs runtime, sitemap runtime, llms runtime, search submission, collector, or SEO dashboard data integration is changed.
     rollback_note: "Revert the sitemap URL policy docs, generated URL inventory artifacts, focused contract test, and SEO-SITEMAP-P0-05 train metadata if this URL truth policy is withdrawn."
+
+  - id: IQ-OWNER-30-FE-IMAGE-RENDERER-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-owner-30-fe-image-renderer-03
+    base: main
+    depends_on:
+      - IQ-OWNER-30-BACKEND-ASSETS-01
+      - IQ-OWNER-30-BACKEND-SCORING-02
+    mode: execute
+    train_scope: iq_owner_original_30_launch
+    status: pr_open_checks_pending
+    title: "feat(iq): render owner original image questions"
+    goal: "Render backend-delivered Owner Original 30 IQ image stem and option assets in the IQ take page, with full-page visual coverage, without introducing frontend answer keys or bank switching."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx
+      - components/quiz/iq/**
+      - lib/api/v0_3.ts
+      - lib/iq/contracts.ts
+      - lib/iq/renderer.ts
+      - lib/iq/take.ts
+      - lib/quiz/types.ts
+      - tests/contracts/iq-question-renderer.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/a11y/iq-option-board.a11y.test.tsx
+      - tests/e2e/visual/iq-take.visual.spec.ts
+      - tests/e2e/visual/iq-take.visual.spec.ts-snapshots/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend import, scoring, answer key, or runtime API changes
+      - frontend formCode, bank selector, or sessionized question delivery
+      - CMS, SEO, sitemap, llms, canonical, JSON-LD, production deploy, or staging deploy validation
+      - public static IQ media assets committed to fap-web
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/iq-question-renderer.contract.test.tsx tests/a11y/iq-option-board.a11y.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-OWNER-30-FE-FORMCODE-04
+    acceptance:
+      - "IQ stem payloads with backend image fields such as assets.image render as contained images."
+      - "IQ option payloads with backend image fields render in the existing radio option board."
+      - "The renderer accepts safe backend/root/relative image paths and rejects unsafe image URLs."
+      - "No frontend answer key, score, or solution rule field is introduced."
+      - "Visual coverage targets the full IQ answer panel rather than only the option board."
+    rollback_note: "Revert image renderer support and visual test updates if Owner Original 30 remains SVG-only or backend-only."
 
   - id: IQ-FE-BANK-SWITCH-01
     repo: fap-web

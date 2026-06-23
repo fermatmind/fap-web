@@ -28,6 +28,32 @@ describe("IqOptionBoard accessibility", () => {
     expect(result).toHaveNoViolations();
   });
 
+  it("is accessible with owner image options", async () => {
+    const { container } = render(
+      <IqOptionBoard
+        questionId="IQ_OWNER_ORIGINAL_30_01"
+        options={["A", "B", "C", "D", "E", "F"].map((code) => ({
+          code,
+          text: code,
+          image: {
+            src: `/media/iq/q1-option-${code.toLowerCase()}.webp`,
+            width: 296,
+            height: 168,
+            alt: `Owner option ${code}`,
+          },
+        }))}
+        value="B"
+        locale="en"
+        layoutMode="desktop"
+        noOptionsLabel="No options available"
+        onChange={() => undefined}
+      />
+    );
+
+    const result = await axe(container);
+    expect(result).toHaveNoViolations();
+  });
+
   it("supports arrow key navigation", () => {
     const onChange = vi.fn();
 
