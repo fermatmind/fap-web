@@ -16340,3 +16340,274 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
+
+  - id: ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/active-result-page-agents-runtime-qa-common-contract-01
+    base: main
+    title: "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01: docs(result): define active agent Runtime QA contract"
+    depends_on: []
+    mode: execute
+    train_scope: active_result_page_agents_runtime_qa_common_contract
+    status: in_progress
+    goal: "Define the common Runtime QA consumption contract, schema vocabulary, assertion vocabulary, status vocabulary, and active-agent handoff rules for Big Five, Enneagram, and RIASEC without runtime code, deploy, CMS, search, provider, private-data, or generated readiness artifact mutation."
+    artifacts:
+      - docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract-2026-06-23.md
+      - docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract.v1.json
+      - tests/contracts/active-result-page-agents-runtime-qa-common-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract-2026-06-23.md
+      - docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract.v1.json
+      - tests/contracts/active-result-page-agents-runtime-qa-common-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - generated/**
+      - package.json
+      - pnpm-lock.yaml
+      - env files
+      - runtime QA code implementation
+      - public runtime behavior changes
+      - CMS writes, import, publish, unpublish, or media upload
+      - Search Channel Queue mutation
+      - search submission, indexing request, or provider call
+      - deploy, revalidation, production import, or rollout
+      - private attempt or private result payload access
+      - sitemap, robots, llms, schema, hreflang, canonical, noindex, SEO artifact, or generated readiness artifact mutation
+    required_local_checks:
+      - python3 -m json.tool docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/active-result-page-agents-runtime-qa-common-contract.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: BIG5-RUNTIME-QA-CONSUMPTION-PACKET-01
+
+  - id: BIG5-RUNTIME-QA-CONSUMPTION-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-runtime-qa-consumption-packet-01
+    base: main
+    title: "BIG5-RUNTIME-QA-CONSUMPTION-PACKET-01: docs(result): add Big Five Runtime QA packet"
+    depends_on:
+      - ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: big5_runtime_qa_consumption_packet
+    status: pending_dependency
+    goal: "Create the Big Five Runtime QA consumption packet using merged READY_READONLY_CLEARED evidence and analytics handoff while keeping pilot, runtime, production, CMS, search, and private-data actions held."
+    artifacts:
+      - docs/result-page-agents/big5-runtime-qa-consumption-packet-2026-06-23.md
+      - docs/result-page-agents/big5-runtime-qa-consumption-packet.v1.json
+      - tests/contracts/big5-runtime-qa-consumption-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/result-page-agents/big5-runtime-qa-consumption-packet-2026-06-23.md
+      - docs/result-page-agents/big5-runtime-qa-consumption-packet.v1.json
+      - tests/contracts/big5-runtime-qa-consumption-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - generated/**
+      - fap-api mutation
+      - renderer changes
+      - runtime instrumentation changes
+      - Big Five content changes
+      - backend artifact-writing commands
+      - CMS writes, publish, search submission, provider calls, deploy, private data access, or generated readiness artifacts
+    required_local_checks:
+      - python3 -m json.tool docs/result-page-agents/big5-runtime-qa-consumption-packet.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/big5-runtime-qa-consumption-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ENNEAGRAM-RUNTIME-QA-CONSUMPTION-PACKET-01
+
+  - id: ENNEAGRAM-RUNTIME-QA-CONSUMPTION-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/enneagram-runtime-qa-consumption-packet-01
+    base: main
+    title: "ENNEAGRAM-RUNTIME-QA-CONSUMPTION-PACKET-01: docs(result): add Enneagram Runtime QA packet"
+    depends_on:
+      - ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: enneagram_runtime_qa_consumption_packet
+    status: pending_dependency
+    goal: "Create the Enneagram Runtime QA consumption packet using merged public-share-safe and public-personality-boundary evidence while keeping generation, import, activation, runtime, CMS, search, and private-result access held."
+    artifacts:
+      - docs/result-page-agents/enneagram-runtime-qa-consumption-packet-2026-06-23.md
+      - docs/result-page-agents/enneagram-runtime-qa-consumption-packet.v1.json
+      - tests/contracts/enneagram-runtime-qa-consumption-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/result-page-agents/enneagram-runtime-qa-consumption-packet-2026-06-23.md
+      - docs/result-page-agents/enneagram-runtime-qa-consumption-packet.v1.json
+      - tests/contracts/enneagram-runtime-qa-consumption-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - generated/**
+      - candidate payload generation
+      - import, activation, runtime switch, or public profile content mutation
+      - raw private result access
+      - CMS writes, publish, search submission, provider calls, deploy, private data access, or generated readiness artifacts
+    required_local_checks:
+      - python3 -m json.tool docs/result-page-agents/enneagram-runtime-qa-consumption-packet.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/enneagram-runtime-qa-consumption-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RIASEC-RUNTIME-QA-CONSUMPTION-PACKET-01
+
+  - id: RIASEC-RUNTIME-QA-CONSUMPTION-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/riasec-runtime-qa-consumption-packet-01
+    base: main
+    title: "RIASEC-RUNTIME-QA-CONSUMPTION-PACKET-01: docs(result): add RIASEC Runtime QA packet"
+    depends_on:
+      - ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: riasec_runtime_qa_consumption_packet
+    status: pending_dependency
+    goal: "Create the RIASEC Runtime QA consumption packet in fap-web using fap-api authority references read-only, preserving one flagship/two forms, career examples-only policy, and production import/runtime/CMS/search holds."
+    artifacts:
+      - docs/result-page-agents/riasec-runtime-qa-consumption-packet-2026-06-23.md
+      - docs/result-page-agents/riasec-runtime-qa-consumption-packet.v1.json
+      - tests/contracts/riasec-runtime-qa-consumption-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/result-page-agents/riasec-runtime-qa-consumption-packet-2026-06-23.md
+      - docs/result-page-agents/riasec-runtime-qa-consumption-packet.v1.json
+      - tests/contracts/riasec-runtime-qa-consumption-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - generated/**
+      - fap-api mutation
+      - RIASEC import commands
+      - runtime wrapper enablement
+      - career graph runtime mutation
+      - deterministic career recommendations or admissions, hiring, salary, performance, success, ability claims
+      - CMS writes, publish, search submission, provider calls, deploy, private data access, or generated readiness artifacts
+    required_local_checks:
+      - python3 -m json.tool docs/result-page-agents/riasec-runtime-qa-consumption-packet.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/riasec-runtime-qa-consumption-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-MATRIX-01
+
+  - id: ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-MATRIX-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/active-result-page-agents-runtime-qa-matrix-01
+    base: main
+    title: "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-MATRIX-01: docs(result): add active Runtime QA matrix"
+    depends_on:
+      - BIG5-RUNTIME-QA-CONSUMPTION-PACKET-01
+      - ENNEAGRAM-RUNTIME-QA-CONSUMPTION-PACKET-01
+      - RIASEC-RUNTIME-QA-CONSUMPTION-PACKET-01
+    mode: execute
+    train_scope: active_result_page_agents_runtime_qa_matrix
+    status: pending_dependency
+    goal: "Create the aggregate Runtime QA consumability matrix for Big Five, Enneagram, and RIASEC, keep MBTI/IQ_RAVEN/EQ_60 as PARKED_PLACEHOLDER, and preserve all runtime, deploy, CMS, search, provider, private-data, generated-artifact, analytics, career graph, and public personality follow-up boundaries."
+    artifacts:
+      - docs/result-page-agents/active-result-page-agents-runtime-qa-matrix-2026-06-23.md
+      - docs/result-page-agents/active-result-page-agents-runtime-qa-matrix.v1.json
+      - tests/contracts/active-result-page-agents-runtime-qa-matrix.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/result-page-agents/active-result-page-agents-runtime-qa-matrix-2026-06-23.md
+      - docs/result-page-agents/active-result-page-agents-runtime-qa-matrix.v1.json
+      - tests/contracts/active-result-page-agents-runtime-qa-matrix.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - package.json
+      - pnpm-lock.yaml
+      - runtime QA code implementation
+      - CMS writes, publish, search submission, provider calls, deploy, private data access, or generated readiness artifacts
+      - analytics runtime mutation
+      - career graph runtime mutation
+      - public personality content mutation
+    required_local_checks:
+      - python3 -m json.tool docs/result-page-agents/active-result-page-agents-runtime-qa-matrix.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/active-result-page-agents-runtime-qa-matrix.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null

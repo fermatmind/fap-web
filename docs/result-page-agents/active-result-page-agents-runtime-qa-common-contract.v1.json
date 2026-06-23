@@ -1,0 +1,181 @@
+{
+  "schema_version": "fermatmind.active_result_page_agents_runtime_qa_common_contract.v1",
+  "artifact_id": "active-result-page-agents-runtime-qa-common-contract-2026-06-23",
+  "task_id": "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01",
+  "verdict": "READY_TO_CONSUME_COMMON_CONTRACT",
+  "run_mode": "docs_contracts_only",
+  "receiving_agent": "runtime_qa",
+  "producing_agents": [
+    "big_five_result_page",
+    "enneagram_result_page",
+    "riasec_result_page"
+  ],
+  "active_agent_scope": [
+    {
+      "agent_id": "big_five_result_page",
+      "scale_code": "BIG5_OCEAN",
+      "common_status": "READY_TO_CONSUME",
+      "required_packet_task_id": "BIG5-RUNTIME-QA-CONSUMPTION-PACKET-01"
+    },
+    {
+      "agent_id": "enneagram_result_page",
+      "scale_code": "ENNEAGRAM",
+      "common_status": "READY_TO_CONSUME",
+      "required_packet_task_id": "ENNEAGRAM-RUNTIME-QA-CONSUMPTION-PACKET-01"
+    },
+    {
+      "agent_id": "riasec_result_page",
+      "scale_code": "RIASEC",
+      "common_status": "READY_TO_CONSUME",
+      "required_packet_task_id": "RIASEC-RUNTIME-QA-CONSUMPTION-PACKET-01"
+    }
+  ],
+  "parked_placeholder_scales": [
+    {
+      "scale_code": "MBTI",
+      "status": "PARKED_PLACEHOLDER"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "status": "PARKED_PLACEHOLDER"
+    },
+    {
+      "scale_code": "EQ_60",
+      "status": "PARKED_PLACEHOLDER"
+    }
+  ],
+  "status_vocabulary": [
+    "PASS",
+    "PARTIAL",
+    "HOLD",
+    "BLOCKED",
+    "READY_TO_CONSUME",
+    "PARKED_PLACEHOLDER"
+  ],
+  "assertion_vocabulary": [
+    {
+      "id": "route_contract",
+      "description": "The result-page route is mapped to the reviewed result-page agent and does not create a parallel public surface."
+    },
+    {
+      "id": "report_api_contract",
+      "description": "The report API contract is represented by existing public-safe contract evidence and does not expose private payloads."
+    },
+    {
+      "id": "report_access_api_contract",
+      "description": "The report-access API contract keeps token, account, and private fields out of public artifacts."
+    },
+    {
+      "id": "renderer_dispatch",
+      "description": "The result renderer dispatches only through the reviewed agent shell or component path."
+    },
+    {
+      "id": "pdf_private_print_boundary",
+      "description": "PDF and private print behavior keeps private URLs, tokens, and raw data out of public or exported surfaces."
+    },
+    {
+      "id": "share_public_private_boundary",
+      "description": "Share surfaces remain public-summary only and block private or internal fields."
+    },
+    {
+      "id": "private_result_noindex_boundary",
+      "description": "Private result surfaces remain non-indexable and must not add canonical, schema, hreflang, or search exposure."
+    },
+    {
+      "id": "leak_boundary",
+      "description": "Runtime QA must fail closed if raw scores, private IDs, tokens, traces, payloads, or fallback content appear."
+    },
+    {
+      "id": "claim_privacy_safety_gate",
+      "description": "Unsupported deterministic, diagnostic, hiring, salary, success, admission, ability, or life-outcome claims remain forbidden."
+    },
+    {
+      "id": "analytics_smoke_exclusion_gate",
+      "description": "Analytics smoke evidence may record public-safe event classes only and must exclude private payloads."
+    }
+  ],
+  "runtime_qa_input_contract": {
+    "allowed_inputs": [
+      "result_page_agent_readiness",
+      "runtime_qa_handoff",
+      "route_matrix_evidence",
+      "report_api_contract_evidence",
+      "report_access_api_contract_evidence",
+      "renderer_dispatch_evidence",
+      "pdf_private_print_boundary_evidence",
+      "share_public_private_boundary_evidence",
+      "private_result_noindex_evidence",
+      "leak_boundary_evidence",
+      "claim_privacy_safety_gate_evidence",
+      "analytics_smoke_exclusion_evidence",
+      "sanitized_fixture_render_evidence",
+      "fap_api_readonly_authority_references_for_riasec"
+    ],
+    "forbidden_inputs": [
+      "raw_private_attempts",
+      "private_result_payloads",
+      "private_report_urls",
+      "private_report_tokens",
+      "account_payloads",
+      "raw_score_vectors",
+      "answer_keys",
+      "payment_or_order_data",
+      "cms_drafts",
+      "provider_responses",
+      "deploy_state",
+      "production_database_state"
+    ]
+  },
+  "negative_guarantees": {
+    "runtime_code_changed": "no",
+    "public_runtime_behavior_changed": "no",
+    "cms_writes": "none",
+    "publishing": "none",
+    "search_submissions": "none",
+    "provider_calls": "none",
+    "deployment_triggered": "no",
+    "private_result_data_accessed": "none",
+    "generated_readiness_artifact_written": "no",
+    "sitemap_robots_llms_schema_hreflang_canonical_noindex_mutation": "none",
+    "production_db_env_payment_order_mutation": "none",
+    "fap_api_mutation": "none"
+  },
+  "hard_holds": [
+    "runtime_qa_code_implementation",
+    "public_runtime_behavior_change",
+    "cms_write_import_publish_or_media_upload",
+    "search_channel_queue_mutation",
+    "search_submission_or_indexing_request",
+    "provider_call",
+    "deploy_or_revalidation",
+    "production_import_or_rollout",
+    "private_result_access",
+    "generated_readiness_artifact_write",
+    "sitemap_robots_llms_schema_hreflang_canonical_noindex_mutation",
+    "deterministic_career_recommendation",
+    "diagnosis_treatment_therapy_hiring_salary_performance_success_admission_ability_life_outcome_claim"
+  ],
+  "source_refs": {
+    "result_page_runtime_qa_handoff": "docs/result-page-agents/result-page-agent-runtime-qa-handoff.v1.json",
+    "six_hub_runtime_qa": "docs/result-page-agents/six-hub-free-full-report-runtime-qa.v1.json",
+    "six_result_readiness_matrix": "docs/result-page-agents/six-result-page-agent-readiness-matrix.v1.json",
+    "analytics_handoff": "docs/result-page-agents/result-page-agent-analytics-handoff.v1.json",
+    "big_five_readonly_cleared_handoff": "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json",
+    "riasec_readonly_route_api_pdf_share_review": "docs/result-page-agents/riasec-result-page-agent-readonly-route-api-pdf-share-review.v1.json"
+  },
+  "stop_conditions": [
+    "runtime_implementation_required",
+    "fap_api_mutation_required",
+    "cms_search_provider_deploy_access_required",
+    "private_result_payload_required",
+    "generated_readiness_artifact_write_required",
+    "production_data_access_required",
+    "frontend_public_authority_substitution_detected"
+  ],
+  "next_tasks": [
+    "BIG5-RUNTIME-QA-CONSUMPTION-PACKET-01",
+    "ENNEAGRAM-RUNTIME-QA-CONSUMPTION-PACKET-01",
+    "RIASEC-RUNTIME-QA-CONSUMPTION-PACKET-01",
+    "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-MATRIX-01"
+  ]
+}
