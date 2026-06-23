@@ -23331,12 +23331,12 @@
       "id": "RIASEC-CAREER-GRAPH-CLAIM-SAFETY-PACKET-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-claim-safety-packet-01",
-      "status": "ready_to_merge",
-      "commit_sha": "1a449a4b979af5e8e860473ae2d6030b8a5b3a5d",
+      "status": "merged_cleanup_complete",
+      "commit_sha": "9a23376880462d3def4a091279636b0f9a0224fc",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1381",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-23T13:33:56Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -23373,8 +23373,8 @@
           "evidence": "PR #1381 checks passed on head 1a449a4b: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         },
         "post_merge": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub reports PR #1381 MERGED with squash merge commit 6048354f3937200d4137ad3b4826958ddeb88bea. origin/main contains the merge commit, local main was synced ff-only to origin/main, main == origin/main, worktree was clean, and the task branch was absent locally and remotely after merge cleanup."
         },
         "dependency": {
           "status": "pass",
@@ -23411,6 +23411,11 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "ready_to_merge",
           "note": "PR #1381 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. Ready for squash merge subject to final scope and mergeStateStatus checks."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "merged_cleanup_complete",
+          "note": "Reconciled PR #1381 post-merge facts before starting PR4: merged at 2026-06-23T13:33:56Z, origin/main contains 6048354f, local main synced clean, remote task branch deleted, and local task branch absent."
         }
       ]
     },
@@ -23418,7 +23423,7 @@
       "id": "RIASEC-CAREER-GRAPH-CANDIDATE-CLUSTER-PACKET-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-candidate-cluster-packet-01",
-      "status": "pending_dependency",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
       "merged_at": null,
@@ -23431,12 +23436,29 @@
           "evidence": "User explicitly authorized adding or updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json entries for the five RIASEC Career Graph bridge PR ids only."
         },
         "scope": {
-          "status": "pending_dependency",
-          "evidence": "Not started; waiting for declared dependencies to merge."
+          "status": "pass",
+          "allowed_paths": [
+            "docs/career-graph/riasec-career-graph-candidate-cluster-packet-2026-06-23.md",
+            "docs/career-graph/riasec-career-graph-candidate-cluster-packet.v1.json",
+            "tests/contracts/riasec-career-graph-candidate-cluster-packet.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed-file scope validation passed for exactly the PR4 candidate cluster packet docs/contracts artifacts, focused contract test, scope helper, and state reconciliation."
         },
         "local_validation": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "commands": [
+            "python3 -m json.tool docs/career-graph/riasec-career-graph-candidate-cluster-packet.v1.json >/dev/null",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "pnpm exec vitest run tests/contracts/riasec-career-graph-candidate-cluster-packet.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "evidence": "JSON and YAML parse passed; focused candidate cluster contract passed 7 tests; pnpm typecheck passed; pnpm test:contract passed 552 files and 3234 tests; git diff --check passed; changed-file scope validation passed. Local next build was not run because this docs/contracts-only train forbids generated SEO artifact mutation; GitHub build remains the required build check."
         },
         "github_checks": {
           "status": "pending",
@@ -23445,6 +23467,10 @@
         "post_merge": {
           "status": "pending",
           "evidence": null
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "Source authority PR #1380 and claim safety PR #1381 are merged, and origin/main contains merge commits 853cbaea and 6048354f."
         }
       },
       "history": [
@@ -23452,6 +23478,16 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "pending_dependency",
           "note": "Pending source authority and claim safety packet merges before creating the planning-only candidate cluster packet."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "in_progress",
+          "note": "Started PR4 from latest origin/main after PR3 merge cleanup; scope is planning-only candidate cluster packet with no CMS payloads, generated pages, publishable copy, deterministic recommendations, rankings, or outcome predictions."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "local_checks_passed",
+          "note": "PR4 candidate cluster packet passed JSON/YAML parse, focused contract, typecheck, full contract suite, diff check, and scope validation. Local build intentionally deferred to GitHub required check to avoid postbuild generated SEO artifact mutation in this docs/contracts-only scope."
         }
       ]
     },
