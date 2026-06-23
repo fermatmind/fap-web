@@ -185,6 +185,15 @@ const RIASEC_RESULT_FAPWEB_RENDERED_PREVIEW_QA_01_ALLOWED_FILES = new Set([
   "tests/fixtures/riasec/result_page_v2/compare_ias_staging_payload.v0_1.json",
 ]);
 
+const RIASEC_CAREER_GRAPH_BRIDGE_COMMON_CONTRACT_01_ALLOWED_FILES = new Set([
+  "docs/career-graph/riasec-career-graph-bridge-common-contract-2026-06-23.md",
+  "docs/career-graph/riasec-career-graph-bridge-common-contract.v1.json",
+  "tests/contracts/riasec-career-graph-bridge-common-contract.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const QUIZ_PACK_PERFORMANCE_HOTFIX_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
   "docs/seo/agent/FAPWEB_CODE_PR_WRITER.md",
@@ -2960,6 +2969,13 @@ function isCurrentCareerSkillsEntry1046CompletionStateAllowedFile(file: string):
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (isCurrentCareerSkillsEntry1046CompletionStateAllowedFile(file)) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/riasec-career-graph-bridge-common-contract-01" &&
+    RIASEC_CAREER_GRAPH_BRIDGE_COMMON_CONTRACT_01_ALLOWED_FILES.has(file)
+  ) {
     return true;
   }
 

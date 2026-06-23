@@ -17215,3 +17215,273 @@ prs:
       squash: true
       auto_merge: true
     next_task: null
+
+  - id: RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/riasec-career-graph-bridge-common-contract-01
+    base: main
+    title: "RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01: docs(career-graph): add RIASEC bridge common contract"
+    depends_on: []
+    mode: execute
+    train_scope: riasec_career_graph_bridge_common_contract
+    status: in_progress
+    goal: "Define the common RIASEC to Career Graph handoff contract, allowed and forbidden inputs, examples-only vocabulary, safe output taxonomy, private-field denylist, claim boundaries, source classification, and HOLD actions."
+    artifacts:
+      - docs/career-graph/riasec-career-graph-bridge-common-contract-2026-06-23.md
+      - docs/career-graph/riasec-career-graph-bridge-common-contract.v1.json
+      - tests/contracts/riasec-career-graph-bridge-common-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/career-graph/riasec-career-graph-bridge-common-contract-2026-06-23.md
+      - docs/career-graph/riasec-career-graph-bridge-common-contract.v1.json
+      - tests/contracts/riasec-career-graph-bridge-common-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - generated/**
+      - fap-api mutation
+      - Career Graph runtime implementation
+      - deterministic career recommendation
+      - CMS writes, publish, search submission, provider calls, deploy, private data access, generated pages, generated SEO artifacts, or production import
+    required_local_checks:
+      - python3 -m json.tool docs/career-graph/riasec-career-graph-bridge-common-contract.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/riasec-career-graph-bridge-common-contract.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RIASEC-CAREER-GRAPH-SOURCE-AUTHORITY-PACKET-01
+
+  - id: RIASEC-CAREER-GRAPH-SOURCE-AUTHORITY-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/riasec-career-graph-source-authority-packet-01
+    base: main
+    title: "RIASEC-CAREER-GRAPH-SOURCE-AUTHORITY-PACKET-01: docs(career-graph): add source authority packet"
+    depends_on:
+      - RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: riasec_career_graph_source_authority_packet
+    status: pending_dependency
+    goal: "Map RIASEC public projection authority, one-flagship/two-form evidence, backend source refs, and Career Graph evidence sources using fap-api as read-only authority."
+    artifacts:
+      - docs/career-graph/riasec-career-graph-source-authority-packet-2026-06-23.md
+      - docs/career-graph/riasec-career-graph-source-authority-packet.v1.json
+      - tests/contracts/riasec-career-graph-source-authority-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/career-graph/riasec-career-graph-source-authority-packet-2026-06-23.md
+      - docs/career-graph/riasec-career-graph-source-authority-packet.v1.json
+      - tests/contracts/riasec-career-graph-source-authority-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - fap-api mutation
+      - RIASEC import commands
+      - generated readiness artifact writes
+      - career pages, CMS package, Career Graph runtime, CMS writes, publish, search submission, provider calls, deploy, private data access, or production import
+    required_local_checks:
+      - python3 -m json.tool docs/career-graph/riasec-career-graph-source-authority-packet.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/riasec-career-graph-source-authority-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RIASEC-CAREER-GRAPH-CLAIM-SAFETY-PACKET-01
+
+  - id: RIASEC-CAREER-GRAPH-CLAIM-SAFETY-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/riasec-career-graph-claim-safety-packet-01
+    base: main
+    title: "RIASEC-CAREER-GRAPH-CLAIM-SAFETY-PACKET-01: docs(career-graph): add claim safety packet"
+    depends_on:
+      - RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: riasec_career_graph_claim_safety_packet
+    status: pending_dependency
+    goal: "Create the RIASEC Career Graph claim and safety packet consuming existing Safety Gate, Runtime QA, Analytics, common contract, and fap-api handoff evidence by reference."
+    artifacts:
+      - docs/career-graph/riasec-career-graph-claim-safety-packet-2026-06-23.md
+      - docs/career-graph/riasec-career-graph-claim-safety-packet.v1.json
+      - tests/contracts/riasec-career-graph-claim-safety-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/career-graph/riasec-career-graph-claim-safety-packet-2026-06-23.md
+      - docs/career-graph/riasec-career-graph-claim-safety-packet.v1.json
+      - tests/contracts/riasec-career-graph-claim-safety-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - recommendation logic
+      - runtime code
+      - generated pages
+      - Career Graph runtime mutation
+      - CMS writes, publish, search submission, provider calls, deploy, private data access, or production import
+    required_local_checks:
+      - python3 -m json.tool docs/career-graph/riasec-career-graph-claim-safety-packet.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/riasec-career-graph-claim-safety-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RIASEC-CAREER-GRAPH-CANDIDATE-CLUSTER-PACKET-01
+
+  - id: RIASEC-CAREER-GRAPH-CANDIDATE-CLUSTER-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/riasec-career-graph-candidate-cluster-packet-01
+    base: main
+    title: "RIASEC-CAREER-GRAPH-CANDIDATE-CLUSTER-PACKET-01: docs(career-graph): add candidate cluster packet"
+    depends_on:
+      - RIASEC-CAREER-GRAPH-SOURCE-AUTHORITY-PACKET-01
+      - RIASEC-CAREER-GRAPH-CLAIM-SAFETY-PACKET-01
+    mode: execute
+    train_scope: riasec_career_graph_candidate_cluster_packet
+    status: pending_dependency
+    goal: "Create a planning-only RIASEC Career Graph candidate cluster packet with safe cluster families and review requirements, without CMS payloads, generated pages, or publishable copy."
+    artifacts:
+      - docs/career-graph/riasec-career-graph-candidate-cluster-packet-2026-06-23.md
+      - docs/career-graph/riasec-career-graph-candidate-cluster-packet.v1.json
+      - tests/contracts/riasec-career-graph-candidate-cluster-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/career-graph/riasec-career-graph-candidate-cluster-packet-2026-06-23.md
+      - docs/career-graph/riasec-career-graph-candidate-cluster-packet.v1.json
+      - tests/contracts/riasec-career-graph-candidate-cluster-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - publishable article body
+      - CMS payload
+      - final title/meta to publish
+      - generated career page content
+      - deterministic recommendation
+      - objective occupation ranking
+      - salary, admissions, hiring, success, performance, or ability prediction
+    required_local_checks:
+      - python3 -m json.tool docs/career-graph/riasec-career-graph-candidate-cluster-packet.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/riasec-career-graph-candidate-cluster-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RIASEC-CAREER-GRAPH-BRIDGE-MATRIX-01
+
+  - id: RIASEC-CAREER-GRAPH-BRIDGE-MATRIX-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/riasec-career-graph-bridge-matrix-01
+    base: main
+    title: "RIASEC-CAREER-GRAPH-BRIDGE-MATRIX-01: docs(career-graph): add bridge readiness matrix"
+    depends_on:
+      - RIASEC-CAREER-GRAPH-SOURCE-AUTHORITY-PACKET-01
+      - RIASEC-CAREER-GRAPH-CLAIM-SAFETY-PACKET-01
+      - RIASEC-CAREER-GRAPH-CANDIDATE-CLUSTER-PACKET-01
+    mode: execute
+    train_scope: riasec_career_graph_bridge_matrix
+    status: pending_dependency
+    goal: "Create the aggregate RIASEC to Career Graph bridge readiness matrix and keep runtime, CMS, search, private-data, and deterministic recommendation actions HOLD or BLOCKED."
+    artifacts:
+      - docs/career-graph/riasec-career-graph-bridge-matrix-2026-06-23.md
+      - docs/career-graph/riasec-career-graph-bridge-matrix.v1.json
+      - tests/contracts/riasec-career-graph-bridge-matrix.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/career-graph/riasec-career-graph-bridge-matrix-2026-06-23.md
+      - docs/career-graph/riasec-career-graph-bridge-matrix.v1.json
+      - tests/contracts/riasec-career-graph-bridge-matrix.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - CMS dry-run execution
+      - generated pages
+      - runtime recommendation
+      - Career Graph runtime mutation
+      - production import
+      - search/provider/SEO mutation
+      - raw private data
+      - deterministic career recommendation
+      - admissions, hiring, salary, performance, success, or ability claims
+    required_local_checks:
+      - python3 -m json.tool docs/career-graph/riasec-career-graph-bridge-matrix.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/riasec-career-graph-bridge-matrix.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RIASEC-GAOKAO-MAJOR-CLUSTER-PLAN-01
