@@ -18584,7 +18584,7 @@
       ],
       "title": "feat(iq): consume owner current-question delivery",
       "status": "committed",
-      "commit_sha": "9ff5100188d9a071e70aa083c658734b4cbbc854",
+      "commit_sha": "a9c3d69db1b992f9bb231b5d8e72446cab18bc0a",
       "pr_url": null,
       "checks": {
         "dependency_iq_owner_30_fe_formcode_04": "passed: fap-web PR #1379 merged and origin/main contains 2f4fdcae02c024c7f7f24cdd845d4d7bf2dcefd0",
@@ -18635,7 +18635,7 @@
         {
           "at": "2026-06-24T00:58:36+08:00",
           "status": "committed",
-          "summary": "Created implementation commit 9ff5100188d9a071e70aa083c658734b4cbbc854 for IQ-SESSION-QUESTION-DELIVERY-05B after local validation passed."
+          "summary": "Created implementation commit a9c3d69db1b992f9bb231b5d8e72446cab18bc0a for IQ-SESSION-QUESTION-DELIVERY-05B after local validation passed."
         }
       ]
     },
