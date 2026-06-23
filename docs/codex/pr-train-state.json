@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-23T12:18:00+08:00",
+  "updated_at": "2026-06-23T12:20:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12724,8 +12724,8 @@
       ],
       "status": "planned",
       "title": "GLOBAL-EN-ZH-PARITY-RESULT-MEDIA-ASSET-BATCH-01 result report media parity batch",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "2063c166ad7e7cb7b367e999f11cd920e21a13ce",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1357",
       "checks": {},
       "failure_reason": null,
       "history": [
@@ -26156,12 +26156,12 @@
           "evidence": "Local checks passed on codex/riasec-runtime-qa-consumption-packet-01 from origin/main fbc7b075: JSON parse for packet and state, YAML parse for manifest, focused RIASEC consumption contract (10 tests), pnpm typecheck, pnpm test:contract (537 files, 3087 tests), git diff --check, and changed-file scope validation for exactly 6 authorized files."
         },
         "pull_request": {
-          "status": "pending",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened PR #1357: https://github.com/fermatmind/fap-web/pull/1357 at head 2063c166ad7e7cb7b367e999f11cd920e21a13ce."
         },
         "github": {
-          "status": "pending",
-          "evidence": null
+          "status": "in_progress",
+          "evidence": "Initial GitHub checks started for PR #1357 head 2063c166ad7e7cb7b367e999f11cd920e21a13ce."
         }
       },
       "sidecar_issues": [],
@@ -26180,6 +26180,11 @@
           "at": "2026-06-23T12:18:00+08:00",
           "status": "local_checks_passed",
           "note": "JSON/YAML parse, focused RIASEC contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed."
+        },
+        {
+          "at": "2026-06-23T12:20:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1357 at https://github.com/fermatmind/fap-web/pull/1357 with head 2063c166ad7e7cb7b367e999f11cd920e21a13ce. GitHub checks are in progress."
         }
       ]
     },
