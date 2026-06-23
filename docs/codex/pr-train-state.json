@@ -23155,9 +23155,9 @@
       "id": "RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-bridge-common-contract-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "a656074edcb523795a2c441dcde0e13f1db5aa6c",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1378",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23200,6 +23200,11 @@
         "post_merge": {
           "status": "pending",
           "evidence": null
+        },
+        "pull_request": {
+          "status": "open",
+          "url": "https://github.com/fermatmind/fap-web/pull/1378",
+          "evidence": "PR #1378 opened after local validation passed."
         }
       },
       "history": [
@@ -23212,6 +23217,11 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "local_checks_passed",
           "note": "PR1 common contract artifacts and train metadata passed JSON/YAML parse, focused contract, typecheck, full contract suite, diff check, and scope validation. Local build intentionally deferred to GitHub required check to avoid postbuild generated SEO artifact mutation in this docs/contracts-only scope."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "pr_open",
+          "note": "Opened PR #1378 at https://github.com/fermatmind/fap-web/pull/1378 from commit a656074e after local validation passed."
         }
       ]
     },
