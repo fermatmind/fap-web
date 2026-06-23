@@ -241,7 +241,7 @@ prs:
     base: main
     depends_on: [PR-PRAC-05]
     mode: execute
-    status: ready_to_merge
+    status: merged_cleanup_complete
     title: "test(runtime): add freemium public runtime coverage matrix"
     artifacts:
       - docs/freemium/freemium-runtime-coverage.md
@@ -9608,7 +9608,7 @@ prs:
     mode: execute
     train_scope: global_en_zh_content_pages_llms_exposure_repair
     risk_level: scoped_seo_geo_enumeration_repair
-    status: in_progress
+    status: ready_to_merge
     title: "GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01 include approved English content pages in llms surfaces"
     goal: "Include five already published/indexable Wave 1 English content pages in llms.txt and llms-full.txt by reading backend public content-page detail API authority, without adding frontend fallback content."
     in_scope:
@@ -16567,7 +16567,7 @@ prs:
       - RIASEC-RUNTIME-QA-CONSUMPTION-PACKET-01
     mode: execute
     train_scope: active_result_page_agents_runtime_qa_matrix
-    status: pending_dependency
+    status: in_progress
     goal: "Create the aggregate Runtime QA consumability matrix for Big Five, Enneagram, and RIASEC, keep MBTI/IQ_RAVEN/EQ_60 as PARKED_PLACEHOLDER, and preserve all runtime, deploy, CMS, search, provider, private-data, generated-artifact, analytics, career graph, and public personality follow-up boundaries."
     artifacts:
       - docs/result-page-agents/active-result-page-agents-runtime-qa-matrix-2026-06-23.md
