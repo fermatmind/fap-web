@@ -1,0 +1,163 @@
+{
+  "schema_version": "fermatmind.riasec_career_graph_source_authority_packet.v1",
+  "task_id": "RIASEC-CAREER-GRAPH-SOURCE-AUTHORITY-PACKET-01",
+  "verdict": "MAPPED_PARTIAL",
+  "run_mode": "docs_contracts_only",
+  "dependency": {
+    "task_id": "RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01",
+    "status": "MERGED",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1378",
+    "merge_commit": "46d968520d0e4cf612da04e3fc45696e126dc073"
+  },
+  "canonical_landing": "holland-career-interest-test-riasec",
+  "supported_forms": [
+    "riasec_60",
+    "riasec_140"
+  ],
+  "source_repositories": {
+    "primary_repo": "fap-web",
+    "secondary_repo": "fap-api",
+    "fap_api_access_mode": "read_only_evidence_source_only",
+    "fap_api_mutation": "none"
+  },
+  "consumed_sources": [
+    {
+      "id": "fap_api_riasec_runtime_career_analytics_handoff",
+      "repo": "fap-api",
+      "path": "backend/docs/riasec/riasec-result-page-agent-runtime-career-analytics-handoff-2026-06-23.md",
+      "classification": "backend_authority_handoff",
+      "observed_status": "READY_FOR_POLICY_HANDOFF",
+      "runtime_status": "HOLD"
+    },
+    {
+      "id": "riasec_public_projection_service",
+      "repo": "fap-api",
+      "path": "backend/app/Services/Riasec/RiasecPublicProjectionService.php",
+      "classification": "backend_public_projection_authority",
+      "observed_contract": "riasec.public_projection.v2",
+      "bridge_consumption_rule": "reviewed_public_projection_only"
+    },
+    {
+      "id": "riasec_report_composer",
+      "repo": "fap-api",
+      "path": "backend/app/Services/Report/RiasecReportComposer.php",
+      "classification": "backend_report_projection_composer",
+      "observed_boundary": "raw_identifier_exported_false_and_attempt_id_not_included"
+    },
+    {
+      "id": "riasec_content_registry_slot_contract",
+      "repo": "fap-api",
+      "path": "backend/app/Services/Riasec/RiasecContentRegistrySlotContract.php",
+      "classification": "backend_reviewed_content_slot_contract",
+      "observed_boundaries": [
+        "interest_evidence_only",
+        "not_career_recommendation",
+        "not_job_fit",
+        "not_success_prediction",
+        "not_ability_or_skill_measure",
+        "frontend_fallback_forbidden"
+      ]
+    },
+    {
+      "id": "career_public_authority_inventory",
+      "repo": "fap-web",
+      "path": "docs/career/generated/career-public-authority-inventory.v1.json",
+      "classification": "fap_web_career_consumer_authority_inventory",
+      "observed_status": "partial",
+      "runtime_expansion_allowed": false
+    },
+    {
+      "id": "career_route_trust_matrix",
+      "repo": "fap-web",
+      "path": "docs/career/generated/career-route-trust-matrix.v1.json",
+      "classification": "fap_web_career_route_trust_matrix",
+      "observed_status": "partial",
+      "backend_authoritative_route_families": [
+        "career_job_detail_api",
+        "career_job_index",
+        "career_recommendation_index"
+      ]
+    },
+    {
+      "id": "career_backend_asset_taxonomy_export",
+      "repo": "fap-web",
+      "path": "docs/career/generated/career-backend-asset-taxonomy-export.v1.json",
+      "classification": "partial_backend_asset_taxonomy_export",
+      "observed_status": "incomplete"
+    },
+    {
+      "id": "core_topic_graph_inventory",
+      "repo": "fap-web",
+      "path": "docs/graph/generated/core-topic-graph-inventory.v1.json",
+      "classification": "graph_capability_map",
+      "riasec_graph_state": "blocked_7_partial_1",
+      "missing_public_routes": 7
+    },
+    {
+      "id": "riasec_gaokao_major_cluster_claim_boundary",
+      "repo": "fap-web",
+      "path": "docs/seo/generated/riasec-gaokao-major-cluster-ia-claim-boundary.v1.json",
+      "classification": "planning_contract_only",
+      "observed_status": "planning_contract_only"
+    }
+  ],
+  "authority_assertions": {
+    "riasec_canonical_landing": "holland-career-interest-test-riasec",
+    "supported_forms_only": [
+      "riasec_60",
+      "riasec_140"
+    ],
+    "bridge_consumes": "reviewed_public_projection_only",
+    "backend_public_projection_stronger_than_fap_web_fallback": true,
+    "frontend_fallback_copy_is_authority": false,
+    "unreviewed_cms_text_is_authority": false,
+    "career_graph_runtime_authority": "hold",
+    "riasec_graph_entities_may_be_promoted": false,
+    "career_or_major_examples": "examples_only_exploration_prompts"
+  },
+  "missing_or_blocked_authority": [
+    {
+      "gap": "major_cluster_authority",
+      "status": "missing_for_runtime_or_public_page_promotion",
+      "required_follow_up": "backend_cms_or_major_cluster_api_authority_packet"
+    },
+    {
+      "gap": "review_ledger",
+      "status": "missing_for_indexability_or_claim_approval",
+      "required_follow_up": "backend_authority_review_ledger"
+    },
+    {
+      "gap": "cms_dry_run_package",
+      "status": "missing_for_cms_write_or_page_generation",
+      "required_follow_up": "separate_cms_dry_run_readiness_scan"
+    },
+    {
+      "gap": "riasec_graph_entities",
+      "status": "blocked_or_partial",
+      "required_follow_up": "do_not_promote_to_public_pages_or_recommendations"
+    }
+  ],
+  "hold_actions": [
+    "production_import",
+    "runtime",
+    "cms",
+    "search",
+    "private_data",
+    "career_graph_runtime_mutation",
+    "generated_pages",
+    "deterministic_career_recommendation",
+    "provider_calls",
+    "deploy"
+  ],
+  "negative_guarantees": {
+    "fap_api_mutation": "none",
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "search_submission": "none",
+    "provider_calls": "none",
+    "deployment_triggered": "no",
+    "private_result_data_accessed": "none",
+    "production_import": "none",
+    "generated_pages": "none"
+  }
+}
