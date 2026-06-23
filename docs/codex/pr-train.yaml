@@ -241,7 +241,7 @@ prs:
     base: main
     depends_on: [PR-PRAC-05]
     mode: execute
-    status: ready_to_merge
+    status: merged_cleanup_complete
     title: "test(runtime): add freemium public runtime coverage matrix"
     artifacts:
       - docs/freemium/freemium-runtime-coverage.md
@@ -16567,7 +16567,7 @@ prs:
       - RIASEC-RUNTIME-QA-CONSUMPTION-PACKET-01
     mode: execute
     train_scope: active_result_page_agents_runtime_qa_matrix
-    status: pending_dependency
+    status: in_progress
     goal: "Create the aggregate Runtime QA consumability matrix for Big Five, Enneagram, and RIASEC, keep MBTI/IQ_RAVEN/EQ_60 as PARKED_PLACEHOLDER, and preserve all runtime, deploy, CMS, search, provider, private-data, generated-artifact, analytics, career graph, and public personality follow-up boundaries."
     artifacts:
       - docs/result-page-agents/active-result-page-agents-runtime-qa-matrix-2026-06-23.md
