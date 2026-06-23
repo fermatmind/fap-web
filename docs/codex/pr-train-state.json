@@ -26370,7 +26370,7 @@
       "repo": "fap-web",
       "branch": "codex/big5-analytics-consumption-packet-01",
       "base": "main",
-      "status": "in_progress",
+      "status": "ready_to_merge",
       "train_scope": "big5_analytics_consumption_packet",
       "title": "BIG5-ANALYTICS-CONSUMPTION-PACKET-01: docs(result): add Big Five analytics packet",
       "depends_on": [
@@ -26412,8 +26412,8 @@
           "evidence": "Opened PR #1363: https://github.com/fermatmind/fap-web/pull/1363."
         },
         "github": {
-          "status": "not_started",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1363 head 44fe1282: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "sidecar_issues": [],
@@ -26437,6 +26437,11 @@
           "at": "2026-06-23T15:28:00+08:00",
           "status": "pr_opened",
           "note": "Opened PR #1363 at https://github.com/fermatmind/fap-web/pull/1363 with local commit 97aecd7e2cb62c6974df4798240852c3f103cf4d."
+        },
+        {
+          "at": "2026-06-23T15:35:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1363 head 44fe1282 and changed-file scope remained within the five authorized PR2 files. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
