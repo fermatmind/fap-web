@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-23T03:18:00+08:00",
+  "updated_at": "2026-06-23T11:58:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -25948,17 +25948,17 @@
       "repo": "fap-web",
       "branch": "codex/big5-runtime-qa-consumption-packet-01",
       "base": "main",
-      "status": "ready_to_merge",
+      "status": "merged_cleanup_complete",
       "train_scope": "big5_runtime_qa_consumption_packet",
       "title": "BIG5-RUNTIME-QA-CONSUMPTION-PACKET-01: docs(result): add Big Five Runtime QA packet",
       "depends_on": [
         "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01"
       ],
-      "commit_sha": "7f41e30ba1942d78511a8d94c152ece7a20740ba",
+      "commit_sha": "62e830e159ffca7921f20a03a55efb6c3245d8d3",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1354",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-23T03:49:46Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -25991,7 +25991,7 @@
         },
         "github": {
           "status": "pass",
-          "evidence": "PR #1354 checks passed on head 7f41e30ba1942d78511a8d94c152ece7a20740ba: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). GitHub mergeStateStatus was CLEAN before this ready_to_merge ledger update."
+          "evidence": "PR #1354 checks passed on final head 28eefe6b3e5b6a3fca0e63a050808e188e74f635: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). GitHub squash merged it as 62e830e159ffca7921f20a03a55efb6c3245d8d3; origin/main contains the merge commit; local main was synced; remote and local task branches were cleaned."
         }
       },
       "sidecar_issues": [],
@@ -26020,6 +26020,11 @@
           "at": "2026-06-23T11:45:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed and mergeStateStatus was CLEAN on head 7f41e30ba1942d78511a8d94c152ece7a20740ba. Recording ready_to_merge before squash merge per PR-train policy."
+        },
+        {
+          "at": "2026-06-23T11:50:00+08:00",
+          "status": "merged_cleanup_complete",
+          "note": "PR #1354 was squash merged as 62e830e159ffca7921f20a03a55efb6c3245d8d3. origin/main contains the merge commit, local main equals origin/main, the worktree is clean, and task branch cleanup completed locally and remotely."
         }
       ]
     },
@@ -26028,7 +26033,7 @@
       "repo": "fap-web",
       "branch": "codex/enneagram-runtime-qa-consumption-packet-01",
       "base": "main",
-      "status": "pending_dependency",
+      "status": "in_progress",
       "train_scope": "enneagram_runtime_qa_consumption_packet",
       "title": "ENNEAGRAM-RUNTIME-QA-CONSUMPTION-PACKET-01: docs(result): add Enneagram Runtime QA packet",
       "depends_on": [
@@ -26046,8 +26051,8 @@
           "evidence": "User authorized this PR id in ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-INTEGRATION-PR-TRAIN-01."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Blocked until ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01 is merged and cleaned up."
+          "status": "pass",
+          "evidence": "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01 merged in PR #1353 as 841dacd6592e8e45c43cd9d3945d04ff97a62d41 and post-merge cleanup completed before PR3 started."
         },
         "scope": {
           "status": "authorized",
@@ -26062,8 +26067,8 @@
           "evidence": "Authorized scope is docs/contracts-only Enneagram Runtime QA consumption packet plus current PR train metadata."
         },
         "local_validation": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "Local checks passed on codex/enneagram-runtime-qa-consumption-packet-01 after fast-forwarding to origin/main c8af412a: JSON parse for packet and state, YAML parse for manifest, focused Enneagram consumption contract (10 tests), pnpm typecheck, pnpm test:contract (536 files, 3077 tests), git diff --check, and changed-file scope validation for exactly 6 authorized files."
         },
         "pull_request": {
           "status": "pending",
@@ -26080,6 +26085,16 @@
           "at": "2026-06-23T11:17:24+08:00",
           "status": "pending_dependency",
           "note": "Initialized from authorized five-PR Runtime QA integration train. Waiting for the common contract PR to merge."
+        },
+        {
+          "at": "2026-06-23T11:51:00+08:00",
+          "status": "in_progress",
+          "note": "Started PR3 from clean origin/main after PR2 merge and cleanup. Scope is docs/contracts-only Enneagram Runtime QA consumption packet plus current PR train metadata."
+        },
+        {
+          "at": "2026-06-23T11:58:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Fast-forwarded the PR3 branch to origin/main c8af412a before validation. JSON/YAML parse, focused contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed."
         }
       ]
     },

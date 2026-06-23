@@ -16408,7 +16408,7 @@ prs:
       - ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01
     mode: execute
     train_scope: big5_runtime_qa_consumption_packet
-    status: ready_to_merge
+    status: merged_cleanup_complete
     goal: "Create the Big Five Runtime QA consumption packet using merged READY_READONLY_CLEARED evidence and analytics handoff while keeping pilot, runtime, production, CMS, search, and private-data actions held."
     artifacts:
       - docs/result-page-agents/big5-runtime-qa-consumption-packet-2026-06-23.md
@@ -16461,7 +16461,7 @@ prs:
       - ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01
     mode: execute
     train_scope: enneagram_runtime_qa_consumption_packet
-    status: pending_dependency
+    status: in_progress
     goal: "Create the Enneagram Runtime QA consumption packet using merged public-share-safe and public-personality-boundary evidence while keeping generation, import, activation, runtime, CMS, search, and private-result access held."
     artifacts:
       - docs/result-page-agents/enneagram-runtime-qa-consumption-packet-2026-06-23.md
