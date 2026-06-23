@@ -18133,8 +18133,8 @@
       ],
       "title": "docs(cms): verify canary draft creation path and preview alternative",
       "status": "planned",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "97aecd7e2cb62c6974df4798240852c3f103cf4d",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1363",
       "checks": {
         "python3 -m json.tool docs/operations/generated/help-cms-authority.v1.json >/dev/null": "passed",
         "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
@@ -26408,8 +26408,8 @@
           "evidence": "Local checks passed on codex/big5-analytics-consumption-packet-01: JSON parse for Big Five packet and state, YAML parse for manifest, focused Big Five analytics packet contract (8 tests), pnpm typecheck, pnpm test:contract (540 files, 3116 tests), git diff --check, and changed-file scope validation for exactly 5 authorized files. pnpm build was intentionally not run per goal constraints."
         },
         "pull_request": {
-          "status": "not_opened",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened PR #1363: https://github.com/fermatmind/fap-web/pull/1363."
         },
         "github": {
           "status": "not_started",
@@ -26432,6 +26432,11 @@
           "at": "2026-06-23T15:26:00+08:00",
           "status": "local_checks_passed",
           "note": "JSON/YAML parse, focused Big Five analytics packet contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed. pnpm build intentionally not run per goal constraints."
+        },
+        {
+          "at": "2026-06-23T15:28:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1363 at https://github.com/fermatmind/fap-web/pull/1363 with local commit 97aecd7e2cb62c6974df4798240852c3f103cf4d."
         }
       ]
     },
