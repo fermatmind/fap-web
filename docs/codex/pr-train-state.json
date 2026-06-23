@@ -25874,8 +25874,8 @@
       "train_scope": "active_result_page_agents_runtime_qa_common_contract",
       "title": "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01: docs(result): define active agent Runtime QA contract",
       "depends_on": [],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "8cb2dea5de29e8b9609ba555977a40383a77aaa0",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1353",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -25906,8 +25906,8 @@
           "evidence": "Passed: python3 -m json.tool docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract.v1.json; python3 -m json.tool docs/codex/pr-train-state.json; ruby YAML parse for docs/codex/pr-train.yaml; pnpm exec vitest run tests/contracts/active-result-page-agents-runtime-qa-common-contract.contract.test.ts; pnpm typecheck; pnpm test:contract (534 files, 3058 tests); git diff --check; explicit worktree changed-file scope validation over tracked and untracked files."
         },
         "pull_request": {
-          "status": "pending",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1353 after local validation and scope validation passed. The branch head remains the source of truth after this ledger update commit."
         },
         "github": {
           "status": "pending",
@@ -25925,6 +25925,11 @@
           "at": "2026-06-23T11:23:00+08:00",
           "status": "local_checks_passed",
           "note": "Added the common Runtime QA consumption contract, initialized the five authorized train entries, and passed JSON/YAML parsing, focused Vitest, typecheck, full contract suite, diff whitespace, and explicit changed-file scope validation."
+        },
+        {
+          "at": "2026-06-23T11:28:00+08:00",
+          "status": "pr_open",
+          "note": "Opened PR #1353 for the common Runtime QA contract after path-limited staging and local validation."
         }
       ]
     },
