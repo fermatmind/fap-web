@@ -26792,14 +26792,14 @@
       "repo": "fap-web",
       "branch": "codex/big5-safety-gate-consumption-packet-01",
       "base": "main",
-      "status": "local_checks_passed",
+      "status": "ready_to_merge",
       "train_scope": "big5_safety_gate_consumption_packet",
       "title": "BIG5-SAFETY-GATE-CONSUMPTION-PACKET-01: docs(result): add Big Five Safety Gate packet",
       "depends_on": [
         "ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "df258b7cd4008598e46b9059d1b39ac0efd8eb6e",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1372",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -26830,12 +26830,12 @@
           "evidence": "Local checks passed on codex/big5-safety-gate-consumption-packet-01: JSON parse for Big Five Safety Gate packet and state, YAML parse for manifest, focused Big Five Safety Gate consumption packet contract (9 tests), pnpm typecheck, pnpm test:contract (545 files, 3166 tests), git diff --check, and changed-file scope validation for exactly 5 authorized files. pnpm build was intentionally not run per goal constraints."
         },
         "pull_request": {
-          "status": "not_opened",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened PR #1372 at https://github.com/fermatmind/fap-web/pull/1372 from codex/big5-safety-gate-consumption-packet-01."
         },
         "github": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1372 head df258b7c: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
         }
       },
       "sidecar_issues": [],
@@ -26854,6 +26854,16 @@
           "at": "2026-06-23T18:56:00+08:00",
           "status": "local_checks_passed",
           "note": "JSON/YAML parse, focused Big Five Safety Gate consumption packet contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed. pnpm build intentionally not run per goal constraints."
+        },
+        {
+          "at": "2026-06-23T18:57:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1372 at https://github.com/fermatmind/fap-web/pull/1372."
+        },
+        {
+          "at": "2026-06-23T19:01:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1372 head df258b7c and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },

@@ -12321,7 +12321,7 @@ prs:
       - ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01
     mode: execute
     train_scope: big5_safety_gate_consumption_packet
-    status: in_progress
+    status: ready_to_merge
     goal: "Create the Big Five Safety Gate consumption packet using Big Five Runtime QA and Analytics packets while keeping pilot, runtime, production, CMS, search, opportunity scoring, private-data, event-emission, and fap-api mutation actions held."
     artifacts:
       - docs/result-page-agents/big5-safety-gate-consumption-packet-2026-06-23.md
