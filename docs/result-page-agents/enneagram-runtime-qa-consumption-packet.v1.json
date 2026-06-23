@@ -1,0 +1,179 @@
+{
+  "schema_version": "fermatmind.enneagram_runtime_qa_consumption_packet.v1",
+  "artifact_id": "enneagram-runtime-qa-consumption-packet-2026-06-23",
+  "task_id": "ENNEAGRAM-RUNTIME-QA-CONSUMPTION-PACKET-01",
+  "verdict": "READY_TO_CONSUME_BY_RUNTIME_QA",
+  "run_mode": "docs_contracts_only",
+  "receiving_agent": "runtime_qa",
+  "producing_agent": "enneagram_result_page",
+  "scale_code": "ENNEAGRAM",
+  "dependency": {
+    "task_id": "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01",
+    "status": "MERGED",
+    "merge_commit": "841dacd6592e8e45c43cd9d3945d04ff97a62d41"
+  },
+  "source_refs": {
+    "common_contract": "docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract.v1.json",
+    "standard_alignment": "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json",
+    "route_api_pdf_share_review": "docs/result-page-agents/six-result-page-agent-readonly-route-api-pdf-share-review.proposal.json",
+    "runtime_qa_handoff": "docs/result-page-agents/result-page-agent-runtime-qa-handoff.v1.json",
+    "analytics_handoff": "docs/result-page-agents/result-page-agent-analytics-handoff.v1.json"
+  },
+  "consumed_evidence": {
+    "readiness_verdict": "ENNEAGRAM_RESULT_PAGE_AGENT_STANDARD_ALIGNED",
+    "matrix_readiness": "ready_readonly",
+    "runtime_qa_handoff_status": "HANDOFF_READY_READONLY",
+    "public_share_safe": true,
+    "public_personality_boundary_ready": true,
+    "ready_for_runtime": false,
+    "ready_for_production": false,
+    "production_use_allowed": false
+  },
+  "assertions": [
+    {
+      "id": "route_contract",
+      "status": "PASS",
+      "evidence": "/[locale]/result/[id] is mapped through the shared private result route."
+    },
+    {
+      "id": "report_api_contract",
+      "status": "PASS",
+      "evidence": "/api/v0.3/attempts/{attempt_id}/report remains the mapped report API contract."
+    },
+    {
+      "id": "report_access_api_contract",
+      "status": "PASS",
+      "evidence": "/api/v0.3/attempts/{attempt_id}/report-access remains the unlock/PDF action boundary."
+    },
+    {
+      "id": "renderer_dispatch",
+      "status": "PASS",
+      "evidence": "Enneagram dispatch remains ResultClient -> RichResultReport -> EnneagramResultShell."
+    },
+    {
+      "id": "pdf_private_print_boundary",
+      "status": "PASS",
+      "evidence": "Existing Enneagram PDF surface and shared private print/redaction contracts remain the PDF boundary."
+    },
+    {
+      "id": "share_public_private_boundary",
+      "status": "PASS",
+      "evidence": "Public share view model and telemetry remain public-summary scoped and block private/internal fields."
+    },
+    {
+      "id": "private_result_noindex_boundary",
+      "status": "PASS",
+      "evidence": "Private result surfaces remain noindex and private-print scoped."
+    },
+    {
+      "id": "leak_boundary",
+      "status": "PASS",
+      "evidence": "Runtime QA must fail closed on attempt IDs, scores, dominance gaps, release hashes, raw/internal metadata, private payloads, tokens, or fallback authority."
+    },
+    {
+      "id": "claim_privacy_safety_gate",
+      "status": "PASS",
+      "evidence": "Final type certainty, diagnosis, therapy, treatment, hiring, salary, performance, success, admission, ability, and life-outcome claims remain forbidden."
+    },
+    {
+      "id": "analytics_smoke_exclusion_gate",
+      "status": "PASS",
+      "evidence": "Analytics handoff allows shared public-safe result-page event classes only and blocks private payload/generated readiness analytics."
+    }
+  ],
+  "share_view_model_and_telemetry_boundary": {
+    "status": "PUBLIC_SUMMARY_ONLY",
+    "blocked_fields": [
+      "attemptId",
+      "attempt_id",
+      "score",
+      "raw_score",
+      "score_vector",
+      "dominance_gap",
+      "release_hash",
+      "raw_metadata",
+      "internal_metadata",
+      "private_result_payload",
+      "private_report_text",
+      "report_token",
+      "report_url",
+      "account_id",
+      "user_id",
+      "email",
+      "phone",
+      "payment_id",
+      "order_id"
+    ]
+  },
+  "public_personality_boundary": {
+    "status": "PASS",
+    "private_result_text_becomes_public_profile_content": false,
+    "public_profile_content_mutation": "HOLD",
+    "blocked": [
+      "private result text publication",
+      "generated readiness analytics",
+      "public profile content mutation from private result payload"
+    ]
+  },
+  "claim_boundary": {
+    "status": "PASS",
+    "forbidden_claims": [
+      "final type certainty",
+      "fixed type certainty",
+      "diagnosis",
+      "therapy",
+      "treatment",
+      "hiring prediction",
+      "salary prediction",
+      "performance prediction",
+      "success prediction",
+      "admission prediction",
+      "ability guarantee",
+      "life-outcome guarantee"
+    ]
+  },
+  "analytics_boundary": {
+    "status": "PASS",
+    "allowed": "shared public-safe result page event classes only",
+    "blocked": [
+      "private payload emission",
+      "generated readiness analytics",
+      "runtime analytics mutation"
+    ]
+  },
+  "holds": [
+    "candidate_generation",
+    "import",
+    "activation",
+    "runtime_switch",
+    "public_profile_content_mutation",
+    "cms",
+    "search",
+    "private_result_access",
+    "generated_readiness_artifact_write",
+    "deploy",
+    "production_import",
+    "rollout"
+  ],
+  "negative_guarantees": {
+    "runtime_code_changed": "no",
+    "candidate_payload_generated": "no",
+    "import_performed": "no",
+    "activation_performed": "no",
+    "runtime_switch_performed": "no",
+    "public_profile_content_changed": "no",
+    "raw_private_result_accessed": "none",
+    "cms_writes": "none",
+    "publishing": "none",
+    "search_submissions": "none",
+    "provider_calls": "none",
+    "deployment_triggered": "no",
+    "generated_readiness_artifact_written": "no"
+  },
+  "next_safe_output": {
+    "agent": "runtime_qa",
+    "output": "read_only_runtime_qa_report",
+    "status": "ALLOWED_LATER",
+    "requires_separate_authorization": true
+  }
+}
