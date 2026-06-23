@@ -23423,9 +23423,9 @@
       "id": "RIASEC-CAREER-GRAPH-CANDIDATE-CLUSTER-PACKET-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-candidate-cluster-packet-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "21527c17f1dfc430988083a05132de85c42190e4",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1382",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23471,6 +23471,11 @@
         "dependency": {
           "status": "pass",
           "evidence": "Source authority PR #1380 and claim safety PR #1381 are merged, and origin/main contains merge commits 853cbaea and 6048354f."
+        },
+        "pull_request": {
+          "status": "open",
+          "url": "https://github.com/fermatmind/fap-web/pull/1382",
+          "evidence": "PR #1382 opened after local validation passed."
         }
       },
       "history": [
@@ -23488,6 +23493,11 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "local_checks_passed",
           "note": "PR4 candidate cluster packet passed JSON/YAML parse, focused contract, typecheck, full contract suite, diff check, and scope validation. Local build intentionally deferred to GitHub required check to avoid postbuild generated SEO artifact mutation in this docs/contracts-only scope."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "pr_open",
+          "note": "Opened PR #1382 at https://github.com/fermatmind/fap-web/pull/1382 from commit 21527c17 after local validation passed."
         }
       ]
     },
