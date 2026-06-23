@@ -26625,7 +26625,7 @@
       "repo": "fap-web",
       "branch": "codex/active-result-page-agents-analytics-matrix-01",
       "base": "main",
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "train_scope": "active_result_page_agents_analytics_matrix",
       "title": "ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-MATRIX-01: docs(result): add active analytics matrix",
       "depends_on": [
@@ -26633,7 +26633,7 @@
         "ENNEAGRAM-ANALYTICS-CONSUMPTION-PACKET-01",
         "RIASEC-ANALYTICS-CONSUMPTION-PACKET-01"
       ],
-      "commit_sha": "10938a6746763befb8922399671e9568a504096b",
+      "commit_sha": "a1a9324cf76573f1735459f95d9ed7fa5dccce02",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1368",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -26671,8 +26671,8 @@
           "evidence": "Opened PR #1368: https://github.com/fermatmind/fap-web/pull/1368."
         },
         "github": {
-          "status": "pending",
-          "evidence": "GitHub checks started for PR #1368 head 10938a67: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze are queued."
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1368 head a1a9324c: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "sidecar_issues": [],
@@ -26696,6 +26696,11 @@
           "at": "2026-06-23T16:18:00+08:00",
           "status": "pr_opened",
           "note": "Opened PR #1368 at https://github.com/fermatmind/fap-web/pull/1368 with local commit 10938a6746763befb8922399671e9568a504096b."
+        },
+        {
+          "at": "2026-06-23T16:22:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1368 head a1a9324c and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     }
