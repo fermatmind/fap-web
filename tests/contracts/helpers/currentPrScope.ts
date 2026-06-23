@@ -2792,6 +2792,53 @@ const ACTIVE_RESULT_PAGE_AGENTS_ANALYTICS_MATRIX_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const ACTIVE_RESULT_PAGE_AGENTS_SAFETY_GATE_COMMON_CONTRACT_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/result-page-agents/active-result-page-agents-safety-gate-common-contract-2026-06-23.md",
+  "docs/result-page-agents/active-result-page-agents-safety-gate-common-contract.v1.json",
+  "tests/contracts/active-result-page-agents-safety-gate-common-contract.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+const BIG5_SAFETY_GATE_CONSUMPTION_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/result-page-agents/big5-safety-gate-consumption-packet-2026-06-23.md",
+  "docs/result-page-agents/big5-safety-gate-consumption-packet.v1.json",
+  "tests/contracts/big5-safety-gate-consumption-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+const ENNEAGRAM_SAFETY_GATE_CONSUMPTION_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/result-page-agents/enneagram-safety-gate-consumption-packet-2026-06-23.md",
+  "docs/result-page-agents/enneagram-safety-gate-consumption-packet.v1.json",
+  "tests/contracts/enneagram-safety-gate-consumption-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+const RIASEC_SAFETY_GATE_CONSUMPTION_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/result-page-agents/riasec-safety-gate-consumption-packet-2026-06-23.md",
+  "docs/result-page-agents/riasec-safety-gate-consumption-packet.v1.json",
+  "tests/contracts/riasec-safety-gate-consumption-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+const ACTIVE_RESULT_PAGE_AGENTS_SAFETY_GATE_MATRIX_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/result-page-agents/active-result-page-agents-safety-gate-matrix-2026-06-23.md",
+  "docs/result-page-agents/active-result-page-agents-safety-gate-matrix.v1.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "tests/contracts/active-result-page-agents-safety-gate-matrix.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const RESULT_PAGE_AGENT_SEO_CONTROL_HANDOFF_01_ALLOWED_FILES = new Set([
   "docs/result-page-agents/result-page-agent-seo-control-handoff-2026-06-23.md",
   "docs/result-page-agents/result-page-agent-seo-control-handoff.v1.json",
@@ -3129,6 +3176,41 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/active-result-page-agents-analytics-matrix-01" &&
     ACTIVE_RESULT_PAGE_AGENTS_ANALYTICS_MATRIX_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/active-result-page-agents-safety-gate-common-contract-01" &&
+    ACTIVE_RESULT_PAGE_AGENTS_SAFETY_GATE_COMMON_CONTRACT_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/big5-safety-gate-consumption-packet-01" &&
+    BIG5_SAFETY_GATE_CONSUMPTION_PACKET_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/enneagram-safety-gate-consumption-packet-01" &&
+    ENNEAGRAM_SAFETY_GATE_CONSUMPTION_PACKET_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/riasec-safety-gate-consumption-packet-01" &&
+    RIASEC_SAFETY_GATE_CONSUMPTION_PACKET_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/active-result-page-agents-safety-gate-matrix-01" &&
+    ACTIVE_RESULT_PAGE_AGENTS_SAFETY_GATE_MATRIX_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
