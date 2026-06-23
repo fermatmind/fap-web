@@ -23,6 +23,14 @@
       "sha256_manifest": "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
       "slug_count": 1046,
       "final_conclusion": "CAREER_SKILLS_ENTRY_1046_COMPLETE"
+    },
+    {
+      "block_name": "career-fit",
+      "block_version": "career_fit_v1",
+      "baseline_directory": "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired",
+      "sha256_manifest": "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
+      "slug_count": 1046,
+      "final_conclusion": "CAREER_FIT_1046_COMPLETE"
     }
   ]
 }

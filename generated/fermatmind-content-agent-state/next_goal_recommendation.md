@@ -1,3 +1,3 @@
 # Next Goal Recommendation
 
-`career-skills-entry` is COMPLETE. Recommended next block: `career-fit` 1046 generation/freeze, then final independent QA.
+Run `career-adjacent-comparison` through the same controlled block workflow. Do not run page assembly until adjacent comparison is COMPLETE.

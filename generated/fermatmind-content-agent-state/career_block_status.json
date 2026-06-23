@@ -1,21 +1,21 @@
 {
-  "block_name": "career-skills-entry",
-  "block_version": "career_skills_entry_v1",
+  "block_name": "career-fit",
+  "block_version": "career_fit_v1",
   "current_batch": 1046,
-  "control_count": 1046,
+  "control_count": 1000,
   "new_count": 46,
   "evidence_pass": true,
   "synthesis_pass": true,
-  "asset_pass": true,
   "estimate_pass": null,
-  "latest_baseline_directory": "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired",
+  "asset_pass": true,
+  "latest_baseline_directory": "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired",
   "latest_baseline_slug_count": 1046,
   "sha256_manifests": [
-    "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json"
+    "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json"
   ],
   "source_artifact_paths": [
-    "generated/career-skills-entry-v1-operator/operator_to_1046_report.json",
-    "generated/career-skills-entry-v1-1046-final-independent-qa/final_qa_report.json"
+    "generated/career-fit-v1-operator/operator_to_1046_report.json",
+    "generated/career-fit-v1-1046-final-independent-qa/final_qa_report.json"
   ],
   "search_projection_quarantined": true,
   "open_failures": [],

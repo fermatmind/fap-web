@@ -17,6 +17,15 @@
       "manifest_path": "generated/career-identity-v1-batch-1046/manifest.json",
       "new_count": 46,
       "status": "final_qa_pass"
+    },
+    {
+      "batch_index": 1046,
+      "block_name": "career-fit",
+      "control_count": 1000,
+      "new_count": 46,
+      "manifest_path": "generated/career-fit-v1-batch-021/manifest.json",
+      "gate_report_path": "generated/career-fit-v1-1046-final-independent-qa/final_qa_report.json",
+      "status": "final_qa_pass"
     }
   ],
   "completed_blocks": {
@@ -24,6 +33,11 @@
       "baseline_directory": "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired",
       "slug_count": 1046,
       "final_qa": "generated/career-skills-entry-v1-1046-final-independent-qa/final_qa_report.json"
+    },
+    "career-fit": {
+      "baseline_directory": "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired",
+      "slug_count": 1046,
+      "final_qa": "generated/career-fit-v1-1046-final-independent-qa/final_qa_report.json"
     }
   }
 }
