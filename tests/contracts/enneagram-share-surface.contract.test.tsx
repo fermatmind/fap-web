@@ -2,6 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import ShareClient from "@/app/(localized)/[locale]/share/[id]/ShareClient";
 import type { ShareSummaryResponse } from "@/lib/api/v0_3";
+import { buildEnneagramShareViewModel } from "@/lib/enneagram/shareSurface";
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/share/share-enneagram-123",
@@ -38,6 +39,45 @@ vi.mock("@/lib/api/v0_3", async () => {
 vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
 }));
+
+const FORBIDDEN_PUBLIC_BOUNDARY_FRAGMENTS = [
+  "attempt-enneagram-123",
+  "\"attempt_id\"",
+  "\"attemptId\"",
+  "\"score\"",
+  "\"dominance_gap_abs\"",
+  "\"dominance_gap_pct\"",
+  "\"dominanceGapAbs\"",
+  "\"dominanceGapPct\"",
+  "\"interpretation_reason\"",
+  "\"interpretationReason\"",
+  "\"interpretation_context_id\"",
+  "\"interpretationContextId\"",
+  "\"registry_release_hash\"",
+  "\"content_release_hash\"",
+  "\"registryReleaseHash\"",
+  "\"contentReleaseHash\"",
+  "\"content_snapshot_status\"",
+  "\"contentSnapshotStatus\"",
+  "\"report_schema_version\"",
+  "\"projection_version\"",
+  "\"reportSchemaVersion\"",
+  "\"projectionVersion\"",
+  "ctx-enneagram-123",
+  "sha256:registry",
+  "sha256:content",
+  "enneagram.report.v2",
+  "enneagram_public_projection.v2",
+  "Scope comes from backend contract.",
+];
+
+function expectNoForbiddenPublicBoundaryFields(value: unknown): void {
+  const serialized = JSON.stringify(value);
+
+  for (const forbidden of FORBIDDEN_PUBLIC_BOUNDARY_FRAGMENTS) {
+    expect(serialized).not.toContain(forbidden);
+  }
+}
 
 function createFixture(scope: "clear" | "close_call" | "diffuse" | "low_quality"): ShareSummaryResponse {
   return {
@@ -136,6 +176,25 @@ describe("enneagram share surface contract", () => {
     });
   });
 
+  it("builds a public-safe Enneagram share view model even when the raw payload is polluted", () => {
+    const viewModel = buildEnneagramShareViewModel(createFixture("clear"), "en");
+
+    expect(viewModel).not.toBeNull();
+    expect(viewModel?.primaryCandidate).toEqual({
+      code: "T1",
+      label: "Type 1",
+      rank: 1,
+      role: "primary",
+    });
+    expect(viewModel?.topTypes[0]).toEqual({
+      code: "T1",
+      label: "Type 1",
+      rank: 1,
+      role: null,
+    });
+    expectNoForbiddenPublicBoundaryFields(viewModel);
+  });
+
   it("renders clear share state with a primary candidate", async () => {
     hoisted.getShareSummary.mockResolvedValue(createFixture("clear"));
 
@@ -171,6 +230,31 @@ describe("enneagram share surface contract", () => {
       "Scope comes from backend contract.",
     ]) {
       expect(text).not.toContain(forbidden);
+    }
+  });
+
+  it("does not send private identifiers or internal metadata in Enneagram public share telemetry", async () => {
+    hoisted.getShareSummary.mockResolvedValue(createFixture("clear"));
+
+    render(<ShareClient locale="en" shareId="share-enneagram-123" />);
+
+    await screen.findByTestId("enneagram-share-summary-card");
+    await waitFor(() => {
+      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+        "ui_card_impression",
+        expect.objectContaining({
+          scale_code: "ENNEAGRAM",
+          visual_kind: "enneagram_share_public_surface",
+        })
+      );
+    });
+
+    for (const [, payload] of hoisted.trackEvent.mock.calls) {
+      if (payload?.scale_code !== "ENNEAGRAM") {
+        continue;
+      }
+
+      expectNoForbiddenPublicBoundaryFields(payload);
     }
   });
 
