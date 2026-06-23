@@ -23331,9 +23331,9 @@
       "id": "RIASEC-CAREER-GRAPH-CLAIM-SAFETY-PACKET-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-claim-safety-packet-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "cd6bf4a269e4a71ff93a12ad4a2d547bd3133433",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1381",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23379,6 +23379,11 @@
         "dependency": {
           "status": "pass",
           "evidence": "RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01 is merged in PR #1378 and origin/main contains merge commit 46d968520d0e4cf612da04e3fc45696e126dc073. Source authority PR #1380 is also merged and available as current context."
+        },
+        "pull_request": {
+          "status": "open",
+          "url": "https://github.com/fermatmind/fap-web/pull/1381",
+          "evidence": "PR #1381 opened after local validation passed."
         }
       },
       "history": [
@@ -23396,6 +23401,11 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "local_checks_passed",
           "note": "PR3 claim/safety packet passed JSON/YAML parse, focused contract, typecheck, full contract suite, diff check, and scope validation. Local build intentionally deferred to GitHub required check to avoid postbuild generated SEO artifact mutation in this docs/contracts-only scope."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "pr_open",
+          "note": "Opened PR #1381 at https://github.com/fermatmind/fap-web/pull/1381 from commit cd6bf4a2 after local validation passed."
         }
       ]
     },
