@@ -12463,7 +12463,7 @@
       "id": "GLOBAL-EN-ZH-PARITY-P0-01",
       "repo": "fap-web",
       "branch": "codex/global-en-zh-parity-p0-01-content-help-policy-discoverability",
-      "status": "ready_to_merge",
+      "status": "merged_cleanup_complete",
       "depends_on": [],
       "commit_sha": "b4595c763163a1a41782d389dc1e0e0f83858c12",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/903",
@@ -25874,11 +25874,11 @@
       "train_scope": "active_result_page_agents_runtime_qa_common_contract",
       "title": "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01: docs(result): define active agent Runtime QA contract",
       "depends_on": [],
-      "commit_sha": "26ec2de78c9873056e4cbd98df0ed5d929619958",
+      "commit_sha": "841dacd6592e8e45c43cd9d3945d04ff97a62d41",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1353",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-23T03:31:54Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -25911,7 +25911,7 @@
         },
         "github": {
           "status": "pass",
-          "evidence": "PR #1353 checks passed on head 26ec2de78c9873056e4cbd98df0ed5d929619958: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). GitHub mergeStateStatus was CLEAN before this ready_to_merge ledger update."
+          "evidence": "PR #1353 checks passed on final head f87c6b97e87f8ee32100363854943f6db893851e: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). GitHub squash merged it as 841dacd6592e8e45c43cd9d3945d04ff97a62d41; origin/main contains the merge commit; local main was synced; remote and local task branches were cleaned."
         }
       },
       "sidecar_issues": [],
@@ -25935,6 +25935,11 @@
           "at": "2026-06-23T11:30:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed and mergeStateStatus was CLEAN on head 26ec2de78c9873056e4cbd98df0ed5d929619958. Recording ready_to_merge before squash merge per PR-train policy."
+        },
+        {
+          "at": "2026-06-23T11:34:00+08:00",
+          "status": "merged_cleanup_complete",
+          "note": "PR #1353 was squash merged as 841dacd6592e8e45c43cd9d3945d04ff97a62d41. origin/main contains the merge commit, local main equals origin/main, the worktree is clean, and task branch cleanup completed locally and remotely."
         }
       ]
     },
@@ -25943,7 +25948,7 @@
       "repo": "fap-web",
       "branch": "codex/big5-runtime-qa-consumption-packet-01",
       "base": "main",
-      "status": "pending_dependency",
+      "status": "in_progress",
       "train_scope": "big5_runtime_qa_consumption_packet",
       "title": "BIG5-RUNTIME-QA-CONSUMPTION-PACKET-01: docs(result): add Big Five Runtime QA packet",
       "depends_on": [
@@ -25961,8 +25966,8 @@
           "evidence": "User authorized this PR id in ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-INTEGRATION-PR-TRAIN-01."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Blocked until ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01 is merged and cleaned up."
+          "status": "pass",
+          "evidence": "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01 merged in PR #1353 as 841dacd6592e8e45c43cd9d3945d04ff97a62d41 and post-merge cleanup completed before PR2 started."
         },
         "scope": {
           "status": "authorized",
@@ -25977,8 +25982,8 @@
           "evidence": "Authorized scope is docs/contracts-only Big Five Runtime QA consumption packet plus current PR train metadata."
         },
         "local_validation": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "Passed: python3 -m json.tool docs/result-page-agents/big5-runtime-qa-consumption-packet.v1.json; python3 -m json.tool docs/codex/pr-train-state.json; ruby YAML parse for docs/codex/pr-train.yaml; pnpm exec vitest run tests/contracts/big5-runtime-qa-consumption-packet.contract.test.ts; pnpm typecheck; pnpm test:contract (535 files, 3067 tests); git diff --check; explicit worktree changed-file scope validation over tracked and untracked files."
         },
         "pull_request": {
           "status": "pending",
@@ -25995,6 +26000,16 @@
           "at": "2026-06-23T11:17:24+08:00",
           "status": "pending_dependency",
           "note": "Initialized from authorized five-PR Runtime QA integration train. Waiting for the common contract PR to merge."
+        },
+        {
+          "at": "2026-06-23T11:35:00+08:00",
+          "status": "in_progress",
+          "note": "Started PR2 from clean origin/main after PR1 merge and cleanup. Scope is docs/contracts-only Big Five Runtime QA consumption packet plus current PR train metadata."
+        },
+        {
+          "at": "2026-06-23T11:40:00+08:00",
+          "status": "local_checks_passed",
+          "note": "Added the Big Five Runtime QA consumption packet, reconciled PR1 merge/cleanup facts, and passed JSON/YAML parsing, focused Vitest, typecheck, full contract suite, diff whitespace, and explicit changed-file scope validation."
         }
       ]
     },

@@ -2675,6 +2675,15 @@ const ACTIVE_RESULT_PAGE_AGENTS_RUNTIME_QA_COMMON_CONTRACT_01_ALLOWED_FILES = ne
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const BIG5_RUNTIME_QA_CONSUMPTION_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/result-page-agents/big5-runtime-qa-consumption-packet-2026-06-23.md",
+  "docs/result-page-agents/big5-runtime-qa-consumption-packet.v1.json",
+  "tests/contracts/big5-runtime-qa-consumption-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const RESULT_PAGE_AGENT_ANALYTICS_HANDOFF_01_ALLOWED_FILES = new Set([
   "docs/result-page-agents/result-page-agent-analytics-handoff-2026-06-23.md",
   "docs/result-page-agents/result-page-agent-analytics-handoff.v1.json",
@@ -2938,6 +2947,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/active-result-page-agents-runtime-qa-common-contract-01" &&
     ACTIVE_RESULT_PAGE_AGENTS_RUNTIME_QA_COMMON_CONTRACT_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/big5-runtime-qa-consumption-packet-01" &&
+    BIG5_RUNTIME_QA_CONSUMPTION_PACKET_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
