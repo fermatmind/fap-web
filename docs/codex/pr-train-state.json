@@ -15221,7 +15221,7 @@
       "depends_on": [
         "PR-EQ-PER-02"
       ],
-      "status": "ready_to_merge",
+      "status": "merged_cleanup_complete",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/938",
       "commit_sha": "e61fca746f00bfe0faff132fd229459a9088122c",
       "merge_sha": null,
@@ -26211,11 +26211,11 @@
         "ENNEAGRAM-RUNTIME-QA-CONSUMPTION-PACKET-01",
         "RIASEC-RUNTIME-QA-CONSUMPTION-PACKET-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "02429dc1a54b631a2b01cb29ab3624da830d92cf",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1361",
+      "merged_at": "2026-06-23T07:17:47Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -26323,8 +26323,8 @@
           "evidence": "Local checks passed on codex/active-result-page-agents-analytics-common-contract-01: JSON parse for analytics common contract and state, YAML parse for manifest, focused analytics common contract test (11 tests), pnpm typecheck, pnpm test:contract (539 files, 3108 tests), git diff --check, and changed-file scope validation for exactly 6 authorized files. pnpm build was intentionally not run per goal constraints."
         },
         "pull_request": {
-          "status": "open",
-          "evidence": "Opened PR #1361: https://github.com/fermatmind/fap-web/pull/1361."
+          "status": "merged",
+          "evidence": "PR #1361 was squash merged as 02429dc1a54b631a2b01cb29ab3624da830d92cf."
         },
         "github": {
           "status": "pass",
@@ -26357,6 +26357,11 @@
           "at": "2026-06-23T15:18:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed on PR #1361 head b7fc04d7 and changed-file scope remained within the six authorized PR1 files. Recording ready_to_merge before squash merge per PR-train policy."
+        },
+        {
+          "at": "2026-06-23T15:20:00+08:00",
+          "status": "merged_cleanup_complete",
+          "note": "PR #1361 was squash merged as 02429dc1a54b631a2b01cb29ab3624da830d92cf. origin/main contains the merge commit, local main equals origin/main, worktree is clean, and task branch cleanup completed locally and remotely."
         }
       ]
     },
@@ -26365,7 +26370,7 @@
       "repo": "fap-web",
       "branch": "codex/big5-analytics-consumption-packet-01",
       "base": "main",
-      "status": "pending_dependency",
+      "status": "in_progress",
       "train_scope": "big5_analytics_consumption_packet",
       "title": "BIG5-ANALYTICS-CONSUMPTION-PACKET-01: docs(result): add Big Five analytics packet",
       "depends_on": [
@@ -26383,8 +26388,8 @@
           "evidence": "User authorized this PR id in ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-INTEGRATION-PR-TRAIN-01."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Waiting for ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01 to merge."
+          "status": "pass",
+          "evidence": "ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01 merged in PR #1361 as 02429dc1a54b631a2b01cb29ab3624da830d92cf before this PR started."
         },
         "scope": {
           "status": "authorized",
@@ -26397,6 +26402,18 @@
             "docs/codex/pr-train-state.json"
           ],
           "evidence": "Authorized scope is docs/contracts-only Big Five analytics consumption packet plus current PR train metadata."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Local checks passed on codex/big5-analytics-consumption-packet-01: JSON parse for Big Five packet and state, YAML parse for manifest, focused Big Five analytics packet contract (8 tests), pnpm typecheck, pnpm test:contract (540 files, 3116 tests), git diff --check, and changed-file scope validation for exactly 5 authorized files. pnpm build was intentionally not run per goal constraints."
+        },
+        "pull_request": {
+          "status": "not_opened",
+          "evidence": null
+        },
+        "github": {
+          "status": "not_started",
+          "evidence": null
         }
       },
       "sidecar_issues": [],
@@ -26405,6 +26422,16 @@
           "at": "2026-06-23T13:10:00+08:00",
           "status": "pending_dependency",
           "note": "Initialized from authorized five-PR Analytics integration train. Waiting for common analytics contract PR to merge."
+        },
+        {
+          "at": "2026-06-23T15:21:00+08:00",
+          "status": "in_progress",
+          "note": "Started PR2 from origin/main 02429dc1a54b631a2b01cb29ab3624da830d92cf after PR1 merge and cleanup. Scope is fap-web docs/contracts-only Big Five analytics consumption packet plus current PR train metadata."
+        },
+        {
+          "at": "2026-06-23T15:26:00+08:00",
+          "status": "local_checks_passed",
+          "note": "JSON/YAML parse, focused Big Five analytics packet contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed. pnpm build intentionally not run per goal constraints."
         }
       ]
     },

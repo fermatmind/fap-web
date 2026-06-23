@@ -9683,7 +9683,7 @@ prs:
     mode: execute
     train_scope: pr_fdn_01_llms_full_recheck_or_repair
     risk_level: scoped_seo_geo_cache_revalidation_repair
-    status: in_progress
+    status: merged_cleanup_complete
     title: "PR-FDN-01-LLMS-FULL-RECHECK-OR-REPAIR repair foundation content-page llms-full cache revalidation"
     goal: "Repair content_page release revalidation so foundation/content page updates refresh localized public content-page paths and llms surfaces while clearing the llms-full in-process response cache, without CMS mutation or frontend fallback content."
     in_scope:
@@ -11985,7 +11985,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: active_result_page_agents_analytics_common_contract
-    status: in_progress
+    status: merged_cleanup_complete
     goal: "Create the common analytics consumption contract for Runtime QA plus the Big Five, Enneagram, and RIASEC result-page agents, preserving all no-runtime, no-event, no-backfill, no-opportunity-scoring, provider, Search Channel, CMS, deploy, fap-api mutation, and private-data holds."
     artifacts:
       - docs/result-page-agents/active-result-page-agents-analytics-common-contract-2026-06-23.md
@@ -12039,7 +12039,7 @@ prs:
       - ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01
     mode: execute
     train_scope: big5_analytics_consumption_packet
-    status: pending_dependency
+    status: in_progress
     goal: "Create the Big Five analytics consumption packet from merged read-only result-page and Runtime QA evidence, preserving pilot, runtime, production, CMS, search, private-data, event-emission, backfill, and opportunity-scoring holds."
     artifacts:
       - docs/result-page-agents/big5-analytics-consumption-packet-2026-06-23.md
