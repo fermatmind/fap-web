@@ -25870,11 +25870,11 @@
       "repo": "fap-web",
       "branch": "codex/active-result-page-agents-runtime-qa-common-contract-01",
       "base": "main",
-      "status": "in_progress",
+      "status": "ready_to_merge",
       "train_scope": "active_result_page_agents_runtime_qa_common_contract",
       "title": "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01: docs(result): define active agent Runtime QA contract",
       "depends_on": [],
-      "commit_sha": "8cb2dea5de29e8b9609ba555977a40383a77aaa0",
+      "commit_sha": "26ec2de78c9873056e4cbd98df0ed5d929619958",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1353",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -25910,8 +25910,8 @@
           "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1353 after local validation and scope validation passed. The branch head remains the source of truth after this ledger update commit."
         },
         "github": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "PR #1353 checks passed on head 26ec2de78c9873056e4cbd98df0ed5d929619958: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). GitHub mergeStateStatus was CLEAN before this ready_to_merge ledger update."
         }
       },
       "sidecar_issues": [],
@@ -25930,6 +25930,11 @@
           "at": "2026-06-23T11:28:00+08:00",
           "status": "pr_open",
           "note": "Opened PR #1353 for the common Runtime QA contract after path-limited staging and local validation."
+        },
+        {
+          "at": "2026-06-23T11:30:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed and mergeStateStatus was CLEAN on head 26ec2de78c9873056e4cbd98df0ed5d929619958. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
