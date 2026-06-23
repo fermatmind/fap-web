@@ -10030,7 +10030,7 @@ prs:
     mode: execute
     train_scope: ops_api_public_tls_path_fix_01a_frontend_same_origin_foundation_api_proxy
     risk_level: scoped_public_api_proxy_rewrite
-    status: in_progress
+    status: merged_cleanup_complete
     title: "OPS-API-PUBLIC-TLS-PATH-FIX-01A: Add Foundation Daily Giving same-origin API proxy"
     goal: "Add frontend same-origin rewrites for public Foundation Daily Giving API paths so apex /api can reach backend authority while api.fermatmind.com SNI/TLS edge repair remains separate."
     in_scope:
@@ -10085,7 +10085,7 @@ prs:
     mode: execute
     train_scope: pr_fdn_02b_daily_giving_frontend_pages
     risk_level: scoped_public_foundation_runtime_pages
-    status: in_progress
+    status: merged_cleanup_complete
     title: "PR-FDN-02B: Add Foundation Daily Giving frontend pages"
     goal: "Add backend-authoritative Foundation Daily Giving frontend pages and monthly archive pages that consume the public Foundation API without frontend fallback records or discoverability exposure changes."
     in_scope:
@@ -12321,7 +12321,7 @@ prs:
       - ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01
     mode: execute
     train_scope: big5_safety_gate_consumption_packet
-    status: pending_dependency
+    status: in_progress
     goal: "Create the Big Five Safety Gate consumption packet using Big Five Runtime QA and Analytics packets while keeping pilot, runtime, production, CMS, search, opportunity scoring, private-data, event-emission, and fap-api mutation actions held."
     artifacts:
       - docs/result-page-agents/big5-safety-gate-consumption-packet-2026-06-23.md

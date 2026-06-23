@@ -1,0 +1,213 @@
+{
+  "schema_version": "fermatmind.big5_safety_gate_consumption_packet.v1",
+  "artifact_id": "big5-safety-gate-consumption-packet-2026-06-23",
+  "task_id": "BIG5-SAFETY-GATE-CONSUMPTION-PACKET-01",
+  "verdict": "READY_TO_CONSUME_BY_SAFETY_GATE",
+  "run_mode": "docs_contracts_only",
+  "receiving_agent": "claim_privacy_safety_gate",
+  "producing_agent": "big_five_result_page",
+  "scale_code": "BIG5_OCEAN",
+  "dependency": {
+    "task_id": "ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01",
+    "status": "MERGED",
+    "merge_commit": "bb4579e8c087e5221b2cd90c63c485fdc99b6199"
+  },
+  "source_refs": {
+    "common_contract": "docs/result-page-agents/active-result-page-agents-safety-gate-common-contract.v1.json",
+    "runtime_qa_packet": "docs/result-page-agents/big5-runtime-qa-consumption-packet.v1.json",
+    "analytics_packet": "docs/result-page-agents/big5-analytics-consumption-packet.v1.json",
+    "readonly_cleared_handoff": "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json",
+    "pdf_share_private_leak_contracts": "tests/contracts/big5-pdf-rendered-qa.contract.test.tsx, tests/contracts/big5-share-card-rendered-qa.contract.test.tsx, tests/contracts/result-private-leak-regressions.contract.test.ts"
+  },
+  "consumed_evidence": {
+    "result_page_handoff_verdict": "READY_READONLY_CLEARED",
+    "runtime_qa_packet_verdict": "READY_TO_CONSUME_BY_RUNTIME_QA",
+    "analytics_packet_verdict": "READY_TO_CONSUME_BY_ANALYTICS",
+    "safety_gate_common_verdict": "READY_TO_CONSUME_COMMON_SAFETY_GATE_CONTRACT",
+    "historical_share_safety_blocker": "CLEARED_READONLY_ONLY",
+    "share_safety_clearance_scope": "sanitized_readonly_evidence_only",
+    "sanitized_fap_api_evidence": [
+      {
+        "source": "PR #2326 sanitized readiness artifact evidence",
+        "share_safety_missing_count": 0,
+        "validation_error_count": 0,
+        "leak_hit_count": 0
+      },
+      {
+        "source": "PR #2331 sanitized follow-up evidence",
+        "share_safety_missing_count": 0,
+        "validation_error_count": 0,
+        "leak_hit_count": 0
+      }
+    ],
+    "ready_for_safety_report": true,
+    "ready_for_pilot": false,
+    "ready_for_runtime": false,
+    "ready_for_production": false,
+    "ready_for_cms": false,
+    "ready_for_search": false,
+    "ready_for_opportunity_scoring": false
+  },
+  "safety_assertions": [
+    {
+      "id": "unsupported_claim_gate",
+      "status": "PASS",
+      "evidence": "Blocks fixed type, official 32-type, unsupported superiority, diagnostic, hiring, salary, performance, success, admission, ability, and life-outcome claims."
+    },
+    {
+      "id": "private_result_boundary_gate",
+      "status": "PASS",
+      "evidence": "Blocks raw OCEAN scores, score vectors, percentiles, attempt/user identifiers, report tokens, private URLs, private report payloads, and full report body text."
+    },
+    {
+      "id": "analytics_payload_privacy_gate",
+      "status": "PASS",
+      "evidence": "Analytics packet allows read-only quality report planning only and blocks event emission, backfill, opportunity scoring, and private payload fields."
+    },
+    {
+      "id": "share_public_summary_gate",
+      "status": "PASS",
+      "evidence": "Share safety blocker is cleared only at the sanitized read-only evidence layer; share remains public-summary only."
+    },
+    {
+      "id": "pdf_private_print_gate",
+      "status": "PASS",
+      "evidence": "PDF and private print contracts remain private-safe and must not expose private URLs, raw scores, tokens, or full private report text."
+    },
+    {
+      "id": "public_private_content_separation_gate",
+      "status": "PASS",
+      "evidence": "Big Five private result surfaces remain separate from public personality profile or SEO content authority."
+    },
+    {
+      "id": "hard_hold_action_gate",
+      "status": "PASS",
+      "evidence": "Pilot, runtime, production, CMS, search, private data, event emission, backfill, opportunity scoring, renderer, instrumentation, Big Five content, and fap-api mutation remain held."
+    },
+    {
+      "id": "smoke_exclusion_gate",
+      "status": "PASS",
+      "evidence": "Smoke, test, QA, synthetic, fixture, generated, staging-only, provider/search/deploy, and private result URL observations are excluded from approval."
+    },
+    {
+      "id": "runtime_qa_to_analytics_safety_gate",
+      "status": "PASS",
+      "evidence": "Runtime QA and Analytics readiness can feed a read-only Safety Gate report but cannot approve runtime, production, CMS, search, private-data, event-emission, backfill, or opportunity-scoring actions."
+    }
+  ],
+  "allowed_claim_classes": [
+    "self_understanding",
+    "personality_reflection",
+    "motivation_pattern_reflection",
+    "communication_reflection",
+    "method_boundary",
+    "non_diagnostic_note",
+    "public_summary",
+    "public_projection"
+  ],
+  "forbidden_claims": [
+    "raw OCEAN score claim",
+    "score vector exposure claim",
+    "percentile guarantee",
+    "official 32-type claim",
+    "fixed-type claim",
+    "unsupported psychometric superiority claim",
+    "diagnosis",
+    "treatment",
+    "therapy",
+    "hiring screen",
+    "employment suitability guarantee",
+    "salary prediction",
+    "performance prediction",
+    "success prediction",
+    "admissions guarantee",
+    "ability measurement guarantee",
+    "life outcome guarantee",
+    "paid/official/certified guarantee unless backend authority explicitly supports it"
+  ],
+  "forbidden_private_fields": [
+    "raw_ocean_scores",
+    "raw_score",
+    "raw_scores",
+    "score_vector",
+    "dimension_vector",
+    "percentile",
+    "attempt_id",
+    "user_id",
+    "account_id",
+    "email",
+    "phone",
+    "report_token",
+    "private_url",
+    "private_report_url",
+    "private_result_payload",
+    "full_report_body_text",
+    "selector_trace",
+    "source_refs",
+    "qa_trace",
+    "editor_notes",
+    "order_id",
+    "payment_id",
+    "benefit_grant_id",
+    "benefit_wallet_id",
+    "access_token",
+    "cookie",
+    "session_id"
+  ],
+  "smoke_qa_synthetic_exclusions": [
+    "production_activation_smoke_attempts",
+    "codex_probe_anon_prefix",
+    "codex_probe_session_prefix",
+    "codex_probe_request_prefix",
+    "qa_synthetic_attempts",
+    "fixtures",
+    "generated_readiness_artifacts",
+    "staging_only_artifacts",
+    "internal_preview_artifacts",
+    "crawler_search_provider_behavior",
+    "private_result_report_urls"
+  ],
+  "holds": [
+    "pilot",
+    "runtime_enablement",
+    "production_rollout",
+    "cms",
+    "search",
+    "private_result_data",
+    "event_emission",
+    "production_metric_backfill",
+    "opportunity_scoring",
+    "provider_calls",
+    "search_channel_mutation",
+    "generated_readiness_artifact_write",
+    "renderer_change",
+    "runtime_instrumentation_change",
+    "big_five_content_change",
+    "fap_api_mutation",
+    "default_denied_action_approval"
+  ],
+  "negative_guarantees": {
+    "safety_runtime_code_changed": "no",
+    "analytics_runtime_code_changed": "no",
+    "event_emission": "none",
+    "production_metric_backfill": "none",
+    "opportunity_scoring": "none",
+    "search_channel_mutation": "none",
+    "provider_calls": "none",
+    "cms_writes": "none",
+    "publishing": "none",
+    "deployment_triggered": "no",
+    "private_result_data_accessed": "none",
+    "renderer_changed": "no",
+    "runtime_instrumentation_changed": "no",
+    "big_five_content_changed": "no",
+    "fap_api_mutation": "none",
+    "generated_readiness_artifact_written": "no"
+  },
+  "next_safe_output": {
+    "agent": "claim_privacy_safety_gate",
+    "output": "read_only_big5_safety_report",
+    "status": "ALLOWED_LATER",
+    "requires_separate_authorization": true
+  }
+}
