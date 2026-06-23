@@ -1,0 +1,171 @@
+{
+  "schema_version": "fermatmind.big5_runtime_qa_consumption_packet.v1",
+  "artifact_id": "big5-runtime-qa-consumption-packet-2026-06-23",
+  "task_id": "BIG5-RUNTIME-QA-CONSUMPTION-PACKET-01",
+  "verdict": "READY_TO_CONSUME_BY_RUNTIME_QA",
+  "run_mode": "docs_contracts_only",
+  "receiving_agent": "runtime_qa",
+  "producing_agent": "big_five_result_page",
+  "scale_code": "BIG5_OCEAN",
+  "dependency": {
+    "task_id": "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01",
+    "status": "MERGED",
+    "merge_commit": "841dacd6592e8e45c43cd9d3945d04ff97a62d41"
+  },
+  "source_refs": {
+    "common_contract": "docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract.v1.json",
+    "readonly_cleared_handoff": "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json",
+    "readiness_matrix": "docs/result-page-agents/six-result-page-agent-readiness-matrix.v1.json",
+    "runtime_qa_handoff": "docs/result-page-agents/result-page-agent-runtime-qa-handoff.v1.json",
+    "analytics_handoff": "docs/result-page-agents/result-page-agent-analytics-handoff.v1.json"
+  },
+  "consumed_evidence": {
+    "readiness_verdict": "READY_READONLY_CLEARED",
+    "matrix_readiness": "ready_readonly_cleared",
+    "historical_share_safety_blocker": "CLEARED_READONLY_ONLY",
+    "authority_source": "sanitized fap-api evidence already merged on origin/main",
+    "sanitized_fap_api_evidence": [
+      {
+        "source": "PR #2326 sanitized readiness artifact evidence",
+        "share_safety_missing_count": 0,
+        "validation_error_count": 0,
+        "leak_hit_count": 0
+      },
+      {
+        "source": "PR #2331 sanitized follow-up evidence",
+        "share_safety_missing_count": 0,
+        "validation_error_count": 0,
+        "leak_hit_count": 0
+      }
+    ],
+    "ready_for_runtime": false,
+    "ready_for_production": false,
+    "production_use_allowed": false
+  },
+  "assertions": [
+    {
+      "id": "route_contract",
+      "status": "PASS",
+      "evidence": "/[locale]/result/[id] is mapped through the shared private result route."
+    },
+    {
+      "id": "report_api_contract",
+      "status": "PASS",
+      "evidence": "/api/v0.3/attempts/{attempt_id}/report remains the mapped report API contract."
+    },
+    {
+      "id": "report_access_api_contract",
+      "status": "PASS",
+      "evidence": "/api/v0.3/attempts/{attempt_id}/report-access remains the access-state boundary and must not expose token/account/private payload fields."
+    },
+    {
+      "id": "renderer_dispatch",
+      "status": "PASS",
+      "evidence": "Big Five dispatch remains ResultClient -> RichResultReport -> Big5ResultPageV2Shell."
+    },
+    {
+      "id": "pdf_private_print_boundary",
+      "status": "PASS",
+      "evidence": "Big Five PDF rendered QA plus shared private print/redaction contracts remain the PDF boundary."
+    },
+    {
+      "id": "share_public_private_boundary",
+      "status": "PASS",
+      "evidence": "Share surface is public-summary only; sanitized fap-api evidence records share_safety_missing_count=0."
+    },
+    {
+      "id": "private_result_noindex_boundary",
+      "status": "PASS",
+      "evidence": "Private result surfaces remain noindex and private-print scoped."
+    },
+    {
+      "id": "leak_boundary",
+      "status": "PASS",
+      "evidence": "Runtime QA must fail closed on raw OCEAN scores, score vectors, percentiles, private payloads, tokens, or fallback authority."
+    },
+    {
+      "id": "claim_privacy_safety_gate",
+      "status": "PASS",
+      "evidence": "Unsupported fixed-type, official 32-type, diagnosis, hiring, success, salary, performance, admission, ability, and life-outcome claims remain forbidden."
+    },
+    {
+      "id": "analytics_smoke_exclusion_gate",
+      "status": "PASS",
+      "evidence": "Analytics handoff excludes smoke/test/QA/synthetic artifacts and private fields."
+    }
+  ],
+  "share_surface_boundary": {
+    "status": "PUBLIC_SUMMARY_ONLY",
+    "forbidden_public_fields": [
+      "raw_ocean_scores",
+      "score_vector",
+      "percentile",
+      "private_result_payload",
+      "attempt_id",
+      "user_id",
+      "account_id",
+      "report_token",
+      "report_url",
+      "selector_trace",
+      "qa_trace",
+      "source_refs"
+    ]
+  },
+  "claim_boundary": {
+    "status": "PASS",
+    "forbidden_claims": [
+      "unsupported fixed type",
+      "official 32-type claim",
+      "diagnosis",
+      "treatment",
+      "therapy",
+      "hiring prediction",
+      "salary prediction",
+      "performance prediction",
+      "success prediction",
+      "admission prediction",
+      "ability guarantee",
+      "life-outcome guarantee"
+    ]
+  },
+  "analytics_smoke_exclusions": [
+    "exclude smoke/test/QA/synthetic artifacts",
+    "exclude fixture-marked runs",
+    "exclude events with attempt id, user id, raw score, score vector, percentile, selector trace, private URL, report token, or raw payload",
+    "exclude provider/search/deploy events"
+  ],
+  "holds": [
+    "pilot",
+    "runtime_enablement",
+    "production_rollout",
+    "cms",
+    "search",
+    "private_result_data",
+    "generated_readiness_artifact_write",
+    "renderer_change",
+    "runtime_instrumentation_change",
+    "big_five_content_change",
+    "fap_api_mutation"
+  ],
+  "negative_guarantees": {
+    "runtime_code_changed": "no",
+    "renderer_changed": "no",
+    "runtime_instrumentation_changed": "no",
+    "big_five_content_changed": "no",
+    "fap_api_mutation": "none",
+    "backend_artifact_writing_commands_run": "none",
+    "cms_writes": "none",
+    "publishing": "none",
+    "search_submissions": "none",
+    "provider_calls": "none",
+    "deployment_triggered": "no",
+    "private_result_data_accessed": "none",
+    "generated_readiness_artifact_written": "no"
+  },
+  "next_safe_output": {
+    "agent": "runtime_qa",
+    "output": "read_only_runtime_qa_report",
+    "status": "ALLOWED_LATER",
+    "requires_separate_authorization": true
+  }
+}

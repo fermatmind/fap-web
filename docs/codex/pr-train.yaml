@@ -16350,7 +16350,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: active_result_page_agents_runtime_qa_common_contract
-    status: in_progress
+    status: merged_cleanup_complete
     goal: "Define the common Runtime QA consumption contract, schema vocabulary, assertion vocabulary, status vocabulary, and active-agent handoff rules for Big Five, Enneagram, and RIASEC without runtime code, deploy, CMS, search, provider, private-data, or generated readiness artifact mutation."
     artifacts:
       - docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract-2026-06-23.md
@@ -16408,7 +16408,7 @@ prs:
       - ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01
     mode: execute
     train_scope: big5_runtime_qa_consumption_packet
-    status: pending_dependency
+    status: ready_to_merge
     goal: "Create the Big Five Runtime QA consumption packet using merged READY_READONLY_CLEARED evidence and analytics handoff while keeping pilot, runtime, production, CMS, search, and private-data actions held."
     artifacts:
       - docs/result-page-agents/big5-runtime-qa-consumption-packet-2026-06-23.md
