@@ -213,7 +213,7 @@ prs:
     base: main
     depends_on: [PR-PRAC-03]
     mode: execute
-    status: ready_to_merge
+    status: merged_cleanup_complete
     title: "test(runtime): add public claim runtime boundary matrix"
     artifacts:
       - docs/claims/public-claim-boundary-matrix.md
@@ -16512,7 +16512,7 @@ prs:
       - ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01
     mode: execute
     train_scope: riasec_runtime_qa_consumption_packet
-    status: pending_dependency
+    status: in_progress
     goal: "Create the RIASEC Runtime QA consumption packet in fap-web using fap-api authority references read-only, preserving one flagship/two forms, career examples-only policy, and production import/runtime/CMS/search holds."
     artifacts:
       - docs/result-page-agents/riasec-runtime-qa-consumption-packet-2026-06-23.md
