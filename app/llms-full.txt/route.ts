@@ -103,6 +103,15 @@ const LLMS_FULL_REQUIRED_PERSONALITY_PILOT_PATHS = [
   "/zh/personality/intj-a",
   "/zh/personality/intj-t",
 ] as const;
+const LLMS_FULL_REQUIRED_PERSONALITY_FRESH_AGENT_PATHS = [
+  "/zh/personality/esfj-a",
+  "/zh/personality/intp-a",
+  "/zh/personality/istp-a",
+] as const;
+const LLMS_FULL_REQUIRED_PERSONALITY_PATHS = [
+  ...LLMS_FULL_REQUIRED_PERSONALITY_PILOT_PATHS,
+  ...LLMS_FULL_REQUIRED_PERSONALITY_FRESH_AGENT_PATHS,
+] as const;
 const LLMS_FULL_ARTICLE_ENTRY_LIMIT = LLMS_ROUTE_LIMITS.articles * 2;
 const LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS = [
   "accountants-and-auditors",
@@ -532,7 +541,7 @@ function hasCompleteMbti64PersonalityCohort(text: string, siteUrl: string): bool
     return false;
   }
 
-  return LLMS_FULL_REQUIRED_PERSONALITY_PILOT_PATHS.every((path) => text.includes(`${siteUrl}${path}`));
+  return LLMS_FULL_REQUIRED_PERSONALITY_PATHS.every((path) => text.includes(`${siteUrl}${path}`));
 }
 
 export function isCompleteLlmsFullText(text: string, siteUrl: string): boolean {
@@ -590,12 +599,15 @@ async function waitForLlmsFullBuildBudget(
   ]);
 }
 
-async function buildDegradedLlmsFullText(siteUrl: string): Promise<string> {
-  const careerJobPaths = await withLlmsRouteBudget(
-    (signal) => listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal }),
-    [],
-    { timeoutMs: LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS }
-  );
+export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string> {
+  const [personalityEntries, careerJobPaths] = await Promise.all([
+    withLlmsRouteBudget(() => listPersonalityEntries(), [], { timeoutMs: LLMS_FULL_PERSONALITY_SOURCE_TIMEOUT_MS }),
+    withLlmsRouteBudget(
+      (signal) => listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal }),
+      [],
+      { timeoutMs: LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS }
+    ),
+  ]);
   const careers = careerJobPaths
     .map((path) => buildCareerJobEntry(path))
     .filter((entry): entry is LlmsFullEntry => Boolean(entry))
@@ -615,6 +627,9 @@ async function buildDegradedLlmsFullText(siteUrl: string): Promise<string> {
     "",
     "## Canonical Entrypoints",
     ...canonicalEntrypointEntries(siteUrl).flatMap((entry) => formatEntry(entry, siteUrl)),
+    "",
+    "## Personality",
+    ...personalityEntries.flatMap((entry) => formatEntry(entry, siteUrl)),
     "",
     "## Career",
     ...careers.flatMap((entry) => formatEntry(entry, siteUrl)),

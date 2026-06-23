@@ -258,6 +258,13 @@ const MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_02_ALLOWED_FILES = new Set([
   "tests/contracts/mbti64-llms-full-pilot-exposure-repair.contract.test.ts",
 ]);
 
+const MBTI64_LLMS_FULL_FRESH_3_MEMBERSHIP_REPAIR_01_ALLOWED_FILES = new Set([
+  "app/llms-full.txt/route.ts",
+  "docs/seo/personality/mbti64-llms-full-fresh-3-membership-repair-2026-06-23.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti64-llms-full-pilot-exposure-repair.contract.test.ts",
+]);
+
 const MBTI64_PERSONALITY_DETAIL_FRONTEND_API_ORIGIN_REPAIR_01_ALLOWED_FILES = new Set([
   "lib/api-base.ts",
   "next.config.mjs",
@@ -4135,6 +4142,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/mbti64-llms-full-pilot-exposure-repair-02") {
     return MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_02_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/mbti64-llms-full-fresh-3-membership-repair-01") {
+    return MBTI64_LLMS_FULL_FRESH_3_MEMBERSHIP_REPAIR_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/article-h1-01") {

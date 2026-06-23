@@ -31,6 +31,12 @@ const PILOT_PATHS = [
   "/zh/personality/intj-a",
   "/zh/personality/intj-t",
 ] as const;
+const FRESH_AGENT_PATHS = [
+  "/zh/personality/esfj-a",
+  "/zh/personality/intp-a",
+  "/zh/personality/istp-a",
+] as const;
+const REQUIRED_MBTI64_PATHS = [...PILOT_PATHS, ...FRESH_AGENT_PATHS] as const;
 
 type TestLocale = "en" | "zh";
 
@@ -219,7 +225,7 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
     const text = await buildLlmsFullText(SITE_URL);
     const personalityUrls = new Set(extractPersonalityUrls(text));
 
-    for (const path of PILOT_PATHS) {
+    for (const path of REQUIRED_MBTI64_PATHS) {
       expect(text).toContain(`${SITE_URL}${path}`);
     }
 
@@ -237,7 +243,21 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
     const personalityUrls = new Set(extractPersonalityUrls(text));
 
     expect(Date.now() - startedAt).toBeGreaterThanOrEqual(1_500);
-    for (const path of PILOT_PATHS) {
+    for (const path of REQUIRED_MBTI64_PATHS) {
+      expect(text).toContain(`${SITE_URL}${path}`);
+    }
+    expect(personalityUrls.size).toBe(96);
+  });
+
+  it("keeps fresh query-backed MBTI64 URLs in the degraded llms-full response when the complete artifact is not ready", async () => {
+    mockLlmsFullMbti64Dependencies();
+
+    const { buildDegradedLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const text = await buildDegradedLlmsFullText(SITE_URL);
+    const personalityUrls = new Set(extractPersonalityUrls(text));
+
+    expect(text).toContain("Mode: degraded");
+    for (const path of REQUIRED_MBTI64_PATHS) {
       expect(text).toContain(`${SITE_URL}${path}`);
     }
     expect(personalityUrls.size).toBe(96);
