@@ -11975,6 +11975,281 @@ prs:
       squash: true
       auto_merge: true
     next_task: null
+
+  - id: ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/active-result-page-agents-analytics-common-contract-01
+    base: main
+    title: "ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01: docs(result): add active analytics common contract"
+    depends_on: []
+    mode: execute
+    train_scope: active_result_page_agents_analytics_common_contract
+    status: in_progress
+    goal: "Create the common analytics consumption contract for Runtime QA plus the Big Five, Enneagram, and RIASEC result-page agents, preserving all no-runtime, no-event, no-backfill, no-opportunity-scoring, provider, Search Channel, CMS, deploy, fap-api mutation, and private-data holds."
+    artifacts:
+      - docs/result-page-agents/active-result-page-agents-analytics-common-contract-2026-06-23.md
+      - docs/result-page-agents/active-result-page-agents-analytics-common-contract.v1.json
+      - tests/contracts/active-result-page-agents-analytics-common-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/result-page-agents/active-result-page-agents-analytics-common-contract-2026-06-23.md
+      - docs/result-page-agents/active-result-page-agents-analytics-common-contract.v1.json
+      - tests/contracts/active-result-page-agents-analytics-common-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - generated/**
+      - analytics runtime code
+      - event emission
+      - production metric backfill
+      - opportunity scoring
+      - Search Channel mutation
+      - GSC, GA4, Search Console, Baidu, IndexNow, crawler, or provider calls
+      - CMS writes, publish, search submission, deploy, private data access, fap-api mutation, or generated readiness artifacts
+    required_local_checks:
+      - python3 -m json.tool docs/result-page-agents/active-result-page-agents-analytics-common-contract.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/active-result-page-agents-analytics-common-contract.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: BIG5-ANALYTICS-CONSUMPTION-PACKET-01
+
+  - id: BIG5-ANALYTICS-CONSUMPTION-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-analytics-consumption-packet-01
+    base: main
+    title: "BIG5-ANALYTICS-CONSUMPTION-PACKET-01: docs(result): add Big Five analytics packet"
+    depends_on:
+      - ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: big5_analytics_consumption_packet
+    status: pending_dependency
+    goal: "Create the Big Five analytics consumption packet from merged read-only result-page and Runtime QA evidence, preserving pilot, runtime, production, CMS, search, private-data, event-emission, backfill, and opportunity-scoring holds."
+    artifacts:
+      - docs/result-page-agents/big5-analytics-consumption-packet-2026-06-23.md
+      - docs/result-page-agents/big5-analytics-consumption-packet.v1.json
+      - tests/contracts/big5-analytics-consumption-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/result-page-agents/big5-analytics-consumption-packet-2026-06-23.md
+      - docs/result-page-agents/big5-analytics-consumption-packet.v1.json
+      - tests/contracts/big5-analytics-consumption-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - generated/**
+      - analytics runtime code
+      - event emission
+      - production metric backfill
+      - opportunity scoring
+      - raw OCEAN/vector/private payload
+      - CMS writes, publish, search submission, provider calls, deploy, private data access, fap-api mutation, or generated readiness artifacts
+    required_local_checks:
+      - python3 -m json.tool docs/result-page-agents/big5-analytics-consumption-packet.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/big5-analytics-consumption-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ENNEAGRAM-ANALYTICS-CONSUMPTION-PACKET-01
+
+  - id: ENNEAGRAM-ANALYTICS-CONSUMPTION-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/enneagram-analytics-consumption-packet-01
+    base: main
+    title: "ENNEAGRAM-ANALYTICS-CONSUMPTION-PACKET-01: docs(result): add Enneagram analytics packet"
+    depends_on:
+      - ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: enneagram_analytics_consumption_packet
+    status: pending_dependency
+    goal: "Create the Enneagram analytics consumption packet from public-share-safe, Runtime QA, standard alignment, and public personality boundary evidence while holding generation, import, activation, runtime, CMS, search, private-data, event-emission, backfill, and opportunity scoring."
+    artifacts:
+      - docs/result-page-agents/enneagram-analytics-consumption-packet-2026-06-23.md
+      - docs/result-page-agents/enneagram-analytics-consumption-packet.v1.json
+      - tests/contracts/enneagram-analytics-consumption-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/result-page-agents/enneagram-analytics-consumption-packet-2026-06-23.md
+      - docs/result-page-agents/enneagram-analytics-consumption-packet.v1.json
+      - tests/contracts/enneagram-analytics-consumption-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - generated/**
+      - analytics runtime code
+      - event emission
+      - production metric backfill
+      - opportunity scoring
+      - raw Enneagram scores, dominance gap, release hash, or internal metadata
+      - CMS writes, publish, search submission, provider calls, deploy, private data access, fap-api mutation, or generated readiness artifacts
+    required_local_checks:
+      - python3 -m json.tool docs/result-page-agents/enneagram-analytics-consumption-packet.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/enneagram-analytics-consumption-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: RIASEC-ANALYTICS-CONSUMPTION-PACKET-01
+
+  - id: RIASEC-ANALYTICS-CONSUMPTION-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/riasec-analytics-consumption-packet-01
+    base: main
+    title: "RIASEC-ANALYTICS-CONSUMPTION-PACKET-01: docs(result): add RIASEC analytics packet"
+    depends_on:
+      - ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: riasec_analytics_consumption_packet
+    status: pending_dependency
+    goal: "Create the RIASEC analytics consumption packet from Runtime QA and fap-api authority references read-only, preserving one-flagship/two-form policy, examples-only career bridge boundaries, and all runtime, CMS, search, career graph mutation, event-emission, backfill, and opportunity-scoring holds."
+    artifacts:
+      - docs/result-page-agents/riasec-analytics-consumption-packet-2026-06-23.md
+      - docs/result-page-agents/riasec-analytics-consumption-packet.v1.json
+      - tests/contracts/riasec-analytics-consumption-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/result-page-agents/riasec-analytics-consumption-packet-2026-06-23.md
+      - docs/result-page-agents/riasec-analytics-consumption-packet.v1.json
+      - tests/contracts/riasec-analytics-consumption-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - generated/**
+      - fap-api mutation
+      - analytics runtime code
+      - event emission
+      - production metric backfill
+      - opportunity scoring
+      - career graph runtime mutation
+      - deterministic career recommendations or admissions, hiring, salary, performance, success, ability claims
+      - CMS writes, publish, search submission, provider calls, deploy, private data access, or generated readiness artifacts
+    required_local_checks:
+      - python3 -m json.tool docs/result-page-agents/riasec-analytics-consumption-packet.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/riasec-analytics-consumption-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-MATRIX-01
+
+  - id: ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-MATRIX-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/active-result-page-agents-analytics-matrix-01
+    base: main
+    title: "ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-MATRIX-01: docs(result): add active analytics matrix"
+    depends_on:
+      - BIG5-ANALYTICS-CONSUMPTION-PACKET-01
+      - ENNEAGRAM-ANALYTICS-CONSUMPTION-PACKET-01
+      - RIASEC-ANALYTICS-CONSUMPTION-PACKET-01
+    mode: execute
+    train_scope: active_result_page_agents_analytics_matrix
+    status: pending_dependency
+    goal: "Create the aggregate analytics consumability matrix for Big Five, Enneagram, and RIASEC; keep MBTI, IQ_RAVEN, and EQ_60 parked; and preserve all GSC data-quality, Search Channel exact-approval, provider, CMS, deploy, runtime, private-data, event-emission, backfill, and opportunity-scoring holds."
+    artifacts:
+      - docs/result-page-agents/active-result-page-agents-analytics-matrix-2026-06-23.md
+      - docs/result-page-agents/active-result-page-agents-analytics-matrix.v1.json
+      - tests/contracts/active-result-page-agents-analytics-matrix.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    allowed_paths:
+      - docs/result-page-agents/active-result-page-agents-analytics-matrix-2026-06-23.md
+      - docs/result-page-agents/active-result-page-agents-analytics-matrix.v1.json
+      - tests/contracts/active-result-page-agents-analytics-matrix.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - package.json
+      - pnpm-lock.yaml
+      - analytics runtime code
+      - event emission
+      - production metric backfill
+      - opportunity scoring
+      - provider calls
+      - Search Channel mutation
+      - CMS writes, publish, search submission, deploy, private data access, fap-api mutation, or generated readiness artifacts
+    required_local_checks:
+      - python3 -m json.tool docs/result-page-agents/active-result-page-agents-analytics-matrix.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/active-result-page-agents-analytics-matrix.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null
     acceptance:
       - Paid wait flow uses a ready exact result entry as a redirect source when projection hydration is temporarily unavailable.
       - Redirects remain limited to safe local result URLs.

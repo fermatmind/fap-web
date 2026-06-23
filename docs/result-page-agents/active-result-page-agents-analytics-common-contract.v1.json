@@ -1,0 +1,191 @@
+{
+  "schema_version": "fermatmind.active_result_page_agents_analytics_common_contract.v1",
+  "artifact_id": "active-result-page-agents-analytics-common-contract-2026-06-23",
+  "task_id": "ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01",
+  "verdict": "READY_TO_CONSUME_COMMON_ANALYTICS_CONTRACT",
+  "run_mode": "docs_contracts_only",
+  "receiving_agent": "analytics_gsc_opportunity",
+  "upstream_agents": [
+    "runtime_qa",
+    "big_five_result_page",
+    "enneagram_result_page",
+    "riasec_result_page"
+  ],
+  "active_agent_scope": [
+    {
+      "agent_id": "big_five_result_page",
+      "scale_code": "BIG5_OCEAN",
+      "analytics_common_status": "READY_TO_CONSUME",
+      "required_packet_task_id": "BIG5-ANALYTICS-CONSUMPTION-PACKET-01"
+    },
+    {
+      "agent_id": "enneagram_result_page",
+      "scale_code": "ENNEAGRAM",
+      "analytics_common_status": "READY_TO_CONSUME",
+      "required_packet_task_id": "ENNEAGRAM-ANALYTICS-CONSUMPTION-PACKET-01"
+    },
+    {
+      "agent_id": "riasec_result_page",
+      "scale_code": "RIASEC",
+      "analytics_common_status": "READY_TO_CONSUME",
+      "required_packet_task_id": "RIASEC-ANALYTICS-CONSUMPTION-PACKET-01"
+    }
+  ],
+  "parked_placeholder_scales": [
+    {
+      "scale_code": "MBTI",
+      "status": "PARKED_PLACEHOLDER"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "status": "PARKED_PLACEHOLDER"
+    },
+    {
+      "scale_code": "EQ_60",
+      "status": "PARKED_PLACEHOLDER"
+    }
+  ],
+  "event_family_vocabulary": [
+    "result_view",
+    "full_report_view",
+    "report_module_view",
+    "pdf_click",
+    "share_event",
+    "share_summary_view",
+    "second_test_click",
+    "returning_user_signal",
+    "career_exploration_click",
+    "public_profile_click",
+    "method_boundary_click"
+  ],
+  "common_allowed_properties": [
+    "scale_code",
+    "agent_id",
+    "locale",
+    "surface",
+    "event_version",
+    "result_surface",
+    "report_access_state",
+    "access_state",
+    "is_full_report_unlocked",
+    "projection_version",
+    "quality_state",
+    "module_id",
+    "module_slot",
+    "bridge_entry",
+    "example_kind",
+    "redaction_state",
+    "source_classification",
+    "smoke_excluded",
+    "qa_excluded"
+  ],
+  "common_forbidden_properties": [
+    "attempt",
+    "attempt_id",
+    "user",
+    "user_id",
+    "email",
+    "phone",
+    "account",
+    "account_id",
+    "report_token",
+    "private_url",
+    "raw_score",
+    "raw_scores",
+    "score_vector",
+    "dimension_vector",
+    "percentile",
+    "selector_trace",
+    "source_refs",
+    "qa_trace",
+    "editor_notes",
+    "private_report_payload",
+    "full_report_body_text",
+    "order_id",
+    "payment_id",
+    "benefit_ids",
+    "access_token",
+    "cookie",
+    "session_id",
+    "release_hash",
+    "registry_hash",
+    "content_hash",
+    "dominance_gap",
+    "answer_key",
+    "correct_answer"
+  ],
+  "smoke_qa_synthetic_exclusions": [
+    "production_activation_smoke_attempts",
+    "codex_probe_anon_prefix",
+    "codex_probe_session_prefix",
+    "codex_probe_request_prefix",
+    "qa_synthetic_attempts",
+    "fixtures",
+    "generated_readiness_artifacts",
+    "staging_only_artifacts",
+    "internal_preview_artifacts",
+    "crawler_search_provider_behavior",
+    "private_result_report_urls"
+  ],
+  "source_classification_vocabulary": [
+    "live_public",
+    "backend_authority",
+    "runtime_qa_artifact",
+    "analytics_observation",
+    "generated_artifact",
+    "fixture",
+    "mock",
+    "unknown",
+    "access_required"
+  ],
+  "negative_guarantees": {
+    "analytics_runtime_code_changed": "no",
+    "event_emission": "none",
+    "production_metric_backfill": "none",
+    "opportunity_scoring": "none",
+    "search_channel_mutation": "none",
+    "provider_calls": "none",
+    "private_result_data_accessed": "none",
+    "cms_writes": "none",
+    "publishing": "none",
+    "deployment_triggered": "no",
+    "fap_api_mutation": "none",
+    "generated_readiness_artifact_written": "no"
+  },
+  "hard_holds": [
+    "analytics_runtime_implementation",
+    "event_emission",
+    "production_metric_backfill",
+    "opportunity_scoring",
+    "gsc_ga4_provider_call",
+    "search_channel_queue_mutation",
+    "cms_write_import_publish_or_media_upload",
+    "deploy_or_revalidation",
+    "private_result_access",
+    "generated_readiness_artifact_write"
+  ],
+  "source_refs": {
+    "analytics_handoff": "docs/result-page-agents/result-page-agent-analytics-handoff.v1.json",
+    "runtime_qa_handoff": "docs/result-page-agents/result-page-agent-runtime-qa-handoff.v1.json",
+    "runtime_qa_matrix": "docs/result-page-agents/active-result-page-agents-runtime-qa-matrix.v1.json",
+    "runtime_qa_common_contract": "docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract.v1.json"
+  },
+  "stop_conditions": [
+    "analytics_runtime_code_required",
+    "event_emission_required",
+    "metric_backfill_required",
+    "opportunity_scoring_required",
+    "provider_access_required",
+    "search_channel_mutation_required",
+    "cms_or_deploy_required",
+    "private_result_payload_required",
+    "fap_api_mutation_required",
+    "generated_readiness_artifact_write_required"
+  ],
+  "next_tasks": [
+    "BIG5-ANALYTICS-CONSUMPTION-PACKET-01",
+    "ENNEAGRAM-ANALYTICS-CONSUMPTION-PACKET-01",
+    "RIASEC-ANALYTICS-CONSUMPTION-PACKET-01",
+    "ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-MATRIX-01"
+  ]
+}
