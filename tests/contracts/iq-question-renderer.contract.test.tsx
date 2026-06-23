@@ -120,8 +120,13 @@ describe("IQ question renderer contract", () => {
   it("rejects unsafe image asset URLs", () => {
     expect(normalizeIqImageAsset({ src: "javascript:alert(1)" })).toBeNull();
     expect(normalizeIqImageAsset({ src: "data:image/svg+xml,<svg />" })).toBeNull();
+    expect(normalizeIqImageAsset({ src: "vbscript:msgbox(1)" })).toBeNull();
+    expect(normalizeIqImageAsset({ src: "ftp://cdn.example.com/q.webp" })).toBeNull();
     expect(normalizeIqImageAsset({ src: "//cdn.example.com/q.webp" })).toBeNull();
     expect(normalizeIqImageAsset({ src: "../private/q.webp" })).toBeNull();
+    expect(normalizeIqImageAsset({ src: "https://cdn.example.com/q.webp" })).toMatchObject({
+      src: "https://cdn.example.com/q.webp",
+    });
   });
 
   it("renders image assets with alt text and dimensions", () => {

@@ -78,16 +78,16 @@ function normalizeSafeImageSrc(value: unknown): string | undefined {
   }
 
   const lowered = src.toLowerCase();
-  if (
-    lowered.startsWith("javascript:") ||
-    lowered.startsWith("data:") ||
-    lowered.startsWith("//") ||
-    lowered.includes("\u0000")
-  ) {
+  if (lowered.startsWith("//") || lowered.includes("\u0000")) {
     return undefined;
   }
 
-  if (src.startsWith("http://") || src.startsWith("https://") || src.startsWith("/")) {
+  const explicitScheme = lowered.match(/^([a-z][a-z0-9+.-]*):/);
+  if (explicitScheme && explicitScheme[1] !== "http" && explicitScheme[1] !== "https") {
+    return undefined;
+  }
+
+  if (explicitScheme || src.startsWith("/")) {
     return src;
   }
 

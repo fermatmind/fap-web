@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-23T19:25:10+08:00",
+  "updated_at": "2026-06-23T11:48:17.594Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -18394,17 +18394,18 @@
         "dependency_iq_owner_30_backend_scoring_02": "passed: fermatmind/fap-api#2364 merged and origin/main contains 1abc71e363303b6c4f957abdee0fa741c693b707",
         "workspace_safety": "using isolated fap-web worktree /private/tmp/fap-web-enneagram-share-card-public-safe-rendering; primary fap-web worktree has unrelated untracked safety-gate files and is untouched",
         "pnpm lint .": "passed with existing warnings only; no errors",
-        "pnpm typecheck": "passed",
-        "pnpm exec vitest run tests/contracts/iq-question-renderer.contract.test.tsx tests/a11y/iq-option-board.a11y.test.tsx": "passed: 21 tests",
+        "pnpm typecheck": "passed after CodeQL fix",
+        "pnpm exec vitest run tests/contracts/iq-question-renderer.contract.test.tsx tests/a11y/iq-option-board.a11y.test.tsx": "passed after CodeQL fix: 21 tests",
         "pnpm test:a11y": "passed: 9 tests",
-        "pnpm test:contract": "passed: 544 files, 3162 tests after registering current PR scope guard",
+        "pnpm test:contract": "passed after CodeQL fix: 546 files, 3180 tests",
         "pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx": "passed: 29 tests",
         "pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx": "passed: 24 tests",
-        "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build": "passed; public/sitemap.xml generation diff restored because SEO enumeration is out of scope",
+        "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build": "passed after CodeQL fix; public/sitemap.xml generation diff restored because SEO enumeration is out of scope",
         "pnpm exec playwright test -c playwright.visual.config.ts iq-take.visual.spec.ts": "passed: 2 full-page visual tests",
-        "git diff --check": "passed",
+        "git diff --check": "passed after CodeQL fix",
         "json_yaml_syntax": "passed: pr-train-state.json parses as JSON and pr-train.yaml parses as YAML",
-        "scope_validation": "passed: changed files limited to IQ image renderer, IQ contracts/a11y/visual snapshots, currentPrScope guard, and train metadata"
+        "scope_validation": "passed: changed files limited to IQ image renderer, IQ contracts/a11y/visual snapshots, currentPrScope guard, and train metadata",
+        "CodeQL": "failed on d60acbb44f847302fdf5a347fea2af9462e6213b for incomplete image URL scheme check in lib/iq/renderer.ts; fixed in current PR scope by allowing only http/https explicit schemes and rejecting other schemes such as vbscript and ftp"
       },
       "failure_reason": null,
       "merged_at": null,
@@ -18444,6 +18445,11 @@
           "at": "2026-06-23T19:25:10+08:00",
           "status": "pr_open_checks_pending",
           "summary": "Opened fap-web PR #1374 for IQ-OWNER-30-FE-IMAGE-RENDERER-03 after local validation passed."
+        },
+        {
+          "at": "2026-06-23T11:48:17.592Z",
+          "status": "github_check_failure_fixed",
+          "summary": "Inspected failing CodeQL check on PR #1374. It was current-scope URL scheme filtering in lib/iq/renderer.ts, then fixed by rejecting all non-http(s) explicit schemes and adding contract coverage for vbscript and ftp image URLs."
         }
       ]
     },
