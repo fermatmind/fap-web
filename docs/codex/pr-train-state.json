@@ -18166,8 +18166,8 @@
       ],
       "title": "fix(cms): add safe article draft preview gate",
       "status": "blocked_or_planned_after_draft_path",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "4754fa3659646a496b2889febeb22ae32587ea01",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1365",
       "checks": {},
       "failure_reason": "Execute only if SEO-CMS-CANARY-DRAFT-PATH-01 proves no safe preview/noindex alternative exists.",
       "merged_at": null,
@@ -26493,8 +26493,8 @@
           "evidence": "Local checks passed on codex/enneagram-analytics-consumption-packet-01: JSON parse for Enneagram packet and state, YAML parse for manifest, focused Enneagram analytics packet contract (9 tests), pnpm typecheck, pnpm test:contract (541 files, 3125 tests), git diff --check, and changed-file scope validation for exactly 5 authorized files. pnpm build was intentionally not run per goal constraints."
         },
         "pull_request": {
-          "status": "not_opened",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened PR #1365: https://github.com/fermatmind/fap-web/pull/1365."
         },
         "github": {
           "status": "not_started",
@@ -26517,6 +26517,11 @@
           "at": "2026-06-23T15:41:00+08:00",
           "status": "local_checks_passed",
           "note": "JSON/YAML parse, focused Enneagram analytics packet contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed. pnpm build intentionally not run per goal constraints."
+        },
+        {
+          "at": "2026-06-23T15:43:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1365 at https://github.com/fermatmind/fap-web/pull/1365 with local commit 4754fa3659646a496b2889febeb22ae32587ea01."
         }
       ]
     },
