@@ -1,0 +1,110 @@
+{
+  "schema_version": "fermatmind.big_five_result_page_agent_readonly_cleared_handoff.v1",
+  "artifact_id": "big-five-result-page-agent-readonly-cleared-handoff-2026-06-23",
+  "created_at": "2026-06-23",
+  "run_mode": "docs_contracts_readonly_reconciliation",
+  "approval_state": "not_requested",
+  "verdict": "READY_READONLY_CLEARED",
+  "scale_code": "BIG5_OCEAN",
+  "agent_id": "big_five_result_page",
+  "authority_source": "sanitized fap-api evidence already merged on origin/main",
+  "source_evidence": [
+    {
+      "repo": "fap-api",
+      "source": "PR #2326 sanitized readiness artifact evidence",
+      "share_safety_missing_count": 0,
+      "validation_error_count": 0,
+      "leak_hit_count": 0
+    },
+    {
+      "repo": "fap-api",
+      "source": "PR #2331 sanitized follow-up evidence",
+      "share_safety_missing_count": 0,
+      "validation_error_count": 0,
+      "leak_hit_count": 0
+    }
+  ],
+  "stale_evidence_reconciliation": {
+    "historical_state": "BLOCKED_SHARE_SAFETY",
+    "historical_evidence": "Earlier fap-web matrix/runtime handoff evidence preserved share_safety_missing_count=1.",
+    "current_state": "READY_READONLY_CLEARED",
+    "current_evidence": "Latest sanitized fap-api PR #2326/#2331 evidence clears share_safety_missing_count=0 with validation_error_count=0 and leak_hit_count=0.",
+    "scope_of_clearance": "read-only share-safety conflict only",
+    "not_authorized": [
+      "pilot",
+      "runtime enablement",
+      "production rollout",
+      "CMS",
+      "search",
+      "live asset merge",
+      "private result data"
+    ]
+  },
+  "readiness_state": {
+    "route_api_report_access": "mapped",
+    "pdf_boundary": "mapped",
+    "renderer_boundary": "mapped",
+    "share_safety_missing_count": 0,
+    "validation_error_count": 0,
+    "leak_hit_count": 0,
+    "ready_for_runtime": false,
+    "ready_for_production": false,
+    "production_use_allowed": false
+  },
+  "analytics_handoff_packet": {
+    "status": "READY_READONLY_CLEARED_HANDOFF_ONLY",
+    "metrics": [
+      {
+        "metric_id": "big5_full_report_view",
+        "event_class": "result_page_view",
+        "privacy_boundary": "aggregate public-safe report-view count only"
+      },
+      {
+        "metric_id": "big5_pdf_click",
+        "event_class": "result_pdf_action_intent",
+        "privacy_boundary": "intent/click count only; no private URL or report token"
+      },
+      {
+        "metric_id": "big5_share_event",
+        "event_class": "result_share_action_intent",
+        "privacy_boundary": "public-safe share summary only"
+      },
+      {
+        "metric_id": "big5_second_test",
+        "event_class": "result_compare_action_intent",
+        "privacy_boundary": "funnel transition count only; no deterministic recommendation"
+      },
+      {
+        "metric_id": "big5_returning_user",
+        "event_class": "result_report_access_state",
+        "privacy_boundary": "aggregate return/read state only"
+      }
+    ],
+    "smoke_exclusion": [
+      "exclude smoke/test/QA/synthetic artifacts",
+      "exclude fixture-marked runs",
+      "exclude events with attempt id, user id, raw score, score vector, percentile, selector trace, private URL, report token, or raw payload",
+      "exclude provider/search/deploy events"
+    ]
+  },
+  "next_week_state": {
+    "read_only_reconciliation": "GO",
+    "analytics_handoff": "GO",
+    "pilot": "HOLD",
+    "runtime_enablement": "HOLD",
+    "production_rollout": "HOLD",
+    "cms": "HOLD",
+    "search": "HOLD",
+    "private_result_data": "HOLD"
+  },
+  "safety_confirmation": {
+    "frontend_copy_added": "no",
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "search_submissions": "none",
+    "private_result_data_accessed": "none",
+    "production_import": "none",
+    "rollout": "none",
+    "deployment_triggered": "no"
+  }
+}

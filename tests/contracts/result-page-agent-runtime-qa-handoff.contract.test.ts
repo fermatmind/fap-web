@@ -86,12 +86,13 @@ describe("result-page agent runtime QA handoff", () => {
     }
   });
 
-  it("preserves Big Five share-safety gap and RIASEC priority", () => {
+  it("carries Big Five ready-readonly-cleared status and RIASEC priority", () => {
     const handoff = readJson(HANDOFF_PATH);
     const rows = asRecordArray(handoff.per_scale_handoff);
 
-    expect(byScale(rows, "BIG5_OCEAN").handoff_status).toBe("HANDOFF_READY_WITH_SHARE_SAFETY_GAP");
-    expect(String(byScale(rows, "BIG5_OCEAN").runtime_qa_input_status)).toContain("share_safety_missing_count_1");
+    expect(byScale(rows, "BIG5_OCEAN").handoff_status).toBe("HANDOFF_READY_READONLY_CLEARED");
+    expect(String(byScale(rows, "BIG5_OCEAN").runtime_qa_input_status)).toContain("share_safety_missing_count_0");
+    expect(String(byScale(rows, "BIG5_OCEAN").required_follow_up)).toContain("Pilot/runtime/live activation");
     expect(byScale(rows, "RIASEC").handoff_status).toBe("PRIORITY_HANDOFF_READY_READONLY");
   });
 
@@ -165,6 +166,8 @@ describe("result-page agent runtime QA handoff", () => {
     expect(report).toContain("Verdict: `RUNTIME_QA_HANDOFF_READY_WITH_LIMITS`");
     expect(report).toContain("`docs/result-page-agents/six-result-page-agent-readiness-matrix.v1.json`");
     expect(report).toContain("`docs/result-page-agents/six-hub-free-full-report-runtime-qa.v1.json`");
+    expect(report).toContain("| BIG5_OCEAN | `big_five_result_page` | `HANDOFF_READY_READONLY_CLEARED`");
+    expect(report).toContain("share_safety_missing_count=0");
     expect(report).toContain("| RIASEC | `riasec_result_page` | `PRIORITY_HANDOFF_READY_READONLY`");
     expect(report).toContain("career-bridge boundary");
     expect(report).toContain("deterministic career recommendations");

@@ -118,7 +118,31 @@ describe("result-page agent analytics handoff", () => {
       expect(byScale(rows, scaleCode).analytics_readiness).toBe("LIMITED_SCAFFOLD_ONLY");
     }
     expect(byScale(rows, "RIASEC").analytics_readiness).toBe("PRIORITY_READONLY_HANDOFF");
-    expect(byScale(rows, "BIG5_OCEAN").analytics_readiness).toBe("READONLY_HANDOFF_WITH_SHARE_SAFETY_GAP");
+    expect(byScale(rows, "BIG5_OCEAN").analytics_readiness).toBe("READONLY_HANDOFF_CLEARED");
+  });
+
+  it("defines the Big Five analytics handoff plan without private emissions", () => {
+    const handoff = readJson(HANDOFF_PATH);
+    const plan = asRecord(handoff.big_five_analytics_handoff_plan);
+    const metricIds = asRecordArray(plan.metrics).map((metric) => metric.metric_id);
+
+    expect(plan.status).toBe("READY_READONLY_CLEARED_HANDOFF_ONLY");
+    expect(metricIds).toEqual([
+      "big5_full_report_view",
+      "big5_pdf_click",
+      "big5_share_event",
+      "big5_second_test",
+      "big5_returning_user",
+    ]);
+    expect(asStringArray(plan.smoke_exclusion_policy)).toEqual(
+      expect.arrayContaining([
+        "exclude smoke/test/QA/synthetic artifacts",
+        "exclude events with private identifiers or raw result payload fields",
+      ])
+    );
+    expect(asStringArray(plan.holds)).toEqual(
+      expect.arrayContaining(["no pilot", "no runtime enablement", "no production rollout", "no CMS", "no search", "no private result data"])
+    );
   });
 
   it("sets the RIASEC career bridge analytics boundary", () => {
@@ -174,6 +198,9 @@ describe("result-page agent analytics handoff", () => {
     expect(report).toContain("runtime analytics mutation: none");
     expect(report).toContain("`result_page_view`");
     expect(report).toContain("`raw_scores`");
+    expect(report).toContain("| BIG5_OCEAN | `big_five_result_page` | `READONLY_HANDOFF_CLEARED`");
+    expect(report).toContain("`big5_full_report_view`");
+    expect(report).toContain("`big5_returning_user`");
     expect(report).toContain("| RIASEC | `riasec_result_page` | `PRIORITY_READONLY_HANDOFF`");
     expect(report).toContain("interest structure may be summarized as public-safe coarse labels");
     expect(report).toContain("no provider call");

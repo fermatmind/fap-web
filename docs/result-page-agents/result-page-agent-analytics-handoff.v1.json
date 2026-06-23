@@ -71,9 +71,9 @@
     {
       "scale_code": "BIG5_OCEAN",
       "agent_id": "big_five_result_page",
-      "analytics_readiness": "READONLY_HANDOFF_WITH_SHARE_SAFETY_GAP",
-      "allowed": "shared public-safe result page event classes only",
-      "blocked": "share-safety gap must not be hidden by analytics events"
+      "analytics_readiness": "READONLY_HANDOFF_CLEARED",
+      "allowed": "shared public-safe result page event classes only; Big Five full-report view, PDF click, share event, second-test, and returning-user metrics may be planned from public-safe event classes",
+      "blocked": "runtime analytics mutation, private payload emission, pilot/runtime/production activation, CMS writes, and search mutation"
     },
     {
       "scale_code": "RIASEC",
@@ -104,6 +104,51 @@
       "blocked": "private payload and generated readiness analytics until separately authorized"
     }
   ],
+  "big_five_analytics_handoff_plan": {
+    "status": "READY_READONLY_CLEARED_HANDOFF_ONLY",
+    "authority_source": "sanitized fap-api PR #2326/#2331 evidence; no private result data",
+    "metrics": [
+      {
+        "metric_id": "big5_full_report_view",
+        "event_class": "result_page_view",
+        "description": "Count public-safe Big Five full-report result views without attempt, user, raw score, percentile, selector trace, or private report URL fields."
+      },
+      {
+        "metric_id": "big5_pdf_click",
+        "event_class": "result_pdf_action_intent",
+        "description": "Count PDF intent/click events only after redaction state is public-safe."
+      },
+      {
+        "metric_id": "big5_share_event",
+        "event_class": "result_share_action_intent",
+        "description": "Count share intent events scoped to public-safe summaries."
+      },
+      {
+        "metric_id": "big5_second_test",
+        "event_class": "result_compare_action_intent",
+        "description": "Plan second-test funnel attribution without private identifiers or deterministic recommendation output."
+      },
+      {
+        "metric_id": "big5_returning_user",
+        "event_class": "result_report_access_state",
+        "description": "Plan returning-user/read-return signal only through aggregate, privacy-safe access state."
+      }
+    ],
+    "smoke_exclusion_policy": [
+      "exclude smoke/test/QA/synthetic artifacts",
+      "exclude runs carrying test fixture markers",
+      "exclude events with private identifiers or raw result payload fields",
+      "exclude provider/search/deploy events"
+    ],
+    "holds": [
+      "no pilot",
+      "no runtime enablement",
+      "no production rollout",
+      "no CMS",
+      "no search",
+      "no private result data"
+    ]
+  },
   "riasec_career_bridge_analytics_boundary": {
     "allowed_summary": [
       "public-safe interest structure label",

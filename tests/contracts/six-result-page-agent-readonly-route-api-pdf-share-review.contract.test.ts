@@ -160,20 +160,23 @@ describe("six result-page agent read-only route/API/PDF/share review", () => {
     expect(JSON.stringify(eq)).toContain("clinical");
   });
 
-  it("preserves the Big Five share-safety blocker without duplicating the deep review", () => {
+  it("reconciles the Big Five share-safety blocker as read-only cleared", () => {
     const review = readJson(REVIEW_PATH);
     const big5 = byScale(asRecordArray(review.scales), "BIG5_OCEAN");
 
-    expect(big5.overall_status).toBe("PARTIAL");
-    expect(reviewFor(big5, "share_public_private_boundary").status).toBe("BLOCKED");
-    expect(reviewFor(big5, "share_public_private_boundary").preserved_marker).toBe("BIG5_SHARE_SAFETY_GAP_CONFIRMED");
+    expect(big5.overall_status).toBe("PASS");
+    expect(big5.readiness_from_matrix).toBe("ready_readonly_cleared");
+    expect(reviewFor(big5, "share_public_private_boundary").status).toBe("PASS");
+    expect(reviewFor(big5, "claim_privacy_safety_gate").status).toBe("PASS");
+    expect(reviewFor(big5, "analytics_gate_and_smoke_exclusions").status).toBe("PASS");
     expect(JSON.stringify(big5)).toContain("share_safety_missing_count=1");
     expect(JSON.stringify(big5)).toContain("share_safety_missing_count=0");
-    expect(JSON.stringify(big5)).toContain("does not duplicate");
+    expect(JSON.stringify(big5)).toContain("validation_error_count=0");
+    expect(JSON.stringify(big5)).toContain("leak_hit_count=0");
     expect(asStringArray(big5.limitations)).toEqual(
       expect.arrayContaining([
-        "Big Five deep review was not duplicated.",
-        "Historical share-safety blocker remains visible until a scoped reconciliation consumes the newer sanitized backend evidence.",
+        "Historical share-safety blocker is superseded only for read-only evidence by the ready-readonly-cleared handoff.",
+        "Pilot, runtime enablement, production rollout, CMS, search, live asset merge, and private result data remain out of scope.",
       ])
     );
   });
@@ -183,19 +186,19 @@ describe("six result-page agent read-only route/API/PDF/share review", () => {
     const summary = asRecord(review.summary);
     const goals = asRecordArray(review.next_safe_goals);
 
-    expect(asStringArray(summary.pass)).toEqual(["RIASEC", "ENNEAGRAM"]);
-    expect(asStringArray(summary.partial)).toEqual(["MBTI", "BIG5_OCEAN", "IQ_RAVEN", "EQ_60"]);
-    expect(asStringArray(summary.blocked).join(" ")).toContain("BIG5_SHARE_SAFETY_GAP_CONFIRMED");
+    expect(asStringArray(summary.pass)).toEqual(["RIASEC", "ENNEAGRAM", "BIG5_OCEAN"]);
+    expect(asStringArray(summary.partial)).toEqual(["MBTI", "IQ_RAVEN", "EQ_60"]);
+    expect(asStringArray(summary.blocked)).toEqual([]);
     expect(goals.map((goal) => goal.scale_code)).toEqual(EXPECTED_SCALES);
-    expect(byScale(goals, "BIG5_OCEAN").next_goal).toBe("BIG5-SHARE-SAFETY-EVIDENCE-RECONCILIATION-01");
+    expect(byScale(goals, "BIG5_OCEAN").next_goal).toBe("BIG5-RESULT-PAGE-AGENT-READY-READONLY-CLEARED-HANDOFF-01");
   });
 
   it("keeps the markdown report aligned with the JSON review", () => {
     const report = readText(REPORT_PATH);
 
     expect(report).toContain("Verdict: `SIX_RESULT_PAGE_AGENT_READONLY_REVIEW_PARTIAL`");
-    expect(report).toContain("| BIG5_OCEAN | `PASS` | `PASS` | `PASS` | `PASS` | `PASS` | `BLOCKED`");
-    expect(report).toContain("BIG5_SHARE_SAFETY_GAP_CONFIRMED");
+    expect(report).toContain("| BIG5_OCEAN | `PASS` | `PASS` | `PASS` | `PASS` | `PASS` | `PASS`");
+    expect(report).toContain("ready-readonly-cleared handoff supersedes the historical `BIG5_SHARE_SAFETY_GAP_CONFIRMED` marker");
     expect(report).toContain("share_safety_missing_count=0");
     expect(report).toContain("| RIASEC | `PASS` | `PASS` | `PASS` | `PASS` | `PASS` | `PASS`");
     expect(report).toContain("| ENNEAGRAM | `PASS` | `PASS` | `PASS` | `PASS` | `PASS` | `PASS`");

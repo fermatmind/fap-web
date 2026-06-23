@@ -91,8 +91,8 @@
       "scale_code": "BIG5_OCEAN",
       "agent_id": "big_five_result_page",
       "canonical_test_slug": "big-five-personality-test-ocean-model",
-      "readiness_from_matrix": "ready_readonly",
-      "runtime_qa_status": "READONLY_QA_INPUT_READY_WITH_SHARE_SAFETY_GAP",
+      "readiness_from_matrix": "ready_readonly_cleared",
+      "runtime_qa_status": "READONLY_QA_INPUT_READY_CLEARED",
       "private_result_route": {
         "status": "DOC_MATCH"
       },
@@ -108,8 +108,8 @@
         "status": "DOC_MATCH"
       },
       "share_behavior": {
-        "status": "DOC_MATCH_WITH_EXISTING_GAP",
-        "gap": "share_safety_missing_count=1"
+        "status": "DOC_MATCH_CLEARED_WITH_SANITIZED_API_EVIDENCE",
+        "resolution": "share_safety_missing_count=0 from sanitized fap-api PR #2326/#2331 evidence; validation_error_count=0; leak_hit_count=0"
       },
       "renderer_dispatch": {
         "status": "DOC_MATCH",
@@ -119,7 +119,8 @@
       "no_raw_private_leak": "MAPPED_BY_EXISTING_CONTRACTS",
       "frontend_fallback_authority": "NOT_ALLOWED",
       "qa_limitations": [
-        "Share-safety gap remains a blocker for pilot/production claims."
+        "Read-only share-safety conflict is cleared only.",
+        "Pilot, runtime, production, CMS, search, and private result data remain held."
       ],
       "next_handoff": "RESULT-PAGE-AGENT-RUNTIME-QA-HANDOFF-01"
     },

@@ -109,6 +109,7 @@ Each scale readiness artifact must include:
 ## Readiness States
 
 - `ready_readonly`: agent stack exists and can produce read-only readiness evidence.
+- `ready_readonly_cleared`: read-only readiness evidence exists and a previously recorded docs/contracts blocker was reconciled by sanitized authority evidence; runtime, pilot, production, CMS, search, and private data remain separately gated.
 - `existing_agent_stack_align_required`: agent stack exists but must align to this platform standard.
 - `missing_agent_stack`: renderer/report foundations exist but no dedicated result-page agent stack exists.
 - `blocked_missing_backend_authority`: cannot proceed because backend authority is missing or contradictory.

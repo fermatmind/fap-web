@@ -51,9 +51,9 @@
     {
       "scale_code": "BIG5_OCEAN",
       "agent_id": "big_five_result_page",
-      "handoff_status": "HANDOFF_READY_WITH_SHARE_SAFETY_GAP",
-      "runtime_qa_input_status": "ready_readonly_with_share_safety_missing_count_1",
-      "required_follow_up": "Share-safety artifact repair remains outside this PR."
+      "handoff_status": "HANDOFF_READY_READONLY_CLEARED",
+      "runtime_qa_input_status": "ready_readonly_cleared_share_safety_missing_count_0",
+      "required_follow_up": "Pilot/runtime/live activation, production, CMS, search, and private result data require separate authorization."
     },
     {
       "scale_code": "RIASEC",

@@ -36,6 +36,7 @@ const REQUIRED_CLASSIFICATIONS = [
 
 const ALLOWED_VERDICTS = new Set([
   "READY_READONLY",
+  "READY_READONLY_CLEARED",
   "SCAFFOLD_READY",
   "STANDARD_ALIGNED",
   "NEEDS_READONLY_REVIEW",
@@ -161,7 +162,14 @@ describe("six-scale result-page agent readiness matrix", () => {
       );
     }
 
-    for (const scaleCode of ["BIG5_OCEAN", "RIASEC", "ENNEAGRAM"]) {
+    const big5 = byScale(scales, "BIG5_OCEAN");
+    expect(big5.current_readiness).toBe("ready_readonly_cleared");
+    expect(big5.scaffold_alignment_status).toBe("STANDARD_ALIGNED");
+    expect(asStringArray(big5.verdicts)).toEqual(
+      expect.arrayContaining(["READY_READONLY", "READY_READONLY_CLEARED", "STANDARD_ALIGNED", "NEEDS_READONLY_REVIEW"])
+    );
+
+    for (const scaleCode of ["RIASEC", "ENNEAGRAM"]) {
       const scale = byScale(scales, scaleCode);
       expect(scale.current_readiness).toBe("ready_readonly");
       expect(scale.scaffold_alignment_status).toBe("STANDARD_ALIGNED");
@@ -171,7 +179,7 @@ describe("six-scale result-page agent readiness matrix", () => {
     }
   });
 
-  it("keeps share and claim safety blockers visible for high-risk scales", () => {
+  it("clears the Big Five share-safety blocker while keeping other high-risk blockers visible", () => {
     const matrix = readJson(MATRIX_PATH);
     const scales = asRecordArray(matrix.scales);
     const big5 = byScale(scales, "BIG5_OCEAN");
@@ -179,8 +187,11 @@ describe("six-scale result-page agent readiness matrix", () => {
     const eq = byScale(scales, "EQ_60");
     const riasec = byScale(scales, "RIASEC");
 
-    expect(asStringArray(big5.verdicts)).toContain("BLOCKED_SHARE_SAFETY");
-    expect(String(asRecord(big5.share_boundary_status).evidence)).toContain("share_safety_missing_count=1");
+    expect(asStringArray(big5.verdicts)).toContain("READY_READONLY_CLEARED");
+    expect(asStringArray(big5.verdicts)).not.toContain("BLOCKED_SHARE_SAFETY");
+    expect(String(asRecord(big5.share_boundary_status).status)).toBe("DOC_MATCH_CLEARED_WITH_SANITIZED_API_EVIDENCE");
+    expect(String(asRecord(big5.share_boundary_status).evidence)).toContain("share_safety_missing_count=0");
+    expect(String(asRecord(big5.production_pilot_runtime_status).reason)).toContain("pilot/runtime/production remain held");
 
     expect(asStringArray(iq.verdicts)).toContain("BLOCKED_SHARE_SAFETY");
     expect(String(asRecord(iq.claim_privacy_safety_gate_status).evidence)).toContain("no diagnostic");
@@ -223,8 +234,9 @@ describe("six-scale result-page agent readiness matrix", () => {
 
     expect(report).toContain("Verdict: `SIX_RESULT_PAGE_AGENT_MATRIX_READY`");
     expect(report).toContain("| MBTI | `missing_agent_stack` | `SCAFFOLD_READY`");
-    expect(report).toContain("| BIG5_OCEAN | `ready_readonly` | `STANDARD_ALIGNED`");
-    expect(report).toContain("share_safety_missing_count=1");
+    expect(report).toContain("| BIG5_OCEAN | `ready_readonly_cleared` | `STANDARD_ALIGNED`");
+    expect(report).toContain("share_safety_missing_count=0");
+    expect(report).toContain("READY_READONLY_CLEARED");
     expect(report).toContain("## Cross-Scale Sequencing");
     expect(report).toContain("## Next 10 Goals");
     expect(report).toContain("## HOLD List");

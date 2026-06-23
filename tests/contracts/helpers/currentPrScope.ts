@@ -2605,6 +2605,32 @@ const BIG5_RESULT_PAGE_AGENT_READINESS_DOC_REFRESH_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const BIG5_RESULT_PAGE_AGENT_READY_READONLY_CLEARED_HANDOFF_ALLOWED_FILES = new Set([
+  "docs/result-page-agents/RESULT_PAGE_AGENT_PLATFORM_STANDARD.md",
+  "docs/result-page-agents/big-five-result-page-agent-readiness.proposal.json",
+  "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff-2026-06-23.md",
+  "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json",
+  "docs/result-page-agents/result-page-agent-analytics-handoff-2026-06-23.md",
+  "docs/result-page-agents/result-page-agent-analytics-handoff.v1.json",
+  "docs/result-page-agents/result-page-agent-runtime-qa-handoff-2026-06-23.md",
+  "docs/result-page-agents/result-page-agent-runtime-qa-handoff.v1.json",
+  "docs/result-page-agents/six-hub-free-full-report-runtime-qa-2026-06-23.md",
+  "docs/result-page-agents/six-hub-free-full-report-runtime-qa.v1.json",
+  "docs/result-page-agents/six-result-page-agent-readonly-route-api-pdf-share-review-2026-06-23.md",
+  "docs/result-page-agents/six-result-page-agent-readonly-route-api-pdf-share-review.proposal.json",
+  "docs/result-page-agents/six-result-page-agent-readiness-matrix-2026-06-23.md",
+  "docs/result-page-agents/six-result-page-agent-readiness-matrix.v1.json",
+  "docs/result-page-agents/six-scale-result-agent-readiness.template.json",
+  "tests/contracts/big-five-result-page-agent-readonly-cleared-handoff.contract.test.ts",
+  "tests/contracts/big-five-result-page-agent-standard-alignment.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/result-page-agent-analytics-handoff.contract.test.ts",
+  "tests/contracts/result-page-agent-runtime-qa-handoff.contract.test.ts",
+  "tests/contracts/six-hub-free-full-report-runtime-qa.contract.test.ts",
+  "tests/contracts/six-result-page-agent-readonly-route-api-pdf-share-review.contract.test.ts",
+  "tests/contracts/six-result-page-agent-readiness-matrix.contract.test.ts",
+]);
+
 const ENNEAGRAM_RESULT_PAGE_AGENT_STANDARD_ALIGN_01_ALLOWED_FILES = new Set([
   "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json",
   "docs/result-page-agents/enneagram-result-page-agent-standard-alignment-2026-06-22.md",
@@ -2854,6 +2880,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/big5-readiness-doc-refresh" &&
     BIG5_RESULT_PAGE_AGENT_READINESS_DOC_REFRESH_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/big5-ready-readonly-cleared-handoff" &&
+    BIG5_RESULT_PAGE_AGENT_READY_READONLY_CLEARED_HANDOFF_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
