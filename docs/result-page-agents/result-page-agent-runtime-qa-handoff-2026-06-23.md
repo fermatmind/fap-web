@@ -51,7 +51,7 @@ This handoff only packages already-reviewed docs/contracts evidence for a future
 | Scale | Agent | Handoff status | Runtime QA input status | Required follow-up |
 |---|---|---|---|---|
 | MBTI | `mbti_result_page` | `LIMITED_HANDOFF_SCAFFOLD_ONLY` | route/API/access mapped, agent stack missing | MBTI missing_agent_stack follow-up for runbook/schema/gates before generated readiness |
-| BIG5_OCEAN | `big_five_result_page` | `HANDOFF_READY_WITH_SHARE_SAFETY_GAP` | ready_readonly with `share_safety_missing_count=1` | Share-safety artifact repair remains outside this PR |
+| BIG5_OCEAN | `big_five_result_page` | `HANDOFF_READY_READONLY_CLEARED` | ready_readonly_cleared with `share_safety_missing_count=0`, `validation_error_count=0`, `leak_hit_count=0` from sanitized fap-api PR #2326/#2331 evidence | Pilot/runtime/live activation, production, CMS, search, and private result data require separate authorization |
 | RIASEC | `riasec_result_page` | `PRIORITY_HANDOFF_READY_READONLY` | ready_readonly | RIASEC read-only route/API/PDF/share review is the final PR in this train |
 | IQ_RAVEN | `iq_raven_result_page` | `LIMITED_HANDOFF_SCAFFOLD_ONLY` | route/API/access mapped, agent stack missing | IQ Raven missing_agent_stack follow-up for runbook/schema/gates and diagnostic/answer-key safety |
 | EQ_60 | `eq60_result_page` | `LIMITED_HANDOFF_SCAFFOLD_ONLY` | route/API/access mapped, agent stack missing | EQ60 missing_agent_stack follow-up for runbook/schema/gates and non-clinical safety |

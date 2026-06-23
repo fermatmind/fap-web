@@ -72,11 +72,41 @@ This handoff defines analytics contract boundaries only. It does not change runt
 | Scale | Agent | Analytics readiness | Allowed | Blocked |
 |---|---|---|---|---|
 | MBTI | `mbti_result_page` | `LIMITED_SCAFFOLD_ONLY` | shared public-safe result page event classes only | generated agent readiness analytics |
-| BIG5_OCEAN | `big_five_result_page` | `READONLY_HANDOFF_WITH_SHARE_SAFETY_GAP` | shared public-safe result page event classes only | share-safety gap must not be hidden by analytics events |
+| BIG5_OCEAN | `big_five_result_page` | `READONLY_HANDOFF_CLEARED` | shared public-safe result page event classes only; plan full-report view, PDF click, share event, second-test, and returning-user metrics | runtime analytics mutation, private payload emission, pilot/runtime/production activation, CMS writes, and search mutation |
 | RIASEC | `riasec_result_page` | `PRIORITY_READONLY_HANDOFF` | interest structure may be summarized as public-safe coarse labels | raw scores, vectors, percentiles, attempt/user/private report payload |
 | IQ_RAVEN | `iq_raven_result_page` | `LIMITED_SCAFFOLD_ONLY` | shared public-safe result page event classes only | raw scores, answer key, diagnostic, school-placement, hiring, certification claims |
 | EQ_60 | `eq60_result_page` | `LIMITED_SCAFFOLD_ONLY` | shared public-safe result page event classes only | raw scores, clinical, medical, hiring, success, guaranteed-outcome claims |
 | ENNEAGRAM | `enneagram_result_page` | `READONLY_HANDOFF` | shared public-safe result page event classes only | private payload and generated readiness analytics until separately authorized |
+
+## Big Five Analytics Handoff Plan
+
+Status: `READY_READONLY_CLEARED_HANDOFF_ONLY`
+
+Authority source: sanitized fap-api PR #2326/#2331 evidence only. No private result data was accessed.
+
+Metric plan:
+
+- `big5_full_report_view`: count public-safe Big Five full-report result views without attempt, user, raw score, percentile, selector trace, or private report URL fields.
+- `big5_pdf_click`: count PDF intent/click events only after redaction state is public-safe.
+- `big5_share_event`: count share intent events scoped to public-safe summaries.
+- `big5_second_test`: plan second-test funnel attribution without private identifiers or deterministic recommendation output.
+- `big5_returning_user`: plan returning-user/read-return signal only through aggregate, privacy-safe access state.
+
+Smoke exclusion:
+
+- exclude smoke/test/QA/synthetic artifacts
+- exclude runs carrying test fixture markers
+- exclude events with private identifiers or raw result payload fields
+- exclude provider/search/deploy events
+
+Holds:
+
+- no pilot
+- no runtime enablement
+- no production rollout
+- no CMS
+- no search
+- no private result data
 
 ## RIASEC Career Bridge Analytics Boundary
 

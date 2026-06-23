@@ -145,9 +145,9 @@
       "scale_code": "BIG5_OCEAN",
       "agent_id": "big_five_result_page",
       "canonical_test_slug": "big-five-personality-test-ocean-model",
-      "overall_status": "PARTIAL",
-      "readiness_from_matrix": "ready_readonly",
-      "next_safe_goal": "BIG5-FREE-FULL-REPORT-RUNTIME-QA-READINESS-01",
+      "overall_status": "PASS",
+      "readiness_from_matrix": "ready_readonly_cleared",
+      "next_safe_goal": "BIG5-RESULT-PAGE-AGENT-READY-READONLY-CLEARED-HANDOFF-01",
       "review": {
         "route_contract": {
           "status": "PASS",
@@ -171,21 +171,20 @@
           "evidence": "Big Five PDF QA and shared private print/redaction contracts cover backend-authored PDF boundaries."
         },
         "share_public_private_boundary": {
-          "status": "BLOCKED",
-          "evidence": "Prior matrix/runtime QA handoff evidence retains BIG5_SHARE_SAFETY_GAP_CONFIRMED with share_safety_missing_count=1. The newer Big Five readiness proposal cites sanitized fap-api PR #2326 evidence with share_safety_missing_count=0, but this unified review does not duplicate or replace the Big Five deep review. Follow-up reconciliation must decide whether to clear the historical blocker.",
-          "preserved_marker": "BIG5_SHARE_SAFETY_GAP_CONFIRMED"
+          "status": "PASS",
+          "evidence": "Historical fap-web matrix/runtime QA handoff evidence retained share_safety_missing_count=1. This review is superseded by the ready-readonly-cleared handoff, which consumes sanitized fap-api PR #2326/#2331 evidence with share_safety_missing_count=0, validation_error_count=0, and leak_hit_count=0."
         },
         "private_result_noindex_boundary": {
           "status": "PASS",
           "evidence": "Private result route noindex boundary is mapped."
         },
         "claim_privacy_safety_gate": {
-          "status": "PARTIAL",
-          "evidence": "Claim/privacy gates are mapped, but share-safety evidence conflict keeps Big Five out of PASS in this unified review."
+          "status": "PASS",
+          "evidence": "Claim/privacy gates are mapped and the historical share-safety evidence conflict is cleared for read-only use by sanitized fap-api PR #2326/#2331 evidence. Pilot/runtime/production remain held."
         },
         "analytics_gate_and_smoke_exclusions": {
-          "status": "PARTIAL",
-          "evidence": "Analytics handoff preserves Big Five share-safety gap so analytics cannot hide the blocker.",
+          "status": "PASS",
+          "evidence": "Analytics handoff may plan only public-safe Big Five metrics after ready-readonly-cleared reconciliation; it still excludes smoke/test artifacts and private payload fields.",
           "smoke_exclusions": [
             "no provider call",
             "no private identifiers",
@@ -199,8 +198,8 @@
         }
       },
       "limitations": [
-        "Big Five deep review was not duplicated.",
-        "Historical share-safety blocker remains visible until a scoped reconciliation consumes the newer sanitized backend evidence."
+        "Historical share-safety blocker is superseded only for read-only evidence by the ready-readonly-cleared handoff.",
+        "Pilot, runtime enablement, production rollout, CMS, search, live asset merge, and private result data remain out of scope."
       ]
     },
     {
@@ -454,11 +453,11 @@
   "summary": {
     "pass": [
       "RIASEC",
-      "ENNEAGRAM"
+      "ENNEAGRAM",
+      "BIG5_OCEAN"
     ],
     "partial": [
       "MBTI",
-      "BIG5_OCEAN",
       "IQ_RAVEN",
       "EQ_60"
     ],
@@ -467,9 +466,7 @@
       "IQ_RAVEN diagnostic and answer-key/correct-answer gates",
       "EQ_60 non-clinical/non-medical/no-outcome gates"
     ],
-    "blocked": [
-      "BIG5_OCEAN historical BIG5_SHARE_SAFETY_GAP_CONFIRMED until scoped reconciliation consumes newer sanitized evidence"
-    ]
+    "blocked": []
   },
   "next_safe_goals": [
     {
@@ -478,7 +475,7 @@
     },
     {
       "scale_code": "BIG5_OCEAN",
-      "next_goal": "BIG5-SHARE-SAFETY-EVIDENCE-RECONCILIATION-01"
+      "next_goal": "BIG5-RESULT-PAGE-AGENT-READY-READONLY-CLEARED-HANDOFF-01"
     },
     {
       "scale_code": "RIASEC",

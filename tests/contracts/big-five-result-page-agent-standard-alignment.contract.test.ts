@@ -49,7 +49,7 @@ describe("Big Five result-page agent standard alignment", () => {
     expect(proposal.scale_code).toBe("BIG5_OCEAN");
     expect(proposal.canonical_test_slug).toBe("big-five-personality-test-ocean-model");
     expect(proposal.previous_readiness_from_frozen_standard).toBe("existing_agent_stack_align_required");
-    expect(proposal.current_readiness).toBe("ready_readonly");
+    expect(proposal.current_readiness).toBe("ready_readonly_cleared");
 
     expect(proposal).toMatchObject({
       agent_id: templateScale.agent_id,

@@ -99,7 +99,7 @@ describe("six-hub free full report runtime QA", () => {
     }
   });
 
-  it("keeps ready-readonly scales as QA inputs while preserving known gaps", () => {
+  it("keeps ready-readonly scales as QA inputs while recognizing Big Five cleared evidence", () => {
     const qa = readJson(QA_PATH);
     const scales = asRecordArray(qa.scales);
 
@@ -107,8 +107,10 @@ describe("six-hub free full report runtime QA", () => {
     expect(byScale(scales, "ENNEAGRAM").runtime_qa_status).toBe("READONLY_QA_INPUT_READY");
 
     const big5 = byScale(scales, "BIG5_OCEAN");
-    expect(big5.runtime_qa_status).toBe("READONLY_QA_INPUT_READY_WITH_SHARE_SAFETY_GAP");
-    expect(JSON.stringify(big5.share_behavior)).toContain("share_safety_missing_count=1");
+    expect(big5.readiness_from_matrix).toBe("ready_readonly_cleared");
+    expect(big5.runtime_qa_status).toBe("READONLY_QA_INPUT_READY_CLEARED");
+    expect(JSON.stringify(big5.share_behavior)).toContain("share_safety_missing_count=0");
+    expect(JSON.stringify(big5.qa_limitations)).toContain("Pilot, runtime, production, CMS, search, and private result data remain held");
   });
 
   it("preserves hard no-mutation and no-private-access boundaries", () => {
@@ -165,7 +167,8 @@ describe("six-hub free full report runtime QA", () => {
     expect(report).toContain("Verdict: `SIX_HUB_FREE_FULL_REPORT_RUNTIME_QA_READY_WITH_LIMITS`");
     expect(report).toContain("| MBTI | `mbti_result_page` | `missing_agent_stack` | `LIMITED_SCAFFOLD_ONLY`");
     expect(report).toContain("| RIASEC | `riasec_result_page` | `ready_readonly` | `READONLY_QA_INPUT_READY`");
-    expect(report).toContain("share_safety_missing_count=1");
+    expect(report).toContain("| BIG5_OCEAN | `big_five_result_page` | `ready_readonly_cleared` | `READONLY_QA_INPUT_READY_CLEARED`");
+    expect(report).toContain("share_safety_missing_count=0");
     expect(report).toContain("frontend fallback authority not allowed");
     expect(report).toContain("No private attempt was accessed");
     expect(report).toContain("no runtime change");

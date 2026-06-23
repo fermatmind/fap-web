@@ -42,6 +42,7 @@
   ],
   "readiness_states": [
     "ready_readonly",
+    "ready_readonly_cleared",
     "existing_agent_stack_align_required",
     "missing_agent_stack",
     "blocked_missing_backend_authority",

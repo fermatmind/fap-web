@@ -23,6 +23,7 @@
   ],
   "verdict_vocabulary": [
     "READY_READONLY",
+    "READY_READONLY_CLEARED",
     "SCAFFOLD_READY",
     "STANDARD_ALIGNED",
     "NEEDS_READONLY_REVIEW",
@@ -145,7 +146,7 @@
         "scan_or_alignment": "docs/result-page-agents/big-five-result-page-agent-standard-alignment-2026-06-22.md",
         "proposal": "docs/result-page-agents/big-five-result-page-agent-readiness.proposal.json"
       },
-      "current_readiness": "ready_readonly",
+      "current_readiness": "ready_readonly_cleared",
       "scaffold_alignment_status": "STANDARD_ALIGNED",
       "route_api_report_access_status": {
         "status": "DOC_MATCH",
@@ -174,8 +175,8 @@
         "evidence": "Big Five PDF rendered QA plus shared private print/redaction contracts cover private PDF boundaries."
       },
       "share_boundary_status": {
-        "status": "DOC_MATCH_WITH_EXISTING_GAP",
-        "evidence": "Share card QA and backend share-safe adapter tests exist, but latest existing backend ops artifact still reports share_safety_missing_count=1."
+        "status": "DOC_MATCH_CLEARED_WITH_SANITIZED_API_EVIDENCE",
+        "evidence": "Historical fap-web matrix/runtime evidence preserved share_safety_missing_count=1. Latest sanitized fap-api PR #2326/#2331 evidence reports share_safety_missing_count=0, validation_error_count=0, and leak_hit_count=0. This clears the read-only share-safety conflict only."
       },
       "private_noindex_status": {
         "status": "DOC_MATCH",
@@ -186,8 +187,8 @@
         "evidence": "Existing result telemetry was mapped; no runtime analytics changes were added."
       },
       "claim_privacy_safety_gate_status": {
-        "status": "DOC_MATCH_WITH_SHARE_SAFETY_HOLD",
-        "evidence": "Backend asset-agent schema/gates and fap-web V2 contracts forbid raw scores, unsupported psychometric claims, diagnosis, hiring, success prediction, and private metadata leaks."
+        "status": "DOC_MATCH_CLEARED_READONLY",
+        "evidence": "Backend asset-agent schema/gates, fap-web V2 contracts, and sanitized fap-api PR #2326/#2331 evidence forbid raw scores, unsupported psychometric claims, diagnosis, hiring, success prediction, and private metadata leaks. Pilot/runtime/production remain held."
       },
       "generated_readiness_artifact_status": {
         "status": "NOT_GENERATED",
@@ -195,18 +196,18 @@
       },
       "production_pilot_runtime_status": {
         "status": "HOLD_PRODUCTION_AND_RUNTIME",
-        "reason": "Generated readiness artifact was not produced and Big Five share-safety gap still blocks pilot/production readiness."
+        "reason": "Read-only share-safety conflict is cleared by sanitized fap-api evidence, but pilot/runtime/production remain held because no live activation, import, rollout, CMS, search, or private-result-data authorization was granted."
       },
       "verdicts": [
         "READY_READONLY",
+        "READY_READONLY_CLEARED",
         "STANDARD_ALIGNED",
         "NEEDS_READONLY_REVIEW",
-        "BLOCKED_SHARE_SAFETY",
         "HOLD_PRODUCTION",
         "HOLD_RUNTIME",
         "HOLD_CMS_SEARCH"
       ],
-      "next_safe_goal": "BIG5-RESULT-PAGE-AGENT-READONLY-ROUTE-API-PDF-SHARE-REVIEW-01"
+      "next_safe_goal": "BIG5-RESULT-PAGE-AGENT-READY-READONLY-CLEARED-HANDOFF-01"
     },
     {
       "scale_code": "RIASEC",
@@ -523,9 +524,9 @@
         "reason": "MBTI, IQ, and EQ need dedicated runbook/schema/contract gates before generated readiness artifacts."
       },
       {
-        "id": "BIG5-SHARE-SAFETY-ARTIFACT-REPAIR",
-        "repo": "fap-api first, fap-web consume second",
-        "reason": "Big Five share_safety_missing_count=1 is a backend artifact/ops gap and must be resolved before pilot or production claims."
+        "id": "BIG5-READY-READONLY-CLEARED-HANDOFF",
+        "repo": "fap-web consumes sanitized fap-api evidence",
+        "reason": "Sanitized fap-api PR #2326/#2331 evidence reports share_safety_missing_count=0, validation_error_count=0, and leak_hit_count=0. This clears the read-only share-safety conflict but does not authorize pilot, runtime, production, CMS, search, or private result data."
       },
       {
         "id": "ENNEAGRAM-GENERATED-READINESS-ARTIFACT",

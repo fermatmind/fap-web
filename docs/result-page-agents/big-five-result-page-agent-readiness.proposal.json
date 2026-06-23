@@ -183,7 +183,7 @@
     "production_db_or_env_change",
     "payment_order_mutation"
   ],
-  "current_readiness": "ready_readonly",
+  "current_readiness": "ready_readonly_cleared",
   "previous_readiness_from_frozen_standard": "existing_agent_stack_align_required",
   "next_goal": "BIG5-FREE-FULL-REPORT-RUNTIME-QA-READINESS-01",
   "alignment_status": {
