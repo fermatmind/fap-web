@@ -26625,7 +26625,7 @@
       "repo": "fap-web",
       "branch": "codex/active-result-page-agents-analytics-matrix-01",
       "base": "main",
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "train_scope": "active_result_page_agents_analytics_matrix",
       "title": "ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-MATRIX-01: docs(result): add active analytics matrix",
       "depends_on": [
@@ -26633,8 +26633,8 @@
         "ENNEAGRAM-ANALYTICS-CONSUMPTION-PACKET-01",
         "RIASEC-ANALYTICS-CONSUMPTION-PACKET-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "10938a6746763befb8922399671e9568a504096b",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1368",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -26665,6 +26665,14 @@
         "local_validation": {
           "status": "pass",
           "evidence": "Local checks passed on codex/active-result-page-agents-analytics-matrix-01: JSON parse for active analytics matrix and state, YAML parse for manifest, focused active analytics matrix contract (10 tests), pnpm typecheck, pnpm test:contract (543 files, 3145 tests), git diff --check, and changed-file scope validation for exactly 5 authorized files. pnpm build was intentionally not run per goal constraints."
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened PR #1368: https://github.com/fermatmind/fap-web/pull/1368."
+        },
+        "github": {
+          "status": "pending",
+          "evidence": "GitHub checks started for PR #1368 head 10938a67: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze are queued."
         }
       },
       "sidecar_issues": [],
@@ -26683,6 +26691,11 @@
           "at": "2026-06-23T16:17:00+08:00",
           "status": "local_checks_passed",
           "note": "JSON/YAML parse, focused active analytics matrix contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed. pnpm build intentionally not run per goal constraints."
+        },
+        {
+          "at": "2026-06-23T16:18:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1368 at https://github.com/fermatmind/fap-web/pull/1368 with local commit 10938a6746763befb8922399671e9568a504096b."
         }
       ]
     }
