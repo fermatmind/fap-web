@@ -26972,17 +26972,17 @@
       "repo": "fap-web",
       "branch": "codex/riasec-safety-gate-consumption-packet-01",
       "base": "main",
-      "status": "ready_to_merge",
+      "status": "merged_cleanup_complete",
       "train_scope": "riasec_safety_gate_consumption_packet",
       "title": "RIASEC-SAFETY-GATE-CONSUMPTION-PACKET-01: docs(result): add RIASEC Safety Gate packet",
       "depends_on": [
         "ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01"
       ],
-      "commit_sha": "9ebb78d198e573f922a73750a9cdb2bebc18684d",
+      "commit_sha": "c1c06f159201b2fed739ecedd8d5c70aa844d297",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1375",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-23T11:37:41Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -27010,12 +27010,12 @@
           "evidence": "Local checks passed on codex/riasec-safety-gate-consumption-packet-01: JSON parse for RIASEC Safety Gate packet and state, YAML parse for manifest, focused RIASEC Safety Gate consumption packet contract (9 tests), pnpm typecheck, pnpm test:contract (547 files, 3184 tests), git diff --check, and changed-file scope validation for exactly 5 authorized files. pnpm build was intentionally not run per goal constraints."
         },
         "pull_request": {
-          "status": "open",
-          "evidence": "Opened PR #1375 at https://github.com/fermatmind/fap-web/pull/1375 from codex/riasec-safety-gate-consumption-packet-01."
+          "status": "merged",
+          "evidence": "PR #1375 was squash merged as c1c06f159201b2fed739ecedd8d5c70aa844d297."
         },
         "github": {
           "status": "pass",
-          "evidence": "GitHub checks passed for PR #1375 head 9ebb78d1: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
+          "evidence": "GitHub checks passed for PR #1375 final head b5851a5d: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
         }
       },
       "sidecar_issues": [],
@@ -27044,6 +27044,16 @@
           "at": "2026-06-23T19:33:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed on PR #1375 head 9ebb78d1 and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
+        },
+        {
+          "at": "2026-06-23T19:37:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1375 final head b5851a5d after the ready-to-merge ledger commit, and mergeStateStatus was CLEAN."
+        },
+        {
+          "at": "2026-06-23T19:38:00+08:00",
+          "status": "merged_cleanup_complete",
+          "note": "PR #1375 was squash merged as c1c06f159201b2fed739ecedd8d5c70aa844d297. origin/main contains the merge commit, local main equals origin/main, worktree is clean, and task branch cleanup completed locally and remotely."
         }
       ]
     },
@@ -27052,7 +27062,7 @@
       "repo": "fap-web",
       "branch": "codex/active-result-page-agents-safety-gate-matrix-01",
       "base": "main",
-      "status": "pending_dependency",
+      "status": "ready_to_merge",
       "train_scope": "active_result_page_agents_safety_gate_matrix",
       "title": "ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-MATRIX-01: docs(result): add active Safety Gate matrix",
       "depends_on": [
@@ -27060,8 +27070,8 @@
         "ENNEAGRAM-SAFETY-GATE-CONSUMPTION-PACKET-01",
         "RIASEC-SAFETY-GATE-CONSUMPTION-PACKET-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "4414422196a40bf07dad8310763c000def352619",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1376",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -27072,8 +27082,8 @@
           "evidence": "User authorized this PR id in ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-INTEGRATION-PR-TRAIN-01."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Waiting for Big Five, Enneagram, and RIASEC Safety Gate consumption packet PRs to merge and clean up."
+          "status": "pass",
+          "evidence": "Big Five PR #1372, Enneagram PR #1373, and RIASEC PR #1375 are merged into origin/main and cleaned up before PR5 started."
         },
         "scope": {
           "status": "authorized",
@@ -27090,16 +27100,16 @@
           "evidence": "Authorized scope is fap-web docs/contracts-only active Safety Gate matrix plus current PR train metadata and sidecar issue summary if needed."
         },
         "local_validation": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "Local checks passed on codex/active-result-page-agents-safety-gate-matrix-01: JSON parse for active Safety Gate matrix and state, YAML parse for manifest, focused active Safety Gate matrix contract (9 tests), pnpm typecheck, pnpm test:contract (548 files, 3193 tests), git diff --check, and changed-file scope validation for exactly 5 authorized files. pnpm build was intentionally not run per goal constraints."
         },
         "pull_request": {
-          "status": "not_opened",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened PR #1376 at https://github.com/fermatmind/fap-web/pull/1376 from codex/active-result-page-agents-safety-gate-matrix-01."
         },
         "github": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1376 head 44144221: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
         }
       },
       "sidecar_issues": [],
@@ -27108,6 +27118,26 @@
           "at": "2026-06-23T18:24:00+08:00",
           "status": "pending_dependency",
           "note": "Initialized from authorized five-PR Safety Gate integration train. Waiting for Big Five, Enneagram, and RIASEC Safety Gate packet PRs to merge."
+        },
+        {
+          "at": "2026-06-23T19:39:00+08:00",
+          "status": "in_progress",
+          "note": "Started PR5 from origin/main c1c06f159201b2fed739ecedd8d5c70aa844d297 after PR4 merge and cleanup. Scope is fap-web docs/contracts-only active Safety Gate matrix plus current PR train metadata."
+        },
+        {
+          "at": "2026-06-23T19:43:00+08:00",
+          "status": "local_checks_passed",
+          "note": "JSON/YAML parse, focused active Safety Gate matrix contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed. pnpm build intentionally not run per goal constraints."
+        },
+        {
+          "at": "2026-06-23T19:44:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1376 at https://github.com/fermatmind/fap-web/pull/1376."
+        },
+        {
+          "at": "2026-06-23T19:48:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1376 head 44144221 and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     }
