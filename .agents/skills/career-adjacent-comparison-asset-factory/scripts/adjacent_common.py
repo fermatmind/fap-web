@@ -17,10 +17,40 @@ VERSION = "career_adjacent_comparison_v1"
 LOCALES = ("zh-CN", "en")
 ROOT = Path.cwd()
 SEED = ROOT / "generated/career-salary-seed/career_jobs_1046_salary_asset_seed.json"
-IDENTITY_BASELINE = ROOT / "generated/career-identity-v1-1046-pass-baseline-final"
-WORK_BASELINE = ROOT / "generated/career-work-activities-v1-1046-pass-baseline-final-repaired"
-SKILLS_BASELINE = ROOT / "generated/career-skills-entry-v1-1046-pass-baseline-final"
-FIT_BASELINE = ROOT / "generated/career-fit-v1-1046-pass-baseline-final"
+STATE_BASELINES = ROOT / "generated/fermatmind-content-agent-state/latest_pass_baselines.json"
+
+
+def resolve_latest_baseline(block_name: str, fallbacks: list[str]) -> Path:
+    if STATE_BASELINES.exists():
+        payload = json.loads(STATE_BASELINES.read_text(encoding="utf-8"))
+        for row in payload.get("baselines", []):
+            if row.get("block_name") == block_name and row.get("baseline_directory"):
+                candidate = ROOT / str(row["baseline_directory"])
+                if candidate.is_dir():
+                    return candidate
+    for fallback in fallbacks:
+        candidate = ROOT / fallback
+        if candidate.is_dir():
+            return candidate
+    raise FileNotFoundError(f"No PASS baseline found for {block_name}")
+
+
+IDENTITY_BASELINE = resolve_latest_baseline("career-identity", [
+    "generated/career-identity-v1-batch-1046-pass-baseline-final-repaired",
+    "generated/career-identity-v1-1046-pass-baseline-final",
+])
+WORK_BASELINE = resolve_latest_baseline("career-work-activities", [
+    "generated/career-work-activities-v1-batch-1046-pass-baseline-final-repaired",
+    "generated/career-work-activities-v1-1046-pass-baseline-final-repaired",
+])
+SKILLS_BASELINE = resolve_latest_baseline("career-skills-entry", [
+    "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired",
+    "generated/career-skills-entry-v1-1046-pass-baseline-final",
+])
+FIT_BASELINE = resolve_latest_baseline("career-fit", [
+    "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired",
+    "generated/career-fit-v1-1046-pass-baseline-final",
+])
 
 RUNTIME_OR_SEO = re.compile(
     r"\b(search_projection|sitemap|noindex|json-ld|jsonld|robots\.txt|llms\.txt|cms import|production import|staging_preview|canonical)\b",
@@ -197,7 +227,7 @@ def dependency_content(row: dict[str, Any]) -> dict[str, Any]:
 def sentence_snippets(row: dict[str, Any], limit: int = 6) -> list[str]:
     snippets: list[str] = []
     for value in text_values(row):
-        for part in re.split(r"(?<=[。.!?])\s+", value):
+        for part in re.split(r"[；;]|(?<=[。.!?])\s+", value):
             part = part.strip()
             if 18 <= len(part) <= 220 and part not in snippets:
                 snippets.append(part)

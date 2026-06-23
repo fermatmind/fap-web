@@ -1,3 +1,1 @@
-# Next Goal Recommendation
-
-Run `career-adjacent-comparison` through the same controlled block workflow. Do not run page assembly until adjacent comparison is COMPLETE.
+Next: run career-page-assembly using PASS frozen baselines for identity, work-activities, skills-entry, career-fit, and adjacent-comparison; do not create new facts, runtime changes, staging, or import.

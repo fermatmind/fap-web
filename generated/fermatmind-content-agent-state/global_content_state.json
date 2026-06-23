@@ -4,7 +4,8 @@
   "career_blocks": [
     "career-fit",
     "career-identity",
-    "career-work-activities"
+    "career-work-activities",
+    "career-adjacent-comparison"
   ],
   "human_approval_required": false,
   "import_state_path": "generated/fermatmind-content-agent-state/import_state.json",
@@ -13,9 +14,9 @@
   "open_failures_path": "generated/fermatmind-content-agent-state/open_failures.json",
   "personality_blocks": [],
   "schema_version": "career_content_agent_state_v1",
-  "updated_at": "2026-06-23T04:13:45.016669+00:00",
-  "current_block": "career-fit",
+  "updated_at": "2026-06-23T08:08:47Z",
+  "current_block": "career-adjacent-comparison",
   "current_phase": "final_qa_pass",
-  "last_completed_block": "career-fit",
-  "last_updated_at": "2026-06-23T07:09:00Z"
+  "last_completed_block": "career-adjacent-comparison",
+  "last_updated_at": "2026-06-23T08:08:47Z"
 }
