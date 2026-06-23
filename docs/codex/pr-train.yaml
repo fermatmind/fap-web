@@ -9608,7 +9608,7 @@ prs:
     mode: execute
     train_scope: global_en_zh_content_pages_llms_exposure_repair
     risk_level: scoped_seo_geo_enumeration_repair
-    status: in_progress
+    status: ready_to_merge
     title: "GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01 include approved English content pages in llms surfaces"
     goal: "Include five already published/indexable Wave 1 English content pages in llms.txt and llms-full.txt by reading backend public content-page detail API authority, without adding frontend fallback content."
     in_scope:
