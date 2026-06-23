@@ -12672,8 +12672,8 @@
       ],
       "status": "planned",
       "title": "GLOBAL-EN-ZH-PARITY-ARTICLE-COUNTERPART-BATCH-01 article counterpart controlled batch",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "8f442dabecfe816541cd91faaeb9f1674ec88ec1",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1354",
       "checks": {
         "focused_contract": "passed",
         "typecheck": "passed",
@@ -25986,8 +25986,8 @@
           "evidence": "Passed: python3 -m json.tool docs/result-page-agents/big5-runtime-qa-consumption-packet.v1.json; python3 -m json.tool docs/codex/pr-train-state.json; ruby YAML parse for docs/codex/pr-train.yaml; pnpm exec vitest run tests/contracts/big5-runtime-qa-consumption-packet.contract.test.ts; pnpm typecheck; pnpm test:contract (535 files, 3067 tests); git diff --check; explicit worktree changed-file scope validation over tracked and untracked files."
         },
         "pull_request": {
-          "status": "pending",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1354 after local validation and scope validation passed. The branch head remains the source of truth after this ledger update commit."
         },
         "github": {
           "status": "pending",
@@ -26010,6 +26010,11 @@
           "at": "2026-06-23T11:40:00+08:00",
           "status": "local_checks_passed",
           "note": "Added the Big Five Runtime QA consumption packet, reconciled PR1 merge/cleanup facts, and passed JSON/YAML parsing, focused Vitest, typecheck, full contract suite, diff whitespace, and explicit changed-file scope validation."
+        },
+        {
+          "at": "2026-06-23T11:43:00+08:00",
+          "status": "pr_open",
+          "note": "Opened PR #1354 for the Big Five Runtime QA consumption packet after path-limited staging and local validation."
         }
       ]
     },
