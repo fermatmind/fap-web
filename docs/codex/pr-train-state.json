@@ -23423,8 +23423,8 @@
       "id": "RIASEC-CAREER-GRAPH-CANDIDATE-CLUSTER-PACKET-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-candidate-cluster-packet-01",
-      "status": "pr_open",
-      "commit_sha": "21527c17f1dfc430988083a05132de85c42190e4",
+      "status": "ready_to_merge",
+      "commit_sha": "16df891c1083c40742e278ff0f730d572f556a26",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1382",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -23461,8 +23461,8 @@
           "evidence": "JSON and YAML parse passed; focused candidate cluster contract passed 7 tests; pnpm typecheck passed; pnpm test:contract passed 552 files and 3234 tests; git diff --check passed; changed-file scope validation passed. Local next build was not run because this docs/contracts-only train forbids generated SEO artifact mutation; GitHub build remains the required build check."
         },
         "github_checks": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "PR #1382 checks passed on head 16df891c: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         },
         "post_merge": {
           "status": "pending",
@@ -23498,6 +23498,11 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "pr_open",
           "note": "Opened PR #1382 at https://github.com/fermatmind/fap-web/pull/1382 from commit 21527c17 after local validation passed."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "ready_to_merge",
+          "note": "PR #1382 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. Ready for squash merge subject to final scope and mergeStateStatus checks."
         }
       ]
     },
