@@ -12850,7 +12850,7 @@
       "branch": "codex/global-en-zh-content-pages-discoverability-exposure-readiness-01",
       "base": "main",
       "depends_on": [],
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "title": "docs(seo): add content pages discoverability exposure readiness",
       "commit_sha": "e0d1ee798d9fdcb64bc5e0438cfcc73c386d7c88",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/910",
@@ -18597,7 +18597,8 @@
         "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
         "ruby -e 'require \"yaml\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); puts \"yaml-ok\"'": "passed",
         "git diff --check": "passed",
-        "scope_validation": "passed: changed files are limited to frontend current-question delivery adapter, Owner Original 30 take flow, focused contracts, full-page visual coverage, scope helper, and train metadata"
+        "scope_validation": "passed: changed files are limited to frontend current-question delivery adapter, Owner Original 30 take flow, focused contracts, full-page visual coverage, scope helper, and train metadata",
+        "github_pr_checks": "passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), CodeQL"
       },
       "failure_reason": null,
       "merged_at": null,
@@ -18641,6 +18642,11 @@
           "at": "2026-06-24T01:01:34+08:00",
           "status": "pr_opened",
           "summary": "Opened fap-web PR #1384 for IQ-SESSION-QUESTION-DELIVERY-05B from codex/iq-session-question-delivery-05b."
+        },
+        {
+          "at": "2026-06-24T01:06:58+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub PR #1384 checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       ]
     },
