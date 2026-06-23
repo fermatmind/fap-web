@@ -9550,7 +9550,7 @@ prs:
     mode: execute
     train_scope: global_en_zh_footer_nav_parity
     risk_level: scoped_footer_navigation_parity
-    status: in_progress
+    status: ready_to_merge
     title: "fix(footer): align zh footer with published content pages"
     goal: "Align the Chinese footer company/policy links with the published English/Chinese content-page set while keeping footer links authority-backed and avoiding frontend content ownership."
     in_scope:
