@@ -1262,23 +1262,23 @@ export default async function TestLandingPage({
       })
     : null;
   const mbtiEntryVariantChoices: FlagshipVariantChoice[] = [
-    mbtiPrimaryChoice && mbtiPrimaryHref
-      ? {
+    ...(mbtiPrimaryChoice && mbtiPrimaryHref
+      ? [{
           ...mbtiPrimaryChoice,
           href: mbtiPrimaryHref,
           testId: "mbti-landing-primary-cta",
           eventProperties: mbtiPrimaryClickTrackingProps ?? mbtiPrimaryChoice.eventProperties,
-        }
-      : null,
-    mbtiSecondaryChoice && mbtiSecondaryHref
-      ? {
+        }]
+      : []),
+    ...(mbtiSecondaryChoice && mbtiSecondaryHref
+      ? [{
           ...mbtiSecondaryChoice,
           href: mbtiSecondaryHref,
           testId: "mbti-landing-secondary-cta",
           eventProperties: mbtiSecondaryClickTrackingProps ?? mbtiSecondaryChoice.eventProperties,
-        }
-      : null,
-  ].filter((choice): choice is FlagshipVariantChoice => Boolean(choice));
+        }]
+      : []),
+  ];
   const eqVariantChoices: FlagshipVariantChoice[] = showsEqActions && canRenderStartCta
     ? [
         {
