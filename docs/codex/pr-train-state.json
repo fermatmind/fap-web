@@ -12764,7 +12764,7 @@
       "branch": "codex/global-en-zh-global-ui-i18n-batch-08",
       "base": "main",
       "depends_on": [],
-      "status": "pr_opened",
+      "status": "merged_cleanup_complete",
       "title": "GLOBAL-EN-ZH-GLOBAL-UI-I18N-BATCH-08 global UI i18n parity package",
       "commit_sha": "e6cb8e3f2320808bc097f2b94105be3a04751aa9",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/905",
@@ -12802,7 +12802,7 @@
       "branch": "codex/global-en-zh-content-pages-frontend-runtime-repair-01",
       "base": "main",
       "depends_on": [],
-      "status": "pr_opened",
+      "status": "merged_cleanup_complete",
       "title": "fix(content-pages): repair public content page SSR API base",
       "commit_sha": "579efedbcba43ad94b93bbc2f3089e9d5ed84381",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/909",
@@ -26713,11 +26713,11 @@
       "train_scope": "active_result_page_agents_safety_gate_common_contract",
       "title": "ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01: docs(result): define active Safety Gate common contract",
       "depends_on": [],
-      "commit_sha": "ce6b61bc14f067f70fa5e983e7a95964f6ac20f6",
+      "commit_sha": "bb4579e8c087e5221b2cd90c63c485fdc99b6199",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1371",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-23T10:48:43Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -26745,12 +26745,12 @@
           "evidence": "Local checks passed on codex/active-result-page-agents-safety-gate-common-contract-01: JSON parse for Safety Gate common contract and state, YAML parse for manifest, focused Safety Gate common contract (11 tests), pnpm typecheck, pnpm test:contract (544 files, 3157 tests), git diff --check, and changed-file scope validation for exactly 6 authorized files. pnpm build was intentionally not run per goal constraints."
         },
         "pull_request": {
-          "status": "open",
-          "evidence": "Opened PR #1371 at https://github.com/fermatmind/fap-web/pull/1371 with pushed head d74ed01d1f5e97b02cd42dbd5771cf09cc4e91f9."
+          "status": "merged",
+          "evidence": "PR #1371 was squash merged as bb4579e8c087e5221b2cd90c63c485fdc99b6199."
         },
         "github": {
           "status": "pass",
-          "evidence": "GitHub checks passed for PR #1371 head ce6b61bc: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
+          "evidence": "GitHub checks passed for PR #1371 final head 4b033dd2 after rerunning an unrelated contracts flake: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
         }
       },
       "sidecar_issues": [],
@@ -26778,7 +26778,12 @@
         {
           "at": "2026-06-23T18:39:00+08:00",
           "status": "ready_to_merge",
-          "note": "GitHub checks passed on PR #1371 head ce6b61bc and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
+          "note": "GitHub checks passed on PR #1371 final head 4b033dd2 after rerunning an unrelated contracts flake, and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
+        },
+        {
+          "at": "2026-06-23T18:49:00+08:00",
+          "status": "merged_cleanup_complete",
+          "note": "PR #1371 was squash merged as bb4579e8c087e5221b2cd90c63c485fdc99b6199. origin/main contains the merge commit, local main equals origin/main, worktree is clean, and task branch cleanup completed locally and remotely."
         }
       ]
     },
@@ -26787,14 +26792,14 @@
       "repo": "fap-web",
       "branch": "codex/big5-safety-gate-consumption-packet-01",
       "base": "main",
-      "status": "pending_dependency",
+      "status": "ready_to_merge",
       "train_scope": "big5_safety_gate_consumption_packet",
       "title": "BIG5-SAFETY-GATE-CONSUMPTION-PACKET-01: docs(result): add Big Five Safety Gate packet",
       "depends_on": [
         "ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "df258b7cd4008598e46b9059d1b39ac0efd8eb6e",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1372",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -26805,8 +26810,8 @@
           "evidence": "User authorized this PR id in ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-INTEGRATION-PR-TRAIN-01."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Waiting for ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01 to merge and clean up."
+          "status": "pass",
+          "evidence": "ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01 merged in PR #1371 as bb4579e8c087e5221b2cd90c63c485fdc99b6199 and post-merge cleanup completed before PR2 started."
         },
         "scope": {
           "status": "authorized",
@@ -26821,16 +26826,16 @@
           "evidence": "Authorized scope is fap-web docs/contracts-only Big Five Safety Gate consumption packet plus current PR train metadata."
         },
         "local_validation": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "Local checks passed on codex/big5-safety-gate-consumption-packet-01: JSON parse for Big Five Safety Gate packet and state, YAML parse for manifest, focused Big Five Safety Gate consumption packet contract (9 tests), pnpm typecheck, pnpm test:contract (545 files, 3166 tests), git diff --check, and changed-file scope validation for exactly 5 authorized files. pnpm build was intentionally not run per goal constraints."
         },
         "pull_request": {
-          "status": "not_opened",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened PR #1372 at https://github.com/fermatmind/fap-web/pull/1372 from codex/big5-safety-gate-consumption-packet-01."
         },
         "github": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1372 head df258b7c: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
         }
       },
       "sidecar_issues": [],
@@ -26839,6 +26844,26 @@
           "at": "2026-06-23T18:24:00+08:00",
           "status": "pending_dependency",
           "note": "Initialized from authorized five-PR Safety Gate integration train. Waiting for common Safety Gate contract PR to merge."
+        },
+        {
+          "at": "2026-06-23T18:50:00+08:00",
+          "status": "in_progress",
+          "note": "Started PR2 from origin/main bb4579e8c087e5221b2cd90c63c485fdc99b6199 after PR1 merge and cleanup. Scope is fap-web docs/contracts-only Big Five Safety Gate packet plus current PR train metadata."
+        },
+        {
+          "at": "2026-06-23T18:56:00+08:00",
+          "status": "local_checks_passed",
+          "note": "JSON/YAML parse, focused Big Five Safety Gate consumption packet contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed. pnpm build intentionally not run per goal constraints."
+        },
+        {
+          "at": "2026-06-23T18:57:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1372 at https://github.com/fermatmind/fap-web/pull/1372."
+        },
+        {
+          "at": "2026-06-23T19:01:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1372 head df258b7c and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
