@@ -23155,8 +23155,8 @@
       "id": "RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-bridge-common-contract-01",
-      "status": "pr_open",
-      "commit_sha": "a656074edcb523795a2c441dcde0e13f1db5aa6c",
+      "status": "ready_to_merge",
+      "commit_sha": "6e448d4912e6ab7cbecdd3425968f9893db6d2ad",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1378",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -23194,8 +23194,8 @@
           "evidence": "JSON and YAML parse passed; focused contract passed 10 tests; pnpm typecheck passed; pnpm test:contract passed 549 files and 3208 tests; git diff --check passed; changed-file scope validation passed. Local pnpm install --frozen-lockfile was run to hydrate the clean temp worktree node_modules and did not modify tracked files. Local next build was not run because this docs/contracts-only train explicitly forbids generated SEO artifact mutation; GitHub build remains the required build check."
         },
         "github_checks": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "PR #1378 checks passed on head 6e448d49: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         },
         "post_merge": {
           "status": "pending",
@@ -23222,6 +23222,11 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "pr_open",
           "note": "Opened PR #1378 at https://github.com/fermatmind/fap-web/pull/1378 from commit a656074e after local validation passed."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "ready_to_merge",
+          "note": "PR #1378 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. Ready for squash merge subject to final scope and mergeStateStatus checks."
         }
       ]
     },
