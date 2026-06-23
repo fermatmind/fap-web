@@ -18386,8 +18386,8 @@
         "IQ-OWNER-30-BACKEND-SCORING-02"
       ],
       "title": "feat(iq): render owner original image questions",
-      "status": "ready_to_merge",
-      "commit_sha": "6fc35b1884b0b300466a0bbff034193f354201bf",
+      "status": "merged_cleanup_complete",
+      "commit_sha": "2199e562b2d14113d458500abef64a91b43f35b1",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1374",
       "checks": {
         "dependency_iq_owner_30_backend_assets_01": "passed: fermatmind/fap-api#2362 merged and origin/main contains 8018703a39d50ecd77225efc482d95af69d26c70",
@@ -18407,12 +18407,13 @@
         "scope_validation": "passed: changed files limited to IQ image renderer, IQ contracts/a11y/visual snapshots, currentPrScope guard, and train metadata",
         "CodeQL": "failed on d60acbb44f847302fdf5a347fea2af9462e6213b for incomplete image URL scheme check in lib/iq/renderer.ts; fixed in current PR scope by allowing only http/https explicit schemes and rejecting other schemes such as vbscript and ftp",
         "github_required_checks": "passed on PR #1374 head 6fc35b1884b0b300466a0bbff034193f354201bf: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, and CodeQL alert check",
-        "merge_state": "passed: GitHub reports mergeStateStatus CLEAN and mergeable MERGEABLE"
+        "merge_state": "passed: GitHub reports mergeStateStatus CLEAN and mergeable MERGEABLE",
+        "post_merge_revalidation": "passed: PR #1374 merged at 2026-06-23T11:59:16Z with merge commit 2199e562b2d14113d458500abef64a91b43f35b1; origin/main contains merge commit; local main synced; task branch cleaned locally/remotely"
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-23T11:59:16Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "scope": {
         "status": "authorized",
         "allowed_paths": [
@@ -18457,6 +18458,112 @@
           "at": "2026-06-23T11:54:10.829Z",
           "status": "ready_to_merge",
           "summary": "PR #1374 passed local validation, scope validation, required GitHub checks, CodeQL, and merge-state revalidation. Marked ready_to_merge before squash merge per train policy."
+        },
+        {
+          "at": "2026-06-23T20:21:08+08:00",
+          "status": "merged_cleanup_complete",
+          "summary": "Reconciled PR #1374 after merge. GitHub reports merged at 2026-06-23T11:59:16Z with merge commit 2199e562b2d14113d458500abef64a91b43f35b1; origin/main contains the merge commit; local main was synced and task branches were cleaned before starting IQ-OWNER-30-FE-FORMCODE-04."
+        }
+      ]
+    },
+    {
+      "id": "IQ-OWNER-30-FE-FORMCODE-04",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/iq-owner-30-fe-formcode-04",
+      "base": "main",
+      "depends_on": [
+        "IQ-OWNER-30-FE-IMAGE-RENDERER-03"
+      ],
+      "title": "feat(iq): wire owner original bank form code",
+      "status": "ready_to_merge",
+      "commit_sha": "5d1d714d5dfd5e91a503750519034ff44b3dcfdf",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1379",
+      "checks": {
+        "dependency_iq_owner_30_fe_image_renderer_03": "passed: fap-web PR #1374 merged and origin/main contains 2199e562b2d14113d458500abef64a91b43f35b1",
+        "workspace_safety": "passed: unrelated local changes in app/(localized)/[locale]/tests/[slug]/page.tsx, components/business/CTASticky.tsx, and components/marketing/HomePageExperience.tsx were preserved in temporary stashes and are outside current PR4 scope",
+        "pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/iq-frontend-api-contracts.contract.test.ts tests/contracts/iq-take-lifecycle.contract.test.tsx tests/contracts/iq-bank-display-model.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts": "passed: 40 tests",
+        "pnpm test:contract": "passed: 553 files, 3246 tests",
+        "pnpm typecheck": "passed",
+        "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build": "passed",
+        "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null": "passed",
+        "ruby -e 'require \"yaml\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); puts \"YAML parse ok\"'": "passed",
+        "git diff --check": "passed",
+        "scope_validation": "passed: changed files are limited to IQ owner original 30 form/bank routing, affected take-page form query contract, contract tests, scope helper, and PR-train metadata"
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope": {
+        "status": "authorized",
+        "allowed_paths": [
+          "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
+          "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+          "lib/iq/api.ts",
+          "lib/iq/bankDisplay.ts",
+          "lib/iq/constants.ts",
+          "lib/iq/contracts.ts",
+          "tests/contracts/iq-bank-display-model.contract.test.ts",
+          "tests/contracts/iq-frontend-api-contracts.contract.test.ts",
+          "tests/contracts/iq-take-lifecycle.contract.test.tsx",
+          "tests/contracts/test-detail-landing.contract.test.ts",
+          "tests/contracts/enneagram-api.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ]
+      },
+      "events": [
+        {
+          "at": "2026-06-23T20:21:08+08:00",
+          "status": "implementation_in_progress",
+          "summary": "Started IQ Owner Original 30 formCode/bank wiring PR on codex/iq-owner-30-fe-formcode-04. Scope is limited to frontend bank selection, IQ take formCode propagation, contract tests, currentPrScope, and train metadata."
+        },
+        {
+          "at": "2026-06-23T20:38:21+08:00",
+          "status": "local_validation_passed",
+          "summary": "Wired Owner Original 30 as the default IQ bank/form display model and propagated selected form/bank through IQ question fetch and attempt start. Focused contracts, full contract suite, typecheck, production build, JSON/YAML parse, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-06-23T20:53:05+08:00",
+          "status": "workspace_isolated",
+          "summary": "Preserved unrelated landing page, CTA sticky, and homepage local changes in temporary stashes before final PR4 staging; current working diff is limited to the declared IQ owner original formCode scope."
+        },
+        {
+          "at": "2026-06-23T20:56:18+08:00",
+          "status": "pr_open",
+          "summary": "Opened fap-web PR #1379 for IQ-OWNER-30-FE-FORMCODE-04 from implementation commit 5cfa370f88493251f65ca42f13d16e8c5e0ab0fc after rebase."
+        },
+        {
+          "at": "2026-06-23T21:08:45+08:00",
+          "status": "rebased",
+          "summary": "Rebased PR #1379 onto origin/main 2ebbd0f8400941f19fd5c69f4531a6cb67e0731e after main advanced; resolved the in-scope currentPrScope helper conflict by retaining both RIASEC career graph and IQ owner allowlists."
+        },
+        {
+          "at": "2026-06-23T21:16:42+08:00",
+          "status": "rebased_local_validation_passed",
+          "summary": "After the rebase, reran focused IQ/take contracts, pnpm typecheck, full pnpm test:contract (549 files / 3211 tests), production build, JSON/YAML parse, git diff --check, and scope validation; generated sitemap output was restored."
+        },
+        {
+          "at": "2026-06-23T21:32:35+08:00",
+          "status": "ready_to_merge",
+          "summary": "Rebased PR #1379 onto origin/main 853cbaea946f26ef078bef0df2631502badf07a3 after main advanced again. Focused IQ/take contracts, pnpm typecheck, full pnpm test:contract (550 files / 3220 tests), production build, JSON/YAML parse, git diff --check, and 14-file scope validation passed. GitHub required checks must be re-polled on the pushed ready-to-merge commit before merge."
+        },
+        {
+          "at": "2026-06-23T21:45:32+08:00",
+          "status": "ready_to_merge",
+          "summary": "Rebased PR #1379 onto origin/main 6048354f3937200d4137ad3b4826958ddeb88bea after main advanced again. Focused IQ/take contracts, pnpm typecheck, full pnpm test:contract (551 files / 3230 tests), production build, JSON/YAML parse, git diff --check, and 14-file scope validation passed. GitHub required checks must be re-polled on the pushed ready-to-merge commit before merge."
+        },
+        {
+          "at": "2026-06-23T22:00:20+08:00",
+          "status": "ready_to_merge",
+          "summary": "Rebased PR #1379 onto origin/main 1fb920f7b44b9f08b3fa887c476d8ac86052925d after main advanced again. Focused IQ/take contracts passed (40 tests), pnpm typecheck passed, full pnpm test:contract passed (552 files / 3237 tests), production build passed, JSON/YAML parse passed, git diff --check passed, and 14-file scope validation passed. Generated public/sitemap.xml was restored because it is outside PR4 scope. GitHub required checks must be re-polled on the pushed ready-to-merge commit before merge."
+        },
+        {
+          "at": "2026-06-23T22:19:20+08:00",
+          "status": "ready_to_merge",
+          "summary": "Rebased PR #1379 onto origin/main 5e8ba32c20b55e8125208399be9ea63066f6de7f after main advanced again. Focused IQ/take contracts passed (40 tests), pnpm typecheck passed, full pnpm test:contract passed (553 files / 3246 tests), production build passed, JSON/YAML parse passed, git diff --check passed, and 14-file scope validation passed. Generated public/sitemap.xml was restored because it is outside PR4 scope. GitHub required checks must be re-polled on the pushed ready-to-merge commit before merge."
         }
       ]
     },

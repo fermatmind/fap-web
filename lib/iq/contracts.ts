@@ -169,6 +169,8 @@ export const iqStartAttemptPayloadSchema = z
     anon_id: z.string().optional(),
     locale: z.string().optional(),
     region: z.string().optional(),
+    form_code: z.string().optional(),
+    bank_id: z.string().optional(),
     source: z.string().optional(),
     meta: z.record(z.string(), z.unknown()).optional(),
     client_version: z.string().optional(),

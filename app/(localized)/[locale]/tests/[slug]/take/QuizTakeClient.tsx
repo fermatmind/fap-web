@@ -641,6 +641,8 @@ function QuizTakeInner({
           const response = await getIqQuestions({
             locale,
             anonId,
+            formCode: testKpiMetadata.formCode,
+            bankId: testKpiMetadata.formCode,
           });
           payloadBytes = estimatePayloadBytes(response);
 
@@ -749,6 +751,8 @@ function QuizTakeInner({
               scale_code: IQ_CANONICAL_SCALE_CODE,
               anon_id: anonId,
               locale,
+              form_code: testKpiMetadata.formCode ?? undefined,
+              bank_id: testKpiMetadata.formCode ?? undefined,
               source: "take_page",
               meta: {
                 ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),

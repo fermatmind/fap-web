@@ -155,7 +155,7 @@ describe("enneagram frontend API contract", () => {
     );
 
     expect(source).toContain("isEnneagramScaleCode(test.scale_code)");
-    expect(source).toContain("normalizeEnneagramFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))");
+    expect(source).toContain("normalizeEnneagramFormCode(firstNonEmptyQueryValue(query.form, query.form_code))");
     expect(source).toContain("<EnneagramTakeClient");
     expect(source).toContain("formCode={enneagramFormCode ?? undefined}");
   });

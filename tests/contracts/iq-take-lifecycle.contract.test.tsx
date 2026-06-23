@@ -2,6 +2,7 @@ import type { ReactNode } from "react";
 import { act, fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import QuizTakeClient from "@/app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient";
+import { IQ_OWNER_ORIGINAL_30_BANK_ID } from "@/lib/iq/constants";
 
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/tests/iq-test-intelligence-quotient-assessment/take",
@@ -250,12 +251,13 @@ function buildIqQuestionResponse() {
   };
 }
 
-function renderClient() {
+function renderClient({ formCode }: { formCode?: string } = {}) {
   return render(
     <QuizTakeClient
       slug="iq-test-intelligence-quotient-assessment"
       testTitle="IQ Test"
       scaleCode="IQ_INTELLIGENCE_QUOTIENT"
+      formCode={formCode}
       estimatedMinutes={12}
       questionCount={2}
     />
@@ -299,6 +301,8 @@ describe("IQ take lifecycle contract", () => {
       expect(hoisted.getIqQuestions).toHaveBeenCalledWith({
         locale: "en",
         anonId: "anon_iq_take_test",
+        formCode: undefined,
+        bankId: undefined,
       });
     });
 
@@ -308,6 +312,35 @@ describe("IQ take lifecycle contract", () => {
     expect(screen.getByTestId("iq-option-board-desktop")).toBeInTheDocument();
     expect(screen.queryByText("IQ_RAVEN")).not.toBeInTheDocument();
     expect(screen.queryByText(/¥1\.99|¥5|unlock/i)).not.toBeInTheDocument();
+  });
+
+  it("loads owner-original IQ questions with the selected bank form code", async () => {
+    renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
+
+    await waitFor(() => {
+      expect(hoisted.getIqQuestions).toHaveBeenCalledWith({
+        locale: "en",
+        anonId: "anon_iq_take_test",
+        formCode: IQ_OWNER_ORIGINAL_30_BANK_ID,
+        bankId: IQ_OWNER_ORIGINAL_30_BANK_ID,
+      });
+    });
+
+    await act(async () => {
+      fireEvent.click(
+        within(await screen.findByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" })
+      );
+    });
+
+    await waitFor(() => {
+      expect(hoisted.startIqAttempt).toHaveBeenCalledWith(expect.objectContaining({
+        scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+        anon_id: "anon_iq_take_test",
+        locale: "en",
+        form_code: IQ_OWNER_ORIGINAL_30_BANK_ID,
+        bank_id: IQ_OWNER_ORIGINAL_30_BANK_ID,
+      }));
+    });
   });
 
   it("renders a loading state while IQ questions are still in flight", async () => {

@@ -2,17 +2,22 @@ import {
   IQ_BETA_30_BANK_ID,
   IQ_BETA_50_BANK_ID,
   IQ_CANONICAL_SCALE_CODE,
+  IQ_OWNER_ORIGINAL_30_BANK_ID,
   IQ_PUBLIC_SLUG,
 } from "@/lib/iq/constants";
 import type { Locale } from "@/lib/i18n/locales";
 
-export type IqBankDisplayKey = "beta_30" | "beta_50";
+export type IqBankDisplayKey = "owner_original_30" | "beta_30" | "beta_50";
 export type IqBankAvailability = "available" | "future_placeholder";
+export type IqBankId =
+  | typeof IQ_OWNER_ORIGINAL_30_BANK_ID
+  | typeof IQ_BETA_30_BANK_ID
+  | typeof IQ_BETA_50_BANK_ID;
 
 export type IqBankDisplayModel = {
   key: IqBankDisplayKey;
-  bankId: typeof IQ_BETA_30_BANK_ID | typeof IQ_BETA_50_BANK_ID;
-  formCode: typeof IQ_BETA_30_BANK_ID | typeof IQ_BETA_50_BANK_ID;
+  bankId: IqBankId;
+  formCode: IqBankId;
   scaleCode: typeof IQ_CANONICAL_SCALE_CODE;
   slug: typeof IQ_PUBLIC_SLUG;
   availability: IqBankAvailability;
@@ -50,6 +55,30 @@ export type IqBankLandingChoice = IqBankDisplayModel & IqBankDisplayText & {
 
 export const IQ_BANK_DISPLAY_MODELS: readonly IqBankDisplayModel[] = [
   {
+    key: "owner_original_30",
+    bankId: IQ_OWNER_ORIGINAL_30_BANK_ID,
+    formCode: IQ_OWNER_ORIGINAL_30_BANK_ID,
+    scaleCode: IQ_CANONICAL_SCALE_CODE,
+    slug: IQ_PUBLIC_SLUG,
+    availability: "available",
+    itemCount: 30,
+    isDefault: true,
+    isTakeEnabled: true,
+    ctaState: "start",
+    labels: {
+      en: "Owner Original 30",
+      zh: "原创 30 题",
+    },
+    shortLabels: {
+      en: "Owner original 30",
+      zh: "原创 30 题",
+    },
+    descriptions: {
+      en: "FermatMind owner-original 30-item IQ assessment bank prepared for private backend scoring.",
+      zh: "FermatMind 原创 30 题 IQ 测评题库，交由后端私有评分。",
+    },
+  },
+  {
     key: "beta_30",
     bankId: IQ_BETA_30_BANK_ID,
     formCode: IQ_BETA_30_BANK_ID,
@@ -57,7 +86,7 @@ export const IQ_BANK_DISPLAY_MODELS: readonly IqBankDisplayModel[] = [
     slug: IQ_PUBLIC_SLUG,
     availability: "available",
     itemCount: 30,
-    isDefault: true,
+    isDefault: false,
     isTakeEnabled: true,
     ctaState: "start",
     labels: {
@@ -98,6 +127,13 @@ export const IQ_BANK_DISPLAY_MODELS: readonly IqBankDisplayModel[] = [
     },
   },
 ] as const;
+
+function buildIqBankTakeHref(takeHref: string, formCode: IqBankId): string {
+  const [path, queryString = ""] = takeHref.split("?");
+  const params = new URLSearchParams(queryString);
+  params.set("form", formCode);
+  return `${path}?${params.toString()}`;
+}
 
 export function getIqDefaultBankDisplayModel(): IqBankDisplayModel {
   return IQ_BANK_DISPLAY_MODELS.find((model) => model.isDefault) ?? IQ_BANK_DISPLAY_MODELS[0];
@@ -150,7 +186,7 @@ export function getIqBankLandingChoices({
   return IQ_BANK_DISPLAY_MODELS.map((model) => ({
     ...model,
     ...getIqBankDisplayText(model, locale),
-    href: model.isTakeEnabled ? takeHref : null,
+    href: model.isTakeEnabled ? buildIqBankTakeHref(takeHref, model.formCode) : null,
     testId: `test-detail-landing-cta-${model.key}`,
     targetAction: model.isTakeEnabled ? `start_${model.key}` : `preview_${model.key}`,
   }));

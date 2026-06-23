@@ -13354,7 +13354,7 @@ prs:
       - IQ-OWNER-30-BACKEND-SCORING-02
     mode: execute
     train_scope: iq_owner_original_30_launch
-    status: pr_open_checks_pending
+    status: merged_cleanup_complete
     title: "feat(iq): render owner original image questions"
     goal: "Render backend-delivered Owner Original 30 IQ image stem and option assets in the IQ take page, with full-page visual coverage, without introducing frontend answer keys or bank switching."
     in_scope:
@@ -13395,6 +13395,59 @@ prs:
       - "No frontend answer key, score, or solution rule field is introduced."
       - "Visual coverage targets the full IQ answer panel rather than only the option board."
     rollback_note: "Revert image renderer support and visual test updates if Owner Original 30 remains SVG-only or backend-only."
+
+  - id: IQ-OWNER-30-FE-FORMCODE-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-owner-30-fe-formcode-04
+    base: main
+    depends_on:
+      - IQ-OWNER-30-FE-IMAGE-RENDERER-03
+    mode: execute
+    train_scope: iq_owner_original_30_launch
+    status: ready_to_merge
+    title: "feat(iq): wire owner original bank form code"
+    goal: "Wire IQ take page formCode/bank selection to question delivery and attempt start for the Owner Original 30 bank, without exposing answers or implementing sessionized delivery."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/take/page.tsx
+      - app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx
+      - lib/iq/api.ts
+      - lib/iq/bankDisplay.ts
+      - lib/iq/constants.ts
+      - lib/iq/contracts.ts
+      - tests/contracts/iq-bank-display-model.contract.test.ts
+      - tests/contracts/iq-frontend-api-contracts.contract.test.ts
+      - tests/contracts/iq-take-lifecycle.contract.test.tsx
+      - tests/contracts/test-detail-landing.contract.test.ts
+      - tests/contracts/enneagram-api.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend import, scoring, answer key, or runtime API changes
+      - sessionized/windowed question delivery
+      - CMS, SEO, sitemap, llms, canonical, JSON-LD, production deploy, or staging deploy validation
+      - public static IQ media assets committed to fap-web
+      - exposing answer keys, scoring spec, correct options, or solution rationale in frontend payloads
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/iq-frontend-api-contracts.contract.test.ts tests/contracts/iq-take-lifecycle.contract.test.tsx tests/contracts/iq-bank-display-model.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-SESSION-QUESTION-DELIVERY-05
+    acceptance:
+      - "Owner Original 30 is registered as the default IQ bank/form display model."
+      - "IQ landing choices link take entry with an explicit form query parameter."
+      - "IQ take page accepts form, form_code, bank, and bank_id query parameters and rejects unavailable bank entries."
+      - "IQ question fetch passes the selected form code to the backend questions endpoint."
+      - "IQ attempt start passes the selected form_code/bank_id to the backend attempt start endpoint and metadata."
+      - "IQ submit payload still contains only attempt, answer selections, duration, and attribution; it does not expose answer keys or scoring fields."
+    rollback_note: "Revert Owner Original 30 formCode/bank selection wiring if backend runtime binding is delayed or replaced by a different session delivery contract."
 
   - id: IQ-FE-BANK-SWITCH-01
     repo: fap-web
