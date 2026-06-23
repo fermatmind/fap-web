@@ -59,11 +59,29 @@
         "generated/career-adjacent-comparison-v1-1046-final-independent-qa/final_qa_report.json"
       ],
       "state": "dry_run"
+    },
+    {
+      "approval_manifest_path": null,
+      "artifact_sha256": "148f35732bdf4c08df64ac6aad02946417c5b63420c3a2f67a9cfb13c735650e",
+      "block_name": "career-page-assembly",
+      "block_version": "career_page_assembly_v1",
+      "human_approval_required": true,
+      "rollback_report_path": null,
+      "row_count": 2092,
+      "slug_count": 1046,
+      "source_artifact_paths": [
+        "generated/career-page-assembly-v1-1046-pass-baseline/baseline_sha256_manifest.json",
+        "generated/career-content-full-integrated-qa/integrated_qa_report.json"
+      ],
+      "state": "dry_run_ready_for_human_staging_review"
     }
   ],
   "career_skills_entry": {
     "status": "not_started",
     "baseline_directory": "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired",
     "production_imported": false
-  }
+  },
+  "import_state": "READY_FOR_HUMAN_STAGING_REVIEW",
+  "production_imported": false,
+  "staging_created": false
 }

@@ -1,1 +1,1 @@
-Next: run career-page-assembly using PASS frozen baselines for identity, work-activities, skills-entry, career-fit, and adjacent-comparison; do not create new facts, runtime changes, staging, or import.
+Next: review career content staging preview dry-run package. If approved, authorize staging_preview write explicitly; production import still requires exact SHA approval.
