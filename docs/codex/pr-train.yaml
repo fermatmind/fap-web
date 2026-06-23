@@ -10030,7 +10030,7 @@ prs:
     mode: execute
     train_scope: ops_api_public_tls_path_fix_01a_frontend_same_origin_foundation_api_proxy
     risk_level: scoped_public_api_proxy_rewrite
-    status: pr_open_checks_pending
+    status: merged_cleanup_complete
     title: "OPS-API-PUBLIC-TLS-PATH-FIX-01A: Add Foundation Daily Giving same-origin API proxy"
     goal: "Add frontend same-origin rewrites for public Foundation Daily Giving API paths so apex /api can reach backend authority while api.fermatmind.com SNI/TLS edge repair remains separate."
     in_scope:
@@ -10085,7 +10085,7 @@ prs:
     mode: execute
     train_scope: pr_fdn_02b_daily_giving_frontend_pages
     risk_level: scoped_public_foundation_runtime_pages
-    status: in_progress
+    status: merged_cleanup_complete
     title: "PR-FDN-02B: Add Foundation Daily Giving frontend pages"
     goal: "Add backend-authoritative Foundation Daily Giving frontend pages and monthly archive pages that consume the public Foundation API without frontend fallback records or discoverability exposure changes."
     in_scope:
@@ -10152,7 +10152,7 @@ prs:
     mode: audit
     train_scope: pr_fdn_02b_post_deploy_runtime_smoke
     risk_level: read_only_public_runtime_smoke
-    status: in_progress
+    status: pr_open_checks_pending
     title: "PR-FDN-02B-POST-DEPLOY-RUNTIME-SMOKE: Verify Daily Giving frontend runtime"
     goal: "Record a read-only post-deploy runtime smoke for Foundation Daily Giving frontend pages and public same-origin API paths without runtime code changes, CMS mutation, deploy, Search Channel action, URL submission, external API calls, or discoverability exposure changes."
     in_scope:
@@ -12321,7 +12321,7 @@ prs:
       - ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01
     mode: execute
     train_scope: big5_safety_gate_consumption_packet
-    status: pending_dependency
+    status: merged_cleanup_complete
     goal: "Create the Big Five Safety Gate consumption packet using Big Five Runtime QA and Analytics packets while keeping pilot, runtime, production, CMS, search, opportunity scoring, private-data, event-emission, and fap-api mutation actions held."
     artifacts:
       - docs/result-page-agents/big5-safety-gate-consumption-packet-2026-06-23.md
@@ -12374,7 +12374,7 @@ prs:
       - ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01
     mode: execute
     train_scope: enneagram_safety_gate_consumption_packet
-    status: pending_dependency
+    status: ready_to_merge
     goal: "Create the Enneagram Safety Gate consumption packet using Enneagram Runtime QA and Analytics packets, public-share-safe evidence, and public personality boundary evidence while keeping generation, import, activation, runtime, CMS, search, opportunity scoring, private-data, event-emission, and public profile mutation actions held."
     artifacts:
       - docs/result-page-agents/enneagram-safety-gate-consumption-packet-2026-06-23.md
@@ -13354,7 +13354,7 @@ prs:
       - IQ-OWNER-30-BACKEND-SCORING-02
     mode: execute
     train_scope: iq_owner_original_30_launch
-    status: in_progress
+    status: pr_open_checks_pending
     title: "feat(iq): render owner original image questions"
     goal: "Render backend-delivered Owner Original 30 IQ image stem and option assets in the IQ take page, with full-page visual coverage, without introducing frontend answer keys or bank switching."
     in_scope:
