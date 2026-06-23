@@ -23239,9 +23239,9 @@
       "id": "RIASEC-CAREER-GRAPH-SOURCE-AUTHORITY-PACKET-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-source-authority-packet-01",
-      "status": "local_checks_passed",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "b801282604d94e89855d3afc7af29235d5353420",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1380",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23287,6 +23287,11 @@
         "dependency": {
           "status": "pass",
           "evidence": "RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01 is merged in PR #1378 and origin/main contains merge commit 46d968520d0e4cf612da04e3fc45696e126dc073."
+        },
+        "pull_request": {
+          "status": "open",
+          "url": "https://github.com/fermatmind/fap-web/pull/1380",
+          "evidence": "PR #1380 opened after local validation passed."
         }
       },
       "history": [
@@ -23304,6 +23309,11 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "local_checks_passed",
           "note": "PR2 source authority packet passed JSON/YAML parse, focused contract, typecheck, full contract suite, diff check, and scope validation. Local build intentionally deferred to GitHub required check to avoid postbuild generated SEO artifact mutation in this docs/contracts-only scope."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "pr_open",
+          "note": "Opened PR #1380 at https://github.com/fermatmind/fap-web/pull/1380 from commit b8012826 after local validation passed."
         }
       ]
     },
