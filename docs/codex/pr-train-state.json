@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-23T11:58:00+08:00",
+  "updated_at": "2026-06-23T12:00:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12702,8 +12702,8 @@
       ],
       "status": "planned",
       "title": "GLOBAL-EN-ZH-PARITY-CAREER-ASSET-BATCH-01 career guides jobs parity batch",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "c638e82a752d878f5446aea6b056bb6525059010",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1356",
       "checks": {},
       "failure_reason": null,
       "history": [
@@ -26071,12 +26071,12 @@
           "evidence": "Local checks passed on codex/enneagram-runtime-qa-consumption-packet-01 after fast-forwarding to origin/main c8af412a: JSON parse for packet and state, YAML parse for manifest, focused Enneagram consumption contract (10 tests), pnpm typecheck, pnpm test:contract (536 files, 3077 tests), git diff --check, and changed-file scope validation for exactly 6 authorized files."
         },
         "pull_request": {
-          "status": "pending",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened PR #1356: https://github.com/fermatmind/fap-web/pull/1356 at head c638e82a752d878f5446aea6b056bb6525059010."
         },
         "github": {
-          "status": "pending",
-          "evidence": null
+          "status": "in_progress",
+          "evidence": "Initial GitHub checks started for PR #1356 head c638e82a752d878f5446aea6b056bb6525059010."
         }
       },
       "sidecar_issues": [],
@@ -26095,6 +26095,11 @@
           "at": "2026-06-23T11:58:00+08:00",
           "status": "local_checks_passed",
           "note": "Fast-forwarded the PR3 branch to origin/main c8af412a before validation. JSON/YAML parse, focused contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed."
+        },
+        {
+          "at": "2026-06-23T12:00:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1356 at https://github.com/fermatmind/fap-web/pull/1356 with head c638e82a752d878f5446aea6b056bb6525059010. GitHub checks are in progress."
         }
       ]
     },
