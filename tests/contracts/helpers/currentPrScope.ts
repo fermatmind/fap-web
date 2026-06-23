@@ -258,6 +258,13 @@ const MBTI64_LLMS_FULL_PILOT_EXPOSURE_REPAIR_02_ALLOWED_FILES = new Set([
   "tests/contracts/mbti64-llms-full-pilot-exposure-repair.contract.test.ts",
 ]);
 
+const MBTI64_PERSONALITY_DETAIL_FRONTEND_API_ORIGIN_REPAIR_01_ALLOWED_FILES = new Set([
+  "lib/api-base.ts",
+  "next.config.mjs",
+  "tests/contracts/api-proxy-routing.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const PERSONALITY_AGENT_QA_GATES_01_ALLOWED_FILES = new Set([
   "docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.json",
   "docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.md",
@@ -2771,6 +2778,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/mbti64-agent-recommendation-rerun-loop-01" &&
     MBTI64_AGENT_RECOMMENDATION_RERUN_LOOP_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/mbti64-personality-detail-frontend-api-origin-repair-01" &&
+    MBTI64_PERSONALITY_DETAIL_FRONTEND_API_ORIGIN_REPAIR_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }

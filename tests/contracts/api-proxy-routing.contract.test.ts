@@ -34,12 +34,15 @@ describe("api proxy routing contract", () => {
     expect(buildOptInApiUrl("/api/v0.3/auth/guest")).toBe("/api/v0.3/auth/guest");
   });
 
-  it("keeps server-side API calls on apex public API when production API env is absent", () => {
+  it("keeps server-side API calls on the backend API authority when production API env is absent", () => {
     vi.stubGlobal("window", undefined);
     vi.stubEnv("NEXT_PUBLIC_API_URL", "");
 
     expect(buildApiUrl("/v0.5/content-pages/brand?locale=en&org_id=0")).toBe(
-      "https://fermatmind.com/api/v0.5/content-pages/brand?locale=en&org_id=0"
+      "https://api.fermatmind.com/api/v0.5/content-pages/brand?locale=en&org_id=0"
+    );
+    expect(buildApiUrl("/v0.5/personality/enfj-a?locale=en&org_id=0&scale_code=MBTI")).toBe(
+      "https://api.fermatmind.com/api/v0.5/personality/enfj-a?locale=en&org_id=0&scale_code=MBTI"
     );
   });
 
@@ -69,6 +72,7 @@ describe("api proxy routing contract", () => {
     expect(nextConfig).toContain('"/api/v0.5/career/recommendations/mbti/:type"');
     expect(nextConfig).toContain('"/api/v0.5/career/recommendations/mbti/:type/explainability"');
     expect(nextConfig).toContain('"/api/v0.5/personality/:slug"');
+    expect(nextConfig).toContain('"/api/v0.5/personality/comparisons/:slug"');
     expect(nextConfig).toContain('"/api/v0.5/career/shortlist/state"');
     expect(nextConfig).not.toContain('source: "/api/v0.5/:path*"');
     expect(nextConfig).not.toContain('"/api/v0.5/career/recommendations/mbti/:path*"');

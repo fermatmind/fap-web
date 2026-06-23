@@ -23,6 +23,7 @@ const publicV05ApiProxySources = [
   "/api/v0.5/foundation/giving-records/months/:yearMonth",
   "/api/v0.5/landing-surfaces/:surfaceKey",
   "/api/v0.5/personality",
+  "/api/v0.5/personality/comparisons/:slug",
   "/api/v0.5/personality/:slug",
   "/api/v0.5/personality/:slug/desktop-clone",
   "/api/v0.5/personality/:slug/seo",

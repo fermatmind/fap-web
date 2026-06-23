@@ -1,5 +1,5 @@
 const DEFAULT_API_ORIGIN = "https://api.fermatmind.com";
-const DEFAULT_SERVER_API_ORIGIN = "https://fermatmind.com";
+const DEFAULT_SERVER_API_ORIGIN = DEFAULT_API_ORIGIN;
 const API_PUBLIC_PREFIX = "/api";
 const ENABLE_SAME_ORIGIN_API_PROXY = process.env.NEXT_PUBLIC_USE_SAME_ORIGIN_API_PROXY === "true";
 
