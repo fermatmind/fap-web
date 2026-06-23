@@ -1,0 +1,143 @@
+{
+  "schema_version": "fermatmind.riasec_career_graph_claim_safety_packet.v1",
+  "task_id": "RIASEC-CAREER-GRAPH-CLAIM-SAFETY-PACKET-01",
+  "verdict": "READY_TO_BLOCK_UNSAFE_OUTPUTS",
+  "run_mode": "docs_contracts_only",
+  "dependency": {
+    "task_id": "RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01",
+    "status": "MERGED",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1378",
+    "merge_commit": "46d968520d0e4cf612da04e3fc45696e126dc073"
+  },
+  "consumed_sources": [
+    {
+      "id": "riasec_safety_gate_consumption_packet",
+      "path": "docs/result-page-agents/riasec-safety-gate-consumption-packet.v1.json",
+      "classification": "claim_privacy_safety_gate_artifact",
+      "verdict": "READY_TO_CONSUME_BY_SAFETY_GATE"
+    },
+    {
+      "id": "riasec_runtime_qa_consumption_packet",
+      "path": "docs/result-page-agents/riasec-runtime-qa-consumption-packet.v1.json",
+      "classification": "runtime_qa_artifact",
+      "verdict": "READY_TO_CONSUME_BY_RUNTIME_QA"
+    },
+    {
+      "id": "riasec_analytics_consumption_packet",
+      "path": "docs/result-page-agents/riasec-analytics-consumption-packet.v1.json",
+      "classification": "analytics_handoff_artifact",
+      "verdict": "READY_TO_CONSUME_BY_ANALYTICS"
+    },
+    {
+      "id": "riasec_career_graph_common_contract",
+      "path": "docs/career-graph/riasec-career-graph-bridge-common-contract.v1.json",
+      "classification": "bridge_common_contract",
+      "verdict": "READY_FOR_POLICY_HANDOFF"
+    },
+    {
+      "id": "riasec_career_graph_source_authority_packet",
+      "path": "docs/career-graph/riasec-career-graph-source-authority-packet.v1.json",
+      "classification": "source_authority_packet",
+      "verdict": "MAPPED_PARTIAL"
+    },
+    {
+      "id": "fap_api_riasec_runtime_career_analytics_handoff",
+      "repo": "fap-api",
+      "path": "backend/docs/riasec/riasec-result-page-agent-runtime-career-analytics-handoff-2026-06-23.md",
+      "classification": "backend_authority_handoff_by_reference",
+      "career_bridge_policy_status": "READY_FOR_POLICY_HANDOFF",
+      "runtime_status": "HOLD"
+    }
+  ],
+  "examples_only_assertions": {
+    "occupation_examples": "examples_only",
+    "major_examples": "examples_only",
+    "work_activity_examples": "exploration_prompts",
+    "career_bridge": "starting_point_not_decision"
+  },
+  "forbidden_claims": [
+    "deterministic_career_recommendation",
+    "best_career_for_you",
+    "guaranteed_fit",
+    "you_should_choose",
+    "you_will_succeed",
+    "admissions_prediction",
+    "hiring_suitability",
+    "salary_prediction",
+    "performance_prediction",
+    "success_prediction",
+    "ability_measurement",
+    "job_fit_score",
+    "user_ranking",
+    "occupation_ranking_as_objective_truth",
+    "raw_score_to_career_recommendation"
+  ],
+  "forbidden_bridge_or_analytics_inputs": [
+    "raw_scores",
+    "score_vectors",
+    "percentiles",
+    "selector_traces",
+    "source_refs",
+    "qa_traces",
+    "editor_notes",
+    "private_attempt_id",
+    "user_id",
+    "private_result_payload",
+    "full_private_result_payload",
+    "payment_state",
+    "order_state",
+    "report_access_state"
+  ],
+  "safety_gate_authority": {
+    "can_block_unsafe_bridge_outputs": true,
+    "can_approve_production": false,
+    "can_approve_cms": false,
+    "can_approve_search": false,
+    "can_approve_private_data_access": false,
+    "can_approve_runtime_recommendations": false
+  },
+  "blocked_recommendation_report_schema": [
+    "blocked_output_type",
+    "violated_claim_boundary",
+    "evidence_ref",
+    "source_classification",
+    "replacement_safe_language",
+    "required_follow_up",
+    "approval_state"
+  ],
+  "blocked_recommendation_report_example": {
+    "blocked_output_type": "deterministic_career_recommendation",
+    "violated_claim_boundary": "RIASEC cannot rank occupations or decide best career fit",
+    "evidence_ref": "docs/career-graph/riasec-career-graph-bridge-common-contract.v1.json",
+    "source_classification": "blocked_private_or_unreviewed_source",
+    "replacement_safe_language": "examples_to_explore",
+    "required_follow_up": "claim_privacy_safety_gate_review",
+    "approval_state": "blocked"
+  },
+  "hold_actions": [
+    "recommendation_logic",
+    "runtime_code",
+    "cms",
+    "generated_pages",
+    "career_graph_runtime_mutation",
+    "private_result_data",
+    "production_import",
+    "deploy",
+    "search_submission",
+    "provider_calls",
+    "opportunity_scoring",
+    "search_channel_mutation"
+  ],
+  "negative_guarantees": {
+    "recommendation_logic_added": "no",
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "generated_pages": "none",
+    "career_graph_runtime_mutation": "none",
+    "private_result_data_accessed": "none",
+    "production_import": "none",
+    "deployment_triggered": "no",
+    "search_submission": "none",
+    "provider_calls": "none"
+  }
+}

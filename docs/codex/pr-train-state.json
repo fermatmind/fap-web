@@ -23239,12 +23239,12 @@
       "id": "RIASEC-CAREER-GRAPH-SOURCE-AUTHORITY-PACKET-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-source-authority-packet-01",
-      "status": "ready_to_merge",
-      "commit_sha": "8ed4650ed3d321a27f28620dc8852beb001ad587",
+      "status": "merged_cleanup_complete",
+      "commit_sha": "1024802e8dc00faa5f685bc00b2466d805f95883",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1380",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-23T13:19:43Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -23281,8 +23281,8 @@
           "evidence": "PR #1380 checks passed on head 8ed4650e: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         },
         "post_merge": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub reports PR #1380 MERGED with squash merge commit 853cbaea946f26ef078bef0df2631502badf07a3. origin/main contains the merge commit, local main was synced ff-only to origin/main, main == origin/main, worktree was clean, and the task branch was absent locally and remotely after merge cleanup."
         },
         "dependency": {
           "status": "pass",
@@ -23319,6 +23319,11 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "ready_to_merge",
           "note": "PR #1380 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. Ready for squash merge subject to final scope and mergeStateStatus checks."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "merged_cleanup_complete",
+          "note": "Reconciled PR #1380 post-merge facts before starting PR3: merged at 2026-06-23T13:19:43Z, origin/main contains 853cbaea, local main synced clean, remote task branch deleted, and local task branch absent."
         }
       ]
     },
@@ -23326,9 +23331,9 @@
       "id": "RIASEC-CAREER-GRAPH-CLAIM-SAFETY-PACKET-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-claim-safety-packet-01",
-      "status": "pending_dependency",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "ready_to_merge",
+      "commit_sha": "1a449a4b979af5e8e860473ae2d6030b8a5b3a5d",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1381",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -23339,20 +23344,46 @@
           "evidence": "User explicitly authorized adding or updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json entries for the five RIASEC Career Graph bridge PR ids only."
         },
         "scope": {
-          "status": "pending_dependency",
-          "evidence": "Not started; waiting for declared dependencies to merge."
+          "status": "pass",
+          "allowed_paths": [
+            "docs/career-graph/riasec-career-graph-claim-safety-packet-2026-06-23.md",
+            "docs/career-graph/riasec-career-graph-claim-safety-packet.v1.json",
+            "tests/contracts/riasec-career-graph-claim-safety-packet.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed-file scope validation passed for exactly the PR3 claim/safety docs/contracts artifacts, focused contract test, scope helper, and state reconciliation."
         },
         "local_validation": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "commands": [
+            "python3 -m json.tool docs/career-graph/riasec-career-graph-claim-safety-packet.v1.json >/dev/null",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "pnpm exec vitest run tests/contracts/riasec-career-graph-claim-safety-packet.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "evidence": "JSON and YAML parse passed; focused claim/safety contract passed 10 tests; pnpm typecheck passed; pnpm test:contract passed 551 files and 3227 tests; git diff --check passed; changed-file scope validation passed. Local next build was not run because this docs/contracts-only train forbids generated SEO artifact mutation; GitHub build remains the required build check."
         },
         "github_checks": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "PR #1381 checks passed on head 1a449a4b: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         },
         "post_merge": {
           "status": "pending",
           "evidence": null
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01 is merged in PR #1378 and origin/main contains merge commit 46d968520d0e4cf612da04e3fc45696e126dc073. Source authority PR #1380 is also merged and available as current context."
+        },
+        "pull_request": {
+          "status": "open",
+          "url": "https://github.com/fermatmind/fap-web/pull/1381",
+          "evidence": "PR #1381 opened after local validation passed."
         }
       },
       "history": [
@@ -23360,6 +23391,26 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "pending_dependency",
           "note": "Pending RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01 merge before creating the claim and safety packet."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "in_progress",
+          "note": "Started PR3 from latest origin/main after PR2 merge cleanup; scope is fap-web docs/contracts-only claim/safety packet with no recommendation logic, runtime code, CMS, generated pages, Career Graph mutation, private data, production import, search, provider, or deploy action."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "local_checks_passed",
+          "note": "PR3 claim/safety packet passed JSON/YAML parse, focused contract, typecheck, full contract suite, diff check, and scope validation. Local build intentionally deferred to GitHub required check to avoid postbuild generated SEO artifact mutation in this docs/contracts-only scope."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "pr_open",
+          "note": "Opened PR #1381 at https://github.com/fermatmind/fap-web/pull/1381 from commit cd6bf4a2 after local validation passed."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "ready_to_merge",
+          "note": "PR #1381 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. Ready for squash merge subject to final scope and mergeStateStatus checks."
         }
       ]
     },
