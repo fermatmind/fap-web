@@ -1,0 +1,15 @@
+{
+  "batch_registry_path": "generated/fermatmind-content-agent-state/batch_registry.json",
+  "bridge_assets": [],
+  "career_blocks": [
+    "career-work-activities"
+  ],
+  "human_approval_required": false,
+  "import_state_path": "generated/fermatmind-content-agent-state/import_state.json",
+  "latest_pass_baselines_path": "generated/fermatmind-content-agent-state/latest_pass_baselines.json",
+  "next_goal_recommendation_path": "generated/fermatmind-content-agent-state/next_goal_recommendation.md",
+  "open_failures_path": "generated/fermatmind-content-agent-state/open_failures.json",
+  "personality_blocks": [],
+  "schema_version": "career_content_agent_state_v1",
+  "updated_at": "2026-06-23T04:00:00Z"
+}

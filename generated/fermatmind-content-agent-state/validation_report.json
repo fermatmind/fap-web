@@ -1,0 +1,54 @@
+{
+  "checks": [
+    {
+      "file": "global_content_state.json",
+      "exists": true,
+      "missing_required_keys": [],
+      "status": "PASS"
+    },
+    {
+      "file": "career_block_status.json",
+      "exists": true,
+      "missing_required_keys": [],
+      "status": "PASS"
+    },
+    {
+      "file": "personality_block_status.json",
+      "exists": true,
+      "missing_required_keys": [],
+      "status": "PASS"
+    },
+    {
+      "file": "bridge_asset_status.json",
+      "exists": true,
+      "missing_required_keys": [],
+      "status": "PASS"
+    },
+    {
+      "file": "latest_pass_baselines.json",
+      "exists": true,
+      "missing_required_keys": [],
+      "status": "PASS"
+    },
+    {
+      "file": "batch_registry.json",
+      "exists": true,
+      "missing_required_keys": [],
+      "status": "PASS"
+    },
+    {
+      "file": "open_failures.json",
+      "exists": true,
+      "missing_required_keys": [],
+      "status": "PASS"
+    },
+    {
+      "file": "import_state.json",
+      "exists": true,
+      "missing_required_keys": [],
+      "status": "PASS"
+    }
+  ],
+  "finding_count": 0,
+  "final_conclusion": "PASS"
+}
