@@ -33,6 +33,23 @@ This block is the preferred next production line after salary and AI Impact. It 
 - typical settings
 - work rhythm and environment tolerance
 
+## Block Script Entry Points
+
+Use `scripts/run_work_activities_batch.py` for one-batch execution when an operator goal authorizes content generation for this block. It runs only the current batch and stops on the first failing gate. It does not generate `search_projection`, does not write staging, does not import CMS/production data, and does not mutate frozen baselines.
+
+Stage-level scripts are available for controlled repair and audit:
+
+- `make_batch_manifest.py`
+- `collect_evidence.py`
+- `validate_evidence_schema.py`
+- `audit_evidence.py`
+- `audit_trust.py`
+- `generate_synthesis.py`
+- `audit_synthesis.py`
+- `generate_asset.py`
+- `audit_asset.py`
+- `freeze_baseline.py`
+
 ## Required References
 
 Read:
