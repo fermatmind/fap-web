@@ -10,7 +10,21 @@ def pick_items(row, limit=6):
     items=[]
     for it in row.get('items') or []:
         txt=it.get('captured_fact') or it.get('body') or it.get('workflow_fact')
-        if txt and len(txt)>20: items.append((it,txt))
+        if txt and len(txt)>20:
+            items.append((it,txt))
+    facts=row.get('facts') or {}
+    for key in ('task_clusters','rhythm_and_environment','settings','tools_and_systems','stakeholders'):
+        for txt in facts.get(key) or []:
+            if txt and len(txt)>20:
+                items.append(({'source_field':f'facts.{key}'},txt))
+            if len(items)>=limit:
+                return items[:limit]
+    for key in ('summary','core_responsibilities','work_context'):
+        txt=row.get(key)
+        if isinstance(txt,str) and len(txt)>20:
+            items.append(({'source_field':key},txt))
+        if len(items)>=limit:
+            return items[:limit]
     return items[:limit]
 def infer_lenses(texts):
     t=' '.join(texts).lower(); lenses=[]

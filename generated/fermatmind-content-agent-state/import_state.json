@@ -29,6 +29,21 @@
         "generated/career-identity-v1-1046-final-independent-qa/final_qa_report.json"
       ],
       "state": "dry_run"
+    },
+    {
+      "approval_manifest_path": null,
+      "artifact_sha256": "aa9babb7032460962cc8764df447ec5b1370f3c9a6265eed5643c13179ecca5c",
+      "block_name": "career-fit",
+      "block_version": "career_fit_v1",
+      "human_approval_required": true,
+      "rollback_report_path": null,
+      "row_count": 2092,
+      "slug_count": 1046,
+      "source_artifact_paths": [
+        "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
+        "generated/career-fit-v1-1046-final-independent-qa/final_qa_report.json"
+      ],
+      "state": "dry_run"
     }
   ],
   "career_skills_entry": {
