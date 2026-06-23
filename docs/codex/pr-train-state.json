@@ -26455,7 +26455,7 @@
       "repo": "fap-web",
       "branch": "codex/enneagram-analytics-consumption-packet-01",
       "base": "main",
-      "status": "in_progress",
+      "status": "ready_to_merge",
       "train_scope": "enneagram_analytics_consumption_packet",
       "title": "ENNEAGRAM-ANALYTICS-CONSUMPTION-PACKET-01: docs(result): add Enneagram analytics packet",
       "depends_on": [
@@ -26497,8 +26497,8 @@
           "evidence": "Opened PR #1365: https://github.com/fermatmind/fap-web/pull/1365."
         },
         "github": {
-          "status": "not_started",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1365 head 39225125: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "sidecar_issues": [],
@@ -26522,6 +26522,11 @@
           "at": "2026-06-23T15:43:00+08:00",
           "status": "pr_opened",
           "note": "Opened PR #1365 at https://github.com/fermatmind/fap-web/pull/1365 with local commit 4754fa3659646a496b2889febeb22ae32587ea01."
+        },
+        {
+          "at": "2026-06-23T15:49:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1365 head 39225125 and changed-file scope remained within the five authorized PR3 files. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
