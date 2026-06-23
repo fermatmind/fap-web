@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-23T11:48:17.594Z",
+  "updated_at": "2026-06-23T11:54:10.830Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -18386,8 +18386,8 @@
         "IQ-OWNER-30-BACKEND-SCORING-02"
       ],
       "title": "feat(iq): render owner original image questions",
-      "status": "pr_open_checks_pending",
-      "commit_sha": "1a99716cf3086511f66570f701b30f26275b9c9c",
+      "status": "ready_to_merge",
+      "commit_sha": "6fc35b1884b0b300466a0bbff034193f354201bf",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1374",
       "checks": {
         "dependency_iq_owner_30_backend_assets_01": "passed: fermatmind/fap-api#2362 merged and origin/main contains 8018703a39d50ecd77225efc482d95af69d26c70",
@@ -18405,7 +18405,9 @@
         "git diff --check": "passed after CodeQL fix",
         "json_yaml_syntax": "passed: pr-train-state.json parses as JSON and pr-train.yaml parses as YAML",
         "scope_validation": "passed: changed files limited to IQ image renderer, IQ contracts/a11y/visual snapshots, currentPrScope guard, and train metadata",
-        "CodeQL": "failed on d60acbb44f847302fdf5a347fea2af9462e6213b for incomplete image URL scheme check in lib/iq/renderer.ts; fixed in current PR scope by allowing only http/https explicit schemes and rejecting other schemes such as vbscript and ftp"
+        "CodeQL": "failed on d60acbb44f847302fdf5a347fea2af9462e6213b for incomplete image URL scheme check in lib/iq/renderer.ts; fixed in current PR scope by allowing only http/https explicit schemes and rejecting other schemes such as vbscript and ftp",
+        "github_required_checks": "passed on PR #1374 head 6fc35b1884b0b300466a0bbff034193f354201bf: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, and CodeQL alert check",
+        "merge_state": "passed: GitHub reports mergeStateStatus CLEAN and mergeable MERGEABLE"
       },
       "failure_reason": null,
       "merged_at": null,
@@ -18450,6 +18452,11 @@
           "at": "2026-06-23T11:48:17.592Z",
           "status": "github_check_failure_fixed",
           "summary": "Inspected failing CodeQL check on PR #1374. It was current-scope URL scheme filtering in lib/iq/renderer.ts, then fixed by rejecting all non-http(s) explicit schemes and adding contract coverage for vbscript and ftp image URLs."
+        },
+        {
+          "at": "2026-06-23T11:54:10.829Z",
+          "status": "ready_to_merge",
+          "summary": "PR #1374 passed local validation, scope validation, required GitHub checks, CodeQL, and merge-state revalidation. Marked ready_to_merge before squash merge per train policy."
         }
       ]
     },

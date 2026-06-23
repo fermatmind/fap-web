@@ -10152,7 +10152,7 @@ prs:
     mode: audit
     train_scope: pr_fdn_02b_post_deploy_runtime_smoke
     risk_level: read_only_public_runtime_smoke
-    status: pr_open_checks_pending
+    status: ready_to_merge
     title: "PR-FDN-02B-POST-DEPLOY-RUNTIME-SMOKE: Verify Daily Giving frontend runtime"
     goal: "Record a read-only post-deploy runtime smoke for Foundation Daily Giving frontend pages and public same-origin API paths without runtime code changes, CMS mutation, deploy, Search Channel action, URL submission, external API calls, or discoverability exposure changes."
     in_scope:
