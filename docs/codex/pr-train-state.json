@@ -26882,14 +26882,14 @@
       "repo": "fap-web",
       "branch": "codex/enneagram-safety-gate-consumption-packet-01",
       "base": "main",
-      "status": "local_checks_passed",
+      "status": "ready_to_merge",
       "train_scope": "enneagram_safety_gate_consumption_packet",
       "title": "ENNEAGRAM-SAFETY-GATE-CONSUMPTION-PACKET-01: docs(result): add Enneagram Safety Gate packet",
       "depends_on": [
         "ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "20b8a47d4a76ce443bae0a616aa60231c8c5cc87",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1373",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -26920,12 +26920,12 @@
           "evidence": "Local checks passed on codex/enneagram-safety-gate-consumption-packet-01: JSON parse for Enneagram Safety Gate packet and state, YAML parse for manifest, focused Enneagram Safety Gate consumption packet contract (9 tests), pnpm typecheck, pnpm test:contract (546 files, 3175 tests), git diff --check, and changed-file scope validation for exactly 5 authorized files. pnpm build was intentionally not run per goal constraints."
         },
         "pull_request": {
-          "status": "not_opened",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened PR #1373 at https://github.com/fermatmind/fap-web/pull/1373 from codex/enneagram-safety-gate-consumption-packet-01."
         },
         "github": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1373 head 20b8a47d: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
         }
       },
       "sidecar_issues": [],
@@ -26944,6 +26944,16 @@
           "at": "2026-06-23T19:13:00+08:00",
           "status": "local_checks_passed",
           "note": "JSON/YAML parse, focused Enneagram Safety Gate consumption packet contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed. pnpm build intentionally not run per goal constraints."
+        },
+        {
+          "at": "2026-06-23T19:14:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1373 at https://github.com/fermatmind/fap-web/pull/1373."
+        },
+        {
+          "at": "2026-06-23T19:18:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1373 head 20b8a47d and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
