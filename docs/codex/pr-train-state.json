@@ -15751,7 +15751,7 @@
       "depends_on": [
         "PR-EQ-SJT-02"
       ],
-      "status": "ready_to_merge",
+      "status": "merged_cleanup_complete",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/945",
       "commit_sha": "pending_post_push",
       "title": "PR-EQ-SJT-03 Frontend EQ-SJT take flow",
@@ -18133,7 +18133,7 @@
       ],
       "title": "docs(cms): verify canary draft creation path and preview alternative",
       "status": "planned",
-      "commit_sha": "97aecd7e2cb62c6974df4798240852c3f103cf4d",
+      "commit_sha": "fddc16d1d2d41332c40d4ac3f47f95fb747bba42",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1363",
       "checks": {
         "python3 -m json.tool docs/operations/generated/help-cms-authority.v1.json >/dev/null": "passed",
@@ -18144,9 +18144,9 @@
         "pnpm test:contract": "not run; currentPrScope helper was not touched"
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-23T07:34:56Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "events": [
         {
           "at": "2026-06-02T13:50:10Z",
@@ -18166,8 +18166,8 @@
       ],
       "title": "fix(cms): add safe article draft preview gate",
       "status": "blocked_or_planned_after_draft_path",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "4754fa3659646a496b2889febeb22ae32587ea01",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1365",
       "checks": {},
       "failure_reason": "Execute only if SEO-CMS-CANARY-DRAFT-PATH-01 proves no safe preview/noindex alternative exists.",
       "merged_at": null,
@@ -26408,8 +26408,8 @@
           "evidence": "Local checks passed on codex/big5-analytics-consumption-packet-01: JSON parse for Big Five packet and state, YAML parse for manifest, focused Big Five analytics packet contract (8 tests), pnpm typecheck, pnpm test:contract (540 files, 3116 tests), git diff --check, and changed-file scope validation for exactly 5 authorized files. pnpm build was intentionally not run per goal constraints."
         },
         "pull_request": {
-          "status": "open",
-          "evidence": "Opened PR #1363: https://github.com/fermatmind/fap-web/pull/1363."
+          "status": "merged",
+          "evidence": "PR #1363 was squash merged as fddc16d1d2d41332c40d4ac3f47f95fb747bba42."
         },
         "github": {
           "status": "pass",
@@ -26442,6 +26442,11 @@
           "at": "2026-06-23T15:35:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed on PR #1363 head 44fe1282 and changed-file scope remained within the five authorized PR2 files. Recording ready_to_merge before squash merge per PR-train policy."
+        },
+        {
+          "at": "2026-06-23T15:37:00+08:00",
+          "status": "merged_cleanup_complete",
+          "note": "PR #1363 was squash merged as fddc16d1d2d41332c40d4ac3f47f95fb747bba42. origin/main contains the merge commit, worktree is clean on detached origin/main, and task branch cleanup completed locally and remotely."
         }
       ]
     },
@@ -26450,7 +26455,7 @@
       "repo": "fap-web",
       "branch": "codex/enneagram-analytics-consumption-packet-01",
       "base": "main",
-      "status": "pending_dependency",
+      "status": "ready_to_merge",
       "train_scope": "enneagram_analytics_consumption_packet",
       "title": "ENNEAGRAM-ANALYTICS-CONSUMPTION-PACKET-01: docs(result): add Enneagram analytics packet",
       "depends_on": [
@@ -26468,8 +26473,8 @@
           "evidence": "User authorized this PR id in ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-INTEGRATION-PR-TRAIN-01."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Waiting for ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01 to merge."
+          "status": "pass",
+          "evidence": "ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01 merged in PR #1361 as 02429dc1a54b631a2b01cb29ab3624da830d92cf before this PR started."
         },
         "scope": {
           "status": "authorized",
@@ -26482,6 +26487,18 @@
             "docs/codex/pr-train-state.json"
           ],
           "evidence": "Authorized scope is docs/contracts-only Enneagram analytics consumption packet plus current PR train metadata."
+        },
+        "local_validation": {
+          "status": "pass",
+          "evidence": "Local checks passed on codex/enneagram-analytics-consumption-packet-01: JSON parse for Enneagram packet and state, YAML parse for manifest, focused Enneagram analytics packet contract (9 tests), pnpm typecheck, pnpm test:contract (541 files, 3125 tests), git diff --check, and changed-file scope validation for exactly 5 authorized files. pnpm build was intentionally not run per goal constraints."
+        },
+        "pull_request": {
+          "status": "open",
+          "evidence": "Opened PR #1365: https://github.com/fermatmind/fap-web/pull/1365."
+        },
+        "github": {
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1365 head 39225125: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "sidecar_issues": [],
@@ -26490,6 +26507,26 @@
           "at": "2026-06-23T13:10:00+08:00",
           "status": "pending_dependency",
           "note": "Initialized from authorized five-PR Analytics integration train. Waiting for common analytics contract PR to merge."
+        },
+        {
+          "at": "2026-06-23T15:39:00+08:00",
+          "status": "in_progress",
+          "note": "Started PR3 from origin/main fddc16d1d2d41332c40d4ac3f47f95fb747bba42 after PR2 merge and cleanup. Scope is fap-web docs/contracts-only Enneagram analytics consumption packet plus current PR train metadata."
+        },
+        {
+          "at": "2026-06-23T15:41:00+08:00",
+          "status": "local_checks_passed",
+          "note": "JSON/YAML parse, focused Enneagram analytics packet contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed. pnpm build intentionally not run per goal constraints."
+        },
+        {
+          "at": "2026-06-23T15:43:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1365 at https://github.com/fermatmind/fap-web/pull/1365 with local commit 4754fa3659646a496b2889febeb22ae32587ea01."
+        },
+        {
+          "at": "2026-06-23T15:49:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1365 head 39225125 and changed-file scope remained within the five authorized PR3 files. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },

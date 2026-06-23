@@ -1,0 +1,241 @@
+{
+  "schema_version": "fermatmind.enneagram_analytics_consumption_packet.v1",
+  "artifact_id": "enneagram-analytics-consumption-packet-2026-06-23",
+  "task_id": "ENNEAGRAM-ANALYTICS-CONSUMPTION-PACKET-01",
+  "verdict": "READY_TO_CONSUME_BY_ANALYTICS",
+  "run_mode": "docs_contracts_only",
+  "receiving_agent": "analytics_gsc_opportunity",
+  "producing_agent": "enneagram_result_page",
+  "scale_code": "ENNEAGRAM",
+  "dependency": {
+    "task_id": "ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01",
+    "status": "MERGED",
+    "merge_commit": "02429dc1a54b631a2b01cb29ab3624da830d92cf"
+  },
+  "source_refs": {
+    "common_contract": "docs/result-page-agents/active-result-page-agents-analytics-common-contract.v1.json",
+    "runtime_qa_packet": "docs/result-page-agents/enneagram-runtime-qa-consumption-packet.v1.json",
+    "standard_alignment": "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json",
+    "standard_alignment_report": "docs/result-page-agents/enneagram-result-page-agent-standard-alignment-2026-06-22.md",
+    "analytics_handoff": "docs/result-page-agents/result-page-agent-analytics-handoff.v1.json",
+    "public_share_contract": "tests/contracts/enneagram-share-surface.contract.test.tsx",
+    "public_personality_boundary": "tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts"
+  },
+  "consumed_evidence": {
+    "runtime_qa_packet_verdict": "READY_TO_CONSUME_BY_RUNTIME_QA",
+    "readiness_verdict": "ENNEAGRAM_RESULT_PAGE_AGENT_STANDARD_ALIGNED",
+    "matrix_readiness": "ready_readonly",
+    "public_share_safe": true,
+    "public_personality_boundary_ready": true,
+    "ready_for_analytics_quality_report": true,
+    "ready_for_event_emission": false,
+    "ready_for_opportunity_scoring": false,
+    "ready_for_production_metric_backfill": false
+  },
+  "analytics_events": [
+    {
+      "event_name": "enneagram_result_view",
+      "event_family": "result_view",
+      "allowed_properties": [
+        "scale_code",
+        "agent_id",
+        "locale",
+        "surface",
+        "event_version",
+        "result_surface",
+        "report_access_state",
+        "source_classification",
+        "smoke_excluded",
+        "qa_excluded"
+      ]
+    },
+    {
+      "event_name": "enneagram_full_report_view",
+      "event_family": "full_report_view",
+      "allowed_properties": [
+        "scale_code",
+        "agent_id",
+        "locale",
+        "surface",
+        "event_version",
+        "report_access_state",
+        "is_full_report_unlocked",
+        "source_classification",
+        "smoke_excluded",
+        "qa_excluded"
+      ]
+    },
+    {
+      "event_name": "enneagram_report_module_view",
+      "event_family": "report_module_view",
+      "allowed_properties": [
+        "scale_code",
+        "agent_id",
+        "locale",
+        "surface",
+        "event_version",
+        "module_id",
+        "module_slot",
+        "report_access_state",
+        "source_classification",
+        "smoke_excluded",
+        "qa_excluded"
+      ]
+    },
+    {
+      "event_name": "enneagram_share_summary_view",
+      "event_family": "share_summary_view",
+      "allowed_properties": [
+        "scale_code",
+        "agent_id",
+        "locale",
+        "surface",
+        "event_version",
+        "redaction_state",
+        "source_classification",
+        "smoke_excluded",
+        "qa_excluded"
+      ]
+    },
+    {
+      "event_name": "enneagram_second_test_click",
+      "event_family": "second_test_click",
+      "allowed_properties": [
+        "scale_code",
+        "agent_id",
+        "locale",
+        "surface",
+        "event_version",
+        "bridge_entry",
+        "source_classification",
+        "smoke_excluded",
+        "qa_excluded"
+      ]
+    },
+    {
+      "event_name": "enneagram_public_profile_click",
+      "event_family": "public_profile_click",
+      "allowed_properties": [
+        "scale_code",
+        "agent_id",
+        "locale",
+        "surface",
+        "event_version",
+        "bridge_entry",
+        "source_classification",
+        "smoke_excluded",
+        "qa_excluded"
+      ]
+    }
+  ],
+  "forbidden_payload_fields": [
+    "attemptId",
+    "attempt_id",
+    "score",
+    "raw_score",
+    "raw_scores",
+    "score_vector",
+    "dominance_gap",
+    "release_hash",
+    "raw_metadata",
+    "internal_metadata",
+    "private_result_payload",
+    "private_report_text",
+    "full_report_body_text",
+    "report_token",
+    "private_url",
+    "report_url",
+    "account_id",
+    "user_id",
+    "email",
+    "phone",
+    "payment_id",
+    "order_id",
+    "selector_trace",
+    "source_refs",
+    "qa_trace"
+  ],
+  "public_personality_boundary": {
+    "private_result_text_becomes_public_profile_content": false,
+    "public_profile_content_mutation": "HOLD",
+    "analytics_allowed": "public profile click intent only",
+    "blocked": [
+      "private result text publication",
+      "generated readiness analytics",
+      "public profile content mutation from private result payload"
+    ]
+  },
+  "claim_boundary": {
+    "status": "PASS",
+    "forbidden_claims": [
+      "final type certainty",
+      "fixed type certainty",
+      "diagnosis",
+      "therapy",
+      "treatment",
+      "hiring prediction",
+      "salary prediction",
+      "performance prediction",
+      "success prediction",
+      "admission prediction",
+      "ability guarantee",
+      "life-outcome guarantee"
+    ]
+  },
+  "smoke_qa_synthetic_exclusions": [
+    "production_activation_smoke_attempts",
+    "codex_probe_anon_prefix",
+    "codex_probe_session_prefix",
+    "codex_probe_request_prefix",
+    "qa_synthetic_attempts",
+    "fixtures",
+    "generated_readiness_artifacts",
+    "staging_only_artifacts",
+    "internal_preview_artifacts",
+    "crawler_search_provider_behavior",
+    "private_result_report_urls"
+  ],
+  "holds": [
+    "candidate_generation",
+    "import",
+    "activation",
+    "runtime_switch",
+    "public_profile_content_mutation",
+    "cms",
+    "search",
+    "private_result_access",
+    "event_emission",
+    "production_metric_backfill",
+    "opportunity_scoring",
+    "provider_calls",
+    "search_channel_mutation",
+    "generated_readiness_artifact_write",
+    "deploy",
+    "production_import",
+    "rollout"
+  ],
+  "negative_guarantees": {
+    "analytics_runtime_code_changed": "no",
+    "event_emission": "none",
+    "production_metric_backfill": "none",
+    "opportunity_scoring": "none",
+    "candidate_payload_generated": "no",
+    "import_performed": "no",
+    "activation_performed": "no",
+    "runtime_switch_performed": "no",
+    "public_profile_content_changed": "no",
+    "raw_private_result_accessed": "none",
+    "cms_writes": "none",
+    "publishing": "none",
+    "search_submissions": "none",
+    "provider_calls": "none",
+    "deployment_triggered": "no",
+    "generated_readiness_artifact_written": "no"
+  },
+  "next_safe_output": {
+    "agent": "analytics_gsc_opportunity",
+    "output": "read_only_analytics_quality_report",
+    "status": "ALLOWED_LATER",
+    "requires_separate_authorization": true
+  }
+}
