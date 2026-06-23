@@ -9962,7 +9962,7 @@ prs:
     mode: execute
     train_scope: detail_ready_1046_llms_full_artifact_consistency_repair
     risk_level: scoped_llms_full_artifact_consistency_repair
-    status: in_progress
+    status: ready_to_merge
     title: "DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01 llms-full artifact consistency repair"
     goal: "Make llms-full.txt stable across PM2 workers by sharing a last-known-good artifact and caching only full 1046 Career-detail cohort artifacts, without changing URL authority or Search Channel state."
     in_scope:

@@ -12368,7 +12368,7 @@
       "branch": "codex/en-parity-08-visual-parity",
       "base": "main",
       "depends_on": [],
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "title": "EN-PARITY-08 Chrome Playwright bilingual visual parity pass",
       "artifacts": [
         "components/marketing/HomePageExperience.tsx",
@@ -26713,7 +26713,7 @@
       "train_scope": "active_result_page_agents_safety_gate_common_contract",
       "title": "ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01: docs(result): define active Safety Gate common contract",
       "depends_on": [],
-      "commit_sha": "d74ed01d1f5e97b02cd42dbd5771cf09cc4e91f9",
+      "commit_sha": "ce6b61bc14f067f70fa5e983e7a95964f6ac20f6",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1371",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -26749,8 +26749,8 @@
           "evidence": "Opened PR #1371 at https://github.com/fermatmind/fap-web/pull/1371 with pushed head d74ed01d1f5e97b02cd42dbd5771cf09cc4e91f9."
         },
         "github": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1371 head ce6b61bc: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
         }
       },
       "sidecar_issues": [],
@@ -26774,6 +26774,11 @@
           "at": "2026-06-23T18:36:00+08:00",
           "status": "pr_opened",
           "note": "Opened PR #1371 at https://github.com/fermatmind/fap-web/pull/1371."
+        },
+        {
+          "at": "2026-06-23T18:39:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1371 head ce6b61bc and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
