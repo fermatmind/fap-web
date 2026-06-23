@@ -433,7 +433,7 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
     title: locale === "zh" ? "百万人测试" : "Million-plus test takers",
     summary:
       locale === "zh"
-        ? "后台统计显示，4 月真人测试人数达 120 万，累计测试交互超过 5000 万次。"
+        ? "单月真人测试人数达 120 万，累计测试交互超过 5000 万次。"
         : "Backend statistics show 1.2M real test takers in April and 50M+ cumulative test interactions.",
     paragraphs: [],
     href: copy.trust.methodHref,
