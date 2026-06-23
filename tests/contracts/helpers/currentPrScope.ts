@@ -309,6 +309,12 @@ const MBTI64_AGENT_RECOMMENDATION_RERUN_LOOP_01_ALLOWED_FILES = new Set([
   "tests/contracts/mbti64-agent-recommendation-rerun-loop.contract.test.ts",
 ]);
 
+const FAP_WEB_PRODUCTION_AUTO_DEPLOY_ENV_FIX_01_ALLOWED_FILES = new Set([
+  ".github/workflows/deploy-production.yml",
+  "tests/contracts/deploy-production-workflow-env.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const CONTRACT_SCOPE_GUARD_STRATEGY_02_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/personality-public-profile-agent-split-01.contract.test.ts",
@@ -2785,6 +2791,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/mbti64-personality-detail-frontend-api-origin-repair-01" &&
     MBTI64_PERSONALITY_DETAIL_FRONTEND_API_ORIGIN_REPAIR_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/fap-web-production-auto-deploy-env-fix-01" &&
+    FAP_WEB_PRODUCTION_AUTO_DEPLOY_ENV_FIX_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }

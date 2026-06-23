@@ -119,6 +119,17 @@ jobs:
               .map((file) => file.filename)
               .filter((filename) => riskyPathPatterns.some((pattern) => pattern.test(filename)));
 
+            if ((riskyLabels.length > 0 || riskyFiles.length > 0) && process.env.GITHUB_EVENT_NAME === 'workflow_dispatch') {
+              core.setOutput('auto_deploy_allowed', 'true');
+              core.warning([
+                'Production auto-deploy policy detected risky PR metadata, but this is a manual workflow_dispatch run.',
+                riskyLabels.length > 0 ? `Risk labels: ${riskyLabels.join(', ')}` : 'Risk labels: none',
+                riskyFiles.length > 0 ? `Risk files: ${riskyFiles.join(', ')}` : 'Risk files: none',
+                'Continuing only through the production GitHub Environment approval gate.',
+              ].join('\n'));
+              return;
+            }
+
             if (riskyLabels.length > 0 || riskyFiles.length > 0) {
               core.setOutput('auto_deploy_allowed', 'false');
               core.setFailed([
@@ -145,19 +156,19 @@ jobs:
     environment:
       name: production
     env:
-      DEPLOY_HOST: ${{ vars.WEB_NODE1_DEPLOY_HOST }}
-      DEPLOY_USER: ${{ vars.WEB_NODE1_DEPLOY_USER }}
-      DEPLOY_PORT: ${{ vars.WEB_NODE1_DEPLOY_PORT }}
-      APP_DIR: ${{ vars.WEB_NODE1_APP_DIR }}
-      APP_NAME: ${{ vars.WEB_NODE1_APP_NAME }}
-      APP_PORT: ${{ vars.WEB_NODE1_APP_PORT }}
-      APP_MANAGER: ${{ vars.WEB_NODE1_APP_MANAGER }}
-      SYSTEMD_SERVICE: ${{ vars.WEB_NODE1_SYSTEMD_SERVICE }}
-      PUBLIC_BASE_URL: ${{ vars.WEB_PUBLIC_BASE_URL }}
-      NEXT_PUBLIC_API_URL: ${{ vars.WEB_NEXT_PUBLIC_API_URL }}
-      NEXT_PUBLIC_SITE_URL: ${{ vars.WEB_NEXT_PUBLIC_SITE_URL }}
-      CORE_PUBLIC_PATH: ${{ vars.WEB_PRODUCTION_CORE_PUBLIC_PATH }}
-      RUN_SITEMAP_HEALTH: ${{ vars.WEB_PRODUCTION_RUN_SITEMAP_HEALTH }}
+      DEPLOY_HOST: ${{ secrets.WEB_NODE1_DEPLOY_HOST || vars.WEB_NODE1_DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.WEB_NODE1_DEPLOY_USER || vars.WEB_NODE1_DEPLOY_USER }}
+      DEPLOY_PORT: ${{ secrets.WEB_NODE1_DEPLOY_PORT || vars.WEB_NODE1_DEPLOY_PORT }}
+      APP_DIR: ${{ secrets.WEB_NODE1_APP_DIR || vars.WEB_NODE1_APP_DIR }}
+      APP_NAME: ${{ secrets.WEB_NODE1_APP_NAME || vars.WEB_NODE1_APP_NAME }}
+      APP_PORT: ${{ secrets.WEB_NODE1_APP_PORT || vars.WEB_NODE1_APP_PORT }}
+      APP_MANAGER: ${{ secrets.WEB_NODE1_APP_MANAGER || vars.WEB_NODE1_APP_MANAGER }}
+      SYSTEMD_SERVICE: ${{ secrets.WEB_NODE1_SYSTEMD_SERVICE || vars.WEB_NODE1_SYSTEMD_SERVICE }}
+      PUBLIC_BASE_URL: ${{ secrets.WEB_PUBLIC_BASE_URL || vars.WEB_PUBLIC_BASE_URL }}
+      NEXT_PUBLIC_API_URL: ${{ secrets.WEB_NEXT_PUBLIC_API_URL || vars.WEB_NEXT_PUBLIC_API_URL }}
+      NEXT_PUBLIC_SITE_URL: ${{ secrets.WEB_NEXT_PUBLIC_SITE_URL || vars.WEB_NEXT_PUBLIC_SITE_URL }}
+      CORE_PUBLIC_PATH: ${{ secrets.WEB_PRODUCTION_CORE_PUBLIC_PATH || vars.WEB_PRODUCTION_CORE_PUBLIC_PATH }}
+      RUN_SITEMAP_HEALTH: ${{ secrets.WEB_PRODUCTION_RUN_SITEMAP_HEALTH || vars.WEB_PRODUCTION_RUN_SITEMAP_HEALTH }}
       SSH_RETRY_ATTEMPTS: "3"
       SSH_RETRY_DELAY_SECONDS: "10"
 
