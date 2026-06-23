@@ -23239,8 +23239,8 @@
       "id": "RIASEC-CAREER-GRAPH-SOURCE-AUTHORITY-PACKET-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-source-authority-packet-01",
-      "status": "pr_open",
-      "commit_sha": "b801282604d94e89855d3afc7af29235d5353420",
+      "status": "ready_to_merge",
+      "commit_sha": "8ed4650ed3d321a27f28620dc8852beb001ad587",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1380",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -23277,8 +23277,8 @@
           "evidence": "JSON and YAML parse passed; focused source authority contract passed 9 tests; pnpm typecheck passed; pnpm test:contract passed 550 files and 3217 tests; git diff --check passed; changed-file scope validation passed. Local next build was not run because this docs/contracts-only train forbids generated SEO artifact mutation; GitHub build remains the required build check."
         },
         "github_checks": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "PR #1380 checks passed on head 8ed4650e: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         },
         "post_merge": {
           "status": "pending",
@@ -23314,6 +23314,11 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "pr_open",
           "note": "Opened PR #1380 at https://github.com/fermatmind/fap-web/pull/1380 from commit b8012826 after local validation passed."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "ready_to_merge",
+          "note": "PR #1380 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. Ready for squash merge subject to final scope and mergeStateStatus checks."
         }
       ]
     },
