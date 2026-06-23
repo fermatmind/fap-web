@@ -26287,7 +26287,7 @@
       "repo": "fap-web",
       "branch": "codex/active-result-page-agents-analytics-common-contract-01",
       "base": "main",
-      "status": "in_progress",
+      "status": "ready_to_merge",
       "train_scope": "active_result_page_agents_analytics_common_contract",
       "title": "ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01: docs(result): add active analytics common contract",
       "depends_on": [],
@@ -26327,8 +26327,8 @@
           "evidence": "Opened PR #1361: https://github.com/fermatmind/fap-web/pull/1361."
         },
         "github": {
-          "status": "not_started",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1361 head b7fc04d7: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "sidecar_issues": [],
@@ -26352,6 +26352,11 @@
           "at": "2026-06-23T15:11:00+08:00",
           "status": "pr_opened",
           "note": "Opened PR #1361 at https://github.com/fermatmind/fap-web/pull/1361."
+        },
+        {
+          "at": "2026-06-23T15:18:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1361 head b7fc04d7 and changed-file scope remained within the six authorized PR1 files. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
