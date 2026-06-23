@@ -5369,7 +5369,7 @@ prs:
     depends_on: [SEO-FREE-TEST-FLAGSHIP-LANDING-03]
     mode: execute
     train_scope: six_hub_test_detail_frontend_landing_surface_consumer
-    status: ready_to_merge
+    status: merged
     goal: "Consume published public CMS landing surface authority for MBTI and RIASEC test-detail metadata and hero content without changing CTA routing, FAQ authority, schema, hreflang, sitemap, llms, payment, or result behavior."
     artifacts:
       - app/(localized)/[locale]/tests/[slug]/page.tsx
@@ -13405,7 +13405,7 @@ prs:
       - IQ-OWNER-30-FE-IMAGE-RENDERER-03
     mode: execute
     train_scope: iq_owner_original_30_launch
-    status: ready_to_merge
+    status: merged
     title: "feat(iq): wire owner original bank form code"
     goal: "Wire IQ take page formCode/bank selection to question delivery and attempt start for the Owner Original 30 bank, without exposing answers or implementing sessionized delivery."
     in_scope:
@@ -13439,7 +13439,7 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
-    next_task: IQ-SESSION-QUESTION-DELIVERY-05
+    next_task: IQ-SESSION-QUESTION-DELIVERY-05B
     acceptance:
       - "Owner Original 30 is registered as the default IQ bank/form display model."
       - "IQ landing choices link take entry with an explicit form query parameter."
@@ -13448,6 +13448,60 @@ prs:
       - "IQ attempt start passes the selected form_code/bank_id to the backend attempt start endpoint and metadata."
       - "IQ submit payload still contains only attempt, answer selections, duration, and attribution; it does not expose answer keys or scoring fields."
     rollback_note: "Revert Owner Original 30 formCode/bank selection wiring if backend runtime binding is delayed or replaced by a different session delivery contract."
+
+  - id: IQ-SESSION-QUESTION-DELIVERY-05B
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-session-question-delivery-05b
+    base: main
+    depends_on:
+      - IQ-OWNER-30-FE-FORMCODE-04
+      - IQ-SESSION-QUESTION-DELIVERY-05A
+    mode: execute
+    train_scope: iq_owner_original_30_launch
+    status: implementation_in_progress
+    title: "feat(iq): consume owner current-question delivery"
+    goal: "Wire the IQ take page to fetch Owner Original 30 questions through attempt-bound current-question delivery while keeping legacy full-bank question fetches for other IQ forms."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx
+      - lib/api/v0_3.ts
+      - lib/iq/api.ts
+      - lib/iq/contracts.ts
+      - lib/iq/take.ts
+      - tests/contracts/iq-frontend-api-contracts.contract.test.ts
+      - tests/contracts/iq-take-lifecycle.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/e2e/visual/iq-take.visual.spec.ts
+      - tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-desktop-full-page-en-chromium-linux.png
+      - tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-mobile-full-page-en-chromium-linux.png
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend import, scoring, answer key, or runtime API changes
+      - CMS, SEO, sitemap, llms, canonical, JSON-LD, production deploy, or staging deploy validation
+      - public static IQ media assets committed to fap-web
+      - exposing answer keys, scoring spec, correct options, solution rationale, generator metadata, or source capture URLs in frontend payloads
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/iq-frontend-api-contracts.contract.test.ts tests/contracts/iq-take-lifecycle.contract.test.tsx
+      - pnpm typecheck
+      - pnpm exec playwright test tests/e2e/visual/iq-take.visual.spec.ts --update-snapshots
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null
+    acceptance:
+      - "Owner Original 30 take flow starts or reuses an attempt before requesting any question asset."
+      - "Owner Original 30 current question fetches use /attempts/{attempt_id}/questions?index=<currentIndex> and cache delivered questions by index."
+      - "Owner Original 30 progress and navigation use server question_count instead of loaded questions length."
+      - "Owner Original 30 submit is blocked until all server-count questions are delivered and answered."
+      - "Legacy IQ and non-IQ question loading continue to use the existing full-bank question paths."
+      - "Frontend payload schemas do not accept or introduce answer keys, correct answers, scoring specs, solution notes, generator metadata, or source capture URLs."
+      - "Visual coverage captures the full IQ take page for desktop and mobile."
+    rollback_note: "Revert Owner Original 30 current-question adapter and take-page branch if backend delivery contract changes or frontend must remain on legacy full-bank fetch during rollout."
 
   - id: IQ-FE-BANK-SWITCH-01
     repo: fap-web

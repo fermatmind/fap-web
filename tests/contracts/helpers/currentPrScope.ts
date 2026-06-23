@@ -884,6 +884,22 @@ const IQ_OWNER_30_FE_FORMCODE_04_ALLOWED_FILES = new Set([
   "tests/contracts/test-detail-landing.contract.test.ts",
 ]);
 
+const IQ_SESSION_QUESTION_DELIVERY_05B_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "lib/api/v0_3.ts",
+  "lib/iq/api.ts",
+  "lib/iq/contracts.ts",
+  "lib/iq/take.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/iq-frontend-api-contracts.contract.test.ts",
+  "tests/contracts/iq-take-lifecycle.contract.test.tsx",
+  "tests/e2e/visual/iq-take.visual.spec.ts",
+  "tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-desktop-full-page-en-chromium-linux.png",
+  "tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-mobile-full-page-en-chromium-linux.png",
+]);
+
 const PR_WEB_SEC_11_ALLOWED_FILES = new Set([
   "docs/claims/generated/semantic-claim-scanner-baseline.v1.json",
   "docs/claims/semantic-claim-scanner-baseline.md",
@@ -3501,6 +3517,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/iq-owner-30-fe-formcode-04") {
     return IQ_OWNER_30_FE_FORMCODE_04_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/iq-session-question-delivery-05b") {
+    return IQ_SESSION_QUESTION_DELIVERY_05B_ALLOWED_FILES.has(file);
   }
 
   if (

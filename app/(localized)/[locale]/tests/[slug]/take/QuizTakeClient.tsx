@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type Dispatch, type SetStateAction } from "react";
 import type { ReadonlyURLSearchParams } from "next/navigation";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { QuizTakeHeaderV2 } from "@/components/quiz/QuizTakeHeaderV2";
@@ -37,11 +37,12 @@ import { isMbtiScaleCode } from "@/lib/mbti/forms";
 import { classifyApiError } from "@/lib/observability/httpError";
 import { captureError } from "@/lib/observability/sentry";
 import {
+  getIqAttemptQuestion,
   getIqQuestions,
   startIqAttempt,
   submitIqAttempt,
 } from "@/lib/iq/api";
-import { IQ_CANONICAL_SCALE_CODE } from "@/lib/iq/constants";
+import { IQ_CANONICAL_SCALE_CODE, IQ_OWNER_ORIGINAL_30_BANK_ID } from "@/lib/iq/constants";
 import { buildIqSubmitAnswers, type IqTakeQuestion, normalizeIqQuestionsForTake } from "@/lib/iq/take";
 import { normalizeQuizQuestions } from "@/lib/quiz/normalizeQuestions";
 import { QuizStoreProvider, useQuizStore } from "@/lib/quiz/store";
@@ -367,7 +368,7 @@ export default function QuizTakeClient({
   questionCount?: number;
 }) {
   const [questions, setQuestions] = useState<TakeQuestion[]>([]);
-  const questionIds = useMemo(() => questions.map((question) => question.id), [questions]);
+  const questionIds = useMemo(() => questions.flatMap((question) => (question ? [question.id] : [])), [questions]);
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const resolvedFormCode = useMemo(
     () => resolveTestKpiFormCode({ scaleCode, formCode }),
@@ -414,7 +415,7 @@ function QuizTakeInner({
   questionCount?: number;
   anonId: string;
   questions: TakeQuestion[];
-  setQuestions: (nextQuestions: TakeQuestion[]) => void;
+  setQuestions: Dispatch<SetStateAction<TakeQuestion[]>>;
 }) {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -457,6 +458,7 @@ function QuizTakeInner({
   const latestAnswersRef = useRef<Record<string, string>>(answers);
   const ensureAttemptPromiseRef = useRef<Promise<string | null> | null>(null);
   const submitInFlightRef = useRef(false);
+  const ownerDeliveryAttemptIdRef = useRef<string | null>(null);
   const autoRecoveryAttemptedRef = useRef(false);
   const recoveringAttemptRef = useRef(false);
   const cancelAutoAdvanceRef = useRef<() => void>(() => {});
@@ -485,7 +487,11 @@ function QuizTakeInner({
   );
   const normalizedScaleCode = testKpiMetadata.scale_code;
   const isIqScale = useMemo(() => isCanonicalIqScaleCode(normalizedScaleCode), [normalizedScaleCode]);
+  const isOwnerOriginalIq = isIqScale && testKpiMetadata.formCode === IQ_OWNER_ORIGINAL_30_BANK_ID;
   const isRiasecScale = useMemo(() => isRiasecScaleCode(normalizedScaleCode), [normalizedScaleCode]);
+  const [ownerDeliveryQuestionCount, setOwnerDeliveryQuestionCount] = useState<number | null>(
+    isOwnerOriginalIq && typeof questionCount === "number" && questionCount > 0 ? questionCount : null
+  );
   const matchesSavedAttempt = useMemo(() => {
     if (!attemptId || savedScaleCode !== testKpiMetadata.scaleCode) {
       return false;
@@ -495,6 +501,7 @@ function QuizTakeInner({
     }
     return savedFormCode === testKpiMetadata.formCode;
   }, [attemptId, savedFormCode, savedScaleCode, testKpiMetadata.formCode, testKpiMetadata.scaleCode]);
+  const ownerCurrentQuestionLoaded = isOwnerOriginalIq && Boolean(questions[currentIndex]);
 
   useEffect(() => {
     if (!attribution.invite_unlock_code || inviteLinkOpenedTrackedRef.current) {
@@ -631,13 +638,111 @@ function QuizTakeInner({
         return;
       }
 
+      if (!isOwnerOriginalIq && questions.length > 0) {
+        setQuestionsLoading(false);
+        return;
+      }
+
       setQuestionsLoading(true);
       setQuestionsError(null);
       const questionsStartedAt = Date.now();
       let payloadBytes: number | null = null;
 
       try {
-        if (isIqScale) {
+        if (isOwnerOriginalIq) {
+          if (ownerCurrentQuestionLoaded) {
+            setQuestionsLoading(false);
+            return;
+          }
+
+          if (forceNewAttemptRequested && !forceNewAttemptAppliedRef.current) {
+            forceNewAttemptAppliedRef.current = true;
+            ownerDeliveryAttemptIdRef.current = null;
+            clearAttemptMeta();
+          }
+
+          let activeAttemptId = matchesSavedAttempt ? attemptId : ownerDeliveryAttemptIdRef.current;
+
+          if (!activeAttemptId) {
+            const attemptStartedAt = Date.now();
+            const startResponse = await startIqAttempt({
+              scale_code: IQ_CANONICAL_SCALE_CODE,
+              anon_id: anonId,
+              locale,
+              form_code: testKpiMetadata.formCode ?? undefined,
+              bank_id: testKpiMetadata.formCode ?? undefined,
+              source: "take_page",
+              meta: {
+                ...(entryContext.entrySurface ? { entry_surface: entryContext.entrySurface } : {}),
+                ...(entryContext.sourcePageType ? { source_page_type: entryContext.sourcePageType } : {}),
+                ...(entryContext.targetAction ? { target_action: entryContext.targetAction } : {}),
+                ...(entryContext.testSlug ? { test_slug: entryContext.testSlug } : {}),
+                ...(entryContext.landingPath ? { landing_path: entryContext.landingPath } : {}),
+              },
+              referrer: attribution.referrer,
+              share_id: attribution.share_id,
+              compare_invite_id: attribution.compare_invite_id,
+              invite_unlock_code: attribution.invite_unlock_code,
+              share_click_id: attribution.share_click_id,
+              entrypoint: attribution.entrypoint,
+              landing_path: attribution.landing_path,
+              utm: attribution.utm,
+            });
+
+            if (!active) return;
+
+            activeAttemptId = startResponse.attempt_id;
+            ownerDeliveryAttemptIdRef.current = activeAttemptId;
+            setAttemptMeta(activeAttemptId, testKpiMetadata.scaleCode, testKpiMetadata.formCode ?? null);
+            if (typeof startResponse.question_count === "number" && startResponse.question_count > 0) {
+              setOwnerDeliveryQuestionCount(startResponse.question_count);
+            }
+            setRetryAfterSeconds(null);
+            trackEvent("attempt_start_performance", buildTestKpiTrackingPayload(testKpiMetadata, {
+              stage: "start_attempt",
+              attempt_start_ms: Date.now() - attemptStartedAt,
+              route: "/tests/[slug]/take",
+            }));
+          }
+
+          const response = await getIqAttemptQuestion({
+            attemptId: activeAttemptId,
+            index: currentIndex,
+            anonId,
+            locale,
+          });
+          payloadBytes = estimatePayloadBytes(response);
+
+          if (!active) return;
+
+          if (typeof response.question_count === "number" && response.question_count > 0) {
+            setOwnerDeliveryQuestionCount(response.question_count);
+          }
+
+          const normalizedQuestions = normalizeIqQuestionsForTake({
+            items: response.questions.items,
+            locale,
+          });
+
+          if (response.questions.items.length > 0 && normalizedQuestions.length === 0) {
+            setQuestionsError(resolveUnsupportedQuestionCopy(locale));
+            setRetryAfterSeconds(null);
+            return;
+          }
+
+          const deliveredQuestion = normalizedQuestions[0];
+          if (deliveredQuestion) {
+            setQuestions((currentQuestions) => {
+              if (currentQuestions[currentIndex]) {
+                return currentQuestions;
+              }
+
+              const nextQuestions = currentQuestions.slice();
+              nextQuestions[currentIndex] = deliveredQuestion;
+              return nextQuestions;
+            });
+          }
+        } else if (isIqScale) {
           const response = await getIqQuestions({
             locale,
             anonId,
@@ -726,7 +831,32 @@ function QuizTakeInner({
     return () => {
       active = false;
     };
-  }, [anonId, authBlockError, isIqScale, isRiasecScale, locale, runWithAuthRetry, setQuestions, slug, testKpiMetadata]);
+  }, [
+    anonId,
+    attemptId,
+    attribution,
+    authBlockError,
+    clearAttemptMeta,
+    currentIndex,
+    entryContext.entrySurface,
+    entryContext.landingPath,
+    entryContext.sourcePageType,
+    entryContext.targetAction,
+    entryContext.testSlug,
+    forceNewAttemptRequested,
+    isIqScale,
+    isOwnerOriginalIq,
+    isRiasecScale,
+    locale,
+    matchesSavedAttempt,
+    ownerCurrentQuestionLoaded,
+    questions.length,
+    runWithAuthRetry,
+    setAttemptMeta,
+    setQuestions,
+    slug,
+    testKpiMetadata,
+  ]);
 
   useEffect(() => {
     latestAnswersRef.current = answers;
@@ -855,8 +985,13 @@ function QuizTakeInner({
 
     if (forceNewAttemptRequested && !forceNewAttemptAppliedRef.current) {
       forceNewAttemptAppliedRef.current = true;
+      ownerDeliveryAttemptIdRef.current = null;
       clearAttemptMeta();
       return startFreshAttempt(runId);
+    }
+
+    if (isOwnerOriginalIq && ownerDeliveryAttemptIdRef.current) {
+      return ownerDeliveryAttemptIdRef.current;
     }
 
     if (matchesSavedAttempt) {
@@ -869,12 +1004,19 @@ function QuizTakeInner({
     authBlockError,
     clearAttemptMeta,
     forceNewAttemptRequested,
+    isOwnerOriginalIq,
     matchesSavedAttempt,
     staleDraftError,
     startFreshAttempt,
   ]);
 
-  const total = questions.length;
+  const loadedQuestionCount = useMemo(
+    () => questions.reduce((count, item) => count + (item ? 1 : 0), 0),
+    [questions]
+  );
+  const total = isOwnerOriginalIq
+    ? ownerDeliveryQuestionCount ?? questionCount ?? Math.max(loadedQuestionCount, 1)
+    : questions.length;
   const question = questions[currentIndex];
   const selectedOptionId = question ? answers[question.id] : undefined;
   const loadError = authBlockError ?? questionsError;
@@ -944,7 +1086,13 @@ function QuizTakeInner({
   const isLastQuestion = total > 0 && currentIndex === total - 1;
   const iqNeedsSelection = isIqScale && !selectedOptionId;
   const iqCanContinue = isIqScale && Boolean(selectedOptionId) && !submitting && !submitOverlayVisible;
-  const iqCanSubmit = isIqScale && isLastQuestion && answeredCount === total && Boolean(selectedOptionId) && !submitting && !submitOverlayVisible;
+  const iqCanSubmit = isIqScale
+    && isLastQuestion
+    && answeredCount === total
+    && (!isOwnerOriginalIq || loadedQuestionCount === total)
+    && Boolean(selectedOptionId)
+    && !submitting
+    && !submitOverlayVisible;
   const fallbackQuestionCount = typeof questionCount === "number" && questionCount > 0 ? questionCount : total;
   const resolvedEstimatedMinutes = useMemo(() => {
     if (typeof estimatedMinutes === "number" && estimatedMinutes > 0) {
@@ -966,6 +1114,7 @@ function QuizTakeInner({
             code: option.id,
             text: option.text,
             svg: option.svg,
+            image: option.image,
           }))
         : [],
     [question]
@@ -1137,6 +1286,18 @@ function QuizTakeInner({
     }
 
     const answersSnapshot = buildAnswersSnapshot(pendingSelection);
+    if (isOwnerOriginalIq) {
+      const firstUndeliveredIndex = Array.from({ length: total }).findIndex((_, index) => !questions[index]);
+      if (firstUndeliveredIndex >= 0) {
+        if (isFlowActive(activeRunId)) {
+          setSubmitError("Please load every IQ question before submitting.");
+          jump(firstUndeliveredIndex, total);
+        }
+        submitInFlightRef.current = false;
+        return null;
+      }
+    }
+
     const payloadAnswers = questions.map((item) => ({
       question_id: item.id,
       code: answersSnapshot[item.id] ?? "",
@@ -1311,7 +1472,7 @@ function QuizTakeInner({
     cancelAutoAdvanceRef.current = cancelPending;
   }, [cancelPending]);
 
-  if (questionsLoading) {
+  if (questionsLoading || (isOwnerOriginalIq && !question && !loadError)) {
     return (
       <QuizShell>
         <div

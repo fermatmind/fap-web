@@ -20,6 +20,7 @@ function resolveQuestionTitle(question: IqQuestion, index: number, locale: "en" 
   const prompt =
     normalizeString(question.prompt)
     ?? normalizeString(question.text)
+    ?? normalizeString(question.title)
     ?? normalizeString(question.stem?.prompt)
     ?? normalizeString(question.stem?.prompt_zh)
     ?? normalizeString(question.stem?.prompt_en);

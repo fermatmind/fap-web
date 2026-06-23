@@ -154,7 +154,70 @@ async function mockIqTake(page: Page) {
       body: JSON.stringify({
         ok: true,
         attempt_id: "iq-visual-attempt-001",
-        scale_code: "IQ_RAVEN",
+        scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+        form_code: "IQ_OWNER_ORIGINAL_30",
+        question_count: 30,
+      }),
+    });
+  });
+
+  await page.route("**/api/v0.3/attempts/iq-visual-attempt-001/questions?*", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        schema_version: "fm.iq.question_delivery.v1",
+        attempt_id: "iq-visual-attempt-001",
+        scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+        scale_code_legacy: "IQ_RAVEN",
+        bank_id: "IQ_OWNER_ORIGINAL_30",
+        form_code: "IQ_OWNER_ORIGINAL_30",
+        question_count: 30,
+        delivery: {
+          mode: "current_question",
+          index: 0,
+          window_size: 1,
+          has_previous: false,
+          has_next: true,
+        },
+        questions: {
+          schema_version: "fm.iq.owner_image_bank.items.public.v1",
+          items: [
+            {
+              question_id: "MATRIX_Q01",
+              order: 1,
+              title: "Which option fits?",
+              stem: {
+                prompt_en: "Which option fits?",
+                prompt_zh: "哪个选项适合？",
+                type: "image",
+                media_type: "image/svg+xml",
+                assets: {
+                  image: "/mock-assets/iq/q1-question.svg",
+                },
+                width: 840,
+                height: 552,
+                accessibility_label: "Owner original prompt 01",
+              },
+              options: ["A", "B", "C", "D", "E", "F"].map((code) => ({
+                code,
+                label: code,
+                type: "image",
+                assets: {
+                  image: `/mock-assets/iq/q1-option-${code.toLowerCase()}.svg`,
+                },
+                width: 296,
+                height: 168,
+                accessibility_label: `Option ${code} for owner-original IQ item 01.`,
+              })),
+            },
+          ],
+        },
+        meta: {
+          source: "attempt_bound_owner_bank",
+          public_payload: true,
+        },
       }),
     });
   });
@@ -171,16 +234,16 @@ async function mockIqTake(page: Page) {
 test("IQ take desktop full page visual baseline", async ({ page }) => {
   await mockIqTake(page);
   await prepareVisualPage(page);
-  await page.goto("/en/tests/iq-test-intelligence-quotient-assessment/take");
+  await page.goto("/en/tests/iq-test-intelligence-quotient-assessment/take?form=IQ_OWNER_ORIGINAL_30");
   await page.waitForLoadState("networkidle");
   await waitForVisualStability(page);
 
   const card = page.getByTestId("iq-take-question-panel").first();
   await expect(card).toBeVisible({ timeout: 30000 });
-  await card.scrollIntoViewIfNeeded();
   await waitForVisualStability(page);
 
-  await expect(card).toHaveScreenshot("iq-take-desktop-full-page-en.png", {
+  await expect(page).toHaveScreenshot("iq-take-desktop-full-page-en.png", {
+    fullPage: true,
     mask: getStableMasks(page),
     maxDiffPixelRatio: 0.02,
   });
@@ -190,16 +253,16 @@ test("IQ take mobile full page visual baseline", async ({ page }) => {
   await mockIqTake(page);
   await prepareVisualPage(page);
   await page.setViewportSize({ width: 390, height: 1100 });
-  await page.goto("/en/tests/iq-test-intelligence-quotient-assessment/take");
+  await page.goto("/en/tests/iq-test-intelligence-quotient-assessment/take?form=IQ_OWNER_ORIGINAL_30");
   await page.waitForLoadState("networkidle");
   await waitForVisualStability(page);
 
   const card = page.getByTestId("iq-take-question-panel").first();
   await expect(card).toBeVisible({ timeout: 30000 });
-  await card.scrollIntoViewIfNeeded();
   await waitForVisualStability(page);
 
-  await expect(card).toHaveScreenshot("iq-take-mobile-full-page-en.png", {
+  await expect(page).toHaveScreenshot("iq-take-mobile-full-page-en.png", {
+    fullPage: true,
     mask: getStableMasks(page),
     maxDiffPixelRatio: 0.02,
   });

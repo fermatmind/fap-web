@@ -1,6 +1,7 @@
 import { z } from "zod";
 import type {
   AttemptReportAccessResponse,
+  AttemptQuestionDeliveryResponse,
   QuestionsResponse,
   ReportResponse,
   ResultResponse,
@@ -147,6 +148,27 @@ export const iqQuestionPayloadSchema = z
     metadata: z.record(z.string(), z.unknown()).optional(),
   })
   .passthrough();
+
+export const iqAttemptQuestionDeliverySchema = iqQuestionPayloadSchema
+  .extend({
+    schema_version: z.literal("fm.iq.question_delivery.v1").optional(),
+    attempt_id: z.string().min(1),
+    scale_code_legacy: z.string().optional(),
+    form_code: z.string().optional(),
+    question_count: z.number(),
+    delivery: z
+      .object({
+        mode: z.string().optional(),
+        index: z.number(),
+        window_size: z.number().optional(),
+        has_previous: z.boolean().optional(),
+        has_next: z.boolean().optional(),
+      })
+      .passthrough(),
+  })
+  .refine((payload) => payload.questions.items.length === 1, {
+    message: "IQ current-question delivery must contain exactly one question.",
+  });
 
 export const iqScaleLookupSchema = z
   .object({
@@ -347,6 +369,7 @@ export const iqReportPayloadSchema = z
 
 export type IqScaleLookupResponse = z.infer<typeof iqScaleLookupSchema> & ScaleLookupResponse;
 export type IqQuestionPayload = z.infer<typeof iqQuestionPayloadSchema> & QuestionsResponse;
+export type IqAttemptQuestionDeliveryPayload = z.infer<typeof iqAttemptQuestionDeliverySchema> & AttemptQuestionDeliveryResponse;
 export type IqQuestion = z.infer<typeof iqQuestionSchema>;
 export type IqStemPayload = z.infer<typeof iqStemPayloadSchema>;
 export type IqImageAsset = z.infer<typeof iqImageAssetSchema>;

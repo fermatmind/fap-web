@@ -9,6 +9,7 @@ const hoisted = vi.hoisted(() => ({
   search: "",
   routerPush: vi.fn(),
   routerReplace: vi.fn(),
+  getIqAttemptQuestion: vi.fn(),
   getIqQuestions: vi.fn(),
   startIqAttempt: vi.fn(),
   submitIqAttempt: vi.fn(),
@@ -126,6 +127,7 @@ vi.mock("@/lib/iq/api", async () => {
   const actual = await vi.importActual<typeof import("@/lib/iq/api")>("@/lib/iq/api");
   return {
     ...actual,
+    getIqAttemptQuestion: hoisted.getIqAttemptQuestion,
     getIqQuestions: hoisted.getIqQuestions,
     startIqAttempt: hoisted.startIqAttempt,
     submitIqAttempt: hoisted.submitIqAttempt,
@@ -251,6 +253,35 @@ function buildIqQuestionResponse() {
   };
 }
 
+function buildIqAttemptQuestionResponse(index: number) {
+  const items = buildIqQuestionResponse().questions.items;
+
+  return {
+    ok: true,
+    schema_version: "fm.iq.question_delivery.v1",
+    attempt_id: "iq-attempt-start-001",
+    scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+    scale_code_legacy: "IQ_RAVEN",
+    bank_id: IQ_OWNER_ORIGINAL_30_BANK_ID,
+    form_code: IQ_OWNER_ORIGINAL_30_BANK_ID,
+    question_count: items.length,
+    delivery: {
+      mode: "current_question",
+      index,
+      window_size: 1,
+      has_previous: index > 0,
+      has_next: index < items.length - 1,
+    },
+    questions: {
+      items: [items[index]],
+    },
+    meta: {
+      source: "attempt_bound_owner_bank",
+      public_payload: true,
+    },
+  };
+}
+
 function renderClient({ formCode }: { formCode?: string } = {}) {
   return render(
     <QuizTakeClient
@@ -282,10 +313,14 @@ describe("IQ take lifecycle contract", () => {
     hoisted.pathname = "/en/tests/iq-test-intelligence-quotient-assessment/take";
     hoisted.search = "";
     hoisted.getIqQuestions.mockResolvedValue(buildIqQuestionResponse());
+    hoisted.getIqAttemptQuestion.mockImplementation(({ index }: { index: number }) =>
+      Promise.resolve(buildIqAttemptQuestionResponse(index))
+    );
     hoisted.startIqAttempt.mockResolvedValue({
       ok: true,
       attempt_id: "iq-attempt-start-001",
       scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+      question_count: 2,
     });
     hoisted.submitIqAttempt.mockResolvedValue({
       ok: true,
@@ -314,23 +349,8 @@ describe("IQ take lifecycle contract", () => {
     expect(screen.queryByText(/¥1\.99|¥5|unlock/i)).not.toBeInTheDocument();
   });
 
-  it("loads owner-original IQ questions with the selected bank form code", async () => {
+  it("starts the owner-original IQ attempt before fetching the current question", async () => {
     renderClient({ formCode: IQ_OWNER_ORIGINAL_30_BANK_ID });
-
-    await waitFor(() => {
-      expect(hoisted.getIqQuestions).toHaveBeenCalledWith({
-        locale: "en",
-        anonId: "anon_iq_take_test",
-        formCode: IQ_OWNER_ORIGINAL_30_BANK_ID,
-        bankId: IQ_OWNER_ORIGINAL_30_BANK_ID,
-      });
-    });
-
-    await act(async () => {
-      fireEvent.click(
-        within(await screen.findByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" })
-      );
-    });
 
     await waitFor(() => {
       expect(hoisted.startIqAttempt).toHaveBeenCalledWith(expect.objectContaining({
@@ -341,6 +361,24 @@ describe("IQ take lifecycle contract", () => {
         bank_id: IQ_OWNER_ORIGINAL_30_BANK_ID,
       }));
     });
+
+    await waitFor(() => {
+      expect(hoisted.getIqAttemptQuestion).toHaveBeenCalledWith({
+        attemptId: "iq-attempt-start-001",
+        index: 0,
+        anonId: "anon_iq_take_test",
+        locale: "en",
+      });
+    });
+    expect(hoisted.getIqQuestions).not.toHaveBeenCalled();
+
+    await act(async () => {
+      fireEvent.click(
+        within(await screen.findByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" })
+      );
+    });
+
+    expect(hoisted.startIqAttempt).toHaveBeenCalledTimes(1);
   });
 
   it("renders a loading state while IQ questions are still in flight", async () => {
@@ -363,11 +401,9 @@ describe("IQ take lifecycle contract", () => {
     const nextButton = await screen.findByRole("button", { name: "Next" });
     expect(nextButton).toBeDisabled();
 
-    await act(async () => {
-      fireEvent.click(
-        within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" })
-      );
-    });
+    fireEvent.click(
+      within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" })
+    );
 
     await waitFor(() => {
       expect(hoisted.startIqAttempt).toHaveBeenCalledWith(expect.objectContaining({
@@ -381,26 +417,20 @@ describe("IQ take lifecycle contract", () => {
     expect(hoisted.startAttempt).not.toHaveBeenCalled();
     expect(screen.getByRole("button", { name: "Next" })).toBeEnabled();
 
-    await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: "Next" }));
-    });
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
 
     expect(await screen.findByText("Choose the best continuation.")).toBeInTheDocument();
 
     const submitButton = screen.getByRole("button", { name: "Submit" });
     expect(submitButton).toBeDisabled();
 
-    await act(async () => {
-      fireEvent.click(
-        within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" })
-      );
-    });
+    fireEvent.click(
+      within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" })
+    );
 
     expect(screen.getByRole("button", { name: "Submit" })).toBeEnabled();
 
-    await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: "Submit" }));
-    });
+    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
 
     await waitFor(() => {
       expect(hoisted.submitIqAttempt).toHaveBeenCalledTimes(1);
@@ -463,27 +493,23 @@ describe("IQ take lifecycle contract", () => {
 
     expect(await screen.findByText("Find the missing matrix tile.")).toBeInTheDocument();
 
-    await act(async () => {
-      fireEvent.click(
-        within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" })
-      );
+    fireEvent.click(
+      within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option A" })
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "Next" }));
+
+    fireEvent.click(
+      within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" })
+    );
+
+    await waitFor(() => {
+      expect(screen.getByRole("button", { name: "Submit" })).toBeEnabled();
     });
 
-    await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: "Next" }));
-    });
+    fireEvent.click(screen.getByRole("button", { name: "Submit" }));
 
-    await act(async () => {
-      fireEvent.click(
-        within(screen.getByTestId("iq-option-board-desktop")).getByRole("radio", { name: "Option B" })
-      );
-    });
-
-    await act(async () => {
-      fireEvent.click(screen.getByRole("button", { name: "Submit" }));
-    });
-
-    expect(screen.getByRole("button", { name: "Submitting..." })).toBeDisabled();
+    expect(await screen.findByRole("button", { name: "Submitting..." })).toBeDisabled();
     expect(screen.queryByText(/score|raw score|iq estimate/i)).not.toBeInTheDocument();
 
     pendingSubmit.resolve({
