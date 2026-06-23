@@ -23515,8 +23515,8 @@
       "id": "RIASEC-CAREER-GRAPH-BRIDGE-MATRIX-01",
       "repo": "fap-web",
       "branch": "codex/riasec-career-graph-bridge-matrix-01",
-      "status": "pr_open",
-      "commit_sha": "e0b47d6e829e3d7057b6f475359e17b3124b094e",
+      "status": "ready_to_merge",
+      "commit_sha": "0812f56d04ede026856a017e57e00cf9e73c7dca",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1383",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -23553,8 +23553,8 @@
           "evidence": "JSON and YAML parse passed; focused bridge matrix contract passed 9 tests; pnpm typecheck passed; pnpm test:contract passed 553 files and 3243 tests; git diff --check passed; changed-file scope validation passed. Local next build was not run because this docs/contracts-only train forbids generated SEO artifact mutation; GitHub build remains the required build check."
         },
         "github_checks": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "PR #1383 checks passed on head 0812f56d: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         },
         "post_merge": {
           "status": "pending",
@@ -23590,6 +23590,11 @@
           "at": "2026-06-23T00:00:00+08:00",
           "status": "pr_open",
           "note": "Opened PR #1383 at https://github.com/fermatmind/fap-web/pull/1383 from commit e0b47d6e after local validation passed."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "ready_to_merge",
+          "note": "PR #1383 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. Ready for squash merge subject to final scope and mergeStateStatus checks."
         }
       ]
     }
