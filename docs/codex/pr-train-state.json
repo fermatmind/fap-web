@@ -25948,14 +25948,14 @@
       "repo": "fap-web",
       "branch": "codex/big5-runtime-qa-consumption-packet-01",
       "base": "main",
-      "status": "in_progress",
+      "status": "ready_to_merge",
       "train_scope": "big5_runtime_qa_consumption_packet",
       "title": "BIG5-RUNTIME-QA-CONSUMPTION-PACKET-01: docs(result): add Big Five Runtime QA packet",
       "depends_on": [
         "ACTIVE-RESULT-PAGE-AGENTS-RUNTIME-QA-COMMON-CONTRACT-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "7f41e30ba1942d78511a8d94c152ece7a20740ba",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1354",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -25990,8 +25990,8 @@
           "evidence": "Opened https://github.com/fermatmind/fap-web/pull/1354 after local validation and scope validation passed. The branch head remains the source of truth after this ledger update commit."
         },
         "github": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "PR #1354 checks passed on head 7f41e30ba1942d78511a8d94c152ece7a20740ba: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). GitHub mergeStateStatus was CLEAN before this ready_to_merge ledger update."
         }
       },
       "sidecar_issues": [],
@@ -26015,6 +26015,11 @@
           "at": "2026-06-23T11:43:00+08:00",
           "status": "pr_open",
           "note": "Opened PR #1354 for the Big Five Runtime QA consumption packet after path-limited staging and local validation."
+        },
+        {
+          "at": "2026-06-23T11:45:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed and mergeStateStatus was CLEAN on head 7f41e30ba1942d78511a8d94c152ece7a20740ba. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
