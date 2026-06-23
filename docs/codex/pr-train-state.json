@@ -26972,14 +26972,14 @@
       "repo": "fap-web",
       "branch": "codex/riasec-safety-gate-consumption-packet-01",
       "base": "main",
-      "status": "local_checks_passed",
+      "status": "ready_to_merge",
       "train_scope": "riasec_safety_gate_consumption_packet",
       "title": "RIASEC-SAFETY-GATE-CONSUMPTION-PACKET-01: docs(result): add RIASEC Safety Gate packet",
       "depends_on": [
         "ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "9ebb78d198e573f922a73750a9cdb2bebc18684d",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1375",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -27010,12 +27010,12 @@
           "evidence": "Local checks passed on codex/riasec-safety-gate-consumption-packet-01: JSON parse for RIASEC Safety Gate packet and state, YAML parse for manifest, focused RIASEC Safety Gate consumption packet contract (9 tests), pnpm typecheck, pnpm test:contract (547 files, 3184 tests), git diff --check, and changed-file scope validation for exactly 5 authorized files. pnpm build was intentionally not run per goal constraints."
         },
         "pull_request": {
-          "status": "not_opened",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened PR #1375 at https://github.com/fermatmind/fap-web/pull/1375 from codex/riasec-safety-gate-consumption-packet-01."
         },
         "github": {
-          "status": "pending",
-          "evidence": null
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1375 head 9ebb78d1: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
         }
       },
       "sidecar_issues": [],
@@ -27034,6 +27034,16 @@
           "at": "2026-06-23T19:29:00+08:00",
           "status": "local_checks_passed",
           "note": "JSON/YAML parse, focused RIASEC Safety Gate consumption packet contract, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation passed. pnpm build intentionally not run per goal constraints."
+        },
+        {
+          "at": "2026-06-23T19:29:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1375 at https://github.com/fermatmind/fap-web/pull/1375."
+        },
+        {
+          "at": "2026-06-23T19:33:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1375 head 9ebb78d1 and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
