@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-23T12:00:00+08:00",
+  "updated_at": "2026-06-23T12:03:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -26033,7 +26033,7 @@
       "repo": "fap-web",
       "branch": "codex/enneagram-runtime-qa-consumption-packet-01",
       "base": "main",
-      "status": "in_progress",
+      "status": "ready_to_merge",
       "train_scope": "enneagram_runtime_qa_consumption_packet",
       "title": "ENNEAGRAM-RUNTIME-QA-CONSUMPTION-PACKET-01: docs(result): add Enneagram Runtime QA packet",
       "depends_on": [
@@ -26075,8 +26075,8 @@
           "evidence": "Opened PR #1356: https://github.com/fermatmind/fap-web/pull/1356 at head c638e82a752d878f5446aea6b056bb6525059010."
         },
         "github": {
-          "status": "in_progress",
-          "evidence": "Initial GitHub checks started for PR #1356 head c638e82a752d878f5446aea6b056bb6525059010."
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1356 head 195dcf38af84dd7c8303fffd5d789b56e7c5b8b0: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
         }
       },
       "sidecar_issues": [],
@@ -26100,6 +26100,11 @@
           "at": "2026-06-23T12:00:00+08:00",
           "status": "pr_opened",
           "note": "Opened PR #1356 at https://github.com/fermatmind/fap-web/pull/1356 with head c638e82a752d878f5446aea6b056bb6525059010. GitHub checks are in progress."
+        },
+        {
+          "at": "2026-06-23T12:03:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed and mergeStateStatus was CLEAN on PR #1356 head 195dcf38af84dd7c8303fffd5d789b56e7c5b8b0. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },

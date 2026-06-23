@@ -5369,7 +5369,7 @@ prs:
     depends_on: [SEO-FREE-TEST-FLAGSHIP-LANDING-03]
     mode: execute
     train_scope: six_hub_test_detail_frontend_landing_surface_consumer
-    status: in_progress
+    status: ready_to_merge
     goal: "Consume published public CMS landing surface authority for MBTI and RIASEC test-detail metadata and hero content without changing CTA routing, FAQ authority, schema, hreflang, sitemap, llms, payment, or result behavior."
     artifacts:
       - app/(localized)/[locale]/tests/[slug]/page.tsx
