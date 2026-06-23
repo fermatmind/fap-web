@@ -15,30 +15,64 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+REPO_ROOT = Path(__file__).resolve().parents[4]
+STATE_BASELINES = REPO_ROOT / "generated/fermatmind-content-agent-state/latest_pass_baselines.json"
+
+
+def resolve_latest_baseline(block_name: str, fallbacks: list[str]) -> str:
+    if STATE_BASELINES.exists():
+        try:
+            payload = json.loads(STATE_BASELINES.read_text(encoding="utf-8"))
+            for row in payload.get("baselines", []):
+                if row.get("block_name") == block_name and row.get("baseline_directory"):
+                    candidate = str(row["baseline_directory"])
+                    if (REPO_ROOT / candidate).exists():
+                        return candidate
+        except json.JSONDecodeError:
+            pass
+    for candidate in fallbacks:
+        if (REPO_ROOT / candidate).exists():
+            return candidate
+    return fallbacks[0]
 
 REQUIRED_COMPLETE_BLOCKS = {
     "career-identity": {
-        "baseline": "generated/career-identity-v1-1046-pass-baseline-final",
+        "baseline": resolve_latest_baseline("career-identity", [
+            "generated/career-identity-v1-batch-1046-pass-baseline-final-repaired",
+            "generated/career-identity-v1-1046-pass-baseline-final",
+        ]),
         "asset": "assets/assets.jsonl",
         "sections": [("hero_identity", 10), ("quick_summary_from_identity", 20)],
     },
     "career-work-activities": {
-        "baseline": "generated/career-work-activities-v1-1046-pass-baseline-final-repaired",
+        "baseline": resolve_latest_baseline("career-work-activities", [
+            "generated/career-work-activities-v1-batch-1046-pass-baseline-final-repaired",
+            "generated/career-work-activities-v1-1046-pass-baseline-final-repaired",
+        ]),
         "asset": "assets/career_work_activities_1046_assets_repaired.jsonl",
         "sections": [("work_activities", 30)],
     },
     "career-skills-entry": {
-        "baseline": "generated/career-skills-entry-v1-1046-pass-baseline-final",
+        "baseline": resolve_latest_baseline("career-skills-entry", [
+            "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired",
+            "generated/career-skills-entry-v1-1046-pass-baseline-final",
+        ]),
         "asset": "assets/assets.jsonl",
         "sections": [("skills_entry", 40)],
     },
     "career-fit": {
-        "baseline": "generated/career-fit-v1-1046-pass-baseline-final",
+        "baseline": resolve_latest_baseline("career-fit", [
+            "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired",
+            "generated/career-fit-v1-1046-pass-baseline-final",
+        ]),
         "asset": "assets/assets.jsonl",
         "sections": [("career_fit", 50), ("test_cta_placeholder", 90)],
     },
     "career-adjacent-comparison": {
-        "baseline": "generated/career-adjacent-comparison-v1-1046-pass-baseline-final",
+        "baseline": resolve_latest_baseline("career-adjacent-comparison", [
+            "generated/career-adjacent-comparison-v1-1046-pass-baseline-final-repaired",
+            "generated/career-adjacent-comparison-v1-1046-pass-baseline-final",
+        ]),
         "asset": "assets/assets.jsonl",
         "sections": [("adjacent_comparison", 60)],
     },
@@ -55,7 +89,7 @@ MATURE_REGISTERED_BLOCKS = {
     "career-risk-future-ai-impact": {
         "sections": [("ai_impact_reference", 80)],
         "proof_artifacts": [
-            "generated/career-ai-impact-v5-post-import-live-page-seo-qa-rerun/audit.json"
+            "generated/career-ai-impact-v5-1046-expanded-page-qa/audit.json"
         ],
     },
 }

@@ -52,6 +52,11 @@
       "baseline_directory": "generated/career-adjacent-comparison-v1-1046-pass-baseline-final-repaired",
       "slug_count": 1046,
       "final_qa": "generated/career-adjacent-comparison-v1-1046-final-independent-qa/final_qa_report.json"
+    },
+    "career-page-assembly": {
+      "baseline_directory": "generated/career-page-assembly-v1-1046-pass-baseline",
+      "slug_count": 1046,
+      "final_qa": "generated/career-content-full-integrated-qa/integrated_qa_report.json"
     }
   }
 }

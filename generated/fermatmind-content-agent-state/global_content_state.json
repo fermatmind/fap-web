@@ -5,18 +5,19 @@
     "career-fit",
     "career-identity",
     "career-work-activities",
-    "career-adjacent-comparison"
+    "career-adjacent-comparison",
+    "career-page-assembly"
   ],
-  "human_approval_required": false,
+  "human_approval_required": true,
   "import_state_path": "generated/fermatmind-content-agent-state/import_state.json",
   "latest_pass_baselines_path": "generated/fermatmind-content-agent-state/latest_pass_baselines.json",
   "next_goal_recommendation_path": "generated/fermatmind-content-agent-state/next_goal_recommendation.md",
   "open_failures_path": "generated/fermatmind-content-agent-state/open_failures.json",
   "personality_blocks": [],
   "schema_version": "career_content_agent_state_v1",
-  "updated_at": "2026-06-23T08:08:47Z",
-  "current_block": "career-adjacent-comparison",
-  "current_phase": "final_qa_pass",
-  "last_completed_block": "career-adjacent-comparison",
-  "last_updated_at": "2026-06-23T08:08:47Z"
+  "updated_at": "2026-06-23T08:19:46Z",
+  "current_block": "career-page-assembly",
+  "current_phase": "integrated_qa_pass_ready_for_human_staging_review",
+  "last_completed_block": "career-page-assembly",
+  "last_updated_at": "2026-06-23T08:19:46Z"
 }
