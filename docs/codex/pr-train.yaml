@@ -12092,7 +12092,7 @@ prs:
       - ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01
     mode: execute
     train_scope: enneagram_analytics_consumption_packet
-    status: in_progress
+    status: merged_cleanup_complete
     goal: "Create the Enneagram analytics consumption packet from public-share-safe, Runtime QA, standard alignment, and public personality boundary evidence while holding generation, import, activation, runtime, CMS, search, private-data, event-emission, backfill, and opportunity scoring."
     artifacts:
       - docs/result-page-agents/enneagram-analytics-consumption-packet-2026-06-23.md
@@ -12145,7 +12145,7 @@ prs:
       - ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01
     mode: execute
     train_scope: riasec_analytics_consumption_packet
-    status: pending_dependency
+    status: in_progress
     goal: "Create the RIASEC analytics consumption packet from Runtime QA and fap-api authority references read-only, preserving one-flagship/two-form policy, examples-only career bridge boundaries, and all runtime, CMS, search, career graph mutation, event-emission, backfill, and opportunity-scoring holds."
     artifacts:
       - docs/result-page-agents/riasec-analytics-consumption-packet-2026-06-23.md
