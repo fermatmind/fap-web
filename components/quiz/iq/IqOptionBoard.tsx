@@ -1,6 +1,6 @@
 import { useMemo, type KeyboardEvent } from "react";
-import { IqVectorSvg } from "@/components/quiz/iq/IqStemSvg";
-import { normalizeIqOptionForRenderer, type IqRenderableSvg } from "@/lib/iq/renderer";
+import { IqGraphic } from "@/components/quiz/iq/IqStemSvg";
+import { normalizeIqOptionForRenderer, type IqRenderableImage, type IqRenderableSvg } from "@/lib/iq/renderer";
 import { cn } from "@/lib/utils";
 
 type IqOptionItem = {
@@ -10,6 +10,12 @@ type IqOptionItem = {
   text?: string;
   label?: string;
   svg?: IqRenderableSvg;
+  image?: IqRenderableImage;
+  assets?: Record<string, unknown>;
+  width?: number | string;
+  height?: number | string;
+  alt?: string;
+  accessibility_label?: string;
   [key: string]: unknown;
 };
 
@@ -151,8 +157,13 @@ export function IqOptionBoard({
 
                   <div className="flex h-full flex-col gap-2 pt-8">
                     <span className="flex min-h-[108px] items-center justify-center overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-2">
-                      {option.svg ? (
-                        <IqVectorSvg svg={option.svg} className="h-full w-full object-contain" ariaLabel={optionLabel} />
+                      {option.svg || option.image ? (
+                        <IqGraphic
+                          svg={option.svg}
+                          image={option.image}
+                          className="h-full w-full object-contain"
+                          ariaLabel={option.image?.alt ?? optionLabel}
+                        />
                       ) : (
                         <span className="text-sm font-medium text-[var(--fm-text-muted)]">{optionLabel}</span>
                       )}
@@ -215,9 +226,14 @@ export function IqOptionBoard({
                     {letter}
                   </span>
 
-                  <span className="flex aspect-square w-full max-w-[132px] shrink-0 items-center justify-center overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-2">
-                    {option.svg ? (
-                      <IqVectorSvg svg={option.svg} className="h-full w-full object-contain" ariaLabel={optionLabel} />
+                  <span className="flex aspect-[16/9] w-full max-w-[156px] shrink-0 items-center justify-center overflow-hidden rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-2">
+                    {option.svg || option.image ? (
+                      <IqGraphic
+                        svg={option.svg}
+                        image={option.image}
+                        className="h-full w-full object-contain"
+                        ariaLabel={option.image?.alt ?? optionLabel}
+                      />
                     ) : (
                       <span className="text-xs font-medium text-[var(--fm-text-muted)]">{optionLabel}</span>
                     )}

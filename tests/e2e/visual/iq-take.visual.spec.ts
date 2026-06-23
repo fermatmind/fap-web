@@ -1,7 +1,28 @@
 import { expect, test, type Page } from "@playwright/test";
 import { getStableMasks, prepareVisualPage, waitForVisualStability } from "./visual-helpers";
 
+function mockIqSvgImage(label: string) {
+  return `
+    <svg xmlns="http://www.w3.org/2000/svg" width="840" height="552" viewBox="0 0 840 552">
+      <rect width="840" height="552" fill="#fff"/>
+      <rect x="40" y="40" width="760" height="472" fill="#f8fafc" stroke="#111827" stroke-width="6"/>
+      <text x="420" y="292" text-anchor="middle" font-family="Arial, sans-serif" font-size="64" fill="#111827">${label}</text>
+    </svg>
+  `.trim();
+}
+
 async function mockIqTake(page: Page) {
+  await page.route("**/mock-assets/iq/*.svg", async (route) => {
+    const url = new URL(route.request().url());
+    const filename = url.pathname.split("/").pop()?.replace(".svg", "") ?? "asset";
+
+    await route.fulfill({
+      status: 200,
+      contentType: "image/svg+xml",
+      body: mockIqSvgImage(filename.toUpperCase()),
+    });
+  });
+
   for (const scaleCode of ["IQ_RAVEN", "IQ_INTELLIGENCE_QUOTIENT"]) {
     await page.route(`**/api/v0.3/scales/${scaleCode}/questions*`, async (route) => {
       await route.fulfill({
@@ -19,57 +40,75 @@ async function mockIqTake(page: Page) {
                 stem: {
                   prompt_en: "Which option fits?",
                   prompt_zh: "哪个选项适合？",
-                  svg: {
-                    view_box: "0 0 120 80",
-                    paths: [
-                      { d: "M 5 5 L 115 5 L 115 75 L 5 75 Z", fill: "#f8fafc" },
-                      { d: "M 15 15 L 45 15 L 45 45 L 15 45 Z", fill: "#cbd5e1" },
-                      { d: "M 75 15 L 105 15 L 105 45 L 75 45 Z", fill: "#94a3b8" },
-                    ],
+                  type: "image",
+                  media_type: "image/svg+xml",
+                  assets: {
+                    image: "/mock-assets/iq/q1-question.svg",
                   },
+                  width: 840,
+                  height: 552,
+                  accessibility_label: "Owner original prompt 01",
                 },
                 options: [
                   {
                     code: "A",
-                    svg: {
-                      view_box: "0 0 20 20",
-                      paths: [{ d: "M 2 2 L 18 2 L 18 18 L 2 18 Z", stroke: "#0f172a", stroke_width: 2 }],
+                    type: "image",
+                    assets: {
+                      image: "/mock-assets/iq/q1-option-a.svg",
                     },
+                    width: 296,
+                    height: 168,
+                    accessibility_label: "Option A for owner-original IQ item 01.",
                   },
                   {
                     code: "B",
-                    svg: {
-                      view_box: "0 0 20 20",
-                      paths: [{ d: "M 3 3 L 17 17", stroke: "#0f172a", stroke_width: 2 }],
+                    type: "image",
+                    assets: {
+                      image: "/mock-assets/iq/q1-option-b.svg",
                     },
+                    width: 296,
+                    height: 168,
+                    accessibility_label: "Option B for owner-original IQ item 01.",
                   },
                   {
                     code: "C",
-                    svg: {
-                      view_box: "0 0 20 20",
-                      paths: [{ d: "M 3 17 L 17 3", stroke: "#0f172a", stroke_width: 2 }],
+                    type: "image",
+                    assets: {
+                      image: "/mock-assets/iq/q1-option-c.svg",
                     },
+                    width: 296,
+                    height: 168,
+                    accessibility_label: "Option C for owner-original IQ item 01.",
                   },
                   {
                     code: "D",
-                    svg: {
-                      view_box: "0 0 20 20",
-                      paths: [{ d: "M 10 2 L 10 18", stroke: "#0f172a", stroke_width: 2 }],
+                    type: "image",
+                    assets: {
+                      image: "/mock-assets/iq/q1-option-d.svg",
                     },
+                    width: 296,
+                    height: 168,
+                    accessibility_label: "Option D for owner-original IQ item 01.",
                   },
                   {
                     code: "E",
-                    svg: {
-                      view_box: "0 0 20 20",
-                      paths: [{ d: "M 2 10 L 18 10", stroke: "#0f172a", stroke_width: 2 }],
+                    type: "image",
+                    assets: {
+                      image: "/mock-assets/iq/q1-option-e.svg",
                     },
+                    width: 296,
+                    height: 168,
+                    accessibility_label: "Option E for owner-original IQ item 01.",
                   },
                   {
                     code: "F",
-                    svg: {
-                      view_box: "0 0 20 20",
-                      paths: [{ d: "M 3 3 L 17 3 L 10 17 Z", stroke: "#0f172a", stroke_width: 2 }],
+                    type: "image",
+                    assets: {
+                      image: "/mock-assets/iq/q1-option-f.svg",
                     },
+                    width: 296,
+                    height: 168,
+                    accessibility_label: "Option F for owner-original IQ item 01.",
                   },
                 ],
               },
@@ -129,25 +168,25 @@ async function mockIqTake(page: Page) {
   });
 }
 
-test("IQ take desktop visual baseline", async ({ page }) => {
+test("IQ take desktop full page visual baseline", async ({ page }) => {
   await mockIqTake(page);
   await prepareVisualPage(page);
   await page.goto("/en/tests/iq-test-intelligence-quotient-assessment/take");
   await page.waitForLoadState("networkidle");
   await waitForVisualStability(page);
 
-  const card = page.getByTestId("iq-option-board-desktop").first();
+  const card = page.getByTestId("iq-take-question-panel").first();
   await expect(card).toBeVisible({ timeout: 30000 });
   await card.scrollIntoViewIfNeeded();
   await waitForVisualStability(page);
 
-  await expect(card).toHaveScreenshot("iq-take-desktop-options-en.png", {
+  await expect(card).toHaveScreenshot("iq-take-desktop-full-page-en.png", {
     mask: getStableMasks(page),
     maxDiffPixelRatio: 0.02,
   });
 });
 
-test("IQ take mobile visual baseline", async ({ page }) => {
+test("IQ take mobile full page visual baseline", async ({ page }) => {
   await mockIqTake(page);
   await prepareVisualPage(page);
   await page.setViewportSize({ width: 390, height: 1100 });
@@ -155,12 +194,12 @@ test("IQ take mobile visual baseline", async ({ page }) => {
   await page.waitForLoadState("networkidle");
   await waitForVisualStability(page);
 
-  const card = page.getByTestId("iq-option-board-mobile").first();
+  const card = page.getByTestId("iq-take-question-panel").first();
   await expect(card).toBeVisible({ timeout: 30000 });
   await card.scrollIntoViewIfNeeded();
   await waitForVisualStability(page);
 
-  await expect(card).toHaveScreenshot("iq-take-mobile-options-en.png", {
+  await expect(card).toHaveScreenshot("iq-take-mobile-full-page-en.png", {
     mask: getStableMasks(page),
     maxDiffPixelRatio: 0.02,
   });

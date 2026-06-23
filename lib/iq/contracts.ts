@@ -42,6 +42,32 @@ export const iqStructuredSvgSchema = z
   })
   .passthrough();
 
+export const iqImageAssetSchema = z
+  .object({
+    type: z.string().optional(),
+    media_type: z.string().optional(),
+    src: z.string().optional(),
+    url: z.string().optional(),
+    image_url: z.string().optional(),
+    public_url: z.string().optional(),
+    path: z.string().optional(),
+    assets: z
+      .object({
+        image: z.string().optional(),
+        src: z.string().optional(),
+        url: z.string().optional(),
+        public_url: z.string().optional(),
+      })
+      .passthrough()
+      .optional(),
+    width: z.union([z.number(), z.string()]).optional(),
+    height: z.union([z.number(), z.string()]).optional(),
+    alt: z.string().optional(),
+    accessibility_label: z.string().optional(),
+    sha256: z.string().optional(),
+  })
+  .passthrough();
+
 export const iqStemPayloadSchema = z
   .object({
     prompt: z.string().optional(),
@@ -49,6 +75,14 @@ export const iqStemPayloadSchema = z
     prompt_en: z.string().optional(),
     text: z.string().optional(),
     svg: iqStructuredSvgSchema.optional(),
+    image: iqImageAssetSchema.optional(),
+    assets: z.record(z.string(), z.unknown()).optional(),
+    type: z.string().optional(),
+    media_type: z.string().optional(),
+    width: z.union([z.number(), z.string()]).optional(),
+    height: z.union([z.number(), z.string()]).optional(),
+    accessibility_label: z.string().optional(),
+    alt: z.string().optional(),
   })
   .passthrough();
 
@@ -61,6 +95,14 @@ export const iqQuestionOptionSchema = z
     text: z.string().optional(),
     value: z.union([z.string(), z.number()]).optional(),
     svg: iqStructuredSvgSchema.optional(),
+    image: iqImageAssetSchema.optional(),
+    assets: z.record(z.string(), z.unknown()).optional(),
+    type: z.string().optional(),
+    media_type: z.string().optional(),
+    width: z.union([z.number(), z.string()]).optional(),
+    height: z.union([z.number(), z.string()]).optional(),
+    accessibility_label: z.string().optional(),
+    alt: z.string().optional(),
   })
   .passthrough();
 
@@ -305,6 +347,7 @@ export type IqScaleLookupResponse = z.infer<typeof iqScaleLookupSchema> & ScaleL
 export type IqQuestionPayload = z.infer<typeof iqQuestionPayloadSchema> & QuestionsResponse;
 export type IqQuestion = z.infer<typeof iqQuestionSchema>;
 export type IqStemPayload = z.infer<typeof iqStemPayloadSchema>;
+export type IqImageAsset = z.infer<typeof iqImageAssetSchema>;
 export type IqStructuredSvg = z.infer<typeof iqStructuredSvgSchema>;
 export type IqSvgPath = z.infer<typeof iqSvgPathSchema>;
 export type IqQuestionOption = z.infer<typeof iqQuestionOptionSchema>;

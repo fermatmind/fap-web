@@ -1482,13 +1482,16 @@ function QuizTakeInner({
             )
           }
         >
-          <article className="space-y-[var(--fm-space-4)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-4)] shadow-[var(--fm-shadow-md)] sm:space-y-[var(--fm-space-5)] sm:p-[var(--fm-space-6)]">
+          <article
+            data-testid={isIqScale ? "iq-take-question-panel" : undefined}
+            className="space-y-[var(--fm-space-4)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-4)] shadow-[var(--fm-shadow-md)] sm:space-y-[var(--fm-space-5)] sm:p-[var(--fm-space-6)]"
+          >
             {!showsTitleQuizChrome ? (
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{testTitle}</p>
             ) : null}
             <h2 className="m-0 text-xl font-semibold leading-8 text-[var(--fm-text)] sm:text-2xl sm:leading-9">{question.title}</h2>
 
-            {question.stem?.svg ? (
+            {question.stem?.svg || question.stem?.image ? (
               <IqStemSvg stem={question.stem} className={isIqScale ? "max-h-[460px]" : "max-h-[320px]"} />
             ) : null}
 
@@ -1588,13 +1591,16 @@ function QuizTakeInner({
         backLabel={dict.quiz.immersive.backToDetails}
       />
 
-      <article className="space-y-[var(--fm-space-4)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-4)] shadow-[var(--fm-shadow-md)] sm:space-y-[var(--fm-space-5)] sm:p-[var(--fm-space-6)]">
+      <article
+        data-testid={isIqScale ? "iq-take-question-panel" : undefined}
+        className="space-y-[var(--fm-space-4)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-4)] shadow-[var(--fm-shadow-md)] sm:space-y-[var(--fm-space-5)] sm:p-[var(--fm-space-6)]"
+      >
         {!showsTitleQuizChrome ? (
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">{testTitle}</p>
         ) : null}
         <h2 className="m-0 text-xl font-semibold leading-8 text-[var(--fm-text)] sm:text-2xl sm:leading-9">{question.title}</h2>
 
-        {question.stem?.svg ? (
+        {question.stem?.svg || question.stem?.image ? (
           <IqStemSvg stem={question.stem} className={isIqScale ? "max-h-[460px]" : "max-h-[360px]"} />
         ) : null}
 

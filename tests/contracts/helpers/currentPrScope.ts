@@ -805,6 +805,27 @@ const PR_WEB_SEC_10_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const IQ_OWNER_30_FE_IMAGE_RENDERER_03_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+  "components/quiz/iq/IqOptionBoard.tsx",
+  "components/quiz/iq/IqStemSvg.tsx",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "lib/api/v0_3.ts",
+  "lib/iq/contracts.ts",
+  "lib/iq/renderer.ts",
+  "lib/iq/take.ts",
+  "lib/quiz/types.ts",
+  "tests/a11y/iq-option-board.a11y.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/iq-question-renderer.contract.test.tsx",
+  "tests/e2e/visual/iq-take.visual.spec.ts",
+  "tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-desktop-full-page-en-chromium-linux.png",
+  "tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-desktop-options-en-chromium-linux.png",
+  "tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-mobile-full-page-en-chromium-linux.png",
+  "tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-mobile-options-en-chromium-linux.png",
+]);
+
 const PR_WEB_SEC_11_ALLOWED_FILES = new Set([
   "docs/claims/generated/semantic-claim-scanner-baseline.v1.json",
   "docs/claims/semantic-claim-scanner-baseline.md",
@@ -3372,6 +3393,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/eq-live-result-smoke-anchor-fix-01") {
     return EQ_LIVE_RESULT_SMOKE_ANCHOR_FIX_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/iq-owner-30-fe-image-renderer-03") {
+    return IQ_OWNER_30_FE_IMAGE_RENDERER_03_ALLOWED_FILES.has(file);
   }
 
   if (

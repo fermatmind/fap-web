@@ -56,6 +56,7 @@ export function normalizeIqQuestionsForTake({
         id: option.code,
         text: option.text,
         ...(option.svg ? { svg: option.svg } : {}),
+        ...(option.image ? { image: option.image } : {}),
       })),
       ...(normalized.stem ? { stem: normalized.stem } : {}),
       ...(questionId ? { sourceQuestionId: questionId } : {}),

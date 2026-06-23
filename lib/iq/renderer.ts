@@ -1,7 +1,8 @@
-import type { IqQuestion, IqQuestionOption, IqStemPayload, IqStructuredSvg } from "@/lib/iq/contracts";
-import type { QuizVectorGraphic } from "@/lib/quiz/types";
+import type { IqImageAsset, IqQuestion, IqQuestionOption, IqStemPayload, IqStructuredSvg } from "@/lib/iq/contracts";
+import type { QuizImageGraphic, QuizVectorGraphic } from "@/lib/quiz/types";
 
 export type IqRenderableSvg = IqStructuredSvg | QuizVectorGraphic | null | undefined;
+export type IqRenderableImage = IqImageAsset | QuizImageGraphic | Record<string, unknown> | null | undefined;
 
 export type NormalizedIqSvgPath = {
   d: string;
@@ -17,11 +18,19 @@ export type NormalizedIqStructuredSvg = {
   paths: NormalizedIqSvgPath[];
 };
 
+export type NormalizedIqImageAsset = {
+  src: string;
+  width?: number;
+  height?: number;
+  alt?: string;
+};
+
 export type IqRendererOption = {
   code: string;
   text: string;
   label: string;
   svg?: NormalizedIqStructuredSvg | null;
+  image?: NormalizedIqImageAsset | null;
 };
 
 export type IqRendererQuestion = {
@@ -31,6 +40,7 @@ export type IqRendererQuestion = {
   stem?: {
     prompt?: string;
     svg?: NormalizedIqStructuredSvg | null;
+    image?: NormalizedIqImageAsset | null;
   } | null;
   options: IqRendererOption[];
 };
@@ -50,6 +60,46 @@ function normalizeCode(value: unknown): string | undefined {
   }
 
   return normalizeString(value);
+}
+
+function normalizePositiveInteger(value: unknown): number | undefined {
+  const numeric = typeof value === "number" ? value : typeof value === "string" ? Number(value) : NaN;
+  if (!Number.isFinite(numeric) || numeric <= 0) {
+    return undefined;
+  }
+
+  return Math.round(numeric);
+}
+
+function normalizeSafeImageSrc(value: unknown): string | undefined {
+  const src = normalizeString(value);
+  if (!src) {
+    return undefined;
+  }
+
+  const lowered = src.toLowerCase();
+  if (
+    lowered.startsWith("javascript:") ||
+    lowered.startsWith("data:") ||
+    lowered.startsWith("//") ||
+    lowered.includes("\u0000")
+  ) {
+    return undefined;
+  }
+
+  if (src.startsWith("http://") || src.startsWith("https://") || src.startsWith("/")) {
+    return src;
+  }
+
+  if (src.includes("..")) {
+    return undefined;
+  }
+
+  return src;
+}
+
+function readRecord(value: unknown): Record<string, unknown> | null {
+  return value && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>) : null;
 }
 
 export function normalizeIqStructuredSvg(svg: IqRenderableSvg): NormalizedIqStructuredSvg | null {
@@ -112,6 +162,51 @@ export function normalizeIqStructuredSvg(svg: IqRenderableSvg): NormalizedIqStru
   };
 }
 
+export function normalizeIqImageAsset(image: IqRenderableImage): NormalizedIqImageAsset | null {
+  const record = readRecord(image);
+  if (!record) {
+    return null;
+  }
+
+  const assets = readRecord(record.assets);
+  const src =
+    normalizeSafeImageSrc(record.src) ??
+    normalizeSafeImageSrc(record.url) ??
+    normalizeSafeImageSrc(record.image_url) ??
+    normalizeSafeImageSrc(record.public_url) ??
+    normalizeSafeImageSrc(record.path) ??
+    normalizeSafeImageSrc(assets?.image) ??
+    normalizeSafeImageSrc(assets?.src) ??
+    normalizeSafeImageSrc(assets?.url) ??
+    normalizeSafeImageSrc(assets?.public_url);
+
+  if (!src) {
+    return null;
+  }
+
+  const width = normalizePositiveInteger(record.width);
+  const height = normalizePositiveInteger(record.height);
+  const alt =
+    normalizeString(record.alt) ??
+    normalizeString(record.accessibility_label) ??
+    normalizeString(record.label) ??
+    normalizeString(record.text);
+
+  return {
+    src,
+    ...(width ? { width } : {}),
+    ...(height ? { height } : {}),
+    ...(alt ? { alt } : {}),
+  };
+}
+
+function normalizeIqInlineImage(record: Record<string, unknown>): NormalizedIqImageAsset | null {
+  return (
+    normalizeIqImageAsset((record as { image?: IqRenderableImage }).image) ??
+    normalizeIqImageAsset(record)
+  );
+}
+
 export function normalizeIqOptionForRenderer(option: IqQuestionOption | Record<string, unknown>): IqRendererOption | null {
   const code =
     normalizeCode((option as { option_code?: unknown }).option_code) ??
@@ -126,20 +221,23 @@ export function normalizeIqOptionForRenderer(option: IqQuestionOption | Record<s
   const text =
     normalizeString((option as { text?: unknown }).text) ??
     normalizeString((option as { label?: unknown }).label) ??
-    code;
+      code;
   const svg = normalizeIqStructuredSvg((option as { svg?: IqRenderableSvg }).svg);
+  const image = normalizeIqInlineImage(option as Record<string, unknown>);
 
   return {
     code,
     label,
     text,
-    svg,
+    ...(svg ? { svg } : {}),
+    ...(image ? { image } : {}),
   };
 }
 
 export function normalizeIqStemForRenderer(stem: IqStemPayload | Record<string, unknown> | null | undefined): {
   prompt?: string;
   svg?: NormalizedIqStructuredSvg | null;
+  image?: NormalizedIqImageAsset | null;
 } | null {
   if (!stem || typeof stem !== "object") {
     return null;
@@ -149,16 +247,18 @@ export function normalizeIqStemForRenderer(stem: IqStemPayload | Record<string, 
     normalizeString((stem as { prompt?: unknown }).prompt) ??
     normalizeString((stem as { prompt_en?: unknown }).prompt_en) ??
     normalizeString((stem as { prompt_zh?: unknown }).prompt_zh) ??
-    normalizeString((stem as { text?: unknown }).text);
+      normalizeString((stem as { text?: unknown }).text);
   const svg = normalizeIqStructuredSvg((stem as { svg?: IqRenderableSvg }).svg);
+  const image = normalizeIqInlineImage(stem as Record<string, unknown>);
 
-  if (!prompt && !svg) {
+  if (!prompt && !svg && !image) {
     return null;
   }
 
   return {
     ...(prompt ? { prompt } : {}),
     ...(svg ? { svg } : {}),
+    ...(image ? { image } : {}),
   };
 }
 
@@ -191,4 +291,3 @@ export function normalizeIqQuestionForRenderer(question: IqQuestion | Record<str
     options,
   };
 }
-
