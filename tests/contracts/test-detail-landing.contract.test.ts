@@ -112,13 +112,17 @@ describe("test detail landing contract", () => {
       "utf8"
     );
 
-    expect(takeSource).toContain('normalizeMbtiFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))');
-    expect(takeSource).toContain('formCode={mbtiFormCode ?? undefined}');
-    expect(takeSource).toContain('normalizeBig5FormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))');
+    expect(takeSource).toContain("function firstNonEmptyQueryValue");
+    expect(takeSource).toContain("getIqDefaultBankDisplayModel");
+    expect(takeSource).toContain("firstNonEmptyQueryValue(query.form, query.form_code, query.bank, query.bank_id)");
+    expect(takeSource).toContain('redirect(withLocale(`/tests/${slug}?bank_unavailable=1`))');
+    expect(takeSource).toContain('normalizeMbtiFormCode(firstNonEmptyQueryValue(query.form, query.form_code))');
+    expect(takeSource).toContain('formCode={iqBankModel?.formCode ?? mbtiFormCode ?? undefined}');
+    expect(takeSource).toContain('normalizeBig5FormCode(firstNonEmptyQueryValue(query.form, query.form_code))');
     expect(takeSource).toContain('formCode={big5FormCode ?? undefined}');
-    expect(takeSource).toContain('normalizeEnneagramFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))');
+    expect(takeSource).toContain('normalizeEnneagramFormCode(firstNonEmptyQueryValue(query.form, query.form_code))');
     expect(takeSource).toContain('formCode={enneagramFormCode ?? undefined}');
-    expect(takeSource).toContain('normalizeRiasecFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))');
+    expect(takeSource).toContain('normalizeRiasecFormCode(firstNonEmptyQueryValue(query.form, query.form_code))');
     expect(takeSource).toContain('formCode={riasecFormCode ?? undefined}');
     expect(takeSource).toContain('test.scale_code === "RIASEC" ? (');
     expect(takeSource).toContain('questionCount={riasecFormMeta?.questionCount ?? test.questions_count}');

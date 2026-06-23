@@ -867,6 +867,23 @@ const IQ_OWNER_30_FE_IMAGE_RENDERER_03_ALLOWED_FILES = new Set([
   "tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-mobile-options-en-chromium-linux.png",
 ]);
 
+const IQ_OWNER_30_FE_FORMCODE_04_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
+  "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "lib/iq/api.ts",
+  "lib/iq/bankDisplay.ts",
+  "lib/iq/constants.ts",
+  "lib/iq/contracts.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/enneagram-api.contract.test.ts",
+  "tests/contracts/iq-bank-display-model.contract.test.ts",
+  "tests/contracts/iq-frontend-api-contracts.contract.test.ts",
+  "tests/contracts/iq-take-lifecycle.contract.test.tsx",
+  "tests/contracts/test-detail-landing.contract.test.ts",
+]);
+
 const PR_WEB_SEC_11_ALLOWED_FILES = new Set([
   "docs/claims/generated/semantic-claim-scanner-baseline.v1.json",
   "docs/claims/semantic-claim-scanner-baseline.md",
@@ -3040,6 +3057,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   }
 
   if (
+    CURRENT_BRANCH === "codex/iq-owner-30-fe-formcode-04" &&
+    IQ_OWNER_30_FE_FORMCODE_04_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
     CURRENT_BRANCH === "codex/enneagram-phase8c-configurable-timeout" &&
     ENNEAGRAM_PHASE8C_CONFIGURABLE_TIMEOUT_SCOPE_GUARD_ALLOWED_FILES.has(file)
   ) {
@@ -3473,6 +3497,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/iq-owner-30-fe-image-renderer-03") {
     return IQ_OWNER_30_FE_IMAGE_RENDERER_03_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/iq-owner-30-fe-formcode-04") {
+    return IQ_OWNER_30_FE_FORMCODE_04_ALLOWED_FILES.has(file);
   }
 
   if (

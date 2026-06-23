@@ -3,6 +3,8 @@ export const IQ_LEGACY_SCALE_CODE = "IQ_RAVEN" as const;
 export const IQ_PUBLIC_SLUG = "iq-test-intelligence-quotient-assessment" as const;
 export const IQ_CANONICAL_PUBLIC_PATH = "/tests/iq-test-intelligence-quotient-assessment" as const;
 export const IQ_ZH_TAKE_PATH = "/zh/tests/iq-test-intelligence-quotient-assessment/take" as const;
+export const IQ_OWNER_ORIGINAL_30_BANK_ID = "IQ_OWNER_ORIGINAL_30" as const;
+export const IQ_OWNER_ORIGINAL_30_FORM_CODE = IQ_OWNER_ORIGINAL_30_BANK_ID;
 export const IQ_BETA_30_BANK_ID = "IQ_BETA_30_ORIGINAL" as const;
 export const IQ_BETA_50_BANK_ID = "IQ_BETA_50_ORIGINAL" as const;
 

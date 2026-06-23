@@ -10,6 +10,8 @@ import { isEnneagramScaleCode, normalizeEnneagramFormCode, resolveEnneagramFormM
 import { getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
+import { getIqBankDisplayModel, getIqDefaultBankDisplayModel } from "@/lib/iq/bankDisplay";
+import { isIqScaleCode } from "@/lib/iq/constants";
 import { isMbtiScaleCode, normalizeMbtiFormCode, resolveMbtiFormMeta } from "@/lib/mbti/forms";
 import { isRiasecScaleCode, normalizeRiasecFormCode, resolveRiasecFormMeta } from "@/lib/riasec/forms";
 import {
@@ -50,6 +52,14 @@ function firstQueryValue(value: string | string[] | undefined): string {
     return value[0] ?? "";
   }
   return value ?? "";
+}
+
+function firstNonEmptyQueryValue(...values: Array<string | string[] | undefined>): string {
+  for (const value of values) {
+    const normalized = firstQueryValue(value).trim();
+    if (normalized) return normalized;
+  }
+  return "";
 }
 
 async function readRolloutIdentitySeed(): Promise<string | null> {
@@ -129,21 +139,33 @@ export default async function TakePage({
   if (!test) return notFound();
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
   const mbtiFormCode = isMbtiScaleCode(test.scale_code)
-    ? normalizeMbtiFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))
+    ? normalizeMbtiFormCode(firstNonEmptyQueryValue(query.form, query.form_code))
     : null;
   const mbtiFormMeta = mbtiFormCode ? resolveMbtiFormMeta(mbtiFormCode) : null;
   const big5FormCode = isBig5ScaleCode(test.scale_code)
-    ? normalizeBig5FormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))
+    ? normalizeBig5FormCode(firstNonEmptyQueryValue(query.form, query.form_code))
     : null;
   const big5FormMeta = big5FormCode ? resolveBig5FormMeta(big5FormCode) : null;
   const enneagramFormCode = isEnneagramScaleCode(test.scale_code)
-    ? normalizeEnneagramFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))
+    ? normalizeEnneagramFormCode(firstNonEmptyQueryValue(query.form, query.form_code))
     : null;
   const enneagramFormMeta = enneagramFormCode ? resolveEnneagramFormMeta(enneagramFormCode) : null;
   const riasecFormCode = isRiasecScaleCode(test.scale_code)
-    ? normalizeRiasecFormCode(firstQueryValue(query.form) || firstQueryValue(query.form_code))
+    ? normalizeRiasecFormCode(firstNonEmptyQueryValue(query.form, query.form_code))
     : null;
   const riasecFormMeta = riasecFormCode ? resolveRiasecFormMeta(riasecFormCode) : null;
+  const iqRequestedBank = isIqScaleCode(test.scale_code)
+    ? firstNonEmptyQueryValue(query.form, query.form_code, query.bank, query.bank_id)
+    : "";
+  const iqBankModel = isIqScaleCode(test.scale_code)
+    ? iqRequestedBank
+      ? getIqBankDisplayModel(iqRequestedBank)
+      : getIqDefaultBankDisplayModel()
+    : null;
+
+  if (isIqScaleCode(test.scale_code) && iqRequestedBank && iqBankModel?.isTakeEnabled !== true) {
+    redirect(withLocale(`/tests/${slug}?bank_unavailable=1`));
+  }
 
   if (!test.scale_code) {
     return (
@@ -220,9 +242,9 @@ export default async function TakePage({
           slug={slug}
           testTitle={localizedTestTitle}
           scaleCode={test.scale_code}
-          formCode={mbtiFormCode ?? undefined}
+          formCode={iqBankModel?.formCode ?? mbtiFormCode ?? undefined}
           estimatedMinutes={mbtiFormMeta?.estimatedMinutes ?? test.time_minutes}
-          questionCount={mbtiFormMeta?.questionCount ?? test.questions_count}
+          questionCount={iqBankModel?.itemCount ?? mbtiFormMeta?.questionCount ?? test.questions_count}
         />
       )}
     </main>

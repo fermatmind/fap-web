@@ -64,6 +64,11 @@ function resolveAnonId(anonId?: string): string | undefined {
   return browserAnonId || undefined;
 }
 
+function normalizeIqFormCode(value?: string | null): string | undefined {
+  const normalized = String(value ?? "").trim();
+  return normalized || undefined;
+}
+
 async function withIqAuthRetry<T>({
   anonId,
   locale,
@@ -103,17 +108,19 @@ export async function getIqQuestions({
   region,
   anonId,
   formCode,
+  bankId,
 }: {
   locale?: string;
   region?: string;
   anonId?: string;
   formCode?: string;
+  bankId?: string;
 } = {}): Promise<IqQuestionPayload> {
   return getIqQuestionsByScaleCode(IQ_CANONICAL_SCALE_CODE, {
     locale,
     region,
     anonId,
-    formCode,
+    formCode: normalizeIqFormCode(formCode ?? bankId),
   });
 }
 
@@ -124,22 +131,25 @@ export async function getIqQuestionsByScaleCode(
     region,
     anonId,
     formCode,
+    bankId,
   }: {
     locale?: string;
     region?: string;
     anonId?: string;
     formCode?: string;
+    bankId?: string;
   } = {}
 ): Promise<IqQuestionPayload> {
   const resolvedAnonId = resolveAnonId(anonId);
   const resolvedScaleCode = normalizeIqScaleCodeForApi(scaleCode);
+  const resolvedFormCode = normalizeIqFormCode(formCode ?? bankId);
   const response = await withIqAuthRetry({
     anonId: resolvedAnonId,
     locale,
     run: () =>
       fetchScaleQuestions({
         scaleCode: resolvedScaleCode,
-        formCode,
+        formCode: resolvedFormCode,
         locale,
         region,
         anonId: resolvedAnonId,
@@ -154,6 +164,8 @@ export async function startIqAttempt({
   anon_id,
   locale,
   region,
+  form_code,
+  bank_id,
   source,
   meta,
   client_version,
@@ -168,17 +180,22 @@ export async function startIqAttempt({
 }: IqStartAttemptPayload & IqAttemptAttributionPayload): Promise<IqStartAttemptResponse> {
   const resolvedAnonId = resolveAnonId(anon_id);
   const resolvedScaleCode = normalizeIqScaleCodeForApi(scale_code);
+  const resolvedFormCode = normalizeIqFormCode(form_code ?? bank_id);
+  const resolvedBankId = normalizeIqFormCode(bank_id ?? form_code);
   const response = await withIqAuthRetry({
     anonId: resolvedAnonId,
     locale,
     run: () =>
       startAttempt({
         scaleCode: resolvedScaleCode,
+        formCode: resolvedFormCode,
         anonId: resolvedAnonId,
         locale,
         region,
         meta: {
           ...(meta ?? {}),
+          ...(resolvedFormCode ? { form_code: resolvedFormCode } : {}),
+          ...(resolvedBankId ? { bank_id: resolvedBankId } : {}),
           ...(source ? { source } : {}),
         },
         clientPlatform: "web",

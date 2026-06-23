@@ -15,6 +15,7 @@ import {
 import {
   IQ_CANONICAL_PUBLIC_PATH,
   IQ_DIMENSION_NAME_MAP,
+  IQ_OWNER_ORIGINAL_30_BANK_ID,
   IQ_REPORT_DIMENSION_FIELD_MAP,
   IQ_ZH_TAKE_PATH,
 } from "@/lib/iq/constants";
@@ -298,6 +299,22 @@ describe("IQ frontend API contract", () => {
     });
   });
 
+  it("forwards the owner-original bank as form_code for private backend question delivery", async () => {
+    await getIqQuestions({
+      locale: "zh",
+      anonId: "anon_owner_original",
+      formCode: IQ_OWNER_ORIGINAL_30_BANK_ID,
+    });
+
+    expect(hoisted.fetchScaleQuestions).toHaveBeenCalledWith({
+      scaleCode: IQ_CANONICAL_SCALE_CODE,
+      formCode: IQ_OWNER_ORIGINAL_30_BANK_ID,
+      locale: "zh",
+      region: undefined,
+      anonId: "anon_owner_original",
+    });
+  });
+
   it("does not introduce checkout helpers or payment CTAs in the IQ API module", async () => {
     const apiModule = await import("@/lib/iq/api");
 
@@ -323,6 +340,8 @@ describe("IQ frontend API contract", () => {
       scale_code: IQ_CANONICAL_SCALE_CODE,
       anon_id: "anon_iq_123",
       locale: "zh-CN",
+      form_code: IQ_OWNER_ORIGINAL_30_BANK_ID,
+      bank_id: IQ_OWNER_ORIGINAL_30_BANK_ID,
       source: "iq_take_page",
       meta: {
         slug: IQ_PUBLIC_SLUG,
@@ -363,11 +382,14 @@ describe("IQ frontend API contract", () => {
 
     expect(hoisted.startAttempt).toHaveBeenCalledWith({
       scaleCode: IQ_CANONICAL_SCALE_CODE,
+      formCode: IQ_OWNER_ORIGINAL_30_BANK_ID,
       anonId: "anon_iq_123",
       locale: "zh-CN",
       region: undefined,
       meta: {
         slug: IQ_PUBLIC_SLUG,
+        form_code: IQ_OWNER_ORIGINAL_30_BANK_ID,
+        bank_id: IQ_OWNER_ORIGINAL_30_BANK_ID,
         source: "iq_take_page",
       },
       clientPlatform: "web",
