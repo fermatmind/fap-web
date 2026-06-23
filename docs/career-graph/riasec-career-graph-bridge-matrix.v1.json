@@ -1,0 +1,247 @@
+{
+  "schema_version": "fermatmind.riasec_career_graph_bridge_matrix.v1",
+  "task_id": "RIASEC-CAREER-GRAPH-BRIDGE-MATRIX-01",
+  "verdict": "READY_FOR_NEXT_PLANNING_HANDOFF_WITH_RUNTIME_HOLDS",
+  "run_mode": "docs_contracts_only",
+  "dependencies": [
+    {
+      "task_id": "RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1378",
+      "merge_commit": "46d968520d0e4cf612da04e3fc45696e126dc073",
+      "consumed_artifact": "docs/career-graph/riasec-career-graph-bridge-common-contract.v1.json"
+    },
+    {
+      "task_id": "RIASEC-CAREER-GRAPH-SOURCE-AUTHORITY-PACKET-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1380",
+      "merge_commit": "853cbaea946f26ef078bef0df2631502badf07a3",
+      "consumed_artifact": "docs/career-graph/riasec-career-graph-source-authority-packet.v1.json"
+    },
+    {
+      "task_id": "RIASEC-CAREER-GRAPH-CLAIM-SAFETY-PACKET-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1381",
+      "merge_commit": "6048354f3937200d4137ad3b4826958ddeb88bea",
+      "consumed_artifact": "docs/career-graph/riasec-career-graph-claim-safety-packet.v1.json"
+    },
+    {
+      "task_id": "RIASEC-CAREER-GRAPH-CANDIDATE-CLUSTER-PACKET-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1382",
+      "merge_commit": "1fb920f76a7654a252e0993dd67ee257d0558420",
+      "consumed_artifact": "docs/career-graph/riasec-career-graph-candidate-cluster-packet.v1.json"
+    }
+  ],
+  "readiness_summary": {
+    "common_contract": "READY_FOR_POLICY_HANDOFF",
+    "source_authority": "MAPPED_PARTIAL",
+    "claim_safety": "READY_TO_BLOCK_UNSAFE_OUTPUTS",
+    "candidate_clusters": "PLANNING_ONLY",
+    "aggregate_bridge": "READY_FOR_NEXT_PLANNING_HANDOFF_WITH_RUNTIME_HOLDS",
+    "runtime_recommendation": "BLOCKED",
+    "cms_publish_search": "HOLD",
+    "private_or_raw_result_data": "BLOCKED",
+    "career_graph_runtime_mutation": "HOLD"
+  },
+  "bridge_matrix": [
+    {
+      "lane": "public_riasec_projection_to_exploration_language",
+      "status": "READY_FOR_PLANNING_HANDOFF",
+      "allowed_inputs": [
+        "public_riasec_dimension_labels_and_order",
+        "public_top_code_profile_shape_summary",
+        "public_confidence_state",
+        "public_quality_state",
+        "method_boundary_copy"
+      ],
+      "allowed_outputs": [
+        "career_exploration_prompt",
+        "major_exploration_prompt",
+        "activity_pattern_prompt"
+      ],
+      "required_gates": [
+        "claim_privacy_safety_gate_review",
+        "examples_only_copy_review"
+      ],
+      "hard_holds": [
+        "no_runtime_recommendation",
+        "no_generated_page",
+        "no_cms_write"
+      ]
+    },
+    {
+      "lane": "backend_reviewed_career_or_major_examples",
+      "status": "HOLD_PENDING_BACKEND_AUTHORITY_AND_REVIEW_LEDGER",
+      "allowed_inputs": [
+        "reviewed_backend_owned_occupation_examples",
+        "reviewed_backend_owned_activity_examples"
+      ],
+      "allowed_outputs": [
+        "examples_to_explore",
+        "work_activities_to_compare",
+        "majors_or_roles_with_similar_activity_patterns"
+      ],
+      "required_gates": [
+        "backend_cms_or_major_cluster_api_authority_packet",
+        "backend_authority_review_ledger",
+        "claim_privacy_safety_gate_review"
+      ],
+      "hard_holds": [
+        "no_named_candidate_generation_until_authority_exists",
+        "no_objective_ranking",
+        "no_best_career_or_best_major_claim"
+      ]
+    },
+    {
+      "lane": "candidate_cluster_planning",
+      "status": "READY_FOR_PLANNING_HANDOFF",
+      "allowed_inputs": [
+        "source_authority_packet",
+        "claim_safety_packet",
+        "candidate_cluster_packet"
+      ],
+      "allowed_outputs": [
+        "content_cluster_candidate",
+        "internal_link_candidate",
+        "cms_dry_run_candidate"
+      ],
+      "required_gates": [
+        "GPT55_review",
+        "Safety_Gate_review",
+        "SEO_GEO_review_when_indexability_or_search_is_in_scope"
+      ],
+      "hard_holds": [
+        "no_publishable_article_body",
+        "no_final_title_meta",
+        "no_generated_career_page_content"
+      ]
+    },
+    {
+      "lane": "cms_dry_run_package",
+      "status": "HOLD_PENDING_SEPARATE_AUTHORIZATION",
+      "allowed_inputs": [
+        "reviewed_cluster_candidate",
+        "backend_authority_packet",
+        "review_ledger"
+      ],
+      "allowed_outputs": [
+        "cms_dry_run_candidate"
+      ],
+      "required_gates": [
+        "separate_cms_dry_run_readiness_scan",
+        "explicit_user_authorization_for_cms_dry_run",
+        "claim_privacy_safety_gate_review"
+      ],
+      "hard_holds": [
+        "no_cms_write",
+        "no_publish",
+        "no_search_submission"
+      ]
+    },
+    {
+      "lane": "runtime_recommendation_or_career_graph_mutation",
+      "status": "BLOCKED",
+      "allowed_inputs": [],
+      "allowed_outputs": [],
+      "required_gates": [
+        "not_authorized_in_this_train"
+      ],
+      "hard_holds": [
+        "no_deterministic_career_recommendation",
+        "no_job_fit_score",
+        "no_career_graph_runtime_mutation",
+        "no_raw_score_based_match_reason"
+      ]
+    },
+    {
+      "lane": "search_sitemap_llms_or_provider_mutation",
+      "status": "BLOCKED",
+      "allowed_inputs": [],
+      "allowed_outputs": [],
+      "required_gates": [
+        "not_authorized_in_this_train"
+      ],
+      "hard_holds": [
+        "no_sitemap_mutation",
+        "no_llms_mutation",
+        "no_search_submission",
+        "no_provider_calls",
+        "no_deploy"
+      ]
+    },
+    {
+      "lane": "private_or_raw_result_data",
+      "status": "BLOCKED",
+      "allowed_inputs": [],
+      "allowed_outputs": [],
+      "required_gates": [
+        "not_authorized_in_this_train"
+      ],
+      "hard_holds": [
+        "no_raw_item_answers",
+        "no_raw_scores",
+        "no_score_vectors",
+        "no_percentiles",
+        "no_private_attempt_id",
+        "no_user_id",
+        "no_payment_order_or_access_state"
+      ]
+    }
+  ],
+  "next_handoff": {
+    "recommended_next_task": "RIASEC-GAOKAO-MAJOR-CLUSTER-PLAN-01",
+    "handoff_status": "planning_only_allowed",
+    "must_remain_read_only_until_authorized": true,
+    "required_inputs_before_execution": [
+      "backend_major_cluster_authority",
+      "backend_authority_review_ledger",
+      "claim_privacy_safety_gate_review",
+      "SEO_GEO_review_for_indexability",
+      "explicit_manifest_state_authorization_if_promoted_to_PR_train"
+    ],
+    "blocked_until_separate_approval": [
+      "cms_dry_run",
+      "cms_write",
+      "publish",
+      "generated_pages",
+      "runtime_recommendation",
+      "career_graph_runtime_mutation",
+      "search_submission",
+      "provider_calls",
+      "deploy"
+    ]
+  },
+  "forbidden_claims": [
+    "deterministic_career_recommendation",
+    "best_career_for_you",
+    "best_major_for_you",
+    "guaranteed_fit",
+    "you_should_choose",
+    "you_will_succeed",
+    "admissions_prediction",
+    "hiring_prediction",
+    "salary_prediction",
+    "performance_prediction",
+    "success_prediction",
+    "ability_measurement",
+    "job_fit_score",
+    "user_ranking",
+    "occupation_ranking_as_objective_truth",
+    "raw_score_to_career_recommendation"
+  ],
+  "negative_guarantees": {
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "publish_action": "none",
+    "search_submission": "none",
+    "provider_calls": "none",
+    "deployment_triggered": "no",
+    "private_result_data_accessed": "none",
+    "raw_scores_accessed": "none",
+    "production_import": "none",
+    "generated_pages": "none",
+    "deterministic_recommendation_included": false,
+    "career_graph_runtime_mutation": "none"
+  }
+}

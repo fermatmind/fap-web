@@ -218,6 +218,14 @@ const RIASEC_CAREER_GRAPH_CANDIDATE_CLUSTER_PACKET_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const RIASEC_CAREER_GRAPH_BRIDGE_MATRIX_01_ALLOWED_FILES = new Set([
+  "docs/career-graph/riasec-career-graph-bridge-matrix-2026-06-23.md",
+  "docs/career-graph/riasec-career-graph-bridge-matrix.v1.json",
+  "tests/contracts/riasec-career-graph-bridge-matrix.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train-state.json",
+]);
+
 const QUIZ_PACK_PERFORMANCE_HOTFIX_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
   "docs/seo/agent/FAPWEB_CODE_PR_WRITER.md",
@@ -3020,6 +3028,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/riasec-career-graph-candidate-cluster-packet-01" &&
     RIASEC_CAREER_GRAPH_CANDIDATE_CLUSTER_PACKET_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/riasec-career-graph-bridge-matrix-01" &&
+    RIASEC_CAREER_GRAPH_BRIDGE_MATRIX_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
