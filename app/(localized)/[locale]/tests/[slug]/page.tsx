@@ -67,7 +67,6 @@ import {
   DEFAULT_MBTI_FORM_CODE,
   buildMbtiTakeHref,
   getMbtiDurationSummary,
-  getMbtiQuestionSummary,
   getMbtiStartLabel,
   getMbtiVariantLabel,
   getMbtiVariantSummary,
@@ -707,6 +706,8 @@ function FlagshipVariantChooser({
   subtitle?: string;
   choices: FlagshipVariantChoice[];
 }) {
+  const gridClassName = choices.length === 1 ? "grid gap-3" : "grid gap-3 md:grid-cols-2";
+
   return (
     <section className="rounded-[1.7rem] border border-[var(--fm-border)] bg-[rgba(248,250,252,0.92)] p-4 shadow-[var(--fm-shadow-sm)] md:p-5">
       {title || subtitle ? (
@@ -716,7 +717,7 @@ function FlagshipVariantChooser({
         </div>
       ) : null}
 
-      <div className={`${title || subtitle ? "mt-5" : ""} grid gap-3 md:grid-cols-2`}>
+      <div className={`${title || subtitle ? "mt-5" : ""} ${gridClassName}`}>
         {choices.map((choice) => (
           <article key={choice.key} className="flex h-full flex-col rounded-[1.35rem] border border-slate-200 bg-white p-4 shadow-[0_16px_44px_rgba(15,23,42,0.05)]">
             <div className="space-y-2">
@@ -724,15 +725,37 @@ function FlagshipVariantChooser({
               <p className="m-0 text-sm leading-7 text-slate-600">{choice.summary}</p>
             </div>
             {choice.eventProperties ? (
-              <TrackedEntryCtaLink
-                href={choice.href}
-                prefetch={false}
-                data-testid={choice.testId}
-                eventProperties={choice.eventProperties}
-                className={buttonVariants({ size: "sm", className: "mt-auto w-full justify-center" })}
-              >
-                {choice.ctaLabel}
-              </TrackedEntryCtaLink>
+              choice.testId === "mbti-landing-primary-cta" ? (
+                <TrackedEntryCtaLink
+                  href={choice.href}
+                  prefetch={false}
+                  data-testid="mbti-landing-primary-cta"
+                  eventProperties={choice.eventProperties}
+                  className={buttonVariants({ size: "sm", className: "mt-auto w-full justify-center" })}
+                >
+                  {choice.ctaLabel}
+                </TrackedEntryCtaLink>
+              ) : choice.testId === "mbti-landing-secondary-cta" ? (
+                <TrackedEntryCtaLink
+                  href={choice.href}
+                  prefetch={false}
+                  data-testid="mbti-landing-secondary-cta"
+                  eventProperties={choice.eventProperties}
+                  className={buttonVariants({ size: "sm", className: "mt-auto w-full justify-center" })}
+                >
+                  {choice.ctaLabel}
+                </TrackedEntryCtaLink>
+              ) : (
+                <TrackedEntryCtaLink
+                  href={choice.href}
+                  prefetch={false}
+                  data-testid={choice.testId}
+                  eventProperties={choice.eventProperties}
+                  className={buttonVariants({ size: "sm", className: "mt-auto w-full justify-center" })}
+                >
+                  {choice.ctaLabel}
+                </TrackedEntryCtaLink>
+              )
             ) : (
               <Link
                 href={choice.href}
@@ -1010,15 +1033,20 @@ export default async function TestLandingPage({
   const showsBig5Actions = isBig5ScaleCode(test.scale_code);
   const showsEnneagramActions = isEnneagramScaleCode(test.scale_code);
   const showsRiasecActions = isRiasecScaleCode(test.scale_code);
+  const showsEqActions = String(test.scale_code ?? "").trim().toUpperCase() === "EQ_60" || test.slug === SCALE_CANONICAL_SLUG_MAP.EQ_60;
   const showsIqActions = isIqScaleCode(test.scale_code) || test.slug === SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN;
   const isSelfUnderstanding = showsMbtiActions || showsBig5Actions || showsEnneagramActions;
   const domainRole = showsMbtiActions ? "primary" : showsBig5Actions ? "primary" : showsEnneagramActions ? "supporting" : null;
   const questionSummary = showsMbtiActions
-    ? getMbtiQuestionSummary(locale)
+    ? locale === "zh" ? "93题/144题" : "93Q/144Q"
     : showsBig5Actions
     ? getBig5QuestionSummary(locale)
+    : showsEnneagramActions
+    ? locale === "zh" ? "144题/105题" : "144Q/105Q"
     : showsRiasecActions
     ? getRiasecQuestionSummary(locale)
+    : showsIqActions
+    ? locale === "zh" ? "30题/50题" : "30Q/50Q"
     : `${test.questions_count} ${locale === "zh" ? "题" : "questions"}`;
   const durationSummary = showsMbtiActions
     ? getMbtiDurationSummary(locale)
@@ -1233,6 +1261,46 @@ export default async function TestLandingPage({
         attributionPayload: landingAttributionPayload,
       })
     : null;
+  const mbtiEntryVariantChoices: FlagshipVariantChoice[] = [
+    mbtiPrimaryChoice && mbtiPrimaryHref
+      ? {
+          ...mbtiPrimaryChoice,
+          href: mbtiPrimaryHref,
+          testId: "mbti-landing-primary-cta",
+          eventProperties: mbtiPrimaryClickTrackingProps ?? mbtiPrimaryChoice.eventProperties,
+        }
+      : null,
+    mbtiSecondaryChoice && mbtiSecondaryHref
+      ? {
+          ...mbtiSecondaryChoice,
+          href: mbtiSecondaryHref,
+          testId: "mbti-landing-secondary-cta",
+          eventProperties: mbtiSecondaryClickTrackingProps ?? mbtiSecondaryChoice.eventProperties,
+        }
+      : null,
+  ].filter((choice): choice is FlagshipVariantChoice => Boolean(choice));
+  const eqVariantChoices: FlagshipVariantChoice[] = showsEqActions && canRenderStartCta
+    ? [
+        {
+          key: "eq_60",
+          label: locale === "zh" ? "EQ 60Q · 情绪智力档案" : "EQ 60Q · Emotional intelligence profile",
+          summary:
+            locale === "zh"
+              ? "约 10 分钟，了解情绪觉察、调节、共情与人际沟通倾向。"
+              : "About 10 minutes to review emotional awareness, regulation, empathy, and communication patterns.",
+          href: startTestHref,
+          ctaLabel: getFreeTestStartLabel({
+            locale,
+            scaleCode: test.scale_code,
+            slug: test.slug,
+            title: localizedTestTitle,
+            fallback: locale === "zh" ? "开始情商免费测试" : "Start EQ test",
+          }),
+          testId: "test-detail-landing-cta-eq-60",
+          eventProperties: buildStartClickTrackingProps({ targetAction: "start_test" }),
+        },
+      ]
+    : [];
 
   const packId = toStringValue(lookup?.pack_id) || test.scale_code || "BIG5_OCEAN";
   const dirVersion = toStringValue(lookup?.dir_version);
@@ -1436,33 +1504,10 @@ export default async function TestLandingPage({
               </div>
             ) : showsMbtiActions ? (
               <div className="space-y-4 pt-2" data-testid="mbti-landing-entry-cta-group">
-                <div className="flex flex-wrap items-center gap-3" data-testid="mbti-ads-primary-whitelist">
-                  {mbtiPrimaryHref && mbtiPrimaryClickTrackingProps ? (
-                    <TrackedEntryCtaLink
-                      href={mbtiPrimaryHref}
-                      prefetch={false}
-                      data-testid="mbti-landing-primary-cta"
-                      eventProperties={mbtiPrimaryClickTrackingProps}
-                      className={buttonVariants({ size: "lg" })}
-                    >
-                      {mbtiPrimaryChoice?.ctaLabel || (locale === "zh" ? "开始 MBTI 免费测试" : "Start MBTI test")}
-                    </TrackedEntryCtaLink>
-                  ) : (
-                    <Link href={startTestHref} prefetch={false} className={buttonVariants({ size: "lg" })} data-testid="mbti-landing-primary-cta">
-                      {locale === "zh" ? "开始 MBTI 免费测试" : "Start MBTI test"}
-                    </Link>
-                  )}
-                  {mbtiSecondaryHref && mbtiSecondaryClickTrackingProps ? (
-                    <TrackedEntryCtaLink
-                      href={mbtiSecondaryHref}
-                      prefetch={false}
-                      data-testid="mbti-landing-secondary-cta"
-                      eventProperties={mbtiSecondaryClickTrackingProps}
-                      className={buttonVariants({ variant: "outline", size: "lg" })}
-                    >
-                      {mbtiSecondaryChoice?.ctaLabel || (locale === "zh" ? "开始快速版" : "Start Quick Read")}
-                    </TrackedEntryCtaLink>
-                  ) : null}
+                <div data-testid="mbti-ads-primary-whitelist">
+                  <FlagshipVariantChooser
+                    choices={mbtiEntryVariantChoices.length > 0 ? mbtiEntryVariantChoices : flagshipVariantChoices}
+                  />
                 </div>
               </div>
             ) : showsBig5Actions ? (
@@ -1510,6 +1555,10 @@ export default async function TestLandingPage({
                   }
                   choices={depressionVersionChoices}
                 />
+              </div>
+            ) : showsEqActions && eqVariantChoices.length > 0 ? (
+              <div className="space-y-4 pt-2">
+                <FlagshipVariantChooser choices={eqVariantChoices} />
               </div>
             ) : canRenderStartCta ? (
               <div className="flex flex-wrap items-center gap-3 pt-1">

@@ -45,6 +45,7 @@ import {
   type AttributionParams,
   type TrackingAttributionPayload,
 } from "@/lib/tracking/attribution";
+import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { getFreeTestStartLabel } from "@/lib/tests/freeTestLabels";
 
 type CTAStickyProps = {
@@ -72,6 +73,7 @@ export function CTASticky({
   const showsBig5Actions = isBig5ScaleCode(scaleCode) || isBig5Slug(slug);
   const showsEnneagramActions = isEnneagramScaleCode(scaleCode) || isEnneagramSlug(slug);
   const showsRiasecActions = isRiasecScaleCode(scaleCode) || isRiasecSlug(slug);
+  const showsEqActions = String(scaleCode ?? "").trim().toUpperCase() === "EQ_60" || slug === SCALE_CANONICAL_SLUG_MAP.EQ_60;
   const mbtiForms = listMbtiFormMetas();
   const mbtiPrimaryForm = mbtiForms.find((form) => form.formCode === DEFAULT_MBTI_FORM_CODE) ?? mbtiForms[0] ?? null;
   const mbtiSecondaryForm = mbtiForms.find((form) => form.formCode !== (mbtiPrimaryForm?.formCode ?? DEFAULT_MBTI_FORM_CODE)) ?? null;
@@ -284,6 +286,31 @@ export function CTASticky({
                   </div>
                 ))}
               </div>
+            ) : showsEqActions ? (
+              <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  {locale === "zh" ? "EQ 60Q · 情绪智力档案" : "EQ 60Q · Emotional intelligence profile"}
+                </p>
+                <p className="m-0 mt-2 text-xs leading-6 text-slate-600">
+                  {locale === "zh"
+                    ? "约 10 分钟，了解情绪觉察、调节、共情与人际沟通倾向。"
+                    : "About 10 minutes to review emotional awareness, regulation, empathy, and communication patterns."}
+                </p>
+                <TrackedEntryCtaLink
+                  href={withAttribution(localizedPath(`/tests/${slug}/take`, locale))}
+                  eventProperties={buildStartClickTrackingProps({ targetAction: "start_test" })}
+                  data-testid="eq-sticky-cta"
+                  className={buttonVariants({ className: "mt-3 w-full" })}
+                >
+                  {getFreeTestStartLabel({
+                    locale,
+                    scaleCode,
+                    slug,
+                    title,
+                    fallback: locale === "zh" ? "开始情商免费测试" : "Start EQ test",
+                  })}
+                </TrackedEntryCtaLink>
+              </div>
             ) : (
               <TrackedEntryCtaLink
                 href={withAttribution(localizedPath(`/tests/${slug}/take`, locale))}
@@ -314,6 +341,8 @@ export function CTASticky({
               ? `${title} · ${enneagramSummary}`
               : showsRiasecActions
               ? `${title} · ${riasecSummary}`
+              : showsEqActions
+              ? `${title} · EQ 60Q`
               : `${title} · ${questions}Q · ${minutes}m`}
           </p>
           {showsMbtiActions ? (
@@ -418,6 +447,21 @@ export function CTASticky({
                 </TrackedEntryCtaLink>
               ))}
             </div>
+          ) : showsEqActions ? (
+            <TrackedEntryCtaLink
+              href={withAttribution(localizedPath(`/tests/${slug}/take`, locale))}
+              eventProperties={buildStartClickTrackingProps({ targetAction: "start_test" })}
+              data-testid="eq-sticky-mobile-cta"
+              className={buttonVariants({ size: "sm", className: "w-full sm:w-auto" })}
+            >
+              {getFreeTestStartLabel({
+                locale,
+                scaleCode,
+                slug,
+                title,
+                fallback: locale === "zh" ? "开始情商免费测试" : "Start EQ test",
+              })}
+            </TrackedEntryCtaLink>
           ) : (
             <TrackedEntryCtaLink
               href={withAttribution(localizedPath(`/tests/${slug}/take`, locale))}
