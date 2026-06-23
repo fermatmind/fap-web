@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-23T11:54:10.830Z",
+  "updated_at": "2026-06-23T00:00:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -23148,6 +23148,234 @@
           "at": "2026-06-21T11:53:20+08:00",
           "status": "github_checks_passed",
           "note": "GitHub checks passed for PR #1251. Auto-merge is disabled for this train item, so merge is deferred to operator/repo policy."
+        }
+      ]
+    },
+    {
+      "id": "RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01",
+      "repo": "fap-web",
+      "branch": "codex/riasec-career-graph-bridge-common-contract-01",
+      "status": "local_checks_passed",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding or updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json entries for the five RIASEC Career Graph bridge PR ids only."
+        },
+        "scope": {
+          "status": "pass",
+          "allowed_paths": [
+            "docs/career-graph/riasec-career-graph-bridge-common-contract-2026-06-23.md",
+            "docs/career-graph/riasec-career-graph-bridge-common-contract.v1.json",
+            "tests/contracts/riasec-career-graph-bridge-common-contract.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Changed-file scope validation passed for exactly the PR1 docs/contracts artifacts, focused contract test, scope helper, and authorized train metadata."
+        },
+        "local_validation": {
+          "status": "pass",
+          "commands": [
+            "python3 -m json.tool docs/career-graph/riasec-career-graph-bridge-common-contract.v1.json >/dev/null",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "pnpm exec vitest run tests/contracts/riasec-career-graph-bridge-common-contract.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "evidence": "JSON and YAML parse passed; focused contract passed 10 tests; pnpm typecheck passed; pnpm test:contract passed 549 files and 3208 tests; git diff --check passed; changed-file scope validation passed. Local pnpm install --frozen-lockfile was run to hydrate the clean temp worktree node_modules and did not modify tracked files. Local next build was not run because this docs/contracts-only train explicitly forbids generated SEO artifact mutation; GitHub build remains the required build check."
+        },
+        "github_checks": {
+          "status": "pending",
+          "evidence": null
+        },
+        "post_merge": {
+          "status": "pending",
+          "evidence": null
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "in_progress",
+          "note": "Initialized from explicit RIASEC-CAREER-GRAPH-BRIDGE-PR-TRAIN-01 authorization; scope is docs/contracts-only common bridge handoff contract with no runtime, CMS, deploy, search, provider, private-data, production import, generated page, generated SEO artifact, or deterministic recommendation action."
+        },
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "local_checks_passed",
+          "note": "PR1 common contract artifacts and train metadata passed JSON/YAML parse, focused contract, typecheck, full contract suite, diff check, and scope validation. Local build intentionally deferred to GitHub required check to avoid postbuild generated SEO artifact mutation in this docs/contracts-only scope."
+        }
+      ]
+    },
+    {
+      "id": "RIASEC-CAREER-GRAPH-SOURCE-AUTHORITY-PACKET-01",
+      "repo": "fap-web",
+      "branch": "codex/riasec-career-graph-source-authority-packet-01",
+      "status": "pending_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding or updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json entries for the five RIASEC Career Graph bridge PR ids only."
+        },
+        "scope": {
+          "status": "pending_dependency",
+          "evidence": "Not started; waiting for declared dependencies to merge."
+        },
+        "local_validation": {
+          "status": "pending",
+          "evidence": null
+        },
+        "github_checks": {
+          "status": "pending",
+          "evidence": null
+        },
+        "post_merge": {
+          "status": "pending",
+          "evidence": null
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "pending_dependency",
+          "note": "Pending RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01 merge before creating the source authority packet; fap-api remains read-only evidence only."
+        }
+      ]
+    },
+    {
+      "id": "RIASEC-CAREER-GRAPH-CLAIM-SAFETY-PACKET-01",
+      "repo": "fap-web",
+      "branch": "codex/riasec-career-graph-claim-safety-packet-01",
+      "status": "pending_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding or updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json entries for the five RIASEC Career Graph bridge PR ids only."
+        },
+        "scope": {
+          "status": "pending_dependency",
+          "evidence": "Not started; waiting for declared dependencies to merge."
+        },
+        "local_validation": {
+          "status": "pending",
+          "evidence": null
+        },
+        "github_checks": {
+          "status": "pending",
+          "evidence": null
+        },
+        "post_merge": {
+          "status": "pending",
+          "evidence": null
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "pending_dependency",
+          "note": "Pending RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01 merge before creating the claim and safety packet."
+        }
+      ]
+    },
+    {
+      "id": "RIASEC-CAREER-GRAPH-CANDIDATE-CLUSTER-PACKET-01",
+      "repo": "fap-web",
+      "branch": "codex/riasec-career-graph-candidate-cluster-packet-01",
+      "status": "pending_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding or updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json entries for the five RIASEC Career Graph bridge PR ids only."
+        },
+        "scope": {
+          "status": "pending_dependency",
+          "evidence": "Not started; waiting for declared dependencies to merge."
+        },
+        "local_validation": {
+          "status": "pending",
+          "evidence": null
+        },
+        "github_checks": {
+          "status": "pending",
+          "evidence": null
+        },
+        "post_merge": {
+          "status": "pending",
+          "evidence": null
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "pending_dependency",
+          "note": "Pending source authority and claim safety packet merges before creating the planning-only candidate cluster packet."
+        }
+      ]
+    },
+    {
+      "id": "RIASEC-CAREER-GRAPH-BRIDGE-MATRIX-01",
+      "repo": "fap-web",
+      "branch": "codex/riasec-career-graph-bridge-matrix-01",
+      "status": "pending_dependency",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding or updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json entries for the five RIASEC Career Graph bridge PR ids only."
+        },
+        "scope": {
+          "status": "pending_dependency",
+          "evidence": "Not started; waiting for declared dependencies to merge."
+        },
+        "local_validation": {
+          "status": "pending",
+          "evidence": null
+        },
+        "github_checks": {
+          "status": "pending",
+          "evidence": null
+        },
+        "post_merge": {
+          "status": "pending",
+          "evidence": null
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-23T00:00:00+08:00",
+          "status": "pending_dependency",
+          "note": "Pending source authority, claim safety, and candidate cluster packet merges before creating the aggregate bridge readiness matrix."
         }
       ]
     }
