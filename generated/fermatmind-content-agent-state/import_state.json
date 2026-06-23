@@ -14,6 +14,21 @@
         "generated/career-work-activities-v1-1046-final-independent-qa/final_qa_report.json"
       ],
       "state": "dry_run"
+    },
+    {
+      "approval_manifest_path": null,
+      "artifact_sha256": "c131729e5264a38d442a3756741721d4429538dac95f6a900db17f4c781ca4c6",
+      "block_name": "career-identity",
+      "block_version": "career_identity_v1",
+      "human_approval_required": true,
+      "rollback_report_path": null,
+      "row_count": 2092,
+      "slug_count": 1046,
+      "source_artifact_paths": [
+        "generated/career-identity-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
+        "generated/career-identity-v1-1046-final-independent-qa/final_qa_report.json"
+      ],
+      "state": "dry_run"
     }
   ]
 }

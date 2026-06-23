@@ -556,6 +556,17 @@ const CAREER_AI_IMPACT_PREVIEW_CONSUMER_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const CAREER_IDENTITY_1046_AUTHORITY_STATE_ALLOWED_FILES = new Set([
+  ".agents/skills/career-identity-asset-factory/scripts/generate_evidence.py",
+  "generated/fermatmind-content-agent-state/batch_registry.json",
+  "generated/fermatmind-content-agent-state/career_block_status.json",
+  "generated/fermatmind-content-agent-state/global_content_state.json",
+  "generated/fermatmind-content-agent-state/import_state.json",
+  "generated/fermatmind-content-agent-state/latest_pass_baselines.json",
+  "generated/fermatmind-content-agent-state/next_goal_recommendation.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const SEO_CONV_TRACKING_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
@@ -3938,6 +3949,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     CURRENT_BRANCH === "codex/ai-impact-post-import-seo-safety-audit"
   ) {
     return CAREER_AI_IMPACT_PREVIEW_CONSUMER_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/career-identity-1046-authority-state") {
+    return CAREER_IDENTITY_1046_AUTHORITY_STATE_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/seo-conv-tracking-01") {

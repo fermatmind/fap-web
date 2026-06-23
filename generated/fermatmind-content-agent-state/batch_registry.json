@@ -8,6 +8,15 @@
       "manifest_path": "generated/career-work-activities-v1-batch-1046/manifest.json",
       "new_count": 46,
       "status": "final_qa_pass"
+    },
+    {
+      "batch_index": 1046,
+      "block_name": "career-identity",
+      "control_count": 1000,
+      "gate_report_path": "generated/career-identity-v1-1046-final-independent-qa/final_qa_report.json",
+      "manifest_path": "generated/career-identity-v1-batch-1046/manifest.json",
+      "new_count": 46,
+      "status": "final_qa_pass"
     }
   ]
 }

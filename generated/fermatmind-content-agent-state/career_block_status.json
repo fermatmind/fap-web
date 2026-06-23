@@ -1,14 +1,14 @@
 {
   "asset_pass": true,
-  "block_name": "career-work-activities",
-  "block_version": "career_work_activities_v1",
+  "block_name": "career-identity",
+  "block_version": "career_identity_v1",
   "control_count": 1046,
   "current_batch": 1046,
   "editorial_approval_status": "not_started",
   "estimate_pass": null,
   "evidence_pass": true,
   "human_approval_required": false,
-  "latest_baseline_directory": "generated/career-work-activities-v1-batch-1046-pass-baseline-final-repaired",
+  "latest_baseline_directory": "generated/career-identity-v1-batch-1046-pass-baseline-final-repaired",
   "latest_baseline_slug_count": 1046,
   "new_count": 46,
   "open_failures": [],
@@ -16,11 +16,11 @@
   "production_import_status": "not_started",
   "search_projection_quarantined": true,
   "sha256_manifests": [
-    "generated/career-work-activities-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json"
+    "generated/career-identity-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json"
   ],
   "source_artifact_paths": [
-    "generated/career-work-activities-v1-operator/operator_to_1046_report.json",
-    "generated/career-work-activities-v1-1046-final-independent-qa/final_qa_report.json"
+    "generated/career-identity-v1-operator/operator_to_1046_report.json",
+    "generated/career-identity-v1-1046-final-independent-qa/final_qa_report.json"
   ],
   "staging_status": "not_started",
   "synthesis_pass": true

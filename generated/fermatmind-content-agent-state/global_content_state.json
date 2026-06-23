@@ -2,6 +2,7 @@
   "batch_registry_path": "generated/fermatmind-content-agent-state/batch_registry.json",
   "bridge_assets": [],
   "career_blocks": [
+    "career-identity",
     "career-work-activities"
   ],
   "human_approval_required": false,
@@ -11,5 +12,5 @@
   "open_failures_path": "generated/fermatmind-content-agent-state/open_failures.json",
   "personality_blocks": [],
   "schema_version": "career_content_agent_state_v1",
-  "updated_at": "2026-06-23T04:00:00Z"
+  "updated_at": "2026-06-23T04:13:45.016669+00:00"
 }
