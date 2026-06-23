@@ -18583,9 +18583,9 @@
         "IQ-SESSION-QUESTION-DELIVERY-05A"
       ],
       "title": "feat(iq): consume owner current-question delivery",
-      "status": "committed",
+      "status": "pr_opened",
       "commit_sha": "a9c3d69db1b992f9bb231b5d8e72446cab18bc0a",
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1384",
       "checks": {
         "dependency_iq_owner_30_fe_formcode_04": "passed: fap-web PR #1379 merged and origin/main contains 2f4fdcae02c024c7f7f24cdd845d4d7bf2dcefd0",
         "dependency_iq_session_question_delivery_05a": "passed: fap-api PR #2371 merged and fap-api origin/main contains ab7af7144bbb4016e19928dcf8081a95d8e36201",
@@ -18636,6 +18636,11 @@
           "at": "2026-06-24T00:58:36+08:00",
           "status": "committed",
           "summary": "Created implementation commit a9c3d69db1b992f9bb231b5d8e72446cab18bc0a for IQ-SESSION-QUESTION-DELIVERY-05B after local validation passed."
+        },
+        {
+          "at": "2026-06-24T01:01:34+08:00",
+          "status": "pr_opened",
+          "summary": "Opened fap-web PR #1384 for IQ-SESSION-QUESTION-DELIVERY-05B from codex/iq-session-question-delivery-05b."
         }
       ]
     },
