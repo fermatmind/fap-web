@@ -6,7 +6,6 @@ import { localizedPath, type Locale } from "@/lib/i18n/locales";
 export type EnneagramShareType = {
   code: string;
   label: string;
-  score: number | null;
   rank: number | null;
   role: string | null;
 };
@@ -21,13 +20,11 @@ export type EnneagramSharePair = {
 export type EnneagramShareViewModel = {
   scaleCode: string;
   shareId: string;
-  attemptId: string;
   formCode: string | null;
   formLabel: string | null;
   formKind: string | null;
   methodologyVariant: string | null;
   interpretationScope: "clear" | "close_call" | "diffuse" | "low_quality";
-  interpretationReason: string | null;
   confidenceLevel: string | null;
   confidenceLabel: string | null;
   primaryCandidate: EnneagramShareType | null;
@@ -36,16 +33,8 @@ export type EnneagramShareViewModel = {
   topTypes: EnneagramShareType[];
   all9ProfileMini: EnneagramShareType[];
   closeCallPair: EnneagramSharePair | null;
-  dominanceGapAbs: number | null;
-  dominanceGapPct: number | null;
   compareCompatibilityGroup: string | null;
   crossFormComparable: boolean;
-  interpretationContextId: string | null;
-  registryReleaseHash: string | null;
-  contentReleaseHash: string | null;
-  contentSnapshotStatus: string | null;
-  reportSchemaVersion: string | null;
-  projectionVersion: string | null;
   generatedAt: string | null;
   publicSurfaceVersion: string | null;
   summaryText: string | null;
@@ -101,7 +90,7 @@ function normalizeType(value: unknown, fallbackRank?: number | null, fallbackRol
   const row = asRecord(value);
   if (!row) {
     const code = normalizeText(value);
-    return code ? { code, label: code, score: null, rank: fallbackRank ?? null, role: fallbackRole ?? null } : null;
+    return code ? { code, label: code, rank: fallbackRank ?? null, role: fallbackRole ?? null } : null;
   }
 
   const code = normalizeText(row.code, row.type_code, row.type, row.key);
@@ -112,7 +101,6 @@ function normalizeType(value: unknown, fallbackRank?: number | null, fallbackRol
   return {
     code,
     label: normalizeText(row.label, row.name, row.title, code),
-    score: normalizeNumber(row.score ?? row.percent ?? row.value),
     rank: normalizeNumber(row.rank) ?? fallbackRank ?? null,
     role: normalizeText(row.role, row.candidate_role, fallbackRole) || null,
   };
@@ -228,13 +216,11 @@ export function buildEnneagramShareViewModel(
   return {
     scaleCode,
     shareId: normalizeText(rawShare?.share_id, rawShare?.id),
-    attemptId: normalizeText(rawShare?.attempt_id),
     formCode,
     formLabel,
     formKind,
     methodologyVariant,
     interpretationScope,
-    interpretationReason: normalizeText(rawSummary.interpretation_reason) || null,
     confidenceLevel: normalizeText(rawSummary.confidence_level) || null,
     confidenceLabel: normalizeText(rawSummary.confidence_label) || null,
     primaryCandidate,
@@ -243,16 +229,8 @@ export function buildEnneagramShareViewModel(
     topTypes,
     all9ProfileMini,
     closeCallPair,
-    dominanceGapAbs: normalizeNumber(rawSummary.dominance_gap_abs),
-    dominanceGapPct: normalizeNumber(rawSummary.dominance_gap_pct),
     compareCompatibilityGroup: normalizeText(rawSummary.compare_compatibility_group) || null,
     crossFormComparable: rawSummary.cross_form_comparable === true,
-    interpretationContextId: normalizeText(rawSummary.interpretation_context_id) || null,
-    registryReleaseHash: normalizeText(rawSummary.registry_release_hash) || null,
-    contentReleaseHash: normalizeText(rawSummary.content_release_hash) || null,
-    contentSnapshotStatus: normalizeText(rawSummary.content_snapshot_status) || null,
-    reportSchemaVersion: normalizeText(rawSummary.report_schema_version) || null,
-    projectionVersion: normalizeText(rawSummary.projection_version) || null,
     generatedAt: normalizeText(rawSummary.generated_at, rawShare?.created_at) || null,
     publicSurfaceVersion: normalizeText(rawSummary.public_surface_version) || null,
     summaryText: normalizeText(rawSummary.summary_text) || null,

@@ -172,6 +172,10 @@ export default function ShareClient({
   );
   const shareDisplayType = String(viewModel.card?.displayType ?? "").trim();
   const shareScaleCode = viewModel.scaleCode || "MBTI";
+  const shareTelemetryAttemptFields = useMemo(
+    () => shareScaleCode === "ENNEAGRAM" ? {} : { attempt_id: viewModel.attemptId || undefined },
+    [shareScaleCode, viewModel.attemptId]
+  );
   const sharePublicVisualKind =
     shareScaleCode === "BIG5_OCEAN"
       ? "big5_share_public_surface"
@@ -358,12 +362,12 @@ export default function ShareClient({
       continueTarget: "share_take_flow",
       ctaKey: "share_carryover_entry",
       ctaRank: 1,
-      attempt_id: viewModel.attemptId || undefined,
+      ...shareTelemetryAttemptFields,
       typeCode: shareDisplayType,
       ...continuityTelemetry,
       locale,
     });
-  }, [continuityTelemetry, locale, primaryCtaHref, shareDisplayType, viewModel.attemptId, viewModel.continuity]);
+  }, [continuityTelemetry, locale, primaryCtaHref, shareDisplayType, shareTelemetryAttemptFields, viewModel.continuity]);
 
   useEffect(() => {
     if (!landingSurface || landingSurfaceImpressionTrackedRef.current) {
@@ -375,7 +379,7 @@ export default function ShareClient({
       slug: "share-page",
       scale_code: shareScaleCode,
       visual_kind: "share_landing_surface",
-      attempt_id: viewModel.attemptId || undefined,
+      ...shareTelemetryAttemptFields,
       ctaKey: "share_landing_surface",
       ctaRank: 1,
       continueTarget: landingSurface.contentContinueTarget || landingSurface.startTestTarget || undefined,
@@ -384,7 +388,7 @@ export default function ShareClient({
       attributionScope: landingSurface.attributionScope,
       locale,
     });
-  }, [landingSurface, locale, shareDisplayType, shareScaleCode, viewModel.attemptId]);
+  }, [landingSurface, locale, shareDisplayType, shareScaleCode, shareTelemetryAttemptFields]);
 
   useEffect(() => {
     if (!publicSurface || publicSurfaceImpressionTrackedRef.current) {
@@ -396,7 +400,7 @@ export default function ShareClient({
       slug: "share-page",
       scale_code: shareScaleCode,
       visual_kind: sharePublicVisualKind,
-      attempt_id: viewModel.attemptId || undefined,
+      ...shareTelemetryAttemptFields,
       ctaKey: "share_public_surface",
       ctaRank: 1,
       continueTarget: primaryContinueTarget,
@@ -404,7 +408,7 @@ export default function ShareClient({
       ...publicSurfaceTelemetry,
       locale,
     });
-  }, [locale, primaryContinueTarget, publicSurface, publicSurfaceTelemetry, shareDisplayType, sharePublicVisualKind, shareScaleCode, viewModel.attemptId]);
+  }, [locale, primaryContinueTarget, publicSurface, publicSurfaceTelemetry, shareDisplayType, sharePublicVisualKind, shareScaleCode, shareTelemetryAttemptFields]);
 
   useEffect(() => {
     if (!widgetSurface || !insightGraph || widgetImpressionTrackedRef.current) {
@@ -416,7 +420,7 @@ export default function ShareClient({
       slug: "share-page",
       scale_code: shareScaleCode,
       visual_kind: "share_widget_surface",
-      attempt_id: viewModel.attemptId || undefined,
+      ...shareTelemetryAttemptFields,
       ctaKey: "share_widget_surface",
       ctaRank: 1,
       continueTarget: widgetSurface.continueTarget || primaryContinueTarget,
@@ -440,7 +444,7 @@ export default function ShareClient({
     publicSurfaceTelemetry,
     shareDisplayType,
     shareScaleCode,
-    viewModel.attemptId,
+    shareTelemetryAttemptFields,
     widgetSurface,
     widgetTelemetry,
     embedSurface,
@@ -559,7 +563,7 @@ export default function ShareClient({
               scale_code: shareScaleCode,
               visual_kind: sharePublicVisualKind,
               interaction: "return_to_test",
-              attempt_id: viewModel.attemptId || undefined,
+              ...shareTelemetryAttemptFields,
               ctaKey: "share_public_surface",
               ctaRank: 1,
               continueTarget: primaryContinueTarget,
@@ -574,7 +578,7 @@ export default function ShareClient({
               scale_code: shareScaleCode,
               visual_kind: "share_browse_tests",
               interaction: "continue_reading",
-              attempt_id: viewModel.attemptId || undefined,
+              ...shareTelemetryAttemptFields,
               ctaKey: "share_browse_tests",
               ctaRank: 2,
               continueTarget: "tests_library",
@@ -596,7 +600,7 @@ export default function ShareClient({
               scale_code: shareScaleCode,
               visual_kind: sharePublicVisualKind,
               interaction: "return_to_test",
-              attempt_id: viewModel.attemptId || undefined,
+              ...shareTelemetryAttemptFields,
               ctaKey: "share_public_surface",
               ctaRank: 1,
               continueTarget: primaryContinueTarget,
@@ -611,7 +615,7 @@ export default function ShareClient({
               scale_code: shareScaleCode,
               visual_kind: "share_browse_tests",
               interaction: "continue_reading",
-              attempt_id: viewModel.attemptId || undefined,
+              ...shareTelemetryAttemptFields,
               ctaKey: "share_browse_tests",
               ctaRank: 2,
               continueTarget: "tests_library",
@@ -647,7 +651,7 @@ export default function ShareClient({
                         scale_code: shareScaleCode,
                         visual_kind: "share_landing_surface",
                         interaction: "continue_reading",
-                        attempt_id: viewModel.attemptId || undefined,
+                        ...shareTelemetryAttemptFields,
                         ctaKey: cta.key,
                         ctaRank: index + 1,
                         continueTarget: cta.key,
@@ -755,7 +759,7 @@ export default function ShareClient({
                     scale_code: shareScaleCode,
                     visual_kind: "share_widget_surface",
                     interaction: "continue",
-                    attempt_id: viewModel.attemptId || undefined,
+                    ...shareTelemetryAttemptFields,
                     ctaKey: "share_widget_surface",
                     ctaRank: 1,
                     continueTarget: widgetSurface.continueTarget || primaryContinueTarget,
@@ -829,7 +833,7 @@ export default function ShareClient({
                     continueTarget: "share_take_flow",
                     ctaKey: "share_carryover_entry",
                     ctaRank: 1,
-                    attempt_id: viewModel.attemptId || undefined,
+                    ...shareTelemetryAttemptFields,
                     typeCode: shareDisplayType,
                     ...continuityTelemetry,
                     locale,
@@ -875,7 +879,7 @@ export default function ShareClient({
                     scale_code: shareScaleCode,
                     visual_kind: shareContinueVisualKind,
                     interaction: "continue_reading",
-                    attempt_id: viewModel.attemptId || undefined,
+                    ...shareTelemetryAttemptFields,
                     ctaKey: "share_public_continue",
                     ctaRank: 1,
                     continueTarget: primaryContinueTarget,
