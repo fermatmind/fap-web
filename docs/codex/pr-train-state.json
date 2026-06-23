@@ -26540,13 +26540,13 @@
       "repo": "fap-web",
       "branch": "codex/riasec-analytics-consumption-packet-01",
       "base": "main",
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "train_scope": "riasec_analytics_consumption_packet",
       "title": "RIASEC-ANALYTICS-CONSUMPTION-PACKET-01: docs(result): add RIASEC analytics packet",
       "depends_on": [
         "ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01"
       ],
-      "commit_sha": "14813748562f4172d69614dbadf3befba05e0e29",
+      "commit_sha": "9c831998c3b6bc25f18e3879d89b3b8629032854",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1366",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -26582,8 +26582,8 @@
           "evidence": "Opened PR #1366: https://github.com/fermatmind/fap-web/pull/1366."
         },
         "github": {
-          "status": "pending",
-          "evidence": "GitHub checks started for PR #1366 head 14813748: build and analyze are in progress; contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze are queued."
+          "status": "pass",
+          "evidence": "GitHub checks passed for PR #1366 head 9c831998: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "sidecar_issues": [],
@@ -26607,6 +26607,11 @@
           "at": "2026-06-23T16:00:00+08:00",
           "status": "pr_opened",
           "note": "Opened PR #1366 at https://github.com/fermatmind/fap-web/pull/1366 with local commit 14813748562f4172d69614dbadf3befba05e0e29."
+        },
+        {
+          "at": "2026-06-23T16:06:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1366 head 9c831998 and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
