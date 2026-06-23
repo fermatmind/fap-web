@@ -1154,7 +1154,7 @@
       "title": "docs(codex): reconcile RIASEC TRAIN-10 ledger",
       "checks": [],
       "failure_reason": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1361",
       "commit_sha": "cba3014f6dd08f9fb3f6eae28cbaf5afd7802267",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -26323,8 +26323,8 @@
           "evidence": "Local checks passed on codex/active-result-page-agents-analytics-common-contract-01: JSON parse for analytics common contract and state, YAML parse for manifest, focused analytics common contract test (11 tests), pnpm typecheck, pnpm test:contract (539 files, 3108 tests), git diff --check, and changed-file scope validation for exactly 6 authorized files. pnpm build was intentionally not run per goal constraints."
         },
         "pull_request": {
-          "status": "not_opened",
-          "evidence": null
+          "status": "open",
+          "evidence": "Opened PR #1361: https://github.com/fermatmind/fap-web/pull/1361."
         },
         "github": {
           "status": "not_started",
@@ -26347,6 +26347,11 @@
           "at": "2026-06-23T15:09:00+08:00",
           "status": "commit_created",
           "note": "Created local commit 9c5726546b2307f699ea2b43c5e7d2d755a66636 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-23T15:11:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1361 at https://github.com/fermatmind/fap-web/pull/1361."
         }
       ]
     },
