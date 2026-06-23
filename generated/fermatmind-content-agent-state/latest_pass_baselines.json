@@ -1,0 +1,12 @@
+{
+  "baselines": [
+    {
+      "baseline_directory": "generated/career-work-activities-v1-batch-1046-pass-baseline-final-repaired",
+      "block_name": "career-work-activities",
+      "block_version": "career_work_activities_v1",
+      "final_conclusion": "CAREER_WORK_ACTIVITIES_1046_COMPLETE",
+      "sha256_manifest": "generated/career-work-activities-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
+      "slug_count": 1046
+    }
+  ]
+}

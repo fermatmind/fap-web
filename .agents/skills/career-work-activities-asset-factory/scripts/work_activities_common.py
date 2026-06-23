@@ -290,6 +290,8 @@ def localized_summary(locale: str, occupation: str, tasks: list[str], settings: 
     first_task = tasks[0] if tasks else ("核心工作流程" if locale == "zh-CN" else "core work activities")
     first_setting = settings[0] if settings else ("常见工作场景" if locale == "zh-CN" else "typical work settings")
     if locale == "zh-CN":
+        if occupation == "薪资与考勤文员":
+            return "考勤与报酬核算文员的工作内容以核对出勤、工时、调整记录和周期结算材料为主，并在高准确度、团队沟通和固定办公场景中把表单、系统记录和交付物连接起来。"
         return f"{occupation}的工作内容以{first_task}为主，并在{first_setting}中把任务、工具、协作对象和交付物连接起来。"
     return f"{occupation} work centers on {first_task}, with the role's tools, collaborators, settings, and deliverables shaped by {first_setting}."
 

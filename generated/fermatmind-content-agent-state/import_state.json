@@ -1,0 +1,19 @@
+{
+  "imports": [
+    {
+      "approval_manifest_path": null,
+      "artifact_sha256": "ffc6bd547c0170778f190b7904388e570f68bf9220904d078c3d60e90c247b77",
+      "block_name": "career-work-activities",
+      "block_version": "career_work_activities_v1",
+      "human_approval_required": true,
+      "rollback_report_path": null,
+      "row_count": 2092,
+      "slug_count": 1046,
+      "source_artifact_paths": [
+        "generated/career-work-activities-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
+        "generated/career-work-activities-v1-1046-final-independent-qa/final_qa_report.json"
+      ],
+      "state": "dry_run"
+    }
+  ]
+}
