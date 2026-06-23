@@ -30,5 +30,10 @@
       ],
       "state": "dry_run"
     }
-  ]
+  ],
+  "career_skills_entry": {
+    "status": "not_started",
+    "baseline_directory": "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired",
+    "production_imported": false
+  }
 }

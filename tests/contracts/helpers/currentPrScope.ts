@@ -567,6 +567,17 @@ const CAREER_IDENTITY_1046_AUTHORITY_STATE_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const CAREER_SKILLS_ENTRY_1046_COMPLETION_STATE_ALLOWED_FILES = new Set([
+  ".agents/skills/career-skills-entry-asset-factory/scripts/collect_evidence.py",
+  "generated/fermatmind-content-agent-state/batch_registry.json",
+  "generated/fermatmind-content-agent-state/career_block_status.json",
+  "generated/fermatmind-content-agent-state/global_content_state.json",
+  "generated/fermatmind-content-agent-state/import_state.json",
+  "generated/fermatmind-content-agent-state/latest_pass_baselines.json",
+  "generated/fermatmind-content-agent-state/next_goal_recommendation.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const SEO_CONV_TRACKING_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
@@ -2820,7 +2831,18 @@ export function isCurrentQuizPackPerformanceHotfixAllowedFile(file: string): boo
   return CURRENT_BRANCH === "codex/quiz-pack-performance-hotfix" && isQuizPackPerformanceHotfixAllowedFile(file);
 }
 
+function isCurrentCareerSkillsEntry1046CompletionStateAllowedFile(file: string): boolean {
+  return (
+    CURRENT_BRANCH === "codex/career-skills-entry-1046-completion-state" &&
+    CAREER_SKILLS_ENTRY_1046_COMPLETION_STATE_ALLOWED_FILES.has(file)
+  );
+}
+
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (isCurrentCareerSkillsEntry1046CompletionStateAllowedFile(file)) {
+    return true;
+  }
+
   if (
     CURRENT_BRANCH === "codex/enneagram-phase8c-configurable-timeout" &&
     ENNEAGRAM_PHASE8C_CONFIGURABLE_TIMEOUT_SCOPE_GUARD_ALLOWED_FILES.has(file)
@@ -3985,6 +4007,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/career-identity-1046-authority-state") {
     return CAREER_IDENTITY_1046_AUTHORITY_STATE_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/career-skills-entry-1046-completion-state") {
+    return CAREER_SKILLS_ENTRY_1046_COMPLETION_STATE_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/seo-conv-tracking-01") {

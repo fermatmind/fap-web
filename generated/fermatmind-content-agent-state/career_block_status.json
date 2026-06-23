@@ -1,27 +1,27 @@
 {
-  "asset_pass": true,
-  "block_name": "career-identity",
-  "block_version": "career_identity_v1",
-  "control_count": 1046,
+  "block_name": "career-skills-entry",
+  "block_version": "career_skills_entry_v1",
   "current_batch": 1046,
-  "editorial_approval_status": "not_started",
-  "estimate_pass": null,
-  "evidence_pass": true,
-  "human_approval_required": false,
-  "latest_baseline_directory": "generated/career-identity-v1-batch-1046-pass-baseline-final-repaired",
-  "latest_baseline_slug_count": 1046,
+  "control_count": 1046,
   "new_count": 46,
-  "open_failures": [],
-  "post_import_qa_status": "not_started",
-  "production_import_status": "not_started",
-  "search_projection_quarantined": true,
+  "evidence_pass": true,
+  "synthesis_pass": true,
+  "asset_pass": true,
+  "estimate_pass": null,
+  "latest_baseline_directory": "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired",
+  "latest_baseline_slug_count": 1046,
   "sha256_manifests": [
-    "generated/career-identity-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json"
+    "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json"
   ],
   "source_artifact_paths": [
-    "generated/career-identity-v1-operator/operator_to_1046_report.json",
-    "generated/career-identity-v1-1046-final-independent-qa/final_qa_report.json"
+    "generated/career-skills-entry-v1-operator/operator_to_1046_report.json",
+    "generated/career-skills-entry-v1-1046-final-independent-qa/final_qa_report.json"
   ],
+  "search_projection_quarantined": true,
+  "open_failures": [],
+  "human_approval_required": false,
   "staging_status": "not_started",
-  "synthesis_pass": true
+  "editorial_approval_status": "not_started",
+  "production_import_status": "not_started",
+  "post_import_qa_status": "not_started"
 }

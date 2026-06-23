@@ -18,5 +18,12 @@
       "new_count": 46,
       "status": "final_qa_pass"
     }
-  ]
+  ],
+  "completed_blocks": {
+    "career-skills-entry": {
+      "baseline_directory": "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired",
+      "slug_count": 1046,
+      "final_qa": "generated/career-skills-entry-v1-1046-final-independent-qa/final_qa_report.json"
+    }
+  }
 }

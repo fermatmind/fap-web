@@ -35,7 +35,35 @@ def select_work_items(work_row: dict, limit: int = 6) -> list[dict]:
             continue
         target = preferred if item.get("item_type") in {"task", "detailed_work_activity", "software_or_tool"} else fallback
         target.append(item)
-    return (preferred + fallback)[:limit]
+    selected = (preferred + fallback)[:limit]
+    if selected:
+        return selected
+
+    facts = work_row.get("facts") or {}
+    source = (work_row.get("sources") or [{}])[0]
+    source_id = source.get("source_id")
+    source_boundary = source.get("source_boundary") or facts.get("source_boundary") or "PASS work-activities evidence dependency."
+    fact_groups = (
+        ("task_cluster", facts.get("task_clusters") or []),
+        ("rhythm_and_environment", facts.get("rhythm_and_environment") or []),
+        ("setting", facts.get("settings") or []),
+        ("tool_or_system", facts.get("tools_and_systems") or []),
+        ("stakeholder", facts.get("stakeholders") or []),
+    )
+    for item_type, values in fact_groups:
+        for captured in values:
+            if captured:
+                selected.append(
+                    {
+                        "item_type": item_type,
+                        "source_id": source_id,
+                        "captured_fact": captured,
+                        "source_boundary": source_boundary,
+                    }
+                )
+            if len(selected) >= limit:
+                return selected
+    return selected
 
 
 def source_list_for_selected_items(work_row: dict, selected: list[dict], fallback: dict) -> list[dict]:
