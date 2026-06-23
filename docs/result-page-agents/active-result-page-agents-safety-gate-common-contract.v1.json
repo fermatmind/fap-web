@@ -1,0 +1,241 @@
+{
+  "schema_version": "fermatmind.active_result_page_agents_safety_gate_common_contract.v1",
+  "artifact_id": "active-result-page-agents-safety-gate-common-contract-2026-06-23",
+  "task_id": "ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-COMMON-CONTRACT-01",
+  "verdict": "READY_TO_CONSUME_COMMON_SAFETY_GATE_CONTRACT",
+  "run_mode": "docs_contracts_only",
+  "receiving_agent": "claim_privacy_safety_gate",
+  "producing_upstream_agents": [
+    "runtime_qa",
+    "analytics_gsc_opportunity",
+    "big_five_result_page",
+    "enneagram_result_page",
+    "riasec_result_page"
+  ],
+  "active_agent_scope": [
+    {
+      "agent_id": "big_five_result_page",
+      "scale_code": "BIG5_OCEAN",
+      "safety_gate_common_status": "READY_TO_CONSUME",
+      "required_packet_task_id": "BIG5-SAFETY-GATE-CONSUMPTION-PACKET-01"
+    },
+    {
+      "agent_id": "enneagram_result_page",
+      "scale_code": "ENNEAGRAM",
+      "safety_gate_common_status": "READY_TO_CONSUME",
+      "required_packet_task_id": "ENNEAGRAM-SAFETY-GATE-CONSUMPTION-PACKET-01"
+    },
+    {
+      "agent_id": "riasec_result_page",
+      "scale_code": "RIASEC",
+      "safety_gate_common_status": "READY_TO_CONSUME",
+      "required_packet_task_id": "RIASEC-SAFETY-GATE-CONSUMPTION-PACKET-01"
+    }
+  ],
+  "parked_placeholder_scales": [
+    {
+      "scale_code": "MBTI",
+      "status": "PARKED_PLACEHOLDER"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "status": "PARKED_PLACEHOLDER"
+    },
+    {
+      "scale_code": "EQ_60",
+      "status": "PARKED_PLACEHOLDER"
+    }
+  ],
+  "assertion_families": [
+    "unsupported_claim_gate",
+    "private_result_boundary_gate",
+    "analytics_payload_privacy_gate",
+    "share_public_summary_gate",
+    "pdf_private_print_gate",
+    "public_private_content_separation_gate",
+    "source_classification_gate",
+    "hard_hold_action_gate",
+    "smoke_exclusion_gate",
+    "runtime_qa_to_analytics_safety_gate",
+    "opportunity_scoring_hold_gate",
+    "search_provider_hold_gate",
+    "production_mutation_hold_gate"
+  ],
+  "allowed_claim_classes": [
+    "self_understanding",
+    "personality_reflection",
+    "motivation_pattern_reflection",
+    "career_interest_exploration",
+    "communication_reflection",
+    "method_boundary",
+    "non_diagnostic_note",
+    "examples_only",
+    "public_summary",
+    "public_projection"
+  ],
+  "forbidden_claim_classes": [
+    "diagnosis",
+    "treatment",
+    "therapy",
+    "clinical assessment",
+    "hiring screen",
+    "employment suitability guarantee",
+    "salary prediction",
+    "performance prediction",
+    "success prediction",
+    "admissions guarantee",
+    "ability measurement guarantee",
+    "deterministic career recommendation",
+    "final type certainty",
+    "official fixed type claim",
+    "IQ/EQ diagnostic guarantee",
+    "relationship guarantee",
+    "life outcome guarantee",
+    "paid/official/certified guarantee unless backend authority explicitly supports it"
+  ],
+  "common_forbidden_private_fields": [
+    "attempt_id",
+    "user_id",
+    "email",
+    "phone",
+    "account_id",
+    "report_token",
+    "private_url",
+    "raw_score",
+    "raw_scores",
+    "score_vector",
+    "dimension_vector",
+    "percentile",
+    "selector_trace",
+    "source_refs",
+    "qa_trace",
+    "editor_notes",
+    "private_report_payload",
+    "full_report_body_text",
+    "order_id",
+    "payment_id",
+    "benefit_grant_id",
+    "benefit_wallet_id",
+    "access_token",
+    "cookie",
+    "session_id",
+    "release_hash",
+    "registry_hash",
+    "content_hash",
+    "dominance_gap",
+    "answer_key",
+    "correct_answer",
+    "pdf_private_url",
+    "share_private_payload",
+    "private_report_url"
+  ],
+  "hard_hold_action_assertions": [
+    "no_cms",
+    "no_publish",
+    "no_search_submission",
+    "no_provider_calls",
+    "no_deploy",
+    "no_runtime_instrumentation",
+    "no_production_metric_backfill",
+    "no_opportunity_scoring",
+    "no_search_channel_mutation",
+    "no_generated_readiness_artifact_write",
+    "no_raw_private_data",
+    "no_deterministic_career_recommendation",
+    "no_diagnosis_treatment_hiring_salary_outcome_claims"
+  ],
+  "source_classification_vocabulary": [
+    "backend_authority",
+    "fap_web_consumer_contract",
+    "runtime_qa_artifact",
+    "analytics_handoff_artifact",
+    "safety_gate_artifact",
+    "generated_artifact",
+    "fixture",
+    "mock",
+    "unknown",
+    "access_required"
+  ],
+  "runtime_qa_to_analytics_safety_bridge": {
+    "allowed_inputs": [
+      "runtime_qa_consumption_packets",
+      "analytics_consumption_packets",
+      "active_runtime_qa_matrix",
+      "active_analytics_matrix",
+      "sanitized_public_safe_evidence",
+      "fap_api_readonly_authority_references_for_riasec"
+    ],
+    "forbidden_inputs": [
+      "raw_private_attempts",
+      "private_result_payloads",
+      "private_report_urls",
+      "payment_or_order_data",
+      "provider_responses",
+      "event_stream_payloads",
+      "production_metric_backfill_rows",
+      "search_channel_queue_rows"
+    ],
+    "safety_gate_authority": [
+      "block_unsupported_claims",
+      "block_private_data_leaks",
+      "block_public_private_content_blending",
+      "block_default_denied_actions",
+      "report_blocked_actions"
+    ],
+    "safety_gate_non_authority": [
+      "approve_cms_write",
+      "approve_publish",
+      "approve_search_submission",
+      "approve_provider_call",
+      "approve_deploy",
+      "approve_runtime_enablement",
+      "approve_event_emission",
+      "approve_opportunity_scoring",
+      "approve_private_data_access"
+    ]
+  },
+  "negative_guarantees": {
+    "safety_runtime_code_changed": "no",
+    "analytics_runtime_code_changed": "no",
+    "event_emission": "none",
+    "production_metric_backfill": "none",
+    "opportunity_scoring": "none",
+    "search_channel_mutation": "none",
+    "provider_calls": "none",
+    "private_result_data_accessed": "none",
+    "cms_writes": "none",
+    "publishing": "none",
+    "deployment_triggered": "no",
+    "fap_api_mutation": "none",
+    "generated_readiness_artifact_written": "no"
+  },
+  "source_refs": {
+    "agent_registry": "docs/agent-os/agent-registry.v1.json",
+    "go_hold_matrix": "docs/agent-os/go-hold-matrix.v1.json",
+    "handoff_protocol": "docs/agent-os/AGENT_HANDOFF_PROTOCOL.md",
+    "runtime_qa_common_contract": "docs/result-page-agents/active-result-page-agents-runtime-qa-common-contract.v1.json",
+    "runtime_qa_matrix": "docs/result-page-agents/active-result-page-agents-runtime-qa-matrix.v1.json",
+    "analytics_common_contract": "docs/result-page-agents/active-result-page-agents-analytics-common-contract.v1.json",
+    "analytics_matrix": "docs/result-page-agents/active-result-page-agents-analytics-matrix.v1.json"
+  },
+  "stop_conditions": [
+    "safety_runtime_implementation_required",
+    "analytics_runtime_implementation_required",
+    "event_emission_required",
+    "metric_backfill_required",
+    "opportunity_scoring_required",
+    "provider_or_search_submission_required",
+    "search_channel_mutation_required",
+    "cms_publish_deploy_required",
+    "private_result_payload_required",
+    "fap_api_mutation_required",
+    "generated_readiness_artifact_write_required",
+    "default_denied_action_approval_required"
+  ],
+  "next_tasks": [
+    "BIG5-SAFETY-GATE-CONSUMPTION-PACKET-01",
+    "ENNEAGRAM-SAFETY-GATE-CONSUMPTION-PACKET-01",
+    "RIASEC-SAFETY-GATE-CONSUMPTION-PACKET-01",
+    "ACTIVE-RESULT-PAGE-AGENTS-SAFETY-GATE-MATRIX-01"
+  ]
+}
