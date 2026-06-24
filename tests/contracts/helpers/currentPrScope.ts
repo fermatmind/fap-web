@@ -1312,6 +1312,11 @@ const MBTI_TAKE_ATTRIBUTION_FLAKY_CI_FIX_ALLOWED_FILES = new Set([
   "tests/contracts/mbti-take-attribution.contract.test.tsx",
 ]);
 
+const MBTI_DESKTOP_BAND_NUANCE_CONTRACT_FIX_01_ALLOWED_FILES = new Set([
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-desktop-p0-render.contract.test.tsx",
+]);
+
 const MBTI_CONTRACT_SIDECAR_FIXES_1388_1292_ALLOWED_FILES = new Set([
   "package.json",
   "scripts/release_freeze_verify.sh",
@@ -4142,6 +4147,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/mbti-take-attribution-flaky-ci-fix") {
     return MBTI_TAKE_ATTRIBUTION_FLAKY_CI_FIX_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/mbti-desktop-band-nuance-contract-fix-01") {
+    return MBTI_DESKTOP_BAND_NUANCE_CONTRACT_FIX_01_ALLOWED_FILES.has(file);
   }
 
   if (

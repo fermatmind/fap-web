@@ -652,7 +652,7 @@ describe("MBTI desktop clone p0 render contract", () => {
     expect(summaryPane).toHaveTextContent("54%");
     expect(summaryPane).toHaveTextContent("Introverted");
     expect(summaryPane).toHaveTextContent("You prefer to recharge quietly while staying open to close connections.");
-    expect(screen.getByTestId("mbti-traits-band-nuance")).toHaveTextContent(
+    expect(await screen.findByTestId("mbti-traits-band-nuance")).toHaveTextContent(
       "你更偏向把能量收回到内在世界，但这种内倾并不排斥连接；在合适的关系和话题里，你依然愿意打开自己。",
     );
   });
