@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-06-24T15:36:31.692Z",
+  "final_conclusion": "SEO_GEO_RELEASE_REVIEW_PREVIEW_COHORT_READY",
+  "source_release_gate_conclusion": "SEO_GEO_RELEASE_GATE_CANDIDATES_QUARANTINED",
+  "candidate_rows": 2092,
+  "quality_review_rows": 2092,
+  "candidate_quality_rewrite_required_rows": 2092,
+  "preview_cohort_slug_count": 50,
+  "runtime_approved_count": 0,
+  "candidate_only": true,
+  "runtime_modified": false,
+  "seo_runtime_modified": false,
+  "cms_written": false,
+  "required_next_step": "rewrite_or_approve_50_slug_candidate_preview_before_any_CMS_or_API_runtime_release"
+}

@@ -1,0 +1,12 @@
+{
+  "generated_at": "2026-06-24T15:41:41.708Z",
+  "final_conclusion": "QUERY_INTENT_50_SLUG_PREVIEW_REWRITE_PASS",
+  "input_slug_count": 50,
+  "output_rows": 100,
+  "failed_rows": 0,
+  "candidate_only": true,
+  "runtime_approved_count": 0,
+  "runtime_modified": false,
+  "seo_runtime_modified": false,
+  "cms_written": false
+}
