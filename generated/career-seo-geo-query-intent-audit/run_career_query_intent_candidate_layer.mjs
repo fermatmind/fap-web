@@ -45,15 +45,29 @@ function sha256File(filePath) {
   return crypto.createHash("sha256").update(fs.readFileSync(filePath)).digest("hex");
 }
 
+function stripElementBlocks(html, tagName) {
+  let output = String(html || "");
+  const openNeedle = `<${tagName}`;
+  const closeNeedle = `</${tagName}`;
+  while (true) {
+    const lower = output.toLowerCase();
+    const start = lower.indexOf(openNeedle);
+    if (start < 0) return output;
+    const closeStart = lower.indexOf(closeNeedle, start + openNeedle.length);
+    if (closeStart < 0) return `${output.slice(0, start)} `;
+    const closeEnd = output.indexOf(">", closeStart + closeNeedle.length);
+    output = `${output.slice(0, start)} ${closeEnd < 0 ? "" : output.slice(closeEnd + 1)}`;
+  }
+}
+
 function stripScripts(html) {
-  return html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ");
+  return stripElementBlocks(stripElementBlocks(html, "script"), "style");
 }
 
 function decodeEntities(text) {
   return String(text || "")
     .replace(/&quot;/g, '"')
     .replace(/&#x27;/g, "'")
-    .replace(/&amp;/g, "&")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
     .replace(/\s+/g, " ")
@@ -151,7 +165,7 @@ async function mapLimit(items, limit, mapper, label = "items") {
   async function worker() {
     while (index < items.length) {
       const current = index++;
-      results[current] = await mapper(items[current], current);
+      results[current] = await mapper(items[current]);
       completed += 1;
       if (completed % 100 === 0 || completed === items.length) {
         console.log(`${label}: ${completed}/${items.length}`);
@@ -171,9 +185,9 @@ function readSlugPlan() {
 }
 
 function inferIntentCoverage(text, title) {
-  const normalized = `${title}\n${text}`.toLowerCase();
+  const fullText = `${title}\n${text}`;
   return {
-    "what-is": /(?:是什么|职业|occupation|career|what|does|definition|职责|工作)/i.test(text),
+    "what-is": /(?:是什么|职业|occupation|career|what|does|definition|职责|工作)/i.test(fullText),
     salary: /(?:薪资|工资|salary|wage|pay|employment)/i.test(text),
     "career-path": /(?:路径|入行|准备|career path|entry|prepare|next step)/i.test(text),
     skills: /(?:技能|能力|skills|tool|knowledge|competenc)/i.test(text),

@@ -68,15 +68,29 @@ function writeCsv(filePath, rows, headers) {
   fs.writeFileSync(filePath, `${lines.join("\n")}\n`);
 }
 
+function stripElementBlocks(html, tagName) {
+  let output = String(html || "");
+  const openNeedle = `<${tagName}`;
+  const closeNeedle = `</${tagName}`;
+  while (true) {
+    const lower = output.toLowerCase();
+    const start = lower.indexOf(openNeedle);
+    if (start < 0) return output;
+    const closeStart = lower.indexOf(closeNeedle, start + openNeedle.length);
+    if (closeStart < 0) return `${output.slice(0, start)} `;
+    const closeEnd = output.indexOf(">", closeStart + closeNeedle.length);
+    output = `${output.slice(0, start)} ${closeEnd < 0 ? "" : output.slice(closeEnd + 1)}`;
+  }
+}
+
 function stripScripts(html) {
-  return html.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ");
+  return stripElementBlocks(stripElementBlocks(html, "script"), "style");
 }
 
 function decodeEntities(text) {
   return String(text || "")
     .replace(/&quot;/g, '"')
     .replace(/&#x27;/g, "'")
-    .replace(/&amp;/g, "&")
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
     .replace(/\s+/g, " ")
@@ -184,7 +198,7 @@ async function mapLimit(items, limit, mapper) {
     while (cursor < items.length) {
       const index = cursor;
       cursor += 1;
-      results[index] = await mapper(items[index], index);
+      results[index] = await mapper(items[index]);
       completed += 1;
       if (completed % 50 === 0 || completed === items.length) console.log(`rerun: ${completed}/${items.length}`);
     }
