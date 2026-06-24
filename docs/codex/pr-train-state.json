@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-24T19:58:00+08:00",
+  "updated_at": "2026-06-24T23:45:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -24492,7 +24492,7 @@
         "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01",
         "BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01"
       ],
-      "status": "pending_dependency",
+      "status": "local_checks_passed_ready_for_pr",
       "title": "BIG5-METHODOLOGY-TRUST-SCIENCE-READINESS-MATRIX-01: docs(methodology): add readiness matrix",
       "artifacts": [
         "docs/methodology-trust-science/big5-methodology-trust-science-readiness-matrix-2026-06-23.md",
@@ -24500,7 +24500,41 @@
         "tests/contracts/big5-methodology-trust-science-readiness-matrix.contract.test.ts",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "name": "JSON parse",
+          "command": "node -e \"JSON.parse(require('fs').readFileSync('docs/methodology-trust-science/big5-methodology-trust-science-readiness-matrix.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
+          "status": "passed"
+        },
+        {
+          "name": "focused readiness matrix contract",
+          "command": "pnpm exec vitest run tests/contracts/big5-methodology-trust-science-readiness-matrix.contract.test.ts",
+          "status": "passed",
+          "summary": "9 tests passed"
+        },
+        {
+          "name": "typecheck",
+          "command": "pnpm typecheck",
+          "status": "passed"
+        },
+        {
+          "name": "full contract suite",
+          "command": "pnpm test:contract",
+          "status": "passed",
+          "summary": "571 files / 3364 tests passed"
+        },
+        {
+          "name": "diff check",
+          "command": "git diff --check",
+          "status": "passed"
+        },
+        {
+          "name": "scope validation",
+          "command": "node status allowlist validation for PR5 artifacts and docs/codex/pr-train-state.json",
+          "status": "passed",
+          "summary": "4 files within allowed PR5 scope"
+        }
+      ],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
@@ -24516,13 +24550,23 @@
           "generated/pr-train-sidecar-issues/sidecar_issues.md",
           "generated/pr-train-sidecar-issues/sidecar_issues.json"
         ],
-        "status": "pending"
+        "status": "passed"
       },
       "history": [
         {
           "at": "2026-06-24T19:30:00+08:00",
           "status": "pending_dependency",
           "summary": "Registered by authorized Big Five methodology/trust/science PR train setup; waits for source authority, claim/privacy/safety, and candidate cluster matrix merges."
+        },
+        {
+          "at": "2026-06-25T00:01:00+08:00",
+          "status": "implementation_in_progress",
+          "summary": "PR2, PR3, and PR4 dependencies verified merged into origin/main via PR #1410 merge d58cc55b, PR #1412 merge 908b8c08, and PR #1413 merge 9e4f8cb3. Started PR5 aggregate readiness matrix in docs/contracts-only scope with CMS dry-run, generated pages, publish, search, runtime, analytics, deploy, private data, backend asset-agent command, and fap-api mutation held or blocked."
+        },
+        {
+          "at": "2026-06-24T23:45:00+08:00",
+          "status": "local_checks_passed_ready_for_pr",
+          "summary": "Readiness matrix docs, JSON, and contract completed in PR5 scope. JSON parse, focused contract, typecheck, full contract suite, diff check, and explicit changed-file scope validation passed."
         }
       ],
       "sidecar_issues": []
