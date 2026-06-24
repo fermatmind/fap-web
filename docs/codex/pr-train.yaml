@@ -10572,6 +10572,60 @@ prs:
       - No frontend editorial fallback content is introduced.
     rollback_note: "Revert the not-found boundary copy and focused contract assertions if actual 404 recovery pages regress or Next.js no longer serializes not-found boundary payloads into successful pages."
 
+  - id: PR-EQ-ASSET-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-eq-asset-03-frontend-v16-fixtures
+    base: main
+    depends_on:
+      - PR-EQ-ASSET-02
+    mode: execute
+    train_scope: eq_v16_content_asset_productization
+    risk_level: scoped_eq_result_renderer_contract
+    status: in_progress
+    title: "PR-EQ-ASSET-03 Frontend v1.6 contract fixture consumption"
+    goal: "Sync frontend EQ v5 fixtures to backend v1.6 canonical payloads and verify EQResultV5 consumes commercial-ready resolved assets without introducing frontend-authored report prose or SJT/paid entry points."
+    in_scope:
+      - components/result/eq/**
+      - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+      - tests/e2e/iq-eq-result-regression.spec.ts
+      - tests/fixtures/eq/v5/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend changes
+      - EQ question, scoring, reverse-key, or norm changes
+      - hardcoded official EQ report copy in frontend
+      - SJT route, scorer, or integrated report visibility
+      - clickable SJT take entry before PR-EQ-SJT-03
+      - paid, locked, blur, SKU, premium, or upgrade CTA behavior
+      - non-EQ result renderer behavior changes
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm exec vitest run tests/contracts/eq-result-v5-renderer.contract.test.tsx
+      - pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts
+      - git diff --check
+      - git diff --cached --check
+    scope_validation:
+      changed_files_must_match:
+        - components/result/eq/**
+        - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+        - tests/e2e/iq-eq-result-regression.spec.ts
+        - tests/fixtures/eq/v5/**
+        - docs/codex/pr-train.yaml
+        - docs/codex/pr-train-state.json
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Frontend canonical fixtures are synchronized with backend EQ v1.6 report payloads.
+      - EQResultV5 renders result snapshot, conversion actions, quality confidence, psychometric evidence, and career-environment enhancement assets from backend resolved assets.
+      - No frontend-authored official report prose is introduced beyond UI chrome.
+      - No locked, blur, paywall, SKU, premium, upgrade, raw tag, or clickable SJT entry is user-visible.
+      - zh-CN and en canonical fixtures pass focused EQ renderer contract coverage.
+    rollback_note: "Revert the EQ v1.6 fixture sync, focused renderer asset consumption, and contract/e2e assertions if EQ v5 rendering regresses."
+
   - id: PR-EQ-PER-03
     repo: fap-web
     repo_path: <workspace>/fap-web

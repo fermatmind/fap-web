@@ -20,7 +20,7 @@ export function EQActionPrescription({ viewModel }: { viewModel: EqV5ViewModel }
             </summary>
             <ol className="mt-3 list-inside list-decimal space-y-2 text-sm leading-6 text-slate-700">
               {action.seven_day_plan.map((step, index) => (
-                <li key={`${index}-${step}`}>{step}</li>
+                <li key={`${index}-${formatPracticeStep(step)}`}>{formatPracticeStep(step)}</li>
               ))}
             </ol>
           </details>
@@ -29,4 +29,13 @@ export function EQActionPrescription({ viewModel }: { viewModel: EqV5ViewModel }
       </article>
     </section>
   );
+}
+
+function formatPracticeStep(step: NonNullable<EqV5ViewModel["assets"]["action_prescription"]["seven_day_plan"]>[number]): string {
+  if (typeof step === "string") {
+    return step;
+  }
+
+  const day = step?.day ? `Day ${step.day}: ` : "";
+  return `${day}${String(step?.practice ?? "").trim()}`.trim() || "—";
 }

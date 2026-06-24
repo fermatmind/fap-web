@@ -4,6 +4,7 @@ import type { EqV5ViewModel } from "./types";
 export function EQQualityBanner({ viewModel }: { viewModel: EqV5ViewModel }) {
   const { quality, assets, locale } = viewModel;
   const flags = quality.flags ?? [];
+  const confidence = assets.quality_confidence;
 
   return (
     <section
@@ -15,8 +16,21 @@ export function EQQualityBanner({ viewModel }: { viewModel: EqV5ViewModel }) {
         <h2 className="font-semibold">{locale === "zh" ? "结果解释置信度" : "Interpretation Confidence"}</h2>
         <p>
           {locale === "zh" ? "等级" : "Level"} {quality.level || "—"} ·{" "}
-          {quality.confidence_label || assets.quality.confidence_label || "—"}
+          {confidence.label || quality.confidence_label || assets.quality.confidence_label || "—"}
         </p>
+        {confidence.body ? <p className="leading-6">{confidence.body}</p> : null}
+        {confidence.why_this_level ? (
+          <p className="leading-6">
+            <span className="font-medium">{locale === "zh" ? "为什么：" : "Why: "}</span>
+            {confidence.why_this_level}
+          </p>
+        ) : null}
+        {confidence.how_to_read ? (
+          <p className="leading-6">
+            <span className="font-medium">{locale === "zh" ? "怎么读：" : "How to read: "}</span>
+            {confidence.how_to_read}
+          </p>
+        ) : null}
         {assets.scientific_contract.quality_rules_statement ? (
           <p className="leading-6">{assets.scientific_contract.quality_rules_statement}</p>
         ) : null}
