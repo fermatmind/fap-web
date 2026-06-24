@@ -1,0 +1,11 @@
+capability,status,authority,notes
+1046 bilingual production career pages,complete,fap-api runtime + fap-web renderer,Post-import live QA closeout is SEO safe
+career content block factory,complete,fap-web .agents skills,"identity, work, skills, fit, adjacent, page assembly baselines recorded"
+salary block,complete,career-salary skill + fap-api importer,mature import state machine and production import
+AI Impact block,complete,career-risk-future skill + fap-api importer,v5 content + production import + live QA repairs
+page assembly import/release,complete,fap-api,"staging, approved, production import gates exist"
+post-import live QA,complete,generated QA runner,source lineage/raw enum fixes completed
+SEO/GEO query-intent candidate layer,not_started,future candidate asset + SEO gate,must stay out of runtime until approved
+internal-link graph optimization,partially_ready,backend companion/next-step services,internal linking authority doc exists
+RIASEC/Big Five/MBTI conversion bridge,partially_ready,career graph docs + future bridge asset,RIASEC docs exist; bridge state empty
+high-value editorial upgrade,not_started,career content agent + human editor,needs cohort selection and block-level repair packages

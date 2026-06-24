@@ -1,0 +1,570 @@
+[
+  {
+    "repo": "fap-web",
+    "number": 1191,
+    "title": "Add modular career content asset factory skills",
+    "merged_date": "2026-06-18",
+    "merge_commit_short": "7d954ab96382",
+    "url": "https://github.com/fermatmind/fap-web/pull/1191"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1195,
+    "title": "Tighten AI impact locale market rules",
+    "merged_date": "2026-06-18",
+    "merge_commit_short": "207bd0012d77",
+    "url": "https://github.com/fermatmind/fap-web/pull/1195"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1196,
+    "title": "Add v2 AI impact audit gates",
+    "merged_date": "2026-06-18",
+    "merge_commit_short": "ea5616be3098",
+    "url": "https://github.com/fermatmind/fap-web/pull/1196"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1199,
+    "title": "Fix AI impact v2 audit gate",
+    "merged_date": "2026-06-18",
+    "merge_commit_short": "b06cfbd020f2",
+    "url": "https://github.com/fermatmind/fap-web/pull/1199"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1224,
+    "title": "Add career AI impact preview consumer",
+    "merged_date": "2026-06-19",
+    "merge_commit_short": "8f8a69a044a9",
+    "url": "https://github.com/fermatmind/fap-web/pull/1224"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1233,
+    "title": "Add AI Impact v5 expanded page QA report",
+    "merged_date": "2026-06-19",
+    "merge_commit_short": "644f4f3e180e",
+    "url": "https://github.com/fermatmind/fap-web/pull/1233"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1235,
+    "title": "Add AI Impact v5 editorial review package",
+    "merged_date": "2026-06-19",
+    "merge_commit_short": "0eada7304a1f",
+    "url": "https://github.com/fermatmind/fap-web/pull/1235"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1240,
+    "title": "Update career content block skill gates",
+    "merged_date": "2026-06-20",
+    "merge_commit_short": "25ee5006f99e",
+    "url": "https://github.com/fermatmind/fap-web/pull/1240"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1241,
+    "title": "Add career content orchestrator design",
+    "merged_date": "2026-06-20",
+    "merge_commit_short": "dfcac88878fe",
+    "url": "https://github.com/fermatmind/fap-web/pull/1241"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1242,
+    "title": "Add controlled career content operator mode",
+    "merged_date": "2026-06-20",
+    "merge_commit_short": "a736e9767bba",
+    "url": "https://github.com/fermatmind/fap-web/pull/1242"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1244,
+    "title": "Harden career content operator hard-stop policy",
+    "merged_date": "2026-06-20",
+    "merge_commit_short": "ca6e5696076c",
+    "url": "https://github.com/fermatmind/fap-web/pull/1244"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1245,
+    "title": "Support schema-compliant career content state",
+    "merged_date": "2026-06-20",
+    "merge_commit_short": "f94112e4fdfc",
+    "url": "https://github.com/fermatmind/fap-web/pull/1245"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1246,
+    "title": "Add work activities O*NET authority override policy",
+    "merged_date": "2026-06-20",
+    "merge_commit_short": "ef36a75aaa4a",
+    "url": "https://github.com/fermatmind/fap-web/pull/1246"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1247,
+    "title": "Add career identity factory scripts",
+    "merged_date": "2026-06-21",
+    "merge_commit_short": "5494c86e9e2b",
+    "url": "https://github.com/fermatmind/fap-web/pull/1247"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1249,
+    "title": "Harden career identity reader asset projection",
+    "merged_date": "2026-06-21",
+    "merge_commit_short": "cd99b27decee",
+    "url": "https://github.com/fermatmind/fap-web/pull/1249"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1254,
+    "title": "Add career skills-entry block pipeline scripts",
+    "merged_date": "2026-06-21",
+    "merge_commit_short": "05d1a27abca8",
+    "url": "https://github.com/fermatmind/fap-web/pull/1254"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1267,
+    "title": "Add career-fit content factory scripts",
+    "merged_date": "2026-06-21",
+    "merge_commit_short": "71a071476c49",
+    "url": "https://github.com/fermatmind/fap-web/pull/1267"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1285,
+    "title": "Add career-adjacent comparison factory scripts",
+    "merged_date": "2026-06-21",
+    "merge_commit_short": "991a37e61693",
+    "url": "https://github.com/fermatmind/fap-web/pull/1285"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1286,
+    "title": "Add career page assembly QA tooling",
+    "merged_date": "2026-06-21",
+    "merge_commit_short": "674a0275a98f",
+    "url": "https://github.com/fermatmind/fap-web/pull/1286"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1288,
+    "title": "Add career content staging preview dry-run",
+    "merged_date": "2026-06-21",
+    "merge_commit_short": "fdd75a2f4d91",
+    "url": "https://github.com/fermatmind/fap-web/pull/1288"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1290,
+    "title": "Add career content editorial quality gate",
+    "merged_date": "2026-06-21",
+    "merge_commit_short": "ea3c819220a6",
+    "url": "https://github.com/fermatmind/fap-web/pull/1290"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1293,
+    "title": "Harden career editorial block audit gate",
+    "merged_date": "2026-06-21",
+    "merge_commit_short": "fab73764df15",
+    "url": "https://github.com/fermatmind/fap-web/pull/1293"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1299,
+    "title": "Fix career page assembly preview order",
+    "merged_date": "2026-06-22",
+    "merge_commit_short": "72e2889490af",
+    "url": "https://github.com/fermatmind/fap-web/pull/1299"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1351,
+    "title": "Add career work activities generator",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "ecab82d7f174",
+    "url": "https://github.com/fermatmind/fap-web/pull/1351"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1355,
+    "title": "Register career work activities completion",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "c8af412acae5",
+    "url": "https://github.com/fermatmind/fap-web/pull/1355"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1358,
+    "title": "Career identity 1046 completion and authority repair state",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "d1c7ed54256b",
+    "url": "https://github.com/fermatmind/fap-web/pull/1358"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1360,
+    "title": "Career skills entry 1046 completion and generator state",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "efff62dc73cc",
+    "url": "https://github.com/fermatmind/fap-web/pull/1360"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1362,
+    "title": "Complete career-fit 1046 content block state",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "c9998aac2960",
+    "url": "https://github.com/fermatmind/fap-web/pull/1362"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1364,
+    "title": "Add career content agent technical closeout",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "57f70fbfdce7",
+    "url": "https://github.com/fermatmind/fap-web/pull/1364"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1367,
+    "title": "Complete career adjacent comparison block",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "faa61e894e63",
+    "url": "https://github.com/fermatmind/fap-web/pull/1367"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1369,
+    "title": "Complete career page assembly dry-run readiness",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "a653eefbb36c",
+    "url": "https://github.com/fermatmind/fap-web/pull/1369"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1380,
+    "title": "Add RIASEC Career Graph source authority packet",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "853cbaea946f",
+    "url": "https://github.com/fermatmind/fap-web/pull/1380"
+  },
+  {
+    "repo": "fap-web",
+    "number": 1395,
+    "title": "Guard career display locale rendering",
+    "merged_date": "2026-06-24",
+    "merge_commit_short": "4487ac2ff703",
+    "url": "https://github.com/fermatmind/fap-web/pull/1395"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2100,
+    "title": "Add salary asset staging preview importer",
+    "merged_date": "2026-06-16",
+    "merge_commit_short": "99dd8d0179cc",
+    "url": "https://github.com/fermatmind/fap-api/pull/2100"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2101,
+    "title": "Harden salary preview authority gate",
+    "merged_date": "2026-06-16",
+    "merge_commit_short": "c654ba9f30a2",
+    "url": "https://github.com/fermatmind/fap-api/pull/2101"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2102,
+    "title": "Harden salary preview projection",
+    "merged_date": "2026-06-16",
+    "merge_commit_short": "16d3bab0f8a9",
+    "url": "https://github.com/fermatmind/fap-api/pull/2102"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2106,
+    "title": "Harden career salary asset import state machine",
+    "merged_date": "2026-06-17",
+    "merge_commit_short": "ccb13823ffc9",
+    "url": "https://github.com/fermatmind/fap-api/pull/2106"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2107,
+    "title": "Career salary 1046 dry-run authority gate",
+    "merged_date": "2026-06-17",
+    "merge_commit_short": "2768cb371093",
+    "url": "https://github.com/fermatmind/fap-api/pull/2107"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2108,
+    "title": "1046 salary staging preview import",
+    "merged_date": "2026-06-17",
+    "merge_commit_short": "65fc96653214",
+    "url": "https://github.com/fermatmind/fap-api/pull/2108"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2109,
+    "title": "Career salary 1046 approved import gate",
+    "merged_date": "2026-06-17",
+    "merge_commit_short": "7533932f83d2",
+    "url": "https://github.com/fermatmind/fap-api/pull/2109"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2110,
+    "title": "Career salary 1046 production import readiness runbook",
+    "merged_date": "2026-06-17",
+    "merge_commit_short": "cc95a2805bf1",
+    "url": "https://github.com/fermatmind/fap-api/pull/2110"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2111,
+    "title": "Career salary 1046 production import ops gate",
+    "merged_date": "2026-06-18",
+    "merge_commit_short": "9f9943dc84f7",
+    "url": "https://github.com/fermatmind/fap-api/pull/2111"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2128,
+    "title": "Add AI Impact asset preview contract",
+    "merged_date": "2026-06-19",
+    "merge_commit_short": "e2b2ea22a331",
+    "url": "https://github.com/fermatmind/fap-api/pull/2128"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2130,
+    "title": "Add AI Impact staging preview write support",
+    "merged_date": "2026-06-19",
+    "merge_commit_short": "aec4e8ee7b13",
+    "url": "https://github.com/fermatmind/fap-api/pull/2130"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2132,
+    "title": "Sanitize AI Impact preview projection",
+    "merged_date": "2026-06-19",
+    "merge_commit_short": "2fe2c8da251a",
+    "url": "https://github.com/fermatmind/fap-api/pull/2132"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2134,
+    "title": "AI Impact v5 1046 dry-run importer report",
+    "merged_date": "2026-06-19",
+    "merge_commit_short": "38bd4ffd9443",
+    "url": "https://github.com/fermatmind/fap-api/pull/2134"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2135,
+    "title": "Enable full AI Impact staging preview contract",
+    "merged_date": "2026-06-19",
+    "merge_commit_short": "db25ab4b6736",
+    "url": "https://github.com/fermatmind/fap-api/pull/2135"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2137,
+    "title": "Fix AI impact preview locale fail-closed",
+    "merged_date": "2026-06-19",
+    "merge_commit_short": "c5de88c49e9a",
+    "url": "https://github.com/fermatmind/fap-api/pull/2137"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2142,
+    "title": "Add AI Impact v5 approved transition gate",
+    "merged_date": "2026-06-20",
+    "merge_commit_short": "1a729e01d39e",
+    "url": "https://github.com/fermatmind/fap-api/pull/2142"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2144,
+    "title": "Enable AI Impact v5 production import ops gate",
+    "merged_date": "2026-06-20",
+    "merge_commit_short": "e1b1cf2c72d7",
+    "url": "https://github.com/fermatmind/fap-api/pull/2144"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2146,
+    "title": "Fix AI Impact production reader projection",
+    "merged_date": "2026-06-20",
+    "merge_commit_short": "dca3f04260db",
+    "url": "https://github.com/fermatmind/fap-api/pull/2146"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2148,
+    "title": "Record AI Impact v5 production import ops report",
+    "merged_date": "2026-06-20",
+    "merge_commit_short": "0b20f39e407c",
+    "url": "https://github.com/fermatmind/fap-api/pull/2148"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2245,
+    "title": "Add career page assembly staging preview importer",
+    "merged_date": "2026-06-21",
+    "merge_commit_short": "bf665575e1e9",
+    "url": "https://github.com/fermatmind/fap-api/pull/2245"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2262,
+    "title": "Fix AI impact boundary projection wording",
+    "merged_date": "2026-06-22",
+    "merge_commit_short": "4a7adeee1813",
+    "url": "https://github.com/fermatmind/fap-api/pull/2262"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2323,
+    "title": "Enable AI Impact preview detail shell fallback",
+    "merged_date": "2026-06-22",
+    "merge_commit_short": "aa0a96a79762",
+    "url": "https://github.com/fermatmind/fap-api/pull/2323"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2344,
+    "title": "Fix AI Impact preview projection wording",
+    "merged_date": "2026-06-22",
+    "merge_commit_short": "20db67e1da9e",
+    "url": "https://github.com/fermatmind/fap-api/pull/2344"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2348,
+    "title": "Repair wind AI impact preview projection",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "e84a7e78aefb",
+    "url": "https://github.com/fermatmind/fap-api/pull/2348"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2365,
+    "title": "Fix career content staging preview projection leaks",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "853f0f2a6de1",
+    "url": "https://github.com/fermatmind/fap-api/pull/2365"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2366,
+    "title": "Fix remaining career AI Impact projection context leaks",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "00c20dc8869d",
+    "url": "https://github.com/fermatmind/fap-api/pull/2366"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2368,
+    "title": "Add page assembly approved transition gate",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "2eda84de3907",
+    "url": "https://github.com/fermatmind/fap-api/pull/2368"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2370,
+    "title": "Add page assembly production import gate",
+    "merged_date": "2026-06-23",
+    "merge_commit_short": "43fd32d46386",
+    "url": "https://github.com/fermatmind/fap-api/pull/2370"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2372,
+    "title": "Add career content production readiness dry-run workflow",
+    "merged_date": "2026-06-24",
+    "merge_commit_short": "4885444b1a89",
+    "url": "https://github.com/fermatmind/fap-api/pull/2372"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2373,
+    "title": "Add AI Impact production import dry-run gate",
+    "merged_date": "2026-06-24",
+    "merge_commit_short": "4c0011688e31",
+    "url": "https://github.com/fermatmind/fap-api/pull/2373"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2376,
+    "title": "Add career content production import workflow",
+    "merged_date": "2026-06-24",
+    "merge_commit_short": "6b8956facd50",
+    "url": "https://github.com/fermatmind/fap-api/pull/2376"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2378,
+    "title": "Allow staging artifact transfer for career production import",
+    "merged_date": "2026-06-24",
+    "merge_commit_short": "31e23f01c296",
+    "url": "https://github.com/fermatmind/fap-api/pull/2378"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2379,
+    "title": "Stage approved rows before career content production import",
+    "merged_date": "2026-06-24",
+    "merge_commit_short": "5a58cdfa5a30",
+    "url": "https://github.com/fermatmind/fap-api/pull/2379"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2380,
+    "title": "Run full state machine before career content production import",
+    "merged_date": "2026-06-24",
+    "merge_commit_short": "751a273550e4",
+    "url": "https://github.com/fermatmind/fap-api/pull/2380"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2381,
+    "title": "Make career content production import workflow retry-safe",
+    "merged_date": "2026-06-24",
+    "merge_commit_short": "427447409ab7",
+    "url": "https://github.com/fermatmind/fap-api/pull/2381"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2382,
+    "title": "Sanitize career detail source refs",
+    "merged_date": "2026-06-24",
+    "merge_commit_short": "b645278de987",
+    "url": "https://github.com/fermatmind/fap-api/pull/2382"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2387,
+    "title": "Sanitize career detail source lineage payload",
+    "merged_date": "2026-06-24",
+    "merge_commit_short": "e773650a75ec",
+    "url": "https://github.com/fermatmind/fap-api/pull/2387"
+  },
+  {
+    "repo": "fap-api",
+    "number": 2391,
+    "title": "Sanitize career detail raw enum projection",
+    "merged_date": "2026-06-24",
+    "merge_commit_short": "0f92307a0ba7",
+    "url": "https://github.com/fermatmind/fap-api/pull/2391"
+  }
+]
