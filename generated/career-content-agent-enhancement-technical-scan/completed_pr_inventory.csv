@@ -1,0 +1,72 @@
+repo,number,title,merged_date,merge_commit_short,url
+fap-web,1191,Add modular career content asset factory skills,2026-06-18,7d954ab96382,https://github.com/fermatmind/fap-web/pull/1191
+fap-web,1195,Tighten AI impact locale market rules,2026-06-18,207bd0012d77,https://github.com/fermatmind/fap-web/pull/1195
+fap-web,1196,Add v2 AI impact audit gates,2026-06-18,ea5616be3098,https://github.com/fermatmind/fap-web/pull/1196
+fap-web,1199,Fix AI impact v2 audit gate,2026-06-18,b06cfbd020f2,https://github.com/fermatmind/fap-web/pull/1199
+fap-web,1224,Add career AI impact preview consumer,2026-06-19,8f8a69a044a9,https://github.com/fermatmind/fap-web/pull/1224
+fap-web,1233,Add AI Impact v5 expanded page QA report,2026-06-19,644f4f3e180e,https://github.com/fermatmind/fap-web/pull/1233
+fap-web,1235,Add AI Impact v5 editorial review package,2026-06-19,0eada7304a1f,https://github.com/fermatmind/fap-web/pull/1235
+fap-web,1240,Update career content block skill gates,2026-06-20,25ee5006f99e,https://github.com/fermatmind/fap-web/pull/1240
+fap-web,1241,Add career content orchestrator design,2026-06-20,dfcac88878fe,https://github.com/fermatmind/fap-web/pull/1241
+fap-web,1242,Add controlled career content operator mode,2026-06-20,a736e9767bba,https://github.com/fermatmind/fap-web/pull/1242
+fap-web,1244,Harden career content operator hard-stop policy,2026-06-20,ca6e5696076c,https://github.com/fermatmind/fap-web/pull/1244
+fap-web,1245,Support schema-compliant career content state,2026-06-20,f94112e4fdfc,https://github.com/fermatmind/fap-web/pull/1245
+fap-web,1246,Add work activities O*NET authority override policy,2026-06-20,ef36a75aaa4a,https://github.com/fermatmind/fap-web/pull/1246
+fap-web,1247,Add career identity factory scripts,2026-06-21,5494c86e9e2b,https://github.com/fermatmind/fap-web/pull/1247
+fap-web,1249,Harden career identity reader asset projection,2026-06-21,cd99b27decee,https://github.com/fermatmind/fap-web/pull/1249
+fap-web,1254,Add career skills-entry block pipeline scripts,2026-06-21,05d1a27abca8,https://github.com/fermatmind/fap-web/pull/1254
+fap-web,1267,Add career-fit content factory scripts,2026-06-21,71a071476c49,https://github.com/fermatmind/fap-web/pull/1267
+fap-web,1285,Add career-adjacent comparison factory scripts,2026-06-21,991a37e61693,https://github.com/fermatmind/fap-web/pull/1285
+fap-web,1286,Add career page assembly QA tooling,2026-06-21,674a0275a98f,https://github.com/fermatmind/fap-web/pull/1286
+fap-web,1288,Add career content staging preview dry-run,2026-06-21,fdd75a2f4d91,https://github.com/fermatmind/fap-web/pull/1288
+fap-web,1290,Add career content editorial quality gate,2026-06-21,ea3c819220a6,https://github.com/fermatmind/fap-web/pull/1290
+fap-web,1293,Harden career editorial block audit gate,2026-06-21,fab73764df15,https://github.com/fermatmind/fap-web/pull/1293
+fap-web,1299,Fix career page assembly preview order,2026-06-22,72e2889490af,https://github.com/fermatmind/fap-web/pull/1299
+fap-web,1351,Add career work activities generator,2026-06-23,ecab82d7f174,https://github.com/fermatmind/fap-web/pull/1351
+fap-web,1355,Register career work activities completion,2026-06-23,c8af412acae5,https://github.com/fermatmind/fap-web/pull/1355
+fap-web,1358,Career identity 1046 completion and authority repair state,2026-06-23,d1c7ed54256b,https://github.com/fermatmind/fap-web/pull/1358
+fap-web,1360,Career skills entry 1046 completion and generator state,2026-06-23,efff62dc73cc,https://github.com/fermatmind/fap-web/pull/1360
+fap-web,1362,Complete career-fit 1046 content block state,2026-06-23,c9998aac2960,https://github.com/fermatmind/fap-web/pull/1362
+fap-web,1364,Add career content agent technical closeout,2026-06-23,57f70fbfdce7,https://github.com/fermatmind/fap-web/pull/1364
+fap-web,1367,Complete career adjacent comparison block,2026-06-23,faa61e894e63,https://github.com/fermatmind/fap-web/pull/1367
+fap-web,1369,Complete career page assembly dry-run readiness,2026-06-23,a653eefbb36c,https://github.com/fermatmind/fap-web/pull/1369
+fap-web,1380,Add RIASEC Career Graph source authority packet,2026-06-23,853cbaea946f,https://github.com/fermatmind/fap-web/pull/1380
+fap-web,1395,Guard career display locale rendering,2026-06-24,4487ac2ff703,https://github.com/fermatmind/fap-web/pull/1395
+fap-api,2100,Add salary asset staging preview importer,2026-06-16,99dd8d0179cc,https://github.com/fermatmind/fap-api/pull/2100
+fap-api,2101,Harden salary preview authority gate,2026-06-16,c654ba9f30a2,https://github.com/fermatmind/fap-api/pull/2101
+fap-api,2102,Harden salary preview projection,2026-06-16,16d3bab0f8a9,https://github.com/fermatmind/fap-api/pull/2102
+fap-api,2106,Harden career salary asset import state machine,2026-06-17,ccb13823ffc9,https://github.com/fermatmind/fap-api/pull/2106
+fap-api,2107,Career salary 1046 dry-run authority gate,2026-06-17,2768cb371093,https://github.com/fermatmind/fap-api/pull/2107
+fap-api,2108,1046 salary staging preview import,2026-06-17,65fc96653214,https://github.com/fermatmind/fap-api/pull/2108
+fap-api,2109,Career salary 1046 approved import gate,2026-06-17,7533932f83d2,https://github.com/fermatmind/fap-api/pull/2109
+fap-api,2110,Career salary 1046 production import readiness runbook,2026-06-17,cc95a2805bf1,https://github.com/fermatmind/fap-api/pull/2110
+fap-api,2111,Career salary 1046 production import ops gate,2026-06-18,9f9943dc84f7,https://github.com/fermatmind/fap-api/pull/2111
+fap-api,2128,Add AI Impact asset preview contract,2026-06-19,e2b2ea22a331,https://github.com/fermatmind/fap-api/pull/2128
+fap-api,2130,Add AI Impact staging preview write support,2026-06-19,aec4e8ee7b13,https://github.com/fermatmind/fap-api/pull/2130
+fap-api,2132,Sanitize AI Impact preview projection,2026-06-19,2fe2c8da251a,https://github.com/fermatmind/fap-api/pull/2132
+fap-api,2134,AI Impact v5 1046 dry-run importer report,2026-06-19,38bd4ffd9443,https://github.com/fermatmind/fap-api/pull/2134
+fap-api,2135,Enable full AI Impact staging preview contract,2026-06-19,db25ab4b6736,https://github.com/fermatmind/fap-api/pull/2135
+fap-api,2137,Fix AI impact preview locale fail-closed,2026-06-19,c5de88c49e9a,https://github.com/fermatmind/fap-api/pull/2137
+fap-api,2142,Add AI Impact v5 approved transition gate,2026-06-20,1a729e01d39e,https://github.com/fermatmind/fap-api/pull/2142
+fap-api,2144,Enable AI Impact v5 production import ops gate,2026-06-20,e1b1cf2c72d7,https://github.com/fermatmind/fap-api/pull/2144
+fap-api,2146,Fix AI Impact production reader projection,2026-06-20,dca3f04260db,https://github.com/fermatmind/fap-api/pull/2146
+fap-api,2148,Record AI Impact v5 production import ops report,2026-06-20,0b20f39e407c,https://github.com/fermatmind/fap-api/pull/2148
+fap-api,2245,Add career page assembly staging preview importer,2026-06-21,bf665575e1e9,https://github.com/fermatmind/fap-api/pull/2245
+fap-api,2262,Fix AI impact boundary projection wording,2026-06-22,4a7adeee1813,https://github.com/fermatmind/fap-api/pull/2262
+fap-api,2323,Enable AI Impact preview detail shell fallback,2026-06-22,aa0a96a79762,https://github.com/fermatmind/fap-api/pull/2323
+fap-api,2344,Fix AI Impact preview projection wording,2026-06-22,20db67e1da9e,https://github.com/fermatmind/fap-api/pull/2344
+fap-api,2348,Repair wind AI impact preview projection,2026-06-23,e84a7e78aefb,https://github.com/fermatmind/fap-api/pull/2348
+fap-api,2365,Fix career content staging preview projection leaks,2026-06-23,853f0f2a6de1,https://github.com/fermatmind/fap-api/pull/2365
+fap-api,2366,Fix remaining career AI Impact projection context leaks,2026-06-23,00c20dc8869d,https://github.com/fermatmind/fap-api/pull/2366
+fap-api,2368,Add page assembly approved transition gate,2026-06-23,2eda84de3907,https://github.com/fermatmind/fap-api/pull/2368
+fap-api,2370,Add page assembly production import gate,2026-06-23,43fd32d46386,https://github.com/fermatmind/fap-api/pull/2370
+fap-api,2372,Add career content production readiness dry-run workflow,2026-06-24,4885444b1a89,https://github.com/fermatmind/fap-api/pull/2372
+fap-api,2373,Add AI Impact production import dry-run gate,2026-06-24,4c0011688e31,https://github.com/fermatmind/fap-api/pull/2373
+fap-api,2376,Add career content production import workflow,2026-06-24,6b8956facd50,https://github.com/fermatmind/fap-api/pull/2376
+fap-api,2378,Allow staging artifact transfer for career production import,2026-06-24,31e23f01c296,https://github.com/fermatmind/fap-api/pull/2378
+fap-api,2379,Stage approved rows before career content production import,2026-06-24,5a58cdfa5a30,https://github.com/fermatmind/fap-api/pull/2379
+fap-api,2380,Run full state machine before career content production import,2026-06-24,751a273550e4,https://github.com/fermatmind/fap-api/pull/2380
+fap-api,2381,Make career content production import workflow retry-safe,2026-06-24,427447409ab7,https://github.com/fermatmind/fap-api/pull/2381
+fap-api,2382,Sanitize career detail source refs,2026-06-24,b645278de987,https://github.com/fermatmind/fap-api/pull/2382
+fap-api,2387,Sanitize career detail source lineage payload,2026-06-24,e773650a75ec,https://github.com/fermatmind/fap-api/pull/2387
+fap-api,2391,Sanitize career detail raw enum projection,2026-06-24,0f92307a0ba7,https://github.com/fermatmind/fap-api/pull/2391

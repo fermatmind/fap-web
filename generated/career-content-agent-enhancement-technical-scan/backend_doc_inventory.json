@@ -1,0 +1,1096 @@
+{
+  "verdict": "present_primary_backend_handbook",
+  "primary": "backend/docs/career/README.md",
+  "documents": [
+    {
+      "path": "backend/docs/career/README.md",
+      "size": 39183,
+      "sha256": "be06deeec2bdf7bc808bb52ef20f1a90d3ec2a6868a1df823b9551153529487c"
+    },
+    {
+      "path": "backend/docs/career/batches/b71x_batch_set.json",
+      "size": 799,
+      "sha256": "7ee103547537eaf713e3dc5488ffc0b39032d3bbbf1314b025c12069f3b05db7"
+    },
+    {
+      "path": "backend/docs/career/batches/batch_2_manifest.json",
+      "size": 13256,
+      "sha256": "bb7925ec2afeebd4b039cc011e384686ebea11e81cadbc28a4c6cb73643ee296"
+    },
+    {
+      "path": "backend/docs/career/batches/batch_3_manifest.json",
+      "size": 36916,
+      "sha256": "d7b4e885d50e9790e71e1f1b03708d72123f1c3135557362cc7b65da816476d7"
+    },
+    {
+      "path": "backend/docs/career/batches/batch_4_manifest.json",
+      "size": 97522,
+      "sha256": "52d4b782d7fc2661743dcfd4d2809fa758d0f7bae99cd33de93e92ab3d3f0894"
+    },
+    {
+      "path": "backend/docs/career/career-batch-manifest.example.json",
+      "size": 2737,
+      "sha256": "a59bbbefc9784c05df131ba497aae67e87c9417c051ac2504ffd720108a8b434"
+    },
+    {
+      "path": "backend/docs/career/career-batch-manifest.template.json",
+      "size": 2367,
+      "sha256": "24471f331e30f5ec01aecf5894666a0a22d7522d6fa48dee75bf5af5dee42ebf"
+    },
+    {
+      "path": "backend/docs/career/first_wave_aliases.json",
+      "size": 8090,
+      "sha256": "71766bf9314248a7de69b2fd05c7af7d7b69904a35c43a40bb16976dfc767477"
+    },
+    {
+      "path": "backend/docs/career/first_wave_authority_overrides.json",
+      "size": 284,
+      "sha256": "80ee7a2e19f41dde6eaf0398162983c98a30696a5a4ca2397e0c9c8e63324898"
+    },
+    {
+      "path": "backend/docs/career/first_wave_blocked_registry.json",
+      "size": 2077,
+      "sha256": "260c1ba4e0d15c9c0b59c9873a4ccb272e0e48ac667048b19aa5984f24eb39aa"
+    },
+    {
+      "path": "backend/docs/career/first_wave_family_aliases.json",
+      "size": 2396,
+      "sha256": "5c316405c0488416153e640265ae345bd97d016ce5d688187e3d6b46b1e3a21e"
+    },
+    {
+      "path": "backend/docs/career/first_wave_manifest.json",
+      "size": 10451,
+      "sha256": "d8e712986908e72d71f7bd111603b6a681919342f119f478325cf366131dd509"
+    },
+    {
+      "path": "backend/docs/career/generated/career-full-parity-01-live-report.json",
+      "size": 4162383,
+      "sha256": "80c0dfb621c730a992ad7dd9799a5ea4f0b507e1f52980db8b03d6113d93c966"
+    },
+    {
+      "path": "backend/docs/career/generated/career-full-parity-02-root-cause-manifest.json",
+      "size": 7643194,
+      "sha256": "86ec5872e0fe4fe5bb4bb1def0d55060b7fac2c8aff12efc9311b06ac999f07e"
+    },
+    {
+      "path": "backend/docs/career/generated/career-full-parity-03-contract-repair-report.json",
+      "size": 6253,
+      "sha256": "83994947e4336fb7cf56b13445b9658a527a8a7c6eac6b04969bd0257d53c27e"
+    },
+    {
+      "path": "backend/docs/career/generated/career-full-parity-04-runtime-shell-import-readiness.json",
+      "size": 161591,
+      "sha256": "939ad347e7476fe6d6e6dc2be12bc38d356ecd3085e4d36320c96c7818a74b92"
+    },
+    {
+      "path": "backend/docs/career/generated/career-full-parity-05-zh-module-normalization-readiness.json",
+      "size": 2277,
+      "sha256": "943c09f32d923b1558082cdf56c39712612e265d6aa088bf88ff8aaa0d50c4c1"
+    },
+    {
+      "path": "backend/docs/career/generated/career-full-parity-06-en-display-asset-runtime-alignment.json",
+      "size": 1250,
+      "sha256": "4c4188fe561ac0397c707b4fb4a523724f1ee6cd252a5cf75b6f196b1a60314b"
+    },
+    {
+      "path": "backend/docs/career/generated/career-full-parity-07-cache-convergence-readiness.json",
+      "size": 2843,
+      "sha256": "73d6c1a9eaecbd94c8864d81ce0d94c1c2c906545d04aa5787e2a1f34440ef68"
+    },
+    {
+      "path": "backend/docs/career/generated/career-full-parity-08-live-parity-gate-readiness.json",
+      "size": 1802,
+      "sha256": "8536ca33d84256337f0f9acbf8b2b86fb34a2680b4b523e5f0408d89d72fc84c"
+    },
+    {
+      "path": "backend/docs/career/generated/career-runtime-cohort-diagnosis-2026-05-27.json",
+      "size": 4385,
+      "sha256": "493f0396cd6ac24ae032a8cc71f32cfb1193684371ca40ab89018cb6ace3aaed"
+    },
+    {
+      "path": "backend/docs/career/generated/career-salary-1046-production-import-readiness-2026-06-17.json",
+      "size": 1751,
+      "sha256": "02dfd8b4c9ac5e0ea923a0c136e53c27a997c1d9c1b4a23e28d8dc737b538cf4"
+    },
+    {
+      "path": "backend/docs/career/generated/career-zh-display-parity-04-live-report.json",
+      "size": 81929,
+      "sha256": "060c0478bbb2c86a34102fad40bdab046f1a491bc6b25e73edf2850411ed1599"
+    },
+    {
+      "path": "backend/docs/career/generated/career-zh-parity-controlled-import-readiness-01.json",
+      "size": 39113,
+      "sha256": "b82131219e079ee5ee6e5a19cc32d1601375061546300e760e05e6bc72d97af8"
+    },
+    {
+      "path": "backend/docs/career/generated/career-zh-parity-fix-01-readiness-report.json",
+      "size": 3363,
+      "sha256": "5178ba12acc9a4ce70a6cc2632157d4064e4c33e5402d54d7bf09492c1fa6301"
+    },
+    {
+      "path": "backend/docs/career/generated/career-zh-parity-fix-02-contract-repair-report.json",
+      "size": 3553,
+      "sha256": "0a4d97810553b9b182066ccb773bce5404b2cca38f45a1338c2ff78b6c1793b6"
+    },
+    {
+      "path": "backend/docs/career/generated/career-zh-parity-fix-06-live-report.json",
+      "size": 52520,
+      "sha256": "7e7835f934d35b4f7ac24ebd9bb87a1363677866241a3794392fe4b06897bf25"
+    },
+    {
+      "path": "backend/docs/career/generated/career-zh-parity-live-01-production-report.json",
+      "size": 3839450,
+      "sha256": "10de108f9e07be1d2d160360b06fd9e71dd34b521c60687935341475b3c8bced"
+    },
+    {
+      "path": "backend/docs/seo/article-packages/riasec-explanation-v2/README.md",
+      "size": 1102,
+      "sha256": "4a375181e08601d3b9e1b2d222225fe710efb3fcd26f6b534ee24d88e0629bef"
+    },
+    {
+      "path": "backend/docs/seo/article-packages/riasec-explanation-v2/index.json",
+      "size": 483,
+      "sha256": "34daf321c9bdbfbcdeb45badd7bccbe3086ae8ba3f074036b7e754a8ad3998e7"
+    },
+    {
+      "path": "backend/docs/seo/article-packages/riasec-explanation-v2/riasec-explanation-v2.cms-import.json",
+      "size": 50895,
+      "sha256": "44f9f9a3952328777c814466f0d81b904d03a2266b1aae76d78790e255f07c89"
+    },
+    {
+      "path": "backend/docs/seo/article-packages/riasec-explanation-v2/riasec-explanation-v2.en.md",
+      "size": 15791,
+      "sha256": "859dfcf52e01ec3c99ffad9acdaf08808abcd1ecaa07c15229d7fc867ed3f976"
+    },
+    {
+      "path": "backend/docs/seo/article-packages/riasec-explanation-v2/riasec-explanation-v2.en.meta.json",
+      "size": 8487,
+      "sha256": "7b824fe7cf03a8e36ea3d551aebf03870fd61fe38222ebb70c2a1d4bed92f31f"
+    },
+    {
+      "path": "backend/docs/seo/article-packages/riasec-explanation-v2/riasec-explanation-v2.self-check.json",
+      "size": 356,
+      "sha256": "732e41e956def5605e8dfacb06fd277f08b5dfc5b5d8a13eec3ed02ef77aebf4"
+    },
+    {
+      "path": "backend/docs/seo/article-packages/riasec-explanation-v2/riasec-explanation-v2.zh.md",
+      "size": 14800,
+      "sha256": "a75e05c8aa0765067ab8e5a20a066dfa2fb2aabdb438b01c58facbfce2f09cb8"
+    },
+    {
+      "path": "backend/docs/seo/article-packages/riasec-explanation-v2/riasec-explanation-v2.zh.meta.json",
+      "size": 8394,
+      "sha256": "aeda61596521db3192f097de387e5a8b3babd86071e0ca86d242a72ea907d8ba"
+    },
+    {
+      "path": "backend/docs/seo/article-packages/riasec-explanation-v2/v2-diff-summary.md",
+      "size": 812,
+      "sha256": "59d78e0de8586fbcb0b8ed5ab67d31b647b29d4ab0bb7abd89b48bb85ac6feed"
+    },
+    {
+      "path": "backend/docs/seo/canary-packages/mbti-vs-holland-career-choice.importer-adapter-notes.md",
+      "size": 4197,
+      "sha256": "2173c2f7c3d01f8267c7934ec3f49bf609bd66226ef93905537265eadbc310b8"
+    },
+    {
+      "path": "backend/docs/seo/canary-packages/mbti-vs-holland-career-choice.package-notes.md",
+      "size": 1698,
+      "sha256": "f0b6b67f98f5fbfe0f2ac3b75edc0879949614e5c25093266793941e27935bfd"
+    },
+    {
+      "path": "backend/docs/seo/canary-packages/mbti-vs-holland-career-choice.zh-CN.importer-adapter.json",
+      "size": 22235,
+      "sha256": "9b8f1fa514773c9ff5a51bff2904781b4c24a783b24adac79ee69d04c90139c4"
+    },
+    {
+      "path": "backend/docs/seo/canary-packages/mbti-vs-holland-career-choice.zh-CN.json",
+      "size": 18378,
+      "sha256": "ce525bba55c0e10428402062a23d2b4675062db1cdce93d90e0e5ed2700925b0"
+    },
+    {
+      "path": "backend/docs/seo/canary-packages/mbti-vs-holland-code-career-choice.en.importer-adapter.json",
+      "size": 24931,
+      "sha256": "3e5ed08b123232f98b6d775fddbe4f64b6b69884f4f31d68b3dc21b597036bea"
+    },
+    {
+      "path": "backend/docs/seo/canary-packages/mbti-vs-holland-code-career-choice.en.json",
+      "size": 20764,
+      "sha256": "35141ba7f2b9cb7b57648e47668625a27b442e7748ed33fa18dc971ba3a79a41"
+    },
+    {
+      "path": "backend/docs/seo/career-10k-rollout-architecture-spec-01.md",
+      "size": 5770,
+      "sha256": "107038afaef2b5066b6e9282e571666dbc4c7d8d6d8a12c9d44c8b6ab955f464"
+    },
+    {
+      "path": "backend/docs/seo/career-directory-authority-drift-gate-01.md",
+      "size": 2320,
+      "sha256": "1200ebff34a2b078deb28ffad39313b7ade9bd47c4339aa56b3f79a6fde5d244"
+    },
+    {
+      "path": "backend/docs/seo/career-legacy-full-jobs-index-consumer-audit-01.md",
+      "size": 3180,
+      "sha256": "6871ba59a326208df154c83240f65aedb50a7deb55b45768fe2ece95f878642d"
+    },
+    {
+      "path": "backend/docs/seo/career-search-channel-readiness-gate-01.md",
+      "size": 2682,
+      "sha256": "888daaa22512305578848de5f3b758a9322708691af716bd0f9e455628b22859"
+    },
+    {
+      "path": "backend/docs/seo/cms-import-packages/riasec-explanation-v2/README.md",
+      "size": 1205,
+      "sha256": "74b912f6d8634c5880c33cd82eca47f08dca85dc54fde74c0c54baceae9d8d63"
+    },
+    {
+      "path": "backend/docs/seo/cms-import-packages/riasec-explanation-v2/en.article-target.json",
+      "size": 25559,
+      "sha256": "cf29a7e6e2cc5a6d8059f26cd1476ce07e166d94f91642209fb43d900ca5a0a8"
+    },
+    {
+      "path": "backend/docs/seo/cms-import-packages/riasec-explanation-v2/zh.article-target.json",
+      "size": 24470,
+      "sha256": "b7f0cf1bdbec157649a3aae7c0ad41875fe59f86c9a8b9f5f38dfc2279d01679"
+    },
+    {
+      "path": "backend/docs/seo/crawler-log-production-canary-preflight.md",
+      "size": 4709,
+      "sha256": "a607ce85d87f83c26f3bad856a487ae424de7525ccf42d4e452cc2c375c6c7b5"
+    },
+    {
+      "path": "backend/docs/seo/crawler-log-production-canary-report.md",
+      "size": 5236,
+      "sha256": "2561b276e036d938305f97aa26c26b9e8340b1aa5c4da0158c2beb34311d6581"
+    },
+    {
+      "path": "backend/docs/seo/crawler-log-production-canary-runtime.md",
+      "size": 2387,
+      "sha256": "f49d2e878117ae0f42d0e7fcf82782f347820c888f6670838de9a0bf2f4314e8"
+    },
+    {
+      "path": "backend/docs/seo/generated/article-operating-workflow-sop.v1.json",
+      "size": 2282,
+      "sha256": "fbe37394275aecbaa8582e16483cbd3511daecc74bbf9a3333a11c27c49cfd50"
+    },
+    {
+      "path": "backend/docs/seo/generated/career-1046-internal-linking-authority-01.v1.json",
+      "size": 2527,
+      "sha256": "c93e54ed2b19bdfc1dc5d850456a6d996198213c1043dca7bdcec59e6a0cee53"
+    },
+    {
+      "path": "backend/docs/seo/generated/career-1046-observability-slo-01.v1.json",
+      "size": 2117,
+      "sha256": "33c4981de3111204d11f4be58334375facbcf41f746b0eaa2f116119b11d4334"
+    },
+    {
+      "path": "backend/docs/seo/generated/career-1046-ops-read-model-repair-01.v1.json",
+      "size": 1396,
+      "sha256": "272b3c7b89c44696ec8d2228865ddaa27c72b99f558afa0cc0b1935142b3e081"
+    },
+    {
+      "path": "backend/docs/seo/generated/career-1046-ops-scope-reconciliation-01.v1.json",
+      "size": 6801,
+      "sha256": "7324a02d78ddcb46aa8cb6d9176326b77edd05167f277e7df5a3753091d265f1"
+    },
+    {
+      "path": "backend/docs/seo/generated/career-10k-rollout-architecture-spec-01.v1.json",
+      "size": 4289,
+      "sha256": "1c3f81c428227f79b5764115bc49efa4676d03b74e4da725adb5a271b235b322"
+    },
+    {
+      "path": "backend/docs/seo/generated/career-directory-10k-ops-warm-validate-01.v1.json",
+      "size": 1286,
+      "sha256": "293ee9055f2076883161e33c8f2fab3d54d03a236490c1c70b17f561ba06c94c"
+    },
+    {
+      "path": "backend/docs/seo/generated/career-directory-authority-artifact-api-01.v1.json",
+      "size": 1408,
+      "sha256": "b62fe734c4c048284a7b1aebc2b6295bc5730ae627a2097790db5d9baa339010"
+    },
+    {
+      "path": "backend/docs/seo/generated/career-directory-authority-drift-gate-01.v1.json",
+      "size": 2133,
+      "sha256": "c957bba1701619db5d3779b8560a1270d7daf509083b4797310a7a2ddac4231b"
+    },
+    {
+      "path": "backend/docs/seo/generated/career-l3-dynamic-slot-architecture-01.v1.json",
+      "size": 2258,
+      "sha256": "3906da0dd4d62c0b302db1a661612a221c845870fa34d32e3ea7feb9dec538bf"
+    },
+    {
+      "path": "backend/docs/seo/generated/career-legacy-full-jobs-index-consumer-audit-01.v1.json",
+      "size": 4091,
+      "sha256": "16dfdb3b1225b158c25851a1e722f9821485e98efdc864aaf1d6a16efebe367e"
+    },
+    {
+      "path": "backend/docs/seo/generated/career-search-channel-readiness-gate-01.v1.json",
+      "size": 2386,
+      "sha256": "1dacc7476696762cee0503445dc05be32fe5d4092e18db148e41e226bc804922"
+    },
+    {
+      "path": "backend/docs/seo/generated/career-sitemap-exposure-directory-authority-01.v1.json",
+      "size": 995,
+      "sha256": "1aa0421383de2ef6c0f620ee22f0c02d733b9f80953f1b881feb7c72f5d40b3a"
+    },
+    {
+      "path": "backend/docs/seo/generated/crawler-log-production-canary-preflight.v1.json",
+      "size": 4091,
+      "sha256": "266837c69ad140d58ff5e5c8cf9d41d9ef40fb77127f4be5a5a7e111c7729fe6"
+    },
+    {
+      "path": "backend/docs/seo/generated/crawler-log-production-canary-report.v1.json",
+      "size": 4330,
+      "sha256": "b62e05abe10f4ac32303c5f9cf1b80b17368c8d332769a7314ec996ca426bea4"
+    },
+    {
+      "path": "backend/docs/seo/generated/crawler-log-production-canary-runtime.v1.json",
+      "size": 2369,
+      "sha256": "9c06399c1a532d66439b304fd1170aa9421b176c47cf0d72ff70787698c760ec"
+    },
+    {
+      "path": "backend/docs/seo/generated/en-parity-05-career-guide-detail-import-package.v1.json",
+      "size": 3874,
+      "sha256": "bb9f50ae3f26cb0c24814109cb45478e59866b194f3803deace1ea71560ed99c"
+    },
+    {
+      "path": "backend/docs/seo/generated/global-career-runtime-cohort-and-detail-repair-01.v1.json",
+      "size": 6787,
+      "sha256": "f22c9af34b5b853390a7bd53ba260617a518dc465583f28ed301b31646e6dd58"
+    },
+    {
+      "path": "backend/docs/seo/generated/global-career-runtime-cohort-publish-authority-alignment-01.v1.json",
+      "size": 3064,
+      "sha256": "a99e91dde1f02eee38065fe4e97d53272cfb7c4f03c7f7d79ecadcaf328630eb"
+    },
+    {
+      "path": "backend/docs/seo/generated/global-en-zh-career-asset-batch-01.v1.json",
+      "size": 6735,
+      "sha256": "8facd1afca48b8a2ce34ce7f1097a7a8f6835ca69422156545c6b2169c475639"
+    },
+    {
+      "path": "backend/docs/seo/generated/global-en-zh-career-content-batch-05.v1.json",
+      "size": 19508,
+      "sha256": "ed9dd566e9ddcdec50da2dbdbf9510095b554e851061e4d1ffb5603c59a38d28"
+    },
+    {
+      "path": "backend/docs/seo/generated/global-en-zh-career-human-review-import-05.v1.json",
+      "size": 1907121,
+      "sha256": "31d856d04fda19d7bbffd57e5a71d5cbf7575c9839e4b994b87b9eab0eb4fa08"
+    },
+    {
+      "path": "backend/docs/seo/generated/production-seo-intel-db-migration-runbook.v1.json",
+      "size": 6411,
+      "sha256": "716366d3b06c0cd6213a798fa3c54a8f132e8b181d5e4fdae922e57e2ed899b3"
+    },
+    {
+      "path": "backend/docs/seo/generated/result-en-parity-02-riasec-en-assets.v1.json",
+      "size": 6909,
+      "sha256": "d819de6176e5e62fccd017fe2da53fb0697e6259dd793c06935653bce8056fdc"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-cms-draft-approval-preflight.v1.json",
+      "size": 6662,
+      "sha256": "0f7490ef97ba17705282edd2f1aa3a01cade20e26545917c4a1469eb2965e1f1"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-cms-draft-create.v1.json",
+      "size": 8903,
+      "sha256": "e5e111a0f5f4295fbe2664fa08743eb1de862e6c90a63ca56abfae43e2909154"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-cms-draft-preflight.v1.json",
+      "size": 9378,
+      "sha256": "c3732d64f30ccbe9a8dd71fa26998d27d19027ca8fe34ebcbed423f4d569a9c8"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-cms-import-package.v1.json",
+      "size": 53609,
+      "sha256": "c8f9e890a75361795626b8dfa9280e0e72c757a58113465efeffb9477f9493ee"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-cms-media-upload-import.v1.json",
+      "size": 6779,
+      "sha256": "2f6161655f91f99e0699cdbbe2070e4599534e7f45ff23c9cd19e846c0649acd"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-content-package-v2.json",
+      "size": 2808,
+      "sha256": "5456c0dff5d03f932c9f91bfafa1c6246db506142493168abffd097363e4a9c3"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-content-package-v2.validation.json",
+      "size": 5321,
+      "sha256": "6efb16005aaff5b7c605ca1ff1c170d7cbd3e0c8f91543906a8187c133bd29f8"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-controlled-publish-postpublish-smoke.v1.json",
+      "size": 5237,
+      "sha256": "51c9a67dc6080e524a9b3ed6400c0e4db271719a36597dbe233f2c922e373e90"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-draft-cover-attach-publish-preflight.v1.json",
+      "size": 5619,
+      "sha256": "bacdbab4e357f7575acd51931ee5ad79ec4b0259c06164980516ea7b358f04cc"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-editorial-review.v1.json",
+      "size": 7863,
+      "sha256": "53ab58b03896908c835b749f291c7aa1496d3f85e33ebad5e7c548b8fa60ddbd"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-importer-mapping-preflight.v1.json",
+      "size": 4392,
+      "sha256": "5a72d3ba324beaa5ba3a34900f827b6b6fa8bd9cfce589aaa197c92175939d5f"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-media-selection-readiness.v1.json",
+      "size": 6641,
+      "sha256": "b9f34897a90af20c5514a2dcba382b9edfcc7a3c9469133aec34cd3e5c2f87a1"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-operator-input-media-blocker.v1.json",
+      "size": 9854,
+      "sha256": "0c72527324de41eaee90f3ab972e03f3bb0096086315337ecbd75f1065a7e5b5"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-post-publish-smoke-02.v1.json",
+      "size": 7147,
+      "sha256": "8dade37e17c48580a00e2bc732cc66fb1456902c6f2ca18f16586e175b3231c6"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-reference-media-revision-approval.v1.json",
+      "size": 9166,
+      "sha256": "459ac7434835b9f257d6e32da460ceb261e63d66617403f6eb283d412a82f68a"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-reference-source-review.v1.json",
+      "size": 6159,
+      "sha256": "73048255a277b7fa7f8a3792ed679784dd34bfbfb0baeb062c36c18ef67c8a69"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-references-source-gate-preflight.v1.json",
+      "size": 5786,
+      "sha256": "232c6fb42ddd6ed3bc0b27189c3ce51bc37f64d371872ae9bf228cdb25478753"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-explanation-zh-locale-contract-fix.v1.json",
+      "size": 6853,
+      "sha256": "f57e18ad9c76ece4e6dd26978db3b6f05e0fb8b39c83f4ab713f3baad3bf961b"
+    },
+    {
+      "path": "backend/docs/seo/generated/riasec-major-graph-authority.v1.json",
+      "size": 2503,
+      "sha256": "2e98a1ff48e8ad904e5fa2fe495a111809fbf1bd68932255525f36419f833941"
+    },
+    {
+      "path": "backend/docs/seo/generated/science-contentpage-production-dry-run-nowrite-01.v1.json",
+      "size": 4525,
+      "sha256": "65d8eaaec26cc69ff8824dda7310fcda31651f5f96325453ff04f28b11ed3d99"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-article-cms-publish-canary.v1.json",
+      "size": 2845,
+      "sha256": "e9fe715cb0511819e4ca86ef3ce9fd65456ef227972455ecae8f02ad5146b2c8"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-article-draft-claim-risk-qa.v1.json",
+      "size": 1659,
+      "sha256": "3f9f3950d8d1b3609b29a2fb99ce00c3cdb19b90e7a38930180232ba59f417b7"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-article-draft-preview-runtime-qa.v1.json",
+      "size": 2788,
+      "sha256": "7caf560eb65d9b9062dd529e7f72d8b53ba4dae83b49df6c911d96aa1b062c61"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-article-post-publish-propagation-dry-run.v1.json",
+      "size": 2699,
+      "sha256": "2730674f5763cbfc8fb2fecc42e4db5b4a30281432ccb6cfd16b75549a0cee10"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-auto-approval-policy.v1.json",
+      "size": 2276,
+      "sha256": "87b53603d9102baf46976ccda31915674605084b451606905cac3952dcc3452d"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-auto-rollback-guard.v1.json",
+      "size": 1423,
+      "sha256": "92933c4c3d9e1f52902eacaf81fbb9872596f8a00dd4d28e3d2b23c4e648dc82"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-cms-draft-package-dryrun.v1.json",
+      "size": 1864,
+      "sha256": "fb51897c84f837ee8d3d00909994933a53dae740f9e403218bc2531a98b08643"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-cms-draft-payload-repair-canary.v1.json",
+      "size": 2914,
+      "sha256": "62c30324864f5e5a7d9baed849acb11f8d3d30f2cea1a9305b485d6ff88097e4"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-cms-draft-readback-qa.v1.json",
+      "size": 2160,
+      "sha256": "8e3280808f6e5f1bf107a588fcad785bf9bdaddfbd7e380ec83b79519ac776c6"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-cms-faq-gap-readonly-scanner.v1.json",
+      "size": 1976,
+      "sha256": "28c20e513ecce03695101519edab99005cb1ef9d8116192e1a9429d34a3d410c"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-cms-publish-auto-canary.v1.json",
+      "size": 2174,
+      "sha256": "5c47502b8eece679ff79461bf68a6a16dac43cc4cc901a23be84ba593f109be6"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-cms-publish-canary.v1.json",
+      "size": 2113,
+      "sha256": "0a1a0ae569ec6b42150f567ec77df232526dd460c1f11bfdd932687775d0f8b2"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-cms-tdk-gap-readonly-scanner.v1.json",
+      "size": 2523,
+      "sha256": "4d5022e39790a27457620194e9a379d544eafa328c7860f8bb7fd08daffd773b"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-codex-review-runner.v1.json",
+      "size": 2056,
+      "sha256": "69421dd0d2b9cb33460b3f0ef20dbb3c6fff423c4ba7f4eef4db36b2cfdfaad2"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-controlled-cms-draft-write.v1.json",
+      "size": 2349,
+      "sha256": "e380a7cd5f598aedbc72298e82efb5de1a12574c96d6e9432932a042cca92e11"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-gsc-batch-draft-qa-support.v1.json",
+      "size": 1895,
+      "sha256": "e40abac844e3af325f6cb055d2511d8355b5c9da705be1e6af68f3c54c04a3ff"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-gsc-cohort-handoff.v1.json",
+      "size": 2581,
+      "sha256": "5ed1f6fce46bcc4b6f47f9db7ab1042a871d4f46852ab262ae8a32bf38e43cf7"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-gsc-draft-publish-gate-readiness.v1.json",
+      "size": 1340,
+      "sha256": "5b589b68db18868e7c6eb7885a4004625cf14e2b3d762adf1428940eb18a61b0"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-gsc-opportunity-auto-draft.v1.json",
+      "size": 2027,
+      "sha256": "59f1535ce7873eadadb6a3c7161569a2899b6aa35346545dec12efb099eb1f48"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-gsc-post-publish-feedback.v1.json",
+      "size": 1677,
+      "sha256": "0b6bc1c195bbb8ca27286da4109bf83acf55b19b27f96f00d607609f9a5c039b"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-gsc-remaining-candidate-batch-plan.v1.json",
+      "size": 2292,
+      "sha256": "7a02dd7eb52091687c75783f13cda75fc4ea66bf420e4e13a31d0f63cd97345d"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-opportunity-aggregate.v1.json",
+      "size": 2085,
+      "sha256": "a563291435df5b015272d6d59f3fef891d985763333d2a6211a0dc6091106ce4"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-opportunity-source-expansion.v1.json",
+      "size": 3722,
+      "sha256": "78d4e187bf87cee75d0f3d1b4e8b820f60376bc84590ffa9430ee85cf584c51e"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-post-publish-indexnow-auto.v1.json",
+      "size": 1941,
+      "sha256": "c2d0e0006c133cb312c22b3d52252d19ff19907c08283e226eaf00e6e33da187"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-post-publish-search-submit.v1.json",
+      "size": 2088,
+      "sha256": "7d74c251d710af0ef7aa834569188234634eeff0400ae5e987595a2e0061dfdb"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-priority-queue-scheduler.v1.json",
+      "size": 2211,
+      "sha256": "df757bee4cc8f272f638b208f6c195772dc0521a3fdc9dbc4eb3b8aa87b7814e"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-run-control-packet.v1.json",
+      "size": 2467,
+      "sha256": "0830ed1b9ef36c20ce87abebd08031275e196ee48b29d2aa67ccb1c4800e8c9a"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-run-evidence.v1.json",
+      "size": 1397,
+      "sha256": "05c09f048ec58799f2a4379626a19ae2cf900013472129f0b7779c515088691b"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-runtime-seo-qa-readonly-scanner.v1.json",
+      "size": 1784,
+      "sha256": "7fbd5c75714256c6b5f67f609afc6b98de7c7e72956a96b8945a8c030c6cdf59"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-weekly-draft-write-auto.v1.json",
+      "size": 2018,
+      "sha256": "99555ef2e6b1022b32d1621fc3559dde637e21cc4b6db52e0e89659f01dfb12d"
+    },
+    {
+      "path": "backend/docs/seo/generated/seo-agent-weekly-readonly-runner.v1.json",
+      "size": 1589,
+      "sha256": "e7db3f7b19382d849ce80161a0cc8727a4d5996b9211628459e3a37905411a4f"
+    },
+    {
+      "path": "backend/docs/seo/import-packages/global-en-zh-career-content-batch-05.import.v1.json",
+      "size": 981717,
+      "sha256": "d1dcb21dd0622899b9ee721c4ff75321e2d667e6c95973ffce9b42a92e1023d3"
+    },
+    {
+      "path": "backend/docs/seo/import-packages/riasec-major-graph-authority/riasec_major_graph_authority.v1.json",
+      "size": 10738,
+      "sha256": "23d715a30e0e072f6910818ec2c770bf25532450b0d34f3a90022873af65d145"
+    },
+    {
+      "path": "backend/docs/seo/personality/enneagram-public-profile-agent-pilot-2026-06-24.json",
+      "size": 87477,
+      "sha256": "6ac71aecbcd220b102373a5d5d43dfee1a3e1f95784a5280433ad77cf5725b14"
+    },
+    {
+      "path": "backend/docs/seo/personality/enneagram-public-profile-agent-qa-2026-06-24.json",
+      "size": 25615,
+      "sha256": "a3971a513917fa160685e7fa87eda47a60b6a090814a52914ce07bba1d52fea0"
+    },
+    {
+      "path": "backend/docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.json",
+      "size": 55842,
+      "sha256": "710fb05025435b5089244410e2e44a55d855842ea65734f6ae2b742e7d729978"
+    },
+    {
+      "path": "backend/docs/seo/personality/mbti64-agent-expansion-88-recommendations-2026-06-21.json",
+      "size": 614021,
+      "sha256": "c72d3c7a837c7a59dbbaba6afee4410b1a54c58c401aa42a2b91fe6de9c54083"
+    },
+    {
+      "path": "backend/docs/seo/production-seo-intel-db-migration-runbook.md",
+      "size": 7639,
+      "sha256": "d1fb7eca0f4a72517e6628fc4bd2a2602e088240bf45aff56210ed59eeb6acfb"
+    },
+    {
+      "path": "backend/docs/seo/result-en-parity-02-riasec-en-assets.md",
+      "size": 4348,
+      "sha256": "e357a8f8637e3eb511e91923c706662a5a3b96f037b6d2c2f9f54e7eea2aea36"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-cms-draft-approval-preflight.md",
+      "size": 2164,
+      "sha256": "d369763b64e7ced11155124c5bd7bd21decd5ee2ef3955a46f08af751b8d2e1a"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-cms-draft-create-postcheck.md",
+      "size": 2522,
+      "sha256": "89c1c8753b8ef686c455be292ca20035034ee74a723f12bf3ed5ebc4b0ca0b1c"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-cms-draft-preflight.md",
+      "size": 2228,
+      "sha256": "2263413f1a6d9f7e9ea1103207e207ffb8facb711f2683a9ca46fa38c36312a8"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-cms-media-upload-import.md",
+      "size": 2949,
+      "sha256": "4cf0743c09e9a191244bb6783dc08c6baa731836c6ba3a130c864e4e09a1225c"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-content-package-v2-validation.md",
+      "size": 1190,
+      "sha256": "f33c9c0e789ab03c66e6c3f9556b33ad57ed3b65bf71c59a23f4ead6ca0c47f7"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-controlled-publish-postpublish-smoke.md",
+      "size": 2012,
+      "sha256": "138316e5f7fe2ed01aa8bc79d094e9adb667b48b5d9939bac3a96ecb6d244ec7"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-draft-cover-attach-publish-preflight.md",
+      "size": 2557,
+      "sha256": "04a0e60a0928bf3ff01dd86184d17e162c4bbb60177d0a4337235afdb20a53a4"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-editorial-review.md",
+      "size": 2320,
+      "sha256": "bee0f292886e5e05753ffbb91b56f844c5e96058baf1e1b24cb5d98d8c83b2be"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-media-selection-readiness.md",
+      "size": 2942,
+      "sha256": "8220ca5df797b873a1f29141dc5313740b661f4bc98321db9667e2363d429bf7"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-operator-input-media-blocker.md",
+      "size": 3526,
+      "sha256": "c4c966296b057a19e615eb946f19ac2cc447dd735170f9c40ead7384ab80a7fa"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-post-publish-smoke-02.md",
+      "size": 2044,
+      "sha256": "b9d3e02b4460c2e40661e8e3fff7857f5db3a9b1927ab3e79e27e8a9bc054a59"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-reference-media-revision-approval.md",
+      "size": 3649,
+      "sha256": "7009133686cb2b5d0f588fe29984d5042a7763f4b338f341224f76627d1bed5c"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-reference-source-review.md",
+      "size": 2357,
+      "sha256": "fb88b30143778ea85e091647f12a69ba0c9a96bc6073ac913f795efc713c01a8"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-references-source-gate-preflight.md",
+      "size": 2441,
+      "sha256": "bd6c01184961be346850dd4ad66cbafca75d6be72c8ba75bb896ddb1c374447a"
+    },
+    {
+      "path": "backend/docs/seo/riasec-explanation-zh-locale-contract-fix.md",
+      "size": 2145,
+      "sha256": "ba5b1a3dfb0f979fdd77b276511a2637edcdebd85168adca0bc4633d9224b079"
+    },
+    {
+      "path": "backend/docs/seo/riasec-major-graph-authority.md",
+      "size": 2129,
+      "sha256": "48bc3d6799c5e4d2a0ad01fbf43b4a6fac2713b356edc2a57f0c657da4ea890d"
+    },
+    {
+      "path": "backend/docs/seo/riasec-v2-sitemap-llms-convergence-diagnosis-fix-2026-06-08.md",
+      "size": 2234,
+      "sha256": "0216ea6846d835ed65662bcb7e8a34596fd6825d38883e082140dfe5bd057239"
+    },
+    {
+      "path": "backend/docs/seo/science-contentpage-production-dry-run-nowrite-01.md",
+      "size": 2674,
+      "sha256": "faa676c8c307cc067df18542e1c900efd6a3e42eb50c26503cd0183697948fc5"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-auto-approval-policy.md",
+      "size": 1734,
+      "sha256": "0b7f5b5b0f5b656c748f10e2bdd63d2222b245af8d9bdf85d4152ee22c858137"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-auto-rollback-guard.md",
+      "size": 1696,
+      "sha256": "183236e067e2dbb23f9a3a90a61a2521467611c7d932fc0421ae247321d6c4f7"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-cms-draft-package-dryrun.md",
+      "size": 1210,
+      "sha256": "6f7f8716617a8416b81d2f87545f6b255517d2f05a224df490718ed9516397f7"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-cms-faq-gap-readonly-scanner.md",
+      "size": 1299,
+      "sha256": "a8553f71944cf59968fbc7cb6bd008d33d211653194e07995788187ab5669308"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-cms-publish-auto-canary.md",
+      "size": 1857,
+      "sha256": "5ffeb64751685025b5896bc623e7bb8c846a44360c6b6eeead4ec8f1bcf20479"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-cms-publish-canary.md",
+      "size": 2111,
+      "sha256": "099e9c9dbfb10c396810097a0fecb86b5fc1050b7502ccb98d1cdaca1568940e"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-cms-tdk-gap-readonly-scanner.md",
+      "size": 1180,
+      "sha256": "9195384dda84afddfcf551afe471cdedf86f9fc5b1352f78070f6c19fdcc54aa"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-codex-review-runner.md",
+      "size": 1246,
+      "sha256": "14fd98c8d1a21fe9ff2979ac1cc43f4f3c687bafcc63ec643d8f0391a3cfcd5d"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-controlled-cms-draft-writer.md",
+      "size": 1433,
+      "sha256": "152d2d2842bc700b05f83338ed73a263b4fa4df6bd87c2369ff74d49e6a538df"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-gsc-draft-canary-handoff-2026-06-23.md",
+      "size": 17605,
+      "sha256": "43d75f3319a41f26a75ce67d741a8e1032945c44cf983d59761d81fed56407a9"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-gsc-opportunity-auto-draft.md",
+      "size": 1436,
+      "sha256": "7ad45d6b80b345eefe979619654e6f6bc759e0bd90ee093104c9ca2f94b38d6a"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-gsc-post-publish-feedback.md",
+      "size": 1794,
+      "sha256": "84e5313ec2206330bcd1c0e9e918d80dae84cca9ea31ac6de3846ce3c03b2f87"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-opportunity-aggregator.md",
+      "size": 1224,
+      "sha256": "93c202aa3c02c7c687c0f388a5c3f9b0d3679254544e30f1a0c332303484f2c1"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-opportunity-source-expansion.md",
+      "size": 2197,
+      "sha256": "f42e6fa586a3d862681611d34fe828a81fdfb5be39462bdf1d32de95968f8f67"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-post-publish-indexnow-auto.md",
+      "size": 1670,
+      "sha256": "371800145873085a7d073c76588b318707152aec4497ba8a6fab1594d22de38b"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-post-publish-search-submit.md",
+      "size": 1574,
+      "sha256": "e6f0b2d43749e67a0ce0f74f6f2c8d17e14ba245a0fa839df269614e14b33e37"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-priority-queue-scheduler.md",
+      "size": 1715,
+      "sha256": "3d04f877d57fd84daecae05f128a87b29e4049991f4daaada32bd232a9504caf"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-run-control-packet.md",
+      "size": 2145,
+      "sha256": "2479664da87c2859c1d3babaca187329a5691b3145141aba8139555ca3f9a418"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-run-orchestrator.md",
+      "size": 983,
+      "sha256": "d7149b7f5e23df986455523b398345055c9b082ecca25b847b74d882683e81ca"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-runtime-seo-qa-readonly-scanner.md",
+      "size": 1158,
+      "sha256": "4c0cc013c5f705f496b70f329f1f991c52d1a5ec3e3e709522b5d50fdc3f3fa7"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-weekly-draft-write-auto.md",
+      "size": 1403,
+      "sha256": "a46f22ed710bf1e93b085b82967a2e543ff0c8f3fea0097dc86ab68025b6d4d4"
+    },
+    {
+      "path": "backend/docs/seo/seo-agent-weekly-readonly-runner.md",
+      "size": 1026,
+      "sha256": "80016d03db7aa0da3c23b32ede65708afacba214b9cf8f91eb3c6b3dd79b19d6"
+    },
+    {
+      "path": "backend/docs/ops/career-salary-1046-production-import-readiness-runbook.md",
+      "size": 8199,
+      "sha256": "2698dc4c459b8bb3fc52acdce9b58b78e1f30db96e009ff4f473ee57cb06f02d"
+    },
+    {
+      "path": "backend/docs/ops/production-deploy-targeting-sop.md",
+      "size": 2915,
+      "sha256": "093b597fc6ade0c602b3d6251f74a31850f14812793853223a3917d28f02783c"
+    },
+    {
+      "path": "backend/docs/ops/riasec-launch-hardening-runbook.md",
+      "size": 6848,
+      "sha256": "eb5087699b5fece7dc446f77b4aa4850055050acc5a2a1f4f4a5d179dc7b9843"
+    },
+    {
+      "path": "backend/docs/riasec/activity-task-examples-pack-05-preflight.md",
+      "size": 2636,
+      "sha256": "00b15d982e199d48f7500bd0589206b819c0686e6b87749418986d4e897c836a"
+    },
+    {
+      "path": "backend/docs/riasec/aspirations-disagree-pack-09-preflight.md",
+      "size": 3302,
+      "sha256": "afc062ea8d30e796faf4b53af977bd95a74ecab8a524436f19a003710e865d6c"
+    },
+    {
+      "path": "backend/docs/riasec/deep-copy-slot-schema-contract.md",
+      "size": 7694,
+      "sha256": "f401af12c461c4e90833967bc9bb78c062930095d36d0f7d15b4bef970aa88f0"
+    },
+    {
+      "path": "backend/docs/riasec/feedback-action-lab-pack-10-be.md",
+      "size": 1930,
+      "sha256": "9834e7571eb528b67cbed7d460601840ce19ff232dfe5c10033a92a5557bc3f1"
+    },
+    {
+      "path": "backend/docs/riasec/feedback-action-lab-pack-10-preflight.md",
+      "size": 4872,
+      "sha256": "e7ceb9568127103f430160b4891915adf81447f0d8894a7f2b0cd3b1cd6730ae"
+    },
+    {
+      "path": "backend/docs/riasec/full-content-fixture-freeze-pack-13-be.md",
+      "size": 1946,
+      "sha256": "cfc0b012aea373d967f105d44d35698f7cce357990c278044128cf4395851eda"
+    },
+    {
+      "path": "backend/docs/riasec/lifecycle-copy-pack-11-be-preflight.md",
+      "size": 5604,
+      "sha256": "32371b887c6c0e8408ccc3a1b264be318170dac4a0901b0522ea8f6d9b77a316"
+    },
+    {
+      "path": "backend/docs/riasec/lifecycle-copy-pack-11-be.md",
+      "size": 1544,
+      "sha256": "c9d63a1da6f238f2b041836afa17e862d5b1ec491cbdc7c3696549800b7c299f"
+    },
+    {
+      "path": "backend/docs/riasec/occupation-examples-pack-06-preflight.md",
+      "size": 2782,
+      "sha256": "05ee8c830b05a6e95a2fba005c2a05a2e722aa23d23d7ebb77a36df9ba501908"
+    },
+    {
+      "path": "backend/docs/riasec/pair-blend-pack-03-preflight.md",
+      "size": 4296,
+      "sha256": "2649a00522f85ba2ad2c7b046cfbe9e318646589a1663c1f76b7162ce8b4a18a"
+    },
+    {
+      "path": "backend/docs/riasec/result-asset-agent-gates.md",
+      "size": 4621,
+      "sha256": "f59a20596304f9b5375122de4500e68f6a6cbe48a001be344be3a386b0f13da5"
+    },
+    {
+      "path": "backend/docs/riasec/result-asset-agent-runbook.md",
+      "size": 6433,
+      "sha256": "99cd633d975a86387072fa7345241141a0d8df63eca242415a74a52ab1f9bc95"
+    },
+    {
+      "path": "backend/docs/riasec/result-asset-agent-schema.md",
+      "size": 4562,
+      "sha256": "b5e4fdb267e5f4dfef81853dbdb89058d4b747f60590b6b1e56b9f6d113a0667"
+    },
+    {
+      "path": "backend/docs/riasec/result-ops-agent-permission-model.md",
+      "size": 4009,
+      "sha256": "0e5d979f8e72d429e67a94d2e146b0477f8eaf1e26043836cd6a8ebbb89a1d3b"
+    },
+    {
+      "path": "backend/docs/riasec/result-ops-agent-runbook.md",
+      "size": 4881,
+      "sha256": "8add212fa1329d14907b9b9dbc835d74571170784021fd3f4a4e96b4960e00c7"
+    },
+    {
+      "path": "backend/docs/riasec/result-page-v2-staging-import-handoff.md",
+      "size": 561,
+      "sha256": "09fcd8cae01998b04c4e0190bc93b3e056b4098efe1e350af32dfd63669ad29d"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-agent-runtime-career-analytics-handoff-2026-06-23.md",
+      "size": 13771,
+      "sha256": "a642c1e06b123cbeab511680fab44731f0aade4a29f84611c86ee02ee8800eb4"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-manual-production-gate-approval-evidence-2026-06-22.md",
+      "size": 9784,
+      "sha256": "f6d175d9bc8368beba20d0ef35a1f274e6b8560c9723abe8ba27ed06a633eaf8"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-manual-production-gate-checklist-2026-06-22.md",
+      "size": 10351,
+      "sha256": "1b49e0ea81c506d5d92ce627be324bfb071390f0d464b4be1ff8ab310200e73f"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-manual-production-gate-readiness-audit-2026-06-22.md",
+      "size": 10819,
+      "sha256": "7f08492fa064c43f78936244f88e0bf504548e9c3e6e718ba64cea3e3b021669"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-post-deploy-staging-pilot-evidence-2026-06-22.md",
+      "size": 7560,
+      "sha256": "f9d960c2ad1d3200e1e29d26421a6d281e2f16ed5bf429c65adc4ab1ae86c428"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-production-approved-snapshot-artifact-2026-06-22.md",
+      "size": 5487,
+      "sha256": "9aa8fd5b821bafeba8c6ef1e85f28b3594b1a864c1bd40186a09f0cee2c4d02c"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-production-approved-snapshot-authorized-artifact-2026-06-22.md",
+      "size": 4074,
+      "sha256": "0aeafdefde3c8276f72d97261930fa2b8f0e7be3be530b0430ad762cb899581b"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-production-approved-snapshot-operating-model-2026-06-22.md",
+      "size": 7885,
+      "sha256": "a87d8ea76d19a972d393324821dbef4796608a23d58d7b14c98c73d35ac6152b"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-production-import-execution-2026-06-22.md",
+      "size": 3557,
+      "sha256": "b97c1fa0fbcd29adae6ebfb723647db9872f0a66f90287e999268c7f68407d29"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-production-import-execution-authorization-2026-06-23.md",
+      "size": 4441,
+      "sha256": "8ad17a26ba00fe607d827f93cddaee416ab413d8b9eb6cd26cba397e7b5c5bc7"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-production-import-execution-authorized-2026-06-23.md",
+      "size": 5886,
+      "sha256": "42d3fecca29545fe5fe772d7bdd5105e5c385cb887e5f0d7301590785b6b297a"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-production-import-gate-dry-run-2026-06-22.md",
+      "size": 4723,
+      "sha256": "9b5bb7c5bf7e6a54eda46f8845bb90e629348f35bb7ad683a378697a78b460ff"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-production-import-gate-dry-run-authorized-snapshot-2026-06-22.md",
+      "size": 4999,
+      "sha256": "4267e1e4ffb230183574b3183ac589ee8880e042231765947ec7fa6e127f5883"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-production-import-gate-preflight-2026-06-22.md",
+      "size": 8580,
+      "sha256": "94dd96485e30ea5584e0d0f042b441485b8903f07035257a086a6a0dcb9d2801"
+    },
+    {
+      "path": "backend/docs/riasec/riasec-result-page-v2-production-rollout-approval-packet-2026-06-22.md",
+      "size": 6734,
+      "sha256": "cff0f113b1c1353d27e4b90bb7d8bd3d0800d824de0676b2075b4469cd1d71ba"
+    },
+    {
+      "path": ".github/workflows/career-content-production-dry-run.yml",
+      "size": 8972,
+      "sha256": "f3d8ab56a118cf1099822bdffdad765e691c6856c0219ed2d287fefce93fa01f"
+    },
+    {
+      "path": ".github/workflows/career-content-production-import.yml",
+      "size": 36244,
+      "sha256": "93f0e8e961b2c94a0851bfa773f91c0308b0d6f4b1f1aea0d8b92aaf9c168996"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "size": 14250,
+      "sha256": "616ba41b3c9bbfaaf118825ad29b7c174196c15c9b281ae86909f59fcef9bed5"
+    },
+    {
+      "path": ".github/workflows/codeql.yml",
+      "size": 2115,
+      "sha256": "ff474a204ba6944870f9b90f4ac1c0557d12870a75e1f06246f2dfd7d0af7ccf"
+    },
+    {
+      "path": ".github/workflows/codex-autofix.yml",
+      "size": 2592,
+      "sha256": "65d9a640a6fb7982585a759fd04d19a67f9ca4768840bc10d62e74dcfacc3efa"
+    },
+    {
+      "path": ".github/workflows/deploy-production.yml",
+      "size": 19640,
+      "sha256": "534107fb52b906cc8ba4c190d4342de393f62081f77401fedc4d6fcc155bc679"
+    },
+    {
+      "path": ".github/workflows/deploy.yml",
+      "size": 29579,
+      "sha256": "fb13451a820ba5db103742bca9a926c18f76113888632363e43a555b134f1f6c"
+    },
+    {
+      "path": ".github/workflows/release-train.yml",
+      "size": 5808,
+      "sha256": "2377b537b960f632b3f57afcc31a3152a1256108d6ed2c5f127060c979cdc199"
+    }
+  ]
+}

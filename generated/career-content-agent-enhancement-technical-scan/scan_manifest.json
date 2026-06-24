@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-06-24T13:55:21Z",
+  "files": [
+    {
+      "path": "generated/career-content-agent-enhancement-technical-scan/agent_capability_matrix.csv",
+      "bytes": 1231,
+      "sha256": "3bce74e6f8649819eb84856b2339059066463bc2a22c6180290abc9f15c4d961"
+    },
+    {
+      "path": "generated/career-content-agent-enhancement-technical-scan/backend_doc_inventory.json",
+      "bytes": 44383,
+      "sha256": "713fdc4820c6a404d08aeb7a05a02352a8fd5ca333cb0dcd74b9e4e3a5a02637"
+    },
+    {
+      "path": "generated/career-content-agent-enhancement-technical-scan/backend_doc_inventory.md",
+      "bytes": 1386,
+      "sha256": "7852a22709615d54a2c689f2f6e4d9736f165b7de710c4827ee450a7cedf6ac3"
+    },
+    {
+      "path": "generated/career-content-agent-enhancement-technical-scan/career_content_agent_enhancement_technical_doc.md",
+      "bytes": 9970,
+      "sha256": "968ad2ca0a96753be7ad600891e4eca2f34a4a951769c322fdc0459e90c10971"
+    },
+    {
+      "path": "generated/career-content-agent-enhancement-technical-scan/completed_pr_inventory.csv",
+      "bytes": 9305,
+      "sha256": "734563ec8c3156a138b20bda0a9ce4689d89c1340509c3030e841d19ddd35bb5"
+    },
+    {
+      "path": "generated/career-content-agent-enhancement-technical-scan/completed_pr_inventory.json",
+      "bytes": 17631,
+      "sha256": "bde967483a7f29a154209fe067b809925a67c3f7ef8f4032e25167a1513082b4"
+    },
+    {
+      "path": "generated/career-content-agent-enhancement-technical-scan/enhancement_task_breakdown.md",
+      "bytes": 1843,
+      "sha256": "7110590f9d1b7af0efa8370569586875f229c5569fe4ab47b964888f9e5b6e33"
+    },
+    {
+      "path": "generated/career-content-agent-enhancement-technical-scan/next_goal_recommendation.md",
+      "bytes": 540,
+      "sha256": "2bed003f2d59fed29e556b14ef40289f6f2fe52663d97dd9f28b28b560870025"
+    }
+  ],
+  "source_state_summary": {
+    "backend_doc_verdict": "present_primary_backend_handbook",
+    "post_import_conclusion": "CAREER_CONTENT_1046_POST_IMPORT_LIVE_QA_SEO_SAFE",
+    "editorial_conclusion": "CAREER_CONTENT_1046_EDITORIAL_REVIEW_PASS",
+    "baseline_count": 6,
+    "pr_inventory_count": 71
+  }
+}
