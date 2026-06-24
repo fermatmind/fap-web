@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-24T23:54:00+08:00",
+  "updated_at": "2026-06-24T23:59:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -24492,7 +24492,7 @@
         "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01",
         "BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01"
       ],
-      "status": "pr_open_checks_pending",
+      "status": "ready_to_merge",
       "title": "BIG5-METHODOLOGY-TRUST-SCIENCE-READINESS-MATRIX-01: docs(methodology): add readiness matrix",
       "artifacts": [
         "docs/methodology-trust-science/big5-methodology-trust-science-readiness-matrix-2026-06-23.md",
@@ -24537,7 +24537,7 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1414",
-      "commit_sha": "4c5e797ae6a9578037f40a0a9731b2f552be82c2",
+      "commit_sha": "4398bea2230ba50a7932c4675d0be5e3c76ca12c",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -24577,6 +24577,11 @@
           "at": "2026-06-24T23:54:00+08:00",
           "status": "ci_fix_in_progress",
           "summary": "GitHub contracts failed because the ledger used pr_open_pending_github_checks while the focused contract permits the repository convention pr_open_checks_pending. Normalized the PR5 ledger status; no runtime files changed."
+        },
+        {
+          "at": "2026-06-24T23:59:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed on head 4398bea: CodeQL, analyze, build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
         }
       ],
       "sidecar_issues": []
