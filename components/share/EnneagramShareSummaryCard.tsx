@@ -54,7 +54,7 @@ export default function EnneagramShareSummaryCard({
 }) {
   const testsHref = localizedPath("/tests", locale);
   const startTestHref = primaryActionHref || viewModel.startTestHref;
-  const startTestLabel = primaryActionLabel || (locale === "zh" ? "开始九型人格免费测试" : "Start Enneagram test");
+  const startTestLabel = primaryActionLabel || (locale === "zh" ? "开始九型人格免费测试" : "Start the free Enneagram test");
   const headline = resolveHeadline(viewModel, locale);
 
   return (

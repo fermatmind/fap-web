@@ -55,9 +55,9 @@ const HOMEPAGE_HERO_COPY = {
   en: {
     title: "Know yourself, move with clarity",
     subhead: "FermatMind turns self-understanding, career exploration, and ability growth into a measurable, trainable, reviewable system.",
-    primaryCta: "Find free tests",
+    primaryCta: "Take a free test",
     socialProofCount: "1200000+",
-    socialProof: "total tests completed",
+    socialProof: "people tested",
   },
 } as const;
 
@@ -408,15 +408,15 @@ function getDefaultHomepageTrustItems(locale: Locale, copy: HomePageContent): Tr
 
   return [
     {
-      title: "Free to start",
-      summary: "Core assessments support self-reflection, career judgment, and personal growth with clear result summaries.",
+      title: "Free tests, free results",
+      summary: "Core assessments are designed around self-understanding, career judgment, and ability growth, with clear result summaries.",
       paragraphs: [],
       href: copy.trust.methodHref,
       hrefLabel: copy.trust.methodLabel,
     },
     {
-      title: "Privacy matters",
-      summary: "You can complete a test before deciding whether to save your result or continue deeper.",
+      title: "We take your privacy seriously.",
+      summary: "You do not need to create an account first. Complete the test, then decide whether to save your result or go deeper.",
       paragraphs: [],
       href: copy.trust.methodHref,
       hrefLabel: copy.trust.methodLabel,
@@ -430,11 +430,11 @@ function HomepageTrustStripV1({ locale, copy }: { locale: Locale; copy: HomePage
   );
   const baseTrustItems = trustItems.length >= 2 ? trustItems.slice(0, 2) : getDefaultHomepageTrustItems(locale, copy);
   const testCompletionTrustItem: TrustItem = {
-    title: locale === "zh" ? "百万人测试" : "Million-plus test takers",
+    title: locale === "zh" ? "百万人测试" : "Million-plus testers",
     summary:
       locale === "zh"
         ? "单月真人测试人数达 120 万，累计测试交互超过 5000 万次。"
-        : "Backend statistics show 1.2M real test takers in April and 50M+ cumulative test interactions.",
+        : "In a single month, 1.2M real people completed tests, with more than 50M cumulative test interactions.",
     paragraphs: [],
     href: copy.trust.methodHref,
     hrefLabel: copy.trust.methodLabel,
@@ -485,7 +485,7 @@ function RecommendationStars() {
 }
 
 function getCoreTestsSectionTitle(locale: Locale): string {
-  return locale === "zh" ? "热门测评" : "Highlighted tests";
+  return locale === "zh" ? "热门测评" : "Popular assessments";
 }
 
 function getCoreTestIntroCopy(locale: Locale, item: HomeCoreTestItem, title: string): { card: string; detail: string; action: string } {
@@ -549,56 +549,56 @@ function getCoreTestIntroCopy(locale: Locale, item: HomeCoreTestItem, title: str
 
   if (key.includes("mbti")) {
     return {
-      card: "What is your personality style? Learn how your preferences shape choices and communication.",
-      detail: "The MBTI personality test helps you understand everyday preferences, interaction style, and teamwork patterns as a self-reflection tool.",
-      action: "Take the MBTI test.",
+      card: "Want to understand your personality? See your preferences, communication style, and decision-making patterns.",
+      detail: "The MBTI personality test helps you understand everyday choices, interaction style, and teamwork preferences as a self-reflection and communication reference.",
+      action: "Start the free MBTI test.",
     };
   }
 
   if (key.includes("big-five")) {
     return {
-      card: "What are your stable traits? Explore how you tend to act and respond across five dimensions.",
-      detail: "The Big Five test looks at openness, conscientiousness, extraversion, agreeableness, and emotional stability for a trait-based view.",
-      action: "Take the Big Five test.",
+      card: "Want to understand your more stable traits? See how you tend to act and respond across five dimensions.",
+      detail: "The Big Five personality test looks at openness, conscientiousness, extraversion, agreeableness, and emotional stability, giving you a more continuous trait-based view.",
+      action: "Start the free Big Five test.",
     };
   }
 
   if (key.includes("holland") || key.includes("riasec")) {
     return {
-      card: "What kind of work interests you? Compare your interests with work environments and roles.",
-      detail: "The Holland / RIASEC test helps you explore career directions, study choices, and work environments that may fit your interests.",
-      action: "Take the Holland Code test.",
+      card: "Wonder what kind of work draws you in? Explore your interest type and preferred work environments.",
+      detail: "The Holland career interest test uses RIASEC types to help you compare career directions, study choices, and work-environment preferences.",
+      action: "Start the free Holland career interest test.",
     };
   }
 
   if (key.includes("enneagram")) {
     return {
-      card: "What motivates your patterns? Explore common reactions in stress, relationships, and growth.",
-      detail: "The Enneagram test helps you reflect on motivation and behavior patterns for personal growth and relationship awareness.",
-      action: "Take the Enneagram test.",
+      card: "What is your core motivation? See common response patterns in stress, relationships, and growth.",
+      detail: "The Enneagram test helps you understand yourself through motivation and behavior patterns, as a reference for relationship reflection and personal growth.",
+      action: "Start the free Enneagram test.",
     };
   }
 
   if (key.includes("iq")) {
     return {
-      card: "Want to practice reasoning? Work through visual and numerical questions with clear raw-score feedback.",
-      detail: "The IQ test offers visual and numerical reasoning practice as training and raw-score reference before normed reporting is available.",
-      action: "Take the IQ test.",
+      card: "Want to practice reasoning? Complete visual and numerical questions and get a clear raw-score reference.",
+      detail: "The IQ test includes visual and numerical reasoning exercises, suitable for ability practice and raw-score reference before normed authority is available.",
+      action: "Start the free IQ test.",
     };
   }
 
   if (key.includes("eq")) {
     return {
-      card: "How do you handle emotions and relationships? Explore patterns in awareness and communication.",
-      detail: "The EQ test focuses on emotion recognition, expression, and collaboration skills for clearer interpersonal reflection.",
-      action: "Take the EQ test.",
+      card: "Want to understand emotional and relationship skills? See your patterns in understanding, expression, and collaboration.",
+      detail: "The EQ test focuses on emotion recognition, communication, and relationship collaboration, helping you gain clearer interaction references.",
+      action: "Start the free EQ test.",
     };
   }
 
   return {
     card: item.description || `Explore how ${title} can help you understand yourself.`,
     detail: item.description || `${title} gives you a clear assessment entry point for self-understanding and next-step reflection.`,
-    action: "Take the test.",
+    action: "Start the free test.",
   };
 }
 
@@ -703,7 +703,7 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
         <div className="relative overflow-hidden bg-[var(--fm-bg-soft)] pb-20 pt-16 text-slate-950">
           <div className="relative mx-auto max-w-3xl text-center">
             <h2 id="homepage-family-title" className="m-0 text-3xl font-semibold tracking-normal text-slate-950 md:text-4xl">
-              {locale === "zh" ? "关于 费马团队" : "About Fermatmind"}
+              {locale === "zh" ? "关于 费马团队" : "About the Fermat team"}
             </h2>
           </div>
         </div>
@@ -716,7 +716,7 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
                     description:
                       locale === "zh"
                         ? "了解费马测试的公共利益页面与公益记录边界。"
-                        : "Review FermatMind's public-benefit page and giving-record boundaries.",
+                        : "Learn about FermatMind's public-interest page and the boundaries for giving records.",
                     links: [{ href: "/foundation", title: locale === "zh" ? "查看公共利益" : "View public benefit" }],
                   }
                 : index === 2
@@ -733,7 +733,7 @@ function HomepageFamilyMatrix({ locale, copy }: { locale: Locale; copy: HomePage
                       description:
                         locale === "zh"
                           ? "专业团队参与测评方法、题目设计与边界复核。"
-                          : "A specialist team reviews assessment methods, item design, and boundaries.",
+                          : "A specialist team takes part in assessment methods, item design, and boundary review.",
                       links: [{ href: "/about", title: locale === "zh" ? "了解团队" : "Meet the team" }],
                     };
 

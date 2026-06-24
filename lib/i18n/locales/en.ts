@@ -22,7 +22,7 @@ const en: SiteDictionary = {
   },
   tests: {
     title: "Tests",
-    subtitle: "Pick a test to view details and start assessment.",
+    subtitle: "Choose an assessment, review what it covers, and start when you are ready.",
     relatedArticles: {
       title: "Related articles",
       subtitle: "Tool explainers, growth guidance, and narrative portraits for this assessment.",
@@ -78,9 +78,9 @@ const en: SiteDictionary = {
       testimonialsTitle: "What users say",
     },
     highlighted: {
-      title: "Highlighted tests",
-      subtitle: "Pick a focus area and start with a structured, high-confidence assessment flow.",
-      cta: "Start this test",
+      title: "Popular assessments",
+      subtitle: "Choose a core area and start a structured assessment flow.",
+      cta: "Start the free test",
       clinicalBadge: "Clinical Grade",
       comingSoonBadge: "Coming Soon",
       comingSoonCta: "Launching soon",
@@ -271,7 +271,7 @@ const en: SiteDictionary = {
       emptyTitle: "No MBTI workspace entries for this identity yet",
       emptyDescription:
         "You do not have any MBTI workspace-lite entries under the current identity yet. Saved results can still be recovered through the bound email.",
-      emptyStartCta: "Take the MBTI test",
+      emptyStartCta: "Start the free MBTI test",
       emptyRecoverCta: "Recover by email",
       completedLabel: "Result entry",
       submittedAtLabel: "Submitted at",

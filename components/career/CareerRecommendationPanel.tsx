@@ -27,17 +27,17 @@ export function CareerRecommendationPanel({
       <CardContent className="space-y-3 text-sm text-slate-700">
         <p className="m-0">
           {locale === "zh"
-            ? "当前页面已降为 protocol-ready consumer。个性化职业结论正在等待协议化 truth surface，因此这里不会再本地计算分数、解释或风险结论。"
-            : "This page now runs as a protocol-ready consumer. Personalized career conclusions are waiting for protocol-backed truth surfaces, so no local scoring, explanation, or risk output is rendered here."}
+            ? "个性化职业结论仍在完善中。当前页面不会直接给出本地计算的分数、解释或风险判断。"
+            : "Personalized career conclusions are still being refined. This page does not show locally calculated scores, explanations, or risk judgments."}
         </p>
         <p className="m-0 text-slate-600">
           {locale === "zh"
-            ? "你仍然可以先查看公域职业内容，并通过 MBTI / RIASEC 入口补全后续 authority 流程。"
-            : "You can still browse the public career content and use the MBTI / RIASEC entry points while the authoritative flow is being reconnected."}
+            ? "你可以先浏览公开职业内容，并通过 MBTI / RIASEC 入口补充后续判断所需的信息。"
+            : "You can still browse public career content and use the MBTI / RIASEC entry points to add the information needed for later guidance."}
         </p>
         <div className="flex flex-wrap gap-2 pt-1">
           <Link href={localizedPath("/tests/holland-career-interest-test-riasec", locale)} className={buttonVariants({ size: "sm" })}>
-            {locale === "zh" ? "完成 RIASEC 兴趣测试" : "Take the RIASEC test"}
+            {locale === "zh" ? "完成 RIASEC 兴趣测试" : "Complete the RIASEC interest test"}
           </Link>
           <Link href={localizedPath("/career", locale)} className={buttonVariants({ size: "sm", variant: "outline" })}>
             {locale === "zh" ? "浏览职业公域页" : "Browse public career pages"}

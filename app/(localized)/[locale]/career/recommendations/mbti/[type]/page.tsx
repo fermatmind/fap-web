@@ -475,7 +475,7 @@ export default async function CareerMbtiRecommendationPage({
                 </Link>
               </div>
               <TrackedEntryCtaLink href={mbtiPrimaryCtaHref} data-testid="mbti-career-primary-cta" eventProperties={mbtiPrimaryCtaTrackingProps} className="sr-only">
-                {locale === "zh" ? "验证我的类型（开始 MBTI 测试）" : "Validate my type (Start MBTI test)"}
+                {locale === "zh" ? "验证我的类型（开始 MBTI 测试）" : "Validate my type with the free MBTI test"}
               </TrackedEntryCtaLink>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">

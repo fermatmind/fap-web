@@ -255,7 +255,7 @@ export default async function TopicDetailPage({
               eventProperties={mbtiPrimaryCtaTrackingProps}
               className={buttonVariants({ size: "lg" })}
             >
-              {locale === "zh" ? "开始 MBTI 免费测试" : "Start MBTI test"}
+              {locale === "zh" ? "开始 MBTI 免费测试" : "Start the free MBTI test"}
             </TrackedEntryCtaLink>
             <Link
               href={mbtiPersonalityHubHref}
@@ -290,12 +290,12 @@ export default async function TopicDetailPage({
         >
           <div className="space-y-2">
             <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
-              {locale === "zh" ? "MBTI 类型延伸入口" : "MBTI type continue grid"}
+              {locale === "zh" ? "MBTI 类型延伸入口" : "Continue with MBTI types"}
             </h2>
             <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">
               {locale === "zh"
                 ? "这里保持轻量，只提供类型入口与职业推荐入口，不把主题页变成长文页。"
-                : "This remains lightweight: type entry points and recommendation entry points only, not a long-form topic page."}
+                : "This page stays lightweight: use it to continue into type pages or career recommendations, without turning the topic page into a long article."}
             </p>
           </div>
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
