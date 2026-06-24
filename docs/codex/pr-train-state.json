@@ -27868,12 +27868,12 @@
       "repo": "fap-web",
       "branch": "codex/enneagram-public-personality-handoff-common-contract-01",
       "base": "main",
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "train_scope": "enneagram_public_personality_handoff_common_contract",
       "title": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01: docs(public-personality): add handoff common contract",
       "depends_on": [],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "ae6b706701c41297ebdc5bf7f39b880457a22d68",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1386",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -27909,6 +27909,15 @@
             "changed-file scope validation"
           ],
           "evidence": "JSON and YAML parse passed; focused common contract passed 9 tests; pnpm typecheck passed; pnpm test:contract passed on rerun with 555 files and 3259 tests after an unrelated first-run MBTI take attribution transient was isolated by targeted pass; git diff --check passed; changed-file scope validation passed for exactly 6 authorized files. Local next build was not run because this docs/contracts-only train uses GitHub build as the required build check and forbids generated SEO artifact mutation."
+        },
+        "pull_request": {
+          "status": "open",
+          "url": "https://github.com/fermatmind/fap-web/pull/1386",
+          "evidence": "PR #1386 opened after local validation passed."
+        },
+        "github_checks": {
+          "status": "pending",
+          "evidence": "Initial PR #1386 checks started on head ae6b7067: build queued, contracts and verify-enneagram-contract-freeze in progress, verify-big5-contract-freeze queued, CodeQL analyze in progress."
         }
       },
       "sidecar_issues": [],
@@ -27922,6 +27931,11 @@
           "at": "2026-06-24T00:00:00+08:00",
           "status": "local_checks_passed",
           "note": "PR1 common contract artifacts and train metadata passed JSON/YAML parse, focused contract, typecheck, full contract suite on rerun, diff check, and changed-file scope validation. An unrelated first-run MBTI take attribution failure passed on targeted rerun and the full suite rerun."
+        },
+        {
+          "at": "2026-06-24T00:00:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1386 at https://github.com/fermatmind/fap-web/pull/1386 from commit ae6b706701c41297ebdc5bf7f39b880457a22d68."
         }
       ]
     },
