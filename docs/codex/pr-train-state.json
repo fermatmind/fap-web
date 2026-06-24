@@ -28280,7 +28280,7 @@
       "repo": "fap-web",
       "branch": "codex/enneagram-public-personality-handoff-matrix-01",
       "base": "main",
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "train_scope": "enneagram_public_personality_handoff_matrix",
       "title": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-MATRIX-01: docs(public-personality): add handoff readiness matrix",
       "depends_on": [
@@ -28288,8 +28288,8 @@
         "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01",
         "ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "b7c4d7b6976010f5c4159f797e0694b254649bdb",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1398",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -28329,6 +28329,11 @@
             "changed-file scope validation"
           ],
           "evidence": "JSON and YAML parse passed; focused handoff matrix contract passed 10 tests; pnpm typecheck passed; pnpm test:contract passed with 561 files and 3305 tests; git diff --check and changed-file scope validation passed for exactly 4 changed files in the authorized handoff-matrix scope."
+        },
+        "pull_request": {
+          "status": "open",
+          "url": "https://github.com/fermatmind/fap-web/pull/1398",
+          "evidence": "Opened PR #1398 for ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-MATRIX-01 from branch codex/enneagram-public-personality-handoff-matrix-01."
         }
       },
       "sidecar_issues": [],
@@ -28347,6 +28352,11 @@
           "at": "2026-06-24T17:58:25+08:00",
           "status": "local_checks_passed",
           "note": "Handoff matrix artifacts passed JSON parse, state JSON parse, YAML parse, focused contract, typecheck, full contract suite, diff check, and changed-file scope validation."
+        },
+        {
+          "at": "2026-06-24T17:59:10+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1398 at https://github.com/fermatmind/fap-web/pull/1398 from commit b7c4d7b6976010f5c4159f797e0694b254649bdb."
         }
       ]
     }
