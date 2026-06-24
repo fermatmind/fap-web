@@ -18194,8 +18194,8 @@
       ],
       "title": "create bilingual CMS canary draft without publish",
       "status": "blocked",
-      "commit_sha": "88736e06ac66086db5a76908538ab0d033226228",
-      "pr_url": "https://github.com/fermatmind/fap-web/pull/1394",
+      "commit_sha": null,
+      "pr_url": null,
       "checks": {
         "preflight_scan": {
           "status": "completed_no_go",
@@ -28069,14 +28069,14 @@
       "repo": "fap-web",
       "branch": "codex/enneagram-public-personality-claim-safety-packet-01",
       "base": "main",
-      "status": "in_progress",
+      "status": "ready_to_merge",
       "train_scope": "enneagram_public_personality_claim_safety_packet",
       "title": "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01: docs(public-personality): add claim safety packet",
       "depends_on": [
         "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "efd8c32df0ef9e5430707906b5e7c4b930d96c41",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1394",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -28116,9 +28116,13 @@
           "evidence": "JSON and YAML parse passed; focused claim safety contract passed 11 tests; pnpm typecheck passed; pnpm test:contract passed with 559 files and 3286 tests; git diff --check and changed-file scope validation passed for exactly 4 changed files in the authorized claim-safety scope."
         },
         "pull_request": {
-          "status": "open",
+          "status": "open_ready_to_merge",
           "url": "https://github.com/fermatmind/fap-web/pull/1394",
           "evidence": "Opened PR #1394 for ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01 from branch codex/enneagram-public-personality-claim-safety-packet-01."
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub checks passed on PR #1394 head efd8c32df0ef9e5430707906b5e7c4b930d96c41: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "sidecar_issues": [],
@@ -28142,6 +28146,11 @@
           "at": "2026-06-24T16:53:08+08:00",
           "status": "pr_opened",
           "note": "Opened PR #1394 at https://github.com/fermatmind/fap-web/pull/1394 from commit 88736e06ac66086db5a76908538ab0d033226228."
+        },
+        {
+          "at": "2026-06-24T16:57:57+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1394 on head efd8c32d with build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL successful. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
