@@ -28703,9 +28703,9 @@
       "depends_on": [
         "BIG-FIVE-PUBLIC-PROFILE-AGENT-PILOT-01"
       ],
-      "status": "local_checks_passed",
-      "pr_url": null,
-      "commit_sha": null,
+      "status": "pr_open",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1406",
+      "commit_sha": "dce38c582cfb673f2f59e492021b69e087ba8464",
       "merge_sha": null,
       "title": "BIG-FIVE-PUBLIC-PROFILE-AGENT-QA-01: test(personality): validate Big Five public profile agent QA artifact",
       "checks": {
@@ -28771,6 +28771,11 @@
           "at": "2026-06-24T20:33:00+08:00",
           "status": "local_checks_passed",
           "summary": "Generated Big Five QA artifact with decision PASS_READY_FOR_APPROVAL_QUEUE; 34 rows evaluated, 34 passed, 0 failed. Local validator, JSON/YAML parsing, focused vitest, full contract suite, typecheck, lint, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-06-24T20:40:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1406 from codex/big-five-public-profile-agent-qa-01; GitHub checks are pending."
         }
       ],
       "sidecar_issues": []
