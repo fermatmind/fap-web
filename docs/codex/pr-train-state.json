@@ -13371,7 +13371,7 @@
       "branch": "codex/pr-fdn-01-llms-full-recheck-or-repair",
       "base": "main",
       "depends_on": [],
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/928",
       "commit_sha": "4f0c939f7b3fc5eee9479b2c55904bd99595501d",
       "merge_sha": null,
@@ -28288,7 +28288,7 @@
         "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01",
         "ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01"
       ],
-      "commit_sha": "b7c4d7b6976010f5c4159f797e0694b254649bdb",
+      "commit_sha": "c7baf560db1edf7c3d04990c8c96f95d19ba12ae",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1398",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -28331,9 +28331,13 @@
           "evidence": "JSON and YAML parse passed; focused handoff matrix contract passed 10 tests; pnpm typecheck passed; pnpm test:contract passed with 561 files and 3305 tests; git diff --check and changed-file scope validation passed for exactly 4 changed files in the authorized handoff-matrix scope."
         },
         "pull_request": {
-          "status": "open",
+          "status": "open_ready_to_merge",
           "url": "https://github.com/fermatmind/fap-web/pull/1398",
           "evidence": "Opened PR #1398 for ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-MATRIX-01 from branch codex/enneagram-public-personality-handoff-matrix-01."
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub checks passed on PR #1398 head c7baf560db1edf7c3d04990c8c96f95d19ba12ae after rerunning the transiently cancelled build job: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "sidecar_issues": [],
@@ -28357,6 +28361,11 @@
           "at": "2026-06-24T17:59:10+08:00",
           "status": "pr_opened",
           "note": "Opened PR #1398 at https://github.com/fermatmind/fap-web/pull/1398 from commit b7c4d7b6976010f5c4159f797e0694b254649bdb."
+        },
+        {
+          "at": "2026-06-24T18:16:30+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1398 on head c7baf560 after rerunning the transiently cancelled build job. build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL were successful. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     }
