@@ -23908,7 +23908,7 @@
       "branch": "codex/big5-methodology-common-contract-01",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed_ready_for_pr",
+      "status": "pr_open_checks_pending",
       "title": "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01: docs(methodology): add Big Five support common contract",
       "artifacts": [
         "docs/methodology-trust-science/big5-methodology-trust-science-common-contract-2026-06-23.md",
@@ -23971,8 +23971,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1408",
+      "commit_sha": "5de86017",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -24010,6 +24010,11 @@
           "at": "2026-06-24T20:50:00+08:00",
           "status": "local_checks_passed_ready_for_pr",
           "summary": "After scoped sitemap build harness fix PR #1407 merged into main, PR1 was synced onto origin/main ad6a360ea6f694936473a15658171b0b57319c9a. JSON/YAML, focused contract, typecheck, exact production-env build, full contracts, Big5 freeze, Enneagram freeze, and git diff --check passed. No CMS, search, runtime, deploy, private data, fap-api, or generated page action was performed."
+        },
+        {
+          "at": "2026-06-24T20:53:00+08:00",
+          "status": "pr_open_checks_pending",
+          "summary": "Opened PR #1408 from codex/big5-methodology-common-contract-01 after local checks passed. Remote GitHub checks pending."
         }
       ],
       "sidecar_issues": []
