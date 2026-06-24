@@ -4124,7 +4124,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return MBTI_TAKE_ATTRIBUTION_FLAKY_CI_FIX_ALLOWED_FILES.has(file);
   }
 
-  if (CURRENT_BRANCH === "codex/mbti-contract-sidecar-fixes-1388-1292") {
+  if (
+    CURRENT_BRANCH === "codex/mbti-contract-sidecar-fixes-1388-1292" ||
+    CURRENT_BRANCH === "codex/mbti-contract-sidecar-main-revalidate-fix"
+  ) {
     return MBTI_CONTRACT_SIDECAR_FIXES_1388_1292_ALLOWED_FILES.has(file);
   }
 
