@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-24T18:47:00+08:00",
+  "updated_at": "2026-06-24T18:52:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -23797,9 +23797,9 @@
       "depends_on": [
         "PR-EQ-ASSET-02"
       ],
-      "status": "committed",
-      "pr_url": null,
-      "commit_sha": "cadd145979e0d7d0dccc692ce20bbb7b83db9c0f",
+      "status": "pr_open_checks_pending",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1399",
+      "commit_sha": "0d4d66c2ebd14357423605a3eb22bb58d425141a",
       "merge_sha": null,
       "title": "PR-EQ-ASSET-03 Frontend v1.6 contract fixture consumption",
       "checks": {
@@ -23872,6 +23872,11 @@
           "at": "2026-06-24T18:47:00+08:00",
           "status": "committed",
           "summary": "Created scoped commit cadd145979e0d7d0dccc692ce20bbb7b83db9c0f for PR-EQ-ASSET-03."
+        },
+        {
+          "at": "2026-06-24T18:52:00+08:00",
+          "status": "pr_open_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1399; branch tip before PR URL ledger update was 0d4d66c2ebd14357423605a3eb22bb58d425141a."
         }
       ],
       "sidecar_issues": [
@@ -28476,9 +28481,9 @@
       "depends_on": [
         "PR-EQ-ASSET-02"
       ],
-      "status": "committed",
-      "pr_url": null,
-      "commit_sha": "cadd145979e0d7d0dccc692ce20bbb7b83db9c0f",
+      "status": "pr_open_checks_pending",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1399",
+      "commit_sha": "0d4d66c2ebd14357423605a3eb22bb58d425141a",
       "merge_sha": null,
       "title": "PR-EQ-ASSET-03 Frontend v1.6 contract fixture consumption",
       "checks": {
@@ -28551,6 +28556,11 @@
           "at": "2026-06-24T18:47:00+08:00",
           "status": "committed",
           "summary": "Created scoped commit cadd145979e0d7d0dccc692ce20bbb7b83db9c0f for PR-EQ-ASSET-03."
+        },
+        {
+          "at": "2026-06-24T18:52:00+08:00",
+          "status": "pr_open_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1399; branch tip before PR URL ledger update was 0d4d66c2ebd14357423605a3eb22bb58d425141a."
         }
       ],
       "sidecar_issues": [
