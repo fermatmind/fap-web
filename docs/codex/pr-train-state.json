@@ -24070,7 +24070,7 @@
       "depends_on": [
         "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01"
       ],
-      "status": "pr_open_checks_pending",
+      "status": "ready_to_merge",
       "title": "BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01: docs(methodology): map Big Five source authority",
       "artifacts": [
         "docs/methodology-trust-science/big5-methodology-source-authority-packet-2026-06-23.md",
@@ -24140,7 +24140,7 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1410",
-      "commit_sha": "493e0468790ceacddc4f7c903b30850faec69202",
+      "commit_sha": "50e2b9ad06a26ad4abdd1d6e5acce86e436cf1ac",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -24178,9 +24178,46 @@
           "at": "2026-06-24T22:31:00+08:00",
           "status": "pr_open_checks_pending",
           "summary": "Opened PR #1410 from codex/big5-methodology-source-authority-packet-01 after rebasing onto origin/main f785ab01 and rerunning required local checks. Remote GitHub checks pending."
+        },
+        {
+          "at": "2026-06-24T22:35:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed on PR #1410 head 50e2b9ad06a26ad4abdd1d6e5acce86e436cf1ac. Recorded ready_to_merge before squash merge."
         }
       ],
-      "sidecar_issues": []
+      "sidecar_issues": [],
+      "github_checks": [
+        {
+          "name": "CodeQL",
+          "status": "passed",
+          "completed_at": "2026-06-24T14:34:13Z"
+        },
+        {
+          "name": "analyze (javascript-typescript)",
+          "status": "passed",
+          "completed_at": "2026-06-24T14:34:21Z"
+        },
+        {
+          "name": "build",
+          "status": "passed",
+          "completed_at": "2026-06-24T14:35:16Z"
+        },
+        {
+          "name": "contracts",
+          "status": "passed",
+          "completed_at": "2026-06-24T14:35:16Z"
+        },
+        {
+          "name": "verify-big5-contract-freeze",
+          "status": "passed",
+          "completed_at": "2026-06-24T14:31:41Z"
+        },
+        {
+          "name": "verify-enneagram-contract-freeze",
+          "status": "passed",
+          "completed_at": "2026-06-24T14:31:44Z"
+        }
+      ]
     },
     {
       "id": "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01",
