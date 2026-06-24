@@ -357,6 +357,15 @@ const MBTI64_AGENT_RECOMMENDATION_RERUN_LOOP_01_ALLOWED_FILES = new Set([
   "tests/contracts/mbti64-agent-recommendation-rerun-loop.contract.test.ts",
 ]);
 
+const MBTI64_GSC_QUERY_EXPORT_10_01_ALLOWED_FILES = new Set([
+  "docs/seo/personality/mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24.csv",
+  "docs/seo/personality/mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24.json",
+  "docs/seo/personality/mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24.md",
+  "scripts/seo/prepare-mbti64-gsc-query-evidence-export-10.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti64-gsc-query-export-10.contract.test.ts",
+]);
+
 const FAP_WEB_PRODUCTION_AUTO_DEPLOY_ENV_FIX_01_ALLOWED_FILES = new Set([
   ".github/workflows/deploy-production.yml",
   "tests/contracts/deploy-production-workflow-env.contract.test.ts",
@@ -3124,6 +3133,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/mbti64-agent-recommendation-rerun-loop-01" &&
     MBTI64_AGENT_RECOMMENDATION_RERUN_LOOP_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/mbti64-gsc-query-export-10-01" &&
+    MBTI64_GSC_QUERY_EXPORT_10_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
