@@ -23908,7 +23908,7 @@
       "branch": "codex/big5-methodology-common-contract-01",
       "base": "main",
       "depends_on": [],
-      "status": "ready_to_merge",
+      "status": "merged",
       "title": "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01: docs(methodology): add Big Five support common contract",
       "artifacts": [
         "docs/methodology-trust-science/big5-methodology-trust-science-common-contract-2026-06-23.md",
@@ -23972,10 +23972,10 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1408",
-      "commit_sha": "557a1836048e7d28379bad5028381411d60ba6e0",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "b7f7f42c0bc341d2fa23f63f5bd6241c284d4389",
+      "merged_at": "2026-06-24T13:04:53Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "scope_validation": {
         "allowed_files": [
           "docs/methodology-trust-science/big5-methodology-trust-science-common-contract-2026-06-23.md",
@@ -23988,7 +23988,7 @@
           "generated/pr-train-sidecar-issues/sidecar_issues.json"
         ],
         "status": "passed",
-        "checked_at": "2026-06-24T20:50:00+08:00"
+        "checked_at": "2026-06-24T21:05:00+08:00"
       },
       "history": [
         {
@@ -24020,6 +24020,11 @@
           "at": "2026-06-24T21:00:00+08:00",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed on PR #1408 head 557a1836048e7d28379bad5028381411d60ba6e0. Recorded ready_to_merge before squash merge."
+        },
+        {
+          "at": "2026-06-24T21:05:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled before PR2: GitHub reports PR #1408 merged at 2026-06-24T13:04:53Z with squash merge commit b7f7f42c0bc341d2fa23f63f5bd6241c284d4389; origin/main contains the merge commit; local main synced; local and remote task branches cleaned."
         }
       ],
       "sidecar_issues": [],
@@ -24065,18 +24070,77 @@
       "depends_on": [
         "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01"
       ],
-      "status": "pending_dependency",
+      "status": "ready_to_merge",
       "title": "BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01: docs(methodology): map Big Five source authority",
       "artifacts": [
         "docs/methodology-trust-science/big5-methodology-source-authority-packet-2026-06-23.md",
         "docs/methodology-trust-science/big5-methodology-source-authority-packet.v1.json",
         "tests/contracts/big5-methodology-source-authority-packet.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "name": "JSON parse",
+          "status": "passed",
+          "command": "node -e \"JSON.parse(require('fs').readFileSync('docs/methodology-trust-science/big5-methodology-source-authority-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\""
+        },
+        {
+          "name": "YAML parse",
+          "status": "passed",
+          "command": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\""
+        },
+        {
+          "name": "focused source authority packet contract",
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/big5-methodology-source-authority-packet.contract.test.ts",
+          "details": "7 tests passed."
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        {
+          "name": "exact production-env build",
+          "status": "passed",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "details": "Next build compiled, generated 202 static pages, and completed postbuild sitemap generation."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "details": "568 files passed, 3340 tests passed. The exact build left an unscoped generated public/sitemap.xml diff; it was restored to HEAD before full contracts so no sitemap/indexability file enters this PR."
+        },
+        {
+          "name": "verify-big5-contract-freeze",
+          "status": "passed",
+          "command": "pnpm verify-big5-contract-freeze",
+          "details": "3 files passed, 29 tests passed."
+        },
+        {
+          "name": "verify-enneagram-contract-freeze",
+          "status": "passed",
+          "command": "pnpm verify-enneagram-contract-freeze",
+          "details": "5 files passed, 24 tests passed."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "command": "git diff --check"
+        },
+        {
+          "name": "changed-file scope validation",
+          "status": "passed",
+          "command": "node changed-file scope validation against PR2 ledger allowed_files",
+          "details": "6 changed files, all within PR2 allowlist."
+        }
+      ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1410",
+      "commit_sha": "50e2b9ad06a26ad4abdd1d6e5acce86e436cf1ac",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -24085,20 +24149,75 @@
           "docs/methodology-trust-science/big5-methodology-source-authority-packet-2026-06-23.md",
           "docs/methodology-trust-science/big5-methodology-source-authority-packet.v1.json",
           "tests/contracts/big5-methodology-source-authority-packet.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train.yaml",
           "docs/codex/pr-train-state.json",
           "generated/pr-train-sidecar-issues/sidecar_issues.md",
           "generated/pr-train-sidecar-issues/sidecar_issues.json"
         ],
-        "status": "pending"
+        "status": "passed",
+        "checked_at": "2026-06-24T22:23:00+08:00"
       },
       "history": [
         {
           "at": "2026-06-24T19:30:00+08:00",
           "status": "pending_dependency",
           "summary": "Registered by authorized Big Five methodology/trust/science PR train setup; waits for PR1 common contract merge."
+        },
+        {
+          "at": "2026-06-24T21:18:00+08:00",
+          "status": "implementation_in_progress",
+          "summary": "PR1 dependency verified merged into origin/main. Started PR2 source authority packet implementation in docs/contracts-only scope; fap-api remains read-only evidence source only."
+        },
+        {
+          "at": "2026-06-24T22:23:00+08:00",
+          "status": "local_checks_passed_ready_for_pr",
+          "summary": "PR2 JSON/YAML parse, focused contract, typecheck, exact production-env build, full contracts, Big5 freeze, Enneagram freeze, git diff --check, and changed-file scope validation passed. Unscoped build-generated public/sitemap.xml diff was restored to HEAD and is not part of this PR. No CMS, search, runtime, deploy, private data, backend asset-agent command, fap-api mutation, or generated page action was performed."
+        },
+        {
+          "at": "2026-06-24T22:31:00+08:00",
+          "status": "pr_open_checks_pending",
+          "summary": "Opened PR #1410 from codex/big5-methodology-source-authority-packet-01 after rebasing onto origin/main f785ab01 and rerunning required local checks. Remote GitHub checks pending."
+        },
+        {
+          "at": "2026-06-24T22:35:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed on PR #1410 head 50e2b9ad06a26ad4abdd1d6e5acce86e436cf1ac. Recorded ready_to_merge before squash merge."
         }
       ],
-      "sidecar_issues": []
+      "sidecar_issues": [],
+      "github_checks": [
+        {
+          "name": "CodeQL",
+          "status": "passed",
+          "completed_at": "2026-06-24T14:34:13Z"
+        },
+        {
+          "name": "analyze (javascript-typescript)",
+          "status": "passed",
+          "completed_at": "2026-06-24T14:34:21Z"
+        },
+        {
+          "name": "build",
+          "status": "passed",
+          "completed_at": "2026-06-24T14:35:16Z"
+        },
+        {
+          "name": "contracts",
+          "status": "passed",
+          "completed_at": "2026-06-24T14:35:16Z"
+        },
+        {
+          "name": "verify-big5-contract-freeze",
+          "status": "passed",
+          "completed_at": "2026-06-24T14:31:41Z"
+        },
+        {
+          "name": "verify-enneagram-contract-freeze",
+          "status": "passed",
+          "completed_at": "2026-06-24T14:31:44Z"
+        }
+      ]
     },
     {
       "id": "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01",
