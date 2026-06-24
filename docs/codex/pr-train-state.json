@@ -28168,15 +28168,15 @@
       "repo": "fap-web",
       "branch": "codex/enneagram-public-personality-candidate-cluster-packet-01",
       "base": "main",
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "train_scope": "enneagram_public_personality_candidate_cluster_packet",
       "title": "ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01: docs(public-personality): add candidate cluster packet",
       "depends_on": [
         "ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01",
         "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "59e6bdcf36f6b1a4d89ca591634a4acd4fb48c62",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1397",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -28216,6 +28216,11 @@
             "changed-file scope validation"
           ],
           "evidence": "JSON and YAML parse passed; focused candidate cluster contract passed 8 tests; pnpm typecheck passed; pnpm test:contract passed with 560 files and 3295 tests; git diff --check and changed-file scope validation passed for exactly 4 changed files in the authorized candidate-cluster scope."
+        },
+        "pull_request": {
+          "status": "open",
+          "url": "https://github.com/fermatmind/fap-web/pull/1397",
+          "evidence": "Opened PR #1397 for ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01 from branch codex/enneagram-public-personality-candidate-cluster-packet-01."
         }
       },
       "sidecar_issues": [],
@@ -28234,6 +28239,11 @@
           "at": "2026-06-24T17:29:45+08:00",
           "status": "local_checks_passed",
           "note": "Candidate cluster packet artifacts passed JSON parse, state JSON parse, YAML parse, focused contract, typecheck, full contract suite, diff check, and changed-file scope validation."
+        },
+        {
+          "at": "2026-06-24T17:30:35+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1397 at https://github.com/fermatmind/fap-web/pull/1397 from commit 59e6bdcf36f6b1a4d89ca591634a4acd4fb48c62."
         }
       ]
     },
