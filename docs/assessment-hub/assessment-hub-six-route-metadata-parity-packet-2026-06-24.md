@@ -1,6 +1,6 @@
 # Assessment Hub Six-Route Metadata Parity Packet
 
-Verdict: `HOLD_LIVE_DISCOVERABILITY_UNSTABLE`
+Verdict: `PASS_ROUTE_METADATA_INDEXABILITY_SCHEMA_DISCOVERABILITY_PARITY`
 
 Task: `ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01`
 
@@ -8,20 +8,21 @@ This packet consumes `ASSESSMENT-HUB-QA-COMMON-CONTRACT-01` and stays docs/contr
 
 ## Decision
 
-The prior scan handoff expected `12/12 PASS` for route metadata/indexability/schema/discoverability parity and recorded the IQ mismatch as not reproduced. Current read-only live rechecks do not support that PASS claim. PR2 is therefore `HOLD`, not `PASS`.
+The prior scan handoff expected `12/12 PASS` for route metadata/indexability/schema/discoverability parity and recorded the IQ mismatch as not reproduced. The first PR2 attempt correctly recorded a temporary `llms-full` / sitemap instability hold. That blocker was fixed separately in PR #1420, merge commit `71325857228de2283b69d4f84da415226d8f0ecd`.
 
-## Current Live Rechecks
+The post-repair read-only live recheck now supports the PASS claim:
 
 | Recheck | Command | Result | Shared resource finding | Surface impact |
 | --- | --- | --- | --- | --- |
-| `live_recheck_1` | `node scripts/seo/check-six-assessment-hub-parity.mjs --json` | `ok=false` | sitemap 200, llms 200, llms-full 200, sitemap-source en/zh 200; verifier reported `llms_full.route` missing | 12/12 HOLD |
-| `live_recheck_2` | `node scripts/seo/check-six-assessment-hub-parity.mjs --json` | `ok=false` | sitemap 500, llms 200, llms-full 200, sitemap-source en/zh 200 | 12/12 HOLD |
+| `post_repair_live_recheck_1` | `node scripts/seo/check-six-assessment-hub-parity.mjs --json` | `ok=true` | sitemap 200, llms 200, llms-full 200, sitemap-source en/zh 200 | 12/12 PASS |
 
-Direct read-only spot checks found `llms.txt` contains all 12 route URLs and `llms-full.txt` contains six-assessment URLs, while `sitemap.xml` also returned 500 once. The live discoverability surface is unstable enough that this packet cannot truthfully record the requested `12/12 PASS`.
+The superseded HOLD evidence remains captured in the JSON packet under `superseded_hold_rechecks`. Current direct read-only spot checks confirm sitemap, `llms.txt`, and `llms-full.txt` contain all 12 public hub routes.
 
 ## Route Scope
 
-The packet covers 12 public routes across these six scales: `MBTI`, `BIG5_OCEAN`, `ENNEAGRAM`, `RIASEC`, `IQ_RAVEN`, and `EQ_60`. Every route is marked `HOLD` in this packet because the shared discoverability checks are unstable.
+The packet covers 12 public routes across these six scales: `MBTI`, `BIG5_OCEAN`, `ENNEAGRAM`, `RIASEC`, `IQ_RAVEN`, and `EQ_60`. Every route is marked `PASS` for public route metadata, canonical/robots/hreflang, sitemap/llms/llms-full presence, lookup indexability, and sitemap-source indexability.
+
+The IQ mismatch did not reproduce after repair: IQ zh/en runtime robots resolve to `index, follow`, lookup `is_indexable=true`, and sitemap/llms/llms-full contain the IQ zh/en URLs.
 
 ## Deferred
 
@@ -29,4 +30,4 @@ CTA and form-code details remain deferred to `ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKE
 
 ## Next Safe Action
 
-Stop the Assessment Hub QA PR train at PR2 until live discoverability parity is stable or a separate scoped repair scan is authorized.
+Merge PR2 after checks pass, clean up the branch, then continue to `ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01`.

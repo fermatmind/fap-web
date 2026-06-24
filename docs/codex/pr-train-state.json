@@ -29693,16 +29693,17 @@
       "depends_on": [
         "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01"
       ],
-      "status": "blocked_live_discoverability_unstable",
-      "pr_url": null,
+      "status": "local_checks_passed_post_repair_pass_packet",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1419",
       "commit_sha": null,
       "merge_sha": null,
       "title": "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01: docs(assessment-hub): add route metadata parity packet",
       "checks": {
         "local": {
-          "status": "passed_with_live_hold_packet",
+          "status": "passed",
           "commands": [
             "node -e \"JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-six-route-metadata-parity-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
             "pnpm exec vitest run tests/contracts/assessment-hub-six-route-metadata-parity-packet.contract.test.ts",
             "pnpm typecheck",
             "pnpm test:contract",
@@ -29712,21 +29713,20 @@
           "results": {
             "json_parse": "passed",
             "manifest_yaml_parse": "passed",
-            "focused_vitest": "passed",
+            "focused_vitest": "passed_5_tests",
             "typecheck": "passed",
-            "contract_suite": "passed",
+            "contract_suite": "passed_573_files_3379_tests",
             "diff_check": "passed",
-            "changed_file_scope_validation": "passed",
-            "live_recheck_1": "failed_llms_full_route_12_of_12_recorded_as_hold",
-            "live_recheck_2": "failed_sitemap_status_500_12_of_12_recorded_as_hold",
+            "changed_file_scope_validation": "passed_4_allowed_files_only",
+            "live_recheck_post_repair": "passed_12_of_12",
             "build": "not_run_by_goal_boundary"
           }
         },
         "github": {
-          "status": "not_started"
+          "status": "pending_after_push"
         }
       },
-      "failure_reason": "Current read-only live parity rechecks cannot reproduce the prior 12/12 PASS baseline: one run reported llms_full.route missing for 12/12 surfaces; a second run reported sitemap.status 500 for 12/12 surfaces. No mutation allowed in this PR scope.",
+      "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -29738,7 +29738,13 @@
           "tests/contracts/helpers/currentPrScope.ts",
           "docs/codex/pr-train-state.json"
         ],
-        "status": "passed"
+        "status": "passed",
+        "changed_files": [
+          "docs/assessment-hub/assessment-hub-six-route-metadata-parity-packet-2026-06-24.md",
+          "docs/assessment-hub/assessment-hub-six-route-metadata-parity-packet.v1.json",
+          "docs/codex/pr-train-state.json",
+          "tests/contracts/assessment-hub-six-route-metadata-parity-packet.contract.test.ts"
+        ]
       },
       "history": [
         {
@@ -29755,6 +29761,16 @@
           "at": "2026-06-25T01:26:00+08:00",
           "status": "local_checks_passed_with_live_hold_packet",
           "summary": "Focused contract, typecheck, full pnpm test:contract, JSON/YAML parsing, diff check, and scope validation passed. Packet remains HOLD because read-only live discoverability parity did not reproduce prior 12/12 PASS."
+        },
+        {
+          "at": "2026-06-25T07:54:00+08:00",
+          "status": "post_repair_pass_pending_local_validation",
+          "summary": "After scoped repair PR #1420 merged, read-only live parity recheck passed 12/12. Updating PR2 from HOLD packet to PASS packet without sitemap, llms, CMS, search, deploy, or private-data mutation."
+        },
+        {
+          "at": "2026-06-25T08:05:00+08:00",
+          "status": "local_checks_passed_post_repair_pass_packet",
+          "summary": "Post-repair PASS packet validated locally: JSON/YAML parsing, focused vitest, typecheck, full pnpm test:contract, diff check, and changed-file scope validation passed. pnpm build intentionally not run by goal boundary."
         }
       ],
       "sidecar_issues": []

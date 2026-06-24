@@ -1,9 +1,9 @@
 {
   "schema_version": "fermatmind.assessment_hub_qa.route_metadata_parity_packet.v1",
   "task_id": "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01",
-  "generated_at": "2026-06-25T01:18:00+08:00",
-  "run_mode": "docs_contracts_only_readonly_live_recheck",
-  "verdict": "HOLD_LIVE_DISCOVERABILITY_UNSTABLE",
+  "generated_at": "2026-06-25T07:52:00+08:00",
+  "run_mode": "docs_contracts_only_readonly_post_repair_live_recheck",
+  "verdict": "PASS_ROUTE_METADATA_INDEXABILITY_SCHEMA_DISCOVERABILITY_PARITY",
   "consumes_common_contract": "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01",
   "producing_agent": "assessment_hub",
   "consumer_agents": [
@@ -15,13 +15,13 @@
     "source": "ASSESSMENT-HUB-QA-PLANNING-SCAN-01 prior scan handoff",
     "expected_runtime_parity": "12/12 PASS",
     "expected_iq_mismatch_status": "not_reproduced",
-    "superseded_by_current_live_recheck": true
+    "corroborated_by_post_repair_live_recheck": true
   },
   "current_live_rechecks": [
     {
-      "id": "live_recheck_1",
+      "id": "post_repair_live_recheck_1",
       "command": "node scripts/seo/check-six-assessment-hub-parity.mjs --json",
-      "ok": false,
+      "ok": true,
       "shared_resources": {
         "sitemap_status": 200,
         "llms_status": 200,
@@ -34,53 +34,32 @@
       "summary": {
         "scale_count": 6,
         "surface_count": 12,
-        "failing_surfaces": 12
+        "failing_surfaces": 0
       },
-      "repeated_issue": {
-        "check": "llms_full.route",
-        "detail": "Missing each six-assessment route in verifier output"
-      }
-    },
-    {
-      "id": "live_recheck_2",
-      "command": "node scripts/seo/check-six-assessment-hub-parity.mjs --json",
-      "ok": false,
-      "shared_resources": {
-        "sitemap_status": 500,
-        "llms_status": 200,
-        "llms_full_status": 200,
-        "sitemap_source_status_by_locale": {
-          "en": 200,
-          "zh": 200
-        }
-      },
-      "summary": {
-        "scale_count": 6,
-        "surface_count": 12,
-        "failing_surfaces": 12
-      },
-      "repeated_issue": {
-        "check": "sitemap.status",
-        "detail": "Expected 200, got 500"
-      }
+      "repair_pr": "https://github.com/fermatmind/fap-web/pull/1420",
+      "repair_merge_commit": "71325857228de2283b69d4f84da415226d8f0ecd"
     }
   ],
   "direct_readonly_spot_checks": {
     "llms_txt_contains_12_routes": true,
-    "llms_full_txt_contains_assessment_urls": true,
-    "sitemap_xml_observed_500_once": true,
+    "llms_full_txt_contains_12_routes": true,
+    "sitemap_xml_contains_12_routes": true,
     "mutation_performed": false
   },
   "route_metadata_packet_status": {
     "route_count": 12,
-    "pass_count": 0,
-    "hold_count": 12,
-    "status": "HOLD",
-    "blocking_reason": "Current live discoverability surfaces are unstable; this packet cannot truthfully record the requested 12/12 PASS."
+    "pass_count": 12,
+    "hold_count": 0,
+    "fail_count": 0,
+    "status": "PASS",
+    "blocking_reason": null,
+    "post_repair_resolution": "PR #1420 keeps six assessment hubs present in degraded llms-full responses; current live recheck is stable PASS."
   },
   "iq_mismatch": {
-    "status": "not_reproduced_in_prior_scan_baseline",
-    "current_packet_decision": "not_rechecked_with_private_or_submit_flow",
+    "status": "not_reproduced_post_repair_live_recheck",
+    "runtime_robots_zh_en": "index, follow",
+    "lookup_is_indexable_zh_en": true,
+    "sitemap_llms_llms_full_contain_iq_zh_en": true,
     "private_data_accessed": false
   },
   "take_flow": {
@@ -95,22 +74,64 @@
       "locale": "en",
       "slug": "mbti-personality-test-16-personality-types",
       "route": "/en/tests/mbti-personality-test-16-personality-types",
-      "public_url": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
-      "expected_assertions": [
-        "page_status_200",
-        "self_canonical",
-        "not_noindex",
-        "self_and_sibling_alternates",
-        "live_sitemap_contains_route",
-        "live_llms_contains_route",
-        "live_llms_full_contains_route",
-        "lookup_ok",
-        "lookup_is_indexable",
-        "sitemap_source_includes_slug",
-        "sitemap_source_is_indexable"
+      "url": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "http_status": 200,
+      "final_url": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "redirect_chain_summary": "no_redirect_observed",
+      "canonical": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "title": "Free MBTI Personality Test | 16 Types Full Report | FermatMind",
+      "meta_description": "Take the MBTI personality test free and get your full 16-type report, communication patterns, and collaboration cues after completion.",
+      "h1": "Free MBTI Personality Test with Full Report",
+      "robots_meta": "index, follow",
+      "x_robots_tag_if_observed": null,
+      "hreflang_count": 3,
+      "hreflang_values": [
+        "en",
+        "x-default",
+        "zh-CN"
       ],
-      "packet_status": "HOLD",
-      "hold_reason": "live_discoverability_recheck_unstable"
+      "x_default": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "sitemap_presence": true,
+      "llms_presence": true,
+      "llms_full_presence": true,
+      "jsonld_count": 4,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "SoftwareApplication",
+        "WebPage"
+      ],
+      "faq_schema_visible_content_match": true,
+      "og_tags_summary_if_observed": [
+        "og:description",
+        "og:image",
+        "og:locale",
+        "og:title",
+        "og:type",
+        "og:url"
+      ],
+      "twitter_tags_summary_if_observed": [
+        "twitter:card",
+        "twitter:description",
+        "twitter:image",
+        "twitter:title"
+      ],
+      "api_lookup": {
+        "status": 200,
+        "ok": true,
+        "is_indexable": true,
+        "slug": "mbti-personality-test-16-personality-types"
+      },
+      "sitemap_source": {
+        "status": 200,
+        "slug_present": true,
+        "is_indexable": true
+      },
+      "parity_verdict": "PASS",
+      "issues": []
     },
     {
       "id": "mbti_zh",
@@ -118,22 +139,64 @@
       "locale": "zh",
       "slug": "mbti-personality-test-16-personality-types",
       "route": "/zh/tests/mbti-personality-test-16-personality-types",
-      "public_url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
-      "expected_assertions": [
-        "page_status_200",
-        "self_canonical",
-        "not_noindex",
-        "self_and_sibling_alternates",
-        "live_sitemap_contains_route",
-        "live_llms_contains_route",
-        "live_llms_full_contains_route",
-        "lookup_ok",
-        "lookup_is_indexable",
-        "sitemap_source_includes_slug",
-        "sitemap_source_is_indexable"
+      "url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "http_status": 200,
+      "final_url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "redirect_chain_summary": "no_redirect_observed",
+      "canonical": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "title": "MBTI免费测试｜16型人格与完整报告 | FermatMind",
+      "meta_description": "免费完成 MBTI 测试，立即查看 16 型人格完整结果、沟通偏好与协作线索。",
+      "h1": "MBTI免费测试与完整结果",
+      "robots_meta": "index, follow",
+      "x_robots_tag_if_observed": null,
+      "hreflang_count": 3,
+      "hreflang_values": [
+        "en",
+        "x-default",
+        "zh-CN"
       ],
-      "packet_status": "HOLD",
-      "hold_reason": "live_discoverability_recheck_unstable"
+      "x_default": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "sitemap_presence": true,
+      "llms_presence": true,
+      "llms_full_presence": true,
+      "jsonld_count": 4,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "SoftwareApplication",
+        "WebPage"
+      ],
+      "faq_schema_visible_content_match": true,
+      "og_tags_summary_if_observed": [
+        "og:description",
+        "og:image",
+        "og:locale",
+        "og:title",
+        "og:type",
+        "og:url"
+      ],
+      "twitter_tags_summary_if_observed": [
+        "twitter:card",
+        "twitter:description",
+        "twitter:image",
+        "twitter:title"
+      ],
+      "api_lookup": {
+        "status": 200,
+        "ok": true,
+        "is_indexable": true,
+        "slug": "mbti-personality-test-16-personality-types"
+      },
+      "sitemap_source": {
+        "status": 200,
+        "slug_present": true,
+        "is_indexable": true
+      },
+      "parity_verdict": "PASS",
+      "issues": []
     },
     {
       "id": "big5_ocean_en",
@@ -141,22 +204,64 @@
       "locale": "en",
       "slug": "big-five-personality-test-ocean-model",
       "route": "/en/tests/big-five-personality-test-ocean-model",
-      "public_url": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
-      "expected_assertions": [
-        "page_status_200",
-        "self_canonical",
-        "not_noindex",
-        "self_and_sibling_alternates",
-        "live_sitemap_contains_route",
-        "live_llms_contains_route",
-        "live_llms_full_contains_route",
-        "lookup_ok",
-        "lookup_is_indexable",
-        "sitemap_source_includes_slug",
-        "sitemap_source_is_indexable"
+      "url": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+      "http_status": 200,
+      "final_url": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+      "redirect_chain_summary": "no_redirect_observed",
+      "canonical": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+      "title": "Big Five Personality Test (OCEAN Model) | FermatMind",
+      "meta_description": "Measure your Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism in one assessment.",
+      "h1": "Big Five Personality Test 【OCEAN Model】",
+      "robots_meta": "index, follow",
+      "x_robots_tag_if_observed": null,
+      "hreflang_count": 3,
+      "hreflang_values": [
+        "en",
+        "x-default",
+        "zh-CN"
       ],
-      "packet_status": "HOLD",
-      "hold_reason": "live_discoverability_recheck_unstable"
+      "x_default": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+      "sitemap_presence": true,
+      "llms_presence": true,
+      "llms_full_presence": true,
+      "jsonld_count": 4,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "SoftwareApplication",
+        "WebPage"
+      ],
+      "faq_schema_visible_content_match": true,
+      "og_tags_summary_if_observed": [
+        "og:description",
+        "og:image",
+        "og:locale",
+        "og:title",
+        "og:type",
+        "og:url"
+      ],
+      "twitter_tags_summary_if_observed": [
+        "twitter:card",
+        "twitter:description",
+        "twitter:image",
+        "twitter:title"
+      ],
+      "api_lookup": {
+        "status": 200,
+        "ok": true,
+        "is_indexable": true,
+        "slug": "big-five-personality-test-ocean-model"
+      },
+      "sitemap_source": {
+        "status": 200,
+        "slug_present": true,
+        "is_indexable": true
+      },
+      "parity_verdict": "PASS",
+      "issues": []
     },
     {
       "id": "big5_ocean_zh",
@@ -164,22 +269,64 @@
       "locale": "zh",
       "slug": "big-five-personality-test-ocean-model",
       "route": "/zh/tests/big-five-personality-test-ocean-model",
-      "public_url": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
-      "expected_assertions": [
-        "page_status_200",
-        "self_canonical",
-        "not_noindex",
-        "self_and_sibling_alternates",
-        "live_sitemap_contains_route",
-        "live_llms_contains_route",
-        "live_llms_full_contains_route",
-        "lookup_ok",
-        "lookup_is_indexable",
-        "sitemap_source_includes_slug",
-        "sitemap_source_is_indexable"
+      "url": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "http_status": 200,
+      "final_url": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "redirect_chain_summary": "no_redirect_observed",
+      "canonical": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "title": "大五人格测试（OCEAN 模型） | FermatMind",
+      "meta_description": "用一次测评了解开放性、尽责性、外倾性、宜人性与神经质。",
+      "h1": "大五人格免费测试",
+      "robots_meta": "index, follow",
+      "x_robots_tag_if_observed": null,
+      "hreflang_count": 3,
+      "hreflang_values": [
+        "en",
+        "x-default",
+        "zh-CN"
       ],
-      "packet_status": "HOLD",
-      "hold_reason": "live_discoverability_recheck_unstable"
+      "x_default": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+      "sitemap_presence": true,
+      "llms_presence": true,
+      "llms_full_presence": true,
+      "jsonld_count": 4,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "SoftwareApplication",
+        "WebPage"
+      ],
+      "faq_schema_visible_content_match": true,
+      "og_tags_summary_if_observed": [
+        "og:description",
+        "og:image",
+        "og:locale",
+        "og:title",
+        "og:type",
+        "og:url"
+      ],
+      "twitter_tags_summary_if_observed": [
+        "twitter:card",
+        "twitter:description",
+        "twitter:image",
+        "twitter:title"
+      ],
+      "api_lookup": {
+        "status": 200,
+        "ok": true,
+        "is_indexable": true,
+        "slug": "big-five-personality-test-ocean-model"
+      },
+      "sitemap_source": {
+        "status": 200,
+        "slug_present": true,
+        "is_indexable": true
+      },
+      "parity_verdict": "PASS",
+      "issues": []
     },
     {
       "id": "enneagram_en",
@@ -187,22 +334,64 @@
       "locale": "en",
       "slug": "enneagram-personality-test-nine-types",
       "route": "/en/tests/enneagram-personality-test-nine-types",
-      "public_url": "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
-      "expected_assertions": [
-        "page_status_200",
-        "self_canonical",
-        "not_noindex",
-        "self_and_sibling_alternates",
-        "live_sitemap_contains_route",
-        "live_llms_contains_route",
-        "live_llms_full_contains_route",
-        "lookup_ok",
-        "lookup_is_indexable",
-        "sitemap_source_includes_slug",
-        "sitemap_source_is_indexable"
+      "url": "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+      "http_status": 200,
+      "final_url": "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+      "redirect_chain_summary": "no_redirect_observed",
+      "canonical": "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+      "title": "Enneagram Personality Test (Nine Types) | FermatMind",
+      "meta_description": "Explore your Enneagram profile across the nine personality types.",
+      "h1": "Enneagram Personality Test 【Nine Types】",
+      "robots_meta": "index, follow",
+      "x_robots_tag_if_observed": null,
+      "hreflang_count": 3,
+      "hreflang_values": [
+        "en",
+        "x-default",
+        "zh-CN"
       ],
-      "packet_status": "HOLD",
-      "hold_reason": "live_discoverability_recheck_unstable"
+      "x_default": "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+      "sitemap_presence": true,
+      "llms_presence": true,
+      "llms_full_presence": true,
+      "jsonld_count": 4,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "SoftwareApplication",
+        "WebPage"
+      ],
+      "faq_schema_visible_content_match": true,
+      "og_tags_summary_if_observed": [
+        "og:description",
+        "og:image",
+        "og:locale",
+        "og:title",
+        "og:type",
+        "og:url"
+      ],
+      "twitter_tags_summary_if_observed": [
+        "twitter:card",
+        "twitter:description",
+        "twitter:image",
+        "twitter:title"
+      ],
+      "api_lookup": {
+        "status": 200,
+        "ok": true,
+        "is_indexable": true,
+        "slug": "enneagram-personality-test-nine-types"
+      },
+      "sitemap_source": {
+        "status": 200,
+        "slug_present": true,
+        "is_indexable": true
+      },
+      "parity_verdict": "PASS",
+      "issues": []
     },
     {
       "id": "enneagram_zh",
@@ -210,22 +399,64 @@
       "locale": "zh",
       "slug": "enneagram-personality-test-nine-types",
       "route": "/zh/tests/enneagram-personality-test-nine-types",
-      "public_url": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
-      "expected_assertions": [
-        "page_status_200",
-        "self_canonical",
-        "not_noindex",
-        "self_and_sibling_alternates",
-        "live_sitemap_contains_route",
-        "live_llms_contains_route",
-        "live_llms_full_contains_route",
-        "lookup_ok",
-        "lookup_is_indexable",
-        "sitemap_source_includes_slug",
-        "sitemap_source_is_indexable"
+      "url": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "http_status": 200,
+      "final_url": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "redirect_chain_summary": "no_redirect_observed",
+      "canonical": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "title": "九型人格测试 | FermatMind",
+      "meta_description": "通过结构化测评了解你的九型人格类型排序。",
+      "h1": "九型人格免费测试",
+      "robots_meta": "index, follow",
+      "x_robots_tag_if_observed": null,
+      "hreflang_count": 3,
+      "hreflang_values": [
+        "en",
+        "x-default",
+        "zh-CN"
       ],
-      "packet_status": "HOLD",
-      "hold_reason": "live_discoverability_recheck_unstable"
+      "x_default": "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+      "sitemap_presence": true,
+      "llms_presence": true,
+      "llms_full_presence": true,
+      "jsonld_count": 4,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "SoftwareApplication",
+        "WebPage"
+      ],
+      "faq_schema_visible_content_match": true,
+      "og_tags_summary_if_observed": [
+        "og:description",
+        "og:image",
+        "og:locale",
+        "og:title",
+        "og:type",
+        "og:url"
+      ],
+      "twitter_tags_summary_if_observed": [
+        "twitter:card",
+        "twitter:description",
+        "twitter:image",
+        "twitter:title"
+      ],
+      "api_lookup": {
+        "status": 200,
+        "ok": true,
+        "is_indexable": true,
+        "slug": "enneagram-personality-test-nine-types"
+      },
+      "sitemap_source": {
+        "status": 200,
+        "slug_present": true,
+        "is_indexable": true
+      },
+      "parity_verdict": "PASS",
+      "issues": []
     },
     {
       "id": "riasec_en",
@@ -233,22 +464,64 @@
       "locale": "en",
       "slug": "holland-career-interest-test-riasec",
       "route": "/en/tests/holland-career-interest-test-riasec",
-      "public_url": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
-      "expected_assertions": [
-        "page_status_200",
-        "self_canonical",
-        "not_noindex",
-        "self_and_sibling_alternates",
-        "live_sitemap_contains_route",
-        "live_llms_contains_route",
-        "live_llms_full_contains_route",
-        "lookup_ok",
-        "lookup_is_indexable",
-        "sitemap_source_includes_slug",
-        "sitemap_source_is_indexable"
+      "url": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "http_status": 200,
+      "final_url": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "redirect_chain_summary": "no_redirect_observed",
+      "canonical": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "title": "Free Holland Career Interest Test | RIASEC Full Report | FermatMind",
+      "meta_description": "Take the Holland career interest test free and get your RIASEC interest pattern, career exploration cues, and full report.",
+      "h1": "Free Holland Career Interest Test with Full Report",
+      "robots_meta": "index, follow",
+      "x_robots_tag_if_observed": null,
+      "hreflang_count": 3,
+      "hreflang_values": [
+        "en",
+        "x-default",
+        "zh-CN"
       ],
-      "packet_status": "HOLD",
-      "hold_reason": "live_discoverability_recheck_unstable"
+      "x_default": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "sitemap_presence": true,
+      "llms_presence": true,
+      "llms_full_presence": true,
+      "jsonld_count": 4,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "SoftwareApplication",
+        "WebPage"
+      ],
+      "faq_schema_visible_content_match": true,
+      "og_tags_summary_if_observed": [
+        "og:description",
+        "og:image",
+        "og:locale",
+        "og:title",
+        "og:type",
+        "og:url"
+      ],
+      "twitter_tags_summary_if_observed": [
+        "twitter:card",
+        "twitter:description",
+        "twitter:image",
+        "twitter:title"
+      ],
+      "api_lookup": {
+        "status": 200,
+        "ok": true,
+        "is_indexable": true,
+        "slug": "holland-career-interest-test-riasec"
+      },
+      "sitemap_source": {
+        "status": 200,
+        "slug_present": true,
+        "is_indexable": true
+      },
+      "parity_verdict": "PASS",
+      "issues": []
     },
     {
       "id": "riasec_zh",
@@ -256,22 +529,64 @@
       "locale": "zh",
       "slug": "holland-career-interest-test-riasec",
       "route": "/zh/tests/holland-career-interest-test-riasec",
-      "public_url": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
-      "expected_assertions": [
-        "page_status_200",
-        "self_canonical",
-        "not_noindex",
-        "self_and_sibling_alternates",
-        "live_sitemap_contains_route",
-        "live_llms_contains_route",
-        "live_llms_full_contains_route",
-        "lookup_ok",
-        "lookup_is_indexable",
-        "sitemap_source_includes_slug",
-        "sitemap_source_is_indexable"
+      "url": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "http_status": 200,
+      "final_url": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "redirect_chain_summary": "no_redirect_observed",
+      "canonical": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "title": "霍兰德职业兴趣免费测试｜RIASEC完整结果 | FermatMind",
+      "meta_description": "免费完成霍兰德职业兴趣测试，查看 RIASEC 兴趣排序、职业探索线索与完整结果页。",
+      "h1": "霍兰德职业兴趣免费测试与完整结果",
+      "robots_meta": "index, follow",
+      "x_robots_tag_if_observed": null,
+      "hreflang_count": 3,
+      "hreflang_values": [
+        "en",
+        "x-default",
+        "zh-CN"
       ],
-      "packet_status": "HOLD",
-      "hold_reason": "live_discoverability_recheck_unstable"
+      "x_default": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "sitemap_presence": true,
+      "llms_presence": true,
+      "llms_full_presence": true,
+      "jsonld_count": 4,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "SoftwareApplication",
+        "WebPage"
+      ],
+      "faq_schema_visible_content_match": true,
+      "og_tags_summary_if_observed": [
+        "og:description",
+        "og:image",
+        "og:locale",
+        "og:title",
+        "og:type",
+        "og:url"
+      ],
+      "twitter_tags_summary_if_observed": [
+        "twitter:card",
+        "twitter:description",
+        "twitter:image",
+        "twitter:title"
+      ],
+      "api_lookup": {
+        "status": 200,
+        "ok": true,
+        "is_indexable": true,
+        "slug": "holland-career-interest-test-riasec"
+      },
+      "sitemap_source": {
+        "status": 200,
+        "slug_present": true,
+        "is_indexable": true
+      },
+      "parity_verdict": "PASS",
+      "issues": []
     },
     {
       "id": "iq_raven_en",
@@ -279,22 +594,64 @@
       "locale": "en",
       "slug": "iq-test-intelligence-quotient-assessment",
       "route": "/en/tests/iq-test-intelligence-quotient-assessment",
-      "public_url": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
-      "expected_assertions": [
-        "page_status_200",
-        "self_canonical",
-        "not_noindex",
-        "self_and_sibling_alternates",
-        "live_sitemap_contains_route",
-        "live_llms_contains_route",
-        "live_llms_full_contains_route",
-        "lookup_ok",
-        "lookup_is_indexable",
-        "sitemap_source_includes_slug",
-        "sitemap_source_is_indexable"
+      "url": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+      "http_status": 200,
+      "final_url": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+      "redirect_chain_summary": "no_redirect_observed",
+      "canonical": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+      "title": "IQ Test (Intelligence Quotient Assessment) | FermatMind",
+      "meta_description": "Assess your matrix reasoning, pattern recognition, and abstract problem-solving ability.",
+      "h1": "IQ Test 【Intelligence Quotient Assessment】",
+      "robots_meta": "index, follow",
+      "x_robots_tag_if_observed": null,
+      "hreflang_count": 3,
+      "hreflang_values": [
+        "en",
+        "x-default",
+        "zh-CN"
       ],
-      "packet_status": "HOLD",
-      "hold_reason": "live_discoverability_recheck_unstable"
+      "x_default": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+      "sitemap_presence": true,
+      "llms_presence": true,
+      "llms_full_presence": true,
+      "jsonld_count": 4,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "SoftwareApplication",
+        "WebPage"
+      ],
+      "faq_schema_visible_content_match": true,
+      "og_tags_summary_if_observed": [
+        "og:description",
+        "og:image",
+        "og:locale",
+        "og:title",
+        "og:type",
+        "og:url"
+      ],
+      "twitter_tags_summary_if_observed": [
+        "twitter:card",
+        "twitter:description",
+        "twitter:image",
+        "twitter:title"
+      ],
+      "api_lookup": {
+        "status": 200,
+        "ok": true,
+        "is_indexable": true,
+        "slug": "iq-test-intelligence-quotient-assessment"
+      },
+      "sitemap_source": {
+        "status": 200,
+        "slug_present": true,
+        "is_indexable": true
+      },
+      "parity_verdict": "PASS",
+      "issues": []
     },
     {
       "id": "iq_raven_zh",
@@ -302,22 +659,64 @@
       "locale": "zh",
       "slug": "iq-test-intelligence-quotient-assessment",
       "route": "/zh/tests/iq-test-intelligence-quotient-assessment",
-      "public_url": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
-      "expected_assertions": [
-        "page_status_200",
-        "self_canonical",
-        "not_noindex",
-        "self_and_sibling_alternates",
-        "live_sitemap_contains_route",
-        "live_llms_contains_route",
-        "live_llms_full_contains_route",
-        "lookup_ok",
-        "lookup_is_indexable",
-        "sitemap_source_includes_slug",
-        "sitemap_source_is_indexable"
+      "url": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "http_status": 200,
+      "final_url": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "redirect_chain_summary": "no_redirect_observed",
+      "canonical": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "title": "智商（IQ）测试 | FermatMind",
+      "meta_description": "评估矩阵推理、模式识别与抽象问题解决能力。",
+      "h1": "智商【IQ】测试",
+      "robots_meta": "index, follow",
+      "x_robots_tag_if_observed": null,
+      "hreflang_count": 3,
+      "hreflang_values": [
+        "en",
+        "x-default",
+        "zh-CN"
       ],
-      "packet_status": "HOLD",
-      "hold_reason": "live_discoverability_recheck_unstable"
+      "x_default": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+      "sitemap_presence": true,
+      "llms_presence": true,
+      "llms_full_presence": true,
+      "jsonld_count": 4,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "SoftwareApplication",
+        "WebPage"
+      ],
+      "faq_schema_visible_content_match": true,
+      "og_tags_summary_if_observed": [
+        "og:description",
+        "og:image",
+        "og:locale",
+        "og:title",
+        "og:type",
+        "og:url"
+      ],
+      "twitter_tags_summary_if_observed": [
+        "twitter:card",
+        "twitter:description",
+        "twitter:image",
+        "twitter:title"
+      ],
+      "api_lookup": {
+        "status": 200,
+        "ok": true,
+        "is_indexable": true,
+        "slug": "iq-test-intelligence-quotient-assessment"
+      },
+      "sitemap_source": {
+        "status": 200,
+        "slug_present": true,
+        "is_indexable": true
+      },
+      "parity_verdict": "PASS",
+      "issues": []
     },
     {
       "id": "eq_60_en",
@@ -325,22 +724,63 @@
       "locale": "en",
       "slug": "eq-test-emotional-intelligence-assessment",
       "route": "/en/tests/eq-test-emotional-intelligence-assessment",
-      "public_url": "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
-      "expected_assertions": [
-        "page_status_200",
-        "self_canonical",
-        "not_noindex",
-        "self_and_sibling_alternates",
-        "live_sitemap_contains_route",
-        "live_llms_contains_route",
-        "live_llms_full_contains_route",
-        "lookup_ok",
-        "lookup_is_indexable",
-        "sitemap_source_includes_slug",
-        "sitemap_source_is_indexable"
+      "url": "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+      "http_status": 200,
+      "final_url": "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+      "redirect_chain_summary": "no_redirect_observed",
+      "canonical": "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+      "title": "EQ Test (Emotional Intelligence Assessment) | FermatMind",
+      "meta_description": "Measure emotional awareness, regulation, empathy, and interpersonal communication tendencies.",
+      "h1": "EQ Test 【Emotional Intelligence Assessment】",
+      "robots_meta": "index, follow",
+      "x_robots_tag_if_observed": null,
+      "hreflang_count": 3,
+      "hreflang_values": [
+        "en",
+        "x-default",
+        "zh-CN"
       ],
-      "packet_status": "HOLD",
-      "hold_reason": "live_discoverability_recheck_unstable"
+      "x_default": "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+      "sitemap_presence": true,
+      "llms_presence": true,
+      "llms_full_presence": true,
+      "jsonld_count": 3,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "WebPage"
+      ],
+      "faq_schema_visible_content_match": true,
+      "og_tags_summary_if_observed": [
+        "og:description",
+        "og:image",
+        "og:locale",
+        "og:title",
+        "og:type",
+        "og:url"
+      ],
+      "twitter_tags_summary_if_observed": [
+        "twitter:card",
+        "twitter:description",
+        "twitter:image",
+        "twitter:title"
+      ],
+      "api_lookup": {
+        "status": 200,
+        "ok": true,
+        "is_indexable": true,
+        "slug": "eq-test-emotional-intelligence-assessment"
+      },
+      "sitemap_source": {
+        "status": 200,
+        "slug_present": true,
+        "is_indexable": true
+      },
+      "parity_verdict": "PASS",
+      "issues": []
     },
     {
       "id": "eq_60_zh",
@@ -348,22 +788,63 @@
       "locale": "zh",
       "slug": "eq-test-emotional-intelligence-assessment",
       "route": "/zh/tests/eq-test-emotional-intelligence-assessment",
-      "public_url": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
-      "expected_assertions": [
-        "page_status_200",
-        "self_canonical",
-        "not_noindex",
-        "self_and_sibling_alternates",
-        "live_sitemap_contains_route",
-        "live_llms_contains_route",
-        "live_llms_full_contains_route",
-        "lookup_ok",
-        "lookup_is_indexable",
-        "sitemap_source_includes_slug",
-        "sitemap_source_is_indexable"
+      "url": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "http_status": 200,
+      "final_url": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "redirect_chain_summary": "no_redirect_observed",
+      "canonical": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "title": "情商（EQ）测试 | FermatMind",
+      "meta_description": "评估情绪觉察、情绪调节、共情与人际沟通倾向。",
+      "h1": "情商【EQ】测试",
+      "robots_meta": "index, follow",
+      "x_robots_tag_if_observed": null,
+      "hreflang_count": 3,
+      "hreflang_values": [
+        "en",
+        "x-default",
+        "zh-CN"
       ],
-      "packet_status": "HOLD",
-      "hold_reason": "live_discoverability_recheck_unstable"
+      "x_default": "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+      "sitemap_presence": true,
+      "llms_presence": true,
+      "llms_full_presence": true,
+      "jsonld_count": 3,
+      "jsonld_types": [
+        "Answer",
+        "BreadcrumbList",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "WebPage"
+      ],
+      "faq_schema_visible_content_match": true,
+      "og_tags_summary_if_observed": [
+        "og:description",
+        "og:image",
+        "og:locale",
+        "og:title",
+        "og:type",
+        "og:url"
+      ],
+      "twitter_tags_summary_if_observed": [
+        "twitter:card",
+        "twitter:description",
+        "twitter:image",
+        "twitter:title"
+      ],
+      "api_lookup": {
+        "status": 200,
+        "ok": true,
+        "is_indexable": true,
+        "slug": "eq-test-emotional-intelligence-assessment"
+      },
+      "sitemap_source": {
+        "status": 200,
+        "slug_present": true,
+        "is_indexable": true
+      },
+      "parity_verdict": "PASS",
+      "issues": []
     }
   ],
   "hard_holds_preserved": [
@@ -377,5 +858,15 @@
     "no_private_result_access",
     "no_post_start_submit_result_api_call"
   ],
-  "next_safe_action": "Stop the Assessment Hub QA PR train at PR2 until live discoverability parity is stable or a separate scoped repair scan is authorized."
+  "next_safe_action": "Merge PR2 after checks pass, clean up the branch, then continue to ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01.",
+  "superseded_hold_rechecks": [
+    {
+      "id": "live_recheck_1",
+      "issue": "llms_full.route missing for 12/12 before PR #1420 repair"
+    },
+    {
+      "id": "live_recheck_2",
+      "issue": "sitemap.status 500 observed once before PR #1420 repair"
+    }
+  ]
 }
