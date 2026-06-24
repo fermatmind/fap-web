@@ -1,0 +1,316 @@
+{
+  "schema_version": "fermatmind.big5_methodology_trust_science.readiness_matrix.v1",
+  "task_id": "BIG5-METHODOLOGY-TRUST-SCIENCE-READINESS-MATRIX-01",
+  "verdict": "READY_FOR_NEXT_PLANNING_HANDOFF_WITH_RUNTIME_HOLDS",
+  "run_mode": "docs_contracts_only",
+  "producing_agent": "big_five_result_page",
+  "receiving_agent": "methodology_trust_science_support",
+  "scale_code": "BIG5_OCEAN",
+  "canonical_test_slug": "big-five-personality-test",
+  "dependencies": [
+    {
+      "task_id": "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1408",
+      "merge_commit": "b7f7f42c0bc341d2fa23f63f5bd6241c284d4389",
+      "verdict": "READY_FOR_POLICY_HANDOFF",
+      "consumed_artifact": "docs/methodology-trust-science/big5-methodology-trust-science-common-contract.v1.json"
+    },
+    {
+      "task_id": "BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1410",
+      "merge_commit": "d58cc55b420b7bfeac32622764267852e42578e4",
+      "verdict": "SOURCE_AUTHORITY_MAPPED_FOR_PLANNING_ONLY",
+      "consumed_artifact": "docs/methodology-trust-science/big5-methodology-source-authority-packet.v1.json"
+    },
+    {
+      "task_id": "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1412",
+      "merge_commit": "908b8c080e9b43476722a5816836c10460ccd430",
+      "verdict": "SAFETY_PACKET_READY_FOR_PLANNING_ONLY",
+      "consumed_artifact": "docs/methodology-trust-science/big5-methodology-claim-privacy-safety-packet.v1.json"
+    },
+    {
+      "task_id": "BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1413",
+      "merge_commit": "9e4f8cb33551b1c4d948af4cc0367d3689261321",
+      "verdict": "PLANNING_ONLY",
+      "consumed_artifact": "docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix.v1.json"
+    }
+  ],
+  "readiness_summary": {
+    "aggregate_handoff": "READY_FOR_NEXT_PLANNING_HANDOFF_WITH_RUNTIME_HOLDS",
+    "common_contract": "READY_FOR_POLICY_HANDOFF",
+    "source_authority": "SOURCE_AUTHORITY_MAPPED_FOR_PLANNING_ONLY",
+    "claim_privacy_safety_gate": "SAFETY_PACKET_READY_FOR_PLANNING_ONLY",
+    "candidate_cluster_planning": "PLANNING_ONLY",
+    "cms_dry_run": "HOLD_PENDING_SEPARATE_AUTHORIZATION",
+    "generated_pages": "BLOCKED",
+    "cms_publish_search": "HOLD",
+    "runtime_mutation": "BLOCKED",
+    "analytics_instrumentation": "BLOCKED",
+    "private_or_raw_result_data": "BLOCKED",
+    "fap_api_mutation": "BLOCKED"
+  },
+  "readiness_matrix": [
+    {
+      "lane": "methodology_trust_science_planning_handoff",
+      "status": "READY_FOR_NEXT_PLANNING_HANDOFF",
+      "allowed_inputs": [
+        "common_contract",
+        "source_authority_packet",
+        "claim_privacy_safety_packet",
+        "candidate_cluster_matrix"
+      ],
+      "allowed_outputs": [
+        "read_only_source_ledger_readiness_scan",
+        "cms_dry_run_precondition_report",
+        "next_pr_train_manifest_proposal"
+      ],
+      "required_gates": [
+        "read_only_scan_only",
+        "GPT55_review",
+        "Safety_Gate_review",
+        "SEO_GEO_review"
+      ],
+      "hard_holds": [
+        "no_publishable_body",
+        "no_cms_payload",
+        "no_generated_pages",
+        "no_runtime_mutation"
+      ]
+    },
+    {
+      "lane": "public_contentpage_source_ledger",
+      "status": "HOLD_PENDING_PUBLIC_METHODOLOGY_SOURCE_LEDGER",
+      "allowed_inputs": [
+        "source_authority_packet",
+        "candidate_cluster_matrix"
+      ],
+      "allowed_outputs": [
+        "source_ledger_gap_list",
+        "review_ledger_requirement",
+        "cms_readiness_blocker_report"
+      ],
+      "required_gates": [
+        "public_methodology_source_ledger",
+        "cms_backend_content_page_authority",
+        "claim_privacy_safety_gate_review"
+      ],
+      "hard_holds": [
+        "no_source_ledger_write",
+        "no_cms_write",
+        "no_publish",
+        "no_schema_exposure"
+      ]
+    },
+    {
+      "lane": "claim_privacy_safety_gate",
+      "status": "READY_TO_BLOCK_UNSAFE_OUTPUTS",
+      "allowed_inputs": [
+        "claim_privacy_safety_packet",
+        "candidate_cluster_matrix"
+      ],
+      "allowed_outputs": [
+        "blocked_output_report",
+        "safe_language_replacement_requirement",
+        "private_field_exclusion_report"
+      ],
+      "required_gates": [
+        "Safety_Gate_review",
+        "forbidden_claim_scan",
+        "private_input_scan"
+      ],
+      "hard_holds": [
+        "no_raw_ocean_scores",
+        "no_percentiles",
+        "no_private_report_text",
+        "no_diagnosis",
+        "no_hiring_salary_performance_success_prediction"
+      ]
+    },
+    {
+      "lane": "candidate_cluster_planning",
+      "status": "READY_FOR_PLANNING_HANDOFF",
+      "allowed_inputs": [
+        "candidate_cluster_matrix",
+        "source_authority_packet",
+        "claim_privacy_safety_packet"
+      ],
+      "allowed_outputs": [
+        "planning_candidate_review_list",
+        "route_readiness_question",
+        "internal_link_candidate_review"
+      ],
+      "required_gates": [
+        "GPT55_review",
+        "Safety_Gate_review",
+        "SEO_GEO_review_when_indexability_or_search_is_in_scope"
+      ],
+      "hard_holds": [
+        "no_publishable_article_body",
+        "no_final_title_meta",
+        "no_generated_methodology_page_content"
+      ]
+    },
+    {
+      "lane": "cms_dry_run_publish_and_search",
+      "status": "HOLD_PENDING_SEPARATE_AUTHORIZATION",
+      "allowed_inputs": [
+        "future_source_ledger_readiness_scan",
+        "future_claim_gate_report",
+        "future_manifest_state_authorization"
+      ],
+      "allowed_outputs": [
+        "cms_dry_run_preconditions",
+        "next_pr_train_prompt"
+      ],
+      "required_gates": [
+        "explicit_manifest_state_authorization",
+        "reviewed_public_methodology_source_ledger",
+        "Safety_Gate_review",
+        "SEO_GEO_review"
+      ],
+      "hard_holds": [
+        "no_cms_write",
+        "no_publish",
+        "no_sitemap_mutation",
+        "no_llms_mutation",
+        "no_search_submission"
+      ]
+    },
+    {
+      "lane": "runtime_deploy_provider_and_analytics_mutation",
+      "status": "BLOCKED",
+      "allowed_inputs": [
+        "none"
+      ],
+      "allowed_outputs": [
+        "blocked_action_report"
+      ],
+      "required_gates": [
+        "separate_runtime_pr",
+        "separate_backend_authorization",
+        "separate_deploy_approval"
+      ],
+      "hard_holds": [
+        "no_runtime_code_change",
+        "no_provider_calls",
+        "no_deploy",
+        "no_analytics_instrumentation",
+        "no_event_emission",
+        "no_metric_backfill",
+        "no_fap_api_mutation"
+      ]
+    },
+    {
+      "lane": "private_or_raw_result_data",
+      "status": "BLOCKED",
+      "allowed_inputs": [
+        "public_summary_only"
+      ],
+      "allowed_outputs": [
+        "private_data_block_report"
+      ],
+      "required_gates": [
+        "privacy_boundary_review",
+        "public_summary_contract"
+      ],
+      "hard_holds": [
+        "no_attempt_id",
+        "no_user_id",
+        "no_raw_ocean_scores",
+        "no_score_vectors",
+        "no_percentiles",
+        "no_private_report_text",
+        "no_private_result_url"
+      ]
+    },
+    {
+      "lane": "next_planning_handoff",
+      "status": "READY_FOR_READ_ONLY_SCAN",
+      "allowed_inputs": [
+        "readiness_matrix",
+        "source_authority_packet",
+        "claim_privacy_safety_packet",
+        "candidate_cluster_matrix"
+      ],
+      "allowed_outputs": [
+        "read_only_source_ledger_readiness_scan",
+        "next_pr_train_manifest_proposal"
+      ],
+      "required_gates": [
+        "read_only_scan_only",
+        "no_manifest_state_mutation_without_authorization",
+        "no_cms_or_runtime_mutation"
+      ],
+      "hard_holds": [
+        "no_source_ledger_write",
+        "no_cms_write",
+        "no_candidate_activation",
+        "no_public_content_mutation"
+      ]
+    }
+  ],
+  "next_handoff": {
+    "recommended_next_task": "BIG5-METHODOLOGY-SOURCE-LEDGER-READINESS-SCAN-01",
+    "handoff_status": "read_only_scan_allowed",
+    "must_remain_read_only_until_authorized": true,
+    "required_inputs_before_execution": [
+      "public_methodology_source_ledger_plan",
+      "cms_backend_content_page_authority_review",
+      "claim_privacy_safety_gate_review",
+      "SEO_GEO_review_for_indexability",
+      "explicit_manifest_state_authorization_if_promoted_to_PR_train"
+    ],
+    "blocked_until_separate_approval": [
+      "cms_dry_run",
+      "cms_write",
+      "publish",
+      "generated_pages",
+      "runtime_mutation",
+      "analytics_instrumentation",
+      "search_submission",
+      "provider_calls",
+      "deploy"
+    ]
+  },
+  "forbidden_claims": [
+    "raw_ocean_score_claim",
+    "percentile_guarantee",
+    "official_32_type_claim",
+    "fixed_type_claim",
+    "unsupported_psychometric_superiority_claim",
+    "diagnosis",
+    "treatment",
+    "therapy",
+    "hiring_prediction",
+    "salary_prediction",
+    "performance_prediction",
+    "success_prediction",
+    "life_outcome_prediction",
+    "private_report_text_rewrite"
+  ],
+  "negative_guarantees": {
+    "runtime_code_changed": "no",
+    "cms_writes": "none",
+    "cms_import": "none",
+    "publish_action": "none",
+    "search_submission": "none",
+    "provider_calls": "none",
+    "deployment_triggered": "no",
+    "analytics_instrumentation": "none",
+    "event_emission": "none",
+    "metric_backfill": "none",
+    "private_result_data_accessed": "none",
+    "raw_scores_accessed": "none",
+    "backend_asset_agent_command": "none",
+    "fap_api_mutation": "none",
+    "generated_pages": "none",
+    "deterministic_trait_assignment_included": false,
+    "schema_or_indexability_changed": false
+  }
+}
