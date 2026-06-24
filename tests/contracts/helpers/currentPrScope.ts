@@ -1251,6 +1251,11 @@ const TAKE_FRONTEND_LOCALE_CONTRACT_04_ALLOWED_FILES = new Set([
   "tests/contracts/take-frontend-locale-contract.contract.test.ts",
 ]);
 
+const MBTI_TAKE_ATTRIBUTION_FLAKY_CI_FIX_ALLOWED_FILES = new Set([
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-take-attribution.contract.test.tsx",
+]);
+
 const TEST_KPI_FRONTEND_CONTRACT_06_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx",
   "app/(localized)/[locale]/tests/[slug]/take/ClinicalTakeClient.tsx",
@@ -4024,6 +4029,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/take-frontend-locale-contract-04") {
     return TAKE_FRONTEND_LOCALE_CONTRACT_04_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/mbti-take-attribution-flaky-ci-fix") {
+    return MBTI_TAKE_ATTRIBUTION_FLAKY_CI_FIX_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/TEST-KPI-FRONTEND-CONTRACT-06") {
