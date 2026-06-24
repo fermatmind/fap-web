@@ -58,7 +58,16 @@ def main() -> int:
             similar_workflows = [{"title": shared_title, "body": x} for x in facts.get("shared_work_activity_patterns", [])[:3]]
             transferable_skills = [{"title": shared_title, "body": x} for x in facts.get("shared_skill_patterns", [])[:3]]
             major_differences = [{"title": diff_title, "body": x} for x in facts.get("major_differences", [])[:3]]
-        adjacent_roles = [{"slug": r["candidate_slug"], "title": r["candidate_title"], "relation_type": r["relation_type"], "shared_terms": r["shared_terms"][:5]} for r in roles[:5]]
+        adjacent_roles = [{
+            "slug": r["candidate_slug"],
+            "title": r["candidate_title"],
+            "relationship_type": r["relationship_type"],
+            "shared_work_basis": r.get("shared_work_basis", [])[:5],
+            "shared_skill_basis": r.get("shared_skill_basis", [])[:5],
+            "key_difference": r.get("key_difference"),
+            "transfer_boundary": r.get("transfer_boundary"),
+            "evidence_confidence": r.get("evidence_confidence"),
+        } for r in roles[:5]]
         items = [
             {"section": "adjacent_roles", "items": adjacent_roles},
             {"section": "similar_workflows", "items": similar_workflows},
@@ -76,7 +85,11 @@ def main() -> int:
             "seed_ordinal": syn["seed_ordinal"],
             "batch_role": syn["batch_role"],
             "summary": summary,
-            "facts": {"adjacent_role_count": len(adjacent_roles), "reader_boundary": facts.get("reader_boundary")},
+            "facts": {
+                "adjacent_role_count": len(adjacent_roles),
+                "relationship_types": [r.get("relationship_type") for r in adjacent_roles],
+                "reader_boundary": facts.get("reader_boundary"),
+            },
             "items": items,
             "sources": syn.get("sources", []),
             "evidence_used": syn.get("evidence_used", []),

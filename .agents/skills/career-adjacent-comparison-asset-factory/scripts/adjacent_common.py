@@ -8,7 +8,6 @@ import datetime as dt
 import hashlib
 import json
 import re
-from collections import Counter
 from pathlib import Path
 from typing import Any, Iterable
 
@@ -63,6 +62,11 @@ UNSAFE_TRANSFER = re.compile(
     re.I,
 )
 DISALLOWED_PROXY = re.compile(r"\b(job board|salary similarity|ai impact|automation score|personality fit|mbti|big five|riasec|title similarity|slug similarity)\b|招聘网站|薪资相似|AI影响|人格相似|标题相似|slug相似", re.I)
+REGULATED_BOUNDARY = re.compile(
+    r"\b(clinical|patient|nurse|physician|surgeon|therapy|therapist|pilot|aircraft|aviation|legal|judge|lawyer|attorney|police|fire|military|teacher|education|licensed|license|regulatory|safety)\b|"
+    r"临床|患者|护士|医生|外科|治疗|飞行|航空|法律|法官|律师|警察|消防|军|教师|教育|持证|执照|监管|安全",
+    re.I,
+)
 TOKEN_RE = re.compile(r"[a-zA-Z][a-zA-Z0-9+\-/]{2,}|[\u4e00-\u9fff]{2,}")
 STOP = {
     "and", "the", "for", "with", "from", "about", "into", "onto", "that", "this", "their", "work", "task",
@@ -249,10 +253,14 @@ def load_dependency_assets() -> dict[str, Any]:
 def build_index(seed_rows: list[dict[str, Any]], deps: dict[str, Any]) -> dict[str, Any]:
     by_slug = {r["slug"]: r for r in seed_rows}
     text_tokens: dict[str, set[str]] = {}
+    work_tokens: dict[str, set[str]] = {}
+    skill_tokens: dict[str, set[str]] = {}
     for row in seed_rows:
         slug = row["slug"]
-        text_tokens[slug] = tokens(dependency_content(deps["work_en"].get(slug, {}))) | tokens(dependency_content(deps["skills_en"].get(slug, {})))
-    return {"seed_by_slug": by_slug, "tokens": text_tokens}
+        work_tokens[slug] = tokens(dependency_content(deps["work_en"].get(slug, {})))
+        skill_tokens[slug] = tokens(dependency_content(deps["skills_en"].get(slug, {})))
+        text_tokens[slug] = work_tokens[slug] | skill_tokens[slug]
+    return {"seed_by_slug": by_slug, "tokens": text_tokens, "work_tokens": work_tokens, "skill_tokens": skill_tokens}
 
 
 def soc_major(seed_row: dict[str, Any]) -> str:
@@ -260,40 +268,91 @@ def soc_major(seed_row: dict[str, Any]) -> str:
     return code.split("-")[0] if "-" in code else code[:2]
 
 
+def relation_type_for(source: dict[str, Any], candidate: dict[str, Any], work_overlap: int, skill_overlap: int) -> str:
+    same_major = bool(soc_major(source) and soc_major(source) == soc_major(candidate))
+    same_onet_family = str(source.get("onet_code_seed", ""))[:2] == str(candidate.get("onet_code_seed", ""))[:2]
+    if same_major and work_overlap >= 4 and skill_overlap >= 4:
+        return "same_major_group_work_skill_overlap"
+    if same_onet_family and work_overlap >= 3 and skill_overlap >= 3:
+        return "same_onet_family_work_skill_overlap"
+    return "cross_family_transfer_candidate"
+
+
+def key_difference_for(source: dict[str, Any], candidate: dict[str, Any]) -> str:
+    if soc_major(source) != soc_major(candidate):
+        return "Different SOC major groups mean the comparison must check setting, responsibility level, tools, training, and stakeholder expectations before treating the roles as adjacent."
+    if str(source.get("onet_code_seed", ""))[:2] != str(candidate.get("onet_code_seed", ""))[:2]:
+        return "The roles share broad occupational territory but differ enough in O*NET family context that task depth, tools, and preparation gaps must be reviewed."
+    return "The roles may share a broad occupational family, but adjacency still depends on concrete workflow and skill overlap rather than title similarity."
+
+
+def transfer_boundary_for(source: dict[str, Any], candidate: dict[str, Any]) -> str:
+    text = " ".join(str(v or "") for v in [
+        source.get("title_en"), source.get("title_zh"), candidate.get("title_en"), candidate.get("title_zh")
+    ])
+    if REGULATED_BOUNDARY.search(text):
+        return "Regulated, safety-sensitive, clinical, legal, education, military, or public-authority duties require separate license, training, supervision, jurisdiction, and accountability review."
+    return "Transferability is bounded by missing tools, domain knowledge, work setting, credential/training requirements, and responsibility level; this is not a direct-switch promise."
+
+
+def confidence_for(work_overlap: int, skill_overlap: int, same_major: bool, same_onet_family: bool) -> str:
+    if work_overlap >= 5 and skill_overlap >= 5 and (same_major or same_onet_family):
+        return "high"
+    if work_overlap >= 3 and skill_overlap >= 3:
+        return "medium"
+    return "low"
+
+
 def choose_adjacent(slug: str, seed_rows: list[dict[str, Any]], deps: dict[str, Any], index: dict[str, Any], count: int = 5) -> list[dict[str, Any]]:
     own = index["seed_by_slug"][slug]
-    own_tokens = index["tokens"].get(slug, set())
+    own_work_tokens = index["work_tokens"].get(slug, set())
+    own_skill_tokens = index["skill_tokens"].get(slug, set())
     scores = []
     for cand in seed_rows:
         cslug = cand["slug"]
         if cslug == slug:
             continue
-        c_tokens = index["tokens"].get(cslug, set())
-        overlap = own_tokens & c_tokens
-        if not overlap:
+        work_overlap = own_work_tokens & index["work_tokens"].get(cslug, set())
+        skill_overlap = own_skill_tokens & index["skill_tokens"].get(cslug, set())
+        # Adjacency must have both work and skill evidence. SOC/O*NET proximity is only supporting context.
+        if len(work_overlap) < 2 or len(skill_overlap) < 2:
             continue
-        score = len(overlap)
-        if soc_major(own) and soc_major(own) == soc_major(cand):
+        same_major = bool(soc_major(own) and soc_major(own) == soc_major(cand))
+        same_onet_family = str(own.get("onet_code_seed", ""))[:2] == str(cand.get("onet_code_seed", ""))[:2]
+        score = (len(work_overlap) * 2) + (len(skill_overlap) * 2)
+        if same_major:
             score += 2
-        if str(own.get("onet_code_seed", ""))[:2] == str(cand.get("onet_code_seed", ""))[:2]:
+        if same_onet_family:
             score += 1
-        scores.append((score, len(overlap), cand["seed_ordinal"], cand, sorted(overlap)[:8]))
-    scores.sort(key=lambda x: (-x[0], -x[1], x[2]))
+        scores.append((score, len(work_overlap), len(skill_overlap), cand["seed_ordinal"], cand, sorted(work_overlap)[:8], sorted(skill_overlap)[:8]))
+    scores.sort(key=lambda x: (-x[0], -x[1], -x[2], x[3]))
     chosen = []
-    for score, overlap_count, _, cand, overlap in scores[:count]:
-        relation = "adjacent_role"
-        if soc_major(own) == soc_major(cand):
-            relation = "same_major_group_with_work_skill_overlap"
+    for score, work_overlap_count, skill_overlap_count, _, cand, work_overlap, skill_overlap in scores[:count]:
+        same_major = bool(soc_major(own) and soc_major(own) == soc_major(cand))
+        same_onet_family = str(own.get("onet_code_seed", ""))[:2] == str(cand.get("onet_code_seed", ""))[:2]
+        relation = relation_type_for(own, cand, work_overlap_count, skill_overlap_count)
         chosen.append({
             "slug": cand["slug"],
             "title_en": cand["title_en"],
             "title_zh": cand.get("title_zh") or cand.get("title_zh_seed"),
             "soc_code_seed": cand.get("soc_code_seed"),
             "onet_code_seed": cand.get("onet_code_seed"),
+            "relationship_type": relation,
             "relation_type": relation,
-            "overlap_tokens": overlap,
-            "overlap_count": overlap_count,
-            "score_basis": "work_activities_and_skills_overlap; SOC/O*NET proximity is supporting context only",
+            "shared_work_basis": work_overlap,
+            "shared_skill_basis": skill_overlap,
+            "shared_terms": sorted(set(work_overlap) | set(skill_overlap))[:10],
+            "work_overlap_count": work_overlap_count,
+            "skill_overlap_count": skill_overlap_count,
+            "key_difference": key_difference_for(own, cand),
+            "transfer_boundary": transfer_boundary_for(own, cand),
+            "evidence_confidence": confidence_for(work_overlap_count, skill_overlap_count, same_major, same_onet_family),
+            "source_basis": "PASS work-activities and skills-entry overlap; SOC/O*NET proximity is supporting context only",
+            "rejected_proxy_notes": [
+                "title_similarity_only_rejected",
+                "salary_similarity_only_rejected",
+                "broad_family_only_rejected",
+            ],
         })
     return chosen
 
