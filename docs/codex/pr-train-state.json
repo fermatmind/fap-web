@@ -12850,7 +12850,7 @@
       "branch": "codex/global-en-zh-content-pages-discoverability-exposure-readiness-01",
       "base": "main",
       "depends_on": [],
-      "status": "ready_to_merge",
+      "status": "github_checks_failed_blocked",
       "title": "docs(seo): add content pages discoverability exposure readiness",
       "commit_sha": "e0d1ee798d9fdcb64bc5e0438cfcc73c386d7c88",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/910",
@@ -12866,7 +12866,7 @@
         "scope_validation": "passed",
         "diff_check": "passed"
       },
-      "failure_reason": null,
+      "failure_reason": "Required GitHub contracts check failed twice on PR #1386 head 4f1ca155 due tests/contracts/mbti-take-attribution.contract.test.tsx 429 countdown button lookup. The failing file is outside the current Enneagram Public Personality common contract PR scope, and required checks block merge.",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -27916,8 +27916,8 @@
           "evidence": "PR #1386 opened after local validation passed."
         },
         "github_checks": {
-          "status": "pass",
-          "evidence": "PR #1386 checks passed on head 765fa4af: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
+          "status": "fail",
+          "evidence": "PR #1386 checks passed on head 765fa4af, then after the required ready-to-merge ledger commit head 4f1ca155, build, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL passed but the required contracts check failed. A failed-job rerun also failed at the same non-current-scope test: tests/contracts/mbti-take-attribution.contract.test.tsx > renders a localized 429 retry countdown instead of echoing backend english copy, unable to find button name '请等待 12 秒'. Local targeted rerun and local full contract suite rerun had passed before PR open."
         }
       },
       "sidecar_issues": [],
@@ -27941,6 +27941,11 @@
           "at": "2026-06-24T00:00:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed for PR #1386 on head 765fa4af and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
+        },
+        {
+          "at": "2026-06-24T00:00:00+08:00",
+          "status": "github_checks_failed_blocked",
+          "note": "After the ready-to-merge ledger commit, PR #1386 head 4f1ca155 had required contracts check fail twice on the same out-of-scope MBTI take attribution countdown test. Build, freeze checks, and CodeQL passed. This required check blocks merge, and fixing the MBTI test is outside the current Enneagram common contract scope."
         }
       ]
     },
