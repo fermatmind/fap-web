@@ -1,0 +1,11 @@
+target_url,path,query,clicks,impressions,ctr,position,date_range,source,exported_at
+https://fermatmind.com/en/personality/esfj-t,/en/personality/esfj-t,,,,,,YYYY-MM-DD..YYYY-MM-DD,gsc_manual_csv_or_api,YYYY-MM-DDTHH:mm:ssZ
+https://fermatmind.com/en/personality/enfp-a,/en/personality/enfp-a,,,,,,YYYY-MM-DD..YYYY-MM-DD,gsc_manual_csv_or_api,YYYY-MM-DDTHH:mm:ssZ
+https://fermatmind.com/zh/personality/istp-a,/zh/personality/istp-a,,,,,,YYYY-MM-DD..YYYY-MM-DD,gsc_manual_csv_or_api,YYYY-MM-DDTHH:mm:ssZ
+https://fermatmind.com/zh/personality/intp-a-vs-intp-t,/zh/personality/intp-a-vs-intp-t,,,,,,YYYY-MM-DD..YYYY-MM-DD,gsc_manual_csv_or_api,YYYY-MM-DDTHH:mm:ssZ
+https://fermatmind.com/en/personality/esfj-a,/en/personality/esfj-a,,,,,,YYYY-MM-DD..YYYY-MM-DD,gsc_manual_csv_or_api,YYYY-MM-DDTHH:mm:ssZ
+https://fermatmind.com/zh/personality/esfj-a,/zh/personality/esfj-a,,,,,,YYYY-MM-DD..YYYY-MM-DD,gsc_manual_csv_or_api,YYYY-MM-DDTHH:mm:ssZ
+https://fermatmind.com/en/personality/intp-a,/en/personality/intp-a,,,,,,YYYY-MM-DD..YYYY-MM-DD,gsc_manual_csv_or_api,YYYY-MM-DDTHH:mm:ssZ
+https://fermatmind.com/en/personality/istp-a,/en/personality/istp-a,,,,,,YYYY-MM-DD..YYYY-MM-DD,gsc_manual_csv_or_api,YYYY-MM-DDTHH:mm:ssZ
+https://fermatmind.com/en/personality/entj-a,/en/personality/entj-a,,,,,,YYYY-MM-DD..YYYY-MM-DD,gsc_manual_csv_or_api,YYYY-MM-DDTHH:mm:ssZ
+https://fermatmind.com/en/personality/estp-t,/en/personality/estp-t,,,,,,YYYY-MM-DD..YYYY-MM-DD,gsc_manual_csv_or_api,YYYY-MM-DDTHH:mm:ssZ
