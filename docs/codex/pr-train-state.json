@@ -24228,7 +24228,7 @@
       "depends_on": [
         "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01"
       ],
-      "status": "local_checks_passed_ready_for_pr",
+      "status": "pr_open_checks_pending",
       "title": "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01: docs(methodology): add Big Five safety packet",
       "artifacts": [
         "docs/methodology-trust-science/big5-methodology-claim-privacy-safety-packet-2026-06-23.md",
@@ -24272,8 +24272,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1412",
+      "commit_sha": "edf31531010efcb12465e3cc91068bf88a29a862",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -24304,6 +24304,11 @@
           "at": "2026-06-24T23:17:00+08:00",
           "status": "local_checks_passed_ready_for_pr",
           "summary": "PR3 JSON parse, focused contract, typecheck, full contracts, git diff --check, and changed-file scope validation passed. No CMS, search, runtime, deploy, private data, event emission, metric backfill, opportunity scoring, backend asset-agent command, fap-api mutation, or generated page action was performed."
+        },
+        {
+          "at": "2026-06-24T23:23:00+08:00",
+          "status": "pr_open_checks_pending",
+          "summary": "Opened PR #1412 from codex/big5-methodology-claim-privacy-safety-packet-01 after required local checks and changed-file scope validation passed. Remote GitHub checks pending."
         }
       ],
       "sidecar_issues": []
