@@ -11,16 +11,21 @@ import { EQResultHero } from "./EQResultHero";
 import { EQSaveShareRelated } from "./EQSaveShareRelated";
 import { EQScientificBoundary } from "./EQScientificBoundary";
 import { EQSJTBridgeCTA } from "./EQSJTBridgeCTA";
+import type { EqAgentContextAccess, EqAgentContextLoader } from "./types";
 import { isEqV5AccessRestricted, normalizeEqV5Report } from "./utils";
 
 export function EQResultV5({
   locale,
   reportData,
   attemptId,
+  agentContextAccess,
+  loadAgentContext,
 }: {
   locale: Locale;
   reportData: ReportResponse;
   attemptId?: string;
+  agentContextAccess?: EqAgentContextAccess;
+  loadAgentContext?: EqAgentContextLoader;
 }) {
   if (isEqV5AccessRestricted(reportData)) {
     return <EQResultV5AccessRestricted locale={locale} />;
@@ -44,7 +49,12 @@ export function EQResultV5({
       <EQActionPrescription viewModel={viewModel} />
       <EQSJTBridgeCTA viewModel={viewModel} />
       <EQScientificBoundary viewModel={viewModel} />
-      <EQSaveShareRelated viewModel={viewModel} attemptId={attemptId} />
+      <EQSaveShareRelated
+        viewModel={viewModel}
+        attemptId={attemptId}
+        agentContextAccess={agentContextAccess}
+        loadAgentContext={loadAgentContext}
+      />
     </main>
   );
 }
