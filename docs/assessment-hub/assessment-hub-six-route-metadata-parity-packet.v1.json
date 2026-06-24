@@ -1,0 +1,381 @@
+{
+  "schema_version": "fermatmind.assessment_hub_qa.route_metadata_parity_packet.v1",
+  "task_id": "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01",
+  "generated_at": "2026-06-25T01:18:00+08:00",
+  "run_mode": "docs_contracts_only_readonly_live_recheck",
+  "verdict": "HOLD_LIVE_DISCOVERABILITY_UNSTABLE",
+  "consumes_common_contract": "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01",
+  "producing_agent": "assessment_hub",
+  "consumer_agents": [
+    "runtime_qa",
+    "seo_geo_control",
+    "claim_privacy_safety_gate"
+  ],
+  "baseline_scan_claim": {
+    "source": "ASSESSMENT-HUB-QA-PLANNING-SCAN-01 prior scan handoff",
+    "expected_runtime_parity": "12/12 PASS",
+    "expected_iq_mismatch_status": "not_reproduced",
+    "superseded_by_current_live_recheck": true
+  },
+  "current_live_rechecks": [
+    {
+      "id": "live_recheck_1",
+      "command": "node scripts/seo/check-six-assessment-hub-parity.mjs --json",
+      "ok": false,
+      "shared_resources": {
+        "sitemap_status": 200,
+        "llms_status": 200,
+        "llms_full_status": 200,
+        "sitemap_source_status_by_locale": {
+          "en": 200,
+          "zh": 200
+        }
+      },
+      "summary": {
+        "scale_count": 6,
+        "surface_count": 12,
+        "failing_surfaces": 12
+      },
+      "repeated_issue": {
+        "check": "llms_full.route",
+        "detail": "Missing each six-assessment route in verifier output"
+      }
+    },
+    {
+      "id": "live_recheck_2",
+      "command": "node scripts/seo/check-six-assessment-hub-parity.mjs --json",
+      "ok": false,
+      "shared_resources": {
+        "sitemap_status": 500,
+        "llms_status": 200,
+        "llms_full_status": 200,
+        "sitemap_source_status_by_locale": {
+          "en": 200,
+          "zh": 200
+        }
+      },
+      "summary": {
+        "scale_count": 6,
+        "surface_count": 12,
+        "failing_surfaces": 12
+      },
+      "repeated_issue": {
+        "check": "sitemap.status",
+        "detail": "Expected 200, got 500"
+      }
+    }
+  ],
+  "direct_readonly_spot_checks": {
+    "llms_txt_contains_12_routes": true,
+    "llms_full_txt_contains_assessment_urls": true,
+    "sitemap_xml_observed_500_once": true,
+    "mutation_performed": false
+  },
+  "route_metadata_packet_status": {
+    "route_count": 12,
+    "pass_count": 0,
+    "hold_count": 12,
+    "status": "HOLD",
+    "blocking_reason": "Current live discoverability surfaces are unstable; this packet cannot truthfully record the requested 12/12 PASS."
+  },
+  "iq_mismatch": {
+    "status": "not_reproduced_in_prior_scan_baseline",
+    "current_packet_decision": "not_rechecked_with_private_or_submit_flow",
+    "private_data_accessed": false
+  },
+  "take_flow": {
+    "take_get_200_baseline": "12/12 from prior scan handoff",
+    "cta_detail_packet": "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
+    "current_packet_defers_cta_details": true
+  },
+  "surfaces": [
+    {
+      "id": "mbti_en",
+      "scale_code": "MBTI",
+      "locale": "en",
+      "slug": "mbti-personality-test-16-personality-types",
+      "route": "/en/tests/mbti-personality-test-16-personality-types",
+      "public_url": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "expected_assertions": [
+        "page_status_200",
+        "self_canonical",
+        "not_noindex",
+        "self_and_sibling_alternates",
+        "live_sitemap_contains_route",
+        "live_llms_contains_route",
+        "live_llms_full_contains_route",
+        "lookup_ok",
+        "lookup_is_indexable",
+        "sitemap_source_includes_slug",
+        "sitemap_source_is_indexable"
+      ],
+      "packet_status": "HOLD",
+      "hold_reason": "live_discoverability_recheck_unstable"
+    },
+    {
+      "id": "mbti_zh",
+      "scale_code": "MBTI",
+      "locale": "zh",
+      "slug": "mbti-personality-test-16-personality-types",
+      "route": "/zh/tests/mbti-personality-test-16-personality-types",
+      "public_url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "expected_assertions": [
+        "page_status_200",
+        "self_canonical",
+        "not_noindex",
+        "self_and_sibling_alternates",
+        "live_sitemap_contains_route",
+        "live_llms_contains_route",
+        "live_llms_full_contains_route",
+        "lookup_ok",
+        "lookup_is_indexable",
+        "sitemap_source_includes_slug",
+        "sitemap_source_is_indexable"
+      ],
+      "packet_status": "HOLD",
+      "hold_reason": "live_discoverability_recheck_unstable"
+    },
+    {
+      "id": "big5_ocean_en",
+      "scale_code": "BIG5_OCEAN",
+      "locale": "en",
+      "slug": "big-five-personality-test-ocean-model",
+      "route": "/en/tests/big-five-personality-test-ocean-model",
+      "public_url": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+      "expected_assertions": [
+        "page_status_200",
+        "self_canonical",
+        "not_noindex",
+        "self_and_sibling_alternates",
+        "live_sitemap_contains_route",
+        "live_llms_contains_route",
+        "live_llms_full_contains_route",
+        "lookup_ok",
+        "lookup_is_indexable",
+        "sitemap_source_includes_slug",
+        "sitemap_source_is_indexable"
+      ],
+      "packet_status": "HOLD",
+      "hold_reason": "live_discoverability_recheck_unstable"
+    },
+    {
+      "id": "big5_ocean_zh",
+      "scale_code": "BIG5_OCEAN",
+      "locale": "zh",
+      "slug": "big-five-personality-test-ocean-model",
+      "route": "/zh/tests/big-five-personality-test-ocean-model",
+      "public_url": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "expected_assertions": [
+        "page_status_200",
+        "self_canonical",
+        "not_noindex",
+        "self_and_sibling_alternates",
+        "live_sitemap_contains_route",
+        "live_llms_contains_route",
+        "live_llms_full_contains_route",
+        "lookup_ok",
+        "lookup_is_indexable",
+        "sitemap_source_includes_slug",
+        "sitemap_source_is_indexable"
+      ],
+      "packet_status": "HOLD",
+      "hold_reason": "live_discoverability_recheck_unstable"
+    },
+    {
+      "id": "enneagram_en",
+      "scale_code": "ENNEAGRAM",
+      "locale": "en",
+      "slug": "enneagram-personality-test-nine-types",
+      "route": "/en/tests/enneagram-personality-test-nine-types",
+      "public_url": "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+      "expected_assertions": [
+        "page_status_200",
+        "self_canonical",
+        "not_noindex",
+        "self_and_sibling_alternates",
+        "live_sitemap_contains_route",
+        "live_llms_contains_route",
+        "live_llms_full_contains_route",
+        "lookup_ok",
+        "lookup_is_indexable",
+        "sitemap_source_includes_slug",
+        "sitemap_source_is_indexable"
+      ],
+      "packet_status": "HOLD",
+      "hold_reason": "live_discoverability_recheck_unstable"
+    },
+    {
+      "id": "enneagram_zh",
+      "scale_code": "ENNEAGRAM",
+      "locale": "zh",
+      "slug": "enneagram-personality-test-nine-types",
+      "route": "/zh/tests/enneagram-personality-test-nine-types",
+      "public_url": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "expected_assertions": [
+        "page_status_200",
+        "self_canonical",
+        "not_noindex",
+        "self_and_sibling_alternates",
+        "live_sitemap_contains_route",
+        "live_llms_contains_route",
+        "live_llms_full_contains_route",
+        "lookup_ok",
+        "lookup_is_indexable",
+        "sitemap_source_includes_slug",
+        "sitemap_source_is_indexable"
+      ],
+      "packet_status": "HOLD",
+      "hold_reason": "live_discoverability_recheck_unstable"
+    },
+    {
+      "id": "riasec_en",
+      "scale_code": "RIASEC",
+      "locale": "en",
+      "slug": "holland-career-interest-test-riasec",
+      "route": "/en/tests/holland-career-interest-test-riasec",
+      "public_url": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "expected_assertions": [
+        "page_status_200",
+        "self_canonical",
+        "not_noindex",
+        "self_and_sibling_alternates",
+        "live_sitemap_contains_route",
+        "live_llms_contains_route",
+        "live_llms_full_contains_route",
+        "lookup_ok",
+        "lookup_is_indexable",
+        "sitemap_source_includes_slug",
+        "sitemap_source_is_indexable"
+      ],
+      "packet_status": "HOLD",
+      "hold_reason": "live_discoverability_recheck_unstable"
+    },
+    {
+      "id": "riasec_zh",
+      "scale_code": "RIASEC",
+      "locale": "zh",
+      "slug": "holland-career-interest-test-riasec",
+      "route": "/zh/tests/holland-career-interest-test-riasec",
+      "public_url": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "expected_assertions": [
+        "page_status_200",
+        "self_canonical",
+        "not_noindex",
+        "self_and_sibling_alternates",
+        "live_sitemap_contains_route",
+        "live_llms_contains_route",
+        "live_llms_full_contains_route",
+        "lookup_ok",
+        "lookup_is_indexable",
+        "sitemap_source_includes_slug",
+        "sitemap_source_is_indexable"
+      ],
+      "packet_status": "HOLD",
+      "hold_reason": "live_discoverability_recheck_unstable"
+    },
+    {
+      "id": "iq_raven_en",
+      "scale_code": "IQ_RAVEN",
+      "locale": "en",
+      "slug": "iq-test-intelligence-quotient-assessment",
+      "route": "/en/tests/iq-test-intelligence-quotient-assessment",
+      "public_url": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+      "expected_assertions": [
+        "page_status_200",
+        "self_canonical",
+        "not_noindex",
+        "self_and_sibling_alternates",
+        "live_sitemap_contains_route",
+        "live_llms_contains_route",
+        "live_llms_full_contains_route",
+        "lookup_ok",
+        "lookup_is_indexable",
+        "sitemap_source_includes_slug",
+        "sitemap_source_is_indexable"
+      ],
+      "packet_status": "HOLD",
+      "hold_reason": "live_discoverability_recheck_unstable"
+    },
+    {
+      "id": "iq_raven_zh",
+      "scale_code": "IQ_RAVEN",
+      "locale": "zh",
+      "slug": "iq-test-intelligence-quotient-assessment",
+      "route": "/zh/tests/iq-test-intelligence-quotient-assessment",
+      "public_url": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "expected_assertions": [
+        "page_status_200",
+        "self_canonical",
+        "not_noindex",
+        "self_and_sibling_alternates",
+        "live_sitemap_contains_route",
+        "live_llms_contains_route",
+        "live_llms_full_contains_route",
+        "lookup_ok",
+        "lookup_is_indexable",
+        "sitemap_source_includes_slug",
+        "sitemap_source_is_indexable"
+      ],
+      "packet_status": "HOLD",
+      "hold_reason": "live_discoverability_recheck_unstable"
+    },
+    {
+      "id": "eq_60_en",
+      "scale_code": "EQ_60",
+      "locale": "en",
+      "slug": "eq-test-emotional-intelligence-assessment",
+      "route": "/en/tests/eq-test-emotional-intelligence-assessment",
+      "public_url": "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+      "expected_assertions": [
+        "page_status_200",
+        "self_canonical",
+        "not_noindex",
+        "self_and_sibling_alternates",
+        "live_sitemap_contains_route",
+        "live_llms_contains_route",
+        "live_llms_full_contains_route",
+        "lookup_ok",
+        "lookup_is_indexable",
+        "sitemap_source_includes_slug",
+        "sitemap_source_is_indexable"
+      ],
+      "packet_status": "HOLD",
+      "hold_reason": "live_discoverability_recheck_unstable"
+    },
+    {
+      "id": "eq_60_zh",
+      "scale_code": "EQ_60",
+      "locale": "zh",
+      "slug": "eq-test-emotional-intelligence-assessment",
+      "route": "/zh/tests/eq-test-emotional-intelligence-assessment",
+      "public_url": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "expected_assertions": [
+        "page_status_200",
+        "self_canonical",
+        "not_noindex",
+        "self_and_sibling_alternates",
+        "live_sitemap_contains_route",
+        "live_llms_contains_route",
+        "live_llms_full_contains_route",
+        "lookup_ok",
+        "lookup_is_indexable",
+        "sitemap_source_includes_slug",
+        "sitemap_source_is_indexable"
+      ],
+      "packet_status": "HOLD",
+      "hold_reason": "live_discoverability_recheck_unstable"
+    }
+  ],
+  "hard_holds_preserved": [
+    "no_sitemap_mutation",
+    "no_llms_mutation",
+    "no_schema_hreflang_canonical_noindex_redirect_mutation",
+    "no_cms_write",
+    "no_search_submission",
+    "no_provider_call",
+    "no_deploy",
+    "no_private_result_access",
+    "no_post_start_submit_result_api_call"
+  ],
+  "next_safe_action": "Stop the Assessment Hub QA PR train at PR2 until live discoverability parity is stable or a separate scoped repair scan is authorized."
+}
