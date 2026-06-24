@@ -24359,7 +24359,7 @@
         "BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01",
         "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01"
       ],
-      "status": "local_checks_passed_ready_for_pr",
+      "status": "pr_open_checks_pending",
       "title": "BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01: docs(methodology): add candidate cluster matrix",
       "artifacts": [
         "docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix-2026-06-23.md",
@@ -24403,8 +24403,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1413",
+      "commit_sha": "67595e22789ad00ce038f3420c8f2b8a3b1cf6df",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -24435,6 +24435,11 @@
           "at": "2026-06-24T23:25:00+08:00",
           "status": "local_checks_passed_ready_for_pr",
           "summary": "PR4 JSON parse, focused contract, typecheck, full contracts, git diff --check, and changed-file scope validation passed. No CMS, search, runtime, deploy, private data, analytics instrumentation, event emission, metric backfill, opportunity scoring, backend asset-agent command, fap-api mutation, or generated page action was performed."
+        },
+        {
+          "at": "2026-06-24T23:42:00+08:00",
+          "status": "pr_open_checks_pending",
+          "summary": "Opened PR #1413 from codex/big5-methodology-candidate-cluster-matrix-01 after rebasing onto origin/main 3e7c0a03 and rerunning required local checks. Remote GitHub checks pending."
         }
       ],
       "sidecar_issues": []
