@@ -18194,8 +18194,8 @@
       ],
       "title": "create bilingual CMS canary draft without publish",
       "status": "blocked",
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "74bb0792a6acb138af9aa057337c8f2fc3ed1384",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1391",
       "checks": {
         "preflight_scan": {
           "status": "completed_no_go",
@@ -28015,6 +28015,11 @@
             "changed-file scope validation"
           ],
           "evidence": "JSON and YAML parse passed; focused source authority contract passed 9 tests; pnpm typecheck passed; pnpm test:contract passed with 556 files and 3268 tests. git diff --check and changed-file scope validation are recorded after final diff verification in this PR."
+        },
+        "pull_request": {
+          "status": "open",
+          "url": "https://github.com/fermatmind/fap-web/pull/1391",
+          "evidence": "Opened PR #1391 for ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01 from branch codex/enneagram-public-personality-source-authority-packet-01."
         }
       },
       "sidecar_issues": [],
@@ -28033,6 +28038,11 @@
           "at": "2026-06-24T10:52:00+08:00",
           "status": "local_checks_passed",
           "note": "Source authority packet artifacts passed JSON parse, focused contract, typecheck, full contract suite, YAML parse, diff check, and changed-file scope validation."
+        },
+        {
+          "at": "2026-06-24T10:58:00+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1391 at https://github.com/fermatmind/fap-web/pull/1391 from commit 74bb0792a6acb138af9aa057337c8f2fc3ed1384."
         }
       ]
     },
