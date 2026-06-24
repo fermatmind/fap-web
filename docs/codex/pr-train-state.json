@@ -24359,7 +24359,7 @@
         "BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01",
         "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01"
       ],
-      "status": "pr_open_checks_pending",
+      "status": "ready_to_merge",
       "title": "BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01: docs(methodology): add candidate cluster matrix",
       "artifacts": [
         "docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix-2026-06-23.md",
@@ -24404,7 +24404,7 @@
       ],
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1413",
-      "commit_sha": "67595e22789ad00ce038f3420c8f2b8a3b1cf6df",
+      "commit_sha": "b548c5c5ce287d807da220f2befc5a4f86abd305",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -24440,9 +24440,46 @@
           "at": "2026-06-24T23:42:00+08:00",
           "status": "pr_open_checks_pending",
           "summary": "Opened PR #1413 from codex/big5-methodology-candidate-cluster-matrix-01 after rebasing onto origin/main 3e7c0a03 and rerunning required local checks. Remote GitHub checks pending."
+        },
+        {
+          "at": "2026-06-24T23:52:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed on PR #1413 head b548c5c5c87a59f1e468da42937107e274d9b0c4. Recorded ready_to_merge before squash merge."
         }
       ],
-      "sidecar_issues": []
+      "sidecar_issues": [],
+      "github_checks": [
+        {
+          "name": "CodeQL",
+          "status": "passed",
+          "duration": "2s"
+        },
+        {
+          "name": "analyze (javascript-typescript)",
+          "status": "passed",
+          "duration": "2m44s"
+        },
+        {
+          "name": "build",
+          "status": "passed",
+          "duration": "2m43s"
+        },
+        {
+          "name": "contracts",
+          "status": "passed",
+          "duration": "3m34s"
+        },
+        {
+          "name": "verify-big5-contract-freeze",
+          "status": "passed",
+          "duration": "18s"
+        },
+        {
+          "name": "verify-enneagram-contract-freeze",
+          "status": "passed",
+          "duration": "21s"
+        }
+      ]
     },
     {
       "id": "BIG5-METHODOLOGY-TRUST-SCIENCE-READINESS-MATRIX-01",
