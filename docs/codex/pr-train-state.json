@@ -1829,7 +1829,7 @@
       "checks": [],
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "5f4ae3770194bcdd00bcd885fc5c2f2ecc4471cc",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -28594,6 +28594,84 @@
           "evidence": "pnpm test:contract failed 51 tests, all reporting current EQ asset files outside unrelated historical PR scopes; no functional EQ/IQ assertion remained failing after focused fixes."
         }
       ]
+    },
+    {
+      "id": "BIG-FIVE-PUBLIC-PROFILE-AGENT-PILOT-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/big-five-public-profile-agent-pilot-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "BIG-FIVE-PUBLIC-PROFILE-AGENT-PILOT-01: docs(personality): generate Big Five public profile agent pilot artifacts",
+      "checks": {
+        "local": {
+          "status": "passed",
+          "commands": [
+            "node --check scripts/seo/generate-big-five-public-profile-agent-pilot.mjs",
+            "node scripts/seo/generate-big-five-public-profile-agent-pilot.mjs",
+            "jq empty docs/seo/personality/big-five-public-profile-agent-pilot-2026-06-24.json",
+            "pnpm exec vitest run tests/contracts/big-five-public-profile-agent-pilot-01.contract.test.ts",
+            "pnpm test:contract",
+            "pnpm typecheck",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "results": {
+            "node_check_generator": "passed",
+            "generator_run": "passed",
+            "artifact_json_parse": "passed",
+            "artifact_count_distribution_assertions": "passed",
+            "focused_vitest": "passed",
+            "contract_suite": "passed",
+            "typecheck": "passed",
+            "lint": "passed_with_existing_warnings",
+            "manifest_yaml_parse": "passed",
+            "state_json_parse": "passed",
+            "diff_check": "passed",
+            "changed_file_scope_validation": "passed"
+          }
+        },
+        "github": {
+          "status": "pending",
+          "summary": null,
+          "checked_at": null
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "scripts/seo/generate-big-five-public-profile-agent-pilot.mjs",
+          "docs/seo/personality/big-five-public-profile-agent-pilot-2026-06-24.json",
+          "docs/seo/personality/big-five-public-profile-agent-pilot-2026-06-24.md",
+          "tests/contracts/big-five-public-profile-agent-pilot-01.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "status": "passed"
+      },
+      "history": [
+        {
+          "at": "2026-06-24T19:16:00+08:00",
+          "status": "implementation_in_progress",
+          "summary": "User authorized missing manifest/state entries for the Big Five public profile agent expansion train. Started PR1 from a clean temporary fap-web worktree on latest origin/main; scope is artifact-only pilot recommendations for 34 Big Five V1 public profile URL rows."
+        },
+        {
+          "at": "2026-06-24T19:45:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Generated 34 artifact-only recommendation rows across 17 Big Five public profile entities and 2 locales. Local generator, JSON/YAML parsing, focused vitest, full contract suite, typecheck, lint, diff check, and scope validation passed."
+        }
+      ],
+      "sidecar_issues": []
     }
   ]
 }

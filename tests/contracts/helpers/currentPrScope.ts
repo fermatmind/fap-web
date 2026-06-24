@@ -41,6 +41,16 @@ const IS_GITHUB_PULL_REQUEST_MERGE_REF =
   /^\d+\/merge$/.test(CURRENT_BRANCH) || /^refs\/pull\/\d+\/merge$/.test(CURRENT_BRANCH);
 const IS_GITHUB_ACTIONS_DETACHED_HEAD = CURRENT_BRANCH === "HEAD" && process.env.GITHUB_ACTIONS === "true";
 
+const BIG_FIVE_PUBLIC_PROFILE_AGENT_PILOT_01_ALLOWED_FILES = new Set([
+  "scripts/seo/generate-big-five-public-profile-agent-pilot.mjs",
+  "docs/seo/personality/big-five-public-profile-agent-pilot-2026-06-24.json",
+  "docs/seo/personality/big-five-public-profile-agent-pilot-2026-06-24.md",
+  "tests/contracts/big-five-public-profile-agent-pilot-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const ARTICLE_ANSWER_SURFACE_LAYOUT_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/articles/[slug]/page.tsx",
   "components/content/AnswerSurfaceSection.tsx",
@@ -3124,6 +3134,10 @@ function isCurrentCareerSkillsEntry1046CompletionStateAllowedFile(file: string):
 }
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (isBigFivePublicProfileAgentPilot01AllowedFile(file)) {
+    return true;
+  }
+
   if (isCurrentMbtiContractSidecarFixAllowedFile(file)) {
     return true;
   }
@@ -4591,6 +4605,14 @@ export function isPersonalityBig5V1NoindexRender01AllowedFile(file: string): boo
   }
 
   return PERSONALITY_BIG5_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file);
+}
+
+export function isBigFivePublicProfileAgentPilot01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/big-five-public-profile-agent-pilot-01") {
+    return true;
+  }
+
+  return BIG_FIVE_PUBLIC_PROFILE_AGENT_PILOT_01_ALLOWED_FILES.has(file);
 }
 
 export function isPersonalityEnneagramV1NoindexRender01AllowedFile(file: string): boolean {
