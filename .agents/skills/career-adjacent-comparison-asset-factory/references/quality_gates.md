@@ -5,7 +5,8 @@ Adjacent comparison must explain actual occupational proximity and transfer cost
 ## PASS Requirements
 
 - Every compared occupation has PASS identity and work-activities evidence.
-- Each adjacent row includes shared work basis, key difference, transfer boundary, and evidence confidence.
+- Each adjacent row includes `shared_work_basis`, `shared_skill_basis`, `key_difference`, `transfer_boundary`, `relationship_type`, and `evidence_confidence`.
+- `shared_work_basis` and `shared_skill_basis` must both be present; SOC/O*NET proximity can only support an already source-backed work/skill comparison.
 - Broader aggregate, narrower specialization, adjacent role, and title collision are labeled separately.
 - Transfer notes identify missing skills, credentials, tools, setting changes, or responsibility changes.
 - No promise of easy transition, guaranteed mobility, salary gain, or employment outcome.
@@ -16,6 +17,10 @@ Adjacent comparison must explain actual occupational proximity and transfer cost
 - title similarity proxy
 - salary similarity proxy
 - adjacent role based only on common broad family
+- missing shared work basis
+- missing shared skill basis
+- missing relationship type
+- missing evidence confidence
 - missing transfer cost
 - comparison that ignores licensing, safety, clinical, legal, aviation, or public authority boundaries
 
