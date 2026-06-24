@@ -2,11 +2,17 @@ import type { ReportResponse } from "@/lib/api/v0_3";
 import { toScaleCodeV1 } from "@/lib/scaleCodeMode";
 import type {
   EqActionPrescriptionAsset,
+  EqAgentDialoguePlaybookAsset,
+  EqBackendIntegrationContractAsset,
   EqCareerEnvironmentAsset,
+  EqCommercialConversionActionAsset,
   EqCoreFormulationAsset,
   EqV5AssetRefs,
   EqMechanismAsset,
+  EqPsychometricEvidenceAsset,
+  EqQualityConfidenceAsset,
   EqRealitySceneAsset,
+  EqResultSnapshotAsset,
   EqScientificContractAsset,
   EqScoreSystemAsset,
   EqSjtBridgeAsset,
@@ -280,6 +286,10 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
       content_version: text(payload.methodology?.content_version),
     },
     assets: {
+      result_snapshot: normalizeAssetObject<EqResultSnapshotAsset>(assets.result_snapshot),
+      commercial_conversion_actions: normalizeAssetArray<EqCommercialConversionActionAsset>(
+        assets.commercial_conversion_actions
+      ),
       scientific_contract: normalizeAssetObject<EqScientificContractAsset>(assets.scientific_contract),
       score_system: normalizeAssetObject<EqScoreSystemAsset>(assets.score_system),
       core_formulation: normalizeAssetObject<EqCoreFormulationAsset>(assets.core_formulation),
@@ -289,6 +299,14 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
       action_prescription: normalizeAssetObject<EqActionPrescriptionAsset>(assets.action_prescription),
       sjt_bridge: normalizeAssetObject<EqSjtBridgeAsset>(assets.sjt_bridge),
       quality: normalizeAssetObject<{ explanation_asset_id?: string; confidence_label?: string }>(assets.quality),
+      quality_confidence: normalizeAssetObject<EqQualityConfidenceAsset>(assets.quality_confidence),
+      psychometric_evidence_status: normalizeAssetArray<EqPsychometricEvidenceAsset>(
+        assets.psychometric_evidence_status
+      ),
+      agent_dialogue_playbooks: normalizeAssetArray<EqAgentDialoguePlaybookAsset>(assets.agent_dialogue_playbooks),
+      backend_integration_contract: normalizeAssetArray<EqBackendIntegrationContractAsset>(
+        assets.backend_integration_contract
+      ),
       personalization_route: {
         id: routeId,
         signal_signature: signalSignature,

@@ -117,6 +117,17 @@ export type EqScoreSystemAsset = {
     percentile?: string;
   };
   bands?: Record<string, string>;
+  band_details?: Record<
+    string,
+    {
+      label?: string;
+      meaning?: string;
+      strength?: string;
+      risk?: string;
+      practice_focus?: string;
+      do_not_overread?: string;
+    }
+  >;
   dimensions?: Record<
     string,
     {
@@ -170,6 +181,10 @@ export type EqCareerEnvironmentAsset = {
   fit_signal?: string;
   strain_signal?: string;
   what_to_verify?: string;
+  interview_question?: string;
+  role_observation_checklist?: string[];
+  team_risk?: string;
+  safe_experiment?: string;
 };
 
 export type EqActionPrescriptionAsset = {
@@ -178,7 +193,7 @@ export type EqActionPrescriptionAsset = {
   why_this_matters?: string;
   do_today?: string;
   script?: string;
-  seven_day_plan?: string[];
+  seven_day_plan?: Array<string | { day?: string | number; practice?: string }>;
   watch_out?: string;
 };
 
@@ -196,7 +211,75 @@ export type EqSjtBridgeAsset = {
   button_label?: string;
 };
 
+export type EqResultSnapshotAsset = {
+  id?: string;
+  headline?: string;
+  core_judgment?: string;
+  evidence_point?: string;
+  three_sentence_summary?: string[];
+  top_strength?: string;
+  likely_cost?: string;
+  minimal_action?: string;
+  share_safe_sentence?: string;
+  continue_path?: string;
+  conversion_actions?: string[];
+  do_not_overread?: string;
+};
+
+export type EqCommercialConversionActionAsset = {
+  id?: string;
+  title?: string;
+  body?: string;
+  cta_label?: string;
+  do_not_overread?: string;
+};
+
+export type EqQualityConfidenceAsset = {
+  id?: string;
+  label?: string;
+  body?: string;
+  user_guidance?: string;
+  retest_note?: string;
+  why_this_level?: string;
+  how_to_read?: string;
+  do_not_overread?: string;
+};
+
+export type EqPsychometricEvidenceAsset = {
+  id?: string;
+  label?: string;
+  status?: string;
+  user_facing_status_label?: string;
+  summary?: string;
+  user_meaning?: string;
+  what_this_means_for_user?: string;
+  validation_step?: string;
+  next_validation_step?: string;
+  do_not_overread?: string;
+};
+
+export type EqAgentDialoguePlaybookAsset = {
+  id?: string;
+  title?: string;
+  best_use?: string;
+  opening_prompt?: string;
+  clarifying_question?: string;
+  refusal_example?: string;
+  do_not_overread?: string;
+};
+
+export type EqBackendIntegrationContractAsset = {
+  id?: string;
+  title?: string;
+  requirement?: string;
+  owner?: string;
+  validation?: string;
+  do_not_overread?: string;
+};
+
 export type EqV5ResolvedAssets = {
+  result_snapshot?: EqResultSnapshotAsset;
+  commercial_conversion_actions?: EqCommercialConversionActionAsset[];
   scientific_contract?: EqScientificContractAsset;
   score_system?: EqScoreSystemAsset;
   core_formulation?: EqCoreFormulationAsset;
@@ -209,6 +292,10 @@ export type EqV5ResolvedAssets = {
     explanation_asset_id?: string;
     confidence_label?: string;
   };
+  quality_confidence?: EqQualityConfidenceAsset;
+  psychometric_evidence_status?: EqPsychometricEvidenceAsset[];
+  agent_dialogue_playbooks?: EqAgentDialoguePlaybookAsset[];
+  backend_integration_contract?: EqBackendIntegrationContractAsset[];
   personalization_route?: {
     id?: string;
     signal_signature?: EqV5SignalSignature;

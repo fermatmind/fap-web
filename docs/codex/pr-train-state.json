@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-23T00:00:00+08:00",
+  "updated_at": "2026-06-24T18:57:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -23787,6 +23787,119 @@
           "note": "PR #1383 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. Ready for squash merge subject to final scope and mergeStateStatus checks."
         }
       ]
+    },
+    {
+      "id": "PR-EQ-ASSET-03",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-eq-asset-03-frontend-v16-fixtures",
+      "base": "main",
+      "depends_on": [
+        "PR-EQ-ASSET-02"
+      ],
+      "status": "ready_to_merge",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1399",
+      "commit_sha": "a1b76158795c5d2605c97772680e97ce4e3aef7f",
+      "merge_sha": null,
+      "title": "PR-EQ-ASSET-03 Frontend v1.6 contract fixture consumption",
+      "checks": {
+        "local": {
+          "status": "passed_with_external_contract_scope_freeze_note",
+          "commands": [
+            "pnpm typecheck",
+            "pnpm exec vitest run tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm exec playwright test --config=/tmp/fap-web-pr-eq-asset-03.playwright.config.ts tests/e2e/iq-eq-result-regression.spec.ts",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+            "git diff --check",
+            "git diff --cached --check"
+          ],
+          "results": {
+            "typecheck": "passed_after_rebase_to_origin_main_65eb7998b0dcd3b5e80492e6a8de707a07c6d403",
+            "focused_eq_contract": "passed_after_rebase_11_tests",
+            "iq_eq_result_regression_e2e": "passed_after_rebase_6_tests_with_temp_port_3100_config_and_production_public_api_origin",
+            "build": "passed_after_rebase_with_NEXT_PUBLIC_SITE_URL_and_production_public_api_origin",
+            "full_pnpm_test_contract": "failed_external_scope_freeze_only_51_legacy_scope_tests",
+            "diff_check": "passed_after_rebase",
+            "cached_diff_check": "passed",
+            "scope_validation": "passed_after_rebase"
+          }
+        },
+        "github": {
+          "status": "passed",
+          "summary": "CodeQL pass; analyze pass; build pass; contracts pass; verify-big5-contract-freeze pass; verify-enneagram-contract-freeze pass",
+          "checked_at": "2026-06-24T18:57:00+08:00"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "components/result/eq/**",
+          "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+          "tests/e2e/iq-eq-result-regression.spec.ts",
+          "tests/fixtures/eq/v5/**",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "status": "passed_after_rebase"
+      },
+      "dependencies": {
+        "PR-EQ-ASSET-02": {
+          "repo": "fap-api",
+          "merged": true,
+          "merge_commit": "ef97695c475dd0b073d79303dc9372ad3b6a4821"
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-24T18:20:00+08:00",
+          "status": "implementation_in_progress",
+          "summary": "User authorized fap-web manifest/state entry for PR-EQ-ASSET-03. Started from clean temp worktree on latest main; synchronized backend EQ v1.6 canonical fixtures and focused EQ renderer contract now passes."
+        },
+        {
+          "at": "2026-06-24T18:36:00+08:00",
+          "status": "local_validation_progress",
+          "summary": "typecheck, focused EQ renderer contract, production-API build, and iq-eq-result-regression e2e passed. Full pnpm test:contract was additionally run and failed only unrelated historical scope-freeze tests."
+        },
+        {
+          "at": "2026-06-24T18:42:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Rebased onto origin/main 65eb7998b0dcd3b5e80492e6a8de707a07c6d403; typecheck, focused EQ renderer contract, production-API build, iq-eq-result-regression e2e, diff check, and path scope validation passed. Generated sitemap build artifact was restored out of scope."
+        },
+        {
+          "at": "2026-06-24T18:44:00+08:00",
+          "status": "staged_scope_validated",
+          "summary": "Path-limited staging completed for PR-EQ-ASSET-03 allowed files; git diff --cached --check passed."
+        },
+        {
+          "at": "2026-06-24T18:47:00+08:00",
+          "status": "committed",
+          "summary": "Created scoped commit cadd145979e0d7d0dccc692ce20bbb7b83db9c0f for PR-EQ-ASSET-03."
+        },
+        {
+          "at": "2026-06-24T18:52:00+08:00",
+          "status": "pr_open_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1399; branch tip before PR URL ledger update was 0d4d66c2ebd14357423605a3eb22bb58d425141a."
+        },
+        {
+          "at": "2026-06-24T18:57:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed for branch tip a1b76158795c5d2605c97772680e97ce4e3aef7f; PR is ready to merge after ledger update CI rerun."
+        }
+      ],
+      "sidecar_issues": [
+        {
+          "title": "Full pnpm test:contract runs legacy scope-freeze tests for unrelated historical PRs against the active diff",
+          "severity": "P2",
+          "scope_impact": "Does not affect PR-EQ-ASSET-03 runtime contract; focused EQ contract and e2e pass. May affect broad local contract command if required by CI.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Contract harness cleanup: gate historical scope-freeze tests by active PR id or branch.",
+          "blocks_merge": false,
+          "evidence": "pnpm test:contract failed 51 tests, all reporting current EQ asset files outside unrelated historical PR scopes; no functional EQ/IQ assertion remained failing after focused fixes."
+        }
+      ]
     }
   ],
   "sidecar_issues": [
@@ -28366,6 +28479,119 @@
           "at": "2026-06-24T18:16:30+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed for PR #1398 on head c7baf560 after rerunning the transiently cancelled build job. build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL were successful. Recording ready_to_merge before squash merge per PR-train policy."
+        }
+      ]
+    },
+    {
+      "id": "PR-EQ-ASSET-03",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-eq-asset-03-frontend-v16-fixtures",
+      "base": "main",
+      "depends_on": [
+        "PR-EQ-ASSET-02"
+      ],
+      "status": "ready_to_merge",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1399",
+      "commit_sha": "a1b76158795c5d2605c97772680e97ce4e3aef7f",
+      "merge_sha": null,
+      "title": "PR-EQ-ASSET-03 Frontend v1.6 contract fixture consumption",
+      "checks": {
+        "local": {
+          "status": "passed_with_external_contract_scope_freeze_note",
+          "commands": [
+            "pnpm typecheck",
+            "pnpm exec vitest run tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm exec playwright test --config=/tmp/fap-web-pr-eq-asset-03.playwright.config.ts tests/e2e/iq-eq-result-regression.spec.ts",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+            "git diff --check",
+            "git diff --cached --check"
+          ],
+          "results": {
+            "typecheck": "passed_after_rebase_to_origin_main_65eb7998b0dcd3b5e80492e6a8de707a07c6d403",
+            "focused_eq_contract": "passed_after_rebase_11_tests",
+            "iq_eq_result_regression_e2e": "passed_after_rebase_6_tests_with_temp_port_3100_config_and_production_public_api_origin",
+            "build": "passed_after_rebase_with_NEXT_PUBLIC_SITE_URL_and_production_public_api_origin",
+            "full_pnpm_test_contract": "failed_external_scope_freeze_only_51_legacy_scope_tests",
+            "diff_check": "passed_after_rebase",
+            "cached_diff_check": "passed",
+            "scope_validation": "passed_after_rebase"
+          }
+        },
+        "github": {
+          "status": "passed",
+          "summary": "CodeQL pass; analyze pass; build pass; contracts pass; verify-big5-contract-freeze pass; verify-enneagram-contract-freeze pass",
+          "checked_at": "2026-06-24T18:57:00+08:00"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "components/result/eq/**",
+          "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+          "tests/e2e/iq-eq-result-regression.spec.ts",
+          "tests/fixtures/eq/v5/**",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "status": "passed_after_rebase"
+      },
+      "dependencies": {
+        "PR-EQ-ASSET-02": {
+          "repo": "fap-api",
+          "merged": true,
+          "merge_commit": "ef97695c475dd0b073d79303dc9372ad3b6a4821"
+        }
+      },
+      "history": [
+        {
+          "at": "2026-06-24T18:20:00+08:00",
+          "status": "implementation_in_progress",
+          "summary": "User authorized fap-web manifest/state entry for PR-EQ-ASSET-03. Started from clean temp worktree on latest main; synchronized backend EQ v1.6 canonical fixtures and focused EQ renderer contract now passes."
+        },
+        {
+          "at": "2026-06-24T18:36:00+08:00",
+          "status": "local_validation_progress",
+          "summary": "typecheck, focused EQ renderer contract, production-API build, and iq-eq-result-regression e2e passed. Full pnpm test:contract was additionally run and failed only unrelated historical scope-freeze tests."
+        },
+        {
+          "at": "2026-06-24T18:42:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Rebased onto origin/main 65eb7998b0dcd3b5e80492e6a8de707a07c6d403; typecheck, focused EQ renderer contract, production-API build, iq-eq-result-regression e2e, diff check, and path scope validation passed. Generated sitemap build artifact was restored out of scope."
+        },
+        {
+          "at": "2026-06-24T18:44:00+08:00",
+          "status": "staged_scope_validated",
+          "summary": "Path-limited staging completed for PR-EQ-ASSET-03 allowed files; git diff --cached --check passed."
+        },
+        {
+          "at": "2026-06-24T18:47:00+08:00",
+          "status": "committed",
+          "summary": "Created scoped commit cadd145979e0d7d0dccc692ce20bbb7b83db9c0f for PR-EQ-ASSET-03."
+        },
+        {
+          "at": "2026-06-24T18:52:00+08:00",
+          "status": "pr_open_checks_pending",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1399; branch tip before PR URL ledger update was 0d4d66c2ebd14357423605a3eb22bb58d425141a."
+        },
+        {
+          "at": "2026-06-24T18:57:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed for branch tip a1b76158795c5d2605c97772680e97ce4e3aef7f; PR is ready to merge after ledger update CI rerun."
+        }
+      ],
+      "sidecar_issues": [
+        {
+          "title": "Full pnpm test:contract runs legacy scope-freeze tests for unrelated historical PRs against the active diff",
+          "severity": "P2",
+          "scope_impact": "Does not affect PR-EQ-ASSET-03 runtime contract; focused EQ contract and e2e pass. May affect broad local contract command if required by CI.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Contract harness cleanup: gate historical scope-freeze tests by active PR id or branch.",
+          "blocks_merge": false,
+          "evidence": "pnpm test:contract failed 51 tests, all reporting current EQ asset files outside unrelated historical PR scopes; no functional EQ/IQ assertion remained failing after focused fixes."
         }
       ]
     }

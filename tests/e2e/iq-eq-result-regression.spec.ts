@@ -251,13 +251,13 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await expect(page.getByRole("radio", { name: "Strongly Agree" })).toHaveAttribute("aria-checked", "true");
   await page.goto(`/en/result/${attemptId}`);
   await expect(page.getByTestId("eq-result-v5")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "High Empathy, Low Recovery" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "High Empathy, Slow Recovery" })).toBeVisible();
   await expect(page.getByText("Evidence Snapshot")).toBeVisible();
   await expect(page.getByText("Selected by backend route matrix")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Interpretation Confidence" })).toBeVisible();
   await expect(page.getByText("Emotional Matrix")).toBeVisible();
-  await expect(page.getByText("Empathy Boundary")).toBeVisible();
-  await expect(page.getByText("A 16-item scenario module is planned")).toBeVisible();
+  await expect(page.getByText("Empathy with boundary")).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Future scenario module" })).toBeVisible();
   await expect(page.getByText("Planned, not available yet")).toBeVisible();
   await expect(page.getByText("Scientific Boundary")).toBeVisible();
   await expect(page.getByText(/Unlock|Purchase|SKU_EQ_60_FULL_299|EQ_60_FULL|locked|blur_others|paywall/i)).toHaveCount(0);
@@ -268,6 +268,35 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
 test("IQ renders stem prompt/svg and submits with visual options", async ({ page }) => {
   const attemptId = "iq-stem-flow-001";
   let submitCalls = 0;
+  const iqQuestion = {
+    question_id: "MATRIX_Q01",
+    order: 1,
+    text: null,
+    stem: {
+      prompt_en: "Which option fits?",
+      prompt_zh: "哪个选项适合？",
+      svg: {
+        view_box: "0 0 120 80",
+        paths: [{ d: "M 5 5 L 115 5 L 115 75 L 5 75 Z", fill: "#f8fafc" }],
+      },
+    },
+    options: [
+      {
+        code: "A",
+        svg: {
+          view_box: "0 0 20 20",
+          paths: [{ d: "M 2 2 L 18 2 L 18 18 L 2 18 Z", fill: "#0f172a" }],
+        },
+      },
+      {
+        code: "B",
+        svg: {
+          view_box: "0 0 20 20",
+          paths: [{ d: "M 2 10 L 18 10", stroke: "#0f172a", stroke_width: 2 }],
+        },
+      },
+    ],
+  };
   await mockTrack(page);
   await mockGuestToken(page, "fm_iq_stem_token_123456");
   await mockAttemptLinkAnon(page);
@@ -283,37 +312,7 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
           ok: true,
           scale_code: "IQ_RAVEN",
           questions: {
-            items: [
-              {
-                question_id: "MATRIX_Q01",
-                order: 1,
-                text: null,
-                stem: {
-                  prompt_en: "Which option fits?",
-                  prompt_zh: "哪个选项适合？",
-                  svg: {
-                    view_box: "0 0 120 80",
-                    paths: [{ d: "M 5 5 L 115 5 L 115 75 L 5 75 Z", fill: "#f8fafc" }],
-                  },
-                },
-                options: [
-                  {
-                    code: "A",
-                    svg: {
-                      view_box: "0 0 20 20",
-                      paths: [{ d: "M 2 2 L 18 2 L 18 18 L 2 18 Z", fill: "#0f172a" }],
-                    },
-                  },
-                  {
-                    code: "B",
-                    svg: {
-                      view_box: "0 0 20 20",
-                      paths: [{ d: "M 2 10 L 18 10", stroke: "#0f172a", stroke_width: 2 }],
-                    },
-                  },
-                ],
-              },
-            ],
+            items: [iqQuestion],
           },
         }),
       });
@@ -327,7 +326,40 @@ test("IQ renders stem prompt/svg and submits with visual options", async ({ page
       body: JSON.stringify({
         ok: true,
         attempt_id: attemptId,
-        scale_code: "IQ_RAVEN",
+        scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+        question_count: 1,
+      }),
+    });
+  });
+
+  await page.route(new RegExp(`/api/v0\\.3/attempts/${escapeRegExp(attemptId)}/questions(?:\\?.*)?$`), async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        schema_version: "fm.iq.question_delivery.v1",
+        attempt_id: attemptId,
+        scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+        scale_code_legacy: "IQ_RAVEN",
+        bank_id: "IQ_OWNER_ORIGINAL_30",
+        form_code: "IQ_OWNER_ORIGINAL_30",
+        question_count: 1,
+        delivery: {
+          mode: "current_question",
+          index: 0,
+          window_size: 1,
+          has_previous: false,
+          has_next: false,
+        },
+        questions: {
+          schema: "fm.iq.owner_image_bank.items.public.v1",
+          items: [iqQuestion],
+        },
+        meta: {
+          source: "attempt_bound_owner_bank",
+          public_payload: true,
+        },
       }),
     });
   });
@@ -502,7 +534,7 @@ test("result page keeps generating state isolated even when offers are already a
   });
 
   await page.goto(`/en/result/${attemptId}`);
-  await expect(page.getByText("Report is still generating. Refresh in a few seconds.")).toBeVisible();
+  await expect(page.getByText("Your result is still generating.")).toBeVisible();
   await expect(page.getByRole("button", { name: "Unlock now" })).toHaveCount(0);
 });
 

@@ -5,6 +5,7 @@ import { formatEqScore, isLowConfidenceEqResult } from "./utils";
 export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
   const { assets, globalScore, quality, interpretation, locale, lockedAnomaly } = viewModel;
   const formulation = assets.core_formulation;
+  const snapshot = assets.result_snapshot;
   const lowConfidence = isLowConfidenceEqResult(viewModel);
 
   return (
@@ -18,13 +19,15 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
             {locale === "zh" ? "情绪与关系模式报告" : "Emotional & Relational Pattern Report"}
           </p>
           <h1 className="text-2xl font-semibold leading-tight text-slate-950 sm:text-3xl">
-            {formulation.title || (locale === "zh" ? "结果解释暂不可用" : "Result interpretation unavailable")}
+            {snapshot.headline ||
+              formulation.title ||
+              (locale === "zh" ? "结果解释暂不可用" : "Result interpretation unavailable")}
           </h1>
-          {formulation.one_liner ? (
-            <p className="text-base leading-7 text-slate-700">{formulation.one_liner}</p>
+          {snapshot.core_judgment || formulation.one_liner ? (
+            <p className="text-base leading-7 text-slate-700">{snapshot.core_judgment || formulation.one_liner}</p>
           ) : null}
-          {formulation.core_claim ? (
-            <p className="text-sm leading-6 text-slate-600">{formulation.core_claim}</p>
+          {snapshot.evidence_point || formulation.core_claim ? (
+            <p className="text-sm leading-6 text-slate-600">{snapshot.evidence_point || formulation.core_claim}</p>
           ) : null}
         </div>
 
@@ -61,17 +64,22 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
       <div className="mt-5 grid gap-3 md:grid-cols-3">
         <HeroSignal
           label={locale === "zh" ? "主要优势" : "Primary strength"}
-          value={lowConfidence ? formulation.one_liner : formulation.primary_strength}
+          value={lowConfidence ? snapshot.core_judgment || formulation.one_liner : snapshot.top_strength || formulation.primary_strength}
         />
         <HeroSignal
-          label={locale === "zh" ? "发展杠杆" : "Development lever"}
-          value={formulation.development_lever || interpretation.development_lever}
+          label={locale === "zh" ? "最小行动" : "Smallest next action"}
+          value={snapshot.minimal_action || formulation.development_lever || interpretation.development_lever}
         />
         <HeroSignal
-          label={locale === "zh" ? "不要误读" : "Do not overread"}
-          value={formulation.do_not_overread}
+          label={locale === "zh" ? "分享句" : "Share-safe line"}
+          value={snapshot.share_safe_sentence || snapshot.do_not_overread || formulation.do_not_overread}
         />
       </div>
+      {snapshot.continue_path ? (
+        <p className="mt-4 rounded-[8px] border border-slate-200 bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-700">
+          {snapshot.continue_path}
+        </p>
+      ) : null}
     </section>
   );
 }

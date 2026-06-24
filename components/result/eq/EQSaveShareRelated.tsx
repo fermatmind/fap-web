@@ -6,6 +6,7 @@ import type { EqV5ViewModel } from "./types";
 
 export function EQSaveShareRelated({ viewModel, attemptId }: { viewModel: EqV5ViewModel; attemptId?: string }) {
   const { locale } = viewModel;
+  const conversionActions = viewModel.assets.commercial_conversion_actions;
 
   return (
     <section data-testid="eq-save-share-related" className="rounded-[8px] border border-slate-200 bg-white p-4">
@@ -35,6 +36,21 @@ export function EQSaveShareRelated({ viewModel, attemptId }: { viewModel: EqV5Vi
         <RelatedLink href="/tests/holland-career-interest-test-riasec" locale={locale} label="RIASEC" />
         <RelatedLink href="/tests/mbti-personality-test-16-personality-types" locale={locale} label="MBTI" />
       </div>
+      {conversionActions.length > 0 ? (
+        <div className="mt-4 grid gap-3 md:grid-cols-2">
+          {conversionActions.map((action) => (
+            <article key={action.id ?? action.title} className="rounded-[8px] border border-slate-200 bg-slate-50 p-3">
+              <h3 className="text-sm font-semibold text-slate-950">{action.title || action.cta_label || action.id}</h3>
+              {action.body ? <p className="mt-1 text-sm leading-6 text-slate-700">{action.body}</p> : null}
+              {action.cta_label ? (
+                <p className="mt-2 text-xs font-medium uppercase tracking-[0.08em] text-slate-500">
+                  {action.cta_label}
+                </p>
+              ) : null}
+            </article>
+          ))}
+        </div>
+      ) : null}
     </section>
   );
 }
