@@ -9,8 +9,14 @@ const { buildSafeSitemapFallbackXml } = require("../../lib/seo/sitemapFallback.c
 
 const sitemapPath = path.join(process.cwd(), "public/sitemap.xml");
 const buildManifestPath = path.join(process.cwd(), ".next/build-manifest.json");
+const defaultGenerationTimeoutMs = 120000;
 const privateSitemapPathPattern =
   /<loc>\s*https:\/\/fermatmind\.com(?:\/(?:en|zh))?(?:\/(?:result|results|orders?|share|pay|payment|history)(?:\/|[?#<\s])|\/tests\/[^/<]+\/take(?:\/|[?#<\s]))/i;
+
+function readPositiveIntegerEnv(name, fallback) {
+  const value = Number.parseInt(process.env[name] || "", 10);
+  return Number.isFinite(value) && value > 0 ? value : fallback;
+}
 
 function hasSafeUsableSitemapXml(filePath) {
   if (!fs.existsSync(filePath)) {
@@ -40,11 +46,28 @@ function ensureSafeFallbackSitemap(reason) {
   writeSafeFallbackSitemap(reason);
 }
 
+async function withSitemapGenerationTimeout(promise, timeoutMs) {
+  let timeoutId;
+  const timeout = new Promise((_, reject) => {
+    timeoutId = setTimeout(() => {
+      reject(new Error(`next-sitemap timed out after ${timeoutMs}ms`));
+    }, timeoutMs);
+    timeoutId.unref?.();
+  });
+
+  try {
+    return await Promise.race([promise, timeout]);
+  } finally {
+    clearTimeout(timeoutId);
+  }
+}
+
 if (!fs.existsSync(buildManifestPath)) {
   ensureSafeFallbackSitemap("Next build manifest missing; run next build before dynamic sitemap generation");
   process.exit(0);
 }
 
+const generationTimeoutMs = readPositiveIntegerEnv("SITEMAP_GENERATION_TIMEOUT_MS", defaultGenerationTimeoutMs);
 const cliModuleUrl = pathToFileURL(path.join(process.cwd(), "node_modules/next-sitemap/dist/esm/cli.js")).href;
 const { CLI } = await import(cliModuleUrl);
 const cli = new CLI();
@@ -54,7 +77,7 @@ try {
   process.exit = ((code) => {
     throw new Error(`next-sitemap requested process exit ${code ?? 0}`);
   });
-  await cli.execute();
+  await withSitemapGenerationTimeout(cli.execute(), generationTimeoutMs);
 } catch (error) {
   const message = error instanceof Error ? error.message : String(error);
   ensureSafeFallbackSitemap(`next-sitemap failed: ${message}`);
