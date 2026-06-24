@@ -313,11 +313,19 @@ function buildArtifact() {
   };
 }
 
+function markdownTableCell(value) {
+  return text(value)
+    .replaceAll("\\", "\\\\")
+    .replaceAll("\n", " ")
+    .replaceAll("\r", " ")
+    .replaceAll("|", "\\|");
+}
+
 function markdown(artifact) {
   const sampleRows = artifact.recommendations.slice(0, 12).map((row) => {
     const url = new URL(row.target_url).pathname;
     const coverage = artifact.coverage.rows.find((item) => item.recommendation_id === row.recommendation_id);
-    return `| ${url} | ${row.locale} | ${coverage?.entity_type || ""} | ${row.recommendations.title.recommended.replace(/\|/g, "\\|")} |`;
+    return `| ${url} | ${row.locale} | ${coverage?.entity_type || ""} | ${markdownTableCell(row.recommendations.title.recommended)} |`;
   }).join("\n");
 
   return `# Big Five Public Profile Agent Pilot

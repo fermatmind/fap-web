@@ -28675,6 +28675,11 @@
           "at": "2026-06-24T19:56:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1404 from codex/big-five-public-profile-agent-pilot-01; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-24T20:03:00+08:00",
+          "status": "github_checks_failed_fix_in_scope",
+          "summary": "GitHub Advanced Security CodeQL reported incomplete string escaping in the new generator markdown table output. Fixed within the current generator scope and reran node --check, generator, JSON parse, focused vitest, and git diff --check."
         }
       ],
       "sidecar_issues": []
