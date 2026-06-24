@@ -2176,6 +2176,12 @@ const DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR_01_ALLOWED_FILES =
   "tests/contracts/llms-route-fanout.contract.test.ts",
 ]);
 
+const ASSESSMENT_HUB_DISCOVERABILITY_REPAIR_01_ALLOWED_FILES = new Set([
+  "app/llms-full.txt/route.ts",
+  "tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const CAREER_1046_FRONTEND_DISCOVERY_UX_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/career/jobs/page.tsx",
   "components/career/CareerOccupationDirectory.tsx",
@@ -3931,6 +3937,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/detail-ready-1046-llms-full-artifact-consistency-repair-01") {
     return DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/assessment-hub-discoverability-repair-01") {
+    return ASSESSMENT_HUB_DISCOVERABILITY_REPAIR_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/career-1046-frontend-discovery-ux-01") {
