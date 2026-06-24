@@ -1,0 +1,256 @@
+{
+  "artifact": "PERSONALITY-AGENT-AUTO-RUNNER-SCHEDULER-01",
+  "generated_at": "2026-06-24T02:18:30.438Z",
+  "framework": "mbti64",
+  "status": "pass",
+  "final_decision": "PASS_MANUAL_SCHEDULER_READY_NO_UNATTENDED_CRON",
+  "input_artifacts": {
+    "gsc_stabilize": "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-stabilize-2026-06-23.json",
+    "priority_ranker": "docs/seo/personality/mbti64-agent-priority-ranker-2026-06-23.json",
+    "rerun_loop": "docs/seo/personality/mbti64-agent-recommendation-rerun-loop-2026-06-23.json",
+    "optimized_reference_pack": "docs/seo/personality/mbti64-optimized-pilot-reference-pack-2026-06-21.json",
+    "recommendations": "docs/seo/personality/mbti64-agent-expansion-88-recommendations-2026-06-21.json",
+    "qa": "docs/seo/personality/mbti64-agent-expansion-88-qa-2026-06-21.json"
+  },
+  "runner_contract": {
+    "mode": "manual_scheduler_ready_artifact_only",
+    "enabled_frameworks_v1": [
+      "mbti64"
+    ],
+    "future_framework_slots": [
+      "big_five",
+      "enneagram"
+    ],
+    "input_sequence": [
+      "gsc_query_or_page_evidence",
+      "mbti64_96_url_cohort",
+      "optimized_pilot_reference_pack",
+      "priority_ranker",
+      "current_recommendations",
+      "qa_artifacts"
+    ],
+    "output_sequence": [
+      "run_manifest",
+      "priority_ranking",
+      "draft_recommendation_candidates",
+      "qa_summary",
+      "blocked_or_ready_decision"
+    ],
+    "scheduler_activation": "not_enabled_in_this_pr"
+  },
+  "summary": {
+    "cohort_url_count": 96,
+    "optimized_reference_pages": 8,
+    "recommendation_artifact_count": 88,
+    "qa_pass_count": 88,
+    "ready_draft_review_count": 3,
+    "hold_for_query_evidence_count": 10,
+    "pilot_observation_baseline_count": 8,
+    "measurement_backlog_count": 75
+  },
+  "ready_draft_review_queue": [
+    {
+      "target_url": "https://fermatmind.com/zh/personality/intp-a",
+      "path": "/zh/personality/intp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "lane": "ready_for_draft_recommendation_review",
+      "evidence_quality": "query_backed_low_volume",
+      "query_rows_captured": 1,
+      "priority_score": 67.45,
+      "allowed_next_action": "draft_recommendation_package_then_qa",
+      "blocked_reason": null,
+      "recommended_next_task": "MBTI64-CMS-PROJECTION-DRAFT-VISIBLE-3-DRY-RUN-01"
+    },
+    {
+      "target_url": "https://fermatmind.com/zh/personality/esfp-a",
+      "path": "/zh/personality/esfp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "lane": "ready_for_draft_recommendation_review",
+      "evidence_quality": "query_backed_low_volume",
+      "query_rows_captured": 1,
+      "priority_score": 62.021,
+      "allowed_next_action": "draft_recommendation_package_then_qa",
+      "blocked_reason": null,
+      "recommended_next_task": "MBTI64-CMS-PROJECTION-DRAFT-VISIBLE-3-DRY-RUN-01"
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/enfj-a",
+      "path": "/en/personality/enfj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "lane": "ready_for_draft_recommendation_review",
+      "evidence_quality": "query_backed_low_volume",
+      "query_rows_captured": 1,
+      "priority_score": 61.848,
+      "allowed_next_action": "draft_recommendation_package_then_qa",
+      "blocked_reason": null,
+      "recommended_next_task": "MBTI64-CMS-PROJECTION-DRAFT-VISIBLE-3-DRY-RUN-01"
+    }
+  ],
+  "hold_for_query_evidence_queue": [
+    {
+      "target_url": "https://fermatmind.com/zh/personality/istp-a",
+      "path": "/zh/personality/istp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "lane": "hold_for_query_evidence",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "query_rows_captured": 0,
+      "priority_score": 73.612,
+      "allowed_next_action": "refresh_gsc_query_evidence",
+      "blocked_reason": "query_evidence_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01"
+    },
+    {
+      "target_url": "https://fermatmind.com/zh/personality/esfj-a",
+      "path": "/zh/personality/esfj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "lane": "hold_for_query_evidence",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "query_rows_captured": 0,
+      "priority_score": 60.521,
+      "allowed_next_action": "refresh_gsc_query_evidence",
+      "blocked_reason": "query_evidence_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01"
+    },
+    {
+      "target_url": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+      "path": "/zh/personality/intp-a-vs-intp-t",
+      "locale": "zh",
+      "page_type": "comparison",
+      "lane": "hold_for_query_evidence",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "query_rows_captured": 0,
+      "priority_score": 59.542,
+      "allowed_next_action": "refresh_gsc_query_evidence",
+      "blocked_reason": "query_evidence_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01"
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/esfj-t",
+      "path": "/en/personality/esfj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "lane": "hold_for_query_evidence",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "query_rows_captured": 0,
+      "priority_score": 59.082,
+      "allowed_next_action": "refresh_gsc_query_evidence",
+      "blocked_reason": "query_evidence_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01"
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/intp-a",
+      "path": "/en/personality/intp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "lane": "hold_for_query_evidence",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "query_rows_captured": 0,
+      "priority_score": 59.021,
+      "allowed_next_action": "refresh_gsc_query_evidence",
+      "blocked_reason": "query_evidence_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01"
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/istp-a",
+      "path": "/en/personality/istp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "lane": "hold_for_query_evidence",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "query_rows_captured": 0,
+      "priority_score": 56.021,
+      "allowed_next_action": "refresh_gsc_query_evidence",
+      "blocked_reason": "query_evidence_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01"
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/enfp-a",
+      "path": "/en/personality/enfp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "lane": "hold_for_query_evidence",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "query_rows_captured": 0,
+      "priority_score": 55.828,
+      "allowed_next_action": "refresh_gsc_query_evidence",
+      "blocked_reason": "query_evidence_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01"
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/esfj-a",
+      "path": "/en/personality/esfj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "lane": "hold_for_query_evidence",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "query_rows_captured": 0,
+      "priority_score": 47.041,
+      "allowed_next_action": "refresh_gsc_query_evidence",
+      "blocked_reason": "query_evidence_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01"
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/entj-a",
+      "path": "/en/personality/entj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "lane": "hold_for_query_evidence",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "query_rows_captured": 0,
+      "priority_score": 44.542,
+      "allowed_next_action": "refresh_gsc_query_evidence",
+      "blocked_reason": "query_evidence_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01"
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/estp-t",
+      "path": "/en/personality/estp-t",
+      "locale": "en",
+      "page_type": "variant",
+      "lane": "hold_for_query_evidence",
+      "evidence_quality": "page_level_only_query_suppressed",
+      "query_rows_captured": 0,
+      "priority_score": 44.542,
+      "allowed_next_action": "refresh_gsc_query_evidence",
+      "blocked_reason": "query_evidence_suppressed",
+      "recommended_next_task": "MBTI64-GSC-QUERY-API-OR-MANUAL-CSV-EXPORT-10-01"
+    }
+  ],
+  "qa_required": [
+    "schema_validation",
+    "trademark_claim_gate",
+    "claim_risk_gate",
+    "duplicate_template_gate",
+    "private_route_gate",
+    "result_page_leakage_gate",
+    "seo_projection_gate",
+    "bilingual_consistency_gate"
+  ],
+  "safety_boundary": {
+    "artifact_only": true,
+    "cms_write_attempted": false,
+    "cms_live_promotion_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "search_queue_mutation_attempted": false,
+    "live_search_submit_attempted": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_request_indexing_attempted": false,
+    "production_deploy_attempted": false,
+    "unattended_cron_enabled": false
+  },
+  "blockers": [],
+  "warnings": [
+    "GSC_SOURCE_PAGE_TABLE_SNAPSHOT_QUERY_DIMENSION_LIMITED"
+  ],
+  "recommended_next_tasks": {
+    "ready_draft_review_queue": "MBTI64-CMS-PROJECTION-DRAFT-VISIBLE-3-DRY-RUN-01",
+    "hold_for_query_evidence_queue": "MBTI64-GSC-API-READONLY-INTEGRATION-01_DEPLOY_AND_EXPORT",
+    "scheduler_activation": "PERSONALITY-AGENT-AUTO-RUNNER-SCHEDULER-ACTIVATION-01_SEPARATE_PR",
+    "approval_queue": "PERSONALITY-AGENT-HUMAN-APPROVAL-QUEUE-01"
+  }
+}

@@ -404,6 +404,15 @@ const MBTI64_AGENT_RECOMMENDATION_RERUN_LOOP_01_ALLOWED_FILES = new Set([
   "tests/contracts/mbti64-agent-recommendation-rerun-loop.contract.test.ts",
 ]);
 
+const PERSONALITY_AGENT_AUTO_RUNNER_SCHEDULER_01_ALLOWED_FILES = new Set([
+  "docs/seo/personality/personality-agent-auto-runner-scheduler-2026-06-24.csv",
+  "docs/seo/personality/personality-agent-auto-runner-scheduler-2026-06-24.json",
+  "docs/seo/personality/personality-agent-auto-runner-scheduler-2026-06-24.md",
+  "scripts/seo/run-personality-agent-auto-runner.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-agent-auto-runner-scheduler-01.contract.test.ts",
+]);
+
 const MBTI64_GSC_QUERY_EXPORT_10_01_ALLOWED_FILES = new Set([
   "docs/seo/personality/mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24.csv",
   "docs/seo/personality/mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24.json",
@@ -3231,6 +3240,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/mbti64-agent-recommendation-rerun-loop-01" &&
     MBTI64_AGENT_RECOMMENDATION_RERUN_LOOP_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/personality-agent-auto-runner-scheduler-01" &&
+    PERSONALITY_AGENT_AUTO_RUNNER_SCHEDULER_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
