@@ -29594,9 +29594,9 @@
       "branch": "codex/assessment-hub-qa-common-contract-01",
       "base": "main",
       "depends_on": [],
-      "status": "committed",
-      "pr_url": null,
-      "commit_sha": "eb2902bdfd980fa01d08c5ef5b81a53204b1fa80",
+      "status": "pr_open",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1418",
+      "commit_sha": "f05837e38c4f9d3cc82b007a8b9a123f165b548d",
       "merge_sha": null,
       "title": "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01: docs(assessment-hub): add QA common contract",
       "checks": {
@@ -29655,7 +29655,12 @@
         {
           "at": "2026-06-25T00:51:00+08:00",
           "status": "committed",
-          "summary": "Created scoped commit eb2902bdfd980fa01d08c5ef5b81a53204b1fa80 for PR1 after path-limited staging and cached diff validation."
+          "summary": "Created scoped commit f05837e38c4f9d3cc82b007a8b9a123f165b548d for PR1 after path-limited staging and cached diff validation."
+        },
+        {
+          "at": "2026-06-25T00:55:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1418 from codex/assessment-hub-qa-common-contract-01; GitHub checks are pending."
         }
       ],
       "sidecar_issues": []
