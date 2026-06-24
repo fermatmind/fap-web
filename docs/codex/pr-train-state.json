@@ -29601,7 +29601,7 @@
       "title": "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01: docs(assessment-hub): add QA common contract",
       "checks": {
         "local": {
-          "status": "passed",
+          "status": "passed_after_rebase",
           "commands": [
             "node -e \"JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-qa-common-contract.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
             "pnpm exec vitest run tests/contracts/assessment-hub-qa-common-contract.contract.test.ts",
@@ -29619,7 +29619,14 @@
             "manifest_yaml_parse": "passed",
             "diff_check": "passed",
             "changed_file_scope_validation": "passed",
-            "build": "not_run_by_goal_boundary"
+            "build": "not_run_by_goal_boundary",
+            "rebase_json_parse": "passed",
+            "rebase_manifest_yaml_parse": "passed",
+            "rebase_focused_vitest": "passed",
+            "rebase_typecheck": "passed",
+            "rebase_contract_suite": "passed",
+            "rebase_diff_check": "passed",
+            "rebase_changed_file_scope_validation": "passed"
           }
         },
         "github": {
@@ -29661,6 +29668,11 @@
           "at": "2026-06-25T00:55:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1418 from codex/assessment-hub-qa-common-contract-01; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-25T01:00:00+08:00",
+          "status": "rebased_local_checks_passed",
+          "summary": "Rebased PR #1418 onto origin/main 4c13a53873cf2865b760b67a95acc7ba99a8b5b6 after PR-EQ-AGENT-03 merged. Conflict was limited to docs/codex train metadata; JSON/YAML parsing, focused vitest, pnpm typecheck, full pnpm test:contract, diff check, and scope validation passed after rebase."
         }
       ],
       "sidecar_issues": []
