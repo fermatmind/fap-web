@@ -223,6 +223,17 @@ const BIG5_METHODOLOGY_TRUST_SCIENCE_COMMON_CONTRACT_01_ALLOWED_FILES = new Set(
   "docs/codex/pr-train-state.json",
 ]);
 
+const BIG5_METHODOLOGY_SOURCE_AUTHORITY_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/methodology-trust-science/big5-methodology-source-authority-packet-2026-06-23.md",
+  "docs/methodology-trust-science/big5-methodology-source-authority-packet.v1.json",
+  "tests/contracts/big5-methodology-source-authority-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
 const RIASEC_CAREER_GRAPH_SOURCE_AUTHORITY_PACKET_01_ALLOWED_FILES = new Set([
   "docs/career-graph/riasec-career-graph-source-authority-packet-2026-06-23.md",
   "docs/career-graph/riasec-career-graph-source-authority-packet.v1.json",
@@ -3175,6 +3186,13 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/big5-methodology-common-contract-01" &&
     BIG5_METHODOLOGY_TRUST_SCIENCE_COMMON_CONTRACT_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/big5-methodology-source-authority-packet-01" &&
+    BIG5_METHODOLOGY_SOURCE_AUTHORITY_PACKET_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }

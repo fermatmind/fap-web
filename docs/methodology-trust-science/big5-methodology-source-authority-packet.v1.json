@@ -1,0 +1,402 @@
+{
+  "schema_version": "fermatmind.big5_methodology_trust_science.source_authority_packet.v1",
+  "artifact_id": "big5-methodology-source-authority-packet-2026-06-23",
+  "task_id": "BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01",
+  "run_mode": "docs_contracts_only",
+  "verdict": "SOURCE_AUTHORITY_MAPPED_FOR_PLANNING_ONLY",
+  "created_at": "2026-06-23",
+  "depends_on": [
+    {
+      "task_id": "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1408",
+      "merge_commit_sha": "b7f7f42c0bc341d2fa23f63f5bd6241c284d4389"
+    }
+  ],
+  "scope": {
+    "primary_repo": "fap-web",
+    "secondary_repo": "fap-api",
+    "secondary_repo_mode": "read_only_evidence_source_only",
+    "content_generation_authorized": false,
+    "cms_write_authorized": false,
+    "runtime_mutation_authorized": false,
+    "search_or_provider_action_authorized": false,
+    "private_result_access_authorized": false,
+    "fap_api_modification_authorized": false
+  },
+  "authority_summary": {
+    "big_five_result_page_agent_evidence": "PUBLIC_BOUNDARY_SUPPORT_ONLY",
+    "methodology_trust_science_public_page_authority": "CMS_BACKEND_CONTENTPAGE_AUTHORITY_REQUIRED",
+    "share_safety_blocker": "CLEARED_AT_SANITIZED_READONLY_EVIDENCE_LAYER_ONLY",
+    "result_page_source_ledger": "PRESENT_FOR_RESULT_PAGE_V2_NOT_AUTOMATIC_METHODOLOGY_LEDGER",
+    "methodology_source_ledger": "GAP_REMAINS_FOR_DOWNSTREAM_PACKET_OR_CMS_REVIEW",
+    "frontend_fallback_copy": "NOT_AUTHORITY",
+    "unreviewed_cms_text": "NOT_AUTHORITY",
+    "public_big_five_profile_route": "SEPARATE_PUBLIC_PROFILE_AUTHORITY_NOT_PRIVATE_RESULT_PAGE_AUTHORITY",
+    "cms_import_publish_search": "HOLD",
+    "sitemap_llms_schema_hreflang_canonical_indexability": "HOLD"
+  },
+  "consumed_sources": [
+    {
+      "source_id": "big5_result_page_readiness_proposal",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/big-five-result-page-agent-readiness.proposal.json",
+      "source_classification": "result_page_agent_evidence",
+      "status": "BIG5_RESULT_PAGE_AGENT_STANDARD_ALIGNED",
+      "authority_use": "Supports public methodology boundary planning and agent standard alignment only.",
+      "limitations": "Does not authorize public methodology content, CMS packages, publishing, search exposure, runtime mutation, or private payload reuse."
+    },
+    {
+      "source_id": "big5_result_page_standard_alignment_report",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/big-five-result-page-agent-standard-alignment-2026-06-22.md",
+      "source_classification": "result_page_agent_evidence",
+      "status": "STANDARD_ALIGNMENT_REPORT_PRESENT",
+      "authority_use": "Supports standard-aligned language about the Big Five result-page agent boundary.",
+      "limitations": "Report evidence remains handoff/planning evidence and not public page body authority."
+    },
+    {
+      "source_id": "big5_readonly_cleared_handoff",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json",
+      "source_classification": "result_page_agent_evidence",
+      "status": "READY_READONLY_CLEARED",
+      "authority_use": "Confirms read-only public-boundary clearance for downstream planning.",
+      "limitations": "Does not permit raw private attempt access, private result payload access, runtime action, or CMS/search action."
+    },
+    {
+      "source_id": "big5_runtime_qa_consumption_packet",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/big5-runtime-qa-consumption-packet.v1.json",
+      "source_classification": "runtime_qa_artifact",
+      "status": "READY_TO_CONSUME_BY_RUNTIME_QA",
+      "authority_use": "Supports read-only runtime QA integration planning and sanitized blocker interpretation.",
+      "limitations": "Ready for QA consumption does not mean ready for runtime, production, CMS, or public methodology content."
+    },
+    {
+      "source_id": "big5_analytics_consumption_packet",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/big5-analytics-consumption-packet.v1.json",
+      "source_classification": "analytics_handoff_artifact",
+      "status": "READY_TO_CONSUME_BY_ANALYTICS",
+      "authority_use": "Supports analytics quality-report vocabulary for downstream planning.",
+      "limitations": "Does not authorize event emission, backfill, opportunity scoring, provider calls, or instrumentation."
+    },
+    {
+      "source_id": "big5_safety_gate_consumption_packet",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/big5-safety-gate-consumption-packet.v1.json",
+      "source_classification": "safety_gate_artifact",
+      "status": "READY_TO_CONSUME_BY_SAFETY_GATE",
+      "authority_use": "Supports claim/privacy/safety gate planning and private-field exclusion.",
+      "limitations": "Does not authorize pilot, runtime, production, CMS, search, or opportunity scoring."
+    },
+    {
+      "source_id": "fap_web_pr_1352_readonly_cleared_evidence",
+      "repo": "fap-web",
+      "path": "https://github.com/fermatmind/fap-web/pull/1352",
+      "source_classification": "result_page_agent_evidence",
+      "status": "MERGED_IF_PRESENT_IN_CURRENT_ORIGIN_MAIN_EVIDENCE",
+      "authority_use": "Referenced as historical READY_READONLY_CLEARED lineage for Big Five result-page agent planning.",
+      "limitations": "PR lineage is not a methodology source ledger and must not be treated as public content authority."
+    },
+    {
+      "source_id": "fap_api_pr_2326_sanitized_evidence",
+      "repo": "fap-api",
+      "path": "https://github.com/fermatmind/fap-api/pull/2326",
+      "source_classification": "backend_authority",
+      "status": "SANITIZED_EVIDENCE_MERGED_IF_CONFIRMED_ON_CURRENT_ORIGIN_MAIN",
+      "authority_use": "Supports cleared share-safety blocker only at sanitized read-only evidence layer.",
+      "limitations": "Does not expose private result payloads and does not authorize fap-api mutation from this fap-web PR."
+    },
+    {
+      "source_id": "fap_api_pr_2331_sanitized_evidence",
+      "repo": "fap-api",
+      "path": "https://github.com/fermatmind/fap-api/pull/2331",
+      "source_classification": "backend_authority",
+      "status": "SANITIZED_EVIDENCE_MERGED_IF_CONFIRMED_ON_CURRENT_ORIGIN_MAIN",
+      "authority_use": "Supports cleared share-safety blocker only at sanitized read-only evidence layer.",
+      "limitations": "Does not expose private result payloads and does not authorize fap-api mutation from this fap-web PR."
+    },
+    {
+      "source_id": "fap_api_big5_result_asset_agent_runbook",
+      "repo": "fap-api",
+      "path": "backend/docs/big5/result-asset-agent-runbook.md",
+      "source_classification": "backend_authority",
+      "status": "READ_ONLY_REFERENCE_PRESENT",
+      "authority_use": "Defines backend-only Big Five result-page V2 asset-agent operating contract.",
+      "limitations": "Dedicated to private result-page V2 asset governance; it is not public methodology page authority."
+    },
+    {
+      "source_id": "fap_api_big5_result_asset_agent_gates",
+      "repo": "fap-api",
+      "path": "backend/docs/big5/result-asset-agent-gates.md",
+      "source_classification": "backend_authority",
+      "status": "READ_ONLY_REFERENCE_PRESENT",
+      "authority_use": "Defines staging-only gates and production boundary for result-page V2 asset-agent work.",
+      "limitations": "Does not open runtime, CMS, pilot, or production access."
+    },
+    {
+      "source_id": "fap_api_big5_result_asset_agent_schema",
+      "repo": "fap-api",
+      "path": "backend/docs/big5/result-asset-agent-schema.md",
+      "source_classification": "backend_authority",
+      "status": "READ_ONLY_REFERENCE_PRESENT",
+      "authority_use": "Defines result-page V2 artifact protocol and public payload exclusions.",
+      "limitations": "Docs-only protocol; does not generate assets or public methodology copy."
+    },
+    {
+      "source_id": "fap_api_big5_result_source_authority_map",
+      "repo": "fap-api",
+      "path": "backend/content_assets/big5/result_page_v2/governance/source_authority_v0_1/big5_v2_source_authority_map_v0_1.json",
+      "source_classification": "backend_authority",
+      "status": "READ_ONLY_REFERENCE_PRESENT",
+      "authority_use": "Maps result-page V2 source authority and staging-only asset governance.",
+      "limitations": "Result-page source authority is not automatically methodology/trust/science public-page source authority."
+    },
+    {
+      "source_id": "fap_web_agent_registry_big5_result_page_agent",
+      "repo": "fap-web",
+      "path": "docs/agent-os/agent-registry.v1.json",
+      "source_classification": "fap_web_consumer_contract",
+      "status": "REGISTERED_AGENT_REFERENCE_PRESENT",
+      "authority_use": "Connects fap-web Big Five result-page shell to backend runbook, gates, schema, and source authority references.",
+      "limitations": "Registry linkage proves agent stack ownership, not public methodology content authority."
+    },
+    {
+      "source_id": "content_page_route",
+      "repo": "fap-web",
+      "path": "app/(localized)/[locale]/contentPageRoute.tsx",
+      "source_classification": "fap_web_consumer_contract",
+      "status": "CONTENTPAGE_ROUTE_PRESENT",
+      "authority_use": "Shows public ContentPage routes consume CMS-backed ContentPage data through route wrappers.",
+      "limitations": "Route rendering is consumer behavior and not editorial authority."
+    },
+    {
+      "source_id": "content_page_template",
+      "repo": "fap-web",
+      "path": "components/content-pages/ContentPageTemplate.tsx",
+      "source_classification": "fap_web_consumer_contract",
+      "status": "CONTENTPAGE_TEMPLATE_PRESENT",
+      "authority_use": "Shows fap-web renders backend/CMS ContentPage payloads.",
+      "limitations": "Template copy or fallback behavior must not become source authority."
+    },
+    {
+      "source_id": "content_pages_cms_adapter",
+      "repo": "fap-web",
+      "path": "lib/cms/content-pages.ts",
+      "source_classification": "cms_public_api_authority",
+      "status": "CONTENTPAGE_CMS_ADAPTER_PRESENT",
+      "authority_use": "Defines discoverable ContentPage slugs and CMS/public API adapter boundary.",
+      "limitations": "Unreviewed CMS text and stale fallback data remain non-authority for new methodology claims."
+    },
+    {
+      "source_id": "science_contentpage_claim_gate",
+      "repo": "fap-web",
+      "path": "docs/claims/science-contentpage-claim-gate-01.md",
+      "source_classification": "safety_gate_artifact",
+      "status": "APPROVED_CONTENTPAGE_CLAIM_GATE_REFERENCE_PRESENT",
+      "authority_use": "Supports that the six research/method ContentPage routes require CMS/backend authority and bounded claims.",
+      "limitations": "Does not authorize this PR to edit ContentPage rendering, schema, sitemap, llms, canonical, noindex, or publication state."
+    },
+    {
+      "source_id": "public_big_five_profile_route_contract",
+      "repo": "fap-web",
+      "path": "tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts",
+      "source_classification": "fap_web_consumer_contract",
+      "status": "PUBLIC_PROFILE_ROUTE_REFERENCE_PRESENT",
+      "authority_use": "Identifies public Big Five profile route behavior as separate from private result-page agent authority.",
+      "limitations": "Public profile route must not be generated from private result payloads."
+    }
+  ],
+  "public_contentpage_routes": [
+    "/science",
+    "/method-boundaries",
+    "/item-design-notes",
+    "/reliability-validity",
+    "/data-privacy",
+    "/common-misconceptions"
+  ],
+  "public_route_authority": [
+    {
+      "route": "/science",
+      "authority": "cms_backend_content_page",
+      "schema_allowed": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "faqpage_gate": "FAQPage_ONLY_AFTER_VISIBLE_CMS_FAQ_GATE",
+      "mutation_authorized": false
+    },
+    {
+      "route": "/method-boundaries",
+      "authority": "cms_backend_content_page",
+      "schema_allowed": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "faqpage_gate": "FAQPage_ONLY_AFTER_VISIBLE_CMS_FAQ_GATE",
+      "mutation_authorized": false
+    },
+    {
+      "route": "/item-design-notes",
+      "authority": "cms_backend_content_page",
+      "schema_allowed": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "faqpage_gate": "FAQPage_ONLY_AFTER_VISIBLE_CMS_FAQ_GATE",
+      "mutation_authorized": false
+    },
+    {
+      "route": "/reliability-validity",
+      "authority": "cms_backend_content_page",
+      "schema_allowed": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "faqpage_gate": "FAQPage_ONLY_AFTER_VISIBLE_CMS_FAQ_GATE",
+      "mutation_authorized": false
+    },
+    {
+      "route": "/data-privacy",
+      "authority": "cms_backend_content_page",
+      "schema_allowed": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "faqpage_gate": "FAQPage_ONLY_AFTER_VISIBLE_CMS_FAQ_GATE",
+      "mutation_authorized": false
+    },
+    {
+      "route": "/common-misconceptions",
+      "authority": "cms_backend_content_page",
+      "schema_allowed": [
+        "WebPage",
+        "BreadcrumbList"
+      ],
+      "faqpage_gate": "FAQPage_ONLY_AFTER_VISIBLE_CMS_FAQ_GATE",
+      "mutation_authorized": false
+    }
+  ],
+  "sanitized_share_safety_evidence": {
+    "status": "CLEARED_IF_CURRENT_ORIGIN_MAIN_CONFIRMS_FAP_API_PR_2326_AND_2331_SANITIZED_EVIDENCE",
+    "share_safety_missing_count": 0,
+    "validation_error_count": 0,
+    "leak_hit_count": 0,
+    "clearance_scope": "sanitized_readonly_evidence_only",
+    "ready_for_runtime": false,
+    "ready_for_production": false,
+    "ready_for_cms": false,
+    "ready_for_search": false
+  },
+  "boundary_assertions": [
+    {
+      "id": "result_page_agent_boundary_only",
+      "status": "ASSERTED",
+      "assertion": "Big Five result-page agent evidence can support public methodology/trust/science boundaries only."
+    },
+    {
+      "id": "private_payload_not_public_methodology",
+      "status": "ASSERTED",
+      "assertion": "Big Five result-page private payload cannot become public methodology content."
+    },
+    {
+      "id": "cms_contentpage_stronger_than_frontend_fallback",
+      "status": "ASSERTED",
+      "assertion": "Backend/CMS ContentPage authority is stronger than frontend fallback."
+    },
+    {
+      "id": "frontend_fallback_not_authority",
+      "status": "ASSERTED",
+      "assertion": "Frontend fallback copy is not authority."
+    },
+    {
+      "id": "unreviewed_cms_text_not_authority",
+      "status": "ASSERTED",
+      "assertion": "Unreviewed CMS text is not authority."
+    },
+    {
+      "id": "result_page_source_ledger_not_methodology_ledger",
+      "status": "ASSERTED",
+      "assertion": "Result-page source ledger is not automatically methodology source ledger."
+    },
+    {
+      "id": "public_profile_separate_from_private_result_page",
+      "status": "ASSERTED",
+      "assertion": "Big Five public profile route is separate authority from private result-page agent."
+    },
+    {
+      "id": "share_safety_clearance_current_evidence_only",
+      "status": "ASSERTED",
+      "assertion": "Historical share-safety blocker is cleared only if current origin/main evidence confirms PR #2326/#2331 sanitized evidence."
+    },
+    {
+      "id": "evidence_conflict_sidecar_hold",
+      "status": "ASSERTED",
+      "assertion": "If evidence conflict remains, record sidecar and preserve HOLD for any affected downstream claim."
+    },
+    {
+      "id": "faqpage_visible_cms_faq_gate",
+      "status": "ASSERTED",
+      "assertion": "FAQPage schema is not enabled unless visible CMS FAQ gate passes."
+    },
+    {
+      "id": "seo_exposure_hold",
+      "status": "ASSERTED",
+      "assertion": "Sitemap, llms, schema, hreflang, canonical, and indexability changes remain HOLD."
+    },
+    {
+      "id": "cms_import_publish_search_hold",
+      "status": "ASSERTED",
+      "assertion": "CMS, import, publish, and search actions remain HOLD."
+    }
+  ],
+  "source_gaps": [
+    {
+      "id": "methodology_source_ledger_gap",
+      "status": "GAP_REMAINS",
+      "description": "A result-page V2 source authority map exists in fap-api read-only evidence, but it is not automatically a public methodology/trust/science source ledger."
+    },
+    {
+      "id": "cms_review_gap",
+      "status": "HOLD_FOR_DOWNSTREAM_REVIEW",
+      "description": "Public ContentPage copy requires CMS/backend review and claim gate approval before publication or schema/search exposure."
+    }
+  ],
+  "hard_hold_actions": [
+    "no_CMS",
+    "no_CMS_import",
+    "no_publish",
+    "no_search_submission",
+    "no_provider_calls",
+    "no_deploy",
+    "no_runtime_instrumentation",
+    "no_methodology_trust_science_runtime_mutation",
+    "no_ContentPage_rendering_change",
+    "no_public_route_change",
+    "no_schema_change",
+    "no_sitemap_llms_hreflang_canonical_noindex_change",
+    "no_backend_asset_agent_command",
+    "no_fap_api_mutation",
+    "no_raw_private_data",
+    "no_private_result_text"
+  ],
+  "negative_guarantees": {
+    "methodology_pages_generated": false,
+    "publishable_article_body_generated": false,
+    "cms_package_generated": false,
+    "cms_write_performed": false,
+    "cms_import_performed": false,
+    "search_submission_performed": false,
+    "provider_call_performed": false,
+    "deployment_triggered": false,
+    "runtime_changed": false,
+    "analytics_instrumentation_added": false,
+    "private_result_data_accessed": false,
+    "backend_asset_agent_command_run": false,
+    "fap_api_modified": false,
+    "schema_or_indexability_changed": false
+  },
+  "sidecar_issues": []
+}
