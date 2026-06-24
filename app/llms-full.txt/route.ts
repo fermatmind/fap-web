@@ -600,14 +600,41 @@ async function waitForLlmsFullBuildBudget(
 }
 
 export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string> {
-  const [personalityEntries, careerJobPaths] = await Promise.all([
+  const [personalityEntries, backendTestEntries, careerJobPaths] = await Promise.all([
     withLlmsRouteBudget(() => listPersonalityEntries(), [], { timeoutMs: LLMS_FULL_PERSONALITY_SOURCE_TIMEOUT_MS }),
+    withLlmsRouteBudget(
+      () =>
+        listBackendDiscoverabilityTestEntries().then((entries) =>
+          limitLlmsRouteEntries(entries, LLMS_ROUTE_LIMITS.tests)
+        ),
+      []
+    ),
     withLlmsRouteBudget(
       (signal) => listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal }),
       [],
       { timeoutMs: LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS }
     ),
   ]);
+  const tests = backendTestEntries
+    .filter((test) => test.llmsFullEligible !== false)
+    .map((test) => ({
+      locale: test.locale,
+      path: test.path,
+      title: test.title,
+      type: "test",
+      updatedAt: "",
+      summary: cleanText(
+        test.description ||
+          (test.locale === "zh"
+            ? test.highlightExcerptI18n.zh || test.highlightExcerptI18n["zh-CN"] || test.highlightExcerptI18n.en
+            : test.highlightExcerptI18n.en || test.highlightExcerptI18n.zh || test.highlightExcerptI18n["zh-CN"]) ||
+          ""
+      ),
+      disclaimer: isMentalHealthScreeningTest({ slug: test.slug, scaleCode: test.scaleCode })
+        ? MENTAL_HEALTH_NON_MEDICAL_DISCLAIMER[test.locale]
+        : null,
+    }))
+    .filter((entry) => shouldKeep(entry.path));
   const careers = careerJobPaths
     .map((path) => buildCareerJobEntry(path))
     .filter((entry): entry is LlmsFullEntry => Boolean(entry))
@@ -630,6 +657,9 @@ export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string
     "",
     "## Personality",
     ...personalityEntries.flatMap((entry) => formatEntry(entry, siteUrl)),
+    "",
+    "## Tests",
+    ...tests.flatMap((entry) => formatEntry(entry, siteUrl)),
     "",
     "## Career",
     ...careers.flatMap((entry) => formatEntry(entry, siteUrl)),

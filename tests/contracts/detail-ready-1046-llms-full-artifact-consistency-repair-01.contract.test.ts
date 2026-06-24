@@ -156,6 +156,9 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     const incompleteText = await incompleteResponse.text();
     expect(incompleteResponse.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("degraded");
     expect(careerUrlCount(incompleteText)).toBe(0);
+    for (const testPath of SIX_ASSESSMENT_TEST_PATHS) {
+      expect(incompleteText).toContain(`${SITE_URL}${testPath}`);
+    }
 
     currentPaths = fullCohortPaths();
     const generatedResponse = await GET();
