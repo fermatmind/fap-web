@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-24T18:52:00+08:00",
+  "updated_at": "2026-06-24T18:57:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -23797,9 +23797,9 @@
       "depends_on": [
         "PR-EQ-ASSET-02"
       ],
-      "status": "pr_open_checks_pending",
+      "status": "ready_to_merge",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1399",
-      "commit_sha": "0d4d66c2ebd14357423605a3eb22bb58d425141a",
+      "commit_sha": "a1b76158795c5d2605c97772680e97ce4e3aef7f",
       "merge_sha": null,
       "title": "PR-EQ-ASSET-03 Frontend v1.6 contract fixture consumption",
       "checks": {
@@ -23823,6 +23823,11 @@
             "cached_diff_check": "passed",
             "scope_validation": "passed_after_rebase"
           }
+        },
+        "github": {
+          "status": "passed",
+          "summary": "CodeQL pass; analyze pass; build pass; contracts pass; verify-big5-contract-freeze pass; verify-enneagram-contract-freeze pass",
+          "checked_at": "2026-06-24T18:57:00+08:00"
         }
       },
       "failure_reason": null,
@@ -23877,6 +23882,11 @@
           "at": "2026-06-24T18:52:00+08:00",
           "status": "pr_open_checks_pending",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1399; branch tip before PR URL ledger update was 0d4d66c2ebd14357423605a3eb22bb58d425141a."
+        },
+        {
+          "at": "2026-06-24T18:57:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed for branch tip a1b76158795c5d2605c97772680e97ce4e3aef7f; PR is ready to merge after ledger update CI rerun."
         }
       ],
       "sidecar_issues": [
@@ -28481,9 +28491,9 @@
       "depends_on": [
         "PR-EQ-ASSET-02"
       ],
-      "status": "pr_open_checks_pending",
+      "status": "ready_to_merge",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1399",
-      "commit_sha": "0d4d66c2ebd14357423605a3eb22bb58d425141a",
+      "commit_sha": "a1b76158795c5d2605c97772680e97ce4e3aef7f",
       "merge_sha": null,
       "title": "PR-EQ-ASSET-03 Frontend v1.6 contract fixture consumption",
       "checks": {
@@ -28507,6 +28517,11 @@
             "cached_diff_check": "passed",
             "scope_validation": "passed_after_rebase"
           }
+        },
+        "github": {
+          "status": "passed",
+          "summary": "CodeQL pass; analyze pass; build pass; contracts pass; verify-big5-contract-freeze pass; verify-enneagram-contract-freeze pass",
+          "checked_at": "2026-06-24T18:57:00+08:00"
         }
       },
       "failure_reason": null,
@@ -28561,6 +28576,11 @@
           "at": "2026-06-24T18:52:00+08:00",
           "status": "pr_open_checks_pending",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1399; branch tip before PR URL ledger update was 0d4d66c2ebd14357423605a3eb22bb58d425141a."
+        },
+        {
+          "at": "2026-06-24T18:57:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed for branch tip a1b76158795c5d2605c97772680e97ce4e3aef7f; PR is ready to merge after ledger update CI rerun."
         }
       ],
       "sidecar_issues": [
