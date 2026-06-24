@@ -27974,11 +27974,11 @@
       "depends_on": [
         "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01"
       ],
-      "commit_sha": "863af163d473c4939619e2139adc5e19f633e702",
+      "commit_sha": "2436073c201f0ba79ae7f4c80c57a708e12dc0c7",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1391",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-24T03:44:18Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -28017,13 +28017,17 @@
           "evidence": "JSON and YAML parse passed; focused source authority contract passed 9 tests; pnpm typecheck passed; pnpm test:contract passed with 556 files and 3268 tests. git diff --check and changed-file scope validation are recorded after final diff verification in this PR."
         },
         "pull_request": {
-          "status": "open_ready_to_merge",
+          "status": "merged",
           "url": "https://github.com/fermatmind/fap-web/pull/1391",
-          "evidence": "Opened PR #1391 for ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01 from branch codex/enneagram-public-personality-source-authority-packet-01."
+          "evidence": "PR #1391 was squash merged at 2026-06-24T03:44:18Z with merge commit 2436073c201f0ba79ae7f4c80c57a708e12dc0c7."
         },
         "github_checks": {
           "status": "pass",
-          "evidence": "GitHub checks passed on PR #1391 head 863af163: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
+          "evidence": "GitHub checks passed on PR #1391 final head ea2fcb032b4c56203304366a1164056fd5a5d6e5: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
+        },
+        "post_merge_cleanup": {
+          "status": "pass",
+          "evidence": "origin/main contains merge commit 2436073c201f0ba79ae7f4c80c57a708e12dc0c7; main was fast-forwarded to origin/main; main == origin/main was verified; local task branch was deleted; remote task branch was already absent; worktrees were clean before starting the claim safety packet branch."
         }
       },
       "sidecar_issues": [],
@@ -28052,6 +28056,11 @@
           "at": "2026-06-24T11:03:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed for PR #1391 on head 863af163 with build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL successful. Recording ready_to_merge before squash merge per PR-train policy."
+        },
+        {
+          "at": "2026-06-24T11:44:18+08:00",
+          "status": "merged",
+          "note": "Scoped release-freeze-harness CI fix PR #1393 merged first; PR #1391 consumed origin/main at head ea2fcb03, local full pnpm test:contract passed with 557 files and 3271 tests, GitHub checks passed, and PR #1391 was squash merged as 2436073c201f0ba79ae7f4c80c57a708e12dc0c7 with branch cleanup complete."
         }
       ]
     },
@@ -28060,14 +28069,14 @@
       "repo": "fap-web",
       "branch": "codex/enneagram-public-personality-claim-safety-packet-01",
       "base": "main",
-      "status": "pending_dependency",
+      "status": "ready_to_merge",
       "train_scope": "enneagram_public_personality_claim_safety_packet",
       "title": "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01: docs(public-personality): add claim safety packet",
       "depends_on": [
         "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01"
       ],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "efd8c32df0ef9e5430707906b5e7c4b930d96c41",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1394",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -28078,8 +28087,42 @@
           "evidence": "User explicitly authorized this PR id in ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-PR-TRAIN-01."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Waiting for ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01 to merge before execution."
+          "status": "pass",
+          "evidence": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01 merged in PR #1386 with merge commit 2f7deb6e3b594267ea1ade7c01bfbe3e8d749f21; source authority packet PR #1391 also merged with merge commit 2436073c201f0ba79ae7f4c80c57a708e12dc0c7 and is consumed by this claim safety packet by reference."
+        },
+        "scope": {
+          "status": "authorized",
+          "allowed_paths": [
+            "docs/public-personality/enneagram-public-personality-claim-safety-packet-2026-06-23.md",
+            "docs/public-personality/enneagram-public-personality-claim-safety-packet.v1.json",
+            "tests/contracts/enneagram-public-personality-claim-safety-packet.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Authorized scope is fap-web docs/contracts-only Enneagram Public Personality claim safety packet plus current PR train state."
+        },
+        "local_validation": {
+          "status": "pass",
+          "commands": [
+            "python3 -m json.tool docs/public-personality/enneagram-public-personality-claim-safety-packet.v1.json >/dev/null",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "pnpm exec vitest run tests/contracts/enneagram-public-personality-claim-safety-packet.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "evidence": "JSON and YAML parse passed; focused claim safety contract passed 11 tests; pnpm typecheck passed; pnpm test:contract passed with 559 files and 3286 tests; git diff --check and changed-file scope validation passed for exactly 4 changed files in the authorized claim-safety scope."
+        },
+        "pull_request": {
+          "status": "open_ready_to_merge",
+          "url": "https://github.com/fermatmind/fap-web/pull/1394",
+          "evidence": "Opened PR #1394 for ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01 from branch codex/enneagram-public-personality-claim-safety-packet-01."
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub checks passed on PR #1394 head efd8c32df0ef9e5430707906b5e7c4b930d96c41: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "sidecar_issues": [],
@@ -28088,6 +28131,26 @@
           "at": "2026-06-24T00:00:00+08:00",
           "status": "pending_dependency",
           "note": "Initialized from authorized five-PR Enneagram Public Personality handoff train. Waiting for common handoff contract PR to merge."
+        },
+        {
+          "at": "2026-06-24T16:44:55+08:00",
+          "status": "in_progress",
+          "note": "Dependency PR #1386 and source authority PR #1391 are merged and cleaned up; started claim safety packet on codex/enneagram-public-personality-claim-safety-packet-01 with docs/contracts-only scope and no CMS, publish, search, provider, deploy, runtime, private-data, generated-page, backend-import, candidate-activation, source-ledger-write, public-content mutation, or fap-api mutation action."
+        },
+        {
+          "at": "2026-06-24T16:51:17+08:00",
+          "status": "local_checks_passed",
+          "note": "Claim safety packet artifacts passed JSON parse, state JSON parse, YAML parse, focused contract, typecheck, full contract suite, diff check, and changed-file scope validation."
+        },
+        {
+          "at": "2026-06-24T16:53:08+08:00",
+          "status": "pr_opened",
+          "note": "Opened PR #1394 at https://github.com/fermatmind/fap-web/pull/1394 from commit 88736e06ac66086db5a76908538ab0d033226228."
+        },
+        {
+          "at": "2026-06-24T16:57:57+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1394 on head efd8c32d with build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL successful. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },

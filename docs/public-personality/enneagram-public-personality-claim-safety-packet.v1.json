@@ -1,0 +1,195 @@
+{
+  "schema_version": "fermatmind.enneagram_public_personality_claim_safety_packet.v1",
+  "task_id": "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01",
+  "verdict": "READY_TO_BLOCK_UNSAFE_PUBLIC_PERSONALITY_OUTPUTS",
+  "run_mode": "docs_contracts_only",
+  "dependency": {
+    "task_id": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01",
+    "status": "MERGED",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1386",
+    "merge_commit": "2f7deb6e3b594267ea1ade7c01bfbe3e8d749f21"
+  },
+  "source_authority_dependency": {
+    "task_id": "ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01",
+    "status": "MERGED",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1391",
+    "merge_commit": "2436073c201f0ba79ae7f4c80c57a708e12dc0c7",
+    "verdict": "MAPPED_PARTIAL"
+  },
+  "producing_agent": "enneagram_result_page",
+  "receiving_agent": "public_personality_content",
+  "gate_agent": "claim_privacy_safety_gate",
+  "scale_code": "ENNEAGRAM",
+  "canonical_test_slug": "enneagram-personality-test-nine-types",
+  "consumed_sources": [
+    {
+      "id": "enneagram_safety_gate_consumption_packet",
+      "path": "docs/result-page-agents/enneagram-safety-gate-consumption-packet.v1.json",
+      "classification": "claim_safety_gate_artifact",
+      "verdict": "READY_TO_CONSUME_BY_SAFETY_GATE"
+    },
+    {
+      "id": "enneagram_runtime_qa_consumption_packet",
+      "path": "docs/result-page-agents/enneagram-runtime-qa-consumption-packet.v1.json",
+      "classification": "runtime_qa_handoff",
+      "verdict": "READY_TO_CONSUME_BY_RUNTIME_QA"
+    },
+    {
+      "id": "enneagram_analytics_consumption_packet",
+      "path": "docs/result-page-agents/enneagram-analytics-consumption-packet.v1.json",
+      "classification": "analytics_handoff",
+      "verdict": "READY_TO_CONSUME_BY_ANALYTICS"
+    },
+    {
+      "id": "enneagram_public_personality_common_contract",
+      "path": "docs/public-personality/enneagram-public-personality-handoff-common-contract.v1.json",
+      "classification": "public_personality_handoff_common_contract",
+      "verdict": "READY_FOR_POLICY_HANDOFF"
+    },
+    {
+      "id": "enneagram_public_personality_source_authority_packet",
+      "path": "docs/public-personality/enneagram-public-personality-source-authority-packet.v1.json",
+      "classification": "source_authority_packet",
+      "verdict": "MAPPED_PARTIAL"
+    }
+  ],
+  "public_personality_scope_assertions": {
+    "hub": "allowed_to_plan_after_source_and_claim_review",
+    "nine_core_types": "allowed_to_plan_after_source_and_claim_review",
+    "centers_or_triads": "conditional_on_backend_source_authority",
+    "wings_instincts_subtypes": "blocked_from_first_scope",
+    "private_result_profile_rewrites": "blocked",
+    "attempt_based_profiles": "blocked"
+  },
+  "allowed_claim_classes": [
+    "self_understanding",
+    "personality_reflection",
+    "motivation_pattern_reflection",
+    "communication_reflection",
+    "method_boundary",
+    "non_diagnostic_note",
+    "public_summary",
+    "public_projection"
+  ],
+  "forbidden_claims": [
+    "final_fixed_type_certainty",
+    "official_fixed_enneagram_type_claim",
+    "unsupported_psychometric_superiority",
+    "diagnosis",
+    "treatment",
+    "therapy",
+    "hiring_suitability",
+    "salary_prediction",
+    "performance_prediction",
+    "success_prediction",
+    "relationship_guarantee",
+    "life_outcome_guarantee",
+    "most_accurate_type_finality",
+    "score_based_personality_ranking",
+    "private_report_text_rewrite"
+  ],
+  "forbidden_inputs": [
+    "attempt_id",
+    "user_id",
+    "raw_score",
+    "display_score",
+    "score_vector",
+    "dominance_gap_abs",
+    "dominance_gap_pct",
+    "release_hash",
+    "registry_hash",
+    "content_hash",
+    "schema_projection_internal_context",
+    "source_refs",
+    "qa_traces",
+    "editor_notes",
+    "private_report_text",
+    "full_private_result_payload",
+    "private_pdf_payload",
+    "private_share_payload",
+    "report_token",
+    "private_result_url",
+    "payment_state",
+    "order_state",
+    "benefit_state",
+    "hidden_repair_drafts"
+  ],
+  "safety_gate_authority": {
+    "can_block_unsafe_public_personality_outputs": true,
+    "can_report_blocked_actions": true,
+    "can_approve_cms": false,
+    "can_approve_publish": false,
+    "can_approve_search": false,
+    "can_approve_deploy": false,
+    "can_approve_runtime_mutation": false,
+    "can_approve_private_data_access": false,
+    "can_approve_generated_pages": false,
+    "can_approve_backend_import": false,
+    "can_approve_candidate_activation": false
+  },
+  "blocked_public_personality_report_schema": [
+    "blocked_output_type",
+    "violated_claim_boundary",
+    "evidence_ref",
+    "source_classification",
+    "replacement_safe_language",
+    "required_follow_up",
+    "approval_state"
+  ],
+  "blocked_public_personality_report_example": {
+    "blocked_output_type": "final_fixed_type_certainty_claim",
+    "violated_claim_boundary": "Enneagram public personality content cannot present a final or official fixed type",
+    "evidence_ref": "docs/public-personality/enneagram-public-personality-handoff-common-contract.v1.json",
+    "source_classification": "blocked_private_or_unreviewed_source",
+    "replacement_safe_language": "may_reflect_public_summary",
+    "required_follow_up": "claim_privacy_safety_gate_review",
+    "approval_state": "blocked"
+  },
+  "hold_actions": [
+    "cms",
+    "publish",
+    "search_submission",
+    "provider_calls",
+    "deploy",
+    "runtime_instrumentation",
+    "public_personality_runtime_mutation",
+    "generated_pages",
+    "backend_import",
+    "candidate_activation",
+    "candidate_payload_generation",
+    "private_data",
+    "private_result_text",
+    "event_emission",
+    "production_metric_backfill",
+    "opportunity_scoring",
+    "source_ledger_write",
+    "fap_api_mutation"
+  ],
+  "negative_guarantees": {
+    "runtime_code_changed": "no",
+    "public_personality_runtime_mutation": "none",
+    "cms_writes": "none",
+    "cms_package_generation": "none",
+    "publish_action": "none",
+    "search_submission": "none",
+    "provider_calls": "none",
+    "deployment_triggered": "no",
+    "backend_import": "none",
+    "candidate_activation": "none",
+    "candidate_payload_generated": "no",
+    "generated_pages": "none",
+    "event_emission": "none",
+    "production_metric_backfill": "none",
+    "opportunity_scoring": "none",
+    "source_ledger_write": "none",
+    "fap_api_mutation": "none",
+    "raw_private_result_accessed": "none",
+    "private_result_text_reused": "none"
+  },
+  "next_safe_output": {
+    "task_id": "ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01",
+    "output": "candidate_cluster_packet",
+    "status": "ALLOWED_AFTER_MERGE",
+    "requires_separate_pr_scope": true
+  }
+}
