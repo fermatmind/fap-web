@@ -24359,7 +24359,7 @@
         "BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01",
         "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01"
       ],
-      "status": "pending_dependency",
+      "status": "local_checks_passed_ready_for_pr",
       "title": "BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01: docs(methodology): add candidate cluster matrix",
       "artifacts": [
         "docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix-2026-06-23.md",
@@ -24367,7 +24367,41 @@
         "tests/contracts/big5-methodology-candidate-cluster-matrix.contract.test.ts",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "name": "JSON parse",
+          "status": "passed",
+          "command": "node -e \"JSON.parse(require('fs').readFileSync('docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\""
+        },
+        {
+          "name": "focused candidate cluster matrix contract",
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/big5-methodology-candidate-cluster-matrix.contract.test.ts",
+          "details": "8 tests passed."
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "details": "570 files passed, 3355 tests passed."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "command": "git diff --check"
+        },
+        {
+          "name": "changed-file scope validation",
+          "status": "passed",
+          "command": "node changed-file scope validation against PR4 ledger allowed_files",
+          "details": "4 changed files, all within PR4 allowlist."
+        }
+      ],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
@@ -24383,13 +24417,24 @@
           "generated/pr-train-sidecar-issues/sidecar_issues.md",
           "generated/pr-train-sidecar-issues/sidecar_issues.json"
         ],
-        "status": "pending"
+        "status": "passed",
+        "checked_at": "2026-06-24T23:25:00+08:00"
       },
       "history": [
         {
           "at": "2026-06-24T19:30:00+08:00",
           "status": "pending_dependency",
           "summary": "Registered by authorized Big Five methodology/trust/science PR train setup; waits for source authority and claim/privacy/safety packet merges."
+        },
+        {
+          "at": "2026-06-24T23:58:00+08:00",
+          "status": "implementation_in_progress",
+          "summary": "PR2 source authority and PR3 claim/privacy/safety dependencies verified merged into origin/main via PR #1410 merge d58cc55b and PR #1412 merge 908b8c08. Started PR4 candidate cluster matrix in docs/contracts-only planning scope with no CMS, generated pages, publishable copy, search, runtime, deploy, private data, backend asset-agent command, or fap-api mutation authorized."
+        },
+        {
+          "at": "2026-06-24T23:25:00+08:00",
+          "status": "local_checks_passed_ready_for_pr",
+          "summary": "PR4 JSON parse, focused contract, typecheck, full contracts, git diff --check, and changed-file scope validation passed. No CMS, search, runtime, deploy, private data, analytics instrumentation, event emission, metric backfill, opportunity scoring, backend asset-agent command, fap-api mutation, or generated page action was performed."
         }
       ],
       "sidecar_issues": []
