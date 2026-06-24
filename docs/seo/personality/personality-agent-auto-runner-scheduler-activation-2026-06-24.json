@@ -1,0 +1,47 @@
+{
+  "artifact": "PERSONALITY-AGENT-AUTO-RUNNER-SCHEDULER-ACTIVATION-01",
+  "generated_at": "2026-06-24T00:00:00.000Z",
+  "status": "pass",
+  "final_decision": "PASS_SCHEDULED_ACTIONS_ARTIFACT_ONLY_ENABLED",
+  "workflow": {
+    "path": ".github/workflows/personality-agent-auto-runner.yml",
+    "triggers": [
+      "workflow_dispatch",
+      "schedule_weekdays"
+    ],
+    "cron": "23 2 * * 1-5",
+    "permissions": {
+      "contents": "read"
+    },
+    "environment": null,
+    "secrets_required": false,
+    "artifact_retention_days": 30
+  },
+  "runner": {
+    "script": "scripts/seo/run-personality-agent-auto-runner.mjs",
+    "framework_v1": "mbti64",
+    "scheduler_activation": "scheduled_actions_artifact_only_enabled",
+    "output_mode": "github_actions_artifact_only",
+    "default_output_dir": "artifacts/personality-agent-auto-runner/${run_date}"
+  },
+  "safety_boundary": {
+    "cms_write_attempted": false,
+    "cms_live_promotion_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "search_queue_mutation_attempted": false,
+    "live_search_submit_attempted": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_request_indexing_attempted": false,
+    "production_deploy_attempted": false,
+    "git_commit_push_attempted_by_workflow": false,
+    "github_pr_create_attempted_by_workflow": false
+  },
+  "blockers": [],
+  "warnings": [],
+  "recommended_next_tasks": {
+    "review_artifact": "PERSONALITY-AGENT-OPS-REVIEW-SURFACE-01",
+    "cms_draft_handoff": "PERSONALITY-AGENT-CMS-DRAFT-BATCH-SAFE-WRITER-APPROVAL-INTEGRATION-01",
+    "framework_expansion_big_five": "BIG-FIVE-PUBLIC-PROFILE-AGENT-PILOT-01",
+    "framework_expansion_enneagram": "ENNEAGRAM-PUBLIC-PROFILE-AGENT-PILOT-01"
+  }
+}

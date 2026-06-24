@@ -1,0 +1,130 @@
+name: Personality Agent Auto Runner
+
+on:
+  schedule:
+    - cron: "23 2 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      framework:
+        description: "Public profile framework to run. v1 only supports mbti64."
+        required: false
+        default: "mbti64"
+        type: choice
+        options:
+          - mbti64
+      generated_date:
+        description: "Optional YYYY-MM-DD artifact date. Defaults to current UTC date."
+        required: false
+        type: string
+      gsc_stabilize:
+        description: "Optional GSC stabilize artifact path."
+        required: false
+        type: string
+      priority_ranker:
+        description: "Optional priority ranker artifact path."
+        required: false
+        type: string
+      rerun_loop:
+        description: "Optional rerun loop artifact path."
+        required: false
+        type: string
+      reference_pack:
+        description: "Optional optimized pilot reference pack path."
+        required: false
+        type: string
+      recommendations:
+        description: "Optional recommendations artifact path."
+        required: false
+        type: string
+      qa:
+        description: "Optional QA artifact path."
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: personality-agent-auto-runner-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  run-personality-agent:
+    name: Generate personality agent recommendations artifact
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      INPUT_FRAMEWORK: ${{ inputs.framework }}
+      INPUT_GENERATED_DATE: ${{ inputs.generated_date }}
+      INPUT_GSC_STABILIZE: ${{ inputs.gsc_stabilize }}
+      INPUT_PRIORITY_RANKER: ${{ inputs.priority_ranker }}
+      INPUT_RERUN_LOOP: ${{ inputs.rerun_loop }}
+      INPUT_REFERENCE_PACK: ${{ inputs.reference_pack }}
+      INPUT_RECOMMENDATIONS: ${{ inputs.recommendations }}
+      INPUT_QA: ${{ inputs.qa }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Resolve artifact paths
+        id: paths
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          RUN_DATE="${INPUT_GENERATED_DATE:-$(date -u +%F)}"
+          FRAMEWORK="${INPUT_FRAMEWORK:-mbti64}"
+          ARTIFACT_DIR="artifacts/personality-agent-auto-runner/${RUN_DATE}"
+
+          mkdir -p "$ARTIFACT_DIR"
+
+          echo "run_date=$RUN_DATE" >> "$GITHUB_OUTPUT"
+          echo "framework=$FRAMEWORK" >> "$GITHUB_OUTPUT"
+          echo "artifact_dir=$ARTIFACT_DIR" >> "$GITHUB_OUTPUT"
+          echo "output_json=$ARTIFACT_DIR/personality-agent-auto-runner-${RUN_DATE}.json" >> "$GITHUB_OUTPUT"
+          echo "output_md=$ARTIFACT_DIR/personality-agent-auto-runner-${RUN_DATE}.md" >> "$GITHUB_OUTPUT"
+          echo "output_csv=$ARTIFACT_DIR/personality-agent-auto-runner-${RUN_DATE}.csv" >> "$GITHUB_OUTPUT"
+
+      - name: Run personality agent auto runner
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          args=(
+            "scripts/seo/run-personality-agent-auto-runner.mjs"
+            "--framework=${{ steps.paths.outputs.framework }}"
+            "--generated-date=${{ steps.paths.outputs.run_date }}"
+            "--scheduler-activation=scheduled_actions_artifact_only_enabled"
+            "--output-json=${{ steps.paths.outputs.output_json }}"
+            "--output-md=${{ steps.paths.outputs.output_md }}"
+            "--output-csv=${{ steps.paths.outputs.output_csv }}"
+          )
+
+          if [ -n "${INPUT_GSC_STABILIZE:-}" ]; then args+=("--gsc-stabilize=${INPUT_GSC_STABILIZE}"); fi
+          if [ -n "${INPUT_PRIORITY_RANKER:-}" ]; then args+=("--priority-ranker=${INPUT_PRIORITY_RANKER}"); fi
+          if [ -n "${INPUT_RERUN_LOOP:-}" ]; then args+=("--rerun-loop=${INPUT_RERUN_LOOP}"); fi
+          if [ -n "${INPUT_REFERENCE_PACK:-}" ]; then args+=("--reference-pack=${INPUT_REFERENCE_PACK}"); fi
+          if [ -n "${INPUT_RECOMMENDATIONS:-}" ]; then args+=("--recommendations=${INPUT_RECOMMENDATIONS}"); fi
+          if [ -n "${INPUT_QA:-}" ]; then args+=("--qa=${INPUT_QA}"); fi
+
+          node "${args[@]}"
+
+      - name: Validate generated JSON
+        shell: bash
+        run: |
+          set -euo pipefail
+          jq empty "${{ steps.paths.outputs.output_json }}"
+
+      - name: Upload personality agent artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: personality-agent-auto-runner-${{ steps.paths.outputs.run_date }}
+          path: ${{ steps.paths.outputs.artifact_dir }}
+          if-no-files-found: error
+          retention-days: 30
