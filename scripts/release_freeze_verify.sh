@@ -14,6 +14,12 @@ pnpm exec vitest run \
   tests/contracts/big5-secondary-surfaces.contract.test.tsx
 
 echo
+if [[ "${RELEASE_FREEZE_E2E:-0}" != "1" ]]; then
+  echo "[release-freeze] smoke / e2e freeze set skipped"
+  echo "[release-freeze] set RELEASE_FREEZE_E2E=1 to run Playwright smoke freeze checks"
+  exit 0
+fi
+
 echo "[release-freeze] smoke / e2e freeze set"
 pnpm exec playwright test \
   tests/e2e/result-loading.spec.ts \

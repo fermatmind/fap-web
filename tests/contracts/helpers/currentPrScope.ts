@@ -226,6 +226,53 @@ const RIASEC_CAREER_GRAPH_BRIDGE_MATRIX_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const ENNEAGRAM_PUBLIC_PERSONALITY_HANDOFF_COMMON_CONTRACT_01_ALLOWED_FILES = new Set([
+  "docs/public-personality/enneagram-public-personality-handoff-common-contract-2026-06-23.md",
+  "docs/public-personality/enneagram-public-personality-handoff-common-contract.v1.json",
+  "tests/contracts/enneagram-public-personality-handoff-common-contract.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
+const ENNEAGRAM_PUBLIC_PERSONALITY_SOURCE_AUTHORITY_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/public-personality/enneagram-public-personality-source-authority-packet-2026-06-23.md",
+  "docs/public-personality/enneagram-public-personality-source-authority-packet.v1.json",
+  "tests/contracts/enneagram-public-personality-source-authority-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
+const ENNEAGRAM_PUBLIC_PERSONALITY_CLAIM_SAFETY_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/public-personality/enneagram-public-personality-claim-safety-packet-2026-06-23.md",
+  "docs/public-personality/enneagram-public-personality-claim-safety-packet.v1.json",
+  "tests/contracts/enneagram-public-personality-claim-safety-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train-state.json",
+]);
+
+const ENNEAGRAM_PUBLIC_PERSONALITY_CANDIDATE_CLUSTER_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/public-personality/enneagram-public-personality-candidate-cluster-packet-2026-06-23.md",
+  "docs/public-personality/enneagram-public-personality-candidate-cluster-packet.v1.json",
+  "tests/contracts/enneagram-public-personality-candidate-cluster-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
+const ENNEAGRAM_PUBLIC_PERSONALITY_HANDOFF_MATRIX_01_ALLOWED_FILES = new Set([
+  "docs/public-personality/enneagram-public-personality-handoff-matrix-2026-06-23.md",
+  "docs/public-personality/enneagram-public-personality-handoff-matrix.v1.json",
+  "tests/contracts/enneagram-public-personality-handoff-matrix.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
 const QUIZ_PACK_PERFORMANCE_HOTFIX_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
   "docs/seo/agent/FAPWEB_CODE_PR_WRITER.md",
@@ -1258,6 +1305,18 @@ const TAKE_FRONTEND_LOCALE_CONTRACT_04_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/mbti-take-attribution.contract.test.tsx",
   "tests/contracts/take-frontend-locale-contract.contract.test.ts",
+]);
+
+const MBTI_TAKE_ATTRIBUTION_FLAKY_CI_FIX_ALLOWED_FILES = new Set([
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-take-attribution.contract.test.tsx",
+]);
+
+const MBTI_CONTRACT_SIDECAR_FIXES_1388_1292_ALLOWED_FILES = new Set([
+  "package.json",
+  "scripts/release_freeze_verify.sh",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/release-freeze-harness.contract.test.ts",
 ]);
 
 const TEST_KPI_FRONTEND_CONTRACT_06_ALLOWED_FILES = new Set([
@@ -3091,6 +3150,41 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   }
 
   if (
+    CURRENT_BRANCH === "codex/enneagram-public-personality-handoff-common-contract-01" &&
+    ENNEAGRAM_PUBLIC_PERSONALITY_HANDOFF_COMMON_CONTRACT_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/enneagram-public-personality-source-authority-packet-01" &&
+    ENNEAGRAM_PUBLIC_PERSONALITY_SOURCE_AUTHORITY_PACKET_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/enneagram-public-personality-claim-safety-packet-01" &&
+    ENNEAGRAM_PUBLIC_PERSONALITY_CLAIM_SAFETY_PACKET_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/enneagram-public-personality-candidate-cluster-packet-01" &&
+    ENNEAGRAM_PUBLIC_PERSONALITY_CANDIDATE_CLUSTER_PACKET_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/enneagram-public-personality-handoff-matrix-01" &&
+    ENNEAGRAM_PUBLIC_PERSONALITY_HANDOFF_MATRIX_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
     CURRENT_BRANCH === "codex/iq-owner-30-fe-formcode-04" &&
     IQ_OWNER_30_FE_FORMCODE_04_ALLOWED_FILES.has(file)
   ) {
@@ -4040,6 +4134,17 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/take-frontend-locale-contract-04") {
     return TAKE_FRONTEND_LOCALE_CONTRACT_04_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/mbti-take-attribution-flaky-ci-fix") {
+    return MBTI_TAKE_ATTRIBUTION_FLAKY_CI_FIX_ALLOWED_FILES.has(file);
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/mbti-contract-sidecar-fixes-1388-1292" ||
+    CURRENT_BRANCH === "codex/mbti-contract-sidecar-main-revalidate-fix"
+  ) {
+    return MBTI_CONTRACT_SIDECAR_FIXES_1388_1292_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/TEST-KPI-FRONTEND-CONTRACT-06") {
