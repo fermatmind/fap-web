@@ -28602,9 +28602,9 @@
       "branch": "codex/big-five-public-profile-agent-pilot-01",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
-      "pr_url": null,
-      "commit_sha": null,
+      "status": "pr_open",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1404",
+      "commit_sha": "7d250627de8cfefd5b723da004103d2dea4163b8",
       "merge_sha": null,
       "title": "BIG-FIVE-PUBLIC-PROFILE-AGENT-PILOT-01: docs(personality): generate Big Five public profile agent pilot artifacts",
       "checks": {
@@ -28617,6 +28617,7 @@
             "pnpm exec vitest run tests/contracts/big-five-public-profile-agent-pilot-01.contract.test.ts",
             "pnpm test:contract",
             "pnpm typecheck",
+            "pnpm lint .",
             "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
             "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
             "git diff --check",
@@ -28669,6 +28670,11 @@
           "at": "2026-06-24T19:45:00+08:00",
           "status": "local_checks_passed",
           "summary": "Generated 34 artifact-only recommendation rows across 17 Big Five public profile entities and 2 locales. Local generator, JSON/YAML parsing, focused vitest, full contract suite, typecheck, lint, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-06-24T19:56:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1404 from codex/big-five-public-profile-agent-pilot-01; GitHub checks are pending."
         }
       ],
       "sidecar_issues": []
