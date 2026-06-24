@@ -12982,7 +12982,7 @@
       "branch": "codex/mbti-result-desktop-clone-storage-hydration-01",
       "base": "main",
       "depends_on": [],
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/918",
       "commit_sha": "a7e21bc0e49393fa9f769c9569f70c41bd3b3ac9",
       "merge_sha": "1e9c714535bc046390f2f359f0401ce46516e826",
@@ -27872,7 +27872,7 @@
       "train_scope": "enneagram_public_personality_handoff_common_contract",
       "title": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01: docs(public-personality): add handoff common contract",
       "depends_on": [],
-      "commit_sha": "ae6b706701c41297ebdc5bf7f39b880457a22d68",
+      "commit_sha": "765fa4afd93e5ab168e8404897b3a7f92ec4429a",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1386",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -27916,8 +27916,8 @@
           "evidence": "PR #1386 opened after local validation passed."
         },
         "github_checks": {
-          "status": "pending",
-          "evidence": "Initial PR #1386 checks started on head ae6b7067: build queued, contracts and verify-enneagram-contract-freeze in progress, verify-big5-contract-freeze queued, CodeQL analyze in progress."
+          "status": "pass",
+          "evidence": "PR #1386 checks passed on head 765fa4af: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN."
         }
       },
       "sidecar_issues": [],
@@ -27936,6 +27936,11 @@
           "at": "2026-06-24T00:00:00+08:00",
           "status": "pr_opened",
           "note": "Opened PR #1386 at https://github.com/fermatmind/fap-web/pull/1386 from commit ae6b706701c41297ebdc5bf7f39b880457a22d68."
+        },
+        {
+          "at": "2026-06-24T00:00:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1386 on head 765fa4af and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
