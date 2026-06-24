@@ -5,7 +5,6 @@ export const IQ_CANONICAL_PUBLIC_PATH = "/tests/iq-test-intelligence-quotient-as
 export const IQ_ZH_TAKE_PATH = "/zh/tests/iq-test-intelligence-quotient-assessment/take" as const;
 export const IQ_OWNER_ORIGINAL_30_BANK_ID = "IQ_OWNER_ORIGINAL_30" as const;
 export const IQ_OWNER_ORIGINAL_30_FORM_CODE = IQ_OWNER_ORIGINAL_30_BANK_ID;
-export const IQ_BETA_30_BANK_ID = "IQ_BETA_30_ORIGINAL" as const;
 export const IQ_BETA_50_BANK_ID = "IQ_BETA_50_ORIGINAL" as const;
 
 export const IQ_SCALE_CODES = [IQ_CANONICAL_SCALE_CODE, IQ_LEGACY_SCALE_CODE] as const;

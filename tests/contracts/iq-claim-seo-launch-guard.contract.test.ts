@@ -18,7 +18,7 @@ const IQ_SEO_RAMP_AUTHORITY: IqSeoRampAuthority = {
   locale: "en",
   testSlug: IQ_LAUNCH_CANONICAL_SLUG,
   scaleCode: "IQ_INTELLIGENCE_QUOTIENT",
-  formCode: "IQ_BETA_30_ORIGINAL",
+  formCode: "IQ_OWNER_ORIGINAL_30",
   canonicalPath: `/en/tests/${IQ_LAUNCH_CANONICAL_SLUG}`,
   localizedPaths: {
     en: `/en/tests/${IQ_LAUNCH_CANONICAL_SLUG}`,
@@ -31,8 +31,8 @@ const IQ_SEO_RAMP_AUTHORITY: IqSeoRampAuthority = {
   llmsFullEligible: false,
   jsonLdEligible: true,
   media: {
-    cardAssetKey: "iq-beta30-original-card",
-    ogAssetKey: "iq-beta30-original-og",
+    cardAssetKey: "iq-owner-original-30-card",
+    ogAssetKey: "iq-owner-original-30-og",
     reportCoverAssetKey: "iq-full-report-cover",
     authority: "backend_cms_media_library",
     source: "media_library_required",
