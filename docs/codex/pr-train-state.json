@@ -24228,7 +24228,7 @@
       "depends_on": [
         "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01"
       ],
-      "status": "pending_dependency",
+      "status": "local_checks_passed_ready_for_pr",
       "title": "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01: docs(methodology): add Big Five safety packet",
       "artifacts": [
         "docs/methodology-trust-science/big5-methodology-claim-privacy-safety-packet-2026-06-23.md",
@@ -24236,7 +24236,41 @@
         "tests/contracts/big5-methodology-claim-privacy-safety-packet.contract.test.ts",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": [],
+      "checks": [
+        {
+          "name": "JSON parse",
+          "status": "passed",
+          "command": "node -e \"JSON.parse(require('fs').readFileSync('docs/methodology-trust-science/big5-methodology-claim-privacy-safety-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\""
+        },
+        {
+          "name": "focused claim/privacy/safety packet contract",
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/big5-methodology-claim-privacy-safety-packet.contract.test.ts",
+          "details": "7 tests passed."
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "details": "569 files passed, 3347 tests passed."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "command": "git diff --check"
+        },
+        {
+          "name": "changed-file scope validation",
+          "status": "passed",
+          "command": "node changed-file scope validation against PR3 ledger allowed_files",
+          "details": "4 changed files, all within PR3 allowlist."
+        }
+      ],
       "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
@@ -24252,13 +24286,24 @@
           "generated/pr-train-sidecar-issues/sidecar_issues.md",
           "generated/pr-train-sidecar-issues/sidecar_issues.json"
         ],
-        "status": "pending"
+        "status": "passed",
+        "checked_at": "2026-06-24T23:17:00+08:00"
       },
       "history": [
         {
           "at": "2026-06-24T19:30:00+08:00",
           "status": "pending_dependency",
           "summary": "Registered by authorized Big Five methodology/trust/science PR train setup; waits for PR1 common contract merge."
+        },
+        {
+          "at": "2026-06-24T23:05:00+08:00",
+          "status": "implementation_in_progress",
+          "summary": "PR1 dependency verified merged into origin/main. Started PR3 claim/privacy/safety packet implementation in docs/contracts-only scope, consuming Safety Gate, Runtime QA, Analytics, and source authority evidence by reference only. No CMS, search, runtime, deploy, private data, analytics instrumentation, backend asset-agent command, or fap-api mutation authorized."
+        },
+        {
+          "at": "2026-06-24T23:17:00+08:00",
+          "status": "local_checks_passed_ready_for_pr",
+          "summary": "PR3 JSON parse, focused contract, typecheck, full contracts, git diff --check, and changed-file scope validation passed. No CMS, search, runtime, deploy, private data, event emission, metric backfill, opportunity scoring, backend asset-agent command, fap-api mutation, or generated page action was performed."
         }
       ],
       "sidecar_issues": []

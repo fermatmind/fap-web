@@ -1,0 +1,328 @@
+{
+  "schema_version": "fermatmind.big5_methodology_trust_science.claim_privacy_safety_packet.v1",
+  "artifact_id": "big5-methodology-claim-privacy-safety-packet-2026-06-23",
+  "task_id": "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01",
+  "run_mode": "docs_contracts_only",
+  "verdict": "SAFETY_PACKET_READY_FOR_PLANNING_ONLY",
+  "created_at": "2026-06-23",
+  "depends_on": [
+    {
+      "task_id": "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1408",
+      "merge_commit_sha": "b7f7f42c0bc341d2fa23f63f5bd6241c284d4389"
+    }
+  ],
+  "scope": {
+    "primary_repo": "fap-web",
+    "secondary_repo": "fap-api",
+    "secondary_repo_mode": "read_only_evidence_source_only",
+    "content_generation_authorized": false,
+    "cms_write_authorized": false,
+    "runtime_mutation_authorized": false,
+    "search_or_provider_action_authorized": false,
+    "private_result_access_authorized": false,
+    "analytics_instrumentation_authorized": false,
+    "fap_api_modification_authorized": false
+  },
+  "consumed_sources": [
+    {
+      "source_id": "big5_methodology_common_contract",
+      "repo": "fap-web",
+      "path": "docs/methodology-trust-science/big5-methodology-trust-science-common-contract.v1.json",
+      "source_classification": "fap_web_consumer_contract",
+      "status": "READY_FOR_POLICY_HANDOFF",
+      "authority_use": "Defines allowed and forbidden inputs, outputs, phrase families, source classes, and hard HOLD actions."
+    },
+    {
+      "source_id": "big5_methodology_source_authority_packet",
+      "repo": "fap-web",
+      "path": "docs/methodology-trust-science/big5-methodology-source-authority-packet.v1.json",
+      "source_classification": "fap_web_consumer_contract",
+      "status": "SOURCE_AUTHORITY_MAPPED_FOR_PLANNING_ONLY",
+      "authority_use": "Maps Big Five result-page, CMS ContentPage, public route, source-ledger, and sanitized share-safety authority boundaries."
+    },
+    {
+      "source_id": "big5_safety_gate_consumption_packet",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/big5-safety-gate-consumption-packet.v1.json",
+      "source_classification": "safety_gate_artifact",
+      "status": "READY_TO_CONSUME_BY_SAFETY_GATE",
+      "authority_use": "Supplies blocked claim classes, forbidden private fields, safety assertions, smoke exclusions, and hard holds."
+    },
+    {
+      "source_id": "big5_runtime_qa_consumption_packet",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/big5-runtime-qa-consumption-packet.v1.json",
+      "source_classification": "runtime_qa_artifact",
+      "status": "READY_TO_CONSUME_BY_RUNTIME_QA",
+      "authority_use": "Supplies route/API/renderer/PDF/share/noindex leak boundaries for read-only planning."
+    },
+    {
+      "source_id": "big5_analytics_consumption_packet",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/big5-analytics-consumption-packet.v1.json",
+      "source_classification": "analytics_handoff_artifact",
+      "status": "READY_TO_CONSUME_BY_ANALYTICS",
+      "authority_use": "Supplies allowed analytics-quality vocabulary and forbidden payload field constraints without authorizing event emission."
+    },
+    {
+      "source_id": "big5_readonly_cleared_handoff",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json",
+      "source_classification": "result_page_agent_evidence",
+      "status": "READY_READONLY_CLEARED",
+      "authority_use": "Confirms result-page agent evidence is read-only cleared for public-boundary planning only."
+    }
+  ],
+  "claim_policy": {
+    "allowed_claim_classes": [
+      "self_understanding",
+      "personality_reflection",
+      "motivation_pattern_reflection",
+      "communication_reflection",
+      "method_boundary",
+      "non_diagnostic_note",
+      "public_summary",
+      "public_projection",
+      "source_supported_measurement_caveat"
+    ],
+    "allowed_phrase_family": [
+      "supports_personality_reflection",
+      "can_help_describe_trait_patterns",
+      "may_help_compare_self_reflection_language",
+      "method_boundary",
+      "not_diagnostic",
+      "not_hiring_decision",
+      "not_salary_prediction",
+      "source_supported_measurement_caveat",
+      "one_way_to_describe_traits"
+    ],
+    "forbidden_claims": [
+      "raw OCEAN score claim",
+      "score vector exposure claim",
+      "percentile guarantee",
+      "official 32-type claim",
+      "fixed-type claim",
+      "unsupported psychometric superiority claim",
+      "diagnosis",
+      "treatment",
+      "therapy",
+      "hiring screen",
+      "employment suitability guarantee",
+      "salary prediction",
+      "performance prediction",
+      "success prediction",
+      "admissions guarantee",
+      "ability measurement guarantee",
+      "life outcome guarantee",
+      "paid/official/certified guarantee unless backend authority explicitly supports it"
+    ],
+    "forbidden_output_types": [
+      "clinical_diagnosis",
+      "therapy_or_treatment_claim",
+      "hiring_or_employment_suitability_claim",
+      "salary_prediction",
+      "performance_prediction",
+      "success_prediction",
+      "fixed_type_assignment",
+      "official_32_type_claim",
+      "big_five_proves_your_identity_claim",
+      "private_result_based_public_page",
+      "raw_score_based_science_claim",
+      "unsupported_psychometric_superiority_claim",
+      "publishable_article_body",
+      "cms_payload"
+    ]
+  },
+  "privacy_policy": {
+    "share_surface_boundary": "PUBLIC_SUMMARY_ONLY",
+    "sanitized_share_safety_status": "CLEARED_READONLY_ONLY",
+    "forbidden_private_fields": [
+      "raw_ocean_scores",
+      "raw_score",
+      "raw_scores",
+      "score_vector",
+      "dimension_vector",
+      "percentile",
+      "attempt_id",
+      "user_id",
+      "account_id",
+      "email",
+      "phone",
+      "report_token",
+      "private_url",
+      "private_report_url",
+      "private_result_payload",
+      "full_report_body_text",
+      "selector_trace",
+      "source_refs",
+      "qa_trace",
+      "editor_notes",
+      "order_id",
+      "payment_id",
+      "benefit_grant_id",
+      "benefit_wallet_id",
+      "access_token",
+      "cookie",
+      "session_id"
+    ],
+    "smoke_qa_synthetic_exclusions": [
+      "production_activation_smoke_attempts",
+      "codex_probe_anon_prefix",
+      "codex_probe_session_prefix",
+      "codex_probe_request_prefix",
+      "qa_synthetic_attempts",
+      "fixtures",
+      "generated_readiness_artifacts",
+      "staging_only_artifacts",
+      "internal_preview_artifacts",
+      "crawler_search_provider_behavior",
+      "private_result_report_urls"
+    ]
+  },
+  "safety_gate_matrix": [
+    {
+      "id": "unsupported_claim_gate",
+      "status": "PASS_FOR_PLANNING",
+      "source": "big5_safety_gate_consumption_packet",
+      "required_action": "Block fixed type, official 32-type, unsupported superiority, diagnostic, treatment, therapy, hiring, salary, performance, success, admission, ability, and life-outcome claims."
+    },
+    {
+      "id": "private_result_boundary_gate",
+      "status": "PASS_FOR_PLANNING",
+      "source": "big5_safety_gate_consumption_packet",
+      "required_action": "Block raw OCEAN scores, score vectors, percentiles, identifiers, report tokens, private URLs, private payloads, and full report body text."
+    },
+    {
+      "id": "runtime_qa_leak_boundary_gate",
+      "status": "PASS_FOR_PLANNING",
+      "source": "big5_runtime_qa_consumption_packet",
+      "required_action": "Treat route/API/renderer/PDF/share/noindex evidence as read-only QA boundary evidence, not runtime approval."
+    },
+    {
+      "id": "analytics_payload_privacy_gate",
+      "status": "PASS_FOR_PLANNING",
+      "source": "big5_analytics_consumption_packet",
+      "required_action": "Allow analytics quality-report vocabulary only; block event emission, backfill, opportunity scoring, provider calls, and private payload fields."
+    },
+    {
+      "id": "source_authority_gate",
+      "status": "PASS_FOR_PLANNING",
+      "source": "big5_methodology_source_authority_packet",
+      "required_action": "Use source authority mapping for boundaries only; require CMS/backend ContentPage review before any public methodology/trust/science body or schema/search exposure."
+    },
+    {
+      "id": "share_public_summary_gate",
+      "status": "PASS_FOR_PLANNING",
+      "source": "big5_safety_gate_consumption_packet",
+      "required_action": "Keep share surfaces public-summary only; sanitized share-safety clearance does not authorize CMS, runtime, production, or search."
+    },
+    {
+      "id": "cms_contentpage_gate",
+      "status": "HOLD",
+      "source": "big5_methodology_source_authority_packet",
+      "required_action": "Public ContentPage copy, FAQPage schema, title/meta, sitemap, llms, canonical, hreflang, and indexability remain held until separately approved."
+    }
+  ],
+  "public_contentpage_routes": [
+    "/science",
+    "/method-boundaries",
+    "/item-design-notes",
+    "/reliability-validity",
+    "/data-privacy",
+    "/common-misconceptions"
+  ],
+  "route_safety_policy": [
+    {
+      "route": "/science",
+      "claim_posture": "method_boundary_and_source_supported_measurement_caveat_only",
+      "content_authority": "cms_backend_content_page",
+      "faqpage_gate": "FAQPage_ONLY_AFTER_VISIBLE_CMS_FAQ_GATE",
+      "status": "HOLD_FOR_CMS_REVIEW"
+    },
+    {
+      "route": "/method-boundaries",
+      "claim_posture": "boundary_explainer_only",
+      "content_authority": "cms_backend_content_page",
+      "faqpage_gate": "FAQPage_ONLY_AFTER_VISIBLE_CMS_FAQ_GATE",
+      "status": "HOLD_FOR_CMS_REVIEW"
+    },
+    {
+      "route": "/item-design-notes",
+      "claim_posture": "public_item_design_explainer_only_no_raw_items_or_private_traces",
+      "content_authority": "cms_backend_content_page",
+      "faqpage_gate": "FAQPage_ONLY_AFTER_VISIBLE_CMS_FAQ_GATE",
+      "status": "HOLD_FOR_CMS_REVIEW"
+    },
+    {
+      "route": "/reliability-validity",
+      "claim_posture": "source_supported_measurement_caveat_only",
+      "content_authority": "cms_backend_content_page",
+      "faqpage_gate": "FAQPage_ONLY_AFTER_VISIBLE_CMS_FAQ_GATE",
+      "status": "HOLD_FOR_CMS_REVIEW"
+    },
+    {
+      "route": "/data-privacy",
+      "claim_posture": "public_privacy_boundary_only_no_private_payload",
+      "content_authority": "cms_backend_content_page",
+      "faqpage_gate": "FAQPage_ONLY_AFTER_VISIBLE_CMS_FAQ_GATE",
+      "status": "HOLD_FOR_CMS_REVIEW"
+    },
+    {
+      "route": "/common-misconceptions",
+      "claim_posture": "misconception_correction_only_no_superiority_or_diagnostic_claim",
+      "content_authority": "cms_backend_content_page",
+      "faqpage_gate": "FAQPage_ONLY_AFTER_VISIBLE_CMS_FAQ_GATE",
+      "status": "HOLD_FOR_CMS_REVIEW"
+    }
+  ],
+  "hard_hold_actions": [
+    "no_CMS",
+    "no_CMS_import",
+    "no_publish",
+    "no_search_submission",
+    "no_provider_calls",
+    "no_deploy",
+    "no_runtime_instrumentation",
+    "no_methodology_trust_science_runtime_mutation",
+    "no_generated_pages",
+    "no_ContentPage_rendering_change",
+    "no_public_route_change",
+    "no_schema_change",
+    "no_sitemap_llms_hreflang_canonical_noindex_change",
+    "no_event_emission",
+    "no_production_metric_backfill",
+    "no_opportunity_scoring",
+    "no_Search_Channel_mutation",
+    "no_backend_asset_agent_command",
+    "no_fap_api_mutation",
+    "no_raw_private_data",
+    "no_private_result_text"
+  ],
+  "negative_guarantees": {
+    "methodology_pages_generated": false,
+    "publishable_article_body_generated": false,
+    "cms_package_generated": false,
+    "cms_write_performed": false,
+    "cms_import_performed": false,
+    "search_submission_performed": false,
+    "provider_call_performed": false,
+    "deployment_triggered": false,
+    "runtime_changed": false,
+    "analytics_instrumentation_added": false,
+    "event_emission_performed": false,
+    "production_metric_backfill_performed": false,
+    "opportunity_scoring_performed": false,
+    "private_result_data_accessed": false,
+    "backend_asset_agent_command_run": false,
+    "fap_api_modified": false,
+    "schema_or_indexability_changed": false
+  },
+  "next_safe_output": {
+    "task_id": "BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01",
+    "status": "ALLOWED_AFTER_THIS_PACKET_MERGES",
+    "requires_separate_pr": true
+  },
+  "sidecar_issues": []
+}
