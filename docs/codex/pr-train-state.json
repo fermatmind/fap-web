@@ -27868,11 +27868,11 @@
       "repo": "fap-web",
       "branch": "codex/enneagram-public-personality-handoff-common-contract-01",
       "base": "main",
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "train_scope": "enneagram_public_personality_handoff_common_contract",
       "title": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01: docs(public-personality): add handoff common contract",
       "depends_on": [],
-      "commit_sha": "765fa4afd93e5ab168e8404897b3a7f92ec4429a",
+      "commit_sha": "9822254d85600fffdaa548d89e7d5f05c8a9d597",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1386",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -27911,13 +27911,13 @@
           "evidence": "JSON and YAML parse passed; focused common contract passed 9 tests; pnpm typecheck passed; pnpm test:contract passed on rerun with 555 files and 3259 tests after an unrelated first-run MBTI take attribution transient was isolated by targeted pass; git diff --check passed; changed-file scope validation passed for exactly 6 authorized files. Local next build was not run because this docs/contracts-only train uses GitHub build as the required build check and forbids generated SEO artifact mutation."
         },
         "pull_request": {
-          "status": "open",
+          "status": "open_ready_to_merge",
           "url": "https://github.com/fermatmind/fap-web/pull/1386",
-          "evidence": "PR #1386 opened after local validation passed."
+          "evidence": "PR #1386 is open with mergeStateStatus CLEAN after consuming the scoped MBTI take attribution flaky CI fix."
         },
         "github_checks": {
-          "status": "fail",
-          "evidence": "PR #1386 checks passed on head 765fa4af, then after the required ready-to-merge ledger commit head 4f1ca155, build, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL passed but the required contracts check failed. A failed-job rerun also failed at the same non-current-scope test: tests/contracts/mbti-take-attribution.contract.test.tsx > renders a localized 429 retry countdown instead of echoing backend english copy, unable to find button name '请等待 12 秒'. Local targeted rerun and local full contract suite rerun had passed before PR open."
+          "status": "pass",
+          "evidence": "After scoped CI fix PR #1387 merged into origin/main, PR #1386 merged origin/main at head 9822254d. GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. Local focused contract and full pnpm test:contract also passed after consuming the fix."
         }
       },
       "sidecar_issues": [],
@@ -27946,6 +27946,11 @@
           "at": "2026-06-24T00:00:00+08:00",
           "status": "github_checks_failed_blocked",
           "note": "After the ready-to-merge ledger commit, PR #1386 head 4f1ca155 had required contracts check fail twice on the same out-of-scope MBTI take attribution countdown test. Build, freeze checks, and CodeQL passed. This required check blocks merge, and fixing the MBTI test is outside the current Enneagram common contract scope."
+        },
+        {
+          "at": "2026-06-24T10:35:00+08:00",
+          "status": "ready_to_merge",
+          "note": "Scoped CI fix PR #1387 merged to origin/main, PR #1386 consumed it via origin/main merge, local focused/common contract and full contracts passed, and GitHub checks passed on head 9822254d with mergeStateStatus CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
