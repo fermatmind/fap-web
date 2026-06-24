@@ -285,6 +285,18 @@ function normalizeString(value: unknown): string | null {
   return normalized || null;
 }
 
+function containsCjk(value: string): boolean {
+  return /[\u3400-\u9fff\uf900-\ufaff]/u.test(value);
+}
+
+function humanizeSlug(slug: string): string {
+  return slug
+    .split("-")
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
 function normalizeStringArray(value: unknown): string[] {
   if (!Array.isArray(value)) {
     return [];
@@ -890,6 +902,31 @@ function localizeKnownTestHref(locale: Locale, path: string): string {
   return localizedPath(path, locale);
 }
 
+function localizeDisplayCtaHref(locale: Locale, href: string): string {
+  const candidateHrefs = href
+    .split("|")
+    .map((candidate) => candidate.trim())
+    .filter(Boolean);
+
+  const localizedCandidate =
+    candidateHrefs.find((candidate) => isKnownTestHref(candidate) && candidate.startsWith(`/${locale}/`)) ??
+    candidateHrefs.find(isKnownTestHref);
+
+  if (localizedCandidate) {
+    return localizeKnownTestHref(locale, localizedCandidate);
+  }
+
+  return isKnownTestHref(href) ? localizeKnownTestHref(locale, href) : href;
+}
+
+function localizeDisplayCtaLabel(locale: Locale, label: string): string {
+  if (locale === "zh") {
+    return label;
+  }
+
+  return containsCjk(label) ? "Measure my career interests" : label;
+}
+
 function buildRelatedNextPages(locale: Locale, hero: CareerDisplayHeroViewModel): CareerDisplayRelatedPage[] {
   const related = [
     {
@@ -971,7 +1008,8 @@ export function adaptCareerDisplaySurface(
   rawDisplaySurface: unknown,
   localeInput: CareerDisplayLocaleInput,
   attributionParams?: AttributionParams,
-  expectedSlug?: string
+  expectedSlug?: string,
+  titleFallback?: string | null
 ): CareerDisplaySurfaceViewModel | null {
   const locale = normalizeCareerDisplayLocale(localeInput);
   const surfaceRoot = resolveSurfaceRoot(rawDisplaySurface);
@@ -1028,11 +1066,19 @@ export function adaptCareerDisplaySurface(
     subjectSlug: canonicalSlug,
     attributionParams,
   });
+  const heroH1 = locale === "en" && containsCjk(hero.h1)
+    ? normalizeString(titleFallback) ?? humanizeSlug(canonicalSlug)
+    : hero.h1;
+  const heroSubtitle = hero.subtitle && !(locale === "en" && containsCjk(hero.subtitle)) ? hero.subtitle : undefined;
   const localizedHero: CareerDisplayHeroViewModel = {
     ...hero,
+    h1: heroH1,
+    ...(heroSubtitle ? { subtitle: heroSubtitle } : {}),
+    ...(!heroSubtitle ? { subtitle: undefined } : {}),
     primaryCta: {
       ...hero.primaryCta,
-      href: isKnownTestHref(hero.primaryCta.href) ? localizeKnownTestHref(locale, hero.primaryCta.href) : hero.primaryCta.href,
+      label: localizeDisplayCtaLabel(locale, hero.primaryCta.label),
+      href: localizeDisplayCtaHref(locale, hero.primaryCta.href),
     },
   };
 
