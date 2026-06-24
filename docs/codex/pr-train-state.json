@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-24T23:59:00+08:00",
+  "updated_at": "2026-06-25T01:10:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -24582,6 +24582,123 @@
           "at": "2026-06-24T23:59:00+08:00",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed on head 4398bea: CodeQL, analyze, build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "PR-EQ-AGENT-03",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-eq-agent-03-frontend-entry-guard",
+      "base": "main",
+      "depends_on": [
+        "PR-EQ-AGENT-02"
+      ],
+      "status": "ready_to_merge",
+      "title": "PR-EQ-AGENT-03: Frontend EQ Agent entry guard",
+      "artifacts": [
+        "components/result/eq/EQAgentEntryGuard.tsx",
+        "components/result/eq/EQResultV5.tsx",
+        "components/result/eq/EQSaveShareRelated.tsx",
+        "components/result/eq/types.ts",
+        "lib/api/v0_3.ts",
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+        "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+        "tests/e2e/iq-eq-result-regression.spec.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized PR-EQ-AGENT-03 and PR-EQ-AGENT-04 execution."
+        },
+        "dependency": {
+          "status": "passed",
+          "evidence": "fap-api PR-EQ-AGENT-02 merged as PR #2399 with merge commit c78654fc605d26d95a05c560efe6c3999952b56f present in origin/main."
+        },
+        "branch_base": {
+          "status": "passed",
+          "evidence": "Created codex/pr-eq-agent-03-frontend-entry-guard from fap-web origin/main cb18dc33547840d3741ba6578dbe58495d24b7af."
+        },
+        "typecheck": {
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        "contract": {
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "evidence": "571 files passed, 3368 tests passed."
+        },
+        "e2e": {
+          "status": "passed",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts",
+          "evidence": "6 passed. Default local run without backend at 127.0.0.1:8000 failed in server fetch preflight; rerun with production read-only API URL passed."
+        },
+        "build": {
+          "status": "passed",
+          "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build"
+        },
+        "yaml_json_parse": {
+          "status": "passed",
+          "command": "ruby YAML.load_file docs/codex/pr-train.yaml; python3 -m json.tool docs/codex/pr-train-state.json"
+        },
+        "diff_check": {
+          "status": "passed",
+          "command": "git diff --check && git diff --cached --check"
+        },
+        "github_checks": {
+          "status": "passed",
+          "evidence": "GitHub checks build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL succeeded on PR #1417."
+        },
+        "merge_state": {
+          "status": "passed",
+          "evidence": "mergeStateStatus=CLEAN for PR #1417."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1417",
+      "commit_sha": "155839acadc3b77ffbf365c3b60b11454e2c2057",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "status": "passed",
+        "allowed_files": [
+          "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+          "components/result/eq/EQAgentEntryGuard.tsx",
+          "components/result/eq/EQResultV5.tsx",
+          "components/result/eq/EQSaveShareRelated.tsx",
+          "components/result/eq/types.ts",
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "lib/api/v0_3.ts",
+          "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+          "tests/e2e/iq-eq-result-regression.spec.ts"
+        ],
+        "evidence": "git diff --name-only is within PR-EQ-AGENT-03 manifest scope."
+      },
+      "history": [
+        {
+          "at": "2026-06-25T00:20:00+08:00",
+          "status": "in_progress",
+          "summary": "Initialized fap-web PR-EQ-AGENT-03 manifest/state entry and started scoped implementation from latest origin/main."
+        },
+        {
+          "at": "2026-06-25T00:50:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented guarded EQ Agent entry and passed local typecheck, contract, e2e, build, YAML/JSON parse, and diff checks."
+        },
+        {
+          "at": "2026-06-25T01:00:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened GitHub PR #1417 for frontend EQ Agent entry guard."
+        },
+        {
+          "at": "2026-06-25T01:10:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed and merge state is clean."
         }
       ],
       "sidecar_issues": []

@@ -18237,3 +18237,56 @@ prs:
       squash: true
       auto_merge: true
     next_task: BIG5-METHODOLOGY-SOURCE-LEDGER-READINESS-SCAN-01
+
+  - id: PR-EQ-AGENT-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-eq-agent-03-frontend-entry-guard
+    base: main
+    title: "PR-EQ-AGENT-03: Frontend EQ Agent entry guard"
+    depends_on:
+      - PR-EQ-AGENT-02
+    mode: execute
+    train_scope: eq_agent_ready_content_os
+    status: in_progress
+    goal: "Add a guarded Agent entry on the EQ v1.6 result page that can read backend Agent context but cannot mutate report authority, scores, formulation, sections, SJT state, or paid/access semantics."
+    artifacts:
+      - components/result/eq/EQAgentEntryGuard.tsx
+      - components/result/eq/EQResultV5.tsx
+      - components/result/eq/EQSaveShareRelated.tsx
+      - components/result/eq/types.ts
+      - lib/api/v0_3.ts
+      - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
+      - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+      - tests/e2e/iq-eq-result-regression.spec.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - components/result/eq/**
+      - lib/api/v0_3.ts
+      - app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx
+      - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+      - tests/e2e/iq-eq-result-regression.spec.ts
+      - tests/fixtures/eq/v5/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Add frontend-owned official EQ report prose.
+      - Add SJT take entry.
+      - Add Agent runtime chat or report mutation controls.
+      - Add paid, locked, blur, SKU, or access-wall semantics.
+      - Modify backend or content-pack authority.
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-EQ-AGENT-04

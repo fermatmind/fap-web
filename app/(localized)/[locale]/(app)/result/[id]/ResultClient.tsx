@@ -1493,7 +1493,12 @@ export default function ResultClient({
     return (
       <div className="space-y-[var(--fm-gap-md)]">
         {renderEmailRecoveryCard()}
-        <EQResultV5 locale={locale} reportData={reportData} attemptId={attemptId} />
+        <EQResultV5
+          locale={locale}
+          reportData={reportData}
+          attemptId={attemptId}
+          agentContextAccess={{ anonId, accessToken: resultAccessToken }}
+        />
       </div>
     );
   }

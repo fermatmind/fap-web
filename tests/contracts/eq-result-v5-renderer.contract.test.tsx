@@ -1,9 +1,9 @@
-import { render, screen, within } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import { EQResultV5 } from "@/components/result/eq/EQResultV5";
 import { canRenderRichResultReport } from "@/components/result/RichResultReport";
 import { isEqV5AccessRestricted, isEqV5ReportResponse, normalizeEqV5Report } from "@/components/result/eq/utils";
-import type { ReportResponse } from "@/lib/api/v0_3";
+import type { EqAgentContextPayload, ReportResponse } from "@/lib/api/v0_3";
 import balancedEn from "@/tests/fixtures/eq/v5/eq60_v5_balanced_integrated_en.json";
 import balancedZh from "@/tests/fixtures/eq/v5/eq60_v5_balanced_integrated_zh.json";
 import highEmpathyEn from "@/tests/fixtures/eq/v5/eq60_v5_high_empathy_low_recovery_en.json";
@@ -66,6 +66,32 @@ function removeResolvedFields(reportData: ReportResponse): ReportResponse {
   return copy;
 }
 
+function safeAgentContext(overrides: Partial<EqAgentContextPayload> = {}): EqAgentContextPayload {
+  return {
+    ok: true,
+    schema: "eq.agent_context.v1",
+    ready: true,
+    locale: "en",
+    scale_code_legacy: "EQ_60",
+    guardrails: {
+      read_only: true,
+      can_mutate_report: false,
+      can_mutate_scores: false,
+      can_override_formulation: false,
+      can_enable_sjt: false,
+      can_create_paid_unlock_language: false,
+      can_expose_raw_technical_tags: false,
+      content_authority: "backend_content_pack_and_report_composer",
+    },
+    intent_context: {
+      matched: true,
+      matched_intent: "understand_my_result",
+      safe_opening: "Start with one real situation from this report.",
+    },
+    ...overrides,
+  };
+}
+
 describe("EQ v5 result renderer contract", () => {
   it("renders all main EQ v5 sections from backend canonical resolved assets", () => {
     const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
@@ -108,8 +134,100 @@ describe("EQ v5 result renderer contract", () => {
     expect(screen.getByTestId("eq-scientific-boundary")).toHaveTextContent("Evidence is still being built");
     expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Save your report");
     expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Ask the Agent");
+    expect(screen.getByTestId("eq-agent-entry-guard")).toBeInTheDocument();
     expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Big Five");
     expect(screen.queryByText(/high_empathy_low_recovery|EM_ER_high_low|emotional_labor_high|eq60\.signal_signature\.v1/i)).not.toBeInTheDocument();
+  });
+
+  it("loads read-only EQ Agent context only after the guarded Agent entry is clicked", async () => {
+    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
+    let calls = 0;
+
+    render(
+      <EQResultV5
+        locale="en"
+        reportData={reportData}
+        attemptId="eq-result-001"
+        loadAgentContext={async ({ attemptId, locale, intent }) => {
+          calls += 1;
+          expect(attemptId).toBe("eq-result-001");
+          expect(locale).toBe("en");
+          expect(intent).toBe("understand_my_result");
+          return safeAgentContext();
+        }}
+      />
+    );
+
+    expect(calls).toBe(0);
+    fireEvent.click(screen.getByRole("button", { name: "Ask the Agent" }));
+
+    await waitFor(() => expect(screen.getByTestId("eq-agent-entry-ready")).toBeInTheDocument());
+    expect(calls).toBe(1);
+    expect(screen.getByTestId("eq-agent-entry-ready")).toHaveTextContent("Read-only context ready");
+    expect(screen.getByTestId("eq-agent-entry-ready")).toHaveTextContent(
+      "Start with one real situation from this report."
+    );
+    expect(screen.getByTestId("eq-agent-entry-ready")).toHaveTextContent("cannot change scores");
+    expect(screen.queryByText(/locked|paywall|SKU_EQ_60_FULL_299|profile:|quality_level:|bucket:/i)).not.toBeInTheDocument();
+  });
+
+  it("fails Agent entry closed when context is not ready", async () => {
+    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
+
+    render(
+      <EQResultV5
+        locale="en"
+        reportData={reportData}
+        attemptId="eq-result-001"
+        loadAgentContext={async () => safeAgentContext({ ready: false, reason_code: "report_not_ready" })}
+      />
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "Ask the Agent" }));
+
+    await waitFor(() => expect(screen.getByTestId("eq-agent-entry-unavailable")).toBeInTheDocument());
+    expect(screen.getByTestId("eq-agent-entry-unavailable")).toHaveTextContent("Agent context is unavailable");
+    expect(screen.queryByTestId("eq-agent-entry-ready")).not.toBeInTheDocument();
+  });
+
+  it("keeps Agent entry disabled when attempt id is missing", () => {
+    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
+
+    render(<EQResultV5 locale="en" reportData={reportData} />);
+
+    expect(screen.getByRole("button", { name: "Ask the Agent" })).toBeDisabled();
+    expect(screen.getByTestId("eq-agent-entry-guard")).toHaveTextContent("Saved reports can continue");
+  });
+
+  it("fails Agent entry closed when backend guardrails allow mutation", async () => {
+    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
+
+    render(
+      <EQResultV5
+        locale="en"
+        reportData={reportData}
+        attemptId="eq-result-001"
+        loadAgentContext={async () =>
+          safeAgentContext({
+            guardrails: {
+              read_only: true,
+              can_mutate_report: true,
+              can_mutate_scores: false,
+              can_override_formulation: false,
+              can_enable_sjt: false,
+              can_create_paid_unlock_language: false,
+              can_expose_raw_technical_tags: false,
+            },
+          })
+        }
+      />
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "Ask the Agent" }));
+
+    await waitFor(() => expect(screen.getByTestId("eq-agent-entry-unavailable")).toBeInTheDocument());
+    expect(screen.queryByTestId("eq-agent-entry-ready")).not.toBeInTheDocument();
+    expect(screen.queryByText(/modify report|edit scores|unlock|purchase|SKU_EQ_60_FULL_299/i)).not.toBeInTheDocument();
   });
 
   it("covers balanced_integrated canonical payload in zh-CN and en", () => {

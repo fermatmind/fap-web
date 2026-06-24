@@ -2,11 +2,24 @@ import Link from "next/link";
 import { RotateCcw, Share2 } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { localizedPath } from "@/lib/i18n/locales";
-import type { EqV5ViewModel } from "./types";
+import { EQAgentEntryGuard, isEqAgentConversionAction } from "./EQAgentEntryGuard";
+import type { EqAgentContextAccess, EqAgentContextLoader, EqV5ViewModel } from "./types";
 
-export function EQSaveShareRelated({ viewModel, attemptId }: { viewModel: EqV5ViewModel; attemptId?: string }) {
+export function EQSaveShareRelated({
+  viewModel,
+  attemptId,
+  agentContextAccess,
+  loadAgentContext,
+}: {
+  viewModel: EqV5ViewModel;
+  attemptId?: string;
+  agentContextAccess?: EqAgentContextAccess;
+  loadAgentContext?: EqAgentContextLoader;
+}) {
   const { locale } = viewModel;
-  const conversionActions = viewModel.assets.commercial_conversion_actions;
+  const conversionActions = viewModel.assets.commercial_conversion_actions.filter(
+    (action) => !isEqAgentConversionAction(action)
+  );
 
   return (
     <section data-testid="eq-save-share-related" className="rounded-[8px] border border-slate-200 bg-white p-4">
@@ -51,6 +64,14 @@ export function EQSaveShareRelated({ viewModel, attemptId }: { viewModel: EqV5Vi
           ))}
         </div>
       ) : null}
+      <div className="mt-4">
+        <EQAgentEntryGuard
+          viewModel={viewModel}
+          attemptId={attemptId}
+          access={agentContextAccess}
+          loadAgentContext={loadAgentContext}
+        />
+      </div>
     </section>
   );
 }

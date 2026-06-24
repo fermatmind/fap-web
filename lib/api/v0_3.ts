@@ -390,6 +390,62 @@ export type EqV5ReportPayload = {
   assets?: unknown;
 };
 
+export type EqAgentContextGuardrails = {
+  read_only?: boolean;
+  can_mutate_report?: boolean;
+  can_mutate_scores?: boolean;
+  can_override_formulation?: boolean;
+  can_enable_sjt?: boolean;
+  can_create_paid_unlock_language?: boolean;
+  can_expose_raw_technical_tags?: boolean;
+  content_authority?: string;
+  [key: string]: unknown;
+};
+
+export type EqAgentContextPayload = {
+  ok?: boolean;
+  schema?: "eq.agent_context.v1" | string;
+  ready?: boolean;
+  attempt_id?: string;
+  result_id?: string;
+  scale_code?: string;
+  scale_code_legacy?: string;
+  scale_code_v2?: string;
+  scale_uid?: string | null;
+  locale?: string;
+  reason_code?: string;
+  report_context?: Pick<
+    EqV5ReportPayload,
+    | "eq_report_mode"
+    | "measurement_type"
+    | "scores"
+    | "dimension_summary"
+    | "quality"
+    | "interpretation"
+    | "next_module"
+    | "methodology"
+  >;
+  resolved_assets?: Record<string, unknown>;
+  agent_knowledge?: Record<string, unknown>;
+  guardrails?: EqAgentContextGuardrails;
+  intent_context?: {
+    requested_intent?: string | null;
+    matched?: boolean;
+    matched_intent?: string;
+    reason_code?: string | null;
+    retrieval_tags?: string[];
+    preferred_asset_types?: string[];
+    forbidden_claim_ids?: string[];
+    escalation_flags?: string[];
+    allowed_response_mode?: string;
+    label?: string;
+    agent_goal?: string;
+    safe_opening?: string;
+    [key: string]: unknown;
+  };
+  [key: string]: unknown;
+};
+
 export type RichResultProfile = {
   type_code?: string;
   type_name?: string;
@@ -3329,6 +3385,40 @@ export async function fetchAttemptReportAccess({
   );
 
   return assertApiOk(response, "Failed to load report access.");
+}
+
+export async function fetchEqAgentContext({
+  attemptId,
+  anonId,
+  locale,
+  intent,
+  skipAuth,
+  includeAnonId = true,
+  accessToken,
+}: {
+  attemptId: string;
+  anonId?: string;
+  locale?: string;
+  intent?: string;
+  skipAuth?: boolean;
+  includeAnonId?: boolean;
+  accessToken?: string | null;
+}): Promise<EqAgentContextPayload> {
+  const resolvedAnonId = includeAnonId ? resolveAnonId(anonId) : undefined;
+  const params = new URLSearchParams();
+  if (locale) params.set("locale", locale);
+  if (intent) params.set("intent", intent);
+  const normalizedAccessToken = normalizeResultAccessToken(accessToken);
+  if (normalizedAccessToken) params.set("access_token", normalizedAccessToken);
+  const response = await apiClient.get<EqAgentContextPayload>(
+    `/v0.3/attempts/${attemptId}/eq/agent-context${params.size > 0 ? `?${params.toString()}` : ""}`,
+    {
+      ...explicitAnonHeader(resolvedAnonId, resultAccessTokenHeader(normalizedAccessToken)),
+      ...(skipAuth ? { skipAuth: true } : {}),
+    }
+  );
+
+  return assertApiOk(response, "Failed to load EQ Agent context.");
 }
 
 export async function fetchAttemptInviteUnlockProgress({

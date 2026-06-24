@@ -1,4 +1,5 @@
 import type { Locale } from "@/lib/i18n/locales";
+import type { EqAgentContextPayload } from "@/lib/api/v0_3";
 
 export type EqReportMode = "self_report" | "integrated";
 
@@ -322,3 +323,16 @@ export type EqV5ViewModel = {
   methodology: NonNullable<EqV5ReportPayload["methodology"]>;
   assets: Required<EqV5ResolvedAssets>;
 };
+
+export type EqAgentContextAccess = {
+  anonId?: string;
+  accessToken?: string | null;
+  skipAuth?: boolean;
+};
+
+export type EqAgentContextLoader = (input: {
+  attemptId: string;
+  locale: Locale;
+  intent: string;
+  access?: EqAgentContextAccess;
+}) => Promise<EqAgentContextPayload>;
