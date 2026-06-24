@@ -17908,3 +17908,61 @@ prs:
       squash: true
       auto_merge: true
     next_task: ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-LEDGER-READINESS-SCAN-01
+
+  - id: BIG-FIVE-PUBLIC-PROFILE-AGENT-PILOT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big-five-public-profile-agent-pilot-01
+    base: main
+    title: "BIG-FIVE-PUBLIC-PROFILE-AGENT-PILOT-01: docs(personality): generate Big Five public profile agent pilot artifacts"
+    depends_on: []
+    mode: execute
+    train_scope: big_five_public_profile_agent_pilot
+    status: in_progress
+    goal: "Reuse the shared personality public profile agent runner pattern for Big Five V1 and generate bilingual draft recommendation artifacts without CMS write, frontend runtime change, publish, indexability, sitemap/llms, or search mutation."
+    artifacts:
+      - scripts/seo/generate-big-five-public-profile-agent-pilot.mjs
+      - docs/seo/personality/big-five-public-profile-agent-pilot-2026-06-24.json
+      - docs/seo/personality/big-five-public-profile-agent-pilot-2026-06-24.md
+      - tests/contracts/big-five-public-profile-agent-pilot-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - scripts/seo/generate-big-five-public-profile-agent-pilot.mjs
+      - docs/seo/personality/big-five-public-profile-agent-pilot-2026-06-24.json
+      - docs/seo/personality/big-five-public-profile-agent-pilot-2026-06-24.md
+      - tests/contracts/big-five-public-profile-agent-pilot-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - CMS write
+      - frontend runtime change
+      - publish/index/search
+      - sitemap/llms mutation
+      - private/result/order/payment/account/session/token routes
+      - facet detail pages
+      - OCEAN_32 pages
+    required_local_checks:
+      - node --check scripts/seo/generate-big-five-public-profile-agent-pilot.mjs
+      - node scripts/seo/generate-big-five-public-profile-agent-pilot.mjs
+      - jq empty docs/seo/personality/big-five-public-profile-agent-pilot-2026-06-24.json
+      - pnpm exec vitest run tests/contracts/big-five-public-profile-agent-pilot-01.contract.test.ts
+      - pnpm test:contract
+      - pnpm typecheck
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: BIG-FIVE-PUBLIC-PROFILE-AGENT-QA-01
