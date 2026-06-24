@@ -16692,7 +16692,7 @@
       "base": "main",
       "depends_on": [],
       "title": "RESULT-EMAIL-FIRST-BINDING-UX-05 non-blocking result email binding UX",
-      "status": "pr_open",
+      "status": "ready_to_merge",
       "commit_sha": "22425217e785c88bdda585e61ef36733753033a1",
       "pr_url": "",
       "failure_reason": null,
@@ -28639,9 +28639,9 @@
           }
         },
         "github": {
-          "status": "pending",
-          "summary": null,
-          "checked_at": null
+          "status": "passed",
+          "summary": "build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, and GitHub Advanced Security CodeQL checks passed on PR #1404.",
+          "checked_at": "2026-06-24T20:12:00+08:00"
         }
       },
       "failure_reason": null,
@@ -28680,6 +28680,11 @@
           "at": "2026-06-24T20:03:00+08:00",
           "status": "github_checks_failed_fix_in_scope",
           "summary": "GitHub Advanced Security CodeQL reported incomplete string escaping in the new generator markdown table output. Fixed within the current generator scope and reran node --check, generator, JSON parse, focused vitest, and git diff --check."
+        },
+        {
+          "at": "2026-06-24T20:12:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "PR #1404 passed required GitHub checks and mergeStateStatus was CLEAN after scope re-review."
         }
       ],
       "sidecar_issues": []
