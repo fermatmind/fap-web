@@ -18093,7 +18093,7 @@ prs:
       - BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01
     mode: execute
     train_scope: big5_methodology_source_authority_packet
-    status: local_checks_passed_ready_for_pr
+    status: pr_open_checks_pending
     goal: "Create the Big Five methodology source authority packet by mapping Big Five result-page V2 authority, sanitized asset-agent evidence, method/trust/science CMS/public page authority, source ledger gaps, and backend/CMS authority boundaries."
     artifacts:
       - docs/methodology-trust-science/big5-methodology-source-authority-packet-2026-06-23.md

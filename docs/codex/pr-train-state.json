@@ -24070,7 +24070,7 @@
       "depends_on": [
         "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01"
       ],
-      "status": "local_checks_passed_ready_for_pr",
+      "status": "pr_open_checks_pending",
       "title": "BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01: docs(methodology): map Big Five source authority",
       "artifacts": [
         "docs/methodology-trust-science/big5-methodology-source-authority-packet-2026-06-23.md",
@@ -24139,8 +24139,8 @@
         }
       ],
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1410",
+      "commit_sha": "493e0468790ceacddc4f7c903b30850faec69202",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -24173,6 +24173,11 @@
           "at": "2026-06-24T22:23:00+08:00",
           "status": "local_checks_passed_ready_for_pr",
           "summary": "PR2 JSON/YAML parse, focused contract, typecheck, exact production-env build, full contracts, Big5 freeze, Enneagram freeze, git diff --check, and changed-file scope validation passed. Unscoped build-generated public/sitemap.xml diff was restored to HEAD and is not part of this PR. No CMS, search, runtime, deploy, private data, backend asset-agent command, fap-api mutation, or generated page action was performed."
+        },
+        {
+          "at": "2026-06-24T22:31:00+08:00",
+          "status": "pr_open_checks_pending",
+          "summary": "Opened PR #1410 from codex/big5-methodology-source-authority-packet-01 after rebasing onto origin/main f785ab01 and rerunning required local checks. Remote GitHub checks pending."
         }
       ],
       "sidecar_issues": []
