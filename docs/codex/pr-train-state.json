@@ -17172,7 +17172,7 @@
       "branch": "codex/legacy-seo-reconciliation-scan",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open",
+      "status": "ready_to_merge",
       "title": "LEGACY-SEO-RECONCILIATION-SCAN legacy SEO coverage reconciliation",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/979",
       "commit_sha": "pending_remote_pr_head_after_pr_url_ledger_amend",
@@ -28740,9 +28740,9 @@
           }
         },
         "github": {
-          "status": "pending",
-          "summary": null,
-          "checked_at": null
+          "status": "passed",
+          "summary": "build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, and GitHub Advanced Security CodeQL checks passed on PR #1406.",
+          "checked_at": "2026-06-24T20:45:00+08:00"
         }
       },
       "failure_reason": null,
@@ -28776,6 +28776,11 @@
           "at": "2026-06-24T20:40:00+08:00",
           "status": "pr_open",
           "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1406 from codex/big-five-public-profile-agent-qa-01; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-24T20:45:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "PR #1406 passed required GitHub checks and mergeStateStatus was CLEAN after scope re-review."
         }
       ],
       "sidecar_issues": []
