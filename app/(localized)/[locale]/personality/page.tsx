@@ -146,7 +146,7 @@ function TypeGroupBrowse({
               href={mbtiTestHref}
               className="rounded-full bg-[var(--fm-text)] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[var(--fm-accent)]"
             >
-              {locale === "zh" ? "开始 MBTI 免费测试" : "Start MBTI test"}
+              {locale === "zh" ? "开始 MBTI 免费测试" : "Start the free MBTI test"}
             </Link>
             <Link
               href={careerHref}

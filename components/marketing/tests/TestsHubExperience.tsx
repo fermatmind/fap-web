@@ -62,7 +62,7 @@ function getPrimaryAction(item: HubTestCardItem, locale: Locale): { href: string
     return null;
   }
 
-  return { href: primaryHref, label: locale === "zh" ? getFreeTestPrimaryLabel(item, locale) : "Find free tests" };
+  return { href: primaryHref, label: locale === "zh" ? getFreeTestPrimaryLabel(item, locale) : "Start the free test" };
 }
 
 function getTestDisplayTitle(item: HubTestCardItem, locale: Locale): string {
@@ -126,7 +126,7 @@ export function TestsHubExperience({ content, locale }: { content: TestsHubConte
       <Container className="max-w-[82rem] px-6 md:px-8">
         <div className="bg-[#008aa3] px-6 py-14 text-white shadow-[0_24px_70px_rgba(15,23,42,0.10)] md:px-12 lg:px-16">
           <h1 id="tests-hub-title" className="m-0 text-center text-4xl font-semibold tracking-normal text-white md:text-5xl">
-            {locale === "zh" ? "免费测试" : "Highlighted tests"}
+            {locale === "zh" ? "免费测试" : "Free assessments"}
           </h1>
           <div className="mt-12 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
             {coreTests.map((item) => (

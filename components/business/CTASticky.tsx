@@ -307,7 +307,7 @@ export function CTASticky({
                     scaleCode,
                     slug,
                     title,
-                    fallback: locale === "zh" ? "开始情商免费测试" : "Start EQ test",
+                    fallback: locale === "zh" ? "开始情商免费测试" : "Start the free EQ test",
                   })}
                 </TrackedEntryCtaLink>
               </div>
@@ -322,7 +322,7 @@ export function CTASticky({
                   scaleCode,
                   slug,
                   title,
-                  fallback: locale === "zh" ? "开始此测试" : "Start this test",
+                  fallback: locale === "zh" ? "开始此测试" : "Start the free test",
                 })}
               </TrackedEntryCtaLink>
             )}
@@ -459,7 +459,7 @@ export function CTASticky({
                 scaleCode,
                 slug,
                 title,
-                fallback: locale === "zh" ? "开始情商免费测试" : "Start EQ test",
+                fallback: locale === "zh" ? "开始情商免费测试" : "Start the free EQ test",
               })}
             </TrackedEntryCtaLink>
           ) : (

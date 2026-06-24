@@ -92,7 +92,7 @@ export async function GET(
           }}
         >
           <div>{SITE_HOST}</div>
-          <div>{score !== null ? `Score ${score}/100` : "Take the test"}</div>
+          <div>{score !== null ? `Score ${score}/100` : "Start the free test"}</div>
         </div>
       </div>
     ),

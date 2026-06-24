@@ -361,7 +361,7 @@ export function buildPersonalityHubPayload(input: BuildPersonalityHubPayloadInpu
       title: input.locale === "zh" ? "人格类型" : "Personality types",
       summary: summaryBody,
       primaryCta: {
-        label: input.locale === "zh" ? "开始 MBTI 免费测试" : "Start MBTI test",
+        label: input.locale === "zh" ? "开始 MBTI 免费测试" : "Start the free MBTI test",
         href: localizedPath("/tests/mbti-personality-test-16-personality-types", input.locale),
         kind: "primary",
       },

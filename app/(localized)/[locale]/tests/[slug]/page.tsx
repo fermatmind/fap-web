@@ -1294,7 +1294,7 @@ export default async function TestLandingPage({
             scaleCode: test.scale_code,
             slug: test.slug,
             title: localizedTestTitle,
-            fallback: locale === "zh" ? "开始情商免费测试" : "Start EQ test",
+            fallback: locale === "zh" ? "开始情商免费测试" : "Start the free EQ test",
           }),
           testId: "test-detail-landing-cta-eq-60",
           eventProperties: buildStartClickTrackingProps({ targetAction: "start_test" }),
