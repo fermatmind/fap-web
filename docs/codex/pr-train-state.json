@@ -89,7 +89,7 @@
       "branch": "codex/pr-prac-01-frontend-source-of-truth-lock",
       "base": "main",
       "depends_on": [],
-      "status": "ready_to_merge",
+      "status": "merged",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/689",
       "merge_sha": "6d496d9262f84f78f2ca8feb814370730f11a232",
       "title": "docs(runtime): lock production frontend source of truth",
