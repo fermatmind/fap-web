@@ -18024,3 +18024,212 @@ prs:
       squash: true
       auto_merge: true
     next_task: BIG-FIVE-AGENT-APPROVAL-QUEUE-INTEGRATION-01
+
+  - id: BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-methodology-common-contract-01
+    base: main
+    title: "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01: docs(methodology): add Big Five support common contract"
+    depends_on: []
+    mode: execute
+    train_scope: big5_methodology_trust_science_common_contract
+    status: implementation_in_progress
+    goal: "Define the common Big Five to methodology/trust/science support contract, including allowed and forbidden inputs, output taxonomy, claim boundaries, source classification, public/private boundary rules, and hard HOLD actions."
+    artifacts:
+      - docs/methodology-trust-science/big5-methodology-trust-science-common-contract-2026-06-23.md
+      - docs/methodology-trust-science/big5-methodology-trust-science-common-contract.v1.json
+      - tests/contracts/big5-methodology-trust-science-common-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/methodology-trust-science/big5-methodology-trust-science-common-contract-2026-06-23.md
+      - docs/methodology-trust-science/big5-methodology-trust-science-common-contract.v1.json
+      - tests/contracts/big5-methodology-trust-science-common-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - fap-api mutation
+      - methodology/trust/science page generation
+      - publishable article body
+      - CMS package
+      - CMS write/import/publish/media upload
+      - search submission or provider call
+      - deploy
+      - runtime mutation
+      - analytics instrumentation
+      - private result access
+      - raw OCEAN scores, vectors, percentiles, private attempt ids, report tokens, private URLs, or private report body text
+      - fixed-type, official-32-type, diagnosis, therapy, treatment, hiring, salary, performance, success, relationship, or life-outcome claims
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/methodology-trust-science/big5-methodology-trust-science-common-contract.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/big5-methodology-trust-science-common-contract.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01
+
+  - id: BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-methodology-source-authority-packet-01
+    base: main
+    title: "BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01: docs(methodology): map Big Five source authority"
+    depends_on:
+      - BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: big5_methodology_source_authority_packet
+    status: pending_dependency
+    goal: "Create the Big Five methodology source authority packet by mapping Big Five result-page V2 authority, sanitized asset-agent evidence, method/trust/science CMS/public page authority, source ledger gaps, and backend/CMS authority boundaries."
+    artifacts:
+      - docs/methodology-trust-science/big5-methodology-source-authority-packet-2026-06-23.md
+      - docs/methodology-trust-science/big5-methodology-source-authority-packet.v1.json
+      - tests/contracts/big5-methodology-source-authority-packet.contract.test.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/methodology-trust-science/big5-methodology-source-authority-packet-2026-06-23.md
+      - docs/methodology-trust-science/big5-methodology-source-authority-packet.v1.json
+      - tests/contracts/big5-methodology-source-authority-packet.contract.test.ts
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/methodology-trust-science/big5-methodology-source-authority-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/big5-methodology-source-authority-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01
+
+  - id: BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-methodology-claim-privacy-safety-packet-01
+    base: main
+    title: "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01: docs(methodology): add Big Five safety packet"
+    depends_on:
+      - BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: big5_methodology_claim_privacy_safety_packet
+    status: pending_dependency
+    goal: "Create the Big Five methodology/trust/science claim/privacy/safety packet consuming Safety Gate, Runtime QA, Analytics, and source authority evidence."
+    artifacts:
+      - docs/methodology-trust-science/big5-methodology-claim-privacy-safety-packet-2026-06-23.md
+      - docs/methodology-trust-science/big5-methodology-claim-privacy-safety-packet.v1.json
+      - tests/contracts/big5-methodology-claim-privacy-safety-packet.contract.test.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/methodology-trust-science/big5-methodology-claim-privacy-safety-packet-2026-06-23.md
+      - docs/methodology-trust-science/big5-methodology-claim-privacy-safety-packet.v1.json
+      - tests/contracts/big5-methodology-claim-privacy-safety-packet.contract.test.ts
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/methodology-trust-science/big5-methodology-claim-privacy-safety-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/big5-methodology-claim-privacy-safety-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01
+
+  - id: BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-methodology-candidate-cluster-matrix-01
+    base: main
+    title: "BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01: docs(methodology): add candidate cluster matrix"
+    depends_on:
+      - BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01
+      - BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01
+    mode: execute
+    train_scope: big5_methodology_candidate_cluster_matrix
+    status: pending_dependency
+    goal: "Create the Big Five methodology/trust/science candidate cluster matrix as planning only, without generated pages, CMS packages, or publishable body copy."
+    artifacts:
+      - docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix-2026-06-23.md
+      - docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix.v1.json
+      - tests/contracts/big5-methodology-candidate-cluster-matrix.contract.test.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix-2026-06-23.md
+      - docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix.v1.json
+      - tests/contracts/big5-methodology-candidate-cluster-matrix.contract.test.ts
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/big5-methodology-candidate-cluster-matrix.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: BIG5-METHODOLOGY-TRUST-SCIENCE-READINESS-MATRIX-01
+
+  - id: BIG5-METHODOLOGY-TRUST-SCIENCE-READINESS-MATRIX-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-methodology-readiness-matrix-01
+    base: main
+    title: "BIG5-METHODOLOGY-TRUST-SCIENCE-READINESS-MATRIX-01: docs(methodology): add readiness matrix"
+    depends_on:
+      - BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01
+      - BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01
+      - BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01
+    mode: execute
+    train_scope: big5_methodology_trust_science_readiness_matrix
+    status: pending_dependency
+    goal: "Create the aggregate Big Five methodology/trust/science readiness matrix and keep CMS dry-run, generated pages, publish, search, runtime, and private-data actions HOLD."
+    artifacts:
+      - docs/methodology-trust-science/big5-methodology-trust-science-readiness-matrix-2026-06-23.md
+      - docs/methodology-trust-science/big5-methodology-trust-science-readiness-matrix.v1.json
+      - tests/contracts/big5-methodology-trust-science-readiness-matrix.contract.test.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/methodology-trust-science/big5-methodology-trust-science-readiness-matrix-2026-06-23.md
+      - docs/methodology-trust-science/big5-methodology-trust-science-readiness-matrix.v1.json
+      - tests/contracts/big5-methodology-trust-science-readiness-matrix.contract.test.ts
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/methodology-trust-science/big5-methodology-trust-science-readiness-matrix.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/big5-methodology-trust-science-readiness-matrix.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: BIG5-METHODOLOGY-SOURCE-LEDGER-READINESS-SCAN-01
