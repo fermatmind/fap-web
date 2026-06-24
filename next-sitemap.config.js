@@ -144,7 +144,7 @@ function isIqSeoRampSitemapEligible(authority) {
     authority.authoritySource === "backend_cms_landing_surface" &&
     authority.testSlug === IQ_SEO_RAMP_CANONICAL_SLUG &&
     authority.scaleCode === "IQ_INTELLIGENCE_QUOTIENT" &&
-    authority.formCode === "IQ_BETA_30_ORIGINAL" &&
+    authority.formCode === "IQ_OWNER_ORIGINAL_30" &&
     /^\/(?:en|zh)\/tests\/iq-test-intelligence-quotient-assessment$/i.test(authority.canonicalPath) &&
     readPolicyToken(authority.robots, "index") &&
     !readPolicyToken(authority.robots, "noindex") &&

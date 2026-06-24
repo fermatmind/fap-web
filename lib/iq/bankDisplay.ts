@@ -1,5 +1,4 @@
 import {
-  IQ_BETA_30_BANK_ID,
   IQ_BETA_50_BANK_ID,
   IQ_CANONICAL_SCALE_CODE,
   IQ_OWNER_ORIGINAL_30_BANK_ID,
@@ -7,12 +6,9 @@ import {
 } from "@/lib/iq/constants";
 import type { Locale } from "@/lib/i18n/locales";
 
-export type IqBankDisplayKey = "owner_original_30" | "beta_30" | "beta_50";
+export type IqBankDisplayKey = "owner_original_30" | "beta_50";
 export type IqBankAvailability = "available" | "future_placeholder";
-export type IqBankId =
-  | typeof IQ_OWNER_ORIGINAL_30_BANK_ID
-  | typeof IQ_BETA_30_BANK_ID
-  | typeof IQ_BETA_50_BANK_ID;
+export type IqBankId = typeof IQ_OWNER_ORIGINAL_30_BANK_ID | typeof IQ_BETA_50_BANK_ID;
 
 export type IqBankDisplayModel = {
   key: IqBankDisplayKey;
@@ -79,30 +75,6 @@ export const IQ_BANK_DISPLAY_MODELS: readonly IqBankDisplayModel[] = [
     },
   },
   {
-    key: "beta_30",
-    bankId: IQ_BETA_30_BANK_ID,
-    formCode: IQ_BETA_30_BANK_ID,
-    scaleCode: IQ_CANONICAL_SCALE_CODE,
-    slug: IQ_PUBLIC_SLUG,
-    availability: "available",
-    itemCount: 30,
-    isDefault: false,
-    isTakeEnabled: true,
-    ctaState: "start",
-    labels: {
-      en: "IQ Beta 30",
-      zh: "IQ Beta 30 题",
-    },
-    shortLabels: {
-      en: "30-item beta",
-      zh: "30 题 beta",
-    },
-    descriptions: {
-      en: "Current free FermatMind IQ beta assessment with 30 original reasoning items.",
-      zh: "当前免费的 FermatMind 原创 30 题 IQ beta 测评。",
-    },
-  },
-  {
     key: "beta_50",
     bankId: IQ_BETA_50_BANK_ID,
     formCode: IQ_BETA_50_BANK_ID,
@@ -127,6 +99,8 @@ export const IQ_BANK_DISPLAY_MODELS: readonly IqBankDisplayModel[] = [
     },
   },
 ] as const;
+
+const IQ_BANK_LANDING_DISPLAY_KEYS = new Set<IqBankDisplayKey>(["owner_original_30"]);
 
 function buildIqBankTakeHref(takeHref: string, formCode: IqBankId): string {
   const [path, queryString = ""] = takeHref.split("?");
@@ -183,11 +157,13 @@ export function getIqBankLandingChoices({
   locale: Locale;
   takeHref: string;
 }): IqBankLandingChoice[] {
-  return IQ_BANK_DISPLAY_MODELS.map((model) => ({
-    ...model,
-    ...getIqBankDisplayText(model, locale),
-    href: model.isTakeEnabled ? buildIqBankTakeHref(takeHref, model.formCode) : null,
-    testId: `test-detail-landing-cta-${model.key}`,
-    targetAction: model.isTakeEnabled ? `start_${model.key}` : `preview_${model.key}`,
-  }));
+  return IQ_BANK_DISPLAY_MODELS
+    .filter((model) => IQ_BANK_LANDING_DISPLAY_KEYS.has(model.key))
+    .map((model) => ({
+      ...model,
+      ...getIqBankDisplayText(model, locale),
+      href: model.isTakeEnabled ? buildIqBankTakeHref(takeHref, model.formCode) : null,
+      testId: `test-detail-landing-cta-${model.key}`,
+      targetAction: model.isTakeEnabled ? `start_${model.key}` : `preview_${model.key}`,
+    }));
 }

@@ -5,15 +5,15 @@ import type { HubTestCardItem, TestsHubContent } from "@/lib/marketing/testsHubC
 import type { Locale } from "@/lib/i18n/locales";
 
 const IQ_MEDIA_AUTHORITY = {
-  asset_key: "iq-beta30-original-card",
+  asset_key: "iq-owner-original-30-card",
   source: "media_library_required",
   authority: "backend_cms_media_library",
   status: "metadata_only_no_frontend_asset",
   fallback_allowed: false,
   alt: "Original IQ reasoning practice card",
   variants: {
-    card_asset_key: "iq-beta30-original-card",
-    og_asset_key: "iq-beta30-original-og",
+    card_asset_key: "iq-owner-original-30-card",
+    og_asset_key: "iq-owner-original-30-og",
     report_cover_asset_key: "iq-full-report-cover",
   },
 };

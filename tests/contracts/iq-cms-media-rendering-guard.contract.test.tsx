@@ -33,7 +33,7 @@ describe("IQ CMS media rendering guard", () => {
     expect(card).toBeTruthy();
 
     const shell = within(card as HTMLElement).getByTestId("cms-media-authority-shell");
-    expect(shell).toHaveAttribute("data-asset-key", "iq-beta30-original-card");
+    expect(shell).toHaveAttribute("data-asset-key", "iq-owner-original-30-card");
     expect(shell).toHaveAttribute("data-media-state", "metadata-only");
     expect(shell).toHaveAttribute("data-surface", "home_quick_start");
     expect(shell).toHaveClass("sr-only");
@@ -52,7 +52,7 @@ describe("IQ CMS media rendering guard", () => {
     expect(card).toBeTruthy();
 
     const shell = within(card as HTMLElement).getByTestId("cms-media-authority-shell");
-    expect(shell).toHaveAttribute("data-asset-key", "iq-beta30-original-card");
+    expect(shell).toHaveAttribute("data-asset-key", "iq-owner-original-30-card");
     expect(shell).toHaveAttribute("data-surface", "tests_hub_card");
     expect(shell).toHaveClass("sr-only");
     expect(within(card as HTMLElement).queryByRole("img", { name: /IQ|智商/i })).not.toBeInTheDocument();
@@ -60,7 +60,7 @@ describe("IQ CMS media rendering guard", () => {
 
   it("uses a minimal shell when backend media authority metadata is missing or unsafe", () => {
     const unsafe = {
-      asset_key: "iq-beta30-original-card",
+      asset_key: "iq-owner-original-30-card",
       source: "frontend_static",
       fallback_allowed: true,
     };

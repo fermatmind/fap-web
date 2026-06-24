@@ -787,12 +787,12 @@ function IqBankLandingChooser({
     >
       <div className="space-y-2">
         <h2 className="m-0 text-[1.15rem] font-semibold tracking-[-0.03em] text-slate-950">
-          {locale === "zh" ? "选择 IQ 测试表单" : "Choose an IQ form"}
+          {locale === "zh" ? "选择 IQ 测试" : "Choose an IQ test"}
         </h2>
         <p className="m-0 max-w-[42rem] text-sm leading-7 text-slate-600">
           {locale === "zh"
-            ? "当前只开放 30 题 beta；50 题 beta 是未来占位，后端 gate 未完成前不提供答题入口。"
-            : "Only the 30-item beta is available now. The 50-item beta is a future placeholder and has no take entry until backend gates are complete."}
+            ? "当前只开放 FermatMind 原创 30 题 IQ 测评，题库交由后端私有评分。"
+            : "The FermatMind owner-original 30-item IQ assessment is available now with private backend scoring."}
         </p>
       </div>
 
@@ -1046,7 +1046,7 @@ export default async function TestLandingPage({
     : showsRiasecActions
     ? getRiasecQuestionSummary(locale)
     : showsIqActions
-    ? locale === "zh" ? "30题/50题" : "30Q/50Q"
+    ? locale === "zh" ? "30题" : "30Q"
     : `${test.questions_count} ${locale === "zh" ? "题" : "questions"}`;
   const durationSummary = showsMbtiActions
     ? getMbtiDurationSummary(locale)

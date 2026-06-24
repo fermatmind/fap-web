@@ -186,7 +186,7 @@ function hasBackendSeoRampAuthority(authority: IqSeoRampAuthority | null | undef
     authority.authoritySource === "backend_cms_landing_surface" &&
     authority.testSlug === IQ_LAUNCH_CANONICAL_SLUG &&
     authority.scaleCode === "IQ_INTELLIGENCE_QUOTIENT" &&
-    authority.formCode === "IQ_BETA_30_ORIGINAL" &&
+    authority.formCode === "IQ_OWNER_ORIGINAL_30" &&
     isExpectedIqCanonicalPath(authority) &&
     hasPolicyToken(authority.robots, "index") &&
     !hasPolicyToken(authority.robots, "noindex") &&
