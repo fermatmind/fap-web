@@ -290,6 +290,7 @@ export default async function TopicDetailPage({
         >
           <div className="space-y-2">
             <h2 className="m-0 font-serif text-xl font-semibold text-[var(--fm-text)]">
+              {/* Contract marker: MBTI type continue grid */}
               {locale === "zh" ? "MBTI 类型延伸入口" : "Continue with MBTI types"}
             </h2>
             <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">

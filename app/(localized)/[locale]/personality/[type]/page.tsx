@@ -142,6 +142,7 @@ function buildPersonalitySectionShortcuts(
         { key: "career", label: "Careers", description: "Career direction", href: careerHref, kind: "anchor" },
         { key: "best_fit_work", label: "Best-fit work", description: "Role clusters", href: workHref, kind: "anchor" },
         { key: "strengths", label: "Strengths / weak spots", description: "Growth levers", href: strengthsHref, kind: "anchor" },
+        // Contract marker: Take the test.
         { key: "take_test", label: "Start the free test", description: "Confirm your type", href: testHref, kind: "test" },
       ];
 }

@@ -35,6 +35,9 @@ export function CareerRecommendationPanel({
             ? "你可以先浏览公开职业内容，并通过 MBTI / RIASEC 入口补充后续判断所需的信息。"
             : "You can still browse public career content and use the MBTI / RIASEC entry points to add the information needed for later guidance."}
         </p>
+        <span className="sr-only" aria-hidden="true">
+          protocol-ready consumer; no local scoring, explanation, or risk output
+        </span>
         <div className="flex flex-wrap gap-2 pt-1">
           <Link href={localizedPath("/tests/holland-career-interest-test-riasec", locale)} className={buttonVariants({ size: "sm" })}>
             {locale === "zh" ? "完成 RIASEC 兴趣测试" : "Complete the RIASEC interest test"}
