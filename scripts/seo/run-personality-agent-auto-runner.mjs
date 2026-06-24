@@ -6,6 +6,10 @@ const ROOT = process.cwd();
 const GENERATED_DATE =
   getArgValue("--generated-date") ?? process.env.PERSONALITY_AGENT_AUTO_RUNNER_DATE ?? "2026-06-24";
 const FRAMEWORK = getArgValue("--framework") ?? "mbti64";
+const SCHEDULER_ACTIVATION =
+  getArgValue("--scheduler-activation") ??
+  process.env.PERSONALITY_AGENT_SCHEDULER_ACTIVATION ??
+  "not_enabled_in_this_pr";
 
 const GSC_STABILIZE_PATH = resolveRepoPath(
   getArgValue("--gsc-stabilize") ??
@@ -66,6 +70,12 @@ function count(value) {
 function assertFrameworkSupported(framework) {
   if (!["mbti64", "big_five", "enneagram"].includes(framework)) {
     throw new Error(`unsupported framework: ${framework}`);
+  }
+}
+
+function assertSchedulerActivationSupported(value) {
+  if (!["not_enabled_in_this_pr", "scheduled_actions_artifact_only_enabled"].includes(value)) {
+    throw new Error(`unsupported scheduler activation: ${value}`);
   }
 }
 
@@ -167,6 +177,7 @@ function toCsv(rows) {
 
 async function main() {
   assertFrameworkSupported(FRAMEWORK);
+  assertSchedulerActivationSupported(SCHEDULER_ACTIVATION);
 
   const [gscStabilize, priorityRanker, rerunLoop, referencePack, recommendations, qa] = await Promise.all([
     readJson(GSC_STABILIZE_PATH),
@@ -194,7 +205,9 @@ async function main() {
     status: blockers.length === 0 ? "pass" : "fail",
     final_decision:
       blockers.length === 0
-        ? "PASS_MANUAL_SCHEDULER_READY_NO_UNATTENDED_CRON"
+        ? SCHEDULER_ACTIVATION === "scheduled_actions_artifact_only_enabled"
+          ? "PASS_SCHEDULED_ACTIONS_ARTIFACT_ONLY_ENABLED"
+          : "PASS_MANUAL_SCHEDULER_READY_NO_UNATTENDED_CRON"
         : "NO_GO_AUTO_RUNNER_BLOCKED",
     input_artifacts: {
       gsc_stabilize: rel(GSC_STABILIZE_PATH),
@@ -205,7 +218,10 @@ async function main() {
       qa: rel(QA_PATH),
     },
     runner_contract: {
-      mode: "manual_scheduler_ready_artifact_only",
+      mode:
+        SCHEDULER_ACTIVATION === "scheduled_actions_artifact_only_enabled"
+          ? "scheduled_actions_artifact_only"
+          : "manual_scheduler_ready_artifact_only",
       enabled_frameworks_v1: ["mbti64"],
       future_framework_slots: ["big_five", "enneagram"],
       input_sequence: [
@@ -223,7 +239,7 @@ async function main() {
         "qa_summary",
         "blocked_or_ready_decision",
       ],
-      scheduler_activation: "not_enabled_in_this_pr",
+      scheduler_activation: SCHEDULER_ACTIVATION,
     },
     summary: {
       cohort_url_count: count(priorityRanker.summary?.total_urls),
@@ -257,14 +273,17 @@ async function main() {
       sitemap_llms_mutation_attempted: false,
       gsc_request_indexing_attempted: false,
       production_deploy_attempted: false,
-      unattended_cron_enabled: false,
+      unattended_cron_enabled: SCHEDULER_ACTIVATION === "scheduled_actions_artifact_only_enabled",
     },
     blockers,
     warnings,
     recommended_next_tasks: {
       ready_draft_review_queue: "MBTI64-CMS-PROJECTION-DRAFT-VISIBLE-3-DRY-RUN-01",
       hold_for_query_evidence_queue: "MBTI64-GSC-API-READONLY-INTEGRATION-01_DEPLOY_AND_EXPORT",
-      scheduler_activation: "PERSONALITY-AGENT-AUTO-RUNNER-SCHEDULER-ACTIVATION-01_SEPARATE_PR",
+      scheduler_activation:
+        SCHEDULER_ACTIVATION === "scheduled_actions_artifact_only_enabled"
+          ? "enabled_via_github_actions_artifact_only"
+          : "PERSONALITY-AGENT-AUTO-RUNNER-SCHEDULER-ACTIVATION-01_SEPARATE_PR",
       approval_queue: "PERSONALITY-AGENT-HUMAN-APPROVAL-QUEUE-01",
     },
   };
@@ -284,7 +303,9 @@ async function main() {
     "",
     "- Reads GSC evidence, the MBTI64 cohort, the optimized pilot reference pack, ranker output, recommendation artifacts, and QA artifacts.",
     "- Emits a run manifest, ready queue, hold queue, QA requirements, and next-step decisions.",
-    "- This PR is scheduler-ready only; it does not enable unattended cron.",
+    SCHEDULER_ACTIVATION === "scheduled_actions_artifact_only_enabled"
+      ? "- Scheduled GitHub Actions execution is enabled in artifact-only mode; it does not write CMS or mutate search/deploy surfaces."
+      : "- This PR is scheduler-ready only; it does not enable unattended cron.",
     "- CMS draft writing, live promotion, and Search Queue release remain separate gates.",
     "",
     "## Summary",
@@ -308,7 +329,7 @@ async function main() {
     "",
     "## Safety Boundary",
     "",
-    "- No CMS write, live promotion, frontend runtime change, Search Queue mutation, live search submit, sitemap/llms mutation, Request Indexing action, production deploy, or unattended cron activation was performed.",
+    "- No CMS write, live promotion, frontend runtime change, Search Queue mutation, live search submit, sitemap/llms mutation, Request Indexing action, or production deploy was performed.",
     "",
     "## Blockers",
     "",
