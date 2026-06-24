@@ -13051,7 +13051,7 @@
       "branch": "codex/take-frontend-locale-contract-04",
       "base": "main",
       "depends_on": [],
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/919",
       "commit_sha": "c84b5eafb85dd1987dfe234bb7c8e37ac9f12d60",
       "merge_sha": "4300470c39de49e3ad21d79a4bb90ffcad70a55c",
@@ -28175,7 +28175,7 @@
         "ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01",
         "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01"
       ],
-      "commit_sha": "59e6bdcf36f6b1a4d89ca591634a4acd4fb48c62",
+      "commit_sha": "aedea03c873d79eca93a98be21e01db68b0db09a",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1397",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -28218,9 +28218,13 @@
           "evidence": "JSON and YAML parse passed; focused candidate cluster contract passed 8 tests; pnpm typecheck passed; pnpm test:contract passed with 560 files and 3295 tests; git diff --check and changed-file scope validation passed for exactly 4 changed files in the authorized candidate-cluster scope."
         },
         "pull_request": {
-          "status": "open",
+          "status": "open_ready_to_merge",
           "url": "https://github.com/fermatmind/fap-web/pull/1397",
           "evidence": "Opened PR #1397 for ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01 from branch codex/enneagram-public-personality-candidate-cluster-packet-01."
+        },
+        "github_checks": {
+          "status": "pass",
+          "evidence": "GitHub checks passed on PR #1397 head aedea03c873d79eca93a98be21e01db68b0db09a after reconciling stale PR-PRAC-01 train state required by page-family-runtime-coverage: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         }
       },
       "sidecar_issues": [],
@@ -28244,6 +28248,21 @@
           "at": "2026-06-24T17:30:35+08:00",
           "status": "pr_opened",
           "note": "Opened PR #1397 at https://github.com/fermatmind/fap-web/pull/1397 from commit 59e6bdcf36f6b1a4d89ca591634a4acd4fb48c62."
+        },
+        {
+          "at": "2026-06-24T17:36:00+08:00",
+          "status": "github_checks_failed",
+          "note": "PR #1397 contracts check failed on head 26409c69 because page-family-runtime-coverage expected PR-PRAC-01 status merged but the branch had reverted that stale ledger reconciliation to ready_to_merge."
+        },
+        {
+          "at": "2026-06-24T17:41:25+08:00",
+          "status": "github_checks_fixed",
+          "note": "Pushed aedea03c to restore PR-PRAC-01 status merged in docs/codex/pr-train-state.json; local page-family-runtime-coverage plus candidate-cluster focused contracts passed, and full pnpm test:contract passed 560 files and 3295 tests."
+        },
+        {
+          "at": "2026-06-24T17:45:35+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed for PR #1397 on head aedea03c with build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL successful. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
     },
