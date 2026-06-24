@@ -17592,3 +17592,265 @@ prs:
       squash: true
       auto_merge: true
     next_task: RIASEC-GAOKAO-MAJOR-CLUSTER-PLAN-01
+
+  - id: ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/enneagram-public-personality-handoff-common-contract-01
+    base: main
+    title: "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01: docs(public-personality): add handoff common contract"
+    depends_on: []
+    mode: execute
+    train_scope: enneagram_public_personality_handoff_common_contract
+    status: in_progress
+    goal: "Define the common Enneagram Result Page Agent to Public Personality Content Agent handoff contract, public-safe input vocabulary, forbidden private fields, safe output taxonomy, claim boundaries, source classification, and hard HOLD actions."
+    artifacts:
+      - docs/public-personality/enneagram-public-personality-handoff-common-contract-2026-06-23.md
+      - docs/public-personality/enneagram-public-personality-handoff-common-contract.v1.json
+      - tests/contracts/enneagram-public-personality-handoff-common-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/public-personality/enneagram-public-personality-handoff-common-contract-2026-06-23.md
+      - docs/public-personality/enneagram-public-personality-handoff-common-contract.v1.json
+      - tests/contracts/enneagram-public-personality-handoff-common-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - generated/**
+      - fap-api mutation
+      - public personality content generation
+      - CMS package generation
+      - CMS writes, publish, search submission, provider calls, deploy, private data access, generated pages, generated SEO artifacts, backend import, or candidate activation
+    required_local_checks:
+      - python3 -m json.tool docs/public-personality/enneagram-public-personality-handoff-common-contract.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/enneagram-public-personality-handoff-common-contract.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01
+
+  - id: ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/enneagram-public-personality-source-authority-packet-01
+    base: main
+    title: "ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01: docs(public-personality): add source authority packet"
+    depends_on:
+      - ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: enneagram_public_personality_source_authority_packet
+    status: pending_dependency
+    goal: "Map backend/public-safe Enneagram sources that may feed the Public Personality Content Agent and identify missing public personality source ledger gaps, using fap-api as read-only evidence only."
+    artifacts:
+      - docs/public-personality/enneagram-public-personality-source-authority-packet-2026-06-23.md
+      - docs/public-personality/enneagram-public-personality-source-authority-packet.v1.json
+      - tests/contracts/enneagram-public-personality-source-authority-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/public-personality/enneagram-public-personality-source-authority-packet-2026-06-23.md
+      - docs/public-personality/enneagram-public-personality-source-authority-packet.v1.json
+      - tests/contracts/enneagram-public-personality-source-authority-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - fap-api mutation
+      - backend readiness or ops commands
+      - generated public profile assets
+      - CMS package generation
+      - route indexability, sitemap, llms, search, CMS writes, publish, provider calls, deploy, private data access, backend import, or candidate activation
+    required_local_checks:
+      - python3 -m json.tool docs/public-personality/enneagram-public-personality-source-authority-packet.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/enneagram-public-personality-source-authority-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01
+
+  - id: ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/enneagram-public-personality-claim-safety-packet-01
+    base: main
+    title: "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01: docs(public-personality): add claim safety packet"
+    depends_on:
+      - ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: enneagram_public_personality_claim_safety_packet
+    status: pending_dependency
+    goal: "Create the Enneagram Public Personality claim and safety packet consuming Safety Gate, Runtime QA, Analytics, common contract, and source authority evidence by reference."
+    artifacts:
+      - docs/public-personality/enneagram-public-personality-claim-safety-packet-2026-06-23.md
+      - docs/public-personality/enneagram-public-personality-claim-safety-packet.v1.json
+      - tests/contracts/enneagram-public-personality-claim-safety-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/public-personality/enneagram-public-personality-claim-safety-packet-2026-06-23.md
+      - docs/public-personality/enneagram-public-personality-claim-safety-packet.v1.json
+      - tests/contracts/enneagram-public-personality-claim-safety-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - public profile content generation
+      - generated pages
+      - CMS package generation
+      - CMS writes, publish, search submission, provider calls, deploy, runtime mutation, private data access, backend import, or candidate activation
+    required_local_checks:
+      - python3 -m json.tool docs/public-personality/enneagram-public-personality-claim-safety-packet.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/enneagram-public-personality-claim-safety-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01
+
+  - id: ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/enneagram-public-personality-candidate-cluster-packet-01
+    base: main
+    title: "ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01: docs(public-personality): add candidate cluster packet"
+    depends_on:
+      - ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01
+      - ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01
+    mode: execute
+    train_scope: enneagram_public_personality_candidate_cluster_packet
+    status: pending_dependency
+    goal: "Create a planning-only Enneagram Public Personality candidate cluster packet with safe cluster families and review requirements, without generated pages, CMS payloads, or publishable body copy."
+    artifacts:
+      - docs/public-personality/enneagram-public-personality-candidate-cluster-packet-2026-06-23.md
+      - docs/public-personality/enneagram-public-personality-candidate-cluster-packet.v1.json
+      - tests/contracts/enneagram-public-personality-candidate-cluster-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/public-personality/enneagram-public-personality-candidate-cluster-packet-2026-06-23.md
+      - docs/public-personality/enneagram-public-personality-candidate-cluster-packet.v1.json
+      - tests/contracts/enneagram-public-personality-candidate-cluster-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - publishable article body
+      - CMS payload
+      - final title or meta to publish
+      - generated public profile page content
+      - private-result-based profile content
+      - score or dominance based content
+      - deterministic type assignment
+      - clinical, therapy, relationship, hiring, salary, performance, or success prediction
+    required_local_checks:
+      - python3 -m json.tool docs/public-personality/enneagram-public-personality-candidate-cluster-packet.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/enneagram-public-personality-candidate-cluster-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-MATRIX-01
+
+  - id: ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-MATRIX-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/enneagram-public-personality-handoff-matrix-01
+    base: main
+    title: "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-MATRIX-01: docs(public-personality): add handoff readiness matrix"
+    depends_on:
+      - ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01
+      - ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01
+      - ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01
+    mode: execute
+    train_scope: enneagram_public_personality_handoff_matrix
+    status: pending_dependency
+    goal: "Create the aggregate Enneagram to Public Personality handoff readiness matrix and keep runtime, CMS, search, private-data, generated pages, backend import, candidate activation, and final-type-certainty actions HOLD or BLOCKED."
+    artifacts:
+      - docs/public-personality/enneagram-public-personality-handoff-matrix-2026-06-23.md
+      - docs/public-personality/enneagram-public-personality-handoff-matrix.v1.json
+      - tests/contracts/enneagram-public-personality-handoff-matrix.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/public-personality/enneagram-public-personality-handoff-matrix-2026-06-23.md
+      - docs/public-personality/enneagram-public-personality-handoff-matrix.v1.json
+      - tests/contracts/enneagram-public-personality-handoff-matrix.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - CMS dry-run execution
+      - generated pages
+      - public personality runtime mutation
+      - backend import
+      - candidate activation
+      - search/provider/SEO mutation
+      - raw private data
+      - private result text
+      - final type certainty
+      - diagnosis, therapy, treatment, hiring, salary, performance, success, or relationship claims
+    required_local_checks:
+      - python3 -m json.tool docs/public-personality/enneagram-public-personality-handoff-matrix.v1.json >/dev/null
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - pnpm exec vitest run tests/contracts/enneagram-public-personality-handoff-matrix.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-LEDGER-READINESS-SCAN-01
