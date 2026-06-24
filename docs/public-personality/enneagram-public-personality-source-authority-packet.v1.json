@@ -1,0 +1,206 @@
+{
+  "schema_version": "fermatmind.enneagram_public_personality_source_authority_packet.v1",
+  "task_id": "ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01",
+  "verdict": "MAPPED_PARTIAL",
+  "run_mode": "docs_contracts_only",
+  "dependency": {
+    "task_id": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01",
+    "status": "MERGED",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1386",
+    "merge_commit": "2f7deb6e3b594267ea1ade7c01bfbe3e8d749f21"
+  },
+  "producing_agent": "enneagram_result_page",
+  "receiving_agent": "public_personality_content",
+  "scale_code": "ENNEAGRAM",
+  "canonical_test_slug": "enneagram-personality-test-nine-types",
+  "first_public_personality_scope": [
+    "hub",
+    "3_centers_or_triads_if_source_authority_supports",
+    "9_core_types"
+  ],
+  "source_repositories": {
+    "primary_repo": "fap-web",
+    "secondary_repo": "fap-api",
+    "fap_api_access_mode": "read_only_evidence_source_only",
+    "fap_api_mutation": "none",
+    "private_data_access": "none"
+  },
+  "consumed_sources": [
+    {
+      "id": "common_handoff_contract",
+      "repo": "fap-web",
+      "path": "docs/public-personality/enneagram-public-personality-handoff-common-contract.v1.json",
+      "classification": "result_page_readiness_handoff",
+      "observed_status": "READY_FOR_POLICY_HANDOFF"
+    },
+    {
+      "id": "standard_alignment_proposal",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json",
+      "classification": "result_page_readiness_handoff",
+      "observed_status": "ENNEAGRAM_RESULT_PAGE_AGENT_STANDARD_ALIGNED",
+      "current_readiness": "ready_readonly"
+    },
+    {
+      "id": "runtime_qa_consumption_packet",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/enneagram-runtime-qa-consumption-packet.v1.json",
+      "classification": "runtime_qa_handoff",
+      "observed_status": "READY_TO_CONSUME_BY_RUNTIME_QA",
+      "runtime_status": "HOLD"
+    },
+    {
+      "id": "analytics_consumption_packet",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/enneagram-analytics-consumption-packet.v1.json",
+      "classification": "analytics_handoff",
+      "observed_status": "READY_TO_CONSUME_BY_ANALYTICS",
+      "event_emission_status": "HOLD"
+    },
+    {
+      "id": "safety_gate_consumption_packet",
+      "repo": "fap-web",
+      "path": "docs/result-page-agents/enneagram-safety-gate-consumption-packet.v1.json",
+      "classification": "claim_safety_gate_artifact",
+      "observed_status": "READY_TO_CONSUME_BY_SAFETY_GATE",
+      "candidate_generation_status": "HOLD"
+    },
+    {
+      "id": "backend_source_ledger",
+      "repo": "fap-api",
+      "path": "backend/content_assets/enneagram/result_page/source_ledger/source_ledger.json",
+      "classification": "backend_authority_public_content_asset",
+      "observed_status": "backend_result_page_source_ledger_exists",
+      "public_personality_source_ledger_state": "missing"
+    },
+    {
+      "id": "backend_public_projection_service",
+      "repo": "fap-api",
+      "path": "backend/app/Services/Enneagram/EnneagramPublicProjectionService.php",
+      "classification": "backend_authority_public_content_asset",
+      "observed_contract": "public_projection_service",
+      "consumption_rule": "reviewed_public_projection_only"
+    },
+    {
+      "id": "backend_report_composer",
+      "repo": "fap-api",
+      "path": "backend/app/Services/Report/EnneagramReportComposer.php",
+      "classification": "backend_authority_public_share_summary",
+      "observed_boundary": "report_projection_composer_not_public_profile_authority"
+    },
+    {
+      "id": "backend_share_summary_contracts",
+      "repo": "fap-api",
+      "path": "backend/tests/Feature/V0_3/EnneagramShareSummaryContractTest.php",
+      "classification": "backend_authority_public_share_summary",
+      "observed_boundary": "public_summary_scope_only"
+    },
+    {
+      "id": "fap_web_public_profile_boundary_contract",
+      "repo": "fap-web",
+      "path": "tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts",
+      "classification": "frontend_consumer_contract_not_authority",
+      "observed_status": "noindex_public_personality_boundary_exists",
+      "runtime_authority": false
+    }
+  ],
+  "authority_assertions": {
+    "public_personality_agent_consumes": "reviewed_public_safe_sources_only",
+    "backend_public_projection_stronger_than_fap_web_fallback": true,
+    "frontend_consumer_contract_is_content_authority": false,
+    "private_result_text_is_content_authority": false,
+    "unreviewed_candidate_payload_is_content_authority": false,
+    "public_personality_source_ledger_required_before_generation": true,
+    "first_scope_may_plan_hub_and_9_core_types": true,
+    "centers_or_triads_require_source_authority_confirmation": true,
+    "wing_or_instinct_pages_may_be_promoted": false
+  },
+  "allowed_source_classes": [
+    "backend_authority_public_content_asset",
+    "backend_authority_public_share_summary",
+    "result_page_readiness_handoff",
+    "runtime_qa_handoff",
+    "analytics_handoff",
+    "claim_safety_gate_artifact",
+    "frontend_consumer_contract_not_authority"
+  ],
+  "blocked_source_classes": [
+    "public_personality_source_ledger_missing",
+    "blocked_private_or_unreviewed_source",
+    "raw_private_result_payload",
+    "private_report_text",
+    "frontend_fallback_copy_as_authority",
+    "generated_candidate_payload_not_public_safe",
+    "live_private_sample",
+    "provider_output",
+    "cms_draft_without_review_ledger"
+  ],
+  "missing_or_blocked_authority": [
+    {
+      "gap": "public_personality_source_ledger",
+      "status": "missing",
+      "required_follow_up": "create reviewed public personality source ledger before content generation or CMS dry run"
+    },
+    {
+      "gap": "centers_or_triads_source_authority",
+      "status": "conditional",
+      "required_follow_up": "confirm backend-authoritative public taxonomy before center or triad page planning"
+    },
+    {
+      "gap": "wing_and_instinct_public_page_authority",
+      "status": "blocked",
+      "required_follow_up": "do not promote wing, instinct, subtype, or 54 wing x instinct pages in first scope"
+    },
+    {
+      "gap": "cms_generation_package",
+      "status": "missing",
+      "required_follow_up": "separate cms dry-run readiness scan after source, claim, and candidate packets merge"
+    }
+  ],
+  "hold_actions": [
+    "cms",
+    "publish",
+    "search_submission",
+    "provider_calls",
+    "deploy",
+    "runtime_instrumentation",
+    "public_personality_runtime_mutation",
+    "generated_pages",
+    "backend_import",
+    "candidate_activation",
+    "candidate_payload_generation",
+    "private_data",
+    "private_result_text",
+    "event_emission",
+    "production_metric_backfill",
+    "opportunity_scoring",
+    "source_ledger_write",
+    "fap_api_mutation"
+  ],
+  "negative_guarantees": {
+    "fap_api_mutation": "none",
+    "runtime_code_changed": "no",
+    "public_personality_runtime_mutation": "none",
+    "cms_writes": "none",
+    "cms_package_generation": "none",
+    "publish_action": "none",
+    "search_submission": "none",
+    "provider_calls": "none",
+    "deployment_triggered": "no",
+    "backend_import": "none",
+    "candidate_activation": "none",
+    "candidate_payload_generated": "no",
+    "generated_pages": "none",
+    "event_emission": "none",
+    "production_metric_backfill": "none",
+    "opportunity_scoring": "none",
+    "raw_private_result_accessed": "none",
+    "private_result_text_reused": "none"
+  },
+  "next_safe_output": {
+    "task_id": "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01",
+    "output": "claim_safety_packet",
+    "status": "ALLOWED_AFTER_MERGE",
+    "requires_separate_pr_scope": true
+  }
+}
