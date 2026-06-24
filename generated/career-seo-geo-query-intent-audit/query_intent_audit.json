@@ -1,0 +1,19 @@
+{
+  "generated_at": "2026-06-24T14:55:44.759Z",
+  "final_conclusion": "CAREER_QUERY_INTENT_LIVE_SCAN_REPAIRED",
+  "row_count": 2092,
+  "slug_count": 1046,
+  "live_page_200": 2092,
+  "api_200": 2092,
+  "internal_leakage_count": 0,
+  "canonical_failure_count": 0,
+  "noindex_count": 0,
+  "intent_gap_count": 12261,
+  "live_failure_count": 0,
+  "candidate_only": true,
+  "runtime_modified": false,
+  "seo_runtime_modified": false,
+  "cms_written": false,
+  "live_scan_repair_plan_rows": 0,
+  "live_scan_repair_plan": "generated/career-seo-geo-query-intent-audit/live_scan_repair_plan.csv"
+}

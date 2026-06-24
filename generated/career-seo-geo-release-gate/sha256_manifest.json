@@ -1,0 +1,111 @@
+{
+  "generated_at": "2026-06-24T14:55:44.762Z",
+  "file_count": 21,
+  "files": [
+    {
+      "path": "generated/career-query-intent-projection-candidates/faq_candidate_review.csv",
+      "sha256": "aeec524f4e9ec1798009761c826a1d50c90004bf449d0d6acf71ed6635f5c0fb",
+      "bytes": 683944
+    },
+    {
+      "path": "generated/career-query-intent-projection-candidates/internal_link_anchor_candidate.csv",
+      "sha256": "fc000d76a289a4f9262688808090fd6a9cf1fb8835ee3894263b5a2f957d5329",
+      "bytes": 619095
+    },
+    {
+      "path": "generated/career-query-intent-projection-candidates/search_projection_candidate.csv",
+      "sha256": "ed38bd1daf784b2a49b615295a656b7f9be95147cccef74208b4c9879a429a56",
+      "bytes": 1187770
+    },
+    {
+      "path": "generated/career-query-intent-projection-candidates/search_projection_candidate.jsonl",
+      "sha256": "fdf199e6d96bd5f9e40c8edda957778f51fdd78c754090b0b806f189a8e8b4fb",
+      "bytes": 2261115
+    },
+    {
+      "path": "generated/career-query-intent-projection-candidates/snippet_candidate_review.csv",
+      "sha256": "5a9f960689070720ab68438d326b09bed22a6063531b578de941472417e3cd48",
+      "bytes": 471240
+    },
+    {
+      "path": "generated/career-seo-geo-query-intent-audit/intent_gap_report.csv",
+      "sha256": "a443b2d9a7cb72d349235920f603a225e3c16ba22b3eae27c286587f8fee2357",
+      "bytes": 625304
+    },
+    {
+      "path": "generated/career-seo-geo-query-intent-audit/live_page_scan.csv",
+      "sha256": "4ac61053fbfaed9c73eaa53aed11f82b3426bfdfe5466d97a5acc6c8d137db02",
+      "bytes": 2060823
+    },
+    {
+      "path": "generated/career-seo-geo-query-intent-audit/live_scan_repair_plan.csv",
+      "sha256": "5e668ede7d3dc439b612a693ce96f4428cdb7e363df8fe837d31ab4efc6abb91",
+      "bytes": 68
+    },
+    {
+      "path": "generated/career-seo-geo-query-intent-audit/live_scan_rerun_report.json",
+      "sha256": "b801abc2290db17a0f216a3e6f68efa17c2660891429e06474ffb1360a398707",
+      "bytes": 331
+    },
+    {
+      "path": "generated/career-seo-geo-query-intent-audit/live_scan_rerun_report.md",
+      "sha256": "3f2a6c254537bffea33a79bdb561e1d2a6ccc45f090d626e9932ae3c363032f8",
+      "bytes": 395
+    },
+    {
+      "path": "generated/career-seo-geo-query-intent-audit/per_slug_intent_matrix.csv",
+      "sha256": "291a420eba6202936e28651818f361aac5607a447926a26f86731bb64f153f4e",
+      "bytes": 482227
+    },
+    {
+      "path": "generated/career-seo-geo-query-intent-audit/query_intent_audit.json",
+      "sha256": "e3c33e5ff44774eb1541d569514bbb5beb043ccb1547166f2cf1478b44de2f13",
+      "bytes": 588
+    },
+    {
+      "path": "generated/career-seo-geo-query-intent-audit/query_intent_audit.md",
+      "sha256": "8f43814231cdffee344cbb4277fa7edbb005bf7e8c76c6afb26fcaf4467a5aba",
+      "bytes": 710
+    },
+    {
+      "path": "generated/career-seo-geo-query-intent-audit/rerun_live_scan_failures.mjs",
+      "sha256": "5f6461d4a17cbbb6b5cb88089a170d763292a353e555d5850e391e07e8cfb8a7",
+      "bytes": 13312
+    },
+    {
+      "path": "generated/career-seo-geo-query-intent-audit/run_career_query_intent_candidate_layer.mjs",
+      "sha256": "7e53d2f5d2176b81820dc49ee0a18dc0b3ef22497aea582e0a39a19b3328bc83",
+      "bytes": 22536
+    },
+    {
+      "path": "generated/career-seo-geo-query-intent-audit/source_block_inventory.csv",
+      "sha256": "f94341e4a072e45adf824f765f6cf2314c76da21b83e8d9961a381171e047755",
+      "bytes": 208843
+    },
+    {
+      "path": "generated/career-seo-geo-release-gate/allowed_runtime_fields.csv",
+      "sha256": "8df76573f2bb998f092fd370f52d3d1e133c201553dab3cbbd4b4a0b16d0029a",
+      "bytes": 409754
+    },
+    {
+      "path": "generated/career-seo-geo-release-gate/blocked_candidates.csv",
+      "sha256": "6b25e49b41ae32b88559796bb68a5566f0b91ec5f02b4ac6ee4c5a971c0b5a8f",
+      "bytes": 42
+    },
+    {
+      "path": "generated/career-seo-geo-release-gate/release_gate_report.json",
+      "sha256": "fcac74ebee11e259e1f923bc06c0e01a4fcf38c37283d4cadbae64d25bb7cbf6",
+      "bytes": 352
+    },
+    {
+      "path": "generated/career-seo-geo-release-gate/release_gate_report.md",
+      "sha256": "80f189ae388f2ba52a85a28f7db2a4c419e603ee7e4cafbc5e25cd8427262940",
+      "bytes": 362
+    },
+    {
+      "path": "generated/career-seo-geo-release-gate/seo_surface_nochange_verification.json",
+      "sha256": "5a8a2a49119fd84bfc576b91eba5a95de53eb31681fdae418a4e6cdd25d08efd",
+      "bytes": 281
+    }
+  ]
+}

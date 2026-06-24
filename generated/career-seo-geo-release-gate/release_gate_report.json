@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-06-24T14:32:51.011Z",
+  "final_conclusion": "SEO_GEO_RELEASE_GATE_CANDIDATES_QUARANTINED",
+  "candidate_rows": 2092,
+  "blocked_candidate_count": 0,
+  "allowed_for_future_review_count": 2092,
+  "runtime_approved_count": 0,
+  "runtime_modified": false,
+  "seo_runtime_modified": false,
+  "release_requires_separate_pr": true
+}
