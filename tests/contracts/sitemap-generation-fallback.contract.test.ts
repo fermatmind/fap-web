@@ -75,6 +75,9 @@ describe("sitemap generation fallback contract", () => {
     expect(source).toContain("writeSafeFallbackSitemap");
     expect(source).toContain("privateSitemapPathPattern");
     expect(source).toContain("hasSafeUsableSitemapXml");
+    expect(source).toContain("SITEMAP_GENERATION_TIMEOUT_MS");
+    expect(source).toContain("withSitemapGenerationTimeout");
+    expect(source).toContain("next-sitemap timed out after");
     expect(source).toContain("next-sitemap failed");
     expect(source).toContain("generated sitemap was missing or empty");
   });
