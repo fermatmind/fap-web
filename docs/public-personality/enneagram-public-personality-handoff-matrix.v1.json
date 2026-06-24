@@ -1,0 +1,330 @@
+{
+  "schema_version": "fermatmind.enneagram_public_personality_handoff_matrix.v1",
+  "task_id": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-MATRIX-01",
+  "verdict": "READY_FOR_NEXT_PLANNING_HANDOFF_WITH_RUNTIME_HOLDS",
+  "run_mode": "docs_contracts_only",
+  "producing_agent": "enneagram_result_page",
+  "receiving_agent": "public_personality_content",
+  "scale_code": "ENNEAGRAM",
+  "canonical_test_slug": "enneagram-personality-test-nine-types",
+  "readiness_summary": {
+    "aggregate_handoff": "READY_FOR_NEXT_PLANNING_HANDOFF_WITH_RUNTIME_HOLDS",
+    "public_personality_source_authority": "MAPPED_PARTIAL",
+    "claim_privacy_safety_gate": "READY_TO_BLOCK_UNSAFE_PUBLIC_PERSONALITY_OUTPUTS",
+    "candidate_cluster_planning": "PLANNING_ONLY",
+    "runtime_mutation": "BLOCKED",
+    "cms_publish_search": "HOLD",
+    "private_or_raw_result_data": "BLOCKED",
+    "generated_pages": "BLOCKED",
+    "backend_import_or_source_ledger_write": "HOLD_PENDING_SEPARATE_AUTHORIZATION"
+  },
+  "dependencies": [
+    {
+      "task_id": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1386",
+      "merge_commit": "2f7deb6e3b594267ea1ade7c01bfbe3e8d749f21",
+      "verdict": "READY_FOR_POLICY_HANDOFF"
+    },
+    {
+      "task_id": "ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1391",
+      "merge_commit": "2436073c201f0ba79ae7f4c80c57a708e12dc0c7",
+      "verdict": "MAPPED_PARTIAL"
+    },
+    {
+      "task_id": "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1394",
+      "merge_commit": "a55aa4174e6f994b06402b2cb31b04e5e67fba93",
+      "verdict": "READY_TO_BLOCK_UNSAFE_PUBLIC_PERSONALITY_OUTPUTS"
+    },
+    {
+      "task_id": "ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01",
+      "status": "MERGED",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1397",
+      "merge_commit": "8427dd82838ec2168fed5fcad54c502bd0aa287b",
+      "verdict": "PLANNING_ONLY"
+    }
+  ],
+  "handoff_matrix": [
+    {
+      "lane": "public_hub_and_nine_core_type_planning",
+      "status": "READY_FOR_NEXT_PLANNING_HANDOFF",
+      "allowed_inputs": [
+        "common_handoff_contract",
+        "source_authority_packet",
+        "claim_safety_packet",
+        "candidate_cluster_packet"
+      ],
+      "allowed_outputs": [
+        "planning_brief",
+        "source_ledger_gap_list",
+        "review_gate_checklist"
+      ],
+      "required_gates": [
+        "GPT55_review",
+        "Safety_Gate_review",
+        "SEO_GEO_review",
+        "backend_public_source_ledger_before_public_copy"
+      ],
+      "hard_holds": [
+        "no_publishable_body",
+        "no_cms_payload",
+        "no_final_title_meta",
+        "no_generated_pages"
+      ]
+    },
+    {
+      "lane": "centers_or_triads_conditional_planning",
+      "status": "HOLD_PENDING_BACKEND_TAXONOMY_AUTHORITY",
+      "allowed_inputs": [
+        "source_authority_packet",
+        "claim_safety_packet"
+      ],
+      "allowed_outputs": [
+        "conditional_research_question",
+        "backend_authority_requirement"
+      ],
+      "required_gates": [
+        "backend_taxonomy_authority",
+        "public_personality_source_ledger",
+        "Safety_Gate_review"
+      ],
+      "hard_holds": [
+        "no_center_page_generation",
+        "no_triad_page_generation",
+        "no_unreviewed_taxonomy_copy"
+      ]
+    },
+    {
+      "lane": "wing_instinct_subtype_and_54_page_scope",
+      "status": "BLOCKED_FROM_FIRST_SCOPE",
+      "allowed_inputs": [
+        "source_authority_packet",
+        "candidate_cluster_packet"
+      ],
+      "allowed_outputs": [
+        "blocked_scope_note"
+      ],
+      "required_gates": [
+        "separate_source_authority_scan",
+        "separate_manifest_authorization",
+        "separate_claim_safety_review"
+      ],
+      "hard_holds": [
+        "no_wing_pages",
+        "no_instinct_pages",
+        "no_subtype_pages",
+        "no_54_wing_x_instinct_pages"
+      ]
+    },
+    {
+      "lane": "claim_privacy_safety_gate",
+      "status": "READY_TO_BLOCK_UNSAFE_OUTPUTS",
+      "allowed_inputs": [
+        "claim_safety_packet",
+        "candidate_cluster_packet"
+      ],
+      "allowed_outputs": [
+        "blocked_output_report",
+        "safe_language_replacement_requirement"
+      ],
+      "required_gates": [
+        "Safety_Gate_review",
+        "forbidden_claim_scan",
+        "private_input_scan"
+      ],
+      "hard_holds": [
+        "no_final_fixed_type_certainty",
+        "no_diagnosis",
+        "no_relationship_guarantee",
+        "no_hiring_salary_performance_success_prediction"
+      ]
+    },
+    {
+      "lane": "cms_dry_run_publish_and_search",
+      "status": "HOLD_PENDING_SEPARATE_AUTHORIZATION",
+      "allowed_inputs": [
+        "handoff_matrix",
+        "future_source_ledger_readiness_scan"
+      ],
+      "allowed_outputs": [
+        "next_pr_train_prompt",
+        "cms_dry_run_preconditions"
+      ],
+      "required_gates": [
+        "explicit_manifest_state_authorization",
+        "reviewed_public_personality_source_ledger",
+        "Safety_Gate_review",
+        "SEO_GEO_review"
+      ],
+      "hard_holds": [
+        "no_cms_write",
+        "no_publish",
+        "no_sitemap_mutation",
+        "no_llms_mutation",
+        "no_search_submission"
+      ]
+    },
+    {
+      "lane": "runtime_deploy_provider_and_backend_mutation",
+      "status": "BLOCKED",
+      "allowed_inputs": [
+        "none"
+      ],
+      "allowed_outputs": [
+        "blocked_action_report"
+      ],
+      "required_gates": [
+        "separate_runtime_pr",
+        "separate_backend_authorization",
+        "separate_deploy_approval"
+      ],
+      "hard_holds": [
+        "no_runtime_code_change",
+        "no_provider_calls",
+        "no_deploy",
+        "no_backend_import",
+        "no_fap_api_mutation",
+        "no_source_ledger_write"
+      ]
+    },
+    {
+      "lane": "private_or_raw_result_data",
+      "status": "BLOCKED",
+      "allowed_inputs": [
+        "public_summary_only"
+      ],
+      "allowed_outputs": [
+        "private_data_block_report"
+      ],
+      "required_gates": [
+        "privacy_boundary_review",
+        "public_summary_contract"
+      ],
+      "hard_holds": [
+        "no_attempt_id",
+        "no_user_id",
+        "no_raw_scores",
+        "no_score_vectors",
+        "no_private_report_text",
+        "no_private_result_url"
+      ]
+    },
+    {
+      "lane": "next_planning_handoff",
+      "status": "READY_FOR_READ_ONLY_SCAN",
+      "allowed_inputs": [
+        "handoff_matrix",
+        "source_authority_packet",
+        "claim_safety_packet",
+        "candidate_cluster_packet"
+      ],
+      "allowed_outputs": [
+        "read_only_source_ledger_readiness_scan",
+        "next_pr_train_manifest_proposal"
+      ],
+      "required_gates": [
+        "read_only_scan_only",
+        "no_manifest_state_mutation_without_authorization",
+        "no_cms_or_runtime_mutation"
+      ],
+      "hard_holds": [
+        "no_source_ledger_write",
+        "no_cms_write",
+        "no_candidate_activation",
+        "no_public_content_mutation"
+      ]
+    }
+  ],
+  "forbidden_claims": [
+    "final_fixed_type_certainty",
+    "official_fixed_enneagram_type_claim",
+    "most_accurate_type_finality",
+    "score_based_personality_ranking",
+    "diagnosis",
+    "treatment",
+    "therapy",
+    "relationship_guarantee",
+    "hiring_prediction",
+    "salary_prediction",
+    "performance_prediction",
+    "success_prediction",
+    "private_report_text_rewrite"
+  ],
+  "blocked_first_scope": [
+    "wing_pages",
+    "instinct_pages",
+    "subtype_pages",
+    "54_wing_x_instinct_pages"
+  ],
+  "hard_holds": [
+    "cms",
+    "publish",
+    "search_submission",
+    "provider_calls",
+    "deploy",
+    "runtime_instrumentation",
+    "public_personality_runtime_mutation",
+    "generated_pages",
+    "backend_import",
+    "candidate_activation",
+    "candidate_payload_generation",
+    "private_data",
+    "private_result_text",
+    "event_emission",
+    "production_metric_backfill",
+    "opportunity_scoring",
+    "source_ledger_write",
+    "fap_api_mutation"
+  ],
+  "negative_guarantees": {
+    "runtime_code_changed": "no",
+    "public_personality_runtime_mutation": "none",
+    "cms_writes": "none",
+    "cms_package_generation": "none",
+    "publish_action": "none",
+    "search_submission": "none",
+    "provider_calls": "none",
+    "deployment_triggered": "no",
+    "backend_import": "none",
+    "candidate_activation": "none",
+    "candidate_payload_generated": "no",
+    "generated_pages": "none",
+    "event_emission": "none",
+    "production_metric_backfill": "none",
+    "opportunity_scoring": "none",
+    "source_ledger_write": "none",
+    "fap_api_mutation": "none",
+    "raw_private_result_accessed": "none",
+    "private_result_text_reused": "none",
+    "publishable_body_included": false,
+    "cms_payload_included": false,
+    "final_title_meta_included": false,
+    "deterministic_type_assignment_included": false
+  },
+  "next_handoff": {
+    "recommended_next_task": "ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-LEDGER-READINESS-SCAN-01",
+    "handoff_status": "read_only_scan_allowed",
+    "must_remain_read_only_until_authorized": true,
+    "required_inputs_before_execution": [
+      "backend_public_personality_source_ledger_plan",
+      "backend_taxonomy_authority_for_centers_or_triads",
+      "claim_privacy_safety_gate_review",
+      "explicit_manifest_state_authorization_if_promoted_to_PR_train"
+    ],
+    "blocked_until_separate_approval": [
+      "cms_write",
+      "publish",
+      "generated_pages",
+      "runtime_mutation",
+      "search_submission",
+      "deploy",
+      "backend_import",
+      "source_ledger_write"
+    ]
+  },
+  "sidecar_issues": []
+}

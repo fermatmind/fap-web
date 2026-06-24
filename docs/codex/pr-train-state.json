@@ -13192,7 +13192,7 @@
       "depends_on": [
         "COOKIE-BANNER-HYDRATION-01"
       ],
-      "status": "pr_opened",
+      "status": "merged",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/921",
       "commit_sha": "8fe8bd30070dccabbe2c38fb77acbdd47d018725",
       "merge_sha": null,
@@ -28175,11 +28175,11 @@
         "ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01",
         "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01"
       ],
-      "commit_sha": "aedea03c873d79eca93a98be21e01db68b0db09a",
+      "commit_sha": "8427dd82838ec2168fed5fcad54c502bd0aa287b",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1397",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-24T09:50:15Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -28218,13 +28218,17 @@
           "evidence": "JSON and YAML parse passed; focused candidate cluster contract passed 8 tests; pnpm typecheck passed; pnpm test:contract passed with 560 files and 3295 tests; git diff --check and changed-file scope validation passed for exactly 4 changed files in the authorized candidate-cluster scope."
         },
         "pull_request": {
-          "status": "open_ready_to_merge",
+          "status": "merged",
           "url": "https://github.com/fermatmind/fap-web/pull/1397",
-          "evidence": "Opened PR #1397 for ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01 from branch codex/enneagram-public-personality-candidate-cluster-packet-01."
+          "evidence": "PR #1397 was squash merged at 2026-06-24T09:50:15Z with merge commit 8427dd82838ec2168fed5fcad54c502bd0aa287b."
         },
         "github_checks": {
           "status": "pass",
-          "evidence": "GitHub checks passed on PR #1397 head aedea03c873d79eca93a98be21e01db68b0db09a after reconciling stale PR-PRAC-01 train state required by page-family-runtime-coverage: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
+          "evidence": "GitHub checks passed on PR #1397 final head afe8151dc916869c84a0bb591d86d8a5e687e91a: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
+        },
+        "post_merge_cleanup": {
+          "status": "pass",
+          "evidence": "origin/main contains merge commit 8427dd82838ec2168fed5fcad54c502bd0aa287b; local main was fast-forwarded to origin/main; main == origin/main was verified; local task branch was deleted; remote task branch was absent."
         }
       },
       "sidecar_issues": [],
@@ -28263,6 +28267,11 @@
           "at": "2026-06-24T17:45:35+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed for PR #1397 on head aedea03c with build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL successful. Recording ready_to_merge before squash merge per PR-train policy."
+        },
+        {
+          "at": "2026-06-24T17:50:15+08:00",
+          "status": "merged",
+          "note": "PR #1397 was squash merged as 8427dd82838ec2168fed5fcad54c502bd0aa287b after final head afe8151d passed GitHub checks. origin/main contains the merge commit; local main was synced; remote branch was absent; local task branch was deleted."
         }
       ]
     },
@@ -28271,7 +28280,7 @@
       "repo": "fap-web",
       "branch": "codex/enneagram-public-personality-handoff-matrix-01",
       "base": "main",
-      "status": "pending_dependency",
+      "status": "local_checks_passed",
       "train_scope": "enneagram_public_personality_handoff_matrix",
       "title": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-MATRIX-01: docs(public-personality): add handoff readiness matrix",
       "depends_on": [
@@ -28291,8 +28300,35 @@
           "evidence": "User explicitly authorized this PR id in ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-PR-TRAIN-01."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Waiting for source authority, claim safety, and candidate cluster packet PRs to merge before execution."
+          "status": "pass",
+          "evidence": "Source authority packet PR #1391 merged with merge commit 2436073c201f0ba79ae7f4c80c57a708e12dc0c7; claim safety packet PR #1394 merged with merge commit a55aa4174e6f994b06402b2cb31b04e5e67fba93; candidate cluster packet PR #1397 merged with merge commit 8427dd82838ec2168fed5fcad54c502bd0aa287b."
+        },
+        "scope": {
+          "status": "authorized",
+          "allowed_paths": [
+            "docs/public-personality/enneagram-public-personality-handoff-matrix-2026-06-23.md",
+            "docs/public-personality/enneagram-public-personality-handoff-matrix.v1.json",
+            "tests/contracts/enneagram-public-personality-handoff-matrix.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train-state.json",
+            "generated/pr-train-sidecar-issues/sidecar_issues.md",
+            "generated/pr-train-sidecar-issues/sidecar_issues.json"
+          ],
+          "evidence": "Authorized scope is fap-web docs/contracts-only Enneagram Public Personality handoff readiness matrix plus current PR train state."
+        },
+        "local_validation": {
+          "status": "pass",
+          "commands": [
+            "python3 -m json.tool docs/public-personality/enneagram-public-personality-handoff-matrix.v1.json >/dev/null",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "pnpm exec vitest run tests/contracts/enneagram-public-personality-handoff-matrix.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "evidence": "JSON and YAML parse passed; focused handoff matrix contract passed 10 tests; pnpm typecheck passed; pnpm test:contract passed with 561 files and 3305 tests; git diff --check and changed-file scope validation passed for exactly 4 changed files in the authorized handoff-matrix scope."
         }
       },
       "sidecar_issues": [],
@@ -28301,6 +28337,16 @@
           "at": "2026-06-24T00:00:00+08:00",
           "status": "pending_dependency",
           "note": "Initialized from authorized five-PR Enneagram Public Personality handoff train. Waiting for source authority, claim safety, and candidate cluster packet PRs to merge."
+        },
+        {
+          "at": "2026-06-24T17:52:30+08:00",
+          "status": "in_progress",
+          "note": "Dependency PRs #1391, #1394, and #1397 are merged and cleaned up; started handoff matrix on codex/enneagram-public-personality-handoff-matrix-01 with docs/contracts-only scope and no CMS, publish, search, provider, deploy, runtime, private-data, generated-page, backend-import, candidate-activation, source-ledger-write, public-content mutation, or fap-api mutation action."
+        },
+        {
+          "at": "2026-06-24T17:58:25+08:00",
+          "status": "local_checks_passed",
+          "note": "Handoff matrix artifacts passed JSON parse, state JSON parse, YAML parse, focused contract, typecheck, full contract suite, diff check, and changed-file scope validation."
         }
       ]
     }
