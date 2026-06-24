@@ -27862,6 +27862,215 @@
           "note": "GitHub checks passed on PR #1376 head 44144221 and mergeStateStatus was CLEAN. Recording ready_to_merge before squash merge per PR-train policy."
         }
       ]
+    },
+    {
+      "id": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01",
+      "repo": "fap-web",
+      "branch": "codex/enneagram-public-personality-handoff-common-contract-01",
+      "base": "main",
+      "status": "local_checks_passed",
+      "train_scope": "enneagram_public_personality_handoff_common_contract",
+      "title": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01: docs(public-personality): add handoff common contract",
+      "depends_on": [],
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding or updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json entries for the five Enneagram Public Personality handoff PR ids only."
+        },
+        "scope": {
+          "status": "authorized",
+          "allowed_paths": [
+            "docs/public-personality/enneagram-public-personality-handoff-common-contract-2026-06-23.md",
+            "docs/public-personality/enneagram-public-personality-handoff-common-contract.v1.json",
+            "tests/contracts/enneagram-public-personality-handoff-common-contract.contract.test.ts",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "docs/codex/pr-train.yaml",
+            "docs/codex/pr-train-state.json"
+          ],
+          "evidence": "Authorized scope is fap-web docs/contracts-only Enneagram Public Personality common handoff contract plus current PR train metadata."
+        },
+        "local_validation": {
+          "status": "pass",
+          "commands": [
+            "python3 -m json.tool docs/public-personality/enneagram-public-personality-handoff-common-contract.v1.json >/dev/null",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "pnpm exec vitest run tests/contracts/enneagram-public-personality-handoff-common-contract.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "pnpm exec vitest run tests/contracts/mbti-take-attribution.contract.test.tsx",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "evidence": "JSON and YAML parse passed; focused common contract passed 9 tests; pnpm typecheck passed; pnpm test:contract passed on rerun with 555 files and 3259 tests after an unrelated first-run MBTI take attribution transient was isolated by targeted pass; git diff --check passed; changed-file scope validation passed for exactly 6 authorized files. Local next build was not run because this docs/contracts-only train uses GitHub build as the required build check and forbids generated SEO artifact mutation."
+        }
+      },
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-24T00:00:00+08:00",
+          "status": "in_progress",
+          "note": "Initialized from explicit ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-PR-TRAIN-01 authorization; scope is docs/contracts-only common handoff contract with no CMS, publish, search, provider, deploy, runtime, private-data, generated-page, backend-import, candidate-activation, or public personality content generation action."
+        },
+        {
+          "at": "2026-06-24T00:00:00+08:00",
+          "status": "local_checks_passed",
+          "note": "PR1 common contract artifacts and train metadata passed JSON/YAML parse, focused contract, typecheck, full contract suite on rerun, diff check, and changed-file scope validation. An unrelated first-run MBTI take attribution failure passed on targeted rerun and the full suite rerun."
+        }
+      ]
+    },
+    {
+      "id": "ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01",
+      "repo": "fap-web",
+      "branch": "codex/enneagram-public-personality-source-authority-packet-01",
+      "base": "main",
+      "status": "pending_dependency",
+      "train_scope": "enneagram_public_personality_source_authority_packet",
+      "title": "ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01: docs(public-personality): add source authority packet",
+      "depends_on": [
+        "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01"
+      ],
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized this PR id in ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-PR-TRAIN-01."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Waiting for ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01 to merge before execution."
+        }
+      },
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-24T00:00:00+08:00",
+          "status": "pending_dependency",
+          "note": "Initialized from authorized five-PR Enneagram Public Personality handoff train. Waiting for common handoff contract PR to merge."
+        }
+      ]
+    },
+    {
+      "id": "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01",
+      "repo": "fap-web",
+      "branch": "codex/enneagram-public-personality-claim-safety-packet-01",
+      "base": "main",
+      "status": "pending_dependency",
+      "train_scope": "enneagram_public_personality_claim_safety_packet",
+      "title": "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01: docs(public-personality): add claim safety packet",
+      "depends_on": [
+        "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01"
+      ],
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized this PR id in ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-PR-TRAIN-01."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Waiting for ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01 to merge before execution."
+        }
+      },
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-24T00:00:00+08:00",
+          "status": "pending_dependency",
+          "note": "Initialized from authorized five-PR Enneagram Public Personality handoff train. Waiting for common handoff contract PR to merge."
+        }
+      ]
+    },
+    {
+      "id": "ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01",
+      "repo": "fap-web",
+      "branch": "codex/enneagram-public-personality-candidate-cluster-packet-01",
+      "base": "main",
+      "status": "pending_dependency",
+      "train_scope": "enneagram_public_personality_candidate_cluster_packet",
+      "title": "ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01: docs(public-personality): add candidate cluster packet",
+      "depends_on": [
+        "ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01",
+        "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01"
+      ],
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized this PR id in ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-PR-TRAIN-01."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Waiting for source authority and claim safety packet PRs to merge before execution."
+        }
+      },
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-24T00:00:00+08:00",
+          "status": "pending_dependency",
+          "note": "Initialized from authorized five-PR Enneagram Public Personality handoff train. Waiting for source authority and claim safety packet PRs to merge."
+        }
+      ]
+    },
+    {
+      "id": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-MATRIX-01",
+      "repo": "fap-web",
+      "branch": "codex/enneagram-public-personality-handoff-matrix-01",
+      "base": "main",
+      "status": "pending_dependency",
+      "train_scope": "enneagram_public_personality_handoff_matrix",
+      "title": "ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-MATRIX-01: docs(public-personality): add handoff readiness matrix",
+      "depends_on": [
+        "ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACKET-01",
+        "ENNEAGRAM-PUBLIC-PERSONALITY-CLAIM-SAFETY-PACKET-01",
+        "ENNEAGRAM-PUBLIC-PERSONALITY-CANDIDATE-CLUSTER-PACKET-01"
+      ],
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized this PR id in ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-PR-TRAIN-01."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Waiting for source authority, claim safety, and candidate cluster packet PRs to merge before execution."
+        }
+      },
+      "sidecar_issues": [],
+      "history": [
+        {
+          "at": "2026-06-24T00:00:00+08:00",
+          "status": "pending_dependency",
+          "note": "Initialized from authorized five-PR Enneagram Public Personality handoff train. Waiting for source authority, claim safety, and candidate cluster packet PRs to merge."
+        }
+      ]
     }
   ]
 }

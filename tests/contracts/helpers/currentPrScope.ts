@@ -226,6 +226,53 @@ const RIASEC_CAREER_GRAPH_BRIDGE_MATRIX_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const ENNEAGRAM_PUBLIC_PERSONALITY_HANDOFF_COMMON_CONTRACT_01_ALLOWED_FILES = new Set([
+  "docs/public-personality/enneagram-public-personality-handoff-common-contract-2026-06-23.md",
+  "docs/public-personality/enneagram-public-personality-handoff-common-contract.v1.json",
+  "tests/contracts/enneagram-public-personality-handoff-common-contract.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
+const ENNEAGRAM_PUBLIC_PERSONALITY_SOURCE_AUTHORITY_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/public-personality/enneagram-public-personality-source-authority-packet-2026-06-23.md",
+  "docs/public-personality/enneagram-public-personality-source-authority-packet.v1.json",
+  "tests/contracts/enneagram-public-personality-source-authority-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
+const ENNEAGRAM_PUBLIC_PERSONALITY_CLAIM_SAFETY_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/public-personality/enneagram-public-personality-claim-safety-packet-2026-06-23.md",
+  "docs/public-personality/enneagram-public-personality-claim-safety-packet.v1.json",
+  "tests/contracts/enneagram-public-personality-claim-safety-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train-state.json",
+]);
+
+const ENNEAGRAM_PUBLIC_PERSONALITY_CANDIDATE_CLUSTER_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/public-personality/enneagram-public-personality-candidate-cluster-packet-2026-06-23.md",
+  "docs/public-personality/enneagram-public-personality-candidate-cluster-packet.v1.json",
+  "tests/contracts/enneagram-public-personality-candidate-cluster-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
+const ENNEAGRAM_PUBLIC_PERSONALITY_HANDOFF_MATRIX_01_ALLOWED_FILES = new Set([
+  "docs/public-personality/enneagram-public-personality-handoff-matrix-2026-06-23.md",
+  "docs/public-personality/enneagram-public-personality-handoff-matrix.v1.json",
+  "tests/contracts/enneagram-public-personality-handoff-matrix.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
 const QUIZ_PACK_PERFORMANCE_HOTFIX_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/tests/[slug]/take/QuizTakeClient.tsx",
   "docs/seo/agent/FAPWEB_CODE_PR_WRITER.md",
@@ -3077,6 +3124,41 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/riasec-career-graph-bridge-matrix-01" &&
     RIASEC_CAREER_GRAPH_BRIDGE_MATRIX_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/enneagram-public-personality-handoff-common-contract-01" &&
+    ENNEAGRAM_PUBLIC_PERSONALITY_HANDOFF_COMMON_CONTRACT_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/enneagram-public-personality-source-authority-packet-01" &&
+    ENNEAGRAM_PUBLIC_PERSONALITY_SOURCE_AUTHORITY_PACKET_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/enneagram-public-personality-claim-safety-packet-01" &&
+    ENNEAGRAM_PUBLIC_PERSONALITY_CLAIM_SAFETY_PACKET_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/enneagram-public-personality-candidate-cluster-packet-01" &&
+    ENNEAGRAM_PUBLIC_PERSONALITY_CANDIDATE_CLUSTER_PACKET_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/enneagram-public-personality-handoff-matrix-01" &&
+    ENNEAGRAM_PUBLIC_PERSONALITY_HANDOFF_MATRIX_01_ALLOWED_FILES.has(file)
   ) {
     return true;
   }
