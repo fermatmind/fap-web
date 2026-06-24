@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-24T18:57:00+08:00",
+  "updated_at": "2026-06-24T19:58:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -23900,6 +23900,298 @@
           "evidence": "pnpm test:contract failed 51 tests, all reporting current EQ asset files outside unrelated historical PR scopes; no functional EQ/IQ assertion remained failing after focused fixes."
         }
       ]
+    },
+    {
+      "id": "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/big5-methodology-common-contract-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed_ready_for_pr",
+      "title": "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01: docs(methodology): add Big Five support common contract",
+      "artifacts": [
+        "docs/methodology-trust-science/big5-methodology-trust-science-common-contract-2026-06-23.md",
+        "docs/methodology-trust-science/big5-methodology-trust-science-common-contract.v1.json",
+        "tests/contracts/big5-methodology-trust-science-common-contract.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [
+        {
+          "name": "JSON parse",
+          "status": "passed",
+          "command": "node -e \"JSON.parse(require('fs').readFileSync('docs/methodology-trust-science/big5-methodology-trust-science-common-contract.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\""
+        },
+        {
+          "name": "YAML parse",
+          "status": "passed",
+          "command": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\""
+        },
+        {
+          "name": "focused common contract",
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/big5-methodology-trust-science-common-contract.contract.test.ts",
+          "details": "5 tests passed."
+        },
+        {
+          "name": "pnpm typecheck",
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        {
+          "name": "exact production-env build",
+          "status": "passed",
+          "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "details": "Next build compiled, generated 202 static pages, and completed postbuild sitemap generation after scoped sitemap build harness fix PR #1407 merged."
+        },
+        {
+          "name": "pnpm test:contract",
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "details": "567 files passed, 3333 tests passed after syncing onto origin/main ad6a360ea6f694936473a15658171b0b57319c9a."
+        },
+        {
+          "name": "verify-big5-contract-freeze",
+          "status": "passed",
+          "command": "pnpm verify-big5-contract-freeze",
+          "details": "3 files passed, 29 tests passed."
+        },
+        {
+          "name": "verify-enneagram-contract-freeze",
+          "status": "passed",
+          "command": "pnpm verify-enneagram-contract-freeze",
+          "details": "5 files passed, 24 tests passed."
+        },
+        {
+          "name": "git diff --check",
+          "status": "passed",
+          "command": "git diff --check"
+        }
+      ],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "docs/methodology-trust-science/big5-methodology-trust-science-common-contract-2026-06-23.md",
+          "docs/methodology-trust-science/big5-methodology-trust-science-common-contract.v1.json",
+          "tests/contracts/big5-methodology-trust-science-common-contract.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json",
+          "generated/pr-train-sidecar-issues/sidecar_issues.md",
+          "generated/pr-train-sidecar-issues/sidecar_issues.json"
+        ],
+        "status": "passed",
+        "checked_at": "2026-06-24T20:50:00+08:00"
+      },
+      "history": [
+        {
+          "at": "2026-06-24T19:30:00+08:00",
+          "status": "implementation_in_progress",
+          "summary": "Initialized authorized Big Five methodology/trust/science PR train entries and started PR1 common contract implementation."
+        },
+        {
+          "at": "2026-06-24T19:42:00+08:00",
+          "status": "scope_harness_fix_in_progress",
+          "summary": "Full pnpm test:contract initially failed only historical scope-boundary tests. Added the current PR allowed files to currentPrScope.ts within the declared tests/contracts helper scope."
+        },
+        {
+          "at": "2026-06-24T19:58:00+08:00",
+          "status": "local_check_failed",
+          "summary": "PR1 implementation and contract validation passed, but exact pnpm build local check did not pass because postbuild sitemap generation hung and was interrupted. No commit, push, PR, CMS, search, runtime, deploy, or fap-api mutation was performed."
+        },
+        {
+          "at": "2026-06-24T20:50:00+08:00",
+          "status": "local_checks_passed_ready_for_pr",
+          "summary": "After scoped sitemap build harness fix PR #1407 merged into main, PR1 was synced onto origin/main ad6a360ea6f694936473a15658171b0b57319c9a. JSON/YAML, focused contract, typecheck, exact production-env build, full contracts, Big5 freeze, Enneagram freeze, and git diff --check passed. No CMS, search, runtime, deploy, private data, fap-api, or generated page action was performed."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/big5-methodology-source-authority-packet-01",
+      "base": "main",
+      "depends_on": [
+        "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01"
+      ],
+      "status": "pending_dependency",
+      "title": "BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01: docs(methodology): map Big Five source authority",
+      "artifacts": [
+        "docs/methodology-trust-science/big5-methodology-source-authority-packet-2026-06-23.md",
+        "docs/methodology-trust-science/big5-methodology-source-authority-packet.v1.json",
+        "tests/contracts/big5-methodology-source-authority-packet.contract.test.ts",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "docs/methodology-trust-science/big5-methodology-source-authority-packet-2026-06-23.md",
+          "docs/methodology-trust-science/big5-methodology-source-authority-packet.v1.json",
+          "tests/contracts/big5-methodology-source-authority-packet.contract.test.ts",
+          "docs/codex/pr-train-state.json",
+          "generated/pr-train-sidecar-issues/sidecar_issues.md",
+          "generated/pr-train-sidecar-issues/sidecar_issues.json"
+        ],
+        "status": "pending"
+      },
+      "history": [
+        {
+          "at": "2026-06-24T19:30:00+08:00",
+          "status": "pending_dependency",
+          "summary": "Registered by authorized Big Five methodology/trust/science PR train setup; waits for PR1 common contract merge."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/big5-methodology-claim-privacy-safety-packet-01",
+      "base": "main",
+      "depends_on": [
+        "BIG5-METHODOLOGY-TRUST-SCIENCE-COMMON-CONTRACT-01"
+      ],
+      "status": "pending_dependency",
+      "title": "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01: docs(methodology): add Big Five safety packet",
+      "artifacts": [
+        "docs/methodology-trust-science/big5-methodology-claim-privacy-safety-packet-2026-06-23.md",
+        "docs/methodology-trust-science/big5-methodology-claim-privacy-safety-packet.v1.json",
+        "tests/contracts/big5-methodology-claim-privacy-safety-packet.contract.test.ts",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "docs/methodology-trust-science/big5-methodology-claim-privacy-safety-packet-2026-06-23.md",
+          "docs/methodology-trust-science/big5-methodology-claim-privacy-safety-packet.v1.json",
+          "tests/contracts/big5-methodology-claim-privacy-safety-packet.contract.test.ts",
+          "docs/codex/pr-train-state.json",
+          "generated/pr-train-sidecar-issues/sidecar_issues.md",
+          "generated/pr-train-sidecar-issues/sidecar_issues.json"
+        ],
+        "status": "pending"
+      },
+      "history": [
+        {
+          "at": "2026-06-24T19:30:00+08:00",
+          "status": "pending_dependency",
+          "summary": "Registered by authorized Big Five methodology/trust/science PR train setup; waits for PR1 common contract merge."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/big5-methodology-candidate-cluster-matrix-01",
+      "base": "main",
+      "depends_on": [
+        "BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01",
+        "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01"
+      ],
+      "status": "pending_dependency",
+      "title": "BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01: docs(methodology): add candidate cluster matrix",
+      "artifacts": [
+        "docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix-2026-06-23.md",
+        "docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix.v1.json",
+        "tests/contracts/big5-methodology-candidate-cluster-matrix.contract.test.ts",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix-2026-06-23.md",
+          "docs/methodology-trust-science/big5-methodology-candidate-cluster-matrix.v1.json",
+          "tests/contracts/big5-methodology-candidate-cluster-matrix.contract.test.ts",
+          "docs/codex/pr-train-state.json",
+          "generated/pr-train-sidecar-issues/sidecar_issues.md",
+          "generated/pr-train-sidecar-issues/sidecar_issues.json"
+        ],
+        "status": "pending"
+      },
+      "history": [
+        {
+          "at": "2026-06-24T19:30:00+08:00",
+          "status": "pending_dependency",
+          "summary": "Registered by authorized Big Five methodology/trust/science PR train setup; waits for source authority and claim/privacy/safety packet merges."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "BIG5-METHODOLOGY-TRUST-SCIENCE-READINESS-MATRIX-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/big5-methodology-readiness-matrix-01",
+      "base": "main",
+      "depends_on": [
+        "BIG5-METHODOLOGY-SOURCE-AUTHORITY-PACKET-01",
+        "BIG5-METHODOLOGY-CLAIM-PRIVACY-SAFETY-PACKET-01",
+        "BIG5-METHODOLOGY-CANDIDATE-CLUSTER-MATRIX-01"
+      ],
+      "status": "pending_dependency",
+      "title": "BIG5-METHODOLOGY-TRUST-SCIENCE-READINESS-MATRIX-01: docs(methodology): add readiness matrix",
+      "artifacts": [
+        "docs/methodology-trust-science/big5-methodology-trust-science-readiness-matrix-2026-06-23.md",
+        "docs/methodology-trust-science/big5-methodology-trust-science-readiness-matrix.v1.json",
+        "tests/contracts/big5-methodology-trust-science-readiness-matrix.contract.test.ts",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": [],
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "docs/methodology-trust-science/big5-methodology-trust-science-readiness-matrix-2026-06-23.md",
+          "docs/methodology-trust-science/big5-methodology-trust-science-readiness-matrix.v1.json",
+          "tests/contracts/big5-methodology-trust-science-readiness-matrix.contract.test.ts",
+          "docs/codex/pr-train-state.json",
+          "generated/pr-train-sidecar-issues/sidecar_issues.md",
+          "generated/pr-train-sidecar-issues/sidecar_issues.json"
+        ],
+        "status": "pending"
+      },
+      "history": [
+        {
+          "at": "2026-06-24T19:30:00+08:00",
+          "status": "pending_dependency",
+          "summary": "Registered by authorized Big Five methodology/trust/science PR train setup; waits for source authority, claim/privacy/safety, and candidate cluster matrix merges."
+        }
+      ],
+      "sidecar_issues": []
     }
   ],
   "sidecar_issues": [
