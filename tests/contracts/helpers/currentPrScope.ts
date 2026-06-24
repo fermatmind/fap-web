@@ -1303,6 +1303,13 @@ const MBTI_TAKE_ATTRIBUTION_FLAKY_CI_FIX_ALLOWED_FILES = new Set([
   "tests/contracts/mbti-take-attribution.contract.test.tsx",
 ]);
 
+const MBTI_CONTRACT_SIDECAR_FIXES_1388_1292_ALLOWED_FILES = new Set([
+  "package.json",
+  "scripts/release_freeze_verify.sh",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/release-freeze-harness.contract.test.ts",
+]);
+
 const TEST_KPI_FRONTEND_CONTRACT_06_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx",
   "app/(localized)/[locale]/tests/[slug]/take/ClinicalTakeClient.tsx",
@@ -4115,6 +4122,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/mbti-take-attribution-flaky-ci-fix") {
     return MBTI_TAKE_ATTRIBUTION_FLAKY_CI_FIX_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/mbti-contract-sidecar-fixes-1388-1292") {
+    return MBTI_CONTRACT_SIDECAR_FIXES_1388_1292_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/TEST-KPI-FRONTEND-CONTRACT-06") {

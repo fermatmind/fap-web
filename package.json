@@ -56,6 +56,8 @@
     "test:e2e:visual:update": "bash scripts/visual/run_visual_suite.sh update",
     "test:e2e:visual:update:linux": "bash scripts/visual/update_linux_snapshots.sh",
     "verify:release-freeze": "bash scripts/release_freeze_verify.sh",
+    "verify-big5-contract-freeze": "pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx",
+    "verify-enneagram-contract-freeze": "pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx",
     "release:gate": "bash scripts/release_gate.sh",
     "postbuild": "pnpm seo:generate-sitemap && bash scripts/sync_standalone_assets.sh"
   },
