@@ -3101,6 +3101,10 @@ function isCurrentCareerSkillsEntry1046CompletionStateAllowedFile(file: string):
 }
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (isCurrentMbtiContractSidecarFixAllowedFile(file)) {
+    return true;
+  }
+
   if (isCurrentCareerSkillsEntry1046CompletionStateAllowedFile(file)) {
     return true;
   }
@@ -4529,6 +4533,15 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   }
 
   return CURRENT_BRANCH === "codex/riasec-full-content-pack-12" && RIASEC_PACK12_ALLOWED_FILES.has(file);
+}
+
+export function isCurrentMbtiContractSidecarFixAllowedFile(file: string): boolean {
+  return (
+    (CURRENT_BRANCH === "codex/mbti-contract-sidecar-fixes-1388-1292" ||
+      CURRENT_BRANCH === "codex/mbti-contract-sidecar-main-revalidate-fix" ||
+      CURRENT_BRANCH === "codex/release-freeze-harness-scope-ci-fix") &&
+    MBTI_CONTRACT_SIDECAR_FIXES_1388_1292_ALLOWED_FILES.has(file)
+  );
 }
 
 export function isPersonalityBig5V1NoindexRender01AllowedFile(file: string): boolean {

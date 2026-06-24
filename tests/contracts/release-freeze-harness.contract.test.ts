@@ -2,10 +2,14 @@ import { readFileSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 
-import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
+import { isCurrentMbtiContractSidecarFixAllowedFile } from "./helpers/currentPrScope";
 
 const SIDECAR_BRANCH = "codex/mbti-contract-sidecar-fixes-1388-1292";
-const SIDECAR_SCOPE_BRANCHES = new Set([SIDECAR_BRANCH, "codex/mbti-contract-sidecar-main-revalidate-fix"]);
+const SIDECAR_SCOPE_BRANCHES = new Set([
+  SIDECAR_BRANCH,
+  "codex/mbti-contract-sidecar-main-revalidate-fix",
+  "codex/release-freeze-harness-scope-ci-fix",
+]);
 
 function read(path: string): string {
   return readFileSync(path, "utf8");
@@ -60,9 +64,11 @@ describe("release freeze harness", () => {
     ];
 
     for (const file of allowed) {
-      expect(isCurrentRiasecPack12AllowedFile(file), file).toBe(true);
+      expect(isCurrentMbtiContractSidecarFixAllowedFile(file), file).toBe(true);
     }
 
-    expect(isCurrentRiasecPack12AllowedFile("app/(localized)/[locale]/personality/[type]/page.tsx")).toBe(false);
+    expect(isCurrentMbtiContractSidecarFixAllowedFile("app/(localized)/[locale]/personality/[type]/page.tsx")).toBe(
+      false
+    );
   });
 });
