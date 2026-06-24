@@ -600,7 +600,7 @@ describe("MBTI take attribution contract", () => {
   it("renders a localized 429 retry countdown instead of echoing backend english copy", async () => {
     hoisted.pathname = "/zh/tests/mbti-personality-test-16-personality-types/take";
     hoisted.search = "form=mbti_144";
-    hoisted.fetchScaleQuestions.mockRejectedValueOnce(new ApiError({
+    hoisted.fetchScaleQuestions.mockRejectedValue(new ApiError({
       status: 429,
       errorCode: "RATE_LIMIT_PUBLIC",
       message: "Too many requests. Please retry later.",
@@ -613,7 +613,7 @@ describe("MBTI take attribution contract", () => {
 
     await waitFor(() => {
       expect(screen.getByText("请求过于频繁，请等待 12 秒后重试。")).toBeInTheDocument();
+      expect(screen.getByRole("button", { name: "请等待 12 秒" })).toBeDisabled();
     });
-    expect(screen.getByRole("button", { name: "请等待 12 秒" })).toBeDisabled();
   });
 });
