@@ -18290,3 +18290,258 @@ prs:
       squash: true
       auto_merge: true
     next_task: PR-EQ-AGENT-04
+
+
+  - id: ASSESSMENT-HUB-QA-COMMON-CONTRACT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/assessment-hub-qa-common-contract-01
+    base: main
+    title: "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01: docs(assessment-hub): add QA common contract"
+    depends_on: []
+    mode: execute
+    train_scope: assessment_hub_qa_common_contract
+    status: committed
+    goal: "Define the six Assessment Hub QA common contract, including producing and consuming agents, scale and locale coverage, assertion/status/source vocabularies, issue taxonomy, hard HOLD actions, and downstream packet dependencies."
+    artifacts:
+      - docs/assessment-hub/assessment-hub-qa-common-contract-2026-06-24.md
+      - docs/assessment-hub/assessment-hub-qa-common-contract.v1.json
+      - tests/contracts/assessment-hub-qa-common-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/assessment-hub/assessment-hub-qa-common-contract-2026-06-24.md
+      - docs/assessment-hub/assessment-hub-qa-common-contract.v1.json
+      - tests/contracts/assessment-hub-qa-common-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    forbidden:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - fap-api mutation
+      - runtime code change
+      - frontend public copy change
+      - CMS write/import/publish/media upload
+      - search submission or provider call
+      - sitemap/robots/llms/schema/hreflang/canonical/noindex/redirect mutation
+      - deploy or manual deploy
+      - private attempt/result access
+      - POST start/submit/result APIs
+      - analytics backfill or runtime instrumentation
+      - payment/order/entitlement change
+      - pnpm build
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-qa-common-contract.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/assessment-hub-qa-common-contract.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01
+
+  - id: ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/assessment-hub-six-route-metadata-parity-packet-01
+    base: main
+    title: "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01: docs(assessment-hub): add route metadata parity packet"
+    depends_on:
+      - ASSESSMENT-HUB-QA-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: assessment_hub_six_route_metadata_parity_packet
+    status: pending_dependency
+    goal: "Record 12 hub route metadata, indexability, schema, sitemap, llms, and llms-full read-only parity evidence without mutating discoverability artifacts."
+    artifacts:
+      - docs/assessment-hub/assessment-hub-six-route-metadata-parity-packet-2026-06-24.md
+      - docs/assessment-hub/assessment-hub-six-route-metadata-parity-packet.v1.json
+      - tests/contracts/assessment-hub-six-route-metadata-parity-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/assessment-hub/assessment-hub-six-route-metadata-parity-packet-2026-06-24.md
+      - docs/assessment-hub/assessment-hub-six-route-metadata-parity-packet.v1.json
+      - tests/contracts/assessment-hub-six-route-metadata-parity-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-six-route-metadata-parity-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/assessment-hub-six-route-metadata-parity-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01
+
+  - id: ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/assessment-hub-take-flow-cta-packet-01
+    base: main
+    title: "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01: docs(assessment-hub): add take flow CTA packet"
+    depends_on:
+      - ASSESSMENT-HUB-QA-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: assessment_hub_take_flow_cta_packet
+    status: pending_dependency
+    goal: "Record CTA, take GET, form-code, locale, and redirect evidence for the six Assessment Hub routes without POST calls, attempts, answers, private result access, payment, or order redirects."
+    artifacts:
+      - docs/assessment-hub/assessment-hub-take-flow-cta-packet-2026-06-24.md
+      - docs/assessment-hub/assessment-hub-take-flow-cta-packet.v1.json
+      - tests/contracts/assessment-hub-take-flow-cta-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/assessment-hub/assessment-hub-take-flow-cta-packet-2026-06-24.md
+      - docs/assessment-hub/assessment-hub-take-flow-cta-packet.v1.json
+      - tests/contracts/assessment-hub-take-flow-cta-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-take-flow-cta-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/assessment-hub-take-flow-cta-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01
+
+  - id: ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/assessment-hub-free-full-report-claim-packet-01
+    base: main
+    title: "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01: docs(assessment-hub): add free report claim packet"
+    depends_on:
+      - ASSESSMENT-HUB-QA-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: assessment_hub_free_full_report_claim_packet
+    status: pending_dependency
+    goal: "Record free/full-report claim, paid unlock disabled copy, scale-specific forbidden claims, and visible-copy risk classifications for the six Assessment Hub routes."
+    artifacts:
+      - docs/assessment-hub/assessment-hub-free-full-report-claim-packet-2026-06-24.md
+      - docs/assessment-hub/assessment-hub-free-full-report-claim-packet.v1.json
+      - tests/contracts/assessment-hub-free-full-report-claim-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/assessment-hub/assessment-hub-free-full-report-claim-packet-2026-06-24.md
+      - docs/assessment-hub/assessment-hub-free-full-report-claim-packet.v1.json
+      - tests/contracts/assessment-hub-free-full-report-claim-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-free-full-report-claim-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/assessment-hub-free-full-report-claim-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01
+
+  - id: ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/assessment-hub-source-authority-indexability-packet-01
+    base: main
+    title: "ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01: docs(assessment-hub): add source authority packet"
+    depends_on:
+      - ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01
+      - ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01
+      - ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01
+    mode: execute
+    train_scope: assessment_hub_source_authority_indexability_packet
+    status: pending_dependency
+    goal: "Create the six-assessment source authority and indexability packet, keeping backend, CMS overlay, lookup projection, fap-web consumer, sitemap, llms, and manual-review authority boundaries separate."
+    artifacts:
+      - docs/assessment-hub/assessment-hub-source-authority-indexability-packet-2026-06-24.md
+      - docs/assessment-hub/assessment-hub-source-authority-indexability-packet.v1.json
+      - tests/contracts/assessment-hub-source-authority-indexability-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    allowed_paths:
+      - docs/assessment-hub/assessment-hub-source-authority-indexability-packet-2026-06-24.md
+      - docs/assessment-hub/assessment-hub-source-authority-indexability-packet.v1.json
+      - tests/contracts/assessment-hub-source-authority-indexability-packet.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-source-authority-indexability-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/assessment-hub-source-authority-indexability-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: ASSESSMENT-HUB-QA-READINESS-MATRIX-01
+
+  - id: ASSESSMENT-HUB-QA-READINESS-MATRIX-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/assessment-hub-qa-readiness-matrix-01
+    base: main
+    title: "ASSESSMENT-HUB-QA-READINESS-MATRIX-01: docs(assessment-hub): add readiness matrix"
+    depends_on:
+      - ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01
+      - ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01
+      - ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01
+      - ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01
+    mode: execute
+    train_scope: assessment_hub_qa_readiness_matrix
+    status: pending_dependency
+    goal: "Aggregate the six Assessment Hub QA packets into PASS/PARTIAL/HOLD readiness and preserve next-safe-task decisions without runtime, CMS, search, deploy, or private-data mutation."
+    artifacts:
+      - docs/assessment-hub/assessment-hub-qa-readiness-matrix-2026-06-24.md
+      - docs/assessment-hub/assessment-hub-qa-readiness-matrix.v1.json
+      - tests/contracts/assessment-hub-qa-readiness-matrix.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    allowed_paths:
+      - docs/assessment-hub/assessment-hub-qa-readiness-matrix-2026-06-24.md
+      - docs/assessment-hub/assessment-hub-qa-readiness-matrix.v1.json
+      - tests/contracts/assessment-hub-qa-readiness-matrix.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-qa-readiness-matrix.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/assessment-hub-qa-readiness-matrix.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SIX-HUB-SEO-GEO-PACKAGE-PLANNING-SCAN-01

@@ -29586,6 +29586,358 @@
         }
       ],
       "sidecar_issues": []
+    },
+    {
+      "id": "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/assessment-hub-qa-common-contract-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "committed",
+      "pr_url": null,
+      "commit_sha": "eb2902bdfd980fa01d08c5ef5b81a53204b1fa80",
+      "merge_sha": null,
+      "title": "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01: docs(assessment-hub): add QA common contract",
+      "checks": {
+        "local": {
+          "status": "passed",
+          "commands": [
+            "node -e \"JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-qa-common-contract.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
+            "pnpm exec vitest run tests/contracts/assessment-hub-qa-common-contract.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "results": {
+            "json_parse": "passed",
+            "focused_vitest": "passed",
+            "typecheck": "passed",
+            "contract_suite": "passed",
+            "manifest_yaml_parse": "passed",
+            "diff_check": "passed",
+            "changed_file_scope_validation": "passed",
+            "build": "not_run_by_goal_boundary"
+          }
+        },
+        "github": {
+          "status": "not_started"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "docs/assessment-hub/assessment-hub-qa-common-contract-2026-06-24.md",
+          "docs/assessment-hub/assessment-hub-qa-common-contract.v1.json",
+          "tests/contracts/assessment-hub-qa-common-contract.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "status": "passed"
+      },
+      "history": [
+        {
+          "at": "2026-06-25T00:37:00+08:00",
+          "status": "implementation_in_progress",
+          "summary": "User authorized six Assessment Hub QA train entries. Started PR1 from a clean temporary worktree on latest origin/main; scope is docs/contracts-only common contract and train metadata."
+        },
+        {
+          "at": "2026-06-25T00:47:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "JSON/YAML parsing, focused Assessment Hub QA common contract vitest, pnpm typecheck, full pnpm test:contract, git diff --check, and changed-file scope validation passed. pnpm build was intentionally not run because this goal forbids postbuild/SEO artifact generation."
+        },
+        {
+          "at": "2026-06-25T00:51:00+08:00",
+          "status": "committed",
+          "summary": "Created scoped commit eb2902bdfd980fa01d08c5ef5b81a53204b1fa80 for PR1 after path-limited staging and cached diff validation."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/assessment-hub-six-route-metadata-parity-packet-01",
+      "base": "main",
+      "depends_on": [
+        "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01"
+      ],
+      "status": "pending_dependency",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01: docs(assessment-hub): add route metadata parity packet",
+      "checks": {
+        "local": {
+          "status": "not_started",
+          "commands": [
+            "node -e \"JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-six-route-metadata-parity-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
+            "pnpm exec vitest run tests/contracts/assessment-hub-six-route-metadata-parity-packet.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "results": {}
+        },
+        "github": {
+          "status": "not_started"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "docs/assessment-hub/assessment-hub-six-route-metadata-parity-packet-2026-06-24.md",
+          "docs/assessment-hub/assessment-hub-six-route-metadata-parity-packet.v1.json",
+          "tests/contracts/assessment-hub-six-route-metadata-parity-packet.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train-state.json"
+        ],
+        "status": "pending_dependency"
+      },
+      "history": [
+        {
+          "at": "2026-06-25T00:37:00+08:00",
+          "status": "pending_dependency",
+          "summary": "Initialized authorized train entry. Waiting for ASSESSMENT-HUB-QA-COMMON-CONTRACT-01 to merge."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/assessment-hub-take-flow-cta-packet-01",
+      "base": "main",
+      "depends_on": [
+        "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01"
+      ],
+      "status": "pending_dependency",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01: docs(assessment-hub): add take flow CTA packet",
+      "checks": {
+        "local": {
+          "status": "not_started",
+          "commands": [
+            "node -e \"JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-take-flow-cta-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
+            "pnpm exec vitest run tests/contracts/assessment-hub-take-flow-cta-packet.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "results": {}
+        },
+        "github": {
+          "status": "not_started"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "docs/assessment-hub/assessment-hub-take-flow-cta-packet-2026-06-24.md",
+          "docs/assessment-hub/assessment-hub-take-flow-cta-packet.v1.json",
+          "tests/contracts/assessment-hub-take-flow-cta-packet.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train-state.json"
+        ],
+        "status": "pending_dependency"
+      },
+      "history": [
+        {
+          "at": "2026-06-25T00:37:00+08:00",
+          "status": "pending_dependency",
+          "summary": "Initialized authorized train entry. Waiting for ASSESSMENT-HUB-QA-COMMON-CONTRACT-01 to merge."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/assessment-hub-free-full-report-claim-packet-01",
+      "base": "main",
+      "depends_on": [
+        "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01"
+      ],
+      "status": "pending_dependency",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01: docs(assessment-hub): add free report claim packet",
+      "checks": {
+        "local": {
+          "status": "not_started",
+          "commands": [
+            "node -e \"JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-free-full-report-claim-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
+            "pnpm exec vitest run tests/contracts/assessment-hub-free-full-report-claim-packet.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "results": {}
+        },
+        "github": {
+          "status": "not_started"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "docs/assessment-hub/assessment-hub-free-full-report-claim-packet-2026-06-24.md",
+          "docs/assessment-hub/assessment-hub-free-full-report-claim-packet.v1.json",
+          "tests/contracts/assessment-hub-free-full-report-claim-packet.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train-state.json"
+        ],
+        "status": "pending_dependency"
+      },
+      "history": [
+        {
+          "at": "2026-06-25T00:37:00+08:00",
+          "status": "pending_dependency",
+          "summary": "Initialized authorized train entry. Waiting for ASSESSMENT-HUB-QA-COMMON-CONTRACT-01 to merge."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/assessment-hub-source-authority-indexability-packet-01",
+      "base": "main",
+      "depends_on": [
+        "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01",
+        "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
+        "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01"
+      ],
+      "status": "pending_dependency",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01: docs(assessment-hub): add source authority packet",
+      "checks": {
+        "local": {
+          "status": "not_started",
+          "commands": [
+            "node -e \"JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-source-authority-indexability-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
+            "pnpm exec vitest run tests/contracts/assessment-hub-source-authority-indexability-packet.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "results": {}
+        },
+        "github": {
+          "status": "not_started"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "docs/assessment-hub/assessment-hub-source-authority-indexability-packet-2026-06-24.md",
+          "docs/assessment-hub/assessment-hub-source-authority-indexability-packet.v1.json",
+          "tests/contracts/assessment-hub-source-authority-indexability-packet.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train-state.json",
+          "generated/pr-train-sidecar-issues/sidecar_issues.md",
+          "generated/pr-train-sidecar-issues/sidecar_issues.json"
+        ],
+        "status": "pending_dependency"
+      },
+      "history": [
+        {
+          "at": "2026-06-25T00:37:00+08:00",
+          "status": "pending_dependency",
+          "summary": "Initialized authorized train entry. Waiting for metadata, take-flow, and claim packets to merge."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "ASSESSMENT-HUB-QA-READINESS-MATRIX-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/assessment-hub-qa-readiness-matrix-01",
+      "base": "main",
+      "depends_on": [
+        "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01",
+        "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
+        "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01",
+        "ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01"
+      ],
+      "status": "pending_dependency",
+      "pr_url": null,
+      "commit_sha": null,
+      "merge_sha": null,
+      "title": "ASSESSMENT-HUB-QA-READINESS-MATRIX-01: docs(assessment-hub): add readiness matrix",
+      "checks": {
+        "local": {
+          "status": "not_started",
+          "commands": [
+            "node -e \"JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-qa-readiness-matrix.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
+            "pnpm exec vitest run tests/contracts/assessment-hub-qa-readiness-matrix.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "results": {}
+        },
+        "github": {
+          "status": "not_started"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "docs/assessment-hub/assessment-hub-qa-readiness-matrix-2026-06-24.md",
+          "docs/assessment-hub/assessment-hub-qa-readiness-matrix.v1.json",
+          "tests/contracts/assessment-hub-qa-readiness-matrix.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train-state.json",
+          "generated/pr-train-sidecar-issues/sidecar_issues.md",
+          "generated/pr-train-sidecar-issues/sidecar_issues.json"
+        ],
+        "status": "pending_dependency"
+      },
+      "history": [
+        {
+          "at": "2026-06-25T00:37:00+08:00",
+          "status": "pending_dependency",
+          "summary": "Initialized authorized train entry. Waiting for prerequisite Assessment Hub QA packets to merge."
+        }
+      ],
+      "sidecar_issues": []
     }
   ]
 }

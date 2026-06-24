@@ -1,0 +1,165 @@
+{
+  "schema_version": "fermatmind.assessment_hub_qa.common_contract.v1",
+  "task_id": "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01",
+  "generated_at": "2026-06-24T00:00:00+08:00",
+  "run_mode": "docs_contracts_only",
+  "verdict": "READY_TO_CONSUME_COMMON_QA_CONTRACT",
+  "producing_agent": "assessment_hub",
+  "consumer_agents": [
+    "runtime_qa",
+    "seo_geo_control",
+    "cms_draft_package",
+    "analytics_gsc_opportunity",
+    "claim_privacy_safety_gate"
+  ],
+  "scope": {
+    "surface_family": "six_assessment_hub_public_landing_routes",
+    "locales": [
+      "zh-CN",
+      "en"
+    ],
+    "covered_scale_codes": [
+      "MBTI",
+      "BIG5_OCEAN",
+      "RIASEC",
+      "IQ_RAVEN",
+      "EQ_60",
+      "ENNEAGRAM"
+    ],
+    "covered_route_count": 12,
+    "route_matrix_authority": "public_route_readonly_runtime_evidence",
+    "take_flow_authority": "public_take_get_readonly_evidence",
+    "private_flow_boundary": "no_attempt_start_no_submit_no_private_result_access"
+  },
+  "assertion_vocabulary": [
+    "route_metadata_parity",
+    "indexability_parity",
+    "schema_visible_content_parity",
+    "sitemap_membership_parity",
+    "llms_membership_parity",
+    "llms_full_membership_parity",
+    "take_get_availability",
+    "take_form_code_alignment",
+    "cta_target_alignment",
+    "locale_redirect_boundary",
+    "free_full_report_claim_boundary",
+    "paid_unlock_disabled_copy_boundary",
+    "commercial_field_authority_boundary",
+    "source_authority_classification",
+    "private_data_non_access_boundary",
+    "search_submission_hold_boundary"
+  ],
+  "status_vocabulary": [
+    "PASS",
+    "PARTIAL",
+    "HOLD",
+    "BLOCKED",
+    "SPLIT_REQUIRED",
+    "REPAIR_REQUIRED",
+    "READY_TO_CONSUME",
+    "PARKED_PLACEHOLDER"
+  ],
+  "source_classification_vocabulary": [
+    "backend_registry_authority",
+    "backend_landing_surface_v1_authority",
+    "backend_lookup_projection",
+    "cms_landing_surface_overlay",
+    "fap_web_consumer_contract_not_authority",
+    "runtime_readonly_evidence",
+    "sitemap_source_evidence",
+    "llms_readonly_evidence",
+    "contract_test_evidence",
+    "manual_review_required",
+    "access_required",
+    "unknown"
+  ],
+  "issue_taxonomy": [
+    {
+      "id": "P1_COMMERCIAL_FIELD_AUTHORITY_CONFLICT",
+      "severity": "P1",
+      "description": "Free hub claim conflicts with backend commercial or unlock authority fields."
+    },
+    {
+      "id": "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+      "severity": "P2",
+      "description": "Visible disabled paid unlock copy may confuse a free-first hub claim."
+    },
+    {
+      "id": "P2_EMPTY_FORMS_WITH_RUNTIME_TAKE_ENTRY",
+      "severity": "P2",
+      "description": "Lookup forms are empty while runtime GET still exposes a take entry."
+    },
+    {
+      "id": "P2_MANUAL_REVIEW_REQUIRED_FOR_CERTIFICATE_OR_ANSWER_KEY_CLAIMS",
+      "severity": "P2",
+      "description": "IQ/Raven answer-key, bank, certificate, or scoring claim needs manual source authority review."
+    },
+    {
+      "id": "P0_PRIVATE_LEAK",
+      "severity": "P0",
+      "description": "Any private attempt, private result URL, token, answer payload, account data, payment data, or raw score vector appears in public/indexable evidence."
+    },
+    {
+      "id": "P1_INDEXABILITY_OR_DISCOVERABILITY_DRIFT",
+      "severity": "P1",
+      "description": "Public route indexability, canonical, hreflang, sitemap, llms, or schema membership drifts from authority."
+    }
+  ],
+  "hard_holds": [
+    "runtime_code_change",
+    "frontend_public_copy_change",
+    "CMS_write_import_publish_or_media_upload",
+    "search_submission_or_provider_call",
+    "sitemap_robots_llms_schema_hreflang_canonical_noindex_redirect_mutation",
+    "deployment_or_manual_deploy",
+    "private_result_or_attempt_access",
+    "POST_start_submit_result_api_call",
+    "analytics_backfill_or_runtime_instrumentation",
+    "payment_order_or_entitlement_change",
+    "fap_api_mutation"
+  ],
+  "negative_guarantees": {
+    "runtime_code_changed": false,
+    "frontend_public_copy_changed": false,
+    "cms_write_performed": false,
+    "search_submission_performed": false,
+    "provider_call_performed": false,
+    "deployment_triggered": false,
+    "manual_deploy_triggered": false,
+    "private_attempt_or_result_accessed": false,
+    "post_start_submit_result_called": false,
+    "analytics_backfill_or_instrumentation_performed": false,
+    "sitemap_or_llms_or_schema_mutated": false,
+    "fap_api_modified": false
+  },
+  "handoff_packets": [
+    "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01",
+    "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
+    "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01",
+    "ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01",
+    "ASSESSMENT-HUB-QA-READINESS-MATRIX-01"
+  ],
+  "dependency_rules": {
+    "metadata_take_claim_packets_depend_on": [
+      "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01"
+    ],
+    "source_authority_packet_depends_on": [
+      "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01",
+      "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
+      "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01"
+    ],
+    "readiness_matrix_depends_on": [
+      "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01",
+      "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
+      "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01",
+      "ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01"
+    ]
+  },
+  "next_safe_task_rules": [
+    "If planning continues despite documented P1/P2 issues, use SIX-HUB-SEO-GEO-PACKAGE-PLANNING-SCAN-01.",
+    "If Big Five commercial field authority conflict blocks planning, use BIG5-HUB-COMMERCIAL-FIELD-AUTHORITY-FIX-SCAN-01.",
+    "If paid unlock disabled copy blocks planning, use SIX-ASSESSMENT-HUB-PAID-UNLOCK-COPY-FIX-SCAN-01.",
+    "If IQ indexability mismatch returns, use IQ-HUB-INDEXABILITY-PARITY-FIX-SCAN-01.",
+    "If any private leak is found, stop with BLOCKED_PRIVATE_LEAK."
+  ]
+}
