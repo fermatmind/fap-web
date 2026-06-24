@@ -151,6 +151,38 @@ describe("career display surface contract", () => {
     expect(screen.getByTestId("career-display-faq")).toHaveTextContent(`Is ${titleEn} a good career fit?`);
   });
 
+  it("keeps English display surface CTAs and subtitles locale-safe when backend copy contains Chinese fallbacks", () => {
+    const fixture = buildSelectedCareerDisplaySurfaceFixture({
+      slug: "accountants-and-auditors",
+      titleEn: "Accountants and Auditors",
+    });
+    (fixture.page.content.hero as { subtitle?: string }).subtitle = "会计师和审计师";
+    fixture.page.content.primary_cta.label =
+      "Test whether your career interests fit accounting and auditing / 测我的职业兴趣是否适合会计与审计";
+    fixture.page.content.primary_cta.href =
+      "/en/tests/holland-career-interest-test-riasec | /zh/tests/holland-career-interest-test-riasec";
+
+    const surface = adaptCareerDisplaySurface(
+      fixture,
+      "en",
+      undefined,
+      "accountants-and-auditors",
+      "Accountants and Auditors"
+    );
+
+    expect(surface?.hero.subtitle).toBeUndefined();
+    expect(surface?.hero.primaryCta.label).toBe("Measure my career interests");
+    expect(surface?.hero.primaryCta.href).toBe("/en/tests/holland-career-interest-test-riasec");
+
+    render(<CareerDisplaySurface surface={surface} />);
+
+    const hero = screen.getByTestId("career-display-hero");
+    expect(hero).toHaveTextContent("Accountants and Auditors");
+    expect(hero).toHaveTextContent("Measure my career interests");
+    expect(hero).not.toHaveTextContent("会计");
+    expect(hero).not.toHaveTextContent("测我的职业兴趣");
+  });
+
   it("adapts real backend component-keyed selected payloads for Chinese locale", () => {
     const fixture = buildSelectedCareerDisplaySurfaceFixture({
       slug: "data-scientists",
