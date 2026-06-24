@@ -18301,7 +18301,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: assessment_hub_qa_common_contract
-    status: pr_open
+    status: ready_to_merge
     goal: "Define the six Assessment Hub QA common contract, including producing and consuming agents, scale and locale coverage, assertion/status/source vocabularies, issue taxonomy, hard HOLD actions, and downstream packet dependencies."
     artifacts:
       - docs/assessment-hub/assessment-hub-qa-common-contract-2026-06-24.md

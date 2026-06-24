@@ -29594,9 +29594,9 @@
       "branch": "codex/assessment-hub-qa-common-contract-01",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open",
+      "status": "ready_to_merge",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1418",
-      "commit_sha": "f05837e38c4f9d3cc82b007a8b9a123f165b548d",
+      "commit_sha": "eaec996957ec16fdfcc0921c9f23c6142685d158",
       "merge_sha": null,
       "title": "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01: docs(assessment-hub): add QA common contract",
       "checks": {
@@ -29630,7 +29630,9 @@
           }
         },
         "github": {
-          "status": "not_started"
+          "status": "passed",
+          "summary": "build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, and GitHub Advanced Security CodeQL checks passed on PR #1418 after rebase.",
+          "checked_at": "2026-06-25T01:05:00+08:00"
         }
       },
       "failure_reason": null,
@@ -29673,6 +29675,11 @@
           "at": "2026-06-25T01:00:00+08:00",
           "status": "rebased_local_checks_passed",
           "summary": "Rebased PR #1418 onto origin/main 4c13a53873cf2865b760b67a95acc7ba99a8b5b6 after PR-EQ-AGENT-03 merged. Conflict was limited to docs/codex train metadata; JSON/YAML parsing, focused vitest, pnpm typecheck, full pnpm test:contract, diff check, and scope validation passed after rebase."
+        },
+        {
+          "at": "2026-06-25T01:05:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "PR #1418 passed required GitHub checks and mergeStateStatus was mergeable after rebase; ready for squash merge after this ledger update CI reruns."
         }
       ],
       "sidecar_issues": []
