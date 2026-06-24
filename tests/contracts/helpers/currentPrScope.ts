@@ -51,6 +51,16 @@ const BIG_FIVE_PUBLIC_PROFILE_AGENT_PILOT_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const BIG_FIVE_PUBLIC_PROFILE_AGENT_QA_01_ALLOWED_FILES = new Set([
+  "scripts/seo/validate-big-five-public-profile-agent-qa.mjs",
+  "docs/seo/personality/big-five-public-profile-agent-qa-2026-06-24.json",
+  "docs/seo/personality/big-five-public-profile-agent-qa-2026-06-24.md",
+  "tests/contracts/big-five-public-profile-agent-qa-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const ARTICLE_ANSWER_SURFACE_LAYOUT_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/articles/[slug]/page.tsx",
   "components/content/AnswerSurfaceSection.tsx",
@@ -3822,6 +3832,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return RIASEC_PACK12_ALLOWED_FILES.has(file);
   }
 
+  if (CURRENT_BRANCH === "codex/big-five-public-profile-agent-qa-01") {
+    return BIG_FIVE_PUBLIC_PROFILE_AGENT_QA_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/pr-02-followup-notfound-rsc-payload-cleanup-01") {
     return PR_02_FOLLOWUP_NOTFOUND_RSC_PAYLOAD_CLEANUP_01_ALLOWED_FILES.has(file);
   }
@@ -4613,6 +4627,14 @@ export function isBigFivePublicProfileAgentPilot01AllowedFile(file: string): boo
   }
 
   return BIG_FIVE_PUBLIC_PROFILE_AGENT_PILOT_01_ALLOWED_FILES.has(file);
+}
+
+export function isBigFivePublicProfileAgentQa01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/big-five-public-profile-agent-qa-01") {
+    return true;
+  }
+
+  return BIG_FIVE_PUBLIC_PROFILE_AGENT_QA_01_ALLOWED_FILES.has(file);
 }
 
 export function isPersonalityEnneagramV1NoindexRender01AllowedFile(file: string): boolean {

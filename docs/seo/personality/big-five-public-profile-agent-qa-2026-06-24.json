@@ -1,0 +1,2604 @@
+{
+  "artifact": "BIG-FIVE-PUBLIC-PROFILE-AGENT-QA-01",
+  "version": "big_five.public_profile_agent_qa.v1",
+  "generated_at": "2026-06-24T00:00:00.000Z",
+  "decision": "PASS_READY_FOR_APPROVAL_QUEUE",
+  "status": "pass",
+  "scope": "Artifact-only QA over Big Five public profile agent pilot recommendations. No CMS write, publish, indexability, sitemap/llms mutation, Search Queue, search submission, or frontend runtime change.",
+  "inputs": {
+    "pilot_artifact": "docs/seo/personality/big-five-public-profile-agent-pilot-2026-06-24.json",
+    "pilot_artifact_sha256": "5ab10836c14eac4fc091290580621423bf5a97dab6e3b95b0bda61e466b97c84",
+    "pilot_status": "pass_ready_for_qa_gates"
+  },
+  "summary": {
+    "rows_evaluated": 34,
+    "rows_passed": 34,
+    "rows_failed": 0,
+    "failed_rows_blocked_from_next_cms_draft_path": true,
+    "logical_entity_count": 17,
+    "locale_counts": {
+      "en": 17,
+      "zh-CN": 17
+    },
+    "entity_type_counts": {
+      "hub": 2,
+      "domain": 10,
+      "polarity": 20,
+      "facet_hub": 2,
+      "facet_detail": 0,
+      "OCEAN_32": 0
+    },
+    "gate_totals": {
+      "schema_validation": {
+        "passed": 34,
+        "failed": 0
+      },
+      "dimensional_model_gate": {
+        "passed": 34,
+        "failed": 0
+      },
+      "no_official_big_five_32_ocean_type_gate": {
+        "passed": 34,
+        "failed": 0
+      },
+      "no_high_low_good_bad_framing_gate": {
+        "passed": 34,
+        "failed": 0
+      },
+      "claim_safety_gate": {
+        "passed": 34,
+        "failed": 0
+      },
+      "private_route_gate": {
+        "passed": 34,
+        "failed": 0
+      },
+      "result_page_leakage_gate": {
+        "passed": 34,
+        "failed": 0
+      },
+      "duplicate_template_risk_gate": {
+        "passed": 34,
+        "failed": 0
+      },
+      "bilingual_consistency_gate": {
+        "passed": 34,
+        "failed": 0
+      },
+      "seo_projection_gate": {
+        "passed": 34,
+        "failed": 0
+      }
+    }
+  },
+  "negative_guarantees": {
+    "cms_write": false,
+    "frontend_runtime_change": false,
+    "publish": false,
+    "indexability_change": false,
+    "sitemap_mutation": false,
+    "llms_mutation": false,
+    "search_queue": false,
+    "search_submission": false
+  },
+  "next_gate": "BIG-FIVE-AGENT-APPROVAL-QUEUE-INTEGRATION-01",
+  "failed_rows": [],
+  "evaluations": [
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/agreeableness",
+      "target_url": "https://fermatmind.com/en/personality/big-five/agreeableness",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "domain",
+      "code": "agreeableness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five",
+      "target_url": "https://fermatmind.com/en/personality/big-five",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "hub",
+      "code": "big-five",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/conscientiousness",
+      "target_url": "https://fermatmind.com/en/personality/big-five/conscientiousness",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "domain",
+      "code": "conscientiousness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/emotional-stability",
+      "target_url": "https://fermatmind.com/en/personality/big-five/emotional-stability",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "emotional-stability",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/extraversion",
+      "target_url": "https://fermatmind.com/en/personality/big-five/extraversion",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "domain",
+      "code": "extraversion",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/facets",
+      "target_url": "https://fermatmind.com/en/personality/big-five/facets",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "facet_hub",
+      "code": "facets",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/high-agreeableness",
+      "target_url": "https://fermatmind.com/en/personality/big-five/high-agreeableness",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "high-agreeableness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/high-conscientiousness",
+      "target_url": "https://fermatmind.com/en/personality/big-five/high-conscientiousness",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "high-conscientiousness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/high-extraversion",
+      "target_url": "https://fermatmind.com/en/personality/big-five/high-extraversion",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "high-extraversion",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/high-neuroticism",
+      "target_url": "https://fermatmind.com/en/personality/big-five/high-neuroticism",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "high-neuroticism",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/high-openness",
+      "target_url": "https://fermatmind.com/en/personality/big-five/high-openness",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "high-openness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/low-agreeableness",
+      "target_url": "https://fermatmind.com/en/personality/big-five/low-agreeableness",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "low-agreeableness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/low-conscientiousness",
+      "target_url": "https://fermatmind.com/en/personality/big-five/low-conscientiousness",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "low-conscientiousness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/low-extraversion",
+      "target_url": "https://fermatmind.com/en/personality/big-five/low-extraversion",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "low-extraversion",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/low-openness",
+      "target_url": "https://fermatmind.com/en/personality/big-five/low-openness",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "low-openness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/neuroticism",
+      "target_url": "https://fermatmind.com/en/personality/big-five/neuroticism",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "domain",
+      "code": "neuroticism",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/en/personality/big-five/openness",
+      "target_url": "https://fermatmind.com/en/personality/big-five/openness",
+      "locale": "en",
+      "framework": "big_five",
+      "entity_type": "domain",
+      "code": "openness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/agreeableness",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/agreeableness",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "domain",
+      "code": "agreeableness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five",
+      "target_url": "https://fermatmind.com/zh/personality/big-five",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "hub",
+      "code": "big-five",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/conscientiousness",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/conscientiousness",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "domain",
+      "code": "conscientiousness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/emotional-stability",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/emotional-stability",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "emotional-stability",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/extraversion",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/extraversion",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "domain",
+      "code": "extraversion",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/facets",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/facets",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "facet_hub",
+      "code": "facets",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/high-agreeableness",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/high-agreeableness",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "high-agreeableness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/high-conscientiousness",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/high-conscientiousness",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "high-conscientiousness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/high-extraversion",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/high-extraversion",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "high-extraversion",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/high-neuroticism",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/high-neuroticism",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "high-neuroticism",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/high-openness",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/high-openness",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "high-openness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/low-agreeableness",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/low-agreeableness",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "low-agreeableness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/low-conscientiousness",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/low-conscientiousness",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "low-conscientiousness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/low-extraversion",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/low-extraversion",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "low-extraversion",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/low-openness",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/low-openness",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "polarity",
+      "code": "low-openness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/neuroticism",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/neuroticism",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "domain",
+      "code": "neuroticism",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    },
+    {
+      "recommendation_id": "big-five-public-profile-agent-pilot:/zh/personality/big-five/openness",
+      "target_url": "https://fermatmind.com/zh/personality/big-five/openness",
+      "locale": "zh-CN",
+      "framework": "big_five",
+      "entity_type": "domain",
+      "code": "openness",
+      "gates": [
+        {
+          "id": "schema_validation",
+          "passed": true,
+          "severity": "hard",
+          "details": "Required shape and public Big Five URL match."
+        },
+        {
+          "id": "dimensional_model_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Rows remain Big Five dimensional public-profile entities, not fabricated type pages."
+        },
+        {
+          "id": "no_official_big_five_32_ocean_type_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No official Big Five 32 or OCEAN type expansion claim detected."
+        },
+        {
+          "id": "no_high_low_good_bad_framing_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "High/low language stays descriptive and avoids good/bad or superiority framing."
+        },
+        {
+          "id": "claim_safety_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No affirmative clinical, therapy, hiring, intelligence, deterministic career, relationship, salary, success, or performance claim detected."
+        },
+        {
+          "id": "private_route_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No private route or secret-like parameter marker detected."
+        },
+        {
+          "id": "result_page_leakage_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "No result, order, payment, history, or account route leakage detected."
+        },
+        {
+          "id": "duplicate_template_risk_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Recommended title and description are unique within the same locale."
+        },
+        {
+          "id": "bilingual_consistency_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Logical Big Five entity has both en and zh-CN recommendation rows."
+        },
+        {
+          "id": "seo_projection_gate",
+          "passed": true,
+          "severity": "hard",
+          "details": "Title, description, FAQ, and internal-link projection are bounded for later editorial approval."
+        }
+      ],
+      "failed_gates": [],
+      "qa_status": "pass",
+      "eligible_for_approval_queue": true,
+      "eligible_for_cms_draft_path": true
+    }
+  ]
+}

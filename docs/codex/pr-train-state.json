@@ -17095,11 +17095,11 @@
       "depends_on": [
         "CAREER-DIRECTORY-PRODUCTION-CONSUMPTION-REPAIR-01"
       ],
-      "status": "pr_open",
+      "status": "merged",
       "title": "CAREER-LLMS-TXT-DIRECTORY-URL-EXPOSURE-REPAIR-01 career llms txt directory URL exposure repair",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/977",
       "commit_sha": "pending_remote_pr_head_after_pr_url_ledger_amend",
-      "merge_sha": null,
+      "merge_sha": "568ac8aabde6cd0390c23b99f234435dadd9f868",
       "checks": [
         {
           "name": "pnpm exec vitest run tests/contracts/career-llms-txt-directory-url-exposure-repair-01.contract.test.ts tests/contracts/detail-ready-1046-discoverability-exposure-repair-01.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts",
@@ -17172,7 +17172,7 @@
       "branch": "codex/legacy-seo-reconciliation-scan",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open",
+      "status": "ready_to_merge",
       "title": "LEGACY-SEO-RECONCILIATION-SCAN legacy SEO coverage reconciliation",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/979",
       "commit_sha": "pending_remote_pr_head_after_pr_url_ledger_amend",
@@ -17494,9 +17494,9 @@
       "commit_sha": "pending_pr_head",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/987",
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-24T11:54:31Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "checks": {
         "manifest_registration": {
           "status": "pass",
@@ -28685,6 +28685,102 @@
           "at": "2026-06-24T20:12:00+08:00",
           "status": "ready_to_merge",
           "summary": "PR #1404 passed required GitHub checks and mergeStateStatus was CLEAN after scope re-review."
+        },
+        {
+          "at": "2026-06-24T20:20:00+08:00",
+          "status": "merged",
+          "summary": "PR #1404 was squash-merged as 568ac8aabde6cd0390c23b99f234435dadd9f868; origin/main contains the merge commit, local main was synced, and local/remote task branches were cleaned."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "BIG-FIVE-PUBLIC-PROFILE-AGENT-QA-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/big-five-public-profile-agent-qa-01",
+      "base": "main",
+      "depends_on": [
+        "BIG-FIVE-PUBLIC-PROFILE-AGENT-PILOT-01"
+      ],
+      "status": "pr_open",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1406",
+      "commit_sha": "dce38c582cfb673f2f59e492021b69e087ba8464",
+      "merge_sha": null,
+      "title": "BIG-FIVE-PUBLIC-PROFILE-AGENT-QA-01: test(personality): validate Big Five public profile agent QA artifact",
+      "checks": {
+        "local": {
+          "status": "passed",
+          "commands": [
+            "node --check scripts/seo/validate-big-five-public-profile-agent-qa.mjs",
+            "node scripts/seo/validate-big-five-public-profile-agent-qa.mjs",
+            "jq empty docs/seo/personality/big-five-public-profile-agent-qa-2026-06-24.json",
+            "pnpm exec vitest run tests/contracts/big-five-public-profile-agent-qa-01.contract.test.ts",
+            "pnpm test:contract",
+            "pnpm typecheck",
+            "pnpm lint .",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "results": {
+            "node_check_qa_validator": "passed",
+            "qa_validator_run": "passed",
+            "qa_artifact_json_parse": "passed",
+            "qa_count_gate_assertions": "passed",
+            "focused_vitest": "passed",
+            "contract_suite": "passed",
+            "typecheck": "passed",
+            "lint": "passed_with_existing_warnings",
+            "manifest_yaml_parse": "passed",
+            "state_json_parse": "passed",
+            "diff_check": "passed",
+            "changed_file_scope_validation": "passed"
+          }
+        },
+        "github": {
+          "status": "passed",
+          "summary": "build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, and GitHub Advanced Security CodeQL checks passed on PR #1406.",
+          "checked_at": "2026-06-24T20:45:00+08:00"
+        }
+      },
+      "failure_reason": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "allowed_files": [
+          "scripts/seo/validate-big-five-public-profile-agent-qa.mjs",
+          "docs/seo/personality/big-five-public-profile-agent-qa-2026-06-24.json",
+          "docs/seo/personality/big-five-public-profile-agent-qa-2026-06-24.md",
+          "tests/contracts/big-five-public-profile-agent-qa-01.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "status": "passed"
+      },
+      "history": [
+        {
+          "at": "2026-06-24T20:21:00+08:00",
+          "status": "implementation_in_progress",
+          "summary": "Started PR2 from latest origin/main after PR1 merged. Scope is artifact-only QA over 34 Big Five public profile agent pilot recommendation rows."
+        },
+        {
+          "at": "2026-06-24T20:33:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Generated Big Five QA artifact with decision PASS_READY_FOR_APPROVAL_QUEUE; 34 rows evaluated, 34 passed, 0 failed. Local validator, JSON/YAML parsing, focused vitest, full contract suite, typecheck, lint, diff check, and scope validation passed."
+        },
+        {
+          "at": "2026-06-24T20:40:00+08:00",
+          "status": "pr_open",
+          "summary": "Opened PR https://github.com/fermatmind/fap-web/pull/1406 from codex/big-five-public-profile-agent-qa-01; GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-24T20:45:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "PR #1406 passed required GitHub checks and mergeStateStatus was CLEAN after scope re-review."
         }
       ],
       "sidecar_issues": []
