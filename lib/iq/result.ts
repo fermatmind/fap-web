@@ -230,10 +230,13 @@ function resolveConfidenceInterval(
   resultData: ResultResponse | null
 ): IqConfidenceIntervalViewModel | null {
   const reportSummary = asRecord(reportData?.summary);
+  const reportPayload = asRecord(reportData?.report);
+  const reportPayloadSummary = asRecord(reportPayload?.summary);
   const resultPayload = asRecord(resultData?.result);
   const topResult = asRecord(resultData);
   const interval =
     asRecord(reportSummary?.confidence_interval) ??
+    asRecord(reportPayloadSummary?.confidence_interval) ??
     asRecord(topResult?.confidence_interval) ??
     asRecord(resultPayload?.confidence_interval);
 
@@ -263,11 +266,13 @@ function resolveSummaryMetric(
 ): IqResultMetricValue {
   const reportSummary = asRecord(reportData?.summary);
   const reportPayload = asRecord(reportData?.report);
+  const reportPayloadSummary = asRecord(reportPayload?.summary);
   const resultPayload = asRecord(resultData?.result);
   const topResult = asRecord(resultData);
 
   return normalizeMetricValue(
     reportSummary?.[field] ??
+      reportPayloadSummary?.[field] ??
       topResult?.[field] ??
       resultPayload?.[field] ??
       reportPayload?.[field]
@@ -843,8 +848,8 @@ function getIqInterpretationMessage({
 
 function getRawScoreOnlyMethodBoundaryMessage(locale: Locale): string {
   return locale === "zh"
-    ? "当前 30 题结果只展示本次测验的原始推理得分，不展示 IQ 估计值、百分位或常模解释。"
-    : "This 30-item result currently shows only the raw reasoning score, not an IQ estimate, percentile, or norm-based interpretation.";
+    ? "当前仅展示本次 30 题原始推理得分；合规常模接入前不做数值化智商声明或人群排名解释。"
+    : "This 30-item result currently shows only the raw reasoning score; no normed score or population-rank interpretation is shown until a compliant norm table is available.";
 }
 
 function getRawScoreOnlyInterpretationMessage(locale: Locale): string {
