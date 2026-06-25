@@ -1,87 +1,117 @@
 {
   "imports": [
     {
-      "approval_manifest_path": null,
-      "artifact_sha256": "ffc6bd547c0170778f190b7904388e570f68bf9220904d078c3d60e90c247b77",
-      "block_name": "career-work-activities",
-      "block_version": "career_work_activities_v1",
-      "human_approval_required": true,
-      "rollback_report_path": null,
-      "row_count": 2092,
-      "slug_count": 1046,
-      "source_artifact_paths": [
-        "generated/career-work-activities-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
-        "generated/career-work-activities-v1-1046-final-independent-qa/final_qa_report.json"
-      ],
-      "state": "dry_run"
-    },
-    {
-      "approval_manifest_path": null,
-      "artifact_sha256": "c131729e5264a38d442a3756741721d4429538dac95f6a900db17f4c781ca4c6",
       "block_name": "career-identity",
       "block_version": "career_identity_v1",
-      "human_approval_required": true,
-      "rollback_report_path": null,
+      "state": "post_import_qa_pass",
       "row_count": 2092,
       "slug_count": 1046,
+      "artifact_sha256": "c72d1eb979e83b872d4405b6f581aed7f79c945461b5e4af34b7d2d1eaab934d",
+      "approval_manifest_path": "generated/career-content-1046-editorial-review/approve_reject_manifest.json",
+      "rollback_report_path": null,
+      "human_approval_required": false,
       "source_artifact_paths": [
         "generated/career-identity-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
-        "generated/career-identity-v1-1046-final-independent-qa/final_qa_report.json"
-      ],
-      "state": "dry_run"
+        "career-artifact://career-content-baselines/career-identity/c72d1eb979e83b872d4405b6f581aed7f79c945461b5e4af34b7d2d1eaab934d/baseline.tar.gz",
+        "generated/career-content-1046-post-import-live-page-seo-qa/post_2391_final_live_qa_closeout.json"
+      ]
     },
     {
-      "approval_manifest_path": null,
-      "artifact_sha256": "aa9babb7032460962cc8764df447ec5b1370f3c9a6265eed5643c13179ecca5c",
+      "block_name": "career-work-activities",
+      "block_version": "career_work_activities_v1",
+      "state": "post_import_qa_pass",
+      "row_count": 2092,
+      "slug_count": 1046,
+      "artifact_sha256": "04f9bce6dbd6b2a28a8bba504b4fde14563637cc4083e5774b889659ee63be77",
+      "approval_manifest_path": "generated/career-content-1046-editorial-review/approve_reject_manifest.json",
+      "rollback_report_path": null,
+      "human_approval_required": false,
+      "source_artifact_paths": [
+        "generated/career-work-activities-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
+        "career-artifact://career-content-baselines/career-work-activities/04f9bce6dbd6b2a28a8bba504b4fde14563637cc4083e5774b889659ee63be77/baseline.tar.gz",
+        "generated/career-content-1046-post-import-live-page-seo-qa/post_2391_final_live_qa_closeout.json"
+      ]
+    },
+    {
+      "block_name": "career-skills-entry",
+      "block_version": "career_skills_entry_v1",
+      "state": "post_import_qa_pass",
+      "row_count": 2092,
+      "slug_count": 1046,
+      "artifact_sha256": "edcba095466d89f5ae5c1d67cfe573f9aa637071455fe120690e996196e27190",
+      "approval_manifest_path": "generated/career-content-1046-editorial-review/approve_reject_manifest.json",
+      "rollback_report_path": null,
+      "human_approval_required": false,
+      "source_artifact_paths": [
+        "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
+        "career-artifact://career-content-baselines/career-skills-entry/edcba095466d89f5ae5c1d67cfe573f9aa637071455fe120690e996196e27190/baseline.tar.gz",
+        "generated/career-content-1046-post-import-live-page-seo-qa/post_2391_final_live_qa_closeout.json"
+      ]
+    },
+    {
       "block_name": "career-fit",
       "block_version": "career_fit_v1",
-      "human_approval_required": true,
-      "rollback_report_path": null,
+      "state": "post_import_qa_pass",
       "row_count": 2092,
       "slug_count": 1046,
+      "artifact_sha256": "f3246a7ba7843444e61e6f4a51b618907d042894fe1fdcd2794a97da01a22629",
+      "approval_manifest_path": "generated/career-content-1046-editorial-review/approve_reject_manifest.json",
+      "rollback_report_path": null,
+      "human_approval_required": false,
       "source_artifact_paths": [
         "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
-        "generated/career-fit-v1-1046-final-independent-qa/final_qa_report.json"
-      ],
-      "state": "dry_run"
+        "career-artifact://career-content-baselines/career-fit/f3246a7ba7843444e61e6f4a51b618907d042894fe1fdcd2794a97da01a22629/baseline.tar.gz",
+        "generated/career-content-1046-post-import-live-page-seo-qa/post_2391_final_live_qa_closeout.json"
+      ]
     },
     {
-      "approval_manifest_path": null,
-      "artifact_sha256": "a9abb488e79bfdf641d6fd1a1d927a1e92468c1f95b89bbc96cb793c9c005bce",
       "block_name": "career-adjacent-comparison",
       "block_version": "career_adjacent_comparison_v1",
-      "human_approval_required": true,
-      "rollback_report_path": null,
+      "state": "post_import_qa_pass",
       "row_count": 2092,
       "slug_count": 1046,
+      "artifact_sha256": "84cb88d04c6eb4d90ec6ece2f56a0ab65b954d6bb57e121302550ee53218791c",
+      "approval_manifest_path": "generated/career-content-1046-editorial-review/approve_reject_manifest.json",
+      "rollback_report_path": null,
+      "human_approval_required": false,
       "source_artifact_paths": [
         "generated/career-adjacent-comparison-v1-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
-        "generated/career-adjacent-comparison-v1-1046-final-independent-qa/final_qa_report.json"
-      ],
-      "state": "dry_run"
+        "career-artifact://career-content-baselines/career-adjacent-comparison/84cb88d04c6eb4d90ec6ece2f56a0ab65b954d6bb57e121302550ee53218791c/baseline.tar.gz",
+        "generated/career-content-1046-post-import-live-page-seo-qa/post_2391_final_live_qa_closeout.json"
+      ]
     },
     {
-      "approval_manifest_path": null,
-      "artifact_sha256": "148f35732bdf4c08df64ac6aad02946417c5b63420c3a2f67a9cfb13c735650e",
       "block_name": "career-page-assembly",
       "block_version": "career_page_assembly_v1",
-      "human_approval_required": true,
-      "rollback_report_path": null,
+      "state": "post_import_qa_pass",
       "row_count": 2092,
       "slug_count": 1046,
+      "artifact_sha256": "148f35732bdf4c08df64ac6aad02946417c5b63420c3a2f67a9cfb13c735650e",
+      "approval_manifest_path": "generated/career-content-1046-approved-transition-and-production-readiness/page_assembly_approval_manifest.json",
+      "rollback_report_path": "generated/career-content-1046-approved-transition-and-production-readiness/rollback_plan.md",
+      "human_approval_required": false,
       "source_artifact_paths": [
         "generated/career-page-assembly-v1-1046-pass-baseline/baseline_sha256_manifest.json",
-        "generated/career-content-full-integrated-qa/integrated_qa_report.json"
-      ],
-      "state": "dry_run_ready_for_human_staging_review"
+        "career-artifact://career-content-baselines/career-page-assembly/eb490ece69d0643fdeb03780f28b68dad84766041cd4b0305e6e448acaa35677/baseline.tar.gz",
+        "generated/career-content-1046-approved-transition-and-production-readiness/page_assembly_approved_transition_report.json",
+        "generated/career-content-1046-post-import-live-page-seo-qa/post_2391_final_live_qa_closeout.json"
+      ]
+    },
+    {
+      "block_name": "career-risk-future-ai-impact",
+      "block_version": "career_risk_future_ai_impact_v5",
+      "state": "post_import_qa_pass",
+      "row_count": 2092,
+      "slug_count": 1046,
+      "artifact_sha256": "f22e0266f9b8aa904b00466c9cf751efa72835aebcee41c959d454ffacf96a92",
+      "approval_manifest_path": "generated/career-content-1046-editorial-review/approve_reject_manifest.json",
+      "rollback_report_path": "generated/career-content-1046-approved-transition-and-production-readiness/rollback_plan.md",
+      "human_approval_required": false,
+      "source_artifact_paths": [
+        "generated/career-ai-impact-v5-1046-final-repaired/career_risk_future_ai_impact_1046_v5_final_repaired_assets.jsonl",
+        "generated/career-content-1046-approved-transition-and-production-readiness/ai_impact_approved_transition_report.json",
+        "generated/career-content-1046-post-import-live-page-seo-qa/post_2391_final_live_qa_closeout.json"
+      ]
     }
-  ],
-  "career_skills_entry": {
-    "status": "not_started",
-    "baseline_directory": "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired",
-    "production_imported": false
-  },
-  "import_state": "READY_FOR_HUMAN_STAGING_REVIEW",
-  "production_imported": false,
-  "staging_created": false
+  ]
 }

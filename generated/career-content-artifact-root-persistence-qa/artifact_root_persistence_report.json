@@ -1,0 +1,69 @@
+{
+  "generated_at": "2026-06-25T00:00:00Z",
+  "report_type": "career_content_artifact_root_persistence_qa",
+  "final_conclusion": "ARTIFACT_ROOT_PERSISTENCE_BLOCKED",
+  "career_content_artifact_root_env_present": false,
+  "career_content_artifact_root": null,
+  "local_source_artifact_root": "/Users/rainie/Desktop/GitHub/fap-web/.career-content-artifact-root/career-content-baselines",
+  "local_baseline_tar_count": 6,
+  "expected_baseline_tar_count": 6,
+  "registry_conclusion": "BASELINE_ARTIFACT_REGISTRY_READY",
+  "baseline_registry_path": "generated/career-content-baseline-artifact-registry/baseline_artifact_registry.json",
+  "results": [
+    {
+      "block_name": "career-work-activities",
+      "package_sha256": "04f9bce6dbd6b2a28a8bba504b4fde14563637cc4083e5774b889659ee63be77",
+      "artifact_uri": "career-artifact://career-content-baselines/career-work-activities/04f9bce6dbd6b2a28a8bba504b4fde14563637cc4083e5774b889659ee63be77/baseline.tar.gz",
+      "local_package_available": true,
+      "server_root_verified": false,
+      "status": "SERVER_ROOT_NOT_CONFIGURED"
+    },
+    {
+      "block_name": "career-identity",
+      "package_sha256": "c72d1eb979e83b872d4405b6f581aed7f79c945461b5e4af34b7d2d1eaab934d",
+      "artifact_uri": "career-artifact://career-content-baselines/career-identity/c72d1eb979e83b872d4405b6f581aed7f79c945461b5e4af34b7d2d1eaab934d/baseline.tar.gz",
+      "local_package_available": true,
+      "server_root_verified": false,
+      "status": "SERVER_ROOT_NOT_CONFIGURED"
+    },
+    {
+      "block_name": "career-skills-entry",
+      "package_sha256": "edcba095466d89f5ae5c1d67cfe573f9aa637071455fe120690e996196e27190",
+      "artifact_uri": "career-artifact://career-content-baselines/career-skills-entry/edcba095466d89f5ae5c1d67cfe573f9aa637071455fe120690e996196e27190/baseline.tar.gz",
+      "local_package_available": true,
+      "server_root_verified": false,
+      "status": "SERVER_ROOT_NOT_CONFIGURED"
+    },
+    {
+      "block_name": "career-fit",
+      "package_sha256": "f3246a7ba7843444e61e6f4a51b618907d042894fe1fdcd2794a97da01a22629",
+      "artifact_uri": "career-artifact://career-content-baselines/career-fit/f3246a7ba7843444e61e6f4a51b618907d042894fe1fdcd2794a97da01a22629/baseline.tar.gz",
+      "local_package_available": true,
+      "server_root_verified": false,
+      "status": "SERVER_ROOT_NOT_CONFIGURED"
+    },
+    {
+      "block_name": "career-adjacent-comparison",
+      "package_sha256": "84cb88d04c6eb4d90ec6ece2f56a0ab65b954d6bb57e121302550ee53218791c",
+      "artifact_uri": "career-artifact://career-content-baselines/career-adjacent-comparison/84cb88d04c6eb4d90ec6ece2f56a0ab65b954d6bb57e121302550ee53218791c/baseline.tar.gz",
+      "local_package_available": true,
+      "server_root_verified": false,
+      "status": "SERVER_ROOT_NOT_CONFIGURED"
+    },
+    {
+      "block_name": "career-page-assembly",
+      "package_sha256": "eb490ece69d0643fdeb03780f28b68dad84766041cd4b0305e6e448acaa35677",
+      "artifact_uri": "career-artifact://career-content-baselines/career-page-assembly/eb490ece69d0643fdeb03780f28b68dad84766041cd4b0305e6e448acaa35677/baseline.tar.gz",
+      "local_package_available": true,
+      "server_root_verified": false,
+      "status": "SERVER_ROOT_NOT_CONFIGURED"
+    }
+  ],
+  "content_generated": false,
+  "runtime_modified": false,
+  "seo_modified": false,
+  "cms_imported": false,
+  "staging_created": false,
+  "production_imported": false,
+  "next_required_action": "Set CAREER_CONTENT_ARTIFACT_ROOT to the persistent server artifact directory, copy .career-content-artifact-root/career-content-baselines there, then rerun restore_baseline_preflight.py from a clean worktree."
+}
