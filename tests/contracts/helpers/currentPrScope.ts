@@ -2944,6 +2944,26 @@ const SIX_HUB_FREE_FULL_REPORT_RUNTIME_QA_01_ALLOWED_FILES = new Set([
   "tests/contracts/six-hub-free-full-report-runtime-qa.contract.test.ts",
 ]);
 
+const SIX_HUB_PAID_UNLOCK_COPY_AUTHORITY_CONTRACT_01_ALLOWED_FILES = new Set([
+  "docs/seo/agent/six-hub-paid-unlock-copy-authority-contract-2026-06-25.md",
+  "docs/seo/agent/six-hub-paid-unlock-copy-authority-contract.v1.json",
+  "tests/contracts/six-hub-paid-unlock-copy-authority-contract.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
+const SIX_HUB_PAID_UNLOCK_FRONTEND_CONSUMER_GUARD_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/page.tsx",
+  "lib/rollout/scaleRollout.ts",
+  "lib/i18n/dict/en.json",
+  "lib/i18n/dict/zh.json",
+  "tests/contracts/six-hub-paid-unlock-frontend-consumer-guard.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const RESULT_PAGE_AGENT_RUNTIME_QA_HANDOFF_01_ALLOWED_FILES = new Set([
   "docs/result-page-agents/result-page-agent-runtime-qa-handoff-2026-06-23.md",
   "docs/result-page-agents/result-page-agent-runtime-qa-handoff.v1.json",
@@ -3521,6 +3541,20 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   if (
     CURRENT_BRANCH === "codex/six-hub-free-full-report-runtime-qa-01" &&
     SIX_HUB_FREE_FULL_REPORT_RUNTIME_QA_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/six-hub-paid-unlock-copy-authority-contract-01" &&
+    SIX_HUB_PAID_UNLOCK_COPY_AUTHORITY_CONTRACT_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/six-hub-paid-unlock-frontend-consumer-guard-01" &&
+    isSixHubPaidUnlockFrontendConsumerGuard01AllowedFile(file)
   ) {
     return true;
   }
@@ -4816,6 +4850,17 @@ export function isArticleH101AllowedFile(file: string): boolean {
 
 export function isArticleH103AllowedFile(file: string): boolean {
   return ARTICLE_H1_03_ALLOWED_FILES.has(file);
+}
+
+export function isSixHubPaidUnlockCopyAuthorityContract01AllowedFile(file: string): boolean {
+  return SIX_HUB_PAID_UNLOCK_COPY_AUTHORITY_CONTRACT_01_ALLOWED_FILES.has(file);
+}
+
+export function isSixHubPaidUnlockFrontendConsumerGuard01AllowedFile(file: string): boolean {
+  return (
+    SIX_HUB_PAID_UNLOCK_FRONTEND_CONSUMER_GUARD_01_ALLOWED_FILES.has(file) ||
+    file.startsWith("generated/pr-train-sidecar-issues/")
+  );
 }
 
 export function isSeoGpt55Handoff01AllowedFile(file: string): boolean {

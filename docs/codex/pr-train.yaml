@@ -18812,6 +18812,98 @@ prs:
       auto_merge: true
     next_task: BIG5-HUB-COMMERCIAL-FIELD-AUTHORITY-FIX-SCAN-01
 
+  - id: SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/six-hub-paid-unlock-copy-authority-contract-01
+    base: main
+    title: "SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01: docs(seo): add paid unlock copy authority contract"
+    depends_on: []
+    mode: execute
+    train_scope: six_hub_paid_unlock_copy_authority_contract
+    status: in_progress
+    goal: "Create the docs/contracts authority contract for suppressing paid-unlock disabled copy on public assessment Hub pages when backend public commercial authority proves free-only, FREE, no SKU, and no offers."
+    artifacts:
+      - docs/seo/agent/six-hub-paid-unlock-copy-authority-contract-2026-06-25.md
+      - docs/seo/agent/six-hub-paid-unlock-copy-authority-contract.v1.json
+      - tests/contracts/six-hub-paid-unlock-copy-authority-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/seo/agent/six-hub-paid-unlock-copy-authority-contract-2026-06-25.md
+      - docs/seo/agent/six-hub-paid-unlock-copy-authority-contract.v1.json
+      - tests/contracts/six-hub-paid-unlock-copy-authority-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify frontend runtime behavior.
+      - Modify fap-api.
+      - Write CMS, publish, deploy, run runtime QA, submit search URLs, or mutate sitemap/llms/schema/hreflang/canonical/noindex.
+      - Access private results, create attempts, submit answers, or mutate payment/order/benefit state.
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/seo/agent/six-hub-paid-unlock-copy-authority-contract.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/six-hub-paid-unlock-copy-authority-contract.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SIX-HUB-PAID-UNLOCK-FRONTEND-CONSUMER-GUARD-01
+
+  - id: SIX-HUB-PAID-UNLOCK-FRONTEND-CONSUMER-GUARD-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/six-hub-paid-unlock-frontend-consumer-guard-01
+    base: main
+    title: "SIX-HUB-PAID-UNLOCK-FRONTEND-CONSUMER-GUARD-01: fix(tests): suppress stale paid unlock copy"
+    depends_on:
+      - SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01
+    mode: execute
+    train_scope: six_hub_paid_unlock_frontend_consumer_guard
+    status: pending_dependency
+    goal: "Implement the fap-web frontend consumer guard so public Hub pages no longer render paid-unlock disabled copy when backend public lookup proves free-only, FREE, no SKU, and no offers."
+    artifacts:
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - lib/rollout/scaleRollout.ts
+      - tests/contracts/six-hub-paid-unlock-frontend-consumer-guard.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - lib/rollout/scaleRollout.ts
+      - lib/i18n/dict/en.json
+      - lib/i18n/dict/zh.json
+      - tests/contracts/six-hub-paid-unlock-frontend-consumer-guard.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Modify fap-api.
+      - Modify result pages or take submission behavior.
+      - Write CMS, publish, deploy, run production runtime QA, submit search URLs, or mutate sitemap/llms/schema/hreflang/canonical/noindex.
+      - Access private results, create attempts, submit answers, or mutate payment/order/benefit state.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/six-hub-paid-unlock-frontend-consumer-guard.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SIX-HUB-PAID-UNLOCK-COPY-RUNTIME-QA-READONLY-01
+
   - id: PR-EQ-AGENT-RUNTIME-03
     repo: fap-web
     repo_path: <workspace>/fap-web

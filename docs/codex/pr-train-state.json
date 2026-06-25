@@ -31068,6 +31068,194 @@
         }
       ],
       "sidecar_issues": []
+    },
+    {
+      "id": "SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/six-hub-paid-unlock-copy-authority-contract-01",
+      "base": "main",
+      "depends_on": [],
+      "title": "SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01: docs(seo): add paid unlock copy authority contract",
+      "status": "ready_to_merge",
+      "train_scope": "six_hub_paid_unlock_copy_authority_contract",
+      "artifacts": [
+        "docs/seo/agent/six-hub-paid-unlock-copy-authority-contract-2026-06-25.md",
+        "docs/seo/agent/six-hub-paid-unlock-copy-authority-contract.v1.json",
+        "tests/contracts/six-hub-paid-unlock-copy-authority-contract.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User authorized manifest/state updates for SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01 and SIX-HUB-PAID-UNLOCK-FRONTEND-CONSUMER-GUARD-01 only."
+        },
+        "dependency": {
+          "status": "passed",
+          "evidence": "No dependency for PR1."
+        },
+        "branch_base": {
+          "status": "passed",
+          "evidence": "Created codex/six-hub-paid-unlock-copy-authority-contract-01 from fap-web origin/main 9673cbce85f9dc96555e1abc4d4a70cc726555b6."
+        },
+        "local": {
+          "status": "passed",
+          "commands": [
+            {
+              "cmd": "node -e \"JSON.parse(require('fs').readFileSync('docs/seo/agent/six-hub-paid-unlock-copy-authority-contract.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
+              "result": "passed"
+            },
+            {
+              "cmd": "pnpm exec vitest run tests/contracts/six-hub-paid-unlock-copy-authority-contract.contract.test.ts",
+              "result": "passed",
+              "summary": "7 tests passed"
+            },
+            {
+              "cmd": "pnpm typecheck",
+              "result": "passed"
+            },
+            {
+              "cmd": "pnpm test:contract",
+              "result": "passed",
+              "summary": "587 files, 3455 tests passed"
+            },
+            {
+              "cmd": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+              "result": "passed"
+            },
+            {
+              "cmd": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+              "result": "passed"
+            },
+            {
+              "cmd": "git diff --check",
+              "result": "passed"
+            },
+            {
+              "cmd": "changed-file scope validation",
+              "result": "passed"
+            }
+          ],
+          "notes": "Skipped pnpm build per task instruction because local build may trigger postbuild generated SEO artifacts."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1449",
+      "commit_sha": "7b33c402f716d6ccf677eff5144981ba51247811",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "status": "passed",
+        "allowed_files": [
+          "docs/seo/agent/six-hub-paid-unlock-copy-authority-contract-2026-06-25.md",
+          "docs/seo/agent/six-hub-paid-unlock-copy-authority-contract.v1.json",
+          "tests/contracts/six-hub-paid-unlock-copy-authority-contract.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "changed_files": [
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/seo/agent/six-hub-paid-unlock-copy-authority-contract-2026-06-25.md",
+          "docs/seo/agent/six-hub-paid-unlock-copy-authority-contract.v1.json",
+          "tests/contracts/six-hub-paid-unlock-copy-authority-contract.contract.test.ts"
+        ],
+        "outside_scope_files": []
+      },
+      "history": [
+        {
+          "at": "2026-06-25T18:10:00+08:00",
+          "status": "in_progress",
+          "summary": "Started PR1 from latest origin/main to add docs/contracts authority for suppressing stale paid-unlock disabled copy when backend public lookup proves free-only, FREE, no SKU, and no offers. No runtime, CMS, backend, deploy, search, or private data scope is included."
+        },
+        {
+          "at": "2026-06-25T18:14:00+08:00",
+          "status": "local_checks_passed_ready_to_push",
+          "summary": "PR1 docs/contracts artifacts, scope helper, and train metadata passed JSON/YAML parse, focused contract, typecheck, full contract suite, diff check, and changed-file scope validation. pnpm build was intentionally skipped by task instruction."
+        },
+        {
+          "at": "2026-06-25T18:19:00+08:00",
+          "status": "pr_open_pending_github_checks",
+          "summary": "Opened PR #1449 at https://github.com/fermatmind/fap-web/pull/1449 from commit 822b962ebf62399b7603407cb9a5d8cbbfea63e4. Required GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-25T18:28:00+08:00",
+          "status": "ci_fix_pushed",
+          "summary": "Remote contracts failed because the PR merge checkout lacked origin/main for the new scope-diff assertion. Updated the PR1 contract harness to fall back through safe git diff commands and then the ledger changed_files list; local focused contract, typecheck, full contract suite, JSON parse, and diff check passed before pushing the fix."
+        },
+        {
+          "at": "2026-06-25T18:34:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "PR #1449 required GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). mergeStateStatus is CLEAN; marking ready_to_merge before squash merge."
+        }
+      ],
+      "sidecar_issues": []
+    },
+    {
+      "id": "SIX-HUB-PAID-UNLOCK-FRONTEND-CONSUMER-GUARD-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/six-hub-paid-unlock-frontend-consumer-guard-01",
+      "base": "main",
+      "depends_on": [
+        "SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01"
+      ],
+      "title": "SIX-HUB-PAID-UNLOCK-FRONTEND-CONSUMER-GUARD-01: fix(tests): suppress stale paid unlock copy",
+      "status": "pending_dependency",
+      "train_scope": "six_hub_paid_unlock_frontend_consumer_guard",
+      "artifacts": [
+        "app/(localized)/[locale]/tests/[slug]/page.tsx",
+        "lib/rollout/scaleRollout.ts",
+        "tests/contracts/six-hub-paid-unlock-frontend-consumer-guard.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User authorized manifest/state updates for PR2 but PR2 must wait for PR1 merge."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01 merged into main."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "status": "pending",
+        "allowed_files": [
+          "app/(localized)/[locale]/tests/[slug]/page.tsx",
+          "lib/rollout/scaleRollout.ts",
+          "lib/i18n/dict/en.json",
+          "lib/i18n/dict/zh.json",
+          "tests/contracts/six-hub-paid-unlock-frontend-consumer-guard.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json",
+          "generated/pr-train-sidecar-issues/**"
+        ],
+        "changed_files": [],
+        "outside_scope_files": []
+      },
+      "history": [
+        {
+          "at": "2026-06-25T18:10:00+08:00",
+          "status": "pending_dependency",
+          "summary": "Registered PR2 scope and dependency. Implementation must wait until PR1 is merged into origin/main."
+        }
+      ],
+      "sidecar_issues": []
     }
   ]
 }
