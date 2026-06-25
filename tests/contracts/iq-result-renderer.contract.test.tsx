@@ -153,6 +153,62 @@ function createOwnerRawScoreOnlyReportData(): ReportResponse {
   } as unknown as ReportResponse;
 }
 
+function createOwnerClaimEligibleReportData(): ReportResponse {
+  return {
+    ...createReportData(),
+    summary: {
+      raw_score: 30,
+      question_count: 30,
+      iq_estimate: 145,
+      percentile: 99.87,
+      confidence_interval: {
+        lower: 140.5,
+        upper: 149.5,
+        level: "90%",
+      },
+      score_claim_level: "iq_estimate",
+      claim_warnings: [],
+      claim_policy: {
+        claim_eligible: true,
+        score_claim_level: "iq_estimate",
+      },
+    },
+    scoring: {
+      raw_score: 30,
+      question_count: 30,
+      score_claim_level: "iq_estimate",
+      claim_warnings: [],
+      claim_policy: {
+        claim_eligible: true,
+        score_claim_level: "iq_estimate",
+      },
+    },
+    dimensions: {
+      visual_spatial_insight: {
+        raw_score: 10,
+        scaled_score: 145,
+        normalized_score: 99,
+        percentile: 99.8,
+        band: "Exceptional",
+      },
+      visual_spatial_pattern_reasoning: {
+        raw_score: 10,
+        scaled_score: 143,
+        normalized_score: 98,
+        percentile: 99.5,
+        band: "Exceptional",
+      },
+      numerical_pattern_reasoning: {
+        raw_score: 10,
+        scaled_score: 144,
+        normalized_score: 99,
+        percentile: 99.7,
+        band: "Exceptional",
+      },
+    },
+  } as unknown as ReportResponse;
+}
+
 function createNestedOwnerRawScoreOnlyReportData(): ReportResponse {
   const reportData = createOwnerRawScoreOnlyReportData() as unknown as Record<string, unknown>;
 
@@ -264,6 +320,28 @@ describe("IQ result renderer contract", () => {
     expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("原始分");
     expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("8");
     expect(screen.getByTestId("iq-dimension-card-vsi")).not.toHaveTextContent("82%");
+  });
+
+  it("renders owner 30 IQ claims only when backend marks the report claim eligible", () => {
+    render(
+      <IqResultShell
+        locale="zh"
+        reportData={createOwnerClaimEligibleReportData()}
+        resultData={null}
+        accessView={createAccessView()}
+      />
+    );
+
+    expect(screen.getByTestId("iq-iq-estimate-value")).toHaveTextContent("145");
+    expect(screen.getByTestId("iq-percentile")).toHaveTextContent("99.9%");
+    expect(screen.getByTestId("iq-confidence-interval")).toHaveTextContent("140.5 - 149.5 · 90%");
+    expect(screen.getByTestId("iq-raw-score")).toHaveTextContent("30");
+    expect(screen.queryByTestId("iq-raw-score-claim")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-iq-estimate-unavailable")).not.toBeInTheDocument();
+    expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("百分位");
+    expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("99.8%");
+    expect(screen.getByTestId("iq-report-dimension-detail-vsi")).toHaveTextContent("百分位");
+    expect(screen.getByTestId("iq-report-dimension-detail-vsi")).toHaveTextContent("99.8%");
   });
 
   it("renders owner 30 raw score from nested production report summary", () => {

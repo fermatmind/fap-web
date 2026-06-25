@@ -471,6 +471,74 @@ describe("IQ frontend API contract", () => {
     expect(parsed.success && parsed.data.scoring?.claim_warnings).toContain("no_norm_table");
   });
 
+  it("accepts owner 30 claim eligible report payloads with backend IQ claims", () => {
+    const parsed = iqReportPayloadSchema.safeParse({
+      ok: true,
+      attempt_id: "attempt_iq_claim_eligible",
+      scale_code: IQ_CANONICAL_SCALE_CODE,
+      summary: {
+        raw_score: 30,
+        question_count: 30,
+        iq_estimate: 145,
+        percentile: 99.87,
+        confidence_interval: {
+          lower: 140.5,
+          upper: 149.5,
+          level: "90%",
+        },
+        score_claim_level: "iq_estimate",
+        claim_warnings: [],
+        claim_policy: {
+          claim_eligible: true,
+          score_claim_level: "iq_estimate",
+        },
+      },
+      scoring: {
+        raw_score: 30,
+        question_count: 30,
+        score_claim_level: "iq_estimate",
+        claim_warnings: [],
+        claim_policy: {
+          claim_eligible: true,
+          score_claim_level: "iq_estimate",
+        },
+      },
+      norms: {
+        norm_table_version: "iq_owner30_norm_fixture_v1",
+        iq_estimate: 145,
+        percentile: 99.87,
+        confidence_interval: {
+          lower: 140.5,
+          upper: 149.5,
+          level: "90%",
+        },
+        score_claim_level: "iq_estimate",
+        claim_policy: {
+          claim_eligible: true,
+          score_claim_level: "iq_estimate",
+        },
+      },
+      dimensions: {
+        visual_spatial_insight: { raw_score: 10, percentile: 99.8 },
+        visual_spatial_pattern_reasoning: { raw_score: 10, percentile: 99.5 },
+        numerical_pattern_reasoning: { raw_score: 10, percentile: 99.7 },
+      },
+      quality: {
+        level: "claim_eligible",
+        flags: ["owner_original_30"],
+      },
+      stability: {
+        status: "normed",
+      },
+    });
+
+    expect(parsed.success).toBe(true);
+    expect(parsed.success && parsed.data.summary?.iq_estimate).toBe(145);
+    expect(parsed.success && parsed.data.summary?.score_claim_level).toBe("iq_estimate");
+    expect(parsed.success && parsed.data.summary?.claim_policy?.claim_eligible).toBe(true);
+    expect(parsed.success && parsed.data.scoring?.claim_policy?.score_claim_level).toBe("iq_estimate");
+  });
+
   it("starts and submits IQ attempts without frontend-computed score fields", async () => {
     await startIqAttempt({
       scale_code: IQ_CANONICAL_SCALE_CODE,
