@@ -169,6 +169,66 @@ describe("SEO-OPS-02D article CMS rich-content CTA attribution contract", () => 
     expectSafeArticleAttributionHref(cta.getAttribute("href") ?? "");
   });
 
+  it("preserves backend answer-surface labels for MBTI article test CTAs", async () => {
+    const surface: AnswerSurfaceViewModel = {
+      version: "answer.surface.v1",
+      answerContractVersion: "answer.surface.v1",
+      answerFingerprint: "seo-ops-02d-answer-surface-mbti-label",
+      answerScope: "public_indexable_detail",
+      surfaceType: "article_public_detail",
+      summaryBlocks: [],
+      faqBlocks: [],
+      compareBlocks: [],
+      sceneSummaryBlocks: [],
+      nextStepBlocks: [
+        {
+          key: "p0_ctr_primary_test_cta",
+          title: "开始免费 MBTI 测试",
+          body: "",
+          href: "/zh/tests/mbti-personality-test-16-personality-types",
+          kind: "start_test",
+        },
+      ],
+      answerBundle: [],
+      evidenceRefs: [],
+      publicSafetyState: null,
+      indexabilityState: "indexable",
+      attributionScope: "article_detail",
+      seoSurfaceRef: null,
+      landingSurfaceRef: null,
+      publicSurfaceRef: null,
+      primaryContentRef: `article:${sourceSlug}`,
+      relatedSurfaceKeys: [],
+      runtimeArtifactRef: null,
+    };
+
+    render(
+      <AnswerSurfaceSection
+        surface={surface}
+        locale="zh"
+        pageFamily="article_detail"
+        seoCtaAttribution={{
+          locale: "zh",
+          sourceRouteFamily: "article_detail",
+          sourceSlug,
+          sourcePath,
+          contentId: 8,
+        }}
+      />
+    );
+
+    const cta = screen.getByRole("link", { name: "开始免费 MBTI 测试" });
+
+    await waitFor(() => {
+      expect(cta.getAttribute("href")).toContain("target_test_slug=mbti-personality-test-16-personality-types");
+    });
+
+    expect(screen.queryByRole("link", { name: "MBTI免费测试" })).not.toBeInTheDocument();
+    expect(cta.getAttribute("href")).toContain("entrypoint=seo_cta");
+    expect(cta.getAttribute("href")).not.toContain("email=");
+    expect(cta.getAttribute("href")).not.toContain("debug=");
+  });
+
   it("can hide the article answer-surface comparison label without dropping comparison cards", () => {
     const surface: AnswerSurfaceViewModel = {
       version: "answer.surface.v1",

@@ -59,12 +59,17 @@ function isTrackableTestDetailHref(href: string): boolean {
 }
 
 function formatAnswerSurfaceLinkLabel(href: string, label: string, locale: Locale): string {
+  const normalizedLabel = label.trim();
+  if (normalizedLabel && normalizedLabel !== href.trim()) {
+    return normalizedLabel;
+  }
+
   const pathname = pathFromHref(href);
   if (extractTargetTestSlugFromHref(pathname) === "mbti-personality-test-16-personality-types") {
     return locale === "zh" ? "MBTI免费测试" : "Free MBTI test";
   }
 
-  return label;
+  return normalizedLabel || href;
 }
 
 function renderAnswerSurfaceLink({
