@@ -1,0 +1,537 @@
+{
+  "schema_version": "fermatmind.six_hub_seo_geo_aeo_internal_link_packet.v1",
+  "task_id": "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01",
+  "generated_at": "2026-06-25T16:05:00+08:00",
+  "run_mode": "docs_contracts_only_no_runtime_mutation",
+  "verdict": "AEO_INTERNAL_LINK_PACKET_READY_NO_RUNTIME_CHANGES",
+  "depends_on": [
+    "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01"
+  ],
+  "consumed_packets": [
+    "docs/seo/agent/six-hub-seo-geo-package-common-contract.v1.json",
+    "docs/seo/agent/six-hub-seo-geo-package-readiness-packet.v1.json",
+    "docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet.v1.json"
+  ],
+  "route_count": 12,
+  "scale_count": 6,
+  "decision_counts": {
+    "review_first_architecture_only_routes": 6,
+    "hard_hold_no_aeo_package_routes": 6,
+    "no_new_faq_schema_routes": 12,
+    "no_new_internal_link_expansion_routes": 6
+  },
+  "architecture_rules": {
+    "answer_block_slots": [
+      "direct_answer_summary_from_visible_authority_only",
+      "form_and_report_scope_boundary",
+      "methodology_or_non_diagnostic_boundary",
+      "existing_take_action_boundary",
+      "existing_internal_link_bridge_boundary"
+    ],
+    "internal_link_rules": [
+      "preserve_current_take_links_without adding URLs",
+      "preserve current topic/personality/career bridge links as observed evidence only",
+      "do not create cross-hub link expansion until claim/copy gates pass",
+      "do not add sitemap, llms, canonical, hreflang, robots, or schema URL-set changes"
+    ],
+    "forbidden_aeo_patterns": [
+      "hidden FAQPage or answer stuffing not visible on page",
+      "new JSON-LD claims not backed by visible content or backend authority",
+      "full-report or free-access claims beyond source authority",
+      "clinical, hiring, school, employment, medical, deterministic, or guaranteed-outcome claims",
+      "frontend-invented recommendation, career graph, or personality graph authority"
+    ]
+  },
+  "review_first_scales_before_geo_aeo_amplification": [
+    "MBTI",
+    "RIASEC",
+    "ENNEAGRAM"
+  ],
+  "hard_hold_scales_before_copy_repair": [
+    "BIG5_OCEAN",
+    "IQ_RAVEN",
+    "EQ_60"
+  ],
+  "scale_architecture_summary": [
+    {
+      "scale_code": "MBTI",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "highest_risk": "P2",
+      "copy_gate_decision": "ALLOW_WITH_AUTHORITY_REVIEW_BEFORE_AMPLIFICATION",
+      "aeo_package_status": "REVIEW_FIRST_ARCHITECTURE_ONLY",
+      "internal_link_status": "REVIEW_BEFORE_NEW_LINK_EXPANSION",
+      "route_count": 2,
+      "owner_lane": "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "highest_risk": "P1",
+      "copy_gate_decision": "HOLD_FOR_SOURCE_AUTHORITY_RECONCILIATION_BEFORE_COPY_PACKAGE",
+      "aeo_package_status": "HARD_HOLD",
+      "internal_link_status": "NO_NEW_LINK_EXPANSION",
+      "route_count": 2,
+      "owner_lane": "BIG5-HUB-COMMERCIAL-FIELD-AUTHORITY-FIX-SCAN-01_AFTER_PACKAGE_TRAIN"
+    },
+    {
+      "scale_code": "RIASEC",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "highest_risk": "P2",
+      "copy_gate_decision": "ALLOW_ONLY_IF_PAID_UNLOCK_COPY_IS_EXAMPLE_BOUNDARY_NOT_PAYWALL_PROMISE",
+      "aeo_package_status": "REVIEW_FIRST_ARCHITECTURE_ONLY",
+      "internal_link_status": "REVIEW_BEFORE_NEW_LINK_EXPANSION",
+      "route_count": 2,
+      "owner_lane": "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "highest_risk": "P2",
+      "copy_gate_decision": "ALLOW_ONLY_WITH_NON_DIAGNOSTIC_TYPE_PROBABILITY_BOUNDARY",
+      "aeo_package_status": "REVIEW_FIRST_ARCHITECTURE_ONLY",
+      "internal_link_status": "REVIEW_BEFORE_NEW_LINK_EXPANSION",
+      "route_count": 2,
+      "owner_lane": "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "highest_risk": "P2",
+      "copy_gate_decision": "HOLD_CLAIM_COPY_FIX_FOR_MANUAL_REVIEW_AND_FORM_AUTHORITY",
+      "aeo_package_status": "HARD_HOLD",
+      "internal_link_status": "NO_NEW_LINK_EXPANSION",
+      "route_count": 2,
+      "owner_lane": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN"
+    },
+    {
+      "scale_code": "EQ_60",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "highest_risk": "P2",
+      "copy_gate_decision": "HOLD_CLAIM_COPY_FIX_FOR_FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "aeo_package_status": "HARD_HOLD",
+      "internal_link_status": "NO_NEW_LINK_EXPANSION",
+      "route_count": 2,
+      "owner_lane": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN"
+    }
+  ],
+  "route_aeo_internal_link_matrix": [
+    {
+      "scale_code": "MBTI",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "claim_risk_severity": "P2",
+      "risk_category": "FREE_FULL_REPORT_AUTHORITY_REVIEW",
+      "copy_gate_decision": "ALLOW_WITH_AUTHORITY_REVIEW_BEFORE_AMPLIFICATION",
+      "current_jsonld_types": [
+        "WebPage",
+        "BreadcrumbList",
+        "SoftwareApplication",
+        "FAQPage"
+      ],
+      "visible_faq_status": "VISIBLE_FAQ_OR_QA_CUES",
+      "current_internal_link_families": {
+        "test_take_links_present": true,
+        "topic_links_present": true,
+        "personality_links_present": true,
+        "career_recommendation_links_present": true
+      },
+      "aeo_answer_block_decision": "REVIEW_FIRST_ALLOWED_ONLY_AS_ARCHITECTURE_PACKET",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_REVIEW_BEFORE_NEW_AEO_LINKING",
+      "faq_schema_decision": "NO_NEW_FAQ_SCHEMA_OR_HIDDEN_ANSWER_EXPANSION",
+      "allowed_answer_block_slots": [
+        "direct_answer_summary_from_visible_authority_only",
+        "form_and_report_scope_boundary",
+        "methodology_or_non_diagnostic_boundary",
+        "existing_take_action_boundary",
+        "existing_internal_link_bridge_boundary"
+      ],
+      "blocked_until": "COPY_AUTHORITY_REVIEW_BEFORE_GEO_AEO_AMPLIFICATION"
+    },
+    {
+      "scale_code": "MBTI",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "claim_risk_severity": "P2",
+      "risk_category": "FREE_FULL_REPORT_AUTHORITY_REVIEW",
+      "copy_gate_decision": "ALLOW_WITH_AUTHORITY_REVIEW_BEFORE_AMPLIFICATION",
+      "current_jsonld_types": [
+        "WebPage",
+        "BreadcrumbList",
+        "SoftwareApplication",
+        "FAQPage"
+      ],
+      "visible_faq_status": "VISIBLE_FAQ_OR_QA_CUES",
+      "current_internal_link_families": {
+        "test_take_links_present": true,
+        "topic_links_present": true,
+        "personality_links_present": true,
+        "career_recommendation_links_present": true
+      },
+      "aeo_answer_block_decision": "REVIEW_FIRST_ALLOWED_ONLY_AS_ARCHITECTURE_PACKET",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_REVIEW_BEFORE_NEW_AEO_LINKING",
+      "faq_schema_decision": "NO_NEW_FAQ_SCHEMA_OR_HIDDEN_ANSWER_EXPANSION",
+      "allowed_answer_block_slots": [
+        "direct_answer_summary_from_visible_authority_only",
+        "form_and_report_scope_boundary",
+        "methodology_or_non_diagnostic_boundary",
+        "existing_take_action_boundary",
+        "existing_internal_link_bridge_boundary"
+      ],
+      "blocked_until": "COPY_AUTHORITY_REVIEW_BEFORE_GEO_AEO_AMPLIFICATION"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+      "readiness_verdict": "NEEDS_SOURCE_AUTHORITY_RECONCILIATION",
+      "claim_risk_severity": "P1",
+      "risk_category": "COMMERCIAL_FIELD_AUTHORITY_CONFLICT_PLUS_PAID_UNLOCK_COPY",
+      "copy_gate_decision": "HOLD_FOR_SOURCE_AUTHORITY_RECONCILIATION_BEFORE_COPY_PACKAGE",
+      "current_jsonld_types": [
+        "WebPage",
+        "BreadcrumbList",
+        "SoftwareApplication",
+        "FAQPage"
+      ],
+      "visible_faq_status": "VISIBLE_FAQ_OR_QA_CUES",
+      "current_internal_link_families": {
+        "test_take_links_present": true,
+        "topic_links_present": false,
+        "personality_links_present": false,
+        "career_recommendation_links_present": false
+      },
+      "aeo_answer_block_decision": "HARD_HOLD_NO_AEO_PACKAGE_UNTIL_CLAIM_COPY_REPAIR",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_NO_NEW_INTERNAL_LINK_EXPANSION",
+      "faq_schema_decision": "NO_NEW_FAQ_SCHEMA_OR_HIDDEN_ANSWER_EXPANSION",
+      "allowed_answer_block_slots": [],
+      "blocked_until": "BIG5-HUB-COMMERCIAL-FIELD-AUTHORITY-FIX-SCAN-01_AFTER_PACKAGE_TRAIN"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "readiness_verdict": "NEEDS_SOURCE_AUTHORITY_RECONCILIATION",
+      "claim_risk_severity": "P1",
+      "risk_category": "COMMERCIAL_FIELD_AUTHORITY_CONFLICT_PLUS_PAID_UNLOCK_COPY",
+      "copy_gate_decision": "HOLD_FOR_SOURCE_AUTHORITY_RECONCILIATION_BEFORE_COPY_PACKAGE",
+      "current_jsonld_types": [
+        "WebPage",
+        "BreadcrumbList",
+        "SoftwareApplication",
+        "FAQPage"
+      ],
+      "visible_faq_status": "VISIBLE_FAQ_OR_QA_CUES",
+      "current_internal_link_families": {
+        "test_take_links_present": true,
+        "topic_links_present": false,
+        "personality_links_present": false,
+        "career_recommendation_links_present": false
+      },
+      "aeo_answer_block_decision": "HARD_HOLD_NO_AEO_PACKAGE_UNTIL_CLAIM_COPY_REPAIR",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_NO_NEW_INTERNAL_LINK_EXPANSION",
+      "faq_schema_decision": "NO_NEW_FAQ_SCHEMA_OR_HIDDEN_ANSWER_EXPANSION",
+      "allowed_answer_block_slots": [],
+      "blocked_until": "BIG5-HUB-COMMERCIAL-FIELD-AUTHORITY-FIX-SCAN-01_AFTER_PACKAGE_TRAIN"
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "claim_risk_severity": "P2",
+      "risk_category": "FULL_RESULT_AND_PAID_UNLOCK_EXAMPLES_ONLY_BOUNDARY",
+      "copy_gate_decision": "ALLOW_ONLY_IF_PAID_UNLOCK_COPY_IS_EXAMPLE_BOUNDARY_NOT_PAYWALL_PROMISE",
+      "current_jsonld_types": [
+        "WebPage",
+        "BreadcrumbList",
+        "SoftwareApplication",
+        "FAQPage"
+      ],
+      "visible_faq_status": "VISIBLE_FAQ_OR_QA_CUES",
+      "current_internal_link_families": {
+        "test_take_links_present": true,
+        "topic_links_present": false,
+        "personality_links_present": false,
+        "career_recommendation_links_present": false
+      },
+      "aeo_answer_block_decision": "REVIEW_FIRST_ALLOWED_ONLY_AS_ARCHITECTURE_PACKET",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_REVIEW_BEFORE_NEW_AEO_LINKING",
+      "faq_schema_decision": "NO_NEW_FAQ_SCHEMA_OR_HIDDEN_ANSWER_EXPANSION",
+      "allowed_answer_block_slots": [
+        "direct_answer_summary_from_visible_authority_only",
+        "form_and_report_scope_boundary",
+        "methodology_or_non_diagnostic_boundary",
+        "existing_take_action_boundary",
+        "existing_internal_link_bridge_boundary"
+      ],
+      "blocked_until": "COPY_AUTHORITY_REVIEW_BEFORE_GEO_AEO_AMPLIFICATION"
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "claim_risk_severity": "P2",
+      "risk_category": "FULL_RESULT_AND_PAID_UNLOCK_EXAMPLES_ONLY_BOUNDARY",
+      "copy_gate_decision": "ALLOW_ONLY_IF_PAID_UNLOCK_COPY_IS_EXAMPLE_BOUNDARY_NOT_PAYWALL_PROMISE",
+      "current_jsonld_types": [
+        "WebPage",
+        "BreadcrumbList",
+        "SoftwareApplication",
+        "FAQPage"
+      ],
+      "visible_faq_status": "VISIBLE_FAQ_OR_QA_CUES",
+      "current_internal_link_families": {
+        "test_take_links_present": true,
+        "topic_links_present": false,
+        "personality_links_present": false,
+        "career_recommendation_links_present": false
+      },
+      "aeo_answer_block_decision": "REVIEW_FIRST_ALLOWED_ONLY_AS_ARCHITECTURE_PACKET",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_REVIEW_BEFORE_NEW_AEO_LINKING",
+      "faq_schema_decision": "NO_NEW_FAQ_SCHEMA_OR_HIDDEN_ANSWER_EXPANSION",
+      "allowed_answer_block_slots": [
+        "direct_answer_summary_from_visible_authority_only",
+        "form_and_report_scope_boundary",
+        "methodology_or_non_diagnostic_boundary",
+        "existing_take_action_boundary",
+        "existing_internal_link_bridge_boundary"
+      ],
+      "blocked_until": "COPY_AUTHORITY_REVIEW_BEFORE_GEO_AEO_AMPLIFICATION"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "claim_risk_severity": "P2",
+      "risk_category": "PAID_UNLOCK_COPY_AND_TYPE_CERTAINTY_BOUNDARY",
+      "copy_gate_decision": "ALLOW_ONLY_WITH_NON_DIAGNOSTIC_TYPE_PROBABILITY_BOUNDARY",
+      "current_jsonld_types": [
+        "WebPage",
+        "BreadcrumbList",
+        "SoftwareApplication",
+        "FAQPage"
+      ],
+      "visible_faq_status": "VISIBLE_FAQ_OR_QA_CUES",
+      "current_internal_link_families": {
+        "test_take_links_present": true,
+        "topic_links_present": false,
+        "personality_links_present": false,
+        "career_recommendation_links_present": false
+      },
+      "aeo_answer_block_decision": "REVIEW_FIRST_ALLOWED_ONLY_AS_ARCHITECTURE_PACKET",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_REVIEW_BEFORE_NEW_AEO_LINKING",
+      "faq_schema_decision": "NO_NEW_FAQ_SCHEMA_OR_HIDDEN_ANSWER_EXPANSION",
+      "allowed_answer_block_slots": [
+        "direct_answer_summary_from_visible_authority_only",
+        "form_and_report_scope_boundary",
+        "methodology_or_non_diagnostic_boundary",
+        "existing_take_action_boundary",
+        "existing_internal_link_bridge_boundary"
+      ],
+      "blocked_until": "COPY_AUTHORITY_REVIEW_BEFORE_GEO_AEO_AMPLIFICATION"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "claim_risk_severity": "P2",
+      "risk_category": "PAID_UNLOCK_COPY_AND_TYPE_CERTAINTY_BOUNDARY",
+      "copy_gate_decision": "ALLOW_ONLY_WITH_NON_DIAGNOSTIC_TYPE_PROBABILITY_BOUNDARY",
+      "current_jsonld_types": [
+        "WebPage",
+        "BreadcrumbList",
+        "SoftwareApplication",
+        "FAQPage"
+      ],
+      "visible_faq_status": "VISIBLE_FAQ_OR_QA_CUES",
+      "current_internal_link_families": {
+        "test_take_links_present": true,
+        "topic_links_present": false,
+        "personality_links_present": false,
+        "career_recommendation_links_present": false
+      },
+      "aeo_answer_block_decision": "REVIEW_FIRST_ALLOWED_ONLY_AS_ARCHITECTURE_PACKET",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_REVIEW_BEFORE_NEW_AEO_LINKING",
+      "faq_schema_decision": "NO_NEW_FAQ_SCHEMA_OR_HIDDEN_ANSWER_EXPANSION",
+      "allowed_answer_block_slots": [
+        "direct_answer_summary_from_visible_authority_only",
+        "form_and_report_scope_boundary",
+        "methodology_or_non_diagnostic_boundary",
+        "existing_take_action_boundary",
+        "existing_internal_link_bridge_boundary"
+      ],
+      "blocked_until": "COPY_AUTHORITY_REVIEW_BEFORE_GEO_AEO_AMPLIFICATION"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+      "readiness_verdict": "NEEDS_CLAIM_COPY_FIX",
+      "claim_risk_severity": "P2",
+      "risk_category": "MANUAL_REVIEW_AND_FORM_AUTHORITY_GAP",
+      "copy_gate_decision": "HOLD_CLAIM_COPY_FIX_FOR_MANUAL_REVIEW_AND_FORM_AUTHORITY",
+      "current_jsonld_types": [
+        "WebPage",
+        "BreadcrumbList",
+        "SoftwareApplication",
+        "FAQPage"
+      ],
+      "visible_faq_status": "VISIBLE_FAQ_OR_QA_CUES",
+      "current_internal_link_families": {
+        "test_take_links_present": true,
+        "topic_links_present": false,
+        "personality_links_present": false,
+        "career_recommendation_links_present": false
+      },
+      "aeo_answer_block_decision": "HARD_HOLD_NO_AEO_PACKAGE_UNTIL_CLAIM_COPY_REPAIR",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_NO_NEW_INTERNAL_LINK_EXPANSION",
+      "faq_schema_decision": "NO_NEW_FAQ_SCHEMA_OR_HIDDEN_ANSWER_EXPANSION",
+      "allowed_answer_block_slots": [],
+      "blocked_until": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "readiness_verdict": "NEEDS_CLAIM_COPY_FIX",
+      "claim_risk_severity": "P2",
+      "risk_category": "MANUAL_REVIEW_AND_FORM_AUTHORITY_GAP",
+      "copy_gate_decision": "HOLD_CLAIM_COPY_FIX_FOR_MANUAL_REVIEW_AND_FORM_AUTHORITY",
+      "current_jsonld_types": [
+        "WebPage",
+        "BreadcrumbList",
+        "SoftwareApplication",
+        "FAQPage"
+      ],
+      "visible_faq_status": "VISIBLE_FAQ_OR_QA_CUES",
+      "current_internal_link_families": {
+        "test_take_links_present": true,
+        "topic_links_present": false,
+        "personality_links_present": false,
+        "career_recommendation_links_present": false
+      },
+      "aeo_answer_block_decision": "HARD_HOLD_NO_AEO_PACKAGE_UNTIL_CLAIM_COPY_REPAIR",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_NO_NEW_INTERNAL_LINK_EXPANSION",
+      "faq_schema_decision": "NO_NEW_FAQ_SCHEMA_OR_HIDDEN_ANSWER_EXPANSION",
+      "allowed_answer_block_slots": [],
+      "blocked_until": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN"
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+      "readiness_verdict": "NEEDS_CLAIM_COPY_FIX",
+      "claim_risk_severity": "P2",
+      "risk_category": "FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "copy_gate_decision": "HOLD_CLAIM_COPY_FIX_FOR_FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "current_jsonld_types": [
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visible_faq_status": "VISIBLE_FAQ_OR_QA_CUES",
+      "current_internal_link_families": {
+        "test_take_links_present": false,
+        "topic_links_present": false,
+        "personality_links_present": false,
+        "career_recommendation_links_present": false
+      },
+      "aeo_answer_block_decision": "HARD_HOLD_NO_AEO_PACKAGE_UNTIL_CLAIM_COPY_REPAIR",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_NO_NEW_INTERNAL_LINK_EXPANSION",
+      "faq_schema_decision": "NO_NEW_FAQ_SCHEMA_OR_HIDDEN_ANSWER_EXPANSION",
+      "allowed_answer_block_slots": [],
+      "blocked_until": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN"
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "readiness_verdict": "NEEDS_CLAIM_COPY_FIX",
+      "claim_risk_severity": "P2",
+      "risk_category": "FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "copy_gate_decision": "HOLD_CLAIM_COPY_FIX_FOR_FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "current_jsonld_types": [
+        "WebPage",
+        "BreadcrumbList",
+        "FAQPage"
+      ],
+      "visible_faq_status": "VISIBLE_FAQ_OR_QA_CUES",
+      "current_internal_link_families": {
+        "test_take_links_present": false,
+        "topic_links_present": false,
+        "personality_links_present": false,
+        "career_recommendation_links_present": false
+      },
+      "aeo_answer_block_decision": "HARD_HOLD_NO_AEO_PACKAGE_UNTIL_CLAIM_COPY_REPAIR",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_NO_NEW_INTERNAL_LINK_EXPANSION",
+      "faq_schema_decision": "NO_NEW_FAQ_SCHEMA_OR_HIDDEN_ANSWER_EXPANSION",
+      "allowed_answer_block_slots": [],
+      "blocked_until": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN"
+    }
+  ],
+  "next_safe_task_after_merge": "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01",
+  "hold_actions": [
+    "no_CMS_package_generation",
+    "no_CMS_dry_run",
+    "no_CMS_write",
+    "no_publish",
+    "no_runtime_copy_change",
+    "no_frontend_runtime_change",
+    "no_backend_API_repair",
+    "no_search_submission",
+    "no_provider_call",
+    "no_deploy",
+    "no_sitemap_mutation",
+    "no_llms_mutation",
+    "no_schema_mutation",
+    "no_hreflang_mutation",
+    "no_canonical_mutation",
+    "no_noindex_mutation",
+    "no_private_result_access",
+    "no_attempt_creation",
+    "no_answer_submission"
+  ],
+  "negative_guarantees": {
+    "cms_dry_run_performed": false,
+    "cms_write_performed": false,
+    "cms_publish_performed": false,
+    "runtime_copy_changed": false,
+    "frontend_runtime_changed": false,
+    "backend_api_changed": false,
+    "search_submission_performed": false,
+    "provider_call_performed": false,
+    "deployment_triggered": false,
+    "sitemap_changed": false,
+    "llms_changed": false,
+    "schema_changed": false,
+    "hreflang_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "private_result_accessed": false,
+    "attempt_created": false,
+    "answer_submitted": false
+  }
+}

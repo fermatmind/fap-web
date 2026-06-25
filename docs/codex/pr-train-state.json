@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-25T15:40:00+08:00",
+  "updated_at": "2026-06-25T16:28:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -24947,10 +24947,10 @@
       "depends_on": [
         "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01"
       ],
-      "status": "ready_to_merge",
+      "status": "merged_reconciled_post_merge_cleanup_complete",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1431",
       "commit_sha": "857c0cc1",
-      "merge_sha": null,
+      "merge_sha": "ce986f95722d531c9db679bbee001929b3d4e0e5",
       "title": "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01: docs(seo): add six hub claim copy risk packet",
       "artifacts": [
         "docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet-2026-06-25.md",
@@ -24994,9 +24994,9 @@
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-25T02:52:05Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "scope_validation": {
         "allowed_files": [
           "docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet-2026-06-25.md",
@@ -25050,6 +25050,11 @@
           "at": "2026-06-25T15:40:00+08:00",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed for PR #1431 after the scoped lint fix: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). Marking ready_to_merge before squash merge."
+        },
+        {
+          "at": "2026-06-25T16:05:00+08:00",
+          "status": "merged_reconciled_post_merge_cleanup_complete",
+          "summary": "Reconciled PR #1431 merge commit ce986f95722d531c9db679bbee001929b3d4e0e5 after origin/main containment, local branch deletion, and remote branch absence were verified."
         }
       ],
       "sidecar_issues": []
@@ -25063,9 +25068,9 @@
       "depends_on": [
         "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01"
       ],
-      "status": "pending_dependency",
-      "pr_url": null,
-      "commit_sha": null,
+      "status": "ready_to_merge",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1432",
+      "commit_sha": "0721a70214ee2bb302cb019002c6dc41930bd45b",
       "merge_sha": null,
       "title": "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01: docs(seo): add six hub AEO internal link packet",
       "artifacts": [
@@ -25074,7 +25079,22 @@
         "tests/contracts/six-hub-seo-geo-aeo-internal-link-packet.contract.test.ts",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": {},
+      "checks": {
+        "json_parse": "passed",
+        "focused_contract": "passed",
+        "focused_eslint": "passed",
+        "typecheck": "passed",
+        "test_contract": "passed",
+        "diff_check": "passed",
+        "changed_file_scope_validation": "passed",
+        "pnpm_build": "not_run_forbidden_by_goal_boundary",
+        "github_build": "passed",
+        "github_contracts": "passed",
+        "github_codeql_analyze": "passed",
+        "github_codeql": "passed",
+        "github_verify_big5_contract_freeze": "passed",
+        "github_verify_enneagram_contract_freeze": "passed"
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -25088,8 +25108,13 @@
           "generated/pr-train-sidecar-issues/sidecar_issues.md",
           "generated/pr-train-sidecar-issues/sidecar_issues.json"
         ],
-        "status": "pending",
-        "changed_files": [],
+        "status": "passed",
+        "changed_files": [
+          "docs/codex/pr-train-state.json",
+          "docs/seo/agent/six-hub-seo-geo-aeo-internal-link-packet-2026-06-25.md",
+          "docs/seo/agent/six-hub-seo-geo-aeo-internal-link-packet.v1.json",
+          "tests/contracts/six-hub-seo-geo-aeo-internal-link-packet.contract.test.ts"
+        ],
         "outside_scope_files": []
       },
       "history": [
@@ -25097,6 +25122,26 @@
           "at": "2026-06-25T12:10:00+08:00",
           "status": "pending_dependency",
           "summary": "Initialized authorized Six Hub SEO/GEO package train entry. Waiting for dependencies: SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01."
+        },
+        {
+          "at": "2026-06-25T16:05:00+08:00",
+          "status": "in_progress",
+          "summary": "Started PR4 AEO/internal-link packet from latest origin/main after PR3 merge cleanup verification. Scope remains docs/contracts-only."
+        },
+        {
+          "at": "2026-06-25T16:18:00+08:00",
+          "status": "local_checks_passed_ready_to_push",
+          "summary": "Required local checks passed: JSON parse, focused contract, focused eslint, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation. pnpm build was not run per goal boundary."
+        },
+        {
+          "at": "2026-06-25T16:22:00+08:00",
+          "status": "pr_open_pending_github_checks",
+          "summary": "Opened PR #1432 from codex/six-hub-seo-geo-aeo-internal-link-packet-01 after required local checks and changed-file scope validation passed. Remote GitHub checks pending."
+        },
+        {
+          "at": "2026-06-25T16:28:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "PR #1432 GitHub checks passed and mergeStateStatus was CLEAN. Marked ready_to_merge before squash merge per train policy."
         }
       ],
       "sidecar_issues": []
