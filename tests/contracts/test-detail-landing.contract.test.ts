@@ -6,6 +6,7 @@ const PAGE_PATH = path.join(
   process.cwd(),
   "app/(localized)/[locale]/tests/[slug]/page.tsx"
 );
+const CTA_STICKY_PATH = path.join(process.cwd(), "components/business/CTASticky.tsx");
 
 describe("test detail landing contract", () => {
   it("consumes backend landing_surface_v1 instead of inventing test landing truth locally", () => {
@@ -32,11 +33,28 @@ describe("test detail landing contract", () => {
     expect(source).toContain("const override = toStringValue(primaryCtaLabelOverride);");
     expect(source).toContain("return override;");
     expect(source).toContain("{cmsPrimaryCtaLabel || getFreeTestStartLabel({");
+    expect(source).toContain("primaryCtaLabel={cmsPrimaryCtaLabel}");
     expect(source).toContain("{disclaimer ? (");
     expect(source).toContain("{disclaimer}");
     expect(source).toContain('data-testid="test-detail-landing-cta"');
     expect(source).toContain(') : canRenderStartCta ? (');
     expect(source).toContain("{testDetailAuthority.cta.allowed ? (");
+  });
+
+  it("passes CMS primary CTA labels through to sticky default-form CTAs", () => {
+    const source = fs.readFileSync(CTA_STICKY_PATH, "utf8");
+
+    expect(source).toContain("primaryCtaLabel?: string | null;");
+    expect(source).toContain('const cmsPrimaryCtaLabel = typeof primaryCtaLabel === "string" ? primaryCtaLabel.trim() : "";');
+    expect(source).toContain("function CTASticky");
+    expect(source).toContain("const getStickyStartLabel = ({");
+    expect(source).toContain("formCode === defaultFormCode");
+    expect(source).toContain("return cmsPrimaryCtaLabel;");
+    expect(source).toContain("defaultFormCode: DEFAULT_MBTI_FORM_CODE");
+    expect(source).toContain("defaultFormCode: DEFAULT_BIG5_FORM_CODE");
+    expect(source).toContain("defaultFormCode: DEFAULT_ENNEAGRAM_FORM_CODE");
+    expect(source).toContain("defaultFormCode: DEFAULT_RIASEC_FORM_CODE");
+    expect(source).toContain("getPrimaryStickyStartLabel");
   });
 
   it("renders FAQPage only from visible FAQ content or approved compatibility fallback", () => {
