@@ -11,7 +11,7 @@ import { EQResultHero } from "./EQResultHero";
 import { EQSaveShareRelated } from "./EQSaveShareRelated";
 import { EQScientificBoundary } from "./EQScientificBoundary";
 import { EQSJTBridgeCTA } from "./EQSJTBridgeCTA";
-import type { EqAgentContextAccess, EqAgentContextLoader } from "./types";
+import type { EqAgentContextAccess, EqAgentContextLoader, EqAgentRuntimeMessageLoader } from "./types";
 import { isEqV5AccessRestricted, normalizeEqV5Report } from "./utils";
 
 export function EQResultV5({
@@ -20,12 +20,14 @@ export function EQResultV5({
   attemptId,
   agentContextAccess,
   loadAgentContext,
+  sendAgentRuntimeMessage,
 }: {
   locale: Locale;
   reportData: ReportResponse;
   attemptId?: string;
   agentContextAccess?: EqAgentContextAccess;
   loadAgentContext?: EqAgentContextLoader;
+  sendAgentRuntimeMessage?: EqAgentRuntimeMessageLoader;
 }) {
   if (isEqV5AccessRestricted(reportData)) {
     return <EQResultV5AccessRestricted locale={locale} />;
@@ -54,6 +56,7 @@ export function EQResultV5({
         attemptId={attemptId}
         agentContextAccess={agentContextAccess}
         loadAgentContext={loadAgentContext}
+        sendAgentRuntimeMessage={sendAgentRuntimeMessage}
       />
     </main>
   );

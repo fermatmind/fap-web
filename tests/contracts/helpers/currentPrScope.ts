@@ -878,6 +878,19 @@ const PR_EQ_SJT_03_ALLOWED_FILES = new Set([
   "tests/contracts/test-slug-aliases.contract.test.ts",
 ]);
 
+const PR_EQ_AGENT_RUNTIME_03_ALLOWED_FILES = new Set([
+  "components/result/eq/EQAgentEntryGuard.tsx",
+  "components/result/eq/EQResultV5.tsx",
+  "components/result/eq/EQSaveShareRelated.tsx",
+  "components/result/eq/types.ts",
+  "lib/api/v0_3.ts",
+  "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/e2e/iq-eq-result-regression.spec.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const PR_WEB_SEC_02_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/research/[slug]/page.tsx",
   "docs/codex/pr-train.yaml",
@@ -4132,6 +4145,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-eq-sjt-03-frontend-take-flow") {
     return PR_EQ_SJT_03_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/pr-eq-agent-runtime-03-frontend-drawer") {
+    return PR_EQ_AGENT_RUNTIME_03_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-02-research-publication-guard") {
