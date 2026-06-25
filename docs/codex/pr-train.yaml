@@ -18545,3 +18545,220 @@ prs:
       squash: true
       auto_merge: true
     next_task: SIX-HUB-SEO-GEO-PACKAGE-PLANNING-SCAN-01
+
+  - id: SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/six-hub-seo-geo-package-common-contract-01
+    base: main
+    title: "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01: docs(seo): add six hub package common contract"
+    depends_on: []
+    mode: execute
+    train_scope: six_hub_seo_geo_package_common_contract
+    status: in_progress
+    goal: "Define the common Six Hub SEO/GEO package contract, vocabulary, authority states, readiness statuses, risk vocabulary, batch vocabulary, approval boundaries, and hard HOLD actions."
+    artifacts:
+      - docs/seo/agent/six-hub-seo-geo-package-common-contract-2026-06-25.md
+      - docs/seo/agent/six-hub-seo-geo-package-common-contract.v1.json
+      - tests/contracts/six-hub-seo-geo-package-common-contract.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/seo/agent/six-hub-seo-geo-package-common-contract-2026-06-25.md
+      - docs/seo/agent/six-hub-seo-geo-package-common-contract.v1.json
+      - tests/contracts/six-hub-seo-geo-package-common-contract.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/seo/agent/six-hub-seo-geo-package-common-contract.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/six-hub-seo-geo-package-common-contract.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SIX-HUB-SEO-GEO-PACKAGE-READINESS-PACKET-01
+
+  - id: SIX-HUB-SEO-GEO-PACKAGE-READINESS-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/six-hub-seo-geo-package-readiness-packet-01
+    base: main
+    title: "SIX-HUB-SEO-GEO-PACKAGE-READINESS-PACKET-01: docs(seo): add six hub readiness packet"
+    depends_on:
+      - SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: six_hub_seo_geo_package_readiness_packet
+    status: pending_dependency
+    goal: "Create the 12-Hub SEO/GEO package readiness packet using the completed scan and Assessment Hub QA."
+    artifacts:
+      - docs/seo/agent/six-hub-seo-geo-package-readiness-packet-2026-06-25.md
+      - docs/seo/agent/six-hub-seo-geo-package-readiness-packet.v1.json
+      - tests/contracts/six-hub-seo-geo-package-readiness-packet.contract.test.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/seo/agent/six-hub-seo-geo-package-readiness-packet-2026-06-25.md
+      - docs/seo/agent/six-hub-seo-geo-package-readiness-packet.v1.json
+      - tests/contracts/six-hub-seo-geo-package-readiness-packet.contract.test.ts
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/seo/agent/six-hub-seo-geo-package-readiness-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/six-hub-seo-geo-package-readiness-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01
+
+  - id: SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/six-hub-seo-geo-claim-copy-risk-packet-01
+    base: main
+    title: "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01: docs(seo): add six hub claim copy risk packet"
+    depends_on:
+      - SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: six_hub_seo_geo_claim_copy_risk_packet
+    status: pending_dependency
+    goal: "Create the Six Hub SEO/GEO claim/copy risk packet covering paid unlock copy, full-report authority, Big Five commercial field conflict, IQ/EQ claims, and scale-specific forbidden claim boundaries."
+    artifacts:
+      - docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet-2026-06-25.md
+      - docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet.v1.json
+      - tests/contracts/six-hub-seo-geo-claim-copy-risk-packet.contract.test.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet-2026-06-25.md
+      - docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet.v1.json
+      - tests/contracts/six-hub-seo-geo-claim-copy-risk-packet.contract.test.ts
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/six-hub-seo-geo-claim-copy-risk-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01
+
+  - id: SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/six-hub-seo-geo-aeo-internal-link-packet-01
+    base: main
+    title: "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01: docs(seo): add six hub AEO internal link packet"
+    depends_on:
+      - SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01
+    mode: execute
+    train_scope: six_hub_seo_geo_aeo_internal_link_packet
+    status: pending_dependency
+    goal: "Create the Six Hub SEO/GEO AEO answer-block and internal-link architecture packet."
+    artifacts:
+      - docs/seo/agent/six-hub-seo-geo-aeo-internal-link-packet-2026-06-25.md
+      - docs/seo/agent/six-hub-seo-geo-aeo-internal-link-packet.v1.json
+      - tests/contracts/six-hub-seo-geo-aeo-internal-link-packet.contract.test.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/seo/agent/six-hub-seo-geo-aeo-internal-link-packet-2026-06-25.md
+      - docs/seo/agent/six-hub-seo-geo-aeo-internal-link-packet.v1.json
+      - tests/contracts/six-hub-seo-geo-aeo-internal-link-packet.contract.test.ts
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/seo/agent/six-hub-seo-geo-aeo-internal-link-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/six-hub-seo-geo-aeo-internal-link-packet.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01
+
+  - id: SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/six-hub-seo-geo-batch-sequence-matrix-01
+    base: main
+    title: "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01: docs(seo): add six hub batch sequence matrix"
+    depends_on:
+      - SIX-HUB-SEO-GEO-PACKAGE-READINESS-PACKET-01
+      - SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01
+      - SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01
+    mode: execute
+    train_scope: six_hub_seo_geo_batch_sequence_matrix
+    status: pending_dependency
+    goal: "Create the Six Hub SEO/GEO batch sequencing matrix for Batch 1, Batch 2, Batch 3, and cross-hub support."
+    artifacts:
+      - docs/seo/agent/six-hub-seo-geo-batch-sequence-matrix-2026-06-25.md
+      - docs/seo/agent/six-hub-seo-geo-batch-sequence-matrix.v1.json
+      - tests/contracts/six-hub-seo-geo-batch-sequence-matrix.contract.test.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/seo/agent/six-hub-seo-geo-batch-sequence-matrix-2026-06-25.md
+      - docs/seo/agent/six-hub-seo-geo-batch-sequence-matrix.v1.json
+      - tests/contracts/six-hub-seo-geo-batch-sequence-matrix.contract.test.ts
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/seo/agent/six-hub-seo-geo-batch-sequence-matrix.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/six-hub-seo-geo-batch-sequence-matrix.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SIX-HUB-SEO-GEO-PACKAGE-PLANNING-MATRIX-01
+
+  - id: SIX-HUB-SEO-GEO-PACKAGE-PLANNING-MATRIX-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/six-hub-seo-geo-package-planning-matrix-01
+    base: main
+    title: "SIX-HUB-SEO-GEO-PACKAGE-PLANNING-MATRIX-01: docs(seo): add six hub planning matrix"
+    depends_on:
+      - SIX-HUB-SEO-GEO-PACKAGE-READINESS-PACKET-01
+      - SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01
+      - SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01
+      - SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01
+    mode: execute
+    train_scope: six_hub_seo_geo_package_planning_matrix
+    status: pending_dependency
+    goal: "Create the aggregate Six Hub SEO/GEO package planning matrix and final next-lane decision."
+    artifacts:
+      - docs/seo/agent/six-hub-seo-geo-package-planning-matrix-2026-06-25.md
+      - docs/seo/agent/six-hub-seo-geo-package-planning-matrix.v1.json
+      - tests/contracts/six-hub-seo-geo-package-planning-matrix.contract.test.ts
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/seo/agent/six-hub-seo-geo-package-planning-matrix-2026-06-25.md
+      - docs/seo/agent/six-hub-seo-geo-package-planning-matrix.v1.json
+      - tests/contracts/six-hub-seo-geo-package-planning-matrix.contract.test.ts
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - node -e "JSON.parse(require('fs').readFileSync('docs/seo/agent/six-hub-seo-geo-package-planning-matrix.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')"
+      - pnpm exec vitest run tests/contracts/six-hub-seo-geo-package-planning-matrix.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: BIG5-HUB-COMMERCIAL-FIELD-AUTHORITY-FIX-SCAN-01
