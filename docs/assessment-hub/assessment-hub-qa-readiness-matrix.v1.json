@@ -1,0 +1,287 @@
+{
+  "schema_version": "fermatmind.assessment_hub_qa.readiness_matrix.v1",
+  "task_id": "ASSESSMENT-HUB-QA-READINESS-MATRIX-01",
+  "consumes_common_contract": "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01",
+  "consumes_route_metadata_packet": "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01",
+  "consumes_take_flow_cta_packet": "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
+  "consumes_free_full_report_claim_packet": "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01",
+  "consumes_source_authority_indexability_packet": "ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01",
+  "run_mode": "docs_contracts_only_packet_aggregation",
+  "generated_at": "2026-06-25T10:52:00+08:00",
+  "verdict": "PARTIAL_READY_WITH_P2_COPY_RISKS_NO_HARD_HOLD",
+  "negative_guarantees": {
+    "runtime_code_changed": false,
+    "frontend_public_copy_changed": false,
+    "cms_write_performed": false,
+    "search_submission_performed": false,
+    "provider_call_performed": false,
+    "deployment_triggered": false,
+    "sitemap_or_llms_or_schema_mutated": false,
+    "private_attempt_or_result_accessed": false,
+    "post_start_submit_result_called": false,
+    "answers_submitted": false,
+    "analytics_or_payment_mutated": false,
+    "fap_api_modified": false
+  },
+  "rollup_summary": {
+    "route_count": 12,
+    "scale_count": 6,
+    "packet_count": 5,
+    "hard_hold_count": 0,
+    "pass_route_count": 2,
+    "partial_route_count": 10,
+    "p2_paid_unlock_disabled_copy_surfaces": 8,
+    "p2_full_result_or_full_report_claim_surfaces": 4,
+    "certificate_or_answer_key_claim_surfaces": 0,
+    "indexability_pass_count": 12,
+    "take_flow_actual_cta_get_pass_count": 22,
+    "sidecar_issue_count": 0,
+    "overall_status": "PARTIAL_NO_HARD_HOLD",
+    "merge_allowed_after_checks": true
+  },
+  "packet_rollup": [
+    {
+      "task_id": "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01",
+      "verdict": "READY_TO_CONSUME_COMMON_QA_CONTRACT",
+      "readiness": "PASS",
+      "consumed_for": "shared vocabulary, hard holds, issue taxonomy, source classifications"
+    },
+    {
+      "task_id": "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01",
+      "verdict": "PASS_ROUTE_METADATA_INDEXABILITY_SCHEMA_DISCOVERABILITY_PARITY",
+      "readiness": "PASS",
+      "consumed_for": "route metadata, canonical, hreflang, sitemap, llms, lookup, sitemap-source parity"
+    },
+    {
+      "task_id": "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
+      "verdict": "PASS_ACTUAL_CTA_TARGETS_AND_TAKE_GET_ALIGNMENT",
+      "readiness": "PASS",
+      "consumed_for": "actual landing CTA targets and take-flow GET alignment"
+    },
+    {
+      "task_id": "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01",
+      "verdict": "PASS_WITH_P2_COPY_RISKS_RECORDED",
+      "readiness": "PARTIAL",
+      "consumed_for": "free/full-report claims, paid-unlock-disabled copy, forbidden claim scan",
+      "partial_reasons": [
+        "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+        "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW",
+        "P2_MANUAL_REVIEW_REQUIRED_FOR_CERTIFICATE_OR_ANSWER_KEY_CLAIMS"
+      ]
+    },
+    {
+      "task_id": "ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01",
+      "verdict": "PASS_SOURCE_AUTHORITY_AND_INDEXABILITY_BOUNDARIES_RECORDED",
+      "readiness": "PASS",
+      "consumed_for": "source authority split and indexability boundary recording"
+    }
+  ],
+  "readiness_rows": [
+    {
+      "scale_code": "MBTI",
+      "locale": "en",
+      "route": "/en/tests/mbti-personality-test-16-personality-types",
+      "metadata_indexability": "PASS",
+      "take_flow_cta": "PASS",
+      "source_authority_indexability": "PASS",
+      "claim_copy_readiness": "PARTIAL",
+      "readiness_status": "PARTIAL_RECORDED_P2_COPY_RISK",
+      "hard_hold": false,
+      "partial_reasons": [
+        "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW"
+      ],
+      "next_safe_action": "Carry to SEO/GEO/content-authority planning before any runtime/CMS copy change."
+    },
+    {
+      "scale_code": "MBTI",
+      "locale": "zh",
+      "route": "/zh/tests/mbti-personality-test-16-personality-types",
+      "metadata_indexability": "PASS",
+      "take_flow_cta": "PASS",
+      "source_authority_indexability": "PASS",
+      "claim_copy_readiness": "PARTIAL",
+      "readiness_status": "PARTIAL_RECORDED_P2_COPY_RISK",
+      "hard_hold": false,
+      "partial_reasons": [
+        "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW"
+      ],
+      "next_safe_action": "Carry to SEO/GEO/content-authority planning before any runtime/CMS copy change."
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "en",
+      "route": "/en/tests/big-five-personality-test-ocean-model",
+      "metadata_indexability": "PASS",
+      "take_flow_cta": "PASS",
+      "source_authority_indexability": "PASS",
+      "claim_copy_readiness": "PARTIAL",
+      "readiness_status": "PARTIAL_RECORDED_P2_COPY_RISK",
+      "hard_hold": false,
+      "partial_reasons": [
+        "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+      ],
+      "next_safe_action": "Carry to SEO/GEO/content-authority planning before any runtime/CMS copy change."
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "zh",
+      "route": "/zh/tests/big-five-personality-test-ocean-model",
+      "metadata_indexability": "PASS",
+      "take_flow_cta": "PASS",
+      "source_authority_indexability": "PASS",
+      "claim_copy_readiness": "PARTIAL",
+      "readiness_status": "PARTIAL_RECORDED_P2_COPY_RISK",
+      "hard_hold": false,
+      "partial_reasons": [
+        "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+      ],
+      "next_safe_action": "Carry to SEO/GEO/content-authority planning before any runtime/CMS copy change."
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "en",
+      "route": "/en/tests/enneagram-personality-test-nine-types",
+      "metadata_indexability": "PASS",
+      "take_flow_cta": "PASS",
+      "source_authority_indexability": "PASS",
+      "claim_copy_readiness": "PARTIAL",
+      "readiness_status": "PARTIAL_RECORDED_P2_COPY_RISK",
+      "hard_hold": false,
+      "partial_reasons": [
+        "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+      ],
+      "next_safe_action": "Carry to SEO/GEO/content-authority planning before any runtime/CMS copy change."
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "zh",
+      "route": "/zh/tests/enneagram-personality-test-nine-types",
+      "metadata_indexability": "PASS",
+      "take_flow_cta": "PASS",
+      "source_authority_indexability": "PASS",
+      "claim_copy_readiness": "PARTIAL",
+      "readiness_status": "PARTIAL_RECORDED_P2_COPY_RISK",
+      "hard_hold": false,
+      "partial_reasons": [
+        "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+      ],
+      "next_safe_action": "Carry to SEO/GEO/content-authority planning before any runtime/CMS copy change."
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "en",
+      "route": "/en/tests/holland-career-interest-test-riasec",
+      "metadata_indexability": "PASS",
+      "take_flow_cta": "PASS",
+      "source_authority_indexability": "PASS",
+      "claim_copy_readiness": "PARTIAL",
+      "readiness_status": "PARTIAL_RECORDED_P2_COPY_RISK",
+      "hard_hold": false,
+      "partial_reasons": [
+        "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+        "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW"
+      ],
+      "next_safe_action": "Carry to SEO/GEO/content-authority planning before any runtime/CMS copy change."
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "zh",
+      "route": "/zh/tests/holland-career-interest-test-riasec",
+      "metadata_indexability": "PASS",
+      "take_flow_cta": "PASS",
+      "source_authority_indexability": "PASS",
+      "claim_copy_readiness": "PARTIAL",
+      "readiness_status": "PARTIAL_RECORDED_P2_COPY_RISK",
+      "hard_hold": false,
+      "partial_reasons": [
+        "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+        "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW"
+      ],
+      "next_safe_action": "Carry to SEO/GEO/content-authority planning before any runtime/CMS copy change."
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "en",
+      "route": "/en/tests/iq-test-intelligence-quotient-assessment",
+      "metadata_indexability": "PASS",
+      "take_flow_cta": "PASS",
+      "source_authority_indexability": "PASS",
+      "claim_copy_readiness": "PASS",
+      "readiness_status": "PASS",
+      "hard_hold": false,
+      "partial_reasons": [],
+      "next_safe_action": "No route-specific blocker from Assessment Hub QA packets."
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "zh",
+      "route": "/zh/tests/iq-test-intelligence-quotient-assessment",
+      "metadata_indexability": "PASS",
+      "take_flow_cta": "PASS",
+      "source_authority_indexability": "PASS",
+      "claim_copy_readiness": "PASS",
+      "readiness_status": "PASS",
+      "hard_hold": false,
+      "partial_reasons": [],
+      "next_safe_action": "No route-specific blocker from Assessment Hub QA packets."
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "en",
+      "route": "/en/tests/eq-test-emotional-intelligence-assessment",
+      "metadata_indexability": "PASS",
+      "take_flow_cta": "PASS",
+      "source_authority_indexability": "PASS",
+      "claim_copy_readiness": "PARTIAL",
+      "readiness_status": "PARTIAL_RECORDED_P2_COPY_RISK",
+      "hard_hold": false,
+      "partial_reasons": [
+        "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+      ],
+      "next_safe_action": "Carry to SEO/GEO/content-authority planning before any runtime/CMS copy change."
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "zh",
+      "route": "/zh/tests/eq-test-emotional-intelligence-assessment",
+      "metadata_indexability": "PASS",
+      "take_flow_cta": "PASS",
+      "source_authority_indexability": "PASS",
+      "claim_copy_readiness": "PARTIAL",
+      "readiness_status": "PARTIAL_RECORDED_P2_COPY_RISK",
+      "hard_hold": false,
+      "partial_reasons": [
+        "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+      ],
+      "next_safe_action": "Carry to SEO/GEO/content-authority planning before any runtime/CMS copy change."
+    }
+  ],
+  "readiness_counts": {
+    "PASS": 2,
+    "PARTIAL_RECORDED_P2_COPY_RISK": 10,
+    "hard_hold_count": 0
+  },
+  "hold_policy": {
+    "hard_hold_count": 0,
+    "merge_hold": false,
+    "runtime_or_cms_mutation_hold": true,
+    "search_submission_hold": true,
+    "deployment_hold": true,
+    "private_data_access_hold": true,
+    "note": "No hard hold blocks merging the docs/contracts readiness matrix. P2 copy risks block runtime/CMS/search/deploy mutation until separately scoped authority work approves changes."
+  },
+  "next_safe_tasks": [
+    {
+      "task_id": "SIX-HUB-SEO-GEO-PACKAGE-PLANNING-SCAN-01",
+      "status": "SAFE_NEXT_PLANNING_SCAN_AFTER_PR6_MERGE",
+      "boundary": "planning/scan only unless separately authorized"
+    },
+    {
+      "task_id": "ASSESSMENT_HUB_P2_COPY_AUTHORITY_FOLLOWUP",
+      "status": "FOLLOWUP_REQUIRED_BEFORE_RUNTIME_COPY_CHANGE",
+      "boundary": "must resolve paid-unlock-disabled copy and full-result authority before CMS/runtime copy edits"
+    }
+  ],
+  "sidecar_issues": [],
+  "final_stop_rule": "After PR6 merge and cleanup, stop the Assessment Hub QA train. Do not deploy, trigger manual deploy, submit search/indexing requests, publish CMS content, or access private data."
+}
