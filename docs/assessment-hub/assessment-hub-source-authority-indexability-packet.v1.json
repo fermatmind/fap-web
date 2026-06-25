@@ -1,0 +1,560 @@
+{
+  "schema_version": "fermatmind.assessment_hub_qa.source_authority_indexability_packet.v1",
+  "task_id": "ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01",
+  "consumes_common_contract": "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01",
+  "consumes_route_metadata_packet": "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01",
+  "consumes_take_flow_cta_packet": "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
+  "consumes_free_full_report_claim_packet": "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01",
+  "run_mode": "docs_contracts_only_readonly_public_get_and_packet_consumption",
+  "generated_at": "2026-06-25T10:12:00+08:00",
+  "verdict": "PASS_SOURCE_AUTHORITY_AND_INDEXABILITY_BOUNDARIES_RECORDED",
+  "negative_guarantees": {
+    "runtime_code_changed": false,
+    "frontend_public_copy_changed": false,
+    "cms_write_performed": false,
+    "search_submission_performed": false,
+    "provider_call_performed": false,
+    "deployment_triggered": false,
+    "sitemap_or_llms_or_schema_mutated": false,
+    "private_attempt_or_result_accessed": false,
+    "post_start_submit_result_called": false,
+    "answers_submitted": false,
+    "analytics_or_payment_mutated": false,
+    "fap_api_modified": false
+  },
+  "scope_summary": {
+    "route_count": 12,
+    "scale_count": 6,
+    "live_recheck_ok": true,
+    "live_recheck_failing_surfaces": 0,
+    "sitemap_status": 200,
+    "llms_status": 200,
+    "llms_full_status": 200,
+    "sitemap_source_status_by_locale": {
+      "en": 200,
+      "zh": 200
+    },
+    "indexable_route_count": 12,
+    "backend_authority_layers_separated": true,
+    "fap_web_consumer_is_not_authority": true,
+    "source_authority_decisions_deferred_for_claim_copy": true,
+    "sidecar_issue_count": 0,
+    "status": "PASS"
+  },
+  "authority_layers": [
+    {
+      "layer": "backend_registry_authority",
+      "owns": [
+        "scale identity",
+        "slug identity",
+        "supported public forms",
+        "canonical test route family"
+      ],
+      "not_owned_by_fap_web": true
+    },
+    {
+      "layer": "backend_landing_surface_v1_authority",
+      "owns": [
+        "landing metadata",
+        "public route discoverability fields",
+        "SEO-visible landing configuration"
+      ],
+      "not_owned_by_fap_web": true
+    },
+    {
+      "layer": "backend_lookup_projection",
+      "owns": [
+        "public lookup projection",
+        "is_indexable decision consumed by frontend"
+      ],
+      "not_owned_by_fap_web": true
+    },
+    {
+      "layer": "cms_landing_surface_overlay",
+      "owns": [
+        "mutable landing copy and operational content when supplied by backend CMS"
+      ],
+      "frontend_fallback_allowed": false
+    },
+    {
+      "layer": "fap_web_consumer_contract_not_authority",
+      "owns": [
+        "rendering contract",
+        "public GET consumption",
+        "client-side route shell behavior"
+      ],
+      "must_not_infer_authority": [
+        "claim approval",
+        "indexability override",
+        "paid unlock state",
+        "CMS publication state"
+      ]
+    },
+    {
+      "layer": "sitemap_source_evidence",
+      "owns": [
+        "read-only evidence that backend sitemap-source includes each slug and indexability flag"
+      ],
+      "mutation_allowed_in_this_pr": false
+    },
+    {
+      "layer": "llms_readonly_evidence",
+      "owns": [
+        "read-only evidence that llms and llms-full enumerate the public hub routes"
+      ],
+      "mutation_allowed_in_this_pr": false
+    },
+    {
+      "layer": "manual_review_required",
+      "owns": [
+        "approval of full-report/full-result copy semantics",
+        "IQ certificate or answer-key claim review if introduced"
+      ],
+      "runtime_change_allowed_in_this_pr": false
+    }
+  ],
+  "live_recheck": {
+    "command": "node scripts/seo/check-six-assessment-hub-parity.mjs --json",
+    "executed_at": "2026-06-25T10:07:00+08:00",
+    "ok": true,
+    "site_base_url": "https://fermatmind.com",
+    "api_base_url": "https://api.fermatmind.com",
+    "shared_resources": {
+      "sitemap_status": 200,
+      "llms_status": 200,
+      "llms_full_status": 200,
+      "sitemap_source_status_by_locale": {
+        "en": 200,
+        "zh": 200
+      }
+    },
+    "summary": {
+      "scale_count": 6,
+      "surface_count": 12,
+      "failing_surfaces": 0
+    }
+  },
+  "route_authority_matrix": [
+    {
+      "scale_code": "MBTI",
+      "locale": "en",
+      "route": "/en/tests/mbti-personality-test-16-personality-types",
+      "source_authority": {
+        "backend_registry": "backend_registry_authority",
+        "landing_surface": "backend_landing_surface_v1_authority",
+        "lookup_projection": "backend_lookup_projection",
+        "cms_overlay": "cms_landing_surface_overlay",
+        "fap_web_runtime": "fap_web_consumer_contract_not_authority",
+        "sitemap_source": "sitemap_source_evidence",
+        "llms": "llms_readonly_evidence"
+      },
+      "indexability": {
+        "page_status": 200,
+        "canonical": "self_canonical",
+        "robots": "index_follow_not_noindex",
+        "hreflang": "self_and_sibling_alternates_present",
+        "sitemap_presence": true,
+        "llms_presence": true,
+        "llms_full_presence": true,
+        "lookup_is_indexable": true,
+        "sitemap_source_is_indexable": true,
+        "parity_status": "PASS"
+      },
+      "claim_boundary": {
+        "free_claim_recorded": true,
+        "full_result_claim_recorded": true,
+        "paid_unlock_disabled_copy_recorded": false,
+        "risk_level": "P2_REVIEW_FULL_RESULT_AUTHORITY",
+        "authority_decision": "RECORDED_FOR_MANUAL_SOURCE_AUTHORITY_REVIEW_NOT_APPROVED_HERE"
+      }
+    },
+    {
+      "scale_code": "MBTI",
+      "locale": "zh",
+      "route": "/zh/tests/mbti-personality-test-16-personality-types",
+      "source_authority": {
+        "backend_registry": "backend_registry_authority",
+        "landing_surface": "backend_landing_surface_v1_authority",
+        "lookup_projection": "backend_lookup_projection",
+        "cms_overlay": "cms_landing_surface_overlay",
+        "fap_web_runtime": "fap_web_consumer_contract_not_authority",
+        "sitemap_source": "sitemap_source_evidence",
+        "llms": "llms_readonly_evidence"
+      },
+      "indexability": {
+        "page_status": 200,
+        "canonical": "self_canonical",
+        "robots": "index_follow_not_noindex",
+        "hreflang": "self_and_sibling_alternates_present",
+        "sitemap_presence": true,
+        "llms_presence": true,
+        "llms_full_presence": true,
+        "lookup_is_indexable": true,
+        "sitemap_source_is_indexable": true,
+        "parity_status": "PASS"
+      },
+      "claim_boundary": {
+        "free_claim_recorded": true,
+        "full_result_claim_recorded": true,
+        "paid_unlock_disabled_copy_recorded": false,
+        "risk_level": "P2_REVIEW_FULL_RESULT_AUTHORITY",
+        "authority_decision": "RECORDED_FOR_MANUAL_SOURCE_AUTHORITY_REVIEW_NOT_APPROVED_HERE"
+      }
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "en",
+      "route": "/en/tests/big-five-personality-test-ocean-model",
+      "source_authority": {
+        "backend_registry": "backend_registry_authority",
+        "landing_surface": "backend_landing_surface_v1_authority",
+        "lookup_projection": "backend_lookup_projection",
+        "cms_overlay": "cms_landing_surface_overlay",
+        "fap_web_runtime": "fap_web_consumer_contract_not_authority",
+        "sitemap_source": "sitemap_source_evidence",
+        "llms": "llms_readonly_evidence"
+      },
+      "indexability": {
+        "page_status": 200,
+        "canonical": "self_canonical",
+        "robots": "index_follow_not_noindex",
+        "hreflang": "self_and_sibling_alternates_present",
+        "sitemap_presence": true,
+        "llms_presence": true,
+        "llms_full_presence": true,
+        "lookup_is_indexable": true,
+        "sitemap_source_is_indexable": true,
+        "parity_status": "PASS"
+      },
+      "claim_boundary": {
+        "free_claim_recorded": true,
+        "full_result_claim_recorded": false,
+        "paid_unlock_disabled_copy_recorded": true,
+        "risk_level": "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+        "authority_decision": "NO_FULL_RESULT_AUTHORITY_DECISION_REQUIRED_IN_THIS_PACKET"
+      }
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "zh",
+      "route": "/zh/tests/big-five-personality-test-ocean-model",
+      "source_authority": {
+        "backend_registry": "backend_registry_authority",
+        "landing_surface": "backend_landing_surface_v1_authority",
+        "lookup_projection": "backend_lookup_projection",
+        "cms_overlay": "cms_landing_surface_overlay",
+        "fap_web_runtime": "fap_web_consumer_contract_not_authority",
+        "sitemap_source": "sitemap_source_evidence",
+        "llms": "llms_readonly_evidence"
+      },
+      "indexability": {
+        "page_status": 200,
+        "canonical": "self_canonical",
+        "robots": "index_follow_not_noindex",
+        "hreflang": "self_and_sibling_alternates_present",
+        "sitemap_presence": true,
+        "llms_presence": true,
+        "llms_full_presence": true,
+        "lookup_is_indexable": true,
+        "sitemap_source_is_indexable": true,
+        "parity_status": "PASS"
+      },
+      "claim_boundary": {
+        "free_claim_recorded": true,
+        "full_result_claim_recorded": false,
+        "paid_unlock_disabled_copy_recorded": true,
+        "risk_level": "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+        "authority_decision": "NO_FULL_RESULT_AUTHORITY_DECISION_REQUIRED_IN_THIS_PACKET"
+      }
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "en",
+      "route": "/en/tests/enneagram-personality-test-nine-types",
+      "source_authority": {
+        "backend_registry": "backend_registry_authority",
+        "landing_surface": "backend_landing_surface_v1_authority",
+        "lookup_projection": "backend_lookup_projection",
+        "cms_overlay": "cms_landing_surface_overlay",
+        "fap_web_runtime": "fap_web_consumer_contract_not_authority",
+        "sitemap_source": "sitemap_source_evidence",
+        "llms": "llms_readonly_evidence"
+      },
+      "indexability": {
+        "page_status": 200,
+        "canonical": "self_canonical",
+        "robots": "index_follow_not_noindex",
+        "hreflang": "self_and_sibling_alternates_present",
+        "sitemap_presence": true,
+        "llms_presence": true,
+        "llms_full_presence": true,
+        "lookup_is_indexable": true,
+        "sitemap_source_is_indexable": true,
+        "parity_status": "PASS"
+      },
+      "claim_boundary": {
+        "free_claim_recorded": true,
+        "full_result_claim_recorded": false,
+        "paid_unlock_disabled_copy_recorded": true,
+        "risk_level": "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+        "authority_decision": "NO_FULL_RESULT_AUTHORITY_DECISION_REQUIRED_IN_THIS_PACKET"
+      }
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "zh",
+      "route": "/zh/tests/enneagram-personality-test-nine-types",
+      "source_authority": {
+        "backend_registry": "backend_registry_authority",
+        "landing_surface": "backend_landing_surface_v1_authority",
+        "lookup_projection": "backend_lookup_projection",
+        "cms_overlay": "cms_landing_surface_overlay",
+        "fap_web_runtime": "fap_web_consumer_contract_not_authority",
+        "sitemap_source": "sitemap_source_evidence",
+        "llms": "llms_readonly_evidence"
+      },
+      "indexability": {
+        "page_status": 200,
+        "canonical": "self_canonical",
+        "robots": "index_follow_not_noindex",
+        "hreflang": "self_and_sibling_alternates_present",
+        "sitemap_presence": true,
+        "llms_presence": true,
+        "llms_full_presence": true,
+        "lookup_is_indexable": true,
+        "sitemap_source_is_indexable": true,
+        "parity_status": "PASS"
+      },
+      "claim_boundary": {
+        "free_claim_recorded": true,
+        "full_result_claim_recorded": false,
+        "paid_unlock_disabled_copy_recorded": true,
+        "risk_level": "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+        "authority_decision": "NO_FULL_RESULT_AUTHORITY_DECISION_REQUIRED_IN_THIS_PACKET"
+      }
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "en",
+      "route": "/en/tests/holland-career-interest-test-riasec",
+      "source_authority": {
+        "backend_registry": "backend_registry_authority",
+        "landing_surface": "backend_landing_surface_v1_authority",
+        "lookup_projection": "backend_lookup_projection",
+        "cms_overlay": "cms_landing_surface_overlay",
+        "fap_web_runtime": "fap_web_consumer_contract_not_authority",
+        "sitemap_source": "sitemap_source_evidence",
+        "llms": "llms_readonly_evidence"
+      },
+      "indexability": {
+        "page_status": 200,
+        "canonical": "self_canonical",
+        "robots": "index_follow_not_noindex",
+        "hreflang": "self_and_sibling_alternates_present",
+        "sitemap_presence": true,
+        "llms_presence": true,
+        "llms_full_presence": true,
+        "lookup_is_indexable": true,
+        "sitemap_source_is_indexable": true,
+        "parity_status": "PASS"
+      },
+      "claim_boundary": {
+        "free_claim_recorded": true,
+        "full_result_claim_recorded": true,
+        "paid_unlock_disabled_copy_recorded": true,
+        "risk_level": "P2_REVIEW_FULL_RESULT_AUTHORITY_AND_PAID_UNLOCK_COPY",
+        "authority_decision": "RECORDED_FOR_MANUAL_SOURCE_AUTHORITY_REVIEW_NOT_APPROVED_HERE"
+      }
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "zh",
+      "route": "/zh/tests/holland-career-interest-test-riasec",
+      "source_authority": {
+        "backend_registry": "backend_registry_authority",
+        "landing_surface": "backend_landing_surface_v1_authority",
+        "lookup_projection": "backend_lookup_projection",
+        "cms_overlay": "cms_landing_surface_overlay",
+        "fap_web_runtime": "fap_web_consumer_contract_not_authority",
+        "sitemap_source": "sitemap_source_evidence",
+        "llms": "llms_readonly_evidence"
+      },
+      "indexability": {
+        "page_status": 200,
+        "canonical": "self_canonical",
+        "robots": "index_follow_not_noindex",
+        "hreflang": "self_and_sibling_alternates_present",
+        "sitemap_presence": true,
+        "llms_presence": true,
+        "llms_full_presence": true,
+        "lookup_is_indexable": true,
+        "sitemap_source_is_indexable": true,
+        "parity_status": "PASS"
+      },
+      "claim_boundary": {
+        "free_claim_recorded": true,
+        "full_result_claim_recorded": true,
+        "paid_unlock_disabled_copy_recorded": true,
+        "risk_level": "P2_REVIEW_FULL_RESULT_AUTHORITY_AND_PAID_UNLOCK_COPY",
+        "authority_decision": "RECORDED_FOR_MANUAL_SOURCE_AUTHORITY_REVIEW_NOT_APPROVED_HERE"
+      }
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "en",
+      "route": "/en/tests/iq-test-intelligence-quotient-assessment",
+      "source_authority": {
+        "backend_registry": "backend_registry_authority",
+        "landing_surface": "backend_landing_surface_v1_authority",
+        "lookup_projection": "backend_lookup_projection",
+        "cms_overlay": "cms_landing_surface_overlay",
+        "fap_web_runtime": "fap_web_consumer_contract_not_authority",
+        "sitemap_source": "sitemap_source_evidence",
+        "llms": "llms_readonly_evidence"
+      },
+      "indexability": {
+        "page_status": 200,
+        "canonical": "self_canonical",
+        "robots": "index_follow_not_noindex",
+        "hreflang": "self_and_sibling_alternates_present",
+        "sitemap_presence": true,
+        "llms_presence": true,
+        "llms_full_presence": true,
+        "lookup_is_indexable": true,
+        "sitemap_source_is_indexable": true,
+        "parity_status": "PASS"
+      },
+      "claim_boundary": {
+        "free_claim_recorded": true,
+        "full_result_claim_recorded": false,
+        "paid_unlock_disabled_copy_recorded": false,
+        "risk_level": "PASS_NO_CERTIFICATE_OR_ANSWER_KEY_CLAIM",
+        "authority_decision": "NO_FULL_RESULT_AUTHORITY_DECISION_REQUIRED_IN_THIS_PACKET"
+      }
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "zh",
+      "route": "/zh/tests/iq-test-intelligence-quotient-assessment",
+      "source_authority": {
+        "backend_registry": "backend_registry_authority",
+        "landing_surface": "backend_landing_surface_v1_authority",
+        "lookup_projection": "backend_lookup_projection",
+        "cms_overlay": "cms_landing_surface_overlay",
+        "fap_web_runtime": "fap_web_consumer_contract_not_authority",
+        "sitemap_source": "sitemap_source_evidence",
+        "llms": "llms_readonly_evidence"
+      },
+      "indexability": {
+        "page_status": 200,
+        "canonical": "self_canonical",
+        "robots": "index_follow_not_noindex",
+        "hreflang": "self_and_sibling_alternates_present",
+        "sitemap_presence": true,
+        "llms_presence": true,
+        "llms_full_presence": true,
+        "lookup_is_indexable": true,
+        "sitemap_source_is_indexable": true,
+        "parity_status": "PASS"
+      },
+      "claim_boundary": {
+        "free_claim_recorded": true,
+        "full_result_claim_recorded": false,
+        "paid_unlock_disabled_copy_recorded": false,
+        "risk_level": "PASS_NO_CERTIFICATE_OR_ANSWER_KEY_CLAIM",
+        "authority_decision": "NO_FULL_RESULT_AUTHORITY_DECISION_REQUIRED_IN_THIS_PACKET"
+      }
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "en",
+      "route": "/en/tests/eq-test-emotional-intelligence-assessment",
+      "source_authority": {
+        "backend_registry": "backend_registry_authority",
+        "landing_surface": "backend_landing_surface_v1_authority",
+        "lookup_projection": "backend_lookup_projection",
+        "cms_overlay": "cms_landing_surface_overlay",
+        "fap_web_runtime": "fap_web_consumer_contract_not_authority",
+        "sitemap_source": "sitemap_source_evidence",
+        "llms": "llms_readonly_evidence"
+      },
+      "indexability": {
+        "page_status": 200,
+        "canonical": "self_canonical",
+        "robots": "index_follow_not_noindex",
+        "hreflang": "self_and_sibling_alternates_present",
+        "sitemap_presence": true,
+        "llms_presence": true,
+        "llms_full_presence": true,
+        "lookup_is_indexable": true,
+        "sitemap_source_is_indexable": true,
+        "parity_status": "PASS"
+      },
+      "claim_boundary": {
+        "free_claim_recorded": true,
+        "full_result_claim_recorded": false,
+        "paid_unlock_disabled_copy_recorded": true,
+        "risk_level": "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+        "authority_decision": "NO_FULL_RESULT_AUTHORITY_DECISION_REQUIRED_IN_THIS_PACKET"
+      }
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "zh",
+      "route": "/zh/tests/eq-test-emotional-intelligence-assessment",
+      "source_authority": {
+        "backend_registry": "backend_registry_authority",
+        "landing_surface": "backend_landing_surface_v1_authority",
+        "lookup_projection": "backend_lookup_projection",
+        "cms_overlay": "cms_landing_surface_overlay",
+        "fap_web_runtime": "fap_web_consumer_contract_not_authority",
+        "sitemap_source": "sitemap_source_evidence",
+        "llms": "llms_readonly_evidence"
+      },
+      "indexability": {
+        "page_status": 200,
+        "canonical": "self_canonical",
+        "robots": "index_follow_not_noindex",
+        "hreflang": "self_and_sibling_alternates_present",
+        "sitemap_presence": true,
+        "llms_presence": true,
+        "llms_full_presence": true,
+        "lookup_is_indexable": true,
+        "sitemap_source_is_indexable": true,
+        "parity_status": "PASS"
+      },
+      "claim_boundary": {
+        "free_claim_recorded": true,
+        "full_result_claim_recorded": false,
+        "paid_unlock_disabled_copy_recorded": true,
+        "risk_level": "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+        "authority_decision": "NO_FULL_RESULT_AUTHORITY_DECISION_REQUIRED_IN_THIS_PACKET"
+      }
+    }
+  ],
+  "claim_risk_carryforward": [
+    {
+      "id": "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+      "severity": "P2",
+      "source_packet_status": "RECORDED_NOT_FIXED_IN_PR4",
+      "surface_count": 8,
+      "pr5_disposition": "CARRIED_FORWARD_TO_READINESS_MATRIX_NO_RUNTIME_COPY_CHANGE"
+    },
+    {
+      "id": "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW",
+      "severity": "P2",
+      "source_packet_status": "RECORDED_FOR_SOURCE_AUTHORITY_PACKET",
+      "surface_count": 4,
+      "pr5_disposition": "CARRIED_FORWARD_TO_READINESS_MATRIX_NO_RUNTIME_COPY_CHANGE"
+    },
+    {
+      "id": "P2_MANUAL_REVIEW_REQUIRED_FOR_CERTIFICATE_OR_ANSWER_KEY_CLAIMS",
+      "severity": "P2",
+      "source_packet_status": "PASS_NO_VISIBLE_CERTIFICATE_OR_ANSWER_KEY_CLAIM",
+      "surface_count": 0,
+      "pr5_disposition": "NO_VISIBLE_FORBIDDEN_CLAIM_OBSERVED_RECORDED_ONLY"
+    }
+  ],
+  "sidecar_issues": [],
+  "next_safe_action": "Merge PR5 after checks pass, then consume this packet in ASSESSMENT-HUB-QA-READINESS-MATRIX-01."
+}
