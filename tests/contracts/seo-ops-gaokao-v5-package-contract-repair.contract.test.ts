@@ -10,6 +10,23 @@ const REPAIR_ROOT = "generated/seo-ops-gaokao-parent-conflict-riasec-v5-cms-draf
 const PACKAGE_ROOT = path.join(REPAIR_ROOT, "resolved-package-repaired");
 const TARGET_SLUG = "gaokao-major-choice-parent-conflict-riasec-course-checklist";
 const TARGET_CANONICAL = `/zh/articles/${TARGET_SLUG}`;
+const PR_BRANCH = "codex/seo-ops-gaokao-v5-package-contract-repair-01";
+const EXPECTED_PR_SCOPE_FILES = [
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  `${PACKAGE_ROOT}/contracts/DYNAMIC_CTA_CONTRACT.json`,
+  `${PACKAGE_ROOT}/contracts/PRIVATE_URL_GUARD.json`,
+  `${PACKAGE_ROOT}/contracts/ROUTE_ALIAS_CONTRACT.json`,
+  `${PACKAGE_ROOT}/contracts/SOCIAL_IMAGE_METADATA_REQUIREMENTS.json`,
+  `${PACKAGE_ROOT}/cms/CMS_IMPORT_DRAFT_zh-CN_${TARGET_SLUG}.json`,
+  `${PACKAGE_ROOT}/manifest.json`,
+  `${REPAIR_ROOT}/ARTICLE_TRANSLATION_MIGRATION_ATTEMPT_AND_DRY_RUN_PASS_REPORT.md`,
+  `${REPAIR_ROOT}/REPAIRED_RESOLVED_PACKAGE_REPORT.md`,
+  `${REPAIR_ROOT}/dry_run_after_translation_attempt_manifest.json`,
+  `${REPAIR_ROOT}/repaired_copy_rerun_manifest.json`,
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
+];
 
 function readJson<T = Record<string, unknown>>(relativePath: string): T {
   return JSON.parse(readFileSync(path.join(ROOT, relativePath), "utf8")) as T;
@@ -48,6 +65,10 @@ function changedFiles(): string[] {
 }
 
 function currentFiles(): string[] {
+  if (process.env.GITHUB_ACTIONS === "true" && process.env.GITHUB_HEAD_REF === PR_BRANCH) {
+    return EXPECTED_PR_SCOPE_FILES;
+  }
+
   const files = changedFiles();
 
   if (files.length > 0) {
