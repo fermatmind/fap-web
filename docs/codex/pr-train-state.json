@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-25T16:22:00+08:00",
+  "updated_at": "2026-06-25T16:28:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -25068,9 +25068,9 @@
       "depends_on": [
         "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01"
       ],
-      "status": "pr_open_pending_github_checks",
+      "status": "ready_to_merge",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1432",
-      "commit_sha": "f8a314bd93190fb2b23d73406a3900057f2808fe",
+      "commit_sha": "0721a70214ee2bb302cb019002c6dc41930bd45b",
       "merge_sha": null,
       "title": "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01: docs(seo): add six hub AEO internal link packet",
       "artifacts": [
@@ -25087,7 +25087,13 @@
         "test_contract": "passed",
         "diff_check": "passed",
         "changed_file_scope_validation": "passed",
-        "pnpm_build": "not_run_forbidden_by_goal_boundary"
+        "pnpm_build": "not_run_forbidden_by_goal_boundary",
+        "github_build": "passed",
+        "github_contracts": "passed",
+        "github_codeql_analyze": "passed",
+        "github_codeql": "passed",
+        "github_verify_big5_contract_freeze": "passed",
+        "github_verify_enneagram_contract_freeze": "passed"
       },
       "failure_reason": null,
       "merged_at": null,
@@ -25131,6 +25137,11 @@
           "at": "2026-06-25T16:22:00+08:00",
           "status": "pr_open_pending_github_checks",
           "summary": "Opened PR #1432 from codex/six-hub-seo-geo-aeo-internal-link-packet-01 after required local checks and changed-file scope validation passed. Remote GitHub checks pending."
+        },
+        {
+          "at": "2026-06-25T16:28:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "PR #1432 GitHub checks passed and mergeStateStatus was CLEAN. Marked ready_to_merge before squash merge per train policy."
         }
       ],
       "sidecar_issues": []
