@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-25T09:56:00+08:00",
+  "updated_at": "2026-06-25T10:23:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -29901,10 +29901,10 @@
       "depends_on": [
         "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01"
       ],
-      "status": "ready_to_merge",
+      "status": "merged_reconciled_post_merge_cleanup_complete",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1423",
       "commit_sha": "780095ec8f4b8317d50ff1d87618015c61d465b7",
-      "merge_sha": null,
+      "merge_sha": "443b5de3cf84171ba578864234fd43c356b14452",
       "title": "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01: docs(assessment-hub): add free report claim packet",
       "checks": {
         "local": {
@@ -29944,9 +29944,9 @@
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-25T00:30:08Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "scope_validation": {
         "allowed_files": [
           "docs/assessment-hub/assessment-hub-free-full-report-claim-packet-2026-06-24.md",
@@ -29990,6 +29990,11 @@
           "at": "2026-06-25T09:56:00+08:00",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed for PR #1423: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). Marking ready to merge before squash merge."
+        },
+        {
+          "at": "2026-06-25T10:02:00+08:00",
+          "status": "merged_reconciled_post_merge_cleanup_complete",
+          "summary": "Reconciled during PR5 start: GitHub shows PR #1423 merged with squash commit 443b5de3cf84171ba578864234fd43c356b14452; origin/main contains the merge, local main was fast-forwarded, worktrees were clean, and local/remote PR4 branches were removed or already absent."
         }
       ],
       "sidecar_issues": []
@@ -30005,14 +30010,14 @@
         "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
         "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01"
       ],
-      "status": "pending_dependency",
+      "status": "local_checks_passed_ready_to_push",
       "pr_url": null,
       "commit_sha": null,
       "merge_sha": null,
       "title": "ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01: docs(assessment-hub): add source authority packet",
       "checks": {
         "local": {
-          "status": "not_started",
+          "status": "passed",
           "commands": [
             "node -e \"JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-source-authority-indexability-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
             "pnpm exec vitest run tests/contracts/assessment-hub-source-authority-indexability-packet.contract.test.ts",
@@ -30021,10 +30026,22 @@
             "git diff --check",
             "changed-file scope validation"
           ],
-          "results": {}
+          "results": {
+            "json_parse": "passed",
+            "focused_vitest": "passed_5_tests",
+            "typecheck": "passed",
+            "contract_suite": "passed_576_files_3392_tests",
+            "diff_check": "passed",
+            "changed_file_scope_validation": "passed_5_allowed_files_only",
+            "readonly_live_parity_recheck": "passed_12_of_12_surfaces_parity_ok",
+            "sitemap_llms_llms_full": "passed_200_200_200",
+            "sitemap_source_status_by_locale": "passed_en_200_zh_200",
+            "sidecar_issues": "none",
+            "build": "not_run_by_goal_boundary"
+          }
         },
         "github": {
-          "status": "not_started"
+          "status": "pending_after_push"
         }
       },
       "failure_reason": null,
@@ -30041,13 +30058,31 @@
           "generated/pr-train-sidecar-issues/sidecar_issues.md",
           "generated/pr-train-sidecar-issues/sidecar_issues.json"
         ],
-        "status": "pending_dependency"
+        "status": "passed",
+        "changed_files": [
+          "docs/assessment-hub/assessment-hub-source-authority-indexability-packet-2026-06-24.md",
+          "docs/assessment-hub/assessment-hub-source-authority-indexability-packet.v1.json",
+          "docs/codex/pr-train-state.json",
+          "tests/contracts/assessment-hub-source-authority-indexability-packet.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts"
+        ],
+        "outside_scope_files": []
       },
       "history": [
         {
           "at": "2026-06-25T00:37:00+08:00",
           "status": "pending_dependency",
           "summary": "Initialized authorized train entry. Waiting for metadata, take-flow, and claim packets to merge."
+        },
+        {
+          "at": "2026-06-25T10:14:00+08:00",
+          "status": "packet_generated_pending_local_validation",
+          "summary": "PR5 branch started from origin/main after PR4 merge cleanup. Added docs/contracts-only source-authority/indexability packet consuming common, metadata, take-flow, and claim packets; live parity recheck was PASS for 12/12 surfaces with sitemap, llms, llms-full, and sitemap-source all healthy."
+        },
+        {
+          "at": "2026-06-25T10:23:00+08:00",
+          "status": "local_checks_passed_ready_to_push",
+          "summary": "Local PR5 validation passed: JSON parse, focused vitest 5 tests, pnpm typecheck, pnpm test:contract 576 files / 3392 tests, git diff --check, and changed-file scope validation for the 5 changed docs/contracts files. pnpm build was intentionally not run per goal boundary."
         }
       ],
       "sidecar_issues": []

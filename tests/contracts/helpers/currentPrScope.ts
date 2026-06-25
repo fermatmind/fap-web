@@ -3104,6 +3104,16 @@ const ASSESSMENT_HUB_FREE_FULL_REPORT_CLAIM_PACKET_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const ASSESSMENT_HUB_SOURCE_AUTHORITY_INDEXABILITY_PACKET_01_ALLOWED_FILES = new Set([
+  "docs/assessment-hub/assessment-hub-source-authority-indexability-packet-2026-06-24.md",
+  "docs/assessment-hub/assessment-hub-source-authority-indexability-packet.v1.json",
+  "tests/contracts/assessment-hub-source-authority-indexability-packet.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
 const RESULT_PAGE_AGENT_SEO_CONTROL_HANDOFF_01_ALLOWED_FILES = new Set([
   "docs/result-page-agents/result-page-agent-seo-control-handoff-2026-06-23.md",
   "docs/result-page-agents/result-page-agent-seo-control-handoff.v1.json",
@@ -3919,6 +3929,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/assessment-hub-free-full-report-claim-packet-01") {
     return ASSESSMENT_HUB_FREE_FULL_REPORT_CLAIM_PACKET_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/assessment-hub-source-authority-indexability-packet-01") {
+    return ASSESSMENT_HUB_SOURCE_AUTHORITY_INDEXABILITY_PACKET_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/big-five-public-profile-agent-qa-01") {
