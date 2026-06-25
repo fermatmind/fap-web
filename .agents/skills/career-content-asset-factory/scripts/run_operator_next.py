@@ -35,6 +35,9 @@ def latest_baseline(state_dir: Path, block: str) -> dict | None:
                     "final_conclusion": row.get("final_conclusion"),
                     "sha256_manifest": row.get("sha256_manifest"),
                     "block_version": row.get("block_version"),
+                    "artifact_uri": row.get("artifact_uri"),
+                    "package_sha256": row.get("package_sha256"),
+                    "restorable": row.get("restorable"),
                 }
     return data.get(block) or data.get(block_state_key(block))
 
@@ -185,16 +188,29 @@ def build_report(state_dir: Path, block: str, dry_run: bool, batch_size: int, ma
         hard_stop = True
         requires_human_approval = True
     elif baseline_files_missing(baseline):
-        action = {
-            "action": "restore_baseline_preflight",
-            "phase": "restore_preflight",
-            "block": block,
-            "reason": "latest PASS baseline state exists but local baseline files or SHA manifest are missing",
-            "baseline_path": baseline.get("baseline_path"),
-            "sha256_manifest": baseline.get("sha256_manifest"),
-            "suggested_registry_output": "generated/career-content-baseline-artifact-registry/baseline_artifact_registry.json",
-            "suggested_preflight_output": "generated/career-content-baseline-artifact-registry/restore_preflight_report.json",
-        }
+        if baseline.get("artifact_uri") and baseline.get("restorable") is not False:
+            action = {
+                "action": "restore_baseline",
+                "phase": "restore",
+                "block": block,
+                "reason": "latest PASS baseline files are missing but artifact URI is restorable",
+                "baseline_path": baseline.get("baseline_path"),
+                "sha256_manifest": baseline.get("sha256_manifest"),
+                "artifact_uri": baseline.get("artifact_uri"),
+                "package_sha256": baseline.get("package_sha256"),
+                "suggested_restore_output": "generated/career-content-baseline-artifact-registry/restore_baseline_report.json",
+            }
+        else:
+            action = {
+                "action": "restore_baseline_preflight",
+                "phase": "restore_preflight",
+                "block": block,
+                "reason": "latest PASS baseline state exists but local baseline files or SHA manifest are missing",
+                "baseline_path": baseline.get("baseline_path"),
+                "sha256_manifest": baseline.get("sha256_manifest"),
+                "suggested_registry_output": "generated/career-content-baseline-artifact-registry/baseline_artifact_registry.json",
+                "suggested_preflight_output": "generated/career-content-baseline-artifact-registry/restore_preflight_report.json",
+            }
         hard_stop = False
         requires_human_approval = False
     elif validation and validation.get("final_conclusion") not in {None, "BATCH_001_BASELINE_FROZEN"} and "FROZEN" not in str(validation.get("final_conclusion")):

@@ -10,7 +10,10 @@
     "control_count": 1046,
     "final_conclusion": "CAREER_ADJACENT_COMPARISON_1046_COMPLETE",
     "sha256_manifest": "generated/career-adjacent-comparison-v1-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
-    "block_version": "career_adjacent_comparison_v1"
+    "block_version": "career_adjacent_comparison_v1",
+    "artifact_uri": null,
+    "package_sha256": null,
+    "restorable": null
   },
   "baseline_validation": {},
   "open_failure_count": 0,
