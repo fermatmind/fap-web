@@ -105,9 +105,12 @@ describe("Six Hub SEO/GEO package readiness packet", () => {
       prs.some(
         (pr) =>
           pr.id === "SIX-HUB-SEO-GEO-PACKAGE-READINESS-PACKET-01" &&
-          ["in_progress", "local_checks_passed_ready_to_push", "pr_open_pending_github_checks"].includes(
-            String(pr.status)
-          )
+          [
+            "in_progress",
+            "local_checks_passed_ready_to_push",
+            "pr_open_pending_github_checks",
+            "ready_to_merge",
+          ].includes(String(pr.status))
       )
     ).toBe(true);
   });
