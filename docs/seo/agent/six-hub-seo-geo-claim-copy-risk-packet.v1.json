@@ -1,0 +1,521 @@
+{
+  "schema_version": "fermatmind.six_hub_seo_geo_claim_copy_risk_packet.v1",
+  "task_id": "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+  "generated_at": "2026-06-25T14:30:00+08:00",
+  "run_mode": "docs_contracts_only_no_runtime_or_provider_side_effects",
+  "verdict": "CLAIM_COPY_RISK_PACKET_READY_NO_RUNTIME_CHANGES",
+  "depends_on": [
+    "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01"
+  ],
+  "consumed_packets": [
+    "docs/seo/agent/six-hub-seo-geo-package-common-contract.v1.json",
+    "docs/seo/agent/six-hub-seo-geo-package-readiness-packet.v1.json",
+    "docs/assessment-hub/assessment-hub-free-full-report-claim-packet.v1.json",
+    "docs/assessment-hub/assessment-hub-source-authority-indexability-packet.v1.json"
+  ],
+  "route_count": 12,
+  "scale_count": 6,
+  "risk_counts": {
+    "P2": 10,
+    "P1": 2
+  },
+  "risk_category_counts": {
+    "FREE_FULL_REPORT_AUTHORITY_REVIEW": 2,
+    "COMMERCIAL_FIELD_AUTHORITY_CONFLICT_PLUS_PAID_UNLOCK_COPY": 2,
+    "FULL_RESULT_AND_PAID_UNLOCK_EXAMPLES_ONLY_BOUNDARY": 2,
+    "PAID_UNLOCK_COPY_AND_TYPE_CERTAINTY_BOUNDARY": 2,
+    "MANUAL_REVIEW_AND_FORM_AUTHORITY_GAP": 2,
+    "FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY": 2
+  },
+  "hard_hold_scales_before_copy_repair": [
+    "BIG5_OCEAN",
+    "IQ_RAVEN",
+    "EQ_60"
+  ],
+  "review_first_scales_before_geo_aeo_amplification": [
+    "MBTI",
+    "RIASEC",
+    "ENNEAGRAM"
+  ],
+  "scale_risk_summary": [
+    {
+      "scale_code": "MBTI",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "route_count": 2,
+      "highest_risk": "P2",
+      "risk_category": "FREE_FULL_REPORT_AUTHORITY_REVIEW",
+      "copy_gate_decision": "ALLOW_WITH_AUTHORITY_REVIEW_BEFORE_AMPLIFICATION",
+      "owner_lane": "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+      "observed_backend_tiers": [
+        "FREE"
+      ],
+      "observed_backend_forms_counts": [
+        2
+      ],
+      "observed_free_full_report_claim": true,
+      "observed_paid_unlock_or_contradiction_copy": false,
+      "forbidden_claims": [
+        "Do not imply every section is unlocked without validating the free report contract.",
+        "Do not introduce paid-feature denial or entitlement copy from frontend assumptions.",
+        "Do not use MBTI as a clinical, hiring, or deterministic identity claim."
+      ],
+      "safe_copy_direction": "Keep free/full-result language tied to current backend form and report authority; review before AEO/GEO amplification."
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "route_count": 2,
+      "highest_risk": "P1",
+      "risk_category": "COMMERCIAL_FIELD_AUTHORITY_CONFLICT_PLUS_PAID_UNLOCK_COPY",
+      "copy_gate_decision": "HOLD_FOR_SOURCE_AUTHORITY_RECONCILIATION_BEFORE_COPY_PACKAGE",
+      "owner_lane": "BIG5-HUB-COMMERCIAL-FIELD-AUTHORITY-FIX-SCAN-01_AFTER_PACKAGE_TRAIN",
+      "observed_backend_tiers": [
+        "PAID"
+      ],
+      "observed_backend_forms_counts": [
+        2
+      ],
+      "observed_free_full_report_claim": true,
+      "observed_paid_unlock_or_contradiction_copy": true,
+      "forbidden_claims": [
+        "Do not claim the hub is purely free while backend commercial price tier remains PAID.",
+        "Do not promise full free access or unlocked interpretation until source authority is reconciled.",
+        "Do not paper over backend commercial authority with frontend or CMS copy."
+      ],
+      "safe_copy_direction": "Resolve backend/source authority before any claim package or traffic amplification."
+    },
+    {
+      "scale_code": "RIASEC",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "route_count": 2,
+      "highest_risk": "P2",
+      "risk_category": "FULL_RESULT_AND_PAID_UNLOCK_EXAMPLES_ONLY_BOUNDARY",
+      "copy_gate_decision": "ALLOW_ONLY_IF_PAID_UNLOCK_COPY_IS_EXAMPLE_BOUNDARY_NOT_PAYWALL_PROMISE",
+      "owner_lane": "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+      "observed_backend_tiers": [
+        "FREE"
+      ],
+      "observed_backend_forms_counts": [
+        2
+      ],
+      "observed_free_full_report_claim": true,
+      "observed_paid_unlock_or_contradiction_copy": true,
+      "forbidden_claims": [
+        "Do not imply career outcomes, jobs, salaries, or admission/employment decisions are guaranteed.",
+        "Do not turn example-based paid/unlock copy into a promise that all career graph content is free.",
+        "Do not create a parallel RIASEC authority stack or frontend inference copy."
+      ],
+      "safe_copy_direction": "Keep full-result wording bounded to score/report availability and label career content as examples or guidance."
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "route_count": 2,
+      "highest_risk": "P2",
+      "risk_category": "PAID_UNLOCK_COPY_AND_TYPE_CERTAINTY_BOUNDARY",
+      "copy_gate_decision": "ALLOW_ONLY_WITH_NON_DIAGNOSTIC_TYPE_PROBABILITY_BOUNDARY",
+      "owner_lane": "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+      "observed_backend_tiers": [
+        "FREE"
+      ],
+      "observed_backend_forms_counts": [
+        2
+      ],
+      "observed_free_full_report_claim": true,
+      "observed_paid_unlock_or_contradiction_copy": true,
+      "forbidden_claims": [
+        "Do not state an Enneagram type as a permanent or medically validated diagnosis.",
+        "Do not imply paid/unlock content is required to know a single certain type.",
+        "Do not use relationship, workplace, or growth advice as deterministic prediction."
+      ],
+      "safe_copy_direction": "Use non-diagnostic, reflective language and keep type certainty bounded to test result interpretation."
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "route_count": 2,
+      "highest_risk": "P2",
+      "risk_category": "MANUAL_REVIEW_AND_FORM_AUTHORITY_GAP",
+      "copy_gate_decision": "HOLD_CLAIM_COPY_FIX_FOR_MANUAL_REVIEW_AND_FORM_AUTHORITY",
+      "owner_lane": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN",
+      "observed_backend_tiers": [
+        "FREE"
+      ],
+      "observed_backend_forms_counts": [
+        0
+      ],
+      "observed_free_full_report_claim": true,
+      "observed_paid_unlock_or_contradiction_copy": false,
+      "forbidden_claims": [
+        "Do not claim a certified IQ score, clinical intelligence diagnosis, or official proctored result.",
+        "Do not claim full report authority while backend forms count is zero.",
+        "Do not imply school, employment, or medical decision suitability."
+      ],
+      "safe_copy_direction": "Manual review must confirm form authority, score language, and non-clinical disclaimers before claim repair."
+    },
+    {
+      "scale_code": "EQ_60",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "route_count": 2,
+      "highest_risk": "P2",
+      "risk_category": "FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "copy_gate_decision": "HOLD_CLAIM_COPY_FIX_FOR_FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "owner_lane": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN",
+      "observed_backend_tiers": [
+        "FREE"
+      ],
+      "observed_backend_forms_counts": [
+        0
+      ],
+      "observed_free_full_report_claim": true,
+      "observed_paid_unlock_or_contradiction_copy": true,
+      "forbidden_claims": [
+        "Do not guarantee emotional intelligence improvement, workplace success, relationship outcomes, or diagnosis.",
+        "Do not claim full report authority while backend forms count is zero.",
+        "Do not convert self-reflection guidance into mental-health or coaching certification claims."
+      ],
+      "safe_copy_direction": "Manual review must confirm form authority and outcome-claim boundaries before claim repair."
+    }
+  ],
+  "route_claim_risks": [
+    {
+      "scale_code": "MBTI",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "current_title": "Free MBTI Personality Test | 16 Types Full Report | FermatMind",
+      "current_h1": "Free MBTI Personality Test with Full Report",
+      "visible_free_full_report_claim": true,
+      "visible_paywall_contradiction_or_paid_unlock_copy": false,
+      "visible_methodology_boundary_note": true,
+      "backend_commercial_price_tier": "FREE",
+      "backend_forms_count": 2,
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "readiness_claim_risk_notes": "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW",
+      "claim_risk_severity": "P2",
+      "risk_category": "FREE_FULL_REPORT_AUTHORITY_REVIEW",
+      "copy_gate_decision": "ALLOW_WITH_AUTHORITY_REVIEW_BEFORE_AMPLIFICATION",
+      "recommended_owner_lane": "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+      "forbidden_claims": [
+        "Do not imply every section is unlocked without validating the free report contract.",
+        "Do not introduce paid-feature denial or entitlement copy from frontend assumptions.",
+        "Do not use MBTI as a clinical, hiring, or deterministic identity claim."
+      ],
+      "safe_copy_direction": "Keep free/full-result language tied to current backend form and report authority; review before AEO/GEO amplification."
+    },
+    {
+      "scale_code": "MBTI",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "current_title": "MBTI免费测试｜16型人格与完整报告 | FermatMind",
+      "current_h1": "MBTI免费测试与完整结果",
+      "visible_free_full_report_claim": true,
+      "visible_paywall_contradiction_or_paid_unlock_copy": false,
+      "visible_methodology_boundary_note": true,
+      "backend_commercial_price_tier": "FREE",
+      "backend_forms_count": 2,
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "readiness_claim_risk_notes": "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW",
+      "claim_risk_severity": "P2",
+      "risk_category": "FREE_FULL_REPORT_AUTHORITY_REVIEW",
+      "copy_gate_decision": "ALLOW_WITH_AUTHORITY_REVIEW_BEFORE_AMPLIFICATION",
+      "recommended_owner_lane": "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+      "forbidden_claims": [
+        "Do not imply every section is unlocked without validating the free report contract.",
+        "Do not introduce paid-feature denial or entitlement copy from frontend assumptions.",
+        "Do not use MBTI as a clinical, hiring, or deterministic identity claim."
+      ],
+      "safe_copy_direction": "Keep free/full-result language tied to current backend form and report authority; review before AEO/GEO amplification."
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+      "current_title": "Big Five Personality Test (OCEAN Model) | FermatMind",
+      "current_h1": "Big Five Personality Test 【OCEAN Model】",
+      "visible_free_full_report_claim": true,
+      "visible_paywall_contradiction_or_paid_unlock_copy": true,
+      "visible_methodology_boundary_note": true,
+      "backend_commercial_price_tier": "PAID",
+      "backend_forms_count": 2,
+      "readiness_verdict": "NEEDS_SOURCE_AUTHORITY_RECONCILIATION",
+      "readiness_claim_risk_notes": "P1_COMMERCIAL_FIELD_AUTHORITY_CONFLICT_PLUS_P2_PAID_UNLOCK_COPY",
+      "claim_risk_severity": "P1",
+      "risk_category": "COMMERCIAL_FIELD_AUTHORITY_CONFLICT_PLUS_PAID_UNLOCK_COPY",
+      "copy_gate_decision": "HOLD_FOR_SOURCE_AUTHORITY_RECONCILIATION_BEFORE_COPY_PACKAGE",
+      "recommended_owner_lane": "BIG5-HUB-COMMERCIAL-FIELD-AUTHORITY-FIX-SCAN-01_AFTER_PACKAGE_TRAIN",
+      "forbidden_claims": [
+        "Do not claim the hub is purely free while backend commercial price tier remains PAID.",
+        "Do not promise full free access or unlocked interpretation until source authority is reconciled.",
+        "Do not paper over backend commercial authority with frontend or CMS copy."
+      ],
+      "safe_copy_direction": "Resolve backend/source authority before any claim package or traffic amplification."
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "current_title": "大五人格测试（OCEAN 模型） | FermatMind",
+      "current_h1": "大五人格免费测试",
+      "visible_free_full_report_claim": true,
+      "visible_paywall_contradiction_or_paid_unlock_copy": true,
+      "visible_methodology_boundary_note": true,
+      "backend_commercial_price_tier": "PAID",
+      "backend_forms_count": 2,
+      "readiness_verdict": "NEEDS_SOURCE_AUTHORITY_RECONCILIATION",
+      "readiness_claim_risk_notes": "P1_COMMERCIAL_FIELD_AUTHORITY_CONFLICT_PLUS_P2_PAID_UNLOCK_COPY",
+      "claim_risk_severity": "P1",
+      "risk_category": "COMMERCIAL_FIELD_AUTHORITY_CONFLICT_PLUS_PAID_UNLOCK_COPY",
+      "copy_gate_decision": "HOLD_FOR_SOURCE_AUTHORITY_RECONCILIATION_BEFORE_COPY_PACKAGE",
+      "recommended_owner_lane": "BIG5-HUB-COMMERCIAL-FIELD-AUTHORITY-FIX-SCAN-01_AFTER_PACKAGE_TRAIN",
+      "forbidden_claims": [
+        "Do not claim the hub is purely free while backend commercial price tier remains PAID.",
+        "Do not promise full free access or unlocked interpretation until source authority is reconciled.",
+        "Do not paper over backend commercial authority with frontend or CMS copy."
+      ],
+      "safe_copy_direction": "Resolve backend/source authority before any claim package or traffic amplification."
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "current_title": "Free Holland Career Interest Test | RIASEC Full Report | FermatMind",
+      "current_h1": "Free Holland Career Interest Test with Full Report",
+      "visible_free_full_report_claim": true,
+      "visible_paywall_contradiction_or_paid_unlock_copy": true,
+      "visible_methodology_boundary_note": true,
+      "backend_commercial_price_tier": "FREE",
+      "backend_forms_count": 2,
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "readiness_claim_risk_notes": "P2_FULL_RESULT_AND_PAID_UNLOCK_COPY_WITH_EXAMPLES_ONLY_BOUNDARY",
+      "claim_risk_severity": "P2",
+      "risk_category": "FULL_RESULT_AND_PAID_UNLOCK_EXAMPLES_ONLY_BOUNDARY",
+      "copy_gate_decision": "ALLOW_ONLY_IF_PAID_UNLOCK_COPY_IS_EXAMPLE_BOUNDARY_NOT_PAYWALL_PROMISE",
+      "recommended_owner_lane": "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+      "forbidden_claims": [
+        "Do not imply career outcomes, jobs, salaries, or admission/employment decisions are guaranteed.",
+        "Do not turn example-based paid/unlock copy into a promise that all career graph content is free.",
+        "Do not create a parallel RIASEC authority stack or frontend inference copy."
+      ],
+      "safe_copy_direction": "Keep full-result wording bounded to score/report availability and label career content as examples or guidance."
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "current_title": "霍兰德职业兴趣免费测试｜RIASEC完整结果 | FermatMind",
+      "current_h1": "霍兰德职业兴趣免费测试与完整结果",
+      "visible_free_full_report_claim": true,
+      "visible_paywall_contradiction_or_paid_unlock_copy": true,
+      "visible_methodology_boundary_note": true,
+      "backend_commercial_price_tier": "FREE",
+      "backend_forms_count": 2,
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "readiness_claim_risk_notes": "P2_FULL_RESULT_AND_PAID_UNLOCK_COPY_WITH_EXAMPLES_ONLY_BOUNDARY",
+      "claim_risk_severity": "P2",
+      "risk_category": "FULL_RESULT_AND_PAID_UNLOCK_EXAMPLES_ONLY_BOUNDARY",
+      "copy_gate_decision": "ALLOW_ONLY_IF_PAID_UNLOCK_COPY_IS_EXAMPLE_BOUNDARY_NOT_PAYWALL_PROMISE",
+      "recommended_owner_lane": "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+      "forbidden_claims": [
+        "Do not imply career outcomes, jobs, salaries, or admission/employment decisions are guaranteed.",
+        "Do not turn example-based paid/unlock copy into a promise that all career graph content is free.",
+        "Do not create a parallel RIASEC authority stack or frontend inference copy."
+      ],
+      "safe_copy_direction": "Keep full-result wording bounded to score/report availability and label career content as examples or guidance."
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+      "current_title": "Enneagram Personality Test (Nine Types) | FermatMind",
+      "current_h1": "Enneagram Personality Test 【Nine Types】",
+      "visible_free_full_report_claim": true,
+      "visible_paywall_contradiction_or_paid_unlock_copy": true,
+      "visible_methodology_boundary_note": true,
+      "backend_commercial_price_tier": "FREE",
+      "backend_forms_count": 2,
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "readiness_claim_risk_notes": "P2_PAID_UNLOCK_COPY_AND_TYPE_CERTAINTY_BOUNDARY",
+      "claim_risk_severity": "P2",
+      "risk_category": "PAID_UNLOCK_COPY_AND_TYPE_CERTAINTY_BOUNDARY",
+      "copy_gate_decision": "ALLOW_ONLY_WITH_NON_DIAGNOSTIC_TYPE_PROBABILITY_BOUNDARY",
+      "recommended_owner_lane": "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+      "forbidden_claims": [
+        "Do not state an Enneagram type as a permanent or medically validated diagnosis.",
+        "Do not imply paid/unlock content is required to know a single certain type.",
+        "Do not use relationship, workplace, or growth advice as deterministic prediction."
+      ],
+      "safe_copy_direction": "Use non-diagnostic, reflective language and keep type certainty bounded to test result interpretation."
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "current_title": "九型人格测试 | FermatMind",
+      "current_h1": "九型人格免费测试",
+      "visible_free_full_report_claim": true,
+      "visible_paywall_contradiction_or_paid_unlock_copy": true,
+      "visible_methodology_boundary_note": true,
+      "backend_commercial_price_tier": "FREE",
+      "backend_forms_count": 2,
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "readiness_claim_risk_notes": "P2_PAID_UNLOCK_COPY_AND_TYPE_CERTAINTY_BOUNDARY",
+      "claim_risk_severity": "P2",
+      "risk_category": "PAID_UNLOCK_COPY_AND_TYPE_CERTAINTY_BOUNDARY",
+      "copy_gate_decision": "ALLOW_ONLY_WITH_NON_DIAGNOSTIC_TYPE_PROBABILITY_BOUNDARY",
+      "recommended_owner_lane": "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+      "forbidden_claims": [
+        "Do not state an Enneagram type as a permanent or medically validated diagnosis.",
+        "Do not imply paid/unlock content is required to know a single certain type.",
+        "Do not use relationship, workplace, or growth advice as deterministic prediction."
+      ],
+      "safe_copy_direction": "Use non-diagnostic, reflective language and keep type certainty bounded to test result interpretation."
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+      "current_title": "IQ Test (Intelligence Quotient Assessment) | FermatMind",
+      "current_h1": "IQ Test 【Intelligence Quotient Assessment】",
+      "visible_free_full_report_claim": true,
+      "visible_paywall_contradiction_or_paid_unlock_copy": false,
+      "visible_methodology_boundary_note": true,
+      "backend_commercial_price_tier": "FREE",
+      "backend_forms_count": 0,
+      "readiness_verdict": "NEEDS_CLAIM_COPY_FIX",
+      "readiness_claim_risk_notes": "P2_IQ_MANUAL_REVIEW_AND_FORM_AUTHORITY_GAP",
+      "claim_risk_severity": "P2",
+      "risk_category": "MANUAL_REVIEW_AND_FORM_AUTHORITY_GAP",
+      "copy_gate_decision": "HOLD_CLAIM_COPY_FIX_FOR_MANUAL_REVIEW_AND_FORM_AUTHORITY",
+      "recommended_owner_lane": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN",
+      "forbidden_claims": [
+        "Do not claim a certified IQ score, clinical intelligence diagnosis, or official proctored result.",
+        "Do not claim full report authority while backend forms count is zero.",
+        "Do not imply school, employment, or medical decision suitability."
+      ],
+      "safe_copy_direction": "Manual review must confirm form authority, score language, and non-clinical disclaimers before claim repair."
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "current_title": "智商（IQ）测试 | FermatMind",
+      "current_h1": "智商【IQ】测试",
+      "visible_free_full_report_claim": true,
+      "visible_paywall_contradiction_or_paid_unlock_copy": false,
+      "visible_methodology_boundary_note": true,
+      "backend_commercial_price_tier": "FREE",
+      "backend_forms_count": 0,
+      "readiness_verdict": "NEEDS_CLAIM_COPY_FIX",
+      "readiness_claim_risk_notes": "P2_IQ_MANUAL_REVIEW_AND_FORM_AUTHORITY_GAP",
+      "claim_risk_severity": "P2",
+      "risk_category": "MANUAL_REVIEW_AND_FORM_AUTHORITY_GAP",
+      "copy_gate_decision": "HOLD_CLAIM_COPY_FIX_FOR_MANUAL_REVIEW_AND_FORM_AUTHORITY",
+      "recommended_owner_lane": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN",
+      "forbidden_claims": [
+        "Do not claim a certified IQ score, clinical intelligence diagnosis, or official proctored result.",
+        "Do not claim full report authority while backend forms count is zero.",
+        "Do not imply school, employment, or medical decision suitability."
+      ],
+      "safe_copy_direction": "Manual review must confirm form authority, score language, and non-clinical disclaimers before claim repair."
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+      "current_title": "EQ Test (Emotional Intelligence Assessment) | FermatMind",
+      "current_h1": "EQ Test 【Emotional Intelligence Assessment】",
+      "visible_free_full_report_claim": true,
+      "visible_paywall_contradiction_or_paid_unlock_copy": true,
+      "visible_methodology_boundary_note": true,
+      "backend_commercial_price_tier": "FREE",
+      "backend_forms_count": 0,
+      "readiness_verdict": "NEEDS_CLAIM_COPY_FIX",
+      "readiness_claim_risk_notes": "P2_EQ_FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "claim_risk_severity": "P2",
+      "risk_category": "FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "copy_gate_decision": "HOLD_CLAIM_COPY_FIX_FOR_FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "recommended_owner_lane": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN",
+      "forbidden_claims": [
+        "Do not guarantee emotional intelligence improvement, workplace success, relationship outcomes, or diagnosis.",
+        "Do not claim full report authority while backend forms count is zero.",
+        "Do not convert self-reflection guidance into mental-health or coaching certification claims."
+      ],
+      "safe_copy_direction": "Manual review must confirm form authority and outcome-claim boundaries before claim repair."
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "current_title": "情商（EQ）测试 | FermatMind",
+      "current_h1": "情商【EQ】测试",
+      "visible_free_full_report_claim": true,
+      "visible_paywall_contradiction_or_paid_unlock_copy": true,
+      "visible_methodology_boundary_note": true,
+      "backend_commercial_price_tier": "FREE",
+      "backend_forms_count": 0,
+      "readiness_verdict": "NEEDS_CLAIM_COPY_FIX",
+      "readiness_claim_risk_notes": "P2_EQ_FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "claim_risk_severity": "P2",
+      "risk_category": "FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "copy_gate_decision": "HOLD_CLAIM_COPY_FIX_FOR_FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "recommended_owner_lane": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN",
+      "forbidden_claims": [
+        "Do not guarantee emotional intelligence improvement, workplace success, relationship outcomes, or diagnosis.",
+        "Do not claim full report authority while backend forms count is zero.",
+        "Do not convert self-reflection guidance into mental-health or coaching certification claims."
+      ],
+      "safe_copy_direction": "Manual review must confirm form authority and outcome-claim boundaries before claim repair."
+    }
+  ],
+  "next_safe_task_after_merge": "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01",
+  "hold_actions": [
+    "no_CMS_package_generation",
+    "no_CMS_dry_run",
+    "no_CMS_write",
+    "no_publish",
+    "no_runtime_copy_change",
+    "no_frontend_runtime_change",
+    "no_backend_API_repair",
+    "no_search_submission",
+    "no_provider_call",
+    "no_deploy",
+    "no_sitemap_llms_schema_hreflang_canonical_noindex_mutation",
+    "no_private_result_or_attempt_access",
+    "no_attempt_creation",
+    "no_answer_submission"
+  ],
+  "negative_guarantees": {
+    "cms_dry_run_performed": false,
+    "cms_write_performed": false,
+    "cms_publish_performed": false,
+    "runtime_copy_changed": false,
+    "frontend_runtime_changed": false,
+    "backend_api_changed": false,
+    "search_submission_performed": false,
+    "provider_call_performed": false,
+    "deployment_triggered": false,
+    "sitemap_or_llms_or_schema_mutated": false,
+    "private_data_accessed": false,
+    "attempt_created": false,
+    "answers_submitted": false,
+    "fap_api_mutated": false
+  }
+}

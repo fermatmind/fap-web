@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-25T14:00:00+08:00",
+  "updated_at": "2026-06-25T15:00:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -24947,7 +24947,7 @@
       "depends_on": [
         "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01"
       ],
-      "status": "pending_dependency",
+      "status": "local_checks_passed_ready_to_push",
       "pr_url": null,
       "commit_sha": null,
       "merge_sha": null,
@@ -24958,7 +24958,31 @@
         "tests/contracts/six-hub-seo-geo-claim-copy-risk-packet.contract.test.ts",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": {},
+      "checks": {
+        "local": {
+          "status": "passed",
+          "commands": [
+            "node -e \"JSON.parse(require('fs').readFileSync('docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
+            "pnpm exec vitest run tests/contracts/six-hub-seo-geo-claim-copy-risk-packet.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "results": {
+            "json_parse": "passed",
+            "focused_vitest": "passed_5_tests",
+            "typecheck": "passed",
+            "contract_suite": "passed_580_files_3411_tests",
+            "diff_check": "passed",
+            "changed_file_scope_validation": "passed_4_allowed_files_only",
+            "build": "not_run_by_goal_boundary"
+          }
+        },
+        "github": {
+          "status": "not_started"
+        }
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -24972,8 +24996,13 @@
           "generated/pr-train-sidecar-issues/sidecar_issues.md",
           "generated/pr-train-sidecar-issues/sidecar_issues.json"
         ],
-        "status": "pending",
-        "changed_files": [],
+        "status": "passed",
+        "changed_files": [
+          "docs/codex/pr-train-state.json",
+          "docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet-2026-06-25.md",
+          "docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet.v1.json",
+          "tests/contracts/six-hub-seo-geo-claim-copy-risk-packet.contract.test.ts"
+        ],
         "outside_scope_files": []
       },
       "history": [
@@ -24981,6 +25010,16 @@
           "at": "2026-06-25T12:10:00+08:00",
           "status": "pending_dependency",
           "summary": "Initialized authorized Six Hub SEO/GEO package train entry. Waiting for dependencies: SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01."
+        },
+        {
+          "at": "2026-06-25T14:30:00+08:00",
+          "status": "in_progress",
+          "summary": "PR1 dependency verified merged and PR2 readiness packet consumed from origin/main. Started PR3 claim/copy risk packet in docs/contracts-only scope; no CMS, runtime copy repair, search/provider, deploy, private data, SEO artifact mutation, attempt creation, answer submission, or fap-api mutation is authorized."
+        },
+        {
+          "at": "2026-06-25T15:00:00+08:00",
+          "status": "local_checks_passed_ready_to_push",
+          "summary": "Local PR3 validation passed: JSON parse, focused vitest 5 tests, pnpm typecheck, pnpm test:contract 580 files / 3411 tests, git diff --check, and changed-file scope validation for the 4 allowed docs/contracts files. pnpm build was intentionally not run per goal boundary."
         }
       ],
       "sidecar_issues": []
