@@ -1,0 +1,75 @@
+{
+  "schema_version": "image_asset_manifest_v1",
+  "package_id": "seo-ops-gaokao-parent-conflict-riasec-mode-c-content-package-20260624-05-v5",
+  "translation_group_id": "tg_article_gaokao_parent_conflict_riasec_course_checklist_2026v1",
+  "locale_scope": [
+    "zh-CN"
+  ],
+  "media_library_resolution_required_before_preview": true,
+  "assets": [
+    {
+      "asset_key": "article.gaokao-parent-conflict.riasec.cover.v4",
+      "role": "cover",
+      "source_file": "media/cover_source_1600x900.png",
+      "alt_text": "高考志愿里用位次、课程清单和霍兰德兴趣沟通专业分歧的决策地图",
+      "dimensions_expected": {
+        "width": 1600,
+        "height": 900,
+        "exact": true
+      },
+      "format_allowed": [
+        "image/png",
+        "image/jpeg",
+        "image/webp"
+      ],
+      "max_bytes": 3000000,
+      "fallback_allowed": false,
+      "provenance": {
+        "source": "gpt_generated_or_operator_supplied_for_fermatmind_editorial_package",
+        "source_note": "user-provided/generated editorial image; no official logos; Media Library import still required",
+        "prompt_file": "media/IMAGE_PROMPTS.md",
+        "competitor_asset": false,
+        "official_logo_or_ui": false,
+        "private_asset": false
+      }
+    },
+    {
+      "asset_key": "article.gaokao-parent-conflict.riasec.body-visual.v4",
+      "role": "body_visual",
+      "source_file": "media/body_visual_source_1600x900.png",
+      "alt_text": "父母和孩子选专业分歧经过硬条件、兴趣任务、课程验证后进入保留待验证暂时排除三栏的流程图",
+      "dimensions_expected": {
+        "width": 1600,
+        "height": 900,
+        "exact": true
+      },
+      "format_allowed": [
+        "image/png",
+        "image/jpeg",
+        "image/webp"
+      ],
+      "max_bytes": 3000000,
+      "fallback_allowed": false,
+      "body_anchor": "gaokao_parent_conflict_three_checklists",
+      "provenance": {
+        "source": "gpt_generated_or_operator_supplied_for_fermatmind_editorial_package",
+        "source_note": "user-provided/generated editorial image; no official logos; Media Library import still required",
+        "prompt_file": "media/IMAGE_PROMPTS.md",
+        "competitor_asset": false,
+        "official_logo_or_ui": false,
+        "private_asset": false
+      }
+    }
+  ],
+  "qa_gates": [
+    "source file exists",
+    "MIME/dimensions valid",
+    "no official logos",
+    "no competitor style",
+    "Media Library import/register",
+    "resolved public URL verified",
+    "body visual renders in preview"
+  ],
+  "package_version": "v5",
+  "body_visual_status": "requires_media_library_resolution_before_preview"
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": "private_url_guard_v1",
+  "status": "active_guard_required",
+  "forbidden_private_routes": [
+    "/result",
+    "/results",
+    "/orders",
+    "/order",
+    "/share",
+    "/pay",
+    "/payment",
+    "/history",
+    "/take"
+  ],
+  "forbidden_sensitive_query_keys": [
+    "result_id",
+    "order_id",
+    "payment_id",
+    "token",
+    "score",
+    "user_id",
+    "report_id"
+  ],
+  "forbidden_substrings": [
+    "signed_url",
+    "private_bucket",
+    "__CMS_MEDIA_LIBRARY_PLACEHOLDER__"
+  ],
+  "tokenized_urls_forbidden": true,
+  "active_surfaces_checked": [
+    "article.md frontmatter and body",
+    "pages/*.md frontmatter and body",
+    "cms/*.json",
+    "manifest pages",
+    "dynamic CTA contract excluding forbidden policy fields",
+    "internal link contract excluding forbidden policy fields"
+  ]
+}

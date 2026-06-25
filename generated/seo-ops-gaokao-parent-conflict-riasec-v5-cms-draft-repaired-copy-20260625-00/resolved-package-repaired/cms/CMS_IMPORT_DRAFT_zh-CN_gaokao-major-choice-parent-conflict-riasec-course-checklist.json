@@ -1,0 +1,99 @@
+{
+  "operation_type": "new_article",
+  "cms_draft_created": false,
+  "publish_allowed": false,
+  "article_id": "unknown_until_cms_import",
+  "slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist",
+  "locale": "zh-CN",
+  "canonical_path": "/zh/articles/gaokao-major-choice-parent-conflict-riasec-course-checklist",
+  "fields_source": "cms_fields.json",
+  "body_source": "article.md",
+  "media_source": "media/IMAGE_ASSET_MANIFEST.json",
+  "requires_operator_review": true,
+  "requires_media_library_resolution_before_preview": true,
+  "hard_holds": [
+    "publish",
+    "search",
+    "schema",
+    "hreflang",
+    "sitemap",
+    "llms",
+    "revalidation",
+    "deploy",
+    "PR"
+  ],
+  "package_version": "v5",
+  "content_asset_key": "article.gaokao-parent-conflict.riasec-course-checklist.zh-CN.v5",
+  "gsc_strategy_appendix": "GSC_STRATEGY_APPENDIX.md",
+  "cover_media_asset_key": "article.gaokao-parent-conflict.riasec.cover.v4",
+  "cover_image_url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/hero_1600x900.jpg",
+  "cover_image_alt": "高考志愿里用位次、课程清单和霍兰德兴趣沟通专业分歧的决策地图",
+  "cover_image_width": 1600,
+  "cover_image_height": 900,
+  "cover_image_variants": {
+    "card": {
+      "url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/card_800x450.jpg",
+      "width": 800,
+      "height": 450,
+      "mime_type": "image/jpeg"
+    },
+    "hero": {
+      "url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/hero_1600x900.jpg",
+      "width": 1600,
+      "height": 900,
+      "mime_type": "image/jpeg"
+    },
+    "og": {
+      "url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/og_1200x630.jpg",
+      "width": 1200,
+      "height": 630,
+      "mime_type": "image/jpeg"
+    },
+    "preload": {
+      "url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/preload_64x36.jpg",
+      "width": 64,
+      "height": 36,
+      "mime_type": "image/jpeg"
+    },
+    "thumbnail": {
+      "url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/thumbnail_400x225.jpg",
+      "width": 400,
+      "height": 225,
+      "mime_type": "image/jpeg"
+    }
+  },
+  "og_image_url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/og_1200x630.jpg",
+  "twitter_image_url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/og_1200x630.jpg",
+  "social_image_metadata": {
+    "media_library_asset_key": "article.gaokao-parent-conflict.riasec.cover.v4",
+    "media_library_status": "published",
+    "media_library_is_public": true,
+    "cover_image_url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/hero_1600x900.jpg",
+    "cover_image_width": 1600,
+    "cover_image_height": 900,
+    "hero_variant": {
+      "url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/hero_1600x900.jpg",
+      "width": 1600,
+      "height": 900,
+      "mime_type": "image/jpeg"
+    },
+    "og_image_url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/og_1200x630.jpg",
+    "og_image_width": 1200,
+    "og_image_height": 630,
+    "og_1200x630_variant": {
+      "url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/og_1200x630.jpg",
+      "width": 1200,
+      "height": 630,
+      "mime_type": "image/jpeg"
+    },
+    "twitter_image_url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/og_1200x630.jpg",
+    "asset_provenance": "SEO image bundle import: article.gaokao-parent-conflict.riasec.cover.v4",
+    "alt_text": "高考志愿里用位次、课程清单和霍兰德兴趣沟通专业分歧的决策地图"
+  },
+  "body_visual_asset_key": "article.gaokao-parent-conflict.riasec.body-visual.v4",
+  "body_visual_image_url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriasecbody-visualv4/hero_1600x900.jpg",
+  "body_visual_fallback_authorized": false,
+  "category_name": "高考志愿",
+  "category_slug": "gaokao-major-choice",
+  "category": "高考志愿"
+}

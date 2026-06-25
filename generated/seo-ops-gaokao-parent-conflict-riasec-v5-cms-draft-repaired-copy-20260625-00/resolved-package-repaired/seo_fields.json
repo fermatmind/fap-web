@@ -1,0 +1,27 @@
+{
+  "title": "选专业父母不同意怎么办？高考志愿里用位次、兴趣和课程清单沟通",
+  "h1": "选专业父母不同意怎么办？把高考志愿分歧变成三张清单",
+  "seo_title": "选专业父母不同意怎么办？高考志愿里用位次、兴趣和课程清单沟通 | FermatMind",
+  "seo_title_short_candidate": "选专业父母不同意怎么办？高考志愿三张清单 | FermatMind",
+  "meta_description": "高考志愿选专业时父母不同意，先别争谁对。用位次、选科、招生计划排除硬限制，再用霍兰德兴趣、课程清单和访谈验证，把专业分成保留、待验证、暂时排除。",
+  "primary_keyword": "选专业父母不同意怎么办",
+  "secondary_keywords": [
+    "高考志愿父母不同意",
+    "父母让报热门专业怎么办",
+    "高考志愿父母和孩子意见不一致",
+    "孩子不喜欢父母选的专业",
+    "霍兰德职业兴趣测试选专业"
+  ],
+  "serp_positioning": "first-answer plus worksheet, not generic advice",
+  "ctr_warning": "Use short candidate if GSC shows avg_position 5-15 and CTR < 1% after D7/D14.",
+  "search_submit_allowed": false,
+  "package_version": "v5",
+  "gsc_strategy_appendix": "GSC_STRATEGY_APPENDIX.md",
+  "owner_boundary": "owns parent-child major-choice conflict / family communication; does not own generic 高考志愿选专业 or RIASEC money-test intent",
+  "d7_repair_triggers": [
+    "target_query_seen=false",
+    "wrong_query_seen=true",
+    "avg_position between 5 and 15 with CTR<1%",
+    "article_to_test_click<2%"
+  ]
+}

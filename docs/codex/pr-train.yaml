@@ -18957,3 +18957,47 @@ prs:
       squash: true
       auto_merge: true
     next_task: PR-EQ-AGENT-RUNTIME-04
+
+  - id: SEO-OPS-GAOKAO-V5-PACKAGE-CONTRACT-REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-ops-gaokao-v5-package-contract-repair-01
+    base: main
+    title: "SEO-OPS-GAOKAO-V5-PACKAGE-CONTRACT-REPAIR-01: repair gaokao v5 package contracts"
+    depends_on: []
+    mode: execute
+    train_scope: seo_ops_gaokao_v5_package_contract_repair
+    status: in_progress
+    goal: "Commit the repaired generated Gaokao v5 article package copy with required route, social image, dynamic CTA, private URL guard, and category contract evidence, without CMS import/write/runtime mutation."
+    artifacts:
+      - generated/seo-ops-gaokao-parent-conflict-riasec-v5-cms-draft-repaired-copy-20260625-00/**
+      - tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - generated/seo-ops-gaokao-parent-conflict-riasec-v5-cms-draft-repaired-copy-20260625-00/**
+      - tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Modify frontend runtime behavior.
+      - Modify fap-api.
+      - Write or import CMS content, create drafts, publish, deploy, revalidate, mutate URL Truth, sitemap/llms, schema/hreflang, Search Channel, IndexNow, Baidu, or GSC.
+      - Change canonical, slug, indexability, publication state, article body claims, image assets, or Media Library state.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - find generated/seo-ops-gaokao-parent-conflict-riasec-v5-cms-draft-repaired-copy-20260625-00 -name '*.json' -print0 | xargs -0 -n1 python3 -m json.tool >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SEO-OPS-GAOKAO-V5-CMS-DRAFT-GATE-01

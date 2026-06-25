@@ -1,0 +1,48 @@
+{
+  "schema_version": "seo_ops_cms_draft_dry_run_after_translation_attempt_v1",
+  "target_slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist",
+  "repaired_package": "/Users/rainie/Desktop/GitHub/fap-web/generated/seo-ops-gaokao-parent-conflict-riasec-v5-cms-draft-repaired-copy-20260625-00/resolved-package-repaired",
+  "migration_attempt": {
+    "path": "database/migrations/2026_04_23_000100_add_article_translation_contract_v1.php",
+    "exit_code": 1,
+    "status_after": "Pending",
+    "error": "Unknown column 'cover_image_alt' in 'field list'",
+    "partial_columns_added": [
+      "translation_group_id",
+      "source_locale",
+      "translation_status",
+      "translated_from_article_id",
+      "source_version_hash",
+      "translated_from_version_hash"
+    ]
+  },
+  "dry_run": {
+    "raw_output": "/Users/rainie/Desktop/GitHub/fap-web/generated/seo-ops-gaokao-parent-conflict-riasec-v5-cms-draft-repaired-copy-20260625-00/CMS_DRAFT_IMPORT_DRY_RUN_AFTER_TRANSLATION_MIGRATION_ATTEMPT.raw.json",
+    "exit_code": 0,
+    "ok": true,
+    "dry_run": true,
+    "action": "would_create_draft",
+    "would_write_plan_semantics": true,
+    "actual_write_executed": false,
+    "errors_count": 0,
+    "warnings_count": 0,
+    "active_surface_guard": "passed",
+    "contract_integrity_scan": "passed"
+  },
+  "planned_article": {
+    "locale": "zh-CN",
+    "slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist",
+    "action": "would_create_draft",
+    "article_id": null,
+    "working_revision_id": null,
+    "status": "draft",
+    "working_revision_status": "human_review",
+    "is_public": false,
+    "is_indexable": false,
+    "sitemap_eligible": false,
+    "llms_eligible": false
+  },
+  "target_article_count_after": 0,
+  "decision": "CMS_DRAFT_IMPORT_DRY_RUN_OK_READY_FOR_OPERATOR_DRAFT_CREATE_GATE",
+  "next_exact_authorization_prompt": "单独授权对 repaired resolved package 执行 CMS draft creation only for zh-CN slug gaokao-major-choice-parent-conflict-riasec-course-checklist, against a backend DB with the full article CMS schema, with draft-only/no-publish/no-index/no-sitemap/no-llms/schema-hold/hreflang-hold flags. 禁止 publish/search/URL Truth/sitemap/llms/schema/hreflang/revalidation/deploy/PR。"
+}

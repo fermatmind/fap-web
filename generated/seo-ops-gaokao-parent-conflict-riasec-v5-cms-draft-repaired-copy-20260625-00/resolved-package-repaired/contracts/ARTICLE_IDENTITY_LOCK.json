@@ -1,0 +1,14 @@
+{
+  "operation_type": "new_article",
+  "locale": "zh-CN",
+  "article_id": "unknown_until_cms_import",
+  "translation_group_id": "tg_article_gaokao_parent_conflict_riasec_course_checklist_2026v1",
+  "slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist",
+  "canonical_url_draft": "/zh/articles/gaokao-major-choice-parent-conflict-riasec-course-checklist",
+  "create_new_article": true,
+  "update_existing_article": false,
+  "publish_allowed": false,
+  "schema": "hold",
+  "hreflang": "hold",
+  "search_submission": "hold"
+}

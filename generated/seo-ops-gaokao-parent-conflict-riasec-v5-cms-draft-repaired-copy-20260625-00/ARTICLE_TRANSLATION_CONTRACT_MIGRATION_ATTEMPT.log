@@ -1,0 +1,27 @@
+
+   INFO  Running migrations.
+
+  2026_04_23_000100_add_article_translation_contract_v1 ........ 121.81ms FAIL
+
+   Illuminate\Database\QueryException
+
+  SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cover_image_alt' in 'field list' (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: fap_api, SQL: select `id`, `locale`, `title`, `excerpt`, `content_md`, `content_html`, `cover_image_alt`, `related_test_slug`, `voice`, `voice_order`, `translation_group_id`, `source_locale`, `translation_status`, `source_version_hash` from `articles` where (`translation_group_id` is null or `source_locale` is null or `translation_status` is null or `source_version_hash` is null) and `id` is not null order by `id` asc limit 100)
+
+  at vendor/laravel/framework/src/Illuminate/Database/Connection.php:838
+    834▕             $exceptionType = $this->isUniqueConstraintError($e)
+    835▕                 ? UniqueConstraintViolationException::class
+    836▕                 : QueryException::class;
+    837▕
+  ➜ 838▕             throw new $exceptionType(
+    839▕                 $this->getNameWithReadWriteType(),
+    840▕                 $query,
+    841▕                 $this->prepareBindings($bindings),
+    842▕                 $e,
+
+      [2m+11 vendor frames [22m
+
+  12  database/migrations/2026_04_23_000100_add_article_translation_contract_v1.php:72
+      Illuminate\Database\Query\Builder::chunkById(Object(Closure))
+
+  13  database/migrations/2026_04_23_000100_add_article_translation_contract_v1.php:35
+      Illuminate\Database\Migrations\Migration@anonymous\/Users/rainie/Desktop/GitHub/fap-api/backend/database/migrations/2026_04_23_000100_add_article_translation_contract_v1.php:10$181::backfillExistingArticles()

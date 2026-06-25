@@ -1,0 +1,11 @@
+{
+  "decision": "new_article_allowed_with_boundaries",
+  "article_owns": "parent-child major-choice disagreement",
+  "must_not_own": [
+    "generic RIASEC explainer",
+    "generic score shortlist guide",
+    "MBTI/Holland comparison owner"
+  ],
+  "closest_collision": "/zh/articles/gaokao-score-major-shortlist-riasec-checklist",
+  "mitigation": "keep focus on沟通/分歧证据表"
+}

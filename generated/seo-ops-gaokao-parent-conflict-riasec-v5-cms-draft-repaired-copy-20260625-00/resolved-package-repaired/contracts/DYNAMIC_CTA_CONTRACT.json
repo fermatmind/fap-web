@@ -1,0 +1,32 @@
+{
+  "schema_version": "dynamic_cta_contract_v1",
+  "dynamic_cta_required": true,
+  "default_primary": {
+    "target_test": "RIASEC",
+    "href": "/zh/tests/holland-career-interest-test-riasec",
+    "label": "先做霍兰德职业兴趣测试，把兴趣结果转成专业验证清单"
+  },
+  "default_secondary": {
+    "target_test": "MBTI",
+    "href": "/zh/tests/mbti-personality-test-16-personality-types",
+    "label": "再用 MBTI 补充理解学习和决策偏好"
+  },
+  "tracking_event": "article_to_test_click",
+  "allowed_params": [
+    "content_asset_key",
+    "source_article",
+    "target_test",
+    "cta_position",
+    "locale"
+  ],
+  "forbidden_tracking_params": [
+    "user_id",
+    "result_id",
+    "report_id",
+    "order_id",
+    "payment_id",
+    "score",
+    "token",
+    "attempt_id"
+  ]
+}

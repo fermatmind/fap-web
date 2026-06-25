@@ -1,0 +1,83 @@
+{
+  "schema_version": "internal_link_plan_v4",
+  "owner_contract": {
+    "owns": [
+      "选专业父母不同意怎么办",
+      "高考志愿父母不同意",
+      "父母让报热门专业怎么办",
+      "孩子不喜欢父母选的专业"
+    ],
+    "does_not_own": [
+      "霍兰德职业兴趣测试是什么",
+      "高考出分后专业太多怎么筛",
+      "MBTI 和霍兰德结果不一致",
+      "职业兴趣测试和性格测试区别",
+      "免费霍兰德测试 money intent"
+    ]
+  },
+  "links": [
+    {
+      "href": "/zh/articles/gaokao-score-major-shortlist-riasec-checklist",
+      "anchor": "高考出分后专业太多怎么筛",
+      "purpose": "upstream score/rank shortlist support",
+      "status": "active_requires_runtime_200_indexable_check",
+      "placement": "after first tool table, not first screen"
+    },
+    {
+      "href": "/zh/articles/college-major-choice-holland-mbti-career-test",
+      "anchor": "高考志愿选专业：霍兰德、MBTI和职业兴趣测试怎么用",
+      "purpose": "broader overview owner",
+      "status": "active_requires_runtime_200_indexable_check",
+      "placement": "after first tool table, not first screen"
+    },
+    {
+      "href": "/zh/articles/riasec-holland-career-interest-test-explained",
+      "anchor": "霍兰德职业兴趣测试 / RIASEC 解释",
+      "purpose": "model explainer owner",
+      "status": "active_requires_runtime_200_indexable_check"
+    },
+    {
+      "href": "/zh/articles/mbti-vs-holland-career-choice",
+      "anchor": "MBTI 和霍兰德结果不一致怎么办",
+      "purpose": "comparison owner",
+      "status": "active_requires_runtime_200_indexable_check"
+    },
+    {
+      "href": "/zh/articles/career-interest-vs-personality-test-differences",
+      "anchor": "职业兴趣测试和性格测试的区别",
+      "purpose": "model distinction owner",
+      "status": "active_requires_runtime_200_indexable_check"
+    },
+    {
+      "href": "/zh/articles/career-confusion-test-map",
+      "anchor": "职业迷茫时的测试与现实验证地图",
+      "purpose": "broader career confusion workflow",
+      "status": "active_requires_runtime_200_indexable_check"
+    },
+    {
+      "href": "/zh/tests/holland-career-interest-test-riasec",
+      "anchor": "霍兰德职业兴趣测试",
+      "purpose": "primary CTA",
+      "status": "active_requires_runtime_200_indexable_check"
+    },
+    {
+      "href": "/zh/tests/mbti-personality-test-16-personality-types",
+      "anchor": "MBTI 测试",
+      "purpose": "secondary CTA",
+      "status": "active_requires_runtime_200_indexable_check"
+    }
+  ],
+  "forbidden": [
+    "/result",
+    "/results",
+    "/orders",
+    "/order",
+    "/share",
+    "/pay",
+    "/payment",
+    "/history",
+    "/take",
+    "tokenized",
+    "account-specific"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "operation_type": "new_article",
+  "cms_draft_created": false,
+  "publish_allowed": false,
+  "article_id": "unknown_until_cms_import",
+  "slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist",
+  "locale": "zh-CN",
+  "canonical_path": "/zh/articles/gaokao-major-choice-parent-conflict-riasec-course-checklist",
+  "fields_source": "cms_fields.json",
+  "body_source": "article.md",
+  "media_source": "media/IMAGE_ASSET_MANIFEST.json",
+  "requires_operator_review": true,
+  "requires_media_library_resolution_before_preview": true,
+  "hard_holds": [
+    "publish",
+    "search",
+    "schema",
+    "hreflang",
+    "sitemap",
+    "llms",
+    "revalidation",
+    "deploy",
+    "PR"
+  ],
+  "package_version": "v5",
+  "content_asset_key": "article.gaokao-parent-conflict.riasec-course-checklist.zh-CN.v5",
+  "gsc_strategy_appendix": "GSC_STRATEGY_APPENDIX.md"
+}
