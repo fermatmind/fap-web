@@ -31014,14 +31014,14 @@
         "IQ-OWNER-30-NORM-CLAIM-POLICY-02A"
       ],
       "title": "feat(iq): render owner raw-score claim policy",
-      "status": "pr_opened_checks_pending",
-      "commit_sha": "599b512d7ece3eb8d1ad9b39410155901467136d",
+      "status": "ready_to_merge",
+      "commit_sha": "75338d67a7d38e8a96c782fd40749a2eef9b2749",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1443",
       "checks": {
         "dependency_iq_owner_30_norm_claim_policy_02a": "passed: fap-api PR #2413 merged at 2026-06-25T04:09:05Z and origin/main contains abee7d5916a960de4dce1b4599da84d116997906",
         "pnpm_typecheck": "passed",
-        "pnpm_test_contract_iq_frontend_api_contracts": "passed: 583 files, 3434 tests",
-        "pnpm_test_contract_iq_result_renderer": "passed: 583 files, 3434 tests",
+        "pnpm_test_contract_iq_frontend_api_contracts": "passed: 586 files, 3446 tests",
+        "pnpm_test_contract_iq_result_renderer": "passed: 586 files, 3446 tests",
         "pnpm_build": "passed with NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com",
         "json_yaml_parse": "passed",
         "git_diff_check": "passed",
@@ -31060,6 +31060,11 @@
           "at": "2026-06-25T12:45:00+08:00",
           "status": "pr_opened_checks_pending",
           "summary": "Opened PR #1443 at https://github.com/fermatmind/fap-web/pull/1443 from local implementation commit 599b512d7ece3eb8d1ad9b39410155901467136d after rebasing onto latest origin/main. GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-25T13:17:19+08:00",
+          "status": "ready_to_merge",
+          "summary": "Rebased PR #1443 onto latest origin/main after upstream personality QA files landed, reran local typecheck, both IQ contract commands, production-env build, JSON/YAML parse, diff check, and scope validation. Scope remains limited to IQ claim-policy rendering and train metadata; unrelated SEO untracked files remain unstaged."
         }
       ],
       "sidecar_issues": []
