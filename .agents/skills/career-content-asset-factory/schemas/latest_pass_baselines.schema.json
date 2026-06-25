@@ -26,6 +26,30 @@
           "sha256_manifest": {
             "type": "string"
           },
+          "sha256_manifest_sha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "artifact_registry_entry_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "artifact_uri": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "restorable": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
           "final_conclusion": {
             "type": "string"
           }

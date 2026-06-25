@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "path": "generated/career-content-baseline-artifact-registry/baseline_artifact_registry.json",
+      "sha256": "40d6549875564d367af77b6c44261237ae04f0e01db5d6511f2749eb552f5adb"
+    },
+    {
+      "path": "generated/career-content-baseline-artifact-registry/baseline_artifact_registry.md",
+      "sha256": "1fc14f871540269c1ba752585b3ba8ac226488d35094726cf1b1e51882d3eeaf"
+    },
+    {
+      "path": "generated/career-content-baseline-artifact-registry/operator_next_restore_preflight.json",
+      "sha256": "9dc06e4c28797f313efc3eb76b5b1ec4a654e5a0193f08831a2c692e0dd16388"
+    },
+    {
+      "path": "generated/career-content-baseline-artifact-registry/restore_preflight_report.json",
+      "sha256": "87df258760765dd6672381f536f26b91dc367180f776aac3f812c14e4bcf8b08"
+    },
+    {
+      "path": "generated/career-content-baseline-artifact-registry/restore_preflight_report.md",
+      "sha256": "309b19ff374a12008ed9be398a86be73a2ab508e10556fab521325e4f9ef6eac"
+    },
+    {
+      "path": "generated/career-content-baseline-artifact-registry/select_next_phase_restore_preflight.json",
+      "sha256": "3c99e299194dc7727da37b5d298502e34736155cc8ecfac76d91cbec9e3754fe"
+    }
+  ],
+  "generated_at": "2026-06-25T01:27:28.376350+00:00"
+}

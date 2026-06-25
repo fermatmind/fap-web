@@ -10,9 +10,12 @@ Default behavior is read-only dry run:
 4. Select one next action.
 5. Render a next-goal prompt or stop reason.
 
+If the state references a PASS baseline but the local baseline directory or SHA manifest is missing, operator mode must run baseline restore preflight before selecting downstream generation, page assembly, or graph candidate actions. State metadata alone is not a reusable baseline.
+
 Operator mode may plan these content-production actions:
 
 - create the next `control_<previous> + new_<N>` manifest
+- run baseline artifact registry and restore preflight
 - generate evidence after a manifest is ready
 - repair evidence rows after a repairable evidence gate
 - generate synthesis and reader assets after evidence/trust PASS
