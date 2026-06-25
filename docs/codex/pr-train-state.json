@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-25T12:24:00+08:00",
+  "updated_at": "2026-06-25T12:31:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -24710,9 +24710,9 @@
       "branch": "codex/six-hub-seo-geo-package-common-contract-01",
       "base": "main",
       "depends_on": [],
-      "status": "pr_open_pending_github_checks",
+      "status": "ready_to_merge",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1427",
-      "commit_sha": "6292b9cd6662790cdfd044128dc6ad378e2395af",
+      "commit_sha": "11d76a47b3c68333e9d421202fb0ae1fa8aee1cb",
       "merge_sha": null,
       "title": "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01: docs(seo): add six hub package common contract",
       "artifacts": [
@@ -24746,7 +24746,15 @@
           }
         },
         "github": {
-          "status": "pending"
+          "status": "passed",
+          "results": {
+            "build": "passed",
+            "contracts": "passed",
+            "verify_big5_contract_freeze": "passed",
+            "verify_enneagram_contract_freeze": "passed",
+            "codeql": "passed",
+            "analyze_javascript_typescript": "passed"
+          }
         }
       },
       "failure_reason": null,
@@ -24786,6 +24794,11 @@
           "at": "2026-06-25T12:24:00+08:00",
           "status": "pr_open_pending_github_checks",
           "summary": "Opened PR #1427 from codex/six-hub-seo-geo-package-common-contract-01 after required local checks and changed-file scope validation passed. Remote GitHub checks pending."
+        },
+        {
+          "at": "2026-06-25T12:31:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed for PR #1427: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). Merge state is CLEAN; marking ready_to_merge before squash merge."
         }
       ],
       "sidecar_issues": []
