@@ -29798,8 +29798,8 @@
         "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01"
       ],
       "status": "local_checks_passed_ready_to_push",
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1422",
+      "commit_sha": "08b24939526db03e16b109252c0432d51bb55406",
       "merge_sha": null,
       "title": "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01: docs(assessment-hub): add take flow CTA packet",
       "checks": {
@@ -29870,6 +29870,11 @@
           "at": "2026-06-25T08:58:00+08:00",
           "status": "scope_validation_passed_ready_to_commit",
           "summary": "Final changed-file scope validation passed with exactly the five authorized PR3 files."
+        },
+        {
+          "at": "2026-06-25T09:03:00+08:00",
+          "status": "pr_opened_pending_github_checks",
+          "summary": "Opened PR #1422 and recorded the PR URL. GitHub checks are pending after push."
         }
       ],
       "sidecar_issues": []
