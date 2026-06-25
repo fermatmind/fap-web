@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-25T15:00:00+08:00",
+  "updated_at": "2026-06-25T15:05:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -24947,9 +24947,9 @@
       "depends_on": [
         "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01"
       ],
-      "status": "local_checks_passed_ready_to_push",
-      "pr_url": null,
-      "commit_sha": null,
+      "status": "pr_open_pending_github_checks",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1431",
+      "commit_sha": "857c0cc1",
       "merge_sha": null,
       "title": "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01: docs(seo): add six hub claim copy risk packet",
       "artifacts": [
@@ -24980,7 +24980,7 @@
           }
         },
         "github": {
-          "status": "not_started"
+          "status": "pending"
         }
       },
       "failure_reason": null,
@@ -25020,6 +25020,11 @@
           "at": "2026-06-25T15:00:00+08:00",
           "status": "local_checks_passed_ready_to_push",
           "summary": "Local PR3 validation passed: JSON parse, focused vitest 5 tests, pnpm typecheck, pnpm test:contract 580 files / 3411 tests, git diff --check, and changed-file scope validation for the 4 allowed docs/contracts files. pnpm build was intentionally not run per goal boundary."
+        },
+        {
+          "at": "2026-06-25T15:05:00+08:00",
+          "status": "pr_open_pending_github_checks",
+          "summary": "Opened PR #1431 from codex/six-hub-seo-geo-claim-copy-risk-packet-01 after required local checks and changed-file scope validation passed. Remote GitHub checks pending."
         }
       ],
       "sidecar_issues": []
