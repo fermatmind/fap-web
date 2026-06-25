@@ -1,0 +1,117 @@
+{
+  "artifact": "PERSONALITY-AGENT-OPERATIONS-NEXT-BATCH-QA-01",
+  "generated_at": "2026-06-25T04:57:34.177Z",
+  "status": "pass_ready_for_approval_review",
+  "final_decision": "PASS_READY_FOR_APPROVAL_REVIEW",
+  "input_artifact": "docs/seo/personality/personality-agent-operations-next-batch-recommendations-2026-06-25.json",
+  "scope": "QA artifact only. No CMS write, no promotion, no publish, no index/search release, no sitemap/llms mutation, no queue mutation.",
+  "gates": [
+    "schema_validation",
+    "trademark_claim_gate",
+    "claim_risk_gate",
+    "duplicate_template_gate",
+    "private_route_gate",
+    "result_page_leakage_gate",
+    "seo_projection_gate",
+    "bilingual_consistency_gate"
+  ],
+  "summary": {
+    "checked_recommendation_count": 3,
+    "pass_ready_for_approval_review_count": 3,
+    "blocked_count": 0,
+    "warning_count": 2,
+    "duplicate_signature_group_count": 0
+  },
+  "gate_rollup": {
+    "schema_validation": 0,
+    "trademark_claim_gate": 0,
+    "claim_risk_gate": 0,
+    "duplicate_template_gate": 0,
+    "private_route_gate": 0,
+    "result_page_leakage_gate": 0,
+    "seo_projection_gate": 0,
+    "bilingual_consistency_gate": 0
+  },
+  "page_results": [
+    {
+      "target_url": "https://fermatmind.com/zh/personality/intp-a",
+      "path": "/zh/personality/intp-a",
+      "framework": "mbti64",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "decision": "PASS_READY_FOR_APPROVAL_REVIEW",
+      "gates": {
+        "schema_validation": "pass",
+        "trademark_claim_gate": "pass",
+        "claim_risk_gate": "pass",
+        "duplicate_template_gate": "pass",
+        "private_route_gate": "pass",
+        "result_page_leakage_gate": "pass",
+        "seo_projection_gate": "pass",
+        "bilingual_consistency_gate": "pass"
+      },
+      "blockers": [],
+      "warnings": [],
+      "recommended_next_task": "PERSONALITY-AGENT-HUMAN-APPROVAL-QUEUE-01"
+    },
+    {
+      "target_url": "https://fermatmind.com/zh/personality/esfp-a",
+      "path": "/zh/personality/esfp-a",
+      "framework": "mbti64",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "decision": "PASS_READY_FOR_APPROVAL_REVIEW",
+      "gates": {
+        "schema_validation": "pass",
+        "trademark_claim_gate": "pass",
+        "claim_risk_gate": "pass",
+        "duplicate_template_gate": "pass",
+        "private_route_gate": "pass",
+        "result_page_leakage_gate": "pass",
+        "seo_projection_gate": "pass",
+        "bilingual_consistency_gate": "pass"
+      },
+      "blockers": [],
+      "warnings": [],
+      "recommended_next_task": "PERSONALITY-AGENT-HUMAN-APPROVAL-QUEUE-01"
+    },
+    {
+      "target_url": "https://fermatmind.com/en/personality/enfj-a",
+      "path": "/en/personality/enfj-a",
+      "framework": "mbti64",
+      "locale": "en",
+      "page_type": "variant",
+      "decision": "PASS_READY_FOR_APPROVAL_REVIEW",
+      "gates": {
+        "schema_validation": "pass",
+        "trademark_claim_gate": "pass",
+        "claim_risk_gate": "pass",
+        "duplicate_template_gate": "pass",
+        "private_route_gate": "pass",
+        "result_page_leakage_gate": "pass",
+        "seo_projection_gate": "pass",
+        "bilingual_consistency_gate": "pass"
+      },
+      "blockers": [],
+      "warnings": [],
+      "recommended_next_task": "PERSONALITY-AGENT-HUMAN-APPROVAL-QUEUE-01"
+    }
+  ],
+  "safety_boundary": {
+    "cms_write_attempted": false,
+    "cms_live_promotion_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "search_queue_mutation_attempted": false,
+    "live_search_submit_attempted": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_api_call_attempted": false,
+    "gsc_request_indexing_attempted": false,
+    "production_deploy_attempted": false
+  },
+  "blockers": [],
+  "warnings": [
+    "GSC_SOURCE_PAGE_TABLE_SNAPSHOT_QUERY_DIMENSION_LIMITED",
+    "GSC_EVIDENCE_PENDING"
+  ],
+  "recommended_next_task": "PERSONALITY-AGENT-HUMAN-APPROVAL-QUEUE-01"
+}
