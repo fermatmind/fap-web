@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-25T17:10:00+08:00",
+  "updated_at": "2026-06-25T17:46:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -25162,10 +25162,10 @@
         "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
         "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01"
       ],
-      "status": "ready_to_merge",
+      "status": "merged_reconciled_post_merge_cleanup_complete",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1435",
       "commit_sha": "8f76a6c890a8f343779395956b0f8d295a6e0789",
-      "merge_sha": null,
+      "merge_sha": "6129a0d057a59d89c822ab931a9cd83567d64cce",
       "title": "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01: docs(seo): add six hub batch sequence matrix",
       "artifacts": [
         "docs/seo/agent/six-hub-seo-geo-batch-sequence-matrix-2026-06-25.md",
@@ -25196,9 +25196,9 @@
         "github_verify_enneagram_contract_freeze": "passed"
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-25T03:29:37Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "scope_validation": {
         "allowed_files": [
           "docs/seo/agent/six-hub-seo-geo-batch-sequence-matrix-2026-06-25.md",
@@ -25247,6 +25247,11 @@
           "at": "2026-06-25T17:10:00+08:00",
           "status": "ready_to_merge",
           "summary": "PR #1435 GitHub checks passed and mergeStateStatus was CLEAN. Marked ready_to_merge before squash merge per train policy."
+        },
+        {
+          "at": "2026-06-25T17:22:00+08:00",
+          "status": "merged_reconciled_post_merge_cleanup_complete",
+          "summary": "Reconciled PR #1435 merge commit 6129a0d057a59d89c822ab931a9cd83567d64cce after origin/main containment, local branch deletion, and remote branch absence were verified."
         }
       ],
       "sidecar_issues": []
@@ -25263,9 +25268,9 @@
         "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01",
         "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01"
       ],
-      "status": "pending_dependency",
-      "pr_url": null,
-      "commit_sha": null,
+      "status": "ready_to_merge",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1437",
+      "commit_sha": "36abb947793816adf013fae7db142d0826deb95d",
       "merge_sha": null,
       "title": "SIX-HUB-SEO-GEO-PACKAGE-PLANNING-MATRIX-01: docs(seo): add six hub planning matrix",
       "artifacts": [
@@ -25274,7 +25279,22 @@
         "tests/contracts/six-hub-seo-geo-package-planning-matrix.contract.test.ts",
         "docs/codex/pr-train-state.json"
       ],
-      "checks": {},
+      "checks": {
+        "json_parse": "passed",
+        "focused_contract": "passed",
+        "focused_eslint": "passed",
+        "typecheck": "passed",
+        "test_contract": "passed",
+        "diff_check": "passed",
+        "changed_file_scope_validation": "passed",
+        "pnpm_build": "not_run_forbidden_by_goal_boundary",
+        "github_build": "passed",
+        "github_contracts": "passed",
+        "github_codeql_analyze": "passed",
+        "github_codeql": "passed",
+        "github_verify_big5_contract_freeze": "passed",
+        "github_verify_enneagram_contract_freeze": "passed"
+      },
       "failure_reason": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -25288,8 +25308,13 @@
           "generated/pr-train-sidecar-issues/sidecar_issues.md",
           "generated/pr-train-sidecar-issues/sidecar_issues.json"
         ],
-        "status": "pending",
-        "changed_files": [],
+        "status": "passed",
+        "changed_files": [
+          "docs/codex/pr-train-state.json",
+          "docs/seo/agent/six-hub-seo-geo-package-planning-matrix-2026-06-25.md",
+          "docs/seo/agent/six-hub-seo-geo-package-planning-matrix.v1.json",
+          "tests/contracts/six-hub-seo-geo-package-planning-matrix.contract.test.ts"
+        ],
         "outside_scope_files": []
       },
       "history": [
@@ -25297,6 +25322,26 @@
           "at": "2026-06-25T12:10:00+08:00",
           "status": "pending_dependency",
           "summary": "Initialized authorized Six Hub SEO/GEO package train entry. Waiting for dependencies: SIX-HUB-SEO-GEO-PACKAGE-READINESS-PACKET-01, SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01, SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01, SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01."
+        },
+        {
+          "at": "2026-06-25T17:22:00+08:00",
+          "status": "in_progress",
+          "summary": "Started PR6 final package planning matrix from latest origin/main after PR5 merge cleanup verification. Scope remains docs/contracts-only."
+        },
+        {
+          "at": "2026-06-25T17:36:00+08:00",
+          "status": "local_checks_passed_ready_to_push",
+          "summary": "Required local checks passed: JSON parse, focused contract, focused eslint, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation. pnpm build was not run per goal boundary."
+        },
+        {
+          "at": "2026-06-25T17:40:00+08:00",
+          "status": "pr_open_pending_github_checks",
+          "summary": "Opened PR #1437 from codex/six-hub-seo-geo-package-planning-matrix-01 after required local checks and changed-file scope validation passed. Remote GitHub checks pending."
+        },
+        {
+          "at": "2026-06-25T17:46:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "PR #1437 GitHub checks passed and mergeStateStatus was CLEAN. Marked ready_to_merge before squash merge per train policy."
         }
       ],
       "sidecar_issues": []
