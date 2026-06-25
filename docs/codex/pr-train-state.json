@@ -31014,9 +31014,9 @@
         "IQ-OWNER-30-NORM-CLAIM-POLICY-02A"
       ],
       "title": "feat(iq): render owner raw-score claim policy",
-      "status": "local_checks_passed_ready_to_push",
-      "commit_sha": null,
-      "pr_url": null,
+      "status": "pr_opened_checks_pending",
+      "commit_sha": "599b512d7ece3eb8d1ad9b39410155901467136d",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1443",
       "checks": {
         "dependency_iq_owner_30_norm_claim_policy_02a": "passed: fap-api PR #2413 merged at 2026-06-25T04:09:05Z and origin/main contains abee7d5916a960de4dce1b4599da84d116997906",
         "pnpm_typecheck": "passed",
@@ -31055,6 +31055,11 @@
           "at": "2026-06-25T12:42:15+08:00",
           "status": "local_checks_passed_ready_to_push",
           "summary": "Implemented backend-authoritative raw-score-only claim policy rendering for Owner Original 30 IQ result/report payloads. Local typecheck, contract suites, production-env build, JSON/YAML parse, diff check, and changed-file scope validation passed. Unrelated SEO/content untracked files were left unstaged."
+        },
+        {
+          "at": "2026-06-25T12:45:00+08:00",
+          "status": "pr_opened_checks_pending",
+          "summary": "Opened PR #1443 at https://github.com/fermatmind/fap-web/pull/1443 from local implementation commit 599b512d7ece3eb8d1ad9b39410155901467136d after rebasing onto latest origin/main. GitHub checks are pending."
         }
       ],
       "sidecar_issues": []
