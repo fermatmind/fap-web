@@ -13557,6 +13557,54 @@ prs:
       - "Visual coverage captures the full IQ take page for desktop and mobile."
     rollback_note: "Revert Owner Original 30 current-question adapter and take-page branch if backend delivery contract changes or frontend must remain on legacy full-bank fetch during rollout."
 
+  - id: IQ-OWNER-30-NORM-CLAIM-POLICY-02B
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-owner-30-norm-claim-policy-02b
+    base: main
+    depends_on:
+      - IQ-OWNER-30-NORM-CLAIM-POLICY-02A
+    mode: execute
+    train_scope: iq_owner_original_30_claim_policy
+    status: implementation_in_progress
+    title: "feat(iq): render owner raw-score claim policy"
+    goal: "Render Owner Original 30 IQ results according to the backend claim policy: raw-score-only results show a 30-item reasoning score and do not expose IQ estimate, percentile, or confidence interval claims."
+    in_scope:
+      - components/result/iq/IqReportModule.tsx
+      - components/result/iq/IqResultShell.tsx
+      - lib/iq/contracts.ts
+      - lib/iq/result.ts
+      - tests/contracts/iq-frontend-api-contracts.contract.test.ts
+      - tests/contracts/iq-result-renderer.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend scoring, answer key, question bank, asset, CMS, SEO, sitemap, llms, canonical, JSON-LD, staging deploy, or production deploy changes
+      - frontend-owned norm tables, IQ estimate inference, percentile inference, or confidence interval inference
+      - public static IQ media assets committed to fap-web
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract -- iq-frontend-api-contracts
+      - pnpm test:contract -- iq-result-renderer
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - ruby -e 'require "yaml"; YAML.load_file("docs/codex/pr-train.yaml"); puts "yaml ok"'
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null
+    acceptance:
+      - "Owner Original 30 raw-score-only result/report payloads render a localized 30-item reasoning score."
+      - "Raw-score-only result pages do not render IQ estimate, percentile, or confidence interval claims."
+      - "Raw-score-only result pages continue to render dimension raw scores, quality markers, and stability status."
+      - "Legacy/non-owner IQ nullable IQ estimate behavior remains compatible."
+      - "Frontend rendering follows backend claim_policy/score_claim_level and does not add local norm claim logic."
+    rollback_note: "Revert the IQ claim-policy renderer and schema changes if backend claim policy moves to a different contract shape."
+
   - id: IQ-FE-BANK-SWITCH-01
     repo: fap-web
     repo_path: <workspace>/fap-web

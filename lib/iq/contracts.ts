@@ -279,6 +279,16 @@ export const iqStabilitySchema = z
   })
   .passthrough();
 
+export const iqClaimPolicySchema = z
+  .object({
+    claim_eligible: z.boolean().optional(),
+    score_claim_level: z.string().nullable().optional(),
+    iq_estimate_allowed: z.boolean().optional(),
+    warnings: z.array(z.string()).optional(),
+    claim_warnings: z.array(z.string()).optional(),
+  })
+  .passthrough();
+
 export const iqResultPayloadSchema = z
   .object({
     ok: z.boolean().optional(),
@@ -289,6 +299,9 @@ export const iqResultPayloadSchema = z
     final_score: z.union([z.number(), z.string()]).nullable().optional(),
     iq_estimate: z.union([z.number(), z.string()]).nullable().optional(),
     percentile: z.union([z.number(), z.string()]).nullable().optional(),
+    score_claim_level: z.string().nullable().optional(),
+    claim_policy: iqClaimPolicySchema.nullable().optional(),
+    claim_warnings: z.array(z.string()).optional(),
     confidence_interval: z
       .object({
         min: z.union([z.number(), z.string()]).nullable().optional(),
@@ -302,6 +315,8 @@ export const iqResultPayloadSchema = z
     dimensions: z.union([z.array(iqDimensionSummarySchema), iqReportDimensionsSchema]).optional(),
     reason_code: z.string().nullable().optional(),
     result: z.record(z.string(), z.unknown()).optional(),
+    norms: z.record(z.string(), z.unknown()).optional(),
+    normed_json: z.record(z.string(), z.unknown()).optional(),
     meta: z.record(z.string(), z.unknown()).optional(),
   })
   .passthrough();
@@ -339,6 +354,9 @@ export const iqReportPayloadSchema = z
         raw_score: z.union([z.number(), z.string()]).nullable().optional(),
         iq_estimate: z.union([z.number(), z.string()]).nullable().optional(),
         percentile: z.union([z.number(), z.string()]).nullable().optional(),
+        score_claim_level: z.string().nullable().optional(),
+        claim_policy: iqClaimPolicySchema.nullable().optional(),
+        claim_warnings: z.array(z.string()).optional(),
         confidence_interval: z
           .object({
             min: z.union([z.number(), z.string()]).nullable().optional(),
@@ -347,6 +365,22 @@ export const iqReportPayloadSchema = z
           .passthrough()
           .nullable()
           .optional(),
+      })
+      .passthrough()
+      .optional(),
+    scoring: z
+      .object({
+        score_claim_level: z.string().nullable().optional(),
+        claim_policy: iqClaimPolicySchema.nullable().optional(),
+        claim_warnings: z.array(z.string()).optional(),
+      })
+      .passthrough()
+      .optional(),
+    norms: z
+      .object({
+        score_claim_level: z.string().nullable().optional(),
+        claim_policy: iqClaimPolicySchema.nullable().optional(),
+        claim_warnings: z.array(z.string()).optional(),
       })
       .passthrough()
       .optional(),

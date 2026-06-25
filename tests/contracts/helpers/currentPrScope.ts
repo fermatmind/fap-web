@@ -1027,6 +1027,17 @@ const IQ_SESSION_QUESTION_DELIVERY_05B_ALLOWED_FILES = new Set([
   "tests/e2e/visual/iq-take.visual.spec.ts-snapshots/iq-take-mobile-full-page-en-chromium-linux.png",
 ]);
 
+const IQ_OWNER_30_NORM_CLAIM_POLICY_02B_ALLOWED_FILES = new Set([
+  "components/result/iq/IqResultShell.tsx",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "lib/iq/contracts.ts",
+  "lib/iq/result.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/iq-frontend-api-contracts.contract.test.ts",
+  "tests/contracts/iq-result-renderer.contract.test.tsx",
+]);
+
 const PR_WEB_SEC_11_ALLOWED_FILES = new Set([
   "docs/claims/generated/semantic-claim-scanner-baseline.v1.json",
   "docs/claims/semantic-claim-scanner-baseline.md",
@@ -3802,6 +3813,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/iq-session-question-delivery-05b") {
     return IQ_SESSION_QUESTION_DELIVERY_05B_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/iq-owner-30-norm-claim-policy-02b") {
+    return IQ_OWNER_30_NORM_CLAIM_POLICY_02B_ALLOWED_FILES.has(file);
   }
 
   if (

@@ -63,6 +63,8 @@ export function IqReportModule({
   locale: Locale;
   viewModel: IqReportModuleViewModel;
 }) {
+  const suppressNormClaims = viewModel.suppressNormClaims;
+
   return (
     <div className="space-y-[var(--fm-gap-md)]" data-testid="iq-report-module">
       <Card>
@@ -165,14 +167,18 @@ export function IqReportModule({
                       label: locale === "zh" ? "原始分" : "Raw score",
                       value: formatMetricValue(dimension.rawScore),
                     })}
-                    {renderMetricRow({
-                      label: locale === "zh" ? "标准化分" : "Normalized score",
-                      value: formatMetricValue(dimension.normalizedScore),
-                    })}
-                    {renderMetricRow({
-                      label: locale === "zh" ? "百分位" : "Percentile",
-                      value: formatPercentValue(dimension.percentile),
-                    })}
+                    {suppressNormClaims
+                      ? null
+                      : renderMetricRow({
+                          label: locale === "zh" ? "标准化分" : "Normalized score",
+                          value: formatMetricValue(dimension.normalizedScore),
+                        })}
+                    {suppressNormClaims
+                      ? null
+                      : renderMetricRow({
+                          label: locale === "zh" ? "百分位" : "Percentile",
+                          value: formatPercentValue(dimension.percentile),
+                        })}
                     {renderMetricRow({
                       label: locale === "zh" ? "分段" : "Band",
                       value: dimension.band,

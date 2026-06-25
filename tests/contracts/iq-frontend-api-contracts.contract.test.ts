@@ -408,10 +408,67 @@ describe("IQ frontend API contract", () => {
       attempt_id: "attempt_iq_1",
       iq_estimate: null,
       percentile: null,
+      score_claim_level: "raw_score_only",
+      claim_warnings: ["no_norm_table"],
+      claim_policy: {
+        claim_eligible: false,
+        score_claim_level: "raw_score_only",
+      },
     });
 
     expect(parsed.success).toBe(true);
     expect(parsed.success && parsed.data.iq_estimate).toBeNull();
+    expect(parsed.success && parsed.data.score_claim_level).toBe("raw_score_only");
+    expect(parsed.success && parsed.data.claim_policy?.claim_eligible).toBe(false);
+    expect(parsed.success && parsed.data.claim_warnings).toContain("no_norm_table");
+  });
+
+  it("accepts owner 30 report claim policy without requiring IQ estimate claims", () => {
+    const parsed = iqReportPayloadSchema.safeParse({
+      ok: true,
+      attempt_id: "attempt_iq_1",
+      scale_code: IQ_CANONICAL_SCALE_CODE,
+      summary: {
+        raw_score: 24,
+        question_count: 30,
+        iq_estimate: null,
+        percentile: null,
+        confidence_interval: null,
+        score_claim_level: "raw_score_only",
+        claim_warnings: ["no_norm_table"],
+        claim_policy: {
+          claim_eligible: false,
+          score_claim_level: "raw_score_only",
+        },
+      },
+      scoring: {
+        raw_score: 24,
+        question_count: 30,
+        score_claim_level: "raw_score_only",
+        claim_warnings: ["no_norm_table"],
+        claim_policy: {
+          claim_eligible: false,
+          score_claim_level: "raw_score_only",
+        },
+      },
+      dimensions: {
+        visual_spatial_insight: { raw_score: 8 },
+        visual_spatial_pattern_reasoning: { raw_score: 9 },
+        numerical_pattern_reasoning: { raw_score: 7 },
+      },
+      quality: {
+        level: "beta",
+        flags: ["owner_original_30"],
+      },
+      stability: {
+        status: "preliminary",
+      },
+    });
+
+    expect(parsed.success).toBe(true);
+    expect(parsed.success && parsed.data.summary?.iq_estimate).toBeNull();
+    expect(parsed.success && parsed.data.summary?.claim_policy?.score_claim_level).toBe("raw_score_only");
+    expect(parsed.success && parsed.data.scoring?.claim_warnings).toContain("no_norm_table");
   });
 
   it("starts and submits IQ attempts without frontend-computed score fields", async () => {
