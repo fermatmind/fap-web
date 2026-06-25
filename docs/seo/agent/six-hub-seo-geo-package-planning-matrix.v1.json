@@ -1,0 +1,225 @@
+{
+  "schema_version": "fermatmind.six_hub_seo_geo_package_planning_matrix.v1",
+  "task_id": "SIX-HUB-SEO-GEO-PACKAGE-PLANNING-MATRIX-01",
+  "generated_at": "2026-06-25T17:22:00+08:00",
+  "run_mode": "docs_contracts_only_no_runtime_mutation",
+  "verdict": "PACKAGE_PLANNING_MATRIX_COMPLETE_NO_RUNTIME_CHANGES",
+  "depends_on": [
+    "SIX-HUB-SEO-GEO-PACKAGE-READINESS-PACKET-01",
+    "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+    "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01",
+    "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01"
+  ],
+  "consumed_packets": [
+    "docs/seo/agent/six-hub-seo-geo-package-readiness-packet.v1.json",
+    "docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet.v1.json",
+    "docs/seo/agent/six-hub-seo-geo-aeo-internal-link-packet.v1.json",
+    "docs/seo/agent/six-hub-seo-geo-batch-sequence-matrix.v1.json"
+  ],
+  "route_count": 12,
+  "scale_count": 6,
+  "final_counts": {
+    "cms_package_now_allowed": 0,
+    "review_first_scales": 3,
+    "big5_authority_repair_scales": 1,
+    "iq_eq_manual_review_scales": 2,
+    "hard_hold_scales": 3
+  },
+  "final_next_lane_decision": {
+    "next_task": "BIG5-HUB-COMMERCIAL-FIELD-AUTHORITY-FIX-SCAN-01",
+    "reason": "Big Five remains the only P1 hard hold and must reconcile backend commercial authority with public free/full-report copy before any package amplification.",
+    "allowed_after_this_train": "scan_or_planning_only_unless_user_authorizes_next_manifest_entries",
+    "blocked_actions": [
+      "CMS_package_generation",
+      "CMS_dry_run",
+      "CMS_write",
+      "publish",
+      "deploy",
+      "search_submission"
+    ]
+  },
+  "package_planning_matrix": [
+    {
+      "scale_code": "MBTI",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "current_batch": "BATCH_1_REVIEW_FIRST_CORE_HUBS",
+      "package_readiness": [
+        "READY_WITH_P2_COPY_RISK"
+      ],
+      "highest_risk": "P2",
+      "claim_copy_gate": "ALLOW_WITH_AUTHORITY_REVIEW_BEFORE_AMPLIFICATION",
+      "aeo_package_status": "REVIEW_FIRST_ARCHITECTURE_ONLY",
+      "internal_link_status": "REVIEW_BEFORE_NEW_LINK_EXPANSION",
+      "final_package_decision": "REVIEW_FIRST_ARCHITECTURE_ONLY_NO_CMS_PACKAGE",
+      "can_generate_cms_package_now": false,
+      "next_lane": "CORE_HUB_REVIEW_FIRST_COPY_AUTHORITY_PACKET_AFTER_TRAIN",
+      "exit_gate": "FREE_FULL_REPORT_AUTHORITY_REVIEW_PASSED_WITH_VISIBLE_NON_CLINICAL_BOUNDARY"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "current_batch": "BATCH_2_BIG5_AUTHORITY_REPAIR",
+      "package_readiness": [
+        "NEEDS_SOURCE_AUTHORITY_RECONCILIATION"
+      ],
+      "highest_risk": "P1",
+      "claim_copy_gate": "HOLD_FOR_SOURCE_AUTHORITY_RECONCILIATION_BEFORE_COPY_PACKAGE",
+      "aeo_package_status": "HARD_HOLD",
+      "internal_link_status": "NO_NEW_LINK_EXPANSION",
+      "final_package_decision": "HOLD_FOR_COMMERCIAL_FIELD_AUTHORITY_RECONCILIATION",
+      "can_generate_cms_package_now": false,
+      "next_lane": "BIG5-HUB-COMMERCIAL-FIELD-AUTHORITY-FIX-SCAN-01_AFTER_PACKAGE_TRAIN",
+      "exit_gate": "BACKEND_COMMERCIAL_FIELD_AND_PUBLIC_FREE_FULL_REPORT_COPY_RECONCILED"
+    },
+    {
+      "scale_code": "RIASEC",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "current_batch": "BATCH_1_REVIEW_FIRST_CORE_HUBS",
+      "package_readiness": [
+        "READY_WITH_P2_COPY_RISK"
+      ],
+      "highest_risk": "P2",
+      "claim_copy_gate": "ALLOW_ONLY_IF_PAID_UNLOCK_COPY_IS_EXAMPLE_BOUNDARY_NOT_PAYWALL_PROMISE",
+      "aeo_package_status": "REVIEW_FIRST_ARCHITECTURE_ONLY",
+      "internal_link_status": "REVIEW_BEFORE_NEW_LINK_EXPANSION",
+      "final_package_decision": "REVIEW_FIRST_ARCHITECTURE_ONLY_NO_CMS_PACKAGE",
+      "can_generate_cms_package_now": false,
+      "next_lane": "CORE_HUB_REVIEW_FIRST_COPY_AUTHORITY_PACKET_AFTER_TRAIN",
+      "exit_gate": "PAID_UNLOCK_EXAMPLES_ONLY_BOUNDARY_REVIEW_PASSED_WITH_NO_OUTCOME_GUARANTEE"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "current_batch": "BATCH_1_REVIEW_FIRST_CORE_HUBS",
+      "package_readiness": [
+        "READY_WITH_P2_COPY_RISK"
+      ],
+      "highest_risk": "P2",
+      "claim_copy_gate": "ALLOW_ONLY_WITH_NON_DIAGNOSTIC_TYPE_PROBABILITY_BOUNDARY",
+      "aeo_package_status": "REVIEW_FIRST_ARCHITECTURE_ONLY",
+      "internal_link_status": "REVIEW_BEFORE_NEW_LINK_EXPANSION",
+      "final_package_decision": "REVIEW_FIRST_ARCHITECTURE_ONLY_NO_CMS_PACKAGE",
+      "can_generate_cms_package_now": false,
+      "next_lane": "CORE_HUB_REVIEW_FIRST_COPY_AUTHORITY_PACKET_AFTER_TRAIN",
+      "exit_gate": "NON_DIAGNOSTIC_TYPE_PROBABILITY_BOUNDARY_REVIEW_PASSED"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "current_batch": "BATCH_3_IQ_EQ_MANUAL_REVIEW",
+      "package_readiness": [
+        "NEEDS_CLAIM_COPY_FIX"
+      ],
+      "highest_risk": "P2",
+      "claim_copy_gate": "HOLD_CLAIM_COPY_FIX_FOR_MANUAL_REVIEW_AND_FORM_AUTHORITY",
+      "aeo_package_status": "HARD_HOLD",
+      "internal_link_status": "NO_NEW_LINK_EXPANSION",
+      "final_package_decision": "HOLD_FOR_FORM_AUTHORITY_AND_MANUAL_CLAIM_REVIEW",
+      "can_generate_cms_package_now": false,
+      "next_lane": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN",
+      "exit_gate": "FORM_AUTHORITY_PRESENT_AND_IQ_MANUAL_REVIEW_BOUNDARY_APPROVED"
+    },
+    {
+      "scale_code": "EQ_60",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "current_batch": "BATCH_3_IQ_EQ_MANUAL_REVIEW",
+      "package_readiness": [
+        "NEEDS_CLAIM_COPY_FIX"
+      ],
+      "highest_risk": "P2",
+      "claim_copy_gate": "HOLD_CLAIM_COPY_FIX_FOR_FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "aeo_package_status": "HARD_HOLD",
+      "internal_link_status": "NO_NEW_LINK_EXPANSION",
+      "final_package_decision": "HOLD_FOR_FORM_AUTHORITY_AND_MANUAL_CLAIM_REVIEW",
+      "can_generate_cms_package_now": false,
+      "next_lane": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN",
+      "exit_gate": "FORM_AUTHORITY_PRESENT_AND_EQ_OUTCOME_CLAIM_BOUNDARY_APPROVED"
+    }
+  ],
+  "support_guardrails": {
+    "batch_id": "CROSS_HUB_SUPPORT_GUARDRAILS",
+    "sequence_rank": 4,
+    "scales": [
+      "MBTI",
+      "BIG5_OCEAN",
+      "RIASEC",
+      "ENNEAGRAM",
+      "IQ_RAVEN",
+      "EQ_60"
+    ],
+    "purpose": "Keep shared guardrails for visible FAQ/schema parity, link graph containment, analytics privacy, and indexability no-widening.",
+    "entry_conditions": [
+      "applies to all batches as a support overlay only"
+    ],
+    "exit_conditions": [
+      "no sitemap/llms/schema/hreflang/canonical/noindex mutation occurs in this train"
+    ],
+    "forbidden_actions": [
+      "runtime_mutation",
+      "private_data_access",
+      "provider_calls",
+      "deployment"
+    ]
+  },
+  "train_completion_state": "SIX_HUB_SEO_GEO_PACKAGE_TRAIN_PLANNING_COMPLETE_WITH_NO_RUNTIME_CHANGES",
+  "hold_actions": [
+    "no_CMS_package_generation",
+    "no_CMS_dry_run",
+    "no_CMS_write",
+    "no_publish",
+    "no_runtime_copy_change",
+    "no_frontend_runtime_change",
+    "no_backend_API_repair",
+    "no_search_submission",
+    "no_provider_call",
+    "no_deploy",
+    "no_sitemap_mutation",
+    "no_llms_mutation",
+    "no_schema_mutation",
+    "no_hreflang_mutation",
+    "no_canonical_mutation",
+    "no_noindex_mutation",
+    "no_private_result_access",
+    "no_attempt_creation",
+    "no_answer_submission"
+  ],
+  "negative_guarantees": {
+    "cms_package_generated": false,
+    "cms_dry_run_performed": false,
+    "cms_write_performed": false,
+    "cms_publish_performed": false,
+    "runtime_copy_changed": false,
+    "frontend_runtime_changed": false,
+    "backend_api_changed": false,
+    "search_submission_performed": false,
+    "provider_call_performed": false,
+    "deployment_triggered": false,
+    "sitemap_changed": false,
+    "llms_changed": false,
+    "schema_changed": false,
+    "hreflang_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "private_result_accessed": false,
+    "attempt_created": false,
+    "answer_submitted": false
+  }
+}
