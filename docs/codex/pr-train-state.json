@@ -31077,7 +31077,7 @@
       "base": "main",
       "depends_on": [],
       "title": "SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01: docs(seo): add paid unlock copy authority contract",
-      "status": "pr_open_pending_github_checks",
+      "status": "ready_to_merge",
       "train_scope": "six_hub_paid_unlock_copy_authority_contract",
       "artifacts": [
         "docs/seo/agent/six-hub-paid-unlock-copy-authority-contract-2026-06-25.md",
@@ -31143,7 +31143,7 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1449",
-      "commit_sha": "822b962ebf62399b7603407cb9a5d8cbbfea63e4",
+      "commit_sha": "7b33c402f716d6ccf677eff5144981ba51247811",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -31187,6 +31187,11 @@
           "at": "2026-06-25T18:28:00+08:00",
           "status": "ci_fix_pushed",
           "summary": "Remote contracts failed because the PR merge checkout lacked origin/main for the new scope-diff assertion. Updated the PR1 contract harness to fall back through safe git diff commands and then the ledger changed_files list; local focused contract, typecheck, full contract suite, JSON parse, and diff check passed before pushing the fix."
+        },
+        {
+          "at": "2026-06-25T18:34:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "PR #1449 required GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). mergeStateStatus is CLEAN; marking ready_to_merge before squash merge."
         }
       ],
       "sidecar_issues": []
