@@ -3,6 +3,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import {
   buildBig5TakeHref,
+  DEFAULT_BIG5_FORM_CODE,
   getBig5StartLabel,
   getBig5VariantLabel,
   getBig5VariantSummary,
@@ -12,6 +13,7 @@ import {
 } from "@/lib/big5/forms";
 import {
   buildEnneagramTakeHref,
+  DEFAULT_ENNEAGRAM_FORM_CODE,
   getEnneagramStartLabel,
   getEnneagramVariantLabel,
   getEnneagramVariantSummary,
@@ -21,6 +23,7 @@ import {
 } from "@/lib/enneagram/forms";
 import {
   buildRiasecTakeHref,
+  DEFAULT_RIASEC_FORM_CODE,
   getRiasecStartLabel,
   getRiasecVariantLabel,
   getRiasecVariantSummary,
@@ -55,6 +58,7 @@ type CTAStickyProps = {
   minutes: number;
   scaleCode?: string;
   locale?: Locale;
+  primaryCtaLabel?: string | null;
   attributionParams?: AttributionParams;
   attributionPayload?: TrackingAttributionPayload;
 };
@@ -66,6 +70,7 @@ export function CTASticky({
   minutes,
   scaleCode,
   locale = "en",
+  primaryCtaLabel,
   attributionParams = {},
   attributionPayload = {},
 }: CTAStickyProps) {
@@ -79,6 +84,37 @@ export function CTASticky({
   const mbtiSecondaryForm = mbtiForms.find((form) => form.formCode !== (mbtiPrimaryForm?.formCode ?? DEFAULT_MBTI_FORM_CODE)) ?? null;
   const mbtiLandingPath = attributionPayload.landing_path ?? localizedPath(`/tests/${slug}`, locale);
   const withAttribution = (href: string) => appendAttributionParamsToHref(href, attributionParams);
+  const cmsPrimaryCtaLabel = typeof primaryCtaLabel === "string" ? primaryCtaLabel.trim() : "";
+  const getStickyStartLabel = ({
+    formCode,
+    defaultFormCode,
+    fallback,
+  }: {
+    formCode?: string | null;
+    defaultFormCode?: string | null;
+    fallback: string;
+  }): string => {
+    if (cmsPrimaryCtaLabel && formCode && defaultFormCode && formCode === defaultFormCode) {
+      return cmsPrimaryCtaLabel;
+    }
+
+    return getFreeTestStartLabel({
+      locale,
+      scaleCode,
+      slug,
+      title,
+      fallback,
+    });
+  };
+  const getPrimaryStickyStartLabel = (fallback: string): string =>
+    cmsPrimaryCtaLabel ||
+    getFreeTestStartLabel({
+      locale,
+      scaleCode,
+      slug,
+      title,
+      fallback,
+    });
   const buildStartClickTrackingProps = ({
     formCode,
     targetAction,
@@ -171,11 +207,9 @@ export function CTASticky({
                       data-testid="mbti-sticky-primary-cta"
                       className={buttonVariants({ className: "mt-3 w-full" })}
                     >
-                      {getFreeTestStartLabel({
-                        locale,
-                        scaleCode,
-                        slug,
-                        title,
+                      {getStickyStartLabel({
+                        formCode: mbtiPrimaryForm.formCode,
+                        defaultFormCode: DEFAULT_MBTI_FORM_CODE,
                         fallback: getMbtiStartLabel(mbtiPrimaryForm.formCode, locale),
                       })}
                     </TrackedEntryCtaLink>
@@ -193,11 +227,9 @@ export function CTASticky({
                       data-testid="mbti-sticky-secondary-cta"
                       className={buttonVariants({ variant: "outline", className: "mt-3 w-full" })}
                     >
-                      {getFreeTestStartLabel({
-                        locale,
-                        scaleCode,
-                        slug,
-                        title,
+                      {getStickyStartLabel({
+                        formCode: mbtiSecondaryForm.formCode,
+                        defaultFormCode: DEFAULT_MBTI_FORM_CODE,
                         fallback: getMbtiStartLabel(mbtiSecondaryForm.formCode, locale),
                       })}
                     </TrackedEntryCtaLink>
@@ -220,11 +252,9 @@ export function CTASticky({
                       })}
                       className={buttonVariants({ className: "mt-3 w-full" })}
                     >
-                      {getFreeTestStartLabel({
-                        locale,
-                        scaleCode,
-                        slug,
-                        title,
+                      {getStickyStartLabel({
+                        formCode: form.formCode,
+                        defaultFormCode: DEFAULT_BIG5_FORM_CODE,
                         fallback: getBig5StartLabel(form.formCode, locale),
                       })}
                     </TrackedEntryCtaLink>
@@ -247,11 +277,9 @@ export function CTASticky({
                       })}
                       className={buttonVariants({ className: "mt-3 w-full" })}
                     >
-                      {getFreeTestStartLabel({
-                        locale,
-                        scaleCode,
-                        slug,
-                        title,
+                      {getStickyStartLabel({
+                        formCode: form.formCode,
+                        defaultFormCode: DEFAULT_ENNEAGRAM_FORM_CODE,
                         fallback: getEnneagramStartLabel(form.formCode, locale),
                       })}
                     </TrackedEntryCtaLink>
@@ -275,11 +303,9 @@ export function CTASticky({
                       data-testid={`riasec-sticky-cta-${form.formCode}`}
                       className={buttonVariants({ className: "mt-3 w-full" })}
                     >
-                      {getFreeTestStartLabel({
-                        locale,
-                        scaleCode,
-                        slug,
-                        title,
+                      {getStickyStartLabel({
+                        formCode: form.formCode,
+                        defaultFormCode: DEFAULT_RIASEC_FORM_CODE,
                         fallback: getRiasecStartLabel(form.formCode, locale),
                       })}
                     </TrackedEntryCtaLink>
@@ -302,13 +328,7 @@ export function CTASticky({
                   data-testid="eq-sticky-cta"
                   className={buttonVariants({ className: "mt-3 w-full" })}
                 >
-                  {getFreeTestStartLabel({
-                    locale,
-                    scaleCode,
-                    slug,
-                    title,
-                    fallback: locale === "zh" ? "开始情商免费测试" : "Start the free EQ test",
-                  })}
+                  {getPrimaryStickyStartLabel(locale === "zh" ? "开始情商免费测试" : "Start the free EQ test")}
                 </TrackedEntryCtaLink>
               </div>
             ) : (
@@ -317,13 +337,7 @@ export function CTASticky({
                 eventProperties={buildStartClickTrackingProps({ targetAction: "start_test" })}
                 className={buttonVariants({ className: "w-full" })}
               >
-                {getFreeTestStartLabel({
-                  locale,
-                  scaleCode,
-                  slug,
-                  title,
-                  fallback: locale === "zh" ? "开始此测试" : "Start the free test",
-                })}
+                {getPrimaryStickyStartLabel(locale === "zh" ? "开始此测试" : "Start the free test")}
               </TrackedEntryCtaLink>
             )}
           </CardContent>
@@ -354,11 +368,9 @@ export function CTASticky({
                   data-testid="mbti-sticky-mobile-primary-cta"
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
-                  {getFreeTestStartLabel({
-                    locale,
-                    scaleCode,
-                    slug,
-                    title,
+                  {getStickyStartLabel({
+                    formCode: mbtiPrimaryForm.formCode,
+                    defaultFormCode: DEFAULT_MBTI_FORM_CODE,
                     fallback: getMbtiStartLabel(mbtiPrimaryForm.formCode, locale),
                   })}
                 </TrackedEntryCtaLink>
@@ -370,11 +382,9 @@ export function CTASticky({
                   data-testid="mbti-sticky-mobile-secondary-cta"
                   className={buttonVariants({ size: "sm", variant: "outline", className: "sm:flex-none" })}
                 >
-                  {getFreeTestStartLabel({
-                    locale,
-                    scaleCode,
-                    slug,
-                    title,
+                  {getStickyStartLabel({
+                    formCode: mbtiSecondaryForm.formCode,
+                    defaultFormCode: DEFAULT_MBTI_FORM_CODE,
                     fallback: getMbtiStartLabel(mbtiSecondaryForm.formCode, locale),
                   })}
                 </TrackedEntryCtaLink>
@@ -392,11 +402,9 @@ export function CTASticky({
                   })}
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
-                  {getFreeTestStartLabel({
-                    locale,
-                    scaleCode,
-                    slug,
-                    title,
+                  {getStickyStartLabel({
+                    formCode: form.formCode,
+                    defaultFormCode: DEFAULT_BIG5_FORM_CODE,
                     fallback: getBig5StartLabel(form.formCode, locale),
                   })}
                 </TrackedEntryCtaLink>
@@ -414,11 +422,9 @@ export function CTASticky({
                   })}
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
-                  {getFreeTestStartLabel({
-                    locale,
-                    scaleCode,
-                    slug,
-                    title,
+                  {getStickyStartLabel({
+                    formCode: form.formCode,
+                    defaultFormCode: DEFAULT_ENNEAGRAM_FORM_CODE,
                     fallback: getEnneagramStartLabel(form.formCode, locale),
                   })}
                 </TrackedEntryCtaLink>
@@ -437,11 +443,9 @@ export function CTASticky({
                   data-testid={`riasec-sticky-mobile-cta-${form.formCode}`}
                   className={buttonVariants({ size: "sm", className: "flex-1 sm:flex-none" })}
                 >
-                  {getFreeTestStartLabel({
-                    locale,
-                    scaleCode,
-                    slug,
-                    title,
+                  {getStickyStartLabel({
+                    formCode: form.formCode,
+                    defaultFormCode: DEFAULT_RIASEC_FORM_CODE,
                     fallback: getRiasecStartLabel(form.formCode, locale),
                   })}
                 </TrackedEntryCtaLink>
@@ -454,13 +458,7 @@ export function CTASticky({
               data-testid="eq-sticky-mobile-cta"
               className={buttonVariants({ size: "sm", className: "w-full sm:w-auto" })}
             >
-              {getFreeTestStartLabel({
-                locale,
-                scaleCode,
-                slug,
-                title,
-                fallback: locale === "zh" ? "开始情商免费测试" : "Start the free EQ test",
-              })}
+              {getPrimaryStickyStartLabel(locale === "zh" ? "开始情商免费测试" : "Start the free EQ test")}
             </TrackedEntryCtaLink>
           ) : (
             <TrackedEntryCtaLink
@@ -468,13 +466,7 @@ export function CTASticky({
               eventProperties={buildStartClickTrackingProps({ targetAction: "start_test" })}
               className={buttonVariants({ size: "sm" })}
             >
-              {getFreeTestStartLabel({
-                locale,
-                scaleCode,
-                slug,
-                title,
-                fallback: locale === "zh" ? "开始" : "Start",
-              })}
+              {getPrimaryStickyStartLabel(locale === "zh" ? "开始" : "Start")}
             </TrackedEntryCtaLink>
           )}
         </div>

@@ -1805,6 +1805,7 @@ export default async function TestLandingPage({
               minutes={test.time_minutes}
               scaleCode={test.scale_code}
               locale={locale}
+              primaryCtaLabel={cmsPrimaryCtaLabel}
               attributionParams={landingAttributionParams}
               attributionPayload={landingAttributionPayload}
             />
