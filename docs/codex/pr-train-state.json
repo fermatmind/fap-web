@@ -30726,7 +30726,7 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1433",
-      "commit_sha": null,
+      "commit_sha": "f565eed2913fc5a77e67b8c732975b5b07309133",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
