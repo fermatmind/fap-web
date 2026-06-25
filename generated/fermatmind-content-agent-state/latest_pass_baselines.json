@@ -1,52 +1,88 @@
 {
   "baselines": [
     {
+      "artifact_registry_entry_id": "career-work-activities-career_work_activities_v1",
+      "artifact_uri": "career-artifact://career-content-baselines/career-work-activities/04f9bce6dbd6b2a28a8bba504b4fde14563637cc4083e5774b889659ee63be77/baseline.tar.gz",
       "baseline_directory": "generated/career-work-activities-v1-batch-1046-pass-baseline-final-repaired",
       "block_name": "career-work-activities",
       "block_version": "career_work_activities_v1",
+      "created_by_run_id": "rebuild-20260625",
       "final_conclusion": "CAREER_WORK_ACTIVITIES_1046_COMPLETE",
+      "package_sha256": "04f9bce6dbd6b2a28a8bba504b4fde14563637cc4083e5774b889659ee63be77",
+      "restorable": true,
       "sha256_manifest": "generated/career-work-activities-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
+      "sha256_manifest_sha256": "dfd53a99e55ff8e2eda8dda6e444fa7ef79c1b70287aa022491e38d840d18fbf",
       "slug_count": 1046
     },
     {
+      "artifact_registry_entry_id": "career-identity-career_identity_v1",
+      "artifact_uri": "career-artifact://career-content-baselines/career-identity/c72d1eb979e83b872d4405b6f581aed7f79c945461b5e4af34b7d2d1eaab934d/baseline.tar.gz",
       "baseline_directory": "generated/career-identity-v1-batch-1046-pass-baseline-final-repaired",
       "block_name": "career-identity",
       "block_version": "career_identity_v1",
+      "created_by_run_id": "rebuild-20260625",
       "final_conclusion": "CAREER_IDENTITY_1046_COMPLETE",
+      "package_sha256": "c72d1eb979e83b872d4405b6f581aed7f79c945461b5e4af34b7d2d1eaab934d",
+      "restorable": true,
       "sha256_manifest": "generated/career-identity-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
+      "sha256_manifest_sha256": "7113c0eb3b857b81af25b745fd7ffd4220d35ee644af9a94e2d9fcbeb2967c6b",
       "slug_count": 1046
     },
     {
+      "artifact_registry_entry_id": "career-skills-entry-career_skills_entry_v1",
+      "artifact_uri": "career-artifact://career-content-baselines/career-skills-entry/edcba095466d89f5ae5c1d67cfe573f9aa637071455fe120690e996196e27190/baseline.tar.gz",
+      "baseline_directory": "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired",
       "block_name": "career-skills-entry",
       "block_version": "career_skills_entry_v1",
-      "baseline_directory": "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired",
+      "created_by_run_id": "rebuild-20260625",
+      "final_conclusion": "CAREER_SKILLS_ENTRY_1046_COMPLETE",
+      "package_sha256": "edcba095466d89f5ae5c1d67cfe573f9aa637071455fe120690e996196e27190",
+      "restorable": true,
       "sha256_manifest": "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
-      "slug_count": 1046,
-      "final_conclusion": "CAREER_SKILLS_ENTRY_1046_COMPLETE"
+      "sha256_manifest_sha256": "5408ecb359b04f50026739aea82daaddf439c97803abaaaf0ece11d6d2fdb200",
+      "slug_count": 1046
     },
     {
+      "artifact_registry_entry_id": "career-fit-career_fit_v1",
+      "artifact_uri": "career-artifact://career-content-baselines/career-fit/f3246a7ba7843444e61e6f4a51b618907d042894fe1fdcd2794a97da01a22629/baseline.tar.gz",
+      "baseline_directory": "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired",
       "block_name": "career-fit",
       "block_version": "career_fit_v1",
-      "baseline_directory": "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired",
+      "created_by_run_id": "rebuild-20260625",
+      "final_conclusion": "CAREER_FIT_1046_COMPLETE",
+      "package_sha256": "f3246a7ba7843444e61e6f4a51b618907d042894fe1fdcd2794a97da01a22629",
+      "restorable": true,
       "sha256_manifest": "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
-      "slug_count": 1046,
-      "final_conclusion": "CAREER_FIT_1046_COMPLETE"
+      "sha256_manifest_sha256": "8d4dba593090909a7243f729b988edb9c5fad13e5df0797c93c46749c86efd76",
+      "slug_count": 1046
     },
     {
+      "artifact_registry_entry_id": "career-adjacent-comparison-career_adjacent_comparison_v1",
+      "artifact_uri": "career-artifact://career-content-baselines/career-adjacent-comparison/84cb88d04c6eb4d90ec6ece2f56a0ab65b954d6bb57e121302550ee53218791c/baseline.tar.gz",
+      "baseline_directory": "generated/career-adjacent-comparison-v1-1046-pass-baseline-final-repaired",
       "block_name": "career-adjacent-comparison",
       "block_version": "career_adjacent_comparison_v1",
-      "baseline_directory": "generated/career-adjacent-comparison-v1-1046-pass-baseline-final-repaired",
+      "created_by_run_id": "rebuild-20260625",
+      "final_conclusion": "CAREER_ADJACENT_COMPARISON_1046_COMPLETE",
+      "package_sha256": "84cb88d04c6eb4d90ec6ece2f56a0ab65b954d6bb57e121302550ee53218791c",
+      "restorable": true,
       "sha256_manifest": "generated/career-adjacent-comparison-v1-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
-      "slug_count": 1046,
-      "final_conclusion": "CAREER_ADJACENT_COMPARISON_1046_COMPLETE"
+      "sha256_manifest_sha256": "385582c57ab46cb4dba3a7eeb4219b01f3b446ee123263d730fdec8e631e866b",
+      "slug_count": 1046
     },
     {
+      "artifact_registry_entry_id": "career-page-assembly-career_page_assembly_v1",
+      "artifact_uri": "career-artifact://career-content-baselines/career-page-assembly/eb490ece69d0643fdeb03780f28b68dad84766041cd4b0305e6e448acaa35677/baseline.tar.gz",
+      "baseline_directory": "generated/career-page-assembly-v1-1046-pass-baseline",
       "block_name": "career-page-assembly",
       "block_version": "career_page_assembly_v1",
-      "baseline_directory": "generated/career-page-assembly-v1-1046-pass-baseline",
+      "created_by_run_id": "rebuild-20260625",
+      "final_conclusion": "CAREER_PAGE_ASSEMBLY_1046_COMPLETE",
+      "package_sha256": "eb490ece69d0643fdeb03780f28b68dad84766041cd4b0305e6e448acaa35677",
+      "restorable": true,
       "sha256_manifest": "generated/career-page-assembly-v1-1046-pass-baseline/baseline_sha256_manifest.json",
-      "slug_count": 1046,
-      "final_conclusion": "CAREER_PAGE_ASSEMBLY_1046_COMPLETE"
+      "sha256_manifest_sha256": "a3511b659a54ba37a9fcb5f0b48dd8b591177f95f6fce9bf84f975587ae1d085",
+      "slug_count": 1046
     }
   ]
 }

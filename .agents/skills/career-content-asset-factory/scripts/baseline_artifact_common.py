@@ -138,7 +138,22 @@ def verify_sha_manifest(baseline_dir: str | Path, sha_manifest: str | Path) -> d
     failures = []
     checked = 0
     for relative, expected_sha in sorted(entries.items()):
-        candidate = baseline / relative
+        relative_path = Path(relative)
+        if relative_path.is_absolute():
+            try:
+                relative_path = relative_path.relative_to(baseline.resolve())
+            except ValueError:
+                pass
+        else:
+            baseline_parts = baseline.as_posix().rstrip("/")
+            relative_posix = relative_path.as_posix()
+            if relative_posix.startswith(baseline_parts + "/"):
+                relative_path = Path(relative_posix[len(baseline_parts) + 1 :])
+            elif baseline.name in relative_path.parts:
+                parts = relative_path.parts
+                start = parts.index(baseline.name) + 1
+                relative_path = Path(*parts[start:])
+        candidate = baseline / relative_path
         if not candidate.is_file():
             failures.append({"path": relative, "reason": "missing_file"})
             continue
