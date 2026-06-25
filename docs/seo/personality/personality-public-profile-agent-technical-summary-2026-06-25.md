@@ -96,6 +96,13 @@ The workflow is artifact-only:
 - does not mutate sitemap/llms
 - does not enqueue or submit search providers
 
+Current closure evidence:
+
+- `docs/seo/personality/personality-agent-auto-runner-scheduler-activation-closure-2026-06-25.md`
+- `docs/seo/personality/personality-agent-auto-runner-scheduler-activation-closure-2026-06-25.json`
+
+The closure decision is `PASS_SCHEDULER_ACTIVATION_CLOSED_ARTIFACT_ONLY`. Scheduler activation is therefore not a CMS, publish, index, sitemap, llms, search, or deploy surface. It only creates GitHub Actions artifacts for downstream human review.
+
 ## fap-api Layer
 
 ### Approval Queue
@@ -114,6 +121,8 @@ Supported frameworks:
 - `enneagram`
 
 The approval queue stores QA-passed recommendations as pending human review. It does not write CMS content. CMS draft writers must consume approved items or enforce their own fail-closed approval constraints, depending on the framework contract.
+
+The queue accepts framework QA states that mean ready for human review, including `PASS_READY_FOR_APPROVAL_REVIEW`. That status is only an approval-queue intake state. It is not permission to write CMS draft content, promote live content, publish, index, or trigger search release. CMS draft writers still require an approved queue item or a framework-specific explicit write gate.
 
 ### CMS Draft Writers
 
@@ -201,8 +210,146 @@ This separation is the main safety property of the system. Each step has a diffe
 
 ## Recommended Next Work
 
-1. Produce a Big Five production closure artifact if the other window completed draft/promotion/runtime gates. It should verify DB state, runtime smoke, and no index/search/sitemap/llms side effects.
-2. Add an ops/read model for the approval queue so pending recommendations, QA decisions, target URLs, and risk reasons are visible outside CLI artifacts.
-3. Extend the scheduled runner beyond artifact-only MBTI64 only after confirming Big Five and Enneagram runner modes should run unattended.
-4. Add framework-specific promotion contracts for Big Five public content assets if not already completed in the other window.
-5. Keep index/search release separate from content promotion. For Enneagram, the current production state is content-ready but intentionally noindex and not in sitemap/llms/search.
+1. Keep index/search release separate from content promotion. Enneagram and Big Five content-ready closure should not be treated as search-release authorization.
+2. Use the approval queue as the boundary between agent recommendations and CMS draft writes. A QA pass can enter review, but only an approved item can be consumed by a draft writer.
+3. Run the long-term operations track below as separate PRs or runtime gates. Do not combine scheduler, ops review, next-batch selection, approval intake, CMS draft, promotion, or search release.
+
+## Long-Term Operations PR Split Scan
+
+The launch/content-production lanes are substantially closed, but the agent still needs an operations layer so it can run repeatedly without turning into an unattended publisher. The remaining long-term operations track is three tasks, each with a different side-effect boundary.
+
+### 1. `PERSONALITY-AGENT-AUTO-RUNNER-SCHEDULER-ACTIVATION-01`
+
+Current status: closed as artifact-only by the scheduler activation closure artifacts listed above.
+
+Purpose: run the personality agent runner on a controlled cadence and upload recommendation/ranking artifacts.
+
+Repository: `fap-web`.
+
+Likely files:
+
+- `.github/workflows/personality-agent-auto-runner.yml`
+- `scripts/seo/run-personality-agent-auto-runner.mjs`
+- `tests/contracts/personality-agent-auto-runner-scheduler-activation-01.contract.test.ts`
+- `docs/seo/personality/personality-agent-auto-runner-scheduler-activation-*.{json,md}`
+
+Required checks:
+
+- `node --check scripts/seo/run-personality-agent-auto-runner.mjs`
+- focused scheduler workflow contract test
+- `pnpm test:contract`
+- `pnpm typecheck`
+- `git diff --check`
+
+Safety boundary:
+
+- allowed: GitHub Actions artifact upload
+- forbidden: git push, PR creation, CMS write, publish, sitemap/llms mutation, Search Queue enqueue/approve/submit, GSC Request Indexing, deploy, secrets or production environment use
+
+Follow-up only if drift appears: `PERSONALITY-AGENT-AUTO-RUNNER-SCHEDULER-ACTIVATION-REPAIR-01`.
+
+### 2. `PERSONALITY-AGENT-OPS-REVIEW-SURFACE-01`
+
+Current status: still needed.
+
+Purpose: expose a backend read model or ops surface for pending recommendations, QA state, risk reason, framework, locale, target URL, recommendation hash, source artifact hash, and approval state.
+
+Repository: `fap-api`.
+
+Likely files:
+
+- `backend/app/Services/Cms/PersonalityAgentApprovalQueueReadService.php`
+- `backend/app/Console/Commands/PersonalityAgentApprovalQueueReview.php` or existing ops controller/read-model route, depending on local pattern
+- `backend/tests/Feature/Console/PersonalityAgentApprovalQueueReadModelTest.php` or focused ops read model test
+- optional docs artifact under `backend/docs/seo/personality/`
+
+Required checks:
+
+- focused PHPUnit for approval queue read model
+- `php artisan test tests/Feature/Console/PersonalityAgentApprovalQueueCommandTest.php --display-warnings`
+- `bash backend/scripts/ci_verify_mbti.sh`
+- `git diff --check`
+- scope validation limited to read model / ops display / tests / docs
+
+Safety boundary:
+
+- allowed: read-only listing/aggregation of queued recommendation items and QA decisions
+- forbidden: approve/reject mutation, CMS draft write, live promotion, publish/index/search, sitemap/llms mutation, queue enqueue/approve/submit, external API calls
+
+Acceptance:
+
+- operator can see pending recommendations without reading raw artifacts manually
+- rows show enough evidence to decide review priority and risk
+- no mutation endpoint or write command is added in this PR
+
+### 3. `PERSONALITY-AGENT-OPERATIONS-NEXT-BATCH-01`
+
+Current status: partially executed through selection, recommendation, and QA artifacts; the remaining operational handoff is approval review and CMS draft gating.
+
+Existing fap-web artifacts:
+
+- `docs/seo/personality/personality-agent-operations-next-batch-selection-2026-06-25.json`
+- `docs/seo/personality/personality-agent-operations-next-batch-recommendations-2026-06-25.json`
+- `docs/seo/personality/personality-agent-operations-next-batch-qa-2026-06-25.json`
+
+Existing selected URLs:
+
+- `/zh/personality/intp-a`
+- `/zh/personality/esfp-a`
+- `/en/personality/enfj-a`
+
+Recommended split:
+
+1. `PERSONALITY-AGENT-APPROVAL-QUEUE-NEXT-BATCH-3-DRY-RUN-01`
+   - repository: `fap-api`
+   - action: runtime dry-run only
+   - purpose: verify the three next-batch recommendations can be planned into the approval queue with `PASS_READY_FOR_APPROVAL_REVIEW`
+   - no writes
+
+2. `PERSONALITY-AGENT-APPROVAL-QUEUE-NEXT-BATCH-3-WRITE-01`
+   - repository: `fap-api`
+   - action: approval queue write only after explicit operator authorization
+   - purpose: create pending human-review approval rows
+   - forbidden: CMS draft write, publish/index/search, sitemap/llms, live promotion
+
+3. `PERSONALITY-AGENT-CMS-DRAFT-NEXT-BATCH-3-DRY-RUN-01`
+   - repository: `fap-api`
+   - action: dry-run only
+   - prerequisite: all three approval queue items are approved by a human operator
+   - purpose: verify approved items can be consumed by the CMS draft writer
+
+4. `PERSONALITY-AGENT-CMS-DRAFT-NEXT-BATCH-3-WRITE-01`
+   - repository: `fap-api`
+   - action: CMS draft-only write after separate explicit approval
+   - forbidden: live promotion, publish/index/search, sitemap/llms, Search Queue, frontend changes
+
+5. `PERSONALITY-AGENT-CMS-DRAFT-NEXT-BATCH-3-POST-WRITE-SMOKE-01`
+   - repository: production runtime gate
+   - action: read-only
+   - purpose: confirm draft rows exist, live pages are unchanged, and no side effects occurred
+
+Required checks for artifact PR portions:
+
+- `node --check` for selection/recommendation/QA scripts
+- JSON parse or `jq empty` for artifacts
+- focused contract tests for next-batch selection/recommendation/QA
+- `pnpm test:contract`
+- `pnpm typecheck`
+- `git diff --check`
+
+Required checks for backend approval/draft portions:
+
+- approval queue focused PHPUnit
+- CMS draft writer focused PHPUnit
+- `bash backend/scripts/ci_verify_mbti.sh`
+- `git diff --check`
+
+Safety boundary:
+
+- selection/recommendation/QA artifacts do not write CMS
+- approval queue dry-run does not write DB
+- approval queue write creates pending review rows only
+- CMS draft write requires approved queue items and explicit operator approval
+- promotion and search release remain separate gates
+
+This three-task operations track is the path from recurring evidence to reviewable content recommendations. It is not an automated publishing system.
