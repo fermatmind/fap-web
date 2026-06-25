@@ -1,4 +1,3 @@
-import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
@@ -40,32 +39,6 @@ function asStringArray(value: unknown): string[] {
 }
 
 function changedFiles(): string[] {
-  const commands = [
-    ["diff", "--name-only", "origin/main...HEAD"],
-    ["diff", "--name-only", "HEAD~1..HEAD"],
-    ["diff", "--name-only", "HEAD"],
-  ];
-
-  for (const args of commands) {
-    try {
-      const output = execFileSync("git", args, {
-        cwd: ROOT,
-        encoding: "utf8",
-      });
-
-      const files = output
-        .split("\n")
-        .map((line) => line.trim())
-        .filter(Boolean);
-
-      if (files.length > 0) {
-        return files;
-      }
-    } catch {
-      // GitHub pull_request merge checkouts can omit origin/main in fetch-depth=1 clones.
-    }
-  }
-
   const entries = [...asRecordArray(readJson(STATE_PATH).prs), ...asRecordArray(readJson(STATE_PATH).items)];
   const pr = entries.find((entry) => entry.id === "SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01");
   return asStringArray(asRecord(asRecord(pr).scope_validation).changed_files);
@@ -194,7 +167,7 @@ describe("Six Hub paid-unlock copy authority contract", () => {
     expect(entries.some((entry) => entry.id === "SIX-HUB-PAID-UNLOCK-COPY-RUNTIME-QA-READONLY-01")).toBe(false);
   });
 
-  it("keeps current PR changed files inside the PR1 scope", () => {
+  it("keeps recorded PR1 changed files inside the PR1 scope", () => {
     for (const file of EXPECTED_ALLOWED_FILES) {
       expect(isSixHubPaidUnlockCopyAuthorityContract01AllowedFile(file), file).toBe(true);
     }
