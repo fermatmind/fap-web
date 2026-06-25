@@ -1,0 +1,267 @@
+{
+  "schema_version": "fermatmind.six_hub_seo_geo_package.common_contract.v1",
+  "task_id": "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01",
+  "generated_at": "2026-06-25T00:00:00+08:00",
+  "run_mode": "docs_contracts_only",
+  "verdict": "READY_FOR_SEO_GEO_PACKAGE_PLANNING",
+  "producing_agent": "seo_geo_control",
+  "collaborating_agents": [
+    "assessment_hub",
+    "claim_privacy_safety_gate",
+    "cms_draft_package",
+    "runtime_qa",
+    "analytics_gsc_opportunity",
+    "methodology_trust_science_support",
+    "career_content_graph",
+    "public_personality_content"
+  ],
+  "scope": {
+    "surface_family": "six_public_assessment_hub_pages",
+    "covered_scales": [
+      "MBTI",
+      "BIG5_OCEAN",
+      "RIASEC",
+      "IQ_RAVEN",
+      "EQ_60",
+      "ENNEAGRAM"
+    ],
+    "covered_locales": [
+      "zh",
+      "en"
+    ],
+    "covered_url_count": 12,
+    "source_scan": "SIX-HUB-SEO-GEO-PACKAGE-PLANNING-SCAN-01",
+    "scan_verdict": "SIX_HUB_SEO_GEO_PACKAGE_PLANNING_SCAN_PARTIAL",
+    "private_flow_boundary": "no_attempt_creation_no_answer_submission_no_private_result_access"
+  },
+  "package_component_vocabulary": [
+    "seo_title_candidate_family",
+    "meta_description_candidate_family",
+    "h1_hero_direction",
+    "free_full_report_value_prop_direction",
+    "aeo_answer_block_direction",
+    "methodology_boundary_note_direction",
+    "faq_visible_answer_block_direction",
+    "internal_link_targets",
+    "method_trust_science_support_links",
+    "riasec_career_graph_links",
+    "enneagram_public_personality_links",
+    "claim_risk_notes",
+    "cms_dry_run_suitability",
+    "GPT55_review_required",
+    "Safety_Gate_review_required",
+    "SEO_GEO_review_required"
+  ],
+  "layer_vocabulary": [
+    "money_intent",
+    "explainer",
+    "scenario"
+  ],
+  "authority_states": [
+    "backend_lookup_authority",
+    "landing_surface_v1_authority",
+    "published_landing_surface_authority",
+    "cms_overlay_key",
+    "fap_web_consumer",
+    "frontend_local_copy",
+    "fallback_or_lookup_only",
+    "sitemap_source_authority",
+    "llms_evidence",
+    "unknown"
+  ],
+  "package_readiness_statuses": [
+    "READY_FOR_SEO_GEO_PACKAGE_PLANNING",
+    "READY_WITH_P2_COPY_RISK",
+    "NEEDS_SOURCE_AUTHORITY_RECONCILIATION",
+    "NEEDS_CLAIM_COPY_FIX",
+    "NEEDS_CMS_DRY_RUN_READINESS",
+    "BLOCKED_PRIVATE_LEAK",
+    "BLOCKED_INDEXABILITY_MISMATCH",
+    "BLOCKED_PAYWALL_CONTRADICTION",
+    "BLOCKED_UNSUPPORTED_CLAIM",
+    "HOLD_RUNTIME_OR_CMS_MUTATION"
+  ],
+  "risk_vocabulary": [
+    "P1_COMMERCIAL_FIELD_AUTHORITY_CONFLICT",
+    "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+    "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW",
+    "P2_MBTI_GROWTH_GUIDANCE_AMBIGUITY",
+    "P2_IQ_MANUAL_REVIEW_GATE_AND_ANSWER_KEY_BOUNDARY",
+    "P2_IQ_EQ_LOOKUP_FORM_AUTHORITY_GAP",
+    "P2_SCALE_SPECIFIC_FORBIDDEN_CLAIM_BOUNDARIES"
+  ],
+  "batch_vocabulary": [
+    "batch_1_mbti_riasec",
+    "batch_2_big5_enneagram",
+    "batch_3_iq_eq",
+    "cross_hub_support"
+  ],
+  "output_kinds": [
+    "package_common_contract",
+    "package_readiness_packet",
+    "claim_copy_risk_packet",
+    "aeo_internal_link_packet",
+    "batch_sequence_matrix",
+    "package_planning_matrix"
+  ],
+  "hard_holds": [
+    "no_CMS",
+    "no_CMS_dry_run_in_this_train",
+    "no_CMS_write",
+    "no_publish",
+    "no_search_submission",
+    "no_provider_calls",
+    "no_deploy",
+    "no_runtime_instrumentation",
+    "no_public_Hub_runtime_mutation",
+    "no_generated_pages",
+    "no_sitemap_llms_schema_hreflang_canonical_noindex_mutation",
+    "no_backend_import",
+    "no_opportunity_scoring",
+    "no_Search_Channel_mutation",
+    "no_raw_private_data",
+    "no_private_result_URL_access",
+    "no_attempt_creation",
+    "no_answer_submission",
+    "no_payment_order_mutation",
+    "no_publishable_content_body",
+    "no_FAQPage_JSONLD_mutation"
+  ],
+  "allowed_next_action_states": [
+    "docs_contracts_planning_only",
+    "cms_dry_run_readiness_scan_later",
+    "authority_repair_scan_later",
+    "gsc_opportunity_readonly_later",
+    "blocked_until_exact_approval"
+  ],
+  "known_scale_readiness": [
+    {
+      "scale_code": "MBTI",
+      "locales": [
+        "zh",
+        "en"
+      ],
+      "status": "READY_WITH_P2_COPY_RISK",
+      "risks": [
+        "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW",
+        "P2_MBTI_GROWTH_GUIDANCE_AMBIGUITY"
+      ],
+      "seo_geo_priority_rank": 1
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locales": [
+        "zh",
+        "en"
+      ],
+      "status": "NEEDS_SOURCE_AUTHORITY_RECONCILIATION",
+      "risks": [
+        "P1_COMMERCIAL_FIELD_AUTHORITY_CONFLICT",
+        "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+      ],
+      "seo_geo_priority_rank": 2
+    },
+    {
+      "scale_code": "RIASEC",
+      "locales": [
+        "zh",
+        "en"
+      ],
+      "status": "READY_WITH_P2_COPY_RISK",
+      "risks": [
+        "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+        "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW"
+      ],
+      "seo_geo_priority_rank": 3
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locales": [
+        "zh",
+        "en"
+      ],
+      "status": "READY_WITH_P2_COPY_RISK",
+      "risks": [
+        "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+        "P2_SCALE_SPECIFIC_FORBIDDEN_CLAIM_BOUNDARIES"
+      ],
+      "seo_geo_priority_rank": 4
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locales": [
+        "zh",
+        "en"
+      ],
+      "status": "NEEDS_CLAIM_COPY_FIX",
+      "risks": [
+        "P2_IQ_MANUAL_REVIEW_GATE_AND_ANSWER_KEY_BOUNDARY",
+        "P2_IQ_EQ_LOOKUP_FORM_AUTHORITY_GAP",
+        "P2_SCALE_SPECIFIC_FORBIDDEN_CLAIM_BOUNDARIES"
+      ],
+      "seo_geo_priority_rank": 5
+    },
+    {
+      "scale_code": "EQ_60",
+      "locales": [
+        "zh",
+        "en"
+      ],
+      "status": "NEEDS_CLAIM_COPY_FIX",
+      "risks": [
+        "P2_IQ_EQ_LOOKUP_FORM_AUTHORITY_GAP",
+        "P2_SCALE_SPECIFIC_FORBIDDEN_CLAIM_BOUNDARIES",
+        "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+      ],
+      "seo_geo_priority_rank": 6
+    }
+  ],
+  "train_pr_ids": [
+    "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01",
+    "SIX-HUB-SEO-GEO-PACKAGE-READINESS-PACKET-01",
+    "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+    "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01",
+    "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01",
+    "SIX-HUB-SEO-GEO-PACKAGE-PLANNING-MATRIX-01"
+  ],
+  "dependency_rules": {
+    "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01": [],
+    "SIX-HUB-SEO-GEO-PACKAGE-READINESS-PACKET-01": [
+      "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01"
+    ],
+    "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01": [
+      "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01"
+    ],
+    "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01": [
+      "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01"
+    ],
+    "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01": [
+      "SIX-HUB-SEO-GEO-PACKAGE-READINESS-PACKET-01",
+      "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+      "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01"
+    ],
+    "SIX-HUB-SEO-GEO-PACKAGE-PLANNING-MATRIX-01": [
+      "SIX-HUB-SEO-GEO-PACKAGE-READINESS-PACKET-01",
+      "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+      "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01",
+      "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01"
+    ]
+  },
+  "negative_guarantees": {
+    "cms_dry_run_performed": false,
+    "cms_write_performed": false,
+    "cms_publish_performed": false,
+    "runtime_code_changed": false,
+    "frontend_public_copy_changed": false,
+    "backend_api_changed": false,
+    "search_submission_performed": false,
+    "provider_call_performed": false,
+    "deployment_triggered": false,
+    "sitemap_or_llms_or_schema_mutated": false,
+    "private_attempt_or_result_accessed": false,
+    "attempt_created": false,
+    "answers_submitted": false,
+    "payment_or_order_mutated": false,
+    "publishable_content_body_generated": false
+  }
+}
