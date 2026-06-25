@@ -151,7 +151,7 @@ describe("Six Hub paid-unlock frontend consumer guard", () => {
     expect(train).toContain("id: SIX-HUB-PAID-UNLOCK-FRONTEND-CONSUMER-GUARD-01");
     expect(train).not.toContain("id: SIX-HUB-PAID-UNLOCK-COPY-RUNTIME-QA-READONLY-01");
     expect(asRecord(pr).status).toEqual(
-      expect.stringMatching(/^(pending_dependency|in_progress|local_checks_passed_ready_to_push|pr_open_pending_github_checks|ready_to_merge|merged_reconciled_post_merge_cleanup_complete)$/)
+      expect.stringMatching(/^(pending_dependency|in_progress|local_checks_passed_ready_to_push|pr_opened_checks_pending|pr_open_pending_github_checks|ci_fix_in_progress|ci_fix_pushed|ready_to_merge|merged_reconciled_post_merge_cleanup_complete)$/)
     );
   });
 

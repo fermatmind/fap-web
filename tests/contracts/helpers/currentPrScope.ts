@@ -2958,6 +2958,7 @@ const SIX_HUB_PAID_UNLOCK_FRONTEND_CONSUMER_GUARD_01_ALLOWED_FILES = new Set([
   "lib/rollout/scaleRollout.ts",
   "lib/i18n/dict/en.json",
   "lib/i18n/dict/zh.json",
+  "tests/contracts/six-hub-paid-unlock-copy-authority-contract.contract.test.ts",
   "tests/contracts/six-hub-paid-unlock-frontend-consumer-guard.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
   "docs/codex/pr-train.yaml",
