@@ -31182,6 +31182,11 @@
           "at": "2026-06-25T18:19:00+08:00",
           "status": "pr_open_pending_github_checks",
           "summary": "Opened PR #1449 at https://github.com/fermatmind/fap-web/pull/1449 from commit 822b962ebf62399b7603407cb9a5d8cbbfea63e4. Required GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-25T18:28:00+08:00",
+          "status": "ci_fix_pushed",
+          "summary": "Remote contracts failed because the PR merge checkout lacked origin/main for the new scope-diff assertion. Updated the PR1 contract harness to fall back through safe git diff commands and then the ledger changed_files list; local focused contract, typecheck, full contract suite, JSON parse, and diff check passed before pushing the fix."
         }
       ],
       "sidecar_issues": []

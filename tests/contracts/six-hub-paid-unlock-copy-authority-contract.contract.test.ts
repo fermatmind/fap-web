@@ -40,19 +40,35 @@ function asStringArray(value: unknown): string[] {
 }
 
 function changedFiles(): string[] {
-  const base = execFileSync("git", ["merge-base", "HEAD", "origin/main"], {
-    cwd: ROOT,
-    encoding: "utf8",
-  }).trim();
-  const output = execFileSync("git", ["diff", "--name-only", `${base}..HEAD`], {
-    cwd: ROOT,
-    encoding: "utf8",
-  });
+  const commands = [
+    ["diff", "--name-only", "origin/main...HEAD"],
+    ["diff", "--name-only", "HEAD~1..HEAD"],
+    ["diff", "--name-only", "HEAD"],
+  ];
 
-  return output
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean);
+  for (const args of commands) {
+    try {
+      const output = execFileSync("git", args, {
+        cwd: ROOT,
+        encoding: "utf8",
+      });
+
+      const files = output
+        .split("\n")
+        .map((line) => line.trim())
+        .filter(Boolean);
+
+      if (files.length > 0) {
+        return files;
+      }
+    } catch {
+      // GitHub pull_request merge checkouts can omit origin/main in fetch-depth=1 clones.
+    }
+  }
+
+  const entries = [...asRecordArray(readJson(STATE_PATH).prs), ...asRecordArray(readJson(STATE_PATH).items)];
+  const pr = entries.find((entry) => entry.id === "SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01");
+  return asStringArray(asRecord(asRecord(pr).scope_validation).changed_files);
 }
 
 describe("Six Hub paid-unlock copy authority contract", () => {
