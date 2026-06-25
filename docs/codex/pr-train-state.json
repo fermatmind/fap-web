@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-25T13:20:00+08:00",
+  "updated_at": "2026-06-25T13:40:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -24817,7 +24817,7 @@
       "depends_on": [
         "SIX-HUB-SEO-GEO-PACKAGE-COMMON-CONTRACT-01"
       ],
-      "status": "pr_open_pending_github_checks",
+      "status": "local_checks_passed_ready_to_push",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1429",
       "commit_sha": "32df7089ae1b7be511922172e11f79d993c22c93",
       "merge_sha": null,
@@ -24841,19 +24841,28 @@
           ],
           "results": {
             "json_parse": "passed",
-            "focused_vitest": "passed_5_tests_after_rebase",
-            "typecheck": "passed_after_rebase",
-            "contract_suite": "passed_579_files_3406_tests_after_rebase",
+            "focused_vitest": "passed_5_tests_after_ci_status_guard_fix",
+            "typecheck": "passed_after_ci_status_guard_fix",
+            "contract_suite": "passed_579_files_3406_tests_after_ci_status_guard_fix",
             "diff_check": "passed",
-            "changed_file_scope_validation": "passed_4_allowed_files_only_after_rebase",
+            "changed_file_scope_validation": "passed_2_allowed_files_only_after_ci_status_guard_fix",
             "build": "not_run_by_goal_boundary"
           }
         },
         "github": {
-          "status": "pending"
+          "status": "failed_repair_pending_rerun",
+          "results": {
+            "build": "passed",
+            "contracts": "failed_run_28141973578_job_83341052773",
+            "verify_big5_contract_freeze": "passed",
+            "verify_enneagram_contract_freeze": "passed",
+            "codeql": "passed",
+            "analyze_javascript_typescript": "passed"
+          },
+          "failure_summary": "GitHub contracts failed once after PR open. The PR2-scoped failure was the readiness packet contract status guard not allowing pr_open_pending_github_checks. A separate detail-ready-1046 llms-full cache/stale-cache failure was not introduced by PR2 and did not reproduce in local full pnpm test:contract runs."
         }
       },
-      "failure_reason": null,
+      "failure_reason": "GitHub contracts failed once after PR open; scoped PR2 status guard fixed locally and rerun is pending. Separate detail-ready-1046 llms-full cache/stale-cache failure is recorded as a sidecar issue because it was outside PR2 scope and did not reproduce locally.",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -24900,9 +24909,29 @@
           "at": "2026-06-25T13:20:00+08:00",
           "status": "pr_open_pending_github_checks",
           "summary": "Opened PR #1429 from codex/six-hub-seo-geo-package-readiness-packet-01 after required local checks and changed-file scope validation passed. Remote GitHub checks pending."
+        },
+        {
+          "at": "2026-06-25T13:32:00+08:00",
+          "status": "github_checks_failed_ci_fix_in_progress",
+          "summary": "GitHub contracts failed once on PR #1429. The PR2-scoped failure was the readiness packet contract status guard not allowing pr_open_pending_github_checks. The concurrent detail-ready-1046 llms-full cache/stale-cache failure was outside PR2 scope and had not reproduced in local full contract runs."
+        },
+        {
+          "at": "2026-06-25T13:40:00+08:00",
+          "status": "local_checks_passed_ready_to_push",
+          "summary": "Fixed the PR2 contract status guard to allow the open-PR pending-checks ledger state. Revalidation passed before push: JSON parse, focused vitest 5 tests, pnpm typecheck, pnpm test:contract 579 files / 3406 tests, git diff --check, and changed-file scope validation for 2 allowed files. pnpm build remains intentionally not run per goal boundary."
         }
       ],
-      "sidecar_issues": []
+      "sidecar_issues": [
+        {
+          "title": "detail-ready-1046 llms-full cache source header mismatch in GitHub contracts",
+          "severity": "ci_flaky_or_environmental",
+          "scope_impact": "Remote contracts job expected X-FermatMind-LLMS-Full-Source cache but received stale-cache in tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts.",
+          "introduced_by_current_pr": false,
+          "recommended_future_phase": "Open a separate scoped CI/build fix PR only if the failure reproduces after rerun or blocks merge again.",
+          "blocks_merge": true,
+          "evidence": "GitHub run 28141973578 job 83341052773 failed this unrelated test while local pnpm test:contract passed twice after rebase before the PR2 status-guard fix."
+        }
+      ]
     },
     {
       "id": "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
