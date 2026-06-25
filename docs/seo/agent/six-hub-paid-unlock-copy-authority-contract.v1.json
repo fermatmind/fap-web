@@ -1,0 +1,136 @@
+{
+  "schema_version": "fermatmind.six_hub_paid_unlock_copy_authority_contract.v1",
+  "task_id": "SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01",
+  "verdict": "READY_FOR_FRONTEND_CONSUMER_GUARD",
+  "run_mode": "docs_contracts_only",
+  "producing_agent": "seo_geo_control",
+  "collaborating_agents": [
+    "assessment_hub",
+    "claim_privacy_safety_gate",
+    "runtime_qa"
+  ],
+  "affected_scales": [
+    "BIG5_OCEAN",
+    "RIASEC",
+    "EQ_60",
+    "ENNEAGRAM"
+  ],
+  "affected_locales": [
+    "en",
+    "zh"
+  ],
+  "affected_url_count": 8,
+  "backend_authority_predicates": {
+    "paywall_mode": "free_only",
+    "commercial.price_tier": "FREE",
+    "report_unlock_sku": null,
+    "upgrade_sku": null,
+    "upgrade_sku_anchor": null,
+    "offers": []
+  },
+  "optional_backend_authority_predicates": {
+    "free_full_report_mode": true,
+    "paywall_suppressed": true,
+    "commercial_state": "disabled_by_free_full_report_mode"
+  },
+  "forbidden_public_hub_copy_families": [
+    "Only the free report preview is available right now.",
+    "Paid unlock is temporarily disabled.",
+    "当前仅开放免费报告预览",
+    "付费解锁暂未开放",
+    "free preview only",
+    "preview-only report",
+    "paid unlock later",
+    "full report locked",
+    "upgrade required for full report",
+    "pay to see full result"
+  ],
+  "allowed_copy_direction": [
+    "full result/report available after completion when backend authority supports it",
+    "neutral availability state",
+    "method boundary",
+    "no hidden paywall implication",
+    "no final CMS copy in this contract"
+  ],
+  "disallowed_copy_direction": [
+    "paid unlock disabled",
+    "preview-only",
+    "future paid unlock",
+    "paid upgrade implication"
+  ],
+  "claim_boundaries": {
+    "BIG5_OCEAN": [
+      "no diagnosis",
+      "no hiring claim",
+      "no salary claim",
+      "no fixed identity claim",
+      "no official 32-type claim"
+    ],
+    "RIASEC": [
+      "examples only",
+      "no ability claim",
+      "no admission claim",
+      "no hiring claim",
+      "no salary claim",
+      "no deterministic career recommendation"
+    ],
+    "EQ_60": [
+      "non-clinical",
+      "no relationship guarantee",
+      "no employment guarantee",
+      "no life-outcome guarantee"
+    ],
+    "ENNEAGRAM": [
+      "no final fixed type certainty",
+      "no clinical claim",
+      "no relationship verdict"
+    ]
+  },
+  "source_classifications": [
+    "backend_lookup_authority",
+    "fap_web_consumer_guard",
+    "frontend_local_copy_risk",
+    "cms_not_source",
+    "backend_marker_missing",
+    "unknown"
+  ],
+  "readiness_statuses": [
+    "READY_FOR_FRONTEND_CONSUMER_GUARD",
+    "NEEDS_BACKEND_MARKER_FIRST",
+    "NEEDS_CMS_COPY_FIX",
+    "BLOCKED_PRIVATE_LEAK",
+    "HOLD_DEPLOY_RUNTIME_QA"
+  ],
+  "hard_hold": [
+    "no CMS",
+    "no publish",
+    "no search submission",
+    "no provider calls",
+    "no deploy",
+    "no runtime QA before deploy",
+    "no sitemap/llms/schema/hreflang/canonical/noindex mutation",
+    "no private data",
+    "no attempt creation",
+    "no answer submission",
+    "no payment/order/benefit mutation"
+  ],
+  "negative_guarantees": {
+    "cms_write_performed": false,
+    "publish_performed": false,
+    "search_submission_performed": false,
+    "provider_call_performed": false,
+    "deployment_triggered": false,
+    "runtime_qa_performed": false,
+    "sitemap_or_llms_or_schema_mutated": false,
+    "hreflang_canonical_noindex_mutated": false,
+    "private_data_accessed": false,
+    "attempt_created": false,
+    "answer_submitted": false,
+    "payment_order_benefit_mutated": false,
+    "fap_api_modified": false,
+    "result_pages_modified": false,
+    "take_submission_modified": false
+  },
+  "next_authorized_task": "SIX-HUB-PAID-UNLOCK-FRONTEND-CONSUMER-GUARD-01",
+  "held_future_task": "SIX-HUB-PAID-UNLOCK-COPY-RUNTIME-QA-READONLY-01"
+}
