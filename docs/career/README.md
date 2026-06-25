@@ -8,6 +8,27 @@ runtime authority, and discoverability behavior. It consolidates the current
 how backend authority, frontend rendering, sitemap, `llms.txt`, and
 `llms-full.txt` fit together.
 
+## Career Content Agent Closeout
+
+The 1046-career content agent mainline is now closed out for production
+operation. The generation, launch, QA, post-import safety, state bookkeeping, and
+artifact-root persistence evidence is summarized in:
+
+- `docs/career/career-content-agent-technical-summary-2026-06-25.md`
+- `generated/fermatmind-content-agent-state/`
+- `generated/career-content-artifact-root-persistence-qa/`
+
+Current technical verdict:
+
+- career block generation and page assembly: complete;
+- production import and post-import live QA/SEO safety: complete;
+- baseline artifact registry and persistent artifact root restore: complete;
+- SEO/GEO query intent and adjacent/internal-link graph work: enhancement
+  lanes only, candidate-first, not runtime authority.
+
+Future scans should start from the technical summary above before proposing new
+career content-agent tasks.
+
 ## Current Production Shape
 
 - Public Career detail cohort: 1046 canonical career slugs.
@@ -174,4 +195,3 @@ For read-only Career discoverability smoke, verify:
 add a read-only SEO Ops / SEO Intel bridge that labels runtime-published Career
 URL Truth separately from legacy CMS Career jobs scope. This is not a fap-web
 rendering bug.
-
