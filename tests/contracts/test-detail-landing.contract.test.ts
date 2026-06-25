@@ -26,6 +26,12 @@ describe("test detail landing contract", () => {
     expect(source).toContain("cmsLandingSurfaceContent.methodologyBoundaryNote");
     expect(source).toContain("toStringValue(langNode.disclaimer)");
     expect(source).toContain("|| flagshipFreeTestCopy?.freeBoundary");
+    expect(source).toContain("const cmsPrimaryCtaLabel = cmsLandingSurfaceContent.primaryCtaLabel;");
+    expect(source).toContain("primaryCtaLabelOverride?: string | null;");
+    expect(source).toContain("primaryCtaLabelOverride: cmsPrimaryCtaLabel");
+    expect(source).toContain("const override = toStringValue(primaryCtaLabelOverride);");
+    expect(source).toContain("return override;");
+    expect(source).toContain("{cmsPrimaryCtaLabel || getFreeTestStartLabel({");
     expect(source).toContain("{disclaimer ? (");
     expect(source).toContain("{disclaimer}");
     expect(source).toContain('data-testid="test-detail-landing-cta"');
