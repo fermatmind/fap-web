@@ -153,6 +153,45 @@ function createOwnerRawScoreOnlyReportData(): ReportResponse {
   } as unknown as ReportResponse;
 }
 
+function createNestedOwnerRawScoreOnlyReportData(): ReportResponse {
+  const reportData = createOwnerRawScoreOnlyReportData() as unknown as Record<string, unknown>;
+
+  return {
+    ok: true,
+    locked: false,
+    variant: "full",
+    quality: reportData.quality,
+    stability: reportData.stability,
+    dimensions: reportData.dimensions,
+    report: {
+      scale_code: "IQ_INTELLIGENCE_QUOTIENT",
+      summary: {
+        raw_score: 5,
+        question_count: 30,
+        iq_estimate: null,
+        percentile: null,
+        confidence_interval: null,
+        score_claim_level: "raw_score_only",
+        claim_warnings: ["no_norm_table"],
+        claim_policy: {
+          claim_eligible: false,
+          score_claim_level: "raw_score_only",
+        },
+      },
+      scoring: {
+        raw_score: 5,
+        question_count: 30,
+        score_claim_level: "raw_score_only",
+        claim_warnings: ["no_norm_table"],
+        claim_policy: {
+          claim_eligible: false,
+          score_claim_level: "raw_score_only",
+        },
+      },
+    },
+  } as unknown as ReportResponse;
+}
+
 describe("IQ result renderer contract", () => {
   it("renders the canonical IQ title, summary metrics, and three dimension cards without exposing the legacy alias", () => {
     render(
@@ -212,11 +251,11 @@ describe("IQ result renderer contract", () => {
     );
 
     expect(screen.getByTestId("iq-raw-score-claim")).toHaveTextContent("30题推理得分：24/30");
-    expect(screen.queryByText("IQ 估计值")).not.toBeInTheDocument();
+    expect(screen.queryByText(/IQ 估计值/)).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-iq-estimate-value")).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-iq-estimate-unavailable")).not.toBeInTheDocument();
-    expect(screen.queryByText("百分位")).not.toBeInTheDocument();
-    expect(screen.queryByText("置信区间")).not.toBeInTheDocument();
+    expect(screen.queryByText(/百分位/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/置信区间/)).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-percentile")).not.toBeInTheDocument();
     expect(screen.queryByTestId("iq-confidence-interval")).not.toBeInTheDocument();
     expect(screen.getByTestId("iq-raw-score")).toHaveTextContent("24");
@@ -225,6 +264,25 @@ describe("IQ result renderer contract", () => {
     expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("原始分");
     expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("8");
     expect(screen.getByTestId("iq-dimension-card-vsi")).not.toHaveTextContent("82%");
+  });
+
+  it("renders owner 30 raw score from nested production report summary", () => {
+    render(
+      <IqResultShell
+        locale="zh"
+        reportData={createNestedOwnerRawScoreOnlyReportData()}
+        resultData={null}
+        accessView={createAccessView()}
+      />
+    );
+
+    expect(screen.getByTestId("iq-raw-score-claim")).toHaveTextContent("30题推理得分：5/30");
+    expect(screen.getByTestId("iq-raw-score")).toHaveTextContent("5");
+    expect(screen.queryByText(/IQ 估计值/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/百分位/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/置信区间/)).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-percentile")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-confidence-interval")).not.toBeInTheDocument();
   });
 
   it("renders a neutral locked message without showing payment CTA or offers", () => {
