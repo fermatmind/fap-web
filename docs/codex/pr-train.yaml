@@ -10212,7 +10212,7 @@ prs:
     mode: audit
     train_scope: pr_fdn_seo_01_readiness
     risk_level: read_only_foundation_seo_readiness
-    status: in_progress
+    status: merged_cleanup_complete
     title: "PR-FDN-SEO-01-READINESS: Foundation Daily Giving SEO readiness"
     goal: "Record read-only readiness for a guarded Foundation Daily Giving SEO/schema/llms implementation, without adding JSON-LD, discoverability exposure, CMS mutation, deploy, Search Channel action, URL submission, external API calls, frontend fallback content, or env/DNS/nginx edits."
     in_scope:
@@ -10270,7 +10270,7 @@ prs:
     mode: implementation
     train_scope: pr_fdn_seo_01_implementation
     risk_level: guarded_foundation_seo_schema_llms
-    status: in_progress
+    status: local_checks_passed_ready_to_push
     title: "PR-FDN-SEO-01-IMPLEMENTATION: Foundation Daily Giving SEO/schema/llms integration"
     goal: "Add guarded Foundation Daily Giving SEO/schema/llms integration sourced from backend public API authority, without frontend fallback content, CMS mutation, deploy, Search Channel action, URL submission, external API calls, env/DNS/nginx edits, or unconditional discoverability exposure."
     in_scope:
@@ -17485,7 +17485,7 @@ prs:
       - RIASEC-CAREER-GRAPH-BRIDGE-COMMON-CONTRACT-01
     mode: execute
     train_scope: riasec_career_graph_source_authority_packet
-    status: pending_dependency
+    status: in_progress
     goal: "Map RIASEC public projection authority, one-flagship/two-form evidence, backend source refs, and Career Graph evidence sources using fap-api as read-only authority."
     artifacts:
       - docs/career-graph/riasec-career-graph-source-authority-packet-2026-06-23.md
@@ -18821,7 +18821,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: six_hub_paid_unlock_copy_authority_contract
-    status: in_progress
+    status: merged_cleanup_complete
     goal: "Create the docs/contracts authority contract for suppressing paid-unlock disabled copy on public assessment Hub pages when backend public commercial authority proves free-only, FREE, no SKU, and no offers."
     artifacts:
       - docs/seo/agent/six-hub-paid-unlock-copy-authority-contract-2026-06-25.md
@@ -18866,7 +18866,7 @@ prs:
       - SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01
     mode: execute
     train_scope: six_hub_paid_unlock_frontend_consumer_guard
-    status: pending_dependency
+    status: in_progress
     goal: "Implement the fap-web frontend consumer guard so public Hub pages no longer render paid-unlock disabled copy when backend public lookup proves free-only, FREE, no SKU, and no offers."
     artifacts:
       - app/(localized)/[locale]/tests/[slug]/page.tsx

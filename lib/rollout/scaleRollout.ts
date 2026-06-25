@@ -77,6 +77,16 @@ export type ScaleRolloutDecision = {
   reasons: string[];
 };
 
+export type FreeFullReportCommercialAuthorityInput = {
+  capabilities?: Record<string, unknown> | null;
+  commercial?: Record<string, unknown> | null;
+  price_tier?: unknown;
+  report_unlock_sku?: unknown;
+  upgrade_sku?: unknown;
+  upgrade_sku_anchor?: unknown;
+  offers?: unknown;
+};
+
 export type ProductPriorityEnvSnapshot = {
   mbtiPriorityMode: boolean;
   articlesEnabled: boolean;
@@ -138,6 +148,39 @@ function resolvePaywallMode(capabilities: Record<string, unknown> | null | undef
     return normalized;
   }
   return "full";
+}
+
+function readCommercialAuthorityField(
+  input: FreeFullReportCommercialAuthorityInput | null | undefined,
+  key: "price_tier" | "report_unlock_sku" | "upgrade_sku" | "upgrade_sku_anchor" | "offers"
+): unknown {
+  const node = toRecord(input);
+  const commercial = toRecord(node.commercial);
+  return commercial[key] ?? node[key];
+}
+
+function isBlankCommercialValue(value: unknown): boolean {
+  return value === null || value === undefined || String(value).trim().length === 0;
+}
+
+function hasNoCommercialOffers(value: unknown): boolean {
+  return value === null || value === undefined || (Array.isArray(value) && value.length === 0);
+}
+
+export function hasFreeFullReportCommercialAuthority(
+  input: FreeFullReportCommercialAuthorityInput | null | undefined
+): boolean {
+  const paywallMode = resolvePaywallMode(toRecord(input).capabilities as Record<string, unknown> | null | undefined);
+  const priceTier = String(readCommercialAuthorityField(input, "price_tier") ?? "").trim().toUpperCase();
+
+  return (
+    paywallMode === "free_only" &&
+    priceTier === "FREE" &&
+    isBlankCommercialValue(readCommercialAuthorityField(input, "report_unlock_sku")) &&
+    isBlankCommercialValue(readCommercialAuthorityField(input, "upgrade_sku")) &&
+    isBlankCommercialValue(readCommercialAuthorityField(input, "upgrade_sku_anchor")) &&
+    hasNoCommercialOffers(readCommercialAuthorityField(input, "offers"))
+  );
 }
 
 function hashToBucket(input: string): number {

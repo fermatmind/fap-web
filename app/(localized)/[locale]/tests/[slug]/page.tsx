@@ -89,6 +89,7 @@ import {
 } from "@/lib/tracking/seoCtaAttribution";
 import {
   createScaleRolloutEnvSnapshot,
+  hasFreeFullReportCommercialAuthority,
   resolveScaleRollout,
   type SupportedScaleCode,
 } from "@/lib/rollout/scaleRollout";
@@ -122,6 +123,12 @@ type LookupResponse = {
   norms_version?: string | null;
   quality_level?: string | null;
   capabilities?: Record<string, unknown> | null;
+  commercial?: Record<string, unknown> | null;
+  price_tier?: string | null;
+  report_unlock_sku?: string | null;
+  upgrade_sku?: string | null;
+  upgrade_sku_anchor?: string | null;
+  offers?: unknown;
   forms?: unknown[] | null;
   content_i18n_json?: Record<string, unknown> | null;
   report_summary_i18n_json?: Record<string, unknown> | null;
@@ -309,6 +316,12 @@ async function fetchLookup(slug: string, locale: "en" | "zh"): Promise<LookupRes
       norms_version: (payload.norms_version as string | null | undefined) ?? null,
       quality_level: (payload.quality_level as string | null | undefined) ?? null,
       capabilities: (payload.capabilities as Record<string, unknown> | null | undefined) ?? null,
+      commercial: (payload.commercial as Record<string, unknown> | null | undefined) ?? null,
+      price_tier: (payload.price_tier as string | null | undefined) ?? null,
+      report_unlock_sku: (payload.report_unlock_sku as string | null | undefined) ?? null,
+      upgrade_sku: (payload.upgrade_sku as string | null | undefined) ?? null,
+      upgrade_sku_anchor: (payload.upgrade_sku_anchor as string | null | undefined) ?? null,
+      offers: payload.offers,
       forms: Array.isArray(payload.forms) ? payload.forms : null,
       content_i18n_json: (payload.content_i18n_json as Record<string, unknown> | null | undefined) ?? null,
       report_summary_i18n_json:
@@ -990,6 +1003,7 @@ export default async function TestLandingPage({
     identitySeed: await readRolloutIdentitySeed(),
     envSnapshot: createScaleRolloutEnvSnapshot(),
   });
+  const hasFreeFullReportAuthority = hasFreeFullReportCommercialAuthority(lookup);
   const testDisabled = !rollout.assessmentEnabled;
   const maintenanceRequested = ["1", "true", "yes"].includes(firstQueryValue(query.maintenance).toLowerCase());
   const landingAttributionParams = extractAttributionParamsFromRecord(query);
@@ -1073,6 +1087,34 @@ export default async function TestLandingPage({
     "depression-screening-test-standard-edition",
   ].includes(test.slug);
   const isFlagshipDualVariant = showsMbtiActions || showsBig5Actions || showsEnneagramActions || showsRiasecActions;
+  const defaultHowItWorksItems = hasFreeFullReportAuthority
+    ? [
+        locale === "zh"
+          ? isFlagshipDualVariant
+            ? "先在短版与长版之间选一个更适合你的入口。"
+            : "在一次完整会话中完成问卷。"
+          : isFlagshipDualVariant
+            ? "Choose the shorter or deeper version before you begin."
+            : "Complete the questionnaire in one focused sitting.",
+        locale === "zh" ? "提交后可查看完整结果报告。" : "Submit answers and review the full result report.",
+        locale === "zh"
+          ? "结果用于理解与探索，不作保证性结论。"
+          : "Use the result for reflection and exploration, not as a guarantee.",
+      ]
+    : [
+        locale === "zh"
+          ? isFlagshipDualVariant
+            ? "先在短版与长版之间选一个更适合你的入口。"
+            : "在一次完整会话中完成问卷。"
+          : isFlagshipDualVariant
+            ? "Choose the shorter or deeper version before you begin."
+            : "Complete the questionnaire in one focused sitting.",
+        locale === "zh" ? "提交后立即查看结果摘要。" : "Submit answers and review the generated summary.",
+        locale === "zh" ? "可按需解锁完整报告。" : "Optionally unlock the full report for deeper interpretation.",
+        locale === "zh"
+          ? "免费版包含摘要与核心维度；完整版解锁刻面表、深度解读与行动建议。"
+          : "Free includes summary and core domains; full unlocks facet table, deep dive, and action plan.",
+      ];
   const mergedFaq = faqItems.length > 0
     ? faqItems
     : testDetailAuthority.faq.allowed
@@ -1628,7 +1670,7 @@ export default async function TestLandingPage({
           {showsMbtiActions ? <MbtiLandingSurfaceSections surface={landingSurface} /> : null}
           {showsRiasecActions ? <RiasecLandingSurfaceSections surface={landingSurface} /> : null}
 
-          {rollout.paywallMode === "free_only" || !rollout.commerceEnabled ? (
+          {!hasFreeFullReportAuthority && (rollout.paywallMode === "free_only" || !rollout.commerceEnabled) ? (
             <Card>
               <CardHeader>
                 <CardTitle>{locale === "zh" ? "当前开放模式" : "Current availability"}</CardTitle>
@@ -1681,20 +1723,7 @@ export default async function TestLandingPage({
             <CardContent className="space-y-3 text-sm text-slate-600">
               {(howItWorksItems.length > 0
                 ? howItWorksItems
-                : [
-                    locale === "zh"
-                      ? isFlagshipDualVariant
-                        ? "先在短版与长版之间选一个更适合你的入口。"
-                        : "在一次完整会话中完成问卷。"
-                      : isFlagshipDualVariant
-                        ? "Choose the shorter or deeper version before you begin."
-                        : "Complete the questionnaire in one focused sitting.",
-                    locale === "zh" ? "提交后立即查看结果摘要。" : "Submit answers and review the generated summary.",
-                    locale === "zh" ? "可按需解锁完整报告。" : "Optionally unlock the full report for deeper interpretation.",
-                    locale === "zh"
-                      ? "免费版包含摘要与核心维度；完整版解锁刻面表、深度解读与行动建议。"
-                      : "Free includes summary and core domains; full unlocks facet table, deep dive, and action plan.",
-                  ]).map((item, index) => (
+                : defaultHowItWorksItems).map((item, index) => (
                 <p key={`${index}-${item}`}>{index + 1}. {item}</p>
               ))}
             </CardContent>
