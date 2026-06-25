@@ -31350,14 +31350,14 @@
     },
     {
       "id": "SEO-OPS-GAOKAO-V5-PACKAGE-CONTRACT-REPAIR-01",
-      "status": "local_checks_passed_ready_to_push",
+      "status": "pr_opened_checks_pending",
       "repo": "fap-web",
       "branch": "codex/seo-ops-gaokao-v5-package-contract-repair-01",
       "base": "main",
       "title": "SEO-OPS-GAOKAO-V5-PACKAGE-CONTRACT-REPAIR-01: repair gaokao v5 package contracts",
       "depends_on": [],
-      "commit_sha": null,
-      "pr_url": null,
+      "commit_sha": "4bfdee18",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1451",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -31442,6 +31442,11 @@
           "at": "2026-06-25T20:18:00+08:00",
           "status": "local_checks_passed_ready_to_push",
           "summary": "P3-A repaired package contract test, typecheck, full contract suite, JSON/YAML parse, diff check, and changed-file scope validation passed. Ready to commit and push."
+        },
+        {
+          "at": "2026-06-25T20:24:00+08:00",
+          "status": "pr_opened_checks_pending",
+          "summary": "Opened PR #1451 at https://github.com/fermatmind/fap-web/pull/1451 from commit 4bfdee18. Required GitHub checks are pending."
         }
       ],
       "sidecar_issues": []
