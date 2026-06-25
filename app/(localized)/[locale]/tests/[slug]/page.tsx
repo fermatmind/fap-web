@@ -674,15 +674,14 @@ function getFlagshipFreeTestCtaLabel({
   formCode,
   locale,
   fallback,
+  primaryCtaLabelOverride,
 }: {
   scaleCode: string | null | undefined;
   formCode: string;
   locale: "en" | "zh";
   fallback: string;
+  primaryCtaLabelOverride?: string | null;
 }): string {
-  const copy = getFlagshipFreeTestCopy(scaleCode, locale);
-  if (!copy) return fallback;
-
   const defaultFormByScaleCode: Record<string, string> = {
     MBTI: DEFAULT_MBTI_FORM_CODE,
     BIG5_OCEAN: DEFAULT_BIG5_FORM_CODE,
@@ -690,6 +689,16 @@ function getFlagshipFreeTestCtaLabel({
     RIASEC: DEFAULT_RIASEC_FORM_CODE,
   };
   const normalizedScaleCode = String(scaleCode ?? "").trim().toUpperCase();
+  if (formCode === defaultFormByScaleCode[normalizedScaleCode]) {
+    const override = toStringValue(primaryCtaLabelOverride);
+    if (override) {
+      return override;
+    }
+  }
+
+  const copy = getFlagshipFreeTestCopy(scaleCode, locale);
+  if (!copy) return fallback;
+
   if (formCode === defaultFormByScaleCode[normalizedScaleCode]) {
     return copy.primaryCtaLabel;
   }
@@ -1075,6 +1084,7 @@ export default async function TestLandingPage({
         : buildFallbackFaq(localizedTestTitle, test.time_minutes, test.questions_count, locale)
       : [];
   const continuePublicContentCta = findLandingCta(landingSurface, "continue_public_content");
+  const cmsPrimaryCtaLabel = cmsLandingSurfaceContent.primaryCtaLabel;
   const flagshipVariantChoices: FlagshipVariantChoice[] = showsMbtiActions
     ? listMbtiFormMetas().map((form) => ({
         key: form.formCode,
@@ -1086,6 +1096,7 @@ export default async function TestLandingPage({
           formCode: form.formCode,
           locale,
           fallback: getMbtiStartLabel(form.formCode, locale),
+          primaryCtaLabelOverride: cmsPrimaryCtaLabel,
         }),
         testId: `test-detail-landing-cta-${form.formCode}`,
         eventProperties: buildStartClickTrackingProps({
@@ -1104,6 +1115,7 @@ export default async function TestLandingPage({
             formCode: form.formCode,
             locale,
             fallback: getBig5StartLabel(form.formCode, locale),
+            primaryCtaLabelOverride: cmsPrimaryCtaLabel,
           }),
           testId: `test-detail-landing-cta-${form.formCode}`,
           eventProperties: buildStartClickTrackingProps({
@@ -1122,6 +1134,7 @@ export default async function TestLandingPage({
               formCode: form.formCode,
               locale,
               fallback: getEnneagramStartLabel(form.formCode, locale),
+              primaryCtaLabelOverride: cmsPrimaryCtaLabel,
             }),
             testId: `test-detail-landing-cta-${form.formCode}`,
             eventProperties: buildStartClickTrackingProps({
@@ -1140,6 +1153,7 @@ export default async function TestLandingPage({
                 formCode: form.formCode,
                 locale,
                 fallback: getRiasecStartLabel(form.formCode, locale),
+                primaryCtaLabelOverride: cmsPrimaryCtaLabel,
               }),
               testId: `test-detail-landing-cta-${form.formCode}`,
               eventProperties: buildStartClickTrackingProps({
@@ -1289,7 +1303,7 @@ export default async function TestLandingPage({
               ? "约 10 分钟，了解情绪觉察、调节、共情与人际沟通倾向。"
               : "About 10 minutes to review emotional awareness, regulation, empathy, and communication patterns.",
           href: startTestHref,
-          ctaLabel: getFreeTestStartLabel({
+          ctaLabel: cmsPrimaryCtaLabel || getFreeTestStartLabel({
             locale,
             scaleCode: test.scale_code,
             slug: test.slug,
@@ -1568,7 +1582,7 @@ export default async function TestLandingPage({
                   eventProperties={buildStartClickTrackingProps({ targetAction: "start_test" })}
                   className={buttonVariants({ size: "lg" })}
                 >
-                  {getFreeTestStartLabel({
+                  {cmsPrimaryCtaLabel || getFreeTestStartLabel({
                     locale,
                     scaleCode: test.scale_code,
                     slug: test.slug,
