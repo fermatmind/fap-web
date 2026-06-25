@@ -17,6 +17,37 @@ const readinessPath = path.join(
 );
 const statePath = path.join(repoRoot, "docs/codex/pr-train-state.json");
 
+type ReadinessRow = {
+  scale_code: string;
+  locale: string;
+  claim_risk_notes: string;
+};
+
+type RouteClaimRisk = {
+  scale_code: string;
+  locale: string;
+  readiness_claim_risk_notes: string;
+  forbidden_claims: string[];
+  safe_copy_direction: string;
+};
+
+type ScaleRiskSummary = {
+  scale_code: string;
+  highest_risk: string;
+  copy_gate_decision: string;
+  observed_backend_tiers: string[];
+  observed_backend_forms_counts: number[];
+};
+
+type TrainStatePr = {
+  id: string;
+  status: string;
+  artifacts: string[];
+  scope_validation: {
+    allowed_files: string[];
+  };
+};
+
 describe("Six Hub SEO/GEO claim copy risk packet", () => {
   const packet = JSON.parse(fs.readFileSync(packetPath, "utf8"));
   const markdown = fs.readFileSync(markdownPath, "utf8");
@@ -35,9 +66,9 @@ describe("Six Hub SEO/GEO claim copy risk packet", () => {
 
   it("keeps claim risks aligned with the readiness packet", () => {
     const readinessKeys = new Set(
-      readiness.hub_readiness.map((row: any) => `${row.scale_code}:${row.locale}:${row.claim_risk_notes}`)
+      readiness.hub_readiness.map((row: ReadinessRow) => `${row.scale_code}:${row.locale}:${row.claim_risk_notes}`)
     );
-    for (const row of packet.route_claim_risks) {
+    for (const row of packet.route_claim_risks as RouteClaimRisk[]) {
       expect(readinessKeys.has(`${row.scale_code}:${row.locale}:${row.readiness_claim_risk_notes}`)).toBe(true);
       expect(row.forbidden_claims.length).toBeGreaterThanOrEqual(3);
       expect(row.safe_copy_direction.length).toBeGreaterThan(20);
@@ -57,13 +88,16 @@ describe("Six Hub SEO/GEO claim copy risk packet", () => {
     ]);
     expect(packet.risk_counts).toMatchObject({ P1: 2, P2: 10 });
 
-    const big5 = packet.scale_risk_summary.find((row: any) => row.scale_code === "BIG5_OCEAN");
+    const big5 = (packet.scale_risk_summary as ScaleRiskSummary[]).find((row) => row.scale_code === "BIG5_OCEAN");
+    if (!big5) throw new Error("Missing BIG5_OCEAN risk summary");
     expect(big5.highest_risk).toBe("P1");
     expect(big5.copy_gate_decision).toBe("HOLD_FOR_SOURCE_AUTHORITY_RECONCILIATION_BEFORE_COPY_PACKAGE");
     expect(big5.observed_backend_tiers).toEqual(["PAID"]);
 
-    const iq = packet.scale_risk_summary.find((row: any) => row.scale_code === "IQ_RAVEN");
-    const eq = packet.scale_risk_summary.find((row: any) => row.scale_code === "EQ_60");
+    const iq = (packet.scale_risk_summary as ScaleRiskSummary[]).find((row) => row.scale_code === "IQ_RAVEN");
+    const eq = (packet.scale_risk_summary as ScaleRiskSummary[]).find((row) => row.scale_code === "EQ_60");
+    if (!iq) throw new Error("Missing IQ_RAVEN risk summary");
+    if (!eq) throw new Error("Missing EQ_60 risk summary");
     expect(iq.observed_backend_forms_counts).toEqual([0]);
     expect(eq.observed_backend_forms_counts).toEqual([0]);
   });
@@ -81,8 +115,10 @@ describe("Six Hub SEO/GEO claim copy risk packet", () => {
     expect(markdown).toContain("Task: \`SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01\`");
     expect(markdown).toContain("CLAIM_COPY_RISK_PACKET_READY_NO_RUNTIME_CHANGES");
 
-    const pr = state.prs.find((entry: any) => entry.id === "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01");
-    expect(pr).toBeTruthy();
+    const pr = (state.prs as TrainStatePr[]).find(
+      (entry) => entry.id === "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01"
+    );
+    if (!pr) throw new Error("Missing PR3 train state");
     expect([
       "pending_dependency",
       "in_progress",

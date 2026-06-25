@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-25T15:05:00+08:00",
+  "updated_at": "2026-06-25T15:30:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -24971,16 +24971,26 @@
           ],
           "results": {
             "json_parse": "passed",
-            "focused_vitest": "passed_5_tests",
-            "typecheck": "passed",
-            "contract_suite": "passed_580_files_3411_tests",
-            "diff_check": "passed",
-            "changed_file_scope_validation": "passed_4_allowed_files_only",
-            "build": "not_run_by_goal_boundary"
+            "focused_vitest": "passed_5_tests_after_lint_type_guard_fix",
+            "typecheck": "passed_after_lint_type_guard_fix",
+            "contract_suite": "passed_580_files_3411_tests_after_lint_type_guard_fix",
+            "diff_check": "passed_after_lint_type_guard_fix",
+            "changed_file_scope_validation": "passed_2_allowed_files_only_after_lint_type_guard_fix",
+            "build": "not_run_by_goal_boundary",
+            "eslint_focused": "passed_after_lint_type_guard_fix"
           }
         },
         "github": {
-          "status": "pending"
+          "status": "failed_repair_pending_rerun",
+          "results": {
+            "build": "failed_run_28143076907_job_83344320884",
+            "contracts": "pending_at_failure_inspection",
+            "verify_big5_contract_freeze": "passed",
+            "verify_enneagram_contract_freeze": "passed",
+            "codeql": "pending_at_failure_inspection",
+            "analyze_javascript_typescript": "pending_at_failure_inspection"
+          },
+          "failure_summary": "GitHub build failed during pnpm lint because the PR3 focused contract used no-explicit-any annotations. The scoped fix added explicit test-only types and undefined guards."
         }
       },
       "failure_reason": null,
@@ -25025,6 +25035,16 @@
           "at": "2026-06-25T15:05:00+08:00",
           "status": "pr_open_pending_github_checks",
           "summary": "Opened PR #1431 from codex/six-hub-seo-geo-claim-copy-risk-packet-01 after required local checks and changed-file scope validation passed. Remote GitHub checks pending."
+        },
+        {
+          "at": "2026-06-25T15:15:00+08:00",
+          "status": "github_build_failed_ci_fix_in_progress",
+          "summary": "GitHub build failed on PR #1431 during pnpm lint: tests/contracts/six-hub-seo-geo-claim-copy-risk-packet.contract.test.ts used no-explicit-any at five annotations. Failure was scoped to the PR3 contract file."
+        },
+        {
+          "at": "2026-06-25T15:30:00+08:00",
+          "status": "ci_fix_local_checks_passed_ready_to_push",
+          "summary": "Fixed PR3 contract lint by adding explicit test-only types and undefined guards. Revalidation passed: JSON parse, focused vitest 5 tests, focused eslint, pnpm typecheck, pnpm test:contract 580 files / 3411 tests, git diff --check, and changed-file scope validation for 2 allowed files. pnpm build remains intentionally not run locally per goal boundary."
         }
       ],
       "sidecar_issues": []
