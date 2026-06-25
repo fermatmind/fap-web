@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-25T17:03:00+08:00",
+  "updated_at": "2026-06-25T17:10:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -25162,9 +25162,9 @@
         "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
         "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01"
       ],
-      "status": "pr_open_pending_github_checks",
+      "status": "ready_to_merge",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1435",
-      "commit_sha": "d3366ca1265358663ae350080e93ee990dbb8f67",
+      "commit_sha": "8f76a6c890a8f343779395956b0f8d295a6e0789",
       "merge_sha": null,
       "title": "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01: docs(seo): add six hub batch sequence matrix",
       "artifacts": [
@@ -25187,7 +25187,13 @@
         "typecheck_after_rebase": "passed",
         "test_contract_after_rebase": "passed",
         "diff_check_after_rebase": "passed",
-        "changed_file_scope_validation_after_rebase": "passed"
+        "changed_file_scope_validation_after_rebase": "passed",
+        "github_build": "passed",
+        "github_contracts": "passed",
+        "github_codeql_analyze": "passed",
+        "github_codeql": "passed",
+        "github_verify_big5_contract_freeze": "passed",
+        "github_verify_enneagram_contract_freeze": "passed"
       },
       "failure_reason": null,
       "merged_at": null,
@@ -25236,6 +25242,11 @@
           "at": "2026-06-25T17:03:00+08:00",
           "status": "pr_open_pending_github_checks",
           "summary": "Opened PR #1435 from codex/six-hub-seo-geo-batch-sequence-matrix-01 after required local checks, rebase revalidation, and changed-file scope validation passed. Remote GitHub checks pending."
+        },
+        {
+          "at": "2026-06-25T17:10:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "PR #1435 GitHub checks passed and mergeStateStatus was CLEAN. Marked ready_to_merge before squash merge per train policy."
         }
       ],
       "sidecar_issues": []
