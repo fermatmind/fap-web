@@ -10270,7 +10270,7 @@ prs:
     mode: implementation
     train_scope: pr_fdn_seo_01_implementation
     risk_level: guarded_foundation_seo_schema_llms
-    status: local_checks_passed_ready_to_push
+    status: pr_opened_checks_pending
     title: "PR-FDN-SEO-01-IMPLEMENTATION: Foundation Daily Giving SEO/schema/llms integration"
     goal: "Add guarded Foundation Daily Giving SEO/schema/llms integration sourced from backend public API authority, without frontend fallback content, CMS mutation, deploy, Search Channel action, URL submission, external API calls, env/DNS/nginx edits, or unconditional discoverability exposure."
     in_scope:
