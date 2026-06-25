@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-25T10:28:00+08:00",
+  "updated_at": "2026-06-25T10:36:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -30010,9 +30010,9 @@
         "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
         "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01"
       ],
-      "status": "pr_open_pending_github_checks",
+      "status": "ready_to_merge",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1424",
-      "commit_sha": "bd3670e76e4358dc807bd3519636442468d6b199",
+      "commit_sha": "8795b70051a22a5c04ee770e4d3cf9ec07ad6ac6",
       "merge_sha": null,
       "title": "ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01: docs(assessment-hub): add source authority packet",
       "checks": {
@@ -30041,7 +30041,15 @@
           }
         },
         "github": {
-          "status": "pending"
+          "status": "passed",
+          "results": {
+            "build": "passed",
+            "contracts": "passed",
+            "verify_big5_contract_freeze": "passed",
+            "verify_enneagram_contract_freeze": "passed",
+            "codeql": "passed",
+            "analyze_javascript_typescript": "passed"
+          }
         }
       },
       "failure_reason": null,
@@ -30088,6 +30096,11 @@
           "at": "2026-06-25T10:28:00+08:00",
           "status": "pr_open_pending_github_checks",
           "summary": "Opened PR #1424 and pushed scoped PR5 docs/contracts changes; waiting for GitHub checks before merge."
+        },
+        {
+          "at": "2026-06-25T10:36:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed for PR #1424: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). Marking ready to merge before squash merge."
         }
       ],
       "sidecar_issues": []
