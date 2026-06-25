@@ -67,8 +67,9 @@ Before orchestrating a block, read:
 6. `references/staging_import_release_contract.md`
 7. `references/post_import_live_qa_contract.md`
 8. `references/runtime_leakage_prevention.md`
-9. For autonomous continuation, read `references/operator_mode.md`, `references/operator_runbook.md`, `references/operator_source_availability_policy.md`, and `references/lexical_false_positive_policy.md`.
-10. The target block skill's `SKILL.md` and required block references.
+9. `references/baseline_artifact_registry.md` before restoring, exporting, or consuming previously frozen baselines.
+10. For autonomous continuation, read `references/operator_mode.md`, `references/operator_runbook.md`, `references/operator_source_availability_policy.md`, and `references/lexical_false_positive_policy.md`.
+11. The target block skill's `SKILL.md` and required block references.
 
 Use legacy shared references as supporting material:
 
@@ -103,6 +104,8 @@ Validate them with the schemas under `schemas/` before using them to advance a g
 The scripts in `scripts/` are orchestration and validation helpers only. They must not generate content facts or import production data.
 
 - `detect_latest_baseline.py`
+- `build_baseline_artifact_registry.py`
+- `restore_baseline_preflight.py`
 - `create_next_batch_manifest.py`
 - `update_agent_state.py`
 - `validate_agent_state.py`

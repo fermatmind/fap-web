@@ -1,0 +1,90 @@
+{
+  "block": "all",
+  "cms_imported": false,
+  "content_generated": false,
+  "execute_local_restore": false,
+  "final_conclusion": "BASELINE_ARTIFACT_RESTORE_BLOCKED",
+  "generated_at": "2026-06-25T01:26:01.252301+00:00",
+  "production_imported": false,
+  "registry": "generated/career-content-baseline-artifact-registry/baseline_artifact_registry.json",
+  "report_type": "career_content_restore_preflight",
+  "results": [
+    {
+      "artifact_uri": null,
+      "baseline_directory": "generated/career-work-activities-v1-batch-1046-pass-baseline-final-repaired",
+      "block_name": "career-work-activities",
+      "recommended_action": "restore_or_regenerate_required",
+      "restore_result": {
+        "reason": "report_only",
+        "restored": false
+      },
+      "status": "MISSING_LOCAL_NO_RESTORABLE_ARTIFACT"
+    },
+    {
+      "artifact_uri": null,
+      "baseline_directory": "generated/career-identity-v1-batch-1046-pass-baseline-final-repaired",
+      "block_name": "career-identity",
+      "recommended_action": "restore_or_regenerate_required",
+      "restore_result": {
+        "reason": "report_only",
+        "restored": false
+      },
+      "status": "MISSING_LOCAL_NO_RESTORABLE_ARTIFACT"
+    },
+    {
+      "artifact_uri": null,
+      "baseline_directory": "generated/career-skills-entry-v1-batch-1046-pass-baseline-final-repaired",
+      "block_name": "career-skills-entry",
+      "recommended_action": "restore_or_regenerate_required",
+      "restore_result": {
+        "reason": "report_only",
+        "restored": false
+      },
+      "status": "MISSING_LOCAL_NO_RESTORABLE_ARTIFACT"
+    },
+    {
+      "artifact_uri": null,
+      "baseline_directory": "generated/career-fit-v1-batch-1046-pass-baseline-final-repaired",
+      "block_name": "career-fit",
+      "recommended_action": "restore_or_regenerate_required",
+      "restore_result": {
+        "reason": "report_only",
+        "restored": false
+      },
+      "status": "MISSING_LOCAL_NO_RESTORABLE_ARTIFACT"
+    },
+    {
+      "artifact_uri": null,
+      "baseline_directory": "generated/career-adjacent-comparison-v1-1046-pass-baseline-final-repaired",
+      "block_name": "career-adjacent-comparison",
+      "recommended_action": "restore_or_regenerate_required",
+      "restore_result": {
+        "reason": "report_only",
+        "restored": false
+      },
+      "status": "MISSING_LOCAL_NO_RESTORABLE_ARTIFACT"
+    },
+    {
+      "artifact_uri": null,
+      "baseline_directory": "generated/career-page-assembly-v1-1046-pass-baseline",
+      "block_name": "career-page-assembly",
+      "recommended_action": "restore_or_regenerate_required",
+      "restore_result": {
+        "reason": "report_only",
+        "restored": false
+      },
+      "status": "MISSING_LOCAL_NO_RESTORABLE_ARTIFACT"
+    }
+  ],
+  "runtime_modified": false,
+  "seo_modified": false,
+  "staging_created": false,
+  "summary": {
+    "artifact_count": 6,
+    "blocked_count": 6,
+    "final_conclusion": "BASELINE_ARTIFACT_RESTORE_BLOCKED",
+    "local_ready_count": 0,
+    "missing_local_no_restorable_artifact_count": 6,
+    "restorable_count": 0
+  }
+}

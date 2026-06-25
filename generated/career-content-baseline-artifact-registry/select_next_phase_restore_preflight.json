@@ -1,0 +1,15 @@
+{
+  "block": "career-adjacent-comparison",
+  "state_dir": "generated/fermatmind-content-agent-state",
+  "phase": "restore_preflight",
+  "action": "restore_baseline_preflight",
+  "reason": "latest_pass_baseline_files_missing",
+  "latest_baseline": {
+    "baseline_path": "generated/career-adjacent-comparison-v1-1046-pass-baseline-final-repaired",
+    "control_count": 1046,
+    "final_conclusion": "CAREER_ADJACENT_COMPARISON_1046_COMPLETE",
+    "sha256_manifest": "generated/career-adjacent-comparison-v1-1046-pass-baseline-final-repaired/baseline_sha256_manifest.json",
+    "block_version": "career_adjacent_comparison_v1"
+  },
+  "open_failure_count": 0
+}

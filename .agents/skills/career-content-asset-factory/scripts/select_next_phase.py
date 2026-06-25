@@ -34,6 +34,14 @@ def latest_baseline(state_dir: Path, block: str) -> dict | None:
     return data.get(block) or data.get(state_key(block))
 
 
+def baseline_files_missing(baseline: dict | None) -> bool:
+    if not baseline:
+        return False
+    baseline_path = baseline.get("baseline_path")
+    sha_manifest = baseline.get("sha256_manifest")
+    return not baseline_path or not Path(str(baseline_path)).is_dir() or not sha_manifest or not Path(str(sha_manifest)).is_file()
+
+
 def open_failures(state_dir: Path, block: str) -> list:
     path = state_dir / "open_failures.json"
     if not path.exists():
@@ -63,6 +71,10 @@ def main() -> int:
         action = "repair_failed_rows"
         phase = "repair"
         reason = "open_failures_present"
+    elif baseline and baseline_files_missing(baseline):
+        action = "restore_baseline_preflight"
+        phase = "restore_preflight"
+        reason = "latest_pass_baseline_files_missing"
     elif baseline:
         action = "create_next_manifest"
         phase = "manifest"

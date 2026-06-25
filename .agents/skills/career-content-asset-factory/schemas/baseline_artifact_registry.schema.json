@@ -1,0 +1,178 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Career Content Baseline Artifact Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "registry_type": {
+      "type": "string",
+      "const": "career_content_baseline_artifact_registry"
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "registry_entry_id": {
+            "type": "string"
+          },
+          "block_name": {
+            "type": "string"
+          },
+          "block_version": {
+            "type": "string"
+          },
+          "slug_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "baseline_directory": {
+            "type": "string"
+          },
+          "local_baseline_exists": {
+            "type": "boolean"
+          },
+          "sha256_manifest": {
+            "type": "string"
+          },
+          "sha256_manifest_exists": {
+            "type": "boolean"
+          },
+          "sha256_manifest_sha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "artifact_uri": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "artifact_type": {
+            "type": "string",
+            "enum": [
+              "local_path",
+              "file_uri",
+              "object_storage",
+              "github_actions_artifact",
+              "release_asset",
+              "server_path",
+              "unknown",
+              "missing"
+            ]
+          },
+          "restorable": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "LOCAL_READY",
+              "RESTORABLE_FROM_ARTIFACT",
+              "MISSING_LOCAL_NO_RESTORABLE_ARTIFACT",
+              "SHA_MANIFEST_MISSING",
+              "SHA_MANIFEST_MISMATCH"
+            ]
+          },
+          "final_conclusion": {
+            "type": "string"
+          },
+          "created_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "source_run_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "registry_entry_id",
+          "block_name",
+          "block_version",
+          "slug_count",
+          "baseline_directory",
+          "local_baseline_exists",
+          "sha256_manifest",
+          "sha256_manifest_exists",
+          "sha256_manifest_sha256",
+          "artifact_uri",
+          "artifact_type",
+          "restorable",
+          "status",
+          "final_conclusion",
+          "created_at",
+          "source_run_id",
+          "notes"
+        ]
+      }
+    },
+    "summary": {
+      "type": "object",
+      "additionalProperties": {
+        "type": [
+          "string",
+          "number",
+          "boolean",
+          "null"
+        ]
+      }
+    },
+    "runtime_modified": {
+      "type": "boolean",
+      "const": false
+    },
+    "seo_modified": {
+      "type": "boolean",
+      "const": false
+    },
+    "cms_imported": {
+      "type": "boolean",
+      "const": false
+    },
+    "staging_created": {
+      "type": "boolean",
+      "const": false
+    },
+    "production_imported": {
+      "type": "boolean",
+      "const": false
+    },
+    "content_generated": {
+      "type": "boolean",
+      "const": false
+    }
+  },
+  "required": [
+    "schema_version",
+    "generated_at",
+    "registry_type",
+    "artifacts",
+    "summary",
+    "runtime_modified",
+    "seo_modified",
+    "cms_imported",
+    "staging_created",
+    "production_imported",
+    "content_generated"
+  ]
+}

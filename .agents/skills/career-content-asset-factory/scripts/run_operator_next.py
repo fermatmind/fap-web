@@ -79,6 +79,14 @@ def baseline_validation(baseline_path: str | None) -> dict:
     return {}
 
 
+def baseline_files_missing(baseline: dict | None) -> bool:
+    if not baseline:
+        return False
+    baseline_path = baseline.get("baseline_path")
+    sha_manifest = baseline.get("sha256_manifest")
+    return not baseline_path or not Path(str(baseline_path)).is_dir() or not sha_manifest or not Path(str(sha_manifest)).is_file()
+
+
 def next_manifest_action(block: str, baseline: dict, status: dict, batch_size: int) -> dict:
     control_count = int(baseline.get("control_count") or status.get("latest_control_count") or 0)
     current_batch = int(baseline.get("batch") or status.get("latest_batch") or 0)
@@ -176,6 +184,19 @@ def build_report(state_dir: Path, block: str, dry_run: bool, batch_size: int, ma
         }
         hard_stop = True
         requires_human_approval = True
+    elif baseline_files_missing(baseline):
+        action = {
+            "action": "restore_baseline_preflight",
+            "phase": "restore_preflight",
+            "block": block,
+            "reason": "latest PASS baseline state exists but local baseline files or SHA manifest are missing",
+            "baseline_path": baseline.get("baseline_path"),
+            "sha256_manifest": baseline.get("sha256_manifest"),
+            "suggested_registry_output": "generated/career-content-baseline-artifact-registry/baseline_artifact_registry.json",
+            "suggested_preflight_output": "generated/career-content-baseline-artifact-registry/restore_preflight_report.json",
+        }
+        hard_stop = False
+        requires_human_approval = False
     elif validation and validation.get("final_conclusion") not in {None, "BATCH_001_BASELINE_FROZEN"} and "FROZEN" not in str(validation.get("final_conclusion")):
         action = {
             "action": "stop_for_human_approval",
