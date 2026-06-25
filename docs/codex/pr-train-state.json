@@ -29693,10 +29693,10 @@
       "depends_on": [
         "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01"
       ],
-      "status": "local_checks_passed_post_repair_pass_packet",
+      "status": "merged_reconciled_post_merge_cleanup_complete",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1419",
       "commit_sha": null,
-      "merge_sha": null,
+      "merge_sha": "78e218d89f2c6cb045f23e509c18c1c34be7ed07",
       "title": "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01: docs(assessment-hub): add route metadata parity packet",
       "checks": {
         "local": {
@@ -29723,13 +29723,21 @@
           }
         },
         "github": {
-          "status": "pending_after_push"
+          "status": "passed",
+          "results": {
+            "CodeQL": "passed",
+            "analyze (javascript-typescript)": "passed",
+            "build": "passed",
+            "contracts": "passed",
+            "verify-big5-contract-freeze": "passed",
+            "verify-enneagram-contract-freeze": "passed"
+          }
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-24T23:55:19Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "scope_validation": {
         "allowed_files": [
           "docs/assessment-hub/assessment-hub-six-route-metadata-parity-packet-2026-06-24.md",
@@ -29771,6 +29779,11 @@
           "at": "2026-06-25T08:05:00+08:00",
           "status": "local_checks_passed_post_repair_pass_packet",
           "summary": "Post-repair PASS packet validated locally: JSON/YAML parsing, focused vitest, typecheck, full pnpm test:contract, diff check, and changed-file scope validation passed. pnpm build intentionally not run by goal boundary."
+        },
+        {
+          "at": "2026-06-25T08:22:00+08:00",
+          "status": "merged_reconciled_post_merge_cleanup_complete",
+          "summary": "GitHub shows PR #1419 merged with squash commit 78e218d89f2c6cb045f23e509c18c1c34be7ed07; origin/main contains the merge, local main was fast-forwarded, worktrees were clean, and local/remote task branches were removed or already absent."
         }
       ],
       "sidecar_issues": []
@@ -29784,14 +29797,14 @@
       "depends_on": [
         "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01"
       ],
-      "status": "pending_dependency",
-      "pr_url": null,
-      "commit_sha": null,
+      "status": "local_checks_passed_ready_to_push",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1422",
+      "commit_sha": "08b24939526db03e16b109252c0432d51bb55406",
       "merge_sha": null,
       "title": "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01: docs(assessment-hub): add take flow CTA packet",
       "checks": {
         "local": {
-          "status": "not_started",
+          "status": "passed",
           "commands": [
             "node -e \"JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-take-flow-cta-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
             "pnpm exec vitest run tests/contracts/assessment-hub-take-flow-cta-packet.contract.test.ts",
@@ -29800,10 +29813,20 @@
             "git diff --check",
             "changed-file scope validation"
           ],
-          "results": {}
+          "results": {
+            "json_parse": "passed",
+            "focused_vitest": "passed_4_tests",
+            "typecheck": "passed",
+            "contract_suite": "passed_574_files_3383_tests",
+            "diff_check": "passed",
+            "changed_file_scope_validation": "passed_5_allowed_files_only",
+            "public_get_actual_landing_cta_recheck": "passed_22_of_22_actual_cta_hrefs",
+            "bare_take_url_transient_recheck": "passed_not_reproduced_final_6_of_6",
+            "build": "not_run_by_goal_boundary"
+          }
         },
         "github": {
-          "status": "not_started"
+          "status": "pending_after_push"
         }
       },
       "failure_reason": null,
@@ -29818,13 +29841,40 @@
           "tests/contracts/helpers/currentPrScope.ts",
           "docs/codex/pr-train-state.json"
         ],
-        "status": "pending_dependency"
+        "status": "passed",
+        "changed_files": [
+          "docs/assessment-hub/assessment-hub-take-flow-cta-packet-2026-06-24.md",
+          "docs/assessment-hub/assessment-hub-take-flow-cta-packet.v1.json",
+          "docs/codex/pr-train-state.json",
+          "tests/contracts/assessment-hub-take-flow-cta-packet.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts"
+        ]
       },
       "history": [
         {
           "at": "2026-06-25T00:37:00+08:00",
           "status": "pending_dependency",
           "summary": "Initialized authorized train entry. Waiting for ASSESSMENT-HUB-QA-COMMON-CONTRACT-01 to merge."
+        },
+        {
+          "at": "2026-06-25T08:45:00+08:00",
+          "status": "packet_generated_pending_local_validation",
+          "summary": "PR3 branch started from origin/main after PR2 merge cleanup. Added docs/contracts-only take-flow CTA packet from public GET evidence: 12 landing pages, 22 actual CTA hrefs, 22 take GET 200, 0 redirects, no POST/private/CMS/search/deploy mutation."
+        },
+        {
+          "at": "2026-06-25T08:55:00+08:00",
+          "status": "local_checks_passed_ready_to_push",
+          "summary": "JSON parse, focused contract, typecheck, full pnpm test:contract, diff check, and public GET evidence checks passed. Final changed-file scope validation pending before commit."
+        },
+        {
+          "at": "2026-06-25T08:58:00+08:00",
+          "status": "scope_validation_passed_ready_to_commit",
+          "summary": "Final changed-file scope validation passed with exactly the five authorized PR3 files."
+        },
+        {
+          "at": "2026-06-25T09:03:00+08:00",
+          "status": "pr_opened_pending_github_checks",
+          "summary": "Opened PR #1422 and recorded the PR URL. GitHub checks are pending after push."
         }
       ],
       "sidecar_issues": []
