@@ -31447,6 +31447,11 @@
           "at": "2026-06-25T20:24:00+08:00",
           "status": "pr_opened_checks_pending",
           "summary": "Opened PR #1451 at https://github.com/fermatmind/fap-web/pull/1451 from commit 4bfdee18. Required GitHub checks are pending."
+        },
+        {
+          "at": "2026-06-25T20:51:00+08:00",
+          "status": "ci_fix_pushed",
+          "summary": "GitHub contracts failed because the PR merge checkout did not have origin/main for the P3-A scope diff helper. Added a HEAD^...HEAD fallback, reran focused tests, typecheck, and full contract suite locally, all passed."
         }
       ],
       "sidecar_issues": []

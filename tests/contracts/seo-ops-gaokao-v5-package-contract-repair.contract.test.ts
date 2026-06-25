@@ -22,28 +22,51 @@ function read(relativePath: string): string {
 function changedFiles(): string[] {
   const commands = [
     ["diff", "--name-only", "origin/main...HEAD"],
+    ["diff", "--name-only", "HEAD^...HEAD"],
     ["diff", "--name-only"],
     ["diff", "--cached", "--name-only"],
   ];
 
   return Array.from(
     new Set(
-      commands.flatMap((args) =>
-        execFileSync("git", args, {
-          cwd: ROOT,
-          encoding: "utf8",
-        })
-          .split("\n")
-          .map((line) => line.trim())
-          .filter(Boolean),
-      ),
+      commands.flatMap((args) => {
+        try {
+          return execFileSync("git", args, {
+            cwd: ROOT,
+            encoding: "utf8",
+            stdio: ["ignore", "pipe", "ignore"],
+          })
+            .split("\n")
+            .map((line) => line.trim())
+            .filter(Boolean);
+        } catch {
+          return [];
+        }
+      }),
     ),
   ).sort();
 }
 
+function currentFiles(): string[] {
+  const files = changedFiles();
+
+  if (files.length > 0) {
+    return files;
+  }
+
+  return execFileSync("git", ["show", "--name-only", "--format=", "HEAD"], {
+    cwd: ROOT,
+    encoding: "utf8",
+  })
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .sort();
+}
+
 describe("SEO-OPS-GAOKAO-V5-PACKAGE-CONTRACT-REPAIR-01", () => {
   it("keeps the PR scope limited to generated package repair evidence", () => {
-    const files = changedFiles();
+    const files = currentFiles();
     expect(files.length).toBeGreaterThan(0);
     expect(files.every(isSeoOpsGaokaoV5PackageContractRepair01AllowedFile), files.join("\n")).toBe(true);
   });
