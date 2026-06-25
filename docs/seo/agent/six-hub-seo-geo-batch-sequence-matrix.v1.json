@@ -1,0 +1,414 @@
+{
+  "schema_version": "fermatmind.six_hub_seo_geo_batch_sequence_matrix.v1",
+  "task_id": "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01",
+  "generated_at": "2026-06-25T16:42:00+08:00",
+  "run_mode": "docs_contracts_only_no_runtime_mutation",
+  "verdict": "BATCH_SEQUENCE_MATRIX_READY_NO_RUNTIME_CHANGES",
+  "depends_on": [
+    "SIX-HUB-SEO-GEO-PACKAGE-READINESS-PACKET-01",
+    "SIX-HUB-SEO-GEO-CLAIM-COPY-RISK-PACKET-01",
+    "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01"
+  ],
+  "consumed_packets": [
+    "docs/seo/agent/six-hub-seo-geo-package-readiness-packet.v1.json",
+    "docs/seo/agent/six-hub-seo-geo-claim-copy-risk-packet.v1.json",
+    "docs/seo/agent/six-hub-seo-geo-aeo-internal-link-packet.v1.json"
+  ],
+  "route_count": 12,
+  "scale_count": 6,
+  "batch_counts": {
+    "batch_1_review_first_core_hubs": 3,
+    "batch_2_big5_authority_repair": 1,
+    "batch_3_iq_eq_manual_review": 2,
+    "cross_hub_support_tracks": 4
+  },
+  "batch_sequence": [
+    {
+      "batch_id": "BATCH_1_REVIEW_FIRST_CORE_HUBS",
+      "sequence_rank": 1,
+      "scales": [
+        "MBTI",
+        "RIASEC",
+        "ENNEAGRAM"
+      ],
+      "purpose": "Prepare review-first SEO/GEO/AEO architecture only for active free core hubs after claim/copy authority review.",
+      "entry_conditions": [
+        "common contract, readiness packet, claim/copy packet, and AEO/internal-link packet merged",
+        "no hard-hold scale included",
+        "copy authority review is completed before any CMS package or amplification"
+      ],
+      "exit_conditions": [
+        "visible answer blocks align with backend/CMS authority",
+        "no hidden FAQ/schema stuffing",
+        "internal links preserve existing URL sets until explicit link expansion approval"
+      ],
+      "forbidden_actions": [
+        "CMS_package_generation",
+        "CMS_write",
+        "publish",
+        "deploy",
+        "search_submission"
+      ]
+    },
+    {
+      "batch_id": "BATCH_2_BIG5_AUTHORITY_REPAIR",
+      "sequence_rank": 2,
+      "scales": [
+        "BIG5_OCEAN"
+      ],
+      "purpose": "Resolve Big Five P1 commercial field authority conflict before any package or traffic amplification.",
+      "entry_conditions": [
+        "BIG5_OCEAN remains excluded from Batch 1",
+        "source authority reconciliation lane is opened separately"
+      ],
+      "exit_conditions": [
+        "backend commercial tier and public free/full-report copy are reconciled",
+        "claim/copy risk is downgraded by a follow-up evidence packet"
+      ],
+      "forbidden_actions": [
+        "paper_over_backend_authority_with_frontend_copy",
+        "CMS_package_generation_before_repair"
+      ]
+    },
+    {
+      "batch_id": "BATCH_3_IQ_EQ_MANUAL_REVIEW",
+      "sequence_rank": 3,
+      "scales": [
+        "IQ_RAVEN",
+        "EQ_60"
+      ],
+      "purpose": "Hold IQ and EQ until form authority and manual claim review are completed.",
+      "entry_conditions": [
+        "backend form authority gap is explicitly resolved",
+        "manual review approves non-diagnostic outcome wording"
+      ],
+      "exit_conditions": [
+        "forms count and claim boundaries are evidence-backed",
+        "no score, diagnosis, school, employment, or guaranteed-improvement overclaims"
+      ],
+      "forbidden_actions": [
+        "certified_score_claims",
+        "diagnostic_claims",
+        "guaranteed_outcome_claims"
+      ]
+    },
+    {
+      "batch_id": "CROSS_HUB_SUPPORT_GUARDRAILS",
+      "sequence_rank": 4,
+      "scales": [
+        "MBTI",
+        "BIG5_OCEAN",
+        "RIASEC",
+        "ENNEAGRAM",
+        "IQ_RAVEN",
+        "EQ_60"
+      ],
+      "purpose": "Keep shared guardrails for visible FAQ/schema parity, link graph containment, analytics privacy, and indexability no-widening.",
+      "entry_conditions": [
+        "applies to all batches as a support overlay only"
+      ],
+      "exit_conditions": [
+        "no sitemap/llms/schema/hreflang/canonical/noindex mutation occurs in this train"
+      ],
+      "forbidden_actions": [
+        "runtime_mutation",
+        "private_data_access",
+        "provider_calls",
+        "deployment"
+      ]
+    }
+  ],
+  "scale_batch_matrix": [
+    {
+      "scale_code": "MBTI",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "batch_id": "BATCH_1_REVIEW_FIRST_CORE_HUBS",
+      "highest_risk": "P2",
+      "claim_copy_gate": "ALLOW_WITH_AUTHORITY_REVIEW_BEFORE_AMPLIFICATION",
+      "aeo_package_status": "REVIEW_FIRST_ARCHITECTURE_ONLY",
+      "internal_link_status": "REVIEW_BEFORE_NEW_LINK_EXPANSION",
+      "current_package_action": "REVIEW_FIRST_ARCHITECTURE_ONLY_NO_CMS_PACKAGE",
+      "entry_gate": "CLAIM_COPY_REVIEW_FIRST_BEFORE_AEO_AMPLIFICATION",
+      "exit_gate": "FREE_FULL_REPORT_AUTHORITY_REVIEW_PASSED_WITH_VISIBLE_NON_CLINICAL_BOUNDARY",
+      "can_enter_cms_package_now": false,
+      "owner_lane": "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "batch_id": "BATCH_2_BIG5_AUTHORITY_REPAIR",
+      "highest_risk": "P1",
+      "claim_copy_gate": "HOLD_FOR_SOURCE_AUTHORITY_RECONCILIATION_BEFORE_COPY_PACKAGE",
+      "aeo_package_status": "HARD_HOLD",
+      "internal_link_status": "NO_NEW_LINK_EXPANSION",
+      "current_package_action": "HOLD_FOR_COMMERCIAL_FIELD_AUTHORITY_RECONCILIATION",
+      "entry_gate": "HARD_HOLD_CLEARANCE_REQUIRED_BEFORE_PACKAGE_WORK",
+      "exit_gate": "BACKEND_COMMERCIAL_FIELD_AND_PUBLIC_FREE_FULL_REPORT_COPY_RECONCILED",
+      "can_enter_cms_package_now": false,
+      "owner_lane": "BIG5-HUB-COMMERCIAL-FIELD-AUTHORITY-FIX-SCAN-01_AFTER_PACKAGE_TRAIN"
+    },
+    {
+      "scale_code": "RIASEC",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "batch_id": "BATCH_1_REVIEW_FIRST_CORE_HUBS",
+      "highest_risk": "P2",
+      "claim_copy_gate": "ALLOW_ONLY_IF_PAID_UNLOCK_COPY_IS_EXAMPLE_BOUNDARY_NOT_PAYWALL_PROMISE",
+      "aeo_package_status": "REVIEW_FIRST_ARCHITECTURE_ONLY",
+      "internal_link_status": "REVIEW_BEFORE_NEW_LINK_EXPANSION",
+      "current_package_action": "REVIEW_FIRST_ARCHITECTURE_ONLY_NO_CMS_PACKAGE",
+      "entry_gate": "CLAIM_COPY_REVIEW_FIRST_BEFORE_AEO_AMPLIFICATION",
+      "exit_gate": "PAID_UNLOCK_EXAMPLES_ONLY_BOUNDARY_REVIEW_PASSED_WITH_NO_OUTCOME_GUARANTEE",
+      "can_enter_cms_package_now": false,
+      "owner_lane": "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "batch_id": "BATCH_1_REVIEW_FIRST_CORE_HUBS",
+      "highest_risk": "P2",
+      "claim_copy_gate": "ALLOW_ONLY_WITH_NON_DIAGNOSTIC_TYPE_PROBABILITY_BOUNDARY",
+      "aeo_package_status": "REVIEW_FIRST_ARCHITECTURE_ONLY",
+      "internal_link_status": "REVIEW_BEFORE_NEW_LINK_EXPANSION",
+      "current_package_action": "REVIEW_FIRST_ARCHITECTURE_ONLY_NO_CMS_PACKAGE",
+      "entry_gate": "CLAIM_COPY_REVIEW_FIRST_BEFORE_AEO_AMPLIFICATION",
+      "exit_gate": "NON_DIAGNOSTIC_TYPE_PROBABILITY_BOUNDARY_REVIEW_PASSED",
+      "can_enter_cms_package_now": false,
+      "owner_lane": "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "batch_id": "BATCH_3_IQ_EQ_MANUAL_REVIEW",
+      "highest_risk": "P2",
+      "claim_copy_gate": "HOLD_CLAIM_COPY_FIX_FOR_MANUAL_REVIEW_AND_FORM_AUTHORITY",
+      "aeo_package_status": "HARD_HOLD",
+      "internal_link_status": "NO_NEW_LINK_EXPANSION",
+      "current_package_action": "HOLD_FOR_FORM_AUTHORITY_AND_MANUAL_CLAIM_REVIEW",
+      "entry_gate": "HARD_HOLD_CLEARANCE_REQUIRED_BEFORE_PACKAGE_WORK",
+      "exit_gate": "FORM_AUTHORITY_PRESENT_AND_IQ_MANUAL_REVIEW_BOUNDARY_APPROVED",
+      "can_enter_cms_package_now": false,
+      "owner_lane": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN"
+    },
+    {
+      "scale_code": "EQ_60",
+      "locales": [
+        "en",
+        "zh"
+      ],
+      "batch_id": "BATCH_3_IQ_EQ_MANUAL_REVIEW",
+      "highest_risk": "P2",
+      "claim_copy_gate": "HOLD_CLAIM_COPY_FIX_FOR_FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "aeo_package_status": "HARD_HOLD",
+      "internal_link_status": "NO_NEW_LINK_EXPANSION",
+      "current_package_action": "HOLD_FOR_FORM_AUTHORITY_AND_MANUAL_CLAIM_REVIEW",
+      "entry_gate": "HARD_HOLD_CLEARANCE_REQUIRED_BEFORE_PACKAGE_WORK",
+      "exit_gate": "FORM_AUTHORITY_PRESENT_AND_EQ_OUTCOME_CLAIM_BOUNDARY_APPROVED",
+      "can_enter_cms_package_now": false,
+      "owner_lane": "IQ-EQ-HUB-CLAIM-MANUAL-REVIEW-PACKET-01_AFTER_PACKAGE_TRAIN"
+    }
+  ],
+  "route_batch_matrix": [
+    {
+      "scale_code": "MBTI",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types",
+      "batch_id": "BATCH_1_REVIEW_FIRST_CORE_HUBS",
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "claim_risk_notes": "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW",
+      "aeo_answer_block_decision": "REVIEW_FIRST_ALLOWED_ONLY_AS_ARCHITECTURE_PACKET",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_REVIEW_BEFORE_NEW_AEO_LINKING",
+      "package_action": "REVIEW_FIRST_ARCHITECTURE_ONLY_NO_CMS_PACKAGE",
+      "exit_gate": "FREE_FULL_REPORT_AUTHORITY_REVIEW_PASSED_WITH_VISIBLE_NON_CLINICAL_BOUNDARY"
+    },
+    {
+      "scale_code": "MBTI",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "batch_id": "BATCH_1_REVIEW_FIRST_CORE_HUBS",
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "claim_risk_notes": "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW",
+      "aeo_answer_block_decision": "REVIEW_FIRST_ALLOWED_ONLY_AS_ARCHITECTURE_PACKET",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_REVIEW_BEFORE_NEW_AEO_LINKING",
+      "package_action": "REVIEW_FIRST_ARCHITECTURE_ONLY_NO_CMS_PACKAGE",
+      "exit_gate": "FREE_FULL_REPORT_AUTHORITY_REVIEW_PASSED_WITH_VISIBLE_NON_CLINICAL_BOUNDARY"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/big-five-personality-test-ocean-model",
+      "batch_id": "BATCH_2_BIG5_AUTHORITY_REPAIR",
+      "readiness_verdict": "NEEDS_SOURCE_AUTHORITY_RECONCILIATION",
+      "claim_risk_notes": "P1_COMMERCIAL_FIELD_AUTHORITY_CONFLICT_PLUS_P2_PAID_UNLOCK_COPY",
+      "aeo_answer_block_decision": "HARD_HOLD_NO_AEO_PACKAGE_UNTIL_CLAIM_COPY_REPAIR",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_NO_NEW_INTERNAL_LINK_EXPANSION",
+      "package_action": "HOLD_FOR_COMMERCIAL_FIELD_AUTHORITY_RECONCILIATION",
+      "exit_gate": "BACKEND_COMMERCIAL_FIELD_AND_PUBLIC_FREE_FULL_REPORT_COPY_RECONCILED"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/big-five-personality-test-ocean-model",
+      "batch_id": "BATCH_2_BIG5_AUTHORITY_REPAIR",
+      "readiness_verdict": "NEEDS_SOURCE_AUTHORITY_RECONCILIATION",
+      "claim_risk_notes": "P1_COMMERCIAL_FIELD_AUTHORITY_CONFLICT_PLUS_P2_PAID_UNLOCK_COPY",
+      "aeo_answer_block_decision": "HARD_HOLD_NO_AEO_PACKAGE_UNTIL_CLAIM_COPY_REPAIR",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_NO_NEW_INTERNAL_LINK_EXPANSION",
+      "package_action": "HOLD_FOR_COMMERCIAL_FIELD_AUTHORITY_RECONCILIATION",
+      "exit_gate": "BACKEND_COMMERCIAL_FIELD_AND_PUBLIC_FREE_FULL_REPORT_COPY_RECONCILED"
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/holland-career-interest-test-riasec",
+      "batch_id": "BATCH_1_REVIEW_FIRST_CORE_HUBS",
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "claim_risk_notes": "P2_FULL_RESULT_AND_PAID_UNLOCK_COPY_WITH_EXAMPLES_ONLY_BOUNDARY",
+      "aeo_answer_block_decision": "REVIEW_FIRST_ALLOWED_ONLY_AS_ARCHITECTURE_PACKET",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_REVIEW_BEFORE_NEW_AEO_LINKING",
+      "package_action": "REVIEW_FIRST_ARCHITECTURE_ONLY_NO_CMS_PACKAGE",
+      "exit_gate": "PAID_UNLOCK_EXAMPLES_ONLY_BOUNDARY_REVIEW_PASSED_WITH_NO_OUTCOME_GUARANTEE"
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/holland-career-interest-test-riasec",
+      "batch_id": "BATCH_1_REVIEW_FIRST_CORE_HUBS",
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "claim_risk_notes": "P2_FULL_RESULT_AND_PAID_UNLOCK_COPY_WITH_EXAMPLES_ONLY_BOUNDARY",
+      "aeo_answer_block_decision": "REVIEW_FIRST_ALLOWED_ONLY_AS_ARCHITECTURE_PACKET",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_REVIEW_BEFORE_NEW_AEO_LINKING",
+      "package_action": "REVIEW_FIRST_ARCHITECTURE_ONLY_NO_CMS_PACKAGE",
+      "exit_gate": "PAID_UNLOCK_EXAMPLES_ONLY_BOUNDARY_REVIEW_PASSED_WITH_NO_OUTCOME_GUARANTEE"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/enneagram-personality-test-nine-types",
+      "batch_id": "BATCH_1_REVIEW_FIRST_CORE_HUBS",
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "claim_risk_notes": "P2_PAID_UNLOCK_COPY_AND_TYPE_CERTAINTY_BOUNDARY",
+      "aeo_answer_block_decision": "REVIEW_FIRST_ALLOWED_ONLY_AS_ARCHITECTURE_PACKET",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_REVIEW_BEFORE_NEW_AEO_LINKING",
+      "package_action": "REVIEW_FIRST_ARCHITECTURE_ONLY_NO_CMS_PACKAGE",
+      "exit_gate": "NON_DIAGNOSTIC_TYPE_PROBABILITY_BOUNDARY_REVIEW_PASSED"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/enneagram-personality-test-nine-types",
+      "batch_id": "BATCH_1_REVIEW_FIRST_CORE_HUBS",
+      "readiness_verdict": "READY_WITH_P2_COPY_RISK",
+      "claim_risk_notes": "P2_PAID_UNLOCK_COPY_AND_TYPE_CERTAINTY_BOUNDARY",
+      "aeo_answer_block_decision": "REVIEW_FIRST_ALLOWED_ONLY_AS_ARCHITECTURE_PACKET",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_REVIEW_BEFORE_NEW_AEO_LINKING",
+      "package_action": "REVIEW_FIRST_ARCHITECTURE_ONLY_NO_CMS_PACKAGE",
+      "exit_gate": "NON_DIAGNOSTIC_TYPE_PROBABILITY_BOUNDARY_REVIEW_PASSED"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/iq-test-intelligence-quotient-assessment",
+      "batch_id": "BATCH_3_IQ_EQ_MANUAL_REVIEW",
+      "readiness_verdict": "NEEDS_CLAIM_COPY_FIX",
+      "claim_risk_notes": "P2_IQ_MANUAL_REVIEW_AND_FORM_AUTHORITY_GAP",
+      "aeo_answer_block_decision": "HARD_HOLD_NO_AEO_PACKAGE_UNTIL_CLAIM_COPY_REPAIR",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_NO_NEW_INTERNAL_LINK_EXPANSION",
+      "package_action": "HOLD_FOR_FORM_AUTHORITY_AND_MANUAL_CLAIM_REVIEW",
+      "exit_gate": "FORM_AUTHORITY_PRESENT_AND_IQ_MANUAL_REVIEW_BOUNDARY_APPROVED"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/iq-test-intelligence-quotient-assessment",
+      "batch_id": "BATCH_3_IQ_EQ_MANUAL_REVIEW",
+      "readiness_verdict": "NEEDS_CLAIM_COPY_FIX",
+      "claim_risk_notes": "P2_IQ_MANUAL_REVIEW_AND_FORM_AUTHORITY_GAP",
+      "aeo_answer_block_decision": "HARD_HOLD_NO_AEO_PACKAGE_UNTIL_CLAIM_COPY_REPAIR",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_NO_NEW_INTERNAL_LINK_EXPANSION",
+      "package_action": "HOLD_FOR_FORM_AUTHORITY_AND_MANUAL_CLAIM_REVIEW",
+      "exit_gate": "FORM_AUTHORITY_PRESENT_AND_IQ_MANUAL_REVIEW_BOUNDARY_APPROVED"
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "en",
+      "url": "https://fermatmind.com/en/tests/eq-test-emotional-intelligence-assessment",
+      "batch_id": "BATCH_3_IQ_EQ_MANUAL_REVIEW",
+      "readiness_verdict": "NEEDS_CLAIM_COPY_FIX",
+      "claim_risk_notes": "P2_EQ_FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "aeo_answer_block_decision": "HARD_HOLD_NO_AEO_PACKAGE_UNTIL_CLAIM_COPY_REPAIR",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_NO_NEW_INTERNAL_LINK_EXPANSION",
+      "package_action": "HOLD_FOR_FORM_AUTHORITY_AND_MANUAL_CLAIM_REVIEW",
+      "exit_gate": "FORM_AUTHORITY_PRESENT_AND_EQ_OUTCOME_CLAIM_BOUNDARY_APPROVED"
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "zh",
+      "url": "https://fermatmind.com/zh/tests/eq-test-emotional-intelligence-assessment",
+      "batch_id": "BATCH_3_IQ_EQ_MANUAL_REVIEW",
+      "readiness_verdict": "NEEDS_CLAIM_COPY_FIX",
+      "claim_risk_notes": "P2_EQ_FORM_AUTHORITY_AND_OUTCOME_CLAIM_BOUNDARY",
+      "aeo_answer_block_decision": "HARD_HOLD_NO_AEO_PACKAGE_UNTIL_CLAIM_COPY_REPAIR",
+      "internal_link_decision": "PRESERVE_EXISTING_LINKS_NO_NEW_INTERNAL_LINK_EXPANSION",
+      "package_action": "HOLD_FOR_FORM_AUTHORITY_AND_MANUAL_CLAIM_REVIEW",
+      "exit_gate": "FORM_AUTHORITY_PRESENT_AND_EQ_OUTCOME_CLAIM_BOUNDARY_APPROVED"
+    }
+  ],
+  "next_safe_task_after_merge": "SIX-HUB-SEO-GEO-PACKAGE-PLANNING-MATRIX-01",
+  "hold_actions": [
+    "no_CMS_package_generation",
+    "no_CMS_dry_run",
+    "no_CMS_write",
+    "no_publish",
+    "no_runtime_copy_change",
+    "no_frontend_runtime_change",
+    "no_backend_API_repair",
+    "no_search_submission",
+    "no_provider_call",
+    "no_deploy",
+    "no_sitemap_mutation",
+    "no_llms_mutation",
+    "no_schema_mutation",
+    "no_hreflang_mutation",
+    "no_canonical_mutation",
+    "no_noindex_mutation",
+    "no_private_result_access",
+    "no_attempt_creation",
+    "no_answer_submission"
+  ],
+  "negative_guarantees": {
+    "cms_package_generated": false,
+    "cms_dry_run_performed": false,
+    "cms_write_performed": false,
+    "cms_publish_performed": false,
+    "runtime_copy_changed": false,
+    "frontend_runtime_changed": false,
+    "backend_api_changed": false,
+    "search_submission_performed": false,
+    "provider_call_performed": false,
+    "deployment_triggered": false,
+    "sitemap_changed": false,
+    "llms_changed": false,
+    "schema_changed": false,
+    "hreflang_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "private_result_accessed": false,
+    "attempt_created": false,
+    "answer_submitted": false
+  }
+}
