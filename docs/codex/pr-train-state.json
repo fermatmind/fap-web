@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-25T17:36:00+08:00",
+  "updated_at": "2026-06-25T17:40:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -25268,9 +25268,9 @@
         "SIX-HUB-SEO-GEO-AEO-INTERNAL-LINK-PACKET-01",
         "SIX-HUB-SEO-GEO-BATCH-SEQUENCE-MATRIX-01"
       ],
-      "status": "local_checks_passed_ready_to_push",
-      "pr_url": null,
-      "commit_sha": null,
+      "status": "pr_open_pending_github_checks",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1437",
+      "commit_sha": "0700eb68c6e91a610134037dc680c1cfd8f84674",
       "merge_sha": null,
       "title": "SIX-HUB-SEO-GEO-PACKAGE-PLANNING-MATRIX-01: docs(seo): add six hub planning matrix",
       "artifacts": [
@@ -25326,6 +25326,11 @@
           "at": "2026-06-25T17:36:00+08:00",
           "status": "local_checks_passed_ready_to_push",
           "summary": "Required local checks passed: JSON parse, focused contract, focused eslint, pnpm typecheck, pnpm test:contract, git diff --check, and changed-file scope validation. pnpm build was not run per goal boundary."
+        },
+        {
+          "at": "2026-06-25T17:40:00+08:00",
+          "status": "pr_open_pending_github_checks",
+          "summary": "Opened PR #1437 from codex/six-hub-seo-geo-package-planning-matrix-01 after required local checks and changed-file scope validation passed. Remote GitHub checks pending."
         }
       ],
       "sidecar_issues": []
