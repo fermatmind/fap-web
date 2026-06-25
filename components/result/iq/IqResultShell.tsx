@@ -63,6 +63,21 @@ function formatConfidenceInterval({
   return level ? `${range}${range ? " · " : ""}${level}` : range;
 }
 
+function formatRawScoreClaim({
+  locale,
+  rawScore,
+  denominator,
+}: {
+  locale: Locale;
+  rawScore: string | null;
+  denominator: string | null;
+}): string {
+  const label = locale === "zh" ? "30题推理得分" : "30-item reasoning score";
+  const separator = locale === "zh" ? "：" : ": ";
+  const score = rawScore ?? "—";
+  return denominator ? `${label}${separator}${score}/${denominator}` : `${label}${separator}${score}`;
+}
+
 function renderMetricRow({
   label,
   value,
@@ -107,6 +122,8 @@ export function IqResultShell({
     : null;
   const iqEstimateText = formatMetricValue(viewModel.iqEstimate);
   const rawScoreText = formatMetricValue(viewModel.rawScore);
+  const rawScoreDenominatorText = formatMetricValue(viewModel.claimPolicy.rawScoreDenominator);
+  const rawScoreOnly = viewModel.claimPolicy.suppressNormClaims;
   const percentileText = formatPercentValue(viewModel.percentile);
 
   return (
@@ -140,7 +157,20 @@ export function IqResultShell({
             </div>
           ) : null}
 
-          {iqEstimateText ? (
+          {rawScoreOnly ? (
+            <div className="rounded-[12px] border border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 sm:p-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
+                {locale === "zh" ? "原始推理得分" : "Raw reasoning score"}
+              </p>
+              <p className="mt-2 text-2xl font-semibold text-[var(--fm-text)] sm:text-3xl" data-testid="iq-raw-score-claim">
+                {formatRawScoreClaim({
+                  locale,
+                  rawScore: rawScoreText,
+                  denominator: rawScoreDenominatorText,
+                })}
+              </p>
+            </div>
+          ) : iqEstimateText ? (
             <div className="rounded-[12px] border border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 sm:p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
                 {locale === "zh" ? "IQ 估计值" : "IQ estimate"}
@@ -166,16 +196,20 @@ export function IqResultShell({
               value: rawScoreText,
               testId: "iq-raw-score",
             })}
-            {renderMetricRow({
-              label: locale === "zh" ? "百分位" : "Percentile",
-              value: percentileText,
-              testId: "iq-percentile",
-            })}
-            {renderMetricRow({
-              label: locale === "zh" ? "置信区间" : "Confidence interval",
-              value: confidenceIntervalText,
-              testId: "iq-confidence-interval",
-            })}
+            {rawScoreOnly
+              ? null
+              : renderMetricRow({
+                  label: locale === "zh" ? "百分位" : "Percentile",
+                  value: percentileText,
+                  testId: "iq-percentile",
+                })}
+            {rawScoreOnly
+              ? null
+              : renderMetricRow({
+                  label: locale === "zh" ? "置信区间" : "Confidence interval",
+                  value: confidenceIntervalText,
+                  testId: "iq-confidence-interval",
+                })}
             {renderMetricRow({
               label: locale === "zh" ? "结果质量" : "Quality level",
               value: viewModel.qualityLevel,
@@ -216,9 +250,9 @@ export function IqResultShell({
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         {viewModel.dimensions.map((dimension) => {
           const rawScore = formatMetricValue(dimension.rawScore);
-          const scaledScore = formatMetricValue(dimension.scaledScore);
-          const normalizedScore = formatMetricValue(dimension.normalizedScore);
-          const percentile = formatPercentValue(dimension.percentile);
+          const scaledScore = rawScoreOnly ? null : formatMetricValue(dimension.scaledScore);
+          const normalizedScore = rawScoreOnly ? null : formatMetricValue(dimension.normalizedScore);
+          const percentile = rawScoreOnly ? null : formatPercentValue(dimension.percentile);
 
           return (
             <Card key={dimension.key} data-testid={`iq-dimension-card-${dimension.code.toLowerCase()}`}>

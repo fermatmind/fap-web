@@ -101,6 +101,58 @@ function createReportData(): ReportResponse {
   } as unknown as ReportResponse;
 }
 
+function createOwnerRawScoreOnlyReportData(): ReportResponse {
+  return {
+    ...createReportData(),
+    summary: {
+      raw_score: 24,
+      question_count: 30,
+      iq_estimate: null,
+      percentile: null,
+      confidence_interval: null,
+      score_claim_level: "raw_score_only",
+      claim_warnings: ["no_norm_table"],
+      claim_policy: {
+        claim_eligible: false,
+        score_claim_level: "raw_score_only",
+      },
+    },
+    scoring: {
+      raw_score: 24,
+      question_count: 30,
+      score_claim_level: "raw_score_only",
+      claim_warnings: ["no_norm_table"],
+      claim_policy: {
+        claim_eligible: false,
+        score_claim_level: "raw_score_only",
+      },
+    },
+    dimensions: {
+      visual_spatial_insight: {
+        raw_score: 8,
+        scaled_score: 119,
+        normalized_score: 84,
+        percentile: 82,
+        band: "raw",
+      },
+      visual_spatial_pattern_reasoning: {
+        raw_score: 9,
+        scaled_score: 116,
+        normalized_score: 80,
+        percentile: 78,
+        band: "raw",
+      },
+      numerical_pattern_reasoning: {
+        raw_score: 7,
+        scaled_score: 121,
+        normalized_score: 86,
+        percentile: 88,
+        band: "raw",
+      },
+    },
+  } as unknown as ReportResponse;
+}
+
 describe("IQ result renderer contract", () => {
   it("renders the canonical IQ title, summary metrics, and three dimension cards without exposing the legacy alias", () => {
     render(
@@ -147,6 +199,32 @@ describe("IQ result renderer contract", () => {
     expect(screen.getByTestId("iq-iq-estimate-unavailable")).toHaveTextContent(
       "The IQ estimate is not available for this result yet"
     );
+  });
+
+  it("renders owner 30 raw-score-only claim policy without IQ estimate, percentile, or confidence interval claims", () => {
+    render(
+      <IqResultShell
+        locale="zh"
+        reportData={createOwnerRawScoreOnlyReportData()}
+        resultData={null}
+        accessView={createAccessView()}
+      />
+    );
+
+    expect(screen.getByTestId("iq-raw-score-claim")).toHaveTextContent("30题推理得分：24/30");
+    expect(screen.queryByText("IQ 估计值")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-iq-estimate-value")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-iq-estimate-unavailable")).not.toBeInTheDocument();
+    expect(screen.queryByText("百分位")).not.toBeInTheDocument();
+    expect(screen.queryByText("置信区间")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-percentile")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-confidence-interval")).not.toBeInTheDocument();
+    expect(screen.getByTestId("iq-raw-score")).toHaveTextContent("24");
+    expect(screen.getByTestId("iq-quality-level")).toHaveTextContent("beta");
+    expect(screen.getByTestId("iq-stability-status")).toHaveTextContent("preliminary");
+    expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("原始分");
+    expect(screen.getByTestId("iq-dimension-card-vsi")).toHaveTextContent("8");
+    expect(screen.getByTestId("iq-dimension-card-vsi")).not.toHaveTextContent("82%");
   });
 
   it("renders a neutral locked message without showing payment CTA or offers", () => {

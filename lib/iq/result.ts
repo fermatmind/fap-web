@@ -64,6 +64,7 @@ export type IqReportModuleViewModel = {
   stateLabel: string;
   stateMessage: string;
   locked: boolean;
+  suppressNormClaims: boolean;
   lockedMessage: string | null;
   boundaryMessage: string;
   interpretationMessage: string;
@@ -73,6 +74,14 @@ export type IqReportModuleViewModel = {
   bankStatus: IqBankStatusViewModel | null;
   pdfPlaceholder: string | null;
   certificatePlaceholder: string | null;
+};
+
+export type IqClaimPolicyViewModel = {
+  scoreClaimLevel: string | null;
+  claimEligible: boolean | null;
+  claimWarnings: string[];
+  rawScoreDenominator: IqResultMetricValue;
+  suppressNormClaims: boolean;
 };
 
 export type IqResultViewModel = {
@@ -88,6 +97,7 @@ export type IqResultViewModel = {
   stabilityStatus: string | null;
   stabilityReason: string | null;
   reasonCode: string | null;
+  claimPolicy: IqClaimPolicyViewModel;
   dimensions: IqDimensionCardViewModel[];
   bankStatus: IqBankStatusViewModel | null;
   locked: boolean;
@@ -262,6 +272,123 @@ function resolveSummaryMetric(
       resultPayload?.[field] ??
       reportPayload?.[field]
   );
+}
+
+function normalizeBoolean(value: unknown): boolean | null {
+  if (typeof value === "boolean") {
+    return value;
+  }
+
+  if (typeof value === "string") {
+    const normalized = value.trim().toLowerCase();
+    if (["true", "1", "yes"].includes(normalized)) {
+      return true;
+    }
+    if (["false", "0", "no"].includes(normalized)) {
+      return false;
+    }
+  }
+
+  return null;
+}
+
+function resolveQuestionCount(
+  reportData: ReportResponse | null,
+  resultData: ResultResponse | null
+): IqResultMetricValue {
+  const reportSummary = asRecord(reportData?.summary);
+  const reportScoring = asRecord((reportData as Record<string, unknown> | null)?.scoring);
+  const reportPayload = asRecord(reportData?.report);
+  const reportPayloadSummary = asRecord(reportPayload?.summary);
+  const reportPayloadScoring = asRecord(reportPayload?.scoring);
+  const resultPayload = asRecord(resultData?.result);
+  const topResult = asRecord(resultData);
+
+  return normalizeMetricValue(
+    reportSummary?.question_count ??
+      reportSummary?.item_count ??
+      reportScoring?.question_count ??
+      reportScoring?.item_count ??
+      reportData?.meta?.question_count ??
+      reportPayloadSummary?.question_count ??
+      reportPayloadSummary?.item_count ??
+      reportPayloadScoring?.question_count ??
+      reportPayloadScoring?.item_count ??
+      reportPayload?.question_count ??
+      topResult?.question_count ??
+      topResult?.item_count ??
+      resultPayload?.question_count ??
+      resultPayload?.item_count ??
+      resultData?.meta?.question_count
+  );
+}
+
+function resolveClaimPolicy(
+  reportData: ReportResponse | null,
+  resultData: ResultResponse | null
+): IqClaimPolicyViewModel {
+  const reportSummary = asRecord(reportData?.summary);
+  const reportScoring = asRecord((reportData as Record<string, unknown> | null)?.scoring);
+  const reportNorms = asRecord((reportData as Record<string, unknown> | null)?.norms);
+  const reportPayload = asRecord(reportData?.report);
+  const reportPayloadSummary = asRecord(reportPayload?.summary);
+  const reportPayloadScoring = asRecord(reportPayload?.scoring);
+  const reportPayloadNorms = asRecord(reportPayload?.norms);
+  const topResult = asRecord(resultData);
+  const resultPayload = asRecord(resultData?.result);
+  const resultNorms = asRecord(topResult?.norms) ?? asRecord(resultPayload?.norms);
+  const resultNormedJson = asRecord(topResult?.normed_json) ?? asRecord(resultPayload?.normed_json);
+  const resultNormedJsonNorms = asRecord(resultNormedJson?.norms);
+
+  const policyCandidates = [
+    asRecord(reportSummary?.claim_policy),
+    asRecord(reportScoring?.claim_policy),
+    asRecord(reportNorms?.claim_policy),
+    asRecord(reportPayloadSummary?.claim_policy),
+    asRecord(reportPayloadScoring?.claim_policy),
+    asRecord(reportPayloadNorms?.claim_policy),
+    asRecord(topResult?.claim_policy),
+    asRecord(resultPayload?.claim_policy),
+    asRecord(resultNorms?.claim_policy),
+    asRecord(resultNormedJsonNorms?.claim_policy),
+  ];
+  const policy = policyCandidates.find(Boolean) ?? null;
+  const scoreClaimLevel = normalizeText(
+    policy?.score_claim_level,
+    reportSummary?.score_claim_level,
+    reportScoring?.score_claim_level,
+    reportNorms?.score_claim_level,
+    reportPayloadSummary?.score_claim_level,
+    reportPayloadScoring?.score_claim_level,
+    reportPayloadNorms?.score_claim_level,
+    topResult?.score_claim_level,
+    resultPayload?.score_claim_level,
+    resultNorms?.score_claim_level,
+    resultNormedJsonNorms?.score_claim_level
+  )?.toLowerCase() ?? null;
+  const claimWarnings = [
+    ...normalizeStringArray(policy?.claim_warnings),
+    ...normalizeStringArray(policy?.warnings),
+    ...normalizeStringArray(reportSummary?.claim_warnings),
+    ...normalizeStringArray(reportScoring?.claim_warnings),
+    ...normalizeStringArray(reportNorms?.claim_warnings),
+    ...normalizeStringArray(reportPayloadSummary?.claim_warnings),
+    ...normalizeStringArray(reportPayloadScoring?.claim_warnings),
+    ...normalizeStringArray(reportPayloadNorms?.claim_warnings),
+    ...normalizeStringArray(topResult?.claim_warnings),
+    ...normalizeStringArray(resultPayload?.claim_warnings),
+    ...normalizeStringArray(resultNorms?.claim_warnings),
+    ...normalizeStringArray(resultNormedJsonNorms?.claim_warnings),
+  ].filter((warning, index, warnings) => warnings.indexOf(warning) === index);
+  const claimEligible = normalizeBoolean(policy?.claim_eligible);
+
+  return {
+    scoreClaimLevel,
+    claimEligible,
+    claimWarnings,
+    rawScoreDenominator: resolveQuestionCount(reportData, resultData),
+    suppressNormClaims: scoreClaimLevel === "raw_score_only" || claimEligible === false,
+  };
 }
 
 function resolveQuality(
@@ -714,6 +841,18 @@ function getIqInterpretationMessage({
     : "Dimension results describe the structure of performance in this test, not total human ability.";
 }
 
+function getRawScoreOnlyMethodBoundaryMessage(locale: Locale): string {
+  return locale === "zh"
+    ? "当前 30 题结果只展示本次测验的原始推理得分，不展示 IQ 估计值、百分位或常模解释。"
+    : "This 30-item result currently shows only the raw reasoning score, not an IQ estimate, percentile, or norm-based interpretation.";
+}
+
+function getRawScoreOnlyInterpretationMessage(locale: Locale): string {
+  return locale === "zh"
+    ? "请结合质量标记和稳定性状态理解本次作答表现；合规常模接入前不做 IQ 数值声明。"
+    : "Interpret this attempt with its quality flags and stability status; no IQ-value claim is made until a compliant norm table is available.";
+}
+
 function getDetailedReportUnavailableMessage(locale: Locale): string {
   return locale === "zh"
     ? "详细报告内容暂未开放。"
@@ -730,6 +869,7 @@ function buildReportModuleViewModel({
   stabilityStatus,
   stabilityReason,
   bankStatus,
+  claimPolicy,
 }: {
   locale: Locale;
   reportData: ReportResponse | null;
@@ -740,6 +880,7 @@ function buildReportModuleViewModel({
   stabilityStatus: string | null;
   stabilityReason: string | null;
   bankStatus: IqBankStatusViewModel | null;
+  claimPolicy: IqClaimPolicyViewModel;
 }): IqReportModuleViewModel {
   const entitlementState = resolveIqPaidReportEntitlementState(accessView, reportData);
   const stateCopy = getIqReportStateCopy(locale, entitlementState);
@@ -749,6 +890,7 @@ function buildReportModuleViewModel({
   const unlockStage = resolveIqUnlockStage(accessView, reportData);
   const pdfReady = paidEntitlementActive && hasPdfPayload(reportData);
   const certificateReady = paidEntitlementActive && hasCertificatePayload(reportData);
+  const suppressNormClaims = claimPolicy.suppressNormClaims;
 
   return {
     unlockStage,
@@ -756,15 +898,20 @@ function buildReportModuleViewModel({
     stateLabel: stateCopy.label,
     stateMessage: stateCopy.message,
     locked,
+    suppressNormClaims,
     lockedMessage: locked ? stateCopy.message : null,
-    boundaryMessage: getIqMethodBoundaryMessage(locale),
-    interpretationMessage: getIqInterpretationMessage({
-      locale,
-      qualityLevel,
-      qualityFlags,
-      stabilityStatus,
-      stabilityReason,
-    }),
+    boundaryMessage: suppressNormClaims
+      ? getRawScoreOnlyMethodBoundaryMessage(locale)
+      : getIqMethodBoundaryMessage(locale),
+    interpretationMessage: suppressNormClaims
+      ? getRawScoreOnlyInterpretationMessage(locale)
+      : getIqInterpretationMessage({
+          locale,
+          qualityLevel,
+          qualityFlags,
+          stabilityStatus,
+          stabilityReason,
+        }),
     detailedReportMessage:
       locked || sections.length > 0 || pdfReady || certificateReady
         ? null
@@ -811,6 +958,7 @@ export function buildIqResultViewModel({
     buildDimensionCard(locale, descriptor, reportData, resultData)
   );
   const bankStatus = resolveIqBankStatus(locale, reportData, resultData);
+  const claimPolicy = resolveClaimPolicy(reportData, resultData);
 
   return {
     scaleCode: resolveScaleCode(reportData, resultData),
@@ -825,6 +973,7 @@ export function buildIqResultViewModel({
     stabilityStatus: stability.status,
     stabilityReason: stability.reason,
     reasonCode: resolveReasonCode(reportData, resultData),
+    claimPolicy,
     dimensions,
     bankStatus,
     locked: accessView?.accessState === "locked",
@@ -839,6 +988,7 @@ export function buildIqResultViewModel({
       stabilityStatus: stability.status,
       stabilityReason: stability.reason,
       bankStatus,
+      claimPolicy,
     }),
   };
 }
