@@ -30655,7 +30655,7 @@
       "depends_on": [
         "PR-EQ-AGENT-RUNTIME-02"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_open_pending_github_checks",
       "title": "PR-EQ-AGENT-RUNTIME-03 Frontend EQ Agent chat drawer",
       "train_scope": "eq_agent_runtime",
       "artifacts": [
@@ -30718,10 +30718,14 @@
             }
           ],
           "notes": "The first local e2e attempt without NEXT_PUBLIC_API_URL failed because no local backend was running; rerun against the production API contract passed."
+        },
+        "github": {
+          "status": "pending",
+          "results": {}
         }
       },
       "failure_reason": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1433",
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -30764,6 +30768,11 @@
           "at": "2026-06-25T12:45:00+08:00",
           "status": "local_checks_passed",
           "summary": "Implemented guarded EQ Agent runtime drawer, API client, contract/e2e coverage, and passed typecheck, build, contract, e2e, YAML/JSON parse, diff, and scope validation."
+        },
+        {
+          "at": "2026-06-25T12:55:00+08:00",
+          "status": "pr_open_pending_github_checks",
+          "summary": "Opened fap-web PR #1433 for the guarded EQ Agent runtime drawer; waiting for required GitHub checks before merge."
         }
       ],
       "sidecar_issues": []
