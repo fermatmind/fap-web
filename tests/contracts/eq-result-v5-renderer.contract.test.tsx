@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import { EQResultV5 } from "@/components/result/eq/EQResultV5";
 import { canRenderRichResultReport } from "@/components/result/RichResultReport";
 import { isEqV5AccessRestricted, isEqV5ReportResponse, normalizeEqV5Report } from "@/components/result/eq/utils";
-import type { EqAgentContextPayload, ReportResponse } from "@/lib/api/v0_3";
+import type { EqAgentContextPayload, EqAgentRuntimeResponsePayload, ReportResponse } from "@/lib/api/v0_3";
 import balancedEn from "@/tests/fixtures/eq/v5/eq60_v5_balanced_integrated_en.json";
 import balancedZh from "@/tests/fixtures/eq/v5/eq60_v5_balanced_integrated_zh.json";
 import highEmpathyEn from "@/tests/fixtures/eq/v5/eq60_v5_high_empathy_low_recovery_en.json";
@@ -92,6 +92,53 @@ function safeAgentContext(overrides: Partial<EqAgentContextPayload> = {}): EqAge
   };
 }
 
+function safeAgentRuntimeResponse(overrides: Partial<EqAgentRuntimeResponsePayload> = {}): EqAgentRuntimeResponsePayload {
+  return {
+    ok: true,
+    schema: "eq.agent_runtime_response.v1",
+    ready: true,
+    mode: "deterministic_read_only",
+    locale: "en",
+    intent: {
+      requested_intent: "understand_my_result",
+      matched_intent: "understand_my_result",
+      matched: true,
+      allowed_response_mode: "explain_selected_report_assets",
+    },
+    assistant_response: {
+      role: "assistant",
+      text: "This answer stays inside the current report assets.",
+      summary_points: ["Use the selected evidence point.", "Keep the report as the authority."],
+      follow_up_question: "Which real situation should we apply this to?",
+      source_asset_ids: ["eq.conversion.agent_entry"],
+      boundary_claim_ids: [],
+    },
+    safety: {
+      detected_forbidden_claim_ids: [],
+      applied_forbidden_claim_ids: ["true_emotional_ability"],
+      escalation_flags: [],
+      no_paywall_language: true,
+      no_sjt_entry: true,
+      no_raw_technical_tags: true,
+    },
+    guardrails: {
+      read_only: true,
+      can_mutate_report: false,
+      can_mutate_scores: false,
+      can_override_formulation: false,
+      can_enable_sjt: false,
+      can_use_paid_unlock_language: false,
+      can_expose_raw_technical_tags: false,
+    },
+    next_module: {
+      available: false,
+      module_code: "EQ_SJT_16",
+      status: "planned",
+    },
+    ...overrides,
+  };
+}
+
 describe("EQ v5 result renderer contract", () => {
   it("renders all main EQ v5 sections from backend canonical resolved assets", () => {
     const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
@@ -169,6 +216,100 @@ describe("EQ v5 result renderer contract", () => {
     );
     expect(screen.getByTestId("eq-agent-entry-ready")).toHaveTextContent("cannot change scores");
     expect(screen.queryByText(/locked|paywall|SKU_EQ_60_FULL_299|profile:|quality_level:|bucket:/i)).not.toBeInTheDocument();
+  });
+
+  it("opens the EQ Agent runtime drawer and sends a deterministic read-only message", async () => {
+    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
+    let contextCalls = 0;
+    let runtimeCalls = 0;
+
+    render(
+      <EQResultV5
+        locale="en"
+        reportData={reportData}
+        attemptId="eq-result-001"
+        loadAgentContext={async () => {
+          contextCalls += 1;
+          return safeAgentContext();
+        }}
+        sendAgentRuntimeMessage={async ({ attemptId, locale, intent, message }) => {
+          runtimeCalls += 1;
+          expect(attemptId).toBe("eq-result-001");
+          expect(locale).toBe("en");
+          expect(intent).toBe("understand_my_result");
+          expect(message).toBe("How should I use this result this week?");
+          return safeAgentRuntimeResponse();
+        }}
+      />
+    );
+
+    expect(contextCalls).toBe(0);
+    expect(runtimeCalls).toBe(0);
+    expect(screen.queryByTestId("eq-agent-runtime-drawer")).not.toBeInTheDocument();
+
+    fireEvent.click(screen.getByRole("button", { name: "Ask the Agent" }));
+    await waitFor(() => expect(screen.getByTestId("eq-agent-runtime-drawer")).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByTestId("eq-agent-entry-ready")).toBeInTheDocument());
+    expect(contextCalls).toBe(1);
+    expect(runtimeCalls).toBe(0);
+
+    fireEvent.change(screen.getByTestId("eq-agent-runtime-message"), {
+      target: { value: "How should I use this result this week?" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+
+    await waitFor(() => expect(screen.getByTestId("eq-agent-runtime-response")).toBeInTheDocument());
+    expect(runtimeCalls).toBe(1);
+    expect(screen.getByTestId("eq-agent-runtime-response")).toHaveTextContent(
+      "This answer stays inside the current report assets."
+    );
+    expect(screen.getByTestId("eq-agent-runtime-response")).toHaveTextContent("Use the selected evidence point.");
+    expect(screen.getByTestId("eq-agent-runtime-response")).not.toHaveTextContent("eq.conversion.agent_entry");
+    expect(screen.queryByText(/locked|paywall|SKU_EQ_60_FULL_299|EQ_60_FULL|profile:|quality_level:|focus:|bucket:/i)).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: /scenario|sjt|continue/i })).not.toBeInTheDocument();
+  });
+
+  it("fails the EQ Agent runtime drawer closed when runtime guardrails are unsafe", async () => {
+    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
+
+    render(
+      <EQResultV5
+        locale="en"
+        reportData={reportData}
+        attemptId="eq-result-001"
+        loadAgentContext={async () => safeAgentContext()}
+        sendAgentRuntimeMessage={async () =>
+          safeAgentRuntimeResponse({
+            guardrails: {
+              read_only: true,
+              can_mutate_report: false,
+              can_mutate_scores: false,
+              can_override_formulation: false,
+              can_enable_sjt: true,
+              can_use_paid_unlock_language: false,
+              can_expose_raw_technical_tags: false,
+            },
+            next_module: {
+              available: true,
+              module_code: "EQ_SJT_16",
+              status: "available",
+            },
+          })
+        }
+      />
+    );
+
+    fireEvent.click(screen.getByRole("button", { name: "Ask the Agent" }));
+    await waitFor(() => expect(screen.getByTestId("eq-agent-entry-ready")).toBeInTheDocument());
+    fireEvent.change(screen.getByTestId("eq-agent-runtime-message"), {
+      target: { value: "Can I start the SJT now?" },
+    });
+    fireEvent.click(screen.getByRole("button", { name: "Send" }));
+
+    await waitFor(() => expect(screen.getByTestId("eq-agent-runtime-unavailable")).toBeInTheDocument());
+    expect(screen.queryByTestId("eq-agent-runtime-response")).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: /scenario|sjt|continue/i })).not.toBeInTheDocument();
+    expect(screen.queryByText(/unlock|purchase|SKU_EQ_60_FULL_299|EQ_60_FULL|profile:|quality_level:/i)).not.toBeInTheDocument();
   });
 
   it("fails Agent entry closed when context is not ready", async () => {

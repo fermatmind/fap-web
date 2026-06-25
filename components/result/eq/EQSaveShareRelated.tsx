@@ -3,18 +3,20 @@ import { RotateCcw, Share2 } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { localizedPath } from "@/lib/i18n/locales";
 import { EQAgentEntryGuard, isEqAgentConversionAction } from "./EQAgentEntryGuard";
-import type { EqAgentContextAccess, EqAgentContextLoader, EqV5ViewModel } from "./types";
+import type { EqAgentContextAccess, EqAgentContextLoader, EqAgentRuntimeMessageLoader, EqV5ViewModel } from "./types";
 
 export function EQSaveShareRelated({
   viewModel,
   attemptId,
   agentContextAccess,
   loadAgentContext,
+  sendAgentRuntimeMessage,
 }: {
   viewModel: EqV5ViewModel;
   attemptId?: string;
   agentContextAccess?: EqAgentContextAccess;
   loadAgentContext?: EqAgentContextLoader;
+  sendAgentRuntimeMessage?: EqAgentRuntimeMessageLoader;
 }) {
   const { locale } = viewModel;
   const conversionActions = viewModel.assets.commercial_conversion_actions.filter(
@@ -70,6 +72,7 @@ export function EQSaveShareRelated({
           attemptId={attemptId}
           access={agentContextAccess}
           loadAgentContext={loadAgentContext}
+          sendAgentRuntimeMessage={sendAgentRuntimeMessage}
         />
       </div>
     </section>

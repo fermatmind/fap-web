@@ -30645,6 +30645,128 @@
         }
       ],
       "sidecar_issues": []
+    },
+    {
+      "id": "PR-EQ-AGENT-RUNTIME-03",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-eq-agent-runtime-03-frontend-drawer",
+      "base": "main",
+      "depends_on": [
+        "PR-EQ-AGENT-RUNTIME-02"
+      ],
+      "status": "local_checks_passed",
+      "title": "PR-EQ-AGENT-RUNTIME-03 Frontend EQ Agent chat drawer",
+      "train_scope": "eq_agent_runtime",
+      "artifacts": [
+        "components/result/eq/EQAgentEntryGuard.tsx",
+        "components/result/eq/EQResultV5.tsx",
+        "components/result/eq/EQSaveShareRelated.tsx",
+        "components/result/eq/types.ts",
+        "lib/api/v0_3.ts",
+        "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+        "tests/e2e/iq-eq-result-regression.spec.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized the EQ Agent Runtime 4-PR plan and manifest/state updates."
+        },
+        "dependency": {
+          "status": "passed",
+          "evidence": "Backend PR-EQ-AGENT-RUNTIME-02 merged as fap-api PR #2410 with merge commit ee334ece2ebd8024d8c955f07b60b2ba62b16dd6."
+        },
+        "branch_base": {
+          "status": "passed",
+          "evidence": "Created codex/pr-eq-agent-runtime-03-frontend-drawer from fap-web origin/main 92bb5589315390a625b3173db917777759f2d531 in an isolated clean worktree."
+        },
+        "local": {
+          "status": "passed",
+          "commands": [
+            {
+              "cmd": "pnpm typecheck",
+              "result": "passed"
+            },
+            {
+              "cmd": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+              "result": "passed"
+            },
+            {
+              "cmd": "pnpm test:contract",
+              "result": "passed",
+              "summary": "579 files, 3408 tests passed"
+            },
+            {
+              "cmd": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts",
+              "result": "passed",
+              "summary": "6 tests passed"
+            },
+            {
+              "cmd": "ruby -e 'require \"yaml\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); puts \"yaml ok\"'",
+              "result": "passed"
+            },
+            {
+              "cmd": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+              "result": "passed"
+            },
+            {
+              "cmd": "git diff --check",
+              "result": "passed"
+            }
+          ],
+          "notes": "The first local e2e attempt without NEXT_PUBLIC_API_URL failed because no local backend was running; rerun against the production API contract passed."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "scope_validation": {
+        "status": "passed",
+        "allowed_files": [
+          "components/result/eq/EQAgentEntryGuard.tsx",
+          "components/result/eq/EQResultV5.tsx",
+          "components/result/eq/EQSaveShareRelated.tsx",
+          "components/result/eq/types.ts",
+          "lib/api/v0_3.ts",
+          "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+          "tests/e2e/iq-eq-result-regression.spec.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "changed_files": [
+          "components/result/eq/EQAgentEntryGuard.tsx",
+          "components/result/eq/EQResultV5.tsx",
+          "components/result/eq/EQSaveShareRelated.tsx",
+          "components/result/eq/types.ts",
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "lib/api/v0_3.ts",
+          "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "tests/e2e/iq-eq-result-regression.spec.ts"
+        ],
+        "outside_scope_files": []
+      },
+      "history": [
+        {
+          "at": "2026-06-25T11:50:00+08:00",
+          "status": "in_progress",
+          "summary": "Started frontend EQ Agent runtime drawer PR after backend runtime response evals merged. Main fap-web worktree has unrelated career/SEO dirty files, so implementation uses an isolated clean worktree."
+        },
+        {
+          "at": "2026-06-25T12:45:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Implemented guarded EQ Agent runtime drawer, API client, contract/e2e coverage, and passed typecheck, build, contract, e2e, YAML/JSON parse, diff, and scope validation."
+        }
+      ],
+      "sidecar_issues": []
     }
   ]
 }

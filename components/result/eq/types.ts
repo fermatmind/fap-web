@@ -1,5 +1,5 @@
 import type { Locale } from "@/lib/i18n/locales";
-import type { EqAgentContextPayload } from "@/lib/api/v0_3";
+import type { EqAgentContextPayload, EqAgentRuntimeResponsePayload } from "@/lib/api/v0_3";
 
 export type EqReportMode = "self_report" | "integrated";
 
@@ -336,3 +336,11 @@ export type EqAgentContextLoader = (input: {
   intent: string;
   access?: EqAgentContextAccess;
 }) => Promise<EqAgentContextPayload>;
+
+export type EqAgentRuntimeMessageLoader = (input: {
+  attemptId: string;
+  locale: Locale;
+  intent: string;
+  message: string;
+  access?: EqAgentContextAccess;
+}) => Promise<EqAgentRuntimeResponsePayload>;

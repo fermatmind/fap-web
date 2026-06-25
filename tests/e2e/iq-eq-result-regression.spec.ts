@@ -62,6 +62,10 @@ function eqAgentContextRoutePattern(attemptId: string): RegExp {
   return new RegExp(`/api/v0\\.3/attempts/${escapeRegExp(attemptId)}/eq/agent-context(?:\\?.*)?$`);
 }
 
+function eqAgentRuntimeRoutePattern(attemptId: string): RegExp {
+  return new RegExp(`/api/v0\\.3/attempts/${escapeRegExp(attemptId)}/eq/agent-runtime/messages(?:\\?.*)?$`);
+}
+
 async function mockReadyReportAccess(page: Page, attemptId: string) {
   await page.route(reportAccessRoutePattern(attemptId), async (route) => {
     await route.fulfill({
@@ -150,6 +154,65 @@ async function mockEqAgentContext(page: Page, attemptId: string) {
   });
 }
 
+async function mockEqAgentRuntime(page: Page, attemptId: string) {
+  await page.route(eqAgentRuntimeRoutePattern(attemptId), async (route) => {
+    const request = route.request();
+    expect(request.method()).toBe("POST");
+    const payload = request.postDataJSON() as { message?: string; intent?: string; locale?: string };
+    expect(payload.message).toBe("How should I use this result this week?");
+    expect(payload.intent).toBe("understand_my_result");
+
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        ok: true,
+        schema: "eq.agent_runtime_response.v1",
+        ready: true,
+        mode: "deterministic_read_only",
+        attempt_id: attemptId,
+        locale: "en",
+        intent: {
+          requested_intent: "understand_my_result",
+          matched_intent: "understand_my_result",
+          matched: true,
+          allowed_response_mode: "explain_selected_report_assets",
+        },
+        assistant_response: {
+          role: "assistant",
+          text: "This answer stays inside the current report assets.",
+          summary_points: ["Use the selected evidence point.", "Keep the report as the authority."],
+          follow_up_question: "Which real situation should we apply this to?",
+          source_asset_ids: ["eq.conversion.agent_entry"],
+          boundary_claim_ids: [],
+        },
+        safety: {
+          detected_forbidden_claim_ids: [],
+          applied_forbidden_claim_ids: ["true_emotional_ability"],
+          escalation_flags: [],
+          no_paywall_language: true,
+          no_sjt_entry: true,
+          no_raw_technical_tags: true,
+        },
+        guardrails: {
+          read_only: true,
+          can_mutate_report: false,
+          can_mutate_scores: false,
+          can_override_formulation: false,
+          can_enable_sjt: false,
+          can_use_paid_unlock_language: false,
+          can_expose_raw_technical_tags: false,
+        },
+        next_module: {
+          available: false,
+          module_code: "EQ_SJT_16",
+          status: "planned",
+        },
+      }),
+    });
+  });
+}
+
 function eqV5ReportResponse(fixture: EqV5Fixture) {
   const payload = fixture.report_access.payload ?? {};
 
@@ -216,6 +279,7 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await mockScaleLookup(page);
   await mockEqV5ReportAccess(page, attemptId, highEmpathyEqFixture as EqV5Fixture);
   await mockEqAgentContext(page, attemptId);
+  await mockEqAgentRuntime(page, attemptId);
 
   for (const scaleCode of ["EQ_60", "EQ_EMOTIONAL_INTELLIGENCE"]) {
     await page.route(`**/api/v0.3/scales/${scaleCode}/questions*`, async (route) => {
@@ -298,9 +362,17 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await expect(page.getByText("Planned, not available yet")).toBeVisible();
   await expect(page.getByText("Scientific Boundary")).toBeVisible();
   await page.getByRole("button", { name: "Ask the Agent" }).click();
+  await expect(page.getByTestId("eq-agent-runtime-drawer")).toBeVisible();
   await expect(page.getByTestId("eq-agent-entry-ready")).toBeVisible();
   await expect(page.getByText("Start with one real situation from this report.")).toBeVisible();
   await expect(page.getByText(/cannot change scores, sections, or module status/i)).toBeVisible();
+  const agentDrawer = page.getByTestId("eq-agent-runtime-drawer");
+  await agentDrawer.getByTestId("eq-agent-runtime-message").fill("How should I use this result this week?");
+  await agentDrawer.getByRole("button", { name: "Send" }).click();
+  await expect(page.getByTestId("eq-agent-runtime-response")).toBeVisible();
+  await expect(page.getByText("This answer stays inside the current report assets.")).toBeVisible();
+  await expect(page.getByText("Use the selected evidence point.")).toBeVisible();
+  await expect(page.getByText("eq.conversion.agent_entry")).toHaveCount(0);
   await expect(page.getByText(/Unlock|Purchase|SKU_EQ_60_FULL_299|EQ_60_FULL|locked|blur_others|paywall/i)).toHaveCount(0);
   await expect(page.getByText(/profile:|quality_level:|focus:|bucket:/i)).toHaveCount(0);
   await expect(page.getByText(/high_empathy_low_recovery|EM_ER_high_low|emotional_labor_high|eq60\.signal_signature\.v1/i)).toHaveCount(0);

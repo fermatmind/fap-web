@@ -18278,8 +18278,9 @@ prs:
       - Modify backend or content-pack authority.
     required_local_checks:
       - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
       - pnpm test:contract
-      - pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts
       - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - git diff --check
@@ -18762,3 +18763,55 @@ prs:
       squash: true
       auto_merge: true
     next_task: BIG5-HUB-COMMERCIAL-FIELD-AUTHORITY-FIX-SCAN-01
+
+  - id: PR-EQ-AGENT-RUNTIME-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-eq-agent-runtime-03-frontend-drawer
+    base: main
+    title: "PR-EQ-AGENT-RUNTIME-03 Frontend EQ Agent chat drawer"
+    depends_on:
+      - PR-EQ-AGENT-RUNTIME-02
+    mode: execute
+    train_scope: eq_agent_runtime
+    status: in_progress
+    goal: "Replace the EQ Agent ready-only panel with a guarded read-only drawer that lazy-loads backend Agent context and sends deterministic runtime messages without report mutation, SJT entry, paid semantics, or frontend-owned official report prose."
+    artifacts:
+      - components/result/eq/EQAgentEntryGuard.tsx
+      - components/result/eq/EQResultV5.tsx
+      - components/result/eq/EQSaveShareRelated.tsx
+      - components/result/eq/types.ts
+      - lib/api/v0_3.ts
+      - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+      - tests/e2e/iq-eq-result-regression.spec.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - components/result/eq/**
+      - lib/api/v0_3.ts
+      - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+      - tests/e2e/iq-eq-result-regression.spec.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Add frontend-owned official EQ report prose.
+      - Add live LLM or provider integration.
+      - Add Agent report, score, formulation, section, or content mutation controls.
+      - Add SJT take entry while next_module.available is false.
+      - Add paid, locked, blur, SKU, unlock, or access-wall semantics.
+      - Modify backend or content-pack authority.
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-EQ-AGENT-RUNTIME-04

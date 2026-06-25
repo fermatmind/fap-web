@@ -446,6 +446,55 @@ export type EqAgentContextPayload = {
   [key: string]: unknown;
 };
 
+export type EqAgentRuntimeResponsePayload = {
+  ok?: boolean;
+  schema?: "eq.agent_runtime_response.v1" | string;
+  ready?: boolean;
+  mode?: "deterministic_read_only" | string;
+  attempt_id?: string;
+  result_id?: string;
+  scale_code?: string;
+  locale?: string;
+  reason_code?: string;
+  intent?: {
+    requested_intent?: string | null;
+    matched_intent?: string;
+    matched?: boolean;
+    allowed_response_mode?: string;
+    [key: string]: unknown;
+  };
+  intent_context?: EqAgentContextPayload["intent_context"];
+  assistant_response?: {
+    role?: "assistant" | string;
+    text?: string;
+    summary_points?: string[];
+    follow_up_question?: string;
+    source_asset_ids?: string[];
+    boundary_claim_ids?: string[];
+    [key: string]: unknown;
+  };
+  safety?: {
+    detected_forbidden_claim_ids?: string[];
+    applied_forbidden_claim_ids?: string[];
+    escalation_flags?: string[];
+    no_paywall_language?: boolean;
+    no_sjt_entry?: boolean;
+    no_raw_technical_tags?: boolean;
+    [key: string]: unknown;
+  };
+  guardrails?: EqAgentContextGuardrails;
+  next_module?: EqV5ReportPayload["next_module"];
+  context_summary?: {
+    eq_report_mode?: string;
+    measurement_type?: string;
+    core_formulation_id?: string;
+    quality_level?: string;
+    confidence_label?: string;
+    [key: string]: unknown;
+  };
+  [key: string]: unknown;
+};
+
 export type RichResultProfile = {
   type_code?: string;
   type_name?: string;
@@ -3419,6 +3468,44 @@ export async function fetchEqAgentContext({
   );
 
   return assertApiOk(response, "Failed to load EQ Agent context.");
+}
+
+export async function sendEqAgentRuntimeMessage({
+  attemptId,
+  anonId,
+  locale,
+  intent,
+  message,
+  skipAuth,
+  includeAnonId = true,
+  accessToken,
+}: {
+  attemptId: string;
+  anonId?: string;
+  locale?: "en" | "zh-CN" | string;
+  intent?: string;
+  message: string;
+  skipAuth?: boolean;
+  includeAnonId?: boolean;
+  accessToken?: string | null;
+}): Promise<EqAgentRuntimeResponsePayload> {
+  const resolvedAnonId = includeAnonId ? resolveAnonId(anonId) : undefined;
+  const normalizedAccessToken = normalizeResultAccessToken(accessToken);
+  const response = await apiClient.post<EqAgentRuntimeResponsePayload>(
+    `/v0.3/attempts/${attemptId}/eq/agent-runtime/messages`,
+    {
+      ...(locale ? { locale } : {}),
+      ...(intent ? { intent } : {}),
+      message,
+      ...(normalizedAccessToken ? { access_token: normalizedAccessToken } : {}),
+    },
+    {
+      ...explicitAnonHeader(resolvedAnonId, resultAccessTokenHeader(normalizedAccessToken)),
+      ...(skipAuth ? { skipAuth: true } : {}),
+    }
+  );
+
+  return assertApiOk(response, "Failed to send EQ Agent message.");
 }
 
 export async function fetchAttemptInviteUnlockProgress({
