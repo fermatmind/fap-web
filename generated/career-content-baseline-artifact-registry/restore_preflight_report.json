@@ -4,7 +4,7 @@
   "content_generated": false,
   "execute_local_restore": false,
   "final_conclusion": "BASELINE_ARTIFACT_RESTORE_BLOCKED",
-  "generated_at": "2026-06-25T01:26:01.252301+00:00",
+  "generated_at": "2026-06-25T01:48:20.893265+00:00",
   "production_imported": false,
   "registry": "generated/career-content-baseline-artifact-registry/baseline_artifact_registry.json",
   "report_type": "career_content_restore_preflight",

@@ -30,6 +30,9 @@ def latest_baseline(state_dir: Path, block: str) -> dict | None:
                     "final_conclusion": row.get("final_conclusion"),
                     "sha256_manifest": row.get("sha256_manifest"),
                     "block_version": row.get("block_version"),
+                    "artifact_uri": row.get("artifact_uri"),
+                    "package_sha256": row.get("package_sha256"),
+                    "restorable": row.get("restorable"),
                 }
     return data.get(block) or data.get(state_key(block))
 
@@ -72,9 +75,14 @@ def main() -> int:
         phase = "repair"
         reason = "open_failures_present"
     elif baseline and baseline_files_missing(baseline):
-        action = "restore_baseline_preflight"
-        phase = "restore_preflight"
-        reason = "latest_pass_baseline_files_missing"
+        if baseline.get("artifact_uri") and baseline.get("restorable") is not False:
+            action = "restore_baseline"
+            phase = "restore"
+            reason = "latest_pass_baseline_files_missing_with_artifact_uri"
+        else:
+            action = "restore_baseline_preflight"
+            phase = "restore_preflight"
+            reason = "latest_pass_baseline_files_missing"
     elif baseline:
         action = "create_next_manifest"
         phase = "manifest"

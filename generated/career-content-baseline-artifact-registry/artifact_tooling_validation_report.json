@@ -1,0 +1,21 @@
+{
+  "blocked_baseline_count": 6,
+  "cms_imported": false,
+  "content_generated": false,
+  "current_completed_baseline_registry": "BASELINE_ARTIFACT_RESTORE_BLOCKED",
+  "final_conclusion": "BASELINE_ARTIFACT_TOOLING_READY_BACKFILL_REQUIRED",
+  "fixture_export_upload_restore": "PASS",
+  "generated_at": "2026-06-25T01:48:40.698963+00:00",
+  "implemented_scripts": [
+    ".agents/skills/career-content-asset-factory/scripts/export_baseline_artifact.py",
+    ".agents/skills/career-content-asset-factory/scripts/upload_baseline_artifact.py",
+    ".agents/skills/career-content-asset-factory/scripts/restore_baseline.py"
+  ],
+  "next_required_action": "restore from CAREER_CONTENT_ARTIFACT_ROOT if packages exist; otherwise regenerate each block and immediately export/upload/register the PASS baseline",
+  "production_imported": false,
+  "reason": "completed baseline state exists, but local baseline directories are missing and no artifact_uri has been registered yet",
+  "runtime_modified": false,
+  "schema_version": "1.0",
+  "seo_modified": false,
+  "staging_created": false
+}

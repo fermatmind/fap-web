@@ -106,6 +106,9 @@ The scripts in `scripts/` are orchestration and validation helpers only. They mu
 - `detect_latest_baseline.py`
 - `build_baseline_artifact_registry.py`
 - `restore_baseline_preflight.py`
+- `export_baseline_artifact.py`
+- `upload_baseline_artifact.py`
+- `restore_baseline.py`
 - `create_next_batch_manifest.py`
 - `update_agent_state.py`
 - `validate_agent_state.py`

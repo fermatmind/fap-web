@@ -11,6 +11,7 @@ from pathlib import Path
 AUTONOMOUS_ALLOWED = {
     "inspect_state",
     "restore_baseline_preflight",
+    "restore_baseline",
     "create_next_manifest",
     "generate_evidence",
     "repair_evidence",

@@ -70,6 +70,12 @@
               "missing"
             ]
           },
+          "package_sha256": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "restorable": {
             "type": "boolean"
           },
@@ -98,6 +104,12 @@
               "null"
             ]
           },
+          "created_by_run_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "notes": {
             "type": "array",
             "items": {
@@ -117,11 +129,13 @@
           "sha256_manifest_sha256",
           "artifact_uri",
           "artifact_type",
+          "package_sha256",
           "restorable",
           "status",
           "final_conclusion",
           "created_at",
           "source_run_id",
+          "created_by_run_id",
           "notes"
         ]
       }
