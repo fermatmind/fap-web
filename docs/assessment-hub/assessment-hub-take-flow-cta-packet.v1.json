@@ -1,0 +1,427 @@
+{
+  "schema_version": "fermatmind.assessment_hub_qa.take_flow_cta_packet.v1",
+  "task_id": "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
+  "consumes_common_contract": "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01",
+  "consumes_route_metadata_packet": "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01",
+  "run_mode": "docs_contracts_only_readonly_public_get",
+  "generated_at": "2026-06-25T08:35:00+08:00",
+  "verdict": "PASS_ACTUAL_CTA_TARGETS_AND_TAKE_GET_ALIGNMENT",
+  "negative_guarantees": {
+    "runtime_code_changed": false,
+    "frontend_public_copy_changed": false,
+    "cms_write_performed": false,
+    "search_submission_performed": false,
+    "provider_call_performed": false,
+    "deployment_triggered": false,
+    "private_attempt_or_result_accessed": false,
+    "post_start_submit_result_called": false,
+    "answers_submitted": false,
+    "payment_order_or_entitlement_changed": false,
+    "sitemap_or_llms_or_schema_mutated": false,
+    "fap_api_modified": false
+  },
+  "scope_summary": {
+    "covered_scale_codes": [
+      "MBTI",
+      "BIG5_OCEAN",
+      "ENNEAGRAM",
+      "RIASEC",
+      "IQ_RAVEN",
+      "EQ_60"
+    ],
+    "covered_locales": [
+      "en",
+      "zh"
+    ],
+    "landing_route_count": 12,
+    "actual_landing_cta_href_count": 22,
+    "actual_landing_cta_get_pass_count": 22,
+    "actual_landing_cta_redirect_count": 0,
+    "form_query_cta_count": 20,
+    "bare_default_cta_count": 2,
+    "status": "PASS"
+  },
+  "source_authority_evidence": {
+    "landing_page_source": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+    "take_page_source": "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
+    "form_helpers": [
+      "lib/mbti/forms.ts",
+      "lib/big5/forms.ts",
+      "lib/enneagram/forms.ts",
+      "lib/riasec/forms.ts",
+      "lib/iq/bankDisplay.ts"
+    ],
+    "public_runtime_evidence": "GET https://fermatmind.com/{locale}/tests/{slug} and extracted same-slug /take hrefs, then GET each extracted href with redirect=manual.",
+    "excluded_evidence": [
+      "POST start/submit/result APIs",
+      "private attempts",
+      "private result payloads",
+      "orders or payment redirects",
+      "CMS/admin reads or writes",
+      "search provider submissions"
+    ]
+  },
+  "live_rechecks": [
+    {
+      "id": "actual_landing_cta_href_recheck_2026_06_25",
+      "method": "public_get_only",
+      "landing_pages_checked": 12,
+      "actual_cta_hrefs_extracted": 22,
+      "take_get_status_200": 22,
+      "redirects_observed": 0,
+      "private_data_accessed": false,
+      "post_requests_sent": false,
+      "result": "PASS"
+    },
+    {
+      "id": "bare_take_url_transient_recheck_2026_06_25",
+      "method": "public_get_only",
+      "initial_observation": "Some simplified bare form URLs briefly returned 500 during early probing, while actual landing CTA hrefs were 22/22 PASS.",
+      "final_recheck_paths": [
+        "/en/tests/mbti-personality-test-16-personality-types/take?form=mbti_93",
+        "/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_144",
+        "/en/tests/enneagram-personality-test-nine-types/take?form=enneagram_forced_choice_144",
+        "/zh/tests/enneagram-personality-test-nine-types/take?form=enneagram_likert_105",
+        "/zh/tests/iq-test-intelligence-quotient-assessment/take?form=IQ_OWNER_ORIGINAL_30",
+        "/en/tests/eq-test-emotional-intelligence-assessment/take"
+      ],
+      "final_recheck_status_200": 6,
+      "result": "PASS_AS_TRANSIENT_NOT_REPRODUCED"
+    }
+  ],
+  "form_matrix": [
+    {
+      "scale_code": "MBTI",
+      "slug": "mbti-personality-test-16-personality-types",
+      "source": "lib/mbti/forms.ts + MBTI landing entry tracking",
+      "forms": [
+        {
+          "form_code": "mbti_144",
+          "question_count": 144,
+          "default": true,
+          "locales": [
+            "en",
+            "zh"
+          ],
+          "target_actions": [
+            "start_mbti_test_primary"
+          ]
+        },
+        {
+          "form_code": "mbti_93",
+          "question_count": 93,
+          "default": false,
+          "locales": [
+            "en",
+            "zh"
+          ],
+          "target_actions": [
+            "start_mbti_test_secondary"
+          ]
+        }
+      ]
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "slug": "big-five-personality-test-ocean-model",
+      "source": "lib/big5/forms.ts",
+      "forms": [
+        {
+          "form_code": "big5_120",
+          "question_count": 120,
+          "default": true,
+          "locales": [
+            "en",
+            "zh"
+          ]
+        },
+        {
+          "form_code": "big5_90",
+          "question_count": 90,
+          "default": false,
+          "locales": [
+            "en",
+            "zh"
+          ]
+        }
+      ]
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "slug": "enneagram-personality-test-nine-types",
+      "source": "lib/enneagram/forms.ts",
+      "forms": [
+        {
+          "form_code": "enneagram_likert_105",
+          "question_count": 105,
+          "default": true,
+          "locales": [
+            "en",
+            "zh"
+          ]
+        },
+        {
+          "form_code": "enneagram_forced_choice_144",
+          "question_count": 144,
+          "default": false,
+          "locales": [
+            "en",
+            "zh"
+          ]
+        }
+      ]
+    },
+    {
+      "scale_code": "RIASEC",
+      "slug": "holland-career-interest-test-riasec",
+      "source": "lib/riasec/forms.ts",
+      "forms": [
+        {
+          "form_code": "riasec_60",
+          "question_count": 60,
+          "default": true,
+          "locales": [
+            "en",
+            "zh"
+          ]
+        },
+        {
+          "form_code": "riasec_140",
+          "question_count": 140,
+          "default": false,
+          "locales": [
+            "en",
+            "zh"
+          ]
+        }
+      ]
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "slug": "iq-test-intelligence-quotient-assessment",
+      "source": "lib/iq/bankDisplay.ts",
+      "forms": [
+        {
+          "form_code": "IQ_OWNER_ORIGINAL_30",
+          "question_count": 30,
+          "default": true,
+          "locales": [
+            "en",
+            "zh"
+          ],
+          "availability": "available"
+        },
+        {
+          "form_code": null,
+          "question_count": 30,
+          "default": true,
+          "locales": [
+            "en",
+            "zh"
+          ],
+          "meaning": "bare take URL resolves the default IQ bank"
+        }
+      ]
+    },
+    {
+      "scale_code": "EQ_60",
+      "slug": "eq-test-emotional-intelligence-assessment",
+      "source": "app/(localized)/[locale]/tests/[slug]/page.tsx single EQ CTA",
+      "forms": [
+        {
+          "form_code": null,
+          "question_count": 60,
+          "default": true,
+          "locales": [
+            "en",
+            "zh"
+          ],
+          "meaning": "single bare take URL"
+        }
+      ]
+    }
+  ],
+  "actual_cta_targets": [
+    {
+      "scale_code": "MBTI",
+      "locale": "en",
+      "form_code": "mbti_144",
+      "target_action": "start_mbti_test_primary",
+      "href": "/en/tests/mbti-personality-test-16-personality-types/take?form=mbti_144&entrypoint=mbti_test_landing&entry_surface=mbti_test_landing&source_page_type=test_landing&target_action=start_mbti_test_primary&test_slug=mbti-personality-test-16-personality-types&form_code=mbti_144&landing_path=%2Fen%2Ftests%2Fmbti-personality-test-16-personality-types",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "MBTI",
+      "locale": "en",
+      "form_code": "mbti_93",
+      "target_action": "start_mbti_test_secondary",
+      "href": "/en/tests/mbti-personality-test-16-personality-types/take?form=mbti_93&entrypoint=mbti_test_landing&entry_surface=mbti_test_landing&source_page_type=test_landing&target_action=start_mbti_test_secondary&test_slug=mbti-personality-test-16-personality-types&form_code=mbti_93&landing_path=%2Fen%2Ftests%2Fmbti-personality-test-16-personality-types",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "MBTI",
+      "locale": "zh",
+      "form_code": "mbti_144",
+      "target_action": "start_mbti_test_primary",
+      "href": "/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_144&entrypoint=mbti_test_landing&entry_surface=mbti_test_landing&source_page_type=test_landing&target_action=start_mbti_test_primary&test_slug=mbti-personality-test-16-personality-types&form_code=mbti_144&landing_path=%2Fzh%2Ftests%2Fmbti-personality-test-16-personality-types",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "MBTI",
+      "locale": "zh",
+      "form_code": "mbti_93",
+      "target_action": "start_mbti_test_secondary",
+      "href": "/zh/tests/mbti-personality-test-16-personality-types/take?form=mbti_93&entrypoint=mbti_test_landing&entry_surface=mbti_test_landing&source_page_type=test_landing&target_action=start_mbti_test_secondary&test_slug=mbti-personality-test-16-personality-types&form_code=mbti_93&landing_path=%2Fzh%2Ftests%2Fmbti-personality-test-16-personality-types",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "en",
+      "form_code": "big5_120",
+      "href": "/en/tests/big-five-personality-test-ocean-model/take?form=big5_120",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "en",
+      "form_code": "big5_90",
+      "href": "/en/tests/big-five-personality-test-ocean-model/take?form=big5_90",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "zh",
+      "form_code": "big5_120",
+      "href": "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_120",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "zh",
+      "form_code": "big5_90",
+      "href": "/zh/tests/big-five-personality-test-ocean-model/take?form=big5_90",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "en",
+      "form_code": "enneagram_likert_105",
+      "href": "/en/tests/enneagram-personality-test-nine-types/take?form=enneagram_likert_105",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "en",
+      "form_code": "enneagram_forced_choice_144",
+      "href": "/en/tests/enneagram-personality-test-nine-types/take?form=enneagram_forced_choice_144",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "zh",
+      "form_code": "enneagram_likert_105",
+      "href": "/zh/tests/enneagram-personality-test-nine-types/take?form=enneagram_likert_105",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "zh",
+      "form_code": "enneagram_forced_choice_144",
+      "href": "/zh/tests/enneagram-personality-test-nine-types/take?form=enneagram_forced_choice_144",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "en",
+      "form_code": "riasec_60",
+      "href": "/en/tests/holland-career-interest-test-riasec/take?form=riasec_60",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "en",
+      "form_code": "riasec_140",
+      "href": "/en/tests/holland-career-interest-test-riasec/take?form=riasec_140",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "zh",
+      "form_code": "riasec_60",
+      "href": "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_60",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "zh",
+      "form_code": "riasec_140",
+      "href": "/zh/tests/holland-career-interest-test-riasec/take?form=riasec_140",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "en",
+      "form_code": "IQ_OWNER_ORIGINAL_30",
+      "href": "/en/tests/iq-test-intelligence-quotient-assessment/take?form=IQ_OWNER_ORIGINAL_30",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "en",
+      "form_code": null,
+      "href": "/en/tests/iq-test-intelligence-quotient-assessment/take",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "zh",
+      "form_code": "IQ_OWNER_ORIGINAL_30",
+      "href": "/zh/tests/iq-test-intelligence-quotient-assessment/take?form=IQ_OWNER_ORIGINAL_30",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "zh",
+      "form_code": null,
+      "href": "/zh/tests/iq-test-intelligence-quotient-assessment/take",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "en",
+      "form_code": null,
+      "href": "/en/tests/eq-test-emotional-intelligence-assessment/take",
+      "get_status": 200,
+      "redirected": false
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "zh",
+      "form_code": null,
+      "href": "/zh/tests/eq-test-emotional-intelligence-assessment/take",
+      "get_status": 200,
+      "redirected": false
+    }
+  ],
+  "next_safe_action": "Merge PR3 after local and GitHub checks pass, clean up the branch, then continue to ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01."
+}
