@@ -31077,7 +31077,7 @@
       "base": "main",
       "depends_on": [],
       "title": "SIX-HUB-PAID-UNLOCK-COPY-AUTHORITY-CONTRACT-01: docs(seo): add paid unlock copy authority contract",
-      "status": "local_checks_passed_ready_to_push",
+      "status": "pr_open_pending_github_checks",
       "train_scope": "six_hub_paid_unlock_copy_authority_contract",
       "artifacts": [
         "docs/seo/agent/six-hub-paid-unlock-copy-authority-contract-2026-06-25.md",
@@ -31142,8 +31142,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1449",
+      "commit_sha": "822b962ebf62399b7603407cb9a5d8cbbfea63e4",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -31177,6 +31177,11 @@
           "at": "2026-06-25T18:14:00+08:00",
           "status": "local_checks_passed_ready_to_push",
           "summary": "PR1 docs/contracts artifacts, scope helper, and train metadata passed JSON/YAML parse, focused contract, typecheck, full contract suite, diff check, and changed-file scope validation. pnpm build was intentionally skipped by task instruction."
+        },
+        {
+          "at": "2026-06-25T18:19:00+08:00",
+          "status": "pr_open_pending_github_checks",
+          "summary": "Opened PR #1449 at https://github.com/fermatmind/fap-web/pull/1449 from commit 822b962ebf62399b7603407cb9a5d8cbbfea63e4. Required GitHub checks are pending."
         }
       ],
       "sidecar_issues": []
