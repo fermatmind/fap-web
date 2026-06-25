@@ -1,0 +1,59 @@
+{
+  "artifact": "PERSONALITY-AGENT-AUTO-RUNNER-SCHEDULER-ACTIVATION-CLOSURE-01",
+  "generated_at": "2026-06-25",
+  "status": "pass",
+  "scope": "docs_only_closure",
+  "evidence": {
+    "workflow": {
+      "path": ".github/workflows/personality-agent-auto-runner.yml",
+      "name": "Personality Agent Auto Runner",
+      "triggers": [
+        "schedule",
+        "workflow_dispatch"
+      ],
+      "weekday_schedule": "23 2 * * 1-5",
+      "permissions": {
+        "contents": "read"
+      },
+      "artifact_upload": "actions/upload-artifact@v4",
+      "artifact_path": "artifacts/personality-agent-auto-runner/${RUN_DATE}",
+      "secrets_required": false,
+      "environment_required": false
+    },
+    "runner": {
+      "path": "scripts/seo/run-personality-agent-auto-runner.mjs",
+      "scheduler_activation": "scheduled_actions_artifact_only_enabled",
+      "output_mode": "github_actions_artifact_only",
+      "framework_v1": "mbti64"
+    },
+    "contract_test": {
+      "path": "tests/contracts/personality-agent-auto-runner-scheduler-activation-01.contract.test.ts",
+      "coverage": [
+        "workflow has schedule and workflow_dispatch",
+        "workflow uploads artifacts",
+        "workflow has read-only contents permission",
+        "workflow does not deploy",
+        "workflow does not create pull requests",
+        "workflow does not submit or enqueue search actions",
+        "runner emits artifact-only scheduled metadata"
+      ]
+    }
+  },
+  "safety_boundary": {
+    "cms_write_attempted": false,
+    "cms_live_promotion_attempted": false,
+    "publish_attempted": false,
+    "index_search_attempted": false,
+    "search_queue_mutation_attempted": false,
+    "live_search_submit_attempted": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_request_indexing_attempted": false,
+    "production_deploy_attempted": false,
+    "git_push_attempted_by_workflow": false,
+    "pull_request_create_attempted_by_workflow": false
+  },
+  "blockers": [],
+  "warnings": [],
+  "final_decision": "PASS_SCHEDULER_ACTIVATION_CLOSED_ARTIFACT_ONLY",
+  "recommended_next_task": "PERSONALITY-AGENT-OPS-REVIEW-SURFACE-01"
+}
