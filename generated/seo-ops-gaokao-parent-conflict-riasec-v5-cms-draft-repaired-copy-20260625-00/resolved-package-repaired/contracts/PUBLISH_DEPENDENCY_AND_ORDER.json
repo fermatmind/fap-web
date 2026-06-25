@@ -1,0 +1,25 @@
+{
+  "schema_version": "publish_dependency_order_v1",
+  "package_version": "v5",
+  "recommended_order": [
+    "content_package_v5_codex_qa",
+    "runtime_active_link_check",
+    "media_library_resolution_for_cover_and_body_visual",
+    "p0_riasec_test_page_ctr_repair_dry_run_or_status_confirmation",
+    "cms_import_dry_run_for_article",
+    "preview_qa_no_english_headings_no_duplicate_quick_answer_body_visual_renders",
+    "operator_review",
+    "publish_authorization_if_approved",
+    "post_publish_runtime_readback",
+    "article_52_internal_link_update_if_authorized",
+    "search_batch_gate_later"
+  ],
+  "blocked_until_resolved": [
+    "Media Library resolved URLs are absent",
+    "CMS dry-run not executed",
+    "Article ID unknown until CMS import",
+    "P0 RIASEC CTR repair dependency not confirmed",
+    "Operator review not completed"
+  ],
+  "search_submission_policy": "held; no IndexNow/Baidu/GSC from this package"
+}

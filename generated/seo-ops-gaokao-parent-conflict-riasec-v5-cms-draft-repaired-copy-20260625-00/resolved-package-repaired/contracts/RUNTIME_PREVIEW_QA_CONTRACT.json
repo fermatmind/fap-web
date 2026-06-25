@@ -1,0 +1,12 @@
+{
+  "checks": [
+    "no English module headings",
+    "no duplicate Quick Answer card",
+    "no default sidebar interfering with first screen",
+    "body visual renders",
+    "all active internal links return public 200 and expected indexability or are marked ROUTE_UNKNOWN_REQUIRES_CODEX_RESOLUTION",
+    "no private/take/result/order/share URLs",
+    "CTA routes are public canonical"
+  ],
+  "status": "required_before_preview"
+}

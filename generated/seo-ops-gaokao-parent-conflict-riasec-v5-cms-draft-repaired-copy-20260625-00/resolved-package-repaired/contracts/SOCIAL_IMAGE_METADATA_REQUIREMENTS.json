@@ -1,0 +1,34 @@
+{
+  "schema_version": "social_image_metadata_requirements_v1",
+  "social_image_status": "resolved_from_media_library_import_register_local_test",
+  "cover_asset_key": "article.gaokao-parent-conflict.riasec.cover.v4",
+  "cover_image_url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/hero_1600x900.jpg",
+  "og_image_url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/og_1200x630.jpg",
+  "twitter_image_url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriaseccoverv4/og_1200x630.jpg",
+  "cover_image_width": 1600,
+  "cover_image_height": 900,
+  "required_variants": [
+    "hero",
+    "card",
+    "thumbnail",
+    "og",
+    "preload"
+  ],
+  "body_visual_asset_key": "article.gaokao-parent-conflict.riasec.body-visual.v4",
+  "body_visual_image_url": "https://assets.fermatmind.com/storage/media-library/variants/articlegaokao-parent-conflictriasecbody-visualv4/hero_1600x900.jpg",
+  "body_visual_fallback_authorized": false,
+  "media_caveat": "Local/test Media Library import/register passed; OSS/CDN HTTP-200 verification was skipped because local media sync and CDN verification were disabled.",
+  "provenance": {
+    "source": "media-assets:import-seo-image-bundle resolved package output",
+    "competitor_asset": false,
+    "private_asset": false,
+    "official_logo_or_ui": false
+  },
+  "forbidden": [
+    "fake image URL",
+    "private asset",
+    "official logo",
+    "competitor image",
+    "unresolved placeholder"
+  ]
+}

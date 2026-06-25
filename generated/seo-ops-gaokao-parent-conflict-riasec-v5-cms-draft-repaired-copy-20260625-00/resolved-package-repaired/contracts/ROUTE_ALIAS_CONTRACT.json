@@ -1,0 +1,29 @@
+{
+  "schema_version": "route_alias_contract_v1",
+  "known_alias_autofix_allowed": true,
+  "active_routes": [
+    "/zh/articles/gaokao-major-choice-parent-conflict-riasec-course-checklist",
+    "/zh/tests/holland-career-interest-test-riasec",
+    "/zh/tests/mbti-personality-test-16-personality-types",
+    "/zh/articles/college-major-choice-holland-mbti-career-test",
+    "/zh/articles/gaokao-score-major-shortlist-riasec-checklist",
+    "/zh/articles/riasec-holland-career-interest-test-explained",
+    "/zh/articles/mbti-vs-holland-career-choice",
+    "/zh/articles/career-interest-vs-personality-test-differences",
+    "/zh/articles/career-confusion-test-map",
+    "/zh/method-boundaries"
+  ],
+  "known_aliases": {},
+  "forbidden_private_routes": [
+    "/result",
+    "/results",
+    "/orders",
+    "/order",
+    "/share",
+    "/pay",
+    "/payment",
+    "/history",
+    "/take"
+  ],
+  "unknown_route_behavior": "ROUTE_UNKNOWN_REQUIRES_CODEX_RESOLUTION"
+}

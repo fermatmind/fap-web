@@ -1,0 +1,37 @@
+{
+  "schema_version": "gsc_query_page_strategy_contract_v1",
+  "package_version": "v5",
+  "article_slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist",
+  "canonical_path": "/zh/articles/gaokao-major-choice-parent-conflict-riasec-course-checklist",
+  "owner_intent": "parent_child_major_choice_conflict_arbitration",
+  "must_not_own": [
+    "generic_gaokao_major_choice",
+    "riasec_model_explainer",
+    "mbti_model_explainer",
+    "money_riasec_test",
+    "money_mbti_test"
+  ],
+  "upstream_owner": "/zh/articles/college-major-choice-holland-mbti-career-test",
+  "primary_cta": "/zh/tests/holland-career-interest-test-riasec",
+  "p0_dependency": "P0 RIASEC landing-surface CTR repair should run before or alongside publish.",
+  "screenshot_evidence_status": "operator_provided_directional_only_not_exported_query_page_truth",
+  "decision_rules": {
+    "do_not_use_24h_alone": true,
+    "target_query_seen_false": "strengthen parent-conflict title/meta/internal links",
+    "wrong_query_seen_true": "repair owner/cannibalization boundaries",
+    "ctr_lt_1_avg_pos_5_15": "snippet/title/meta repair candidate",
+    "article_to_test_click_lt_2_percent": "CTA placement/copy repair"
+  },
+  "held_actions": [
+    "cms_write",
+    "publish",
+    "search_submission",
+    "url_truth",
+    "sitemap_llms",
+    "schema",
+    "hreflang",
+    "revalidation",
+    "deploy",
+    "pr"
+  ]
+}

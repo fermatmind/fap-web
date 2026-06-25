@@ -1,0 +1,6 @@
+{
+  "dependency": "P0 RIASEC test page CTR repair should run before or alongside publish",
+  "target": "/zh/tests/holland-career-interest-test-riasec",
+  "reason": "new article routes primary CTA traffic to this test page; CTR/first-screen repair improves conversion capture",
+  "status": "dependency_not_blocking_content_package_but_blocking_top3_release_quality"
+}

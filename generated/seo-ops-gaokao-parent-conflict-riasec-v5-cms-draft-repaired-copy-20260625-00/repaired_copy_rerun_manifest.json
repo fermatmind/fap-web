@@ -1,0 +1,40 @@
+{
+  "schema_version": "seo_ops_repaired_resolved_package_rerun_manifest_v1",
+  "target_slug": "gaokao-major-choice-parent-conflict-riasec-course-checklist",
+  "source_package": "/Users/rainie/Desktop/GitHub/fap-web/generated/seo-ops-gaokao-parent-conflict-riasec-v5-media-import-register-20260625-05/resolved-package",
+  "repaired_package": "/Users/rainie/Desktop/GitHub/fap-web/generated/seo-ops-gaokao-parent-conflict-riasec-v5-cms-draft-repaired-copy-20260625-00/resolved-package-repaired",
+  "raw_dry_run_output": "/Users/rainie/Desktop/GitHub/fap-web/generated/seo-ops-gaokao-parent-conflict-riasec-v5-cms-draft-repaired-copy-20260625-00/CMS_DRAFT_IMPORT_DRY_RUN_REPAIRED.raw.json",
+  "scope": {
+    "new_repaired_copy_only": true,
+    "cms_draft_created": false,
+    "cms_write": false,
+    "publish": false,
+    "url_truth_mutation": false,
+    "sitemap_llms_mutation": false,
+    "schema_hreflang_enablement": false,
+    "search_submission": false,
+    "revalidation": false,
+    "deploy": false,
+    "pr": false,
+    "business_code_modified": false,
+    "db_migrations_run_this_turn": false
+  },
+  "repairs_applied": [
+    "added contracts/ROUTE_ALIAS_CONTRACT.json",
+    "added contracts/SOCIAL_IMAGE_METADATA_REQUIREMENTS.json",
+    "added contracts/DYNAMIC_CTA_CONTRACT.json",
+    "normalized contracts/PRIVATE_URL_GUARD.json allowed guard keys",
+    "added zh-CN reader-facing category metadata to active CMS import surfaces"
+  ],
+  "dry_run_result": {
+    "exit_code": 1,
+    "ok": false,
+    "dry_run": true,
+    "action": "will_skip",
+    "would_write": false,
+    "active_blocker_code": "runtime_error",
+    "active_blocker_message": "Unknown column 'translation_group_id' in 'where clause'"
+  },
+  "decision": "BLOCKED_NEEDS_OPERATOR_INPUT",
+  "next_minimum_authorization_needed": "Authorize the minimum local/test DB article translation contract migration, likely database/migrations/2026_04_23_000100_add_article_translation_contract_v1.php, then rerun CMS draft import dry-run."
+}

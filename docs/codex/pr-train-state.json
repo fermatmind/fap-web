@@ -31347,6 +31347,104 @@
         }
       ],
       "sidecar_issues": []
+    },
+    {
+      "id": "SEO-OPS-GAOKAO-V5-PACKAGE-CONTRACT-REPAIR-01",
+      "status": "local_checks_passed_ready_to_push",
+      "repo": "fap-web",
+      "branch": "codex/seo-ops-gaokao-v5-package-contract-repair-01",
+      "base": "main",
+      "title": "SEO-OPS-GAOKAO-V5-PACKAGE-CONTRACT-REPAIR-01: repair gaokao v5 package contracts",
+      "depends_on": [],
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "checks": {
+        "branch_base": {
+          "status": "passed",
+          "evidence": "Created codex/seo-ops-gaokao-v5-package-contract-repair-01 from fap-web origin/main ee6dc67093d5a0b760e68fe5b7bbf627f9daf86f; unrelated untracked docs/audits/eq/ remains unstaged and outside scope."
+        },
+        "local": {
+          "status": "passed",
+          "commands": [
+            {
+              "cmd": "pnpm exec vitest run tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
+              "result": "passed",
+              "summary": "1 file, 5 tests passed"
+            },
+            {
+              "cmd": "pnpm exec vitest run tests/contracts/six-hub-paid-unlock-frontend-consumer-guard.contract.test.ts tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
+              "result": "passed",
+              "summary": "2 files, 11 tests passed"
+            },
+            {
+              "cmd": "pnpm typecheck",
+              "result": "passed"
+            },
+            {
+              "cmd": "pnpm test:contract",
+              "result": "passed",
+              "summary": "589 files, 3466 tests passed"
+            },
+            {
+              "cmd": "find generated/seo-ops-gaokao-parent-conflict-riasec-v5-cms-draft-repaired-copy-20260625-00 -name '*.json' -print0 | xargs -0 -n1 python3 -m json.tool >/dev/null",
+              "result": "passed"
+            },
+            {
+              "cmd": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+              "result": "passed"
+            },
+            {
+              "cmd": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+              "result": "passed"
+            },
+            {
+              "cmd": "git diff --check && git diff --cached --check",
+              "result": "passed"
+            },
+            {
+              "cmd": "changed-file scope validation",
+              "result": "passed",
+              "summary": "Changed files are limited to the repaired generated package, P3-A contract test, scope helper, and train metadata."
+            }
+          ]
+        }
+      },
+      "failure_reason": null,
+      "scope_validation": {
+        "status": "passed",
+        "allowed_files": [
+          "generated/seo-ops-gaokao-parent-conflict-riasec-v5-cms-draft-repaired-copy-20260625-00/**",
+          "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json",
+          "generated/pr-train-sidecar-issues/**"
+        ],
+        "changed_files": [
+          "generated/seo-ops-gaokao-parent-conflict-riasec-v5-cms-draft-repaired-copy-20260625-00/**",
+          "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "docs/codex/pr-train.yaml",
+          "docs/codex/pr-train-state.json"
+        ],
+        "outside_scope_files": []
+      },
+      "history": [
+        {
+          "at": "2026-06-25T20:05:00+08:00",
+          "status": "in_progress",
+          "summary": "Started P3-A as a fap-web artifact-only PR. Scope is limited to committing the generated repaired Gaokao v5 package contracts, QA evidence, scope helper, and train metadata."
+        },
+        {
+          "at": "2026-06-25T20:18:00+08:00",
+          "status": "local_checks_passed_ready_to_push",
+          "summary": "P3-A repaired package contract test, typecheck, full contract suite, JSON/YAML parse, diff check, and changed-file scope validation passed. Ready to commit and push."
+        }
+      ],
+      "sidecar_issues": []
     }
   ]
 }

@@ -61,6 +61,18 @@ const BIG_FIVE_PUBLIC_PROFILE_AGENT_QA_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
+  "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
+const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_PREFIXES = [
+  "generated/seo-ops-gaokao-parent-conflict-riasec-v5-cms-draft-repaired-copy-20260625-00/",
+  "generated/pr-train-sidecar-issues/",
+];
+
 const ARTICLE_ANSWER_SURFACE_LAYOUT_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/articles/[slug]/page.tsx",
   "components/content/AnswerSurfaceSection.tsx",
@@ -4825,6 +4837,17 @@ export function isBigFivePublicProfileAgentQa01AllowedFile(file: string): boolea
   return BIG_FIVE_PUBLIC_PROFILE_AGENT_QA_01_ALLOWED_FILES.has(file);
 }
 
+export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/seo-ops-gaokao-v5-package-contract-repair-01") {
+    return true;
+  }
+
+  return (
+    SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES.has(file) ||
+    SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_PREFIXES.some((prefix) => file.startsWith(prefix))
+  );
+}
+
 export function isPersonalityEnneagramV1NoindexRender01AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH !== "codex/personality-enneagram-v1-noindex-render-01") {
     return true;
@@ -4858,6 +4881,10 @@ export function isSixHubPaidUnlockCopyAuthorityContract01AllowedFile(file: strin
 }
 
 export function isSixHubPaidUnlockFrontendConsumerGuard01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/six-hub-paid-unlock-frontend-consumer-guard-01") {
+    return true;
+  }
+
   return (
     SIX_HUB_PAID_UNLOCK_FRONTEND_CONSUMER_GUARD_01_ALLOWED_FILES.has(file) ||
     file.startsWith("generated/pr-train-sidecar-issues/")
