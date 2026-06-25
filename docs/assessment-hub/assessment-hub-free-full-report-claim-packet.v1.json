@@ -1,0 +1,200 @@
+{
+  "schema_version": "fermatmind.assessment_hub_qa.free_full_report_claim_packet.v1",
+  "task_id": "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01",
+  "consumes_common_contract": "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01",
+  "consumes_route_metadata_packet": "ASSESSMENT-HUB-SIX-ROUTE-METADATA-PARITY-PACKET-01",
+  "consumes_take_flow_cta_packet": "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01",
+  "run_mode": "docs_contracts_only_readonly_public_get",
+  "generated_at": "2026-06-25T09:25:00+08:00",
+  "verdict": "PASS_WITH_P2_COPY_RISKS_RECORDED",
+  "negative_guarantees": {
+    "runtime_code_changed": false,
+    "frontend_public_copy_changed": false,
+    "cms_write_performed": false,
+    "search_submission_performed": false,
+    "provider_call_performed": false,
+    "deployment_triggered": false,
+    "private_attempt_or_result_accessed": false,
+    "post_start_submit_result_called": false,
+    "answers_submitted": false,
+    "payment_order_or_entitlement_changed": false,
+    "fap_api_modified": false
+  },
+  "scope_summary": {
+    "landing_pages_checked": 12,
+    "public_get_status_200": 12,
+    "free_or_free_test_claim_surfaces": 12,
+    "full_result_or_full_report_claim_surfaces": 4,
+    "paid_unlock_disabled_copy_surfaces": 8,
+    "diagnosis_or_outcome_disclaimer_surfaces": 12,
+    "certificate_or_answer_key_claim_surfaces": 0,
+    "private_data_accessed": false,
+    "post_requests_sent": false,
+    "status": "PASS_WITH_P2_COPY_RISKS_RECORDED"
+  },
+  "risk_taxonomy": [
+    {
+      "id": "P2_PAID_UNLOCK_DISABLED_COPY_RISK",
+      "severity": "P2",
+      "status": "RECORDED_NOT_FIXED_IN_PR4",
+      "surface_count": 8,
+      "description": "Visible copy says only the free report preview is available and paid unlock is temporarily disabled. This may conflict with free-first/full-result positioning and should be consumed by the source-authority/readiness packets before runtime copy changes."
+    },
+    {
+      "id": "P2_FULL_RESULT_CLAIM_AUTHORITY_REVIEW",
+      "severity": "P2",
+      "status": "RECORDED_FOR_SOURCE_AUTHORITY_PACKET",
+      "surface_count": 4,
+      "description": "MBTI and RIASEC pages visibly claim full report/full result or complete result positioning. PR4 records the claim; it does not verify private result entitlement or report completeness."
+    },
+    {
+      "id": "P2_MANUAL_REVIEW_REQUIRED_FOR_CERTIFICATE_OR_ANSWER_KEY_CLAIMS",
+      "severity": "P2",
+      "status": "PASS_NO_VISIBLE_CERTIFICATE_OR_ANSWER_KEY_CLAIM",
+      "surface_count": 0,
+      "description": "IQ surfaces mention answering questions and IQ score context, but no public certificate, answer-key, official diagnostic, or guaranteed-score claim was observed."
+    }
+  ],
+  "surface_classifications": [
+    {
+      "scale_code": "MBTI",
+      "locale": "en",
+      "route": "/en/tests/mbti-personality-test-16-personality-types",
+      "http_status": 200,
+      "free_claim": "Free MBTI Personality Test",
+      "full_result_claim": "Full Report / full result visible",
+      "paid_unlock_disabled_copy": false,
+      "disclaimer_class": "diagnosis_hiring_outcome_guarantee_disclaimer_present",
+      "risk_level": "P2_REVIEW_FULL_RESULT_AUTHORITY"
+    },
+    {
+      "scale_code": "MBTI",
+      "locale": "zh",
+      "route": "/zh/tests/mbti-personality-test-16-personality-types",
+      "http_status": 200,
+      "free_claim": "MBTI免费测试",
+      "full_result_claim": "完整报告 / 完整结果 visible",
+      "paid_unlock_disabled_copy": false,
+      "disclaimer_class": "diagnosis_hiring_outcome_guarantee_disclaimer_present",
+      "risk_level": "P2_REVIEW_FULL_RESULT_AUTHORITY"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "en",
+      "route": "/en/tests/big-five-personality-test-ocean-model",
+      "http_status": 200,
+      "free_claim": "free report preview",
+      "full_result_claim": null,
+      "paid_unlock_disabled_copy": true,
+      "disclaimer_class": "diagnosis_disclaimer_present",
+      "risk_level": "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+    },
+    {
+      "scale_code": "BIG5_OCEAN",
+      "locale": "zh",
+      "route": "/zh/tests/big-five-personality-test-ocean-model",
+      "http_status": 200,
+      "free_claim": "大五人格免费测试 / 基础结果免费",
+      "full_result_claim": null,
+      "paid_unlock_disabled_copy": true,
+      "disclaimer_class": "diagnosis_disclaimer_present",
+      "risk_level": "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "en",
+      "route": "/en/tests/enneagram-personality-test-nine-types",
+      "http_status": 200,
+      "free_claim": "free report preview",
+      "full_result_claim": null,
+      "paid_unlock_disabled_copy": true,
+      "disclaimer_class": "diagnosis_disclaimer_present",
+      "risk_level": "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+    },
+    {
+      "scale_code": "ENNEAGRAM",
+      "locale": "zh",
+      "route": "/zh/tests/enneagram-personality-test-nine-types",
+      "http_status": 200,
+      "free_claim": "九型人格免费测试 / 基础结果免费",
+      "full_result_claim": null,
+      "paid_unlock_disabled_copy": true,
+      "disclaimer_class": "diagnosis_disclaimer_present",
+      "risk_level": "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "en",
+      "route": "/en/tests/holland-career-interest-test-riasec",
+      "http_status": 200,
+      "free_claim": "free Holland/RIASEC entry",
+      "full_result_claim": "complete/full career exploration cues visible",
+      "paid_unlock_disabled_copy": true,
+      "disclaimer_class": "ability_admission_job_guarantee_disclaimer_present",
+      "risk_level": "P2_REVIEW_FULL_RESULT_AUTHORITY_AND_PAID_UNLOCK_COPY"
+    },
+    {
+      "scale_code": "RIASEC",
+      "locale": "zh",
+      "route": "/zh/tests/holland-career-interest-test-riasec",
+      "http_status": 200,
+      "free_claim": "霍兰德职业兴趣免费测试",
+      "full_result_claim": "RIASEC完整结果 visible",
+      "paid_unlock_disabled_copy": true,
+      "disclaimer_class": "ability_admission_job_guarantee_disclaimer_present",
+      "risk_level": "P2_REVIEW_FULL_RESULT_AUTHORITY_AND_PAID_UNLOCK_COPY"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "en",
+      "route": "/en/tests/iq-test-intelligence-quotient-assessment",
+      "http_status": 200,
+      "free_claim": "Start the free test",
+      "full_result_claim": null,
+      "paid_unlock_disabled_copy": false,
+      "disclaimer_class": "diagnosis_disclaimer_present",
+      "risk_level": "PASS_NO_CERTIFICATE_OR_ANSWER_KEY_CLAIM"
+    },
+    {
+      "scale_code": "IQ_RAVEN",
+      "locale": "zh",
+      "route": "/zh/tests/iq-test-intelligence-quotient-assessment",
+      "http_status": 200,
+      "free_claim": "开始智商免费测试",
+      "full_result_claim": null,
+      "paid_unlock_disabled_copy": false,
+      "disclaimer_class": "diagnosis_disclaimer_present",
+      "risk_level": "PASS_NO_CERTIFICATE_OR_ANSWER_KEY_CLAIM"
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "en",
+      "route": "/en/tests/eq-test-emotional-intelligence-assessment",
+      "http_status": 200,
+      "free_claim": "Start the free EQ test / free report preview",
+      "full_result_claim": null,
+      "paid_unlock_disabled_copy": true,
+      "disclaimer_class": "diagnosis_disclaimer_present",
+      "risk_level": "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+    },
+    {
+      "scale_code": "EQ_60",
+      "locale": "zh",
+      "route": "/zh/tests/eq-test-emotional-intelligence-assessment",
+      "http_status": 200,
+      "free_claim": "开始情商免费测试 / 免费报告预览",
+      "full_result_claim": null,
+      "paid_unlock_disabled_copy": true,
+      "disclaimer_class": "diagnosis_disclaimer_present",
+      "risk_level": "P2_PAID_UNLOCK_DISABLED_COPY_RISK"
+    }
+  ],
+  "forbidden_claim_scan": {
+    "official_certificate_claim_observed": false,
+    "answer_key_claim_observed": false,
+    "diagnostic_or_clinical_claim_observed": false,
+    "hiring_admission_salary_or_life_outcome_guarantee_claim_observed": false,
+    "private_or_paid_result_payload_accessed": false
+  },
+  "next_safe_action": "Merge PR4 after local and GitHub checks pass, clean up the branch, then continue to ASSESSMENT-HUB-SOURCE-AUTHORITY-INDEXABILITY-PACKET-01."
+}
