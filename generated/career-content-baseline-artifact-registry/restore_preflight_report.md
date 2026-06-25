@@ -1,17 +1,17 @@
 # Career Content Restore Preflight
 
-Final conclusion: `BASELINE_ARTIFACT_RESTORE_BLOCKED`
+Final conclusion: `BASELINE_ARTIFACT_REGISTRY_READY`
 
 ## Results
 
 | Block | Status | Action | Restored |
 | --- | --- | --- | --- |
-| career-work-activities | `MISSING_LOCAL_NO_RESTORABLE_ARTIFACT` | restore_or_regenerate_required | False |
-| career-identity | `MISSING_LOCAL_NO_RESTORABLE_ARTIFACT` | restore_or_regenerate_required | False |
-| career-skills-entry | `MISSING_LOCAL_NO_RESTORABLE_ARTIFACT` | restore_or_regenerate_required | False |
-| career-fit | `MISSING_LOCAL_NO_RESTORABLE_ARTIFACT` | restore_or_regenerate_required | False |
-| career-adjacent-comparison | `MISSING_LOCAL_NO_RESTORABLE_ARTIFACT` | restore_or_regenerate_required | False |
-| career-page-assembly | `MISSING_LOCAL_NO_RESTORABLE_ARTIFACT` | restore_or_regenerate_required | False |
+| career-work-activities | `LOCAL_READY` | use_local_baseline | False |
+| career-identity | `LOCAL_READY` | use_local_baseline | False |
+| career-skills-entry | `LOCAL_READY` | use_local_baseline | False |
+| career-fit | `LOCAL_READY` | use_local_baseline | False |
+| career-adjacent-comparison | `LOCAL_READY` | use_local_baseline | False |
+| career-page-assembly | `LOCAL_READY` | use_local_baseline | False |
 
 ## Boundaries
 

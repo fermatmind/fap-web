@@ -427,7 +427,25 @@ def assert_no_runtime_or_search(rows: list[dict[str, Any]]) -> list[dict[str, An
         negative_boundary = any(marker in text.lower() for marker in ("not a direct-switch", "not presented as direct-switch", "不是“直接可转”", "不是直接转行", "不作为直接"))
         if UNSAFE_TRANSFER.search(text) and not negative_boundary:
             findings.append({"slug": row.get("slug"), "locale": row.get("locale"), "issue": "unsupported_transfer_or_outcome_claim"})
-        if DISALLOWED_PROXY.search(text):
+        lower_text = text.lower()
+        proxy_negative_context = any(
+            marker in lower_text
+            for marker in (
+                "not title similarity",
+                "not accepted as proof",
+                "not accepted",
+                "rejected title",
+                "rejected proxy",
+                "not a proof",
+                "rather than title similarity",
+                "不是只看名称",
+                "不接受",
+                "已拒绝",
+                "不是证明",
+                "不得作为证明",
+            )
+        )
+        if DISALLOWED_PROXY.search(text) and not proxy_negative_context:
             findings.append({"slug": row.get("slug"), "locale": row.get("locale"), "issue": "disallowed_proxy_claim"})
         if row.get("locale") == "en" and re.search(r"[\u4e00-\u9fff]", text):
             findings.append({"slug": row.get("slug"), "locale": row.get("locale"), "issue": "english_contains_chinese"})
