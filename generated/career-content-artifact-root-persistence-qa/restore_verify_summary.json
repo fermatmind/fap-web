@@ -1,33 +1,11 @@
 {
+  "all_pass": true,
   "artifact_root": "/var/www/career-content-artifacts",
-  "career_content_artifact_root_env_present": true,
   "cms_imported": false,
   "content_generated": false,
-  "expected_baseline_tar_count": 6,
-  "final_conclusion": "ARTIFACT_ROOT_PERSISTENCE_PASS",
-  "generated_at": "2026-06-25T03:57:36Z",
-  "next_required_action": "No persistence blocker remains. Future operators should restore missing local baselines from CAREER_CONTENT_ARTIFACT_ROOT before regenerating content.",
-  "notes": [
-    "Six baseline.tar.gz packages were synced to the persistent server artifact root.",
-    "Server-side SHA verification matched each package artifact_sha256.txt.",
-    "Restore preflight ran from an isolated clean verification directory without local baseline packages.",
-    "Verify-only restore passed for all six completed career content baselines.",
-    "No evidence, synthesis, asset, search_projection, runtime, SEO, CMS, staging, or production state was generated or modified by this QA report."
-  ],
+  "generated_at": "2026-06-25T03:54:17Z",
   "production_imported": false,
-  "report_type": "career_content_artifact_root_persistence_qa",
-  "restore_preflight_conclusion": "BASELINE_ARTIFACT_RESTORE_READY",
-  "restore_preflight_summary": {
-    "artifact_count": 6,
-    "blocked_count": 0,
-    "final_conclusion": "BASELINE_ARTIFACT_RESTORE_READY",
-    "local_ready_count": 0,
-    "missing_local_no_restorable_artifact_count": 0,
-    "restorable_count": 6
-  },
-  "restore_verify_all_pass": true,
-  "restore_verify_count": 6,
-  "results": [
+  "rows": [
     {
       "artifact_uri": "career-artifact://career-content-baselines/career-adjacent-comparison/84cb88d04c6eb4d90ec6ece2f56a0ab65b954d6bb57e121302550ee53218791c/baseline.tar.gz",
       "block_name": "career-adjacent-comparison",
@@ -73,8 +51,7 @@
   ],
   "runtime_modified": false,
   "seo_modified": false,
-  "server_baseline_tar_count": 6,
   "server_host": "fap-api-prod",
-  "server_sha_verified_count": 6,
-  "staging_created": false
+  "staging_created": false,
+  "verify_count": 6
 }

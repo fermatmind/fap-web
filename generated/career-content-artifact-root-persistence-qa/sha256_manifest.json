@@ -1,7 +1,18 @@
 {
-  "generated_at": "2026-06-25T00:00:00Z",
-  "files": {
-    "generated/career-content-artifact-root-persistence-qa/artifact_root_persistence_report.json": "2cf5b04b4986a4906746cb75b6410c572b35a0d02919e43977c700821623002f",
-    "generated/career-content-artifact-root-persistence-qa/artifact_root_persistence_report.md": "e6fa81b1715139f5ddd5d3b4745e5f1d80131f366baf11015205be6c08c4b5d5"
+  "artifact_root_persistence_report.json": {
+    "bytes": 4101,
+    "sha256": "f0e1de60437cf5343a47b6030f7726b502c485c3a37c6a9e2898bbd2aa276063"
+  },
+  "artifact_root_persistence_report.md": {
+    "bytes": 1678,
+    "sha256": "a8b8a9a74245720998928a53c4c4944eb2a165f8a49d466454fd1bdc016476f4"
+  },
+  "restore_verify_summary.json": {
+    "bytes": 2774,
+    "sha256": "d04f1a6949115fbf360a933ed6623f9da830e58038f9e660acd50a5b7a612dcc"
+  },
+  "server_restore_preflight_report.json": {
+    "bytes": 3932,
+    "sha256": "22cc3e3375abc7d83c5214b1bdab66d92ab302bd3bff92f57b0796bcab73b675"
   }
 }
