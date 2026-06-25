@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-25T01:10:00+08:00",
+  "updated_at": "2026-06-25T09:42:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -29797,10 +29797,10 @@
       "depends_on": [
         "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01"
       ],
-      "status": "local_checks_passed_ready_to_push",
+      "status": "merged_reconciled_post_merge_cleanup_complete",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1422",
       "commit_sha": "08b24939526db03e16b109252c0432d51bb55406",
-      "merge_sha": null,
+      "merge_sha": "27332f130c60fa7e6c33f3fa21629865bdaeffc0",
       "title": "ASSESSMENT-HUB-TAKE-FLOW-CTA-PACKET-01: docs(assessment-hub): add take flow CTA packet",
       "checks": {
         "local": {
@@ -29826,13 +29826,21 @@
           }
         },
         "github": {
-          "status": "pending_after_push"
+          "status": "passed",
+          "results": {
+            "CodeQL": "passed",
+            "analyze (javascript-typescript)": "passed",
+            "build": "passed",
+            "contracts": "passed",
+            "verify-big5-contract-freeze": "passed",
+            "verify-enneagram-contract-freeze": "passed"
+          }
         }
       },
       "failure_reason": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-25T00:10:55Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "scope_validation": {
         "allowed_files": [
           "docs/assessment-hub/assessment-hub-take-flow-cta-packet-2026-06-24.md",
@@ -29875,6 +29883,11 @@
           "at": "2026-06-25T09:03:00+08:00",
           "status": "pr_opened_pending_github_checks",
           "summary": "Opened PR #1422 and recorded the PR URL. GitHub checks are pending after push."
+        },
+        {
+          "at": "2026-06-25T09:12:00+08:00",
+          "status": "merged_reconciled_post_merge_cleanup_complete",
+          "summary": "GitHub shows PR #1422 merged with squash commit 27332f130c60fa7e6c33f3fa21629865bdaeffc0; origin/main contains the merge, local main was fast-forwarded, worktrees were clean, and local/remote task branches were removed or already absent."
         }
       ],
       "sidecar_issues": []
@@ -29888,14 +29901,14 @@
       "depends_on": [
         "ASSESSMENT-HUB-QA-COMMON-CONTRACT-01"
       ],
-      "status": "pending_dependency",
+      "status": "local_checks_passed_ready_to_push",
       "pr_url": null,
       "commit_sha": null,
       "merge_sha": null,
       "title": "ASSESSMENT-HUB-FREE-FULL-REPORT-CLAIM-PACKET-01: docs(assessment-hub): add free report claim packet",
       "checks": {
         "local": {
-          "status": "not_started",
+          "status": "passed",
           "commands": [
             "node -e \"JSON.parse(require('fs').readFileSync('docs/assessment-hub/assessment-hub-free-full-report-claim-packet.v1.json','utf8')); JSON.parse(require('fs').readFileSync('docs/codex/pr-train-state.json','utf8')); console.log('json ok')\"",
             "pnpm exec vitest run tests/contracts/assessment-hub-free-full-report-claim-packet.contract.test.ts",
@@ -29904,10 +29917,22 @@
             "git diff --check",
             "changed-file scope validation"
           ],
-          "results": {}
+          "results": {
+            "json_parse": "passed",
+            "focused_vitest": "passed_4_tests",
+            "typecheck": "passed",
+            "contract_suite": "passed_575_files_3387_tests",
+            "diff_check": "passed",
+            "changed_file_scope_validation": "passed_5_allowed_files_only",
+            "public_get_visible_claim_scan": "passed_12_of_12_pages_get_200",
+            "p2_paid_unlock_disabled_copy_risks": "recorded_8_surfaces",
+            "p2_full_result_claim_authority_review": "recorded_4_surfaces",
+            "certificate_or_answer_key_claims": "none_observed",
+            "build": "not_run_by_goal_boundary"
+          }
         },
         "github": {
-          "status": "not_started"
+          "status": "pending_after_push"
         }
       },
       "failure_reason": null,
@@ -29922,13 +29947,31 @@
           "tests/contracts/helpers/currentPrScope.ts",
           "docs/codex/pr-train-state.json"
         ],
-        "status": "pending_dependency"
+        "status": "passed",
+        "changed_files": [
+          "docs/assessment-hub/assessment-hub-free-full-report-claim-packet-2026-06-24.md",
+          "docs/assessment-hub/assessment-hub-free-full-report-claim-packet.v1.json",
+          "docs/codex/pr-train-state.json",
+          "tests/contracts/assessment-hub-free-full-report-claim-packet.contract.test.ts",
+          "tests/contracts/helpers/currentPrScope.ts"
+        ],
+        "outside_scope_files": []
       },
       "history": [
         {
           "at": "2026-06-25T00:37:00+08:00",
           "status": "pending_dependency",
           "summary": "Initialized authorized train entry. Waiting for ASSESSMENT-HUB-QA-COMMON-CONTRACT-01 to merge."
+        },
+        {
+          "at": "2026-06-25T09:28:00+08:00",
+          "status": "packet_generated_pending_local_validation",
+          "summary": "PR4 branch started from origin/main after PR3 merge cleanup. Added docs/contracts-only claim packet from public GET visible-copy evidence: 12 landing pages 200, 12 free/free-test surfaces, 4 full-result/full-report claim surfaces, 8 paid-unlock-disabled copy risk surfaces, 0 certificate/answer-key claims."
+        },
+        {
+          "at": "2026-06-25T09:42:00+08:00",
+          "status": "local_checks_passed_ready_to_push",
+          "summary": "Local PR4 validation passed: JSON parse, focused vitest 4 tests, pnpm typecheck, pnpm test:contract 575 files / 3387 tests, git diff --check, and changed-file scope validation for the 5 allowed docs/contracts files. pnpm build was intentionally not run per goal boundary."
         }
       ],
       "sidecar_issues": []
