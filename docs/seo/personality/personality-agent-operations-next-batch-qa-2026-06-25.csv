@@ -1,0 +1,4 @@
+path,target_url,locale,page_type,decision,blocker_count,warning_count,recommended_next_task
+"/zh/personality/intp-a","https://fermatmind.com/zh/personality/intp-a","zh-CN","variant","PASS_READY_FOR_APPROVAL_REVIEW","0","0","PERSONALITY-AGENT-HUMAN-APPROVAL-QUEUE-01"
+"/zh/personality/esfp-a","https://fermatmind.com/zh/personality/esfp-a","zh-CN","variant","PASS_READY_FOR_APPROVAL_REVIEW","0","0","PERSONALITY-AGENT-HUMAN-APPROVAL-QUEUE-01"
+"/en/personality/enfj-a","https://fermatmind.com/en/personality/enfj-a","en","variant","PASS_READY_FOR_APPROVAL_REVIEW","0","0","PERSONALITY-AGENT-HUMAN-APPROVAL-QUEUE-01"
