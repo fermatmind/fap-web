@@ -30655,7 +30655,7 @@
       "depends_on": [
         "PR-EQ-AGENT-RUNTIME-02"
       ],
-      "status": "pr_open_pending_github_checks",
+      "status": "ready_to_merge",
       "title": "PR-EQ-AGENT-RUNTIME-03 Frontend EQ Agent chat drawer",
       "train_scope": "eq_agent_runtime",
       "artifacts": [
@@ -30720,13 +30720,20 @@
           "notes": "The first local e2e attempt without NEXT_PUBLIC_API_URL failed because no local backend was running; rerun against the production API contract passed."
         },
         "github": {
-          "status": "pending",
-          "results": {}
+          "status": "passed",
+          "results": {
+            "build": "passed",
+            "contracts": "passed",
+            "verify_big5_contract_freeze": "passed",
+            "verify_enneagram_contract_freeze": "passed",
+            "codeql": "passed",
+            "analyze_javascript_typescript": "passed"
+          }
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1433",
-      "commit_sha": "f565eed2913fc5a77e67b8c732975b5b07309133",
+      "commit_sha": "1d6d63f8e26e99f26de6b7151337e5e9222c67d1",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -30773,6 +30780,11 @@
           "at": "2026-06-25T12:55:00+08:00",
           "status": "pr_open_pending_github_checks",
           "summary": "Opened fap-web PR #1433 for the guarded EQ Agent runtime drawer; waiting for required GitHub checks before merge."
+        },
+        {
+          "at": "2026-06-25T13:10:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "PR #1433 required GitHub checks passed and mergeStateStatus was CLEAN; marking ready_to_merge before squash merge."
         }
       ],
       "sidecar_issues": []
