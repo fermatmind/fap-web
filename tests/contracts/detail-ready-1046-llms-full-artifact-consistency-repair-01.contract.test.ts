@@ -33,6 +33,12 @@ const SIX_ASSESSMENT_TEST_PATHS = [
   "/en/tests/eq-test-emotional-intelligence-assessment",
   "/zh/tests/eq-test-emotional-intelligence-assessment",
 ] as const;
+const LLMS_FULL_REQUIRED_NON_IQ_TEST_PATHS = SIX_ASSESSMENT_TEST_PATHS.filter(
+  (path) => !path.includes("/iq-test-intelligence-quotient-assessment")
+);
+const IQ_TEST_PATHS = SIX_ASSESSMENT_TEST_PATHS.filter((path) =>
+  path.includes("/iq-test-intelligence-quotient-assessment")
+);
 
 function careerPathsFor(slugs: string[]): string[] {
   return slugs.flatMap((slug) => [`/en/career/jobs/${slug}`, `/zh/career/jobs/${slug}`]);
@@ -203,6 +209,28 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
 
     expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("degraded");
     expect(text).not.toContain(`${SITE_URL}${SIX_ASSESSMENT_TEST_PATHS[0]}`);
+  });
+
+  it("does not require IQ test URLs while IQ is held from llms-full by policy", async () => {
+    const cacheDir = fs.mkdtempSync(path.join(os.tmpdir(), "llms-full-iq-held-"));
+    process.env.FERMATMIND_LLMS_FULL_CACHE_DIR = cacheDir;
+    process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
+    mockLlmsFullDependencies(() => fullCohortPaths(), {}, () => LLMS_FULL_REQUIRED_NON_IQ_TEST_PATHS);
+    const { GET } = await import("@/app/llms-full.txt/route");
+
+    const response = await GET();
+    const text = await response.text();
+
+    expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
+    expect(response.headers.get("X-FermatMind-LLMS-Full-Source")).toBe("generated");
+    for (const testPath of LLMS_FULL_REQUIRED_NON_IQ_TEST_PATHS) {
+      expect(text).toContain(`${SITE_URL}${testPath}`);
+    }
+    for (const testPath of IQ_TEST_PATHS) {
+      expect(text).not.toContain(`${SITE_URL}${testPath}`);
+    }
   });
 
   it("shares the last-known-good llms-full artifact across module instances", async () => {
