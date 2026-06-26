@@ -11,6 +11,7 @@ import {
   LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS,
   LLMS_FULL_ENRICHMENT_TIMEOUT_MS,
   LLMS_FULL_RESPONSE_DEADLINE_MS,
+  LLMS_FULL_TEST_SOURCE_TIMEOUT_MS,
   limitLlmsRouteEntries,
   withLlmsRouteBudget,
 } from "@/lib/seo/llmsRouteBudget";
@@ -39,6 +40,8 @@ describe("llms route fanout budget contract", () => {
     expect(fallback).toBe("fallback");
     expect(timedOutSignalAborted).toBe(true);
     expect(LLMS_ROUTE_SOURCE_TIMEOUT_MS).toBeLessThanOrEqual(1500);
+    expect(LLMS_FULL_TEST_SOURCE_TIMEOUT_MS).toBeGreaterThan(LLMS_ROUTE_SOURCE_TIMEOUT_MS);
+    expect(LLMS_FULL_TEST_SOURCE_TIMEOUT_MS).toBeLessThan(LLMS_FULL_RESPONSE_DEADLINE_MS);
     expect(LLMS_ROUTE_ARTICLE_MAX_PAGES).toBeGreaterThanOrEqual(5);
     expect(LLMS_ROUTE_ARTICLE_MAX_PAGES).toBeLessThanOrEqual(10);
     expect(LLMS_ROUTE_LIMITS.articles).toBeLessThanOrEqual(40);
@@ -87,6 +90,8 @@ describe("llms route fanout budget contract", () => {
     expect(source).toContain("withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
     expect(source).toContain("withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
     expect(source).toContain("withLlmsRouteBudget(() => enrichCareerGuideEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
+    expect(source).toContain("LLMS_FULL_TEST_SOURCE_TIMEOUT_MS");
+    expect(source.match(/timeoutMs: LLMS_FULL_TEST_SOURCE_TIMEOUT_MS/g)?.length).toBeGreaterThanOrEqual(2);
   });
 
   it("keeps career llms enumeration on backend sitemap authority without full-index or per-detail fanout", () => {

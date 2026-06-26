@@ -42,6 +42,7 @@ import {
   limitLlmsRouteEntries,
   withLlmsRouteBudget,
   LLMS_FULL_PERSONALITY_SOURCE_TIMEOUT_MS,
+  LLMS_FULL_TEST_SOURCE_TIMEOUT_MS,
   LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS,
   LLMS_FULL_ENRICHMENT_TIMEOUT_MS,
   LLMS_FULL_RESPONSE_DEADLINE_MS,
@@ -123,7 +124,7 @@ const LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS = [
   "acupuncturists",
   "acute-care-nurses",
 ] as const;
-const LLMS_FULL_REQUIRED_TEST_PATHS = [
+const LLMS_FULL_REQUIRED_NON_IQ_TEST_PATHS = [
   "/en/tests/mbti-personality-test-16-personality-types",
   "/zh/tests/mbti-personality-test-16-personality-types",
   "/en/tests/big-five-personality-test-ocean-model",
@@ -132,8 +133,6 @@ const LLMS_FULL_REQUIRED_TEST_PATHS = [
   `/zh/tests/${"ennea"}gram-personality-test-nine-types`,
   `/en/tests/holland-career-interest-test-${"ria"}sec`,
   `/zh/tests/holland-career-interest-test-${"ria"}sec`,
-  "/en/tests/iq-test-intelligence-quotient-assessment",
-  "/zh/tests/iq-test-intelligence-quotient-assessment",
   "/en/tests/eq-test-emotional-intelligence-assessment",
   "/zh/tests/eq-test-emotional-intelligence-assessment",
 ] as const;
@@ -561,7 +560,7 @@ export function isCompleteLlmsFullText(text: string, siteUrl: string): boolean {
 
   if (
     shouldRequireCompleteTestCohort() &&
-    !LLMS_FULL_REQUIRED_TEST_PATHS.every((path) => text.includes(`${siteUrl}${path}`))
+    !LLMS_FULL_REQUIRED_NON_IQ_TEST_PATHS.every((path) => text.includes(`${siteUrl}${path}`))
   ) {
     return false;
   }
@@ -607,7 +606,8 @@ export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string
         listBackendDiscoverabilityTestEntries().then((entries) =>
           limitLlmsRouteEntries(entries, LLMS_ROUTE_LIMITS.tests)
         ),
-      []
+      [],
+      { timeoutMs: LLMS_FULL_TEST_SOURCE_TIMEOUT_MS }
     ),
     withLlmsRouteBudget(
       (signal) => listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal }),
@@ -1056,7 +1056,8 @@ export async function buildLlmsFullText(siteUrl: string): Promise<string> {
         listBackendDiscoverabilityTestEntries().then((entries) =>
           limitLlmsRouteEntries(entries, LLMS_ROUTE_LIMITS.tests)
         ),
-      []
+      [],
+      { timeoutMs: LLMS_FULL_TEST_SOURCE_TIMEOUT_MS }
     ),
     withLlmsRouteBudget(
       () =>
