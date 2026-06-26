@@ -1,0 +1,133 @@
+{
+  "schema_version": "fermatmind-seo-ops-whole-site-observation.v1",
+  "generated_at": "YYYY-MM-DDTHH:mm:ss+08:00",
+  "observation_window": "D0|D1|D7|D14|weekly",
+  "evidence_level": "quick_visible_snapshot|formal_export_or_backend_artifact",
+  "decision": "INSUFFICIENT_DATA|OBSERVATION_RECORDED|ACTION_QUEUE_READY|GATE_REQUIRED",
+  "source_freshness": {
+    "gsc": {
+      "window": null,
+      "last_updated_label": null,
+      "export_path": null,
+      "notes": []
+    },
+    "ga4": {
+      "window": null,
+      "export_path": null,
+      "notes": []
+    },
+    "baidu": {
+      "window": null,
+      "export_path": null,
+      "notes": []
+    },
+    "backend": {
+      "revision": null,
+      "evidence_paths": []
+    }
+  },
+  "sitewide_gsc": {
+    "clicks": null,
+    "impressions": null,
+    "ctr": null,
+    "average_position": null
+  },
+  "sitewide_ga4": {
+    "active_users": null,
+    "new_users": null,
+    "organic_sessions": null,
+    "average_engagement_time": null
+  },
+  "cohorts": [
+    {
+      "cohort": "test_landing_core",
+      "url_count": null,
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "average_position": null,
+      "classification": null,
+      "next_action": null
+    },
+    {
+      "cohort": "article_seo",
+      "url_count": null,
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "average_position": null,
+      "classification": null,
+      "next_action": null
+    },
+    {
+      "cohort": "personality_profile",
+      "url_count": null,
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "average_position": null,
+      "classification": null,
+      "next_action": null
+    },
+    {
+      "cohort": "career_job",
+      "url_count": null,
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "average_position": null,
+      "classification": null,
+      "next_action": null
+    }
+  ],
+  "top_pages": [],
+  "top_queries": [],
+  "recent_release_watchlist": [
+    {
+      "target": "article:55:zh-CN",
+      "canonical_url": "https://fermatmind.com/zh/articles/gaokao-major-choice-parent-conflict-riasec-course-checklist",
+      "release_closeout_sha256": "9399c58c3114f0cd0bb3439ed489fa35f4857ad31b661240263199be53dec36a",
+      "search_channel_queue_item": 263,
+      "indexnow_status": "accepted",
+      "gsc_visible": null,
+      "classification": "INSUFFICIENT_DATA"
+    }
+  ],
+  "opportunity_queue": [
+    {
+      "url": null,
+      "cohort": null,
+      "classification": "CTR_TITLE_META_OPPORTUNITY|POSITION_8_30_INTERNAL_LINK_OPPORTUNITY|QUERY_EXPANSION_OPPORTUNITY|CTA_CONVERSION_OPPORTUNITY|TECHNICAL_DRIFT|SEARCH_GATE_BLOCKED|INSUFFICIENT_DATA",
+      "evidence": {},
+      "recommended_owner": "seo_article_window|seo_agent|analytics_agent|runtime_qa_agent",
+      "next_gate": null
+    }
+  ],
+  "search_gate_queue": [
+    {
+      "url": null,
+      "page_entity_type": null,
+      "entity_id": null,
+      "url_truth_state": null,
+      "search_channel_state": null,
+      "indexnow_state": null,
+      "baidu_state": null,
+      "gsc_manual_state": null,
+      "next_gate": null
+    }
+  ],
+  "held_actions": {
+    "cms_write": true,
+    "publish": true,
+    "url_truth_write": true,
+    "search_channel_enqueue": true,
+    "indexnow_submit": true,
+    "gsc_request_indexing": true,
+    "baidu_submit": true,
+    "schema_hreflang": true,
+    "sitemap_llms": true,
+    "revalidation": true,
+    "deploy": true,
+    "pr": true
+  }
+}
