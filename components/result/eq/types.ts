@@ -81,6 +81,7 @@ export type EqV5SelectedAssetIds = {
   core_formulation_id?: string;
   mechanism_ids?: string[];
   scene_ids?: string[];
+  scene_variant_ids?: string[];
   career_environment_ids?: string[];
   action_prescription_id?: string;
 };
@@ -166,11 +167,19 @@ export type EqMechanismAsset = {
 
 export type EqRealitySceneAsset = {
   id?: string;
+  scene_family?: string;
+  variant?: string;
   title?: string;
   typical_response?: string;
   strength?: string;
   cost?: string;
   better_move?: string;
+  micro_script?: string;
+  why_this_matters?: string;
+  evidence_signals?: string[];
+  reflection_prompt?: string;
+  tiny_experiment?: string;
+  do_not_overread?: string;
 };
 
 export type EqCareerEnvironmentAsset = {
@@ -278,6 +287,23 @@ export type EqBackendIntegrationContractAsset = {
   do_not_overread?: string;
 };
 
+export type EqResultPageDepthModuleAsset = {
+  id?: string;
+  placement?: string;
+  title?: string;
+  body?: string;
+  bullets?: string[];
+  claim_risk?: string;
+};
+
+export type EqCrossAssessmentContextAsset = {
+  id?: string;
+  title?: string;
+  summary?: string;
+  how_to_use?: string;
+  claim_boundary?: string;
+};
+
 export type EqV5ResolvedAssets = {
   result_snapshot?: EqResultSnapshotAsset;
   commercial_conversion_actions?: EqCommercialConversionActionAsset[];
@@ -297,10 +323,20 @@ export type EqV5ResolvedAssets = {
   psychometric_evidence_status?: EqPsychometricEvidenceAsset[];
   agent_dialogue_playbooks?: EqAgentDialoguePlaybookAsset[];
   backend_integration_contract?: EqBackendIntegrationContractAsset[];
+  result_page_depth_modules?: EqResultPageDepthModuleAsset[];
+  cross_assessment_context?: EqCrossAssessmentContextAsset[];
   personalization_route?: {
     id?: string;
     signal_signature?: EqV5SignalSignature;
     selected_asset_ids?: EqV5SelectedAssetIds;
+    route_headline?: string;
+    why_this_feels_specific?: string;
+    evidence_snapshot_label?: string;
+    next_best_action?: string;
+    save_reason?: string;
+    why_this_route_exists?: string;
+    do_not_overread?: string;
+    claim_risk?: string;
   };
 };
 

@@ -31,8 +31,15 @@ export function EQEvidenceSnapshot({ viewModel }: { viewModel: EqV5ViewModel }) 
         />
         <SnapshotMetric
           label={locale === "zh" ? "阅读路径" : "Reading path"}
-          value={assets.core_formulation.title || labelForCode(interpretation.route_id, dimensions, viewModel)}
-          meta={viewModel.route.signalSignature.match_pattern ? (locale === "zh" ? "由后端路径矩阵选择" : "Selected by backend route matrix") : undefined}
+          value={assets.personalization_route.route_headline || assets.core_formulation.title || labelForCode(interpretation.route_id, dimensions, viewModel)}
+          meta={
+            assets.personalization_route.evidence_snapshot_label ||
+            (viewModel.route.signalSignature.match_pattern
+              ? locale === "zh"
+                ? "由后端路径矩阵选择"
+                : "Selected by backend route matrix"
+              : undefined)
+          }
         />
       </div>
     </section>

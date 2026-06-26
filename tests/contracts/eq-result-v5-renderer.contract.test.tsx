@@ -66,6 +66,97 @@ function removeResolvedFields(reportData: ReportResponse): ReportResponse {
   return copy;
 }
 
+function withV19DepthPayload(reportData: ReportResponse): ReportResponse {
+  const copy = clone(reportData);
+  const report = reportPayload(copy);
+  const assets = (report.assets ?? {}) as Record<string, unknown>;
+  const interpretation = (report.interpretation ?? {}) as Record<string, unknown>;
+  const assetRefs = (report.asset_refs ?? {}) as Record<string, unknown>;
+  const selectedAssetIds = {
+    core_formulation_id: "high_empathy_low_recovery",
+    mechanism_ids: ["EM_ER_high_low"],
+    scene_ids: ["relationship_boundary", "feedback", "conflict"],
+    scene_variant_ids: [
+      "eq.scene.relationship_boundary.high_empathy_low_recovery.primary",
+      "eq.scene.feedback.high_empathy_low_recovery.primary",
+    ],
+    career_environment_ids: ["emotional_labor_high", "autonomy_recovery_medium", "interpersonal_density_medium"],
+    action_prescription_id: "empathy_boundary",
+  };
+
+  interpretation.route_id = "route.eq.033.mixed_em_er";
+  interpretation.selected_asset_ids = selectedAssetIds;
+  interpretation.primary_scene_variant_ids = selectedAssetIds.scene_variant_ids;
+  assetRefs.personalization_route_id = "route.eq.033.mixed_em_er";
+  assetRefs.selected_asset_ids = selectedAssetIds;
+  assetRefs.scene_variant_ids = selectedAssetIds.scene_variant_ids;
+  report.interpretation = interpretation;
+  report.asset_refs = assetRefs;
+  assets.personalization_route = {
+    id: "route.eq.033.mixed_em_er",
+    route_headline: "Your reading path: protect empathy with a recovery boundary",
+    why_this_feels_specific: "This path was selected because empathy is leading while recovery needs more structure.",
+    evidence_snapshot_label: "Route evidence: EM high, ER lower, high-confidence self-report, and selected relationship-boundary scenes.",
+    next_best_action: "Read the boundary scene first, then use one recovery script this week.",
+    save_reason: "Save this route so you can compare it with the next real feedback or boundary moment.",
+    selected_asset_ids: selectedAssetIds,
+    signal_signature: {
+      schema: "eq60.signal_signature.v1",
+      route_id: "route.eq.033.mixed_em_er",
+      formulation_id: "high_empathy_low_recovery",
+      match_pattern: "EM_high_ER_low",
+      confidence_label: "high",
+    },
+  };
+  assets.result_page_depth_modules = [
+    {
+      id: "eq.depth.evidence_stack.default",
+      placement: "Evidence Snapshot",
+      title: "Why this result is interpretable",
+      body: "This report looks at dimensions, gaps, response quality, and the selected content route.",
+      bullets: ["Dimension signals", "Gap signals", "Quality signal", "Route signal"],
+      claim_risk: "low",
+    },
+    {
+      id: "eq.depth.reality_check.default",
+      placement: "Reality Translation",
+      title: "Reality check",
+      body: "Observe whose emotion you notice first, whether you can state a boundary, and how long recovery takes.",
+      bullets: ["Notice the first emotional cue", "Name the boundary", "Track recovery time"],
+      claim_risk: "low",
+    },
+  ];
+  assets.reality_scenes = [
+    {
+      id: "eq.scene.relationship_boundary.high_empathy_low_recovery.primary",
+      scene_family: "relationship_boundary",
+      variant: "primary",
+      title: "Boundary moment: empathy without carrying everything",
+      typical_response: "You may understand the other person quickly and then absorb more than you meant to.",
+      strength: "People often feel seen by you.",
+      cost: "Your own recovery time can disappear.",
+      better_move: "Name support and limit in the same sentence.",
+      micro_script: "I can hear this matters. I can stay for ten minutes, then I need to pause.",
+      evidence_signals: ["Whether you notice your own limit.", "Whether the other person still has ownership."],
+      reflection_prompt: "Where did support become carrying?",
+      tiny_experiment: "Use one support-plus-limit sentence this week.",
+    },
+    ...(((assets.reality_scenes as unknown[]) ?? []) as Record<string, unknown>[]),
+  ];
+  assets.cross_assessment_context = [
+    {
+      id: "eq.cross_context.mbti.available",
+      title: "How EQ and MBTI work together",
+      summary: "MBTI describes preference patterns; EQ describes emotional and relational self-report signals.",
+      how_to_use: "Use MBTI as a nearby lens, not as a replacement for EQ scores.",
+      claim_boundary: "Do not infer emotional ability, job performance, or relationship outcomes from type.",
+    },
+  ];
+  report.assets = assets;
+
+  return copy;
+}
+
 function safeAgentContext(overrides: Partial<EqAgentContextPayload> = {}): EqAgentContextPayload {
   return {
     ok: true,
@@ -184,6 +275,41 @@ describe("EQ v5 result renderer contract", () => {
     expect(screen.getByTestId("eq-agent-entry-guard")).toBeInTheDocument();
     expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Big Five");
     expect(screen.queryByText(/high_empathy_low_recovery|EM_ER_high_low|emotional_labor_high|eq60\.signal_signature\.v1/i)).not.toBeInTheDocument();
+  });
+
+  it("renders v1.9 route headlines, depth modules, scene variants, and cross-assessment assets", () => {
+    const reportData = withV19DepthPayload(responseFromFixture(highEmpathyEn as EqV5Fixture));
+    const viewModel = normalizeEqV5Report(reportData, "en");
+
+    expect(viewModel?.route.routeId).toBe("route.eq.033.mixed_em_er");
+    expect(viewModel?.route.selectedAssetIds.scene_variant_ids).toEqual([
+      "eq.scene.relationship_boundary.high_empathy_low_recovery.primary",
+      "eq.scene.feedback.high_empathy_low_recovery.primary",
+    ]);
+    expect(viewModel?.assets.personalization_route.route_headline).toContain("protect empathy");
+    expect(viewModel?.assets.result_page_depth_modules.map((item) => item.id)).toContain(
+      "eq.depth.evidence_stack.default"
+    );
+    expect(viewModel?.assets.reality_scenes[0]?.id).toBe(
+      "eq.scene.relationship_boundary.high_empathy_low_recovery.primary"
+    );
+
+    render(<EQResultV5 locale="en" reportData={reportData} attemptId="eq-result-001" />);
+
+    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent(
+      "Your reading path: protect empathy with a recovery boundary"
+    );
+    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent(
+      "Route evidence: EM high, ER lower"
+    );
+    expect(screen.getByTestId("eq-result-depth-modules")).toHaveTextContent("Why this result is interpretable");
+    expect(screen.getByTestId("eq-result-depth-modules")).toHaveTextContent("Route signal");
+    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Boundary moment");
+    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Micro script");
+    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("support-plus-limit");
+    expect(screen.getByTestId("eq-cross-assessment-context")).toHaveTextContent("How EQ and MBTI work together");
+    expect(screen.getByTestId("eq-cross-assessment-context")).toHaveTextContent("Do not infer emotional ability");
+    expect(screen.queryByText(/SKU_EQ_60_FULL_299|EQ_60_FULL|unlock|purchase|premium|profile:|quality_level:|bucket:/i)).not.toBeInTheDocument();
   });
 
   it("loads read-only EQ Agent context only after the guarded Agent entry is clicked", async () => {

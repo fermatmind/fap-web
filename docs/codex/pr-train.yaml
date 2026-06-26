@@ -19001,3 +19001,53 @@ prs:
       squash: true
       auto_merge: true
     next_task: SEO-OPS-GAOKAO-V5-CMS-DRAFT-GATE-01
+
+  - id: PR-EQ-V19-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-eq-v19-05-frontend-depth-consumption
+    base: main
+    title: "PR-EQ-V19-05 Frontend EQ v1.9 depth consumption"
+    depends_on:
+      - PR-EQ-V19-04
+    mode: execute
+    train_scope: eq_v19_commercial_content_depth
+    status: in_progress
+    goal: "Consume EQ v1.9 result page depth modules, formulation-aware scene variants, personalization route localized headline/evidence/next-action/save-reason, and cross-assessment context from backend resolved assets without frontend-owned official report prose, paywall semantics, raw tags, or SJT entry."
+    artifacts:
+      - components/result/eq/**
+      - lib/api/v0_3.ts
+      - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+      - tests/e2e/iq-eq-result-regression.spec.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - components/result/eq/**
+      - lib/api/v0_3.ts
+      - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+      - tests/e2e/iq-eq-result-regression.spec.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Modify fap-api.
+      - Add frontend-owned official EQ report prose.
+      - Add paid, locked, blur, SKU, unlock, premium, or access-wall semantics.
+      - Add clickable SJT take entry while next_module.available is false.
+      - Add CMS, SEO runtime, production deploy, staging deploy wait, or server verification.
+      - Change EQ scoring, questions, report authority, or Agent runtime behavior.
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-EQ-V19-06

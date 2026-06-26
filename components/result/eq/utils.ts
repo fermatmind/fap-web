@@ -6,12 +6,14 @@ import type {
   EqBackendIntegrationContractAsset,
   EqCareerEnvironmentAsset,
   EqCommercialConversionActionAsset,
+  EqCrossAssessmentContextAsset,
   EqCoreFormulationAsset,
   EqV5AssetRefs,
   EqMechanismAsset,
   EqPsychometricEvidenceAsset,
   EqQualityConfidenceAsset,
   EqRealitySceneAsset,
+  EqResultPageDepthModuleAsset,
   EqResultSnapshotAsset,
   EqScientificContractAsset,
   EqScoreSystemAsset,
@@ -106,6 +108,7 @@ function normalizeSelectedAssetIds(value: unknown): Required<EqV5SelectedAssetId
     core_formulation_id: text(record?.core_formulation_id),
     mechanism_ids: stringArray(record?.mechanism_ids),
     scene_ids: stringArray(record?.scene_ids),
+    scene_variant_ids: stringArray(record?.scene_variant_ids),
     career_environment_ids: stringArray(record?.career_environment_ids),
     action_prescription_id: text(record?.action_prescription_id),
   };
@@ -237,7 +240,7 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
   );
   const resolvedScenes = orderAssetsByIds(
     normalizeAssetArray<EqRealitySceneAsset>(assets.reality_scenes),
-    selectedAssetIds.scene_ids
+    selectedAssetIds.scene_variant_ids.length > 0 ? selectedAssetIds.scene_variant_ids : selectedAssetIds.scene_ids
   );
   const resolvedCareer = orderAssetsByIds(
     normalizeAssetArray<EqCareerEnvironmentAsset>(assets.career_environment),
@@ -307,7 +310,10 @@ export function normalizeEqV5Report(reportData: ReportResponse, locale: Locale):
       backend_integration_contract: normalizeAssetArray<EqBackendIntegrationContractAsset>(
         assets.backend_integration_contract
       ),
+      result_page_depth_modules: normalizeAssetArray<EqResultPageDepthModuleAsset>(assets.result_page_depth_modules),
+      cross_assessment_context: normalizeAssetArray<EqCrossAssessmentContextAsset>(assets.cross_assessment_context),
       personalization_route: {
+        ...routeAsset,
         id: routeId,
         signal_signature: signalSignature,
         selected_asset_ids: selectedAssetIds,
