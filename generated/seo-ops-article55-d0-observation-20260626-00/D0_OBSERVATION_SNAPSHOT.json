@@ -1,0 +1,202 @@
+{
+  "schema_version": "fermatmind-seo-ops-article-observation.v1",
+  "observation_id": "SEO-OPS-ARTICLE55-D0-OBSERVATION-20260626-00",
+  "generated_at": "2026-06-26T20:13:39+08:00",
+  "observation_stage": "D0",
+  "decision": "D0_RECORDED_CONTINUE_D1_D7_D14_OBSERVATION",
+  "target_article": {
+    "target": "article:55:zh-CN",
+    "canonical_url": "https://fermatmind.com/zh/articles/gaokao-major-choice-parent-conflict-riasec-course-checklist",
+    "canonical_path": "/zh/articles/gaokao-major-choice-parent-conflict-riasec-course-checklist",
+    "closeout_evidence_path": "/var/www/fap-api/shared/backend/storage/app/seo-agent/article-closeout/20260626T-article55-indexnow-closeout/seo-agent-article55-indexnow-closeout-20260626T120520Z.json",
+    "closeout_evidence_sha256": "9399c58c3114f0cd0bb3439ed489fa35f4857ad31b661240263199be53dec36a",
+    "search_channel_queue_item": 263,
+    "indexnow_submission_status": "accepted",
+    "indexnow_http_status": 200
+  },
+  "evidence_sources": {
+    "gsc": {
+      "source": "Chrome visible Google Search Console performance page",
+      "resource": "sc-domain:fermatmind.com",
+      "date_window": "last_24_hours",
+      "granularity": "hour",
+      "breakdown": "page",
+      "search_type": "web",
+      "last_updated_label": "4.5小时前",
+      "url": "https://search.google.com/search-console/performance/search-analytics?resource_id=sc-domain%3Afermatmind.com&time_granularity=HOUR&metrics=CLICKS%2CIMPRESSIONS%2CCTR%2CPOSITION&breakdown=page&last_24_hours=true"
+    },
+    "ga4": {
+      "source": "Chrome visible Google Analytics reports overview",
+      "property_label": "费马心理",
+      "date_window": "yesterday",
+      "date_label": "2026-06-25",
+      "url": "https://analytics.google.com/analytics/web/?hl=zh-cn#/a376352967p514719097/reports/dashboard?params=_u..nav%3Dmaui%26_u.dateOption%3Dyesterday%26_u.comparisonOption%3Ddisabled&r=reporting-hub"
+    }
+  },
+  "gsc_last_24_hours_summary": {
+    "clicks": 3,
+    "impressions": 807,
+    "ctr": "0.4%",
+    "average_position": 9.6,
+    "article55_visible_in_top_10_rows": false
+  },
+  "gsc_top_visible_pages": [
+    {
+      "url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "clicks": 1,
+      "impressions": 97,
+      "ctr": "1%",
+      "average_position": 6.8,
+      "note": "MBTI core test page is the strongest visible page in this 24h snapshot."
+    },
+    {
+      "url": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+      "clicks": 1,
+      "impressions": 11,
+      "ctr": "9.1%",
+      "average_position": 7.5
+    },
+    {
+      "url": "https://fermatmind.com/zh/personality/intp-a",
+      "clicks": 1,
+      "impressions": 11,
+      "ctr": "9.1%",
+      "average_position": 9.0
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/college-major-choice-holland-mbti-career-test",
+      "clicks": 0,
+      "impressions": 57,
+      "ctr": "0%",
+      "average_position": 5.9,
+      "note": "High-impression/high-rank Chinese college-major article; likely CTR/title opportunity."
+    },
+    {
+      "url": "https://fermatmind.com/en/articles/what-is-riasec-holland-code-career-interest-test",
+      "clicks": 0,
+      "impressions": 55,
+      "ctr": "0%",
+      "average_position": 21.2
+    },
+    {
+      "url": "https://fermatmind.com/zh/career/jobs/graphic-designers",
+      "clicks": 0,
+      "impressions": 53,
+      "ctr": "0%",
+      "average_position": 9.4
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/enneagram-personality-test-explained",
+      "clicks": 0,
+      "impressions": 23,
+      "ctr": "0%",
+      "average_position": 9.7
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/riasec-holland-career-interest-test-explained",
+      "clicks": 0,
+      "impressions": 22,
+      "ctr": "0%",
+      "average_position": 9.0
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/mbti-vs-holland-career-choice",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": "0%",
+      "average_position": 5.7
+    },
+    {
+      "url": "https://fermatmind.com/zh/articles/big-five-tool-guide",
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": "0%",
+      "average_position": 8.3
+    }
+  ],
+  "ga4_yesterday_summary": {
+    "active_users": 31,
+    "new_users": 23,
+    "average_engagement_time_per_active_user": "3 分 21 秒",
+    "last_30_minutes_active_users": 1,
+    "sessions_by_default_channel_group": {
+      "Direct": 28,
+      "Unassigned": 13,
+      "Organic Search": 3
+    },
+    "active_users_by_country": {
+      "China": 29,
+      "Denmark": 1,
+      "Japan": 1
+    },
+    "active_users_over_time": {
+      "30_days": 907,
+      "7_days": 178,
+      "1_day": 31
+    },
+    "top_visible_page_titles_by_views": [
+      {
+        "title": "开始 MBTI 免费测试 - MBTI 性格测试（16型人格测试） | FermatMind",
+        "views": 34
+      },
+      {
+        "title": "FermatMind",
+        "views": 11
+      },
+      {
+        "title": "免费 MBTI 测试：16 型人格完整结果 | FermatMind",
+        "views": 11
+      },
+      {
+        "title": "开始智商免费测试 - 智商（IQ）测试 | FermatMind",
+        "views": 6
+      },
+      {
+        "title": "情商（EQ）测试 | FermatMind",
+        "views": 6
+      },
+      {
+        "title": "测评入口中心 | FermatMind",
+        "views": 6
+      },
+      {
+        "title": "MBTI免费测试｜16型人格与完整报告 | FermatMind",
+        "views": 5
+      }
+    ],
+    "visible_events": {
+      "page_view": 96,
+      "user_engagement": 70,
+      "session_start": 33,
+      "first_visit": 23,
+      "scroll": 15,
+      "form_start": 1
+    }
+  },
+  "classification": "INSUFFICIENT_ARTICLE55_GSC_DATA_WITH_SITEWIDE_SEO_SIGNAL_VISIBLE",
+  "next_observation_plan": {
+    "d1": "Check whether Article 55 appears in GSC page/query rows and whether Google organic impressions begin.",
+    "d7": "Review query expansion, average position, CTR, and article-to-test behavior if available.",
+    "d14": "Decide whether to adjust title/meta/internal links/FAQ or hold based on trend."
+  },
+  "held_actions": {
+    "cms_write": true,
+    "publish": true,
+    "url_truth_write": true,
+    "search_channel_enqueue": true,
+    "indexnow_submit": true,
+    "gsc_request_indexing": true,
+    "baidu_submit": true,
+    "schema_hreflang": true,
+    "sitemap_llms": true,
+    "revalidation": true,
+    "deploy": true,
+    "pr": true
+  },
+  "notes": [
+    "Article 55 is not visible in the top 10 GSC page rows in this last-24h D0 snapshot.",
+    "Do not infer zero performance for Article 55 from absence in the visible top rows; use D1/D7/D14 exports or filtered page/query views.",
+    "Do not repeat IndexNow for queue item 263; it is already accepted.",
+    "The strongest immediate SEO signal remains MBTI test and personality/profile pages; this is observation only, not an optimization approval."
+  ]
+}
