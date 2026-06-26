@@ -41,6 +41,7 @@ Prefer evidence in this order:
 | Create a brief-only GPT handoff | `mode_b_brief_generation` |
 | Create a paste-ready GPT 5.5 Pro content-package prompt packet | `gpt_content_package_prompt_handoff` |
 | Intake-check a returned GPT content package before heavy QA | `package_intake_checklist` |
+| Improve a returned zh-CN package that feels too AI-generated or thin | use `fermatmind-wechat-seo-article-editor` before heavy QA |
 | QA a GPT/Mode C CMS package | `mode_c_package_qa` |
 | Prepare controlled CMS release gate text/checklists | `cms_release_gate` |
 | Review D1/D7/D14 performance and feed next briefs | `d1_d7_d14_observation` |
@@ -161,6 +162,7 @@ Do:
 - Check the package follows the requested route, slug, locale, canonical, and no-cannibalization contract from `gpt_content_package_prompt_handoff`.
 - Confirm image sources are local source files or planned Media Library inputs only; reject private URLs, tokenized URLs, fake public asset URLs, and missing body visual placeholders.
 - Confirm no full CMS write, publish, schema, hreflang, sitemap, llms, GSC, IndexNow, Baidu, or Search Channel action is embedded in the GPT package.
+- If the operator says the article feels too AI-generated, too thin, too generic, or not like a strong zh-CN public-account article, route the package through `fermatmind-wechat-seo-article-editor` before heavy `fermatmind-seo-ops` QA/import work.
 - Output the exact next heavy workflow to use in `fermatmind-seo-ops`, usually `cms_content_package_qa` or `seo_article_full_release`, and list the operator approvals that will be needed later.
 
 Output:
