@@ -5,7 +5,7 @@ import { Alert } from "@/components/ui/alert";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { canDownloadReportPdf, type AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import { trackEvent } from "@/lib/analytics";
-import { fetchAttemptReportPdf } from "@/lib/api/v0_3";
+import { fetchAttemptReportPdfWithMeta } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/utils";
 
@@ -18,6 +18,20 @@ function triggerBrowserDownload(blob: Blob, filename: string) {
   anchor.click();
   anchor.remove();
   window.URL.revokeObjectURL(url);
+}
+
+function extractAttemptIdFromPdfUrl(value: string | null | undefined): string | null {
+  const normalized = String(value ?? "").trim();
+  if (!normalized) return null;
+
+  const match = normalized.match(/\/attempts\/([^/?#]+)\/report\.pdf(?:[?#].*)?$/);
+  if (!match?.[1]) return null;
+
+  try {
+    return decodeURIComponent(match[1]);
+  } catch {
+    return match[1];
+  }
 }
 
 type AttemptPdfDownloadButtonProps = {
@@ -55,13 +69,16 @@ export function AttemptPdfDownloadButton({
 }: AttemptPdfDownloadButtonProps) {
   const [isDownloading, setIsDownloading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const resolvedAttemptId = accessProjection?.attemptId ?? attemptId ?? null;
   const resolvedPdfUrl = accessProjection?.actions.pdfHref ?? pdfUrl ?? null;
-  const resolvedFallbackUrl = accessProjection?.actions.pdfHref ?? fallbackUrl ?? null;
+  const resolvedAttemptId =
+    accessProjection?.attemptId
+    ?? attemptId
+    ?? extractAttemptIdFromPdfUrl(resolvedPdfUrl)
+    ?? extractAttemptIdFromPdfUrl(fallbackUrl);
   const downloadEnabled = accessProjection ? canDownloadReportPdf(accessProjection) : Boolean(resolvedAttemptId || resolvedPdfUrl);
 
   const handleDownload = async () => {
-    if ((!resolvedAttemptId && !resolvedPdfUrl) || !downloadEnabled || isDownloading) return;
+    if (!downloadEnabled || isDownloading) return;
 
     setIsDownloading(true);
     setError(null);
@@ -73,27 +90,19 @@ export function AttemptPdfDownloadButton({
     });
 
     try {
-      if (resolvedPdfUrl) {
-        window.open(resolvedPdfUrl, "_blank", "noopener,noreferrer");
-        return;
-      }
-
       if (!resolvedAttemptId) {
         throw new Error("Missing attempt id.");
       }
 
-      const blob = await fetchAttemptReportPdf({ attemptId: resolvedAttemptId });
+      const response = await fetchAttemptReportPdfWithMeta({ attemptId: resolvedAttemptId });
+      const blob = response.blob;
       if (blob.size <= 0) {
         throw new Error("Empty pdf blob.");
       }
 
-      triggerBrowserDownload(blob, `${filenamePrefix}-${resolvedAttemptId}.pdf`);
+      triggerBrowserDownload(blob, response.filenameHint?.trim() || `${filenamePrefix}-${resolvedAttemptId}.pdf`);
     } catch {
-      if (resolvedFallbackUrl) {
-        window.open(resolvedFallbackUrl, "_blank", "noopener,noreferrer");
-      } else {
-        setError(errorMessage);
-      }
+      setError(errorMessage);
     } finally {
       setIsDownloading(false);
     }

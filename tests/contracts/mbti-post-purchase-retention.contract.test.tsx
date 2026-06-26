@@ -9,7 +9,9 @@ import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.
 const hoisted = vi.hoisted(() => ({
   trackEvent: vi.fn(),
   trackObservableFunnelEvent: vi.fn(),
-  fetchAttemptReportPdf: vi.fn(),
+  fetchAttemptReportPdfWithMeta: vi.fn(),
+  createObjectURL: vi.fn(() => "blob:mbti-report"),
+  revokeObjectURL: vi.fn(),
   openWindow: vi.fn(),
 }));
 
@@ -27,7 +29,7 @@ vi.mock("@/lib/api/v0_3", async () => {
 
   return {
     ...actual,
-    fetchAttemptReportPdf: hoisted.fetchAttemptReportPdf,
+    fetchAttemptReportPdfWithMeta: hoisted.fetchAttemptReportPdfWithMeta,
   };
 });
 
@@ -92,6 +94,14 @@ function createMbtiAccessHubRaw(attemptId: string, orderNo: string): MbtiAccessH
 describe("MBTI post-purchase retention contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    hoisted.fetchAttemptReportPdfWithMeta.mockResolvedValue({
+      blob: new Blob(["pdf"], { type: "application/pdf" }),
+      filenameHint: "mbti-report.pdf",
+      formLabel: null,
+    });
+    globalThis.URL.createObjectURL = hoisted.createObjectURL;
+    globalThis.URL.revokeObjectURL = hoisted.revokeObjectURL;
+    vi.spyOn(window.HTMLAnchorElement.prototype, "click").mockImplementation(() => {});
     vi.spyOn(window, "open").mockImplementation(hoisted.openWindow);
   });
 
@@ -128,13 +138,12 @@ describe("MBTI post-purchase retention contract", () => {
     fireEvent.click(getPrimaryByTestId("mbti-post-purchase-download"));
 
     await waitFor(() => {
-      expect(hoisted.openWindow).toHaveBeenCalledWith(
-        "/api/v0.3/attempts/attempt-unlocked-123/report.pdf",
-        "_blank",
-        "noopener,noreferrer"
-      );
+      expect(hoisted.fetchAttemptReportPdfWithMeta).toHaveBeenCalledWith({
+        attemptId: "attempt-unlocked-123",
+      });
     });
-    expect(hoisted.fetchAttemptReportPdf).not.toHaveBeenCalled();
+    expect(hoisted.createObjectURL).toHaveBeenCalledWith(expect.any(Blob));
+    expect(hoisted.openWindow).not.toHaveBeenCalled();
   });
 
   it("keeps the locked result on the existing checkout/offers wiring", () => {
