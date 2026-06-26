@@ -21,7 +21,7 @@ const hoisted = vi.hoisted(() => ({
   resendOrderDelivery: vi.fn(),
   fetchAttemptReportAccess: vi.fn(),
   recoverAlipayReturnContext: vi.fn(),
-  fetchAttemptReportPdf: vi.fn(),
+  fetchAttemptReportPdfWithMeta: vi.fn(),
   trackEvent: vi.fn(),
   routerReplace: vi.fn(),
   pathname: "/en/orders/ord_delivery_1",
@@ -52,7 +52,7 @@ vi.mock("@/lib/api/v0_3", async () => {
     getOrderStatus: hoisted.getOrderStatus,
     recoverAlipayReturnContext: hoisted.recoverAlipayReturnContext,
     resendOrderDelivery: hoisted.resendOrderDelivery,
-    fetchAttemptReportPdf: hoisted.fetchAttemptReportPdf,
+    fetchAttemptReportPdfWithMeta: hoisted.fetchAttemptReportPdfWithMeta,
   };
 });
 
@@ -102,7 +102,11 @@ describe("OrdersClient delivery contract", () => {
       wait_url:
         "/en/pay/wait?order_no=ord_return_recovery_default&payment_recovery_token=recovery_return_default",
     });
-    hoisted.fetchAttemptReportPdf.mockResolvedValue(new Blob(["pdf"], { type: "application/pdf" }));
+    hoisted.fetchAttemptReportPdfWithMeta.mockResolvedValue({
+      blob: new Blob(["pdf"], { type: "application/pdf" }),
+      filenameHint: "mbti-report.pdf",
+      formLabel: null,
+    });
     hoisted.resendOrderDelivery.mockResolvedValue({ ok: true, message: "Delivery email sent again." });
     globalThis.URL.createObjectURL = hoisted.createObjectURL;
     globalThis.URL.revokeObjectURL = hoisted.revokeObjectURL;
@@ -229,13 +233,12 @@ describe("OrdersClient delivery contract", () => {
     fireEvent.click(screen.getByTestId("order-download-pdf"));
 
     await waitFor(() => {
-      expect(hoisted.openWindow).toHaveBeenCalledWith(
-        "/api/v0.3/attempts/attempt-paid-1/report.pdf",
-        "_blank",
-        "noopener,noreferrer"
-      );
+      expect(hoisted.fetchAttemptReportPdfWithMeta).toHaveBeenCalledWith({
+        attemptId: "attempt-paid-1",
+      });
     });
-    expect(hoisted.fetchAttemptReportPdf).not.toHaveBeenCalled();
+    expect(hoisted.createObjectURL).toHaveBeenCalledWith(expect.any(Blob));
+    expect(hoisted.openWindow).not.toHaveBeenCalled();
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "pdf_download",
       expect.objectContaining({
