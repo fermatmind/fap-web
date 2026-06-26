@@ -2,11 +2,13 @@ import type { ReportResponse } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 import { EQActionPrescription } from "./EQActionPrescription";
 import { EQCareerEnvironmentLens } from "./EQCareerEnvironmentLens";
+import { EQCrossAssessmentContext } from "./EQCrossAssessmentContext";
 import { EQEmotionalMatrix } from "./EQEmotionalMatrix";
 import { EQEvidenceSnapshot } from "./EQEvidenceSnapshot";
 import { EQMechanismCard } from "./EQMechanismCard";
 import { EQQualityBanner } from "./EQQualityBanner";
 import { EQRealitySceneCards } from "./EQRealitySceneCards";
+import { EQResultDepthModules } from "./EQResultDepthModules";
 import { EQResultHero } from "./EQResultHero";
 import { EQSaveShareRelated } from "./EQSaveShareRelated";
 import { EQScientificBoundary } from "./EQScientificBoundary";
@@ -43,6 +45,7 @@ export function EQResultV5({
     <main data-testid="eq-result-v5" className="mx-auto w-full max-w-6xl space-y-6">
       <EQResultHero viewModel={viewModel} />
       <EQEvidenceSnapshot viewModel={viewModel} />
+      <EQResultDepthModules viewModel={viewModel} />
       <EQQualityBanner viewModel={viewModel} />
       <EQEmotionalMatrix viewModel={viewModel} />
       <EQMechanismCard viewModel={viewModel} />
@@ -51,6 +54,7 @@ export function EQResultV5({
       <EQActionPrescription viewModel={viewModel} />
       <EQSJTBridgeCTA viewModel={viewModel} />
       <EQScientificBoundary viewModel={viewModel} />
+      <EQCrossAssessmentContext viewModel={viewModel} />
       <EQSaveShareRelated
         viewModel={viewModel}
         attemptId={attemptId}

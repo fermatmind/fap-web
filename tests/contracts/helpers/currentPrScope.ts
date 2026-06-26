@@ -73,6 +73,21 @@ const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_PREFIXES = [
   "generated/pr-train-sidecar-issues/",
 ];
 
+const EQ_V19_FRONTEND_DEPTH_CONSUMPTION_ALLOWED_FILES = new Set([
+  "components/result/eq/EQCrossAssessmentContext.tsx",
+  "components/result/eq/EQEvidenceSnapshot.tsx",
+  "components/result/eq/EQRealitySceneCards.tsx",
+  "components/result/eq/EQResultDepthModules.tsx",
+  "components/result/eq/EQResultHero.tsx",
+  "components/result/eq/EQResultV5.tsx",
+  "components/result/eq/types.ts",
+  "components/result/eq/utils.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const ARTICLE_ANSWER_SURFACE_LAYOUT_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/articles/[slug]/page.tsx",
   "components/content/AnswerSurfaceSection.tsx",
@@ -4846,6 +4861,14 @@ export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string)
     SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES.has(file) ||
     SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_PREFIXES.some((prefix) => file.startsWith(prefix))
   );
+}
+
+export function isEqV19FrontendDepthConsumptionAllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-eq-v19-05-frontend-depth-consumption") {
+    return true;
+  }
+
+  return EQ_V19_FRONTEND_DEPTH_CONSUMPTION_ALLOWED_FILES.has(file);
 }
 
 export function isPersonalityEnneagramV1NoindexRender01AllowedFile(file: string): boolean {

@@ -6,6 +6,7 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
   const { assets, globalScore, quality, interpretation, locale, lockedAnomaly } = viewModel;
   const formulation = assets.core_formulation;
   const snapshot = assets.result_snapshot;
+  const route = assets.personalization_route;
   const lowConfidence = isLowConfidenceEqResult(viewModel);
 
   return (
@@ -19,15 +20,20 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
             {locale === "zh" ? "情绪与关系模式报告" : "Emotional & Relational Pattern Report"}
           </p>
           <h1 className="text-2xl font-semibold leading-tight text-slate-950 sm:text-3xl">
-            {snapshot.headline ||
+            {route.route_headline ||
+              snapshot.headline ||
               formulation.title ||
               (locale === "zh" ? "结果解释暂不可用" : "Result interpretation unavailable")}
           </h1>
-          {snapshot.core_judgment || formulation.one_liner ? (
-            <p className="text-base leading-7 text-slate-700">{snapshot.core_judgment || formulation.one_liner}</p>
+          {route.why_this_feels_specific || snapshot.core_judgment || formulation.one_liner ? (
+            <p className="text-base leading-7 text-slate-700">
+              {route.why_this_feels_specific || snapshot.core_judgment || formulation.one_liner}
+            </p>
           ) : null}
-          {snapshot.evidence_point || formulation.core_claim ? (
-            <p className="text-sm leading-6 text-slate-600">{snapshot.evidence_point || formulation.core_claim}</p>
+          {route.evidence_snapshot_label || snapshot.evidence_point || formulation.core_claim ? (
+            <p className="text-sm leading-6 text-slate-600">
+              {route.evidence_snapshot_label || snapshot.evidence_point || formulation.core_claim}
+            </p>
           ) : null}
         </div>
 
@@ -68,11 +74,11 @@ export function EQResultHero({ viewModel }: { viewModel: EqV5ViewModel }) {
         />
         <HeroSignal
           label={locale === "zh" ? "最小行动" : "Smallest next action"}
-          value={snapshot.minimal_action || formulation.development_lever || interpretation.development_lever}
+          value={route.next_best_action || snapshot.minimal_action || formulation.development_lever || interpretation.development_lever}
         />
         <HeroSignal
           label={locale === "zh" ? "分享句" : "Share-safe line"}
-          value={snapshot.share_safe_sentence || snapshot.do_not_overread || formulation.do_not_overread}
+          value={route.save_reason || snapshot.share_safe_sentence || snapshot.do_not_overread || formulation.do_not_overread}
         />
       </div>
       {snapshot.continue_path ? (
