@@ -31476,9 +31476,9 @@
     "depends_on": [
       "PR-EQ-V19-04"
     ],
-    "status": "local_checks_passed",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "98b7bd5624943dfce6160ba3453a08e3d68f5893",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1458",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -31524,6 +31524,10 @@
       "local:scope_validation": {
         "status": "pass",
         "command": "Changed-file allowlist validation for PR-EQ-V19-05 files including untracked additions"
+      },
+      "github_pr": {
+        "status": "created",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1458"
       }
     },
     "events": [
@@ -31536,6 +31540,11 @@
         "at": "2026-06-26T17:05:19Z",
         "status": "local_checks_passed",
         "notes": "Implemented frontend EQ v1.9 depth consumption and passed typecheck, contract tests, e2e with same-origin mock API URL, YAML/JSON parse, diff check, and scope validation."
+      },
+      {
+        "at": "2026-06-26T17:07:27Z",
+        "status": "pr_open",
+        "notes": "Opened GitHub PR #1458 for PR-EQ-V19-05."
       }
     ]
   }
