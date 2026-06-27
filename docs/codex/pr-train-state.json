@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-27T14:02:21+08:00",
+  "updated_at": "2026-06-27T14:07:32+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -25354,7 +25354,7 @@
       "base": "main",
       "depends_on": [],
       "title": "PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01: automate personality agent opportunity ranking",
-      "status": "pr_open_pending_github_checks",
+      "status": "ready_to_merge",
       "train_scope": "personality_agent_automation",
       "artifacts": [
         "scripts/seo/personality-agent-opportunity-ranker.mjs",
@@ -25422,7 +25422,7 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1459",
-      "commit_sha": "83ef22cd6651514c0e46a825f6117279feb80f21",
+      "commit_sha": "6cc5895fe18331e2bf05bf3a062384e6b9c8216e",
       "merge_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -25459,10 +25459,25 @@
           "commit_sha": "83ef22cd6651514c0e46a825f6117279feb80f21",
           "pr_url": "https://github.com/fermatmind/fap-web/pull/1459",
           "note": "PR opened; waiting for required GitHub checks."
+        },
+        {
+          "at": "2026-06-27T14:07:32+08:00",
+          "status": "ready_to_merge",
+          "commit_sha": "6cc5895fe18331e2bf05bf3a062384e6b9c8216e",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1459",
+          "note": "GitHub checks passed; PR is ready to merge subject to repo policy."
         }
       ],
       "github_checks": {
-        "status": "pending",
+        "status": "passed",
+        "checks": {
+          "CodeQL": "SUCCESS",
+          "analyze (javascript-typescript)": "SUCCESS",
+          "build": "SUCCESS",
+          "contracts": "SUCCESS",
+          "verify-big5-contract-freeze": "SUCCESS",
+          "verify-enneagram-contract-freeze": "SUCCESS"
+        },
         "pr": "https://github.com/fermatmind/fap-web/pull/1459"
       }
     },
@@ -31700,7 +31715,7 @@
       "base": "main",
       "depends_on": [],
       "title": "PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01: automate personality agent opportunity ranking",
-      "status": "pr_open_pending_github_checks",
+      "status": "ready_to_merge",
       "train_scope": "personality_agent_automation",
       "artifacts": [
         "scripts/seo/personality-agent-opportunity-ranker.mjs",
@@ -31768,7 +31783,7 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1459",
-      "commit_sha": "83ef22cd6651514c0e46a825f6117279feb80f21",
+      "commit_sha": "6cc5895fe18331e2bf05bf3a062384e6b9c8216e",
       "merge_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -31805,10 +31820,25 @@
           "commit_sha": "83ef22cd6651514c0e46a825f6117279feb80f21",
           "pr_url": "https://github.com/fermatmind/fap-web/pull/1459",
           "note": "PR opened; waiting for required GitHub checks."
+        },
+        {
+          "at": "2026-06-27T14:07:32+08:00",
+          "status": "ready_to_merge",
+          "commit_sha": "6cc5895fe18331e2bf05bf3a062384e6b9c8216e",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1459",
+          "note": "GitHub checks passed; PR is ready to merge subject to repo policy."
         }
       ],
       "github_checks": {
-        "status": "pending",
+        "status": "passed",
+        "checks": {
+          "CodeQL": "SUCCESS",
+          "analyze (javascript-typescript)": "SUCCESS",
+          "build": "SUCCESS",
+          "contracts": "SUCCESS",
+          "verify-big5-contract-freeze": "SUCCESS",
+          "verify-enneagram-contract-freeze": "SUCCESS"
+        },
         "pr": "https://github.com/fermatmind/fap-web/pull/1459"
       }
     },
