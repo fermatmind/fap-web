@@ -61,6 +61,19 @@ const BIG_FIVE_PUBLIC_PROFILE_AGENT_QA_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const PERSONALITY_AGENT_OPPORTUNITY_RANKER_AUTOMATION_01_ALLOWED_FILES = new Set([
+  "scripts/seo/personality-agent-opportunity-ranker.mjs",
+  "docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.json",
+  "docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.md",
+  "docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.csv",
+  "tests/contracts/personality-agent-opportunity-ranker-automation-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -4850,6 +4863,14 @@ export function isBigFivePublicProfileAgentQa01AllowedFile(file: string): boolea
   }
 
   return BIG_FIVE_PUBLIC_PROFILE_AGENT_QA_01_ALLOWED_FILES.has(file);
+}
+
+export function isPersonalityAgentOpportunityRankerAutomation01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/personality-agent-opportunity-ranker-automation-01") {
+    return true;
+  }
+
+  return PERSONALITY_AGENT_OPPORTUNITY_RANKER_AUTOMATION_01_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {

@@ -19051,3 +19051,158 @@ prs:
       squash: true
       auto_merge: true
     next_task: PR-EQ-V19-06
+
+  - id: PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/personality-agent-opportunity-ranker-automation-01
+    base: main
+    title: "PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01: automate personality agent opportunity ranking"
+    depends_on: []
+    mode: execute
+    train_scope: personality_agent_automation
+    status: in_progress
+    goal: "Automatically rank MBTI64, Big Five, and Enneagram public profile SEO opportunities into P0/P1/P2/HOLD without generating recommendation body copy or mutating CMS, approval queue, publish/index/search, sitemap/llms, or runtime state."
+    artifacts:
+      - scripts/seo/personality-agent-opportunity-ranker.mjs
+      - docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.json
+      - docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.md
+      - docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.csv
+      - tests/contracts/personality-agent-opportunity-ranker-automation-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - scripts/seo/personality-agent-opportunity-ranker.mjs
+      - docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.json
+      - docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.md
+      - docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.csv
+      - tests/contracts/personality-agent-opportunity-ranker-automation-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Generate recommendation body copy.
+      - Write CMS content or approval queue rows.
+      - Publish, index, enqueue, approve, submit, deploy, mutate sitemap/llms, or call external search APIs.
+      - Modify frontend runtime behavior or backend authority.
+    required_local_checks:
+      - node --check scripts/seo/personality-agent-opportunity-ranker.mjs
+      - jq empty docs/seo/personality/personality-agent-opportunity-ranker-automation-2026-06-27.json
+      - pnpm exec vitest run tests/contracts/personality-agent-opportunity-ranker-automation-01.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PERSONALITY-AGENT-RECOMMENDATION-AUTO-RUNNER-01
+
+  - id: PERSONALITY-AGENT-RECOMMENDATION-AUTO-RUNNER-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/personality-agent-recommendation-auto-runner-01
+    base: main
+    title: "PERSONALITY-AGENT-RECOMMENDATION-AUTO-RUNNER-01: run personality agent recommendations from ranked opportunities"
+    depends_on:
+      - PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01
+    mode: execute
+    train_scope: personality_agent_automation
+    status: pending_dependency
+    goal: "Consume the opportunity ranker output and generate draft recommendation artifacts for selected MBTI64, Big Five, and Enneagram candidates without writing CMS, approval queue, publish/index/search, sitemap/llms, or runtime state."
+    artifacts:
+      - scripts/seo/run-personality-agent-auto-runner.mjs
+      - docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.json
+      - docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.md
+      - docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.csv
+      - tests/contracts/personality-agent-recommendation-auto-runner-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - scripts/seo/run-personality-agent-auto-runner.mjs
+      - scripts/seo/personality-agent-recommendation-auto-runner.mjs
+      - docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.json
+      - docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.md
+      - docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.csv
+      - tests/contracts/personality-agent-recommendation-auto-runner-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Write CMS content or approval queue rows.
+      - Publish, index, enqueue, approve, submit, deploy, mutate sitemap/llms, or call external search APIs.
+      - Modify frontend runtime behavior or backend authority.
+    required_local_checks:
+      - node --check scripts/seo/run-personality-agent-auto-runner.mjs
+      - jq empty docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.json
+      - pnpm exec vitest run tests/contracts/personality-agent-recommendation-auto-runner-01.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PERSONALITY-AGENT-AUTO-QA-AND-APPROVAL-HANDOFF-01
+
+  - id: PERSONALITY-AGENT-AUTO-QA-AND-APPROVAL-HANDOFF-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/personality-agent-auto-qa-and-approval-handoff-01
+    base: main
+    title: "PERSONALITY-AGENT-AUTO-QA-AND-APPROVAL-HANDOFF-01: auto QA personality recommendations and emit approval handoff"
+    depends_on:
+      - PERSONALITY-AGENT-RECOMMENDATION-AUTO-RUNNER-01
+    mode: execute
+    train_scope: personality_agent_automation
+    status: pending_dependency
+    goal: "Run framework QA gates against generated recommendation artifacts and emit approval-queue handoff artifacts for PASS rows only, without writing production approval queue, CMS, publish/index/search, sitemap/llms, or runtime state."
+    artifacts:
+      - scripts/seo/personality-agent-auto-qa-and-approval-handoff.mjs
+      - docs/seo/personality/personality-agent-auto-qa-and-approval-handoff-2026-06-27.json
+      - docs/seo/personality/personality-agent-auto-qa-and-approval-handoff-2026-06-27.md
+      - docs/seo/personality/personality-agent-auto-approval-handoff-package-2026-06-27.json
+      - tests/contracts/personality-agent-auto-qa-and-approval-handoff-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - scripts/seo/personality-agent-auto-qa-and-approval-handoff.mjs
+      - docs/seo/personality/personality-agent-auto-qa-and-approval-handoff-2026-06-27.json
+      - docs/seo/personality/personality-agent-auto-qa-and-approval-handoff-2026-06-27.md
+      - docs/seo/personality/personality-agent-auto-approval-handoff-package-2026-06-27.json
+      - tests/contracts/personality-agent-auto-qa-and-approval-handoff-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Write production approval queue or CMS content.
+      - Publish, index, enqueue, approve, submit, deploy, mutate sitemap/llms, or call external search APIs.
+      - Modify frontend runtime behavior or backend authority.
+    required_local_checks:
+      - node --check scripts/seo/personality-agent-auto-qa-and-approval-handoff.mjs
+      - jq empty docs/seo/personality/personality-agent-auto-qa-and-approval-handoff-2026-06-27.json
+      - jq empty docs/seo/personality/personality-agent-auto-approval-handoff-package-2026-06-27.json
+      - pnpm exec vitest run tests/contracts/personality-agent-auto-qa-and-approval-handoff-01.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PERSONALITY-AGENT-APPROVAL-QUEUE-AUTO-HANDOFF-DRY-RUN-01
