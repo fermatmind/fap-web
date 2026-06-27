@@ -19061,7 +19061,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: personality_agent_automation
-    status: in_progress
+    status: merged
     goal: "Automatically rank MBTI64, Big Five, and Enneagram public profile SEO opportunities into P0/P1/P2/HOLD without generating recommendation body copy or mutating CMS, approval queue, publish/index/search, sitemap/llms, or runtime state."
     artifacts:
       - scripts/seo/personality-agent-opportunity-ranker.mjs
@@ -19113,7 +19113,7 @@ prs:
       - PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01
     mode: execute
     train_scope: personality_agent_automation
-    status: pending_dependency
+    status: in_progress
     goal: "Consume the opportunity ranker output and generate draft recommendation artifacts for selected MBTI64, Big Five, and Enneagram candidates without writing CMS, approval queue, publish/index/search, sitemap/llms, or runtime state."
     artifacts:
       - scripts/seo/run-personality-agent-auto-runner.mjs
