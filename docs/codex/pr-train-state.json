@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-27T14:07:32+08:00",
+  "updated_at": "2026-06-27T14:21:38+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -25354,7 +25354,7 @@
       "base": "main",
       "depends_on": [],
       "title": "PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01: automate personality agent opportunity ranking",
-      "status": "ready_to_merge",
+      "status": "merged_cleanup_complete",
       "train_scope": "personality_agent_automation",
       "artifacts": [
         "scripts/seo/personality-agent-opportunity-ranker.mjs",
@@ -25422,11 +25422,11 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1459",
-      "commit_sha": "6cc5895fe18331e2bf05bf3a062384e6b9c8216e",
+      "commit_sha": "b87305c920d53ca67a984751351fb65b8bf2c0f7",
       "merge_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-27T06:12:49Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "scope_validation": {
         "status": "passed",
         "changed_files": [
@@ -25466,6 +25466,12 @@
           "commit_sha": "6cc5895fe18331e2bf05bf3a062384e6b9c8216e",
           "pr_url": "https://github.com/fermatmind/fap-web/pull/1459",
           "note": "GitHub checks passed; PR is ready to merge subject to repo policy."
+        },
+        {
+          "at": "2026-06-27T14:18:19+08:00",
+          "status": "merged_cleanup_complete",
+          "commit_sha": "b87305c920d53ca67a984751351fb65b8bf2c0f7",
+          "note": "PR #1459 merged; origin/main contains merge commit and local main was synced before starting the dependent PR."
         }
       ],
       "github_checks": {
@@ -25491,7 +25497,7 @@
         "PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01"
       ],
       "title": "PERSONALITY-AGENT-RECOMMENDATION-AUTO-RUNNER-01: run personality agent recommendations from ranked opportunities",
-      "status": "pending_dependency",
+      "status": "local_checks_passed_ready_to_push",
       "train_scope": "personality_agent_automation",
       "artifacts": [
         "scripts/seo/run-personality-agent-auto-runner.mjs",
@@ -25504,13 +25510,60 @@
         "docs/codex/pr-train-state.json"
       ],
       "checks": {
-        "authorization": {
-          "status": "passed",
-          "evidence": "User explicitly authorized manifest/state updates for this PR train."
-        },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01 merge."
+          "status": "passed",
+          "depends_on": [
+            "PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01"
+          ],
+          "evidence": "PR #1459 merged into origin/main at b87305c920d53ca67a984751351fb65b8bf2c0f7."
+        },
+        "node_check": {
+          "status": "passed",
+          "command": "node --check scripts/seo/personality-agent-recommendation-auto-runner.mjs"
+        },
+        "jq_empty": {
+          "status": "passed",
+          "command": "jq empty docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.json"
+        },
+        "focused_contract": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/personality-agent-recommendation-auto-runner-01.contract.test.ts",
+          "result": "1 file passed, 5 tests passed"
+        },
+        "typecheck": {
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        "test_contract": {
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "result": "592 files passed, 3486 tests passed"
+        },
+        "yaml_parse": {
+          "status": "passed",
+          "command": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\""
+        },
+        "json_parse": {
+          "status": "passed",
+          "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        },
+        "diff_check": {
+          "status": "passed",
+          "command": "git diff --check"
+        },
+        "changed_file_scope_validation": {
+          "status": "passed",
+          "changed_files": [
+            "docs/codex/pr-train-state.json",
+            "docs/codex/pr-train.yaml",
+            "docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.csv",
+            "docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.json",
+            "docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.md",
+            "scripts/seo/personality-agent-recommendation-auto-runner.mjs",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "tests/contracts/personality-agent-recommendation-auto-runner-01.contract.test.ts"
+          ],
+          "outside_scope_files": []
         }
       },
       "failure_reason": null,
@@ -25521,16 +25574,35 @@
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
       "scope_validation": {
-        "status": "pending",
-        "allowed_files": [],
-        "changed_files": [],
-        "outside_scope_files": []
+        "status": "passed",
+        "changed_files": [
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.csv",
+          "docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.json",
+          "docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.md",
+          "scripts/seo/personality-agent-recommendation-auto-runner.mjs",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "tests/contracts/personality-agent-recommendation-auto-runner-01.contract.test.ts"
+        ],
+        "outside_scope_files": [],
+        "note": "Only recommendation auto-runner script, generated artifacts, focused contract, scope helper, and PR train manifest/state changed."
       },
       "history": [
         {
           "at": "2026-06-27T13:45:00+08:00",
           "status": "pending_dependency",
           "summary": "Initialized authorized PR2. Waiting for PR1 merge before implementation."
+        },
+        {
+          "at": "2026-06-27T14:18:19+08:00",
+          "status": "in_progress",
+          "note": "Dependency merged; implementation started on codex/personality-agent-recommendation-auto-runner-01."
+        },
+        {
+          "at": "2026-06-27T14:21:38+08:00",
+          "status": "local_checks_passed_ready_to_push",
+          "note": "All manifest local checks passed; ready to stage, commit, push, and open PR."
         }
       ]
     },
@@ -31715,7 +31787,7 @@
       "base": "main",
       "depends_on": [],
       "title": "PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01: automate personality agent opportunity ranking",
-      "status": "ready_to_merge",
+      "status": "merged_cleanup_complete",
       "train_scope": "personality_agent_automation",
       "artifacts": [
         "scripts/seo/personality-agent-opportunity-ranker.mjs",
@@ -31783,11 +31855,11 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1459",
-      "commit_sha": "6cc5895fe18331e2bf05bf3a062384e6b9c8216e",
+      "commit_sha": "b87305c920d53ca67a984751351fb65b8bf2c0f7",
       "merge_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-06-27T06:12:49Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "scope_validation": {
         "status": "passed",
         "changed_files": [
@@ -31827,6 +31899,12 @@
           "commit_sha": "6cc5895fe18331e2bf05bf3a062384e6b9c8216e",
           "pr_url": "https://github.com/fermatmind/fap-web/pull/1459",
           "note": "GitHub checks passed; PR is ready to merge subject to repo policy."
+        },
+        {
+          "at": "2026-06-27T14:18:19+08:00",
+          "status": "merged_cleanup_complete",
+          "commit_sha": "b87305c920d53ca67a984751351fb65b8bf2c0f7",
+          "note": "PR #1459 merged; origin/main contains merge commit and local main was synced before starting the dependent PR."
         }
       ],
       "github_checks": {
@@ -31852,7 +31930,7 @@
         "PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01"
       ],
       "title": "PERSONALITY-AGENT-RECOMMENDATION-AUTO-RUNNER-01: run personality agent recommendations from ranked opportunities",
-      "status": "pending_dependency",
+      "status": "local_checks_passed_ready_to_push",
       "train_scope": "personality_agent_automation",
       "artifacts": [
         "scripts/seo/run-personality-agent-auto-runner.mjs",
@@ -31865,13 +31943,60 @@
         "docs/codex/pr-train-state.json"
       ],
       "checks": {
-        "authorization": {
-          "status": "passed",
-          "evidence": "User explicitly authorized manifest/state updates for this PR train."
-        },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01 merge."
+          "status": "passed",
+          "depends_on": [
+            "PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01"
+          ],
+          "evidence": "PR #1459 merged into origin/main at b87305c920d53ca67a984751351fb65b8bf2c0f7."
+        },
+        "node_check": {
+          "status": "passed",
+          "command": "node --check scripts/seo/personality-agent-recommendation-auto-runner.mjs"
+        },
+        "jq_empty": {
+          "status": "passed",
+          "command": "jq empty docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.json"
+        },
+        "focused_contract": {
+          "status": "passed",
+          "command": "pnpm exec vitest run tests/contracts/personality-agent-recommendation-auto-runner-01.contract.test.ts",
+          "result": "1 file passed, 5 tests passed"
+        },
+        "typecheck": {
+          "status": "passed",
+          "command": "pnpm typecheck"
+        },
+        "test_contract": {
+          "status": "passed",
+          "command": "pnpm test:contract",
+          "result": "592 files passed, 3486 tests passed"
+        },
+        "yaml_parse": {
+          "status": "passed",
+          "command": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\""
+        },
+        "json_parse": {
+          "status": "passed",
+          "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        },
+        "diff_check": {
+          "status": "passed",
+          "command": "git diff --check"
+        },
+        "changed_file_scope_validation": {
+          "status": "passed",
+          "changed_files": [
+            "docs/codex/pr-train-state.json",
+            "docs/codex/pr-train.yaml",
+            "docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.csv",
+            "docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.json",
+            "docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.md",
+            "scripts/seo/personality-agent-recommendation-auto-runner.mjs",
+            "tests/contracts/helpers/currentPrScope.ts",
+            "tests/contracts/personality-agent-recommendation-auto-runner-01.contract.test.ts"
+          ],
+          "outside_scope_files": []
         }
       },
       "failure_reason": null,
@@ -31882,16 +32007,35 @@
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
       "scope_validation": {
-        "status": "pending",
-        "allowed_files": [],
-        "changed_files": [],
-        "outside_scope_files": []
+        "status": "passed",
+        "changed_files": [
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.csv",
+          "docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.json",
+          "docs/seo/personality/personality-agent-recommendation-auto-runner-2026-06-27.md",
+          "scripts/seo/personality-agent-recommendation-auto-runner.mjs",
+          "tests/contracts/helpers/currentPrScope.ts",
+          "tests/contracts/personality-agent-recommendation-auto-runner-01.contract.test.ts"
+        ],
+        "outside_scope_files": [],
+        "note": "Only recommendation auto-runner script, generated artifacts, focused contract, scope helper, and PR train manifest/state changed."
       },
       "history": [
         {
           "at": "2026-06-27T13:45:00+08:00",
           "status": "pending_dependency",
           "summary": "Initialized authorized PR2. Waiting for PR1 merge before implementation."
+        },
+        {
+          "at": "2026-06-27T14:18:19+08:00",
+          "status": "in_progress",
+          "note": "Dependency merged; implementation started on codex/personality-agent-recommendation-auto-runner-01."
+        },
+        {
+          "at": "2026-06-27T14:21:38+08:00",
+          "status": "local_checks_passed_ready_to_push",
+          "note": "All manifest local checks passed; ready to stage, commit, push, and open PR."
         }
       ]
     },
