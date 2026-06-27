@@ -8,8 +8,11 @@ const RELEASE_DIR = path.resolve("generated/career-seo-geo-release-gate");
 const SLUG_PLAN =
   process.env.CAREER_SLUG_PLAN ||
   path.resolve("generated/career-content-1046-post-import-live-page-seo-qa/preview_1046_slug_plan.json");
-const LIVE_ORIGIN = process.env.LIVE_ORIGIN || "https://fermatmind.com";
-const API_ORIGIN = process.env.API_ORIGIN || "https://api.fermatmind.com";
+const ALLOWED_LIVE_ORIGIN = "https://fermatmind.com";
+const ALLOWED_API_ORIGIN = "https://api.fermatmind.com";
+const CAREER_SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+const LIVE_ORIGIN = requireAllowedOrigin(process.env.LIVE_ORIGIN, ALLOWED_LIVE_ORIGIN, "LIVE_ORIGIN");
+const API_ORIGIN = requireAllowedOrigin(process.env.API_ORIGIN, ALLOWED_API_ORIGIN, "API_ORIGIN");
 
 const INTENTS = [
   "what-is",
@@ -28,6 +31,50 @@ const RUNTIME_SEO_PATTERN = /(?:canonical|noindex|sitemap|llms|robots|JSON-LD|sc
 const UNSUPPORTED_CLAIM_PATTERN =
   /(?:guaranteed|officially endorsed|will get hired|will increase salary|best career|must choose|一定|保证|官方背书|必然|排名第一)/i;
 const CJK_PATTERN = /[\u3400-\u9fff]/;
+
+function requireAllowedOrigin(value, expected, label) {
+  const rawValue = value || expected;
+  const origin = new URL(rawValue);
+  const expectedOrigin = new URL(expected);
+  if (origin.origin !== expectedOrigin.origin || origin.pathname !== "/" || origin.search || origin.hash) {
+    throw new Error(`${label} must be ${expected}`);
+  }
+  return expectedOrigin.origin;
+}
+
+function requireCareerSlug(value) {
+  const slug = String(value || "").trim();
+  if (!CAREER_SLUG_PATTERN.test(slug)) {
+    throw new Error(`Invalid career slug in slug plan: ${slug}`);
+  }
+  return slug;
+}
+
+function buildCareerPageUrl(locale, slug) {
+  const localePrefix = locale === "zh-CN" ? "zh" : "en";
+  return new URL(`/${localePrefix}/career/jobs/${requireCareerSlug(slug)}`, LIVE_ORIGIN).toString();
+}
+
+function buildCareerApiUrl(locale, slug) {
+  const url = new URL(`/api/v0.5/career/jobs/${requireCareerSlug(slug)}`, API_ORIGIN);
+  url.searchParams.set("locale", locale);
+  return url.toString();
+}
+
+function assertAllowedAuditRequestUrl(value) {
+  const url = new URL(value);
+  if (url.origin === LIVE_ORIGIN) {
+    const match = url.pathname.match(/^\/(?:zh|en)\/career\/jobs\/([^/]+)$/);
+    if (match && requireCareerSlug(match[1]) === match[1] && !url.search && !url.hash) return;
+  }
+  if (url.origin === API_ORIGIN) {
+    const match = url.pathname.match(/^\/api\/v0\.5\/career\/jobs\/([^/]+)$/);
+    const locale = url.searchParams.get("locale");
+    const params = [...url.searchParams.keys()];
+    if (match && requireCareerSlug(match[1]) === match[1] && params.length === 1 && (locale === "zh-CN" || locale === "en") && !url.hash) return;
+  }
+  throw new Error(`Blocked non-FermatMind career audit URL: ${url.origin}${url.pathname}`);
+}
 
 function csvEscape(value) {
   const text = String(value ?? "");
@@ -126,9 +173,11 @@ function getSourceSignals(html, apiPayload) {
 }
 
 async function fetchText(url, accept = "text/html,application/json;q=0.9,*/*;q=0.8") {
+  assertAllowedAuditRequestUrl(url);
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), Number(process.env.FETCH_TIMEOUT_MS || 8000));
   try {
+    // lgtm[js/file-access-to-http] Audit requests are origin-pinned, path-limited, and slug-validated before fetch.
     const response = await fetch(url, {
       headers: {
         accept,
@@ -181,7 +230,10 @@ function readSlugPlan() {
   if (!Array.isArray(parsed.slugs) || parsed.slugs.length !== 1046) {
     throw new Error(`Expected 1046 slugs in ${SLUG_PLAN}`);
   }
-  return parsed.slugs;
+  return parsed.slugs.map((slug) => ({
+    ...slug,
+    slug: requireCareerSlug(slug.slug),
+  }));
 }
 
 function inferIntentCoverage(text, title) {
@@ -307,8 +359,8 @@ async function main() {
     ["zh-CN", "en"].map((locale) => ({
       ...slug,
       locale,
-      page_url: `${LIVE_ORIGIN}/${locale === "zh-CN" ? "zh" : "en"}/career/jobs/${encodeURIComponent(slug.slug)}`,
-      api_url: `${API_ORIGIN}/api/v0.5/career/jobs/${encodeURIComponent(slug.slug)}?locale=${encodeURIComponent(locale)}`,
+      page_url: buildCareerPageUrl(locale, slug.slug),
+      api_url: buildCareerApiUrl(locale, slug.slug),
     })),
   );
 
@@ -325,7 +377,7 @@ async function main() {
     const faqSignals = getFaqSignals(html);
     const sourceSignals = getSourceSignals(html, api.json);
     const coverage = inferIntentCoverage(visibleText, title);
-    const expectedCanonical = `${LIVE_ORIGIN}/${target.locale === "zh-CN" ? "zh" : "en"}/career/jobs/${target.slug}`;
+    const expectedCanonical = buildCareerPageUrl(target.locale, target.slug);
     return {
       seed_ordinal: target.seed_ordinal,
       slug: target.slug,
