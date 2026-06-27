@@ -87,6 +87,19 @@ const PERSONALITY_AGENT_RECOMMENDATION_AUTO_RUNNER_01_ALLOWED_FILES = new Set([
   "generated/pr-train-sidecar-issues/sidecar_issues.json",
 ]);
 
+const PERSONALITY_AGENT_AUTO_QA_AND_APPROVAL_HANDOFF_01_ALLOWED_FILES = new Set([
+  "scripts/seo/personality-agent-auto-qa-and-approval-handoff.mjs",
+  "docs/seo/personality/personality-agent-auto-qa-and-approval-handoff-2026-06-27.json",
+  "docs/seo/personality/personality-agent-auto-qa-and-approval-handoff-2026-06-27.md",
+  "docs/seo/personality/personality-agent-auto-approval-handoff-package-2026-06-27.json",
+  "tests/contracts/personality-agent-auto-qa-and-approval-handoff-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -4892,6 +4905,14 @@ export function isPersonalityAgentRecommendationAutoRunner01AllowedFile(file: st
   }
 
   return PERSONALITY_AGENT_RECOMMENDATION_AUTO_RUNNER_01_ALLOWED_FILES.has(file);
+}
+
+export function isPersonalityAgentAutoQaAndApprovalHandoff01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/personality-agent-auto-qa-and-approval-handoff-01") {
+    return true;
+  }
+
+  return PERSONALITY_AGENT_AUTO_QA_AND_APPROVAL_HANDOFF_01_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {
