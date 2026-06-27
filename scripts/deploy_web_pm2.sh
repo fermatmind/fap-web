@@ -31,6 +31,7 @@ CONTENT_RELEASE_REVALIDATE_PATHS="${CONTENT_RELEASE_REVALIDATE_PATHS:-/help/priv
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROLLING_RELOAD_SCRIPT="${ROLLING_RELOAD_SCRIPT:-${SCRIPT_DIR}/rolling_reload_pm2.sh}"
 SYNC_STANDALONE_ASSETS_SCRIPT="${SYNC_STANDALONE_ASSETS_SCRIPT:-${SCRIPT_DIR}/sync_standalone_assets.sh}"
+GENERATED_PUBLIC_ARTIFACTS="${GENERATED_PUBLIC_ARTIFACTS:-public/sitemap.xml}"
 
 log() {
   printf '[deploy_web_pm2] %s\n' "$*"
@@ -145,6 +146,23 @@ require_sitemap_health() {
   trap - RETURN
 }
 
+restore_generated_public_artifacts() {
+  local artifact
+  local restored=0
+
+  for artifact in $GENERATED_PUBLIC_ARTIFACTS; do
+    if git ls-files --error-unmatch "$artifact" >/dev/null 2>&1 && ! git diff --quiet -- "$artifact"; then
+      git restore -- "$artifact"
+      log "restored generated public artifact after standalone sync: ${artifact}"
+      restored=1
+    fi
+  done
+
+  if [[ "$restored" == "0" ]]; then
+    log "no tracked generated public artifacts required restore"
+  fi
+}
+
 require_bin node
 require_bin git
 require_bin pnpm
@@ -200,6 +218,7 @@ fi
 
 log "sync standalone static assets"
 bash "$SYNC_STANDALONE_ASSETS_SCRIPT"
+restore_generated_public_artifacts
 
 if [[ "$APP_MANAGER" == "pm2" ]]; then
   if [[ ! -f ecosystem.config.cjs ]]; then
