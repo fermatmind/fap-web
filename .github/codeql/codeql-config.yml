@@ -1,0 +1,5 @@
+name: fap-web-codeql
+
+paths-ignore:
+  - generated/**
+  - docs/seo/generated/**
