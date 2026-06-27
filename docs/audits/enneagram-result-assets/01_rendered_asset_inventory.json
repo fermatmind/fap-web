@@ -1,0 +1,869 @@
+{
+  "schema_version": "fermatmind.enneagram_result_assets.rendered_inventory.v0.1",
+  "artifact_id": "enneagram-rendered-asset-inventory-2026-06-27",
+  "created_at": "2026-06-27",
+  "run_mode": "read_only_inventory_pr",
+  "verdict": "RENDERED_ASSET_LEDGER_READY_FOR_MODULE_BATCH_THICKENING",
+  "scale_code": "ENNEAGRAM",
+  "source_truth_boundary": {
+    "frontend_role": "consumer_renderer_and_contract_ledger",
+    "backend_role": "content_asset_candidate_authority",
+    "content_generation_allowed": false,
+    "candidate_export_allowed": false,
+    "inactive_import_allowed": false,
+    "activation_allowed": false,
+    "runtime_switch_allowed": false,
+    "production_write_allowed": false,
+    "frontend_fallback_copy_allowed": false
+  },
+  "observed_render_sample": {
+    "source": "operator_chrome_read_only_review",
+    "observed_at": "2026-06-27",
+    "url_shape": "https://fermatmind.com/zh/result/{attempt_id}",
+    "scale_identity": "ENNEAGRAM",
+    "form": "E105 standard",
+    "interpretation_scope": "close_call",
+    "visible_top_candidates": [
+      "The Reformer",
+      "The Helper",
+      "The Achiever"
+    ],
+    "observed_not_full_630_claim": true,
+    "notes": [
+      "This sample identifies rendered-surface risks and module gaps only.",
+      "It is not a full replacement for Phase8C 630-payload desktop and mobile QA."
+    ]
+  },
+  "content_asset_chain": [
+    {
+      "layer": "backend_source_ledger",
+      "repo": "fap-api",
+      "paths": [
+        "backend/content_assets/enneagram/result_page/source_ledger/source_ledger.json",
+        "backend/content_assets/enneagram/result_page/source_ledger/source_ledger_template_v0_1.json"
+      ],
+      "responsibility": "Lock source ids, a9fd baseline hash, runtime registry hash, launch scope, and negative production guarantees.",
+      "status": "exists_read_only_scanned"
+    },
+    {
+      "layer": "backend_asset_batches",
+      "repo": "fap-api",
+      "paths": [
+        "backend/content_assets/enneagram/result_page/batch_1r_a/v0_1/assets.json",
+        "backend/content_assets/enneagram/result_page/batch_1r_b/v0_1/assets.json",
+        "backend/content_assets/enneagram/result_page/batch_1r_c/v0_1/assets.json",
+        "backend/content_assets/enneagram/result_page/batch_1r_d/v0_1/assets.json",
+        "backend/content_assets/enneagram/result_page/batch_1r_e/v0_1/assets.json",
+        "backend/content_assets/enneagram/result_page/batch_1r_f/v0_1/assets.json",
+        "backend/content_assets/enneagram/result_page/batch_1r_g/v0_1/assets.json",
+        "backend/content_assets/enneagram/result_page/batch_1r_h/v0_1/assets.json"
+      ],
+      "responsibility": "Hold 1R-A through 1R-H content assets, source mapping reports, safety reports, runner eval reports, and rollback plans.",
+      "status": "exists_read_only_scanned"
+    },
+    {
+      "layer": "backend_candidate_and_import_harness",
+      "repo": "fap-api",
+      "paths": [
+        "backend/app/Services/Enneagram/Assets/EnneagramProductionEquivalentCandidatePayloadExporter.php",
+        "backend/app/Services/Enneagram/Assets/EnneagramInactiveCandidateReleaseImporter.php",
+        "backend/app/Services/Enneagram/Assets/Agent/EnneagramResultPageCandidateStagingHarness.php",
+        "backend/app/Services/Enneagram/Assets/Agent/EnneagramResultPageRenderedQaSmokeHarness.php",
+        "backend/app/Services/Enneagram/Assets/Agent/EnneagramResultPageProductionManualGateRunbook.php"
+      ],
+      "responsibility": "Export candidate payloads, import inactive release, run staging/rendered QA evidence, and prepare manual production gate.",
+      "status": "exists_read_only_scanned"
+    },
+    {
+      "layer": "backend_report_projection",
+      "repo": "fap-api",
+      "paths": [
+        "backend/app/Services/Report/EnneagramReportComposer.php",
+        "backend/app/Services/Enneagram/EnneagramPublicProjectionService.php",
+        "backend/app/Http/Controllers/API/V0_3/AttemptReadController.php"
+      ],
+      "responsibility": "Compose sanitized Enneagram result projection and report API response consumed by fap-web.",
+      "status": "exists_read_only_scanned"
+    },
+    {
+      "layer": "frontend_api_and_assembler",
+      "repo": "fap-web",
+      "paths": [
+        "lib/api/v0_3.ts",
+        "lib/enneagram/resultAssembler.ts"
+      ],
+      "responsibility": "Fetch report/report-access and normalize backend Enneagram V2 pages, modules, type rows, and access-gated modules.",
+      "status": "mapped_in_this_pr"
+    },
+    {
+      "layer": "frontend_renderer",
+      "repo": "fap-web",
+      "paths": [
+        "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+        "components/result/RichResultReport.tsx",
+        "components/result/enneagram/EnneagramResultShell.tsx"
+      ],
+      "responsibility": "Dispatch ENNEAGRAM report payload to the dedicated Enneagram result shell and render page/module sections.",
+      "status": "mapped_in_this_pr"
+    },
+    {
+      "layer": "frontend_share_pdf_surfaces",
+      "repo": "fap-web",
+      "paths": [
+        "lib/enneagram/shareSurface.ts",
+        "components/share/EnneagramShareSummaryCard.tsx",
+        "tests/contracts/enneagram-share-surface.contract.test.tsx",
+        "tests/contracts/enneagram-pdf-surface.contract.test.tsx"
+      ],
+      "responsibility": "Keep public share and PDF/print surfaces public-safe and private-result-safe.",
+      "status": "mapped_in_this_pr"
+    },
+    {
+      "layer": "frontend_rendered_qa",
+      "repo": "fap-web",
+      "paths": [
+        "tests/e2e/enneagram-phase8c-production-equivalent-candidate-e2e.spec.ts",
+        "docs/research/personality/enneagram-phase8c-a9fd-rendered-qa-01.md"
+      ],
+      "responsibility": "Validate candidate rendered QA over 630 payloads on desktop and mobile without import or activation.",
+      "status": "existing_evidence_referenced"
+    }
+  ],
+  "rendered_pages": [
+    {
+      "page_key": "page_1_result_overview",
+      "visible_label": "结果总览",
+      "product_purpose": "Explain how to read the current result, top candidates, confidence boundary, all-nine profile, and method limits.",
+      "modules": [
+        {
+          "module_key": "instant_summary",
+          "renderer": "EnneagramResultShell.renderModule",
+          "rendered_fields": [
+            "form_badge",
+            "stateLead",
+            "body",
+            "confidence_level",
+            "top_candidates",
+            "interpretation_scope",
+            "next_action"
+          ],
+          "asset_status": "usable_needs_copy_boundary_polish",
+          "observed_issues": [
+            "close_call headline uses '你可能在 ... 之间摇摆'; future copy should prefer '当前结果更接近 ... 的接近型结构' wording.",
+            "top candidate chips can render display_score when present; public copy should prefer rank/relative tendency over raw display score."
+          ],
+          "thickening_need": "Add module-level copy variants for clear, close_call, diffuse, and low_quality states with no final-type certainty."
+        },
+        {
+          "module_key": "top3_cards",
+          "renderer": "cards_grid",
+          "rendered_fields": [
+            "candidate_role",
+            "type_name_en",
+            "display_score",
+            "core_logic",
+            "work_summary"
+          ],
+          "asset_status": "usable_needs_localization_and_score_display_policy",
+          "observed_issues": [
+            "English type labels are primary in the observed zh-CN result.",
+            "display_score can be rendered directly."
+          ],
+          "thickening_need": "Chinese-first type naming, motive contrast, and safe user-facing explanation for Top1/Top2/Top3 without score certainty."
+        },
+        {
+          "module_key": "type_deep_dive_summary",
+          "renderer": "TypeDeepDiveSummaryRenderer",
+          "rendered_fields": [
+            "short_title",
+            "core_desire",
+            "core_fear",
+            "defense_pattern",
+            "self_misread",
+            "validation_hook"
+          ],
+          "asset_status": "core_asset_present",
+          "observed_issues": [
+            "Good primary deep-dive structure is present, but should be checked for repeated generic copy across all nine types."
+          ],
+          "thickening_need": "Strengthen all nine type variants with distinct motivation, stress, relationship, and self-misread language."
+        },
+        {
+          "module_key": "all9_profile",
+          "renderer": "renderScoreBars",
+          "rendered_fields": [
+            "type",
+            "type_name_en",
+            "score_display",
+            "score_norm",
+            "rank"
+          ],
+          "asset_status": "high_priority_display_gap",
+          "observed_issues": [
+            "Observed zh-CN result displayed raw-like values such as 10000, 9270, 9554, and 9028.",
+            "Bar widths clamp to 100 while the numeric label still exposes the oversized value."
+          ],
+          "thickening_need": "Convert All 9 profile into user-readable tendency bands, ranked pattern notes, and no raw/display score exposure."
+        },
+        {
+          "module_key": "confidence_band_card",
+          "renderer": "confidence_band_card",
+          "rendered_fields": [
+            "confidence_label",
+            "confidence_level",
+            "interpretation_scope"
+          ],
+          "asset_status": "usable",
+          "observed_issues": [
+            "Confidence copy is structurally safe but still engineering-labeled in places."
+          ],
+          "thickening_need": "Turn confidence labels into reader-facing states: clear, close-call, diffuse, and low-quality."
+        },
+        {
+          "module_key": "dominance_gap_card",
+          "renderer": "metrics_card",
+          "rendered_fields": [
+            "dominance_gap_abs",
+            "dominance_gap_pct",
+            "normalized_gap",
+            "profile_entropy"
+          ],
+          "asset_status": "high_priority_display_gap",
+          "observed_issues": [
+            "Observed page displayed absolute gap, display percent gap, normalized gap, and profile entropy directly.",
+            "Profile entropy appeared as a raw decimal metric."
+          ],
+          "thickening_need": "Replace public raw metric display with explanatory confidence-band copy and keep raw values internal."
+        },
+        {
+          "module_key": "close_call_card",
+          "renderer": "comparison_card",
+          "rendered_fields": [
+            "pair",
+            "pair_entry.core_motivation_difference",
+            "pair_entry.stress_reaction_difference",
+            "trigger_reason"
+          ],
+          "asset_status": "high_priority_content_gap",
+          "observed_issues": [
+            "Observed page rendered '当前只提供 scaffold 内容。' for a 1 vs 2 close-call state."
+          ],
+          "thickening_need": "Use 36-pair close-call assets from batch 1R-F and validate every pair renders without scaffold fallback."
+        },
+        {
+          "module_key": "wing_hint_visual",
+          "renderer": "adjacent_wing_reference",
+          "rendered_fields": [
+            "left",
+            "right",
+            "strength",
+            "boundary_copy"
+          ],
+          "asset_status": "supporting",
+          "observed_issues": [
+            "Observed page displayed strength 0; user-facing copy should explain adjacent hint without hard wing judgement."
+          ],
+          "thickening_need": "Add safe adjacent-wing explanatory copy or suppress numeric strength when not meaningful."
+        },
+        {
+          "module_key": "methodology_boundary_card",
+          "renderer": "method_boundary",
+          "rendered_fields": [
+            "form_badge",
+            "methodology_copy",
+            "score_space_boundary",
+            "non_diagnostic_boundary"
+          ],
+          "asset_status": "safe_boundary_present",
+          "observed_issues": [
+            "Boundary copy correctly blocks clinical, therapy, hiring, and absolute typing use."
+          ],
+          "thickening_need": "Keep as policy anchor; future edits must preserve no diagnosis, no hiring, no direct E105/FC144 score comparison."
+        }
+      ]
+    },
+    {
+      "page_key": "page_2_work_reality",
+      "visible_label": "工作现实",
+      "product_purpose": "Translate motivation pattern into work style, collaboration strengths, friction points, leadership, being managed, and triggers.",
+      "modules": [
+        {
+          "module_key": "work_style_summary",
+          "renderer": "ScenarioCardRenderer",
+          "rendered_fields": [
+            "title",
+            "body",
+            "type_summary",
+            "deep_dive_detail",
+            "list_groups",
+            "primary_candidate"
+          ],
+          "asset_status": "asset_present_needs_distinctiveness_audit",
+          "observed_issues": [
+            "Observed copy is readable and domain-relevant."
+          ],
+          "thickening_need": "Ensure all nine type variants distinguish work mechanism, best environment, and energy drain."
+        },
+        {
+          "module_key": "collaboration_strengths",
+          "renderer": "ScenarioCardRenderer",
+          "rendered_fields": [
+            "type_summary",
+            "list_groups.work_strengths"
+          ],
+          "asset_status": "asset_present_needs_distinctiveness_audit",
+          "observed_issues": [
+            "No scaffold hit observed in sampled viewport."
+          ],
+          "thickening_need": "Add concrete collaboration examples by type without implying hiring suitability."
+        },
+        {
+          "module_key": "collaboration_friction",
+          "renderer": "ScenarioCardRenderer",
+          "rendered_fields": [
+            "type_summary",
+            "list_groups.work_friction_points",
+            "list_groups.collaboration_manual"
+          ],
+          "asset_status": "asset_present_needs_distinctiveness_audit",
+          "observed_issues": [
+            "No scaffold hit observed in sampled viewport."
+          ],
+          "thickening_need": "Separate friction, repair language, and environment fit from employment-screening claims."
+        },
+        {
+          "module_key": "leadership_pattern",
+          "renderer": "ScenarioCardRenderer",
+          "rendered_fields": [
+            "list_groups.leadership_pattern",
+            "deep_dive_detail"
+          ],
+          "asset_status": "asset_present",
+          "observed_issues": [
+            "Not fully audited in the Chrome sample."
+          ],
+          "thickening_need": "Audit for type-specific leadership language and no performance-prediction claims."
+        },
+        {
+          "module_key": "managed_by_others",
+          "renderer": "ScenarioCardRenderer",
+          "rendered_fields": [
+            "list_groups.managed_by_others",
+            "type_summary"
+          ],
+          "asset_status": "asset_present",
+          "observed_issues": [
+            "Not fully audited in the Chrome sample."
+          ],
+          "thickening_need": "Make the module practical but not employer-screening oriented."
+        },
+        {
+          "module_key": "workplace_trigger_points",
+          "renderer": "ValueCardRenderer",
+          "rendered_fields": [
+            "value",
+            "deep_dive_detail",
+            "list_groups.workplace_trigger_points"
+          ],
+          "asset_status": "asset_present",
+          "observed_issues": [
+            "Not fully audited in the Chrome sample."
+          ],
+          "thickening_need": "Connect triggers to self-observation and repair actions, not pathology."
+        }
+      ]
+    },
+    {
+      "page_key": "page_3_growth_spectrum",
+      "visible_label": "成长光谱",
+      "product_purpose": "Explain healthy expression, cost expression, stress triggers, recovery actions, and state spectrum.",
+      "modules": [
+        {
+          "module_key": "growth_axis",
+          "renderer": "ValueCardRenderer",
+          "rendered_fields": [
+            "value",
+            "deep_dive_detail",
+            "list_groups"
+          ],
+          "asset_status": "asset_present_needs_repetition_audit",
+          "observed_issues": [
+            "Prior PDF/render review suggested repeated generic growth copy may exist; this PR records it as a batch QA requirement, not a full-current-630 conclusion."
+          ],
+          "thickening_need": "Make growth axis type-specific and scenario-specific."
+        },
+        {
+          "module_key": "strength_expression",
+          "renderer": "GroupOverlayRenderer",
+          "rendered_fields": [
+            "items",
+            "list_groups.growth_strengths"
+          ],
+          "asset_status": "asset_present",
+          "observed_issues": [
+            "Not fully audited in Chrome sample."
+          ],
+          "thickening_need": "Distinguish strength expression from type praise or fixed identity."
+        },
+        {
+          "module_key": "cost_expression",
+          "renderer": "GroupOverlayRenderer",
+          "rendered_fields": [
+            "items",
+            "list_groups.growth_costs"
+          ],
+          "asset_status": "asset_present",
+          "observed_issues": [
+            "Not fully audited in Chrome sample."
+          ],
+          "thickening_need": "Explain tradeoffs without diagnosis or shame framing."
+        },
+        {
+          "module_key": "stress_trigger",
+          "renderer": "ValueCardRenderer",
+          "rendered_fields": [
+            "value",
+            "deep_dive_detail",
+            "list_groups.early_warning_signs"
+          ],
+          "asset_status": "asset_present",
+          "observed_issues": [
+            "Not fully audited in Chrome sample."
+          ],
+          "thickening_need": "Add observable early signals and keep clinical/treatment language blocked."
+        },
+        {
+          "module_key": "recovery_action",
+          "renderer": "StateSpectrumRenderer",
+          "rendered_fields": [
+            "recovery_action",
+            "type_recovery_action",
+            "recovery_protocol",
+            "small_experiments"
+          ],
+          "asset_status": "asset_present_needs_repetition_audit",
+          "observed_issues": [
+            "Prior PDF/render review suggested repeated '30-day experiment' style copy may need deduplication."
+          ],
+          "thickening_need": "Provide concrete low-risk experiments by type and state."
+        },
+        {
+          "module_key": "state_spectrum",
+          "renderer": "StateSpectrumRenderer",
+          "rendered_fields": [
+            "stable_expression",
+            "average_expression",
+            "strained_expression",
+            "growth_principle",
+            "thirty_day_experiment"
+          ],
+          "asset_status": "asset_present",
+          "observed_issues": [
+            "Needs full rendered distinctiveness pass."
+          ],
+          "thickening_need": "Differentiate stable, average, and strained state copy per type."
+        }
+      ]
+    },
+    {
+      "page_key": "page_4_relationship_conflict",
+      "visible_label": "关系与冲突",
+      "product_purpose": "Explain relationship needs, strengths, misread patterns, conflict scripts, and communication manual.",
+      "modules": [
+        {
+          "module_key": "relationship_need",
+          "renderer": "ScenarioCardRenderer",
+          "rendered_fields": [
+            "body",
+            "type_summary",
+            "list_groups"
+          ],
+          "asset_status": "asset_present",
+          "observed_issues": [
+            "Visible page section exists."
+          ],
+          "thickening_need": "Make relationship need copy public-safe and share-aware."
+        },
+        {
+          "module_key": "relationship_strengths",
+          "renderer": "ValueCardRenderer",
+          "rendered_fields": [
+            "value",
+            "list_groups.relationship_strengths"
+          ],
+          "asset_status": "asset_present",
+          "observed_issues": [
+            "Visible page section exists."
+          ],
+          "thickening_need": "Avoid fixed relationship-role claims."
+        },
+        {
+          "module_key": "misread_by_others",
+          "renderer": "ValueCardRenderer",
+          "rendered_fields": [
+            "value",
+            "deep_dive_detail"
+          ],
+          "asset_status": "asset_present",
+          "observed_issues": [
+            "Visible page section exists."
+          ],
+          "thickening_need": "Add self/other framing without publishing private result text."
+        },
+        {
+          "module_key": "conflict_script",
+          "renderer": "ScenarioCardRenderer",
+          "rendered_fields": [
+            "list_groups.conflict_trigger_points",
+            "list_groups.repair_language"
+          ],
+          "asset_status": "asset_present",
+          "observed_issues": [
+            "Visible page section exists."
+          ],
+          "thickening_need": "Strengthen conflict repair scripts without therapy or treatment claims."
+        },
+        {
+          "module_key": "communication_manual",
+          "renderer": "ScenarioCardRenderer",
+          "rendered_fields": [
+            "list_groups.partner_facing_notes",
+            "deep_dive_detail"
+          ],
+          "asset_status": "asset_present",
+          "observed_issues": [
+            "Visible page section exists."
+          ],
+          "thickening_need": "Prepare share-safe excerpts and private-only detailed copy boundaries."
+        }
+      ]
+    },
+    {
+      "page_key": "page_5_method_observation_next",
+      "visible_label": "方法、观察与下一步",
+      "product_purpose": "Preserve method boundaries, 7-day observation, technical note, FC144 follow-up, PDF/share/retake actions.",
+      "modules": [
+        {
+          "module_key": "method_boundary",
+          "renderer": "method_boundary",
+          "rendered_fields": [
+            "methodology_copy",
+            "score_space_boundary",
+            "non_diagnostic_boundary"
+          ],
+          "asset_status": "policy_anchor_present",
+          "observed_issues": [
+            "Good safety boundary visible."
+          ],
+          "thickening_need": "Keep concise; do not bury it under long method text."
+        },
+        {
+          "module_key": "seven_day_observation",
+          "renderer": "ObservationModuleRenderer",
+          "rendered_fields": [
+            "guidance",
+            "steps",
+            "assign_button",
+            "day3_feedback",
+            "day7_feedback"
+          ],
+          "asset_status": "product_loop_present",
+          "observed_issues": [
+            "Observed page has a clear 7-day observation CTA."
+          ],
+          "thickening_need": "Tie observation prompts to close-call and growth modules by type."
+        },
+        {
+          "module_key": "form_recommendation",
+          "renderer": "ObservationModuleRenderer_or_form_recommendation",
+          "rendered_fields": [
+            "recommendation_key",
+            "recommended_first_action",
+            "fc144_href",
+            "same_form_retake_href"
+          ],
+          "asset_status": "present",
+          "observed_issues": [
+            "Observed page uses FC144 as next step; boundary must stay second-lens only."
+          ],
+          "thickening_need": "Add safe follow-up copy that does not call FC144 more accurate or replacement."
+        },
+        {
+          "module_key": "technical_note_link",
+          "renderer": "technical_note_link",
+          "rendered_fields": [
+            "technical_note_version",
+            "sections",
+            "href"
+          ],
+          "asset_status": "present",
+          "observed_issues": [
+            "Visible Technical Note entry exists."
+          ],
+          "thickening_need": "Keep as method explanation, not public authority claim."
+        },
+        {
+          "module_key": "actions_pdf_retake_share",
+          "renderer": "Enneagram actions card and share surface",
+          "rendered_fields": [
+            "pdf_entry",
+            "retake_href",
+            "share_surface"
+          ],
+          "asset_status": "share_gap_pdf_hold",
+          "observed_issues": [
+            "Observed result page had PDF unavailable for safety.",
+            "Observed result page did not show an obvious share result button in the inspected tail section."
+          ],
+          "thickening_need": "Define public-safe share summary entry and keep PDF private-link safety boundary before re-enabling."
+        }
+      ]
+    }
+  ],
+  "issue_ledger": [
+    {
+      "id": "ENNEAGRAM-RESULT-ASSET-001",
+      "severity": "P0",
+      "type": "scaffold_copy_visible",
+      "module_keys": [
+        "close_call_card"
+      ],
+      "evidence": "Chrome read-only sample rendered '当前只提供 scaffold 内容。' for close-call pair 1 vs 2.",
+      "why_it_matters": "The result page is meant to be a complete motivation-pattern explanation surface; scaffold copy breaks trust and blocks content-thickening rollout.",
+      "recommended_owner": "fap-api content asset batch",
+      "recommended_next_pr": "Enneagram result page close-call rendered asset consumption hardening"
+    },
+    {
+      "id": "ENNEAGRAM-RESULT-ASSET-002",
+      "severity": "P0",
+      "type": "raw_score_display_visible",
+      "module_keys": [
+        "all9_profile",
+        "top3_cards",
+        "instant_summary"
+      ],
+      "evidence": "Chrome read-only sample rendered All 9 values including 10000, 9270, 9554, 9028.",
+      "why_it_matters": "Oversized internal/display scores are not user-readable and can invite false precision or fixed-type interpretation.",
+      "recommended_owner": "fap-web renderer policy with backend display contract",
+      "recommended_next_pr": "Enneagram result page user-readable score band display policy"
+    },
+    {
+      "id": "ENNEAGRAM-RESULT-ASSET-003",
+      "severity": "P1",
+      "type": "raw_metric_display_visible",
+      "module_keys": [
+        "dominance_gap_card"
+      ],
+      "evidence": "Chrome read-only sample rendered absolute gap, display percent gap, normalized gap, and profile entropy.",
+      "why_it_matters": "Raw metric vocabulary is useful internally but weak as public result-page copy; it should become confidence-band explanation.",
+      "recommended_owner": "fap-web renderer policy with backend display contract",
+      "recommended_next_pr": "Enneagram dominance/confidence public copy policy"
+    },
+    {
+      "id": "ENNEAGRAM-RESULT-ASSET-004",
+      "severity": "P1",
+      "type": "localized_type_label_gap",
+      "module_keys": [
+        "instant_summary",
+        "top3_cards",
+        "type_deep_dive_summary"
+      ],
+      "evidence": "Chrome read-only zh-CN sample displayed English type names such as The Reformer, The Helper, and The Achiever as primary labels.",
+      "why_it_matters": "Chinese users should get Chinese-first type names with English aliases as secondary context.",
+      "recommended_owner": "fap-api projection/content assets plus fap-web fallback labels",
+      "recommended_next_pr": "Enneagram zh-CN type naming and alias contract"
+    },
+    {
+      "id": "ENNEAGRAM-RESULT-ASSET-005",
+      "severity": "P1",
+      "type": "certainty_copy_boundary",
+      "module_keys": [
+        "instant_summary",
+        "stateLead"
+      ],
+      "evidence": "Chrome read-only close-call sample used '你可能在 The Reformer 与 2 之间摇摆'. This is safer than '你就是', but still should be softened for the final product line.",
+      "why_it_matters": "Enneagram must remain a reflection tool and avoid fixed-type certainty framing.",
+      "recommended_owner": "fap-web renderer copy policy",
+      "recommended_next_pr": "Enneagram result shell close-call certainty copy hardening"
+    },
+    {
+      "id": "ENNEAGRAM-RESULT-ASSET-006",
+      "severity": "P1",
+      "type": "share_entry_gap",
+      "module_keys": [
+        "actions_pdf_retake_share",
+        "share_surface"
+      ],
+      "evidence": "Chrome read-only tail section showed PDF unavailable and retake, but no obvious share result CTA in the inspected area.",
+      "why_it_matters": "The strategic goal includes a high-propagation public-safe summary; share should be present only when public-safe contract passes.",
+      "recommended_owner": "fap-web share surface with backend public-summary contract",
+      "recommended_next_pr": "Enneagram result page public-safe share CTA handoff"
+    },
+    {
+      "id": "ENNEAGRAM-RESULT-ASSET-007",
+      "severity": "P2",
+      "type": "repeated_copy_risk",
+      "module_keys": [
+        "growth_axis",
+        "recovery_action",
+        "state_spectrum"
+      ],
+      "evidence": "Prior rendered/PDF inspection suggested repeated generic growth and experiment copy; this PR records it as a required full-batch QA check, not as a verified current 630-payload failure.",
+      "why_it_matters": "Content thickness depends on type/module distinctiveness, not only presence of text.",
+      "recommended_owner": "fap-api content asset QA",
+      "recommended_next_pr": "Enneagram growth spectrum distinctiveness evaluation"
+    }
+  ],
+  "module_batch_plan": [
+    {
+      "order": 1,
+      "batch_id": "ENNEAGRAM-RESULT-MODULE-BATCH-01",
+      "title": "Overview and Top 3 candidate reading",
+      "module_keys": [
+        "instant_summary",
+        "top3_cards",
+        "type_deep_dive_summary"
+      ],
+      "goal": "Make the first page Chinese-first, no-certainty, and motive-oriented.",
+      "blocked_claims": [
+        "you_are_this_type",
+        "fixed_type_certainty",
+        "score_comparison_certainty"
+      ]
+    },
+    {
+      "order": 2,
+      "batch_id": "ENNEAGRAM-RESULT-MODULE-BATCH-02",
+      "title": "All 9 profile and score-band translation",
+      "module_keys": [
+        "all9_profile",
+        "confidence_band_card",
+        "dominance_gap_card"
+      ],
+      "goal": "Replace raw score and raw metric display with user-readable tendency bands and confidence explanation.",
+      "blocked_claims": [
+        "raw_score_public_leak",
+        "raw_metric_false_precision"
+      ]
+    },
+    {
+      "order": 3,
+      "batch_id": "ENNEAGRAM-RESULT-MODULE-BATCH-03",
+      "title": "Close-call pair differentiation",
+      "module_keys": [
+        "close_call_card",
+        "wing_hint_visual"
+      ],
+      "goal": "Consume close-call pair assets without scaffold fallback and explain pair distinctions as hypotheses.",
+      "blocked_claims": [
+        "hard_typing",
+        "fc144_replacement_claim",
+        "wing_final_judgement"
+      ]
+    },
+    {
+      "order": 4,
+      "batch_id": "ENNEAGRAM-RESULT-MODULE-BATCH-04",
+      "title": "Work reality",
+      "module_keys": [
+        "work_style_summary",
+        "collaboration_strengths",
+        "collaboration_friction",
+        "leadership_pattern",
+        "managed_by_others",
+        "workplace_trigger_points"
+      ],
+      "goal": "Make work copy practical while blocking hiring, salary, performance, and employment suitability claims.",
+      "blocked_claims": [
+        "hiring_screening",
+        "salary_prediction",
+        "performance_prediction"
+      ]
+    },
+    {
+      "order": 5,
+      "batch_id": "ENNEAGRAM-RESULT-MODULE-BATCH-05",
+      "title": "Growth spectrum",
+      "module_keys": [
+        "growth_axis",
+        "strength_expression",
+        "cost_expression",
+        "stress_trigger",
+        "recovery_action",
+        "state_spectrum"
+      ],
+      "goal": "Deepen growth and stress copy with type-specific observation and recovery actions.",
+      "blocked_claims": [
+        "diagnosis",
+        "therapy_treatment",
+        "fixed_health_level"
+      ]
+    },
+    {
+      "order": 6,
+      "batch_id": "ENNEAGRAM-RESULT-MODULE-BATCH-06",
+      "title": "Relationship and conflict",
+      "module_keys": [
+        "relationship_need",
+        "relationship_strengths",
+        "misread_by_others",
+        "conflict_script",
+        "communication_manual"
+      ],
+      "goal": "Build relationship reflection and conflict repair copy with private/public boundaries.",
+      "blocked_claims": [
+        "therapy_treatment",
+        "relationship_determinism",
+        "private_result_text_publication"
+      ]
+    },
+    {
+      "order": 7,
+      "batch_id": "ENNEAGRAM-RESULT-MODULE-BATCH-07",
+      "title": "Method, observation, share, and PDF/public boundary",
+      "module_keys": [
+        "method_boundary",
+        "seven_day_observation",
+        "form_recommendation",
+        "technical_note_link",
+        "actions_pdf_retake_share"
+      ],
+      "goal": "Keep method boundaries visible while enabling public-safe share and controlled follow-up paths.",
+      "blocked_claims": [
+        "fc144_more_accurate",
+        "private_attempt_id_public_leak",
+        "pdf_private_link_leak"
+      ]
+    }
+  ],
+  "validation_contract": {
+    "future_full_rendered_inventory_must_check": [
+      "no_scaffold_copy_visible",
+      "no_raw_score_display_visible",
+      "no_profile_entropy_display_visible",
+      "no_dominance_gap_raw_metric_visible",
+      "no_attempt_id_visible",
+      "no_release_hash_visible",
+      "no_schema_or_projection_version_visible",
+      "no_final_type_certainty_claim",
+      "no_diagnosis_or_treatment_claim",
+      "no_hiring_salary_performance_claim",
+      "share_surface_public_safe_when_enabled",
+      "pdf_surface_private_safe_when_enabled",
+      "module_distinctiveness_by_type_and_scope"
+    ],
+    "local_checks_for_this_pr": [
+      "pnpm exec vitest run tests/contracts/enneagram-rendered-asset-inventory.contract.test.ts",
+      "git diff --check"
+    ]
+  },
+  "deferred": [
+    "No candidate payload generation.",
+    "No backend inactive import.",
+    "No production activation.",
+    "No runtime switch.",
+    "No CMS write.",
+    "No frontend renderer behavior change.",
+    "No share/PDF enablement."
+  ]
+}
