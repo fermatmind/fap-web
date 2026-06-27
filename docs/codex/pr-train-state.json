@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-27T14:45:29+08:00",
+  "updated_at": "2026-06-27T15:07:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -25648,7 +25648,7 @@
         "PERSONALITY-AGENT-RECOMMENDATION-AUTO-RUNNER-01"
       ],
       "title": "PERSONALITY-AGENT-AUTO-QA-AND-APPROVAL-HANDOFF-01: auto QA personality recommendations and emit approval handoff",
-      "status": "pr_open_pending_github_checks",
+      "status": "ready_to_merge",
       "train_scope": "personality_agent_automation",
       "artifacts": [
         "scripts/seo/personality-agent-auto-qa-and-approval-handoff.mjs",
@@ -25719,7 +25719,7 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1461",
-      "commit_sha": "9e65a788fcfab141ccf7edcfa232e262ffeb4407",
+      "commit_sha": "88da099f511d9e74c61bf3e67ce15ec1b55b9f48",
       "merge_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -25761,11 +25761,46 @@
           "commit_sha": "9e65a788fcfab141ccf7edcfa232e262ffeb4407",
           "pr_url": "https://github.com/fermatmind/fap-web/pull/1461",
           "note": "PR opened; waiting for required GitHub checks."
+        },
+        {
+          "at": "2026-06-27T15:07:00+08:00",
+          "status": "ready_to_merge",
+          "commit_sha": "88da099f511d9e74c61bf3e67ce15ec1b55b9f48",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1461",
+          "note": "Required GitHub checks passed and PR is CLEAN/MERGEABLE; ready for squash merge."
         }
       ],
       "github_checks": {
-        "status": "pending",
-        "pr": "https://github.com/fermatmind/fap-web/pull/1461"
+        "status": "passed",
+        "checked_at": "2026-06-27T15:07:00+08:00",
+        "required_checks": [
+          {
+            "name": "CodeQL",
+            "state": "SUCCESS"
+          },
+          {
+            "name": "analyze (javascript-typescript)",
+            "state": "SUCCESS"
+          },
+          {
+            "name": "contracts",
+            "state": "SUCCESS"
+          },
+          {
+            "name": "build",
+            "state": "SUCCESS"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "state": "SUCCESS"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "state": "SUCCESS"
+          }
+        ],
+        "mergeStateStatus": "CLEAN",
+        "mergeable": "MERGEABLE"
       }
     }
   ],
@@ -32190,7 +32225,7 @@
         "PERSONALITY-AGENT-RECOMMENDATION-AUTO-RUNNER-01"
       ],
       "title": "PERSONALITY-AGENT-AUTO-QA-AND-APPROVAL-HANDOFF-01: auto QA personality recommendations and emit approval handoff",
-      "status": "pr_open_pending_github_checks",
+      "status": "ready_to_merge",
       "train_scope": "personality_agent_automation",
       "artifacts": [
         "scripts/seo/personality-agent-auto-qa-and-approval-handoff.mjs",
@@ -32261,7 +32296,7 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1461",
-      "commit_sha": "9e65a788fcfab141ccf7edcfa232e262ffeb4407",
+      "commit_sha": "88da099f511d9e74c61bf3e67ce15ec1b55b9f48",
       "merge_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -32303,11 +32338,46 @@
           "commit_sha": "9e65a788fcfab141ccf7edcfa232e262ffeb4407",
           "pr_url": "https://github.com/fermatmind/fap-web/pull/1461",
           "note": "PR opened; waiting for required GitHub checks."
+        },
+        {
+          "at": "2026-06-27T15:07:00+08:00",
+          "status": "ready_to_merge",
+          "commit_sha": "88da099f511d9e74c61bf3e67ce15ec1b55b9f48",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1461",
+          "note": "Required GitHub checks passed and PR is CLEAN/MERGEABLE; ready for squash merge."
         }
       ],
       "github_checks": {
-        "status": "pending",
-        "pr": "https://github.com/fermatmind/fap-web/pull/1461"
+        "status": "passed",
+        "checked_at": "2026-06-27T15:07:00+08:00",
+        "required_checks": [
+          {
+            "name": "CodeQL",
+            "state": "SUCCESS"
+          },
+          {
+            "name": "analyze (javascript-typescript)",
+            "state": "SUCCESS"
+          },
+          {
+            "name": "contracts",
+            "state": "SUCCESS"
+          },
+          {
+            "name": "build",
+            "state": "SUCCESS"
+          },
+          {
+            "name": "verify-big5-contract-freeze",
+            "state": "SUCCESS"
+          },
+          {
+            "name": "verify-enneagram-contract-freeze",
+            "state": "SUCCESS"
+          }
+        ],
+        "mergeStateStatus": "CLEAN",
+        "mergeable": "MERGEABLE"
       }
     }
   ],
