@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-27T14:21:38+08:00",
+  "updated_at": "2026-06-27T14:23:07+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -25497,7 +25497,7 @@
         "PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01"
       ],
       "title": "PERSONALITY-AGENT-RECOMMENDATION-AUTO-RUNNER-01: run personality agent recommendations from ranked opportunities",
-      "status": "local_checks_passed_ready_to_push",
+      "status": "pr_open_pending_github_checks",
       "train_scope": "personality_agent_automation",
       "artifacts": [
         "scripts/seo/run-personality-agent-auto-runner.mjs",
@@ -25567,8 +25567,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1460",
+      "commit_sha": "d705db24486309e87b4649ecaa8d95da1510aa7d",
       "merge_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -25603,8 +25603,19 @@
           "at": "2026-06-27T14:21:38+08:00",
           "status": "local_checks_passed_ready_to_push",
           "note": "All manifest local checks passed; ready to stage, commit, push, and open PR."
+        },
+        {
+          "at": "2026-06-27T14:23:07+08:00",
+          "status": "pr_open_pending_github_checks",
+          "commit_sha": "d705db24486309e87b4649ecaa8d95da1510aa7d",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1460",
+          "note": "PR opened; waiting for required GitHub checks."
         }
-      ]
+      ],
+      "github_checks": {
+        "status": "pending",
+        "pr": "https://github.com/fermatmind/fap-web/pull/1460"
+      }
     },
     {
       "id": "PERSONALITY-AGENT-AUTO-QA-AND-APPROVAL-HANDOFF-01",
@@ -31930,7 +31941,7 @@
         "PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01"
       ],
       "title": "PERSONALITY-AGENT-RECOMMENDATION-AUTO-RUNNER-01: run personality agent recommendations from ranked opportunities",
-      "status": "local_checks_passed_ready_to_push",
+      "status": "pr_open_pending_github_checks",
       "train_scope": "personality_agent_automation",
       "artifacts": [
         "scripts/seo/run-personality-agent-auto-runner.mjs",
@@ -32000,8 +32011,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1460",
+      "commit_sha": "d705db24486309e87b4649ecaa8d95da1510aa7d",
       "merge_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -32036,8 +32047,19 @@
           "at": "2026-06-27T14:21:38+08:00",
           "status": "local_checks_passed_ready_to_push",
           "note": "All manifest local checks passed; ready to stage, commit, push, and open PR."
+        },
+        {
+          "at": "2026-06-27T14:23:07+08:00",
+          "status": "pr_open_pending_github_checks",
+          "commit_sha": "d705db24486309e87b4649ecaa8d95da1510aa7d",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1460",
+          "note": "PR opened; waiting for required GitHub checks."
         }
-      ]
+      ],
+      "github_checks": {
+        "status": "pending",
+        "pr": "https://github.com/fermatmind/fap-web/pull/1460"
+      }
     },
     {
       "id": "PERSONALITY-AGENT-AUTO-QA-AND-APPROVAL-HANDOFF-01",
