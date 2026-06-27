@@ -19113,7 +19113,7 @@ prs:
       - PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01
     mode: execute
     train_scope: personality_agent_automation
-    status: in_progress
+    status: merged
     goal: "Consume the opportunity ranker output and generate draft recommendation artifacts for selected MBTI64, Big Five, and Enneagram candidates without writing CMS, approval queue, publish/index/search, sitemap/llms, or runtime state."
     artifacts:
       - scripts/seo/run-personality-agent-auto-runner.mjs
@@ -19165,7 +19165,7 @@ prs:
       - PERSONALITY-AGENT-RECOMMENDATION-AUTO-RUNNER-01
     mode: execute
     train_scope: personality_agent_automation
-    status: pending_dependency
+    status: in_progress
     goal: "Run framework QA gates against generated recommendation artifacts and emit approval-queue handoff artifacts for PASS rows only, without writing production approval queue, CMS, publish/index/search, sitemap/llms, or runtime state."
     artifacts:
       - scripts/seo/personality-agent-auto-qa-and-approval-handoff.mjs
