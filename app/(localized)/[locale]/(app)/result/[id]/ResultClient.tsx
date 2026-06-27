@@ -544,9 +544,11 @@ function canLoadResultProjection(
 export default function ResultClient({
   attemptId,
   rolloutEnv,
+  printMode = false,
 }: {
   attemptId: string;
   rolloutEnv: ScaleRolloutEnvSnapshot;
+  printMode?: boolean;
 }) {
   void rolloutEnv;
 
@@ -577,7 +579,13 @@ export default function ResultClient({
   const inviteProgressSnapshotRef = useRef<InviteProgressSnapshot | null>(null);
   const mbtiBootstrapPhaseTrackedRef = useRef(false);
 
-  useEffect(() => installPrivateResultPrintUrlRedaction(locale), [locale]);
+  useEffect(() => {
+    if (printMode) {
+      return () => {};
+    }
+
+    return installPrivateResultPrintUrlRedaction(locale);
+  }, [locale, printMode]);
 
   useEffect(() => {
     const authToken = getFmToken();
@@ -1335,6 +1343,7 @@ export default function ResultClient({
       ) : null}
     </section>
   );
+  const renderOptionalEmailRecoveryCard = () => (printMode ? null : renderEmailRecoveryCard());
 
   if (status === "email_required") {
     return (
@@ -1478,7 +1487,7 @@ export default function ResultClient({
   if (isIqScaleCode(resolvedScaleCode)) {
     return (
       <div className="space-y-[var(--fm-gap-md)]">
-        {renderEmailRecoveryCard()}
+        {renderOptionalEmailRecoveryCard()}
         <IqResultShell
           locale={locale}
           reportData={reportData}
@@ -1492,7 +1501,7 @@ export default function ResultClient({
   if (hasEqV5Report && reportData) {
     return (
       <div className="space-y-[var(--fm-gap-md)]">
-        {renderEmailRecoveryCard()}
+        {renderOptionalEmailRecoveryCard()}
         <EQResultV5
           locale={locale}
           reportData={reportData}
@@ -1506,7 +1515,7 @@ export default function ResultClient({
   if (hasRichReport && reportData) {
     return (
       <div className="space-y-[var(--fm-gap-md)]">
-        {renderEmailRecoveryCard()}
+        {renderOptionalEmailRecoveryCard()}
         <RichResultReport
           locale={locale}
           reportData={reportData}
@@ -1524,7 +1533,7 @@ export default function ResultClient({
   if (hasRiasecProjection(resultData)) {
     return (
       <div className="space-y-[var(--fm-gap-md)]">
-        {renderEmailRecoveryCard()}
+        {renderOptionalEmailRecoveryCard()}
         <RiasecResultShell
           locale={locale}
           viewModel={assembleRiasecResultViewModel(resultData)}
@@ -1551,7 +1560,7 @@ export default function ResultClient({
 
   return (
     <div className="space-y-[var(--fm-gap-md)]">
-      {renderEmailRecoveryCard()}
+      {renderOptionalEmailRecoveryCard()}
       <ResultSummary
         title={
           mbtiPersonalityHref
