@@ -440,7 +440,14 @@ describe("ResultClient view-state contract", () => {
     hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
     hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
 
-    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} printMode />);
+    render(
+      <ResultClient
+        attemptId="attempt-123"
+        rolloutEnv={{} as never}
+        printMode
+        printAccessToken="print_result_access_token_123"
+      />
+    );
 
     await waitFor(() => {
       expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
@@ -448,14 +455,19 @@ describe("ResultClient view-state contract", () => {
 
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
       attemptId: "attempt-123",
-      anonId: "anon_result_test",
       locale: "en",
+      accessToken: "print_result_access_token_123",
+      skipAuth: true,
+      includeAnonId: false,
     });
     expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
       attemptId: "attempt-123",
-      anonId: "anon_result_test",
       locale: "en",
+      accessToken: "print_result_access_token_123",
+      skipAuth: true,
+      includeAnonId: false,
     });
+    expect(hoisted.ensureFmTokenReady).not.toHaveBeenCalled();
     expect(hoisted.fetchAttemptInviteUnlockProgress).not.toHaveBeenCalled();
     expect(setIntervalSpy.mock.calls.some(([, delay]) => delay === 15000)).toBe(false);
 

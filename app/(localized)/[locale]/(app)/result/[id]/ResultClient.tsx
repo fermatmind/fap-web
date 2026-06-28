@@ -557,10 +557,12 @@ export default function ResultClient({
   attemptId,
   rolloutEnv,
   printMode = false,
+  printAccessToken,
 }: {
   attemptId: string;
   rolloutEnv: ScaleRolloutEnvSnapshot;
   printMode?: boolean;
+  printAccessToken?: string | null;
 }) {
   void rolloutEnv;
 
@@ -582,9 +584,10 @@ export default function ResultClient({
   const [emailRecoverySaved, setEmailRecoverySaved] = useState(false);
   const [reloadNonce, setReloadNonce] = useState(0);
   const resultAccessToken = useMemo(
-    () => normalizeText(searchParams.get("access_token"), searchParams.get("result_access_token")),
-    [searchParams]
+    () => normalizeText(printAccessToken, searchParams.get("access_token"), searchParams.get("result_access_token")),
+    [printAccessToken, searchParams]
   );
+  const usePrintAccessTokenOnly = printMode && Boolean(resultAccessToken);
 
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const routeScaleCodeRef = useRef("UNKNOWN");
@@ -753,13 +756,23 @@ export default function ResultClient({
   }, [anonId, attemptId, email, locale, runWithAuthRetry]);
 
   const fetchReportAccessWithAuthMismatchRetry = useCallback(async () => {
+    const request = {
+      attemptId,
+      locale,
+      ...(usePrintAccessTokenOnly
+        ? { accessToken: resultAccessToken, skipAuth: true, includeAnonId: false }
+        : {
+            anonId,
+            ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
+          }),
+    };
+
+    if (usePrintAccessTokenOnly) {
+      return fetchAttemptReportAccess(request);
+    }
+
     try {
-      return await runWithAuthRetry(() => fetchAttemptReportAccess({
-        attemptId,
-        anonId,
-        locale,
-        ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
-      }));
+      return await runWithAuthRetry(() => fetchAttemptReportAccess(request));
     } catch (error) {
       if (!hasAuthOrAnonContext(anonId) || !isAttemptNotFoundProblem(error)) {
         throw error;
@@ -773,16 +786,26 @@ export default function ResultClient({
         ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
       });
     }
-  }, [anonId, attemptId, locale, resultAccessToken, runWithAuthRetry]);
+  }, [anonId, attemptId, locale, resultAccessToken, runWithAuthRetry, usePrintAccessTokenOnly]);
 
   const fetchReportWithAuthMismatchRetry = useCallback(async () => {
+    const request = {
+      attemptId,
+      locale,
+      ...(usePrintAccessTokenOnly
+        ? { accessToken: resultAccessToken, skipAuth: true, includeAnonId: false }
+        : {
+            anonId,
+            ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
+          }),
+    };
+
+    if (usePrintAccessTokenOnly) {
+      return fetchAttemptReport(request);
+    }
+
     try {
-      return await runWithAuthRetry(() => fetchAttemptReport({
-        attemptId,
-        anonId,
-        locale,
-        ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
-      }));
+      return await runWithAuthRetry(() => fetchAttemptReport(request));
     } catch (error) {
       if (!hasAuthOrAnonContext(anonId) || !isAttemptNotFoundProblem(error)) {
         throw error;
@@ -796,7 +819,7 @@ export default function ResultClient({
         ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
       });
     }
-  }, [anonId, attemptId, locale, resultAccessToken, runWithAuthRetry]);
+  }, [anonId, attemptId, locale, resultAccessToken, runWithAuthRetry, usePrintAccessTokenOnly]);
 
   const fetchInviteUnlockProgressWithAuthMismatchRetry = useCallback(async () => {
     try {
@@ -977,12 +1000,19 @@ export default function ResultClient({
     };
 
     const loadFallbackResult = async () => {
-      const response = await runWithAuthRetry(() => fetchAttemptResult({
+      const request = {
         attemptId,
-        anonId,
         locale,
-        ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
-      }));
+        ...(usePrintAccessTokenOnly
+          ? { accessToken: resultAccessToken, skipAuth: true, includeAnonId: false }
+          : {
+              anonId,
+              ...(resultAccessToken ? { accessToken: resultAccessToken } : {}),
+            }),
+      };
+      const response = usePrintAccessTokenOnly
+        ? await fetchAttemptResult(request)
+        : await runWithAuthRetry(() => fetchAttemptResult(request));
       if (!active) {
         return { ready: false };
       }
@@ -1056,23 +1086,25 @@ export default function ResultClient({
         inviteProgressSnapshotRef.current = null;
         mbtiBootstrapPhaseTrackedRef.current = false;
 
-        try {
-          await ensureFmTokenReady({
-            anonId,
-            locale,
-            forceRefresh: true,
-          });
-        } catch (guestTokenError) {
-          const telemetry = resolveGuestTokenTelemetry(guestTokenError);
-          trackEvent("auth_guest_token_failure", {
-            scale_code: routeScaleCodeRef.current,
-            stage: "result_bootstrap",
-            status_code: telemetry.statusCode,
-            error_code: telemetry.errorCode,
-            request_id: telemetry.requestId,
-            route: "/result/[id]",
-            locale,
-          });
+        if (!usePrintAccessTokenOnly) {
+          try {
+            await ensureFmTokenReady({
+              anonId,
+              locale,
+              forceRefresh: true,
+            });
+          } catch (guestTokenError) {
+            const telemetry = resolveGuestTokenTelemetry(guestTokenError);
+            trackEvent("auth_guest_token_failure", {
+              scale_code: routeScaleCodeRef.current,
+              stage: "result_bootstrap",
+              status_code: telemetry.statusCode,
+              error_code: telemetry.errorCode,
+              request_id: telemetry.requestId,
+              route: "/result/[id]",
+              locale,
+            });
+          }
         }
       }
       setError(null);
@@ -1274,10 +1306,12 @@ export default function ResultClient({
     fetchReportAccessWithAuthMismatchRetry,
     fetchReportWithAuthMismatchRetry,
     locale,
+    printMode,
     reloadNonce,
     resultAccessToken,
     runWithAuthRetry,
     showEmailGateForError,
+    usePrintAccessTokenOnly,
   ]);
 
   const hasEqV5Report = reportData ? isEqV5ReportResponse(reportData) : false;
