@@ -8,9 +8,9 @@
     "scanner": "scripts/seo/generate-metadata-surface-inventory.mjs"
   },
   "summary": {
-    "totalSurfaces": 82,
+    "totalSurfaces": 83,
     "byClassification": {
-      "private_noindex": 22,
+      "private_noindex": 23,
       "product_code_only": 18,
       "safe_static": 12,
       "migration_required": 2,
@@ -19,13 +19,13 @@
       "watchlist": 2
     },
     "byOwnership": {
-      "private_noindex": 22,
+      "private_noindex": 23,
       "product_code_only": 20,
       "cms_backed": 35,
       "backend_owned": 5
     },
     "byRouteFamily": {
-      "private_flow": 21,
+      "private_flow": 22,
       "other": 17,
       "static_content_page": 10,
       "article_detail": 2,
@@ -54,7 +54,7 @@
     },
     "migrationRequiredSurfaces": 2,
     "watchlistSurfaces": 2,
-    "privateNoindexSurfaces": 22,
+    "privateNoindexSurfaces": 23,
     "frontendJsonLdFallbackSurfaces": 23
   },
   "rows": [
@@ -181,6 +181,21 @@
     {
       "file": "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
       "routePattern": "/result/:id",
+      "routeFamily": "private_flow",
+      "exportKind": "direct_metadata",
+      "usesBuildPageMetadata": false,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": true,
+      "ownership": "private_noindex",
+      "classification": "private_noindex",
+      "risk": "P2",
+      "reason": "Private or transactional route family must remain noindex and excluded from sitemap/llms/JSON-LD."
+    },
+    {
+      "file": "app/(localized)/[locale]/(app)/result/[id]/print/page.tsx",
+      "routePattern": "/result/:id/print",
       "routeFamily": "private_flow",
       "exportKind": "direct_metadata",
       "usesBuildPageMetadata": false,
@@ -1462,6 +1477,21 @@
     {
       "file": "app/(localized)/[locale]/(app)/result/[id]/page.tsx",
       "routePattern": "/result/:id",
+      "routeFamily": "private_flow",
+      "exportKind": "direct_metadata",
+      "usesBuildPageMetadata": false,
+      "usesSeoSurface": false,
+      "rendersJsonLd": false,
+      "hasFrontendJsonLdBuilderFallback": false,
+      "noindexSignal": true,
+      "ownership": "private_noindex",
+      "classification": "private_noindex",
+      "risk": "P2",
+      "reason": "Private or transactional route family must remain noindex and excluded from sitemap/llms/JSON-LD."
+    },
+    {
+      "file": "app/(localized)/[locale]/(app)/result/[id]/print/page.tsx",
+      "routePattern": "/result/:id/print",
       "routeFamily": "private_flow",
       "exportKind": "direct_metadata",
       "usesBuildPageMetadata": false,

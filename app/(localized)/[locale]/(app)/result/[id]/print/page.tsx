@@ -4,6 +4,7 @@ import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { createScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import ResultClient from "../ResultClient";
+import { loadResultPrintBootstrap } from "./resultPrintBootstrap";
 
 export const metadata: Metadata = {
   robots: NOINDEX_ROBOTS,
@@ -25,6 +26,11 @@ export default async function ResultPrintPage({
   const dict = getDictSync(locale);
   const rolloutEnv = createScaleRolloutEnvSnapshot();
   const printAccessToken = firstQueryValue(query.access_token) ?? firstQueryValue(query.result_access_token);
+  const printBootstrap = await loadResultPrintBootstrap({
+    attemptId: id,
+    locale,
+    accessToken: printAccessToken,
+  });
 
   return (
     <Container
@@ -33,10 +39,20 @@ export default async function ResultPrintPage({
       data-gotenberg-result-print-root="true"
       data-pdf-mode="true"
       data-pdf-ready="false"
+      data-pdf-bootstrap={printBootstrap.report ? "server" : "failed"}
       className="w-full bg-white py-[var(--fm-space-10)] pdf-mode print:max-w-none print:bg-white print:px-0 print:py-0 [&:has([data-testid=mbti-result-shell])>h1]:sr-only"
     >
       <h1 className="mb-[var(--fm-space-4)] mt-0 text-3xl font-bold text-slate-900">{dict.result.title}</h1>
-      <ResultClient key={id} attemptId={id} rolloutEnv={rolloutEnv} printMode printAccessToken={printAccessToken} />
+      <ResultClient
+        key={id}
+        attemptId={id}
+        rolloutEnv={rolloutEnv}
+        printMode
+        printAccessToken={printAccessToken}
+        initialReportAccess={printBootstrap.reportAccess}
+        initialReportData={printBootstrap.report}
+        printBootstrapError={printBootstrap.error}
+      />
     </Container>
   );
 }

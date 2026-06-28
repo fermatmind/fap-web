@@ -558,11 +558,17 @@ export default function ResultClient({
   rolloutEnv,
   printMode = false,
   printAccessToken,
+  initialReportAccess,
+  initialReportData,
+  printBootstrapError,
 }: {
   attemptId: string;
   rolloutEnv: ScaleRolloutEnvSnapshot;
   printMode?: boolean;
   printAccessToken?: string | null;
+  initialReportAccess?: AttemptReportAccessResponse | null;
+  initialReportData?: ReportResponse | null;
+  printBootstrapError?: string | null;
 }) {
   void rolloutEnv;
 
@@ -570,13 +576,28 @@ export default function ResultClient({
   const searchParams = useSearchParams();
   const locale = getLocaleFromPathname(pathname);
   const dict = getDictSync(locale);
-  const [reportData, setReportData] = useState<ReportResponse | null>(null);
+  const initialAccessView = useMemo(
+    () => (initialReportAccess ? normalizeAttemptReportAccess(initialReportAccess, locale) : null),
+    [initialReportAccess, locale]
+  );
+  const initialReportReady = Boolean(
+    initialReportData && (isEqV5ReportResponse(initialReportData) || canRenderRichResultReport(initialReportData))
+  );
+  const initialPrintBootstrapReady = printMode && initialReportReady && Boolean(initialAccessView);
+  const initialPrintBootstrapFailed = printMode && Boolean(printBootstrapError) && !initialPrintBootstrapReady;
+  const [reportData, setReportData] = useState<ReportResponse | null>(() =>
+    initialReportReady ? initialReportData ?? null : null
+  );
   const [resultData, setResultData] = useState<ResultResponse | null>(null);
-  const [accessView, setAccessView] = useState<AttemptReportAccessView | null>(null);
+  const [accessView, setAccessView] = useState<AttemptReportAccessView | null>(() => initialAccessView);
   const [inviteUnlockProgress, setInviteUnlockProgress] = useState<AttemptInviteUnlockProgressView | null>(null);
-  const [mbtiAccessPath, setMbtiAccessPath] = useState(false);
-  const [status, setStatus] = useState<ResultClientStatus>("loading");
-  const [error, setError] = useState<string | null>(null);
+  const [mbtiAccessPath, setMbtiAccessPath] = useState(() =>
+    Boolean(initialReportAccess && (isMbtiReportAccessResponse(initialReportAccess) || hasMbtiReportAccessRouteHint(initialReportAccess)))
+  );
+  const [status, setStatus] = useState<ResultClientStatus>(() =>
+    initialPrintBootstrapReady ? "ready" : initialPrintBootstrapFailed ? "failed" : "loading"
+  );
+  const [error, setError] = useState<string | null>(() => (initialPrintBootstrapFailed ? dict.result.reportUnavailable : null));
   const [email, setEmail] = useState("");
   const [emailGateError, setEmailGateError] = useState<string | null>(null);
   const [emailBindFeedback, setEmailBindFeedback] = useState<string | null>(null);
@@ -590,7 +611,7 @@ export default function ResultClient({
   const usePrintAccessTokenOnly = printMode && Boolean(resultAccessToken);
 
   const anonId = useMemo(() => getOrCreateAnonId(), []);
-  const routeScaleCodeRef = useRef("UNKNOWN");
+  const routeScaleCodeRef = useRef(initialReportReady ? resolveScaleCodeForTelemetry(initialReportData ?? null, null) : "UNKNOWN");
   const inviteProgressSnapshotRef = useRef<InviteProgressSnapshot | null>(null);
   const mbtiBootstrapPhaseTrackedRef = useRef(false);
 
@@ -603,6 +624,10 @@ export default function ResultClient({
   }, [locale, printMode]);
 
   useEffect(() => {
+    if (printMode) {
+      return;
+    }
+
     const authToken = getFmToken();
     if (!authToken) {
       return;
@@ -627,7 +652,7 @@ export default function ResultClient({
     }).catch(() => {
       // Keep result entry non-blocking.
     });
-  }, [anonId, attemptId]);
+  }, [anonId, attemptId, printMode]);
 
   const runWithAuthRetry = useCallback(
     async <T,>(runner: () => Promise<T>): Promise<T> =>
@@ -846,6 +871,33 @@ export default function ResultClient({
   }, []);
 
   useEffect(() => {
+    if (initialPrintBootstrapReady) {
+      setAccessView(initialAccessView);
+      setReportData(initialReportData ?? null);
+      setResultData(null);
+      setInviteUnlockProgress(null);
+      setMbtiAccessPath(
+        Boolean(
+          initialReportAccess
+            && (isMbtiReportAccessResponse(initialReportAccess) || hasMbtiReportAccessRouteHint(initialReportAccess))
+        )
+      );
+      setStatus("ready");
+      setError(null);
+      routeScaleCodeRef.current = resolveScaleCodeForTelemetry(initialReportData ?? null, null);
+      return;
+    }
+
+    if (initialPrintBootstrapFailed) {
+      setReportData(null);
+      setResultData(null);
+      setAccessView(null);
+      setInviteUnlockProgress(null);
+      setStatus("failed");
+      setError(dict.result.reportUnavailable);
+      return;
+    }
+
     let active = true;
     let retryTimer: number | null = null;
     let inviteProgressTimer: number | null = null;
@@ -1305,6 +1357,11 @@ export default function ResultClient({
     fetchInviteUnlockProgressWithAuthMismatchRetry,
     fetchReportAccessWithAuthMismatchRetry,
     fetchReportWithAuthMismatchRetry,
+    initialAccessView,
+    initialPrintBootstrapFailed,
+    initialPrintBootstrapReady,
+    initialReportAccess,
+    initialReportData,
     locale,
     printMode,
     reloadNonce,
