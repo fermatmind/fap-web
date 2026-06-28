@@ -64,6 +64,18 @@ import { Button } from "@/components/ui/button";
 const RESULT_POLL_FALLBACK_MS = 3000;
 const RESULT_POLL_MAX = 10;
 const INVITE_PROGRESS_POLL_MS = 15000;
+const MBTI_PDF_READY_ANCHORS = [
+  "mbti-desktop-traits",
+  "mbti-desktop-career",
+  "mbti-desktop-growth",
+  "mbti-desktop-relationships",
+] as const;
+
+declare global {
+  interface Window {
+    __FERMAT_PDF_READY__?: boolean;
+  }
+}
 
 type ResultClientStatus = "loading" | "generating" | "ready" | "failed" | "email_required";
 
@@ -1345,6 +1357,59 @@ export default function ResultClient({
   );
   const renderOptionalEmailRecoveryCard = () => (printMode ? null : renderEmailRecoveryCard());
 
+  const viewState: "processing" | "ready" | "failed" =
+    status === "loading" || status === "generating"
+      ? "processing"
+      : status === "ready" && (hasEqV5Report || hasRichReport || hasReadyResultPayload(resultData))
+        ? "ready"
+        : "failed";
+  const mbtiPdfReadyCandidate = printMode && resolvedScaleCode === "MBTI" && viewState === "ready" && hasRichReport && Boolean(reportData);
+
+  useEffect(() => {
+    if (!printMode) {
+      return;
+    }
+
+    window.__FERMAT_PDF_READY__ = false;
+    document.querySelector('[data-pdf-mode="true"]')?.setAttribute("data-pdf-ready", "false");
+
+    if (!mbtiPdfReadyCandidate) {
+      return;
+    }
+
+    let cancelled = false;
+
+    const markReady = async () => {
+      await document.fonts?.ready.catch(() => undefined);
+      const images = Array.from(document.images);
+      await Promise.all(images.map((image) => {
+        if (image.complete) {
+          return Promise.resolve();
+        }
+
+        return new Promise<void>((resolve) => {
+          image.addEventListener("load", () => resolve(), { once: true });
+          image.addEventListener("error", () => resolve(), { once: true });
+        });
+      }));
+
+      const modulesReady = MBTI_PDF_READY_ANCHORS.every((id) => document.getElementById(id));
+      if (cancelled || !modulesReady) {
+        return;
+      }
+
+      document.querySelector('[data-pdf-mode="true"]')?.setAttribute("data-pdf-ready", "true");
+      window.__FERMAT_PDF_READY__ = true;
+    };
+
+    void markReady();
+
+    return () => {
+      cancelled = true;
+      window.__FERMAT_PDF_READY__ = false;
+    };
+  }, [mbtiPdfReadyCandidate, printMode]);
+
   if (status === "email_required") {
     return (
       <section
@@ -1408,13 +1473,6 @@ export default function ResultClient({
       </section>
     );
   }
-
-  const viewState: "processing" | "ready" | "failed" =
-    status === "loading" || status === "generating"
-      ? "processing"
-      : status === "ready" && (hasEqV5Report || hasRichReport || hasReadyResultPayload(resultData))
-        ? "ready"
-        : "failed";
 
   if (isMbtiReadyPath && viewState === "processing") {
     const retakeHref = resolveRetakeHrefByScale(locale, resolvedScaleCode === "MBTI" ? resolvedScaleCode : "MBTI");

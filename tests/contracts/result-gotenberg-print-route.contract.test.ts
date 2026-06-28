@@ -24,6 +24,10 @@ describe("Gotenberg result print route contract", () => {
     expect(printRoute).toContain("<ResultClient key={id} attemptId={id} rolloutEnv={rolloutEnv} printMode />");
     expect(printRoute).toContain('className="w-full bg-white');
     expect(resultPage).toContain('data-private-result-print-root="true"');
+    expect(resultPage).toContain("mbti.result_page_export.v1");
+    expect(resultPage).toContain('data-pdf-mode={pdfMode ? "true" : undefined}');
+    expect(resultPage).toContain('data-pdf-ready={pdfMode ? "false" : undefined}');
+    expect(resultPage).toContain("verifyResultPagePdfToken");
     expect(accessNormalizer).toContain('normalizeReportActionHref(raw.actions?.pdf_href, locale, "pdf")');
   });
 
@@ -33,9 +37,30 @@ describe("Gotenberg result print route contract", () => {
     expect(resultClient).toContain("printMode = false");
     expect(resultClient).toContain("printMode?: boolean");
     expect(resultClient).toContain("if (printMode) {");
+    expect(resultClient).toContain("window.__FERMAT_PDF_READY__ = true");
+    expect(resultClient).toContain("MBTI_PDF_READY_ANCHORS");
+    expect(resultClient).toContain('"mbti-desktop-traits"');
+    expect(resultClient).toContain('"mbti-desktop-career"');
+    expect(resultClient).toContain('"mbti-desktop-growth"');
+    expect(resultClient).toContain('"mbti-desktop-relationships"');
     expect(resultClient).toContain("renderOptionalEmailRecoveryCard");
     expect(resultClient).toContain("printMode ? null : renderEmailRecoveryCard()");
     expect(resultClient).toContain("installPrivateResultPrintUrlRedaction(locale)");
+  });
+
+  it("routes MBTI result PDF downloads to the strict result-page export endpoint", () => {
+    const api = read("lib/api/v0_3.ts");
+    const button = read("components/commerce/AttemptPdfDownloadButton.tsx");
+    const mbtiPostPurchase = read("components/result/mbti/MbtiPostPurchaseSection.tsx");
+    const mbtiShell = read("components/result/mbti/MbtiResultShell.tsx");
+
+    expect(api).toContain("getAttemptResultPagePdfUrl");
+    expect(api).toContain("/v0.3/attempts/${attemptId}/result-page.pdf");
+    expect(api).toContain("fetchAttemptResultPagePdfWithMeta");
+    expect(button).toContain('exportSurface?: "report" | "result_page"');
+    expect(button).toContain('exportSurface === "result_page"');
+    expect(mbtiPostPurchase).toContain('exportSurface="result_page"');
+    expect(mbtiShell).toContain("getAttemptResultPagePdfUrl({ attemptId: resultPagePdfAttemptId })");
   });
 
   it("keeps the MBTI result modules available to the print route through the shared renderer", () => {

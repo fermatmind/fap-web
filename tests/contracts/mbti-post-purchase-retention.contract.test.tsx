@@ -10,6 +10,7 @@ const hoisted = vi.hoisted(() => ({
   trackEvent: vi.fn(),
   trackObservableFunnelEvent: vi.fn(),
   fetchAttemptReportPdfWithMeta: vi.fn(),
+  fetchAttemptResultPagePdfWithMeta: vi.fn(),
   createObjectURL: vi.fn(() => "blob:mbti-report"),
   revokeObjectURL: vi.fn(),
   openWindow: vi.fn(),
@@ -30,6 +31,7 @@ vi.mock("@/lib/api/v0_3", async () => {
   return {
     ...actual,
     fetchAttemptReportPdfWithMeta: hoisted.fetchAttemptReportPdfWithMeta,
+    fetchAttemptResultPagePdfWithMeta: hoisted.fetchAttemptResultPagePdfWithMeta,
   };
 });
 
@@ -99,6 +101,11 @@ describe("MBTI post-purchase retention contract", () => {
       filenameHint: "mbti-report.pdf",
       formLabel: null,
     });
+    hoisted.fetchAttemptResultPagePdfWithMeta.mockResolvedValue({
+      blob: new Blob(["pdf"], { type: "application/pdf" }),
+      filenameHint: "mbti-result-page.pdf",
+      formLabel: null,
+    });
     globalThis.URL.createObjectURL = hoisted.createObjectURL;
     globalThis.URL.revokeObjectURL = hoisted.revokeObjectURL;
     vi.spyOn(window.HTMLAnchorElement.prototype, "click").mockImplementation(() => {});
@@ -138,9 +145,10 @@ describe("MBTI post-purchase retention contract", () => {
     fireEvent.click(getPrimaryByTestId("mbti-post-purchase-download"));
 
     await waitFor(() => {
-      expect(hoisted.fetchAttemptReportPdfWithMeta).toHaveBeenCalledWith({
+      expect(hoisted.fetchAttemptResultPagePdfWithMeta).toHaveBeenCalledWith({
         attemptId: "attempt-unlocked-123",
       });
+      expect(hoisted.fetchAttemptReportPdfWithMeta).not.toHaveBeenCalled();
     });
     expect(hoisted.createObjectURL).toHaveBeenCalledWith(expect.any(Blob));
     expect(hoisted.openWindow).not.toHaveBeenCalled();

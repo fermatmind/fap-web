@@ -638,6 +638,22 @@ a {
 }
 
 @media print {
+  [data-pdf-mode="true"] :is(
+    button,
+    form,
+    input,
+    textarea,
+    select,
+    [role="button"],
+    [data-pdf-export-hidden="true"],
+    [data-testid="mbti-post-purchase-section"],
+    [data-testid="mbti-offer-comparison"],
+    [data-testid="mbti-sticky-rail"],
+    [data-testid="mbti-mobile-chrome"]
+  ) {
+    display: none !important;
+  }
+
   body:has([data-private-result-print-root="true"]) [data-private-result-print-hidden="true"] {
     display: none !important;
   }

@@ -5,7 +5,7 @@ import { Alert } from "@/components/ui/alert";
 import { Button, type ButtonProps } from "@/components/ui/button";
 import { canDownloadReportPdf, type AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import { trackEvent } from "@/lib/analytics";
-import { fetchAttemptReportPdfWithMeta } from "@/lib/api/v0_3";
+import { fetchAttemptReportPdfWithMeta, fetchAttemptResultPagePdfWithMeta } from "@/lib/api/v0_3";
 import type { Locale } from "@/lib/i18n/locales";
 import { cn } from "@/lib/utils";
 
@@ -24,7 +24,7 @@ function extractAttemptIdFromPdfUrl(value: string | null | undefined): string | 
   const normalized = String(value ?? "").trim();
   if (!normalized) return null;
 
-  const match = normalized.match(/\/attempts\/([^/?#]+)\/report\.pdf(?:[?#].*)?$/);
+  const match = normalized.match(/\/attempts\/([^/?#]+)\/(?:report|result-page)\.pdf(?:[?#].*)?$/);
   if (!match?.[1]) return null;
 
   try {
@@ -45,6 +45,7 @@ type AttemptPdfDownloadButtonProps = {
   accessProjection?: AttemptReportAccessView | null;
   pdfUrl?: string | null;
   fallbackUrl?: string | null;
+  exportSurface?: "report" | "result_page";
   buttonVariant?: ButtonProps["variant"];
   buttonClassName?: string;
   className?: string;
@@ -62,6 +63,7 @@ export function AttemptPdfDownloadButton({
   accessProjection,
   pdfUrl,
   fallbackUrl,
+  exportSurface = "report",
   buttonVariant = "outline",
   buttonClassName,
   className,
@@ -94,7 +96,9 @@ export function AttemptPdfDownloadButton({
         throw new Error("Missing attempt id.");
       }
 
-      const response = await fetchAttemptReportPdfWithMeta({ attemptId: resolvedAttemptId });
+      const response = exportSurface === "result_page"
+        ? await fetchAttemptResultPagePdfWithMeta({ attemptId: resolvedAttemptId })
+        : await fetchAttemptReportPdfWithMeta({ attemptId: resolvedAttemptId });
       const blob = response.blob;
       if (blob.size <= 0) {
         throw new Error("Empty pdf blob.");
