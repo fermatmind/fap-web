@@ -88,6 +88,18 @@ Before GPT-5.5 Pro generates content, provide:
 - publish prerequisites
 - review metrics for 7 days and 14 days
 
+For daily zh-CN SEO articles that must return a Codex-ingestible Mode C CMS package, Codex should generate the GPT handoff from:
+
+- `.agents/skills/fermatmind-wechat-seo-article-editor/assets/GPT55_DAILY_SEO_MODE_C_PACKAGE_PROMPT_TEMPLATE.md`
+
+This template is the standard Stage 2 prompt scaffold after topic selection and before GPT package generation. It is not an authorization to import, publish, index, submit search, enable schema/hreflang, revalidate, deploy, or create a PR.
+
+After GPT returns the package and images, the SEO article window should use:
+
+- `.agents/skills/fermatmind-wechat-seo-article-editor/assets/CODEX_STAGE4_TO_SEO_AGENT_GOAL_TEMPLATE.md`
+
+This Stage 4 template covers Codex content enrichment, package QA, image manifest normalization, and generation of the separate SEO agent `/goal`. It is still not an authorization for CMS writes, publish, discoverability mutation, URL Truth writes, search submissions, GSC Request Indexing, revalidation, deploy, or PR.
+
 ## 6. CMS Fields GPT-5.5 Pro May Fill
 
 After receiving an approved request card, GPT-5.5 Pro may provide content for:

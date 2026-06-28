@@ -156,6 +156,12 @@ Final decisions:
 
 Purpose: create a paste-ready instruction for GPT 5.5 Pro or another content-package model so the first draft already has stronger public-account article logic.
 
+Use:
+
+- `assets/GPT55_DAILY_SEO_MODE_C_PACKAGE_PROMPT_TEMPLATE.md` when the task is to generate a complete daily SEO Mode C content package from an approved topic or Mode B brief.
+- `assets/WECHAT_SEO_REWRITE_PROMPT_TEMPLATE.md` when the task is to improve an already generated article/package body before Codex package QA.
+- `assets/CODEX_STAGE4_TO_SEO_AGENT_GOAL_TEMPLATE.md` when GPT has returned the content package/images and the user wants Codex to do Stage 4 content enrichment/package QA/image manifest normalization, then generate the Stage 5 `/goal` for a separate SEO agent window.
+
 Include:
 
 - target reader scene;
@@ -171,6 +177,7 @@ Include:
 Output decision:
 
 - `WECHAT_SEO_PROMPT_READY_FOR_GPT_PACKAGE_OWNER`
+- `STAGE4_READY_FOR_SEO_AGENT_FULL_RELEASE_GOAL`
 - `BLOCKED_NEEDS_TOPIC_OR_BRIEF_INPUT`
 
 ### `wechat_seo_quality_gate`
