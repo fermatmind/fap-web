@@ -256,6 +256,7 @@ export function MbtiPostPurchaseSection({
               filenamePrefix="mbti-report"
               pdfVariant="mbti_result_post_purchase"
               pdfUrl={pdfUrl}
+              exportSurface="result_page"
               buttonClassName="w-full bg-slate-950 text-white hover:bg-slate-800"
               testId="mbti-post-purchase-download"
             />

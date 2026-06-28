@@ -26,6 +26,7 @@ import { trackEvent, trackObservableFunnelEvent } from "@/lib/analytics";
 import {
   createAttemptShare,
   createCheckoutOrOrder,
+  getAttemptResultPagePdfUrl,
   type OfferPayload,
   type ReportCta,
   type ReportRecommendedRead,
@@ -676,6 +677,7 @@ export function MbtiResultShell({
   const culturalCalibration = personalization?.culturalCalibration ?? null;
   const cta = (reportData.cta ?? null) as ReportCta | null;
   const primaryCtaLabel = resolvePrimaryCtaLabel(locale);
+  const attemptId = resolveAttemptIdFromPathname(pathname ?? "");
   const reportReadyByLegacyRule = accessProjection ? canEnterReportPage(accessProjection) : isUnlockedMbtiReport(reportData);
   const stagedUnlockStage = accessProjection?.unlockStage ?? null;
   const isUnlockedPostPurchase = stagedUnlockStage === "full" || (stagedUnlockStage === null && reportReadyByLegacyRule);
@@ -688,7 +690,10 @@ export function MbtiResultShell({
   const relationshipHubHref = accessHub?.recovery.compareInviteId
     ? localizedPath("/relationships/mbti", locale)
     : "";
-  const pdfHref = accessProjection?.actions.pdfHref ?? accessHub?.pdfAccess.href ?? "";
+  const resultPagePdfAttemptId = normalizeText(accessProjection?.attemptId, accessHub?.reportAccess.attemptId, attemptId);
+  const pdfHref = resultPagePdfAttemptId
+    ? getAttemptResultPagePdfUrl({ attemptId: resultPagePdfAttemptId })
+    : (accessProjection?.actions.pdfHref ?? accessHub?.pdfAccess.href ?? "");
   const canDownloadPdf = accessProjection
     ? canDownloadReportPdf(accessProjection) && Boolean(pdfHref || accessProjection.attemptId)
     : accessHub?.pdfAccess.canDownloadPdf === true && Boolean(pdfHref || accessHub?.reportAccess.attemptId);
@@ -757,7 +762,6 @@ export function MbtiResultShell({
   const terminalPrimaryCtaHref = isUnlockedPostPurchase ? historyHref : DESKTOP_OFFER_FULL_HASH;
   const shareMessage = resolveShareMessages(locale, shareStatus);
   const shareCtaLabel = resolveShareCtaLabel(locale, shareStatus, isSharing);
-  const attemptId = resolveAttemptIdFromPathname(pathname ?? "");
   const personalizationDerived = useMemo(() => ({
     variantKeysSummary: summarizeMbtiVariantKeys(personalization),
     sceneFingerprintSummary: summarizeMbtiSceneFingerprint(personalization),

@@ -3573,6 +3573,16 @@ export function getAttemptReportPdfUrl({
   return buildApiUrl(`/v0.3/attempts/${attemptId}/report.pdf${inline ? "?inline=1" : ""}`);
 }
 
+export function getAttemptResultPagePdfUrl({
+  attemptId,
+  inline,
+}: {
+  attemptId: string;
+  inline?: boolean;
+}): string {
+  return buildApiUrl(`/v0.3/attempts/${attemptId}/result-page.pdf${inline ? "?inline=1" : ""}`);
+}
+
 export async function fetchAttemptReportPdf({
   attemptId,
   anonId,
@@ -3638,6 +3648,45 @@ export async function fetchAttemptReportPdfWithMeta({
 
   if (!response.ok) {
     throw new Error(`Failed to fetch report pdf: ${response.status}`);
+  }
+
+  return {
+    blob: await response.blob(),
+    filenameHint: response.headers.get("X-Report-Filename-Hint"),
+    formLabel: response.headers.get("X-Report-Form-Label"),
+  };
+}
+
+export async function fetchAttemptResultPagePdfWithMeta({
+  attemptId,
+  anonId,
+  inline,
+}: {
+  attemptId: string;
+  anonId?: string;
+  inline?: boolean;
+}): Promise<AttemptReportPdfResponse> {
+  const resolvedAnonId = resolveAnonId(anonId);
+  const authToken = getFmToken();
+
+  const headers = new Headers({
+    Accept: "application/pdf",
+  });
+
+  if (resolvedAnonId) {
+    headers.set("X-Anon-Id", resolvedAnonId);
+  }
+  if (authToken) {
+    headers.set("Authorization", `Bearer ${authToken}`);
+  }
+
+  const response = await fetch(getAttemptResultPagePdfUrl({ attemptId, inline }), {
+    method: "GET",
+    headers,
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch result-page pdf: ${response.status}`);
   }
 
   return {
