@@ -433,6 +433,35 @@ describe("ResultClient view-state contract", () => {
     expect(screen.queryByTestId("dimension-bars")).not.toBeInTheDocument();
   });
 
+  it("does not start invite-unlocks polling while rendering the MBTI print route", async () => {
+    const setIntervalSpy = vi.spyOn(window, "setInterval");
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
+    hoisted.fetchAttemptReportAccess.mockResolvedValue(createAccessProjection());
+    hoisted.fetchAttemptReport.mockResolvedValue(reportFixture);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} printMode />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+
+    expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
+      attemptId: "attempt-123",
+      anonId: "anon_result_test",
+      locale: "en",
+    });
+    expect(hoisted.fetchAttemptReport).toHaveBeenCalledWith({
+      attemptId: "attempt-123",
+      anonId: "anon_result_test",
+      locale: "en",
+    });
+    expect(hoisted.fetchAttemptInviteUnlockProgress).not.toHaveBeenCalled();
+    expect(setIntervalSpy.mock.calls.some(([, delay]) => delay === 15000)).toBe(false);
+
+    setIntervalSpy.mockRestore();
+  });
+
   it("renders RIASEC from the snapshot-bound report projection without falling back to result projection", async () => {
     hoisted.fetchAttemptReport.mockResolvedValue(createRiasecSnapshotReport());
 
