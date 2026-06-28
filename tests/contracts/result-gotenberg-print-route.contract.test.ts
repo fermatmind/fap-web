@@ -23,7 +23,9 @@ describe("Gotenberg result print route contract", () => {
     expect(printRoute).toContain('data-gotenberg-result-print-root="true"');
     expect(printRoute).toContain('data-pdf-mode="true"');
     expect(printRoute).toContain('data-pdf-ready="false"');
-    expect(printRoute).toContain("<ResultClient key={id} attemptId={id} rolloutEnv={rolloutEnv} printMode />");
+    expect(printRoute).toContain("searchParams?: Promise<Record<string, string | string[] | undefined>>");
+    expect(printRoute).toContain("firstQueryValue(query.access_token) ?? firstQueryValue(query.result_access_token)");
+    expect(printRoute).toContain("printAccessToken={printAccessToken}");
     expect(printRoute).toContain("pdf-mode");
     expect(resultPage).toContain('data-private-result-print-root="true"');
     expect(resultPage).toContain("mbti.result_page_export.v1");
@@ -38,6 +40,9 @@ describe("Gotenberg result print route contract", () => {
 
     expect(resultClient).toContain("printMode = false");
     expect(resultClient).toContain("printMode?: boolean");
+    expect(resultClient).toContain("printAccessToken?: string | null");
+    expect(resultClient).toContain("usePrintAccessTokenOnly");
+    expect(resultClient).toContain("skipAuth: true, includeAnonId: false");
     expect(resultClient).toContain("if (printMode) {");
     expect(resultClient).toContain("window.__FERMAT_PDF_READY__ = true");
     expect(resultClient).toContain("MBTI_PDF_READY_ANCHORS");

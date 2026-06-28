@@ -3229,19 +3229,27 @@ export async function fetchAttemptResult({
   anonId,
   locale,
   accessToken,
+  skipAuth,
+  includeAnonId = true,
 }: {
   attemptId: string;
-  anonId: string;
+  anonId?: string;
   locale?: string;
   accessToken?: string | null;
+  skipAuth?: boolean;
+  includeAnonId?: boolean;
 }): Promise<ResultResponse> {
+  const resolvedAnonId = includeAnonId ? resolveAnonId(anonId) : undefined;
   const params = new URLSearchParams();
   if (locale) params.set("locale", locale);
   const normalizedAccessToken = normalizeResultAccessToken(accessToken);
   if (normalizedAccessToken) params.set("access_token", normalizedAccessToken);
   const response = await apiClient.get<ResultResponse>(
     `/v0.3/attempts/${attemptId}/result${params.size > 0 ? `?${params.toString()}` : ""}`,
-    anonHeader(anonId, resultAccessTokenHeader(normalizedAccessToken))
+    {
+      ...explicitAnonHeader(resolvedAnonId, resultAccessTokenHeader(normalizedAccessToken)),
+      ...(skipAuth ? { skipAuth: true } : {}),
+    }
   );
 
   return assertApiOk(response, "Failed to load result.");
