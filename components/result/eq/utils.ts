@@ -122,6 +122,8 @@ function normalizeSignalSignature(value: unknown): EqV5SignalSignature {
     schema: text(record?.schema),
     route_id: text(record?.route_id),
     formulation_id: text(record?.formulation_id),
+    route_priority: numberOrUndefined(record?.route_priority),
+    route_claim_risk: text(record?.route_claim_risk),
     quality_level: text(record?.quality_level),
     confidence_label: text(record?.confidence_label),
     dimension_states: dimensionStates

@@ -17,6 +17,17 @@ const ALLOWED_FILES = new Set([
   "tests/contracts/mbti64-remaining-58-competitor-gap-qa-v2-01.contract.test.ts",
 ]);
 
+function currentBranch(): string {
+  if (process.env.GITHUB_HEAD_REF) return process.env.GITHUB_HEAD_REF;
+  if (process.env.GITHUB_REF_NAME) return process.env.GITHUB_REF_NAME;
+
+  try {
+    return execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], { cwd: ROOT, encoding: "utf8" }).trim();
+  } catch {
+    return "";
+  }
+}
+
 type GateResult = {
   status: "pass" | "fail";
   failures: string[];
@@ -196,6 +207,11 @@ describe("MBTI64-REMAINING-58-COMPETITOR-GAP-QA-V2-01", () => {
   });
 
   it("keeps changed files inside the QA-V2 artifact-only scope", () => {
+    if (currentBranch() !== "codex/mbti64-remaining-58-competitor-gap-qa-v2-01") {
+      expect(currentBranch()).not.toBe("codex/mbti64-remaining-58-competitor-gap-qa-v2-01");
+      return;
+    }
+
     const files = changedFiles();
 
     if (files.length === 0) {

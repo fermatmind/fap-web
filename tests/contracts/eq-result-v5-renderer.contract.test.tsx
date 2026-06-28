@@ -51,6 +51,8 @@ function reportPayload(reportData: ReportResponse): Record<string, unknown> {
   return reportData.report as Record<string, unknown>;
 }
 
+const agentEntryButtonName = /Ask (the Agent|the result assistant)/i;
+
 function removeResolvedFields(reportData: ReportResponse): ReportResponse {
   const copy = clone(reportData);
   const report = reportPayload(copy);
@@ -62,97 +64,6 @@ function removeResolvedFields(reportData: ReportResponse): ReportResponse {
   delete assets.mechanisms;
   delete assets.action_prescription;
   delete assets.reality_scenes;
-
-  return copy;
-}
-
-function withV19DepthPayload(reportData: ReportResponse): ReportResponse {
-  const copy = clone(reportData);
-  const report = reportPayload(copy);
-  const assets = (report.assets ?? {}) as Record<string, unknown>;
-  const interpretation = (report.interpretation ?? {}) as Record<string, unknown>;
-  const assetRefs = (report.asset_refs ?? {}) as Record<string, unknown>;
-  const selectedAssetIds = {
-    core_formulation_id: "high_empathy_low_recovery",
-    mechanism_ids: ["EM_ER_high_low"],
-    scene_ids: ["relationship_boundary", "feedback", "conflict"],
-    scene_variant_ids: [
-      "eq.scene.relationship_boundary.high_empathy_low_recovery.primary",
-      "eq.scene.feedback.high_empathy_low_recovery.primary",
-    ],
-    career_environment_ids: ["emotional_labor_high", "autonomy_recovery_medium", "interpersonal_density_medium"],
-    action_prescription_id: "empathy_boundary",
-  };
-
-  interpretation.route_id = "route.eq.033.mixed_em_er";
-  interpretation.selected_asset_ids = selectedAssetIds;
-  interpretation.primary_scene_variant_ids = selectedAssetIds.scene_variant_ids;
-  assetRefs.personalization_route_id = "route.eq.033.mixed_em_er";
-  assetRefs.selected_asset_ids = selectedAssetIds;
-  assetRefs.scene_variant_ids = selectedAssetIds.scene_variant_ids;
-  report.interpretation = interpretation;
-  report.asset_refs = assetRefs;
-  assets.personalization_route = {
-    id: "route.eq.033.mixed_em_er",
-    route_headline: "Your reading path: protect empathy with a recovery boundary",
-    why_this_feels_specific: "This path was selected because empathy is leading while recovery needs more structure.",
-    evidence_snapshot_label: "Route evidence: EM high, ER lower, high-confidence self-report, and selected relationship-boundary scenes.",
-    next_best_action: "Read the boundary scene first, then use one recovery script this week.",
-    save_reason: "Save this route so you can compare it with the next real feedback or boundary moment.",
-    selected_asset_ids: selectedAssetIds,
-    signal_signature: {
-      schema: "eq60.signal_signature.v1",
-      route_id: "route.eq.033.mixed_em_er",
-      formulation_id: "high_empathy_low_recovery",
-      match_pattern: "EM_high_ER_low",
-      confidence_label: "high",
-    },
-  };
-  assets.result_page_depth_modules = [
-    {
-      id: "eq.depth.evidence_stack.default",
-      placement: "Evidence Snapshot",
-      title: "Why this result is interpretable",
-      body: "This report looks at dimensions, gaps, response quality, and the selected content route.",
-      bullets: ["Dimension signals", "Gap signals", "Quality signal", "Route signal"],
-      claim_risk: "low",
-    },
-    {
-      id: "eq.depth.reality_check.default",
-      placement: "Reality Translation",
-      title: "Reality check",
-      body: "Observe whose emotion you notice first, whether you can state a boundary, and how long recovery takes.",
-      bullets: ["Notice the first emotional cue", "Name the boundary", "Track recovery time"],
-      claim_risk: "low",
-    },
-  ];
-  assets.reality_scenes = [
-    {
-      id: "eq.scene.relationship_boundary.high_empathy_low_recovery.primary",
-      scene_family: "relationship_boundary",
-      variant: "primary",
-      title: "Boundary moment: empathy without carrying everything",
-      typical_response: "You may understand the other person quickly and then absorb more than you meant to.",
-      strength: "People often feel seen by you.",
-      cost: "Your own recovery time can disappear.",
-      better_move: "Name support and limit in the same sentence.",
-      micro_script: "I can hear this matters. I can stay for ten minutes, then I need to pause.",
-      evidence_signals: ["Whether you notice your own limit.", "Whether the other person still has ownership."],
-      reflection_prompt: "Where did support become carrying?",
-      tiny_experiment: "Use one support-plus-limit sentence this week.",
-    },
-    ...(((assets.reality_scenes as unknown[]) ?? []) as Record<string, unknown>[]),
-  ];
-  assets.cross_assessment_context = [
-    {
-      id: "eq.cross_context.mbti.available",
-      title: "How EQ and MBTI work together",
-      summary: "MBTI describes preference patterns; EQ describes emotional and relational self-report signals.",
-      how_to_use: "Use MBTI as a nearby lens, not as a replacement for EQ scores.",
-      claim_boundary: "Do not infer emotional ability, job performance, or relationship outcomes from type.",
-    },
-  ];
-  report.assets = assets;
 
   return copy;
 }
@@ -235,80 +146,85 @@ describe("EQ v5 result renderer contract", () => {
     const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
 
     expect(isEqV5ReportResponse(reportData)).toBe(true);
-    expect(normalizeEqV5Report(reportData, "en")?.route.routeId).toBe("high_empathy_low_recovery");
-    expect(normalizeEqV5Report(reportData, "en")?.route.signalSignature.match_pattern).toBe("EM_high_ER_low");
+    expect(normalizeEqV5Report(reportData, "en")?.route.routeId).toBe(
+      "route.eq.high_empathy_low_recovery.primary.quality_ab"
+    );
+    expect(normalizeEqV5Report(reportData, "en")?.route.signalSignature.match_pattern).toBe(
+      "EM_any_ER_any_RM_any_SA_any"
+    );
     expect(normalizeEqV5Report(reportData, "en")?.route.selectedAssetIds.action_prescription_id).toBe(
       "empathy_boundary"
     );
     render(<EQResultV5 locale="en" reportData={reportData} attemptId="eq-result-001" />);
 
     expect(screen.getByTestId("eq-result-v5")).toBeInTheDocument();
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("High Empathy, Slow Recovery");
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("You read the room quickly");
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("Practice understanding without taking over");
+    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("High Empathy, Low Recovery");
     expect(screen.getByTestId("eq-result-hero")).toHaveTextContent(
-      "I can understand someone without carrying the whole emotional load"
+      "This route organizes your strongest signals as High Empathy, Low Recovery"
     );
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("Save the report, retest later, or ask the Agent");
+    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("You can make people feel understood");
+    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent(
+      "Read the selected scenes first, then practice one prescription"
+    );
+    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent(
+      "Save this route so you can compare it with real interactions later."
+    );
     expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Evidence Snapshot");
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Selected by backend route matrix");
+    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Route evidence: core formulation");
     expect(screen.getByTestId("eq-quality-banner")).toHaveTextContent("Interpretation Confidence");
     expect(screen.getByTestId("eq-quality-banner")).toHaveTextContent("Why:");
-    expect(screen.getByTestId("eq-quality-banner")).toHaveTextContent("Based on completion, response pace");
+    expect(screen.getByTestId("eq-quality-banner")).toHaveTextContent("Your pace and consistency support");
     expect(screen.getByTestId("eq-emotional-matrix")).toHaveTextContent("Emotional Matrix");
     expect(screen.getByTestId("eq-emotional-matrix")).toHaveTextContent("Self-Awareness");
     expect(screen.getByTestId("eq-mechanism-section")).toHaveTextContent(
-      "Empathy × Emotion regulation: the first signal is stronger"
+      "Empathy × Emotion Regulation: noticing more than can be carried"
     );
-    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Feedback");
+    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("High Empathy, Low Recovery in feedback");
     expect(screen.getByTestId("eq-career-environment")).toHaveTextContent("Emotional labor: high");
     expect(screen.getByTestId("eq-career-environment")).toHaveTextContent("Interview check");
     expect(screen.getByTestId("eq-career-environment")).toHaveTextContent("Role observation checklist");
-    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("Empathy with boundary");
+    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("Empathy with a Boundary");
     expect(screen.getByTestId("eq-sjt-bridge")).toHaveTextContent("Future scenario module");
     expect(screen.getByTestId("eq-sjt-bridge")).toHaveTextContent("future scenario choices");
     expect(screen.getByTestId("eq-sjt-bridge")).toHaveTextContent("It supplements self-report");
     expect(screen.getByTestId("eq-scientific-boundary")).toHaveTextContent("Scientific Boundary");
     expect(screen.getByTestId("eq-scientific-boundary")).toHaveTextContent("Evidence is still being built");
-    expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Save your report");
-    expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Ask the Agent");
+    expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Save report");
+    expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Ask the result assistant");
     expect(screen.getByTestId("eq-agent-entry-guard")).toBeInTheDocument();
     expect(screen.getByTestId("eq-save-share-related")).toHaveTextContent("Big Five");
     expect(screen.queryByText(/high_empathy_low_recovery|EM_ER_high_low|emotional_labor_high|eq60\.signal_signature\.v1/i)).not.toBeInTheDocument();
   });
 
-  it("renders v1.9 route headlines, depth modules, scene variants, and cross-assessment assets", () => {
-    const reportData = withV19DepthPayload(responseFromFixture(highEmpathyEn as EqV5Fixture));
+  it("renders v2.3 route headlines, depth modules, scene variants, and cross-assessment assets", () => {
+    const reportData = responseFromFixture(highEmpathyEn as EqV5Fixture);
     const viewModel = normalizeEqV5Report(reportData, "en");
 
-    expect(viewModel?.route.routeId).toBe("route.eq.033.mixed_em_er");
+    expect(viewModel?.route.routeId).toBe("route.eq.high_empathy_low_recovery.primary.quality_ab");
     expect(viewModel?.route.selectedAssetIds.scene_variant_ids).toEqual([
-      "eq.scene.relationship_boundary.high_empathy_low_recovery.primary",
       "eq.scene.feedback.high_empathy_low_recovery.primary",
+      "eq.scene.conflict.high_empathy_low_recovery.primary",
+      "eq.scene.relationship_boundary.high_empathy_low_recovery.primary",
     ]);
-    expect(viewModel?.assets.personalization_route.route_headline).toContain("protect empathy");
+    expect(viewModel?.route.signalSignature.route_priority).toBe(101);
+    expect(viewModel?.route.signalSignature.route_claim_risk).toBe("medium");
+    expect(viewModel?.assets.personalization_route.route_headline).toContain("High Empathy, Low Recovery");
     expect(viewModel?.assets.result_page_depth_modules.map((item) => item.id)).toContain(
       "eq.depth.evidence_stack.default"
     );
-    expect(viewModel?.assets.reality_scenes[0]?.id).toBe(
-      "eq.scene.relationship_boundary.high_empathy_low_recovery.primary"
-    );
+    expect(viewModel?.assets.reality_scenes[0]?.id).toBe("eq.scene.feedback.high_empathy_low_recovery.primary");
 
     render(<EQResultV5 locale="en" reportData={reportData} attemptId="eq-result-001" />);
 
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent(
-      "Your reading path: protect empathy with a recovery boundary"
-    );
-    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent(
-      "Route evidence: EM high, ER lower"
-    );
+    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("High Empathy, Low Recovery");
+    expect(screen.getByTestId("eq-evidence-snapshot")).toHaveTextContent("Route evidence: core formulation");
+    expect(screen.getByTestId("eq-result-depth-modules")).toHaveTextContent("How to read this in 30 seconds");
     expect(screen.getByTestId("eq-result-depth-modules")).toHaveTextContent("Why this result is interpretable");
     expect(screen.getByTestId("eq-result-depth-modules")).toHaveTextContent("Route signal");
-    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Boundary moment");
+    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("High Empathy, Low Recovery in feedback");
     expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Micro script");
-    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("support-plus-limit");
-    expect(screen.getByTestId("eq-cross-assessment-context")).toHaveTextContent("How EQ and MBTI work together");
-    expect(screen.getByTestId("eq-cross-assessment-context")).toHaveTextContent("Do not infer emotional ability");
+    expect(screen.getByTestId("eq-reality-scenes")).toHaveTextContent("Let me check one thing first");
+    expect(screen.queryByTestId("eq-cross-assessment-context")).not.toBeInTheDocument();
     expect(screen.queryByText(/SKU_EQ_60_FULL_299|EQ_60_FULL|unlock|purchase|premium|profile:|quality_level:|bucket:/i)).not.toBeInTheDocument();
   });
 
@@ -332,7 +248,7 @@ describe("EQ v5 result renderer contract", () => {
     );
 
     expect(calls).toBe(0);
-    fireEvent.click(screen.getByRole("button", { name: "Ask the Agent" }));
+    fireEvent.click(screen.getByRole("button", { name: agentEntryButtonName }));
 
     await waitFor(() => expect(screen.getByTestId("eq-agent-entry-ready")).toBeInTheDocument());
     expect(calls).toBe(1);
@@ -373,7 +289,7 @@ describe("EQ v5 result renderer contract", () => {
     expect(runtimeCalls).toBe(0);
     expect(screen.queryByTestId("eq-agent-runtime-drawer")).not.toBeInTheDocument();
 
-    fireEvent.click(screen.getByRole("button", { name: "Ask the Agent" }));
+    fireEvent.click(screen.getByRole("button", { name: agentEntryButtonName }));
     await waitFor(() => expect(screen.getByTestId("eq-agent-runtime-drawer")).toBeInTheDocument());
     await waitFor(() => expect(screen.getByTestId("eq-agent-entry-ready")).toBeInTheDocument());
     expect(contextCalls).toBe(1);
@@ -425,7 +341,7 @@ describe("EQ v5 result renderer contract", () => {
       />
     );
 
-    fireEvent.click(screen.getByRole("button", { name: "Ask the Agent" }));
+    fireEvent.click(screen.getByRole("button", { name: agentEntryButtonName }));
     await waitFor(() => expect(screen.getByTestId("eq-agent-entry-ready")).toBeInTheDocument());
     fireEvent.change(screen.getByTestId("eq-agent-runtime-message"), {
       target: { value: "Can I start the SJT now?" },
@@ -450,7 +366,7 @@ describe("EQ v5 result renderer contract", () => {
       />
     );
 
-    fireEvent.click(screen.getByRole("button", { name: "Ask the Agent" }));
+    fireEvent.click(screen.getByRole("button", { name: agentEntryButtonName }));
 
     await waitFor(() => expect(screen.getByTestId("eq-agent-entry-unavailable")).toBeInTheDocument());
     expect(screen.getByTestId("eq-agent-entry-unavailable")).toHaveTextContent("Agent context is unavailable");
@@ -462,7 +378,7 @@ describe("EQ v5 result renderer contract", () => {
 
     render(<EQResultV5 locale="en" reportData={reportData} />);
 
-    expect(screen.getByRole("button", { name: "Ask the Agent" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: agentEntryButtonName })).toBeDisabled();
     expect(screen.getByTestId("eq-agent-entry-guard")).toHaveTextContent("Saved reports can continue");
   });
 
@@ -490,7 +406,7 @@ describe("EQ v5 result renderer contract", () => {
       />
     );
 
-    fireEvent.click(screen.getByRole("button", { name: "Ask the Agent" }));
+    fireEvent.click(screen.getByRole("button", { name: agentEntryButtonName }));
 
     await waitFor(() => expect(screen.getByTestId("eq-agent-entry-unavailable")).toBeInTheDocument());
     expect(screen.queryByTestId("eq-agent-entry-ready")).not.toBeInTheDocument();
@@ -510,11 +426,11 @@ describe("EQ v5 result renderer contract", () => {
 
     const { rerender } = render(<EQResultV5 locale="zh" reportData={zhReport} />);
     expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("均衡整合型");
-    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("情绪命名");
+    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("整合优势维护");
 
     rerender(<EQResultV5 locale="en" reportData={enReport} />);
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("Balanced Integrator");
-    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("Emotion labeling");
+    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("Integrated Balance");
+    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("Maintain Integrated Strength");
   });
 
   it("orders resolved assets by backend selected_asset_ids", () => {
@@ -527,17 +443,16 @@ describe("EQ v5 result renderer contract", () => {
 
     const viewModel = normalizeEqV5Report(reportData, "en");
 
-    expect(viewModel?.route.routeId).toBe("balanced_integrated");
+    expect(viewModel?.route.routeId).toBe("route.eq.balanced_integrated.primary.quality_ab");
     expect(viewModel?.assets.mechanisms.map((item) => item.id)).toEqual(["SA_ER_high_high", "EM_RM_high_high"]);
     expect(viewModel?.assets.reality_scenes.map((item) => item.id)).toEqual([
-      "feedback",
-      "team_collaboration",
-      "career_environment",
+      "eq.scene.feedback.balanced_integrated.primary",
+      "eq.scene.conflict.balanced_integrated.primary",
+      "eq.scene.relationship_boundary.balanced_integrated.primary",
     ]);
     expect(viewModel?.assets.career_environment.map((item) => item.id)).toEqual([
-      "interpersonal_density_medium",
+      "collaboration_complexity_high",
       "feedback_intensity_medium",
-      "autonomy_recovery_medium",
     ]);
   });
 
@@ -546,16 +461,16 @@ describe("EQ v5 result renderer contract", () => {
     const viewModel = normalizeEqV5Report(reportData, "en");
 
     expect(viewModel?.interpretation.core_formulation_id).toBe("low_confidence_result");
-    expect(viewModel?.route.routeId).toBe("low_confidence_result");
+    expect(viewModel?.route.routeId).toBe("route.eq.low_confidence_result.speeding");
     expect(viewModel?.route.signalSignature.match_pattern).toBe("quality_low_overrides_dimension_pattern");
     expect(viewModel?.interpretation.action_prescription_id).toBe("retest_reflection");
 
     render(<EQResultV5 locale="en" reportData={reportData} />);
 
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("Lower-Confidence Result");
     expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("Read this result lightly");
-    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("Reflection before retest");
-    expect(screen.getByTestId("eq-result-hero")).not.toHaveTextContent("High Empathy, Slow Recovery");
+    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("Read this result lightly");
+    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("Reflect Before Retesting");
+    expect(screen.getByTestId("eq-result-hero")).not.toHaveTextContent("High Empathy, Low Recovery");
     expect(screen.getByTestId("eq-result-hero")).not.toHaveTextContent("Balanced Integration");
     expect(screen.getByTestId("eq-mechanism-section")).toHaveTextContent("There is not enough signal");
   });
@@ -565,8 +480,8 @@ describe("EQ v5 result renderer contract", () => {
 
     render(<EQResultV5 locale="zh" reportData={reportData} />);
 
-    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("本次结果置信度较低");
-    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("复测前观察");
+    expect(screen.getByTestId("eq-result-hero")).toHaveTextContent("本次结果谨慎阅读");
+    expect(screen.getByTestId("eq-action-prescription")).toHaveTextContent("复测前的自我回顾");
     expect(screen.queryByText("Lower-Confidence Result")).not.toBeInTheDocument();
   });
 
@@ -644,7 +559,7 @@ describe("EQ v5 result renderer contract", () => {
     expect(screen.getByTestId("eq-result-v5-access-restricted")).toHaveTextContent("not ready to view");
     expect(screen.queryByTestId("eq-result-v5")).not.toBeInTheDocument();
     expect(screen.queryByTestId("eq-result-hero")).not.toBeInTheDocument();
-    expect(screen.queryByText("High Empathy, Slow Recovery")).not.toBeInTheDocument();
+    expect(screen.queryByText("High Empathy, Low Recovery")).not.toBeInTheDocument();
     expect(screen.queryByText(/SKU_EQ_60_FULL_299|EQ_60_FULL|purchase|premium|paywall|blur_others|Paid EQ/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/profile:|quality_level:|focus:|bucket:/i)).not.toBeInTheDocument();
   });
