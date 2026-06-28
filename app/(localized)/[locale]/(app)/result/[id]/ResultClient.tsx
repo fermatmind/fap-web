@@ -1112,7 +1112,9 @@ export default function ResultClient({
               locale,
             });
           }
-          startInviteProgressSync();
+          if (!printMode) {
+            startInviteProgressSync();
+          }
         }
 
         if (!nextAccessView) {
@@ -1161,7 +1163,7 @@ export default function ResultClient({
         const reportScaleCode = resolveScaleCodeForTelemetry(reportResponse, null);
         routeScaleCodeRef.current = reportScaleCode;
 
-        if (reportScaleCode === "MBTI") {
+        if (reportScaleCode === "MBTI" && !printMode) {
           startInviteProgressSync();
         }
 
