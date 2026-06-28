@@ -21,8 +21,10 @@ describe("Gotenberg result print route contract", () => {
     expect(printRoute).toContain("export const revalidate = 0");
     expect(printRoute).toContain('data-private-result-print-root="true"');
     expect(printRoute).toContain('data-gotenberg-result-print-root="true"');
+    expect(printRoute).toContain('data-pdf-mode="true"');
+    expect(printRoute).toContain('data-pdf-ready="false"');
     expect(printRoute).toContain("<ResultClient key={id} attemptId={id} rolloutEnv={rolloutEnv} printMode />");
-    expect(printRoute).toContain('className="w-full bg-white');
+    expect(printRoute).toContain("pdf-mode");
     expect(resultPage).toContain('data-private-result-print-root="true"');
     expect(resultPage).toContain("mbti.result_page_export.v1");
     expect(resultPage).toContain('data-pdf-mode={pdfMode ? "true" : undefined}');
