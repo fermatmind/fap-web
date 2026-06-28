@@ -19052,6 +19052,56 @@ prs:
       auto_merge: true
     next_task: PR-EQ-V19-06
 
+  - id: PR-EQ-V20-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-eq-v20-05-frontend-v23-consumption
+    base: main
+    title: "PR-EQ-V20-05 Frontend EQ v2.3 result consumption"
+    depends_on:
+      - PR-EQ-V20-04
+    mode: execute
+    train_scope: eq_v20_commercial_content_frontend_consumption
+    status: in_progress
+    goal: "Consume EQ v2.3 route headline, depth modules, formulation-aware scene variants, and richer career/action payloads from backend canonical fixtures and resolved assets without frontend-owned official report prose, paywall semantics, raw technical tags, or clickable SJT entry."
+    artifacts:
+      - components/result/eq/**
+      - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+      - tests/fixtures/eq/v5/**
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/mbti64-remaining-58-competitor-gap-qa-v2-01.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - components/result/eq/**
+      - tests/contracts/eq-result-v5-renderer.contract.test.tsx
+      - tests/fixtures/eq/v5/**
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/mbti64-remaining-58-competitor-gap-qa-v2-01.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Modify fap-api.
+      - Add frontend-owned official EQ report prose.
+      - Add paid, locked, blur, SKU, unlock, premium, or access-wall semantics.
+      - Add clickable SJT take entry while next_module.available is false.
+      - Add CMS, SEO runtime, production deploy, staging deploy wait, or server verification.
+      - Change EQ scoring, questions, report authority, or Agent runtime behavior.
+    required_local_checks:
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-EQ-V20-06
+
   - id: PERSONALITY-AGENT-OPPORTUNITY-RANKER-AUTOMATION-01
     repo: fap-web
     repo_path: <workspace>/fap-web

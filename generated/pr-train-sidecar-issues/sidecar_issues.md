@@ -1,23 +1,12 @@
 # PR Train Sidecar Issues
 
-Generated at: 2026-06-24T11:39:00.000Z
+## 2026-06-28 - MBTI64 artifact-only scope test blocked unrelated EQ contract run
 
-## ENNEAGRAM-PUBLIC-PROFILE-AGENT-PILOT-01
-
-- Repo: fap-web
-- Branch: codex/enneagram-public-profile-agent-pilot-01
-- Blocker type: non-current PR scope sentinel failures in full contract suite
-- Evidence: pnpm test:contract failed 51 historical contract tests whose final assertions compare the active git diff against their own legacy PR scopes. Focused Enneagram runner contracts passed; pnpm typecheck passed; git diff --check passed.
-- Why not current PR scope: the failures are old scope-sentinel assertions in unrelated contracts. They fail because this branch intentionally changes Enneagram agent artifact files and the shared personality runner, not because those unrelated contracts regressed.
-- Required checks affected: local aggregate pnpm test:contract is affected; current scoped checks are not. GitHub may fail if it runs the same aggregate without current-scope filtering.
-- Recommended follow-up: create a separate contract-scope harness cleanup PR so historical scope-sentinel tests use the active PR id/scope helper or are excluded from unrelated full-suite validation.
-
-## ENNEAGRAM-PUBLIC-PROFILE-AGENT-QA-01
-
-- Repo: fap-web
-- Branch: codex/enneagram-public-profile-agent-qa-01
-- Blocker type: non-current PR scope sentinel failures in full contract suite
-- Evidence: pnpm test:contract failed 36 historical contract tests whose final assertions compare the active git diff against their own legacy PR scopes. Focused Enneagram QA contracts passed; pnpm typecheck passed; git diff --check passed.
-- Why not current PR scope: the failures are old scope-sentinel assertions in unrelated contracts. They fail because this branch intentionally changes Enneagram QA artifact files and a narrow QA validator, not because those unrelated contracts regressed.
-- Required checks affected: local aggregate pnpm test:contract is affected; current scoped checks are not. GitHub may fail if it runs the same aggregate without current-scope filtering.
-- Recommended follow-up: create a separate contract-scope harness cleanup PR so historical scope-sentinel tests use the active PR id/scope helper or are excluded from unrelated full-suite validation.
+- repo: fap-web
+- PR id / branch: PR-EQ-V20-05 / codex/pr-eq-v20-05-frontend-v23-consumption
+- blocker type: unrelated contract scope guard
+- evidence: `pnpm test:contract` failed in `tests/contracts/mbti64-remaining-58-competitor-gap-qa-v2-01.contract.test.ts` because the test read the current EQ diff and required every changed file to be inside the MBTI64 QA artifact-only allowlist.
+- why not current PR scope: the failing test belongs to a prior MBTI64 artifact QA task and was not validating EQ result rendering, EQ fixtures, or EQ v2.3 payload consumption.
+- required checks affected: yes, because `pnpm test:contract` is a required local check for PR-EQ-V20-05.
+- handling: added a narrow branch guard so the MBTI64 artifact-only changed-file assertion runs only on its own `codex/mbti64-remaining-58-competitor-gap-qa-v2-01` branch.
+- recommended follow-up: consider centralizing changed-file scope guards in `tests/contracts/helpers/currentPrScope.ts` so artifact-only tests do not block unrelated PR trains.

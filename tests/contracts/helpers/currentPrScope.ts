@@ -127,6 +127,23 @@ const EQ_V19_FRONTEND_DEPTH_CONSUMPTION_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const EQ_V20_FRONTEND_V23_CONSUMPTION_ALLOWED_FILES = new Set([
+  "components/result/eq/EQRealitySceneCards.tsx",
+  "components/result/eq/types.ts",
+  "components/result/eq/utils.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti64-remaining-58-competitor-gap-qa-v2-01.contract.test.ts",
+  "tests/fixtures/eq/v5/eq60_v5_balanced_integrated_en.json",
+  "tests/fixtures/eq/v5/eq60_v5_balanced_integrated_zh.json",
+  "tests/fixtures/eq/v5/eq60_v5_high_empathy_low_recovery_en.json",
+  "tests/fixtures/eq/v5/eq60_v5_high_empathy_low_recovery_zh.json",
+  "tests/fixtures/eq/v5/eq60_v5_low_confidence_en.json",
+  "tests/fixtures/eq/v5/eq60_v5_low_confidence_zh.json",
+]);
+
 const ARTICLE_ANSWER_SURFACE_LAYOUT_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/articles/[slug]/page.tsx",
   "components/content/AnswerSurfaceSection.tsx",
@@ -4932,6 +4949,14 @@ export function isEqV19FrontendDepthConsumptionAllowedFile(file: string): boolea
   }
 
   return EQ_V19_FRONTEND_DEPTH_CONSUMPTION_ALLOWED_FILES.has(file);
+}
+
+export function isEqV20FrontendV23ConsumptionAllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-eq-v20-05-frontend-v23-consumption") {
+    return true;
+  }
+
+  return EQ_V20_FRONTEND_V23_CONSUMPTION_ALLOWED_FILES.has(file);
 }
 
 export function isPersonalityEnneagramV1NoindexRender01AllowedFile(file: string): boolean {

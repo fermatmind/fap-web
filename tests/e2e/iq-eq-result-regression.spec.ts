@@ -352,16 +352,24 @@ test("EQ uses option anchors when question options are empty", async ({ page }) 
   await expect(page.getByRole("radio", { name: "Strongly Agree" })).toHaveAttribute("aria-checked", "true");
   await page.goto(`/en/result/${attemptId}`);
   await expect(page.getByTestId("eq-result-v5")).toBeVisible();
-  await expect(page.getByRole("heading", { name: "High Empathy, Slow Recovery" })).toBeVisible();
+  await expect(
+    page.getByTestId("eq-result-hero").getByRole("heading", { name: "High Empathy, Low Recovery" }),
+  ).toBeVisible({
+    timeout: 10000,
+  });
   await expect(page.getByText("Evidence Snapshot")).toBeVisible();
-  await expect(page.getByText("Selected by backend route matrix")).toBeVisible();
+  await expect(
+    page
+      .getByTestId("eq-evidence-snapshot")
+      .getByText("Route evidence: core formulation, dimension pattern, response-quality signals, and selected assets."),
+  ).toBeVisible();
   await expect(page.getByRole("heading", { name: "Interpretation Confidence" })).toBeVisible();
   await expect(page.getByText("Emotional Matrix")).toBeVisible();
-  await expect(page.getByText("Empathy with boundary")).toBeVisible();
+  await expect(page.getByText("Empathy with a Boundary")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Future scenario module" })).toBeVisible();
   await expect(page.getByText("Planned, not available yet")).toBeVisible();
   await expect(page.getByText("Scientific Boundary")).toBeVisible();
-  await page.getByRole("button", { name: "Ask the Agent" }).click();
+  await page.getByRole("button", { name: /Ask (the Agent|the result assistant)/i }).click();
   await expect(page.getByTestId("eq-agent-runtime-drawer")).toBeVisible();
   await expect(page.getByTestId("eq-agent-entry-ready")).toBeVisible();
   await expect(page.getByText("Start with one real situation from this report.")).toBeVisible();

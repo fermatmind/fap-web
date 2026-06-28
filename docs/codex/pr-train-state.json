@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-27T15:07:00+08:00",
+  "updated_at": "2026-06-28T15:22:01.368979Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -32468,6 +32468,111 @@
         "at": "2026-06-26T17:12:04Z",
         "status": "ready_to_merge",
         "notes": "GitHub checks passed and changed-file scope revalidated."
+      }
+    ]
+  },
+  "PR-EQ-V20-05": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/pr-eq-v20-05-frontend-v23-consumption",
+    "title": "PR-EQ-V20-05 Frontend EQ v2.3 result consumption",
+    "train_scope": "eq_v20_commercial_content_frontend_consumption",
+    "depends_on": [
+      "PR-EQ-V20-04"
+    ],
+    "status": "committed",
+    "commit_sha": "9575e4e60dbcad1cc18474c2b914b9453f670733",
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "User explicitly authorized PR-EQ-V20-02 through PR-EQ-V20-06 plan execution and manifest/state updates."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-EQ-V20-04 merged in fap-api as PR #2526 with merge commit 8e427030f778abfc90c487fed5db5477165f25cf present in origin/main."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Implemented in clean isolated fap-web worktree /private/tmp/fap-web-eq-v20-05-frontend-v23-consumption because the primary fap-web worktree had unrelated dirty files."
+      },
+      "local_typecheck": {
+        "status": "pass",
+        "command": "pnpm typecheck"
+      },
+      "local_contract": {
+        "status": "pass",
+        "command": "pnpm test:contract",
+        "evidence": "599 contract files passed, 3514 tests passed."
+      },
+      "local_eq_contract_targeted": {
+        "status": "pass",
+        "command": "pnpm exec vitest run tests/contracts/eq-result-v5-renderer.contract.test.tsx --reporter=dot",
+        "evidence": "18 EQ renderer contract tests passed."
+      },
+      "local_e2e": {
+        "status": "pass",
+        "command": "NEXT_PUBLIC_API_URL=http://127.0.0.1:3000 pnpm exec playwright test tests/e2e/iq-eq-result-regression.spec.ts",
+        "evidence": "6 Playwright tests passed. Initial default run failed with local API fetch because NEXT_PUBLIC_API_URL defaulted to 127.0.0.1:8000; rerun used Next local proxy origin as required by the route-mocked spec."
+      },
+      "local_build": {
+        "status": "pass",
+        "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+        "evidence": "Next production build completed. Initial build without NEXT_PUBLIC_SITE_URL failed at environment gate for /llms.txt."
+      },
+      "yaml_parse": {
+        "status": "pass",
+        "command": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\""
+      },
+      "json_parse": {
+        "status": "pass",
+        "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null && python3 -m json.tool generated/pr-train-sidecar-issues/sidecar_issues.json >/dev/null"
+      },
+      "sidecar_issues": {
+        "status": "recorded",
+        "evidence": "generated/pr-train-sidecar-issues records unrelated MBTI64 artifact-only scope harness blocker encountered during full contract run."
+      },
+      "diff_check": {
+        "status": "pass",
+        "command": "git diff --check"
+      },
+      "scope_validation": {
+        "status": "pass",
+        "command": "manual changed-file scope validation against PR-EQ-V20-05 allowed_paths",
+        "evidence": "All changed files are within EQ result components, EQ fixtures/contracts/e2e, manifest/state, and sidecar issue artifacts."
+      }
+    },
+    "events": [
+      {
+        "at": "2026-06-28T14:52:12.868Z",
+        "status": "in_progress",
+        "notes": "Initialized PR-EQ-V20-05 from explicit user plan after backend PR-EQ-V20-04 merged; synced backend canonical EQ v2.3 fixtures into frontend tests and started renderer contract updates."
+      },
+      {
+        "at": "2026-06-28T15:18:21.750433Z",
+        "status": "local_checks_passed",
+        "notes": "Frontend v2.3 EQ consumption implementation passed typecheck, full contract, targeted EQ contract, e2e with local Next API origin, production build, and YAML/JSON parse. Scope validation and diff checks pending before commit."
+      },
+      {
+        "at": "2026-06-28T15:19:09.734612Z",
+        "status": "scope_validated",
+        "notes": "git diff --check and changed-file scope validation passed."
+      },
+      {
+        "at": "2026-06-28T15:21:38.041477Z",
+        "status": "committed",
+        "commit_sha": "196977e3056286e2a90fe5b4f4c1c3f4d19c8d57",
+        "notes": "Implementation commit created after local checks and scope validation passed."
+      },
+      {
+        "at": "2026-06-28T15:22:01.368979Z",
+        "status": "commit_sha_reconciled",
+        "commit_sha": "9575e4e60dbcad1cc18474c2b914b9453f670733",
+        "notes": "State ledger reconciled to amended commit SHA before push."
       }
     ]
   }

@@ -69,6 +69,8 @@ export type EqV5SignalSignature = {
   schema?: string;
   route_id?: string;
   formulation_id?: string;
+  route_priority?: number;
+  route_claim_risk?: string;
   quality_level?: string;
   confidence_label?: string;
   dimension_states?: Record<string, string>;
@@ -195,6 +197,7 @@ export type EqCareerEnvironmentAsset = {
   role_observation_checklist?: string[];
   team_risk?: string;
   safe_experiment?: string;
+  recovery_condition?: string;
 };
 
 export type EqActionPrescriptionAsset = {
@@ -205,6 +208,8 @@ export type EqActionPrescriptionAsset = {
   script?: string;
   seven_day_plan?: Array<string | { day?: string | number; practice?: string }>;
   watch_out?: string;
+  common_failure?: string;
+  repair_move?: string;
 };
 
 export type EqSjtBridgeAsset = {
@@ -327,6 +332,8 @@ export type EqV5ResolvedAssets = {
   cross_assessment_context?: EqCrossAssessmentContextAsset[];
   personalization_route?: {
     id?: string;
+    priority?: number;
+    formulation_id?: string;
     signal_signature?: EqV5SignalSignature;
     selected_asset_ids?: EqV5SelectedAssetIds;
     route_headline?: string;
@@ -337,6 +344,11 @@ export type EqV5ResolvedAssets = {
     why_this_route_exists?: string;
     do_not_overread?: string;
     claim_risk?: string;
+    commercial_depth?: {
+      first_screen_strategy?: string;
+      reader_trust_strategy?: string;
+      fallback_strategy?: string;
+    };
   };
 };
 
