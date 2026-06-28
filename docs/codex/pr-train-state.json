@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-28T15:22:01.368979Z",
+  "updated_at": "2026-06-28T15:24:26.822154Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -32480,9 +32480,9 @@
     "depends_on": [
       "PR-EQ-V20-04"
     ],
-    "status": "committed",
-    "commit_sha": "9575e4e60dbcad1cc18474c2b914b9453f670733",
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "11dde22dc50ee1d7a2841d21835d02e0f85e98f1",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1476",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -32573,6 +32573,13 @@
         "status": "commit_sha_reconciled",
         "commit_sha": "9575e4e60dbcad1cc18474c2b914b9453f670733",
         "notes": "State ledger reconciled to amended commit SHA before push."
+      },
+      {
+        "at": "2026-06-28T15:24:26.822154Z",
+        "status": "pr_open",
+        "commit_sha": "11dde22dc50ee1d7a2841d21835d02e0f85e98f1",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1476",
+        "notes": "GitHub PR opened after local validation passed."
       }
     ]
   }
