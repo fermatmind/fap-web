@@ -27,7 +27,9 @@ export default async function ResultPrintPage({
       as="main"
       data-private-result-print-root="true"
       data-gotenberg-result-print-root="true"
-      className="w-full bg-white py-[var(--fm-space-10)] print:max-w-none print:bg-white print:px-0 print:py-0 [&:has([data-testid=mbti-result-shell])>h1]:sr-only"
+      data-pdf-mode="true"
+      data-pdf-ready="false"
+      className="w-full bg-white py-[var(--fm-space-10)] pdf-mode print:max-w-none print:bg-white print:px-0 print:py-0 [&:has([data-testid=mbti-result-shell])>h1]:sr-only"
     >
       <h1 className="mb-[var(--fm-space-4)] mt-0 text-3xl font-bold text-slate-900">{dict.result.title}</h1>
       <ResultClient key={id} attemptId={id} rolloutEnv={rolloutEnv} printMode />
