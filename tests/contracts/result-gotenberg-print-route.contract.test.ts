@@ -52,6 +52,7 @@ describe("Gotenberg result print route contract", () => {
 
   it("routes MBTI result PDF downloads to the strict result-page export endpoint", () => {
     const api = read("lib/api/v0_3.ts");
+    const apiBase = read("lib/api-base.ts");
     const button = read("components/commerce/AttemptPdfDownloadButton.tsx");
     const mbtiPostPurchase = read("components/result/mbti/MbtiPostPurchaseSection.tsx");
     const mbtiShell = read("components/result/mbti/MbtiResultShell.tsx");
@@ -63,6 +64,10 @@ describe("Gotenberg result print route contract", () => {
     expect(button).toContain('exportSurface === "result_page"');
     expect(mbtiPostPurchase).toContain('exportSurface="result_page"');
     expect(mbtiShell).toContain("getAttemptResultPagePdfUrl({ attemptId: resultPagePdfAttemptId })");
+    expect(apiBase).toContain("RESULT_PRINT_API_PROXY_SELECTOR");
+    expect(apiBase).toContain('[data-gotenberg-result-print-root="true"][data-pdf-mode="true"]');
+    expect(apiBase).toContain("isResultPrintApiProxyPage()");
+    expect(apiBase).toContain("buildSameOriginApiUrl(normalizedPath)");
   });
 
   it("keeps the MBTI result modules available to the print route through the shared renderer", () => {
