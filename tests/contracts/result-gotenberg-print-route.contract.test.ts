@@ -23,9 +23,14 @@ describe("Gotenberg result print route contract", () => {
     expect(printRoute).toContain('data-gotenberg-result-print-root="true"');
     expect(printRoute).toContain('data-pdf-mode="true"');
     expect(printRoute).toContain('data-pdf-ready="false"');
+    expect(printRoute).toContain("loadResultPrintBootstrap");
+    expect(printRoute).toContain('data-pdf-bootstrap={printBootstrap.report ? "server" : "failed"}');
     expect(printRoute).toContain("searchParams?: Promise<Record<string, string | string[] | undefined>>");
     expect(printRoute).toContain("firstQueryValue(query.access_token) ?? firstQueryValue(query.result_access_token)");
     expect(printRoute).toContain("printAccessToken={printAccessToken}");
+    expect(printRoute).toContain("initialReportAccess={printBootstrap.reportAccess}");
+    expect(printRoute).toContain("initialReportData={printBootstrap.report}");
+    expect(printRoute).toContain("printBootstrapError={printBootstrap.error}");
     expect(printRoute).toContain("pdf-mode");
     expect(resultPage).toContain('data-private-result-print-root="true"');
     expect(resultPage).toContain("mbti.result_page_export.v1");
@@ -37,10 +42,16 @@ describe("Gotenberg result print route contract", () => {
 
   it("keeps print mode on the shared result renderer and removes interactive recovery chrome", () => {
     const resultClient = read("app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx");
+    const printBootstrap = read("app/(localized)/[locale]/(app)/result/[id]/print/resultPrintBootstrap.ts");
 
     expect(resultClient).toContain("printMode = false");
     expect(resultClient).toContain("printMode?: boolean");
     expect(resultClient).toContain("printAccessToken?: string | null");
+    expect(resultClient).toContain("initialReportAccess?: AttemptReportAccessResponse | null");
+    expect(resultClient).toContain("initialReportData?: ReportResponse | null");
+    expect(resultClient).toContain("printBootstrapError?: string | null");
+    expect(resultClient).toContain("initialPrintBootstrapReady");
+    expect(resultClient).toContain("initialPrintBootstrapFailed");
     expect(resultClient).toContain("usePrintAccessTokenOnly");
     expect(resultClient).toContain("skipAuth: true, includeAnonId: false");
     expect(resultClient).toContain("if (printMode) {");
@@ -53,6 +64,10 @@ describe("Gotenberg result print route contract", () => {
     expect(resultClient).toContain("renderOptionalEmailRecoveryCard");
     expect(resultClient).toContain("printMode ? null : renderEmailRecoveryCard()");
     expect(resultClient).toContain("installPrivateResultPrintUrlRedaction(locale)");
+    expect(printBootstrap).toContain("X-Result-Access-Token");
+    expect(printBootstrap).toContain("X-FAP-Locale");
+    expect(printBootstrap).toContain("/report-access");
+    expect(printBootstrap).toContain("/report");
   });
 
   it("routes MBTI result PDF downloads to the strict result-page export endpoint", () => {

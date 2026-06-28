@@ -474,6 +474,37 @@ describe("ResultClient view-state contract", () => {
     setIntervalSpy.mockRestore();
   });
 
+  it("uses server-prefetched print data without client report fetches or invite-unlocks polling", async () => {
+    const setIntervalSpy = vi.spyOn(window, "setInterval");
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
+    const initialReportAccess = createAccessProjection();
+
+    render(
+      <ResultClient
+        attemptId="attempt-123"
+        rolloutEnv={{} as never}
+        printMode
+        printAccessToken="print_result_access_token_123"
+        initialReportAccess={initialReportAccess}
+        initialReportData={reportFixture}
+      />
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+
+    expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
+    expect(hoisted.fetchAttemptReport).not.toHaveBeenCalled();
+    expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
+    expect(hoisted.ensureFmTokenReady).not.toHaveBeenCalled();
+    expect(hoisted.fetchAttemptInviteUnlockProgress).not.toHaveBeenCalled();
+    expect(setIntervalSpy.mock.calls.some(([, delay]) => delay === 15000)).toBe(false);
+
+    setIntervalSpy.mockRestore();
+  });
+
   it("renders RIASEC from the snapshot-bound report projection without falling back to result projection", async () => {
     hoisted.fetchAttemptReport.mockResolvedValue(createRiasecSnapshotReport());
 

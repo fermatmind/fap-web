@@ -8,6 +8,7 @@ file,routePattern,routeFamily,exportKind,ownership,classification,risk,usesBuild
 "app/(localized)/[locale]/(app)/relationships/mbti/[inviteId]/page.tsx","/relationships/mbti/:inviteId","private_flow","generateMetadata","private_noindex","private_noindex","P2","false","false","false","false","true"
 "app/(localized)/[locale]/(app)/relationships/mbti/page.tsx","/relationships/mbti","private_flow","generateMetadata","private_noindex","private_noindex","P2","false","false","false","false","true"
 "app/(localized)/[locale]/(app)/result/[id]/page.tsx","/result/:id","private_flow","direct_metadata","private_noindex","private_noindex","P2","false","false","false","false","true"
+"app/(localized)/[locale]/(app)/result/[id]/print/page.tsx","/result/:id/print","private_flow","direct_metadata","private_noindex","private_noindex","P2","false","false","false","false","true"
 "app/(localized)/[locale]/(app)/workspace/team/[orgId]/assessments/[assessmentId]/page.tsx","/workspace/team/:orgId/assessments/:assessmentId","private_flow","generateMetadata","private_noindex","private_noindex","P2","false","false","false","false","true"
 "app/(localized)/[locale]/about/page.tsx","/about","static_content_page","generateMetadata","cms_backed","safe_static","P2","false","false","false","false","false"
 "app/(localized)/[locale]/articles/[slug]/page.tsx","/articles/:slug","article_detail","generateMetadata","cms_backed","migration_required","P1","true","true","true","true","true"
