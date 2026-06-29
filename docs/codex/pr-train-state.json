@@ -32603,8 +32603,8 @@
     "depends_on": [
       "MBTI-MAIN-FREE-FAQ-CONTENT-01"
     ],
-    "status": "pr_open",
-    "commit_sha": "e0b3d22ef3338dd5130e9949edc3d33af7564793",
+    "status": "ready_to_merge",
+    "commit_sha": "c139b68723e3167351db0e4e5b92a7d4d09b1ad0",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1480",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -32702,6 +32702,13 @@
         "commit_sha": "e0b3d22ef3338dd5130e9949edc3d33af7564793",
         "pr_url": "https://github.com/fermatmind/fap-web/pull/1480",
         "notes": "GitHub PR opened after local validation passed."
+      },
+      {
+        "at": "2026-06-29T08:58:00+08:00",
+        "status": "ready_to_merge",
+        "commit_sha": "c139b68723e3167351db0e4e5b92a7d4d09b1ad0",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1480",
+        "notes": "GitHub checks passed and PR merge state is CLEAN; recording ready_to_merge before squash merge."
       }
     ]
   }
