@@ -60,6 +60,12 @@ describe("Gotenberg result print route contract", () => {
     expect(resultClient).toContain('id="fermat-pdf-ready"');
     expect(resultClient).toContain('data-pdf-ready="true"');
     expect(resultClient).toContain("MBTI_PDF_READY_ANCHORS");
+    expect(resultClient).toContain("MBTI_PDF_READY_ANCHOR_TIMEOUT_MS = 8000");
+    expect(resultClient).toContain("MBTI_PDF_ASSET_READY_TIMEOUT_MS = 2000");
+    expect(resultClient).toContain("waitForMbtiPdfReadyAnchors(MBTI_PDF_READY_ANCHOR_TIMEOUT_MS)");
+    expect(resultClient).toContain("waitForPdfFonts(MBTI_PDF_ASSET_READY_TIMEOUT_MS)");
+    expect(resultClient).toContain("waitForPdfImages(MBTI_PDF_ASSET_READY_TIMEOUT_MS)");
+    expect(resultClient).toContain("image.addEventListener(\"error\", () => resolve(), { once: true })");
     expect(resultClient).toContain('"mbti-desktop-traits"');
     expect(resultClient).toContain('"mbti-desktop-career"');
     expect(resultClient).toContain('"mbti-desktop-growth"');
