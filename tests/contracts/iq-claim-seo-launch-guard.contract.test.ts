@@ -112,6 +112,29 @@ describe("IQ claim SEO launch guard", () => {
     });
   });
 
+  it("allows IQ llms-full expansion only when backend CMS authority enables it", () => {
+    const guard = resolveIqLaunchSeoGuard({
+      slug: IQ_LAUNCH_CANONICAL_SLUG,
+      scaleCode: "IQ_INTELLIGENCE_QUOTIENT",
+      hasSeoTitle: true,
+      hasSeoDescription: true,
+      title: "IQ reasoning practice",
+      description: "Original visual and numeric reasoning practice with raw score context.",
+      featureList: ["30 original items", "method boundary"],
+      seoRampAuthority: {
+        ...IQ_SEO_RAMP_AUTHORITY,
+        llmsFullEligible: true,
+      },
+    });
+
+    expect(guard).toMatchObject({
+      sitemapLlmsExpansionAllowed: true,
+      llmsFullExpansionAllowed: true,
+      jsonLdExpansionAllowed: true,
+      shouldNoindex: false,
+    });
+  });
+
   it("blocks unsafe IQ score and percentile claims", () => {
     expect(hasUnsafeIqLaunchClaim("Get your official IQ score and population percentile ranking")).toBe(true);
     expect(hasUnsafeIqLaunchClaim("查看官方智商和人群百分位")).toBe(true);

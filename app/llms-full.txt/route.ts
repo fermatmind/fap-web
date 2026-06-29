@@ -124,7 +124,7 @@ const LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS = [
   "acupuncturists",
   "acute-care-nurses",
 ] as const;
-const LLMS_FULL_REQUIRED_NON_IQ_TEST_PATHS = [
+const LLMS_FULL_REQUIRED_SIX_ASSESSMENT_TEST_PATHS = [
   "/en/tests/mbti-personality-test-16-personality-types",
   "/zh/tests/mbti-personality-test-16-personality-types",
   "/en/tests/big-five-personality-test-ocean-model",
@@ -133,6 +133,8 @@ const LLMS_FULL_REQUIRED_NON_IQ_TEST_PATHS = [
   `/zh/tests/${"ennea"}gram-personality-test-nine-types`,
   `/en/tests/holland-career-interest-test-${"ria"}sec`,
   `/zh/tests/holland-career-interest-test-${"ria"}sec`,
+  "/en/tests/iq-test-intelligence-quotient-assessment",
+  "/zh/tests/iq-test-intelligence-quotient-assessment",
   "/en/tests/eq-test-emotional-intelligence-assessment",
   "/zh/tests/eq-test-emotional-intelligence-assessment",
 ] as const;
@@ -560,7 +562,7 @@ export function isCompleteLlmsFullText(text: string, siteUrl: string): boolean {
 
   if (
     shouldRequireCompleteTestCohort() &&
-    !LLMS_FULL_REQUIRED_NON_IQ_TEST_PATHS.every((path) => text.includes(`${siteUrl}${path}`))
+    !LLMS_FULL_REQUIRED_SIX_ASSESSMENT_TEST_PATHS.every((path) => text.includes(`${siteUrl}${path}`))
   ) {
     return false;
   }
