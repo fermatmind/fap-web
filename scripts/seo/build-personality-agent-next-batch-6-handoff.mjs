@@ -35,12 +35,6 @@ const OUTPUT_CSV = resolveRepoPath(
     `docs/seo/personality/personality-agent-operations-next-batch-6-handoff-${GENERATED_DATE}.csv`,
 );
 
-const QUERY_BACKED_PATHS = new Set([
-  "/zh/personality/intp-a",
-  "/zh/personality/esfp-a",
-  "/en/personality/enfj-a",
-]);
-
 const BILINGUAL_PAIRS = new Map([
   ["/zh/personality/intp-a", "/en/personality/intp-a"],
   ["/zh/personality/esfp-a", "/en/personality/esfp-a"],
