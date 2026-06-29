@@ -100,11 +100,13 @@ describe("Big Five shell polish contract", () => {
   it("groups PDF, history, compare, retake, and action anchors into explicit continuation surfaces", () => {
     renderPolishedShell();
 
-    expect(screen.getByTestId("big5-actions-card")).toHaveTextContent("继续怎么用这份结果");
+    expect(screen.getByTestId("big5-actions-card")).not.toHaveTextContent("继续怎么用这份结果");
+    expect(screen.getByTestId("big5-actions-card")).not.toHaveTextContent("What to do next");
     expect(screen.getByTestId("big5-actions-card")).not.toHaveTextContent("结果之后");
     expect(screen.getByTestId("big5-actions-card")).not.toHaveTextContent("After the report");
     expect(screen.getByTestId("big5-pdf-entry")).toHaveTextContent("保存报告");
     expect(screen.getByTestId("big5-pdf-entry")).toHaveTextContent("PDF 导出已安全暂停");
+    expect(screen.getByTestId("big5-pdf-entry")).not.toHaveTextContent("我们会在安全 PDF 导出路径恢复后重新开放下载");
     expect(within(screen.getByTestId("big5-pdf-entry")).getByRole("button", { name: "PDF 暂不可用" })).toBeDisabled();
     expect(screen.getByTestId("big5-history-entry")).toHaveTextContent("查看历史");
     expect(screen.getByTestId("big5-compare-entry")).toHaveTextContent("对比变化");
@@ -112,8 +114,21 @@ describe("Big Five shell polish contract", () => {
 
     const continuation = screen.getByTestId("big5-continuation-strip");
     expect(within(continuation).getByText("把结果带回真实场景")).toBeInTheDocument();
+    expect(continuation).not.toHaveTextContent("下一步路径");
+    expect(continuation).not.toHaveTextContent("这不是新的业务入口");
     expect(screen.getByTestId("big5-action-anchor-entry")).toHaveAttribute("href", "#big5-section-action_plan");
     expect(within(continuation).getByRole("link", { name: /历史轨迹/ })).toHaveAttribute("href", "/zh/history/big5");
     expect(within(continuation).getByRole("link", { name: /对比近两次/ })).toHaveAttribute("href", "/zh/history/big5/compare");
+  });
+
+  it("does not show auxiliary access labels or section scaffolding in the Big Five result body", () => {
+    renderPolishedShell();
+
+    expect(screen.getByTestId("big5-access-summary")).not.toHaveTextContent("当前可读");
+    expect(screen.getByTestId("big5-access-summary")).toHaveTextContent("完整报告已解锁，可直接阅读各部分内容。");
+    expect(screen.queryByText(/第 \d+ 节 · 第 \d+ 页/)).not.toBeInTheDocument();
+    expect(screen.queryByText("回到目录")).not.toBeInTheDocument();
+    expect(screen.queryByText("优先场景：压力恢复")).not.toBeInTheDocument();
+    expect(screen.queryByText("这组动作在当前分值结构中命中数量和优先级更高")).not.toBeInTheDocument();
   });
 });

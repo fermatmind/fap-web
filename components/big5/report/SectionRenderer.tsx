@@ -16,6 +16,13 @@ type Section = {
   [key: string]: unknown;
 };
 
+type SectionBlock = Record<string, unknown> & {
+  block_id?: string;
+  block_uid?: string;
+  id?: string;
+  title?: string;
+};
+
 const INTERNAL_DEBUG_PATTERNS = [
   /\bAttemptReadController\b/gi,
   /\bBig Five Report Engine v\d+(?:\s+registry)?\b/gi,
@@ -67,6 +74,21 @@ function getSectionAnchorId(sectionKey: string): string {
   return `big5-section-${normalized || "section"}`;
 }
 
+function shouldHideBigFiveBlock(block: SectionBlock, sectionKey: string): boolean {
+  if (sectionKey !== "action_plan") return false;
+
+  const blockId = [
+    stripInternalDebugText(block.id),
+    stripInternalDebugText(block.block_id),
+    stripInternalDebugText(block.block_uid),
+  ].join(" ");
+  const title = stripInternalDebugText(block.title);
+
+  return /(?:^|[\s._-])(?:matrix_)?top_priority(?:[\s._-]|$)/i.test(blockId)
+    || /^优先场景[:：]/u.test(title)
+    || /^Priority scenario\b/i.test(title);
+}
+
 export function SectionRenderer({
   section,
   locked,
@@ -92,9 +114,10 @@ export function SectionRenderer({
   const headerClassName = isBigFive ? "border-l-4 border-sky-300 pl-4" : "";
   const accessLevel = (section.access_level ?? "free").toString().toLowerCase();
   const isPaidSection = accessLevel === "paid";
-  const blocks = Array.isArray(section.blocks) ? section.blocks : [];
-  const subtitle = stripInternalDebugText(section.subtitle);
-  const kicker = formatSectionKicker(section, locale);
+  const rawBlocks = Array.isArray(section.blocks) ? section.blocks : [];
+  const blocks = isBigFive ? rawBlocks.filter((block) => !shouldHideBigFiveBlock(block, key)) : rawBlocks;
+  const subtitle = isBigFive ? "" : stripInternalDebugText(section.subtitle);
+  const kicker = isBigFive ? "" : formatSectionKicker(section, locale);
   const lockedPreviewPolicy = String(section.locked_preview_policy ?? "none").trim().toLowerCase();
   const previewBlocks =
     lockedPreviewPolicy === "teaser_card"
@@ -165,11 +188,6 @@ export function SectionRenderer({
           <BlockRenderer key={`${key}-${idx}`} block={block} sectionKey={key} normsStatus={normsStatus} />
         ))}
       </div>
-      {isBigFive ? (
-        <a href="#big5-on-this-page" className="inline-flex text-sm font-medium text-sky-700 hover:text-sky-900">
-          {locale === "zh" ? "回到目录" : "Back to contents"}
-        </a>
-      ) : null}
     </section>
   );
 }

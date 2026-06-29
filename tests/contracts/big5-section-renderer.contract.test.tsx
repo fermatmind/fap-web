@@ -61,7 +61,7 @@ describe("big5 section renderer contract", () => {
     expect(screen.getByText(BIG5_V1_STATE_MICROCOPY.norms.missing)).toBeInTheDocument();
   });
 
-  it("renders section hierarchy metadata (step, page, subtitle) when provided", () => {
+  it("renders section hierarchy metadata (step, page, subtitle) for non-Big Five sections when provided", () => {
     render(
       <SectionRenderer
         section={{
@@ -76,7 +76,6 @@ describe("big5 section renderer contract", () => {
         locked={false}
         normsStatus="CALIBRATED"
         locale="en"
-        scaleCode="BIG5_OCEAN"
       />
     );
 
@@ -84,7 +83,7 @@ describe("big5 section renderer contract", () => {
     expect(screen.getByText("Dominant trait structure and calibrated profile framing.")).toBeInTheDocument();
   });
 
-  it("adds Big Five section anchors and a contents affordance without changing section keys", () => {
+  it("adds Big Five section anchors while hiding auxiliary section scaffolding", () => {
     render(
       <SectionRenderer
         section={{
@@ -94,7 +93,16 @@ describe("big5 section renderer contract", () => {
           order: 7,
           page_slot: "page_7",
           access_level: "free",
-          blocks: [{ kind: "paragraph", body: "先选择一个场景动作。" }],
+          blocks: [
+            { kind: "paragraph", body: "先选择一个场景动作。" },
+            {
+              kind: "callout",
+              block_id: "action_matrix_top_priority_work",
+              block_uid: "action_plan.matrix_top_priority.work",
+              title: "优先场景：工作场景",
+              body: "这组动作在当前分值结构中命中数量和优先级更高，适合作为这份报告的行动入口。",
+            },
+          ],
         }}
         locked={false}
         normsStatus="CALIBRATED"
@@ -104,8 +112,11 @@ describe("big5 section renderer contract", () => {
     );
 
     expect(screen.getByTestId("big5-section-action_plan")).toHaveAttribute("id", "big5-section-action_plan");
-    expect(screen.getByText("第 7 节 · 第 7 页")).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "回到目录" })).toHaveAttribute("href", "#big5-on-this-page");
+    expect(screen.queryByText("第 7 节 · 第 7 页")).not.toBeInTheDocument();
+    expect(screen.queryByText("按场景落到下一步动作。")).not.toBeInTheDocument();
+    expect(screen.queryByText("优先场景：工作场景")).not.toBeInTheDocument();
+    expect(screen.queryByText("这组动作在当前分值结构中命中数量和优先级更高")).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "回到目录" })).not.toBeInTheDocument();
   });
 
   it("uses section-specific locked preview description from assembler metadata", () => {

@@ -489,11 +489,8 @@ export function Big5ResultShell({
 
           <div data-testid="big5-access-summary" className="grid gap-3 md:grid-cols-[1.2fr_0.8fr]">
             <div className="rounded-2xl border border-white/80 bg-white/85 p-4 shadow-[0_10px_28px_rgba(15,23,42,0.05)]">
-              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">
-                {isZh ? BIG5_V1_SHELL_MICROCOPY.hero.unlocked_now_title_zh : BIG5_V1_SHELL_MICROCOPY.hero.unlocked_now_title_en}
-              </p>
               {visibleTitles.length > 0 ? (
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2">
                   {visibleTitles.map((title) => (
                     <span
                       key={title}
@@ -504,7 +501,7 @@ export function Big5ResultShell({
                   ))}
                 </div>
               ) : (
-                <p className="m-0 mt-2 text-sm text-slate-600">
+                <p className="m-0 text-sm text-slate-600">
                   {isZh ? "当前已展示基础画像与关键摘要。" : "The profile foundation and key summary are already visible."}
                 </p>
               )}
@@ -531,7 +528,7 @@ export function Big5ResultShell({
                 <p className="m-0 mt-2 text-sm text-slate-600">
                   {reportLocked
                     ? (isZh ? "完整报告还包含更深入的维度解释与行动建议。" : "The full report also includes deeper domain interpretation and action guidance.")
-                    : (isZh ? "你已进入完整阅读路径，可继续逐节展开。": "You already have the full reading path unlocked.")}
+                    : (isZh ? "完整报告已解锁，可直接阅读各部分内容。": "The full report is unlocked. You can read each section directly.")}
                 </p>
               )}
             </div>
@@ -542,11 +539,6 @@ export function Big5ResultShell({
       {projection ? <Big5ProjectionSummary locale={locale} projection={projection} /> : null}
 
       <section id="big5-tools" data-testid="big5-actions-card" className="scroll-mt-24 space-y-4">
-        <div className="space-y-1">
-          <h3 className="m-0 text-2xl font-semibold text-slate-950">
-            {isZh ? "继续怎么用这份结果" : "What to do next"}
-          </h3>
-        </div>
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           <div data-testid="big5-pdf-entry" className="rounded-xl border border-slate-200 bg-slate-50 p-4">
             <p className="m-0 text-sm font-semibold text-slate-950">{isZh ? "保存报告" : "Save report"}</p>
@@ -564,11 +556,6 @@ export function Big5ResultShell({
                   locale={locale}
                   safetyDisabled
                   safetyDisabledLabel={isZh ? "PDF 暂不可用" : "PDF unavailable"}
-                  safetyDisabledReason={
-                    isZh
-                      ? "我们会在安全 PDF 导出路径恢复后重新开放下载。"
-                      : "Download will return after the safe PDF export path is restored."
-                  }
                 />
               </div>
             ) : null}
@@ -646,17 +633,9 @@ export function Big5ResultShell({
 
       <section data-testid="big5-continuation-strip" className="space-y-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
         <div className="space-y-1">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-            {isZh ? "下一步路径" : "Next steps"}
-          </p>
           <h3 className="m-0 text-2xl font-semibold text-slate-950">
             {isZh ? "把结果带回真实场景" : "Carry the result into real contexts"}
           </h3>
-          <p className="m-0 text-sm leading-7 text-slate-600">
-            {isZh
-              ? "这不是新的业务入口，而是把已有 PDF、历史、对比和行动建议组织成连续使用路径。"
-              : "This uses the existing PDF, history, comparison, and action anchors as one continuation path."}
-          </p>
         </div>
         <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
           <Link data-testid="big5-action-anchor-entry" href={actionPlanHref} className="rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-950 transition hover:border-emerald-300 hover:bg-emerald-100">
