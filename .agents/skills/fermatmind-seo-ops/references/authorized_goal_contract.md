@@ -20,7 +20,10 @@ The current `/goal` must state the target package, article pair, allowed locales
 - `allow_sitemap_llms_release`
 - `allow_url_truth_refresh`
 - `allow_search_channel_enqueue`
+- `allow_search_channel_approve`
 - `allow_indexnow_bounded_submission`
+- `allow_baidu_bounded_submission`
+- `allow_gsc_manual_request_indexing`
 - `allow_scoped_pr_merge`
 - `allow_scoped_backend_deploy`
 - `allow_scoped_frontend_deploy`
@@ -43,8 +46,8 @@ Stop immediately on:
 - `duplicate_recent_cover_blocked`
 - `claim_override`
 - `schema_hreflang_enablement`
-- `gsc_request_indexing`
-- `baidu_live_push`
+- `gsc_request_indexing_without_target_urls`
+- `baidu_live_push_without_bounded_queue_items`
 - `production_env_secret_change`
 - `migration_or_destructive_db_change`
 - `dependency_upgrade_out_of_scope`
@@ -60,6 +63,42 @@ Stop immediately on:
 | `pre_authorizable` | May execute only when the profile explicitly allows the action family and preflight passes. |
 | `requires_exact_approval` | Must stop unless exact operator text, target IDs/URLs, and target SHA/release where relevant are present. |
 | `must_stop` | Must stop regardless of broad profile approval. |
+
+## Full-Chain Preauthorization
+
+For daily SEO article release work, the operator may provide one full-chain `/goal`
+instead of approving each write gate one at a time. A valid full-chain profile
+must include:
+
+- `authorization_mode=full_chain_preapproved`.
+- package path or package id.
+- translation group id.
+- target locales.
+- target article slugs and canonical URLs.
+- permitted article operation type.
+- Media Library import/register permission.
+- resolved package write permission.
+- CMS draft import permission.
+- publish metadata/editorial readiness repair permission.
+- controlled publish permission after dry-run/rehearsal passes.
+- discoverability release permission for sitemap, llms, and llms-full after smoke passes.
+- URL Truth refresh/write permission after discoverability parity passes.
+- Search Channel enqueue and approve permission for the target canonical URLs.
+- bounded IndexNow live submission permission after queue dry-run and approval pass.
+- bounded Baidu live submission permission after queue dry-run and approval pass.
+- GSC manual Request Indexing permission for the exact target canonical URLs.
+- explicit holds for schema and hreflang unless this goal is specifically a schema/hreflang rollout.
+
+The runner may continue through all preauthorized stages without returning for
+another operator phrase when each stage dry-run/preflight passes and the action
+remains inside the target package, article ids, canonical URLs, locales, and
+queue item set created by the same run.
+
+Full-chain preauthorization does not override hard blockers. Stop on login
+failure, CAPTCHA, platform-side provider block, missing runtime command, failed
+preflight, failed dry-run, private URL leak, claim-safety failure, identity
+mismatch, rollback-required failure, schema/hreflang side effect, deploy need
+without an allowed deploy profile, or any action not named by the profile.
 
 ## Output
 
