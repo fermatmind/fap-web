@@ -32603,9 +32603,9 @@
     "depends_on": [
       "MBTI-MAIN-FREE-FAQ-CONTENT-01"
     ],
-    "status": "local_checks_passed",
-    "commit_sha": "0c2b67b485904b027a17c89b527feac2e0d04c3a",
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "e0b3d22ef3338dd5130e9949edc3d33af7564793",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1480",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -32695,6 +32695,13 @@
         "status": "committed",
         "commit_sha": "0c2b67b485904b027a17c89b527feac2e0d04c3a",
         "notes": "Implementation commit created after local checks and scope validation passed; commit SHA reconciled after ledger amend."
+      },
+      {
+        "at": "2026-06-29T08:55:00+08:00",
+        "status": "pr_open",
+        "commit_sha": "e0b3d22ef3338dd5130e9949edc3d33af7564793",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1480",
+        "notes": "GitHub PR opened after local validation passed."
       }
     ]
   }
