@@ -11,23 +11,24 @@ Search discovery is normally a batch lane. A daily article release may stop at `
 1. URL Truth refresh.
 2. Search Channel readiness.
 3. Search Channel Queue enqueue.
-4. Operator review.
-5. Search Channel approve with explicit queue item IDs.
+4. Operator review, or full-chain preauthorized queue review when the Authorization Profile lists the target URLs/channels.
+5. Search Channel approve with explicit queue item IDs created by this run.
 6. IndexNow bounded submission.
-7. Baidu bounded readiness/live path when separately approved.
-8. GSC manual readiness.
+7. Baidu bounded readiness/live path when separately approved or full-chain preauthorized.
+8. GSC manual readiness and Request Indexing when separately approved or full-chain preauthorized.
 9. final channel matrix.
 
 ## Rules
 
 - URL Truth refresh requires `allow_url_truth_refresh=true`.
 - Queue enqueue requires `allow_search_channel_enqueue=true`.
-- Queue item live submission must use the official flow: queue readiness, queue enqueue, operator review, `search-channel-approve`, then `search-channel-submit-approved`.
+- Queue item live submission must use the official flow: queue readiness, queue enqueue, queue review, `search-channel-approve`, then `search-channel-submit-approved`.
 - Submit only specified queue item IDs that are `approval_state=approved` and whose dry-run passed.
 - Do not submit queue items whose `execution_state=submitted`.
 - IndexNow may run only if bounded, channel-specific, and `allow_indexnow_bounded_submission=true`.
-- Baidu may run only if bounded, channel-specific, and separately approved; `site init fail` is `platform_action_required`, and HTTP 400 `over quota` is `provider_quota_exhausted`. Neither is an automatic retry condition.
-- GSC is inspection only and must not be included in Search Channel executor commands; do not click Request Indexing without separate exact authorization.
+- Baidu may run only if bounded, channel-specific, and `allow_baidu_bounded_submission=true`; `site init fail` is `platform_action_required`, and HTTP 400 `over quota` is `provider_quota_exhausted`. Neither is an automatic retry condition.
+- GSC must not be included in Search Channel executor commands. Request Indexing may run only when `allow_gsc_manual_request_indexing=true` and the inspected URL exactly matches one of the preauthorized target canonical URLs, or when separately approved.
+- In `authorization_mode=full_chain_preapproved`, do not stop for another operator phrase between enqueue, approve, IndexNow submit, Baidu submit, and GSC Request Indexing when the queue items/URLs/channels are generated from the same target package and all dry-runs pass.
 - 360, Sogou, and Shenma hold by default.
 - Do not mix channels in one live submit command.
 - Do not use `--channels=all`.

@@ -2,7 +2,9 @@
 
 ## Objective
 
-Release or continue one SEO article safely while keeping search-provider live actions in a separate batch lane unless explicitly authorized.
+Release or continue one SEO article safely. Search-provider live actions stay in
+a separate batch lane unless the daily goal uses a full-chain Authorization
+Profile or separate exact authorization.
 
 ## Authorization Profile
 
@@ -17,10 +19,10 @@ Release or continue one SEO article safely while keeping search-provider live ac
 | publish metadata autofill | exact authorization required when it writes CMS |
 | publish/promote | exact authorization required |
 | sitemap/llms/URL Truth write | exact authorization required |
-| Search Channel enqueue/write | exact authorization required |
-| IndexNow live | exact queue IDs and live phrase required |
-| Baidu live | exact queue IDs and separate live phrase required |
-| GSC Request Indexing | separate manual exact authorization required |
+| Search Channel enqueue/write | exact authorization or full-chain profile required |
+| IndexNow live | exact queue IDs or full-chain profile required |
+| Baidu live | exact queue IDs or full-chain profile required |
+| GSC Request Indexing | exact target URLs or full-chain profile required |
 | schema/hreflang | separate task required |
 
 ## Daily Target State
@@ -37,11 +39,11 @@ The daily content lane may stop at:
 
 ## Search Batch Notes
 
-- Search live actions are not blanket-covered by article release approval.
-- Queue IDs are generated later; approval must reference exact IDs.
+- Search live actions are not blanket-covered by article release approval unless the goal explicitly uses `authorization_mode=full_chain_preapproved`.
+- Queue IDs are generated later; gate-by-gate approval must reference exact IDs, while full-chain approval may continue for queue items generated from the locked target URLs/channels.
 - IndexNow live can execute only through the approved Search Channel queue flow.
-- Baidu live push remains separate approval.
-- GSC Request Indexing remains separate approval.
+- Baidu live push remains separate approval unless full-chain preauthorized.
+- GSC Request Indexing remains separate approval unless full-chain preauthorized for exact canonical URLs.
 - Do not wait on Baidu/GSC before starting the next daily article when content/discoverability are safe.
 
 ## Provider Holds

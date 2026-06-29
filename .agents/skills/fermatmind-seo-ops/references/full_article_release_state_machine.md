@@ -29,6 +29,13 @@ Daily content release may end safely at one of these terminal states when public
 
 Search submissions are batch tasks after publish/discoverability convergence. Baidu, GSC, and IndexNow live actions must not block the next article's package/import/preview/publish workflow.
 
+When `authorization_mode=full_chain_preapproved`, the release may continue
+through Search Channel enqueue, queue approval, bounded IndexNow submission,
+bounded Baidu submission, and GSC Request Indexing without returning for another
+operator phrase, provided every target URL, queue item, channel, article id,
+locale, and translation group id is created or locked by the same run and the
+relevant dry-run/preflight passes.
+
 ## Operation Type Branches
 
 For `operation_type=update_existing_article`:
@@ -210,7 +217,7 @@ For `operation_type=new_article`:
 
 - Inputs: queue item IDs and channel matrix.
 - Allowed actions: approve/hold channel plan according to profile using the official `search-channel-approve` flow.
-- Hard stops: missing exact approval for live-required channel.
+- Hard stops: missing exact approval or missing full-chain preauthorization for live-required channel.
 - Success decision: `GO_FOR_INDEXNOW_BOUNDED_SUBMISSION` or `SEARCH_BATCH_APPROVED_HELD_FOR_LIVE_AUTHORIZATION`.
 - Failure decision: `BLOCKED_NEEDS_EXACT_APPROVAL`.
 - Resume: provide exact approval or record hold.
@@ -219,7 +226,7 @@ For `operation_type=new_article`:
 
 - Inputs: selected IndexNow queue items and bounded approval.
 - Allowed actions: IndexNow-only bounded submit through `search-channel-submit-approved`.
-- Hard stops: identity lock failure, dry-run issues, mixed channel submit, unapproved queue item, exact phrase required but absent.
+- Hard stops: identity lock failure, dry-run issues, mixed channel submit, unapproved queue item, exact phrase or full-chain preauthorization required but absent.
 - Success decision: `INDEXNOW_SUBMISSION_COMPLETED_OR_HELD`.
 - Failure decision: `BLOCKED_NEEDS_EXACT_INDEXNOW_APPROVAL`.
 - Resume: rerun only remaining unsubmitted items.
@@ -227,17 +234,17 @@ For `operation_type=new_article`:
 ### GSC_MANUAL_READINESS
 
 - Inputs: public URLs and GSC access.
-- Allowed actions: Article Identity Lock, inspect and record evidence only.
-- Hard stops: identity lock failure, CAPTCHA/login failure, Request Indexing click requested implicitly.
-- Success decision: `GSC_MANUAL_READINESS_COMPLETED`.
+- Allowed actions: Article Identity Lock, inspect and record evidence; when `allow_gsc_manual_request_indexing=true` and inspected URL exactly matches a target canonical URL, click Request Indexing and record the result.
+- Hard stops: identity lock failure, CAPTCHA/login failure, Request Indexing click requested implicitly without full-chain preauthorization or exact approval, target URL/property mismatch.
+- Success decision: `GSC_MANUAL_READINESS_COMPLETED` or `GSC_REQUEST_INDEXING_COMPLETED`.
 - Failure decision: `BLOCKED_NEEDS_OPERATOR_INPUT`.
 - Resume: rerun after access restored.
 
 ### BAIDU_READINESS
 
 - Inputs: Baidu queue items and readiness evidence.
-- Allowed actions: Article Identity Lock, readiness/dry-run only unless separate exact approval.
-- Hard stops: identity lock failure, `site init fail`, HTTP 400 `over quota`, token exposure, live gate disabled without bounded approved executor path.
+- Allowed actions: Article Identity Lock, readiness/dry-run; when `allow_baidu_bounded_submission=true`, submit bounded approved Baidu queue items through the official executor.
+- Hard stops: identity lock failure, `site init fail`, HTTP 400 `over quota`, token exposure, live gate disabled without bounded approved executor path, queue item/channel mismatch.
 - Success decision: `BAIDU_READINESS_COMPLETED_OR_HELD`.
 - Failure decision: `BAIDU_PLATFORM_BLOCKED` or `PROVIDER_QUOTA_BLOCKED_NOT_CONTENT_BLOCKER`.
 - Resume: rerun after platform-side resolution.

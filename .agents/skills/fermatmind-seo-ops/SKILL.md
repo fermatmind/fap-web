@@ -76,8 +76,8 @@ Never do these actions from this skill, even in authorized runner mode:
 - Use placeholder, private, tokenized, or unverified Media Library assets.
 - Override the Claim Gate or publish unsafe claims.
 - Enable schema or hreflang implicitly.
-- Click GSC Request Indexing.
-- Push Baidu live submission without separate exact approval.
+- Click GSC Request Indexing without a full-chain Authorization Profile or separate exact approval that lists the target canonical URLs.
+- Push Baidu live submission without a full-chain Authorization Profile or separate exact approval that lists the bounded queue item IDs.
 - Change production env vars or secrets.
 - Run migrations or destructive DB changes.
 - Upgrade dependencies outside the current scope.
@@ -128,7 +128,7 @@ The following always require explicit human authorization. In V1.1/readiness wor
 - Schema enablement. This remains exact-approval-only and must not be inferred from publish/indexability approval.
 - Hreflang enablement. This remains exact-approval-only and must not be inferred from publish/indexability approval.
 - Search Channel enqueue or submit.
-- GSC/Baidu/IndexNow/360/Sogou/Shenma calls. GSC Request Indexing and Baidu live push remain exact-approval-only; 360/Sogou/Shenma hold by default.
+- GSC/Baidu/IndexNow/360/Sogou/Shenma calls. GSC Request Indexing, IndexNow live submission, and Baidu live push may be pre-authorized by a full-chain Authorization Profile when the target canonical URLs, queue item IDs, channels, and hold boundaries are explicit; otherwise they remain exact-approval-only. 360/Sogou/Shenma hold by default.
 - ISR revalidation.
 - Collector or scheduler enablement.
 - Metabase sharing, embedding, datasource, permission, or network changes.
@@ -229,9 +229,9 @@ Required stages:
 15. URL Truth refresh.
 16. Search Channel Queue readiness.
 17. Search Channel Queue enqueue or explicit `DISCOVERABILITY_RECONCILED_SEARCH_BATCH_HELD`.
-18. IndexNow bounded submission only when the search batch is separately authorized.
-19. GSC manual readiness only; Request Indexing remains a separate exact-authorization lane.
-20. Baidu readiness/live path only when separately authorized.
+18. IndexNow bounded submission only when the search batch is pre-authorized or separately authorized.
+19. GSC manual readiness and Request Indexing only when the target canonical URLs are pre-authorized or separately authorized.
+20. Baidu readiness/live path only when bounded queue item IDs are pre-authorized or separately authorized.
 21. final report.
 22. D1/D7/D14 observation queue.
 23. final reconciliation after any follow-up schema, hreflang, GSC, Search Channel, IndexNow, or Baidu work.
@@ -278,7 +278,7 @@ Output:
 
 No-go:
 
-- Do not mutate CMS, publish/promote, revalidate, submit search, enable schema/hreflang, update sitemap/llms, or click GSC from this workflow without a separate exact authorization and the relevant playbook preflight.
+- Do not mutate CMS, publish/promote, revalidate, submit search, enable schema/hreflang, update sitemap/llms, or click GSC from this workflow without a full-chain Authorization Profile or separate exact authorization and the relevant playbook preflight.
 
 ### `daily_pipeline_search_batch_separation`
 
@@ -289,7 +289,7 @@ Use:
 - `references/daily_pipeline_search_batch_separation.md`.
 - `assets/daily_seo_memo_template.md`.
 
-Hard gates: search live actions, GSC Request Indexing, schema, hreflang, CMS writes, Media Library writes, URL Truth writes, revalidation, and deploy remain exact-authorization only.
+Hard gates: search live actions, GSC Request Indexing, CMS writes, Media Library writes, URL Truth writes, revalidation, and deploy require either a full-chain Authorization Profile or separate exact authorization. Schema and hreflang remain separate exact rollout tasks unless this workflow explicitly targets them.
 
 ### `authorized_goal_contract`
 
@@ -379,7 +379,7 @@ Use:
 - `references/gsc_manual_readiness.md`.
 - `references/baidu_readiness_guard.md`.
 
-Hard gates: lock article identity before queue or provider work. GSC is inspect-only unless a separate exact Request Indexing authorization is present. Baidu live push requires separate exact approval. 360/Sogou/Shenma hold by default.
+Hard gates: lock article identity before queue or provider work. GSC Request Indexing requires full-chain preauthorization with exact canonical URLs or separate exact approval. Baidu live push requires full-chain preauthorization with bounded queue item/channel match or separate exact approval. 360/Sogou/Shenma hold by default.
 
 ### `schema_rollout`
 
