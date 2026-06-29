@@ -1,0 +1,98 @@
+{
+  "id": "MBTI-MAIN-FAQ-SCHEMA-EVIDENCE-01",
+  "captured_at": "2026-06-29T08:42:59+08:00",
+  "repo": "fap-web",
+  "source_repo": "fap-api",
+  "source_pr": "https://github.com/fermatmind/fap-api/pull/2525",
+  "source_merge_commit": "66eaffb3be13fe5622a0c512e4cb827627bf7154",
+  "slug": "mbti-personality-test-16-personality-types",
+  "canonical_path": "/tests/mbti-personality-test-16-personality-types",
+  "locale": "zh",
+  "scope": "canonical structured-data evidence and contract parity only; no runtime schema logic",
+  "source_faq": [
+    {
+      "q": "费马的 MBTI免费测试会收费吗？",
+      "a": "MBTI 主测试可以免费完成，并在提交后查看 16 型人格完整结果、偏好维度和后续探索建议；页面不会把基础结果解读作为付费前置条件。"
+    },
+    {
+      "q": "这份 16型人格完整结果/报告包含哪些内容？",
+      "a": "结果会展示你的 16 型人格类型，E/I、S/N、T/F、J/P 偏好方向，以及沟通协作、职业探索和自我观察相关的说明。内容用于理解性格倾向，不等同于诊断或职业保证。"
+    },
+    {
+      "q": "MBTI免费测试结果可以作为职业或心理诊断吗？",
+      "a": "不可以。MBTI 测试适合做自我了解和讨论起点，不能替代心理诊断、医疗建议或正式职业评估。重要决策应结合更多资料和专业意见。"
+    },
+    {
+      "q": "完成测试后还能重新查看或重复测试吗？",
+      "a": "可以。你可以在完成后回看自己的结果报告，也可以在状态或作答理解发生变化时重新测试，并把不同结果作为自我观察的参考。"
+    }
+  ],
+  "api_readback": {
+    "staging": {
+      "endpoint": "https://staging-api.fermatmind.com/api/v0.3/scales/lookup?slug=mbti-personality-test-16-personality-types&locale=zh",
+      "seo_title": "免费 MBTI 测试：16 型人格完整结果",
+      "faq_count": 4,
+      "faq_questions": [
+        "费马的 MBTI免费测试会收费吗？",
+        "这份 16型人格完整结果/报告包含哪些内容？",
+        "MBTI免费测试结果可以作为职业或心理诊断吗？",
+        "完成测试后还能重新查看或重复测试吗？"
+      ]
+    },
+    "production": {
+      "endpoint": "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=mbti-personality-test-16-personality-types&locale=zh",
+      "seo_title": "免费 MBTI 测试：16 型人格完整结果",
+      "faq_count": 4,
+      "faq_questions": [
+        "费马的 MBTI免费测试会收费吗？",
+        "这份 16型人格完整结果/报告包含哪些内容？",
+        "MBTI免费测试结果可以作为职业或心理诊断吗？",
+        "完成测试后还能重新查看或重复测试吗？"
+      ]
+    }
+  },
+  "faq_page_json_ld_projection": {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "费马的 MBTI免费测试会收费吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "MBTI 主测试可以免费完成，并在提交后查看 16 型人格完整结果、偏好维度和后续探索建议；页面不会把基础结果解读作为付费前置条件。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "这份 16型人格完整结果/报告包含哪些内容？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "结果会展示你的 16 型人格类型，E/I、S/N、T/F、J/P 偏好方向，以及沟通协作、职业探索和自我观察相关的说明。内容用于理解性格倾向，不等同于诊断或职业保证。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "MBTI免费测试结果可以作为职业或心理诊断吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "不可以。MBTI 测试适合做自我了解和讨论起点，不能替代心理诊断、医疗建议或正式职业评估。重要决策应结合更多资料和专业意见。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "完成测试后还能重新查看或重复测试吗？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "可以。你可以在完成后回看自己的结果报告，也可以在状态或作答理解发生变化时重新测试，并把不同结果作为自我观察的参考。"
+        }
+      }
+    ]
+  },
+  "parity_contract": {
+    "visible_faq_source": "content_i18n_json.zh.faq via parseFaq(langNode.faq)",
+    "visible_render": "FAQAccordion items={mergedFaq}",
+    "json_ld_render": "buildFAQPageJsonLd(mergedFaq.map(item => ({ question: item.q, answer: item.a })))",
+    "runtime_change_allowed": false
+  }
+}

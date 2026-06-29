@@ -1,12 +1,33 @@
+import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { buildFAQPageJsonLd } from "@/lib/seo/generateSchema";
+import { isMbtiMainFaqSchemaEvidence01AllowedFile } from "./helpers/currentPrScope";
 
 const PAGE_PATH = path.join(
   process.cwd(),
   "app/(localized)/[locale]/tests/[slug]/page.tsx"
 );
 const CTA_STICKY_PATH = path.join(process.cwd(), "components/business/CTASticky.tsx");
+const MBTI_FAQ_SCHEMA_EVIDENCE_PATH = path.join(
+  process.cwd(),
+  "docs/seo/evidence/mbti-personality-test-16-personality-types/structured-data/faq-schema-parity-readback-2026-06-29.json"
+);
+
+function changedFilesAgainstMain(): string[] {
+  try {
+    return execFileSync("git", ["diff", "--name-only", "origin/main...HEAD"], {
+      cwd: process.cwd(),
+      encoding: "utf8",
+    })
+      .split("\n")
+      .map((line) => line.trim())
+      .filter(Boolean);
+  } catch {
+    return [];
+  }
+}
 
 describe("test detail landing contract", () => {
   it("consumes backend landing_surface_v1 instead of inventing test landing truth locally", () => {
@@ -66,6 +87,62 @@ describe("test detail landing contract", () => {
     expect(source).toContain("mergedFaq.length > 0");
     expect(source).toContain('{faqJsonLd ? <JsonLd id={`test-faq-${test.slug}`} data={faqJsonLd} /> : null}');
     expect(source).toContain("{mergedFaq.length > 0 ? (");
+  });
+
+  it("keeps MBTI main visible FAQ and FAQPage JSON-LD in parity with backend FAQ readback evidence", () => {
+    const source = fs.readFileSync(PAGE_PATH, "utf8");
+    const evidence = JSON.parse(fs.readFileSync(MBTI_FAQ_SCHEMA_EVIDENCE_PATH, "utf8")) as {
+      slug: string;
+      canonical_path: string;
+      source_faq: Array<{ q: string; a: string }>;
+      api_readback: Record<string, { faq_questions: string[] }>;
+      faq_page_json_ld_projection: unknown;
+    };
+
+    const expectedQuestions = [
+      "费马的 MBTI免费测试会收费吗？",
+      "这份 16型人格完整结果/报告包含哪些内容？",
+      "MBTI免费测试结果可以作为职业或心理诊断吗？",
+      "完成测试后还能重新查看或重复测试吗？",
+    ];
+    const projectedJsonLd = buildFAQPageJsonLd(
+      evidence.source_faq.map((item) => ({
+        question: item.q,
+        answer: item.a,
+      }))
+    );
+
+    expect(evidence.slug).toBe("mbti-personality-test-16-personality-types");
+    expect(evidence.canonical_path).toBe("/tests/mbti-personality-test-16-personality-types");
+    expect(evidence.source_faq.map((item) => item.q)).toEqual(expectedQuestions);
+    expect(evidence.api_readback.production.faq_questions).toEqual(expectedQuestions);
+    expect(evidence.api_readback.staging.faq_questions).toEqual(expectedQuestions);
+    expect(projectedJsonLd).toEqual(evidence.faq_page_json_ld_projection);
+
+    const faqSourceSegment = source.slice(source.indexOf("const langNode ="), source.indexOf("const continuePublicContentCta"));
+    expect(faqSourceSegment).toContain("const faqItems = parseFaq(langNode.faq);");
+    expect(faqSourceSegment).toContain("const mergedFaq = faqItems.length > 0");
+    expect(faqSourceSegment).toContain("? faqItems");
+    expect(faqSourceSegment).toContain("buildFallbackFaq");
+
+    const faqJsonLdStart = source.indexOf("const faqJsonLd =");
+    const faqJsonLdSegment = source.slice(faqJsonLdStart, source.indexOf("return (", faqJsonLdStart));
+    expect(faqJsonLdSegment).toContain("mergedFaq.length > 0");
+    expect(faqJsonLdSegment).toContain("buildFAQPageJsonLd");
+    expect(faqJsonLdSegment).toContain("mergedFaq.map((item) => ({");
+    expect(faqJsonLdSegment).toContain("question: item.q");
+    expect(faqJsonLdSegment).toContain("answer: item.a");
+
+    const visibleFaqStart = source.indexOf("{mergedFaq.length > 0 ? (");
+    const visibleFaqSegment = source.slice(visibleFaqStart, source.indexOf("{disclaimer ? (", visibleFaqStart));
+    expect(visibleFaqSegment).toContain('data-evidence-block="faq"');
+    expect(visibleFaqSegment).toContain("<FAQAccordion items={mergedFaq} />");
+  });
+
+  it("keeps MBTI FAQ schema evidence changes inside the approved PR3 scope", () => {
+    const changedFiles = changedFilesAgainstMain();
+
+    expect(changedFiles.every(isMbtiMainFaqSchemaEvidence01AllowedFile), changedFiles.join("\n")).toBe(true);
   });
 
   it("keeps one primary mbti CTA plus a secondary CTA on the landing hero", () => {
