@@ -32593,5 +32593,123 @@
         "notes": "GitHub checks passed and PR is ready to merge under squash policy."
       }
     ]
+  },
+  "MBTI-MAIN-FAQ-SCHEMA-EVIDENCE-01": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-main-faq-schema-evidence-01",
+    "title": "MBTI-MAIN-FAQ-SCHEMA-EVIDENCE-01: test(seo): verify MBTI main FAQ structured-data parity",
+    "train_scope": "mbti_main_faq_schema_evidence",
+    "depends_on": [
+      "MBTI-MAIN-FREE-FAQ-CONTENT-01"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "c139b68723e3167351db0e4e5b92a7d4d09b1ad0",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1480",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "User explicitly authorized the MBTI TDK/FAQ/Schema three-PR plan, including this fap-web evidence/contract PR and docs/codex PR-train tracking."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "fap-api PR #2525 for MBTI-MAIN-FREE-FAQ-CONTENT-01 is merged with merge commit 66eaffb3be13fe5622a0c512e4cb827627bf7154."
+      },
+      "api_readback": {
+        "status": "pass",
+        "evidence": "Both https://staging-api.fermatmind.com and https://api.fermatmind.com /api/v0.3/scales/lookup for slug=mbti-personality-test-16-personality-types&locale=zh returned the four updated free-test FAQ questions."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Using clean temporary fap-web worktree /private/tmp/fap-web-mbti-main-faq-schema-evidence-01 because the primary fap-web checkout has unrelated dirty changes."
+      },
+      "local_focused_contract": {
+        "status": "pass",
+        "command": "pnpm exec vitest run tests/contracts/test-detail-landing.contract.test.ts",
+        "evidence": "12 tests passed."
+      },
+      "local_typecheck": {
+        "status": "pass",
+        "command": "pnpm typecheck"
+      },
+      "local_contract": {
+        "status": "pass",
+        "command": "pnpm test:contract",
+        "evidence": "599 contract files passed, 3518 tests passed."
+      },
+      "local_build": {
+        "status": "pass",
+        "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build",
+        "evidence": "Next production build passed; postbuild regenerated public/sitemap.xml and it was restored as out of scope."
+      },
+      "local_evidence_json_parse": {
+        "status": "pass",
+        "command": "python3 -m json.tool docs/seo/evidence/mbti-personality-test-16-personality-types/structured-data/faq-schema-parity-readback-2026-06-29.json >/dev/null"
+      },
+      "local_yaml_parse": {
+        "status": "pass",
+        "command": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\""
+      },
+      "local_json_parse": {
+        "status": "pass",
+        "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+      },
+      "local_diff_check": {
+        "status": "pass",
+        "command": "git diff --check"
+      },
+      "local_scope_validation": {
+        "status": "pass",
+        "command": "manual changed-file validation against MBTI-MAIN-FAQ-SCHEMA-EVIDENCE-01 allowed_paths",
+        "evidence": "Changed files are limited to canonical structured-data evidence, focused contract, scope helper, and docs/codex train metadata."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        "docs/seo/evidence/mbti-personality-test-16-personality-types/structured-data/README.md",
+        "docs/seo/evidence/mbti-personality-test-16-personality-types/structured-data/faq-schema-parity-readback-2026-06-29.json",
+        "tests/contracts/test-detail-landing.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "outside_scope_files": []
+    },
+    "events": [
+      {
+        "at": "2026-06-29T08:42:59+08:00",
+        "status": "in_progress",
+        "notes": "Initialized PR3 after backend FAQ content readback became available on staging and production API. Scope is canonical structured-data evidence and contract parity only; no runtime schema logic or deployment."
+      },
+      {
+        "at": "2026-06-29T08:51:00+08:00",
+        "status": "local_checks_passed",
+        "notes": "Focused contract, typecheck, full contract suite, production API build, evidence JSON parse, train YAML/JSON parse, diff check, and changed-file scope validation passed."
+      },
+      {
+        "at": "2026-06-29T08:53:00+08:00",
+        "status": "committed",
+        "commit_sha": "0c2b67b485904b027a17c89b527feac2e0d04c3a",
+        "notes": "Implementation commit created after local checks and scope validation passed; commit SHA reconciled after ledger amend."
+      },
+      {
+        "at": "2026-06-29T08:55:00+08:00",
+        "status": "pr_open",
+        "commit_sha": "e0b3d22ef3338dd5130e9949edc3d33af7564793",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1480",
+        "notes": "GitHub PR opened after local validation passed."
+      },
+      {
+        "at": "2026-06-29T08:58:00+08:00",
+        "status": "ready_to_merge",
+        "commit_sha": "c139b68723e3167351db0e4e5b92a7d4d09b1ad0",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1480",
+        "notes": "GitHub checks passed and PR merge state is CLEAN; recording ready_to_merge before squash merge."
+      }
+    ]
   }
 }

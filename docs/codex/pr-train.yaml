@@ -19256,3 +19256,47 @@ prs:
       squash: true
       auto_merge: true
     next_task: PERSONALITY-AGENT-APPROVAL-QUEUE-AUTO-HANDOFF-DRY-RUN-01
+
+  - id: MBTI-MAIN-FAQ-SCHEMA-EVIDENCE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-main-faq-schema-evidence-01
+    base: main
+    title: "MBTI-MAIN-FAQ-SCHEMA-EVIDENCE-01: test(seo): verify MBTI main FAQ structured-data parity"
+    depends_on:
+      - MBTI-MAIN-FREE-FAQ-CONTENT-01
+    mode: execute
+    train_scope: mbti_main_faq_schema_evidence
+    status: in_progress
+    goal: "Verify canonical MBTI main visible FAQ and emitted FAQPage JSON-LD parity from backend FAQ authority without adding runtime schema logic, frontend editorial content, sitemap/llms/search changes, deployment, or archive-only evidence."
+    artifacts:
+      - docs/seo/evidence/mbti-personality-test-16-personality-types/structured-data/README.md
+      - docs/seo/evidence/mbti-personality-test-16-personality-types/structured-data/faq-schema-parity-readback-2026-06-29.json
+      - tests/contracts/test-detail-landing.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - docs/seo/evidence/mbti-personality-test-16-personality-types/structured-data/README.md
+      - docs/seo/evidence/mbti-personality-test-16-personality-types/structured-data/faq-schema-parity-readback-2026-06-29.json
+      - tests/contracts/test-detail-landing.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Add frontend runtime schema logic.
+      - Add frontend-authored MBTI FAQ/body/metadata content.
+      - Touch archive-only docs/seo/evidence/personality-mbti-test/**.
+      - Mutate sitemap, llms, CMS, search submission, deploy, or server runtime.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/test-detail-landing.contract.test.ts
+      - python3 -m json.tool docs/seo/evidence/mbti-personality-test-16-personality-types/structured-data/faq-schema-parity-readback-2026-06-29.json >/dev/null
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
