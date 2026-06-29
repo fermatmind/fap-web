@@ -56,6 +56,9 @@ describe("Gotenberg result print route contract", () => {
     expect(resultClient).toContain("skipAuth: true, includeAnonId: false");
     expect(resultClient).toContain("if (printMode) {");
     expect(resultClient).toContain("window.__FERMAT_PDF_READY__ = true");
+    expect(resultClient).toContain("pdfReadyMarkerMounted");
+    expect(resultClient).toContain('id="fermat-pdf-ready"');
+    expect(resultClient).toContain('data-pdf-ready="true"');
     expect(resultClient).toContain("MBTI_PDF_READY_ANCHORS");
     expect(resultClient).toContain('"mbti-desktop-traits"');
     expect(resultClient).toContain('"mbti-desktop-career"');
