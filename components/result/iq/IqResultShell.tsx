@@ -121,10 +121,17 @@ export function IqResultShell({
     ? formatConfidenceInterval(viewModel.confidenceInterval)
     : null;
   const iqEstimateText = formatMetricValue(viewModel.iqEstimate);
+  const primaryDisplayScoreText = formatMetricValue(viewModel.primaryDisplayScore);
   const rawScoreText = formatMetricValue(viewModel.rawScore);
   const rawScoreDenominatorText = formatMetricValue(viewModel.claimPolicy.rawScoreDenominator);
   const rawScoreOnly = viewModel.claimPolicy.suppressNormClaims;
   const percentileText = formatPercentValue(viewModel.percentile);
+  const primaryDisplayLabel = locale === "zh"
+    ? viewModel.primaryDisplayLabelZh
+    : viewModel.primaryDisplayLabelEn;
+  const betaStandardScoreNotice = locale === "zh"
+    ? viewModel.betaStandardScoreNoticeZh
+    : viewModel.betaStandardScoreNoticeEn;
 
   return (
     <div className="space-y-[var(--fm-gap-md)]" data-testid="iq-result-shell">
@@ -157,10 +164,32 @@ export function IqResultShell({
             </div>
           ) : null}
 
-          {rawScoreOnly ? (
+          {viewModel.primaryDisplayScoreKind === "beta_standard_score" && primaryDisplayScoreText ? (
+            <div className="rounded-[12px] border border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 sm:p-5">
+              <p
+                className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]"
+                data-testid="iq-beta-standard-score-label"
+              >
+                {primaryDisplayLabel}
+              </p>
+              <p className="mt-2 text-3xl font-semibold text-[var(--fm-text)] sm:text-4xl" data-testid="iq-beta-standard-score-value">
+                {primaryDisplayScoreText}
+              </p>
+              <p className="mt-3 text-sm leading-6 text-[var(--fm-text-muted)]" data-testid="iq-beta-standard-score-notice">
+                {betaStandardScoreNotice}
+              </p>
+              <p className="mt-3 text-sm font-semibold text-[var(--fm-text)]" data-testid="iq-beta-raw-score-claim">
+                {formatRawScoreClaim({
+                  locale,
+                  rawScore: rawScoreText,
+                  denominator: rawScoreDenominatorText,
+                })}
+              </p>
+            </div>
+          ) : viewModel.primaryDisplayScoreKind === "raw_score" ? (
             <div className="rounded-[12px] border border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 sm:p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
-                {locale === "zh" ? "原始推理得分" : "Raw reasoning score"}
+                {primaryDisplayLabel}
               </p>
               <p className="mt-2 text-2xl font-semibold text-[var(--fm-text)] sm:text-3xl" data-testid="iq-raw-score-claim">
                 {formatRawScoreClaim({
@@ -170,10 +199,10 @@ export function IqResultShell({
                 })}
               </p>
             </div>
-          ) : iqEstimateText ? (
+          ) : viewModel.primaryDisplayScoreKind === "formal_iq_estimate" && iqEstimateText ? (
             <div className="rounded-[12px] border border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4 sm:p-5">
               <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--fm-text-muted)]">
-                {locale === "zh" ? "IQ 估计值" : "IQ estimate"}
+                {primaryDisplayLabel}
               </p>
               <p className="mt-2 text-2xl font-semibold text-[var(--fm-text)] sm:text-3xl" data-testid="iq-iq-estimate-value">
                 {iqEstimateText}

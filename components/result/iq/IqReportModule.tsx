@@ -120,6 +120,17 @@ export function IqReportModule({
             <p className="text-sm leading-6 text-[var(--fm-text-muted)]">{viewModel.interpretationMessage}</p>
           </div>
 
+          {viewModel.betaStandardScoreBoundaryMessage ? (
+            <div
+              className="rounded-[12px] border border-[var(--fm-border)] bg-[var(--fm-surface-subtle,#f8fafc)] p-4"
+              data-testid="iq-beta-standard-score-boundary"
+            >
+              <p className="text-sm leading-6 text-[var(--fm-text-muted)]">
+                {viewModel.betaStandardScoreBoundaryMessage}
+              </p>
+            </div>
+          ) : null}
+
           {viewModel.sections.length > 0 ? (
             <div className="space-y-4" data-testid="iq-report-sections">
               {viewModel.sections.map((section) => (

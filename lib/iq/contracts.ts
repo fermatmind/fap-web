@@ -284,10 +284,27 @@ export const iqClaimPolicySchema = z
     claim_eligible: z.boolean().optional(),
     score_claim_level: z.string().nullable().optional(),
     iq_estimate_allowed: z.boolean().optional(),
+    production_normed: z.boolean().optional(),
+    population_percentile_eligible: z.boolean().optional(),
     warnings: z.array(z.string()).optional(),
     claim_warnings: z.array(z.string()).optional(),
   })
   .passthrough();
+
+const iqBetaStandardScoreFields = {
+  beta_standard_score: z.union([z.number(), z.string()]).nullable().optional(),
+  beta_standard_score_status: z.string().nullable().optional(),
+  beta_standard_score_source: z.string().nullable().optional(),
+  random_baseline_mean: z.union([z.number(), z.string()]).nullable().optional(),
+  random_baseline_sd: z.union([z.number(), z.string()]).nullable().optional(),
+  random_baseline_z: z.union([z.number(), z.string()]).nullable().optional(),
+  above_random_baseline: z.boolean().nullable().optional(),
+  production_normed: z.boolean().nullable().optional(),
+  claim_eligible: z.boolean().nullable().optional(),
+  population_percentile_eligible: z.boolean().nullable().optional(),
+  source_kind: z.string().nullable().optional(),
+  source_ref: z.string().nullable().optional(),
+};
 
 export const iqResultPayloadSchema = z
   .object({
@@ -299,6 +316,7 @@ export const iqResultPayloadSchema = z
     final_score: z.union([z.number(), z.string()]).nullable().optional(),
     iq_estimate: z.union([z.number(), z.string()]).nullable().optional(),
     percentile: z.union([z.number(), z.string()]).nullable().optional(),
+    ...iqBetaStandardScoreFields,
     score_claim_level: z.string().nullable().optional(),
     claim_policy: iqClaimPolicySchema.nullable().optional(),
     claim_warnings: z.array(z.string()).optional(),
@@ -354,6 +372,7 @@ export const iqReportPayloadSchema = z
         raw_score: z.union([z.number(), z.string()]).nullable().optional(),
         iq_estimate: z.union([z.number(), z.string()]).nullable().optional(),
         percentile: z.union([z.number(), z.string()]).nullable().optional(),
+        ...iqBetaStandardScoreFields,
         score_claim_level: z.string().nullable().optional(),
         claim_policy: iqClaimPolicySchema.nullable().optional(),
         claim_warnings: z.array(z.string()).optional(),
@@ -370,6 +389,7 @@ export const iqReportPayloadSchema = z
       .optional(),
     scoring: z
       .object({
+        ...iqBetaStandardScoreFields,
         score_claim_level: z.string().nullable().optional(),
         claim_policy: iqClaimPolicySchema.nullable().optional(),
         claim_warnings: z.array(z.string()).optional(),
@@ -378,6 +398,7 @@ export const iqReportPayloadSchema = z
       .optional(),
     norms: z
       .object({
+        ...iqBetaStandardScoreFields,
         score_claim_level: z.string().nullable().optional(),
         claim_policy: iqClaimPolicySchema.nullable().optional(),
         claim_warnings: z.array(z.string()).optional(),

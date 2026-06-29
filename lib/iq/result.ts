@@ -68,6 +68,7 @@ export type IqReportModuleViewModel = {
   lockedMessage: string | null;
   boundaryMessage: string;
   interpretationMessage: string;
+  betaStandardScoreBoundaryMessage: string | null;
   detailedReportMessage: string | null;
   sections: IqReportNarrativeSectionViewModel[];
   dimensions: IqDimensionCardViewModel[];
@@ -79,10 +80,18 @@ export type IqReportModuleViewModel = {
 export type IqClaimPolicyViewModel = {
   scoreClaimLevel: string | null;
   claimEligible: boolean | null;
+  productionNormed: boolean | null;
+  populationPercentileEligible: boolean | null;
   claimWarnings: string[];
   rawScoreDenominator: IqResultMetricValue;
   suppressNormClaims: boolean;
 };
+
+export type IqPrimaryDisplayScoreKind =
+  | "formal_iq_estimate"
+  | "beta_standard_score"
+  | "raw_score"
+  | "unavailable";
 
 export type IqResultViewModel = {
   scaleCode: typeof IQ_CANONICAL_SCALE_CODE | typeof IQ_LEGACY_SCALE_CODE | null;
@@ -90,6 +99,13 @@ export type IqResultViewModel = {
   summary: string | null;
   rawScore: IqResultMetricValue;
   iqEstimate: IqResultMetricValue;
+  betaStandardScore: IqResultMetricValue;
+  primaryDisplayScore: IqResultMetricValue;
+  primaryDisplayScoreKind: IqPrimaryDisplayScoreKind;
+  primaryDisplayLabelZh: string;
+  primaryDisplayLabelEn: string;
+  betaStandardScoreNoticeZh: string;
+  betaStandardScoreNoticeEn: string;
   percentile: IqResultMetricValue;
   confidenceInterval: IqConfidenceIntervalViewModel | null;
   qualityLevel: string | null;
@@ -260,7 +276,7 @@ function resolveConfidenceInterval(
 }
 
 function resolveSummaryMetric(
-  field: "raw_score" | "iq_estimate" | "percentile",
+  field: "raw_score" | "iq_estimate" | "percentile" | "beta_standard_score",
   reportData: ReportResponse | null,
   resultData: ResultResponse | null
 ): IqResultMetricValue {
@@ -385,14 +401,58 @@ function resolveClaimPolicy(
     ...normalizeStringArray(resultNorms?.claim_warnings),
     ...normalizeStringArray(resultNormedJsonNorms?.claim_warnings),
   ].filter((warning, index, warnings) => warnings.indexOf(warning) === index);
-  const claimEligible = normalizeBoolean(policy?.claim_eligible);
+  const claimEligible = normalizeBoolean(
+    policy?.claim_eligible ??
+      reportSummary?.claim_eligible ??
+      reportScoring?.claim_eligible ??
+      reportNorms?.claim_eligible ??
+      reportPayloadSummary?.claim_eligible ??
+      reportPayloadScoring?.claim_eligible ??
+      reportPayloadNorms?.claim_eligible ??
+      topResult?.claim_eligible ??
+      resultPayload?.claim_eligible ??
+      resultNorms?.claim_eligible ??
+      resultNormedJsonNorms?.claim_eligible
+  );
+  const productionNormed = normalizeBoolean(
+    policy?.production_normed ??
+      reportSummary?.production_normed ??
+      reportScoring?.production_normed ??
+      reportNorms?.production_normed ??
+      reportPayloadSummary?.production_normed ??
+      reportPayloadScoring?.production_normed ??
+      reportPayloadNorms?.production_normed ??
+      topResult?.production_normed ??
+      resultPayload?.production_normed ??
+      resultNorms?.production_normed ??
+      resultNormedJsonNorms?.production_normed
+  );
+  const populationPercentileEligible = normalizeBoolean(
+    policy?.population_percentile_eligible ??
+      reportSummary?.population_percentile_eligible ??
+      reportScoring?.population_percentile_eligible ??
+      reportNorms?.population_percentile_eligible ??
+      reportPayloadSummary?.population_percentile_eligible ??
+      reportPayloadScoring?.population_percentile_eligible ??
+      reportPayloadNorms?.population_percentile_eligible ??
+      topResult?.population_percentile_eligible ??
+      resultPayload?.population_percentile_eligible ??
+      resultNorms?.population_percentile_eligible ??
+      resultNormedJsonNorms?.population_percentile_eligible
+  );
 
   return {
     scoreClaimLevel,
     claimEligible,
+    productionNormed,
+    populationPercentileEligible,
     claimWarnings,
     rawScoreDenominator: resolveQuestionCount(reportData, resultData),
-    suppressNormClaims: scoreClaimLevel === "raw_score_only" || claimEligible === false,
+    suppressNormClaims:
+      scoreClaimLevel === "raw_score_only"
+      || claimEligible === false
+      || productionNormed === false
+      || populationPercentileEligible === false,
   };
 }
 
@@ -858,6 +918,63 @@ function getRawScoreOnlyInterpretationMessage(locale: Locale): string {
     : "Interpret this attempt with its quality flags and stability status; no IQ-value claim is made until a compliant norm table is available.";
 }
 
+function getBetaStandardScoreNotice(locale: "zh" | "en"): string {
+  return locale === "zh"
+    ? "该分数基于当前 30 题原始得分和随机作答基线生成，仅用于 Beta 阶段结果展示，不代表正式人群常模或认证 IQ。"
+    : "This score is based on the current 30-item raw score and random-response baseline. It is for beta-stage result display only and is not a formal population norm or certified IQ score.";
+}
+
+function resolvePrimaryDisplayScore({
+  rawScore,
+  iqEstimate,
+  betaStandardScore,
+  claimPolicy,
+}: {
+  rawScore: IqResultMetricValue;
+  iqEstimate: IqResultMetricValue;
+  betaStandardScore: IqResultMetricValue;
+  claimPolicy: IqClaimPolicyViewModel;
+}): {
+  score: IqResultMetricValue;
+  kind: IqPrimaryDisplayScoreKind;
+  labelZh: string;
+  labelEn: string;
+} {
+  if (iqEstimate !== null && !claimPolicy.suppressNormClaims) {
+    return {
+      score: iqEstimate,
+      kind: "formal_iq_estimate",
+      labelZh: "IQ 估计值",
+      labelEn: "IQ estimate",
+    };
+  }
+
+  if (betaStandardScore !== null) {
+    return {
+      score: betaStandardScore,
+      kind: "beta_standard_score",
+      labelZh: "智商测试标准分（Beta）",
+      labelEn: "IQ Test Standard Score (Beta)",
+    };
+  }
+
+  if (rawScore !== null) {
+    return {
+      score: rawScore,
+      kind: "raw_score",
+      labelZh: "原始推理得分",
+      labelEn: "Raw reasoning score",
+    };
+  }
+
+  return {
+    score: null,
+    kind: "unavailable",
+    labelZh: "IQ 估计值",
+    labelEn: "IQ estimate",
+  };
+}
+
 function getDetailedReportUnavailableMessage(locale: Locale): string {
   return locale === "zh"
     ? "详细报告内容暂未开放。"
@@ -875,6 +992,7 @@ function buildReportModuleViewModel({
   stabilityReason,
   bankStatus,
   claimPolicy,
+  hasBetaStandardScore,
 }: {
   locale: Locale;
   reportData: ReportResponse | null;
@@ -886,6 +1004,7 @@ function buildReportModuleViewModel({
   stabilityReason: string | null;
   bankStatus: IqBankStatusViewModel | null;
   claimPolicy: IqClaimPolicyViewModel;
+  hasBetaStandardScore: boolean;
 }): IqReportModuleViewModel {
   const entitlementState = resolveIqPaidReportEntitlementState(accessView, reportData);
   const stateCopy = getIqReportStateCopy(locale, entitlementState);
@@ -917,6 +1036,9 @@ function buildReportModuleViewModel({
           stabilityStatus,
           stabilityReason,
         }),
+    betaStandardScoreBoundaryMessage: hasBetaStandardScore
+      ? getBetaStandardScoreNotice(locale)
+      : null,
     detailedReportMessage:
       locked || sections.length > 0 || pdfReady || certificateReady
         ? null
@@ -964,13 +1086,29 @@ export function buildIqResultViewModel({
   );
   const bankStatus = resolveIqBankStatus(locale, reportData, resultData);
   const claimPolicy = resolveClaimPolicy(reportData, resultData);
+  const rawScore = resolveSummaryMetric("raw_score", reportData, resultData);
+  const iqEstimate = resolveSummaryMetric("iq_estimate", reportData, resultData);
+  const betaStandardScore = resolveSummaryMetric("beta_standard_score", reportData, resultData);
+  const primaryDisplay = resolvePrimaryDisplayScore({
+    rawScore,
+    iqEstimate,
+    betaStandardScore,
+    claimPolicy,
+  });
 
   return {
     scaleCode: resolveScaleCode(reportData, resultData),
     title: locale === "zh" ? "智商测试" : "IQ Test",
     summary: resolveSummaryText(reportData, resultData),
-    rawScore: resolveSummaryMetric("raw_score", reportData, resultData),
-    iqEstimate: resolveSummaryMetric("iq_estimate", reportData, resultData),
+    rawScore,
+    iqEstimate,
+    betaStandardScore,
+    primaryDisplayScore: primaryDisplay.score,
+    primaryDisplayScoreKind: primaryDisplay.kind,
+    primaryDisplayLabelZh: primaryDisplay.labelZh,
+    primaryDisplayLabelEn: primaryDisplay.labelEn,
+    betaStandardScoreNoticeZh: getBetaStandardScoreNotice("zh"),
+    betaStandardScoreNoticeEn: getBetaStandardScoreNotice("en"),
     percentile: resolveSummaryMetric("percentile", reportData, resultData),
     confidenceInterval: resolveConfidenceInterval(reportData, resultData),
     qualityLevel: quality.level,
@@ -994,6 +1132,7 @@ export function buildIqResultViewModel({
       stabilityReason: stability.reason,
       bankStatus,
       claimPolicy,
+      hasBetaStandardScore: betaStandardScore !== null,
     }),
   };
 }

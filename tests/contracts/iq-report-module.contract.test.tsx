@@ -180,6 +180,44 @@ describe("IQ report module contract", () => {
     expect(screen.getByTestId("iq-report-dimension-detail-npr")).toHaveTextContent("Numerical Pattern Reasoning");
   });
 
+  it("renders a beta standard score boundary line when backend marks the score as beta", () => {
+    renderReportModule({
+      locale: "zh",
+      reportData: createReportData({
+        summary: {
+          raw_score: 9,
+          question_count: 30,
+          iq_estimate: null,
+          percentile: null,
+          confidence_interval: null,
+          beta_standard_score: 129,
+          beta_standard_score_status: "simulation_calibrated_beta",
+          production_normed: false,
+          claim_eligible: false,
+          population_percentile_eligible: false,
+          score_claim_level: "raw_score_only",
+          claim_policy: {
+            claim_eligible: false,
+            score_claim_level: "raw_score_only",
+            production_normed: false,
+            population_percentile_eligible: false,
+          },
+        },
+      }),
+      accessView: createAccessView({
+        unlockStage: "full",
+        accessLevel: "full",
+        variant: "full",
+        modulesAllowed: ["iq_core", "iq_full"],
+      }),
+    });
+
+    expect(screen.getByTestId("iq-beta-standard-score-boundary")).toHaveTextContent(
+      "该分数基于当前 30 题原始得分和随机作答基线生成，仅用于 Beta 阶段结果展示，不代表正式人群常模或认证 IQ。"
+    );
+    expect(screen.queryByText(/¥1\.99|¥5|checkout|buy now|unlock now/i)).not.toBeInTheDocument();
+  });
+
   it("ignores null IQ dimension array entries before rendering report detail blocks", () => {
     renderReportModule({
       accessView: createAccessView({
