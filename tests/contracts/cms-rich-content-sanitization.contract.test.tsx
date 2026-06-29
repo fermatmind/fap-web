@@ -286,6 +286,37 @@ describe("CMS rich content sanitization contract", () => {
     expect(html).not.toContain("visible_faq_items");
   });
 
+  it("localizes locale-less CMS HTML internal links for zh content pages", () => {
+    const page = stripContentPageReaderMetadata(
+      makeContentPage(
+        [
+          '<p>相关页面可以查看 <a href="/science">测评科学</a>、<a href="/method-boundaries">方法边界</a>、',
+          '<a href="/zh/reliability-validity">信度与效度</a>。</p>',
+          '<p>相关测评可查看 <a href="/tests/mbti-personality-test-16-personality-types">MBTI免费测试</a>。</p>',
+          '<p><a href="https://example.com/research">外部资料</a><img src="/media/support.png" alt="Support image"></p>',
+        ].join(""),
+        {
+          slug: "common-misconceptions",
+          path: "/common-misconceptions",
+          kind: "policy",
+          title: "测评常见误区",
+          locale: "zh",
+        }
+      )
+    );
+    const html = renderToStaticMarkup(<ContentPageTemplate page={page} locale="zh" />);
+
+    expect(html).toContain('href="/zh/science"');
+    expect(html).toContain('href="/zh/method-boundaries"');
+    expect(html).toContain('href="/zh/reliability-validity"');
+    expect(html).toContain('href="/zh/tests/mbti-personality-test-16-personality-types"');
+    expect(html).toContain('href="https://example.com/research"');
+    expect(html).toContain('src="/media/support.png"');
+    expect(html).not.toContain('href="/science"');
+    expect(html).not.toContain('href="/method-boundaries"');
+    expect(html).not.toContain('href="/tests/mbti-personality-test-16-personality-types"');
+  });
+
   it("neutralizes unsafe Markdown link URLs while preserving text", () => {
     const node = renderSimpleMarkdown(
       "[unsafe link](javascript:run()) and [safe link](/en/help?topic=reports&src=cms)"

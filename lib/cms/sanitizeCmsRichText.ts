@@ -1,5 +1,5 @@
 import { labelInternalHref, splitInternalLinkText, type InternalLinkLabelMap } from "@/lib/content/internalLinkText";
-import type { Locale } from "@/lib/i18n/locales";
+import { localizedPath, type Locale } from "@/lib/i18n/locales";
 
 const ALLOWED_TAGS = new Set([
   "a",
@@ -88,6 +88,8 @@ const SAFE_URL_SCHEMES = new Set(["http", "https", "mailto", "tel"]);
 const SAFE_TARGETS = new Set(["_blank", "_parent", "_self", "_top"]);
 const SAFE_REL_TOKENS = new Set(["external", "nofollow", "noopener", "noreferrer", "ugc"]);
 const CONTROL_CHARS_RE = /[\u0000-\u001F\u007F-\u009F]/g;
+const LOCALIZABLE_INTERNAL_HREF_RE =
+  /^\/(?!en(?:\/|$|[?#]))(?!zh(?:\/|$|[?#]))(?:(?:articles|tests|career|personality|topics|help|support|business)(?:\/|$|[?#])|(?:science|method-boundaries|reliability-validity|item-design-notes|common-misconceptions|data-privacy)(?:$|[/?#]))/;
 
 export type CmsHtmlSanitizeOptions = {
   minimumHeadingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
@@ -175,7 +177,7 @@ function linkifyPlainInternalPaths(text: string, options: CmsHtmlSanitizeOptions
         return escapeText(part.label);
       }
 
-      return `<a href="${escapeAttribute(href)}">${escapeText(part.label)}</a>`;
+      return `<a href="${escapeAttribute(localizeInternalCmsHref(href, options))}">${escapeText(part.label)}</a>`;
     })
     .join("");
 }
@@ -215,6 +217,14 @@ export function sanitizeCmsUrl(value: string): string | null {
   return decoded;
 }
 
+function localizeInternalCmsHref(href: string, options: CmsHtmlSanitizeOptions): string {
+  if (!options.locale || !LOCALIZABLE_INTERNAL_HREF_RE.test(href)) {
+    return href;
+  }
+
+  return localizedPath(href, options.locale);
+}
+
 function isAllowedAttribute(tagName: string, attributeName: string): boolean {
   if (GLOBAL_ATTRIBUTES.has(attributeName) || attributeName.startsWith("aria-") || attributeName.startsWith("data-")) {
     return true;
@@ -246,12 +256,21 @@ function sanitizeRel(value: string, target: string | null): string {
   return Array.from(new Set(tokens)).join(" ");
 }
 
-function sanitizeAttributeValue(tagName: string, attributeName: string, value: string, target: string | null): string | null {
+function sanitizeAttributeValue(
+  tagName: string,
+  attributeName: string,
+  value: string,
+  target: string | null,
+  options: CmsHtmlSanitizeOptions
+): string | null {
   switch (attributeName) {
     case "cite":
-    case "href":
     case "src":
       return sanitizeCmsUrl(value);
+    case "href": {
+      const href = sanitizeCmsUrl(value);
+      return href && tagName === "a" ? localizeInternalCmsHref(href, options) : href;
+    }
     case "height":
     case "rowspan":
     case "start":
@@ -308,7 +327,7 @@ function parseAttributes(rawAttributes: string): Array<{ name: string; value: st
   return attributes;
 }
 
-function sanitizeAttributes(tagName: string, rawAttributes: string): string {
+function sanitizeAttributes(tagName: string, rawAttributes: string, options: CmsHtmlSanitizeOptions): string {
   const attributes = parseAttributes(rawAttributes);
   const output: string[] = [];
   const seen = new Set<string>();
@@ -326,7 +345,7 @@ function sanitizeAttributes(tagName: string, rawAttributes: string): string {
     }
 
     if (name === "target") {
-      target = sanitizeAttributeValue(tagName, name, attribute.value, null);
+      target = sanitizeAttributeValue(tagName, name, attribute.value, null, options);
       if (target) {
         seen.add(name);
         output.push(`${name}="${escapeAttribute(target)}"`);
@@ -339,7 +358,7 @@ function sanitizeAttributes(tagName: string, rawAttributes: string): string {
       continue;
     }
 
-    const sanitized = sanitizeAttributeValue(tagName, name, attribute.value, target);
+    const sanitized = sanitizeAttributeValue(tagName, name, attribute.value, target, options);
     if (sanitized === null || sanitized === "") {
       continue;
     }
@@ -424,7 +443,7 @@ function sanitizeTag(rawTag: string, dropStack: string[], options: CmsHtmlSaniti
     return VOID_TAGS.has(tagName) ? "" : `</${outputTagName}>`;
   }
 
-  const attributes = sanitizeAttributes(tagName, rawAttributes);
+  const attributes = sanitizeAttributes(tagName, rawAttributes, options);
   return `<${outputTagName}${attributes}>`;
 }
 
