@@ -153,6 +153,64 @@ function createOwnerRawScoreOnlyReportData(): ReportResponse {
   } as unknown as ReportResponse;
 }
 
+function createOwnerBetaStandardScoreReportData(overrides: Record<string, unknown> = {}): ReportResponse {
+  return {
+    ...createOwnerRawScoreOnlyReportData(),
+    summary: {
+      raw_score: 9,
+      question_count: 30,
+      iq_estimate: null,
+      percentile: null,
+      confidence_interval: null,
+      beta_standard_score: 129,
+      beta_standard_score_status: "simulation_calibrated_beta",
+      beta_standard_score_source: "IQ_OWNER_ORIGINAL_30_RANDOM_BASELINE_STANDARD_SCORE_V1",
+      random_baseline_mean: 5.096,
+      random_baseline_sd: 2.034,
+      random_baseline_z: 1.9194,
+      above_random_baseline: true,
+      production_normed: false,
+      claim_eligible: false,
+      population_percentile_eligible: false,
+      source_kind: "random_simulation_baseline",
+      source_ref: "iq-owner-30-random-simulation-500-for-gpt.md",
+      score_claim_level: "raw_score_only",
+      claim_warnings: ["simulation_calibrated_beta", "no_production_norm"],
+      claim_policy: {
+        claim_eligible: false,
+        score_claim_level: "raw_score_only",
+        production_normed: false,
+        population_percentile_eligible: false,
+      },
+    },
+    scoring: {
+      raw_score: 9,
+      question_count: 30,
+      beta_standard_score: 129,
+      beta_standard_score_status: "simulation_calibrated_beta",
+      beta_standard_score_source: "IQ_OWNER_ORIGINAL_30_RANDOM_BASELINE_STANDARD_SCORE_V1",
+      random_baseline_mean: 5.096,
+      random_baseline_sd: 2.034,
+      random_baseline_z: 1.9194,
+      above_random_baseline: true,
+      production_normed: false,
+      claim_eligible: false,
+      population_percentile_eligible: false,
+      source_kind: "random_simulation_baseline",
+      source_ref: "iq-owner-30-random-simulation-500-for-gpt.md",
+      score_claim_level: "raw_score_only",
+      claim_warnings: ["simulation_calibrated_beta", "no_production_norm"],
+      claim_policy: {
+        claim_eligible: false,
+        score_claim_level: "raw_score_only",
+        production_normed: false,
+        population_percentile_eligible: false,
+      },
+    },
+    ...overrides,
+  } as unknown as ReportResponse;
+}
+
 function createOwnerClaimEligibleReportData(): ReportResponse {
   return {
     ...createReportData(),
@@ -160,7 +218,11 @@ function createOwnerClaimEligibleReportData(): ReportResponse {
       raw_score: 30,
       question_count: 30,
       iq_estimate: 145,
+      beta_standard_score: 129,
       percentile: 99.87,
+      production_normed: true,
+      claim_eligible: true,
+      population_percentile_eligible: true,
       confidence_interval: {
         lower: 140.5,
         upper: 149.5,
@@ -171,16 +233,24 @@ function createOwnerClaimEligibleReportData(): ReportResponse {
       claim_policy: {
         claim_eligible: true,
         score_claim_level: "iq_estimate",
+        production_normed: true,
+        population_percentile_eligible: true,
       },
     },
     scoring: {
       raw_score: 30,
       question_count: 30,
+      beta_standard_score: 129,
+      production_normed: true,
+      claim_eligible: true,
+      population_percentile_eligible: true,
       score_claim_level: "iq_estimate",
       claim_warnings: [],
       claim_policy: {
         claim_eligible: true,
         score_claim_level: "iq_estimate",
+        production_normed: true,
+        population_percentile_eligible: true,
       },
     },
     dimensions: {
@@ -273,7 +343,7 @@ describe("IQ result renderer contract", () => {
     expect(screen.queryByText(/¥1\.99|¥5/)).not.toBeInTheDocument();
   });
 
-  it("renders the safe unavailable state when iq_estimate is null", () => {
+  it("renders the raw score fallback when iq_estimate and beta_standard_score are absent", () => {
     const reportData = {
       ...createReportData(),
       summary: {
@@ -291,9 +361,9 @@ describe("IQ result renderer contract", () => {
       />
     );
 
-    expect(screen.getByTestId("iq-iq-estimate-unavailable")).toHaveTextContent(
-      "The IQ estimate is not available for this result yet"
-    );
+    expect(screen.getByTestId("iq-raw-score-claim")).toHaveTextContent("30-item reasoning score: 29");
+    expect(screen.queryByTestId("iq-beta-standard-score-value")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-iq-estimate-unavailable")).not.toBeInTheDocument();
   });
 
   it("renders owner 30 raw-score-only claim policy without IQ estimate, percentile, or confidence interval claims", () => {
@@ -322,6 +392,85 @@ describe("IQ result renderer contract", () => {
     expect(screen.getByTestId("iq-dimension-card-vsi")).not.toHaveTextContent("82%");
   });
 
+  it("renders backend beta_standard_score as the primary owner 30 score without IQ or population claims", () => {
+    render(
+      <IqResultShell
+        locale="zh"
+        reportData={createOwnerBetaStandardScoreReportData()}
+        resultData={null}
+        accessView={createAccessView()}
+      />
+    );
+
+    expect(screen.getByTestId("iq-beta-standard-score-label")).toHaveTextContent("智商测试标准分（Beta）");
+    expect(screen.getByTestId("iq-beta-standard-score-value")).toHaveTextContent("129");
+    expect(screen.getByTestId("iq-beta-standard-score-notice")).toHaveTextContent(
+      "该分数基于当前 30 题原始得分和随机作答基线生成，仅用于 Beta 阶段结果展示，不代表正式人群常模或认证 IQ。"
+    );
+    expect(screen.getByTestId("iq-beta-raw-score-claim")).toHaveTextContent("30题推理得分：9/30");
+    expect(screen.getByTestId("iq-raw-score")).toHaveTextContent("9");
+    expect(screen.queryByText(/IQ 估计值/)).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-iq-estimate-value")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-iq-estimate-unavailable")).not.toBeInTheDocument();
+    expect(screen.queryByText(/百分位/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/置信区间/)).not.toBeInTheDocument();
+    expect(screen.queryByText(/official|diagnostic|Mensa/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/¥1\.99|¥5|checkout|buy now|unlock now/i)).not.toBeInTheDocument();
+    expect(screen.getByTestId("iq-dimension-card-vsi")).toBeInTheDocument();
+    expect(screen.getByTestId("iq-dimension-card-vspr")).toBeInTheDocument();
+    expect(screen.getByTestId("iq-dimension-card-npr")).toBeInTheDocument();
+  });
+
+  it("renders the beta standard score label and notice in English", () => {
+    render(
+      <IqResultShell
+        locale="en"
+        reportData={createOwnerBetaStandardScoreReportData()}
+        resultData={null}
+        accessView={createAccessView()}
+      />
+    );
+
+    expect(screen.getByTestId("iq-beta-standard-score-label")).toHaveTextContent("IQ Test Standard Score (Beta)");
+    expect(screen.getByTestId("iq-beta-standard-score-value")).toHaveTextContent("129");
+    expect(screen.getByTestId("iq-beta-standard-score-notice")).toHaveTextContent(
+      "This score is based on the current 30-item raw score and random-response baseline. It is for beta-stage result display only and is not a formal population norm or certified IQ score."
+    );
+    expect(screen.getByTestId("iq-beta-raw-score-claim")).toHaveTextContent("30-item reasoning score: 9/30");
+    expect(screen.queryByText(/IQ estimate/)).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-percentile")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("iq-confidence-interval")).not.toBeInTheDocument();
+  });
+
+  it("reads beta_standard_score from the backend payload instead of computing it from raw_score", () => {
+    const viewModel = buildIqResultViewModel({
+      locale: "en",
+      reportData: createOwnerBetaStandardScoreReportData({
+        summary: {
+          raw_score: 9,
+          question_count: 30,
+          iq_estimate: null,
+          beta_standard_score: 77,
+          production_normed: false,
+          claim_eligible: false,
+          population_percentile_eligible: false,
+          score_claim_level: "raw_score_only",
+          claim_policy: {
+            claim_eligible: false,
+            score_claim_level: "raw_score_only",
+          },
+        },
+      }),
+      resultData: null,
+      accessView: createAccessView(),
+    });
+
+    expect(viewModel.rawScore).toBe(9);
+    expect(viewModel.betaStandardScore).toBe(77);
+    expect(viewModel.primaryDisplayScoreKind).toBe("beta_standard_score");
+    expect(viewModel.primaryDisplayScore).toBe(77);
+  });
+
   it("renders owner 30 IQ claims only when backend marks the report claim eligible", () => {
     render(
       <IqResultShell
@@ -333,6 +482,7 @@ describe("IQ result renderer contract", () => {
     );
 
     expect(screen.getByTestId("iq-iq-estimate-value")).toHaveTextContent("145");
+    expect(screen.queryByTestId("iq-beta-standard-score-value")).not.toBeInTheDocument();
     expect(screen.getByTestId("iq-percentile")).toHaveTextContent("99.9%");
     expect(screen.getByTestId("iq-confidence-interval")).toHaveTextContent("140.5 - 149.5 · 90%");
     expect(screen.getByTestId("iq-raw-score")).toHaveTextContent("30");
