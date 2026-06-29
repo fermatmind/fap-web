@@ -855,6 +855,13 @@ export type Big5PublicProjection = {
   dominant_traits?: Big5TraitProjection[];
   variant_keys?: string[];
   scene_fingerprint?: Record<string, string>;
+  scene_fingerprint_display?: Array<{
+    key?: string;
+    label?: string;
+    value?: string;
+    value_label?: string;
+    [key: string]: unknown;
+  }>;
   explainability_summary?: {
     headline?: string;
     reasons?: string[];

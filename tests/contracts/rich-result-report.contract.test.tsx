@@ -1,5 +1,6 @@
 import { fireEvent, render, screen, waitFor, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
+import { Big5ResultShell } from "@/components/result/big5/Big5ResultShell";
 import { RichResultReport } from "@/components/result/RichResultReport";
 import { getMbtiDesktopAnchorHash } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import {
@@ -650,6 +651,11 @@ describe("RichResultReport", () => {
           structure: "balanced",
           social_energy: "reserved",
         },
+        scene_fingerprint_display: [
+          { key: "novelty", label: "Novelty rhythm", value: "exploratory", value_label: "more exploratory" },
+          { key: "structure", label: "Structure preference", value: "balanced", value_label: "balanced" },
+          { key: "social_energy", label: "Social energy", value: "reserved", value_label: "more reserved" },
+        ],
         explainability_summary: {
           headline: "This profile is primarily driven by Openness.",
         },
@@ -784,7 +790,10 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("big5-controlled-narrative")).toHaveTextContent(
       "Controlled narrative runtime ready for traits Openness/Agreeableness."
     );
-    expect(screen.getByTestId("big5-scene-fingerprint")).toHaveTextContent("novelty");
+    expect(screen.getByTestId("big5-scene-fingerprint")).toHaveTextContent("Novelty rhythm");
+    expect(screen.getByTestId("big5-scene-fingerprint")).toHaveTextContent("more exploratory");
+    expect(screen.getByTestId("big5-scene-fingerprint")).not.toHaveTextContent("novelty");
+    expect(screen.getByTestId("big5-scene-fingerprint")).not.toHaveTextContent("social_energy");
     expect(screen.getByTestId("big5-action-plan-summary")).toHaveTextContent(
       "The best near-term growth lever is Extraversion."
     );
@@ -799,6 +808,63 @@ describe("RichResultReport", () => {
     expect(screen.getAllByText("Methodology and Access").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Traits Overview").length).toBeGreaterThan(0);
     expect(screen.getAllByText("Legacy Big Five copy remains unchanged.").length).toBeGreaterThan(0);
+  });
+
+  it("localizes BIG5 scene fingerprint raw keys on zh result pages", () => {
+    render(
+      <Big5ResultShell
+        locale="zh"
+        attemptId="attempt-big5-zh"
+        reportLocked={false}
+        accessProjection={null}
+        headline={{
+          badge: "Big Five",
+          typeCode: "BIG5",
+          displayName: "Big Five",
+          supportingLine: "完整报告",
+          summary: "中文结果页",
+          rarity: "",
+        }}
+        formSummaryLabel="90 题标准版"
+        tags={[]}
+        dimensions={[]}
+        projection={{
+          schema_version: "big5.public_projection.v1",
+          scene_fingerprint: {
+            novelty: "grounded",
+            structure: "adaptive",
+            cooperation: "direct",
+            social_energy: "balanced",
+            stress_posture: "steady",
+          },
+          explainability_summary: {
+            headline: "这次画像主要由外向性驱动。",
+          },
+          action_plan_summary: {
+            headline: "当前最值得优先经营的是尽责性。",
+          },
+        }}
+        normsStatus="READY"
+        qualityLevel="A"
+        visibleSections={[]}
+        lockedSections={[]}
+        recommendedOffers={[]}
+      />
+    );
+
+    const fingerprint = screen.getByTestId("big5-scene-fingerprint");
+    expect(fingerprint).toHaveTextContent("变化节奏");
+    expect(fingerprint).toHaveTextContent("更务实");
+    expect(fingerprint).toHaveTextContent("结构偏好");
+    expect(fingerprint).toHaveTextContent("更灵活");
+    expect(fingerprint).toHaveTextContent("社交能量");
+    expect(fingerprint).toHaveTextContent("相对平衡");
+    expect(fingerprint).not.toHaveTextContent("novelty");
+    expect(fingerprint).not.toHaveTextContent("social_energy");
+    expect(fingerprint).not.toHaveTextContent("stress_posture");
+    expect(fingerprint).not.toHaveTextContent("grounded");
+    expect(fingerprint).not.toHaveTextContent("adaptive");
+    expect(fingerprint).not.toHaveTextContent("balanced");
   });
 
   it("keeps BIG5 full runtime payload fully readable even when paid-tagged sections are present", () => {

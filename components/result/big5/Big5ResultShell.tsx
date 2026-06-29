@@ -79,6 +79,95 @@ function normalizeNumber(value: unknown): number | null {
   return null;
 }
 
+type SceneFingerprintEntry = {
+  key: string;
+  label: string;
+  value: string;
+  valueLabel: string;
+};
+
+function getSceneFingerprintDimensionLabel(key: string, locale: Locale): string {
+  switch (key) {
+    case "novelty":
+      return locale === "zh" ? "变化节奏" : "Novelty rhythm";
+    case "structure":
+      return locale === "zh" ? "结构偏好" : "Structure preference";
+    case "social_energy":
+      return locale === "zh" ? "社交能量" : "Social energy";
+    case "cooperation":
+      return locale === "zh" ? "合作方式" : "Cooperation style";
+    case "stress_posture":
+      return locale === "zh" ? "压力姿态" : "Stress posture";
+    default:
+      return locale === "zh" ? "场景线索" : "Scene cue";
+  }
+}
+
+function getSceneFingerprintValueLabel(value: string, locale: Locale): string {
+  switch (value) {
+    case "exploratory":
+      return locale === "zh" ? "更探索" : "more exploratory";
+    case "grounded":
+      return locale === "zh" ? "更务实" : "more grounded";
+    case "structured":
+      return locale === "zh" ? "更有序" : "more structured";
+    case "adaptive":
+      return locale === "zh" ? "更灵活" : "more adaptive";
+    case "outward":
+      return locale === "zh" ? "更外放" : "more outward";
+    case "reserved":
+      return locale === "zh" ? "更克制" : "more reserved";
+    case "harmonizing":
+      return locale === "zh" ? "更体谅" : "more harmonizing";
+    case "direct":
+      return locale === "zh" ? "更直接" : "more direct";
+    case "sensitive":
+      return locale === "zh" ? "更敏感" : "more sensitive";
+    case "steady":
+      return locale === "zh" ? "更稳定" : "more steady";
+    case "responsive":
+      return locale === "zh" ? "相对敏感" : "responsive";
+    case "balanced":
+      return locale === "zh" ? "相对平衡" : "balanced";
+    default:
+      return locale === "zh" ? "相对平衡" : "balanced";
+  }
+}
+
+function buildSceneFingerprintEntries(projection: Big5PublicProjection, locale: Locale): SceneFingerprintEntry[] {
+  if (Array.isArray(projection.scene_fingerprint_display)) {
+    return projection.scene_fingerprint_display
+      .map((entry, index) => {
+        const record = asRecord(entry);
+        const key = normalizeText(record?.key, `scene-${index}`);
+        const value = normalizeText(record?.value);
+        return {
+          key,
+          label: normalizeText(record?.label, getSceneFingerprintDimensionLabel(key, locale)),
+          value,
+          valueLabel: normalizeText(record?.value_label, getSceneFingerprintValueLabel(value, locale)),
+        };
+      })
+      .filter((entry) => entry.label.length > 0 && entry.valueLabel.length > 0);
+  }
+
+  if (!projection.scene_fingerprint || typeof projection.scene_fingerprint !== "object") {
+    return [];
+  }
+
+  return Object.entries(projection.scene_fingerprint)
+    .map(([key, value]) => {
+      const rawValue = normalizeText(value);
+      return {
+        key,
+        label: getSceneFingerprintDimensionLabel(key, locale),
+        value: rawValue,
+        valueLabel: getSceneFingerprintValueLabel(rawValue, locale),
+      };
+    })
+    .filter((entry) => entry.valueLabel.length > 0);
+}
+
 function resolveVariantLabel(locale: Locale, locked: boolean): string {
   if (!locked) {
     return locale === "zh" ? "完整版" : "Full report";
@@ -156,9 +245,7 @@ function Big5ProjectionSummary({
   const calibrationFingerprint = normalizeText(culturalCalibration?.calibration_fingerprint);
   const localeContext = normalizeText(culturalCalibration?.locale_context);
   const culturalContext = normalizeText(culturalCalibration?.cultural_context);
-  const sceneFingerprint = projection.scene_fingerprint && typeof projection.scene_fingerprint === "object"
-    ? Object.entries(projection.scene_fingerprint)
-    : [];
+  const sceneFingerprint = buildSceneFingerprintEntries(projection, locale);
 
   return (
     <Card data-testid="big5-foundation-summary" className="border-slate-200 bg-white shadow-sm">
@@ -241,11 +328,11 @@ function Big5ProjectionSummary({
 
         {sceneFingerprint.length > 0 ? (
           <div className="grid gap-2 sm:grid-cols-2" data-testid="big5-scene-fingerprint">
-            {sceneFingerprint.map(([key, value]) => (
-              <div key={key} className="rounded-xl border border-slate-100 bg-slate-50 px-3 py-2 text-sm text-slate-700">
-                <span className="font-semibold text-slate-900">{key}</span>
+            {sceneFingerprint.map((entry) => (
+              <div key={entry.key} className="rounded-xl border border-slate-100 bg-slate-50 px-3 py-2 text-sm text-slate-700">
+                <span className="font-semibold text-slate-900">{entry.label}</span>
                 <span className="text-slate-500"> · </span>
-                <span>{value}</span>
+                <span>{entry.valueLabel}</span>
               </div>
             ))}
           </div>
