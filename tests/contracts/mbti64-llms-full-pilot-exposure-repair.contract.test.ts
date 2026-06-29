@@ -37,6 +37,22 @@ const FRESH_AGENT_PATHS = [
   "/zh/personality/istp-a",
 ] as const;
 const REQUIRED_MBTI64_PATHS = [...PILOT_PATHS, ...FRESH_AGENT_PATHS] as const;
+const CORE_ASSESSMENT_TEST_PATHS = [
+  "/en/tests/mbti-personality-test-16-personality-types",
+  "/zh/tests/mbti-personality-test-16-personality-types",
+  "/en/tests/big-five-personality-test-ocean-model",
+  "/zh/tests/big-five-personality-test-ocean-model",
+  "/en/tests/enneagram-personality-test-nine-types",
+  "/zh/tests/enneagram-personality-test-nine-types",
+  "/en/tests/holland-career-interest-test-riasec",
+  "/zh/tests/holland-career-interest-test-riasec",
+  "/en/tests/eq-test-emotional-intelligence-assessment",
+  "/zh/tests/eq-test-emotional-intelligence-assessment",
+] as const;
+const IQ_ASSESSMENT_TEST_PATHS = [
+  "/en/tests/iq-test-intelligence-quotient-assessment",
+  "/zh/tests/iq-test-intelligence-quotient-assessment",
+] as const;
 
 type TestLocale = "en" | "zh";
 
@@ -195,6 +211,8 @@ afterEach(() => {
   vi.restoreAllMocks();
   vi.resetModules();
   delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT;
+  delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT;
+  delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_IQ_COHORT;
 });
 
 function minimalLlmsFullText(urls: string[]): string {
@@ -282,6 +300,37 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
     const complete = minimalLlmsFullText(completeMbti64Urls());
 
     expect(isCompleteLlmsFullText(complete, SITE_URL)).toBe(true);
+  });
+
+  it("does not let an IQ llms-full hold block complete MBTI64 personality cacheability", async () => {
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
+    const { isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const completeWithoutIq = minimalLlmsFullText([
+      ...completeMbti64Urls(),
+      ...CORE_ASSESSMENT_TEST_PATHS.map((path) => `${SITE_URL}${path}`),
+    ]);
+
+    expect(isCompleteLlmsFullText(completeWithoutIq, SITE_URL)).toBe(true);
+  });
+
+  it("can require IQ llms-full membership when that authority gate is explicitly enabled", async () => {
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_IQ_COHORT = "true";
+    const { isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const completeWithoutIq = minimalLlmsFullText([
+      ...completeMbti64Urls(),
+      ...CORE_ASSESSMENT_TEST_PATHS.map((path) => `${SITE_URL}${path}`),
+    ]);
+    const completeWithIq = minimalLlmsFullText([
+      ...completeMbti64Urls(),
+      ...CORE_ASSESSMENT_TEST_PATHS.map((path) => `${SITE_URL}${path}`),
+      ...IQ_ASSESSMENT_TEST_PATHS.map((path) => `${SITE_URL}${path}`),
+    ]);
+
+    expect(isCompleteLlmsFullText(completeWithoutIq, SITE_URL)).toBe(false);
+    expect(isCompleteLlmsFullText(completeWithIq, SITE_URL)).toBe(true);
   });
 
   it("keeps private route families out of the generated llms-full cohort", async () => {

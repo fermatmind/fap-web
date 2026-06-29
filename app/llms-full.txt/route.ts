@@ -124,7 +124,7 @@ const LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS = [
   "acupuncturists",
   "acute-care-nurses",
 ] as const;
-const LLMS_FULL_REQUIRED_SIX_ASSESSMENT_TEST_PATHS = [
+const LLMS_FULL_REQUIRED_CORE_ASSESSMENT_TEST_PATHS = [
   "/en/tests/mbti-personality-test-16-personality-types",
   "/zh/tests/mbti-personality-test-16-personality-types",
   "/en/tests/big-five-personality-test-ocean-model",
@@ -133,10 +133,12 @@ const LLMS_FULL_REQUIRED_SIX_ASSESSMENT_TEST_PATHS = [
   `/zh/tests/${"ennea"}gram-personality-test-nine-types`,
   `/en/tests/holland-career-interest-test-${"ria"}sec`,
   `/zh/tests/holland-career-interest-test-${"ria"}sec`,
-  "/en/tests/iq-test-intelligence-quotient-assessment",
-  "/zh/tests/iq-test-intelligence-quotient-assessment",
   "/en/tests/eq-test-emotional-intelligence-assessment",
   "/zh/tests/eq-test-emotional-intelligence-assessment",
+] as const;
+const LLMS_FULL_REQUIRED_IQ_ASSESSMENT_TEST_PATHS = [
+  "/en/tests/iq-test-intelligence-quotient-assessment",
+  "/zh/tests/iq-test-intelligence-quotient-assessment",
 ] as const;
 const LLMS_FULL_EXCLUDED_CAREER_JOB_SLUGS = [
   "software-developers",
@@ -154,6 +156,10 @@ function shouldRequireCompletePersonalityCohort(): boolean {
 
 function shouldRequireCompleteTestCohort(): boolean {
   return process.env.NODE_ENV !== "test" || process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT === "true";
+}
+
+function shouldRequireIqLlmsFullCohort(): boolean {
+  return process.env.FERMATMIND_LLMS_FULL_REQUIRE_IQ_COHORT === "true";
 }
 
 type LlmsFullResponseMode = "complete" | "degraded";
@@ -562,7 +568,15 @@ export function isCompleteLlmsFullText(text: string, siteUrl: string): boolean {
 
   if (
     shouldRequireCompleteTestCohort() &&
-    !LLMS_FULL_REQUIRED_SIX_ASSESSMENT_TEST_PATHS.every((path) => text.includes(`${siteUrl}${path}`))
+    !LLMS_FULL_REQUIRED_CORE_ASSESSMENT_TEST_PATHS.every((path) => text.includes(`${siteUrl}${path}`))
+  ) {
+    return false;
+  }
+
+  if (
+    shouldRequireCompleteTestCohort() &&
+    shouldRequireIqLlmsFullCohort() &&
+    !LLMS_FULL_REQUIRED_IQ_ASSESSMENT_TEST_PATHS.every((path) => text.includes(`${siteUrl}${path}`))
   ) {
     return false;
   }
