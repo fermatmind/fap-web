@@ -135,6 +135,7 @@ export function SiteFooter() {
   return (
     <footer
       data-private-result-print-hidden="true"
+      data-site-footer="true"
       className="fm-section-footer fm-site-footer-light border-t border-[var(--fm-border-subtle)] text-[var(--fm-text-main)]"
     >
       <Container className="max-w-7xl space-y-16 py-20 md:py-28">

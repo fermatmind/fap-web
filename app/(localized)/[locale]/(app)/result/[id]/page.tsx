@@ -7,7 +7,7 @@ import { createScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { verifyResultPagePdfToken } from "@/lib/result/pdfExportToken";
 import ResultClient from "./ResultClient";
 
-const RESULT_PAGE_PDF_SURFACE = "mbti.result_page_export.v1";
+const RESULT_PAGE_PDF_SURFACE = "mbti.result_page_export.v2";
 
 export const metadata: Metadata = {
   robots: NOINDEX_ROBOTS,

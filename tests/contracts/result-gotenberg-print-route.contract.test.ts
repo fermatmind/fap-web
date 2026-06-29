@@ -33,15 +33,16 @@ describe("Gotenberg result print route contract", () => {
     expect(printRoute).toContain("printBootstrapError={printBootstrap.error}");
     expect(printRoute).toContain("pdf-mode");
     expect(resultPage).toContain('data-private-result-print-root="true"');
-    expect(resultPage).toContain("mbti.result_page_export.v1");
+    expect(resultPage).toContain("mbti.result_page_export.v2");
     expect(resultPage).toContain('data-pdf-mode={pdfMode ? "true" : undefined}');
     expect(resultPage).toContain('data-pdf-ready={pdfMode ? "false" : undefined}');
     expect(resultPage).toContain("verifyResultPagePdfToken");
     expect(accessNormalizer).toContain('normalizeReportActionHref(raw.actions?.pdf_href, locale, "pdf")');
   });
 
-  it("keeps print mode on the shared result renderer and removes interactive recovery chrome", () => {
+  it("renders MBTI print mode through a clean PDF shell and removes interactive recovery chrome", () => {
     const resultClient = read("app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx");
+    const pdfShell = read("components/result/mbti/MbtiResultPdfShell.tsx");
     const printBootstrap = read("app/(localized)/[locale]/(app)/result/[id]/print/resultPrintBootstrap.ts");
 
     expect(resultClient).toContain("printMode = false");
@@ -56,22 +57,43 @@ describe("Gotenberg result print route contract", () => {
     expect(resultClient).toContain("skipAuth: true, includeAnonId: false");
     expect(resultClient).toContain("if (printMode) {");
     expect(resultClient).toContain("window.__FERMAT_PDF_READY__ = true");
+    expect(resultClient).toContain("window.__FERMAT_PDF_ERROR__");
     expect(resultClient).toContain("pdfReadyMarkerMounted");
     expect(resultClient).toContain('id="fermat-pdf-ready"');
     expect(resultClient).toContain('data-pdf-ready="true"');
-    expect(resultClient).toContain("MBTI_PDF_READY_ANCHORS");
-    expect(resultClient).toContain("MBTI_PDF_READY_ANCHOR_TIMEOUT_MS = 8000");
+    expect(resultClient).toContain("MBTI_PDF_REQUIRED_SELECTORS");
+    expect(resultClient).toContain("MBTI_PDF_BLOCKER_SELECTORS");
+    expect(resultClient).toContain("MBTI_PDF_READY_SECTION_TIMEOUT_MS = 8000");
     expect(resultClient).toContain("MBTI_PDF_ASSET_READY_TIMEOUT_MS = 2000");
-    expect(resultClient).toContain("waitForMbtiPdfReadyAnchors(MBTI_PDF_READY_ANCHOR_TIMEOUT_MS)");
+    expect(resultClient).toContain("waitForMbtiPdfReadySections(MBTI_PDF_READY_SECTION_TIMEOUT_MS)");
     expect(resultClient).toContain("waitForPdfFonts(MBTI_PDF_ASSET_READY_TIMEOUT_MS)");
     expect(resultClient).toContain("waitForPdfImages(MBTI_PDF_ASSET_READY_TIMEOUT_MS)");
     expect(resultClient).toContain("image.addEventListener(\"error\", () => resolve(), { once: true })");
-    expect(resultClient).toContain('"mbti-desktop-traits"');
-    expect(resultClient).toContain('"mbti-desktop-career"');
-    expect(resultClient).toContain('"mbti-desktop-growth"');
-    expect(resultClient).toContain('"mbti-desktop-relationships"');
+    expect(resultClient).toContain('data-pdf-section="personality-traits"');
+    expect(resultClient).toContain('data-pdf-section="career-path"');
+    expect(resultClient).toContain('data-pdf-section="personal-growth"');
+    expect(resultClient).toContain('data-pdf-section="relationships"');
+    expect(resultClient).toContain('[data-pdf-placeholder="true"]');
+    expect(resultClient).toContain('[data-cookie-banner="true"]');
+    expect(resultClient).toContain('[data-site-header="true"]');
+    expect(resultClient).toContain('[data-site-footer="true"]');
+    expect(resultClient).toContain('[data-result-sidebar="true"]');
+    expect(resultClient).toContain('[data-result-tools="true"]');
+    expect(resultClient).toContain('[data-result-workspace="true"]');
+    expect(resultClient).toContain('[data-pdf-loading="true"]');
+    expect(resultClient).toContain('[data-pdf-exclude-visible="true"]');
+    expect(resultClient).toContain("<MbtiResultPdfShell");
     expect(resultClient).toContain("renderOptionalEmailRecoveryCard");
     expect(resultClient).toContain("printMode ? null : renderEmailRecoveryCard()");
+    expect(pdfShell).toContain('data-testid="mbti-result-pdf-shell"');
+    expect(pdfShell).toContain('data-result-pdf-root="true"');
+    expect(pdfShell).toContain('data-pdf-section={pdfSection.key}');
+    expect(pdfShell).toContain('"personality-traits"');
+    expect(pdfShell).toContain('"career-path"');
+    expect(pdfShell).toContain('"personal-growth"');
+    expect(pdfShell).toContain('"relationships"');
+    expect(pdfShell).toContain('data-pdf-placeholder="true"');
+    expect(pdfShell).toContain('data-pdf-error="PDF_PLACEHOLDER_CONTENT"');
     expect(resultClient).toContain("installPrivateResultPrintUrlRedaction(locale)");
     expect(printBootstrap).toContain("X-Result-Access-Token");
     expect(printBootstrap).toContain("X-FAP-Locale");
@@ -99,19 +121,26 @@ describe("Gotenberg result print route contract", () => {
     expect(apiBase).toContain("buildSameOriginApiUrl(normalizedPath)");
   });
 
-  it("keeps the MBTI result modules available to the print route through the shared renderer", () => {
-    const richReport = read("components/result/RichResultReport.tsx");
-    const mbtiRail = read("components/result/mbti/MbtiStickyRail.tsx");
-    const mbtiChapter = read("components/result/mbti/MbtiChapterSection.tsx");
+  it("keeps blockers and print CSS out of the result-page PDF", () => {
+    const globals = read("app/globals.css");
+    const cookieBanner = read("components/legal/CookieBanner.tsx");
+    const header = read("components/layout/SiteHeader.tsx");
+    const footer = read("components/layout/SiteFooter.tsx");
+    const rail = read("components/result/mbti/clone/MbtiCloneRail.tsx");
 
-    expect(richReport).toContain("<MbtiResultShell");
-    expect(mbtiRail).toContain("1 Personality Traits");
-    expect(mbtiRail).toContain("2 Your Career Path");
-    expect(mbtiRail).toContain("3 Your Personal Growth");
-    expect(mbtiRail).toContain("4 Your Relationships");
-    expect(mbtiChapter).toContain('anchor: "traits"');
-    expect(mbtiChapter).toContain('anchor: "career"');
-    expect(mbtiChapter).toContain('anchor: "growth"');
-    expect(mbtiChapter).toContain('anchor: "relationships"');
+    expect(globals).toContain("@page");
+    expect(globals).toContain("size: A4");
+    expect(globals).toContain("print-color-adjust: exact");
+    expect(globals).toContain('[data-result-pdf-root="true"]');
+    expect(globals).toContain('[data-cookie-banner="true"]');
+    expect(globals).toContain('[data-result-sidebar="true"]');
+    expect(globals).toContain('[data-result-tools="true"]');
+    expect(globals).toContain('[data-result-workspace="true"]');
+    expect(cookieBanner).toContain('pathname.includes("/result/") && pathname.endsWith("/print")');
+    expect(cookieBanner).toContain('data-cookie-banner="true"');
+    expect(cookieBanner).toContain("cookie-banner");
+    expect(header).toContain('data-site-header="true"');
+    expect(footer).toContain('data-site-footer="true"');
+    expect(rail).toContain('data-result-sidebar="true"');
   });
 });

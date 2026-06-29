@@ -638,6 +638,28 @@ a {
 }
 
 @media print {
+  @page {
+    size: A4;
+    margin: 16mm 14mm;
+  }
+
+  html[data-pdf-ready="true"],
+  body:has([data-private-result-print-root="true"]) {
+    background: #fff !important;
+    color: #0f172a !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  [data-private-result-print-root="true"] {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  [data-result-pdf-root="true"] {
+    max-width: 760px !important;
+  }
+
   [data-pdf-mode="true"] :is(
     button,
     form,
@@ -646,11 +668,29 @@ a {
     select,
     [role="button"],
     [data-pdf-export-hidden="true"],
+    [data-pdf-exclude-visible="true"],
+    [data-cookie-banner="true"],
+    [data-site-header="true"],
+    [data-site-footer="true"],
+    [data-result-sidebar="true"],
+    [data-result-tools="true"],
+    [data-result-workspace="true"],
+    [data-pdf-loading="true"],
+    [data-testid="mbti-sticky-rail"],
+    [data-testid="mbti-mobile-chrome"],
+    [data-testid="mbti-post-purchase-section"],
+    [data-testid="mbti-offer-comparison"],
+    [data-testid="mbti-offer-full"],
+    [data-testid="mbti-footer-cta"],
     [data-testid="mbti-post-purchase-section"],
     [data-testid="mbti-offer-comparison"],
     [data-testid="mbti-sticky-rail"],
     [data-testid="mbti-mobile-chrome"]
   ) {
+    display: none !important;
+  }
+
+  body:has([data-private-result-print-root="true"]) :is([data-cookie-banner="true"], .cookie-banner) {
     display: none !important;
   }
 

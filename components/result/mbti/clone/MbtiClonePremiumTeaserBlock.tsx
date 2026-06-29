@@ -74,6 +74,7 @@ export function MbtiClonePremiumTeaserBlock({
                 key={`${item.title}-${index}`}
                 className={styles.premiumTeaserItem}
                 data-placeholder={item.isPlaceholder ? "true" : "false"}
+                data-pdf-placeholder={item.isPlaceholder ? "true" : undefined}
               >
                 <span aria-hidden className={styles.listIcon} data-tone={item.tone ?? "neutral"} />
                 <div>

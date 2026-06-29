@@ -454,7 +454,7 @@ describe("ResultClient view-state contract", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+      expect(screen.getByTestId("mbti-result-pdf-shell")).toBeInTheDocument();
     });
 
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
@@ -474,6 +474,11 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.ensureFmTokenReady).not.toHaveBeenCalled();
     expect(hoisted.fetchAttemptInviteUnlockProgress).not.toHaveBeenCalled();
     expect(setIntervalSpy.mock.calls.some(([, delay]) => delay === 15000)).toBe(false);
+    expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
+    expect(document.querySelector('[data-pdf-section="personality-traits"]')).toBeInTheDocument();
+    expect(document.querySelector('[data-pdf-section="career-path"]')).toBeInTheDocument();
+    expect(document.querySelector('[data-pdf-section="personal-growth"]')).toBeInTheDocument();
+    expect(document.querySelector('[data-pdf-section="relationships"]')).toBeInTheDocument();
 
     setIntervalSpy.mockRestore();
   });
@@ -496,7 +501,7 @@ describe("ResultClient view-state contract", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+      expect(screen.getByTestId("mbti-result-pdf-shell")).toBeInTheDocument();
     });
 
     expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
@@ -505,15 +510,49 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.ensureFmTokenReady).not.toHaveBeenCalled();
     expect(hoisted.fetchAttemptInviteUnlockProgress).not.toHaveBeenCalled();
     expect(setIntervalSpy.mock.calls.some(([, delay]) => delay === 15000)).toBe(false);
+    expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
     await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report").parentElement).toContainElement(
+      expect(screen.getByTestId("mbti-result-pdf-shell").parentElement).toContainElement(
         document.getElementById("fermat-pdf-ready")
       );
     });
     expect(document.getElementById("fermat-pdf-ready")).toHaveAttribute("data-pdf-ready", "true");
+    expect(document.documentElement).toHaveAttribute("data-pdf-ready", "true");
     expect((window as typeof window & { __FERMAT_PDF_READY__?: boolean }).__FERMAT_PDF_READY__).toBe(true);
 
     setIntervalSpy.mockRestore();
+  });
+
+  it("blocks MBTI print readiness when projection placeholder content is present", async () => {
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
+    if (Array.isArray(reportFixture.mbti_public_projection_v1?.sections)) {
+      reportFixture.mbti_public_projection_v1.sections[0] = {
+        ...reportFixture.mbti_public_projection_v1.sections[0],
+        body_md: "Placeholder trait slot",
+      };
+    }
+
+    render(
+      <ResultClient
+        attemptId="attempt-123"
+        rolloutEnv={{} as never}
+        printMode
+        printAccessToken="print_result_access_token_123"
+        initialReportAccess={createAccessProjection()}
+        initialReportData={reportFixture}
+      />
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId("mbti-result-pdf-shell-error")).toBeInTheDocument();
+    });
+
+    expect(document.querySelector('[data-pdf-placeholder="true"]')).toBeInTheDocument();
+    expect(document.getElementById("fermat-pdf-ready")).not.toBeInTheDocument();
+    await waitFor(() => {
+      expect((window as typeof window & { __FERMAT_PDF_READY__?: boolean }).__FERMAT_PDF_READY__).toBe(false);
+    });
   });
 
   it("renders RIASEC from the snapshot-bound report projection without falling back to result projection", async () => {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { usePathname } from "next/navigation";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { COOKIE_BANNER_ENABLED } from "@/components/layout/siteChromeRules";
 import { Button } from "@/components/ui/button";
@@ -32,6 +33,7 @@ function getServerConsentSnapshot(): BannerSnapshot {
 
 export function CookieBanner() {
   const locale = useLocale();
+  const pathname = usePathname() ?? "";
   const dict = getDictSync(locale);
   const consent = useSyncExternalStore(subscribeConsentStore, getConsentSnapshot, getServerConsentSnapshot);
 
@@ -44,12 +46,14 @@ export function CookieBanner() {
     );
   };
 
+  if (pathname.includes("/result/") && pathname.endsWith("/print")) return null;
   if (!COOKIE_BANNER_ENABLED || consent !== "unknown") return null;
 
   return (
     <div
+      data-cookie-banner="true"
       data-visual-volatile="true"
-      className="fixed bottom-4 left-0 right-0 z-50 mx-auto w-[min(920px,calc(100%-2rem))] rounded-2xl border border-slate-300 bg-white p-4 shadow-lg"
+      className="cookie-banner fixed bottom-4 left-0 right-0 z-50 mx-auto w-[min(920px,calc(100%-2rem))] rounded-2xl border border-slate-300 bg-white p-4 shadow-lg"
     >
       <p className="m-0 text-sm text-slate-700">{dict.cookie.message}</p>
       <div className="mt-3 flex flex-wrap gap-2">

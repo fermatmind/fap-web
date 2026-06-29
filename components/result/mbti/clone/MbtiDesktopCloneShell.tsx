@@ -1071,7 +1071,11 @@ export function MbtiDesktopCloneShell({
 
             {isMobileViewport ? finalOfferNode : null}
             {isDeepContentReady ? deepNarrativeSectionsNode : (
-              <section data-testid="mbti-deferred-content-placeholder" className={styles.deferredContentPlaceholder}>
+              <section
+                data-testid="mbti-deferred-content-placeholder"
+                data-pdf-placeholder="true"
+                className={styles.deferredContentPlaceholder}
+              >
                 <p className={styles.deferredContentPlaceholderTitle}>{deepContentPlaceholderLabel}</p>
                 <p className={styles.deferredContentPlaceholderHint}>{deepContentPlaceholderHint}</p>
               </section>

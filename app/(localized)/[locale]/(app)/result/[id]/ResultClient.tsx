@@ -4,6 +4,7 @@ import { type FormEvent, useCallback, useEffect, useMemo, useRef, useState } fro
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
+import { MbtiResultPdfShell } from "@/components/result/mbti/MbtiResultPdfShell";
 import { MbtiResultShellLoadingShell } from "@/components/result/mbti/MbtiResultShell";
 import { IqResultShell } from "@/components/result/iq/IqResultShell";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
@@ -64,18 +65,30 @@ import { Button } from "@/components/ui/button";
 const RESULT_POLL_FALLBACK_MS = 3000;
 const RESULT_POLL_MAX = 10;
 const INVITE_PROGRESS_POLL_MS = 15000;
-const MBTI_PDF_READY_ANCHORS = [
-  "mbti-desktop-traits",
-  "mbti-desktop-career",
-  "mbti-desktop-growth",
-  "mbti-desktop-relationships",
+const MBTI_PDF_REQUIRED_SELECTORS = [
+  '[data-pdf-section="personality-traits"]',
+  '[data-pdf-section="career-path"]',
+  '[data-pdf-section="personal-growth"]',
+  '[data-pdf-section="relationships"]',
 ] as const;
-const MBTI_PDF_READY_ANCHOR_TIMEOUT_MS = 8000;
+const MBTI_PDF_BLOCKER_SELECTORS = [
+  '[data-pdf-placeholder="true"]',
+  '[data-cookie-banner="true"]',
+  '[data-site-header="true"]',
+  '[data-site-footer="true"]',
+  '[data-result-sidebar="true"]',
+  '[data-result-tools="true"]',
+  '[data-result-workspace="true"]',
+  '[data-pdf-loading="true"]',
+  '[data-pdf-exclude-visible="true"]',
+] as const;
+const MBTI_PDF_READY_SECTION_TIMEOUT_MS = 8000;
 const MBTI_PDF_ASSET_READY_TIMEOUT_MS = 2000;
 
 declare global {
   interface Window {
     __FERMAT_PDF_READY__?: boolean;
+    __FERMAT_PDF_ERROR__?: string;
   }
 }
 
@@ -98,12 +111,22 @@ async function settleWithin<T>(promise: Promise<T>, timeoutMs: number): Promise<
   }
 }
 
-function hasMbtiPdfReadyAnchors(): boolean {
-  return MBTI_PDF_READY_ANCHORS.every((id) => document.getElementById(id));
+function findMbtiPdfBlocker(): string | null {
+  for (const selector of MBTI_PDF_BLOCKER_SELECTORS) {
+    if (document.querySelector(selector)) {
+      return selector;
+    }
+  }
+
+  return null;
 }
 
-async function waitForMbtiPdfReadyAnchors(timeoutMs: number): Promise<boolean> {
-  if (hasMbtiPdfReadyAnchors()) {
+function hasMbtiPdfReadySections(): boolean {
+  return MBTI_PDF_REQUIRED_SELECTORS.every((selector) => document.querySelector(selector)) && !findMbtiPdfBlocker();
+}
+
+async function waitForMbtiPdfReadySections(timeoutMs: number): Promise<boolean> {
+  if (hasMbtiPdfReadySections()) {
     return true;
   }
 
@@ -121,7 +144,7 @@ async function waitForMbtiPdfReadyAnchors(timeoutMs: number): Promise<boolean> {
       window.clearTimeout(timeoutId);
       resolve(ready);
     };
-    const timeoutId = window.setTimeout(() => finish(hasMbtiPdfReadyAnchors()), timeoutMs);
+    const timeoutId = window.setTimeout(() => finish(hasMbtiPdfReadySections()), timeoutMs);
 
     if (!root) {
       finish(false);
@@ -129,7 +152,7 @@ async function waitForMbtiPdfReadyAnchors(timeoutMs: number): Promise<boolean> {
     }
 
     observer = new MutationObserver(() => {
-      if (hasMbtiPdfReadyAnchors()) {
+      if (hasMbtiPdfReadySections()) {
         finish(true);
       }
     });
@@ -1542,6 +1565,9 @@ export default function ResultClient({
     }
 
     window.__FERMAT_PDF_READY__ = false;
+    window.__FERMAT_PDF_ERROR__ = undefined;
+    document.documentElement.removeAttribute("data-pdf-ready");
+    document.documentElement.removeAttribute("data-pdf-error");
     document.querySelector('[data-pdf-mode="true"]')?.setAttribute("data-pdf-ready", "false");
     setPdfReadyMarkerMounted(false);
 
@@ -1552,8 +1578,15 @@ export default function ResultClient({
     let cancelled = false;
 
     const markReady = async () => {
-      const modulesReady = await waitForMbtiPdfReadyAnchors(MBTI_PDF_READY_ANCHOR_TIMEOUT_MS);
+      const modulesReady = await waitForMbtiPdfReadySections(MBTI_PDF_READY_SECTION_TIMEOUT_MS);
       if (cancelled || !modulesReady) {
+        const blocker = findMbtiPdfBlocker();
+        if (blocker && !cancelled) {
+          window.__FERMAT_PDF_ERROR__ = blocker === '[data-pdf-placeholder="true"]'
+            ? "PDF_PLACEHOLDER_CONTENT"
+            : `PDF_BLOCKED_BY:${blocker}`;
+          document.documentElement.setAttribute("data-pdf-error", window.__FERMAT_PDF_ERROR__);
+        }
         return;
       }
 
@@ -1562,7 +1595,14 @@ export default function ResultClient({
         waitForPdfImages(MBTI_PDF_ASSET_READY_TIMEOUT_MS),
       ]);
 
-      if (cancelled || !hasMbtiPdfReadyAnchors()) {
+      if (cancelled || !hasMbtiPdfReadySections()) {
+        const blocker = findMbtiPdfBlocker();
+        if (blocker && !cancelled) {
+          window.__FERMAT_PDF_ERROR__ = blocker === '[data-pdf-placeholder="true"]'
+            ? "PDF_PLACEHOLDER_CONTENT"
+            : `PDF_BLOCKED_BY:${blocker}`;
+          document.documentElement.setAttribute("data-pdf-error", window.__FERMAT_PDF_ERROR__);
+        }
         return;
       }
 
@@ -1574,6 +1614,7 @@ export default function ResultClient({
     return () => {
       cancelled = true;
       window.__FERMAT_PDF_READY__ = false;
+      window.__FERMAT_PDF_ERROR__ = undefined;
     };
   }, [mbtiPdfReadyCandidate, printMode]);
 
@@ -1583,10 +1624,14 @@ export default function ResultClient({
     }
 
     document.querySelector('[data-pdf-mode="true"]')?.setAttribute("data-pdf-ready", "true");
+    document.documentElement.setAttribute("data-pdf-ready", "true");
+    document.documentElement.removeAttribute("data-pdf-error");
+    window.__FERMAT_PDF_ERROR__ = undefined;
     window.__FERMAT_PDF_READY__ = true;
 
     return () => {
       window.__FERMAT_PDF_READY__ = false;
+      document.documentElement.removeAttribute("data-pdf-ready");
     };
   }, [pdfReadyMarkerMounted, printMode]);
 
@@ -1757,6 +1802,18 @@ export default function ResultClient({
   }
 
   if (hasRichReport && reportData) {
+    if (printMode && resolvedScaleCode === "MBTI") {
+      return (
+        <div
+          data-testid="mbti-result-pdf-export-surface"
+          className="mx-auto w-full bg-white"
+        >
+          <MbtiResultPdfShell locale={locale} reportData={reportData} />
+          {renderPdfReadyMarker()}
+        </div>
+      );
+    }
+
     return (
       <div className="space-y-[var(--fm-gap-md)]">
         {renderOptionalEmailRecoveryCard()}

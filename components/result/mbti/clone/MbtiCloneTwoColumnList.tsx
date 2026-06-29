@@ -27,6 +27,7 @@ export function MbtiCloneTwoColumnList({
             key={`${item.title}-${index}`}
             className={styles.listItem}
             data-placeholder={item.isPlaceholder ? "true" : "false"}
+            data-pdf-placeholder={item.isPlaceholder ? "true" : undefined}
           >
             <span aria-hidden className={styles.listIcon} data-tone={item.tone ?? "neutral"} />
             <div>

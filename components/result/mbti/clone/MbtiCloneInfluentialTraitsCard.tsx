@@ -77,6 +77,7 @@ export function MbtiCloneInfluentialTraitsCard({
             key={`${trait.label}-${index}`}
             className={styles.traitSlotButton}
             data-placeholder={trait.isPlaceholder ? "true" : "false"}
+            data-pdf-placeholder={trait.isPlaceholder ? "true" : undefined}
             data-active={canShowDetails && index === activeIndex ? "true" : "false"}
             data-interactive={canShowDetails ? "true" : "false"}
             title={trait.body}
