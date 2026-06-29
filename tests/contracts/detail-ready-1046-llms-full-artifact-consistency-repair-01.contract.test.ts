@@ -144,6 +144,7 @@ afterEach(() => {
   delete process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE;
   delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT;
   delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT;
+  delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_IQ_COHORT;
 });
 
 describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
@@ -217,6 +218,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE = "true";
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT = "true";
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_TEST_COHORT = "true";
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_IQ_COHORT = "true";
     mockLlmsFullDependencies(() => fullCohortPaths(), {}, () => NON_IQ_TEST_PATHS);
     const { GET } = await import("@/app/llms-full.txt/route");
 
