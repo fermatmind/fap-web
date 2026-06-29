@@ -119,6 +119,10 @@ vi.mock("@/components/result/RichResultReport", () => ({
       data-unlock-stage={accessProjection?.unlockStage ?? ""}
       data-unlock-source={accessProjection?.unlockSource ?? ""}
     >
+      <div id="mbti-desktop-traits" />
+      <div id="mbti-desktop-career" />
+      <div id="mbti-desktop-growth" />
+      <div id="mbti-desktop-relationships" />
       {reportData?.mbti_public_projection_v1?.summary_card?.summary
         ?? (reportData as { big5_public_projection_v1?: { explainability_summary?: { headline?: string } } } | undefined)
         ?.big5_public_projection_v1?.explainability_summary?.headline
@@ -501,6 +505,13 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.ensureFmTokenReady).not.toHaveBeenCalled();
     expect(hoisted.fetchAttemptInviteUnlockProgress).not.toHaveBeenCalled();
     expect(setIntervalSpy.mock.calls.some(([, delay]) => delay === 15000)).toBe(false);
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report").parentElement).toContainElement(
+        document.getElementById("fermat-pdf-ready")
+      );
+    });
+    expect(document.getElementById("fermat-pdf-ready")).toHaveAttribute("data-pdf-ready", "true");
+    expect((window as typeof window & { __FERMAT_PDF_READY__?: boolean }).__FERMAT_PDF_READY__).toBe(true);
 
     setIntervalSpy.mockRestore();
   });

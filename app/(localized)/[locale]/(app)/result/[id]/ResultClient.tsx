@@ -604,6 +604,7 @@ export default function ResultClient({
   const [emailSubmitting, setEmailSubmitting] = useState(false);
   const [emailRecoverySaved, setEmailRecoverySaved] = useState(false);
   const [reloadNonce, setReloadNonce] = useState(0);
+  const [pdfReadyMarkerMounted, setPdfReadyMarkerMounted] = useState(false);
   const resultAccessToken = useMemo(
     () => normalizeText(printAccessToken, searchParams.get("access_token"), searchParams.get("result_access_token")),
     [printAccessToken, searchParams]
@@ -1465,6 +1466,7 @@ export default function ResultClient({
 
     window.__FERMAT_PDF_READY__ = false;
     document.querySelector('[data-pdf-mode="true"]')?.setAttribute("data-pdf-ready", "false");
+    setPdfReadyMarkerMounted(false);
 
     if (!mbtiPdfReadyCandidate) {
       return;
@@ -1491,8 +1493,7 @@ export default function ResultClient({
         return;
       }
 
-      document.querySelector('[data-pdf-mode="true"]')?.setAttribute("data-pdf-ready", "true");
-      window.__FERMAT_PDF_READY__ = true;
+      setPdfReadyMarkerMounted(true);
     };
 
     void markReady();
@@ -1502,6 +1503,25 @@ export default function ResultClient({
       window.__FERMAT_PDF_READY__ = false;
     };
   }, [mbtiPdfReadyCandidate, printMode]);
+
+  useEffect(() => {
+    if (!printMode || !pdfReadyMarkerMounted) {
+      return;
+    }
+
+    document.querySelector('[data-pdf-mode="true"]')?.setAttribute("data-pdf-ready", "true");
+    window.__FERMAT_PDF_READY__ = true;
+
+    return () => {
+      window.__FERMAT_PDF_READY__ = false;
+    };
+  }, [pdfReadyMarkerMounted, printMode]);
+
+  const renderPdfReadyMarker = () => (
+    printMode && pdfReadyMarkerMounted
+      ? <div id="fermat-pdf-ready" data-pdf-ready="true" hidden />
+      : null
+  );
 
   if (status === "email_required") {
     return (
@@ -1673,6 +1693,7 @@ export default function ResultClient({
           accessProjection={accessView}
           inviteUnlockProgress={inviteUnlockProgress}
         />
+        {renderPdfReadyMarker()}
       </div>
     );
   }
