@@ -32604,7 +32604,7 @@
       "MBTI-MAIN-FREE-FAQ-CONTENT-01"
     ],
     "status": "local_checks_passed",
-    "commit_sha": "3d053255f1bf8d6f36c68651cfd652619a71dec4",
+    "commit_sha": "0c2b67b485904b027a17c89b527feac2e0d04c3a",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -32693,7 +32693,7 @@
       {
         "at": "2026-06-29T08:53:00+08:00",
         "status": "committed",
-        "commit_sha": "3d053255f1bf8d6f36c68651cfd652619a71dec4",
+        "commit_sha": "0c2b67b485904b027a17c89b527feac2e0d04c3a",
         "notes": "Implementation commit created after local checks and scope validation passed; commit SHA reconciled after ledger amend."
       }
     ]
