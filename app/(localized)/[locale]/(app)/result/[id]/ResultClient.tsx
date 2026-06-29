@@ -70,6 +70,8 @@ const MBTI_PDF_READY_ANCHORS = [
   "mbti-desktop-growth",
   "mbti-desktop-relationships",
 ] as const;
+const MBTI_PDF_READY_ANCHOR_TIMEOUT_MS = 8000;
+const MBTI_PDF_ASSET_READY_TIMEOUT_MS = 2000;
 
 declare global {
   interface Window {
@@ -78,6 +80,89 @@ declare global {
 }
 
 type ResultClientStatus = "loading" | "generating" | "ready" | "failed" | "email_required";
+
+async function settleWithin<T>(promise: Promise<T>, timeoutMs: number): Promise<T | null> {
+  let timeoutId: number | null = null;
+
+  try {
+    return await Promise.race([
+      promise.then((result) => result).catch(() => null),
+      new Promise<null>((resolve) => {
+        timeoutId = window.setTimeout(() => resolve(null), timeoutMs);
+      }),
+    ]);
+  } finally {
+    if (timeoutId !== null) {
+      window.clearTimeout(timeoutId);
+    }
+  }
+}
+
+function hasMbtiPdfReadyAnchors(): boolean {
+  return MBTI_PDF_READY_ANCHORS.every((id) => document.getElementById(id));
+}
+
+async function waitForMbtiPdfReadyAnchors(timeoutMs: number): Promise<boolean> {
+  if (hasMbtiPdfReadyAnchors()) {
+    return true;
+  }
+
+  return new Promise((resolve) => {
+    const root = document.body ?? document.documentElement;
+    let settled = false;
+    let observer: MutationObserver | null = null;
+    const finish = (ready: boolean) => {
+      if (settled) {
+        return;
+      }
+
+      settled = true;
+      observer?.disconnect();
+      window.clearTimeout(timeoutId);
+      resolve(ready);
+    };
+    const timeoutId = window.setTimeout(() => finish(hasMbtiPdfReadyAnchors()), timeoutMs);
+
+    if (!root) {
+      finish(false);
+      return;
+    }
+
+    observer = new MutationObserver(() => {
+      if (hasMbtiPdfReadyAnchors()) {
+        finish(true);
+      }
+    });
+    observer.observe(root, { childList: true, subtree: true });
+  });
+}
+
+async function waitForPdfFonts(timeoutMs: number): Promise<void> {
+  const fontsReady = document.fonts?.ready;
+  if (!fontsReady) {
+    return;
+  }
+
+  await settleWithin(fontsReady.then(() => undefined), timeoutMs);
+}
+
+async function waitForPdfImages(timeoutMs: number): Promise<void> {
+  const images = Array.from(document.images);
+  if (images.length === 0) {
+    return;
+  }
+
+  await settleWithin(Promise.all(images.map((image) => {
+    if (image.complete) {
+      return Promise.resolve();
+    }
+
+    return new Promise<void>((resolve) => {
+      image.addEventListener("load", () => resolve(), { once: true });
+      image.addEventListener("error", () => resolve(), { once: true });
+    });
+  })).then(() => undefined), timeoutMs);
+}
 
 type ResultDimension = {
   code?: string;
@@ -1475,21 +1560,17 @@ export default function ResultClient({
     let cancelled = false;
 
     const markReady = async () => {
-      await document.fonts?.ready.catch(() => undefined);
-      const images = Array.from(document.images);
-      await Promise.all(images.map((image) => {
-        if (image.complete) {
-          return Promise.resolve();
-        }
-
-        return new Promise<void>((resolve) => {
-          image.addEventListener("load", () => resolve(), { once: true });
-          image.addEventListener("error", () => resolve(), { once: true });
-        });
-      }));
-
-      const modulesReady = MBTI_PDF_READY_ANCHORS.every((id) => document.getElementById(id));
+      const modulesReady = await waitForMbtiPdfReadyAnchors(MBTI_PDF_READY_ANCHOR_TIMEOUT_MS);
       if (cancelled || !modulesReady) {
+        return;
+      }
+
+      await Promise.all([
+        waitForPdfFonts(MBTI_PDF_ASSET_READY_TIMEOUT_MS),
+        waitForPdfImages(MBTI_PDF_ASSET_READY_TIMEOUT_MS),
+      ]);
+
+      if (cancelled || !hasMbtiPdfReadyAnchors()) {
         return;
       }
 
