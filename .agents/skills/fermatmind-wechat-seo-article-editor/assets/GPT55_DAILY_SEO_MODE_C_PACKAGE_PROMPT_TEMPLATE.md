@@ -2,6 +2,14 @@
 
 Use this template after daily topic selection and Mode B brief approval, before Codex package QA. It asks GPT 5.5 Pro to produce a complete Codex-ingestible Mode C CMS content package, not only an article draft.
 
+Hard contract:
+
+- This template combines the daily SEO prompt contract and the GPT package-generation contract.
+- Do not use a lightweight article-only prompt for daily SEO Mode C work.
+- Do not return only README/body/FAQ/internal-link/image-prompt fragments.
+- An article-only or prompt-only package is invalid for Codex intake.
+- The package must include all required Mode C directories, contracts, review files, handoff files, CMS import fields, and media manifest/source assets listed below, or explicitly mark the missing item as a blocker.
+
 ```text
 You are GPT 5.5 Pro acting as FermatMind's zh-CN SEO content package owner.
 
@@ -13,6 +21,7 @@ Authority boundary:
 - You do not publish, import into CMS, submit search, mutate URL Truth, enable schema/hreflang, revalidate, deploy, or create PRs.
 - CMS/backend remains the runtime authority.
 - Codex/SEO agent will separately validate, repair, import, preview, publish, release discoverability, and submit search only after explicit authorization.
+- Your self-checks are author assertions only. Use AUTHOR_ASSERTED, REQUIRES_CODEX_VERIFICATION, REQUIRES_OPERATOR_REVIEW, BLOCKED, or Unknown; do not mark runtime, route, image, schema, search, or publish gates as PASS.
 
 Target article:
 - operation_type: new_article
@@ -77,6 +86,8 @@ Return a zipped folder or folder contents with this structure:
   brief/
     SEO_BRIEF.md
     ROUTE_CANNIBALIZATION_READINESS.md
+    KEYWORD_ALIGNMENT_CONTRACT.json
+    SOURCE_USAGE_MATRIX.md
   pages/
     article.zh-CN.md
   cms/
@@ -89,12 +100,18 @@ Return a zipped folder or folder contents with this structure:
     HREFLANG_ROUTING_TREE_CONTRACT.json
     SCHEMA_ELIGIBILITY_PLAN.json
     PRIVATE_URL_GUARD.json
+    PUBLIC_CANONICAL_ROUTE_CONTRACT.json
+    ARTICLE_IDENTITY_LOCK.json
+    IMAGE_ASSET_REQUIREMENTS.json
   review/
     claim_gate.md
     operator_review.md
     quality_self_check.md
+    source_claim_map.md
   codex/
     codex_handoff.md
+    qa_checklist.md
+    preview_checklist.md
   media/
     IMAGE_ASSET_MANIFEST.json
     IMAGE_PROMPTS.md
@@ -146,6 +163,7 @@ CMS_FIELDS_zh-CN.json and CMS_IMPORT_DRAFT_zh-CN.json must include:
 
 Media requirements:
 - Include a unique cover source image and one body visual source image when the article expects images.
+- If real source image files cannot be attached in the package, keep the manifest and prompts but mark `media_source_status: BLOCKED_NEEDS_IMAGE_GENERATION_BEFORE_MEDIA_LIBRARY_IMPORT` in manifest.json, IMAGE_ASSET_MANIFEST.json, and codex/codex_handoff.md. Do not claim the package is ready for Media Library import/register.
 - IMAGE_ASSET_MANIFEST.json must use local filenames and proposed stable asset keys only.
 - Do not invent Media Library URLs, CDN URLs, asset IDs, or variant URLs.
 - Use assets that are original/generated for this article; no competitor screenshots, logos, watermarks, or copyrighted reuse.
@@ -183,6 +201,7 @@ Internal link requirements:
 - Each internal link must have a reader reason, not just SEO anchor stuffing.
 
 Self-check before returning:
+- Use only these self-check statuses: AUTHOR_ASSERTED, REQUIRES_CODEX_VERIFICATION, REQUIRES_OPERATOR_REVIEW, BLOCKED, Unknown.
 - Does the opening answer the query directly?
 - Does the article solve a specific scenario rather than explain a model generically?
 - Are all tables/checklists actionable?
@@ -191,6 +210,7 @@ Self-check before returning:
 - Are publish/search/schema/hreflang/revalidation holds preserved?
 - Are image URLs placeholders/local filenames only?
 - Are all private routes absent?
+- Are real cover/body visual source files attached, or is the image-generation blocker clearly declared?
 
 Return:
 1. The complete package tree and file contents.
@@ -200,6 +220,7 @@ Return:
    - package QA
    - Media Library image import/register dry-run
    - CMS draft import dry-run
+   Use BLOCKED for any downstream gate that depends on missing real images, unknown routes, missing claim review, or unsynchronized CMS body fields.
 4. Any blockers or assumptions.
 ```
 
@@ -210,5 +231,6 @@ When the user asks for a GPT content-package prompt tomorrow, Codex should:
 1. First scan repo/local context for current related routes, CTA routes, claim rules, package contracts, and recent article blockers.
 2. Fill the placeholders in this template with the selected daily topic.
 3. Add topic-specific examples, required tables, and forbidden claims.
-4. Keep the output as a paste-ready GPT prompt; do not generate the article body itself.
+4. Keep the output as a paste-ready GPT Mode C package prompt; do not generate the article body itself.
 5. If image requirements changed, also consult `fermatmind-seo-ops/assets/next_daily_image_bundle_template.md`.
+6. Do not substitute the lighter `fermatmind-seo-article-content-package` template unless the user explicitly requests a brief-only or article-draft-only artifact.

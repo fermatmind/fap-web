@@ -4,6 +4,8 @@ Use when validating GPT/Mode C bilingual SEO article content packages before imp
 
 ## Operation And Identity Rule
 
+Daily SEO Mode C work treats the GPT prompt contract and GPT package-generation contract as one combined handoff. A returned article-only artifact is not a Mode C package, even if it has body markdown, FAQ, internal links, and image prompts.
+
 Mode C must declare:
 
 - `operation_type`: `new_article` or `update_existing_article`.
@@ -105,6 +107,8 @@ Dimension and size rules:
 
 Mode C must not invent Media Library URLs. CMS JSON may carry proposed asset keys and local source filenames, but publishable CMS image fields must be filled only after `media-assets:import-seo-image-bundle` returns verified resolved metadata.
 
+If real source images are missing, the package may continue only as a review artifact and must declare `BLOCKED_NEEDS_IMAGE_GENERATION_BEFORE_MEDIA_LIBRARY_IMPORT`. It must not claim Media Library import/register, CMS draft import, preview QA, or release readiness.
+
 ## Body Visual Rule
 
 Mode C must not hardcode nonexistent Media Library asset keys. If a body visual is desired but the asset is not verified public/published/CDN reachable, the package must output:
@@ -191,6 +195,8 @@ Schema and hreflang must be held in normal daily article release unless a separa
 Mode C must include topic-specific forbidden claims and preserve `Unknown` for unsupported psychometric fields such as validity coefficients, norm samples, test-retest reliability, official instrument equivalence, percentile mappings, clinical use, hiring fit, salary, promotion, or success prediction.
 
 Psychometric topics must not assert diagnosis, treatment, hiring fit, salary, career success, relationship success, official equivalence, or deterministic outcome claims without approved source and operator review.
+
+GPT-generated self-checks are author assertions, not validation results. Use statuses such as `AUTHOR_ASSERTED`, `REQUIRES_CODEX_VERIFICATION`, `REQUIRES_OPERATOR_REVIEW`, `BLOCKED`, or `Unknown`. Reserve `PASS` for Codex/operator checks that have actually executed against the package, routes, images, CMS surfaces, or preview.
 
 ## Structured Metadata Requirements
 
