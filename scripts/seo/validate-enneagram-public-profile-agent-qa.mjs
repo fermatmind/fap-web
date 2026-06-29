@@ -128,10 +128,6 @@ function collectSerializedPublicRoutes(row) {
   });
 }
 
-function patternHits(text, patterns) {
-  return patterns.filter((pattern) => pattern.test(text)).map((pattern) => pattern.source);
-}
-
 function splitEvidenceClauses(text) {
   return String(text ?? "")
     .split(/(?<=[.!?。！？])\s+|\n+/)
@@ -191,16 +187,6 @@ function privateRouteErrors(row) {
     if (!String(link.target_url ?? "").startsWith("https://fermatmind.com/")) {
       errors.push(`non_canonical_internal_link:${link.target_url ?? "missing"}`);
     }
-  }
-  return errors;
-}
-
-function claimErrors(row) {
-  const text = collectVisibleText(row);
-  const errors = [];
-  for (const [category, patterns] of Object.entries(CLAIM_PATTERNS)) {
-    const hits = riskPatternHits(text, patterns);
-    if (hits.length > 0) errors.push(`${category}:${hits.join("|")}`);
   }
   return errors;
 }

@@ -15,10 +15,6 @@ const DOC_PATH = path.join(ROOT, "docs/seo/six-assessment-hub-parity.md");
 const ARTIFACT_PATH = path.join(ROOT, "docs/seo/generated/six-assessment-hub-parity.v1.json");
 const PACKAGE_JSON_PATH = path.join(ROOT, "package.json");
 
-function read(relativePath: string): string {
-  return fs.readFileSync(path.join(ROOT, relativePath), "utf8");
-}
-
 describe("six-assessment hub parity verifier", () => {
   it("keeps the six-scale plan and checked-in artifact in sync", () => {
     expect(SIX_ASSESSMENT_SCALES.map((item) => item.scale_code)).toEqual([

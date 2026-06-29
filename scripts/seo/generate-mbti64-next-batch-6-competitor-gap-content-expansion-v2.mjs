@@ -296,7 +296,6 @@ function buildRecommendation(row) {
   const locale = row.locale;
   const content = typeContent[type][locale];
   const isZh = locale === "zh";
-  const targetUrl = row.target_url;
   const links = row.recommendations.internal_links;
 
   return {
