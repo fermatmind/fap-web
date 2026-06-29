@@ -101,6 +101,8 @@ describe("Big Five shell polish contract", () => {
     renderPolishedShell();
 
     expect(screen.getByTestId("big5-actions-card")).toHaveTextContent("继续怎么用这份结果");
+    expect(screen.getByTestId("big5-actions-card")).not.toHaveTextContent("结果之后");
+    expect(screen.getByTestId("big5-actions-card")).not.toHaveTextContent("After the report");
     expect(screen.getByTestId("big5-pdf-entry")).toHaveTextContent("保存报告");
     expect(screen.getByTestId("big5-pdf-entry")).toHaveTextContent("PDF 导出已安全暂停");
     expect(within(screen.getByTestId("big5-pdf-entry")).getByRole("button", { name: "PDF 暂不可用" })).toBeDisabled();

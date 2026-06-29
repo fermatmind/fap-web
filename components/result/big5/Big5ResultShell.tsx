@@ -543,9 +543,6 @@ export function Big5ResultShell({
 
       <section id="big5-tools" data-testid="big5-actions-card" className="scroll-mt-24 space-y-4">
         <div className="space-y-1">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-            {isZh ? "结果之后" : "After the report"}
-          </p>
           <h3 className="m-0 text-2xl font-semibold text-slate-950">
             {isZh ? "继续怎么用这份结果" : "What to do next"}
           </h3>
