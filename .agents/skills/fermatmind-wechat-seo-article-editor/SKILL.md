@@ -30,6 +30,8 @@ Use this skill when the user says or implies:
 - a Mode C package needs content enrichment before CMS draft/import;
 - a daily SEO article should be made more readable, story-led, or reader-native.
 
+For daily SEO article package generation prompts, the prompt contract and GPT package-generation contract are one step: use `assets/GPT55_DAILY_SEO_MODE_C_PACKAGE_PROMPT_TEMPLATE.md` and require a complete Mode C package tree. Do not route daily SEO Mode C work through a lightweight article-only prompt unless the user explicitly asks for a brief-only or draft-only artifact.
+
 Do not use this skill for:
 
 - topic selection or Mode B brief generation; use `fermatmind-daily-seo-ops`;
@@ -161,6 +163,8 @@ Use:
 - `assets/GPT55_DAILY_SEO_MODE_C_PACKAGE_PROMPT_TEMPLATE.md` when the task is to generate a complete daily SEO Mode C content package from an approved topic or Mode B brief.
 - `assets/WECHAT_SEO_REWRITE_PROMPT_TEMPLATE.md` when the task is to improve an already generated article/package body before Codex package QA.
 - `assets/CODEX_STAGE4_TO_SEO_AGENT_GOAL_TEMPLATE.md` when GPT has returned the content package/images and the user wants Codex to do Stage 4 content enrichment/package QA/image manifest normalization, then generate the Stage 5 `/goal` for a separate SEO agent window.
+
+Reject prompt drafts that would ask GPT to return only an article body, README, FAQ, internal-link list, or image prompts. A daily SEO Mode C package prompt must require `manifest.json`, `brief/`, `pages/`, `cms/`, `contracts/`, `review/`, `codex/`, and `media/` outputs, including real source images or an explicit image-generation blocker.
 
 Include:
 
