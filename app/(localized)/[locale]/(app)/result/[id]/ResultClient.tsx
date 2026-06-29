@@ -1473,17 +1473,9 @@ export default function ResultClient({
       data-testid="result-email-recovery-card"
     >
       <div className="space-y-2">
-        <p className="text-xs font-semibold uppercase text-[var(--fm-text-muted)]">
-          {locale === "zh" ? "结果找回" : "Result recovery"}
-        </p>
         <h2 className="text-xl font-semibold text-[var(--fm-text)]">
           {locale === "zh" ? "保存邮箱，随时找回这份结果" : "Save an email to recover this result"}
         </h2>
-        <p className="text-sm leading-6 text-[var(--fm-text-muted)]">
-          {locale === "zh"
-            ? "这不会阻塞当前免费结果预览。保存后，我们会把访问链接发送到你的邮箱，方便换设备或稍后继续查看。"
-            : "This does not block the free result preview. After saving, we send an access link so you can reopen the result later or on another device."}
-        </p>
       </div>
 
       <form className="mt-4 grid gap-3 sm:grid-cols-[1fr_auto]" onSubmit={handleEmailRecoverySubmit}>

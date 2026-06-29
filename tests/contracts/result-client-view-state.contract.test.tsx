@@ -593,6 +593,8 @@ describe("ResultClient view-state contract", () => {
     expect(screen.getByTestId("result-email-recovery-card")).toHaveTextContent(
       "Save an email to recover this result"
     );
+    expect(screen.getByTestId("result-email-recovery-card")).not.toHaveTextContent("Result recovery");
+    expect(screen.getByTestId("result-email-recovery-card")).not.toHaveTextContent("This does not block the free result preview");
     expect(screen.queryByTestId("result-email-gate")).not.toBeInTheDocument();
 
     fireEvent.change(screen.getByTestId("result-email-recovery-input"), {
