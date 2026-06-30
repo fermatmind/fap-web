@@ -569,9 +569,7 @@ describe("MBTI shell authored fields contract", () => {
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-offers-primary-cta")).toHaveTextContent("1.99元直接解锁");
-    expect(
-      within(screen.getByTestId("mbti-footer-cta")).getByRole("link", { name: "解锁完整报告" })
-    ).toHaveAttribute("href", getMbtiDesktopAnchorHash("offerFull"));
+    expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
   });
 });

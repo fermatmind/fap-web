@@ -105,10 +105,10 @@ describe("Gotenberg result print route contract", () => {
     const mbtiChapter = read("components/result/mbti/MbtiChapterSection.tsx");
 
     expect(richReport).toContain("<MbtiResultShell");
-    expect(mbtiRail).toContain("1 Personality Traits");
-    expect(mbtiRail).toContain("2 Your Career Path");
-    expect(mbtiRail).toContain("3 Your Personal Growth");
-    expect(mbtiRail).toContain("4 Your Relationships");
+    expect(mbtiRail).toContain("1 人格特质");
+    expect(mbtiRail).toContain("2 职业路径");
+    expect(mbtiRail).toContain("3 个人成长");
+    expect(mbtiRail).toContain("4 关系模式");
     expect(mbtiChapter).toContain('anchor: "traits"');
     expect(mbtiChapter).toContain('anchor: "career"');
     expect(mbtiChapter).toContain('anchor: "growth"');

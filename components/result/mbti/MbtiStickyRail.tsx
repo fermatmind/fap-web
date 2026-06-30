@@ -37,10 +37,10 @@ type RailLink = {
 };
 
 const MAIN_ANCHORS: RailLink[] = [
-  { anchor: "traits", zh: "1 Personality Traits", en: "1 Personality Traits" },
-  { anchor: "career", zh: "2 Your Career Path", en: "2 Your Career Path" },
-  { anchor: "growth", zh: "3 Your Personal Growth", en: "3 Your Personal Growth" },
-  { anchor: "relationships", zh: "4 Your Relationships", en: "4 Your Relationships" },
+  { anchor: "traits", zh: "1 人格特质", en: "1 Personality Traits" },
+  { anchor: "career", zh: "2 职业路径", en: "2 Your Career Path" },
+  { anchor: "growth", zh: "3 个人成长", en: "3 Your Personal Growth" },
+  { anchor: "relationships", zh: "4 关系模式", en: "4 Your Relationships" },
 ];
 const STICKY_SECTION_IDS = ["hero", ...MAIN_ANCHORS.map((item) => item.anchor), "offer-full", "footer-cta"];
 

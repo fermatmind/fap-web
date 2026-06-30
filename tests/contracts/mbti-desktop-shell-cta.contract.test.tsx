@@ -348,11 +348,11 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     }
 
     const rail = screen.getByTestId("mbti-sticky-rail");
-    expect(within(rail).getByRole("link", { name: "1. Personality Traits" })).toHaveAttribute(
+    expect(within(rail).getByRole("link", { name: "1. 人格特质" })).toHaveAttribute(
       "href",
       getMbtiDesktopAnchorHash("traits"),
     );
-    expect(within(rail).getByRole("link", { name: "2. Your Career Path" })).toHaveAttribute(
+    expect(within(rail).getByRole("link", { name: "2. 职业路径" })).toHaveAttribute(
       "href",
       getMbtiDesktopAnchorHash("career"),
     );

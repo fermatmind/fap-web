@@ -69,7 +69,7 @@ export function MbtiCloneInfluentialTraitsCard({
 
   return (
     <section className={styles.influentialCard}>
-      <p className={styles.microLabel}>Influential Traits</p>
+      <p className={styles.microLabel}>{locale === "zh" ? "影响因素" : "Influential Traits"}</p>
       <div className={styles.traitSlotRow}>
         {traits.slice(0, 4).map((trait, index) => (
           <button
@@ -131,7 +131,6 @@ export function MbtiCloneInfluentialTraitsCard({
           <div className={styles.unlockRule} />
           <div className={styles.traitsUnlockPanel} data-testid={`mbti-${sectionId}-traits-unlock-panel`}>
             <div className={styles.traitsUnlockHeader}>
-              <p className={styles.traitsUnlockEyebrow}>{traitsUnlock?.title}</p>
               <h3 className={styles.traitsUnlockTitle}>{detailItem.label}</h3>
               <p className={styles.traitsUnlockIntro}>{traitsUnlock?.intro}</p>
             </div>
