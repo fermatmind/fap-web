@@ -1419,7 +1419,16 @@
       "merged_at": "2026-05-13T16:27:02Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [],
+      "sidecar_issues": [
+        {
+          "blocker_type": "unrelated_flaky_contract_timing",
+          "evidence": "pnpm test:contract failed once in tests/contracts/career-shortlist-consent.contract.test.tsx; focused rerun passed all 4 tests and the second full contract suite passed.",
+          "sidecar_files": [
+            "generated/pr-train-sidecar-issues/sidecar_issues.md",
+            "generated/pr-train-sidecar-issues/sidecar_issues.json"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-05-24T00:05:29+08:00",
@@ -11650,6 +11659,491 @@
       ],
       "sidecar_issues": [],
       "updated_at": "2026-05-24T13:33:30+08:00"
+    },
+    {
+      "id": "SECURITY-103-WEB-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "ready_to_merge",
+      "train_scope": "security_103_web_github_actions_deploy_workflow_hardening",
+      "risk_level": "critical",
+      "title": "SECURITY-103-WEB-01: GitHub Actions / deploy workflow hardening",
+      "artifacts": [
+        ".github/workflows/deploy-production.yml",
+        ".github/workflows/deploy-staging.yml",
+        "tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts",
+        "tests/contracts/deploy-production-workflow-env.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json",
+        "generated/pr-train-sidecar-issues/sidecar_issues.md",
+        "generated/pr-train-sidecar-issues/sidecar_issues.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-103-WEB-01 through SECURITY-103-WEB-08 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "passed",
+          "evidence": "SECURITY-103-WEB-01 has no train dependency."
+        },
+        "worktree_isolation": {
+          "status": "passed",
+          "evidence": "Using isolated worktree /private/tmp/fap-web-security-103-web-01 from origin/main because the primary fap-web worktree has unrelated untracked pnpm-workspace.yaml."
+        },
+        "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts tests/contracts/deploy-production-workflow-env.contract.test.ts",
+            "pnpm typecheck",
+            "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "pnpm test:contract",
+            "pnpm exec vitest run tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts (after GitHub shallow checkout fix)",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "notes": [
+            "Initial build command without NEXT_PUBLIC_SITE_URL failed the existing /robots.txt site-url environment gate; SECURITY-103 manifest entries were corrected to include NEXT_PUBLIC_SITE_URL=https://fermatmind.com before the passing build.",
+            "A post-commit focused rerun exposed that the new scope contract only checked uncommitted diffs; the contract was fixed inside WEB-01 scope to include origin/main...HEAD, then typecheck and the full contract suite passed again.",
+            "GitHub contracts failed because the same scope contract assumed origin/main exists in the shallow synthetic PR merge checkout; the contract was fixed inside WEB-01 scope to tolerate unavailable local diff sources while retaining local changed-file scope validation."
+          ]
+        },
+        "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "failed": [
+            {
+              "name": "contracts",
+              "run_id": "28413646194",
+              "job_id": "84191803406",
+              "head_sha": "42799109f631bef6d3cbccbed8adab88900b0533",
+              "evidence": "tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts failed because git diff --name-only origin/main...HEAD was unavailable in GitHub's shallow PR merge checkout."
+            }
+          ]
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1494",
+      "commit_sha": "442b707c74dc367408ba65d2f16febeb413f0bab",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "in_progress",
+          "summary": "Initialized SECURITY-103-WEB-01 from explicit user /goal; implementing deploy workflow action pinning, SSH target config hardening, and workflow_dispatch SHA/input fail-closed guards."
+        },
+        {
+          "at": "2026-06-30T01:09:24Z",
+          "status": "local_checks_passed",
+          "summary": "Focused deploy workflow contracts, typecheck, production build with NEXT_PUBLIC_SITE_URL, full contract suite, manifest/state parse, diff check, and changed-file scope validation passed. Build-generated public/sitemap.xml was restored as out of scope."
+        },
+        {
+          "at": "2026-06-30T01:11:12Z",
+          "status": "committed",
+          "commit_sha": "4164268b35a1fbb52b0fab3d608fcdfe886db5ba",
+          "summary": "Created implementation commit after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-30T01:11:12Z",
+          "status": "commit_sha_reconciled",
+          "commit_sha": "534602723bbcf60a7483ce2c85a74563333a43e2",
+          "summary": "Reconciled ledger to amended implementation commit SHA before push."
+        },
+        {
+          "at": "2026-06-30T01:15:13Z",
+          "status": "scope_contract_fix_passed",
+          "summary": "Fixed the WEB-01 scope contract to include committed branch diffs via origin/main...HEAD; focused contract, typecheck, full contract suite, and diff check passed after the fix."
+        },
+        {
+          "at": "2026-06-30T01:16:48Z",
+          "status": "pr_opened",
+          "commit_sha": "88907db57797931f93a898da216d3af5291cf76f",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1494",
+          "summary": "Opened GitHub PR #1494 after local checks, scope validation, commit, and push."
+        },
+        {
+          "at": "2026-06-30T01:23:51Z",
+          "status": "github_checks_failed_fixing",
+          "summary": "Inspected GitHub contracts failure for PR #1494: the WEB-01 scope contract invoked origin/main...HEAD in a shallow synthetic PR merge checkout. Fixing the contract inside current WEB-01 test scope."
+        },
+        {
+          "at": "2026-06-30T01:30:16Z",
+          "status": "github_checks_fix_local_passed",
+          "summary": "Scoped CI checkout fix passed focused WEB-01 contract, typecheck, production build, manifest/state/sidecar parse, diff check, and a rerun of the full contract suite. A transient unrelated career shortlist contract timing failure was recorded in sidecar and did not reproduce on focused rerun or the second full suite."
+        },
+        {
+          "at": "2026-06-30T01:31:31Z",
+          "status": "scope_contract_status_enum_fix_passed",
+          "summary": "Updated the WEB-01 scope contract to accept the current github_checks_fix_local_passed ledger state; focused WEB-01 contract, manifest/state/sidecar parse, and diff check passed."
+        },
+        {
+          "at": "2026-06-30T01:37:11Z",
+          "status": "ready_to_merge",
+          "commit_sha": "442b707c74dc367408ba65d2f16febeb413f0bab",
+          "summary": "GitHub required checks passed for PR #1494 head 442b707c74dc367408ba65d2f16febeb413f0bab: build, contracts, freeze checks, CodeQL, and javascript-typescript analysis. GitHub merge state is CLEAN."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:37:11Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-02",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-02",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-01"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_result_report_pdf_frontend_access_redaction",
+      "risk_level": "critical",
+      "title": "SECURITY-103-WEB-02: result/report/PDF frontend access redaction",
+      "artifacts": [
+        "result/report/PDF frontend access and redaction code",
+        "focused SECURITY-103-WEB-02 contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-01 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-02 from explicit user /goal; execution waits for SECURITY-103-WEB-01 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-03",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-03",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-02"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_seo_agent_approval_and_artifact_redaction",
+      "risk_level": "high",
+      "title": "SECURITY-103-WEB-03: SEO agent approval and artifact redaction",
+      "artifacts": [
+        "SEO agent approval gate code and artifact redaction contracts",
+        "audit metadata docs",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-02 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-03 from explicit user /goal; execution waits for SECURITY-103-WEB-02 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-04",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-04",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-03"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_ops_dashboard_route_authentication",
+      "risk_level": "high",
+      "title": "SECURITY-103-WEB-04: ops/dashboard route authentication",
+      "artifacts": [
+        "ops/dashboard route handlers, route pages, middleware, and auth contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-03 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-04 from explicit user /goal; execution waits for SECURITY-103-WEB-03 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-05",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-05",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-04"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_cms_rendered_url_and_field_allowlists",
+      "risk_level": "high",
+      "title": "SECURITY-103-WEB-05: CMS/rendered URL and field allowlists",
+      "artifacts": [
+        "CMS rendering adapters, URL validators, and field/scheme allowlist contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-04 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-05 from explicit user /goal; execution waits for SECURITY-103-WEB-04 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-06",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-06",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-05"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_sitemap_llms_lkg_cache_fail_closed",
+      "risk_level": "high",
+      "title": "SECURITY-103-WEB-06: sitemap / llms-full / LKG cache fail-closed behavior",
+      "artifacts": [
+        "sitemap, llms, llms-full, LKG cache, and career sitemap fail-closed code and contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-05 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-06 from explicit user /goal; execution waits for SECURITY-103-WEB-05 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-07",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-07",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-06"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_tracking_attribution_private_url_sanitization",
+      "risk_level": "high",
+      "title": "SECURITY-103-WEB-07: tracking attribution private URL sanitization",
+      "artifacts": [
+        "tracking attribution URL sanitation code and contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-06 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-07 from explicit user /goal; execution waits for SECURITY-103-WEB-06 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-08",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-08",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-07"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_dailygiving_giving_same_origin_proxy_method_restriction",
+      "risk_level": "high",
+      "title": "SECURITY-103-WEB-08: DailyGiving/giving same-origin proxy method restriction",
+      "artifacts": [
+        "DailyGiving/giving same-origin proxy method gating code and contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-07 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-08 from explicit user /goal; execution waits for SECURITY-103-WEB-07 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
     },
     {
       "id": "PR-AUDIT-FE-01",

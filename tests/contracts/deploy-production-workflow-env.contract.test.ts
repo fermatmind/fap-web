@@ -29,10 +29,11 @@ describe("production deploy workflow environment contract", () => {
     expect(workflow).toContain("test -n \"$DEPLOY_USER\"");
   });
 
-  it("keeps automatic production deploy fail-closed while allowing manual workflow_dispatch through environment approval", () => {
+  it("keeps production deploy fail-closed for risky PR metadata, including manual workflow_dispatch", () => {
     expect(workflow).toContain("github.event_name == 'workflow_dispatch'");
     expect(workflow).toContain("process.env.GITHUB_EVENT_NAME === 'workflow_dispatch'");
-    expect(workflow).toContain("Continuing only through the production GitHub Environment approval gate.");
+    expect(workflow).toContain("Manual production deploy failed closed: deploy_sha is required.");
     expect(workflow).toContain("Production auto-deploy policy failed closed.");
+    expect(workflow).not.toContain("Continuing only through the production GitHub Environment approval gate.");
   });
 });

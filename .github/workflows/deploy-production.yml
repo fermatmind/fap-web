@@ -8,8 +8,8 @@ on:
   workflow_dispatch:
     inputs:
       deploy_sha:
-        description: "Exact main commit SHA to deploy. Defaults to current main."
-        required: false
+        description: "Exact latest main commit SHA to deploy."
+        required: true
         type: string
 
 permissions:
@@ -43,12 +43,20 @@ jobs:
           DISPATCH_DEPLOY_SHA: ${{ inputs.deploy_sha }}
         with:
           script: |
+            const isManualDispatch = process.env.GITHUB_EVENT_NAME === 'workflow_dispatch';
             const deploySha = process.env.GITHUB_EVENT_NAME === 'workflow_run'
               ? process.env.WORKFLOW_RUN_HEAD_SHA
-              : (process.env.DISPATCH_DEPLOY_SHA || process.env.GITHUB_SHA);
+              : process.env.DISPATCH_DEPLOY_SHA;
 
-            if (!deploySha) {
-              core.setFailed('Production auto-deploy policy failed closed: deploy SHA is empty.');
+            if (isManualDispatch && !process.env.DISPATCH_DEPLOY_SHA) {
+              core.setOutput('auto_deploy_allowed', 'false');
+              core.setFailed('Manual production deploy failed closed: deploy_sha is required.');
+              return;
+            }
+
+            if (!deploySha || !/^[0-9a-f]{40}$/.test(deploySha)) {
+              core.setOutput('auto_deploy_allowed', 'false');
+              core.setFailed('Production auto-deploy policy failed closed: deploy SHA must be a 40-character lowercase hex commit SHA.');
               return;
             }
 
@@ -118,17 +126,6 @@ jobs:
             const riskyFiles = files
               .map((file) => file.filename)
               .filter((filename) => riskyPathPatterns.some((pattern) => pattern.test(filename)));
-
-            if ((riskyLabels.length > 0 || riskyFiles.length > 0) && process.env.GITHUB_EVENT_NAME === 'workflow_dispatch') {
-              core.setOutput('auto_deploy_allowed', 'true');
-              core.warning([
-                'Production auto-deploy policy detected risky PR metadata, but this is a manual workflow_dispatch run.',
-                riskyLabels.length > 0 ? `Risk labels: ${riskyLabels.join(', ')}` : 'Risk labels: none',
-                riskyFiles.length > 0 ? `Risk files: ${riskyFiles.join(', ')}` : 'Risk files: none',
-                'Continuing only through the production GitHub Environment approval gate.',
-              ].join('\n'));
-              return;
-            }
 
             if (riskyLabels.length > 0 || riskyFiles.length > 0) {
               core.setOutput('auto_deploy_allowed', 'false');
@@ -231,7 +228,7 @@ jobs:
           test "$DEPLOY_SHA" = "$LATEST_MAIN_SHA"
 
       - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.10.0
+        uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 

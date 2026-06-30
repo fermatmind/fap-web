@@ -9,5 +9,16 @@
     "required_checks_affected": true,
     "handling": "Added a narrow branch guard so the MBTI64 artifact-only changed-file assertion runs only on its own codex/mbti64-remaining-58-competitor-gap-qa-v2-01 branch.",
     "recommended_follow_up": "Consider centralizing changed-file scope guards in tests/contracts/helpers/currentPrScope.ts so artifact-only tests do not block unrelated PR trains."
+  },
+  {
+    "repo": "fap-web",
+    "pr_id": "SECURITY-103-WEB-01",
+    "branch": "codex/security-103-web-01",
+    "blocker_type": "unrelated_flaky_contract_timing",
+    "evidence": "pnpm test:contract failed once in tests/contracts/career-shortlist-consent.contract.test.tsx because loads shortlist state and tracks the persisted action after analytics consent found the button still rendered as disabled Loading... instead of Add to shortlist. A scoped rerun with pnpm exec vitest run tests/contracts/career-shortlist-consent.contract.test.tsx passed all 4 tests immediately afterward.",
+    "why_not_current_pr_scope": "SECURITY-103-WEB-01 changes only deploy workflows, train metadata, scope validation helpers, and deploy workflow contracts; it does not touch career shortlist components, analytics consent, or the failing contract file.",
+    "required_checks_affected": true,
+    "handling": "Recorded as sidecar and rerunning the full contract suite before commit so the current PR still has a passing required local contract result.",
+    "recommended_follow_up": "Stabilize tests/contracts/career-shortlist-consent.contract.test.tsx by waiting for the loaded button state after analytics consent instead of synchronously querying immediately after render."
   }
 ]
