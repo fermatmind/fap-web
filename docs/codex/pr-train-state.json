@@ -11658,7 +11658,7 @@
       "branch": "codex/security-103-web-01",
       "base": "main",
       "depends_on": [],
-      "status": "committed",
+      "status": "pr_opened",
       "train_scope": "security_103_web_github_actions_deploy_workflow_hardening",
       "risk_level": "critical",
       "title": "SECURITY-103-WEB-01: GitHub Actions / deploy workflow hardening",
@@ -11706,8 +11706,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "534602723bbcf60a7483ce2c85a74563333a43e2",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1494",
+      "commit_sha": "88907db57797931f93a898da216d3af5291cf76f",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -11738,10 +11738,17 @@
           "at": "2026-06-30T01:15:13Z",
           "status": "scope_contract_fix_passed",
           "summary": "Fixed the WEB-01 scope contract to include committed branch diffs via origin/main...HEAD; focused contract, typecheck, full contract suite, and diff check passed after the fix."
+        },
+        {
+          "at": "2026-06-30T01:16:48Z",
+          "status": "pr_opened",
+          "commit_sha": "88907db57797931f93a898da216d3af5291cf76f",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1494",
+          "summary": "Opened GitHub PR #1494 after local checks, scope validation, commit, and push."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-06-30T01:15:13Z"
+      "updated_at": "2026-06-30T01:16:48Z"
     },
     {
       "id": "SECURITY-103-WEB-02",
