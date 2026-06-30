@@ -17,6 +17,7 @@ function changedFiles(): string[] {
   for (const args of [
     ["diff", "--name-only", "HEAD"],
     ["diff", "--cached", "--name-only"],
+    ["diff", "--name-only", "origin/main...HEAD"],
     ["ls-files", "--others", "--exclude-standard"],
   ]) {
     const output = execFileSync("git", args, { encoding: "utf8" });

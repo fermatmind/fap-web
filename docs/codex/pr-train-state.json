@@ -11696,7 +11696,8 @@
             "changed-file scope validation"
           ],
           "notes": [
-            "Initial build command without NEXT_PUBLIC_SITE_URL failed the existing /robots.txt site-url environment gate; SECURITY-103 manifest entries were corrected to include NEXT_PUBLIC_SITE_URL=https://fermatmind.com before the passing build."
+            "Initial build command without NEXT_PUBLIC_SITE_URL failed the existing /robots.txt site-url environment gate; SECURITY-103 manifest entries were corrected to include NEXT_PUBLIC_SITE_URL=https://fermatmind.com before the passing build.",
+            "A post-commit focused rerun exposed that the new scope contract only checked uncommitted diffs; the contract was fixed inside WEB-01 scope to include origin/main...HEAD, then typecheck and the full contract suite passed again."
           ]
         },
         "github": {
@@ -11732,10 +11733,15 @@
           "status": "commit_sha_reconciled",
           "commit_sha": "534602723bbcf60a7483ce2c85a74563333a43e2",
           "summary": "Reconciled ledger to amended implementation commit SHA before push."
+        },
+        {
+          "at": "2026-06-30T01:15:13Z",
+          "status": "scope_contract_fix_passed",
+          "summary": "Fixed the WEB-01 scope contract to include committed branch diffs via origin/main...HEAD; focused contract, typecheck, full contract suite, and diff check passed after the fix."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-06-30T01:11:12Z"
+      "updated_at": "2026-06-30T01:15:13Z"
     },
     {
       "id": "SECURITY-103-WEB-02",
