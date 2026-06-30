@@ -11667,7 +11667,7 @@
       "branch": "codex/security-103-web-01",
       "base": "main",
       "depends_on": [],
-      "status": "github_checks_fix_local_passed",
+      "status": "ready_to_merge",
       "train_scope": "security_103_web_github_actions_deploy_workflow_hardening",
       "risk_level": "critical",
       "title": "SECURITY-103-WEB-01: GitHub Actions / deploy workflow hardening",
@@ -11714,9 +11714,10 @@
           ]
         },
         "github": {
-          "status": "pending_rerun_after_scoped_fix",
+          "status": "passed",
           "passed": [
             "build",
+            "contracts",
             "verify-big5-contract-freeze",
             "verify-enneagram-contract-freeze",
             "CodeQL",
@@ -11735,7 +11736,7 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1494",
-      "commit_sha": "88907db57797931f93a898da216d3af5291cf76f",
+      "commit_sha": "442b707c74dc367408ba65d2f16febeb413f0bab",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -11788,10 +11789,16 @@
           "at": "2026-06-30T01:31:31Z",
           "status": "scope_contract_status_enum_fix_passed",
           "summary": "Updated the WEB-01 scope contract to accept the current github_checks_fix_local_passed ledger state; focused WEB-01 contract, manifest/state/sidecar parse, and diff check passed."
+        },
+        {
+          "at": "2026-06-30T01:37:11Z",
+          "status": "ready_to_merge",
+          "commit_sha": "442b707c74dc367408ba65d2f16febeb413f0bab",
+          "summary": "GitHub required checks passed for PR #1494 head 442b707c74dc367408ba65d2f16febeb413f0bab: build, contracts, freeze checks, CodeQL, and javascript-typescript analysis. GitHub merge state is CLEAN."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-06-30T01:31:31Z"
+      "updated_at": "2026-06-30T01:37:11Z"
     },
     {
       "id": "SECURITY-103-WEB-02",
