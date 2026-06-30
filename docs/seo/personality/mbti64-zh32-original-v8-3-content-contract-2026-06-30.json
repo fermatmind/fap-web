@@ -1,0 +1,273 @@
+{
+  "artifact": "MBTI64-ZH32-ORIGINAL-V8_3-CONTENT-CONTRACT-QA-01",
+  "generated_at": "2026-06-30",
+  "framework": "mbti64",
+  "locale": "zh",
+  "page_type": "variant_only",
+  "purpose": "Machine-readable contract for GPT-authored FermatMind V8.3 Chinese MBTI A/T public profile assets. Codex validates structure, safety, originality boundaries, and handoff readiness without generating editorial body content.",
+  "authority_boundary": {
+    "codex_generates_body_content": false,
+    "gpt_or_operator_supplies_body_content": true,
+    "fap_api_remains_cms_authority": true,
+    "artifact_only": true,
+    "cms_write": false,
+    "approval_queue_write": false,
+    "live_promotion": false,
+    "publish_index_search": false,
+    "sitemap_llms_mutation": false,
+    "search_queue_mutation": false,
+    "frontend_runtime_change": false
+  },
+  "accepted_target_sets": {
+    "zh32_full": {
+      "description": "Full production handoff set: all 32 Chinese MBTI A/T variant pages.",
+      "target_count": 32,
+      "ready_decision": "PASS_READY_FOR_FAP_API_ARTIFACT_SYNC",
+      "paths": [
+        "/zh/personality/intj-a",
+        "/zh/personality/intj-t",
+        "/zh/personality/intp-a",
+        "/zh/personality/intp-t",
+        "/zh/personality/entj-a",
+        "/zh/personality/entj-t",
+        "/zh/personality/entp-a",
+        "/zh/personality/entp-t",
+        "/zh/personality/infj-a",
+        "/zh/personality/infj-t",
+        "/zh/personality/infp-a",
+        "/zh/personality/infp-t",
+        "/zh/personality/enfj-a",
+        "/zh/personality/enfj-t",
+        "/zh/personality/enfp-a",
+        "/zh/personality/enfp-t",
+        "/zh/personality/istj-a",
+        "/zh/personality/istj-t",
+        "/zh/personality/isfj-a",
+        "/zh/personality/isfj-t",
+        "/zh/personality/estj-a",
+        "/zh/personality/estj-t",
+        "/zh/personality/esfj-a",
+        "/zh/personality/esfj-t",
+        "/zh/personality/istp-a",
+        "/zh/personality/istp-t",
+        "/zh/personality/isfp-a",
+        "/zh/personality/isfp-t",
+        "/zh/personality/estp-a",
+        "/zh/personality/estp-t",
+        "/zh/personality/esfp-a",
+        "/zh/personality/esfp-t"
+      ]
+    },
+    "zh30_remaining": {
+      "description": "Pre-handoff validation set: GPT generates the 30 pages excluding INTJ-A and INTJ-T golden samples. This mode is not sufficient for fap-api sync until merged into a complete zh32 package.",
+      "target_count": 30,
+      "ready_decision": "PASS_READY_FOR_GOLDEN_SAMPLE_MERGE",
+      "paths": [
+        "/zh/personality/intp-a",
+        "/zh/personality/intp-t",
+        "/zh/personality/entj-a",
+        "/zh/personality/entj-t",
+        "/zh/personality/entp-a",
+        "/zh/personality/entp-t",
+        "/zh/personality/infj-a",
+        "/zh/personality/infj-t",
+        "/zh/personality/infp-a",
+        "/zh/personality/infp-t",
+        "/zh/personality/enfj-a",
+        "/zh/personality/enfj-t",
+        "/zh/personality/enfp-a",
+        "/zh/personality/enfp-t",
+        "/zh/personality/istj-a",
+        "/zh/personality/istj-t",
+        "/zh/personality/isfj-a",
+        "/zh/personality/isfj-t",
+        "/zh/personality/estj-a",
+        "/zh/personality/estj-t",
+        "/zh/personality/esfj-a",
+        "/zh/personality/esfj-t",
+        "/zh/personality/istp-a",
+        "/zh/personality/istp-t",
+        "/zh/personality/isfp-a",
+        "/zh/personality/isfp-t",
+        "/zh/personality/estp-a",
+        "/zh/personality/estp-t",
+        "/zh/personality/esfp-a",
+        "/zh/personality/esfp-t"
+      ]
+    }
+  },
+  "page_shape": {
+    "required_fields": [
+      "path",
+      "locale",
+      "type_code",
+      "variant",
+      "seo",
+      "geo_summary",
+      "modules",
+      "faq",
+      "internal_links",
+      "source_ledger",
+      "qa_self_check",
+      "forbidden_claims_absent"
+    ],
+    "locale": "zh",
+    "path_pattern": "^/zh/personality/(intj|intp|entj|entp|infj|infp|enfj|enfp|istj|isfj|estj|esfj|istp|isfp|estp|esfp)-(a|t)$",
+    "comparison_pages_allowed": false,
+    "english_pages_allowed": false
+  },
+  "module_contract": [
+    {
+      "order": 1,
+      "id": "core-reading",
+      "title": "先理解这个类型",
+      "min_paragraphs": 4,
+      "max_paragraphs": 7
+    },
+    {
+      "order": 2,
+      "id": "rational-standard",
+      "title": "理性 / 证据 / 判断风格",
+      "min_paragraphs": 4,
+      "max_paragraphs": 7
+    },
+    {
+      "order": 3,
+      "id": "independence-control",
+      "title": "独立性 / 掌控 / 决策方式",
+      "min_paragraphs": 4,
+      "max_paragraphs": 7
+    },
+    {
+      "order": 4,
+      "id": "willpower-ambition",
+      "title": "意志 / 高标准 / 长期主义",
+      "min_paragraphs": 4,
+      "max_paragraphs": 7
+    },
+    {
+      "order": 5,
+      "id": "curiosity-revision",
+      "title": "好奇心 / 修正能力",
+      "min_paragraphs": 4,
+      "max_paragraphs": 7
+    },
+    {
+      "order": 6,
+      "id": "emotional-blindspot",
+      "title": "情绪盲区 / 压力反馈",
+      "min_paragraphs": 4,
+      "max_paragraphs": 7
+    },
+    {
+      "order": 7,
+      "id": "social-friction",
+      "title": "社交摩擦 / 反馈关系",
+      "min_paragraphs": 4,
+      "max_paragraphs": 7
+    },
+    {
+      "order": 8,
+      "id": "career-workflow",
+      "title": "工作与职业场景",
+      "min_paragraphs": 4,
+      "max_paragraphs": 7
+    },
+    {
+      "order": 9,
+      "id": "relationships",
+      "title": "关系与亲密",
+      "min_paragraphs": 4,
+      "max_paragraphs": 7
+    },
+    {
+      "order": 10,
+      "id": "faq-boundary",
+      "title": "FAQ 与使用边界",
+      "min_paragraphs": 4,
+      "max_paragraphs": 7
+    }
+  ],
+  "depth_requirements": {
+    "body_chars_per_page_min": 9000,
+    "body_chars_per_page_target_range": "9000-13000 zh characters",
+    "faq_per_page_min": 10,
+    "faq_per_page_max": 12,
+    "real_scenarios_min": 3,
+    "required_scenario_types": [
+      "work",
+      "relationship",
+      "stress_or_growth"
+    ]
+  },
+  "seo_geo_requirements": {
+    "seo_title_required": true,
+    "seo_description_required": true,
+    "primary_keywords_min": 5,
+    "search_intents_min": 4,
+    "geo_answer_targets_min": 4,
+    "direct_answer_required": true,
+    "answer_entities_min": 8,
+    "site_path_required": true
+  },
+  "internal_link_policy": {
+    "required_paths": [
+      "/zh/tests/mbti-personality-test-16-personality-types",
+      "/zh/tests/big-five-personality-test-ocean-model",
+      "/zh/articles/riasec-holland-career-interest-test-explained",
+      "/zh/careers"
+    ],
+    "at_comparison_path_template": "/zh/personality/{type}-a-vs-{type}-t",
+    "paired_counterpart_path_template": "/zh/personality/{type}-{opposite_variant}",
+    "private_route_patterns_forbidden": [
+      "/result",
+      "/results",
+      "/order",
+      "/orders",
+      "/pay",
+      "/payment",
+      "/history",
+      "/private",
+      "/account",
+      "/share",
+      "/token"
+    ]
+  },
+  "qa_gates": [
+    "inventory_gate",
+    "schema_gate",
+    "module_contract_gate",
+    "depth_gate",
+    "seo_geo_gate",
+    "internal_link_gate",
+    "source_ledger_gate",
+    "trademark_affiliation_gate",
+    "clinical_hiring_iq_gate",
+    "deterministic_claim_gate",
+    "competitor_copy_gate",
+    "private_route_gate",
+    "duplicate_template_gate",
+    "safety_boundary_gate"
+  ],
+  "forbidden_claims": [
+    "official MBTI / official Myers-Briggs affiliation, endorsement, certification, or ownership claim",
+    "clinical diagnosis, mental-health screening, therapy substitute, or psychiatric assessment claim",
+    "hiring, recruiting, admission, or screening decision claim",
+    "IQ, intelligence ranking, destiny, perfect career, perfect partner, guaranteed success, or deterministic relationship claim",
+    "copying, translating, paraphrasing, or lightly rewriting 16P, Truity, 123test, Crystal, or PersonalityJunkie wording"
+  ],
+  "required_boundary_language": [
+    "MBTI is used as a self-understanding and communication language, not a clinical diagnosis.",
+    "Big Five and RIASEC are cross-reference frameworks, not replacements for MBTI and not replaced by MBTI.",
+    "Academic sources constrain claims and method boundaries; they do not prove career or relationship outcomes."
+  ],
+  "outputs": {
+    "normalized_package": "docs/seo/personality/mbti64-zh32-original-v8-3-normalized-package-2026-06-30.json",
+    "qa_artifact": "docs/seo/personality/mbti64-zh32-original-v8-3-qa-2026-06-30.json",
+    "qa_report": "docs/seo/personality/mbti64-zh32-original-v8-3-qa-2026-06-30.md"
+  },
+  "next_tasks_after_pass": [
+    "MBTI64-ZH32-ORIGINAL-V8_3-FAP-API-ARTIFACT-SYNC-01",
+    "MBTI64-ZH32-ORIGINAL-V8_3-APPROVAL-QUEUE-DRY-RUN-01"
+  ]
+}
