@@ -26,10 +26,10 @@ type MbtiCloneRailProps = {
 };
 
 const ANCHORS = [
-  { key: "traits", id: getMbtiDesktopAnchorId("traits"), label: "1. Personality Traits" },
-  { key: "career", id: getMbtiDesktopAnchorId("career"), label: "2. Your Career Path" },
-  { key: "growth", id: getMbtiDesktopAnchorId("growth"), label: "3. Your Personal Growth" },
-  { key: "relationships", id: getMbtiDesktopAnchorId("relationships"), label: "4. Your Relationships" },
+  { key: "traits", id: getMbtiDesktopAnchorId("traits"), label: { zh: "1. 人格特质", en: "1. Personality Traits" } },
+  { key: "career", id: getMbtiDesktopAnchorId("career"), label: { zh: "2. 职业路径", en: "2. Your Career Path" } },
+  { key: "growth", id: getMbtiDesktopAnchorId("growth"), label: { zh: "3. 个人成长", en: "3. Your Personal Growth" } },
+  { key: "relationships", id: getMbtiDesktopAnchorId("relationships"), label: { zh: "4. 关系模式", en: "4. Your Relationships" } },
 ] as const;
 
 const HERO_ANCHOR_ID = getMbtiDesktopAnchorId("hero");
@@ -118,7 +118,7 @@ export function MbtiCloneRail({
       </div>
 
       <div className={styles.railCard}>
-        <p className={styles.microLabel}>On this page</p>
+        <p className={styles.microLabel}>{locale === "zh" ? "本页导航" : "On this page"}</p>
         <div className={styles.anchorList}>
           {ANCHORS.map((anchor) => (
             <a
@@ -127,7 +127,7 @@ export function MbtiCloneRail({
               aria-current={activeAnchor === anchor.id ? "location" : undefined}
               className={`${styles.anchorLink} ${activeAnchor === anchor.id ? styles.anchorLinkActive : ""}`}
             >
-              {anchor.label}
+              {anchor.label[locale]}
             </a>
           ))}
         </div>
@@ -148,7 +148,7 @@ export function MbtiCloneRail({
 
       {tools.length > 0 ? (
         <div className={styles.railCard}>
-          <p className={styles.microLabel}>Tools</p>
+          <p className={styles.microLabel}>{locale === "zh" ? "工具" : "Tools"}</p>
           <div className={styles.railTools}>
             {tools.map((tool) => {
               const key = `${tool.label}-${tool.href ?? "button"}`;

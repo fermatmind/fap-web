@@ -112,13 +112,12 @@ describe("MBTI post-purchase retention contract", () => {
     vi.spyOn(window, "open").mockImplementation(hoisted.openWindow);
   });
 
-  it("renders the unlocked terminal surface and flips sticky/mobile/footer CTAs to history", () => {
+  it("renders the unlocked terminal surface and flips sticky CTAs to history", () => {
     const reportData = createUnlockedFixture();
 
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     const terminalSurface = getPrimaryByTestId("mbti-post-purchase-section");
-    const footer = screen.getByTestId("mbti-footer-cta");
     const stickyRail = getDesktopStickyRail();
 
     expect(terminalSurface).toBeInTheDocument();
@@ -132,9 +131,7 @@ describe("MBTI post-purchase retention contract", () => {
 
     expect(within(stickyRail).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
     expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
-    expect(within(footer).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute("href", "/zh/history/mbti");
-
-    expect(terminalSurface.compareDocumentPosition(footer) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
   });
 
   it("prefers hub pdf authority on the unlocked terminal surface", async () => {
@@ -160,7 +157,6 @@ describe("MBTI post-purchase retention contract", () => {
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     const stickyRail = getDesktopStickyRail();
-    const footer = screen.getByTestId("mbti-footer-cta");
 
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
     expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
@@ -168,9 +164,6 @@ describe("MBTI post-purchase retention contract", () => {
       getMbtiDesktopAnchorHash("offerFull")
     );
     expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
-    expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
-      "href",
-      getMbtiDesktopAnchorHash("offerFull")
-    );
+    expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
   });
 });

@@ -24,17 +24,17 @@ const SECTION_META = {
   career: {
     step: "2",
     sectionLabel: { zh: "职业路径", en: "Career path" },
-    title: { zh: "Your Career Path", en: "Your Career Path" },
+    title: { zh: "职业路径", en: "Your Career Path" },
   },
   growth: {
     step: "3",
     sectionLabel: { zh: "个人成长", en: "Personal growth" },
-    title: { zh: "Your Personal Growth", en: "Your Personal Growth" },
+    title: { zh: "个人成长", en: "Your Personal Growth" },
   },
   relationships: {
     step: "4",
     sectionLabel: { zh: "关系模式", en: "Relationships" },
-    title: { zh: "Your Relationships", en: "Your Relationships" },
+    title: { zh: "关系模式", en: "Your Relationships" },
   },
 } as const;
 
@@ -156,7 +156,7 @@ export function resolveMbtiDesktopCloneSlots({
     overview: content?.overview ?? null,
     traits: {
       sectionLabel: placeholders.traits.sectionLabel,
-      title: "Personality Traits",
+      title: isZh ? "人格特质" : "Personality Traits",
       asset: placeholders.traits.asset,
       summaryPane: {
         eyebrow: content?.traits.summaryPane.eyebrow ?? dimensionSummary.eyebrow,
