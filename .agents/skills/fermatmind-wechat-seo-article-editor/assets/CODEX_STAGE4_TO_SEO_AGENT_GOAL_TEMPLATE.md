@@ -106,6 +106,12 @@ Required outputs:
 
 SEO_AGENT_STAGE5_GOAL.md must contain one paste-ready `/goal` for the separate SEO agent window. It should start from the repaired package path and run the technical release chain from package QA / Media Library / CMS draft dry-run onward.
 
+Daily cadence:
+- Default to one high-quality bilingual SEO article per day.
+- Generate a one-article full-chain goal unless the operator explicitly requests a batch/exception.
+- The preferred terminal state is `ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING`.
+- Do not instruct the SEO agent to start a second article in the same goal.
+
 Default to the conservative gate-by-gate shape only when the operator has not
 asked for full-chain preauthorization. In the conservative shape, preserve
 separate approval gates for:
@@ -236,6 +242,8 @@ Required outputs:
 - public smoke report
 - discoverability parity report
 - URL Truth/Search Channel/GSC reports
+- answer-surface FAQ check, including `ANSWER_SURFACE_FAQ_ENHANCEMENT_RECOMMENDED` when package FAQ is present but the public answer-surface block still renders generic FAQ
+- D1/D7/D14 observation queue with `Unknown` placeholders for missing metrics
 - NEXT_EXACT_AUTHORIZATION_PROMPTS.md only for blockers outside this full-chain profile
 - scan_manifest.json
 

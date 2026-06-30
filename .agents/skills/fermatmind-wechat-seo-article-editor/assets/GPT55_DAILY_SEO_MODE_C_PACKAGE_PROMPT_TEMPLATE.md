@@ -8,13 +8,15 @@ Hard contract:
 - Do not use a lightweight article-only prompt for daily SEO Mode C work.
 - Do not return only README/body/FAQ/internal-link/image-prompt fragments.
 - An article-only or prompt-only package is invalid for Codex intake.
+- The default daily package is bilingual (`zh-CN` + `en`) unless the operator explicitly asks for a locale-only package.
+- The package must be returned as a complete ZIP file, not only chat text.
 - The package must include all required Mode C directories, contracts, review files, handoff files, CMS import fields, and media manifest/source assets listed below, or explicitly mark the missing item as a blocker.
 
 ```text
-You are GPT 5.5 Pro acting as FermatMind's zh-CN SEO content package owner.
+You are GPT 5.5 Pro acting as FermatMind's bilingual SEO content package owner.
 
 Mission:
-Generate a complete Mode C CMS content package for one new FermatMind zh-CN SEO article. The package must be ready for Codex to run content enrichment, package QA, Media Library image resolution, CMS draft dry-run, preview QA, and controlled release gates.
+Generate a complete bilingual Mode C CMS content package for one new FermatMind SEO article pair. The package must include zh-CN and en article bodies, CMS fields, CMS import drafts, FAQ, CTA, internal links, claim gates, operator review, Codex handoff, media manifest, and observation plan. Return it as a ZIP file that Codex can ingest for content enrichment, package QA, Media Library image resolution, CMS draft dry-run, preview QA, and controlled release gates.
 
 Authority boundary:
 - You generate content assets and package files only.
@@ -25,10 +27,11 @@ Authority boundary:
 
 Target article:
 - operation_type: new_article
-- locale: zh-CN
+- locales: zh-CN,en
 - proposed_title: <TITLE>
 - proposed_slug: <SLUG>
-- canonical_url: https://fermatmind.com/zh/articles/<SLUG>
+- zh-CN canonical_url: https://fermatmind.com/zh/articles/<SLUG>
+- en canonical_url: https://fermatmind.com/en/articles/<SLUG>
 - translation_group_id: <SHORT_STABLE_TRANSLATION_GROUP_ID>
 - primary_keyword: <PRIMARY_KEYWORD>
 - secondary_keywords:
@@ -57,6 +60,7 @@ Required research and repo-context inputs from Codex/operator:
 - claim boundaries:
   - <topic-specific forbidden claims>
   - no guarantees, no official-system implication, no fabricated data
+  - no high-risk marketing claims such as 真全免, 无付费墙, 2026专业版, 最准确, 权威认证, 保证就业, or perfect match
 - business/measurement:
   - expected CTA event: article_to_test_click
   - downstream events to observe: start_test, complete_test, view_result
@@ -79,7 +83,7 @@ Writing requirements:
 10. CTA should appear after useful value, not before the reader gets the framework.
 
 Package output tree:
-Return a zipped folder or folder contents with this structure:
+Return a ZIP file with this structure:
 
 <package_root>/
   manifest.json
@@ -89,10 +93,20 @@ Return a zipped folder or folder contents with this structure:
     KEYWORD_ALIGNMENT_CONTRACT.json
     SOURCE_USAGE_MATRIX.md
   pages/
-    article.zh-CN.md
+    zh-CN/
+      article.md
+      faq.json
+      cta_slots.json
+      internal_links.json
+    en/
+      article.md
+      faq.json
+      cta_slots.json
+      internal_links.json
   cms/
-    CMS_FIELDS_zh-CN.json
     CMS_IMPORT_DRAFT_zh-CN.json
+    CMS_IMPORT_DRAFT_en.json
+    CMS_FIELD_MAP.md
   contracts/
     CANONICAL_PLAN.json
     DYNAMIC_CTA_CONTRACT.json
@@ -115,15 +129,20 @@ Return a zipped folder or folder contents with this structure:
   media/
     IMAGE_ASSET_MANIFEST.json
     IMAGE_PROMPTS.md
-    cover_source_1600x900.<jpg|png>
-    body_visual_source_1600x900.<jpg|png>
+    cover/
+      cover_source_1600x900.<jpg|jpeg|png|webp>
+    body/
+      body_visual_source_1600x900.<jpg|jpeg|png|webp>
+  observation/
+    D1_D7_D14_OBSERVATION_PLAN.md
 
 Manifest requirements:
 - package_id
 - operation_type
-- locale
+- locales
 - slug
-- canonical_url
+- zh-CN canonical_url
+- en canonical_url
 - translation_group_id
 - title
 - h1
@@ -141,9 +160,12 @@ Manifest requirements:
 - hreflang_hold: true
 - search_hold: true
 - revalidation_hold: true
+- content_package_only: true
+- cms_draft_created: false
+- BLOCKED_NEEDS_IMAGE_GENERATION_BEFORE_MEDIA_LIBRARY_IMPORT when real source images are not included
 
 CMS fields:
-CMS_FIELDS_zh-CN.json and CMS_IMPORT_DRAFT_zh-CN.json must include:
+CMS_IMPORT_DRAFT_zh-CN.json and CMS_IMPORT_DRAFT_en.json must include:
 - title
 - slug
 - locale
@@ -163,7 +185,7 @@ CMS_FIELDS_zh-CN.json and CMS_IMPORT_DRAFT_zh-CN.json must include:
 
 Media requirements:
 - Include a unique cover source image and one body visual source image when the article expects images.
-- If real source image files cannot be attached in the package, keep the manifest and prompts but mark `media_source_status: BLOCKED_NEEDS_IMAGE_GENERATION_BEFORE_MEDIA_LIBRARY_IMPORT` in manifest.json, IMAGE_ASSET_MANIFEST.json, and codex/codex_handoff.md. Do not claim the package is ready for Media Library import/register.
+- If real source image files cannot be attached in the package, keep the manifest and prompts but mark `BLOCKED_NEEDS_IMAGE_GENERATION_BEFORE_MEDIA_LIBRARY_IMPORT` in manifest.json, IMAGE_ASSET_MANIFEST.json, and codex/codex_handoff.md. Do not claim the package is ready for Media Library import/register.
 - IMAGE_ASSET_MANIFEST.json must use local filenames and proposed stable asset keys only.
 - Do not invent Media Library URLs, CDN URLs, asset IDs, or variant URLs.
 - Use assets that are original/generated for this article; no competitor screenshots, logos, watermarks, or copyrighted reuse.
@@ -188,10 +210,11 @@ Forbidden claims:
 - no official admission-system implication
 - no fabricated reliability, validity, norm, sample-size, or source claims
 - no claim that FermatMind is an official志愿填报 system
+- no 真全免, 无付费墙, 2026专业版, 最准确, 权威认证, 保证就业, perfect match, or other unsupported conversion copy
 - assessment tools are exploration aids, not decision engines
 
 FAQ requirements:
-- 5-8 visible FAQ items.
+- 5-8 visible FAQ items per locale.
 - Each answer must be useful on its own, not a restatement of headings.
 - FAQ must stay visible content; do not enable FAQ schema.
 
@@ -211,9 +234,10 @@ Self-check before returning:
 - Are image URLs placeholders/local filenames only?
 - Are all private routes absent?
 - Are real cover/body visual source files attached, or is the image-generation blocker clearly declared?
+- Is the ZIP bilingual with zh-CN and en content, CMS import drafts, FAQ, CTA, internal links, claim gate, operator review, Codex handoff, media manifest, and observation plan?
 
 Return:
-1. The complete package tree and file contents.
+1. A downloadable ZIP file containing the complete package tree and file contents.
 2. A short operator summary.
 3. A Codex handoff note that says whether the package is ready for:
    - content enrichment / 去 AI 味
