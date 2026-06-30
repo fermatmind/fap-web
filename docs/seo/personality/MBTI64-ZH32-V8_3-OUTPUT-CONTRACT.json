@@ -1,0 +1,236 @@
+{
+  "artifact": "MBTI64-ZH32-V8_3-OUTPUT-CONTRACT",
+  "generated_at": "2026-06-30",
+  "purpose": "Contract for GPT-authored zh-CN MBTI64 V8.3 public personality profile assets. Codex will later validate the returned JSON package before any backend handoff.",
+  "scope": {
+    "framework": "mbti64",
+    "locale": "zh",
+    "page_type": "variant_only",
+    "total_zh_variant_pages": 32,
+    "golden_sample_pages": [
+      "/zh/personality/intj-a",
+      "/zh/personality/intj-t"
+    ],
+    "gpt_generation_target_count": 30,
+    "gpt_generation_target_pages": [
+      "/zh/personality/intp-a",
+      "/zh/personality/intp-t",
+      "/zh/personality/entj-a",
+      "/zh/personality/entj-t",
+      "/zh/personality/entp-a",
+      "/zh/personality/entp-t",
+      "/zh/personality/infj-a",
+      "/zh/personality/infj-t",
+      "/zh/personality/infp-a",
+      "/zh/personality/infp-t",
+      "/zh/personality/enfj-a",
+      "/zh/personality/enfj-t",
+      "/zh/personality/enfp-a",
+      "/zh/personality/enfp-t",
+      "/zh/personality/istj-a",
+      "/zh/personality/istj-t",
+      "/zh/personality/isfj-a",
+      "/zh/personality/isfj-t",
+      "/zh/personality/estj-a",
+      "/zh/personality/estj-t",
+      "/zh/personality/esfj-a",
+      "/zh/personality/esfj-t",
+      "/zh/personality/istp-a",
+      "/zh/personality/istp-t",
+      "/zh/personality/isfp-a",
+      "/zh/personality/isfp-t",
+      "/zh/personality/estp-a",
+      "/zh/personality/estp-t",
+      "/zh/personality/esfp-a",
+      "/zh/personality/esfp-t"
+    ],
+    "excluded_from_generation_but_in_final_family": [
+      "/zh/personality/intj-a",
+      "/zh/personality/intj-t"
+    ],
+    "comparison_pages_allowed": false,
+    "english_pages_allowed": false
+  },
+  "output_requirements": {
+    "response_format": "json_only",
+    "top_level_shape": {
+      "artifact": "MBTI64-ZH32-V8_3-GPT-CONTENT-PACKAGE",
+      "generated_at": "ISO-8601 timestamp or YYYY-MM-DD",
+      "locale": "zh",
+      "framework": "mbti64",
+      "target_count": 30,
+      "pages": [
+        "array of 30 page objects"
+      ],
+      "source_ledger": [
+        "array of shared sources"
+      ],
+      "safety_boundary": "object with all mutation flags false"
+    },
+    "required_page_fields": [
+      "path",
+      "locale",
+      "type_code",
+      "variant",
+      "seo",
+      "geo_summary",
+      "modules",
+      "faq",
+      "internal_links",
+      "source_ledger",
+      "qa_self_check",
+      "forbidden_claims_absent"
+    ],
+    "module_contract": [
+      {
+        "order": 1,
+        "id": "core-reading",
+        "title": "先理解这个类型",
+        "min_paragraphs": 4,
+        "max_paragraphs": 7
+      },
+      {
+        "order": 2,
+        "id": "rational-standard",
+        "title": "理性 / 证据 / 判断风格",
+        "min_paragraphs": 4,
+        "max_paragraphs": 7
+      },
+      {
+        "order": 3,
+        "id": "independence-control",
+        "title": "独立性 / 掌控 / 决策方式",
+        "min_paragraphs": 4,
+        "max_paragraphs": 7
+      },
+      {
+        "order": 4,
+        "id": "willpower-ambition",
+        "title": "意志 / 高标准 / 长期主义",
+        "min_paragraphs": 4,
+        "max_paragraphs": 7
+      },
+      {
+        "order": 5,
+        "id": "curiosity-revision",
+        "title": "好奇心 / 修正能力",
+        "min_paragraphs": 4,
+        "max_paragraphs": 7
+      },
+      {
+        "order": 6,
+        "id": "emotional-blindspot",
+        "title": "情绪盲区 / 压力反馈",
+        "min_paragraphs": 4,
+        "max_paragraphs": 7
+      },
+      {
+        "order": 7,
+        "id": "social-friction",
+        "title": "社交摩擦 / 反馈关系",
+        "min_paragraphs": 4,
+        "max_paragraphs": 7
+      },
+      {
+        "order": 8,
+        "id": "career-workflow",
+        "title": "工作与职业场景",
+        "min_paragraphs": 4,
+        "max_paragraphs": 7
+      },
+      {
+        "order": 9,
+        "id": "relationships",
+        "title": "关系与亲密",
+        "min_paragraphs": 4,
+        "max_paragraphs": 7
+      },
+      {
+        "order": 10,
+        "id": "faq-boundary",
+        "title": "FAQ 与使用边界",
+        "min_paragraphs": 4,
+        "max_paragraphs": 7
+      }
+    ],
+    "depth_requirements": {
+      "body_chars_per_page_min": 9000,
+      "body_chars_per_page_target_range": "9000-13000 zh characters",
+      "faq_per_page_min": 10,
+      "faq_per_page_max": 12,
+      "real_scenarios_min": 3,
+      "required_scenario_types": [
+        "work",
+        "relationship",
+        "stress_or_growth"
+      ]
+    },
+    "seo_geo_requirements": {
+      "seo_title_required": true,
+      "seo_description_required": true,
+      "primary_keywords_min": 5,
+      "search_intents_min": 4,
+      "geo_answer_targets_min": 4,
+      "direct_answer_required": true,
+      "answer_entities_min": 8,
+      "site_path_required": true
+    },
+    "internal_link_policy": {
+      "required_paths": [
+        "/zh/tests/mbti-personality-test-16-personality-types",
+        "/zh/tests/big-five-personality-test-ocean-model",
+        "/zh/articles/riasec-holland-career-interest-test-explained",
+        "/zh/careers"
+      ],
+      "at_comparison_path_template": "/zh/personality/{type}-a-vs-{type}-t",
+      "paired_counterpart_path_template": "/zh/personality/{type}-{opposite_variant}",
+      "private_routes_forbidden": [
+        "/result",
+        "/results",
+        "/order",
+        "/orders",
+        "/pay",
+        "/payment",
+        "/history",
+        "/private",
+        "/account",
+        "/share"
+      ]
+    }
+  },
+  "safety_rules": {
+    "forbidden_claims": [
+      "official MBTI / official Myers-Briggs affiliation, endorsement, certification, or ownership claim",
+      "clinical diagnosis, mental-health screening, or therapy substitute claim",
+      "hiring, recruiting, admission, or screening decision claim",
+      "IQ, intelligence ranking, destiny, perfect career, perfect partner, guaranteed success, or deterministic relationship claim",
+      "copying, translating, paraphrasing, or lightly rewriting 16P, Truity, 123test, Crystal, or PersonalityJunkie wording"
+    ],
+    "required_boundary_language": [
+      "MBTI is used as a self-understanding and communication language, not a clinical diagnosis.",
+      "Big Five and RIASEC are cross-reference frameworks, not replacements for MBTI and not replaced by MBTI.",
+      "Academic sources constrain claims and method boundaries; they do not prove career or relationship outcomes."
+    ],
+    "mutation_flags_must_be_false": [
+      "cms_write",
+      "approval_queue_write",
+      "live_promotion",
+      "publish_index_search",
+      "sitemap_llms_mutation",
+      "search_queue_mutation",
+      "indexnow_submit",
+      "frontend_runtime_change"
+    ]
+  },
+  "codex_validation_after_gpt": [
+    "JSON parse and schema validation",
+    "30 target pages complete and exact path set match",
+    "10 modules per page with expected ids/order",
+    "depth and FAQ count validation",
+    "duplicate/template risk scan",
+    "claim/trademark/clinical/hiring/deterministic QA",
+    "private route scan",
+    "source ledger presence and boundary check",
+    "normalized package output for later fap-api handoff"
+  ]
+}
