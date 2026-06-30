@@ -15,8 +15,14 @@ Before entering `PREVIEW_QA`, `PUBLISH_REHEARSAL`, `CONTROLLED_PUBLISH`, `SITEMA
 
 ## Daily Release And Search Batch Separation
 
+Default daily cadence is one high-quality bilingual SEO article. Treat
+multi-article release as a batch/exception that must still create a separate
+identity lock, final matrix, and D1/D7/D14 observation queue for each article
+pair.
+
 Daily content release may end safely at one of these terminal states when public content and discoverability are safe but search-provider work is intentionally batched:
 
+- `ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING`.
 - `CONTENT_RELEASED_SEARCH_BATCH_HELD`.
 - `DISCOVERABILITY_RECONCILED_SEARCH_BATCH_HELD`.
 - `PUBLISHED_DISCOVERABILITY_HELD`.
@@ -35,6 +41,12 @@ bounded Baidu submission, and GSC Request Indexing without returning for another
 operator phrase, provided every target URL, queue item, channel, article id,
 locale, and translation group id is created or locked by the same run and the
 relevant dry-run/preflight passes.
+
+Daily closeout must record one row per localized URL for: public HTTP status,
+self-canonical, robots, CTA route/content_id, sitemap, llms.txt, llms-full.txt,
+URL Truth, Search Channel, IndexNow, Baidu, GSC, schema, hreflang, and
+D1/D7/D14 observation. Missing analytics or provider data must be `Unknown`,
+not zero.
 
 ## Operation Type Branches
 
@@ -162,11 +174,16 @@ For `operation_type=new_article`:
 ### POST_PUBLISH_SMOKE
 
 - Inputs: public URLs.
-- Allowed actions: public read-only smoke.
+- Allowed actions: public read-only smoke, CTA route check, answer-surface FAQ check.
 - Hard stops: public URL non-200, wrong canonical, robots mismatch, private URL leak.
 - Success decision: `GO_FOR_SITEMAP_LLMS_RELEASE`.
 - Failure decision: `NO_GO_FOR_DISCOVERABILITY_RELEASE`.
 - Resume: fix runtime/CMS and rerun smoke.
+
+Record `ANSWER_SURFACE_FAQ_ENHANCEMENT_RECOMMENDED` when the public article
+body contains package-specific FAQ but the answer-surface FAQ block still shows
+generic fallback questions. This is not a default publish blocker; route it to
+future answer-surface/schema optimization.
 
 ### SITEMAP_LLMS_RELEASE
 
@@ -272,7 +289,7 @@ For `operation_type=new_article`:
 - Inputs: all stage reports.
 - Allowed actions: generate final report and remaining holds.
 - Hard stops: missing required stage evidence or treating an old generated final report as current truth after follow-up work.
-- Success decision: `FULL_RELEASE_COMPLETED_WITH_SEARCH_LIVE_HOLDS` or `FULL_RELEASE_COMPLETED_AND_SEARCH_SUBMITTED`.
+- Success decision: `ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING`, `FULL_RELEASE_COMPLETED_WITH_SEARCH_LIVE_HOLDS`, or `FULL_RELEASE_COMPLETED_AND_SEARCH_SUBMITTED`.
 - Failure decision: `BLOCKED_NEEDS_OPERATOR_INPUT`.
 - Resume: complete missing stage.
 

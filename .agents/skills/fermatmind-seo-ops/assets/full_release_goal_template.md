@@ -12,6 +12,12 @@ seo_article_full_release
 Input package:
 <path-to-content-package.zip or source-package/>
 
+Daily release mode:
+- cadence=one_article_per_day
+- operation_type=<new_article|update_existing_article>
+- target_terminal_state=ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING
+- do_not_start_next_article_until=<terminal_state_or_documented_provider_hold>
+
 Target:
 - translation_group_id: <id>
 - zh-CN canonical: <route>
@@ -78,6 +84,13 @@ Mode C media contract:
 Article Identity Lock:
 - lock article IDs, revision IDs, translation_group_id, locale, slug, and public canonical URLs before preview QA, publish, sitemap/llms, schema, hreflang, Search Channel, GSC, or Baidu work.
 
+Daily completion definition:
+- public smoke must prove zh-CN and en URLs return 200, self-canonical, and `index, follow`.
+- CTA smoke must prove localized public CTA routes and expected article `content_id`.
+- discoverability parity must prove both localized URLs appear in `sitemap.xml`, `llms.txt`, and `llms-full.txt`.
+- final search matrix must record URL Truth, Search Channel enqueue/approval/submission, IndexNow, Baidu, GSC, schema hold, hreflang hold, and D1/D7/D14 observation queue.
+- answer-surface FAQ must be checked. If the public article answer surface uses generic FAQ instead of package-specific FAQ, record `ANSWER_SURFACE_FAQ_ENHANCEMENT_RECOMMENDED` without blocking publish.
+
 Search Channel flow:
 - use queue readiness -> enqueue -> search-channel-approve -> search-channel-submit-approved.
 - run IndexNow and Baidu as separate channel tasks.
@@ -119,6 +132,7 @@ Final Decision must be one of:
 - FULL_RELEASE_COMPLETED_AND_SEARCH_SUBMITTED
 - FULL_RELEASE_COMPLETED_GSC_HELD_BY_LOGIN_OR_CAPTCHA
 - FULL_RELEASE_COMPLETED_PROVIDER_HELD
+- ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING
 - BLOCKED_NEEDS_OPERATOR_INPUT
 - BLOCKED_NEEDS_RUNTIME_FIX
 - BLOCKED_NEEDS_EXACT_APPROVAL
