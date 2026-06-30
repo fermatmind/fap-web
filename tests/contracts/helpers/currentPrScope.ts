@@ -937,6 +937,16 @@ const PR_WEB_SEC_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const SECURITY_103_WEB_01_ALLOWED_FILES = new Set([
+  ".github/workflows/deploy-production.yml",
+  ".github/workflows/deploy-staging.yml",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/deploy-production-workflow-env.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts",
+]);
+
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
   "components/result/eq/EQEvidenceSnapshot.tsx",
   "components/result/eq/types.ts",
@@ -3327,6 +3337,14 @@ export function isTestKpiFrontendContract06AllowedFile(file: string): boolean {
   return TEST_KPI_FRONTEND_CONTRACT_06_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity103Web01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-103-web-01") {
+    return true;
+  }
+
+  return SECURITY_103_WEB_01_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -4279,6 +4297,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/pr-web-sec-01-eq-v5-report-gate") {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/security-103-web-01") {
+    return SECURITY_103_WEB_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {

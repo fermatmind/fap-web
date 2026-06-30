@@ -8364,6 +8364,303 @@ prs:
       - Configured missing directories or wrong fixture counts fail instead of skipping.
     rollback_note: "Revert PR-WEB-SEC-33 scoped changes if required."
 
+  - id: SECURITY-103-WEB-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-103-web-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: security_103_web_github_actions_deploy_workflow_hardening
+    risk_level: critical
+    status: in_progress
+    title: "SECURITY-103-WEB-01: GitHub Actions / deploy workflow hardening"
+    goal: "Harden fap-web deploy workflows by pinning deploy actions, preventing SSH target/secret exposure through workflow body defaults, and fail-closing workflow_dispatch branch/SHA/input handling."
+    in_scope:
+      - .github/workflows/deploy-production.yml
+      - .github/workflows/deploy-staging.yml
+      - tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts
+      - tests/contracts/deploy-production-workflow-env.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - SECURITY-103-WEB-02 through SECURITY-103-WEB-08 scopes
+      - fap-api changes
+      - staging deploy wait, manual deploy, production deploy, server verification, or runtime content/CMS/SEO authority mutation
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts tests/contracts/deploy-production-workflow-env.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation
+    scope_validation:
+      continue_train_when_external_blocker:
+        - blocker is not introduced by SECURITY-103-WEB-01
+        - GitHub required checks are green
+        - scoped validation is green
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    acceptance:
+      - Deploy workflows pin third-party SSH setup action by commit SHA.
+      - Manual workflow_dispatch deploys require explicit latest-main commit SHA and fail closed on invalid or stale SHA.
+      - Staging deploy target configuration is read from GitHub Environment secrets/vars, not hardcoded in workflow source.
+      - Risky production deploy metadata remains fail-closed even for workflow_dispatch.
+    rollback_note: "Revert SECURITY-103-WEB-01 scoped deploy workflow and contract changes if required."
+
+  - id: SECURITY-103-WEB-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-103-web-02
+    base: main
+    depends_on: [SECURITY-103-WEB-01]
+    mode: execute
+    train_scope: security_103_web_result_report_pdf_frontend_access_redaction
+    risk_level: critical
+    status: planned
+    title: "SECURITY-103-WEB-02: result/report/PDF frontend access redaction"
+    goal: "Fix result/report/PDF frontend exposure paths covering global header lookup, email bearer links, print bootstrap, PDF token/public signing fallback, and private URL redaction."
+    in_scope:
+      - result/report/PDF frontend access and redaction code
+      - focused contract tests for result/report/PDF private URL and token handling
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - SECURITY-103-WEB-03 through SECURITY-103-WEB-08 scopes
+      - fap-api token authority or entitlement changes
+      - CMS, SEO runtime, sitemap/llms, deploy, or server verification
+    required_local_checks:
+      - focused SECURITY-103-WEB-02 contract tests
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation
+    scope_validation:
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+
+  - id: SECURITY-103-WEB-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-103-web-03
+    base: main
+    depends_on: [SECURITY-103-WEB-02]
+    mode: execute
+    train_scope: security_103_web_seo_agent_approval_and_artifact_redaction
+    risk_level: high
+    status: planned
+    title: "SECURITY-103-WEB-03: SEO agent approval and artifact redaction"
+    goal: "Harden SEO agent approval gates and redact generated artifacts covering full-chain SEO goal gates, committed SEO artifacts, prompt self-authorization, and audit metadata docs."
+    in_scope:
+      - SEO agent approval gate code and generated artifact redaction contracts
+      - audit metadata docs that define SEO agent authorization boundaries
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - SECURITY-103-WEB-04 through SECURITY-103-WEB-08 scopes
+      - CMS writes, SEO runtime execution, sitemap/llms mutation, search submission, deploy, or production content authority changes
+    required_local_checks:
+      - focused SECURITY-103-WEB-03 contract tests
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation
+    scope_validation:
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+
+  - id: SECURITY-103-WEB-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-103-web-04
+    base: main
+    depends_on: [SECURITY-103-WEB-03]
+    mode: execute
+    train_scope: security_103_web_ops_dashboard_route_authentication
+    risk_level: high
+    status: planned
+    title: "SECURITY-103-WEB-04: ops/dashboard route authentication"
+    goal: "Require appropriate authentication and origin controls for ops/dashboard routes covering server API origin ops listing, public SEO ops page, and unauthenticated SEO dashboard exposure."
+    in_scope:
+      - ops/dashboard route handlers, route pages, middleware, and focused auth contracts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - SECURITY-103-WEB-05 through SECURITY-103-WEB-08 scopes
+      - CMS/SEO runtime/content authority mutation, deploy, or server verification
+    required_local_checks:
+      - focused SECURITY-103-WEB-04 contract tests
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation
+    scope_validation:
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+
+  - id: SECURITY-103-WEB-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-103-web-05
+    base: main
+    depends_on: [SECURITY-103-WEB-04]
+    mode: execute
+    train_scope: security_103_web_cms_rendered_url_and_field_allowlists
+    risk_level: high
+    status: planned
+    title: "SECURITY-103-WEB-05: CMS/rendered URL and field allowlists"
+    goal: "Apply CMS/rendered URL and field allowlists covering CMS comparison fields, display_type crash guard, unsafe mailto, and landing URL scheme validation."
+    in_scope:
+      - CMS rendering adapters, URL validators, and focused field/scheme allowlist contracts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - SECURITY-103-WEB-06 through SECURITY-103-WEB-08 scopes
+      - CMS writes, production import, content authority changes, deploy, or server verification
+    required_local_checks:
+      - focused SECURITY-103-WEB-05 contract tests
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation
+    scope_validation:
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+
+  - id: SECURITY-103-WEB-06
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-103-web-06
+    base: main
+    depends_on: [SECURITY-103-WEB-05]
+    mode: execute
+    train_scope: security_103_web_sitemap_llms_lkg_cache_fail_closed
+    risk_level: high
+    status: planned
+    title: "SECURITY-103-WEB-06: sitemap / llms-full / LKG cache fail-closed behavior"
+    goal: "Make sitemap, llms-full, and LKG cache paths fail closed for IQ llms-full rebuild gate, private sitemap fallback, predictable llms-full cache, unpublished content, and career sitemap gates."
+    in_scope:
+      - sitemap, llms, llms-full, LKG cache, and career sitemap fail-closed code and contracts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - SECURITY-103-WEB-07 through SECURITY-103-WEB-08 scopes
+      - CMS writes, SEO runtime execution, production import, deploy, server verification, or content authority mutation
+    required_local_checks:
+      - focused SECURITY-103-WEB-06 contract tests
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation
+    scope_validation:
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+
+  - id: SECURITY-103-WEB-07
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-103-web-07
+    base: main
+    depends_on: [SECURITY-103-WEB-06]
+    mode: execute
+    train_scope: security_103_web_tracking_attribution_private_url_sanitization
+    risk_level: high
+    status: planned
+    title: "SECURITY-103-WEB-07: tracking attribution private URL sanitization"
+    goal: "Sanitize tracking attribution so auto landing tracking cannot leak private invite URLs."
+    in_scope:
+      - tracking attribution URL sanitation code and focused contracts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - SECURITY-103-WEB-08 scope
+      - CMS/SEO runtime/content authority mutation, deploy, or server verification
+    required_local_checks:
+      - focused SECURITY-103-WEB-07 contract tests
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation
+    scope_validation:
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+
+  - id: SECURITY-103-WEB-08
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-103-web-08
+    base: main
+    depends_on: [SECURITY-103-WEB-07]
+    mode: execute
+    train_scope: security_103_web_dailygiving_giving_same_origin_proxy_method_restriction
+    risk_level: high
+    status: planned
+    title: "SECURITY-103-WEB-08: DailyGiving/giving same-origin proxy method restriction"
+    goal: "Restrict DailyGiving/giving same-origin proxy methods so same-origin rewrites cannot expose unsafe giving API methods."
+    in_scope:
+      - DailyGiving/giving same-origin proxy method gating code and focused contracts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api changes
+      - DailyGiving CMS/content authority changes, sitemap/llms/indexability changes, deploy, or server verification
+    required_local_checks:
+      - focused SECURITY-103-WEB-08 contract tests
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation
+    scope_validation:
+      record_external_blocker_as_sidecar: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+
   - id: PR-AUDIT-FE-01
     repo: fap-web
     repo_path: <workspace>/fap-web

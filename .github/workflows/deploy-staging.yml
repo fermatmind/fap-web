@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+    inputs:
+      deploy_sha:
+        description: "Exact latest main commit SHA to deploy."
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -19,20 +24,20 @@ jobs:
     environment:
       name: staging
     env:
-      DEPLOY_HOST: "49.234.55.28"
-      DEPLOY_USER: "ubuntu"
-      DEPLOY_PORT: "22"
-      APP_DIR: "/var/www/fap-web-staging/current"
-      APP_NAME: "fap-web-staging"
-      APP_PORT: "3000"
-      APP_MANAGER: "systemd"
-      SYSTEMD_SERVICE: "fap-web-staging.service"
-      PUBLIC_BASE_URL: "https://staging.fermatmind.com"
-      NEXT_PUBLIC_API_URL: "https://staging.fermatmind.com"
-      NEXT_PUBLIC_SITE_URL: "https://staging.fermatmind.com"
-      GIT_BRANCH: "main"
-      RUN_SITEMAP_HEALTH: "0"
-      CORE_PUBLIC_PATH: "/zh/career/jobs/accountants-and-auditors"
+      DEPLOY_HOST: ${{ secrets.WEB_STAGING_DEPLOY_HOST || vars.WEB_STAGING_DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.WEB_STAGING_DEPLOY_USER || vars.WEB_STAGING_DEPLOY_USER }}
+      DEPLOY_PORT: ${{ secrets.WEB_STAGING_DEPLOY_PORT || vars.WEB_STAGING_DEPLOY_PORT }}
+      APP_DIR: ${{ secrets.WEB_STAGING_APP_DIR || vars.WEB_STAGING_APP_DIR }}
+      APP_NAME: ${{ secrets.WEB_STAGING_APP_NAME || vars.WEB_STAGING_APP_NAME }}
+      APP_PORT: ${{ secrets.WEB_STAGING_APP_PORT || vars.WEB_STAGING_APP_PORT }}
+      APP_MANAGER: ${{ secrets.WEB_STAGING_APP_MANAGER || vars.WEB_STAGING_APP_MANAGER }}
+      SYSTEMD_SERVICE: ${{ secrets.WEB_STAGING_SYSTEMD_SERVICE || vars.WEB_STAGING_SYSTEMD_SERVICE }}
+      PUBLIC_BASE_URL: ${{ secrets.WEB_STAGING_PUBLIC_BASE_URL || vars.WEB_STAGING_PUBLIC_BASE_URL }}
+      NEXT_PUBLIC_API_URL: ${{ secrets.WEB_STAGING_NEXT_PUBLIC_API_URL || vars.WEB_STAGING_NEXT_PUBLIC_API_URL }}
+      NEXT_PUBLIC_SITE_URL: ${{ secrets.WEB_STAGING_NEXT_PUBLIC_SITE_URL || vars.WEB_STAGING_NEXT_PUBLIC_SITE_URL }}
+      GIT_BRANCH: ${{ secrets.WEB_STAGING_GIT_BRANCH || vars.WEB_STAGING_GIT_BRANCH }}
+      RUN_SITEMAP_HEALTH: ${{ secrets.WEB_STAGING_RUN_SITEMAP_HEALTH || vars.WEB_STAGING_RUN_SITEMAP_HEALTH }}
+      CORE_PUBLIC_PATH: ${{ secrets.WEB_STAGING_CORE_PUBLIC_PATH || vars.WEB_STAGING_CORE_PUBLIC_PATH }}
       SSH_RETRY_ATTEMPTS: "3"
       SSH_RETRY_DELAY_SECONDS: "10"
 
@@ -40,33 +45,60 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Skip stale staging deploy
-        id: stale_guard
+      - name: Resolve staging deploy revision
+        id: deploy_ref
         shell: bash
+        env:
+          DISPATCH_DEPLOY_SHA: ${{ inputs.deploy_sha }}
         run: |
           set -euo pipefail
           echo "skip_deploy=false" >> "$GITHUB_OUTPUT"
 
-          if [ "$GITHUB_EVENT_NAME" != "push" ]; then
-            exit 0
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            if [ -z "$DISPATCH_DEPLOY_SHA" ]; then
+              echo "Manual staging deploy failed closed: deploy_sha is required." >&2
+              exit 1
+            fi
+            DEPLOY_SHA="$DISPATCH_DEPLOY_SHA"
+          else
+            DEPLOY_SHA="$GITHUB_SHA"
+          fi
+
+          if [[ ! "$DEPLOY_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "Staging deploy failed closed: deploy SHA must be a 40-character lowercase hex commit SHA." >&2
+            exit 1
           fi
 
           git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main
           LATEST_MAIN_SHA="$(git rev-parse origin/main)"
 
-          if [ "$GITHUB_SHA" != "$LATEST_MAIN_SHA" ]; then
-            echo "Skip stale staging deploy: GITHUB_SHA=$GITHUB_SHA latest=$LATEST_MAIN_SHA"
-            echo "skip_deploy=true" >> "$GITHUB_OUTPUT"
+          echo "deploy_sha=$DEPLOY_SHA"
+          echo "latest_main_sha=$LATEST_MAIN_SHA"
+
+          if [ "$DEPLOY_SHA" != "$LATEST_MAIN_SHA" ]; then
+            if [ "$GITHUB_EVENT_NAME" = "push" ]; then
+              echo "Skip stale staging deploy: deploy_sha=$DEPLOY_SHA latest=$LATEST_MAIN_SHA"
+              echo "skip_deploy=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+
+            echo "Manual staging deploy failed closed: deploy_sha must equal latest origin/main." >&2
+            exit 1
           fi
 
+          {
+            echo "DEPLOY_SHA=$DEPLOY_SHA"
+            echo "GIT_BRANCH=${GIT_BRANCH:-main}"
+          } >> "$GITHUB_ENV"
+
       - name: Set up SSH
-        if: steps.stale_guard.outputs.skip_deploy != 'true'
-        uses: webfactory/ssh-agent@v0.10.0
+        if: steps.deploy_ref.outputs.skip_deploy != 'true'
+        uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Install pinned SSH known_hosts
-        if: steps.stale_guard.outputs.skip_deploy != 'true'
+        if: steps.deploy_ref.outputs.skip_deploy != 'true'
         shell: bash
         env:
           SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
@@ -78,10 +110,24 @@ jobs:
           chmod 600 ~/.ssh/known_hosts
 
       - name: SSH preflight
-        if: steps.stale_guard.outputs.skip_deploy != 'true'
+        if: steps.deploy_ref.outputs.skip_deploy != 'true'
         shell: bash
         run: |
           set -euo pipefail
+          test -n "$DEPLOY_HOST"
+          test -n "$DEPLOY_USER"
+          test -n "$APP_DIR"
+          test -n "$APP_NAME"
+          test -n "$APP_PORT"
+          test -n "$APP_MANAGER"
+          test -n "$SYSTEMD_SERVICE"
+          test -n "$PUBLIC_BASE_URL"
+          test -n "$NEXT_PUBLIC_API_URL"
+          test -n "$NEXT_PUBLIC_SITE_URL"
+          : "${DEPLOY_PORT:=22}"
+          : "${GIT_BRANCH:=main}"
+          : "${RUN_SITEMAP_HEALTH:=0}"
+          : "${CORE_PUBLIC_PATH:=/zh/career/jobs/accountants-and-auditors}"
           ssh_retry() {
             local attempt rc
             for attempt in $(seq 1 "$SSH_RETRY_ATTEMPTS"); do
@@ -104,7 +150,7 @@ jobs:
             "whoami; hostname; test -d '$APP_DIR' && echo app_dir_ok"
 
       - name: Deploy staging with PM2
-        if: steps.stale_guard.outputs.skip_deploy != 'true'
+        if: steps.deploy_ref.outputs.skip_deploy != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -127,10 +173,10 @@ jobs:
             done
           }
           ssh_retry "$DEPLOY_USER@$DEPLOY_HOST" \
-            "cd '$APP_DIR' && git fetch --prune origin && git checkout -B '$GIT_BRANCH' 'origin/$GIT_BRANCH' && git reset --hard '$GITHUB_SHA' && APP_DIR='$APP_DIR' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' APP_MANAGER='$APP_MANAGER' SYSTEMD_SERVICE='$SYSTEMD_SERVICE' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' NEXT_PUBLIC_API_URL='$NEXT_PUBLIC_API_URL' NEXT_PUBLIC_SITE_URL='$NEXT_PUBLIC_SITE_URL' GIT_BRANCH='$GIT_BRANCH' DEPLOY_SHA='$GITHUB_SHA' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' bash '$APP_DIR/scripts/deploy_web_pm2.sh'"
+            "cd '$APP_DIR' && git fetch --prune origin && git checkout -B '$GIT_BRANCH' 'origin/$GIT_BRANCH' && git reset --hard '$DEPLOY_SHA' && APP_DIR='$APP_DIR' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' APP_MANAGER='$APP_MANAGER' SYSTEMD_SERVICE='$SYSTEMD_SERVICE' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' NEXT_PUBLIC_API_URL='$NEXT_PUBLIC_API_URL' NEXT_PUBLIC_SITE_URL='$NEXT_PUBLIC_SITE_URL' GIT_BRANCH='$GIT_BRANCH' DEPLOY_SHA='$DEPLOY_SHA' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' bash '$APP_DIR/scripts/deploy_web_pm2.sh'"
 
       - name: Verify deployed revision
-        if: steps.stale_guard.outputs.skip_deploy != 'true'
+        if: steps.deploy_ref.outputs.skip_deploy != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -154,10 +200,10 @@ jobs:
           }
           DEPLOYED_SHA="$(ssh_retry "$DEPLOY_USER@$DEPLOY_HOST" "git -C '$APP_DIR' rev-parse HEAD")"
           echo "deployed_sha=$DEPLOYED_SHA"
-          test "$DEPLOYED_SHA" = "$GITHUB_SHA"
+          test "$DEPLOYED_SHA" = "$DEPLOY_SHA"
 
       - name: Smoke staging career page
-        if: steps.stale_guard.outputs.skip_deploy != 'true'
+        if: steps.deploy_ref.outputs.skip_deploy != 'true'
         shell: bash
         run: |
           set -euo pipefail
