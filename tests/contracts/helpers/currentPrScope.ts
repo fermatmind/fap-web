@@ -942,6 +942,8 @@ const SECURITY_103_WEB_01_ALLOWED_FILES = new Set([
   ".github/workflows/deploy-staging.yml",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
   "tests/contracts/deploy-production-workflow-env.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts",

@@ -3274,6 +3274,8 @@ prs:
       - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
     out_of_scope:
       - <workspace>/fap-api changes
       - <workspace>/fap-api/fap-web as production runtime
