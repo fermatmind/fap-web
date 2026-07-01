@@ -86,6 +86,9 @@ describe("personality type browse contract", () => {
     expect(detailSource).toContain('data-testid="personality-detail-next-steps"');
     expect(detailSource).toContain('data-testid="personality-detail-intent-links"');
     expect(detailSource).toContain('data-testid="personality-detail-section-map"');
+    expect(detailSource).toContain('data-testid="personality-detail-sticky-local-nav"');
+    expect(detailSource).toContain("人格页面章节导航");
+    expect(detailSource).toContain("Personality page section navigation");
     expect(detailSource).toContain("buildPersonalitySectionShortcuts(locale, detail.projection.sections, mbtiIntentCtaHref)");
     expect(detailSource).toContain("formatPersonalityDetailHeading(detail, locale)");
     expect(detailSource).toContain("start_mbti_test_intent_chip");

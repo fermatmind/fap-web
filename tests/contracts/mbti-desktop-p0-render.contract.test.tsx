@@ -480,9 +480,9 @@ describe("MBTI desktop clone p0 render contract", () => {
 
     const hero = await screen.findByTestId("mbti-hero");
     const introParagraph = screen.getByText("intro 1 infj-a");
-    const traitsHeading = screen.getByRole("heading", { level: 2, name: "Personality Traits" });
+    const traitsHeading = screen.getByRole("heading", { level: 2, name: "人格特质" });
     const traitsBody = screen.getByTestId("mbti-traits-body");
-    const careerHeading = screen.getByRole("heading", { level: 2, name: "Your Career Path" });
+    const careerHeading = screen.getByRole("heading", { level: 2, name: "职业路径" });
 
     expectBefore(hero, introParagraph);
     expectBefore(introParagraph, traitsHeading);
@@ -530,7 +530,7 @@ describe("MBTI desktop clone p0 render contract", () => {
     expect(screen.getByTestId("mbti-asset-slot-traits")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-asset-slot-traits-summary")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-sticky-rail")).toBeInTheDocument();
-    expect(screen.getByRole("heading", { level: 2, name: "Your Career Path" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 2, name: "职业路径" })).toBeInTheDocument();
     expect(screen.getByText("headline infj-a")).toBeInTheDocument();
   });
 

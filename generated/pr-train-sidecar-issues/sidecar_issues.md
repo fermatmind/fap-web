@@ -10,3 +10,14 @@
 - required checks affected: yes, because `pnpm test:contract` is a required local check for PR-EQ-V20-05.
 - handling: added a narrow branch guard so the MBTI64 artifact-only changed-file assertion runs only on its own `codex/mbti64-remaining-58-competitor-gap-qa-v2-01` branch.
 - recommended follow-up: consider centralizing changed-file scope guards in `tests/contracts/helpers/currentPrScope.ts` so artifact-only tests do not block unrelated PR trains.
+
+## 2026-06-30 - SECURITY-103-WEB-01 full contract run hit unrelated career shortlist async flake
+
+- repo: fap-web
+- PR id / branch: SECURITY-103-WEB-01 / codex/security-103-web-01
+- blocker type: unrelated flaky contract timing
+- evidence: `pnpm test:contract` failed once in `tests/contracts/career-shortlist-consent.contract.test.tsx` because `loads shortlist state and tracks the persisted action after analytics consent` found the button still rendered as disabled `Loading...` instead of `Add to shortlist`. A scoped rerun with `pnpm exec vitest run tests/contracts/career-shortlist-consent.contract.test.tsx` passed all 4 tests immediately afterward.
+- why not current PR scope: SECURITY-103-WEB-01 changes only deploy workflows, train metadata, scope validation helpers, and deploy workflow contracts; it does not touch career shortlist components, analytics consent, or the failing contract file.
+- required checks affected: transiently yes for the local `pnpm test:contract` run; the focused rerun passed, and this issue is outside the WEB-01 changed-file scope.
+- handling: recorded as sidecar and rerunning the full contract suite before commit so the current PR still has a passing required local contract result.
+- recommended follow-up: stabilize `tests/contracts/career-shortlist-consent.contract.test.tsx` by waiting for the loaded button state after analytics consent instead of synchronously querying immediately after render.

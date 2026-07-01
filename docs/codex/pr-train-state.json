@@ -1419,7 +1419,16 @@
       "merged_at": "2026-05-13T16:27:02Z",
       "remote_branch_deleted": true,
       "local_cleanup_executed": true,
-      "sidecar_issues": [],
+      "sidecar_issues": [
+        {
+          "blocker_type": "unrelated_flaky_contract_timing",
+          "evidence": "pnpm test:contract failed once in tests/contracts/career-shortlist-consent.contract.test.tsx; focused rerun passed all 4 tests and the second full contract suite passed.",
+          "sidecar_files": [
+            "generated/pr-train-sidecar-issues/sidecar_issues.md",
+            "generated/pr-train-sidecar-issues/sidecar_issues.json"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-05-24T00:05:29+08:00",
@@ -11650,6 +11659,491 @@
       ],
       "sidecar_issues": [],
       "updated_at": "2026-05-24T13:33:30+08:00"
+    },
+    {
+      "id": "SECURITY-103-WEB-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "ready_to_merge",
+      "train_scope": "security_103_web_github_actions_deploy_workflow_hardening",
+      "risk_level": "critical",
+      "title": "SECURITY-103-WEB-01: GitHub Actions / deploy workflow hardening",
+      "artifacts": [
+        ".github/workflows/deploy-production.yml",
+        ".github/workflows/deploy-staging.yml",
+        "tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts",
+        "tests/contracts/deploy-production-workflow-env.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json",
+        "generated/pr-train-sidecar-issues/sidecar_issues.md",
+        "generated/pr-train-sidecar-issues/sidecar_issues.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-103-WEB-01 through SECURITY-103-WEB-08 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "passed",
+          "evidence": "SECURITY-103-WEB-01 has no train dependency."
+        },
+        "worktree_isolation": {
+          "status": "passed",
+          "evidence": "Using isolated worktree /private/tmp/fap-web-security-103-web-01 from origin/main because the primary fap-web worktree has unrelated untracked pnpm-workspace.yaml."
+        },
+        "local": {
+          "status": "passed",
+          "passed": [
+            "pnpm exec vitest run tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts tests/contracts/deploy-production-workflow-env.contract.test.ts",
+            "pnpm typecheck",
+            "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "pnpm test:contract",
+            "pnpm exec vitest run tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts (after GitHub shallow checkout fix)",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "notes": [
+            "Initial build command without NEXT_PUBLIC_SITE_URL failed the existing /robots.txt site-url environment gate; SECURITY-103 manifest entries were corrected to include NEXT_PUBLIC_SITE_URL=https://fermatmind.com before the passing build.",
+            "A post-commit focused rerun exposed that the new scope contract only checked uncommitted diffs; the contract was fixed inside WEB-01 scope to include origin/main...HEAD, then typecheck and the full contract suite passed again.",
+            "GitHub contracts failed because the same scope contract assumed origin/main exists in the shallow synthetic PR merge checkout; the contract was fixed inside WEB-01 scope to tolerate unavailable local diff sources while retaining local changed-file scope validation."
+          ]
+        },
+        "github": {
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
+          "failed": [
+            {
+              "name": "contracts",
+              "run_id": "28413646194",
+              "job_id": "84191803406",
+              "head_sha": "42799109f631bef6d3cbccbed8adab88900b0533",
+              "evidence": "tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts failed because git diff --name-only origin/main...HEAD was unavailable in GitHub's shallow PR merge checkout."
+            }
+          ]
+        }
+      },
+      "failure_reason": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1494",
+      "commit_sha": "442b707c74dc367408ba65d2f16febeb413f0bab",
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "in_progress",
+          "summary": "Initialized SECURITY-103-WEB-01 from explicit user /goal; implementing deploy workflow action pinning, SSH target config hardening, and workflow_dispatch SHA/input fail-closed guards."
+        },
+        {
+          "at": "2026-06-30T01:09:24Z",
+          "status": "local_checks_passed",
+          "summary": "Focused deploy workflow contracts, typecheck, production build with NEXT_PUBLIC_SITE_URL, full contract suite, manifest/state parse, diff check, and changed-file scope validation passed. Build-generated public/sitemap.xml was restored as out of scope."
+        },
+        {
+          "at": "2026-06-30T01:11:12Z",
+          "status": "committed",
+          "commit_sha": "4164268b35a1fbb52b0fab3d608fcdfe886db5ba",
+          "summary": "Created implementation commit after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-06-30T01:11:12Z",
+          "status": "commit_sha_reconciled",
+          "commit_sha": "534602723bbcf60a7483ce2c85a74563333a43e2",
+          "summary": "Reconciled ledger to amended implementation commit SHA before push."
+        },
+        {
+          "at": "2026-06-30T01:15:13Z",
+          "status": "scope_contract_fix_passed",
+          "summary": "Fixed the WEB-01 scope contract to include committed branch diffs via origin/main...HEAD; focused contract, typecheck, full contract suite, and diff check passed after the fix."
+        },
+        {
+          "at": "2026-06-30T01:16:48Z",
+          "status": "pr_opened",
+          "commit_sha": "88907db57797931f93a898da216d3af5291cf76f",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1494",
+          "summary": "Opened GitHub PR #1494 after local checks, scope validation, commit, and push."
+        },
+        {
+          "at": "2026-06-30T01:23:51Z",
+          "status": "github_checks_failed_fixing",
+          "summary": "Inspected GitHub contracts failure for PR #1494: the WEB-01 scope contract invoked origin/main...HEAD in a shallow synthetic PR merge checkout. Fixing the contract inside current WEB-01 test scope."
+        },
+        {
+          "at": "2026-06-30T01:30:16Z",
+          "status": "github_checks_fix_local_passed",
+          "summary": "Scoped CI checkout fix passed focused WEB-01 contract, typecheck, production build, manifest/state/sidecar parse, diff check, and a rerun of the full contract suite. A transient unrelated career shortlist contract timing failure was recorded in sidecar and did not reproduce on focused rerun or the second full suite."
+        },
+        {
+          "at": "2026-06-30T01:31:31Z",
+          "status": "scope_contract_status_enum_fix_passed",
+          "summary": "Updated the WEB-01 scope contract to accept the current github_checks_fix_local_passed ledger state; focused WEB-01 contract, manifest/state/sidecar parse, and diff check passed."
+        },
+        {
+          "at": "2026-06-30T01:37:11Z",
+          "status": "ready_to_merge",
+          "commit_sha": "442b707c74dc367408ba65d2f16febeb413f0bab",
+          "summary": "GitHub required checks passed for PR #1494 head 442b707c74dc367408ba65d2f16febeb413f0bab: build, contracts, freeze checks, CodeQL, and javascript-typescript analysis. GitHub merge state is CLEAN."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:37:11Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-02",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-02",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-01"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_result_report_pdf_frontend_access_redaction",
+      "risk_level": "critical",
+      "title": "SECURITY-103-WEB-02: result/report/PDF frontend access redaction",
+      "artifacts": [
+        "result/report/PDF frontend access and redaction code",
+        "focused SECURITY-103-WEB-02 contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-01 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-02 from explicit user /goal; execution waits for SECURITY-103-WEB-01 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-03",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-03",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-02"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_seo_agent_approval_and_artifact_redaction",
+      "risk_level": "high",
+      "title": "SECURITY-103-WEB-03: SEO agent approval and artifact redaction",
+      "artifacts": [
+        "SEO agent approval gate code and artifact redaction contracts",
+        "audit metadata docs",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-02 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-03 from explicit user /goal; execution waits for SECURITY-103-WEB-02 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-04",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-04",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-03"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_ops_dashboard_route_authentication",
+      "risk_level": "high",
+      "title": "SECURITY-103-WEB-04: ops/dashboard route authentication",
+      "artifacts": [
+        "ops/dashboard route handlers, route pages, middleware, and auth contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-03 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-04 from explicit user /goal; execution waits for SECURITY-103-WEB-03 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-05",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-05",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-04"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_cms_rendered_url_and_field_allowlists",
+      "risk_level": "high",
+      "title": "SECURITY-103-WEB-05: CMS/rendered URL and field allowlists",
+      "artifacts": [
+        "CMS rendering adapters, URL validators, and field/scheme allowlist contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-04 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-05 from explicit user /goal; execution waits for SECURITY-103-WEB-04 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-06",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-06",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-05"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_sitemap_llms_lkg_cache_fail_closed",
+      "risk_level": "high",
+      "title": "SECURITY-103-WEB-06: sitemap / llms-full / LKG cache fail-closed behavior",
+      "artifacts": [
+        "sitemap, llms, llms-full, LKG cache, and career sitemap fail-closed code and contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-05 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-06 from explicit user /goal; execution waits for SECURITY-103-WEB-05 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-07",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-07",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-06"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_tracking_attribution_private_url_sanitization",
+      "risk_level": "high",
+      "title": "SECURITY-103-WEB-07: tracking attribution private URL sanitization",
+      "artifacts": [
+        "tracking attribution URL sanitation code and contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-06 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-07 from explicit user /goal; execution waits for SECURITY-103-WEB-06 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
+    },
+    {
+      "id": "SECURITY-103-WEB-08",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-103-web-08",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-103-WEB-07"
+      ],
+      "status": "planned",
+      "train_scope": "security_103_web_dailygiving_giving_same_origin_proxy_method_restriction",
+      "risk_level": "high",
+      "title": "SECURITY-103-WEB-08: DailyGiving/giving same-origin proxy method restriction",
+      "artifacts": [
+        "DailyGiving/giving same-origin proxy method gating code and contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-103-WEB-07 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-06-30T01:02:33Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-103-WEB-08 from explicit user /goal; execution waits for SECURITY-103-WEB-07 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-06-30T01:02:33Z"
     },
     {
       "id": "PR-AUDIT-FE-01",
@@ -32708,6 +33202,350 @@
         "status": "ready_to_merge",
         "commit_sha": "c139b68723e3167351db0e4e5b92a7d4d09b1ad0",
         "pr_url": "https://github.com/fermatmind/fap-web/pull/1480",
+        "notes": "GitHub checks passed and PR merge state is CLEAN; recording ready_to_merge before squash merge."
+      }
+    ]
+  },
+  "MBTI-PDF-RESULT-SNAPSHOT-SHELL": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-pdf-result-snapshot-shell",
+    "title": "MBTI-PDF-RESULT-SNAPSHOT-SHELL: remove runtime pollutants from MBTI print snapshot shell",
+    "train_scope": "mbti_pdf_result_snapshot_shell",
+    "depends_on": [
+      "MBTI-PDF-RESULT-SNAPSHOT-CONTENT-06"
+    ],
+    "status": "merged",
+    "commit_sha": "3dee3b319dd7556e349f4b4cc71a580a0751d024",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1504",
+    "merged_at": "2026-07-01T03:18:04Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
+    "failure_reason": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "User explicitly requested implementation of PR-C plan and authorized adding the missing fap-web PR-train manifest/state entry as part of execution."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-B MBTI-PDF-RESULT-SNAPSHOT-CONTENT-06 is merged into origin/main as commit 38974cf05709df430ea0dac4f2f9a9a5b78edf7a."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Started from clean fap-web main synced with origin/main and created branch codex/mbti-pdf-result-snapshot-shell."
+      },
+      "focused_contract_tests": {
+        "status": "pass",
+        "command": "pnpm exec vitest run tests/contracts/result-private-print-chrome.contract.test.ts tests/contracts/result-gotenberg-print-route.contract.test.ts tests/contracts/result-client-view-state.contract.test.tsx tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+        "evidence": "4 files passed, 54 tests passed."
+      },
+      "contract_suite": {
+        "status": "pass",
+        "command": "pnpm test:contract",
+        "evidence": "603 files passed, 3559 tests passed."
+      },
+      "typecheck": {
+        "status": "pass",
+        "command": "pnpm typecheck",
+        "evidence": "tsc --noEmit completed successfully."
+      },
+      "production_build": {
+        "status": "pass",
+        "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+        "evidence": "next build completed successfully; postbuild sitemap output was restored because it is outside PR-C scope."
+      },
+      "manifest_state_parse": {
+        "status": "pass",
+        "commands": [
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        ],
+        "evidence": "Manifest YAML and state JSON parse successfully."
+      },
+      "diff_check": {
+        "status": "pass",
+        "command": "git diff --check",
+        "evidence": "No whitespace errors."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "command": "git diff --name-only",
+        "evidence": "Changed files are limited to proxy/layout, MBTI desktop clone snapshot shell, PR-C contract tests, and PR-train manifest/state."
+      },
+      "post_merge_reconciliation": {
+        "status": "pass",
+        "evidence": "GitHub PR #1504 is MERGED, merge commit 83ea83d80b2806121f30c428eccc0adbe3ebc613 is present in origin/main, local main was fast-forwarded to origin/main, local task branch deleted, and remote branch absent."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        "proxy.ts",
+        "app/(localized)/[locale]/layout.tsx",
+        "components/result/mbti/clone/MbtiDesktopCloneShell.tsx",
+        "tests/contracts/result-private-print-chrome.contract.test.ts",
+        "tests/contracts/result-gotenberg-print-route.contract.test.ts",
+        "tests/contracts/result-client-view-state.contract.test.tsx",
+        "tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "outside_scope_files": []
+    },
+    "events": [
+      {
+        "at": "2026-07-01T02:29:06Z",
+        "status": "in_progress",
+        "notes": "Initialized PR-C from explicit user plan. Scope is fap-web-only runtime pollutant removal for the v3 MBTI print snapshot shell; no backend, deploy, content import, PDF smoke automation, or visual pagination work."
+      },
+      {
+        "at": "2026-07-01T02:42:43Z",
+        "status": "local_checks_passed",
+        "notes": "Implemented v3 /print snapshot shell pollutant removal and passed focused contracts, full contract suite, typecheck, production build, manifest/state parse, diff check, and scope validation."
+      },
+      {
+        "at": "2026-07-01T02:43:30Z",
+        "status": "committed",
+        "notes": "Created local implementation commit 60914c25148a6f41088466dfcc904c827d6f05c4 for PR-C."
+      },
+      {
+        "at": "2026-07-01T02:45:00Z",
+        "status": "pr_open",
+        "notes": "Opened fap-web PR https://github.com/fermatmind/fap-web/pull/1504 for PR-C."
+      },
+      {
+        "at": "2026-07-01T03:29:42Z",
+        "status": "merged",
+        "notes": "Reconciled PR-C closeout while initializing dependent PR-D. PR #1504 merged at 2026-07-01T03:18:04Z with merge commit 83ea83d80b2806121f30c428eccc0adbe3ebc613; local and remote task branches were cleaned up."
+      }
+    ],
+    "merge_commit_sha": "83ea83d80b2806121f30c428eccc0adbe3ebc613"
+  },
+  "MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-pdf-result-snapshot-smoke-quality-gate",
+    "title": "MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE: add rendered MBTI result-page PDF smoke gate",
+    "train_scope": "mbti_pdf_result_snapshot_smoke_quality_gate",
+    "depends_on": [
+      "MBTI-PDF-RESULT-SNAPSHOT-SHELL"
+    ],
+    "status": "merged",
+    "commit_sha": "ca38b408c14d2a7da447bd1418c718e6b845a572",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1505",
+    "merged_at": "2026-07-01T03:41:39Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
+    "failure_reason": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "User explicitly requested implementation of the PR-D plan and authorized the missing fap-web PR-train manifest/state entry as part of execution."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-C MBTI-PDF-RESULT-SNAPSHOT-SHELL merged as fap-web PR #1504 with merge commit 83ea83d80b2806121f30c428eccc0adbe3ebc613 present in origin/main."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Started from clean fap-web main synced with origin/main and created branch codex/mbti-pdf-result-snapshot-smoke-quality-gate."
+      },
+      "script_dry_run": {
+        "status": "pass",
+        "command": "pnpm ops:mbti-result-page-pdf-smoke -- --json",
+        "evidence": "Dry-run completed without operator fixture, did not execute live PDF download, and returned redacted JSON."
+      },
+      "focused_contract_tests": {
+        "status": "pass",
+        "command": "pnpm exec vitest run tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts tests/contracts/result-private-leak-regressions.contract.test.ts tests/contracts/result-gotenberg-print-route.contract.test.ts",
+        "evidence": "3 files passed, 18 tests passed."
+      },
+      "contract_suite": {
+        "status": "pass",
+        "command": "pnpm test:contract",
+        "evidence": "604 files passed, 3565 tests passed."
+      },
+      "typecheck": {
+        "status": "pass",
+        "command": "pnpm typecheck",
+        "evidence": "tsc --noEmit completed successfully."
+      },
+      "production_build": {
+        "status": "pass",
+        "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+        "evidence": "next build completed successfully; postbuild sitemap output was restored because it is outside PR-D scope."
+      },
+      "manifest_state_parse": {
+        "status": "pass",
+        "commands": [
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        ],
+        "evidence": "Manifest YAML and state JSON parse successfully."
+      },
+      "diff_check": {
+        "status": "pass",
+        "command": "git diff --check",
+        "evidence": "No whitespace errors."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "command": "(git diff --name-only; git ls-files --others --exclude-standard) | sort",
+        "evidence": "Changed files are limited to package.json, the MBTI PDF smoke script, focused contract, scope helper, and PR-train manifest/state."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        "package.json",
+        "scripts/ops/check-mbti-result-page-pdf-smoke.mjs",
+        "tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "outside_scope_files": []
+    },
+    "events": [
+      {
+        "at": "2026-07-01T03:29:42Z",
+        "status": "in_progress",
+        "notes": "Initialized PR-D from explicit user plan. Scope is fap-web-only opt-in rendered PDF smoke quality gate for mbti.result_page_snapshot.v3; no backend, deploy, content import, runtime shell, A4 pagination, or visual polish work."
+      },
+      {
+        "at": "2026-07-01T03:34:55Z",
+        "status": "local_checks_passed",
+        "notes": "Implemented opt-in rendered PDF smoke quality gate and passed script dry-run, focused contracts, full contract suite, typecheck, production build, manifest/state parse, diff check, and scope validation."
+      },
+      {
+        "at": "2026-07-01T03:36:00Z",
+        "status": "committed",
+        "notes": "Created local implementation commit ca38b408c14d2a7da447bd1418c718e6b845a572 for PR-D."
+      },
+      {
+        "at": "2026-07-01T03:37:20Z",
+        "status": "pr_open",
+        "notes": "Opened fap-web PR https://github.com/fermatmind/fap-web/pull/1505 for PR-D."
+      },
+      {
+        "at": "2026-07-01T03:57:15Z",
+        "status": "merged",
+        "notes": "Reconciled PR-D closeout while initializing dependent PR-E. PR #1505 merged at 2026-07-01T03:41:39Z with merge commit 25dfba7fb5392708166b9c1fcac854eb12621f92 present in origin/main; local and remote task branches were already cleaned up."
+      }
+    ],
+    "merge_commit_sha": "25dfba7fb5392708166b9c1fcac854eb12621f92"
+  },
+  "MBTI-PDF-RESULT-SNAPSHOT-VISUAL-PAGINATION": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-pdf-result-snapshot-visual-pagination",
+    "title": "MBTI-PDF-RESULT-SNAPSHOT-VISUAL-PAGINATION: polish MBTI print snapshot pagination",
+    "train_scope": "mbti_pdf_result_snapshot_visual_pagination",
+    "depends_on": [
+      "MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "265ac8ad9114a83409545eef670be38ee28a1d9b",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1506",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "User explicitly requested implementation of the PR-E plan and authorized adding the missing fap-web PR-train manifest/state entry as part of execution."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-D MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE merged as fap-web PR #1505 with merge commit 25dfba7fb5392708166b9c1fcac854eb12621f92 present in origin/main."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Started from clean fap-web main synced with origin/main and created branch codex/mbti-pdf-result-snapshot-visual-pagination."
+      },
+      "focused_contract_tests": {
+        "status": "pass",
+        "command": "pnpm exec vitest run tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts tests/contracts/result-private-print-chrome.contract.test.ts tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+        "evidence": "4 files passed, 29 tests passed."
+      },
+      "contract_suite": {
+        "status": "pass",
+        "command": "pnpm test:contract",
+        "evidence": "605 files passed, 3569 tests passed."
+      },
+      "typecheck": {
+        "status": "pass",
+        "command": "pnpm typecheck",
+        "evidence": "tsc --noEmit completed successfully."
+      },
+      "production_build": {
+        "status": "pass",
+        "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+        "evidence": "next build completed successfully; postbuild sitemap output was restored because it is outside PR-E scope."
+      },
+      "manifest_state_parse": {
+        "status": "pass",
+        "commands": [
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        ],
+        "evidence": "Manifest YAML and state JSON parse successfully."
+      },
+      "diff_check": {
+        "status": "pass",
+        "command": "git diff --check",
+        "evidence": "No whitespace errors."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "command": "(git diff --name-only; git ls-files --others --exclude-standard) | sort",
+        "evidence": "Changed files are limited to PR-E visual pagination files plus a PR-D branch-aware scope contract compatibility fix."
+      },
+      "github_checks": {
+        "status": "pass",
+        "evidence": "GitHub PR #1506 checks passed on head 57de8404045f5bcfd7374c102e9df4df5380557c: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, and CodeQL all succeeded; mergeStateStatus was CLEAN."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        "app/globals.css",
+        "app/(localized)/[locale]/(app)/result/[id]/print/page.tsx",
+        "components/result/mbti/clone/mbtiDesktopClone.module.css",
+        "tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts",
+        "tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts",
+        "tests/contracts/result-private-print-chrome.contract.test.ts",
+        "tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "outside_scope_files": []
+    },
+    "events": [
+      {
+        "at": "2026-07-01T03:57:15Z",
+        "status": "in_progress",
+        "notes": "Initialized PR-E from explicit user plan. Scope is fap-web-only A4 dense report visual pagination for the v3 MBTI print snapshot; no backend, deploy, content import, runtime pollutant cleanup, or live PDF smoke automation work."
+      },
+      {
+        "at": "2026-07-01T04:06:46Z",
+        "status": "local_checks_passed",
+        "notes": "Implemented A4 dense print markers/styles and pagination contracts, repaired the previous PR-D scope contract for future branch pass-through, and passed focused contracts, full contract suite, typecheck, production build, manifest/state parse, diff check, and scope validation."
+      },
+      {
+        "at": "2026-07-01T04:07:52Z",
+        "status": "committed",
+        "notes": "Created local implementation commit 265ac8ad9114a83409545eef670be38ee28a1d9b for PR-E."
+      },
+      {
+        "at": "2026-07-01T04:09:10Z",
+        "status": "pr_open",
+        "notes": "Opened fap-web PR https://github.com/fermatmind/fap-web/pull/1506 for PR-E."
+      },
+      {
+        "at": "2026-07-01T04:14:31Z",
+        "status": "ready_to_merge",
         "notes": "GitHub checks passed and PR merge state is CLEAN; recording ready_to_merge before squash merge."
       }
     ]

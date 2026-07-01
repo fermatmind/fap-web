@@ -1,6 +1,13 @@
 # Multi-Article Release Retro
 
-Use this workflow for read-only retrospective scans after several SEO articles have moved through content package generation, CMS import/update, preview, publish, discoverability, Search Channel, and observation planning.
+Use this workflow for read-only retrospective scans after one or several SEO
+articles have moved through content package generation, CMS import/update,
+preview, publish, discoverability, Search Channel, and observation planning.
+
+Default daily cadence is one article pair. Use the multi-article dimensions for
+batch/exception days, but still report each article pair separately. A
+successful two-article batch is not a reason to change the default daily SOP
+away from one high-quality bilingual article.
 
 ## Inputs
 
@@ -33,6 +40,9 @@ For each article, reconstruct:
 - preview QA;
 - publish/public state;
 - sitemap/llms/llms-full state;
+- public HTTP status, self-canonical, and robots;
+- CTA target routes and locked `content_id`;
+- answer-surface FAQ state, including whether package-specific FAQ or generic FAQ rendered;
 - URL Truth state;
 - Search Channel queue state;
 - IndexNow state;
@@ -42,6 +52,12 @@ For each article, reconstruct:
 - hreflang state;
 - D1/D7/D14 observation state;
 - final classification.
+
+Preferred final classification for a normal daily article is
+`ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING`. Provider-specific holds
+such as Baidu quota, GSC login/CAPTCHA, or schema/hreflang holds must be
+reported without redefining the content release as failed when public and
+discoverability evidence are complete.
 
 ## Blocker Taxonomy
 
@@ -97,6 +113,8 @@ Produce:
 - claim gate retro;
 - schema/hreflang lane retro;
 - D1/D7/D14 observation patch plan;
+- next-topic feedback notes from D1/D7/D14, with missing metrics preserved as `Unknown`;
+- answer-surface FAQ optimization recommendations;
 - skill patch requirements;
 - Mode C patch requirements;
 - daily memo patch requirements;

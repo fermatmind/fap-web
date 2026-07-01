@@ -412,6 +412,120 @@ describe("personality projection section renderer contract", () => {
     ]);
   });
 
+  it("renders MBTI64 V8.5/V5 reader-experience fields from backend recommendation payloads", () => {
+    const sections = [
+      cmsSection({
+        sectionKey: "meaning",
+        title: "INTJ-A 人格特点",
+        bodyMd: "后端提供的人格定义正文。",
+        payloadJson: {
+          raw_row: {
+            reader_experience: {
+              thirty_second_overview: [
+                "INTJ-A 的核心张力是长期系统、独立判断和现实反馈之间的校准。",
+                "A 型通常更能保留自我确认，但需要避免低估早期反馈。",
+              ],
+              ai_search_answer: {
+                what_is: "INTJ-A 描述建筑师人格中更稳定的自我确认方式。",
+                at_difference: "A/T 差异描述压力和反馈校准方式，不是能力排序。",
+                work_pattern: "工作中更适合长期规划、复杂拆解和关键路径判断。",
+                relationship_pattern: "关系里常把关心表达成方案、边界和持续行动。",
+                not_for: "不能用于诊断、招聘筛选、智商判断或职业承诺。",
+              },
+              strengths: [
+                {
+                  title: "把复杂问题整理成可行动线索",
+                  detail: "会先区分事实、假设、限制条件和下一步。",
+                },
+              ],
+              watch_outs: [
+                {
+                  title: "过早相信模型完整",
+                  detail: "稳定判断可能让他们错过现场反馈。",
+                },
+              ],
+              at_difference_scenarios: {
+                work: "在工作中，A 型更容易先保持判断节奏。",
+                relationship: "关系里需要解释稳定背后的在意。",
+                pressure: "压力下要拆分事实、感受、责任和下一步。",
+              },
+              work_decision_card: {
+                best_fit: "目标清楚、反馈真实、允许独立判断的任务。",
+                likely_stuck: "权责含混、反馈绕圈或只看态度不看证据的环境。",
+                boundary: "不能由类型直接推出固定职业。",
+              },
+              relationship_communication_card: {
+                care_language: "把关心表达成建议、方案和长期保护。",
+                conflict_pattern: "冲突中先处理问题结构，再处理情绪余波。",
+                misread: "容易被误读成冷淡、强势或回避。",
+              },
+              pressure_growth_card: {
+                signals: "现实反馈打断长期计划时容易收紧控制。",
+                compensation: "可能加速控制、反复复查或撤回表达。",
+                weekly_experiment: "把事实、担心和希望的下一步分开说。",
+                not_for: "不能替代专业判断。",
+              },
+            },
+            modules: [
+              {
+                id: "core-reading",
+                title: "01｜先理解这个类型",
+                insight: "INTJ-A 的关键不是冷静本身，而是如何让反馈进入长期系统。",
+                paragraphs: ["他们会先判断结构，再决定投入方式。"],
+              },
+            ],
+            faq: [
+              {
+                question: "INTJ-A 人格是什么意思？",
+                answer: "它描述一种判断、压力和沟通偏好，不是诊断或命运结论。",
+              },
+            ],
+            internal_links: [
+              {
+                path: "/zh/tests/mbti-personality-test-16-personality-types",
+                label: "免费 16 型人格测试",
+                reason: "回到测评入口，确认类型来源和结果解释。",
+              },
+              {
+                path: "/zh/account",
+                label: "账号中心",
+                reason: "不应出现在公开人格页。",
+                safe_public_route: false,
+              },
+            ],
+          },
+        },
+      }),
+    ];
+
+    const { container } = render(<div>{renderPersonalitySections(sections, "zh")}</div>);
+
+    expect(screen.getByText("30 秒速览")).toBeInTheDocument();
+    expect(screen.getByText("INTJ-A 的核心张力是长期系统、独立判断和现实反馈之间的校准。")).toBeInTheDocument();
+    expect(screen.getByText("AI / Search 摘要答案")).toBeInTheDocument();
+    expect(screen.getByText("A/T 最大区别")).toBeInTheDocument();
+    expect(screen.getByText("A/T 差异描述压力和反馈校准方式，不是能力排序。")).toBeInTheDocument();
+    expect(screen.getByText("优势")).toBeInTheDocument();
+    expect(screen.getByText("把复杂问题整理成可行动线索")).toBeInTheDocument();
+    expect(screen.getByText("注意风险")).toBeInTheDocument();
+    expect(screen.getByText("A/T 场景差异")).toBeInTheDocument();
+    expect(screen.getByText("工作决策场景")).toBeInTheDocument();
+    expect(screen.getByText("关系与沟通场景")).toBeInTheDocument();
+    expect(screen.getByText("压力与成长")).toBeInTheDocument();
+    expect(screen.getByText("深度解读模块")).toBeInTheDocument();
+    expect(screen.getByText("01｜先理解这个类型")).toBeInTheDocument();
+    expect(screen.getByText("INTJ-A 人格是什么意思？")).toBeInTheDocument();
+    expect(screen.getByText("免费 16 型人格测试")).toBeInTheDocument();
+    expect(screen.queryByText("账号中心")).not.toBeInTheDocument();
+    expect(container.innerHTML).not.toContain("/account");
+    expect(extractPersonalityFaqItems(sections)).toEqual([
+      {
+        question: "INTJ-A 人格是什么意思？",
+        answer: "它描述一种判断、压力和沟通偏好，不是诊断或命运结论。",
+      },
+    ]);
+  });
+
   it("renders promoted MBTI64 comparison content, FAQ, boundaries, and safe related-test links", () => {
     const sections = [
       cmsSection({

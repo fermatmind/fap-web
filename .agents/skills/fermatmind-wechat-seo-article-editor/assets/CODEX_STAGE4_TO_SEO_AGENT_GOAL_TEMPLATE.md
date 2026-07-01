@@ -104,7 +104,17 @@ Required outputs:
 - NEXT_EXACT_AUTHORIZATION_PROMPTS.md
 - scan_manifest.json
 
-SEO_AGENT_STAGE5_GOAL.md must contain one paste-ready `/goal` for the separate SEO agent window. It should start from the repaired package path and run the technical release chain from package QA / Media Library / CMS draft dry-run onward. It must preserve separate approval gates for:
+SEO_AGENT_STAGE5_GOAL.md must contain one paste-ready `/goal` for the separate SEO agent window. It should start from the repaired package path and run the technical release chain from package QA / Media Library / CMS draft dry-run onward.
+
+Daily cadence:
+- Default to one high-quality bilingual SEO article per day.
+- Generate a one-article full-chain goal unless the operator explicitly requests a batch/exception.
+- The preferred terminal state is `ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING`.
+- Do not instruct the SEO agent to start a second article in the same goal.
+
+Default to the conservative gate-by-gate shape only when the operator has not
+asked for full-chain preauthorization. In the conservative shape, preserve
+separate approval gates for:
 - production Media Library image import/register;
 - CMS draft creation;
 - preview repair if needed;
@@ -115,6 +125,34 @@ SEO_AGENT_STAGE5_GOAL.md must contain one paste-ready `/goal` for the separate S
 - Search Channel enqueue/approve/submit;
 - GSC Request Indexing;
 - schema/hreflang holds.
+
+When the operator explicitly asks for a next-day fully authorized run, generate
+the full-chain preauthorized variant instead of the gate-by-gate variant. In
+that mode `SEO_AGENT_STAGE5_GOAL.md` must include one Authorization Profile that
+preauthorizes the entire article release chain for the target package and target
+canonical URLs:
+
+- `authorization_mode=full_chain_preapproved`;
+- production Media Library image import/register;
+- resolved package write;
+- CMS image metadata backfill;
+- production CMS draft dry-run/import;
+- preview QA;
+- publish metadata/editorial readiness repair when source-backed;
+- controlled publish after rehearsal passes;
+- public smoke;
+- sitemap/llms/llms-full discoverability release;
+- content-release revalidation and sitemap-source warm when required for parity;
+- URL Truth refresh/write;
+- Search Channel enqueue, approve, and bounded live submit for `indexnow` and `baidu_push`;
+- GSC manual Request Indexing for the exact zh/en canonical URLs;
+- final reconciliation and D1/D7/D14 observation checklist.
+
+The full-chain variant must still hold schema and hreflang unless the operator
+explicitly asks for those rollout gates. It must stop on failed preflight,
+failed dry-run, claim/private URL risk, article identity mismatch, missing image
+asset, CDN verification failure, login/CAPTCHA, provider quota/platform block,
+or any deploy/runtime fix not preauthorized by target SHA/release.
 
 Final decision must be one of:
 - STAGE4_READY_FOR_SEO_AGENT_FULL_RELEASE_GOAL
@@ -127,7 +165,7 @@ Final decision must be one of:
 
 ## SEO Agent Goal Shape To Generate
 
-`SEO_AGENT_STAGE5_GOAL.md` should generate a goal like:
+`SEO_AGENT_STAGE5_GOAL.md` should generate a full-chain preauthorized goal like:
 
 ```text
 /goal SEO-OPS-<SLUG-UPPER>-FULL-RELEASE-<YYYYMMDD>-00
@@ -140,9 +178,10 @@ seo_article_full_release
 
 Target:
 - operation_type: new_article
-- locale: zh-CN
+- locales: zh-CN,en
 - slug: <SLUG>
 - canonical_url: https://fermatmind.com/zh/articles/<SLUG>
+- en_canonical_url: https://fermatmind.com/en/articles/<SLUG>
 - translation_group_id: <TRANSLATION_GROUP_ID>
 - source_package: <REPAIRED_PACKAGE_PATH>
 - primary_cta: <PRIMARY_CTA>
@@ -162,24 +201,35 @@ Allowed dry-run/read-only chain:
 6. publish rehearsal after authorized operator approval
 7. public smoke/read-only closeout after authorized publish
 
-Write actions require separate exact authorization:
-- production Media Library image import/register
-- CMS draft creation
-- preview repair write
-- publish metadata repair
-- controlled publish
-- discoverability-release
-- content-release revalidation
-- static sitemap refresh
-- URL Truth write
-- Search Channel enqueue/approve/submit
-- GSC Request Indexing
+Authorization Profile:
+- authorization_mode=full_chain_preapproved
+- allow_package_autofix=true
+- allow_social_image_auto_resolve=true
+- allow_image_bundle_dry_run=true
+- allow_media_library_image_import=true
+- allow_resolved_package_write=true
+- allow_image_metadata_backfill=true
+- allow_production_draft_import=true
+- allow_preview_qa=true
+- allow_publish_metadata_autofill=true
+- allow_publish_after_rehearsal=true
+- allow_make_indexable_after_smoke=true
+- allow_sitemap_llms_release=true
+- allow_url_truth_refresh=true
+- allow_search_channel_enqueue=true
+- allow_search_channel_approve=true
+- allow_indexnow_bounded_submission=true
+- allow_baidu_bounded_submission=true
+- allow_gsc_manual_request_indexing=true
+- schema=hold
+- hreflang=hold
+- allowed_search_channels=indexnow,baidu_push
+- disallowed_search_channels=360,sogou,shenma
+- gsc_request_indexing_target_urls=https://fermatmind.com/zh/articles/<SLUG>,https://fermatmind.com/en/articles/<SLUG>
 
 Explicit holds unless separately authorized:
-- CMS publish before controlled publish approval
 - schema/hreflang enablement
-- Search live submission
-- deploy
+- deploy unless a target SHA/release is specified in this goal
 - PR
 
 Required outputs:
@@ -191,17 +241,22 @@ Required outputs:
 - publish rehearsal/report
 - public smoke report
 - discoverability parity report
-- URL Truth/Search Channel/GSC reports as authorized
-- NEXT_EXACT_AUTHORIZATION_PROMPTS.md
+- URL Truth/Search Channel/GSC reports
+- answer-surface FAQ check, including `ANSWER_SURFACE_FAQ_ENHANCEMENT_RECOMMENDED` when package FAQ is present but the public answer-surface block still renders generic FAQ
+- D1/D7/D14 observation queue with `Unknown` placeholders for missing metrics
+- NEXT_EXACT_AUTHORIZATION_PROMPTS.md only for blockers outside this full-chain profile
 - scan_manifest.json
 
 Final decision:
-- READY_FOR_NEXT_AUTHORIZATION_GATE
 - ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING
+- ARTICLE_RELEASE_COMPLETE_PROVIDER_HELD
 - BLOCKED_NEEDS_OPERATOR_INPUT
 - BLOCKED_PACKAGE_QA
 - BLOCKED_RUNTIME_OR_PROVIDER
 ```
+
+For a conservative gate-by-gate run, use the older separate-authorization shape
+only when the operator explicitly says not to preauthorize the full chain.
 
 ## Notes
 

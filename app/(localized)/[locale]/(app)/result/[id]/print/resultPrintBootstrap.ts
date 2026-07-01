@@ -1,10 +1,21 @@
 import { buildApiUrl } from "@/lib/api-base";
 import { toApiLocale, type Locale } from "@/lib/i18n/locales";
 import type { AttemptReportAccessResponse, ReportResponse } from "@/lib/api/v0_3";
+import {
+  fetchPersonalityDesktopCloneSnapshotContent,
+  type PersonalityDesktopCloneContentPayload,
+} from "@/lib/cms/personality-desktop-clone";
+import {
+  resolveMbtiSnapshotFullCodeFromReport,
+  validateMbtiSnapshotDesktopCloneContent,
+  type MbtiSnapshotContentStatus,
+} from "@/lib/result/mbtiSnapshotContent";
 
 export type ResultPrintBootstrap = {
   reportAccess: AttemptReportAccessResponse | null;
   report: ReportResponse | null;
+  desktopCloneContent: PersonalityDesktopCloneContentPayload | null;
+  snapshotContentStatus: MbtiSnapshotContentStatus | null;
   error: string | null;
 };
 
@@ -21,6 +32,8 @@ export async function loadResultPrintBootstrap({
     return {
       reportAccess: null,
       report: null,
+      desktopCloneContent: null,
+      snapshotContentStatus: null,
       error: "missing_result_access_token",
     };
   }
@@ -36,16 +49,31 @@ export async function loadResultPrintBootstrap({
       locale,
       accessToken,
     });
+    const mbtiFullCode = resolveMbtiSnapshotFullCodeFromReport(report);
+    const desktopCloneContent = mbtiFullCode
+      ? await fetchPersonalityDesktopCloneSnapshotContent(mbtiFullCode, locale)
+      : null;
+    const snapshotContentStatus = mbtiFullCode
+      ? validateMbtiSnapshotDesktopCloneContent({
+          locale,
+          fullCode: mbtiFullCode,
+          payload: desktopCloneContent,
+        })
+      : null;
 
     return {
       reportAccess,
       report,
+      desktopCloneContent,
+      snapshotContentStatus,
       error: null,
     };
   } catch {
     return {
       reportAccess: null,
       report: null,
+      desktopCloneContent: null,
+      snapshotContentStatus: null,
       error: "result_print_bootstrap_failed",
     };
   }

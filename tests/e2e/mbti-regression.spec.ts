@@ -778,10 +778,7 @@ test("MBTI primary CTA reuses the existing checkout and order wait flow", async 
     "href",
     getMbtiDesktopAnchorHash("offerFull")
   );
-  await expect(page.getByTestId("mbti-footer-cta").getByRole("link", { name: "Unlock full report" })).toHaveAttribute(
-    "href",
-    "#offer-full"
-  );
+  await expect(page.getByTestId("mbti-footer-cta")).toHaveCount(0);
 
   await page.getByTestId("mbti-offers-primary-cta").click();
 
@@ -1108,13 +1105,13 @@ test("MBTI result uses the same clone shell across mobile and desktop viewports"
     await expect(page.getByTestId("mbti-post-purchase-section")).toHaveCount(0);
     await expect(stickyRail.getByRole("button", { name: "分享结果" })).toBeVisible();
     await expect(stickyRail.getByRole("link", { name: "重测" })).toBeVisible();
-    await expect(stickyRail.getByRole("link", { name: "4. Your Relationships" })).toBeVisible();
+    await expect(stickyRail.getByRole("link", { name: "4. 关系模式" })).toBeVisible();
     await expect(stickyRail.getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
       "href",
       "#mbti-desktop-offer-full"
     );
 
-    await stickyRail.getByRole("link", { name: "4. Your Relationships" }).click();
+    await stickyRail.getByRole("link", { name: "4. 关系模式" }).click();
     await expect(page).toHaveURL(new RegExp(`#mbti-desktop-relationships$`));
     await expect(page.getByTestId("mbti-chapter-relationships")).toBeVisible();
   }

@@ -708,7 +708,7 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
     const section = getDesktopSection("career");
     const scoped = within(section);
 
-    const traitsTitle = scoped.getByText("Influential Traits");
+    const traitsTitle = scoped.getByText("影响因素");
     const traitsLockPanel = scoped.getByTestId("mbti-career-traits-lock-panel");
     const strengthsCard = scoped.getByTestId("mbti-p0-career-strengths");
     const weaknessesCard = scoped.getByTestId("mbti-p0-career-weaknesses");
@@ -982,13 +982,13 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
 
     const careerSection = getDesktopSection("career");
     const careerScoped = within(careerSection);
-    const traitsTitle = careerScoped.getByText("Influential Traits");
+    const traitsTitle = careerScoped.getByText("影响因素");
     const detailPanel = careerScoped.getByTestId("mbti-career-traits-unlock-panel");
     const strengthsCard = careerScoped.getByTestId("mbti-p0-career-strengths");
     const weaknessesCard = careerScoped.getByTestId("mbti-p0-career-weaknesses");
 
     expect(careerScoped.queryByTestId("mbti-career-traits-lock-panel")).not.toBeInTheDocument();
-    expect(detailPanel).toHaveTextContent("career traits unlock title infj-a");
+    expect(detailPanel).not.toHaveTextContent("career traits unlock title infj-a");
     expect(detailPanel).toHaveTextContent("career trait 1 infj-a");
     expect(detailPanel).toHaveTextContent("career definition 1 infj-a");
     expect(detailPanel).toHaveTextContent("career expression 1 infj-a");
@@ -999,8 +999,8 @@ describe("MBTI desktop chapter premium teaser reset contract", () => {
 
     const growthScoped = within(getDesktopSection("growth"));
     const relationshipsScoped = within(getDesktopSection("relationships"));
-    expect(growthScoped.getByTestId("mbti-growth-traits-unlock-panel")).toHaveTextContent("growth traits unlock title infj-a");
-    expect(relationshipsScoped.getByTestId("mbti-relationships-traits-unlock-panel")).toHaveTextContent(
+    expect(growthScoped.getByTestId("mbti-growth-traits-unlock-panel")).not.toHaveTextContent("growth traits unlock title infj-a");
+    expect(relationshipsScoped.getByTestId("mbti-relationships-traits-unlock-panel")).not.toHaveTextContent(
       "relationships traits unlock title infj-a",
     );
   });

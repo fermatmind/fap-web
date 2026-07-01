@@ -348,11 +348,11 @@ describe("MBTI desktop clone shell CTA wiring", () => {
     }
 
     const rail = screen.getByTestId("mbti-sticky-rail");
-    expect(within(rail).getByRole("link", { name: "1. Personality Traits" })).toHaveAttribute(
+    expect(within(rail).getByRole("link", { name: "1. 人格特质" })).toHaveAttribute(
       "href",
       getMbtiDesktopAnchorHash("traits"),
     );
-    expect(within(rail).getByRole("link", { name: "2. Your Career Path" })).toHaveAttribute(
+    expect(within(rail).getByRole("link", { name: "2. 职业路径" })).toHaveAttribute(
       "href",
       getMbtiDesktopAnchorHash("career"),
     );
@@ -582,6 +582,59 @@ describe("MBTI desktop clone shell CTA wiring", () => {
       "href",
       "/zh/history",
     );
+  });
+
+  it("removes runtime rail, tools, offers, and unlock actions from the print snapshot shell", async () => {
+    const storagePayload = createStoragePayload("snapshot");
+
+    renderDefaultShell({
+      snapshotMode: true,
+      snapshotContentStatus: {
+        ok: true,
+        source: "server-prefetched-desktop-clone",
+        missing: [],
+      },
+      storageManagedExternally: true,
+      storageContentOverride: storagePayload.content,
+      storageAssetSlotsOverride: storagePayload.assetSlots,
+      historyHref: "/zh/history",
+      workspaceHref: "/zh/workspace",
+      orderLookupHref: "/zh/orders/lookup",
+      orderDetailHref: "/zh/orders/detail",
+      relationshipHref: "/zh/relationships/mbti",
+      pdfHref: "/api/v0.3/attempts/attempt-123/result-page.pdf",
+      pdfReady: true,
+      lockedInviteCtaHref: INVITE_TAKE_HREF,
+      recommendedReadsNode: <section data-testid="snapshot-recommended-reads">reads</section>,
+      supplementaryNodes: [<section key="supplementary" data-testid="snapshot-supplementary">supplementary</section>],
+      footerNode: <footer data-testid="snapshot-footer">footer</footer>,
+    });
+
+    expect(await screen.findByTestId("mbti-desktop-clone-shell")).toHaveAttribute("data-pdf-content-ready", "true");
+    expect(screen.getByText("career intro 1 snapshot")).toBeInTheDocument();
+    expect(screen.getByText("growth intro 1 snapshot")).toBeInTheDocument();
+    expect(screen.getByText("rel intro 1 snapshot")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-chapter-traits")).toHaveAttribute("data-pdf-section", "personality-traits");
+    expect(screen.getByTestId("mbti-chapter-career")).toHaveAttribute("data-pdf-section", "career-path");
+    expect(screen.getByTestId("mbti-chapter-growth")).toHaveAttribute("data-pdf-section", "personal-growth");
+    expect(screen.getByTestId("mbti-chapter-relationships")).toHaveAttribute("data-pdf-section", "relationships");
+
+    expect(screen.queryByTestId("mbti-sticky-rail")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-traits-tools")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-offer-full")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-deferred-content-placeholder")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("snapshot-recommended-reads")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("snapshot-supplementary")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("snapshot-footer")).not.toBeInTheDocument();
+    expect(screen.queryByTestId(/mbti-.*-unlock-actions/)).not.toBeInTheDocument();
+    expect(screen.queryByTestId(/mbti-.*-pay-cta/)).not.toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "分享" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "导出 PDF" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "查看历史" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "工作台" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "订单" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: "重测" })).not.toBeInTheDocument();
+    expect(screen.queryByText("你可以继续保存、导出或查看历史结果。")).not.toBeInTheDocument();
   });
 
   it("keeps invite CTA and payment CTA wiring intact on the owner locked surface", async () => {

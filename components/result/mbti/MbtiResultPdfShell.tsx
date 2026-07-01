@@ -117,6 +117,7 @@ export function MbtiResultPdfShell({
         data-testid="mbti-result-pdf-shell-error"
         data-pdf-placeholder="true"
         data-pdf-error="PDF_PLACEHOLDER_CONTENT"
+        data-pdf-content-ready="false"
         className="mx-auto max-w-[760px] rounded-[8px] border border-rose-200 bg-rose-50 p-6 text-rose-800"
       >
         <h2 className="m-0 text-xl font-semibold">
@@ -135,6 +136,8 @@ export function MbtiResultPdfShell({
     <article
       data-testid="mbti-result-pdf-shell"
       data-result-pdf-root="true"
+      data-pdf-content-ready="true"
+      data-pdf-content-source="mbti-result-projection"
       className="mx-auto w-full max-w-[760px] space-y-8 bg-white text-slate-900 print:space-y-6"
     >
       <header className="space-y-3 border-b border-slate-200 pb-6">

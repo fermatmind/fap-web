@@ -20,21 +20,34 @@ export type ResolveMbtiDesktopCloneSlotsArgs = {
   storageContent?: MbtiDesktopCloneContent | null;
 };
 
+export type ResolveMbtiDesktopCloneSlotsOptions = {
+  mode?: "normal" | "snapshot";
+  allowPlaceholder?: boolean;
+};
+
+export type ResolveMbtiDesktopCloneSlotsResult =
+  | { ok: true; slots: MbtiDesktopCloneSlots }
+  | { ok: false; code: "DESKTOP_CLONE_CONTENT_MISSING"; missing: string[] };
+
+type ResolveMbtiDesktopCloneSlotsInternalOptions = {
+  allowStorageContentForLocale?: boolean;
+};
+
 const SECTION_META = {
   career: {
     step: "2",
     sectionLabel: { zh: "职业路径", en: "Career path" },
-    title: { zh: "Your Career Path", en: "Your Career Path" },
+    title: { zh: "职业路径", en: "Your Career Path" },
   },
   growth: {
     step: "3",
     sectionLabel: { zh: "个人成长", en: "Personal growth" },
-    title: { zh: "Your Personal Growth", en: "Your Personal Growth" },
+    title: { zh: "个人成长", en: "Your Personal Growth" },
   },
   relationships: {
     step: "4",
     sectionLabel: { zh: "关系模式", en: "Relationships" },
-    title: { zh: "Your Relationships", en: "Your Relationships" },
+    title: { zh: "关系模式", en: "Your Relationships" },
   },
 } as const;
 
@@ -121,12 +134,12 @@ export function resolveMbtiDesktopCloneSlots({
   dimensions,
   projectionViewModel,
   storageContent = null,
-}: ResolveMbtiDesktopCloneSlotsArgs): MbtiDesktopCloneSlots {
+}: ResolveMbtiDesktopCloneSlotsArgs, options: ResolveMbtiDesktopCloneSlotsInternalOptions = {}): MbtiDesktopCloneSlots {
   const fullCode = normalizeText(headline.typeCode, projectionViewModel?.displayType).toUpperCase() || "MBTI";
   const baseCode = normalizeBaseMbtiCode(fullCode);
   const isZh = locale === "zh";
   const language = isZh ? "zh" : "en";
-  const content = isZh ? storageContent : null;
+  const content = isZh || options.allowStorageContentForLocale ? storageContent : null;
   const placeholders = MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH;
   const dimensionSummary = buildDimensionSummary(dimensions, headline, projectionViewModel);
   const authoringLevel = content ? "fullCode" : "placeholder";
@@ -156,7 +169,7 @@ export function resolveMbtiDesktopCloneSlots({
     overview: content?.overview ?? null,
     traits: {
       sectionLabel: placeholders.traits.sectionLabel,
-      title: "Personality Traits",
+      title: isZh ? "人格特质" : "Personality Traits",
       asset: placeholders.traits.asset,
       summaryPane: {
         eyebrow: content?.traits.summaryPane.eyebrow ?? dimensionSummary.eyebrow,
@@ -242,5 +255,26 @@ export function resolveMbtiDesktopCloneSlots({
       guarantee: content?.finalOffer.guarantee ?? placeholders.finalOffer.guarantee,
       asset: placeholders.finalOffer.asset,
     },
+  };
+}
+
+export function resolveMbtiDesktopCloneSlotsResult(
+  args: ResolveMbtiDesktopCloneSlotsArgs,
+  options: ResolveMbtiDesktopCloneSlotsOptions = {},
+): ResolveMbtiDesktopCloneSlotsResult {
+  const allowPlaceholder = options.allowPlaceholder ?? options.mode !== "snapshot";
+  if (!args.storageContent && !allowPlaceholder) {
+    return {
+      ok: false,
+      code: "DESKTOP_CLONE_CONTENT_MISSING",
+      missing: ["storageContent"],
+    };
+  }
+
+  return {
+    ok: true,
+    slots: resolveMbtiDesktopCloneSlots(args, {
+      allowStorageContentForLocale: options.mode === "snapshot",
+    }),
   };
 }

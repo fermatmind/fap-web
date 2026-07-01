@@ -352,7 +352,6 @@ describe("RichResultReport", () => {
     const careerNextStep = screen.getByTestId("mbti-career-next-step");
     const offerComparison = getPrimaryByTestId("mbti-offer-comparison");
     const reads = screen.getByTestId("mbti-recommended-reads");
-    const footer = screen.getByTestId("mbti-footer-cta");
 
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
@@ -363,7 +362,7 @@ describe("RichResultReport", () => {
     expect(growthChapter).toBeInTheDocument();
     expect(relationshipsChapter).toBeInTheDocument();
     expect(offerComparison).toBeInTheDocument();
-    expect(footer).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
     expect(stickyRail).toBeInTheDocument();
 
     expect(traitsChapter.compareDocumentPosition(careerChapter) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
@@ -372,7 +371,6 @@ describe("RichResultReport", () => {
     expect(relationshipsChapter.compareDocumentPosition(careerNextStep) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(careerNextStep.compareDocumentPosition(offerComparison) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
     expect(offerComparison.compareDocumentPosition(reads) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
-    expect(reads.compareDocumentPosition(footer) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
 
     expect(within(hero).getByRole("heading", { name: /ENFP-T/ })).toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-identity-line")).toHaveTextContent("Projection Campaigner");
@@ -389,12 +387,8 @@ describe("RichResultReport", () => {
       "href",
       getMbtiDesktopAnchorHash("offerFull")
     );
-    expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
-      "href",
-      getMbtiDesktopAnchorHash("offerFull")
-    );
-    expect(within(footer).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
-    expect(within(footer).getByRole("link", { name: "重新测试" })).toHaveAttribute(
+    expect(within(stickyRail).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
+    expect(within(stickyRail).getByRole("link", { name: "重测" })).toHaveAttribute(
       "href",
       "/zh/tests/mbti-personality-test-16-personality-types/take"
     );
@@ -593,7 +587,7 @@ describe("RichResultReport", () => {
     expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-traits")).toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-footer-cta")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
     expect(screen.queryByTestId("mbti-overview-authored-intro")).not.toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-hero")).toHaveTextContent(
       "Projection-first summary that should replace the legacy hero copy on result pages."
@@ -1179,6 +1173,6 @@ describe("RichResultReport", () => {
 
     const stickyRail = getDesktopStickyRail();
     expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-footer-cta")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
   });
 });

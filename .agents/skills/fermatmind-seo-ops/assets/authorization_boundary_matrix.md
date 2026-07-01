@@ -17,11 +17,11 @@
 | llms-full generation/convergence | Held | Yes | No | Degraded mode persists |
 | URL Truth refresh | Held | Yes | No | Authority mismatch |
 | Search Channel Queue enqueue | Held | Yes | No | Channel ambiguity |
-| IndexNow bounded submission | Held | Yes | Yes, if executor demands | Dry-run issues |
+| IndexNow bounded submission | Held | Yes | Yes, unless full-chain profile lists target channels/URLs | Dry-run issues |
 | GSC manual inspection | Held | Yes | No | CAPTCHA/login failure |
-| GSC Request Indexing | Hard stop | No | Yes | Always stop unless exact approval |
+| GSC Request Indexing | Held | Yes | Yes, unless full-chain profile lists target canonical URLs | CAPTCHA/login failure or target mismatch |
 | Baidu readiness | Held | Yes | No | Platform-side blocker |
-| Baidu live push | Hard stop | No | Yes | Site init fail or live gate disabled |
+| Baidu live push | Held | Yes | Yes, unless full-chain profile lists bounded queue item IDs/channels | Site init fail, quota exhaustion, or live gate disabled |
 | Scoped PR merge | Held | Yes | No | Checks failed |
 | Scoped backend deploy | Held | Yes | Yes, if exact SHA required | Migration/env/secret/auth/payment/security risk |
 | Scoped frontend deploy | Held | Yes | Yes, if exact SHA required | Target SHA ambiguous |

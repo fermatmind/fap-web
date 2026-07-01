@@ -14,8 +14,10 @@ import {
   getMbtiDesktopAnchorHash,
   getMbtiDesktopAnchorId,
 } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
-import { MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH } from "@/components/result/mbti/clone/mbtiDesktopClone.placeholders";
-import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
+import {
+  resolveMbtiDesktopCloneSlots,
+  resolveMbtiDesktopCloneSlotsResult,
+} from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
 import type {
   EnergyBlock,
   LockedListBlock,
@@ -37,6 +39,7 @@ import {
   type PersonalityDesktopCloneAssetSlot,
 } from "@/lib/cms/personality-desktop-clone";
 import type { Locale } from "@/lib/i18n/locales";
+import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 import { assignWindowLocation } from "@/lib/browser/locationNavigation";
 
@@ -87,6 +90,8 @@ type MbtiDesktopCloneShellProps = {
   storageAssetSlotsOverride?: PersonalityDesktopCloneAssetSlot[] | null;
   storageManagedExternally?: boolean;
   canLoadDesktopCloneStorage?: boolean;
+  snapshotMode?: boolean;
+  snapshotContentStatus?: MbtiSnapshotContentStatus | null;
 };
 
 const LEGACY_OFFER_SECTION_ID = "offer-full";
@@ -362,6 +367,8 @@ export function MbtiDesktopCloneShell({
   storageAssetSlotsOverride,
   storageManagedExternally = false,
   canLoadDesktopCloneStorage,
+  snapshotMode = false,
+  snapshotContentStatus = null,
 }: MbtiDesktopCloneShellProps) {
   const cloneLocale = locale === "zh" ? "zh" : "en";
   const shouldLoadDesktopCloneStorage = canLoadDesktopCloneStorage ?? isUnlocked;
@@ -474,7 +481,7 @@ export function MbtiDesktopCloneShell({
   ]);
 
   const traitDimensions = projectionViewModel?.dimensions?.length ? projectionViewModel.dimensions : dimensions;
-  const slots = resolveMbtiDesktopCloneSlots({
+  const slotInput = {
     locale,
     headline,
     dimensions: traitDimensions,
@@ -484,7 +491,22 @@ export function MbtiDesktopCloneShell({
     offers,
     projectionViewModel,
     storageContent,
+  };
+  const strictSlotsResult = resolveMbtiDesktopCloneSlotsResult(slotInput, {
+    mode: snapshotMode ? "snapshot" : "normal",
+    allowPlaceholder: !snapshotMode,
   });
+  const slots = strictSlotsResult.ok
+    ? strictSlotsResult.slots
+    : resolveMbtiDesktopCloneSlots({ ...slotInput, storageContent: null });
+  const snapshotContentErrorCode =
+    snapshotMode && snapshotContentStatus && !snapshotContentStatus.ok
+      ? snapshotContentStatus.code
+      : snapshotMode && !strictSlotsResult.ok
+        ? strictSlotsResult.code
+        : null;
+  const snapshotContentReady = snapshotMode && snapshotContentStatus?.ok === true && strictSlotsResult.ok;
+  const snapshotContentSource = snapshotContentStatus?.ok ? snapshotContentStatus.source : slots.meta.contentSource;
   const primaryOffer = resolvePrimaryOffer(offers);
   const unlockedCareerIdeaBlock = isUnlocked
     ? withOverrideTitle(
@@ -830,12 +852,18 @@ export function MbtiDesktopCloneShell({
     ...(unlockedPdfHref ? [{ label: cloneLocale === "zh" ? "导出 PDF" : "Export PDF", href: unlockedPdfHref }] : []),
     ...(historyHref ? [{ label: cloneLocale === "zh" ? "查看历史" : "History", href: historyHref }] : []),
   ];
+  const snapshotTraitsTools: DesktopCloneTool[] = [];
   const traitsToolsPrompt = cloneLocale === "zh"
     ? "你可以继续保存、导出或查看历史结果。"
     : "You can save, export, or revisit this result.";
   const traitBodyParagraphs = slots.overview?.paragraphs ?? slots.traits.body;
   const traitBodySource = slots.overview ? "overview" : "traits";
-  const showTopInviteProgress = isMobileViewport && inviteProgressDisplay.showProgressCard;
+  const showTopInviteProgress = !snapshotMode && isMobileViewport && inviteProgressDisplay.showProgressCard;
+  const shouldRenderSnapshotStaticShell = snapshotMode;
+  const shouldRenderFinalOffer = !snapshotMode;
+  const shouldRenderRail = !snapshotMode;
+  const shouldRenderTrailingNodes = !snapshotMode;
+  const shouldRenderDeepNarrativeSections = shouldRenderSnapshotStaticShell || isDeepContentReady;
   const deepContentPlaceholderLabel = cloneLocale === "zh"
     ? "正在加载详细章节..."
     : "Loading detailed chapters...";
@@ -867,7 +895,7 @@ export function MbtiDesktopCloneShell({
         isCheckingOut={isCheckingOut}
         checkoutError={checkoutError}
         onCheckout={primaryOffer ? onCheckout : undefined}
-        isUnlocked={isUnlocked}
+        isUnlocked={snapshotMode || isUnlocked}
         unlockedNode={unlockedOfferNode}
         illustrationSlotId={slots.finalOffer.asset.slotId}
         illustrationLabel={slots.finalOffer.asset.label}
@@ -894,26 +922,26 @@ export function MbtiDesktopCloneShell({
         matchedGuides={null}
         traits={slots.chapters.career.influentialTraits}
         traitsUnlock={slots.chapters.career.traitsUnlock}
-        isUnlocked={isUnlocked}
+        isUnlocked={snapshotMode || isUnlocked}
         unlockHref={desktopOfferHref}
         unlockPayLabel={sectionPayCtaLabel}
         unlockInviteLabel={sectionInviteCtaLabel}
         unlockInviteHref={inviteCtaRenderHref}
         onInviteCtaClick={handleInviteCtaClick}
         postCoreBlocks={careerPostCoreBlocks}
-        premiumTeasers={isUnlocked ? [] : [
+        premiumTeasers={snapshotMode || isUnlocked ? [] : [
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "你可能会喜欢的职业选择",
             source: null,
-            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.career.lockedBlocks[0],
+            fallback: slots.chapters.career.lockedBlocks[0],
             testId: "mbti-premium-career-career-ideas",
           }),
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "适合你的工作方式",
             source: null,
-            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.career.lockedBlocks[1],
+            fallback: slots.chapters.career.lockedBlocks[1],
             testId: "mbti-premium-career-work-styles",
           }),
         ]}
@@ -933,26 +961,26 @@ export function MbtiDesktopCloneShell({
         weaknesses={slots.chapters.growth.weaknesses}
         traits={slots.chapters.growth.influentialTraits}
         traitsUnlock={slots.chapters.growth.traitsUnlock}
-        isUnlocked={isUnlocked}
+        isUnlocked={snapshotMode || isUnlocked}
         unlockHref={desktopOfferHref}
         unlockPayLabel={sectionPayCtaLabel}
         unlockInviteLabel={sectionInviteCtaLabel}
         unlockInviteHref={inviteCtaRenderHref}
         onInviteCtaClick={handleInviteCtaClick}
         postCoreBlocks={growthPostCoreBlocks}
-        premiumTeasers={isUnlocked ? [] : [
+        premiumTeasers={snapshotMode || isUnlocked ? [] : [
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "什么能让你充满活力？",
             source: null,
-            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.growth.lockedBlocks[0],
+            fallback: slots.chapters.growth.lockedBlocks[0],
             testId: "mbti-premium-growth-what-energizes",
           }),
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "什么让你精力力竭？",
             source: null,
-            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.growth.lockedBlocks[1],
+            fallback: slots.chapters.growth.lockedBlocks[1],
             testId: "mbti-premium-growth-what-drains",
           }),
         ]}
@@ -972,34 +1000,34 @@ export function MbtiDesktopCloneShell({
         weaknesses={slots.chapters.relationships.weaknesses}
         traits={slots.chapters.relationships.influentialTraits}
         traitsUnlock={slots.chapters.relationships.traitsUnlock}
-        isUnlocked={isUnlocked}
+        isUnlocked={snapshotMode || isUnlocked}
         unlockHref={desktopOfferHref}
         unlockPayLabel={sectionPayCtaLabel}
         unlockInviteLabel={sectionInviteCtaLabel}
         unlockInviteHref={inviteCtaRenderHref}
         onInviteCtaClick={handleInviteCtaClick}
         postCoreBlocks={relationshipsPostCoreBlocks}
-        premiumTeasers={isUnlocked ? [] : [
+        premiumTeasers={snapshotMode || isUnlocked ? [] : [
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "你的人际关系优势",
             source: null,
-            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.relationships.lockedBlocks[0],
+            fallback: slots.chapters.relationships.lockedBlocks[0],
             testId: "mbti-premium-relationships-superpowers",
           }),
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "人际关系陷阱",
             source: null,
-            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.relationships.lockedBlocks[1],
+            fallback: slots.chapters.relationships.lockedBlocks[1],
             testId: "mbti-premium-relationships-pitfalls",
           }),
         ]}
       />
 
-      {supplementaryNodes.map((node, index) => (
+      {!snapshotMode ? supplementaryNodes.map((node, index) => (
         <div key={`mbti-clone-supplementary-${index}`}>{node}</div>
-      ))}
+      )) : null}
     </>
   );
   const trailingNodes = (
@@ -1009,11 +1037,30 @@ export function MbtiDesktopCloneShell({
     </>
   );
 
+  if (snapshotContentErrorCode) {
+    return (
+      <section
+        data-testid="mbti-desktop-clone-snapshot-error"
+        data-pdf-error={snapshotContentErrorCode}
+        data-pdf-content-ready="false"
+        data-pdf-content-source="placeholder"
+        data-content-source="placeholder"
+        data-pdf-exclude="true"
+        className={styles.cloneRoot}
+      >
+        <p>{snapshotContentErrorCode}</p>
+      </section>
+    );
+  }
+
   return (
     <div
       data-testid="mbti-desktop-clone-shell"
       className={styles.cloneRoot}
       data-base-code={slots.meta.baseCode}
+      data-content-source={slots.meta.contentSource}
+      data-pdf-content-ready={snapshotMode ? (snapshotContentReady ? "true" : "false") : undefined}
+      data-pdf-content-source={snapshotMode ? snapshotContentSource : undefined}
       data-invite-has-invite={hasInvite ? "true" : "false"}
       data-invite-code={sectionInviteCode || undefined}
       data-invite-href={sectionInviteCtaHref || undefined}
@@ -1065,32 +1112,30 @@ export function MbtiDesktopCloneShell({
               axisExplainers={storageContent?.traits.axisExplainers ?? null}
               paragraphs={traitBodyParagraphs}
               bodySource={traitBodySource}
-              tools={traitsTools}
-              toolsPrompt={traitsToolsPrompt}
+              tools={snapshotMode ? snapshotTraitsTools : traitsTools}
+              toolsPrompt={snapshotMode ? "" : traitsToolsPrompt}
             />
 
-            {isMobileViewport ? finalOfferNode : null}
-            {isDeepContentReady ? deepNarrativeSectionsNode : (
-              <section
-                data-testid="mbti-deferred-content-placeholder"
-                data-pdf-placeholder="true"
-                className={styles.deferredContentPlaceholder}
-              >
+            {shouldRenderFinalOffer && isMobileViewport ? finalOfferNode : null}
+            {shouldRenderDeepNarrativeSections ? deepNarrativeSectionsNode : (
+              <section data-testid="mbti-deferred-content-placeholder" className={styles.deferredContentPlaceholder}>
                 <p className={styles.deferredContentPlaceholderTitle}>{deepContentPlaceholderLabel}</p>
                 <p className={styles.deferredContentPlaceholderHint}>{deepContentPlaceholderHint}</p>
               </section>
             )}
-            {!isMobileViewport ? finalOfferNode : null}
-            {isDeepContentReady ? trailingNodes : null}
+            {shouldRenderFinalOffer && !isMobileViewport ? finalOfferNode : null}
+            {shouldRenderTrailingNodes && isDeepContentReady ? trailingNodes : null}
           </main>
 
-          <MbtiCloneRail
-            locale={cloneLocale}
-            profileIdentity={slots.hero.profileIdentity}
-            primaryCtaLabel={primaryCtaLabel}
-            primaryCtaHref={desktopEntryHref}
-            tools={railTools}
-          />
+          {shouldRenderRail ? (
+            <MbtiCloneRail
+              locale={cloneLocale}
+              profileIdentity={slots.hero.profileIdentity}
+              primaryCtaLabel={primaryCtaLabel}
+              primaryCtaHref={desktopEntryHref}
+              tools={railTools}
+            />
+          ) : null}
         </div>
       </div>
     </div>

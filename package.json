@@ -47,6 +47,7 @@
     "ops:batch2-runtime-qa-handoff": "node scripts/ops/check-batch2-runtime-qa-handoff.mjs tests/fixtures/result_page/batch2_readback_review_ledger.sample.json",
     "ops:result-smoke": "node scripts/ops/check-live-result-smoke.mjs",
     "ops:big5-v2-post-deploy-smoke": "node scripts/ops/check-big5-v2-live-result-pdf.mjs",
+    "ops:mbti-result-page-pdf-smoke": "node scripts/ops/check-mbti-result-page-pdf-smoke.mjs",
     "content:check-translations": "node scripts/content/check-translations.mjs",
     "test:contract": "vitest run tests/contracts",
     "test:a11y": "vitest run tests/a11y",

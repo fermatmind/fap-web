@@ -35,6 +35,7 @@ import {
 import {
   fetchPersonalityDesktopCloneContent,
   normalizeDesktopCloneTypeSlug,
+  type PersonalityDesktopCloneContentPayload,
   type PersonalityDesktopCloneAssetSlot,
 } from "@/lib/cms/personality-desktop-clone";
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
@@ -45,6 +46,7 @@ import {
   toAttemptAttributionPayload,
 } from "@/lib/tracking/attribution";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 import { buildMbtiFormDisplayLabel, normalizeMbtiFormSummary } from "@/lib/mbti/formSummary";
 import type { MbtiPreviewViewModel } from "@/lib/mbti/preview";
@@ -150,6 +152,9 @@ type MbtiResultShellProps = {
   sections: ReportSection[];
   sectionUnlocks: Record<string, MbtiSectionUnlock>;
   offers: ResolvedOffer[];
+  printSnapshotMode?: boolean;
+  initialDesktopCloneContent?: PersonalityDesktopCloneContentPayload | null;
+  snapshotContentStatus?: MbtiSnapshotContentStatus | null;
   onInternalNavigate?: (path: string) => void;
   onExternalNavigate?: (url: string) => void;
 };
@@ -319,18 +324,6 @@ function buildCareerBridgeTelemetryPayload(
   };
 }
 
-function resolveShareMessages(locale: Locale, shareStatus: "idle" | "copied" | "failed") {
-  if (shareStatus === "copied") {
-    return locale === "zh" ? "结果链接已复制。" : "Result link copied.";
-  }
-
-  if (shareStatus === "failed") {
-    return locale === "zh" ? "当前环境不支持自动分享，请手动复制链接。" : "Sharing is unavailable here. Copy the URL manually.";
-  }
-
-  return "";
-}
-
 function resolvePrimaryCtaLabel(locale: Locale) {
   return locale === "zh" ? "解锁完整报告" : "Unlock full report";
 }
@@ -338,10 +331,6 @@ function resolvePrimaryCtaLabel(locale: Locale) {
 function resolveCtaRank(ctaPriorityKeys: string[], ctaKey: string): number {
   const index = ctaPriorityKeys.findIndex((value) => value === ctaKey);
   return index >= 0 ? index + 1 : 0;
-}
-
-function resolveCtaRankLabel(locale: Locale, rank: number): string {
-  return locale === "zh" ? `优先入口 ${rank}` : `Priority ${rank}`;
 }
 
 function resolveOfferScrollTargetId(hash: string): string | null {
@@ -655,6 +644,9 @@ export function MbtiResultShell({
   sections,
   sectionUnlocks,
   offers,
+  printSnapshotMode = false,
+  initialDesktopCloneContent = null,
+  snapshotContentStatus = null,
   onInternalNavigate,
   onExternalNavigate,
 }: MbtiResultShellProps) {
@@ -740,19 +732,36 @@ export function MbtiResultShell({
     () => normalizeText(publicHeadline.typeCode, projectionViewModel?.displayType).toUpperCase() || "MBTI",
     [publicHeadline.typeCode, projectionViewModel?.displayType],
   );
-  const canLoadPublicDesktopCloneStorage = locale === "zh" && Boolean(normalizeDesktopCloneTypeSlug(fullCodeForStorage));
+  const initialDesktopCloneSnapshot = useMemo(() => {
+    if (
+      !initialDesktopCloneContent
+      || initialDesktopCloneContent.fullCode !== fullCodeForStorage
+      || (locale === "zh" ? initialDesktopCloneContent.locale !== "zh-CN" : initialDesktopCloneContent.locale !== "en")
+    ) {
+      return null;
+    }
+
+    return {
+      locale,
+      fullCode: fullCodeForStorage,
+      content: initialDesktopCloneContent.content,
+      assetSlots: initialDesktopCloneContent.assetSlots,
+    };
+  }, [fullCodeForStorage, initialDesktopCloneContent, locale]);
+  const canLoadPublicDesktopCloneStorage = (printSnapshotMode || locale === "zh") && Boolean(normalizeDesktopCloneTypeSlug(fullCodeForStorage));
   const [desktopCloneSnapshot, setDesktopCloneSnapshot] = useState<{
     locale: Locale;
     fullCode: string;
     content: MbtiDesktopCloneContent | null;
     assetSlots: PersonalityDesktopCloneAssetSlot[];
   } | null>(null);
+  const resolvedDesktopCloneSnapshot = initialDesktopCloneSnapshot ?? desktopCloneSnapshot;
   const activeDesktopCloneSnapshot =
     canLoadPublicDesktopCloneStorage
-    && desktopCloneSnapshot
-    && desktopCloneSnapshot.locale === locale
-    && desktopCloneSnapshot.fullCode === fullCodeForStorage
-      ? desktopCloneSnapshot
+    && resolvedDesktopCloneSnapshot
+    && resolvedDesktopCloneSnapshot.locale === locale
+    && resolvedDesktopCloneSnapshot.fullCode === fullCodeForStorage
+      ? resolvedDesktopCloneSnapshot
       : null;
   const terminalPrimaryCtaLabel = isUnlockedPostPurchase
     ? locale === "zh"
@@ -760,7 +769,6 @@ export function MbtiResultShell({
       : "My MBTI reports"
     : primaryCtaLabel;
   const terminalPrimaryCtaHref = isUnlockedPostPurchase ? historyHref : DESKTOP_OFFER_FULL_HASH;
-  const shareMessage = resolveShareMessages(locale, shareStatus);
   const shareCtaLabel = resolveShareCtaLabel(locale, shareStatus, isSharing);
   const personalizationDerived = useMemo(() => ({
     variantKeysSummary: summarizeMbtiVariantKeys(personalization),
@@ -1550,14 +1558,6 @@ export function MbtiResultShell({
           }`}
         >
           <div className="space-y-3">
-            {careerBridgeCtaRank > 0 ? (
-              <p className="m-0 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-700">
-                {resolveCtaRankLabel(locale, careerBridgeCtaRank)}
-              </p>
-            ) : null}
-            <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-sky-700">
-              {locale === "zh" ? "职业下一步" : "Career next step"}
-            </p>
             <div className="space-y-2">
               <h2 className="m-0 text-2xl font-semibold tracking-tight text-slate-950">
                 {locale === "zh"
@@ -1649,13 +1649,11 @@ export function MbtiResultShell({
     (entry) => entry.key === "unlock_full_report" || entry.key === "workspace_lite"
   );
   const auxiliaryCtaEntries = orderedCtaSurfaceEntries.filter((entry) => entry.key !== "unlock_full_report" && entry.key !== "workspace_lite");
-  const offerPrimaryLabel = isUnlockedPostPurchase ? terminalPrimaryCtaLabel : locale === "zh" ? "解锁完整报告" : "Unlock full report";
-  const footerPrimaryCtaHref = isUnlockedPostPurchase ? resolvedTerminalPrimaryCtaHref : DESKTOP_OFFER_FULL_HASH;
 
   useEffect(() => {
     let active = true;
 
-    if (!canLoadPublicDesktopCloneStorage) {
+    if (!canLoadPublicDesktopCloneStorage || initialDesktopCloneSnapshot) {
       return () => {
         active = false;
       };
@@ -1676,7 +1674,7 @@ export function MbtiResultShell({
     return () => {
       active = false;
     };
-  }, [canLoadPublicDesktopCloneStorage, fullCodeForStorage, locale]);
+  }, [canLoadPublicDesktopCloneStorage, fullCodeForStorage, initialDesktopCloneSnapshot, locale]);
 
   const supplementaryNodes = auxiliaryCtaEntries.map((entry) =>
     entry.key === "career_bridge" ? (
@@ -1697,60 +1695,7 @@ export function MbtiResultShell({
       personalization={personalization}
     />
   );
-  const footerNode = (
-    <section
-      id="footer-cta"
-      data-testid="mbti-footer-cta"
-      className="flex flex-col gap-4 rounded-2xl border border-slate-950 bg-slate-950 p-6 shadow-[0_22px_52px_rgba(15,23,42,0.22)] text-white md:p-8"
-    >
-      <div className="space-y-2">
-        <p className="m-0 text-sm leading-7 text-slate-300">
-          {isUnlockedPostPurchase
-            ? locale === "zh"
-              ? "结果正文保留在当前页，后续回访、PDF 与订单入口统一收在工作台与历史结果。"
-              : "The reading stays on this page while revisit, PDF, and order entry points consolidate into the workspace and history."
-            : locale === "zh"
-              ? "这里收口分享、重测与历史入口；唯一主解锁动作仍然回到结果页内的完整报告收口。"
-              : "This footer keeps share, retake, and history entry points while the single primary unlock action still resolves to the in-page full-report closure."}
-        </p>
-        {shareMessage ? <p className="m-0 text-sm text-emerald-200">{shareMessage}</p> : null}
-      </div>
-      <div className="flex flex-wrap gap-3">
-        <button
-          type="button"
-          className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white"
-          disabled={isSharing}
-          onClick={() => void handleShare()}
-        >
-          {shareCtaLabel}
-        </button>
-        <Link href={retakeHref} className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white">
-          {locale === "zh" ? "重新测试" : "Retake test"}
-        </Link>
-        <Link href={historyHref} className="text-sm text-neutral-400 underline underline-offset-2 hover:text-white">
-          {locale === "zh" ? "查看历史" : "View history"}
-        </Link>
-        {isUnlockedPostPurchase ? (
-          <Link
-            href={footerPrimaryCtaHref}
-            className={buttonVariants({ className: "text-sm text-neutral-950 hover:text-white" })}
-          >
-            {terminalPrimaryCtaLabel}
-          </Link>
-        ) : (
-          <a
-            href={footerPrimaryCtaHref}
-            className={buttonVariants({
-              className: "text-sm text-neutral-400 underline underline-offset-2 hover:text-white",
-              variant: "outline",
-            })}
-          >
-            {offerPrimaryLabel}
-          </a>
-        )}
-      </div>
-    </section>
-  );
+  const footerNode = null;
 
   return (
     <div
@@ -1806,6 +1751,8 @@ export function MbtiResultShell({
         storageAssetSlotsOverride={activeDesktopCloneSnapshot?.assetSlots ?? []}
         storageManagedExternally
         canLoadDesktopCloneStorage={canLoadPublicDesktopCloneStorage}
+        snapshotMode={printSnapshotMode}
+        snapshotContentStatus={snapshotContentStatus}
       />
     </div>
   );

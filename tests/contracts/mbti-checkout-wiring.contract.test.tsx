@@ -637,7 +637,7 @@ describe("MBTI checkout wiring contract", () => {
     expect(resolveMbtiCheckoutSku(reportData)).toBe("MBTI_REPORT_FULL_199");
   });
 
-  it("keeps sticky, mobile, footer, and chapter unlock surfaces as anchors", () => {
+  it("keeps sticky and chapter unlock surfaces as anchors", () => {
     const reportData = createReportFixture();
     reportData.cta = {
       ...(reportData.cta ?? {
@@ -658,7 +658,6 @@ describe("MBTI checkout wiring contract", () => {
     render(<RichResultReport locale="zh" reportData={reportData} />);
 
     const stickyRail = getDesktopStickyRail();
-    const footer = screen.getByTestId("mbti-footer-cta");
     const careerUnlockSurface = screen.getByTestId("mbti-career-traits-lock-panel");
 
     expect(within(stickyRail).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
@@ -666,10 +665,7 @@ describe("MBTI checkout wiring contract", () => {
       getMbtiDesktopAnchorHash("offerFull")
     );
     expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
-    expect(within(footer).getByRole("link", { name: "解锁完整报告" })).toHaveAttribute(
-      "href",
-      getMbtiDesktopAnchorHash("offerFull")
-    );
+    expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
     expect(within(careerUnlockSurface).getByRole("link", { name: "1.99元直接解锁" })).toHaveAttribute(
       "href",
       getMbtiDesktopAnchorHash("offerFull")
@@ -689,7 +685,6 @@ describe("MBTI checkout wiring contract", () => {
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
 
     fireEvent.click(within(stickyRail).getByRole("link", { name: "解锁完整报告" }));
-    fireEvent.click(within(footer).getByRole("link", { name: "解锁完整报告" }));
     fireEvent.click(within(careerUnlockSurface).getByRole("link", { name: "1.99元直接解锁" }));
 
     expect(hoisted.createCheckoutOrOrder).not.toHaveBeenCalled();
@@ -761,7 +756,7 @@ describe("MBTI checkout wiring contract", () => {
 
     render(<MbtiResultShell {...createShellProps(reportData)} />);
 
-    fireEvent.click(within(screen.getByTestId("mbti-footer-cta")).getByRole("button", { name: "分享结果" }));
+    fireEvent.click(within(getDesktopStickyRail()).getByRole("button", { name: "分享结果" }));
 
     await waitFor(() => {
       expect(hoisted.createAttemptShare).toHaveBeenCalledWith({

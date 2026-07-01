@@ -638,14 +638,30 @@ a {
 }
 
 @media print {
-  @page {
+  @page fermat-result-snapshot {
     size: A4;
-    margin: 16mm 14mm;
+    margin: 12mm 10mm 14mm;
   }
 
-  html[data-pdf-ready="true"],
+  [data-pdf-mode="true"][data-pdf-layout="a4-report-dense"] {
+    page: fermat-result-snapshot;
+    width: 190mm;
+    max-width: 190mm;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: rgb(15, 23, 42);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  body:has([data-pdf-mode="true"][data-pdf-layout="a4-report-dense"]),
+  html:has([data-pdf-mode="true"][data-pdf-layout="a4-report-dense"]) {
+    background: #ffffff !important;
+  }
+
   body:has([data-private-result-print-root="true"]) {
-    background: #fff !important;
+    background: #ffffff !important;
     color: #0f172a !important;
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
@@ -676,21 +692,11 @@ a {
     [data-result-tools="true"],
     [data-result-workspace="true"],
     [data-pdf-loading="true"],
-    [data-testid="mbti-sticky-rail"],
-    [data-testid="mbti-mobile-chrome"],
-    [data-testid="mbti-post-purchase-section"],
-    [data-testid="mbti-offer-comparison"],
-    [data-testid="mbti-offer-full"],
-    [data-testid="mbti-footer-cta"],
     [data-testid="mbti-post-purchase-section"],
     [data-testid="mbti-offer-comparison"],
     [data-testid="mbti-sticky-rail"],
     [data-testid="mbti-mobile-chrome"]
   ) {
-    display: none !important;
-  }
-
-  body:has([data-private-result-print-root="true"]) :is([data-cookie-banner="true"], .cookie-banner) {
     display: none !important;
   }
 

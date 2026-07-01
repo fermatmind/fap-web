@@ -12,6 +12,12 @@ seo_article_full_release
 Input package:
 <path-to-content-package.zip or source-package/>
 
+Daily release mode:
+- cadence=one_article_per_day
+- operation_type=<new_article|update_existing_article>
+- target_terminal_state=ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING
+- do_not_start_next_article_until=<terminal_state_or_documented_provider_hold>
+
 Target:
 - translation_group_id: <id>
 - zh-CN canonical: <route>
@@ -20,12 +26,13 @@ Target:
 - en slug: <slug>
 
 Authorization Profile:
+- authorization_mode=full_chain_preapproved
 - allow_package_autofix=true
 - allow_social_image_auto_resolve=true
 - allow_image_bundle_dry_run=true
-- allow_media_library_image_import=<true|false>
-- allow_resolved_package_write=<true|false>
-- allow_image_metadata_backfill=<true|false>
+- allow_media_library_image_import=true
+- allow_resolved_package_write=true
+- allow_image_metadata_backfill=true
 - allow_production_draft_import=true
 - allow_preview_qa=true
 - allow_publish_metadata_autofill=true
@@ -34,14 +41,32 @@ Authorization Profile:
 - allow_sitemap_llms_release=true
 - allow_url_truth_refresh=true
 - allow_search_channel_enqueue=true
-- allow_indexnow_bounded_submission=<true|false>
+- allow_search_channel_approve=true
+- allow_indexnow_bounded_submission=true
+- allow_baidu_bounded_submission=true
+- allow_gsc_manual_request_indexing=true
 - allow_scoped_pr_merge=<true|false>
 - allow_scoped_backend_deploy=<true|false>
 - allow_scoped_frontend_deploy=<true|false>
 - schema=hold
 - hreflang=hold
-- gsc_request_indexing=hold
-- baidu_live_push=hold
+- gsc_request_indexing=preauthorized_for_target_canonicals
+- baidu_live_push=preauthorized_for_bounded_queue_items
+
+Preauthorized external search targets:
+- GSC Request Indexing target URLs:
+  - <ZH_CANONICAL_URL>
+  - <EN_CANONICAL_URL>
+- Search Channel target URLs:
+  - <ZH_CANONICAL_URL>
+  - <EN_CANONICAL_URL>
+- Allowed Search Channel live channels:
+  - indexnow
+  - baidu_push
+- Disallowed channels:
+  - 360
+  - sogou
+  - shenma
 
 Mode C media contract:
 - image_bundle_required=<true|false>
@@ -59,11 +84,22 @@ Mode C media contract:
 Article Identity Lock:
 - lock article IDs, revision IDs, translation_group_id, locale, slug, and public canonical URLs before preview QA, publish, sitemap/llms, schema, hreflang, Search Channel, GSC, or Baidu work.
 
+Daily completion definition:
+- public smoke must prove zh-CN and en URLs return 200, self-canonical, and `index, follow`.
+- CTA smoke must prove localized public CTA routes and expected article `content_id`.
+- discoverability parity must prove both localized URLs appear in `sitemap.xml`, `llms.txt`, and `llms-full.txt`.
+- final search matrix must record URL Truth, Search Channel enqueue/approval/submission, IndexNow, Baidu, GSC, schema hold, hreflang hold, and D1/D7/D14 observation queue.
+- answer-surface FAQ must be checked. If the public article answer surface uses generic FAQ instead of package-specific FAQ, record `ANSWER_SURFACE_FAQ_ENHANCEMENT_RECOMMENDED` without blocking publish.
+
 Search Channel flow:
-- use queue readiness -> enqueue -> operator review -> search-channel-approve -> search-channel-submit-approved.
+- use queue readiness -> enqueue -> search-channel-approve -> search-channel-submit-approved.
 - run IndexNow and Baidu as separate channel tasks.
 - do not use --channels=all.
 - do not open global production live gates.
+- because `authorization_mode=full_chain_preapproved`, continue through enqueue,
+  approve, and bounded live submit without returning for another operator phrase
+  when the generated queue items match the target URLs/channels above and dry-run
+  passes.
 
 Hard stops:
 - unknown_route
@@ -83,8 +119,8 @@ Hard stops:
 - local DB / Ops UI fallback needed for CMS authority
 - production command failure without rollback proof
 - schema/hreflang requested implicitly
-- GSC Request Indexing
-- Baidu live push
+- GSC Request Indexing without exact target canonical URL match
+- Baidu live push without bounded queue item/channel match
 - Baidu site init fail / platform_action_required
 - production env/secret change
 - migration deploy
@@ -93,9 +129,30 @@ Hard stops:
 - CAPTCHA/login failure
 
 Final Decision must be one of:
-- FULL_RELEASE_COMPLETED_WITH_SEARCH_LIVE_HOLDS
 - FULL_RELEASE_COMPLETED_AND_SEARCH_SUBMITTED
+- FULL_RELEASE_COMPLETED_GSC_HELD_BY_LOGIN_OR_CAPTCHA
+- FULL_RELEASE_COMPLETED_PROVIDER_HELD
+- ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING
 - BLOCKED_NEEDS_OPERATOR_INPUT
 - BLOCKED_NEEDS_RUNTIME_FIX
 - BLOCKED_NEEDS_EXACT_APPROVAL
 ```
+
+## Conservative Gate-By-Gate Variant
+
+Use the same template with `authorization_mode=gate_by_gate` and set the
+following values to `false` or `hold` when the operator explicitly wants manual
+approval at each write gate:
+
+- `allow_media_library_image_import`
+- `allow_resolved_package_write`
+- `allow_image_metadata_backfill`
+- `allow_production_draft_import`
+- `allow_publish_after_rehearsal`
+- `allow_sitemap_llms_release`
+- `allow_url_truth_refresh`
+- `allow_search_channel_enqueue`
+- `allow_search_channel_approve`
+- `allow_indexnow_bounded_submission`
+- `allow_baidu_bounded_submission`
+- `allow_gsc_manual_request_indexing`

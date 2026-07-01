@@ -793,7 +793,7 @@ export default async function PersonalityDetailPage({
 
   return (
     <main
-      className="mx-auto w-full max-w-6xl px-[var(--fm-container-gutter)] space-y-6 py-10"
+      className="mx-auto w-full max-w-7xl px-[var(--fm-container-gutter)] space-y-6 py-8 sm:py-10"
       data-domain-id="self_understanding"
       data-domain-role="primary"
       data-domain-envelope-state="metadata_only"
@@ -815,7 +815,7 @@ export default async function PersonalityDetailPage({
 
       <section
         id="answer-first"
-        className="space-y-4 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+        className="space-y-5 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 shadow-[var(--fm-shadow-sm)] sm:p-5"
       >
         <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_12rem] md:items-start">
           <div className="space-y-4">
@@ -981,13 +981,43 @@ export default async function PersonalityDetailPage({
         ) : null}
       </section>
 
+      <nav
+        aria-label={locale === "zh" ? "人格页面章节导航" : "Personality page section navigation"}
+        className="sticky top-3 z-20 -mx-1 overflow-x-auto rounded-xl border border-[var(--fm-border)] bg-[var(--fm-hub-sticky-bg)] p-2 shadow-[var(--fm-shadow-sm)] backdrop-blur"
+        data-testid="personality-detail-sticky-local-nav"
+      >
+        <div className="flex min-w-max gap-2">
+          {intentLinks.map((link) =>
+            link.kind === "test" ? (
+              <TrackedEntryCtaLink
+                key={`sticky-local-${link.key}`}
+                href={link.href}
+                prefetch
+                eventProperties={mbtiIntentCtaTrackingProps}
+                className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-sm font-medium text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
+              >
+                {link.label}
+              </TrackedEntryCtaLink>
+            ) : (
+              <Link
+                key={`sticky-local-${link.key}`}
+                href={link.href}
+                className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-sm font-medium text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
+        </div>
+      </nav>
+
       <MbtiSceneEntrySection
         locale={locale}
         sourcePageType="personality_detail"
         blocks={detail.answerSurface?.sceneSummaryBlocks}
         testId="personality-detail-scene-entry"
       />
-      <div className="space-y-4">
+      <div className="space-y-5">
         {hasRenderableContent ? (
           <>
             {renderedProjectionSections}

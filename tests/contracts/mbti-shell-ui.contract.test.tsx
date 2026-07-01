@@ -291,7 +291,7 @@ describe("MBTI shell UI contract", () => {
     expect(screen.getByTestId("mbti-hero-form-summary")).toHaveTextContent("MBTI · 93题标准版");
     expect(getPrimaryByTestId("mbti-hero")).toBeInTheDocument();
     expect(getPrimaryByTestId("mbti-offer-comparison")).toBeInTheDocument();
-    expect(screen.getByTestId("mbti-footer-cta")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
     expect(stickyRail).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-mobile-chrome")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-recommended-reads")).toBeInTheDocument();
@@ -300,9 +300,9 @@ describe("MBTI shell UI contract", () => {
     expect(screen.getByTestId("mbti-chapter-growth")).toBeInTheDocument();
     expect(screen.getByTestId("mbti-chapter-relationships")).toBeInTheDocument();
     expect(screen.queryByTestId("mbti-post-purchase-section")).not.toBeInTheDocument();
-    expect(within(stickyRail).getByText("2. Your Career Path")).toBeInTheDocument();
-    expect(within(stickyRail).getByText("4. Your Relationships")).toBeInTheDocument();
-    expect(within(screen.getByTestId("mbti-footer-cta")).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
+    expect(within(stickyRail).getByText("2. 职业路径")).toBeInTheDocument();
+    expect(within(stickyRail).getByText("4. 关系模式")).toBeInTheDocument();
+    expect(within(stickyRail).getByRole("button", { name: "分享结果" })).toBeInTheDocument();
 
     expect(
       within(stickyRail).getByRole("link", { name: "解锁完整报告" })
@@ -341,7 +341,6 @@ describe("MBTI shell UI contract", () => {
 
     const terminalSurface = getPrimaryByTestId("mbti-post-purchase-section");
     const stickyRail = getPrimaryByTestId("mbti-sticky-rail");
-    const footer = screen.getByTestId("mbti-footer-cta");
 
     expect(screen.queryByTestId("mbti-recommended-reads")).not.toBeInTheDocument();
     expect(terminalSurface).toBeInTheDocument();
@@ -359,10 +358,7 @@ describe("MBTI shell UI contract", () => {
       "href",
       "/zh/history/mbti"
     );
-    expect(within(footer).getByRole("link", { name: "我的 MBTI 报告" })).toHaveAttribute(
-      "href",
-      "/zh/history/mbti"
-    );
+    expect(screen.queryByTestId("mbti-footer-cta")).not.toBeInTheDocument();
     expect(screen.getByTestId("mbti-hero-form-summary")).toHaveTextContent("MBTI · 144题完整版");
   });
 

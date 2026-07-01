@@ -109,6 +109,28 @@ const MBTI_MAIN_FAQ_SCHEMA_EVIDENCE_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const MBTI_RESULT_PAGE_PDF_SMOKE_QUALITY_GATE_ALLOWED_FILES = new Set([
+  "package.json",
+  "scripts/ops/check-mbti-result-page-pdf-smoke.mjs",
+  "tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
+const MBTI_RESULT_PAGE_PDF_VISUAL_PAGINATION_ALLOWED_FILES = new Set([
+  "app/globals.css",
+  "app/(localized)/[locale]/(app)/result/[id]/print/page.tsx",
+  "components/result/mbti/clone/mbtiDesktopClone.module.css",
+  "tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts",
+  "tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts",
+  "tests/contracts/result-private-print-chrome.contract.test.ts",
+  "tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -928,6 +950,12 @@ const ARTICLE_HREFLANG_HOLD_DECOUPLE_00_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const ARTICLE_HREFLANG_PARITY_VERIFIER_ALLOWED_FILES = new Set([
+  "scripts/seo/verify-public-article-release.mjs",
+  "tests/contracts/public-article-release-smoke.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const PR_WEB_SEC_01_ALLOWED_FILES = new Set([
   "components/result/eq/EQResultV5.tsx",
   "components/result/eq/utils.ts",
@@ -935,6 +963,18 @@ const PR_WEB_SEC_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
   "tests/contracts/eq-result-v5-renderer.contract.test.tsx",
   "tests/contracts/helpers/currentPrScope.ts",
+]);
+
+const SECURITY_103_WEB_01_ALLOWED_FILES = new Set([
+  ".github/workflows/deploy-production.yml",
+  ".github/workflows/deploy-staging.yml",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "tests/contracts/deploy-production-workflow-env.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts",
 ]);
 
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
@@ -1391,6 +1431,19 @@ const RESULT_PRIVATE_PRINT_CHROME_GATE_HARDEN_02_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/result-private-leak-regressions.contract.test.ts",
   "tests/contracts/result-private-print-chrome.contract.test.ts",
+]);
+
+const MBTI_PDF_RESULT_SNAPSHOT_SHELL_ALLOWED_FILES = new Set([
+  "proxy.ts",
+  "app/(localized)/[locale]/layout.tsx",
+  "components/result/mbti/clone/MbtiDesktopCloneShell.tsx",
+  "tests/contracts/result-private-print-chrome.contract.test.ts",
+  "tests/contracts/result-gotenberg-print-route.contract.test.ts",
+  "tests/contracts/result-client-view-state.contract.test.tsx",
+  "tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
 ]);
 
 const RESULT_BIG5_INTERNAL_METHOD_DEBUG_SUPPRESSION_02_ALLOWED_FILES = new Set([
@@ -3327,6 +3380,14 @@ export function isTestKpiFrontendContract06AllowedFile(file: string): boolean {
   return TEST_KPI_FRONTEND_CONTRACT_06_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity103Web01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-103-web-01") {
+    return true;
+  }
+
+  return SECURITY_103_WEB_01_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -4281,6 +4342,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return PR_WEB_SEC_01_ALLOWED_FILES.has(file);
   }
 
+  if (CURRENT_BRANCH === "codex/security-103-web-01") {
+    return SECURITY_103_WEB_01_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {
     return PR_EQ_PER_03_ALLOWED_FILES.has(file);
   }
@@ -4428,6 +4493,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/result-private-print-chrome-gate-harden-02") {
     return RESULT_PRIVATE_PRINT_CHROME_GATE_HARDEN_02_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/mbti-pdf-result-snapshot-shell") {
+    return MBTI_PDF_RESULT_SNAPSHOT_SHELL_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/result-big5-internal-method-debug-suppression-02") {
@@ -4877,6 +4946,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return ARTICLE_HREFLANG_HOLD_DECOUPLE_00_ALLOWED_FILES.has(file);
   }
 
+  if (CURRENT_BRANCH === "codex/article-hreflang-parity-verifier") {
+    return ARTICLE_HREFLANG_PARITY_VERIFIER_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/riasec-result-fapweb-rendered-preview-qa-01") {
     return RIASEC_RESULT_FAPWEB_RENDERED_PREVIEW_QA_01_ALLOWED_FILES.has(file);
   }
@@ -4947,6 +5020,18 @@ export function isMbtiMainFaqSchemaEvidence01AllowedFile(file: string): boolean 
   }
 
   return MBTI_MAIN_FAQ_SCHEMA_EVIDENCE_01_ALLOWED_FILES.has(file);
+}
+
+export function isMbtiResultPagePdfSmokeQualityGateAllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/mbti-pdf-result-snapshot-smoke-quality-gate") {
+    return true;
+  }
+
+  return MBTI_RESULT_PAGE_PDF_SMOKE_QUALITY_GATE_ALLOWED_FILES.has(file);
+}
+
+export function isMbtiResultPagePdfVisualPaginationAllowedFile(file: string): boolean {
+  return MBTI_RESULT_PAGE_PDF_VISUAL_PAGINATION_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {

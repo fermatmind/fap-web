@@ -188,7 +188,7 @@ Mode C should declare schema candidates separately:
 
 FAQ schema defaults to false unless explicitly approved. Schema readiness must be blocked if title, description, canonical, image, published/modified time, author, or publisher cannot be resolved.
 
-Schema and hreflang must be held in normal daily article release unless a separate task explicitly authorizes them. Search Channel queue/search live, GSC Request Indexing, IndexNow live, and Baidu live must be marked as batch-held/separate authorization lanes.
+Schema and hreflang must be held in normal daily article release unless a separate task explicitly authorizes them. Search Channel queue/search live, GSC Request Indexing, IndexNow live, and Baidu live must be marked as held unless the downstream SEO agent goal uses `authorization_mode=full_chain_preapproved` with exact target canonical URLs, queue channels, and provider holds.
 
 ## Claim Gate And Unknown Fields
 
