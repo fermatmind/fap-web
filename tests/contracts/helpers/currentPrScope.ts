@@ -134,6 +134,17 @@ const MBTI_RESULT_PAGE_PDF_VISUAL_PAGINATION_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const MBTI_PDF_SNAPSHOT_RENDERED_SMOKE_H2_ALLOWED_FILES = new Set([
+  "scripts/ops/check-mbti-result-page-pdf-smoke.mjs",
+  "tests/contracts/mbti-pdf-snapshot-rendered-smoke-h2.contract.test.ts",
+  "tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -5035,6 +5046,14 @@ export function isMbtiResultPagePdfSmokeQualityGateAllowedFile(file: string): bo
 
 export function isMbtiResultPagePdfVisualPaginationAllowedFile(file: string): boolean {
   return MBTI_RESULT_PAGE_PDF_VISUAL_PAGINATION_ALLOWED_FILES.has(file);
+}
+
+export function isMbtiPdfSnapshotRenderedSmokeH2AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/mbti-pdf-snapshot-rendered-smoke-h2") {
+    return true;
+  }
+
+  return MBTI_PDF_SNAPSHOT_RENDERED_SMOKE_H2_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {

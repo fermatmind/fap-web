@@ -33685,14 +33685,14 @@
     "depends_on": [
       "MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10"
     ],
-    "status": "pr_open",
-    "commit_sha": null,
-    "companion_commit_sha": null,
+    "status": "merged",
+    "commit_sha": "f6397a9991077b5b9d6f7f6e1678fe1252a1dc76",
+    "companion_commit_sha": "d00b590773672f153cc94875a69ec2f81bdd2fe2",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1512",
     "companion_pr_url": "https://github.com/fermatmind/fap-api/pull/2579",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-01T14:50:36Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "authorization": {
@@ -33745,6 +33745,10 @@
       "sidecar": {
         "status": "recorded",
         "evidence": "Recorded local pnpm approve-builds blocker and unrelated untracked pnpm-workspace.yaml under generated/pr-train-sidecar-issues/."
+      },
+      "post_merge_cleanup": {
+        "status": "pass",
+        "evidence": "fap-web PR #1512 and fap-api PR #2579 merged; origin/main contains merge commits; local main synced; task branches deleted/pruned. Existing pnpm-workspace.yaml preserved locally via .git/info/exclude and sidecar."
       }
     },
     "scope_validation": {
@@ -33782,8 +33786,15 @@
         "at": "2026-07-01T14:44:11.925234Z",
         "status": "pr_open",
         "notes": "Opened fap-web PR #1512 and fap-api companion PR #2579."
+      },
+      {
+        "at": "2026-07-01T14:56:17.473728Z",
+        "status": "merged",
+        "notes": "H1 merged and post-merge cleanup completed; continuing to H2."
       }
-    ]
+    ],
+    "merge_commit_sha": "640bfd98ca4d7db2e7a73cc2fd3ccda7def0f019",
+    "companion_merge_commit_sha": "b130ca5b7e34185f48ab831bc56e572116816da8"
   },
   "MBTI-PDF-SNAPSHOT-RENDERED-SMOKE-H2": {
     "repo": "fap-web",
@@ -33794,9 +33805,9 @@
     "depends_on": [
       "MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1"
     ],
-    "status": "planned",
+    "status": "pr_open",
     "commit_sha": null,
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1513",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -33807,8 +33818,47 @@
         "evidence": "User provided /goal execution request with explicit H2 id, title, scope, validation, merge, and cleanup rules."
       },
       "dependency": {
-        "status": "pending",
-        "evidence": "Waiting for H1 to merge before H2 starts."
+        "status": "pass",
+        "evidence": "H1 merged: fap-web #1512 merge 640bfd98ca4d7db2e7a73cc2fd3ccda7def0f019; fap-api #2579 merge b130ca5b7e34185f48ab831bc56e572116816da8."
+      },
+      "dry_run": {
+        "status": "pass",
+        "command": "node scripts/ops/check-mbti-result-page-pdf-smoke.mjs --json",
+        "evidence": "Dry-run returned ok=true with render_version, print_asset_hash, and page_count_range without network execution."
+      },
+      "focused_contract": {
+        "status": "pass",
+        "command": "./node_modules/.bin/vitest run tests/contracts/mbti-pdf-snapshot-rendered-smoke-h2.contract.test.ts tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts",
+        "evidence": "2 files passed, 10 tests passed."
+      },
+      "typecheck": {
+        "status": "pass",
+        "command": "./node_modules/.bin/tsc --noEmit",
+        "evidence": "No TypeScript errors."
+      },
+      "manifest_parse": {
+        "status": "pass",
+        "command": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+        "evidence": "YAML parsed successfully."
+      },
+      "state_parse": {
+        "status": "pass",
+        "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+        "evidence": "JSON parsed successfully."
+      },
+      "diff_check": {
+        "status": "pass",
+        "command": "git diff --check",
+        "evidence": "No whitespace errors."
+      },
+      "pnpm_test_contract": {
+        "status": "external_blocker_recorded",
+        "command": "pnpm test:contract",
+        "evidence": "Local pnpm approve-builds blocker occurred before contract execution; sidecar records [ERR_PNPM_IGNORED_BUILDS]."
+      },
+      "sidecar": {
+        "status": "recorded",
+        "evidence": "H2 local pnpm approve-builds blocker appended to generated/pr-train-sidecar-issues/."
       }
     },
     "scope_validation": {
@@ -33816,6 +33866,7 @@
         "scripts/ops/check-mbti-result-page-pdf-smoke.mjs",
         "tests/contracts/mbti-pdf-snapshot-rendered-smoke-h2.contract.test.ts",
         "tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
         "docs/codex/pr-train.yaml",
         "docs/codex/pr-train-state.json",
         "generated/pr-train-sidecar-issues/**"
@@ -33827,6 +33878,21 @@
         "at": "2026-07-01T14:27:07.913Z",
         "status": "planned",
         "notes": "Registered H2 from explicit /goal. H2 remains blocked until H1 merged and cleaned up."
+      },
+      {
+        "at": "2026-07-01T14:56:17.473961Z",
+        "status": "in_progress",
+        "notes": "Started H2 from fap-web main after H1 cleanup. Scope is smoke script/contract only; live production fetch remains manual/operator-triggered."
+      },
+      {
+        "at": "2026-07-01T14:58:26.100194Z",
+        "status": "local_checks_passed",
+        "notes": "H2 local scoped checks passed via direct node/vitest/tsc payloads; local pnpm wrapper blocker recorded in sidecar."
+      },
+      {
+        "at": "2026-07-01T14:59:46.574925Z",
+        "status": "pr_open",
+        "notes": "Opened fap-web PR #1513 for H2."
       }
     ]
   }

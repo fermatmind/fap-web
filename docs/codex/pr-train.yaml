@@ -12403,7 +12403,7 @@ prs:
       - MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
     mode: execute
     train_scope: mbti_pdf_snapshot_sync_guard_h1
-    status: in_progress
+    status: merged
     goal: "Add a render-source cache guard for MBTI result-page PDF snapshots by exposing a print asset hash, including it in backend artifact keys and headers, and guarding fap-web print-impact files against untracked hash drift without changing PDF routing, content injection, visual layout, CMS, DB, deploy, or SEO runtime behavior."
     artifacts:
       - package.json
@@ -12464,18 +12464,20 @@ prs:
       - MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1
     mode: execute
     train_scope: mbti_pdf_snapshot_rendered_smoke_h2
-    status: planned
+    status: in_progress
     goal: "Strengthen the fap-web opt-in MBTI result-page PDF smoke gate by asserting render version and print asset hash headers, adding PDF metadata/page shape checks with graceful tool fallback, and keeping live PDF execution manual/operator-triggered rather than CI production fetch."
     artifacts:
       - scripts/ops/check-mbti-result-page-pdf-smoke.mjs
       - tests/contracts/mbti-pdf-snapshot-rendered-smoke-h2.contract.test.ts
       - tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     allowed_paths:
       - scripts/ops/check-mbti-result-page-pdf-smoke.mjs
       - tests/contracts/mbti-pdf-snapshot-rendered-smoke-h2.contract.test.ts
       - tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
       - generated/pr-train-sidecar-issues/**
