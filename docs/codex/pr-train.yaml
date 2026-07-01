@@ -19664,7 +19664,7 @@ prs:
       - MBTI-PDF-RESULT-SNAPSHOT-SHELL
     mode: execute
     train_scope: mbti_pdf_result_snapshot_smoke_quality_gate
-    status: in_progress
+    status: merged
     goal: "Add a fap-web-only opt-in rendered PDF smoke quality gate for mbti.result_page_snapshot.v3 that can audit an operator-provided unlocked MBTI result-page PDF for correct headers, PDF shape, core section text, and known runtime pollutants without running live production PDF downloads in default CI."
     artifacts:
       - package.json
@@ -19700,3 +19700,58 @@ prs:
       squash: true
       auto_merge: true
     next_task: MBTI-PDF-RESULT-SNAPSHOT-VISUAL-PAGINATION
+
+  - id: MBTI-PDF-RESULT-SNAPSHOT-VISUAL-PAGINATION
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-pdf-result-snapshot-visual-pagination
+    base: main
+    title: "MBTI-PDF-RESULT-SNAPSHOT-VISUAL-PAGINATION: polish MBTI print snapshot pagination"
+    depends_on:
+      - MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE
+    mode: execute
+    train_scope: mbti_pdf_result_snapshot_visual_pagination
+    status: in_progress
+    goal: "Add fap-web-only A4 dense report print styling, stable visual version markers, and print pagination guards for the v3 MBTI result-page snapshot without changing backend PDF routing, content assets, runtime pollutant removal, or live PDF smoke automation."
+    artifacts:
+      - app/globals.css
+      - app/(localized)/[locale]/(app)/result/[id]/print/page.tsx
+      - components/result/mbti/clone/mbtiDesktopClone.module.css
+      - tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts
+      - tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts
+      - tests/contracts/result-private-print-chrome.contract.test.ts
+      - tests/contracts/mbti-desktop-shell-cta.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - app/globals.css
+      - app/(localized)/[locale]/(app)/result/[id]/print/page.tsx
+      - components/result/mbti/clone/mbtiDesktopClone.module.css
+      - tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts
+      - tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts
+      - tests/contracts/result-private-print-chrome.contract.test.ts
+      - tests/contracts/mbti-desktop-shell-cta.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Deploy, reload, restart, clear cache, write DB/CMS/search/indexing/queue, or mutate server env.
+      - Change backend PDF engine, mPDF fallback, content assets, imports, runtime snapshot shell, or rendered PDF smoke automation.
+      - Store raw PDFs, screenshots, generated reports, raw attempt ids, raw tokens, private URLs, or response payloads in repo artifacts/logs.
+      - Change ordinary result-page layout, site chrome, cookie behavior, footer, rail, tools, workbench, order, share, retest, or PDF download interactions outside the v3 print snapshot route.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts tests/contracts/result-private-print-chrome.contract.test.ts tests/contracts/mbti-desktop-shell-cta.contract.test.tsx
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null

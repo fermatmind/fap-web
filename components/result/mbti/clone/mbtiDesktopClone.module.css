@@ -1744,6 +1744,269 @@
   color: #b45309;
 }
 
+@media print {
+  .cloneRoot {
+    --clone-page-bg: #ffffff;
+    --clone-shell-max: 190mm;
+    --clone-main-col: 190mm;
+    --clone-col-gap: 0;
+    --clone-hero-h: auto;
+    --clone-hero-px: 8mm;
+    --clone-hero-py-top: 7mm;
+    --clone-hero-py-bottom: 7mm;
+    --clone-section-gap: 10mm;
+    --clone-block-gap: 4.5mm;
+    --clone-card-radius: 6px;
+    --clone-card-padding: 5mm;
+    width: 190mm;
+    max-width: 190mm;
+    margin: 0 auto;
+    padding: 0;
+    background: #ffffff;
+    color: var(--clone-text);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  .shell {
+    width: 190mm;
+    max-width: 190mm;
+    margin: 0 auto;
+  }
+
+  .hero {
+    min-height: 52mm;
+    grid-template-columns: minmax(0, 1fr) 52mm;
+    border: 1px solid rgba(54, 173, 115, 0.18);
+    border-radius: 8px;
+    clip-path: none;
+    box-shadow: none;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+
+  .hero::before,
+  .hero::after {
+    opacity: 0.32;
+  }
+
+  .heroCopy {
+    gap: 2.5mm;
+  }
+
+  .heroEyebrow {
+    font-size: 10pt;
+    line-height: 1.35;
+  }
+
+  .heroTitle,
+  .heroCodePrimary {
+    font-size: 32pt;
+    line-height: 0.98;
+    letter-spacing: 0;
+  }
+
+  .heroNameLine {
+    font-size: 14pt;
+    line-height: 1.25;
+  }
+
+  .heroRarityPill,
+  .heroKeyword {
+    padding: 1.5mm 3mm;
+    font-size: 8pt;
+  }
+
+  .heroKeywordRow {
+    gap: 2mm;
+  }
+
+  .heroSummary {
+    max-width: 112mm;
+    margin-top: 1mm;
+    font-size: 9pt;
+    line-height: 1.5;
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+  }
+
+  .heroIllustrationWrap {
+    padding-right: 6mm;
+  }
+
+  .heroIllustration {
+    width: 44mm;
+    height: 32mm;
+    border-radius: 7px;
+  }
+
+  .pageGrid {
+    display: block;
+    margin-top: 7mm;
+  }
+
+  .main {
+    gap: var(--clone-section-gap);
+  }
+
+  .introBlock {
+    gap: 3mm;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+  }
+
+  .introBlock p,
+  .sectionParagraphs p,
+  .p0Lead,
+  .p0Meta,
+  .traitsUnlockIntro,
+  .traitsUnlockItemBody,
+  .listItemBody,
+  .previewCardBody {
+    font-size: 9.2pt;
+    line-height: 1.55;
+  }
+
+  .section {
+    gap: var(--clone-block-gap);
+    break-before: auto;
+  }
+
+  .sectionHeading {
+    break-after: avoid-page;
+    page-break-after: avoid;
+  }
+
+  .sectionTitle {
+    font-size: 18pt;
+    line-height: 1.18;
+    letter-spacing: 0;
+  }
+
+  .numberCircle {
+    width: 8mm;
+    height: 8mm;
+    font-size: 10pt;
+  }
+
+  .card,
+  .traitsCard,
+  .influentialCard,
+  .traitsUnlockPanel,
+  .traitsUnlockItem,
+  .traitsUnlockDefinition,
+  .letterItem,
+  .p0Row,
+  .previewBlock,
+  .previewCard,
+  .summaryPane,
+  .traitsMetrics,
+  .illustrationSlot,
+  .summaryIllustration,
+  .twoColumnList,
+  .listItem,
+  .p0Block {
+    break-inside: avoid-page;
+    page-break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .card,
+  .influentialCard,
+  .traitsUnlockPanel {
+    padding: var(--clone-card-padding);
+  }
+
+  .traitsCard {
+    gap: 4mm;
+    padding: 4.5mm;
+  }
+
+  .traitsOverviewRow {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: 4mm;
+  }
+
+  .summaryPane,
+  .traitsMetrics {
+    padding: 4mm;
+  }
+
+  .summaryValue {
+    font-size: 20pt;
+    line-height: 1.08;
+    letter-spacing: 0;
+  }
+
+  .summaryLead,
+  .p0Title,
+  .twoColumnTitle,
+  .premiumTeaserTitle {
+    font-size: 13pt;
+    line-height: 1.28;
+  }
+
+  .traitsUnlockTitle {
+    font-size: 15pt;
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  .illustrationSlot {
+    min-height: 28mm;
+  }
+
+  .summaryIllustration {
+    min-height: 26mm;
+  }
+
+  .sectionParagraphs {
+    gap: 3mm;
+  }
+
+  .cloneBars {
+    gap: 4mm;
+  }
+
+  .traitSlotRow,
+  .traitsUnlockGrid,
+  .twoColumnGrid,
+  .premiumTeaserGrid,
+  .lettersGrid,
+  .insightActions {
+    gap: 3.5mm;
+  }
+
+  .traitSlotIcon {
+    width: 10mm;
+    height: 10mm;
+    font-size: 9pt;
+  }
+
+  .listItemTitle,
+  .previewCardTitle,
+  .p0RowTitle,
+  .letterItemTitle {
+    font-size: 10pt;
+    line-height: 1.35;
+  }
+
+  .listItem {
+    grid-template-columns: 4mm minmax(0, 1fr);
+    gap: 2.5mm;
+  }
+
+  .listIcon {
+    width: 4mm;
+    height: 4mm;
+  }
+
+  .listIcon::after {
+    inset: 1.4mm;
+  }
+}
+
 @media (max-width: 860px) {
   .cloneRoot {
     padding: 20px 0 72px;
