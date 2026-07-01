@@ -69,10 +69,15 @@ describe("MBTI result-page PDF smoke quality gate", () => {
     expect(source).toContain('["x-report-pdf-engine", SNAPSHOT_ENGINE]');
     expect(source).toContain('["x-pdf-surface", SNAPSHOT_SURFACE_KEY]');
     expect(source).toContain('["x-pdf-surface-version", SNAPSHOT_SURFACE_VERSION]');
+    expect(source).toContain('["x-pdf-render-version", SNAPSHOT_RENDER_VERSION]');
+    expect(source).toContain('["x-pdf-print-asset-hash", SNAPSHOT_PRINT_ASSET_HASH]');
     expect(source).toContain('["x-legacy-mpdf-fallback", "false"]');
     expect(source).toContain("pdf_magic_missing");
     expect(source).toContain("pdf_too_small");
     expect(source).toContain("pdf_content_type");
+    expect(source).toContain("pdf_metadata_producer");
+    expect(source).toContain("pdf_page_count_range");
+    expect(source).toContain("pdf_page_size_a4");
   });
 
   it("extracts PDF text from stdin without writing raw PDF artifacts", () => {
@@ -155,6 +160,8 @@ describe("MBTI result-page PDF smoke quality gate", () => {
     expect(source).toContain("access_token_present");
     expect(source).toContain("forbidden_hits");
     expect(source).toContain("surface_version");
+    expect(source).toContain("render_version");
+    expect(source).toContain("print_asset_hash");
     expect(source).not.toContain("raw_payload");
     expect(source).not.toContain("private_url");
     expect(source).not.toContain("privateUrl");

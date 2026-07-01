@@ -18,5 +18,15 @@
     "why_not_current_pr_scope": "H1 scope does not include workspace package-manager configuration, and the file existed outside the scoped H1 changes.",
     "required_checks_affected": "Not affected if H1 files are staged path-explicitly. It can block a fully clean worktree closeout until handled separately.",
     "recommended_follow_up": "Confirm whether pnpm-workspace.yaml should be committed in its own repository-maintenance PR or removed by the owner."
+  },
+  {
+    "repo": "fap-web",
+    "pr_id": "MBTI-PDF-SNAPSHOT-RENDERED-SMOKE-H2",
+    "branch": "codex/mbti-pdf-snapshot-rendered-smoke-h2",
+    "blocker_type": "local_pnpm_approve_builds",
+    "evidence": "pnpm test:contract failed before running contracts with [ERR_PNPM_IGNORED_BUILDS] for esbuild@0.27.3, sharp@0.34.5, unrs-resolver@1.11.1.",
+    "why_not_current_pr_scope": "H2 extends one smoke script and focused contract tests. It does not change dependencies, install policy, or pnpm approval state.",
+    "required_checks_affected": "Local pnpm wrapper command is affected on this machine. Direct node, ./node_modules/.bin/vitest, and ./node_modules/.bin/tsc scoped payloads pass. GitHub CI is expected to run in its own clean install context.",
+    "recommended_follow_up": "Resolve local pnpm approve-builds state separately, then rerun the pnpm wrapper commands."
   }
 ]

@@ -6,14 +6,20 @@ import { createHash } from "node:crypto";
 const DEFAULT_API_ORIGIN = "https://api.fermatmind.com";
 const DEFAULT_LOCALE = "zh-CN";
 const DEFAULT_MIN_PDF_BYTES = 20000;
+const DEFAULT_MIN_PAGES = 8;
+const DEFAULT_MAX_PAGES = 14;
 const SNAPSHOT_SURFACE_VERSION = "mbti.result_page_snapshot.v4";
 const SNAPSHOT_SURFACE_KEY = "mbti_result_page_snapshot";
 const SNAPSHOT_ENGINE = "gotenberg_chromium";
+const SNAPSHOT_RENDER_VERSION = "mbti.snapshot.print_layout.v1";
+const SNAPSHOT_PRINT_ASSET_HASH = "sha256:f8b8f8a162f469777924fb60966fac19c29ea4fdad1323b5f9ae1a19286a7614";
 
 const REQUIRED_HEADERS = [
   ["x-report-pdf-engine", SNAPSHOT_ENGINE],
   ["x-pdf-surface", SNAPSHOT_SURFACE_KEY],
   ["x-pdf-surface-version", SNAPSHOT_SURFACE_VERSION],
+  ["x-pdf-render-version", SNAPSHOT_RENDER_VERSION],
+  ["x-pdf-print-asset-hash", SNAPSHOT_PRINT_ASSET_HASH],
   ["x-legacy-mpdf-fallback", "false"],
 ];
 
@@ -125,6 +131,8 @@ function parseArgs(argv) {
     execute: false,
     json: false,
     minPdfBytes: Number.parseInt(process.env.MBTI_RESULT_PAGE_PDF_SMOKE_MIN_PDF_BYTES || "", 10) || DEFAULT_MIN_PDF_BYTES,
+    minPages: Number.parseInt(process.env.MBTI_RESULT_PAGE_PDF_SMOKE_MIN_PAGES || "", 10) || DEFAULT_MIN_PAGES,
+    maxPages: Number.parseInt(process.env.MBTI_RESULT_PAGE_PDF_SMOKE_MAX_PAGES || "", 10) || DEFAULT_MAX_PAGES,
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -150,6 +158,12 @@ function parseArgs(argv) {
     } else if (arg === "--min-pdf-bytes") {
       options.minPdfBytes = Number.parseInt(argv[index + 1] || "", 10);
       index += 1;
+    } else if (arg === "--min-pages") {
+      options.minPages = Number.parseInt(argv[index + 1] || "", 10);
+      index += 1;
+    } else if (arg === "--max-pages") {
+      options.maxPages = Number.parseInt(argv[index + 1] || "", 10);
+      index += 1;
     } else if (arg === "--help" || arg === "-h") {
       printHelp();
       process.exit(0);
@@ -168,6 +182,12 @@ function parseArgs(argv) {
   if (!Number.isFinite(options.minPdfBytes) || options.minPdfBytes < 1000) {
     throw new Error("--min-pdf-bytes must be >= 1000");
   }
+  if (!Number.isFinite(options.minPages) || options.minPages < 1) {
+    throw new Error("--min-pages must be >= 1");
+  }
+  if (!Number.isFinite(options.maxPages) || options.maxPages < options.minPages) {
+    throw new Error("--max-pages must be >= --min-pages");
+  }
 
   return options;
 }
@@ -184,6 +204,8 @@ Options:
   --attempt-id <id>          Required with --execute. May also be set via MBTI_RESULT_PAGE_PDF_SMOKE_ATTEMPT_ID.
   --access-token <token>     Required with --execute. May also be set via MBTI_RESULT_PAGE_PDF_SMOKE_ACCESS_TOKEN.
   --min-pdf-bytes <bytes>    Defaults to ${DEFAULT_MIN_PDF_BYTES}.
+  --min-pages <pages>         Defaults to ${DEFAULT_MIN_PAGES}.
+  --max-pages <pages>         Defaults to ${DEFAULT_MAX_PAGES}.
   --json                     Print redacted machine-readable JSON.
 
 Without --execute, the script performs a dry-run configuration check only and does not call production.`);
@@ -241,13 +263,79 @@ function extractPdfText(pdfBytes) {
   }
 }
 
-function auditPdf({ pdf, text, locale, minPdfBytes }) {
+function parsePdfInfoOutput(output) {
+  const pick = (label) => {
+    const match = output.match(new RegExp(`^${label}:\\\\s*(.+)$`, "im"));
+    return match ? match[1].trim() : null;
+  };
+
+  const pages = Number.parseInt(pick("Pages") || "", 10);
+
+  return {
+    source: "pdfinfo",
+    producer: pick("Producer"),
+    creator: pick("Creator"),
+    pages: Number.isFinite(pages) ? pages : null,
+    page_size: pick("Page size"),
+  };
+}
+
+function parsePdfMetadataFallback(pdfBytes) {
+  const latin = pdfBytes.toString("latin1");
+  const pickName = (name) => {
+    const match = latin.match(new RegExp(`/${name}\\\\s*\\\\(([^)]*)\\\\)`));
+    return match ? match[1].trim() : null;
+  };
+  const mediaBox = latin.match(/\/MediaBox\s*\[\s*0\s+0\s+([0-9.]+)\s+([0-9.]+)\s*\]/);
+  const pageMarkers = latin.match(/\/Type\s*\/Page\b/g) || [];
+
+  return {
+    source: "parser_fallback",
+    producer: pickName("Producer"),
+    creator: pickName("Creator"),
+    pages: pageMarkers.length > 0 ? pageMarkers.length : null,
+    page_size: mediaBox ? `${mediaBox[1]} x ${mediaBox[2]} pts` : null,
+  };
+}
+
+function readPdfMetadata(pdfBytes) {
+  try {
+    return parsePdfInfoOutput(
+      execFileSync("pdfinfo", ["-"], {
+        input: pdfBytes,
+        encoding: "utf8",
+        stdio: ["pipe", "pipe", "ignore"],
+        maxBuffer: 1024 * 1024,
+      })
+    );
+  } catch {
+    return parsePdfMetadataFallback(pdfBytes);
+  }
+}
+
+function isA4PageSize(pageSize) {
+  const value = String(pageSize || "");
+
+  return /A4/i.test(value) || /595(?:\.\d+)?\s*x\s*842(?:\.\d+)?\s*pts/i.test(value);
+}
+
+function auditPdf({ pdf, text, metadata, locale, minPdfBytes, minPages, maxPages }) {
   const failures = [];
 
   if (!pdf.ok) failures.push(`pdf_http_${pdf.status}`);
   if (!/^application\/pdf\b/i.test(pdf.contentType)) failures.push("pdf_content_type");
   if (!pdf.bytes.subarray(0, 4).equals(Buffer.from("%PDF"))) failures.push("pdf_magic_missing");
   if (pdf.bytes.length < minPdfBytes) failures.push("pdf_too_small");
+  if (!metadata.producer && !metadata.creator) failures.push("pdf_metadata_missing");
+  if (/mPDF/i.test(`${metadata.producer || ""} ${metadata.creator || ""}`)) failures.push("pdf_metadata_mpdf");
+  if (!/(Skia|HeadlessChrome|Chromium)/i.test(`${metadata.producer || ""} ${metadata.creator || ""}`)) {
+    failures.push("pdf_metadata_producer");
+  }
+  if (!Number.isFinite(metadata.pages)) failures.push("pdf_page_count_missing");
+  if (Number.isFinite(metadata.pages) && (metadata.pages < minPages || metadata.pages > maxPages)) {
+    failures.push("pdf_page_count_range");
+  }
+  if (!isA4PageSize(metadata.page_size)) failures.push("pdf_page_size_a4");
 
   for (const [header, expected] of REQUIRED_HEADERS) {
     if (String(pdf.headers[header] || "").trim() !== expected) {
@@ -279,6 +367,9 @@ function buildDryRunResult(options) {
     api_origin: options.apiOrigin,
     locale: options.locale,
     surface_version: SNAPSHOT_SURFACE_VERSION,
+    render_version: SNAPSHOT_RENDER_VERSION,
+    print_asset_hash: SNAPSHOT_PRINT_ASSET_HASH,
+    page_count_range: [options.minPages, options.maxPages],
     required_operator_inputs: ["attempt_id", "result_access_token"],
     fixture: {
       attempt_hash: hashId(options.attemptId),
@@ -303,11 +394,15 @@ async function main() {
       accessToken: options.accessToken,
     });
     const text = extractPdfText(pdf.bytes);
+    const metadata = readPdfMetadata(pdf.bytes);
     const failures = auditPdf({
       pdf,
       text,
+      metadata,
       locale: options.locale,
       minPdfBytes: options.minPdfBytes,
+      minPages: options.minPages,
+      maxPages: options.maxPages,
     });
 
     result.executed = true;
@@ -317,6 +412,7 @@ async function main() {
       content_type: pdf.contentType,
       bytes: pdf.bytes.length,
       text_extract_available: text.length > 0,
+      metadata,
       headers: pdf.headers,
       forbidden_hits: failures,
     };
