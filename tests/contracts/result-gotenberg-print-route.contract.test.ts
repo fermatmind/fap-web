@@ -23,20 +23,26 @@ describe("Gotenberg result print route contract", () => {
     expect(printRoute).toContain('data-gotenberg-result-print-root="true"');
     expect(printRoute).toContain('data-pdf-mode="true"');
     expect(printRoute).toContain('data-pdf-ready="false"');
+    expect(printRoute).toContain("RESULT_PAGE_SNAPSHOT_SURFACE");
+    expect(printRoute).toContain("verifyResultPagePdfToken");
+    expect(printRoute).toContain('errorCode={!surfaceIsValid ? "PDF_SURFACE_MISMATCH" : "PDF_AUTH_INVALID"}');
+    expect(printRoute).toContain("data-pdf-error={errorCode}");
+    expect(printRoute).toContain('data-surface-mismatch={errorCode === "PDF_SURFACE_MISMATCH" ? "true" : undefined}');
     expect(printRoute).toContain("loadResultPrintBootstrap");
     expect(printRoute).toContain('data-pdf-bootstrap={printBootstrap.report ? "server" : "failed"}');
     expect(printRoute).toContain("searchParams?: Promise<Record<string, string | string[] | undefined>>");
     expect(printRoute).toContain("firstQueryValue(query.access_token) ?? firstQueryValue(query.result_access_token)");
     expect(printRoute).toContain("printAccessToken={printAccessToken}");
+    expect(printRoute).toContain("printSnapshotRoute");
+    expect(printRoute).toContain("printSnapshotSurface={RESULT_PAGE_SNAPSHOT_SURFACE}");
     expect(printRoute).toContain("initialReportAccess={printBootstrap.reportAccess}");
     expect(printRoute).toContain("initialReportData={printBootstrap.report}");
     expect(printRoute).toContain("printBootstrapError={printBootstrap.error}");
     expect(printRoute).toContain("pdf-mode");
-    expect(resultPage).toContain('data-private-result-print-root="true"');
-    expect(resultPage).toContain("mbti.result_page_export.v1");
-    expect(resultPage).toContain('data-pdf-mode={pdfMode ? "true" : undefined}');
-    expect(resultPage).toContain('data-pdf-ready={pdfMode ? "false" : undefined}');
-    expect(resultPage).toContain("verifyResultPagePdfToken");
+    expect(resultPage).not.toContain("mbti.result_page_export.v1");
+    expect(resultPage).not.toContain("mbti.result_page_snapshot.v3");
+    expect(resultPage).not.toContain("verifyResultPagePdfToken");
+    expect(resultPage).not.toContain("data-pdf-ready");
     expect(accessNormalizer).toContain('normalizeReportActionHref(raw.actions?.pdf_href, locale, "pdf")');
   });
 
@@ -46,6 +52,13 @@ describe("Gotenberg result print route contract", () => {
 
     expect(resultClient).toContain("printMode = false");
     expect(resultClient).toContain("printMode?: boolean");
+    expect(resultClient).toContain("printSnapshotRoute?: boolean");
+    expect(resultClient).toContain("printSnapshotSurface?: string | null");
+    expect(resultClient).toContain("RESULT_PAGE_SNAPSHOT_SURFACE");
+    expect(resultClient).toContain("printSnapshotContractValid");
+    expect(resultClient).toContain("resolvePdfRenderBlocker");
+    expect(resultClient).toContain("PDF_PLACEHOLDER_CONTENT");
+    expect(resultClient).toContain("PDF_RENDER_BLOCKER_PRESENT");
     expect(resultClient).toContain("printAccessToken?: string | null");
     expect(resultClient).toContain("initialReportAccess?: AttemptReportAccessResponse | null");
     expect(resultClient).toContain("initialReportData?: ReportResponse | null");
@@ -56,6 +69,7 @@ describe("Gotenberg result print route contract", () => {
     expect(resultClient).toContain("skipAuth: true, includeAnonId: false");
     expect(resultClient).toContain("if (printMode) {");
     expect(resultClient).toContain("window.__FERMAT_PDF_READY__ = true");
+    expect(resultClient).toContain("window.__FERMAT_PDF_ERROR__");
     expect(resultClient).toContain("pdfReadyMarkerMounted");
     expect(resultClient).toContain('id="fermat-pdf-ready"');
     expect(resultClient).toContain('data-pdf-ready="true"');

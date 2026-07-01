@@ -56,6 +56,7 @@ import { classifyApiError } from "@/lib/observability/httpError";
 import { logInfo, logWarn } from "@/lib/observability/logger";
 import { captureError } from "@/lib/observability/sentry";
 import { installPrivateResultPrintUrlRedaction } from "@/lib/result/privatePrintUrlRedaction";
+import { RESULT_PAGE_SNAPSHOT_SURFACE } from "@/lib/result/pdfSurface";
 import type { ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec/resultAssembler";
@@ -72,10 +73,20 @@ const MBTI_PDF_READY_ANCHORS = [
 ] as const;
 const MBTI_PDF_READY_ANCHOR_TIMEOUT_MS = 8000;
 const MBTI_PDF_ASSET_READY_TIMEOUT_MS = 2000;
+const PDF_RENDER_BLOCKER_SELECTORS = [
+  "[data-pdf-error]",
+  '[data-surface-mismatch="true"]',
+  '[data-cookie-banner="true"]',
+  '[data-pdf-placeholder="true"]',
+  '[data-placeholder="true"]',
+  '[data-pdf-loading="true"]',
+  '[data-skeleton="true"]',
+] as const;
 
 declare global {
   interface Window {
     __FERMAT_PDF_READY__?: boolean;
+    __FERMAT_PDF_ERROR__?: string;
   }
 }
 
@@ -100,6 +111,46 @@ async function settleWithin<T>(promise: Promise<T>, timeoutMs: number): Promise<
 
 function hasMbtiPdfReadyAnchors(): boolean {
   return MBTI_PDF_READY_ANCHORS.every((id) => document.getElementById(id));
+}
+
+function resolvePdfRenderBlocker(): string | null {
+  const errorNode = document.querySelector("[data-pdf-error]");
+  const explicitError = errorNode?.getAttribute("data-pdf-error")?.trim();
+  if (explicitError) {
+    return explicitError;
+  }
+
+  if (document.querySelector('[data-surface-mismatch="true"]')) {
+    return "PDF_SURFACE_MISMATCH";
+  }
+
+  if (document.querySelector('[data-cookie-banner="true"]')) {
+    return "PDF_RENDER_BLOCKER_PRESENT";
+  }
+
+  if (document.querySelector('[data-pdf-placeholder="true"], [data-placeholder="true"]')) {
+    return "PDF_PLACEHOLDER_CONTENT";
+  }
+
+  const hasKnownBlocker = PDF_RENDER_BLOCKER_SELECTORS.some((selector) => document.querySelector(selector));
+  if (hasKnownBlocker) {
+    return "PDF_RENDER_BLOCKER_PRESENT";
+  }
+
+  return null;
+}
+
+function setPdfError(code: string): void {
+  window.__FERMAT_PDF_READY__ = false;
+  window.__FERMAT_PDF_ERROR__ = code;
+  const root = document.querySelector('[data-pdf-mode="true"]');
+  root?.setAttribute("data-pdf-ready", "false");
+  root?.setAttribute("data-pdf-error", code);
+}
+
+function clearPdfError(): void {
+  window.__FERMAT_PDF_ERROR__ = undefined;
+  document.querySelector('[data-pdf-mode="true"]')?.removeAttribute("data-pdf-error");
 }
 
 async function waitForMbtiPdfReadyAnchors(timeoutMs: number): Promise<boolean> {
@@ -642,6 +693,8 @@ export default function ResultClient({
   attemptId,
   rolloutEnv,
   printMode = false,
+  printSnapshotRoute = false,
+  printSnapshotSurface = null,
   printAccessToken,
   initialReportAccess,
   initialReportData,
@@ -650,6 +703,8 @@ export default function ResultClient({
   attemptId: string;
   rolloutEnv: ScaleRolloutEnvSnapshot;
   printMode?: boolean;
+  printSnapshotRoute?: boolean;
+  printSnapshotSurface?: string | null;
   printAccessToken?: string | null;
   initialReportAccess?: AttemptReportAccessResponse | null;
   initialReportData?: ReportResponse | null;
@@ -695,6 +750,10 @@ export default function ResultClient({
     [printAccessToken, searchParams]
   );
   const usePrintAccessTokenOnly = printMode && Boolean(resultAccessToken);
+  const printSnapshotContractValid = printMode
+    && printSnapshotRoute
+    && printSnapshotSurface === RESULT_PAGE_SNAPSHOT_SURFACE
+    && Boolean(resultAccessToken);
 
   const anonId = useMemo(() => getOrCreateAnonId(), []);
   const routeScaleCodeRef = useRef(initialReportReady ? resolveScaleCodeForTelemetry(initialReportData ?? null, null) : "UNKNOWN");
@@ -1534,7 +1593,7 @@ export default function ResultClient({
       : status === "ready" && (hasEqV5Report || hasRichReport || hasReadyResultPayload(resultData))
         ? "ready"
         : "failed";
-  const mbtiPdfReadyCandidate = printMode && resolvedScaleCode === "MBTI" && viewState === "ready" && hasRichReport && Boolean(reportData);
+  const mbtiPdfReadyCandidate = printSnapshotContractValid && resolvedScaleCode === "MBTI" && viewState === "ready" && hasRichReport && Boolean(reportData);
 
   useEffect(() => {
     if (!printMode) {
@@ -1544,6 +1603,11 @@ export default function ResultClient({
     window.__FERMAT_PDF_READY__ = false;
     document.querySelector('[data-pdf-mode="true"]')?.setAttribute("data-pdf-ready", "false");
     setPdfReadyMarkerMounted(false);
+
+    if (!printSnapshotContractValid) {
+      setPdfError("PDF_SURFACE_MISMATCH");
+      return;
+    }
 
     if (!mbtiPdfReadyCandidate) {
       return;
@@ -1566,6 +1630,13 @@ export default function ResultClient({
         return;
       }
 
+      const blocker = resolvePdfRenderBlocker();
+      if (blocker) {
+        setPdfError(blocker);
+        return;
+      }
+
+      clearPdfError();
       setPdfReadyMarkerMounted(true);
     };
 
@@ -1575,13 +1646,21 @@ export default function ResultClient({
       cancelled = true;
       window.__FERMAT_PDF_READY__ = false;
     };
-  }, [mbtiPdfReadyCandidate, printMode]);
+  }, [mbtiPdfReadyCandidate, printMode, printSnapshotContractValid]);
 
   useEffect(() => {
     if (!printMode || !pdfReadyMarkerMounted) {
       return;
     }
 
+    const blocker = resolvePdfRenderBlocker();
+    if (blocker) {
+      setPdfReadyMarkerMounted(false);
+      setPdfError(blocker);
+      return;
+    }
+
+    clearPdfError();
     document.querySelector('[data-pdf-mode="true"]')?.setAttribute("data-pdf-ready", "true");
     window.__FERMAT_PDF_READY__ = true;
 

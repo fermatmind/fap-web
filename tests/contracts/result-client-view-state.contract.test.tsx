@@ -303,6 +303,9 @@ describe("ResultClient view-state contract", () => {
 
   afterEach(() => {
     vi.useRealTimers();
+    document.querySelectorAll('[data-pdf-placeholder="true"], [data-cookie-banner="true"]').forEach((node) => node.remove());
+    (window as typeof window & { __FERMAT_PDF_READY__?: boolean; __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_READY__ = false;
+    (window as typeof window & { __FERMAT_PDF_READY__?: boolean; __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__ = undefined;
   });
 
   it("routes the public career next step through the runtime 32-type slug", () => {
@@ -449,6 +452,8 @@ describe("ResultClient view-state contract", () => {
         attemptId="attempt-123"
         rolloutEnv={{} as never}
         printMode
+        printSnapshotRoute
+        printSnapshotSurface="mbti.result_page_snapshot.v3"
         printAccessToken="print_result_access_token_123"
       />
     );
@@ -489,6 +494,8 @@ describe("ResultClient view-state contract", () => {
         attemptId="attempt-123"
         rolloutEnv={{} as never}
         printMode
+        printSnapshotRoute
+        printSnapshotSurface="mbti.result_page_snapshot.v3"
         printAccessToken="print_result_access_token_123"
         initialReportAccess={initialReportAccess}
         initialReportData={reportFixture}
@@ -514,6 +521,92 @@ describe("ResultClient view-state contract", () => {
     expect((window as typeof window & { __FERMAT_PDF_READY__?: boolean }).__FERMAT_PDF_READY__).toBe(true);
 
     setIntervalSpy.mockRestore();
+  });
+
+  it("does not mark the MBTI print route ready when placeholder content is present", async () => {
+    document.body.insertAdjacentHTML("beforeend", '<div data-pdf-placeholder="true">Placeholder trait slot</div>');
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
+    const initialReportAccess = createAccessProjection();
+
+    render(
+      <ResultClient
+        attemptId="attempt-123"
+        rolloutEnv={{} as never}
+        printMode
+        printSnapshotRoute
+        printSnapshotSurface="mbti.result_page_snapshot.v3"
+        printAccessToken="print_result_access_token_123"
+        initialReportAccess={initialReportAccess}
+        initialReportData={reportFixture}
+      />
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+    await waitFor(() => {
+      expect((window as typeof window & { __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__).toBe("PDF_PLACEHOLDER_CONTENT");
+    });
+
+    expect(document.getElementById("fermat-pdf-ready")).toBeNull();
+    expect((window as typeof window & { __FERMAT_PDF_READY__?: boolean }).__FERMAT_PDF_READY__).not.toBe(true);
+    document.querySelector('[data-pdf-placeholder="true"]')?.remove();
+  });
+
+  it("does not mark the MBTI print route ready when the cookie banner is present", async () => {
+    document.body.insertAdjacentHTML("beforeend", '<div data-cookie-banner="true">Cookie</div>');
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
+    const initialReportAccess = createAccessProjection();
+
+    render(
+      <ResultClient
+        attemptId="attempt-123"
+        rolloutEnv={{} as never}
+        printMode
+        printSnapshotRoute
+        printSnapshotSurface="mbti.result_page_snapshot.v3"
+        printAccessToken="print_result_access_token_123"
+        initialReportAccess={initialReportAccess}
+        initialReportData={reportFixture}
+      />
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+    await waitFor(() => {
+      expect((window as typeof window & { __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__).toBe("PDF_RENDER_BLOCKER_PRESENT");
+    });
+
+    expect(document.getElementById("fermat-pdf-ready")).toBeNull();
+    expect((window as typeof window & { __FERMAT_PDF_READY__?: boolean }).__FERMAT_PDF_READY__).not.toBe(true);
+    document.querySelector('[data-cookie-banner="true"]')?.remove();
+  });
+
+  it("fails closed when print mode lacks the v3 snapshot route contract", async () => {
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
+    const initialReportAccess = createAccessProjection();
+
+    render(
+      <ResultClient
+        attemptId="attempt-123"
+        rolloutEnv={{} as never}
+        printMode
+        printAccessToken="print_result_access_token_123"
+        initialReportAccess={initialReportAccess}
+        initialReportData={reportFixture}
+      />
+    );
+
+    await waitFor(() => {
+      expect((window as typeof window & { __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__).toBe("PDF_SURFACE_MISMATCH");
+    });
+
+    expect(document.getElementById("fermat-pdf-ready")).toBeNull();
+    expect((window as typeof window & { __FERMAT_PDF_READY__?: boolean }).__FERMAT_PDF_READY__).not.toBe(true);
   });
 
   it("renders RIASEC from the snapshot-bound report projection without falling back to result projection", async () => {
