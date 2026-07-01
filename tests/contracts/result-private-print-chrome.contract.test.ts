@@ -9,13 +9,15 @@ function read(relativePath: string): string {
 }
 
 describe("private result print chrome contract", () => {
-  it("marks private result pages as the only print context that hides global chrome", () => {
+  it("marks the private result print route as the only print context that hides global chrome", () => {
+    const resultPrintPage = read("app/(localized)/[locale]/(app)/result/[id]/print/page.tsx");
     const resultPage = read("app/(localized)/[locale]/(app)/result/[id]/page.tsx");
     const siteHeader = read("components/layout/SiteHeader.tsx");
     const siteFooter = read("components/layout/SiteFooter.tsx");
     const globals = read("app/globals.css");
 
-    expect(resultPage).toContain('data-private-result-print-root="true"');
+    expect(resultPrintPage).toContain('data-private-result-print-root="true"');
+    expect(resultPage).not.toContain('data-private-result-print-root="true"');
     expect(siteHeader).toContain('data-private-result-print-hidden="true"');
     expect(siteFooter).toContain('data-private-result-print-hidden="true"');
     expect(globals).toContain("@media print");
