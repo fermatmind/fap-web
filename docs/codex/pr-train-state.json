@@ -33205,5 +33205,106 @@
         "notes": "GitHub checks passed and PR merge state is CLEAN; recording ready_to_merge before squash merge."
       }
     ]
+  },
+  "MBTI-PDF-RESULT-SNAPSHOT-SHELL": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-pdf-result-snapshot-shell",
+    "title": "MBTI-PDF-RESULT-SNAPSHOT-SHELL: remove runtime pollutants from MBTI print snapshot shell",
+    "train_scope": "mbti_pdf_result_snapshot_shell",
+    "depends_on": [
+      "MBTI-PDF-RESULT-SNAPSHOT-CONTENT-06"
+    ],
+    "status": "committed",
+    "commit_sha": "99e0fa2211348928da6e480058a7292b973a89a0",
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "User explicitly requested implementation of PR-C plan and authorized adding the missing fap-web PR-train manifest/state entry as part of execution."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-B MBTI-PDF-RESULT-SNAPSHOT-CONTENT-06 is merged into origin/main as commit 38974cf05709df430ea0dac4f2f9a9a5b78edf7a."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Started from clean fap-web main synced with origin/main and created branch codex/mbti-pdf-result-snapshot-shell."
+      },
+      "focused_contract_tests": {
+        "status": "pass",
+        "command": "pnpm exec vitest run tests/contracts/result-private-print-chrome.contract.test.ts tests/contracts/result-gotenberg-print-route.contract.test.ts tests/contracts/result-client-view-state.contract.test.tsx tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+        "evidence": "4 files passed, 54 tests passed."
+      },
+      "contract_suite": {
+        "status": "pass",
+        "command": "pnpm test:contract",
+        "evidence": "603 files passed, 3559 tests passed."
+      },
+      "typecheck": {
+        "status": "pass",
+        "command": "pnpm typecheck",
+        "evidence": "tsc --noEmit completed successfully."
+      },
+      "production_build": {
+        "status": "pass",
+        "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+        "evidence": "next build completed successfully; postbuild sitemap output was restored because it is outside PR-C scope."
+      },
+      "manifest_state_parse": {
+        "status": "pass",
+        "commands": [
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        ],
+        "evidence": "Manifest YAML and state JSON parse successfully."
+      },
+      "diff_check": {
+        "status": "pass",
+        "command": "git diff --check",
+        "evidence": "No whitespace errors."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "command": "git diff --name-only",
+        "evidence": "Changed files are limited to proxy/layout, MBTI desktop clone snapshot shell, PR-C contract tests, and PR-train manifest/state."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        "proxy.ts",
+        "app/(localized)/[locale]/layout.tsx",
+        "components/result/mbti/clone/MbtiDesktopCloneShell.tsx",
+        "tests/contracts/result-private-print-chrome.contract.test.ts",
+        "tests/contracts/result-gotenberg-print-route.contract.test.ts",
+        "tests/contracts/result-client-view-state.contract.test.tsx",
+        "tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "outside_scope_files": []
+    },
+    "events": [
+      {
+        "at": "2026-07-01T02:29:06Z",
+        "status": "in_progress",
+        "notes": "Initialized PR-C from explicit user plan. Scope is fap-web-only runtime pollutant removal for the v3 MBTI print snapshot shell; no backend, deploy, content import, PDF smoke automation, or visual pagination work."
+      },
+      {
+        "at": "2026-07-01T02:42:43Z",
+        "status": "local_checks_passed",
+        "notes": "Implemented v3 /print snapshot shell pollutant removal and passed focused contracts, full contract suite, typecheck, production build, manifest/state parse, diff check, and scope validation."
+      },
+      {
+        "at": "2026-07-01T02:43:30Z",
+        "status": "committed",
+        "notes": "Created local commit 99e0fa2211348928da6e480058a7292b973a89a0 for PR-C."
+      }
+    ]
   }
 }

@@ -19599,3 +19599,57 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
+
+  - id: MBTI-PDF-RESULT-SNAPSHOT-SHELL
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-pdf-result-snapshot-shell
+    base: main
+    title: "MBTI-PDF-RESULT-SNAPSHOT-SHELL: remove runtime pollutants from MBTI print snapshot shell"
+    depends_on:
+      - MBTI-PDF-RESULT-SNAPSHOT-CONTENT-06
+    mode: execute
+    train_scope: mbti_pdf_result_snapshot_shell
+    status: in_progress
+    goal: "Make the MBTI v3 result-page print route use a true PDF snapshot shell by removing global chrome, cookie banner, sticky rail, tools, and interactive result actions from the snapshot runtime without changing backend PDF engine, content imports, PDF smoke automation, deployment, or A4 visual polish."
+    artifacts:
+      - proxy.ts
+      - app/(localized)/[locale]/layout.tsx
+      - components/result/mbti/clone/MbtiDesktopCloneShell.tsx
+      - tests/contracts/result-private-print-chrome.contract.test.ts
+      - tests/contracts/result-gotenberg-print-route.contract.test.ts
+      - tests/contracts/result-client-view-state.contract.test.tsx
+      - tests/contracts/mbti-desktop-shell-cta.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - proxy.ts
+      - app/(localized)/[locale]/layout.tsx
+      - components/result/mbti/clone/MbtiDesktopCloneShell.tsx
+      - tests/contracts/result-private-print-chrome.contract.test.ts
+      - tests/contracts/result-gotenberg-print-route.contract.test.ts
+      - tests/contracts/result-client-view-state.contract.test.tsx
+      - tests/contracts/mbti-desktop-shell-cta.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Deploy, reload, restart, clear cache, write DB/CMS/search/indexing/queue, or mutate server env.
+      - Change backend PDF engine, mPDF fallback, content assets, imports, rendered PDF smoke automation, or A4 pagination polish.
+      - Remove ordinary result-page chrome/tools outside the v3 print snapshot route.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/result-private-print-chrome.contract.test.ts tests/contracts/result-gotenberg-print-route.contract.test.ts tests/contracts/result-client-view-state.contract.test.tsx tests/contracts/mbti-desktop-shell-cta.contract.test.tsx
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE

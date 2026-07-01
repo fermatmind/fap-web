@@ -25,6 +25,8 @@ import {
 const NOINDEX_VALUE = "noindex, nofollow, noarchive";
 const PRIVATE_NOINDEX_VALUE = "noindex, nofollow, noarchive, nocache";
 const PRIVATE_CACHE_CONTROL_VALUE = "private, no-store, max-age=0, must-revalidate";
+const RESULT_PAGE_SNAPSHOT_SURFACE = "mbti.result_page_snapshot.v3";
+const RESULT_PAGE_SNAPSHOT_SHELL_HEADER = "x-fermat-result-print-snapshot-shell";
 const ANON_COOKIE_NAME = "fap_anonymous_id_v1";
 const ANON_COOKIE_MAX_AGE_SECONDS = 31536000;
 const ANON_ID_PATTERN = /^[A-Za-z0-9_-]{8,128}$/;
@@ -116,6 +118,15 @@ function shouldAttachAnonIdentity(strippedPath: string): boolean {
   );
 }
 
+function isResultPageSnapshotPrintRequest(pathname: string, surface: string | null | undefined): boolean {
+  if (surface !== RESULT_PAGE_SNAPSHOT_SURFACE) {
+    return false;
+  }
+
+  const strippedPath = stripLocalePrefix(pathname);
+  return /^\/result\/[^/]+\/print\/?$/i.test(strippedPath);
+}
+
 export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const strippedPath = stripLocalePrefix(pathname);
@@ -184,6 +195,10 @@ export function proxy(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.delete("x-anon-id");
   requestHeaders.delete(PRIVATE_ANALYTICS_SUPPRESSION_HEADER);
+  requestHeaders.delete(RESULT_PAGE_SNAPSHOT_SHELL_HEADER);
+  if (isResultPageSnapshotPrintRequest(pathname, request.nextUrl.searchParams.get("surface"))) {
+    requestHeaders.set(RESULT_PAGE_SNAPSHOT_SHELL_HEADER, "true");
+  }
   const analyticsSuppression = getBrowserAnalyticsSuppressionDecision({
     pathname,
     search: request.nextUrl.search,
