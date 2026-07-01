@@ -1,23 +1,21 @@
 # PR Train Sidecar Issues
 
-## 2026-06-28 - MBTI64 artifact-only scope test blocked unrelated EQ contract run
+## MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1
 
+### fap-web local pnpm approve-builds blocker
 - repo: fap-web
-- PR id / branch: PR-EQ-V20-05 / codex/pr-eq-v20-05-frontend-v23-consumption
-- blocker type: unrelated contract scope guard
-- evidence: `pnpm test:contract` failed in `tests/contracts/mbti64-remaining-58-competitor-gap-qa-v2-01.contract.test.ts` because the test read the current EQ diff and required every changed file to be inside the MBTI64 QA artifact-only allowlist.
-- why not current PR scope: the failing test belongs to a prior MBTI64 artifact QA task and was not validating EQ result rendering, EQ fixtures, or EQ v2.3 payload consumption.
-- required checks affected: yes, because `pnpm test:contract` is a required local check for PR-EQ-V20-05.
-- handling: added a narrow branch guard so the MBTI64 artifact-only changed-file assertion runs only on its own `codex/mbti64-remaining-58-competitor-gap-qa-v2-01` branch.
-- recommended follow-up: consider centralizing changed-file scope guards in `tests/contracts/helpers/currentPrScope.ts` so artifact-only tests do not block unrelated PR trains.
+- PR id / branch: MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1 / codex/mbti-pdf-snapshot-sync-guard-h1
+- blocker type: local_pnpm_approve_builds
+- evidence: `pnpm ops:mbti-pdf-print-asset-hash && pnpm exec vitest ...` failed before running the scoped payload with `[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: esbuild@0.27.3, sharp@0.34.5, unrs-resolver@1.11.1`.
+- why not current PR scope: H1 only adds a print-impact hash guard script, a focused contract test, package script, and PR-train metadata. It does not change dependencies, install policy, or pnpm approval state.
+- required checks affected: Local pnpm wrapper command is affected on this machine. Direct `node` and `./node_modules/.bin/vitest` scoped payloads pass. GitHub CI is expected to run in its own clean install context.
+- recommended follow-up: Resolve local pnpm approve-builds state separately, then rerun the pnpm wrapper commands.
 
-## 2026-06-30 - SECURITY-103-WEB-01 full contract run hit unrelated career shortlist async flake
-
+### fap-web existing untracked pnpm-workspace.yaml
 - repo: fap-web
-- PR id / branch: SECURITY-103-WEB-01 / codex/security-103-web-01
-- blocker type: unrelated flaky contract timing
-- evidence: `pnpm test:contract` failed once in `tests/contracts/career-shortlist-consent.contract.test.tsx` because `loads shortlist state and tracks the persisted action after analytics consent` found the button still rendered as disabled `Loading...` instead of `Add to shortlist`. A scoped rerun with `pnpm exec vitest run tests/contracts/career-shortlist-consent.contract.test.tsx` passed all 4 tests immediately afterward.
-- why not current PR scope: SECURITY-103-WEB-01 changes only deploy workflows, train metadata, scope validation helpers, and deploy workflow contracts; it does not touch career shortlist components, analytics consent, or the failing contract file.
-- required checks affected: transiently yes for the local `pnpm test:contract` run; the focused rerun passed, and this issue is outside the WEB-01 changed-file scope.
-- handling: recorded as sidecar and rerunning the full contract suite before commit so the current PR still has a passing required local contract result.
-- recommended follow-up: stabilize `tests/contracts/career-shortlist-consent.contract.test.tsx` by waiting for the loaded button state after analytics consent instead of synchronously querying immediately after render.
+- PR id / branch: MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1 / codex/mbti-pdf-snapshot-sync-guard-h1
+- blocker type: unrelated_untracked_file
+- evidence: `git status --short --branch` shows `?? pnpm-workspace.yaml`.
+- why not current PR scope: H1 scope does not include workspace package-manager configuration, and the file existed outside the scoped H1 changes.
+- required checks affected: Not affected if H1 files are staged path-explicitly. It can block a fully clean worktree closeout until handled separately.
+- recommended follow-up: Confirm whether `pnpm-workspace.yaml` should be committed in its own repository-maintenance PR or removed by the owner.

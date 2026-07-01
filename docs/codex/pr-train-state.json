@@ -33560,14 +33560,14 @@
     "depends_on": [
       "MBTI-PDF-RESULT-SNAPSHOT-VISUAL-PAGINATION"
     ],
-    "status": "in_progress",
-    "commit_sha": "b36b6b8d2647be0f547cc0c8a239737931ca13c9",
-    "companion_commit_sha": "506b5aeedc71fb8cf6023d373ba5d2efbb05dfc6",
+    "status": "merged",
+    "commit_sha": "66f56a9cbd5673af6387a1b46aa18db1e1fae871",
+    "companion_commit_sha": "767895b6b309eacdd05d8aa1d67bc0f92a04ac48",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1511",
     "companion_pr_url": "https://github.com/fermatmind/fap-api/pull/2577",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-01T13:20:49Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "authorization": {
@@ -33621,6 +33621,10 @@
         "status": "pass",
         "command": "git diff --check",
         "evidence": "No whitespace errors."
+      },
+      "post_merge_reconciliation": {
+        "status": "pass",
+        "evidence": "GitHub shows fap-web PR #1511 and fap-api companion PR #2577 are MERGED; origin/main contains merge commits 66f56a9cbd5673af6387a1b46aa18db1e1fae871 and 767895b6b309eacdd05d8aa1d67bc0f92a04ac48. Ledger reconciled while initializing H1."
       }
     },
     "scope_validation": {
@@ -33644,7 +33648,7 @@
     "events": [
       {
         "at": "2026-07-01T13:05:21Z",
-    "status": "pr_open",
+        "status": "pr_open",
         "notes": "Initialized PR-G from explicit user plan. Scope is fap-web print layout polish plus minimal fap-api render-version cache isolation; no deployment, server mutation, content import, Gotenberg timeout/route change, mPDF fallback, summary shell, or deletion of real result detail content."
       },
       {
@@ -33661,6 +33665,168 @@
         "at": "2026-07-01T13:24:42Z",
         "status": "pr_open",
         "notes": "Opened fap-web PR https://github.com/fermatmind/fap-web/pull/1511 and companion fap-api PR https://github.com/fermatmind/fap-api/pull/2577."
+      },
+      {
+        "at": "2026-07-01T14:27:07.913Z",
+        "status": "merged_reconciled",
+        "notes": "Reconciled stale PR-G ledger before H1 execution; no runtime changes."
+      }
+    ],
+    "merge_commit_sha": "66f56a9cbd5673af6387a1b46aa18db1e1fae871",
+    "companion_merge_commit_sha": "767895b6b309eacdd05d8aa1d67bc0f92a04ac48"
+  },
+  "MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1": {
+    "repo": "fap-web",
+    "companion_repo": "fap-api",
+    "base": "main",
+    "branch": "codex/mbti-pdf-snapshot-sync-guard-h1",
+    "title": "MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1: add PDF snapshot render-source cache guard",
+    "train_scope": "mbti_pdf_snapshot_sync_guard_h1",
+    "depends_on": [
+      "MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10"
+    ],
+    "status": "pr_open",
+    "commit_sha": null,
+    "companion_commit_sha": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1512",
+    "companion_pr_url": "https://github.com/fermatmind/fap-api/pull/2579",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "User provided /goal execution request with explicit H1 id, title, scope, companion repo, validation, sidecar, merge, and cleanup rules."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-G fap-web #1511 and fap-api #2577 are merged and present in origin/main."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Created fap-web branch from clean origin/main and fap-api companion branch in isolated /private/tmp worktree from origin/main."
+      },
+      "hash_guard": {
+        "status": "pass",
+        "command": "node scripts/ops/check-mbti-pdf-print-asset-hash.mjs --check",
+        "evidence": "Hash matched sha256:f8b8f8a162f469777924fb60966fac19c29ea4fdad1323b5f9ae1a19286a7614 across 99 print-impact files."
+      },
+      "focused_contract": {
+        "status": "pass",
+        "command": "./node_modules/.bin/vitest run tests/contracts/mbti-pdf-snapshot-sync-guard-h1.contract.test.ts",
+        "evidence": "1 file passed, 2 tests passed."
+      },
+      "typecheck": {
+        "status": "pass",
+        "command": "./node_modules/.bin/tsc --noEmit",
+        "evidence": "No TypeScript errors."
+      },
+      "manifest_parse": {
+        "status": "pass",
+        "command": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+        "evidence": "YAML parsed successfully."
+      },
+      "state_parse": {
+        "status": "pass",
+        "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+        "evidence": "JSON parsed successfully."
+      },
+      "sidecar_parse": {
+        "status": "pass",
+        "command": "python3 -m json.tool generated/pr-train-sidecar-issues/sidecar_issues.json >/dev/null",
+        "evidence": "Sidecar JSON parsed successfully."
+      },
+      "diff_check": {
+        "status": "pass",
+        "command": "git diff --check",
+        "evidence": "No whitespace errors."
+      },
+      "sidecar": {
+        "status": "recorded",
+        "evidence": "Recorded local pnpm approve-builds blocker and unrelated untracked pnpm-workspace.yaml under generated/pr-train-sidecar-issues/."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        "package.json",
+        "scripts/ops/check-mbti-pdf-print-asset-hash.mjs",
+        "tests/contracts/mbti-pdf-snapshot-sync-guard-h1.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json",
+        "generated/pr-train-sidecar-issues/**"
+      ],
+      "companion_allowed_files": [
+        "backend/config/gotenberg.php",
+        "backend/app/Services/Report/Pdf/ReportPdfDocumentService.php",
+        "backend/app/Http/Controllers/API/V0_3/AttemptReadController.php",
+        "backend/tests/Feature/V0_3/AttemptPublicReportPdfParityTest.php",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json",
+        "generated/pr-train-sidecar-issues/**"
+      ],
+      "outside_scope_files": []
+    },
+    "events": [
+      {
+        "at": "2026-07-01T14:27:07.913Z",
+        "status": "in_progress",
+        "notes": "Initialized H1 from explicit /goal. Scope is render-source cache/hash guard only; no deploy, server mutation, content import, Gotenberg route/timeout, visual layout, CMS/DB, sitemap/llms/SEO runtime changes."
+      },
+      {
+        "at": "2026-07-01T14:40:59.274644Z",
+        "status": "local_checks_passed",
+        "notes": "fap-web H1 local scoped checks passed via direct node/vitest/tsc payloads; local pnpm wrapper blocker recorded in sidecar."
+      },
+      {
+        "at": "2026-07-01T14:44:11.925234Z",
+        "status": "pr_open",
+        "notes": "Opened fap-web PR #1512 and fap-api companion PR #2579."
+      }
+    ]
+  },
+  "MBTI-PDF-SNAPSHOT-RENDERED-SMOKE-H2": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-pdf-snapshot-rendered-smoke-h2",
+    "title": "MBTI-PDF-SNAPSHOT-RENDERED-SMOKE-H2: strengthen MBTI PDF snapshot rendered smoke gate",
+    "train_scope": "mbti_pdf_snapshot_rendered_smoke_h2",
+    "depends_on": [
+      "MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "User provided /goal execution request with explicit H2 id, title, scope, validation, merge, and cleanup rules."
+      },
+      "dependency": {
+        "status": "pending",
+        "evidence": "Waiting for H1 to merge before H2 starts."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        "scripts/ops/check-mbti-result-page-pdf-smoke.mjs",
+        "tests/contracts/mbti-pdf-snapshot-rendered-smoke-h2.contract.test.ts",
+        "tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json",
+        "generated/pr-train-sidecar-issues/**"
+      ],
+      "outside_scope_files": []
+    },
+    "events": [
+      {
+        "at": "2026-07-01T14:27:07.913Z",
+        "status": "planned",
+        "notes": "Registered H2 from explicit /goal. H2 remains blocked until H1 merged and cleaned up."
       }
     ]
   }

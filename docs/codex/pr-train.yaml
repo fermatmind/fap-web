@@ -12389,6 +12389,112 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: false
+    next_task: MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1
+
+  - id: MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    companion_repo: fap-api
+    companion_repo_path: <workspace>/fap-api
+    branch: codex/mbti-pdf-snapshot-sync-guard-h1
+    base: main
+    title: "MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1: add PDF snapshot render-source cache guard"
+    depends_on:
+      - MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
+    mode: execute
+    train_scope: mbti_pdf_snapshot_sync_guard_h1
+    status: in_progress
+    goal: "Add a render-source cache guard for MBTI result-page PDF snapshots by exposing a print asset hash, including it in backend artifact keys and headers, and guarding fap-web print-impact files against untracked hash drift without changing PDF routing, content injection, visual layout, CMS, DB, deploy, or SEO runtime behavior."
+    artifacts:
+      - package.json
+      - scripts/ops/check-mbti-pdf-print-asset-hash.mjs
+      - tests/contracts/mbti-pdf-snapshot-sync-guard-h1.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    companion_artifacts:
+      - backend/config/gotenberg.php
+      - backend/app/Services/Report/Pdf/ReportPdfDocumentService.php
+      - backend/app/Http/Controllers/API/V0_3/AttemptReadController.php
+      - backend/tests/Feature/V0_3/AttemptPublicReportPdfParityTest.php
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - package.json
+      - scripts/ops/check-mbti-pdf-print-asset-hash.mjs
+      - tests/contracts/mbti-pdf-snapshot-sync-guard-h1.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    companion_allowed_paths:
+      - backend/config/gotenberg.php
+      - backend/app/Services/Report/Pdf/ReportPdfDocumentService.php
+      - backend/app/Http/Controllers/API/V0_3/AttemptReadController.php
+      - backend/tests/Feature/V0_3/AttemptPublicReportPdfParityTest.php
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Deploy, reload, restart, clear cache, write DB/CMS/search/indexing/queue, mutate server env, or run production import.
+      - Change Gotenberg route, timeout, PDF rendering chain, content injection, visual layout, content assets, mPDF behavior, sitemap, llms, canonical, noindex, JSON-LD, or SEO runtime.
+      - Store raw PDFs, screenshots, generated reports, raw attempt ids, raw tokens, private URLs, or response payloads in repo artifacts/logs.
+    required_local_checks:
+      - pnpm ops:mbti-pdf-print-asset-hash
+      - pnpm exec vitest run tests/contracts/mbti-pdf-snapshot-sync-guard-h1.contract.test.ts
+      - pnpm typecheck
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+      - cd <fap-api-worktree>/backend && php artisan test --filter=AttemptPublicReportPdfParityTest
+      - cd <fap-api-worktree>/backend && ./vendor/bin/pint --dirty
+      - cd <fap-api-worktree> && git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-PDF-SNAPSHOT-RENDERED-SMOKE-H2
+
+  - id: MBTI-PDF-SNAPSHOT-RENDERED-SMOKE-H2
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-pdf-snapshot-rendered-smoke-h2
+    base: main
+    title: "MBTI-PDF-SNAPSHOT-RENDERED-SMOKE-H2: strengthen MBTI PDF snapshot rendered smoke gate"
+    depends_on:
+      - MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1
+    mode: execute
+    train_scope: mbti_pdf_snapshot_rendered_smoke_h2
+    status: planned
+    goal: "Strengthen the fap-web opt-in MBTI result-page PDF smoke gate by asserting render version and print asset hash headers, adding PDF metadata/page shape checks with graceful tool fallback, and keeping live PDF execution manual/operator-triggered rather than CI production fetch."
+    artifacts:
+      - scripts/ops/check-mbti-result-page-pdf-smoke.mjs
+      - tests/contracts/mbti-pdf-snapshot-rendered-smoke-h2.contract.test.ts
+      - tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - scripts/ops/check-mbti-result-page-pdf-smoke.mjs
+      - tests/contracts/mbti-pdf-snapshot-rendered-smoke-h2.contract.test.ts
+      - tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Modify fap-api unless PR-H1 requires a tiny assertion compatibility update.
+      - Deploy, reload, restart, clear cache, write DB/CMS/search/indexing/queue, mutate server env, or run production import.
+      - Run live production PDF smoke by default in CI.
+      - Change Gotenberg route, timeout, PDF rendering chain, content injection, visual layout, content assets, mPDF behavior, sitemap, llms, canonical, noindex, JSON-LD, or SEO runtime.
+      - Store raw PDFs, screenshots, generated reports, raw attempt ids, raw tokens, private URLs, or response payloads in repo artifacts/logs.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/mbti-pdf-snapshot-rendered-smoke-h2.contract.test.ts tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts
+      - pnpm test:contract
+      - pnpm typecheck
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
     next_task: null
 
   - id: ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01
