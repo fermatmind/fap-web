@@ -61,13 +61,15 @@ describe("personality projection section renderer contract", () => {
               sectionKey: "v8_5_strengths_watchouts",
               title: "Strengths / Watch-outs",
               renderVariant: "cards",
-              bodyMd: "### Strengths\n能把复杂问题拆成长期系统。\n\n### Watch-outs\n容易把情绪信号当成噪音。",
+              bodyMd:
+                "### Strengths\n能把复杂问题拆成长期系统。\n\n### Watch-outs\n容易把情绪信号当成噪音。\n\n再看 Strengths / Watch-outs 区分优势和风险",
             }),
             cmsSection({
               sectionKey: "v8_5_at_difference_scenarios",
               title: "A/T scenarios",
               renderVariant: "cards",
-              bodyMd: "A 型更容易稳定推进，T 型更容易反复校准风险。",
+              bodyMd:
+                "- not for: 这个结果不能用于诊断。\n- what is: INTJ-A 是长期系统和稳定自我确认的组合。\n- work pattern: 在工作中，A 型更容易先保持判断节奏。\n- at difference: A 型更像稳定推进。\n- relationship pattern: 关系里需要解释稳定背后的在意。\n- pressure: 压力下要拆分事实、感受、责任和下一步。",
             }),
             cmsSection({
               sectionKey: "v8_5_work_decision",
@@ -87,6 +89,12 @@ describe("personality projection section renderer contract", () => {
               renderVariant: "cards",
               bodyMd: "压力下需要先恢复判断余量，再决定是否继续推进。",
             }),
+            cmsSection({
+              sectionKey: "related_content",
+              title: "related_content",
+              renderVariant: "rich_text",
+              bodyMd: "Frequently asked questions",
+            }),
           ],
           "zh"
         )}
@@ -95,10 +103,34 @@ describe("personality projection section renderer contract", () => {
 
     expect(isMbti64V85FirstClassSectionKey("v8_5_work_decision")).toBe(true);
     expect(isMbti64V85FirstClassSectionKey("meaning")).toBe(false);
-    expect(screen.getByText("30 秒速览")).toBeInTheDocument();
-    expect(screen.getByText("AI / Search 摘要答案")).toBeInTheDocument();
-    expect(screen.getByText("优势 / 注意风险")).toBeInTheDocument();
-    expect(screen.getByText("A/T 场景差异")).toBeInTheDocument();
+    expect(screen.getByText("类型导读")).toBeInTheDocument();
+    expect(screen.getByText("快速理解这个类型")).toBeInTheDocument();
+    expect(screen.getByText("优势与容易忽略的代价")).toBeInTheDocument();
+    expect(screen.getByText("A 型与 T 型的差别")).toBeInTheDocument();
+    expect(screen.getByText("相关内容")).toBeInTheDocument();
+    const renderedText = document.body.textContent?.replace(/\s+/g, " ") ?? "";
+    expect(renderedText).toContain("不能用于： 这个结果不能用于诊断");
+    expect(renderedText).toContain("这个类型是什么： INTJ-A");
+    expect(renderedText).toContain("工作表现： 在工作中");
+    expect(renderedText).toContain("A/T 差异： A 型");
+    expect(renderedText).toContain("压力： 压力下");
+    expect(renderedText).toContain("关系沟通： 关系里");
+    expect(renderedText).toContain("优势能把复杂问题");
+    expect(renderedText).toContain("注意风险容易把情绪");
+    expect(renderedText).toContain("再看 优势 / 注意风险 区分优势和风险");
+    expect(renderedText).toContain("常见问题");
+    expect(renderedText).not.toMatch(/\bnot for\b/i);
+    expect(renderedText).not.toMatch(/\bwhat is\b/i);
+    expect(renderedText).not.toMatch(/\bwork pattern\b/i);
+    expect(renderedText).not.toMatch(/\bat difference\b/i);
+    expect(renderedText).not.toMatch(/\brelationship pattern\b/i);
+    expect(renderedText).not.toMatch(/\bwork:/i);
+    expect(renderedText).not.toMatch(/\bpressure:/i);
+    expect(renderedText).not.toMatch(/\brelationship:/i);
+    expect(renderedText).not.toMatch(/\bStrengths\b/);
+    expect(renderedText).not.toMatch(/\bWatch-outs\b/);
+    expect(renderedText).not.toMatch(/\bFrequently asked questions\b/);
+    expect(renderedText).not.toMatch(/\brelated_content\b/);
     expect(screen.getByText("工作决策场景")).toBeInTheDocument();
     expect(screen.getByText("关系与沟通场景")).toBeInTheDocument();
     expect(screen.getByText("压力与成长")).toBeInTheDocument();
@@ -112,6 +144,7 @@ describe("personality projection section renderer contract", () => {
       cmsSection({ sectionKey: "meaning", title: "Legacy meaning", sortOrder: 10 }),
       cmsSection({ sectionKey: "v8_5_thirty_second_overview", title: "30 second overview", sortOrder: 20 }),
       cmsSection({ sectionKey: "v8_5_work_decision", title: "Work decision", sortOrder: 30 }),
+      cmsSection({ sectionKey: "v8_5_module_08_career_workflow", title: "Career workflow", sortOrder: 35 }),
       cmsSection({ sectionKey: "related_content", title: "Related content", sortOrder: 40 }),
     ];
 
@@ -119,7 +152,7 @@ describe("personality projection section renderer contract", () => {
 
     expect(v85Sections.map((section) => section.sectionKey)).toEqual([
       "v8_5_thirty_second_overview",
-      "v8_5_work_decision",
+      "v8_5_module_08_career_workflow",
     ]);
     expect(legacySections.map((section) => section.sectionKey)).toEqual(["meaning", "related_content"]);
   });
@@ -344,7 +377,7 @@ describe("personality projection section renderer contract", () => {
 
     render(<div>{renderProjectionSections(sections, "en")}</div>);
 
-    expect(screen.getByText("FAQ")).toBeInTheDocument();
+    expect(screen.getByText("Frequently asked questions")).toBeInTheDocument();
     expect(screen.getByText("What does INTJ-A mean?")).toBeInTheDocument();
     expect(screen.getByText("INTJ-A describes an Assertive INTJ profile returned by the backend.")).toBeInTheDocument();
     expect(extractProjectionFaqItems(sections)).toEqual([

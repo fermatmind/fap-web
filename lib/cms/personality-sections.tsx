@@ -171,6 +171,24 @@ const MBTI64_V85_FIRST_CLASS_SECTION_KEYS = new Set([
   "v8_5_search_user_paths",
 ]);
 
+const MBTI64_V85_READER_VISIBLE_SECTION_KEYS = new Set([
+  "v8_5_thirty_second_overview",
+  "v8_5_ai_search_answer",
+  "v8_5_strengths_watchouts",
+  "v8_5_at_difference_scenarios",
+  "v8_5_module_01_core_reading",
+  "v8_5_module_02_judgment_style",
+  "v8_5_module_03_agency_boundary",
+  "v8_5_module_04_standards_drive",
+  "v8_5_module_05_learning_revision",
+  "v8_5_module_06_stress_blindspot",
+  "v8_5_module_07_social_feedback",
+  "v8_5_module_08_career_workflow",
+  "v8_5_module_09_relationships",
+  "v8_5_module_10_faq_boundary",
+  "v8_5_search_user_paths",
+]);
+
 export type RenderableProjectionSection = {
   key: string;
   title: string;
@@ -194,9 +212,9 @@ export function partitionPersonalitySectionsForV85(sections: CmsPersonalitySecti
 } {
   return sections.reduce(
     (partitioned, section) => {
-      if (isMbti64V85FirstClassSectionKey(section.sectionKey)) {
+      if (isMbti64V85FirstClassSectionKey(section.sectionKey) && MBTI64_V85_READER_VISIBLE_SECTION_KEYS.has(section.sectionKey)) {
         partitioned.v85Sections.push(section);
-      } else {
+      } else if (!isMbti64V85FirstClassSectionKey(section.sectionKey)) {
         partitioned.legacySections.push(section);
       }
 
@@ -242,6 +260,7 @@ function isSafePublicPersonalityHref(href: string | null): href is string {
 
 const PROJECTION_SECTION_TITLE_COPY: Record<string, { zh: string; en: string }> = {
   quick_answer: { zh: "快速答案", en: "Quick answer" },
+  faq: { zh: "常见问题", en: "Frequently asked questions" },
   meaning: { zh: "这个类型是什么意思", en: "What this type means" },
   a_t_difference: { zh: "A/T 差异", en: "A/T difference" },
   core_traits: { zh: "核心特征", en: "Core traits" },
@@ -258,24 +277,25 @@ const PROJECTION_SECTION_TITLE_COPY: Record<string, { zh: string; en: string }> 
   which_one_fits: { zh: "哪个更像你", en: "Which one fits" },
   mbti64_comparison_a_vs_t: { zh: "A/T 对比", en: "A/T comparison" },
   mbti64_promotion_metadata: { zh: "方法边界", en: "Method boundary" },
-  v8_5_thirty_second_overview: { zh: "30 秒速览", en: "30-second overview" },
-  v8_5_ai_search_answer: { zh: "AI / Search 摘要答案", en: "AI / Search answer" },
-  v8_5_strengths_watchouts: { zh: "优势 / 注意风险", en: "Strengths / Watch-outs" },
-  v8_5_at_difference_scenarios: { zh: "A/T 场景差异", en: "A/T scenarios" },
-  v8_5_module_01_core_reading: { zh: "先理解这个类型", en: "Start with this type" },
-  v8_5_module_02_judgment_style: { zh: "判断风格", en: "Judgment style" },
-  v8_5_module_03_agency_boundary: { zh: "独立性与边界", en: "Agency and boundaries" },
-  v8_5_module_04_standards_drive: { zh: "标准与驱动力", en: "Standards and drive" },
-  v8_5_module_05_learning_revision: { zh: "学习与修正", en: "Learning and revision" },
-  v8_5_module_06_stress_blindspot: { zh: "压力与盲区", en: "Stress and blind spots" },
-  v8_5_module_07_social_feedback: { zh: "社交与反馈", en: "Social feedback" },
-  v8_5_module_08_career_workflow: { zh: "工作与职业场景", en: "Work and career workflow" },
-  v8_5_module_09_relationships: { zh: "关系与亲密", en: "Relationships" },
-  v8_5_module_10_faq_boundary: { zh: "FAQ 与使用边界", en: "FAQ and boundaries" },
+  v8_5_thirty_second_overview: { zh: "类型导读", en: "Introduction" },
+  v8_5_ai_search_answer: { zh: "快速理解这个类型", en: "At a glance" },
+  v8_5_strengths_watchouts: { zh: "优势与容易忽略的代价", en: "Strengths & Watch-outs" },
+  v8_5_at_difference_scenarios: { zh: "A 型与 T 型的差别", en: "Assertive vs. Turbulent" },
+  v8_5_module_01_core_reading: { zh: "这种类型如何运作", en: "How this type works" },
+  v8_5_module_02_judgment_style: { zh: "他们如何判断与做决定", en: "How they judge and decide" },
+  v8_5_module_03_agency_boundary: { zh: "独立、边界与掌控感", en: "Independence and boundaries" },
+  v8_5_module_04_standards_drive: { zh: "高标准从哪里来", en: "Where the high standards come from" },
+  v8_5_module_05_learning_revision: { zh: "好奇心、学习和修正", en: "Curiosity, learning, and revision" },
+  v8_5_module_06_stress_blindspot: { zh: "压力下会发生什么", en: "What happens under stress" },
+  v8_5_module_07_social_feedback: { zh: "社交、反馈与被误读", en: "Social feedback and misreads" },
+  v8_5_module_08_career_workflow: { zh: "工作、职业和协作方式", en: "Career paths and workplace habits" },
+  v8_5_module_09_relationships: { zh: "关系、亲密和沟通", en: "Relationships and communication" },
+  v8_5_module_10_faq_boundary: { zh: "FAQ：如何安全使用这个结果", en: "FAQ: How to use this result safely" },
   v8_5_work_decision: { zh: "工作决策场景", en: "Work decision scenario" },
   v8_5_relationship_communication: { zh: "关系与沟通场景", en: "Relationship and communication" },
   v8_5_pressure_growth: { zh: "压力与成长", en: "Pressure and growth" },
-  v8_5_search_user_paths: { zh: "继续浏览", en: "Continue reading" },
+  v8_5_search_user_paths: { zh: "下一步阅读", en: "Continue reading" },
+  related_content: { zh: "相关内容", en: "Related content" },
   overview: { zh: "这个类型是什么", en: "What this type means" },
   letters_intro: { zh: "这个类型是什么", en: "What this type means" },
   trait_overview: { zh: "常见特征", en: "Common traits" },
@@ -313,12 +333,76 @@ function stripZhTraitSuffix(title: string, locale: Locale): string {
   return title.replace(/（-?[A-Z]）$/, "").trim();
 }
 
+const ZH_MARKDOWN_LABEL_PREFIX_COPY: Record<string, string> = {
+  at_difference: "A/T 差异",
+  best_fit: "适合任务",
+  boundary: "使用边界",
+  care_language: "表达在意",
+  career: "职业",
+  communication: "沟通",
+  compensation: "补偿行为",
+  conflict_pattern: "冲突处理",
+  growth: "成长",
+  likely_stuck: "容易卡住",
+  misread: "容易被误读",
+  not_for: "不能用于",
+  pressure: "压力",
+  relationship: "关系",
+  relationships: "关系",
+  signals: "压力信号",
+  strength: "优势",
+  strengths: "优势",
+  watch_out: "注意风险",
+  watch_outs: "注意风险",
+  watchouts: "注意风险",
+  weekly_experiment: "本周练习",
+  what_is: "这个类型是什么",
+  work: "工作",
+  work_pattern: "工作表现",
+  relationship_pattern: "关系沟通",
+};
+
+const ZH_MARKDOWN_VISIBLE_PHRASE_COPY: Array<[RegExp, string]> = [
+  [/\bFrequently asked questions\b/g, "常见问题"],
+  [/\bStrengths\s*\/\s*Watch-outs\b/g, "优势 / 注意风险"],
+  [/\bStrengths\b/g, "优势"],
+  [/\bWatch-outs\b/g, "注意风险"],
+  [/\brelated_content\b/g, "相关内容"],
+];
+
+function localizeMarkdownLabelPrefixes(body: string, locale: Locale): string {
+  if (locale !== "zh" || !body.trim()) {
+    return body;
+  }
+
+  const localizedLabels = body.replace(
+    /^(\s*(?:[-*+]\s+|\d+\.\s+)?)([a-z][a-z_ -]*):(?=\s)/gim,
+    (match, prefix: string, rawKey: string) => {
+      const normalizedKey = rawKey.trim().toLowerCase().replace(/[\s-]+/g, "_");
+      const label = ZH_MARKDOWN_LABEL_PREFIX_COPY[normalizedKey];
+      return label ? `${prefix}${label}：` : match;
+    }
+  );
+
+  return ZH_MARKDOWN_VISIBLE_PHRASE_COPY.reduce(
+    (current, [pattern, replacement]) => current.replace(pattern, replacement),
+    localizedLabels
+  );
+}
+
+function renderLocalizedMarkdown(body: string, locale: Locale, minimumHeadingLevel: 1 | 2 | 3 | 4 | 5 | 6) {
+  return renderSimpleMarkdown(localizeMarkdownLabelPrefixes(body, locale), {
+    locale,
+    minimumHeadingLevel,
+  });
+}
+
 function renderSectionCard(
   sectionKey: string,
   title: string,
   content: ReactNode,
   locale?: Locale,
-  options: { preserveBackendTitle?: boolean } = {}
+  options: { preserveBackendTitle?: boolean; editorialPriority?: boolean } = {}
 ) {
   const displayTitle =
     options.preserveBackendTitle && normalizeText(title)
@@ -326,6 +410,27 @@ function renderSectionCard(
       : locale
         ? projectionSectionTitle(sectionKey, title, locale)
         : title;
+
+  if (options.editorialPriority) {
+    return (
+      <section
+        key={sectionKey}
+        id={sectionKey}
+        data-section-key={sectionKey}
+        data-testid="personality-v85-editorial-section-card"
+        className="border-b border-[rgba(16,24,40,0.10)] py-12 first:pt-0 last:border-b-0"
+      >
+        <header className="mb-6">
+          <h2 className="m-0 text-4xl font-semibold leading-tight text-[#2f3744]">
+            {displayTitle}
+          </h2>
+        </header>
+        <div className="space-y-8 text-[17px] leading-8 text-[#3d4652]">
+          {content}
+        </div>
+      </section>
+    );
+  }
 
   return (
     <Card key={sectionKey} id={sectionKey} data-section-key={sectionKey}>
@@ -342,21 +447,21 @@ function renderPlainMarkdown(body: string, className: string, locale: Locale) {
     return null;
   }
 
-  return <div className={className}>{renderSimpleMarkdown(body, { locale, minimumHeadingLevel: 3 })}</div>;
+  return <div className={className}>{renderLocalizedMarkdown(body, locale, 3)}</div>;
 }
 
 function renderRichTextBlock(bodyHtml: string, bodyMd: string, locale: Locale) {
   if (bodyHtml.trim()) {
     return (
       <SanitizedCmsHtml
-        className="space-y-4 text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_p]:leading-7 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
+        className="space-y-5 text-[var(--fm-text)] [&_a]:text-[var(--fm-accent)] [&_a]:underline-offset-2 [&_a:hover]:underline [&_p]:leading-8 [&_strong]:font-semibold [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5"
         html={bodyHtml}
         locale={locale}
       />
     );
   }
 
-  return renderPlainMarkdown(bodyMd, "space-y-4 leading-7 text-[var(--fm-text-muted)]", locale);
+  return renderPlainMarkdown(bodyMd, "space-y-5 leading-8 text-[var(--fm-text)]", locale);
 }
 
 function renderBulletItems(items: BulletItem[]) {
@@ -568,9 +673,6 @@ function renderSafeInternalLinks(items: LinkItem[], locale: Locale) {
 
   return (
     <div className="space-y-3" data-testid="mbti64-safe-internal-links">
-      <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">
-        {locale === "zh" ? "继续浏览" : "Continue reading"}
-      </h3>
       {renderGenericCards(links)}
     </div>
   );
@@ -650,12 +752,16 @@ function renderNamedTextList(title: string, items: unknown[], key: string) {
   }
 
   return (
-    <section key={key} className="space-y-3" data-testid={`mbti64-detail-list-${key}`}>
-      <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{title}</h3>
-      <ul className="m-0 grid gap-2 pl-0 text-[var(--fm-text-muted)] sm:grid-cols-2">
-        {normalizedItems.map((item) => (
-          <li key={item} className="list-none rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-3 leading-7">
-            {item}
+    <section key={key} className="space-y-4" data-testid={`mbti64-detail-list-${key}`}>
+      <h3 className="m-0 text-lg font-semibold text-[#2f3744]">{title}</h3>
+      <ul className="m-0 space-y-3 border-l-4 border-[var(--fm-accent)] pl-5 text-[#3d4652]">
+        {normalizedItems.map((item, index) => (
+          <li
+            key={item}
+            className="list-none leading-8"
+          >
+            <span className="mr-2 font-semibold text-[var(--fm-accent)]">{index + 1}.</span>
+            <span>{item}</span>
           </li>
         ))}
       </ul>
@@ -676,16 +782,16 @@ function renderTitledDetailCards(title: string, items: TitledDetailItem[] | unde
   }
 
   return (
-    <section key={key} className="space-y-3" data-testid={`mbti64-v85-${key}`}>
-      <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{title}</h3>
-      <div className="grid gap-3 md:grid-cols-2">
+    <section key={key} className="space-y-4" data-testid={`mbti64-v85-${key}`}>
+      <h3 className="m-0 text-lg font-semibold text-[#2f3744]">{title}</h3>
+      <div className="space-y-4">
         {cards.map((item, index) => (
           <article
             key={`${item.title || item.detail}-${index}`}
-            className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+            className="border-l-4 border-[rgba(23,98,135,0.35)] bg-[rgba(23,98,135,0.05)] px-5 py-4"
           >
-            {item.title ? <p className="m-0 font-semibold text-[var(--fm-text)]">{item.title}</p> : null}
-            {item.detail ? <p className="mb-0 mt-2 leading-7 text-[var(--fm-text-muted)]">{item.detail}</p> : null}
+            {item.title ? <p className="m-0 font-semibold text-[#2f3744]">{item.title}</p> : null}
+            {item.detail ? <p className="mb-0 mt-2 leading-8 text-[#3d4652]">{item.detail}</p> : null}
           </article>
         ))}
       </div>
@@ -726,16 +832,16 @@ function renderRecordCard(title: string, value: Record<string, unknown> | null |
   };
 
   return (
-    <section key={key} className="space-y-3" data-testid={`mbti64-v85-${key}`}>
-      <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{title}</h3>
-      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+    <section key={key} className="space-y-4" data-testid={`mbti64-v85-${key}`}>
+      <h3 className="m-0 text-lg font-semibold text-[#2f3744]">{title}</h3>
+      <div className="space-y-4">
         {rows.map((row) => {
           const label = rowLabels[row.key]?.[locale] ?? row.key.replace(/_/g, " ");
 
           return (
-            <article key={row.key} className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+            <article key={row.key} className="border-b border-[rgba(16,24,40,0.10)] pb-4 last:border-b-0 last:pb-0">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">{label}</p>
-              <p className="mb-0 mt-2 leading-7 text-[var(--fm-text-muted)]">{row.body}</p>
+              <p className="mb-0 mt-2 leading-8 text-[#3d4652]">{row.body}</p>
             </article>
           );
         })}
@@ -773,26 +879,26 @@ function renderStructuredModules(modules: unknown, locale: Locale) {
   }
 
   return (
-    <section key="modules" className="space-y-4" data-testid="mbti64-v85-modules">
-      <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">
+    <section key="modules" className="space-y-6" data-testid="mbti64-v85-modules">
+      <h3 className="m-0 text-xl font-semibold text-[#2f3744]">
         {locale === "zh" ? "深度解读模块" : "Deep-dive modules"}
       </h3>
-      <div className="space-y-5">
+      <div className="space-y-8">
         {moduleRows.map((item, index) => (
           <article
             key={`${item.id || item.title}-${index}`}
-            className="space-y-4 rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 sm:p-5"
+            className="space-y-5 border-t border-[rgba(16,24,40,0.10)] pt-8 first:border-t-0 first:pt-0"
           >
-            {item.title ? <h4 className="m-0 text-lg font-semibold leading-tight text-[var(--fm-text)]">{item.title}</h4> : null}
+            {item.title ? <h4 className="m-0 text-3xl font-semibold leading-tight text-[#2f3744]">{item.title}</h4> : null}
             {item.insight ? (
-              <p className="m-0 rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3 leading-7 text-[var(--fm-text)]">
+              <p className="m-0 border-l-4 border-[var(--fm-accent)] bg-[rgba(23,98,135,0.05)] px-5 py-4 text-base font-semibold leading-8 text-[#2f3744]">
                 {item.insight}
               </p>
             ) : null}
             {item.paragraphs.length > 0 ? (
-              <div className="space-y-3 text-[var(--fm-text-muted)]">
+              <div className="space-y-5 text-[#3d4652]">
                 {item.paragraphs.map((paragraph) => (
-                  <p key={paragraph} className="m-0 leading-7">
+                  <p key={paragraph} className="m-0 leading-8">
                     {paragraph}
                   </p>
                 ))}
@@ -906,7 +1012,7 @@ function renderMbti64ReaderExperiencePayload(payload: Record<string, unknown> | 
   }
 
   return contentBlocks.length > 0 ? (
-    <div key="reader-experience" className="space-y-8">
+    <div key="reader-experience" className="space-y-10" data-testid="mbti64-v85-reader-experience">
       {contentBlocks}
     </div>
   ) : null;
@@ -922,7 +1028,7 @@ function renderMbti64DetailSection(section: CmsPersonalitySection, locale: Local
   if (body) {
     contentBlocks.push(
       <div key="body" className="space-y-4 leading-7 text-[var(--fm-text-muted)]">
-        {renderSimpleMarkdown(body, { locale, minimumHeadingLevel: 3 })}
+        {renderLocalizedMarkdown(body, locale, 3)}
       </div>
     );
   }
@@ -1028,7 +1134,7 @@ function renderMbti64ContentEntries(content: Record<string, unknown>, locale: Lo
           <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">
             {contentTitleFromValue(key, value, locale)}
           </h3>
-          {sideBySide ?? <div className="space-y-4 leading-7 text-[var(--fm-text-muted)]">{renderSimpleMarkdown(body, { locale, minimumHeadingLevel: 4 })}</div>}
+          {sideBySide ?? <div className="space-y-4 leading-7 text-[var(--fm-text-muted)]">{renderLocalizedMarkdown(body, locale, 4)}</div>}
         </section>
       );
     })
@@ -1421,6 +1527,7 @@ export function renderPersonalitySections(sections: CmsPersonalitySection[], loc
 
       return renderSectionCard(section.sectionKey, section.title, content, locale, {
         preserveBackendTitle: MBTI64_PROMOTED_DETAIL_SECTION_KEYS.has(section.sectionKey),
+        editorialPriority: isMbti64V85FirstClassSectionKey(section.sectionKey),
       });
     })
     .filter((section) => section !== null);

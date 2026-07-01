@@ -150,8 +150,7 @@ function buildPersonalitySectionShortcuts(
 
 function buildV85PersonalitySectionShortcuts(
   locale: Locale,
-  sections: CmsPersonalitySection[],
-  testHref: string
+  sections: CmsPersonalitySection[]
 ): PersonalitySectionShortcut[] {
   const sectionKeys = new Set(sections.map((section) => section.sectionKey));
   const candidateLinks =
@@ -159,14 +158,14 @@ function buildV85PersonalitySectionShortcuts(
       ? [
           {
             key: "v85-overview",
-            label: "30 秒速览",
+            label: "类型导读",
             description: "核心判断",
             href: "#v8_5_thirty_second_overview",
             sectionKey: "v8_5_thirty_second_overview",
           },
           {
             key: "v85-ai-answer",
-            label: "AI 摘要",
+            label: "快速理解",
             description: "可引用答案",
             href: "#v8_5_ai_search_answer",
             sectionKey: "v8_5_ai_search_answer",
@@ -180,31 +179,80 @@ function buildV85PersonalitySectionShortcuts(
           },
           {
             key: "v85-at-scenarios",
-            label: "A/T 场景",
+            label: "A/T 差别",
             description: "差异表现",
             href: "#v8_5_at_difference_scenarios",
             sectionKey: "v8_5_at_difference_scenarios",
           },
           {
+            key: "v85-core-reading",
+            label: "运作方式",
+            description: "类型机制",
+            href: "#v8_5_module_01_core_reading",
+            sectionKey: "v8_5_module_01_core_reading",
+          },
+          {
+            key: "v85-judgment",
+            label: "判断方式",
+            description: "决策逻辑",
+            href: "#v8_5_module_02_judgment_style",
+            sectionKey: "v8_5_module_02_judgment_style",
+          },
+          {
+            key: "v85-boundary",
+            label: "独立边界",
+            description: "掌控感",
+            href: "#v8_5_module_03_agency_boundary",
+            sectionKey: "v8_5_module_03_agency_boundary",
+          },
+          {
+            key: "v85-standards",
+            label: "标准驱动",
+            description: "长期主义",
+            href: "#v8_5_module_04_standards_drive",
+            sectionKey: "v8_5_module_04_standards_drive",
+          },
+          {
+            key: "v85-learning",
+            label: "学习修正",
+            description: "更新能力",
+            href: "#v8_5_module_05_learning_revision",
+            sectionKey: "v8_5_module_05_learning_revision",
+          },
+          {
+            key: "v85-pressure",
+            label: "压力盲区",
+            description: "恢复路径",
+            href: "#v8_5_module_06_stress_blindspot",
+            sectionKey: "v8_5_module_06_stress_blindspot",
+          },
+          {
+            key: "v85-social",
+            label: "社交反馈",
+            description: "被误读处",
+            href: "#v8_5_module_07_social_feedback",
+            sectionKey: "v8_5_module_07_social_feedback",
+          },
+          {
             key: "v85-work",
-            label: "工作",
+            label: "工作职业",
             description: "决策场景",
-            href: "#v8_5_work_decision",
-            sectionKey: "v8_5_work_decision",
+            href: "#v8_5_module_08_career_workflow",
+            sectionKey: "v8_5_module_08_career_workflow",
           },
           {
             key: "v85-relationships",
             label: "关系沟通",
             description: "反馈方式",
-            href: "#v8_5_relationship_communication",
-            sectionKey: "v8_5_relationship_communication",
+            href: "#v8_5_module_09_relationships",
+            sectionKey: "v8_5_module_09_relationships",
           },
           {
-            key: "v85-pressure",
-            label: "压力成长",
-            description: "恢复路径",
-            href: "#v8_5_pressure_growth",
-            sectionKey: "v8_5_pressure_growth",
+            key: "v85-safe-use",
+            label: "使用边界",
+            description: "常见问题",
+            href: "#v8_5_module_10_faq_boundary",
+            sectionKey: "v8_5_module_10_faq_boundary",
           },
         ]
       : [
@@ -237,40 +285,80 @@ function buildV85PersonalitySectionShortcuts(
             sectionKey: "v8_5_at_difference_scenarios",
           },
           {
+            key: "v85-core-reading",
+            label: "How it works",
+            description: "Type mechanism",
+            href: "#v8_5_module_01_core_reading",
+            sectionKey: "v8_5_module_01_core_reading",
+          },
+          {
+            key: "v85-judgment",
+            label: "Judgment",
+            description: "Decision logic",
+            href: "#v8_5_module_02_judgment_style",
+            sectionKey: "v8_5_module_02_judgment_style",
+          },
+          {
+            key: "v85-boundary",
+            label: "Boundaries",
+            description: "Agency",
+            href: "#v8_5_module_03_agency_boundary",
+            sectionKey: "v8_5_module_03_agency_boundary",
+          },
+          {
+            key: "v85-standards",
+            label: "Standards",
+            description: "Long view",
+            href: "#v8_5_module_04_standards_drive",
+            sectionKey: "v8_5_module_04_standards_drive",
+          },
+          {
+            key: "v85-learning",
+            label: "Learning",
+            description: "Revision",
+            href: "#v8_5_module_05_learning_revision",
+            sectionKey: "v8_5_module_05_learning_revision",
+          },
+          {
+            key: "v85-pressure",
+            label: "Stress",
+            description: "Blind spots",
+            href: "#v8_5_module_06_stress_blindspot",
+            sectionKey: "v8_5_module_06_stress_blindspot",
+          },
+          {
+            key: "v85-social",
+            label: "Social feedback",
+            description: "Misreads",
+            href: "#v8_5_module_07_social_feedback",
+            sectionKey: "v8_5_module_07_social_feedback",
+          },
+          {
             key: "v85-work",
-            label: "Work",
+            label: "Careers",
             description: "Decision scenario",
-            href: "#v8_5_work_decision",
-            sectionKey: "v8_5_work_decision",
+            href: "#v8_5_module_08_career_workflow",
+            sectionKey: "v8_5_module_08_career_workflow",
           },
           {
             key: "v85-relationships",
             label: "Relationships",
             description: "Communication",
-            href: "#v8_5_relationship_communication",
-            sectionKey: "v8_5_relationship_communication",
+            href: "#v8_5_module_09_relationships",
+            sectionKey: "v8_5_module_09_relationships",
           },
           {
-            key: "v85-pressure",
-            label: "Pressure/growth",
-            description: "Recovery path",
-            href: "#v8_5_pressure_growth",
-            sectionKey: "v8_5_pressure_growth",
+            key: "v85-safe-use",
+            label: "Safe use",
+            description: "FAQ",
+            href: "#v8_5_module_10_faq_boundary",
+            sectionKey: "v8_5_module_10_faq_boundary",
           },
         ];
 
-  return [
-    ...candidateLinks
-      .filter((link) => sectionKeys.has(link.sectionKey))
-      .map(({ sectionKey: _sectionKey, ...link }) => ({ ...link, kind: "anchor" as const })),
-    {
-      key: "take_test",
-      label: locale === "zh" ? "立即测试" : "Start the free test",
-      description: locale === "zh" ? "确认类型" : "Confirm your type",
-      href: testHref,
-      kind: "test" as const,
-    },
-  ];
+  return candidateLinks
+    .filter((link) => sectionKeys.has(link.sectionKey))
+    .map(({ sectionKey: _sectionKey, ...link }) => ({ ...link, kind: "anchor" as const }));
 }
 
 function shouldNoindex(robotsValue: string | null | undefined): boolean {
@@ -914,9 +1002,12 @@ export default async function PersonalityDetailPage({
     sourcePath: canonicalPath,
   });
   const heroHeading = formatPersonalityDetailHeading(detail, locale);
+  const heroHeadingSuffix = heroHeading.startsWith(detail.displayType)
+    ? heroHeading.slice(detail.displayType.length).trim()
+    : "";
   const legacyIntentLinks = buildPersonalitySectionShortcuts(locale, detail.projection.sections, mbtiIntentCtaHref);
   const intentLinks = hasV85Sections
-    ? buildV85PersonalitySectionShortcuts(locale, v85Sections, mbtiIntentCtaHref)
+    ? buildV85PersonalitySectionShortcuts(locale, v85Sections)
     : legacyIntentLinks;
   const personalityBrowseHref = `${localizedPath("/personality", locale)}#type-groups`;
   const careerDirectionHref = fallbackProjectionGate.canRenderCareerOrRecommendationClaims
@@ -925,7 +1016,7 @@ export default async function PersonalityDetailPage({
 
   return (
     <main
-      className="mx-auto w-full max-w-7xl px-[var(--fm-container-gutter)] space-y-6 py-8 sm:py-10"
+      className="mx-auto w-full max-w-7xl px-[var(--fm-container-gutter)] space-y-8 py-8 sm:py-10"
       data-domain-id="self_understanding"
       data-domain-role="primary"
       data-domain-envelope-state="metadata_only"
@@ -947,77 +1038,113 @@ export default async function PersonalityDetailPage({
 
       <section
         id="answer-first"
-        className="space-y-5 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4 shadow-[var(--fm-shadow-sm)] sm:p-5"
+        className="overflow-hidden rounded-[1.5rem] bg-[#77608d] text-white shadow-[0_24px_70px_rgba(15,23,42,0.10)]"
       >
-        <div className="grid gap-5 md:grid-cols-[minmax(0,1fr)_12rem] md:items-start">
-          <div className="space-y-4">
-            <h1 className="m-0 font-serif text-3xl font-semibold text-[var(--fm-text)]">{heroHeading}</h1>
-            {locale !== "zh" && detail.summary ? <p className="m-0 text-[var(--fm-text-muted)]">{detail.summary}</p> : null}
+        <div className="relative grid min-h-[18rem] gap-8 p-7 sm:p-10 md:grid-cols-[minmax(0,1fr)_16rem] md:items-center lg:min-h-[20rem] lg:p-14">
+          <div className="max-w-3xl space-y-5">
+            <h1 className="m-0 text-5xl font-semibold leading-[1.02] text-white sm:text-6xl">
+              {heroHeadingSuffix ? (
+                <>
+                  <span className="font-sans tracking-tight">{detail.displayType}</span>
+                  <span className="font-serif"> {heroHeadingSuffix}</span>
+                </>
+              ) : (
+                heroHeading
+              )}
+            </h1>
+            {locale !== "zh" && detail.summary ? <p className="m-0 text-lg leading-8 text-white/88">{detail.summary}</p> : null}
             {detail.heroSummary && detail.heroSummary !== detail.summary ? (
-              <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{detail.heroSummary}</p>
+              <p className="m-0 max-w-2xl text-lg leading-9 text-white/88">{detail.heroSummary}</p>
             ) : null}
-            {quickAnswerBody ? (
-              <aside
-                className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm leading-7 text-[var(--fm-text-muted)]"
-                data-testid="personality-detail-quick-answer"
-              >
-                <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-                  {locale === "zh" ? "快速答案" : "Quick answer"}
-                </p>
-                <p className="mb-0 mt-2">{quickAnswerBody}</p>
-              </aside>
+            {detail.keywords.length > 0 ? (
+              <div className="flex flex-wrap gap-2 pt-1">
+                {detail.keywords.slice(0, 5).map((keyword) => (
+                  <span key={keyword} className="rounded-full bg-white/12 px-3 py-1 text-xs font-semibold text-white/90">
+                    {keyword}
+                  </span>
+                ))}
+              </div>
             ) : null}
           </div>
-          {detail.heroImageUrl ? (
-            <div
-              className="justify-self-center rounded-[1.75rem] border border-[var(--fm-border)] bg-white p-3 shadow-[var(--fm-shadow-sm)] md:justify-self-end"
-              data-testid="personality-detail-hero-image"
-            >
-              <Image
-                src={detail.heroImageUrl}
-                alt={formatPersonalityDetailImageAlt(detail, locale)}
-                width={192}
-                height={192}
-                sizes="(min-width: 768px) 12rem, 10rem"
-                priority
-                className="h-40 w-40 object-contain md:h-48 md:w-48"
-              />
-            </div>
-          ) : (
-            <div
-              className="grid h-40 w-40 place-items-center justify-self-center rounded-[1.75rem] border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] text-2xl font-semibold text-[var(--fm-text)] md:h-48 md:w-48 md:justify-self-end"
-              data-testid="personality-detail-hero-image-fallback"
-              aria-label={formatPersonalityDetailImageAlt(detail, locale)}
-            >
-              {detail.displayType}
-            </div>
-          )}
-        </div>
-        <nav
-          aria-label={locale === "zh" ? "人格页面重点入口" : "Personality page intent shortcuts"}
-          className="flex flex-wrap gap-2"
-          data-testid="personality-detail-intent-links"
-        >
-          {intentLinks.map((link) =>
-            link.kind === "test" ? (
-              <TrackedEntryCtaLink
-                key={link.key}
-                href={link.href}
-                prefetch
-                eventProperties={mbtiIntentCtaTrackingProps}
-                className="fm-help-chip-link"
+          <div className="w-full max-w-[16rem] justify-self-center space-y-3 md:justify-self-end">
+            {detail.heroImageUrl ? (
+              <div
+                className="rounded-[2rem] border border-white/15 bg-white/10 p-4"
+                data-testid="personality-detail-hero-image"
               >
-                {link.label}
-              </TrackedEntryCtaLink>
+                <Image
+                  src={detail.heroImageUrl}
+                  alt={formatPersonalityDetailImageAlt(detail, locale)}
+                  width={192}
+                  height={192}
+                  sizes="(min-width: 768px) 12rem, 10rem"
+                  priority
+                  className="h-40 w-40 object-contain md:h-48 md:w-48"
+                />
+              </div>
             ) : (
-              <Link key={link.key} href={link.href} className="fm-help-chip-link">
-                {link.label}
-              </Link>
-            )
-          )}
-        </nav>
+              <div
+                className="grid h-40 place-items-center rounded-[2rem] border border-white/15 bg-white/10 text-3xl font-semibold text-white md:h-44"
+                data-testid="personality-detail-hero-image-fallback"
+                aria-label={formatPersonalityDetailImageAlt(detail, locale)}
+              >
+                {detail.displayType}
+              </div>
+            )}
+            {(detail.typeName || detail.nickname || detail.rarity) ? (
+              <div className="space-y-1 rounded-2xl border border-white/15 bg-white/10 p-4 text-sm leading-6 text-white/82">
+                {detail.typeName ? (
+                  <p className="m-0">
+                    <span className="font-semibold text-white">{locale === "zh" ? "类型名称" : "Type name"}:</span>{" "}
+                    {detail.typeName}
+                  </p>
+                ) : null}
+                {detail.nickname ? (
+                  <p className="m-0">
+                    <span className="font-semibold text-white">{locale === "zh" ? "别名" : "Nickname"}:</span>{" "}
+                    {detail.nickname}
+                  </p>
+                ) : null}
+                {detail.rarity ? (
+                  <p className="m-0">
+                    <span className="font-semibold text-white">{locale === "zh" ? "稀有度" : "Rarity"}:</span>{" "}
+                    {detail.rarity}
+                  </p>
+                ) : null}
+              </div>
+            ) : null}
+          </div>
+        </div>
+        <div className="sr-only">
+          <nav
+            aria-label={locale === "zh" ? "人格页面重点入口" : "Personality page intent shortcuts"}
+            className="flex flex-wrap gap-2"
+            data-testid="personality-detail-intent-links"
+          >
+            {intentLinks.map((link) =>
+              link.kind === "test" ? (
+                <TrackedEntryCtaLink
+                  key={link.key}
+                  href={link.href}
+                  prefetch
+                  eventProperties={mbtiIntentCtaTrackingProps}
+                  className="rounded-full border border-[rgba(16,24,40,0.12)] bg-white px-4 py-2 text-sm font-semibold text-[var(--fm-accent)] transition hover:border-[var(--fm-accent)] hover:bg-[var(--fm-surface-muted)]"
+                >
+                  {link.label}
+                </TrackedEntryCtaLink>
+              ) : (
+                <Link
+                  key={link.key}
+                  href={link.href}
+                  className="rounded-full border border-[rgba(16,24,40,0.12)] bg-white px-4 py-2 text-sm font-semibold text-[var(--fm-accent)] transition hover:border-[var(--fm-accent)] hover:bg-[var(--fm-surface-muted)]"
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
+          </nav>
         <div
-          className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4"
+          className="sr-only"
           data-testid="personality-detail-section-map"
           data-authority-source={detail.projection.meta.authoritySource ?? "cms_projection"}
         >
@@ -1028,19 +1155,19 @@ export default async function PersonalityDetailPage({
                 href={link.href}
                 prefetch
                 eventProperties={mbtiIntentCtaTrackingProps}
-                className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-3 text-left text-sm transition hover:border-[var(--fm-accent)] hover:bg-[var(--fm-surface)]"
+                className="rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface-muted)] p-4 text-left text-sm transition hover:border-[var(--fm-accent)] hover:bg-white"
               >
                 <span className="block font-semibold text-[var(--fm-text)]">{link.label}</span>
-                <span className="mt-1 block text-xs text-[var(--fm-text-muted)]">{link.description}</span>
+                <span className="mt-1 block text-sm leading-6 text-[var(--fm-text-muted)]">{link.description}</span>
               </TrackedEntryCtaLink>
             ) : (
               <Link
                 key={`section-map-${link.key}`}
                 href={link.href}
-                className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-3 text-left text-sm transition hover:border-[var(--fm-accent)] hover:bg-[var(--fm-surface)]"
+                className="rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface-muted)] p-4 text-left text-sm transition hover:border-[var(--fm-accent)] hover:bg-white"
               >
                 <span className="block font-semibold text-[var(--fm-text)]">{link.label}</span>
-                <span className="mt-1 block text-xs text-[var(--fm-text-muted)]">{link.description}</span>
+                <span className="mt-1 block text-sm leading-6 text-[var(--fm-text-muted)]">{link.description}</span>
               </Link>
             )
           )}
@@ -1071,7 +1198,7 @@ export default async function PersonalityDetailPage({
           </div>
         </div>
         {(detail.typeName || detail.nickname || detail.rarity || detail.keywords.length > 0) ? (
-          <div className="space-y-3 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+          <div className="space-y-3 rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface-muted)] p-4">
             <div className="flex flex-wrap gap-3 text-sm text-[var(--fm-text-muted)]">
               {detail.typeName ? (
                 <p className="m-0">
@@ -1107,15 +1234,16 @@ export default async function PersonalityDetailPage({
           </div>
         ) : null}
         {detail.heroQuote ? (
-          <blockquote className="m-0 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm italic text-[var(--fm-text-muted)]">
+          <blockquote className="m-0 rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface-muted)] p-4 text-sm italic text-[var(--fm-text-muted)]">
             {detail.heroQuote}
           </blockquote>
         ) : null}
+        </div>
       </section>
 
       <nav
         aria-label={locale === "zh" ? "人格页面章节导航" : "Personality page section navigation"}
-        className="sticky top-3 z-20 -mx-1 overflow-x-auto rounded-xl border border-[var(--fm-border)] bg-[var(--fm-hub-sticky-bg)] p-2 shadow-[var(--fm-shadow-sm)] backdrop-blur"
+        className="sticky top-3 z-20 -mx-1 overflow-x-auto rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-hub-sticky-bg)] p-2 shadow-[var(--fm-shadow-sm)] backdrop-blur lg:hidden"
         data-testid="personality-detail-sticky-local-nav"
       >
         <div className="flex min-w-max gap-2">
@@ -1126,7 +1254,7 @@ export default async function PersonalityDetailPage({
                 href={link.href}
                 prefetch
                 eventProperties={mbtiIntentCtaTrackingProps}
-                className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-sm font-medium text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
+                className="rounded-full border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface)] px-4 py-2 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
               >
                 {link.label}
               </TrackedEntryCtaLink>
@@ -1134,7 +1262,7 @@ export default async function PersonalityDetailPage({
               <Link
                 key={`sticky-local-${link.key}`}
                 href={link.href}
-                className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-2 text-sm font-medium text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
+                className="rounded-full border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface)] px-4 py-2 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
               >
                 {link.label}
               </Link>
@@ -1144,9 +1272,53 @@ export default async function PersonalityDetailPage({
       </nav>
 
       {hasV85Sections ? (
-        <section className="space-y-5" data-testid="personality-detail-v85-primary-sections">
-          {renderedV85Sections}
-        </section>
+        <div
+          className="grid gap-10 lg:grid-cols-[14rem_minmax(0,42rem)] lg:items-start"
+          data-testid="personality-detail-v85-reading-layout"
+        >
+          <aside
+            className="sticky top-24 hidden lg:block"
+            data-testid="personality-detail-left-toc"
+          >
+            <p className="m-0 pb-3 text-base font-semibold text-[#2f3744]">
+              {locale === "zh" ? "阅读目录" : "Explore this type"}
+            </p>
+            <nav aria-label={locale === "zh" ? "人格页面阅读目录" : "Personality page reading menu"} className="mt-2">
+              <ul className="m-0 list-none space-y-0 p-0">
+                {intentLinks.map((link) => (
+                  <li key={`toc-${link.key}`}>
+                    {link.kind === "test" ? (
+                      <TrackedEntryCtaLink
+                        href={link.href}
+                        prefetch
+                        eventProperties={mbtiIntentCtaTrackingProps}
+                        className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
+                      >
+                        <span>{link.label}</span>
+                        <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
+                          →
+                        </span>
+                      </TrackedEntryCtaLink>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
+                      >
+                        <span>{link.label}</span>
+                        <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
+                          →
+                        </span>
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </aside>
+          <section className="w-full min-w-0 space-y-0" data-testid="personality-detail-v85-primary-sections">
+            {renderedV85Sections}
+          </section>
+        </div>
       ) : null}
 
       <MbtiSceneEntrySection
@@ -1167,6 +1339,8 @@ export default async function PersonalityDetailPage({
               testId="personality-detail-answer-surface"
               pageFamily="personality_detail"
               hideHeading={locale === "zh"}
+              hideCompareLabel={locale === "zh"}
+              hideSceneLabel={locale === "zh"}
               hideSummaryLabel={locale === "zh"}
             />
           </>
@@ -1191,6 +1365,8 @@ export default async function PersonalityDetailPage({
             testId="personality-detail-answer-surface"
             pageFamily="personality_detail"
             hideHeading={locale === "zh"}
+            hideCompareLabel={locale === "zh"}
+            hideSceneLabel={locale === "zh"}
             hideSummaryLabel={locale === "zh"}
           />
         ) : null}

@@ -121,6 +121,7 @@ export function AnswerSurfaceSection({
   hideHeading = false,
   hideSummaryBlocks = false,
   hideCompareLabel = false,
+  hideSceneLabel = false,
   expandSingleSummaryBlock = false,
   pageFamily,
   evidenceSourceType = "answer_surface_v1",
@@ -132,6 +133,7 @@ export function AnswerSurfaceSection({
   hideHeading?: boolean;
   hideSummaryBlocks?: boolean;
   hideCompareLabel?: boolean;
+  hideSceneLabel?: boolean;
   expandSingleSummaryBlock?: boolean;
   hideSummaryLabel?: boolean;
   pageFamily?: EvidencePageFamily;
@@ -217,9 +219,11 @@ export function AnswerSurfaceSection({
 
       {surface.sceneSummaryBlocks.length ? (
         <div className="space-y-3" data-evidence-block={pageFamily ? "definition" : undefined}>
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-            {sectionTitle("scene", locale)}
-          </p>
+          {!hideSceneLabel ? (
+            <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              {sectionTitle("scene", locale)}
+            </p>
+          ) : null}
           <div className="grid gap-3 md:grid-cols-2">
             {surface.sceneSummaryBlocks.map((block, index) => (
               <article key={block.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
