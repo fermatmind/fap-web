@@ -28,6 +28,7 @@ import {
 import {
   extractPersonalityFaqItems,
   extractProjectionFaqItems,
+  partitionPersonalitySectionsForV85,
   renderPersonalitySections,
   renderProjectionSections,
 } from "@/lib/cms/personality-sections";
@@ -145,6 +146,131 @@ function buildPersonalitySectionShortcuts(
         // Contract marker: Take the test.
         { key: "take_test", label: "Start the free test", description: "Confirm your type", href: testHref, kind: "test" },
       ];
+}
+
+function buildV85PersonalitySectionShortcuts(
+  locale: Locale,
+  sections: CmsPersonalitySection[],
+  testHref: string
+): PersonalitySectionShortcut[] {
+  const sectionKeys = new Set(sections.map((section) => section.sectionKey));
+  const candidateLinks =
+    locale === "zh"
+      ? [
+          {
+            key: "v85-overview",
+            label: "30 秒速览",
+            description: "核心判断",
+            href: "#v8_5_thirty_second_overview",
+            sectionKey: "v8_5_thirty_second_overview",
+          },
+          {
+            key: "v85-ai-answer",
+            label: "AI 摘要",
+            description: "可引用答案",
+            href: "#v8_5_ai_search_answer",
+            sectionKey: "v8_5_ai_search_answer",
+          },
+          {
+            key: "v85-strengths",
+            label: "优势/风险",
+            description: "机制边界",
+            href: "#v8_5_strengths_watchouts",
+            sectionKey: "v8_5_strengths_watchouts",
+          },
+          {
+            key: "v85-at-scenarios",
+            label: "A/T 场景",
+            description: "差异表现",
+            href: "#v8_5_at_difference_scenarios",
+            sectionKey: "v8_5_at_difference_scenarios",
+          },
+          {
+            key: "v85-work",
+            label: "工作",
+            description: "决策场景",
+            href: "#v8_5_work_decision",
+            sectionKey: "v8_5_work_decision",
+          },
+          {
+            key: "v85-relationships",
+            label: "关系沟通",
+            description: "反馈方式",
+            href: "#v8_5_relationship_communication",
+            sectionKey: "v8_5_relationship_communication",
+          },
+          {
+            key: "v85-pressure",
+            label: "压力成长",
+            description: "恢复路径",
+            href: "#v8_5_pressure_growth",
+            sectionKey: "v8_5_pressure_growth",
+          },
+        ]
+      : [
+          {
+            key: "v85-overview",
+            label: "30-second",
+            description: "Core read",
+            href: "#v8_5_thirty_second_overview",
+            sectionKey: "v8_5_thirty_second_overview",
+          },
+          {
+            key: "v85-ai-answer",
+            label: "AI answer",
+            description: "Citable answer",
+            href: "#v8_5_ai_search_answer",
+            sectionKey: "v8_5_ai_search_answer",
+          },
+          {
+            key: "v85-strengths",
+            label: "Strengths/risks",
+            description: "Mechanism boundary",
+            href: "#v8_5_strengths_watchouts",
+            sectionKey: "v8_5_strengths_watchouts",
+          },
+          {
+            key: "v85-at-scenarios",
+            label: "A/T scenarios",
+            description: "Variant behavior",
+            href: "#v8_5_at_difference_scenarios",
+            sectionKey: "v8_5_at_difference_scenarios",
+          },
+          {
+            key: "v85-work",
+            label: "Work",
+            description: "Decision scenario",
+            href: "#v8_5_work_decision",
+            sectionKey: "v8_5_work_decision",
+          },
+          {
+            key: "v85-relationships",
+            label: "Relationships",
+            description: "Communication",
+            href: "#v8_5_relationship_communication",
+            sectionKey: "v8_5_relationship_communication",
+          },
+          {
+            key: "v85-pressure",
+            label: "Pressure/growth",
+            description: "Recovery path",
+            href: "#v8_5_pressure_growth",
+            sectionKey: "v8_5_pressure_growth",
+          },
+        ];
+
+  return [
+    ...candidateLinks
+      .filter((link) => sectionKeys.has(link.sectionKey))
+      .map(({ sectionKey: _sectionKey, ...link }) => ({ ...link, kind: "anchor" as const })),
+    {
+      key: "take_test",
+      label: locale === "zh" ? "立即测试" : "Start the free test",
+      description: locale === "zh" ? "确认类型" : "Confirm your type",
+      href: testHref,
+      kind: "test" as const,
+    },
+  ];
 }
 
 function shouldNoindex(robotsValue: string | null | undefined): boolean {
@@ -739,11 +865,14 @@ export default async function PersonalityDetailPage({
       : detail.projection.sections.filter((section) => section.key !== "quick_answer"),
     locale
   );
+  const { v85Sections, legacySections } = partitionPersonalitySectionsForV85(detail.supplementalSections);
+  const renderedV85Sections = renderPersonalitySections(v85Sections, locale);
   const renderedSupplementalSections = renderPersonalitySections(
-    [...detail.supplementalSections.filter((section) => section.sectionKey !== "quick_answer"), ...detail.faqSections],
+    [...legacySections.filter((section) => section.sectionKey !== "quick_answer"), ...detail.faqSections],
     locale
   );
-  const hasRenderableContent = renderedProjectionSections.length > 0 || renderedSupplementalSections.length > 0;
+  const hasV85Sections = renderedV85Sections.length > 0;
+  const hasRenderableContent = renderedV85Sections.length > 0 || renderedProjectionSections.length > 0 || renderedSupplementalSections.length > 0;
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -785,7 +914,10 @@ export default async function PersonalityDetailPage({
     sourcePath: canonicalPath,
   });
   const heroHeading = formatPersonalityDetailHeading(detail, locale);
-  const intentLinks = buildPersonalitySectionShortcuts(locale, detail.projection.sections, mbtiIntentCtaHref);
+  const legacyIntentLinks = buildPersonalitySectionShortcuts(locale, detail.projection.sections, mbtiIntentCtaHref);
+  const intentLinks = hasV85Sections
+    ? buildV85PersonalitySectionShortcuts(locale, v85Sections, mbtiIntentCtaHref)
+    : legacyIntentLinks;
   const personalityBrowseHref = `${localizedPath("/personality", locale)}#type-groups`;
   const careerDirectionHref = fallbackProjectionGate.canRenderCareerOrRecommendationClaims
     ? localizedPath(`/career/recommendations/mbti/${detail.routeSlug}`, locale)
@@ -1011,6 +1143,12 @@ export default async function PersonalityDetailPage({
         </div>
       </nav>
 
+      {hasV85Sections ? (
+        <section className="space-y-5" data-testid="personality-detail-v85-primary-sections">
+          {renderedV85Sections}
+        </section>
+      ) : null}
+
       <MbtiSceneEntrySection
         locale={locale}
         sourcePageType="personality_detail"
@@ -1020,6 +1158,7 @@ export default async function PersonalityDetailPage({
       <div className="space-y-5">
         {hasRenderableContent ? (
           <>
+            {!hasV85Sections ? renderedV85Sections : null}
             {renderedProjectionSections}
             {renderedSupplementalSections}
             <AnswerSurfaceSection
