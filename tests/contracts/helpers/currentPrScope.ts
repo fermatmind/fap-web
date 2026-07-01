@@ -950,6 +950,12 @@ const ARTICLE_HREFLANG_HOLD_DECOUPLE_00_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const ARTICLE_HREFLANG_PARITY_VERIFIER_ALLOWED_FILES = new Set([
+  "scripts/seo/verify-public-article-release.mjs",
+  "tests/contracts/public-article-release-smoke.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const PR_WEB_SEC_01_ALLOWED_FILES = new Set([
   "components/result/eq/EQResultV5.tsx",
   "components/result/eq/utils.ts",
@@ -4940,6 +4946,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return ARTICLE_HREFLANG_HOLD_DECOUPLE_00_ALLOWED_FILES.has(file);
   }
 
+  if (CURRENT_BRANCH === "codex/article-hreflang-parity-verifier") {
+    return ARTICLE_HREFLANG_PARITY_VERIFIER_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/riasec-result-fapweb-rendered-preview-qa-01") {
     return RIASEC_RESULT_FAPWEB_RENDERED_PREVIEW_QA_01_ALLOWED_FILES.has(file);
   }
@@ -5021,10 +5031,6 @@ export function isMbtiResultPagePdfSmokeQualityGateAllowedFile(file: string): bo
 }
 
 export function isMbtiResultPagePdfVisualPaginationAllowedFile(file: string): boolean {
-  if (CURRENT_BRANCH !== "codex/mbti-pdf-result-snapshot-visual-pagination") {
-    return true;
-  }
-
   return MBTI_RESULT_PAGE_PDF_VISUAL_PAGINATION_ALLOWED_FILES.has(file);
 }
 
