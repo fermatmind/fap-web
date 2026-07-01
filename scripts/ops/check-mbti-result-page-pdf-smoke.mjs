@@ -6,7 +6,7 @@ import { createHash } from "node:crypto";
 const DEFAULT_API_ORIGIN = "https://api.fermatmind.com";
 const DEFAULT_LOCALE = "zh-CN";
 const DEFAULT_MIN_PDF_BYTES = 20000;
-const SNAPSHOT_SURFACE_VERSION = "mbti.result_page_snapshot.v3";
+const SNAPSHOT_SURFACE_VERSION = "mbti.result_page_snapshot.v4";
 const SNAPSHOT_SURFACE_KEY = "mbti_result_page_snapshot";
 const SNAPSHOT_ENGINE = "gotenberg_chromium";
 
@@ -38,6 +38,10 @@ const FORBIDDEN_TEXT_PATTERNS = [
   ["pdf_dom_marker_leak", /data-pdf/i],
   ["engine_marker_leak", /Gotenberg/i],
   ["surface_marker_leak", /mbti\.result_page_snapshot/i],
+  ["summary_shell_title", /FERMATMIND MBTI RESULT/i],
+  ["summary_shell_footer_zh", /PDF 保留当前结果页的核心阅读内容/],
+  ["summary_shell_footer_zh_action", /职业推荐、历史结果与订单入口请回到结果页继续使用/],
+  ["core_reading_summary", /Core Reading|core reading|核心阅读|summary shell/i],
 ];
 
 const REQUIRED_SECTION_TEXT_BY_LOCALE = {
@@ -64,6 +68,51 @@ const REQUIRED_SECTION_TEXT_BY_LOCALE = {
     ["career_path", /Career Path/i],
     ["personal_growth", /Personal Growth/i],
     ["relationships", /Relationships/i],
+  ],
+};
+
+const REQUIRED_DETAIL_TEXT_BY_LOCALE = {
+  "zh-CN": [
+    ["career_influential_traits", /影响因素/],
+    ["career_advantages", /职业优势/],
+    ["career_weaknesses", /职业短板/],
+    ["preferred_roles", /你可能会喜欢的职业选择/],
+    ["work_style", /适合你的工作方式/],
+    ["growth_strengths", /成长优势/],
+    ["growth_weaknesses", /成长短板/],
+    ["relationship_strengths", /关系优势/],
+    ["relationship_weaknesses", /关系短板/],
+  ],
+  zh: [
+    ["career_influential_traits", /影响因素/],
+    ["career_advantages", /职业优势/],
+    ["career_weaknesses", /职业短板/],
+    ["preferred_roles", /你可能会喜欢的职业选择/],
+    ["work_style", /适合你的工作方式/],
+    ["growth_strengths", /成长优势/],
+    ["growth_weaknesses", /成长短板/],
+    ["relationship_strengths", /关系优势/],
+    ["relationship_weaknesses", /关系短板/],
+  ],
+  en: [
+    ["career_influential_traits", /Influential Traits/i],
+    ["career_advantages", /Career advantages/i],
+    ["career_weaknesses", /Career weaknesses/i],
+    ["preferred_roles", /Preferred roles/i],
+    ["growth_strengths", /Growth strengths/i],
+    ["growth_weaknesses", /Growth weaknesses/i],
+    ["relationship_strengths", /Relationship strengths/i],
+    ["relationship_weaknesses", /Relationship weaknesses/i],
+  ],
+  "en-US": [
+    ["career_influential_traits", /Influential Traits/i],
+    ["career_advantages", /Career advantages/i],
+    ["career_weaknesses", /Career weaknesses/i],
+    ["preferred_roles", /Preferred roles/i],
+    ["growth_strengths", /Growth strengths/i],
+    ["growth_weaknesses", /Growth weaknesses/i],
+    ["relationship_strengths", /Relationship strengths/i],
+    ["relationship_weaknesses", /Relationship weaknesses/i],
   ],
 };
 
@@ -213,6 +262,11 @@ function auditPdf({ pdf, text, locale, minPdfBytes }) {
   const requiredSections = REQUIRED_SECTION_TEXT_BY_LOCALE[locale] || REQUIRED_SECTION_TEXT_BY_LOCALE[locale.slice(0, 2)] || [];
   for (const [code, pattern] of requiredSections) {
     if (!pattern.test(text)) failures.push(`missing_section:${code}`);
+  }
+
+  const requiredDetails = REQUIRED_DETAIL_TEXT_BY_LOCALE[locale] || REQUIRED_DETAIL_TEXT_BY_LOCALE[locale.slice(0, 2)] || [];
+  for (const [code, pattern] of requiredDetails) {
+    if (!pattern.test(text)) failures.push(`missing_detail:${code}`);
   }
 
   return failures;

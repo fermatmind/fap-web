@@ -1,1 +1,1 @@
-export const RESULT_PAGE_SNAPSHOT_SURFACE = "mbti.result_page_snapshot.v3";
+export const RESULT_PAGE_SNAPSHOT_SURFACE = "mbti.result_page_snapshot.v4";

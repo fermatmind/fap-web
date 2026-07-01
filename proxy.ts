@@ -25,7 +25,7 @@ import {
 const NOINDEX_VALUE = "noindex, nofollow, noarchive";
 const PRIVATE_NOINDEX_VALUE = "noindex, nofollow, noarchive, nocache";
 const PRIVATE_CACHE_CONTROL_VALUE = "private, no-store, max-age=0, must-revalidate";
-const RESULT_PAGE_SNAPSHOT_SURFACE = "mbti.result_page_snapshot.v3";
+const RESULT_PAGE_SNAPSHOT_SURFACE = "mbti.result_page_snapshot.v4";
 const RESULT_PAGE_SNAPSHOT_SHELL_HEADER = "x-fermat-result-print-snapshot-shell";
 const ANON_COOKIE_NAME = "fap_anonymous_id_v1";
 const ANON_COOKIE_MAX_AGE_SECONDS = 31536000;

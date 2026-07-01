@@ -4,7 +4,6 @@ import { type FormEvent, useCallback, useEffect, useMemo, useRef, useState } fro
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
-import { MbtiResultPdfShell } from "@/components/result/mbti/MbtiResultPdfShell";
 import { MbtiResultShellLoadingShell } from "@/components/result/mbti/MbtiResultShell";
 import { IqResultShell } from "@/components/result/iq/IqResultShell";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
@@ -1920,18 +1919,6 @@ export default function ResultClient({
   }
 
   if (hasRichReport && reportData) {
-    if (printMode && resolvedScaleCode === "MBTI") {
-      return (
-        <div
-          data-testid="mbti-result-pdf-export-surface"
-          className="mx-auto w-full bg-white"
-        >
-          <MbtiResultPdfShell locale={locale} reportData={reportData} />
-          {renderPdfReadyMarker()}
-        </div>
-      );
-    }
-
     return (
       <div className="space-y-[var(--fm-gap-md)]">
         {renderOptionalEmailRecoveryCard()}
