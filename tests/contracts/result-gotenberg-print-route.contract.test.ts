@@ -37,6 +37,8 @@ describe("Gotenberg result print route contract", () => {
     expect(printRoute).toContain("printSnapshotSurface={RESULT_PAGE_SNAPSHOT_SURFACE}");
     expect(printRoute).toContain("initialReportAccess={printBootstrap.reportAccess}");
     expect(printRoute).toContain("initialReportData={printBootstrap.report}");
+    expect(printRoute).toContain("snapshotDesktopCloneContent={printBootstrap.desktopCloneContent}");
+    expect(printRoute).toContain("snapshotContentStatus={printBootstrap.snapshotContentStatus}");
     expect(printRoute).toContain("printBootstrapError={printBootstrap.error}");
     expect(printRoute).toContain("pdf-mode");
     expect(resultPage).not.toContain("mbti.result_page_export.v1");
@@ -62,6 +64,8 @@ describe("Gotenberg result print route contract", () => {
     expect(resultClient).toContain("printAccessToken?: string | null");
     expect(resultClient).toContain("initialReportAccess?: AttemptReportAccessResponse | null");
     expect(resultClient).toContain("initialReportData?: ReportResponse | null");
+    expect(resultClient).toContain("snapshotDesktopCloneContent?: PersonalityDesktopCloneContentPayload | null");
+    expect(resultClient).toContain("snapshotContentStatus?: MbtiSnapshotContentStatus | null");
     expect(resultClient).toContain("printBootstrapError?: string | null");
     expect(resultClient).toContain("initialPrintBootstrapReady");
     expect(resultClient).toContain("initialPrintBootstrapFailed");
@@ -80,6 +84,10 @@ describe("Gotenberg result print route contract", () => {
     expect(resultClient).toContain("waitForPdfFonts(MBTI_PDF_ASSET_READY_TIMEOUT_MS)");
     expect(resultClient).toContain("waitForPdfImages(MBTI_PDF_ASSET_READY_TIMEOUT_MS)");
     expect(resultClient).toContain("image.addEventListener(\"error\", () => resolve(), { once: true })");
+    expect(resultClient).toContain("hasMbtiPdfContentReady()");
+    expect(resultClient).toContain("PDF_CONTENT_NOT_READY");
+    expect(resultClient).toContain('[data-pdf-content-ready="false"]');
+    expect(resultClient).toContain('[data-content-source="placeholder"]');
     expect(resultClient).toContain('"mbti-desktop-traits"');
     expect(resultClient).toContain('"mbti-desktop-career"');
     expect(resultClient).toContain('"mbti-desktop-growth"');
@@ -91,6 +99,10 @@ describe("Gotenberg result print route contract", () => {
     expect(printBootstrap).toContain("X-FAP-Locale");
     expect(printBootstrap).toContain("/report-access");
     expect(printBootstrap).toContain("/report");
+    expect(printBootstrap).toContain("fetchPersonalityDesktopCloneSnapshotContent");
+    expect(printBootstrap).toContain("validateMbtiSnapshotDesktopCloneContent");
+    expect(printBootstrap).toContain("desktopCloneContent");
+    expect(printBootstrap).toContain("snapshotContentStatus");
   });
 
   it("routes MBTI result PDF downloads to the strict result-page export endpoint", () => {

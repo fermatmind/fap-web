@@ -35,6 +35,7 @@ import {
 import {
   fetchPersonalityDesktopCloneContent,
   normalizeDesktopCloneTypeSlug,
+  type PersonalityDesktopCloneContentPayload,
   type PersonalityDesktopCloneAssetSlot,
 } from "@/lib/cms/personality-desktop-clone";
 import { buildOrderWaitPath, regionFromLocale, resolveCheckoutAction } from "@/lib/commerce/checkoutAction";
@@ -45,6 +46,7 @@ import {
   toAttemptAttributionPayload,
 } from "@/lib/tracking/attribution";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import { normalizeMbtiAccessHub } from "@/lib/mbti/accessHub";
 import { buildMbtiFormDisplayLabel, normalizeMbtiFormSummary } from "@/lib/mbti/formSummary";
 import type { MbtiPreviewViewModel } from "@/lib/mbti/preview";
@@ -150,6 +152,9 @@ type MbtiResultShellProps = {
   sections: ReportSection[];
   sectionUnlocks: Record<string, MbtiSectionUnlock>;
   offers: ResolvedOffer[];
+  printSnapshotMode?: boolean;
+  initialDesktopCloneContent?: PersonalityDesktopCloneContentPayload | null;
+  snapshotContentStatus?: MbtiSnapshotContentStatus | null;
   onInternalNavigate?: (path: string) => void;
   onExternalNavigate?: (url: string) => void;
 };
@@ -639,6 +644,9 @@ export function MbtiResultShell({
   sections,
   sectionUnlocks,
   offers,
+  printSnapshotMode = false,
+  initialDesktopCloneContent = null,
+  snapshotContentStatus = null,
   onInternalNavigate,
   onExternalNavigate,
 }: MbtiResultShellProps) {
@@ -724,19 +732,36 @@ export function MbtiResultShell({
     () => normalizeText(publicHeadline.typeCode, projectionViewModel?.displayType).toUpperCase() || "MBTI",
     [publicHeadline.typeCode, projectionViewModel?.displayType],
   );
-  const canLoadPublicDesktopCloneStorage = locale === "zh" && Boolean(normalizeDesktopCloneTypeSlug(fullCodeForStorage));
+  const initialDesktopCloneSnapshot = useMemo(() => {
+    if (
+      !initialDesktopCloneContent
+      || initialDesktopCloneContent.fullCode !== fullCodeForStorage
+      || (locale === "zh" ? initialDesktopCloneContent.locale !== "zh-CN" : initialDesktopCloneContent.locale !== "en")
+    ) {
+      return null;
+    }
+
+    return {
+      locale,
+      fullCode: fullCodeForStorage,
+      content: initialDesktopCloneContent.content,
+      assetSlots: initialDesktopCloneContent.assetSlots,
+    };
+  }, [fullCodeForStorage, initialDesktopCloneContent, locale]);
+  const canLoadPublicDesktopCloneStorage = (printSnapshotMode || locale === "zh") && Boolean(normalizeDesktopCloneTypeSlug(fullCodeForStorage));
   const [desktopCloneSnapshot, setDesktopCloneSnapshot] = useState<{
     locale: Locale;
     fullCode: string;
     content: MbtiDesktopCloneContent | null;
     assetSlots: PersonalityDesktopCloneAssetSlot[];
   } | null>(null);
+  const resolvedDesktopCloneSnapshot = initialDesktopCloneSnapshot ?? desktopCloneSnapshot;
   const activeDesktopCloneSnapshot =
     canLoadPublicDesktopCloneStorage
-    && desktopCloneSnapshot
-    && desktopCloneSnapshot.locale === locale
-    && desktopCloneSnapshot.fullCode === fullCodeForStorage
-      ? desktopCloneSnapshot
+    && resolvedDesktopCloneSnapshot
+    && resolvedDesktopCloneSnapshot.locale === locale
+    && resolvedDesktopCloneSnapshot.fullCode === fullCodeForStorage
+      ? resolvedDesktopCloneSnapshot
       : null;
   const terminalPrimaryCtaLabel = isUnlockedPostPurchase
     ? locale === "zh"
@@ -1628,7 +1653,7 @@ export function MbtiResultShell({
   useEffect(() => {
     let active = true;
 
-    if (!canLoadPublicDesktopCloneStorage) {
+    if (!canLoadPublicDesktopCloneStorage || initialDesktopCloneSnapshot) {
       return () => {
         active = false;
       };
@@ -1649,7 +1674,7 @@ export function MbtiResultShell({
     return () => {
       active = false;
     };
-  }, [canLoadPublicDesktopCloneStorage, fullCodeForStorage, locale]);
+  }, [canLoadPublicDesktopCloneStorage, fullCodeForStorage, initialDesktopCloneSnapshot, locale]);
 
   const supplementaryNodes = auxiliaryCtaEntries.map((entry) =>
     entry.key === "career_bridge" ? (
@@ -1726,6 +1751,8 @@ export function MbtiResultShell({
         storageAssetSlotsOverride={activeDesktopCloneSnapshot?.assetSlots ?? []}
         storageManagedExternally
         canLoadDesktopCloneStorage={canLoadPublicDesktopCloneStorage}
+        snapshotMode={printSnapshotMode}
+        snapshotContentStatus={snapshotContentStatus}
       />
     </div>
   );

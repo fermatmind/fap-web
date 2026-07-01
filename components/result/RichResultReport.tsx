@@ -14,7 +14,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { AttemptInviteUnlockProgressView } from "@/lib/access/inviteUnlock";
 import type { AttemptReportAccessView } from "@/lib/access/unifiedAccess";
 import type { Big5PublicProjection, OfferPayload, ReportResponse } from "@/lib/api/v0_3";
+import type { PersonalityDesktopCloneContentPayload } from "@/lib/cms/personality-desktop-clone";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import { assembleBig5ResultViewModel } from "@/lib/big5/resultAssembler";
 import { filterBig5ResultPageV2PayloadForGate, getBig5ResultPageV2Payload } from "@/lib/big5/resultPageV2";
 import { assembleEnneagramResultViewModel, hasEnneagramProjection } from "@/lib/enneagram/resultAssembler";
@@ -1357,11 +1359,17 @@ export function RichResultReport({
   reportData,
   accessProjection,
   inviteUnlockProgress,
+  printSnapshotMode = false,
+  snapshotDesktopCloneContent = null,
+  snapshotContentStatus = null,
 }: {
   locale: Locale;
   reportData: ReportResponse;
   accessProjection?: AttemptReportAccessView | null;
   inviteUnlockProgress?: AttemptInviteUnlockProgressView | null;
+  printSnapshotMode?: boolean;
+  snapshotDesktopCloneContent?: PersonalityDesktopCloneContentPayload | null;
+  snapshotContentStatus?: MbtiSnapshotContentStatus | null;
 }) {
   const scaleCode = resolveReportScaleCode(reportData);
   if (!scaleCode) {
@@ -1428,6 +1436,9 @@ export function RichResultReport({
         sections={sections}
         sectionUnlocks={sectionUnlocks}
         offers={resolvedOffers}
+        printSnapshotMode={printSnapshotMode}
+        initialDesktopCloneContent={snapshotDesktopCloneContent}
+        snapshotContentStatus={snapshotContentStatus}
       />
     );
   }

@@ -172,7 +172,12 @@ export function MbtiCloneTraitsSection({
     : "";
 
   return (
-    <section id={getMbtiDesktopAnchorId("traits")} data-testid="mbti-chapter-traits" className={styles.section}>
+    <section
+      id={getMbtiDesktopAnchorId("traits")}
+      data-testid="mbti-chapter-traits"
+      data-pdf-section="personality-traits"
+      className={styles.section}
+    >
       <MbtiCloneAssetSlot
         slotId={illustrationSlotId}
         assetSlots={assetSlots}
