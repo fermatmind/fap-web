@@ -33444,9 +33444,9 @@
     "depends_on": [
       "MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE"
     ],
-    "status": "in_progress",
+    "status": "pr_open",
     "commit_sha": "265ac8ad9114a83409545eef670be38ee28a1d9b",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1506",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -33533,6 +33533,11 @@
         "at": "2026-07-01T04:07:52Z",
         "status": "committed",
         "notes": "Created local implementation commit 265ac8ad9114a83409545eef670be38ee28a1d9b for PR-E."
+      },
+      {
+        "at": "2026-07-01T04:09:10Z",
+        "status": "pr_open",
+        "notes": "Opened fap-web PR https://github.com/fermatmind/fap-web/pull/1506 for PR-E."
       }
     ]
   }
