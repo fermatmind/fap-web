@@ -1,4 +1,4 @@
-const RESULT_PAGE_PDF_SURFACE = "mbti.result_page_export.v1";
+import { RESULT_PAGE_SNAPSHOT_SURFACE } from "@/lib/result/pdfSurface";
 
 type PdfTokenPayload = {
   v?: number;
@@ -40,10 +40,12 @@ export async function verifyResultPagePdfToken({
   token,
   attemptId,
   locale,
+  expectedSurface = RESULT_PAGE_SNAPSHOT_SURFACE,
 }: {
-  token: string | string[] | undefined;
+  token: string | string[] | null | undefined;
   attemptId: string;
   locale: string;
+  expectedSurface?: string;
 }): Promise<boolean> {
   const rawToken = Array.isArray(token) ? token[0] : token;
   const normalized = normalizeTokenPart(rawToken);
@@ -79,7 +81,7 @@ export async function verifyResultPagePdfToken({
     && payload.typ === "mbti_result_page_pdf"
     && payload.attempt_id === attemptId
     && payload.locale === locale
-    && payload.surface === RESULT_PAGE_PDF_SURFACE
+    && payload.surface === expectedSurface
     && expiresAt > Math.floor(Date.now() / 1000)
   );
 }
