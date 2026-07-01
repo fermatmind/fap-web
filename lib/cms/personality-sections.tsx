@@ -148,6 +148,29 @@ const MBTI64_PROMOTED_DETAIL_SECTION_KEYS = new Set([
   "similar_types",
 ]);
 
+const MBTI64_V85_FIRST_CLASS_SECTION_PREFIX = "v8_5_";
+
+const MBTI64_V85_FIRST_CLASS_SECTION_KEYS = new Set([
+  "v8_5_thirty_second_overview",
+  "v8_5_ai_search_answer",
+  "v8_5_strengths_watchouts",
+  "v8_5_at_difference_scenarios",
+  "v8_5_module_01_core_reading",
+  "v8_5_module_02_judgment_style",
+  "v8_5_module_03_agency_boundary",
+  "v8_5_module_04_standards_drive",
+  "v8_5_module_05_learning_revision",
+  "v8_5_module_06_stress_blindspot",
+  "v8_5_module_07_social_feedback",
+  "v8_5_module_08_career_workflow",
+  "v8_5_module_09_relationships",
+  "v8_5_module_10_faq_boundary",
+  "v8_5_work_decision",
+  "v8_5_relationship_communication",
+  "v8_5_pressure_growth",
+  "v8_5_search_user_paths",
+]);
+
 export type RenderableProjectionSection = {
   key: string;
   title: string;
@@ -159,6 +182,28 @@ export type RenderableProjectionSection = {
 
 function isKnownSectionKey(value: string): value is KnownSectionKey {
   return KNOWN_SECTION_KEYS.includes(value as KnownSectionKey);
+}
+
+export function isMbti64V85FirstClassSectionKey(value: string): boolean {
+  return value.startsWith(MBTI64_V85_FIRST_CLASS_SECTION_PREFIX) && MBTI64_V85_FIRST_CLASS_SECTION_KEYS.has(value);
+}
+
+export function partitionPersonalitySectionsForV85(sections: CmsPersonalitySection[]): {
+  v85Sections: CmsPersonalitySection[];
+  legacySections: CmsPersonalitySection[];
+} {
+  return sections.reduce(
+    (partitioned, section) => {
+      if (isMbti64V85FirstClassSectionKey(section.sectionKey)) {
+        partitioned.v85Sections.push(section);
+      } else {
+        partitioned.legacySections.push(section);
+      }
+
+      return partitioned;
+    },
+    { v85Sections: [] as CmsPersonalitySection[], legacySections: [] as CmsPersonalitySection[] }
+  );
 }
 
 function isSupportedProjectionRender(value: string): value is SupportedProjectionRender {
@@ -213,6 +258,24 @@ const PROJECTION_SECTION_TITLE_COPY: Record<string, { zh: string; en: string }> 
   which_one_fits: { zh: "哪个更像你", en: "Which one fits" },
   mbti64_comparison_a_vs_t: { zh: "A/T 对比", en: "A/T comparison" },
   mbti64_promotion_metadata: { zh: "方法边界", en: "Method boundary" },
+  v8_5_thirty_second_overview: { zh: "30 秒速览", en: "30-second overview" },
+  v8_5_ai_search_answer: { zh: "AI / Search 摘要答案", en: "AI / Search answer" },
+  v8_5_strengths_watchouts: { zh: "优势 / 注意风险", en: "Strengths / Watch-outs" },
+  v8_5_at_difference_scenarios: { zh: "A/T 场景差异", en: "A/T scenarios" },
+  v8_5_module_01_core_reading: { zh: "先理解这个类型", en: "Start with this type" },
+  v8_5_module_02_judgment_style: { zh: "判断风格", en: "Judgment style" },
+  v8_5_module_03_agency_boundary: { zh: "独立性与边界", en: "Agency and boundaries" },
+  v8_5_module_04_standards_drive: { zh: "标准与驱动力", en: "Standards and drive" },
+  v8_5_module_05_learning_revision: { zh: "学习与修正", en: "Learning and revision" },
+  v8_5_module_06_stress_blindspot: { zh: "压力与盲区", en: "Stress and blind spots" },
+  v8_5_module_07_social_feedback: { zh: "社交与反馈", en: "Social feedback" },
+  v8_5_module_08_career_workflow: { zh: "工作与职业场景", en: "Work and career workflow" },
+  v8_5_module_09_relationships: { zh: "关系与亲密", en: "Relationships" },
+  v8_5_module_10_faq_boundary: { zh: "FAQ 与使用边界", en: "FAQ and boundaries" },
+  v8_5_work_decision: { zh: "工作决策场景", en: "Work decision scenario" },
+  v8_5_relationship_communication: { zh: "关系与沟通场景", en: "Relationship and communication" },
+  v8_5_pressure_growth: { zh: "压力与成长", en: "Pressure and growth" },
+  v8_5_search_user_paths: { zh: "继续浏览", en: "Continue reading" },
   overview: { zh: "这个类型是什么", en: "What this type means" },
   letters_intro: { zh: "这个类型是什么", en: "What this type means" },
   trait_overview: { zh: "常见特征", en: "Common traits" },
@@ -1284,8 +1347,34 @@ function renderPremiumTeaserSection(section: RenderableProjectionSection) {
   );
 }
 
+function mbti64V85TestId(sectionKey: string): string {
+  return `mbti64-v85-${sectionKey.replace(/^v8_5_/, "").replace(/_/g, "-")}`;
+}
+
+function renderMbti64V85FirstClassSection(section: CmsPersonalitySection, locale: Locale) {
+  const payload = asRecord(section.payloadJson);
+  const linkItems = [
+    ...asArray<LinkItem>(payload?.items),
+    ...asArray<LinkItem>(payload?.links),
+    ...asArray<LinkItem>(payload?.internal_links),
+  ];
+  const safeLinks = section.sectionKey === "v8_5_search_user_paths" ? renderSafeInternalLinks(linkItems, locale) : null;
+  const body = renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
+
+  if (!body && !safeLinks) {
+    return null;
+  }
+
+  return (
+    <div className="space-y-4" data-testid={mbti64V85TestId(section.sectionKey)}>
+      {body}
+      {safeLinks}
+    </div>
+  );
+}
+
 export function getRenderablePersonalitySections(sections: CmsPersonalitySection[]): CmsPersonalitySection[] {
-  return sections.filter((section) => isKnownSectionKey(section.sectionKey));
+  return sections.filter((section) => isKnownSectionKey(section.sectionKey) || isMbti64V85FirstClassSectionKey(section.sectionKey));
 }
 
 export function renderPersonalitySections(sections: CmsPersonalitySection[], locale: Locale): ReactNode[] {
@@ -1301,7 +1390,9 @@ export function renderPersonalitySections(sections: CmsPersonalitySection[], loc
           content = renderMbti64PromotionMetadataSection(section, locale);
           break;
         default:
-          if (MBTI64_PROMOTED_DETAIL_SECTION_KEYS.has(section.sectionKey)) {
+          if (isMbti64V85FirstClassSectionKey(section.sectionKey)) {
+            content = renderMbti64V85FirstClassSection(section, locale);
+          } else if (MBTI64_PROMOTED_DETAIL_SECTION_KEYS.has(section.sectionKey)) {
             content = renderMbti64DetailSection(section, locale);
           } else {
             switch (section.renderVariant) {

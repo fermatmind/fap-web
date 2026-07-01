@@ -437,7 +437,7 @@ const MBTI64_PROMOTED_DETAIL_SECTION_KEYS = new Set([
 ]);
 
 function isMbti64PromotedDetailSection(section: CmsPersonalitySection): boolean {
-  return section.isEnabled && MBTI64_PROMOTED_DETAIL_SECTION_KEYS.has(section.sectionKey);
+  return section.isEnabled && (MBTI64_PROMOTED_DETAIL_SECTION_KEYS.has(section.sectionKey) || section.sectionKey.startsWith("v8_5_"));
 }
 
 export type PersonalityProjectionViewModel = {

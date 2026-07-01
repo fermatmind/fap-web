@@ -5,7 +5,9 @@ import {
   buildPersonalitySectionLinks,
   extractPersonalityFaqItems,
   extractProjectionFaqItems,
+  isMbti64V85FirstClassSectionKey,
   normalizeProjectionSections,
+  partitionPersonalitySectionsForV85,
   renderPersonalitySections,
   renderProjectionSections,
 } from "@/lib/cms/personality-sections";
@@ -38,6 +40,90 @@ function cmsSection(overrides: Partial<CmsPersonalitySection>): CmsPersonalitySe
 }
 
 describe("personality projection section renderer contract", () => {
+  it("recognizes and renders MBTI64 V8.5 first-class sections", () => {
+    render(
+      <div>
+        {renderPersonalitySections(
+          [
+            cmsSection({
+              sectionKey: "v8_5_thirty_second_overview",
+              title: "30 second overview",
+              renderVariant: "list",
+              bodyMd: "- 核心不是标签\n- A/T 差异需要场景化",
+            }),
+            cmsSection({
+              sectionKey: "v8_5_ai_search_answer",
+              title: "AI / Search answer",
+              renderVariant: "callout",
+              bodyMd: "INTJ-A 是长期系统和稳定自我确认的组合。",
+            }),
+            cmsSection({
+              sectionKey: "v8_5_strengths_watchouts",
+              title: "Strengths / Watch-outs",
+              renderVariant: "cards",
+              bodyMd: "### Strengths\n能把复杂问题拆成长期系统。\n\n### Watch-outs\n容易把情绪信号当成噪音。",
+            }),
+            cmsSection({
+              sectionKey: "v8_5_at_difference_scenarios",
+              title: "A/T scenarios",
+              renderVariant: "cards",
+              bodyMd: "A 型更容易稳定推进，T 型更容易反复校准风险。",
+            }),
+            cmsSection({
+              sectionKey: "v8_5_work_decision",
+              title: "Work decision scenario",
+              renderVariant: "cards",
+              bodyMd: "适合目标清楚、边界明确、允许深度推演的工作场景。",
+            }),
+            cmsSection({
+              sectionKey: "v8_5_relationship_communication",
+              title: "Relationship and communication",
+              renderVariant: "cards",
+              bodyMd: "关系里更常通过解决问题表达在意。",
+            }),
+            cmsSection({
+              sectionKey: "v8_5_pressure_growth",
+              title: "Pressure and growth",
+              renderVariant: "cards",
+              bodyMd: "压力下需要先恢复判断余量，再决定是否继续推进。",
+            }),
+          ],
+          "zh"
+        )}
+      </div>
+    );
+
+    expect(isMbti64V85FirstClassSectionKey("v8_5_work_decision")).toBe(true);
+    expect(isMbti64V85FirstClassSectionKey("meaning")).toBe(false);
+    expect(screen.getByText("30 秒速览")).toBeInTheDocument();
+    expect(screen.getByText("AI / Search 摘要答案")).toBeInTheDocument();
+    expect(screen.getByText("优势 / 注意风险")).toBeInTheDocument();
+    expect(screen.getByText("A/T 场景差异")).toBeInTheDocument();
+    expect(screen.getByText("工作决策场景")).toBeInTheDocument();
+    expect(screen.getByText("关系与沟通场景")).toBeInTheDocument();
+    expect(screen.getByText("压力与成长")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti64-v85-thirty-second-overview")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti64-v85-ai-search-answer")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti64-v85-strengths-watchouts")).toBeInTheDocument();
+  });
+
+  it("partitions V8.5 first-class sections before legacy sections without duplication", () => {
+    const sections = [
+      cmsSection({ sectionKey: "meaning", title: "Legacy meaning", sortOrder: 10 }),
+      cmsSection({ sectionKey: "v8_5_thirty_second_overview", title: "30 second overview", sortOrder: 20 }),
+      cmsSection({ sectionKey: "v8_5_work_decision", title: "Work decision", sortOrder: 30 }),
+      cmsSection({ sectionKey: "related_content", title: "Related content", sortOrder: 40 }),
+    ];
+
+    const { v85Sections, legacySections } = partitionPersonalitySectionsForV85(sections);
+
+    expect(v85Sections.map((section) => section.sectionKey)).toEqual([
+      "v8_5_thirty_second_overview",
+      "v8_5_work_decision",
+    ]);
+    expect(legacySections.map((section) => section.sectionKey)).toEqual(["meaning", "related_content"]);
+  });
+
   it("keeps generic canonical keys instead of filtering them through the legacy allowlist", () => {
     const sections = normalizeProjectionSections([
       section({ key: "overview", title: "Overview" }),
