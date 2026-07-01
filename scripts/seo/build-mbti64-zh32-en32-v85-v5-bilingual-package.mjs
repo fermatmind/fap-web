@@ -2,6 +2,10 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import {
+  findExactParagraphDuplicates,
+  repairZhDuplicateParagraphsInPage,
+} from "./repair-mbti64-zh32-v85-duplicate-paragraphs.mjs";
 
 const ROOT = process.cwd();
 const GENERATED_DATE = getArgValue("--generated-date") ?? "2026-07-01";
@@ -348,6 +352,19 @@ function duplicateGate(rows) {
   return failures;
 }
 
+function exactParagraphDuplicateGate(row) {
+  return findExactParagraphDuplicates(row).map((duplicate) => {
+    const first = duplicate.first;
+    const next = duplicate.duplicate;
+    return [
+      `path:${row.path}`,
+      `first:${first.module_id}[${first.paragraph_index}]`,
+      `duplicate:${next.module_id}[${next.paragraph_index}]`,
+      `text:${next.text_prefix}`,
+    ].join("|");
+  });
+}
+
 function addSignature(map, signature, pagePath) {
   if (!signature || signature.length < 16) return;
   const paths = map.get(signature) ?? [];
@@ -398,6 +415,7 @@ function validatePackage(rows, sources) {
     const deterministicHits = patternHits(claimText, DETERMINISTIC_RISK);
     const clinicalHits = patternHits(claimText, CLINICAL_RECRUITING_RISK);
     const duplicateHits = duplicateFailures.get(row.path) ?? [];
+    const paragraphDuplicateHits = exactParagraphDuplicateGate(row);
     const bilingualFailures = missingPairs.filter((failure) => failure.endsWith(`${row.type_code}-${row.variant}`));
     const inventoryFailures = [];
 
@@ -417,6 +435,10 @@ function validatePackage(rows, sources) {
       deterministic_claim_gate: gate(deterministicHits.length ? "fail" : "pass", deterministicHits),
       clinical_recruiting_gate: gate(clinicalHits.length ? "fail" : "pass", clinicalHits),
       duplicate_template_gate: gate(duplicateHits.length ? "fail" : "pass", duplicateHits),
+      exact_paragraph_duplicate_gate: gate(
+        paragraphDuplicateHits.length ? "fail" : "pass",
+        paragraphDuplicateHits,
+      ),
       private_route_gate: gate(privateHits.length ? "fail" : "pass", privateHits),
     };
     const failures = Object.entries(gates).flatMap(([name, result]) =>
@@ -618,7 +640,10 @@ function main() {
     if (!Array.isArray(source.package.pages)) {
       throw new Error(`${source.locale} source package does not contain pages[]`);
     }
-    return source.package.pages.map((page) => recommendationFromPage(page, source));
+    return source.package.pages.map((page) => {
+      const repairedPage = source.locale === "zh" ? repairZhDuplicateParagraphsInPage(page) : page;
+      return recommendationFromPage(repairedPage, source);
+    });
   });
   recommendations.sort((a, b) => a.path.localeCompare(b.path));
 

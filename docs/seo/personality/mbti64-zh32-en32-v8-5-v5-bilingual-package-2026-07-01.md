@@ -8,7 +8,7 @@
 - en pages: 32
 - Variant pages: 64
 - Comparison pages: 0
-- Package SHA256: `13ec2c55caf2cf7b48650739fabadfb09ec4a02214cb1af99d5e47d8af2499d8`
+- Package SHA256: `937842c2a152f5943f641470f030cb88d08e318df5cfb40d24d6449d6999d8ad`
 
 ## Scope Boundary
 

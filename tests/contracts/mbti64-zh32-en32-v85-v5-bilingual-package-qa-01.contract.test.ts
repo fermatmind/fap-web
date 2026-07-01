@@ -6,6 +6,7 @@ import { describe, expect, it } from "vitest";
 
 const ROOT = process.cwd();
 const SCRIPT_PATH = "scripts/seo/build-mbti64-zh32-en32-v85-v5-bilingual-package.mjs";
+const REPAIR_SCRIPT_PATH = "scripts/seo/repair-mbti64-zh32-v85-duplicate-paragraphs.mjs";
 const PACKAGE_JSON =
   "docs/seo/personality/mbti64-zh32-en32-v8-5-v5-bilingual-package-2026-07-01.json";
 const PACKAGE_MD =
@@ -15,6 +16,7 @@ const QA_MD = "docs/seo/personality/mbti64-zh32-en32-v8-5-v5-bilingual-qa-2026-0
 
 const ALLOWED_FILES = new Set([
   SCRIPT_PATH,
+  REPAIR_SCRIPT_PATH,
   PACKAGE_JSON,
   PACKAGE_MD,
   QA_JSON,
@@ -59,7 +61,7 @@ type Recommendation = {
   };
   geo_summary: Record<string, unknown>;
   reader_experience: Record<string, unknown>;
-  modules: Array<Record<string, unknown>>;
+  modules: Array<{ id?: string; title?: string; paragraphs?: string[] }>;
   faq: Array<Record<string, unknown>>;
   internal_links: Array<Record<string, unknown>>;
   source_ledger: Array<Record<string, unknown>>;
@@ -257,10 +259,12 @@ describe("MBTI64-ZH32-EN32-V8_5-V5-BILINGUAL-PACKAGE-QA-01", () => {
     for (const totals of Object.values(qa.gate_totals)) {
       expect(totals).toEqual({ passed: 64, failed: 0 });
     }
+    expect(qa.gate_totals.exact_paragraph_duplicate_gate).toEqual({ passed: 64, failed: 0 });
     for (const row of qa.page_results) {
       expect(row.qa_decision).toBe("PASS_READY_FOR_FAP_API_ARTIFACT_SYNC");
       expect(row.blocked_reason).toBeNull();
       expect(Object.values(row.gates).every((gate) => gate.status === "pass")).toBe(true);
+      expect(row.gates.exact_paragraph_duplicate_gate).toEqual({ status: "pass", failures: [] });
     }
 
     expect(artifact.safety_boundary).toMatchObject({
@@ -278,6 +282,36 @@ describe("MBTI64-ZH32-EN32-V8_5-V5-BILINGUAL-PACKAGE-QA-01", () => {
       external_api_call: false,
     });
     expect(qa.safety_boundary).toMatchObject(artifact.safety_boundary);
+  });
+
+  it("blocks exact paragraph duplicates and removes the known INTJ-A repeated phrases", () => {
+    const artifact = readJson<PackageArtifact>(PACKAGE_JSON);
+    const knownRepeated = [
+      "因此，理性在这里不是压过一切的姿态，而是把证据、反例、情绪信号和现实后果放进同一个判断过程。",
+      "当边界被说清楚时，独立不会削弱合作，反而能让别人知道自己可以在哪些地方参与、补充和共同承担。",
+      "高标准真正有价值的地方，是帮助他们区分值得长期投入的目标和只会制造消耗的要求。",
+      "亲密关系需要的不是放弃判断，而是让在意、边界和修复方式都能被对方感受到。",
+      "这些回答的目的，是帮助读者继续验证自己，而不是把人格类型当成最终判决。",
+    ];
+
+    for (const row of artifact.recommendations) {
+      const seen = new Set<string>();
+      for (const section of row.modules) {
+        for (const paragraph of section.paragraphs ?? []) {
+          const normalized = paragraph.replace(/\s+/g, " ").trim();
+          expect(seen.has(normalized), `${row.path} duplicates paragraph: ${normalized.slice(0, 96)}`).toBe(false);
+          seen.add(normalized);
+        }
+      }
+    }
+
+    const intjA = artifact.recommendations.find((row) => row.path === "/zh/personality/intj-a");
+    expect(intjA).toBeTruthy();
+    const intjParagraphs = intjA?.modules.flatMap((section) => section.paragraphs ?? []) ?? [];
+    for (const phrase of knownRepeated) {
+      const count = intjParagraphs.filter((paragraph) => paragraph === phrase).length;
+      expect(count, phrase).toBeLessThanOrEqual(1);
+    }
   });
 
   it("supports temporary dry-run output paths", () => {
@@ -309,8 +343,8 @@ describe("MBTI64-ZH32-EN32-V8_5-V5-BILINGUAL-PACKAGE-QA-01", () => {
   });
 
   it("keeps changed files inside the declared artifact-only scope", () => {
-    if (currentBranch() !== "codex/mbti64-zh32-en32-v8-5-v5-bilingual-package-qa-01") {
-      expect(currentBranch()).not.toBe("codex/mbti64-zh32-en32-v8-5-v5-bilingual-package-qa-01");
+    if (currentBranch() !== "codex/mbti64-zh32-v85-duplicate-paragraph-repair-01") {
+      expect(currentBranch()).not.toBe("codex/mbti64-zh32-v85-duplicate-paragraph-repair-01");
       return;
     }
 
