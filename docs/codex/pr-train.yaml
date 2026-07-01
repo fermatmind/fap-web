@@ -19653,3 +19653,50 @@ prs:
       squash: true
       auto_merge: true
     next_task: MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE
+
+  - id: MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-pdf-result-snapshot-smoke-quality-gate
+    base: main
+    title: "MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE: add rendered MBTI result-page PDF smoke gate"
+    depends_on:
+      - MBTI-PDF-RESULT-SNAPSHOT-SHELL
+    mode: execute
+    train_scope: mbti_pdf_result_snapshot_smoke_quality_gate
+    status: in_progress
+    goal: "Add a fap-web-only opt-in rendered PDF smoke quality gate for mbti.result_page_snapshot.v3 that can audit an operator-provided unlocked MBTI result-page PDF for correct headers, PDF shape, core section text, and known runtime pollutants without running live production PDF downloads in default CI."
+    artifacts:
+      - package.json
+      - scripts/ops/check-mbti-result-page-pdf-smoke.mjs
+      - tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - package.json
+      - scripts/ops/check-mbti-result-page-pdf-smoke.mjs
+      - tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Deploy, reload, restart, clear cache, write DB/CMS/search/indexing/queue, or mutate server env.
+      - Run live production PDF smoke by default in CI.
+      - Store raw PDFs, raw attempt ids, raw tokens, private URLs, or response payloads in repo artifacts/logs.
+      - Change backend PDF engine, mPDF fallback, content assets, imports, runtime snapshot shell, A4 pagination, or visual polish.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts tests/contracts/result-private-leak-regressions.contract.test.ts tests/contracts/result-gotenberg-print-route.contract.test.ts
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-PDF-RESULT-SNAPSHOT-VISUAL-PAGINATION

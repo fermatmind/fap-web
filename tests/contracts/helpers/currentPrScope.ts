@@ -109,6 +109,15 @@ const MBTI_MAIN_FAQ_SCHEMA_EVIDENCE_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const MBTI_RESULT_PAGE_PDF_SMOKE_QUALITY_GATE_ALLOWED_FILES = new Set([
+  "package.json",
+  "scripts/ops/check-mbti-result-page-pdf-smoke.mjs",
+  "tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -4988,6 +4997,14 @@ export function isMbtiMainFaqSchemaEvidence01AllowedFile(file: string): boolean 
   }
 
   return MBTI_MAIN_FAQ_SCHEMA_EVIDENCE_01_ALLOWED_FILES.has(file);
+}
+
+export function isMbtiResultPagePdfSmokeQualityGateAllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/mbti-pdf-result-snapshot-smoke-quality-gate") {
+    return true;
+  }
+
+  return MBTI_RESULT_PAGE_PDF_SMOKE_QUALITY_GATE_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {
