@@ -99,7 +99,7 @@ export function MbtiCloneRail({
   }, []);
 
   return (
-    <aside data-testid="mbti-sticky-rail" className={styles.rail}>
+    <aside data-testid="mbti-sticky-rail" data-result-sidebar="true" className={styles.rail}>
       <div className={styles.railCard}>
         <div className={styles.railIdentityCard} data-testid="mbti-rail-profile-identity">
           <p className={styles.railCodePrimary}>{profileIdentity.code}</p>

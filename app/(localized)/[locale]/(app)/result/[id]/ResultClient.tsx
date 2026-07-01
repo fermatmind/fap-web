@@ -4,6 +4,7 @@ import { type FormEvent, useCallback, useEffect, useMemo, useRef, useState } fro
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
+import { MbtiResultPdfShell } from "@/components/result/mbti/MbtiResultPdfShell";
 import { MbtiResultShellLoadingShell } from "@/components/result/mbti/MbtiResultShell";
 import { IqResultShell } from "@/components/result/iq/IqResultShell";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
@@ -67,13 +68,24 @@ import { Button } from "@/components/ui/button";
 const RESULT_POLL_FALLBACK_MS = 3000;
 const RESULT_POLL_MAX = 10;
 const INVITE_PROGRESS_POLL_MS = 15000;
-const MBTI_PDF_READY_ANCHORS = [
-  "mbti-desktop-traits",
-  "mbti-desktop-career",
-  "mbti-desktop-growth",
-  "mbti-desktop-relationships",
+const MBTI_PDF_REQUIRED_SELECTORS = [
+  '[data-pdf-section="personality-traits"]',
+  '[data-pdf-section="career-path"]',
+  '[data-pdf-section="personal-growth"]',
+  '[data-pdf-section="relationships"]',
 ] as const;
-const MBTI_PDF_READY_ANCHOR_TIMEOUT_MS = 8000;
+const MBTI_PDF_BLOCKER_SELECTORS = [
+  '[data-pdf-placeholder="true"]',
+  '[data-cookie-banner="true"]',
+  '[data-site-header="true"]',
+  '[data-site-footer="true"]',
+  '[data-result-sidebar="true"]',
+  '[data-result-tools="true"]',
+  '[data-result-workspace="true"]',
+  '[data-pdf-loading="true"]',
+  '[data-pdf-exclude-visible="true"]',
+] as const;
+const MBTI_PDF_READY_SECTION_TIMEOUT_MS = 8000;
 const MBTI_PDF_ASSET_READY_TIMEOUT_MS = 2000;
 const PDF_RENDER_BLOCKER_SELECTORS = [
   "[data-pdf-error]",
@@ -113,8 +125,18 @@ async function settleWithin<T>(promise: Promise<T>, timeoutMs: number): Promise<
   }
 }
 
-function hasMbtiPdfReadyAnchors(): boolean {
-  return MBTI_PDF_READY_ANCHORS.every((id) => document.getElementById(id));
+function findMbtiPdfBlocker(): string | null {
+  for (const selector of MBTI_PDF_BLOCKER_SELECTORS) {
+    if (document.querySelector(selector)) {
+      return selector;
+    }
+  }
+
+  return null;
+}
+
+function hasMbtiPdfReadySections(): boolean {
+  return MBTI_PDF_REQUIRED_SELECTORS.every((selector) => document.querySelector(selector)) && !findMbtiPdfBlocker();
 }
 
 function hasMbtiPdfContentReady(): boolean {
@@ -169,8 +191,12 @@ function clearPdfError(): void {
   document.querySelector('[data-pdf-mode="true"]')?.removeAttribute("data-pdf-error");
 }
 
-async function waitForMbtiPdfReadyAnchors(timeoutMs: number): Promise<boolean> {
-  if (hasMbtiPdfReadyAnchors()) {
+async function waitForMbtiPdfReadySections(timeoutMs: number): Promise<boolean> {
+  if (findMbtiPdfBlocker()) {
+    return false;
+  }
+
+  if (hasMbtiPdfReadySections()) {
     return true;
   }
 
@@ -188,7 +214,7 @@ async function waitForMbtiPdfReadyAnchors(timeoutMs: number): Promise<boolean> {
       window.clearTimeout(timeoutId);
       resolve(ready);
     };
-    const timeoutId = window.setTimeout(() => finish(hasMbtiPdfReadyAnchors()), timeoutMs);
+    const timeoutId = window.setTimeout(() => finish(hasMbtiPdfReadySections()), timeoutMs);
 
     if (!root) {
       finish(false);
@@ -196,7 +222,12 @@ async function waitForMbtiPdfReadyAnchors(timeoutMs: number): Promise<boolean> {
     }
 
     observer = new MutationObserver(() => {
-      if (hasMbtiPdfReadyAnchors()) {
+      if (findMbtiPdfBlocker()) {
+        finish(false);
+        return;
+      }
+
+      if (hasMbtiPdfReadySections()) {
         finish(true);
       }
     });
@@ -1648,8 +1679,12 @@ export default function ResultClient({
     let cancelled = false;
 
     const markReady = async () => {
-      const modulesReady = await waitForMbtiPdfReadyAnchors(MBTI_PDF_READY_ANCHOR_TIMEOUT_MS);
+      const modulesReady = await waitForMbtiPdfReadySections(MBTI_PDF_READY_SECTION_TIMEOUT_MS);
       if (cancelled || !modulesReady) {
+        const blocker = resolvePdfRenderBlocker() ?? (findMbtiPdfBlocker() ? "PDF_RENDER_BLOCKER_PRESENT" : null);
+        if (blocker && !cancelled) {
+          setPdfError(blocker);
+        }
         return;
       }
 
@@ -1658,7 +1693,11 @@ export default function ResultClient({
         waitForPdfImages(MBTI_PDF_ASSET_READY_TIMEOUT_MS),
       ]);
 
-      if (cancelled || !hasMbtiPdfReadyAnchors()) {
+      if (cancelled || !hasMbtiPdfReadySections()) {
+        const blocker = resolvePdfRenderBlocker() ?? (findMbtiPdfBlocker() ? "PDF_RENDER_BLOCKER_PRESENT" : null);
+        if (blocker && !cancelled) {
+          setPdfError(blocker);
+        }
         return;
       }
 
@@ -1881,6 +1920,18 @@ export default function ResultClient({
   }
 
   if (hasRichReport && reportData) {
+    if (printMode && resolvedScaleCode === "MBTI") {
+      return (
+        <div
+          data-testid="mbti-result-pdf-export-surface"
+          className="mx-auto w-full bg-white"
+        >
+          <MbtiResultPdfShell locale={locale} reportData={reportData} />
+          {renderPdfReadyMarker()}
+        </div>
+      );
+    }
+
     return (
       <div className="space-y-[var(--fm-gap-md)]">
         {renderOptionalEmailRecoveryCard()}

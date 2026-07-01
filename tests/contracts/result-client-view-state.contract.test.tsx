@@ -474,7 +474,7 @@ describe("ResultClient view-state contract", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+      expect(screen.getByTestId("mbti-result-pdf-shell")).toBeInTheDocument();
     });
 
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
@@ -519,7 +519,7 @@ describe("ResultClient view-state contract", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+      expect(screen.getByTestId("mbti-result-pdf-shell")).toBeInTheDocument();
     });
 
     expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
@@ -529,7 +529,7 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptInviteUnlockProgress).not.toHaveBeenCalled();
     expect(setIntervalSpy.mock.calls.some(([, delay]) => delay === 15000)).toBe(false);
     await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report").parentElement).toContainElement(
+      expect(screen.getByTestId("mbti-result-pdf-shell").parentElement).toContainElement(
         document.getElementById("fermat-pdf-ready")
       );
     });
@@ -564,7 +564,7 @@ describe("ResultClient view-state contract", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-pdf-content-ready", "false");
+      expect(screen.getByTestId("mbti-result-pdf-shell")).toBeInTheDocument();
     });
     await waitFor(() => {
       expect((window as typeof window & { __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__).toBe("DESKTOP_CLONE_CONTENT_MISSING");
@@ -596,7 +596,7 @@ describe("ResultClient view-state contract", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+      expect(screen.getByTestId("mbti-result-pdf-shell")).toBeInTheDocument();
     });
     await waitFor(() => {
       expect((window as typeof window & { __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__).toBe("PDF_PLACEHOLDER_CONTENT");
@@ -628,7 +628,7 @@ describe("ResultClient view-state contract", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+      expect(screen.getByTestId("mbti-result-pdf-shell")).toBeInTheDocument();
     });
     await waitFor(() => {
       expect((window as typeof window & { __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__).toBe("PDF_RENDER_BLOCKER_PRESENT");

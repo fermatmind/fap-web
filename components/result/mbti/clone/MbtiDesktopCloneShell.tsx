@@ -14,7 +14,6 @@ import {
   getMbtiDesktopAnchorHash,
   getMbtiDesktopAnchorId,
 } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
-import { MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH } from "@/components/result/mbti/clone/mbtiDesktopClone.placeholders";
 import {
   resolveMbtiDesktopCloneSlots,
   resolveMbtiDesktopCloneSlotsResult,

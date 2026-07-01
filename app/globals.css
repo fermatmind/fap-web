@@ -660,6 +660,22 @@ a {
     background: #ffffff !important;
   }
 
+  body:has([data-private-result-print-root="true"]) {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  [data-private-result-print-root="true"] {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  [data-result-pdf-root="true"] {
+    max-width: 760px !important;
+  }
+
   [data-pdf-mode="true"] :is(
     button,
     form,
@@ -668,6 +684,14 @@ a {
     select,
     [role="button"],
     [data-pdf-export-hidden="true"],
+    [data-pdf-exclude-visible="true"],
+    [data-cookie-banner="true"],
+    [data-site-header="true"],
+    [data-site-footer="true"],
+    [data-result-sidebar="true"],
+    [data-result-tools="true"],
+    [data-result-workspace="true"],
+    [data-pdf-loading="true"],
     [data-testid="mbti-post-purchase-section"],
     [data-testid="mbti-offer-comparison"],
     [data-testid="mbti-sticky-rail"],
