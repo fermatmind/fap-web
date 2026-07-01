@@ -20,6 +20,7 @@ type MbtiCloneAssetSlotProps = {
   labelClassName: string;
   imageClassName?: string;
   testId?: string;
+  printDecorative?: boolean;
 };
 
 export function MbtiCloneAssetSlot({
@@ -30,6 +31,7 @@ export function MbtiCloneAssetSlot({
   labelClassName,
   imageClassName,
   testId,
+  printDecorative = false,
 }: MbtiCloneAssetSlotProps) {
   const [failedAssetUrl, setFailedAssetUrl] = useState<string | null>(null);
 
@@ -59,6 +61,9 @@ export function MbtiCloneAssetSlot({
       data-testid={testId}
       data-slot-id={slotId}
       data-slot-mode={mode}
+      data-pdf-decorative-media={printDecorative ? "true" : undefined}
+      data-pdf-section-visual={printDecorative ? "true" : undefined}
+      data-print-decorative={printDecorative ? "true" : undefined}
       className={clsx(
         className,
         mode === "ready" && styles.assetSlotReady,

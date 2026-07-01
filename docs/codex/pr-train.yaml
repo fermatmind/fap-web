@@ -12329,6 +12329,68 @@ prs:
       auto_merge: true
     next_task: null
 
+  - id: MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    companion_repo: fap-api
+    companion_repo_path: <workspace>/fap-api
+    branch: codex/mbti-pdf-snapshot-print-layout-polish-10
+    base: main
+    title: "MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10: polish MBTI snapshot print layout"
+    depends_on:
+      - MBTI-PDF-RESULT-SNAPSHOT-VISUAL-PAGINATION
+    mode: execute
+    train_scope: mbti_pdf_snapshot_print_layout_polish
+    status: in_progress
+    goal: "Polish the real MBTI result-page snapshot PDF print layout by compressing decorative narrative visuals, improving large-card pagination, tightening A4 density, and adding backend render-version cache isolation without changing Gotenberg routing, content injection, mPDF behavior, or the real result component tree."
+    artifacts:
+      - components/result/mbti/clone/MbtiCloneAssetSlot.tsx
+      - components/result/mbti/clone/MbtiCloneNarrativeSection.tsx
+      - components/result/mbti/clone/mbtiDesktopClone.module.css
+      - tests/contracts/mbti-pdf-snapshot-print-layout-polish.contract.test.ts
+      - tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    companion_artifacts:
+      - backend/app/Services/Report/Pdf/ReportPdfDocumentService.php
+      - backend/app/Http/Controllers/API/V0_3/AttemptReadController.php
+      - backend/tests/Feature/V0_3/AttemptPublicReportPdfParityTest.php
+    allowed_paths:
+      - components/result/mbti/clone/MbtiCloneAssetSlot.tsx
+      - components/result/mbti/clone/MbtiCloneNarrativeSection.tsx
+      - components/result/mbti/clone/mbtiDesktopClone.module.css
+      - tests/contracts/mbti-pdf-snapshot-print-layout-polish.contract.test.ts
+      - tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    companion_allowed_paths:
+      - backend/app/Services/Report/Pdf/ReportPdfDocumentService.php
+      - backend/app/Http/Controllers/API/V0_3/AttemptReadController.php
+      - backend/tests/Feature/V0_3/AttemptPublicReportPdfParityTest.php
+    do_not:
+      - Deploy, reload, restart, clear production cache, write DB/CMS/search/indexing/queue, or mutate server env.
+      - Change Gotenberg timeout, route, endpoint, result-page content injection, desktop clone content, mPDF behavior, or summary PDF shell.
+      - Delete real result detail content or replace the real result component tree.
+      - Store raw PDFs, screenshots, generated reports, raw attempt ids, raw tokens, private URLs, or response payloads in repo artifacts/logs.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/mbti-pdf-snapshot-print-layout-polish.contract.test.ts tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts tests/contracts/result-gotenberg-print-route.contract.test.ts tests/contracts/result-client-view-state.contract.test.tsx tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts tests/contracts/result-private-print-chrome.contract.test.ts
+      - pnpm typecheck
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+      - cd ../fap-api/backend && php artisan test --filter=AttemptPublicReportPdfParityTest
+      - cd ../fap-api/backend && php artisan test --filter=ApiErrorContractMiddlewareTest
+      - cd ../fap-api/backend && ./vendor/bin/pint --dirty
+      - cd ../fap-api && git diff --check
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: null
+
   - id: ACTIVE-RESULT-PAGE-AGENTS-ANALYTICS-COMMON-CONTRACT-01
     repo: fap-web
     repo_path: <workspace>/fap-web

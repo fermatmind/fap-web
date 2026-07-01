@@ -121,7 +121,10 @@ const MBTI_RESULT_PAGE_PDF_SMOKE_QUALITY_GATE_ALLOWED_FILES = new Set([
 const MBTI_RESULT_PAGE_PDF_VISUAL_PAGINATION_ALLOWED_FILES = new Set([
   "app/globals.css",
   "app/(localized)/[locale]/(app)/result/[id]/print/page.tsx",
+  "components/result/mbti/clone/MbtiCloneAssetSlot.tsx",
+  "components/result/mbti/clone/MbtiCloneNarrativeSection.tsx",
   "components/result/mbti/clone/mbtiDesktopClone.module.css",
+  "tests/contracts/mbti-pdf-snapshot-print-layout-polish.contract.test.ts",
   "tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts",
   "tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts",
   "tests/contracts/result-private-print-chrome.contract.test.ts",

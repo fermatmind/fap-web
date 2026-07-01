@@ -45,11 +45,11 @@ describe("MBTI result-page PDF visual pagination contract", () => {
     expect(printCss).toContain(".cloneRoot");
     expect(printCss).toContain("--clone-shell-max: 190mm;");
     expect(printCss).toContain("--clone-main-col: 190mm;");
-    expect(printCss).toContain("--clone-section-gap: 10mm;");
-    expect(printCss).toContain("--clone-card-padding: 5mm;");
+    expect(printCss).toContain("--clone-section-gap: 6.5mm;");
+    expect(printCss).toContain("--clone-card-padding: 4mm;");
     expect(printCss).toContain(".shell");
     expect(printCss).toContain(".hero");
-    expect(printCss).toContain("min-height: 52mm;");
+    expect(printCss).toContain("min-height: 42mm;");
     expect(printCss).toContain("clip-path: none;");
     expect(printCss).toContain("box-shadow: none;");
     expect(printCss).toContain(".pageGrid");
@@ -57,6 +57,11 @@ describe("MBTI result-page PDF visual pagination contract", () => {
     expect(printCss).toContain(".sectionHeading");
     expect(printCss).toContain("break-after: avoid-page;");
     expect(printCss).toContain("page-break-after: avoid;");
+    expect(printCss).toContain(".illustrationSlot[data-pdf-decorative-media=\"true\"]");
+    expect(printCss).toContain("height: 6mm;");
+    expect(printCss).toContain(".influentialCard,\n  .traitsUnlockPanel");
+    expect(printCss).toContain("break-inside: auto;");
+    expect(printCss).toContain("page-break-inside: auto;");
     expect(printCss).toContain("break-inside: avoid-page;");
     expect(printCss).toContain("page-break-inside: avoid;");
     expect(printCss).toContain(".traitsOverviewRow");
@@ -68,7 +73,10 @@ describe("MBTI result-page PDF visual pagination contract", () => {
     const allowedFiles = [
       "app/globals.css",
       "app/(localized)/[locale]/(app)/result/[id]/print/page.tsx",
+      "components/result/mbti/clone/MbtiCloneAssetSlot.tsx",
+      "components/result/mbti/clone/MbtiCloneNarrativeSection.tsx",
       "components/result/mbti/clone/mbtiDesktopClone.module.css",
+      "tests/contracts/mbti-pdf-snapshot-print-layout-polish.contract.test.ts",
       "tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts",
       "tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts",
       "tests/contracts/result-private-print-chrome.contract.test.ts",
@@ -83,7 +91,6 @@ describe("MBTI result-page PDF visual pagination contract", () => {
     }
 
     for (const file of [
-      "fap-api/app/Services/Reports/ReportPdfDocumentService.php",
       "scripts/ops/check-mbti-result-page-pdf-smoke.mjs",
       "public/sitemap.xml",
       "components/result/mbti/clone/MbtiDesktopCloneShell.tsx",
