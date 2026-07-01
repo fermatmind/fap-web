@@ -6,9 +6,25 @@ import { isMbtiPdfSnapshotRenderedSmokeH2AllowedFile } from "./helpers/currentPr
 
 const ROOT = process.cwd();
 const SCRIPT_PATH = "scripts/ops/check-mbti-result-page-pdf-smoke.mjs";
+const PR_H_BRANCH = "codex/mbti-pdf-snapshot-rendered-smoke-h2";
 
 function read(relativePath: string): string {
   return readFileSync(path.join(ROOT, relativePath), "utf8");
+}
+
+function currentBranch(): string {
+  if (process.env.GITHUB_HEAD_REF) {
+    return process.env.GITHUB_HEAD_REF;
+  }
+
+  if (process.env.GITHUB_REF_NAME) {
+    return process.env.GITHUB_REF_NAME;
+  }
+
+  return execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], {
+    cwd: ROOT,
+    encoding: "utf8",
+  }).trim();
 }
 
 describe("MBTI PDF snapshot rendered smoke H2", () => {
@@ -83,13 +99,15 @@ describe("MBTI PDF snapshot rendered smoke H2", () => {
       expect(isMbtiPdfSnapshotRenderedSmokeH2AllowedFile(file)).toBe(true);
     }
 
+    const expectedForOutsideScope = currentBranch() === PR_H_BRANCH ? false : true;
+
     for (const file of [
       "components/result/mbti/clone/mbtiDesktopClone.module.css",
       "app/(localized)/[locale]/(app)/result/[id]/print/page.tsx",
       "backend/app/Services/Report/Pdf/ReportPdfDocumentService.php",
       "public/sitemap.xml",
     ]) {
-      expect(isMbtiPdfSnapshotRenderedSmokeH2AllowedFile(file)).toBe(false);
+      expect(isMbtiPdfSnapshotRenderedSmokeH2AllowedFile(file)).toBe(expectedForOutsideScope);
     }
   });
 });
