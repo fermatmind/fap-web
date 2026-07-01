@@ -1405,6 +1405,19 @@ const RESULT_PRIVATE_PRINT_CHROME_GATE_HARDEN_02_ALLOWED_FILES = new Set([
   "tests/contracts/result-private-print-chrome.contract.test.ts",
 ]);
 
+const MBTI_PDF_RESULT_SNAPSHOT_SHELL_ALLOWED_FILES = new Set([
+  "proxy.ts",
+  "app/(localized)/[locale]/layout.tsx",
+  "components/result/mbti/clone/MbtiDesktopCloneShell.tsx",
+  "tests/contracts/result-private-print-chrome.contract.test.ts",
+  "tests/contracts/result-gotenberg-print-route.contract.test.ts",
+  "tests/contracts/result-client-view-state.contract.test.tsx",
+  "tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const RESULT_BIG5_INTERNAL_METHOD_DEBUG_SUPPRESSION_02_ALLOWED_FILES = new Set([
   "components/big5/report/BlockRenderer.tsx",
   "components/big5/report/SectionRenderer.tsx",
@@ -4452,6 +4465,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/result-private-print-chrome-gate-harden-02") {
     return RESULT_PRIVATE_PRINT_CHROME_GATE_HARDEN_02_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/mbti-pdf-result-snapshot-shell") {
+    return MBTI_PDF_RESULT_SNAPSHOT_SHELL_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/result-big5-internal-method-debug-suppression-02") {

@@ -14,6 +14,8 @@ import { SITE_URL, isConfiguredStagingSiteUrl } from "@/lib/site";
 import { PRIVATE_ANALYTICS_SUPPRESSION_HEADER } from "@/lib/tracking/browserAnalyticsSuppression";
 import "../../globals.css";
 
+const RESULT_PAGE_SNAPSHOT_SHELL_HEADER = "x-fermat-result-print-snapshot-shell";
+
 const fmSans = localFont({
   src: [{ path: "../../../public/fonts/manrope/Manrope-Variable.woff2", weight: "200 800", style: "normal" }],
   variable: "--font-fm-sans",
@@ -91,17 +93,27 @@ export default async function LocalizedRootLayout({
   }
   const requestHeaders = await headers();
   const suppressAnalyticsBootstrap = requestHeaders.get(PRIVATE_ANALYTICS_SUPPRESSION_HEADER) === "true";
+  const useResultPrintSnapshotShell = requestHeaders.get(RESULT_PAGE_SNAPSHOT_SHELL_HEADER) === "true";
   const resolvedLocale: Locale = locale;
   const productPriority = createProductPriorityEnvSnapshot();
 
   return (
     <html lang={resolvedLocale}>
-      <body className={`${fmSans.variable} ${fmSerif.variable} ${fmMono.variable} antialiased`}>
+      <body
+        className={`${fmSans.variable} ${fmSerif.variable} ${fmMono.variable} antialiased`}
+        data-pdf-snapshot-shell={useResultPrintSnapshotShell ? "true" : undefined}
+      >
         <AnalyticsScripts suppressServerBootstrap={suppressAnalyticsBootstrap} />
         <Providers>
           <LocaleProvider locale={resolvedLocale}>
-            <SiteChrome productPriority={productPriority}>{children}</SiteChrome>
-            <CookieBanner />
+            {useResultPrintSnapshotShell ? (
+              children
+            ) : (
+              <>
+                <SiteChrome productPriority={productPriority}>{children}</SiteChrome>
+                <CookieBanner />
+              </>
+            )}
           </LocaleProvider>
         </Providers>
       </body>

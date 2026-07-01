@@ -853,12 +853,18 @@ export function MbtiDesktopCloneShell({
     ...(unlockedPdfHref ? [{ label: cloneLocale === "zh" ? "导出 PDF" : "Export PDF", href: unlockedPdfHref }] : []),
     ...(historyHref ? [{ label: cloneLocale === "zh" ? "查看历史" : "History", href: historyHref }] : []),
   ];
+  const snapshotTraitsTools: DesktopCloneTool[] = [];
   const traitsToolsPrompt = cloneLocale === "zh"
     ? "你可以继续保存、导出或查看历史结果。"
     : "You can save, export, or revisit this result.";
   const traitBodyParagraphs = slots.overview?.paragraphs ?? slots.traits.body;
   const traitBodySource = slots.overview ? "overview" : "traits";
-  const showTopInviteProgress = isMobileViewport && inviteProgressDisplay.showProgressCard;
+  const showTopInviteProgress = !snapshotMode && isMobileViewport && inviteProgressDisplay.showProgressCard;
+  const shouldRenderSnapshotStaticShell = snapshotMode;
+  const shouldRenderFinalOffer = !snapshotMode;
+  const shouldRenderRail = !snapshotMode;
+  const shouldRenderTrailingNodes = !snapshotMode;
+  const shouldRenderDeepNarrativeSections = shouldRenderSnapshotStaticShell || isDeepContentReady;
   const deepContentPlaceholderLabel = cloneLocale === "zh"
     ? "正在加载详细章节..."
     : "Loading detailed chapters...";
@@ -890,7 +896,7 @@ export function MbtiDesktopCloneShell({
         isCheckingOut={isCheckingOut}
         checkoutError={checkoutError}
         onCheckout={primaryOffer ? onCheckout : undefined}
-        isUnlocked={isUnlocked}
+        isUnlocked={snapshotMode || isUnlocked}
         unlockedNode={unlockedOfferNode}
         illustrationSlotId={slots.finalOffer.asset.slotId}
         illustrationLabel={slots.finalOffer.asset.label}
@@ -917,14 +923,14 @@ export function MbtiDesktopCloneShell({
         matchedGuides={null}
         traits={slots.chapters.career.influentialTraits}
         traitsUnlock={slots.chapters.career.traitsUnlock}
-        isUnlocked={isUnlocked}
+        isUnlocked={snapshotMode || isUnlocked}
         unlockHref={desktopOfferHref}
         unlockPayLabel={sectionPayCtaLabel}
         unlockInviteLabel={sectionInviteCtaLabel}
         unlockInviteHref={inviteCtaRenderHref}
         onInviteCtaClick={handleInviteCtaClick}
         postCoreBlocks={careerPostCoreBlocks}
-        premiumTeasers={isUnlocked ? [] : [
+        premiumTeasers={snapshotMode || isUnlocked ? [] : [
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "你可能会喜欢的职业选择",
@@ -956,14 +962,14 @@ export function MbtiDesktopCloneShell({
         weaknesses={slots.chapters.growth.weaknesses}
         traits={slots.chapters.growth.influentialTraits}
         traitsUnlock={slots.chapters.growth.traitsUnlock}
-        isUnlocked={isUnlocked}
+        isUnlocked={snapshotMode || isUnlocked}
         unlockHref={desktopOfferHref}
         unlockPayLabel={sectionPayCtaLabel}
         unlockInviteLabel={sectionInviteCtaLabel}
         unlockInviteHref={inviteCtaRenderHref}
         onInviteCtaClick={handleInviteCtaClick}
         postCoreBlocks={growthPostCoreBlocks}
-        premiumTeasers={isUnlocked ? [] : [
+        premiumTeasers={snapshotMode || isUnlocked ? [] : [
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "什么能让你充满活力？",
@@ -995,14 +1001,14 @@ export function MbtiDesktopCloneShell({
         weaknesses={slots.chapters.relationships.weaknesses}
         traits={slots.chapters.relationships.influentialTraits}
         traitsUnlock={slots.chapters.relationships.traitsUnlock}
-        isUnlocked={isUnlocked}
+        isUnlocked={snapshotMode || isUnlocked}
         unlockHref={desktopOfferHref}
         unlockPayLabel={sectionPayCtaLabel}
         unlockInviteLabel={sectionInviteCtaLabel}
         unlockInviteHref={inviteCtaRenderHref}
         onInviteCtaClick={handleInviteCtaClick}
         postCoreBlocks={relationshipsPostCoreBlocks}
-        premiumTeasers={isUnlocked ? [] : [
+        premiumTeasers={snapshotMode || isUnlocked ? [] : [
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "你的人际关系优势",
@@ -1020,9 +1026,9 @@ export function MbtiDesktopCloneShell({
         ]}
       />
 
-      {supplementaryNodes.map((node, index) => (
+      {!snapshotMode ? supplementaryNodes.map((node, index) => (
         <div key={`mbti-clone-supplementary-${index}`}>{node}</div>
-      ))}
+      )) : null}
     </>
   );
   const trailingNodes = (
@@ -1107,28 +1113,30 @@ export function MbtiDesktopCloneShell({
               axisExplainers={storageContent?.traits.axisExplainers ?? null}
               paragraphs={traitBodyParagraphs}
               bodySource={traitBodySource}
-              tools={traitsTools}
-              toolsPrompt={traitsToolsPrompt}
+              tools={snapshotMode ? snapshotTraitsTools : traitsTools}
+              toolsPrompt={snapshotMode ? "" : traitsToolsPrompt}
             />
 
-            {isMobileViewport ? finalOfferNode : null}
-            {isDeepContentReady ? deepNarrativeSectionsNode : (
+            {shouldRenderFinalOffer && isMobileViewport ? finalOfferNode : null}
+            {shouldRenderDeepNarrativeSections ? deepNarrativeSectionsNode : (
               <section data-testid="mbti-deferred-content-placeholder" className={styles.deferredContentPlaceholder}>
                 <p className={styles.deferredContentPlaceholderTitle}>{deepContentPlaceholderLabel}</p>
                 <p className={styles.deferredContentPlaceholderHint}>{deepContentPlaceholderHint}</p>
               </section>
             )}
-            {!isMobileViewport ? finalOfferNode : null}
-            {isDeepContentReady ? trailingNodes : null}
+            {shouldRenderFinalOffer && !isMobileViewport ? finalOfferNode : null}
+            {shouldRenderTrailingNodes && isDeepContentReady ? trailingNodes : null}
           </main>
 
-          <MbtiCloneRail
-            locale={cloneLocale}
-            profileIdentity={slots.hero.profileIdentity}
-            primaryCtaLabel={primaryCtaLabel}
-            primaryCtaHref={desktopEntryHref}
-            tools={railTools}
-          />
+          {shouldRenderRail ? (
+            <MbtiCloneRail
+              locale={cloneLocale}
+              profileIdentity={slots.hero.profileIdentity}
+              primaryCtaLabel={primaryCtaLabel}
+              primaryCtaHref={desktopEntryHref}
+              tools={railTools}
+            />
+          ) : null}
         </div>
       </div>
     </div>

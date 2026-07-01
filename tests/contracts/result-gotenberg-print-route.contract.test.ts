@@ -95,6 +95,8 @@ describe("Gotenberg result print route contract", () => {
     expect(resultClient).toContain("renderOptionalEmailRecoveryCard");
     expect(resultClient).toContain("printMode ? null : renderEmailRecoveryCard()");
     expect(resultClient).toContain("installPrivateResultPrintUrlRedaction(locale)");
+    expect(read("proxy.ts")).toContain("isResultPageSnapshotPrintRequest(pathname, request.nextUrl.searchParams.get(\"surface\"))");
+    expect(read("app/(localized)/[locale]/layout.tsx")).toContain("data-pdf-snapshot-shell");
     expect(printBootstrap).toContain("X-Result-Access-Token");
     expect(printBootstrap).toContain("X-FAP-Locale");
     expect(printBootstrap).toContain("/report-access");
