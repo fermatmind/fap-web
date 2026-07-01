@@ -79,8 +79,17 @@ export function MbtiCloneNarrativeSection({
   postCoreBlocks = [],
   premiumTeasers,
 }: MbtiCloneNarrativeSectionProps) {
+  const pdfSection =
+    id === "career"
+      ? "career-path"
+      : id === "growth"
+        ? "personal-growth"
+        : id === "relationships"
+          ? "relationships"
+          : undefined;
+
   return (
-    <section id={anchorId ?? id} data-testid={`mbti-chapter-${id}`} className={styles.section}>
+    <section id={anchorId ?? id} data-testid={`mbti-chapter-${id}`} data-pdf-section={pdfSection} className={styles.section}>
       <MbtiCloneSectionHeading number={number} title={title} />
       <MbtiCloneAssetSlot
         slotId={illustrationSlotId}

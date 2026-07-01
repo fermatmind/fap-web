@@ -69,7 +69,7 @@ export type PersonalityDesktopCloneContentPayload = {
   schemaVersion: string;
   fullCode: string;
   baseCode: string;
-  locale: "zh-CN";
+  locale: "zh-CN" | "en";
   content: MbtiDesktopCloneContent;
   assetSlots: PersonalityDesktopCloneAssetSlot[];
   meta: DesktopCloneApiMeta;
@@ -931,6 +931,15 @@ export function normalizeDesktopCloneApiLocale(locale: string | null | undefined
   return null;
 }
 
+export function normalizeDesktopCloneSnapshotApiLocale(locale: string | null | undefined): "zh-CN" | "en" | null {
+  const normalized = normalizeText(locale).toLowerCase();
+  if (normalized === "en" || normalized === "en-us") {
+    return "en";
+  }
+
+  return normalizeDesktopCloneApiLocale(locale);
+}
+
 export function normalizeDesktopCloneTypeSlug(fullCode: string | null | undefined): string | null {
   const normalizedFullCode = normalizeText(fullCode).toUpperCase();
   if (!MBTI_FULL_CODE_RE.test(normalizedFullCode)) {
@@ -944,10 +953,10 @@ function slugToUpperFullCode(typeSlug: string): string {
   return normalizeText(typeSlug).toUpperCase();
 }
 
-function normalizeDesktopCloneResponse(
+export function normalizeDesktopCloneResponse(
   response: PersonalityDesktopCloneApiResponse,
   expectedFullCode: string,
-  expectedLocale: "zh-CN",
+  expectedLocale: "zh-CN" | "en",
 ): PersonalityDesktopCloneContentPayload | null {
   const templateKey = normalizeText(response.template_key);
   const schemaVersion = normalizeText(response.schema_version);
@@ -1004,6 +1013,42 @@ export async function fetchPersonalityDesktopCloneContent(
   locale: string,
 ): Promise<PersonalityDesktopCloneContentPayload | null> {
   const apiLocale = normalizeDesktopCloneApiLocale(locale);
+  const typeSlug = normalizeDesktopCloneTypeSlug(fullCode);
+  if (!apiLocale || !typeSlug) {
+    return null;
+  }
+
+  const query = buildQuery({
+    locale: apiLocale,
+    org_id: DEFAULT_ORG_ID,
+    scale_code: DEFAULT_SCALE_CODE,
+  });
+
+  try {
+    const response = await apiClient.get<PersonalityDesktopCloneApiResponse>(
+      `/v0.5/personality/${encodeURIComponent(typeSlug)}/desktop-clone${query}`,
+      {
+        locale,
+        skipAuth: true,
+        cache: "no-store",
+      },
+    );
+
+    return normalizeDesktopCloneResponse(response, slugToUpperFullCode(typeSlug), apiLocale);
+  } catch (error) {
+    if (error instanceof ApiError) {
+      return null;
+    }
+
+    return null;
+  }
+}
+
+export async function fetchPersonalityDesktopCloneSnapshotContent(
+  fullCode: string,
+  locale: string,
+): Promise<PersonalityDesktopCloneContentPayload | null> {
+  const apiLocale = normalizeDesktopCloneSnapshotApiLocale(locale);
   const typeSlug = normalizeDesktopCloneTypeSlug(fullCode);
   if (!apiLocale || !typeSlug) {
     return null;

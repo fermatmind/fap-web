@@ -75,6 +75,8 @@ export default async function ResultPrintPage({
         printAccessToken={printAccessToken}
         initialReportAccess={printBootstrap.reportAccess}
         initialReportData={printBootstrap.report}
+        snapshotDesktopCloneContent={printBootstrap.desktopCloneContent}
+        snapshotContentStatus={printBootstrap.snapshotContentStatus}
         printBootstrapError={printBootstrap.error}
       />
     </Container>

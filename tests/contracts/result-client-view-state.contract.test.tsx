@@ -7,6 +7,7 @@ import type { ReportResponse, ResultResponse } from "@/lib/api/v0_3";
 import type { MbtiAccessHubV1Raw } from "@/lib/mbti/accessHub";
 import { buildMbtiCareerRecommendationHref } from "@/lib/mbti/publicProjection";
 import { buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
+import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import reportReadyMbtiFreeFixture from "@/tests/fixtures/report_ready.mbti.free.json";
 import reportReadyMbtiProjectionFixture from "@/tests/fixtures/report_ready.mbti.projection.json";
 import resultReadyMbtiFreeFixture from "@/tests/fixtures/result_ready.mbti.free.json";
@@ -36,6 +37,7 @@ type RichResultReportProps = {
     unlockStage?: string | null;
     unlockSource?: string | null;
   } | null;
+  snapshotContentStatus?: MbtiSnapshotContentStatus | null;
 };
 
 type IqResultShellProps = {
@@ -113,11 +115,14 @@ vi.mock("@/components/result/RichResultReport", () => ({
         : report?.report?.scale_code === "RIASEC"
           ? "RIASEC"
           : null,
-  RichResultReport: ({ reportData, accessProjection }: RichResultReportProps) => (
+  RichResultReport: ({ reportData, accessProjection, snapshotContentStatus }: RichResultReportProps) => (
     <div
       data-testid="rich-result-report"
       data-unlock-stage={accessProjection?.unlockStage ?? ""}
       data-unlock-source={accessProjection?.unlockSource ?? ""}
+      data-pdf-content-ready={snapshotContentStatus ? (snapshotContentStatus.ok ? "true" : "false") : undefined}
+      data-pdf-content-source={snapshotContentStatus?.ok ? snapshotContentStatus.source : undefined}
+      data-pdf-error={snapshotContentStatus && !snapshotContentStatus.ok ? snapshotContentStatus.code : undefined}
     >
       <div id="mbti-desktop-traits" />
       <div id="mbti-desktop-career" />
@@ -239,6 +244,12 @@ function createRiasecSnapshotReport(): ReportResponse {
   } as ReportResponse;
 }
 
+const readySnapshotContentStatus: MbtiSnapshotContentStatus = {
+  ok: true,
+  source: "server-prefetched-desktop-clone",
+  missing: [],
+};
+
 vi.mock("@/lib/i18n/getDict", () => ({
   getDictSync: () => ({
     loading: {
@@ -303,7 +314,10 @@ describe("ResultClient view-state contract", () => {
 
   afterEach(() => {
     vi.useRealTimers();
-    document.querySelectorAll('[data-pdf-placeholder="true"], [data-cookie-banner="true"]').forEach((node) => node.remove());
+    document
+      .querySelectorAll('[data-pdf-placeholder="true"], [data-cookie-banner="true"], [data-pdf-content-ready]')
+      .forEach((node) => node.remove());
+    document.documentElement.removeAttribute("data-pdf-ready");
     (window as typeof window & { __FERMAT_PDF_READY__?: boolean; __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_READY__ = false;
     (window as typeof window & { __FERMAT_PDF_READY__?: boolean; __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__ = undefined;
   });
@@ -455,6 +469,7 @@ describe("ResultClient view-state contract", () => {
         printSnapshotRoute
         printSnapshotSurface="mbti.result_page_snapshot.v3"
         printAccessToken="print_result_access_token_123"
+        snapshotContentStatus={readySnapshotContentStatus}
       />
     );
 
@@ -499,6 +514,7 @@ describe("ResultClient view-state contract", () => {
         printAccessToken="print_result_access_token_123"
         initialReportAccess={initialReportAccess}
         initialReportData={reportFixture}
+        snapshotContentStatus={readySnapshotContentStatus}
       />
     );
 
@@ -523,6 +539,42 @@ describe("ResultClient view-state contract", () => {
     setIntervalSpy.mockRestore();
   });
 
+  it("fails closed when the MBTI print route has no server-prefetched desktop clone content", async () => {
+    const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
+    reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
+    const initialReportAccess = createAccessProjection();
+    const missingContentStatus: MbtiSnapshotContentStatus = {
+      ok: false,
+      code: "DESKTOP_CLONE_CONTENT_MISSING",
+      missing: ["desktop_clone_content"],
+    };
+
+    render(
+      <ResultClient
+        attemptId="attempt-123"
+        rolloutEnv={{} as never}
+        printMode
+        printSnapshotRoute
+        printSnapshotSurface="mbti.result_page_snapshot.v3"
+        printAccessToken="print_result_access_token_123"
+        initialReportAccess={initialReportAccess}
+        initialReportData={reportFixture}
+        snapshotContentStatus={missingContentStatus}
+      />
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toHaveAttribute("data-pdf-content-ready", "false");
+    });
+    await waitFor(() => {
+      expect((window as typeof window & { __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__).toBe("DESKTOP_CLONE_CONTENT_MISSING");
+    });
+
+    expect(document.getElementById("fermat-pdf-ready")).toBeNull();
+    expect((window as typeof window & { __FERMAT_PDF_READY__?: boolean }).__FERMAT_PDF_READY__).not.toBe(true);
+    expect(screen.queryByText("Placeholder trait slot")).not.toBeInTheDocument();
+  });
+
   it("does not mark the MBTI print route ready when placeholder content is present", async () => {
     document.body.insertAdjacentHTML("beforeend", '<div data-pdf-placeholder="true">Placeholder trait slot</div>');
     const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
@@ -539,6 +591,7 @@ describe("ResultClient view-state contract", () => {
         printAccessToken="print_result_access_token_123"
         initialReportAccess={initialReportAccess}
         initialReportData={reportFixture}
+        snapshotContentStatus={readySnapshotContentStatus}
       />
     );
 
@@ -570,6 +623,7 @@ describe("ResultClient view-state contract", () => {
         printAccessToken="print_result_access_token_123"
         initialReportAccess={initialReportAccess}
         initialReportData={reportFixture}
+        snapshotContentStatus={readySnapshotContentStatus}
       />
     );
 

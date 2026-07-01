@@ -57,6 +57,8 @@ import { logInfo, logWarn } from "@/lib/observability/logger";
 import { captureError } from "@/lib/observability/sentry";
 import { installPrivateResultPrintUrlRedaction } from "@/lib/result/privatePrintUrlRedaction";
 import { RESULT_PAGE_SNAPSHOT_SURFACE } from "@/lib/result/pdfSurface";
+import type { PersonalityDesktopCloneContentPayload } from "@/lib/cms/personality-desktop-clone";
+import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import type { ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { SCALE_CANONICAL_SLUG_MAP } from "@/lib/assessmentSlugMap";
 import { assembleRiasecResultViewModel, hasRiasecProjection } from "@/lib/riasec/resultAssembler";
@@ -79,6 +81,8 @@ const PDF_RENDER_BLOCKER_SELECTORS = [
   '[data-cookie-banner="true"]',
   '[data-pdf-placeholder="true"]',
   '[data-placeholder="true"]',
+  '[data-content-source="placeholder"]',
+  '[data-pdf-content-ready="false"]',
   '[data-pdf-loading="true"]',
   '[data-skeleton="true"]',
 ] as const;
@@ -113,6 +117,13 @@ function hasMbtiPdfReadyAnchors(): boolean {
   return MBTI_PDF_READY_ANCHORS.every((id) => document.getElementById(id));
 }
 
+function hasMbtiPdfContentReady(): boolean {
+  const readyNode = document.querySelector('[data-pdf-content-ready="true"]');
+  const source = readyNode?.getAttribute("data-pdf-content-source")?.trim();
+
+  return Boolean(readyNode && source && source !== "placeholder");
+}
+
 function resolvePdfRenderBlocker(): string | null {
   const errorNode = document.querySelector("[data-pdf-error]");
   const explicitError = errorNode?.getAttribute("data-pdf-error")?.trim();
@@ -128,8 +139,12 @@ function resolvePdfRenderBlocker(): string | null {
     return "PDF_RENDER_BLOCKER_PRESENT";
   }
 
-  if (document.querySelector('[data-pdf-placeholder="true"], [data-placeholder="true"]')) {
+  if (document.querySelector('[data-pdf-placeholder="true"], [data-placeholder="true"], [data-content-source="placeholder"]')) {
     return "PDF_PLACEHOLDER_CONTENT";
+  }
+
+  if (document.querySelector('[data-pdf-content-ready="false"]')) {
+    return "PDF_CONTENT_NOT_READY";
   }
 
   const hasKnownBlocker = PDF_RENDER_BLOCKER_SELECTORS.some((selector) => document.querySelector(selector));
@@ -143,6 +158,7 @@ function resolvePdfRenderBlocker(): string | null {
 function setPdfError(code: string): void {
   window.__FERMAT_PDF_READY__ = false;
   window.__FERMAT_PDF_ERROR__ = code;
+  document.documentElement.setAttribute("data-pdf-ready", "false");
   const root = document.querySelector('[data-pdf-mode="true"]');
   root?.setAttribute("data-pdf-ready", "false");
   root?.setAttribute("data-pdf-error", code);
@@ -698,6 +714,8 @@ export default function ResultClient({
   printAccessToken,
   initialReportAccess,
   initialReportData,
+  snapshotDesktopCloneContent,
+  snapshotContentStatus,
   printBootstrapError,
 }: {
   attemptId: string;
@@ -708,6 +726,8 @@ export default function ResultClient({
   printAccessToken?: string | null;
   initialReportAccess?: AttemptReportAccessResponse | null;
   initialReportData?: ReportResponse | null;
+  snapshotDesktopCloneContent?: PersonalityDesktopCloneContentPayload | null;
+  snapshotContentStatus?: MbtiSnapshotContentStatus | null;
   printBootstrapError?: string | null;
 }) {
   void rolloutEnv;
@@ -1594,6 +1614,12 @@ export default function ResultClient({
         ? "ready"
         : "failed";
   const mbtiPdfReadyCandidate = printSnapshotContractValid && resolvedScaleCode === "MBTI" && viewState === "ready" && hasRichReport && Boolean(reportData);
+  const mbtiPdfContentReadyCandidate =
+    !mbtiPdfReadyCandidate
+      ? false
+      : snapshotContentStatus
+        ? snapshotContentStatus.ok
+        : !printMode;
 
   useEffect(() => {
     if (!printMode) {
@@ -1601,6 +1627,7 @@ export default function ResultClient({
     }
 
     window.__FERMAT_PDF_READY__ = false;
+    document.documentElement.setAttribute("data-pdf-ready", "false");
     document.querySelector('[data-pdf-mode="true"]')?.setAttribute("data-pdf-ready", "false");
     setPdfReadyMarkerMounted(false);
 
@@ -1610,6 +1637,11 @@ export default function ResultClient({
     }
 
     if (!mbtiPdfReadyCandidate) {
+      return;
+    }
+
+    if (!mbtiPdfContentReadyCandidate) {
+      setPdfError(snapshotContentStatus && !snapshotContentStatus.ok ? snapshotContentStatus.code : "PDF_CONTENT_NOT_READY");
       return;
     }
 
@@ -1630,6 +1662,11 @@ export default function ResultClient({
         return;
       }
 
+      if (!hasMbtiPdfContentReady()) {
+        setPdfError("PDF_CONTENT_NOT_READY");
+        return;
+      }
+
       const blocker = resolvePdfRenderBlocker();
       if (blocker) {
         setPdfError(blocker);
@@ -1646,7 +1683,7 @@ export default function ResultClient({
       cancelled = true;
       window.__FERMAT_PDF_READY__ = false;
     };
-  }, [mbtiPdfReadyCandidate, printMode, printSnapshotContractValid]);
+  }, [mbtiPdfContentReadyCandidate, mbtiPdfReadyCandidate, printMode, printSnapshotContractValid, snapshotContentStatus]);
 
   useEffect(() => {
     if (!printMode || !pdfReadyMarkerMounted) {
@@ -1660,12 +1697,20 @@ export default function ResultClient({
       return;
     }
 
+    if (!hasMbtiPdfContentReady()) {
+      setPdfReadyMarkerMounted(false);
+      setPdfError("PDF_CONTENT_NOT_READY");
+      return;
+    }
+
     clearPdfError();
     document.querySelector('[data-pdf-mode="true"]')?.setAttribute("data-pdf-ready", "true");
+    document.documentElement.setAttribute("data-pdf-ready", "true");
     window.__FERMAT_PDF_READY__ = true;
 
     return () => {
       window.__FERMAT_PDF_READY__ = false;
+      document.documentElement.setAttribute("data-pdf-ready", "false");
     };
   }, [pdfReadyMarkerMounted, printMode]);
 
@@ -1844,6 +1889,9 @@ export default function ResultClient({
           reportData={reportData}
           accessProjection={accessView}
           inviteUnlockProgress={inviteUnlockProgress}
+          printSnapshotMode={printSnapshotContractValid}
+          snapshotDesktopCloneContent={snapshotDesktopCloneContent}
+          snapshotContentStatus={snapshotContentStatus}
         />
         {renderPdfReadyMarker()}
       </div>

@@ -15,7 +15,10 @@ import {
   getMbtiDesktopAnchorId,
 } from "@/components/result/mbti/mbtiDesktopAnchorTargets";
 import { MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH } from "@/components/result/mbti/clone/mbtiDesktopClone.placeholders";
-import { resolveMbtiDesktopCloneSlots } from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
+import {
+  resolveMbtiDesktopCloneSlots,
+  resolveMbtiDesktopCloneSlotsResult,
+} from "@/components/result/mbti/clone/mbtiDesktopClone.resolve";
 import type {
   EnergyBlock,
   LockedListBlock,
@@ -37,6 +40,7 @@ import {
   type PersonalityDesktopCloneAssetSlot,
 } from "@/lib/cms/personality-desktop-clone";
 import type { Locale } from "@/lib/i18n/locales";
+import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import type { MbtiResultProjectionViewModel } from "@/lib/mbti/publicProjection";
 import { assignWindowLocation } from "@/lib/browser/locationNavigation";
 
@@ -87,6 +91,8 @@ type MbtiDesktopCloneShellProps = {
   storageAssetSlotsOverride?: PersonalityDesktopCloneAssetSlot[] | null;
   storageManagedExternally?: boolean;
   canLoadDesktopCloneStorage?: boolean;
+  snapshotMode?: boolean;
+  snapshotContentStatus?: MbtiSnapshotContentStatus | null;
 };
 
 const LEGACY_OFFER_SECTION_ID = "offer-full";
@@ -362,6 +368,8 @@ export function MbtiDesktopCloneShell({
   storageAssetSlotsOverride,
   storageManagedExternally = false,
   canLoadDesktopCloneStorage,
+  snapshotMode = false,
+  snapshotContentStatus = null,
 }: MbtiDesktopCloneShellProps) {
   const cloneLocale = locale === "zh" ? "zh" : "en";
   const shouldLoadDesktopCloneStorage = canLoadDesktopCloneStorage ?? isUnlocked;
@@ -474,7 +482,7 @@ export function MbtiDesktopCloneShell({
   ]);
 
   const traitDimensions = projectionViewModel?.dimensions?.length ? projectionViewModel.dimensions : dimensions;
-  const slots = resolveMbtiDesktopCloneSlots({
+  const slotInput = {
     locale,
     headline,
     dimensions: traitDimensions,
@@ -484,7 +492,22 @@ export function MbtiDesktopCloneShell({
     offers,
     projectionViewModel,
     storageContent,
+  };
+  const strictSlotsResult = resolveMbtiDesktopCloneSlotsResult(slotInput, {
+    mode: snapshotMode ? "snapshot" : "normal",
+    allowPlaceholder: !snapshotMode,
   });
+  const slots = strictSlotsResult.ok
+    ? strictSlotsResult.slots
+    : resolveMbtiDesktopCloneSlots({ ...slotInput, storageContent: null });
+  const snapshotContentErrorCode =
+    snapshotMode && snapshotContentStatus && !snapshotContentStatus.ok
+      ? snapshotContentStatus.code
+      : snapshotMode && !strictSlotsResult.ok
+        ? strictSlotsResult.code
+        : null;
+  const snapshotContentReady = snapshotMode && snapshotContentStatus?.ok === true && strictSlotsResult.ok;
+  const snapshotContentSource = snapshotContentStatus?.ok ? snapshotContentStatus.source : slots.meta.contentSource;
   const primaryOffer = resolvePrimaryOffer(offers);
   const unlockedCareerIdeaBlock = isUnlocked
     ? withOverrideTitle(
@@ -906,14 +929,14 @@ export function MbtiDesktopCloneShell({
             locale: cloneLocale,
             zhTitle: "你可能会喜欢的职业选择",
             source: null,
-            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.career.lockedBlocks[0],
+            fallback: slots.chapters.career.lockedBlocks[0],
             testId: "mbti-premium-career-career-ideas",
           }),
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "适合你的工作方式",
             source: null,
-            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.career.lockedBlocks[1],
+            fallback: slots.chapters.career.lockedBlocks[1],
             testId: "mbti-premium-career-work-styles",
           }),
         ]}
@@ -945,14 +968,14 @@ export function MbtiDesktopCloneShell({
             locale: cloneLocale,
             zhTitle: "什么能让你充满活力？",
             source: null,
-            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.growth.lockedBlocks[0],
+            fallback: slots.chapters.growth.lockedBlocks[0],
             testId: "mbti-premium-growth-what-energizes",
           }),
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "什么让你精力力竭？",
             source: null,
-            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.growth.lockedBlocks[1],
+            fallback: slots.chapters.growth.lockedBlocks[1],
             testId: "mbti-premium-growth-what-drains",
           }),
         ]}
@@ -984,14 +1007,14 @@ export function MbtiDesktopCloneShell({
             locale: cloneLocale,
             zhTitle: "你的人际关系优势",
             source: null,
-            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.relationships.lockedBlocks[0],
+            fallback: slots.chapters.relationships.lockedBlocks[0],
             testId: "mbti-premium-relationships-superpowers",
           }),
           buildPremiumTeaserBlock({
             locale: cloneLocale,
             zhTitle: "人际关系陷阱",
             source: null,
-            fallback: MBTI_DESKTOP_CLONE_PLACEHOLDER_SLOTS_ZH.chapters.relationships.lockedBlocks[1],
+            fallback: slots.chapters.relationships.lockedBlocks[1],
             testId: "mbti-premium-relationships-pitfalls",
           }),
         ]}
@@ -1009,11 +1032,30 @@ export function MbtiDesktopCloneShell({
     </>
   );
 
+  if (snapshotContentErrorCode) {
+    return (
+      <section
+        data-testid="mbti-desktop-clone-snapshot-error"
+        data-pdf-error={snapshotContentErrorCode}
+        data-pdf-content-ready="false"
+        data-pdf-content-source="placeholder"
+        data-content-source="placeholder"
+        data-pdf-exclude="true"
+        className={styles.cloneRoot}
+      >
+        <p>{snapshotContentErrorCode}</p>
+      </section>
+    );
+  }
+
   return (
     <div
       data-testid="mbti-desktop-clone-shell"
       className={styles.cloneRoot}
       data-base-code={slots.meta.baseCode}
+      data-content-source={slots.meta.contentSource}
+      data-pdf-content-ready={snapshotMode ? (snapshotContentReady ? "true" : "false") : undefined}
+      data-pdf-content-source={snapshotMode ? snapshotContentSource : undefined}
       data-invite-has-invite={hasInvite ? "true" : "false"}
       data-invite-code={sectionInviteCode || undefined}
       data-invite-href={sectionInviteCtaHref || undefined}
