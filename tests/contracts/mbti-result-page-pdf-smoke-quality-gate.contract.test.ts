@@ -56,14 +56,14 @@ describe("MBTI result-page PDF smoke quality gate", () => {
     expect(output).not.toContain("result_access_token=");
   });
 
-  it("targets the strict v3 result-page PDF endpoint with required Gotenberg headers", () => {
+  it("targets the strict v4 result-page PDF endpoint with required Gotenberg headers", () => {
     const source = read(SCRIPT_PATH);
 
     expect(source).toContain("/attempts/${encodeURIComponent(attemptId)}/result-page.pdf");
     expect(source).toContain('accept: "application/pdf"');
     expect(source).toContain("authorization: `Bearer ${accessToken}`");
     expect(source).toContain('"x-result-access-token": accessToken');
-    expect(source).toContain('const SNAPSHOT_SURFACE_VERSION = "mbti.result_page_snapshot.v3"');
+    expect(source).toContain('const SNAPSHOT_SURFACE_VERSION = "mbti.result_page_snapshot.v4"');
     expect(source).toContain('const SNAPSHOT_SURFACE_KEY = "mbti_result_page_snapshot"');
     expect(source).toContain('const SNAPSHOT_ENGINE = "gotenberg_chromium"');
     expect(source).toContain('["x-report-pdf-engine", SNAPSHOT_ENGINE]');
@@ -111,6 +111,11 @@ describe("MBTI result-page PDF smoke quality gate", () => {
       "data-pdf",
       "Gotenberg",
       "mbti\\.result_page_snapshot",
+      "FERMATMIND MBTI RESULT",
+      "PDF 保留当前结果页的核心阅读内容",
+      "职业推荐、历史结果与订单入口请回到结果页继续使用",
+      "Core Reading",
+      "summary shell",
     ]) {
       expect(source).toContain(token);
     }
@@ -124,6 +129,19 @@ describe("MBTI result-page PDF smoke quality gate", () => {
       "Career Path",
       "Personal Growth",
       "Relationships",
+      "影响因素",
+      "职业优势",
+      "职业短板",
+      "你可能会喜欢的职业选择",
+      "适合你的工作方式",
+      "成长优势",
+      "成长短板",
+      "关系优势",
+      "关系短板",
+      "Influential Traits",
+      "Career advantages",
+      "Career weaknesses",
+      "Preferred roles",
     ]) {
       expect(source).toContain(token);
     }

@@ -9,14 +9,14 @@ function read(relativePath: string): string {
 }
 
 describe("private result print chrome contract", () => {
-  it("uses a runtime snapshot shell for the v3 private result print route", () => {
+  it("uses a runtime snapshot shell for the v4 private result print route", () => {
     const resultPrintPage = read("app/(localized)/[locale]/(app)/result/[id]/print/page.tsx");
     const resultPage = read("app/(localized)/[locale]/(app)/result/[id]/page.tsx");
     const localizedLayout = read("app/(localized)/[locale]/layout.tsx");
     const proxy = read("proxy.ts");
     const globals = read("app/globals.css");
 
-    expect(proxy).toContain('RESULT_PAGE_SNAPSHOT_SURFACE = "mbti.result_page_snapshot.v3"');
+    expect(proxy).toContain('RESULT_PAGE_SNAPSHOT_SURFACE = "mbti.result_page_snapshot.v4"');
     expect(proxy).toContain('RESULT_PAGE_SNAPSHOT_SHELL_HEADER = "x-fermat-result-print-snapshot-shell"');
     expect(proxy).toContain("isResultPageSnapshotPrintRequest(pathname, request.nextUrl.searchParams.get(\"surface\"))");
     expect(proxy).toContain('requestHeaders.delete(RESULT_PAGE_SNAPSHOT_SHELL_HEADER)');

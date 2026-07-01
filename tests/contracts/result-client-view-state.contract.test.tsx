@@ -124,10 +124,38 @@ vi.mock("@/components/result/RichResultReport", () => ({
       data-pdf-content-source={snapshotContentStatus?.ok ? snapshotContentStatus.source : undefined}
       data-pdf-error={snapshotContentStatus && !snapshotContentStatus.ok ? snapshotContentStatus.code : undefined}
     >
-      <div id="mbti-desktop-traits" />
-      <div id="mbti-desktop-career" />
-      <div id="mbti-desktop-growth" />
-      <div id="mbti-desktop-relationships" />
+      <div
+        data-testid="mbti-result-shell"
+        data-pdf-snapshot-root="true"
+      >
+        <div
+          data-testid="mbti-desktop-clone-shell"
+          data-pdf-content-ready={snapshotContentStatus ? (snapshotContentStatus.ok ? "true" : "false") : undefined}
+          data-pdf-content-source={snapshotContentStatus?.ok ? snapshotContentStatus.source : undefined}
+        >
+          <section id="mbti-desktop-traits" data-pdf-section="personality-traits">
+            <h2>Personality Traits</h2>
+            <p>Trait axis detail body</p>
+          </section>
+          <section id="mbti-desktop-career" data-pdf-section="career-path">
+            <h2>Your Career Path</h2>
+            <p>Influential Traits</p>
+            <p>Career advantages detail body</p>
+            <p>Career weaknesses detail body</p>
+            <p>Preferred roles detail body</p>
+          </section>
+          <section id="mbti-desktop-growth" data-pdf-section="personal-growth">
+            <h2>Your Personal Growth</h2>
+            <p>Growth strengths detail body</p>
+            <p>Growth weaknesses detail body</p>
+          </section>
+          <section id="mbti-desktop-relationships" data-pdf-section="relationships">
+            <h2>Your Relationships</h2>
+            <p>Relationship strengths detail body</p>
+            <p>Relationship weaknesses detail body</p>
+          </section>
+        </div>
+      </div>
       {reportData?.mbti_public_projection_v1?.summary_card?.summary
         ?? (reportData as { big5_public_projection_v1?: { explainability_summary?: { headline?: string } } } | undefined)
         ?.big5_public_projection_v1?.explainability_summary?.headline
@@ -467,15 +495,19 @@ describe("ResultClient view-state contract", () => {
         rolloutEnv={{} as never}
         printMode
         printSnapshotRoute
-        printSnapshotSurface="mbti.result_page_snapshot.v3"
+        printSnapshotSurface="mbti.result_page_snapshot.v4"
         printAccessToken="print_result_access_token_123"
         snapshotContentStatus={readySnapshotContentStatus}
       />
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId("mbti-result-pdf-shell")).toBeInTheDocument();
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
     });
+    expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-result-pdf-shell")).not.toBeInTheDocument();
+    expect(screen.getByText("Influential Traits")).toBeInTheDocument();
 
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledWith({
       attemptId: "attempt-123",
@@ -510,7 +542,7 @@ describe("ResultClient view-state contract", () => {
         rolloutEnv={{} as never}
         printMode
         printSnapshotRoute
-        printSnapshotSurface="mbti.result_page_snapshot.v3"
+        printSnapshotSurface="mbti.result_page_snapshot.v4"
         printAccessToken="print_result_access_token_123"
         initialReportAccess={initialReportAccess}
         initialReportData={reportFixture}
@@ -519,8 +551,13 @@ describe("ResultClient view-state contract", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId("mbti-result-pdf-shell")).toBeInTheDocument();
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
     });
+    expect(screen.getByTestId("mbti-result-shell")).toBeInTheDocument();
+    expect(screen.getByTestId("mbti-desktop-clone-shell")).toBeInTheDocument();
+    expect(screen.queryByTestId("mbti-result-pdf-shell")).not.toBeInTheDocument();
+    expect(screen.queryByText("FERMATMIND MBTI RESULT")).not.toBeInTheDocument();
+    expect(screen.queryByText("PDF 保留当前结果页的核心阅读内容。职业推荐、历史结果与订单入口请回到结果页继续使用。")).not.toBeInTheDocument();
 
     expect(hoisted.fetchAttemptReportAccess).not.toHaveBeenCalled();
     expect(hoisted.fetchAttemptReport).not.toHaveBeenCalled();
@@ -529,7 +566,7 @@ describe("ResultClient view-state contract", () => {
     expect(hoisted.fetchAttemptInviteUnlockProgress).not.toHaveBeenCalled();
     expect(setIntervalSpy.mock.calls.some(([, delay]) => delay === 15000)).toBe(false);
     await waitFor(() => {
-      expect(screen.getByTestId("mbti-result-pdf-shell").parentElement).toContainElement(
+      expect(screen.getByTestId("rich-result-report").parentElement).toContainElement(
         document.getElementById("fermat-pdf-ready")
       );
     });
@@ -555,7 +592,7 @@ describe("ResultClient view-state contract", () => {
         rolloutEnv={{} as never}
         printMode
         printSnapshotRoute
-        printSnapshotSurface="mbti.result_page_snapshot.v3"
+        printSnapshotSurface="mbti.result_page_snapshot.v4"
         printAccessToken="print_result_access_token_123"
         initialReportAccess={initialReportAccess}
         initialReportData={reportFixture}
@@ -564,7 +601,7 @@ describe("ResultClient view-state contract", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId("mbti-result-pdf-shell")).toBeInTheDocument();
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
     });
     await waitFor(() => {
       expect((window as typeof window & { __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__).toBe("DESKTOP_CLONE_CONTENT_MISSING");
@@ -587,7 +624,7 @@ describe("ResultClient view-state contract", () => {
         rolloutEnv={{} as never}
         printMode
         printSnapshotRoute
-        printSnapshotSurface="mbti.result_page_snapshot.v3"
+        printSnapshotSurface="mbti.result_page_snapshot.v4"
         printAccessToken="print_result_access_token_123"
         initialReportAccess={initialReportAccess}
         initialReportData={reportFixture}
@@ -596,7 +633,7 @@ describe("ResultClient view-state contract", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId("mbti-result-pdf-shell")).toBeInTheDocument();
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
     });
     await waitFor(() => {
       expect((window as typeof window & { __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__).toBe("PDF_PLACEHOLDER_CONTENT");
@@ -619,7 +656,7 @@ describe("ResultClient view-state contract", () => {
         rolloutEnv={{} as never}
         printMode
         printSnapshotRoute
-        printSnapshotSurface="mbti.result_page_snapshot.v3"
+        printSnapshotSurface="mbti.result_page_snapshot.v4"
         printAccessToken="print_result_access_token_123"
         initialReportAccess={initialReportAccess}
         initialReportData={reportFixture}
@@ -628,7 +665,7 @@ describe("ResultClient view-state contract", () => {
     );
 
     await waitFor(() => {
-      expect(screen.getByTestId("mbti-result-pdf-shell")).toBeInTheDocument();
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
     });
     await waitFor(() => {
       expect((window as typeof window & { __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__).toBe("PDF_RENDER_BLOCKER_PRESENT");
@@ -639,7 +676,7 @@ describe("ResultClient view-state contract", () => {
     document.querySelector('[data-cookie-banner="true"]')?.remove();
   });
 
-  it("fails closed when print mode lacks the v3 snapshot route contract", async () => {
+  it("fails closed when print mode lacks the v4 snapshot route contract", async () => {
     const reportFixture = cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse;
     reportFixture.mbti_access_hub_v1 = createMbtiAccessHubRaw("attempt-123");
     const initialReportAccess = createAccessProjection();

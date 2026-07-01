@@ -14,6 +14,7 @@ describe("Gotenberg result print route contract", () => {
     const printRoute = read(printRoutePath);
     const resultPage = read("app/(localized)/[locale]/(app)/result/[id]/page.tsx");
     const accessNormalizer = read("lib/access/unifiedAccess.ts");
+    const pdfSurface = read("lib/result/pdfSurface.ts");
 
     expect(existsSync(path.join(ROOT, printRoutePath))).toBe(true);
     expect(printRoute).toContain("robots: NOINDEX_ROBOTS");
@@ -43,15 +44,21 @@ describe("Gotenberg result print route contract", () => {
     expect(printRoute).toContain("pdf-mode");
     expect(resultPage).not.toContain("mbti.result_page_export.v1");
     expect(resultPage).not.toContain("mbti.result_page_snapshot.v3");
+    expect(pdfSurface).toContain("mbti.result_page_snapshot.v4");
     expect(resultPage).not.toContain("verifyResultPagePdfToken");
     expect(resultPage).not.toContain("data-pdf-ready");
     expect(accessNormalizer).toContain('normalizeReportActionHref(raw.actions?.pdf_href, locale, "pdf")');
   });
 
-  it("renders print mode through a clean PDF shell and removes interactive recovery chrome", () => {
+  it("renders print mode through the real result tree and rejects the summary PDF shell", () => {
     const resultClient = read("app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx");
     const pdfShell = read("components/result/mbti/MbtiResultPdfShell.tsx");
     const printBootstrap = read("app/(localized)/[locale]/(app)/result/[id]/print/resultPrintBootstrap.ts");
+    const richReport = read("components/result/RichResultReport.tsx");
+    const mbtiShell = read("components/result/mbti/MbtiResultShell.tsx");
+    const desktopCloneShell = read("components/result/mbti/clone/MbtiDesktopCloneShell.tsx");
+    const traitsSection = read("components/result/mbti/clone/MbtiCloneTraitsSection.tsx");
+    const narrativeSection = read("components/result/mbti/clone/MbtiCloneNarrativeSection.tsx");
 
     expect(resultClient).toContain("printMode = false");
     expect(resultClient).toContain("printMode?: boolean");
@@ -98,20 +105,28 @@ describe("Gotenberg result print route contract", () => {
     expect(resultClient).toContain('[data-site-footer="true"]');
     expect(resultClient).toContain('[data-result-sidebar="true"]');
     expect(resultClient).toContain('[data-result-tools="true"]');
-    expect(resultClient).toContain("<MbtiResultPdfShell");
+    expect(resultClient).not.toContain("<MbtiResultPdfShell");
+    expect(resultClient).not.toContain("mbti-result-pdf-export-surface");
     expect(resultClient).toContain("renderOptionalEmailRecoveryCard");
     expect(resultClient).toContain("printMode ? null : renderEmailRecoveryCard()");
+    expect(resultClient).toContain("printSnapshotMode={printSnapshotContractValid}");
+    expect(resultClient).toContain("snapshotDesktopCloneContent={snapshotDesktopCloneContent}");
+    expect(resultClient).toContain("snapshotContentStatus={snapshotContentStatus}");
+    expect(richReport).toContain("<MbtiResultShell");
+    expect(mbtiShell).toContain("<MbtiDesktopCloneShell");
+    expect(mbtiShell).toContain("snapshotMode={printSnapshotMode}");
+    expect(mbtiShell).toContain("storageContentOverride={activeDesktopCloneSnapshot?.content ?? null}");
+    expect(mbtiShell).toContain("storageAssetSlotsOverride={activeDesktopCloneSnapshot?.assetSlots ?? []}");
+    expect(mbtiShell).toContain("snapshotContentStatus={snapshotContentStatus}");
+    expect(desktopCloneShell).toContain('data-testid="mbti-desktop-clone-shell"');
+    expect(traitsSection).toContain('data-pdf-section="personality-traits"');
+    expect(narrativeSection).toContain('? "career-path"');
+    expect(narrativeSection).toContain('? "personal-growth"');
+    expect(narrativeSection).toContain('? "relationships"');
     expect(pdfShell).toContain('data-testid="mbti-result-pdf-shell"');
-    expect(pdfShell).toContain('data-result-pdf-root="true"');
-    expect(pdfShell).toContain('data-pdf-content-ready="true"');
-    expect(pdfShell).toContain('data-pdf-content-source="mbti-result-projection"');
-    expect(pdfShell).toContain('data-pdf-section={pdfSection.key}');
-    expect(pdfShell).toContain('"personality-traits"');
-    expect(pdfShell).toContain('"career-path"');
-    expect(pdfShell).toContain('"personal-growth"');
-    expect(pdfShell).toContain('"relationships"');
-    expect(pdfShell).toContain('data-pdf-placeholder="true"');
-    expect(pdfShell).toContain('data-pdf-error="PDF_PLACEHOLDER_CONTENT"');
+    expect(pdfShell).toContain("PDF 保留当前结果页的核心阅读内容");
+    expect(resultClient).not.toContain("FERMATMIND MBTI RESULT");
+    expect(resultClient).not.toContain("PDF 保留当前结果页的核心阅读内容");
     expect(resultClient).toContain("installPrivateResultPrintUrlRedaction(locale)");
     expect(read("proxy.ts")).toContain("isResultPageSnapshotPrintRequest(pathname, request.nextUrl.searchParams.get(\"surface\"))");
     expect(read("app/(localized)/[locale]/layout.tsx")).toContain("data-pdf-snapshot-shell");
