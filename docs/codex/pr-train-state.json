@@ -33215,9 +33215,9 @@
     "depends_on": [
       "MBTI-PDF-RESULT-SNAPSHOT-CONTENT-06"
     ],
-    "status": "committed",
+    "status": "pr_open",
     "commit_sha": "60914c25148a6f41088466dfcc904c827d6f05c4",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1504",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -33304,6 +33304,11 @@
         "at": "2026-07-01T02:43:30Z",
         "status": "committed",
         "notes": "Created local implementation commit 60914c25148a6f41088466dfcc904c827d6f05c4 for PR-C."
+      },
+      {
+        "at": "2026-07-01T02:45:00Z",
+        "status": "pr_open",
+        "notes": "Opened fap-web PR https://github.com/fermatmind/fap-web/pull/1504 for PR-C."
       }
     ]
   }
