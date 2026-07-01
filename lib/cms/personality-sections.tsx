@@ -424,7 +424,7 @@ function renderGenericCards(items: Array<{ title: string; href: string | null; s
       {items.map((item) => (
         <article
           key={`${item.title}-${item.href ?? "plain"}`}
-          className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+          className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 transition-colors hover:border-[var(--fm-accent)]/40"
         >
           {item.href ? (
             <Link href={item.href} className="font-semibold text-[var(--fm-text)] hover:text-[var(--fm-accent)]">
@@ -587,11 +587,13 @@ function renderNamedTextList(title: string, items: unknown[], key: string) {
   }
 
   return (
-    <section key={key} className="space-y-2" data-testid={`mbti64-detail-list-${key}`}>
+    <section key={key} className="space-y-3" data-testid={`mbti64-detail-list-${key}`}>
       <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{title}</h3>
-      <ul className="m-0 space-y-2 pl-5 text-[var(--fm-text-muted)]">
+      <ul className="m-0 grid gap-2 pl-0 text-[var(--fm-text-muted)] sm:grid-cols-2">
         {normalizedItems.map((item) => (
-          <li key={item}>{item}</li>
+          <li key={item} className="list-none rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-3 leading-7">
+            {item}
+          </li>
         ))}
       </ul>
     </section>
@@ -617,7 +619,7 @@ function renderTitledDetailCards(title: string, items: TitledDetailItem[] | unde
         {cards.map((item, index) => (
           <article
             key={`${item.title || item.detail}-${index}`}
-            className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+            className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
           >
             {item.title ? <p className="m-0 font-semibold text-[var(--fm-text)]">{item.title}</p> : null}
             {item.detail ? <p className="mb-0 mt-2 leading-7 text-[var(--fm-text-muted)]">{item.detail}</p> : null}
@@ -663,12 +665,12 @@ function renderRecordCard(title: string, value: Record<string, unknown> | null |
   return (
     <section key={key} className="space-y-3" data-testid={`mbti64-v85-${key}`}>
       <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{title}</h3>
-      <div className="grid gap-3 md:grid-cols-2">
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         {rows.map((row) => {
           const label = rowLabels[row.key]?.[locale] ?? row.key.replace(/_/g, " ");
 
           return (
-            <article key={row.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+            <article key={row.key} className="rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">{label}</p>
               <p className="mb-0 mt-2 leading-7 text-[var(--fm-text-muted)]">{row.body}</p>
             </article>
@@ -712,11 +714,18 @@ function renderStructuredModules(modules: unknown, locale: Locale) {
       <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">
         {locale === "zh" ? "深度解读模块" : "Deep-dive modules"}
       </h3>
-      <div className="space-y-4">
+      <div className="space-y-5">
         {moduleRows.map((item, index) => (
-          <article key={`${item.id || item.title}-${index}`} className="space-y-3 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-            {item.title ? <h4 className="m-0 text-base font-semibold text-[var(--fm-text)]">{item.title}</h4> : null}
-            {item.insight ? <p className="m-0 leading-7 text-[var(--fm-text)]">{item.insight}</p> : null}
+          <article
+            key={`${item.id || item.title}-${index}`}
+            className="space-y-4 rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 sm:p-5"
+          >
+            {item.title ? <h4 className="m-0 text-lg font-semibold leading-tight text-[var(--fm-text)]">{item.title}</h4> : null}
+            {item.insight ? (
+              <p className="m-0 rounded-lg border border-[var(--fm-border)] bg-[var(--fm-surface)] p-3 leading-7 text-[var(--fm-text)]">
+                {item.insight}
+              </p>
+            ) : null}
             {item.paragraphs.length > 0 ? (
               <div className="space-y-3 text-[var(--fm-text-muted)]">
                 {item.paragraphs.map((paragraph) => (
@@ -834,7 +843,7 @@ function renderMbti64ReaderExperiencePayload(payload: Record<string, unknown> | 
   }
 
   return contentBlocks.length > 0 ? (
-    <div key="reader-experience" className="space-y-6">
+    <div key="reader-experience" className="space-y-8">
       {contentBlocks}
     </div>
   ) : null;
@@ -903,7 +912,7 @@ function renderMbti64DetailSection(section: CmsPersonalitySection, locale: Local
     return renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
   }
 
-  return <div className="space-y-4">{contentBlocks}</div>;
+  return <div className="space-y-6">{contentBlocks}</div>;
 }
 
 function contentTitleFromValue(key: string, value: unknown, locale: Locale): string {
