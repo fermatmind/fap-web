@@ -32,6 +32,7 @@ Options:
   --expect-jsonld=Article,BreadcrumbList
   --forbid-jsonld=FAQPage
   --forbid-hreflang
+  --expect-hreflang=en=<url>,zh-CN=<url>,x-default=<url>
   --retry=3
   --retry-delay-ms=60000
   --timeout-ms=30000
@@ -70,6 +71,38 @@ function parseCsv(value) {
     .filter(Boolean);
 }
 
+function parseHreflangMap(value) {
+  if (!value || value === true) {
+    return {};
+  }
+
+  const map = {};
+  for (const item of String(value).split(",")) {
+    const trimmed = item.trim();
+    if (!trimmed) {
+      continue;
+    }
+
+    const separator = trimmed.indexOf("=");
+    if (separator <= 0 || separator === trimmed.length - 1) {
+      throw new Error(`Invalid hreflang expectation: ${trimmed}`);
+    }
+
+    const key = trimmed.slice(0, separator).trim();
+    const url = trimmed.slice(separator + 1).trim();
+    if (!key || !url) {
+      throw new Error(`Invalid hreflang expectation: ${trimmed}`);
+    }
+    if (Object.prototype.hasOwnProperty.call(map, key)) {
+      throw new Error(`Duplicate hreflang expectation: ${key}`);
+    }
+
+    map[key] = url;
+  }
+
+  return map;
+}
+
 export function parseArgs(argv) {
   const options = {
     retry: DEFAULT_RETRY_COUNT,
@@ -87,6 +120,7 @@ export function parseArgs(argv) {
     expectJsonLd: [],
     forbidJsonLd: [],
     forbidHreflang: false,
+    expectHreflang: {},
     json: false,
   };
 
@@ -145,6 +179,9 @@ export function parseArgs(argv) {
         break;
       case "--forbid-hreflang":
         options.forbidHreflang = true;
+        break;
+      case "--expect-hreflang":
+        options.expectHreflang = parseHreflangMap(value);
         break;
       case "--retry":
         options.retry = parsePositiveInt(value, DEFAULT_RETRY_COUNT);
@@ -230,6 +267,11 @@ function addIssue(issues, code, detail = "") {
 
 function sameNormalizedUrl(left, right) {
   return normalizeUrlForCompare(left) === normalizeUrlForCompare(right);
+}
+
+function expectedHreflangEntries(options) {
+  const expected = options.expectHreflang || {};
+  return Object.entries(expected).filter(([key, value]) => key && value);
 }
 
 async function fetchText(url, options = {}) {
@@ -319,6 +361,34 @@ function checkHtml(url, fetched, options) {
 
   if (options.forbidHreflang && hreflangLinks.length > 0) {
     addIssue(issues, "forbidden-hreflang", JSON.stringify(hreflangLinks));
+  }
+
+  const expectedHreflang = expectedHreflangEntries(options);
+  if (expectedHreflang.length > 0) {
+    const actualByLanguage = new Map();
+    for (const link of hreflangLinks) {
+      if (actualByLanguage.has(link.hreflang)) {
+        addIssue(issues, "duplicate-hreflang", link.hreflang);
+        continue;
+      }
+      actualByLanguage.set(link.hreflang, link.href);
+    }
+
+    const expectedLanguages = new Set(expectedHreflang.map(([language]) => language));
+    for (const [language, expectedUrl] of expectedHreflang) {
+      const actualUrl = actualByLanguage.get(language);
+      if (!actualUrl) {
+        addIssue(issues, "missing-hreflang", language);
+      } else if (!sameNormalizedUrl(actualUrl, expectedUrl)) {
+        addIssue(issues, "hreflang-mismatch", `${language}: ${actualUrl}`);
+      }
+    }
+
+    for (const link of hreflangLinks) {
+      if (!expectedLanguages.has(link.hreflang)) {
+        addIssue(issues, "unexpected-hreflang", `${link.hreflang}: ${link.href}`);
+      }
+    }
   }
 
   return {
@@ -433,6 +503,7 @@ export async function verifyPublicArticleRelease(rawOptions) {
     expectJsonLd: [],
     forbidJsonLd: [],
     forbidHreflang: false,
+    expectHreflang: {},
     ...rawOptions,
   };
   const attempts = [];
