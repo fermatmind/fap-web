@@ -1754,10 +1754,10 @@
     --clone-hero-px: 8mm;
     --clone-hero-py-top: 7mm;
     --clone-hero-py-bottom: 7mm;
-    --clone-section-gap: 10mm;
-    --clone-block-gap: 4.5mm;
+    --clone-section-gap: 6.5mm;
+    --clone-block-gap: 3.8mm;
     --clone-card-radius: 6px;
-    --clone-card-padding: 5mm;
+    --clone-card-padding: 4mm;
     width: 190mm;
     max-width: 190mm;
     margin: 0 auto;
@@ -1775,8 +1775,8 @@
   }
 
   .hero {
-    min-height: 52mm;
-    grid-template-columns: minmax(0, 1fr) 52mm;
+    min-height: 42mm;
+    grid-template-columns: minmax(0, 1fr) 42mm;
     border: 1px solid rgba(54, 173, 115, 0.18);
     border-radius: 8px;
     clip-path: none;
@@ -1836,8 +1836,8 @@
   }
 
   .heroIllustration {
-    width: 44mm;
-    height: 32mm;
+    width: 34mm;
+    height: 24mm;
     border-radius: 7px;
   }
 
@@ -1892,8 +1892,6 @@
 
   .card,
   .traitsCard,
-  .influentialCard,
-  .traitsUnlockPanel,
   .traitsUnlockItem,
   .traitsUnlockDefinition,
   .letterItem,
@@ -1909,6 +1907,13 @@
   .p0Block {
     break-inside: avoid-page;
     page-break-inside: avoid;
+    box-shadow: none;
+  }
+
+  .influentialCard,
+  .traitsUnlockPanel {
+    break-inside: auto;
+    page-break-inside: auto;
     box-shadow: none;
   }
 
@@ -1954,7 +1959,23 @@
   }
 
   .illustrationSlot {
-    min-height: 28mm;
+    min-height: 7mm;
+  }
+
+  .illustrationSlot[data-pdf-decorative-media="true"] {
+    min-height: 0;
+    height: 6mm;
+    border: 0;
+    border-radius: 0;
+    background: linear-gradient(90deg, rgba(54, 173, 115, 0.24), rgba(54, 173, 115, 0.04) 62%, rgba(139, 104, 168, 0.06));
+    overflow: hidden;
+  }
+
+  .illustrationSlot[data-pdf-decorative-media="true"]::before,
+  .illustrationSlot[data-pdf-decorative-media="true"]::after,
+  .illustrationSlot[data-pdf-decorative-media="true"] .slotLabel,
+  .illustrationSlot[data-pdf-decorative-media="true"] .assetSlotImage {
+    display: none;
   }
 
   .summaryIllustration {

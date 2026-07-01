@@ -33549,5 +33549,114 @@
         "notes": "GitHub checks passed and PR merge state is CLEAN; recording ready_to_merge before squash merge."
       }
     ]
+  },
+  "MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10": {
+    "repo": "fap-web",
+    "companion_repo": "fap-api",
+    "base": "main",
+    "branch": "codex/mbti-pdf-snapshot-print-layout-polish-10",
+    "title": "MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10: polish MBTI snapshot print layout",
+    "train_scope": "mbti_pdf_snapshot_print_layout_polish",
+    "depends_on": [
+      "MBTI-PDF-RESULT-SNAPSHOT-VISUAL-PAGINATION"
+    ],
+    "status": "in_progress",
+    "commit_sha": "d336ef462a707e33016f34d85145d15576016d5b",
+    "companion_commit_sha": "506b5aeedc71fb8cf6023d373ba5d2efbb05dfc6",
+    "pr_url": null,
+    "companion_pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "User explicitly requested MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10 implementation, allowed fap-web changes and a very small fap-api cache-isolation/surface-render-version change, and prohibited deploy/server/content/cache mutations."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-E MBTI-PDF-RESULT-SNAPSHOT-VISUAL-PAGINATION merged as fap-web PR #1506 with merge commit 002cf62fcf605f6a28eb1a055d13a21417d5eca0 present in origin/main; later PR-F result snapshot real-tree commits are also present on origin/main."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Created scoped branch codex/mbti-pdf-snapshot-print-layout-polish-10 in fap-web from origin/main while leaving unrelated untracked pnpm-workspace.yaml unstaged; created matching fap-api branch from origin/main in a detached-worktree checkout."
+      },
+      "fap_web_contracts": {
+        "status": "pass",
+        "command": "./node_modules/.bin/vitest run tests/contracts/mbti-pdf-snapshot-print-layout-polish.contract.test.ts tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts tests/contracts/result-gotenberg-print-route.contract.test.ts tests/contracts/result-client-view-state.contract.test.tsx tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts tests/contracts/result-private-print-chrome.contract.test.ts",
+        "evidence": "6 files passed, 53 tests passed. Covers real result tree, no summary shell, print layout CSS contract, Gotenberg print route contract, result client view-state, smoke quality gate, and private print chrome contract."
+      },
+      "fap_web_typecheck": {
+        "status": "pass_with_environment_note",
+        "command": "./node_modules/.bin/tsc --noEmit",
+        "evidence": "TypeScript check passed. The requested pnpm typecheck wrapper was blocked before running the script by local pnpm approve-builds state for esbuild/sharp/unrs-resolver; package.json typecheck resolves to tsc --noEmit, so the exact typecheck payload was run directly without taking ownership of the unrelated untracked pnpm-workspace.yaml."
+      },
+      "fap_web_manifest_state_parse": {
+        "status": "pass",
+        "command": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml')\" && python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+        "evidence": "Manifest YAML and state JSON parse successfully."
+      },
+      "fap_web_diff_check": {
+        "status": "pass",
+        "command": "git diff --check",
+        "evidence": "No whitespace errors."
+      },
+      "fap_api_pdf_parity": {
+        "status": "pass",
+        "command": "php artisan test --filter=AttemptPublicReportPdfParityTest",
+        "evidence": "10 tests passed, 156 assertions. Covers strict Gotenberg snapshot surface, /print route, no mPDF fallback, v4 cache isolation with printRenderVersion, and render-version response header."
+      },
+      "fap_api_error_contract": {
+        "status": "pass",
+        "command": "php artisan test --filter=ApiErrorContractMiddlewareTest",
+        "evidence": "3 tests passed, 23 assertions."
+      },
+      "fap_api_pint": {
+        "status": "pass",
+        "command": "./vendor/bin/pint --dirty",
+        "evidence": "Pint passed on 3 changed PHP files."
+      },
+      "fap_api_diff_check": {
+        "status": "pass",
+        "command": "git diff --check",
+        "evidence": "No whitespace errors."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        "components/result/mbti/clone/MbtiCloneAssetSlot.tsx",
+        "components/result/mbti/clone/MbtiCloneNarrativeSection.tsx",
+        "components/result/mbti/clone/mbtiDesktopClone.module.css",
+        "tests/contracts/mbti-pdf-snapshot-print-layout-polish.contract.test.ts",
+        "tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "companion_allowed_files": [
+        "backend/app/Services/Report/Pdf/ReportPdfDocumentService.php",
+        "backend/app/Http/Controllers/API/V0_3/AttemptReadController.php",
+        "backend/tests/Feature/V0_3/AttemptPublicReportPdfParityTest.php"
+      ],
+      "outside_scope_files": []
+    },
+    "events": [
+      {
+        "at": "2026-07-01T13:05:21Z",
+        "status": "in_progress",
+        "notes": "Initialized PR-G from explicit user plan. Scope is fap-web print layout polish plus minimal fap-api render-version cache isolation; no deployment, server mutation, content import, Gotenberg timeout/route change, mPDF fallback, summary shell, or deletion of real result detail content."
+      },
+      {
+        "at": "2026-07-01T13:16:54Z",
+        "status": "local_checks_passed",
+        "notes": "Implemented scoped fap-web print layout polish and fap-api printRenderVersion cache isolation. Focused fap-web contracts, direct tsc typecheck payload, manifest/state parse, fap-web diff check, fap-api PDF parity, API error contract, Pint, and fap-api diff check passed. pnpm typecheck wrapper is environment-blocked by local approve-builds state; unrelated untracked pnpm-workspace.yaml remains unstaged."
+      },
+      {
+        "at": "2026-07-01T13:19:38Z",
+        "status": "committed",
+        "notes": "Created fap-web commit d336ef462a707e33016f34d85145d15576016d5b and fap-api companion commit 506b5aeedc71fb8cf6023d373ba5d2efbb05dfc6."
+      }
+    ]
   }
 }

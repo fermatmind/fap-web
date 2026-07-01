@@ -98,6 +98,7 @@ export function MbtiCloneNarrativeSection({
         className={styles.illustrationSlot}
         labelClassName={styles.slotLabel}
         testId={`mbti-asset-slot-${id}`}
+        printDecorative
       />
       <div className={styles.sectionParagraphs}>
         {introParagraphs.map((paragraph, index) => (
