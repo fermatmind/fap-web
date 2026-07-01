@@ -33215,12 +33215,12 @@
     "depends_on": [
       "MBTI-PDF-RESULT-SNAPSHOT-CONTENT-06"
     ],
-    "status": "pr_open",
-    "commit_sha": "60914c25148a6f41088466dfcc904c827d6f05c4",
+    "status": "merged",
+    "commit_sha": "3dee3b319dd7556e349f4b4cc71a580a0751d024",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1504",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-01T03:18:04Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "authorization": {
@@ -33272,6 +33272,10 @@
         "status": "pass",
         "command": "git diff --name-only",
         "evidence": "Changed files are limited to proxy/layout, MBTI desktop clone snapshot shell, PR-C contract tests, and PR-train manifest/state."
+      },
+      "post_merge_reconciliation": {
+        "status": "pass",
+        "evidence": "GitHub PR #1504 is MERGED, merge commit 83ea83d80b2806121f30c428eccc0adbe3ebc613 is present in origin/main, local main was fast-forwarded to origin/main, local task branch deleted, and remote branch absent."
       }
     },
     "scope_validation": {
@@ -33309,6 +33313,119 @@
         "at": "2026-07-01T02:45:00Z",
         "status": "pr_open",
         "notes": "Opened fap-web PR https://github.com/fermatmind/fap-web/pull/1504 for PR-C."
+      },
+      {
+        "at": "2026-07-01T03:29:42Z",
+        "status": "merged",
+        "notes": "Reconciled PR-C closeout while initializing dependent PR-D. PR #1504 merged at 2026-07-01T03:18:04Z with merge commit 83ea83d80b2806121f30c428eccc0adbe3ebc613; local and remote task branches were cleaned up."
+      }
+    ],
+    "merge_commit_sha": "83ea83d80b2806121f30c428eccc0adbe3ebc613"
+  },
+  "MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-pdf-result-snapshot-smoke-quality-gate",
+    "title": "MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE: add rendered MBTI result-page PDF smoke gate",
+    "train_scope": "mbti_pdf_result_snapshot_smoke_quality_gate",
+    "depends_on": [
+      "MBTI-PDF-RESULT-SNAPSHOT-SHELL"
+    ],
+    "status": "pr_open",
+    "commit_sha": "ca38b408c14d2a7da447bd1418c718e6b845a572",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1505",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "User explicitly requested implementation of the PR-D plan and authorized the missing fap-web PR-train manifest/state entry as part of execution."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-C MBTI-PDF-RESULT-SNAPSHOT-SHELL merged as fap-web PR #1504 with merge commit 83ea83d80b2806121f30c428eccc0adbe3ebc613 present in origin/main."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Started from clean fap-web main synced with origin/main and created branch codex/mbti-pdf-result-snapshot-smoke-quality-gate."
+      },
+      "script_dry_run": {
+        "status": "pass",
+        "command": "pnpm ops:mbti-result-page-pdf-smoke -- --json",
+        "evidence": "Dry-run completed without operator fixture, did not execute live PDF download, and returned redacted JSON."
+      },
+      "focused_contract_tests": {
+        "status": "pass",
+        "command": "pnpm exec vitest run tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts tests/contracts/result-private-leak-regressions.contract.test.ts tests/contracts/result-gotenberg-print-route.contract.test.ts",
+        "evidence": "3 files passed, 18 tests passed."
+      },
+      "contract_suite": {
+        "status": "pass",
+        "command": "pnpm test:contract",
+        "evidence": "604 files passed, 3565 tests passed."
+      },
+      "typecheck": {
+        "status": "pass",
+        "command": "pnpm typecheck",
+        "evidence": "tsc --noEmit completed successfully."
+      },
+      "production_build": {
+        "status": "pass",
+        "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+        "evidence": "next build completed successfully; postbuild sitemap output was restored because it is outside PR-D scope."
+      },
+      "manifest_state_parse": {
+        "status": "pass",
+        "commands": [
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        ],
+        "evidence": "Manifest YAML and state JSON parse successfully."
+      },
+      "diff_check": {
+        "status": "pass",
+        "command": "git diff --check",
+        "evidence": "No whitespace errors."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "command": "(git diff --name-only; git ls-files --others --exclude-standard) | sort",
+        "evidence": "Changed files are limited to package.json, the MBTI PDF smoke script, focused contract, scope helper, and PR-train manifest/state."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        "package.json",
+        "scripts/ops/check-mbti-result-page-pdf-smoke.mjs",
+        "tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "outside_scope_files": []
+    },
+    "events": [
+      {
+        "at": "2026-07-01T03:29:42Z",
+        "status": "in_progress",
+        "notes": "Initialized PR-D from explicit user plan. Scope is fap-web-only opt-in rendered PDF smoke quality gate for mbti.result_page_snapshot.v3; no backend, deploy, content import, runtime shell, A4 pagination, or visual polish work."
+      },
+      {
+        "at": "2026-07-01T03:34:55Z",
+        "status": "local_checks_passed",
+        "notes": "Implemented opt-in rendered PDF smoke quality gate and passed script dry-run, focused contracts, full contract suite, typecheck, production build, manifest/state parse, diff check, and scope validation."
+      },
+      {
+        "at": "2026-07-01T03:36:00Z",
+        "status": "committed",
+        "notes": "Created local implementation commit ca38b408c14d2a7da447bd1418c718e6b845a572 for PR-D."
+      },
+      {
+        "at": "2026-07-01T03:37:20Z",
+        "status": "pr_open",
+        "notes": "Opened fap-web PR https://github.com/fermatmind/fap-web/pull/1505 for PR-D."
       }
     ]
   }
