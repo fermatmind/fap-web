@@ -7,6 +7,12 @@ import {
 
 const ARTICLE_URL = "https://fermatmind.com/zh/articles/gaokao-score-major-shortlist-riasec-checklist";
 const ARTICLE_PATH = "/zh/articles/gaokao-score-major-shortlist-riasec-checklist";
+const ARTICLE_EN_URL = "https://fermatmind.com/en/articles/gaokao-score-major-shortlist-riasec-checklist";
+const ARTICLE_HREFLANG_CLUSTER = {
+  en: ARTICLE_EN_URL,
+  "zh-CN": ARTICLE_URL,
+  "x-default": ARTICLE_EN_URL,
+};
 
 function articleHtml(overrides: { jsonLd?: string; hreflang?: string; canonical?: string } = {}): string {
   return `<!doctype html>
@@ -31,7 +37,17 @@ function articleHtml(overrides: { jsonLd?: string; hreflang?: string; canonical?
   </html>`;
 }
 
-function responseFor(url: string, options: { staleFirstArticle?: boolean; badArticle?: boolean } = {}): Response {
+function hreflangCluster(overrides: Partial<Record<keyof typeof ARTICLE_HREFLANG_CLUSTER | "fr", string>> = {}): string {
+  const cluster = { ...ARTICLE_HREFLANG_CLUSTER, ...overrides };
+  return Object.entries(cluster)
+    .map(([hreflang, href]) => `<link rel="alternate" hreflang="${hreflang}" href="${href}" />`)
+    .join("\n");
+}
+
+function responseFor(
+  url: string,
+  options: { staleFirstArticle?: boolean; badArticle?: boolean; hreflang?: string } = {}
+): Response {
   if (url.endsWith("/sitemap.xml")) {
     return new Response(`<urlset><url><loc>${ARTICLE_URL}</loc></url></urlset>`, {
       status: 200,
@@ -63,7 +79,7 @@ function responseFor(url: string, options: { staleFirstArticle?: boolean; badArt
     });
   }
 
-  return new Response(articleHtml(), {
+  return new Response(articleHtml({ hreflang: options.hreflang }), {
     status: 200,
     headers: { "content-type": "text/html; charset=utf-8" },
   });
@@ -149,6 +165,54 @@ describe("public article release smoke verifier", () => {
     expect(result.production_write_attempted).toBe(false);
   });
 
+  it("passes when a bilingual article emits the exact expected hreflang cluster", async () => {
+    vi.stubGlobal("fetch", vi.fn(async (url: string) => responseFor(url, { hreflang: hreflangCluster() })));
+
+    const result = await verifyPublicArticleRelease({
+      url: ARTICLE_URL,
+      expectCanonical: true,
+      expectHreflang: ARTICLE_HREFLANG_CLUSTER,
+      retry: 1,
+      retryDelayMs: 1,
+    });
+
+    expect(result.ok).toBe(true);
+    expect(result.attempts[0].checks.html.hreflang_links).toEqual([
+      { hreflang: "en", href: ARTICLE_EN_URL },
+      { hreflang: "zh-CN", href: ARTICLE_URL },
+      { hreflang: "x-default", href: ARTICLE_EN_URL },
+    ]);
+  });
+
+  it("blocks missing, mismatched, and unexpected hreflang entries", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (url: string) =>
+        responseFor(url, {
+          hreflang: hreflangCluster({
+            en: "https://fermatmind.com/en/articles/wrong",
+            "x-default": "",
+            fr: "https://fermatmind.com/fr/articles/example",
+          }).replace('<link rel="alternate" hreflang="x-default" href="" />', ""),
+        })
+      )
+    );
+
+    const result = await verifyPublicArticleRelease({
+      url: ARTICLE_URL,
+      expectHreflang: ARTICLE_HREFLANG_CLUSTER,
+      retry: 1,
+      retryDelayMs: 1,
+    });
+
+    expect(result.ok).toBe(false);
+    expect(result.issues.map((issue) => issue.code)).toEqual([
+      "hreflang-mismatch",
+      "missing-hreflang",
+      "unexpected-hreflang",
+    ]);
+  });
+
   it("parses paste-ready CLI expectations for article closeout smoke checks", () => {
     expect(
       parseArgs([
@@ -163,7 +227,7 @@ describe("public article release smoke verifier", () => {
         "--expect-llms-full",
         "--expect-jsonld=Article,BreadcrumbList",
         "--forbid-jsonld=FAQPage",
-        "--forbid-hreflang",
+        `--expect-hreflang=en=${ARTICLE_EN_URL},zh-CN=${ARTICLE_URL},x-default=${ARTICLE_EN_URL}`,
         "--retry=2",
         "--retry-delay-ms=1",
         "--json",
@@ -179,7 +243,7 @@ describe("public article release smoke verifier", () => {
       expectLlmsFull: true,
       expectJsonLd: ["Article", "BreadcrumbList"],
       forbidJsonLd: ["FAQPage"],
-      forbidHreflang: true,
+      expectHreflang: ARTICLE_HREFLANG_CLUSTER,
       retry: 2,
       retryDelayMs: 1,
       json: true,
