@@ -71,10 +71,13 @@ type FaqItem = {
 
 type LinkItem = {
   href?: string;
+  path?: string;
   slug?: string;
   title?: string;
+  label?: string;
   anchor_text?: string;
   role?: string;
+  reason?: string | null;
   safe_public_route?: boolean;
   body?: string | null;
   summary?: string | null;
@@ -107,6 +110,31 @@ type PreferredRolePayload = {
   title: string | null;
   intro: string | null;
   groups: PreferredRoleGroup[];
+};
+
+type TitledDetailItem = {
+  title?: string;
+  detail?: string | null;
+  body?: string | null;
+  summary?: string | null;
+};
+
+type ReaderExperiencePayload = {
+  thirty_second_overview?: unknown[];
+  ai_search_answer?: Record<string, unknown> | null;
+  strengths?: TitledDetailItem[];
+  watch_outs?: TitledDetailItem[];
+  at_difference_scenarios?: Record<string, unknown> | null;
+  work_decision_card?: Record<string, unknown> | null;
+  relationship_communication_card?: Record<string, unknown> | null;
+  pressure_growth_card?: Record<string, unknown> | null;
+};
+
+type ModulePayload = {
+  id?: string;
+  title?: string;
+  insight?: string | null;
+  paragraphs?: unknown[];
 };
 
 const MBTI64_PROMOTED_DETAIL_SECTION_KEYS = new Set([
@@ -352,9 +380,9 @@ function normalizeLinkItems(
 ): Array<Required<Pick<LinkItem, "title">> & { href: string | null; summary: string }> {
   return items
     .map((item) => {
-      const title = normalizeText(item.title || item.anchor_text);
-      const summary = normalizeText(item.summary ?? item.body);
-      const href = normalizeInternalHref(item.href);
+      const title = normalizeText(item.title || item.label || item.anchor_text);
+      const summary = normalizeText(item.summary ?? item.body ?? item.reason);
+      const href = normalizeInternalHref(item.href ?? item.path);
       const slug = normalizeText(item.slug);
       const safePublicRoute = item.safe_public_route;
 
@@ -570,11 +598,254 @@ function renderNamedTextList(title: string, items: unknown[], key: string) {
   );
 }
 
+function renderTitledDetailCards(title: string, items: TitledDetailItem[] | undefined, key: string) {
+  const cards = asArray<TitledDetailItem>(items)
+    .map((item) => ({
+      title: normalizeText(item.title),
+      detail: normalizeText(item.detail ?? item.body ?? item.summary),
+    }))
+    .filter((item) => item.title || item.detail);
+
+  if (cards.length === 0) {
+    return null;
+  }
+
+  return (
+    <section key={key} className="space-y-3" data-testid={`mbti64-v85-${key}`}>
+      <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{title}</h3>
+      <div className="grid gap-3 md:grid-cols-2">
+        {cards.map((item, index) => (
+          <article
+            key={`${item.title || item.detail}-${index}`}
+            className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+          >
+            {item.title ? <p className="m-0 font-semibold text-[var(--fm-text)]">{item.title}</p> : null}
+            {item.detail ? <p className="mb-0 mt-2 leading-7 text-[var(--fm-text-muted)]">{item.detail}</p> : null}
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function renderRecordCard(title: string, value: Record<string, unknown> | null | undefined, key: string, locale: Locale) {
+  const rows = Object.entries(value ?? {})
+    .map(([rowKey, rowValue]) => ({
+      key: rowKey,
+      body: contentBodyFromValue(rowValue),
+    }))
+    .filter((row) => row.body);
+
+  if (rows.length === 0) {
+    return null;
+  }
+
+  const rowLabels: Record<string, { zh: string; en: string }> = {
+    what_is: { zh: "是什么", en: "What it means" },
+    at_difference: { zh: "A/T 最大区别", en: "A/T difference" },
+    work_pattern: { zh: "工作表现", en: "Work pattern" },
+    relationship_pattern: { zh: "关系沟通", en: "Relationship pattern" },
+    not_for: { zh: "不能怎么用", en: "What not to use it for" },
+    work: { zh: "工作场景", en: "Work scenario" },
+    relationship: { zh: "关系沟通", en: "Relationship scenario" },
+    pressure: { zh: "压力反馈", en: "Pressure response" },
+    best_fit: { zh: "适合的任务结构", en: "Best-fit task structure" },
+    likely_stuck: { zh: "容易卡住的协作场景", en: "Likely stuck points" },
+    boundary: { zh: "使用边界", en: "Boundary" },
+    care_language: { zh: "表达在意的方式", en: "Care language" },
+    conflict_pattern: { zh: "冲突处理", en: "Conflict pattern" },
+    misread: { zh: "容易被误读", en: "Common misread" },
+    signals: { zh: "压力信号", en: "Pressure signals" },
+    compensation: { zh: "补偿行为", en: "Compensation pattern" },
+    weekly_experiment: { zh: "本周成长实验", en: "Weekly experiment" },
+  };
+
+  return (
+    <section key={key} className="space-y-3" data-testid={`mbti64-v85-${key}`}>
+      <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{title}</h3>
+      <div className="grid gap-3 md:grid-cols-2">
+        {rows.map((row) => {
+          const label = rowLabels[row.key]?.[locale] ?? row.key.replace(/_/g, " ");
+
+          return (
+            <article key={row.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">{label}</p>
+              <p className="mb-0 mt-2 leading-7 text-[var(--fm-text-muted)]">{row.body}</p>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function renderThirtySecondOverview(items: unknown[] | undefined, locale: Locale) {
+  const points = asArray<unknown>(items)
+    .map((item) => normalizeText(item))
+    .filter(Boolean);
+
+  if (points.length === 0) {
+    return null;
+  }
+
+  return renderNamedTextList(locale === "zh" ? "30 秒速览" : "30-second overview", points, "thirty-second-overview");
+}
+
+function renderStructuredModules(modules: unknown, locale: Locale) {
+  const moduleRows = asArray<ModulePayload>(modules)
+    .map((item) => ({
+      id: normalizeText(item.id),
+      title: normalizeText(item.title),
+      insight: normalizeText(item.insight),
+      paragraphs: asArray<unknown>(item.paragraphs)
+        .map((paragraph) => normalizeText(paragraph))
+        .filter(Boolean),
+    }))
+    .filter((item) => item.title || item.insight || item.paragraphs.length > 0);
+
+  if (moduleRows.length === 0) {
+    return null;
+  }
+
+  return (
+    <section key="modules" className="space-y-4" data-testid="mbti64-v85-modules">
+      <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">
+        {locale === "zh" ? "深度解读模块" : "Deep-dive modules"}
+      </h3>
+      <div className="space-y-4">
+        {moduleRows.map((item, index) => (
+          <article key={`${item.id || item.title}-${index}`} className="space-y-3 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+            {item.title ? <h4 className="m-0 text-base font-semibold text-[var(--fm-text)]">{item.title}</h4> : null}
+            {item.insight ? <p className="m-0 leading-7 text-[var(--fm-text)]">{item.insight}</p> : null}
+            {item.paragraphs.length > 0 ? (
+              <div className="space-y-3 text-[var(--fm-text-muted)]">
+                {item.paragraphs.map((paragraph) => (
+                  <p key={paragraph} className="m-0 leading-7">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            ) : null}
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function resolveStructuredRecommendationPayload(payload: Record<string, unknown> | null): Record<string, unknown> | null {
+  const raw = asRecord(payload?.raw);
+  const rawRow = asRecord(payload?.raw_row);
+  const recommendation = asRecord(payload?.recommendation);
+  const rawRowRecommendations = asRecord(rawRow?.recommendations);
+
+  return recommendation ?? rawRowRecommendations ?? rawRow ?? raw ?? payload;
+}
+
+function renderMbti64ReaderExperiencePayload(payload: Record<string, unknown> | null, locale: Locale) {
+  const recommendation = resolveStructuredRecommendationPayload(payload);
+  const readerExperience = asRecord(recommendation?.reader_experience) as ReaderExperiencePayload | null;
+  const geoSummary = asRecord(recommendation?.geo_summary);
+  const aiSearchAnswer =
+    asRecord(readerExperience?.ai_search_answer) ?? asRecord(geoSummary?.ai_search_answer_block);
+  const modules = recommendation?.modules;
+  const faq = asArray<FaqItem>(recommendation?.faq);
+  const internalLinks = asArray<LinkItem>(recommendation?.internal_links);
+  const contentBlocks: ReactNode[] = [];
+
+  const overview = renderThirtySecondOverview(readerExperience?.thirty_second_overview, locale);
+  if (overview) {
+    contentBlocks.push(overview);
+  }
+
+  const answer = renderRecordCard(locale === "zh" ? "AI / Search 摘要答案" : "AI / Search answer", aiSearchAnswer, "ai-search-answer", locale);
+  if (answer) {
+    contentBlocks.push(answer);
+  }
+
+  const strengths = renderTitledDetailCards(locale === "zh" ? "优势" : "Strengths", readerExperience?.strengths, "strengths");
+  if (strengths) {
+    contentBlocks.push(strengths);
+  }
+
+  const watchOuts = renderTitledDetailCards(
+    locale === "zh" ? "注意风险" : "Watch-outs",
+    readerExperience?.watch_outs,
+    "watch-outs"
+  );
+  if (watchOuts) {
+    contentBlocks.push(watchOuts);
+  }
+
+  const atScenarios = renderRecordCard(locale === "zh" ? "A/T 场景差异" : "A/T scenarios", readerExperience?.at_difference_scenarios, "at-scenarios", locale);
+  if (atScenarios) {
+    contentBlocks.push(atScenarios);
+  }
+
+  const workCard = renderRecordCard(locale === "zh" ? "工作决策场景" : "Work decision scenario", readerExperience?.work_decision_card, "work-decision", locale);
+  if (workCard) {
+    contentBlocks.push(workCard);
+  }
+
+  const relationshipCard = renderRecordCard(
+    locale === "zh" ? "关系与沟通场景" : "Relationship and communication",
+    readerExperience?.relationship_communication_card,
+    "relationship-communication",
+    locale
+  );
+  if (relationshipCard) {
+    contentBlocks.push(relationshipCard);
+  }
+
+  const pressureCard = renderRecordCard(locale === "zh" ? "压力与成长" : "Pressure and growth", readerExperience?.pressure_growth_card, "pressure-growth", locale);
+  if (pressureCard) {
+    contentBlocks.push(pressureCard);
+  }
+
+  const renderedModules = renderStructuredModules(modules, locale);
+  if (renderedModules) {
+    contentBlocks.push(renderedModules);
+  }
+
+  if (faq.length > 0) {
+    contentBlocks.push(
+      <section key="faq" className="space-y-3" data-testid="mbti64-v85-faq">
+        <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{locale === "zh" ? "常见问题" : "FAQ"}</h3>
+        {renderLegacyFaqSection(
+          {
+            sectionKey: "faq",
+            title: "FAQ",
+            renderVariant: "faq",
+            bodyMd: "",
+            bodyHtml: "",
+            payloadJson: { items: faq },
+            sortOrder: 0,
+            isEnabled: true,
+          },
+          locale
+        )}
+      </section>
+    );
+  }
+
+  const renderedLinks = renderSafeInternalLinks(internalLinks, locale);
+  if (renderedLinks) {
+    contentBlocks.push(<section key="internal-links">{renderedLinks}</section>);
+  }
+
+  return contentBlocks.length > 0 ? (
+    <div key="reader-experience" className="space-y-6">
+      {contentBlocks}
+    </div>
+  ) : null;
+}
+
 function renderMbti64DetailSection(section: CmsPersonalitySection, locale: Locale) {
   const payload = asRecord(section.payloadJson);
   const raw = asRecord(payload?.raw);
   const body = firstTextValue(section.bodyMd, payload?.body, raw?.body);
   const contentBlocks: ReactNode[] = [];
+  const readerExperienceContent = renderMbti64ReaderExperiencePayload(payload, locale);
 
   if (body) {
     contentBlocks.push(
@@ -622,6 +893,10 @@ function renderMbti64DetailSection(section: CmsPersonalitySection, locale: Local
     if (rendered) {
       contentBlocks.push(rendered);
     }
+  }
+
+  if (readerExperienceContent) {
+    contentBlocks.push(readerExperienceContent);
   }
 
   if (contentBlocks.length === 0) {
@@ -1130,12 +1405,14 @@ export function extractPersonalityFaqItems(sections: CmsPersonalitySection[]): F
   return getRenderablePersonalitySections(sections)
     .flatMap((section) => {
       const payload = asRecord(section.payloadJson);
+      const recommendation = resolveStructuredRecommendationPayload(payload);
+      const structuredFaq = asArray<FaqItem>(recommendation?.faq);
       const items =
         section.sectionKey === "mbti64_comparison_a_vs_t"
           ? asArray<FaqItem>(payload?.faq)
           : section.sectionKey === "faq"
             ? asArray<FaqItem>(payload?.items)
-            : [];
+            : structuredFaq;
 
       return items
         .map((item) => ({
