@@ -33561,10 +33561,10 @@
       "MBTI-PDF-RESULT-SNAPSHOT-VISUAL-PAGINATION"
     ],
     "status": "in_progress",
-    "commit_sha": "d336ef462a707e33016f34d85145d15576016d5b",
+    "commit_sha": "b36b6b8d2647be0f547cc0c8a239737931ca13c9",
     "companion_commit_sha": "506b5aeedc71fb8cf6023d373ba5d2efbb05dfc6",
-    "pr_url": null,
-    "companion_pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1511",
+    "companion_pr_url": "https://github.com/fermatmind/fap-api/pull/2577",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -33644,7 +33644,7 @@
     "events": [
       {
         "at": "2026-07-01T13:05:21Z",
-        "status": "in_progress",
+    "status": "pr_open",
         "notes": "Initialized PR-G from explicit user plan. Scope is fap-web print layout polish plus minimal fap-api render-version cache isolation; no deployment, server mutation, content import, Gotenberg timeout/route change, mPDF fallback, summary shell, or deletion of real result detail content."
       },
       {
@@ -33655,7 +33655,12 @@
       {
         "at": "2026-07-01T13:19:38Z",
         "status": "committed",
-        "notes": "Created fap-web commit d336ef462a707e33016f34d85145d15576016d5b and fap-api companion commit 506b5aeedc71fb8cf6023d373ba5d2efbb05dfc6."
+        "notes": "Created fap-web commit b36b6b8d2647be0f547cc0c8a239737931ca13c9 and fap-api companion commit 506b5aeedc71fb8cf6023d373ba5d2efbb05dfc6."
+      },
+      {
+        "at": "2026-07-01T13:24:42Z",
+        "status": "pr_open",
+        "notes": "Opened fap-web PR https://github.com/fermatmind/fap-web/pull/1511 and companion fap-api PR https://github.com/fermatmind/fap-api/pull/2577."
       }
     ]
   }
