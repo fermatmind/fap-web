@@ -33331,9 +33331,9 @@
     "depends_on": [
       "MBTI-PDF-RESULT-SNAPSHOT-SHELL"
     ],
-    "status": "committed",
+    "status": "pr_open",
     "commit_sha": "ca38b408c14d2a7da447bd1418c718e6b845a572",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1505",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -33421,6 +33421,11 @@
         "at": "2026-07-01T03:36:00Z",
         "status": "committed",
         "notes": "Created local implementation commit ca38b408c14d2a7da447bd1418c718e6b845a572 for PR-D."
+      },
+      {
+        "at": "2026-07-01T03:37:20Z",
+        "status": "pr_open",
+        "notes": "Opened fap-web PR https://github.com/fermatmind/fap-web/pull/1505 for PR-D."
       }
     ]
   }
