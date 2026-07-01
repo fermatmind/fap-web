@@ -19,6 +19,7 @@
 | deterministic_claim_gate | 64 | 0 |
 | clinical_recruiting_gate | 64 | 0 |
 | duplicate_template_gate | 64 | 0 |
+| exact_paragraph_duplicate_gate | 64 | 0 |
 | private_route_gate | 64 | 0 |
 
 ## Safety Boundary
