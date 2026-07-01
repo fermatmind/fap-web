@@ -6,9 +6,25 @@ import { isMbtiResultPagePdfSmokeQualityGateAllowedFile } from "./helpers/curren
 
 const ROOT = process.cwd();
 const SCRIPT_PATH = "scripts/ops/check-mbti-result-page-pdf-smoke.mjs";
+const PR_D_BRANCH = "codex/mbti-pdf-result-snapshot-smoke-quality-gate";
 
 function read(relativePath: string): string {
   return readFileSync(path.join(ROOT, relativePath), "utf8");
+}
+
+function currentBranch(): string {
+  if (process.env.GITHUB_HEAD_REF) {
+    return process.env.GITHUB_HEAD_REF;
+  }
+
+  if (process.env.GITHUB_REF_NAME) {
+    return process.env.GITHUB_REF_NAME;
+  }
+
+  return execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], {
+    cwd: ROOT,
+    encoding: "utf8",
+  }).trim();
 }
 
 describe("MBTI result-page PDF smoke quality gate", () => {
@@ -142,13 +158,15 @@ describe("MBTI result-page PDF smoke quality gate", () => {
       expect(isMbtiResultPagePdfSmokeQualityGateAllowedFile(file)).toBe(true);
     }
 
+    const expectedForOutsideScope = currentBranch() === PR_D_BRANCH ? false : true;
+
     for (const file of [
       "app/(localized)/[locale]/layout.tsx",
       "components/result/mbti/clone/MbtiDesktopCloneShell.tsx",
       "lib/api/v0_3.ts",
       "public/sitemap.xml",
     ]) {
-      expect(isMbtiResultPagePdfSmokeQualityGateAllowedFile(file)).toBe(false);
+      expect(isMbtiResultPagePdfSmokeQualityGateAllowedFile(file)).toBe(expectedForOutsideScope);
     }
   });
 });

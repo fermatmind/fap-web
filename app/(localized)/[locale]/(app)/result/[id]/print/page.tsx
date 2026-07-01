@@ -60,6 +60,8 @@ export default async function ResultPrintPage({
       data-private-result-print-root="true"
       data-gotenberg-result-print-root="true"
       data-pdf-mode="true"
+      data-pdf-layout="a4-report-dense"
+      data-pdf-visual-version="mbti-result-snapshot-a4-v1"
       data-pdf-ready="false"
       data-pdf-bootstrap={printBootstrap.report ? "server" : "failed"}
       className="w-full bg-white py-[var(--fm-space-10)] pdf-mode print:max-w-none print:bg-white print:px-0 print:py-0 [&:has([data-testid=mbti-result-shell])>h1]:sr-only"
@@ -96,6 +98,8 @@ function ResultPrintErrorShell({
       data-private-result-print-root="true"
       data-gotenberg-result-print-root="true"
       data-pdf-mode="true"
+      data-pdf-layout="a4-report-dense"
+      data-pdf-visual-version="mbti-result-snapshot-a4-v1"
       data-pdf-ready="false"
       data-pdf-error={errorCode}
       data-surface-mismatch={errorCode === "PDF_SURFACE_MISMATCH" ? "true" : undefined}

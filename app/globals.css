@@ -638,6 +638,28 @@ a {
 }
 
 @media print {
+  @page fermat-result-snapshot {
+    size: A4;
+    margin: 12mm 10mm 14mm;
+  }
+
+  [data-pdf-mode="true"][data-pdf-layout="a4-report-dense"] {
+    page: fermat-result-snapshot;
+    width: 190mm;
+    max-width: 190mm;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: rgb(15, 23, 42);
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  body:has([data-pdf-mode="true"][data-pdf-layout="a4-report-dense"]),
+  html:has([data-pdf-mode="true"][data-pdf-layout="a4-report-dense"]) {
+    background: #ffffff !important;
+  }
+
   [data-pdf-mode="true"] :is(
     button,
     form,

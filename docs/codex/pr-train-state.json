@@ -33331,12 +33331,12 @@
     "depends_on": [
       "MBTI-PDF-RESULT-SNAPSHOT-SHELL"
     ],
-    "status": "pr_open",
+    "status": "merged",
     "commit_sha": "ca38b408c14d2a7da447bd1418c718e6b845a572",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1505",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-01T03:41:39Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "authorization": {
@@ -33426,6 +33426,127 @@
         "at": "2026-07-01T03:37:20Z",
         "status": "pr_open",
         "notes": "Opened fap-web PR https://github.com/fermatmind/fap-web/pull/1505 for PR-D."
+      },
+      {
+        "at": "2026-07-01T03:57:15Z",
+        "status": "merged",
+        "notes": "Reconciled PR-D closeout while initializing dependent PR-E. PR #1505 merged at 2026-07-01T03:41:39Z with merge commit 25dfba7fb5392708166b9c1fcac854eb12621f92 present in origin/main; local and remote task branches were already cleaned up."
+      }
+    ],
+    "merge_commit_sha": "25dfba7fb5392708166b9c1fcac854eb12621f92"
+  },
+  "MBTI-PDF-RESULT-SNAPSHOT-VISUAL-PAGINATION": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-pdf-result-snapshot-visual-pagination",
+    "title": "MBTI-PDF-RESULT-SNAPSHOT-VISUAL-PAGINATION: polish MBTI print snapshot pagination",
+    "train_scope": "mbti_pdf_result_snapshot_visual_pagination",
+    "depends_on": [
+      "MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "265ac8ad9114a83409545eef670be38ee28a1d9b",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1506",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "User explicitly requested implementation of the PR-E plan and authorized adding the missing fap-web PR-train manifest/state entry as part of execution."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-D MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE merged as fap-web PR #1505 with merge commit 25dfba7fb5392708166b9c1fcac854eb12621f92 present in origin/main."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Started from clean fap-web main synced with origin/main and created branch codex/mbti-pdf-result-snapshot-visual-pagination."
+      },
+      "focused_contract_tests": {
+        "status": "pass",
+        "command": "pnpm exec vitest run tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts tests/contracts/result-private-print-chrome.contract.test.ts tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+        "evidence": "4 files passed, 29 tests passed."
+      },
+      "contract_suite": {
+        "status": "pass",
+        "command": "pnpm test:contract",
+        "evidence": "605 files passed, 3569 tests passed."
+      },
+      "typecheck": {
+        "status": "pass",
+        "command": "pnpm typecheck",
+        "evidence": "tsc --noEmit completed successfully."
+      },
+      "production_build": {
+        "status": "pass",
+        "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+        "evidence": "next build completed successfully; postbuild sitemap output was restored because it is outside PR-E scope."
+      },
+      "manifest_state_parse": {
+        "status": "pass",
+        "commands": [
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null"
+        ],
+        "evidence": "Manifest YAML and state JSON parse successfully."
+      },
+      "diff_check": {
+        "status": "pass",
+        "command": "git diff --check",
+        "evidence": "No whitespace errors."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "command": "(git diff --name-only; git ls-files --others --exclude-standard) | sort",
+        "evidence": "Changed files are limited to PR-E visual pagination files plus a PR-D branch-aware scope contract compatibility fix."
+      },
+      "github_checks": {
+        "status": "pass",
+        "evidence": "GitHub PR #1506 checks passed on head 57de8404045f5bcfd7374c102e9df4df5380557c: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, and CodeQL all succeeded; mergeStateStatus was CLEAN."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        "app/globals.css",
+        "app/(localized)/[locale]/(app)/result/[id]/print/page.tsx",
+        "components/result/mbti/clone/mbtiDesktopClone.module.css",
+        "tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts",
+        "tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts",
+        "tests/contracts/result-private-print-chrome.contract.test.ts",
+        "tests/contracts/mbti-desktop-shell-cta.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "outside_scope_files": []
+    },
+    "events": [
+      {
+        "at": "2026-07-01T03:57:15Z",
+        "status": "in_progress",
+        "notes": "Initialized PR-E from explicit user plan. Scope is fap-web-only A4 dense report visual pagination for the v3 MBTI print snapshot; no backend, deploy, content import, runtime pollutant cleanup, or live PDF smoke automation work."
+      },
+      {
+        "at": "2026-07-01T04:06:46Z",
+        "status": "local_checks_passed",
+        "notes": "Implemented A4 dense print markers/styles and pagination contracts, repaired the previous PR-D scope contract for future branch pass-through, and passed focused contracts, full contract suite, typecheck, production build, manifest/state parse, diff check, and scope validation."
+      },
+      {
+        "at": "2026-07-01T04:07:52Z",
+        "status": "committed",
+        "notes": "Created local implementation commit 265ac8ad9114a83409545eef670be38ee28a1d9b for PR-E."
+      },
+      {
+        "at": "2026-07-01T04:09:10Z",
+        "status": "pr_open",
+        "notes": "Opened fap-web PR https://github.com/fermatmind/fap-web/pull/1506 for PR-E."
+      },
+      {
+        "at": "2026-07-01T04:14:31Z",
+        "status": "ready_to_merge",
+        "notes": "GitHub checks passed and PR merge state is CLEAN; recording ready_to_merge before squash merge."
       }
     ]
   }
