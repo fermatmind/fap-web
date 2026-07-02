@@ -26,10 +26,23 @@ function source(file: string): string {
 }
 
 function changedFiles(): string[] {
-  const committed = execFileSync("git", ["diff", "--name-only", "origin/main...HEAD"], {
-    cwd: ROOT,
-    encoding: "utf8",
-  });
+  const committedDiffs = [
+    ["diff", "--name-only", "origin/main...HEAD"],
+    ["diff", "--name-only", "HEAD^1...HEAD"],
+    ["diff", "--name-only", "HEAD^1", "HEAD"],
+  ]
+    .map((args) => {
+      try {
+        return execFileSync("git", args, {
+          cwd: ROOT,
+          encoding: "utf8",
+          stdio: ["ignore", "pipe", "ignore"],
+        });
+      } catch {
+        return "";
+      }
+    })
+    .join("\n");
   const uncommitted = execFileSync("git", ["diff", "--name-only"], {
     cwd: ROOT,
     encoding: "utf8",
@@ -37,7 +50,7 @@ function changedFiles(): string[] {
 
   return Array.from(
     new Set(
-      `${committed}\n${uncommitted}`
+      `${committedDiffs}\n${uncommitted}`
         .split("\n")
         .map((file) => file.trim())
         .filter(Boolean),
