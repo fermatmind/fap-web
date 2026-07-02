@@ -89,28 +89,27 @@
     "forbidden_side_effects": ["publish_content", "mutate_cms_records", "submit_search_urls", "rewrite_sitemap_eligibility", "change_robots_policy"]
   },
   "sitemap_static_artifact_convergence_gate": {
-    "current_behavior": "sitemap.xml_is_fap_web_static_build_artifact_generated_during_postbuild",
+    "current_behavior": "sitemap.xml_is_fap_web_runtime_route_backed_by_backend_sitemap_source",
     "revalidation_can_rewrite_sitemap": false,
     "trigger_condition": "cms_resource_is_published_public_indexable_and_sitemap_eligible",
     "required_evidence": [
       "backend_public_detail_or_api_contains_canonical_url",
       "backend_sitemap_source_contains_or_intentionally_excludes_canonical_url",
-      "static_artifact_plan_records_existing_inclusion_or_frontend_rebuild_deploy_or_dynamic_sitemap_route",
+      "dynamic_public_sitemap_route_reads_backend_sitemap_source",
       "live_sitemap_xml_contains_newly_published_sitemap_eligible_urls",
       "live_sitemap_xml_excludes_draft_noindex_private_tokenized_result_order_payment_share_preview_urls",
       "search_submission_surfaces_remain_blocked_until_live_sitemap_convergence_passes"
     ],
     "allowed_resolutions": [
-      "frontend_rebuild_deploy_required",
       "runtime_sitemap_fix_required",
       "backend_discoverability_fix_required",
       "no_submit_expected"
     ],
-    "forbidden_resolution": "hand_edit_public_sitemap_xml",
+    "forbidden_resolution": "hand_edit_or_recommit_public_sitemap_xml",
     "search_submission_blocked_until_sitemap_converged": true
   },
   "post_publish_smoke": {
-    "required_checks": ["http_status", "title_h1_body", "canonical", "robots", "hreflang", "sitemap", "sitemap_static_artifact_convergence", "llms", "structured_data", "related_modules", "private_url_leak", "tracking", "cache", "search_submission_hold"],
+    "required_checks": ["http_status", "title_h1_body", "canonical", "robots", "hreflang", "sitemap", "public_sitemap_dynamic_parity", "llms", "structured_data", "related_modules", "private_url_leak", "tracking", "cache", "search_submission_hold"],
     "private_url_leak_forbidden": ["result", "order", "payment", "checkout", "report", "share", "auth", "account"],
     "tracking_forbidden": ["pii", "raw_order", "raw_attempt", "payment_payload"]
   },

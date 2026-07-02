@@ -8,6 +8,7 @@ import {
   ENNEAGRAM_PUBLIC_ROUTE_ENTRIES,
   resolveEnneagramPublicRouteEntry,
 } from "@/lib/personality/enneagramPublicRoutes";
+import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { isCleanMainLikeCheckout, isPersonalityEnneagramV1NoindexRender01AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
@@ -302,14 +303,13 @@ describe("PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01 contract", () => {
   });
 
   it("keeps Enneagram V1 noindex routes out of sitemap and llms surfaces", () => {
-    const sitemap = read("public/sitemap.xml");
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");
 
     for (const entry of ENNEAGRAM_PUBLIC_ROUTE_ENTRIES) {
       for (const locale of ["en", "zh"] as const) {
         const pagePath = buildEnneagramPublicContentPath(locale, entry);
-        expect(sitemap).not.toContain(pagePath);
+        expect(shouldIncludeInSitemap(pagePath, { indexEligible: false, indexState: "noindex" })).toBe(false);
         expect(llms).not.toContain(pagePath);
         expect(llmsFull).not.toContain(pagePath);
       }

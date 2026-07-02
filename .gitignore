@@ -13,6 +13,7 @@ dist/
 coverage/
 *.tsbuildinfo
 output/
+public/sitemap.xml
 
 # logs
 *.log

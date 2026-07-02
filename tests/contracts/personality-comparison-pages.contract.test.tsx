@@ -10,6 +10,7 @@ import {
   buildPersonalityComparisonSlugsFromProfiles,
   isPersonalityComparisonSlug,
 } from "@/lib/mbti/personalityComparison";
+import { buildPublicSitemapEntries } from "@/lib/seo/publicSitemap";
 import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
@@ -235,9 +236,14 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     const pageSource = read("app/(localized)/[locale]/personality/[type]/page.tsx");
     const adapterSource = read("lib/cms/personality.ts");
     const sitemapSource = read("next-sitemap.config.js");
-    const generatedSitemap = read("public/sitemap.xml");
     const llmsSource = read("app/llms.txt/route.ts");
     const llmsFullSource = read("app/llms-full.txt/route.ts");
+    const dynamicSitemapEntries = buildPublicSitemapEntries({
+      items: [
+        { loc: "https://fermatmind.com/en/personality/intj-a-vs-intj-t" },
+        { loc: "https://fermatmind.com/zh/personality/intj-a-vs-intj-t" },
+      ],
+    });
 
     expect(pageSource).toContain("isPersonalityComparisonSlug(type)");
     expect(pageSource).toContain("getPersonalityComparisonBySlug(type, locale)");
@@ -255,8 +261,12 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     expect(sitemapSource).toContain("buildPersonalityComparisonPathsFromAuthority");
     expect(sitemapSource).toContain("include_variants: 1");
     expect(sitemapSource).toContain("shouldKeepPersonalityComparisonPath");
-    expect(generatedSitemap).toContain("https://fermatmind.com/en/personality/intj-a-vs-intj-t");
-    expect(generatedSitemap).toContain("https://fermatmind.com/zh/personality/intj-a-vs-intj-t");
+    expect(dynamicSitemapEntries.map((entry) => entry.loc)).toEqual(
+      expect.arrayContaining([
+        "https://fermatmind.com/en/personality/intj-a-vs-intj-t",
+        "https://fermatmind.com/zh/personality/intj-a-vs-intj-t",
+      ])
+    );
 
     expect(llmsSource).toContain("buildPersonalityComparisonSlugsFromProfiles");
     expect(llmsFullSource).toContain("buildPersonalityComparisonSlugsFromProfiles");
