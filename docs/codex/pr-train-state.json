@@ -36082,7 +36082,7 @@
       "PR-CAREER-KG-07"
     ],
     "status": "in_progress",
-    "commit_sha": "3e3a5012273a829f78394ce3e21129a6d224913f",
+    "commit_sha": "95d13843435e51f5b5141421b6011e93366b5deb",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -36194,6 +36194,12 @@
         "at": "2026-07-02T17:58:46Z",
         "status": "scope_validation_passed",
         "notes": "Final changed-file scope validation passed for exactly the 11 PR-CAREER-KG-08 authorized files."
+      },
+      {
+        "at": "2026-07-02T18:01:27Z",
+        "status": "ledger_validated_head_recorded",
+        "commit_sha": "95d13843435e51f5b5141421b6011e93366b5deb",
+        "notes": "Recorded the latest validated PR-CAREER-KG-08 HEAD before this ledger-only correction commit."
       }
     ]
   }
