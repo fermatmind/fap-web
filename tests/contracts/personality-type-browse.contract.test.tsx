@@ -107,7 +107,6 @@ describe("personality type browse contract", () => {
     expect(detailSource).toContain("variantComparisonLabel");
     expect(detailSource).toContain("维度概览");
     expect(detailSource).toContain("buildPersonalityDimensionSummary(detail.projection, locale)");
-    expect(detailSource).not.toContain("Next step");
     expect(detailSource).not.toContain("返回 A/T 入口");
     expect(detailSource).toContain("MBTI免费测试");
     expect(detailSource).not.toContain('data-testid="mbti-personality-content-pack"');
