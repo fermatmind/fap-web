@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "mode": "contract_mock_backend_display_surface",
+  "route": "/zh/career/jobs/postal-service-mail-sorters-processors-processing-machine-operators",
+  "canonical_unchanged": true,
+  "assertions": [
+    "hero renders 邮政邮件分拣处理员 from API-like fixture",
+    "definition mentions 邮件 and 分拣",
+    "responsibilities mention 分拣设备 and 装卸",
+    "FAQ and source disclosure render from backend-like projection"
+  ]
+}

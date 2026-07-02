@@ -1,0 +1,51 @@
+{
+  "status": "pass",
+  "schema_validation": {
+    "status": "pass",
+    "required_sections_present": [
+      "identity",
+      "seo",
+      "definition",
+      "core_responsibilities",
+      "work_scenes",
+      "skills_tools",
+      "entry_path",
+      "riasec_personality_boundary",
+      "risk_ai_boundary",
+      "adjacent_careers",
+      "faq",
+      "sources",
+      "internal_links"
+    ],
+    "canonical_unchanged": true,
+    "content_block_count": 9,
+    "faq_count": 3
+  },
+  "trust_audit": {
+    "status": "pass",
+    "fact_authorities": [
+      "O*NET OnLine",
+      "BLS OOH",
+      "My Next Move"
+    ],
+    "market_or_baike_used_as_fact_authority": false,
+    "blocked_claims_absent": [
+      "就业保证",
+      "收入保证",
+      "AI不会替代保证",
+      "录用保证",
+      "资格保证"
+    ]
+  },
+  "editorial_gate": {
+    "status": "pass",
+    "priority_focus": "精简标题，补分拣设备、班次、体力负荷和邮政相邻职业。",
+    "reader_intent_covered": [
+      "邮政邮件分拣处理员是做什么的",
+      "邮件分拣设备",
+      "邮政分拣员体力负荷",
+      "分拣员和投递员区别"
+    ],
+    "canonical_path_locked": "/zh/career/jobs/postal-service-mail-sorters-processors-processing-machine-operators"
+  }
+}
