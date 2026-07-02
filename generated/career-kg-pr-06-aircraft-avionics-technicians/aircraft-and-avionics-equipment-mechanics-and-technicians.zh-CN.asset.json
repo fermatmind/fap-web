@@ -1,0 +1,347 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "1.0.0",
+  "pr_id": "PR-CAREER-KG-06",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "aircraft-and-avionics-equipment-mechanics-and-technicians",
+  "canonical_path": "/zh/career/jobs/aircraft-and-avionics-equipment-mechanics-and-technicians",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "飞机与航空电子设备维修技师",
+    "title_en": "Aircraft and Avionics Equipment Mechanics and Technicians",
+    "soc_code": "49-3011 / 49-2091",
+    "onet_code": "49-3011.00 / 49-2091.00",
+    "aliases_zh": [
+      "航空维修技师",
+      "飞机维修技师",
+      "飞机机械维修技师",
+      "航空电子维修技师",
+      "航空电子技师",
+      "A&P维修技师",
+      "航空维护技师"
+    ],
+    "aliases_en": [
+      "Aircraft Mechanic",
+      "Aircraft Maintenance Technician",
+      "Airframe and Powerplant Mechanic",
+      "A&P Mechanic",
+      "Avionics Technician",
+      "Avionics Electronics Technician",
+      "Aviation Maintenance Technician"
+    ],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "飞机机械师",
+        "boundary": "更偏机体、发动机、液压、结构和动力系统维修；本页同时覆盖航空电子设备安装、测试、诊断与维修。"
+      },
+      {
+        "name_zh": "航空电子技师",
+        "boundary": "更偏雷达、无线电、导航、通信和电子系统；本页按 BLS 组合页同时说明飞机维修与航空电子维修边界。"
+      },
+      {
+        "name_zh": "航空航天工程师",
+        "boundary": "工程师侧重系统设计、仿真、试验方案和工程验证；维修技师侧重按维修手册、规程和监管要求执行检查、诊断和修复。"
+      },
+      {
+        "name_zh": "航空器结构装配工",
+        "boundary": "装配工偏制造和结构装配；维修技师偏服役飞机的检查、维护记录、缺陷排查和放行前准备。"
+      },
+      {
+        "name_zh": "汽车维修技师与机械师",
+        "boundary": "同属维修诊断职业，但航空维修的安全、监管、记录和证照边界更严格，不能用汽车维修经验替代航空合规要求。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "飞机与航空电子设备维修技师是做什么的：维修检查、诊断与证照边界",
+    "meta_description_zh": "了解飞机与航空电子设备维修技师的职责、FAA监管安全边界、维修检查、航空电子诊断、证照路径、工作场景、AI影响和相邻职业。",
+    "h1_zh": "飞机与航空电子设备维修技师",
+    "canonical_path": "/zh/career/jobs/aircraft-and-avionics-equipment-mechanics-and-technicians",
+    "ctr_intent_notes": [
+      "标题优先覆盖“是做什么的”“维修检查”“诊断”“证照”四类点击意图。",
+      "摘要明确监管安全与 FAA 边界，避免把职业页写成就业保证或培训招生页。",
+      "H1 保持中文标准名，canonical 不变，等待后端/CMS投影。"
+    ]
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "heading_zh": "职业定义",
+      "body_zh": "飞机与航空电子设备维修技师负责安装、测试、调整、检查和维修飞机上的机械、结构、电气与航空电子设备系统。这个组合职业通常覆盖飞机维修技师和航空电子技师两类相邻角色：前者偏发动机、机体、液压、起落架、刹车和结构系统，后者偏雷达、无线电、导航、通信、仪表和电子组件。",
+      "source_refs": [
+        "bls_ooh_aircraft_avionics_mechanics_technicians",
+        "onet_summary_49_3011_00",
+        "onet_summary_49_2091_00"
+      ]
+    },
+    {
+      "id": "core_responsibilities",
+      "heading_zh": "核心职责",
+      "items_zh": [
+        "按照维修手册、服务通告、图纸和技术规范判断故障部件是否需要修理、更换或进一步测试。",
+        "检查机体、发动机、起落架、液压、电气和结构部件，查找裂纹、磨损、腐蚀、泄漏或其他缺陷。",
+        "执行例行和特殊维修检查，确认维护结果符合标准，并记录预防性和纠正性维修。",
+        "使用手动工具、量规、检测设备和测试设备修理或更换磨损、失效或损坏部件。",
+        "对航空电子仪表、组件和组件总成进行测试、故障排除、调整、安装、维修或更换。",
+        "在航空电子工作中使用电路测试仪、示波器、伏特计、焊接工具、地面支持设备和飞行测试数据诊断系统问题。"
+      ],
+      "source_refs": [
+        "onet_summary_49_3011_00",
+        "onet_summary_49_2091_00",
+        "bls_ooh_aircraft_avionics_mechanics_technicians"
+      ]
+    },
+    {
+      "id": "work_scenes",
+      "heading_zh": "工作场景",
+      "items_zh": [
+        "常见工作地点包括机库、维修站、机场停机坪、航线维护现场、制造或政府相关维修环境。",
+        "工作环境可能有噪声、振动、发动机或地面设备声，需要遵守严格安全标准并使用防护装备。",
+        "维修工作可能需要弯腰、跪姿、爬高、在狭小空间或不舒适姿势下操作，并在航班计划或维修窗口内完成任务。",
+        "许多岗位需要轮班，可能覆盖夜班、周末、节假日和加班；疲劳管理和交接记录是安全边界的一部分。"
+      ],
+      "source_refs": [
+        "bls_ooh_aircraft_avionics_mechanics_technicians",
+        "mynextmove_summary_49_3011_00",
+        "mynextmove_summary_49_2091_00"
+      ]
+    },
+    {
+      "id": "skills_tools",
+      "heading_zh": "技能与工具",
+      "items_zh": [
+        "技术阅读：理解维修手册、服务通告、图纸、接线图、规范和检查清单。",
+        "机械诊断：识别发动机、液压、气动、刹车、起落架、结构和电气系统故障。",
+        "航空电子诊断：测试雷达、无线电、导航、通信、仪表和控制系统，解释飞行测试数据。",
+        "工具使用：手动工具、电动工具、量规、扭矩工具、电路测试仪、示波器、伏特计、焊接工具和地面测试设备。",
+        "记录与合规：维护维修日志、检查记录、缺陷处理记录和放行相关文件，避免把口头经验替代正式记录。",
+        "软件与系统：维护计划软件、维修记录系统、ERP或航空维修管理系统可用于排程、记录、库存和工单协作。"
+      ],
+      "source_refs": [
+        "onet_summary_49_3011_00",
+        "onet_summary_49_2091_00",
+        "mynextmove_summary_49_3011_00",
+        "mynextmove_summary_49_2091_00"
+      ]
+    },
+    {
+      "id": "entry_path",
+      "heading_zh": "入门路径与证照边界",
+      "items_zh": [
+        "常见路径包括 FAA 认可航空维修技师项目、高中后证书、职业学校、社区学院、军队维修训练或在岗训练；具体要求取决于岗位、地区和雇主。",
+        "飞机维修岗位常见 Airframe and Powerplant（A&P）相关资格；具备 Inspection Authorization（IA）的人员可承担更高层级检查授权。",
+        "航空电子岗位可能要求雇主认可认证；涉及通信设备时，部分岗位可能需要 FCC 相关执照或额外培训。",
+        "证书、学历或训练只能说明资格路径，不能保证录取、就业、薪资、晋升或某个监管许可一定获批。"
+      ],
+      "source_refs": [
+        "bls_ooh_aircraft_avionics_mechanics_technicians",
+        "mynextmove_summary_49_3011_00",
+        "mynextmove_summary_49_2091_00"
+      ]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "heading_zh": "RIASEC / 人格边界",
+      "items_zh": [
+        "RIASEC 上通常更接近 Realistic（实作型）和 Investigative（研究型）：喜欢动手排查、系统诊断、工具操作和事实证据。",
+        "Conventional（常规型）也很重要，因为维修记录、检查流程、标准化工单和合规文件不能省略。",
+        "人格、MBTI 或 Big Five 结果只能帮助理解偏好，不能替代证照、培训、体检、安全意识、手部操作能力或监管要求。"
+      ],
+      "source_refs": [
+        "mynextmove_summary_49_3011_00",
+        "mynextmove_summary_49_2091_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "heading_zh": "风险与 AI 边界",
+      "items_zh": [
+        "主要风险来自航空安全责任、维修差错、噪声、振动、跌落、狭小空间、时间压力、夜班疲劳和记录缺漏。",
+        "诊断软件、预测性维护、传感器数据、电子工单和 AI 辅助分析可以帮助发现模式、整理记录或提示检查项，但不能替代合格人员的监管判断和安全放行责任。",
+        "页面不得承诺零风险、快速拿证、高薪保证、AI不会影响岗位，或把自动化诊断误写成可直接替代航空维修签署责任。"
+      ],
+      "source_refs": [
+        "bls_ooh_aircraft_avionics_mechanics_technicians",
+        "onet_summary_49_3011_00",
+        "onet_summary_49_2091_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "adjacent_careers",
+      "heading_zh": "相邻职业",
+      "items_zh": [
+        "飞机机械师与服务技师：更聚焦机体、发动机、液压、结构和机械系统。",
+        "航空电子技师：更聚焦雷达、无线电、导航、通信、仪表和电子控制系统。",
+        "航空航天工程师：更偏设计、建模、仿真、试验方案和工程验证。",
+        "航空器结构、表面、索具和系统装配工：更偏制造与装配流程。",
+        "汽车维修技师与机械师：同样需要诊断与工具使用，但监管安全、证照和放行责任边界不同。"
+      ],
+      "source_refs": [
+        "mynextmove_summary_49_3011_00",
+        "mynextmove_summary_49_2091_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "faq",
+      "heading_zh": "FAQ",
+      "items_zh": [
+        {
+          "question": "飞机维修技师和航空电子技师有什么区别？",
+          "answer": "飞机维修技师更偏机体、发动机、液压、电气和结构系统；航空电子技师更偏雷达、无线电、导航、通信、仪表和电子组件。BLS 将二者放在同一组合页面，是因为工作场景和航空安全边界相邻，但具体岗位仍要看雇主和证照要求。"
+        },
+        {
+          "question": "飞机与航空电子设备维修技师需要 FAA 证照吗？",
+          "answer": "许多飞机维修岗位会涉及 FAA 认可训练和 A&P 等资格路径，航空电子岗位也可能需要雇主认可认证或特定通信设备执照。是否必须持证取决于岗位职责、地区、设备类型和监管要求，不能把职业介绍写成证照保证。"
+        },
+        {
+          "question": "AI 会替代飞机与航空电子设备维修技师吗？",
+          "answer": "AI 和诊断软件可以辅助数据分析、维修记录和异常提示，但航空维修涉及检查、判断、记录、合规和安全责任。当前内容应把 AI 写成辅助工具，而不是替代合格维修人员或监管放行责任。"
+        }
+      ],
+      "source_refs": [
+        "bls_ooh_aircraft_avionics_mechanics_technicians",
+        "mynextmove_summary_49_3011_00",
+        "mynextmove_summary_49_2091_00",
+        "fermatmind_interpretation"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_49_3011_00",
+      "label": "O*NET OnLine: Aircraft Mechanics and Service Technicians 49-3011.00",
+      "url": "https://www.onetonline.org/link/summary/49-3011.00",
+      "authority": "occupation_fact",
+      "usage": "飞机机械维修职责、任务、工具、工作活动和相邻职业事实。"
+    },
+    {
+      "key": "onet_summary_49_2091_00",
+      "label": "O*NET OnLine: Avionics Technicians 49-2091.00",
+      "url": "https://www.onetonline.org/link/summary/49-2091.00",
+      "authority": "occupation_fact",
+      "usage": "航空电子设备安装、测试、诊断、维修任务和工具事实。"
+    },
+    {
+      "key": "bls_ooh_aircraft_avionics_mechanics_technicians",
+      "label": "BLS OOH: Aircraft and Avionics Equipment Mechanics and Technicians",
+      "url": "https://www.bls.gov/ooh/installation-maintenance-and-repair/aircraft-and-avionics-equipment-mechanics-and-technicians.htm",
+      "authority": "occupation_fact",
+      "usage": "组合职业定义、工作环境、教育训练、证照和监管安全边界。"
+    },
+    {
+      "key": "mynextmove_summary_49_3011_00",
+      "label": "My Next Move: Aircraft Mechanics & Service Technicians 49-3011.00",
+      "url": "https://www.mynextmove.org/profile/summary/49-3011.00",
+      "authority": "occupation_fact",
+      "usage": "通俗职业名称、别名、工作内容、工具、人格倾向、教育路径和相邻职业。"
+    },
+    {
+      "key": "mynextmove_summary_49_2091_00",
+      "label": "My Next Move: Avionics Technicians 49-2091.00",
+      "url": "https://www.mynextmove.org/profile/summary/49-2091.00",
+      "authority": "occupation_fact",
+      "usage": "航空电子别名、工作内容、工具、人格倾向、教育路径和相邻职业。"
+    },
+    {
+      "key": "mynextmove_data_sources_49_3011_00",
+      "label": "My Next Move data sources: Aircraft Mechanics & Service Technicians",
+      "url": "https://www.mynextmove.org/help/data/49-3011.00",
+      "authority": "source_disclosure",
+      "usage": "公开来源披露，不作为新增职业事实。"
+    },
+    {
+      "key": "mynextmove_data_sources_49_2091_00",
+      "label": "My Next Move data sources: Avionics Technicians",
+      "url": "https://www.mynextmove.org/help/data/49-2091.00",
+      "authority": "source_disclosure",
+      "usage": "公开来源披露，不作为新增职业事实。"
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial interpretation from authoritative occupational sources",
+      "authority": "editorial_interpretation",
+      "usage": "中文表达、搜索意图归纳、内链与人格边界说明；不得覆盖 O*NET/BLS/My Next Move 职业事实。"
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "blocked_usage": [
+      "职业事实权威",
+      "就业保证",
+      "证照保证",
+      "JSON-LD事实来源",
+      "生产导入依据"
+    ]
+  },
+  "internal_links": [
+    {
+      "label": "职业库",
+      "path": "/zh/career/jobs",
+      "reason": "回到职业库，帮助用户继续浏览职业图谱。"
+    },
+    {
+      "label": "职业指南",
+      "path": "/zh/career",
+      "reason": "连接职业探索主入口。"
+    },
+    {
+      "label": "RIASEC 霍兰德职业兴趣测试",
+      "path": "/zh/tests/holland-career-interest-test-riasec",
+      "reason": "解释 Realistic / Investigative / Conventional 兴趣倾向。"
+    },
+    {
+      "label": "MBTI 人格测试",
+      "path": "/zh/tests/mbti-personality-test-16-personality-types",
+      "reason": "说明人格偏好仅供自我理解，不能替代证照和安全训练。"
+    },
+    {
+      "label": "Big Five 大五人格测试",
+      "path": "/zh/tests/big-five-personality-test-ocean-model",
+      "reason": "补充谨慎性、尽责性、压力承受等偏好讨论。"
+    },
+    {
+      "label": "飞机机械师与服务技师",
+      "path": "/zh/career/jobs/aircraft-mechanics-service-technicians",
+      "reason": "拆分机械维修相邻职业。"
+    },
+    {
+      "label": "航空电子技师",
+      "path": "/zh/career/jobs/avionics-technicians",
+      "reason": "拆分航空电子维修相邻职业。"
+    },
+    {
+      "label": "航空航天工程师",
+      "path": "/zh/career/jobs/aerospace-engineers",
+      "reason": "区分工程设计与维修执行边界。"
+    },
+    {
+      "label": "航空器结构、表面、索具和系统装配工",
+      "path": "/zh/career/jobs/aircraft-structure-surfaces-rigging-systems-assemblers",
+      "reason": "区分制造装配与服役维护。"
+    },
+    {
+      "label": "汽车维修技师与机械师",
+      "path": "/zh/career/jobs/automotive-service-technicians-mechanics",
+      "reason": "提示同属维修诊断但监管边界不同。"
+    }
+  ],
+  "release_boundaries": {
+    "cms_write_performed": false,
+    "staging_write_performed": false,
+    "production_import_performed": false,
+    "production_deploy_triggered": false,
+    "manual_deploy_triggered": false,
+    "sitemap_changed": false,
+    "llms_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "json_ld_runtime_changed": false,
+    "frontend_editorial_fallback_added": false
+  }
+}
