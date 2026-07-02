@@ -36442,7 +36442,7 @@
     "title": "PR-CAREER-KG-10: content(career): add secretaries and administrative assistants KG asset package",
     "train_scope": "career_kg_secretaries_administrative_assistants_asset_package",
     "depends_on": ["PR-CAREER-KG-09"],
-    "status": "pr_open",
+    "status": "ready_to_merge",
     "commit_sha": "512319a10b0dd5436d15729a3bd92156e165014b",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1540",
     "merged_at": null,
@@ -36492,8 +36492,15 @@
         "status": "pass",
         "evidence": "Validated changed/untracked/ignored scoped file list contains exactly 11 authorized PR10 files: docs/codex/pr-train-state.json, docs/codex/pr-train.yaml, generated/career-kg-pr-10-secretaries-admin-assistants/README.md, generated/career-kg-pr-10-secretaries-admin-assistants/dry_run_importer_report.json, generated/career-kg-pr-10-secretaries-admin-assistants/fap_web_render_smoke.json, generated/career-kg-pr-10-secretaries-admin-assistants/qa_report.json, generated/career-kg-pr-10-secretaries-admin-assistants/secretaries-and-administrative-assistants-except-legal-medical-and-executive.zh-CN.asset.json, generated/career-kg-pr-10-secretaries-admin-assistants/sha256_manifest.json, generated/career-kg-pr-10-secretaries-admin-assistants/staging_preview_smoke.json, tests/contracts/career-kg-10-secretaries-admin-assistants.contract.test.tsx, and tests/contracts/helpers/currentPrScope.ts."
       },
-      "github_checks": {"status": "pending", "head_sha": null, "evidence": null},
-      "merge_readiness": {"status": "pending", "evidence": null}
+      "github_checks": {
+        "status": "pass",
+        "head_sha": "156af5ee079d09b0fd1a99856b96715479bdd136",
+        "evidence": "GitHub PR #1540 checks passed on head 156af5ee079d09b0fd1a99856b96715479bdd136: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, and CodeQL summary."
+      },
+      "merge_readiness": {
+        "status": "ready_to_merge",
+        "evidence": "Post-check review found PR #1540 open, mergeable, no review block, clean local worktree, and exactly the 11 authorized PR10 files in scope. Staging deploy was not waited on."
+      }
     },
     "scope_validation": {
       "allowed_files": [
@@ -36536,6 +36543,11 @@
         "at": "2026-07-02T18:55:27Z",
         "status": "pr_open",
         "notes": "Opened GitHub PR #1540 at https://github.com/fermatmind/fap-web/pull/1540. Initial head edfa321b035e15c594409eac030cbb67c542c72b had CI and CodeQL checks in progress."
+      },
+      {
+        "at": "2026-07-02T19:01:04Z",
+        "status": "ready_to_merge",
+        "notes": "GitHub checks passed on head 156af5ee079d09b0fd1a99856b96715479bdd136. PR was mergeable with no review block, and scope revalidation found only the 11 authorized PR10 files."
       }
     ]
   }
