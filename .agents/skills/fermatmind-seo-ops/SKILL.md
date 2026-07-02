@@ -232,11 +232,12 @@ Required stages:
 18. IndexNow bounded submission only when the search batch is pre-authorized or separately authorized.
 19. GSC manual readiness and Request Indexing only when the target canonical URLs are pre-authorized or separately authorized.
 20. Baidu readiness/live path only when bounded queue item IDs are pre-authorized or separately authorized.
-21. final report.
-22. D1/D7/D14 observation queue.
-23. final reconciliation after any follow-up schema, hreflang, GSC, Search Channel, IndexNow, or Baidu work.
+21. article schema, breadcrumb schema, FAQ schema, and hreflang independent enhancement gates when the Authorization Profile allows them.
+22. final report.
+23. D1/D7/D14 observation queue.
+24. final reconciliation after schema, hreflang, GSC, Search Channel, IndexNow, or Baidu work.
 
-Hard gates: follow the Authorization Profile. Run image asset bundle preflight before production draft dry-run. Run Article Identity Lock before preview QA, publish, discoverability release, schema, hreflang, Search Channel, GSC, or Baidu stages. Preserve schema and hreflang holds unless separately authorized. Search submissions are batch tasks and must not block the next daily content release once public/discoverability state is safe. Stop on any hard no-go.
+Hard gates: follow the Authorization Profile. Run image asset bundle preflight before production draft dry-run. Run Article Identity Lock before preview QA, publish, discoverability release, schema, hreflang, Search Channel, GSC, or Baidu stages. Run schema and hreflang only as explicit independent SEO enhancement gates; if their verification fails, record `SEO_ENHANCEMENT_HELD_REASON` instead of mutating publish state. Search submissions are batch tasks and must not block the next daily content release once public/discoverability state is safe. Stop on any hard no-go.
 
 ### `multi_article_release_retro`
 
@@ -289,7 +290,7 @@ Use:
 - `references/daily_pipeline_search_batch_separation.md`.
 - `assets/daily_seo_memo_template.md`.
 
-Hard gates: search live actions, GSC Request Indexing, CMS writes, Media Library writes, URL Truth writes, revalidation, and deploy require either a full-chain Authorization Profile or separate exact authorization. Schema and hreflang remain separate exact rollout tasks unless this workflow explicitly targets them.
+Hard gates: search live actions, GSC Request Indexing, CMS writes, Media Library writes, URL Truth writes, revalidation, and deploy require either a full-chain Authorization Profile or separate exact authorization. Schema and hreflang remain independent rollout gates and require either a full-chain profile that names them or separate exact authorization.
 
 ### `authorized_goal_contract`
 

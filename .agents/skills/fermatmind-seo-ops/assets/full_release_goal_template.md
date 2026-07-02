@@ -45,11 +45,15 @@ Authorization Profile:
 - allow_indexnow_bounded_submission=true
 - allow_baidu_bounded_submission=true
 - allow_gsc_manual_request_indexing=true
+- allow_article_schema_gate=true
+- allow_breadcrumb_schema_gate=true
+- allow_faq_schema_gate=if_visible_faq_jsonld_parity_passes
+- allow_hreflang_gate=true
 - allow_scoped_pr_merge=<true|false>
 - allow_scoped_backend_deploy=<true|false>
 - allow_scoped_frontend_deploy=<true|false>
-- schema=hold
-- hreflang=hold
+- schema=independent_gate
+- hreflang=independent_gate
 - gsc_request_indexing=preauthorized_for_target_canonicals
 - baidu_live_push=preauthorized_for_bounded_queue_items
 
@@ -88,11 +92,15 @@ Daily completion definition:
 - public smoke must prove zh-CN and en URLs return 200, self-canonical, and `index, follow`.
 - CTA smoke must prove localized public CTA routes and expected article `content_id`.
 - discoverability parity must prove both localized URLs appear in `sitemap.xml`, `llms.txt`, and `llms-full.txt`.
-- final search matrix must record URL Truth, Search Channel enqueue/approval/submission, IndexNow, Baidu, GSC, schema hold, hreflang hold, and D1/D7/D14 observation queue.
+- schema/hreflang parity must be run as an independent post-publish gate: Article and Breadcrumb schema enabled when public JSON-LD verifies; FAQ schema enabled only when visible FAQ and JSON-LD FAQPage parity passes, otherwise record `SEO_ENHANCEMENT_HELD_REASON=faq_schema_parity_not_verified`.
+- hreflang parity must prove reciprocal `zh-CN`, `en`, and `x-default` alternates for the bilingual article pair before closeout marks hreflang complete.
+- final search matrix must record URL Truth, Search Channel enqueue/approval/submission, IndexNow, Baidu, GSC evidence, schema/hreflang gate state, and D1/D7/D14 observation queue.
+- final closeout must pass available evidence files to `articles:release-closeout`, including public smoke, GSC manual Request Indexing, and observation JSON artifacts.
 - answer-surface FAQ must be checked. If the public article answer surface uses generic FAQ instead of package-specific FAQ, record `ANSWER_SURFACE_FAQ_ENHANCEMENT_RECOMMENDED` without blocking publish.
 
 Search Channel flow:
 - use queue readiness -> enqueue -> search-channel-approve -> search-channel-submit-approved.
+- use `queue_item_ids` from enqueue output for approval and live submit; keep `batch_ids` only as correlation metadata.
 - run IndexNow and Baidu as separate channel tasks.
 - do not use --channels=all.
 - do not open global production live gates.
@@ -118,7 +126,8 @@ Hard stops:
 - article identity mismatch
 - local DB / Ops UI fallback needed for CMS authority
 - production command failure without rollback proof
-- schema/hreflang requested implicitly
+- schema/hreflang implicit side effects outside the independent SEO enhancement gate
+- schema/hreflang gate verification mismatch
 - GSC Request Indexing without exact target canonical URL match
 - Baidu live push without bounded queue item/channel match
 - Baidu site init fail / platform_action_required
@@ -129,6 +138,11 @@ Hard stops:
 - CAPTCHA/login failure
 
 Final Decision must be one of:
+- ARTICLE_PUBLISHED
+- DISCOVERABILITY_COMPLETE
+- SEARCH_SUBMITTED
+- SEO_ENHANCEMENT_COMPLETE
+- SEO_ENHANCEMENT_HELD_REASON
 - FULL_RELEASE_COMPLETED_AND_SEARCH_SUBMITTED
 - FULL_RELEASE_COMPLETED_GSC_HELD_BY_LOGIN_OR_CAPTCHA
 - FULL_RELEASE_COMPLETED_PROVIDER_HELD

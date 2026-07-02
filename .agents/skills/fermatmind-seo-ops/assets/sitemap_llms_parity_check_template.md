@@ -2,7 +2,7 @@
 
 ## Decision
 
-`SITEMAP_LLMS_PARITY_PASS` / `NEEDS_BACKEND_SOURCE_CACHE_WARM` / `NEEDS_FRONTEND_STATIC_REGEN_DEPLOY` / `NO_GO_PARITY_BLOCKED` / `ACCESS_REQUIRED`
+`SITEMAP_LLMS_PARITY_PASS` / `NEEDS_BACKEND_SOURCE_CACHE_WARM` / `NEEDS_PUBLIC_RUNTIME_REVALIDATION` / `NO_GO_PARITY_BLOCKED` / `ACCESS_REQUIRED`
 
 ## Target
 
@@ -30,4 +30,4 @@
 
 ## Hard-gate attestation
 
-No CMS mutation, deploy, cache warm, search submission, or revalidation was performed unless explicitly authorized in the task.
+No CMS mutation, deploy, cache warm, search submission, or revalidation was performed unless explicitly authorized in the task. Frontend rebuild/deploy is not the default daily sitemap refresh path.
