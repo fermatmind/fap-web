@@ -1,0 +1,300 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "kg.pr04.v1",
+  "pr_id": "PR-CAREER-KG-04",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "archivists",
+  "canonical_path": "/zh/career/jobs/archivists",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "档案管理员",
+    "title_en": "Archivists",
+    "soc_code": "25-4011",
+    "onet_code": "25-4011.00",
+    "aliases_zh": [
+      "档案馆员",
+      "数字档案管理员",
+      "档案编目员",
+      "档案检索员",
+      "记录管理员",
+      "参考服务档案员"
+    ],
+    "aliases_en": [
+      "Accessioning Archivist",
+      "Digital Archivist",
+      "Museum Archivist",
+      "Records Manager",
+      "Reference Archivist",
+      "Registrar",
+      "State Archivist",
+      "University Archivist"
+    ],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "图书馆员",
+        "boundary": "图书馆员更偏图书、期刊、媒体馆藏和读者服务；档案管理员聚焦永久记录、历史文献、来源脉络、接收编目和长期保存。"
+      },
+      {
+        "name_zh": "博物馆馆长/策展人",
+        "boundary": "策展人更偏展览、藏品策略和公众项目；档案管理员更偏档案材料鉴定、描述、检索、访问政策和记录保存。"
+      },
+      {
+        "name_zh": "档案文员/文件管理员",
+        "boundary": "档案文员常处理日常文件收发、归档和台账；档案管理员需要判断材料价值、建立分类体系、维护检索描述和保存策略。"
+      },
+      {
+        "name_zh": "记录管理员",
+        "boundary": "记录管理员偏组织记录生命周期、合规和保留期限；档案管理员偏已入藏或永久保存材料的鉴定、编目、开放利用和保护。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "档案管理员是做什么的？档案接收、分类编目、检索与数字档案管理",
+    "meta_description_zh": "了解档案管理员的职责、档案接收、分类、编目、检索、数字档案、记录管理、入门路径、相邻职业和常见问题。",
+    "h1_zh": "档案管理员",
+    "canonical_path": "/zh/career/jobs/archivists",
+    "ctr_intent_notes": [
+      "标题直接补齐档案接收、分类编目、检索和数字档案，提升接近首页但零点击页面的匹配度。",
+      "摘要覆盖记录管理、入门路径和相邻职业，避免只被理解为普通文员或图书馆岗位。",
+      "FAQ区分图书馆员、策展人、记录管理员和文件文员，减少职业混淆。"
+    ]
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "heading_zh": "职业定义",
+      "body_zh": "档案管理员负责鉴定、接收、整理、描述和安全保存永久记录与具有历史价值的文件，并通过分类体系、检索工具和参考服务帮助用户找到和使用档案材料。",
+      "source_refs": [
+        "onet_summary_25_4011_00",
+        "mynextmove_summary_25_4011_00",
+        "bls_ooh_archivists_curators_museum_workers"
+      ]
+    },
+    {
+      "id": "core_responsibilities",
+      "heading_zh": "核心职责",
+      "items_zh": [
+        "鉴定和接收有长期保存价值的记录、照片、文件、电子记录或历史材料，记录来源、权属、限制条件和保存状态。",
+        "建立分类体系、案卷层级、元数据字段和档案描述，编制目录、检索工具或数据库记录，让材料可查、可追溯。",
+        "提供档案检索、参考咨询和利用服务，协助研究人员、机构员工或公众理解材料范围、开放限制和引用方式。",
+        "维护纸质与数字档案的保存环境、复制备份、电子记录库和访问政策，保护材料安全、隐私和长期可用性。"
+      ],
+      "source_refs": [
+        "onet_summary_25_4011_00",
+        "mynextmove_summary_25_4011_00",
+        "bls_ooh_archivists_curators_museum_workers"
+      ]
+    },
+    {
+      "id": "work_scenes",
+      "heading_zh": "工作场景",
+      "items_zh": [
+        "档案馆、博物馆和历史机构：处理入藏、整理、编目、展览协作、公众咨询和教育项目材料。",
+        "政府、高校、企业或非营利组织：管理机构记录、历史档案、开放申请、合规保存和内部检索需求。",
+        "数字档案项目：清点电子记录、设计元数据、维护可检索数据库、处理扫描/OCR、备份和格式迁移。"
+      ],
+      "source_refs": [
+        "onet_summary_25_4011_00",
+        "bls_ooh_archivists_curators_museum_workers",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "skills_tools",
+      "heading_zh": "技能与工具",
+      "items_zh": [
+        "核心技能包括档案鉴定、分类编目、元数据描述、检索服务、来源分析、保存意识、细节核验、用户沟通和访问政策判断。",
+        "常用工具包括档案管理系统、数据库、电子记录库、扫描/OCR工具、元数据模板、保存盒/文件夹、清点表和检索目录。",
+        "数字档案工作需要理解文件格式、版本、权限、备份、迁移和长期保存风险，但不等同于普通IT运维或数据录入。"
+      ],
+      "source_refs": [
+        "onet_summary_25_4011_00",
+        "mynextmove_summary_25_4011_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "entry_path",
+      "heading_zh": "入门路径",
+      "items_zh": [
+        "BLS OOH指出档案管理员通常需要与岗位相关的硕士层级训练，常见背景包括历史、图书馆学、档案学、政治学或公共管理。",
+        "实习、志愿服务、馆藏项目、数字化项目和记录管理经验有助于理解档案接收、编目、保存和参考服务流程。",
+        "具体门槛会随国家/地区、机构类型、馆藏主题和数字档案复杂度变化；本资产不承诺录用、薪资或证照结果。"
+      ],
+      "source_refs": [
+        "bls_ooh_archivists_curators_museum_workers",
+        "mynextmove_data_sources_25_4011_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "heading_zh": "RIASEC/人格边界",
+      "items_zh": [
+        "该职业通常偏 Conventional + Investigative + Social：既要按规则整理和保存记录，也要研究材料脉络并服务查询用户。",
+        "适合重视秩序、细节、证据、长期保存和资料检索的人；不适合只想做快速内容创作、无法忍受重复核验或不愿处理访问限制的人。",
+        "RIASEC、MBTI 或 Big Five 只能辅助理解工作偏好，不能替代学历、项目经验、档案伦理、隐私判断和机构招聘要求。"
+      ],
+      "source_refs": [
+        "onet_summary_25_4011_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "heading_zh": "风险、AI与自动化边界",
+      "items_zh": [
+        "OCR、自动标引、语义搜索和AI摘要可以提升扫描、描述和检索效率，但不能替代档案价值鉴定、来源判断、开放限制和长期保存决策。",
+        "主要风险包括材料损坏、来源信息缺失、隐私或版权限制、电子记录格式失效、元数据错误、检索误导和公共访问政策误判。",
+        "不得承诺“AI不会影响档案岗位”或“一定稳定就业”；更准确的是自动化会改变编目、检索和数字化流程，但责任边界仍需要专业判断。"
+      ],
+      "source_refs": [
+        "onet_summary_25_4011_00",
+        "bls_ooh_archivists_curators_museum_workers",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "adjacent_careers",
+      "heading_zh": "相邻职业",
+      "items_zh": [
+        "图书馆员：更偏图书、媒体资源、读者服务和馆藏流通。",
+        "博物馆馆长/策展人：更偏展览、藏品策略、公共项目和机构代表性叙事。",
+        "博物馆技术员/文物保护人员：更偏展陈准备、物件修复和保护处理。",
+        "记录管理员：更偏组织记录生命周期、合规保存期限和内部信息治理。"
+      ],
+      "source_refs": [
+        "bls_ooh_archivists_curators_museum_workers",
+        "onet_summary_25_4011_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "faq",
+      "heading_zh": "常见问题",
+      "items_zh": [
+        {
+          "question": "档案管理员和图书馆员有什么区别？",
+          "answer": "图书馆员通常围绕图书、期刊、媒体资源和读者服务；档案管理员围绕永久记录和历史材料的鉴定、接收、分类编目、检索、开放限制和长期保存。"
+        },
+        {
+          "question": "档案管理员只是整理文件吗？",
+          "answer": "不是。整理只是其中一部分，还包括判断材料保存价值、记录来源、建立分类和元数据、维护检索系统、提供参考服务、处理隐私和访问政策。"
+        },
+        {
+          "question": "数字档案会被AI完全替代吗？",
+          "answer": "AI可以辅助OCR、自动标引、摘要和搜索，但档案价值鉴定、来源脉络、访问限制、版权隐私和长期保存策略仍需要专业判断。"
+        }
+      ],
+      "source_refs": [
+        "onet_summary_25_4011_00",
+        "mynextmove_summary_25_4011_00",
+        "fermatmind_interpretation"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_25_4011_00",
+      "label": "O*NET OnLine: Archivists 25-4011.00",
+      "url": "https://www.onetonline.org/link/summary/25-4011.00",
+      "authority": "occupation_fact",
+      "usage": "Definition, SOC/O*NET identity, reported titles, tasks, work activities, interests, and related occupation framing."
+    },
+    {
+      "key": "bls_ooh_archivists_curators_museum_workers",
+      "label": "BLS OOH: Archivists, Curators, and Museum Workers",
+      "url": "https://www.bls.gov/ooh/education-training-and-library/curators-museum-technicians-and-conservators.htm",
+      "authority": "occupation_fact",
+      "usage": "Work environment, education pathway, duties, similar occupations, and employment context; not used for employment guarantees."
+    },
+    {
+      "key": "mynextmove_summary_25_4011_00",
+      "label": "My Next Move: Archivists 25-4011.00",
+      "url": "https://www.mynextmove.org/profile/summary/25-4011.00",
+      "authority": "occupation_fact",
+      "usage": "Plain-language tasks and career overview aligned to O*NET."
+    },
+    {
+      "key": "mynextmove_data_sources_25_4011_00",
+      "label": "My Next Move data sources: Archivists",
+      "url": "https://www.mynextmove.org/help/data/25-4011.00",
+      "authority": "source_disclosure",
+      "usage": "Source provenance, O*NET-SOC 2019 and 2018 SOC boundary, and data-year disclosure."
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial interpretation from authorized sources",
+      "authority": "interpretation_only",
+      "usage": "Chinese naming, search-intent framing, RIASEC/personality boundaries, AI-risk caution, and internal-link rationale."
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "allowed_usage": "Chinese recruiting or encyclopedia pages may only inform market/search-intent phrasing in a later editorial review, not occupational facts.",
+    "blocked_usage": [
+      "职业事实权威",
+      "薪资事实权威",
+      "就业保证",
+      "JSON-LD事实来源",
+      "生产导入依据"
+    ]
+  },
+  "internal_links": [
+    {
+      "label": "职业库",
+      "path": "/zh/career/jobs",
+      "reason": "Return to backend-authoritative career job index."
+    },
+    {
+      "label": "职业指南",
+      "path": "/zh/career",
+      "reason": "Connect exploratory readers to career guidance surfaces."
+    },
+    {
+      "label": "RIASEC职业兴趣测试",
+      "path": "/zh/tests/holland-career-interest-test-riasec",
+      "reason": "Help readers compare Conventional/Investigative/Social fit without treating the test as eligibility."
+    },
+    {
+      "label": "MBTI人格测试",
+      "path": "/zh/tests/mbti-personality-test-16-personality-types",
+      "reason": "Support personality exploration while keeping occupational facts source-backed."
+    },
+    {
+      "label": "Big Five人格测试",
+      "path": "/zh/tests/big-five-personality-test-ocean-model",
+      "reason": "Support work-style reflection without making hiring claims."
+    },
+    {
+      "label": "图书馆员与媒体馆藏专家",
+      "path": "/zh/career/jobs/librarians-media-collections-specialists",
+      "reason": "Adjacent information-service occupation often confused with archivists."
+    },
+    {
+      "label": "策展人",
+      "path": "/zh/career/jobs/curators",
+      "reason": "Adjacent museum/cultural collection occupation with a different scope."
+    },
+    {
+      "label": "博物馆技术员和文物保护人员",
+      "path": "/zh/career/jobs/museum-technicians-conservators",
+      "reason": "Adjacent preservation/display occupation for comparison."
+    }
+  ],
+  "release_boundaries": {
+    "cms_write_performed": false,
+    "staging_write_performed": false,
+    "production_import_performed": false,
+    "production_deploy_triggered": false,
+    "sitemap_or_llms_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "json_ld_runtime_changed": false,
+    "frontend_fallback_content_added": false,
+    "future_pr_content_prepared": false
+  }
+}

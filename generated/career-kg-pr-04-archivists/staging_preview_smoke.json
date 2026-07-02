@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "mode": "no_write_preview_contract",
+  "route": "/zh/career/jobs/archivists",
+  "staging_write_performed": false,
+  "staging_deploy_wait_performed": false,
+  "manual_deploy_triggered": false,
+  "production_deploy_triggered": false,
+  "preview_expectations": [
+    "backend API/CMS supplies title/meta/FAQ/Occupation JSON-LD/source disclosure",
+    "canonical remains /zh/career/jobs/archivists",
+    "empty API responses must not use local editorial fallback content"
+  ]
+}
