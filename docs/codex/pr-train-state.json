@@ -36628,7 +36628,7 @@
     "train_scope": "career_kg_mechanical_drafters_asset_package",
     "depends_on": ["PR-CAREER-KG-10"],
     "status": "in_progress",
-    "commit_sha": null,
+    "commit_sha": "ec99febfdffdd883543e10511444d12d997ab960",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -36711,6 +36711,11 @@
         "at": "2026-07-02T19:19:42Z",
         "status": "scope_validation_passed",
         "notes": "Scope validation found exactly the 11 authorized PR11 files and no outside-scope files."
+      },
+      {
+        "at": "2026-07-02T19:20:30Z",
+        "status": "committed",
+        "notes": "Validated implementation commit ec99febfdffdd883543e10511444d12d997ab960 created before this ledger-only record."
       }
     ]
   }
