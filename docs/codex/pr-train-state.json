@@ -36627,9 +36627,9 @@
     "title": "PR-CAREER-KG-11: content(career): add mechanical drafters KG asset package",
     "train_scope": "career_kg_mechanical_drafters_asset_package",
     "depends_on": ["PR-CAREER-KG-10"],
-    "status": "in_progress",
+    "status": "pr_open",
     "commit_sha": "ec99febfdffdd883543e10511444d12d997ab960",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1541",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -36716,6 +36716,11 @@
         "at": "2026-07-02T19:20:30Z",
         "status": "committed",
         "notes": "Validated implementation commit ec99febfdffdd883543e10511444d12d997ab960 created before this ledger-only record."
+      },
+      {
+        "at": "2026-07-02T19:21:43Z",
+        "status": "pr_open",
+        "notes": "Opened GitHub PR #1541 at https://github.com/fermatmind/fap-web/pull/1541. Initial head 48aaf66de16770601a5828109666095559f2a75e had CI and CodeQL checks in progress."
       }
     ]
   }
