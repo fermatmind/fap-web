@@ -35749,13 +35749,13 @@
         "evidence": "Changed-file scope validation passed for exactly the 11 PR-CAREER-KG-06 authorized files, including the ignored generated/career-kg-pr-06-aircraft-avionics-technicians files discovered with git ls-files --others --ignored --exclude-standard."
       },
       "github_checks": {
-        "status": "pending",
-        "head_sha": null,
-        "evidence": null
+        "status": "pass",
+        "head_sha": "2141054af029b1ff72bfc997dea72f6fc93336bc",
+        "evidence": "GitHub PR #1529 checks passed before ready-to-merge ledger update: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
       },
       "merge_readiness": {
-        "status": "pending",
-        "evidence": null
+        "status": "pass",
+        "evidence": "PR #1529 was open, not draft, mergeStateStatus CLEAN, mergeable MERGEABLE, and PR diff scope validation passed for exactly the 11 authorized PR-CAREER-KG-06 files."
       }
     },
     "scope_validation": {
@@ -35808,6 +35808,12 @@
         "commit_sha": "9dd0c15f6b5d00ee360343c984b77252dbf87b82",
         "pr_url": "https://github.com/fermatmind/fap-web/pull/1529",
         "notes": "Opened PR #1529 for PR-CAREER-KG-06 after required local checks and scope validation passed on the rebased latest-main branch. This records the pre-PR ledger head; the PR URL ledger update itself is committed afterward on the same branch."
+      },
+      {
+        "at": "2026-07-02T17:01:30Z",
+        "status": "ready_to_merge",
+        "head_sha": "2141054af029b1ff72bfc997dea72f6fc93336bc",
+        "notes": "GitHub checks passed and PR diff scope validation passed. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
       }
     ]
   }
