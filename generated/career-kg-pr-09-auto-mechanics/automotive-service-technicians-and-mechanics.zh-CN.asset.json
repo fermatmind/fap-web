@@ -1,0 +1,314 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "1.0.0",
+  "pr_id": "PR-CAREER-KG-09",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "automotive-service-technicians-and-mechanics",
+  "canonical_path": "/zh/career/jobs/automotive-service-technicians-and-mechanics",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "汽车维修技师与机械师",
+    "title_en": "Automotive Service Technicians and Mechanics",
+    "soc_code": "49-3023",
+    "onet_code": "49-3023.00",
+    "aliases_zh": [
+      "汽车维修技师",
+      "汽车维修机械师",
+      "汽车服务技师",
+      "汽车诊断技师",
+      "汽车机修工",
+      "快修技师",
+      "新能源车维修技师",
+      "汽车保养技师"
+    ],
+    "aliases_en": [
+      "Automotive Service Technician",
+      "Automotive Mechanic",
+      "Auto Mechanic",
+      "Auto Service Technician",
+      "Auto Technician",
+      "Diagnostic Technician",
+      "Service Technician",
+      "Lube Technician",
+      "Quick Service Technician",
+      "Heavy Line Technician"
+    ],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "柴油机服务技师与机械师",
+        "boundary": "柴油机技师更偏柴油发动机、商用车、卡车或重型柴油动力系统；汽车维修技师与机械师主要维修乘用车和轻型卡车。"
+      },
+      {
+        "name_zh": "重型车辆与移动设备维修技师",
+        "boundary": "重型车辆与移动设备维修技师面向工程机械、农机、铁路车辆或大型移动设备；本职业聚焦汽车和轻型卡车。"
+      },
+      {
+        "name_zh": "汽车车身与相关修理工",
+        "boundary": "车身修理更偏碰撞、钣金、喷漆和外观结构修复；本职业更偏诊断、保养、机械、电气、电子和系统维修。"
+      },
+      {
+        "name_zh": "小型发动机机械师",
+        "boundary": "小型发动机机械师维修摩托车、船外机、草坪设备或小型全地形车等；本职业主要处理汽车和轻型卡车。"
+      },
+      {
+        "name_zh": "汽车服务顾问",
+        "boundary": "服务顾问更多负责接待、报价、沟通和工单协调；汽车维修技师与机械师负责诊断、检查、保养、维修、测试和记录。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "汽车维修技师与机械师是做什么的：诊断设备、新能源车、技能等级与维修场景",
+    "meta_description_zh": "了解汽车维修技师与机械师的职责、电脑诊断设备、保养维修场景、新能源车边界、入门训练、证书/技能等级搜索意图、AI影响和相邻职业。",
+    "h1_zh": "汽车维修技师与机械师",
+    "canonical_path": "/zh/career/jobs/automotive-service-technicians-and-mechanics",
+    "ctr_intent_notes": [
+      "标题覆盖“是做什么的”“诊断设备”“新能源车”“技能等级”“维修场景”等中文搜索意图。",
+      "摘要明确职业事实来自 O*NET/BLS/My Next Move；中文证书或职业技能等级只作为本地化搜索意图边界，不作为就业、薪资或资格保证。",
+      "H1 保持中文标准名，canonical 不变，等待后端/CMS投影。"
+    ]
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "heading_zh": "职业定义",
+      "body_zh": "汽车维修技师与机械师负责检查、维护、诊断、调整、维修或大修汽车和轻型卡车。他们会结合客户描述、工单、试车、目视检查、电脑诊断设备、手动工具、专用工具和制造商规范，判断故障原因并完成保养、零件更换、系统测试和维修记录。",
+      "source_refs": [
+        "onet_summary_49_3023_00",
+        "bls_ooh_automotive_service_technicians_mechanics"
+      ]
+    },
+    {
+      "id": "core_responsibilities",
+      "heading_zh": "核心职责",
+      "items_zh": [
+        "使用电脑诊断设备、测试仪器、试车和检查清单识别发动机、制动、转向、悬挂、传动、电气、电子、空调、排放或安全系统问题。",
+        "完成基础保养与常规维护，例如换油、检查液位、轮胎换位、滤芯、火花塞、皮带、软管、制动片、轴承和传感器检查或更换。",
+        "按制造商和客户规范维修或更换磨损、损坏或故障部件，并测试维修后的部件和系统是否达到性能要求。",
+        "处理传统机械系统、电子控制系统、车载传感器、辅助驾驶/安全系统，以及部分电动车的电池性能、再生制动和电机效率相关问题。",
+        "记录诊断测试、维修项目、使用零件、工时、车辆状态和后续维修建议，并向客户、服务顾问或主管解释问题和维修方案。",
+        "根据工单、技术手册、经验和车间流程安排工作，遵守安全程序、个人防护和质量检查要求。"
+      ],
+      "source_refs": [
+        "onet_summary_49_3023_00",
+        "bls_ooh_automotive_service_technicians_mechanics",
+        "mynextmove_summary_49_3023_00"
+      ]
+    },
+    {
+      "id": "work_scenes",
+      "heading_zh": "工作场景",
+      "items_zh": [
+        "维修厂、经销商售后、轮胎/配件零售维修点、快修店和车队维修场景中，技师通常在通风和照明较好的维修车间工作。",
+        "常见任务包括接收工单、询问故障、试车复现、上架检查、电脑读取故障码、拆装部件、维修测试、记录工时和交车说明。",
+        "工作会接触油污、工具、噪声、化学品、举升设备、重物和不舒服姿势；有时需要户外作业、晚间或周末班次。",
+        "新能源车和高级安全系统增加了高压安全、校准、电子诊断、传感器和软件相关判断，但页面不得把“懂新能源车”写成自动高薪或录用保证。"
+      ],
+      "source_refs": [
+        "onet_summary_49_3023_00",
+        "bls_ooh_automotive_service_technicians_mechanics",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "skills_tools",
+      "heading_zh": "技能与工具",
+      "items_zh": [
+        "诊断能力：故障码读取、试车复现、数据流分析、压缩测试、电路测试、制动/转向/传动/排放系统排查和维修后验证。",
+        "工具设备：电脑诊断仪、红外发动机分析设备、压缩表、万用表、气动扳手、千斤顶、举升机、焊炬、车床、扳手、钳子、套筒和棘轮等。",
+        "新能源与电子：理解电动车例行维护、电池性能、再生制动、电机效率、电子传感器和高级安全系统校准相关边界。",
+        "质量与安全：按制造商规范、检查清单、技术手册和车间流程完成维修，使用合适的个人防护装备并降低举升、接触设备和过度用力风险。",
+        "沟通记录：阅读工单、估算维修成本、记录零件/工时/车辆状态，并把复杂故障用客户和服务顾问能理解的方式说明。"
+      ],
+      "source_refs": [
+        "onet_summary_49_3023_00",
+        "bls_ooh_automotive_service_technicians_mechanics",
+        "mynextmove_summary_49_3023_00"
+      ]
+    },
+    {
+      "id": "entry_path",
+      "heading_zh": "入门路径",
+      "items_zh": [
+        "常见路径是完成汽车服务技术或相关领域的高中后非学位项目、证书或副学士课程，也有人从高中学历/GED进入并在岗学习。",
+        "高中阶段的汽车维修、电子、计算机和数学课程有帮助；职业学校、社区学院、技术学院、厂家或经销商项目通常结合课堂和实操训练。",
+        "雇主可能要求或偏好行业认证；认证可证明专项能力，但不能保证录用、薪资、晋升、客户资源或特定工位。",
+        "中文用户常搜索“汽修职业技能等级”“汽车维修工证”“新能源维修证书”；这些属于本地化学习和市场意图提示，不能替代 O*NET/SOC 职业事实或当地法规判断。"
+      ],
+      "source_refs": [
+        "bls_ooh_automotive_service_technicians_mechanics",
+        "mynextmove_summary_49_3023_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "heading_zh": "RIASEC / 人格边界",
+      "items_zh": [
+        "RIASEC 上通常更接近 Realistic（实作型）：喜欢动手拆装、检查设备、解决具体机械和电气问题。",
+        "Investigative（研究型）也常出现，因为诊断工作需要根据症状、数据、故障码、试车结果和规则推理故障原因。",
+        "人格、MBTI 或 Big Five 只能帮助理解学习、沟通和工作偏好，不能替代安全培训、实操经验、认证、雇主要求或当地许可规则。"
+      ],
+      "source_refs": [
+        "mynextmove_summary_49_3023_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "heading_zh": "风险与 AI 边界",
+      "items_zh": [
+        "主要风险包括误诊、维修后未充分测试、举升或搬运伤害、接触设备、摔倒、过度用力、噪声、化学品、油污、高温或高压电相关风险。",
+        "AI、车载诊断、远程诊断、维修数据库和自动化检测可以帮助读取故障码、整理工单、推荐排查路径和生成说明，但不能替代合格技师的安全判断、实车验证、维修责任和质量检查。",
+        "页面不得承诺零事故、零误诊、高薪保证、认证即录用、新能源技能必然涨薪、AI不会影响岗位，或把会使用诊断仪写成独立签署资格。"
+      ],
+      "source_refs": [
+        "onet_summary_49_3023_00",
+        "bls_ooh_automotive_service_technicians_mechanics",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "adjacent_careers",
+      "heading_zh": "相邻职业",
+      "items_zh": [
+        "柴油机服务技师与机械师：更偏柴油发动机、卡车、公交或商用动力系统。",
+        "重型车辆与移动设备维修技师：更偏工程机械、农机、轨道车辆或大型移动设备。",
+        "汽车车身与相关修理工：更偏碰撞修复、钣金、喷漆和外观结构。",
+        "小型发动机机械师：更偏摩托车、船外机、草坪设备或小型全地形车。",
+        "汽车服务顾问：更偏客户接待、报价、工单协调和售后沟通。"
+      ],
+      "source_refs": [
+        "bls_ooh_automotive_service_technicians_mechanics",
+        "mynextmove_summary_49_3023_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "faq",
+      "heading_zh": "FAQ",
+      "items_zh": [
+        {
+          "question": "汽车维修技师与机械师是做什么的？",
+          "answer": "他们检查、维护、诊断和维修汽车与轻型卡车，常用电脑诊断设备、试车、检查清单、手动工具和专用设备处理机械、电气、电子、制动、传动、空调、排放和安全系统问题。"
+        },
+        {
+          "question": "汽车维修技师需要什么学习路径或证书？",
+          "answer": "常见路径是汽车服务技术课程、证书或副学士项目，也有人从高中学历/GED进入并在岗学习。雇主可能要求或偏好认证；中文语境下的职业技能等级或证书只能作为学习和市场意图参考，不能保证录用或待遇结果。"
+        },
+        {
+          "question": "新能源车会改变汽车维修技师的工作吗？",
+          "answer": "会。电动车和高级安全系统增加了电池性能、再生制动、电机效率、传感器、校准和高压安全相关知识，但传统诊断、保养、客户沟通、维修记录和安全流程仍然重要。"
+        }
+      ],
+      "source_refs": [
+        "onet_summary_49_3023_00",
+        "bls_ooh_automotive_service_technicians_mechanics",
+        "fermatmind_interpretation"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_49_3023_00",
+      "label": "O*NET OnLine: Automotive Service Technicians and Mechanics 49-3023.00",
+      "url": "https://www.onetonline.org/link/summary/49-3023.00",
+      "authority": "occupation_fact",
+      "usage": "职业定义、任务、诊断/维修活动、工作情境、工具、工作风格和相邻职业事实。"
+    },
+    {
+      "key": "bls_ooh_automotive_service_technicians_mechanics",
+      "label": "BLS OOH: Automotive Service Technicians and Mechanics",
+      "url": "https://www.bls.gov/ooh/installation-maintenance-and-repair/automotive-service-technicians-and-mechanics.htm",
+      "authority": "occupation_fact",
+      "usage": "职业概览、职责、维修场景、工具、电动车边界、工作环境、安全风险、入门路径和认证边界。"
+    },
+    {
+      "key": "mynextmove_summary_49_3023_00",
+      "label": "My Next Move: Automotive Service Technicians & Mechanics 49-3023.00",
+      "url": "https://www.mynextmove.org/profile/summary/49-3023.00",
+      "authority": "occupation_fact",
+      "usage": "通俗职业名称、别名、工作内容、人格倾向、教育路径、软件/工具示例和相邻职业。"
+    },
+    {
+      "key": "mynextmove_data_sources_49_3023_00",
+      "label": "My Next Move data sources: Automotive Service Technicians & Mechanics",
+      "url": "https://www.mynextmove.org/help/data/49-3023.00",
+      "authority": "source_disclosure",
+      "usage": "公开来源披露，不作为新增职业事实。"
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial interpretation from authoritative occupational sources",
+      "authority": "editorial_interpretation",
+      "usage": "中文表达、搜索意图归纳、内链、职业技能等级边界与人格边界说明；不得覆盖 O*NET/BLS/My Next Move 职业事实。"
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "blocked_usage": [
+      "职业事实权威",
+      "就业保证",
+      "收入保证",
+      "认证录用保证",
+      "新能源高薪保证",
+      "维修零风险保证",
+      "JSON-LD事实来源",
+      "生产导入依据"
+    ]
+  },
+  "internal_links": [
+    {
+      "label_zh": "职业库",
+      "path": "/zh/career/jobs",
+      "purpose": "职业库入口"
+    },
+    {
+      "label_zh": "职业指南",
+      "path": "/zh/career",
+      "purpose": "职业探索上层入口"
+    },
+    {
+      "label_zh": "RIASEC 职业兴趣测试",
+      "path": "/zh/tests/holland-career-interest-test-riasec",
+      "purpose": "实作型与研究型兴趣探索"
+    },
+    {
+      "label_zh": "柴油机服务技师与机械师",
+      "path": "/zh/career/jobs/bus-and-truck-mechanics-and-diesel-engine-specialists",
+      "purpose": "相邻维修职业"
+    },
+    {
+      "label_zh": "重型车辆与移动设备维修技师",
+      "path": "/zh/career/jobs/heavy-vehicle-and-mobile-equipment-service-technicians",
+      "purpose": "相邻维修职业"
+    },
+    {
+      "label_zh": "MBTI 人格测试",
+      "path": "/zh/tests/mbti-personality-test-16-personality-types",
+      "purpose": "沟通与学习偏好，不替代职业资格"
+    },
+    {
+      "label_zh": "Big Five 人格测试",
+      "path": "/zh/tests/big-five-personality-test",
+      "purpose": "责任心、谨慎性和压力偏好自评"
+    }
+  ],
+  "release_boundaries": {
+    "cms_write_performed": false,
+    "staging_write_performed": false,
+    "production_import_performed": false,
+    "db_migration_performed": false,
+    "runtime_seo_changed": false,
+    "sitemap_changed": false,
+    "llms_txt_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "json_ld_runtime_changed": false,
+    "manual_deploy_triggered": false,
+    "staging_deploy_wait_performed": false,
+    "production_deploy_triggered": false
+  }
+}

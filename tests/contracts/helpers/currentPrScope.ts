@@ -270,6 +270,20 @@ const PR_CAREER_KG_08_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const PR_CAREER_KG_09_ALLOWED_FILES = new Set([
+  "generated/career-kg-pr-09-auto-mechanics/README.md",
+  "generated/career-kg-pr-09-auto-mechanics/automotive-service-technicians-and-mechanics.zh-CN.asset.json",
+  "generated/career-kg-pr-09-auto-mechanics/qa_report.json",
+  "generated/career-kg-pr-09-auto-mechanics/dry_run_importer_report.json",
+  "generated/career-kg-pr-09-auto-mechanics/staging_preview_smoke.json",
+  "generated/career-kg-pr-09-auto-mechanics/fap_web_render_smoke.json",
+  "generated/career-kg-pr-09-auto-mechanics/sha256_manifest.json",
+  "tests/contracts/career-kg-09-auto-mechanics.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -5383,6 +5397,14 @@ export function isPrCareerKg08AllowedFile(file: string): boolean {
   }
 
   return PR_CAREER_KG_08_ALLOWED_FILES.has(file);
+}
+
+export function isPrCareerKg09AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-career-kg-09-auto-mechanics") {
+    return true;
+  }
+
+  return PR_CAREER_KG_09_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {

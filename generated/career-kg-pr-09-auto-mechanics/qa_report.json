@@ -1,0 +1,53 @@
+{
+  "status": "pass",
+  "schema_validation": {
+    "status": "pass",
+    "required_sections_present": [
+      "identity",
+      "seo",
+      "definition",
+      "core_responsibilities",
+      "work_scenes",
+      "skills_tools",
+      "entry_path",
+      "riasec_personality_boundary",
+      "risk_ai_boundary",
+      "adjacent_careers",
+      "faq",
+      "sources",
+      "internal_links"
+    ],
+    "canonical_unchanged": true,
+    "content_block_count": 9,
+    "faq_count": 3
+  },
+  "trust_audit": {
+    "status": "pass",
+    "fact_authorities": [
+      "O*NET OnLine",
+      "BLS OOH",
+      "My Next Move"
+    ],
+    "market_or_baike_used_as_fact_authority": false,
+    "blocked_claims_absent": [
+      "employment_guarantee",
+      "income_guarantee",
+      "certification_job_guarantee",
+      "new_energy_high_pay_guarantee",
+      "injury_zero_risk",
+      "ai_zero_impact",
+      "local_license_guarantee"
+    ]
+  },
+  "editorial_gate": {
+    "status": "pass",
+    "reader_intent_covered": [
+      "汽车维修技师与机械师是做什么的",
+      "汽车维修技师 诊断设备",
+      "新能源车维修",
+      "汽修职业技能等级",
+      "汽车维修场景"
+    ],
+    "canonical_path_locked": "/zh/career/jobs/automotive-service-technicians-and-mechanics"
+  }
+}
