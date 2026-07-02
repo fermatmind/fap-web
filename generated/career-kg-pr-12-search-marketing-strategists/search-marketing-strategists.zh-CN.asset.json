@@ -1,0 +1,236 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "1.0.0",
+  "pr_id": "PR-CAREER-KG-12",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "search-marketing-strategists",
+  "canonical_path": "/zh/career/jobs/search-marketing-strategists",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "搜索营销策略师",
+    "title_en": "Search Marketing Strategists",
+    "soc_code": "13-1161",
+    "onet_code": "13-1161.01",
+    "aliases_zh": ["搜索营销专员", "SEM 策略师", "SEO 策略师", "搜索广告策略师", "PPC 专员", "搜索引擎营销专员", "数字营销策略师", "流量增长专员"],
+    "aliases_en": ["Search Marketing Strategist", "Search Engine Marketing Strategist", "SEM Strategist", "SEO Strategist", "Paid Search Strategist", "PPC Specialist", "Digital Marketing Strategist", "Search Engine Optimization Specialist"],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "市场研究分析师 / 营销专家",
+        "boundary": "市场研究分析师/营销专家更广泛地研究市场、消费者、竞争和营销数据；搜索营销策略师聚焦搜索引擎、搜索广告、SEO/SEM、关键词、落地页和搜索渠道表现。"
+      },
+      {
+        "name_zh": "市场经理",
+        "boundary": "市场经理通常负责团队、预算、品牌、活动组合和跨渠道战略；搜索营销策略师通常在搜索渠道内制定、执行、分析和优化策略。"
+      },
+      {
+        "name_zh": "广告与推广经理",
+        "boundary": "广告与推广经理更偏广告活动、媒体、促销和团队管理；搜索营销策略师更偏关键词、广告平台、竞价、SEO 技术/内容协作和搜索结果表现。"
+      },
+      {
+        "name_zh": "内容营销 / SEO 编辑",
+        "boundary": "内容营销或 SEO 编辑更偏内容规划、写作、页面优化和编辑流程；搜索营销策略师需要把内容、技术 SEO、付费搜索、数据和商业目标连接起来。"
+      },
+      {
+        "name_zh": "数据分析师",
+        "boundary": "数据分析师更偏通用数据建模、报表和业务分析；搜索营销策略师使用数据分析来服务搜索渠道目标，但不等同于通用数据工程或统计建模岗位。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "搜索营销策略师是做什么的：SEO、SEM、数据分析、广告平台与 AI 自动化边界",
+    "meta_description_zh": "了解搜索营销策略师的职责、SEO/SEM、关键词研究、搜索广告、落地页、数据分析、广告平台、AI 自动化边界、入门路径和相邻职业区别。",
+    "h1_zh": "搜索营销策略师",
+    "canonical_path": "/zh/career/jobs/search-marketing-strategists",
+    "ctr_intent_notes": [
+      "标题覆盖“是做什么的”“SEO”“SEM”“广告平台”“AI 自动化边界”等点击意图。",
+      "H1 使用短中文标准名；identity 保留 O*NET/SOC 官方英文名、代码、别名和易混职业边界。",
+      "摘要强调搜索渠道策略、数据分析和 AI 边界，不承诺流量、排名、转化、收入或广告效果。"
+    ]
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "heading_zh": "职业定义",
+      "body_zh": "搜索营销策略师使用搜索引擎优化、付费搜索、关键词研究、网站分析、广告平台和落地页协作方法，制定并执行搜索渠道策略，以提升网站或产品在搜索结果和搜索广告中的可见性、相关性和商业表现。",
+      "source_refs": ["onet_summary_13_1161_01", "mynextmove_summary_13_1161_01"]
+    },
+    {
+      "id": "core_responsibilities",
+      "heading_zh": "核心职责",
+      "items_zh": [
+        "研究关键词、搜索意图、竞争页面、受众需求和查询趋势，形成 SEO/SEM 策略和优先级。",
+        "规划、创建、监控和优化付费搜索广告活动，包括关键词、广告文案、出价、预算、落地页和转化目标。",
+        "分析搜索渠道数据，例如展示、点击、点击率、排名、质量分、转化率、成本、价值归因和页面表现。",
+        "与内容、产品、设计、开发、销售或数据团队合作，改进页面结构、内容覆盖、技术 SEO、落地页体验和跟踪方案。",
+        "生成搜索营销报告，解释变化原因、实验结果、渠道限制和下一步优化建议。",
+        "监控搜索引擎、广告平台和隐私/跟踪规则变化，避免把短期排名或投放波动误写成确定性结果。"
+      ],
+      "source_refs": ["onet_summary_13_1161_01", "bls_ooh_market_research_analysts", "mynextmove_summary_13_1161_01"]
+    },
+    {
+      "id": "work_scenes",
+      "heading_zh": "工作场景",
+      "items_zh": [
+        "常见场景包括品牌方增长团队、广告代理商、电商、SaaS、内容网站、本地服务、教育、金融、招聘和多语言国际化搜索团队。",
+        "一天的工作可能包括看搜索报表、调整广告活动、研究关键词、检查落地页、写实验假设、与内容或开发沟通、复盘搜索引擎更新和准备管理层摘要。",
+        "该职业既需要商业目标和用户意图理解，也需要广告平台、分析工具、实验设计、页面协作和风险判断。",
+        "页面不能把搜索营销策略师写成保证首页排名、保证投放 ROI、单独负责全部品牌增长或替代市场经理的岗位。"
+      ],
+      "source_refs": ["onet_summary_13_1161_01", "bls_ooh_market_research_analysts", "fermatmind_interpretation"]
+    },
+    {
+      "id": "skills_tools",
+      "heading_zh": "技能与工具",
+      "items_zh": [
+        "SEO：关键词研究、搜索意图、站内结构、标题摘要、内容缺口、内链、技术 SEO、结构化数据协作和搜索结果页理解。",
+        "SEM / PPC：搜索广告账户结构、关键词匹配、否定词、广告文案、出价、预算、质量分、转化跟踪和落地页测试。",
+        "数据分析：CTR、CPC、CPA、ROAS、转化率、排名、展示、查询、漏斗、归因、实验和异常变化解释。",
+        "平台工具：搜索广告平台、搜索控制台、网站分析、标签管理、A/B 测试、BI 报表、爬虫/审计工具和项目协作工具。",
+        "协作能力：把搜索数据转成内容 brief、页面需求、技术修复、广告实验、商业复盘和可执行优先级。"
+      ],
+      "source_refs": ["onet_summary_13_1161_01", "mynextmove_summary_13_1161_01", "fermatmind_interpretation"]
+    },
+    {
+      "id": "entry_path",
+      "heading_zh": "入门路径",
+      "items_zh": [
+        "常见入门背景包括市场营销、商业、数据分析、传播、电子商务、信息系统、统计或相关项目经验。",
+        "入门作品集可以展示关键词研究、广告实验、落地页优化、搜索报表、技术 SEO 诊断、内容 brief 和复盘，而不是只列工具名称。",
+        "早期岗位通常从账户执行、SEO 分析、报表、关键词、内容协作或落地页实验开始，逐步承担策略、预算和跨团队影响。",
+        "广告平台证书、SEO 课程或案例不能保证排名、流量、转化、薪资、客户续约或平台审核结果。"
+      ],
+      "source_refs": ["bls_ooh_market_research_analysts", "mynextmove_summary_13_1161_01", "fermatmind_interpretation"]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "heading_zh": "RIASEC / 人格边界",
+      "items_zh": [
+        "RIASEC 上通常更接近 Enterprising（企业型）、Investigative（研究型）和 Conventional（常规型）：既要推动增长目标，也要分析数据、遵守平台规则和整理流程。",
+        "Social（社会型）可能出现在跨团队协作、客户沟通、brief 解释和汇报中。",
+        "人格、MBTI 或 Big Five 只能帮助理解沟通、分析偏好、压力承受和执行风格，不能替代平台经验、数据判断、内容协作或商业目标理解。"
+      ],
+      "source_refs": ["mynextmove_summary_13_1161_01", "fermatmind_interpretation"]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "heading_zh": "风险与 AI 边界",
+      "items_zh": [
+        "主要风险包括误读搜索意图、过度依赖短期排名、错误归因、预算浪费、跟踪失真、广告政策违规、内容质量不足、隐私合规变化和平台算法波动。",
+        "AI 可以辅助关键词聚类、广告文案变体、搜索意图归纳、报告摘要、异常检测和内容 brief，但不能保证排名、替代平台政策判断、替代实验设计或替代商业取舍。",
+        "页面不得承诺首页排名、确定 ROI、AI 自动化后无需人员、投放一定增长、SEO 证书即录用，或把搜索营销策略师写成可以单独控制搜索引擎结果。"
+      ],
+      "source_refs": ["onet_summary_13_1161_01", "bls_ooh_market_research_analysts", "fermatmind_interpretation"]
+    },
+    {
+      "id": "adjacent_careers",
+      "heading_zh": "相邻职业",
+      "items_zh": [
+        "市场研究分析师 / 营销专家：更广泛研究市场、消费者、竞争、定价和营销数据。",
+        "市场经理：更偏品牌、预算、团队、渠道组合和整体营销战略。",
+        "广告与推广经理：更偏广告活动、媒体计划、促销和管理责任。",
+        "内容营销 / SEO 编辑：更偏内容生产、编辑、页面主题覆盖和文字质量。",
+        "数据分析师：更偏通用数据建模、仪表盘、统计分析和业务洞察。"
+      ],
+      "source_refs": ["bls_ooh_market_research_analysts", "bls_ooh_advertising_promotions_marketing_managers", "mynextmove_summary_13_1161_01", "fermatmind_interpretation"]
+    },
+    {
+      "id": "faq",
+      "heading_zh": "FAQ",
+      "items_zh": [
+        {
+          "question": "搜索营销策略师是做什么的？",
+          "answer": "他们围绕搜索引擎和搜索广告制定策略，研究关键词和搜索意图，优化 SEO、SEM、落地页、广告账户和数据报告，帮助团队理解搜索渠道表现和下一步动作。"
+        },
+        {
+          "question": "搜索营销策略师和 SEO 专员、SEM 专员有什么区别？",
+          "answer": "SEO 或 SEM 专员可能更偏单一渠道执行；搜索营销策略师通常需要把 SEO、付费搜索、数据分析、落地页、内容和商业目标放在同一套搜索策略里协调。"
+        },
+        {
+          "question": "AI 会替代搜索营销策略师吗？",
+          "answer": "AI 可以生成关键词建议、广告文案、摘要和报告草稿，但搜索意图判断、预算取舍、实验设计、平台政策、隐私合规和业务解释仍需要人员负责。"
+        }
+      ],
+      "source_refs": ["onet_summary_13_1161_01", "mynextmove_summary_13_1161_01", "fermatmind_interpretation"]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_13_1161_01",
+      "label": "O*NET OnLine: Search Marketing Strategists 13-1161.01",
+      "url": "https://www.onetonline.org/link/summary/13-1161.01",
+      "authority": "occupation_fact",
+      "usage": "职业定义、任务、搜索引擎优化、付费搜索、关键词、网站分析、广告平台和职业事实。"
+    },
+    {
+      "key": "bls_ooh_market_research_analysts",
+      "label": "BLS OOH: Market Research Analysts",
+      "url": "https://www.bls.gov/ooh/business-and-financial/market-research-analysts.htm",
+      "authority": "occupation_fact",
+      "usage": "SOC 基类职业背景、数据分析、市场/消费者信息、教育路径和工作环境；不用于流量或收入承诺。"
+    },
+    {
+      "key": "bls_oews_13_1161",
+      "label": "BLS OEWS: Market Research Analysts and Marketing Specialists 13-1161",
+      "url": "https://www.bls.gov/oes/2023/may/oes131161.htm",
+      "authority": "occupation_fact",
+      "usage": "SOC 基类边界核对；不用于收入承诺。"
+    },
+    {
+      "key": "mynextmove_summary_13_1161_01",
+      "label": "My Next Move: Search Marketing Strategists 13-1161.01",
+      "url": "https://www.mynextmove.org/profile/summary/13-1161.01",
+      "authority": "occupation_fact",
+      "usage": "通俗职业描述、任务、别名、兴趣倾向、教育路径和相邻职业。"
+    },
+    {
+      "key": "mynextmove_data_sources_13_1161_01",
+      "label": "My Next Move data sources: Search Marketing Strategists",
+      "url": "https://www.mynextmove.org/help/data/13-1161.01",
+      "authority": "source_disclosure",
+      "usage": "公开来源披露，不作为新增职业事实。"
+    },
+    {
+      "key": "bls_ooh_advertising_promotions_marketing_managers",
+      "label": "BLS OOH: Advertising, Promotions, and Marketing Managers",
+      "url": "https://www.bls.gov/ooh/management/advertising-promotions-and-marketing-managers.htm",
+      "authority": "adjacent_occupation_boundary",
+      "usage": "相邻管理职业边界，用于区分搜索营销策略师与市场/广告管理岗位。"
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial interpretation from authoritative occupational sources",
+      "authority": "editorial_interpretation",
+      "usage": "中文表达、搜索意图归纳、内链、职业边界与人格边界说明；不得覆盖 O*NET/BLS/My Next Move 职业事实。"
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "blocked_usage": ["职业事实权威", "就业保证", "收入保证", "排名保证", "流量保证", "转化保证", "ROI 保证", "证书录用保证", "平台审核保证", "JSON-LD事实来源", "生产导入依据"]
+  },
+  "internal_links": [
+    {"label_zh": "职业库", "path": "/zh/career/jobs", "purpose": "职业库入口"},
+    {"label_zh": "职业指南", "path": "/zh/career", "purpose": "职业探索上层入口"},
+    {"label_zh": "RIASEC 职业兴趣测试", "path": "/zh/tests/holland-career-interest-test-riasec", "purpose": "企业型、研究型和常规型兴趣探索"},
+    {"label_zh": "市场研究分析师 / 营销专家", "path": "/zh/career/jobs/market-research-analysts-and-marketing-specialists", "purpose": "相邻营销分析职业边界"},
+    {"label_zh": "MBTI 人格测试", "path": "/zh/tests/mbti-personality-test-16-personality-types", "purpose": "沟通与协作偏好，不替代岗位要求"},
+    {"label_zh": "Big Five 人格测试", "path": "/zh/tests/big-five-personality-test", "purpose": "责任心、开放性和压力偏好自评"}
+  ],
+  "release_boundaries": {
+    "cms_write_performed": false,
+    "staging_write_performed": false,
+    "production_import_performed": false,
+    "db_migration_performed": false,
+    "runtime_seo_changed": false,
+    "sitemap_changed": false,
+    "llms_txt_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "json_ld_runtime_changed": false,
+    "manual_deploy_triggered": false,
+    "staging_deploy_wait_performed": false,
+    "production_deploy_triggered": false
+  }
+}

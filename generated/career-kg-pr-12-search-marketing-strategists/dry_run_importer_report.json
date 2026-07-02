@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "mode": "dry_run_only",
+  "writes_performed": false,
+  "cms_write_performed": false,
+  "production_import_performed": false,
+  "production_import_approved": false,
+  "validated_asset": "search-marketing-strategists.zh-CN.asset.json",
+  "validated_slug": "search-marketing-strategists",
+  "validated_canonical_path": "/zh/career/jobs/search-marketing-strategists",
+  "blocked_runtime_changes": ["cms_write", "production_import", "db_migration", "runtime_seo", "sitemap", "llms_txt", "canonical", "noindex", "json_ld_runtime"]
+}
