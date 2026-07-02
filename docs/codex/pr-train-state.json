@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T02:31:10+08:00",
+  "updated_at": "2026-07-02T18:49:00Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12474,7 +12474,7 @@
       "depends_on": [
         "SECURITY-122-WEB-03"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_ops_dashboard_route_authentication",
       "risk_level": "high",
       "title": "SECURITY-122-WEB-04: ops/dashboard route authentication",
@@ -12525,14 +12525,18 @@
             "verify-enneagram-contract-freeze"
           ],
           "evidence": "After WEB-04 CI scope fixes, gh pr checks 1535 --watch=false returned all required checks passing for head 721ae375e6836c531711d1e3fffee9139f486bf5; gh pr view reported mergeStateStatus CLEAN."
+        },
+        "post_merge_revalidation": {
+          "status": "passed",
+          "evidence": "GitHub reports PR #1535 MERGED at 2026-07-02T18:33:48Z with merge commit 164c097cc04a6f79750f0941a12241a67cda4ee3; origin/main contains the merge commit; local main was synced; worktree was clean; local and remote task branches were absent/deleted."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1535",
-      "commit_sha": "721ae375e6836c531711d1e3fffee9139f486bf5",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "b3fba8fbc69fa0bb8b3955a99871bdd4bb328c5a",
+      "merged_at": "2026-07-02T18:33:48Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -12588,10 +12592,16 @@
           "at": "2026-07-03T02:31:10+08:00",
           "status": "ready_to_merge",
           "summary": "PR #1535 scope revalidation passed and GitHub mergeStateStatus is CLEAN; ready for squash merge after this ledger update checks pass."
+        },
+        {
+          "at": "2026-07-02T18:40:00Z",
+          "status": "merged",
+          "summary": "Reconciled SECURITY-122-WEB-04 after PR #1535 merged; origin/main contains merge commit 164c097cc04a6f79750f0941a12241a67cda4ee3, local main was synced, worktree was clean, and local/remote task branches were deleted before WEB-05 implementation."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T02:31:10+08:00"
+      "updated_at": "2026-07-03T02:31:10+08:00",
+      "merge_sha": "164c097cc04a6f79750f0941a12241a67cda4ee3"
     },
     {
       "id": "SECURITY-122-WEB-05",
@@ -12602,7 +12612,7 @@
       "depends_on": [
         "SECURITY-122-WEB-04"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_122_web_cms_url_field_allowlists_rendered_content_crash_guards",
       "risk_level": "high",
       "title": "SECURITY-122-WEB-05: CMS URL/field allowlists and rendered-content crash guards",
@@ -12622,16 +12632,29 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-04 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-04 merged via PR #1535 at 2026-07-02T18:33:48Z; origin/main contains 164c097cc04a6f79750f0941a12241a67cda4ee3 and task branches are cleaned."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-05-cms-url-field-guards.contract.test.ts",
+            "/usr/local/bin/pnpm typecheck",
+            "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+            "/usr/local/bin/pnpm test:contract",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "changed-file scope validation for SECURITY-122-WEB-05 including untracked files"
+          ],
+          "evidence": "Focused WEB-05 contract passed with scope validation; typecheck passed; production-URL build passed; full contract suite passed with 626 files and 3663 tests; manifest/state parse and git diff --check passed."
         },
         "github": {
           "status": "pending",
           "passed": []
+        },
+        "scope": {
+          "status": "passed",
+          "evidence": "tests/contracts/security-122-web-05-cms-url-field-guards.contract.test.ts verifies changed files are limited to the declared WEB-05 CMS URL/field guard scope."
         }
       },
       "failure_reason": null,
@@ -12645,6 +12668,16 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-05 from explicit user /goal; execution waits for SECURITY-122-WEB-04 merge."
+        },
+        {
+          "at": "2026-07-02T18:40:00Z",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-05 from latest main after WEB-04 post-merge revalidation; implementing CMS URL/field allowlists and rendered-content crash guards only."
+        },
+        {
+          "at": "2026-07-02T18:49:00Z",
+          "status": "local_checks_passed",
+          "summary": "Local validation passed for SECURITY-122-WEB-05: focused contract with scope validation, typecheck, production-URL build, full contract suite, manifest/state parse, and git diff check."
         }
       ],
       "sidecar_issues": [],

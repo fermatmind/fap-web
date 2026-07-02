@@ -2,6 +2,7 @@ import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { withLastKnownGood, type LastKnownGoodResult } from "@/lib/cms/last-known-good";
+import { cmsManagedMediaUrl } from "@/lib/cms/media";
 import { stripInternalCmsSlotMarkers } from "@/lib/cms/sanitizeCmsRichText";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
@@ -469,8 +470,16 @@ function fallbackText(...candidates: Array<unknown>): string {
 }
 
 function normalizeIsoValue(value: unknown): string | null {
-  const normalized = String(value ?? "").trim();
+  if (typeof value !== "string" && typeof value !== "number") {
+    return null;
+  }
+
+  const normalized = String(value).trim();
   return normalized || null;
+}
+
+function normalizeCmsBodyText(value: unknown): string {
+  return typeof value === "string" ? stripInternalCmsSlotMarkers(value) : "";
 }
 
 function normalizePositiveInteger(value: unknown): number | null {
@@ -570,10 +579,12 @@ function truncate(value: string, maxLength: number): string {
 }
 
 function buildFallbackExcerpt(article: CmsArticleApiRecord): string {
+  const contentHtml = normalizeCmsBodyText(article.content_html);
+  const contentMd = normalizeCmsBodyText(article.content_md);
   const sources = [
     article.excerpt,
-    article.content_html ? stripHtml(stripInternalCmsSlotMarkers(article.content_html)) : null,
-    article.content_md ? stripInternalCmsSlotMarkers(article.content_md) : null,
+    contentHtml ? stripHtml(contentHtml) : null,
+    contentMd || null,
   ];
 
   for (const source of sources) {
@@ -589,8 +600,8 @@ function buildFallbackExcerpt(article: CmsArticleApiRecord): string {
 function stripArticleRecordInternalSlotMarkers(article: CmsArticleApiRecord): CmsArticleApiRecord {
   return {
     ...article,
-    content_md: article.content_md ? stripInternalCmsSlotMarkers(article.content_md) : article.content_md,
-    content_html: article.content_html ? stripInternalCmsSlotMarkers(article.content_html) : article.content_html,
+    content_md: normalizeCmsBodyText(article.content_md),
+    content_html: normalizeCmsBodyText(article.content_html),
   };
 }
 
@@ -626,7 +637,7 @@ function estimateReadingMinutes(...sources: Array<string | null | undefined>): n
 
 function normalizeImageVariant(value: unknown): CmsArticleImageVariant | null {
   if (typeof value === "string") {
-    const url = normalizeIsoValue(value);
+    const url = cmsManagedMediaUrl(value);
     return url ? { url, width: null, height: null, mimeType: null, media: null } : null;
   }
 
@@ -634,7 +645,7 @@ function normalizeImageVariant(value: unknown): CmsArticleImageVariant | null {
     return null;
   }
 
-  const url = normalizeIsoValue(readRecordValue(value, "url", "src", "href"));
+  const url = cmsManagedMediaUrl(normalizeIsoValue(readRecordValue(value, "url", "src", "href")));
   if (!url) {
     return null;
   }
@@ -672,7 +683,7 @@ function normalizeImageVariants(source: unknown): CmsArticleImageVariants {
 }
 
 function normalizeArticleBodyVisual(source: unknown): CmsArticleBodyVisual | null {
-  const imageUrl = normalizeIsoValue(readRecordValue(source, "image_url", "imageUrl", "url", "src"));
+  const imageUrl = cmsManagedMediaUrl(normalizeIsoValue(readRecordValue(source, "image_url", "imageUrl", "url", "src")));
   if (!imageUrl || !/^https:\/\//i.test(imageUrl)) {
     return null;
   }
@@ -732,13 +743,23 @@ function normalizeArticleJsonLd(
   localizedCanonicalPath: string,
   slug: string
 ): unknown {
-  const walk = (value: unknown): unknown => {
+  const seen = new WeakSet<object>();
+  const walk = (value: unknown, depth = 0): unknown => {
+    if (depth > 24) {
+      return null;
+    }
+
     if (Array.isArray(value)) {
-      return value.map(walk);
+      return value.map((item) => walk(item, depth + 1));
     }
 
     if (value && typeof value === "object") {
-      return Object.fromEntries(Object.entries(value).map(([key, nested]) => [key, walk(nested)]));
+      if (seen.has(value)) {
+        return null;
+      }
+
+      seen.add(value);
+      return Object.fromEntries(Object.entries(value).map(([key, nested]) => [key, walk(nested, depth + 1)]));
     }
 
     if (typeof value === "string") {
@@ -813,14 +834,14 @@ export function normalizeArticleSeoPayload(
       og: {
         title: fallbackText(seo.meta?.og?.title, seo.meta?.title),
         description: fallbackText(seo.meta?.og?.description, seo.meta?.description),
-        image: normalizeIsoValue(seo.meta?.og?.image),
+        image: cmsManagedMediaUrl(normalizeIsoValue(seo.meta?.og?.image)),
         type: fallbackText(seo.meta?.og?.type, "article"),
       },
       twitter: {
         card: fallbackText(seo.meta?.twitter?.card, "summary_large_image"),
         title: fallbackText(seo.meta?.twitter?.title, seo.meta?.title),
         description: fallbackText(seo.meta?.twitter?.description, seo.meta?.description),
-        image: normalizeIsoValue(seo.meta?.twitter?.image ?? seo.meta?.og?.image),
+        image: cmsManagedMediaUrl(normalizeIsoValue(seo.meta?.twitter?.image ?? seo.meta?.og?.image)),
       },
       robots: fallbackText(seo.meta?.robots, "index,follow"),
     },
@@ -864,15 +885,15 @@ function normalizeCategory(category: CmsArticleApiCategory): CmsArticleCategory 
 }
 
 function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
-  const contentMd = stripInternalCmsSlotMarkers(String(article.content_md ?? ""));
-  const contentHtml = stripInternalCmsSlotMarkers(String(article.content_html ?? ""));
+  const contentMd = normalizeCmsBodyText(article.content_md);
+  const contentHtml = normalizeCmsBodyText(article.content_html);
   const nestedCoverImage = article.cover_image;
   const coverImageVariants = normalizeImageVariants(
     article.cover_image_variants ?? readRecordValue(nestedCoverImage, "variants", "image_variants", "imageVariants")
   );
   const coverImageUrl =
-    normalizeIsoValue(article.cover_image_url) ??
-    normalizeIsoValue(readRecordValue(nestedCoverImage, "url", "src")) ??
+    cmsManagedMediaUrl(normalizeIsoValue(article.cover_image_url)) ??
+    cmsManagedMediaUrl(normalizeIsoValue(readRecordValue(nestedCoverImage, "url", "src"))) ??
     firstImageUrl(coverImageVariants.hero, coverImageVariants.card, coverImageVariants.og, coverImageVariants.thumbnail);
   const readingMinutes =
     normalizePositiveInteger(article.reading_minutes) ?? estimateReadingMinutes(contentHtml, contentMd, article.excerpt);
