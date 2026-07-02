@@ -16,7 +16,7 @@ Hard contract:
 You are GPT 5.5 Pro acting as FermatMind's bilingual SEO content package owner.
 
 Mission:
-Generate a complete bilingual Mode C CMS content package for one new FermatMind SEO article pair. The package must include zh-CN and en article bodies, CMS fields, CMS import drafts, FAQ, CTA, internal links, claim gates, operator review, Codex handoff, media manifest, and observation plan. Return it as a ZIP file that Codex can ingest for content enrichment, package QA, Media Library image resolution, CMS draft dry-run, preview QA, and controlled release gates.
+Generate a complete bilingual Mode C CMS content package for one new FermatMind SEO article pair. The package must include zh-CN and en article bodies, CMS fields, CMS import drafts, FAQ, CTA, internal links, claim gates, operator review, Codex handoff, media manifest, GEO answer-surface contracts, and observation plan. Return it as a ZIP file that Codex can ingest for content enrichment, package QA, Media Library image resolution, CMS draft dry-run, preview QA, and controlled release gates.
 
 Authority boundary:
 - You generate content assets and package files only.
@@ -89,6 +89,7 @@ Return a ZIP file with this structure:
   manifest.json
   brief/
     SEO_BRIEF.md
+    GEO_BRIEF.md
     ROUTE_CANNIBALIZATION_READINESS.md
     KEYWORD_ALIGNMENT_CONTRACT.json
     SOURCE_USAGE_MATRIX.md
@@ -117,6 +118,10 @@ Return a ZIP file with this structure:
     PUBLIC_CANONICAL_ROUTE_CONTRACT.json
     ARTICLE_IDENTITY_LOCK.json
     IMAGE_ASSET_REQUIREMENTS.json
+    ANSWER_BLOCKS.json
+    ENTITY_MAP.json
+    INTERNAL_LINK_GRAPH.json
+    GEO_MEDIA_ALIGNMENT.json
   review/
     claim_gate.md
     operator_review.md
@@ -185,11 +190,29 @@ CMS_IMPORT_DRAFT_zh-CN.json and CMS_IMPORT_DRAFT_en.json must include:
 
 Media requirements:
 - Include a unique cover source image and one body visual source image when the article expects images.
+- The cover image must express the article's real reader scene and topic. Do not use a generic decorative illustration, generic office/student stock scene, competitor-style screenshot, or unrelated visual metaphor.
+- The body visual must be one of: checklist, flowchart, comparison table, decision tree, or entity relationship map. It must support a specific answer block or section, not merely make the article look polished.
+- The body visual must be referenced by section/answer-block intent in `contracts/GEO_MEDIA_ALIGNMENT.json` and in `media/IMAGE_ASSET_MANIFEST.json`.
 - If real source image files cannot be attached in the package, keep the manifest and prompts but mark `BLOCKED_NEEDS_IMAGE_GENERATION_BEFORE_MEDIA_LIBRARY_IMPORT` in manifest.json, IMAGE_ASSET_MANIFEST.json, and codex/codex_handoff.md. Do not claim the package is ready for Media Library import/register.
 - IMAGE_ASSET_MANIFEST.json must use local filenames and proposed stable asset keys only.
 - Do not invent Media Library URLs, CDN URLs, asset IDs, or variant URLs.
 - Use assets that are original/generated for this article; no competitor screenshots, logos, watermarks, or copyrighted reuse.
 - Image prompts must describe the scene, intended article role, alt text, dimensions, and safety notes.
+- `alt_text` must be a single string for importer compatibility. If localized alt text is useful, add optional `alt_text_i18n` while keeping `alt_text` as the canonical string.
+- Each manifest asset should include GEO context fields:
+  - `geo_media_role`: `cover_context`, `answer_block_visual`, `checklist_visual`, `decision_tree_visual`, `comparison_table_visual`, or `entity_map_visual`
+  - `answer_block_id`
+  - `entity_cluster`
+  - `information_gain_role`
+  - `body_anchor`
+  - `visual_not_decorative: true`
+
+GEO answer-surface requirements:
+- `brief/GEO_BRIEF.md` must explain the article's entity cluster, answer blocks, information gain, internal-link graph, and media role.
+- `contracts/ANSWER_BLOCKS.json` must list the extractable answer blocks in both locales.
+- `contracts/ENTITY_MAP.json` must list the named entities, tests, user situations, decisions, and boundaries that must stay consistent across title/meta/body/FAQ/media.
+- `contracts/GEO_MEDIA_ALIGNMENT.json` must map cover/body visual assets to answer blocks, section anchors, entity clusters, and image alt/caption intent.
+- Do not create unsupported schema or claim that GEO readiness is live; these are package-level contracts for Codex verification.
 
 Claim gate:
 - List every important factual, career, psychometric, admissions, employment, salary, medical, official-system, or outcome-related claim.
@@ -232,6 +255,10 @@ Self-check before returning:
 - Are all CMS body copies synchronized?
 - Are publish/search/schema/hreflang/revalidation holds preserved?
 - Are image URLs placeholders/local filenames only?
+- Does the cover image express the actual reader scene and topic rather than decorative stock-like context?
+- Does the body visual support a specific answer block, checklist, decision tree, table, or entity map?
+- Is `alt_text` a string, with optional `alt_text_i18n` only when needed?
+- Are GEO contracts present: GEO_BRIEF, ANSWER_BLOCKS, ENTITY_MAP, INTERNAL_LINK_GRAPH, and GEO_MEDIA_ALIGNMENT?
 - Are all private routes absent?
 - Are real cover/body visual source files attached, or is the image-generation blocker clearly declared?
 - Is the ZIP bilingual with zh-CN and en content, CMS import drafts, FAQ, CTA, internal links, claim gate, operator review, Codex handoff, media manifest, and observation plan?

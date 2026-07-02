@@ -76,11 +76,22 @@ Mode C media contract:
 - image_bundle_required=<true|false>
 - image_bundle_manifest=media/IMAGE_ASSET_MANIFEST.json
 - cover_source_required=true
-- cover_source_file=media/cover_source_1600x900.<jpg|jpeg|png|webp>
+- cover_source_file=media/cover/cover_source_1600x900.<jpg|jpeg|png|webp> or media/cover_source_1600x900.<jpg|jpeg|png|webp>
 - body_visual_source_required=<true|false>
+- body_visual_source_file=media/body/body_visual_source_1600x900.<jpg|jpeg|png|webp> or media/body_visual_source_1600x900.<jpg|jpeg|png|webp>
 - media_library_importer=dry-run first using media-assets:import-seo-image-bundle
 - body_visual_required=<true|false>
 - body_visual_status=<verified|requires_media_library_resolution_before_preview>
+- geo_media_contract_required=true
+- cover_geo_media_role=cover_context
+- body_visual_geo_media_role=<answer_block_visual|checklist_visual|decision_tree_visual|comparison_table_visual|entity_map_visual|none>
+- answer_block_id=<id-or-none>
+- entity_cluster=<primary entities supported by media>
+- information_gain_role=<how media improves answer usefulness>
+- body_anchor=<section anchor or none>
+- visual_not_decorative=true
+- alt_text_type=string
+- alt_text_i18n_allowed=true
 - desired_body_visual_concept=<if unresolved>
 - fallback_asset_candidates=<if unresolved>
 - body_visual_fallback_authorized=<true|false>
@@ -96,6 +107,11 @@ Daily completion definition:
 - schema/hreflang parity must be run as an independent post-publish gate: Article and Breadcrumb schema enabled when public JSON-LD verifies; FAQ schema enabled only when visible FAQ and JSON-LD FAQPage parity passes, otherwise record `SEO_ENHANCEMENT_HELD_REASON=faq_schema_parity_not_verified`.
 - hreflang parity must prove reciprocal `zh-CN`, `en`, and `x-default` alternates for the bilingual article pair before closeout marks hreflang complete.
 - final public smoke for a full-chain bilingual article should expect `Article,BreadcrumbList`, forbid `FAQPage` when FAQ parity is not enabled, and expect exact `en`, `zh-CN`, and `x-default` hreflang alternates.
+- GEO media parity must prove hero/body visual assets are public, body visual
+  supports the intended answer block or section, and the article's extractable
+  answer blocks, entity cluster, claim boundaries, and internal links are
+  visible. Use `GEO_READY_OBSERVATION_PENDING` when only D1/D7/D14 performance
+  observation remains.
 - final search matrix must record URL Truth, Search Channel enqueue/approval/submission, IndexNow, Baidu, GSC evidence, schema/hreflang gate state, and D1/D7/D14 observation queue.
 - final closeout must pass available evidence files to `articles:release-closeout`, including public smoke, GSC manual Request Indexing, and observation JSON artifacts.
 - answer-surface FAQ must be checked. If the public article answer surface uses generic FAQ instead of package-specific FAQ, record `ANSWER_SURFACE_FAQ_ENHANCEMENT_RECOMMENDED` without blocking publish.
@@ -118,7 +134,10 @@ Hard stops:
 - missing image source file
 - invalid MIME/SVG/animated image
 - image over 10MB or missing alt text
+- `alt_text` not supplied as a string
 - competitor_asset=true
+- required visual is decorative-only or unrelated to the declared article entity cluster
+- body visual missing answer-block or body-anchor evidence when declared as an answer visual
 - CDN verification failed
 - duplicate recent cover blocked by policy
 - unresolved body visual placeholder in active import surfaces
@@ -145,6 +164,7 @@ Final Decision must be one of:
 - SEARCH_SUBMITTED
 - SEO_ENHANCEMENT_COMPLETE
 - SEO_ENHANCEMENT_HELD_REASON
+- GEO_READY_OBSERVATION_PENDING
 - FULL_RELEASE_COMPLETED_AND_SEARCH_SUBMITTED
 - FULL_RELEASE_COMPLETED_GSC_HELD_BY_LOGIN_OR_CAPTCHA
 - FULL_RELEASE_COMPLETED_PROVIDER_HELD

@@ -47,6 +47,29 @@ Held reason, if any:
 
 -
 
+## GEO Media And Answer Assets
+
+Daily full-chain closeout treats media as a GEO answer asset when the cover
+sets the real reader scene, the body visual supports a specific answer block or
+decision framework, and the public page exposes the relevant answer blocks,
+entity cluster, claim boundaries, CTA, and internal links.
+
+| Surface | Expected | Evidence | State | Notes |
+| --- | --- | --- | --- | --- |
+| cover image | public, non-decorative, topic-scene aligned |  |  |  |
+| body visual | public and tied to answer block/section anchor |  |  |  |
+| body visual type | checklist / flowchart / table / decision tree / entity map |  |  |  |
+| alt text | string present; optional `alt_text_i18n` verified |  |  |  |
+| entity cluster | media matches article entity map |  |  |  |
+| answer blocks | first/core answer blocks visible and extractable |  |  |  |
+| recent concept duplicate check | last 5 same-lane concepts reviewed |  |  |  |
+
+GEO media decision: `GEO_READY_OBSERVATION_PENDING` / `GEO_MEDIA_HELD_REASON`
+
+Held reason, if any:
+
+-
+
 ## Search Submission Detail
 
 | Channel | Queue item IDs | Approval state | Provider response | Live submitted | Notes |
@@ -86,9 +109,14 @@ Use `assets/d1_d7_d14_observation_tasks_template.md`.
 
 ## Final Decision
 
-`ARTICLE_PUBLISHED` / `DISCOVERABILITY_COMPLETE` / `SEARCH_SUBMITTED` / `SEO_ENHANCEMENT_COMPLETE` / `SEO_ENHANCEMENT_HELD_REASON` / `<decision>`
+`ARTICLE_PUBLISHED` / `DISCOVERABILITY_COMPLETE` / `SEARCH_SUBMITTED` / `SEO_ENHANCEMENT_COMPLETE` / `SEO_ENHANCEMENT_HELD_REASON` / `GEO_READY_OBSERVATION_PENDING` / `<decision>`
 
 `ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING` means the D0 release,
 discoverability, search submission, public smoke, and enabled SEO enhancement
 gates are reconciled. It is not a failure state; only D1/D7/D14 performance
 observation remains open.
+
+`GEO_READY_OBSERVATION_PENDING` means the public article's answer blocks,
+entity consistency, claim boundaries, internal links, and media answer assets
+are visible and reconciled; only D1/D7/D14 GEO/SEO performance observation
+remains open.

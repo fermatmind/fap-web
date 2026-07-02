@@ -51,15 +51,27 @@ media/
   IMAGE_PROMPTS.md
 ```
 
+Role-grouped source files are also valid:
+
+```text
+media/
+  IMAGE_ASSET_MANIFEST.json
+  IMAGE_PROMPTS.md
+  cover/
+    cover_source_1600x900.png
+  body/
+    body_visual_source_1600x900.png
+```
+
 Minimum daily requirement:
 
 - `media/IMAGE_ASSET_MANIFEST.json`.
-- `media/cover_source_1600x900.*`.
+- `media/cover_source_1600x900.*` or `media/cover/cover_source_1600x900.*`.
 - `media/IMAGE_PROMPTS.md`.
 
 Conditional files:
 
-- `body_visual_source_1600x900.*` is required only when the article body references a body visual or `body_visual_required=true`.
+- `body_visual_source_1600x900.*` or `body/body_visual_source_1600x900.*` is required only when the article body references a body visual or `body_visual_required=true`.
 - `og_1200x630.*` is optional. If absent, backend variants may generate OG.
 - card and thumbnail source files are not required from GPT; backend variants generate them.
 
@@ -77,7 +89,7 @@ Each asset must include:
 - `asset_key`.
 - `role`.
 - `source_file`.
-- `alt_text`.
+- `alt_text` as a string.
 - `locale_strategy`.
 - `intended_usage`.
 - `dimensions_expected`.
@@ -85,6 +97,16 @@ Each asset must include:
 - `max_bytes`.
 - `fallback_allowed`.
 - `provenance`.
+
+Daily GEO-aware packages should also include:
+
+- `geo_media_role`.
+- `answer_block_id`.
+- `entity_cluster`.
+- `information_gain_role`.
+- `body_anchor`.
+- `visual_not_decorative`.
+- optional `alt_text_i18n`; do not replace string `alt_text` with a localized object.
 
 Supported roles:
 
@@ -97,6 +119,13 @@ Supported roles:
 Allowed source formats: `jpg`, `jpeg`, `png`, `webp`.
 
 Forbidden: SVG, animated image, transparent-background dependent design, competitor image, private asset, fake URL, and unresolved placeholder.
+
+Required daily SEO/GEO image intent:
+
+- cover assets must represent the article's real reader scene and topic, not a
+  generic decorative or stock-like visual.
+- body visuals must be checklist, flowchart, comparison table, decision tree,
+  or entity map assets tied to a section or answer block.
 
 Dimension and size rules:
 
@@ -143,6 +172,12 @@ Social/cover image readiness does not imply body visual readiness. Check separat
 If `body_visual_required=true` and no verified or authorized fallback exists, stop before preview/import.
 
 Body visual metadata is not enough. When a body visual is required, the package must include a body placeholder or markdown image reference that causes the visual to render in the public article body after resolved metadata is backfilled.
+
+When the package declares GEO media fields, body visual readiness also requires
+evidence that the visual maps to the intended `answer_block_id`, `body_anchor`,
+and entity cluster. These package fields are context for Codex/SEO agent QA;
+they do not enable runtime schema, hreflang, CMS publish, Media Library import,
+or search submission by themselves.
 
 ## Active Import Surfaces
 

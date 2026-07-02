@@ -49,6 +49,7 @@ Use this skill for:
 - Claim Gate and Private URL Guard audit.
 - Social image / Media Library metadata readiness review.
 - SEO image asset bundle preflight and Media Library resolution.
+- GEO answer-media readiness review for daily article packages.
 - Content feedback queue and ready-to-publish queue preparation.
 - Metabase/Ops Portal evidence interpretation.
 
@@ -233,11 +234,12 @@ Required stages:
 19. GSC manual readiness and Request Indexing only when the target canonical URLs are pre-authorized or separately authorized.
 20. Baidu readiness/live path only when bounded queue item IDs are pre-authorized or separately authorized.
 21. article schema, breadcrumb schema, FAQ schema, and hreflang independent enhancement gates when the Authorization Profile allows them.
-22. final report.
-23. D1/D7/D14 observation queue.
-24. final reconciliation after schema, hreflang, GSC, Search Channel, IndexNow, or Baidu work.
+22. GEO answer/media closeout when the package declares answer blocks or GEO media roles.
+23. final report.
+24. D1/D7/D14 observation queue.
+25. final reconciliation after schema, hreflang, GSC, Search Channel, IndexNow, Baidu, or GEO answer/media work.
 
-Hard gates: follow the Authorization Profile. Run image asset bundle preflight before production draft dry-run. Run Article Identity Lock before preview QA, publish, discoverability release, schema, hreflang, Search Channel, GSC, or Baidu stages. Run schema and hreflang only as explicit independent SEO enhancement gates; if their verification fails, record `SEO_ENHANCEMENT_HELD_REASON` instead of mutating publish state. Search submissions are batch tasks and must not block the next daily content release once public/discoverability state is safe. Stop on any hard no-go.
+Hard gates: follow the Authorization Profile. Run image asset bundle preflight before production draft dry-run. Run Article Identity Lock before preview QA, publish, discoverability release, schema, hreflang, Search Channel, GSC, or Baidu stages. Run schema and hreflang only as explicit independent SEO enhancement gates; if their verification fails, record `SEO_ENHANCEMENT_HELD_REASON` instead of mutating publish state. Treat GEO media fields as package/context evidence, not runtime authority. Search submissions are batch tasks and must not block the next daily content release once public/discoverability state is safe. Stop on any hard no-go.
 
 ### `multi_article_release_retro`
 
@@ -317,7 +319,7 @@ Output: authorization boundary matrix and explicit allowed/held/stopped action l
 
 ### `image_asset_bundle_preflight_and_media_library_resolution`
 
-Purpose: validate Mode C `media/IMAGE_ASSET_MANIFEST.json`, run the production-safe Media Library image importer dry-run, optionally import/register images when authorized, and backfill resolved CMS image metadata before article draft dry-run.
+Purpose: validate Mode C `media/IMAGE_ASSET_MANIFEST.json`, run the production-safe Media Library image importer dry-run, optionally import/register images when authorized, and backfill resolved CMS image metadata before article draft dry-run. For daily GEO-aware articles, also validate that cover/body visuals support the declared reader scene, answer block, entity cluster, and information-gain role.
 
 Use:
 
@@ -330,7 +332,7 @@ Standard command:
 
 `php artisan media-assets:import-seo-image-bundle`.
 
-Hard gates: dry-run first; do not upload/register images unless `allow_media_library_image_import=true`; do not overwrite the original source package; stop on missing manifest when image bundle required, missing source file, invalid MIME/SVG, animated image, oversize image, missing alt text, `competitor_asset=true`, CDN verification failure, unresolved placeholders in active surfaces, fake/private image URLs, or duplicate recent cover blocked by package policy.
+Hard gates: dry-run first; do not upload/register images unless `allow_media_library_image_import=true`; do not overwrite the original source package; stop on missing manifest when image bundle required, missing source file, invalid MIME/SVG, animated image, oversize image, missing alt text, `alt_text` not supplied as a string, `competitor_asset=true`, CDN verification failure, unresolved placeholders in active surfaces, fake/private image URLs, decorative-only required visuals, missing body visual answer-block anchor when declared, or duplicate recent cover/concept blocked by package policy.
 
 ### `full_release_state_machine`
 
@@ -556,7 +558,8 @@ Required package checks:
 - `CANONICAL_PLAN`.
 - `SCHEMA_ELIGIBILITY_PLAN`.
 - `PRIVATE_URL_GUARD`.
-- image asset bundle preflight and resolved CMS image metadata when `media/` exists or body visual/unique cover is required.
+- image asset bundle preflight, GEO media alignment, and resolved CMS image
+  metadata when `media/` exists or body visual/unique cover is required.
 
 Outputs:
 

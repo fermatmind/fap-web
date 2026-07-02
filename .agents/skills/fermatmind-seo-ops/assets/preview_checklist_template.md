@@ -23,5 +23,9 @@
 | article card/list image | renders when surface available |  |  |  |
 | OG/Twitter image | public-safe URL |  |  |  |
 | body visual | renders if referenced |  |  |  |
+| body visual anchor | renders near declared section/answer block when applicable |  |  |  |
+| answer block visibility | first/core answer block visible and extractable |  |  |  |
+| GEO media alignment | cover/body visual support declared entity cluster and information gain role |  |  |  |
+| decorative-only image risk | absent for required cover/body visual assets |  |  |  |
 | image variants | original/hero/card/thumbnail/og/preload present |  |  |  |
 | placeholder/fake/private image URL | absent |  |  |  |
