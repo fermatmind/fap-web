@@ -11,10 +11,16 @@
 | MIME / extension | jpg/jpeg/png/webp only |  |  |  |
 | SVG / animated image | absent |  |  |  |
 | file size | <= 10 MB |  |  |  |
-| alt text | present, <= 255 chars |  |  |  |
+| alt text | present as string, <= 255 chars |  |  |  |
+| localized alt text | optional `alt_text_i18n`, not a replacement for string `alt_text` |  |  |  |
 | provenance | FermatMind/operator owned |  |  |  |
 | competitor asset | false |  |  |  |
 | placeholders | absent from active surfaces |  |  |  |
+| GEO media role | present for daily article assets |  |  |  |
+| entity cluster | matches article topic and answer blocks |  |  |  |
+| information gain role | describes why image is useful |  |  |  |
+| decorative-only visual | false |  |  |  |
+| body visual anchor | body visual maps to section/answer block when required |  |  |  |
 
 ## MEDIA_LIBRARY_IMPORT_REPORT.md
 
@@ -54,6 +60,8 @@
 | OG image | public URL |  |  |  |
 | Twitter image | public URL or OG reuse |  |  |  |
 | body visual | renders if referenced |  |  |  |
+| body visual answer anchor | renders near intended section/answer block when declared |  |  |  |
+| answer-block support | visual supports a checklist/flow/table/decision/entity answer asset |  |  |  |
 | placeholder/fake/private image | absent |  |  |  |
 
 ## RECENT_ARTICLE_IMAGE_DUPLICATE_CHECK.md
@@ -61,3 +69,20 @@
 | Topical lane | Candidate asset key | Recent article window | Duplicate count | Policy | Decision |
 | --- | --- | --- | ---: | --- | --- |
 |  |  | last 5 |  | warn/block |  |
+
+## GEO_MEDIA_ALIGNMENT_REPORT.md
+
+| Asset key | GEO media role | Answer block / section anchor | Entity cluster | Information gain role | Decorative-only risk | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+|  |  |  |  |  | low/medium/high |  |
+
+Required conclusions:
+
+- cover image supports the article's reader scene and topic.
+- body visual, when required, is a checklist, flowchart, comparison table,
+  decision tree, or entity map tied to a visible section or answer block.
+- media alt/caption intent matches the article entity map.
+- recent same-lane image concept duplication is checked, not only asset-key
+  duplication.
+- `GEO_READY_OBSERVATION_PENDING` may be reported only after public preview or
+  public smoke confirms the relevant media and answer blocks are visible.

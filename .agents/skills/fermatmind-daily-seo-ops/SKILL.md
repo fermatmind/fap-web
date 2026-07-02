@@ -68,7 +68,9 @@ Do:
 - Review recent article inventory, known pillar routes, current GSC/Baidu/GA4/Ops signals when provided, and prior observation learnings.
 - Review the latest `WEEKLY_ARTICLE_SEO_REVIEW.md`, `ARTICLE_OPTIMIZATION_QUEUE.csv`, or `articles:weekly-seo-observation-export` output when available.
 - Use live web research for current seasonality or hotspots when the user asks for today's topic or current trends.
-- Check route/cannibalization risk, target locale, primary silo, CTA fit, claim safety, Media Library feasibility, and D1/D7/D14 observability.
+- Check route/cannibalization risk, target locale, primary silo, CTA fit,
+  claim safety, Media Library feasibility, GEO media feasibility, and
+  D1/D7/D14 observability.
 - Rank candidates by: career decision intent, model-crossing intent, existing GSC seed, concrete personality pain point, method-boundary trust topic, generic explainer.
 
 Output:
@@ -76,7 +78,9 @@ Output:
 - One recommended topic.
 - Two to five alternates.
 - Recommended operation type: `new_article`, `update_existing_article`, or `hold`.
-- Candidate slug, SEO title/meta direction, target queries, primary CTA/test, internal link targets, claim risks, media needs, and observation metrics.
+- Candidate slug, SEO title/meta direction, target queries, primary CTA/test,
+  internal link targets, claim risks, media needs, GEO answer/media asset needs,
+  and observation metrics.
 - Decision: `GO_FOR_MODE_B_BRIEF`, `UPDATE_EXISTING_RECOMMENDED`, `HOLD_FOR_MORE_EVIDENCE`, or `NO_GO_CANNIBALIZATION_RISK`.
 
 ### `mode_b_brief_generation`
@@ -86,7 +90,10 @@ Purpose: create a brief-only handoff for GPT or another content-package owner.
 Do:
 
 - Produce a Mode B brief, not article body copy.
-- Include search intent, audience, primary/secondary keywords, title/meta candidates, angle, outline, quick-answer shape, silo, CTA logic, internal link plan, media concept, claim boundaries, forbidden claims, and observation plan.
+- Include search intent, audience, primary/secondary keywords, title/meta
+  candidates, angle, outline, quick-answer shape, answer-block plan, entity
+  cluster, silo, CTA logic, internal link plan, media concept, GEO media role,
+  claim boundaries, forbidden claims, and observation plan.
 - Mark publish/search/discoverability execution as held in the brief. Note that a later full-chain preapproved SEO agent goal may independently enable Article schema, Breadcrumb schema, and reciprocal bilingual hreflang after public verification; FAQPage remains held unless visible FAQ and JSON-LD parity passes.
 
 Output:
@@ -110,7 +117,9 @@ Do:
 - Include not-selected alternates and the reason each is held.
 - Include route cannibalization boundaries and existing public routes that GPT must not duplicate.
 - Include the GPT 5.5 Pro role instruction and task card.
-- Include the content package output tree, required CMS fields, media requirements, public route/CTA/internal-link contract, claim gate, and forbidden claims.
+- Include the content package output tree, required CMS fields, media
+  requirements, GEO answer-surface contracts, public route/CTA/internal-link
+  contract, claim gate, and forbidden claims.
 - Include Codex follow-up QA acceptance criteria for the returned package.
 - Mark downstream write lanes as held inside the GPT package: CMS draft/import, publish/promote, revalidation, sitemap, llms, GSC, IndexNow, Baidu, and Search Channel. The package may include schema/hreflang eligibility metadata, but must not self-enable it; the later SEO agent full-chain goal should treat Article/Breadcrumb schema and bilingual hreflang as independent executable gates, with FAQPage held unless visible FAQ parity passes.
 
@@ -139,7 +148,11 @@ Use:
 Check:
 
 - Operation identity, article/revision/translation group handoff, slug/canonical locks, route cannibalization, internal links, CTA, schema/hreflang eligibility and downstream gate plans, claim gate, private URL guard, CMS fields, CMS import draft, and active-surface safety.
-- Cover/social/body visual readiness separately. Unresolved body visual placeholders block preview/import.
+- Cover/social/body visual readiness separately. Unresolved body visual
+  placeholders block preview/import. Daily article packages should also prove
+  the cover is topic-scene aligned and the body visual supports a specific
+  answer block, checklist, flowchart, comparison table, decision tree, or entity
+  map.
 
 Output:
 
@@ -160,7 +173,11 @@ Do:
 
 - Confirm the zip opens, contains a manifest, article markdown/body, CMS field mapping, SEO title/meta, cover/body visual source references, internal-link plan, CTA plan, and claim-boundary notes.
 - Check the package follows the requested route, slug, locale, canonical, and no-cannibalization contract from `gpt_content_package_prompt_handoff`.
-- Confirm image sources are local source files or planned Media Library inputs only; reject private URLs, tokenized URLs, fake public asset URLs, and missing body visual placeholders.
+- Confirm image sources are local source files or planned Media Library inputs
+  only; reject private URLs, tokenized URLs, fake public asset URLs, and missing
+  body visual placeholders. Confirm `alt_text` is a string, localized variants
+  are optional `alt_text_i18n`, and any GEO media fields remain package-level
+  context rather than runtime claims.
 - Confirm no full CMS write, publish, schema, hreflang, sitemap, llms, GSC, IndexNow, Baidu, or Search Channel action is embedded in the GPT package.
 - If the operator says the article feels too AI-generated, too thin, too generic, or not like a strong zh-CN public-account article, route the package through `fermatmind-wechat-seo-article-editor` before heavy `fermatmind-seo-ops` QA/import work.
 - Output the exact next heavy workflow to use in `fermatmind-seo-ops`, usually `cms_content_package_qa` or `seo_article_full_release`, and list the operator approvals that will be needed later.

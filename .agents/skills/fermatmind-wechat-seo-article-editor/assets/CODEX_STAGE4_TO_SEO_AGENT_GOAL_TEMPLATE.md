@@ -7,7 +7,7 @@ The purpose is to make Codex do Stage 4 only:
 1. scan the returned package and repo technical context;
 2. enrich / de-AI the article content;
 3. run package QA;
-4. normalize the image manifest;
+4. normalize the image manifest and GEO media alignment contract;
 5. write a clean repaired package output directory;
 6. produce the exact `/goal` instruction for the SEO agent to run Stage 5+.
 
@@ -24,7 +24,7 @@ Task:
 I am giving you a GPT-generated SEO Mode C content package and article images. First scan the package and repo technical docs, then complete Stage 4 only:
 
 Stage 4:
-内容加厚/去 AI 味 -> package QA -> image manifest 规范化
+内容加厚/去 AI 味 -> package QA -> image manifest 规范化 -> GEO media alignment QA
 
 Inputs:
 - source_package: <PATH_TO_GPT_PACKAGE_ZIP_OR_DIR>
@@ -46,6 +46,7 @@ Required repo/context scan:
   - CMS draft package contract
   - GPT content production contract
   - WeChat SEO article editor rules
+  - GEO answer-surface/media alignment contracts
   - recent article workflow blockers if present in generated reports
 - Check related FermatMind article/test routes enough to avoid obvious cannibalization or private-route leakage.
 
@@ -58,6 +59,12 @@ Allowed Stage 4 actions:
 - keep CMS body markdown / CMS import draft body fields synchronized;
 - normalize media/IMAGE_ASSET_MANIFEST.json to local source filenames and stable proposed asset keys;
 - verify image manifest does not invent Media Library URLs, asset IDs, CDN URLs, or variants;
+- verify `alt_text` remains a string; use optional `alt_text_i18n` for bilingual alt text instead of changing `alt_text` to an object;
+- add or repair package-level GEO context only inside the repaired package copy: `geo_media_role`, `answer_block_id`, `entity_cluster`, `information_gain_role`, `body_anchor`, and `visual_not_decorative`;
+- verify cover image expresses the reader scene/topic and is not decorative stock-like filler;
+- verify body visual is a checklist, flowchart, comparison table, decision tree, or entity map tied to a body section or answer block;
+- verify body markdown or renderer contract will render the body visual near the intended section before preview/import;
+- verify image concepts are not semantically duplicating the last 5 recent same-lane article images when evidence is available;
 - run local package QA/readiness scans;
 - produce a Stage 5 SEO agent `/goal` instruction using the repaired package path.
 
@@ -76,6 +83,7 @@ Forbidden Stage 4 actions:
 - no frontend editorial fallback content;
 - no invented Media Library URLs;
 - no competitor content copying.
+- no runtime GEO/schema/hreflang enablement; GEO contracts remain package-level evidence until Stage 5 verifies public output.
 
 Content quality requirements:
 - Article must open from a concrete reader scene, not a definition.
@@ -84,6 +92,8 @@ Content quality requirements:
 - Use natural zh-CN mobile reading rhythm.
 - Preserve title/meta honesty; no panic, guarantee, official-system implication, or unsupported numeric claim.
 - CTA should feel like the next step after the article framework.
+- Article should include extractable answer blocks that can be cited by GEO systems without overclaiming.
+- Body visual should support one high-value answer block or decision framework, not merely decorate the article.
 
 Claim boundaries:
 - no admission prediction;
@@ -100,6 +110,10 @@ Required outputs:
 - STAGE4_CONTENT_ENRICHMENT_REPORT.md
 - PACKAGE_QA_REPORT.md
 - IMAGE_MANIFEST_NORMALIZATION_REPORT.md
+- GEO_QA_REPORT.md
+- ANSWER_BLOCK_AUDIT.md
+- ENTITY_CONSISTENCY_REPORT.md
+- GEO_MEDIA_ALIGNMENT_REPORT.md
 - SEO_AGENT_STAGE5_GOAL.md
 - NEXT_EXACT_AUTHORIZATION_PROMPTS.md
 - scan_manifest.json
@@ -164,6 +178,7 @@ Final decision must be one of:
 - STAGE4_READY_FOR_OPERATOR_CONTENT_REVIEW
 - BLOCKED_PACKAGE_QA
 - BLOCKED_IMAGE_MANIFEST
+- BLOCKED_GEO_MEDIA_ALIGNMENT
 - BLOCKED_CLAIM_OR_PRIVATE_URL_RISK
 - BLOCKED_NEEDS_OPERATOR_INPUT
 ```
@@ -193,7 +208,7 @@ Target:
 - secondary_cta: <SECONDARY_CTA_OR_EMPTY>
 
 Current state:
-- Stage 4 content enrichment/package QA/image manifest normalization completed in SEO article window.
+- Stage 4 content enrichment/package QA/image manifest normalization/GEO media alignment completed in SEO article window.
 - Repaired package path: <REPAIRED_PACKAGE_PATH>
 - Stage 4 report path: <STAGE4_REPORT_PATH>
 
@@ -244,6 +259,7 @@ Required outputs:
 - generated evidence directory
 - package QA report
 - image import dry-run/import reports
+- GEO media alignment report proving cover/body visual support the intended reader scene, entity cluster, and answer block
 - CMS draft dry-run/creation reports
 - preview QA report
 - publish rehearsal/report
@@ -252,6 +268,7 @@ Required outputs:
 - schema/hreflang gate report with `SEO_ENHANCEMENT_COMPLETE` or `SEO_ENHANCEMENT_HELD_REASON`
 - URL Truth/Search Channel/GSC reports, including queue item IDs and GSC manual evidence JSON
 - answer-surface FAQ check, including `ANSWER_SURFACE_FAQ_ENHANCEMENT_RECOMMENDED` when package FAQ is present but the public answer-surface block still renders generic FAQ
+- GEO answer/media closeout with `GEO_READY_OBSERVATION_PENDING` when public article answer blocks, media, internal links, and claim boundaries are visible and only D1/D7/D14 performance observation remains
 - D1/D7/D14 observation queue with `Unknown` placeholders for missing metrics
 - final `articles:release-closeout` report using `--public-smoke-json`, `--gsc-manual-json`, and `--observation-json` when those artifacts exist
 - NEXT_EXACT_AUTHORIZATION_PROMPTS.md only for blockers outside this full-chain profile
@@ -263,6 +280,7 @@ Final decision:
 - SEARCH_SUBMITTED
 - SEO_ENHANCEMENT_COMPLETE
 - SEO_ENHANCEMENT_HELD_REASON
+- GEO_READY_OBSERVATION_PENDING
 - ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING
 - ARTICLE_RELEASE_COMPLETE_PROVIDER_HELD
 - BLOCKED_NEEDS_OPERATOR_INPUT
