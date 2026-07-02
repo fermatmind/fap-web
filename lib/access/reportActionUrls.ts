@@ -50,6 +50,29 @@ function stripLocalePrefix(pathname: string): string {
   return pathname.replace(/^\/(en|zh)(?=\/|$)/, "") || "/";
 }
 
+function redactPrivateSearchParams(params: URLSearchParams): URLSearchParams {
+  const safe = new URLSearchParams(params);
+  for (const key of Array.from(safe.keys())) {
+    const normalized = key.toLowerCase();
+    if (
+      normalized === "access_token"
+      || normalized === "result_access_token"
+      || normalized === "token"
+      || normalized.endsWith("_token")
+      || normalized.includes("private")
+    ) {
+      safe.delete(key);
+    }
+  }
+
+  return safe;
+}
+
+function pathWithRedactedSearchAndHash(parsed: URL): string {
+  const safeParams = redactPrivateSearchParams(parsed.searchParams);
+  return `${parsed.pathname}${safeParams.size > 0 ? `?${safeParams.toString()}` : ""}${parsed.hash}`;
+}
+
 function normalizeFirstPartyPath(value: unknown): string | null {
   const normalized = normalizeText(value);
   if (!normalized || normalized.includes("\\")) {
@@ -146,7 +169,11 @@ export function normalizeReportActionHref(
     return null;
   }
 
-  return addLocaleIfNeeded(`${parsed.pathname}${parsed.search}${parsed.hash}`, locale);
+  const normalizedPath = kind === "wait" && stripLocalePrefix(parsed.pathname) === "/pay/wait"
+    ? `${parsed.pathname}${parsed.search}${parsed.hash}`
+    : pathWithRedactedSearchAndHash(parsed);
+
+  return addLocaleIfNeeded(normalizedPath, locale);
 }
 
 export function normalizeRecommendedReadHref(value: unknown): string | null {

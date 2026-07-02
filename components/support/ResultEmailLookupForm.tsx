@@ -10,6 +10,7 @@ import { lookupResultsByEmail, type ResultEmailLookupItem } from "@/lib/api/v0_3
 import { normalizeCommerceReportPath } from "@/lib/commerce/redirectUrls";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { captureError } from "@/lib/observability/sentry";
+import { stashResultAccessTokenForAttempt } from "@/lib/result/resultAccessTokenHandoff";
 import { cn } from "@/lib/utils";
 
 function normalizeText(value: unknown): string {
@@ -52,43 +53,16 @@ function withLocaleIfNeeded(path: string, locale: Locale): string {
   return localizedPath(path, locale);
 }
 
-function hasBearerResultToken(value: unknown): boolean {
-  const normalized = normalizeText(value);
-  if (!normalized) {
-    return false;
-  }
-
-  try {
-    const parsed = new URL(normalized, "https://fermatmind.com");
-    return parsed.searchParams.has("access_token") || parsed.searchParams.has("result_access_token");
-  } catch {
-    return false;
-  }
-}
-
-function appendResultAccessToken(path: string, token: string): string {
-  if (!token || hasBearerResultToken(path)) {
-    return path;
-  }
-
-  const fragmentIndex = path.indexOf("#");
-  const base = fragmentIndex >= 0 ? path.slice(0, fragmentIndex) : path;
-  const fragment = fragmentIndex >= 0 ? path.slice(fragmentIndex) : "";
-  const separator = base.includes("?") ? "&" : "?";
-
-  return `${base}${separator}access_token=${encodeURIComponent(token)}${fragment}`;
-}
-
 function resolveResultHref(item: ResultEmailLookupItem, locale: Locale): string | null {
   const resultAccessToken = normalizeText(item.result_access_token);
   const directHref = normalizeCommerceReportPath(item.result_url);
   if (directHref) {
-    return withLocaleIfNeeded(appendResultAccessToken(directHref, resultAccessToken), locale);
+    return withLocaleIfNeeded(directHref, locale);
   }
 
   const attemptId = normalizeText(item.attempt_id);
   if (resultAccessToken && attemptId) {
-    return localizedPath(`/result/${encodeURIComponent(attemptId)}?access_token=${encodeURIComponent(resultAccessToken)}`, locale);
+    return localizedPath(`/result/${encodeURIComponent(attemptId)}`, locale);
   }
 
   return null;
@@ -232,6 +206,9 @@ export function ResultEmailLookupForm({ locale }: { locale: Locale }) {
                           prefetch={false}
                           className={cn(buttonVariants({ variant: "secondary" }), "w-full sm:w-auto")}
                           data-testid="result-email-lookup-open"
+                          onClick={() => {
+                            stashResultAccessTokenForAttempt(itemKey, item.result_access_token);
+                          }}
                         >
                           {labels.openResult}
                         </Link>

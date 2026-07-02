@@ -24,11 +24,15 @@ function normalizeTokenPart(value: unknown): string {
 }
 
 function signingSecret(): string {
-  return (
+  const configured =
     normalizeTokenPart(process.env.GOTENBERG_RESULT_PRINT_TOKEN_SECRET)
-    || normalizeTokenPart(process.env.NEXT_RESULT_PRINT_TOKEN_SECRET)
-    || "fap-result-page-pdf-local-key"
-  );
+    || normalizeTokenPart(process.env.NEXT_RESULT_PRINT_TOKEN_SECRET);
+
+  if (configured) {
+    return configured;
+  }
+
+  return process.env.NODE_ENV === "production" ? "" : "fap-result-page-pdf-local-key";
 }
 
 async function hmacSha256Hex(payload: string, secret: string): Promise<string> {
@@ -58,7 +62,12 @@ export async function verifyResultPagePdfToken({
     return false;
   }
 
-  const expectedSignature = await hmacSha256Hex(encodedPayload, signingSecret());
+  const secret = signingSecret();
+  if (!secret) {
+    return false;
+  }
+
+  const expectedSignature = await hmacSha256Hex(encodedPayload, secret);
   if (expectedSignature !== signature) {
     return false;
   }

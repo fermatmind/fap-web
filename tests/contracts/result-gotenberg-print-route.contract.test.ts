@@ -54,6 +54,7 @@ describe("Gotenberg result print route contract", () => {
     const resultClient = read("app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx");
     const pdfShell = read("components/result/mbti/MbtiResultPdfShell.tsx");
     const printBootstrap = read("app/(localized)/[locale]/(app)/result/[id]/print/resultPrintBootstrap.ts");
+    const pdfExportToken = read("lib/result/pdfExportToken.ts");
     const richReport = read("components/result/RichResultReport.tsx");
     const mbtiShell = read("components/result/mbti/MbtiResultShell.tsx");
     const desktopCloneShell = read("components/result/mbti/clone/MbtiDesktopCloneShell.tsx");
@@ -132,12 +133,16 @@ describe("Gotenberg result print route contract", () => {
     expect(read("app/(localized)/[locale]/layout.tsx")).toContain("data-pdf-snapshot-shell");
     expect(printBootstrap).toContain("X-Result-Access-Token");
     expect(printBootstrap).toContain("X-FAP-Locale");
+    expect(printBootstrap).not.toContain("access_token: accessToken");
+    expect(printBootstrap).not.toContain('params.set("access_token"');
     expect(printBootstrap).toContain("/report-access");
     expect(printBootstrap).toContain("/report");
     expect(printBootstrap).toContain("fetchPersonalityDesktopCloneSnapshotContent");
     expect(printBootstrap).toContain("validateMbtiSnapshotDesktopCloneContent");
     expect(printBootstrap).toContain("desktopCloneContent");
     expect(printBootstrap).toContain("snapshotContentStatus");
+    expect(pdfExportToken).toContain('process.env.NODE_ENV === "production" ? "" : "fap-result-page-pdf-local-key"');
+    expect(pdfExportToken).toContain("if (!secret)");
   });
 
   it("routes MBTI result PDF downloads to the strict result-page export endpoint", () => {

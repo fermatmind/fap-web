@@ -54,8 +54,10 @@ describe("SECURITY-122-WEB-01 PR-train reconciliation", () => {
         expect(manifest).toContain(`depends_on: [SECURITY-122-WEB-${previousNumber}]`);
         expect(stateEntries.get(id)).toMatchObject({
           depends_on: [`SECURITY-122-WEB-${previousNumber}`],
-          status: "planned",
         });
+        expect(["planned", "in_progress", "local_checks_passed", "committed", "pr_opened", "ready_to_merge", "merged"]).toContain(
+          stateEntries.get(id)?.status
+        );
       }
     }
   });

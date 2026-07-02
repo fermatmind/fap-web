@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-02T16:40:09Z",
+  "updated_at": "2026-07-03T01:09:30+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12159,7 +12159,7 @@
       "branch": "codex/security-122-web-01",
       "base": "main",
       "depends_on": [],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_deploy_workflow_ssh_secret_dispatch_hardening",
       "risk_level": "critical",
       "title": "SECURITY-122-WEB-01: deploy workflow / SSH secret / dispatch hardening",
@@ -12213,9 +12213,9 @@
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1528",
       "commit_sha": "c73d12344d7ce5d16cdbd1f101f8cce5997b4657",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-07-02T16:45:59Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -12238,10 +12238,17 @@
           "status": "ready_to_merge",
           "summary": "GitHub required checks passed for PR #1528; recorded ready_to_merge before final ledger-only head rerun and merge.",
           "commit_sha": "c73d12344d7ce5d16cdbd1f101f8cce5997b4657"
+        },
+        {
+          "at": "2026-07-02T16:54:52Z",
+          "status": "merged_reconciled_for_security_122_web_02",
+          "commit_sha": "af97572692d053c91ed4e571ebd4612ba83458fb",
+          "summary": "Reconciled SECURITY-122-WEB-01 after PR #1528 squash merge; origin/main contains merge commit and local/remote task branches were cleaned before starting WEB-02."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:40:09Z"
+      "updated_at": "2026-07-02T16:54:52Z",
+      "merge_sha": "af97572692d053c91ed4e571ebd4612ba83458fb"
     },
     {
       "id": "SECURITY-122-WEB-02",
@@ -12252,7 +12259,7 @@
       "depends_on": [
         "SECURITY-122-WEB-01"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_122_web_result_report_pdf_access_token_private_link_redaction",
       "risk_level": "critical",
       "title": "SECURITY-122-WEB-02: result/report/PDF access-token and private-link redaction",
@@ -12272,12 +12279,24 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-01 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-01 merged via PR #1528 at 2026-07-02T16:45:59Z; origin/main contains af97572692d053c91ed4e571ebd4612ba83458fb."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-02-result-token-redaction.contract.test.ts tests/contracts/result-email-lookup.contract.test.tsx tests/contracts/result-access-token-api.contract.test.ts tests/contracts/report-action-url-safety.contract.test.ts tests/contracts/result-client-view-state.contract.test.tsx tests/contracts/result-gotenberg-print-route.contract.test.ts tests/contracts/result-private-leak-regressions.contract.test.ts",
+            "/usr/local/bin/pnpm typecheck",
+            "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/mbti-checkout-wiring.contract.test.tsx tests/contracts/orders-client-delivery.contract.test.tsx tests/contracts/alipay-return-flow.contract.test.tsx tests/contracts/mbti-pdf-snapshot-sync-guard-h1.contract.test.ts",
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/result-email-lookup.contract.test.tsx tests/contracts/commerce-redirect-url-safety.contract.test.ts tests/contracts/mbti-checkout-wiring.contract.test.tsx tests/contracts/orders-client-delivery.contract.test.tsx tests/contracts/alipay-return-flow.contract.test.tsx",
+            "node scripts/ops/check-mbti-pdf-print-asset-hash.mjs --json",
+            "/usr/local/bin/pnpm test:contract",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "changed-file scope validation for SECURITY-122-WEB-02"
+          ],
+          "evidence": "Full contract suite passed: 619 test files, 3628 tests. Scope validation passed after WEB-02 allowlist included the reconciliation contract that tracks sequential train state."
         },
         "github": {
           "status": "pending",
@@ -12295,10 +12314,20 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-02 from explicit user /goal; execution waits for SECURITY-122-WEB-01 merge."
+        },
+        {
+          "at": "2026-07-02T16:54:52Z",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-02 from latest main after WEB-01 post-merge revalidation; implementing result/report/PDF access-token and private-link redaction only."
+        },
+        {
+          "at": "2026-07-03T01:09:30+08:00",
+          "status": "local_checks_passed",
+          "summary": "Focused WEB-02 contracts, targeted commerce/payment regressions, PDF hash check, typecheck, production API build, full contract suite, manifest/state parse, diff check, and changed-file scope validation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T01:09:30+08:00"
     },
     {
       "id": "SECURITY-122-WEB-03",
