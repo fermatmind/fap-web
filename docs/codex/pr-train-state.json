@@ -36443,7 +36443,7 @@
     "train_scope": "career_kg_secretaries_administrative_assistants_asset_package",
     "depends_on": ["PR-CAREER-KG-09"],
     "status": "in_progress",
-    "commit_sha": null,
+    "commit_sha": "512319a10b0dd5436d15729a3bd92156e165014b",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -36526,6 +36526,11 @@
         "at": "2026-07-02T18:53:09Z",
         "status": "scope_validation_passed",
         "notes": "Scope validation found exactly the 11 authorized PR10 files and no outside-scope files."
+      },
+      {
+        "at": "2026-07-02T18:54:17Z",
+        "status": "committed",
+        "notes": "Validated implementation commit 512319a10b0dd5436d15729a3bd92156e165014b created before this ledger-only record."
       }
     ]
   }
