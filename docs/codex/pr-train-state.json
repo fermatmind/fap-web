@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-02T15:04:40Z",
+  "updated_at": "2026-07-02T15:05:30Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -34173,7 +34173,7 @@
       "PR-CAREER-KG-01"
     ],
     "status": "in_progress",
-    "commit_sha": null,
+    "commit_sha": "f83ecdc7742e748679c0f4346279057c6d91f210",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -34252,6 +34252,12 @@
         "at": "2026-07-02T15:04:40Z",
         "status": "scope_validation_passed",
         "notes": "Changed-file scope validation passed for exactly the 11 PR-CAREER-KG-02 authorized files, including the ignored generated artifact package."
+      },
+      {
+        "at": "2026-07-02T15:05:30Z",
+        "status": "committed",
+        "commit_sha": "f83ecdc7742e748679c0f4346279057c6d91f210",
+        "notes": "Committed PR-CAREER-KG-02 implementation and local validation evidence. This SHA is the implementation commit before the ledger-only commit that records it."
       }
     ]
   }
