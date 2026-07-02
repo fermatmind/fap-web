@@ -36442,9 +36442,9 @@
     "title": "PR-CAREER-KG-10: content(career): add secretaries and administrative assistants KG asset package",
     "train_scope": "career_kg_secretaries_administrative_assistants_asset_package",
     "depends_on": ["PR-CAREER-KG-09"],
-    "status": "in_progress",
+    "status": "pr_open",
     "commit_sha": "512319a10b0dd5436d15729a3bd92156e165014b",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1540",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -36531,6 +36531,11 @@
         "at": "2026-07-02T18:54:17Z",
         "status": "committed",
         "notes": "Validated implementation commit 512319a10b0dd5436d15729a3bd92156e165014b created before this ledger-only record."
+      },
+      {
+        "at": "2026-07-02T18:55:27Z",
+        "status": "pr_open",
+        "notes": "Opened GitHub PR #1540 at https://github.com/fermatmind/fap-web/pull/1540. Initial head edfa321b035e15c594409eac030cbb67c542c72b had CI and CodeQL checks in progress."
       }
     ]
   }
