@@ -37000,7 +37000,7 @@
     "train_scope": "career_kg_zoologists_wildlife_biologists_asset_package",
     "depends_on": ["PR-CAREER-KG-12"],
     "status": "in_progress",
-    "commit_sha": "73ae3e1c1e4653e73e8d40689332ca187a160a2a",
+    "commit_sha": "39a5108716b458085f7626f990cb1be5be8460de",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -37043,7 +37043,7 @@
           "pnpm test:contract",
           "git diff --check"
         ],
-        "evidence": "YAML/JSON validation passed; focused PR13 contract passed with 5 tests; pnpm typecheck passed; production-API build passed with 202 generated pages; full pnpm test:contract passed with 632 files and 3694 tests; git diff --check passed."
+        "evidence": "YAML/JSON validation passed after rebasing onto origin/main 0c36d4f5; focused PR13 contract passed with 5 tests; pnpm typecheck passed; production-API build passed with 202 generated pages; full pnpm test:contract passed with 633 files and 3698 tests; git diff --check passed."
       },
       "scope_validation": {
         "status": "pass",
@@ -37088,6 +37088,11 @@
         "at": "2026-07-02T20:09:20Z",
         "status": "committed",
         "notes": "Validated implementation commit 73ae3e1c1e4653e73e8d40689332ca187a160a2a created before this ledger-only record."
+      },
+      {
+        "at": "2026-07-02T20:14:17Z",
+        "status": "rebased_and_revalidated",
+        "notes": "Rebased PR13 onto origin/main after external SECURITY-122-WEB-07 merge 0c36d4f5; reran YAML/JSON, focused PR13 contract, pnpm typecheck, production-API build, full contract suite 633 files/3698 tests, git diff --check, and scope validation. Rebased implementation commit is 39a5108716b458085f7626f990cb1be5be8460de."
       }
     ]
   }
