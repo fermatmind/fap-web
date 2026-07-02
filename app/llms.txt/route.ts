@@ -8,8 +8,12 @@ import {
   type ContentPage,
 } from "@/lib/cms/content-pages";
 import type { Locale } from "@/lib/i18n/locales";
-import { buildDefaultPublicPersonalitySlug, listPersonalityProfiles } from "@/lib/cms/personality";
-import { buildPersonalityComparisonSlugsFromProfiles } from "@/lib/mbti/personalityComparison";
+import {
+  buildDefaultPublicPersonalitySlug,
+  listPersonalityComparisons,
+  listPersonalityProfiles,
+  type PersonalityComparisonListViewModel,
+} from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
@@ -151,13 +155,24 @@ function publishedPersonalityVariantSlugs(value: string): string[] {
   return [defaultSlug];
 }
 
+function personalityComparisonPathsFromAuthority(
+  list: PersonalityComparisonListViewModel,
+  locale: Locale
+): string[] {
+  return list.groups.flatMap((group) =>
+    group.items
+      .filter((item) => item.isPublic && item.isIndexable)
+      .map((item) => item.href || `/${locale}/personality/${item.slug}`)
+  );
+}
+
 async function listPersonalityPaths(): Promise<string[]> {
   try {
-    const [enProfiles, zhProfiles, enVariantProfiles, zhVariantProfiles] = await Promise.all([
+    const [enProfiles, zhProfiles, enComparisons, zhComparisons] = await Promise.all([
       listPersonalityProfiles({ locale: "en", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
       listPersonalityProfiles({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
-      listPersonalityProfiles({ locale: "en", perPage: LLMS_ROUTE_LIMITS.personalityProfiles, includeVariants: true }),
-      listPersonalityProfiles({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.personalityProfiles, includeVariants: true }),
+      listPersonalityComparisons("en"),
+      listPersonalityComparisons("zh"),
     ]);
 
     return dedupePaths([
@@ -173,12 +188,8 @@ async function listPersonalityPaths(): Promise<string[]> {
           publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
             .map((slug) => `/zh/personality/${slug}`)
         ),
-      ...buildPersonalityComparisonSlugsFromProfiles(
-        limitLlmsRouteEntries(enVariantProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
-      ).map((slug) => `/en/personality/${slug}`),
-      ...buildPersonalityComparisonSlugsFromProfiles(
-        limitLlmsRouteEntries(zhVariantProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
-      ).map((slug) => `/zh/personality/${slug}`),
+      ...personalityComparisonPathsFromAuthority(enComparisons, "en"),
+      ...personalityComparisonPathsFromAuthority(zhComparisons, "zh"),
     ]);
   } catch {
     // Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.

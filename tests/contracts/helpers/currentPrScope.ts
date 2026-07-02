@@ -5487,3 +5487,22 @@ export function isPersonalityComparisonV1FromAssetsAllowedFile(file: string): bo
     "tests/contracts/personality-comparison-pages.contract.test.tsx",
   ]).has(file);
 }
+
+export function isPersonalityComparisonSeoGate01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/personality-comparison-seo-gate-01") {
+    return false;
+  }
+
+  return new Set([
+    "app/(localized)/[locale]/personality/[type]/page.tsx",
+    "app/llms.txt/route.ts",
+    "app/llms-full.txt/route.ts",
+    "tests/contracts/helpers/currentPrScope.ts",
+    "tests/contracts/llms-full-enrichment.contract.test.ts",
+    "tests/contracts/llms-parity-contract.contract.test.ts",
+    "tests/contracts/mbti64-llms-full-pilot-exposure-repair.contract.test.ts",
+    "tests/contracts/personality-comparison-pages.contract.test.tsx",
+    "tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts",
+    "tests/contracts/public-sitemap-route.contract.test.ts",
+  ]).has(file);
+}
