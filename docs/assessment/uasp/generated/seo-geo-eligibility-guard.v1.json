@@ -26,7 +26,7 @@
       "owner": "existing_discoverability_runtime",
       "evidence": [
         "next-sitemap.config.js",
-        "public/sitemap.xml",
+        "app/sitemap.xml/route.ts",
         "docs/seo/generated/discoverability-authority-matrix.v1.json"
       ]
     },

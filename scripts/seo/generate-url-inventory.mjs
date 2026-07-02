@@ -4,7 +4,7 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const DEFAULT_SITE_URL = "https://fermatmind.com";
-const DEFAULT_SITEMAP_PATH = "public/sitemap.xml";
+const DEFAULT_SITEMAP_PATH = "tests/contracts/fixtures/seo/public-sitemap-snapshot.xml";
 const VERSION = "url_truth.inventory.v1";
 
 const ROUTE_FAMILY_POLICIES = {
