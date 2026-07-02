@@ -99,28 +99,26 @@ The `fap-web` revalidate consumer must:
 - clear only approved public cache signals;
 - not publish content, mutate CMS records, submit search URLs, rewrite sitemap eligibility, or change robots policy.
 
-## Sitemap Static Artifact Convergence Gate
+## Public Sitemap Dynamic Parity Gate
 
-`sitemap.xml` is currently a `fap-web` static build artifact generated during `postbuild`. Content release revalidation can refresh article pages, list pages, `/llms.txt`, and `/llms-full.txt`, but it cannot rewrite the already-deployed static sitemap artifact.
+`sitemap.xml` is served by a `fap-web` runtime route that reads backend `/api/v0.5/seo/sitemap-source` authority. Content release revalidation can refresh article pages, list pages, `/llms.txt`, and `/llms-full.txt`; public sitemap parity is verified against the same backend authority in the same release chain and no longer requires a frontend rebuild/deploy.
 
 For any CMS publish that makes a resource public, indexable, and sitemap-eligible, the release checklist must add a sitemap convergence gate after revalidation and before search submission:
 
 | Gate | Required evidence |
 | --- | --- |
 | Backend authority | Backend public detail/API and backend sitemap source include the published canonical URL, or explicitly exclude it with the approved discoverability decision. |
-| Static artifact plan | The release plan records whether the current production `sitemap.xml` already contains the URL, whether a `fap-web` rebuild/deploy is required, or whether an approved dynamic sitemap route has replaced the static artifact. |
-| Frontend regeneration | Until dynamic sitemap exists, run a controlled `fap-web` rebuild/deploy so `postbuild` regenerates `public/sitemap.xml` from CMS/API authority. |
+| Dynamic route parity | Production `https://fermatmind.com/sitemap.xml` reads backend sitemap source and contains the URL in the same release chain. |
 | Live convergence | Production `https://fermatmind.com/sitemap.xml` includes every newly published sitemap-eligible canonical URL and excludes draft, noindex, private, tokenized, result, order, payment, share, and preview URLs. |
 | Search hold | GSC URL submission, Baidu push, IndexNow, and sitemap submission remain blocked until live sitemap convergence passes. |
 
 If the live sitemap is missing a published sitemap-eligible URL after article/page/API/llms smoke passes, record `sitemap_convergence_failed` and choose one of:
 
-- `frontend_rebuild_deploy_required` when the current static artifact is stale;
-- `runtime_sitemap_fix_required` when regeneration still omits an eligible backend/CMS URL;
+- `runtime_sitemap_fix_required` when the dynamic route cannot read or filter backend sitemap source correctly;
 - `backend_discoverability_fix_required` when backend authority incorrectly marks the URL ineligible;
 - `no_submit_expected` when the backend/CMS decision intentionally excludes the URL.
 
-Do not hand-edit `public/sitemap.xml` as a production fix. The artifact must come from the configured generator or an approved dynamic sitemap route.
+Do not hand-edit or recommit `public/sitemap.xml` as a production fix. The public sitemap must come from backend sitemap source through the dynamic route.
 
 ## Post-Publish Smoke
 

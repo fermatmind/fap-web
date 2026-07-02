@@ -26,7 +26,7 @@ This PR is contract-only. It does not change sitemap output, llms output, llms-f
 
 The current runtime output remains owned by existing discoverability contracts:
 
-- Sitemap: `next-sitemap.config.js`, `public/sitemap.xml`, `docs/seo/generated/discoverability-authority-matrix.v1.json`
+- Sitemap: `app/sitemap.xml/route.ts`, `tests/contracts/fixtures/seo/public-sitemap-snapshot.xml`, `docs/seo/generated/discoverability-authority-matrix.v1.json`
 - llms: `app/llms.txt/route.ts`
 - llms-full: `app/llms-full.txt/route.ts`
 - JSON-LD/FAQ: visible content and structured-data contracts

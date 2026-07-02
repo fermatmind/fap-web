@@ -49,7 +49,7 @@ describe("SEO-SITEMAP-P0-05 URL policy decision", () => {
 
     expect(decision).toContain("PR train: `SEO-SITEMAP-P0-05`");
     expect(decision).toContain("Production `https://fermatmind.com/sitemap.xml` is the URL truth");
-    expect(decision).toContain("Local `public/sitemap.xml` | 261 loc");
+    expect(decision).toContain("checked-in local `public/sitemap.xml` is a local artifact");
     expect(decision).toContain("Generated inventory from production sitemap | 2270 rows");
 
     expect(inventory.version).toBe("url_truth.inventory.v1");

@@ -240,7 +240,6 @@ describe("depression entry visibility contract", () => {
     const llmsFull = read("app/llms-full.txt/route.ts");
     const backendTestSource = read("lib/seo/backendTestDiscoverabilitySource.ts");
     const sitemap = `${read("next-sitemap.config.js")}\n${read("lib/seo/sitemapAuthorityAdapters.cjs")}`;
-    const generatedSitemap = read("public/sitemap.xml");
 
     expect(llms).toContain("listBackendDiscoverabilityTestEntries");
     expect(llmsFull).toContain("listBackendDiscoverabilityTestEntries");
@@ -249,7 +248,5 @@ describe("depression entry visibility contract", () => {
     expect(sitemap).toContain("isHiddenPublicTestEntrySlug");
     expect(sitemap).toContain("clinical-depression-anxiety-assessment-professional-edition");
     expect(sitemap).toContain("depression-screening-test-standard-edition");
-    expect(generatedSitemap).not.toContain("clinical-depression-anxiety-assessment-professional-edition");
-    expect(generatedSitemap).not.toContain("depression-screening-test-standard-edition");
   });
 });

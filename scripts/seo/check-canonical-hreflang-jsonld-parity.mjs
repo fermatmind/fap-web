@@ -9,7 +9,7 @@ const FIXTURE_PATH = path.join(
   "tests/contracts/fixtures/discoverability-foundation/canonical-hreflang-jsonld-parity.v1.json"
 );
 const ALLOWED_SCOPES = new Set(["PR-DF-05", "PR-UG-06", "PR-SEOF-04"]);
-const SITEMAP_PATH = path.join(ROOT, "public/sitemap.xml");
+const SITEMAP_PATH = path.join(ROOT, "tests/contracts/fixtures/seo/public-sitemap-snapshot.xml");
 const PRIVATE_FLOW_RE = /\/(?:tests\/[^/]+\/take|test\/[^/]+\/take|result\/|results\/|orders\/|share\/|pay\/|payment\/)/i;
 
 function readJson(filePath) {

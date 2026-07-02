@@ -187,31 +187,30 @@ describe("CMS Ops release checklist contract", () => {
     );
   });
 
-  it("requires sitemap static artifact convergence before search submission", () => {
+  it("requires dynamic public sitemap parity before search submission", () => {
     const artifact = readArtifact();
     const gate = artifact.sitemap_static_artifact_convergence_gate;
 
-    expect(gate.current_behavior).toBe("sitemap.xml_is_fap_web_static_build_artifact_generated_during_postbuild");
+    expect(gate.current_behavior).toBe("sitemap.xml_is_fap_web_runtime_route_backed_by_backend_sitemap_source");
     expect(gate.revalidation_can_rewrite_sitemap).toBe(false);
     expect(gate.trigger_condition).toBe("cms_resource_is_published_public_indexable_and_sitemap_eligible");
     expect(gate.required_evidence).toEqual(
       expect.arrayContaining([
         "backend_public_detail_or_api_contains_canonical_url",
         "backend_sitemap_source_contains_or_intentionally_excludes_canonical_url",
-        "static_artifact_plan_records_existing_inclusion_or_frontend_rebuild_deploy_or_dynamic_sitemap_route",
+        "dynamic_public_sitemap_route_reads_backend_sitemap_source",
         "live_sitemap_xml_contains_newly_published_sitemap_eligible_urls",
         "search_submission_surfaces_remain_blocked_until_live_sitemap_convergence_passes",
       ])
     );
     expect(gate.allowed_resolutions).toEqual(
       expect.arrayContaining([
-        "frontend_rebuild_deploy_required",
         "runtime_sitemap_fix_required",
         "backend_discoverability_fix_required",
         "no_submit_expected",
       ])
     );
-    expect(gate.forbidden_resolution).toBe("hand_edit_public_sitemap_xml");
+    expect(gate.forbidden_resolution).toBe("hand_edit_or_recommit_public_sitemap_xml");
     expect(gate.search_submission_blocked_until_sitemap_converged).toBe(true);
   });
 
@@ -226,7 +225,7 @@ describe("CMS Ops release checklist contract", () => {
         "robots",
         "hreflang",
         "sitemap",
-        "sitemap_static_artifact_convergence",
+        "public_sitemap_dynamic_parity",
         "llms",
         "structured_data",
         "private_url_leak",
@@ -302,7 +301,7 @@ describe("CMS Ops release checklist contract", () => {
     expect(doc).toContain("Scope: `CMS-OPS-RELEASE-02`");
     expect(doc).toContain("Backend/CMS workflow");
     expect(doc).toContain("Revalidate Path Plan");
-    expect(doc).toContain("Sitemap Static Artifact Convergence Gate");
+    expect(doc).toContain("Public Sitemap Dynamic Parity Gate");
     expect(doc).toContain("GSC URL submission, Baidu push, IndexNow, and sitemap submission remain blocked");
     expect(doc).toContain("Post-Publish Smoke");
     expect(doc).toContain("Rollback must be backend/CMS-owned");

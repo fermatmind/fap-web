@@ -8,6 +8,7 @@ import {
   buildBigFivePublicContentPath,
   resolveBigFivePublicRouteEntry,
 } from "@/lib/personality/bigFivePublicRoutes";
+import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { isCleanMainLikeCheckout, isPersonalityBig5V1NoindexRender01AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
@@ -248,14 +249,13 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
   });
 
   it("keeps Big Five V1 noindex routes out of sitemap and llms surfaces", () => {
-    const sitemap = read("public/sitemap.xml");
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");
 
     for (const entry of BIG_FIVE_PUBLIC_ROUTE_ENTRIES) {
       for (const locale of ["en", "zh"] as const) {
         const path = buildBigFivePublicContentPath(locale, entry);
-        expect(sitemap).not.toContain(path);
+        expect(shouldIncludeInSitemap(path, { indexEligible: false, indexState: "noindex" })).toBe(false);
         expect(llms).not.toContain(path);
         expect(llmsFull).not.toContain(path);
       }
