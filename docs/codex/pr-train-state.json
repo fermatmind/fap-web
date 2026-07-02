@@ -36081,9 +36081,9 @@
     "depends_on": [
       "PR-CAREER-KG-07"
     ],
-    "status": "in_progress",
-    "commit_sha": "95d13843435e51f5b5141421b6011e93366b5deb",
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "0df259e7942e0d30fd164a8090b9253234882449",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1534",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -36133,8 +36133,8 @@
       },
       "github_checks": {
         "status": "pending",
-        "head_sha": null,
-        "evidence": null
+        "head_sha": "0df259e7942e0d30fd164a8090b9253234882449",
+        "evidence": "PR #1534 opened; waiting for GitHub checks. Staging deploy is intentionally not waited on."
       },
       "merge_readiness": {
         "status": "pending",
@@ -36200,6 +36200,13 @@
         "status": "ledger_validated_head_recorded",
         "commit_sha": "95d13843435e51f5b5141421b6011e93366b5deb",
         "notes": "Recorded the latest validated PR-CAREER-KG-08 HEAD before this ledger-only correction commit."
+      },
+      {
+        "at": "2026-07-02T18:02:56Z",
+        "status": "pr_open",
+        "commit_sha": "0df259e7942e0d30fd164a8090b9253234882449",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1534",
+        "notes": "Pushed PR-CAREER-KG-08 branch and opened fap-web PR #1534. GitHub checks are pending; staging deploy is not waited on."
       }
     ]
   }
