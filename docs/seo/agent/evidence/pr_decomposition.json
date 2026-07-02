@@ -1,6 +1,6 @@
 {
   "generated_at": "2026-06-20T03:25:29+08:00",
-  "base_branch_or_worktree": "codex/seo-agent-control-packet-01 in /private/tmp/fap-web-seo-agent-control-packet-01; control packet files are available but unmerged and uncommitted intent-to-add docs",
+  "base_branch_or_worktree": "codex/seo-agent-control-packet-01 in <redacted-local-worktree>; control packet files are available but unmerged and uncommitted intent-to-add docs",
   "control_packet_available": true,
   "status_definitions": {
     "READY_NOW": "Executable immediately from the current authorized base with manifest/state authorization.",
@@ -230,7 +230,7 @@
         "docs/codex/pr-train-state.json"
       ],
       "forbidden_files": [
-        "/Users/rainie/.codex/automations/**",
+        "<redacted-local-automation-config-path>",
         "automation TOML",
         "CMS runtime files",
         "Search Channel execution paths",
@@ -745,4 +745,3 @@
     "git status --short -- docs/seo/agent"
   ]
 }
-

@@ -70,8 +70,8 @@ export const IQ_BANK_DISPLAY_MODELS: readonly IqBankDisplayModel[] = [
       zh: "原创 30 题",
     },
     descriptions: {
-      en: "FermatMind owner-original 30-item IQ assessment bank prepared for private backend scoring.",
-      zh: "FermatMind 原创 30 题 IQ 测评题库，交由后端私有评分。",
+      en: "FermatMind owner-original 30-item IQ assessment form currently available for the public test flow.",
+      zh: "FermatMind 原创 30 题 IQ 测评表单，当前可用于公开测评流程。",
     },
   },
   {
@@ -94,8 +94,8 @@ export const IQ_BANK_DISPLAY_MODELS: readonly IqBankDisplayModel[] = [
       zh: "50 题验证版 beta",
     },
     descriptions: {
-      en: "Future validation-oriented IQ beta form. It must stay unavailable until the backend bank, scoring, and norm gates are ready.",
-      zh: "未来验证导向的 IQ beta 表单；后端题库、评分与常模 gate 未就绪前不得开放答题入口。",
+      en: "Future validation-oriented IQ beta form. It stays unavailable until it is ready for public use.",
+      zh: "未来验证导向的 IQ beta 表单；公开使用就绪前不会开放答题入口。",
     },
   },
 ] as const;

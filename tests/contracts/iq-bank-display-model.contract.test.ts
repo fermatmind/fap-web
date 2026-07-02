@@ -71,4 +71,13 @@ describe("IQ bank display model", () => {
       targetAction: "start_owner_original_30",
     });
   });
+
+  it("keeps public bank copy free of backend gate metadata", () => {
+    const publicCopy = JSON.stringify(IQ_BANK_DISPLAY_MODELS.map((model) => model.descriptions));
+
+    expect(publicCopy).not.toMatch(/\bbackend\b/i);
+    expect(publicCopy).not.toMatch(/\bprivate\b/i);
+    expect(publicCopy).not.toMatch(/\bnorm\b/i);
+    expect(publicCopy).not.toMatch(/\bgate\b/i);
+  });
 });

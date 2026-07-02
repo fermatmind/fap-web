@@ -28,7 +28,7 @@ control packet
 
 ## Current Repository Truth
 
-- The control packet exists in `/private/tmp/fap-web-seo-agent-control-packet-01` on branch `codex/seo-agent-control-packet-01`, but it is not merged into `main`.
+- The control packet exists in a redacted local worktree on branch `codex/seo-agent-control-packet-01`, but it is not merged into `main`.
 - The control packet files are uncommitted intent-to-add docs under `docs/seo/agent/**`.
 - The fap-web `/ops/seo-operations` page is still a shell with mock/static artifact data, not live `seo_intel`.
 - The fap-api `seo_intel` area already has read-only dashboard endpoints, GSC storage shape, issue queue services, CMS package commands, and Search Channel Queue services.
@@ -185,7 +185,7 @@ Before any implementation PR:
 Before automation changes:
 
 - Name the automation id.
-- Name the exact file path under `/Users/rainie/.codex/automations/**`.
+- Name the exact local automation config path in the separate authorization. Do not commit that path into repo artifacts.
 - Name the merged control-packet SHA.
 - Authorize the exact prompt-contract version.
 

@@ -1117,6 +1117,23 @@ const SECURITY_122_WEB_02_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const SECURITY_122_WEB_03_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/agent/FAPWEB_CODE_PR_WRITER.md",
+  "docs/seo/agent/SEO_AGENT_PR_DECOMPOSITION_2026-06-20.md",
+  "docs/seo/agent/evidence/pr_decomposition.json",
+  "docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json",
+  "lib/iq/bankDisplay.ts",
+  "scripts/seo/check-seo-agent-weekly-control-packet.mjs",
+  "scripts/seo/generate-seo-agent-fapweb-code-pr-writer.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/iq-bank-display-model.contract.test.ts",
+  "tests/contracts/security-122-web-03-seo-agent-approval-redaction.contract.test.ts",
+  "tests/contracts/seo-agent-fapweb-code-pr-writer.contract.test.ts",
+  "tests/contracts/seo-agent-weekly-control-packet.contract.test.ts",
+]);
+
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
   "components/result/eq/EQEvidenceSnapshot.tsx",
   "components/result/eq/types.ts",
@@ -3553,6 +3570,14 @@ export function isSecurity122Web02AllowedFile(file: string): boolean {
   return SECURITY_122_WEB_02_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity122Web03AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-122-web-03") {
+    return true;
+  }
+
+  return SECURITY_122_WEB_03_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -4521,6 +4546,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/security-122-web-02") {
     return SECURITY_122_WEB_02_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/security-122-web-03") {
+    return SECURITY_122_WEB_03_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {

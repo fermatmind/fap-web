@@ -10,6 +10,13 @@ const REQUIRED_BLOCKS = new Set([
 ]);
 const REQUIRED_WINDOWS = new Set(["D1", "D7", "D14", "D28"]);
 const MUTATION_LANES = new Set(["CMS_DRAFT_PACKAGE_DRY_RUN", "SEARCH_READINESS_REPORT", "BLOCKED_MUTATION"]);
+const MUTATION_HOLD_VERDICTS = new Set(["HOLD", "BLOCKED", "NEEDS_MORE_EVIDENCE"]);
+const LOCAL_PATH_PATTERNS = [
+  /\/Users\//,
+  /\/private\/tmp\//,
+  /\.codex\/automations\//,
+];
+const RAW_SHA_PATTERN = /\b[0-9a-f]{40}\b/i;
 
 function printHelp() {
   console.log(`Usage: node scripts/seo/check-seo-agent-weekly-control-packet.mjs <packet.json>
@@ -40,6 +47,45 @@ function asArray(value) {
   return Array.isArray(value) ? value : [];
 }
 
+function collectMetadataStrings(value, pathSegments = [], result = []) {
+  if (typeof value === "string") {
+    result.push({ path: pathSegments.join("."), value });
+    return result;
+  }
+
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => collectMetadataStrings(item, [...pathSegments, String(index)], result));
+    return result;
+  }
+
+  if (value && typeof value === "object") {
+    for (const [key, nested] of Object.entries(value)) {
+      collectMetadataStrings(nested, [...pathSegments, key], result);
+    }
+  }
+
+  return result;
+}
+
+function collectRedactionIssues(packet) {
+  const issues = [];
+  for (const item of collectMetadataStrings({
+    repositories: packet.repositories,
+    evidence_items: packet.evidence_items,
+  })) {
+    if (LOCAL_PATH_PATTERNS.some((pattern) => pattern.test(item.value))) {
+      issues.push(`committed weekly packet metadata must redact local path at ${item.path}`);
+    }
+    if (/\.head_sha$/.test(item.path) && RAW_SHA_PATTERN.test(item.value)) {
+      issues.push(`committed weekly packet metadata must redact repository SHA at ${item.path}`);
+    }
+    if (/\.file_path$/.test(item.path) && /^backend\//.test(item.value)) {
+      issues.push(`committed weekly packet metadata must not expose backend source path at ${item.path}`);
+    }
+  }
+  return issues;
+}
+
 function collectIssues(packet) {
   const issues = [];
 
@@ -52,6 +98,8 @@ function collectIssues(packet) {
   if (packet.mode !== "read_only") {
     issues.push("weekly automation packet must remain mode=read_only");
   }
+
+  issues.push(...collectRedactionIssues(packet));
 
   const automation = packet.automation_context || {};
   if (automation.read_only !== true) {
@@ -102,12 +150,19 @@ function collectIssues(packet) {
   }
 
   for (const action of asArray(packet.candidate_actions)) {
-    if (MUTATION_LANES.has(action?.lane) && action?.verdict === "GO") {
-      issues.push(`mutation-sensitive candidate cannot be GO in weekly read-only packet: ${action?.id || "<missing>"}`);
+    if (MUTATION_LANES.has(action?.lane) && !MUTATION_HOLD_VERDICTS.has(action?.verdict)) {
+      issues.push(`mutation-sensitive candidate must remain hold/block/evidence-gated in weekly read-only packet: ${action?.id || "<missing>"}`);
+    }
+    if (MUTATION_LANES.has(action?.lane) && action?.requires_approval !== true) {
+      issues.push(`mutation-sensitive candidate must require exact approval: ${action?.id || "<missing>"}`);
     }
     if (action?.requires_approval === true && !["HOLD", "BLOCKED", "NEEDS_MORE_EVIDENCE"].includes(action?.verdict)) {
       issues.push(`approval-required candidate must remain hold/block/evidence-gated: ${action?.id || "<missing>"}`);
     }
+  }
+
+  if (MUTATION_LANES.has(packet.final_verdict?.recommended_lane) && packet.final_verdict?.verdict === "GO") {
+    issues.push("final_verdict cannot be GO for a mutation-sensitive lane");
   }
 
   const blockedText = JSON.stringify(packet.blocked_actions || []);
