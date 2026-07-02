@@ -1,0 +1,237 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "1.0.0",
+  "pr_id": "PR-CAREER-KG-11",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "mechanical-drafters",
+  "canonical_path": "/zh/career/jobs/mechanical-drafters",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "机械制图员",
+    "title_en": "Mechanical Drafters",
+    "soc_code": "17-3013",
+    "onet_code": "17-3013.00",
+    "aliases_zh": ["机械绘图员", "机械 CAD 制图员", "CAD 制图员", "CAD 操作员", "机械设计制图员", "制图技术员", "工程图绘图员", "产品制图员"],
+    "aliases_en": ["Mechanical Drafter", "CAD Designer", "CAD Operator", "Design Drafter", "Drafting Technician", "Mechanical Designer", "Product Designer", "Project Designer"],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "机械工程师",
+        "boundary": "机械工程师通常负责机械系统或产品的工程设计、分析、验证和技术决策；机械制图员主要把工程师或设计人员的草图、规格和设计要求转化为可制造、可检索、可沟通的技术图纸。"
+      },
+      {
+        "name_zh": "机械工程技术员/技师",
+        "boundary": "机械工程技术员/技师更常参与测试、制造支持、数据记录、样机和设备问题处理；机械制图员更聚焦 CAD 图纸、尺寸、材料、装配和工程图表达。"
+      },
+      {
+        "name_zh": "工业设计师",
+        "boundary": "工业设计师更偏产品外观、用户体验、造型和商业概念；机械制图员更偏工程图、制造信息、尺寸、公差、紧固方式和技术规范。"
+      },
+      {
+        "name_zh": "电气/电子制图员",
+        "boundary": "电气/电子制图员面向布线、线路、电子设备或电气系统图纸；机械制图员面向机械设备、工具、零部件、装配和制造图纸。"
+      },
+      {
+        "name_zh": "建筑/土木制图员",
+        "boundary": "建筑或土木制图员面向建筑、结构、道路和施工图；机械制图员面向机械装置、设备、模具、夹具、零件和装配。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "机械制图员是做什么的：CAD、GD&T、工程图、制造协作与相邻制图职业",
+    "meta_description_zh": "了解机械制图员的职责、CAD/3D建模、GD&T、公差、工程图、BOM、制造协作、入门路径、AI边界，以及机械工程师、机械技术员和其他制图职业区别。",
+    "h1_zh": "机械制图员",
+    "canonical_path": "/zh/career/jobs/mechanical-drafters",
+    "ctr_intent_notes": [
+      "标题覆盖“是做什么的”“CAD”“GD&T”“工程图”“相邻制图职业”等点击意图。",
+      "H1 使用短中文标准名；identity 保留 O*NET/SOC 官方英文名、代码、别名和易混职业边界。",
+      "摘要强调 CAD、工程图、制造协作和 AI 边界，不承诺就业、收入、证书或软件熟练度带来的结果。"
+    ]
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "heading_zh": "职业定义",
+      "body_zh": "机械制图员使用 CAD 等制图软件，把工程师、设计人员或客户给出的草图、规格和设计要求转化为机械设备、零部件、工具、模具、夹具或控制装置的详细工作图。图纸通常包含尺寸、材料、紧固方式、公差、装配信息和制造所需的工程说明。",
+      "source_refs": ["onet_summary_17_3013_00", "bls_ooh_drafters", "bls_oews_17_3013"]
+    },
+    {
+      "id": "core_responsibilities",
+      "heading_zh": "核心职责",
+      "items_zh": [
+        "使用 CAD 软件绘制或更新机械设备、零件、模具、工具、控制装置和装配件的二维图纸或三维模型。",
+        "根据工程师、建筑师、客户或制造团队提供的草图、计算、规格和变更要求制作详细技术图纸。",
+        "在图纸中标注尺寸、材料、制造程序、紧固方式、公差、表面处理、装配关系和其他工程信息。",
+        "把工程和制造知识应用到产品图、零件图、装配图和技术规格中，帮助制造、采购、质检和装配团队理解设计。",
+        "检查图纸版本、尺寸一致性、标准件、BOM、注释和图纸规范，按工程变更单修订文件。",
+        "与机械工程师、技术员、制造、质量、供应商或项目团队沟通，确认图纸能被生产、检验和维护流程使用。"
+      ],
+      "source_refs": ["onet_summary_17_3013_00", "bls_ooh_drafters", "mynextmove_summary_17_3013_00"]
+    },
+    {
+      "id": "work_scenes",
+      "heading_zh": "工作场景",
+      "items_zh": [
+        "常见场景包括制造企业、机械设备公司、工程服务公司、交通设备、电子产品、模具夹具、自动化设备和产品开发团队。",
+        "机械制图员多数时间在电脑前处理 CAD 图纸、模型、标注、版本和工程变更，但也可能与工程师、车间、质量或供应商讨论可制造性问题。",
+        "工作节奏通常围绕设计评审、工程变更、样机试制、量产导入、客户图纸、供应商反馈和制造问题闭环展开。",
+        "页面不能把机械制图员写成独立承担全部机械设计、有限元分析、产品认证或工程签字责任的岗位。"
+      ],
+      "source_refs": ["bls_ooh_drafters", "onet_summary_17_3013_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "skills_tools",
+      "heading_zh": "技能与工具",
+      "items_zh": [
+        "CAD / 3D 建模：熟悉二维工程图、三维零件和装配、图层/模板、视图、剖视、明细表和图纸发布流程。",
+        "GD&T 与公差：理解尺寸、公差、基准、配合、形位公差、表面处理、材料牌号和制造约束。",
+        "工程图规范：能够读写零件图、装配图、爆炸图、标准件、BOM、版本号、修订记录和工程变更说明。",
+        "制造协作：理解加工、焊接、钣金、注塑、模具、装配、检验和供应商反馈如何影响图纸表达。",
+        "文件管理：使用 PDM/PLM 或团队文件规则维护图纸编号、模型关联、版本、审批状态和发布记录。"
+      ],
+      "source_refs": ["onet_summary_17_3013_00", "bls_ooh_drafters", "mynextmove_summary_17_3013_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "entry_path",
+      "heading_zh": "入门路径",
+      "items_zh": [
+        "常见入门路径包括制图、机械设计技术、工程技术、CAD、制造技术或相关专业的职业学校、社区学院、专科/副学士课程或同等项目经验。",
+        "入门作品集可以展示零件图、装配图、BOM、尺寸标注、GD&T、工程变更前后对比和可制造性说明，而不只是渲染图。",
+        "早期岗位通常从更新图纸、建模、出工程图、整理版本和协助工程师开始，逐步理解材料、加工、装配、质量和供应链反馈。",
+        "软件证书、作品集或单一 CAD 工具熟练度不能保证录用、薪资、升任机械工程师或获得工程签字权限。"
+      ],
+      "source_refs": ["bls_ooh_drafters", "mynextmove_summary_17_3013_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "heading_zh": "RIASEC / 人格边界",
+      "items_zh": [
+        "RIASEC 上通常更接近 Realistic（现实型）和 Conventional（常规型）：喜欢机械对象、图纸标准、精确表达、版本秩序和可执行的制造信息。",
+        "Investigative（研究型）可能体现在理解工程问题、材料、结构关系、装配逻辑和可制造性反馈。",
+        "人格、MBTI 或 Big Five 只能帮助理解细节耐心、规则偏好、空间想象和协作方式，不能替代 CAD 能力、工程图规范、制造知识或项目经验。"
+      ],
+      "source_refs": ["mynextmove_summary_17_3013_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "heading_zh": "风险与 AI 边界",
+      "items_zh": [
+        "主要风险包括尺寸或公差错误、版本误用、BOM 不一致、材料或紧固方式遗漏、图纸标准不一致、装配干涉、供应商理解偏差和制造返工。",
+        "CAD 自动化、参数化模板、AI 辅助建模、自动标注和图纸检查可以提升效率，但不能替代工程判断、制造约束确认、图纸发布责任和跨团队评审。",
+        "页面不得承诺 AI 不影响岗位、会某款 CAD 软件即可胜任、证书即录用、机械制图员等同机械工程师，或把工程签字、认证和安全责任写成本职业默认职责。"
+      ],
+      "source_refs": ["onet_summary_17_3013_00", "bls_ooh_drafters", "fermatmind_interpretation"]
+    },
+    {
+      "id": "adjacent_careers",
+      "heading_zh": "相邻职业",
+      "items_zh": [
+        "机械工程师：负责机械系统或产品设计、分析、测试、验证和工程决策。",
+        "机械工程技术员/技师：协助机械工程师进行测试、制造支持、样机、数据记录和设备问题处理。",
+        "工业设计师：更偏产品造型、用户体验、材料感、商业概念和设计表达。",
+        "电气/电子制图员：更偏线路、电子设备、电气系统和相关技术图纸。",
+        "建筑/土木制图员：更偏建筑、结构、道路、施工和土木工程图纸。"
+      ],
+      "source_refs": ["bls_ooh_drafters", "bls_ooh_mechanical_engineering_technicians", "mynextmove_summary_17_3013_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "faq",
+      "heading_zh": "FAQ",
+      "items_zh": [
+        {
+          "question": "机械制图员是做什么的？",
+          "answer": "机械制图员把工程师或设计人员的草图、规格和变更要求转化为机械零件、设备、工具、模具或装配的技术图纸，标注尺寸、材料、公差、紧固方式和制造信息。"
+        },
+        {
+          "question": "机械制图员和机械工程师有什么区别？",
+          "answer": "机械工程师通常负责设计分析、验证和工程决策；机械制图员更聚焦 CAD 图纸、三维模型、工程图规范、BOM、版本和制造协作。具体边界会随公司和项目变化。"
+        },
+        {
+          "question": "AI 和 CAD 自动化会替代机械制图员吗？",
+          "answer": "自动标注、参数化建模和 AI 辅助检查可以提升效率，但图纸是否符合制造、装配、质量、版本和工程责任要求，仍需要人员结合项目语境做判断与确认。"
+        }
+      ],
+      "source_refs": ["onet_summary_17_3013_00", "bls_ooh_drafters", "fermatmind_interpretation"]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_17_3013_00",
+      "label": "O*NET OnLine: Mechanical Drafters 17-3013.00",
+      "url": "https://www.onetonline.org/link/summary/17-3013.00",
+      "authority": "occupation_fact",
+      "usage": "职业定义、任务、图纸内容、机械设备/装置、尺寸、紧固方式、工程信息、别名和职业事实。"
+    },
+    {
+      "key": "bls_ooh_drafters",
+      "label": "BLS OOH: Drafters",
+      "url": "https://www.bls.gov/ooh/architecture-and-engineering/drafters.htm",
+      "authority": "occupation_fact",
+      "usage": "制图员职业概览、CAD、工程师/建筑师设计转化、图纸职责、教育路径、工作环境和相邻职业边界。"
+    },
+    {
+      "key": "bls_oews_17_3013",
+      "label": "BLS OEWS: Mechanical Drafters 17-3013",
+      "url": "https://www.bls.gov/oes/2023/may/oes173013.htm",
+      "authority": "occupation_fact",
+      "usage": "SOC 职业定义与机械制图员官方职业边界核对；不用于收入承诺。"
+    },
+    {
+      "key": "mynextmove_summary_17_3013_00",
+      "label": "My Next Move: Mechanical Drafters 17-3013.00",
+      "url": "https://www.mynextmove.org/profile/summary/17-3013.00",
+      "authority": "occupation_fact",
+      "usage": "通俗职业描述、任务、别名、兴趣倾向、教育路径和相邻职业。"
+    },
+    {
+      "key": "mynextmove_data_sources_17_3013_00",
+      "label": "My Next Move data sources: Mechanical Drafters",
+      "url": "https://www.mynextmove.org/help/data/17-3013.00",
+      "authority": "source_disclosure",
+      "usage": "公开来源披露，不作为新增职业事实。"
+    },
+    {
+      "key": "bls_ooh_mechanical_engineering_technicians",
+      "label": "BLS OOH: Mechanical Engineering Technologists and Technicians",
+      "url": "https://www.bls.gov/ooh/architecture-and-engineering/mechanical-engineering-technicians.htm",
+      "authority": "adjacent_occupation_boundary",
+      "usage": "相邻职业边界，用于区分机械工程技术员/技师与机械制图员。"
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial interpretation from authoritative occupational sources",
+      "authority": "editorial_interpretation",
+      "usage": "中文表达、搜索意图归纳、内链、职业边界与人格边界说明；不得覆盖 O*NET/BLS/My Next Move 职业事实。"
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "blocked_usage": ["职业事实权威", "就业保证", "收入保证", "晋升保证", "证书录用保证", "工程签字权限保证", "机械工程师转岗保证", "JSON-LD事实来源", "生产导入依据"]
+  },
+  "internal_links": [
+    {"label_zh": "职业库", "path": "/zh/career/jobs", "purpose": "职业库入口"},
+    {"label_zh": "职业指南", "path": "/zh/career", "purpose": "职业探索上层入口"},
+    {"label_zh": "RIASEC 职业兴趣测试", "path": "/zh/tests/holland-career-interest-test-riasec", "purpose": "现实型、常规型与研究型兴趣探索"},
+    {"label_zh": "机械工程师", "path": "/zh/career/jobs/mechanical-engineers", "purpose": "相邻工程设计职业边界"},
+    {"label_zh": "机械工程技术员/技师", "path": "/zh/career/jobs/mechanical-engineering-technologists-and-technicians", "purpose": "相邻技术支持职业边界"},
+    {"label_zh": "MBTI 人格测试", "path": "/zh/tests/mbti-personality-test-16-personality-types", "purpose": "协作与细节偏好，不替代岗位要求"},
+    {"label_zh": "Big Five 人格测试", "path": "/zh/tests/big-five-personality-test", "purpose": "责任心、审慎性和压力偏好自评"}
+  ],
+  "release_boundaries": {
+    "cms_write_performed": false,
+    "staging_write_performed": false,
+    "production_import_performed": false,
+    "db_migration_performed": false,
+    "runtime_seo_changed": false,
+    "sitemap_changed": false,
+    "llms_txt_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "json_ld_runtime_changed": false,
+    "manual_deploy_triggered": false,
+    "staging_deploy_wait_performed": false,
+    "production_deploy_triggered": false
+  }
+}

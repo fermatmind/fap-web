@@ -298,6 +298,20 @@ const PR_CAREER_KG_10_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const PR_CAREER_KG_11_ALLOWED_FILES = new Set([
+  "generated/career-kg-pr-11-mechanical-drafters/README.md",
+  "generated/career-kg-pr-11-mechanical-drafters/mechanical-drafters.zh-CN.asset.json",
+  "generated/career-kg-pr-11-mechanical-drafters/qa_report.json",
+  "generated/career-kg-pr-11-mechanical-drafters/dry_run_importer_report.json",
+  "generated/career-kg-pr-11-mechanical-drafters/staging_preview_smoke.json",
+  "generated/career-kg-pr-11-mechanical-drafters/fap_web_render_smoke.json",
+  "generated/career-kg-pr-11-mechanical-drafters/sha256_manifest.json",
+  "tests/contracts/career-kg-11-mechanical-drafters.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -5450,6 +5464,14 @@ export function isPrCareerKg10AllowedFile(file: string): boolean {
   }
 
   return PR_CAREER_KG_10_ALLOWED_FILES.has(file);
+}
+
+export function isPrCareerKg11AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-career-kg-11-mechanical-drafters") {
+    return true;
+  }
+
+  return PR_CAREER_KG_11_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {

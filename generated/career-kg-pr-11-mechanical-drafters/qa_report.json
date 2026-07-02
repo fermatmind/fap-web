@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "schema_validation": {
+    "status": "pass",
+    "required_sections_present": ["identity", "seo", "definition", "core_responsibilities", "work_scenes", "skills_tools", "entry_path", "riasec_personality_boundary", "risk_ai_boundary", "adjacent_careers", "faq", "sources", "internal_links"],
+    "canonical_unchanged": true,
+    "content_block_count": 9,
+    "faq_count": 3
+  },
+  "trust_audit": {
+    "status": "pass",
+    "fact_authorities": ["O*NET OnLine", "BLS OOH", "BLS OEWS", "My Next Move"],
+    "market_or_baike_used_as_fact_authority": false,
+    "blocked_claims_absent": ["employment_guarantee", "income_guarantee", "promotion_guarantee", "engineering_license_or_signoff_guarantee", "ai_zero_impact"]
+  },
+  "editorial_gate": {
+    "status": "pass",
+    "reader_intent_covered": ["机械制图员是做什么的", "CAD 制图员", "GD&T 工程图", "机械工程师 机械制图员 区别", "制图职业区别"],
+    "canonical_path_locked": "/zh/career/jobs/mechanical-drafters"
+  }
+}
