@@ -1,0 +1,251 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "1.0.0",
+  "pr_id": "PR-CAREER-KG-14",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "mining-and-geological-engineers",
+  "canonical_path": "/zh/career/jobs/mining-and-geological-engineers",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "采矿与地质工程师",
+    "title_en": "Mining and Geological Engineers, Including Mining Safety Engineers",
+    "soc_code": "17-2151",
+    "onet_code": "17-2151.00",
+    "aliases_zh": ["采矿工程师", "地质工程师", "矿山安全工程师", "矿业工程师", "矿山设计工程师", "矿山规划工程师", "岩土与采矿工程师", "矿山环境工程师"],
+    "aliases_en": ["Mining Engineer", "Geological Engineer", "Mining Safety Engineer", "Mine Planning Engineer", "Mine Design Engineer", "Mineral Engineer", "Mine Environmental Engineer", "Rock Mechanics Engineer"],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "地质学家 / 地球科学家",
+        "boundary": "地质学家更偏研究地球材料、构造、资源和地质过程；采矿与地质工程师把地质信息用于矿山设计、开采方法、安全、通风、环境和工程判断。"
+      },
+      {
+        "name_zh": "土木工程师",
+        "boundary": "土木工程师更广泛设计道路、桥梁、建筑、水利和基础设施；本职业聚焦矿山、地下/露天开采、岩体、矿石处理和矿山安全。"
+      },
+      {
+        "name_zh": "环境工程师",
+        "boundary": "环境工程师更偏污染控制、水气固废、合规和环境系统；采矿与地质工程师需要理解环境影响，但不能替代独立环境许可或合规审批。"
+      },
+      {
+        "name_zh": "采矿与地质技术员",
+        "boundary": "技术员通常执行采样、测量、记录、测试和现场支持；工程师通常负责设计、分析、判断、计划、报告和跨专业协调。"
+      },
+      {
+        "name_zh": "职业健康与安全专家",
+        "boundary": "职业健康与安全专家更广泛评估工作场所风险和合规；矿山安全工程师需要把采矿方法、地质条件、通风、设备和现场风险放在一起判断。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "采矿与地质工程师是做什么的：矿山安全、环境影响、矿山设计与工程判断",
+    "meta_description_zh": "了解采矿与地质工程师的职责、矿山设计、安全、通风、地质数据、环境影响、工程判断、入门路径、AI 边界和相邻职业区别。",
+    "h1_zh": "采矿与地质工程师",
+    "canonical_path": "/zh/career/jobs/mining-and-geological-engineers",
+    "ctr_intent_notes": [
+      "标题覆盖“是做什么的”“矿山安全”“环境影响”“矿山设计”“工程判断”等点击意图。",
+      "H1 使用中文标准名；identity 保留 O*NET/SOC 官方英文名、代码、别名和易混职业边界。",
+      "摘要强调安全、环境和工程判断，不承诺项目获批、矿产发现、产量、执照或岗位结果。"
+    ]
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "heading_zh": "职业定义",
+      "body_zh": "采矿与地质工程师设计、规划和监督矿山、采石场或地下工程相关活动，使用地质数据、工程分析、安全要求、通风、设备、环境影响和成本约束来支持矿产开采与矿山恢复等工程决策。",
+      "source_refs": ["onet_summary_17_2151_00", "bls_ooh_mining_geological_engineers", "mynextmove_summary_17_2151_00"]
+    },
+    {
+      "id": "core_responsibilities",
+      "heading_zh": "核心职责",
+      "items_zh": [
+        "评估矿体、岩层、地下水、边坡、巷道、设备、通风和开采条件，支持露天或地下采矿方案选择。",
+        "设计或审查矿山布局、开采顺序、支护、运输、通风、排水、爆破协作、矿石处理衔接和复垦计划。",
+        "分析安全风险，包括坍塌、瓦斯、粉尘、设备、爆破、边坡、火灾、通风和人员通行风险，并提出工程控制建议。",
+        "与地质、测量、土木、环境、安全、生产、设备、承包商和监管沟通，协调工程设计、现场执行和记录。",
+        "撰写工程报告、设计说明、风险评估、现场检查记录、生产计划或可行性分析，明确假设、限制和不确定性。",
+        "遵守矿山安全、环境、许可和工程责任边界；页面不能把工程建议写成监管批准、资源量确认或安全结果保证。"
+      ],
+      "source_refs": ["onet_summary_17_2151_00", "bls_ooh_mining_geological_engineers", "mynextmove_summary_17_2151_00"]
+    },
+    {
+      "id": "work_scenes",
+      "heading_zh": "工作场景",
+      "items_zh": [
+        "现场场景包括露天矿、地下矿、采石场、钻探现场、尾矿或废石设施、矿山道路、通风系统、泵站、选矿衔接区域和复垦区域。",
+        "办公室场景包括矿山设计、计划排程、CAD/GIS/三维建模、工程计算、报告、许可材料准备、数据复核和跨专业会议。",
+        "项目场景可能涉及新矿开发、现有矿山优化、矿山安全改进、环境影响控制、矿山关闭与复垦、承包商管理和应急响应准备。",
+        "该职业需要在生产目标、安全边界、地质不确定性、环境约束和监管要求之间做工程判断，不能只写成“找矿”或“矿山管理”。"
+      ],
+      "source_refs": ["bls_ooh_mining_geological_engineers", "mynextmove_summary_17_2151_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "skills_tools",
+      "heading_zh": "技能与工具",
+      "items_zh": [
+        "工程方法：矿山设计、岩体力学、通风、排水、边坡稳定、支护、生产计划、风险评估和工程经济判断。",
+        "数据与软件：CAD、GIS、矿山规划软件、三维地质/矿体模型、电子表格、数据库、测量数据、传感器和现场检查记录。",
+        "安全与环境：矿山安全法规理解、危险识别、控制措施、粉尘/气体/噪声/水管理、尾矿和复垦边界协作。",
+        "现场能力：读图、设备与工艺理解、现场沟通、承包商协调、检查记录、异常上报和应急流程意识。",
+        "协作能力：把地质、生产、安全、环境、设备和财务约束转成可执行的工程方案和清晰报告。"
+      ],
+      "source_refs": ["onet_summary_17_2151_00", "mynextmove_summary_17_2151_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "entry_path",
+      "heading_zh": "入门路径",
+      "items_zh": [
+        "常见相关背景包括采矿工程、地质工程、土木工程、环境工程、岩土工程、地球科学、工程地质或相关工程课程。",
+        "入门经验可以来自矿山实习、现场测量、生产计划、岩土/地质建模、CAD/GIS、通风或安全项目、环境监测协作和工程报告练习。",
+        "部分岗位可能要求工程执照、矿山安全培训、现场准入或地区监管要求；具体取决于国家/地区、矿种、岗位责任和雇主。",
+        "学历、证书、实习或软件技能不能保证录用、执照、项目批准、矿产发现、生产结果或安全结果。"
+      ],
+      "source_refs": ["bls_ooh_mining_geological_engineers", "onet_job_zone_17_2151_00", "mynextmove_summary_17_2151_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "heading_zh": "RIASEC / 人格边界",
+      "items_zh": [
+        "RIASEC 上通常更接近 Realistic（现实型）、Investigative（研究型）和 Conventional（常规型）：既要处理现场、设备和工程系统，也要分析地质/安全数据并遵守流程。",
+        "Enterprising（企业型）可能出现在项目协调、生产目标、承包商沟通和跨专业决策中。",
+        "人格、MBTI 或 Big Five 只能帮助理解现场适应、风险沟通、严谨性和压力偏好，不能替代工程训练、监管要求、现场经验或安全责任。"
+      ],
+      "source_refs": ["mynextmove_summary_17_2151_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "heading_zh": "风险与 AI 边界",
+      "items_zh": [
+        "主要风险包括地质不确定性、岩体失稳、地下水、瓦斯和粉尘、爆破协作、设备事故、边坡、通风、尾矿、环境影响、许可条件和现场执行偏差。",
+        "AI 可以辅助资料整理、图纸检查、传感器异常提示、报告摘要、风险清单、调度草案和模型对比，但不能替代工程签署、现场检查、法规判断、安全责任或监管审批。",
+        "页面不得承诺矿山一定安全、项目一定获批、AI 可自动做采矿设计、模型等同工程结论、某证书保证录用，或把采矿与地质工程师写成环境许可审批人。"
+      ],
+      "source_refs": ["onet_summary_17_2151_00", "bls_ooh_mining_geological_engineers", "fermatmind_interpretation"]
+    },
+    {
+      "id": "adjacent_careers",
+      "heading_zh": "相邻职业",
+      "items_zh": [
+        "地质学家 / 地球科学家：更偏研究地质过程、资源和地球材料。",
+        "土木工程师：更广泛面向基础设施、结构、交通、水利和施工工程。",
+        "环境工程师：更偏污染控制、环境系统和合规工程。",
+        "采矿与地质技术员：更偏现场采样、测试、测量、记录和工程支持。",
+        "职业健康与安全专家：更广泛评估工作场所风险、培训和合规。"
+      ],
+      "source_refs": ["bls_ooh_mining_geological_engineers", "bls_ooh_geoscientists", "bls_ooh_environmental_engineers", "mynextmove_summary_17_2151_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "faq",
+      "heading_zh": "FAQ",
+      "items_zh": [
+        {
+          "question": "采矿与地质工程师是做什么的？",
+          "answer": "他们把地质数据、矿山设计、安全、通风、设备、环境和生产约束结合起来，规划、设计、评估或监督矿山和相关工程活动。"
+        },
+        {
+          "question": "采矿与地质工程师和地质学家有什么区别？",
+          "answer": "地质学家更偏研究地球材料和地质过程；采矿与地质工程师需要把地质信息转化为矿山设计、开采方法、安全控制、环境协作和工程判断。"
+        },
+        {
+          "question": "AI 会替代采矿与地质工程师吗？",
+          "answer": "AI 可以帮助整理资料、发现异常、生成报告草稿或比较模型，但现场检查、工程签署、监管判断、安全责任和复杂取舍仍需要合格人员负责。"
+        }
+      ],
+      "source_refs": ["onet_summary_17_2151_00", "bls_ooh_mining_geological_engineers", "mynextmove_summary_17_2151_00", "fermatmind_interpretation"]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_17_2151_00",
+      "label": "O*NET OnLine: Mining and Geological Engineers, Including Mining Safety Engineers 17-2151.00",
+      "url": "https://www.onetonline.org/link/summary/17-2151.00",
+      "authority": "occupation_fact",
+      "usage": "职业定义、矿山设计、安全、监督、工程活动和任务边界。"
+    },
+    {
+      "key": "bls_ooh_mining_geological_engineers",
+      "label": "BLS OOH: Mining and Geological Engineers",
+      "url": "https://www.bls.gov/ooh/architecture-and-engineering/mining-and-geological-engineers.htm",
+      "authority": "occupation_fact",
+      "usage": "工作内容、工作环境、教育路径和职业边界；不用于项目批准或安全结果承诺。"
+    },
+    {
+      "key": "bls_oews_17_2151",
+      "label": "BLS OEWS: Mining and Geological Engineers, Including Mining Safety Engineers 17-2151",
+      "url": "https://www.bls.gov/oes/2023/may/oes172151.htm",
+      "authority": "occupation_fact",
+      "usage": "SOC 基类边界核对；不用于收入承诺。"
+    },
+    {
+      "key": "mynextmove_summary_17_2151_00",
+      "label": "My Next Move: Mining & Geological Engineers, Including Mining Safety Engineers 17-2151.00",
+      "url": "https://www.mynextmove.org/profile/summary/17-2151.00",
+      "authority": "occupation_fact",
+      "usage": "通俗职业描述、任务、兴趣倾向、教育路径和相邻职业。"
+    },
+    {
+      "key": "mynextmove_data_sources_17_2151_00",
+      "label": "My Next Move data sources: Mining & Geological Engineers",
+      "url": "https://www.mynextmove.org/help/data/17-2151.00",
+      "authority": "source_disclosure",
+      "usage": "公开来源披露，不作为新增职业事实。"
+    },
+    {
+      "key": "onet_job_zone_17_2151_00",
+      "label": "O*NET Job Zone: Mining and Geological Engineers 17-2151.00",
+      "url": "https://www.onetonline.org/skills/zone/17-2151.00",
+      "authority": "occupation_fact",
+      "usage": "教育准备和经验准备边界；不用于录用保证。"
+    },
+    {
+      "key": "bls_ooh_geoscientists",
+      "label": "BLS OOH: Geoscientists",
+      "url": "https://www.bls.gov/ooh/life-physical-and-social-science/geoscientists.htm",
+      "authority": "adjacent_occupation_boundary",
+      "usage": "相邻地球科学职业边界。"
+    },
+    {
+      "key": "bls_ooh_environmental_engineers",
+      "label": "BLS OOH: Environmental Engineers",
+      "url": "https://www.bls.gov/ooh/architecture-and-engineering/environmental-engineers.htm",
+      "authority": "adjacent_occupation_boundary",
+      "usage": "相邻环境工程职业边界。"
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial interpretation from authoritative occupational sources",
+      "authority": "editorial_interpretation",
+      "usage": "中文表达、搜索意图归纳、内链、职业边界与人格边界说明；不得覆盖 O*NET/BLS/My Next Move 职业事实。"
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "blocked_usage": ["职业事实权威", "就业保证", "收入保证", "项目获批保证", "矿产发现保证", "生产结果保证", "安全结果保证", "执照保证", "监管审批保证", "AI 自动采矿设计保证", "JSON-LD事实来源", "生产导入依据"]
+  },
+  "internal_links": [
+    {"label_zh": "职业库", "path": "/zh/career/jobs", "purpose": "职业库入口"},
+    {"label_zh": "职业指南", "path": "/zh/career", "purpose": "职业探索上层入口"},
+    {"label_zh": "RIASEC 职业兴趣测试", "path": "/zh/tests/holland-career-interest-test-riasec", "purpose": "现实型、研究型和常规型兴趣探索"},
+    {"label_zh": "环境工程师", "path": "/zh/career/jobs/environmental-engineers", "purpose": "相邻环境工程职业边界"},
+    {"label_zh": "土木工程师", "path": "/zh/career/jobs/civil-engineers", "purpose": "相邻工程职业边界"},
+    {"label_zh": "MBTI 人格测试", "path": "/zh/tests/mbti-personality-test-16-personality-types", "purpose": "风险沟通与现场协作偏好，不替代岗位要求"},
+    {"label_zh": "Big Five 人格测试", "path": "/zh/tests/big-five-personality-test", "purpose": "责任心、开放性和压力偏好自评"}
+  ],
+  "release_boundaries": {
+    "cms_write_performed": false,
+    "staging_write_performed": false,
+    "production_import_performed": false,
+    "db_migration_performed": false,
+    "runtime_seo_changed": false,
+    "sitemap_changed": false,
+    "llms_txt_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "json_ld_runtime_changed": false,
+    "manual_deploy_triggered": false,
+    "staging_deploy_wait_performed": false,
+    "production_deploy_triggered": false
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "mode": "dry_run_only",
+  "writes_performed": false,
+  "cms_write_performed": false,
+  "staging_write_performed": false,
+  "production_import_performed": false,
+  "rows_validated": 1,
+  "locale": "zh-CN",
+  "slug": "mining-and-geological-engineers",
+  "canonical_path": "/zh/career/jobs/mining-and-geological-engineers",
+  "authority_policy": "O*NET/BLS/My Next Move occupational facts only; Chinese recruiting or encyclopedia pages are not fact authority."
+}

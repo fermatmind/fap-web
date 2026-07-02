@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "mode": "contract_mock_backend_display_surface",
+  "component": "CareerDisplaySurface",
+  "locale": "zh",
+  "slug": "mining-and-geological-engineers",
+  "fallback_editorial_content_added": false
+}
