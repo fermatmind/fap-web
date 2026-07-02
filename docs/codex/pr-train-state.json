@@ -37183,7 +37183,7 @@
     "train_scope": "career_kg_mining_geological_engineers_asset_package",
     "depends_on": ["PR-CAREER-KG-13"],
     "status": "in_progress",
-    "commit_sha": null,
+    "commit_sha": "0e1c3786bc3e5cb3b28b04e704665653d3d1f421",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -37266,6 +37266,11 @@
         "at": "2026-07-02T20:45:39Z",
         "status": "scope_validation_passed",
         "notes": "Scope validation found exactly the 11 authorized PR14 files and no outside-scope files."
+      },
+      {
+        "at": "2026-07-02T20:46:02Z",
+        "status": "committed",
+        "notes": "Validated implementation commit 0e1c3786bc3e5cb3b28b04e704665653d3d1f421 created before this ledger-only record."
       }
     ]
   }
