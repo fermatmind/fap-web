@@ -11527,7 +11527,7 @@ prs:
     mode: execute
     train_scope: eq_v16_content_asset_productization
     risk_level: scoped_eq_result_renderer_contract
-    status: in_progress
+    status: merged
     title: "PR-EQ-ASSET-03 Frontend v1.6 contract fixture consumption"
     goal: "Sync frontend EQ v5 fixtures to backend v1.6 canonical payloads and verify EQResultV5 consumes commercial-ready resolved assets without introducing frontend-authored report prose or SJT/paid entry points."
     in_scope:
@@ -13795,6 +13795,65 @@ prs:
       squash: true
       auto_merge: true
     next_task: PR-CAREER-KG-14
+
+  - id: PR-CAREER-KG-14
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-14-mining-geological-engineers
+    base: main
+    title: "PR-CAREER-KG-14: content(career): add mining and geological engineers KG asset package"
+    depends_on:
+      - PR-CAREER-KG-13
+    mode: execute
+    train_scope: career_kg_mining_geological_engineers_asset_package
+    status: in_progress
+    goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Mining and Geological Engineers career page, covering identity, mining safety, mine design, environmental impact, engineering judgment, adjacent engineering/science-career distinctions, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
+    artifacts:
+      - generated/career-kg-pr-14-mining-geological-engineers/README.md
+      - generated/career-kg-pr-14-mining-geological-engineers/mining-and-geological-engineers.zh-CN.asset.json
+      - generated/career-kg-pr-14-mining-geological-engineers/qa_report.json
+      - generated/career-kg-pr-14-mining-geological-engineers/dry_run_importer_report.json
+      - generated/career-kg-pr-14-mining-geological-engineers/staging_preview_smoke.json
+      - generated/career-kg-pr-14-mining-geological-engineers/fap_web_render_smoke.json
+      - generated/career-kg-pr-14-mining-geological-engineers/sha256_manifest.json
+      - tests/contracts/career-kg-14-mining-geological-engineers.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - generated/career-kg-pr-14-mining-geological-engineers/README.md
+      - generated/career-kg-pr-14-mining-geological-engineers/mining-and-geological-engineers.zh-CN.asset.json
+      - generated/career-kg-pr-14-mining-geological-engineers/qa_report.json
+      - generated/career-kg-pr-14-mining-geological-engineers/dry_run_importer_report.json
+      - generated/career-kg-pr-14-mining-geological-engineers/staging_preview_smoke.json
+      - generated/career-kg-pr-14-mining-geological-engineers/fap_web_render_smoke.json
+      - generated/career-kg-pr-14-mining-geological-engineers/sha256_manifest.json
+      - tests/contracts/career-kg-14-mining-geological-engineers.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Write CMS, staging, or production career rows.
+      - Add frontend runtime fallback editorial content.
+      - Change sitemap, llms, robots, canonical, noindex, JSON-LD runtime, search submission, deploy workflows, cache, queues, or server runtime.
+      - Change career jobs other than mining-and-geological-engineers or prepare future PR-CAREER-KG-15+ content.
+      - Use Chinese recruiting or encyclopedia pages as occupational fact authority.
+      - Make employment, income, admission, diagnosis, ranking, traffic, conversion, ROI, AI replacement, promotion, certification, platform approval, project-approval, mineral-discovery, production, safety, license, or regulatory-approval guarantees.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-kg-14-mining-geological-engineers.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-15
 
   - id: MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
     repo: fap-web

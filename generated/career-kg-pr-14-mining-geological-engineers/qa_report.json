@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "schema_validation": {
+    "status": "pass",
+    "required_sections_present": ["identity", "seo", "definition", "core_responsibilities", "work_scenes", "skills_tools", "entry_path", "riasec_personality_boundary", "risk_ai_boundary", "adjacent_careers", "faq", "sources", "internal_links"],
+    "canonical_unchanged": true,
+    "content_block_count": 9,
+    "faq_count": 3
+  },
+  "trust_audit": {
+    "status": "pass",
+    "fact_authorities": ["O*NET OnLine", "BLS OOH", "BLS OEWS", "My Next Move"],
+    "market_or_baike_used_as_fact_authority": false,
+    "blocked_claims_absent": ["employment_guarantee", "income_guarantee", "project_approval_guarantee", "mineral_discovery_guarantee", "safety_guarantee", "regulatory_approval_guarantee", "ai_zero_impact"]
+  },
+  "editorial_gate": {
+    "status": "pass",
+    "reader_intent_covered": ["采矿与地质工程师是做什么的", "矿山安全", "环境影响", "矿山设计", "工程判断", "AI 边界"],
+    "canonical_path_locked": "/zh/career/jobs/mining-and-geological-engineers"
+  }
+}
