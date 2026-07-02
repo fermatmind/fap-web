@@ -1,0 +1,19 @@
+{
+  "status": "pass",
+  "mode": "dry_run_only",
+  "asset_path": "generated/career-kg-pr-08-aerospace-engineers/aerospace-engineers.zh-CN.asset.json",
+  "writes_performed": false,
+  "cms_write_performed": false,
+  "production_import_performed": false,
+  "production_import_approved": false,
+  "staging_write_performed": false,
+  "validated_operations": [
+    "parse_asset_json",
+    "validate_required_identity_fields",
+    "validate_content_block_order",
+    "validate_source_refs",
+    "validate_canonical_unchanged",
+    "validate_release_boundaries"
+  ],
+  "notes": "Dry-run importer validation only. The generated package is not imported into CMS, staging, or production."
+}
