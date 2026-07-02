@@ -2,14 +2,18 @@ import { notFound } from "next/navigation";
 import { ContentPageEditorForm } from "@/components/ops/content-pages/ContentPageEditorForm";
 import { getContentPage } from "@/lib/cms/content-pages";
 import { normalizeLocale, type Locale } from "@/lib/i18n/locales";
+import { requireOpsRouteAccess } from "@/lib/ops/opsRouteAccess";
 
 type Props = {
   params: Promise<{ locale: string; slug: string }>;
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function ContentPageOpsDetailPage({ params }: Props) {
   const { locale: localeParam, slug } = await params;
   const locale = normalizeLocale(localeParam) as Locale;
+  await requireOpsRouteAccess();
   const page = await getContentPage(slug, locale);
 
   if (!page) {

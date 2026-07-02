@@ -1162,6 +1162,17 @@ const SECURITY_122_WEB_03_ALLOWED_FILES = new Set([
   "tests/contracts/seo-agent-weekly-control-packet.contract.test.ts",
 ]);
 
+const SECURITY_122_WEB_04_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/ops/content-pages/[slug]/page.tsx",
+  "app/(localized)/[locale]/ops/content-pages/page.tsx",
+  "app/(localized)/[locale]/ops/seo-operations/page.tsx",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/ops/opsRouteAccess.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-122-web-04-ops-route-auth.contract.test.ts",
+]);
+
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
   "components/result/eq/EQEvidenceSnapshot.tsx",
   "components/result/eq/types.ts",
@@ -3616,6 +3627,14 @@ export function isSecurity122Web03AllowedFile(file: string): boolean {
   return SECURITY_122_WEB_03_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity122Web04AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-122-web-04") {
+    return true;
+  }
+
+  return SECURITY_122_WEB_04_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -4592,6 +4611,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/security-122-web-03") {
     return SECURITY_122_WEB_03_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/security-122-web-04") {
+    return SECURITY_122_WEB_04_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {
