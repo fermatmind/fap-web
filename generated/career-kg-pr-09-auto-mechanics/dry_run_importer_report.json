@@ -1,0 +1,22 @@
+{
+  "status": "pass",
+  "mode": "dry_run_only",
+  "writes_performed": false,
+  "cms_write_performed": false,
+  "production_import_performed": false,
+  "production_import_approved": false,
+  "validated_asset": "automotive-service-technicians-and-mechanics.zh-CN.asset.json",
+  "validated_slug": "automotive-service-technicians-and-mechanics",
+  "validated_canonical_path": "/zh/career/jobs/automotive-service-technicians-and-mechanics",
+  "blocked_runtime_changes": [
+    "cms_write",
+    "production_import",
+    "db_migration",
+    "runtime_seo",
+    "sitemap",
+    "llms_txt",
+    "canonical",
+    "noindex",
+    "json_ld_runtime"
+  ]
+}

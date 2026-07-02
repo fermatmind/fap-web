@@ -1,0 +1,13 @@
+{
+  "status": "pass",
+  "mode": "offline_contract_preview_only",
+  "staging_write_performed": false,
+  "staging_deploy_wait_performed": false,
+  "manual_deploy_triggered": false,
+  "production_deploy_triggered": false,
+  "preview_route": "/zh/career/jobs/automotive-service-technicians-and-mechanics",
+  "notes": [
+    "Preview smoke validates the dry-run projection shape only.",
+    "No staging CMS row, server deployment, or production deployment was triggered."
+  ]
+}
