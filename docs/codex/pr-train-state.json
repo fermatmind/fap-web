@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T02:03:30+08:00",
+  "updated_at": "2026-07-03T02:04:05+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12517,7 +12517,7 @@
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": "a03c3fa864934df5a9439f8fd147d87708fa8bbe",
+      "commit_sha": "13e356df8e4c93d4f8acb2afdd24e9c5e9dbb42a",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -12541,10 +12541,15 @@
           "at": "2026-07-03T02:03:30+08:00",
           "status": "committed",
           "summary": "Committed SECURITY-122-WEB-04 as a03c3fa864934df5a9439f8fd147d87708fa8bbe after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-07-03T02:04:05+08:00",
+          "status": "commit_sha_reconciled",
+          "summary": "Recorded implementation commit 13e356df8e4c93d4f8acb2afdd24e9c5e9dbb42a after amend changed the initial commit object."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T02:03:30+08:00"
+      "updated_at": "2026-07-03T02:04:05+08:00"
     },
     {
       "id": "SECURITY-122-WEB-05",
