@@ -304,7 +304,7 @@ prs:
     base: main
     depends_on: [PR-WEB-SBTI-REMOVE-01]
     mode: execute
-    status: ready_to_merge
+    status: merged
     title: "chore(sbti): clean residual SBTI route and rule references"
     goal: "Clean residual active-route and repository-rule references after the inactive SBTI frontend product surface was removed."
     in_scope:
@@ -379,7 +379,7 @@ prs:
     base: main
     depends_on: [IQ-FE-1]
     mode: execute
-    status: planned
+    status: local_checks_passed
     title: "feat(iq): add question SVG renderer and option grid contracts"
     artifacts:
       - components/quiz/iq/**
@@ -394,7 +394,7 @@ prs:
     base: main
     depends_on: [IQ-FE-2]
     mode: execute
-    status: planned
+    status: ready_to_merge
     title: "feat(iq): add take page shell and attempt lifecycle"
     artifacts:
       - app/(localized)/[locale]/tests/[slug]/take/page.tsx

@@ -68,8 +68,8 @@ function buildAsset(locale: "zh-CN" | "en" = "en", slug = "accountants-and-audit
       isZh ? "美国、英国和欧盟来源各有统计口径。" : "US, UK, and EU references use different source boundaries.",
     ],
     sources: [
-      { source_id: "cn_001", market: "CN", name: "JobUI", url: "https://www.jobui.com/salary/quanguo-zhongjihuijishi/" },
-      { source_id: "us_001", market: "US", name: "BLS OOH", url: "https://www.bls.gov/ooh/business-and-financial/accountants-and-auditors.htm" },
+      { market: "CN", name: "JobUI", url: "https://www.jobui.com/salary/quanguo-zhongjihuijishi/" },
+      { market: "US", name: "BLS OOH", url: "https://www.bls.gov/ooh/business-and-financial/accountants-and-auditors.htm" },
     ],
   };
 }
@@ -125,9 +125,26 @@ describe("career salary asset preview consumer", () => {
     expect(asset?.locale).toBe("en");
   });
 
-  it("fetches and adapts the allowlisted staging preview asset by locale", async () => {
+  it("rejects staging preview salary assets even when the fetch flag is enabled", async () => {
     process.env.FAP_CAREER_SALARY_ASSET_PREVIEW_ENABLED = "true";
-    mockedGet.mockResolvedValueOnce({ ok: true, preview: true, salary_asset_v1: buildAsset("zh-CN") });
+    mockedGet.mockResolvedValueOnce({
+      ok: true,
+      preview: true,
+      status: "staging_preview",
+      salary_asset_v1: buildAsset("zh-CN"),
+    });
+
+    await expect(fetchCareerSalaryAssetPreview({ locale: "zh", slug: "accountants-and-auditors" })).resolves.toBeNull();
+  });
+
+  it("fetches and adapts the production imported asset by locale", async () => {
+    process.env.FAP_CAREER_SALARY_ASSET_PREVIEW_ENABLED = "true";
+    mockedGet.mockResolvedValueOnce({
+      ok: true,
+      preview: false,
+      status: "production_imported",
+      salary_asset_v1: buildAsset("zh-CN"),
+    });
 
     const asset = await fetchCareerSalaryAssetPreview({ locale: "zh", slug: "accountants-and-auditors" });
 
@@ -144,7 +161,12 @@ describe("career salary asset preview consumer", () => {
 
   it("fetches 1046-scale backend-governed preview assets beyond the original ten slug smoke list", async () => {
     process.env.FAP_CAREER_SALARY_ASSET_PREVIEW_ENABLED = "true";
-    mockedGet.mockResolvedValueOnce({ ok: true, preview: true, salary_asset_v1: buildAsset("en", "registered-nurses") });
+    mockedGet.mockResolvedValueOnce({
+      ok: true,
+      preview: false,
+      status: "production_imported",
+      salary_asset_v1: buildAsset("en", "registered-nurses"),
+    });
 
     const asset = await fetchCareerSalaryAssetPreview({ locale: "en", slug: "registered-nurses" });
 
