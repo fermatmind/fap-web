@@ -249,7 +249,7 @@ function buildV85PersonalitySectionShortcuts(
           },
           {
             key: "v85-safe-use",
-            label: "使用边界",
+            label: "使用方法",
             description: "常见问题",
             href: "#v8_5_module_10_faq_boundary",
             sectionKey: "v8_5_module_10_faq_boundary",
@@ -359,6 +359,115 @@ function buildV85PersonalitySectionShortcuts(
   return candidateLinks
     .filter((link) => sectionKeys.has(link.sectionKey))
     .map(({ sectionKey: _sectionKey, ...link }) => ({ ...link, kind: "anchor" as const }));
+}
+
+const V85_DUPLICATE_PROJECTION_SECTION_KEYS = new Set([
+  "overview",
+  "career.summary",
+  "career.advantages",
+  "career.weaknesses",
+  "career.preferred_roles",
+  "career.upgrade_suggestions",
+  "growth.summary",
+  "growth.strengths",
+  "growth.weaknesses",
+  "growth.motivators",
+  "growth.drainers",
+  "relationships.summary",
+  "relationships.strengths",
+  "relationships.weaknesses",
+  "relationships.rel_advantages",
+  "relationships.rel_risks",
+]);
+
+const V85_HIDDEN_READER_SECTION_KEYS = new Set([
+  "v8_5_ai_search_answer",
+  "v8_5_at_difference_scenarios",
+  "v8_5_search_user_paths",
+]);
+
+const V85_LEADING_PROJECTION_SECTION_KEYS = new Set([
+  "letters_intro",
+  "trait_overview",
+]);
+
+type PersonalityDimensionSummary = {
+  id: string;
+  label: string;
+  summary: string | null;
+  pct: number | null;
+};
+
+function normalizeProjectionPayloadText(value: unknown): string {
+  return typeof value === "string" ? value.replace(/\s+/g, " ").trim() : "";
+}
+
+function asProjectionPayloadRecord(value: unknown): Record<string, unknown> | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+
+  return value as Record<string, unknown>;
+}
+
+function buildPersonalityDimensionSummary(
+  projection: PersonalityProjection,
+  locale: Locale
+): PersonalityDimensionSummary[] {
+  const traitOverviewPayload = asProjectionPayloadRecord(
+    projection.sections.find((section) => section.key === "trait_overview")?.payload
+  );
+  const traitOverviewDimensions = Array.isArray(traitOverviewPayload?.dimensions)
+    ? traitOverviewPayload.dimensions
+    : [];
+  const dimensions = traitOverviewDimensions.length > 0 ? traitOverviewDimensions : projection.dimensions;
+
+  return dimensions
+    .map((rawDimension) => {
+      const dimension = asProjectionPayloadRecord(rawDimension);
+      if (!dimension) {
+        return null;
+      }
+
+      const id = normalizeProjectionPayloadText(dimension.id ?? dimension.code).toUpperCase();
+      const name = normalizeProjectionPayloadText(dimension.name ?? dimension.label);
+      const summary = normalizeProjectionPayloadText(dimension.summary) || null;
+      const rawPct = dimension.scorePct ?? dimension.score_pct ?? dimension.pct;
+      const pct = typeof rawPct === "number" && Number.isFinite(rawPct)
+        ? Math.max(8, Math.min(100, rawPct))
+        : null;
+      const label = locale === "zh" ? name || id : name || id;
+
+      if (!id && !label) {
+        return null;
+      }
+
+      return { id: id || label, label, summary, pct };
+    })
+    .filter((dimension): dimension is PersonalityDimensionSummary => dimension !== null)
+    .slice(0, 5);
+}
+
+function filterProjectionSectionsForDetail(
+  sections: PersonalityProjection["sections"],
+  hasAnswerSurfaceFaq: boolean,
+  hasV85SectionAuthority: boolean
+): PersonalityProjection["sections"] {
+  return sections.filter((section) => {
+    if (section.key === "quick_answer") {
+      return false;
+    }
+
+    if (hasAnswerSurfaceFaq && section.key === "faq" && section.render === "faq") {
+      return false;
+    }
+
+    if (hasV85SectionAuthority && V85_DUPLICATE_PROJECTION_SECTION_KEYS.has(section.key)) {
+      return false;
+    }
+
+    return true;
+  });
 }
 
 function shouldNoindex(robotsValue: string | null | undefined): boolean {
@@ -1094,13 +1203,22 @@ export default async function PersonalityDetailPage({
     { name: locale === "zh" ? "人格" : "Personality", path: localizedPath("/personality", locale) },
     { name: detail.displayType, path: canonicalPath },
   ]);
-  const renderedProjectionSections = renderProjectionSections(
-    answerSurfaceFaqItems.length
-      ? detail.projection.sections.filter((section) => !(section.key === "faq" && section.render === "faq") && section.key !== "quick_answer")
-      : detail.projection.sections.filter((section) => section.key !== "quick_answer"),
-    locale
+  const { v85Sections: authoredV85Sections, legacySections } = partitionPersonalitySectionsForV85(detail.supplementalSections);
+  const hasV85SectionAuthority = authoredV85Sections.length > 0;
+  const v85Sections = authoredV85Sections.filter((section) => !V85_HIDDEN_READER_SECTION_KEYS.has(section.sectionKey));
+  const filteredProjectionSections = filterProjectionSectionsForDetail(
+    detail.projection.sections,
+    answerSurfaceFaqItems.length > 0,
+    hasV85SectionAuthority
   );
-  const { v85Sections, legacySections } = partitionPersonalitySectionsForV85(detail.supplementalSections);
+  const leadingProjectionSections = hasV85SectionAuthority
+    ? filteredProjectionSections.filter((section) => V85_LEADING_PROJECTION_SECTION_KEYS.has(section.key))
+    : [];
+  const trailingProjectionSections = hasV85SectionAuthority
+    ? filteredProjectionSections.filter((section) => !V85_LEADING_PROJECTION_SECTION_KEYS.has(section.key))
+    : filteredProjectionSections;
+  const renderedLeadingProjectionSections = renderProjectionSections(leadingProjectionSections, locale);
+  const renderedProjectionSections = renderProjectionSections(trailingProjectionSections, locale);
   const renderedV85Sections = renderPersonalitySections(v85Sections, locale);
   const renderedSupplementalSections = renderPersonalitySections(
     [...legacySections.filter((section) => section.sectionKey !== "quick_answer"), ...detail.faqSections],
@@ -1157,13 +1275,16 @@ export default async function PersonalityDetailPage({
     ? buildV85PersonalitySectionShortcuts(locale, v85Sections)
     : legacyIntentLinks;
   const personalityBrowseHref = `${localizedPath("/personality", locale)}#type-groups`;
+  const baseDisplayType = detail.displayType.replace(/-[AT]$/i, "");
+  const variantComparisonLabel =
+    locale === "zh" ? `${baseDisplayType}-A 与 ${baseDisplayType}-T 对比` : `${baseDisplayType}-A vs ${baseDisplayType}-T`;
+  const dimensionSummary = buildPersonalityDimensionSummary(detail.projection, locale);
   const careerDirectionHref = fallbackProjectionGate.canRenderCareerOrRecommendationClaims
     ? localizedPath(`/career/recommendations/mbti/${detail.routeSlug}`, locale)
     : null;
-
   return (
     <main
-      className="mx-auto w-full max-w-7xl px-[var(--fm-container-gutter)] space-y-8 py-8 sm:py-10"
+      className="mx-auto w-full max-w-[86rem] px-[var(--fm-container-gutter)] space-y-8 py-8 sm:py-10"
       data-domain-id="self_understanding"
       data-domain-role="primary"
       data-domain-envelope-state="metadata_only"
@@ -1187,9 +1308,9 @@ export default async function PersonalityDetailPage({
         id="answer-first"
         className="overflow-hidden rounded-[1.5rem] bg-[#77608d] text-white shadow-[0_24px_70px_rgba(15,23,42,0.10)]"
       >
-        <div className="relative grid min-h-[18rem] gap-8 p-7 sm:p-10 md:grid-cols-[minmax(0,1fr)_16rem] md:items-center lg:min-h-[20rem] lg:p-14">
-          <div className="max-w-3xl space-y-5">
-            <h1 className="m-0 text-5xl font-semibold leading-[1.02] text-white sm:text-6xl">
+        <div className="relative grid min-h-[17rem] gap-8 p-7 sm:p-10 md:grid-cols-[minmax(0,1fr)_16rem] md:items-center lg:min-h-[18.5rem] lg:p-10 xl:p-12">
+          <div className="max-w-3xl space-y-4">
+            <h1 className="m-0 text-4xl font-semibold leading-[1.04] text-white sm:text-5xl">
               {heroHeadingSuffix ? (
                 <>
                   <span className="font-sans tracking-tight">{detail.displayType}</span>
@@ -1201,19 +1322,25 @@ export default async function PersonalityDetailPage({
             </h1>
             {locale !== "zh" && detail.summary ? <p className="m-0 text-lg leading-8 text-white/88">{detail.summary}</p> : null}
             {detail.heroSummary && detail.heroSummary !== detail.summary ? (
-              <p className="m-0 max-w-2xl text-lg leading-9 text-white/88">{detail.heroSummary}</p>
+              <p className="m-0 max-w-3xl text-base leading-8 text-white/88">{detail.heroSummary}</p>
             ) : null}
-            {detail.keywords.length > 0 ? (
-              <div className="flex flex-wrap gap-2 pt-1">
+            {(detail.rarity || detail.keywords.length > 0) ? (
+              <div className="flex flex-wrap gap-2.5 pt-3">
+                {detail.rarity ? (
+                  <span className="rounded-full bg-white/14 px-3.5 py-1.5 text-sm font-semibold text-white/92">
+                    {locale === "zh" ? "稀有度：" : "Rarity: "}
+                    {detail.rarity}
+                  </span>
+                ) : null}
                 {detail.keywords.slice(0, 5).map((keyword) => (
-                  <span key={keyword} className="rounded-full bg-white/12 px-3 py-1 text-xs font-semibold text-white/90">
+                  <span key={keyword} className="rounded-full bg-white/14 px-3.5 py-1.5 text-sm font-semibold text-white/92">
                     {keyword}
                   </span>
                 ))}
               </div>
             ) : null}
           </div>
-          <div className="w-full max-w-[16rem] justify-self-center space-y-3 md:justify-self-end">
+          <div className="w-full max-w-[16rem] justify-self-center space-y-3 md:mt-5 md:justify-self-end">
             {detail.heroImageUrl ? (
               <div
                 className="rounded-[2rem] border border-white/15 bg-white/10 p-4"
@@ -1238,88 +1365,9 @@ export default async function PersonalityDetailPage({
                 {detail.displayType}
               </div>
             )}
-            {(detail.typeName || detail.nickname || detail.rarity) ? (
-              <div className="space-y-1 rounded-2xl border border-white/15 bg-white/10 p-4 text-sm leading-6 text-white/82">
-                {detail.typeName ? (
-                  <p className="m-0">
-                    <span className="font-semibold text-white">{locale === "zh" ? "类型名称" : "Type name"}:</span>{" "}
-                    {detail.typeName}
-                  </p>
-                ) : null}
-                {detail.nickname ? (
-                  <p className="m-0">
-                    <span className="font-semibold text-white">{locale === "zh" ? "别名" : "Nickname"}:</span>{" "}
-                    {detail.nickname}
-                  </p>
-                ) : null}
-                {detail.rarity ? (
-                  <p className="m-0">
-                    <span className="font-semibold text-white">{locale === "zh" ? "稀有度" : "Rarity"}:</span>{" "}
-                    {detail.rarity}
-                  </p>
-                ) : null}
-              </div>
-            ) : null}
           </div>
         </div>
-        <div className="sr-only">
-          <nav
-            aria-label={locale === "zh" ? "人格页面重点入口" : "Personality page intent shortcuts"}
-            className="flex flex-wrap gap-2"
-            data-testid="personality-detail-intent-links"
-          >
-            {intentLinks.map((link) =>
-              link.kind === "test" ? (
-                <TrackedEntryCtaLink
-                  key={link.key}
-                  href={link.href}
-                  prefetch
-                  eventProperties={mbtiIntentCtaTrackingProps}
-                  className="rounded-full border border-[rgba(16,24,40,0.12)] bg-white px-4 py-2 text-sm font-semibold text-[var(--fm-accent)] transition hover:border-[var(--fm-accent)] hover:bg-[var(--fm-surface-muted)]"
-                >
-                  {link.label}
-                </TrackedEntryCtaLink>
-              ) : (
-                <Link
-                  key={link.key}
-                  href={link.href}
-                  className="rounded-full border border-[rgba(16,24,40,0.12)] bg-white px-4 py-2 text-sm font-semibold text-[var(--fm-accent)] transition hover:border-[var(--fm-accent)] hover:bg-[var(--fm-surface-muted)]"
-                >
-                  {link.label}
-                </Link>
-              )
-            )}
-          </nav>
-        <div
-          className="sr-only"
-          data-testid="personality-detail-section-map"
-          data-authority-source={detail.projection.meta.authoritySource ?? "cms_projection"}
-        >
-          {intentLinks.map((link) =>
-            link.kind === "test" ? (
-              <TrackedEntryCtaLink
-                key={`section-map-${link.key}`}
-                href={link.href}
-                prefetch
-                eventProperties={mbtiIntentCtaTrackingProps}
-                className="rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface-muted)] p-4 text-left text-sm transition hover:border-[var(--fm-accent)] hover:bg-white"
-              >
-                <span className="block font-semibold text-[var(--fm-text)]">{link.label}</span>
-                <span className="mt-1 block text-sm leading-6 text-[var(--fm-text-muted)]">{link.description}</span>
-              </TrackedEntryCtaLink>
-            ) : (
-              <Link
-                key={`section-map-${link.key}`}
-                href={link.href}
-                className="rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface-muted)] p-4 text-left text-sm transition hover:border-[var(--fm-accent)] hover:bg-white"
-              >
-                <span className="block font-semibold text-[var(--fm-text)]">{link.label}</span>
-                <span className="mt-1 block text-sm leading-6 text-[var(--fm-text-muted)]">{link.description}</span>
-              </Link>
-            )
-          )}
-        </div>
-        <div className="space-y-3 pt-1" data-testid="personality-detail-next-steps">
+        <div className="px-7 pb-7 sm:px-10 sm:pb-10 lg:px-14" data-testid="personality-detail-next-steps">
           <div
             className="flex flex-wrap items-center gap-3"
             data-testid="mbti-personality-entry-cta-group"
@@ -1331,7 +1379,7 @@ export default async function PersonalityDetailPage({
               </Link>
             ) : null}
             <Link href={personalityBrowseHref} className={buttonVariants({ variant: "outline", size: "sm" })}>
-              {locale === "zh" ? "返回 A/T 入口" : "Back to A/T variants"}
+              {variantComparisonLabel}
             </Link>
             <TrackedEntryCtaLink
               href={mbtiPrimaryCtaHref}
@@ -1344,48 +1392,11 @@ export default async function PersonalityDetailPage({
             </TrackedEntryCtaLink>
           </div>
         </div>
-        {(detail.typeName || detail.nickname || detail.rarity || detail.keywords.length > 0) ? (
-          <div className="space-y-3 rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface-muted)] p-4">
-            <div className="flex flex-wrap gap-3 text-sm text-[var(--fm-text-muted)]">
-              {detail.typeName ? (
-                <p className="m-0">
-                  <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "类型名称" : "Type name"}:</span>{" "}
-                  {detail.typeName}
-                </p>
-              ) : null}
-              {detail.nickname ? (
-                <p className="m-0">
-                  <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "别名" : "Nickname"}:</span>{" "}
-                  {detail.nickname}
-                </p>
-              ) : null}
-              {detail.rarity ? (
-                <p className="m-0">
-                  <span className="font-medium text-[var(--fm-text)]">{locale === "zh" ? "稀有度" : "Rarity"}:</span>{" "}
-                  {detail.rarity}
-                </p>
-              ) : null}
-            </div>
-            {detail.keywords.length > 0 ? (
-              <div className="flex flex-wrap gap-2">
-                {detail.keywords.map((keyword) => (
-                  <span
-                    key={keyword}
-                    className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-1 text-xs font-medium text-[var(--fm-text)]"
-                  >
-                    {keyword}
-                  </span>
-                ))}
-              </div>
-            ) : null}
-          </div>
-        ) : null}
         {detail.heroQuote ? (
           <blockquote className="m-0 rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface-muted)] p-4 text-sm italic text-[var(--fm-text-muted)]">
             {detail.heroQuote}
           </blockquote>
         ) : null}
-        </div>
       </section>
 
       <nav
@@ -1420,76 +1431,133 @@ export default async function PersonalityDetailPage({
 
       {hasV85Sections ? (
         <div
-          className="grid gap-10 lg:grid-cols-[14rem_minmax(0,42rem)] lg:items-start"
+          className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] xl:grid-cols-[14rem_minmax(0,48rem)_17rem] xl:items-start"
           data-testid="personality-detail-v85-reading-layout"
         >
           <aside
             className="sticky top-24 hidden lg:block"
-            data-testid="personality-detail-left-toc"
+            data-testid="personality-detail-section-map"
           >
-            <p className="m-0 pb-3 text-base font-semibold text-[#2f3744]">
-              {locale === "zh" ? "阅读目录" : "Explore this type"}
-            </p>
-            <nav aria-label={locale === "zh" ? "人格页面阅读目录" : "Personality page reading menu"} className="mt-2">
-              <ul className="m-0 list-none space-y-0 p-0">
-                {intentLinks.map((link) => (
-                  <li key={`toc-${link.key}`}>
-                    {link.kind === "test" ? (
-                      <TrackedEntryCtaLink
-                        href={link.href}
-                        prefetch
-                        eventProperties={mbtiIntentCtaTrackingProps}
-                        className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
-                      >
-                        <span>{link.label}</span>
-                        <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
-                          →
-                        </span>
-                      </TrackedEntryCtaLink>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
-                      >
-                        <span>{link.label}</span>
-                        <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
-                          →
-                        </span>
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            <div data-testid="personality-detail-left-toc">
+              <p className="m-0 pb-3 text-base font-semibold text-[#2f3744]">
+                {locale === "zh" ? "阅读目录" : "Explore this type"}
+              </p>
+              <nav aria-label={locale === "zh" ? "人格页面阅读目录" : "Personality page reading menu"} className="mt-2">
+                <ul className="m-0 list-none space-y-0 p-0">
+                  {intentLinks.map((link) => (
+                    <li key={`toc-${link.key}`}>
+                      {link.kind === "test" ? (
+                        <TrackedEntryCtaLink
+                          href={link.href}
+                          prefetch
+                          eventProperties={mbtiIntentCtaTrackingProps}
+                          className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
+                        >
+                          <span>{link.label}</span>
+                          <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
+                            →
+                          </span>
+                        </TrackedEntryCtaLink>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
+                        >
+                          <span>{link.label}</span>
+                          <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
+                            →
+                          </span>
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
           </aside>
-          <section className="w-full min-w-0 space-y-0" data-testid="personality-detail-v85-primary-sections">
+          <section className="w-full min-w-0 space-y-8" data-testid="personality-detail-v85-primary-sections">
+            {renderedLeadingProjectionSections}
             {renderedV85Sections}
           </section>
+          <aside
+            className="sticky top-24 hidden space-y-4 xl:block"
+            data-testid="personality-detail-right-summary"
+          >
+            {dimensionSummary.length > 0 ? (
+              <section
+                className="rounded-[1.25rem] border border-[rgba(16,24,40,0.10)] bg-white p-5 shadow-[0_12px_35px_rgba(15,23,42,0.06)]"
+                data-testid="personality-detail-dimension-overview"
+              >
+                <p className="m-0 text-sm font-semibold text-[#263241]">
+                  {locale === "zh" ? "维度概览" : "Dimension overview"}
+                </p>
+                <dl className="m-0 mt-4 space-y-3">
+                  {dimensionSummary.map((dimension) => {
+                    const poles = dimension.id.length === 2 ? dimension.id.split("") : [];
+                    const selectedPole = poles.find((pole) => detail.displayType.toUpperCase().includes(pole));
+
+                    return (
+                      <div key={dimension.id} className="border-b border-[rgba(16,24,40,0.08)] pb-3 last:border-b-0 last:pb-0">
+                        <dt
+                          className="text-sm font-semibold text-[#263241]"
+                          aria-label={dimension.summary ? `${dimension.summary}：${dimension.label}` : undefined}
+                        >
+                          {dimension.summary || dimension.label}
+                        </dt>
+                        <dd className="m-0 mt-2 h-1.5 overflow-hidden rounded-full bg-[#e8e5ea]">
+                          <span
+                            className="block h-full rounded-full bg-[#76598d]"
+                            style={{ width: `${dimension.pct ?? 72}%` }}
+                          />
+                        </dd>
+                        {poles.length === 2 ? (
+                          <dd className="m-0 mt-1 flex items-center justify-between text-[11px] font-semibold text-[#9aa39d]">
+                            {poles.map((pole) => (
+                              <span
+                                key={`${dimension.id}-${pole}`}
+                                className={pole === selectedPole ? "text-[#76598d]" : undefined}
+                              >
+                                {pole}
+                              </span>
+                            ))}
+                          </dd>
+                        ) : null}
+                      </div>
+                    );
+                  })}
+                </dl>
+              </section>
+            ) : null}
+          </aside>
         </div>
       ) : null}
 
-      <MbtiSceneEntrySection
-        locale={locale}
-        sourcePageType="personality_detail"
-        blocks={detail.answerSurface?.sceneSummaryBlocks}
-        testId="personality-detail-scene-entry"
-      />
+      {!hasV85Sections ? (
+        <MbtiSceneEntrySection
+          locale={locale}
+          sourcePageType="personality_detail"
+          blocks={detail.answerSurface?.sceneSummaryBlocks}
+          testId="personality-detail-scene-entry"
+        />
+      ) : null}
       <div className="space-y-5">
         {hasRenderableContent ? (
           <>
             {!hasV85Sections ? renderedV85Sections : null}
             {renderedProjectionSections}
             {renderedSupplementalSections}
-            <AnswerSurfaceSection
-              surface={detail.answerSurface}
-              locale={locale}
-              testId="personality-detail-answer-surface"
-              pageFamily="personality_detail"
-              hideHeading={locale === "zh"}
-              hideCompareLabel={locale === "zh"}
-              hideSceneLabel={locale === "zh"}
-              hideSummaryLabel={locale === "zh"}
-            />
+            {!hasV85Sections ? (
+              <AnswerSurfaceSection
+                surface={detail.answerSurface}
+                locale={locale}
+                testId="personality-detail-answer-surface"
+                pageFamily="personality_detail"
+                hideHeading={locale === "zh"}
+                hideCompareLabel={locale === "zh"}
+                hideSceneLabel={locale === "zh"}
+                hideSummaryLabel={locale === "zh"}
+              />
+            ) : null}
           </>
         ) : (
           <Card>

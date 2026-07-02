@@ -74,15 +74,9 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/articles/eq-test-tool-guide", label: "EQ 工具说明" },
     ],
     personality: [
-      { href: "/personality", label: "全部人格画像" },
+      { href: "/personality", label: "16型人格" },
       { href: "/personality/big-five", label: "大五人格（OCEAN）" },
       { href: "/personality/enneagram", label: "九型人格" },
-      { href: "/personality#nt", label: "分析家（NT）" },
-      { href: "/personality#nf", label: "外交家（NF）" },
-      { href: "/personality#sj", label: "守护者（SJ）" },
-      { href: "/personality#sp", label: "探索者（SP）" },
-      { href: "/topics/mbti", label: "MBTI 主题中心" },
-      { href: "/career/recommendations", label: "职业推荐" },
     ],
     career: [
       { href: "/career/jobs", label: "全部职业库" },
