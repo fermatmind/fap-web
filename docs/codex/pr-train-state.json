@@ -35699,7 +35699,7 @@
       "PR-CAREER-KG-05"
     ],
     "status": "in_progress",
-    "commit_sha": null,
+    "commit_sha": "e6c43e12ec0a48ae51aff94f71c8a21942f99261",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -35742,7 +35742,7 @@
           "pnpm test:contract",
           "git diff --check"
         ],
-        "evidence": "YAML parse passed; JSON parse passed; focused PR-CAREER-KG-06 contract passed 5 tests; pnpm typecheck passed; production-API build passed; first full pnpm test:contract run exposed the known unrelated MBTI share consumer flaky spy failure, the failing file passed on focused rerun, and the second full pnpm test:contract run passed 618 files and 3625 tests; git diff --check passed."
+        "evidence": "YAML parse passed; JSON parse passed; focused PR-CAREER-KG-06 contract passed 5 tests; pnpm typecheck passed; production-API build passed; first full pnpm test:contract run exposed the known unrelated MBTI share consumer flaky spy failure, the failing file passed on focused rerun, and the second full pnpm test:contract run passed 618 files and 3625 tests. After origin/main advanced to af975726, the PR branch was rebased cleanly; YAML/JSON parse, focused contract, typecheck, production-API build, and full pnpm test:contract were rerun on the rebased branch, with the full suite passing 619 files and 3628 tests; git diff --check passed."
       },
       "scope_validation": {
         "status": "pass",
@@ -35789,6 +35789,18 @@
         "at": "2026-07-02T16:51:30Z",
         "status": "scope_validation_passed",
         "notes": "Changed-file scope validation passed for exactly the 11 PR-CAREER-KG-06 authorized files, including the ignored generated artifact package."
+      },
+      {
+        "at": "2026-07-02T16:52:10Z",
+        "status": "committed",
+        "commit_sha": "e6c43e12ec0a48ae51aff94f71c8a21942f99261",
+        "notes": "Committed PR-CAREER-KG-06 implementation and local validation evidence. This SHA is the rebased implementation commit before the ledger-only commit that records it."
+      },
+      {
+        "at": "2026-07-02T16:55:30Z",
+        "status": "rebased_on_latest_main",
+        "base_commit_sha": "af975726",
+        "notes": "Rebased PR-CAREER-KG-06 onto latest origin/main after SECURITY-122-WEB-01 merged. Rebase completed without conflicts; PR06 scope remained the authorized career KG files and metadata."
       }
     ]
   }
