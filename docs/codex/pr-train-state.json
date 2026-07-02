@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-02T18:51:00Z",
+  "updated_at": "2026-07-02T18:53:00Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12612,7 +12612,7 @@
       "depends_on": [
         "SECURITY-122-WEB-04"
       ],
-      "status": "committed",
+      "status": "pr_opened",
       "train_scope": "security_122_web_cms_url_field_allowlists_rendered_content_crash_guards",
       "risk_level": "high",
       "title": "SECURITY-122-WEB-05: CMS URL/field allowlists and rendered-content crash guards",
@@ -12658,7 +12658,7 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1539",
       "commit_sha": "af5ded6ba592e171bcccc91ebe833cc63b297a64",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -12683,6 +12683,11 @@
           "at": "2026-07-02T18:51:00Z",
           "status": "committed",
           "summary": "Committed SECURITY-122-WEB-05 implementation as af5ded6ba592e171bcccc91ebe833cc63b297a64 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-07-02T18:53:00Z",
+          "status": "pr_opened",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/1539 for SECURITY-122-WEB-05 after local checks and scope validation passed."
         }
       ],
       "sidecar_issues": [],
