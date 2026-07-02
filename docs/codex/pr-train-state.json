@@ -37183,7 +37183,7 @@
     "train_scope": "career_kg_mining_geological_engineers_asset_package",
     "depends_on": ["PR-CAREER-KG-13"],
     "status": "in_progress",
-    "commit_sha": "0e1c3786bc3e5cb3b28b04e704665653d3d1f421",
+    "commit_sha": "5cb2dd10a63e7e36ca21c1a95232d7372b7a957a",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -37226,7 +37226,7 @@
           "pnpm test:contract",
           "git diff --check"
         ],
-        "evidence": "YAML/JSON validation passed; focused PR14 contract passed with 5 tests; pnpm typecheck passed; production-API build passed with 202 generated pages; full pnpm test:contract passed with 634 files and 3703 tests; git diff --check passed."
+        "evidence": "YAML/JSON validation passed after rebasing onto origin/main aaa054f3; focused PR14 contract passed with 5 tests; pnpm typecheck passed; production-API build passed with 202 generated pages; full pnpm test:contract passed with 635 files and 3707 tests; git diff --check passed."
       },
       "scope_validation": {
         "status": "pass",
@@ -37271,6 +37271,11 @@
         "at": "2026-07-02T20:46:02Z",
         "status": "committed",
         "notes": "Validated implementation commit 0e1c3786bc3e5cb3b28b04e704665653d3d1f421 created before this ledger-only record."
+      },
+      {
+        "at": "2026-07-02T20:55:41Z",
+        "status": "rebased_and_revalidated",
+        "notes": "Rebased PR14 onto origin/main after external SECURITY-122-WEB-08 merge aaa054f3; reran YAML/JSON, focused PR14 contract, pnpm typecheck, production-API build, full contract suite with 635 files and 3707 tests, git diff --check, and scope validation. Rebased implementation commit is 5cb2dd10a63e7e36ca21c1a95232d7372b7a957a."
       }
     ]
   }
