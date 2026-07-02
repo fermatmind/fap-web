@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-02T15:05:30Z",
+  "updated_at": "2026-07-02T15:07:00Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -34172,9 +34172,9 @@
     "depends_on": [
       "PR-CAREER-KG-01"
     ],
-    "status": "in_progress",
+    "status": "pr_open",
     "commit_sha": "f83ecdc7742e748679c0f4346279057c6d91f210",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1523",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -34258,6 +34258,13 @@
         "status": "committed",
         "commit_sha": "f83ecdc7742e748679c0f4346279057c6d91f210",
         "notes": "Committed PR-CAREER-KG-02 implementation and local validation evidence. This SHA is the implementation commit before the ledger-only commit that records it."
+      },
+      {
+        "at": "2026-07-02T15:07:00Z",
+        "status": "pr_open",
+        "commit_sha": "b9debfebe4fc3e2191cae899cc8fc0a8a2cc8dfd",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1523",
+        "notes": "Opened PR #1523 for PR-CAREER-KG-02 after required local checks and scope validation passed. This records the pre-PR ledger head; the PR URL ledger update itself is committed afterward on the same branch."
       }
     ]
   }
