@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-02T16:32:44Z",
+  "updated_at": "2026-07-02T16:40:09Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12159,7 +12159,7 @@
       "branch": "codex/security-122-web-01",
       "base": "main",
       "depends_on": [],
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "train_scope": "security_122_web_deploy_workflow_ssh_secret_dispatch_hardening",
       "risk_level": "critical",
       "title": "SECURITY-122-WEB-01: deploy workflow / SSH secret / dispatch hardening",
@@ -12198,13 +12198,21 @@
           ]
         },
         "github": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "CodeQL",
+            "analyze (javascript-typescript)",
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze"
+          ],
+          "evidence": "GitHub checks passed for PR #1528; a final ledger-only head rerun is required before merge."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1528",
-      "commit_sha": "e4d1465aa3092186be88daf51c03c369c277c7ae",
+      "commit_sha": "c73d12344d7ce5d16cdbd1f101f8cce5997b4657",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -12224,10 +12232,16 @@
           "status": "pr_opened",
           "commit_sha": "e4d1465aa3092186be88daf51c03c369c277c7ae",
           "summary": "Opened PR #1528 for SECURITY-122-WEB-01 reconciliation; GitHub checks pending."
+        },
+        {
+          "at": "2026-07-02T16:39:47Z",
+          "status": "ready_to_merge",
+          "summary": "GitHub required checks passed for PR #1528; recorded ready_to_merge before final ledger-only head rerun and merge.",
+          "commit_sha": "c73d12344d7ce5d16cdbd1f101f8cce5997b4657"
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:32:44Z"
+      "updated_at": "2026-07-02T16:40:09Z"
     },
     {
       "id": "SECURITY-122-WEB-02",
