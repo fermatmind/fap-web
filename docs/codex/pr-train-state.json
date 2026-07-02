@@ -13067,7 +13067,7 @@
       "depends_on": [
         "SECURITY-122-WEB-08"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "train_scope": "security_122_web_ai_iq_salary_public_asset_exposure_claim_gates",
       "risk_level": "medium",
       "title": "SECURITY-122-WEB-09: AI/IQ/salary public asset exposure and claim gates",
@@ -13112,8 +13112,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1548",
+      "commit_sha": "c99418e3b7a60a195119ff2ab64a6885b98c3512",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -13132,10 +13132,15 @@
           "at": "2026-07-02T20:57:04Z",
           "status": "local_checks_passed",
           "summary": "Completed WEB-09 implementation and local validation: focused AI/IQ/salary guards, impacted existing contracts, typecheck, production build, full contract suite, manifest/state parse, diff check, and changed-file scope validation passed."
+        },
+        {
+          "at": "2026-07-02T21:03:03Z",
+          "status": "pr_opened",
+          "summary": "Opened PR #1548 for SECURITY-122-WEB-09 from branch codex/security-122-web-09 after local checks and scope validation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T20:57:04Z"
+      "updated_at": "2026-07-02T21:03:03Z"
     },
     {
       "id": "SECURITY-122-WEB-10",
