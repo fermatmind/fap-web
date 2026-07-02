@@ -136,7 +136,7 @@ describe("SEO Agent weekly automation control packet", () => {
     const result = runChecker(writeTempPacket(packet));
 
     expect(result.status).not.toBe(0);
-    expect(result.stdout).toContain("mutation-sensitive candidate cannot be GO");
+    expect(result.stdout).toContain("mutation-sensitive candidate must remain hold/block/evidence-gated");
   });
 
   it("does not edit local automation TOML or runtime SEO behavior", () => {

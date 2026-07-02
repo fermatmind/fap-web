@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T01:22:40+08:00",
+  "updated_at": "2026-07-03T01:50:10+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12259,7 +12259,7 @@
       "depends_on": [
         "SECURITY-122-WEB-01"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_result_report_pdf_access_token_private_link_redaction",
       "risk_level": "critical",
       "title": "SECURITY-122-WEB-02: result/report/PDF access-token and private-link redaction",
@@ -12313,10 +12313,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1530",
-      "commit_sha": "92f53c0a7b953b266ceb33f3bbff48889cb872e0",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "be29a14f9be2bdd0a841b9f515010a9ad45234c6",
+      "merged_at": "2026-07-02T17:24:06Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -12347,10 +12347,16 @@
           "at": "2026-07-03T01:22:40+08:00",
           "status": "ready_to_merge",
           "summary": "PR #1530 scope revalidation passed and GitHub mergeStateStatus is CLEAN; ready for squash merge after ledger update checks pass."
+        },
+        {
+          "at": "2026-07-03T01:34:20+08:00",
+          "status": "merged_reconciled_for_security_122_web_03",
+          "summary": "Reconciled SECURITY-122-WEB-02 after PR #1530 merged at 2026-07-02T17:24:06Z with merge commit 6466348dac5ce0a658cead79e6ea18b78599cae8; origin/main contains the merge commit, local main is synced, and local/remote task branches are deleted."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T01:22:40+08:00"
+      "updated_at": "2026-07-03T01:34:20+08:00",
+      "merge_sha": "6466348dac5ce0a658cead79e6ea18b78599cae8"
     },
     {
       "id": "SECURITY-122-WEB-03",
@@ -12361,7 +12367,7 @@
       "depends_on": [
         "SECURITY-122-WEB-02"
       ],
-      "status": "planned",
+      "status": "ready_to_merge",
       "train_scope": "security_122_web_seo_agent_approval_gates_ops_audit_metadata_redaction",
       "risk_level": "high",
       "title": "SECURITY-122-WEB-03: SEO agent approval gates and ops/audit metadata redaction",
@@ -12381,21 +12387,40 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-02 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-02 merged via PR #1530 at 2026-07-02T17:24:06Z; origin/main contains 6466348dac5ce0a658cead79e6ea18b78599cae8."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "node --check scripts/seo/generate-seo-agent-fapweb-code-pr-writer.mjs && node --check scripts/seo/check-seo-agent-weekly-control-packet.mjs",
+            "rg -n \"/Users|/private/tmp|\\.codex/automations|[0-9a-f]{40}\" docs/seo/agent/SEO_AGENT_PR_DECOMPOSITION_2026-06-20.md docs/seo/agent/evidence/pr_decomposition.json docs/seo/agent/examples/seo-agent-control-packet.weekly.example.json (no matches)",
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-03-seo-agent-approval-redaction.contract.test.ts tests/contracts/seo-agent-fapweb-code-pr-writer.contract.test.ts tests/contracts/seo-agent-weekly-control-packet.contract.test.ts tests/contracts/seo-agent-gpt55-handoff.contract.test.ts tests/contracts/iq-bank-display-model.contract.test.ts",
+            "/usr/local/bin/pnpm typecheck",
+            "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+            "/usr/local/bin/pnpm test:contract",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "changed-file scope validation for SECURITY-122-WEB-03"
+          ],
+          "evidence": "Full contract suite passed: 622 test files, 3642 tests. SECURITY-122-WEB-03 scope validation passed."
         },
         "github": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "CodeQL",
+            "analyze (javascript-typescript)",
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze"
+          ],
+          "evidence": "gh pr checks 1533 --watch=false returned all checks passing for head 768a605b07c946ca6282eaad65e59c9bf895191d; gh pr view reported mergeStateStatus CLEAN."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1533",
+      "commit_sha": "768a605b07c946ca6282eaad65e59c9bf895191d",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -12404,10 +12429,35 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-03 from explicit user /goal; execution waits for SECURITY-122-WEB-02 merge."
+        },
+        {
+          "at": "2026-07-03T01:34:20+08:00",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-03 from latest main after WEB-02 post-merge revalidation; implementing SEO agent approval gates, artifact/audit metadata redaction, weekly mutation guards, and IQ bank metadata redaction only."
+        },
+        {
+          "at": "2026-07-03T01:39:20+08:00",
+          "status": "local_checks_passed",
+          "summary": "WEB-03 script syntax checks, artifact redaction scan, focused contracts, typecheck, production API build, full contract suite, manifest/state parse, diff check, and changed-file scope validation passed."
+        },
+        {
+          "at": "2026-07-03T01:42:10+08:00",
+          "status": "pr_opened",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/1533 from 1b827f53851684c08d195cee1effd5dadadaa657 after local checks and SECURITY-122-WEB-03 scope validation passed."
+        },
+        {
+          "at": "2026-07-03T01:50:10+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub checks passed for PR #1533: CodeQL, analyze, build, contracts, Big Five freeze, and Enneagram freeze."
+        },
+        {
+          "at": "2026-07-03T01:50:10+08:00",
+          "status": "ready_to_merge",
+          "summary": "PR #1533 scope revalidation passed and GitHub mergeStateStatus is CLEAN; ready for squash merge after ledger update checks pass."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T01:50:10+08:00"
     },
     {
       "id": "SECURITY-122-WEB-04",

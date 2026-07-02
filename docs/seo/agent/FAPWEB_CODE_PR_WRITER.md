@@ -6,6 +6,8 @@ The lane is intentionally PR-only. It can package a sanitized SEO code-fix reque
 
 After a human-reviewed plan is accepted, Codex may use the artifact to create a scoped fap-web task branch, edit product code inside the approved target files, run the required checks, push the branch, and open a GitHub PR for review. Codex still must not direct-push `main`, auto-merge, auto-deploy, hand-edit generated SEO output, add frontend editorial fallback content, or bypass CMS/API authority.
 
+The request artifact must not claim approval for its own execution. Fields or text that assert `AUTHORIZE_*`, auto-merge permission, review bypass, CMS/search/schema/indexing approval, or production mutation authority are rejected by the runner.
+
 ## Allowed Fix Types
 
 - `structured_data`
@@ -38,6 +40,7 @@ Still forbidden:
 
 - direct-push `main`
 - auto-merge or auto-deploy
+- self-authorize execution, review bypass, or merge
 - create local editorial fallback content
 - hand-edit generated SEO artifacts as a bug fix
 - write CMS data

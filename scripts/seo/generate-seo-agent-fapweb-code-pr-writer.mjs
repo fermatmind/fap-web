@@ -49,6 +49,37 @@ const FORBIDDEN_PATTERNS = [
   /password/i,
 ];
 
+const ALLOWED_REQUEST_KEYS = new Set([
+  "schema_version",
+  "request_id",
+  "fix_type",
+  "scope_summary",
+  "base_branch",
+  "branch_name",
+  "target_files",
+  "evidence_refs",
+  "direct_main_push_allowed",
+  "auto_deploy_allowed",
+]);
+
+const SELF_AUTHORIZATION_KEY_PATTERNS = [
+  /approval/i,
+  /authorization/i,
+  /approved/i,
+  /review_decision/i,
+  /merge_policy/i,
+  /auto_merge/i,
+  /bypass/i,
+  /override/i,
+];
+
+const SELF_AUTHORIZATION_VALUE_PATTERNS = [
+  /AUTHORIZE_(?:CMS|SEARCH|SCHEMA|HREFLANG|INDEX|PRODUCTION|DEPLOY|MERGE)/i,
+  /\b(?:approved|authorized)\s+(?:by|for)\b/i,
+  /\b(?:auto[-_ ]?merge|merge without review|bypass review)\b/i,
+  /\b(?:go for execution|approve execution)\b/i,
+];
+
 function printHelp() {
   console.log(`Usage: node scripts/seo/generate-seo-agent-fapweb-code-pr-writer.mjs --request=<request.json> --artifact-dir=<dir> [--json]
 
@@ -144,6 +175,37 @@ function scanForbiddenStrings(value) {
   return matches;
 }
 
+function collectSelfAuthorizationClaims(value, pathSegments = [], issues = []) {
+  if (typeof value === "string") {
+    const match = SELF_AUTHORIZATION_VALUE_PATTERNS.find((pattern) => pattern.test(value));
+    if (match) {
+      issues.push(`${pathSegments.join(".") || "<root>"} contains self-authorization language: ${match.source}`);
+    }
+    return issues;
+  }
+
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => collectSelfAuthorizationClaims(item, [...pathSegments, String(index)], issues));
+    return issues;
+  }
+
+  if (!value || typeof value !== "object") {
+    return issues;
+  }
+
+  for (const [key, nestedValue] of Object.entries(value)) {
+    const keyPath = [...pathSegments, key].join(".");
+    const isAllowedTopLevel = pathSegments.length === 0 && ALLOWED_REQUEST_KEYS.has(key);
+    const hasSelfAuthKey = SELF_AUTHORIZATION_KEY_PATTERNS.some((pattern) => pattern.test(key));
+    if (!isAllowedTopLevel && hasSelfAuthKey && nestedValue !== false && nestedValue !== null && nestedValue !== "") {
+      issues.push(`${keyPath} is not an accepted request field and may not claim approval or override authority`);
+    }
+    collectSelfAuthorizationClaims(nestedValue, [...pathSegments, key], issues);
+  }
+
+  return issues;
+}
+
 function validateTargetFile(file) {
   const normalized = normalizePath(file);
   if (!normalized || normalized.includes("..") || path.isAbsolute(normalized)) {
@@ -198,6 +260,11 @@ function collectIssues(request) {
   const forbiddenMatches = scanForbiddenStrings(request);
   if (forbiddenMatches.length > 0) {
     issues.push(`request contains forbidden secret/raw URL markers: ${forbiddenMatches.join(", ")}`);
+  }
+
+  const selfAuthorizationClaims = collectSelfAuthorizationClaims(request);
+  if (selfAuthorizationClaims.length > 0) {
+    issues.push(`request contains forbidden self-authorization claims: ${selfAuthorizationClaims.join("; ")}`);
   }
 
   return issues;

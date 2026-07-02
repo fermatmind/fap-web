@@ -8710,7 +8710,7 @@ prs:
     mode: execute
     train_scope: security_122_web_result_report_pdf_access_token_private_link_redaction
     risk_level: critical
-    status: in_progress
+    status: merged
     title: "SECURITY-122-WEB-02: result/report/PDF access-token and private-link redaction"
     findings:
       - "findings 4,5,7,9,10,11"
@@ -8748,7 +8748,7 @@ prs:
     mode: execute
     train_scope: security_122_web_seo_agent_approval_gates_ops_audit_metadata_redaction
     risk_level: high
-    status: planned
+    status: in_progress
     title: "SECURITY-122-WEB-03: SEO agent approval gates and ops/audit metadata redaction"
     findings:
       - "findings 8,12,19,25,44,91"

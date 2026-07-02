@@ -22,16 +22,16 @@
   "repositories": [
     {
       "name": "fap-web",
-      "path": "/private/tmp/fap-web-seo-agent-control-packet-01",
+      "path": "<redacted-fap-web-worktree>",
       "branch": "codex/seo-agent-control-packet-01",
-      "head_sha": "a6e5fe505e9f3c10c6d834a9178208f6ee012ca3",
+      "head_sha": "<redacted-sha>",
       "status": "clean"
     },
     {
       "name": "fap-api",
-      "path": "/private/tmp/fap-api-seo-agent-mvp0-evidence-closure-01",
+      "path": "<redacted-fap-api-worktree>",
       "branch": "detached_origin_main",
-      "head_sha": "2fe2c8da251a0e97b0aa9da6282dee5ec6bbb81e",
+      "head_sha": "<redacted-sha>",
       "status": "clean"
     }
   ],
@@ -97,7 +97,7 @@
       "id": "evidence-weekly-automation-readonly",
       "source_id": "weekly-automation",
       "evidence_label": "VERIFIED",
-      "file_path": "/Users/rainie/.codex/automations/weekly-fermatmind-seo-analysis-and-optimization-plan/automation.toml",
+      "file_path": "<redacted-local-automation-config-path>",
       "summary": "Existing weekly automation is active and hard-bounded as read-only."
     },
     {
@@ -111,7 +111,7 @@
       "id": "evidence-gsc-fixture-collector",
       "source_id": "gsc-live-data",
       "evidence_label": "VERIFIED",
-      "file_path": "backend/app/Services/SeoIntel/GscCollector.php",
+      "file_path": "<redacted-fap-api-seo-intel-gsc-collector>",
       "summary": "Repo evidence indicates fixture-only GSC collector behavior; live row freshness remains unverified."
     }
   ],
