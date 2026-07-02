@@ -36081,8 +36081,8 @@
     "depends_on": [
       "PR-CAREER-KG-07"
     ],
-    "status": "pr_open",
-    "commit_sha": "0df259e7942e0d30fd164a8090b9253234882449",
+    "status": "ready_to_merge",
+    "commit_sha": "80e1386982c7d08831fb1f1232bc5ad987603571",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1534",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -36132,13 +36132,13 @@
         "evidence": "Changed-file scope validation passed for exactly the 11 PR-CAREER-KG-08 authorized files, including the ignored generated/career-kg-pr-08-aerospace-engineers files discovered with git ls-files --others --ignored --exclude-standard."
       },
       "github_checks": {
-        "status": "pending",
-        "head_sha": "0df259e7942e0d30fd164a8090b9253234882449",
-        "evidence": "PR #1534 opened; waiting for GitHub checks. Staging deploy is intentionally not waited on."
+        "status": "pass",
+        "head_sha": "80e1386982c7d08831fb1f1232bc5ad987603571",
+        "evidence": "PR #1534 checks passed for build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL on head 80e1386982c7d08831fb1f1232bc5ad987603571. Staging deploy was not waited on."
       },
       "merge_readiness": {
-        "status": "pending",
-        "evidence": null
+        "status": "pass",
+        "evidence": "Post-check review confirmed mergeStateStatus CLEAN, PR is not draft, and changed-file scope remains exactly the 11 authorized PR-CAREER-KG-08 files."
       }
     },
     "scope_validation": {
@@ -36207,6 +36207,13 @@
         "commit_sha": "0df259e7942e0d30fd164a8090b9253234882449",
         "pr_url": "https://github.com/fermatmind/fap-web/pull/1534",
         "notes": "Pushed PR-CAREER-KG-08 branch and opened fap-web PR #1534. GitHub checks are pending; staging deploy is not waited on."
+      },
+      {
+        "at": "2026-07-02T18:08:23Z",
+        "status": "ready_to_merge",
+        "commit_sha": "80e1386982c7d08831fb1f1232bc5ad987603571",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1534",
+        "notes": "Required GitHub checks passed, CodeQL passed, scope validation remained exactly the 11 authorized files, and GitHub merge state was CLEAN. Staging deploy was not waited on."
       }
     ]
   }
