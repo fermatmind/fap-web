@@ -1273,6 +1273,16 @@ const SECURITY_122_WEB_07_ALLOWED_FILES = new Set([
   "tests/contracts/security-122-web-07-tracking-attribution-sanitization.contract.test.ts",
 ]);
 
+const SECURITY_122_WEB_08_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/foundation/dailyGiving.ts",
+  "proxy.ts",
+  "scripts/ops/check-mbti-pdf-print-asset-hash.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-122-web-08-daily-giving-guards.contract.test.ts",
+]);
+
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
   "components/result/eq/EQEvidenceSnapshot.tsx",
   "components/result/eq/types.ts",
@@ -3759,6 +3769,14 @@ export function isSecurity122Web07AllowedFile(file: string): boolean {
   return SECURITY_122_WEB_07_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity122Web08AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-122-web-08") {
+    return true;
+  }
+
+  return SECURITY_122_WEB_08_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -4751,6 +4769,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/security-122-web-07") {
     return SECURITY_122_WEB_07_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/security-122-web-08") {
+    return SECURITY_122_WEB_08_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {

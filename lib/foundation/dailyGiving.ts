@@ -57,6 +57,10 @@ type MonthsResponse = {
   data?: unknown;
 };
 
+const SAFE_CURRENCY_CODE_PATTERN = /^[A-Z]{3}$/;
+const PRIVATE_PROOF_PATH_PATTERN = /(^|\/)(?:private|raw)(?:\/|-|$)|proof_private|raw-receipt/i;
+const SIGNED_PROOF_QUERY_KEY_PATTERN = /^(?:token|signature|expires|expires_at|x-amz-|x-oss-|credential|policy|key-pair-id)$/i;
+
 function asObject(value: unknown): ApiObject | null {
   return value && typeof value === "object" && !Array.isArray(value) ? (value as ApiObject) : null;
 }
@@ -92,6 +96,11 @@ function firstNumber(source: ApiObject, keys: string[], fallback: number | null 
   return fallback;
 }
 
+function normalizeDailyGivingCurrency(value: unknown, fallback = "USD"): string {
+  const normalized = String(value ?? "").trim().toUpperCase();
+  return SAFE_CURRENCY_CODE_PATTERN.test(normalized) ? normalized : fallback;
+}
+
 function normalizeExternalUrl(value: unknown): string | null {
   if (typeof value !== "string" || !value.trim()) {
     return null;
@@ -103,6 +112,45 @@ function normalizeExternalUrl(value: unknown): string | null {
   } catch {
     return null;
   }
+}
+
+function normalizeProofPublicUrl(value: unknown): string | null {
+  if (typeof value !== "string" || !value.trim()) {
+    return null;
+  }
+
+  try {
+    const url = new URL(value.trim());
+    if (url.protocol !== "https:" || url.username || url.password) {
+      return null;
+    }
+
+    const decodedPath = decodeURIComponent(url.pathname);
+    if (PRIVATE_PROOF_PATH_PATTERN.test(decodedPath)) {
+      return null;
+    }
+
+    for (const key of url.searchParams.keys()) {
+      if (SIGNED_PROOF_QUERY_KEY_PATTERN.test(key)) {
+        return null;
+      }
+    }
+
+    return url.toString();
+  } catch {
+    return null;
+  }
+}
+
+function firstProofPublicUrl(source: ApiObject): string | null {
+  for (const key of ["proof_public_url", "proofPublicUrl", "evidence_url", "evidenceUrl"]) {
+    const url = normalizeProofPublicUrl(source[key]);
+    if (url) {
+      return url;
+    }
+  }
+
+  return null;
 }
 
 function socialLinkFromObject(value: unknown): Pick<DailyGivingSocialLink, "label" | "url"> | null {
@@ -197,15 +245,10 @@ function normalizeRecords(value: unknown): DailyGivingRecord[] {
         month,
         donatedOn: firstString(source, ["donated_on", "donatedOn", "date"], "") || null,
         amountMinor: firstNumber(source, ["amount_minor", "amountMinor", "amount_cents", "amountCents"]),
-        currency: firstString(source, ["currency"], "USD").toUpperCase(),
+        currency: normalizeDailyGivingCurrency(source.currency),
         recipientName: firstString(source, ["recipient_name", "recipientName", "recipient", "organization"], ""),
         recipientUrl: firstString(source, ["recipient_url", "recipientUrl", "organization_url", "organizationUrl"], "") || null,
-        evidenceUrl:
-          firstString(
-            source,
-            ["proof_public_url", "proofPublicUrl", "evidence_url", "evidenceUrl", "receipt_url", "receiptUrl", "source_url", "sourceUrl"],
-            ""
-          ) || null,
+        evidenceUrl: firstProofPublicUrl(source),
         status: firstString(source, ["status", "state"], "published"),
         socialLinks: normalizeSocialLinks(source),
       },
@@ -232,7 +275,7 @@ function normalizeMonths(value: unknown): DailyGivingMonth[] {
         yearMonth,
         recordCount: firstNumber(source, ["record_count", "recordCount", "count", "total"], 0) ?? 0,
         amountMinor: firstNumber(source, ["amount_minor", "amountMinor", "amount_cents", "amountCents", "total_amount_minor", "totalAmountMinor"]),
-        currency: firstString(source, ["currency"], "USD").toUpperCase(),
+        currency: normalizeDailyGivingCurrency(source.currency),
       },
     ];
   });
@@ -258,10 +301,17 @@ export function formatDailyGivingAmount(record: Pick<DailyGivingRecord, "amountM
     return locale === "zh" ? "未公开金额" : "Amount not shown";
   }
 
-  return new Intl.NumberFormat(locale === "zh" ? "zh-CN" : "en-US", {
-    style: "currency",
-    currency: record.currency || "USD",
-  }).format(record.amountMinor / 100);
+  const currency = normalizeDailyGivingCurrency(record.currency);
+  const amount = record.amountMinor / 100;
+
+  try {
+    return new Intl.NumberFormat(locale === "zh" ? "zh-CN" : "en-US", {
+      style: "currency",
+      currency,
+    }).format(amount);
+  } catch {
+    return `${amount.toFixed(2)} ${currency}`;
+  }
 }
 
 export function formatDailyGivingDate(value: string | null, locale: Locale): string {
