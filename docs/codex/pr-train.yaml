@@ -13393,7 +13393,7 @@ prs:
       - PR-CAREER-KG-06
     mode: execute
     train_scope: career_kg_civil_engineering_technicians_asset_package
-    status: in_progress
+    status: merged
     goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Civil Engineering Technologists and Technicians career page, covering identity, CAD, surveying, construction records, materials testing, civil engineer collaboration, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
     artifacts:
       - generated/career-kg-pr-07-civil-engineering-technicians/README.md
@@ -13441,6 +13441,65 @@ prs:
       squash: true
       auto_merge: true
     next_task: PR-CAREER-KG-08
+
+  - id: PR-CAREER-KG-08
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-08-aerospace-engineers
+    base: main
+    title: "PR-CAREER-KG-08: content(career): add aerospace engineers KG asset package"
+    depends_on:
+      - PR-CAREER-KG-07
+    mode: execute
+    train_scope: career_kg_aerospace_engineers_asset_package
+    status: in_progress
+    goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Aerospace Engineers career page, covering identity, system design, simulation, testing, regulations, education path, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
+    artifacts:
+      - generated/career-kg-pr-08-aerospace-engineers/README.md
+      - generated/career-kg-pr-08-aerospace-engineers/aerospace-engineers.zh-CN.asset.json
+      - generated/career-kg-pr-08-aerospace-engineers/qa_report.json
+      - generated/career-kg-pr-08-aerospace-engineers/dry_run_importer_report.json
+      - generated/career-kg-pr-08-aerospace-engineers/staging_preview_smoke.json
+      - generated/career-kg-pr-08-aerospace-engineers/fap_web_render_smoke.json
+      - generated/career-kg-pr-08-aerospace-engineers/sha256_manifest.json
+      - tests/contracts/career-kg-08-aerospace-engineers.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - generated/career-kg-pr-08-aerospace-engineers/README.md
+      - generated/career-kg-pr-08-aerospace-engineers/aerospace-engineers.zh-CN.asset.json
+      - generated/career-kg-pr-08-aerospace-engineers/qa_report.json
+      - generated/career-kg-pr-08-aerospace-engineers/dry_run_importer_report.json
+      - generated/career-kg-pr-08-aerospace-engineers/staging_preview_smoke.json
+      - generated/career-kg-pr-08-aerospace-engineers/fap_web_render_smoke.json
+      - generated/career-kg-pr-08-aerospace-engineers/sha256_manifest.json
+      - tests/contracts/career-kg-08-aerospace-engineers.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Write CMS, staging, or production career rows.
+      - Add frontend runtime fallback editorial content.
+      - Change sitemap, llms, robots, canonical, noindex, JSON-LD runtime, search submission, deploy workflows, cache, queues, or server runtime.
+      - Change career jobs other than aerospace-engineers or prepare future PR-CAREER-KG-09+ content.
+      - Use Chinese recruiting or encyclopedia pages as occupational fact authority.
+      - Make employment, income, admission, diagnosis, AI replacement, injury-zero-risk, automation-zero-risk, security-clearance, qualification, license, engineer-stamp, or certification guarantees.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-kg-08-aerospace-engineers.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-09
 
   - id: MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
     repo: fap-web

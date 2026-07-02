@@ -1,0 +1,324 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "1.0.0",
+  "pr_id": "PR-CAREER-KG-08",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "aerospace-engineers",
+  "canonical_path": "/zh/career/jobs/aerospace-engineers",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "航空航天工程师",
+    "title_en": "Aerospace Engineers",
+    "soc_code": "17-2011",
+    "onet_code": "17-2011.00",
+    "aliases_zh": [
+      "航空工程师",
+      "航天工程师",
+      "飞行器设计工程师",
+      "飞控工程师",
+      "航空结构工程师",
+      "推进工程师",
+      "系统工程师",
+      "试飞工程师"
+    ],
+    "aliases_en": [
+      "Aerospace Engineer",
+      "Aeronautical Engineer",
+      "Astronautical Engineer",
+      "Flight Test Engineer",
+      "Flight Controls Engineer",
+      "Aerospace Stress Engineer",
+      "Structural Analysis Engineer",
+      "Systems Engineer",
+      "Design Engineer"
+    ],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "航空航天工程与运营技术员",
+        "boundary": "航空航天工程与运营技术员更偏测试设备、试验台架、操作检查和数据采集执行；航空航天工程师承担系统设计、分析、试验方案、技术判断和工程责任。"
+      },
+      {
+        "name_zh": "飞机与航空电子设备维修技师",
+        "boundary": "维修技师聚焦在役飞机和航空电子设备的检查、诊断、维修与合规放行；航空航天工程师更偏新产品或系统的设计、仿真、验证和改进。"
+      },
+      {
+        "name_zh": "机械工程师",
+        "boundary": "机械工程师覆盖更广泛机械系统；航空航天工程师把空气动力、结构、推进、控制、材料、制造和安全要求放入飞行器或航天器系统。"
+      },
+      {
+        "name_zh": "电气与电子工程师",
+        "boundary": "电气与电子工程师偏电路、电力、电子或通信系统本身；航空航天工程师可能与其协作，但关注整机、航天器、导弹、卫星或无人系统的任务与系统集成。"
+      },
+      {
+        "name_zh": "飞行员",
+        "boundary": "飞行员负责操作航空器；航空航天工程师负责航空器或航天器的设计、开发、测试、分析和改进，不等同于驾驶岗位。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "航空航天工程师是做什么的：系统设计、仿真、测试、法规与教育路径",
+    "meta_description_zh": "了解航空航天工程师的职责、飞机/航天器系统设计、仿真分析、原型测试、法规与安全边界、教育路径、AI影响和相邻职业。",
+    "h1_zh": "航空航天工程师",
+    "canonical_path": "/zh/career/jobs/aerospace-engineers",
+    "ctr_intent_notes": [
+      "标题覆盖“是做什么的”“系统设计”“仿真”“测试”“法规”“教育路径”六类查询意图。",
+      "摘要明确航空与航天系统边界，避免把职业页写成飞行员、维修技师或就业保证。",
+      "H1 保持中文标准名，canonical 不变，等待后端/CMS投影。"
+    ]
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "heading_zh": "职业定义",
+      "body_zh": "航空航天工程师负责飞机、航天器、卫星、导弹以及相关航空航天产品和系统的系统设计、开发、构建和测试。他们会用工程、数学、物理、材料、制造、控制和系统分析方法，判断设计是否满足工程原则、客户需求、环境法规、安全目标和任务约束。",
+      "source_refs": [
+        "onet_summary_17_2011_00",
+        "bls_ooh_aerospace_engineers"
+      ]
+    },
+    {
+      "id": "core_responsibilities",
+      "heading_zh": "核心职责",
+      "items_zh": [
+        "协调或直接参与飞机、航天器、卫星、导弹、无人系统或相关部件的设计、制造、测试和持续改进。",
+        "评估项目方案的技术可行性、成本约束、安全目标、客户需求、环境法规和标准符合性。",
+        "建立数学模型、仿真模型或计算分析方法，用于设计、评估、修改或验证航空航天产品和系统。",
+        "规划或开展原型、环境、运行、压力、结构、控制、推进或系统级测试，并根据结果改进设计或测试方法。",
+        "制定设计、质量、完成、交付后维持和合规标准，识别故障、损伤或性能问题并提出可能解决方案。",
+        "与结构、材料、制造、电子、软件、控制、试验、质量、供应链和项目管理团队协作，把系统需求转化为可验证的工程方案。"
+      ],
+      "source_refs": [
+        "onet_summary_17_2011_00",
+        "bls_ooh_aerospace_engineers",
+        "mynextmove_summary_17_2011_00"
+      ]
+    },
+    {
+      "id": "work_scenes",
+      "heading_zh": "工作场景",
+      "items_zh": [
+        "办公室和实验室场景包括需求评审、系统架构、仿真分析、设计评审、测试计划、数据分析、报告和跨团队会议。",
+        "制造与测试场景包括原型验证、试验台架、风洞或环境测试、故障调查、质量审查和供应商/客户沟通。",
+        "航空方向更常围绕飞机、旋翼机、无人机、空气动力、结构、推进和飞控；航天方向更常围绕航天器、卫星、发射载具、轨道环境和任务系统。",
+        "部分国防相关项目可能涉及安全审查或安全许可要求；这取决于项目和雇主，页面不能承诺资格、许可或录用。"
+      ],
+      "source_refs": [
+        "onet_summary_17_2011_00",
+        "bls_ooh_aerospace_engineers",
+        "mynextmove_summary_17_2011_00"
+      ]
+    },
+    {
+      "id": "skills_tools",
+      "heading_zh": "技能与工具",
+      "items_zh": [
+        "系统设计：需求分解、系统架构、接口定义、设计权衡、验证矩阵、质量标准和生命周期思维。",
+        "仿真与分析：空气动力、结构、热、推进、控制、轨道、飞行性能、可靠性或系统工程模型。",
+        "测试与验证：原型测试、环境测试、运行测试、压力测试、飞行测试数据、失效分析和测试方法改进。",
+        "软件与数据：CAD/CAE、MATLAB/Simulink、Python、Excel、需求管理工具、项目管理工具、系统架构或仿真平台。",
+        "协作表达：把数学模型、测试数据、法规要求、客户目标和制造约束转化成设计决策、评审材料和可追溯工程记录。"
+      ],
+      "source_refs": [
+        "onet_summary_17_2011_00",
+        "mynextmove_summary_17_2011_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "entry_path",
+      "heading_zh": "入门路径",
+      "items_zh": [
+        "常见入门要求是航空航天工程或相关工程领域本科学历；数学、物理、计算、材料、控制、流体和系统课程通常很重要。",
+        "学校项目、实验室、竞赛、实习、研究助理、飞行器设计团队、仿真或测试经历有助于理解完整工程流程。",
+        "国防相关项目可能要求安全许可，部分许可级别可能涉及公民身份等条件；这些条件由项目和雇主决定。",
+        "学历、证书、软件培训或项目经历不能保证录用、薪资、晋升、安全许可、签证或参与特定机密项目。"
+      ],
+      "source_refs": [
+        "bls_ooh_aerospace_engineers",
+        "mynextmove_summary_17_2011_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "heading_zh": "RIASEC / 人格边界",
+      "items_zh": [
+        "RIASEC 上通常更接近 Investigative（研究型）和 Realistic（实作型）：喜欢数学建模、物理原理、系统分析、原型和工程问题求解。",
+        "Enterprising（企业型）或 Conventional（常规型）也可能出现，因为大型航空航天项目需要方案评审、项目协调、标准符合和可追溯文档。",
+        "人格、MBTI 或 Big Five 结果只能帮助理解学习和协作偏好，不能替代工程教育、项目经验、监管要求、安全许可或职业资格判断。"
+      ],
+      "source_refs": [
+        "mynextmove_summary_17_2011_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "heading_zh": "风险与 AI 边界",
+      "items_zh": [
+        "主要风险来自设计假设错误、仿真模型失真、测试覆盖不足、制造偏差、系统接口遗漏、法规/标准不满足、供应链和安全关键失效。",
+        "AI、自动化仿真、生成式设计、数字孪生和数据分析可以辅助方案探索、需求检查、异常检测、测试数据整理和文档初稿，但不能替代工程责任、验证签核、法规合规和安全关键判断。",
+        "页面不得承诺进入航天公司、参与国防项目、获得安全许可、高薪保证、零事故、AI不会影响岗位，或把软件熟练度写成独立工程签署资格。"
+      ],
+      "source_refs": [
+        "onet_summary_17_2011_00",
+        "bls_ooh_aerospace_engineers",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "adjacent_careers",
+      "heading_zh": "相邻职业",
+      "items_zh": [
+        "航空航天工程与运营技术员：更偏测试设备、试验台架、操作检查和数据采集执行。",
+        "飞机与航空电子设备维修技师：更偏在役飞机/航空电子设备检查、诊断、维修和放行流程。",
+        "机械工程师：更偏广泛机械系统、设备、热力、结构或制造问题。",
+        "电气与电子工程师：更偏电路、电力、电子、通信或控制硬件系统。",
+        "工业工程师：更偏生产系统、流程效率、质量、成本和资源配置。"
+      ],
+      "source_refs": [
+        "bls_ooh_aerospace_engineers",
+        "mynextmove_summary_17_2011_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "faq",
+      "heading_zh": "FAQ",
+      "items_zh": [
+        {
+          "question": "航空航天工程师是做什么的？",
+          "answer": "航空航天工程师设计、开发和测试飞机、航天器、卫星、导弹以及相关系统。他们会处理系统设计、仿真分析、原型测试、质量标准、法规符合和故障改进，不等同于飞行员或维修技师。"
+        },
+        {
+          "question": "航空航天工程师需要什么学历？",
+          "answer": "常见入门路径是航空航天工程或相关工程领域本科学历。数学、物理、计算、材料、控制、流体、系统工程、仿真和测试项目经历都有帮助，但学历或证书不能保证录用或安全许可。"
+        },
+        {
+          "question": "AI 会替代航空航天工程师吗？",
+          "answer": "AI 和自动化仿真可以帮助探索设计、整理测试数据和检查需求，但航空航天系统涉及安全、法规、验证和跨团队责任，关键工程判断仍需要合格人员负责。"
+        }
+      ],
+      "source_refs": [
+        "onet_summary_17_2011_00",
+        "bls_ooh_aerospace_engineers",
+        "fermatmind_interpretation"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_17_2011_00",
+      "label": "O*NET OnLine: Aerospace Engineers 17-2011.00",
+      "url": "https://www.onetonline.org/link/summary/17-2011.00",
+      "authority": "occupation_fact",
+      "usage": "职业定义、任务、系统设计、仿真、测试、工作活动、软件工具和相邻职业事实。"
+    },
+    {
+      "key": "bls_ooh_aerospace_engineers",
+      "label": "BLS OOH: Aerospace Engineers",
+      "url": "https://www.bls.gov/ooh/architecture-and-engineering/aerospace-engineers.htm",
+      "authority": "occupation_fact",
+      "usage": "职业概览、职责、工作环境、教育路径、航空/航天方向、法规和安全许可边界。"
+    },
+    {
+      "key": "mynextmove_summary_17_2011_00",
+      "label": "My Next Move: Aerospace Engineers 17-2011.00",
+      "url": "https://www.mynextmove.org/profile/summary/17-2011.00",
+      "authority": "occupation_fact",
+      "usage": "通俗职业名称、别名、工作内容、人格倾向、教育路径和相邻职业。"
+    },
+    {
+      "key": "mynextmove_data_sources_17_2011_00",
+      "label": "My Next Move data sources: Aerospace Engineers",
+      "url": "https://www.mynextmove.org/help/data/17-2011.00",
+      "authority": "source_disclosure",
+      "usage": "公开来源披露，不作为新增职业事实。"
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial interpretation from authoritative occupational sources",
+      "authority": "editorial_interpretation",
+      "usage": "中文表达、搜索意图归纳、内链与人格边界说明；不得覆盖 O*NET/BLS/My Next Move 职业事实。"
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "blocked_usage": [
+      "职业事实权威",
+      "就业保证",
+      "安全许可保证",
+      "执业签署资格保证",
+      "JSON-LD事实来源",
+      "生产导入依据"
+    ]
+  },
+  "internal_links": [
+    {
+      "label": "职业库",
+      "path": "/zh/career/jobs",
+      "reason": "回到职业库，帮助用户继续浏览职业图谱。"
+    },
+    {
+      "label": "职业指南",
+      "path": "/zh/career",
+      "reason": "连接职业探索主入口。"
+    },
+    {
+      "label": "RIASEC 霍兰德职业兴趣测试",
+      "path": "/zh/tests/holland-career-interest-test-riasec",
+      "reason": "解释 Investigative / Realistic / Conventional 兴趣倾向。"
+    },
+    {
+      "label": "MBTI 人格测试",
+      "path": "/zh/tests/mbti-personality-test-16-personality-types",
+      "reason": "说明人格偏好仅供自我理解，不能替代工程教育和监管边界。"
+    },
+    {
+      "label": "Big Five 大五人格测试",
+      "path": "/zh/tests/big-five-personality-test-ocean-model",
+      "reason": "补充尽责性、开放性、协作和压力管理讨论。"
+    },
+    {
+      "label": "航空航天工程与运营技术员",
+      "path": "/zh/career/jobs/aerospace-engineering-and-operations-technologists-and-technicians",
+      "reason": "区分工程师责任与测试/运营技术执行。"
+    },
+    {
+      "label": "飞机与航空电子设备维修技师",
+      "path": "/zh/career/jobs/aircraft-and-avionics-equipment-mechanics-and-technicians",
+      "reason": "区分设计开发与在役维修检查。"
+    },
+    {
+      "label": "机械工程师",
+      "path": "/zh/career/jobs/mechanical-engineers",
+      "reason": "区分广泛机械系统与航空航天系统工程。"
+    },
+    {
+      "label": "电气与电子工程师",
+      "path": "/zh/career/jobs/electrical-and-electronics-engineers",
+      "reason": "区分电气电子系统专业与整机/航天系统集成。"
+    },
+    {
+      "label": "工业工程师",
+      "path": "/zh/career/jobs/industrial-engineers",
+      "reason": "区分工程产品设计与生产流程效率优化。"
+    }
+  ],
+  "release_boundaries": {
+    "cms_write_performed": false,
+    "staging_write_performed": false,
+    "production_import_performed": false,
+    "production_deploy_triggered": false,
+    "manual_deploy_triggered": false,
+    "sitemap_changed": false,
+    "llms_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "json_ld_runtime_changed": false,
+    "frontend_editorial_fallback_added": false
+  }
+}

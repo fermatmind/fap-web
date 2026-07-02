@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "mode": "contract_mock_backend_display_surface",
+  "route": "/zh/career/jobs/aerospace-engineers",
+  "surface": "CareerDisplaySurface",
+  "assertions": [
+    "hero_h1_contains_standard_name",
+    "definition_contains_aircraft_spacecraft_system_boundary",
+    "responsibilities_contain_system_design_simulation_testing_regulations",
+    "faq_contains_education_path",
+    "sources_include_onet_bls_mynextmove"
+  ],
+  "notes": "Render smoke uses fap-web display primitives with a backend-like fixture; it does not add frontend editorial fallback content."
+}
