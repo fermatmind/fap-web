@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T01:39:20+08:00",
+  "updated_at": "2026-07-03T01:42:10+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12367,7 +12367,7 @@
       "depends_on": [
         "SECURITY-122-WEB-02"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "train_scope": "security_122_web_seo_agent_approval_gates_ops_audit_metadata_redaction",
       "risk_level": "high",
       "title": "SECURITY-122-WEB-03: SEO agent approval gates and ops/audit metadata redaction",
@@ -12411,8 +12411,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1533",
+      "commit_sha": "1b827f53851684c08d195cee1effd5dadadaa657",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -12431,10 +12431,15 @@
           "at": "2026-07-03T01:39:20+08:00",
           "status": "local_checks_passed",
           "summary": "WEB-03 script syntax checks, artifact redaction scan, focused contracts, typecheck, production API build, full contract suite, manifest/state parse, diff check, and changed-file scope validation passed."
+        },
+        {
+          "at": "2026-07-03T01:42:10+08:00",
+          "status": "pr_opened",
+          "summary": "Opened https://github.com/fermatmind/fap-web/pull/1533 from 1b827f53851684c08d195cee1effd5dadadaa657 after local checks and SECURITY-122-WEB-03 scope validation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T01:39:20+08:00"
+      "updated_at": "2026-07-03T01:42:10+08:00"
     },
     {
       "id": "SECURITY-122-WEB-04",
