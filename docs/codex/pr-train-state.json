@@ -37182,8 +37182,8 @@
     "title": "PR-CAREER-KG-14: content(career): add mining and geological engineers KG asset package",
     "train_scope": "career_kg_mining_geological_engineers_asset_package",
     "depends_on": ["PR-CAREER-KG-13"],
-    "status": "pr_opened",
-    "commit_sha": "5cb2dd10a63e7e36ca21c1a95232d7372b7a957a",
+    "status": "ready_to_merge",
+    "commit_sha": "b0b17157ae839c0344b9e27402b09010a26e7050",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1547",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -37233,11 +37233,14 @@
         "evidence": "Validated changed/untracked/ignored scoped file list contains exactly 11 authorized PR14 files: docs/codex/pr-train-state.json, docs/codex/pr-train.yaml, generated/career-kg-pr-14-mining-geological-engineers/README.md, generated/career-kg-pr-14-mining-geological-engineers/dry_run_importer_report.json, generated/career-kg-pr-14-mining-geological-engineers/fap_web_render_smoke.json, generated/career-kg-pr-14-mining-geological-engineers/mining-and-geological-engineers.zh-CN.asset.json, generated/career-kg-pr-14-mining-geological-engineers/qa_report.json, generated/career-kg-pr-14-mining-geological-engineers/sha256_manifest.json, generated/career-kg-pr-14-mining-geological-engineers/staging_preview_smoke.json, tests/contracts/career-kg-14-mining-geological-engineers.contract.test.tsx, and tests/contracts/helpers/currentPrScope.ts."
       },
       "github_checks": {
-        "status": "pending",
-        "head_sha": "a9149394727775ffe50f6381ea3e9544c4662962",
-        "evidence": "GitHub checks pending after PR #1547 was opened."
+        "status": "pass",
+        "head_sha": "b0b17157ae839c0344b9e27402b09010a26e7050",
+        "evidence": "PR #1547 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript)."
       },
-      "merge_readiness": {"status": "pending", "evidence": null}
+      "merge_readiness": {
+        "status": "ready_to_merge",
+        "evidence": "After GitHub checks passed, scope was revalidated against origin/main and still contained exactly the 11 authorized PR14 files; git diff --check passed. Staging deploy was not waited on per train protocol."
+      }
     },
     "scope_validation": {
       "allowed_files": [
@@ -37290,6 +37293,16 @@
         "at": "2026-07-02T21:01:08Z",
         "status": "pr_opened",
         "notes": "Opened fap-web PR #1547: https://github.com/fermatmind/fap-web/pull/1547."
+      },
+      {
+        "at": "2026-07-02T21:08:05Z",
+        "status": "github_checks_passed",
+        "notes": "GitHub checks passed for PR #1547 head b0b17157ae839c0344b9e27402b09010a26e7050: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript)."
+      },
+      {
+        "at": "2026-07-02T21:08:05Z",
+        "status": "ready_to_merge",
+        "notes": "Revalidated scope after green checks: exactly the 11 authorized PR14 files and no outside-scope files; git diff --check passed. Staging deploy was not waited on."
       }
     ]
   }
