@@ -20,6 +20,8 @@ import {
   isCanonicalPersonalityBaseSlug,
   normalizePersonalitySeoPayload,
   type PersonalityComparisonBlockViewModel,
+  type PersonalityCrossTypeInternalLinkViewModel,
+  type PersonalityCrossTypeSectionViewModel,
   type PersonalityComparisonVariantViewModel,
   type PersonalityComparisonViewModel,
   type PersonalityProjection,
@@ -700,6 +702,16 @@ function comparisonBoundaryCopy(locale: Locale): string {
     : "A/T describes state differences inside the same personality core. Use it to compare stress response, decision rhythm, and self-correction patterns; it is not a ranking and does not replace real evidence about skill, work, or relationships.";
 }
 
+function crossTypeBoundaryCopy(locale: Locale): string {
+  return locale === "zh"
+    ? "跨类型对比用于澄清容易混淆的人格线索，帮助你复盘真实选择、沟通和行动证据；它不是诊断、排名，也不能替代职业或关系中的现实验证。"
+    : "Cross-type comparisons clarify commonly confused personality cues so you can review real evidence in choices, communication, and action. They are not diagnoses, rankings, or substitutes for real-world validation.";
+}
+
+function isCrossTypeComparison(comparison: PersonalityComparisonViewModel): boolean {
+  return comparison.publicRouteType === "cross-type-comparison" || comparison.comparisonType === "mbti_cross_type";
+}
+
 function asPlainRecord(value: unknown): Record<string, unknown> | null {
   return value && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>) : null;
 }
@@ -783,6 +795,91 @@ function ComparisonVariantCard({
   );
 }
 
+function CrossTypeBaseCard({
+  typeCode,
+  locale,
+}: {
+  typeCode: string;
+  locale: Locale;
+}) {
+  return (
+    <Link
+      href={buildPersonalityFrontendUrl(locale, typeCode.toLowerCase())}
+      className="grid min-h-40 content-between rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] transition hover:-translate-y-0.5 hover:border-[var(--fm-accent)]"
+      data-testid={`personality-cross-type-base-${typeCode.toLowerCase()}`}
+    >
+      <div className="space-y-3">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--fm-accent)]">
+          {locale === "zh" ? "对比人格" : "Compared type"}
+        </p>
+        <h2 className="m-0 text-3xl font-semibold text-[var(--fm-text)]">{typeCode}</h2>
+      </div>
+      <span className="mt-5 text-sm font-semibold text-[var(--fm-accent)]">
+        {locale === "zh" ? "查看人格画像" : "View profile"}
+      </span>
+    </Link>
+  );
+}
+
+function CrossTypeSectionCard({
+  section,
+}: {
+  section: PersonalityCrossTypeSectionViewModel;
+}) {
+  return (
+    <article
+      id={`comparison-${section.id}`}
+      className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      data-testid={`personality-cross-type-section-${section.id}`}
+      data-authority-source="mbti.cross_type_comparison.public.v1"
+    >
+      <h2 className="m-0 text-xl font-semibold text-[var(--fm-text)]">{section.title}</h2>
+      <div className="mt-3 space-y-3 text-sm leading-7 text-[var(--fm-text-muted)]">
+        {section.body.map((paragraph) => (
+          <p key={paragraph} className="m-0">
+            {paragraph}
+          </p>
+        ))}
+      </div>
+    </article>
+  );
+}
+
+function CrossTypeInternalLinks({
+  links,
+  locale,
+}: {
+  links: PersonalityCrossTypeInternalLinkViewModel[];
+  locale: Locale;
+}) {
+  if (links.length === 0) {
+    return null;
+  }
+
+  return (
+    <section
+      className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
+      data-testid="personality-cross-type-internal-links"
+    >
+      <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+        {locale === "zh" ? "继续验证" : "Continue checking"}
+      </p>
+      <div className="mt-4 grid gap-3 md:grid-cols-2">
+        {links.map((link) => (
+          <Link
+            key={`${link.href}-${link.label}`}
+            href={link.href}
+            className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)]"
+          >
+            {link.label}
+            {link.reason ? <span className="mt-2 block text-xs font-normal leading-6 text-[var(--fm-text-muted)]">{link.reason}</span> : null}
+          </Link>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function ComparisonBlock({
   block,
   assertiveLabel,
@@ -827,13 +924,19 @@ function ComparisonAssetNav({
   comparison: PersonalityComparisonViewModel;
   locale: Locale;
 }) {
+  const crossType = isCrossTypeComparison(comparison);
   const links = [
     { href: "#comparison-overview", label: locale === "zh" ? "概览" : "Overview" },
-    { href: "#comparison-variants", label: "A/T" },
-    ...comparison.comparisonBlocks.slice(0, 4).map((block) => ({
-      href: `#comparison-${block.key}`,
-      label: block.title,
-    })),
+    { href: "#comparison-variants", label: crossType ? (locale === "zh" ? "类型" : "Types") : "A/T" },
+    ...(crossType
+      ? comparison.crossTypeSections.slice(0, 4).map((section) => ({
+          href: `#comparison-${section.id}`,
+          label: section.title,
+        }))
+      : comparison.comparisonBlocks.slice(0, 4).map((block) => ({
+          href: `#comparison-${block.key}`,
+          label: block.title,
+        }))),
     { href: "#comparison-next", label: locale === "zh" ? "下一步" : "Next" },
   ];
 
@@ -865,7 +968,11 @@ function ComparisonMethodCard({
   comparison: PersonalityComparisonViewModel;
   locale: Locale;
 }) {
-  const sourceCount = comparison.sourceRefs.length + (comparison.answerSurface?.evidenceRefs.length ?? 0);
+  const crossType = isCrossTypeComparison(comparison);
+  const sourceCount =
+    comparison.sourceRefs.length +
+    comparison.sourceNotes.length +
+    (comparison.answerSurface?.evidenceRefs.length ?? 0);
 
   return (
     <section
@@ -876,7 +983,9 @@ function ComparisonMethodCard({
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
           {locale === "zh" ? "使用边界" : "Reading boundary"}
         </p>
-        <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{comparisonBoundaryCopy(locale)}</p>
+        <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">
+          {comparison.claimBoundary || (crossType ? crossTypeBoundaryCopy(locale) : comparisonBoundaryCopy(locale))}
+        </p>
       </div>
       <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
         <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
@@ -902,6 +1011,7 @@ function PersonalityComparisonPage({
   const title = comparisonSeoTitle(comparison);
   const heading = comparisonPageHeading(comparison);
   const description = comparisonSeoDescription(comparison);
+  const crossType = isCrossTypeComparison(comparison);
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
     { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
     { name: locale === "zh" ? "人格" : "Personality", path: localizedPath("/personality", locale) },
@@ -915,11 +1025,13 @@ function PersonalityComparisonPage({
     targetAction: "entry_view",
     sourcePath: canonicalPath,
   });
-  const assertiveLabel = comparison.variants.a.runtimeTypeCode;
-  const turbulentLabel = comparison.variants.t.runtimeTypeCode;
+  const assertiveLabel = comparison.variants?.a.runtimeTypeCode ?? comparison.leftType ?? "";
+  const turbulentLabel = comparison.variants?.t.runtimeTypeCode ?? comparison.rightType ?? "";
   const quickAnswerBody = comparisonQuickAnswerBody(comparison);
   const renderedComparisonSections = renderPersonalitySections(comparison.sections, locale);
-  const comparisonFaqItems = extractPersonalityFaqItems(comparison.sections);
+  const comparisonFaqItems = crossType
+    ? comparison.crossTypeFaq.map((item) => ({ question: item.question, answer: item.answer }))
+    : extractPersonalityFaqItems(comparison.sections);
   const nextStepBlocks = comparison.answerSurface?.nextStepBlocks ?? [];
 
   return (
@@ -949,7 +1061,9 @@ function PersonalityComparisonPage({
       >
         <div>
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--fm-accent)]">
-            {comparison.baseTypeCode} · {locale === "zh" ? "A/T 人格对比" : "A/T personality comparison"}
+            {crossType
+              ? `${assertiveLabel} vs ${turbulentLabel} · ${locale === "zh" ? "易混淆人格对比" : "Commonly confused types"}`
+              : `${comparison.baseTypeCode} · ${locale === "zh" ? "A/T 人格对比" : "A/T personality comparison"}`}
           </p>
           <h1 className="m-0 mt-3 font-serif text-3xl font-semibold text-[var(--fm-text)] md:text-5xl">{heading}</h1>
           {description ? <p className="m-0 mt-4 max-w-3xl text-base leading-8 text-[var(--fm-text-muted)]">{description}</p> : null}
@@ -964,7 +1078,13 @@ function PersonalityComparisonPage({
             <span className="text-lg font-semibold text-[var(--fm-text)]">{turbulentLabel}</span>
           </div>
           <p className="m-0 text-xs leading-6 text-[var(--fm-text-muted)]">
-            {locale === "zh" ? "同一人格核心，不同压力反馈与自我确认方式。" : "Same type core, different stress feedback and self-confirmation styles."}
+            {crossType
+              ? locale === "zh"
+                ? "不同人格核心，重点比较真实场景中的判断入口与行动证据。"
+                : "Different type cores, compared through real decision cues and action evidence."
+              : locale === "zh"
+                ? "同一人格核心，不同压力反馈与自我确认方式。"
+                : "Same type core, different stress feedback and self-confirmation styles."}
           </p>
         </div>
       </section>
@@ -985,10 +1105,17 @@ function PersonalityComparisonPage({
 
       <ComparisonMethodCard comparison={comparison} locale={locale} />
 
-      <section id="comparison-variants" className="grid gap-4 md:grid-cols-2" data-testid="personality-comparison-variants">
-        <ComparisonVariantCard variant={comparison.variants.a} locale={locale} />
-        <ComparisonVariantCard variant={comparison.variants.t} locale={locale} />
-      </section>
+      {comparison.variants ? (
+        <section id="comparison-variants" className="grid gap-4 md:grid-cols-2" data-testid="personality-comparison-variants">
+          <ComparisonVariantCard variant={comparison.variants.a} locale={locale} />
+          <ComparisonVariantCard variant={comparison.variants.t} locale={locale} />
+        </section>
+      ) : (
+        <section id="comparison-variants" className="grid gap-4 md:grid-cols-2" data-testid="personality-cross-type-bases">
+          {comparison.leftType ? <CrossTypeBaseCard typeCode={comparison.leftType} locale={locale} /> : null}
+          {comparison.rightType ? <CrossTypeBaseCard typeCode={comparison.rightType} locale={locale} /> : null}
+        </section>
+      )}
 
       {comparison.comparisonBlocks.length ? (
         <section className="space-y-4" data-testid="personality-comparison-blocks">
@@ -1000,6 +1127,14 @@ function PersonalityComparisonPage({
               turbulentLabel={turbulentLabel}
               locale={locale}
             />
+          ))}
+        </section>
+      ) : null}
+
+      {comparison.crossTypeSections.length ? (
+        <section className="space-y-4" data-testid="personality-cross-type-sections">
+          {comparison.crossTypeSections.map((section) => (
+            <CrossTypeSectionCard key={section.id} section={section} />
           ))}
         </section>
       ) : null}
@@ -1018,6 +1153,8 @@ function PersonalityComparisonPage({
         hideSummaryBlocks
         hideCompareLabel
       />
+
+      <CrossTypeInternalLinks links={comparison.crossTypeInternalLinks} locale={locale} />
 
       {nextStepBlocks.length ? (
         <section id="comparison-next" className="sr-only" aria-label={locale === "zh" ? "下一步" : "Next steps"} />

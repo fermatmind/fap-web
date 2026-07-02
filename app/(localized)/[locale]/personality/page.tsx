@@ -336,17 +336,17 @@ function PersonalityComparisonModule({
                 key={item.slug}
                 href={item.href}
                 className="group flex min-h-44 flex-col justify-between rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 text-[var(--fm-text)] transition hover:-translate-y-0.5 hover:border-[var(--fm-accent)] hover:bg-white hover:shadow-md"
-                data-testid="personality-at-comparison-card"
+                data-testid={item.publicRouteType === "cross-type-comparison" ? "personality-cross-type-comparison-card" : "personality-at-comparison-card"}
                 data-comparison-type={item.comparisonType}
                 data-base-type-code={item.baseTypeCode}
               >
                 <div>
                   <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--fm-muted)]">
-                    {item.baseTypeCode}
+                    {item.leftType && item.rightType ? `${item.leftType} vs ${item.rightType}` : item.baseTypeCode}
                   </p>
                   <h3 className="m-0 mt-3 text-lg font-semibold leading-6 text-[var(--fm-text)]">{item.title}</h3>
                   <p className="m-0 mt-3 line-clamp-3 text-sm leading-6 text-[var(--fm-muted)]">
-                    {item.description}
+                    {item.summary || item.description}
                   </p>
                 </div>
                 <span className="mt-5 text-sm font-semibold text-[var(--fm-accent)]">
@@ -390,6 +390,7 @@ export default async function PersonalityPage({
       scaleCode: "MBTI",
       groups: [],
       atComparisons: [],
+      crossTypeComparisons: [],
     })),
   ]);
   const canonicalPath = locale === "zh" ? "/zh/personality" : "/en/personality";
