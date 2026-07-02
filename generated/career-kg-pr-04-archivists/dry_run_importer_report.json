@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "mode": "dry_run_only",
+  "writes_performed": false,
+  "cms_write_performed": false,
+  "staging_write_performed": false,
+  "production_import_performed": false,
+  "production_import_approved": false,
+  "validated_artifact": "archivists.zh-CN.asset.json",
+  "importer_contract": "backend/CMS-authoritative career KG package only; no runtime content authority moved to fap-web.",
+  "blocked_without_exact_sha_approval": [
+    "CMS write",
+    "staging import",
+    "production import",
+    "SEO runtime update"
+  ]
+}

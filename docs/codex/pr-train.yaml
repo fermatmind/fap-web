@@ -10760,7 +10760,7 @@ prs:
     mode: execute
     train_scope: pr_fdn_social_link_display_implementation_01
     risk_level: scoped_public_foundation_runtime_display
-    status: in_progress
+    status: merged
     title: "PR-FDN-SOCIAL-LINK-DISPLAY-IMPLEMENTATION-01: Display Daily Giving manual social links"
     goal: "Display backend-authoritative Foundation Daily Giving manual social links from existing public API fields without fallback content, automatic posting, external social API calls, or discoverability exposure changes."
     in_scope:
@@ -12511,7 +12511,7 @@ prs:
       - PR-CAREER-KG-02
     mode: execute
     train_scope: career_kg_transit_intercity_bus_drivers_asset_package
-    status: in_progress
+    status: merged
     goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Bus Drivers, Transit and Intercity career page, covering safety, scheduling, passenger service, stress/fatigue, adjacent transportation careers, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
     artifacts:
       - generated/career-kg-pr-03-transit-intercity-bus-drivers/README.md
@@ -12559,6 +12559,65 @@ prs:
       squash: true
       auto_merge: true
     next_task: PR-CAREER-KG-04
+
+  - id: PR-CAREER-KG-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-04-archivists
+    base: main
+    title: "PR-CAREER-KG-04: content(career): add archivists KG asset package"
+    depends_on:
+      - PR-CAREER-KG-03
+    mode: execute
+    train_scope: career_kg_archivists_asset_package
+    status: in_progress
+    goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Archivists career page, covering identity, title/meta CTR, archive accessioning, classification, description/cataloging, retrieval/reference service, digital archives, records management boundaries, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
+    artifacts:
+      - generated/career-kg-pr-04-archivists/README.md
+      - generated/career-kg-pr-04-archivists/archivists.zh-CN.asset.json
+      - generated/career-kg-pr-04-archivists/qa_report.json
+      - generated/career-kg-pr-04-archivists/dry_run_importer_report.json
+      - generated/career-kg-pr-04-archivists/staging_preview_smoke.json
+      - generated/career-kg-pr-04-archivists/fap_web_render_smoke.json
+      - generated/career-kg-pr-04-archivists/sha256_manifest.json
+      - tests/contracts/career-kg-04-archivists.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - generated/career-kg-pr-04-archivists/README.md
+      - generated/career-kg-pr-04-archivists/archivists.zh-CN.asset.json
+      - generated/career-kg-pr-04-archivists/qa_report.json
+      - generated/career-kg-pr-04-archivists/dry_run_importer_report.json
+      - generated/career-kg-pr-04-archivists/staging_preview_smoke.json
+      - generated/career-kg-pr-04-archivists/fap_web_render_smoke.json
+      - generated/career-kg-pr-04-archivists/sha256_manifest.json
+      - tests/contracts/career-kg-04-archivists.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Write CMS, staging, or production career rows.
+      - Add frontend runtime fallback editorial content.
+      - Change sitemap, llms, robots, canonical, noindex, JSON-LD runtime, search submission, deploy workflows, cache, queues, or server runtime.
+      - Change career jobs other than archivists or prepare future PR-CAREER-KG-05+ content.
+      - Use Chinese recruiting or encyclopedia pages as occupational fact authority.
+      - Make employment, income, admission, diagnosis, AI replacement, preservation-zero-risk, privacy-zero-risk, or credential guarantees.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-kg-04-archivists.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-05
 
   - id: MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
     repo: fap-web

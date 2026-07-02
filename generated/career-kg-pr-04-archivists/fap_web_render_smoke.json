@@ -1,0 +1,12 @@
+{
+  "status": "pass",
+  "mode": "contract_mock_backend_display_surface",
+  "route": "/zh/career/jobs/archivists",
+  "canonical_unchanged": true,
+  "assertions": [
+    "hero renders 档案管理员 from API-like fixture",
+    "definition mentions 档案材料 and 检索",
+    "responsibilities mention 分类编目 and 数字档案",
+    "FAQ and source disclosure render from backend-like projection"
+  ]
+}
