@@ -35886,7 +35886,7 @@
       "PR-CAREER-KG-06"
     ],
     "status": "in_progress",
-    "commit_sha": null,
+    "commit_sha": "98cb8649f30d3b4f9a24784680fb32483d9b51a6",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -35976,6 +35976,11 @@
         "at": "2026-07-02T17:20:10Z",
         "status": "scope_validation_passed",
         "notes": "Changed-file scope validation passed for exactly the 11 PR-CAREER-KG-07 authorized files, including the ignored generated artifact package."
+      },
+      {
+        "at": "2026-07-02T17:21:21Z",
+        "status": "committed",
+        "notes": "Committed PR-CAREER-KG-07 implementation and local validation evidence. This SHA is the implementation commit before the ledger-only commit that records it."
       }
     ]
   }
