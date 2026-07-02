@@ -315,8 +315,8 @@ describe("MBTI take attribution contract", () => {
         invite_unlock_code: "iul_test_001",
         share_click_id: "click-123",
         entrypoint: "share_compare_invite",
-        referrer: "https://example.com/en/share/share-123",
-        landing_path: "/en/share/share-123",
+        referrer: "private_route:share",
+        landing_path: "private_route:share",
         utm: {
           source: "wechat",
           medium: "organic",
@@ -452,8 +452,8 @@ describe("MBTI take attribution contract", () => {
         invite_unlock_code: "iul_test_001",
         share_click_id: "click-123",
         entrypoint: "share_compare_invite",
-        referrer: "https://example.com/en/share/share-123",
-        landing_path: "/en/share/share-123",
+        referrer: "private_route:share",
+        landing_path: "private_route:share",
         utm: {
           source: "wechat",
           medium: "organic",
@@ -541,8 +541,8 @@ describe("MBTI take attribution contract", () => {
       invite_unlock_code: "iul_test_001",
       share_click_id: "click-123",
       entrypoint: "share_compare_invite",
-      referrer: "https://example.com/en/share/share-123",
-      landing_path: "/en/share/share-123",
+      referrer: "private_route:share",
+      landing_path: "private_route:share",
     });
 
     await waitFor(() => {
@@ -554,8 +554,8 @@ describe("MBTI take attribution contract", () => {
       invite_unlock_code: "iul_test_001",
       share_click_id: "click-123",
       entrypoint: "share_compare_invite",
-      referrer: "https://example.com/en/share/share-123",
-      landing_path: "/en/share/share-123",
+      referrer: "private_route:share",
+      landing_path: "private_route:share",
     });
   });
 
