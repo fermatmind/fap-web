@@ -13275,7 +13275,7 @@ prs:
       - PR-CAREER-KG-04
     mode: execute
     train_scope: career_kg_postal_mail_sorters_processors_asset_package
-    status: in_progress
+    status: merged
     goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Postal Service Mail Sorters, Processors, and Processing Machine Operators career page, covering identity, shorter title/meta CTR framing, sorting equipment, shifts, physical load, adjacent postal careers, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
     artifacts:
       - generated/career-kg-pr-05-postal-mail-sorters-processors/README.md
@@ -13323,6 +13323,65 @@ prs:
       squash: true
       auto_merge: true
     next_task: PR-CAREER-KG-06
+
+  - id: PR-CAREER-KG-06
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-06-aircraft-avionics-technicians
+    base: main
+    title: "PR-CAREER-KG-06: content(career): add aircraft avionics technicians KG asset package"
+    depends_on:
+      - PR-CAREER-KG-05
+    mode: execute
+    train_scope: career_kg_aircraft_avionics_technicians_asset_package
+    status: in_progress
+    goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Aircraft and Avionics Equipment Mechanics and Technicians career page, covering identity, FAA/regulatory safety boundaries, maintenance inspection, diagnosis, certificate paths, no employment guarantees, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
+    artifacts:
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/README.md
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/aircraft-and-avionics-equipment-mechanics-and-technicians.zh-CN.asset.json
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/qa_report.json
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/dry_run_importer_report.json
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/staging_preview_smoke.json
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/fap_web_render_smoke.json
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/sha256_manifest.json
+      - tests/contracts/career-kg-06-aircraft-avionics-technicians.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/README.md
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/aircraft-and-avionics-equipment-mechanics-and-technicians.zh-CN.asset.json
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/qa_report.json
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/dry_run_importer_report.json
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/staging_preview_smoke.json
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/fap_web_render_smoke.json
+      - generated/career-kg-pr-06-aircraft-avionics-technicians/sha256_manifest.json
+      - tests/contracts/career-kg-06-aircraft-avionics-technicians.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Write CMS, staging, or production career rows.
+      - Add frontend runtime fallback editorial content.
+      - Change sitemap, llms, robots, canonical, noindex, JSON-LD runtime, search submission, deploy workflows, cache, queues, or server runtime.
+      - Change career jobs other than aircraft-and-avionics-equipment-mechanics-and-technicians or prepare future PR-CAREER-KG-07+ content.
+      - Use Chinese recruiting or encyclopedia pages as occupational fact authority.
+      - Make employment, income, admission, diagnosis, AI replacement, injury-zero-risk, automation-zero-risk, qualification, license, or certification guarantees.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-kg-06-aircraft-avionics-technicians.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-07
 
   - id: MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
     repo: fap-web

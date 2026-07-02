@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "mode": "contract_mock_backend_display_surface",
+  "route": "/zh/career/jobs/aircraft-and-avionics-equipment-mechanics-and-technicians",
+  "surface": "CareerDisplaySurface",
+  "assertions": [
+    "hero_h1_contains_standard_name",
+    "definition_contains_aircraft_and_avionics_boundary",
+    "responsibilities_contain_maintenance_inspection_and_diagnosis",
+    "faq_contains_certification_boundary",
+    "sources_include_onet_bls_mynextmove"
+  ],
+  "notes": "Render smoke uses fap-web display primitives with a backend-like fixture; it does not add frontend editorial fallback content."
+}
