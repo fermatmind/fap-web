@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T02:22:15+08:00",
+  "updated_at": "2026-07-03T02:31:10+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12474,7 +12474,7 @@
       "depends_on": [
         "SECURITY-122-WEB-03"
       ],
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "train_scope": "security_122_web_ops_dashboard_route_authentication",
       "risk_level": "high",
       "title": "SECURITY-122-WEB-04: ops/dashboard route authentication",
@@ -12515,23 +12515,21 @@
           "evidence": "Second post-CI-fix full contract suite passed: 624 test files, 3651 tests. Focused WEB-01/WEB-04 contracts, typecheck, manifest/state parse, diff check, and SECURITY-122-WEB-04 scope validation passed."
         },
         "github": {
-          "status": "failed_inspected_current_scope_fix_ready",
+          "status": "passed",
           "passed": [
             "CodeQL",
             "analyze (javascript-typescript)",
             "build",
+            "contracts",
             "verify-big5-contract-freeze",
             "verify-enneagram-contract-freeze"
           ],
-          "failed": [
-            "contracts"
-          ],
-          "evidence": "Initial contracts failure was fixed by adding PR-merge checkout fallback diff refs. Second contracts failure showed the train reconciliation contract only allows existing status enums and the WEB-04 scope contract can see an empty diff in shallow CI checkout. Both are current PR test/ledger issues fixed by using an allowed pr_opened status and CI fallback scoped file list."
+          "evidence": "After WEB-04 CI scope fixes, gh pr checks 1535 --watch=false returned all required checks passing for head 721ae375e6836c531711d1e3fffee9139f486bf5; gh pr view reported mergeStateStatus CLEAN."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1535",
-      "commit_sha": "c1981b0377d837c6a0d305bf85c1fd04d88f156d",
+      "commit_sha": "721ae375e6836c531711d1e3fffee9139f486bf5",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -12580,10 +12578,20 @@
           "at": "2026-07-03T02:22:15+08:00",
           "status": "second_current_scope_fix_local_checks_passed",
           "summary": "After the second contracts failure, fixed WEB-04 CI fallback behavior and allowed ledger status usage; reran focused WEB-01/WEB-04 contracts, typecheck, manifest/state parse, diff check, scope validation, and full contracts successfully."
+        },
+        {
+          "at": "2026-07-03T02:31:10+08:00",
+          "status": "github_checks_passed",
+          "summary": "GitHub checks passed for PR #1535: CodeQL, analyze, build, contracts, Big Five freeze, and Enneagram freeze."
+        },
+        {
+          "at": "2026-07-03T02:31:10+08:00",
+          "status": "ready_to_merge",
+          "summary": "PR #1535 scope revalidation passed and GitHub mergeStateStatus is CLEAN; ready for squash merge after this ledger update checks pass."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T02:22:15+08:00"
+      "updated_at": "2026-07-03T02:31:10+08:00"
     },
     {
       "id": "SECURITY-122-WEB-05",
