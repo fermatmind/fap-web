@@ -37372,7 +37372,7 @@
     "train_scope": "career_kg_geodetic_surveyors_asset_package",
     "depends_on": ["PR-CAREER-KG-14"],
     "status": "in_progress",
-    "commit_sha": null,
+    "commit_sha": "b1f00a412d7a0aedb8df81db2357871f350c3301",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -37462,6 +37462,11 @@
         "at": "2026-07-02T21:30:51Z",
         "status": "scope_validation_passed",
         "notes": "Scope validation found exactly the 11 authorized PR15 files and no outside-scope files."
+      },
+      {
+        "at": "2026-07-02T21:31:36Z",
+        "status": "committed",
+        "notes": "Validated implementation commit b1f00a412d7a0aedb8df81db2357871f350c3301 created before this ledger-only record."
       }
     ]
   }
