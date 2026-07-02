@@ -304,7 +304,7 @@ prs:
     base: main
     depends_on: [PR-WEB-SBTI-REMOVE-01]
     mode: execute
-    status: local_checks_passed
+    status: pr_opened
     title: "chore(sbti): clean residual SBTI route and rule references"
     goal: "Clean residual active-route and repository-rule references after the inactive SBTI frontend product surface was removed."
     in_scope:
