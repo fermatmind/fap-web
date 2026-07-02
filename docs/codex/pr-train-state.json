@@ -34560,7 +34560,7 @@
     ],
     "status": "in_progress",
     "commit_sha": "36a4be6a86086f80a724286dd049efcf500e21d9",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1527",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -34647,6 +34647,13 @@
         "status": "committed",
         "commit_sha": "36a4be6a86086f80a724286dd049efcf500e21d9",
         "notes": "Committed PR-CAREER-KG-05 implementation and local validation evidence. This SHA is the implementation commit before the ledger-only commit that records it."
+      },
+      {
+        "at": "2026-07-02T16:21:45Z",
+        "status": "pr_open",
+        "commit_sha": "76d3b379e51d6e6f2ffc87e28c73ed98a36acb33",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1527",
+        "notes": "Opened PR #1527 for PR-CAREER-KG-05 after required local checks and scope validation passed. This records the pre-PR ledger head; the PR URL ledger update itself is committed afterward on the same branch."
       }
     ]
   }
