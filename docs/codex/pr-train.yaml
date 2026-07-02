@@ -10641,7 +10641,7 @@ prs:
     mode: smoke
     train_scope: pr_fdn_seo_01_post_deploy_smoke
     risk_level: read_only_foundation_seo_runtime_smoke
-    status: in_progress
+    status: merged
     title: "PR-FDN-SEO-01-POST-DEPLOY-SMOKE: Verify Daily Giving SEO/schema/llms runtime"
     goal: "Read-only production smoke after PR-FDN-SEO-01 deployment, verifying Daily Giving runtime 200, exact canonical, robots, JSON-LD, llms gating, no frontend fallback content, and no Search Channel action."
     in_scope:
@@ -12441,6 +12441,65 @@ prs:
       squash: true
       auto_merge: true
     next_task: PR-CAREER-KG-02
+
+  - id: PR-CAREER-KG-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-02-production-planning-clerks
+    base: main
+    title: "PR-CAREER-KG-02: content(career): add production planning clerks KG asset package"
+    depends_on:
+      - PR-CAREER-KG-01
+    mode: execute
+    train_scope: career_kg_production_planning_expediting_clerks_asset_package
+    status: in_progress
+    goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Production, Planning, and Expediting Clerks career page, correcting the generic production/clerk framing and covering PMC, ERP/MRP, scheduling, material coordination, factory collaboration, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
+    artifacts:
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/README.md
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/production-planning-expediting-clerks.zh-CN.asset.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/qa_report.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/dry_run_importer_report.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/staging_preview_smoke.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/fap_web_render_smoke.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/sha256_manifest.json
+      - tests/contracts/career-kg-02-production-planning-expediting-clerks.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/README.md
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/production-planning-expediting-clerks.zh-CN.asset.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/qa_report.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/dry_run_importer_report.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/staging_preview_smoke.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/fap_web_render_smoke.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/sha256_manifest.json
+      - tests/contracts/career-kg-02-production-planning-expediting-clerks.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Write CMS, staging, or production career rows.
+      - Add frontend runtime fallback editorial content.
+      - Change sitemap, llms, robots, canonical, noindex, JSON-LD runtime, search submission, deploy workflows, cache, queues, or server runtime.
+      - Change career jobs other than production-planning-expediting-clerks or prepare future PR-CAREER-KG-03+ content.
+      - Use Chinese recruiting or encyclopedia pages as occupational fact authority.
+      - Make employment, income, admission, diagnosis, AI replacement, or production outcome guarantees.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-kg-02-production-planning-expediting-clerks.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-03
 
   - id: MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
     repo: fap-web
