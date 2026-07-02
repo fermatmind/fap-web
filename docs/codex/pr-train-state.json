@@ -36999,9 +36999,9 @@
     "title": "PR-CAREER-KG-13: content(career): add zoologists and wildlife biologists KG asset package",
     "train_scope": "career_kg_zoologists_wildlife_biologists_asset_package",
     "depends_on": ["PR-CAREER-KG-12"],
-    "status": "in_progress",
+    "status": "open",
     "commit_sha": "39a5108716b458085f7626f990cb1be5be8460de",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1545",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -37049,7 +37049,11 @@
         "status": "pass",
         "evidence": "Validated changed/untracked/ignored scoped file list contains exactly 11 authorized PR13 files: docs/codex/pr-train-state.json, docs/codex/pr-train.yaml, generated/career-kg-pr-13-zoologists-wildlife-biologists/README.md, generated/career-kg-pr-13-zoologists-wildlife-biologists/dry_run_importer_report.json, generated/career-kg-pr-13-zoologists-wildlife-biologists/fap_web_render_smoke.json, generated/career-kg-pr-13-zoologists-wildlife-biologists/qa_report.json, generated/career-kg-pr-13-zoologists-wildlife-biologists/sha256_manifest.json, generated/career-kg-pr-13-zoologists-wildlife-biologists/staging_preview_smoke.json, generated/career-kg-pr-13-zoologists-wildlife-biologists/zoologists-and-wildlife-biologists.zh-CN.asset.json, tests/contracts/career-kg-13-zoologists-wildlife-biologists.contract.test.tsx, and tests/contracts/helpers/currentPrScope.ts."
       },
-      "github_checks": {"status": "pending", "head_sha": null, "evidence": null},
+      "github_checks": {
+        "status": "pending",
+        "head_sha": "d441d52cc364545b304ea1d42b7f8aea12320570",
+        "evidence": "PR #1545 created; GitHub checks pending."
+      },
       "merge_readiness": {"status": "pending", "evidence": null}
     },
     "scope_validation": {
@@ -37093,6 +37097,11 @@
         "at": "2026-07-02T20:14:17Z",
         "status": "rebased_and_revalidated",
         "notes": "Rebased PR13 onto origin/main after external SECURITY-122-WEB-07 merge 0c36d4f5; reran YAML/JSON, focused PR13 contract, pnpm typecheck, production-API build, full contract suite 633 files/3698 tests, git diff --check, and scope validation. Rebased implementation commit is 39a5108716b458085f7626f990cb1be5be8460de."
+      },
+      {
+        "at": "2026-07-02T20:15:18Z",
+        "status": "open",
+        "notes": "Created PR #1545 at https://github.com/fermatmind/fap-web/pull/1545 with head d441d52cc364545b304ea1d42b7f8aea12320570."
       }
     ]
   }
