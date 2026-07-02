@@ -85,7 +85,7 @@ describe("personality type browse contract", () => {
   it("keeps personality detail and MBTI result pages oriented to final content and next steps", () => {
     expect(detailSource).toContain('data-testid="personality-detail-next-steps"');
     expect(detailSource).not.toContain('data-testid="personality-detail-intent-links"');
-    expect(detailSource).not.toContain('data-testid="personality-detail-section-map"');
+    expect(detailSource).toContain('data-testid="personality-detail-section-map"');
     expect(detailSource).toContain('data-testid="personality-detail-left-toc"');
     expect(detailSource).toContain('data-testid="personality-detail-v85-primary-sections"');
     expect(detailSource).toContain('data-testid="personality-detail-right-summary"');
@@ -94,7 +94,7 @@ describe("personality type browse contract", () => {
     expect(detailSource).toContain("人格页面章节导航");
     expect(detailSource).toContain("Personality page section navigation");
     expect(detailSource).toContain("buildPersonalitySectionShortcuts(locale, detail.projection.sections, mbtiIntentCtaHref)");
-    expect(detailSource).toContain("buildV85PersonalitySectionShortcuts(locale, v85ReaderSections)");
+    expect(detailSource).toContain("buildV85PersonalitySectionShortcuts(locale, v85Sections)");
     expect(detailSource).toContain("formatPersonalityDetailHeading(detail, locale)");
     expect(detailSource).toContain("start_mbti_test_intent_chip");
     expect(detailSource).toContain("类型导读");

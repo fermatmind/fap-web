@@ -1056,9 +1056,9 @@ export default async function PersonalityDetailPage({
     { name: locale === "zh" ? "人格" : "Personality", path: localizedPath("/personality", locale) },
     { name: detail.displayType, path: canonicalPath },
   ]);
-  const { v85Sections, legacySections } = partitionPersonalitySectionsForV85(detail.supplementalSections);
-  const hasV85SectionAuthority = v85Sections.length > 0;
-  const v85ReaderSections = v85Sections.filter((section) => !V85_HIDDEN_READER_SECTION_KEYS.has(section.sectionKey));
+  const { v85Sections: authoredV85Sections, legacySections } = partitionPersonalitySectionsForV85(detail.supplementalSections);
+  const hasV85SectionAuthority = authoredV85Sections.length > 0;
+  const v85Sections = authoredV85Sections.filter((section) => !V85_HIDDEN_READER_SECTION_KEYS.has(section.sectionKey));
   const filteredProjectionSections = filterProjectionSectionsForDetail(
     detail.projection.sections,
     answerSurfaceFaqItems.length > 0,
@@ -1072,7 +1072,7 @@ export default async function PersonalityDetailPage({
     : filteredProjectionSections;
   const renderedLeadingProjectionSections = renderProjectionSections(leadingProjectionSections, locale);
   const renderedProjectionSections = renderProjectionSections(trailingProjectionSections, locale);
-  const renderedV85Sections = renderPersonalitySections(v85ReaderSections, locale);
+  const renderedV85Sections = renderPersonalitySections(v85Sections, locale);
   const renderedSupplementalSections = renderPersonalitySections(
     [...legacySections.filter((section) => section.sectionKey !== "quick_answer"), ...detail.faqSections],
     locale
@@ -1125,7 +1125,7 @@ export default async function PersonalityDetailPage({
     : "";
   const legacyIntentLinks = buildPersonalitySectionShortcuts(locale, detail.projection.sections, mbtiIntentCtaHref);
   const intentLinks = hasV85Sections
-    ? buildV85PersonalitySectionShortcuts(locale, v85ReaderSections)
+    ? buildV85PersonalitySectionShortcuts(locale, v85Sections)
     : legacyIntentLinks;
   const personalityBrowseHref = `${localizedPath("/personality", locale)}#type-groups`;
   const baseDisplayType = detail.displayType.replace(/-[AT]$/i, "");
@@ -1289,42 +1289,44 @@ export default async function PersonalityDetailPage({
         >
           <aside
             className="sticky top-24 hidden lg:block"
-            data-testid="personality-detail-left-toc"
+            data-testid="personality-detail-section-map"
           >
-            <p className="m-0 pb-3 text-base font-semibold text-[#2f3744]">
-              {locale === "zh" ? "阅读目录" : "Explore this type"}
-            </p>
-            <nav aria-label={locale === "zh" ? "人格页面阅读目录" : "Personality page reading menu"} className="mt-2">
-              <ul className="m-0 list-none space-y-0 p-0">
-                {intentLinks.map((link) => (
-                  <li key={`toc-${link.key}`}>
-                    {link.kind === "test" ? (
-                      <TrackedEntryCtaLink
-                        href={link.href}
-                        prefetch
-                        eventProperties={mbtiIntentCtaTrackingProps}
-                        className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
-                      >
-                        <span>{link.label}</span>
-                        <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
-                          →
-                        </span>
-                      </TrackedEntryCtaLink>
-                    ) : (
-                      <Link
-                        href={link.href}
-                        className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
-                      >
-                        <span>{link.label}</span>
-                        <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
-                          →
-                        </span>
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </nav>
+            <div data-testid="personality-detail-left-toc">
+              <p className="m-0 pb-3 text-base font-semibold text-[#2f3744]">
+                {locale === "zh" ? "阅读目录" : "Explore this type"}
+              </p>
+              <nav aria-label={locale === "zh" ? "人格页面阅读目录" : "Personality page reading menu"} className="mt-2">
+                <ul className="m-0 list-none space-y-0 p-0">
+                  {intentLinks.map((link) => (
+                    <li key={`toc-${link.key}`}>
+                      {link.kind === "test" ? (
+                        <TrackedEntryCtaLink
+                          href={link.href}
+                          prefetch
+                          eventProperties={mbtiIntentCtaTrackingProps}
+                          className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
+                        >
+                          <span>{link.label}</span>
+                          <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
+                            →
+                          </span>
+                        </TrackedEntryCtaLink>
+                      ) : (
+                        <Link
+                          href={link.href}
+                          className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
+                        >
+                          <span>{link.label}</span>
+                          <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
+                            →
+                          </span>
+                        </Link>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
           </aside>
           <section className="w-full min-w-0 space-y-8" data-testid="personality-detail-v85-primary-sections">
             {renderedLeadingProjectionSections}
