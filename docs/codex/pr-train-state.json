@@ -36813,9 +36813,9 @@
     "title": "PR-CAREER-KG-12: content(career): add search marketing strategists KG asset package",
     "train_scope": "career_kg_search_marketing_strategists_asset_package",
     "depends_on": ["PR-CAREER-KG-11"],
-    "status": "in_progress",
+    "status": "open",
     "commit_sha": "190066f6bfec39a7beb4b5cfd06b55d5139b14cc",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1543",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -36863,7 +36863,11 @@
         "status": "pass",
         "evidence": "Validated changed/untracked/ignored scoped file list contains exactly 11 authorized PR12 files: docs/codex/pr-train-state.json, docs/codex/pr-train.yaml, generated/career-kg-pr-12-search-marketing-strategists/README.md, generated/career-kg-pr-12-search-marketing-strategists/dry_run_importer_report.json, generated/career-kg-pr-12-search-marketing-strategists/fap_web_render_smoke.json, generated/career-kg-pr-12-search-marketing-strategists/qa_report.json, generated/career-kg-pr-12-search-marketing-strategists/search-marketing-strategists.zh-CN.asset.json, generated/career-kg-pr-12-search-marketing-strategists/sha256_manifest.json, generated/career-kg-pr-12-search-marketing-strategists/staging_preview_smoke.json, tests/contracts/career-kg-12-search-marketing-strategists.contract.test.tsx, and tests/contracts/helpers/currentPrScope.ts."
       },
-      "github_checks": {"status": "pending", "head_sha": null, "evidence": null},
+      "github_checks": {
+        "status": "pending",
+        "head_sha": "cf7c0fb61c5b84a5649d452b96ed53d88b33a216",
+        "evidence": "PR #1543 created; GitHub checks pending."
+      },
       "merge_readiness": {"status": "pending", "evidence": null}
     },
     "scope_validation": {
@@ -36907,6 +36911,11 @@
         "at": "2026-07-02T19:46:51Z",
         "status": "rebased_and_revalidated",
         "notes": "Rebased PR12 onto origin/main after external SECURITY-122-WEB-06 merge b1136bf5; reran YAML/JSON, focused PR12 contract, pnpm typecheck, production-API build, full contract suite 631 files/3689 tests, git diff --check, and scope validation. Rebased implementation commit is 190066f6bfec39a7beb4b5cfd06b55d5139b14cc."
+      },
+      {
+        "at": "2026-07-02T19:48:03Z",
+        "status": "open",
+        "notes": "Created PR #1543 at https://github.com/fermatmind/fap-web/pull/1543 with head cf7c0fb61c5b84a5649d452b96ed53d88b33a216."
       }
     ]
   }
