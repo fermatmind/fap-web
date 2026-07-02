@@ -178,6 +178,43 @@ type CmsPersonalityComparisonApiResponse = {
   answer_surface_v1?: AnswerSurfaceRaw | null;
 };
 
+type CmsPersonalityComparisonListItemApiRecord = {
+  slug?: string | null;
+  comparison_type?: string | null;
+  base_type_code?: string | null;
+  scale_code?: string | null;
+  locale?: string | null;
+  public_route_type?: string | null;
+  title?: string | null;
+  description?: string | null;
+  public_url?: string | null;
+  canonical_url?: string | null;
+  is_public?: boolean | null;
+  is_indexable?: boolean | null;
+  status?: string | null;
+};
+
+type CmsPersonalityComparisonListGroupApiRecord = {
+  key?: string | null;
+  comparison_type?: string | null;
+  title?: string | null;
+  description?: string | null;
+  items?: CmsPersonalityComparisonListItemApiRecord[];
+};
+
+type CmsPersonalityComparisonListProjectionApiRecord = {
+  comparison_list_contract_version?: string | null;
+  locale?: string | null;
+  scale_code?: string | null;
+  groups?: CmsPersonalityComparisonListGroupApiRecord[];
+};
+
+type CmsPersonalityComparisonListApiResponse = {
+  ok?: boolean;
+  comparison_list_public_projection_v1?: CmsPersonalityComparisonListProjectionApiRecord | null;
+  at_comparisons?: CmsPersonalityComparisonListItemApiRecord[];
+};
+
 export type CmsPersonalityApiProjectionProfile = {
   type_name?: string | null;
   nickname?: string | null;
@@ -522,6 +559,39 @@ export type PersonalityComparisonViewModel = {
   landingSurface: LandingSurfaceViewModel | null;
   answerSurface: AnswerSurfaceViewModel | null;
   isIndexable: boolean;
+};
+
+export type PersonalityComparisonListItemViewModel = {
+  slug: string;
+  comparisonType: string;
+  baseTypeCode: string;
+  scaleCode: string;
+  locale: string;
+  publicRouteType: string;
+  title: string;
+  description: string;
+  publicUrl: string | null;
+  canonicalUrl: string | null;
+  href: string;
+  isPublic: boolean;
+  isIndexable: boolean;
+  status: string;
+};
+
+export type PersonalityComparisonListGroupViewModel = {
+  key: string;
+  comparisonType: string;
+  title: string;
+  description: string;
+  items: PersonalityComparisonListItemViewModel[];
+};
+
+export type PersonalityComparisonListViewModel = {
+  comparisonListContractVersion: string;
+  locale: string;
+  scaleCode: string;
+  groups: PersonalityComparisonListGroupViewModel[];
+  atComparisons: PersonalityComparisonListItemViewModel[];
 };
 
 export type PersonalitySeoCompatibilityInput = {
@@ -883,6 +953,91 @@ function normalizePersonalityComparisonPayload(
       .split(",")
       .map((part) => part.trim())
       .includes("noindex"),
+  };
+}
+
+function normalizeComparisonListItem(
+  item: CmsPersonalityComparisonListItemApiRecord,
+  locale: Locale | string
+): PersonalityComparisonListItemViewModel | null {
+  const slug = normalizePersonalityComparisonSlug(item.slug);
+  const comparisonType = fallbackText(item.comparison_type);
+  const publicRouteType = fallbackText(item.public_route_type);
+  const title = fallbackText(item.title);
+  const description = fallbackText(item.description);
+  const isPublic = item.is_public === true;
+
+  if (!slug || comparisonType !== "mbti_at_comparison" || publicRouteType !== "at-comparison" || !title || !description || !isPublic) {
+    return null;
+  }
+
+  return {
+    slug,
+    comparisonType,
+    baseTypeCode: fallbackText(item.base_type_code).toUpperCase(),
+    scaleCode: fallbackText(item.scale_code, DEFAULT_SCALE_CODE),
+    locale: fallbackText(item.locale, mapFrontendLocaleToPersonalityApiLocale(locale)),
+    publicRouteType,
+    title,
+    description,
+    publicUrl: normalizeIsoValue(item.public_url),
+    canonicalUrl: normalizeIsoValue(item.canonical_url),
+    href: buildPersonalityComparisonFrontendUrl(locale, slug),
+    isPublic,
+    isIndexable: item.is_indexable === true,
+    status: fallbackText(item.status),
+  };
+}
+
+function normalizeComparisonListGroup(
+  group: CmsPersonalityComparisonListGroupApiRecord,
+  locale: Locale | string
+): PersonalityComparisonListGroupViewModel | null {
+  const key = fallbackText(group.key);
+  const comparisonType = fallbackText(group.comparison_type);
+  const title = fallbackText(group.title);
+  const description = fallbackText(group.description);
+
+  if (key !== "at_comparisons" || comparisonType !== "mbti_at_comparison" || !title || !description) {
+    return null;
+  }
+
+  const items = Array.isArray(group.items)
+    ? group.items
+        .map((item) => normalizeComparisonListItem(item, locale))
+        .filter((item): item is PersonalityComparisonListItemViewModel => item !== null)
+    : [];
+
+  if (items.length === 0) {
+    return null;
+  }
+
+  return {
+    key,
+    comparisonType,
+    title,
+    description,
+    items,
+  };
+}
+
+function normalizePersonalityComparisonListPayload(
+  response: CmsPersonalityComparisonListApiResponse,
+  locale: Locale | string
+): PersonalityComparisonListViewModel {
+  const projection = response.comparison_list_public_projection_v1 ?? null;
+  const groups = Array.isArray(projection?.groups)
+    ? projection.groups
+        .map((group) => normalizeComparisonListGroup(group, locale))
+        .filter((group): group is PersonalityComparisonListGroupViewModel => group !== null)
+    : [];
+
+  return {
+    comparisonListContractVersion: fallbackText(projection?.comparison_list_contract_version, "mbti.comparison_list.v1"),
+    locale: fallbackText(projection?.locale, mapFrontendLocaleToPersonalityApiLocale(locale)),
+    scaleCode: fallbackText(projection?.scale_code, DEFAULT_SCALE_CODE),
+    groups,
+    atComparisons: groups.find((group) => group.key === "at_comparisons")?.items ?? [],
   };
 }
 
@@ -1508,6 +1663,35 @@ export async function getPersonalityComparisonBySlug(
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
       return null;
+    }
+
+    throw error;
+  }
+}
+
+export async function listPersonalityComparisons(
+  locale: Locale | string
+): Promise<PersonalityComparisonListViewModel> {
+  const query = buildQuery({
+    locale: mapFrontendLocaleToPersonalityApiLocale(locale),
+    org_id: DEFAULT_ORG_ID,
+    scale_code: DEFAULT_SCALE_CODE,
+  });
+
+  try {
+    const response = await apiClient.get<CmsPersonalityComparisonListApiResponse>(
+      `/v0.5/personality/comparisons${query}`,
+      {
+        locale,
+        skipAuth: true,
+        ...PUBLIC_API_CACHE_OPTIONS,
+      }
+    );
+
+    return normalizePersonalityComparisonListPayload(response, locale);
+  } catch (error) {
+    if (error instanceof ApiError && error.status === 404) {
+      return normalizePersonalityComparisonListPayload({}, locale);
     }
 
     throw error;
