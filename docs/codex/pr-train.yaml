@@ -11469,7 +11469,7 @@ prs:
     mode: execute
     train_scope: pr_02_followup_notfound_rsc_payload_cleanup_01
     risk_level: scoped_not_found_boundary_payload_cleanup
-    status: in_progress
+    status: merged
     title: "PR-02 Follow-up: Clean not-found boundary payload copy"
     goal: "Remove crawl-sensitive not-found body copy from route-group not-found boundaries so successful indexable pages do not serialize embedded Page Not Found / 404 payload text."
     in_scope:
@@ -13736,6 +13736,65 @@ prs:
       squash: true
       auto_merge: true
     next_task: PR-CAREER-KG-13
+
+  - id: PR-CAREER-KG-13
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-13-zoologists-wildlife-biologists
+    base: main
+    title: "PR-CAREER-KG-13: content(career): add zoologists and wildlife biologists KG asset package"
+    depends_on:
+      - PR-CAREER-KG-12
+    mode: execute
+    train_scope: career_kg_zoologists_wildlife_biologists_asset_package
+    status: in_progress
+    goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Zoologists and Wildlife Biologists career page, covering identity, field/lab/conservation-project work scenes, education-path boundaries, research/regulatory boundaries, adjacent science-career distinctions, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
+    artifacts:
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/README.md
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/zoologists-and-wildlife-biologists.zh-CN.asset.json
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/qa_report.json
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/dry_run_importer_report.json
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/staging_preview_smoke.json
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/fap_web_render_smoke.json
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/sha256_manifest.json
+      - tests/contracts/career-kg-13-zoologists-wildlife-biologists.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/README.md
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/zoologists-and-wildlife-biologists.zh-CN.asset.json
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/qa_report.json
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/dry_run_importer_report.json
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/staging_preview_smoke.json
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/fap_web_render_smoke.json
+      - generated/career-kg-pr-13-zoologists-wildlife-biologists/sha256_manifest.json
+      - tests/contracts/career-kg-13-zoologists-wildlife-biologists.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Write CMS, staging, or production career rows.
+      - Add frontend runtime fallback editorial content.
+      - Change sitemap, llms, robots, canonical, noindex, JSON-LD runtime, search submission, deploy workflows, cache, queues, or server runtime.
+      - Change career jobs other than zoologists-and-wildlife-biologists or prepare future PR-CAREER-KG-14+ content.
+      - Use Chinese recruiting or encyclopedia pages as occupational fact authority.
+      - Make employment, income, admission, diagnosis, ranking, traffic, conversion, ROI, AI replacement, promotion, certification, platform approval, research-job, conservation-success, publication, government-hiring, or regulatory-decision guarantees.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-kg-13-zoologists-wildlife-biologists.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-14
 
   - id: MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
     repo: fap-web

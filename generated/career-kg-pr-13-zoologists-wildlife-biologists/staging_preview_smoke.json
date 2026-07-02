@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "mode": "artifact_only_preview_smoke",
+  "staging_write_performed": false,
+  "staging_deploy_wait_performed": false,
+  "manual_deploy_triggered": false,
+  "production_deploy_triggered": false,
+  "checked_surfaces": ["identity", "seo_display_assets", "content_blocks", "source_disclosure", "internal_links"]
+}

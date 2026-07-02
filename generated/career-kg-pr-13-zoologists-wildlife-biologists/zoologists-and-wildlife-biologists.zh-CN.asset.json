@@ -1,0 +1,251 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "1.0.0",
+  "pr_id": "PR-CAREER-KG-13",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "zoologists-and-wildlife-biologists",
+  "canonical_path": "/zh/career/jobs/zoologists-and-wildlife-biologists",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "动物学家与野生生物学家",
+    "title_en": "Zoologists and Wildlife Biologists",
+    "soc_code": "19-1023",
+    "onet_code": "19-1023.00",
+    "aliases_zh": ["动物学家", "野生生物学家", "野生动物生物学家", "野生动物研究员", "野外生物学家", "保护生物学研究员", "生态研究员", "野生动物管理生物学家"],
+    "aliases_en": ["Zoologist", "Wildlife Biologist", "Wildlife Research Biologist", "Field Biologist", "Conservation Biologist", "Wildlife Management Biologist", "Animal Ecologist", "Research Zoologist"],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "动物科学家",
+        "boundary": "动物科学家通常研究家畜、饲养、繁殖、生产系统或农业动物；动物学家与野生生物学家更聚焦野生动物、生态系统、行为、栖息地、保护和研究。"
+      },
+      {
+        "name_zh": "保护科学家",
+        "boundary": "保护科学家更偏森林、牧场、土地资源和自然资源管理；动物学家与野生生物学家更偏动物种群、行为、栖息地使用和野生动物研究。"
+      },
+      {
+        "name_zh": "环境科学家与专家",
+        "boundary": "环境科学家与专家更广泛评估空气、水、土壤、污染和环境健康问题；本职业聚焦动物与野生生物数据、栖息地和生态关系。"
+      },
+      {
+        "name_zh": "兽医",
+        "boundary": "兽医诊断和治疗动物疾病，需要临床执业路径；动物学家与野生生物学家主要做研究、监测、数据分析、保护项目和管理建议。"
+      },
+      {
+        "name_zh": "生物技术员",
+        "boundary": "生物技术员通常在实验室或项目中执行采样、记录、设备和实验支持；动物学家与野生生物学家通常负责研究设计、分析、解释和报告。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "动物学家与野生生物学家是做什么的：野外调查、实验室、保护项目与学历门槛",
+    "meta_description_zh": "了解动物学家与野生生物学家的职责、野外调查、实验室分析、保护项目、学历门槛、研究与监管边界、AI 风险和相邻职业区别。",
+    "h1_zh": "动物学家与野生生物学家",
+    "canonical_path": "/zh/career/jobs/zoologists-and-wildlife-biologists",
+    "ctr_intent_notes": [
+      "标题覆盖“是做什么的”“野外调查”“实验室”“保护项目”“学历门槛”等点击意图。",
+      "H1 使用中文标准名；identity 保留 O*NET/SOC 官方英文名、代码、别名和易混职业边界。",
+      "摘要强调研究、保护和监管边界，不承诺录用、项目岗位、研究成果或保护结果。"
+    ]
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "heading_zh": "职业定义",
+      "body_zh": "动物学家与野生生物学家研究动物和野生生物的行为、生命过程、疾病、遗传、种群、栖息地和生态关系，可能参与野外调查、实验室分析、数据建模、保护项目、野生动物管理建议和环境影响评估。",
+      "source_refs": ["onet_summary_19_1023_00", "bls_ooh_zoologists_wildlife_biologists", "mynextmove_summary_19_1023_00"]
+    },
+    {
+      "id": "core_responsibilities",
+      "heading_zh": "核心职责",
+      "items_zh": [
+        "设计或执行野外调查，观察动物行为，记录种群、迁徙、繁殖、栖息地使用和生态相互作用。",
+        "收集、整理和分析生物数据，例如样本、遥测数据、相机陷阱记录、地理位置、栖息地变量和实验室检测结果。",
+        "评估土地、水域、开发活动、保护措施或管理方案对野生生物和栖息地的影响。",
+        "撰写研究报告、技术备忘录、管理建议、科学论文或项目汇报，把数据限制、方法假设和不确定性说明清楚。",
+        "与政府机构、保护组织、研究机构、土地管理方、实验室、GIS/统计人员和社区利益相关方协作。",
+        "遵守采样许可、伦理、物种保护、现场安全和数据质量要求，不把研究观察直接写成监管结论或执法授权。"
+      ],
+      "source_refs": ["onet_summary_19_1023_00", "bls_ooh_zoologists_wildlife_biologists", "mynextmove_summary_19_1023_00"]
+    },
+    {
+      "id": "work_scenes",
+      "heading_zh": "工作场景",
+      "items_zh": [
+        "野外场景可能包括湿地、森林、草地、海岸、荒漠、河流、保护区、开发项目现场或城市生态样点。",
+        "实验室和办公室场景可能包括样本处理、显微或分子检测协调、统计分析、GIS 制图、数据库整理、文献阅读和报告写作。",
+        "保护项目场景通常需要把物种监测、栖息地管理、公众沟通、项目预算、许可边界和长期数据连在一起。",
+        "该职业可能需要季节性外业、长时间行走、天气暴露、动物接触、偏远地点工作和严格记录；页面不能只写成“喜欢动物”的轻松工作。"
+      ],
+      "source_refs": ["bls_ooh_zoologists_wildlife_biologists", "mynextmove_summary_19_1023_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "skills_tools",
+      "heading_zh": "技能与工具",
+      "items_zh": [
+        "研究方法：野外采样、行为观察、种群估计、实验设计、文献检索、数据质量控制和不确定性表达。",
+        "数据与空间工具：统计软件、电子数据表、数据库、GIS、GPS/GNSS、遥测、相机陷阱、传感器数据和地图表达。",
+        "实验室与样本：样本保存、标识、基础实验室安全、检测协作、链路记录和结果解释边界。",
+        "项目协作：许可材料、技术报告、物种或栖息地监测计划、保护项目沟通和跨机构协同。",
+        "现场能力：导航、设备维护、风险评估、动物和人身安全、天气判断、团队通信和应急流程。"
+      ],
+      "source_refs": ["onet_summary_19_1023_00", "mynextmove_summary_19_1023_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "entry_path",
+      "heading_zh": "入门路径",
+      "items_zh": [
+        "常见相关背景包括动物学、野生生物学、生态学、生物学、环境科学、自然资源、保护生物学、统计或 GIS。",
+        "许多入门岗位需要本科层级的相关训练；研究设计、项目负责人、高校或高级研究岗位通常更看重研究生训练、论文、项目经验和方法能力。",
+        "早期积累可以来自野外调查助理、实验室助理、保护项目志愿或实习、GIS/统计项目、物种监测、样本处理和技术报告练习。",
+        "学历、证书、志愿经历或对动物的兴趣不能保证研究岗位、政府项目、保护机构录用、论文发表或项目授权。"
+      ],
+      "source_refs": ["bls_ooh_zoologists_wildlife_biologists", "onet_job_zone_19_1023_00", "mynextmove_summary_19_1023_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "heading_zh": "RIASEC / 人格边界",
+      "items_zh": [
+        "RIASEC 上通常更接近 Investigative（研究型）和 Realistic（现实型）：既要分析生命科学问题，也要做野外、样本、设备和数据工作。",
+        "Social（社会型）可能出现在保护项目沟通、社区协作、跨机构会议、公众教育和报告解释中。",
+        "人格、MBTI 或 Big Five 只能帮助理解研究耐心、现场适应、团队沟通和压力偏好，不能替代物种知识、统计方法、许可边界、现场安全或研究伦理。"
+      ],
+      "source_refs": ["mynextmove_summary_19_1023_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "heading_zh": "风险与 AI 边界",
+      "items_zh": [
+        "主要风险包括现场安全、天气和地形、动物接触、样本污染、数据缺失、样点偏差、许可限制、利益相关方冲突和把相关性误读为因果关系。",
+        "AI 可以辅助物种图像初筛、文献摘要、数据整理、声学或遥测数据标注、统计脚本和报告草稿，但不能替代现场判断、许可合规、研究设计、伦理审查或监管结论。",
+        "页面不得承诺保护项目一定成功、某学历一定进入研究机构、AI 可自动完成野外调查、模型结论等同监管决定，或把本职业写成执法人员。"
+      ],
+      "source_refs": ["onet_summary_19_1023_00", "bls_ooh_zoologists_wildlife_biologists", "fermatmind_interpretation"]
+    },
+    {
+      "id": "adjacent_careers",
+      "heading_zh": "相邻职业",
+      "items_zh": [
+        "动物科学家：更偏家畜、农业动物、繁殖、饲养和生产系统。",
+        "保护科学家：更偏森林、牧场、土地资源和自然资源管理。",
+        "环境科学家与专家：更偏污染、环境健康、空气、水、土壤和合规评估。",
+        "兽医：更偏动物疾病诊断、治疗和临床执业。",
+        "生物技术员：更偏实验室或研究项目中的技术执行、记录和支持。"
+      ],
+      "source_refs": ["bls_ooh_zoologists_wildlife_biologists", "bls_ooh_conservation_scientists_foresters", "bls_ooh_environmental_scientists_specialists", "mynextmove_summary_19_1023_00", "fermatmind_interpretation"]
+    },
+    {
+      "id": "faq",
+      "heading_zh": "FAQ",
+      "items_zh": [
+        {
+          "question": "动物学家与野生生物学家是做什么的？",
+          "answer": "他们研究动物和野生生物的行为、生命过程、疾病、遗传、种群和栖息地，可能做野外调查、实验室分析、数据建模、保护项目和管理建议。"
+        },
+        {
+          "question": "这个职业一定要研究生学历吗？",
+          "answer": "很多入门岗位会看本科层级的相关训练，但研究设计、高级研究、高校或项目负责岗位通常更看重研究生训练、论文、项目经验和方法能力。具体要求取决于机构和岗位。"
+        },
+        {
+          "question": "动物学家和兽医有什么区别？",
+          "answer": "兽医主要诊断和治疗动物疾病，走临床执业路径；动物学家与野生生物学家主要研究动物、种群、栖息地和生态关系，并把数据用于保护或管理建议。"
+        }
+      ],
+      "source_refs": ["onet_summary_19_1023_00", "bls_ooh_zoologists_wildlife_biologists", "mynextmove_summary_19_1023_00", "fermatmind_interpretation"]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_19_1023_00",
+      "label": "O*NET OnLine: Zoologists and Wildlife Biologists 19-1023.00",
+      "url": "https://www.onetonline.org/link/summary/19-1023.00",
+      "authority": "occupation_fact",
+      "usage": "职业定义、研究对象、野生动物管理、栖息地影响、生物数据收集与分析等职业事实。"
+    },
+    {
+      "key": "bls_ooh_zoologists_wildlife_biologists",
+      "label": "BLS OOH: Zoologists and Wildlife Biologists",
+      "url": "https://www.bls.gov/ooh/life-physical-and-social-science/zoologists-and-wildlife-biologists.htm",
+      "authority": "occupation_fact",
+      "usage": "工作内容、工作环境、教育路径和职业边界；不用于录用或保护结果承诺。"
+    },
+    {
+      "key": "bls_oews_19_1023",
+      "label": "BLS OEWS: Zoologists and Wildlife Biologists 19-1023",
+      "url": "https://www.bls.gov/oes/2023/may/oes191023.htm",
+      "authority": "occupation_fact",
+      "usage": "SOC 基类边界核对；不用于收入承诺。"
+    },
+    {
+      "key": "mynextmove_summary_19_1023_00",
+      "label": "My Next Move: Zoologists & Wildlife Biologists 19-1023.00",
+      "url": "https://www.mynextmove.org/profile/summary/19-1023.00",
+      "authority": "occupation_fact",
+      "usage": "通俗职业描述、任务、兴趣倾向、教育路径和相邻职业。"
+    },
+    {
+      "key": "mynextmove_data_sources_19_1023_00",
+      "label": "My Next Move data sources: Zoologists & Wildlife Biologists",
+      "url": "https://www.mynextmove.org/help/data/19-1023.00",
+      "authority": "source_disclosure",
+      "usage": "公开来源披露，不作为新增职业事实。"
+    },
+    {
+      "key": "onet_job_zone_19_1023_00",
+      "label": "O*NET Job Zone: Zoologists and Wildlife Biologists 19-1023.00",
+      "url": "https://www.onetonline.org/skills/zone/19-1023.00",
+      "authority": "occupation_fact",
+      "usage": "教育准备和经验准备边界；不用于录用保证。"
+    },
+    {
+      "key": "bls_ooh_conservation_scientists_foresters",
+      "label": "BLS OOH: Conservation Scientists and Foresters",
+      "url": "https://www.bls.gov/ooh/life-physical-and-social-science/conservation-scientists.htm",
+      "authority": "adjacent_occupation_boundary",
+      "usage": "相邻自然资源管理职业边界。"
+    },
+    {
+      "key": "bls_ooh_environmental_scientists_specialists",
+      "label": "BLS OOH: Environmental Scientists and Specialists",
+      "url": "https://www.bls.gov/ooh/life-physical-and-social-science/environmental-scientists-and-specialists.htm",
+      "authority": "adjacent_occupation_boundary",
+      "usage": "相邻环境科学职业边界。"
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial interpretation from authoritative occupational sources",
+      "authority": "editorial_interpretation",
+      "usage": "中文表达、搜索意图归纳、内链、职业边界与人格边界说明；不得覆盖 O*NET/BLS/My Next Move 职业事实。"
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "blocked_usage": ["职业事实权威", "就业保证", "收入保证", "研究岗位保证", "保护项目成功保证", "论文发表保证", "政府录用保证", "AI 自动完成野外调查保证", "监管决定保证", "JSON-LD事实来源", "生产导入依据"]
+  },
+  "internal_links": [
+    {"label_zh": "职业库", "path": "/zh/career/jobs", "purpose": "职业库入口"},
+    {"label_zh": "职业指南", "path": "/zh/career", "purpose": "职业探索上层入口"},
+    {"label_zh": "RIASEC 职业兴趣测试", "path": "/zh/tests/holland-career-interest-test-riasec", "purpose": "研究型、现实型和社会型兴趣探索"},
+    {"label_zh": "动物科学家", "path": "/zh/career/jobs/animal-scientists", "purpose": "区分家畜/农业动物研究与野生生物研究"},
+    {"label_zh": "环境科学家与专家", "path": "/zh/career/jobs/environmental-scientists-and-specialists-including-health", "purpose": "相邻环境评估职业边界"},
+    {"label_zh": "MBTI 人格测试", "path": "/zh/tests/mbti-personality-test-16-personality-types", "purpose": "研究沟通与现场协作偏好，不替代岗位要求"},
+    {"label_zh": "Big Five 人格测试", "path": "/zh/tests/big-five-personality-test", "purpose": "责任心、开放性和压力偏好自评"}
+  ],
+  "release_boundaries": {
+    "cms_write_performed": false,
+    "staging_write_performed": false,
+    "production_import_performed": false,
+    "db_migration_performed": false,
+    "runtime_seo_changed": false,
+    "sitemap_changed": false,
+    "llms_txt_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "json_ld_runtime_changed": false,
+    "manual_deploy_triggered": false,
+    "staging_deploy_wait_performed": false,
+    "production_deploy_triggered": false
+  }
+}
