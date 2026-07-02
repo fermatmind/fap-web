@@ -37000,7 +37000,7 @@
     "train_scope": "career_kg_zoologists_wildlife_biologists_asset_package",
     "depends_on": ["PR-CAREER-KG-12"],
     "status": "in_progress",
-    "commit_sha": null,
+    "commit_sha": "73ae3e1c1e4653e73e8d40689332ca187a160a2a",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -37083,6 +37083,11 @@
         "at": "2026-07-02T20:08:58Z",
         "status": "scope_validation_passed",
         "notes": "Scope validation found exactly the 11 authorized PR13 files and no outside-scope files."
+      },
+      {
+        "at": "2026-07-02T20:09:20Z",
+        "status": "committed",
+        "notes": "Validated implementation commit 73ae3e1c1e4653e73e8d40689332ca187a160a2a created before this ledger-only record."
       }
     ]
   }
