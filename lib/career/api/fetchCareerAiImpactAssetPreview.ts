@@ -67,12 +67,7 @@ type CareerAiImpactAssetPreviewResponseRaw = {
   ai_impact_asset_v1?: unknown;
 };
 
-const ALLOWED_ASSET_STATUSES = new Set([
-  "staging_preview",
-  "editorial_review",
-  "approved",
-  "production_imported",
-]);
+const PUBLIC_READABLE_ASSET_STATUS = "production_imported";
 
 type FetchCareerAiImpactAssetPreviewInput = {
   locale: Locale | string;
@@ -94,7 +89,7 @@ function containsCjk(value: string): boolean {
 function isSafeUrl(value: string): boolean {
   try {
     const parsed = new URL(value);
-    return parsed.protocol === "https:" || parsed.protocol === "http:";
+    return parsed.protocol === "https:" && !parsed.username && !parsed.password;
   } catch {
     return false;
   }
@@ -156,11 +151,7 @@ function isAllowedAiImpactAssetResponse(payload: CareerAiImpactAssetPreviewRespo
   }
 
   const status = typeof payload.status === "string" ? payload.status.trim().toLowerCase() : "";
-  if (status && ALLOWED_ASSET_STATUSES.has(status)) {
-    return true;
-  }
-
-  return payload.preview === true;
+  return status === PUBLIC_READABLE_ASSET_STATUS && payload.preview !== true;
 }
 
 function adaptTextItem(value: unknown): CareerAiImpactPreviewTextItem | null {

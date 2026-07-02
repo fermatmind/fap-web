@@ -124,9 +124,12 @@ describe("IQ question renderer contract", () => {
     expect(normalizeIqImageAsset({ src: "ftp://cdn.example.com/q.webp" })).toBeNull();
     expect(normalizeIqImageAsset({ src: "//cdn.example.com/q.webp" })).toBeNull();
     expect(normalizeIqImageAsset({ src: "../private/q.webp" })).toBeNull();
-    expect(normalizeIqImageAsset({ src: "https://cdn.example.com/q.webp" })).toMatchObject({
-      src: "https://cdn.example.com/q.webp",
+    expect(normalizeIqImageAsset({ src: "https://cdn.example.com/q.webp" })).toBeNull();
+    expect(normalizeIqImageAsset({ src: "https://assets.fermatmind.com/iq/q.webp" })).toMatchObject({
+      src: "https://assets.fermatmind.com/iq/q.webp",
     });
+    expect(normalizeIqImageAsset({ src: "https://assets.fermatmind.com/iq/answer-key/q.webp" })).toBeNull();
+    expect(normalizeIqImageAsset({ src: "https://assets.fermatmind.com/iq/q.webp?token=secret" })).toBeNull();
   });
 
   it("renders image assets with alt text and dimensions", () => {

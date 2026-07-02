@@ -80,6 +80,7 @@ export type IqReportModuleViewModel = {
 export type IqClaimPolicyViewModel = {
   scoreClaimLevel: string | null;
   claimEligible: boolean | null;
+  iqEstimateAllowed: boolean | null;
   productionNormed: boolean | null;
   populationPercentileEligible: boolean | null;
   claimWarnings: string[];
@@ -414,6 +415,19 @@ function resolveClaimPolicy(
       resultNorms?.claim_eligible ??
       resultNormedJsonNorms?.claim_eligible
   );
+  const iqEstimateAllowed = normalizeBoolean(
+    policy?.iq_estimate_allowed ??
+      reportSummary?.iq_estimate_allowed ??
+      reportScoring?.iq_estimate_allowed ??
+      reportNorms?.iq_estimate_allowed ??
+      reportPayloadSummary?.iq_estimate_allowed ??
+      reportPayloadScoring?.iq_estimate_allowed ??
+      reportPayloadNorms?.iq_estimate_allowed ??
+      topResult?.iq_estimate_allowed ??
+      resultPayload?.iq_estimate_allowed ??
+      resultNorms?.iq_estimate_allowed ??
+      resultNormedJsonNorms?.iq_estimate_allowed
+  );
   const productionNormed = normalizeBoolean(
     policy?.production_normed ??
       reportSummary?.production_normed ??
@@ -444,6 +458,7 @@ function resolveClaimPolicy(
   return {
     scoreClaimLevel,
     claimEligible,
+    iqEstimateAllowed,
     productionNormed,
     populationPercentileEligible,
     claimWarnings,
@@ -451,6 +466,7 @@ function resolveClaimPolicy(
     suppressNormClaims:
       scoreClaimLevel === "raw_score_only"
       || claimEligible === false
+      || iqEstimateAllowed === false
       || productionNormed === false
       || populationPercentileEligible === false,
   };

@@ -133,7 +133,7 @@ describe("career AI impact asset preview consumer", () => {
     await expect(fetchCareerAiImpactAssetPreview({ locale: "en", slug: "actuaries" })).resolves.toBeNull();
   });
 
-  it("accepts production imported reader-safe assets without requiring preview=true", async () => {
+  it("accepts only production imported reader-safe public assets", async () => {
     process.env.FAP_CAREER_AI_IMPACT_ASSET_PREVIEW_ENABLED = "true";
     mockedGet.mockResolvedValueOnce({
       ok: true,
@@ -148,12 +148,24 @@ describe("career AI impact asset preview consumer", () => {
     expect(asset?.summary).toContain("FermatMind rates actuaries");
   });
 
-  it("fetches and adapts the staging preview asset by locale", async () => {
+  it("rejects non-production preview assets even when the fetch flag is enabled", async () => {
     process.env.FAP_CAREER_AI_IMPACT_ASSET_PREVIEW_ENABLED = "true";
     mockedGet.mockResolvedValueOnce({
       ok: true,
       preview: true,
       status: "staging_preview",
+      ai_impact_asset_v1: buildAsset("zh-CN"),
+    });
+
+    await expect(fetchCareerAiImpactAssetPreview({ locale: "zh", slug: "actuaries" })).resolves.toBeNull();
+  });
+
+  it("fetches and adapts the production imported asset by locale", async () => {
+    process.env.FAP_CAREER_AI_IMPACT_ASSET_PREVIEW_ENABLED = "true";
+    mockedGet.mockResolvedValueOnce({
+      ok: true,
+      preview: false,
+      status: "production_imported",
       ai_impact_asset_v1: buildAsset("zh-CN"),
     });
 

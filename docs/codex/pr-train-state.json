@@ -12961,7 +12961,7 @@
       "depends_on": [
         "SECURITY-122-WEB-07"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_dailygiving_giving_api_method_proof_url_currency_guards",
       "risk_level": "medium",
       "title": "SECURITY-122-WEB-08: DailyGiving/giving API method, proof URL, and currency guards",
@@ -13012,15 +13012,15 @@
             "analyze (javascript-typescript)",
             "CodeQL"
           ],
-          "evidence": "GitHub checks passed for PR #1546 on head 98d9fe16af32f1fb0bcc10e2a07f5ffd44075708: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN before this ready_to_merge ledger update."
+          "evidence": "GitHub checks passed for PR #1546 on final head 9f1d9c232dea7eb19214b9aa6347688e1be8c28a: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. PR merged via squash commit aaa054f3a43bbea51a0538d54d2b2f0b8abee0a8."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1546",
-      "commit_sha": "98d9fe16af32f1fb0bcc10e2a07f5ffd44075708",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "9f1d9c232dea7eb19214b9aa6347688e1be8c28a",
+      "merged_at": "2026-07-02T20:35:50Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -13046,10 +13046,17 @@
           "at": "2026-07-02T20:28:28Z",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed and PR diff scope validation passed for SECURITY-122-WEB-08. Focused local revalidation passed. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
+        },
+        {
+          "at": "2026-07-02T20:57:04Z",
+          "status": "merged",
+          "summary": "Reconciled SECURITY-122-WEB-08 merge and cleanup facts while starting SECURITY-122-WEB-09: PR #1546 merged via squash commit aaa054f3a43bbea51a0538d54d2b2f0b8abee0a8, origin/main/local main synced, worktree clean, and task branches deleted or absent."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T20:28:28Z"
+      "updated_at": "2026-07-02T20:57:04Z",
+      "head_sha": "9f1d9c232dea7eb19214b9aa6347688e1be8c28a",
+      "merge_sha": "aaa054f3a43bbea51a0538d54d2b2f0b8abee0a8"
     },
     {
       "id": "SECURITY-122-WEB-09",
@@ -13060,7 +13067,7 @@
       "depends_on": [
         "SECURITY-122-WEB-08"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_122_web_ai_iq_salary_public_asset_exposure_claim_gates",
       "risk_level": "medium",
       "title": "SECURITY-122-WEB-09: AI/IQ/salary public asset exposure and claim gates",
@@ -13080,12 +13087,24 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-08 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-08 merged via PR #1546 at 2026-07-02T20:35:50Z; origin/main contains aaa054f3a43bbea51a0538d54d2b2f0b8abee0a8 and WEB-08 task branches are cleaned."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-09-ai-iq-salary-guards.contract.test.tsx tests/contracts/career-ai-impact-preview-consumer.contract.test.tsx tests/contracts/career-salary-asset-preview-consumer.contract.test.tsx tests/contracts/iq-question-renderer.contract.test.tsx tests/contracts/iq-result-renderer.contract.test.tsx",
+            "/usr/local/bin/pnpm typecheck",
+            "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+            "/usr/local/bin/pnpm test:contract",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check"
+          ],
+          "evidence": "Focused WEB-09 AI/IQ/salary guard contracts and impacted existing contracts passed; typecheck passed; production build passed; full contract suite passed with 635 files / 3709 tests; manifest/state parse and git diff --check passed."
+        },
+        "scope": {
+          "status": "passed",
+          "evidence": "Focused WEB-09 contract validates changed files against the SECURITY-122-WEB-09 allowlist: AI/salary asset adapters, IQ renderer/result claim gates, impacted contracts, scope helper, and PR-train metadata only."
         },
         "github": {
           "status": "pending",
@@ -13103,10 +13122,20 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-09 from explicit user /goal; execution waits for SECURITY-122-WEB-08 merge."
+        },
+        {
+          "at": "2026-07-02T20:57:04Z",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-09 from latest main after WEB-08 post-merge revalidation; implementing AI/IQ/salary public exposure and claim gates only."
+        },
+        {
+          "at": "2026-07-02T20:57:04Z",
+          "status": "local_checks_passed",
+          "summary": "Completed WEB-09 implementation and local validation: focused AI/IQ/salary guards, impacted existing contracts, typecheck, production build, full contract suite, manifest/state parse, diff check, and changed-file scope validation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-02T20:57:04Z"
     },
     {
       "id": "SECURITY-122-WEB-10",

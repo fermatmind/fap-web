@@ -71,6 +71,27 @@ function normalizePositiveInteger(value: unknown): number | undefined {
   return Math.round(numeric);
 }
 
+function isTrustedIqImageHost(hostname: string): boolean {
+  const normalized = hostname.trim().toLowerCase();
+  return normalized === "fermatmind.com" || normalized.endsWith(".fermatmind.com");
+}
+
+function hasSensitiveIqAssetMarker(value: string): boolean {
+  let decoded = value;
+  try {
+    decoded = decodeURIComponent(value);
+  } catch {
+    decoded = value;
+  }
+
+  return /(?:^|[/?#._-])(?:answer[-_]?key|correct[-_]?answer|solution|private|raw)(?:$|[/?#._-])/i.test(decoded);
+}
+
+function hasSignedAssetQuery(url: URL): boolean {
+  const signedKeys = ["token", "signature", "expires", "x-amz-signature", "x-oss-signature", "credential", "policy", "key-pair-id"];
+  return signedKeys.some((key) => url.searchParams.has(key));
+}
+
 function normalizeSafeImageSrc(value: unknown): string | undefined {
   const src = normalizeString(value);
   if (!src) {
@@ -83,15 +104,32 @@ function normalizeSafeImageSrc(value: unknown): string | undefined {
   }
 
   const explicitScheme = lowered.match(/^([a-z][a-z0-9+.-]*):/);
-  if (explicitScheme && explicitScheme[1] !== "http" && explicitScheme[1] !== "https") {
+  if (hasSensitiveIqAssetMarker(src)) {
     return undefined;
   }
 
-  if (explicitScheme || src.startsWith("/")) {
+  if (explicitScheme) {
+    if (explicitScheme[1] !== "https") {
+      return undefined;
+    }
+
+    try {
+      const parsed = new URL(src);
+      if (!isTrustedIqImageHost(parsed.hostname) || parsed.username || parsed.password || hasSignedAssetQuery(parsed)) {
+        return undefined;
+      }
+    } catch {
+      return undefined;
+    }
+
     return src;
   }
 
-  if (src.includes("..")) {
+  if (src.startsWith("/")) {
+    return src;
+  }
+
+  if (src.includes("..") || src.includes("\\") || src.startsWith(".")) {
     return undefined;
   }
 

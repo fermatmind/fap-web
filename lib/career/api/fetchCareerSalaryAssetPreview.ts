@@ -6,7 +6,6 @@ import { shouldFetchCareerSalaryAssetPreview } from "@/lib/career/salaryAssetPre
 const CAREER_SALARY_ASSET_FETCH_TIMEOUT_MS = 12_000;
 
 export type CareerSalaryAssetPreviewSource = {
-  source_id?: string;
   market: "CN" | "US" | "UK" | "EU" | string;
   name: string;
   url: string;
@@ -18,7 +17,6 @@ export type CareerSalaryAssetPreviewReference = {
   display_monthly_range_cny?: string;
   data_boundary?: string;
   limitations?: string[];
-  facts?: Record<string, unknown>;
 };
 
 export type CareerSalaryAssetPreviewItem = {
@@ -63,6 +61,29 @@ type FetchCareerSalaryAssetPreviewInput = {
   slug: string;
 };
 
+const PUBLIC_READABLE_ASSET_STATUS = "production_imported";
+const MAX_VISIBLE_SALARY_SOURCES = 6;
+const MIN_PUBLIC_SALARY_SOURCES = 2;
+const INTERNAL_FIELD_NAMES = new Set([
+  "audit_fields",
+  "derived_from_evidence",
+  "derived_from_synthesis",
+  "evidence_count",
+  "evidence_id",
+  "evidence_ids",
+  "evidence_used",
+  "estimate_row_hash",
+  "internal_lineage",
+  "lineage",
+  "raw_source_count",
+  "row_hash",
+  "search_projection",
+  "source_count",
+  "source_id",
+  "source_ids",
+  "visible_count",
+]);
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
@@ -79,6 +100,27 @@ function toStringArray(value: unknown): string[] {
   return value.filter(isString);
 }
 
+function hasInternalField(value: unknown): boolean {
+  if (Array.isArray(value)) {
+    return value.some(hasInternalField);
+  }
+
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return Object.entries(value).some(([key, nested]) => INTERNAL_FIELD_NAMES.has(key) || hasInternalField(nested));
+}
+
+function isSafePublicSourceUrl(value: string): boolean {
+  try {
+    const parsed = new URL(value);
+    return parsed.protocol === "https:" && !parsed.username && !parsed.password;
+  } catch {
+    return false;
+  }
+}
+
 function adaptReference(value: unknown): CareerSalaryAssetPreviewReference | undefined {
   if (!isRecord(value)) {
     return undefined;
@@ -90,7 +132,6 @@ function adaptReference(value: unknown): CareerSalaryAssetPreviewReference | und
     display_monthly_range_cny: isString(value.display_monthly_range_cny) ? value.display_monthly_range_cny : undefined,
     data_boundary: isString(value.data_boundary) ? value.data_boundary : undefined,
     limitations: toStringArray(value.limitations),
-    facts: isRecord(value.facts) ? value.facts : undefined,
   };
 }
 
@@ -101,22 +142,19 @@ function adaptSources(value: unknown): CareerSalaryAssetPreviewSource[] {
 
   return value
     .map((item) => {
-      if (!isRecord(item) || !isString(item.market) || !isString(item.name) || !isString(item.url)) {
+      if (!isRecord(item) || !isString(item.market) || !isString(item.name) || !isString(item.url) || !isSafePublicSourceUrl(item.url)) {
         return null;
       }
 
-      const source: CareerSalaryAssetPreviewSource = {
-        market: item.market,
-        name: item.name,
-        url: item.url,
+      return {
+        market: item.market.trim(),
+        name: item.name.trim().replace(/^\//, ""),
+        url: item.url.trim(),
       };
-      if (isString(item.source_id)) {
-        source.source_id = item.source_id;
-      }
-
-      return source;
     })
-    .filter((item): item is CareerSalaryAssetPreviewSource => item !== null);
+    .filter((item): item is CareerSalaryAssetPreviewSource => item !== null)
+    .filter((item) => item.market.length > 0 && item.name.length > 0)
+    .slice(0, MAX_VISIBLE_SALARY_SOURCES);
 }
 
 function adaptItems(value: unknown): CareerSalaryAssetPreviewItem[] {
@@ -150,7 +188,12 @@ function adaptItems(value: unknown): CareerSalaryAssetPreviewItem[] {
 }
 
 function adaptSalaryAsset(value: unknown, expectedSlug: string, expectedLocale: "zh-CN" | "en"): CareerSalaryAssetPreviewAsset | null {
-  if (!isRecord(value) || value.slug !== expectedSlug || value.locale !== expectedLocale || !isString(value.heading)) {
+  if (!isRecord(value) || value.slug !== expectedSlug || value.locale !== expectedLocale || !isString(value.heading) || hasInternalField(value)) {
+    return null;
+  }
+
+  const sources = adaptSources(value.sources);
+  if (sources.length < MIN_PUBLIC_SALARY_SOURCES) {
     return null;
   }
 
@@ -174,8 +217,17 @@ function adaptSalaryAsset(value: unknown, expectedSlug: string, expectedLocale: 
     eu_context_boundary: adaptReference(value.eu_context_boundary),
     salary_drivers: adaptItems(value.salary_drivers),
     reader_guidance: toStringArray(value.reader_guidance),
-    sources: adaptSources(value.sources),
+    sources,
   };
+}
+
+function isAllowedSalaryAssetResponse(payload: CareerSalaryAssetPreviewResponseRaw | null | undefined): boolean {
+  if (payload?.ok !== true) {
+    return false;
+  }
+
+  const status = typeof payload.status === "string" ? payload.status.trim().toLowerCase() : "";
+  return status === PUBLIC_READABLE_ASSET_STATUS && payload.preview !== true;
 }
 
 export async function fetchCareerSalaryAssetPreview(
@@ -200,10 +252,7 @@ export async function fetchCareerSalaryAssetPreview(
       }
     );
 
-    const isReadableSalaryAsset =
-      payload?.preview === true || (typeof payload?.status === "string" && payload.status === "production_imported");
-
-    if (payload?.ok !== true || !isReadableSalaryAsset) {
+    if (!isAllowedSalaryAssetResponse(payload)) {
       return null;
     }
 
