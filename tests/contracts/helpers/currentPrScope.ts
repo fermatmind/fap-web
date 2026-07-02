@@ -1226,6 +1226,16 @@ const SECURITY_122_WEB_05_ALLOWED_FILES = new Set([
   "tests/contracts/security-122-web-05-cms-url-field-guards.contract.test.ts",
 ]);
 
+const SECURITY_122_WEB_06_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/cms/content-pages.ts",
+  "lib/cms/last-known-good.ts",
+  "lib/seo/llmsFullResponseCache.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-122-web-06-sitemap-llms-lkg-fail-closed.contract.test.ts",
+]);
+
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
   "components/result/eq/EQEvidenceSnapshot.tsx",
   "components/result/eq/types.ts",
@@ -3696,6 +3706,14 @@ export function isSecurity122Web05AllowedFile(file: string): boolean {
   return SECURITY_122_WEB_05_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity122Web06AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-122-web-06") {
+    return true;
+  }
+
+  return SECURITY_122_WEB_06_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -4680,6 +4698,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/security-122-web-05") {
     return SECURITY_122_WEB_05_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/security-122-web-06") {
+    return SECURITY_122_WEB_06_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {

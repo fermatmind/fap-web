@@ -213,7 +213,7 @@ prs:
     base: main
     depends_on: [PR-PRAC-03]
     mode: execute
-    status: merged_cleanup_complete
+    status: merged
     title: "test(runtime): add public claim runtime boundary matrix"
     artifacts:
       - docs/claims/public-claim-boundary-matrix.md
@@ -304,7 +304,7 @@ prs:
     base: main
     depends_on: [PR-WEB-SBTI-REMOVE-01]
     mode: execute
-    status: local_checks_passed
+    status: ready_to_merge
     title: "chore(sbti): clean residual SBTI route and rule references"
     goal: "Clean residual active-route and repository-rule references after the inactive SBTI frontend product surface was removed."
     in_scope:
@@ -8824,7 +8824,7 @@ prs:
     mode: execute
     train_scope: security_122_web_cms_url_field_allowlists_rendered_content_crash_guards
     risk_level: high
-    status: in_progress
+    status: merged_cleanup_complete
     title: "SECURITY-122-WEB-05: CMS URL/field allowlists and rendered-content crash guards"
     findings:
       - "findings 17,18,21,26,42,46,47,96,103,107,108,109,110"
@@ -8862,7 +8862,7 @@ prs:
     mode: execute
     train_scope: security_122_web_sitemap_llms_lkg_cache_fail_closed_behavior
     risk_level: high
-    status: planned
+    status: local_checks_passed
     title: "SECURITY-122-WEB-06: sitemap / llms / LKG cache fail-closed behavior"
     findings:
       - "findings 6,22,28,29,30,45,49,50,52,94,104,121,122"
