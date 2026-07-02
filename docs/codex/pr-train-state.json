@@ -13067,7 +13067,7 @@
       "depends_on": [
         "SECURITY-122-WEB-08"
       ],
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "train_scope": "security_122_web_ai_iq_salary_public_asset_exposure_claim_gates",
       "risk_level": "medium",
       "title": "SECURITY-122-WEB-09: AI/IQ/salary public asset exposure and claim gates",
@@ -13107,8 +13107,16 @@
           "evidence": "Focused WEB-09 contract validates changed files against the SECURITY-122-WEB-09 allowlist: AI/salary asset adapters, IQ renderer/result claim gates, impacted contracts, scope helper, and PR-train metadata only."
         },
         "github": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ],
+          "evidence": "GitHub checks passed for PR #1548 on head 2faa54ac46d7da01b43864c2d0bc3d9d8b914ed1: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN before this ready_to_merge ledger update."
         }
       },
       "failure_reason": null,
@@ -13137,10 +13145,15 @@
           "at": "2026-07-02T21:03:03Z",
           "status": "pr_opened",
           "summary": "Opened PR #1548 for SECURITY-122-WEB-09 from branch codex/security-122-web-09 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-07-02T21:11:12Z",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed and PR diff scope validation passed for SECURITY-122-WEB-09. Focused local revalidation passed. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T21:03:03Z"
+      "updated_at": "2026-07-02T21:11:12Z"
     },
     {
       "id": "SECURITY-122-WEB-10",
