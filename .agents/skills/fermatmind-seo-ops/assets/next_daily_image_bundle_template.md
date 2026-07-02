@@ -2,6 +2,13 @@
 
 Use this template when asking GPT/Mode C to generate the image portion of a daily SEO content package.
 
+For the separate daily request that asks GPT to generate only the two article
+image files, use:
+
+`fermatmind-wechat-seo-article-editor/assets/GPT_DAILY_SEO_IMAGE_GENERATION_PROMPT_TEMPLATE.md`
+
+Then map the returned files into the package media tree below during Stage 4.
+
 ## Required File Tree
 
 ```text

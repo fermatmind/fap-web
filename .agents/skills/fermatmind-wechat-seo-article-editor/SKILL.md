@@ -161,10 +161,17 @@ Purpose: create a paste-ready instruction for GPT 5.5 Pro or another content-pac
 Use:
 
 - `assets/GPT55_DAILY_SEO_MODE_C_PACKAGE_PROMPT_TEMPLATE.md` when the task is to generate a complete daily SEO Mode C content package from an approved topic or Mode B brief.
+- `assets/GPT_DAILY_SEO_IMAGE_GENERATION_PROMPT_TEMPLATE.md` when the task is to generate the daily GPT prompt for two article image files: cover image and body visual.
 - `assets/WECHAT_SEO_REWRITE_PROMPT_TEMPLATE.md` when the task is to improve an already generated article/package body before Codex package QA.
 - `assets/CODEX_STAGE4_TO_SEO_AGENT_GOAL_TEMPLATE.md` when GPT has returned the content package/images and the user wants Codex to do Stage 4 content enrichment/package QA/image manifest normalization, then generate the Stage 5 `/goal` for a separate SEO agent window.
 
 Reject prompt drafts that would ask GPT to return only an article body, README, FAQ, internal-link list, or image prompts. A daily SEO Mode C package prompt must require `manifest.json`, `brief/`, `pages/`, `cms/`, `contracts/`, `review/`, `codex/`, and `media/` outputs, including real source images or an explicit image-generation blocker.
+
+For daily image-generation prompts, require GPT to return actual downloadable
+image files, not only descriptions. The cover must express the reader scene and
+the body visual must be a checklist, flowchart, comparison table, decision tree,
+or entity map tied to an answer block. Keep Media Library URLs, asset IDs, CMS
+IDs, schema/hreflang, search, and publish state out of the image prompt.
 
 Include:
 
