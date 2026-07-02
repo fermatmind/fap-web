@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "mode": "contract_mock_backend_display_surface",
+  "route": "/zh/career/jobs/civil-engineering-technologists-and-technicians",
+  "surface": "CareerDisplaySurface",
+  "assertions": [
+    "hero_h1_contains_standard_name",
+    "definition_contains_engineer_guidance_boundary",
+    "responsibilities_contain_cad_surveying_records_testing",
+    "faq_contains_engineer_difference",
+    "sources_include_onet_bls_mynextmove"
+  ],
+  "notes": "Render smoke uses fap-web display primitives with a backend-like fixture; it does not add frontend editorial fallback content."
+}

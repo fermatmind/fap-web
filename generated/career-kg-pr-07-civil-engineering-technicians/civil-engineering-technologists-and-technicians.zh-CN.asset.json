@@ -1,0 +1,318 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "1.0.0",
+  "pr_id": "PR-CAREER-KG-07",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "civil-engineering-technologists-and-technicians",
+  "canonical_path": "/zh/career/jobs/civil-engineering-technologists-and-technicians",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "土木工程技师与技术员",
+    "title_en": "Civil Engineering Technologists and Technicians",
+    "soc_code": "17-3022",
+    "onet_code": "17-3022.00",
+    "aliases_zh": [
+      "土木工程技术员",
+      "土木工程技师",
+      "土木设计技术员",
+      "施工技术员",
+      "交通工程技术员",
+      "工程技术员",
+      "CAD制图技术员"
+    ],
+    "aliases_en": [
+      "Civil Engineering Technician",
+      "Civil Engineering Assistant",
+      "Civil Designer",
+      "Design Technician",
+      "Engineering Technician",
+      "Transportation Engineering Technician"
+    ],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "土木工程师",
+        "boundary": "土木工程师通常承担更完整的工程设计、签署、方案判断和工程责任；技术员在工程师或科学人员指导下执行制图、测量、测试、记录和现场检查。"
+      },
+      {
+        "name_zh": "测量与制图技术员",
+        "boundary": "测量制图技术员更偏地理空间数据采集、地图和测绘成果；土木工程技术员会使用测量资料，但服务于土木工程设计、施工和维护。"
+      },
+      {
+        "name_zh": "机械制图员",
+        "boundary": "机械制图员偏机械零件、装配和制造图；土木工程技术员偏道路、桥梁、管线、场地、结构和施工图资料。"
+      },
+      {
+        "name_zh": "建筑与土木制图员",
+        "boundary": "制图员更专注绘图产出；土木工程技术员还可能参与材料试验、现场检查、施工记录、工程量估算和工程师协作。"
+      },
+      {
+        "name_zh": "施工经理",
+        "boundary": "施工经理偏进度、成本、分包、资源和现场管理责任；土木工程技术员偏技术资料、试验、测量、图纸和合规检查。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "土木工程技师与技术员是做什么的：CAD、测量、施工记录与试验",
+    "meta_description_zh": "了解土木工程技师与技术员的职责、CAD制图、测量、施工记录、材料试验、工程师协作、入门路径、AI影响和相邻职业。",
+    "h1_zh": "土木工程技师与技术员",
+    "canonical_path": "/zh/career/jobs/civil-engineering-technologists-and-technicians",
+    "ctr_intent_notes": [
+      "标题覆盖“是做什么的”“CAD”“测量”“施工记录”“试验”五类查询意图。",
+      "摘要明确技术员与工程师协作边界，避免把职业页写成工程师执业资格保证。",
+      "H1 保持中文标准名，canonical 不变，等待后端/CMS投影。"
+    ]
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "heading_zh": "职业定义",
+      "body_zh": "土木工程技师与技术员在工程师、工程技术人员或物理科学人员指导下，将土木工程理论和原则用于结构与设施的规划、设计、施工监督和维护。这个职业把图纸、测量、材料试验、现场条件、施工记录和工程师判断连接起来，是工程方案落地时的重要技术支持角色。",
+      "source_refs": [
+        "onet_summary_17_3022_00",
+        "bls_ooh_civil_engineering_technologists_technicians"
+      ]
+    },
+    {
+      "id": "core_responsibilities",
+      "heading_zh": "核心职责",
+      "items_zh": [
+        "阅读项目蓝图、结构规格和工程资料，确认尺寸、材料要求、构件规格和施工约束。",
+        "使用 CAD、土木设计软件、表格或工程计算工具绘制详细尺寸图、设计布局、地图、剖面图和施工辅助图。",
+        "计算工程量、面积、标高、材料数量、构件规格、预算或成本估算，支持设计和施工决策。",
+        "在现场检查承包商工作、形成施工记录、发现设计不符或规范偏差，并向主管或工程师报告。",
+        "开展材料试验、取样、测量、现场条件评估和数据整理，为工程师提供可追溯证据。",
+        "与工程师、主管、承包商、测量人员和现场团队沟通，处理图纸、验收测试、设计调整和施工冲突。"
+      ],
+      "source_refs": [
+        "onet_summary_17_3022_00",
+        "bls_ooh_civil_engineering_technologists_technicians",
+        "mynextmove_summary_17_3022_00"
+      ]
+    },
+    {
+      "id": "work_scenes",
+      "heading_zh": "工作场景",
+      "items_zh": [
+        "办公室场景包括 CAD 制图、工程量统计、报告编写、资料审查、会议沟通和工程数据整理。",
+        "现场场景包括道路、桥梁、管线、场地、建筑基础或市政设施的测量、检查、试验和施工记录。",
+        "工作需要在图纸、规范、现场条件和承包商执行之间来回核对，准确性和记录完整性很重要。",
+        "部分岗位需要室外工作、天气暴露、穿戴安全帽、安全鞋、护目镜或其他常见防护装备。"
+      ],
+      "source_refs": [
+        "onet_summary_17_3022_00",
+        "bls_ooh_civil_engineering_technologists_technicians",
+        "mynextmove_summary_17_3022_00"
+      ]
+    },
+    {
+      "id": "skills_tools",
+      "heading_zh": "技能与工具",
+      "items_zh": [
+        "CAD 与制图：AutoCAD、Civil 3D、MicroStation、Revit 或同类土木/道路/场地设计工具。",
+        "测量与数据：全站仪、GNSS、激光测距、COGO、GIS、电子表格和工程测量记录。",
+        "施工记录：日报、检查表、试验记录、变更记录、照片、材料批次、验收数据和问题清单。",
+        "试验与检查：混凝土、土工、沥青、压实度、材料性能或结构构件相关测试和现场观察。",
+        "协作能力：把图纸语言、现场问题、承包商执行和工程师判断转化成清晰可追溯的技术信息。"
+      ],
+      "source_refs": [
+        "onet_summary_17_3022_00",
+        "mynextmove_summary_17_3022_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "entry_path",
+      "heading_zh": "入门路径",
+      "items_zh": [
+        "常见准备包括职业学校、社区学院、相关在岗经验、土木工程技术或相关专业副学士/证书路径。",
+        "许多岗位需要掌握 CAD、工程图阅读、基础测量、材料试验、施工记录和常见规范意识。",
+        "实习、学徒、实验室或现场助理经历有助于理解工程资料如何转化为现场执行。",
+        "学历、证书或软件培训不能保证录用、薪资、晋升、工程师执照或独立签署资格。"
+      ],
+      "source_refs": [
+        "onet_summary_17_3022_00",
+        "bls_ooh_civil_engineering_technologists_technicians",
+        "mynextmove_summary_17_3022_00"
+      ]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "heading_zh": "RIASEC / 人格边界",
+      "items_zh": [
+        "RIASEC 上通常更接近 Realistic（实作型）和 Investigative（研究型）：喜欢工程工具、现场资料、计算、图纸和问题排查。",
+        "Conventional（常规型）也很重要，因为记录、编号、版本、试验表和规范核对需要细致稳定。",
+        "人格、MBTI 或 Big Five 结果只能帮助理解偏好，不能替代工程训练、现场安全、软件能力、试验规范或执业资格要求。"
+      ],
+      "source_refs": [
+        "mynextmove_summary_17_3022_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "heading_zh": "风险与 AI 边界",
+      "items_zh": [
+        "主要风险来自图纸误读、测量误差、试验记录缺失、现场安全、规范偏差、版本管理混乱和工程沟通不清。",
+        "AI、CAD 自动化、BIM、无人机和数据分析工具可以辅助绘图、检查清单、资料整理、照片归档和异常提示，但不能替代工程师责任、现场核验和合规判断。",
+        "页面不得承诺快速转工程师、高薪保证、零事故、AI不会影响岗位，或把软件熟练度误写成独立工程签署资格。"
+      ],
+      "source_refs": [
+        "onet_summary_17_3022_00",
+        "bls_ooh_civil_engineering_technologists_technicians",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "adjacent_careers",
+      "heading_zh": "相邻职业",
+      "items_zh": [
+        "土木工程师：更偏工程设计责任、方案判断、计算审查和执业签署。",
+        "测量与制图技术员：更偏空间数据采集、测量成果和地图表达。",
+        "建筑与土木制图员：更偏图纸绘制和设计表达产出。",
+        "施工经理：更偏施工组织、进度、成本、分包和资源管理。",
+        "机械制图员：更偏机械零件、装配和制造图纸。"
+      ],
+      "source_refs": [
+        "mynextmove_summary_17_3022_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "faq",
+      "heading_zh": "FAQ",
+      "items_zh": [
+        {
+          "question": "土木工程技师与技术员和土木工程师有什么区别？",
+          "answer": "土木工程师通常承担更完整的设计、计算、方案和执业责任；土木工程技师与技术员在工程师或主管指导下，更多处理 CAD 图纸、测量、材料试验、施工记录、现场检查和工程资料整理。"
+        },
+        {
+          "question": "土木工程技师与技术员需要会 CAD 吗？",
+          "answer": "许多岗位会用 CAD、Civil 3D、MicroStation、GIS、表格和工程记录系统。CAD 很重要，但还需要图纸阅读、测量、试验、现场记录和工程师协作能力。"
+        },
+        {
+          "question": "AI 会替代土木工程技师与技术员吗？",
+          "answer": "AI、BIM、无人机和自动化制图可以提高资料整理、检查和建模效率，但工程现场核验、试验记录、规范理解和工程责任仍需要合格人员与工程师共同把关。"
+        }
+      ],
+      "source_refs": [
+        "onet_summary_17_3022_00",
+        "bls_ooh_civil_engineering_technologists_technicians",
+        "fermatmind_interpretation"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_17_3022_00",
+      "label": "O*NET OnLine: Civil Engineering Technologists and Technicians 17-3022.00",
+      "url": "https://www.onetonline.org/link/summary/17-3022.00",
+      "authority": "occupation_fact",
+      "usage": "职业定义、任务、CAD/测量/试验/施工记录、工作活动和相邻职业事实。"
+    },
+    {
+      "key": "bls_ooh_civil_engineering_technologists_technicians",
+      "label": "BLS OOH: Civil Engineering Technologists and Technicians",
+      "url": "https://www.bls.gov/ooh/architecture-and-engineering/civil-engineering-technicians.htm",
+      "authority": "occupation_fact",
+      "usage": "职业概览、工作环境、教育路径、职责和工程师协作边界。"
+    },
+    {
+      "key": "mynextmove_summary_17_3022_00",
+      "label": "My Next Move: Civil Engineering Technologists & Technicians 17-3022.00",
+      "url": "https://www.mynextmove.org/profile/summary/17-3022.00",
+      "authority": "occupation_fact",
+      "usage": "通俗职业名称、别名、工作内容、人格倾向、教育路径和相邻职业。"
+    },
+    {
+      "key": "mynextmove_data_sources_17_3022_00",
+      "label": "My Next Move data sources: Civil Engineering Technologists & Technicians",
+      "url": "https://www.mynextmove.org/help/data/17-3022.00",
+      "authority": "source_disclosure",
+      "usage": "公开来源披露，不作为新增职业事实。"
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial interpretation from authoritative occupational sources",
+      "authority": "editorial_interpretation",
+      "usage": "中文表达、搜索意图归纳、内链与人格边界说明；不得覆盖 O*NET/BLS/My Next Move 职业事实。"
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "blocked_usage": [
+      "职业事实权威",
+      "就业保证",
+      "执业签署资格保证",
+      "JSON-LD事实来源",
+      "生产导入依据"
+    ]
+  },
+  "internal_links": [
+    {
+      "label": "职业库",
+      "path": "/zh/career/jobs",
+      "reason": "回到职业库，帮助用户继续浏览职业图谱。"
+    },
+    {
+      "label": "职业指南",
+      "path": "/zh/career",
+      "reason": "连接职业探索主入口。"
+    },
+    {
+      "label": "RIASEC 霍兰德职业兴趣测试",
+      "path": "/zh/tests/holland-career-interest-test-riasec",
+      "reason": "解释 Realistic / Investigative / Conventional 兴趣倾向。"
+    },
+    {
+      "label": "MBTI 人格测试",
+      "path": "/zh/tests/mbti-personality-test-16-personality-types",
+      "reason": "说明人格偏好仅供自我理解，不能替代工程训练和执业边界。"
+    },
+    {
+      "label": "Big Five 大五人格测试",
+      "path": "/zh/tests/big-five-personality-test-ocean-model",
+      "reason": "补充尽责性、细节稳定性和协作倾向讨论。"
+    },
+    {
+      "label": "土木工程师",
+      "path": "/zh/career/jobs/civil-engineers",
+      "reason": "区分工程师责任与技术员执行支持。"
+    },
+    {
+      "label": "测量与制图技术员",
+      "path": "/zh/career/jobs/surveying-and-mapping-technicians",
+      "reason": "区分测绘数据职业与土木工程技术支持。"
+    },
+    {
+      "label": "建筑与土木制图员",
+      "path": "/zh/career/jobs/architectural-and-civil-drafters",
+      "reason": "区分制图产出与更宽的现场/试验/记录职责。"
+    },
+    {
+      "label": "施工经理",
+      "path": "/zh/career/jobs/construction-managers",
+      "reason": "区分施工管理与技术资料支持。"
+    },
+    {
+      "label": "机械制图员",
+      "path": "/zh/career/jobs/mechanical-drafters",
+      "reason": "提示同属制图但工程对象不同。"
+    }
+  ],
+  "release_boundaries": {
+    "cms_write_performed": false,
+    "staging_write_performed": false,
+    "production_import_performed": false,
+    "production_deploy_triggered": false,
+    "manual_deploy_triggered": false,
+    "sitemap_changed": false,
+    "llms_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "json_ld_runtime_changed": false,
+    "frontend_editorial_fallback_added": false
+  }
+}

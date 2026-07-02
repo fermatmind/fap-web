@@ -35750,12 +35750,13 @@
     "depends_on": [
       "PR-CAREER-KG-05"
     ],
-    "status": "in_progress",
+    "status": "merged",
     "commit_sha": "e6c43e12ec0a48ae51aff94f71c8a21942f99261",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1529",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-02T17:08:10Z",
+    "merge_commit_sha": "16161985494bd7ce145e4573f8e4c0fa862ab5a8",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "artifacts": [
       "generated/career-kg-pr-06-aircraft-avionics-technicians/README.md",
@@ -35865,6 +35866,150 @@
         "at": "2026-07-02T17:01:30Z",
         "status": "ready_to_merge",
         "head_sha": "2141054af029b1ff72bfc997dea72f6fc93336bc",
+        "notes": "GitHub checks passed and PR diff scope validation passed. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
+      },
+      {
+        "at": "2026-07-02T17:08:10Z",
+        "status": "merged",
+        "merge_commit_sha": "16161985494bd7ce145e4573f8e4c0fa862ab5a8",
+        "notes": "GitHub reports PR #1529 merged. Post-merge cleanup confirmed origin/main contains the merge commit, local main was synced to origin/main, the PR-train worktree was clean, the local task branch was deleted, and the remote task branch was absent/deleted. Staging deploy was not waited on."
+      }
+    ]
+  },
+  "PR-CAREER-KG-07": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/pr-career-kg-07-civil-engineering-technologists-technicians",
+    "title": "PR-CAREER-KG-07: content(career): add civil engineering technicians KG asset package",
+    "train_scope": "career_kg_civil_engineering_technicians_asset_package",
+    "depends_on": [
+      "PR-CAREER-KG-06"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "047636faa7f4a1c88995574f48aa551d745743dd",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1532",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "artifacts": [
+      "generated/career-kg-pr-07-civil-engineering-technicians/README.md",
+      "generated/career-kg-pr-07-civil-engineering-technicians/civil-engineering-technologists-and-technicians.zh-CN.asset.json",
+      "generated/career-kg-pr-07-civil-engineering-technicians/qa_report.json",
+      "generated/career-kg-pr-07-civil-engineering-technicians/dry_run_importer_report.json",
+      "generated/career-kg-pr-07-civil-engineering-technicians/staging_preview_smoke.json",
+      "generated/career-kg-pr-07-civil-engineering-technicians/fap_web_render_smoke.json",
+      "generated/career-kg-pr-07-civil-engineering-technicians/sha256_manifest.json",
+      "tests/contracts/career-kg-07-civil-engineering-technicians.contract.test.tsx",
+      "tests/contracts/helpers/currentPrScope.ts",
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json"
+    ],
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "Active /goal explicitly authorized adding missing manifest/state entries and executing PR-CAREER-KG-01 through PR-CAREER-KG-17 as a one-PR-per-scope train."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-CAREER-KG-06 was merged as fap-web PR #1529; origin/main contains merge commit 16161985494bd7ce145e4573f8e4c0fa862ab5a8."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Using isolated clean worktree <workspace>/fap-web-pr-career-kg-00 on latest main; unrelated files in the primary workspace are not touched."
+      },
+      "local_checks": {
+        "status": "pass",
+        "commands": [
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "pnpm exec vitest run tests/contracts/career-kg-07-civil-engineering-technicians.contract.test.tsx",
+          "pnpm typecheck",
+          "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "pnpm test:contract",
+          "git diff --check"
+        ],
+        "evidence": "YAML parse passed; JSON parse passed; focused PR-CAREER-KG-07 contract passed 5 tests after an in-scope wording fix; pnpm typecheck passed; production-API build passed; pnpm test:contract passed 620 files and 3633 tests; git diff --check passed. After origin/main advanced first to 4d294d4b and then to 6466348d, the PR branch was rebased cleanly twice; YAML/JSON parse, focused contract, typecheck, production-API build, and full pnpm test:contract were rerun on the final rebased branch, with the full suite passing 622 files and 3641 tests; git diff --check passed."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "evidence": "Changed-file scope validation passed for exactly the 11 PR-CAREER-KG-07 authorized files, including the ignored generated/career-kg-pr-07-civil-engineering-technicians files discovered with git ls-files --others --ignored --exclude-standard."
+      },
+      "github_checks": {
+        "status": "pass",
+        "head_sha": "3a02b0e7876eea19b064b1d9e09d1f2cf0e106fa",
+        "evidence": "GitHub PR #1532 checks passed before ready-to-merge ledger update: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
+      },
+      "merge_readiness": {
+        "status": "pass",
+        "evidence": "PR #1532 was open, not draft, mergeStateStatus CLEAN, mergeable MERGEABLE, and PR diff scope validation passed for exactly the 11 authorized PR-CAREER-KG-07 files."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        "generated/career-kg-pr-07-civil-engineering-technicians/README.md",
+        "generated/career-kg-pr-07-civil-engineering-technicians/civil-engineering-technologists-and-technicians.zh-CN.asset.json",
+        "generated/career-kg-pr-07-civil-engineering-technicians/qa_report.json",
+        "generated/career-kg-pr-07-civil-engineering-technicians/dry_run_importer_report.json",
+        "generated/career-kg-pr-07-civil-engineering-technicians/staging_preview_smoke.json",
+        "generated/career-kg-pr-07-civil-engineering-technicians/fap_web_render_smoke.json",
+        "generated/career-kg-pr-07-civil-engineering-technicians/sha256_manifest.json",
+        "tests/contracts/career-kg-07-civil-engineering-technicians.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "outside_scope_files": []
+    },
+    "events": [
+      {
+        "at": "2026-07-02T17:09:38Z",
+        "status": "in_progress",
+        "notes": "Started PR-CAREER-KG-07 on branch codex/pr-career-kg-07-civil-engineering-technologists-technicians. Scope is the Civil Engineering Technologists and Technicians zh-CN career KG dry-run asset package, QA evidence, fap-web render contract, and PR-train metadata only."
+      },
+      {
+        "at": "2026-07-02T17:20:10Z",
+        "status": "local_checks_passed",
+        "notes": "Required local checks passed for PR-CAREER-KG-07: YAML/JSON parse, focused contract, typecheck, production-API build, full contract suite, and diff check. Staging deploy and server deployment were not run or waited on."
+      },
+      {
+        "at": "2026-07-02T17:20:10Z",
+        "status": "scope_validation_passed",
+        "notes": "Changed-file scope validation passed for exactly the 11 PR-CAREER-KG-07 authorized files, including the ignored generated artifact package."
+      },
+      {
+        "at": "2026-07-02T17:21:21Z",
+        "status": "committed",
+        "commit_sha": "047636faa7f4a1c88995574f48aa551d745743dd",
+        "notes": "Committed PR-CAREER-KG-07 implementation and local validation evidence. This SHA is the final rebased implementation commit before the ledger-only commits that record it."
+      },
+      {
+        "at": "2026-07-02T17:29:44Z",
+        "status": "rebased_on_latest_main",
+        "base_commit_sha": "6466348dac5ce0a658cead79e6ea18b78599cae8",
+        "notes": "Rebased PR-CAREER-KG-07 onto latest origin/main after SECURITY-122-WEB-02 merged. Rebase completed without conflicts; required local checks and scope validation were rerun on the rebased branch."
+      },
+      {
+        "at": "2026-07-02T17:29:44Z",
+        "status": "local_checks_passed",
+        "notes": "Required local checks passed again for PR-CAREER-KG-07 after the final rebase: YAML/JSON parse, focused contract, typecheck, production-API build, full contract suite passing 622 files and 3641 tests, and diff check. Staging deploy and server deployment were not run or waited on."
+      },
+      {
+        "at": "2026-07-02T17:29:44Z",
+        "status": "scope_validation_passed",
+        "notes": "Final changed-file scope validation passed for exactly the 11 PR-CAREER-KG-07 authorized files."
+      },
+      {
+        "at": "2026-07-02T17:31:22Z",
+        "status": "pr_open",
+        "commit_sha": "8916d5dc0ed9aaab70f70237a56f0bc3f9252308",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1532",
+        "notes": "Opened PR #1532 for PR-CAREER-KG-07 after required local checks and scope validation passed on the latest-main branch. This records the pre-PR-URL-ledger head; the PR URL ledger update itself is committed afterward on the same branch."
+      },
+      {
+        "at": "2026-07-02T17:37:15Z",
+        "status": "ready_to_merge",
+        "head_sha": "3a02b0e7876eea19b064b1d9e09d1f2cf0e106fa",
         "notes": "GitHub checks passed and PR diff scope validation passed. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
       }
     ]
