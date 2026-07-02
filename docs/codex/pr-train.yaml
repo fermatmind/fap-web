@@ -8375,7 +8375,7 @@ prs:
     mode: execute
     train_scope: security_103_web_github_actions_deploy_workflow_hardening
     risk_level: critical
-    status: in_progress
+    status: merged
     title: "SECURITY-103-WEB-01: GitHub Actions / deploy workflow hardening"
     goal: "Harden fap-web deploy workflows by pinning deploy actions, preventing SSH target/secret exposure through workflow body defaults, and fail-closing workflow_dispatch branch/SHA/input handling."
     in_scope:
@@ -10641,7 +10641,7 @@ prs:
     mode: smoke
     train_scope: pr_fdn_seo_01_post_deploy_smoke
     risk_level: read_only_foundation_seo_runtime_smoke
-    status: in_progress
+    status: merged
     title: "PR-FDN-SEO-01-POST-DEPLOY-SMOKE: Verify Daily Giving SEO/schema/llms runtime"
     goal: "Read-only production smoke after PR-FDN-SEO-01 deployment, verifying Daily Giving runtime 200, exact canonical, robots, JSON-LD, llms gating, no frontend fallback content, and no Search Channel action."
     in_scope:
@@ -10701,7 +10701,7 @@ prs:
     mode: review
     train_scope: pr_fdn_social_link_display_review_01
     risk_level: read_only_frontend_display_gap_review
-    status: in_progress
+    status: merged
     title: "PR-FDN-SOCIAL-LINK-DISPLAY-REVIEW-01: Review Daily Giving manual social link display"
     goal: "Review whether fap-web consumes and displays backend-authored Foundation Daily Giving manual social URLs after the backend manual social sync MVP deployment."
     in_scope:
@@ -12328,6 +12328,237 @@ prs:
       squash: true
       auto_merge: true
     next_task: null
+
+  - id: PR-CAREER-KG-00
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-00-seo-display-asset-projection-lock
+    base: main
+    title: "PR-CAREER-KG-00: test(career): lock job SEO display asset projection"
+    depends_on: []
+    mode: execute
+    train_scope: career_job_seo_display_asset_projection_lock
+    status: in_progress
+    goal: "Lock career job detail SEO/display asset projection to backend/CMS authority by rendering and contract-testing backend title/meta consumption, FAQPage and Occupation structured-data gates, localized career CTA projection, and source disclosure rendering without adding frontend-authored career facts, sitemap/llms/search changes, CMS writes, production deploy steps, or future occupation content PRs."
+    artifacts:
+      - components/career/display/CareerDecisionActionBlock.tsx
+      - components/career/display/CareerDisplayCTA.tsx
+      - components/career/display/CareerDisplayHero.tsx
+      - components/career/display/SourceDisclosureBlock.tsx
+      - tests/contracts/career-display-surface.contract.test.tsx
+      - tests/contracts/career-job-detail-actors-v42.contract.test.tsx
+      - tests/contracts/career-job-seo-display-asset-projection.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - components/career/display/CareerDecisionActionBlock.tsx
+      - components/career/display/CareerDisplayCTA.tsx
+      - components/career/display/CareerDisplayHero.tsx
+      - components/career/display/SourceDisclosureBlock.tsx
+      - tests/contracts/career-display-surface.contract.test.tsx
+      - tests/contracts/career-job-detail-actors-v42.contract.test.tsx
+      - tests/contracts/career-job-seo-display-asset-projection.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Add frontend-authored career job facts, FAQs, metadata, titles, descriptions, salary copy, source claims, or fallback editorial content.
+      - Mutate sitemap, llms, robots, canonical URL sets, CMS, search submission, deploy, cache, queue, or server runtime.
+      - Change career recommendation, scoring, payment, result, personality, MBTI, Big Five, Enneagram, RIASEC, article, topic, or homepage behavior.
+      - Process future occupation content PRs.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-job-seo-display-asset-projection.contract.test.tsx tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/career-job-seo-authority.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: PR-CAREER-KG-01
+
+  - id: PR-CAREER-KG-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-01-graphic-designers
+    base: main
+    title: "PR-CAREER-KG-01: content(career): add graphic designers KG asset package"
+    depends_on:
+      - PR-CAREER-KG-00
+    mode: execute
+    train_scope: career_kg_graphic_designers_asset_package
+    status: in_progress
+    goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Graphic Designers career page, covering identity, title/meta CTR intent, visual/brand/UI aliases, portfolio/tooling/AI boundaries, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
+    artifacts:
+      - generated/career-kg-pr-01-graphic-designers/README.md
+      - generated/career-kg-pr-01-graphic-designers/graphic-designers.zh-CN.asset.json
+      - generated/career-kg-pr-01-graphic-designers/qa_report.json
+      - generated/career-kg-pr-01-graphic-designers/dry_run_importer_report.json
+      - generated/career-kg-pr-01-graphic-designers/staging_preview_smoke.json
+      - generated/career-kg-pr-01-graphic-designers/fap_web_render_smoke.json
+      - generated/career-kg-pr-01-graphic-designers/sha256_manifest.json
+      - tests/contracts/career-kg-01-graphic-designers.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - generated/career-kg-pr-01-graphic-designers/README.md
+      - generated/career-kg-pr-01-graphic-designers/graphic-designers.zh-CN.asset.json
+      - generated/career-kg-pr-01-graphic-designers/qa_report.json
+      - generated/career-kg-pr-01-graphic-designers/dry_run_importer_report.json
+      - generated/career-kg-pr-01-graphic-designers/staging_preview_smoke.json
+      - generated/career-kg-pr-01-graphic-designers/fap_web_render_smoke.json
+      - generated/career-kg-pr-01-graphic-designers/sha256_manifest.json
+      - tests/contracts/career-kg-01-graphic-designers.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Write CMS, staging, or production career rows.
+      - Add frontend runtime fallback editorial content.
+      - Change sitemap, llms, robots, canonical, noindex, JSON-LD runtime, search submission, deploy workflows, cache, queues, or server runtime.
+      - Change career jobs other than graphic-designers or prepare future PR-CAREER-KG-02+ content.
+      - Use Chinese recruiting or encyclopedia pages as occupational fact authority.
+      - Make employment, income, admission, diagnosis, or AI replacement guarantees.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-kg-01-graphic-designers.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-02
+
+  - id: PR-CAREER-KG-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-02-production-planning-clerks
+    base: main
+    title: "PR-CAREER-KG-02: content(career): add production planning clerks KG asset package"
+    depends_on:
+      - PR-CAREER-KG-01
+    mode: execute
+    train_scope: career_kg_production_planning_expediting_clerks_asset_package
+    status: in_progress
+    goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Production, Planning, and Expediting Clerks career page, correcting the generic production/clerk framing and covering PMC, ERP/MRP, scheduling, material coordination, factory collaboration, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
+    artifacts:
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/README.md
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/production-planning-expediting-clerks.zh-CN.asset.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/qa_report.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/dry_run_importer_report.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/staging_preview_smoke.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/fap_web_render_smoke.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/sha256_manifest.json
+      - tests/contracts/career-kg-02-production-planning-expediting-clerks.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/README.md
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/production-planning-expediting-clerks.zh-CN.asset.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/qa_report.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/dry_run_importer_report.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/staging_preview_smoke.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/fap_web_render_smoke.json
+      - generated/career-kg-pr-02-production-planning-expediting-clerks/sha256_manifest.json
+      - tests/contracts/career-kg-02-production-planning-expediting-clerks.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Write CMS, staging, or production career rows.
+      - Add frontend runtime fallback editorial content.
+      - Change sitemap, llms, robots, canonical, noindex, JSON-LD runtime, search submission, deploy workflows, cache, queues, or server runtime.
+      - Change career jobs other than production-planning-expediting-clerks or prepare future PR-CAREER-KG-03+ content.
+      - Use Chinese recruiting or encyclopedia pages as occupational fact authority.
+      - Make employment, income, admission, diagnosis, AI replacement, or production outcome guarantees.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-kg-02-production-planning-expediting-clerks.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-03
+
+  - id: PR-CAREER-KG-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-03-transit-intercity-bus-drivers
+    base: main
+    title: "PR-CAREER-KG-03: content(career): add transit and intercity bus drivers KG asset package"
+    depends_on:
+      - PR-CAREER-KG-02
+    mode: execute
+    train_scope: career_kg_transit_intercity_bus_drivers_asset_package
+    status: in_progress
+    goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Bus Drivers, Transit and Intercity career page, covering safety, scheduling, passenger service, stress/fatigue, adjacent transportation careers, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
+    artifacts:
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/README.md
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/bus-drivers-transit-intercity.zh-CN.asset.json
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/qa_report.json
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/dry_run_importer_report.json
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/staging_preview_smoke.json
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/fap_web_render_smoke.json
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/sha256_manifest.json
+      - tests/contracts/career-kg-03-transit-intercity-bus-drivers.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/README.md
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/bus-drivers-transit-intercity.zh-CN.asset.json
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/qa_report.json
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/dry_run_importer_report.json
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/staging_preview_smoke.json
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/fap_web_render_smoke.json
+      - generated/career-kg-pr-03-transit-intercity-bus-drivers/sha256_manifest.json
+      - tests/contracts/career-kg-03-transit-intercity-bus-drivers.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Write CMS, staging, or production career rows.
+      - Add frontend runtime fallback editorial content.
+      - Change sitemap, llms, robots, canonical, noindex, JSON-LD runtime, search submission, deploy workflows, cache, queues, or server runtime.
+      - Change career jobs other than bus-drivers-transit-intercity or prepare future PR-CAREER-KG-04+ content.
+      - Use Chinese recruiting or encyclopedia pages as occupational fact authority.
+      - Make employment, income, admission, diagnosis, AI replacement, safety-zero-risk, or licensing guarantees.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-kg-03-transit-intercity-bus-drivers.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-04
 
   - id: MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
     repo: fap-web

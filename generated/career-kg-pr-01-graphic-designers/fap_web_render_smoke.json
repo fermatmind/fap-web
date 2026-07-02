@@ -1,0 +1,17 @@
+{
+  "artifact_type": "career_kg_fap_web_render_smoke",
+  "pr_id": "PR-CAREER-KG-01",
+  "slug": "graphic-designers",
+  "status": "pass",
+  "mode": "contract_mock_backend_display_surface",
+  "route": "/zh/career/jobs/graphic-designers",
+  "validated_by": "tests/contracts/career-kg-01-graphic-designers.contract.test.ts",
+  "assertions": [
+    "renders H1 平面设计师",
+    "renders backend CTA label from display surface",
+    "renders visible FAQ questions from the asset",
+    "renders source disclosure from backend-like source fields",
+    "does not require frontend fallback editorial content"
+  ],
+  "verdict": "FAP_WEB_RENDER_SMOKE_PASS"
+}

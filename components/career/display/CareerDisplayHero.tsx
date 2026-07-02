@@ -19,14 +19,6 @@ type CareerDisplayHeroProps = {
   snapshotItems?: CareerDisplayHeroSnapshotItem[];
 };
 
-function ctaLabel(locale: Locale, label: string): string {
-  if (locale === "zh") {
-    return "测我的职业兴趣是否匹配";
-  }
-
-  return label;
-}
-
 function ctaHref(locale: Locale, href: string): string {
   if (/^\/(en|zh)\/tests\/holland-career-interest-test-riasec$/.test(href)) {
     return localizedPath("/tests/holland-career-interest-test-riasec", locale);
@@ -71,7 +63,7 @@ export function CareerDisplayHero({
               href={ctaHref(locale, hero.primaryCta.href)}
               className="inline-flex min-h-11 items-center justify-center rounded-lg bg-slate-950 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800"
             >
-              {ctaLabel(locale, hero.primaryCta.label)}
+              {hero.primaryCta.label}
             </Link>
           </div>
         </div>

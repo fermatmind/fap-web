@@ -1,0 +1,16 @@
+{
+  "status": "pass",
+  "mode": "staging_preview_contract_only",
+  "route": "/zh/career/jobs/bus-drivers-transit-intercity",
+  "pr_id": "PR-CAREER-KG-03",
+  "staging_write_performed": false,
+  "staging_deploy_wait_performed": false,
+  "manual_deploy_triggered": false,
+  "production_deploy_triggered": false,
+  "smoke_assertions": [
+    "canonical unchanged",
+    "H1 from asset",
+    "FAQ visible in mock projection",
+    "source disclosure visible"
+  ]
+}

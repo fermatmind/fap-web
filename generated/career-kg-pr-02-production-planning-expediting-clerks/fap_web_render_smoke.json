@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "mode": "contract_mock_backend_display_surface",
+  "route": "/zh/career/jobs/production-planning-expediting-clerks",
+  "pr_id": "PR-CAREER-KG-02",
+  "rendered_blocks": [
+    "hero",
+    "definition",
+    "responsibilities",
+    "faq",
+    "source_list"
+  ],
+  "frontend_runtime_content_authority": false
+}

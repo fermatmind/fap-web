@@ -1,0 +1,20 @@
+{
+  "artifact_type": "career_kg_staging_preview_smoke",
+  "pr_id": "PR-CAREER-KG-01",
+  "slug": "graphic-designers",
+  "status": "pass",
+  "mode": "local_contract_preview_only",
+  "staging_write_performed": false,
+  "staging_deploy_wait_performed": false,
+  "manual_deploy_triggered": false,
+  "production_deploy_triggered": false,
+  "preview_route": "/zh/career/jobs/graphic-designers",
+  "preview_gate": "backend_preview_required_before_public_import",
+  "assertions": [
+    "canonical path remains /zh/career/jobs/graphic-designers",
+    "asset has status dry_run_ready, not production_imported",
+    "frontend fail-closed rule remains unchanged",
+    "no sitemap/llms/robots/canonical/noindex runtime mutation is included"
+  ],
+  "verdict": "STAGING_PREVIEW_SMOKE_DRY_RUN_PASS"
+}

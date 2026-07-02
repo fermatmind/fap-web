@@ -661,6 +661,45 @@ function comparisonVariantSummary(variant: PersonalityComparisonVariantViewModel
   return variant.summaryCard.summary || variant.heroSummary || variant.seo.description || "";
 }
 
+function comparisonSectionLabel(key: string, locale: Locale): string {
+  const normalized = key.toLowerCase();
+  if (locale === "zh") {
+    if (normalized.includes("career") || normalized.includes("work")) {
+      return "工作与职业";
+    }
+    if (normalized.includes("relationship") || normalized.includes("love") || normalized.includes("social")) {
+      return "关系与沟通";
+    }
+    if (normalized.includes("growth") || normalized.includes("stress") || normalized.includes("pressure")) {
+      return "成长与压力";
+    }
+    if (normalized.includes("rarity")) {
+      return "识别线索";
+    }
+    return "核心差异";
+  }
+
+  if (normalized.includes("career") || normalized.includes("work")) {
+    return "Work and career";
+  }
+  if (normalized.includes("relationship") || normalized.includes("love") || normalized.includes("social")) {
+    return "Relationships";
+  }
+  if (normalized.includes("growth") || normalized.includes("stress") || normalized.includes("pressure")) {
+    return "Growth and pressure";
+  }
+  if (normalized.includes("rarity")) {
+    return "Recognition cues";
+  }
+  return "Core difference";
+}
+
+function comparisonBoundaryCopy(locale: Locale): string {
+  return locale === "zh"
+    ? "A/T 是同一人格核心下的状态差异，用于观察压力反馈、决策节奏和自我修正方式；它不是优劣排序，也不能替代能力、职业和关系中的真实证据。"
+    : "A/T describes state differences inside the same personality core. Use it to compare stress response, decision rhythm, and self-correction patterns; it is not a ranking and does not replace real evidence about skill, work, or relationships.";
+}
+
 function asPlainRecord(value: unknown): Record<string, unknown> | null {
   return value && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>) : null;
 }
@@ -748,18 +787,25 @@ function ComparisonBlock({
   block,
   assertiveLabel,
   turbulentLabel,
+  locale,
 }: {
   block: PersonalityComparisonBlockViewModel;
   assertiveLabel: string;
   turbulentLabel: string;
+  locale: Locale;
 }) {
   return (
     <article
+      id={`comparison-${block.key}`}
       className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
       data-testid={`personality-comparison-block-${block.key}`}
       data-authority-source={block.source ?? "comparison_public_projection_v1"}
     >
-      <h2 className="m-0 text-xl font-semibold text-[var(--fm-text)]">{block.title}</h2>
+      <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+        {comparisonSectionLabel(block.key, locale)}
+      </p>
+      <h2 className="m-0 mt-2 text-xl font-semibold text-[var(--fm-text)]">{block.title}</h2>
+      {block.bodyMd ? <p className="m-0 mt-3 text-sm leading-7 text-[var(--fm-text-muted)]">{block.bodyMd}</p> : null}
       <div className="mt-4 grid gap-3 md:grid-cols-2">
         <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
           <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">{assertiveLabel}</p>
@@ -771,6 +817,77 @@ function ComparisonBlock({
         </div>
       </div>
     </article>
+  );
+}
+
+function ComparisonAssetNav({
+  comparison,
+  locale,
+}: {
+  comparison: PersonalityComparisonViewModel;
+  locale: Locale;
+}) {
+  const links = [
+    { href: "#comparison-overview", label: locale === "zh" ? "概览" : "Overview" },
+    { href: "#comparison-variants", label: "A/T" },
+    ...comparison.comparisonBlocks.slice(0, 4).map((block) => ({
+      href: `#comparison-${block.key}`,
+      label: block.title,
+    })),
+    { href: "#comparison-next", label: locale === "zh" ? "下一步" : "Next" },
+  ];
+
+  return (
+    <nav
+      className="sticky top-3 z-10 -mx-1 overflow-x-auto rounded-2xl border border-[var(--fm-border)] bg-[color-mix(in_srgb,var(--fm-surface)_92%,transparent)] p-2 shadow-[var(--fm-shadow-sm)] backdrop-blur"
+      aria-label={locale === "zh" ? "人格对比目录" : "Personality comparison navigation"}
+      data-testid="personality-comparison-asset-nav"
+    >
+      <div className="flex min-w-max gap-2">
+        {links.map((link) => (
+          <a
+            key={link.href}
+            href={link.href}
+            className="rounded-full px-3 py-2 text-xs font-medium text-[var(--fm-text-muted)] transition hover:bg-[var(--fm-surface-muted)] hover:text-[var(--fm-text)]"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
+function ComparisonMethodCard({
+  comparison,
+  locale,
+}: {
+  comparison: PersonalityComparisonViewModel;
+  locale: Locale;
+}) {
+  const sourceCount = comparison.sourceRefs.length + (comparison.answerSurface?.evidenceRefs.length ?? 0);
+
+  return (
+    <section
+      className="grid gap-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:grid-cols-[1.2fr_0.8fr]"
+      data-testid="personality-comparison-method-boundary"
+    >
+      <div>
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+          {locale === "zh" ? "使用边界" : "Reading boundary"}
+        </p>
+        <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{comparisonBoundaryCopy(locale)}</p>
+      </div>
+      <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+          {locale === "zh" ? "内容来源" : "Content source"}
+        </p>
+        <p className="m-0 mt-2 text-2xl font-semibold text-[var(--fm-text)]">{sourceCount || 1}</p>
+        <p className="m-0 mt-1 text-xs leading-6 text-[var(--fm-text-muted)]">
+          {locale === "zh" ? "由后端人格对比投影与公开 answer surface 提供，不使用前端本地正文兜底。" : "Provided by the backend comparison projection and public answer surface, with no frontend editorial fallback."}
+        </p>
+      </div>
+    </section>
   );
 }
 
@@ -803,6 +920,7 @@ function PersonalityComparisonPage({
   const quickAnswerBody = comparisonQuickAnswerBody(comparison);
   const renderedComparisonSections = renderPersonalitySections(comparison.sections, locale);
   const comparisonFaqItems = extractPersonalityFaqItems(comparison.sections);
+  const nextStepBlocks = comparison.answerSurface?.nextStepBlocks ?? [];
 
   return (
     <main
@@ -825,13 +943,33 @@ function PersonalityComparisonPage({
         ]}
       />
 
-      <section className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--fm-accent)]">
-          {comparison.baseTypeCode}
-        </p>
-        <h1 className="m-0 mt-3 font-serif text-3xl font-semibold text-[var(--fm-text)] md:text-5xl">{heading}</h1>
-        {description ? <p className="m-0 mt-4 max-w-3xl text-base leading-8 text-[var(--fm-text-muted)]">{description}</p> : null}
+      <section
+        id="comparison-overview"
+        className="grid gap-6 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:grid-cols-[1.25fr_0.75fr]"
+      >
+        <div>
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--fm-accent)]">
+            {comparison.baseTypeCode} · {locale === "zh" ? "A/T 人格对比" : "A/T personality comparison"}
+          </p>
+          <h1 className="m-0 mt-3 font-serif text-3xl font-semibold text-[var(--fm-text)] md:text-5xl">{heading}</h1>
+          {description ? <p className="m-0 mt-4 max-w-3xl text-base leading-8 text-[var(--fm-text-muted)]">{description}</p> : null}
+        </div>
+        <div className="grid content-start gap-3 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+            {locale === "zh" ? "对比对象" : "Compare"}
+          </p>
+          <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+            <span className="text-lg font-semibold text-[var(--fm-text)]">{assertiveLabel}</span>
+            <span className="text-xs font-medium text-[var(--fm-text-muted)]">vs</span>
+            <span className="text-lg font-semibold text-[var(--fm-text)]">{turbulentLabel}</span>
+          </div>
+          <p className="m-0 text-xs leading-6 text-[var(--fm-text-muted)]">
+            {locale === "zh" ? "同一人格核心，不同压力反馈与自我确认方式。" : "Same type core, different stress feedback and self-confirmation styles."}
+          </p>
+        </div>
       </section>
+
+      <ComparisonAssetNav comparison={comparison} locale={locale} />
 
       {quickAnswerBody ? (
         <section
@@ -845,7 +983,9 @@ function PersonalityComparisonPage({
         </section>
       ) : null}
 
-      <section className="grid gap-4 md:grid-cols-2" data-testid="personality-comparison-variants">
+      <ComparisonMethodCard comparison={comparison} locale={locale} />
+
+      <section id="comparison-variants" className="grid gap-4 md:grid-cols-2" data-testid="personality-comparison-variants">
         <ComparisonVariantCard variant={comparison.variants.a} locale={locale} />
         <ComparisonVariantCard variant={comparison.variants.t} locale={locale} />
       </section>
@@ -858,6 +998,7 @@ function PersonalityComparisonPage({
               block={block}
               assertiveLabel={assertiveLabel}
               turbulentLabel={turbulentLabel}
+              locale={locale}
             />
           ))}
         </section>
@@ -874,7 +1015,13 @@ function PersonalityComparisonPage({
         locale={locale}
         testId="personality-comparison-answer-surface"
         pageFamily="personality_detail"
+        hideSummaryBlocks
+        hideCompareLabel
       />
+
+      {nextStepBlocks.length ? (
+        <section id="comparison-next" className="sr-only" aria-label={locale === "zh" ? "下一步" : "Next steps"} />
+      ) : null}
     </main>
   );
 }

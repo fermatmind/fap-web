@@ -145,6 +145,61 @@ const MBTI_PDF_SNAPSHOT_RENDERED_SMOKE_H2_ALLOWED_FILES = new Set([
   "generated/pr-train-sidecar-issues/sidecar_issues.json",
 ]);
 
+const PR_CAREER_KG_00_ALLOWED_FILES = new Set([
+  "components/career/display/CareerDecisionActionBlock.tsx",
+  "components/career/display/CareerDisplayCTA.tsx",
+  "components/career/display/CareerDisplayHero.tsx",
+  "components/career/display/SourceDisclosureBlock.tsx",
+  "tests/contracts/career-display-surface.contract.test.tsx",
+  "tests/contracts/career-job-detail-actors-v42.contract.test.tsx",
+  "tests/contracts/career-job-seo-display-asset-projection.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
+const PR_CAREER_KG_01_ALLOWED_FILES = new Set([
+  "generated/career-kg-pr-01-graphic-designers/README.md",
+  "generated/career-kg-pr-01-graphic-designers/graphic-designers.zh-CN.asset.json",
+  "generated/career-kg-pr-01-graphic-designers/qa_report.json",
+  "generated/career-kg-pr-01-graphic-designers/dry_run_importer_report.json",
+  "generated/career-kg-pr-01-graphic-designers/staging_preview_smoke.json",
+  "generated/career-kg-pr-01-graphic-designers/fap_web_render_smoke.json",
+  "generated/career-kg-pr-01-graphic-designers/sha256_manifest.json",
+  "tests/contracts/career-kg-01-graphic-designers.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
+const PR_CAREER_KG_02_ALLOWED_FILES = new Set([
+  "generated/career-kg-pr-02-production-planning-expediting-clerks/README.md",
+  "generated/career-kg-pr-02-production-planning-expediting-clerks/production-planning-expediting-clerks.zh-CN.asset.json",
+  "generated/career-kg-pr-02-production-planning-expediting-clerks/qa_report.json",
+  "generated/career-kg-pr-02-production-planning-expediting-clerks/dry_run_importer_report.json",
+  "generated/career-kg-pr-02-production-planning-expediting-clerks/staging_preview_smoke.json",
+  "generated/career-kg-pr-02-production-planning-expediting-clerks/fap_web_render_smoke.json",
+  "generated/career-kg-pr-02-production-planning-expediting-clerks/sha256_manifest.json",
+  "tests/contracts/career-kg-02-production-planning-expediting-clerks.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
+const PR_CAREER_KG_03_ALLOWED_FILES = new Set([
+  "generated/career-kg-pr-03-transit-intercity-bus-drivers/README.md",
+  "generated/career-kg-pr-03-transit-intercity-bus-drivers/bus-drivers-transit-intercity.zh-CN.asset.json",
+  "generated/career-kg-pr-03-transit-intercity-bus-drivers/qa_report.json",
+  "generated/career-kg-pr-03-transit-intercity-bus-drivers/dry_run_importer_report.json",
+  "generated/career-kg-pr-03-transit-intercity-bus-drivers/staging_preview_smoke.json",
+  "generated/career-kg-pr-03-transit-intercity-bus-drivers/fap_web_render_smoke.json",
+  "generated/career-kg-pr-03-transit-intercity-bus-drivers/sha256_manifest.json",
+  "tests/contracts/career-kg-03-transit-intercity-bus-drivers.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -5056,6 +5111,38 @@ export function isMbtiPdfSnapshotRenderedSmokeH2AllowedFile(file: string): boole
   return MBTI_PDF_SNAPSHOT_RENDERED_SMOKE_H2_ALLOWED_FILES.has(file);
 }
 
+export function isPrCareerKg00AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-career-kg-00-seo-display-asset-projection-lock") {
+    return true;
+  }
+
+  return PR_CAREER_KG_00_ALLOWED_FILES.has(file);
+}
+
+export function isPrCareerKg01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-career-kg-01-graphic-designers") {
+    return true;
+  }
+
+  return PR_CAREER_KG_01_ALLOWED_FILES.has(file);
+}
+
+export function isPrCareerKg02AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-career-kg-02-production-planning-clerks") {
+    return true;
+  }
+
+  return PR_CAREER_KG_02_ALLOWED_FILES.has(file);
+}
+
+export function isPrCareerKg03AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-career-kg-03-transit-intercity-bus-drivers") {
+    return true;
+  }
+
+  return PR_CAREER_KG_03_ALLOWED_FILES.has(file);
+}
+
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH !== "codex/seo-ops-gaokao-v5-package-contract-repair-01") {
     return true;
@@ -5168,4 +5255,16 @@ export function isSeoCmsDraftPackageContract01AllowedFile(file: string): boolean
     isQuizPackContractMainReplayAllowedFile(file) ||
     isCurrentQuizPackPerformanceHotfixAllowedFile(file)
   );
+}
+
+export function isPersonalityComparisonV1FromAssetsAllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/personality-comparison-v1-from-assets") {
+    return false;
+  }
+
+  return new Set([
+    "app/(localized)/[locale]/personality/[type]/page.tsx",
+    "tests/contracts/helpers/currentPrScope.ts",
+    "tests/contracts/personality-comparison-pages.contract.test.tsx",
+  ]).has(file);
 }

@@ -1,0 +1,51 @@
+{
+  "status": "pass",
+  "schema_validation": {
+    "status": "pass",
+    "required_sections_present": [
+      "identity",
+      "seo",
+      "definition",
+      "core_responsibilities",
+      "work_scenes",
+      "skills_tools",
+      "entry_path",
+      "riasec_personality_boundary",
+      "risk_ai_boundary",
+      "adjacent_careers",
+      "faq",
+      "sources",
+      "internal_links"
+    ],
+    "canonical_unchanged": true,
+    "content_block_count": 9,
+    "faq_count": 3
+  },
+  "trust_audit": {
+    "status": "pass",
+    "fact_authorities": [
+      "O*NET OnLine",
+      "BLS OEWS",
+      "My Next Move"
+    ],
+    "market_or_baike_used_as_fact_authority": false,
+    "blocked_claims_absent": [
+      "就业保证",
+      "收入保证",
+      "AI不会替代保证",
+      "升学或证照保证",
+      "医疗/心理诊断"
+    ]
+  },
+  "editorial_gate": {
+    "status": "pass",
+    "priority_focus": "修正“生产、文员”的泛化理解，补 PMC、ERP/MRP、排产、物料和工厂协同。",
+    "reader_intent_covered": [
+      "生产计划与催办文员是做什么的",
+      "PMC和生产文员区别",
+      "ERP/MRP和排产需要会什么",
+      "物料催办和工厂协同"
+    ],
+    "canonical_path_locked": "/zh/career/jobs/production-planning-expediting-clerks"
+  }
+}

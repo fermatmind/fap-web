@@ -1,0 +1,291 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "kg.pr03.v1",
+  "pr_id": "PR-CAREER-KG-03",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "bus-drivers-transit-intercity",
+  "canonical_path": "/zh/career/jobs/bus-drivers-transit-intercity",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "公交与城际巴士司机",
+    "title_en": "Bus Drivers, Transit and Intercity",
+    "soc_code": "53-3052",
+    "onet_code": "53-3052.00",
+    "aliases_zh": [
+      "公交车司机",
+      "城际巴士司机",
+      "客运巴士司机",
+      "公交驾驶员",
+      "运营巴士司机",
+      "长途客车司机"
+    ],
+    "aliases_en": [
+      "Bus Driver",
+      "Bus Operator",
+      "Charter Bus Driver",
+      "Coach Operator",
+      "Motor Coach Driver",
+      "Transit Bus Driver",
+      "Transit Operator"
+    ],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "校车司机",
+        "boundary": "校车司机服务学生接送和校车安全规则；本职业服务公交、城际、包车或私营客运路线。"
+      },
+      {
+        "name_zh": "出租车/网约车司机",
+        "boundary": "出租车和网约车通常服务小型乘用车和点到点出行；本职业驾驶公交或大型客运巴士。"
+      },
+      {
+        "name_zh": "重型卡车司机",
+        "boundary": "重型卡车司机主责货物运输；本职业主责乘客运输、上下客和公共服务场景。"
+      },
+      {
+        "name_zh": "乘客车辆司机",
+        "boundary": "乘客车辆司机覆盖非公交/城际巴士的其他乘客车辆；本职业限定公交、城际、旅游或包车巴士。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "公交与城际巴士司机是做什么的？安全、排班、乘客服务与疲劳压力",
+    "meta_description_zh": "了解公交与城际巴士司机的职责、路线运营、乘客服务、安全检查、排班压力、疲劳风险、入门路径、相邻交通职业和常见问题。",
+    "h1_zh": "公交与城际巴士司机",
+    "canonical_path": "/zh/career/jobs/bus-drivers-transit-intercity",
+    "ctr_intent_notes": [
+      "标题突出安全、排班和乘客服务，避免只被理解为普通驾驶工作。",
+      "摘要补充疲劳、压力和相邻交通职业，匹配职业选择与转行查询意图。",
+      "FAQ区分公交/城际、校车、卡车和网约车，降低职业混淆。"
+    ]
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "heading_zh": "职业定义",
+      "body_zh": "公交与城际巴士司机驾驶公交车或大型客运巴士，执行固定线路、城际客运、包车或私营客运任务，可能协助乘客搬运行李、收取票款或核验车票，并在安全和服务规则下完成乘客运输。",
+      "source_refs": [
+        "onet_summary_53_3052_00",
+        "mynextmove_summary_53_3052_00"
+      ]
+    },
+    {
+      "id": "core_responsibilities",
+      "heading_zh": "核心职责",
+      "items_zh": [
+        "按线路、班次、站点和运营要求驾驶车辆，控制速度、距离、停靠和上下客安全。",
+        "出车前后检查车辆状态、票务或客运设备，发现安全隐患、设备异常或乘客事件时按流程上报。",
+        "与调度、站务、维修、乘客和管理人员沟通，处理延误、改道、投诉、遗失物、行李和票务问题。",
+        "遵守交通法规、公司安全制度、服务规范和休息/排班要求，避免疲劳驾驶和高风险操作。"
+      ],
+      "source_refs": [
+        "onet_summary_53_3052_00",
+        "mynextmove_summary_53_3052_00"
+      ]
+    },
+    {
+      "id": "work_scenes",
+      "heading_zh": "工作场景",
+      "items_zh": [
+        "城市公交：固定线路、频繁停靠、早晚高峰、乘客咨询和站点秩序压力较高。",
+        "城际或长途客运：路线距离更长，行李、票务、服务区停靠、天气和疲劳管理更突出。",
+        "包车或旅游巴士：路线可能变化，需要与乘客、导游、调度和目的地时间安排协同。"
+      ],
+      "source_refs": [
+        "onet_summary_53_3052_00",
+        "bls_oews_53_3052",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "skills_tools",
+      "heading_zh": "技能与工具",
+      "items_zh": [
+        "核心技能包括安全驾驶、路线熟悉、车辆检查、乘客沟通、冲突降级、时间管理和异常上报。",
+        "常用工具包括公交/客运车辆、票务或刷卡设备、调度通信设备、车载监控/定位系统、车辆检查表和运营记录。",
+        "需要理解交通法规、公司运营规则、服务标准、恶劣天气和疲劳风险，不能只用“会开车”概括。"
+      ],
+      "source_refs": [
+        "onet_summary_53_3052_00",
+        "mynextmove_summary_53_3052_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "entry_path",
+      "heading_zh": "入门路径",
+      "items_zh": [
+        "通常需要满足当地商用车辆驾驶资格、体检、安全培训和公司线路培训要求；具体证照由地区和运营方决定。",
+        "入门训练通常围绕车辆操作、线路熟悉、安全流程、乘客服务、票务设备、应急处置和防疲劳驾驶。",
+        "转岗路径常见于客运、物流、出租/网约车、校车或其他驾驶岗位，但大型客运车辆和公共服务场景要求不同。"
+      ],
+      "source_refs": [
+        "onet_summary_53_3052_00",
+        "mynextmove_data_sources_53_3052_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "heading_zh": "RIASEC/人格边界",
+      "items_zh": [
+        "该职业通常偏 Realistic + Social + Conventional：既是车辆与路线操作，也包含乘客服务、规则执行和记录。",
+        "适合重视稳定操作、规则、安全、耐心和公共服务的人；不适合频繁冲动驾驶、难以管理疲劳或不愿处理乘客沟通的人。",
+        "RIASEC、MBTI 或 Big Five 只能帮助理解工作偏好，不能替代驾驶资格、健康条件、安全记录和实际培训。"
+      ],
+      "source_refs": [
+        "onet_summary_53_3052_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "heading_zh": "风险、AI与自动化边界",
+      "items_zh": [
+        "智能调度、导航、监控和辅助驾驶可以提升运营效率，但乘客安全、道路判断、突发事件和服务沟通仍需要明确责任边界。",
+        "主要风险包括疲劳驾驶、恶劣天气、乘客冲突、站点秩序、分心驾驶、车辆故障、紧急制动和延误压力。",
+        "不得承诺“自动驾驶不会影响岗位”或“一定稳定就业”；更准确的是自动化会先改变调度、监控和辅助驾驶，安全责任与乘客服务仍需谨慎表达。"
+      ],
+      "source_refs": [
+        "onet_summary_53_3052_00",
+        "bls_oews_53_3052",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "adjacent_careers",
+      "heading_zh": "相邻职业",
+      "items_zh": [
+        "校车司机：学生接送和校车安全规则更突出。",
+        "出租车/网约车司机：小型车辆和点到点服务更突出。",
+        "重型卡车司机：货运路线、装卸和物流时效更突出。",
+        "运输调度员：不驾驶车辆，更多负责班次、车辆和人员协调。"
+      ],
+      "source_refs": [
+        "onet_summary_53_3052_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "faq",
+      "heading_zh": "常见问题",
+      "items_zh": [
+        {
+          "question": "公交与城际巴士司机和校车司机有什么区别？",
+          "answer": "公交与城际巴士司机服务城市线路、城际客运、包车或私营客运；校车司机主要服务学生接送和校车安全规则。两者都强调安全，但乘客群体、路线和运营制度不同。"
+        },
+        {
+          "question": "这个职业只是会开车吗？",
+          "answer": "不是。除了驾驶，还要执行班次和线路、检查车辆、处理乘客服务、票务或行李、沟通调度、记录异常并管理疲劳和压力。"
+        },
+        {
+          "question": "公交司机的压力主要来自哪里？",
+          "answer": "常见压力来自高峰拥堵、准点要求、乘客沟通、突发改道、恶劣天气、车辆故障、长期久坐和疲劳管理。具体强度取决于线路、班次和运营制度。"
+        }
+      ],
+      "source_refs": [
+        "onet_summary_53_3052_00",
+        "mynextmove_summary_53_3052_00",
+        "fermatmind_interpretation"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_53_3052_00",
+      "label": "O*NET OnLine: Bus Drivers, Transit and Intercity 53-3052.00",
+      "url": "https://www.onetonline.org/link/summary/53-3052.00",
+      "authority": "occupation_fact",
+      "usage": "Definition, SOC/O*NET identity, reported titles, tasks, work context, and related occupation framing."
+    },
+    {
+      "key": "bls_oews_53_3052",
+      "label": "BLS OEWS: Bus Drivers, Transit and Intercity 53-3052",
+      "url": "https://www.bls.gov/oes/current/oes533052.htm",
+      "authority": "occupation_fact",
+      "usage": "BLS occupational employment and wage classification reference for the SOC occupation; not used for employment guarantees."
+    },
+    {
+      "key": "mynextmove_summary_53_3052_00",
+      "label": "My Next Move: Bus Drivers, Transit & Intercity 53-3052.00",
+      "url": "https://www.mynextmove.org/profile/summary/53-3052.00",
+      "authority": "occupation_fact",
+      "usage": "Plain-language tasks and career overview aligned to O*NET."
+    },
+    {
+      "key": "mynextmove_data_sources_53_3052_00",
+      "label": "My Next Move data sources: Bus Drivers, Transit & Intercity",
+      "url": "https://www.mynextmove.org/help/data/53-3052.00",
+      "authority": "source_disclosure",
+      "usage": "Source provenance and SOC/O*NET data collection boundary."
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial interpretation from authorized sources",
+      "authority": "interpretation_only",
+      "usage": "Chinese naming, search-intent framing, RIASEC/personality boundaries, safety/fatigue caution, and internal-link rationale."
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "allowed_usage": "Chinese recruiting or encyclopedia pages may only inform market/search-intent phrasing in a later editorial review, not occupational facts.",
+    "blocked_usage": [
+      "职业事实权威",
+      "薪资事实权威",
+      "就业保证",
+      "JSON-LD事实来源",
+      "生产导入依据"
+    ]
+  },
+  "internal_links": [
+    {
+      "label": "职业库",
+      "path": "/zh/career/jobs",
+      "reason": "回到职业库入口，支持搜索和职业浏览。"
+    },
+    {
+      "label": "职业指南",
+      "path": "/zh/career/guides",
+      "reason": "连接职业规划与入门路径内容。"
+    },
+    {
+      "label": "RIASEC职业兴趣测试",
+      "path": "/zh/tests/holland-career-interest-test-riasec",
+      "reason": "解释Realistic/Social/Conventional偏好边界。"
+    },
+    {
+      "label": "MBTI职业相关页",
+      "path": "/zh/personality",
+      "reason": "人格内容只能做偏好参考，不做录用判断。"
+    },
+    {
+      "label": "Big Five人格测试",
+      "path": "/zh/tests/big-five-personality-test",
+      "reason": "连接尽责性、情绪稳定性和服务压力偏好解读。"
+    },
+    {
+      "label": "校车司机",
+      "path": "/zh/career/jobs/school-bus-drivers",
+      "reason": "区分学生接送与公交/城际客运。"
+    },
+    {
+      "label": "重型卡车司机",
+      "path": "/zh/career/jobs/heavy-tractor-trailer-truck-drivers",
+      "reason": "区分乘客运输与货物运输。"
+    }
+  ],
+  "release_boundaries": {
+    "cms_write_performed": false,
+    "staging_write_performed": false,
+    "production_import_performed": false,
+    "db_migration_performed": false,
+    "seo_runtime_changed": false,
+    "sitemap_or_llms_changed": false,
+    "canonical_or_noindex_changed": false,
+    "jsonld_runtime_changed": false,
+    "search_submission_performed": false,
+    "deployment_triggered": false
+  }
+}
