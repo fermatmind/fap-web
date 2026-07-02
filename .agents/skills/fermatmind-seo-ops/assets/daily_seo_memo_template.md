@@ -42,7 +42,8 @@ or `PROVIDER_QUOTA_BLOCKED_NOT_CONTENT_BLOCKER`.
 | IndexNow live | exact queue IDs or full-chain profile required |
 | Baidu live | exact queue IDs or full-chain profile required |
 | GSC Request Indexing | exact target URLs or full-chain profile required |
-| schema/hreflang | separate task required |
+| Article/Breadcrumb schema + bilingual hreflang | full-chain profile or exact independent gate required |
+| FAQPage schema | held unless visible FAQ parity passes |
 
 ## Daily Target State
 
@@ -74,7 +75,10 @@ A one-article daily release is complete only when the final matrix records:
 - `llms-full.txt` contains both localized public URLs;
 - URL Truth and Search Channel state are recorded, even when provider work is held;
 - IndexNow, Baidu, and GSC states are recorded as submitted, held, quota-blocked, or platform-blocked;
-- schema and hreflang are explicitly held unless a separate rollout task authorized them;
+- Article schema, Breadcrumb schema, and bilingual reciprocal hreflang are
+  enabled and verified when the full-chain profile or exact independent gate
+  authorized them; otherwise record the explicit hold;
+- FAQPage schema is held unless visible FAQ and JSON-LD parity passed;
 - D1/D7/D14 observation rows are queued with `Unknown` placeholders, not zeroes.
 
 If a page passes publish/discoverability but answer-surface FAQ still renders
@@ -98,11 +102,19 @@ Use `PROVIDER_QUOTA_BLOCKED_NOT_CONTENT_BLOCKER` when Baidu returns HTTP 400 `ov
 
 Retry only failed queue item IDs after quota reset. Do not retry submitted queue items.
 
-## Schema/Hreflang Holds
+## Schema/Hreflang Gate Policy
 
-Schema task: `SEO-OPS-ARTICLE-SCHEMA-ELIGIBILITY-REVIEW-00`.
+Daily full-chain releases should treat Article schema, Breadcrumb schema, and
+reciprocal bilingual hreflang as independent executable SEO enhancement gates
+when `authorization_mode=full_chain_preapproved` allows them.
 
-Hreflang task: `SEO-OPS-BILINGUAL-HREFLANG-ROLLOUT-REVIEW-00`.
+When the release is gate-by-gate or the full-chain profile does not allow these
+lanes, use separate tasks:
+
+- Schema task: `SEO-OPS-ARTICLE-SCHEMA-ELIGIBILITY-REVIEW-00`.
+- Hreflang task: `SEO-OPS-BILINGUAL-HREFLANG-ROLLOUT-REVIEW-00`.
+
+FAQPage remains held unless visible FAQ parity and claim gate evidence pass.
 
 ## Observation
 

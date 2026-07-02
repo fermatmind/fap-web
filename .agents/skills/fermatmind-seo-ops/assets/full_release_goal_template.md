@@ -92,8 +92,10 @@ Daily completion definition:
 - public smoke must prove zh-CN and en URLs return 200, self-canonical, and `index, follow`.
 - CTA smoke must prove localized public CTA routes and expected article `content_id`.
 - discoverability parity must prove both localized URLs appear in `sitemap.xml`, `llms.txt`, and `llms-full.txt`.
+- public sitemap parity uses the runtime backend-authority `/sitemap.xml`; do not require a frontend rebuild/deploy or static sitemap refresh as a daily article step when parity passes.
 - schema/hreflang parity must be run as an independent post-publish gate: Article and Breadcrumb schema enabled when public JSON-LD verifies; FAQ schema enabled only when visible FAQ and JSON-LD FAQPage parity passes, otherwise record `SEO_ENHANCEMENT_HELD_REASON=faq_schema_parity_not_verified`.
 - hreflang parity must prove reciprocal `zh-CN`, `en`, and `x-default` alternates for the bilingual article pair before closeout marks hreflang complete.
+- final public smoke for a full-chain bilingual article should expect `Article,BreadcrumbList`, forbid `FAQPage` when FAQ parity is not enabled, and expect exact `en`, `zh-CN`, and `x-default` hreflang alternates.
 - final search matrix must record URL Truth, Search Channel enqueue/approval/submission, IndexNow, Baidu, GSC evidence, schema/hreflang gate state, and D1/D7/D14 observation queue.
 - final closeout must pass available evidence files to `articles:release-closeout`, including public smoke, GSC manual Request Indexing, and observation JSON artifacts.
 - answer-surface FAQ must be checked. If the public article answer surface uses generic FAQ instead of package-specific FAQ, record `ANSWER_SURFACE_FAQ_ENHANCEMENT_RECOMMENDED` without blocking publish.
@@ -151,6 +153,11 @@ Final Decision must be one of:
 - BLOCKED_NEEDS_RUNTIME_FIX
 - BLOCKED_NEEDS_EXACT_APPROVAL
 ```
+
+`ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING` is the expected D0 success
+state for a completed daily full-chain article release. It means publishing,
+discoverability, search submission, public smoke, and enabled SEO enhancement
+gates have been reconciled; only D1/D7/D14 performance observation remains open.
 
 ## Conservative Gate-By-Gate Variant
 

@@ -86,7 +86,12 @@ Stored crawl reports may be stale; report live test state and stored crawl state
 
 ## Schema And Hreflang Lanes
 
-Schema and hreflang are not part of normal daily article release. Use separate tasks:
+Schema and hreflang are not implicit publish/search side effects. In a daily
+full-chain release with `authorization_mode=full_chain_preapproved`, Article
+schema, Breadcrumb schema, and reciprocal bilingual hreflang may run as
+independent post-publish enhancement gates in the same chain.
+
+Without that profile, use separate tasks:
 
 - `SEO-OPS-ARTICLE-SCHEMA-ELIGIBILITY-REVIEW-00`.
 - `SEO-OPS-BILINGUAL-HREFLANG-ROLLOUT-REVIEW-00`.

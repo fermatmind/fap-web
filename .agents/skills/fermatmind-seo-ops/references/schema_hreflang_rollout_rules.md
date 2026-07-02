@@ -1,8 +1,12 @@
 # Schema And Hreflang Rollout Rules
 
-Schema and hreflang are separate rollout lanes. Do not enable both implicitly in one task.
+Schema and hreflang are separate rollout lanes. Do not enable them implicitly as
+a side effect of publish, discoverability, search submission, or revalidation.
 
-Schema and hreflang are not part of normal daily article release. Use separate tasks such as:
+In a daily full-chain release with `authorization_mode=full_chain_preapproved`,
+Article schema, Breadcrumb schema, and reciprocal bilingual hreflang may run as
+independent post-publish enhancement gates in the same release chain. Without
+that profile, use separate tasks such as:
 
 - `SEO-OPS-ARTICLE-SCHEMA-ELIGIBILITY-REVIEW-00`.
 - `SEO-OPS-BILINGUAL-HREFLANG-ROLLOUT-REVIEW-00`.
@@ -34,7 +38,9 @@ Schema must support independent gates:
 - Breadcrumb schema.
 - FAQ schema.
 
-FAQ schema defaults to hold unless visible FAQ parity and the claim gate pass. Article + Breadcrumb may roll out together only when FAQ remains disabled and public QA proves `FAQPage` count is 0.
+FAQ schema defaults to hold unless visible FAQ parity and the claim gate pass.
+Article + Breadcrumb may roll out together as the default daily enhancement
+when FAQ remains disabled and public QA proves `FAQPage` count is 0.
 
 Required post-rollout QA:
 
@@ -73,6 +79,11 @@ Record:
 - `hreflang="x-default"` target or explicit no-x-default policy.
 
 Do not use preview, admin, draft, private, or tokenized URLs.
+
+For bilingual daily articles, closeout should expect exact reciprocal `en`,
+`zh-CN`, and `x-default` alternates unless an explicit no-hreflang policy is
+recorded. `--forbid-hreflang` is a pre-enhancement or intentionally-held check,
+not the final full-chain default.
 
 ## Decisions
 
