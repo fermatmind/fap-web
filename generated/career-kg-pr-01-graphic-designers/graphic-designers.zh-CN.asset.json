@@ -1,0 +1,298 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "kg.pr01.v1",
+  "pr_id": "PR-CAREER-KG-01",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "graphic-designers",
+  "canonical_path": "/zh/career/jobs/graphic-designers",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "平面设计师",
+    "title_en": "Graphic Designers",
+    "soc_code": "27-1024",
+    "onet_code": "27-1024.00",
+    "onet_taxonomy": "O*NET-SOC 2019",
+    "aliases_zh": [
+      "视觉设计师",
+      "品牌设计师",
+      "品牌视觉设计师",
+      "UI视觉设计师",
+      "包装设计师",
+      "海报设计师",
+      "美术设计",
+      "排版设计师"
+    ],
+    "aliases_en": [
+      "Artist",
+      "Brand Designer",
+      "Designer",
+      "Graphic Artist",
+      "Graphic Design Coordinator",
+      "Online Producer",
+      "Production Artist",
+      "Publications Designer",
+      "Technical Illustrator"
+    ],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "UI/UX设计师",
+        "boundary": "更偏产品界面、交互流程、可用性验证和设计系统；平面设计师更偏视觉传达、版式、品牌和印刷/数字传播物料。"
+      },
+      {
+        "name_zh": "网页开发人员",
+        "boundary": "网页开发负责代码实现、前端工程和交付质量；平面设计师负责视觉概念、图形和版式表达。"
+      },
+      {
+        "name_zh": "艺术指导",
+        "boundary": "艺术指导通常负责创意方向和团队/项目把控；平面设计师更多执行具体视觉方案。"
+      },
+      {
+        "name_zh": "商业与工业设计师",
+        "boundary": "商业与工业设计聚焦实体产品形态、材料和制造约束；平面设计师聚焦图形、文字、色彩和传播媒介。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "平面设计师是做什么的？作品集、工具与AI边界｜FermatMind职业库",
+    "meta_description_zh": "平面设计师职业页：了解视觉传达、品牌/UI别名、作品集、常用设计工具、入门路径、AI影响边界和相邻职业。基于O*NET、BLS与My Next Move整理。",
+    "h1_zh": "平面设计师",
+    "canonical_path": "/zh/career/jobs/graphic-designers",
+    "ctr_intent_notes": [
+      "标题直接回答“是做什么的”，并补充作品集、工具、AI边界，覆盖GSC中接近首页但0点击的解释型意图。",
+      "meta description 不承诺薪资、就业或录用结果，只说明页面覆盖范围和权威来源。"
+    ]
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "heading_zh": "平面设计师是做什么的？",
+      "body_zh": "平面设计师把商业或传播目标转化为图形、版式、字体、色彩、图片和视觉系统，用于品牌、广告、包装、出版物、网页和社交媒体等场景。",
+      "source_refs": [
+        "onet_summary_27_1024_00",
+        "bls_ooh_graphic_designers"
+      ]
+    },
+    {
+      "id": "core_responsibilities",
+      "heading_zh": "核心职责",
+      "items_zh": [
+        "与客户、主管或艺术指导确认项目范围、目标受众和交付物。",
+        "使用数字插画、图像编辑和排版工具制作视觉方案。",
+        "设计Logo、图片、插画、宣传物料、报告、网页或社交媒体视觉。",
+        "选择颜色、字体、图片和版式，并根据反馈修改。",
+        "在印刷或发布前检查文件、文字、尺寸和视觉错误。"
+      ],
+      "source_refs": [
+        "bls_ooh_graphic_designers",
+        "mynextmove_summary_27_1024_00"
+      ]
+    },
+    {
+      "id": "work_scenes",
+      "heading_zh": "工作场景",
+      "items_zh": [
+        "品牌与广告：品牌视觉、活动海报、社交媒体图、广告素材。",
+        "出版与信息：杂志、报告、宣传册、信息图和排版系统。",
+        "包装与零售：包装图形、标签、陈列物料和促销视觉。",
+        "数字产品协作：为网页、App或设计系统提供视觉元素，但不等同于完整UX研究或前端开发。",
+        "自由职业或外包项目：需要管理客户沟通、报价、修改轮次和交付时间。"
+      ],
+      "source_refs": [
+        "bls_ooh_graphic_designers"
+      ]
+    },
+    {
+      "id": "skills_tools",
+      "heading_zh": "技能与工具",
+      "items_zh": [
+        "视觉基础：构图、色彩、字体、版式、图形语言和品牌一致性。",
+        "软件工具：图像编辑、数字插画、排版和协作工具；具体软件清单应由后台CMS或岗位样本单独维护。",
+        "沟通能力：理解客户或主管反馈，把抽象目标转化为可交付视觉方案。",
+        "作品集能力：用项目目标、约束、过程和结果说明设计判断，而不是只展示好看的图片。",
+        "交付能力：检查尺寸、格式、版权素材、印刷或数字发布要求。"
+      ],
+      "source_refs": [
+        "bls_ooh_graphic_designers",
+        "mynextmove_summary_27_1024_00"
+      ]
+    },
+    {
+      "id": "entry_path",
+      "heading_zh": "入门路径",
+      "items_zh": [
+        "BLS OOH 将平面设计师的典型入门教育列为平面设计或相关领域本科学历。",
+        "作品集是求职关键资产，应展示创造力、原创性和可复盘的设计过程。",
+        "非科班路径也应补齐视觉基础、工具熟练度、真实项目复盘和版权/交付规范。"
+      ],
+      "source_refs": [
+        "bls_ooh_graphic_designers"
+      ]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "heading_zh": "RIASEC / 人格边界",
+      "items_zh": [
+        "平面设计师通常更接近艺术型兴趣，但职业可持续性还依赖沟通、反馈承受、时间管理和商业理解。",
+        "MBTI 或 Big Five 只能作为自我观察入口，不能推断能否被录用、收入高低或职业结果。",
+        "适配判断应结合作品集、任务偏好、反馈恢复速度和对客户约束的接受度。"
+      ],
+      "source_refs": [
+        "mynextmove_data_sources_27_1024_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "heading_zh": "风险与AI边界",
+      "items_zh": [
+        "AI 和自动化设计工具可能压缩部分模板化、低差异化或外包型视觉生产需求。",
+        "更难被简单替代的部分包括品牌判断、复杂沟通、原创视觉方向、跨媒介一致性和对商业目标的取舍。",
+        "本页不做就业保证、收入预测或“AI一定替代/不会替代”的绝对判断。"
+      ],
+      "source_refs": [
+        "bls_ooh_graphic_designers",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "adjacent_careers",
+      "heading_zh": "相邻职业",
+      "items_zh": [
+        "艺术指导：更偏创意方向、项目审美把控和团队协作管理。",
+        "UI/UX设计师：更偏界面、交互流程、可用性和产品体验。",
+        "网页开发人员：更偏代码实现、性能、可访问性和前端工程。",
+        "商业与工业设计师：更偏实体产品设计、材料、结构和制造约束。",
+        "插画师/美术设计：可能与平面设计重叠，但更强调原创图像或艺术表现。"
+      ],
+      "source_refs": [
+        "bls_ooh_graphic_designers",
+        "onet_summary_27_1024_00"
+      ]
+    },
+    {
+      "id": "faq",
+      "heading_zh": "常见问题",
+      "items_zh": [
+        {
+          "question": "平面设计师和UI设计师有什么区别？",
+          "answer": "平面设计师更偏视觉传达、品牌、版式、包装和传播物料；UI设计师更偏界面组件、产品流程和交互可用性。两者可能共用视觉工具，但工作边界不同。"
+        },
+        {
+          "question": "做平面设计一定要本科吗？",
+          "answer": "BLS 将典型入门教育列为本科学历，但实际求职还会看作品集、工具能力、项目经验和交付质量。本页不把学历写成录用保证。"
+        },
+        {
+          "question": "AI会取代平面设计师吗？",
+          "answer": "AI 可能加速素材生成、草图和模板化产出，但品牌判断、客户沟通、原创方向和复杂交付仍需要人的判断。本页不做绝对替代预测。"
+        }
+      ],
+      "source_refs": [
+        "bls_ooh_graphic_designers",
+        "fermatmind_interpretation"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_27_1024_00",
+      "label": "O*NET OnLine: Graphic Designers 27-1024.00",
+      "url": "https://www.onetonline.org/link/summary/27-1024.00",
+      "authority": "occupation_fact",
+      "captured_at": "2026-07-02",
+      "usage": "职业定义、O*NET代码、英文别名和职业边界参考。"
+    },
+    {
+      "key": "bls_ooh_graphic_designers",
+      "label": "BLS Occupational Outlook Handbook: Graphic Designers",
+      "url": "https://www.bls.gov/ooh/arts-and-design/graphic-designers.htm",
+      "authority": "occupation_fact",
+      "captured_at": "2026-07-02",
+      "usage": "职责、工作环境、入门教育、作品集要求、AI/自动化边界和就业展望语境。"
+    },
+    {
+      "key": "mynextmove_summary_27_1024_00",
+      "label": "My Next Move: Graphic Designers 27-1024.00",
+      "url": "https://www.mynextmove.org/profile/summary/27-1024.00",
+      "authority": "occupation_fact",
+      "captured_at": "2026-07-02",
+      "usage": "任务、知识、技能和易读职业摘要参考。"
+    },
+    {
+      "key": "mynextmove_data_sources_27_1024_00",
+      "label": "My Next Move Data Sources: Graphic Designers",
+      "url": "https://www.mynextmove.org/help/data/27-1024.00",
+      "authority": "source_boundary",
+      "captured_at": "2026-07-02",
+      "usage": "确认 My Next Move 展示数据来源于 O*NET、BLS EP/OEWS 等官方数据管线。"
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial synthesis",
+      "url": "internal://fermatmind/career-kg/pr-career-kg-01",
+      "authority": "interpretation_only",
+      "captured_at": "2026-07-02",
+      "usage": "用于组织读者说明、边界提醒和内链建议；不作为职业事实权威。"
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "allowed_usage": "中文招聘/百科只能作为市场或搜索意图参考；本资产未把中文招聘/百科作为职业事实权威。",
+    "blocked_usage": [
+      "薪资事实权威",
+      "就业保证",
+      "证照或学历强制事实",
+      "JSON-LD事实来源"
+    ]
+  },
+  "internal_links": [
+    {
+      "label": "职业库",
+      "path": "/zh/career/jobs",
+      "reason": "回到职业库浏览更多职业。"
+    },
+    {
+      "label": "职业指南",
+      "path": "/zh/career/guides",
+      "reason": "承接职业探索与入门路径。"
+    },
+    {
+      "label": "霍兰德职业兴趣测试（RIASEC）",
+      "path": "/zh/tests/holland-career-interest-test-riasec",
+      "reason": "用兴趣结构辅助判断是否适合视觉传达类工作。"
+    },
+    {
+      "label": "MBTI 16型人格测试",
+      "path": "/zh/tests/mbti-personality-test-16-personality-types",
+      "reason": "作为自我观察入口，不推断职业结果。"
+    },
+    {
+      "label": "大五人格测试",
+      "path": "/zh/tests/big-five-personality-test-ocean-model",
+      "reason": "观察开放性、尽责性和反馈恢复相关倾向。"
+    },
+    {
+      "label": "UI/UX设计师",
+      "path": "/zh/career/jobs/web-and-digital-interface-designers",
+      "reason": "相邻职业，需后续 live validation 后启用。"
+    },
+    {
+      "label": "艺术指导",
+      "path": "/zh/career/jobs/art-directors",
+      "reason": "相邻职业，需后续 live validation 后启用。"
+    }
+  ],
+  "release_boundaries": {
+    "cms_write": false,
+    "staging_write": false,
+    "production_import": false,
+    "sitemap_change": false,
+    "llms_change": false,
+    "canonical_change": false,
+    "noindex_or_robots_change": false,
+    "jsonld_runtime_change": false,
+    "search_submission": false
+  }
+}
