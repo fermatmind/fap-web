@@ -35700,7 +35700,7 @@
     ],
     "status": "in_progress",
     "commit_sha": "e6c43e12ec0a48ae51aff94f71c8a21942f99261",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1529",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -35801,6 +35801,13 @@
         "status": "rebased_on_latest_main",
         "base_commit_sha": "af975726",
         "notes": "Rebased PR-CAREER-KG-06 onto latest origin/main after SECURITY-122-WEB-01 merged. Rebase completed without conflicts; PR06 scope remained the authorized career KG files and metadata."
+      },
+      {
+        "at": "2026-07-02T16:57:30Z",
+        "status": "pr_open",
+        "commit_sha": "9dd0c15f6b5d00ee360343c984b77252dbf87b82",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1529",
+        "notes": "Opened PR #1529 for PR-CAREER-KG-06 after required local checks and scope validation passed on the rebased latest-main branch. This records the pre-PR ledger head; the PR URL ledger update itself is committed afterward on the same branch."
       }
     ]
   }
