@@ -260,8 +260,11 @@ Use:
 
 - fap-api read-only command:
   `php artisan articles:release-closeout --article-id=<id> --expected-slug=<slug> --json --no-ansi`
-- fap-web public smoke verifier:
-  `pnpm seo:verify-public-article-release --url=https://fermatmind.com/<locale>/articles/<slug> --expect-title --expect-meta --expect-canonical --expect-robots=index,follow --expect-sitemap --expect-llms --expect-llms-full --expect-jsonld=Article,BreadcrumbList --forbid-jsonld=FAQPage --forbid-hreflang --retry=3 --retry-delay-ms=60000 --json`
+- fap-web final full-chain public smoke verifier for a bilingual article:
+  `pnpm seo:verify-public-article-release --url=<localized-public-url> --expect-title --expect-meta --expect-canonical=<localized-public-url> --expect-robots=index,follow --expect-sitemap --expect-llms --expect-llms-full --expect-jsonld=Article,BreadcrumbList --forbid-jsonld=FAQPage --expect-hreflang=en=<en-public-url>,zh-CN=<zh-public-url>,x-default=<x-default-public-url> --retry=3 --retry-delay-ms=60000 --json`
+- fap-web pre-enhancement or explicitly-held public smoke verifier:
+  use `--forbid-hreflang` only before hreflang rollout or when a recorded
+  `no_hreflang` policy is the intended final state.
 - Ops/CMS Article `SEO Release Status` panel when browser/CMS evidence is requested.
 
 Do:
@@ -269,13 +272,25 @@ Do:
 - Run or request read-only evidence for content state, title/meta/canonical/robots, public media URLs, reader-facing taxonomy, sitemap, llms, llms-full, URL Truth, Search Channel queue states, schema/hreflang gates, public HTML JSON-LD, GSC manual request status, and D1/D7/D14 observation queue.
 - Treat PR1 backend closeout and PR2 frontend smoke outputs as complementary: backend tells authority/state gaps; frontend confirms public runtime HTML and cache state.
 - Apply retry/cache-window judgment for public HTML smoke. Do not call one transient cache miss a release failure until the configured retry window completes.
-- Separate hard blockers from intentional holds. FAQ schema hold and no-hreflang policy are acceptable when recorded; missing Article/Breadcrumb schema or missing no-hreflang policy is a closeout gap unless explicitly held.
+- Separate hard blockers from intentional holds. For daily full-chain releases,
+  Article schema, Breadcrumb schema, and reciprocal bilingual hreflang are the
+  expected completed SEO enhancement state when authorized and verified. FAQ
+  schema hold remains acceptable unless visible FAQ and JSON-LD FAQPage parity
+  passed. A no-hreflang policy is acceptable only when recorded for a single-locale
+  or intentionally non-counterpart article. Missing Article/Breadcrumb schema,
+  missing reciprocal hreflang, or missing no-hreflang policy is a closeout gap
+  unless explicitly held.
 
 Output:
 
 - Closeout matrix by lane: content, media, taxonomy, schema, hreflang, sitemap, llms, llms-full, URL Truth, Search Channel, GSC, public HTML smoke, and observation.
 - Remaining exact actions, if any, with dry-run command and approval phrase requirements.
 - Final decision: `ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING`, `BLOCKED_DISCOVERABILITY_GAP`, `BLOCKED_SEARCH_QUEUE_GAP`, `BLOCKED_PUBLIC_HTML_DRIFT`, or `BLOCKED_OPERATOR_INPUT`.
+
+`ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING` is a D0 success state, not
+a release failure. It means publish, discoverability, search submission, public
+smoke, and enabled SEO enhancement gates are reconciled; only D1/D7/D14
+performance observation remains open.
 
 No-go:
 

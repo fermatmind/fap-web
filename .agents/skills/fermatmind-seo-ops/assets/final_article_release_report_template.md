@@ -26,11 +26,17 @@ translation_group_id: `<translation-group-id>`
 
 ## Schema And Hreflang
 
+Daily full-chain closeout treats Article schema, Breadcrumb schema, and bilingual
+reciprocal hreflang as the expected completed SEO enhancement state when the
+Authorization Profile allows those gates and public verification passes.
+FAQPage remains optional: `held` is expected unless visible FAQ and emitted
+JSON-LD FAQ parity is explicitly verified.
+
 | Surface | State | Evidence | Notes |
 | --- | --- | --- | --- |
 | Article schema |  |  |  |
 | Breadcrumb schema |  |  |  |
-| FAQ schema |  |  |  |
+| FAQ schema | held / enabled |  | held is acceptable unless visible FAQ parity passed |
 | hreflang en |  |  |  |
 | hreflang zh-CN |  |  |  |
 | x-default |  |  |  |
@@ -55,7 +61,7 @@ Held reason, if any:
 | --- | --- | --- | --- |
 | Public smoke JSON |  |  |  |
 | GSC manual Request Indexing JSON |  |  |  |
-| D1/D7/D14 observation JSON |  |  |  |
+| D1/D7/D14 observation JSON |  |  | queued/pending window is acceptable on D0 |
 
 ## Holds
 
@@ -81,3 +87,8 @@ Use `assets/d1_d7_d14_observation_tasks_template.md`.
 ## Final Decision
 
 `ARTICLE_PUBLISHED` / `DISCOVERABILITY_COMPLETE` / `SEARCH_SUBMITTED` / `SEO_ENHANCEMENT_COMPLETE` / `SEO_ENHANCEMENT_HELD_REASON` / `<decision>`
+
+`ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING` means the D0 release,
+discoverability, search submission, public smoke, and enabled SEO enhancement
+gates are reconciled. It is not a failure state; only D1/D7/D14 performance
+observation remains open.

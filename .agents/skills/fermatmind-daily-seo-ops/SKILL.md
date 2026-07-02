@@ -50,7 +50,7 @@ Prefer evidence in this order:
 ## Shared Rules
 
 - Keep daily content work separate from search-provider live actions.
-- Keep schema and hreflang as separate gates unless the user provides exact authorization and the heavy SEO ops playbook passes.
+- Keep schema and hreflang as separate gates unless the user provides exact authorization or a full-chain preapproved goal and the heavy SEO ops playbook passes. For daily full-chain releases, Article schema, Breadcrumb schema, and reciprocal bilingual hreflang should be planned as independent post-publish enhancement gates by default; FAQPage still defaults to held unless visible FAQ and JSON-LD parity passes.
 - For Chinese SEO articles, prefer user-problem and career-decision intent when it can safely route to RIASEC/Holland.
 - Avoid cannibalization: check existing routes before recommending a new article; prefer updating an existing route when it already owns the intent.
 - Treat weekly optimization queues as input to topic selection. If a route already has impressions and an actionable title/meta/internal-link opportunity, recommend `update_existing_article` before creating a near-duplicate new route.
@@ -87,7 +87,7 @@ Do:
 
 - Produce a Mode B brief, not article body copy.
 - Include search intent, audience, primary/secondary keywords, title/meta candidates, angle, outline, quick-answer shape, silo, CTA logic, internal link plan, media concept, claim boundaries, forbidden claims, and observation plan.
-- Mark schema, hreflang, sitemap, llms, Search Channel, GSC, IndexNow, Baidu, and revalidation as held unless separately authorized later.
+- Mark publish/search/discoverability execution as held in the brief. Note that a later full-chain preapproved SEO agent goal may independently enable Article schema, Breadcrumb schema, and reciprocal bilingual hreflang after public verification; FAQPage remains held unless visible FAQ and JSON-LD parity passes.
 
 Output:
 
@@ -112,7 +112,7 @@ Do:
 - Include the GPT 5.5 Pro role instruction and task card.
 - Include the content package output tree, required CMS fields, media requirements, public route/CTA/internal-link contract, claim gate, and forbidden claims.
 - Include Codex follow-up QA acceptance criteria for the returned package.
-- Mark downstream lanes as held: CMS draft/import, publish/promote, revalidation, schema, hreflang, sitemap, llms, GSC, IndexNow, Baidu, and Search Channel.
+- Mark downstream write lanes as held inside the GPT package: CMS draft/import, publish/promote, revalidation, sitemap, llms, GSC, IndexNow, Baidu, and Search Channel. The package may include schema/hreflang eligibility metadata, but must not self-enable it; the later SEO agent full-chain goal should treat Article/Breadcrumb schema and bilingual hreflang as independent executable gates, with FAQPage held unless visible FAQ parity passes.
 
 Output:
 
@@ -138,7 +138,7 @@ Use:
 
 Check:
 
-- Operation identity, article/revision/translation group handoff, slug/canonical locks, route cannibalization, internal links, CTA, schema/hreflang hold plans, claim gate, private URL guard, CMS fields, CMS import draft, and active-surface safety.
+- Operation identity, article/revision/translation group handoff, slug/canonical locks, route cannibalization, internal links, CTA, schema/hreflang eligibility and downstream gate plans, claim gate, private URL guard, CMS fields, CMS import draft, and active-surface safety.
 - Cover/social/body visual readiness separately. Unresolved body visual placeholders block preview/import.
 
 Output:
