@@ -1,0 +1,6 @@
+{
+  "status": "pass",
+  "mode": "contract_mock_backend_display_surface",
+  "route": "/zh/career/jobs/search-marketing-strategists",
+  "assertions": ["hero_h1_from_backend_projection", "definition_block_from_backend_projection", "responsibilities_block_from_backend_projection", "faq_block_from_backend_projection", "source_disclosure_from_backend_projection", "no_frontend_editorial_fallback"]
+}
