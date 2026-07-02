@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-02T14:46:00Z",
+  "updated_at": "2026-07-02T14:55:00Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -33905,7 +33905,7 @@
     "title": "PR-CAREER-KG-00: test(career): lock job SEO display asset projection",
     "train_scope": "career_job_seo_display_asset_projection_lock",
     "depends_on": [],
-    "status": "pr_open",
+    "status": "ready_to_merge",
     "commit_sha": "716e3e01a2ccad758c7b03138db1e744aa405605",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1521",
     "merged_at": null,
@@ -34089,6 +34089,15 @@
           "pnpm test:contract"
         ],
         "evidence": "YAML parse passed; JSON parse passed; focused PR-CAREER-KG-01 contract passed 5 tests; pnpm typecheck passed; git diff --check passed; production-API build passed; full pnpm test:contract passed 613 files and 3598 tests."
+      },
+      "github_checks": {
+        "status": "pass",
+        "head_sha": "1c1a9aede11d192266b3acf832c94d4004b3875d",
+        "evidence": "GitHub PR #1522 checks passed before ready-to-merge ledger update: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
+      },
+      "merge_readiness": {
+        "status": "pass",
+        "evidence": "PR #1522 was open, not draft, mergeStateStatus CLEAN, and PR diff scope validation passed for exactly the 11 authorized PR-CAREER-KG-01 files."
       }
     },
     "scope_validation": {
@@ -34137,6 +34146,12 @@
         "commit_sha": "8d6dbbed92ec31e96741556556f5c8f6f6540e8d",
         "pr_url": "https://github.com/fermatmind/fap-web/pull/1522",
         "notes": "Opened PR #1522 for PR-CAREER-KG-01 after required local checks and scope validation passed. This records the pre-PR ledger head; the PR URL ledger update itself is committed afterward on the same branch."
+      },
+      {
+        "at": "2026-07-02T14:55:00Z",
+        "status": "ready_to_merge",
+        "head_sha": "1c1a9aede11d192266b3acf832c94d4004b3875d",
+        "notes": "GitHub checks passed and PR diff scope validation passed. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
       }
     ]
   }
