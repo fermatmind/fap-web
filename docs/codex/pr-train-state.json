@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-02T15:36:00Z",
+  "updated_at": "2026-07-02T16:31:08Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -11667,7 +11667,7 @@
       "branch": "codex/security-103-web-01",
       "base": "main",
       "depends_on": [],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_103_web_github_actions_deploy_workflow_hardening",
       "risk_level": "critical",
       "title": "SECURITY-103-WEB-01: GitHub Actions / deploy workflow hardening",
@@ -11736,10 +11736,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1494",
-      "commit_sha": "442b707c74dc367408ba65d2f16febeb413f0bab",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "f9199cd7fb3879aa62c688ac25bd807983785449",
+      "merged_at": "2026-06-30T01:42:46Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-06-30T01:02:33Z",
@@ -11795,10 +11795,17 @@
           "status": "ready_to_merge",
           "commit_sha": "442b707c74dc367408ba65d2f16febeb413f0bab",
           "summary": "GitHub required checks passed for PR #1494 head 442b707c74dc367408ba65d2f16febeb413f0bab: build, contracts, freeze checks, CodeQL, and javascript-typescript analysis. GitHub merge state is CLEAN."
+        },
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "merged_reconciled_for_security_122",
+          "commit_sha": "f9199cd7fb3879aa62c688ac25bd807983785449",
+          "summary": "Reconciled SECURITY-103-WEB-01 using GitHub PR #1494 truth while registering SECURITY-122-WEB-01 as the equivalent covered deploy hardening scope."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-06-30T01:37:11Z"
+      "updated_at": "2026-07-02T16:17:52Z",
+      "merge_sha": "f9199cd7fb3879aa62c688ac25bd807983785449"
     },
     {
       "id": "SECURITY-103-WEB-02",
@@ -12144,6 +12151,989 @@
       ],
       "sidecar_issues": [],
       "updated_at": "2026-06-30T01:02:33Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "train_scope": "security_122_web_deploy_workflow_ssh_secret_dispatch_hardening",
+      "risk_level": "critical",
+      "title": "SECURITY-122-WEB-01: deploy workflow / SSH secret / dispatch hardening",
+      "findings": [
+        "findings 1,2,3,13,14"
+      ],
+      "goal": "deploy workflow action pinning, SSH secret exposure, workflow_dispatch SHA/input guard, risky production deploy guard.",
+      "artifacts": [
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json",
+        "tests/contracts/security-122-web-01-train-reconciliation.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-01 has no train dependency and is covered by merged PR #1494."
+        },
+        "local": {
+          "status": "passed",
+          "passed": [
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-01-train-reconciliation.contract.test.ts",
+            "/usr/local/bin/pnpm typecheck",
+            "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+            "/usr/local/bin/pnpm test:contract",
+            "ruby -e require yaml/json and parse docs/codex/pr-train.yaml plus docs/codex/pr-train-state.json",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "notes": [
+            "The default Codex runtime pnpm wrapper attempted a dependency approval check and stopped before script execution because existing install metadata has ignored build scripts for esbuild, sharp, and unrs-resolver; /usr/local/bin/pnpm 10.28.1 executed the manifest-equivalent commands successfully."
+          ]
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "in_progress",
+          "summary": "Registered SECURITY-122-WEB-01 from explicit user /goal; reconciling it as covered by merged SECURITY-103-WEB-01 / PR #1494 deploy workflow hardening."
+        },
+        {
+          "at": "2026-07-02T16:31:08Z",
+          "status": "local_checks_passed",
+          "summary": "Local validation passed for SECURITY-122-WEB-01 reconciliation: focused contract, typecheck, production-URL build, full contract suite, manifest/state parse, diff check, and changed-file scope validation."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:31:08Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-02",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-02",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-01"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_result_report_pdf_access_token_private_link_redaction",
+      "risk_level": "critical",
+      "title": "SECURITY-122-WEB-02: result/report/PDF access-token and private-link redaction",
+      "findings": [
+        "findings 4,5,7,9,10,11"
+      ],
+      "goal": "result lookup links, email bearer links, PDF snapshot/report lock state, print bootstrap access-state checks, PDF token signing fallback, private result URL redaction.",
+      "artifacts": [
+        "result/report/PDF access-token and private-link redaction code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-01 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-02 from explicit user /goal; execution waits for SECURITY-122-WEB-01 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-03",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-03",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-02"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_seo_agent_approval_gates_ops_audit_metadata_redaction",
+      "risk_level": "high",
+      "title": "SECURITY-122-WEB-03: SEO agent approval gates and ops/audit metadata redaction",
+      "findings": [
+        "findings 8,12,19,25,44,91"
+      ],
+      "goal": "full-chain SEO approval gates, committed SEO artifacts, prompt self-authorization, audit docs metadata, backend/IQ bank metadata, weekly packet mutation verdict guards.",
+      "artifacts": [
+        "SEO agent approval gates and ops/audit metadata redaction code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-02 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-03 from explicit user /goal; execution waits for SECURITY-122-WEB-02 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-04",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-04",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-03"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_ops_dashboard_route_authentication",
+      "risk_level": "high",
+      "title": "SECURITY-122-WEB-04: ops/dashboard route authentication",
+      "findings": [
+        "findings 15,23,24"
+      ],
+      "goal": "server API origin ops CMS listing, public SEO ops issue queue artifact, unauthenticated SEO ops dashboard route.",
+      "artifacts": [
+        "ops/dashboard route authentication code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-03 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-04 from explicit user /goal; execution waits for SECURITY-122-WEB-03 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-05",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-05",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-04"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_cms_url_field_allowlists_rendered_content_crash_guards",
+      "risk_level": "high",
+      "title": "SECURITY-122-WEB-05: CMS URL/field allowlists and rendered-content crash guards",
+      "findings": [
+        "findings 17,18,21,26,42,46,47,96,103,107,108,109,110"
+      ],
+      "goal": "CMS comparison field allowlists, display_type guard, unsafe mailto, landing URL scheme validation, schema recursion guard, sanitizer/schema text consistency, cache revalidation inclusion, article CTA rendering, FAQ/projection crash guards, route export validity, non-string CMS content, cover variant health, article schema gate strictness.",
+      "artifacts": [
+        "CMS URL/field allowlists and rendered-content crash guards code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-04 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-05 from explicit user /goal; execution waits for SECURITY-122-WEB-04 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-06",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-06",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-05"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_sitemap_llms_lkg_cache_fail_closed_behavior",
+      "risk_level": "high",
+      "title": "SECURITY-122-WEB-06: sitemap / llms / LKG cache fail-closed behavior",
+      "findings": [
+        "findings 6,22,28,29,30,45,49,50,52,94,104,121,122"
+      ],
+      "goal": "dynamic sitemap noindex authority, private URL fallback, llms-full predictable /tmp cache, LKG unpublished/private page exposure, career sitemap gates, PM2 release privacy gate timing, career detail_ready gate, stale llms/cache revoked content, sitemap/llms fetch status, non-English fanout starvation, in-flight cache repopulation, CMS indexability gate.",
+      "artifacts": [
+        "sitemap / llms / LKG cache fail-closed behavior code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-05 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-06 from explicit user /goal; execution waits for SECURITY-122-WEB-05 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-07",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-07",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-06"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_tracking_attribution_private_url_third_party_beacon_sanitization",
+      "risk_level": "medium",
+      "title": "SECURITY-122-WEB-07: tracking attribution private URL and third-party beacon sanitization",
+      "findings": [
+        "findings 20,43"
+      ],
+      "goal": "auto landing tracking private invite URLs, third-party hero image beacons.",
+      "artifacts": [
+        "tracking attribution private URL and third-party beacon sanitization code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-06 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-07 from explicit user /goal; execution waits for SECURITY-122-WEB-06 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-08",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-08",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-07"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_dailygiving_giving_api_method_proof_url_currency_guards",
+      "risk_level": "medium",
+      "title": "SECURITY-122-WEB-08: DailyGiving/giving API method, proof URL, and currency guards",
+      "findings": [
+        "findings 27,51,112"
+      ],
+      "goal": "same-origin giving API method restriction, malformed DailyGiving currency crash, proof_public_url validation.",
+      "artifacts": [
+        "DailyGiving/giving API method, proof URL, and currency guards code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-07 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-08 from explicit user /goal; execution waits for SECURITY-122-WEB-07 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-09",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-09",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-08"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_ai_iq_salary_public_asset_exposure_claim_gates",
+      "risk_level": "medium",
+      "title": "SECURITY-122-WEB-09: AI/IQ/salary public asset exposure and claim gates",
+      "findings": [
+        "findings 16,34,36,98,100,120"
+      ],
+      "goal": "AI impact non-production assets, iq_estimate_allowed=false, untrusted IQ image URLs, salary module asset gate, salary evidence visible counts, IQ smoke answer-key leak validation.",
+      "artifacts": [
+        "AI/IQ/salary public asset exposure and claim gates code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-08 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-09 from explicit user /goal; execution waits for SECURITY-122-WEB-08 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-10",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-10",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-09"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_generated_docs_artifacts_local_path_redaction",
+      "risk_level": "low",
+      "title": "SECURITY-122-WEB-10: generated docs/artifacts local path redaction",
+      "findings": [
+        "findings 31,33,37,39,40,48,101"
+      ],
+      "goal": "MBTI64 SEO artifacts, generated backend env details, generated reports, import docs, source ledgers, audit docs, generated docs developer workstation paths.",
+      "artifacts": [
+        "generated docs/artifacts local path redaction code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-09 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-10 from explicit user /goal; execution waits for SECURITY-122-WEB-09 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-11",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-11",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-10"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_artifact_integrity_restore_freeze_path_traversal_csv_injection",
+      "risk_level": "low",
+      "title": "SECURITY-122-WEB-11: artifact integrity, restore/freeze safety, path traversal, CSV injection",
+      "findings": [
+        "findings 56,59,60,61,62,63,66,79,90,97,99,116"
+      ],
+      "goal": "ZIP/image asset path conflicts, stale baseline registry, tar restore traversal, baseline artifact verification, SHA manifest self-hash, symlink freeze overwrite, audit output path escape, CSV/formula injection, stale integrity hashes, AUDIT_DATE traversal writes.",
+      "artifacts": [
+        "artifact integrity, restore/freeze safety, path traversal, CSV injection code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-10 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-11 from explicit user /goal; execution waits for SECURITY-122-WEB-10 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-12",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-12",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-11"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_pr_scope_guard_pr_train_metadata_correctness",
+      "risk_level": "low",
+      "title": "SECURITY-122-WEB-12: PR scope guard and PR-train metadata correctness",
+      "findings": [
+        "findings 32,35,41,64,72,113,114,115,117,118"
+      ],
+      "goal": "CI scope diff validation, non-Big-Five branch bypass, merge-ref checkout bypass, rollback note wrong PR metadata, unrelated allowlists, MBTI PR-train metadata mismatch, commit-diff fallback, tautological scope contracts.",
+      "artifacts": [
+        "PR scope guard and PR-train metadata correctness code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-11 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-12 from explicit user /goal; execution waits for SECURITY-122-WEB-11 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-13",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-13",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-12"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_career_qa_source_trust_certification_hardening",
+      "risk_level": "low",
+      "title": "SECURITY-122-WEB-13: career QA source/trust certification hardening",
+      "findings": [
+        "findings 38,67,102"
+      ],
+      "goal": "forged source references, rendered leak assertions, missing control baseline.",
+      "artifacts": [
+        "career QA source/trust certification hardening code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-12 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-13 from explicit user /goal; execution waits for SECURITY-122-WEB-12 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-14",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-14",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-13"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_career_fit_outcome_compensation_claim_audit_allowlists",
+      "risk_level": "informational",
+      "title": "SECURITY-122-WEB-14: career-fit outcome/compensation claim audit allowlists",
+      "findings": [
+        "findings 68,69,70,71,73,74,76,77,78,80,81,82,83,84,85,86"
+      ],
+      "goal": "career-fit unsafe claim audit allowlists, income/tax/payroll/compensation bypass phrases, promotion outcome claim blocking.",
+      "artifacts": [
+        "career-fit outcome/compensation claim audit allowlists code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-13 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-14 from explicit user /goal; execution waits for SECURITY-122-WEB-13 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-15",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-15",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-14"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_seo_runner_runtime_qa_fail_closed_parsing_links_http_handoff_checks",
+      "risk_level": "informational",
+      "title": "SECURITY-122-WEB-15: SEO runner/runtime QA fail-closed parsing, links, HTTP, handoff checks",
+      "findings": [
+        "findings 65,87,88,89,92,93,95"
+      ],
+      "goal": "missing false flags, malformed SEO PR request crash, resolver missing accepted slug, list seed JSON crash, malformed SEO link URL crash, HTTP error masking, audit projection JSON parsing.",
+      "artifacts": [
+        "SEO runner/runtime QA fail-closed parsing, links, HTTP, handoff checks code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-14 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-15 from explicit user /goal; execution waits for SECURITY-122-WEB-14 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-16",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-16",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-15"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_public_ui_route_probe_config_guard_regressions",
+      "risk_level": "informational",
+      "title": "SECURITY-122-WEB-16: public UI/route probe/config guard regressions",
+      "findings": [
+        "findings 53,75,111,119"
+      ],
+      "goal": "MBTI CTA hidden, Chinese workflow labels losing localized text, redirect bot-probe completeness, malformed localhost site URL gate.",
+      "artifacts": [
+        "public UI/route probe/config guard regressions code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-15 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-16 from explicit user /goal; execution waits for SECURITY-122-WEB-15 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
+    },
+    {
+      "id": "SECURITY-122-WEB-17",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-122-web-17",
+      "base": "main",
+      "depends_on": [
+        "SECURITY-122-WEB-16"
+      ],
+      "status": "planned",
+      "train_scope": "security_122_web_pdf_print_delivery_markers_smoke_test_correctness",
+      "risk_level": "informational",
+      "title": "SECURITY-122-WEB-17: PDF/print delivery markers and smoke-test correctness",
+      "findings": [
+        "findings 54,55,57,58,105,106"
+      ],
+      "goal": "PDF smoke metadata regex, A4/PDF-ready markers dropped by Container, PDF download URL validation, private print CSS/nav, private print gate marker.",
+      "artifacts": [
+        "PDF/print delivery markers and smoke-test correctness code and focused contracts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on SECURITY-122-WEB-16 merge into main."
+        },
+        "local": {
+          "status": "pending",
+          "passed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": []
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-02T16:17:52Z",
+          "status": "planned",
+          "summary": "Registered SECURITY-122-WEB-17 from explicit user /goal; execution waits for SECURITY-122-WEB-16 merge."
+        }
+      ],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-02T16:17:52Z"
     },
     {
       "id": "PR-AUDIT-FE-01",
