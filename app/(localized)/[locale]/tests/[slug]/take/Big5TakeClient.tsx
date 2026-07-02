@@ -2,9 +2,9 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { QuestionCard } from "@/components/big5/quiz/QuestionCard";
-import { QuestionNavigator } from "@/components/big5/quiz/QuestionNavigator";
 import { ConsentGate } from "@/components/clinical/quiz/ConsentGate";
+import { QuizShell } from "@/components/quiz/QuizShell";
+import { QuizTakeHeaderV2 } from "@/components/quiz/QuizTakeHeaderV2";
 import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
 import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
@@ -12,7 +12,6 @@ import {
   useAutoAdvanceFlow,
   type LastSelectionContext,
 } from "@/components/quiz/immersive/useAutoAdvanceFlow";
-import { MatrixProgressHeader } from "@/components/quiz/matrix/MatrixProgressHeader";
 import { StaleDraftResetPrompt } from "@/components/quiz/StaleDraftResetPrompt";
 import { Alert } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
@@ -174,7 +173,6 @@ export default function Big5TakeClient({
 
   const total = questions.length;
   const currentQuestion = questions[currentIndex];
-  const questionIds = useMemo(() => questions.map((item) => item.question_id), [questions]);
   const answeredCount = useMemo(
     () => questions.reduce((sum, item) => sum + (answers[item.question_id] ? 1 : 0), 0),
     [answers, questions]
@@ -191,8 +189,6 @@ export default function Big5TakeClient({
     formatBig5RetryCountdown(locale, seconds, big5RetakeCopy)
   ), [big5RetakeCopy, locale]);
   const inCooldown = cooldownSeconds > 0;
-  const previousQuestion = currentIndex > 0 ? questions[currentIndex - 1] : null;
-  const nextQuestion = currentIndex < total - 1 ? questions[currentIndex + 1] : null;
   const progressStatus = locale === "zh"
     ? `${answeredCount}/${total} 已答 · 约 ${effectiveEstimatedMinutes} 分钟`
     : `${answeredCount}/${total} answered · about ${effectiveEstimatedMinutes} min`;
@@ -1272,6 +1268,21 @@ export default function Big5TakeClient({
     return (
       <>
         <ImmersiveTakeLayout
+          headerSlot={
+            <QuizTakeHeaderV2
+              brand={locale === "zh" ? "大五人格测试" : "Big Five Test"}
+              completedPrefix={dict.header.completedPrefix}
+              completedSuffix={dict.header.completedSuffix}
+              estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
+              minutesUnit={dict.common.minutes_unit}
+              estimatedMinutes={effectiveEstimatedMinutes}
+              progressText={progressStatus}
+              current={currentIndex + 1}
+              total={total}
+              answered={answeredCount}
+              showCompletedCount={false}
+            />
+          }
           backHref={withLocale(`/tests/${slug}`)}
           backLabel={dict.quiz.immersive.backToLanding}
           current={currentIndex + 1}
@@ -1348,13 +1359,21 @@ export default function Big5TakeClient({
   }
 
   return (
-    <div className="space-y-[var(--fm-gap-md)]">
-      <MatrixProgressHeader
-        title={slug === "big-five-personality-test-ocean-model" ? "BIG5 Matrix Assessment" : "Assessment"}
+    <QuizShell>
+      <QuizTakeHeaderV2
+        brand={locale === "zh" ? "大五人格测试" : "Big Five Test"}
+        completedPrefix={dict.header.completedPrefix}
+        completedSuffix={dict.header.completedSuffix}
+        estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
+        minutesUnit={dict.common.minutes_unit}
+        estimatedMinutes={effectiveEstimatedMinutes}
+        backHref={withLocale(`/tests/${slug}`)}
+        backLabel={dict.quiz.immersive.backToDetails}
+        progressText={progressStatus}
         current={currentIndex + 1}
         total={total}
         answered={answeredCount}
-        status={progressStatus}
+        showCompletedCount={false}
       />
 
       {milestoneHint ? (
@@ -1363,103 +1382,89 @@ export default function Big5TakeClient({
         </div>
       ) : null}
 
-      <div className="grid gap-[var(--fm-gap-md)] lg:grid-cols-[minmax(0,1fr)_360px]">
-        <div className="space-y-[var(--fm-gap-md)]">
-          <div className="grid grid-cols-3 gap-[var(--fm-gap-xs)]">
-            <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-xs text-[var(--fm-text-muted)] opacity-30">
-              {previousQuestion ? `${locale === "zh" ? "上一题" : "Previous"}: ${currentIndex}` : (locale === "zh" ? "上一题" : "Previous")}
-            </div>
-            <div className="min-h-[48px] rounded-xl border border-[var(--fm-border-strong)] bg-[var(--fm-surface)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-xs font-semibold text-[var(--fm-text)] shadow-[var(--fm-shadow-md)] opacity-100">
-              {locale === "zh" ? "当前题目" : "Current focus"}
-            </div>
-            <div className="min-h-[48px] rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] px-[var(--fm-pad-input-x)] py-[var(--fm-pad-input-y)] text-xs text-[var(--fm-text-muted)] opacity-30">
-              {nextQuestion ? `${locale === "zh" ? "下一题" : "Next"}: ${currentIndex + 2}` : (locale === "zh" ? "下一题" : "Next")}
-            </div>
-          </div>
+      <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">
+        <p className="m-0 text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
+          {locale === "zh" ? `第 ${currentIndex + 1} 题` : `Question ${currentIndex + 1}`} / {total}
+        </p>
+        <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{currentQuestion.text}</h2>
 
-          <QuestionCard
-            question={currentQuestion}
-            index={currentIndex}
-            total={total}
-            selectedCode={answers[currentQuestion.question_id]}
-            emphasized
-            onSelect={handleSelectAnswer}
-          />
+        <AdaptiveOptionGroup
+          questionId={currentQuestion.question_id}
+          options={currentQuestion.options}
+          value={answers[currentQuestion.question_id]}
+          noOptionsLabel={dict.quiz.immersive.noOptions}
+          onChange={(code) =>
+            selectAndAdvance(() => {
+              handleSelectAnswer(currentQuestion.question_id, code);
+            }, {
+              questionId: currentQuestion.question_id,
+              code,
+            })
+          }
+        />
 
-          {submitError ? <Alert>{submitError}</Alert> : null}
-          {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(cooldownSeconds)}</p> : null}
+        {startError ? <Alert>{startError}</Alert> : null}
+        {submitError ? <Alert>{submitError}</Alert> : null}
+        {inCooldown ? <p className="m-0 text-xs text-amber-700">{retryCountdownText(cooldownSeconds)}</p> : null}
+      </article>
 
-          <div className="flex flex-wrap items-center gap-[var(--fm-gap-xs)]">
+      <div className="flex flex-col gap-[var(--fm-gap-xs)] sm:flex-row sm:items-center sm:justify-between">
+        <Button
+          type="button"
+          variant="outline"
+          disabled={currentIndex <= 0 || starting || submitting || inCooldown || submitOverlayVisible}
+          onClick={goPrevious}
+        >
+          {dict.quiz.immersive.previous}
+        </Button>
+
+        <div className="flex flex-wrap items-center gap-[var(--fm-gap-xs)] sm:justify-end">
+          {submitCanRetry ? (
             <Button
               type="button"
               variant="outline"
-              disabled={currentIndex <= 0 || starting || submitting || inCooldown}
-              onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))}
-            >
-              Previous
-            </Button>
-
-            <Button
-              type="button"
-              variant="outline"
-              disabled={currentIndex >= total - 1 || starting || submitting || inCooldown}
-              onClick={() => setCurrentIndex(Math.min(total - 1, currentIndex + 1))}
-            >
-              Next
-            </Button>
-
-            <Button
-              type="button"
-              disabled={starting || submitting || inCooldown}
+              disabled={starting || submitting || inCooldown || submitOverlayVisible}
               onClick={() => {
-                void handleSubmit().then((resultAttemptId) => {
-                  if (resultAttemptId) {
-                    finalizeSuccessfulSubmit(resultAttemptId);
-                  }
-                });
+                void handleSubmitWithOverlay();
               }}
             >
-              {submitting ? "Submitting..." : "Submit"}
+              {dict.quiz.immersive.submitRetry}
             </Button>
+          ) : null}
 
-            {submitCanRetry ? (
-              <Button
-                type="button"
-                variant="outline"
-                disabled={starting || submitting || inCooldown}
-                onClick={() => {
-                  void handleSubmit().then((resultAttemptId) => {
-                    if (resultAttemptId) {
-                      finalizeSuccessfulSubmit(resultAttemptId);
-                    }
-                  });
-                }}
-              >
-                Retry submit
-              </Button>
-            ) : null}
+          {submitErrorAction === "restart" ? (
+            <Button type="button" variant="outline" onClick={handleRestartTest}>
+              {locale === "zh" ? "重新开始" : "Restart test"}
+            </Button>
+          ) : null}
 
-            {submitErrorAction === "restart" ? (
-              <Button type="button" variant="outline" onClick={handleRestartTest}>
-                Restart test
-              </Button>
-            ) : null}
-          </div>
-        </div>
+          <Button
+            type="button"
+            disabled={starting || submitting || inCooldown || submitOverlayVisible}
+            onClick={() => {
+              if (currentIndex >= total - 1) {
+                void handleSubmitWithOverlay();
+                return;
+              }
 
-        <div className="opacity-70">
-          <QuestionNavigator
-            total={total}
-            currentIndex={currentIndex}
-            questionIds={questionIds}
-            answeredMap={answers}
-            onJump={(index) => {
               cancelPending();
-              setCurrentIndex(index);
+              setCurrentIndex(Math.min(total - 1, currentIndex + 1));
             }}
-          />
+          >
+            {currentIndex >= total - 1
+              ? submitting
+                ? locale === "zh" ? "提交中..." : "Submitting..."
+                : locale === "zh" ? "提交" : "Submit"
+              : locale === "zh" ? "下一题" : "Next"}
+          </Button>
         </div>
       </div>
-    </div>
+
+      <SubmitPhaseOverlay
+        visible={submitOverlayVisible}
+        phases={dict.quiz.immersive.submitPhases}
+        phaseIndex={submitOverlayPhase}
+      />
+    </QuizShell>
   );
 }

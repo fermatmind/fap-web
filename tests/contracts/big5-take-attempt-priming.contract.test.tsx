@@ -51,11 +51,18 @@ const hoisted = vi.hoisted(() => {
     stableDictFixture: {
       header: {
         brand: "FAP",
+        completedPrefix: "Completed",
+        completedSuffix: "questions",
+      },
+      common: {
+        minutes_unit: "min",
       },
       quiz: {
+        estimatedTimeLabel: "Estimated time",
         milestoneHints: [],
         immersive: {
           backToLanding: "Back",
+          backToDetails: "Back to details",
           previous: "Previous",
           submitRetry: "Retry submit",
           noOptions: "No options",
@@ -102,7 +109,13 @@ vi.mock("@/components/big5/quiz/QuestionNavigator", () => ({
 }));
 
 vi.mock("@/components/quiz/immersive/AdaptiveOptionGroup", () => ({
-  AdaptiveOptionGroup: () => <div data-testid="adaptive-option-group" />,
+  AdaptiveOptionGroup: ({ onChange }: { onChange: (code: string) => void }) => (
+    <div data-testid="adaptive-option-group">
+      <button type="button" onClick={() => onChange("5")}>
+        Answer current
+      </button>
+    </div>
+  ),
 }));
 
 vi.mock("@/components/quiz/immersive/ImmersiveTakeLayout", () => ({
@@ -130,6 +143,19 @@ vi.mock("@/components/quiz/immersive/useAutoAdvanceFlow", () => ({
 
 vi.mock("@/components/quiz/matrix/MatrixProgressHeader", () => ({
   MatrixProgressHeader: ({ status }: { status: string }) => <div>{status}</div>,
+}));
+
+vi.mock("@/components/quiz/QuizShell", () => ({
+  QuizShell: ({ children }: ChildrenProps) => <section data-testid="quiz-shell">{children}</section>,
+}));
+
+vi.mock("@/components/quiz/QuizTakeHeaderV2", () => ({
+  QuizTakeHeaderV2: ({ brand, progressText }: { brand: string; progressText: string }) => (
+    <header data-testid="quiz-take-header-v2">
+      <p>{brand}</p>
+      <p>{progressText}</p>
+    </header>
+  ),
 }));
 
 vi.mock("@/components/quiz/StaleDraftResetPrompt", () => ({
