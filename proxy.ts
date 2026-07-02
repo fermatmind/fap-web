@@ -33,6 +33,8 @@ const ANON_ID_PATTERN = /^[A-Za-z0-9_-]{8,128}$/;
 const FORCE_GONE_PATTERNS = [/^\/professions(\/|$)/i];
 const LOCALE_REDIRECT_PREFIXES = ["articles", "career", "topics", "personality"] as const;
 const MBTI_TYPE_RE = /^[ie][ns][ft][jp]$/i;
+const DAILY_GIVING_PUBLIC_API_PATH_RE = /^\/api\/v0\.5\/foundation\/giving-records(?:\/|$)/i;
+const DAILY_GIVING_PUBLIC_API_ALLOWED_METHODS = ["GET", "HEAD"] as const;
 
 function hasLocalePrefix(pathname: string): boolean {
   const segment = pathname.split("/").filter(Boolean)[0];
@@ -56,6 +58,28 @@ function createGoneResponse() {
   });
   response.headers.set("X-Robots-Tag", NOINDEX_VALUE);
   return response;
+}
+
+function createMethodNotAllowedResponse(allowedMethods: readonly string[]) {
+  return new NextResponse("Method Not Allowed", {
+    status: 405,
+    headers: {
+      "Allow": allowedMethods.join(", "),
+      "Cache-Control": "no-store",
+      "Content-Type": "text/plain; charset=utf-8",
+    },
+  });
+}
+
+function isDailyGivingPublicApiRequest(pathname: string): boolean {
+  return DAILY_GIVING_PUBLIC_API_PATH_RE.test(pathname);
+}
+
+function isDailyGivingPublicApiMethodAllowed(method: string): boolean {
+  const normalized = method.toUpperCase();
+  return DAILY_GIVING_PUBLIC_API_ALLOWED_METHODS.includes(
+    normalized as (typeof DAILY_GIVING_PUBLIC_API_ALLOWED_METHODS)[number],
+  );
 }
 
 function resolveTypesRedirectPath(pathname: string, fallbackLocale: "en" | "zh"): string | null {
@@ -131,6 +155,10 @@ export function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   const strippedPath = stripLocalePrefix(pathname);
   const isStagingHost = isStagingRequestHost(request.headers.get("host") ?? request.nextUrl.host);
+
+  if (isDailyGivingPublicApiRequest(pathname) && !isDailyGivingPublicApiMethodAllowed(request.method)) {
+    return createMethodNotAllowedResponse(DAILY_GIVING_PUBLIC_API_ALLOWED_METHODS);
+  }
 
   if (isStagingHost && pathname === "/robots.txt") {
     return createStagingRobotsResponse();
