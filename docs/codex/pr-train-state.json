@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-06-28T15:29:07.068522Z",
+  "updated_at": "2026-07-02T14:09:31Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -33893,6 +33893,137 @@
         "at": "2026-07-01T14:59:46.574925Z",
         "status": "pr_open",
         "notes": "Opened fap-web PR #1513 for H2."
+      }
+    ]
+  },
+  "PR-CAREER-KG-00": {
+    "repo": "fap-web",
+    "repo_path": "<workspace>/fap-web",
+    "base": "main",
+    "branch": "codex/pr-career-kg-00-seo-display-asset-projection-lock",
+    "title": "PR-CAREER-KG-00: test(career): lock job SEO display asset projection",
+    "train_scope": "career_job_seo_display_asset_projection_lock",
+    "depends_on": [],
+    "status": "pr_open",
+    "commit_sha": "716e3e01a2ccad758c7b03138db1e744aa405605",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1521",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "artifacts": [
+      "components/career/display/CareerDecisionActionBlock.tsx",
+      "components/career/display/CareerDisplayCTA.tsx",
+      "components/career/display/CareerDisplayHero.tsx",
+      "components/career/display/SourceDisclosureBlock.tsx",
+      "tests/contracts/career-display-surface.contract.test.tsx",
+      "tests/contracts/career-job-detail-actors-v42.contract.test.tsx",
+      "tests/contracts/career-job-seo-display-asset-projection.contract.test.tsx",
+      "tests/contracts/helpers/currentPrScope.ts",
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json"
+    ],
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "User explicitly authorized updating docs/codex/pr-train.yaml and docs/codex/pr-train-state.json, adding and executing PR-CAREER-KG-00 with fap-web rendering/contract-test scope only."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "No depends_on items declared for PR-CAREER-KG-00."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Created isolated worktree from latest main and branch codex/pr-career-kg-00-seo-display-asset-projection-lock; existing unrelated main-workspace changes were not touched."
+      },
+      "focused_contract": {
+        "status": "pass",
+        "command": "pnpm exec vitest run tests/contracts/career-job-seo-display-asset-projection.contract.test.tsx tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/career-job-seo-authority.contract.test.tsx",
+        "evidence": "4 files passed, 112 tests passed."
+      },
+      "typecheck_initial": {
+        "status": "fixed",
+        "command": "pnpm typecheck",
+        "evidence": "Initial run failed on narrowed test fixture types in career-job-seo-display-asset-projection.contract.test.tsx; fixture injections were changed to explicit unknown/record overrides."
+      },
+      "typecheck": {
+        "status": "pass",
+        "command": "pnpm typecheck",
+        "evidence": "tsc --noEmit completed with no errors."
+      },
+      "build_initial": {
+        "status": "fixed",
+        "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+        "evidence": "Initial run failed because existing site URL guard requires NEXT_PUBLIC_SITE_URL during /llms.txt page-data collection; PR manifest was updated to use the production site URL explicitly."
+      },
+      "build": {
+        "status": "pass",
+        "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+        "evidence": "Next build compiled, collected page data, generated 202 static pages, finalized optimization, and synced standalone static assets."
+      },
+      "contract_suite_initial": {
+        "status": "fixed",
+        "command": "pnpm test:contract",
+        "evidence": "Initial full contract run had one failure in career-job-detail-actors-v42 expecting the old frontend-overridden Chinese CTA label; the route contract now expects the backend fixture CTA label."
+      },
+      "contract_suite": {
+        "status": "pass",
+        "command": "pnpm test:contract",
+        "evidence": "612 files passed, 3593 tests passed."
+      },
+      "manifest_parse": {
+        "status": "pass",
+        "command": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+        "evidence": "YAML parsed successfully."
+      },
+      "state_parse": {
+        "status": "pass",
+        "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+        "evidence": "JSON parsed successfully."
+      },
+      "diff_check": {
+        "status": "pass",
+        "command": "git diff --check",
+        "evidence": "No whitespace errors."
+      },
+      "scope": {
+        "status": "pass",
+        "command": "changed-file scope validation",
+        "evidence": "Changed files are limited to career display CTA/source components, career projection contracts, scope helper, and PR-train metadata."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        "components/career/display/CareerDecisionActionBlock.tsx",
+        "components/career/display/CareerDisplayCTA.tsx",
+        "components/career/display/CareerDisplayHero.tsx",
+        "components/career/display/SourceDisclosureBlock.tsx",
+        "tests/contracts/career-display-surface.contract.test.tsx",
+        "tests/contracts/career-job-detail-actors-v42.contract.test.tsx",
+        "tests/contracts/career-job-seo-display-asset-projection.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "outside_scope_files": []
+    },
+    "events": [
+      {
+        "at": "2026-07-02T14:01:33Z",
+        "status": "in_progress",
+        "notes": "Started PR-CAREER-KG-00. Scope locks career job SEO/display asset projection rules only; no career body copy, CMS writes, sitemap/llms/search submission, deploy, or future occupation content PRs."
+      },
+      {
+        "at": "2026-07-02T14:01:33Z",
+        "status": "local_checks_passed",
+        "notes": "Focused contracts, typecheck, production-url build, full contract suite, YAML/JSON parse, diff check, and changed-file scope validation passed after fixing scoped test fixture and CTA-label contract expectations."
+      },
+      {
+        "at": "2026-07-02T14:09:31Z",
+        "status": "pr_open",
+        "commit_sha": "716e3e01a2ccad758c7b03138db1e744aa405605",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1521",
+        "notes": "Opened fap-web PR #1521 after required local checks passed. This records the implementation commit; the ledger status update itself is committed afterward on the same branch."
       }
     ]
   }

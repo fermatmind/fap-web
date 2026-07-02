@@ -145,6 +145,19 @@ const MBTI_PDF_SNAPSHOT_RENDERED_SMOKE_H2_ALLOWED_FILES = new Set([
   "generated/pr-train-sidecar-issues/sidecar_issues.json",
 ]);
 
+const PR_CAREER_KG_00_ALLOWED_FILES = new Set([
+  "components/career/display/CareerDecisionActionBlock.tsx",
+  "components/career/display/CareerDisplayCTA.tsx",
+  "components/career/display/CareerDisplayHero.tsx",
+  "components/career/display/SourceDisclosureBlock.tsx",
+  "tests/contracts/career-display-surface.contract.test.tsx",
+  "tests/contracts/career-job-detail-actors-v42.contract.test.tsx",
+  "tests/contracts/career-job-seo-display-asset-projection.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -5054,6 +5067,14 @@ export function isMbtiPdfSnapshotRenderedSmokeH2AllowedFile(file: string): boole
   }
 
   return MBTI_PDF_SNAPSHOT_RENDERED_SMOKE_H2_ALLOWED_FILES.has(file);
+}
+
+export function isPrCareerKg00AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-career-kg-00-seo-display-asset-projection-lock") {
+    return true;
+  }
+
+  return PR_CAREER_KG_00_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {

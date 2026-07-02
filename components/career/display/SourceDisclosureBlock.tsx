@@ -31,39 +31,14 @@ function formatReviewText(locale: CareerDisplaySurfaceViewModel["locale"], revie
   ].filter(Boolean).join(" ");
 }
 
-function sourceBoundaryLabel(source: CareerDisplaySource): string {
-  const value = `${source.label} ${source.usage ?? ""}`.toLowerCase();
-
-  if (value.includes("o*net")) {
-    return "O*NET：职业定义、任务、兴趣、技能和工作场景。";
-  }
-
-  if (value.includes("standard occupational classification") || value.includes("soc")) {
-    return "SOC / BLS：职业分类和官方职业边界。";
-  }
-
-  if (value.includes("employment projections")) {
-    return "BLS Employment Projections：美国就业预测、空缺和教育要求边界。";
-  }
-
-  if (value.includes("occupational employment and wage") || value.includes("oews")) {
-    return "BLS OEWS：美国官方职业工资来源，按可见字段展示。";
-  }
-
-  if (value.includes("national bureau of statistics") || value.includes("国家统计局")) {
-    return "国家统计局：中国行业或单位层面的宏观工资语境，不是单职业中位薪资。";
-  }
-
-  if (value.includes("linkedin") || value.includes("robert half") || value.includes("hays") || value.includes("job")) {
-    return "招聘市场样本：仅作为岗位和薪资信号，不作为官方统计。";
-  }
-
-  return `${source.label.replace(/\s+-\s+.*/, "")}：来源边界按本页说明阅读。`;
-}
-
 function renderDetailedSource(locale: CareerDisplaySurfaceViewModel["locale"], source: CareerDisplaySource) {
   if (locale === "zh") {
-    return sourceBoundaryLabel(source);
+    return [
+      source.label,
+      source.usage ? `- ${source.usage}` : null,
+      source.capturedAt ? `捕获：${source.capturedAt}。` : null,
+      source.expiresAt ? `到期：${source.expiresAt}。` : null,
+    ].filter(Boolean).join(" ");
   }
 
   return [
@@ -87,17 +62,7 @@ export function SourceDisclosureBlock({
     return null;
   }
 
-  const summaryItems = isZh
-    ? [
-        "本页职业定义、任务和兴趣结构参考 O*NET / SOC 等公开职业资料。",
-        "薪资与就业数据按国家和来源边界展示，中国部分仅作为招聘市场参考。",
-        reviewText,
-      ].filter((item): item is string => Boolean(item))
-    : [
-        "Career definitions, tasks, and interest signals reference public occupational sources such as O*NET and SOC.",
-        "Salary and outlook data are shown within each source and country boundary.",
-        reviewText,
-      ].filter((item): item is string => Boolean(item));
+  const summaryItems = [reviewText].filter((item): item is string => Boolean(item));
 
   return (
     <section
