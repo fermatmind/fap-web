@@ -36814,7 +36814,7 @@
     "train_scope": "career_kg_search_marketing_strategists_asset_package",
     "depends_on": ["PR-CAREER-KG-11"],
     "status": "in_progress",
-    "commit_sha": "3a51490c54da6df6c6342472f6ed3b6fd26bb6d3",
+    "commit_sha": "190066f6bfec39a7beb4b5cfd06b55d5139b14cc",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -36857,7 +36857,7 @@
           "pnpm test:contract",
           "git diff --check"
         ],
-        "evidence": "YAML/JSON validation passed; focused PR12 contract passed with 5 tests; pnpm typecheck passed; production-API build passed with 202 generated pages; full pnpm test:contract passed with 630 files and 3683 tests; git diff --check passed."
+        "evidence": "YAML/JSON validation passed after rebasing onto origin/main b1136bf5; focused PR12 contract passed with 5 tests; pnpm typecheck passed; production-API build passed with 202 generated pages; full pnpm test:contract passed with 631 files and 3689 tests; git diff --check passed."
       },
       "scope_validation": {
         "status": "pass",
@@ -36902,6 +36902,11 @@
         "at": "2026-07-02T19:41:22Z",
         "status": "committed",
         "notes": "Validated implementation commit 3a51490c54da6df6c6342472f6ed3b6fd26bb6d3 created before this ledger-only record."
+      },
+      {
+        "at": "2026-07-02T19:46:51Z",
+        "status": "rebased_and_revalidated",
+        "notes": "Rebased PR12 onto origin/main after external SECURITY-122-WEB-06 merge b1136bf5; reran YAML/JSON, focused PR12 contract, pnpm typecheck, production-API build, full contract suite 631 files/3689 tests, git diff --check, and scope validation. Rebased implementation commit is 190066f6bfec39a7beb4b5cfd06b55d5139b14cc."
       }
     ]
   }
