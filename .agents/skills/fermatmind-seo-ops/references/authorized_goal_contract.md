@@ -87,7 +87,10 @@ must include:
 - bounded IndexNow live submission permission after queue dry-run and approval pass.
 - bounded Baidu live submission permission after queue dry-run and approval pass.
 - GSC manual Request Indexing permission for the exact target canonical URLs.
-- explicit holds for schema and hreflang unless this goal is specifically a schema/hreflang rollout.
+- schema/hreflang gate permission when the goal should complete SEO enhancement in the same run:
+  - Article schema and Breadcrumb schema may be enabled after public JSON-LD verification.
+  - FAQ schema may be enabled only after visible FAQ and JSON-LD FAQPage parity verifies; otherwise record a hold reason.
+  - Hreflang may be enabled only after reciprocal localized counterparts verify.
 
 The runner may continue through all preauthorized stages without returning for
 another operator phrase when each stage dry-run/preflight passes and the action
@@ -97,7 +100,8 @@ queue item set created by the same run.
 Full-chain preauthorization does not override hard blockers. Stop on login
 failure, CAPTCHA, platform-side provider block, missing runtime command, failed
 preflight, failed dry-run, private URL leak, claim-safety failure, identity
-mismatch, rollback-required failure, schema/hreflang side effect, deploy need
+mismatch, rollback-required failure, schema/hreflang side effect outside the
+independent gate, deploy need
 without an allowed deploy profile, or any action not named by the profile.
 
 ## Output

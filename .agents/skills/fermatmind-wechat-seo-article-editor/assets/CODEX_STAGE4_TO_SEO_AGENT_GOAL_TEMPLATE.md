@@ -124,7 +124,7 @@ separate approval gates for:
 - URL Truth write;
 - Search Channel enqueue/approve/submit;
 - GSC Request Indexing;
-- schema/hreflang holds.
+- schema/hreflang rollout gates.
 
 When the operator explicitly asks for a next-day fully authorized run, generate
 the full-chain preauthorized variant instead of the gate-by-gate variant. In
@@ -144,12 +144,17 @@ canonical URLs:
 - sitemap/llms/llms-full discoverability release;
 - content-release revalidation and sitemap-source warm when required for parity;
 - URL Truth refresh/write;
-- Search Channel enqueue, approve, and bounded live submit for `indexnow` and `baidu_push`;
+- Search Channel enqueue, approve, and bounded live submit for `indexnow` and `baidu_push`, using `queue_item_ids` from the enqueue output, not `batch_ids`;
 - GSC manual Request Indexing for the exact zh/en canonical URLs;
+- `articles:seo-gate-rollout` schema/hreflang gates after publish/readback:
+  - `--enable-hreflang` only when reciprocal localized counterparts are verified;
+  - `--enable-article-schema --enable-breadcrumb-schema`;
+  - `--enable-faq-schema` only when visible FAQ and JSON-LD FAQPage parity passes, otherwise `--hold-faq-schema`;
+- `articles:release-closeout` evidence ingestion with public smoke, GSC manual, and observation JSON artifacts;
 - final reconciliation and D1/D7/D14 observation checklist.
 
-The full-chain variant must still hold schema and hreflang unless the operator
-explicitly asks for those rollout gates. It must stop on failed preflight,
+The full-chain variant treats schema and hreflang as independent post-publish
+SEO enhancement gates, not as implicit side effects of CMS publish. It must stop on failed preflight,
 failed dry-run, claim/private URL risk, article identity mismatch, missing image
 asset, CDN verification failure, login/CAPTCHA, provider quota/platform block,
 or any deploy/runtime fix not preauthorized by target SHA/release.
@@ -221,14 +226,17 @@ Authorization Profile:
 - allow_indexnow_bounded_submission=true
 - allow_baidu_bounded_submission=true
 - allow_gsc_manual_request_indexing=true
-- schema=hold
-- hreflang=hold
+- allow_article_schema_gate=true
+- allow_breadcrumb_schema_gate=true
+- allow_faq_schema_gate=if_visible_faq_jsonld_parity_passes
+- allow_hreflang_gate=true
+- schema=independent_gate
+- hreflang=independent_gate
 - allowed_search_channels=indexnow,baidu_push
 - disallowed_search_channels=360,sogou,shenma
 - gsc_request_indexing_target_urls=https://fermatmind.com/zh/articles/<SLUG>,https://fermatmind.com/en/articles/<SLUG>
 
 Explicit holds unless separately authorized:
-- schema/hreflang enablement
 - deploy unless a target SHA/release is specified in this goal
 - PR
 
@@ -240,14 +248,21 @@ Required outputs:
 - preview QA report
 - publish rehearsal/report
 - public smoke report
-- discoverability parity report
-- URL Truth/Search Channel/GSC reports
+- discoverability parity report proving public `/sitemap.xml`, `/llms.txt`, and `/llms-full.txt` contain both canonical URLs in the same release chain
+- schema/hreflang gate report with `SEO_ENHANCEMENT_COMPLETE` or `SEO_ENHANCEMENT_HELD_REASON`
+- URL Truth/Search Channel/GSC reports, including queue item IDs and GSC manual evidence JSON
 - answer-surface FAQ check, including `ANSWER_SURFACE_FAQ_ENHANCEMENT_RECOMMENDED` when package FAQ is present but the public answer-surface block still renders generic FAQ
 - D1/D7/D14 observation queue with `Unknown` placeholders for missing metrics
+- final `articles:release-closeout` report using `--public-smoke-json`, `--gsc-manual-json`, and `--observation-json` when those artifacts exist
 - NEXT_EXACT_AUTHORIZATION_PROMPTS.md only for blockers outside this full-chain profile
 - scan_manifest.json
 
 Final decision:
+- ARTICLE_PUBLISHED
+- DISCOVERABILITY_COMPLETE
+- SEARCH_SUBMITTED
+- SEO_ENHANCEMENT_COMPLETE
+- SEO_ENHANCEMENT_HELD_REASON
 - ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING
 - ARTICLE_RELEASE_COMPLETE_PROVIDER_HELD
 - BLOCKED_NEEDS_OPERATOR_INPUT
