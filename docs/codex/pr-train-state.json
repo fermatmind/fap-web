@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-02T14:01:33Z",
+  "updated_at": "2026-07-02T14:09:31Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -33904,9 +33904,9 @@
     "title": "PR-CAREER-KG-00: test(career): lock job SEO display asset projection",
     "train_scope": "career_job_seo_display_asset_projection_lock",
     "depends_on": [],
-    "status": "local_checks_passed",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "716e3e01a2ccad758c7b03138db1e744aa405605",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1521",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -34017,6 +34017,13 @@
         "at": "2026-07-02T14:01:33Z",
         "status": "local_checks_passed",
         "notes": "Focused contracts, typecheck, production-url build, full contract suite, YAML/JSON parse, diff check, and changed-file scope validation passed after fixing scoped test fixture and CTA-label contract expectations."
+      },
+      {
+        "at": "2026-07-02T14:09:31Z",
+        "status": "pr_open",
+        "commit_sha": "716e3e01a2ccad758c7b03138db1e744aa405605",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1521",
+        "notes": "Opened fap-web PR #1521 after required local checks passed. This records the implementation commit; the ledger status update itself is committed afterward on the same branch."
       }
     ]
   }
