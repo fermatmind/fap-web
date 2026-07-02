@@ -74,6 +74,19 @@ function normalizeStringArray(value: unknown): string[] {
   return [...new Set(value.map((item) => normalizeText(item)).filter(Boolean))];
 }
 
+function readAllowedField(record: unknown, allowedFields: ReadonlySet<string>, key: string): unknown {
+  if (!record || typeof record !== "object" || Array.isArray(record) || !allowedFields.has(key)) {
+    return null;
+  }
+
+  return (record as Record<string, unknown>)[key];
+}
+
+const ANSWER_CONTENT_BLOCK_FIELDS = new Set(["key", "title", "body", "href", "kind"]);
+const ANSWER_FAQ_BLOCK_FIELDS = new Set(["key", "question", "q", "answer", "a"]);
+const ANSWER_NEXT_STEP_BLOCK_FIELDS = new Set(["key", "title", "body", "href", "kind"]);
+const ANSWER_BUNDLE_FIELDS = new Set(["key", "title", "count"]);
+
 function normalizeContentBlocks(value: unknown): AnswerContentBlockViewModel[] {
   if (!Array.isArray(value)) {
     return [];
@@ -82,9 +95,9 @@ function normalizeContentBlocks(value: unknown): AnswerContentBlockViewModel[] {
   return value
     .map((item) => {
       const record = item && typeof item === "object" && !Array.isArray(item) ? item : {};
-      const key = normalizeText(record.key);
-      const title = normalizeText(record.title);
-      const body = normalizeText(record.body);
+      const key = normalizeText(readAllowedField(record, ANSWER_CONTENT_BLOCK_FIELDS, "key"));
+      const title = normalizeText(readAllowedField(record, ANSWER_CONTENT_BLOCK_FIELDS, "title"));
+      const body = normalizeText(readAllowedField(record, ANSWER_CONTENT_BLOCK_FIELDS, "body"));
       if (!key && !title && !body) {
         return null;
       }
@@ -93,8 +106,8 @@ function normalizeContentBlocks(value: unknown): AnswerContentBlockViewModel[] {
         key: key || title || body,
         title,
         body,
-        href: normalizeInternalHref(record.href),
-        kind: normalizeNullableText(record.kind),
+        href: normalizeInternalHref(readAllowedField(record, ANSWER_CONTENT_BLOCK_FIELDS, "href")),
+        kind: normalizeNullableText(readAllowedField(record, ANSWER_CONTENT_BLOCK_FIELDS, "kind")),
       };
     })
     .filter((item): item is AnswerContentBlockViewModel => item !== null);
@@ -108,9 +121,13 @@ function normalizeFaqBlocks(value: unknown): AnswerFaqBlockViewModel[] {
   return value
     .map((item) => {
       const record = item && typeof item === "object" && !Array.isArray(item) ? item : {};
-      const question = normalizeText(record.question ?? record.q);
-      const answer = normalizeText(record.answer ?? record.a);
-      const key = normalizeText(record.key) || question || answer;
+      const question = normalizeText(
+        readAllowedField(record, ANSWER_FAQ_BLOCK_FIELDS, "question") ?? readAllowedField(record, ANSWER_FAQ_BLOCK_FIELDS, "q")
+      );
+      const answer = normalizeText(
+        readAllowedField(record, ANSWER_FAQ_BLOCK_FIELDS, "answer") ?? readAllowedField(record, ANSWER_FAQ_BLOCK_FIELDS, "a")
+      );
+      const key = normalizeText(readAllowedField(record, ANSWER_FAQ_BLOCK_FIELDS, "key")) || question || answer;
       if (!key && !question && !answer) {
         return null;
       }
@@ -132,10 +149,10 @@ function normalizeNextStepBlocks(value: unknown): AnswerNextStepBlockViewModel[]
   return value
     .map((item) => {
       const record = item && typeof item === "object" && !Array.isArray(item) ? item : {};
-      const title = normalizeText(record.title);
-      const body = normalizeText(record.body);
-      const href = normalizeInternalHref(record.href);
-      const key = normalizeText(record.key) || title || href || body;
+      const title = normalizeText(readAllowedField(record, ANSWER_NEXT_STEP_BLOCK_FIELDS, "title"));
+      const body = normalizeText(readAllowedField(record, ANSWER_NEXT_STEP_BLOCK_FIELDS, "body"));
+      const href = normalizeInternalHref(readAllowedField(record, ANSWER_NEXT_STEP_BLOCK_FIELDS, "href"));
+      const key = normalizeText(readAllowedField(record, ANSWER_NEXT_STEP_BLOCK_FIELDS, "key")) || title || href || body;
       if (!key && !title && !body && !href) {
         return null;
       }
@@ -145,7 +162,7 @@ function normalizeNextStepBlocks(value: unknown): AnswerNextStepBlockViewModel[]
         title,
         body,
         href,
-        kind: normalizeNullableText(record.kind),
+        kind: normalizeNullableText(readAllowedField(record, ANSWER_NEXT_STEP_BLOCK_FIELDS, "kind")),
       };
     })
     .filter((item): item is AnswerNextStepBlockViewModel => item !== null);
@@ -159,15 +176,15 @@ function normalizeAnswerBundle(value: unknown): AnswerBundleItemViewModel[] {
   return value
     .map((item) => {
       const record = item && typeof item === "object" && !Array.isArray(item) ? item : {};
-      const key = normalizeText(record.key);
+      const key = normalizeText(readAllowedField(record, ANSWER_BUNDLE_FIELDS, "key"));
       if (!key) {
         return null;
       }
 
       return {
         key,
-        title: normalizeText(record.title) || key,
-        count: Math.max(0, Number(record.count ?? 0) || 0),
+        title: normalizeText(readAllowedField(record, ANSWER_BUNDLE_FIELDS, "title")) || key,
+        count: Math.max(0, Number(readAllowedField(record, ANSWER_BUNDLE_FIELDS, "count") ?? 0) || 0),
       };
     })
     .filter((item): item is AnswerBundleItemViewModel => item !== null);

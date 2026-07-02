@@ -77,6 +77,18 @@ function normalizeStringArray(value: unknown): string[] {
   return [...new Set(value.map((item) => normalizeText(item)).filter(Boolean))];
 }
 
+function readAllowedField(record: unknown, allowedFields: ReadonlySet<string>, key: string): unknown {
+  if (!record || typeof record !== "object" || Array.isArray(record) || !allowedFields.has(key)) {
+    return null;
+  }
+
+  return (record as Record<string, unknown>)[key];
+}
+
+const LANDING_SUMMARY_BLOCK_FIELDS = new Set(["key", "title", "body", "kind"]);
+const LANDING_CTA_FIELDS = new Set(["key", "label", "href", "kind", "priority", "cta_priority"]);
+const LANDING_DISCOVERABILITY_ITEM_FIELDS = new Set(["key", "title", "summary", "body", "href", "url", "kind", "badge_label", "badge"]);
+
 export function normalizeLandingSurface(raw: LandingSurfaceRaw | null | undefined): LandingSurfaceViewModel | null {
   if (!raw || typeof raw !== "object") {
     return null;
@@ -86,10 +98,10 @@ export function normalizeLandingSurface(raw: LandingSurfaceRaw | null | undefine
     ? raw.summary_blocks
         .map((item) => {
           const record = item && typeof item === "object" && !Array.isArray(item) ? item : {};
-          const key = normalizeText(record.key);
-          const title = normalizeText(record.title);
-          const body = normalizeText(record.body);
-          const kind = normalizeNullableText(record.kind);
+          const key = normalizeText(readAllowedField(record, LANDING_SUMMARY_BLOCK_FIELDS, "key"));
+          const title = normalizeText(readAllowedField(record, LANDING_SUMMARY_BLOCK_FIELDS, "title"));
+          const body = normalizeText(readAllowedField(record, LANDING_SUMMARY_BLOCK_FIELDS, "body"));
+          const kind = normalizeNullableText(readAllowedField(record, LANDING_SUMMARY_BLOCK_FIELDS, "kind"));
 
           if (!key && !title && !body) {
             return null;
@@ -109,19 +121,22 @@ export function normalizeLandingSurface(raw: LandingSurfaceRaw | null | undefine
     ? raw.cta_bundle
         .map((item, index) => {
           const record = item && typeof item === "object" && !Array.isArray(item) ? item : {};
-          const label = normalizeText(record.label);
-          const href = normalizeInternalHref(record.href);
+          const label = normalizeText(readAllowedField(record, LANDING_CTA_FIELDS, "label"));
+          const href = normalizeInternalHref(readAllowedField(record, LANDING_CTA_FIELDS, "href"));
           if (!label || !href) {
             return null;
           }
-          const key = normalizeText(record.key) || href;
+          const key = normalizeText(readAllowedField(record, LANDING_CTA_FIELDS, "key")) || href;
 
           return {
             key,
             label,
             href,
-            kind: normalizeNullableText(record.kind),
-            priority: normalizeSeoCtaPriority(record.priority ?? record.cta_priority, deriveSeoCtaPriorityFromKey(key, index)),
+            kind: normalizeNullableText(readAllowedField(record, LANDING_CTA_FIELDS, "kind")),
+            priority: normalizeSeoCtaPriority(
+              readAllowedField(record, LANDING_CTA_FIELDS, "priority") ?? readAllowedField(record, LANDING_CTA_FIELDS, "cta_priority"),
+              deriveSeoCtaPriorityFromKey(key, index)
+            ),
           };
         })
         .filter((item): item is Exclude<typeof item, null> => item !== null)
@@ -131,19 +146,28 @@ export function normalizeLandingSurface(raw: LandingSurfaceRaw | null | undefine
     ? raw.discoverability_items
         .map((item) => {
           const record = item && typeof item === "object" && !Array.isArray(item) ? item : {};
-          const title = normalizeText(record.title);
-          const href = normalizeInternalHref(record.href ?? record.url);
+          const title = normalizeText(readAllowedField(record, LANDING_DISCOVERABILITY_ITEM_FIELDS, "title"));
+          const href = normalizeInternalHref(
+            readAllowedField(record, LANDING_DISCOVERABILITY_ITEM_FIELDS, "href") ??
+              readAllowedField(record, LANDING_DISCOVERABILITY_ITEM_FIELDS, "url")
+          );
           if (!title || !href) {
             return null;
           }
 
           return {
-            key: normalizeText(record.key) || href,
+            key: normalizeText(readAllowedField(record, LANDING_DISCOVERABILITY_ITEM_FIELDS, "key")) || href,
             title,
-            summary: normalizeText(record.summary ?? record.body),
+            summary: normalizeText(
+              readAllowedField(record, LANDING_DISCOVERABILITY_ITEM_FIELDS, "summary") ??
+                readAllowedField(record, LANDING_DISCOVERABILITY_ITEM_FIELDS, "body")
+            ),
             href,
-            kind: normalizeNullableText(record.kind),
-            badgeLabel: normalizeNullableText(record.badge_label ?? record.badge),
+            kind: normalizeNullableText(readAllowedField(record, LANDING_DISCOVERABILITY_ITEM_FIELDS, "kind")),
+            badgeLabel: normalizeNullableText(
+              readAllowedField(record, LANDING_DISCOVERABILITY_ITEM_FIELDS, "badge_label") ??
+                readAllowedField(record, LANDING_DISCOVERABILITY_ITEM_FIELDS, "badge")
+            ),
           };
         })
         .filter((item): item is LandingDiscoverabilityItemViewModel => item !== null)

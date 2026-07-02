@@ -8786,7 +8786,7 @@ prs:
     mode: execute
     train_scope: security_122_web_ops_dashboard_route_authentication
     risk_level: high
-    status: in_progress
+    status: merged_cleanup_complete
     title: "SECURITY-122-WEB-04: ops/dashboard route authentication"
     findings:
       - "findings 15,23,24"
@@ -8824,7 +8824,7 @@ prs:
     mode: execute
     train_scope: security_122_web_cms_url_field_allowlists_rendered_content_crash_guards
     risk_level: high
-    status: planned
+    status: in_progress
     title: "SECURITY-122-WEB-05: CMS URL/field allowlists and rendered-content crash guards"
     findings:
       - "findings 17,18,21,26,42,46,47,96,103,107,108,109,110"

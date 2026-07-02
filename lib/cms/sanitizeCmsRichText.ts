@@ -199,7 +199,8 @@ function replaceBarePathAnchorText(text: string, href: string | null, options: C
 }
 
 export function sanitizeCmsUrl(value: string): string | null {
-  const decoded = decodeHtmlEntities(value).replace(CONTROL_CHARS_RE, "").trim();
+  const decodedRaw = decodeHtmlEntities(value);
+  const decoded = decodedRaw.replace(CONTROL_CHARS_RE, "").trim();
   if (!decoded || /[<>]/.test(decoded)) {
     return null;
   }
@@ -214,7 +215,55 @@ export function sanitizeCmsUrl(value: string): string | null {
     return null;
   }
 
+  if (schemeMatch?.[1] === "mailto" && !isSafeMailtoUrl(decodedRaw)) {
+    return null;
+  }
+
   return decoded;
+}
+
+function isSafeMailtoUrl(value: string): boolean {
+  if (/[\r\n]/.test(value) || /%(?:0a|0d)/i.test(value)) {
+    return false;
+  }
+
+  let parsed: URL;
+  try {
+    parsed = new URL(value.trim());
+  } catch {
+    return false;
+  }
+
+  if (parsed.protocol !== "mailto:") {
+    return false;
+  }
+
+  const allowedHeaders = new Set(["subject", "cc", "bcc"]);
+  for (const [key, headerValue] of parsed.searchParams.entries()) {
+    const normalizedKey = key.toLowerCase();
+    if (!allowedHeaders.has(normalizedKey)) {
+      return false;
+    }
+
+    if (/[\r\n]/.test(headerValue) || /%(?:0a|0d)/i.test(headerValue)) {
+      return false;
+    }
+
+    if ((normalizedKey === "cc" || normalizedKey === "bcc") && !isSafeMailtoAddressList(headerValue)) {
+      return false;
+    }
+  }
+
+  const recipients = decodeURIComponent(parsed.pathname);
+  return recipients.length > 0 && isSafeMailtoAddressList(recipients);
+}
+
+function isSafeMailtoAddressList(value: string): boolean {
+  return value
+    .split(",")
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .every((item) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,63}$/i.test(item));
 }
 
 function localizeInternalCmsHref(href: string, options: CmsHtmlSanitizeOptions): string {
