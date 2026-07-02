@@ -36372,12 +36372,13 @@
     "depends_on": [
       "PR-CAREER-KG-08"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "7fd737eea5fcff3d9a52fc5cb08aa380229ba364",
+    "status": "merged",
+    "commit_sha": "407ea066e163a9f84145669fefa12f5f18f14243",
+    "merge_commit_sha": "c0a94fb04b71cf99e2eb07a9ba557d4a774fced5",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1537",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-02T18:40:46Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "artifacts": [
       "generated/career-kg-pr-09-auto-mechanics/README.md",
@@ -36424,8 +36425,8 @@
       },
       "github_checks": {
         "status": "pass",
-        "head_sha": "7fd737eea5fcff3d9a52fc5cb08aa380229ba364",
-        "evidence": "PR #1537 checks passed for build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL on head 7fd737eea5fcff3d9a52fc5cb08aa380229ba364. Staging deploy was not waited on."
+        "head_sha": "407ea066e163a9f84145669fefa12f5f18f14243",
+        "evidence": "PR #1537 checks passed for build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL on final head 407ea066e163a9f84145669fefa12f5f18f14243. Staging deploy was not waited on."
       },
       "merge_readiness": {
         "status": "pass",
@@ -36483,6 +36484,130 @@
         "commit_sha": "7fd737eea5fcff3d9a52fc5cb08aa380229ba364",
         "pr_url": "https://github.com/fermatmind/fap-web/pull/1537",
         "notes": "Required GitHub checks passed, CodeQL passed, scope validation remained exactly the 11 authorized files, and GitHub merge state was CLEAN. Staging deploy was not waited on."
+      },
+      {
+        "at": "2026-07-02T18:47:29Z",
+        "status": "merged",
+        "commit_sha": "407ea066e163a9f84145669fefa12f5f18f14243",
+        "merge_commit_sha": "c0a94fb04b71cf99e2eb07a9ba557d4a774fced5",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1537",
+        "notes": "GitHub reports PR #1537 merged. Post-merge cleanup confirmed origin/main contains the merge commit, local main was synced to origin/main, the PR-train worktree was clean, the local task branch was deleted, and the remote task branch was absent/deleted. Staging deploy was not waited on."
+      }
+    ]
+  },
+  "PR-CAREER-KG-10": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/pr-career-kg-10-secretaries-admin-assistants",
+    "title": "PR-CAREER-KG-10: content(career): add secretaries and administrative assistants KG asset package",
+    "train_scope": "career_kg_secretaries_administrative_assistants_asset_package",
+    "depends_on": ["PR-CAREER-KG-09"],
+    "status": "ready_to_merge",
+    "commit_sha": "512319a10b0dd5436d15729a3bd92156e165014b",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1540",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "artifacts": [
+      "generated/career-kg-pr-10-secretaries-admin-assistants/README.md",
+      "generated/career-kg-pr-10-secretaries-admin-assistants/secretaries-and-administrative-assistants-except-legal-medical-and-executive.zh-CN.asset.json",
+      "generated/career-kg-pr-10-secretaries-admin-assistants/qa_report.json",
+      "generated/career-kg-pr-10-secretaries-admin-assistants/dry_run_importer_report.json",
+      "generated/career-kg-pr-10-secretaries-admin-assistants/staging_preview_smoke.json",
+      "generated/career-kg-pr-10-secretaries-admin-assistants/fap_web_render_smoke.json",
+      "generated/career-kg-pr-10-secretaries-admin-assistants/sha256_manifest.json",
+      "tests/contracts/career-kg-10-secretaries-admin-assistants.contract.test.tsx",
+      "tests/contracts/helpers/currentPrScope.ts",
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json"
+    ],
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "Active /goal explicitly authorized adding missing manifest/state entries and executing PR-CAREER-KG-01 through PR-CAREER-KG-17 as a one-PR-per-scope train."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-CAREER-KG-09 was merged as fap-web PR #1537; origin/main contains merge commit c0a94fb04b71cf99e2eb07a9ba557d4a774fced5."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Using isolated clean worktree <workspace>/fap-web-pr-career-kg-00 on latest main; unrelated files in the primary workspace are not touched."
+      },
+      "local_checks": {
+        "status": "pass",
+        "commands": [
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "pnpm exec vitest run tests/contracts/career-kg-10-secretaries-admin-assistants.contract.test.tsx",
+          "pnpm typecheck",
+          "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "pnpm test:contract",
+          "git diff --check"
+        ],
+        "evidence": "YAML/JSON validation passed; focused PR10 contract passed with 5 tests; pnpm typecheck passed; production-API build passed with 202 generated pages; full pnpm test:contract passed with 627 files and 3667 tests; git diff --check passed."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "evidence": "Validated changed/untracked/ignored scoped file list contains exactly 11 authorized PR10 files: docs/codex/pr-train-state.json, docs/codex/pr-train.yaml, generated/career-kg-pr-10-secretaries-admin-assistants/README.md, generated/career-kg-pr-10-secretaries-admin-assistants/dry_run_importer_report.json, generated/career-kg-pr-10-secretaries-admin-assistants/fap_web_render_smoke.json, generated/career-kg-pr-10-secretaries-admin-assistants/qa_report.json, generated/career-kg-pr-10-secretaries-admin-assistants/secretaries-and-administrative-assistants-except-legal-medical-and-executive.zh-CN.asset.json, generated/career-kg-pr-10-secretaries-admin-assistants/sha256_manifest.json, generated/career-kg-pr-10-secretaries-admin-assistants/staging_preview_smoke.json, tests/contracts/career-kg-10-secretaries-admin-assistants.contract.test.tsx, and tests/contracts/helpers/currentPrScope.ts."
+      },
+      "github_checks": {
+        "status": "pass",
+        "head_sha": "156af5ee079d09b0fd1a99856b96715479bdd136",
+        "evidence": "GitHub PR #1540 checks passed on head 156af5ee079d09b0fd1a99856b96715479bdd136: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, and CodeQL summary."
+      },
+      "merge_readiness": {
+        "status": "ready_to_merge",
+        "evidence": "Post-check review found PR #1540 open, mergeable, no review block, clean local worktree, and exactly the 11 authorized PR10 files in scope. Staging deploy was not waited on."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        "generated/career-kg-pr-10-secretaries-admin-assistants/README.md",
+        "generated/career-kg-pr-10-secretaries-admin-assistants/secretaries-and-administrative-assistants-except-legal-medical-and-executive.zh-CN.asset.json",
+        "generated/career-kg-pr-10-secretaries-admin-assistants/qa_report.json",
+        "generated/career-kg-pr-10-secretaries-admin-assistants/dry_run_importer_report.json",
+        "generated/career-kg-pr-10-secretaries-admin-assistants/staging_preview_smoke.json",
+        "generated/career-kg-pr-10-secretaries-admin-assistants/fap_web_render_smoke.json",
+        "generated/career-kg-pr-10-secretaries-admin-assistants/sha256_manifest.json",
+        "tests/contracts/career-kg-10-secretaries-admin-assistants.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "outside_scope_files": []
+    },
+    "events": [
+      {
+        "at": "2026-07-02T18:47:29Z",
+        "status": "in_progress",
+        "notes": "Started PR-CAREER-KG-10 on branch codex/pr-career-kg-10-secretaries-admin-assistants. Scope is the Secretaries and Administrative Assistants zh-CN career KG dry-run asset package, QA evidence, fap-web render contract, and PR-train metadata only. PR09 merged/cleanup facts were reconciled in this same docs/codex state update."
+      },
+      {
+        "at": "2026-07-02T18:53:09Z",
+        "status": "local_checks_passed",
+        "notes": "Local validation passed: YAML/JSON, focused PR10 contract, pnpm typecheck, production-API build, full contract suite, and git diff --check."
+      },
+      {
+        "at": "2026-07-02T18:53:09Z",
+        "status": "scope_validation_passed",
+        "notes": "Scope validation found exactly the 11 authorized PR10 files and no outside-scope files."
+      },
+      {
+        "at": "2026-07-02T18:54:17Z",
+        "status": "committed",
+        "notes": "Validated implementation commit 512319a10b0dd5436d15729a3bd92156e165014b created before this ledger-only record."
+      },
+      {
+        "at": "2026-07-02T18:55:27Z",
+        "status": "pr_open",
+        "notes": "Opened GitHub PR #1540 at https://github.com/fermatmind/fap-web/pull/1540. Initial head edfa321b035e15c594409eac030cbb67c542c72b had CI and CodeQL checks in progress."
+      },
+      {
+        "at": "2026-07-02T19:01:04Z",
+        "status": "ready_to_merge",
+        "notes": "GitHub checks passed on head 156af5ee079d09b0fd1a99856b96715479bdd136. PR was mergeable with no review block, and scope revalidation found only the 11 authorized PR10 files."
       }
     ]
   }
