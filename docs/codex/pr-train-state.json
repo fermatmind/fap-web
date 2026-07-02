@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T01:50:10+08:00",
+  "updated_at": "2026-07-03T02:03:30+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12367,7 +12367,7 @@
       "depends_on": [
         "SECURITY-122-WEB-02"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_seo_agent_approval_gates_ops_audit_metadata_redaction",
       "risk_level": "high",
       "title": "SECURITY-122-WEB-03: SEO agent approval gates and ops/audit metadata redaction",
@@ -12420,10 +12420,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1533",
-      "commit_sha": "768a605b07c946ca6282eaad65e59c9bf895191d",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "86870d9696cb470447470a015947678da73ff656",
+      "merged_at": "2026-07-02T17:51:43Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -12454,10 +12454,16 @@
           "at": "2026-07-03T01:50:10+08:00",
           "status": "ready_to_merge",
           "summary": "PR #1533 scope revalidation passed and GitHub mergeStateStatus is CLEAN; ready for squash merge after ledger update checks pass."
+        },
+        {
+          "at": "2026-07-03T01:58:17+08:00",
+          "status": "merged_reconciled_for_security_122_web_04",
+          "summary": "Reconciled SECURITY-122-WEB-03 after PR #1533 merged at 2026-07-02T17:51:43Z with merge commit 7807c7daf94419db4bb9cdf1a5312734f0af2fef; origin/main contains the merge commit, local main is synced, and local/remote task branches are deleted."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T01:50:10+08:00"
+      "updated_at": "2026-07-03T01:58:17+08:00",
+      "merge_sha": "7807c7daf94419db4bb9cdf1a5312734f0af2fef"
     },
     {
       "id": "SECURITY-122-WEB-04",
@@ -12468,7 +12474,7 @@
       "depends_on": [
         "SECURITY-122-WEB-03"
       ],
-      "status": "planned",
+      "status": "committed",
       "train_scope": "security_122_web_ops_dashboard_route_authentication",
       "risk_level": "high",
       "title": "SECURITY-122-WEB-04: ops/dashboard route authentication",
@@ -12488,12 +12494,21 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-03 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-03 merged via PR #1533 at 2026-07-02T17:51:43Z; origin/main contains 7807c7daf94419db4bb9cdf1a5312734f0af2fef."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-04-ops-route-auth.contract.test.ts tests/contracts/seo-issue-queue-dashboard-shell.contract.test.ts tests/contracts/seo-ops-readmodel-bridge.contract.test.ts",
+            "/usr/local/bin/pnpm typecheck",
+            "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+            "/usr/local/bin/pnpm test:contract",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "changed-file scope validation for SECURITY-122-WEB-04 including untracked files"
+          ],
+          "evidence": "Full contract suite passed: 624 test files, 3651 tests. SECURITY-122-WEB-04 scope validation passed for 8 changed files."
         },
         "github": {
           "status": "pending",
@@ -12502,7 +12517,7 @@
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "a03c3fa864934df5a9439f8fd147d87708fa8bbe",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -12511,10 +12526,25 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-04 from explicit user /goal; execution waits for SECURITY-122-WEB-03 merge."
+        },
+        {
+          "at": "2026-07-03T01:58:17+08:00",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-04 from latest main after WEB-03 post-merge revalidation; implementing ops/dashboard route authentication only."
+        },
+        {
+          "at": "2026-07-03T02:02:43+08:00",
+          "status": "local_checks_passed",
+          "summary": "WEB-04 focused contracts, related ops contracts, typecheck, production API build, full contract suite, manifest/state parse, diff check, and changed-file scope validation passed."
+        },
+        {
+          "at": "2026-07-03T02:03:30+08:00",
+          "status": "committed",
+          "summary": "Committed SECURITY-122-WEB-04 as a03c3fa864934df5a9439f8fd147d87708fa8bbe after local checks and scope validation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T02:03:30+08:00"
     },
     {
       "id": "SECURITY-122-WEB-05",

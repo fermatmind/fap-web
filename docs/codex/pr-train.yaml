@@ -8748,7 +8748,7 @@ prs:
     mode: execute
     train_scope: security_122_web_seo_agent_approval_gates_ops_audit_metadata_redaction
     risk_level: high
-    status: in_progress
+    status: merged
     title: "SECURITY-122-WEB-03: SEO agent approval gates and ops/audit metadata redaction"
     findings:
       - "findings 8,12,19,25,44,91"
@@ -8786,7 +8786,7 @@ prs:
     mode: execute
     train_scope: security_122_web_ops_dashboard_route_authentication
     risk_level: high
-    status: planned
+    status: in_progress
     title: "SECURITY-122-WEB-04: ops/dashboard route authentication"
     findings:
       - "findings 15,23,24"

@@ -1,14 +1,18 @@
 import { ContentPagesTable } from "@/components/ops/content-pages/ContentPagesTable";
 import { listContentPagesForOps } from "@/lib/cms/content-pages";
 import { normalizeLocale, type Locale } from "@/lib/i18n/locales";
+import { requireOpsRouteAccess } from "@/lib/ops/opsRouteAccess";
 
 type Props = {
   params: Promise<{ locale: string }>;
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function ContentPagesOpsPage({ params }: Props) {
   const { locale: localeParam } = await params;
   const locale = normalizeLocale(localeParam) as Locale;
+  await requireOpsRouteAccess();
   const pages = await listContentPagesForOps(locale);
 
   return (
