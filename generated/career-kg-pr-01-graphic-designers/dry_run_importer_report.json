@@ -1,0 +1,34 @@
+{
+  "artifact_type": "career_kg_dry_run_importer_report",
+  "pr_id": "PR-CAREER-KG-01",
+  "slug": "graphic-designers",
+  "status": "pass",
+  "mode": "dry_run_only",
+  "writes_performed": false,
+  "cms_write_performed": false,
+  "staging_write_performed": false,
+  "production_import_performed": false,
+  "production_import_approved": false,
+  "exact_sha_authorization_required_for_production_import": true,
+  "input_asset": "generated/career-kg-pr-01-graphic-designers/graphic-designers.zh-CN.asset.json",
+  "would_upsert": {
+    "career_job_slug": "graphic-designers",
+    "locale": "zh-CN",
+    "identity_rows": 1,
+    "seo_rows": 1,
+    "content_block_rows": 9,
+    "source_rows": 5,
+    "internal_link_rows": 7
+  },
+  "blocked_runtime_mutations": [
+    "sitemap",
+    "llms",
+    "robots",
+    "canonical",
+    "noindex",
+    "JSON-LD runtime",
+    "search submission",
+    "production deploy"
+  ],
+  "verdict": "DRY_RUN_IMPORT_READY_NO_WRITE"
+}

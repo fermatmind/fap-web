@@ -1,0 +1,80 @@
+{
+  "artifact_type": "career_kg_qa_report",
+  "pr_id": "PR-CAREER-KG-01",
+  "slug": "graphic-designers",
+  "locale": "zh-CN",
+  "status": "pass",
+  "generated_at": "2026-07-02T14:30:00Z",
+  "schema_validation": {
+    "status": "pass",
+    "required_sections_present": [
+      "identity",
+      "seo",
+      "definition",
+      "core_responsibilities",
+      "work_scenes",
+      "skills_tools",
+      "entry_path",
+      "riasec_personality_boundary",
+      "risk_ai_boundary",
+      "adjacent_careers",
+      "faq",
+      "sources",
+      "internal_links"
+    ],
+    "canonical_unchanged": true,
+    "content_block_count": 9,
+    "faq_count": 3
+  },
+  "trust_audit": {
+    "status": "pass",
+    "fact_authorities": [
+      "O*NET OnLine",
+      "BLS Occupational Outlook Handbook",
+      "My Next Move"
+    ],
+    "market_or_baike_used_as_fact_authority": false,
+    "blocked_claims_absent": [
+      "employment guarantee",
+      "income guarantee",
+      "AI replacement certainty",
+      "diagnosis from MBTI or Big Five",
+      "frontend-authored JSON-LD authority"
+    ],
+    "source_boundary_notes": [
+      "FermatMind synthesis is marked interpretation_only.",
+      "Chinese recruiting or encyclopedia sources are not used as occupational fact authority.",
+      "BLS salary/outlook facts are included only as source-boundary context and not as local wage promises."
+    ]
+  },
+  "editorial_gate": {
+    "status": "pass",
+    "priority_focus": "title/meta CTR、视觉/品牌/UI别名、作品集/工具/AI边界",
+    "reader_intent_covered": [
+      "平面设计师是做什么的",
+      "平面设计师和UI设计师区别",
+      "平面设计作品集怎么准备",
+      "平面设计常用工具",
+      "AI是否会取代平面设计师"
+    ],
+    "language": "zh-CN",
+    "canonical_path_locked": "/zh/career/jobs/graphic-designers"
+  },
+  "dry_run_importer": {
+    "status": "pass",
+    "report_path": "generated/career-kg-pr-01-graphic-designers/dry_run_importer_report.json",
+    "writes_performed": false,
+    "production_import_approved": false
+  },
+  "staging_preview_smoke": {
+    "status": "pass",
+    "report_path": "generated/career-kg-pr-01-graphic-designers/staging_preview_smoke.json",
+    "staging_write_performed": false,
+    "deploy_wait_performed": false
+  },
+  "fap_web_rendering_smoke": {
+    "status": "pass",
+    "report_path": "generated/career-kg-pr-01-graphic-designers/fap_web_render_smoke.json",
+    "validated_by_contract": "tests/contracts/career-kg-01-graphic-designers.contract.test.ts"
+  }
+}
