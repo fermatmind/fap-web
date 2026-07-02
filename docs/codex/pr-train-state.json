@@ -36999,7 +36999,7 @@
     "title": "PR-CAREER-KG-13: content(career): add zoologists and wildlife biologists KG asset package",
     "train_scope": "career_kg_zoologists_wildlife_biologists_asset_package",
     "depends_on": ["PR-CAREER-KG-12"],
-    "status": "open",
+    "status": "ready_to_merge",
     "commit_sha": "39a5108716b458085f7626f990cb1be5be8460de",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1545",
     "merged_at": null,
@@ -37050,11 +37050,14 @@
         "evidence": "Validated changed/untracked/ignored scoped file list contains exactly 11 authorized PR13 files: docs/codex/pr-train-state.json, docs/codex/pr-train.yaml, generated/career-kg-pr-13-zoologists-wildlife-biologists/README.md, generated/career-kg-pr-13-zoologists-wildlife-biologists/dry_run_importer_report.json, generated/career-kg-pr-13-zoologists-wildlife-biologists/fap_web_render_smoke.json, generated/career-kg-pr-13-zoologists-wildlife-biologists/qa_report.json, generated/career-kg-pr-13-zoologists-wildlife-biologists/sha256_manifest.json, generated/career-kg-pr-13-zoologists-wildlife-biologists/staging_preview_smoke.json, generated/career-kg-pr-13-zoologists-wildlife-biologists/zoologists-and-wildlife-biologists.zh-CN.asset.json, tests/contracts/career-kg-13-zoologists-wildlife-biologists.contract.test.tsx, and tests/contracts/helpers/currentPrScope.ts."
       },
       "github_checks": {
-        "status": "pending",
-        "head_sha": "d441d52cc364545b304ea1d42b7f8aea12320570",
-        "evidence": "PR #1545 created; GitHub checks pending."
+        "status": "pass",
+        "head_sha": "8c86ead44de38e39a9eac11479bb8cd39e990329",
+        "evidence": "PR #1545 checks passed for head 8c86ead44de38e39a9eac11479bb8cd39e990329: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
       },
-      "merge_readiness": {"status": "pending", "evidence": null}
+      "merge_readiness": {
+        "status": "ready_to_merge",
+        "evidence": "GitHub reports mergeStateStatus=CLEAN for PR #1545; scope revalidation still contains exactly the 11 authorized PR13 files and no outside-scope files."
+      }
     },
     "scope_validation": {
       "allowed_files": [
@@ -37102,6 +37105,11 @@
         "at": "2026-07-02T20:15:18Z",
         "status": "open",
         "notes": "Created PR #1545 at https://github.com/fermatmind/fap-web/pull/1545 with head d441d52cc364545b304ea1d42b7f8aea12320570."
+      },
+      {
+        "at": "2026-07-02T20:20:24Z",
+        "status": "ready_to_merge",
+        "notes": "GitHub checks passed for PR #1545 head 8c86ead44de38e39a9eac11479bb8cd39e990329; mergeStateStatus=CLEAN and scope revalidation passed."
       }
     ]
   }
