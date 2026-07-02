@@ -93,6 +93,11 @@ function resolveGuestTokenFailureMessage(locale: "en" | "zh"): string {
   return "Authentication service is temporarily unavailable. Please retry later.";
 }
 
+function isEqScaleCode(scaleCode: string | null | undefined): boolean {
+  const normalized = String(scaleCode ?? "").trim().toUpperCase();
+  return normalized === "EQ_60" || normalized === "EQ_SJT_16";
+}
+
 function resolveNoTokenServiceMessage(locale: "en" | "zh"): string {
   if (locale === "zh") {
     return "提交通道暂时不可用（认证服务未配置），请稍后再试。";
@@ -465,7 +470,9 @@ function QuizTakeInner({
   const inviteLinkOpenedTrackedRef = useRef(false);
   const forceNewAttemptAppliedRef = useRef(false);
   const immersiveEnabled = isImmersiveSingleFlowEnabled();
-  const showsTitleQuizChrome = isMbtiScaleCode(scaleCode) || isRiasecScaleCode(scaleCode);
+  const showsTitleQuizChrome =
+    !isCanonicalIqScaleCode(scaleCode) &&
+    (isMbtiScaleCode(scaleCode) || isRiasecScaleCode(scaleCode) || isEqScaleCode(scaleCode));
   const quizHeaderBrand = showsTitleQuizChrome ? testTitle : dict.header.brand;
   const trackedStartRef = useRef(false);
   const firstQuestionReadyTrackedRef = useRef(false);
