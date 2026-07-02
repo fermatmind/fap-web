@@ -54,6 +54,24 @@ function stripLocalePrefix(pathname: string): string {
   return pathname.replace(/^\/(en|zh)(?=\/|$)/, "") || "/";
 }
 
+function redactPrivateReportSearchParams(params: URLSearchParams): URLSearchParams {
+  const safe = new URLSearchParams(params);
+  for (const key of Array.from(safe.keys())) {
+    const normalized = key.toLowerCase();
+    if (
+      normalized === "access_token"
+      || normalized === "result_access_token"
+      || normalized === "token"
+      || normalized.endsWith("_token")
+      || normalized.includes("private")
+    ) {
+      safe.delete(key);
+    }
+  }
+
+  return safe;
+}
+
 function parseUrl(value: string): URL | null {
   try {
     return new URL(value, "https://fermatmind.com");
@@ -221,5 +239,6 @@ export function normalizeCommerceReportPath(value: unknown): string | null {
     return null;
   }
 
-  return `${parsed.pathname}${parsed.search}${parsed.hash}`;
+  const safeParams = redactPrivateReportSearchParams(parsed.searchParams);
+  return `${parsed.pathname}${safeParams.size > 0 ? `?${safeParams.toString()}` : ""}${parsed.hash}`;
 }

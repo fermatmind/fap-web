@@ -90,7 +90,6 @@ async function fetchResultPrintJson<T>({
 }): Promise<T> {
   const params = new URLSearchParams({
     locale,
-    access_token: accessToken,
   });
   const response = await fetch(buildApiUrl(`${path}?${params.toString()}`), {
     cache: "no-store",

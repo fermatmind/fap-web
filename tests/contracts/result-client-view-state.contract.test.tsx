@@ -311,6 +311,7 @@ describe("ResultClient view-state contract", () => {
     vi.clearAllMocks();
     hoisted.search = "";
     hoisted.pendingAnonLinkAttempts = [];
+    window.sessionStorage.clear();
     hoisted.getFmToken.mockReturnValue("fm_result_test_token");
     hoisted.ensureFmTokenReady.mockResolvedValue("issued");
     hoisted.linkAnonAttemptsOnceOnLoginSuccess.mockResolvedValue(undefined);
@@ -348,6 +349,7 @@ describe("ResultClient view-state contract", () => {
     document.documentElement.removeAttribute("data-pdf-ready");
     (window as typeof window & { __FERMAT_PDF_READY__?: boolean; __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_READY__ = false;
     (window as typeof window & { __FERMAT_PDF_READY__?: boolean; __FERMAT_PDF_ERROR__?: string }).__FERMAT_PDF_ERROR__ = undefined;
+    window.sessionStorage.clear();
   });
 
   it("routes the public career next step through the runtime 32-type slug", () => {
@@ -389,6 +391,26 @@ describe("ResultClient view-state contract", () => {
     const [reportParams] = hoisted.fetchAttemptReport.mock.calls[0] ?? [];
     expect(reportParams).toEqual(expect.objectContaining({ attemptId: "attempt-123" }));
     expect(reportParams).toEqual(expect.objectContaining({ accessToken: "result_lookup_token_123" }));
+  });
+
+  it("passes session handoff result tokens through result read APIs without URL query tokens", async () => {
+    window.sessionStorage.setItem("fm.result_access_token.attempt-123", "result_lookup_token_handoff");
+    hoisted.fetchAttemptReport.mockResolvedValue(cloneFixture(reportReadyMbtiProjectionFixture) as ReportResponse);
+
+    render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
+
+    await waitFor(() => {
+      expect(screen.getByTestId("rich-result-report")).toBeInTheDocument();
+    });
+
+    const [reportAccessParams] = hoisted.fetchAttemptReportAccess.mock.calls[0] ?? [];
+    expect(reportAccessParams).toEqual(expect.objectContaining({ attemptId: "attempt-123" }));
+    expect(reportAccessParams).toEqual(expect.objectContaining({ accessToken: "result_lookup_token_handoff" }));
+
+    const [reportParams] = hoisted.fetchAttemptReport.mock.calls[0] ?? [];
+    expect(reportParams).toEqual(expect.objectContaining({ attemptId: "attempt-123" }));
+    expect(reportParams).toEqual(expect.objectContaining({ accessToken: "result_lookup_token_handoff" }));
+    expect(hoisted.search).not.toContain("access_token");
   });
 
   it("links pending result attempts with an existing stored auth token", async () => {

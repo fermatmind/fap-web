@@ -33,7 +33,7 @@ describe("result access token API contract", () => {
     });
   });
 
-  it("sends result lookup tokens in the read header for result, report, and report-access calls", async () => {
+  it("sends result lookup tokens in headers instead of URL query strings for result, report, and report-access calls", async () => {
     await fetchAttemptResult({
       attemptId: "attempt-token-1",
       anonId: "anon-current-device",
@@ -57,7 +57,7 @@ describe("result access token API contract", () => {
 
     expect(hoisted.get).toHaveBeenNthCalledWith(
       1,
-      "/v0.3/attempts/attempt-token-1/result?locale=zh&access_token=result_token_123",
+      "/v0.3/attempts/attempt-token-1/result?locale=zh",
       {
         headers: {
           "X-Anon-Id": "anon-current-device",
@@ -67,7 +67,7 @@ describe("result access token API contract", () => {
     );
     expect(hoisted.get).toHaveBeenNthCalledWith(
       2,
-      "/v0.3/attempts/attempt-token-1/report?locale=zh&access_token=result_token_123",
+      "/v0.3/attempts/attempt-token-1/report?locale=zh",
       {
         headers: {
           "X-Result-Access-Token": "result_token_123",
@@ -77,7 +77,7 @@ describe("result access token API contract", () => {
     );
     expect(hoisted.get).toHaveBeenNthCalledWith(
       3,
-      "/v0.3/attempts/attempt-token-1/report-access?locale=zh&access_token=result_token_123",
+      "/v0.3/attempts/attempt-token-1/report-access?locale=zh",
       {
         headers: {
           "X-Result-Access-Token": "result_token_123",

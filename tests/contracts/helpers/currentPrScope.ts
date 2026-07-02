@@ -1095,6 +1095,28 @@ const SECURITY_122_WEB_01_ALLOWED_FILES = new Set([
   "tests/contracts/security-122-web-01-train-reconciliation.contract.test.ts",
 ]);
 
+const SECURITY_122_WEB_02_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx",
+  "app/(localized)/[locale]/(app)/result/[id]/print/resultPrintBootstrap.ts",
+  "components/support/ResultEmailLookupForm.tsx",
+  "lib/access/reportActionUrls.ts",
+  "lib/api/v0_3.ts",
+  "lib/commerce/redirectUrls.ts",
+  "lib/result/pdfExportToken.ts",
+  "lib/result/resultAccessTokenHandoff.ts",
+  "scripts/ops/check-mbti-pdf-print-asset-hash.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/report-action-url-safety.contract.test.ts",
+  "tests/contracts/result-access-token-api.contract.test.ts",
+  "tests/contracts/result-client-view-state.contract.test.tsx",
+  "tests/contracts/result-email-lookup.contract.test.tsx",
+  "tests/contracts/result-gotenberg-print-route.contract.test.ts",
+  "tests/contracts/security-122-web-01-train-reconciliation.contract.test.ts",
+  "tests/contracts/security-122-web-02-result-token-redaction.contract.test.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
   "components/result/eq/EQEvidenceSnapshot.tsx",
   "components/result/eq/types.ts",
@@ -3523,6 +3545,14 @@ export function isSecurity122Web01AllowedFile(file: string): boolean {
   return SECURITY_122_WEB_01_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity122Web02AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-122-web-02") {
+    return true;
+  }
+
+  return SECURITY_122_WEB_02_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -4487,6 +4517,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/security-122-web-01") {
     return SECURITY_122_WEB_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/security-122-web-02") {
+    return SECURITY_122_WEB_02_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {

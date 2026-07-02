@@ -3250,7 +3250,6 @@ export async function fetchAttemptResult({
   const params = new URLSearchParams();
   if (locale) params.set("locale", locale);
   const normalizedAccessToken = normalizeResultAccessToken(accessToken);
-  if (normalizedAccessToken) params.set("access_token", normalizedAccessToken);
   const response = await apiClient.get<ResultResponse>(
     `/v0.3/attempts/${attemptId}/result${params.size > 0 ? `?${params.toString()}` : ""}`,
     {
@@ -3300,7 +3299,6 @@ export async function getAttemptReport({
   if (refresh) params.set("refresh", "1");
   if (locale) params.set("locale", locale);
   const normalizedAccessToken = normalizeResultAccessToken(accessToken);
-  if (normalizedAccessToken) params.set("access_token", normalizedAccessToken);
   const suffix = params.size > 0 ? `?${params.toString()}` : "";
   const response = await apiClient.get<ReportResponse>(
     `/v0.3/attempts/${attemptId}/report${suffix}`,
@@ -3439,7 +3437,6 @@ export async function fetchAttemptReportAccess({
   const params = new URLSearchParams();
   if (locale) params.set("locale", locale);
   const normalizedAccessToken = normalizeResultAccessToken(accessToken);
-  if (normalizedAccessToken) params.set("access_token", normalizedAccessToken);
   const response = await apiClient.get<AttemptReportAccessResponse>(
     `/v0.3/attempts/${attemptId}/report-access${params.size > 0 ? `?${params.toString()}` : ""}`,
     {
@@ -3473,7 +3470,6 @@ export async function fetchEqAgentContext({
   if (locale) params.set("locale", locale);
   if (intent) params.set("intent", intent);
   const normalizedAccessToken = normalizeResultAccessToken(accessToken);
-  if (normalizedAccessToken) params.set("access_token", normalizedAccessToken);
   const response = await apiClient.get<EqAgentContextPayload>(
     `/v0.3/attempts/${attemptId}/eq/agent-context${params.size > 0 ? `?${params.toString()}` : ""}`,
     {

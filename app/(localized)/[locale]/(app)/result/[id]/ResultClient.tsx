@@ -57,6 +57,7 @@ import { logInfo, logWarn } from "@/lib/observability/logger";
 import { captureError } from "@/lib/observability/sentry";
 import { installPrivateResultPrintUrlRedaction } from "@/lib/result/privatePrintUrlRedaction";
 import { RESULT_PAGE_SNAPSHOT_SURFACE } from "@/lib/result/pdfSurface";
+import { readResultAccessTokenForAttempt } from "@/lib/result/resultAccessTokenHandoff";
 import type { PersonalityDesktopCloneContentPayload } from "@/lib/cms/personality-desktop-clone";
 import type { MbtiSnapshotContentStatus } from "@/lib/result/mbtiSnapshotContent";
 import type { ScaleRolloutEnvSnapshot } from "@/lib/rollout/scaleRollout";
@@ -796,8 +797,13 @@ export default function ResultClient({
   const [reloadNonce, setReloadNonce] = useState(0);
   const [pdfReadyMarkerMounted, setPdfReadyMarkerMounted] = useState(false);
   const resultAccessToken = useMemo(
-    () => normalizeText(printAccessToken, searchParams.get("access_token"), searchParams.get("result_access_token")),
-    [printAccessToken, searchParams]
+    () => normalizeText(
+      printAccessToken,
+      searchParams.get("access_token"),
+      searchParams.get("result_access_token"),
+      printMode ? null : readResultAccessTokenForAttempt(attemptId)
+    ),
+    [attemptId, printAccessToken, printMode, searchParams]
   );
   const usePrintAccessTokenOnly = printMode && Boolean(resultAccessToken);
   const printSnapshotContractValid = printMode

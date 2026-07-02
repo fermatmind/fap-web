@@ -15,6 +15,23 @@ describe("report action URL safety contract", () => {
     expect(normalizeReportActionHref("/orders/lookup", "en", "lookup")).toBe("/en/orders/lookup");
   });
 
+  it("redacts bearer and private query parameters from allowed report action destinations", () => {
+    expect(
+      normalizeReportActionHref(
+        "/result/attempt-1?access_token=secret&from=history&result_access_token=secret2#summary",
+        "en",
+        "page"
+      )
+    ).toBe("/en/result/attempt-1?from=history#summary");
+    expect(
+      normalizeReportActionHref(
+        "/api/v0.3/attempts/attempt-1/report.pdf?inline=1&token=secret&private_url=/admin",
+        "en",
+        "pdf"
+      )
+    ).toBe("/api/v0.3/attempts/attempt-1/report.pdf?inline=1");
+  });
+
   it("rejects unsafe schemes and unexpected external report action destinations", () => {
     expect(normalizeReportActionHref("javascript:alert(1)", "en", "page")).toBeNull();
     expect(normalizeReportActionHref("data:text/html,alert(1)", "en", "page")).toBeNull();
