@@ -190,9 +190,9 @@ describe("career display surface contract", () => {
       titleEn: "Data Scientists",
       titleZh: "数据科学家",
     });
-    fixture.page.content.primary_cta.label = "Take the Holland / RIASEC Career Interest Test";
+    fixture.page.content.primary_cta.label = "测量我的职业兴趣";
     fixture.page.content.primary_cta.href = "/en/tests/holland-career-interest-test-riasec";
-    fixture.page.content.final_cta.label = "Take the Holland / RIASEC Career Interest Test";
+    fixture.page.content.final_cta.label = "测量我的职业兴趣";
     fixture.page.content.final_cta.href = "/en/tests/holland-career-interest-test-riasec";
 
     const surface = adaptCareerDisplaySurface(
@@ -212,10 +212,9 @@ describe("career display surface contract", () => {
 
     render(<CareerDisplaySurface surface={surface} />);
 
-    expect(screen.queryByText("Take the Holland / RIASEC Career Interest Test")).not.toBeInTheDocument();
     expect(screen.queryByText("下一步页面")).not.toBeInTheDocument();
 
-    const localizedCtas = screen.getAllByRole("link", { name: "测我的职业兴趣是否匹配" });
+    const localizedCtas = screen.getAllByRole("link", { name: "测量我的职业兴趣" });
     expect(localizedCtas.length).toBeGreaterThanOrEqual(2);
     localizedCtas.forEach((cta) => {
       const href = cta.getAttribute("href") ?? "";

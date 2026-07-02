@@ -21,8 +21,6 @@ export function CareerDisplayCTA({
           attributionParams: ctaAttributionParams,
         })
     : surface.cta.href;
-  const label = surface.locale === "zh" ? "测我的职业兴趣是否匹配" : surface.cta.label;
-
   return (
     <section className="rounded-lg border border-slate-950 bg-slate-950 p-5 text-white" data-testid="career-display-cta">
       <h2 className="m-0 text-2xl font-semibold tracking-normal">{surface.locale === "zh" ? "下一步" : "Next step"}</h2>
@@ -39,7 +37,7 @@ export function CareerDisplayCTA({
         data-target-action={surface.cta.targetAction}
         data-test-slug={surface.cta.testSlug}
       >
-        {label}
+        {surface.cta.label}
       </Link>
     </section>
   );

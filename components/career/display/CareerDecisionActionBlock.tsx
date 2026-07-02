@@ -95,7 +95,7 @@ export function CareerDecisionActionBlock({
             data-target-action={surface.cta.targetAction}
             data-test-slug={surface.cta.testSlug}
           >
-            {isZh ? "测我的职业兴趣是否匹配" : "Measure my career interests"}
+            {surface.cta.label}
           </Link>
         </article>
 

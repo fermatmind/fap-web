@@ -198,7 +198,7 @@ describe("career job detail Actors v4.2 route integration", () => {
     expect(html).toContain("招聘样本提示：短剧演员岗位常见要求");
     expect(html).toContain("AI 会不会替代演员");
     expect(html).toContain("常见问题");
-    expect(html).toContain("测我的职业兴趣是否匹配");
+    expect(html).toContain("测量我的职业兴趣");
     expect(html).not.toContain("career-job-docx-document");
     expect(html).not.toContain("Legacy Actors DOCX body");
   });

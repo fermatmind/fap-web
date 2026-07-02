@@ -12329,6 +12329,60 @@ prs:
       auto_merge: true
     next_task: null
 
+  - id: PR-CAREER-KG-00
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-00-seo-display-asset-projection-lock
+    base: main
+    title: "PR-CAREER-KG-00: test(career): lock job SEO display asset projection"
+    depends_on: []
+    mode: execute
+    train_scope: career_job_seo_display_asset_projection_lock
+    status: in_progress
+    goal: "Lock career job detail SEO/display asset projection to backend/CMS authority by rendering and contract-testing backend title/meta consumption, FAQPage and Occupation structured-data gates, localized career CTA projection, and source disclosure rendering without adding frontend-authored career facts, sitemap/llms/search changes, CMS writes, production deploy steps, or future occupation content PRs."
+    artifacts:
+      - components/career/display/CareerDecisionActionBlock.tsx
+      - components/career/display/CareerDisplayCTA.tsx
+      - components/career/display/CareerDisplayHero.tsx
+      - components/career/display/SourceDisclosureBlock.tsx
+      - tests/contracts/career-display-surface.contract.test.tsx
+      - tests/contracts/career-job-detail-actors-v42.contract.test.tsx
+      - tests/contracts/career-job-seo-display-asset-projection.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - components/career/display/CareerDecisionActionBlock.tsx
+      - components/career/display/CareerDisplayCTA.tsx
+      - components/career/display/CareerDisplayHero.tsx
+      - components/career/display/SourceDisclosureBlock.tsx
+      - tests/contracts/career-display-surface.contract.test.tsx
+      - tests/contracts/career-job-detail-actors-v42.contract.test.tsx
+      - tests/contracts/career-job-seo-display-asset-projection.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Add frontend-authored career job facts, FAQs, metadata, titles, descriptions, salary copy, source claims, or fallback editorial content.
+      - Mutate sitemap, llms, robots, canonical URL sets, CMS, search submission, deploy, cache, queue, or server runtime.
+      - Change career recommendation, scoring, payment, result, personality, MBTI, Big Five, Enneagram, RIASEC, article, topic, or homepage behavior.
+      - Process future occupation content PRs.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-job-seo-display-asset-projection.contract.test.tsx tests/contracts/career-display-surface.contract.test.tsx tests/contracts/career-job-detail-actors-v42.contract.test.tsx tests/contracts/career-job-seo-authority.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: false
+    next_task: PR-CAREER-KG-01
+
   - id: MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
     repo: fap-web
     repo_path: <workspace>/fap-web
