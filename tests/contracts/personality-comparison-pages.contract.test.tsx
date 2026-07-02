@@ -11,7 +11,10 @@ import {
   isPersonalityComparisonSlug,
 } from "@/lib/mbti/personalityComparison";
 import { buildPublicSitemapEntries } from "@/lib/seo/publicSitemap";
-import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
+import {
+  isCurrentRiasecPack12AllowedFile,
+  isPersonalityComparisonV1FromAssetsAllowedFile,
+} from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 
@@ -208,8 +211,11 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
         answer_surface_v1: {
           answer_contract_version: "answer.surface.v1",
           surface_type: "personality_comparison_public_detail",
+          summary_blocks: [{ key: "comparison_summary", title: "INTJ comparison", body: "Backend answer summary." }],
           compare_blocks: [{ key: "at_difference", title: "A/T difference", body: "Backend compare block." }],
+          faq_blocks: [{ key: "faq-1", question: "Which one is better?", answer: "Neither variant is a ranking." }],
           next_step_blocks: [{ key: "assertive_detail", title: "INTJ-A", href: "/en/personality/intj-a" }],
+          evidence_refs: ["comparison_public_projection_v1"],
         },
       });
     });
@@ -230,6 +236,9 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     );
     expect(comparison?.landingSurface?.entrySurface).toBe("personality_comparison");
     expect(comparison?.answerSurface?.surfaceType).toBe("personality_comparison_public_detail");
+    expect(comparison?.answerSurface?.summaryBlocks[0]?.body).toBe("Backend answer summary.");
+    expect(comparison?.answerSurface?.faqBlocks[0]?.answer).toBe("Neither variant is a ranking.");
+    expect(comparison?.answerSurface?.evidenceRefs).toContain("comparison_public_projection_v1");
   });
 
   it("wires the comparison page, sitemap, and llms to backend authority instead of frontend content", () => {
@@ -250,9 +259,15 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     expect(pageSource).toContain("const effectiveMetadataTitle = comparison.seoSurface?.title || title");
     expect(pageSource).toContain("applyPersonalityMetadataTitleTemplateGuard");
     expect(pageSource).toContain('data-testid="personality-comparison-page"');
+    expect(pageSource).toContain('data-testid="personality-comparison-asset-nav"');
+    expect(pageSource).toContain('data-testid="personality-comparison-method-boundary"');
     expect(pageSource).toContain("comparison.jsonld");
     expect(pageSource).toContain("personality-comparison-breadcrumb");
     expect(pageSource).toContain("comparison.comparisonBlocks.map");
+    expect(pageSource).toContain("comparison.answerSurface?.nextStepBlocks");
+    expect(pageSource).toContain("hideSummaryBlocks");
+    expect(pageSource).toContain("comparisonBoundaryCopy(locale)");
+    expect(pageSource).toContain("frontend editorial fallback");
 
     expect(adapterSource).toContain("/v0.5/personality/comparisons/");
     expect(adapterSource).toContain("comparison_public_projection_v1");
@@ -274,7 +289,9 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
   });
 
   it("keeps the current PR scoped to comparison frontend consumer files", () => {
-    const allowed = changedFiles().filter((file) => !isCurrentRiasecPack12AllowedFile(file));
+    const allowed = changedFiles().filter(
+      (file) => !isCurrentRiasecPack12AllowedFile(file) && !isPersonalityComparisonV1FromAssetsAllowedFile(file)
+    );
 
     expect(allowed).toEqual([]);
   });
