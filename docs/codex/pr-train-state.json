@@ -12961,7 +12961,7 @@
       "depends_on": [
         "SECURITY-122-WEB-07"
       ],
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "train_scope": "security_122_web_dailygiving_giving_api_method_proof_url_currency_guards",
       "risk_level": "medium",
       "title": "SECURITY-122-WEB-08: DailyGiving/giving API method, proof URL, and currency guards",
@@ -13003,14 +13003,21 @@
           "evidence": "Focused WEB-08 contract validates changed files against the SECURITY-122-WEB-08 allowlist, including DailyGiving adapter, proxy method guard, MBTI PDF hash script update caused by proxy input drift, scope helper, focused contract, and PR-train metadata only."
         },
         "github": {
-          "status": "pending",
-          "passed": [],
-          "evidence": "PR #1546 opened at https://github.com/fermatmind/fap-web/pull/1546; GitHub checks pending on branch codex/security-122-web-08."
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ],
+          "evidence": "GitHub checks passed for PR #1546 on head 98d9fe16af32f1fb0bcc10e2a07f5ffd44075708: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN before this ready_to_merge ledger update."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1546",
-      "commit_sha": "2ecd5dc72f3c8cfcb2ebb9de645bca7fd5a59b91",
+      "commit_sha": "98d9fe16af32f1fb0bcc10e2a07f5ffd44075708",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -13034,10 +13041,15 @@
           "at": "2026-07-03T05:18:00+08:00",
           "status": "pr_opened",
           "summary": "Opened PR #1546 for SECURITY-122-WEB-08 from branch codex/security-122-web-08 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-07-02T20:28:28Z",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed and PR diff scope validation passed for SECURITY-122-WEB-08. Focused local revalidation passed. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T05:18:00+08:00"
+      "updated_at": "2026-07-02T20:28:28Z"
     },
     {
       "id": "SECURITY-122-WEB-09",
