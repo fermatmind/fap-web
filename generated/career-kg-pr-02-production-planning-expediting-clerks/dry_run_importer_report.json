@@ -1,0 +1,24 @@
+{
+  "status": "pass",
+  "mode": "dry_run_only",
+  "pr_id": "PR-CAREER-KG-02",
+  "slug": "production-planning-expediting-clerks",
+  "writes_performed": false,
+  "cms_write_performed": false,
+  "staging_write_performed": false,
+  "production_import_performed": false,
+  "production_import_approved": false,
+  "db_migration_performed": false,
+  "validated_sections": [
+    "definition",
+    "core_responsibilities",
+    "work_scenes",
+    "skills_tools",
+    "entry_path",
+    "riasec_personality_boundary",
+    "risk_ai_boundary",
+    "adjacent_careers",
+    "faq"
+  ],
+  "importer_contract": "backend/CMS remains authority; fap-web package is evidence for a future authorized import only."
+}

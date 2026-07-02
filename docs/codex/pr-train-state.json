@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-02T14:55:00Z",
+  "updated_at": "2026-07-02T15:04:40Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -34044,12 +34044,13 @@
     "depends_on": [
       "PR-CAREER-KG-00"
     ],
-    "status": "pr_open",
-    "commit_sha": null,
+    "status": "merged",
+    "commit_sha": "264de358d60858b8632f274646f94619724ac24f",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1522",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-02T14:53:30Z",
+    "merge_commit_sha": "65a06723dfd59a97ec071529731b6c3d235aa8cc",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "artifacts": [
       "generated/career-kg-pr-01-graphic-designers/README.md",
@@ -34152,6 +34153,105 @@
         "status": "ready_to_merge",
         "head_sha": "1c1a9aede11d192266b3acf832c94d4004b3875d",
         "notes": "GitHub checks passed and PR diff scope validation passed. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
+      },
+      {
+        "at": "2026-07-02T14:59:00Z",
+        "status": "merged",
+        "merge_commit_sha": "65a06723dfd59a97ec071529731b6c3d235aa8cc",
+        "notes": "Reconciled PR-CAREER-KG-01 during PR-CAREER-KG-02 setup. GitHub reports PR #1522 merged at 2026-07-02T14:53:30Z; origin/main contains the merge commit; local main was synced, worktree was clean, and local/remote task branches were absent."
+      }
+    ]
+  },
+  "PR-CAREER-KG-02": {
+    "repo": "fap-web",
+    "repo_path": "<workspace>/fap-web",
+    "base": "main",
+    "branch": "codex/pr-career-kg-02-production-planning-clerks",
+    "title": "PR-CAREER-KG-02: content(career): add production planning clerks KG asset package",
+    "train_scope": "career_kg_production_planning_expediting_clerks_asset_package",
+    "depends_on": [
+      "PR-CAREER-KG-01"
+    ],
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "artifacts": [
+      "generated/career-kg-pr-02-production-planning-expediting-clerks/README.md",
+      "generated/career-kg-pr-02-production-planning-expediting-clerks/production-planning-expediting-clerks.zh-CN.asset.json",
+      "generated/career-kg-pr-02-production-planning-expediting-clerks/qa_report.json",
+      "generated/career-kg-pr-02-production-planning-expediting-clerks/dry_run_importer_report.json",
+      "generated/career-kg-pr-02-production-planning-expediting-clerks/staging_preview_smoke.json",
+      "generated/career-kg-pr-02-production-planning-expediting-clerks/fap_web_render_smoke.json",
+      "generated/career-kg-pr-02-production-planning-expediting-clerks/sha256_manifest.json",
+      "tests/contracts/career-kg-02-production-planning-expediting-clerks.contract.test.tsx",
+      "tests/contracts/helpers/currentPrScope.ts",
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json"
+    ],
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "Active /goal explicitly authorized adding missing manifest/state entries and executing PR-CAREER-KG-01 through PR-CAREER-KG-17 as a one-PR-per-scope train."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-CAREER-KG-01 was merged as fap-web PR #1522; origin/main contains merge commit 65a06723dfd59a97ec071529731b6c3d235aa8cc."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Using isolated clean worktree <workspace>/fap-web-pr-career-kg-00 on latest main; unrelated dirty files in the primary workspace are not touched."
+      },
+      "local_checks": {
+        "status": "pass",
+        "commands": [
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "pnpm exec vitest run tests/contracts/career-kg-02-production-planning-expediting-clerks.contract.test.tsx",
+          "pnpm typecheck",
+          "git diff --check",
+          "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "pnpm test:contract"
+        ],
+        "evidence": "YAML parse passed; JSON parse passed; focused PR-CAREER-KG-02 contract passed 5 tests; pnpm typecheck passed; git diff --check passed; production-API build passed; full pnpm test:contract passed 614 files and 3603 tests."
+      }
+    },
+    "scope_validation": {
+      "status": "pass",
+      "allowed_files": [
+        "generated/career-kg-pr-02-production-planning-expediting-clerks/README.md",
+        "generated/career-kg-pr-02-production-planning-expediting-clerks/production-planning-expediting-clerks.zh-CN.asset.json",
+        "generated/career-kg-pr-02-production-planning-expediting-clerks/qa_report.json",
+        "generated/career-kg-pr-02-production-planning-expediting-clerks/dry_run_importer_report.json",
+        "generated/career-kg-pr-02-production-planning-expediting-clerks/staging_preview_smoke.json",
+        "generated/career-kg-pr-02-production-planning-expediting-clerks/fap_web_render_smoke.json",
+        "generated/career-kg-pr-02-production-planning-expediting-clerks/sha256_manifest.json",
+        "tests/contracts/career-kg-02-production-planning-expediting-clerks.contract.test.tsx",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "outside_scope_files": [],
+      "evidence": "Final changed-file validation passed for 11 authorized files, including ignored generated/career-kg-pr-02-production-planning-expediting-clerks files discovered with git ls-files --others --ignored --exclude-standard."
+    },
+    "events": [
+      {
+        "at": "2026-07-02T14:59:00Z",
+        "status": "in_progress",
+        "notes": "Started PR-CAREER-KG-02 on branch codex/pr-career-kg-02-production-planning-clerks. Scope is the Production, Planning, and Expediting Clerks zh-CN career KG dry-run asset package, QA evidence, fap-web render contract, and PR-train metadata only."
+      },
+      {
+        "at": "2026-07-02T15:03:50Z",
+        "status": "local_checks_passed",
+        "notes": "Required local checks passed for PR-CAREER-KG-02: YAML/JSON parse, focused contract, typecheck, diff check, production-API build, and full contract suite. Staging deploy and server deployment were not run or waited on."
+      },
+      {
+        "at": "2026-07-02T15:04:40Z",
+        "status": "scope_validation_passed",
+        "notes": "Changed-file scope validation passed for exactly the 11 PR-CAREER-KG-02 authorized files, including the ignored generated artifact package."
       }
     ]
   }

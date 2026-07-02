@@ -1,0 +1,289 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "kg.pr02.v1",
+  "pr_id": "PR-CAREER-KG-02",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "production-planning-expediting-clerks",
+  "canonical_path": "/zh/career/jobs/production-planning-expediting-clerks",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "生产计划与催办文员",
+    "title_en": "Production, Planning, and Expediting Clerks",
+    "soc_code": "43-5061",
+    "onet_code": "43-5061.00",
+    "aliases_zh": [
+      "生产计划员",
+      "生产文员",
+      "PMC文员",
+      "物料计划员",
+      "排产文员",
+      "跟单催办员"
+    ],
+    "aliases_en": [
+      "Expeditor",
+      "Inventory Control Specialist",
+      "Material Requirements Planner (MRP)",
+      "Materials Coordinator",
+      "Production Clerk",
+      "Production Planner",
+      "Production Scheduler"
+    ],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "生产经理",
+        "boundary": "生产经理负责人员、产能和现场管理决策；本职业侧重排程、物料、工单、进度和跨部门催办记录。"
+      },
+      {
+        "name_zh": "采购员",
+        "boundary": "采购员主责供应商询价、下单和采购合同；本职业会跟踪物料到位，但不等同于采购授权。"
+      },
+      {
+        "name_zh": "仓库管理员",
+        "boundary": "仓库管理员主责收发存和库位；本职业使用库存信息判断排产风险与物料优先级。"
+      },
+      {
+        "name_zh": "运输、收发与库存文员",
+        "boundary": "运输/收发/库存文员偏物流单据和出入库；本职业更靠近生产计划、工单顺序和部门协同。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "生产计划与催办文员是做什么的？PMC、ERP/MRP、排产与物料协同",
+    "meta_description_zh": "了解生产计划与催办文员的职责、PMC边界、ERP/MRP工具、排产、物料协同、工厂协同、入门路径、相邻职业和常见问题。",
+    "h1_zh": "生产计划与催办文员",
+    "canonical_path": "/zh/career/jobs/production-planning-expediting-clerks",
+    "ctr_intent_notes": [
+      "修正“生产、文员”的泛化标题，让搜索者看到生产计划、催办、PMC和物料协同。",
+      "摘要突出ERP/MRP、排产和工厂部门协作，降低与普通行政文员的误点。",
+      "FAQ覆盖“PMC是不是生产计划”“需要会不会操作ERP”等高意图问题。"
+    ]
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "heading_zh": "职业定义",
+      "body_zh": "生产计划与催办文员负责按生产计划协调工作和物料在部门之间流动，跟踪工单、物料、进度、交期和异常，帮助生产、仓库、采购、工程、销售或客服等团队把排产变化同步到可执行记录。",
+      "source_refs": [
+        "onet_summary_43_5061_00",
+        "mynextmove_summary_43_5061_00"
+      ]
+    },
+    {
+      "id": "core_responsibilities",
+      "heading_zh": "核心职责",
+      "items_zh": [
+        "分发生产计划、工单、发货或排程信息，并根据设计变更、缺料、积压或插单协助调整。",
+        "根据工单、库存、人员或物料需求表判断优先级，催办物料、零件、交付和部门反馈。",
+        "与主管、生产、仓库、采购、供应商或客户沟通进度、延期原因和解决方案。",
+        "汇总产量、原料消耗、库存水平、成本、质量控制和生产问题，形成进度或异常报告。"
+      ],
+      "source_refs": [
+        "onet_summary_43_5061_00",
+        "mynextmove_summary_43_5061_00"
+      ]
+    },
+    {
+      "id": "work_scenes",
+      "heading_zh": "工作场景",
+      "items_zh": [
+        "制造工厂的PMC/生产计划办公室：每天对齐订单、产能、物料和工单状态。",
+        "仓库、车间和采购之间的协调场景：缺料、换线、插单、延期、返工和交付风险需要及时同步。",
+        "使用电脑系统、电子邮件、电话和面对面会议频繁沟通，时间压力和准确性要求较高，部分场景需要进入车间并佩戴常见防护装备。"
+      ],
+      "source_refs": [
+        "onet_summary_43_5061_00",
+        "mynextmove_summary_43_5061_00"
+      ]
+    },
+    {
+      "id": "skills_tools",
+      "heading_zh": "技能与工具",
+      "items_zh": [
+        "ERP/MRP、生产排程表、库存台账、工单系统和电子表格是核心工具；重点是数据准确、状态更新和异常追踪。",
+        "需要理解BOM、物料需求、库存、产能、工序、交期和订单优先级，但不等同于工程设计或采购决策岗位。",
+        "关键能力包括细节核对、跨部门沟通、时间管理、问题升级、记录维护和用数据解释延期原因。"
+      ],
+      "source_refs": [
+        "onet_summary_43_5061_00",
+        "mynextmove_summary_43_5061_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "entry_path",
+      "heading_zh": "入门路径",
+      "items_zh": [
+        "O*NET Job Zone 显示该职业通常需要高中学历或同等水平，并通过数天到一年不等的在岗训练熟悉流程。",
+        "中文求职语境常从生产文员、PMC助理、计划助理、物料助理或跟单岗位进入，再逐步承担排产和异常协调。",
+        "入门作品不是“作品集”，而是准确的生产日报、缺料清单、排产变更记录、异常闭环表和ERP/MRP操作熟练度。"
+      ],
+      "source_refs": [
+        "onet_summary_43_5061_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "heading_zh": "RIASEC/人格边界",
+      "items_zh": [
+        "该职业常见兴趣组合偏 Conventional + Enterprising + Realistic：既要处理表格、单据和系统，也要推动部门行动。",
+        "适合重视准确、秩序、跟进和协同的人；不适合把所有问题都留在表格里、不愿催办或不愿处理突发变更的人。",
+        "RIASEC、MBTI 或 Big Five 只能帮助理解工作偏好，不能单独判断是否适合进入某个工厂或岗位。"
+      ],
+      "source_refs": [
+        "onet_summary_43_5061_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "heading_zh": "风险、AI与自动化边界",
+      "items_zh": [
+        "ERP/MRP、APS和AI排程可以提高计划计算、预警和报表效率，但真实工厂的缺料、设备、返工、人员和客户变更仍需要人工确认与升级。",
+        "风险点包括错排工单、漏催关键物料、库存数据不准、延期没有及时升级、以及用未经核实的数据承诺交期。",
+        "不得把该职业包装成“AI不会替代”或“稳定就业保证”；更准确的表述是工具会改变重复录入与报表工作，保留跨部门判断和异常闭环价值。"
+      ],
+      "source_refs": [
+        "onet_summary_43_5061_00",
+        "bls_oews_43_5061",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "adjacent_careers",
+      "heading_zh": "相邻职业",
+      "items_zh": [
+        "运输、收发与库存文员：更偏物流和库存单据。",
+        "采购员：更偏供应商、询价、订单和采购合同。",
+        "生产经理：更偏现场人员、产能、质量和管理责任。",
+        "工业生产经理/运营协调岗位：更偏流程改善、产能规划和管理决策。"
+      ],
+      "source_refs": [
+        "onet_summary_43_5061_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "faq",
+      "heading_zh": "常见问题",
+      "items_zh": [
+        {
+          "question": "生产计划与催办文员和普通文员有什么区别？",
+          "answer": "普通文员多处理通用行政或资料工作；生产计划与催办文员围绕工单、物料、排产、进度、库存和交期协调，和车间、仓库、采购、工程等部门联系更紧。"
+        },
+        {
+          "question": "PMC是不是生产计划与催办文员？",
+          "answer": "PMC通常包含生产计划和物料控制职责。生产计划与催办文员可以是PMC团队中的执行或协调岗位，但不同公司会把计划、物控、跟单和文员职责拆分得不一样。"
+        },
+        {
+          "question": "这个职业一定要会ERP或MRP吗？",
+          "answer": "不一定要求入职前精通某个系统，但工作会高度依赖ERP/MRP、工单、库存和排程数据。能准确录入、查询、核对和解释数据，是比单纯会打字更关键的能力。"
+        }
+      ],
+      "source_refs": [
+        "onet_summary_43_5061_00",
+        "mynextmove_summary_43_5061_00",
+        "fermatmind_interpretation"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_43_5061_00",
+      "label": "O*NET OnLine: Production, Planning, and Expediting Clerks 43-5061.00",
+      "url": "https://www.onetonline.org/link/summary/43-5061.00",
+      "authority": "occupation_fact",
+      "usage": "Definition, SOC/O*NET identity, reported titles, tasks, work context, job zone, tools, and related occupation framing."
+    },
+    {
+      "key": "bls_oews_43_5061",
+      "label": "BLS OEWS: Production, Planning, and Expediting Clerks 43-5061",
+      "url": "https://www.bls.gov/oes/current/oes435061.htm",
+      "authority": "occupation_fact",
+      "usage": "BLS occupational employment and wage classification reference for the SOC occupation; not used for employment guarantees."
+    },
+    {
+      "key": "mynextmove_summary_43_5061_00",
+      "label": "My Next Move: Production, Planning, & Expediting Clerks 43-5061.00",
+      "url": "https://www.mynextmove.org/profile/summary/43-5061.00",
+      "authority": "occupation_fact",
+      "usage": "Plain-language tasks and career overview aligned to O*NET."
+    },
+    {
+      "key": "mynextmove_data_sources_43_5061_00",
+      "label": "My Next Move data sources: Production, Planning, & Expediting Clerks",
+      "url": "https://www.mynextmove.org/help/data/43-5061.00",
+      "authority": "source_disclosure",
+      "usage": "Source provenance and SOC/O*NET data collection boundary."
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial interpretation from authorized sources",
+      "authority": "interpretation_only",
+      "usage": "Chinese naming, search-intent framing, RIASEC/personality boundaries, AI/tooling caution, and internal-link rationale."
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "allowed_usage": "Chinese recruiting or encyclopedia pages may only inform market/search-intent phrasing in a later editorial review, not occupational facts.",
+    "blocked_usage": [
+      "职业事实权威",
+      "薪资事实权威",
+      "就业保证",
+      "JSON-LD事实来源",
+      "生产导入依据"
+    ]
+  },
+  "internal_links": [
+    {
+      "label": "职业库",
+      "path": "/zh/career/jobs",
+      "reason": "回到职业库入口，支持搜索和职业浏览。"
+    },
+    {
+      "label": "职业指南",
+      "path": "/zh/career/guides",
+      "reason": "连接职业规划与入门路径内容。"
+    },
+    {
+      "label": "RIASEC职业兴趣测试",
+      "path": "/zh/tests/holland-career-interest-test-riasec",
+      "reason": "解释Conventional/Enterprising/Realistic偏好边界。"
+    },
+    {
+      "label": "MBTI职业相关页",
+      "path": "/zh/personality",
+      "reason": "人格内容只能做偏好参考，不做录用判断。"
+    },
+    {
+      "label": "Big Five人格测试",
+      "path": "/zh/tests/big-five-personality-test",
+      "reason": "连接尽责性、压力和协作偏好解读。"
+    },
+    {
+      "label": "运输、收发与库存文员",
+      "path": "/zh/career/jobs/shipping-receiving-inventory-clerks",
+      "reason": "区分物流/库存单据与生产排程协调。"
+    },
+    {
+      "label": "采购员",
+      "path": "/zh/career/jobs/buyers-purchasing-agents",
+      "reason": "区分物料跟催与采购授权。"
+    }
+  ],
+  "release_boundaries": {
+    "cms_write_performed": false,
+    "staging_write_performed": false,
+    "production_import_performed": false,
+    "db_migration_performed": false,
+    "seo_runtime_changed": false,
+    "sitemap_or_llms_changed": false,
+    "canonical_or_noindex_changed": false,
+    "jsonld_runtime_changed": false,
+    "search_submission_performed": false,
+    "deployment_triggered": false
+  }
+}
