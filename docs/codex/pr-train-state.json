@@ -37371,9 +37371,9 @@
     "title": "PR-CAREER-KG-15: content(career): add geodetic surveyors KG asset package",
     "train_scope": "career_kg_geodetic_surveyors_asset_package",
     "depends_on": ["PR-CAREER-KG-14"],
-    "status": "in_progress",
-    "commit_sha": "b1f00a412d7a0aedb8df81db2357871f350c3301",
-    "pr_url": null,
+    "status": "pr_opened",
+    "commit_sha": "55bda71202af52fac4f66064ef7530bab044019f",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1549",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -37423,8 +37423,8 @@
       },
       "github_checks": {
         "status": "pending",
-        "head_sha": null,
-        "evidence": null
+        "head_sha": "55bda71202af52fac4f66064ef7530bab044019f",
+        "evidence": "GitHub checks pending after PR #1549 was opened."
       },
       "merge_readiness": {
         "status": "pending",
@@ -37467,6 +37467,16 @@
         "at": "2026-07-02T21:31:36Z",
         "status": "committed",
         "notes": "Validated implementation commit b1f00a412d7a0aedb8df81db2357871f350c3301 created before this ledger-only record."
+      },
+      {
+        "at": "2026-07-02T21:33:02Z",
+        "status": "pushed",
+        "notes": "Pushed branch codex/pr-career-kg-15-geodetic-surveyors with head 55bda71202af52fac4f66064ef7530bab044019f."
+      },
+      {
+        "at": "2026-07-02T21:33:02Z",
+        "status": "pr_opened",
+        "notes": "Opened fap-web PR #1549: https://github.com/fermatmind/fap-web/pull/1549."
       }
     ]
   }
