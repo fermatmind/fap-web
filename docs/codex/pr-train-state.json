@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-02T16:31:08Z",
+  "updated_at": "2026-07-02T16:32:44Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12159,7 +12159,7 @@
       "branch": "codex/security-122-web-01",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "train_scope": "security_122_web_deploy_workflow_ssh_secret_dispatch_hardening",
       "risk_level": "critical",
       "title": "SECURITY-122-WEB-01: deploy workflow / SSH secret / dispatch hardening",
@@ -12203,8 +12203,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1528",
+      "commit_sha": "e4d1465aa3092186be88daf51c03c369c277c7ae",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -12218,10 +12218,16 @@
           "at": "2026-07-02T16:31:08Z",
           "status": "local_checks_passed",
           "summary": "Local validation passed for SECURITY-122-WEB-01 reconciliation: focused contract, typecheck, production-URL build, full contract suite, manifest/state parse, diff check, and changed-file scope validation."
+        },
+        {
+          "at": "2026-07-02T16:32:44Z",
+          "status": "pr_opened",
+          "commit_sha": "e4d1465aa3092186be88daf51c03c369c277c7ae",
+          "summary": "Opened PR #1528 for SECURITY-122-WEB-01 reconciliation; GitHub checks pending."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:31:08Z"
+      "updated_at": "2026-07-02T16:32:44Z"
     },
     {
       "id": "SECURITY-122-WEB-02",
