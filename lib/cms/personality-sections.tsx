@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Leaf, Quote, Search, ShieldCheck } from "lucide-react";
 import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
@@ -186,8 +187,32 @@ const MBTI64_V85_READER_VISIBLE_SECTION_KEYS = new Set([
   "v8_5_module_08_career_workflow",
   "v8_5_module_09_relationships",
   "v8_5_module_10_faq_boundary",
-  "v8_5_search_user_paths",
 ]);
+
+const MBTI64_V85_READER_MODULE_SECTION_KEYS = new Set([
+  "v8_5_module_01_core_reading",
+  "v8_5_module_02_judgment_style",
+  "v8_5_module_03_agency_boundary",
+  "v8_5_module_04_standards_drive",
+  "v8_5_module_05_learning_revision",
+  "v8_5_module_06_stress_blindspot",
+  "v8_5_module_07_social_feedback",
+  "v8_5_module_08_career_workflow",
+  "v8_5_module_09_relationships",
+  "v8_5_module_10_faq_boundary",
+]);
+
+const MBTI64_V85_READER_ACTION_HEADING_COPY: Record<string, { zh: string; en: string }> = {
+  v8_5_module_01_core_reading: { zh: "运行模式观察", en: "Operating pattern signals" },
+  v8_5_module_02_judgment_style: { zh: "判断校准重点", en: "Judgment calibration points" },
+  v8_5_module_04_standards_drive: { zh: "高标准使用方式", en: "How to use high standards" },
+  v8_5_module_05_learning_revision: { zh: "学习修正线索", en: "Learning and revision signals" },
+  v8_5_module_06_stress_blindspot: { zh: "压力信号识别", en: "Stress signal recognition" },
+  v8_5_module_07_social_feedback: { zh: "反馈沟通练习", en: "Feedback communication practice" },
+  v8_5_module_08_career_workflow: { zh: "职业匹配观察", en: "Career fit observations" },
+  v8_5_module_09_relationships: { zh: "关系修复线索", en: "Relationship repair signals" },
+  v8_5_module_10_faq_boundary: { zh: "安全使用清单", en: "Safe-use checklist" },
+};
 
 export type RenderableProjectionSection = {
   key: string;
@@ -204,6 +229,15 @@ function isKnownSectionKey(value: string): value is KnownSectionKey {
 
 export function isMbti64V85FirstClassSectionKey(value: string): boolean {
   return value.startsWith(MBTI64_V85_FIRST_CLASS_SECTION_PREFIX) && MBTI64_V85_FIRST_CLASS_SECTION_KEYS.has(value);
+}
+
+function isMbti64V85ReaderModuleSectionKey(value: string): boolean {
+  return MBTI64_V85_READER_MODULE_SECTION_KEYS.has(value);
+}
+
+function mbti64V85ReaderActionHeading(sectionKey: string, locale: Locale): string {
+  const copy = MBTI64_V85_READER_ACTION_HEADING_COPY[sectionKey];
+  return copy ? copy[locale] : locale === "zh" ? "阅读要点" : "Reading notes";
 }
 
 export function partitionPersonalitySectionsForV85(sections: CmsPersonalitySection[]): {
@@ -258,6 +292,178 @@ function isSafePublicPersonalityHref(href: string | null): href is string {
   return ALLOWED_PUBLIC_CONTENT_ROUTE_RE.test(href);
 }
 
+function isSafeExternalReferenceHref(href: string | null): href is string {
+  if (!href) {
+    return false;
+  }
+
+  try {
+    const parsed = new URL(href);
+    return parsed.protocol === "https:" || parsed.protocol === "http:";
+  } catch {
+    return false;
+  }
+}
+
+const SOURCE_LEDGER_REFERENCE_HREFS: Record<string, string> = {
+  mccrae_costa_1989: "https://doi.org/10.1111/j.1467-6494.1989.tb00759.x",
+  pittenger_2005: "https://doi.org/10.1037/1065-9293.57.3.210",
+  holland_1997:
+    "https://search.worldcat.org/title/Making-vocational-choices-%3A-a-theory-of-vocational-personalities-and-work-environments/oclc/36648506",
+};
+
+type SourceLedgerDisplayCopy = {
+  displayTitle: string;
+  href: string | null;
+  linkLabel: string;
+  note: string;
+  sourceTypeLabel: string;
+};
+
+function getSourceLedgerReferenceKind(id: string, label: string, sourceTitle: string) {
+  const haystack = `${id} ${label} ${sourceTitle}`.toLowerCase();
+
+  if (haystack.includes("mccrae") || haystack.includes("costa") || haystack.includes("five-factor")) {
+    return "mccrae_costa_1989";
+  }
+
+  if (haystack.includes("pittenger") || haystack.includes("cautionary comments")) {
+    return "pittenger_2005";
+  }
+
+  if (haystack.includes("holland") || haystack.includes("vocational choices")) {
+    return "holland_1997";
+  }
+
+  if (haystack.includes("fermatmind") || haystack.includes("content contract")) {
+    return "fermatmind_content_contract_2026";
+  }
+
+  return id;
+}
+
+function isSafeSourceLedgerHref(href: string | null): href is string {
+  if (!href) {
+    return false;
+  }
+
+  if (href.startsWith("/zh/") || href.startsWith("/en/")) {
+    return !FORBIDDEN_PUBLIC_CONTENT_ROUTE_RE.test(href);
+  }
+
+  return isSafeExternalReferenceHref(href);
+}
+
+function getSourceLedgerReferenceHref(kind: string, explicitHref: string, locale: Locale): string | null {
+  const candidate =
+    kind === "fermatmind_content_contract_2026"
+      ? `/${locale}/method-boundaries`
+      : explicitHref || SOURCE_LEDGER_REFERENCE_HREFS[kind] || "";
+  return isSafeSourceLedgerHref(candidate) ? candidate : null;
+}
+
+function getSourceLedgerDisplayCopy(reference: {
+  kind: string;
+  href: string | null;
+  sourceTitle: string;
+  summary: string;
+}, locale: Locale): SourceLedgerDisplayCopy {
+  const fallbackTitle = reference.sourceTitle || (locale === "zh" ? "来源说明" : "Source note");
+  const fallbackNote = reference.summary || (locale === "zh" ? "用于说明本页解释边界。" : "Used to explain this page's interpretation boundary.");
+
+  if (locale !== "zh") {
+    switch (reference.kind) {
+      case "mccrae_costa_1989":
+        return {
+          displayTitle: "McCrae & Costa (1989)",
+          href: reference.href,
+          linkLabel: reference.sourceTitle || "Reinterpreting the Myers-Briggs Type Indicator From the Perspective of the Five-Factor Model of Personality",
+          note: "Used as a validity boundary: this page treats type language as a self-reflection aid, not as a replacement for broader trait evidence.",
+          sourceTypeLabel: "Method source",
+        };
+      case "pittenger_2005":
+        return {
+          displayTitle: "Pittenger (2005)",
+          href: reference.href,
+          linkLabel: reference.sourceTitle || "Cautionary Comments Regarding the Myers-Briggs Type Indicator",
+          note: "Used to keep interpretation cautious: profile language can organize observations, but should not become diagnosis, hiring screening, or ability ranking.",
+          sourceTypeLabel: "Method source",
+        };
+      case "holland_1997":
+        return {
+          displayTitle: "Holland (1997)",
+          href: reference.href,
+          linkLabel: reference.sourceTitle || "Making Vocational Choices",
+          note: "Used as a career-interest boundary: RIASEC can complement personality reading, but personality type should not decide a career path by itself.",
+          sourceTypeLabel: "Method source",
+        };
+      case "fermatmind_content_contract_2026":
+        return {
+          displayTitle: "FermatMind content contract (2026)",
+          href: reference.href,
+          linkLabel: "FermatMind 2026 assessment model and scientific boundary notes",
+          note: "Explains the site-level rules for public profile pages, source use, safety boundaries, and non-diagnostic interpretation.",
+          sourceTypeLabel: "Site boundary",
+        };
+      default:
+        return {
+          displayTitle: fallbackTitle,
+          href: reference.href,
+          linkLabel: fallbackTitle,
+          note: fallbackNote,
+          sourceTypeLabel: "Source note",
+        };
+    }
+  }
+
+  switch (reference.kind) {
+    case "mccrae_costa_1989":
+      return {
+        displayTitle: "McCrae & Costa（1989）｜五因素模型视角下重新理解 MBTI",
+        href: reference.href,
+        linkLabel: "查看 DOI / 期刊记录",
+        note: "这条引用用来说明交叉验证思路：MBTI 可以整理偏好语言，但涉及稳定人格特质时，应同时参考 Big Five 等维度模型，避免把四字母类型当成完整心理测量结论。",
+        sourceTypeLabel: "学术引用",
+      };
+    case "pittenger_2005":
+      return {
+        displayTitle: "Pittenger（2005）｜MBTI 使用的审慎提醒",
+        href: reference.href,
+        linkLabel: "查看 DOI / 论文记录",
+        note: "这条引用提醒页面使用边界：类型结果适合帮助用户复盘沟通、压力和选择习惯，不适合承担诊断、招聘筛选、智商判断或职业命运预测。",
+        sourceTypeLabel: "学术引用",
+      };
+    case "holland_1997":
+      return {
+        displayTitle: "Holland（1997）｜职业兴趣与工作环境匹配",
+        href: reference.href,
+        linkLabel: "查看书目记录",
+        note: "这条引用支撑职业部分的方法边界：RIASEC 解释职业兴趣和环境匹配，MBTI 解释决策与沟通偏好；职业选择需要把两类线索与现实能力、经验和机会一起看。",
+        sourceTypeLabel: "学术引用",
+      };
+    case "fermatmind_content_contract_2026":
+      return {
+        displayTitle: "费马测试内容边界（2026）",
+        href: reference.href,
+        linkLabel: "查看费马测试方法边界说明",
+        note: "费马测试 2026 年网站测试模型学术与科学边界说明：本站把人格结果定位为自我理解、沟通和交叉验证入口，不把任何类型标签作为诊断、筛选、录用或人生定论。",
+        sourceTypeLabel: "站内说明",
+      };
+    default:
+      return {
+        displayTitle: fallbackTitle,
+        href: reference.href,
+        linkLabel: fallbackTitle,
+        note: fallbackNote,
+        sourceTypeLabel: "来源说明",
+      };
+  }
+}
+
+function isExternalHref(href: string): boolean {
+  return /^https?:\/\//.test(href);
+}
+
 const PROJECTION_SECTION_TITLE_COPY: Record<string, { zh: string; en: string }> = {
   quick_answer: { zh: "快速答案", en: "Quick answer" },
   faq: { zh: "常见问题", en: "Frequently asked questions" },
@@ -276,7 +482,7 @@ const PROJECTION_SECTION_TITLE_COPY: Record<string, { zh: string; en: string }> 
   relationships_love: { zh: "关系与亲密关系", en: "Relationships and love" },
   which_one_fits: { zh: "哪个更像你", en: "Which one fits" },
   mbti64_comparison_a_vs_t: { zh: "A/T 对比", en: "A/T comparison" },
-  mbti64_promotion_metadata: { zh: "方法边界", en: "Method boundary" },
+  mbti64_promotion_metadata: { zh: "学术与科学性", en: "Research and method boundaries" },
   v8_5_thirty_second_overview: { zh: "类型导读", en: "Introduction" },
   v8_5_ai_search_answer: { zh: "快速理解这个类型", en: "At a glance" },
   v8_5_strengths_watchouts: { zh: "优势与容易忽略的代价", en: "Strengths & Watch-outs" },
@@ -290,14 +496,14 @@ const PROJECTION_SECTION_TITLE_COPY: Record<string, { zh: string; en: string }> 
   v8_5_module_07_social_feedback: { zh: "社交、反馈与被误读", en: "Social feedback and misreads" },
   v8_5_module_08_career_workflow: { zh: "工作、职业和协作方式", en: "Career paths and workplace habits" },
   v8_5_module_09_relationships: { zh: "关系、亲密和沟通", en: "Relationships and communication" },
-  v8_5_module_10_faq_boundary: { zh: "FAQ：如何安全使用这个结果", en: "FAQ: How to use this result safely" },
+  v8_5_module_10_faq_boundary: { zh: "如何安全使用这个结果", en: "How to use this result safely" },
   v8_5_work_decision: { zh: "工作决策场景", en: "Work decision scenario" },
   v8_5_relationship_communication: { zh: "关系与沟通场景", en: "Relationship and communication" },
   v8_5_pressure_growth: { zh: "压力与成长", en: "Pressure and growth" },
   v8_5_search_user_paths: { zh: "下一步阅读", en: "Continue reading" },
   related_content: { zh: "相关内容", en: "Related content" },
   overview: { zh: "这个类型是什么", en: "What this type means" },
-  letters_intro: { zh: "这个类型是什么", en: "What this type means" },
+  letters_intro: { zh: "类型字母拆解", en: "Type letter breakdown" },
   trait_overview: { zh: "常见特征", en: "Common traits" },
   "career.summary": { zh: "职业倾向", en: "Career direction" },
   "career.advantages": { zh: "职业优势", en: "Career advantages" },
@@ -411,6 +617,32 @@ function renderSectionCard(
         ? projectionSectionTitle(sectionKey, title, locale)
         : title;
 
+  if (isMbti64V85ReaderModuleSectionKey(sectionKey)) {
+    return (
+      <section
+        key={sectionKey}
+        id={sectionKey}
+        data-section-key={sectionKey}
+        data-testid="personality-v85-editorial-section-card"
+        className="py-8 first:pt-0"
+      >
+        <article className="rounded-[1.25rem] border border-[rgba(16,24,40,0.10)] bg-white px-6 py-7 shadow-[0_14px_34px_rgba(15,23,42,0.045)] sm:px-8 sm:py-8">
+          <header className="mb-6 flex items-start gap-4 border-b border-[rgba(16,24,40,0.10)] pb-6">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#7d5aa6]/12 text-[#76598d]">
+              <ShieldCheck className="h-6 w-6" aria-hidden="true" />
+            </div>
+            <div className="min-w-0 space-y-3">
+              <h2 className="m-0 text-3xl font-semibold leading-tight text-[#263241] sm:text-4xl">
+                {displayTitle}
+              </h2>
+            </div>
+          </header>
+          {content}
+        </article>
+      </section>
+    );
+  }
+
   if (options.editorialPriority) {
     return (
       <section
@@ -426,6 +658,26 @@ function renderSectionCard(
           </h2>
         </header>
         <div className="space-y-8 text-[17px] leading-8 text-[#3d4652]">
+          {content}
+        </div>
+      </section>
+    );
+  }
+
+  if (sectionKey === "letters_intro" || sectionKey === "trait_overview") {
+    return (
+      <section
+        key={sectionKey}
+        id={sectionKey}
+        data-section-key={sectionKey}
+        className="border-b border-[rgba(16,24,40,0.10)] py-10 first:pt-0"
+      >
+        <header className="mb-5">
+          <h2 className="m-0 text-2xl font-semibold leading-tight tracking-tight text-[#263241] sm:text-3xl">
+            {displayTitle}
+          </h2>
+        </header>
+        <div className="text-[15px] leading-7 text-[#59675f]">
           {content}
         </div>
       </section>
@@ -687,7 +939,7 @@ function renderBoundaryCallouts(payload: Record<string, unknown> | null, locale:
     methodBoundary
       ? {
           key: "method-boundary",
-          title: locale === "zh" ? "方法边界" : "Method boundary",
+          title: locale === "zh" ? "学术与科学性" : "Research and method boundaries",
           body: methodBoundary,
         }
       : null,
@@ -1184,20 +1436,114 @@ function renderMbti64ComparisonSection(section: CmsPersonalitySection, locale: L
   );
 }
 
+function renderSourceLedgerReferences(payload: Record<string, unknown> | null, locale: Locale) {
+  const rawRow = asRecord(payload?.raw_row);
+  const structuredMetadata = asRecord(payload?.structured_metadata);
+  const ledgerItems = [
+    ...asArray<Record<string, unknown>>(rawRow?.source_ledger),
+    ...asArray<Record<string, unknown>>(structuredMetadata?.source_ledger),
+  ];
+  const seenReferences = new Set<string>();
+  const references = ledgerItems
+    .map((item) => {
+      const source = normalizeText(item.source);
+      const id = normalizeText(item.id);
+      const rawYear = item.year;
+      const year = typeof rawYear === "string" || typeof rawYear === "number" ? String(rawYear).trim() : "";
+      const title = normalizeText(item.title);
+      const limitation = normalizeText(item.limitation);
+      const claim = normalizeText(item.claim);
+      const explicitHref = normalizeText(item.href ?? item.url ?? item.source_url ?? item.doi_url);
+      const label = source && year ? `${source} (${year})` : source || title;
+      const summary = limitation || claim;
+      const referenceKey = `${label}|${title}|${summary}`;
+      const kind = getSourceLedgerReferenceKind(id, label, title);
+
+      if (!label || seenReferences.has(referenceKey)) {
+        return null;
+      }
+
+      seenReferences.add(referenceKey);
+
+      return {
+        id,
+        kind,
+        title: label,
+        href: getSourceLedgerReferenceHref(kind, explicitHref, locale),
+        sourceTitle: title,
+        summary: locale === "zh" ? summary.replace(/方法边界/g, "学术边界") : summary,
+      };
+    })
+    .filter(
+      (
+        item,
+      ): item is {
+        id: string;
+        kind: string;
+        title: string;
+        href: string | null;
+        sourceTitle: string;
+        summary: string;
+      } => item !== null,
+    );
+
+  if (references.length === 0) {
+    return null;
+  }
+
+  return (
+    <section className="space-y-3" data-testid="mbti64-source-ledger-references">
+      <div className="space-y-3">
+        {references.map((reference, index) => {
+          const displayCopy = getSourceLedgerDisplayCopy(reference, locale);
+          const isExternalReference = displayCopy.href ? isExternalHref(displayCopy.href) : false;
+
+          return (
+            <article
+              key={`${reference.id || reference.title}-${index}`}
+              className="rounded-xl border border-[#dfe7df] bg-white px-5 py-4 shadow-[0_1px_0_rgba(16,24,40,0.03)]"
+              data-testid="mbti64-source-ledger-reference"
+            >
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                <p className="m-0 font-semibold leading-6 text-[#1f2d3d]">{displayCopy.displayTitle}</p>
+                <p className="m-0 shrink-0 rounded-full bg-[#f3f6f1] px-2.5 py-1 text-xs font-semibold text-[#637064]">
+                  {displayCopy.sourceTypeLabel}
+                </p>
+              </div>
+              <p className="mb-0 mt-3 text-sm leading-6 text-[#53625a]">{displayCopy.note}</p>
+              {displayCopy.href ? (
+                <p className="mb-0 mt-3 text-sm">
+                  <a
+                    href={displayCopy.href}
+                    target={isExternalReference ? "_blank" : undefined}
+                    rel={isExternalReference ? "noopener noreferrer" : undefined}
+                    className="font-medium text-[#315f9f] underline underline-offset-4 hover:text-[var(--fm-accent)]"
+                  >
+                    {displayCopy.linkLabel}
+                  </a>
+                </p>
+              ) : null}
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 function renderMbti64PromotionMetadataSection(section: CmsPersonalitySection, locale: Locale) {
   const payload = asRecord(section.payloadJson);
   const renderedBoundaries = renderBoundaryCallouts(payload, locale);
-  const rawRow = asRecord(payload?.raw_row);
-  const renderedLinks = renderSafeInternalLinks(asArray<LinkItem>(rawRow?.internal_links), locale);
+  const renderedReferences = renderSourceLedgerReferences(payload, locale);
 
-  if (!renderedBoundaries && !renderedLinks) {
+  if (!renderedBoundaries && !renderedReferences) {
     return null;
   }
 
   return (
     <div className="space-y-4">
       {renderedBoundaries}
-      {renderedLinks}
+      {renderedReferences}
     </div>
   );
 }
@@ -1331,23 +1677,22 @@ function renderLettersIntroSection(section: RenderableProjectionSection, locale:
 
   return (
     <div className="space-y-4">
-      {payload.headline ? <p className="m-0 leading-7 text-[var(--fm-text-muted)]">{payload.headline}</p> : null}
       {payload.letters.length > 0 ? (
-        <div className="grid gap-3 md:grid-cols-2">
+        <div className="space-y-2.5">
           {payload.letters.map((item, index) => (
             <article
               key={`${item.letter}-${index}`}
-              className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
+              className="rounded-xl border border-[rgba(16,24,40,0.08)] bg-white/70 px-4 py-3.5"
             >
-              <div className="flex items-start gap-3">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--fm-accent)]/10 text-lg font-semibold text-[var(--fm-accent)]">
+              <div className="flex items-start gap-4">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[var(--fm-accent)]/10 text-sm font-semibold text-[var(--fm-accent)]">
                   {item.letter}
                 </div>
-                <div className="space-y-1">
+                <div className="min-w-0 space-y-1">
                   {item.title ? (
-                    <p className="m-0 font-semibold text-[var(--fm-text)]">{stripZhTraitSuffix(item.title, locale)}</p>
+                    <p className="m-0 text-sm font-semibold text-[#263241]">{stripZhTraitSuffix(item.title, locale)}</p>
                   ) : null}
-                  {item.description ? <p className="m-0 text-[var(--fm-text-muted)]">{item.description}</p> : null}
+                  {item.description ? <p className="m-0 text-sm leading-6 text-[#66756d]">{item.description}</p> : null}
                 </div>
               </div>
             </article>
@@ -1371,32 +1716,36 @@ function renderTraitDimensionGridSection(section: RenderableProjectionSection, l
 
   return (
     <div className="space-y-4">
-      {summary && locale !== "zh" ? <p className="m-0 leading-7 text-[var(--fm-text-muted)]">{summary}</p> : null}
-      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-        {dimensions.map((dimension) => (
-          <article
-            key={dimension.id}
-            className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4"
-          >
-            <div className="space-y-2">
-              <div className="flex items-center justify-between gap-2">
-                <p className="m-0 font-semibold text-[var(--fm-text)]">
-                  {dimension.name || dimension.label || dimension.id}
+      {summary && locale !== "zh" ? <p className="m-0 text-[15px] leading-7 text-[#75827a]">{summary}</p> : null}
+      <div className="space-y-2.5">
+        {dimensions.map((dimension) => {
+          const dimensionName = dimension.name || dimension.label || dimension.id;
+          const titleText = locale === "zh"
+            ? dimension.summary || dimensionName
+            : [dimensionName, dimension.summary].filter(Boolean).join(": ");
+
+          return (
+            <article
+              key={dimension.id}
+              className="rounded-xl border border-[rgba(16,24,40,0.08)] bg-white/70 px-4 py-3.5"
+            >
+              <div className="space-y-2">
+                <p
+                  className="m-0 text-sm font-semibold text-[#263241]"
+                  aria-label={locale === "zh" && dimension.summary ? `${dimensionName}：${dimension.summary}` : undefined}
+                >
+                  {titleText}
                 </p>
-                <span className="text-xs font-medium uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                  {dimension.id}
-                </span>
+                {(dimension.axisLeft || dimension.axisRight) && locale !== "zh" && (
+                  <p className="m-0 text-xs uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
+                    {[dimension.axisLeft, dimension.axisRight].filter(Boolean).join(" / ")}
+                  </p>
+                )}
+                {dimension.description ? <p className="m-0 text-sm leading-6 text-[#66756d]">{dimension.description}</p> : null}
               </div>
-              {(dimension.axisLeft || dimension.axisRight) && locale !== "zh" && (
-                <p className="m-0 text-xs uppercase tracking-[0.12em] text-[var(--fm-text-muted)]">
-                  {[dimension.axisLeft, dimension.axisRight].filter(Boolean).join(" / ")}
-                </p>
-              )}
-              {dimension.summary ? <p className="m-0 font-medium text-[var(--fm-text)]">{dimension.summary}</p> : null}
-              {dimension.description ? <p className="m-0 text-[var(--fm-text-muted)]">{dimension.description}</p> : null}
-            </div>
-          </article>
-        ))}
+            </article>
+          );
+        })}
       </div>
     </div>
   );
@@ -1457,6 +1806,215 @@ function mbti64V85TestId(sectionKey: string): string {
   return `mbti64-v85-${sectionKey.replace(/^v8_5_/, "").replace(/_/g, "-")}`;
 }
 
+function normalizeV85ReaderBodyMd(sectionKey: string, bodyMd: string, locale: Locale): string {
+  if (sectionKey !== "v8_5_module_10_faq_boundary" || locale !== "zh") {
+    return bodyMd;
+  }
+
+  const blocks = bodyMd
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter(Boolean);
+
+  if (blocks.length === 0) {
+    return bodyMd;
+  }
+
+  return /FAQ|常见问题/.test(blocks[0]) ? blocks.slice(1).join("\n\n") : bodyMd;
+}
+
+function splitV85ReadableBlocks(bodyMd: string): string[] {
+  return bodyMd
+    .split(/\n{2,}/)
+    .map((block) => block.trim())
+    .filter(Boolean);
+}
+
+function splitLeadSentence(block: string): { lead: string; rest: string } {
+  const normalized = normalizeText(block);
+  const match = normalized.match(/^(.+?[。！？.!?])\s*(.*)$/);
+
+  if (!match) {
+    return { lead: normalized, rest: "" };
+  }
+
+  return {
+    lead: match[1],
+    rest: match[2],
+  };
+}
+
+function renderReadableParagraphCard(block: string, locale: Locale) {
+  const { lead, rest } = splitLeadSentence(block);
+
+  return (
+    <div className="space-y-2">
+      <p className="m-0 text-[15px] font-semibold leading-7 text-[#263241]">{lead}</p>
+      {rest ? <div className="text-sm leading-7 text-[#66756d]">{renderLocalizedMarkdown(rest, locale, 3)}</div> : null}
+    </div>
+  );
+}
+
+function renderV85GenericReadableBody(section: CmsPersonalitySection, locale: Locale) {
+  if (!section.bodyMd.trim() && section.bodyHtml.trim()) {
+    return renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
+  }
+
+  const blocks = splitV85ReadableBlocks(normalizeV85ReaderBodyMd(section.sectionKey, section.bodyMd, locale));
+
+  if (blocks.length < 4) {
+    return renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
+  }
+
+  const summaryBlock = blocks[0];
+  const bodyBlocks = blocks.slice(1, 4);
+  const signalBlocks = blocks.slice(4, 6);
+  const actionBlocks = blocks.slice(6);
+
+  return (
+    <div className="space-y-8">
+      <div className="border-l-4 border-[#76598d] pl-5 text-[16px] leading-8 text-[#3d4652]">
+        {renderLocalizedMarkdown(summaryBlock, locale, 3)}
+      </div>
+      <div className="space-y-5 border-t border-[rgba(16,24,40,0.12)] pt-6 text-[16px] leading-8 text-[#3d4652]">
+        {bodyBlocks.map((block, index) => (
+          <div key={`${section.sectionKey}-body-${index}`}>{renderLocalizedMarkdown(block, locale, 3)}</div>
+        ))}
+      </div>
+      {signalBlocks.length > 0 ? (
+        <section className="space-y-4 pt-1">
+          {signalBlocks.map((block, index) => {
+            const { lead, rest } = splitLeadSentence(block);
+            const isFirstSignal = index === 0;
+
+            return (
+              <article key={`${section.sectionKey}-signal-${index}`} className="flex gap-3">
+                <div
+                  className={isFirstSignal
+                    ? "mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#fff7e5] text-[#a66f00]"
+                    : "mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f4effa] text-[#76598d]"}
+                >
+                  {isFirstSignal ? <ShieldCheck className="h-4 w-4" aria-hidden="true" /> : <Search className="h-4 w-4" aria-hidden="true" />}
+                </div>
+                <div className="min-w-0">
+                  <p className="m-0 text-[15px] font-semibold leading-7 text-[#263241]">{lead}</p>
+                  {rest ? <div className="text-sm leading-7 text-[#66756d]">{renderLocalizedMarkdown(rest, locale, 3)}</div> : null}
+                </div>
+              </article>
+            );
+          })}
+        </section>
+      ) : null}
+      {actionBlocks.length > 0 ? (
+        <section className="space-y-4 border-t border-[rgba(16,24,40,0.10)] pt-6">
+          <div className="flex items-center gap-2 text-sm font-semibold text-[#23705b]">
+            <Leaf className="h-5 w-5" aria-hidden="true" />
+            <span>{mbti64V85ReaderActionHeading(section.sectionKey, locale)}</span>
+          </div>
+          <div className="divide-y divide-[rgba(16,24,40,0.08)] border-y border-[rgba(16,24,40,0.08)]">
+            {actionBlocks.map((block, index) => (
+              <div
+                key={`${section.sectionKey}-action-${index}`}
+                className="grid gap-4 py-4 sm:grid-cols-[2rem_minmax(0,1fr)]"
+              >
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#23705b]/10 text-sm font-semibold text-[#23705b]">
+                  {index + 1}
+                </div>
+                <div>{renderReadableParagraphCard(block, locale)}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
+    </div>
+  );
+}
+
+function renderV85AgencyBoundaryReadableBody(section: CmsPersonalitySection, locale: Locale) {
+  if (!section.bodyMd.trim() && section.bodyHtml.trim()) {
+    return renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
+  }
+
+  const blocks = splitV85ReadableBlocks(normalizeV85ReaderBodyMd(section.sectionKey, section.bodyMd, locale));
+
+  if (blocks.length < 3) {
+    return renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
+  }
+
+  const summaryBlock = blocks[0];
+  const bodyBlocks = blocks.slice(1, 3);
+  const boundaryBlocks = blocks.slice(3, 5);
+  const actionBlocks = blocks.slice(5, -1);
+  const quoteBlock = blocks[blocks.length - 1];
+
+  return (
+    <div className="space-y-8">
+      <div className="border-l-4 border-[#76598d] pl-5 text-[16px] leading-8 text-[#3d4652]">
+        {renderLocalizedMarkdown(summaryBlock, locale, 3)}
+      </div>
+      <div className="space-y-5 border-t border-[rgba(16,24,40,0.12)] pt-6 text-[16px] leading-8 text-[#3d4652]">
+        {bodyBlocks.map((block, index) => (
+          <div key={`agency-body-${index}`}>{renderLocalizedMarkdown(block, locale, 3)}</div>
+        ))}
+      </div>
+      <figure className="m-0 mb-2 rounded-xl border border-[#d8c7ea] bg-[#fbf8ff] px-5 py-4 text-[#4b3f57]">
+        <div className="flex gap-4">
+          <Quote className="mt-1 h-6 w-6 shrink-0 text-[#7d5aa6]" aria-hidden="true" />
+          <figcaption className="text-[15px] leading-7">{renderLocalizedMarkdown(quoteBlock, locale, 3)}</figcaption>
+        </div>
+      </figure>
+      {boundaryBlocks.length > 0 ? (
+        <section className="space-y-4 pt-3">
+          {boundaryBlocks.map((block, index) => {
+            const { lead, rest } = splitLeadSentence(block);
+            const isReminder = index === 0;
+
+            return (
+              <article key={`agency-boundary-${index}`} className="flex gap-3">
+                <div
+                  className={isReminder
+                    ? "mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#fff7e5] text-[#a66f00]"
+                    : "mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f4effa] text-[#76598d]"}
+                >
+                  {isReminder ? <ShieldCheck className="h-4 w-4" aria-hidden="true" /> : <Search className="h-4 w-4" aria-hidden="true" />}
+                </div>
+                <div className="min-w-0">
+                  <p className="m-0 text-[15px] font-semibold leading-7 text-[#263241]">
+                    {isReminder ? (locale === "zh" ? "边界提醒：" : "Boundary reminder: ") : (locale === "zh" ? "观察自己：" : "Observe yourself: ")}
+                    {lead}
+                  </p>
+                  {rest ? <div className="text-sm leading-7 text-[#66756d]">{renderLocalizedMarkdown(rest, locale, 3)}</div> : null}
+                </div>
+              </article>
+            );
+          })}
+        </section>
+      ) : null}
+      {actionBlocks.length > 0 ? (
+        <section className="space-y-4 border-t border-[rgba(16,24,40,0.10)] pt-6">
+          <div className="flex items-center gap-2 text-sm font-semibold text-[#23705b]">
+            <Leaf className="h-5 w-5" aria-hidden="true" />
+            <span>{locale === "zh" ? "协作中的具体做法" : "Practical collaboration moves"}</span>
+          </div>
+          <div className="divide-y divide-[rgba(16,24,40,0.08)] border-y border-[rgba(16,24,40,0.08)]">
+            {actionBlocks.map((block, index) => (
+              <div
+                key={`agency-action-${index}`}
+                className="grid gap-4 py-4 sm:grid-cols-[2rem_minmax(0,1fr)]"
+              >
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#23705b]/10 text-sm font-semibold text-[#23705b]">
+                  {index + 1}
+                </div>
+                <div>{renderReadableParagraphCard(block, locale)}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
+    </div>
+  );
+}
+
 function renderMbti64V85FirstClassSection(section: CmsPersonalitySection, locale: Locale) {
   const payload = asRecord(section.payloadJson);
   const linkItems = [
@@ -1465,7 +2023,11 @@ function renderMbti64V85FirstClassSection(section: CmsPersonalitySection, locale
     ...asArray<LinkItem>(payload?.internal_links),
   ];
   const safeLinks = section.sectionKey === "v8_5_search_user_paths" ? renderSafeInternalLinks(linkItems, locale) : null;
-  const body = renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
+  const body = section.sectionKey === "v8_5_module_03_agency_boundary"
+    ? renderV85AgencyBoundaryReadableBody(section, locale)
+    : isMbti64V85ReaderModuleSectionKey(section.sectionKey)
+      ? renderV85GenericReadableBody(section, locale)
+      : renderRichTextBlock(section.bodyHtml, normalizeV85ReaderBodyMd(section.sectionKey, section.bodyMd, locale), locale);
 
   if (!body && !safeLinks) {
     return null;

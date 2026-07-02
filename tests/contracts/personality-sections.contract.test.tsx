@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 import type { CmsPersonalitySection, PersonalityProjectionSection } from "@/lib/cms/personality";
 import {
@@ -157,6 +157,40 @@ describe("personality projection section renderer contract", () => {
     expect(legacySections.map((section) => section.sectionKey)).toEqual(["meaning", "related_content"]);
   });
 
+  it("renders V8.5 long-form modules as readable editorial cards without dropping CMS text", () => {
+    render(
+      <div>
+        {renderPersonalitySections(
+          [
+            cmsSection({
+              sectionKey: "v8_5_module_01_core_reading",
+              title: "How this type works",
+              bodyMd:
+                "首段导读说明这个模块怎么看。\n\n第二段保留正文解释。\n\n第三段继续展开上下文。\n\n第四段说明现实场景。\n\n第五段提供重点信号。\n\n第六段提供观察入口。\n\n最后一段必须完整保留。",
+            }),
+            cmsSection({
+              sectionKey: "v8_5_module_10_faq_boundary",
+              title: "FAQ boundary",
+              bodyMd:
+                "FAQ\n\n第一段说明安全使用边界。\n\n第二段保留正文解释。\n\n第三段继续展开上下文。\n\n第四段说明现实场景。\n\n第五段提供重点信号。\n\n第六段提供观察入口。\n\n最后一段必须完整保留。",
+            }),
+          ],
+          "zh"
+        )}
+      </div>
+    );
+
+    expect(screen.getByText("这种类型如何运作")).toBeInTheDocument();
+    expect(screen.getByText("如何安全使用这个结果")).toBeInTheDocument();
+    expect(screen.getAllByTestId("personality-v85-editorial-section-card")).toHaveLength(2);
+    expect(screen.getByText("运行模式观察")).toBeInTheDocument();
+    expect(screen.getByText("安全使用清单")).toBeInTheDocument();
+    expect(screen.queryByText("阅读时可以这样看")).not.toBeInTheDocument();
+    expect(screen.getByText("首段导读说明这个模块怎么看。")).toBeInTheDocument();
+    expect(screen.getAllByText("最后一段必须完整保留。")).toHaveLength(2);
+    expect(screen.queryByText("FAQ")).not.toBeInTheDocument();
+  });
+
   it("keeps generic canonical keys instead of filtering them through the legacy allowlist", () => {
     const sections = normalizeProjectionSections([
       section({ key: "overview", title: "Overview" }),
@@ -173,7 +207,7 @@ describe("personality projection section renderer contract", () => {
     ]);
   });
 
-  it("renders letters_intro payload with headline and per-letter content", () => {
+  it("renders letters_intro payload as compact per-letter rows without repeating the headline", () => {
     render(
       <div>
         {renderProjectionSections(
@@ -197,8 +231,8 @@ describe("personality projection section renderer contract", () => {
       </div>
     );
 
-    expect(screen.getByText("How the four letters create the public profile.")).toBeInTheDocument();
-    expect(screen.getByText("这个类型是什么")).toBeInTheDocument();
+    expect(screen.queryByText("How the four letters create the public profile.")).not.toBeInTheDocument();
+    expect(screen.getByText("类型字母拆解")).toBeInTheDocument();
     expect(screen.getByText("Introversion")).toBeInTheDocument();
     expect(screen.getByText("Tracks abstractions and future patterns.")).toBeInTheDocument();
   });
@@ -229,6 +263,7 @@ describe("personality projection section renderer contract", () => {
 
     expect(screen.getByText("内向")).toBeInTheDocument();
     expect(screen.getByText("自信型")).toBeInTheDocument();
+    expect(screen.queryByText("内向 · 直觉 · 思考 · 规划 · 自信型")).not.toBeInTheDocument();
     expect(screen.queryByText("内向（I）")).not.toBeInTheDocument();
     expect(screen.queryByText("自信型（-A）")).not.toBeInTheDocument();
   });
@@ -284,8 +319,9 @@ describe("personality projection section renderer contract", () => {
 
     expect(screen.getByText("常见特征")).toBeInTheDocument();
     expect(screen.queryByText("Five canonical MBTI dimensions.")).not.toBeInTheDocument();
-    expect(screen.getByText("Information")).toBeInTheDocument();
+    expect(screen.queryByText("Information：Leans toward pattern reading.")).not.toBeInTheDocument();
     expect(screen.queryByText("Sensing / Intuition")).not.toBeInTheDocument();
+    expect(screen.getByText("Leans toward pattern reading.")).toBeInTheDocument();
     expect(screen.getByText("Builds abstract models before locking details.")).toBeInTheDocument();
   });
 
@@ -410,7 +446,7 @@ describe("personality projection section renderer contract", () => {
       </div>
     );
 
-    expect(screen.getByText("这个类型是什么")).toBeInTheDocument();
+    expect(screen.getByText("类型字母拆解")).toBeInTheDocument();
     expect(screen.getByText("常见特征")).toBeInTheDocument();
     expect(screen.getByText("爱情 / 关系")).toBeInTheDocument();
     expect(screen.getByText("职业倾向")).toBeInTheDocument();
@@ -502,6 +538,36 @@ describe("personality projection section renderer contract", () => {
           raw_row: {
             method_boundary: "本页用于自我理解，不用于招聘、诊断或重大决策。",
             trademark_boundary: "FermatMind 发布独立 16 型教育内容。",
+            source_ledger: [
+              {
+                id: "mccrae_costa_1989",
+                source: "McCrae & Costa",
+                year: 1989,
+                title: "Reinterpreting the Myers-Briggs Type Indicator From the Perspective of the Five-Factor Model of Personality",
+                limitation: "用于学术边界和交叉验证，不用于夸大 MBTI 效度。",
+              },
+              {
+                id: "pittenger_2005",
+                source: "Pittenger",
+                year: 2005,
+                title: "Cautionary Comments Regarding the Myers-Briggs Type Indicator",
+                limitation: "用于提醒边界，不否定用户的自我观察。",
+              },
+              {
+                id: "holland_1997",
+                source: "Holland",
+                year: 1997,
+                title: "Making Vocational Choices",
+                limitation: "RIASEC 作为职业兴趣补充，不替代 MBTI。",
+              },
+              {
+                id: "fermatmind_content_contract_2026",
+                source: "FermatMind content contract",
+                year: 2026,
+                title: "FermatMind public personality profile boundary",
+                limitation: "站内安全边界。",
+              },
+            ],
           },
         },
       }),
@@ -519,7 +585,36 @@ describe("personality projection section renderer contract", () => {
     expect(screen.getByText("可能过早把不确定性排除在计划外。")).toBeInTheDocument();
     expect(screen.getByText("ISTJ-A 比 ISTJ-T 更好吗？")).toBeInTheDocument();
     expect(screen.getByText("大五人格测试")).toBeInTheDocument();
-    expect(screen.getAllByText("方法边界").length).toBeGreaterThan(0);
+    expect(screen.getAllByText("学术与科学性").length).toBeGreaterThan(0);
+    const sourceLedger = screen.getByTestId("mbti64-source-ledger-references");
+    expect(within(sourceLedger).getByText("McCrae & Costa（1989）｜五因素模型视角下重新理解 MBTI")).toBeInTheDocument();
+    expect(within(sourceLedger).getByRole("link", { name: "查看 DOI / 期刊记录" })).toHaveAttribute(
+      "href",
+      "https://doi.org/10.1111/j.1467-6494.1989.tb00759.x",
+    );
+    expect(within(sourceLedger).getByText("Pittenger（2005）｜MBTI 使用的审慎提醒")).toBeInTheDocument();
+    expect(within(sourceLedger).getByRole("link", { name: "查看 DOI / 论文记录" })).toHaveAttribute(
+      "href",
+      "https://doi.org/10.1037/1065-9293.57.3.210",
+    );
+    expect(within(sourceLedger).getByText("Holland（1997）｜职业兴趣与工作环境匹配")).toBeInTheDocument();
+    expect(within(sourceLedger).getByRole("link", { name: "查看书目记录" })).toHaveAttribute(
+      "href",
+      "https://search.worldcat.org/title/Making-vocational-choices-%3A-a-theory-of-vocational-personalities-and-work-environments/oclc/36648506",
+    );
+    expect(within(sourceLedger).getByText("费马测试内容边界（2026）")).toBeInTheDocument();
+    expect(within(sourceLedger).getByRole("link", { name: "查看费马测试方法边界说明" })).toHaveAttribute(
+      "href",
+      "/zh/method-boundaries",
+    );
+    expect(sourceLedger).toHaveTextContent("这条引用用来说明交叉验证思路");
+    expect(sourceLedger).toHaveTextContent("不适合承担诊断、招聘筛选、智商判断或职业命运预测");
+    expect(sourceLedger).toHaveTextContent("职业选择需要把两类线索与现实能力、经验和机会一起看");
+    expect(sourceLedger).toHaveTextContent("费马测试 2026 年网站测试模型学术与科学边界说明");
+    expect(sourceLedger).not.toHaveTextContent("FermatMind public personality profile boundary。站内安全边界。");
+    expect(sourceLedger).not.toHaveTextContent("用于学术边界和交叉验证，不用于夸大 MBTI 效度。");
+    expect(sourceLedger).not.toHaveTextContent("用于提醒边界，不否定用户的自我观察。");
+    expect(sourceLedger).not.toHaveTextContent("RIASEC 作为职业兴趣补充，不替代 MBTI。");
     expect(screen.getByText("商标与体系边界")).toBeInTheDocument();
     expect(screen.queryByText("结果查询")).not.toBeInTheDocument();
     expect(container.innerHTML).not.toContain("/results");
@@ -713,7 +808,7 @@ describe("personality projection section renderer contract", () => {
     expect(screen.getByText("Is INTJ-A better than INTJ-T?")).toBeInTheDocument();
     expect(screen.getByText("Read INTJ-A")).toBeInTheDocument();
     expect(screen.getByText("Explore Holland/RIASEC")).toBeInTheDocument();
-    expect(screen.getByText("Method boundary")).toBeInTheDocument();
+    expect(screen.getByText("Research and method boundaries")).toBeInTheDocument();
     expect(screen.getByText("Trademark and framework boundary")).toBeInTheDocument();
     expect(screen.queryByText("Account")).not.toBeInTheDocument();
     expect(container.innerHTML).not.toContain("/account");
