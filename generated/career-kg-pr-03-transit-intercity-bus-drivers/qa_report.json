@@ -1,0 +1,51 @@
+{
+  "status": "pass",
+  "schema_validation": {
+    "status": "pass",
+    "required_sections_present": [
+      "identity",
+      "seo",
+      "definition",
+      "core_responsibilities",
+      "work_scenes",
+      "skills_tools",
+      "entry_path",
+      "riasec_personality_boundary",
+      "risk_ai_boundary",
+      "adjacent_careers",
+      "faq",
+      "sources",
+      "internal_links"
+    ],
+    "canonical_unchanged": true,
+    "content_block_count": 9,
+    "faq_count": 3
+  },
+  "trust_audit": {
+    "status": "pass",
+    "fact_authorities": [
+      "O*NET OnLine",
+      "BLS OEWS",
+      "My Next Move"
+    ],
+    "market_or_baike_used_as_fact_authority": false,
+    "blocked_claims_absent": [
+      "就业保证",
+      "收入保证",
+      "AI不会替代保证",
+      "安全零风险保证",
+      "驾驶资格保证"
+    ]
+  },
+  "editorial_gate": {
+    "status": "pass",
+    "priority_focus": "补安全、排班、乘客服务、压力/疲劳和交通职业相邻页。",
+    "reader_intent_covered": [
+      "公交与城际巴士司机是做什么的",
+      "公交司机和校车司机区别",
+      "巴士司机压力和疲劳风险",
+      "交通运输相邻职业"
+    ],
+    "canonical_path_locked": "/zh/career/jobs/bus-drivers-transit-intercity"
+  }
+}
