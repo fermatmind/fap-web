@@ -42,12 +42,16 @@ export async function withLastKnownGood<T>({
   key,
   load,
   isUsable = (value) => value !== null && value !== undefined,
+  isStaleUsable,
+  clearStaleOnUnusable = false,
   useStaleOnUnusable = false,
   useStaleOnError: staleOnError = true,
 }: {
   key: string;
   load: () => Promise<T>;
   isUsable?: (value: T) => boolean;
+  isStaleUsable?: (value: T) => boolean;
+  clearStaleOnUnusable?: boolean;
   useStaleOnUnusable?: boolean;
   useStaleOnError?: boolean | ((error: unknown) => boolean);
 }): Promise<LastKnownGoodResult<T>> {
@@ -60,7 +64,9 @@ export async function withLastKnownGood<T>({
     } else if (useStaleOnUnusable) {
       const entry = store.get(key) as LastKnownGoodEntry<T> | undefined;
 
-      if (entry) {
+      if (clearStaleOnUnusable) {
+        store.delete(key);
+      } else if (entry && (!isStaleUsable || isStaleUsable(entry.value))) {
         const unusableError = new Error(`Fresh value for ${key} was not usable.`);
         return {
           value: entry.value,
@@ -70,6 +76,8 @@ export async function withLastKnownGood<T>({
           error: unusableError,
         };
       }
+    } else if (clearStaleOnUnusable) {
+      store.delete(key);
     }
 
     return {
@@ -84,7 +92,7 @@ export async function withLastKnownGood<T>({
     const canUseStaleOnError =
       typeof staleOnError === "function" ? staleOnError(error) : staleOnError;
 
-    if (!entry || !canUseStaleOnError) {
+    if (!entry || !canUseStaleOnError || (isStaleUsable && !isStaleUsable(entry.value))) {
       throw error;
     }
 

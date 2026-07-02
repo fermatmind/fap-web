@@ -1,4 +1,6 @@
 import { mkdir, mkdtemp, readFile, rename, rm, unlink, writeFile } from "node:fs/promises";
+import { readdir } from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { tmpdir } from "node:os";
 import path from "node:path";
 
@@ -9,14 +11,35 @@ type LlmsFullResponseCache = {
 };
 
 let llmsFullResponseCache: LlmsFullResponseCache | null = null;
-let llmsFullBuildPromise: Promise<string | null> | null = null;
+let llmsFullBuildPromise:
+  | {
+      siteUrl: string;
+      cachePolicyKey: string;
+      promise: Promise<string | null>;
+    }
+  | null = null;
 
 type LlmsFullCacheOptions = {
   isCacheable?: (text: string) => boolean;
 };
 
-export function getLlmsFullSharedCachePath(): string {
-  return path.join(process.env.FERMATMIND_LLMS_FULL_CACHE_DIR || tmpdir(), "fermatmind-llms-full-response-cache.v1.json");
+function getLlmsFullSharedCacheDirectory(): string {
+  return process.env.FERMATMIND_LLMS_FULL_CACHE_DIR || path.join(tmpdir(), "fermatmind-llms-full-cache");
+}
+
+function siteCacheId(siteUrl: string): string {
+  return createHash("sha256").update(siteUrl).digest("hex").slice(0, 16);
+}
+
+function cachePolicyKey(options: LlmsFullCacheOptions): string {
+  return options.isCacheable ? options.isCacheable.toString() : "cacheable:any";
+}
+
+export function getLlmsFullSharedCachePath(siteUrl = "default"): string {
+  return path.join(
+    getLlmsFullSharedCacheDirectory(),
+    `fermatmind-llms-full-response-cache.${siteCacheId(siteUrl)}.v1.json`
+  );
 }
 
 function isSharedLlmsFullCacheEnabled(): boolean {
@@ -29,7 +52,7 @@ async function readSharedCache(siteUrl: string, maxAgeMs: number, options: LlmsF
   }
 
   try {
-    const raw = await readFile(getLlmsFullSharedCachePath(), "utf8");
+    const raw = await readFile(getLlmsFullSharedCachePath(siteUrl), "utf8");
     const payload = JSON.parse(raw) as Partial<LlmsFullResponseCache>;
     const text = typeof payload.text === "string" ? payload.text : "";
     const cachedAtMs = Number(payload.cachedAtMs);
@@ -66,7 +89,7 @@ async function writeSharedCache(cache: LlmsFullResponseCache): Promise<void> {
   let temporaryDirectory: string | null = null;
 
   try {
-    const target = getLlmsFullSharedCachePath();
+    const target = getLlmsFullSharedCachePath(cache.siteUrl);
     await mkdir(path.dirname(target), { recursive: true });
     temporaryDirectory = await mkdtemp(path.join(path.dirname(target), ".fermatmind-llms-full-cache-"));
     const temporary = path.join(temporaryDirectory, "cache.json");
@@ -85,11 +108,25 @@ async function writeSharedCache(cache: LlmsFullResponseCache): Promise<void> {
   }
 }
 
-export function clearLlmsFullResponseCache(): void {
+export function clearLlmsFullResponseCache(siteUrl?: string): void {
   llmsFullResponseCache = null;
   llmsFullBuildPromise = null;
   if (isSharedLlmsFullCacheEnabled()) {
-    void unlink(getLlmsFullSharedCachePath()).catch(() => undefined);
+    if (siteUrl) {
+      void unlink(getLlmsFullSharedCachePath(siteUrl)).catch(() => undefined);
+      return;
+    }
+
+    void (async () => {
+      const cacheDirectory = getLlmsFullSharedCacheDirectory();
+      const entries = await readdir(cacheDirectory).catch(() => []);
+
+      await Promise.all(
+        entries
+          .filter((entry) => /^fermatmind-llms-full-response-cache(?:\.[a-f0-9]{16})?\.v1\.json$/.test(entry))
+          .map((entry) => unlink(path.join(cacheDirectory, entry)).catch(() => undefined))
+      );
+    })();
   }
 }
 
@@ -98,7 +135,7 @@ export async function writeLlmsFullResponseCache(
   text: string,
   options: LlmsFullCacheOptions = {}
 ): Promise<{ cached: boolean; cachePath: string }> {
-  const cachePath = getLlmsFullSharedCachePath();
+  const cachePath = getLlmsFullSharedCachePath(siteUrl);
   if (options.isCacheable && !options.isCacheable(text)) {
     return { cached: false, cachePath };
   }
@@ -137,11 +174,12 @@ export function getOrStartLlmsFullBuild(
   buildText: (siteUrl: string) => Promise<string | null>,
   options: LlmsFullCacheOptions = {}
 ): Promise<string | null> {
-  if (!llmsFullBuildPromise) {
-    llmsFullBuildPromise = buildText(siteUrl)
+  const nextCachePolicyKey = cachePolicyKey(options);
+  if (!llmsFullBuildPromise || llmsFullBuildPromise.siteUrl !== siteUrl || llmsFullBuildPromise.cachePolicyKey !== nextCachePolicyKey) {
+    const promise = buildText(siteUrl)
       .then((text) => {
         if (text !== null && (!options.isCacheable || options.isCacheable(text))) {
-          void writeLlmsFullResponseCache(siteUrl, text);
+          void writeLlmsFullResponseCache(siteUrl, text, options);
 
           return text;
         }
@@ -150,9 +188,17 @@ export function getOrStartLlmsFullBuild(
       })
       .catch(() => null)
       .finally(() => {
-        llmsFullBuildPromise = null;
+        if (llmsFullBuildPromise?.promise === promise) {
+          llmsFullBuildPromise = null;
+        }
       });
+
+    llmsFullBuildPromise = {
+      siteUrl,
+      cachePolicyKey: nextCachePolicyKey,
+      promise,
+    };
   }
 
-  return llmsFullBuildPromise;
+  return llmsFullBuildPromise.promise;
 }

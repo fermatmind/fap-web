@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-02T18:56:00Z",
+  "updated_at": "2026-07-03T04:07:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12612,7 +12612,7 @@
       "depends_on": [
         "SECURITY-122-WEB-04"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_cms_url_field_allowlists_rendered_content_crash_guards",
       "risk_level": "high",
       "title": "SECURITY-122-WEB-05: CMS URL/field allowlists and rendered-content crash guards",
@@ -12658,7 +12658,7 @@
             "analyze (javascript-typescript)",
             "CodeQL"
           ],
-          "evidence": "GitHub PR #1539 statusCheckRollup shows all required checks successful at head c423c631a33b14f672c67bd0cc5404f4f7c5b9ff."
+          "evidence": "GitHub PR #1539 statusCheckRollup passed at final head c7df0b353c69e29ea0088a1e8e7fddbf56aacb91 before squash merge."
         },
         "scope": {
           "status": "passed",
@@ -12667,14 +12667,18 @@
         "pr_diff_scope": {
           "status": "passed",
           "evidence": "gh pr diff 1539 --name-only listed only WEB-05 allowlisted files: docs/codex metadata, lib/answer, lib/cms, lib/landing, scope helper, and focused contract."
+        },
+        "post_merge_revalidation": {
+          "status": "passed",
+          "evidence": "PR #1539 is MERGED with merge commit 48858625a7a6ab84ae84ce473927cbfdc1d4eed7; origin/main contains the merge commit; local main was fast-forwarded to origin/main; worktree was clean; local branch codex/security-122-web-05 was deleted; remote branch was deleted by merge and pruned."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1539",
       "commit_sha": "af5ded6ba592e171bcccc91ebe833cc63b297a64",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-07-02T19:01:30Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -12705,10 +12709,17 @@
           "at": "2026-07-02T18:56:00Z",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed and PR diff scope validation passed for SECURITY-122-WEB-05. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
+        },
+        {
+          "at": "2026-07-03T03:22:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled SECURITY-122-WEB-05 merged status and cleanup facts while starting SECURITY-122-WEB-06: PR #1539 merged via squash commit 48858625a7a6ab84ae84ce473927cbfdc1d4eed7, origin/main/local main synced, worktree clean, and task branches deleted or absent."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T03:50:00+08:00",
+      "head_sha": "c7df0b353c69e29ea0088a1e8e7fddbf56aacb91",
+      "merge_sha": "48858625a7a6ab84ae84ce473927cbfdc1d4eed7"
     },
     {
       "id": "SECURITY-122-WEB-06",
@@ -12719,7 +12730,7 @@
       "depends_on": [
         "SECURITY-122-WEB-05"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_122_web_sitemap_llms_lkg_cache_fail_closed_behavior",
       "risk_level": "high",
       "title": "SECURITY-122-WEB-06: sitemap / llms / LKG cache fail-closed behavior",
@@ -12739,16 +12750,29 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-05 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-05 merged via PR #1539 at 2026-07-02T19:01:30Z; origin/main contains 48858625a7a6ab84ae84ce473927cbfdc1d4eed7 and WEB-05 task branches are cleaned."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-06-sitemap-llms-lkg-fail-closed.contract.test.ts",
+            "/usr/local/bin/pnpm typecheck",
+            "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+            "/usr/local/bin/pnpm test:contract",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check",
+            "changed-file scope validation for SECURITY-122-WEB-06 including untracked files"
+          ],
+          "evidence": "Focused WEB-06 contract passed with scope validation; typecheck passed; production-URL build passed; full contract suite passed with 628 files and 3674 tests after ledger status correction; manifest/state parse, git diff --check, and final focused scope validation passed."
         },
         "github": {
           "status": "pending",
           "passed": []
+        },
+        "scope": {
+          "status": "passed",
+          "evidence": "tests/contracts/security-122-web-06-sitemap-llms-lkg-fail-closed.contract.test.ts verifies changed files are limited to the declared WEB-06 sitemap/llms/LKG fail-closed scope."
         }
       },
       "failure_reason": null,
@@ -12762,10 +12786,20 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-06 from explicit user /goal; execution waits for SECURITY-122-WEB-05 merge."
+        },
+        {
+          "at": "2026-07-03T03:24:00+08:00",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-06 from latest main after WEB-05 post-merge revalidation; implementing sitemap/llms/LKG cache fail-closed behavior only."
+        },
+        {
+          "at": "2026-07-03T04:04:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Local validation passed for SECURITY-122-WEB-06: focused contract with scope validation, typecheck, production-URL build, full contract suite, manifest/state parse, and git diff check."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T04:07:00+08:00"
     },
     {
       "id": "SECURITY-122-WEB-07",

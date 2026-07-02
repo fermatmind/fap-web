@@ -367,6 +367,18 @@ function isApprovedEnglishContentPage(page: ContentPage | null | undefined): pag
   );
 }
 
+function isPublicRenderableContentPage(page: ContentPage | null | undefined): page is ContentPage {
+  return Boolean(page?.slug && page.title && page.isPublic && (page.contentHtml || page.contentMd));
+}
+
+function isPublicIndexableContentPage(page: ContentPage | null | undefined): page is ContentPage {
+  return Boolean(isPublicRenderableContentPage(page) && page.isIndexable);
+}
+
+function arePublicIndexableContentPages(pages: ContentPage[]): boolean {
+  return pages.length > 0 && pages.every(isPublicIndexableContentPage);
+}
+
 export function listContentPageSlugs(): ContentPageSlug[] {
   return [...CONTENT_PAGE_SLUGS];
 }
@@ -420,8 +432,9 @@ export async function getContentPageWithLastKnownGood(
   return withLastKnownGood({
     key: `content-page:${normalizedLocale}:${normalizedSlug}`,
     load: () => getContentPage(normalizedSlug, normalizedLocale),
-    isUsable: (page) => Boolean(page?.slug && page.title && (page.contentHtml || page.contentMd)),
-    useStaleOnUnusable: true,
+    isUsable: isPublicRenderableContentPage,
+    isStaleUsable: isPublicRenderableContentPage,
+    clearStaleOnUnusable: true,
   });
 }
 
@@ -442,7 +455,8 @@ export async function listContentPagesWithLastKnownGood(
     key: `content-pages:list:${normalizedLocale}:${kindKey}`,
     load: () => listContentPages(normalizedLocale, kind),
     isUsable: (pages) => pages.length > 0,
-    useStaleOnUnusable: true,
+    isStaleUsable: (pages) => pages.length > 0 && pages.every(isPublicRenderableContentPage),
+    clearStaleOnUnusable: true,
   });
 }
 
@@ -471,8 +485,9 @@ export async function listDiscoverableContentPagesWithLastKnownGood(
         .filter((page) => page.isPublic && page.isIndexable)
         .filter((page) => !kind || page.kind === kind);
     },
-    isUsable: (pages) => pages.length > 0,
-    useStaleOnUnusable: true,
+    isUsable: arePublicIndexableContentPages,
+    isStaleUsable: arePublicIndexableContentPages,
+    clearStaleOnUnusable: true,
   });
 }
 
@@ -495,7 +510,9 @@ export async function listApprovedEnglishContentPagesWithLastKnownGood(): Promis
       return pages.filter(isApprovedEnglishContentPage);
     },
     isUsable: (pages) => pages.length === APPROVED_EN_CONTENT_PAGE_LLMS_SLUGS.length,
-    useStaleOnUnusable: true,
+    isStaleUsable: (pages) =>
+      pages.length === APPROVED_EN_CONTENT_PAGE_LLMS_SLUGS.length && pages.every(isApprovedEnglishContentPage),
+    clearStaleOnUnusable: true,
   });
 }
 
