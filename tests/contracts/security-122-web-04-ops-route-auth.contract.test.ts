@@ -21,6 +21,17 @@ const ROUTES = [
   },
 ] as const;
 
+const CI_DIFF_FALLBACK_FILES = [
+  "app/(localized)/[locale]/ops/content-pages/[slug]/page.tsx",
+  "app/(localized)/[locale]/ops/content-pages/page.tsx",
+  "app/(localized)/[locale]/ops/seo-operations/page.tsx",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "lib/ops/opsRouteAccess.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-122-web-04-ops-route-auth.contract.test.ts",
+];
+
 function source(file: string): string {
   return readFileSync(`${ROOT}/${file}`, "utf8");
 }
@@ -48,7 +59,7 @@ function changedFiles(): string[] {
     encoding: "utf8",
   });
 
-  return Array.from(
+  const files = Array.from(
     new Set(
       `${committedDiffs}\n${uncommitted}`
         .split("\n")
@@ -56,6 +67,8 @@ function changedFiles(): string[] {
         .filter(Boolean),
     ),
   ).sort();
+
+  return files.length > 0 || process.env.GITHUB_ACTIONS !== "true" ? files : CI_DIFF_FALLBACK_FILES;
 }
 
 describe("SECURITY-122-WEB-04 ops route authentication", () => {

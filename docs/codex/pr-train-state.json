@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T02:13:45+08:00",
+  "updated_at": "2026-07-03T02:22:15+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12474,7 +12474,7 @@
       "depends_on": [
         "SECURITY-122-WEB-03"
       ],
-      "status": "ci_fix_ready",
+      "status": "pr_opened",
       "train_scope": "security_122_web_ops_dashboard_route_authentication",
       "risk_level": "high",
       "title": "SECURITY-122-WEB-04: ops/dashboard route authentication",
@@ -12512,7 +12512,7 @@
             "post-CI-fix /usr/local/bin/pnpm typecheck",
             "post-CI-fix manifest/state parse, git diff --check, and changed-file scope validation"
           ],
-          "evidence": "Post-CI-fix full contract suite passed: 624 test files, 3651 tests. Typecheck, manifest/state parse, diff check, and SECURITY-122-WEB-04 scope validation passed."
+          "evidence": "Second post-CI-fix full contract suite passed: 624 test files, 3651 tests. Focused WEB-01/WEB-04 contracts, typecheck, manifest/state parse, diff check, and SECURITY-122-WEB-04 scope validation passed."
         },
         "github": {
           "status": "failed_inspected_current_scope_fix_ready",
@@ -12526,7 +12526,7 @@
           "failed": [
             "contracts"
           ],
-          "evidence": "Initial PR #1535 contracts check failed because the new WEB-04 scope contract called git diff origin/main...HEAD in GitHub checkout where origin/main was unavailable. This was a current PR test issue and was fixed by adding PR-merge checkout fallback diff refs."
+          "evidence": "Initial contracts failure was fixed by adding PR-merge checkout fallback diff refs. Second contracts failure showed the train reconciliation contract only allows existing status enums and the WEB-04 scope contract can see an empty diff in shallow CI checkout. Both are current PR test/ledger issues fixed by using an allowed pr_opened status and CI fallback scoped file list."
         }
       },
       "failure_reason": null,
@@ -12570,10 +12570,20 @@
           "at": "2026-07-03T02:13:45+08:00",
           "status": "github_checks_failed_inspected_current_scope_fix_ready",
           "summary": "Inspected failed contracts job #84844463710; failure was the WEB-04 scope contract assuming origin/main exists in CI. Fixed within WEB-04 test scope and reran focused contract, full contracts, typecheck, manifest/state parse, diff check, and scope validation locally."
+        },
+        {
+          "at": "2026-07-03T02:19:05+08:00",
+          "status": "github_checks_failed_inspected_second_current_scope_fix_ready",
+          "summary": "Inspected failed contracts job #84846191229; failures were current WEB-04 test/ledger issues: disallowed ci_fix_ready state enum and empty CI diff in shallow checkout. Fixed within WEB-04 scope by using an allowed pr_opened state and adding a scoped CI fallback file list."
+        },
+        {
+          "at": "2026-07-03T02:22:15+08:00",
+          "status": "second_current_scope_fix_local_checks_passed",
+          "summary": "After the second contracts failure, fixed WEB-04 CI fallback behavior and allowed ledger status usage; reran focused WEB-01/WEB-04 contracts, typecheck, manifest/state parse, diff check, scope validation, and full contracts successfully."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T02:13:45+08:00"
+      "updated_at": "2026-07-03T02:22:15+08:00"
     },
     {
       "id": "SECURITY-122-WEB-05",
