@@ -36813,7 +36813,7 @@
     "title": "PR-CAREER-KG-12: content(career): add search marketing strategists KG asset package",
     "train_scope": "career_kg_search_marketing_strategists_asset_package",
     "depends_on": ["PR-CAREER-KG-11"],
-    "status": "open",
+    "status": "ready_to_merge",
     "commit_sha": "190066f6bfec39a7beb4b5cfd06b55d5139b14cc",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1543",
     "merged_at": null,
@@ -36864,11 +36864,14 @@
         "evidence": "Validated changed/untracked/ignored scoped file list contains exactly 11 authorized PR12 files: docs/codex/pr-train-state.json, docs/codex/pr-train.yaml, generated/career-kg-pr-12-search-marketing-strategists/README.md, generated/career-kg-pr-12-search-marketing-strategists/dry_run_importer_report.json, generated/career-kg-pr-12-search-marketing-strategists/fap_web_render_smoke.json, generated/career-kg-pr-12-search-marketing-strategists/qa_report.json, generated/career-kg-pr-12-search-marketing-strategists/search-marketing-strategists.zh-CN.asset.json, generated/career-kg-pr-12-search-marketing-strategists/sha256_manifest.json, generated/career-kg-pr-12-search-marketing-strategists/staging_preview_smoke.json, tests/contracts/career-kg-12-search-marketing-strategists.contract.test.tsx, and tests/contracts/helpers/currentPrScope.ts."
       },
       "github_checks": {
-        "status": "pending",
-        "head_sha": "cf7c0fb61c5b84a5649d452b96ed53d88b33a216",
-        "evidence": "PR #1543 created; GitHub checks pending."
+        "status": "pass",
+        "head_sha": "4fc01a062a07b9fe5b3c4571b0de0041000b7c06",
+        "evidence": "PR #1543 checks passed for head 4fc01a062a07b9fe5b3c4571b0de0041000b7c06: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
       },
-      "merge_readiness": {"status": "pending", "evidence": null}
+      "merge_readiness": {
+        "status": "ready_to_merge",
+        "evidence": "GitHub reports mergeStateStatus=CLEAN for PR #1543; scope revalidation still contains exactly the 11 authorized PR12 files and no outside-scope files."
+      }
     },
     "scope_validation": {
       "allowed_files": [
@@ -36916,6 +36919,11 @@
         "at": "2026-07-02T19:48:03Z",
         "status": "open",
         "notes": "Created PR #1543 at https://github.com/fermatmind/fap-web/pull/1543 with head cf7c0fb61c5b84a5649d452b96ed53d88b33a216."
+      },
+      {
+        "at": "2026-07-02T19:53:33Z",
+        "status": "ready_to_merge",
+        "notes": "GitHub checks passed for PR #1543 head 4fc01a062a07b9fe5b3c4571b0de0041000b7c06; mergeStateStatus=CLEAN and scope revalidation passed."
       }
     ]
   }
