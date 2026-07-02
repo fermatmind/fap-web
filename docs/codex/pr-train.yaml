@@ -8938,7 +8938,7 @@ prs:
     mode: execute
     train_scope: security_122_web_dailygiving_giving_api_method_proof_url_currency_guards
     risk_level: medium
-    status: local_checks_passed
+    status: pr_opened
     title: "SECURITY-122-WEB-08: DailyGiving/giving API method, proof URL, and currency guards"
     findings:
       - "findings 27,51,112"

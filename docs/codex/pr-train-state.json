@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T05:16:00+08:00",
+  "updated_at": "2026-07-03T05:18:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12961,7 +12961,7 @@
       "depends_on": [
         "SECURITY-122-WEB-07"
       ],
-      "status": "local_checks_passed",
+      "status": "pr_opened",
       "train_scope": "security_122_web_dailygiving_giving_api_method_proof_url_currency_guards",
       "risk_level": "medium",
       "title": "SECURITY-122-WEB-08: DailyGiving/giving API method, proof URL, and currency guards",
@@ -13004,12 +13004,13 @@
         },
         "github": {
           "status": "pending",
-          "passed": []
+          "passed": [],
+          "evidence": "PR #1546 opened at https://github.com/fermatmind/fap-web/pull/1546; GitHub checks pending on branch codex/security-122-web-08."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1546",
+      "commit_sha": "2ecd5dc72f3c8cfcb2ebb9de645bca7fd5a59b91",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -13028,10 +13029,15 @@
           "at": "2026-07-03T05:16:00+08:00",
           "status": "local_checks_passed",
           "summary": "Completed WEB-08 implementation and local validation: focused DailyGiving guards, related DailyGiving contracts, proxy-driven PDF hash guard, typecheck, production build, full contract suite, manifest/state parse, diff check, and changed-file scope validation passed."
+        },
+        {
+          "at": "2026-07-03T05:18:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened PR #1546 for SECURITY-122-WEB-08 from branch codex/security-122-web-08 after local checks and scope validation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T05:16:00+08:00"
+      "updated_at": "2026-07-03T05:18:00+08:00"
     },
     {
       "id": "SECURITY-122-WEB-09",
