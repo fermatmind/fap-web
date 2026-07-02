@@ -2,7 +2,10 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
+import {
+  isCurrentRiasecPack12AllowedFile,
+  isPersonalityComparisonSeoGate01AllowedFile,
+} from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 
@@ -47,6 +50,8 @@ describe("PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01", () => {
     expect(route).toContain("LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE = 16");
     expect(route).toContain("function buildPersonalityVariantEntries(");
     expect(route).toContain("function buildPersonalityComparisonEntries(");
+    expect(route).toContain("listPersonalityComparisons");
+    expect(route).not.toContain("buildPersonalityComparisonSlugsFromProfiles");
     expect(compactRoute).toContain("limitLlmsRouteEntries(uniqueEntriesByPath([");
     expect(compactRoute).toContain("]), LLMS_FULL_PERSONALITY_ENTRY_LIMIT)");
     expect(compactRoute).not.toContain("limitLlmsRouteEntries(personalityEntries, LLMS_ROUTE_LIMITS.personalityProfiles)");
@@ -58,7 +63,9 @@ describe("PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01", () => {
   });
 
   it("keeps the current PR scoped to the llms-full comparison repair", () => {
-    const outsideScope = changedFiles().filter((file) => !isCurrentRiasecPack12AllowedFile(file));
+    const outsideScope = changedFiles().filter(
+      (file) => !isCurrentRiasecPack12AllowedFile(file) && !isPersonalityComparisonSeoGate01AllowedFile(file)
+    );
 
     expect(outsideScope).toEqual([]);
   });

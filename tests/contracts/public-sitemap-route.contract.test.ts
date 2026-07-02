@@ -5,6 +5,7 @@ import { buildPublicSitemapEntries, buildPublicSitemapXml } from "@/lib/seo/publ
 
 const ARTICLE_URL = "https://fermatmind.com/zh/articles/major-career-mismatch-job-search-skills-plan";
 const ARTICLE_EN_URL = "https://fermatmind.com/en/articles/major-career-mismatch-job-search-skills-plan";
+const PERSONALITY_COMPARISON_URL = "https://fermatmind.com/en/personality/intj-a-vs-intj-t";
 
 function backendSitemapPayload() {
   return {
@@ -12,6 +13,7 @@ function backendSitemapPayload() {
     items: [
       { loc: ARTICLE_URL, lastmod: "2026-07-02T00:00:00+08:00" },
       { loc: ARTICLE_EN_URL, lastmod: "2026-07-02" },
+      { loc: PERSONALITY_COMPARISON_URL, lastmod: "2026-07-02T01:00:00Z" },
       { loc: "https://www.fermatmind.com/zh/articles/major-career-mismatch-job-search-skills-plan" },
       { loc: "https://fermatmind.com/zh/result/private-attempt" },
       { loc: "https://fermatmind.com/en/orders/order-123" },
@@ -35,9 +37,10 @@ describe("public sitemap route", () => {
     const entries = buildPublicSitemapEntries(backendSitemapPayload());
     const xml = buildPublicSitemapXml(entries);
 
-    expect(entries.map((entry) => entry.loc)).toEqual([ARTICLE_EN_URL, ARTICLE_URL]);
+    expect(entries.map((entry) => entry.loc)).toEqual([ARTICLE_EN_URL, PERSONALITY_COMPARISON_URL, ARTICLE_URL]);
     expect(xml).toContain(`<loc>${ARTICLE_URL}</loc>`);
     expect(xml).toContain(`<loc>${ARTICLE_EN_URL}</loc>`);
+    expect(xml).toContain(`<loc>${PERSONALITY_COMPARISON_URL}</loc>`);
     expect(xml).toContain("<lastmod>2026-07-01T16:00:00.000Z</lastmod>");
     expect(xml).not.toContain("/result/");
     expect(xml).not.toContain("/orders/");
@@ -49,12 +52,14 @@ describe("public sitemap route", () => {
   });
 
   it("serves /sitemap.xml from backend sitemap-source at runtime", async () => {
-    const fetchMock = vi.fn(async (_input: RequestInfo | URL) =>
-      new Response(JSON.stringify(backendSitemapPayload()), {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      expect(String(input)).toContain("/api/v0.5/seo/sitemap-source");
+
+      return new Response(JSON.stringify(backendSitemapPayload()), {
         status: 200,
         headers: { "Content-Type": "application/json" },
-      })
-    );
+      });
+    });
     vi.stubGlobal("fetch", fetchMock);
 
     const response = await GET();
@@ -63,9 +68,10 @@ describe("public sitemap route", () => {
     expect(response.status).toBe(200);
     expect(response.headers.get("Content-Type")).toContain("application/xml");
     expect(response.headers.get("Cache-Control")).toContain("stale-while-revalidate");
-    expect(String(fetchMock.mock.calls[0]?.[0] ?? "")).toContain("/api/v0.5/seo/sitemap-source");
+    expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(xml).toContain(`<loc>${ARTICLE_URL}</loc>`);
     expect(xml).toContain(`<loc>${ARTICLE_EN_URL}</loc>`);
+    expect(xml).toContain(`<loc>${PERSONALITY_COMPARISON_URL}</loc>`);
   });
 
   it("fails closed when backend sitemap authority is unavailable", async () => {

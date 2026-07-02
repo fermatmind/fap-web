@@ -149,6 +149,33 @@ function mockLlmsFullDependencies({ includeSurfaces = true }: { includeSurfaces?
           ? [{ typeCode: "INFJ", slug: "infj-a", title: "INFJ", isIndexable: true }]
           : [],
     })),
+    listPersonalityComparisons: vi.fn(async (locale: "en" | "zh") => ({
+      groups:
+        locale === "en"
+          ? [
+              {
+                key: "at_comparisons",
+                items: [
+                  {
+                    slug: "infj-a-vs-infj-t",
+                    href: "/en/personality/infj-a-vs-infj-t",
+                    title: "INFJ-A vs INFJ-T",
+                    description: "INFJ comparison.",
+                    summary: "INFJ comparison.",
+                    isPublic: true,
+                    isIndexable: true,
+                  },
+                ],
+              },
+            ]
+          : [],
+    })),
+    getPersonalityComparisonBySlug: vi.fn(async () => ({
+      answerSurface: includeSurfaces
+        ? buildAnswerSurface({ summary: "Personality comparison answer summary from CMS." })
+        : null,
+      landingSurface: null,
+    })),
     getPersonalityProjectionDetailBySlugOrType: vi.fn(async () => ({
       answerSurface: includeSurfaces
         ? buildAnswerSurface({ summary: "Personality answer summary from CMS." })

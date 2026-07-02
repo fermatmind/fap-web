@@ -138,6 +138,36 @@ function mockLlmsFullMbti64Dependencies(options: { personalityDelayMs?: number }
       answerSurface: null,
       landingSurface: null,
     })),
+    listPersonalityComparisons: vi.fn(async (locale: TestLocale) => ({
+      groups: [
+        {
+          key: "at_comparisons",
+          items: MBTI_BASE_TYPES.map((base) => ({
+            slug: `${base}-a-vs-${base}-t`,
+            href: `/${locale}/personality/${base}-a-vs-${base}-t`,
+            title: `${base.toUpperCase()}-A vs ${base.toUpperCase()}-T`,
+            description: `${base.toUpperCase()} comparison summary.`,
+            summary: `${base.toUpperCase()} comparison summary.`,
+            isPublic: true,
+            isIndexable: true,
+          })),
+        },
+        {
+          key: "cross_type_comparisons",
+          items: [
+            {
+              slug: "intj-vs-intp",
+              href: `/${locale}/personality/intj-vs-intp`,
+              title: "INTJ vs INTP",
+              description: "Draft cross-type comparison.",
+              summary: "Draft cross-type comparison.",
+              isPublic: true,
+              isIndexable: false,
+            },
+          ],
+        },
+      ],
+    })),
     getPersonalityProjectionDetailBySlugOrType: vi.fn(async (slug: string) => ({
       answerSurface: null,
       landingSurface: null,

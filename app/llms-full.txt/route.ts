@@ -11,13 +11,11 @@ import {
   buildDefaultPublicPersonalitySlug,
   getPersonalityComparisonBySlug,
   getPersonalityProjectionDetailBySlugOrType,
+  listPersonalityComparisons,
   listPersonalityProfiles,
+  type PersonalityComparisonListItemViewModel,
 } from "@/lib/cms/personality";
-import {
-  MBTI_COMPARISON_BASE_TYPES,
-  buildPersonalityComparisonSlugsFromProfiles,
-  isPersonalityComparisonSlug,
-} from "@/lib/mbti/personalityComparison";
+import { isPersonalityComparisonSlug } from "@/lib/mbti/personalityComparison";
 import type { CmsPersonalityProfileSummary } from "@/lib/cms/personality";
 import { getTopicBySlug, listTopics } from "@/lib/cms/topics";
 import {
@@ -738,13 +736,6 @@ function normalizePersonalityVariantSlug(value: string | null | undefined): stri
   return /^[ie][ns][ft][jp]-[at]$/.test(normalized) ? normalized : null;
 }
 
-function normalizePersonalityComparisonEntrySlug(value: string | null | undefined): string | null {
-  const normalized = String(value ?? "").trim().toLowerCase();
-  const match = normalized.match(/^([ie][ns][ft][jp])-a-vs-\1-t$/);
-
-  return match ? normalized : null;
-}
-
 function uniqueEntriesByPath(entries: LlmsFullEntry[]): LlmsFullEntry[] {
   const seen = new Set<string>();
   const results: LlmsFullEntry[] = [];
@@ -827,24 +818,17 @@ function buildPersonalityVariantEntries(
 }
 
 function buildPersonalityComparisonEntries(
-  variantProfiles: CmsPersonalityProfileSummary[],
+  items: PersonalityComparisonListItemViewModel[],
   locale: LlmsLocale
 ): LlmsFullEntry[] {
-  const comparisonSlugs = buildPersonalityComparisonSlugsFromProfiles(variantProfiles)
-    .map(normalizePersonalityComparisonEntrySlug)
-    .filter((slug): slug is string => Boolean(slug));
-  const orderedSlugs = MBTI_COMPARISON_BASE_TYPES
-    .map((base) => `${base}-a-vs-${base}-t`)
-    .filter((slug) => comparisonSlugs.includes(slug));
-
   return limitLlmsRouteEntries(
     uniqueEntriesByPath(
-      orderedSlugs.map((slug) => ({
+      items.filter((item) => item.isPublic && item.isIndexable).map((item) => ({
         locale,
-        path: `/${locale}/personality/${slug}`,
-        title: slug.toUpperCase(),
+        path: item.href || `/${locale}/personality/${item.slug}`,
+        title: item.title || item.slug.toUpperCase(),
         type: "personality",
-        summary: "",
+        summary: item.summary || item.description || "",
       }))
     ),
     LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE
@@ -853,7 +837,7 @@ function buildPersonalityComparisonEntries(
 
 async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
   try {
-    const [enProfiles, zhProfiles, enVariantProfiles, zhVariantProfiles] = await Promise.all([
+    const [enProfiles, zhProfiles, enVariantProfiles, zhVariantProfiles, enComparisonList, zhComparisonList] = await Promise.all([
       listPersonalityProfiles({ locale: "en", perPage: LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE }),
       listPersonalityProfiles({ locale: "zh", perPage: LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE }),
       listPersonalityProfiles({
@@ -866,6 +850,8 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
         perPage: LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE,
         includeVariants: true,
       }),
+      listPersonalityComparisons("en"),
+      listPersonalityComparisons("zh"),
     ]);
 
     const enBaseProfiles = enProfiles.items.filter((item) => item.isIndexable);
@@ -875,8 +861,14 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
 
     const enVariantEntries = buildPersonalityVariantEntries(enVariantProfilesForLlmsFull, enBaseProfiles, "en");
     const zhVariantEntries = buildPersonalityVariantEntries(zhVariantProfilesForLlmsFull, zhBaseProfiles, "zh");
-    const enComparisonEntries = buildPersonalityComparisonEntries(enVariantProfilesForLlmsFull, "en");
-    const zhComparisonEntries = buildPersonalityComparisonEntries(zhVariantProfilesForLlmsFull, "zh");
+    const enComparisonEntries = buildPersonalityComparisonEntries(
+      enComparisonList.groups.flatMap((group) => group.items),
+      "en"
+    );
+    const zhComparisonEntries = buildPersonalityComparisonEntries(
+      zhComparisonList.groups.flatMap((group) => group.items),
+      "zh"
+    );
 
     return limitLlmsRouteEntries(uniqueEntriesByPath([
       ...enVariantEntries,

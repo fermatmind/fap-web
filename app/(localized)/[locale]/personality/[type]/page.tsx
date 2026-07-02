@@ -1033,6 +1033,8 @@ function PersonalityComparisonPage({
     ? comparison.crossTypeFaq.map((item) => ({ question: item.question, answer: item.answer }))
     : extractPersonalityFaqItems(comparison.sections);
   const nextStepBlocks = comparison.answerSurface?.nextStepBlocks ?? [];
+  const canRenderStructuredData =
+    comparison.isIndexable && !shouldNoindex(comparison.seoSurface?.robotsPolicy ?? comparison.seoMeta?.robots);
 
   return (
     <main
@@ -1042,9 +1044,13 @@ function PersonalityComparisonPage({
       data-comparison-contract-version={comparison.comparisonContractVersion}
     >
       <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
-      <JsonLd id={`personality-comparison-jsonld-${comparison.comparisonSlug}`} data={comparison.jsonld} />
-      <JsonLd id={`personality-comparison-breadcrumb-${comparison.comparisonSlug}`} data={breadcrumbJsonLd} />
-      {comparisonFaqItems.length > 0 ? (
+      {canRenderStructuredData ? (
+        <JsonLd id={`personality-comparison-jsonld-${comparison.comparisonSlug}`} data={comparison.jsonld} />
+      ) : null}
+      {canRenderStructuredData ? (
+        <JsonLd id={`personality-comparison-breadcrumb-${comparison.comparisonSlug}`} data={breadcrumbJsonLd} />
+      ) : null}
+      {canRenderStructuredData && comparisonFaqItems.length > 0 ? (
         <JsonLd id={`personality-comparison-faq-${comparison.comparisonSlug}`} data={buildFAQPageJsonLd(comparisonFaqItems)} />
       ) : null}
       <Breadcrumb

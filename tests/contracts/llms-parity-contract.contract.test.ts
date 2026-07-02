@@ -254,6 +254,39 @@ function mockLlmsDependencies() {
           ? [{ typeCode: "INFJ", slug: "infj-a", title: "INFJ", summary: "INFJ summary.", isIndexable: true }]
           : [],
     })),
+    listPersonalityComparisons: vi.fn(async (input: { locale: "en" | "zh" } | "en" | "zh") => {
+      const normalizedLocale = typeof input === "string" ? input : input.locale;
+      return {
+        groups: normalizedLocale === "en"
+          ? [
+              {
+                key: "at_comparisons",
+                items: [
+                  {
+                    slug: "infj-a-vs-infj-t",
+                    href: "/en/personality/infj-a-vs-infj-t",
+                    title: "INFJ-A vs INFJ-T",
+                    description: "INFJ comparison.",
+                    summary: "INFJ comparison.",
+                    isPublic: true,
+                    isIndexable: true,
+                  },
+                  {
+                    slug: "intj-vs-intp",
+                    href: "/en/personality/intj-vs-intp",
+                    title: "INTJ vs INTP",
+                    description: "Draft cross-type comparison.",
+                    summary: "Draft cross-type comparison.",
+                    isPublic: true,
+                    isIndexable: false,
+                  },
+                ],
+              },
+            ]
+          : [],
+      };
+    }),
+    getPersonalityComparisonBySlug: vi.fn(async () => ({ answerSurface: null, landingSurface: null })),
     getPersonalityProjectionDetailBySlugOrType: vi.fn(async () => ({ answerSurface: null, landingSurface: null })),
   }));
   vi.doMock("@/lib/cms/topics", () => ({

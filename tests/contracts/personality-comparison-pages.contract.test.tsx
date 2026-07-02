@@ -13,6 +13,7 @@ import {
 import { buildPublicSitemapEntries } from "@/lib/seo/publicSitemap";
 import {
   isCurrentRiasecPack12AllowedFile,
+  isPersonalityComparisonSeoGate01AllowedFile,
   isPersonalityComparisonV1FromAssetsAllowedFile,
 } from "./helpers/currentPrScope";
 
@@ -337,6 +338,8 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     expect(pageSource).toContain('data-testid="personality-comparison-asset-nav"');
     expect(pageSource).toContain('data-testid="personality-comparison-method-boundary"');
     expect(pageSource).toContain("comparison.jsonld");
+    expect(pageSource).toContain("const canRenderStructuredData");
+    expect(pageSource).toContain("comparison.isIndexable && !shouldNoindex");
     expect(pageSource).toContain("personality-comparison-breadcrumb");
     expect(pageSource).toContain("comparison.comparisonBlocks.map");
     expect(pageSource).toContain("comparison.answerSurface?.nextStepBlocks");
@@ -364,14 +367,21 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
       ])
     );
 
-    expect(llmsSource).toContain("buildPersonalityComparisonSlugsFromProfiles");
-    expect(llmsFullSource).toContain("buildPersonalityComparisonSlugsFromProfiles");
+    expect(llmsSource).toContain("listPersonalityComparisons");
+    expect(llmsSource).toContain("personalityComparisonPathsFromAuthority");
+    expect(llmsFullSource).toContain("listPersonalityComparisons");
+    expect(llmsFullSource).toContain("buildPersonalityComparisonEntries(");
+    expect(llmsSource).not.toContain("buildPersonalityComparisonSlugsFromProfiles");
+    expect(llmsFullSource).not.toContain("buildPersonalityComparisonSlugsFromProfiles");
     expect(llmsFullSource).toContain("getPersonalityComparisonBySlug(slug, entry.locale)");
   });
 
   it("keeps the current PR scoped to comparison frontend consumer files", () => {
     const allowed = changedFiles().filter(
-      (file) => !isCurrentRiasecPack12AllowedFile(file) && !isPersonalityComparisonV1FromAssetsAllowedFile(file)
+      (file) =>
+        !isCurrentRiasecPack12AllowedFile(file) &&
+        !isPersonalityComparisonV1FromAssetsAllowedFile(file) &&
+        !isPersonalityComparisonSeoGate01AllowedFile(file)
     );
 
     expect(allowed).toEqual([]);
