@@ -2968,6 +2968,15 @@ const PERSONALITY_COMPARISON_PAGES_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-comparison-pages.contract.test.tsx",
 ]);
 
+const PERSONALITY_AT_COMPARISON_HOMEPAGE_01_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/personality/page.tsx",
+  "lib/cms/personality.ts",
+  "lib/navigation/headerDropdownMenus.ts",
+  "tests/contracts/header-big-five-personality-nav.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-at-comparison-homepage.contract.test.tsx",
+]);
+
 const MBTI64_SERP_SNIPPET_METADATA_ADAPTER_REPAIR_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/personality/[type]/page.tsx",
   "docs/codex/pr-train-state.json",
@@ -4065,6 +4074,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/personality-hub-32-variants-01") {
     return PERSONALITY_HUB_32_VARIANTS_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/personality-at-comparison-homepage-01") {
+    return PERSONALITY_AT_COMPARISON_HOMEPAGE_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/mbti64-frontend-seo-consume-01") {

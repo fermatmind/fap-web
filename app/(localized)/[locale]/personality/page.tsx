@@ -5,7 +5,11 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
-import { listPersonalityProfiles } from "@/lib/cms/personality";
+import {
+  listPersonalityComparisons,
+  listPersonalityProfiles,
+  type PersonalityComparisonListGroupViewModel,
+} from "@/lib/cms/personality";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
@@ -111,11 +115,13 @@ const TYPE_LETTER_LABELS: Record<Locale, Record<string, string>> = {
 
 function TypeGroupBrowse({
   groups,
+  comparisonGroups,
   locale,
   mbtiTestHref,
   careerHref,
 }: {
   groups: PersonalityHubFamilyGroup[];
+  comparisonGroups: PersonalityComparisonListGroupViewModel[];
   locale: Locale;
   mbtiTestHref: string;
   careerHref: string;
@@ -179,6 +185,8 @@ function TypeGroupBrowse({
           })}
         </div>
       </section>
+
+      <PersonalityComparisonModule groups={comparisonGroups} locale={locale} />
 
       <div className="space-y-8" data-testid="personality-type-directory">
         {groups.map((group, groupIndex) => (
@@ -288,6 +296,71 @@ function TypeGroupBrowse({
   );
 }
 
+function PersonalityComparisonModule({
+  groups,
+  locale,
+}: {
+  groups: PersonalityComparisonListGroupViewModel[];
+  locale: Locale;
+}) {
+  if (groups.length === 0) {
+    return null;
+  }
+
+  return (
+    <section
+      id="personality-comparisons"
+      className="space-y-6 rounded-[2rem] border border-[var(--fm-border)] bg-white px-5 py-8 shadow-sm md:px-8 lg:px-10"
+      data-testid="personality-at-comparison-module"
+      data-authority-source="comparison_list_public_projection_v1"
+    >
+      {groups.map((group) => (
+        <div key={group.key} className="space-y-5" data-testid={`personality-comparison-group-${group.key}`}>
+          <div className="grid gap-3 md:grid-cols-[minmax(0,0.7fr)_minmax(0,1fr)] md:items-end">
+            <div>
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.28em] text-[var(--fm-accent)]">
+                {locale === "zh" ? "Personality comparisons" : "Comparison library"}
+              </p>
+              <h2 className="m-0 mt-2 text-3xl font-semibold tracking-normal text-[var(--fm-text)] md:text-4xl">
+                {group.title}
+              </h2>
+            </div>
+            <p className="m-0 max-w-2xl text-sm leading-7 text-[var(--fm-muted)] md:justify-self-end">
+              {group.description}
+            </p>
+          </div>
+
+          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {group.items.map((item) => (
+              <Link
+                key={item.slug}
+                href={item.href}
+                className="group flex min-h-44 flex-col justify-between rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 text-[var(--fm-text)] transition hover:-translate-y-0.5 hover:border-[var(--fm-accent)] hover:bg-white hover:shadow-md"
+                data-testid="personality-at-comparison-card"
+                data-comparison-type={item.comparisonType}
+                data-base-type-code={item.baseTypeCode}
+              >
+                <div>
+                  <p className="m-0 text-xs font-semibold uppercase tracking-[0.22em] text-[var(--fm-muted)]">
+                    {item.baseTypeCode}
+                  </p>
+                  <h3 className="m-0 mt-3 text-lg font-semibold leading-6 text-[var(--fm-text)]">{item.title}</h3>
+                  <p className="m-0 mt-3 line-clamp-3 text-sm leading-6 text-[var(--fm-muted)]">
+                    {item.description}
+                  </p>
+                </div>
+                <span className="mt-5 text-sm font-semibold text-[var(--fm-accent)]">
+                  {locale === "zh" ? "查看对比" : "View comparison"}
+                </span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+  );
+}
+
 export default async function PersonalityPage({
   params,
 }: {
@@ -296,20 +369,29 @@ export default async function PersonalityPage({
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
   const withLocale = (path: string) => localizedPath(path, locale);
-  const { items: personalities, landingSurface } = await listPersonalityProfiles({
-    locale,
-    includeVariants: true,
-    perPage: 100,
-  }).catch(() => ({
-    items: [],
-    landingSurface: null,
-    pagination: {
-      currentPage: 1,
-      perPage: 20,
-      total: 0,
-      lastPage: 1,
-    },
-  }));
+  const [{ items: personalities, landingSurface }, comparisonList] = await Promise.all([
+    listPersonalityProfiles({
+      locale,
+      includeVariants: true,
+      perPage: 100,
+    }).catch(() => ({
+      items: [],
+      landingSurface: null,
+      pagination: {
+        currentPage: 1,
+        perPage: 20,
+        total: 0,
+        lastPage: 1,
+      },
+    })),
+    listPersonalityComparisons(locale).catch(() => ({
+      comparisonListContractVersion: "mbti.comparison_list.v1",
+      locale,
+      scaleCode: "MBTI",
+      groups: [],
+      atComparisons: [],
+    })),
+  ]);
   const canonicalPath = locale === "zh" ? "/zh/personality" : "/en/personality";
   const hubPayload = buildPersonalityHubPayload({
     locale,
@@ -372,6 +454,7 @@ export default async function PersonalityPage({
 
       <TypeGroupBrowse
         groups={hubPayload.familyGroups}
+        comparisonGroups={comparisonList.groups}
         locale={locale}
         mbtiTestHref={withLocale("/tests/mbti-personality-test-16-personality-types")}
         careerHref={withLocale("/career/recommendations")}

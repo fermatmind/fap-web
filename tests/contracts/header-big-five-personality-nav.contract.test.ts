@@ -30,6 +30,7 @@ describe("header Big Five personality navigation", () => {
 
     expect(zhPersonalityMenu?.items).toEqual([
       { href: "/personality", label: "16型人格" },
+      { href: "/personality#personality-comparisons", label: "性格对比" },
       { href: "/personality/big-five", label: "大五人格（OCEAN）" },
       { href: "/personality/enneagram", label: "九型人格" },
     ]);
