@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "mode": "no_staging_write",
+  "staging_write_performed": false,
+  "staging_deploy_wait_performed": false,
+  "manual_deploy_triggered": false,
+  "production_deploy_triggered": false,
+  "route": "/zh/career/jobs/civil-engineering-technologists-and-technicians",
+  "checks": [
+    "asset_can_project_to_backend_display_surface_shape",
+    "canonical_path_locked",
+    "sources_visible",
+    "faq_visible",
+    "release_boundaries_false"
+  ],
+  "notes": "Preview smoke is limited to contract-backed projection evidence. No server deployment or staging CMS write was performed."
+}

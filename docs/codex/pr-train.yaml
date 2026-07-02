@@ -13334,7 +13334,7 @@ prs:
       - PR-CAREER-KG-05
     mode: execute
     train_scope: career_kg_aircraft_avionics_technicians_asset_package
-    status: in_progress
+    status: merged
     goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Aircraft and Avionics Equipment Mechanics and Technicians career page, covering identity, FAA/regulatory safety boundaries, maintenance inspection, diagnosis, certificate paths, no employment guarantees, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
     artifacts:
       - generated/career-kg-pr-06-aircraft-avionics-technicians/README.md
@@ -13382,6 +13382,65 @@ prs:
       squash: true
       auto_merge: true
     next_task: PR-CAREER-KG-07
+
+  - id: PR-CAREER-KG-07
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-07-civil-engineering-technologists-technicians
+    base: main
+    title: "PR-CAREER-KG-07: content(career): add civil engineering technicians KG asset package"
+    depends_on:
+      - PR-CAREER-KG-06
+    mode: execute
+    train_scope: career_kg_civil_engineering_technicians_asset_package
+    status: in_progress
+    goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Civil Engineering Technologists and Technicians career page, covering identity, CAD, surveying, construction records, materials testing, civil engineer collaboration, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
+    artifacts:
+      - generated/career-kg-pr-07-civil-engineering-technicians/README.md
+      - generated/career-kg-pr-07-civil-engineering-technicians/civil-engineering-technologists-and-technicians.zh-CN.asset.json
+      - generated/career-kg-pr-07-civil-engineering-technicians/qa_report.json
+      - generated/career-kg-pr-07-civil-engineering-technicians/dry_run_importer_report.json
+      - generated/career-kg-pr-07-civil-engineering-technicians/staging_preview_smoke.json
+      - generated/career-kg-pr-07-civil-engineering-technicians/fap_web_render_smoke.json
+      - generated/career-kg-pr-07-civil-engineering-technicians/sha256_manifest.json
+      - tests/contracts/career-kg-07-civil-engineering-technicians.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - generated/career-kg-pr-07-civil-engineering-technicians/README.md
+      - generated/career-kg-pr-07-civil-engineering-technicians/civil-engineering-technologists-and-technicians.zh-CN.asset.json
+      - generated/career-kg-pr-07-civil-engineering-technicians/qa_report.json
+      - generated/career-kg-pr-07-civil-engineering-technicians/dry_run_importer_report.json
+      - generated/career-kg-pr-07-civil-engineering-technicians/staging_preview_smoke.json
+      - generated/career-kg-pr-07-civil-engineering-technicians/fap_web_render_smoke.json
+      - generated/career-kg-pr-07-civil-engineering-technicians/sha256_manifest.json
+      - tests/contracts/career-kg-07-civil-engineering-technicians.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Write CMS, staging, or production career rows.
+      - Add frontend runtime fallback editorial content.
+      - Change sitemap, llms, robots, canonical, noindex, JSON-LD runtime, search submission, deploy workflows, cache, queues, or server runtime.
+      - Change career jobs other than civil-engineering-technologists-and-technicians or prepare future PR-CAREER-KG-08+ content.
+      - Use Chinese recruiting or encyclopedia pages as occupational fact authority.
+      - Make employment, income, admission, diagnosis, AI replacement, injury-zero-risk, automation-zero-risk, qualification, license, engineer-stamp, or certification guarantees.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-kg-07-civil-engineering-technicians.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-08
 
   - id: MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
     repo: fap-web
