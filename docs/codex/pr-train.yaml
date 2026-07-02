@@ -8862,7 +8862,7 @@ prs:
     mode: execute
     train_scope: security_122_web_sitemap_llms_lkg_cache_fail_closed_behavior
     risk_level: high
-    status: local_checks_passed
+    status: merged
     title: "SECURITY-122-WEB-06: sitemap / llms / LKG cache fail-closed behavior"
     findings:
       - "findings 6,22,28,29,30,45,49,50,52,94,104,121,122"
@@ -8900,7 +8900,7 @@ prs:
     mode: execute
     train_scope: security_122_web_tracking_attribution_private_url_third_party_beacon_sanitization
     risk_level: medium
-    status: planned
+    status: local_checks_passed
     title: "SECURITY-122-WEB-07: tracking attribution private URL and third-party beacon sanitization"
     findings:
       - "findings 20,43"

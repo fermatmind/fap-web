@@ -1,4 +1,4 @@
-import { sanitizeAnalyticsTrackingUrl, sanitizeTrackingUrl } from "@/lib/tracking/privacy";
+import { sanitizeAnalyticsTrackingUrl } from "@/lib/tracking/privacy";
 
 export const ATTRIBUTION_QUERY_KEYS = [
   "utm_source",
@@ -113,6 +113,9 @@ const ATTRIBUTION_STORAGE_KEY = "fm_attribution_v1";
 const SEO_CONVERSION_SESSION_STORAGE_KEY = "fm_seo_conversion_session_v1";
 const SEO_CONVERSION_SESSION_ID_PREFIX = "seo_sess_";
 const SEO_CONVERSION_SESSION_ID_PATTERN = /^seo_sess_[A-Za-z0-9_-]{16,80}$/;
+const REDACTED_ATTRIBUTION_VALUE = "redacted";
+const PRIVATE_ATTRIBUTION_VALUE_PATTERN =
+  /\b(?:attempt|bearer|checkout|invite|order|payment|recovery|report|result|secret|session|share|token)[_-][A-Za-z0-9_-]{6,}\b/i;
 
 function isBrowser(): boolean {
   return typeof window !== "undefined";
@@ -122,6 +125,30 @@ function normalizeText(value: unknown, maxLength = 512): string | undefined {
   if (typeof value !== "string") return undefined;
   const normalized = value.trim();
   return normalized ? normalized.slice(0, maxLength) : undefined;
+}
+
+function sanitizeAttributionParamValue(value: unknown): string | undefined {
+  const normalized = normalizeText(value);
+  if (!normalized) {
+    return undefined;
+  }
+
+  const safeUrl = sanitizeAnalyticsTrackingUrl(normalized);
+  if (safeUrl?.startsWith("private_route:")) {
+    return REDACTED_ATTRIBUTION_VALUE;
+  }
+
+  try {
+    if (PRIVATE_ATTRIBUTION_VALUE_PATTERN.test(decodeURIComponent(normalized))) {
+      return REDACTED_ATTRIBUTION_VALUE;
+    }
+  } catch {
+    if (PRIVATE_ATTRIBUTION_VALUE_PATTERN.test(normalized)) {
+      return REDACTED_ATTRIBUTION_VALUE;
+    }
+  }
+
+  return normalized;
 }
 
 export function normalizeSeoConversionSessionId(value: unknown): string | undefined {
@@ -353,6 +380,21 @@ export function buildPublicTrackingServerLabels({
   });
 }
 
+function sanitizeStoredTouch(touch: unknown): StoredTouch | undefined {
+  if (!touch || typeof touch !== "object" || Array.isArray(touch)) {
+    return undefined;
+  }
+
+  const record = touch as Partial<StoredTouch>;
+  const sanitized = sanitizeAttributionUrlFields(record as Record<string, unknown>) as Partial<StoredTouch>;
+  const capturedAt = normalizeText(record.captured_at);
+
+  return {
+    ...sanitized,
+    captured_at: capturedAt ?? new Date().toISOString(),
+  };
+}
+
 function readStoredAttribution(): StoredAttribution | null {
   if (!isBrowser()) return null;
 
@@ -364,8 +406,8 @@ function readStoredAttribution(): StoredAttribution | null {
     if (!parsed || typeof parsed !== "object") return null;
 
     return {
-      first_touch: parsed.first_touch,
-      last_touch: parsed.last_touch,
+      first_touch: sanitizeStoredTouch(parsed.first_touch),
+      last_touch: sanitizeStoredTouch(parsed.last_touch),
       updated_at: normalizeText(parsed.updated_at) ?? new Date().toISOString(),
     };
   } catch {
@@ -436,15 +478,15 @@ export function buildTrackingAttributionPayload(
   const payload: TrackingAttributionPayload = {};
 
   for (const key of ATTRIBUTION_QUERY_KEYS) {
-    const value = normalizeText(params[key]);
+    const value = sanitizeAttributionParamValue(params[key]);
     if (value) {
       payload[key] = value;
     }
   }
 
-  const referrer = sanitizeTrackingUrl(extra.referrer);
-  const landingPath = sanitizeTrackingUrl(extra.landingPath);
-  const currentPath = sanitizeTrackingUrl(extra.currentPath);
+  const referrer = sanitizeAnalyticsTrackingUrl(extra.referrer);
+  const landingPath = sanitizeAnalyticsTrackingUrl(extra.landingPath);
+  const currentPath = sanitizeAnalyticsTrackingUrl(extra.currentPath);
   const sessionId = normalizeText(extra.sessionId, 128);
 
   if (referrer) payload.referrer = referrer;
@@ -541,13 +583,13 @@ export function captureAttributionFromLocation({
 
   return {
     ...(stored?.last_touch ?? {}),
-    current_path: sanitizeTrackingUrl(currentPath) ?? "",
+    current_path: sanitizeAnalyticsTrackingUrl(currentPath) ?? "",
   };
 }
 
 export function readStoredTrackingAttributionPayload(currentPath?: string): TrackingAttributionPayload {
   const stored = readStoredAttribution();
-  const safeCurrentPath = sanitizeTrackingUrl(currentPath);
+  const safeCurrentPath = sanitizeAnalyticsTrackingUrl(currentPath);
   return {
     ...(stored?.last_touch ?? {}),
     ...(safeCurrentPath ? { current_path: safeCurrentPath } : {}),

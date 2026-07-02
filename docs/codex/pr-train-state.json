@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T04:30:00+08:00",
+  "updated_at": "2026-07-03T04:50:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -12730,7 +12730,7 @@
       "depends_on": [
         "SECURITY-122-WEB-05"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_sitemap_llms_lkg_cache_fail_closed_behavior",
       "risk_level": "high",
       "title": "SECURITY-122-WEB-06: sitemap / llms / LKG cache fail-closed behavior",
@@ -12776,7 +12776,7 @@
             "analyze (javascript-typescript)",
             "CodeQL"
           ],
-          "evidence": "GitHub PR #1542 statusCheckRollup shows all required checks successful at head 021749f25cf4ccc8f5cc79eae68b1984cf122d53, with mergeStateStatus CLEAN."
+          "evidence": "GitHub PR #1542 statusCheckRollup passed at final head 3891844ff267e09e259e71c349d4df502f98c0bf before squash merge."
         },
         "scope": {
           "status": "passed",
@@ -12785,14 +12785,18 @@
         "pr_diff_scope": {
           "status": "passed",
           "evidence": "gh pr diff 1542 --name-only listed only WEB-06 allowlisted files: docs/codex metadata, lib/cms LKG/content pages, lib/seo llmsFullResponseCache, scope helper, and focused contract."
+        },
+        "post_merge_revalidation": {
+          "status": "passed",
+          "evidence": "PR #1542 is MERGED with merge commit b1136bf5534e261982c9afdd7f755d9c470e16ad; origin/main contains the merge commit; local main was synced to origin/main; worktree was clean; local branch codex/security-122-web-06 and remote branch are absent after cleanup."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1542",
       "commit_sha": "596752a7eef56a1e50a112c8a59fd2dbeef66ffd",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-07-02T19:35:59Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -12823,10 +12827,17 @@
           "at": "2026-07-03T04:30:00+08:00",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed and PR diff scope validation passed for SECURITY-122-WEB-06. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
+        },
+        {
+          "at": "2026-07-03T04:40:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled SECURITY-122-WEB-06 merge and cleanup facts while starting SECURITY-122-WEB-07: PR #1542 merged via squash commit b1136bf5534e261982c9afdd7f755d9c470e16ad, origin/main/local main synced, worktree clean, and task branches deleted or absent."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T04:30:00+08:00"
+      "updated_at": "2026-07-03T04:44:00+08:00",
+      "head_sha": "3891844ff267e09e259e71c349d4df502f98c0bf",
+      "merge_sha": "b1136bf5534e261982c9afdd7f755d9c470e16ad"
     },
     {
       "id": "SECURITY-122-WEB-07",
@@ -12837,7 +12848,7 @@
       "depends_on": [
         "SECURITY-122-WEB-06"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_122_web_tracking_attribution_private_url_third_party_beacon_sanitization",
       "risk_level": "medium",
       "title": "SECURITY-122-WEB-07: tracking attribution private URL and third-party beacon sanitization",
@@ -12857,12 +12868,25 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-06 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-06 merged via PR #1542 at 2026-07-02T19:35:59Z; origin/main contains b1136bf5534e261982c9afdd7f755d9c470e16ad and WEB-06 task branches are cleaned."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-07-tracking-attribution-sanitization.contract.test.ts",
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-07-tracking-attribution-sanitization.contract.test.ts tests/contracts/mbti-take-attribution.contract.test.tsx",
+            "/usr/local/bin/pnpm typecheck",
+            "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+            "/usr/local/bin/pnpm test:contract",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check"
+          ],
+          "evidence": "Focused WEB-07 attribution sanitization contract passed; affected MBTI attribution contract passed with private_route markers; typecheck passed; production build passed; full contract suite passed with 631 files / 3688 tests; manifest/state parse and git diff --check passed."
+        },
+        "scope": {
+          "status": "passed",
+          "evidence": "Focused WEB-07 contract validates changed files against the SECURITY-122-WEB-07 allowlist, including attribution code, attribution contracts, PR scope helper, and PR-train metadata only."
         },
         "github": {
           "status": "pending",
@@ -12880,10 +12904,20 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-07 from explicit user /goal; execution waits for SECURITY-122-WEB-06 merge."
+        },
+        {
+          "at": "2026-07-03T04:44:00+08:00",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-07 from latest main after WEB-06 post-merge revalidation; implementing tracking attribution private URL and third-party beacon sanitization only."
+        },
+        {
+          "at": "2026-07-03T04:50:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Completed WEB-07 implementation and local validation: focused attribution contracts, typecheck, production build, full contract suite, manifest/state parse, diff check, and changed-file scope validation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T04:50:00+08:00"
     },
     {
       "id": "SECURITY-122-WEB-08",
