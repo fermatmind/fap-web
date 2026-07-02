@@ -97,6 +97,7 @@ afterEach(() => {
 describe("PERSONALITY-COMPARISON-PAGES-01", () => {
   it("derives comparison routes only from complete backend A/T variant pairs", () => {
     expect(isPersonalityComparisonSlug("intj-a-vs-intj-t")).toBe(true);
+    expect(isPersonalityComparisonSlug("intj-vs-intp")).toBe(true);
     expect(isPersonalityComparisonSlug("intj-a-vs-intp-t")).toBe(false);
 
     const slugs = buildPersonalityComparisonSlugsFromProfiles([
@@ -108,6 +109,79 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     ]);
 
     expect(slugs).toEqual(["intj-a-vs-intj-t"]);
+  });
+
+  it("consumes backend cross-type comparison detail without frontend editorial fallback", async () => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      const url = String(input);
+
+      expect(url).toContain("/api/v0.5/personality/comparisons/intj-vs-intp?");
+      expect(url).toContain("locale=zh-CN");
+
+      return jsonResponse({
+        ok: true,
+        comparison_public_projection_v1: {
+          comparison_contract_version: "mbti.cross_type_comparison.public.v1",
+          authority_contract_version: "mbti.cross_type_comparison.authority.v1",
+          readmodel_contract_version: "mbti.cross_type_comparison.readmodel.v1",
+          comparison_slug: "intj-vs-intp",
+          comparison_type: "mbti_cross_type",
+          public_route_type: "cross-type-comparison",
+          scale_code: "MBTI",
+          locale: "zh-CN",
+          left_type: "INTJ",
+          right_type: "INTP",
+          base_type_codes: ["INTJ", "INTP"],
+          title: "INTJ 与 INTP 的区别：战略收敛与模型探索",
+          description: "Backend cross-type SEO description.",
+          summary: "INTJ 和 INTP 都重视逻辑、独立思考和复杂问题。",
+          canonical_url: "https://fermatmind.com/zh/personality/intj-vs-intp",
+          sections: [
+            {
+              id: "quick_answer",
+              title: "快速结论：INTJ 和 INTP 最大区别是什么",
+              body: ["INTJ 更偏战略收敛，INTP 更偏模型探索。"],
+            },
+            {
+              id: "work_style",
+              title: "工作方式差异",
+              body: ["INTJ 更重视路径推进，INTP 更重视前提检验。"],
+            },
+          ],
+          faq: [{ question: "INTJ 和 INTP 最大区别是什么？", answer: "一个偏收敛，一个偏探索。" }],
+          internal_links: [{ label: "INTJ 人格", href: "/zh/personality/intj", reason: "继续查看 INTJ 画像" }],
+          claim_boundary: "这是人格线索对比，不是诊断或职业结论。",
+          source_notes: ["operator reviewed draft package"],
+          source_refs: [
+            "mbti-cross-type-comparison-content-assets-draft-20260702",
+            "mbti.cross_type_comparison.authority.v1",
+          ],
+          is_public: true,
+          is_indexable: false,
+        },
+      });
+    });
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    const comparison = await getPersonalityComparisonBySlug("intj-vs-intp", "zh");
+
+    expect(comparison?.comparisonSlug).toBe("intj-vs-intp");
+    expect(comparison?.comparisonType).toBe("mbti_cross_type");
+    expect(comparison?.publicRouteType).toBe("cross-type-comparison");
+    expect(comparison?.leftType).toBe("INTJ");
+    expect(comparison?.rightType).toBe("INTP");
+    expect(comparison?.variants).toBeNull();
+    expect(comparison?.isIndexable).toBe(false);
+    expect(comparison?.crossTypeSections[0]).toMatchObject({
+      id: "quick_answer",
+      title: "快速结论：INTJ 和 INTP 最大区别是什么",
+      body: ["INTJ 更偏战略收敛，INTP 更偏模型探索。"],
+    });
+    expect(comparison?.crossTypeFaq[0]?.question).toBe("INTJ 和 INTP 最大区别是什么？");
+    expect(comparison?.crossTypeInternalLinks[0]?.href).toBe("/zh/personality/intj");
+    expect(comparison?.claimBoundary).toBe("这是人格线索对比，不是诊断或职业结论。");
+    expect(comparison?.sourceRefs).toContain("mbti.cross_type_comparison.authority.v1");
   });
 
   it("consumes the backend comparison API and preserves SEO, JSON-LD, and answer surfaces", async () => {
@@ -226,8 +300,9 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
 
     expect(comparison?.comparisonSlug).toBe("intj-a-vs-intj-t");
     expect(comparison?.publicRouteType).toBe("at-comparison");
-    expect(comparison?.variants.a.publicRouteSlug).toBe("intj-a");
-    expect(comparison?.variants.t.publicRouteSlug).toBe("intj-t");
+    expect(comparison?.variants).not.toBeNull();
+    expect(comparison?.variants?.a.publicRouteSlug).toBe("intj-a");
+    expect(comparison?.variants?.t.publicRouteSlug).toBe("intj-t");
     expect(comparison?.comparisonBlocks[0]?.variants.a).toBe("INTJ-A trusts the plan sooner.");
     expect(comparison?.jsonld).toMatchObject({ "@type": "CollectionPage", mainEntity: { "@type": "ItemList" } });
     expect(comparison?.seoSurface?.surfaceType).toBe("mbti_personality_at_comparison");
@@ -268,9 +343,15 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     expect(pageSource).toContain("hideSummaryBlocks");
     expect(pageSource).toContain("comparisonBoundaryCopy(locale)");
     expect(pageSource).toContain("frontend editorial fallback");
+    expect(pageSource).toContain("isCrossTypeComparison(comparison)");
+    expect(pageSource).toContain('data-testid="personality-cross-type-sections"');
+    expect(pageSource).toContain('data-testid="personality-cross-type-bases"');
+    expect(pageSource).toContain("CrossTypeInternalLinks");
 
     expect(adapterSource).toContain("/v0.5/personality/comparisons/");
     expect(adapterSource).toContain("comparison_public_projection_v1");
+    expect(adapterSource).toContain('"mbti_cross_type"');
+    expect(adapterSource).toContain("crossTypeSections");
     expect(adapterSource).toContain("normalizeAnswerSurface(response.answer_surface_v1");
 
     expect(sitemapSource).toContain("buildPersonalityComparisonPathsFromAuthority");

@@ -147,15 +147,41 @@ type CmsPersonalityComparisonBlockApiRecord = {
   body_md?: string | null;
 };
 
+type CmsPersonalityCrossTypeSectionApiRecord = {
+  id?: string | null;
+  title?: string | null;
+  body?: unknown;
+};
+
+type CmsPersonalityCrossTypeFaqApiRecord = {
+  question?: string | null;
+  answer?: string | null;
+};
+
+type CmsPersonalityCrossTypeInternalLinkApiRecord = {
+  label?: string | null;
+  href?: string | null;
+  reason?: string | null;
+};
+
 type CmsPersonalityComparisonProjectionApiRecord = {
   comparison_contract_version?: string | null;
+  authority_contract_version?: string | null;
+  readmodel_contract_version?: string | null;
   comparison_slug?: string | null;
+  comparison_type?: string | null;
   base_type_code?: string | null;
+  left_type?: string | null;
+  right_type?: string | null;
+  base_type_codes?: unknown;
   scale_code?: string | null;
   locale?: string | null;
   public_route_type?: string | null;
   title?: string | null;
   description?: string | null;
+  seo_title?: string | null;
+  seo_description?: string | null;
+  summary?: string | null;
   canonical_url?: string | null;
   alternates?: Record<string, string | null | undefined> | null;
   variants?: {
@@ -163,7 +189,18 @@ type CmsPersonalityComparisonProjectionApiRecord = {
     t?: CmsPersonalityComparisonVariantApiRecord | null;
   } | null;
   comparison_blocks?: CmsPersonalityComparisonBlockApiRecord[];
+  sections?: CmsPersonalityCrossTypeSectionApiRecord[];
+  faq?: CmsPersonalityCrossTypeFaqApiRecord[];
+  internal_links?: CmsPersonalityCrossTypeInternalLinkApiRecord[];
+  claim_boundary?: string | null;
+  source_notes?: unknown;
   source_refs?: unknown;
+  source_sha256?: string | null;
+  is_public?: boolean | null;
+  is_indexable?: boolean | null;
+  review_status?: string | null;
+  publish_status?: string | null;
+  indexability_status?: string | null;
 };
 
 type CmsPersonalityComparisonApiResponse = {
@@ -182,11 +219,16 @@ type CmsPersonalityComparisonListItemApiRecord = {
   slug?: string | null;
   comparison_type?: string | null;
   base_type_code?: string | null;
+  left_type?: string | null;
+  right_type?: string | null;
+  base_type_codes?: unknown;
   scale_code?: string | null;
   locale?: string | null;
   public_route_type?: string | null;
   title?: string | null;
+  seo_title?: string | null;
   description?: string | null;
+  summary?: string | null;
   public_url?: string | null;
   canonical_url?: string | null;
   is_public?: boolean | null;
@@ -532,15 +574,39 @@ export type PersonalityComparisonBlockViewModel = {
   bodyMd: string;
 };
 
+export type PersonalityCrossTypeSectionViewModel = {
+  id: string;
+  title: string;
+  body: string[];
+};
+
+export type PersonalityCrossTypeFaqViewModel = {
+  question: string;
+  answer: string;
+};
+
+export type PersonalityCrossTypeInternalLinkViewModel = {
+  label: string;
+  href: string;
+  reason: string | null;
+};
+
 export type PersonalityComparisonViewModel = {
   comparisonContractVersion: string;
+  authorityContractVersion: string | null;
+  readmodelContractVersion: string | null;
   comparisonSlug: string;
+  comparisonType: string;
   baseTypeCode: string;
+  leftType: string | null;
+  rightType: string | null;
+  baseTypeCodes: string[];
   scaleCode: string;
   locale: string;
   publicRouteType: string;
   title: string;
   description: string;
+  summary: string;
   canonicalUrl: string | null;
   alternates: {
     en: string | null;
@@ -549,8 +615,14 @@ export type PersonalityComparisonViewModel = {
   variants: {
     a: PersonalityComparisonVariantViewModel;
     t: PersonalityComparisonVariantViewModel;
-  };
+  } | null;
   comparisonBlocks: PersonalityComparisonBlockViewModel[];
+  crossTypeSections: PersonalityCrossTypeSectionViewModel[];
+  crossTypeFaq: PersonalityCrossTypeFaqViewModel[];
+  crossTypeInternalLinks: PersonalityCrossTypeInternalLinkViewModel[];
+  claimBoundary: string | null;
+  sourceNotes: string[];
+  sourceSha256: string | null;
   sourceRefs: string[];
   sections: CmsPersonalitySection[];
   seoMeta: CmsPersonalitySeoMeta | null;
@@ -565,11 +637,15 @@ export type PersonalityComparisonListItemViewModel = {
   slug: string;
   comparisonType: string;
   baseTypeCode: string;
+  leftType: string | null;
+  rightType: string | null;
+  baseTypeCodes: string[];
   scaleCode: string;
   locale: string;
   publicRouteType: string;
   title: string;
   description: string;
+  summary: string;
   publicUrl: string | null;
   canonicalUrl: string | null;
   href: string;
@@ -592,6 +668,7 @@ export type PersonalityComparisonListViewModel = {
   scaleCode: string;
   groups: PersonalityComparisonListGroupViewModel[];
   atComparisons: PersonalityComparisonListItemViewModel[];
+  crossTypeComparisons: PersonalityComparisonListItemViewModel[];
 };
 
 export type PersonalitySeoCompatibilityInput = {
@@ -893,6 +970,45 @@ function normalizeComparisonSourceRefs(value: unknown): string[] {
   return Array.from(new Set(value.map((item) => fallbackText(typeof item === "string" ? item : String(item ?? ""))).filter(Boolean)));
 }
 
+function normalizeComparisonBaseTypeArray(value: unknown): string[] {
+  return normalizeStringArray(value)
+    .map((item) => item.toUpperCase())
+    .filter((item) => MBTI_BASE_SLUG_RE.test(item.toLowerCase()));
+}
+
+function normalizeCrossTypeSection(section: CmsPersonalityCrossTypeSectionApiRecord): PersonalityCrossTypeSectionViewModel | null {
+  const id = fallbackText(section.id).toLowerCase();
+  const title = fallbackText(section.title, section.id);
+  const body = normalizeStringArray(section.body);
+
+  if (!id || !title || body.length === 0) {
+    return null;
+  }
+
+  return { id, title, body };
+}
+
+function normalizeCrossTypeFaq(item: CmsPersonalityCrossTypeFaqApiRecord): PersonalityCrossTypeFaqViewModel | null {
+  const question = fallbackText(item.question);
+  const answer = fallbackText(item.answer);
+
+  return question && answer ? { question, answer } : null;
+}
+
+function normalizeCrossTypeInternalLink(
+  item: CmsPersonalityCrossTypeInternalLinkApiRecord
+): PersonalityCrossTypeInternalLinkViewModel | null {
+  const label = fallbackText(item.label);
+  const href = fallbackText(item.href);
+  const reason = fallbackText(item.reason) || null;
+
+  if (!label || !href || !href.startsWith("/") || href.includes("?") || href.includes("#")) {
+    return null;
+  }
+
+  return { label, href, reason };
+}
+
 function normalizePersonalityComparisonPayload(
   response: CmsPersonalityComparisonApiResponse,
   locale: Locale | string
@@ -903,38 +1019,83 @@ function normalizePersonalityComparisonPayload(
   }
 
   const comparisonSlug = normalizePersonalityComparisonSlug(projection.comparison_slug);
-  const baseTypeCode = fallbackText(projection.base_type_code).toUpperCase();
-  const assertive = normalizeComparisonVariant(projection.variants?.a, "A");
-  const turbulent = normalizeComparisonVariant(projection.variants?.t, "T");
-  if (!comparisonSlug || !baseTypeCode || !assertive || !turbulent) {
+  const comparisonType = fallbackText(
+    projection.comparison_type,
+    projection.public_route_type === "cross-type-comparison" ? "mbti_cross_type" : "mbti_at_comparison"
+  );
+  const publicRouteType = fallbackText(
+    projection.public_route_type,
+    comparisonType === "mbti_cross_type" ? "cross-type-comparison" : "at-comparison"
+  );
+  const leftType = fallbackText(projection.left_type).toUpperCase() || null;
+  const rightType = fallbackText(projection.right_type).toUpperCase() || null;
+  const baseTypeCodes = normalizeComparisonBaseTypeArray(projection.base_type_codes);
+  const baseTypeCode = fallbackText(projection.base_type_code, leftType ?? undefined, baseTypeCodes[0]).toUpperCase();
+  const isCrossType = comparisonType === "mbti_cross_type" && publicRouteType === "cross-type-comparison";
+  const assertive = isCrossType ? null : normalizeComparisonVariant(projection.variants?.a, "A");
+  const turbulent = isCrossType ? null : normalizeComparisonVariant(projection.variants?.t, "T");
+  if (!comparisonSlug || !baseTypeCode) {
+    return null;
+  }
+  if (isCrossType && (!leftType || !rightType || leftType === rightType)) {
+    return null;
+  }
+  if (!isCrossType && (!assertive || !turbulent)) {
     return null;
   }
 
   const seoMeta = normalizeSeoMeta(response.seo_meta ?? null);
-  const title = fallbackText(projection.title, seoMeta?.seoTitle);
-  const description = fallbackText(projection.description, seoMeta?.seoDescription);
+  const title = fallbackText(projection.title, projection.seo_title, seoMeta?.seoTitle);
+  const description = fallbackText(projection.description, projection.seo_description, projection.summary, seoMeta?.seoDescription);
+  const summary = fallbackText(projection.summary, description);
   const robots = fallbackText(seoMeta?.robots, "index,follow");
+  const projectionIndexable = projection.is_indexable === false ? false : null;
 
   return {
-    comparisonContractVersion: fallbackText(projection.comparison_contract_version, "mbti.at_comparison.v1"),
+    comparisonContractVersion: fallbackText(
+      projection.comparison_contract_version,
+      isCrossType ? "mbti.cross_type_comparison.public.v1" : "mbti.at_comparison.v1"
+    ),
+    authorityContractVersion: fallbackText(projection.authority_contract_version) || null,
+    readmodelContractVersion: fallbackText(projection.readmodel_contract_version) || null,
     comparisonSlug,
+    comparisonType,
     baseTypeCode,
+    leftType: isCrossType ? leftType : null,
+    rightType: isCrossType ? rightType : null,
+    baseTypeCodes: isCrossType ? (baseTypeCodes.length ? baseTypeCodes : [leftType, rightType].filter(Boolean) as string[]) : [baseTypeCode],
     scaleCode: fallbackText(projection.scale_code, DEFAULT_SCALE_CODE),
     locale: fallbackText(projection.locale, mapFrontendLocaleToPersonalityApiLocale(locale)),
-    publicRouteType: fallbackText(projection.public_route_type, "at-comparison"),
+    publicRouteType,
     title,
     description,
+    summary,
     canonicalUrl: normalizeIsoValue(projection.canonical_url ?? seoMeta?.canonicalUrl) ?? canonicalUrl(buildPersonalityComparisonFrontendUrl(locale, comparisonSlug)),
     alternates: normalizeComparisonAlternates(projection.alternates),
-    variants: {
-      a: assertive,
-      t: turbulent,
-    },
+    variants: assertive && turbulent ? { a: assertive, t: turbulent } : null,
     comparisonBlocks: Array.isArray(projection.comparison_blocks)
       ? projection.comparison_blocks
           .map(normalizeComparisonBlock)
           .filter((block): block is PersonalityComparisonBlockViewModel => block !== null)
       : [],
+    crossTypeSections: Array.isArray(projection.sections)
+      ? projection.sections
+          .map(normalizeCrossTypeSection)
+          .filter((section): section is PersonalityCrossTypeSectionViewModel => section !== null)
+      : [],
+    crossTypeFaq: Array.isArray(projection.faq)
+      ? projection.faq
+          .map(normalizeCrossTypeFaq)
+          .filter((item): item is PersonalityCrossTypeFaqViewModel => item !== null)
+      : [],
+    crossTypeInternalLinks: Array.isArray(projection.internal_links)
+      ? projection.internal_links
+          .map(normalizeCrossTypeInternalLink)
+          .filter((item): item is PersonalityCrossTypeInternalLinkViewModel => item !== null)
+      : [],
+    claimBoundary: fallbackText(projection.claim_boundary) || null,
+    sourceNotes: normalizeStringArray(projection.source_notes),
+    sourceSha256: normalizeIsoValue(projection.source_sha256),
     sourceRefs: normalizeComparisonSourceRefs(projection.source_refs),
     sections: Array.isArray(response.sections)
       ? response.sections
@@ -948,7 +1109,7 @@ function normalizePersonalityComparisonPayload(
     seoSurface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
     landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
     answerSurface: normalizeAnswerSurface(response.answer_surface_v1 ?? null),
-    isIndexable: !robots
+    isIndexable: projectionIndexable ?? !robots
       .toLowerCase()
       .split(",")
       .map((part) => part.trim())
@@ -964,22 +1125,34 @@ function normalizeComparisonListItem(
   const comparisonType = fallbackText(item.comparison_type);
   const publicRouteType = fallbackText(item.public_route_type);
   const title = fallbackText(item.title);
-  const description = fallbackText(item.description);
+  const description = fallbackText(item.description, item.summary);
+  const leftType = fallbackText(item.left_type).toUpperCase() || null;
+  const rightType = fallbackText(item.right_type).toUpperCase() || null;
+  const baseTypeCodes = normalizeComparisonBaseTypeArray(item.base_type_codes);
+  const isAtComparison = comparisonType === "mbti_at_comparison" && publicRouteType === "at-comparison";
+  const isCrossTypeComparison = comparisonType === "mbti_cross_type" && publicRouteType === "cross-type-comparison";
   const isPublic = item.is_public === true;
 
-  if (!slug || comparisonType !== "mbti_at_comparison" || publicRouteType !== "at-comparison" || !title || !description || !isPublic) {
+  if (!slug || !title || !description || !isPublic || (!isAtComparison && !isCrossTypeComparison)) {
+    return null;
+  }
+  if (isCrossTypeComparison && (!leftType || !rightType || leftType === rightType)) {
     return null;
   }
 
   return {
     slug,
     comparisonType,
-    baseTypeCode: fallbackText(item.base_type_code).toUpperCase(),
+    baseTypeCode: fallbackText(item.base_type_code, leftType ?? undefined, baseTypeCodes[0]).toUpperCase(),
+    leftType: isCrossTypeComparison ? leftType : null,
+    rightType: isCrossTypeComparison ? rightType : null,
+    baseTypeCodes: isCrossTypeComparison ? (baseTypeCodes.length ? baseTypeCodes : ([leftType, rightType].filter(Boolean) as string[])) : [],
     scaleCode: fallbackText(item.scale_code, DEFAULT_SCALE_CODE),
     locale: fallbackText(item.locale, mapFrontendLocaleToPersonalityApiLocale(locale)),
     publicRouteType,
     title,
     description,
+    summary: fallbackText(item.summary, item.description),
     publicUrl: normalizeIsoValue(item.public_url),
     canonicalUrl: normalizeIsoValue(item.canonical_url),
     href: buildPersonalityComparisonFrontendUrl(locale, slug),
@@ -997,8 +1170,11 @@ function normalizeComparisonListGroup(
   const comparisonType = fallbackText(group.comparison_type);
   const title = fallbackText(group.title);
   const description = fallbackText(group.description);
+  const isSupportedGroup =
+    (key === "at_comparisons" && comparisonType === "mbti_at_comparison") ||
+    (key === "cross_type_comparisons" && comparisonType === "mbti_cross_type");
 
-  if (key !== "at_comparisons" || comparisonType !== "mbti_at_comparison" || !title || !description) {
+  if (!isSupportedGroup || !title || !description) {
     return null;
   }
 
@@ -1038,6 +1214,7 @@ function normalizePersonalityComparisonListPayload(
     scaleCode: fallbackText(projection?.scale_code, DEFAULT_SCALE_CODE),
     groups,
     atComparisons: groups.find((group) => group.key === "at_comparisons")?.items ?? [],
+    crossTypeComparisons: groups.find((group) => group.key === "cross_type_comparisons")?.items ?? [],
   };
 }
 

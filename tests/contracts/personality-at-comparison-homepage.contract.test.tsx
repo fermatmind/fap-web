@@ -48,7 +48,7 @@ describe("WEB-01 personality A/T comparison homepage module", () => {
     );
   });
 
-  it("consumes the backend A/T comparison list API and excludes cross-type groups", async () => {
+  it("consumes the backend comparison list API and keeps A/T and cross-type groups separate", async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
 
@@ -89,17 +89,23 @@ describe("WEB-01 personality A/T comparison homepage module", () => {
             },
             {
               key: "cross_type_comparisons",
-              comparison_type: "mbti_cross_type_comparison",
-              title: "Commonly confused types",
-              description: "Future group.",
+              comparison_type: "mbti_cross_type",
+              title: "易混淆人格对比",
+              description: "Backend owned cross-type comparison list.",
               items: [
                 {
                   slug: "intj-vs-intp",
-                  comparison_type: "mbti_cross_type_comparison",
+                  comparison_type: "mbti_cross_type",
+                  left_type: "INTJ",
+                  right_type: "INTP",
+                  base_type_codes: ["INTJ", "INTP"],
                   public_route_type: "cross-type-comparison",
                   title: "INTJ vs INTP",
-                  description: "Out of WEB-01 scope.",
+                  description: "Backend owned cross-type comparison card.",
+                  summary: "Backend owned cross-type summary.",
+                  public_url: "/zh/personality/intj-vs-intp",
                   is_public: true,
+                  is_indexable: false,
                 },
               ],
             },
@@ -113,9 +119,10 @@ describe("WEB-01 personality A/T comparison homepage module", () => {
     const comparisonList = await listPersonalityComparisons("zh");
 
     expect(comparisonList.comparisonListContractVersion).toBe("mbti.comparison_list.v1");
-    expect(comparisonList.groups).toHaveLength(1);
+    expect(comparisonList.groups).toHaveLength(2);
     expect(comparisonList.groups[0]?.key).toBe("at_comparisons");
     expect(comparisonList.groups[0]?.title).toBe("性格对比");
+    expect(comparisonList.groups[1]?.key).toBe("cross_type_comparisons");
     expect(comparisonList.atComparisons).toHaveLength(1);
     expect(comparisonList.atComparisons[0]).toMatchObject({
       slug: "intj-a-vs-intj-t",
@@ -126,6 +133,18 @@ describe("WEB-01 personality A/T comparison homepage module", () => {
       isPublic: true,
       isIndexable: true,
     });
+    expect(comparisonList.crossTypeComparisons).toHaveLength(1);
+    expect(comparisonList.crossTypeComparisons[0]).toMatchObject({
+      slug: "intj-vs-intp",
+      comparisonType: "mbti_cross_type",
+      leftType: "INTJ",
+      rightType: "INTP",
+      href: "/zh/personality/intj-vs-intp",
+      title: "INTJ vs INTP",
+      description: "Backend owned cross-type comparison card.",
+      isPublic: true,
+      isIndexable: false,
+    });
   });
 
   it("wires the personality hub to the backend list API without local comparison content fallback", () => {
@@ -135,6 +154,7 @@ describe("WEB-01 personality A/T comparison homepage module", () => {
     expect(pageSource).toContain("listPersonalityComparisons(locale)");
     expect(pageSource).toContain('id="personality-comparisons"');
     expect(pageSource).toContain('data-testid="personality-at-comparison-module"');
+    expect(pageSource).toContain("personality-cross-type-comparison-card");
     expect(pageSource).toContain('data-authority-source="comparison_list_public_projection_v1"');
     expect(pageSource).toContain("comparisonGroups={comparisonList.groups}");
     expect(pageSource).toContain("group.items.map");
@@ -144,7 +164,7 @@ describe("WEB-01 personality A/T comparison homepage module", () => {
 
     expect(adapterSource).toContain("/v0.5/personality/comparisons");
     expect(adapterSource).toContain("comparison_list_public_projection_v1");
-    expect(adapterSource).toContain('comparisonType !== "mbti_at_comparison"');
+    expect(adapterSource).toContain('comparisonType === "mbti_cross_type"');
     expect(adapterSource).not.toContain("const LOCAL_PERSONALITY_COMPARISON");
   });
 });

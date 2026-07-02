@@ -22,19 +22,40 @@ export const MBTI_COMPARISON_BASE_TYPES = [
 
 const MBTI_COMPARISON_BASE_SET = new Set<string>(MBTI_COMPARISON_BASE_TYPES);
 const PERSONALITY_COMPARISON_RE = /^([a-z]{4})-a-vs-\1-t$/i;
+const PERSONALITY_CROSS_TYPE_COMPARISON_RE = /^([a-z]{4})-vs-([a-z]{4})$/i;
 
 export type MbtiComparisonBaseType = (typeof MBTI_COMPARISON_BASE_TYPES)[number];
 
 export function normalizePersonalityComparisonSlug(value: string | null | undefined): string | null {
   const normalized = String(value ?? "").trim().toLowerCase();
-  const match = normalized.match(PERSONALITY_COMPARISON_RE);
-  const base = match?.[1]?.toLowerCase();
+  const atMatch = normalized.match(PERSONALITY_COMPARISON_RE);
+  const atBase = atMatch?.[1]?.toLowerCase();
+  if (atBase && MBTI_COMPARISON_BASE_SET.has(atBase)) {
+    return `${atBase}-a-vs-${atBase}-t`;
+  }
 
-  return base && MBTI_COMPARISON_BASE_SET.has(base) ? `${base}-a-vs-${base}-t` : null;
+  const crossMatch = normalized.match(PERSONALITY_CROSS_TYPE_COMPARISON_RE);
+  const left = crossMatch?.[1]?.toLowerCase();
+  const right = crossMatch?.[2]?.toLowerCase();
+  if (left && right && left !== right && MBTI_COMPARISON_BASE_SET.has(left) && MBTI_COMPARISON_BASE_SET.has(right)) {
+    return `${left}-vs-${right}`;
+  }
+
+  return null;
 }
 
 export function isPersonalityComparisonSlug(value: string | null | undefined): boolean {
   return normalizePersonalityComparisonSlug(value) !== null;
+}
+
+export function isPersonalityAtComparisonSlug(value: string | null | undefined): boolean {
+  const normalized = String(value ?? "").trim().toLowerCase();
+  return normalizePersonalityComparisonSlug(normalized) === normalized && PERSONALITY_COMPARISON_RE.test(normalized);
+}
+
+export function isPersonalityCrossTypeComparisonSlug(value: string | null | undefined): boolean {
+  const normalized = String(value ?? "").trim().toLowerCase();
+  return normalizePersonalityComparisonSlug(normalized) === normalized && PERSONALITY_CROSS_TYPE_COMPARISON_RE.test(normalized);
 }
 
 export function buildPersonalityComparisonSlug(baseTypeCode: string): string | null {
