@@ -11581,7 +11581,7 @@ prs:
     mode: execute
     train_scope: eq_personalization_english_first_tier
     risk_level: scoped_eq_result_renderer_personalization
-    status: in_progress
+    status: merged
     title: "PR-EQ-PER-03 Frontend EQ v5.1 personalization renderer"
     goal: "Upgrade EQResultV5 to consume backend route_id, signal_signature, and selected_asset_ids while preserving backend content authority and no-paywall/SJT planned boundaries."
     in_scope:
@@ -13806,7 +13806,7 @@ prs:
       - PR-CAREER-KG-13
     mode: execute
     train_scope: career_kg_mining_geological_engineers_asset_package
-    status: in_progress
+    status: merged
     goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Mining and Geological Engineers career page, covering identity, mining safety, mine design, environmental impact, engineering judgment, adjacent engineering/science-career distinctions, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
     artifacts:
       - generated/career-kg-pr-14-mining-geological-engineers/README.md
@@ -13854,6 +13854,65 @@ prs:
       squash: true
       auto_merge: true
     next_task: PR-CAREER-KG-15
+
+  - id: PR-CAREER-KG-15
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-15-geodetic-surveyors
+    base: main
+    title: "PR-CAREER-KG-15: content(career): add geodetic surveyors KG asset package"
+    depends_on:
+      - PR-CAREER-KG-14
+    mode: execute
+    train_scope: career_kg_geodetic_surveyors_asset_package
+    status: in_progress
+    goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Geodetic Surveyors career page, covering the corrected Chinese standard name, GNSS, control networks, coordinate datums, GIS collaboration, adjacent surveying/geospatial occupation distinctions, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
+    artifacts:
+      - generated/career-kg-pr-15-geodetic-surveyors/README.md
+      - generated/career-kg-pr-15-geodetic-surveyors/geodetic-surveyors.zh-CN.asset.json
+      - generated/career-kg-pr-15-geodetic-surveyors/qa_report.json
+      - generated/career-kg-pr-15-geodetic-surveyors/dry_run_importer_report.json
+      - generated/career-kg-pr-15-geodetic-surveyors/staging_preview_smoke.json
+      - generated/career-kg-pr-15-geodetic-surveyors/fap_web_render_smoke.json
+      - generated/career-kg-pr-15-geodetic-surveyors/sha256_manifest.json
+      - tests/contracts/career-kg-15-geodetic-surveyors.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - generated/career-kg-pr-15-geodetic-surveyors/README.md
+      - generated/career-kg-pr-15-geodetic-surveyors/geodetic-surveyors.zh-CN.asset.json
+      - generated/career-kg-pr-15-geodetic-surveyors/qa_report.json
+      - generated/career-kg-pr-15-geodetic-surveyors/dry_run_importer_report.json
+      - generated/career-kg-pr-15-geodetic-surveyors/staging_preview_smoke.json
+      - generated/career-kg-pr-15-geodetic-surveyors/fap_web_render_smoke.json
+      - generated/career-kg-pr-15-geodetic-surveyors/sha256_manifest.json
+      - tests/contracts/career-kg-15-geodetic-surveyors.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Write CMS, staging, or production career rows.
+      - Add frontend runtime fallback editorial content.
+      - Change sitemap, llms, robots, canonical, noindex, JSON-LD runtime, search submission, deploy workflows, cache, queues, or server runtime.
+      - Change career jobs other than geodetic-surveyors or prepare future PR-CAREER-KG-16+ content.
+      - Use Chinese recruiting or encyclopedia pages as occupational fact authority.
+      - Make employment, income, admission, diagnosis, ranking, traffic, conversion, ROI, AI replacement, promotion, certification, platform approval, project-acceptance, survey-accuracy, license, land-title-decision, GIS-data-accuracy, or regulatory-approval guarantees.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-kg-15-geodetic-surveyors.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-16
 
   - id: MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
     repo: fap-web
