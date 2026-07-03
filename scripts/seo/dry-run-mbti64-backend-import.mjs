@@ -4,7 +4,8 @@ import path from "node:path";
 
 const repoRoot = process.cwd();
 const auditDate = process.env.AUDIT_DATE || new Date().toISOString().slice(0, 10);
-const fapApiRoot = process.env.FAP_API_ROOT || "/Users/rainie/Desktop/GitHub/fap-api/backend";
+const fapApiRoot = process.env.FAP_API_ROOT || null;
+const fapApiRootLabel = "<fap-api-backend>";
 
 const paths = {
   contractJson: "docs/seo/personality/backend-import-contract-2026-06-18.json",
@@ -230,50 +231,58 @@ function renderedImportPayload(row) {
 }
 
 function fileExists(filePath) {
-  return fs.existsSync(filePath);
+  return Boolean(filePath && fs.existsSync(filePath));
+}
+
+function backendCandidate(relativePath, role) {
+  return {
+    path: fapApiRoot ? path.join(fapApiRoot, relativePath) : null,
+    displayPath: `${fapApiRootLabel}/${relativePath}`,
+    role,
+  };
 }
 
 function discoverBackendImportPath() {
   const evidenceFiles = [];
   const notes = [];
   const candidates = [
-    {
-      path: path.join(fapApiRoot, "app/Console/Commands/PersonalityEnsureMbtiVariantSectionStructure.php"),
-      role: "MBTI variant section structure dry-run command exists, but it builds canonical structure rather than importing V2.1 package rows.",
-    },
-    {
-      path: path.join(fapApiRoot, "app/Console/Commands/PersonalityRefreshMbtiVariantSeoMetadata.php"),
-      role: "MBTI variant SEO metadata dry-run command exists, but it refreshes generated metadata rather than importing V2.1 package rows.",
-    },
-    {
-      path: path.join(fapApiRoot, "app/Console/Commands/PersonalityEnrichMbtiEnglishVariantSections.php"),
-      role: "MBTI English enrichment command defaults to no-write, but it does not cover bilingual V2.1 package import.",
-    },
-    {
-      path: path.join(fapApiRoot, "app/PersonalityCms/Baseline/PersonalityBaselineImporter.php"),
-      role: "Personality baseline importer supports dry_run and revision counting, but it is baseline-structured and not a V2.1 package importer.",
-    },
-    {
-      path: path.join(fapApiRoot, "app/Models/PersonalityProfileVariantRevision.php"),
-      role: "Variant revision snapshot model exists for future draft/rollback metadata.",
-    },
-    {
-      path: path.join(fapApiRoot, "app/Http/Controllers/API/V0_5/Cms/PersonalityController.php"),
-      role: "Public personality variant and comparison read APIs exist; write/import endpoint for V2.1 package was not found.",
-    },
+    backendCandidate(
+      "app/Console/Commands/PersonalityEnsureMbtiVariantSectionStructure.php",
+      "MBTI variant section structure dry-run command exists, but it builds canonical structure rather than importing V2.1 package rows.",
+    ),
+    backendCandidate(
+      "app/Console/Commands/PersonalityRefreshMbtiVariantSeoMetadata.php",
+      "MBTI variant SEO metadata dry-run command exists, but it refreshes generated metadata rather than importing V2.1 package rows.",
+    ),
+    backendCandidate(
+      "app/Console/Commands/PersonalityEnrichMbtiEnglishVariantSections.php",
+      "MBTI English enrichment command defaults to no-write, but it does not cover bilingual V2.1 package import.",
+    ),
+    backendCandidate(
+      "app/PersonalityCms/Baseline/PersonalityBaselineImporter.php",
+      "Personality baseline importer supports dry_run and revision counting, but it is baseline-structured and not a V2.1 package importer.",
+    ),
+    backendCandidate(
+      "app/Models/PersonalityProfileVariantRevision.php",
+      "Variant revision snapshot model exists for future draft/rollback metadata.",
+    ),
+    backendCandidate(
+      "app/Http/Controllers/API/V0_5/Cms/PersonalityController.php",
+      "Public personality variant and comparison read APIs exist; write/import endpoint for V2.1 package was not found.",
+    ),
   ];
 
   for (const candidate of candidates) {
     if (fileExists(candidate.path)) {
       evidenceFiles.push({
-        file: candidate.path,
+        file: candidate.displayPath,
         evidence: candidate.role,
       });
     }
   }
 
   if (!fileExists(fapApiRoot)) {
-    notes.push(`fap-api root not found at ${fapApiRoot}; discovery used fap-web contract artifacts only.`);
+    notes.push("fap-api root was not provided; discovery used fap-web contract artifacts only.");
   } else {
     notes.push("Read-only fap-api discovery found safe dry-run patterns, but no exact MBTI64 V2.1 package dry-run importer.");
   }

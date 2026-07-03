@@ -5,8 +5,7 @@ import path from "node:path";
 
 const repoRoot = process.cwd();
 const auditDate = process.env.AUDIT_DATE || new Date().toISOString().slice(0, 10);
-const inputZip =
-  process.env.INPUT_ZIP || "/Users/rainie/Desktop/mbti64-content-package-pilot-v2-final.zip";
+const inputZip = process.env.INPUT_ZIP || "<uploaded_zip>/mbti64-content-package-pilot-v2-final.zip";
 const packageRoot = path.join(
   repoRoot,
   "docs/seo/personality/content-packages/pilot-v2/mbti64-content-package-pilot-v2-final",

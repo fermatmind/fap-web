@@ -104,16 +104,16 @@ describe("SEO Intelligence asset map", () => {
     const artifact = readArtifact();
 
     expect(artifact.source_of_truth.frontend).toMatchObject({
-      repository: "/Users/rainie/Desktop/GitHub/fap-web",
+      repository: "<workspace>/fap-web",
       role: "production_frontend_source_of_truth",
       status: "observed",
     });
     expect(artifact.source_of_truth.backend).toMatchObject({
-      repository: "/Users/rainie/Desktop/GitHub/fap-api",
+      repository: "<workspace>/fap-api",
       role: "backend_cms_commerce_authority_core",
     });
     expect(artifact.source_of_truth.nested_frontend).toMatchObject({
-      repository: "/Users/rainie/Desktop/GitHub/fap-api/fap-web",
+      repository: "<workspace>/fap-api/fap-web",
       role: "stale_skeleton_non_runtime",
       runtime: false,
       status: "dangerous_if_assumed",

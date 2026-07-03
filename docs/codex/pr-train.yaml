@@ -8976,7 +8976,7 @@ prs:
     mode: execute
     train_scope: security_122_web_ai_iq_salary_public_asset_exposure_claim_gates
     risk_level: medium
-    status: planned
+    status: merged
     title: "SECURITY-122-WEB-09: AI/IQ/salary public asset exposure and claim gates"
     findings:
       - "findings 16,34,36,98,100,120"
@@ -9014,7 +9014,7 @@ prs:
     mode: execute
     train_scope: security_122_web_generated_docs_artifacts_local_path_redaction
     risk_level: low
-    status: planned
+    status: ready_to_merge
     title: "SECURITY-122-WEB-10: generated docs/artifacts local path redaction"
     findings:
       - "findings 31,33,37,39,40,48,101"

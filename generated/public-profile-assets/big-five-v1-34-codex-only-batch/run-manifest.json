@@ -10,6 +10,6 @@
   "no_import": true,
   "no_publish": true,
   "no_index": true,
-  "source_seed": "/Users/rainie/Desktop/GitHub/fap-api/backend/content_assets/personality_public/big_five_v1_seed.json",
+  "source_seed": "<fap-api-backend>/content_assets/personality_public/big_five_v1_seed.json",
   "source_routes": "lib/personality/bigFivePublicRoutes.ts"
 }

@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T05:18:00+08:00",
+  "updated_at": "2026-07-03T10:51:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13067,7 +13067,7 @@
       "depends_on": [
         "SECURITY-122-WEB-08"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_ai_iq_salary_public_asset_exposure_claim_gates",
       "risk_level": "medium",
       "title": "SECURITY-122-WEB-09: AI/IQ/salary public asset exposure and claim gates",
@@ -13116,15 +13116,15 @@
             "analyze (javascript-typescript)",
             "CodeQL"
           ],
-          "evidence": "GitHub checks passed for PR #1548 on head 2faa54ac46d7da01b43864c2d0bc3d9d8b914ed1: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN before this ready_to_merge ledger update."
+          "evidence": "GitHub checks passed for PR #1548 on final head aa9f980415461f623acad924dfff760b3f81a6fb; PR merged at 2026-07-02T21:18:15Z via squash commit 817d57052e4f91dd81d10359ea065bec99c1a37a."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1548",
-      "commit_sha": "c99418e3b7a60a195119ff2ab64a6885b98c3512",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "aa9f980415461f623acad924dfff760b3f81a6fb",
+      "merged_at": "2026-07-02T21:18:15Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -13150,10 +13150,17 @@
           "at": "2026-07-02T21:11:12Z",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed and PR diff scope validation passed for SECURITY-122-WEB-09. Focused local revalidation passed. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
+        },
+        {
+          "at": "2026-07-02T21:33:00Z",
+          "status": "merged",
+          "summary": "Reconciled SECURITY-122-WEB-09 merge and cleanup facts while starting SECURITY-122-WEB-10: PR #1548 merged via squash commit 817d57052e4f91dd81d10359ea065bec99c1a37a, origin/main/local main synced, worktree clean, and task branches deleted or absent."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T21:11:12Z"
+      "updated_at": "2026-07-02T21:33:00Z",
+      "head_sha": "aa9f980415461f623acad924dfff760b3f81a6fb",
+      "merge_sha": "817d57052e4f91dd81d10359ea065bec99c1a37a"
     },
     {
       "id": "SECURITY-122-WEB-10",
@@ -13164,7 +13171,7 @@
       "depends_on": [
         "SECURITY-122-WEB-09"
       ],
-      "status": "planned",
+      "status": "ready_to_merge",
       "train_scope": "security_122_web_generated_docs_artifacts_local_path_redaction",
       "risk_level": "low",
       "title": "SECURITY-122-WEB-10: generated docs/artifacts local path redaction",
@@ -13184,21 +13191,42 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-09 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-09 merged via PR #1548 at 2026-07-02T21:18:15Z; origin/main contains 817d57052e4f91dd81d10359ea065bec99c1a37a and WEB-09 task branches are cleaned."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-10-generated-artifact-redaction.contract.test.ts tests/contracts/seo-intelligence-asset-map.contract.test.ts",
+            "/usr/local/bin/pnpm typecheck",
+            "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+            "/usr/local/bin/pnpm test:contract",
+            "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "git diff --check origin/main...HEAD",
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-10-generated-artifact-redaction.contract.test.ts --testNamePattern \"keeps tracked diff scope\""
+          ],
+          "evidence": "After rebasing onto origin/main 13b2130f402955f3320189e160dd69e6a8351692, focused WEB-10 generated artifact redaction and SEO intelligence contracts passed; typecheck passed; production build passed; full contract suite passed with 638 files / 3723 tests; manifest/state parse, git diff --check, and changed-file scope validation passed."
         },
         "github": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ],
+          "evidence": "GitHub checks passed for PR #1550 on head 40750b9e7ced1c0c4309ecdd4e5b80bac0fe8c83: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN before this ready_to_merge ledger update."
+        },
+        "scope": {
+          "status": "passed",
+          "evidence": "After rebase, focused WEB-10 contract validates changed files against the SECURITY-122-WEB-10 allowlist: generated docs/artifacts, MBTI64/backend import artifact scripts, impacted contracts, scope helper, and PR-train metadata only."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1550",
+      "commit_sha": "40750b9e7ced1c0c4309ecdd4e5b80bac0fe8c83",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -13207,10 +13235,36 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-10 from explicit user /goal; execution waits for SECURITY-122-WEB-09 merge."
+        },
+        {
+          "at": "2026-07-02T21:33:00Z",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-10 from latest main after WEB-09 post-merge revalidation; implementing generated docs/artifacts local path redaction only."
+        },
+        {
+          "at": "2026-07-03T10:37:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Completed WEB-10 implementation and local validation: focused generated artifact redaction contracts, typecheck, production build, full contract suite, manifest/state parse, diff check, and changed-file scope validation passed."
+        },
+        {
+          "at": "2026-07-03T10:40:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened PR #1550 for SECURITY-122-WEB-10 from branch codex/security-122-web-10 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-07-03T10:46:00+08:00",
+          "status": "rebased_local_checks_passed",
+          "summary": "Rebased SECURITY-122-WEB-10 onto origin/main after PR #1550 reported merge conflicts from an external merged PR. Resolved docs/codex ledger conflict by preserving main KG-14/KG-15 facts, then reran focused WEB-10 contracts, typecheck, production build, full contract suite, manifest/state parse, diff check, and changed-file scope validation successfully."
+        },
+        {
+          "at": "2026-07-03T10:51:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed and PR diff scope validation passed for SECURITY-122-WEB-10 after rebase. Focused local revalidation passed. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T10:51:00+08:00",
+      "head_sha": "40750b9e7ced1c0c4309ecdd4e5b80bac0fe8c83"
     },
     {
       "id": "SECURITY-122-WEB-11",
@@ -36718,7 +36772,9 @@
     "branch": "codex/pr-career-kg-10-secretaries-admin-assistants",
     "title": "PR-CAREER-KG-10: content(career): add secretaries and administrative assistants KG asset package",
     "train_scope": "career_kg_secretaries_administrative_assistants_asset_package",
-    "depends_on": ["PR-CAREER-KG-09"],
+    "depends_on": [
+      "PR-CAREER-KG-09"
+    ],
     "status": "merged",
     "commit_sha": "512319a10b0dd5436d15729a3bd92156e165014b",
     "merge_commit_sha": "46c10c6b9205e0d5918500ffdd728078a163efa9",
@@ -36843,7 +36899,9 @@
     "branch": "codex/pr-career-kg-11-mechanical-drafters",
     "title": "PR-CAREER-KG-11: content(career): add mechanical drafters KG asset package",
     "train_scope": "career_kg_mechanical_drafters_asset_package",
-    "depends_on": ["PR-CAREER-KG-10"],
+    "depends_on": [
+      "PR-CAREER-KG-10"
+    ],
     "status": "merged",
     "commit_sha": "ec99febfdffdd883543e10511444d12d997ab960",
     "merge_commit_sha": "3a2429e86a6f5ad079c0f319a3ee64a21a9cfb1a",
@@ -36968,7 +37026,9 @@
     "branch": "codex/pr-career-kg-12-search-marketing-strategists",
     "title": "PR-CAREER-KG-12: content(career): add search marketing strategists KG asset package",
     "train_scope": "career_kg_search_marketing_strategists_asset_package",
-    "depends_on": ["PR-CAREER-KG-11"],
+    "depends_on": [
+      "PR-CAREER-KG-11"
+    ],
     "status": "merged",
     "commit_sha": "190066f6bfec39a7beb4b5cfd06b55d5139b14cc",
     "merge_commit_sha": "a364b9a63367b3a40a9b09f656e1a8963b59ae98",
@@ -37098,7 +37158,9 @@
     "branch": "codex/pr-career-kg-13-zoologists-wildlife-biologists",
     "title": "PR-CAREER-KG-13: content(career): add zoologists and wildlife biologists KG asset package",
     "train_scope": "career_kg_zoologists_wildlife_biologists_asset_package",
-    "depends_on": ["PR-CAREER-KG-12"],
+    "depends_on": [
+      "PR-CAREER-KG-12"
+    ],
     "status": "merged",
     "commit_sha": "39a5108716b458085f7626f990cb1be5be8460de",
     "merge_commit_sha": "d8ffe3bd7ccb3d6242645382eb09966f50424699",
@@ -37228,7 +37290,9 @@
     "branch": "codex/pr-career-kg-14-mining-geological-engineers",
     "title": "PR-CAREER-KG-14: content(career): add mining and geological engineers KG asset package",
     "train_scope": "career_kg_mining_geological_engineers_asset_package",
-    "depends_on": ["PR-CAREER-KG-13"],
+    "depends_on": [
+      "PR-CAREER-KG-13"
+    ],
     "status": "merged",
     "commit_sha": "481d767a090065d8be96d1f354430ca08ac3a24d",
     "merge_commit_sha": "e5317089148536cc9a9f3510df4620d845d2e862",
@@ -37370,7 +37434,9 @@
     "branch": "codex/pr-career-kg-15-geodetic-surveyors",
     "title": "PR-CAREER-KG-15: content(career): add geodetic surveyors KG asset package",
     "train_scope": "career_kg_geodetic_surveyors_asset_package",
-    "depends_on": ["PR-CAREER-KG-14"],
+    "depends_on": [
+      "PR-CAREER-KG-14"
+    ],
     "status": "ready_to_merge",
     "commit_sha": "b99a39ff652c5d39d4766b61f395e326cb8efad6",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1549",
