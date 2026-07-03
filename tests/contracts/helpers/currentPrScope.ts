@@ -382,6 +382,20 @@ const PR_CAREER_KG_16_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const PR_CAREER_KG_17_ALLOWED_FILES = new Set([
+  "generated/career-kg-pr-17-postal-service-mail-carriers/README.md",
+  "generated/career-kg-pr-17-postal-service-mail-carriers/postal-service-mail-carriers.zh-CN.asset.json",
+  "generated/career-kg-pr-17-postal-service-mail-carriers/qa_report.json",
+  "generated/career-kg-pr-17-postal-service-mail-carriers/dry_run_importer_report.json",
+  "generated/career-kg-pr-17-postal-service-mail-carriers/staging_preview_smoke.json",
+  "generated/career-kg-pr-17-postal-service-mail-carriers/fap_web_render_smoke.json",
+  "generated/career-kg-pr-17-postal-service-mail-carriers/sha256_manifest.json",
+  "tests/contracts/career-kg-17-postal-service-mail-carriers.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -5705,6 +5719,14 @@ export function isPrCareerKg16AllowedFile(file: string): boolean {
   }
 
   return PR_CAREER_KG_16_ALLOWED_FILES.has(file);
+}
+
+export function isPrCareerKg17AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-career-kg-17-postal-service-mail-carriers") {
+    return true;
+  }
+
+  return PR_CAREER_KG_17_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {

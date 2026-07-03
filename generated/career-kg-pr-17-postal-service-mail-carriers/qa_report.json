@@ -1,0 +1,35 @@
+{
+  "status": "pass",
+  "schema_validation": {
+    "status": "pass",
+    "canonical_unchanged": true,
+    "content_block_count": 9,
+    "faq_count": 3
+  },
+  "trust_audit": {
+    "status": "pass",
+    "fact_authorities": [
+      "O*NET OnLine",
+      "BLS OOH",
+      "BLS OEWS",
+      "My Next Move"
+    ],
+    "market_or_baike_used_as_fact_authority": false,
+    "blocked_claims_absent": [
+      "employment_guarantee",
+      "salary_guarantee",
+      "route_stability_guarantee",
+      "exam_pass_guarantee",
+      "ai_replacement_probability_guarantee"
+    ]
+  },
+  "editorial_gate": {
+    "status": "pass",
+    "reader_intent_covered": [
+      "邮政服务邮件投递员是做什么的",
+      "投递员和分拣员区别",
+      "路线、客户、天气和体力场景"
+    ],
+    "canonical_path_locked": "/zh/career/jobs/postal-service-mail-carriers"
+  }
+}

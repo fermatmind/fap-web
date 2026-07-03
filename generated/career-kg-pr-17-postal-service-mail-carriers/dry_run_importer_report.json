@@ -1,0 +1,10 @@
+{
+  "status": "pass",
+  "mode": "dry_run_only",
+  "writes_performed": false,
+  "cms_write_performed": false,
+  "staging_write_performed": false,
+  "production_import_performed": false,
+  "validated_slug": "postal-service-mail-carriers",
+  "validated_locale": "zh-CN"
+}

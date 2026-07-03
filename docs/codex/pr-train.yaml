@@ -13924,7 +13924,7 @@ prs:
       - PR-CAREER-KG-15
     mode: execute
     train_scope: career_kg_market_research_analysts_marketing_specialists_asset_package
-    status: in_progress
+    status: merged
     goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Market Research Analysts and Marketing Specialists career page, covering the corrected Chinese standard name, market research, marketing analysis, search marketing distinction, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
     artifacts:
       - generated/career-kg-pr-16-market-research-analysts-marketing-specialists/README.md
@@ -13972,6 +13972,65 @@ prs:
       squash: true
       auto_merge: true
     next_task: PR-CAREER-KG-17
+
+  - id: PR-CAREER-KG-17
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-17-postal-service-mail-carriers
+    base: main
+    title: "PR-CAREER-KG-17: content(career): add postal service mail carriers KG asset package"
+    depends_on:
+      - PR-CAREER-KG-16
+    mode: execute
+    train_scope: career_kg_postal_service_mail_carriers_asset_package
+    status: in_progress
+    goal: "Add the dry-run backend/CMS-authoritative career knowledge graph asset package and fap-web rendering contract for the zh-CN Postal Service Mail Carriers career page, covering the corrected Chinese standard name, route/customer/weather/physical workload scenes, distinction from postal mail sorters and clerks, source policy, internal links, QA reports, dry-run importer evidence, staging-preview smoke evidence, and frontend render smoke without writing public runtime content, CMS rows, production imports, sitemap/llms/robots/canonical/noindex/JSON-LD runtime, search submission, deploy steps, or future career PR scopes."
+    artifacts:
+      - generated/career-kg-pr-17-postal-service-mail-carriers/README.md
+      - generated/career-kg-pr-17-postal-service-mail-carriers/postal-service-mail-carriers.zh-CN.asset.json
+      - generated/career-kg-pr-17-postal-service-mail-carriers/qa_report.json
+      - generated/career-kg-pr-17-postal-service-mail-carriers/dry_run_importer_report.json
+      - generated/career-kg-pr-17-postal-service-mail-carriers/staging_preview_smoke.json
+      - generated/career-kg-pr-17-postal-service-mail-carriers/fap_web_render_smoke.json
+      - generated/career-kg-pr-17-postal-service-mail-carriers/sha256_manifest.json
+      - tests/contracts/career-kg-17-postal-service-mail-carriers.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - generated/career-kg-pr-17-postal-service-mail-carriers/README.md
+      - generated/career-kg-pr-17-postal-service-mail-carriers/postal-service-mail-carriers.zh-CN.asset.json
+      - generated/career-kg-pr-17-postal-service-mail-carriers/qa_report.json
+      - generated/career-kg-pr-17-postal-service-mail-carriers/dry_run_importer_report.json
+      - generated/career-kg-pr-17-postal-service-mail-carriers/staging_preview_smoke.json
+      - generated/career-kg-pr-17-postal-service-mail-carriers/fap_web_render_smoke.json
+      - generated/career-kg-pr-17-postal-service-mail-carriers/sha256_manifest.json
+      - tests/contracts/career-kg-17-postal-service-mail-carriers.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify fap-api.
+      - Write CMS, staging, or production career rows.
+      - Add frontend runtime fallback editorial content.
+      - Change sitemap, llms, robots, canonical, noindex, JSON-LD runtime, search submission, deploy workflows, cache, queues, or server runtime.
+      - Change career jobs other than postal-service-mail-carriers or prepare future career KG content.
+      - Use Chinese recruiting or encyclopedia pages as occupational fact authority.
+      - Make employment, income, admission, diagnosis, ranking, route-stability, exam-pass, traffic, conversion, ROI, AI replacement, promotion, certification, platform approval, delivery-completion, safety, weather, or regulatory guarantees.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-kg-17-postal-service-mail-carriers.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null
 
   - id: MBTI-PDF-SNAPSHOT-PRINT-LAYOUT-POLISH-10
     repo: fap-web
