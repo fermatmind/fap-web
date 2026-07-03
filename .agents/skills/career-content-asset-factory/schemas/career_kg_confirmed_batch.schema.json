@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/career_kg_confirmed_batch.schema.json",
+  "title": "FermatMind Career KG Confirmed Batch",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "batch_id",
+    "source",
+    "cms_write_authorized",
+    "production_import_authorized",
+    "seo_runtime_release_authorized",
+    "items"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "fermatmind.career_kg.confirmed_batch.v1"
+    },
+    "batch_id": {
+      "type": "string",
+      "pattern": "^career-kg-[0-9]{4}-[0-9]{2}-[0-9]{2}(-[a-z0-9-]+)?$"
+    },
+    "source": {
+      "const": "operator_confirmed"
+    },
+    "cms_write_authorized": {
+      "const": false
+    },
+    "production_import_authorized": {
+      "const": false
+    },
+    "seo_runtime_release_authorized": {
+      "const": false
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 20,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "pr_id",
+          "priority",
+          "slug",
+          "locale",
+          "focus",
+          "gsc_summary"
+        ],
+        "properties": {
+          "pr_id": {
+            "type": "string",
+            "pattern": "^PR-CAREER-KG-[0-9]{2,3}$"
+          },
+          "priority": {
+            "enum": ["P0", "P1", "P2"]
+          },
+          "slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "locale": {
+            "const": "zh-CN"
+          },
+          "focus": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "title_meta_ctr",
+                "identity",
+                "definition",
+                "core_responsibilities",
+                "work_scenes",
+                "skills_tools",
+                "entry_path",
+                "riasec_personality_boundary",
+                "risk_ai_boundary",
+                "adjacent_careers",
+                "faq",
+                "internal_links",
+                "source_disclosure"
+              ]
+            }
+          },
+          "gsc_summary": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["impressions", "clicks", "avg_position"],
+            "properties": {
+              "impressions": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "clicks": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "avg_position": {
+                "type": "number",
+                "minimum": 1
+              },
+              "ctr": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "notes": {
+                "type": "string",
+                "maxLength": 1000
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

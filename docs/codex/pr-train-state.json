@@ -28101,6 +28101,132 @@
         "mergeStateStatus": "CLEAN",
         "mergeable": "MERGEABLE"
       }
+    },
+    {
+      "id": "PR-CAREER-KG-AGENT-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-career-kg-agent-01-contract-schema",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_blocked",
+      "title": "PR-CAREER-KG-AGENT-01: lock career KG input and package schemas",
+      "artifacts": [
+        ".agents/skills/career-content-asset-factory/references/career_kg_confirmed_batch_contract.md",
+        ".agents/skills/career-content-asset-factory/schemas/career_kg_confirmed_batch.schema.json",
+        ".agents/skills/career-content-asset-factory/schemas/career_kg_asset_package.schema.json",
+        "docs/career/career-kg-agent-optimization-runbook.md",
+        "tests/contracts/career-kg-agent-package-schema.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ]
+    },
+    {
+      "id": "PR-CAREER-KG-AGENT-02",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-career-kg-agent-02-package-generator",
+      "base": "main",
+      "depends_on": [
+        "PR-CAREER-KG-AGENT-01"
+      ],
+      "status": "pending",
+      "title": "PR-CAREER-KG-AGENT-02: add career KG package generator",
+      "artifacts": [
+        ".agents/skills/career-content-asset-factory/scripts/generate_career_kg_package.py",
+        ".agents/skills/career-content-asset-factory/templates/career_kg_asset_package_template.json",
+        ".agents/skills/career-content-asset-factory/templates/career_kg_readme_template.md",
+        "tests/contracts/career-kg-package-generator.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ]
+    },
+    {
+      "id": "PR-CAREER-KG-AGENT-03",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-career-kg-agent-03-qa-gate",
+      "base": "main",
+      "depends_on": [
+        "PR-CAREER-KG-AGENT-02"
+      ],
+      "status": "pending",
+      "title": "PR-CAREER-KG-AGENT-03: add career KG QA gate validators",
+      "artifacts": [
+        ".agents/skills/career-content-asset-factory/scripts/validate_career_kg_package.py",
+        ".agents/skills/career-content-asset-factory/scripts/validate_career_kg_claim_boundaries.py",
+        ".agents/skills/career-content-asset-factory/scripts/validate_career_kg_sources.py",
+        "tests/contracts/career-kg-package-validator.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ]
+    },
+    {
+      "id": "PR-CAREER-KG-AGENT-04",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-career-kg-agent-04-search-projection-quarantine",
+      "base": "main",
+      "depends_on": [
+        "PR-CAREER-KG-AGENT-03"
+      ],
+      "status": "pending",
+      "title": "PR-CAREER-KG-AGENT-04: add career KG search projection quarantine v2",
+      "artifacts": [
+        ".agents/skills/career-content-asset-factory/scripts/validate_search_projection_quarantine.py",
+        ".agents/skills/career-content-asset-factory/schemas/career_kg_search_projection_candidate.schema.json",
+        ".agents/skills/career-content-asset-factory/templates/career_kg_search_projection_candidate.json",
+        "tests/contracts/career-kg-search-projection-quarantine.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ]
+    },
+    {
+      "id": "PR-CAREER-KG-AGENT-05",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-career-kg-agent-05-pr-train-generator",
+      "base": "main",
+      "depends_on": [
+        "PR-CAREER-KG-AGENT-04"
+      ],
+      "status": "pending",
+      "title": "PR-CAREER-KG-AGENT-05: add career KG PR train entry generator",
+      "artifacts": [
+        ".agents/skills/career-content-asset-factory/scripts/generate_career_kg_pr_train_entries.py",
+        ".agents/skills/career-content-asset-factory/templates/career_kg_pr_train_entry.yaml",
+        ".agents/skills/career-content-asset-factory/templates/career_kg_pr_train_state_entry.json",
+        "tests/contracts/career-kg-pr-train-entry-generator.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ]
+    },
+    {
+      "id": "PR-CAREER-KG-AGENT-06",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/pr-career-kg-agent-06-runbook-skill-integration",
+      "base": "main",
+      "depends_on": [
+        "PR-CAREER-KG-AGENT-05"
+      ],
+      "status": "pending",
+      "title": "PR-CAREER-KG-AGENT-06: document career KG agent workflow",
+      "artifacts": [
+        ".agents/skills/career-content-asset-factory/SKILL.md",
+        ".agents/skills/career-content-asset-factory/references/operator_runbook.md",
+        ".agents/skills/career-content-asset-factory/references/search_projection_quarantine.md",
+        "docs/career/career-content-agent-technical-summary-2026-06-25.md",
+        "docs/codex/career-batch-review-checklist.md",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ]
     }
   ],
   "sidecar_issues": [
@@ -38143,5 +38269,208 @@
         "notes": "Revalidated scope after green checks: exactly the 11 authorized PR17 files and no outside-scope files; git diff --check passed. Staging deploy was not waited on."
       }
     ]
+  },
+  "PR-CAREER-KG-AGENT-01": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/pr-career-kg-agent-01-contract-schema",
+    "title": "PR-CAREER-KG-AGENT-01: lock career KG input and package schemas",
+    "train_scope": "career_kg_agent_contract_schema",
+    "depends_on": [],
+    "status": "ready_to_merge",
+    "commit_sha": "0e2a5794ff9c65bff983af3ce44bbdfde4576abc",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1562",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "artifacts": [
+      ".agents/skills/career-content-asset-factory/references/career_kg_confirmed_batch_contract.md",
+      ".agents/skills/career-content-asset-factory/schemas/career_kg_confirmed_batch.schema.json",
+      ".agents/skills/career-content-asset-factory/schemas/career_kg_asset_package.schema.json",
+      "docs/career/career-kg-agent-optimization-runbook.md",
+      "tests/contracts/career-kg-agent-package-schema.contract.test.ts",
+      "tests/contracts/helpers/currentPrScope.ts",
+      "docs/codex/pr-train.yaml",
+      "docs/codex/pr-train-state.json",
+      "generated/pr-train-sidecar-issues/sidecar_issues.md",
+      "generated/pr-train-sidecar-issues/sidecar_issues.json"
+    ],
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "Attached /goal explicitly authorized adding PR-CAREER-KG-AGENT-01 through PR-CAREER-KG-AGENT-06 manifest/state entries and executing them sequentially."
+      },
+      "worktree_isolation": {
+        "status": "pass",
+        "evidence": "Using isolated clean worktree <workspace>/fap-web-pr-career-kg-00 from latest main."
+      },
+      "local_checks": {
+        "status": "pass",
+        "commands": [
+          "pnpm exec vitest run tests/contracts/career-kg-agent-package-schema.contract.test.ts --reporter=dot",
+          "pnpm typecheck",
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "git diff --check",
+          "changed-file scope validation",
+          "pnpm test:contract -- --shards=4 --timeout-ms=600000 --reporter=dot",
+          "NODE_OPTIONS=--max-old-space-size=4096 NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build"
+        ],
+        "evidence": "Focused contract passed; typecheck passed; YAML/JSON/diff checks passed; changed-file scope validation found no outside-scope files; full contract shard runner passed 644/644 with quarantine 0; production build passed."
+      },
+      "contract_runner_recovery": {
+        "status": "pass",
+        "evidence": "PR-CONTRACT-RUNNER-04 merged into main before this rerun, replacing the prior black-box contract hang with sharded diagnostics and clean exits."
+      },
+      "github_checks": {
+        "status": "pass",
+        "evidence": "GitHub checks for PR #1562 passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze."
+      }
+    },
+    "scope_validation": {
+      "allowed_files": [
+        ".agents/skills/career-content-asset-factory/references/career_kg_confirmed_batch_contract.md",
+        ".agents/skills/career-content-asset-factory/schemas/career_kg_confirmed_batch.schema.json",
+        ".agents/skills/career-content-asset-factory/schemas/career_kg_asset_package.schema.json",
+        "docs/career/career-kg-agent-optimization-runbook.md",
+        "tests/contracts/career-kg-agent-package-schema.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json",
+        "generated/pr-train-sidecar-issues/sidecar_issues.md",
+        "generated/pr-train-sidecar-issues/sidecar_issues.json"
+      ],
+      "outside_scope_files": [],
+      "status": "pass",
+      "evidence": "git diff --name-only origin/main...HEAD plus worktree diff contains only the PR-CAREER-KG-AGENT-01 allowed files."
+    },
+    "events": [
+      {
+        "at": "2026-07-03T11:58:00+08:00",
+        "status": "in_progress",
+        "notes": "Started PR-CAREER-KG-AGENT-01 on branch codex/pr-career-kg-agent-01-contract-schema. Scope is career KG confirmed batch contract, dry-run package schema, runbook, focused contract test, scope helper, and PR-train metadata only."
+      },
+      {
+        "at": "2026-07-03T12:18:00+08:00",
+        "status": "local_checks_blocked",
+        "notes": "Stopped before commit/push/PR because local required pnpm test:contract did not complete cleanly. External failure/hang was recorded in generated/pr-train-sidecar-issues; PR1 focused contract, typecheck, and production build passed."
+      },
+      {
+        "at": "2026-07-03T12:29:00+08:00",
+        "status": "local_checks_blocked",
+        "notes": "Retried exact pnpm test:contract after clearing orphan Vitest processes. The suite printed passing output through the tail of tests/contracts, but did not emit final summary or exit; process inspection still showed pnpm/vitest workers alive after about six minutes. Interrupted with Ctrl-C, exit code 130."
+      },
+      {
+        "at": "2026-07-03T12:42:00+08:00",
+        "status": "local_checks_blocked",
+        "notes": "Continuation rerun started from no leftover Vitest processes and used exact pnpm test:contract. The suite reached the last visible contract output but did not emit final summary or exit; process inspection still showed pnpm/vitest workers alive after about four and a half minutes. Interrupted with Ctrl-C, exit code 130."
+      },
+      {
+        "at": "2026-07-03T06:10:07.216Z",
+        "status": "in_progress",
+        "notes": "Resumed after rebasing onto origin/main with PR-CONTRACT-RUNNER-04 merged. Retrying required local checks from the scoped PR-CAREER-KG-AGENT-01 branch."
+      },
+      {
+        "at": "2026-07-03T06:16:16.727Z",
+        "status": "local_checks_passed",
+        "notes": "All PR-CAREER-KG-AGENT-01 required local checks passed after rebasing onto main with contract runner fixes."
+      },
+      {
+        "at": "2026-07-03T06:17:39.530Z",
+        "status": "github_checks_pending",
+        "notes": "Opened PR #1562 and pushed PR URL/check pending state to ledger."
+      },
+      {
+        "at": "2026-07-03T06:23:03.474Z",
+        "status": "ready_to_merge",
+        "notes": "Remote checks green and scope revalidated. Recording ready_to_merge before squash merge."
+      }
+    ]
+  },
+  "PR-CAREER-KG-AGENT-02": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/pr-career-kg-agent-02-package-generator",
+    "title": "PR-CAREER-KG-AGENT-02: add career KG package generator",
+    "train_scope": "career_kg_agent_package_generator",
+    "depends_on": [
+      "PR-CAREER-KG-AGENT-01"
+    ],
+    "status": "pending",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null
+  },
+  "PR-CAREER-KG-AGENT-03": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/pr-career-kg-agent-03-qa-gate",
+    "title": "PR-CAREER-KG-AGENT-03: add career KG QA gate validators",
+    "train_scope": "career_kg_agent_qa_gate",
+    "depends_on": [
+      "PR-CAREER-KG-AGENT-02"
+    ],
+    "status": "pending",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null
+  },
+  "PR-CAREER-KG-AGENT-04": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/pr-career-kg-agent-04-search-projection-quarantine",
+    "title": "PR-CAREER-KG-AGENT-04: add career KG search projection quarantine v2",
+    "train_scope": "career_kg_agent_search_projection_quarantine",
+    "depends_on": [
+      "PR-CAREER-KG-AGENT-03"
+    ],
+    "status": "pending",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null
+  },
+  "PR-CAREER-KG-AGENT-05": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/pr-career-kg-agent-05-pr-train-generator",
+    "title": "PR-CAREER-KG-AGENT-05: add career KG PR train entry generator",
+    "train_scope": "career_kg_agent_pr_train_entry_generator",
+    "depends_on": [
+      "PR-CAREER-KG-AGENT-04"
+    ],
+    "status": "pending",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null
+  },
+  "PR-CAREER-KG-AGENT-06": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/pr-career-kg-agent-06-runbook-skill-integration",
+    "title": "PR-CAREER-KG-AGENT-06: document career KG agent workflow",
+    "train_scope": "career_kg_agent_runbook_skill_integration",
+    "depends_on": [
+      "PR-CAREER-KG-AGENT-05"
+    ],
+    "status": "pending",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null
   }
 }

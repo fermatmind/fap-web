@@ -1,32 +1,27 @@
 # PR Train Sidecar Issues
 
-## MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1
+## PR-CAREER-KG-AGENT-01: full contract suite timeout/hang outside current scope
 
-### fap-web local pnpm approve-builds blocker
-- repo: fap-web
-- PR id / branch: MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1 / codex/mbti-pdf-snapshot-sync-guard-h1
-- blocker type: local_pnpm_approve_builds
-- evidence: `pnpm ops:mbti-pdf-print-asset-hash && pnpm exec vitest ...` failed before running the scoped payload with `[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: esbuild@0.27.3, sharp@0.34.5, unrs-resolver@1.11.1`.
-- why not current PR scope: H1 only adds a print-impact hash guard script, a focused contract test, package script, and PR-train metadata. It does not change dependencies, install policy, or pnpm approval state.
-- required checks affected: Local pnpm wrapper command is affected on this machine. Direct `node` and `./node_modules/.bin/vitest` scoped payloads pass. GitHub CI is expected to run in its own clean install context.
-- recommended follow-up: Resolve local pnpm approve-builds state separately, then rerun the pnpm wrapper commands.
-
-### fap-web existing untracked pnpm-workspace.yaml
-- repo: fap-web
-- PR id / branch: MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1 / codex/mbti-pdf-snapshot-sync-guard-h1
-- blocker type: unrelated_untracked_file
-- evidence: `git status --short --branch` shows `?? pnpm-workspace.yaml`.
-- why not current PR scope: H1 scope does not include workspace package-manager configuration, and the file existed outside the scoped H1 changes.
-- required checks affected: Not affected if H1 files are staged path-explicitly. It can block a fully clean worktree closeout until handled separately.
-- recommended follow-up: Confirm whether `pnpm-workspace.yaml` should be committed in its own repository-maintenance PR or removed by the owner.
-
-## MBTI-PDF-SNAPSHOT-RENDERED-SMOKE-H2
-
-### fap-web local pnpm approve-builds blocker
-- repo: fap-web
-- PR id / branch: MBTI-PDF-SNAPSHOT-RENDERED-SMOKE-H2 / codex/mbti-pdf-snapshot-rendered-smoke-h2
-- blocker type: local_pnpm_approve_builds
-- evidence: `pnpm test:contract` failed before running contracts with `[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: esbuild@0.27.3, sharp@0.34.5, unrs-resolver@1.11.1`.
-- why not current PR scope: H2 extends one smoke script and focused contract tests. It does not change dependencies, install policy, or pnpm approval state.
-- required checks affected: Local pnpm wrapper command is affected on this machine. Direct `node`, `./node_modules/.bin/vitest`, and `./node_modules/.bin/tsc` scoped payloads pass. GitHub CI is expected to run in its own clean install context.
-- recommended follow-up: Resolve local pnpm approve-builds state separately, then rerun the pnpm wrapper commands.
+- repo: `fap-web`
+- PR id / branch: `PR-CAREER-KG-AGENT-01` / `codex/pr-career-kg-agent-01-contract-schema`
+- blocker type: local required check could not complete cleanly
+- evidence:
+  - `pnpm exec vitest run tests/contracts/career-kg-agent-package-schema.contract.test.ts` passed: 1 file, 5 tests.
+  - `pnpm typecheck` passed.
+  - `NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build` passed.
+  - First `pnpm test:contract` run failed only in `tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts` with two 5000ms timeouts.
+  - Focused rerun of that file with `--testTimeout=30000` passed: 1 file, 6 tests.
+  - Second `pnpm test:contract` and `CI=1 pnpm test:contract` printed complete passing test lists but did not exit cleanly before manual interruption.
+  - Latest rerun of exact `pnpm test:contract` printed passing output through the tail of `tests/contracts`, including `career-kg-agent-package-schema.contract.test.ts`, but still did not emit a final summary or exit after about six minutes.
+  - Process evidence before interruption showed `node /usr/local/bin/pnpm test:contract`, `node (vitest)`, and multiple `node (vitest N)` workers still alive; the run was interrupted with Ctrl-C and exited 130.
+  - Continuation rerun from a clean process state reproduced the same blocker: exact `pnpm test:contract` reached the last visible contract output (`site-chrome-rules.contract.test.ts`) but did not emit final summary or exit.
+  - Process evidence after about four and a half minutes showed `node /usr/local/bin/pnpm test:contract`, `node (vitest)`, and seven `node (vitest N)` workers still alive; the run was interrupted with Ctrl-C and exited 130.
+- why not current PR scope:
+  - The failing/hanging file is not in PR-CAREER-KG-AGENT-01 allowed paths.
+  - PR1 changed only career KG agent contracts/schemas/runbook, one focused contract, scope helper, and PR-train metadata.
+- whether required checks are affected:
+  - Local required `pnpm test:contract` is affected and blocks opening/merging under repository rules.
+  - GitHub required checks were not reached because no PR was opened.
+- recommended follow-up:
+  - Stabilize the full contract suite teardown or raise timeout for the llms-full artifact consistency contract outside this PR scope.
+  - Re-run PR-CAREER-KG-AGENT-01 after `pnpm test:contract` can complete cleanly.

@@ -74,6 +74,8 @@ const BIG_FIVE_PUBLIC_PROFILE_AGENT_PILOT_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
 ]);
 
 const BIG_FIVE_PUBLIC_PROFILE_AGENT_QA_01_ALLOWED_FILES = new Set([
@@ -84,6 +86,8 @@ const BIG_FIVE_PUBLIC_PROFILE_AGENT_QA_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
 ]);
 
 const PERSONALITY_AGENT_OPPORTUNITY_RANKER_AUTOMATION_01_ALLOWED_FILES = new Set([
@@ -419,6 +423,19 @@ const PR_CAREER_KG_17_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
+]);
+
+const PR_CAREER_KG_AGENT_01_ALLOWED_FILES = new Set([
+  ".agents/skills/career-content-asset-factory/references/career_kg_confirmed_batch_contract.md",
+  ".agents/skills/career-content-asset-factory/schemas/career_kg_confirmed_batch.schema.json",
+  ".agents/skills/career-content-asset-factory/schemas/career_kg_asset_package.schema.json",
+  "docs/career/career-kg-agent-optimization-runbook.md",
+  "tests/contracts/career-kg-agent-package-schema.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
 ]);
 
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
@@ -5829,6 +5846,14 @@ export function isPrCareerKg17AllowedFile(file: string): boolean {
   }
 
   return PR_CAREER_KG_17_ALLOWED_FILES.has(file);
+}
+
+export function isPrCareerKgAgent01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-career-kg-agent-01-contract-schema") {
+    return true;
+  }
+
+  return PR_CAREER_KG_AGENT_01_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {

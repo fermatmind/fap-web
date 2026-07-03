@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/career_kg_asset_package.schema.json",
+  "title": "FermatMind Career KG Asset Package",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "artifact_type",
+    "artifact_version",
+    "pr_id",
+    "status",
+    "locale",
+    "slug",
+    "canonical_path",
+    "canonical_unchanged",
+    "production_import_approved",
+    "staging_write_approved",
+    "identity",
+    "seo",
+    "content_blocks",
+    "sources",
+    "market_reference_policy",
+    "internal_links",
+    "release_boundaries"
+  ],
+  "properties": {
+    "artifact_type": {
+      "const": "career_knowledge_graph_occupation_asset"
+    },
+    "artifact_version": {
+      "type": "string",
+      "pattern": "^kg\\.pr[0-9a-z.-]+\\.v[0-9]+$"
+    },
+    "pr_id": {
+      "type": "string",
+      "pattern": "^PR-CAREER-KG-[0-9A-Z-]+$"
+    },
+    "status": {
+      "const": "dry_run_ready"
+    },
+    "locale": {
+      "const": "zh-CN"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "canonical_path": {
+      "type": "string",
+      "pattern": "^/zh/career/jobs/[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "canonical_unchanged": {
+      "const": true
+    },
+    "production_import_approved": {
+      "const": false
+    },
+    "staging_write_approved": {
+      "const": false
+    },
+    "identity": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "standard_name_zh",
+        "title_en",
+        "soc_code",
+        "onet_code",
+        "aliases_zh",
+        "aliases_en",
+        "easily_confused_occupations"
+      ]
+    },
+    "seo": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title_zh", "meta_description_zh", "h1_zh", "canonical_path", "ctr_intent_notes"],
+      "properties": {
+        "title_zh": { "type": "string", "minLength": 8, "maxLength": 80 },
+        "meta_description_zh": { "type": "string", "minLength": 20, "maxLength": 180 },
+        "h1_zh": { "type": "string", "minLength": 2, "maxLength": 40 },
+        "canonical_path": { "type": "string" },
+        "ctr_intent_notes": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "content_blocks": {
+      "type": "array",
+      "minItems": 9,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["id", "heading_zh", "source_refs"],
+        "properties": {
+          "id": {
+            "enum": [
+              "definition",
+              "core_responsibilities",
+              "work_scenes",
+              "skills_tools",
+              "entry_path",
+              "riasec_personality_boundary",
+              "risk_ai_boundary",
+              "adjacent_careers",
+              "faq"
+            ]
+          },
+          "heading_zh": { "type": "string", "minLength": 2 },
+          "body_zh": { "type": "string" },
+          "items_zh": { "type": "array" },
+          "source_refs": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["key", "label", "authority", "usage"],
+        "properties": {
+          "key": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 },
+          "url": { "type": "string" },
+          "authority": {
+            "enum": ["occupation_fact", "source_boundary", "interpretation_only", "market_intent_only"]
+          },
+          "usage": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "market_reference_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zh_recruiting_or_baike_sources_used", "allowed_usage", "blocked_usage"],
+      "properties": {
+        "zh_recruiting_or_baike_sources_used": { "type": "boolean" },
+        "allowed_usage": { "type": "string", "minLength": 1 },
+        "blocked_usage": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "internal_links": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["label", "path", "reason"],
+        "properties": {
+          "label": { "type": "string", "minLength": 1 },
+          "path": { "type": "string", "pattern": "^/" },
+          "reason": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "release_boundaries": {
+      "type": "object",
+      "additionalProperties": { "const": false }
+    },
+    "search_projection_file": {
+      "type": "string"
+    }
+  }
+}
