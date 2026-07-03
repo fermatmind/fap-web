@@ -1,0 +1,29 @@
+- id: {{pr_id}}
+  repo: fap-web
+  repo_path: <workspace>/fap-web
+  branch: codex/{{branch_slug}}
+  base: main
+  title: "{{pr_id}}: content(career): add {{slug}} KG asset package"
+  depends_on: []
+  mode: execute
+  train_scope: career_kg_{{slug_underscore}}_asset_package
+  status: pending
+  goal: "Add one dry-run career KG asset package for {{slug}} without CMS writes, production import, or SEO runtime release."
+  artifacts:
+{{artifact_list}}
+  allowed_paths:
+{{artifact_list}}
+  required_local_checks:
+    - pnpm exec vitest run tests/contracts/{{contract_test}}
+    - pnpm test:contract
+    - pnpm typecheck
+    - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+    - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+    - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+    - git diff --check
+    - changed-file scope validation
+  merge_policy:
+    github_checks_required: true
+    squash: true
+    auto_merge: true
+  next_task: null
