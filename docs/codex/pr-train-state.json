@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T07:54:34.357Z",
+  "updated_at": "2026-07-03T08:00:11.836Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13954,7 +13954,7 @@
       "depends_on": [
         "SECURITY-122-WEB-15"
       ],
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "train_scope": "security_122_web_public_ui_route_probe_config_guard_regressions",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-16: public UI/route probe/config guard regressions",
@@ -14012,43 +14012,40 @@
           "failed": []
         },
         "github": {
-          "status": "pending",
+          "status": "passed",
           "passed": [
             {
               "name": "build",
-              "evidence": "GitHub build check passed before contracts fix push."
+              "evidence": "GitHub check passed on PR #1568."
+            },
+            {
+              "name": "contracts",
+              "evidence": "GitHub contracts check passed on PR #1568 after current-scope fixes."
             },
             {
               "name": "verify-big5-contract-freeze",
-              "evidence": "GitHub freeze check passed before contracts fix push."
+              "evidence": "GitHub check passed on PR #1568."
             },
             {
               "name": "verify-enneagram-contract-freeze",
-              "evidence": "GitHub freeze check passed before contracts fix push."
+              "evidence": "GitHub check passed on PR #1568."
             },
             {
               "name": "CodeQL/analyze",
-              "evidence": "GitHub CodeQL/analyze checks passed before contracts fix push."
+              "evidence": "GitHub CodeQL/analyze checks passed on PR #1568."
             }
           ],
-          "failed": [
-            {
-              "name": "contracts",
-              "url": "https://github.com/fermatmind/fap-web/actions/runs/28646339085/job/84953727329",
-              "evidence": "Second contracts run still failed in the WEB-16 scope guard because CI had no usable origin/main/main diff base; the state status also used a value outside the existing reconciliation contract allowlist.",
-              "current_pr_scope": true
-            }
-          ],
+          "failed": [],
           "evidence": "Current-scope contracts fixes pushed locally; waiting for GitHub checks rerun."
         },
         "scope": {
           "status": "passed",
-          "evidence": "Second CI fix is limited to tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx and docs/codex/pr-train-state.json."
+          "evidence": "Pre-merge revalidation passed; changed files remain within WEB-16 scope and PR #1568 is mergeable."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1568",
-      "commit_sha": "cbe373abfa48a0966a04bf22533921a187d9df51",
+      "commit_sha": "351a4412cb212db871b5e5ce7f325de4d01fb551",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -14097,11 +14094,16 @@
           "at": "2026-07-03T07:54:34.357Z",
           "status": "pr_opened",
           "summary": "Completed second current-scope CI contracts fix locally; focused contracts, typecheck, and full contracts passed before push."
+        },
+        {
+          "at": "2026-07-03T08:00:11.836Z",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed for PR #1568; pre-merge scope validation passed and PR is mergeable."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T07:54:34.357Z",
-      "head_sha": "cbe373abfa48a0966a04bf22533921a187d9df51",
+      "updated_at": "2026-07-03T08:00:11.836Z",
+      "head_sha": "351a4412cb212db871b5e5ce7f325de4d01fb551",
       "merge_sha": null
     },
     {
