@@ -13171,7 +13171,7 @@
       "depends_on": [
         "SECURITY-122-WEB-09"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_generated_docs_artifacts_local_path_redaction",
       "risk_level": "low",
       "title": "SECURITY-122-WEB-10: generated docs/artifacts local path redaction",
@@ -13217,7 +13217,7 @@
             "analyze (javascript-typescript)",
             "CodeQL"
           ],
-          "evidence": "GitHub checks passed for PR #1550 on head 40750b9e7ced1c0c4309ecdd4e5b80bac0fe8c83: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN before this ready_to_merge ledger update."
+          "evidence": "GitHub checks passed for PR #1550 on final head bc5b5bfa010406276d1afa6ecd0f20331fa6d306; PR was squash-merged at 2026-07-03T02:56:26Z with merge commit b1ffcd2b6a17764f5e86bb8801b31119c2e3f8ab. origin/main contains the merge commit, local main was synced, worktree was clean, and local/remote task branches were deleted."
         },
         "scope": {
           "status": "passed",
@@ -13226,10 +13226,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1550",
-      "commit_sha": "40750b9e7ced1c0c4309ecdd4e5b80bac0fe8c83",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "bc5b5bfa010406276d1afa6ecd0f20331fa6d306",
+      "merged_at": "2026-07-03T02:56:26Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -13260,11 +13260,17 @@
           "at": "2026-07-03T10:51:00+08:00",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed and PR diff scope validation passed for SECURITY-122-WEB-10 after rebase. Focused local revalidation passed. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
+        },
+        {
+          "at": "2026-07-03T11:25:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled SECURITY-122-WEB-10 merge and cleanup facts while starting SECURITY-122-WEB-11: PR #1550 merged, origin/main contains b1ffcd2b6a17764f5e86bb8801b31119c2e3f8ab, local main synced clean, and codex/security-122-web-10 branches cleaned."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T10:51:00+08:00",
-      "head_sha": "40750b9e7ced1c0c4309ecdd4e5b80bac0fe8c83"
+      "updated_at": "2026-07-03T11:25:00+08:00",
+      "head_sha": "bc5b5bfa010406276d1afa6ecd0f20331fa6d306",
+      "merge_sha": "b1ffcd2b6a17764f5e86bb8801b31119c2e3f8ab"
     },
     {
       "id": "SECURITY-122-WEB-11",
@@ -13275,7 +13281,7 @@
       "depends_on": [
         "SECURITY-122-WEB-10"
       ],
-      "status": "planned",
+      "status": "pr_opened",
       "train_scope": "security_122_web_artifact_integrity_restore_freeze_path_traversal_csv_injection",
       "risk_level": "low",
       "title": "SECURITY-122-WEB-11: artifact integrity, restore/freeze safety, path traversal, CSV injection",
@@ -13295,21 +13301,36 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-10 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-10 merged via PR #1550 at 2026-07-03T02:56:26Z; origin/main contains b1ffcd2b6a17764f5e86bb8801b31119c2e3f8ab and WEB-10 task branches are cleaned."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-11-artifact-integrity.contract.test.ts",
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-11-artifact-integrity.contract.test.ts tests/contracts/url-inventory-generator.contract.test.ts tests/contracts/mbti64-zh32-en32-v85-v5-bilingual-package-qa-01.contract.test.ts",
+            "/usr/local/bin/pnpm typecheck",
+            "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+            "/usr/local/bin/pnpm test:contract",
+            "ruby manifest/state parse",
+            "git diff --check",
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-11-artifact-integrity.contract.test.ts --testNamePattern \"keeps tracked diff scope\""
+          ],
+          "evidence": "Focused WEB-11 artifact integrity contract passed; focused regression with URL inventory and MBTI64 bilingual temporary output contracts passed; typecheck passed; production build passed after final helper changes; full contract suite passed with 639 files / 3727 tests; manifest/state parse, git diff --check, and changed-file scope validation passed."
         },
         "github": {
           "status": "pending",
-          "passed": []
+          "passed": [],
+          "evidence": "PR #1552 opened for SECURITY-122-WEB-11; GitHub checks pending after rebase onto origin/main 0bd228de0ed57b9a86ef6d4f3a69a51ffe00829a."
+        },
+        "scope": {
+          "status": "passed",
+          "evidence": "Focused WEB-11 contract validates changed files against the SECURITY-122-WEB-11 allowlist: artifact safety helper, guarded SEO artifact generators, focused contract, scope helper, and PR-train metadata only."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1552",
+      "commit_sha": "0dae121bdc3de53617f11b555eff35e5fd18fed9",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -13318,10 +13339,31 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-11 from explicit user /goal; execution waits for SECURITY-122-WEB-10 merge."
+        },
+        {
+          "at": "2026-07-03T11:08:00+08:00",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-11 from latest main after WEB-10 post-merge revalidation; implementing artifact integrity, output path traversal, AUDIT_DATE/generated-date, and CSV formula-injection guards only."
+        },
+        {
+          "at": "2026-07-03T11:16:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Completed WEB-11 implementation and local validation: focused artifact integrity/path traversal/CSV guards, temp-output regressions, typecheck, production build, full contract suite, manifest/state parse, diff check, and changed-file scope validation passed."
+        },
+        {
+          "at": "2026-07-03T11:21:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened PR #1552 for SECURITY-122-WEB-11 from branch codex/security-122-web-11 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-07-03T11:25:00+08:00",
+          "status": "rebased_pending_checks",
+          "summary": "Rebased SECURITY-122-WEB-11 onto origin/main 0bd228de0ed57b9a86ef6d4f3a69a51ffe00829a after PR #1552 reported merge conflicts; resolved docs/codex ledger conflict by preserving upstream PR-CAREER-KG-16 facts and replaying WEB-10/WEB-11 scope facts."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T11:25:00+08:00",
+      "head_sha": "0dae121bdc3de53617f11b555eff35e5fd18fed9"
     },
     {
       "id": "SECURITY-122-WEB-12",

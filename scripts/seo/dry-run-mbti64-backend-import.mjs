@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
+import { sanitizeDateSlug } from "./artifactSafety.mjs";
 
 const repoRoot = process.cwd();
-const auditDate = process.env.AUDIT_DATE || new Date().toISOString().slice(0, 10);
+const auditDate = sanitizeDateSlug(process.env.AUDIT_DATE || new Date().toISOString().slice(0, 10), "AUDIT_DATE");
 const fapApiRoot = process.env.FAP_API_ROOT || null;
 const fapApiRootLabel = "<fap-api-backend>";
 

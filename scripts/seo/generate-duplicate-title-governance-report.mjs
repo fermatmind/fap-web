@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
+import { csvEscape, resolveOutputPath, resolveRepoPath } from "./artifactSafety.mjs";
 
 const ROOT = process.cwd();
 const VERSION = "seo_foundation.duplicate_title_governance.v1";
@@ -39,7 +40,7 @@ function parseArgs(argv) {
 }
 
 function readJson(relOrAbsPath) {
-  return JSON.parse(fs.readFileSync(path.resolve(ROOT, relOrAbsPath), "utf8"));
+  return JSON.parse(fs.readFileSync(resolveRepoPath(ROOT, relOrAbsPath, "source path"), "utf8"));
 }
 
 function includesAny(values, needles) {
@@ -161,7 +162,7 @@ function buildReport(sourcePath) {
 
 function toCsvValue(value) {
   const text = Array.isArray(value) ? value.join("|") : String(value ?? "");
-  return `"${text.replace(/"/g, '""')}"`;
+  return csvEscape(text);
 }
 
 function buildCsv(clusters) {
@@ -178,12 +179,14 @@ function main() {
   const json = JSON.stringify(report, null, args.pretty ? 2 : 0);
 
   if (args.output) {
-    fs.mkdirSync(path.dirname(path.resolve(ROOT, args.output)), { recursive: true });
-    fs.writeFileSync(path.resolve(ROOT, args.output), `${json}\n`);
+    const outputPath = resolveOutputPath(ROOT, args.output, "output path");
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    fs.writeFileSync(outputPath, `${json}\n`);
   }
   if (args.csv) {
-    fs.mkdirSync(path.dirname(path.resolve(ROOT, args.csv)), { recursive: true });
-    fs.writeFileSync(path.resolve(ROOT, args.csv), `${buildCsv(report.clusters)}\n`);
+    const csvPath = resolveOutputPath(ROOT, args.csv, "CSV output path");
+    fs.mkdirSync(path.dirname(csvPath), { recursive: true });
+    fs.writeFileSync(csvPath, `${buildCsv(report.clusters)}\n`);
   }
 
   process.stdout.write(`${json}\n`);

@@ -1,9 +1,18 @@
 #!/usr/bin/env node
 import fs from "node:fs/promises";
 import path from "node:path";
+import {
+  csvEscape,
+  resolveOutputPath,
+  resolveRepoPath as resolveSafeRepoPath,
+  sanitizeDateSlug,
+} from "./artifactSafety.mjs";
 
 const ROOT = process.cwd();
-const GENERATED_DATE = getArgValue("--generated-date") ?? process.env.MBTI64_AGENT_PRIORITY_RANKER_DATE ?? "2026-06-23";
+const GENERATED_DATE = sanitizeDateSlug(
+  getArgValue("--generated-date") ?? process.env.MBTI64_AGENT_PRIORITY_RANKER_DATE ?? "2026-06-23",
+  "generated date",
+);
 const GSC_IMPORT_PATH = resolveRepoPath(
   getArgValue("--gsc-import") ?? "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-2026-06-23.json",
 );
@@ -19,14 +28,20 @@ const STABILIZE_PATH = resolveRepoPath(
   getArgValue("--stabilize") ??
     "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-import-stabilize-2026-06-23.json",
 );
-const OUTPUT_JSON = resolveRepoPath(
+const OUTPUT_JSON = resolveOutputPath(
+  ROOT,
   getArgValue("--output-json") ?? `docs/seo/personality/mbti64-agent-priority-ranker-${GENERATED_DATE}.json`,
+  "output JSON path",
 );
-const OUTPUT_MD = resolveRepoPath(
+const OUTPUT_MD = resolveOutputPath(
+  ROOT,
   getArgValue("--output-md") ?? `docs/seo/personality/mbti64-agent-priority-ranker-${GENERATED_DATE}.md`,
+  "output Markdown path",
 );
-const OUTPUT_CSV = resolveRepoPath(
+const OUTPUT_CSV = resolveOutputPath(
+  ROOT,
   getArgValue("--output-csv") ?? `docs/seo/personality/mbti64-agent-priority-ranker-${GENERATED_DATE}.csv`,
+  "output CSV path",
 );
 
 const ACTION_ORDER = {
@@ -44,7 +59,7 @@ function getArgValue(name) {
 }
 
 function resolveRepoPath(filePath) {
-  return path.isAbsolute(filePath) ? filePath : path.join(ROOT, filePath);
+  return resolveSafeRepoPath(ROOT, filePath, "repo path");
 }
 
 function rel(filePath) {
@@ -227,7 +242,7 @@ function toCsv(rows) {
       row.score_inputs.query_rows_captured,
       row.recommended_next_task,
     ];
-    lines.push(values.map((value) => `"${String(value).replaceAll('"', '""')}"`).join(","));
+    lines.push(values.map((value) => csvEscape(value)).join(","));
   }
   return `${lines.join("\n")}\n`;
 }

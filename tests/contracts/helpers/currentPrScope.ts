@@ -1373,6 +1373,24 @@ const SECURITY_122_WEB_10_ALLOWED_FILES = new Set([
   "tests/contracts/seo-intelligence-asset-map.contract.test.ts",
 ]);
 
+const SECURITY_122_WEB_11_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "scripts/seo/artifactSafety.mjs",
+  "scripts/seo/build-mbti64-zh32-en32-v85-v5-bilingual-package.mjs",
+  "scripts/seo/build-personality-agent-next-batch-6-handoff.mjs",
+  "scripts/seo/dry-run-mbti64-backend-import.mjs",
+  "scripts/seo/generate-duplicate-title-governance-report.mjs",
+  "scripts/seo/generate-seo-agent-fapweb-code-pr-writer.mjs",
+  "scripts/seo/generate-url-inventory.mjs",
+  "scripts/seo/personality-agent-recommendation-auto-runner.mjs",
+  "scripts/seo/rank-mbti64-agent-priorities.mjs",
+  "scripts/seo/validate-mbti64-backend-import-contract.mjs",
+  "scripts/seo/validate-mbti64-content-package-v2.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-122-web-11-artifact-integrity.contract.test.ts",
+]);
+
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
   "components/result/eq/EQEvidenceSnapshot.tsx",
   "components/result/eq/types.ts",
@@ -3883,6 +3901,14 @@ export function isSecurity122Web10AllowedFile(file: string): boolean {
   return SECURITY_122_WEB_10_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity122Web11AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-122-web-11") {
+    return true;
+  }
+
+  return SECURITY_122_WEB_11_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -4887,6 +4913,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/security-122-web-10") {
     return SECURITY_122_WEB_10_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/security-122-web-11") {
+    return SECURITY_122_WEB_11_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {

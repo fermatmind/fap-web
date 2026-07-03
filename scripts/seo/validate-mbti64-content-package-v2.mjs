@@ -2,9 +2,10 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { sanitizeDateSlug } from "./artifactSafety.mjs";
 
 const repoRoot = process.cwd();
-const auditDate = process.env.AUDIT_DATE || new Date().toISOString().slice(0, 10);
+const auditDate = sanitizeDateSlug(process.env.AUDIT_DATE || new Date().toISOString().slice(0, 10), "AUDIT_DATE");
 const inputZip = process.env.INPUT_ZIP || "<uploaded_zip>/mbti64-content-package-pilot-v2-final.zip";
 const packageRoot = path.join(
   repoRoot,
