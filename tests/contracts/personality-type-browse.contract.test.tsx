@@ -69,14 +69,14 @@ describe("personality type browse contract", () => {
     expect(pageSource).toContain('data-testid="personality-type-group-browse"');
     expect(pageSource).toContain('data-testid="personality-type-directory"');
     expect(pageSource).toContain("formatTypeLabel(type)");
-    expect(pageSource).toContain("TYPE_ICONS[type.baseTypeCode]");
+    expect(pageSource).toContain("TYPE_ICONS[typeGroup.baseTypeCode]");
     expect(pageSource).toContain("INTJ: DraftingCompass");
     expect(pageSource).toContain("ESFP: Drama");
+    expect(pageSource).toContain('data-testid="personality-type-image"');
+    expect(pageSource).toContain('data-testid="personality-type-code-fallback"');
     expect(pageSource).toContain("crossComparisonsByBaseType");
     expect(pageSource).toContain('item.comparisonType === "mbti_cross_type"');
     expect(pageSource).toContain("comparisonLabel(item)");
-    expect(pageSource).not.toContain('data-testid="personality-type-image"');
-    expect(pageSource).not.toContain('data-testid="personality-type-code-fallback"');
     expect(pageSource).not.toContain("type.baseTypeCode.split");
   });
 

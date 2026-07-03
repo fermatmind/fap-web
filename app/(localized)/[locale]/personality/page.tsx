@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -302,7 +303,7 @@ function TypeGroupBrowse({
         data-testid="personality-type-directory"
       >
         <div className="space-y-12">
-          {groups.map((group) => {
+          {groups.map((group, groupIndex) => {
             const tone = getTone(group.groupKey);
 
             return (
@@ -316,16 +317,18 @@ function TypeGroupBrowse({
                 </div>
 
                 <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-                  {groupCardsByBaseType(group.cards).map((type) => {
-                    const TypeIcon = TYPE_ICONS[type.baseTypeCode] ?? Atom;
-                    const variantA = type.variants.find(
+                  {groupCardsByBaseType(group.cards).map((typeGroup, typeIndex) => {
+                    const TypeIcon = TYPE_ICONS[typeGroup.baseTypeCode] ?? Atom;
+                    const variantA = typeGroup.variants.find(
                       (variant) => variant.variantCode === "A" || variant.typeCode.endsWith("-A")
                     );
-                    const variantT = type.variants.find(
+                    const variantT = typeGroup.variants.find(
                       (variant) => variant.variantCode === "T" || variant.typeCode.endsWith("-T")
                     );
+                    const type = variantA ?? variantT ?? typeGroup.variants[0];
+                    const isPriorityImage = groupIndex === 0 && typeIndex < 4;
                     const comparisonHref =
-                      comparisonHrefByBaseType.get(type.baseTypeCode) ??
+                      comparisonHrefByBaseType.get(typeGroup.baseTypeCode) ??
                       (variantA && variantT
                         ? localizedPath(
                             `/personality/${variantA.typeCode.toLowerCase()}-vs-${variantT.typeCode.toLowerCase()}`,
@@ -335,16 +338,35 @@ function TypeGroupBrowse({
 
                     return (
                       <article
-                        key={type.baseTypeCode}
+                        key={typeGroup.baseTypeCode}
                         className="group rounded-xl border border-[#e6e4ea] bg-white p-4 text-[#17112f] shadow-sm transition hover:-translate-y-0.5 hover:border-[#d4c9df] hover:shadow-md"
                       >
                         <div className="flex items-center gap-4">
-                          <span className={`grid h-14 w-14 shrink-0 place-items-center rounded-xl ${tone.icon}`}>
-                            <TypeIcon className="h-7 w-7" aria-hidden="true" />
+                          <span className="grid h-20 w-20 shrink-0 place-items-center rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
+                            {type?.imageUrl ? (
+                              <Image
+                                src={type.imageUrl}
+                                alt={formatTypeLabel(type)}
+                                width={112}
+                                height={112}
+                                sizes="112px"
+                                className="h-16 w-16 object-contain"
+                                data-testid="personality-type-image"
+                                data-loading-strategy={isPriorityImage ? "priority" : "lazy"}
+                                {...(isPriorityImage ? { priority: true } : { loading: "lazy" as const })}
+                              />
+                            ) : (
+                              <span
+                                className={`grid h-14 w-14 place-items-center rounded-xl ${tone.icon}`}
+                                data-testid="personality-type-code-fallback"
+                              >
+                                <TypeIcon className="h-7 w-7" aria-hidden="true" />
+                              </span>
+                            )}
                           </span>
                           <div className="min-w-0">
-                            <h3 className="m-0 text-2xl font-semibold leading-tight">{type.baseTypeCode}</h3>
-                            <p className="m-0 mt-1 text-sm font-medium text-[#586271]">{type.displayName}</p>
+                            <h3 className="m-0 text-2xl font-semibold leading-tight">{typeGroup.baseTypeCode}</h3>
+                            <p className="m-0 mt-1 text-sm font-medium text-[#586271]">{typeGroup.displayName}</p>
                             <div className="mt-3 flex flex-wrap gap-2">
                               {variantA ? (
                                 <Link
@@ -367,7 +389,7 @@ function TypeGroupBrowse({
                         </div>
 
                         <div className="mt-5 flex flex-wrap gap-2">
-                          {(crossComparisonsByBaseType.get(type.baseTypeCode) ?? []).slice(0, 2).map((item) => (
+                          {(crossComparisonsByBaseType.get(typeGroup.baseTypeCode) ?? []).slice(0, 2).map((item) => (
                             <Link
                               key={item.slug}
                               href={item.href}
