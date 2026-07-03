@@ -13281,7 +13281,7 @@
       "depends_on": [
         "SECURITY-122-WEB-10"
       ],
-      "status": "rebased_local_checks_passed",
+      "status": "local_checks_passed",
       "train_scope": "security_122_web_artifact_integrity_restore_freeze_path_traversal_csv_injection",
       "risk_level": "low",
       "title": "SECURITY-122-WEB-11: artifact integrity, restore/freeze safety, path traversal, CSV injection",
@@ -13312,15 +13312,16 @@
             "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
             "/usr/local/bin/pnpm test:contract",
             "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+            "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-01-train-reconciliation.contract.test.ts",
             "git diff --check origin/main...HEAD",
             "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-11-artifact-integrity.contract.test.ts --testNamePattern \"keeps tracked diff scope\""
           ],
-          "evidence": "After rebasing onto origin/main 0bd228de0ed57b9a86ef6d4f3a69a51ffe00829a, focused WEB-11 regression contracts passed; typecheck passed; production build passed after static-page retry warnings; full contract suite passed with 640 files / 3732 tests; manifest/state parse, git diff --check origin/main...HEAD, and changed-file scope validation passed."
+          "evidence": "After rebasing onto origin/main 0bd228de0ed57b9a86ef6d4f3a69a51ffe00829a, focused WEB-11 regression contracts passed; typecheck passed; production build passed after static-page retry warnings; full contract suite passed with 640 files / 3732 tests; manifest/state parse, PR-train reconciliation contract, git diff --check origin/main...HEAD, and changed-file scope validation passed. After GitHub contracts rejected the temporary unsupported status value, corrected the ledger status to local_checks_passed and reran the failing reconciliation contract plus full contract suite successfully."
         },
         "github": {
           "status": "pending",
           "passed": [],
-          "evidence": "PR #1552 will be force-pushed after rebase; GitHub checks pending on rebased head."
+          "evidence": "PR #1552 GitHub contracts failed on rebased head 9a00d56b0f5cf2e5ececf97e1224f77be2b9c4ed because docs/codex/pr-train-state.json used unsupported status rebased_local_checks_passed. Corrected within current metadata scope; checks pending after fix push."
         },
         "scope": {
           "status": "passed",
@@ -13361,13 +13362,18 @@
         },
         {
           "at": "2026-07-03T11:35:00+08:00",
-          "status": "rebased_local_checks_passed",
+          "status": "local_checks_passed",
           "summary": "Rebased SECURITY-122-WEB-11 onto origin/main 0bd228de0ed57b9a86ef6d4f3a69a51ffe00829a after PR #1552 reported merge conflicts. Resolved docs/codex ledger conflict by preserving upstream PR-CAREER-KG-16 facts and replaying WEB-10/WEB-11 scope facts, then reran focused WEB-11 regressions, typecheck, production build, full contract suite, manifest/state parse, diff check, and changed-file scope validation successfully."
+        },
+        {
+          "at": "2026-07-03T11:36:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Inspected failed GitHub contracts job for PR #1552. Failure was current PR metadata scope: SECURITY-122-WEB-11 used unsupported ledger status rebased_local_checks_passed. Corrected status to local_checks_passed, then reran manifest/state parse, the failing PR-train reconciliation contract, scope validation, and full contract suite successfully before pushing the fix."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T11:35:00+08:00",
-      "head_sha": "7cc7456d311a7ad6ab6d2897eac7a2f887fcb1de"
+      "updated_at": "2026-07-03T11:36:00+08:00",
+      "head_sha": "9a00d56b0f5cf2e5ececf97e1224f77be2b9c4ed"
     },
     {
       "id": "SECURITY-122-WEB-12",
