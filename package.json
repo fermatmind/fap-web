@@ -49,7 +49,7 @@
     "ops:big5-v2-post-deploy-smoke": "node scripts/ops/check-big5-v2-live-result-pdf.mjs",
     "ops:mbti-result-page-pdf-smoke": "node scripts/ops/check-mbti-result-page-pdf-smoke.mjs",
     "content:check-translations": "node scripts/content/check-translations.mjs",
-    "test:contract": "vitest run tests/contracts",
+    "test:contract": "node scripts/testing/run-contract-shards.mjs",
     "test:a11y": "vitest run tests/a11y",
     "test:e2e": "playwright test",
     "test:e2e:visual": "bash scripts/visual/run_visual_suite.sh verify",
