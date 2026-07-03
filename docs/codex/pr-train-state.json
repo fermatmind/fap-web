@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T07:30:32.592Z",
+  "updated_at": "2026-07-03T07:37:12.962Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13982,7 +13982,7 @@
           "passed": [
             {
               "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx tests/contracts/mbti-pdf-snapshot-sync-guard-h1.contract.test.ts",
-              "evidence": "Focused WEB-16 contract and MBTI PDF print hash guard passed after moving the CTA visibility fix outside print-impact inputs."
+              "evidence": "Focused WEB-16 contract and MBTI PDF print hash guard passed after rebasing onto origin/main 4fa13f11."
             },
             {
               "command": "/usr/local/bin/pnpm typecheck",
@@ -13990,11 +13990,11 @@
             },
             {
               "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
-              "evidence": "Production URL build passed and generated 202/202 static pages."
+              "evidence": "Production URL build passed after rebasing onto origin/main 4fa13f11 and generated 202/202 static pages."
             },
             {
               "command": "/usr/local/bin/pnpm test:contract",
-              "evidence": "Full contract suite passed across 4 shards: shard 1 163 files/924 tests, shard 2 162 files/917 tests, shard 3 162 files/1044 tests, shard 4 162 files/883 tests."
+              "evidence": "Full contract suite passed after rebasing onto origin/main 4fa13f11: shard 1 163 files/893 tests, shard 2 163 files/908 tests, shard 3 162 files/1042 tests, shard 4 162 files/930 tests."
             },
             {
               "command": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
@@ -14018,12 +14018,12 @@
         },
         "scope": {
           "status": "passed",
-          "evidence": "Changed files are limited to app/(root)/layout.tsx, app/mbti-career-cta.css, lib/site.ts, tests/contracts/helpers/currentPrScope.ts, tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx, and docs/codex/pr-train-state.json."
+          "evidence": "Post-rebase changed files remain limited to app/(root)/layout.tsx, app/mbti-career-cta.css, lib/site.ts, tests/contracts/helpers/currentPrScope.ts, tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx, and docs/codex/pr-train-state.json."
         }
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": "8221cbf4ff712e2d11ba281e1cab5e3dd24af55b",
+      "commit_sha": "91acdbc317b9487df8da6c5a519ab58ddd7c85a0",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -14047,11 +14047,16 @@
           "at": "2026-07-03T07:30:32.592Z",
           "status": "committed",
           "summary": "Committed SECURITY-122-WEB-16 local implementation at 8221cbf4ff712e2d11ba281e1cab5e3dd24af55b after required local checks and scope validation passed."
+        },
+        {
+          "at": "2026-07-03T07:37:12.962Z",
+          "status": "committed",
+          "summary": "Rebased SECURITY-122-WEB-16 onto origin/main 4fa13f11 and reran required local checks successfully at 91acdbc317b9487df8da6c5a519ab58ddd7c85a0."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T07:30:32.592Z",
-      "head_sha": "8221cbf4ff712e2d11ba281e1cab5e3dd24af55b",
+      "updated_at": "2026-07-03T07:37:12.962Z",
+      "head_sha": "91acdbc317b9487df8da6c5a519ab58ddd7c85a0",
       "merge_sha": null
     },
     {
