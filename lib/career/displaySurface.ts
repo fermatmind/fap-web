@@ -14,9 +14,20 @@ export const CAREER_DISPLAY_FORBIDDEN_FIELDS = [
   "release_gate",
   "release_gates",
   "qa_risk",
+  "qa_notes",
+  "qa_trace",
   "admin_review_state",
   "tracking_json",
   "raw_ai_exposure_score",
+  "source_reference",
+  "source_references",
+] as const;
+
+export const CAREER_DISPLAY_TRUSTED_SOURCE_AUTHORITIES = [
+  "occupation_fact",
+  "official_labor_market",
+  "market_sample",
+  "fermatmind_interpretation",
 ] as const;
 
 export const CAREER_DISPLAY_COMPONENT_ORDER = [
@@ -52,6 +63,7 @@ const DISPLAY_ASSET_ROLE = "formal_pilot_master";
 const ALLOWED_COMPONENT_ORDER = new Set<string>(CAREER_DISPLAY_COMPONENT_ORDER);
 const FORBIDDEN_FIELD_SET = new Set<string>(CAREER_DISPLAY_FORBIDDEN_FIELDS);
 const CAREER_DISPLAY_MANUAL_HOLD_SLUG_SET = new Set<string>(CAREER_DISPLAY_MANUAL_HOLD_SLUGS);
+const TRUSTED_SOURCE_AUTHORITY_SET = new Set<string>(CAREER_DISPLAY_TRUSTED_SOURCE_AUTHORITIES);
 
 export type CareerDisplayComponentId = (typeof CAREER_DISPLAY_COMPONENT_ORDER)[number];
 export type CareerDisplayLocaleInput = Locale | "zh-CN";
@@ -134,6 +146,8 @@ export type CareerDisplaySource = {
   usage?: string;
   capturedAt?: string;
   expiresAt?: string;
+  authority: (typeof CAREER_DISPLAY_TRUSTED_SOURCE_AUTHORITIES)[number];
+  trustCertification: "trusted_public_source" | "bounded_market_sample" | "bounded_interpretation";
 };
 
 export type CareerDisplayRelatedPage = {
@@ -339,6 +353,131 @@ function normalizeSafeSourceUrl(value: unknown): string | null {
   } catch {
     return null;
   }
+}
+
+function sourceUrlHost(value: string | null): string | null {
+  if (!value) {
+    return null;
+  }
+
+  try {
+    return new URL(value).hostname.toLowerCase();
+  } catch {
+    return null;
+  }
+}
+
+function isTrustedOfficialSourceHost(host: string | null): boolean {
+  return Boolean(
+    host &&
+      (host === "www.onetonline.org" ||
+        host === "onetonline.org" ||
+        host === "www.mynextmove.org" ||
+        host === "mynextmove.org" ||
+        host === "www.bls.gov" ||
+        host === "bls.gov" ||
+        host === "www.stats.gov.cn" ||
+        host === "stats.gov.cn")
+  );
+}
+
+function isTrustedMarketSampleHost(host: string | null): boolean {
+  return Boolean(host && (host === "www.zhaopin.com" || host === "zhaopin.com"));
+}
+
+function normalizeSourceAuthority(value: unknown): (typeof CAREER_DISPLAY_TRUSTED_SOURCE_AUTHORITIES)[number] | null {
+  const normalized = normalizeString(value);
+  if (!normalized) {
+    return null;
+  }
+
+  if (TRUSTED_SOURCE_AUTHORITY_SET.has(normalized)) {
+    return normalized as (typeof CAREER_DISPLAY_TRUSTED_SOURCE_AUTHORITIES)[number];
+  }
+
+  if (normalized === "official") {
+    return "occupation_fact";
+  }
+
+  if (normalized === "interpretation") {
+    return "fermatmind_interpretation";
+  }
+
+  if (normalized === "sample" || normalized === "market_reference") {
+    return "market_sample";
+  }
+
+  return null;
+}
+
+function certifyCareerDisplaySource({
+  key,
+  label,
+  url,
+  raw,
+}: {
+  key: string;
+  label: string;
+  url: string | null;
+  raw: Record<string, unknown>;
+}): Pick<CareerDisplaySource, "authority" | "trustCertification"> | null {
+  const host = sourceUrlHost(url);
+  const authority =
+    normalizeSourceAuthority(raw.source_authority) ??
+    normalizeSourceAuthority(raw.authority) ??
+    normalizeSourceAuthority(raw.source_type);
+  const normalizedKey = key.toLowerCase();
+  const normalizedLabel = label.toLowerCase();
+  const capturedAt = normalizeString(raw.captured_at);
+  const expiresAt = normalizeString(raw.expires_at);
+
+  if (authority === "fermatmind_interpretation" || normalizedLabel.startsWith("fermatmind interpretation")) {
+    return {
+      authority: "fermatmind_interpretation",
+      trustCertification: "bounded_interpretation",
+    };
+  }
+
+  if (authority === "market_sample" || normalizedKey.includes("sample") || normalizedLabel.includes("sample")) {
+    if (!capturedAt || !expiresAt || !isTrustedMarketSampleHost(host)) {
+      return null;
+    }
+
+    return {
+      authority: "market_sample",
+      trustCertification: "bounded_market_sample",
+    };
+  }
+
+  if (authority === "official_labor_market" || normalizedKey.includes("bls") || normalizedKey.includes("nbs")) {
+    if (host && !isTrustedOfficialSourceHost(host)) {
+      return null;
+    }
+
+    return {
+      authority: "official_labor_market",
+      trustCertification: "trusted_public_source",
+    };
+  }
+
+  if (
+    authority === "occupation_fact" ||
+    normalizedKey.includes("onet") ||
+    normalizedKey.includes("mynextmove") ||
+    normalizedLabel.includes("o*net") ||
+    normalizedLabel.includes("my next move")
+  ) {
+    if (host && !isTrustedOfficialSourceHost(host)) {
+      return null;
+    }
+
+    return {
+      authority: "occupation_fact",
+      trustCertification: "trusted_public_source",
+    };
+  }
+
+  return null;
 }
 
 function normalizeStringFromValue(value: unknown): string | null {
@@ -781,7 +920,7 @@ function normalizeSources(value: unknown): CareerDisplaySource[] {
     : Object.entries(raw);
 
   return entries
-    .map(([key, item]) => {
+    .map(([entryKey, item]) => {
       if (!isRecord(item)) {
         return null;
       }
@@ -790,14 +929,27 @@ function normalizeSources(value: unknown): CareerDisplaySource[] {
       if (!label) {
         return null;
       }
+      const sourceKey = normalizeString(item.key) ?? entryKey;
+      const url = normalizeSafeSourceUrl(item.url);
+      const certification = certifyCareerDisplaySource({ key: sourceKey, label, url, raw: item });
+      if (!certification) {
+        return null;
+      }
+      const displayUrl =
+        certification.authority === "fermatmind_interpretation" &&
+        sourceUrlHost(url) !== "fermatmind.com" &&
+        sourceUrlHost(url) !== "www.fermatmind.com"
+          ? null
+          : url;
 
       return {
-        key: normalizeString(item.key) ?? key,
+        key: sourceKey,
         label,
-        ...(normalizeSafeSourceUrl(item.url) ? { url: normalizeSafeSourceUrl(item.url) ?? undefined } : {}),
+        ...(displayUrl ? { url: displayUrl } : {}),
         ...(normalizeString(item.usage) ? { usage: normalizeString(item.usage) ?? undefined } : {}),
         ...(normalizeString(item.captured_at) ? { capturedAt: normalizeString(item.captured_at) ?? undefined } : {}),
         ...(normalizeString(item.expires_at) ? { expiresAt: normalizeString(item.expires_at) ?? undefined } : {}),
+        ...certification,
       };
     })
     .filter((source): source is CareerDisplaySource => source !== null);

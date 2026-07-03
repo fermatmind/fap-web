@@ -1423,6 +1423,15 @@ const SECURITY_122_WEB_12_ALLOWED_FILES = new Set([
   "tests/contracts/security-122-web-12-pr-scope-guard.contract.test.ts",
 ]);
 
+const SECURITY_122_WEB_13_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "lib/career/displaySurface.ts",
+  "tests/contracts/career-display-surface.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-122-web-13-career-source-trust.contract.test.tsx",
+]);
+
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
   "components/result/eq/EQEvidenceSnapshot.tsx",
   "components/result/eq/types.ts",
@@ -3949,6 +3958,14 @@ export function isSecurity122Web12AllowedFile(file: string): boolean {
   return SECURITY_122_WEB_12_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity122Web13AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-122-web-13") {
+    return true;
+  }
+
+  return SECURITY_122_WEB_13_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -4961,6 +4978,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/security-122-web-12") {
     return SECURITY_122_WEB_12_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/security-122-web-13") {
+    return SECURITY_122_WEB_13_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {

@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T13:16:46+08:00",
+  "updated_at": "2026-07-03T13:36:36+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13409,7 +13409,7 @@
       "depends_on": [
         "SECURITY-122-WEB-11"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_pr_scope_guard_pr_train_metadata_correctness",
       "risk_level": "low",
       "title": "SECURITY-122-WEB-12: PR scope guard and PR-train metadata correctness",
@@ -13481,10 +13481,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1556",
-      "commit_sha": "95dcc1e56e2b7f4ae1172380e5b7167819aed56c",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "ebc335c9c710c115d0851d1f12577bdd6e262d08",
+      "merged_at": "2026-07-03T05:22:41Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -13515,11 +13515,17 @@
           "at": "2026-07-03T13:16:46+08:00",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed for PR #1556 head 8c450609cbe456048c0c560be5e9281402ba1608. Scope revalidation remained exactly the four authorized WEB-12 files and git diff --check passed; staging deploy was not waited on."
+        },
+        {
+          "at": "2026-07-03T13:27:44+08:00",
+          "status": "merged",
+          "summary": "Reconciled SECURITY-122-WEB-12 post-merge state while starting WEB-13: PR #1556 is MERGED, merge commit ebc335c9c710c115d0851d1f12577bdd6e262d08 is contained in origin/main, local main is synced and clean, and the task branch is deleted locally/remotely."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T13:16:46+08:00",
-      "head_sha": "8c450609cbe456048c0c560be5e9281402ba1608"
+      "updated_at": "2026-07-03T13:27:44+08:00",
+      "head_sha": "ebc335c9c710c115d0851d1f12577bdd6e262d08",
+      "merge_sha": "ebc335c9c710c115d0851d1f12577bdd6e262d08"
     },
     {
       "id": "SECURITY-122-WEB-13",
@@ -13530,7 +13536,7 @@
       "depends_on": [
         "SECURITY-122-WEB-12"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_122_web_career_qa_source_trust_certification_hardening",
       "risk_level": "low",
       "title": "SECURITY-122-WEB-13: career QA source/trust certification hardening",
@@ -13550,12 +13556,45 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-12 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-12 merged via PR #1556 at 2026-07-03T05:22:41Z; origin/main contains ebc335c9c710c115d0851d1f12577bdd6e262d08 and task branches are cleaned."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-13-career-source-trust.contract.test.tsx",
+              "evidence": "Focused WEB-13 source trust contract passed."
+            },
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/career-kg-06-aircraft-avionics-technicians.contract.test.tsx tests/contracts/security-122-web-13-career-source-trust.contract.test.tsx tests/contracts/career-display-surface.contract.test.tsx",
+              "evidence": "Regression contracts passed after adding My Next Move to the certified occupation fact source boundary."
+            },
+            {
+              "command": "/usr/local/bin/pnpm typecheck",
+              "evidence": "Typecheck passed after path-limited preservation of the unrelated personality page dirty file."
+            },
+            {
+              "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+              "evidence": "Production-API build completed successfully and generated 202/202 static pages."
+            },
+            {
+              "command": "CI=1 /usr/local/bin/pnpm test:contract",
+              "evidence": "Full contract suite passed: 160 files and 924 tests."
+            },
+            {
+              "command": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+              "evidence": "Manifest and state parsed successfully."
+            },
+            {
+              "command": "git diff --check",
+              "evidence": "Whitespace diff check passed."
+            },
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-13-career-source-trust.contract.test.tsx --testNamePattern \"keeps tracked diff scope\"",
+              "evidence": "Changed-file scope validation passed for the six authorized WEB-13 files."
+            }
+          ]
         },
         "github": {
           "status": "pending",
@@ -13573,10 +13612,21 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-13 from explicit user /goal; execution waits for SECURITY-122-WEB-12 merge."
+        },
+        {
+          "at": "2026-07-03T13:27:44+08:00",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-13 from latest main after reconciling WEB-12 post-merge state; implementing career QA source/trust certification hardening only."
+        },
+        {
+          "at": "2026-07-03T13:36:36+08:00",
+          "status": "local_checks_passed",
+          "summary": "Required WEB-13 local checks passed: focused source trust contract, career display/KG regressions, typecheck, production build, full contract suite, manifest/state parse, diff check, and changed-file scope validation."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T13:36:36+08:00",
+      "head_sha": "ebc335c9c710c115d0851d1f12577bdd6e262d08"
     },
     {
       "id": "SECURITY-122-WEB-14",
