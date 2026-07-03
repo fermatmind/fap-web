@@ -38827,7 +38827,7 @@
     "depends_on": [
       "PR-CAREER-KG-AGENT-05"
     ],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "d1aedb02dc174b8acb93b85e2fde0c4ef4146f31",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1569",
     "merged_at": null,
@@ -38858,6 +38858,11 @@
         "at": "2026-07-03T07:54:37.332Z",
         "status": "github_checks_pending",
         "notes": "Opened PR #1569 and pushed PR URL/check pending state to ledger."
+      },
+      {
+        "at": "2026-07-03T07:59:47.969Z",
+        "status": "ready_to_merge",
+        "notes": "Remote checks green and scope revalidated. Recording ready_to_merge before squash merge."
       }
     ],
     "checks": {
@@ -38875,14 +38880,14 @@
         "evidence": "YAML/JSON/diff/scope checks passed; typecheck passed; full contract shard runner passed 650/650 with quarantine 0; production build passed."
       },
       "github_checks": {
-        "status": "pending",
-        "evidence": "PR #1569 opened; waiting for required GitHub checks."
+        "status": "pass",
+        "evidence": "GitHub checks for PR #1569 passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze."
       }
     },
     "scope_validation": {
       "status": "pass",
       "outside_scope_files": [],
-      "evidence": "Changed files are limited to PR-CAREER-KG-AGENT-06 skill/runbook/checklist docs, scope helper, and train metadata."
+      "evidence": "Remote-check-green scope revalidation passed; changed files are limited to PR-CAREER-KG-AGENT-06 skill/runbook/checklist docs, scope helper, and train metadata."
     }
   }
 }
