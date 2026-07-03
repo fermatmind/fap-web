@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/career_kg_search_projection_candidate.schema.json",
+  "title": "FermatMind Career KG Search Projection Candidate",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "artifact_type",
+    "artifact_version",
+    "status",
+    "pr_id",
+    "slug",
+    "locale",
+    "production_import_approved",
+    "staging_write_approved",
+    "seo_runtime_release_approved",
+    "cms_write_approved",
+    "title_meta_candidates",
+    "faq_candidates",
+    "internal_link_candidates",
+    "release_boundaries"
+  ],
+  "properties": {
+    "artifact_type": { "const": "career_kg_search_projection_candidate" },
+    "artifact_version": { "type": "string", "pattern": "^kg\\.search_projection\\.v[0-9]+$" },
+    "status": { "const": "candidate_only" },
+    "pr_id": { "type": "string", "pattern": "^PR-CAREER-KG-[0-9A-Z-]+$" },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "locale": { "const": "zh-CN" },
+    "production_import_approved": { "const": false },
+    "staging_write_approved": { "const": false },
+    "seo_runtime_release_approved": { "const": false },
+    "cms_write_approved": { "const": false },
+    "title_meta_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title_zh", "meta_description_zh", "intent"],
+        "additionalProperties": false,
+        "properties": {
+          "title_zh": { "type": "string" },
+          "meta_description_zh": { "type": "string" },
+          "intent": { "type": "string" }
+        }
+      }
+    },
+    "faq_candidates": { "type": "array" },
+    "internal_link_candidates": { "type": "array" },
+    "release_boundaries": { "type": "object", "additionalProperties": { "const": false } }
+  }
+}

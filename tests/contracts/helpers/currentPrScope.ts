@@ -458,6 +458,16 @@ const PR_CAREER_KG_AGENT_03_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const PR_CAREER_KG_AGENT_04_ALLOWED_FILES = new Set([
+  ".agents/skills/career-content-asset-factory/scripts/validate_search_projection_quarantine.py",
+  ".agents/skills/career-content-asset-factory/schemas/career_kg_search_projection_candidate.schema.json",
+  ".agents/skills/career-content-asset-factory/templates/career_kg_search_projection_candidate.json",
+  "tests/contracts/career-kg-search-projection-quarantine.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -5890,6 +5900,14 @@ export function isPrCareerKgAgent03AllowedFile(file: string): boolean {
   }
 
   return PR_CAREER_KG_AGENT_03_ALLOWED_FILES.has(file);
+}
+
+export function isPrCareerKgAgent04AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-career-kg-agent-04-search-projection-quarantine") {
+    return true;
+  }
+
+  return PR_CAREER_KG_AGENT_04_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {

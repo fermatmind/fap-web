@@ -11766,7 +11766,7 @@ prs:
     mode: execute
     train_scope: pr_03_discoverability_sitemap_llms_authority_alignment
     risk_level: scoped_seo_geo_enumeration_repair
-    status: in_progress
+    status: merged
     title: "PR-03-DISCOVERABILITY-SITEMAP-LLMS-AUTHORITY-ALIGNMENT-01 sitemap and llms authority alignment"
     goal: "Reconcile sitemap, llms.txt, and llms-full.txt exposure with backend/CMS public indexability authority while preserving private/result/order/payment/share/take and clinical/depression/anxiety exclusions."
     in_scope:
@@ -21781,7 +21781,7 @@ prs:
       - PR-CAREER-KG-AGENT-03
     mode: execute
     train_scope: career_kg_agent_search_projection_quarantine
-    status: pending
+    status: in_progress
     goal: "Keep title/meta/FAQ/internal-link candidates in a separate search projection artifact and block runtime SEO leakage into reader assets."
     artifacts:
       - .agents/skills/career-content-asset-factory/scripts/validate_search_projection_quarantine.py
