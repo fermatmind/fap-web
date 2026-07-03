@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T09:32:41.722347Z",
+  "updated_at": "2026-07-03T09:34:31.212495Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -39038,9 +39038,9 @@
     "title": "BIG5-RESULT-PAGE-RENDERER-HYGIENE-FOLLOWUP-01",
     "train_scope": "big5_result_page_renderer_hygiene_followup",
     "depends_on": [],
-    "status": "local_checks_passed",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "5071e3b23dcf8523a12015936c068fc03580af1c",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1571",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -39060,7 +39060,7 @@
       },
       "github_checks": {
         "status": "pending",
-        "evidence": null
+        "evidence": "PR #1571 opened; GitHub checks pending."
       }
     },
     "scope_validation": {
@@ -39083,6 +39083,13 @@
         "at": "2026-07-03T09:32:41.722347Z",
         "status": "scope_validation_passed",
         "notes": "YAML/JSON parse, git diff --check, focused contracts, typecheck, and changed-file scope validation passed."
+      },
+      {
+        "at": "2026-07-03T09:34:31.212495Z",
+        "status": "pr_open",
+        "commit_sha": "5071e3b23dcf8523a12015936c068fc03580af1c",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1571",
+        "notes": "Pushed branch and opened PR #1571; waiting for GitHub checks."
       }
     ]
   }
