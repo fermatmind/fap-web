@@ -37371,8 +37371,8 @@
     "title": "PR-CAREER-KG-15: content(career): add geodetic surveyors KG asset package",
     "train_scope": "career_kg_geodetic_surveyors_asset_package",
     "depends_on": ["PR-CAREER-KG-14"],
-    "status": "pr_opened",
-    "commit_sha": "55bda71202af52fac4f66064ef7530bab044019f",
+    "status": "ready_to_merge",
+    "commit_sha": "b99a39ff652c5d39d4766b61f395e326cb8efad6",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1549",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -37422,13 +37422,13 @@
         "evidence": "Validated changed/untracked/ignored scoped file list contains exactly 11 authorized PR15 files: docs/codex/pr-train-state.json, docs/codex/pr-train.yaml, generated/career-kg-pr-15-geodetic-surveyors/README.md, generated/career-kg-pr-15-geodetic-surveyors/dry_run_importer_report.json, generated/career-kg-pr-15-geodetic-surveyors/fap_web_render_smoke.json, generated/career-kg-pr-15-geodetic-surveyors/geodetic-surveyors.zh-CN.asset.json, generated/career-kg-pr-15-geodetic-surveyors/qa_report.json, generated/career-kg-pr-15-geodetic-surveyors/sha256_manifest.json, generated/career-kg-pr-15-geodetic-surveyors/staging_preview_smoke.json, tests/contracts/career-kg-15-geodetic-surveyors.contract.test.tsx, and tests/contracts/helpers/currentPrScope.ts."
       },
       "github_checks": {
-        "status": "pending",
-        "head_sha": "55bda71202af52fac4f66064ef7530bab044019f",
-        "evidence": "GitHub checks pending after PR #1549 was opened."
+        "status": "pass",
+        "head_sha": "b99a39ff652c5d39d4766b61f395e326cb8efad6",
+        "evidence": "PR #1549 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript)."
       },
       "merge_readiness": {
-        "status": "pending",
-        "evidence": null
+        "status": "ready_to_merge",
+        "evidence": "After GitHub checks passed, scope was revalidated against origin/main and still contained exactly the 11 authorized PR15 files; git diff --check passed. Staging deploy was not waited on per train protocol."
       }
     },
     "scope_validation": {
@@ -37477,6 +37477,16 @@
         "at": "2026-07-02T21:33:02Z",
         "status": "pr_opened",
         "notes": "Opened fap-web PR #1549: https://github.com/fermatmind/fap-web/pull/1549."
+      },
+      {
+        "at": "2026-07-03T02:29:00Z",
+        "status": "github_checks_passed",
+        "notes": "GitHub checks passed for PR #1549 head b99a39ff652c5d39d4766b61f395e326cb8efad6: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript)."
+      },
+      {
+        "at": "2026-07-03T02:29:00Z",
+        "status": "ready_to_merge",
+        "notes": "Revalidated scope after green checks: exactly the 11 authorized PR15 files and no outside-scope files; git diff --check passed. Staging deploy was not waited on."
       }
     ]
   }
