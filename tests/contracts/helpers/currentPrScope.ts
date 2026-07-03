@@ -1517,6 +1517,15 @@ const SECURITY_122_WEB_15_ALLOWED_FILES = new Set([
   "tests/contracts/security-122-web-15-seo-runtime-qa-fail-closed.contract.test.ts",
 ]);
 
+const SECURITY_122_WEB_16_ALLOWED_FILES = new Set([
+  "app/(root)/layout.tsx",
+  "app/mbti-career-cta.css",
+  "docs/codex/pr-train-state.json",
+  "lib/site.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx",
+]);
+
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
   "components/result/eq/EQEvidenceSnapshot.tsx",
   "components/result/eq/types.ts",
@@ -4067,6 +4076,14 @@ export function isSecurity122Web15AllowedFile(file: string): boolean {
   return SECURITY_122_WEB_15_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity122Web16AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-122-web-16") {
+    return true;
+  }
+
+  return SECURITY_122_WEB_16_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -5091,6 +5108,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/security-122-web-15") {
     return SECURITY_122_WEB_15_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/security-122-web-16") {
+    return SECURITY_122_WEB_16_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {
