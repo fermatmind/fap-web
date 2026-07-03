@@ -37574,9 +37574,9 @@
     "title": "PR-CAREER-KG-16: content(career): add market research analysts and marketing specialists KG asset package",
     "train_scope": "career_kg_market_research_analysts_marketing_specialists_asset_package",
     "depends_on": ["PR-CAREER-KG-15"],
-    "status": "in_progress",
-    "commit_sha": "7a02e900d2d8773ad419d288979dc042014f3c4f",
-    "pr_url": null,
+    "status": "pr_opened",
+    "commit_sha": "699be6db3c2a2508de6fbe127680b6a0c0310caf",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1551",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -37624,7 +37624,11 @@
         "status": "pass",
         "evidence": "Validated changed/untracked/ignored scoped file list contains exactly 11 authorized PR16 files: docs/codex/pr-train-state.json, docs/codex/pr-train.yaml, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/README.md, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/dry_run_importer_report.json, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/fap_web_render_smoke.json, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/market-research-analysts-and-marketing-specialists.zh-CN.asset.json, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/qa_report.json, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/sha256_manifest.json, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/staging_preview_smoke.json, tests/contracts/career-kg-16-market-research-analysts-marketing-specialists.contract.test.tsx, and tests/contracts/helpers/currentPrScope.ts."
       },
-      "github_checks": {"status": "pending", "head_sha": null, "evidence": null},
+      "github_checks": {
+        "status": "pending",
+        "head_sha": "699be6db3c2a2508de6fbe127680b6a0c0310caf",
+        "evidence": "GitHub checks pending after PR #1551 was opened."
+      },
       "merge_readiness": {"status": "pending", "evidence": null}
     },
     "scope_validation": {
@@ -37663,6 +37667,16 @@
         "at": "2026-07-03T02:46:07Z",
         "status": "committed",
         "notes": "Validated implementation commit 7a02e900d2d8773ad419d288979dc042014f3c4f created before this ledger-only record."
+      },
+      {
+        "at": "2026-07-03T02:47:16Z",
+        "status": "pushed",
+        "notes": "Pushed branch codex/pr-career-kg-16-market-research-analysts-marketing-specialists with head 699be6db3c2a2508de6fbe127680b6a0c0310caf."
+      },
+      {
+        "at": "2026-07-03T02:47:16Z",
+        "status": "pr_opened",
+        "notes": "Opened fap-web PR #1551: https://github.com/fermatmind/fap-web/pull/1551."
       }
     ]
   }
