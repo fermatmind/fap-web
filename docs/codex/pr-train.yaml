@@ -21825,7 +21825,7 @@ prs:
       - PR-CAREER-KG-AGENT-04
     mode: execute
     train_scope: career_kg_agent_pr_train_entry_generator
-    status: in_progress
+    status: merged
     goal: "Generate manifest/state patch artifacts and execution prompts from confirmed career KG batches without directly mutating train ledgers by default."
     artifacts:
       - .agents/skills/career-content-asset-factory/scripts/generate_career_kg_pr_train_entries.py
@@ -21869,7 +21869,7 @@ prs:
       - PR-CAREER-KG-AGENT-05
     mode: execute
     train_scope: career_kg_agent_runbook_skill_integration
-    status: pending
+    status: in_progress
     goal: "Integrate the confirmed-batch career KG dry-run workflow into the career content asset skill and docs without changing runtime behavior."
     artifacts:
       - .agents/skills/career-content-asset-factory/SKILL.md
