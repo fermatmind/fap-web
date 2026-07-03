@@ -11703,7 +11703,7 @@ prs:
     mode: execute
     train_scope: career_1046_growth_foundation
     risk_level: scoped_career_jobs_discovery_renderer
-    status: in_progress
+    status: merged
     title: "CAREER-1046-FRONTEND-DISCOVERY-UX-01 career discovery UX"
     goal: "Improve Career jobs index/detail discovery UX while consuming backend authority only, with contract coverage for the 1046 cohort, excluded slug safety, and no fallback-only Career cards."
     in_scope:
@@ -21735,7 +21735,7 @@ prs:
       - PR-CAREER-KG-AGENT-02
     mode: execute
     train_scope: career_kg_agent_qa_gate
-    status: pending
+    status: in_progress
     goal: "Extract reusable career KG package, source, and claim-boundary validators from prior manual PR contracts."
     artifacts:
       - .agents/skills/career-content-asset-factory/scripts/validate_career_kg_package.py

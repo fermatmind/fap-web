@@ -448,6 +448,16 @@ const PR_CAREER_KG_AGENT_02_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const PR_CAREER_KG_AGENT_03_ALLOWED_FILES = new Set([
+  ".agents/skills/career-content-asset-factory/scripts/validate_career_kg_package.py",
+  ".agents/skills/career-content-asset-factory/scripts/validate_career_kg_claim_boundaries.py",
+  ".agents/skills/career-content-asset-factory/scripts/validate_career_kg_sources.py",
+  "tests/contracts/career-kg-package-validator.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -5872,6 +5882,14 @@ export function isPrCareerKgAgent02AllowedFile(file: string): boolean {
   }
 
   return PR_CAREER_KG_AGENT_02_ALLOWED_FILES.has(file);
+}
+
+export function isPrCareerKgAgent03AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-career-kg-agent-03-qa-gate") {
+    return true;
+  }
+
+  return PR_CAREER_KG_AGENT_03_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {
