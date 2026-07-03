@@ -478,6 +478,17 @@ const PR_CAREER_KG_AGENT_05_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
 ]);
 
+const PR_CAREER_KG_AGENT_06_ALLOWED_FILES = new Set([
+  ".agents/skills/career-content-asset-factory/SKILL.md",
+  ".agents/skills/career-content-asset-factory/references/operator_runbook.md",
+  ".agents/skills/career-content-asset-factory/references/search_projection_quarantine.md",
+  "docs/career/career-content-agent-technical-summary-2026-06-25.md",
+  "docs/codex/career-batch-review-checklist.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 const SEO_OPS_GAOKAO_V5_PACKAGE_CONTRACT_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/seo-ops-gaokao-v5-package-contract-repair.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
@@ -5948,6 +5959,14 @@ export function isPrCareerKgAgent05AllowedFile(file: string): boolean {
   }
 
   return PR_CAREER_KG_AGENT_05_ALLOWED_FILES.has(file);
+}
+
+export function isPrCareerKgAgent06AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/pr-career-kg-agent-06-runbook-skill-integration") {
+    return true;
+  }
+
+  return PR_CAREER_KG_AGENT_06_ALLOWED_FILES.has(file);
 }
 
 export function isSeoOpsGaokaoV5PackageContractRepair01AllowedFile(file: string): boolean {

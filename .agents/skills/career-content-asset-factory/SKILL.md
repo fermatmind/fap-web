@@ -117,6 +117,11 @@ The scripts in `scripts/` are orchestration and validation helpers only. They mu
 - `plan_next_goal.py`
 - `check_runtime_leakage_terms.py`
 - `validate_search_projection_quarantine.py`
+- `generate_career_kg_package.py`
+- `validate_career_kg_package.py`
+- `validate_career_kg_claim_boundaries.py`
+- `validate_career_kg_sources.py`
+- `generate_career_kg_pr_train_entries.py`
 - `validate_page_assembly_no_new_facts.py`
 - `run_operator_next.py`
 - `run_operator_loop.py`
@@ -128,3 +133,36 @@ The scripts in `scripts/` are orchestration and validation helpers only. They mu
 - `propose_operator_self_improvement.py`
 
 Block-specific content generation remains in block factories.
+
+## Confirmed Career KG Batch Workflow
+
+Use this workflow when an operator has already reviewed GSC or other demand
+signals and provides a confirmed list of occupations. This skill must not scrape
+GSC, choose the batch, write CMS data, or release SEO/runtime controls.
+
+1. Validate the operator-confirmed batch against
+   `schemas/career_kg_confirmed_batch.schema.json`.
+2. Generate dry-run packages with `generate_career_kg_package.py`. Output stays
+   under `generated/career-kg-pr-XX-<slug>/`.
+3. Validate each package with `validate_career_kg_package.py`,
+   `validate_career_kg_claim_boundaries.py`, and
+   `validate_career_kg_sources.py`.
+4. Keep title/meta/FAQ/internal-link suggestions in the separate
+   `career_kg_search_projection_candidate` artifact. Validate it with
+   `validate_search_projection_quarantine.py --candidate`.
+5. Generate PR-train patch artifacts with
+   `generate_career_kg_pr_train_entries.py`. The script writes only
+   `generated/career-kg-agent-run-YYYYMMDD/pr_train_patch.yaml`,
+   `pr_train_state_patch.json`, and `execution_prompt.md`.
+6. Apply manifest/state patches only after explicit operator authorization.
+7. Execute one occupation per PR. Do not combine adjacent occupations or prepare
+   future PR content early.
+
+Hard boundaries for this workflow:
+
+- no CMS writes;
+- no staging writes;
+- no production imports;
+- no runtime SEO release;
+- no sitemap, `llms.txt`, canonical, noindex, JSON-LD, or permission/secret
+  changes.

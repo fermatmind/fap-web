@@ -58,3 +58,38 @@ Use this checklist before approving any Career batch artifact prepared with Code
 - Confirm crosswalk validation completed without unresolved drift.
 - Confirm backend-computed truth-bearing fields are present for publish-ready payloads.
 - Confirm the batch is ready for release handoff without requiring frontend runtime changes or backend truth substitution.
+
+## 11. Career KG Confirmed Batch Boundary
+
+- Confirm the input is the operator-confirmed batch, not a raw GSC export.
+- Confirm every item has `pr_id`, `priority`, `slug`, `locale`, `focus`, and
+  bounded `gsc_summary`.
+- Confirm the batch keeps `cms_write_authorized`,
+  `production_import_authorized`, and `seo_runtime_release_authorized` false.
+
+## 12. Career KG Package QA
+
+- Confirm each occupation package has identity, SEO candidate, definition,
+  responsibilities, scenes, skills/tools, entry path, RIASEC/personality
+  boundary, risk/AI, adjacent careers, FAQ, and source sections.
+- Confirm O*NET, BLS, and My Next Move are the occupational fact authorities.
+- Confirm Chinese recruitment or encyclopedia references are used only for
+  market/search-intent context, not as fact authority.
+- Confirm the package validators and claim-boundary/source gates passed.
+
+## 13. Search Projection Quarantine
+
+- Confirm title/meta/FAQ/internal-link candidates are isolated from the reader
+  asset.
+- Confirm reader assets do not contain canonical, noindex, sitemap, `llms.txt`,
+  JSON-LD runtime, or search-provider submission controls.
+- Confirm SEO candidate artifacts are candidate-only and not published.
+
+## 14. PR Train Patch Review
+
+- Confirm PR train generator output is limited to
+  `generated/career-kg-agent-run-YYYYMMDD/`.
+- Confirm generated manifest/state patches are not applied until explicitly
+  authorized.
+- Confirm execution remains one occupation per PR and does not include future
+  occupations early.

@@ -96,6 +96,39 @@ The career content agent must not autonomously:
 These are not unfinished mainline tasks. They are next-stage enhancement lanes
 that require candidate-first workflows and separate release gates.
 
+### 0. Operator-Confirmed Career KG Optimization Lane
+
+Status: dry-run package workflow exists; not runtime.
+
+This lane starts after a human operator scans GSC and confirms a bounded batch of
+occupations. The agent does not choose the batch and does not consume raw GSC as
+authority. It receives only the confirmed batch contract, then prepares package,
+QA, and PR-train artifacts.
+
+Current workflow:
+
+1. Validate `fermatmind.career_kg.confirmed_batch.v1`.
+2. Generate one dry-run package per future occupation PR under
+   `generated/career-kg-pr-XX-<slug>/`.
+3. Run package, source, claim-boundary, search-projection quarantine, dry-run
+   importer, staging-preview-smoke, and fap-web-render-smoke gates.
+4. Generate PR train patch artifacts under
+   `generated/career-kg-agent-run-YYYYMMDD/`.
+5. Apply manifest/state patches only after explicit operator authorization.
+6. Execute one occupation per PR.
+
+Release boundaries:
+
+- no CMS writes;
+- no staging writes;
+- no production import;
+- no runtime SEO release;
+- no sitemap, `llms.txt`, canonical, noindex, JSON-LD, permission, or secret
+  changes.
+
+The lane is intended for recurring operations where the operator supplies a
+10-20 item confirmed list and Codex prepares repeatable, auditable PR scopes.
+
 ### 1. SEO/GEO Query Intent Candidate Layer
 
 Status: candidate layer exists; 50-slug preview exists; not runtime.
