@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T10:40:00+08:00",
+  "updated_at": "2026-07-03T10:46:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13202,10 +13202,10 @@
             "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
             "/usr/local/bin/pnpm test:contract",
             "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
-            "git diff --check",
+            "git diff --check origin/main...HEAD",
             "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-10-generated-artifact-redaction.contract.test.ts --testNamePattern \"keeps tracked diff scope\""
           ],
-          "evidence": "Focused WEB-10 generated artifact redaction and SEO intelligence contracts passed; typecheck passed; production build passed; full contract suite passed with 637 files / 3718 tests; manifest/state parse, git diff --check, and changed-file scope validation passed."
+          "evidence": "After rebasing onto origin/main 13b2130f402955f3320189e160dd69e6a8351692, focused WEB-10 generated artifact redaction and SEO intelligence contracts passed; typecheck passed; production build passed; full contract suite passed with 638 files / 3723 tests; manifest/state parse, git diff --check, and changed-file scope validation passed."
         },
         "github": {
           "status": "pending",
@@ -13213,12 +13213,12 @@
         },
         "scope": {
           "status": "passed",
-          "evidence": "Focused WEB-10 contract validates changed files against the SECURITY-122-WEB-10 allowlist: generated docs/artifacts, MBTI64/backend import artifact scripts, impacted contracts, scope helper, and PR-train metadata only."
+          "evidence": "After rebase, focused WEB-10 contract validates changed files against the SECURITY-122-WEB-10 allowlist: generated docs/artifacts, MBTI64/backend import artifact scripts, impacted contracts, scope helper, and PR-train metadata only."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1550",
-      "commit_sha": "7c179fc4a806871f6ba5ae73a50fb47cad9c3f49",
+      "commit_sha": "856a6cfd",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -13242,10 +13242,15 @@
           "at": "2026-07-03T10:40:00+08:00",
           "status": "pr_opened",
           "summary": "Opened PR #1550 for SECURITY-122-WEB-10 from branch codex/security-122-web-10 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-07-03T10:46:00+08:00",
+          "status": "rebased_local_checks_passed",
+          "summary": "Rebased SECURITY-122-WEB-10 onto origin/main after PR #1550 reported merge conflicts from an external merged PR. Resolved docs/codex ledger conflict by preserving main KG-14/KG-15 facts, then reran focused WEB-10 contracts, typecheck, production build, full contract suite, manifest/state parse, diff check, and changed-file scope validation successfully."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T10:40:00+08:00"
+      "updated_at": "2026-07-03T10:46:00+08:00"
     },
     {
       "id": "SECURITY-122-WEB-11",
@@ -37271,7 +37276,9 @@
     "branch": "codex/pr-career-kg-14-mining-geological-engineers",
     "title": "PR-CAREER-KG-14: content(career): add mining and geological engineers KG asset package",
     "train_scope": "career_kg_mining_geological_engineers_asset_package",
-    "depends_on": ["PR-CAREER-KG-13"],
+    "depends_on": [
+      "PR-CAREER-KG-13"
+    ],
     "status": "merged",
     "commit_sha": "481d767a090065d8be96d1f354430ca08ac3a24d",
     "merge_commit_sha": "e5317089148536cc9a9f3510df4620d845d2e862",
@@ -37413,7 +37420,9 @@
     "branch": "codex/pr-career-kg-15-geodetic-surveyors",
     "title": "PR-CAREER-KG-15: content(career): add geodetic surveyors KG asset package",
     "train_scope": "career_kg_geodetic_surveyors_asset_package",
-    "depends_on": ["PR-CAREER-KG-14"],
+    "depends_on": [
+      "PR-CAREER-KG-14"
+    ],
     "status": "ready_to_merge",
     "commit_sha": "b99a39ff652c5d39d4766b61f395e326cb8efad6",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1549",
