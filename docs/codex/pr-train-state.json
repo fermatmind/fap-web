@@ -38202,7 +38202,7 @@
     "title": "PR-CAREER-KG-AGENT-01: lock career KG input and package schemas",
     "train_scope": "career_kg_agent_contract_schema",
     "depends_on": [],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "0e2a5794ff9c65bff983af3ce44bbdfde4576abc",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1562",
     "merged_at": null,
@@ -38249,8 +38249,8 @@
         "evidence": "PR-CONTRACT-RUNNER-04 merged into main before this rerun, replacing the prior black-box contract hang with sharded diagnostics and clean exits."
       },
       "github_checks": {
-        "status": "pending",
-        "evidence": "PR opened as #1562; waiting for required GitHub checks."
+        "status": "pass",
+        "evidence": "GitHub checks for PR #1562 passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze."
       }
     },
     "scope_validation": {
@@ -38305,6 +38305,11 @@
         "at": "2026-07-03T06:17:39.530Z",
         "status": "github_checks_pending",
         "notes": "Opened PR #1562 and pushed PR URL/check pending state to ledger."
+      },
+      {
+        "at": "2026-07-03T06:23:03.474Z",
+        "status": "ready_to_merge",
+        "notes": "Remote checks green and scope revalidated. Recording ready_to_merge before squash merge."
       }
     ]
   },
