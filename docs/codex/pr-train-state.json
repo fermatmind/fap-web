@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T10:46:00+08:00",
+  "updated_at": "2026-07-03T10:51:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13171,7 +13171,7 @@
       "depends_on": [
         "SECURITY-122-WEB-09"
       ],
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "train_scope": "security_122_web_generated_docs_artifacts_local_path_redaction",
       "risk_level": "low",
       "title": "SECURITY-122-WEB-10: generated docs/artifacts local path redaction",
@@ -13208,8 +13208,16 @@
           "evidence": "After rebasing onto origin/main 13b2130f402955f3320189e160dd69e6a8351692, focused WEB-10 generated artifact redaction and SEO intelligence contracts passed; typecheck passed; production build passed; full contract suite passed with 638 files / 3723 tests; manifest/state parse, git diff --check, and changed-file scope validation passed."
         },
         "github": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ],
+          "evidence": "GitHub checks passed for PR #1550 on head 40750b9e7ced1c0c4309ecdd4e5b80bac0fe8c83: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL. mergeStateStatus was CLEAN before this ready_to_merge ledger update."
         },
         "scope": {
           "status": "passed",
@@ -13218,7 +13226,7 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1550",
-      "commit_sha": "856a6cfd",
+      "commit_sha": "40750b9e7ced1c0c4309ecdd4e5b80bac0fe8c83",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -13247,10 +13255,16 @@
           "at": "2026-07-03T10:46:00+08:00",
           "status": "rebased_local_checks_passed",
           "summary": "Rebased SECURITY-122-WEB-10 onto origin/main after PR #1550 reported merge conflicts from an external merged PR. Resolved docs/codex ledger conflict by preserving main KG-14/KG-15 facts, then reran focused WEB-10 contracts, typecheck, production build, full contract suite, manifest/state parse, diff check, and changed-file scope validation successfully."
+        },
+        {
+          "at": "2026-07-03T10:51:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed and PR diff scope validation passed for SECURITY-122-WEB-10 after rebase. Focused local revalidation passed. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T10:46:00+08:00"
+      "updated_at": "2026-07-03T10:51:00+08:00",
+      "head_sha": "40750b9e7ced1c0c4309ecdd4e5b80bac0fe8c83"
     },
     {
       "id": "SECURITY-122-WEB-11",
