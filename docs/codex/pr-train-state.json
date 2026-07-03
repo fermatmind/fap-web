@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T07:29:37.183Z",
+  "updated_at": "2026-07-03T07:30:32.592Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13954,7 +13954,7 @@
       "depends_on": [
         "SECURITY-122-WEB-15"
       ],
-      "status": "local_checks_passed",
+      "status": "committed",
       "train_scope": "security_122_web_public_ui_route_probe_config_guard_regressions",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-16: public UI/route probe/config guard regressions",
@@ -14023,7 +14023,7 @@
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": "62ab9b4bf98a82fb3a7aa0992a4ef32c08db60e1",
+      "commit_sha": "8221cbf4ff712e2d11ba281e1cab5e3dd24af55b",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -14042,11 +14042,16 @@
           "at": "2026-07-03T07:29:37.183Z",
           "status": "local_checks_passed",
           "summary": "Required WEB-16 local checks passed: focused public UI route/config guard contract, MBTI PDF print hash guard, typecheck, production URL build, full contract suite, manifest/state parse, diff check, and changed-file scope validation."
+        },
+        {
+          "at": "2026-07-03T07:30:32.592Z",
+          "status": "committed",
+          "summary": "Committed SECURITY-122-WEB-16 local implementation at 8221cbf4ff712e2d11ba281e1cab5e3dd24af55b after required local checks and scope validation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T07:29:37.183Z",
-      "head_sha": "62ab9b4bf98a82fb3a7aa0992a4ef32c08db60e1",
+      "updated_at": "2026-07-03T07:30:32.592Z",
+      "head_sha": "8221cbf4ff712e2d11ba281e1cab5e3dd24af55b",
       "merge_sha": null
     },
     {
