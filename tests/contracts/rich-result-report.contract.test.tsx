@@ -59,6 +59,11 @@ function getDesktopHero(): HTMLElement {
   return within(getDesktopCloneShell()).getByTestId("mbti-hero");
 }
 
+function clickWithoutNavigation(element: HTMLElement) {
+  element.addEventListener("click", (event) => event.preventDefault(), { once: true });
+  fireEvent.click(element);
+}
+
 function createReportFixture(): ReportResponse {
   return structuredClone(reportReadyMbtiFreeFixture) as ReportResponse;
 }
@@ -399,7 +404,7 @@ describe("RichResultReport", () => {
       "carryover_focus_key=growth.next_actions"
     );
 
-    fireEvent.click(screen.getByRole("link", { name: "Read the action note" }));
+    clickWithoutNavigation(screen.getByRole("link", { name: "Read the action note" }));
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_interaction",
       expect.objectContaining({

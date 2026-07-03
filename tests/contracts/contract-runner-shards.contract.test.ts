@@ -52,7 +52,7 @@ describe("contract shard runner", () => {
     expect(() => parseArgs(["--shards=4", "--only-shard=5"])).toThrow("--only-shard must be between 1 and 4");
   });
 
-  it("loads contract groups and keeps quarantine out of the default gate with a focused gate fallback", () => {
+  it("loads contract groups and applies the default focused gate even when quarantine is empty", () => {
     const files = discoverContractFiles();
     const groups = loadContractGroups();
     const execution = resolveExecutionFiles(files, groups, parseArgs(["--shards=4"]));
@@ -65,9 +65,10 @@ describe("contract shard runner", () => {
       "timer-storage",
     ]);
     expect(execution.selection_mode).toBe("default");
-    expect(execution.quarantine_file_count).toBeGreaterThan(0);
+    expect(execution.quarantine_file_count).toBe(0);
+    expect(execution.quarantine_excluded_count).toBe(0);
     expect(execution.files).toContain("tests/contracts/contract-runner-shards.contract.test.ts");
-    expect(execution.files).not.toContain("tests/contracts/clinical-consent-gates.contract.test.tsx");
+    expect(execution.files).toContain("tests/contracts/clinical-consent-gates.contract.test.tsx");
   });
 
   it("can run a single group or the quarantined set explicitly", () => {

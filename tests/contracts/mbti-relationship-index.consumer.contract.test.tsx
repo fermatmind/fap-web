@@ -21,6 +21,11 @@ vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
 }));
 
+function clickWithoutNavigation(element: HTMLElement) {
+  element.addEventListener("click", (event) => event.preventDefault(), { once: true });
+  fireEvent.click(element);
+}
+
 function createIndexFixture(): MbtiRelationshipIndexResponse {
   return {
     ok: true,
@@ -123,7 +128,7 @@ describe("MBTI relationship index consumer contract", () => {
       );
     });
 
-    fireEvent.click(screen.getAllByTestId("mbti-relationship-index-resume")[0]);
+    clickWithoutNavigation(screen.getAllByTestId("mbti-relationship-index-resume")[0]);
 
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_interaction",
