@@ -17,6 +17,26 @@ function read(relPath: string): string {
   return readFileSync(path.join(ROOT, relPath), "utf8");
 }
 
+function git(args: string[]): string {
+  return execFileSync("git", args, {
+    cwd: ROOT,
+    encoding: "utf8",
+  }).trim();
+}
+
+function committedDiffBase(): string {
+  try {
+    git(["show-ref", "--verify", "--quiet", "refs/remotes/origin/main"]);
+    return "origin/main...HEAD";
+  } catch {
+    const parents = git(["rev-list", "--parents", "-n", "1", "HEAD"]).split(/\s+/);
+    if (parents.length >= 3) {
+      return "HEAD^1...HEAD";
+    }
+    return "main...HEAD";
+  }
+}
+
 function cmsSection(overrides: Partial<CmsPersonalitySection>): CmsPersonalitySection {
   return {
     sectionKey: "v8_5_module_08_career_workflow",
@@ -128,18 +148,9 @@ describe("SECURITY-122-WEB-16 public UI route and config guards", () => {
   });
 
   it("keeps the current PR diff inside the public UI route and config guard scope", () => {
-    const committedOutput = execFileSync("git", ["diff", "--name-only", "origin/main...HEAD"], {
-      cwd: ROOT,
-      encoding: "utf8",
-    }).trim();
-    const workingTreeOutput = execFileSync("git", ["diff", "--name-only"], {
-      cwd: ROOT,
-      encoding: "utf8",
-    }).trim();
-    const untrackedOutput = execFileSync("git", ["ls-files", "--others", "--exclude-standard"], {
-      cwd: ROOT,
-      encoding: "utf8",
-    }).trim();
+    const committedOutput = git(["diff", "--name-only", committedDiffBase()]);
+    const workingTreeOutput = git(["diff", "--name-only"]);
+    const untrackedOutput = git(["ls-files", "--others", "--exclude-standard"]);
     const files = Array.from(
       new Set(
         `${committedOutput}\n${workingTreeOutput}\n${untrackedOutput}`

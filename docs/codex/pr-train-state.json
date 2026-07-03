@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T07:38:18.433Z",
+  "updated_at": "2026-07-03T07:46:09.154Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13954,7 +13954,7 @@
       "depends_on": [
         "SECURITY-122-WEB-15"
       ],
-      "status": "pr_opened",
+      "status": "github_checks_failed_fixing",
       "train_scope": "security_122_web_public_ui_route_probe_config_guard_regressions",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-16: public UI/route probe/config guard regressions",
@@ -13982,11 +13982,11 @@
           "passed": [
             {
               "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx tests/contracts/mbti-pdf-snapshot-sync-guard-h1.contract.test.ts",
-              "evidence": "Focused WEB-16 contract and MBTI PDF print hash guard passed after rebasing onto origin/main 4fa13f11."
+              "evidence": "Focused WEB-16 contract and MBTI PDF print hash guard passed after fixing CI merge-checkout diff baseline."
             },
             {
               "command": "/usr/local/bin/pnpm typecheck",
-              "evidence": "Typecheck passed."
+              "evidence": "Typecheck passed after fixing CI merge-checkout diff baseline."
             },
             {
               "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
@@ -13994,7 +13994,7 @@
             },
             {
               "command": "/usr/local/bin/pnpm test:contract",
-              "evidence": "Full contract suite passed after rebasing onto origin/main 4fa13f11: shard 1 163 files/893 tests, shard 2 163 files/908 tests, shard 3 162 files/1042 tests, shard 4 162 files/930 tests."
+              "evidence": "Full contract suite passed after fixing CI merge-checkout diff baseline: shard 1 163 files/893 tests, shard 2 163 files/908 tests, shard 3 162 files/1042 tests, shard 4 162 files/930 tests."
             },
             {
               "command": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
@@ -14006,25 +14006,49 @@
             },
             {
               "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx --testNamePattern \"keeps the current PR diff\"",
-              "evidence": "Changed-file scope validation passed and includes untracked file detection for the authorized WEB-16 paths."
+              "evidence": "Focused WEB-16 contract and MBTI PDF print hash guard passed after fixing CI merge-checkout diff baseline."
             }
           ],
           "failed": []
         },
         "github": {
-          "status": "pending",
-          "passed": [],
-          "failed": [],
+          "status": "failed_fix_in_progress",
+          "passed": [
+            {
+              "name": "build",
+              "evidence": "GitHub build check passed before contracts fix push."
+            },
+            {
+              "name": "verify-big5-contract-freeze",
+              "evidence": "GitHub freeze check passed before contracts fix push."
+            },
+            {
+              "name": "verify-enneagram-contract-freeze",
+              "evidence": "GitHub freeze check passed before contracts fix push."
+            },
+            {
+              "name": "CodeQL/analyze",
+              "evidence": "GitHub CodeQL/analyze checks passed before contracts fix push."
+            }
+          ],
+          "failed": [
+            {
+              "name": "contracts",
+              "url": "https://github.com/fermatmind/fap-web/actions/runs/28645948978/job/84952450159",
+              "evidence": "Failed in tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx because GitHub PR merge checkout did not have refs/remotes/origin/main, so git diff --name-only origin/main...HEAD was ambiguous.",
+              "current_pr_scope": true
+            }
+          ],
           "evidence": "PR #1568 opened; GitHub checks pending."
         },
         "scope": {
           "status": "passed",
-          "evidence": "Post-rebase changed files remain limited to app/(root)/layout.tsx, app/mbti-career-cta.css, lib/site.ts, tests/contracts/helpers/currentPrScope.ts, tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx, and docs/codex/pr-train-state.json."
+          "evidence": "GitHub contracts fix stays within WEB-16 contract scope; no app runtime files changed by the fix."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1568",
-      "commit_sha": "f27adb5a7a5dabc815898f682c568ee8db11bc0e",
+      "commit_sha": "0b56172207ce8e51fcde7f3c898a46839beb999d",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -14058,11 +14082,16 @@
           "at": "2026-07-03T07:38:18.433Z",
           "status": "pr_opened",
           "summary": "Opened PR #1568 for SECURITY-122-WEB-16 at https://github.com/fermatmind/fap-web/pull/1568."
+        },
+        {
+          "at": "2026-07-03T07:46:09.154Z",
+          "status": "github_checks_failed_fixing",
+          "summary": "Inspected failing GitHub contracts job for PR #1568; fixed current-scope WEB-16 contract to use HEAD^1...HEAD when CI merge checkout lacks origin/main, then reran focused contract, typecheck, and full contracts locally successfully."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T07:38:18.433Z",
-      "head_sha": "f27adb5a7a5dabc815898f682c568ee8db11bc0e",
+      "updated_at": "2026-07-03T07:46:09.154Z",
+      "head_sha": "0b56172207ce8e51fcde7f3c898a46839beb999d",
       "merge_sha": null
     },
     {
