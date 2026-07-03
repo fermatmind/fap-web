@@ -1,45 +1,70 @@
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 
-const CURRENT_BRANCH = (() => {
-  const githubHeadBranch = process.env.GITHUB_HEAD_REF;
+type BranchResolutionInput = {
+  githubHeadRef?: string;
+  githubEventPullRequestHeadRef?: unknown;
+  githubRefName?: string;
+  gitBranch?: string;
+};
+
+export function isPullRequestMergeRefName(branch: string): boolean {
+  return /^\d+\/merge$/.test(branch) || /^refs\/pull\/\d+\/merge$/.test(branch);
+}
+
+export function resolveBranchName(input: BranchResolutionInput): string {
+  const githubHeadBranch = input.githubHeadRef;
   if (githubHeadBranch) {
     return githubHeadBranch;
   }
 
+  const pullRequestHeadRef = input.githubEventPullRequestHeadRef;
+  if (typeof pullRequestHeadRef === "string" && pullRequestHeadRef.length > 0) {
+    return pullRequestHeadRef;
+  }
+
+  const githubBranch = input.githubRefName;
+  if (githubBranch && !isPullRequestMergeRefName(githubBranch)) {
+    return githubBranch;
+  }
+
+  return input.gitBranch ?? "";
+}
+
+const CURRENT_BRANCH = (() => {
   const githubEventPath = process.env.GITHUB_EVENT_PATH;
+  let githubEventPullRequestHeadRef: unknown;
   if (githubEventPath) {
     try {
       const eventPayload = JSON.parse(readFileSync(githubEventPath, "utf8")) as {
         pull_request?: { head?: { ref?: unknown } };
       };
-      const pullRequestHeadRef = eventPayload.pull_request?.head?.ref;
-      if (typeof pullRequestHeadRef === "string" && pullRequestHeadRef.length > 0) {
-        return pullRequestHeadRef;
-      }
+      githubEventPullRequestHeadRef = eventPayload.pull_request?.head?.ref;
     } catch {
       // Fall through to the ref name and local git branch fallbacks.
     }
   }
 
-  const githubBranch = process.env.GITHUB_REF_NAME;
-  if (githubBranch) {
-    return githubBranch;
-  }
-
+  let gitBranch = "";
   try {
-    return execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], {
+    gitBranch = execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], {
       cwd: process.cwd(),
       encoding: "utf8",
     }).trim();
   } catch {
-    return "";
+    gitBranch = "";
   }
+
+  return resolveBranchName({
+    githubHeadRef: process.env.GITHUB_HEAD_REF,
+    githubEventPullRequestHeadRef,
+    githubRefName: process.env.GITHUB_REF_NAME,
+    gitBranch,
+  });
 })();
 
-const IS_GITHUB_PULL_REQUEST_MERGE_REF =
-  /^\d+\/merge$/.test(CURRENT_BRANCH) || /^refs\/pull\/\d+\/merge$/.test(CURRENT_BRANCH);
-const IS_GITHUB_ACTIONS_DETACHED_HEAD = CURRENT_BRANCH === "HEAD" && process.env.GITHUB_ACTIONS === "true";
+export const IS_GITHUB_PULL_REQUEST_MERGE_REF = isPullRequestMergeRefName(CURRENT_BRANCH);
+export const IS_GITHUB_ACTIONS_DETACHED_HEAD = CURRENT_BRANCH === "HEAD" && process.env.GITHUB_ACTIONS === "true";
 
 const BIG_FIVE_PUBLIC_PROFILE_AGENT_PILOT_01_ALLOWED_FILES = new Set([
   "scripts/seo/generate-big-five-public-profile-agent-pilot.mjs",
@@ -1389,6 +1414,13 @@ const SECURITY_122_WEB_11_ALLOWED_FILES = new Set([
   "scripts/seo/validate-mbti64-content-package-v2.mjs",
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/security-122-web-11-artifact-integrity.contract.test.ts",
+]);
+
+const SECURITY_122_WEB_12_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-122-web-12-pr-scope-guard.contract.test.ts",
 ]);
 
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
@@ -3909,6 +3941,14 @@ export function isSecurity122Web11AllowedFile(file: string): boolean {
   return SECURITY_122_WEB_11_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity122Web12AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-122-web-12") {
+    return true;
+  }
+
+  return SECURITY_122_WEB_12_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -4919,6 +4959,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return SECURITY_122_WEB_11_ALLOWED_FILES.has(file);
   }
 
+  if (CURRENT_BRANCH === "codex/security-122-web-12") {
+    return SECURITY_122_WEB_12_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {
     return PR_EQ_PER_03_ALLOWED_FILES.has(file);
   }
@@ -5275,18 +5319,6 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
       PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES.has(file) ||
       LEGACY_CI_EMPTY_DIFF_SCOPE_SENTINEL_FILES.has(file)
     );
-  }
-
-  if (
-    (IS_GITHUB_PULL_REQUEST_MERGE_REF || IS_GITHUB_ACTIONS_DETACHED_HEAD) &&
-    (PERSONALITY_LLMS_FULL_COMPARISON_REPAIR_01_ALLOWED_FILES.has(file) ||
-      PERSONALITY_SEO_POST_DEPLOY_INDEXATION_AUDIT_01_ALLOWED_FILES.has(file) ||
-      PERSONALITY_BIG5_NAV_ENTRY_ALLOWED_FILES.has(file) ||
-      PERSONALITY_ENNEAGRAM_V1_NOINDEX_RENDER_01_ALLOWED_FILES.has(file) ||
-      ENNEAGRAM_PERSONALITY_NAV_ENTRY_ALLOWED_FILES.has(file) ||
-      LEGACY_CI_EMPTY_DIFF_SCOPE_SENTINEL_FILES.has(file))
-  ) {
-    return true;
   }
 
   if (CURRENT_BRANCH === "codex/personality-seo-post-deploy-indexation-audit-01") {

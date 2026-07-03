@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T12:30:00+08:00",
+  "updated_at": "2026-07-03T13:16:46+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13409,7 +13409,7 @@
       "depends_on": [
         "SECURITY-122-WEB-11"
       ],
-      "status": "planned",
+      "status": "ready_to_merge",
       "train_scope": "security_122_web_pr_scope_guard_pr_train_metadata_correctness",
       "risk_level": "low",
       "title": "SECURITY-122-WEB-12: PR scope guard and PR-train metadata correctness",
@@ -13429,21 +13429,59 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-11 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-11 merged via PR #1552 at 2026-07-03T04:34:45Z; origin/main contains fd8eac74cb3cb499fae9bfeff036a2330d4e0273 and task branches are cleaned."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-12-pr-scope-guard.contract.test.ts",
+              "evidence": "Focused WEB-12 contract passed in the main worktree after path-limited preservation of the unrelated personality page dirty file."
+            },
+            {
+              "command": "/usr/local/bin/pnpm typecheck",
+              "evidence": "Typecheck passed."
+            },
+            {
+              "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+              "evidence": "Production-API build completed successfully and generated 202/202 static pages."
+            },
+            {
+              "command": "CI=1 /usr/local/bin/pnpm exec vitest run tests/contracts --maxWorkers=2 --no-file-parallelism --reporter=dot",
+              "evidence": "Clean temporary worktree full contract suite passed: 643 files and 3741 tests. Exact main-worktree test:contract was rejected by WEB-12 scope validation only after an unrelated app/(localized)/[locale]/personality/page.tsx dirty file reappeared; exact clean-worktree full contract was killed locally with exit 137 before summary, so the same suite was rerun with low concurrency to avoid local resource pressure."
+            },
+            {
+              "command": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+              "evidence": "Manifest and state parsed successfully."
+            },
+            {
+              "command": "git diff --check",
+              "evidence": "Whitespace diff check passed."
+            },
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-12-pr-scope-guard.contract.test.ts --testNamePattern \"keeps tracked diff scope\"",
+              "evidence": "Changed-file scope validation passed for the four authorized WEB-12 files after excluding the unrelated personality page dirty file."
+            }
+          ]
         },
         "github": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            {
+              "command": "gh pr checks 1556 --watch=false",
+              "evidence": "PR #1556 checks passed on head 8c450609cbe456048c0c560be5e9281402ba1608: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
+            },
+            {
+              "command": "gh pr view 1556 --json mergeStateStatus,mergeable,isDraft,reviewDecision,headRefOid,url",
+              "evidence": "PR #1556 is not draft, mergeStateStatus is CLEAN, mergeable is MERGEABLE, and no reviewDecision block was reported."
+            }
+          ]
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1556",
+      "commit_sha": "95dcc1e56e2b7f4ae1172380e5b7167819aed56c",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -13452,10 +13490,36 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-12 from explicit user /goal; execution waits for SECURITY-122-WEB-11 merge."
+        },
+        {
+          "at": "2026-07-03T12:41:00+08:00",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-12 from latest main after WEB-11 post-merge revalidation; implementing PR scope guard and PR-train metadata correctness only."
+        },
+        {
+          "at": "2026-07-03T13:00:08+08:00",
+          "status": "local_checks_passed",
+          "summary": "Required WEB-12 local checks passed: focused scope-guard contract, typecheck, production-API build, clean-worktree full contract suite with low concurrency, manifest/state parse, diff check, and changed-file scope validation. The main worktree had a recurring unrelated personality page dirty file that was isolated outside WEB-12 scope."
+        },
+        {
+          "at": "2026-07-03T13:02:43+08:00",
+          "status": "pr_open",
+          "summary": "Pushed codex/security-122-web-12 at 95dcc1e56e2b7f4ae1172380e5b7167819aed56c and opened GitHub PR #1556. GitHub checks are pending; staging deploy is not waited on."
+        },
+        {
+          "at": "2026-07-03T13:09:53+08:00",
+          "status": "github_contracts_failure_inspected_and_fixed",
+          "summary": "GitHub contracts failed because SECURITY-122-WEB-12 used top-level status open, while the existing SECURITY-122 train reconciliation contract accepts pr_opened. Fixed the WEB-12 manifest/state status inside current metadata scope and reran the failing reconciliation plus WEB-12 scope contracts locally."
+        },
+        {
+          "at": "2026-07-03T13:16:46+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed for PR #1556 head 8c450609cbe456048c0c560be5e9281402ba1608. Scope revalidation remained exactly the four authorized WEB-12 files and git diff --check passed; staging deploy was not waited on."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T13:16:46+08:00",
+      "head_sha": "8c450609cbe456048c0c560be5e9281402ba1608"
     },
     {
       "id": "SECURITY-122-WEB-13",
