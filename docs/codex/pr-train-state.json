@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T17:30:00+08:00",
+  "updated_at": "2026-07-03T17:31:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -14220,7 +14220,7 @@
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": "316f78934b2fdf0a1e0c6696d18023fb64360a1f",
+      "commit_sha": "d5a73128a611db0888056d4f6946c16e5a45f6d6",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -14254,11 +14254,16 @@
           "at": "2026-07-03T17:30:00+08:00",
           "status": "committed",
           "summary": "Synchronized SECURITY-122-WEB-17 ledger commit_sha/head_sha with amended commit 316f78934b2fdf0a1e0c6696d18023fb64360a1f; push and PR creation pending."
+        },
+        {
+          "at": "2026-07-03T17:31:00+08:00",
+          "status": "committed",
+          "summary": "Recorded SECURITY-122-WEB-17 implementation commit d5a73128a611db0888056d4f6946c16e5a45f6d6; this ledger-only commit follows it because commit hashes cannot self-reference after amend."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T17:30:00+08:00",
-      "head_sha": "316f78934b2fdf0a1e0c6696d18023fb64360a1f"
+      "updated_at": "2026-07-03T17:31:00+08:00",
+      "head_sha": "d5a73128a611db0888056d4f6946c16e5a45f6d6"
     },
     {
       "id": "PR-AUDIT-FE-01",
