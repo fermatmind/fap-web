@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T13:02:43+08:00",
+  "updated_at": "2026-07-03T13:09:53+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13409,7 +13409,7 @@
       "depends_on": [
         "SECURITY-122-WEB-11"
       ],
-      "status": "open",
+      "status": "pr_opened",
       "train_scope": "security_122_web_pr_scope_guard_pr_train_metadata_correctness",
       "risk_level": "low",
       "title": "SECURITY-122-WEB-12: PR scope guard and PR-train metadata correctness",
@@ -13496,10 +13496,15 @@
           "at": "2026-07-03T13:02:43+08:00",
           "status": "pr_open",
           "summary": "Pushed codex/security-122-web-12 at 95dcc1e56e2b7f4ae1172380e5b7167819aed56c and opened GitHub PR #1556. GitHub checks are pending; staging deploy is not waited on."
+        },
+        {
+          "at": "2026-07-03T13:09:53+08:00",
+          "status": "github_contracts_failure_inspected_and_fixed",
+          "summary": "GitHub contracts failed because SECURITY-122-WEB-12 used top-level status open, while the existing SECURITY-122 train reconciliation contract accepts pr_opened. Fixed the WEB-12 manifest/state status inside current metadata scope and reran the failing reconciliation plus WEB-12 scope contracts locally."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T13:02:43+08:00",
+      "updated_at": "2026-07-03T13:09:53+08:00",
       "head_sha": "95dcc1e56e2b7f4ae1172380e5b7167819aed56c"
     },
     {
