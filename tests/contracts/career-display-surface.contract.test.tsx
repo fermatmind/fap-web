@@ -285,9 +285,10 @@ describe("career display surface contract", () => {
     expect(surface?.sections.find((section) => section.component === "NextStepsBlock")?.cta).toBeUndefined();
     expect(surface?.sources).toEqual([
       expect.objectContaining({ label: "O*NET Online: Data Scientists" }),
-      expect.objectContaining({ label: "FermatMind interpretation", url: "https://www.onetonline.org/" }),
+      expect.objectContaining({ label: "FermatMind interpretation" }),
     ]);
     expect(surface?.sources[0]).not.toHaveProperty("url");
+    expect(surface?.sources[1]).not.toHaveProperty("url");
   });
 
   it("removes salary claims from all visible display-surface fields when salary comparison is blocked", () => {
