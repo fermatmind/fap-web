@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T10:51:00+08:00",
+  "updated_at": "2026-07-03T11:04:30+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -37573,9 +37573,11 @@
     "branch": "codex/pr-career-kg-16-market-research-analysts-marketing-specialists",
     "title": "PR-CAREER-KG-16: content(career): add market research analysts and marketing specialists KG asset package",
     "train_scope": "career_kg_market_research_analysts_marketing_specialists_asset_package",
-    "depends_on": ["PR-CAREER-KG-15"],
+    "depends_on": [
+      "PR-CAREER-KG-15"
+    ],
     "status": "ready_to_merge",
-    "commit_sha": "c091e002a4f9aeaac349c92e1eccfdb18349612c",
+    "commit_sha": "774dd48d52cfcbcef7dfeb868f2c578f97cd5a6e",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1551",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -37616,22 +37618,22 @@
           "pnpm typecheck",
           "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
           "pnpm test:contract",
-          "git diff --check"
+          "git diff --check origin/main...HEAD"
         ],
-        "evidence": "YAML/JSON validation passed; focused PR16 contract passed with 5 tests; pnpm typecheck passed; production-API build passed with 202 generated pages; full pnpm test:contract passed with 638 files and 3724 tests; git diff --check passed."
+        "evidence": "After rebasing PR16 onto origin/main at b1ffcd2b, YAML/JSON validation passed; focused PR16 contract passed with 5 tests; pnpm typecheck passed; production-API build passed with 202 generated pages; full pnpm test:contract passed with 639 files and 3728 tests; git diff --check passed."
       },
       "scope_validation": {
         "status": "pass",
-        "evidence": "Validated changed/untracked/ignored scoped file list contains exactly 11 authorized PR16 files: docs/codex/pr-train-state.json, docs/codex/pr-train.yaml, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/README.md, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/dry_run_importer_report.json, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/fap_web_render_smoke.json, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/market-research-analysts-and-marketing-specialists.zh-CN.asset.json, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/qa_report.json, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/sha256_manifest.json, generated/career-kg-pr-16-market-research-analysts-marketing-specialists/staging_preview_smoke.json, tests/contracts/career-kg-16-market-research-analysts-marketing-specialists.contract.test.tsx, and tests/contracts/helpers/currentPrScope.ts."
+        "evidence": "After rebase, validated changed file list against origin/main contains exactly the 11 authorized PR16 files and no outside-scope files."
       },
       "github_checks": {
-        "status": "pass",
-        "head_sha": "c091e002a4f9aeaac349c92e1eccfdb18349612c",
-        "evidence": "PR #1551 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript)."
+        "status": "pending",
+        "head_sha": "774dd48d52cfcbcef7dfeb868f2c578f97cd5a6e",
+        "evidence": "Awaiting GitHub checks for the rebased PR16 head after local revalidation."
       },
       "merge_readiness": {
-        "status": "ready_to_merge",
-        "evidence": "After GitHub checks passed, scope was revalidated against origin/main and still contained exactly the 11 authorized PR16 files; git diff --check passed. Staging deploy was not waited on per train protocol."
+        "status": "pending_github_checks",
+        "evidence": "Local checks and scope validation passed after rebase; GitHub checks must pass again before merge. Staging deploy will not be waited on."
       }
     },
     "scope_validation": {
@@ -37690,6 +37692,16 @@
         "at": "2026-07-03T02:52:37Z",
         "status": "ready_to_merge",
         "notes": "Revalidated scope after green checks: exactly the 11 authorized PR16 files and no outside-scope files; git diff --check passed. Staging deploy was not waited on."
+      },
+      {
+        "at": "2026-07-03T03:04:30Z",
+        "status": "rebased_and_revalidated",
+        "notes": "Rebased PR-CAREER-KG-16 onto origin/main after external SECURITY-122-WEB-10 merge b1ffcd2b caused PR #1551 merge conflicts. Resolved docs/codex/pr-train-state.json by preserving PR15 merged facts and PR16 scope. Reran YAML/JSON, focused PR16 contract, pnpm typecheck, production-API build, full contract suite, git diff --check, and changed-file scope validation successfully."
+      },
+      {
+        "at": "2026-07-03T03:04:30Z",
+        "status": "ready_to_push_rebased_head",
+        "notes": "Rebased head 774dd48d52cfcbcef7dfeb868f2c578f97cd5a6e is locally validated and ready to force-with-lease push for PR #1551. GitHub checks must pass again before merge."
       }
     ]
   }
