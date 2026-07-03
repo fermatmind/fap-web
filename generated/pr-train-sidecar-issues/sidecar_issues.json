@@ -1,32 +1,25 @@
-[
-  {
-    "repo": "fap-web",
-    "pr_id": "MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1",
-    "branch": "codex/mbti-pdf-snapshot-sync-guard-h1",
-    "blocker_type": "local_pnpm_approve_builds",
-    "evidence": "pnpm ops:mbti-pdf-print-asset-hash && pnpm exec vitest ... failed before running the scoped payload with [ERR_PNPM_IGNORED_BUILDS] for esbuild@0.27.3, sharp@0.34.5, unrs-resolver@1.11.1.",
-    "why_not_current_pr_scope": "H1 only adds a print-impact hash guard script, a focused contract test, package script, and PR-train metadata. It does not change dependencies, install policy, or pnpm approval state.",
-    "required_checks_affected": "Local pnpm wrapper command is affected on this machine. Direct node and ./node_modules/.bin/vitest scoped payloads pass. GitHub CI is expected to run in its own clean install context.",
-    "recommended_follow_up": "Resolve local pnpm approve-builds state separately, then rerun the pnpm wrapper commands."
-  },
-  {
-    "repo": "fap-web",
-    "pr_id": "MBTI-PDF-SNAPSHOT-SYNC-GUARD-H1",
-    "branch": "codex/mbti-pdf-snapshot-sync-guard-h1",
-    "blocker_type": "unrelated_untracked_file",
-    "evidence": "git status --short --branch shows ?? pnpm-workspace.yaml.",
-    "why_not_current_pr_scope": "H1 scope does not include workspace package-manager configuration, and the file existed outside the scoped H1 changes.",
-    "required_checks_affected": "Not affected if H1 files are staged path-explicitly. It can block a fully clean worktree closeout until handled separately.",
-    "recommended_follow_up": "Confirm whether pnpm-workspace.yaml should be committed in its own repository-maintenance PR or removed by the owner."
-  },
-  {
-    "repo": "fap-web",
-    "pr_id": "MBTI-PDF-SNAPSHOT-RENDERED-SMOKE-H2",
-    "branch": "codex/mbti-pdf-snapshot-rendered-smoke-h2",
-    "blocker_type": "local_pnpm_approve_builds",
-    "evidence": "pnpm test:contract failed before running contracts with [ERR_PNPM_IGNORED_BUILDS] for esbuild@0.27.3, sharp@0.34.5, unrs-resolver@1.11.1.",
-    "why_not_current_pr_scope": "H2 extends one smoke script and focused contract tests. It does not change dependencies, install policy, or pnpm approval state.",
-    "required_checks_affected": "Local pnpm wrapper command is affected on this machine. Direct node, ./node_modules/.bin/vitest, and ./node_modules/.bin/tsc scoped payloads pass. GitHub CI is expected to run in its own clean install context.",
-    "recommended_follow_up": "Resolve local pnpm approve-builds state separately, then rerun the pnpm wrapper commands."
-  }
-]
+{
+  "issues": [
+    {
+      "repo": "fap-web",
+      "pr_id": "PR-CAREER-KG-AGENT-01",
+      "branch": "codex/pr-career-kg-agent-01-contract-schema",
+      "blocker_type": "local_required_check_could_not_complete_cleanly",
+      "evidence": [
+        "Focused PR1 contract passed: pnpm exec vitest run tests/contracts/career-kg-agent-package-schema.contract.test.ts",
+        "pnpm typecheck passed",
+        "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed",
+        "Initial pnpm test:contract failed only in tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts with two 5000ms timeouts",
+        "Focused rerun of the llms-full artifact consistency contract with --testTimeout=30000 passed",
+        "Subsequent pnpm test:contract and CI=1 pnpm test:contract runs printed complete passing test lists but did not exit cleanly before manual interruption",
+        "Latest exact pnpm test:contract rerun printed passing output through the tail of tests/contracts, including career-kg-agent-package-schema.contract.test.ts, but did not emit final summary or exit after about six minutes",
+        "Process evidence before interruption showed node /usr/local/bin/pnpm test:contract, node (vitest), and multiple node (vitest N) workers still alive; Ctrl-C produced exit code 130",
+        "Continuation rerun from a clean process state reproduced the same blocker: exact pnpm test:contract reached the last visible contract output but did not emit final summary or exit",
+        "Process evidence after about four and a half minutes showed node /usr/local/bin/pnpm test:contract, node (vitest), and seven node (vitest N) workers still alive; Ctrl-C produced exit code 130"
+      ],
+      "why_not_current_pr_scope": "The failed or hanging contract file is outside PR-CAREER-KG-AGENT-01 allowed paths; PR1 only changes career KG agent contracts, schemas, docs, one focused contract, scope helper, and PR-train metadata.",
+      "required_checks_affected": true,
+      "recommended_follow_up": "Stabilize full contract suite teardown or adjust the llms-full artifact consistency contract timeout outside this PR scope, then rerun PR-CAREER-KG-AGENT-01 local checks."
+    }
+  ]
+}

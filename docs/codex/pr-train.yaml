@@ -3276,6 +3276,8 @@ prs:
       - docs/codex/pr-train-state.json
       - generated/pr-train-sidecar-issues/sidecar_issues.md
       - generated/pr-train-sidecar-issues/sidecar_issues.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
     out_of_scope:
       - <workspace>/fap-api changes
       - <workspace>/fap-api/fap-web as production runtime
@@ -3978,6 +3980,8 @@ prs:
       - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
     out_of_scope:
       - <workspace>/fap-api changes
       - app/**
@@ -21616,6 +21620,276 @@ prs:
       - Change ordinary result-page layout, site chrome, cookie behavior, footer, rail, tools, workbench, order, share, retest, or PDF download interactions outside the v3 print snapshot route.
     required_local_checks:
       - pnpm exec vitest run tests/contracts/mbti-result-page-pdf-visual-pagination.contract.test.ts tests/contracts/mbti-result-page-pdf-smoke-quality-gate.contract.test.ts tests/contracts/result-private-print-chrome.contract.test.ts tests/contracts/mbti-desktop-shell-cta.contract.test.tsx
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null
+
+  - id: PR-CAREER-KG-AGENT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-agent-01-contract-schema
+    base: main
+    title: "PR-CAREER-KG-AGENT-01: lock career KG input and package schemas"
+    depends_on: []
+    mode: execute
+    train_scope: career_kg_agent_contract_schema
+    status: in_progress
+    goal: "Define the operator-confirmed career KG batch input contract and dry-run package schema without adding runtime content, CMS writes, production import, or SEO runtime release."
+    artifacts:
+      - .agents/skills/career-content-asset-factory/references/career_kg_confirmed_batch_contract.md
+      - .agents/skills/career-content-asset-factory/schemas/career_kg_confirmed_batch.schema.json
+      - .agents/skills/career-content-asset-factory/schemas/career_kg_asset_package.schema.json
+      - docs/career/career-kg-agent-optimization-runbook.md
+      - tests/contracts/career-kg-agent-package-schema.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - .agents/skills/career-content-asset-factory/references/career_kg_confirmed_batch_contract.md
+      - .agents/skills/career-content-asset-factory/schemas/career_kg_confirmed_batch.schema.json
+      - .agents/skills/career-content-asset-factory/schemas/career_kg_asset_package.schema.json
+      - docs/career/career-kg-agent-optimization-runbook.md
+      - tests/contracts/career-kg-agent-package-schema.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Modify runtime app, component, lib, sitemap, llms, canonical, noindex, JSON-LD, CMS write, or production deploy code.
+      - Generate real new occupation content packages.
+      - Perform CMS writes, staging writes, production imports, SEO runtime release, or search-provider submissions.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-kg-agent-package-schema.contract.test.ts
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-AGENT-02
+
+  - id: PR-CAREER-KG-AGENT-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-agent-02-package-generator
+    base: main
+    title: "PR-CAREER-KG-AGENT-02: add career KG package generator"
+    depends_on:
+      - PR-CAREER-KG-AGENT-01
+    mode: execute
+    train_scope: career_kg_agent_package_generator
+    status: pending
+    goal: "Generate standard dry-run career KG package directories from confirmed batch fixtures without producing real new occupation content or modifying runtime."
+    artifacts:
+      - .agents/skills/career-content-asset-factory/scripts/generate_career_kg_package.py
+      - .agents/skills/career-content-asset-factory/templates/career_kg_asset_package_template.json
+      - .agents/skills/career-content-asset-factory/templates/career_kg_readme_template.md
+      - tests/contracts/career-kg-package-generator.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - .agents/skills/career-content-asset-factory/scripts/generate_career_kg_package.py
+      - .agents/skills/career-content-asset-factory/templates/career_kg_asset_package_template.json
+      - .agents/skills/career-content-asset-factory/templates/career_kg_readme_template.md
+      - tests/contracts/career-kg-package-generator.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - python3 .agents/skills/career-content-asset-factory/scripts/generate_career_kg_package.py --help
+      - pnpm exec vitest run tests/contracts/career-kg-package-generator.contract.test.ts
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-AGENT-03
+
+  - id: PR-CAREER-KG-AGENT-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-agent-03-qa-gate
+    base: main
+    title: "PR-CAREER-KG-AGENT-03: add career KG QA gate validators"
+    depends_on:
+      - PR-CAREER-KG-AGENT-02
+    mode: execute
+    train_scope: career_kg_agent_qa_gate
+    status: pending
+    goal: "Extract reusable career KG package, source, and claim-boundary validators from prior manual PR contracts."
+    artifacts:
+      - .agents/skills/career-content-asset-factory/scripts/validate_career_kg_package.py
+      - .agents/skills/career-content-asset-factory/scripts/validate_career_kg_claim_boundaries.py
+      - .agents/skills/career-content-asset-factory/scripts/validate_career_kg_sources.py
+      - tests/contracts/career-kg-package-validator.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - .agents/skills/career-content-asset-factory/scripts/validate_career_kg_package.py
+      - .agents/skills/career-content-asset-factory/scripts/validate_career_kg_claim_boundaries.py
+      - .agents/skills/career-content-asset-factory/scripts/validate_career_kg_sources.py
+      - tests/contracts/career-kg-package-validator.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - python3 .agents/skills/career-content-asset-factory/scripts/validate_career_kg_package.py --help
+      - python3 .agents/skills/career-content-asset-factory/scripts/validate_career_kg_claim_boundaries.py --help
+      - python3 .agents/skills/career-content-asset-factory/scripts/validate_career_kg_sources.py --help
+      - pnpm exec vitest run tests/contracts/career-kg-package-validator.contract.test.ts
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-AGENT-04
+
+  - id: PR-CAREER-KG-AGENT-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-agent-04-search-projection-quarantine
+    base: main
+    title: "PR-CAREER-KG-AGENT-04: add career KG search projection quarantine v2"
+    depends_on:
+      - PR-CAREER-KG-AGENT-03
+    mode: execute
+    train_scope: career_kg_agent_search_projection_quarantine
+    status: pending
+    goal: "Keep title/meta/FAQ/internal-link candidates in a separate search projection artifact and block runtime SEO leakage into reader assets."
+    artifacts:
+      - .agents/skills/career-content-asset-factory/scripts/validate_search_projection_quarantine.py
+      - .agents/skills/career-content-asset-factory/schemas/career_kg_search_projection_candidate.schema.json
+      - .agents/skills/career-content-asset-factory/templates/career_kg_search_projection_candidate.json
+      - tests/contracts/career-kg-search-projection-quarantine.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - .agents/skills/career-content-asset-factory/scripts/validate_search_projection_quarantine.py
+      - .agents/skills/career-content-asset-factory/schemas/career_kg_search_projection_candidate.schema.json
+      - .agents/skills/career-content-asset-factory/templates/career_kg_search_projection_candidate.json
+      - tests/contracts/career-kg-search-projection-quarantine.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - python3 .agents/skills/career-content-asset-factory/scripts/validate_search_projection_quarantine.py --help
+      - pnpm exec vitest run tests/contracts/career-kg-search-projection-quarantine.contract.test.ts
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-AGENT-05
+
+  - id: PR-CAREER-KG-AGENT-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-agent-05-pr-train-generator
+    base: main
+    title: "PR-CAREER-KG-AGENT-05: add career KG PR train entry generator"
+    depends_on:
+      - PR-CAREER-KG-AGENT-04
+    mode: execute
+    train_scope: career_kg_agent_pr_train_entry_generator
+    status: pending
+    goal: "Generate manifest/state patch artifacts and execution prompts from confirmed career KG batches without directly mutating train ledgers by default."
+    artifacts:
+      - .agents/skills/career-content-asset-factory/scripts/generate_career_kg_pr_train_entries.py
+      - .agents/skills/career-content-asset-factory/templates/career_kg_pr_train_entry.yaml
+      - .agents/skills/career-content-asset-factory/templates/career_kg_pr_train_state_entry.json
+      - tests/contracts/career-kg-pr-train-entry-generator.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - .agents/skills/career-content-asset-factory/scripts/generate_career_kg_pr_train_entries.py
+      - .agents/skills/career-content-asset-factory/templates/career_kg_pr_train_entry.yaml
+      - .agents/skills/career-content-asset-factory/templates/career_kg_pr_train_state_entry.json
+      - tests/contracts/career-kg-pr-train-entry-generator.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - python3 .agents/skills/career-content-asset-factory/scripts/generate_career_kg_pr_train_entries.py --help
+      - pnpm exec vitest run tests/contracts/career-kg-pr-train-entry-generator.contract.test.ts
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: PR-CAREER-KG-AGENT-06
+
+  - id: PR-CAREER-KG-AGENT-06
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/pr-career-kg-agent-06-runbook-skill-integration
+    base: main
+    title: "PR-CAREER-KG-AGENT-06: document career KG agent workflow"
+    depends_on:
+      - PR-CAREER-KG-AGENT-05
+    mode: execute
+    train_scope: career_kg_agent_runbook_skill_integration
+    status: pending
+    goal: "Integrate the confirmed-batch career KG dry-run workflow into the career content asset skill and docs without changing runtime behavior."
+    artifacts:
+      - .agents/skills/career-content-asset-factory/SKILL.md
+      - .agents/skills/career-content-asset-factory/references/operator_runbook.md
+      - .agents/skills/career-content-asset-factory/references/search_projection_quarantine.md
+      - docs/career/career-content-agent-technical-summary-2026-06-25.md
+      - docs/codex/career-batch-review-checklist.md
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths:
+      - .agents/skills/career-content-asset-factory/SKILL.md
+      - .agents/skills/career-content-asset-factory/references/operator_runbook.md
+      - .agents/skills/career-content-asset-factory/references/search_projection_quarantine.md
+      - docs/career/career-content-agent-technical-summary-2026-06-25.md
+      - docs/codex/career-batch-review-checklist.md
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
       - pnpm test:contract
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
