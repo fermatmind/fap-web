@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T11:04:30+08:00",
+  "updated_at": "2026-07-03T11:15:30+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -37577,7 +37577,7 @@
       "PR-CAREER-KG-15"
     ],
     "status": "ready_to_merge",
-    "commit_sha": "774dd48d52cfcbcef7dfeb868f2c578f97cd5a6e",
+    "commit_sha": "6af979dc878beed8a4a8a0700a5e9ba4c4e1375e",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1551",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -37627,13 +37627,13 @@
         "evidence": "After rebase, validated changed file list against origin/main contains exactly the 11 authorized PR16 files and no outside-scope files."
       },
       "github_checks": {
-        "status": "pending",
-        "head_sha": "774dd48d52cfcbcef7dfeb868f2c578f97cd5a6e",
-        "evidence": "Awaiting GitHub checks for the rebased PR16 head after local revalidation."
+        "status": "pass",
+        "head_sha": "6af979dc878beed8a4a8a0700a5e9ba4c4e1375e",
+        "evidence": "PR #1551 GitHub checks passed after rerunning a transient contracts install failure: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript). The failed attempt was inspected and was a Corepack pnpm tarball download UND_ERR_SOCKET, not a PR16 scope failure."
       },
       "merge_readiness": {
-        "status": "pending_github_checks",
-        "evidence": "Local checks and scope validation passed after rebase; GitHub checks must pass again before merge. Staging deploy will not be waited on."
+        "status": "ready_to_merge",
+        "evidence": "After green checks, scope remains exactly the 11 authorized PR16 files; git diff --check passed. Staging deploy was not waited on."
       }
     },
     "scope_validation": {
@@ -37702,6 +37702,21 @@
         "at": "2026-07-03T03:04:30Z",
         "status": "ready_to_push_rebased_head",
         "notes": "Rebased head 774dd48d52cfcbcef7dfeb868f2c578f97cd5a6e is locally validated and ready to force-with-lease push for PR #1551. GitHub checks must pass again before merge."
+      },
+      {
+        "at": "2026-07-03T03:15:30Z",
+        "status": "github_checks_transient_failure_inspected",
+        "notes": "Initial PR #1551 contracts check failed before tests during Corepack pnpm 10.28.1 tarball download with UND_ERR_SOCKET/other side closed. Same workflow build and freeze installs passed; local full contract suite passed. Reran failed jobs because required checks must be green."
+      },
+      {
+        "at": "2026-07-03T03:15:30Z",
+        "status": "github_checks_passed",
+        "notes": "GitHub checks passed for PR #1551 head 6af979dc878beed8a4a8a0700a5e9ba4c4e1375e after rerun: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and analyze (javascript-typescript)."
+      },
+      {
+        "at": "2026-07-03T03:15:30Z",
+        "status": "ready_to_merge",
+        "notes": "Revalidated PR16 scope after green checks: exactly the 11 authorized files and no outside-scope files; git diff --check passed. Staging deploy was not waited on."
       }
     ]
   }
