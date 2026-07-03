@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T13:44:39+08:00",
+  "updated_at": "2026-07-03T14:10:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13536,7 +13536,7 @@
       "depends_on": [
         "SECURITY-122-WEB-12"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_career_qa_source_trust_certification_hardening",
       "risk_level": "low",
       "title": "SECURITY-122-WEB-13: career QA source/trust certification hardening",
@@ -13612,10 +13612,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1559",
-      "commit_sha": "7509dea2c259b79dc3ddb44fb662091e7e985a8e",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "0e1498eb250c559c4784f7c8c1a9ac195e9c4556",
+      "merged_at": "2026-07-03T05:51:32Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -13641,11 +13641,17 @@
           "at": "2026-07-03T13:44:39+08:00",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed for PR #1559 head 02895cb45ac2d839bacf268926007b78f588181f. Scope revalidation remained exactly the six authorized WEB-13 files and git diff --check passed; staging deploy was not waited on."
+        },
+        {
+          "at": "2026-07-03T14:00:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled SECURITY-122-WEB-13 post-merge state while starting WEB-14: PR #1559 is MERGED, merge commit 0e1498eb250c559c4784f7c8c1a9ac195e9c4556 is contained in origin/main, local main is synced and clean, and the task branch is deleted locally/remotely."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T13:44:39+08:00",
-      "head_sha": "02895cb45ac2d839bacf268926007b78f588181f"
+      "updated_at": "2026-07-03T14:00:00+08:00",
+      "head_sha": "0e1498eb250c559c4784f7c8c1a9ac195e9c4556",
+      "merge_sha": "0e1498eb250c559c4784f7c8c1a9ac195e9c4556"
     },
     {
       "id": "SECURITY-122-WEB-14",
@@ -13656,7 +13662,7 @@
       "depends_on": [
         "SECURITY-122-WEB-13"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_122_web_career_fit_outcome_compensation_claim_audit_allowlists",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-14: career-fit outcome/compensation claim audit allowlists",
@@ -13676,12 +13682,47 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-13 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-13 merged via PR #1559 at 2026-07-03T05:51:32Z; origin/main contains 0e1498eb250c559c4784f7c8c1a9ac195e9c4556 and WEB-14 started from latest main 535fd2f143307c8161806c5f55161750bd9ef37d."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-14-career-claim-audit.contract.test.tsx",
+              "evidence": "Focused WEB-14 career claim audit contract passed, including unsafe outcome/payroll/tax/compensation/promotion claim scrubbing and changed-file scope validation."
+            },
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-14-career-claim-audit.contract.test.tsx tests/contracts/career-fit-graph-ai-claim-guards.contract.test.ts tests/contracts/career-kg-08-aerospace-engineers.contract.test.tsx tests/contracts/personality-type-browse.contract.test.tsx tests/contracts/personality-hub-media-render-verify-01.contract.test.ts",
+              "evidence": "Regression rerun passed after preserving negated career-claim boundary copy and isolating the unrelated personality page dirty file."
+            },
+            {
+              "command": "/usr/local/bin/pnpm typecheck",
+              "evidence": "Typecheck passed."
+            },
+            {
+              "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+              "evidence": "Production-API build completed successfully and generated 202/202 static pages."
+            },
+            {
+              "command": "/usr/local/bin/pnpm test:contract",
+              "evidence": "Full contract suite passed across 4 shards after rerun: shard 1 161 files/910 tests, shard 2 161 files/872 tests, shard 3 and shard 4 completed with no failed summary and contract-shards diagnostics written."
+            },
+            {
+              "command": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+              "evidence": "Manifest and state parsed successfully."
+            },
+            {
+              "command": "git diff --check",
+              "evidence": "Whitespace diff check passed."
+            },
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-14-career-claim-audit.contract.test.tsx --testNamePattern \"keeps tracked diff scope\"",
+              "evidence": "Changed-file scope validation passed for the four authorized WEB-14 files after path-limited preservation of the unrelated personality page dirty file."
+            }
+          ],
+          "failed": [],
+          "evidence": "All required WEB-14 local checks passed. Recurring unrelated app/(localized)/[locale]/personality/page.tsx dirty changes were isolated with path-limited stashes and not included in scope."
         },
         "github": {
           "status": "pending",
@@ -13699,10 +13740,21 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-14 from explicit user /goal; execution waits for SECURITY-122-WEB-13 merge."
+        },
+        {
+          "at": "2026-07-03T14:00:00+08:00",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-14 from latest main after reconciling WEB-13 post-merge state; implementing career-fit outcome, compensation, payroll/tax, and promotion claim audit allowlists only."
+        },
+        {
+          "at": "2026-07-03T14:10:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Required WEB-14 local checks passed: focused claim-audit contract, career-fit scanner/KG/personality regression reruns, typecheck, production build, full contract suite, manifest/state parse, diff check, and changed-file scope validation. The recurring unrelated personality page dirty file was isolated outside WEB-14 scope."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T14:10:00+08:00",
+      "head_sha": "535fd2f143307c8161806c5f55161750bd9ef37d"
     },
     {
       "id": "SECURITY-122-WEB-15",
