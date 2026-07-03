@@ -1,0 +1,76 @@
+{
+  "schema_version": "fap.contract_groups.v1",
+  "groups": {
+    "runtime-render": {
+      "description": "React/jsdom-heavy consumer contracts with navigation, async render, or rich report surfaces.",
+      "files": [
+        "tests/contracts/clinical-consent-gates.contract.test.tsx",
+        "tests/contracts/mbti-share-consumer.contract.test.tsx",
+        "tests/contracts/result-client-view-state.contract.test.tsx",
+        "tests/contracts/rich-result-report.contract.test.tsx"
+      ]
+    },
+    "seo-artifact": {
+      "description": "Contracts that read, diff, or generate SEO/search artifacts and generated cache files.",
+      "files": [
+        "tests/contracts/detail-ready-1046-career-detail-metadata-and-llms-full-stability-repair-01.contract.test.ts",
+        "tests/contracts/detail-ready-1046-frontend-metadata-revalidation-01.contract.test.tsx",
+        "tests/contracts/llms-full-enrichment.contract.test.ts",
+        "tests/contracts/sitemap-indexability.contract.test.ts"
+      ]
+    },
+    "git-scope": {
+      "description": "Contracts that inspect git diffs, changed files, scope guards, or branch metadata.",
+      "files": [
+        "tests/contracts/ci-validator-hygiene.contract.test.ts",
+        "tests/contracts/help-cms-authority.contract.test.ts",
+        "tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts",
+        "tests/contracts/seo-content-brief-generator-readonly.contract.test.ts"
+      ]
+    },
+    "filesystem-writer": {
+      "description": "Contracts that exercise generated files, package outputs, or local filesystem diagnostics.",
+      "files": [
+        "tests/contracts/contract-runner-shards.contract.test.ts",
+        "tests/contracts/internal-link-orphan-detector.contract.test.ts",
+        "tests/contracts/public-article-release-smoke.contract.test.ts",
+        "tests/contracts/sitemap-generation-fallback.contract.test.ts"
+      ]
+    },
+    "timer-storage": {
+      "description": "Contracts with fake timers, interval polling, localStorage, or sessionStorage state.",
+      "files": [
+        "tests/contracts/link-anon-login.contract.test.ts",
+        "tests/contracts/payment-wait-flow.contract.test.ts",
+        "tests/contracts/seo-conv-runtime-contract.contract.test.ts",
+        "tests/contracts/take-attempt-stores.contract.test.ts"
+      ]
+    }
+  },
+  "quarantine": {
+    "reason": "Temporary guardrail for historical teardown/navigation/runtime-render leakage while PR-CONTRACT-RUNNER-04 fixes root causes.",
+    "files": [
+      "tests/contracts/clinical-consent-gates.contract.test.tsx",
+      "tests/contracts/mbti-share-consumer.contract.test.tsx",
+      "tests/contracts/result-client-view-state.contract.test.tsx",
+      "tests/contracts/rich-result-report.contract.test.tsx"
+    ]
+  },
+  "focused_gates": {
+    "content_asset": {
+      "description": "Minimum focused gate for content/KG PR trains while runtime-render quarantine is active.",
+      "files": [
+        "tests/contracts/career-job-seo-display-asset-projection.contract.test.tsx",
+        "tests/contracts/career-job-seo-authority.contract.test.tsx",
+        "tests/contracts/contract-runner-shards.contract.test.ts"
+      ]
+    },
+    "runtime_render": {
+      "description": "Focused runtime smoke that can be used before removing quarantine.",
+      "files": [
+        "tests/contracts/result-client-view-state.contract.test.tsx",
+        "tests/contracts/rich-result-report.contract.test.tsx"
+      ]
+    }
+  }
+}
