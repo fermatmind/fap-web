@@ -1467,6 +1467,14 @@ export default async function PersonalityDetailPage({
             {detail.heroSummary && detail.heroSummary !== detail.summary ? (
               <p className="m-0 max-w-3xl text-base leading-8 text-white/88">{detail.heroSummary}</p>
             ) : null}
+            {quickAnswerBody ? (
+              <p
+                className="m-0 max-w-3xl rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-base leading-8 text-white/90"
+                data-testid="personality-detail-quick-answer"
+              >
+                {quickAnswerBody}
+              </p>
+            ) : null}
             {(detail.rarity || detail.keywords.length > 0) ? (
               <div className="flex flex-wrap gap-2.5 pt-3">
                 {detail.rarity ? (

@@ -20,10 +20,8 @@ import {
   Network,
   Palette,
   Rocket,
-  ShieldCheck,
   Sparkles,
   Star,
-  UsersRound,
   Wrench,
   type LucideIcon,
 } from "lucide-react";

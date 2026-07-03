@@ -136,6 +136,24 @@ describe("CI validator hygiene", () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
+  it("rejects query strings before live validator fetches", async () => {
+    const { checkLiveUrl, fetchNoRedirect, getUnsafeLiveFetchIssue } = await loadLiveUrlCheck();
+    const fetchMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+
+    expect(getUnsafeLiveFetchIssue("https://fermatmind.com/en?token=example")).toEqual({
+      url: "https://fermatmind.com/en?token=example",
+      reasons: [{ reason: "query-string", detail: "" }],
+    });
+
+    await expect(checkLiveUrl("https://fermatmind.com/en?token=example")).resolves.toEqual({
+      url: "https://fermatmind.com/en?token=example",
+      reasons: [{ reason: "query-string", detail: "" }],
+    });
+    await expect(fetchNoRedirect("https://fermatmind.com/en?token=example")).rejects.toThrow("unsafe-live-fetch");
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
   it("uses production-safe live validator defaults without disabling checks", async () => {
     const { LIVE_CHECK_DEFAULTS } = await loadLiveUrlCheck();
 
