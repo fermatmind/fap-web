@@ -38744,9 +38744,9 @@
     "depends_on": [
       "PR-CAREER-KG-AGENT-04"
     ],
-    "status": "local_checks_passed",
+    "status": "github_checks_pending",
     "commit_sha": "a95b7eabcc0a65d6fb0bb919658970c89aca7d54",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1567",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -38770,6 +38770,11 @@
         "at": "2026-07-03T07:34:18.955Z",
         "status": "committed",
         "notes": "Committed PR-CAREER-KG-AGENT-05 local changes at a95b7eabcc0a65d6fb0bb919658970c89aca7d54."
+      },
+      {
+        "at": "2026-07-03T07:35:05.277Z",
+        "status": "github_checks_pending",
+        "notes": "Opened PR #1567 and pushed PR URL/check pending state to ledger."
       }
     ],
     "checks": {
@@ -38787,6 +38792,10 @@
           "NODE_OPTIONS=--max-old-space-size=4096 NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build"
         ],
         "evidence": "Generator help passed; focused PR train entry generator contract passed; YAML/JSON/diff/scope checks passed; typecheck passed; full contract shard runner passed 650/650 with quarantine 0; production build passed."
+      },
+      "github_checks": {
+        "status": "pending",
+        "evidence": "PR #1567 opened; waiting for required GitHub checks."
       }
     },
     "scope_validation": {
