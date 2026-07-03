@@ -1,0 +1,285 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "pr_id": "PR-CAREER-KG-17",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "postal-service-mail-carriers",
+  "canonical_path": "/zh/career/jobs/postal-service-mail-carriers",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "邮政服务邮件投递员",
+    "title_en": "Postal Service Mail Carriers",
+    "soc_code": "43-5052",
+    "onet_code": "43-5052.00",
+    "aliases_zh": [
+      "邮政邮件投递员",
+      "邮递员",
+      "邮政投递员",
+      "邮件派送员"
+    ],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "邮政邮件分拣员、处理员、机器操作员",
+        "boundary": "主要在邮政设施内分拣、处理、操作设备；投递员的核心是在路线中取件、投递、服务客户并处理递送记录。"
+      },
+      {
+        "name_zh": "快递员/包裹递送司机",
+        "boundary": "可能服务商业快递网络和不同雇主；本页限定美国职业分类中的 Postal Service Mail Carriers。"
+      },
+      {
+        "name_zh": "邮政服务文员",
+        "boundary": "侧重柜台、销售、客户窗口与邮政业务办理；投递员侧重路线递送和现场客户接触。"
+      },
+      {
+        "name_zh": "公交与城际巴士司机",
+        "boundary": "同样有路线和公众服务压力，但核心任务是载客驾驶而非邮件递送、取件和投递记录。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "邮政服务邮件投递员是做什么的？路线、客户、天气与分拣员区别",
+    "meta_description_zh": "了解邮政服务邮件投递员的职责、路线投递、客户服务、天气与体力要求、入门路径、AI 边界，以及它和邮件分拣处理员的区别。",
+    "h1_zh": "邮政服务邮件投递员",
+    "canonical_path": "/zh/career/jobs/postal-service-mail-carriers"
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "body_zh": "邮政服务邮件投递员按照指定路线收取、运输和投递邮件，与住户和机构客户保持现场接触，并根据邮政流程记录未投递、签收、地址异常等递送状态。这个职业的判断重点不只是“送信”，还包括路线熟悉度、客户沟通、天气与体力负荷管理，以及在公共道路和社区环境中的安全执行。",
+      "source_refs": [
+        "onet_summary_43_5052_00",
+        "bls_ooh_postal_service_workers",
+        "mynextmove_summary_43_5052_00"
+      ]
+    },
+    {
+      "id": "core_responsibilities",
+      "items_zh": [
+        "按路线排序、装载、携带并投递信件、包裹和通知。",
+        "从邮箱、投递点或业务客户处收取邮件，并按要求交回邮政设施。",
+        "识别地址变更、未投递、签收、代收、退回等递送状态并完成记录。",
+        "在路线中回应客户关于投递、取件、地址和基础邮政流程的问题。",
+        "维护车辆、手推车、邮包和个人安全，遵守交通、社区和邮政作业规则。"
+      ],
+      "source_refs": [
+        "onet_summary_43_5052_00",
+        "bls_ooh_postal_service_workers"
+      ]
+    },
+    {
+      "id": "work_scenes",
+      "items_zh": [
+        "路线场景：步行路线、车辆路线、社区邮箱、办公楼、住宅区和机构投递点。",
+        "客户场景：解释未投递原因、签收要求、地址问题、取件安排和基础服务规则。",
+        "天气场景：高温、寒冷、雨雪、路面积水或空气质量差时，需要调整节奏并保持安全。",
+        "体力场景：长时间步行、站立、上下车、搬运邮包和重复性投递动作。",
+        "协同场景：与分拣处理员、邮政文员、主管和其他投递路线人员衔接。"
+      ],
+      "source_refs": [
+        "onet_summary_43_5052_00",
+        "bls_ooh_postal_service_workers",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "skills_tools",
+      "items_zh": [
+        "路线记忆与空间方向感：理解投递顺序、街区变化和异常地址。",
+        "客户沟通：用简洁、稳定的方式解释递送状态和服务边界。",
+        "安全驾驶与步行安全：在交通、天气、宠物、楼梯和人流中控制风险。",
+        "递送记录工具：扫描设备、移动终端、签收记录、地址变更记录和异常处理表单。",
+        "体力与节奏管理：在路线时限内保持可持续速度，避免疲劳导致的错误。"
+      ],
+      "source_refs": [
+        "onet_summary_43_5052_00",
+        "mynextmove_summary_43_5052_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "entry_path",
+      "items_zh": [
+        "先确认目标是否是邮政服务体系中的邮件投递员，而不是分拣处理员、邮政文员或商业快递岗位。",
+        "准备基础能力：阅读地址、遵守流程、客户沟通、安全驾驶或步行安全、基本设备操作。",
+        "了解招聘方对年龄、驾驶记录、背景审查、体检或岗位考试等要求；具体条件以雇主和当地规则为准。",
+        "入职后通常通过路线熟悉、邮政流程、扫描设备、客户服务和安全规则训练逐步上手。"
+      ],
+      "source_refs": [
+        "bls_ooh_postal_service_workers",
+        "mynextmove_summary_43_5052_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "items_zh": [
+        "RIASEC 上常见匹配会偏向 Realistic 与 Conventional：喜欢清晰流程、户外或移动工作、按规则完成可验证任务的人更容易适应。",
+        "如果更偏 Investigative 或 Artistic，也可能适合路线优化、服务改进或社区观察，但本职业日常并不是研究或创作型岗位。",
+        "人格测试只能帮助理解偏好，不能保证录用、稳定性、薪资或工作满意度。",
+        "强烈厌恶重复路线、天气暴露、公众接触或体力负荷的人，需要谨慎评估。"
+      ],
+      "source_refs": [
+        "mynextmove_summary_43_5052_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "items_zh": [
+        "AI 和自动化可能加速路线排序、地址校验、异常预测、客户通知和设备记录。",
+        "人的责任仍在现场判断：安全驾驶、面对面沟通、签收核验、异常地址判断、包裹保护和社区环境风险处理。",
+        "不要把路线优化或投递设备理解为“自动替代全部投递员”的保证；实际变化受邮政网络、法规、成本、地理环境和服务承诺影响。",
+        "本页不承诺就业、薪资、晋升、考试通过、路线稳定或自动化替代概率。"
+      ],
+      "source_refs": [
+        "bls_ooh_postal_service_workers",
+        "onet_summary_43_5052_00",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "adjacent_careers",
+      "items_zh": [
+        "邮政邮件分拣员、处理员、机器操作员：更偏设施内分拣和设备处理，是最需要区分的相邻职业。",
+        "邮政服务文员：更偏柜台、销售、客户窗口和业务办理。",
+        "快递员/配送司机：同样有路线与客户交付，但组织、服务范围和职业分类不同。",
+        "公交与城际巴士司机：同样有路线、安全与公众服务压力，可用于比较交通服务型岗位。"
+      ],
+      "source_refs": [
+        "onet_summary_43_5052_00",
+        "bls_ooh_postal_service_workers",
+        "fermatmind_interpretation"
+      ]
+    },
+    {
+      "id": "faq",
+      "items_zh": [
+        {
+          "question": "邮政服务邮件投递员和邮件分拣员有什么区别？",
+          "answer": "投递员的核心在路线取件、投递、客户接触和递送记录；邮件分拣员、处理员、机器操作员主要在邮政设施内分拣、处理邮件并操作相关设备。"
+        },
+        {
+          "question": "这个职业为什么要强调天气和体力负荷？",
+          "answer": "投递员经常在户外、路线和社区环境中工作，可能长时间步行、上下车、搬运邮包，并面对高温、雨雪或道路风险，因此体力和安全节奏是职业判断的一部分。"
+        },
+        {
+          "question": "AI 会替代邮政服务邮件投递员吗？",
+          "answer": "AI 可能改进路线、地址校验、异常预测和客户通知，但现场安全、签收核验、异常处理、客户沟通和社区环境判断仍需要人的责任。不要把工具进步理解为就业或替代保证。"
+        }
+      ],
+      "source_refs": [
+        "onet_summary_43_5052_00",
+        "bls_ooh_postal_service_workers",
+        "fermatmind_interpretation"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_43_5052_00",
+      "label": "O*NET OnLine: Postal Service Mail Carriers 43-5052.00",
+      "url": "https://www.onetonline.org/link/summary/43-5052.00",
+      "authority": "occupation_fact",
+      "usage": "identity, tasks, work context, skills boundary"
+    },
+    {
+      "key": "bls_ooh_postal_service_workers",
+      "label": "BLS OOH: Postal Service Workers",
+      "url": "https://www.bls.gov/ooh/office-and-administrative-support/postal-service-workers.htm",
+      "authority": "occupation_fact",
+      "usage": "occupation overview, work context, entry constraints, outlook boundary"
+    },
+    {
+      "key": "bls_oews_43_5052",
+      "label": "BLS OEWS: Postal Service Mail Carriers 43-5052",
+      "url": "https://www.bls.gov/oes/current/oes435052.htm",
+      "authority": "occupation_fact",
+      "usage": "SOC wage/employment reference only, no guarantee"
+    },
+    {
+      "key": "mynextmove_summary_43_5052_00",
+      "label": "My Next Move: Postal Service Mail Carriers 43-5052.00",
+      "url": "https://www.mynextmove.org/profile/summary/43-5052.00",
+      "authority": "occupation_fact",
+      "usage": "plain-language tasks, interests, preparation signals"
+    },
+    {
+      "key": "mynextmove_data_sources_43_5052_00",
+      "label": "My Next Move data sources: Postal Service Mail Carriers",
+      "url": "https://www.mynextmove.org/help/data/43-5052.00",
+      "authority": "source_method",
+      "usage": "source provenance and data method boundary"
+    },
+    {
+      "key": "onet_job_zone_43_5052_00",
+      "label": "O*NET Job Zone: Postal Service Mail Carriers",
+      "url": "https://www.onetonline.org/skills/zone/43-5052.00",
+      "authority": "occupation_fact",
+      "usage": "preparation and entry-path boundary"
+    },
+    {
+      "key": "onet_summary_43_5053_00",
+      "label": "O*NET OnLine: Postal Service Mail Sorters, Processors, and Processing Machine Operators 43-5053.00",
+      "url": "https://www.onetonline.org/link/summary/43-5053.00",
+      "authority": "occupation_fact",
+      "usage": "adjacent occupation distinction only"
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial interpretation",
+      "authority": "editorial_interpretation",
+      "usage": "Chinese explanation, internal-link framing, AI/personality caveats; not an external fact authority"
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "blocked_usage": [
+      "职业事实权威",
+      "录用保证",
+      "薪资保证",
+      "路线稳定保证",
+      "考试通过保证",
+      "AI 替代概率保证"
+    ]
+  },
+  "internal_links": [
+    {
+      "label": "职业库",
+      "path": "/zh/career/jobs"
+    },
+    {
+      "label": "RIASEC 职业兴趣测试",
+      "path": "/zh/tests/holland-career-interest-test-riasec"
+    },
+    {
+      "label": "邮政邮件分拣员、处理员、机器操作员",
+      "path": "/zh/career/jobs/postal-service-mail-sorters-processors-and-processing-machine-operators"
+    },
+    {
+      "label": "公交与城际巴士司机",
+      "path": "/zh/career/jobs/bus-drivers-transit-intercity"
+    },
+    {
+      "label": "MBTI 职业匹配",
+      "path": "/zh/career/recommendations/mbti/intj"
+    },
+    {
+      "label": "Big Five 人格测试",
+      "path": "/zh/tests/big-five-personality-test-ocean-model"
+    }
+  ],
+  "release_boundaries": {
+    "cms_write_performed": false,
+    "staging_write_performed": false,
+    "production_import_performed": false,
+    "runtime_seo_changed": false,
+    "sitemap_changed": false,
+    "llms_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "jsonld_runtime_changed": false,
+    "deploy_triggered": false
+  }
+}
