@@ -13281,7 +13281,7 @@
       "depends_on": [
         "SECURITY-122-WEB-10"
       ],
-      "status": "local_checks_passed",
+      "status": "ready_to_merge",
       "train_scope": "security_122_web_artifact_integrity_restore_freeze_path_traversal_csv_injection",
       "risk_level": "low",
       "title": "SECURITY-122-WEB-11: artifact integrity, restore/freeze safety, path traversal, CSV injection",
@@ -13319,9 +13319,16 @@
           "evidence": "After rebasing onto origin/main 0bd228de0ed57b9a86ef6d4f3a69a51ffe00829a, focused WEB-11 regression contracts passed; typecheck passed; production build passed after static-page retry warnings; full contract suite passed with 640 files / 3732 tests; manifest/state parse, PR-train reconciliation contract, git diff --check origin/main...HEAD, and changed-file scope validation passed. After GitHub contracts rejected the temporary unsupported status value, corrected the ledger status to local_checks_passed and reran the failing reconciliation contract plus full contract suite successfully."
         },
         "github": {
-          "status": "pending",
-          "passed": [],
-          "evidence": "PR #1552 GitHub contracts failed on rebased head 9a00d56b0f5cf2e5ececf97e1224f77be2b9c4ed because docs/codex/pr-train-state.json used unsupported status rebased_local_checks_passed. Corrected within current metadata scope; checks pending after fix push."
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ],
+          "evidence": "PR #1552 GitHub contracts initially failed on rebased head 9a00d56b0f5cf2e5ececf97e1224f77be2b9c4ed because docs/codex/pr-train-state.json used unsupported status rebased_local_checks_passed. Corrected within current metadata scope; GitHub checks then passed on head 5c9f7e2d3405fc1b8f217e7baef3a65e0caec346 and PR merge state was CLEAN."
         },
         "scope": {
           "status": "passed",
@@ -13330,7 +13337,7 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1552",
-      "commit_sha": "7cc7456d311a7ad6ab6d2897eac7a2f887fcb1de",
+      "commit_sha": "5c9f7e2d3405fc1b8f217e7baef3a65e0caec346",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -13369,11 +13376,16 @@
           "at": "2026-07-03T11:36:00+08:00",
           "status": "local_checks_passed",
           "summary": "Inspected failed GitHub contracts job for PR #1552. Failure was current PR metadata scope: SECURITY-122-WEB-11 used unsupported ledger status rebased_local_checks_passed. Corrected status to local_checks_passed, then reran manifest/state parse, the failing PR-train reconciliation contract, scope validation, and full contract suite successfully before pushing the fix."
+        },
+        {
+          "at": "2026-07-03T11:40:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed for PR #1552 on head 5c9f7e2d3405fc1b8f217e7baef3a65e0caec346, merge state was CLEAN, and final manifest/state parse, diff check, and WEB-11 scope validation passed. Recording ready_to_merge before merge per PR-train rules; this ledger update will be pushed and GitHub checks must pass again before merge."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T11:36:00+08:00",
-      "head_sha": "9a00d56b0f5cf2e5ececf97e1224f77be2b9c4ed"
+      "updated_at": "2026-07-03T11:40:00+08:00",
+      "head_sha": "5c9f7e2d3405fc1b8f217e7baef3a65e0caec346"
     },
     {
       "id": "SECURITY-122-WEB-12",
