@@ -38202,9 +38202,9 @@
     "title": "PR-CAREER-KG-AGENT-01: lock career KG input and package schemas",
     "train_scope": "career_kg_agent_contract_schema",
     "depends_on": [],
-    "status": "local_checks_passed",
+    "status": "github_checks_pending",
     "commit_sha": "0e2a5794ff9c65bff983af3ce44bbdfde4576abc",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1562",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -38247,6 +38247,10 @@
       "contract_runner_recovery": {
         "status": "pass",
         "evidence": "PR-CONTRACT-RUNNER-04 merged into main before this rerun, replacing the prior black-box contract hang with sharded diagnostics and clean exits."
+      },
+      "github_checks": {
+        "status": "pending",
+        "evidence": "PR opened as #1562; waiting for required GitHub checks."
       }
     },
     "scope_validation": {
@@ -38296,6 +38300,11 @@
         "at": "2026-07-03T06:16:16.727Z",
         "status": "local_checks_passed",
         "notes": "All PR-CAREER-KG-AGENT-01 required local checks passed after rebasing onto main with contract runner fixes."
+      },
+      {
+        "at": "2026-07-03T06:17:39.530Z",
+        "status": "github_checks_pending",
+        "notes": "Opened PR #1562 and pushed PR URL/check pending state to ledger."
       }
     ]
   },
