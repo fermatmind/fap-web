@@ -26,6 +26,11 @@ vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
 }));
 
+function clickWithoutNavigation(element: HTMLElement) {
+  element.addEventListener("click", (event) => event.preventDefault(), { once: true });
+  fireEvent.click(element);
+}
+
 function createSummaryFixture({
   shareId,
   canonicalTypeCode,
@@ -231,7 +236,7 @@ describe("MBTI private relationship consumer contract", () => {
       );
     });
 
-    fireEvent.click(screen.getByTestId("mbti-private-action-link"));
+    clickWithoutNavigation(screen.getByTestId("mbti-private-action-link"));
 
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_interaction",

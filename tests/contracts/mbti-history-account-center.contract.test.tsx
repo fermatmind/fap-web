@@ -59,6 +59,11 @@ vi.mock("@/lib/analytics", () => ({
   trackEvent: hoisted.trackEvent,
 }));
 
+function clickWithoutNavigation(element: HTMLElement) {
+  element.addEventListener("click", (event) => event.preventDefault(), { once: true });
+  fireEvent.click(element);
+}
+
 describe("MBTI history account-center contract", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -368,8 +373,8 @@ describe("MBTI history account-center contract", () => {
       })
     );
 
-    fireEvent.click(screen.getByTestId("mbti-history-continue-cta"));
-    fireEvent.click(screen.getByTestId("mbti-history-open-attempt-history-2"));
+    clickWithoutNavigation(screen.getByTestId("mbti-history-continue-cta"));
+    clickWithoutNavigation(screen.getByTestId("mbti-history-open-attempt-history-2"));
 
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_interaction",

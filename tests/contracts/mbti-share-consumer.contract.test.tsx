@@ -18,6 +18,11 @@ function deferred<T>() {
   return { promise, resolve, reject };
 }
 
+function clickWithoutNavigation(element: HTMLElement) {
+  element.addEventListener("click", (event) => event.preventDefault(), { once: true });
+  fireEvent.click(element);
+}
+
 const hoisted = vi.hoisted(() => ({
   pathname: "/en/share/share-123",
   search: "utm_source=wechat&utm_medium=organic&utm_campaign=spring",
@@ -666,7 +671,7 @@ describe("MBTI share consumer contract", () => {
       );
     });
 
-    fireEvent.click(screen.getByTestId("mbti-share-carryover-cta"));
+    clickWithoutNavigation(screen.getByTestId("mbti-share-carryover-cta"));
 
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_interaction",
@@ -685,7 +690,7 @@ describe("MBTI share consumer contract", () => {
       })
     );
 
-    fireEvent.click(screen.getAllByRole("link", { name: "Start MBTI test" })[0]!);
+    clickWithoutNavigation(screen.getAllByRole("link", { name: "Start MBTI test" })[0]!);
 
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_interaction",
@@ -698,7 +703,7 @@ describe("MBTI share consumer contract", () => {
       })
     );
 
-    fireEvent.click(screen.getByTestId("share-widget-continue-cta"));
+    clickWithoutNavigation(screen.getByTestId("share-widget-continue-cta"));
 
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
       "ui_card_interaction",

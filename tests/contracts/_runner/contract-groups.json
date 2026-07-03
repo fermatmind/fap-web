@@ -48,13 +48,8 @@
     }
   },
   "quarantine": {
-    "reason": "Temporary guardrail for historical teardown/navigation/runtime-render leakage while PR-CONTRACT-RUNNER-04 fixes root causes.",
-    "files": [
-      "tests/contracts/clinical-consent-gates.contract.test.tsx",
-      "tests/contracts/mbti-share-consumer.contract.test.tsx",
-      "tests/contracts/result-client-view-state.contract.test.tsx",
-      "tests/contracts/rich-result-report.contract.test.tsx"
-    ]
+    "reason": "Cleared by PR-CONTRACT-RUNNER-04 after runtime-render link navigation leakage was fixed. Keep this list empty unless a future leak has a focused gate and owner.",
+    "files": []
   },
   "focused_gates": {
     "content_asset": {
