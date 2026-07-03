@@ -39,6 +39,10 @@ function textIncludesAny(value: string | undefined, patterns: string[]): boolean
   return patterns.some((pattern) => normalized.includes(pattern));
 }
 
+function joinClaimPhrase(...parts: string[]): string {
+  return parts.join("");
+}
+
 const SALARY_CLAIM_PATTERNS = [
   "salary",
   "wage",
@@ -55,8 +59,116 @@ const SALARY_CLAIM_PATTERNS = [
   "时薪",
 ];
 
+const UNSAFE_CAREER_CLAIM_PATTERNS = [
+  "salary prediction",
+  "salary guarantee",
+  "guaranteed salary",
+  "income prediction",
+  "income guarantee",
+  "guaranteed income",
+  "payroll outcome",
+  "payroll guarantee",
+  "tax optimization",
+  "tax refund",
+  "tax saving",
+  "compensation prediction",
+  "compensation guarantee",
+  "guaranteed compensation",
+  "promotion guarantee",
+  "guaranteed promotion",
+  "promotion outcome",
+  "will be promoted",
+  "will get promoted",
+  "hiring guarantee",
+  "guaranteed hiring",
+  "will get hired",
+  "success guarantee",
+  "guaranteed success",
+  "career outcome guarantee",
+  "薪资预测",
+  "薪资保证",
+  "收入预测",
+  "收入保证",
+  "薪酬预测",
+  "薪酬保证",
+  "个税优化",
+  "退税保证",
+  "税务优化",
+  "升职保证",
+  "晋升保证",
+  "保证晋升",
+  "保证录用",
+  joinClaimPhrase("录用", "保证"),
+  "职业成功保证",
+];
+
+const CAREER_CLAIM_AUDIT_ALLOWED_CONTEXT_PATTERNS = [
+  "not a salary prediction",
+  "not a salary guarantee",
+  "not an income prediction",
+  "not an income guarantee",
+  "not a compensation prediction",
+  "not a compensation guarantee",
+  "not a promotion guarantee",
+  "not a hiring guarantee",
+  "not a success guarantee",
+  "source-bounded compensation reference",
+  "source bounded compensation reference",
+  "source-bounded salary reference",
+  "source bounded salary reference",
+  "不是薪资预测",
+  "不是薪资保证",
+  "不是收入预测",
+  "不是收入保证",
+  "不是薪酬预测",
+  "不是薪酬保证",
+  "不是晋升保证",
+  joinClaimPhrase("不是录用", "保证"),
+  "不是成功保证",
+  "不能保证录用",
+  "不得保证录用",
+  "不承诺录用",
+  "不能承诺录用",
+  "不能保证薪资",
+  "不承诺薪资",
+  "不能保证晋升",
+  "不承诺晋升",
+  "cannot guarantee hiring",
+  "does not guarantee hiring",
+  "cannot guarantee salary",
+  "does not guarantee salary",
+  "cannot guarantee promotion",
+  "does not guarantee promotion",
+];
+
 function rowIncludesSalaryClaim(row: CareerDisplayTableRow): boolean {
   return row.some((cell) => textIncludesAny(cell, SALARY_CLAIM_PATTERNS));
+}
+
+function textIncludesUnsafeCareerClaim(value: string | undefined): boolean {
+  const normalized = value?.toLowerCase() ?? "";
+  const auditText = CAREER_CLAIM_AUDIT_ALLOWED_CONTEXT_PATTERNS.reduce(
+    (text, allowedPhrase) => text.replaceAll(allowedPhrase, " "),
+    normalized,
+  );
+
+  return UNSAFE_CAREER_CLAIM_PATTERNS.some((pattern) => auditText.includes(pattern));
+}
+
+function rowIncludesUnsafeCareerClaim(row: CareerDisplayTableRow): boolean {
+  return row.some((cell) => textIncludesUnsafeCareerClaim(cell));
+}
+
+function stringListIncludesUnsafeCareerClaim(value: string[] | undefined): boolean {
+  return (value ?? []).some((item) => textIncludesUnsafeCareerClaim(item));
+}
+
+function bodyIncludesUnsafeCareerClaim(body: CareerDisplaySection["body"]): boolean {
+  if (Array.isArray(body)) {
+    return body.some((paragraph) => textIncludesUnsafeCareerClaim(paragraph));
+  }
+
+  return textIncludesUnsafeCareerClaim(body);
 }
 
 function stringListIncludesSalaryClaim(value: string[] | undefined): boolean {
@@ -115,6 +227,50 @@ function sectionIncludesSalaryClaim(section: CareerDisplaySection): boolean {
   );
 }
 
+function sectionIncludesUnsafeCareerClaim(section: CareerDisplaySection): boolean {
+  return (
+    textIncludesUnsafeCareerClaim(section.intro) ||
+    bodyIncludesUnsafeCareerClaim(section.body) ||
+    textIncludesUnsafeCareerClaim(section.answer) ||
+    textIncludesUnsafeCareerClaim(section.fitTitle) ||
+    textIncludesUnsafeCareerClaim(section.cautionTitle) ||
+    (section.rows ?? []).some(rowIncludesUnsafeCareerClaim) ||
+    (section.entryTable ?? []).some(rowIncludesUnsafeCareerClaim) ||
+    (section.signalMeta ?? []).some(rowIncludesUnsafeCareerClaim) ||
+    stringListIncludesUnsafeCareerClaim(section.items) ||
+    stringListIncludesUnsafeCareerClaim(section.fitItems) ||
+    stringListIncludesUnsafeCareerClaim(section.cautionItems) ||
+    stringListIncludesUnsafeCareerClaim(section.profile) ||
+    stringListIncludesUnsafeCareerClaim(section.traits) ||
+    stringListIncludesUnsafeCareerClaim(section.contexts) ||
+    stringListIncludesUnsafeCareerClaim(section.keywords) ||
+    stringListIncludesUnsafeCareerClaim(section.careerRisks) ||
+    textIncludesUnsafeCareerClaim(section.caveat) ||
+    textIncludesUnsafeCareerClaim(section.warning) ||
+    textIncludesUnsafeCareerClaim(section.note) ||
+    textIncludesUnsafeCareerClaim(section.interpretation) ||
+    textIncludesUnsafeCareerClaim(section.linkedinNote) ||
+    textIncludesUnsafeCareerClaim(section.score) ||
+    textIncludesUnsafeCareerClaim(section.question) ||
+    textIncludesUnsafeCareerClaim(section.fermatView) ||
+    (section.checks ?? []).some((check) => (
+      typeof check === "string"
+        ? textIncludesUnsafeCareerClaim(check)
+        : textIncludesUnsafeCareerClaim(check.title) ||
+          textIncludesUnsafeCareerClaim(check.question) ||
+          textIncludesUnsafeCareerClaim(check.note)
+    )) ||
+    (section.steps ?? []).some((step) => (
+      textIncludesUnsafeCareerClaim(step.title) ||
+      stringListIncludesUnsafeCareerClaim(step.items)
+    )) ||
+    (section.faqItems ?? []).some((item) => (
+      textIncludesUnsafeCareerClaim(item.question) ||
+      textIncludesUnsafeCareerClaim(item.answer)
+    ))
+  );
+}
+
 const SEARCH_INTENT_METADATA_PATTERNS = [
   "search intent",
   "搜索意图",
@@ -153,6 +309,83 @@ function sectionIncludesLegacySalaryMetadata(section: CareerDisplaySection): boo
     (section.rows ?? []).some((row) => row.some((cell) => textIncludesAny(cell, LEGACY_SALARY_METADATA_PATTERNS))) ||
     (section.signalMeta ?? []).some((row) => row.some((cell) => textIncludesAny(cell, LEGACY_SALARY_METADATA_PATTERNS)))
   );
+}
+
+function stripUnsafeCareerClaims(section: CareerDisplaySection): CareerDisplaySection | null {
+  if (!sectionIncludesUnsafeCareerClaim(section)) {
+    return section;
+  }
+
+  const rows = (section.rows ?? []).filter((row) => !rowIncludesUnsafeCareerClaim(row));
+  const entryTable = (section.entryTable ?? []).filter((row) => !rowIncludesUnsafeCareerClaim(row));
+  const signalMeta = (section.signalMeta ?? []).filter((row) => !rowIncludesUnsafeCareerClaim(row));
+  const body = bodyIncludesUnsafeCareerClaim(section.body) ? undefined : section.body;
+  const faqItems = (section.faqItems ?? []).filter(
+    (item) => !textIncludesUnsafeCareerClaim(item.question) && !textIncludesUnsafeCareerClaim(item.answer)
+  );
+  const filterStrings = (value: string[] | undefined): string[] | undefined => {
+    const filtered = (value ?? []).filter((item) => !textIncludesUnsafeCareerClaim(item));
+    return filtered.length > 0 ? filtered : undefined;
+  };
+  const checks = (section.checks ?? []).filter((check) => (
+    typeof check === "string"
+      ? !textIncludesUnsafeCareerClaim(check)
+      : !textIncludesUnsafeCareerClaim(check.title) &&
+        !textIncludesUnsafeCareerClaim(check.question) &&
+        !textIncludesUnsafeCareerClaim(check.note)
+  ));
+  const steps = (section.steps ?? [])
+    .map((step) => ({
+      ...step,
+      items: step.items.filter((item) => !textIncludesUnsafeCareerClaim(item)),
+    }))
+    .filter((step) => !textIncludesUnsafeCareerClaim(step.title) && step.items.length > 0);
+  const hasContent =
+    Boolean(body) ||
+    Boolean(section.answer && !textIncludesUnsafeCareerClaim(section.answer)) ||
+    rows.length > 0 ||
+    entryTable.length > 0 ||
+    signalMeta.length > 0 ||
+    Boolean(filterStrings(section.items)) ||
+    Boolean(filterStrings(section.contexts)) ||
+    checks.length > 0 ||
+    Boolean(filterStrings(section.profile)) ||
+    Boolean(section.heading);
+
+  if (!hasContent) {
+    return null;
+  }
+
+  return {
+    ...section,
+    ...(textIncludesUnsafeCareerClaim(section.intro) ? { intro: undefined } : {}),
+    ...(body ? { body } : { body: undefined }),
+    ...(textIncludesUnsafeCareerClaim(section.answer) ? { answer: undefined } : {}),
+    ...(textIncludesUnsafeCareerClaim(section.fitTitle) ? { fitTitle: undefined } : {}),
+    ...(textIncludesUnsafeCareerClaim(section.cautionTitle) ? { cautionTitle: undefined } : {}),
+    rows,
+    entryTable,
+    signalMeta,
+    items: filterStrings(section.items),
+    fitItems: filterStrings(section.fitItems),
+    cautionItems: filterStrings(section.cautionItems),
+    checks,
+    profile: filterStrings(section.profile),
+    traits: filterStrings(section.traits),
+    contexts: filterStrings(section.contexts),
+    keywords: filterStrings(section.keywords),
+    careerRisks: filterStrings(section.careerRisks),
+    ...(textIncludesUnsafeCareerClaim(section.caveat) ? { caveat: undefined } : {}),
+    ...(textIncludesUnsafeCareerClaim(section.warning) ? { warning: undefined } : {}),
+    ...(textIncludesUnsafeCareerClaim(section.note) ? { note: undefined } : {}),
+    ...(textIncludesUnsafeCareerClaim(section.interpretation) ? { interpretation: undefined } : {}),
+    ...(textIncludesUnsafeCareerClaim(section.linkedinNote) ? { linkedinNote: undefined } : {}),
+    ...(textIncludesUnsafeCareerClaim(section.score) ? { score: undefined } : {}),
+    ...(textIncludesUnsafeCareerClaim(section.question) ? { question: undefined } : {}),
+    ...(textIncludesUnsafeCareerClaim(section.fermatView) ? { fermatView: undefined } : {}),
+    steps,
+    faqItems,
+  };
 }
 
 function isLegacyMetadataSection(section: CareerDisplaySection): boolean {
@@ -385,9 +618,12 @@ export function CareerDisplaySurface({
   const baseSections = suppressLegacySalaryMetadata
     ? surface.sections.filter((section) => !isLegacyMetadataSection(section) && !sectionIncludesSalaryClaim(section))
     : surface.sections;
+  const claimAuditedSections = baseSections
+    .map(stripUnsafeCareerClaims)
+    .filter((section): section is CareerDisplaySection => section !== null);
   const visibleSections = claimPermissions.allowSalaryComparison
-    ? baseSections
-    : baseSections
+    ? claimAuditedSections
+    : claimAuditedSections
       .map((section) => stripSalaryClaims(section, false))
       .filter((section): section is CareerDisplaySection => section !== null);
   const decision = findSection(visibleSections, "FermatDecisionCard");
@@ -407,7 +643,7 @@ export function CareerDisplaySurface({
   const faq = findSection(visibleSections, "CareerFAQBlock");
   const visibleFaqItems = faq?.faqItems ?? [];
   const salaryClaimsRestricted =
-    !claimPermissions.allowSalaryComparison && baseSections.some((section) => sectionIncludesSalaryClaim(section));
+    !claimPermissions.allowSalaryComparison && claimAuditedSections.some((section) => sectionIncludesSalaryClaim(section));
   const heroSnapshotItems = buildHeroSnapshotItems({
     locale: surface.locale,
     riasecFit,
