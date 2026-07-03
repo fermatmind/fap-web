@@ -1,0 +1,20 @@
+{
+  "status": "pass",
+  "schema_validation": {
+    "status": "pass",
+    "canonical_unchanged": true,
+    "content_block_count": 9,
+    "faq_count": 3
+  },
+  "trust_audit": {
+    "status": "pass",
+    "fact_authorities": ["O*NET OnLine", "BLS OOH", "BLS OEWS", "My Next Move"],
+    "market_or_baike_used_as_fact_authority": false,
+    "blocked_claims_absent": ["employment_guarantee", "income_guarantee", "project_acceptance_guarantee", "survey_accuracy_guarantee", "license_guarantee", "land_title_decision_guarantee", "ai_automatic_surveying_guarantee"]
+  },
+  "editorial_gate": {
+    "status": "pass",
+    "reader_intent_covered": ["大地测量员是做什么的", "GNSS", "基准网", "GIS", "测绘职业差异", "AI 边界"],
+    "canonical_path_locked": "/zh/career/jobs/geodetic-surveyors"
+  }
+}

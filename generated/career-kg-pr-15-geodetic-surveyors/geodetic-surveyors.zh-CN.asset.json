@@ -1,0 +1,244 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "1.0.0",
+  "pr_id": "PR-CAREER-KG-15",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "geodetic-surveyors",
+  "canonical_path": "/zh/career/jobs/geodetic-surveyors",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "大地测量员",
+    "title_en": "Geodetic Surveyors",
+    "soc_code": "17-1022",
+    "onet_code": "17-1022.01",
+    "aliases_zh": ["大地测量测量员", "大地测量师", "卫星定位测量员", "GNSS 测量员", "控制测量员", "基准网测量员", "测地测量员", "高精度测量员"],
+    "aliases_en": ["Geodetic Surveyor", "Control Surveyor", "GNSS Surveyor", "Geodesist", "Geospatial Surveyor", "Satellite Surveyor", "Datum Surveyor"],
+    "easily_confused_occupations": [
+      {
+        "name_zh": "测量师",
+        "boundary": "测量师范围更广，可能处理土地边界、工程放样、地形测量和施工测量；大地测量员更聚焦大范围地球表面、坐标基准、控制网、GNSS 和高精度空间参考。"
+      },
+      {
+        "name_zh": "地图制图师 / 摄影测量师",
+        "boundary": "地图制图和摄影测量更偏地图表达、遥感影像和空间数据产品；大地测量员强调坐标框架、控制点、基准转换和测量精度。"
+      },
+      {
+        "name_zh": "GIS 技术员 / GIS 分析师",
+        "boundary": "GIS 岗位更偏空间数据库、图层分析、可视化和应用系统；大地测量员提供或校验让 GIS 数据对齐的测量基准、坐标和控制数据。"
+      },
+      {
+        "name_zh": "土木工程技师与技术员",
+        "boundary": "土木工程技术员更偏施工记录、材料测试、CAD 和工程协助；大地测量员更偏空间参考、控制网、GNSS 观测和测量成果质量。"
+      },
+      {
+        "name_zh": "遥感科学家与技术专家",
+        "boundary": "遥感岗位更偏卫星/航空影像、传感器和反演分析；大地测量员可使用卫星定位和空间数据，但责任集中在测量基准与位置精度。"
+      }
+    ]
+  },
+  "seo": {
+    "title_zh": "大地测量员是做什么的：GNSS、基准网、GIS 与测绘职业区别",
+    "meta_description_zh": "了解大地测量员的职责、GNSS 与卫星定位、控制网、坐标基准、GIS 协作、入门路径、AI 边界和测量师等相邻职业区别。",
+    "h1_zh": "大地测量员",
+    "canonical_path": "/zh/career/jobs/geodetic-surveyors",
+    "ctr_intent_notes": [
+      "标题覆盖“是做什么的”“GNSS”“基准网”“GIS”“测绘职业区别”等点击意图。",
+      "H1 修正中文标准名为“大地测量员”；identity 保留“大地测量测量员”等原搜索别名，避免丢失历史查询映射。",
+      "摘要强调坐标基准、控制网、GIS 协作和职业差异，不承诺证书、项目验收、精度结果、就业或收入。"
+    ]
+  },
+  "content_blocks": [
+    {
+      "id": "definition",
+      "heading_zh": "职业定义",
+      "body_zh": "大地测量员使用卫星观测、全球导航卫星系统（GNSS）、控制点、坐标基准、测量仪器和空间数据处理方法，测量大范围地球表面位置、形状和高程关系，为地图、工程、导航、土地、海洋、基础设施和 GIS 数据提供可靠空间参考。",
+      "source_refs": ["onet_summary_17_1022_01", "bls_ooh_surveyors", "mynextmove_summary_17_1022_01"]
+    },
+    {
+      "id": "core_responsibilities",
+      "heading_zh": "核心职责",
+      "items_zh": [
+        "规划、执行或复核 GNSS、控制测量、基准网、三角/水准/高程控制、卫星定位和大范围测量项目。",
+        "建立、维护或校验控制点、坐标系统、测量基准、转换参数和高精度位置数据，确保后续工程、地图或 GIS 数据能正确对齐。",
+        "处理观测数据、误差、精度、坐标转换、投影、基准差异、仪器记录和外业质量问题，形成可追溯的测量成果。",
+        "与测量师、GIS 团队、制图人员、土木工程、交通、海洋、土地管理、遥感和政府/业主单位协作，说明坐标、精度和使用限制。",
+        "编写测量方案、控制网报告、数据处理说明、质量检查记录和成果交付说明，明确假设、精度等级、适用范围和限制。",
+        "页面不能把大地测量员写成土地权属裁定人、项目验收方、导航系统开发者或保证所有 GIS 数据准确的角色。"
+      ],
+      "source_refs": ["onet_summary_17_1022_01", "bls_ooh_surveyors", "mynextmove_summary_17_1022_01"]
+    },
+    {
+      "id": "work_scenes",
+      "heading_zh": "工作场景",
+      "items_zh": [
+        "外业场景包括控制点踏勘、GNSS 观测、水准测量、基准点复测、海岸/道路/桥梁/城市基础设施附近的高精度测量和设备校验。",
+        "内业场景包括基线解算、坐标转换、误差分析、投影选择、控制网平差、GIS 数据对齐、成果图表、元数据和质量报告。",
+        "项目场景可能涉及国家或区域坐标框架、工程控制网、地形/海洋/交通基础设施测量、灾害监测、地图更新和空间数据基准维护。",
+        "这类工作既需要现场仪器和观测纪律，也需要数学、空间参考、数据处理、文档和跨团队沟通。"
+      ],
+      "source_refs": ["onet_summary_17_1022_01", "bls_ooh_surveyors", "fermatmind_interpretation"]
+    },
+    {
+      "id": "skills_tools",
+      "heading_zh": "技能与工具",
+      "items_zh": [
+        "测量技术：GNSS、控制测量、水准测量、坐标基准、投影、控制网平差、误差传播、质量控制和成果验收说明。",
+        "仪器与数据：GNSS 接收机、全站仪、水准仪、数据采集器、控制点记录、卫星星历、观测日志、空间数据库和元数据。",
+        "软件与协作：测量数据处理软件、GIS、CAD、电子表格、空间数据库、坐标转换工具、制图输出和报告模板。",
+        "工程理解：知道测量成果怎样被工程、土地、交通、海洋、地图、遥感或城市基础设施团队使用，并能说明精度和适用边界。",
+        "质量能力：复核异常观测、仪器设置、坐标系统、基准转换、单位、时间、记录完整性和交付文件。"
+      ],
+      "source_refs": ["onet_summary_17_1022_01", "mynextmove_summary_17_1022_01", "fermatmind_interpretation"]
+    },
+    {
+      "id": "entry_path",
+      "heading_zh": "入门路径",
+      "items_zh": [
+        "常见相关背景包括测绘工程、地理空间信息、地理信息科学、土木工程、地球科学、海洋测绘、遥感、数学或相关技术课程。",
+        "入门经验可以来自外业测量、控制点复测、GNSS 数据处理、GIS 数据整理、CAD 出图、测量报告、工程测量或测绘项目助理经历。",
+        "部分地区的测量业务可能涉及执照、注册、签章、土地边界或工程验收要求；具体取决于国家/地区、项目类型和岗位责任。",
+        "学历、软件、证书或外业经验不能保证录用、注册、项目验收、测量精度、权属裁定或收入结果。"
+      ],
+      "source_refs": ["bls_ooh_surveyors", "onet_job_zone_17_1022_01", "mynextmove_summary_17_1022_01", "fermatmind_interpretation"]
+    },
+    {
+      "id": "riasec_personality_boundary",
+      "heading_zh": "RIASEC / 人格边界",
+      "items_zh": [
+        "RIASEC 上通常更接近 Realistic（现实型）、Investigative（研究型）和 Conventional（常规型）：既要做外业、仪器和现场控制，也要处理空间数据、误差和规范化记录。",
+        "Social 或 Enterprising 可能出现在业主沟通、跨专业协调、成果解释和项目推进中，但不是该职业的核心判断依据。",
+        "MBTI 或 Big Five 只能帮助理解外业适应、严谨性、细节耐心、空间兴趣和沟通偏好，不能替代测绘训练、执照要求、现场经验或质量责任。"
+      ],
+      "source_refs": ["mynextmove_summary_17_1022_01", "fermatmind_interpretation"]
+    },
+    {
+      "id": "risk_ai_boundary",
+      "heading_zh": "风险与 AI 边界",
+      "items_zh": [
+        "主要风险包括坐标基准混用、投影选择错误、控制点不稳定、仪器设置错误、观测条件差、外业记录缺失、GIS 数据错位和成果精度被误用。",
+        "AI 可以辅助资料整理、异常提示、报告草稿、坐标说明、质检清单、图层对齐检查和元数据整理，但不能替代外业观测、签章责任、基准选择、精度判断或法律/工程验收。",
+        "页面不得承诺 AI 自动完成测绘、证书保证入行、某软件保证精度、所有坐标转换无误、项目一定验收，或把大地测量员写成土地权属最终裁定者。"
+      ],
+      "source_refs": ["onet_summary_17_1022_01", "bls_ooh_surveyors", "fermatmind_interpretation"]
+    },
+    {
+      "id": "adjacent_careers",
+      "heading_zh": "相邻职业",
+      "items_zh": [
+        "测量师：更广泛处理土地边界、工程、地形、施工放样和项目测量。",
+        "地图制图师 / 摄影测量师：更偏地图、影像、空间数据产品和制图表达。",
+        "GIS 技术员 / GIS 分析师：更偏空间数据库、图层分析、可视化和应用支持。",
+        "土木工程技师与技术员：更偏工程记录、施工协助、材料测试、CAD 和现场支持。",
+        "遥感科学家与技术专家：更偏传感器、影像和遥感数据分析。"
+      ],
+      "source_refs": ["bls_ooh_surveyors", "bls_ooh_cartographers_photogrammetrists", "onet_summary_17_1022_01", "fermatmind_interpretation"]
+    },
+    {
+      "id": "faq",
+      "heading_zh": "FAQ",
+      "items_zh": [
+        {
+          "question": "大地测量员是做什么的？",
+          "answer": "他们用 GNSS、控制点、坐标基准、测量仪器和空间数据处理方法，建立或校验大范围位置、高程和空间参考，让工程、地图、GIS 或导航相关数据能正确对齐。"
+        },
+        {
+          "question": "大地测量员和普通测量师有什么区别？",
+          "answer": "测量师范围更广，可能做土地、工程、地形或施工测量；大地测量员更强调大范围控制网、坐标基准、卫星定位、精度和空间参考框架。"
+        },
+        {
+          "question": "GIS 和 AI 会替代大地测量员吗？",
+          "answer": "GIS 和 AI 可以提高数据处理、质检和表达效率，但基准选择、外业观测、精度判断、签章责任、工程/法律边界和成果使用限制仍需要合格人员负责。"
+        }
+      ],
+      "source_refs": ["onet_summary_17_1022_01", "bls_ooh_surveyors", "mynextmove_summary_17_1022_01", "fermatmind_interpretation"]
+    }
+  ],
+  "sources": [
+    {
+      "key": "onet_summary_17_1022_01",
+      "label": "O*NET OnLine: Geodetic Surveyors 17-1022.01",
+      "url": "https://www.onetonline.org/link/summary/17-1022.01",
+      "authority": "occupation_fact",
+      "usage": "职业定义、测量任务、GNSS/卫星观测、控制测量和职责边界。"
+    },
+    {
+      "key": "bls_ooh_surveyors",
+      "label": "BLS OOH: Surveyors",
+      "url": "https://www.bls.gov/ooh/architecture-and-engineering/surveyors.htm",
+      "authority": "occupation_fact",
+      "usage": "测量职业工作内容、工作环境、教育和执照边界；不用于就业或薪资承诺。"
+    },
+    {
+      "key": "bls_oews_17_1022",
+      "label": "BLS OEWS: Surveyors 17-1022",
+      "url": "https://www.bls.gov/oes/current/oes171022.htm",
+      "authority": "occupation_fact",
+      "usage": "SOC 基类边界核对；不用于收入承诺。"
+    },
+    {
+      "key": "mynextmove_summary_17_1022_01",
+      "label": "My Next Move: Geodetic Surveyors 17-1022.01",
+      "url": "https://www.mynextmove.org/profile/summary/17-1022.01",
+      "authority": "occupation_fact",
+      "usage": "通俗职业描述、任务、兴趣倾向和相邻职业。"
+    },
+    {
+      "key": "mynextmove_data_sources_17_1022_01",
+      "label": "My Next Move data sources: Geodetic Surveyors",
+      "url": "https://www.mynextmove.org/help/data/17-1022.01",
+      "authority": "source_disclosure",
+      "usage": "公开来源披露，不作为新增职业事实。"
+    },
+    {
+      "key": "onet_job_zone_17_1022_01",
+      "label": "O*NET Job Zone: Geodetic Surveyors 17-1022.01",
+      "url": "https://www.onetonline.org/skills/zone/17-1022.01",
+      "authority": "occupation_fact",
+      "usage": "教育准备和经验准备边界；不用于录用或执照保证。"
+    },
+    {
+      "key": "bls_ooh_cartographers_photogrammetrists",
+      "label": "BLS OOH: Cartographers and Photogrammetrists",
+      "url": "https://www.bls.gov/ooh/architecture-and-engineering/cartographers-and-photogrammetrists.htm",
+      "authority": "adjacent_occupation_boundary",
+      "usage": "相邻地图制图和摄影测量职业边界。"
+    },
+    {
+      "key": "fermatmind_interpretation",
+      "label": "FermatMind editorial interpretation from authoritative occupational sources",
+      "authority": "editorial_interpretation",
+      "usage": "中文表达、搜索意图归纳、内链、职业边界与人格边界说明；不得覆盖 O*NET/BLS/My Next Move 职业事实。"
+    }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "blocked_usage": ["职业事实权威", "就业保证", "收入保证", "项目验收保证", "测量精度保证", "执照保证", "权属裁定保证", "GIS 数据准确保证", "AI 自动测绘保证", "JSON-LD事实来源", "生产导入依据"]
+  },
+  "internal_links": [
+    {"label_zh": "职业库", "path": "/zh/career/jobs", "purpose": "职业库入口"},
+    {"label_zh": "职业指南", "path": "/zh/career", "purpose": "职业探索上层入口"},
+    {"label_zh": "RIASEC 职业兴趣测试", "path": "/zh/tests/holland-career-interest-test-riasec", "purpose": "现实型、研究型和常规型兴趣探索"},
+    {"label_zh": "测量师", "path": "/zh/career/jobs/surveyors", "purpose": "相邻测绘职业边界"},
+    {"label_zh": "地图制图师和摄影测量师", "path": "/zh/career/jobs/cartographers-and-photogrammetrists", "purpose": "相邻空间数据职业边界"},
+    {"label_zh": "MBTI 人格测试", "path": "/zh/tests/mbti-personality-test-16-personality-types", "purpose": "外业协作和细节偏好，不替代岗位要求"},
+    {"label_zh": "Big Five 人格测试", "path": "/zh/tests/big-five-personality-test", "purpose": "责任心、开放性和压力偏好自评"}
+  ],
+  "release_boundaries": {
+    "cms_write_performed": false,
+    "staging_write_performed": false,
+    "production_import_performed": false,
+    "db_migration_performed": false,
+    "runtime_seo_changed": false,
+    "sitemap_changed": false,
+    "llms_txt_changed": false,
+    "canonical_changed": false,
+    "noindex_changed": false,
+    "json_ld_runtime_changed": false,
+    "manual_deploy_triggered": false,
+    "staging_deploy_wait_performed": false,
+    "production_deploy_triggered": false
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "status": "pass",
+  "mode": "artifact_only_preview",
+  "staging_write_performed": false,
+  "staging_deploy_wait_performed": false,
+  "manual_deploy_triggered": false,
+  "production_deploy_triggered": false,
+  "notes": "Preview smoke is limited to local artifact/read-model projection. GitHub Actions deploys are asynchronous and not waited on."
+}
