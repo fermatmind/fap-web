@@ -1526,6 +1526,17 @@ const SECURITY_122_WEB_16_ALLOWED_FILES = new Set([
   "tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx",
 ]);
 
+const SECURITY_122_WEB_17_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/(app)/result/[id]/print/page.tsx",
+  "app/globals.css",
+  "components/commerce/AttemptPdfDownloadButton.tsx",
+  "components/layout/Container.tsx",
+  "docs/codex/pr-train-state.json",
+  "scripts/ops/check-mbti-result-page-pdf-smoke.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-122-web-17-pdf-print-delivery.contract.test.tsx",
+]);
+
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
   "components/result/eq/EQEvidenceSnapshot.tsx",
   "components/result/eq/types.ts",
@@ -4084,6 +4095,14 @@ export function isSecurity122Web16AllowedFile(file: string): boolean {
   return SECURITY_122_WEB_16_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity122Web17AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-122-web-17") {
+    return true;
+  }
+
+  return SECURITY_122_WEB_17_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -5112,6 +5131,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/security-122-web-16") {
     return SECURITY_122_WEB_16_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/security-122-web-17") {
+    return SECURITY_122_WEB_17_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {

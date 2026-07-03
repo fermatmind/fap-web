@@ -20,9 +20,28 @@ function triggerBrowserDownload(blob: Blob, filename: string) {
   window.URL.revokeObjectURL(url);
 }
 
+function isAllowedPdfUrl(value: string): boolean {
+  if (value.startsWith("//")) {
+    return false;
+  }
+
+  try {
+    const baseOrigin = window.location.origin;
+    const url = new URL(value, baseOrigin);
+    const isSameOrigin = url.origin === baseOrigin;
+    const isFirstPartyWeb = url.origin === "https://fermatmind.com" || url.origin === "https://www.fermatmind.com";
+    const isPdfPath = /^\/(?:api\/v0\.3\/)?attempts\/[^/?#]+\/(?:report|result-page)\.pdf$/.test(url.pathname);
+
+    return (isSameOrigin || isFirstPartyWeb) && isPdfPath;
+  } catch {
+    return false;
+  }
+}
+
 function extractAttemptIdFromPdfUrl(value: string | null | undefined): string | null {
   const normalized = String(value ?? "").trim();
   if (!normalized) return null;
+  if (!isAllowedPdfUrl(normalized)) return null;
 
   const match = normalized.match(/\/attempts\/([^/?#]+)\/(?:report|result-page)\.pdf(?:[?#].*)?$/);
   if (!match?.[1]) return null;
@@ -77,7 +96,7 @@ export function AttemptPdfDownloadButton({
     ?? attemptId
     ?? extractAttemptIdFromPdfUrl(resolvedPdfUrl)
     ?? extractAttemptIdFromPdfUrl(fallbackUrl);
-  const downloadEnabled = accessProjection ? canDownloadReportPdf(accessProjection) : Boolean(resolvedAttemptId || resolvedPdfUrl);
+  const downloadEnabled = accessProjection ? canDownloadReportPdf(accessProjection) && Boolean(resolvedAttemptId) : Boolean(resolvedAttemptId);
 
   const handleDownload = async () => {
     if (!downloadEnabled || isDownloading) return;
@@ -118,7 +137,7 @@ export function AttemptPdfDownloadButton({
         type="button"
         variant={buttonVariant}
         className={buttonClassName}
-        disabled={isDownloading || !downloadEnabled || (!resolvedAttemptId && !resolvedPdfUrl)}
+        disabled={isDownloading || !downloadEnabled || !resolvedAttemptId}
         onClick={() => void handleDownload()}
         data-testid={testId}
       >
