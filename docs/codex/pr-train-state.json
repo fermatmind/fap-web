@@ -38567,7 +38567,7 @@
     "depends_on": [
       "PR-CAREER-KG-AGENT-03"
     ],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": null,
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1566",
     "merged_at": null,
@@ -38595,8 +38595,8 @@
         "evidence": "Search quarantine help passed; focused search projection quarantine contract passed; YAML/JSON/diff/scope checks passed; typecheck passed; full contract shard runner passed 648/648 with quarantine 0; production build passed."
       },
       "github_checks": {
-        "status": "pending",
-        "evidence": "PR opened as #1566; waiting for required GitHub checks."
+        "status": "pass",
+        "evidence": "GitHub checks for PR #1566 passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze."
       }
     },
     "events": [
@@ -38614,6 +38614,11 @@
         "at": "2026-07-03T07:15:05.048Z",
         "status": "github_checks_pending",
         "notes": "Opened PR #1566 and pushed PR URL/check pending state to ledger."
+      },
+      {
+        "at": "2026-07-03T07:20:12.020Z",
+        "status": "ready_to_merge",
+        "notes": "Remote checks green and scope revalidated. Recording ready_to_merge before squash merge."
       }
     ],
     "scope_validation": {
