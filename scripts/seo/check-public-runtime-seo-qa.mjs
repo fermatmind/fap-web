@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
+import { pathToFileURL } from "node:url";
 import {
   fetchNoRedirect,
   findCanonicalHref,
@@ -59,12 +60,38 @@ Options:
 }
 
 function readJson(filePath) {
-  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+  try {
+    return { ok: true, value: JSON.parse(fs.readFileSync(filePath, "utf8")) };
+  } catch (error) {
+    return {
+      ok: false,
+      error: `invalid_samples_json:${error instanceof Error ? error.message : String(error)}`,
+    };
+  }
 }
 
-function toUrl(sample, siteUrl) {
-  const origin = new URL(siteUrl).origin;
-  return new URL(sample.path || sample.url || "/", origin).toString();
+function toUrlResult(sample, siteUrl) {
+  try {
+    const origin = new URL(siteUrl).origin;
+    return { ok: true, url: new URL(sample.path || sample.url || "/", origin).toString() };
+  } catch (error) {
+    return {
+      ok: false,
+      url: String(sample?.path || sample?.url || ""),
+      issue: buildIssue("invalid_sample_url", error instanceof Error ? error.message : String(error)),
+    };
+  }
+}
+
+function expectedHostResult(siteUrl) {
+  try {
+    return { ok: true, hostname: new URL(siteUrl).hostname };
+  } catch (error) {
+    return {
+      ok: false,
+      issue: buildIssue("invalid_site_url", error instanceof Error ? error.message : String(error)),
+    };
+  }
 }
 
 function statusFamily(status) {
@@ -82,17 +109,25 @@ function readAttribute(tag, name) {
 }
 
 function readHreflangLinks(html, rawUrl) {
-  return (html.match(/<link\b[^>]*>/gi) || [])
+  const links = [];
+  const issues = [];
+  for (const row of (html.match(/<link\b[^>]*>/gi) || [])
     .map((tag) => ({
       rel: readAttribute(tag, "rel"),
       hreflang: readAttribute(tag, "hreflang"),
       href: readAttribute(tag, "href"),
     }))
-    .filter((row) => row.rel.toLowerCase().split(/\\s+/).includes("alternate") && row.hreflang && row.href)
-    .map((row) => ({
-      hreflang: row.hreflang,
-      href: new URL(row.href, rawUrl).toString(),
-    }));
+    .filter((candidate) => candidate.rel.toLowerCase().split(/\\s+/).includes("alternate") && candidate.hreflang && candidate.href)) {
+    try {
+      links.push({
+        hreflang: row.hreflang,
+        href: new URL(row.href, rawUrl).toString(),
+      });
+    } catch (error) {
+      issues.push(buildIssue("invalid_hreflang_url", `${row.href}: ${error instanceof Error ? error.message : String(error)}`));
+    }
+  }
+  return { links, issues };
 }
 
 function readJsonLdTypes(html) {
@@ -122,7 +157,12 @@ function evaluateExpected(sample, observed) {
   }
 
   if (expected.redirect_to_path) {
-    const locationPath = observed.redirect?.location ? new URL(observed.redirect.location, observed.url).pathname : "";
+    let locationPath = "";
+    try {
+      locationPath = observed.redirect?.location ? new URL(observed.redirect.location, observed.url).pathname : "";
+    } catch {
+      locationPath = "";
+    }
     if (locationPath !== expected.redirect_to_path) {
       issues.push(buildIssue("unexpected_redirect_target", `${locationPath || "missing"} expected=${expected.redirect_to_path}`));
     }
@@ -132,8 +172,30 @@ function evaluateExpected(sample, observed) {
 }
 
 async function inspectPublicSample(sample, options) {
-  const url = toUrl(sample, options.siteUrl);
-  const unsafe = getUnsafeLiveFetchIssue(url, { expectedHost: new URL(options.siteUrl).hostname });
+  const urlResult = toUrlResult(sample, options.siteUrl);
+  if (!urlResult.ok) {
+    return {
+      path: sample.path || "",
+      url: urlResult.url,
+      source_classification: "PUBLIC_SAMPLE_INVALID_URL",
+      fetched: false,
+      passed: false,
+      issues: [urlResult.issue],
+    };
+  }
+  const url = urlResult.url;
+  const expectedHost = expectedHostResult(options.siteUrl);
+  if (!expectedHost.ok) {
+    return {
+      path: sample.path || "",
+      url,
+      source_classification: "PUBLIC_SAMPLE_INVALID_SITE_URL",
+      fetched: false,
+      passed: false,
+      issues: [expectedHost.issue],
+    };
+  }
+  const unsafe = getUnsafeLiveFetchIssue(url, { expectedHost: expectedHost.hostname });
   if (unsafe) {
     return {
       path: sample.path || "",
@@ -156,12 +218,11 @@ async function inspectPublicSample(sample, options) {
     };
   }
 
-  const issues = [];
   let fetched;
   try {
     fetched = await fetchNoRedirect(url, {
       timeoutMs: options.timeoutMs,
-      expectedHost: new URL(options.siteUrl).hostname,
+      expectedHost: expectedHost.hostname,
       accept: "text/html,application/xhtml+xml,application/xml,text/plain,*/*",
     });
   } catch (error) {
@@ -175,16 +236,34 @@ async function inspectPublicSample(sample, options) {
     };
   }
 
+  return inspectFetchedPublicSample(sample, options, url, fetched);
+}
+
+export function inspectFetchedPublicSample(sample, options, url, fetched) {
+  const issues = [];
   const { response, body } = fetched;
   const location = response.headers.get("location") || "";
   const contentType = response.headers.get("content-type") || "";
   const family = statusFamily(response.status);
   const htmlLike = looksLikeHtml(contentType, body);
   const canonicalHref = htmlLike ? findCanonicalHref(body) : null;
-  const canonicalUrl = canonicalHref ? new URL(canonicalHref, url).toString() : null;
+  let canonicalUrl = null;
+  if (canonicalHref) {
+    try {
+      canonicalUrl = new URL(canonicalHref, url).toString();
+    } catch (error) {
+      issues.push(buildIssue("invalid_canonical_url", `${canonicalHref}: ${error instanceof Error ? error.message : String(error)}`));
+    }
+  }
   const robotsNoindex = isNoindexHeader(response.headers) || (htmlLike ? findMetaRobotsNoindex(body) : false);
-  const hreflang = htmlLike ? readHreflangLinks(body, url) : [];
+  const hreflangResult = htmlLike ? readHreflangLinks(body, url) : { links: [], issues: [] };
+  const hreflang = hreflangResult.links;
   const jsonLdTypes = htmlLike ? readJsonLdTypes(body) : [];
+  issues.push(...hreflangResult.issues);
+
+  if (family === "4xx" || family === "5xx") {
+    issues.push(buildIssue("http_error_status", String(response.status)));
+  }
 
   if (family === "2xx" && !canonicalUrl) {
     issues.push(buildIssue("missing_canonical"));
@@ -207,7 +286,7 @@ async function inspectPublicSample(sample, options) {
     fetched: true,
     status: response.status,
     status_family: family,
-    redirect: location ? { location: new URL(location, url).toString() } : null,
+    redirect: location ? { location } : null,
     canonical: canonicalUrl,
     robots: { noindex: robotsNoindex },
     hreflang,
@@ -218,8 +297,32 @@ async function inspectPublicSample(sample, options) {
 }
 
 function inspectDenySample(sample, options) {
-  const url = toUrl(sample, options.siteUrl);
-  const unsafe = getUnsafeLiveFetchIssue(url, { expectedHost: new URL(options.siteUrl).hostname });
+  const urlResult = toUrlResult(sample, options.siteUrl);
+  if (!urlResult.ok) {
+    return {
+      path: sample.path || "",
+      url: urlResult.url,
+      source_classification: "DENY_POLICY_INVALID_URL",
+      fetched: false,
+      passed: false,
+      reasons: [],
+      issues: [urlResult.issue],
+    };
+  }
+  const url = urlResult.url;
+  const expectedHost = expectedHostResult(options.siteUrl);
+  if (!expectedHost.ok) {
+    return {
+      path: sample.path || "",
+      url,
+      source_classification: "DENY_POLICY_INVALID_SITE_URL",
+      fetched: false,
+      passed: false,
+      reasons: [],
+      issues: [expectedHost.issue],
+    };
+  }
+  const unsafe = getUnsafeLiveFetchIssue(url, { expectedHost: expectedHost.hostname });
   const reasons = unsafe?.reasons || [];
   const expectedReason = sample.expect?.reason;
   const passed = Boolean(unsafe) && (!expectedReason || reasons.some((row) => row.reason === expectedReason));
@@ -295,16 +398,28 @@ function writeMarkdown(report, outputPath) {
 
 async function main() {
   const options = readArgs(process.argv.slice(2));
-  const samples = readJson(options.samples);
+  const parsedSamples = readJson(options.samples);
+  const samples = parsedSamples.ok ? parsedSamples.value : { seed: "", public_samples: [], deny_policy_samples: [] };
   const publicSamples = samples.public_samples || [];
   const denySamples = samples.deny_policy_samples || [];
-  const publicResults = [];
+  const publicResults = parsedSamples.ok
+    ? []
+    : [{
+      path: options.samples,
+      url: "",
+      source_classification: "SAMPLES_JSON",
+      fetched: false,
+      passed: false,
+      issues: [buildIssue("invalid_samples_json", parsedSamples.error)],
+    }];
 
-  for (const sample of publicSamples) {
-    publicResults.push(await inspectPublicSample(sample, options));
+  if (parsedSamples.ok) {
+    for (const sample of publicSamples) {
+      publicResults.push(await inspectPublicSample(sample, options));
+    }
   }
 
-  const denyResults = denySamples.map((sample) => inspectDenySample(sample, options));
+  const denyResults = parsedSamples.ok ? denySamples.map((sample) => inspectDenySample(sample, options)) : [];
   const report = buildReport({ samples, publicResults, denyResults, options });
   const json = `${JSON.stringify(report, null, 2)}\n`;
 
@@ -322,7 +437,9 @@ async function main() {
   process.exitCode = report.summary.passed ? 0 : 1;
 }
 
-main().catch((error) => {
-  console.error(error instanceof Error ? error.message : String(error));
-  process.exitCode = 1;
-});
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  main().catch((error) => {
+    console.error(error instanceof Error ? error.message : String(error));
+    process.exitCode = 1;
+  });
+}
