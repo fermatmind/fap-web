@@ -1,0 +1,29 @@
+{
+  "artifact_type": "career_kg_search_projection_candidate",
+  "artifact_version": "kg.search_projection.v1",
+  "status": "candidate_only",
+  "pr_id": "{{pr_id}}",
+  "slug": "{{slug}}",
+  "locale": "zh-CN",
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "seo_runtime_release_approved": false,
+  "cms_write_approved": false,
+  "title_meta_candidates": [
+    {
+      "title_zh": "候选标题：{{slug}}",
+      "meta_description_zh": "候选摘要仅供 dry-run SEO projection review 使用，不进入 reader asset 或 runtime。",
+      "intent": "candidate_only_not_runtime_seo"
+    }
+  ],
+  "faq_candidates": [],
+  "internal_link_candidates": [],
+  "release_boundaries": {
+    "canonical_change_authorized": false,
+    "noindex_change_authorized": false,
+    "sitemap_change_authorized": false,
+    "llms_change_authorized": false,
+    "json_ld_release_authorized": false,
+    "search_provider_submission_authorized": false
+  }
+}

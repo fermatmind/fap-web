@@ -38585,12 +38585,12 @@
     "depends_on": [
       "PR-CAREER-KG-AGENT-02"
     ],
-    "status": "ready_to_merge",
+    "status": "merged",
     "commit_sha": null,
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1565",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-03T07:07:10Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "dependency": {
@@ -38617,6 +38617,10 @@
       "github_checks": {
         "status": "pass",
         "evidence": "GitHub checks for PR #1565 passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze."
+      },
+      "post_merge_revalidate": {
+        "status": "pass",
+        "evidence": "PR #1565 is MERGED; origin/main contains c22f66ed2564c9ff00a053b67e05baf85a725f59; local main was synced; task branch was deleted locally and remotely."
       }
     },
     "events": [
@@ -38639,13 +38643,19 @@
         "at": "2026-07-03T07:02:02.559Z",
         "status": "ready_to_merge",
         "notes": "Remote checks green and scope revalidated. Recording ready_to_merge before squash merge."
+      },
+      {
+        "at": "2026-07-03T07:09:20.558Z",
+        "status": "merged",
+        "notes": "Reconciled post-merge facts inside PR-CAREER-KG-AGENT-04 metadata scope."
       }
     ],
     "scope_validation": {
       "status": "pass",
       "outside_scope_files": [],
       "evidence": "Changed files are limited to PR-CAREER-KG-AGENT-03 allowed validators, contract test, scope helper, and train metadata."
-    }
+    },
+    "merge_commit": "c22f66ed2564c9ff00a053b67e05baf85a725f59"
   },
   "PR-CAREER-KG-AGENT-04": {
     "repo": "fap-web",
@@ -38656,13 +38666,65 @@
     "depends_on": [
       "PR-CAREER-KG-AGENT-03"
     ],
-    "status": "pending",
+    "status": "ready_to_merge",
     "commit_sha": null,
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1566",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "failure_reason": null
+    "failure_reason": null,
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-CAREER-KG-AGENT-03 merged as PR #1565; origin/main contains merge commit c22f66ed2564c9ff00a053b67e05baf85a725f59."
+      },
+      "local_checks": {
+        "status": "pass",
+        "commands": [
+          "python3 .agents/skills/career-content-asset-factory/scripts/validate_search_projection_quarantine.py --help",
+          "pnpm exec vitest run tests/contracts/career-kg-search-projection-quarantine.contract.test.ts --reporter=dot",
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "git diff --check",
+          "changed-file scope validation",
+          "pnpm typecheck",
+          "pnpm test:contract -- --shards=4 --timeout-ms=600000 --reporter=dot",
+          "NODE_OPTIONS=--max-old-space-size=4096 NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build"
+        ],
+        "evidence": "Search quarantine help passed; focused search projection quarantine contract passed; YAML/JSON/diff/scope checks passed; typecheck passed; full contract shard runner passed 648/648 with quarantine 0; production build passed."
+      },
+      "github_checks": {
+        "status": "pass",
+        "evidence": "GitHub checks for PR #1566 passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze."
+      }
+    },
+    "events": [
+      {
+        "at": "2026-07-03T07:09:20.558Z",
+        "status": "in_progress",
+        "notes": "Started PR-CAREER-KG-AGENT-04 on branch codex/pr-career-kg-agent-04-search-projection-quarantine from latest main."
+      },
+      {
+        "at": "2026-07-03T07:14:28.417Z",
+        "status": "local_checks_passed",
+        "notes": "All PR-CAREER-KG-AGENT-04 required local checks passed."
+      },
+      {
+        "at": "2026-07-03T07:15:05.048Z",
+        "status": "github_checks_pending",
+        "notes": "Opened PR #1566 and pushed PR URL/check pending state to ledger."
+      },
+      {
+        "at": "2026-07-03T07:20:12.020Z",
+        "status": "ready_to_merge",
+        "notes": "Remote checks green and scope revalidated. Recording ready_to_merge before squash merge."
+      }
+    ],
+    "scope_validation": {
+      "status": "pass",
+      "outside_scope_files": [],
+      "evidence": "Changed files are limited to PR-CAREER-KG-AGENT-04 allowed validator, schema, template, contract test, scope helper, and train metadata."
+    }
   },
   "PR-CAREER-KG-AGENT-05": {
     "repo": "fap-web",
