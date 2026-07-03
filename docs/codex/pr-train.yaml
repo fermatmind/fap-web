@@ -9128,7 +9128,7 @@ prs:
     mode: execute
     train_scope: security_122_web_career_qa_source_trust_certification_hardening
     risk_level: low
-    status: pr_opened
+    status: ready_to_merge
     title: "SECURITY-122-WEB-13: career QA source/trust certification hardening"
     findings:
       - "findings 38,67,102"
