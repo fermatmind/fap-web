@@ -1,0 +1,28 @@
+[data-testid="mbti-career-next-step-cta"] {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border-radius: 999px;
+  background: #047857;
+  padding: 0.5rem 1rem;
+  color: #ffffff !important;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(4, 120, 87, 0.18);
+  transition:
+    background-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+[data-testid="mbti-career-next-step-cta"]:hover,
+[data-testid="mbti-career-next-step-cta"]:focus-visible {
+  background: #065f46;
+  color: #ffffff !important;
+  box-shadow: 0 10px 22px rgba(4, 120, 87, 0.24);
+}
+
+[data-testid="mbti-career-next-step-cta"]:focus-visible {
+  outline: 2px solid #047857;
+  outline-offset: 2px;
+}

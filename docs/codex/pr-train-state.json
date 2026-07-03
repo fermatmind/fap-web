@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T15:35:00+08:00",
+  "updated_at": "2026-07-03T07:29:37.183Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13795,7 +13795,7 @@
       "depends_on": [
         "SECURITY-122-WEB-14"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_seo_runner_runtime_qa_fail_closed_parsing_links_http_handoff_checks",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-15: SEO runner/runtime QA fail-closed parsing, links, HTTP, handoff checks",
@@ -13881,14 +13881,18 @@
         "scope": {
           "status": "passed",
           "evidence": "Final scope revalidation passed: git diff --check origin/main...HEAD, manifest/state parse, and the WEB-15 changed-file scope contract passed."
+        },
+        "post_merge": {
+          "status": "passed",
+          "evidence": "Reconciled before SECURITY-122-WEB-16: GitHub PR #1564 is MERGED, origin/main contains merge commit 62ab9b4bf98a82fb3a7aa0992a4ef32c08db60e1, local main was synced clean, and codex/security-122-web-15 task branches were deleted."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1564",
-      "commit_sha": "8b0a9c69981ec527a0462daf3a7112c3eb0c8bc6",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "62ab9b4bf98a82fb3a7aa0992a4ef32c08db60e1",
+      "merged_at": "2026-07-03T07:09:48Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -13929,11 +13933,17 @@
           "at": "2026-07-03T15:35:00+08:00",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed for PR #1564 head 8b0a9c69981ec527a0462daf3a7112c3eb0c8bc6. Final manifest/state parse, diff check, and WEB-15 scope validation passed; staging deploy was not waited on. Recording ready_to_merge before merge per PR-train rules."
+        },
+        {
+          "at": "2026-07-03T07:19:49.243Z",
+          "status": "merged",
+          "summary": "Reconciled SECURITY-122-WEB-15 post-merge state before starting WEB-16: PR #1564 merged, origin/main contains merge commit 62ab9b4bf98a82fb3a7aa0992a4ef32c08db60e1, and task branches were cleaned."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T15:35:00+08:00",
-      "head_sha": "8b0a9c69981ec527a0462daf3a7112c3eb0c8bc6"
+      "updated_at": "2026-07-03T07:19:49.243Z",
+      "head_sha": "8b0a9c69981ec527a0462daf3a7112c3eb0c8bc6",
+      "merge_sha": "62ab9b4bf98a82fb3a7aa0992a4ef32c08db60e1"
     },
     {
       "id": "SECURITY-122-WEB-16",
@@ -13944,7 +13954,7 @@
       "depends_on": [
         "SECURITY-122-WEB-15"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_122_web_public_ui_route_probe_config_guard_regressions",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-16: public UI/route probe/config guard regressions",
@@ -13964,21 +13974,56 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-15 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-15 merged via PR #1564 at 2026-07-03T07:09:48Z; origin/main contains 62ab9b4bf98a82fb3a7aa0992a4ef32c08db60e1 and WEB-15 task branches are cleaned."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx tests/contracts/mbti-pdf-snapshot-sync-guard-h1.contract.test.ts",
+              "evidence": "Focused WEB-16 contract and MBTI PDF print hash guard passed after moving the CTA visibility fix outside print-impact inputs."
+            },
+            {
+              "command": "/usr/local/bin/pnpm typecheck",
+              "evidence": "Typecheck passed."
+            },
+            {
+              "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+              "evidence": "Production URL build passed and generated 202/202 static pages."
+            },
+            {
+              "command": "/usr/local/bin/pnpm test:contract",
+              "evidence": "Full contract suite passed across 4 shards: shard 1 163 files/924 tests, shard 2 162 files/917 tests, shard 3 162 files/1044 tests, shard 4 162 files/883 tests."
+            },
+            {
+              "command": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+              "evidence": "Manifest and state parsed successfully."
+            },
+            {
+              "command": "git diff --check",
+              "evidence": "Whitespace diff check passed."
+            },
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx --testNamePattern \"keeps the current PR diff\"",
+              "evidence": "Changed-file scope validation passed and includes untracked file detection for the authorized WEB-16 paths."
+            }
+          ],
+          "failed": []
         },
         "github": {
           "status": "pending",
-          "passed": []
+          "passed": [],
+          "failed": []
+        },
+        "scope": {
+          "status": "passed",
+          "evidence": "Changed files are limited to app/(root)/layout.tsx, app/mbti-career-cta.css, lib/site.ts, tests/contracts/helpers/currentPrScope.ts, tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx, and docs/codex/pr-train-state.json."
         }
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "62ab9b4bf98a82fb3a7aa0992a4ef32c08db60e1",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -13987,10 +14032,22 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-16 from explicit user /goal; execution waits for SECURITY-122-WEB-15 merge."
+        },
+        {
+          "at": "2026-07-03T07:19:49.243Z",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-16 from latest main after reconciling WEB-15 merge state; implementing public UI visibility, localized workflow label, proxy route probe, and malformed site URL guard regressions only."
+        },
+        {
+          "at": "2026-07-03T07:29:37.183Z",
+          "status": "local_checks_passed",
+          "summary": "Required WEB-16 local checks passed: focused public UI route/config guard contract, MBTI PDF print hash guard, typecheck, production URL build, full contract suite, manifest/state parse, diff check, and changed-file scope validation."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T07:29:37.183Z",
+      "head_sha": "62ab9b4bf98a82fb3a7aa0992a4ef32c08db60e1",
+      "merge_sha": null
     },
     {
       "id": "SECURITY-122-WEB-17",

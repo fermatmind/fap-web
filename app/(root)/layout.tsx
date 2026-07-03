@@ -9,6 +9,7 @@ import { Providers } from "@/app/providers";
 import { createProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { SITE_URL, canonicalUrl, isConfiguredStagingSiteUrl } from "@/lib/site";
 import "../globals.css";
+import "../mbti-career-cta.css";
 
 const fmSans = localFont({
   src: [{ path: "../../public/fonts/manrope/Manrope-Variable.woff2", weight: "200 800", style: "normal" }],

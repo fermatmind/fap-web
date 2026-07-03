@@ -26,14 +26,23 @@ function isLocalhostUrl(value: string): boolean {
   }
 }
 
+function isAbsoluteHttpSiteUrl(value: string): boolean {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" || url.protocol === "http:";
+  } catch {
+    return false;
+  }
+}
+
 export function getSiteUrlOrThrow(): string {
   const candidate = normalizeSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
   const fallback = DEFAULT_SITE_URL;
   const isProductionBuild = process.env.NODE_ENV === "production";
   const resolved = convergeCanonicalSiteUrl(candidate || fallback);
 
-  if (isProductionBuild && (!candidate || isLocalhostUrl(candidate))) {
-    throw new Error("NEXT_PUBLIC_SITE_URL must be set to a production absolute URL (non-localhost).");
+  if (isProductionBuild && (!candidate || !isAbsoluteHttpSiteUrl(candidate) || isLocalhostUrl(candidate))) {
+    throw new Error("NEXT_PUBLIC_SITE_URL must be set to a production absolute HTTP(S) URL (non-localhost).");
   }
 
   return resolved;
