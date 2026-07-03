@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { spawn } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -90,6 +90,44 @@ function loadContractGroups(root = ROOT) {
     };
   }
   return JSON.parse(readFileSync(groupsPath, "utf8"));
+}
+
+function gitRefExists(ref, cwd = ROOT) {
+  const result = spawnSync("git", ["rev-parse", "--verify", "--quiet", ref], {
+    cwd,
+    stdio: "ignore",
+  });
+  return result.status === 0;
+}
+
+function ensureGitHubActionsBaseRef(cwd = ROOT) {
+  if (process.env.GITHUB_ACTIONS !== "true") {
+    return;
+  }
+
+  const baseRef = process.env.GITHUB_BASE_REF;
+  if (!baseRef) {
+    return;
+  }
+
+  const remoteBaseRef = `origin/${baseRef}`;
+  if (gitRefExists(remoteBaseRef, cwd)) {
+    return;
+  }
+
+  console.log(`[contract-runner] fetching ${remoteBaseRef} for git diff scope contracts`);
+  const result = spawnSync(
+    "git",
+    ["fetch", "--no-tags", "--depth=1", "origin", `+refs/heads/${baseRef}:refs/remotes/origin/${baseRef}`],
+    {
+      cwd,
+      stdio: "inherit",
+    },
+  );
+
+  if (result.status !== 0) {
+    console.warn(`[contract-runner] unable to fetch ${remoteBaseRef}; git diff scope contracts may fail`);
+  }
 }
 
 function walkFiles(dir, root = dir) {
@@ -249,6 +287,7 @@ async function runShard(shard, options) {
 
 async function main() {
   const options = parseArgs();
+  ensureGitHubActionsBaseRef();
   const discoveredFiles = discoverContractFiles();
   const groupsConfig = loadContractGroups();
 
