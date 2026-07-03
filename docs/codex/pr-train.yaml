@@ -9014,7 +9014,7 @@ prs:
     mode: execute
     train_scope: security_122_web_generated_docs_artifacts_local_path_redaction
     risk_level: low
-    status: local_checks_passed
+    status: pr_opened
     title: "SECURITY-122-WEB-10: generated docs/artifacts local path redaction"
     findings:
       - "findings 31,33,37,39,40,48,101"
