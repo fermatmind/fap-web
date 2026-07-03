@@ -10,6 +10,16 @@ import { isSecurity122Web15AllowedFile } from "./helpers/currentPrScope";
 const ROOT = process.cwd();
 const tempRoots: string[] = [];
 type RuntimeQaIssue = { reason: string };
+type RuntimeQaReport = { summary: { passed: boolean }; public_results: Array<{ issues: RuntimeQaIssue[] }> };
+type RunnerReport = {
+  final_decision: string;
+  blockers: string[];
+  safety_boundary: Record<string, boolean>;
+};
+type SeoWriterArtifact = {
+  mode: string;
+  boundaries: Record<string, boolean>;
+};
 
 function makeTempDir(label: string): string {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), `${label}-`));
@@ -83,7 +93,7 @@ describe("SECURITY-122-WEB-15 SEO runner/runtime QA fail-closed parsing and link
     expect(output.ok).toBe(false);
     expect(output.issues.join("\n")).toContain("invalid_request_json");
 
-    const artifact = readJson(path.join(artifactDir, fs.readdirSync(artifactDir)[0]));
+    const artifact = readJson<SeoWriterArtifact>(path.join(artifactDir, fs.readdirSync(artifactDir)[0]));
     expect(artifact.mode).toBe("rejected");
     expect(artifact.boundaries).toMatchObject({
       git_push_attempted: false,
@@ -115,7 +125,7 @@ describe("SECURITY-122-WEB-15 SEO runner/runtime QA fail-closed parsing and link
 
     expect(malformedResult.status).toBe(1);
     expect(malformedResult.stderr).not.toMatch(/SyntaxError|at JSON\.parse/);
-    const malformedReport = readJson(malformedOutput);
+    const malformedReport = readJson<RuntimeQaReport>(malformedOutput);
     expect(malformedReport.summary.passed).toBe(false);
     expect(malformedReport.public_results[0].issues[0].reason).toBe("invalid_samples_json");
 
@@ -140,7 +150,7 @@ describe("SECURITY-122-WEB-15 SEO runner/runtime QA fail-closed parsing and link
     ]);
 
     expect(badUrlResult.status).toBe(1);
-    const badUrlReport = readJson(badUrlOutput);
+    const badUrlReport = readJson<RuntimeQaReport>(badUrlOutput);
     expect(badUrlReport.public_results[0].issues[0].reason).toBe("invalid_sample_url");
   });
 
@@ -193,7 +203,7 @@ describe("SECURITY-122-WEB-15 SEO runner/runtime QA fail-closed parsing and link
 
     expect(runnerResult.status).toBe(1);
     expect(runnerResult.stderr).not.toMatch(/SyntaxError|at JSON\.parse/);
-    const runnerReport = readJson(runnerJson);
+    const runnerReport = readJson<RunnerReport>(runnerJson);
     expect(runnerReport.final_decision).toBe("NO_GO_RECOMMENDATION_AUTO_RUNNER_BLOCKED");
     expect(runnerReport.blockers.join("\n")).toContain("invalid_input_json");
     expect(runnerReport.safety_boundary).toMatchObject({
@@ -217,7 +227,7 @@ describe("SECURITY-122-WEB-15 SEO runner/runtime QA fail-closed parsing and link
 
     expect(handoffResult.status).toBe(1);
     expect(handoffResult.stderr).not.toMatch(/SyntaxError|at JSON\.parse/);
-    const handoffReport = readJson(handoffJson);
+    const handoffReport = readJson<RunnerReport>(handoffJson);
     expect(handoffReport.final_decision).toBe("NO_GO_AUTO_QA_OR_HANDOFF_BLOCKED");
     expect(handoffReport.blockers.join("\n")).toContain("invalid_input_json");
     expect(handoffReport.safety_boundary).toMatchObject({
