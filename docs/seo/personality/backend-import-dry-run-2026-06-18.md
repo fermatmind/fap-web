@@ -25,12 +25,12 @@ This PR did not import CMS drafts, create CMS revisions, publish pages, change s
 - no_write_execution_possible: unknown
 
 Evidence:
-- /Users/rainie/Desktop/GitHub/fap-api/backend/app/Console/Commands/PersonalityEnsureMbtiVariantSectionStructure.php: MBTI variant section structure dry-run command exists, but it builds canonical structure rather than importing V2.1 package rows.
-- /Users/rainie/Desktop/GitHub/fap-api/backend/app/Console/Commands/PersonalityRefreshMbtiVariantSeoMetadata.php: MBTI variant SEO metadata dry-run command exists, but it refreshes generated metadata rather than importing V2.1 package rows.
-- /Users/rainie/Desktop/GitHub/fap-api/backend/app/Console/Commands/PersonalityEnrichMbtiEnglishVariantSections.php: MBTI English enrichment command defaults to no-write, but it does not cover bilingual V2.1 package import.
-- /Users/rainie/Desktop/GitHub/fap-api/backend/app/PersonalityCms/Baseline/PersonalityBaselineImporter.php: Personality baseline importer supports dry_run and revision counting, but it is baseline-structured and not a V2.1 package importer.
-- /Users/rainie/Desktop/GitHub/fap-api/backend/app/Models/PersonalityProfileVariantRevision.php: Variant revision snapshot model exists for future draft/rollback metadata.
-- /Users/rainie/Desktop/GitHub/fap-api/backend/app/Http/Controllers/API/V0_5/Cms/PersonalityController.php: Public personality variant and comparison read APIs exist; write/import endpoint for V2.1 package was not found.
+- <fap-api-backend>/app/Console/Commands/PersonalityEnsureMbtiVariantSectionStructure.php: MBTI variant section structure dry-run command exists, but it builds canonical structure rather than importing V2.1 package rows.
+- <fap-api-backend>/app/Console/Commands/PersonalityRefreshMbtiVariantSeoMetadata.php: MBTI variant SEO metadata dry-run command exists, but it refreshes generated metadata rather than importing V2.1 package rows.
+- <fap-api-backend>/app/Console/Commands/PersonalityEnrichMbtiEnglishVariantSections.php: MBTI English enrichment command defaults to no-write, but it does not cover bilingual V2.1 package import.
+- <fap-api-backend>/app/PersonalityCms/Baseline/PersonalityBaselineImporter.php: Personality baseline importer supports dry_run and revision counting, but it is baseline-structured and not a V2.1 package importer.
+- <fap-api-backend>/app/Models/PersonalityProfileVariantRevision.php: Variant revision snapshot model exists for future draft/rollback metadata.
+- <fap-api-backend>/app/Http/Controllers/API/V0_5/Cms/PersonalityController.php: Public personality variant and comparison read APIs exist; write/import endpoint for V2.1 package was not found.
 
 Notes:
 - Read-only fap-api discovery found safe dry-run patterns, but no exact MBTI64 V2.1 package dry-run importer.

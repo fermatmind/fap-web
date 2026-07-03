@@ -20,19 +20,19 @@
   ],
   "source_of_truth": {
     "frontend": {
-      "repository": "/Users/rainie/Desktop/GitHub/fap-web",
+      "repository": "<workspace>/fap-web",
       "role": "production_frontend_source_of_truth",
       "status": "observed",
       "contract": "Deterministically renders public runtime from backend/CMS truth."
     },
     "backend": {
-      "repository": "/Users/rainie/Desktop/GitHub/fap-api",
+      "repository": "<workspace>/fap-api",
       "role": "backend_cms_commerce_authority_core",
       "status": "observed",
       "contract": "Owns CMS, commerce, report, email, public API, and backend authority contracts."
     },
     "nested_frontend": {
-      "repository": "/Users/rainie/Desktop/GitHub/fap-api/fap-web",
+      "repository": "<workspace>/fap-api/fap-web",
       "role": "stale_skeleton_non_runtime",
       "runtime": false,
       "status": "dangerous_if_assumed",
@@ -51,17 +51,17 @@
   },
   "repositories": {
     "primary": {
-      "path": "/Users/rainie/Desktop/GitHub/fap-web",
+      "path": "<workspace>/fap-web",
       "status": "observed",
       "allowed_for_this_pr": true
     },
     "reference_only": {
-      "path": "/Users/rainie/Desktop/GitHub/fap-api",
+      "path": "<workspace>/fap-api",
       "status": "observed",
       "allowed_for_this_pr": false
     },
     "forbidden_runtime_source": {
-      "path": "/Users/rainie/Desktop/GitHub/fap-api/fap-web",
+      "path": "<workspace>/fap-api/fap-web",
       "status": "dangerous_if_assumed",
       "runtime": false
     }

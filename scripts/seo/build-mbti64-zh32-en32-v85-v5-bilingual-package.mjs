@@ -11,14 +11,8 @@ const ROOT = process.cwd();
 const GENERATED_DATE = getArgValue("--generated-date") ?? "2026-07-01";
 const GENERATED_AT = process.env.GENERATED_AT ?? "2026-07-01T12:00:00.000Z";
 
-const ZH_DIR = resolvePath(
-  getArgValue("--zh-dir") ??
-    "/Users/rainie/Desktop/MBTI64_ZH32_V8_5_COMPETITOR_READABILITY_STRUCTURE_UPGRADE_2026-07-01",
-);
-const EN_DIR = resolvePath(
-  getArgValue("--en-dir") ??
-    "/Users/rainie/Desktop/MBTI64_EN32_V5_COMPETITOR_READABILITY_STRUCTURE_SYNC_2026-07-01",
-);
+const ZH_DIR = resolveOptionalPath(getArgValue("--zh-dir") ?? process.env.MBTI64_ZH_DIR);
+const EN_DIR = resolveOptionalPath(getArgValue("--en-dir") ?? process.env.MBTI64_EN_DIR);
 
 const OUTPUT_PACKAGE = resolvePath(
   getArgValue("--output-package") ??
@@ -137,8 +131,20 @@ function resolvePath(filePath) {
   return path.isAbsolute(filePath) ? filePath : path.join(ROOT, filePath);
 }
 
+function resolveOptionalPath(filePath) {
+  return filePath ? resolvePath(filePath) : null;
+}
+
 function relativeToRoot(filePath) {
   return path.relative(ROOT, filePath);
+}
+
+function redactedInputPath(filePath) {
+  const basename = path.basename(filePath);
+  if (filePath.startsWith(ROOT)) {
+    return relativeToRoot(filePath);
+  }
+  return `<external-mbti64-input>/${basename}`;
 }
 
 function writeJson(filePath, value) {
@@ -179,7 +185,7 @@ function readSource(dir, locale) {
 }
 
 function sourceDirsAvailable() {
-  return fs.existsSync(ZH_DIR) && fs.existsSync(EN_DIR);
+  return Boolean(ZH_DIR && EN_DIR && fs.existsSync(ZH_DIR) && fs.existsSync(EN_DIR));
 }
 
 function copyFileIfNeeded(from, to) {
@@ -650,9 +656,9 @@ function main() {
   const validation = validatePackage(recommendations, sources);
   const inputArtifacts = sources.map((source) => ({
     locale: source.locale,
-    package_path: source.completePath,
+    package_path: redactedInputPath(source.completePath),
     package_sha256: source.completeSha256,
-    qa_path: source.qaPath,
+    qa_path: redactedInputPath(source.qaPath),
     qa_sha256: source.qaSha256,
     final_decision: source.qa.final_decision,
     total_pages: source.qa.total_pages,

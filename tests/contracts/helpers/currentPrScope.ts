@@ -1325,6 +1325,26 @@ const SECURITY_122_WEB_09_ALLOWED_FILES = new Set([
   "tests/contracts/security-122-web-09-ai-iq-salary-guards.contract.test.tsx",
 ]);
 
+const SECURITY_122_WEB_10_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "docs/seo/generated/seo-intelligence-asset-map.v1.json",
+  "docs/seo/personality/backend-import-dry-run-2026-06-18.json",
+  "docs/seo/personality/backend-import-dry-run-2026-06-18.md",
+  "docs/seo/personality/mbti64-zh32-en32-v8-5-v5-bilingual-package-2026-07-01.json",
+  "docs/seo/personality/mbti64-zh32-en32-v8-5-v5-bilingual-qa-2026-07-01.json",
+  "generated/public-profile-assets/big-five-v1-34-codex-only-batch/research/source-ledger.csv",
+  "generated/public-profile-assets/big-five-v1-34-codex-only-batch/run-manifest.json",
+  "generated/public-profile-assets/big-five-v1-openness-dry-run-codex-only/research/source-ledger.csv",
+  "scripts/seo/build-mbti64-zh32-en32-v85-v5-bilingual-package.mjs",
+  "scripts/seo/dry-run-mbti64-backend-import.mjs",
+  "scripts/seo/validate-mbti64-backend-import-contract.mjs",
+  "scripts/seo/validate-mbti64-content-package-v2.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-122-web-10-generated-artifact-redaction.contract.test.ts",
+  "tests/contracts/seo-intelligence-asset-map.contract.test.ts",
+]);
+
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
   "components/result/eq/EQEvidenceSnapshot.tsx",
   "components/result/eq/types.ts",
@@ -3827,6 +3847,14 @@ export function isSecurity122Web09AllowedFile(file: string): boolean {
   return SECURITY_122_WEB_09_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity122Web10AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-122-web-10") {
+    return true;
+  }
+
+  return SECURITY_122_WEB_10_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -4827,6 +4855,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/security-122-web-09") {
     return SECURITY_122_WEB_09_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/security-122-web-10") {
+    return SECURITY_122_WEB_10_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {

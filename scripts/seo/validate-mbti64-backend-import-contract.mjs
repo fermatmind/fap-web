@@ -313,15 +313,15 @@ const backendEvidence = [
     evidence: "Frontend supports rich_text, bullets, faq, trait_dimension_grid, preferred_role_list and section payload rendering.",
   },
   {
-    file: "/Users/rainie/Desktop/GitHub/fap-api/backend/app/Models/PersonalityProfileVariantRevision.php",
+    file: "<fap-api-backend>/app/Models/PersonalityProfileVariantRevision.php",
     evidence: "Backend model supports variant revision snapshots through snapshot_json, revision_no, note, admin user, and created_at fields.",
   },
   {
-    file: "/Users/rainie/Desktop/GitHub/fap-api/backend/database/migrations/2026_03_16_000110_create_personality_profile_variant_authority_tables.php",
+    file: "<fap-api-backend>/database/migrations/2026_03_16_000110_create_personality_profile_variant_authority_tables.php",
     evidence: "Backend variant tables support variant sections, variant SEO meta, and variant revisions; comparison page storage appears derived from paired variants.",
   },
   {
-    file: "/Users/rainie/Desktop/GitHub/fap-api/backend/app/Http/Controllers/API/V0_5/Cms/PersonalityController.php",
+    file: "<fap-api-backend>/app/Http/Controllers/API/V0_5/Cms/PersonalityController.php",
     evidence: "Backend exposes public variant and comparison read APIs, including comparison_public_projection_v1.",
   },
 ];
