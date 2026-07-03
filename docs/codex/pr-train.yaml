@@ -21781,7 +21781,7 @@ prs:
       - PR-CAREER-KG-AGENT-03
     mode: execute
     train_scope: career_kg_agent_search_projection_quarantine
-    status: in_progress
+    status: merged
     goal: "Keep title/meta/FAQ/internal-link candidates in a separate search projection artifact and block runtime SEO leakage into reader assets."
     artifacts:
       - .agents/skills/career-content-asset-factory/scripts/validate_search_projection_quarantine.py
@@ -21825,7 +21825,7 @@ prs:
       - PR-CAREER-KG-AGENT-04
     mode: execute
     train_scope: career_kg_agent_pr_train_entry_generator
-    status: pending
+    status: in_progress
     goal: "Generate manifest/state patch artifacts and execution prompts from confirmed career KG batches without directly mutating train ledgers by default."
     artifacts:
       - .agents/skills/career-content-asset-factory/scripts/generate_career_kg_pr_train_entries.py

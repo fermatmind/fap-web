@@ -1,0 +1,17 @@
+{
+  "{{pr_id}}": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/{{branch_slug}}",
+    "title": "{{pr_id}}: content(career): add {{slug}} KG asset package",
+    "train_scope": "career_kg_{{slug_underscore}}_asset_package",
+    "depends_on": [],
+    "status": "pending",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null
+  }
+}
