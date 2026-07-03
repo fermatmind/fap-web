@@ -2,9 +2,10 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { sanitizeDateSlug } from "./artifactSafety.mjs";
 
 const repoRoot = process.cwd();
-const auditDate = process.env.AUDIT_DATE || new Date().toISOString().slice(0, 10);
+const auditDate = sanitizeDateSlug(process.env.AUDIT_DATE || new Date().toISOString().slice(0, 10), "AUDIT_DATE");
 
 const sourcePackagePath = "docs/seo/personality/content-packages/pilot-v2.1/mbti64-content-package-pilot-v2.1.json";
 const sourceQaPath = "docs/seo/personality/content-package-v21-qa-2026-06-18.json";

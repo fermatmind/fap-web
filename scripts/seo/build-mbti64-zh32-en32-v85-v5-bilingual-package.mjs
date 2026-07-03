@@ -6,40 +6,41 @@ import {
   findExactParagraphDuplicates,
   repairZhDuplicateParagraphsInPage,
 } from "./repair-mbti64-zh32-v85-duplicate-paragraphs.mjs";
+import { resolveOutputPath as resolveSafeOutputPath, sanitizeDateSlug } from "./artifactSafety.mjs";
 
 const ROOT = process.cwd();
-const GENERATED_DATE = getArgValue("--generated-date") ?? "2026-07-01";
+const GENERATED_DATE = sanitizeDateSlug(getArgValue("--generated-date") ?? "2026-07-01", "generated date");
 const GENERATED_AT = process.env.GENERATED_AT ?? "2026-07-01T12:00:00.000Z";
 
 const ZH_DIR = resolveOptionalPath(getArgValue("--zh-dir") ?? process.env.MBTI64_ZH_DIR);
 const EN_DIR = resolveOptionalPath(getArgValue("--en-dir") ?? process.env.MBTI64_EN_DIR);
 
-const OUTPUT_PACKAGE = resolvePath(
+const OUTPUT_PACKAGE = resolveOutputPath(
   getArgValue("--output-package") ??
     `docs/seo/personality/mbti64-zh32-en32-v8-5-v5-bilingual-package-${GENERATED_DATE}.json`,
 );
-const OUTPUT_PACKAGE_MD = resolvePath(
+const OUTPUT_PACKAGE_MD = resolveOutputPath(
   getArgValue("--output-package-md") ??
     `docs/seo/personality/mbti64-zh32-en32-v8-5-v5-bilingual-package-${GENERATED_DATE}.md`,
 );
-const OUTPUT_QA = resolvePath(
+const OUTPUT_QA = resolveOutputPath(
   getArgValue("--output-qa") ??
     `docs/seo/personality/mbti64-zh32-en32-v8-5-v5-bilingual-qa-${GENERATED_DATE}.json`,
 );
-const OUTPUT_QA_MD = resolvePath(
+const OUTPUT_QA_MD = resolveOutputPath(
   getArgValue("--output-qa-md") ??
     `docs/seo/personality/mbti64-zh32-en32-v8-5-v5-bilingual-qa-${GENERATED_DATE}.md`,
 );
-const DEFAULT_PACKAGE_ARTIFACT = resolvePath(
+const DEFAULT_PACKAGE_ARTIFACT = resolveOutputPath(
   `docs/seo/personality/mbti64-zh32-en32-v8-5-v5-bilingual-package-${GENERATED_DATE}.json`,
 );
-const DEFAULT_PACKAGE_MD_ARTIFACT = resolvePath(
+const DEFAULT_PACKAGE_MD_ARTIFACT = resolveOutputPath(
   `docs/seo/personality/mbti64-zh32-en32-v8-5-v5-bilingual-package-${GENERATED_DATE}.md`,
 );
-const DEFAULT_QA_ARTIFACT = resolvePath(
+const DEFAULT_QA_ARTIFACT = resolveOutputPath(
   `docs/seo/personality/mbti64-zh32-en32-v8-5-v5-bilingual-qa-${GENERATED_DATE}.json`,
 );
-const DEFAULT_QA_MD_ARTIFACT = resolvePath(
+const DEFAULT_QA_MD_ARTIFACT = resolveOutputPath(
   `docs/seo/personality/mbti64-zh32-en32-v8-5-v5-bilingual-qa-${GENERATED_DATE}.md`,
 );
 
@@ -129,6 +130,10 @@ function getArgValue(name) {
 
 function resolvePath(filePath) {
   return path.isAbsolute(filePath) ? filePath : path.join(ROOT, filePath);
+}
+
+function resolveOutputPath(filePath) {
+  return resolveSafeOutputPath(ROOT, filePath, "output path");
 }
 
 function resolveOptionalPath(filePath) {

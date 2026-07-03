@@ -2,6 +2,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { resolveOutputDir, resolveRepoPath } from "./artifactSafety.mjs";
 
 const SCHEMA_VERSION = "seo-agent-fapweb-code-pr-writer.v1";
 const REQUEST_SCHEMA_VERSION = "seo-agent-fapweb-code-pr-request.v1";
@@ -323,8 +324,10 @@ function buildArtifact(request, requestPath) {
 
 function main() {
   const args = readArgs(process.argv.slice(2));
-  const requestPath = path.resolve(args.requestPath);
-  const artifactDir = path.resolve(args.artifactDir);
+  const requestPath = path.isAbsolute(args.requestPath)
+    ? path.resolve(args.requestPath)
+    : resolveRepoPath(process.cwd(), args.requestPath, "request path");
+  const artifactDir = resolveOutputDir(process.cwd(), args.artifactDir, "artifact directory");
   const request = readJson(requestPath);
   const issues = collectIssues(request);
 

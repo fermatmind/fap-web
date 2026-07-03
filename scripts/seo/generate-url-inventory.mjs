@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
+import { csvEscape, resolveOutputPath, resolveRepoPath } from "./artifactSafety.mjs";
 
 const ROOT = process.cwd();
 const DEFAULT_SITE_URL = "https://fermatmind.com";
@@ -146,7 +147,7 @@ function readLocalOrUrl(value) {
     });
   }
 
-  return Promise.resolve(fs.readFileSync(path.resolve(ROOT, value), "utf8"));
+  return Promise.resolve(fs.readFileSync(resolveRepoPath(ROOT, value, "sitemap path"), "utf8"));
 }
 
 function extractUrlsFromText(value) {
@@ -165,7 +166,7 @@ function countBy(items, key) {
 
 function toCsvValue(value) {
   const text = Array.isArray(value) ? value.join("|") : String(value ?? "");
-  return `"${text.replace(/"/g, '""')}"`;
+  return csvEscape(text);
 }
 
 function buildCsv(rows) {
@@ -265,12 +266,14 @@ async function main() {
 
   const json = JSON.stringify(inventory, null, args.pretty ? 2 : 0);
   if (args.output) {
-    fs.mkdirSync(path.dirname(path.resolve(ROOT, args.output)), { recursive: true });
-    fs.writeFileSync(path.resolve(ROOT, args.output), `${json}\n`);
+    const outputPath = resolveOutputPath(ROOT, args.output, "output path");
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    fs.writeFileSync(outputPath, `${json}\n`);
   }
   if (args.csv) {
-    fs.mkdirSync(path.dirname(path.resolve(ROOT, args.csv)), { recursive: true });
-    fs.writeFileSync(path.resolve(ROOT, args.csv), `${buildCsv(rows)}\n`);
+    const csvPath = resolveOutputPath(ROOT, args.csv, "CSV output path");
+    fs.mkdirSync(path.dirname(csvPath), { recursive: true });
+    fs.writeFileSync(csvPath, `${buildCsv(rows)}\n`);
   }
 
   process.stdout.write(`${json}\n`);

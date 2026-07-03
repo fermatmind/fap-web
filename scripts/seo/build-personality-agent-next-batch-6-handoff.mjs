@@ -2,9 +2,15 @@
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
+import {
+  csvEscape as safeCsvEscape,
+  resolveOutputPath,
+  resolveRepoPath as resolveSafeRepoPath,
+  sanitizeDateSlug,
+} from "./artifactSafety.mjs";
 
 const ROOT = process.cwd();
-const GENERATED_DATE = getArgValue("--generated-date") ?? "2026-06-25";
+const GENERATED_DATE = sanitizeDateSlug(getArgValue("--generated-date") ?? "2026-06-25", "generated date");
 
 const SOURCE_RECOMMENDATIONS_PATH = resolveRepoPath(
   getArgValue("--source-recommendations") ??
@@ -18,21 +24,29 @@ const SELECTION_PATH = resolveRepoPath(
     "docs/seo/personality/personality-agent-operations-next-batch-selection-2026-06-25.json",
 );
 
-const OUTPUT_PACKAGE = resolveRepoPath(
+const OUTPUT_PACKAGE = resolveOutputPath(
+  ROOT,
   getArgValue("--output-package") ??
     `docs/seo/personality/personality-agent-operations-next-batch-6-handoff-package-${GENERATED_DATE}.json`,
+  "output package path",
 );
-const OUTPUT_QA = resolveRepoPath(
+const OUTPUT_QA = resolveOutputPath(
+  ROOT,
   getArgValue("--output-qa") ??
     `docs/seo/personality/personality-agent-operations-next-batch-6-handoff-qa-${GENERATED_DATE}.json`,
+  "output QA path",
 );
-const OUTPUT_MD = resolveRepoPath(
+const OUTPUT_MD = resolveOutputPath(
+  ROOT,
   getArgValue("--output-md") ??
     `docs/seo/personality/personality-agent-operations-next-batch-6-handoff-${GENERATED_DATE}.md`,
+  "output Markdown path",
 );
-const OUTPUT_CSV = resolveRepoPath(
+const OUTPUT_CSV = resolveOutputPath(
+  ROOT,
   getArgValue("--output-csv") ??
     `docs/seo/personality/personality-agent-operations-next-batch-6-handoff-${GENERATED_DATE}.csv`,
+  "output CSV path",
 );
 
 const BILINGUAL_PAIRS = new Map([
@@ -57,7 +71,7 @@ function getArgValue(name) {
 }
 
 function resolveRepoPath(filePath) {
-  return path.isAbsolute(filePath) ? filePath : path.join(ROOT, filePath);
+  return resolveSafeRepoPath(ROOT, filePath, "repo path");
 }
 
 function rel(filePath) {
@@ -170,7 +184,7 @@ function normalizeRecommendation(sourceRecommendation, qaRow, selectionEvidence)
 }
 
 function csvEscape(value) {
-  return `"${String(value ?? "").replaceAll('"', '""')}"`;
+  return safeCsvEscape(value);
 }
 
 function toCsv(recommendations, qaRows) {

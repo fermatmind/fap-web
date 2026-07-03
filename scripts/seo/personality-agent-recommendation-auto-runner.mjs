@@ -2,9 +2,15 @@
 import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
+import {
+  csvEscape as safeCsvEscape,
+  resolveOutputPath,
+  resolveRepoPath as resolveSafeRepoPath,
+  sanitizeDateSlug,
+} from "./artifactSafety.mjs";
 
 const ROOT = process.cwd();
-const GENERATED_DATE = getArgValue("--generated-date") ?? "2026-06-27";
+const GENERATED_DATE = sanitizeDateSlug(getArgValue("--generated-date") ?? "2026-06-27", "generated date");
 
 const INPUTS = {
   opportunityRanker: resolveRepoPath(
@@ -34,17 +40,23 @@ const INPUTS = {
   ),
 };
 
-const OUTPUT_JSON = resolveRepoPath(
+const OUTPUT_JSON = resolveOutputPath(
+  ROOT,
   getArgValue("--output-json") ??
     `docs/seo/personality/personality-agent-recommendation-auto-runner-${GENERATED_DATE}.json`,
+  "output JSON path",
 );
-const OUTPUT_MD = resolveRepoPath(
+const OUTPUT_MD = resolveOutputPath(
+  ROOT,
   getArgValue("--output-md") ??
     `docs/seo/personality/personality-agent-recommendation-auto-runner-${GENERATED_DATE}.md`,
+  "output Markdown path",
 );
-const OUTPUT_CSV = resolveRepoPath(
+const OUTPUT_CSV = resolveOutputPath(
+  ROOT,
   getArgValue("--output-csv") ??
     `docs/seo/personality/personality-agent-recommendation-auto-runner-${GENERATED_DATE}.csv`,
+  "output CSV path",
 );
 
 function getArgValue(name) {
@@ -54,7 +66,7 @@ function getArgValue(name) {
 }
 
 function resolveRepoPath(filePath) {
-  return path.isAbsolute(filePath) ? filePath : path.join(ROOT, filePath);
+  return resolveSafeRepoPath(ROOT, filePath, "repo path");
 }
 
 function rel(filePath) {
@@ -131,7 +143,7 @@ function assertSafeRecommendation(row) {
 }
 
 function csvEscape(value) {
-  return `"${String(value ?? "").replaceAll('"', '""')}"`;
+  return safeCsvEscape(value);
 }
 
 function toCsv(rows) {
