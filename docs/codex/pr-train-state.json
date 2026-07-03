@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T17:47:00+08:00",
+  "updated_at": "2026-07-03T17:58:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -14150,7 +14150,7 @@
       "depends_on": [
         "SECURITY-122-WEB-16"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_pdf_print_delivery_markers_smoke_test_correctness",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-17: PDF/print delivery markers and smoke-test correctness",
@@ -14209,22 +14209,51 @@
           "evidence": "WEB-17 was rebased onto origin/main 342e16083e44ce3e7a84247897e3f7a3a0c48af3 after external PR #1571 advanced main. Required local checks and scope validation passed again."
         },
         "github": {
-          "status": "pending",
-          "passed": [],
+          "status": "passed",
+          "passed": [
+            {
+              "name": "build",
+              "evidence": "GitHub check passed on PR #1570 after rebase."
+            },
+            {
+              "name": "contracts",
+              "evidence": "GitHub check passed on PR #1570 after rebase."
+            },
+            {
+              "name": "verify-big5-contract-freeze",
+              "evidence": "GitHub check passed on PR #1570 after rebase."
+            },
+            {
+              "name": "verify-enneagram-contract-freeze",
+              "evidence": "GitHub check passed on PR #1570 after rebase."
+            },
+            {
+              "name": "analyze (javascript-typescript)",
+              "evidence": "GitHub CodeQL analyze check passed on PR #1570 after rebase."
+            },
+            {
+              "name": "CodeQL",
+              "evidence": "GitHub CodeQL check passed on PR #1570 after rebase."
+            }
+          ],
           "failed": [],
-          "evidence": "PR #1570 rebased and will be force-with-lease pushed; GitHub checks must rerun on the rebased head before merge."
+          "evidence": "PR #1570 merged at 2026-07-03T09:53:01Z with merge commit ac61d0dec6af2399a0813b78d89cf0f52785d7ff after all required checks passed on rebased head 1d3d8b0d951248c210ee7d40c84a362bb9ec2ce7."
         },
         "scope": {
           "status": "passed",
           "evidence": "Rebased diff remains limited to WEB-17 PDF/print delivery files, focused contract, scope helper, smoke checker, and PR-train ledger reconciliation."
+        },
+        "post_merge_revalidate": {
+          "status": "passed",
+          "evidence": "PR #1570 is MERGED; origin/main contains ac61d0dec6af2399a0813b78d89cf0f52785d7ff; local main is synced to origin/main; local WEB-17 branch and remote WEB-17 branch are deleted; no staging/manual/production deploy was triggered."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1570",
-      "commit_sha": "733e0b1e4311bc01c2df5ef917fd515a4a3bf92b",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "1d3d8b0d951248c210ee7d40c84a362bb9ec2ce7",
+      "merged_at": "2026-07-03T09:53:01Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -14275,11 +14304,17 @@
           "at": "2026-07-03T17:47:00+08:00",
           "status": "rebased_local_checks_passed",
           "summary": "Rebased SECURITY-122-WEB-17 onto origin/main 342e16083e44ce3e7a84247897e3f7a3a0c48af3 after external PR #1571 advanced main; focused contract, typecheck, production build, full contracts, manifest/state parse, diff check, and scope validation passed. Previous GitHub checks must rerun after force-with-lease push from 733e0b1e4311bc01c2df5ef917fd515a4a3bf92b."
+        },
+        {
+          "at": "2026-07-03T17:58:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled WEB-17 post-merge facts after PR #1570 squash merge: GitHub reports MERGED, origin/main contains ac61d0dec6af2399a0813b78d89cf0f52785d7ff, local main is synced, and task branches are cleaned."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T17:47:00+08:00",
-      "head_sha": "733e0b1e4311bc01c2df5ef917fd515a4a3bf92b"
+      "updated_at": "2026-07-03T17:58:00+08:00",
+      "head_sha": "1d3d8b0d951248c210ee7d40c84a362bb9ec2ce7",
+      "merge_sha": "ac61d0dec6af2399a0813b78d89cf0f52785d7ff"
     },
     {
       "id": "PR-AUDIT-FE-01",
