@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { spawn } from "node:child_process";
-import { mkdirSync, readdirSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -11,6 +11,7 @@ const DEFAULT_TIMEOUT_MS = 10 * 60 * 1000;
 const DIAGNOSTIC_DIR = path.join(ROOT, "generated/test-diagnostics");
 const LOG_DIR = path.join(DIAGNOSTIC_DIR, "contract-shards");
 const SUMMARY_PATH = path.join(DIAGNOSTIC_DIR, "contract-shards.json");
+const GROUPS_PATH = path.join(ROOT, "tests/contracts/_runner/contract-groups.json");
 
 function parsePositiveInt(value, fallback, label) {
   if (value == null || value === "") return fallback;
@@ -30,6 +31,11 @@ function parseArgs(argv = process.argv.slice(2)) {
       "CONTRACT_SHARD_TIMEOUT_MS",
     ),
     onlyShard: null,
+    group: null,
+    focusedGate: process.env.CONTRACT_FOCUSED_GATE ?? "content_asset",
+    includeQuarantine: process.env.CONTRACT_INCLUDE_QUARANTINE === "1",
+    onlyQuarantine: false,
+    listGroups: false,
     passthrough: [],
   };
 
@@ -42,6 +48,16 @@ function parseArgs(argv = process.argv.slice(2)) {
       options.timeoutMs = parsePositiveInt(arg.slice("--timeout-ms=".length), options.timeoutMs, "--timeout-ms");
     } else if (arg.startsWith("--only-shard=")) {
       options.onlyShard = parsePositiveInt(arg.slice("--only-shard=".length), options.onlyShard, "--only-shard");
+    } else if (arg.startsWith("--group=")) {
+      options.group = arg.slice("--group=".length);
+    } else if (arg.startsWith("--focused-gate=")) {
+      options.focusedGate = arg.slice("--focused-gate=".length);
+    } else if (arg === "--include-quarantine") {
+      options.includeQuarantine = true;
+    } else if (arg === "--only-quarantine") {
+      options.onlyQuarantine = true;
+    } else if (arg === "--list-groups") {
+      options.listGroups = true;
     } else {
       options.passthrough.push(arg);
     }
@@ -53,7 +69,27 @@ function parseArgs(argv = process.argv.slice(2)) {
   if (options.onlyShard != null && (options.onlyShard < 1 || options.onlyShard > options.shards)) {
     throw new Error(`--only-shard must be between 1 and ${options.shards}, got ${options.onlyShard}`);
   }
+  if (options.onlyQuarantine && options.group) {
+    throw new Error("--only-quarantine cannot be combined with --group");
+  }
   return options;
+}
+
+function normalizeFiles(files = []) {
+  return [...new Set(files)].sort((a, b) => a.localeCompare(b));
+}
+
+function loadContractGroups(root = ROOT) {
+  const groupsPath = path.join(root, "tests/contracts/_runner/contract-groups.json");
+  if (!existsSync(groupsPath)) {
+    return {
+      schema_version: "fap.contract_groups.v1",
+      groups: {},
+      quarantine: { files: [] },
+      focused_gates: {},
+    };
+  }
+  return JSON.parse(readFileSync(groupsPath, "utf8"));
 }
 
 function walkFiles(dir, root = dir) {
@@ -79,6 +115,51 @@ function createShardPlan(files, shardCount) {
     total: shardCount,
     files: files.filter((_, fileIndex) => fileIndex % shardCount === index),
   }));
+}
+
+function resolveExecutionFiles(allFiles, groupsConfig, options) {
+  const knownFiles = new Set(allFiles);
+  const quarantineFiles = normalizeFiles(groupsConfig.quarantine?.files ?? []).filter((file) => knownFiles.has(file));
+  const quarantineSet = new Set(quarantineFiles);
+  const focusedGateFiles = normalizeFiles(groupsConfig.focused_gates?.[options.focusedGate]?.files ?? []).filter((file) =>
+    knownFiles.has(file),
+  );
+
+  let selectedFiles = allFiles;
+  let selectionMode = "default";
+
+  if (options.listGroups) {
+    selectedFiles = [];
+    selectionMode = "list_groups";
+  } else if (options.onlyQuarantine) {
+    selectedFiles = quarantineFiles;
+    selectionMode = "quarantine";
+  } else if (options.group) {
+    const group = groupsConfig.groups?.[options.group];
+    if (!group) {
+      throw new Error(`Unknown contract group "${options.group}". Run with --list-groups to inspect available groups.`);
+    }
+    selectedFiles = normalizeFiles(group.files ?? []).filter((file) => knownFiles.has(file));
+    selectionMode = `group:${options.group}`;
+  }
+
+  if (!options.includeQuarantine && !options.onlyQuarantine) {
+    selectedFiles = selectedFiles.filter((file) => !quarantineSet.has(file));
+    if (selectionMode === "default") {
+      selectedFiles = normalizeFiles([...selectedFiles, ...focusedGateFiles]);
+    }
+  }
+
+  return {
+    files: selectedFiles,
+    selection_mode: selectionMode,
+    focused_gate: options.focusedGate,
+    focused_gate_file_count: focusedGateFiles.length,
+    quarantine_file_count: quarantineFiles.length,
+    quarantine_excluded_count: options.includeQuarantine || options.onlyQuarantine ? 0 : quarantineFiles.length,
+    include_quarantine: options.includeQuarantine,
+    groups_path: path.relative(ROOT, GROUPS_PATH).split(path.sep).join("/"),
+  };
 }
 
 function runCommand(command, args, { cwd, timeoutMs, logPath }) {
@@ -168,8 +249,16 @@ async function runShard(shard, options) {
 
 async function main() {
   const options = parseArgs();
-  const files = discoverContractFiles();
-  const plan = createShardPlan(files, options.shards).filter((shard) =>
+  const discoveredFiles = discoverContractFiles();
+  const groupsConfig = loadContractGroups();
+
+  if (options.listGroups) {
+    console.log(JSON.stringify(groupsConfig, null, 2));
+    return;
+  }
+
+  const execution = resolveExecutionFiles(discoveredFiles, groupsConfig, options);
+  const plan = createShardPlan(execution.files, options.shards).filter((shard) =>
     options.onlyShard == null ? true : shard.index === options.onlyShard,
   );
 
@@ -194,7 +283,16 @@ async function main() {
     duration_ms: finishedAt.getTime() - startedAt.getTime(),
     shard_count: options.shards,
     executed_shard_count: results.length,
-    total_file_count: files.length,
+    total_file_count: discoveredFiles.length,
+    selected_file_count: execution.files.length,
+    selection_mode: execution.selection_mode,
+    group: options.group,
+    focused_gate: execution.focused_gate,
+    focused_gate_file_count: execution.focused_gate_file_count,
+    quarantine_file_count: execution.quarantine_file_count,
+    quarantine_excluded_count: execution.quarantine_excluded_count,
+    include_quarantine: execution.include_quarantine,
+    groups_path: execution.groups_path,
     timeout_ms: options.timeoutMs,
     passthrough_args: options.passthrough,
     diagnostics_path: path.relative(ROOT, SUMMARY_PATH).split(path.sep).join("/"),
@@ -218,4 +316,4 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   });
 }
 
-export { createShardPlan, discoverContractFiles, parseArgs };
+export { createShardPlan, discoverContractFiles, loadContractGroups, parseArgs, resolveExecutionFiles };

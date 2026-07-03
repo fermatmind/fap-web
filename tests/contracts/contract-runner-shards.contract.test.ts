@@ -1,6 +1,12 @@
 import { describe, expect, it } from "vitest";
 
-import { createShardPlan, discoverContractFiles, parseArgs } from "@/scripts/testing/run-contract-shards.mjs";
+import {
+  createShardPlan,
+  discoverContractFiles,
+  loadContractGroups,
+  parseArgs,
+  resolveExecutionFiles,
+} from "@/scripts/testing/run-contract-shards.mjs";
 
 describe("contract shard runner", () => {
   it("discovers contract tests in stable sorted order", () => {
@@ -44,5 +50,44 @@ describe("contract shard runner", () => {
 
     expect(() => parseArgs(["--shards=3"])).toThrow("--shards must be between 4 and 8");
     expect(() => parseArgs(["--shards=4", "--only-shard=5"])).toThrow("--only-shard must be between 1 and 4");
+  });
+
+  it("loads contract groups and keeps quarantine out of the default gate with a focused gate fallback", () => {
+    const files = discoverContractFiles();
+    const groups = loadContractGroups();
+    const execution = resolveExecutionFiles(files, groups, parseArgs(["--shards=4"]));
+
+    expect(Object.keys(groups.groups)).toEqual([
+      "runtime-render",
+      "seo-artifact",
+      "git-scope",
+      "filesystem-writer",
+      "timer-storage",
+    ]);
+    expect(execution.selection_mode).toBe("default");
+    expect(execution.quarantine_file_count).toBeGreaterThan(0);
+    expect(execution.files).toContain("tests/contracts/contract-runner-shards.contract.test.ts");
+    expect(execution.files).not.toContain("tests/contracts/clinical-consent-gates.contract.test.tsx");
+  });
+
+  it("can run a single group or the quarantined set explicitly", () => {
+    const files = discoverContractFiles();
+    const groups = loadContractGroups();
+
+    const timerStorageExecution = resolveExecutionFiles(files, groups, parseArgs(["--group=timer-storage"]));
+
+    expect(timerStorageExecution).toMatchObject({
+      selection_mode: "group:timer-storage",
+      include_quarantine: false,
+    });
+    expect(timerStorageExecution.files).toEqual(groups.groups["timer-storage"].files);
+    expect(timerStorageExecution.files).not.toContain("tests/contracts/career-job-seo-authority.contract.test.tsx");
+    expect(resolveExecutionFiles(files, groups, parseArgs(["--only-quarantine"]))).toMatchObject({
+      selection_mode: "quarantine",
+      quarantine_excluded_count: 0,
+    });
+    expect(() => parseArgs(["--group=timer-storage", "--only-quarantine"])).toThrow(
+      "--only-quarantine cannot be combined with --group",
+    );
   });
 });
