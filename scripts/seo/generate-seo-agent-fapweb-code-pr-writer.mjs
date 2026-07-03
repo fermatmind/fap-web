@@ -125,7 +125,14 @@ function readArgs(argv) {
 }
 
 function readJson(filePath) {
-  return JSON.parse(fs.readFileSync(filePath, "utf8"));
+  try {
+    return { ok: true, value: JSON.parse(fs.readFileSync(filePath, "utf8")) };
+  } catch (error) {
+    return {
+      ok: false,
+      error: `invalid_request_json:${error instanceof Error ? error.message : String(error)}`,
+    };
+  }
 }
 
 function normalizePath(value) {
@@ -328,8 +335,9 @@ function main() {
     ? path.resolve(args.requestPath)
     : resolveRepoPath(process.cwd(), args.requestPath, "request path");
   const artifactDir = resolveOutputDir(process.cwd(), args.artifactDir, "artifact directory");
-  const request = readJson(requestPath);
-  const issues = collectIssues(request);
+  const parsedRequest = readJson(requestPath);
+  const request = parsedRequest.ok ? parsedRequest.value : {};
+  const issues = parsedRequest.ok ? collectIssues(request) : [parsedRequest.error];
 
   fs.mkdirSync(artifactDir, { recursive: true });
 

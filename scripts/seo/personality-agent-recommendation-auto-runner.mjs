@@ -77,6 +77,19 @@ async function readJson(filePath) {
   return JSON.parse(await fs.readFile(filePath, "utf8"));
 }
 
+async function readJsonResult(name, filePath) {
+  try {
+    return { name, filePath, ok: true, value: await readJson(filePath) };
+  } catch (error) {
+    return {
+      name,
+      filePath,
+      ok: false,
+      error: `invalid_input_json:${rel(filePath)}:${error instanceof Error ? error.message : String(error)}`,
+    };
+  }
+}
+
 function sha256(value) {
   return crypto.createHash("sha256").update(JSON.stringify(value)).digest("hex");
 }
@@ -185,23 +198,115 @@ function toCsv(rows) {
 }
 
 async function main() {
-  const [
-    opportunityRanker,
-    bigFiveRecommendations,
-    bigFiveQa,
-    enneagramRecommendations,
-    enneagramQa,
-    mbti64Recommendations,
-    mbti64Qa,
-  ] = await Promise.all([
-    readJson(INPUTS.opportunityRanker),
-    readJson(INPUTS.bigFiveRecommendations),
-    readJson(INPUTS.bigFiveQa),
-    readJson(INPUTS.enneagramRecommendations),
-    readJson(INPUTS.enneagramQa),
-    readJson(INPUTS.mbti64Recommendations),
-    readJson(INPUTS.mbti64Qa),
-  ]);
+  const inputResults = await Promise.all(Object.entries(INPUTS).map(([name, filePath]) => readJsonResult(name, filePath)));
+  const invalidInputs = inputResults.filter((row) => !row.ok);
+
+  if (invalidInputs.length > 0) {
+    const blockers = invalidInputs.map((row) => row.error);
+    const output = {
+      artifact: "PERSONALITY-AGENT-RECOMMENDATION-AUTO-RUNNER-01",
+      generated_at: new Date().toISOString(),
+      status: "fail",
+      final_decision: "NO_GO_RECOMMENDATION_AUTO_RUNNER_BLOCKED",
+      input_artifacts: {
+        opportunity_ranker: rel(INPUTS.opportunityRanker),
+        big_five_recommendations: rel(INPUTS.bigFiveRecommendations),
+        big_five_qa: rel(INPUTS.bigFiveQa),
+        enneagram_recommendations: rel(INPUTS.enneagramRecommendations),
+        enneagram_qa: rel(INPUTS.enneagramQa),
+        mbti64_recommendations: rel(INPUTS.mbti64Recommendations),
+        mbti64_qa: rel(INPUTS.mbti64Qa),
+      },
+      generation_policy: {
+        mode: "ranker_selected_existing_recommendation_refresh_no_external_model_call",
+        selected_batch_rule: "Use exactly the selected_for_auto_runner rows from the opportunity ranker artifact.",
+        source_authority: "Repackage existing QA-passed recommendation artifacts; do not write CMS, approval queue, or runtime content.",
+        cms_write_policy: "never_from_recommendation_auto_runner",
+        approval_queue_write_policy: "never_from_recommendation_auto_runner",
+        search_release_policy: "never_from_recommendation_auto_runner",
+      },
+      summary: {
+        selected_url_count: 0,
+        recommendation_count: 0,
+        framework_counts: {},
+        source_qa_pass_count: 0,
+        blocked_count: blockers.length,
+        private_route_violation_count: 0,
+      },
+      recommendations: [],
+      safety_boundary: {
+        artifact_only: true,
+        new_body_copy_generated: false,
+        external_model_called: false,
+        cms_write_attempted: false,
+        approval_queue_write_attempted: false,
+        cms_live_promotion_attempted: false,
+        frontend_runtime_change_attempted: false,
+        search_queue_mutation_attempted: false,
+        live_search_submit_attempted: false,
+        sitemap_llms_mutation_attempted: false,
+        gsc_api_call_attempted: false,
+        gsc_request_indexing_attempted: false,
+        production_deploy_attempted: false,
+      },
+      blockers,
+      warnings: ["Input JSON parsing failed; runner stopped before selecting or repackaging recommendations."],
+      recommended_next_tasks: {
+        qa: "blocked_until_input_artifacts_parse",
+        cms_draft: "blocked_until_qa_pass_and_human_approval_queue_write",
+        search_release: "blocked_until_live_promotion_and_post_promotion_search_gate",
+      },
+    };
+
+    const md = [
+      "# Personality Agent Recommendation Auto Runner",
+      "",
+      `Generated at: ${output.generated_at}`,
+      "",
+      "## Decision",
+      "",
+      `- Status: ${output.status}`,
+      `- Final decision: ${output.final_decision}`,
+      "",
+      "## Blockers",
+      "",
+      ...blockers.map((item) => `- ${item}`),
+      "",
+      "## Safety Boundary",
+      "",
+      ...Object.entries(output.safety_boundary).map(([key, value]) => `- ${key}: ${value}`),
+      "",
+    ].join("\n");
+
+    await fs.mkdir(path.dirname(OUTPUT_JSON), { recursive: true });
+    await fs.writeFile(OUTPUT_JSON, `${JSON.stringify(output, null, 2)}\n`);
+    await fs.writeFile(OUTPUT_MD, md);
+    await fs.writeFile(OUTPUT_CSV, toCsv([]));
+    console.log(
+      JSON.stringify(
+        {
+          output_json: rel(OUTPUT_JSON),
+          output_md: rel(OUTPUT_MD),
+          output_csv: rel(OUTPUT_CSV),
+          final_decision: output.final_decision,
+          recommendation_count: 0,
+        },
+        null,
+        2,
+      ),
+    );
+    process.exitCode = 1;
+    return;
+  }
+
+  const inputByName = Object.fromEntries(inputResults.map((row) => [row.name, row.value]));
+  const opportunityRanker = inputByName.opportunityRanker;
+  const bigFiveRecommendations = inputByName.bigFiveRecommendations;
+  const bigFiveQa = inputByName.bigFiveQa;
+  const enneagramRecommendations = inputByName.enneagramRecommendations;
+  const enneagramQa = inputByName.enneagramQa;
+  const mbti64Recommendations = inputByName.mbti64Recommendations;
+  const mbti64Qa = inputByName.mbti64Qa;
 
   const sources = {
     big_five: {

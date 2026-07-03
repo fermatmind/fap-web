@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T14:17:00+08:00",
+  "updated_at": "2026-07-03T15:06:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13662,7 +13662,7 @@
       "depends_on": [
         "SECURITY-122-WEB-13"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_career_fit_outcome_compensation_claim_audit_allowlists",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-14: career-fit outcome/compensation claim audit allowlists",
@@ -13735,7 +13735,8 @@
               "command": "gh pr view 1561 --json mergeStateStatus,mergeable,isDraft,reviewDecision,headRefOid,url",
               "evidence": "PR #1561 is not draft, mergeStateStatus is CLEAN, mergeable is MERGEABLE, and no reviewDecision block was reported."
             }
-          ]
+          ],
+          "evidence": "PR #1561 is MERGED; required checks passed before merge: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, analyze (javascript-typescript), and CodeQL."
         },
         "scope": {
           "status": "passed",
@@ -13744,10 +13745,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1561",
-      "commit_sha": "b5eceb56266d623f4b62f6e69f275e8d9e9a27c7",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "4a31b6ae033932e9976a3fcdcad77f66ec2241ef",
+      "merged_at": "2026-07-03T06:22:21Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -13773,11 +13774,17 @@
           "at": "2026-07-03T14:17:00+08:00",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed for PR #1561 head c6968d2b5f617cbfc0aa6198b08adb1d13a57249. Final manifest/state parse, diff check, and WEB-14 scope validation passed; staging deploy was not waited on. Recording ready_to_merge before merge per PR-train rules."
+        },
+        {
+          "at": "2026-07-03T14:55:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled SECURITY-122-WEB-14 post-merge state while starting WEB-15: PR #1561 is MERGED, merge commit 4a31b6ae033932e9976a3fcdcad77f66ec2241ef is contained in origin/main, local main is synced and clean, and the task branch is deleted locally/remotely."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T14:17:00+08:00",
-      "head_sha": "c6968d2b5f617cbfc0aa6198b08adb1d13a57249"
+      "updated_at": "2026-07-03T14:55:00+08:00",
+      "head_sha": "cb1ef1338f61df40b65f1086f54f1a6bf0c695c0",
+      "merge_sha": "4a31b6ae033932e9976a3fcdcad77f66ec2241ef"
     },
     {
       "id": "SECURITY-122-WEB-15",
@@ -13788,7 +13795,7 @@
       "depends_on": [
         "SECURITY-122-WEB-14"
       ],
-      "status": "planned",
+      "status": "local_checks_passed",
       "train_scope": "security_122_web_seo_runner_runtime_qa_fail_closed_parsing_links_http_handoff_checks",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-15: SEO runner/runtime QA fail-closed parsing, links, HTTP, handoff checks",
@@ -13808,21 +13815,55 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-14 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-14 merged via PR #1561 at 2026-07-03T06:22:21Z; origin/main contains 4a31b6ae033932e9976a3fcdcad77f66ec2241ef and WEB-14 task branches are cleaned."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-15-seo-runtime-qa-fail-closed.contract.test.ts",
+              "evidence": "Focused WEB-15 contract passed, covering malformed SEO PR requests, malformed runtime QA sample JSON/URLs, malformed hreflang links, HTTP error status fail-closed handling, malformed recommendation runner and handoff inputs, safety boundary flags, and changed-file scope validation."
+            },
+            {
+              "command": "/usr/local/bin/pnpm typecheck",
+              "evidence": "Typecheck passed."
+            },
+            {
+              "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+              "evidence": "Production-API build completed successfully and generated 202/202 static pages."
+            },
+            {
+              "command": "/usr/local/bin/pnpm test:contract",
+              "evidence": "Full contract suite passed across 4 shards: shard 1 162 files/914 tests, shard 2 162 files/920 tests, shard 3 161 files/1001 tests, shard 4 161 files/919 tests."
+            },
+            {
+              "command": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+              "evidence": "Manifest and state parsed successfully."
+            },
+            {
+              "command": "git diff --check",
+              "evidence": "Whitespace diff check passed."
+            },
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-15-seo-runtime-qa-fail-closed.contract.test.ts --testNamePattern \"keeps tracked diff scope\"",
+              "evidence": "Changed-file scope validation passed for the seven authorized WEB-15 files."
+            }
+          ],
+          "failed": []
         },
         "github": {
           "status": "pending",
           "passed": []
+        },
+        "scope": {
+          "status": "passed",
+          "evidence": "WEB-15 changed-file scope validation passed: only docs/codex/pr-train-state.json, scoped SEO runner/runtime QA scripts, tests/contracts/helpers/currentPrScope.ts, and the focused WEB-15 contract changed."
         }
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "d99eacedc46ce0e438d016121336f064fceb7113",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -13831,10 +13872,26 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-15 from explicit user /goal; execution waits for SECURITY-122-WEB-14 merge."
+        },
+        {
+          "at": "2026-07-03T14:55:00+08:00",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-15 from latest main after reconciling WEB-14 post-merge state; implementing SEO runner/runtime QA fail-closed parsing, malformed link/HTTP handling, and approval handoff checks only."
+        },
+        {
+          "at": "2026-07-03T15:04:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "Required WEB-15 local checks passed: focused fail-closed SEO runner/runtime QA contract, typecheck, production-API build, full contract suite, manifest/state parse, diff check, and changed-file scope validation."
+        },
+        {
+          "at": "2026-07-03T15:06:00+08:00",
+          "status": "committed",
+          "summary": "Committed SECURITY-122-WEB-15 local implementation at d99eacedc46ce0e438d016121336f064fceb7113 after required local checks and scope validation passed."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T15:06:00+08:00",
+      "head_sha": "d99eacedc46ce0e438d016121336f064fceb7113"
     },
     {
       "id": "SECURITY-122-WEB-16",

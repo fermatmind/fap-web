@@ -1456,6 +1456,16 @@ const SECURITY_122_WEB_14_ALLOWED_FILES = new Set([
   "tests/contracts/security-122-web-14-career-claim-audit.contract.test.tsx",
 ]);
 
+const SECURITY_122_WEB_15_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train-state.json",
+  "scripts/seo/check-public-runtime-seo-qa.mjs",
+  "scripts/seo/generate-seo-agent-fapweb-code-pr-writer.mjs",
+  "scripts/seo/personality-agent-auto-qa-and-approval-handoff.mjs",
+  "scripts/seo/personality-agent-recommendation-auto-runner.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-122-web-15-seo-runtime-qa-fail-closed.contract.test.ts",
+]);
+
 const PR_EQ_PER_03_ALLOWED_FILES = new Set([
   "components/result/eq/EQEvidenceSnapshot.tsx",
   "components/result/eq/types.ts",
@@ -3998,6 +4008,14 @@ export function isSecurity122Web14AllowedFile(file: string): boolean {
   return SECURITY_122_WEB_14_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity122Web15AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-122-web-15") {
+    return true;
+  }
+
+  return SECURITY_122_WEB_15_ALLOWED_FILES.has(file);
+}
+
 export function isAiImpactV5ExpandedPageQaAllowedFile(file: string): boolean {
   return (
     file === "tests/contracts/helpers/currentPrScope.ts" ||
@@ -5018,6 +5036,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/security-122-web-14") {
     return SECURITY_122_WEB_14_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/security-122-web-15") {
+    return SECURITY_122_WEB_15_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-eq-per-03-frontend-eq-v51-personalization") {

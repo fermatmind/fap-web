@@ -158,6 +158,17 @@ async function readJson(filePath) {
   return JSON.parse(await fs.readFile(filePath, "utf8"));
 }
 
+async function readJsonResult(filePath) {
+  try {
+    return { ok: true, value: await readJson(filePath) };
+  } catch (error) {
+    return {
+      ok: false,
+      error: `invalid_input_json:${rel(filePath)}:${error instanceof Error ? error.message : String(error)}`,
+    };
+  }
+}
+
 function sha256(value) {
   return crypto.createHash("sha256").update(JSON.stringify(value)).digest("hex");
 }
@@ -412,7 +423,110 @@ function gateRollup(pageResults) {
 }
 
 async function main() {
-  const input = await readJson(INPUT_PATH);
+  const parsedInput = await readJsonResult(INPUT_PATH);
+  if (!parsedInput.ok) {
+    const report = {
+      artifact: "PERSONALITY-AGENT-AUTO-QA-AND-APPROVAL-HANDOFF-01",
+      generated_at: new Date().toISOString(),
+      status: "fail",
+      final_decision: "NO_GO_AUTO_QA_OR_HANDOFF_BLOCKED",
+      input_artifact: rel(INPUT_PATH),
+      scope: "QA and approval handoff artifacts only. No production approval queue write, CMS write, promotion, publish, index/search release, sitemap/llms mutation, queue mutation, deploy, or external API call.",
+      gates_by_framework: FRAMEWORK_REQUIRED_GATES,
+      summary: {
+        checked_recommendation_count: 0,
+        pass_ready_for_approval_handoff_count: 0,
+        blocked_count: 1,
+        framework_counts: {},
+        duplicate_signature_group_count: 0,
+      },
+      gate_rollup: {},
+      page_results: [],
+      safety_boundary: {
+        artifact_only: true,
+        approval_queue_write_attempted: false,
+        cms_write_attempted: false,
+        cms_live_promotion_attempted: false,
+        frontend_runtime_change_attempted: false,
+        search_queue_mutation_attempted: false,
+        live_search_submit_attempted: false,
+        sitemap_llms_mutation_attempted: false,
+        gsc_api_call_attempted: false,
+        gsc_request_indexing_attempted: false,
+        production_deploy_attempted: false,
+      },
+      blockers: [parsedInput.error],
+      warnings: ["Input JSON parsing failed; QA and handoff generation stopped before evaluating recommendations."],
+      recommended_next_task: "blocked_until_recommendation_auto_runner_artifact_parses",
+    };
+    const handoff = {
+      artifact: "PERSONALITY-AGENT-AUTO-APPROVAL-HANDOFF-PACKAGE-01",
+      generated_at: report.generated_at,
+      status: "blocked_by_auto_qa",
+      final_decision: "NO_GO_APPROVAL_HANDOFF_PACKAGE_BLOCKED",
+      input_artifacts: {
+        recommendation_auto_runner: rel(INPUT_PATH),
+        auto_qa_report: rel(OUTPUT_JSON),
+      },
+      handoff_policy: {
+        pass_only: true,
+        production_queue_write_policy: "not_allowed_from_this_pr",
+        cms_write_policy: "blocked_until_human_approval_and_backend_draft_gate",
+        search_release_policy: "blocked_until_live_promotion_and_post_promotion_search_gate",
+      },
+      summary: {
+        recommendation_count: 0,
+        framework_counts: {},
+        blocked_source_count: 0,
+      },
+      recommendations: [],
+      safety_boundary: report.safety_boundary,
+      blockers: report.blockers,
+      warnings: report.warnings,
+      recommended_next_task: report.recommended_next_task,
+    };
+    const md = [
+      "# Personality Agent Auto QA And Approval Handoff",
+      "",
+      `Generated at: ${report.generated_at}`,
+      "",
+      "## Decision",
+      "",
+      `- Status: ${report.status}`,
+      `- Final decision: ${report.final_decision}`,
+      "",
+      "## Blockers",
+      "",
+      ...report.blockers.map((item) => `- ${item}`),
+      "",
+      "## Safety Boundary",
+      "",
+      ...Object.entries(report.safety_boundary).map(([key, value]) => `- ${key}: ${value}`),
+      "",
+    ].join("\n");
+
+    await fs.mkdir(path.dirname(OUTPUT_JSON), { recursive: true });
+    await fs.writeFile(OUTPUT_JSON, `${JSON.stringify(report, null, 2)}\n`);
+    await fs.writeFile(OUTPUT_MD, md);
+    await fs.writeFile(OUTPUT_HANDOFF, `${JSON.stringify(handoff, null, 2)}\n`);
+    console.log(
+      JSON.stringify(
+        {
+          output_json: rel(OUTPUT_JSON),
+          output_md: rel(OUTPUT_MD),
+          output_handoff: rel(OUTPUT_HANDOFF),
+          final_decision: report.final_decision,
+          pass_count: 0,
+        },
+        null,
+        2,
+      ),
+    );
+    process.exitCode = 1;
+    return;
+  }
+
+  const input = parsedInput.value;
   const recommendations = input.recommendations ?? [];
   const blockers = [];
   const duplicateMap = duplicateGroups(recommendations);
