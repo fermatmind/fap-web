@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T07:37:12.962Z",
+  "updated_at": "2026-07-03T07:38:18.433Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13954,7 +13954,7 @@
       "depends_on": [
         "SECURITY-122-WEB-15"
       ],
-      "status": "committed",
+      "status": "pr_opened",
       "train_scope": "security_122_web_public_ui_route_probe_config_guard_regressions",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-16: public UI/route probe/config guard regressions",
@@ -14014,7 +14014,8 @@
         "github": {
           "status": "pending",
           "passed": [],
-          "failed": []
+          "failed": [],
+          "evidence": "PR #1568 opened; GitHub checks pending."
         },
         "scope": {
           "status": "passed",
@@ -14022,8 +14023,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "91acdbc317b9487df8da6c5a519ab58ddd7c85a0",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1568",
+      "commit_sha": "f27adb5a7a5dabc815898f682c568ee8db11bc0e",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -14052,11 +14053,16 @@
           "at": "2026-07-03T07:37:12.962Z",
           "status": "committed",
           "summary": "Rebased SECURITY-122-WEB-16 onto origin/main 4fa13f11 and reran required local checks successfully at 91acdbc317b9487df8da6c5a519ab58ddd7c85a0."
+        },
+        {
+          "at": "2026-07-03T07:38:18.433Z",
+          "status": "pr_opened",
+          "summary": "Opened PR #1568 for SECURITY-122-WEB-16 at https://github.com/fermatmind/fap-web/pull/1568."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T07:37:12.962Z",
-      "head_sha": "91acdbc317b9487df8da6c5a519ab58ddd7c85a0",
+      "updated_at": "2026-07-03T07:38:18.433Z",
+      "head_sha": "f27adb5a7a5dabc815898f682c568ee8db11bc0e",
       "merge_sha": null
     },
     {
