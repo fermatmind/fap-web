@@ -142,6 +142,7 @@ const gscLegacyRedirects = [
 
 const nextConfig = {
   output: "standalone",
+  staticPageGenerationTimeout: 240,
   assetPrefix: undefined,
   images: {
     remotePatterns: remotePatternHostnames.map((hostname) => ({
