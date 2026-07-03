@@ -92,6 +92,7 @@ describe("Big Five shell polish contract", () => {
 
     expect(screen.getByTestId("big5-shell-concise-summary")).toHaveTextContent("第一句 shell 需要保留。");
     expect(screen.getByTestId("big5-shell-concise-summary")).not.toHaveTextContent("第二句不应留在壳层");
+    expect(screen.getByTestId("big5-result-shell")).not.toHaveTextContent("facet");
     expect(screen.getByTestId("big5-access-summary")).toBeInTheDocument();
     expect(screen.getByTestId("big5-dimensions")).toBeInTheDocument();
     expect(screen.getByTestId("big5-sections")).toBeInTheDocument();

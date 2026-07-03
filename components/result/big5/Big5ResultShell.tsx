@@ -134,6 +134,10 @@ function getSceneFingerprintValueLabel(value: string, locale: Locale): string {
   }
 }
 
+function hasChineseText(value: string): boolean {
+  return /[\u3400-\u9fff]/u.test(value);
+}
+
 function buildSceneFingerprintEntries(projection: Big5PublicProjection, locale: Locale): SceneFingerprintEntry[] {
   if (Array.isArray(projection.scene_fingerprint_display)) {
     return projection.scene_fingerprint_display
@@ -141,11 +145,15 @@ function buildSceneFingerprintEntries(projection: Big5PublicProjection, locale: 
         const record = asRecord(entry);
         const key = normalizeText(record?.key, `scene-${index}`);
         const value = normalizeText(record?.value);
+        const rawLabel = normalizeText(record?.label);
+        const rawValueLabel = normalizeText(record?.value_label);
+        const mappedLabel = getSceneFingerprintDimensionLabel(key, locale);
+        const mappedValueLabel = getSceneFingerprintValueLabel(value || rawValueLabel, locale);
         return {
           key,
-          label: normalizeText(record?.label, getSceneFingerprintDimensionLabel(key, locale)),
+          label: locale === "zh" ? (hasChineseText(rawLabel) ? rawLabel : mappedLabel) : normalizeText(rawLabel, mappedLabel),
           value,
-          valueLabel: normalizeText(record?.value_label, getSceneFingerprintValueLabel(value, locale)),
+          valueLabel: locale === "zh" ? (hasChineseText(rawValueLabel) ? rawValueLabel : mappedValueLabel) : normalizeText(rawValueLabel, mappedValueLabel),
         };
       })
       .filter((entry) => entry.label.length > 0 && entry.valueLabel.length > 0);
@@ -210,6 +218,11 @@ function getBig5CompareHref(locale: Locale): string {
   return localizedPath("/history/big5/compare", locale);
 }
 
+function isPublicVariantKey(value: string): boolean {
+  const normalized = value.trim();
+  return normalized.length > 0 && !/[.:_]/.test(normalized);
+}
+
 function Big5ProjectionSummary({
   locale,
   projection,
@@ -218,7 +231,9 @@ function Big5ProjectionSummary({
   projection: Big5PublicProjection;
 }) {
   const dominantTraits = Array.isArray(projection.dominant_traits) ? projection.dominant_traits : [];
-  const variantKeys = Array.isArray(projection.variant_keys) ? projection.variant_keys : [];
+  const variantKeys = Array.isArray(projection.variant_keys)
+    ? projection.variant_keys.map((value) => String(value ?? "")).filter(isPublicVariantKey)
+    : [];
   const explainability = asRecord(projection.explainability_summary);
   const actionPlan = asRecord(projection.action_plan_summary);
   const comparative = asRecord(projection.comparative_v1);
@@ -407,7 +422,7 @@ export function Big5ResultShell({
     ? BIG5_V1_SHELL_MICROCOPY.hero.preview_summary_zh
     : BIG5_V1_SHELL_MICROCOPY.hero.preview_summary_en;
   const fullSummary = isZh
-    ? "本页已按摘要、五维、facet、相对参照与行动建议组织成连续阅读路径。"
+    ? "本页已按摘要、五维、细分维度、相对参照与行动建议组织成连续阅读路径。"
     : "This page now organizes the summary, domains, facets, comparison, and actions into one reading path.";
 
   return (

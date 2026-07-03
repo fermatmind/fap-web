@@ -57,10 +57,32 @@ function stripInternalDebugText(value: unknown): string {
   return /^[.]+$/.test(cleaned) ? "" : cleaned;
 }
 
-function safeStringList(value: unknown): string[] {
+function localizeBigFiveZhRendererText(value: string): string {
+  return value
+    .replace(/\bfacet 百分位\b/gi, "细分维度百分位")
+    .replace(/\bfacets\b/gi, "细分维度")
+    .replace(/\bfacet\b/gi, "细分维度")
+    .replace(/\bPercentile\b/g, "百分位")
+    .replace(/([\u3400-\u9fff])\s+(细分维度|百分位)/gu, "$1$2")
+    .replace(/(细分维度|百分位)\s+([\u3400-\u9fff])/gu, "$1$2");
+}
+
+function sanitizeVisibleText(value: unknown, locale: "en" | "zh"): string {
+  const stripped = stripInternalDebugText(value);
+  return locale === "zh" ? localizeBigFiveZhRendererText(stripped) : stripped;
+}
+
+function safeStringList(value: unknown, locale: "en" | "zh"): string[] {
   return Array.isArray(value)
-    ? value.map(stripInternalDebugText).filter((item) => item.length > 0)
+    ? value.map((item) => sanitizeVisibleText(item, locale)).filter((item) => item.length > 0)
     : [];
+}
+
+function isBrokenBigFiveTemplateText(...values: string[]): boolean {
+  const text = values.filter(Boolean).join(" ");
+  return /本\s+由\s+生成/u.test(text)
+    || /不代表生产\s+已接入/u.test(text)
+    || /已覆盖\s+\d+\s+条.*(?:细分维度|facet)/iu.test(text);
 }
 
 function inferKind(block: Block, sectionKey: string): string {
@@ -105,17 +127,23 @@ export function BlockRenderer({
   block,
   sectionKey,
   normsStatus,
+  locale = "en",
 }: {
   block: Block;
   sectionKey: string;
   normsStatus?: string;
+  locale?: "en" | "zh";
 }) {
-  const title = stripInternalDebugText(block.title);
-  const body = stripInternalDebugText(block.body) || stripInternalDebugText(block.desc);
-  const bullets = safeStringList(block.bullets);
-  const tips = safeStringList(block.tips);
-  const tags = safeStringList(block.tags);
+  const title = sanitizeVisibleText(block.title, locale);
+  const body = sanitizeVisibleText(block.body, locale) || sanitizeVisibleText(block.desc, locale);
+  const bullets = safeStringList(block.bullets, locale);
+  const tips = safeStringList(block.tips, locale);
+  const tags = safeStringList(block.tags, locale);
   const kind = inferKind(block, sectionKey);
+
+  if (locale === "zh" && isBrokenBigFiveTemplateText(title, body, bullets.join(" "), tips.join(" "), tags.join(" "))) {
+    return null;
+  }
 
   if (kind === "callout") {
     return (
@@ -152,7 +180,7 @@ export function BlockRenderer({
         </div>
         {percentile !== null && normsStatus !== "MISSING" ? (
           <div className="space-y-1">
-            <p className="m-0 text-xs text-slate-600">Percentile</p>
+            <p className="m-0 text-xs text-slate-600">{locale === "zh" ? "百分位" : "Percentile"}</p>
             <div className="h-2 overflow-hidden rounded-full bg-slate-200">
               <div className="h-full bg-slate-900" style={{ width: `${percentile}%` }} />
             </div>
@@ -197,7 +225,9 @@ export function BlockRenderer({
         </div>
 
         {normsStatus === "MISSING" ? (
-          <p className="text-xs text-slate-500">Percentile unavailable in current norms status.</p>
+          <p className="text-xs text-slate-500">
+            {locale === "zh" ? "当前常模状态下暂不显示百分位。" : "Percentile unavailable in current norms status."}
+          </p>
         ) : (
           <div className="space-y-1">
             <div className="h-2 overflow-hidden rounded-full bg-slate-200">
@@ -219,7 +249,7 @@ export function BlockRenderer({
     return (
       <div className="grid grid-cols-[minmax(0,1fr)_120px] gap-2 border-b border-slate-100 py-2 text-sm">
         <div>
-          <p className="m-0 font-medium text-slate-900">{title || block.metric_code || "Facet"}</p>
+          <p className="m-0 font-medium text-slate-900">{title || block.metric_code || (locale === "zh" ? "细分维度" : "Facet")}</p>
           <p className="m-0 text-slate-600">{body}</p>
         </div>
         <div className="text-right text-slate-500">{block.bucket ?? ""}</div>
@@ -238,7 +268,7 @@ export function BlockRenderer({
 
   return (
     <div className="rounded-xl border border-dashed border-slate-300 bg-slate-50 p-3 text-sm text-slate-600">
-      <p className="m-0 font-semibold text-slate-900">Unsupported block</p>
+      <p className="m-0 font-semibold text-slate-900">{locale === "zh" ? "暂不支持的模块" : "Unsupported block"}</p>
       <p className="m-0 mt-1">{title || body || "This section uses a new block type."}</p>
       <p className="m-0 mt-1 text-xs text-slate-500">kind: {kind} · section: {sectionKey}</p>
     </div>
