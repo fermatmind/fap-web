@@ -37575,7 +37575,7 @@
     "train_scope": "career_kg_market_research_analysts_marketing_specialists_asset_package",
     "depends_on": ["PR-CAREER-KG-15"],
     "status": "in_progress",
-    "commit_sha": null,
+    "commit_sha": "7a02e900d2d8773ad419d288979dc042014f3c4f",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -37658,6 +37658,11 @@
         "at": "2026-07-03T02:45:24Z",
         "status": "scope_validation_passed",
         "notes": "Scope validation found exactly the 11 authorized PR16 files and no outside-scope files."
+      },
+      {
+        "at": "2026-07-03T02:46:07Z",
+        "status": "committed",
+        "notes": "Validated implementation commit 7a02e900d2d8773ad419d288979dc042014f3c4f created before this ledger-only record."
       }
     ]
   }
