@@ -1,0 +1,77 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "{{artifact_version}}",
+  "pr_id": "{{pr_id}}",
+  "status": "dry_run_ready",
+  "locale": "{{locale}}",
+  "slug": "{{slug}}",
+  "canonical_path": "/zh/career/jobs/{{slug}}",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "cms_write_performed": false,
+  "seo_runtime_release_performed": false,
+  "generator": {
+    "name": "generate_career_kg_package.py",
+    "mode": "dry_run_scaffold",
+    "real_occupation_content_generated": false
+  },
+  "identity": {
+    "standard_name_zh": "待由职业事实源补全",
+    "title_en": "{{slug_title}}",
+    "soc_code": "TBD",
+    "onet_code": "TBD",
+    "aliases_zh": [],
+    "aliases_en": [],
+    "easily_confused_occupations": []
+  },
+  "seo": {
+    "title_zh": "待补全：{{slug_title}} 职业说明",
+    "meta_description_zh": "待补全：基于权威职业来源生成定义、职责、技能、路径、风险边界和常见问题。",
+    "h1_zh": "待补全职业",
+    "canonical_path": "/zh/career/jobs/{{slug}}",
+    "ctr_intent_notes": [
+      "来自 operator-confirmed batch 的机会信号；不得作为职业事实来源。"
+    ]
+  },
+  "content_blocks": [
+    { "id": "definition", "heading_zh": "职业定义", "body_zh": "TODO: dry-run scaffold only.", "source_refs": ["onet"] },
+    { "id": "core_responsibilities", "heading_zh": "核心职责", "items_zh": [], "source_refs": ["onet"] },
+    { "id": "work_scenes", "heading_zh": "工作场景", "items_zh": [], "source_refs": ["onet"] },
+    { "id": "skills_tools", "heading_zh": "技能与工具", "items_zh": [], "source_refs": ["onet"] },
+    { "id": "entry_path", "heading_zh": "入门路径", "items_zh": [], "source_refs": ["bls_ooh"] },
+    { "id": "riasec_personality_boundary", "heading_zh": "RIASEC / 人格边界", "body_zh": "TODO: avoid personality-determines-career claims.", "source_refs": ["my_next_move"] },
+    { "id": "risk_ai_boundary", "heading_zh": "风险与 AI 边界", "body_zh": "TODO: avoid absolute replacement or guaranteed outcome claims.", "source_refs": ["onet"] },
+    { "id": "adjacent_careers", "heading_zh": "相邻职业", "items_zh": [], "source_refs": ["onet"] },
+    { "id": "faq", "heading_zh": "常见问题", "items_zh": [], "source_refs": ["onet"] }
+  ],
+  "sources": [
+    { "key": "onet", "label": "O*NET", "authority": "occupation_fact", "usage": "职业定义、任务、技能、工作活动事实源。" },
+    { "key": "bls_ooh", "label": "BLS Occupational Outlook Handbook", "authority": "occupation_fact", "usage": "教育路径、工作环境、职业边界参考。" },
+    { "key": "bls_oews", "label": "BLS OEWS", "authority": "occupation_fact", "usage": "职业分类和就业统计边界参考；本脚手架不生成薪资事实。" },
+    { "key": "my_next_move", "label": "My Next Move", "authority": "occupation_fact", "usage": "兴趣、知识、技能和工作活动交叉核对。" }
+  ],
+  "market_reference_policy": {
+    "zh_recruiting_or_baike_sources_used": false,
+    "allowed_usage": "中文招聘或百科来源只能作为市场语言、搜索意图或别名线索。",
+    "blocked_usage": [
+      "不得作为职业事实权威。",
+      "不得作为薪资、就业保证、证照要求或监管要求事实源。"
+    ]
+  },
+  "internal_links": [
+    { "label": "职业库", "path": "/zh/career/jobs", "reason": "职业库入口" }
+  ],
+  "release_boundaries": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "sitemap_change_authorized": false,
+    "llms_change_authorized": false,
+    "json_ld_release_authorized": false,
+    "canonical_change_authorized": false,
+    "noindex_change_authorized": false,
+    "search_provider_submission_authorized": false
+  }
+}

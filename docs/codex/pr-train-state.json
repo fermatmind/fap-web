@@ -38277,12 +38277,12 @@
     "title": "PR-CAREER-KG-AGENT-01: lock career KG input and package schemas",
     "train_scope": "career_kg_agent_contract_schema",
     "depends_on": [],
-    "status": "ready_to_merge",
+    "status": "merged",
     "commit_sha": "0e2a5794ff9c65bff983af3ce44bbdfde4576abc",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1562",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-03T06:28:14Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "artifacts": [
       ".agents/skills/career-content-asset-factory/references/career_kg_confirmed_batch_contract.md",
@@ -38326,6 +38326,10 @@
       "github_checks": {
         "status": "pass",
         "evidence": "GitHub checks for PR #1562 passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze."
+      },
+      "post_merge_revalidate": {
+        "status": "pass",
+        "evidence": "PR #1562 is MERGED; origin/main contains df99b9ffeac21afdd52a5c92fb91ea9841e3b9a6; local main was synced; task branch was deleted locally and remotely."
       }
     },
     "scope_validation": {
@@ -38385,8 +38389,14 @@
         "at": "2026-07-03T06:23:03.474Z",
         "status": "ready_to_merge",
         "notes": "Remote checks green and scope revalidated. Recording ready_to_merge before squash merge."
+      },
+      {
+        "at": "2026-07-03T06:33:06.913Z",
+        "status": "merged",
+        "notes": "Reconciled post-merge facts inside PR-CAREER-KG-AGENT-02 metadata scope."
       }
-    ]
+    ],
+    "merge_commit": "df99b9ffeac21afdd52a5c92fb91ea9841e3b9a6"
   },
   "PR-CAREER-KG-AGENT-02": {
     "repo": "fap-web",
@@ -38397,13 +38407,51 @@
     "depends_on": [
       "PR-CAREER-KG-AGENT-01"
     ],
-    "status": "pending",
+    "status": "local_checks_passed",
     "commit_sha": null,
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "failure_reason": null
+    "failure_reason": null,
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR-CAREER-KG-AGENT-01 merged as PR #1562; origin/main contains merge commit df99b9ffeac21afdd52a5c92fb91ea9841e3b9a6."
+      },
+      "local_checks": {
+        "status": "pass",
+        "commands": [
+          "python3 .agents/skills/career-content-asset-factory/scripts/generate_career_kg_package.py --help",
+          "pnpm exec vitest run tests/contracts/career-kg-package-generator.contract.test.ts --reporter=dot",
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "git diff --check",
+          "changed-file scope validation",
+          "pnpm typecheck",
+          "pnpm test:contract -- --shards=4 --timeout-ms=600000 --reporter=dot",
+          "NODE_OPTIONS=--max-old-space-size=4096 NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build"
+        ],
+        "evidence": "Generator help passed; focused generator contract passed; YAML/JSON/diff/scope checks passed; typecheck passed; full contract shard runner passed 646/646 with quarantine 0; production build passed."
+      }
+    },
+    "events": [
+      {
+        "at": "2026-07-03T06:33:06.913Z",
+        "status": "in_progress",
+        "notes": "Started PR-CAREER-KG-AGENT-02 on branch codex/pr-career-kg-agent-02-package-generator from latest main."
+      },
+      {
+        "at": "2026-07-03T06:37:31.290Z",
+        "status": "local_checks_passed",
+        "notes": "All PR-CAREER-KG-AGENT-02 required local checks passed."
+      }
+    ],
+    "scope_validation": {
+      "status": "pass",
+      "outside_scope_files": [],
+      "evidence": "Changed files are limited to PR-CAREER-KG-AGENT-02 allowed script, templates, contract test, scope helper, and train metadata."
+    }
   },
   "PR-CAREER-KG-AGENT-03": {
     "repo": "fap-web",
