@@ -140,7 +140,7 @@ export function SectionRenderer({
           <div className="space-y-2 rounded-xl border border-slate-200 bg-slate-50/70 p-3">
             {previewBlocks.map((block, idx) => (
               <div key={`${key}-preview-${idx}`} className="opacity-70">
-                <BlockRenderer block={block} sectionKey={key} normsStatus={normsStatus} />
+                <BlockRenderer block={block} sectionKey={key} normsStatus={normsStatus} locale={locale} />
               </div>
             ))}
           </div>
@@ -169,7 +169,7 @@ export function SectionRenderer({
         </div>
         <div className="space-y-2">
           {blocks.map((block, idx) => (
-            <BlockRenderer key={`${key}-${idx}`} block={block} sectionKey={key} normsStatus={normsStatus} />
+            <BlockRenderer key={`${key}-${idx}`} block={block} sectionKey={key} normsStatus={normsStatus} locale={locale} />
           ))}
         </div>
       </section>
@@ -185,7 +185,7 @@ export function SectionRenderer({
       </div>
       <div className="space-y-2">
         {blocks.map((block, idx) => (
-          <BlockRenderer key={`${key}-${idx}`} block={block} sectionKey={key} normsStatus={normsStatus} />
+          <BlockRenderer key={`${key}-${idx}`} block={block} sectionKey={key} normsStatus={normsStatus} locale={locale} />
         ))}
       </div>
     </section>

@@ -10,7 +10,7 @@ const MODULE_TITLES: Record<string, { en: string; zh: string }> = {
   module_02_quick_understanding: { en: "Three-minute view", zh: "三分钟理解" },
   module_03_trait_deep_dive: { en: "Trait details", zh: "五维分数" },
   module_04_coupling: { en: "Trait coupling", zh: "动力耦合" },
-  module_05_facet_reframe: { en: "Facet signals", zh: "Facet 信号" },
+  module_05_facet_reframe: { en: "Facet signals", zh: "细分维度信号" },
   module_06_application_matrix: { en: "Application matrix", zh: "现实应用" },
   module_07_collaboration_manual: { en: "Collaboration manual", zh: "协作说明" },
   module_08_share_save: { en: "Share and save", zh: "分享与保存" },

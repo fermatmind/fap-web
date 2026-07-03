@@ -66,7 +66,7 @@ export const BIG5_V1_SECTION_MICROCOPY_ZH: Record<Big5V1MicrocopySectionKey, Sec
   },
   facet_details: {
     title: "细分维度焦点",
-    subtitle: "用 facet 异常与完整目录解释结构性偏离。",
+    subtitle: "用细分维度信号解释结构性偏离。",
   },
   core_portrait: {
     title: "人格总览",
@@ -126,11 +126,11 @@ export const BIG5_V1_SHELL_MICROCOPY = {
     preview_summary_en:
       "You can already read your core profile and domain overview. Unlock to continue into deeper domain, facet, and action interpretation.",
     preview_summary_zh:
-      "你已可查看核心画像与五维总览。解锁后可继续阅读更深入的维度解释、facet 细节与行动计划。",
+      "你已可查看核心画像与五维总览。解锁后可继续阅读更深入的维度解释、细分维度与行动计划。",
     full_summary_en:
       "Your full Big Five report is ready. Continue through the core portrait, domain interpretation, facet details, and action plan.",
     full_summary_zh:
-      "你的完整 Big Five 报告已就绪。可继续阅读核心画像、维度解释、facet 细节与行动计划。",
+      "你的完整 Big Five 报告已就绪。可继续阅读核心画像、维度解释、细分维度与行动计划。",
     unlocked_now_title_en: "You can read now",
     unlocked_now_title_zh: "当前可读",
     unlock_more_title_en: "Unlock to continue",

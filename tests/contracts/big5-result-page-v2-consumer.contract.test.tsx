@@ -62,6 +62,8 @@ describe("Big Five Result Page V2 frontend consumer", () => {
     expect(screen.queryByTestId("big5-result-shell")).not.toBeInTheDocument();
     expect(screen.getByTestId("big5-v2-module-module_00_trust_bar")).toBeInTheDocument();
     expect(screen.getByTestId("big5-v2-module-module_05_facet_reframe")).toBeInTheDocument();
+    expect(screen.getByTestId("big5-v2-module-module_05_facet_reframe")).toHaveTextContent("细分维度信号");
+    expect(screen.getByTestId("big5-v2-module-module_05_facet_reframe")).not.toHaveTextContent("Facet 信号");
     expect(screen.getByTestId("big5-v2-block-trust_bar")).toHaveTextContent("fixture boundary");
   });
 

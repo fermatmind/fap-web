@@ -68,6 +68,22 @@ describe("big5 result assembler interpretation wiring contract", () => {
     ).toBe(true);
   });
 
+  it("localizes zh facet helper text without exposing the English facet label", () => {
+    const assembled = assembleBig5ResultViewModel({
+      locale: "zh",
+      reportData: clone(facetDenseFixture) as ReportResponse,
+      gate: buildGate(),
+    });
+
+    const facetDetails = assembled.plannedSections.find((section) => section.key === "facet_details");
+    expect(facetDetails).toBeDefined();
+    const visibleText = JSON.stringify(facetDetails ?? {});
+    expect(visibleText).toContain("重点细分维度");
+    expect(visibleText).toContain("全部细分维度");
+    expect(visibleText).not.toContain("facets");
+    expect(visibleText).not.toContain("facet 百分位");
+  });
+
   it("uses dominant trait plus trait band signals when action_plan_summary actions are sparse", () => {
     const assembled = assembleBig5ResultViewModel({
       locale: "en",

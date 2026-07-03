@@ -837,6 +837,14 @@ describe("RichResultReport", () => {
             social_energy: "balanced",
             stress_posture: "steady",
           },
+          scene_fingerprint_display: [
+            { key: "novelty", label: "novelty", value: "grounded", value_label: "grounded" },
+            { key: "structure", label: "structure", value: "adaptive", value_label: "adaptive" },
+            { key: "cooperation", label: "cooperation", value: "direct", value_label: "direct" },
+            { key: "social_energy", label: "social_energy", value: "balanced", value_label: "balanced" },
+            { key: "stress_posture", label: "stress_posture", value: "steady", value_label: "steady" },
+          ],
+          variant_keys: ["profile:sensitive_independent_thinker", "band:o.mid", "内部_tag"],
           explainability_summary: {
             headline: "这次画像主要由外向性驱动。",
           },
@@ -865,6 +873,9 @@ describe("RichResultReport", () => {
     expect(fingerprint).not.toHaveTextContent("grounded");
     expect(fingerprint).not.toHaveTextContent("adaptive");
     expect(fingerprint).not.toHaveTextContent("balanced");
+    expect(screen.getByTestId("big5-result-shell")).not.toHaveTextContent("profile:sensitive_independent_thinker");
+    expect(screen.getByTestId("big5-result-shell")).not.toHaveTextContent("band:o.mid");
+    expect(screen.getByTestId("big5-result-shell")).not.toHaveTextContent("内部_tag");
   });
 
   it("keeps BIG5 full runtime payload fully readable even when paid-tagged sections are present", () => {

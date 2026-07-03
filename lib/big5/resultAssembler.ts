@@ -787,10 +787,10 @@ function buildSyntheticBlocks(
     if (focusFacetPool.length > 0) {
       blocks.push({
         kind: "paragraph",
-        title: locale === "zh" ? "重点维度面" : "Standout facets",
+        title: locale === "zh" ? "重点细分维度" : "Standout facets",
         body:
           locale === "zh"
-            ? "先看最突出的 3 个 facets 和最需要留意的 2 个 facets。这里不是在给你贴标签，而是在说明哪些细部倾向更容易在现实中跳出来。"
+            ? "先看最突出的 3 个细分维度和最需要留意的 2 个细分维度。这里不是在给你贴标签，而是在说明哪些细部倾向更容易在现实中跳出来。"
             : "Start with the three facets that stand out most and the two that deserve extra attention. The goal is not to label you, but to show which narrower tendencies are most likely to show up in real situations.",
       });
 
@@ -823,7 +823,7 @@ function buildSyntheticBlocks(
         title: locale === "zh" ? "完整术语表" : "Complete glossary",
         body:
           locale === "zh"
-            ? "下面这部分保留全部 facets 的短释义和轻提示，用来帮助你快速定位每个细部倾向。"
+            ? "下面这部分保留全部细分维度的短释义和轻提示，用来帮助你快速定位每个细部倾向。"
             : "The full glossary keeps every available facet in view with a short definition and one light prompt, so you can quickly place each narrower tendency.",
       });
 

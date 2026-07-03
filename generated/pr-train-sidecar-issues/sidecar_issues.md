@@ -1,27 +1,11 @@
 # PR Train Sidecar Issues
 
-## PR-CAREER-KG-AGENT-01: full contract suite timeout/hang outside current scope
+## BIG5 Result Page Recovery Banner Renderer Copy
 
-- repo: `fap-web`
-- PR id / branch: `PR-CAREER-KG-AGENT-01` / `codex/pr-career-kg-agent-01-contract-schema`
-- blocker type: local required check could not complete cleanly
-- evidence:
-  - `pnpm exec vitest run tests/contracts/career-kg-agent-package-schema.contract.test.ts` passed: 1 file, 5 tests.
-  - `pnpm typecheck` passed.
-  - `NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build` passed.
-  - First `pnpm test:contract` run failed only in `tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts` with two 5000ms timeouts.
-  - Focused rerun of that file with `--testTimeout=30000` passed: 1 file, 6 tests.
-  - Second `pnpm test:contract` and `CI=1 pnpm test:contract` printed complete passing test lists but did not exit cleanly before manual interruption.
-  - Latest rerun of exact `pnpm test:contract` printed passing output through the tail of `tests/contracts`, including `career-kg-agent-package-schema.contract.test.ts`, but still did not emit a final summary or exit after about six minutes.
-  - Process evidence before interruption showed `node /usr/local/bin/pnpm test:contract`, `node (vitest)`, and multiple `node (vitest N)` workers still alive; the run was interrupted with Ctrl-C and exited 130.
-  - Continuation rerun from a clean process state reproduced the same blocker: exact `pnpm test:contract` reached the last visible contract output (`site-chrome-rules.contract.test.ts`) but did not emit final summary or exit.
-  - Process evidence after about four and a half minutes showed `node /usr/local/bin/pnpm test:contract`, `node (vitest)`, and seven `node (vitest N)` workers still alive; the run was interrupted with Ctrl-C and exited 130.
-- why not current PR scope:
-  - The failing/hanging file is not in PR-CAREER-KG-AGENT-01 allowed paths.
-  - PR1 changed only career KG agent contracts/schemas/runbook, one focused contract, scope helper, and PR-train metadata.
-- whether required checks are affected:
-  - Local required `pnpm test:contract` is affected and blocks opening/merging under repository rules.
-  - GitHub required checks were not reached because no PR was opened.
-- recommended follow-up:
-  - Stabilize the full contract suite teardown or raise timeout for the llms-full artifact consistency contract outside this PR scope.
-  - Re-run PR-CAREER-KG-AGENT-01 after `pnpm test:contract` can complete cleanly.
+- repo: fap-web
+- PR id / branch: BIG5-RESULT-PAGE-RENDERER-HYGIENE-FOLLOWUP-01 / codex/big5-result-page-renderer-hygiene-followup-01
+- blocker type: out_of_scope_renderer_shell_copy
+- evidence: live zh Big Five result page showed the result recovery banner eyebrow `结果找回` and helper text `这不会阻塞当前免费结果预览。保存后，我们会把访问链接发送到你的邮箱，方便换设备或稍后继续查看。`; local search maps this to `app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx`.
+- why not current PR scope: PR14 scope is limited to `lib/big5/**`, `components/big5/**`, `components/result/big5/**`, and Big Five contracts; changing the generic result client recovery banner would affect non-Big-Five result pages and requires a separate result-shell UX scope.
+- whether required checks are affected: no; current Big Five renderer hygiene checks can pass without changing the generic recovery banner.
+- recommended follow-up: open a scoped fap-web PR for result recovery banner UX, with assertions covering Big Five and non-Big-Five result pages.

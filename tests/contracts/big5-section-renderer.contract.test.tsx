@@ -204,4 +204,40 @@ describe("big5 section renderer contract", () => {
     expect(html).toContain("Keep this user-facing sentence.");
     expect(html).toContain("stable summary");
   });
+
+  it("localizes zh Big Five block chrome and drops broken method template fragments", () => {
+    render(
+      <SectionRenderer
+        section={{
+          key: "facet_details",
+          title: "细分维度焦点",
+          access_level: "free",
+          blocks: [
+            {
+              kind: "metric_card",
+              title: "重点 facet",
+              body: "facet 百分位 97。先看最突出的 facets。",
+            },
+            {
+              kind: "paragraph",
+              title: "v2 报告引擎方法说明",
+              body: "本 由 生成； 已覆盖 30 条 与 22 条 facet ，不代表生产 已接入。",
+            },
+          ],
+        }}
+        locked={false}
+        normsStatus="CALIBRATED"
+        locale="zh"
+        scaleCode="BIG5_OCEAN"
+      />
+    );
+
+    const html = document.body.textContent ?? "";
+    expect(html).toContain("重点细分维度");
+    expect(html).toContain("细分维度百分位 97");
+    expect(html).not.toContain("facet");
+    expect(html).not.toContain("facets");
+    expect(html).not.toContain("本 由 生成");
+    expect(html).not.toContain("不代表生产 已接入");
+  });
 });

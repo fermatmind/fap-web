@@ -1,25 +1,12 @@
-{
-  "issues": [
-    {
-      "repo": "fap-web",
-      "pr_id": "PR-CAREER-KG-AGENT-01",
-      "branch": "codex/pr-career-kg-agent-01-contract-schema",
-      "blocker_type": "local_required_check_could_not_complete_cleanly",
-      "evidence": [
-        "Focused PR1 contract passed: pnpm exec vitest run tests/contracts/career-kg-agent-package-schema.contract.test.ts",
-        "pnpm typecheck passed",
-        "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed",
-        "Initial pnpm test:contract failed only in tests/contracts/detail-ready-1046-llms-full-artifact-consistency-repair-01.contract.test.ts with two 5000ms timeouts",
-        "Focused rerun of the llms-full artifact consistency contract with --testTimeout=30000 passed",
-        "Subsequent pnpm test:contract and CI=1 pnpm test:contract runs printed complete passing test lists but did not exit cleanly before manual interruption",
-        "Latest exact pnpm test:contract rerun printed passing output through the tail of tests/contracts, including career-kg-agent-package-schema.contract.test.ts, but did not emit final summary or exit after about six minutes",
-        "Process evidence before interruption showed node /usr/local/bin/pnpm test:contract, node (vitest), and multiple node (vitest N) workers still alive; Ctrl-C produced exit code 130",
-        "Continuation rerun from a clean process state reproduced the same blocker: exact pnpm test:contract reached the last visible contract output but did not emit final summary or exit",
-        "Process evidence after about four and a half minutes showed node /usr/local/bin/pnpm test:contract, node (vitest), and seven node (vitest N) workers still alive; Ctrl-C produced exit code 130"
-      ],
-      "why_not_current_pr_scope": "The failed or hanging contract file is outside PR-CAREER-KG-AGENT-01 allowed paths; PR1 only changes career KG agent contracts, schemas, docs, one focused contract, scope helper, and PR-train metadata.",
-      "required_checks_affected": true,
-      "recommended_follow_up": "Stabilize full contract suite teardown or adjust the llms-full artifact consistency contract timeout outside this PR scope, then rerun PR-CAREER-KG-AGENT-01 local checks."
-    }
-  ]
-}
+[
+  {
+    "repo": "fap-web",
+    "pr_id": "BIG5-RESULT-PAGE-RENDERER-HYGIENE-FOLLOWUP-01",
+    "branch": "codex/big5-result-page-renderer-hygiene-followup-01",
+    "blocker_type": "out_of_scope_renderer_shell_copy",
+    "evidence": "Live zh Big Five result page showed the result recovery banner eyebrow `结果找回` and helper text `这不会阻塞当前免费结果预览。保存后，我们会把访问链接发送到你的邮箱，方便换设备或稍后继续查看。`; local search maps this to app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx.",
+    "why_not_current_pr_scope": "PR14 scope is limited to Big Five renderer files and contracts. Changing the generic result client recovery banner would affect non-Big-Five result pages and requires a separate result-shell UX scope.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Open a scoped fap-web PR for result recovery banner UX, with assertions covering Big Five and non-Big-Five result pages."
+  }
+]

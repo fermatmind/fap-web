@@ -21902,3 +21902,51 @@ prs:
       squash: true
       auto_merge: true
     next_task: null
+
+  - id: BIG5-RESULT-PAGE-RENDERER-HYGIENE-FOLLOWUP-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-result-page-renderer-hygiene-followup-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: big5_result_page_renderer_hygiene_followup
+    risk_level: L1
+    status: in_progress
+    title: "BIG5-RESULT-PAGE-RENDERER-HYGIENE-FOLLOWUP-01"
+    goal: "Fix Big Five zh result-page renderer hygiene by localizing renderer-owned labels and suppressing helper clutter/internal keys without adding frontend editorial content."
+    in_scope:
+      - lib/big5/sectionBlueprint.ts
+      - lib/big5/microcopy.ts
+      - lib/big5/resultAssembler.ts
+      - components/big5/**
+      - components/result/big5/**
+      - tests/contracts/*big5*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api changes
+      - new frontend result-page editorial copy assets
+      - backend authority override
+      - CMS/SEO/search changes
+      - production deploy/import/runtime rollout
+      - final big5_result_page_v2 payload generation
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/big5-v2-runtime-consumer.contract.test.ts tests/contracts/big5-section-renderer.contract.test.tsx tests/contracts/rich-result-report.contract.test.tsx tests/contracts/result-private-leak-regressions.contract.test.ts tests/contracts/big5-shell-polish.contract.test.tsx tests/contracts/big5-result-page-v2-consumer.contract.test.tsx tests/contracts/big5-result-assembler-interpretation.contract.test.ts --reporter=dot
+      - pnpm typecheck
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    acceptance:
+      - Chinese Big Five result pages do not expose raw scene fingerprint keys or values such as novelty, social_energy, stress_posture, grounded, adaptive, or balanced.
+      - Chinese Big Five renderer-owned text does not expose facet where the visible UI should say 细分维度.
+      - Big Five section/page helper scaffolding and 回到目录 links remain suppressed.
+      - Broken internal method template fragments are not rendered in Big Five zh blocks.
+      - No CMS/SEO/search, production deploy/import, runtime rollout, or final payload generation is introduced.
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null

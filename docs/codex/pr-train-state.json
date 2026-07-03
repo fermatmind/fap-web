@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T08:00:11.836Z",
+  "updated_at": "2026-07-03T09:34:31.212495Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -28440,6 +28440,33 @@
         "docs/codex/pr-train.yaml",
         "docs/codex/pr-train-state.json"
       ]
+    },
+    {
+      "id": "BIG5-RESULT-PAGE-RENDERER-HYGIENE-FOLLOWUP-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/big5-result-page-renderer-hygiene-followup-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "in_progress",
+      "title": "BIG5-RESULT-PAGE-RENDERER-HYGIENE-FOLLOWUP-01",
+      "artifacts": [
+        "components/big5/report/BlockRenderer.tsx",
+        "components/big5/report/SectionRenderer.tsx",
+        "components/result/big5/Big5ResultPageV2Shell.tsx",
+        "components/result/big5/Big5ResultShell.tsx",
+        "lib/big5/microcopy.ts",
+        "lib/big5/resultAssembler.ts",
+        "tests/contracts/big5-result-assembler-interpretation.contract.test.ts",
+        "tests/contracts/big5-result-page-v2-consumer.contract.test.tsx",
+        "tests/contracts/big5-section-renderer.contract.test.tsx",
+        "tests/contracts/big5-shell-polish.contract.test.tsx",
+        "tests/contracts/rich-result-report.contract.test.tsx",
+        "generated/pr-train-sidecar-issues/sidecar_issues.md",
+        "generated/pr-train-sidecar-issues/sidecar_issues.json",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ]
     }
   ],
   "sidecar_issues": [
@@ -39003,5 +39030,67 @@
       "outside_scope_files": [],
       "evidence": "Remote-check-green scope revalidation passed; changed files are limited to PR-CAREER-KG-AGENT-06 skill/runbook/checklist docs, scope helper, and train metadata."
     }
+  },
+  "BIG5-RESULT-PAGE-RENDERER-HYGIENE-FOLLOWUP-01": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/big5-result-page-renderer-hygiene-followup-01",
+    "title": "BIG5-RESULT-PAGE-RENDERER-HYGIENE-FOLLOWUP-01",
+    "train_scope": "big5_result_page_renderer_hygiene_followup",
+    "depends_on": [],
+    "status": "pr_open",
+    "commit_sha": "5071e3b23dcf8523a12015936c068fc03580af1c",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1571",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "local_checks": {
+        "status": "pass",
+        "commands": [
+          "pnpm exec vitest run tests/contracts/big5-v2-runtime-consumer.contract.test.ts tests/contracts/big5-section-renderer.contract.test.tsx tests/contracts/rich-result-report.contract.test.tsx tests/contracts/result-private-leak-regressions.contract.test.ts tests/contracts/big5-shell-polish.contract.test.tsx tests/contracts/big5-result-page-v2-consumer.contract.test.tsx tests/contracts/big5-result-assembler-interpretation.contract.test.ts --reporter=dot",
+          "pnpm typecheck",
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "git diff --check",
+          "changed-file scope validation"
+        ],
+        "evidence": "Focused Big Five renderer contracts passed: 7 files, 60 tests. pnpm typecheck passed. YAML/JSON parse and git diff --check passed. Scope validation passed for Big Five renderer/microcopy/contracts, sidecar, and train metadata only."
+      },
+      "github_checks": {
+        "status": "pending",
+        "evidence": "PR #1571 opened; GitHub checks pending."
+      }
+    },
+    "scope_validation": {
+      "status": "pass",
+      "outside_scope_files": [],
+      "evidence": "Changed files are limited to Big Five renderer files, Big Five contracts, generated sidecar issues, and authorized PR train metadata."
+    },
+    "events": [
+      {
+        "at": "2026-07-03T09:31:30.575602Z",
+        "status": "in_progress",
+        "notes": "Started PR14 from latest origin/main in clean fap-web worktree."
+      },
+      {
+        "at": "2026-07-03T09:31:30.575602Z",
+        "status": "local_checks_passed",
+        "notes": "Focused Big Five renderer contracts, typecheck, and diff check passed; manifest/state entry initialized from objective authorization."
+      },
+      {
+        "at": "2026-07-03T09:32:41.722347Z",
+        "status": "scope_validation_passed",
+        "notes": "YAML/JSON parse, git diff --check, focused contracts, typecheck, and changed-file scope validation passed."
+      },
+      {
+        "at": "2026-07-03T09:34:31.212495Z",
+        "status": "pr_open",
+        "commit_sha": "5071e3b23dcf8523a12015936c068fc03580af1c",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1571",
+        "notes": "Pushed branch and opened PR #1571; waiting for GitHub checks."
+      }
+    ]
   }
 }
