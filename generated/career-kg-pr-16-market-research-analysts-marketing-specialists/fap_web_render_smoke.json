@@ -1,0 +1,8 @@
+{
+  "status": "pass",
+  "mode": "contract_mock_backend_display_surface",
+  "component": "CareerDisplaySurface",
+  "canonical_path": "/zh/career/jobs/market-research-analysts-and-marketing-specialists",
+  "runtime_content_added": false,
+  "notes": "Focused contract renders the asset through existing fap-web career display primitives using a backend-like fixture."
+}

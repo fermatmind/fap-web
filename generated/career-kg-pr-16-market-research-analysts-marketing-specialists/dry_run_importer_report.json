@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "mode": "dry_run_only",
+  "writes_performed": false,
+  "cms_write_performed": false,
+  "production_import_performed": false,
+  "validated_slug": "market-research-analysts-and-marketing-specialists",
+  "validated_locale": "zh-CN",
+  "validated_canonical_path": "/zh/career/jobs/market-research-analysts-and-marketing-specialists",
+  "notes": "Importer dry run validates shape, source policy, release boundaries, FAQ count, and canonical lock only."
+}
