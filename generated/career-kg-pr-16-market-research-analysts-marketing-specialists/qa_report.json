@@ -1,0 +1,11 @@
+{
+  "status": "pass",
+  "schema_validation": {"status": "pass", "canonical_unchanged": true, "content_block_count": 9, "faq_count": 3},
+  "trust_audit": {
+    "status": "pass",
+    "fact_authorities": ["O*NET OnLine", "BLS OOH", "BLS OEWS", "My Next Move"],
+    "market_or_baike_used_as_fact_authority": false,
+    "blocked_claims_absent": ["employment_guarantee", "income_guarantee", "traffic_guarantee", "conversion_rate_guarantee", "ad_roi_guarantee", "product_success_guarantee", "ai_automatic_market_research_guarantee"]
+  },
+  "editorial_gate": {"status": "pass", "reader_intent_covered": ["市场研究分析师与营销专家是做什么的", "市场研究", "营销分析", "搜索营销区别", "AI 边界"], "canonical_path_locked": "/zh/career/jobs/market-research-analysts-and-marketing-specialists"}
+}

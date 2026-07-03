@@ -1,0 +1,69 @@
+{
+  "artifact_type": "career_knowledge_graph_occupation_asset",
+  "artifact_version": "1.0.0",
+  "pr_id": "PR-CAREER-KG-16",
+  "status": "dry_run_ready",
+  "locale": "zh-CN",
+  "slug": "market-research-analysts-and-marketing-specialists",
+  "canonical_path": "/zh/career/jobs/market-research-analysts-and-marketing-specialists",
+  "canonical_unchanged": true,
+  "production_import_approved": false,
+  "staging_write_approved": false,
+  "identity": {
+    "standard_name_zh": "市场研究分析师与营销专家",
+    "title_en": "Market Research Analysts and Marketing Specialists",
+    "soc_code": "13-1161",
+    "onet_code": "13-1161.00",
+    "aliases_zh": ["市场研究分析师", "营销专家", "营销分析师", "市场分析师", "消费者洞察分析师", "品牌研究分析师", "市场调研分析师", "增长分析师"],
+    "aliases_en": ["Market Research Analyst", "Marketing Specialist", "Marketing Analyst", "Consumer Insights Analyst", "Market Analyst", "Brand Research Analyst", "Market Intelligence Analyst"],
+    "easily_confused_occupations": [
+      {"name_zh": "搜索营销策略师", "boundary": "搜索营销策略师聚焦 SEO/SEM、关键词、搜索广告和落地页表现；本职业更广泛研究市场、消费者、竞争、价格、产品和营销数据。"},
+      {"name_zh": "市场营销经理", "boundary": "营销经理更偏制定预算、团队、品牌和营销计划；市场研究分析师与营销专家通常提供研究、洞察、数据和执行建议。"},
+      {"name_zh": "数据分析师", "boundary": "数据分析师可服务许多业务领域；本职业的数据工作围绕市场、消费者、竞争、定价、渠道和营销效果。"},
+      {"name_zh": "广告与促销经理", "boundary": "广告与促销经理更偏活动、媒介和预算管理；本职业强调研究、分析、细分和营销建议。"},
+      {"name_zh": "销售代表", "boundary": "销售代表更直接面向客户成交；本职业通过市场和消费者数据支持定位、机会判断和营销策略。"}
+    ]
+  },
+  "seo": {
+    "title_zh": "市场研究分析师与营销专家是做什么的：市场研究、营销分析与搜索营销区别",
+    "meta_description_zh": "了解市场研究分析师与营销专家的职责、消费者洞察、问卷与数据分析、营销效果评估、入门路径、AI 边界，以及与搜索营销策略师的区别。",
+    "h1_zh": "市场研究分析师与营销专家",
+    "canonical_path": "/zh/career/jobs/market-research-analysts-and-marketing-specialists",
+    "ctr_intent_notes": [
+      "标题修正“市场研究分析师专家营销”的不自然中文，覆盖“是做什么的”“市场研究”“营销分析”“搜索营销区别”。",
+      "H1 使用中文标准名；identity 保留“市场研究分析师”“营销专家”“营销分析师”等查询别名。",
+      "摘要强调研究、消费者洞察、营销效果和职业边界，不承诺就业、收入、流量、转化率、广告 ROI 或平台审核结果。"
+    ]
+  },
+  "content_blocks": [
+    {"id": "definition", "heading_zh": "职业定义", "body_zh": "市场研究分析师与营销专家研究消费者、竞争对手、市场趋势、产品、价格、渠道和营销活动数据，帮助组织理解需求、细分人群、评估机会、定位产品并改进营销决策。", "source_refs": ["onet_summary_13_1161_00", "bls_ooh_market_research_analysts", "mynextmove_summary_13_1161_00"]},
+    {"id": "core_responsibilities", "heading_zh": "核心职责", "items_zh": ["设计或执行市场调研、问卷、访谈、焦点小组、竞品研究、用户画像、消费者洞察和市场规模分析。", "收集、清洗和分析销售、调查、网站、广告、CRM、社媒、价格、渠道和第三方市场数据。", "评估客户需求、购买行为、品牌认知、营销活动效果、产品机会、价格敏感度和竞争态势。", "制作报告、仪表盘、洞察摘要、细分建议、定位建议和营销测试结论，说明样本、假设、置信度和局限。", "与产品、品牌、销售、广告、搜索营销、数据、管理层和外部供应商协作，把研究结果转成可行动建议。", "页面不能把本职业写成保证增长、保证转化、保证广告 ROI、保证产品成功或替代营销经理决策的角色。"], "source_refs": ["onet_summary_13_1161_00", "bls_ooh_market_research_analysts", "mynextmove_summary_13_1161_00"]},
+    {"id": "work_scenes", "heading_zh": "工作场景", "items_zh": ["研究场景包括新品机会评估、用户细分、品牌健康度、竞品监测、价格测试、客户满意度和广告前后测。", "分析场景包括数据清洗、抽样、交叉分析、回归或实验结果解读、仪表盘维护、市场报告和高层汇报。", "营销协作场景包括与搜索营销、内容、广告、产品和销售团队解释目标人群、关键词需求、漏斗问题和预算取舍。", "该职业既要理解商业问题，也要尊重数据质量、样本偏差、隐私合规和结论边界。"], "source_refs": ["bls_ooh_market_research_analysts", "mynextmove_summary_13_1161_00", "fermatmind_interpretation"]},
+    {"id": "skills_tools", "heading_zh": "技能与工具", "items_zh": ["研究方法：问卷设计、访谈、焦点小组、抽样、细分、竞品分析、品牌研究和消费者洞察。", "数据技能：统计基础、数据清洗、Excel/电子表格、SQL、BI 仪表盘、A/B 测试、可视化和结论表达。", "营销理解：定位、渠道、广告、内容、搜索营销、价格、产品生命周期、漏斗和客户旅程。", "工具场景：调查平台、CRM、广告平台报表、网站分析、社媒分析、BI、演示文档和项目管理工具。", "判断能力：区分相关与因果、样本偏差、幸存者偏差、季节性、渠道归因和隐私/合规限制。"], "source_refs": ["onet_summary_13_1161_00", "mynextmove_summary_13_1161_00", "fermatmind_interpretation"]},
+    {"id": "entry_path", "heading_zh": "入门路径", "items_zh": ["常见相关背景包括市场营销、商业分析、统计、经济学、心理学、社会学、传播、数据分析、信息系统或相关商科课程。", "入门经验可以来自调研助理、数据分析、广告/内容运营、销售运营、产品分析、用户研究、品牌项目或学校调研项目。", "作品集可以展示研究问题、数据来源、方法、图表、洞察、建议和局限，而不是只列工具名称。", "学历、证书、平台经验或工具熟练度不能保证录用、收入、转化率、广告 ROI、平台审核或产品成功。"], "source_refs": ["bls_ooh_market_research_analysts", "onet_job_zone_13_1161_00", "mynextmove_summary_13_1161_00", "fermatmind_interpretation"]},
+    {"id": "riasec_personality_boundary", "heading_zh": "RIASEC / 人格边界", "items_zh": ["RIASEC 上通常更接近 Investigative（研究型）、Enterprising（企业型）和 Conventional（常规型）：既要分析数据，也要服务商业决策和规范化报告。", "Social 可能出现在访谈、跨团队沟通和供应商管理中；Artistic 可能出现在品牌、创意和内容理解中。", "MBTI 或 Big Five 只能帮助理解分析耐心、开放性、沟通方式和商业兴趣，不能替代研究方法、数据能力、行业理解或合规责任。"], "source_refs": ["mynextmove_summary_13_1161_00", "fermatmind_interpretation"]},
+    {"id": "risk_ai_boundary", "heading_zh": "风险与 AI 边界", "items_zh": ["主要风险包括样本偏差、隐私合规、数据口径不一致、归因误读、相关当因果、过度细分、平台数据黑箱和把短期指标误写成长期需求。", "AI 可以辅助问卷草稿、访谈摘要、数据清洗提示、文本聚类、报告初稿、竞品信息整理和可视化建议，但不能替代研究设计、数据授权、因果判断、商业取舍或最终责任。", "页面不得承诺 AI 自动完成市场研究、保证广告增长、保证转化率、保证 ROI、保证产品成功，或把搜索营销策略师与市场研究分析师完全等同。"], "source_refs": ["onet_summary_13_1161_00", "bls_ooh_market_research_analysts", "fermatmind_interpretation"]},
+    {"id": "adjacent_careers", "heading_zh": "相邻职业", "items_zh": ["搜索营销策略师：更聚焦 SEO/SEM、关键词、搜索广告和落地页表现。", "市场营销经理：更偏营销计划、预算、团队和品牌方向。", "数据分析师：更通用的数据建模、报表和业务分析岗位。", "广告与促销经理：更偏广告活动、媒介和促销预算管理。", "用户研究员：更偏产品体验、用户行为和可用性研究。"], "source_refs": ["bls_ooh_market_research_analysts", "bls_ooh_advertising_promotions_marketing_managers", "onet_summary_13_1161_00", "fermatmind_interpretation"]},
+    {"id": "faq", "heading_zh": "FAQ", "items_zh": [{"question": "市场研究分析师与营销专家是做什么的？", "answer": "他们研究消费者、竞争、市场趋势、产品、价格、渠道和营销效果，把数据与调研结果转成定位、细分、机会判断和营销建议。"}, {"question": "市场研究分析师和搜索营销策略师有什么区别？", "answer": "市场研究分析师与营销专家覆盖更广的市场、消费者和营销数据；搜索营销策略师更专注 SEO、SEM、关键词、搜索广告和搜索渠道表现。"}, {"question": "AI 会替代市场研究分析师与营销专家吗？", "answer": "AI 会加速资料整理、文本分析、报告草稿和数据探索，但研究设计、数据授权、偏差判断、因果解释、商业取舍和结论责任仍需要人负责。"}], "source_refs": ["onet_summary_13_1161_00", "bls_ooh_market_research_analysts", "mynextmove_summary_13_1161_00", "fermatmind_interpretation"]}
+  ],
+  "sources": [
+    {"key": "onet_summary_13_1161_00", "label": "O*NET OnLine: Market Research Analysts and Marketing Specialists 13-1161.00", "url": "https://www.onetonline.org/link/summary/13-1161.00", "authority": "occupation_fact", "usage": "职业定义、任务、研究与营销数据职责边界。"},
+    {"key": "bls_ooh_market_research_analysts", "label": "BLS OOH: Market Research Analysts", "url": "https://www.bls.gov/ooh/business-and-financial/market-research-analysts.htm", "authority": "occupation_fact", "usage": "工作内容、工作环境、教育路径和职业边界；不用于就业或收入承诺。"},
+    {"key": "bls_oews_13_1161", "label": "BLS OEWS: Market Research Analysts and Marketing Specialists 13-1161", "url": "https://www.bls.gov/oes/current/oes131161.htm", "authority": "occupation_fact", "usage": "SOC 基类边界核对；不用于收入承诺。"},
+    {"key": "mynextmove_summary_13_1161_00", "label": "My Next Move: Market Research Analysts and Marketing Specialists 13-1161.00", "url": "https://www.mynextmove.org/profile/summary/13-1161.00", "authority": "occupation_fact", "usage": "通俗职业描述、任务、兴趣倾向和相邻职业。"},
+    {"key": "mynextmove_data_sources_13_1161_00", "label": "My Next Move data sources: Market Research Analysts and Marketing Specialists", "url": "https://www.mynextmove.org/help/data/13-1161.00", "authority": "source_disclosure", "usage": "公开来源披露，不作为新增职业事实。"},
+    {"key": "onet_job_zone_13_1161_00", "label": "O*NET Job Zone: Market Research Analysts and Marketing Specialists 13-1161.00", "url": "https://www.onetonline.org/skills/zone/13-1161.00", "authority": "occupation_fact", "usage": "教育准备和经验准备边界；不用于录用保证。"},
+    {"key": "bls_ooh_advertising_promotions_marketing_managers", "label": "BLS OOH: Advertising, Promotions, and Marketing Managers", "url": "https://www.bls.gov/ooh/management/advertising-promotions-and-marketing-managers.htm", "authority": "adjacent_occupation_boundary", "usage": "相邻营销管理职业边界。"},
+    {"key": "fermatmind_interpretation", "label": "FermatMind editorial interpretation from authoritative occupational sources", "authority": "editorial_interpretation", "usage": "中文表达、搜索意图归纳、内链、职业边界与人格边界说明；不得覆盖 O*NET/BLS/My Next Move 职业事实。"}
+  ],
+  "market_reference_policy": {"zh_recruiting_or_baike_sources_used": false, "blocked_usage": ["职业事实权威", "就业保证", "收入保证", "流量保证", "转化率保证", "广告 ROI 保证", "产品成功保证", "平台审核保证", "AI 自动市场研究保证", "JSON-LD事实来源", "生产导入依据"]},
+  "internal_links": [
+    {"label_zh": "职业库", "path": "/zh/career/jobs", "purpose": "职业库入口"},
+    {"label_zh": "职业指南", "path": "/zh/career", "purpose": "职业探索上层入口"},
+    {"label_zh": "RIASEC 职业兴趣测试", "path": "/zh/tests/holland-career-interest-test-riasec", "purpose": "研究型、企业型和常规型兴趣探索"},
+    {"label_zh": "搜索营销策略师", "path": "/zh/career/jobs/search-marketing-strategists", "purpose": "相邻搜索营销职业边界"},
+    {"label_zh": "MBTI 人格测试", "path": "/zh/tests/mbti-personality-test-16-personality-types", "purpose": "沟通和商业分析偏好，不替代岗位要求"},
+    {"label_zh": "Big Five 人格测试", "path": "/zh/tests/big-five-personality-test", "purpose": "责任心、开放性和压力偏好自评"}
+  ],
+  "release_boundaries": {"cms_write_performed": false, "staging_write_performed": false, "production_import_performed": false, "db_migration_performed": false, "runtime_seo_changed": false, "sitemap_changed": false, "llms_txt_changed": false, "canonical_changed": false, "noindex_changed": false, "json_ld_runtime_changed": false, "manual_deploy_triggered": false, "staging_deploy_wait_performed": false, "production_deploy_triggered": false}
+}
