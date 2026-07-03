@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T17:33:00+08:00",
+  "updated_at": "2026-07-03T17:35:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -14150,7 +14150,7 @@
       "depends_on": [
         "SECURITY-122-WEB-16"
       ],
-      "status": "pr_opened",
+      "status": "ready_to_merge",
       "train_scope": "security_122_web_pdf_print_delivery_markers_smoke_test_correctness",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-17: PDF/print delivery markers and smoke-test correctness",
@@ -14209,19 +14209,44 @@
           "evidence": "WEB-17 local validation passed after adding PDF URL allowlist enforcement, Container marker passthrough, A4 smoke tolerance, focused contract coverage, and WEB-11/WEB-16 ledger reconciliation."
         },
         "github": {
-          "status": "pending",
-          "passed": [],
+          "status": "passed",
+          "passed": [
+            {
+              "name": "build",
+              "evidence": "GitHub check passed on PR #1570."
+            },
+            {
+              "name": "contracts",
+              "evidence": "GitHub check passed on PR #1570."
+            },
+            {
+              "name": "verify-big5-contract-freeze",
+              "evidence": "GitHub check passed on PR #1570."
+            },
+            {
+              "name": "verify-enneagram-contract-freeze",
+              "evidence": "GitHub check passed on PR #1570."
+            },
+            {
+              "name": "analyze (javascript-typescript)",
+              "evidence": "GitHub CodeQL analyze check passed on PR #1570."
+            },
+            {
+              "name": "CodeQL",
+              "evidence": "GitHub CodeQL check passed on PR #1570."
+            }
+          ],
           "failed": [],
-          "evidence": "PR #1570 opened; GitHub checks pending."
+          "evidence": "PR #1570 GitHub checks passed on head bbbac0d8c8cb8916939b8239c044ba36618af9c6 and merge state was CLEAN before recording ready_to_merge."
         },
         "scope": {
           "status": "passed",
-          "evidence": "Changed files are limited to WEB-17 PDF/print delivery files, focused contract, scope helper, smoke checker, and PR-train ledger reconciliation for WEB-11/WEB-16."
+          "evidence": "Pre-merge revalidation passed: manifest/state parse, git diff --check origin/main...HEAD, and WEB-17 changed-file scope validation all passed."
         }
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1570",
-      "commit_sha": "1cda4d5750fb5a1ebc3acbe450be4083bb32277f",
+      "commit_sha": "bbbac0d8c8cb8916939b8239c044ba36618af9c6",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -14265,11 +14290,16 @@
           "at": "2026-07-03T17:33:00+08:00",
           "status": "pr_opened",
           "summary": "Opened PR #1570 for SECURITY-122-WEB-17 from branch codex/security-122-web-17 at head 1cda4d5750fb5a1ebc3acbe450be4083bb32277f; GitHub checks pending."
+        },
+        {
+          "at": "2026-07-03T17:35:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed for PR #1570; pre-merge manifest/state parse, diff check, and WEB-17 scope validation passed. Recording ready_to_merge before merge per PR-train rules."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T17:33:00+08:00",
-      "head_sha": "1cda4d5750fb5a1ebc3acbe450be4083bb32277f"
+      "updated_at": "2026-07-03T17:35:00+08:00",
+      "head_sha": "bbbac0d8c8cb8916939b8239c044ba36618af9c6"
     },
     {
       "id": "PR-AUDIT-FE-01",
