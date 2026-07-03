@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T15:10:00+08:00",
+  "updated_at": "2026-07-03T15:16:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13795,7 +13795,7 @@
       "depends_on": [
         "SECURITY-122-WEB-14"
       ],
-      "status": "pr_opened",
+      "status": "github_build_failure_inspected_and_fixed",
       "train_scope": "security_122_web_seo_runner_runtime_qa_fail_closed_parsing_links_http_handoff_checks",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-15: SEO runner/runtime QA fail-closed parsing, links, HTTP, handoff checks",
@@ -13848,13 +13848,37 @@
             {
               "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-15-seo-runtime-qa-fail-closed.contract.test.ts --testNamePattern \"keeps tracked diff scope\"",
               "evidence": "Changed-file scope validation passed for the seven authorized WEB-15 files."
+            },
+            {
+              "command": "/usr/local/bin/pnpm lint tests/contracts/security-122-web-15-seo-runtime-qa-fail-closed.contract.test.ts",
+              "evidence": "Focused contract file lint passed after replacing explicit any types with typed WEB-15 test shapes."
+            },
+            {
+              "command": "/usr/local/bin/pnpm lint .",
+              "evidence": "Full repository lint passed with 0 errors and existing warnings only; the WEB-15 explicit-any errors were cleared."
+            },
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-15-seo-runtime-qa-fail-closed.contract.test.ts",
+              "evidence": "Focused WEB-15 contract still passed after lint fix."
             }
           ],
           "failed": []
         },
         "github": {
           "status": "pending",
-          "passed": []
+          "passed": [
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "analyze (javascript-typescript)",
+            "CodeQL"
+          ],
+          "failed": [
+            {
+              "check": "build",
+              "evidence": "Inspected GitHub build job 84944843903 from run 28643547469. Failure was current PR lint scope: tests/contracts/security-122-web-15-seo-runtime-qa-fail-closed.contract.test.ts used explicit any at lines 27, 161, and 174."
+            }
+          ]
         },
         "scope": {
           "status": "passed",
@@ -13863,7 +13887,7 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1564",
-      "commit_sha": "200d5c9b495e452d271dccd2d66b8f6d137bbc16",
+      "commit_sha": "2cf0e088f4fa1dfa1f0d1df6cbdcd21348b14838",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -13892,11 +13916,16 @@
           "at": "2026-07-03T15:10:00+08:00",
           "status": "pr_opened",
           "summary": "Opened PR #1564 for SECURITY-122-WEB-15 from branch codex/security-122-web-15 after local checks and scope validation passed. GitHub checks are pending; staging deploy is not waited on."
+        },
+        {
+          "at": "2026-07-03T15:16:00+08:00",
+          "status": "github_build_failure_inspected_and_fixed",
+          "summary": "Inspected failed GitHub build job for PR #1564. Failure was current PR lint scope: explicit any types in the new WEB-15 focused contract. Fixed within the contract, reran focused contract, file lint, and full repository lint successfully; pushing fix for checks rerun."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T15:10:00+08:00",
-      "head_sha": "200d5c9b495e452d271dccd2d66b8f6d137bbc16"
+      "updated_at": "2026-07-03T15:16:00+08:00",
+      "head_sha": "2cf0e088f4fa1dfa1f0d1df6cbdcd21348b14838"
     },
     {
       "id": "SECURITY-122-WEB-16",

@@ -9,6 +9,7 @@ import { isSecurity122Web15AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const tempRoots: string[] = [];
+type RuntimeQaIssue = { reason: string };
 
 function makeTempDir(label: string): string {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), `${label}-`));
@@ -24,7 +25,7 @@ function makeRepoTempDir(label: string): string {
   return dir;
 }
 
-function readJson<T = any>(filePath: string): T {
+function readJson<T = unknown>(filePath: string): T {
   return JSON.parse(fs.readFileSync(filePath, "utf8")) as T;
 }
 
@@ -158,7 +159,7 @@ describe("SECURITY-122-WEB-15 SEO runner/runtime QA fail-closed parsing and link
       },
     );
     expect(badHreflang.passed).toBe(false);
-    expect(badHreflang.issues.map((issue: any) => issue.reason)).toContain("invalid_hreflang_url");
+    expect(badHreflang.issues.map((issue: RuntimeQaIssue) => issue.reason)).toContain("invalid_hreflang_url");
 
     const serverError = inspectFetchedPublicSample(
       { path: "/server-error" },
@@ -171,7 +172,7 @@ describe("SECURITY-122-WEB-15 SEO runner/runtime QA fail-closed parsing and link
     );
     expect(serverError.passed).toBe(false);
     expect(serverError.status).toBe(500);
-    expect(serverError.issues.map((issue: any) => issue.reason)).toContain("http_error_status");
+    expect(serverError.issues.map((issue: RuntimeQaIssue) => issue.reason)).toContain("http_error_status");
   });
 
   it("blocks recommendation runner and handoff on malformed input JSON without CMS/search/deploy side effects", () => {
