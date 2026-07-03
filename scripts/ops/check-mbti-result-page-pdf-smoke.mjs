@@ -315,8 +315,19 @@ function readPdfMetadata(pdfBytes) {
 
 function isA4PageSize(pageSize) {
   const value = String(pageSize || "");
+  const numericMatch = value.match(/([0-9]+(?:\.[0-9]+)?)\s*x\s*([0-9]+(?:\.[0-9]+)?)\s*pts/i);
+  if (numericMatch) {
+    const width = Number.parseFloat(numericMatch[1]);
+    const height = Number.parseFloat(numericMatch[2]);
+    const matchesPortraitA4 = Math.abs(width - 595) <= 2 && Math.abs(height - 842) <= 2;
+    const matchesLandscapeA4 = Math.abs(width - 842) <= 2 && Math.abs(height - 595) <= 2;
 
-  return /A4/i.test(value) || /595(?:\.\d+)?\s*x\s*842(?:\.\d+)?\s*pts/i.test(value);
+    if (matchesPortraitA4 || matchesLandscapeA4) {
+      return true;
+    }
+  }
+
+  return /A4/i.test(value);
 }
 
 function auditPdf({ pdf, text, metadata, locale, minPdfBytes, minPages, maxPages }) {

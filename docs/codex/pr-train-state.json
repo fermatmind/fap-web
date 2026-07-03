@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T09:34:31.212495Z",
+  "updated_at": "2026-07-03T17:47:00+08:00",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -13281,7 +13281,7 @@
       "depends_on": [
         "SECURITY-122-WEB-10"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_artifact_integrity_restore_freeze_path_traversal_csv_injection",
       "risk_level": "low",
       "title": "SECURITY-122-WEB-11: artifact integrity, restore/freeze safety, path traversal, CSV injection",
@@ -13322,16 +13322,35 @@
           "evidence": "After rebasing onto origin/main 65e3e10434d8c690bb86cae571278665636c227c, which includes ad-hoc PR #1554 adding staticPageGenerationTimeout, focused WEB-11 regression contracts passed; typecheck passed after clearing stale generated .next types; production build passed with 202/202 static pages. Earlier full-contract shard attempts exposed non-WEB-11 local concurrency/default-timeout noise in WEB-06 llms-full and result email lookup contracts; both files passed in isolated reruns with a 15000ms timeout, and the WEB-11 focused contract set passed."
         },
         "github": {
-          "status": "pending",
+          "status": "passed",
           "passed": [
-            "build",
-            "contracts",
-            "verify-big5-contract-freeze",
-            "verify-enneagram-contract-freeze",
-            "analyze (javascript-typescript)",
-            "CodeQL"
+            {
+              "name": "build",
+              "evidence": "GitHub check passed on PR #1552."
+            },
+            {
+              "name": "contracts",
+              "evidence": "GitHub check passed on PR #1552."
+            },
+            {
+              "name": "verify-big5-contract-freeze",
+              "evidence": "GitHub check passed on PR #1552."
+            },
+            {
+              "name": "verify-enneagram-contract-freeze",
+              "evidence": "GitHub check passed on PR #1552."
+            },
+            {
+              "name": "analyze (javascript-typescript)",
+              "evidence": "GitHub CodeQL analyze check passed on PR #1552."
+            },
+            {
+              "name": "CodeQL",
+              "evidence": "GitHub CodeQL check passed on PR #1552."
+            }
           ],
-          "evidence": "PR #1552 GitHub contracts initially failed on rebased head 9a00d56b0f5cf2e5ececf97e1224f77be2b9c4ed because docs/codex/pr-train-state.json used unsupported status rebased_local_checks_passed. Corrected within current metadata scope; GitHub checks then passed on head 5c9f7e2d3405fc1b8f217e7baef3a65e0caec346 and PR merge state was CLEAN. After origin/main advanced through ad-hoc PR #1554, local branch was rebased again; GitHub checks are pending for the force-with-lease push."
+          "failed": [],
+          "evidence": "Reconciled from GitHub: PR #1552 merged at 2026-07-03T04:34:45Z with merge commit fd8eac74cb3cb499fae9bfeff036a2330d4e0273 after all required checks passed."
         },
         "scope": {
           "status": "passed",
@@ -13340,10 +13359,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1552",
-      "commit_sha": "ad1eca68be665e9f1b41d0febf0e3545aa60a3dc",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "9bbc18aa4c311c1e6fcab89de3b5fed52a54f6f1",
+      "merged_at": "2026-07-03T04:34:45Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -13394,11 +13413,17 @@
           "at": "2026-07-03T12:30:00+08:00",
           "status": "ready_to_merge",
           "summary": "Merged ad-hoc PR #1554 to add an explicit Next.js static generation timeout, rebased SECURITY-122-WEB-11 onto origin/main 65e3e10434d8c690bb86cae571278665636c227c, reran focused WEB-11 regressions, typecheck, production build, and isolated reruns for the non-WEB-11 shard timeout files successfully. Recording ready_to_merge before force-with-lease push; GitHub checks must pass again before merge."
+        },
+        {
+          "at": "2026-07-03T16:35:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled stale ready_to_merge ledger state from GitHub. PR #1552 is merged, origin/main contains fd8eac74cb3cb499fae9bfeff036a2330d4e0273, local cleanup was executed, and task branches are deleted."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T12:30:00+08:00",
-      "head_sha": "ad1eca68be665e9f1b41d0febf0e3545aa60a3dc"
+      "updated_at": "2026-07-03T16:35:00+08:00",
+      "head_sha": "9bbc18aa4c311c1e6fcab89de3b5fed52a54f6f1",
+      "merge_sha": "fd8eac74cb3cb499fae9bfeff036a2330d4e0273"
     },
     {
       "id": "SECURITY-122-WEB-12",
@@ -13954,7 +13979,7 @@
       "depends_on": [
         "SECURITY-122-WEB-15"
       ],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_122_web_public_ui_route_probe_config_guard_regressions",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-16: public UI/route probe/config guard regressions",
@@ -14036,7 +14061,7 @@
             }
           ],
           "failed": [],
-          "evidence": "Current-scope contracts fixes pushed locally; waiting for GitHub checks rerun."
+          "evidence": "Reconciled from GitHub: PR #1568 merged at 2026-07-03T08:07:23Z with merge commit 7893087393d140d13b111427957bbfc3944d77b3 after all required checks passed."
         },
         "scope": {
           "status": "passed",
@@ -14045,10 +14070,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1568",
-      "commit_sha": "351a4412cb212db871b5e5ce7f325de4d01fb551",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "b26c144c8c745e7630fdefda39ea9f4dd80cd0e4",
+      "merged_at": "2026-07-03T08:07:23Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-02T16:17:52Z",
@@ -14099,12 +14124,22 @@
           "at": "2026-07-03T08:00:11.836Z",
           "status": "ready_to_merge",
           "summary": "GitHub checks passed for PR #1568; pre-merge scope validation passed and PR is mergeable."
+        },
+        {
+          "at": "2026-07-03T08:12:56.315Z",
+          "status": "merged",
+          "summary": "Reconciled SECURITY-122-WEB-16 after PR #1568 merged at 2026-07-03T08:07:23Z; origin/main contains 7893087393d140d13b111427957bbfc3944d77b3, remote branch is deleted, and local task branch cleanup was executed by detaching the current worktree and deleting codex/security-122-web-16."
+        },
+        {
+          "at": "2026-07-03T16:35:00+08:00",
+          "status": "merged",
+          "summary": "Reconciled final GitHub evidence for PR #1568: merged, origin/main contains the merge commit, and task branch cleanup is complete."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-03T08:00:11.836Z",
-      "head_sha": "351a4412cb212db871b5e5ce7f325de4d01fb551",
-      "merge_sha": null
+      "updated_at": "2026-07-03T16:35:00+08:00",
+      "head_sha": "b26c144c8c745e7630fdefda39ea9f4dd80cd0e4",
+      "merge_sha": "7893087393d140d13b111427957bbfc3944d77b3"
     },
     {
       "id": "SECURITY-122-WEB-17",
@@ -14115,7 +14150,7 @@
       "depends_on": [
         "SECURITY-122-WEB-16"
       ],
-      "status": "planned",
+      "status": "ready_to_merge",
       "train_scope": "security_122_web_pdf_print_delivery_markers_smoke_test_correctness",
       "risk_level": "informational",
       "title": "SECURITY-122-WEB-17: PDF/print delivery markers and smoke-test correctness",
@@ -14135,21 +14170,58 @@
           "evidence": "User explicitly authorized SECURITY-122-WEB-01 through SECURITY-122-WEB-17 manifest/state registration and continuous fap-web audit PR train execution."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on SECURITY-122-WEB-16 merge into main."
+          "status": "passed",
+          "evidence": "SECURITY-122-WEB-16 merged via PR #1568 at 2026-07-03T08:07:23Z; origin/main contains 7893087393d140d13b111427957bbfc3944d77b3 and task branches are cleaned."
         },
         "local": {
-          "status": "pending",
-          "passed": []
+          "status": "passed",
+          "passed": [
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-17-pdf-print-delivery.contract.test.tsx",
+              "evidence": "Focused WEB-17 contract passed after rebasing onto origin/main 342e16083e44ce3e7a84247897e3f7a3a0c48af3: 1 file, 5 tests."
+            },
+            {
+              "command": "/usr/local/bin/pnpm typecheck",
+              "evidence": "TypeScript check passed after rebase."
+            },
+            {
+              "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com /usr/local/bin/pnpm build",
+              "evidence": "Production URL build passed after rebase; Next.js generated 202/202 static pages and postbuild synced standalone assets."
+            },
+            {
+              "command": "/usr/local/bin/pnpm test:contract",
+              "evidence": "Full contract suite passed after rebase across 4 shards: shard 1 163 files/944 tests, shard 2 163 files/901 tests, shard 3 163 files/983 tests, shard 4 163 files/955 tests."
+            },
+            {
+              "command": "ruby -e 'require \"yaml\"; require \"json\"; YAML.load_file(\"docs/codex/pr-train.yaml\"); JSON.parse(File.read(\"docs/codex/pr-train-state.json\")); puts \"manifest/state ok\"'",
+              "evidence": "Manifest and state parsed successfully after rebase."
+            },
+            {
+              "command": "git diff --check origin/main...HEAD",
+              "evidence": "Committed diff whitespace check passed after rebase."
+            },
+            {
+              "command": "/usr/local/bin/pnpm exec vitest run tests/contracts/security-122-web-17-pdf-print-delivery.contract.test.tsx --testNamePattern \"keeps the current PR diff\"",
+              "evidence": "Changed-file scope validation passed after rebase."
+            }
+          ],
+          "failed": [],
+          "evidence": "WEB-17 was rebased onto origin/main 342e16083e44ce3e7a84247897e3f7a3a0c48af3 after external PR #1571 advanced main. Required local checks and scope validation passed again."
         },
         "github": {
           "status": "pending",
-          "passed": []
+          "passed": [],
+          "failed": [],
+          "evidence": "PR #1570 rebased and will be force-with-lease pushed; GitHub checks must rerun on the rebased head before merge."
+        },
+        "scope": {
+          "status": "passed",
+          "evidence": "Rebased diff remains limited to WEB-17 PDF/print delivery files, focused contract, scope helper, smoke checker, and PR-train ledger reconciliation."
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1570",
+      "commit_sha": "733e0b1e4311bc01c2df5ef917fd515a4a3bf92b",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -14158,10 +14230,56 @@
           "at": "2026-07-02T16:17:52Z",
           "status": "planned",
           "summary": "Registered SECURITY-122-WEB-17 from explicit user /goal; execution waits for SECURITY-122-WEB-16 merge."
+        },
+        {
+          "at": "2026-07-03T08:12:56.315Z",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-17 from latest origin/main after reconciling WEB-16 merge; implementing PDF/print delivery marker, smoke-test metadata, and URL validation fixes only."
+        },
+        {
+          "at": "2026-07-03T16:35:00+08:00",
+          "status": "in_progress",
+          "summary": "Started SECURITY-122-WEB-17 from latest origin/main after reconciling WEB-11 and WEB-16 merged state; scope is PDF/print delivery markers and smoke-test correctness only."
+        },
+        {
+          "at": "2026-07-03T17:28:00+08:00",
+          "status": "local_checks_passed",
+          "summary": "WEB-17 implementation and local validation passed: focused contract, typecheck, production build, full contract suite, manifest/state parse, diff check, and changed-file scope validation."
+        },
+        {
+          "at": "2026-07-03T17:29:00+08:00",
+          "status": "committed",
+          "summary": "Committed SECURITY-122-WEB-17 local-validated changes at 5007bb9a2916c626369329641f8e270c736e55d9; push and PR creation pending."
+        },
+        {
+          "at": "2026-07-03T17:30:00+08:00",
+          "status": "committed",
+          "summary": "Synchronized SECURITY-122-WEB-17 ledger commit_sha/head_sha with amended commit 316f78934b2fdf0a1e0c6696d18023fb64360a1f; push and PR creation pending."
+        },
+        {
+          "at": "2026-07-03T17:31:00+08:00",
+          "status": "committed",
+          "summary": "Recorded SECURITY-122-WEB-17 implementation commit d5a73128a611db0888056d4f6946c16e5a45f6d6; this ledger-only commit follows it because commit hashes cannot self-reference after amend."
+        },
+        {
+          "at": "2026-07-03T17:33:00+08:00",
+          "status": "pr_opened",
+          "summary": "Opened PR #1570 for SECURITY-122-WEB-17 from branch codex/security-122-web-17 at head 1cda4d5750fb5a1ebc3acbe450be4083bb32277f; GitHub checks pending."
+        },
+        {
+          "at": "2026-07-03T17:35:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "GitHub checks passed for PR #1570; pre-merge manifest/state parse, diff check, and WEB-17 scope validation passed. Recording ready_to_merge before merge per PR-train rules."
+        },
+        {
+          "at": "2026-07-03T17:47:00+08:00",
+          "status": "rebased_local_checks_passed",
+          "summary": "Rebased SECURITY-122-WEB-17 onto origin/main 342e16083e44ce3e7a84247897e3f7a3a0c48af3 after external PR #1571 advanced main; focused contract, typecheck, production build, full contracts, manifest/state parse, diff check, and scope validation passed. Previous GitHub checks must rerun after force-with-lease push from 733e0b1e4311bc01c2df5ef917fd515a4a3bf92b."
         }
       ],
       "sidecar_issues": [],
-      "updated_at": "2026-07-02T16:17:52Z"
+      "updated_at": "2026-07-03T17:47:00+08:00",
+      "head_sha": "733e0b1e4311bc01c2df5ef917fd515a4a3bf92b"
     },
     {
       "id": "PR-AUDIT-FE-01",
