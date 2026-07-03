@@ -152,12 +152,14 @@ describe("WEB-01 personality A/T comparison homepage module", () => {
     const adapterSource = read("lib/cms/personality.ts");
 
     expect(pageSource).toContain("listPersonalityComparisons(locale)");
-    expect(pageSource).toContain('id="personality-comparisons"');
-    expect(pageSource).toContain('data-testid="personality-at-comparison-module"');
-    expect(pageSource).toContain("personality-cross-type-comparison-card");
-    expect(pageSource).toContain('data-authority-source="comparison_list_public_projection_v1"');
     expect(pageSource).toContain("comparisonGroups={comparisonList.groups}");
-    expect(pageSource).toContain("group.items.map");
+    expect(pageSource).toContain("comparisonHrefByBaseType");
+    expect(pageSource).toContain("crossComparisonsByBaseType");
+    expect(pageSource).toContain('item.comparisonType === "mbti_cross_type"');
+    expect(pageSource).toContain("comparisonLabel(item)");
+    expect(pageSource).not.toContain('id="personality-comparisons"');
+    expect(pageSource).not.toContain('data-testid="personality-at-comparison-module"');
+    expect(pageSource).not.toContain("personality-cross-type-comparison-card");
     expect(pageSource).not.toContain("buildPersonalityComparisonSlugsFromProfiles");
     expect(pageSource).not.toContain("MBTI_COMPARISON_BASE_TYPES");
     expect(pageSource).not.toContain("intj-a-vs-intj-t");
