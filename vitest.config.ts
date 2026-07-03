@@ -12,5 +12,11 @@ export default defineConfig({
     setupFiles: ["./vitest.setup.ts"],
     globals: true,
     include: ["tests/**/*.test.ts", "tests/**/*.test.tsx"],
+    restoreMocks: true,
+    clearMocks: true,
+    mockReset: false,
+    pool: "forks",
+    maxWorkers: 4,
+    teardownTimeout: 10_000,
   },
 });
