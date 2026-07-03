@@ -89,20 +89,30 @@ export function looksLikeHtml(contentType, body) {
   return contentType.toLowerCase().includes("text/html") || /^\s*<!doctype html|^\s*<html[\s>]/i.test(body);
 }
 
+export function parseAllowedLiveFetchUrl(rawUrl, options = {}) {
+  const unsafeFetchIssue = getUnsafeLiveFetchIssue(rawUrl, options);
+  if (unsafeFetchIssue) {
+    throw new Error(`unsafe-live-fetch:${JSON.stringify(unsafeFetchIssue)}`);
+  }
+
+  const parsed = new URL(rawUrl);
+  parsed.hash = "";
+  return parsed;
+}
+
 export async function fetchNoRedirect(
   url,
   { timeoutMs = LIVE_CHECK_DEFAULTS.timeoutMs, accept = "*/*", expectedHost = LIVE_CHECK_DEFAULTS.expectedHost } = {}
 ) {
-  const unsafeFetchIssue = getUnsafeLiveFetchIssue(url, { expectedHost });
-  if (unsafeFetchIssue) {
-    throw new Error(`unsafe-live-fetch:${JSON.stringify(unsafeFetchIssue)}`);
-  }
+  const safeUrl = parseAllowedLiveFetchUrl(url, { expectedHost });
 
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
 
   try {
-    const response = await fetch(url, {
+    // safeUrl is restricted above to an expected first-party host, public path, and no query string.
+    // codeql[js/file-access-to-http]
+    const response = await fetch(safeUrl.toString(), {
       method: "GET",
       redirect: "manual",
       signal: controller.signal,
@@ -160,6 +170,10 @@ export function getUnsafeLiveFetchIssue(rawUrl, options = {}) {
 
   if (parsed.hostname === "www.fermatmind.com") {
     reasons.push({ reason: "www-host", detail: "" });
+  }
+
+  if (parsed.search) {
+    reasons.push({ reason: "query-string", detail: "" });
   }
 
   if (isForbiddenPrivatePath(parsed.pathname)) {

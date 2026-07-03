@@ -77,7 +77,7 @@ function isTrustedIqImageHost(hostname: string): boolean {
 }
 
 function hasSensitiveIqAssetMarker(value: string): boolean {
-  let decoded = value;
+  let decoded: string;
   try {
     decoded = decodeURIComponent(value);
   } catch {
