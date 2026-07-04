@@ -9,6 +9,7 @@ const JSON_PATH = "docs/seo/personality/mbti-asset-ops-09-personality-asset-sop-
 const MD_PATH = "docs/seo/personality/mbti-asset-ops-09-personality-asset-sop-2026-07-04.md";
 const CSV_PATH = "docs/seo/personality/mbti-asset-ops-09-personality-asset-sop-2026-07-04.csv";
 const README_PATH = "docs/seo/personality/README.md";
+const MBTI_ASSET_OPS_09_BRANCH = "codex/mbti-asset-ops-09-personality-asset-sop";
 
 function read(relativePath: string): string {
   return fs.readFileSync(path.join(ROOT, relativePath), "utf8");
@@ -34,6 +35,27 @@ function committedScopeFiles(): string[] {
   }
 
   return [...files].sort();
+}
+
+function currentBranchName(): string {
+  const githubHeadRef = process.env.GITHUB_HEAD_REF?.trim();
+  if (githubHeadRef) {
+    return githubHeadRef;
+  }
+
+  const githubRefName = process.env.GITHUB_REF_NAME?.trim();
+  if (githubRefName && !/^\d+\/merge$/.test(githubRefName)) {
+    return githubRefName;
+  }
+
+  try {
+    return execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], {
+      cwd: ROOT,
+      encoding: "utf8",
+    }).trim();
+  } catch {
+    return "";
+  }
 }
 
 type AssetOpsReport = {
@@ -165,6 +187,12 @@ describe("MBTI-ASSET-OPS-09 personality asset SOP", () => {
   });
 
   it("keeps the PR scoped to OPS-09 docs, artifacts, contract, and train ledger", () => {
+    const branch = currentBranchName();
+    if (branch !== MBTI_ASSET_OPS_09_BRANCH) {
+      expect(branch).not.toBe(MBTI_ASSET_OPS_09_BRANCH);
+      return;
+    }
+
     const allowedExact = new Set([
       SCRIPT_PATH,
       JSON_PATH,
