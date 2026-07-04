@@ -1,0 +1,23 @@
+{
+  "status": "draft_review_only",
+  "seo_title": "IQ 风格测试的数据和隐私边界说明",
+  "seo_description": "说明公开测试页、答题流程、私人结果页和后端私有评分的边界；不公开答案、评分规则或私人报告字段。",
+  "canonical_url": "https://fermatmind.com/zh/articles/iq-test-privacy-data-boundary",
+  "robots": "noindex,follow",
+  "structured_data_candidates": [
+    "Article",
+    "BreadcrumbList",
+    "FAQPage"
+  ],
+  "structured_data_forbidden": [
+    "Product",
+    "SoftwareApplication",
+    "Certificate",
+    "Course",
+    "MedicalWebPage"
+  ],
+  "faqpage_policy": "allowed only if visible FAQ text remains in article.md and CMS rendering preserves it",
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "publish_gate": "only after human review, CMS publish approval, claim gate pass, and runtime readback"
+}
