@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T17:03:34Z",
+  "updated_at": "2026-07-04T17:26:53Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -40957,7 +40957,7 @@
       "MBTI-OPS-08"
     ],
     "status": "local_checks_passed_after_rebase_pending_github",
-    "commit_sha": "742d999d71f161a38380c9ec5b541ea8aa6b0c2c",
+    "commit_sha": "4ce5568612c78387ea9fb8ae4b27e09fbd4ba451",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1590",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -40965,7 +40965,7 @@
     "failure_reason": null,
     "checks": {
       "local_checks": {
-        "status": "passed_after_rebase_to_iq_method_02",
+        "status": "passed_after_rebase_to_iq_method_03",
         "commands": [
           "node scripts/seo/build-mbti-asset-ops-09-personality-asset-sop.mjs",
           "corepack pnpm exec vitest run tests/contracts/mbti-asset-ops-09-personality-asset-sop.contract.test.ts --reporter=dot",
@@ -40978,14 +40978,14 @@
           "git diff --check",
           "changed-file scope validation"
         ],
-        "evidence": "Rebased PR #1590 onto origin/main a596b58d after IQ-METHOD-02 merged; generator, focused contract, full contract suite, typecheck, production API build, YAML/JSON validation, diff check, and scope validation passed locally. Transient CMS-04 generated side effects were restored out of scope."
+        "evidence": "Rebased PR #1590 onto origin/main a2fe6597 after IQ-METHOD-03 merged; generator, focused contract, full contract suite, typecheck, production API build, YAML/JSON validation, diff check, and scope validation passed locally. Transient CMS-04 generated side effects were restored out of scope."
       },
       "github_checks": {
         "status": "pending_after_rebase_repush",
-        "evidence": "Local checks passed after rebase onto a596b58d; GitHub checks need to rerun after force-with-lease push."
+        "evidence": "Local checks passed after rebase onto a2fe6597; GitHub checks need to rerun after force-with-lease push."
       },
       "scope_validation": {
-        "status": "passed_after_rebase_to_iq_method_02",
+        "status": "passed_after_rebase_to_iq_method_03",
         "evidence": "Changed-file scope validation shows only the 10 OPS-09 allowed files in origin/main...HEAD; git status is clean."
       },
       "diff_check": {
@@ -40994,9 +40994,9 @@
       }
     },
     "scope_validation": {
-      "status": "passed_after_rebase_to_iq_method_02",
+      "status": "passed_after_rebase_to_iq_method_03",
       "outside_scope_files": [],
-      "evidence": "PR diff remains limited to OPS-09 allowed docs, artifacts, generator, focused contract, sidecar files, and train ledger after rebase onto a596b58d."
+      "evidence": "PR diff remains limited to OPS-09 allowed docs, artifacts, generator, focused contract, sidecar files, and train ledger after rebase onto a2fe6597."
     },
     "artifacts": [
       "docs/seo/personality/README.md",
@@ -41061,9 +41061,14 @@
         "at": "2026-07-04T17:03:34Z",
         "status": "local_checks_passed_after_rebase_to_iq_method_02",
         "notes": "Rebased onto origin/main a596b58d, restored out-of-scope CMS-04 generated side effects after full contracts, and reran generator, focused contract, full contract, typecheck, build, YAML/JSON validation, diff check, and scope validation successfully."
+      },
+      {
+        "at": "2026-07-04T17:26:53Z",
+        "status": "local_checks_passed_after_rebase_to_iq_method_03",
+        "notes": "Rebased onto origin/main a2fe6597, restored out-of-scope CMS-04 generated side effects after full contracts, and reran generator, focused contract, full contract, typecheck, build, YAML/JSON validation, diff check, and scope validation successfully."
       }
     ],
-    "updated_at": "2026-07-04T17:03:34Z",
+    "updated_at": "2026-07-04T17:26:53Z",
     "next_task": "MBTI-ASSET-SKILL-10"
   },
   "MBTI-ASSET-SKILL-10": {
