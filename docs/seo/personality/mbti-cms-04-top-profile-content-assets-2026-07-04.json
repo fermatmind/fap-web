@@ -1,0 +1,1423 @@
+{
+  "artifact": "MBTI-CMS-04-TOP-PROFILE-CONTENT-ASSETS",
+  "generated_at": "2026-07-04T06:08:17.376Z",
+  "status": "ready_for_cms_review_no_production_write",
+  "final_decision": "PASS_NON_PRODUCTION_CONTENT_ASSET_PACKAGE_READY_FOR_CMS_REVIEW",
+  "input_artifacts": {
+    "priority_ranker": "docs/seo/personality/mbti64-agent-priority-ranker-2026-06-23.csv",
+    "page_snapshot": "docs/seo/personality/mbti64-gsc-performance-page-snapshot-2026-06-22.csv",
+    "existing_recommendations": "docs/seo/personality/personality-agent-operations-next-batch-recommendations-2026-06-25.json"
+  },
+  "selection_policy": {
+    "scope": "Top 10 exposed MBTI64 single personality pages from repo GSC/priority artifacts.",
+    "excludes": [
+      "comparison pages",
+      "production CMS writes",
+      "DB migrations",
+      "frontend runtime renderer changes"
+    ],
+    "note": "This artifact packages draft CMS fields only. Publishing requires an explicit backend/CMS import PR or approval-gated CMS operation."
+  },
+  "summary": {
+    "target_count": 10,
+    "variant_pages": 10,
+    "comparison_pages": 0,
+    "zh_pages": 5,
+    "en_pages": 5,
+    "modules_per_page": 9,
+    "faq_per_page": 5,
+    "internal_links_min": 5
+  },
+  "assets": [
+    {
+      "asset_id": "mbti-cms-04:/zh/personality/intp-a",
+      "target_url": "https://fermatmind.com/zh/personality/intp-a",
+      "path": "/zh/personality/intp-a",
+      "framework": "mbti64",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "mbti_type": "INTP",
+      "variant": "A",
+      "archetype": "逻辑学家",
+      "gsc_evidence": {
+        "impressions": 9,
+        "clicks": 0,
+        "average_position": 12.7,
+        "keyword_opportunity": [
+          "intp a",
+          "intp-a",
+          "intp-a 人格"
+        ],
+        "source_policy": "repo_artifact_snapshot_only_no_live_gsc_call"
+      },
+      "cms_fields": {
+        "title": "INTP-A 逻辑学家人格：特点、A/T差异、职业与关系 | FermatMind",
+        "h1": "INTP-A 逻辑学家人格特点",
+        "meta_description": "系统了解 INTP-A 的分析、概念建模和独立解题，以及更稳定地推进自己的判断，较少反复寻求外部确认。包含适合谁、不适合谁、常见误解、职业、关系、压力场景和 FAQ。",
+        "answer_block": "INTP-A 是 INTP 核心人格加上 A 型身份风格的公开解释页，重点说明分析、概念建模和独立解题，并补充更稳定地推进自己的判断，较少反复寻求外部确认。阅读时应把它当作测试结果后的解释框架，用来比较个人偏好、压力反应和沟通方式。它适合用于自我理解、沟通校准和测试结果延伸，不适合作为职业录用、诊断或关系结论。",
+        "modules": [
+          {
+            "key": "definition",
+            "required": true,
+            "body": "INTP-A 不是独立于 INTP 的新类型，而是在 INTP 的认知与行为偏好上加入 A/T 身份风格视角，用来解释自信稳定度、反馈处理和压力下复盘方式。"
+          },
+          {
+            "key": "suitable_for",
+            "required": true,
+            "body": "适合已经知道自己可能接近 INTP，并希望理解分析、概念建模和独立解题如何影响学习、工作、关系沟通、压力处理和自我复盘的人。"
+          },
+          {
+            "key": "not_suitable_for",
+            "required": true,
+            "body": "不适合把人格类型当作招聘筛选、医学诊断、伴侣匹配结论或能力证明的人；页面只能提供语言和观察框架，不能替代个人评估或专业判断。"
+          },
+          {
+            "key": "common_misread",
+            "required": true,
+            "body": "常见误解是把 INTP-A 看成永远自信或永远正确。更准确的理解是：它描述反馈和不确定性下的倾向，不代表能力上限、道德水平或固定命运。"
+          },
+          {
+            "key": "base16_difference",
+            "required": true,
+            "body": "INTP-A 与 INTP 的关系是“基础 16 型 + A/T 身份风格”。基础 16 型解释信息关注和决策偏好，A/T 解释自我确认、压力反应和反馈复盘。"
+          },
+          {
+            "key": "at_difference",
+            "required": true,
+            "body": "INTP-A 与 INTP-T 的主要差异不在兴趣或能力，而在压力后是否更频繁复盘、是否更容易受外界评价牵动，以及行动前需要多少确认。"
+          },
+          {
+            "key": "career_scenarios",
+            "required": true,
+            "body": "职业场景应围绕分析、概念建模和独立解题来观察任务结构、反馈节奏、协作方式、决策责任和长期成长条件，而不是直接得出职业结论。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "required": true,
+            "body": "关系场景适合观察表达需求、回应冲突、处理边界和修复误会的方式；不要用 INTP-A 给对方贴标签或替代真实沟通与持续反馈。"
+          },
+          {
+            "key": "stress_scenarios",
+            "required": true,
+            "body": "压力下重点观察更稳定地推进自己的判断，较少反复寻求外部确认是否让行动更稳定，或是否导致忽视新证据；建议配合具体情境记录，而不是只看类型名。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INTP-A 人格特点是什么？",
+            "answer": "INTP-A 通常体现为分析、概念建模和独立解题，并在 A/T 维度上呈现更稳定地推进自己的判断，较少反复寻求外部确认。"
+          },
+          {
+            "question": "INTP-A 适合什么工作？",
+            "answer": "更适合讨论任务环境和工作方式，例如反馈频率、独立度、协作密度和决策责任；不能直接推出职业结论。"
+          },
+          {
+            "question": "INTP-A 和 INTP-T 有什么不同？",
+            "answer": "主要差异在自我确认、压力反应和反馈复盘方式，而不是基础兴趣、能力或价值高低；判断时应结合真实情境。"
+          },
+          {
+            "question": "INTP-A 在关系中容易被误解什么？",
+            "answer": "容易被简化成固定标签。实际关系仍要看沟通习惯、边界、承诺、冲突修复方式和双方持续反馈。"
+          },
+          {
+            "question": "这个页面可以替代 MBTI 测试吗？",
+            "answer": "不能。它是公共解释和内容资产草案，个人结果仍应结合正式测试、完整报告、真实反馈和长期观察。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI人格",
+            "purpose": "hub_return",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intp-t",
+            "anchor_text": "INTP-T",
+            "purpose": "at_sibling",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intp-a-vs-intp-t",
+            "anchor_text": "INTP-A vs INTP-T",
+            "purpose": "at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI test",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-vs-intp",
+            "anchor_text": "INTJ vs INTP",
+            "purpose": "hot_comparison",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_required_before_publish": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "search_submission_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-cms-04:/zh/personality/esfp-a",
+      "target_url": "https://fermatmind.com/zh/personality/esfp-a",
+      "path": "/zh/personality/esfp-a",
+      "framework": "mbti64",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "mbti_type": "ESFP",
+      "variant": "A",
+      "archetype": "表演者",
+      "gsc_evidence": {
+        "impressions": 1,
+        "clicks": 0,
+        "average_position": 7,
+        "keyword_opportunity": [
+          "esfp-a",
+          "esfp-a 人格"
+        ],
+        "source_policy": "repo_artifact_snapshot_only_no_live_gsc_call"
+      },
+      "cms_fields": {
+        "title": "ESFP-A 表演者人格：特点、A/T差异、职业与关系 | FermatMind",
+        "h1": "ESFP-A 表演者人格特点",
+        "meta_description": "系统了解 ESFP-A 的现场感、表达力和即时互动，以及更容易把当下反馈转化为行动，而不是长时间纠结外部评价。包含适合谁、不适合谁、常见误解、职业、关系、压力场景和 FAQ。",
+        "answer_block": "ESFP-A 是 ESFP 核心人格加上 A 型身份风格的公开解释页，重点说明现场感、表达力和即时互动，并补充更容易把当下反馈转化为行动，而不是长时间纠结外部评价。阅读时应把它当作测试结果后的解释框架，用来比较个人偏好、压力反应和沟通方式。它适合用于自我理解、沟通校准和测试结果延伸，不适合作为职业录用、诊断或关系结论。",
+        "modules": [
+          {
+            "key": "definition",
+            "required": true,
+            "body": "ESFP-A 不是独立于 ESFP 的新类型，而是在 ESFP 的认知与行为偏好上加入 A/T 身份风格视角，用来解释自信稳定度、反馈处理和压力下复盘方式。"
+          },
+          {
+            "key": "suitable_for",
+            "required": true,
+            "body": "适合已经知道自己可能接近 ESFP，并希望理解现场感、表达力和即时互动如何影响学习、工作、关系沟通、压力处理和自我复盘的人。"
+          },
+          {
+            "key": "not_suitable_for",
+            "required": true,
+            "body": "不适合把人格类型当作招聘筛选、医学诊断、伴侣匹配结论或能力证明的人；页面只能提供语言和观察框架，不能替代个人评估或专业判断。"
+          },
+          {
+            "key": "common_misread",
+            "required": true,
+            "body": "常见误解是把 ESFP-A 看成永远自信或永远正确。更准确的理解是：它描述反馈和不确定性下的倾向，不代表能力上限、道德水平或固定命运。"
+          },
+          {
+            "key": "base16_difference",
+            "required": true,
+            "body": "ESFP-A 与 ESFP 的关系是“基础 16 型 + A/T 身份风格”。基础 16 型解释信息关注和决策偏好，A/T 解释自我确认、压力反应和反馈复盘。"
+          },
+          {
+            "key": "at_difference",
+            "required": true,
+            "body": "ESFP-A 与 ESFP-T 的主要差异不在兴趣或能力，而在压力后是否更频繁复盘、是否更容易受外界评价牵动，以及行动前需要多少确认。"
+          },
+          {
+            "key": "career_scenarios",
+            "required": true,
+            "body": "职业场景应围绕现场感、表达力和即时互动来观察任务结构、反馈节奏、协作方式、决策责任和长期成长条件，而不是直接得出职业结论。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "required": true,
+            "body": "关系场景适合观察表达需求、回应冲突、处理边界和修复误会的方式；不要用 ESFP-A 给对方贴标签或替代真实沟通与持续反馈。"
+          },
+          {
+            "key": "stress_scenarios",
+            "required": true,
+            "body": "压力下重点观察更容易把当下反馈转化为行动，而不是长时间纠结外部评价是否让行动更稳定，或是否导致忽视新证据；建议配合具体情境记录，而不是只看类型名。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ESFP-A 人格特点是什么？",
+            "answer": "ESFP-A 通常体现为现场感、表达力和即时互动，并在 A/T 维度上呈现更容易把当下反馈转化为行动，而不是长时间纠结外部评价。"
+          },
+          {
+            "question": "ESFP-A 适合什么工作？",
+            "answer": "更适合讨论任务环境和工作方式，例如反馈频率、独立度、协作密度和决策责任；不能直接推出职业结论。"
+          },
+          {
+            "question": "ESFP-A 和 ESFP-T 有什么不同？",
+            "answer": "主要差异在自我确认、压力反应和反馈复盘方式，而不是基础兴趣、能力或价值高低；判断时应结合真实情境。"
+          },
+          {
+            "question": "ESFP-A 在关系中容易被误解什么？",
+            "answer": "容易被简化成固定标签。实际关系仍要看沟通习惯、边界、承诺、冲突修复方式和双方持续反馈。"
+          },
+          {
+            "question": "这个页面可以替代 MBTI 测试吗？",
+            "answer": "不能。它是公共解释和内容资产草案，个人结果仍应结合正式测试、完整报告、真实反馈和长期观察。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI人格",
+            "purpose": "hub_return",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/esfp-t",
+            "anchor_text": "ESFP-T",
+            "purpose": "at_sibling",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/esfp-a-vs-esfp-t",
+            "anchor_text": "ESFP-A vs ESFP-T",
+            "purpose": "at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI test",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-vs-intp",
+            "anchor_text": "INTJ vs INTP",
+            "purpose": "hot_comparison",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_required_before_publish": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "search_submission_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-cms-04:/en/personality/enfj-a",
+      "target_url": "https://fermatmind.com/en/personality/enfj-a",
+      "path": "/en/personality/enfj-a",
+      "framework": "mbti64",
+      "locale": "en",
+      "page_type": "variant",
+      "mbti_type": "ENFJ",
+      "variant": "A",
+      "archetype": "Protagonist",
+      "gsc_evidence": {
+        "impressions": 21,
+        "clicks": 0,
+        "average_position": 26.9,
+        "keyword_opportunity": [
+          "enfj-a",
+          "enfj a personality"
+        ],
+        "source_policy": "repo_artifact_snapshot_only_no_live_gsc_call"
+      },
+      "cms_fields": {
+        "title": "ENFJ-A Protagonist Personality: Traits, A/T Difference, Career and Relationships | FermatMind",
+        "h1": "ENFJ-A Protagonist Personality Traits",
+        "meta_description": "Understand ENFJ-A through people leadership, values alignment, and group momentum,  steadier self-trust when coordinating others and absorbing feedback, fit signals, misreads, A/T differences, career, relationships, stress scenarios, and FAQ.",
+        "answer_block": "ENFJ-A is a public profile page for the ENFJ core pattern plus the A identity style. It explains people leadership, values alignment, and group momentum and  steadier self-trust when coordinating others and absorbing feedback. Use it for self-understanding and communication calibration, not for hiring, diagnosis, or relationship conclusions.",
+        "modules": [
+          {
+            "key": "definition",
+            "required": true,
+            "body": "ENFJ-A is not a separate system from ENFJ; it layers the A/T identity style onto the base type to explain confidence, feedback processing, and pressure recovery."
+          },
+          {
+            "key": "suitable_for",
+            "required": true,
+            "body": "Best for readers who already relate to ENFJ and want to understand how people leadership, values alignment, and group momentum may show up in work, learning, relationships, and stress."
+          },
+          {
+            "key": "not_suitable_for",
+            "required": true,
+            "body": "Not suitable as a hiring filter, clinical diagnosis, relationship verdict, or proof of ability. The page provides a language framework only."
+          },
+          {
+            "key": "common_misread",
+            "required": true,
+            "body": "A common misread is treating ENFJ-A as permanently confident, fragile, talented, or limited. It describes tendencies under feedback and uncertainty, not fixed capability."
+          },
+          {
+            "key": "base16_difference",
+            "required": true,
+            "body": "ENFJ-A combines the base ENFJ pattern with an A/T identity style. The base type explains preference patterns; A/T explains confidence, self-review, and pressure response."
+          },
+          {
+            "key": "at_difference",
+            "required": true,
+            "body": "ENFJ-A differs from ENFJ-T mostly in self-confirmation, feedback sensitivity, and how much review is needed before acting, not in worth or ability."
+          },
+          {
+            "key": "career_scenarios",
+            "required": true,
+            "body": "Career discussion should focus on task structure, feedback rhythm, autonomy, collaboration, and decision ownership around people leadership, values alignment, and group momentum, not on deterministic job matching."
+          },
+          {
+            "key": "relationship_scenarios",
+            "required": true,
+            "body": "Relationship discussion should focus on needs, boundaries, conflict repair, and communication habits. Do not use ENFJ-A as a label that replaces real conversation."
+          },
+          {
+            "key": "stress_scenarios",
+            "required": true,
+            "body": "Under stress, watch whether  steadier self-trust when coordinating others and absorbing feedback supports steadier action or leads to ignoring new evidence. Pair the profile with concrete situation notes."
+          }
+        ],
+        "faq": [
+          {
+            "question": "What are ENFJ-A personality traits?",
+            "answer": "ENFJ-A usually combines people leadership, values alignment, and group momentum with  steadier self-trust when coordinating others and absorbing feedback."
+          },
+          {
+            "question": "What careers fit ENFJ-A?",
+            "answer": "Use this page to discuss work environments and task patterns, not to make deterministic career decisions."
+          },
+          {
+            "question": "How is ENFJ-A different from ENFJ-T?",
+            "answer": "The difference is mainly self-confirmation, pressure response, and feedback review style, not ability or value."
+          },
+          {
+            "question": "What is a common ENFJ-A misconception?",
+            "answer": "A common misconception is turning the type into a fixed label instead of a context-sensitive reflection tool."
+          },
+          {
+            "question": "Can this page replace an MBTI test?",
+            "answer": "No. It is a public explanation and non-production content asset; personal results should come from a full assessment and report."
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI人格",
+            "purpose": "hub_return",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/enfj-t",
+            "anchor_text": "ENFJ-T",
+            "purpose": "at_sibling",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/enfj-a-vs-enfj-t",
+            "anchor_text": "ENFJ-A vs ENFJ-T",
+            "purpose": "at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI test",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/intj-vs-intp",
+            "anchor_text": "INTJ vs INTP",
+            "purpose": "hot_comparison",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_required_before_publish": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "search_submission_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-cms-04:/zh/personality/istp-a",
+      "target_url": "https://fermatmind.com/zh/personality/istp-a",
+      "path": "/zh/personality/istp-a",
+      "framework": "mbti64",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "mbti_type": "ISTP",
+      "variant": "A",
+      "archetype": "鉴赏家",
+      "gsc_evidence": {
+        "impressions": 7,
+        "clicks": 0,
+        "average_position": 7.3,
+        "keyword_opportunity": [
+          "istp-a",
+          "istp-a 人格"
+        ],
+        "source_policy": "repo_artifact_snapshot_only_no_live_gsc_call"
+      },
+      "cms_fields": {
+        "title": "ISTP-A 鉴赏家人格：特点、A/T差异、职业与关系 | FermatMind",
+        "h1": "ISTP-A 鉴赏家人格特点",
+        "meta_description": "系统了解 ISTP-A 的动手试错、工具感和现实问题拆解，以及更倾向于相信自己的现场判断，并在压力下保持操作节奏。包含适合谁、不适合谁、常见误解、职业、关系、压力场景和 FAQ。",
+        "answer_block": "ISTP-A 是 ISTP 核心人格加上 A 型身份风格的公开解释页，重点说明动手试错、工具感和现实问题拆解，并补充更倾向于相信自己的现场判断，并在压力下保持操作节奏。阅读时应把它当作测试结果后的解释框架，用来比较个人偏好、压力反应和沟通方式。它适合用于自我理解、沟通校准和测试结果延伸，不适合作为职业录用、诊断或关系结论。",
+        "modules": [
+          {
+            "key": "definition",
+            "required": true,
+            "body": "ISTP-A 不是独立于 ISTP 的新类型，而是在 ISTP 的认知与行为偏好上加入 A/T 身份风格视角，用来解释自信稳定度、反馈处理和压力下复盘方式。"
+          },
+          {
+            "key": "suitable_for",
+            "required": true,
+            "body": "适合已经知道自己可能接近 ISTP，并希望理解动手试错、工具感和现实问题拆解如何影响学习、工作、关系沟通、压力处理和自我复盘的人。"
+          },
+          {
+            "key": "not_suitable_for",
+            "required": true,
+            "body": "不适合把人格类型当作招聘筛选、医学诊断、伴侣匹配结论或能力证明的人；页面只能提供语言和观察框架，不能替代个人评估或专业判断。"
+          },
+          {
+            "key": "common_misread",
+            "required": true,
+            "body": "常见误解是把 ISTP-A 看成永远自信或永远正确。更准确的理解是：它描述反馈和不确定性下的倾向，不代表能力上限、道德水平或固定命运。"
+          },
+          {
+            "key": "base16_difference",
+            "required": true,
+            "body": "ISTP-A 与 ISTP 的关系是“基础 16 型 + A/T 身份风格”。基础 16 型解释信息关注和决策偏好，A/T 解释自我确认、压力反应和反馈复盘。"
+          },
+          {
+            "key": "at_difference",
+            "required": true,
+            "body": "ISTP-A 与 ISTP-T 的主要差异不在兴趣或能力，而在压力后是否更频繁复盘、是否更容易受外界评价牵动，以及行动前需要多少确认。"
+          },
+          {
+            "key": "career_scenarios",
+            "required": true,
+            "body": "职业场景应围绕动手试错、工具感和现实问题拆解来观察任务结构、反馈节奏、协作方式、决策责任和长期成长条件，而不是直接得出职业结论。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "required": true,
+            "body": "关系场景适合观察表达需求、回应冲突、处理边界和修复误会的方式；不要用 ISTP-A 给对方贴标签或替代真实沟通与持续反馈。"
+          },
+          {
+            "key": "stress_scenarios",
+            "required": true,
+            "body": "压力下重点观察更倾向于相信自己的现场判断，并在压力下保持操作节奏是否让行动更稳定，或是否导致忽视新证据；建议配合具体情境记录，而不是只看类型名。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ISTP-A 人格特点是什么？",
+            "answer": "ISTP-A 通常体现为动手试错、工具感和现实问题拆解，并在 A/T 维度上呈现更倾向于相信自己的现场判断，并在压力下保持操作节奏。"
+          },
+          {
+            "question": "ISTP-A 适合什么工作？",
+            "answer": "更适合讨论任务环境和工作方式，例如反馈频率、独立度、协作密度和决策责任；不能直接推出职业结论。"
+          },
+          {
+            "question": "ISTP-A 和 ISTP-T 有什么不同？",
+            "answer": "主要差异在自我确认、压力反应和反馈复盘方式，而不是基础兴趣、能力或价值高低；判断时应结合真实情境。"
+          },
+          {
+            "question": "ISTP-A 在关系中容易被误解什么？",
+            "answer": "容易被简化成固定标签。实际关系仍要看沟通习惯、边界、承诺、冲突修复方式和双方持续反馈。"
+          },
+          {
+            "question": "这个页面可以替代 MBTI 测试吗？",
+            "answer": "不能。它是公共解释和内容资产草案，个人结果仍应结合正式测试、完整报告、真实反馈和长期观察。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI人格",
+            "purpose": "hub_return",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/istp-t",
+            "anchor_text": "ISTP-T",
+            "purpose": "at_sibling",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/istp-a-vs-istp-t",
+            "anchor_text": "ISTP-A vs ISTP-T",
+            "purpose": "at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI test",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-vs-intp",
+            "anchor_text": "INTJ vs INTP",
+            "purpose": "hot_comparison",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_required_before_publish": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "search_submission_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-cms-04:/zh/personality/esfj-a",
+      "target_url": "https://fermatmind.com/zh/personality/esfj-a",
+      "path": "/zh/personality/esfj-a",
+      "framework": "mbti64",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "mbti_type": "ESFJ",
+      "variant": "A",
+      "archetype": "执政官",
+      "gsc_evidence": {
+        "impressions": 1,
+        "clicks": 0,
+        "average_position": 8,
+        "keyword_opportunity": [
+          "esfj-a",
+          "esfj-a 人格"
+        ],
+        "source_policy": "repo_artifact_snapshot_only_no_live_gsc_call"
+      },
+      "cms_fields": {
+        "title": "ESFJ-A 执政官人格：特点、A/T差异、职业与关系 | FermatMind",
+        "h1": "ESFJ-A 执政官人格特点",
+        "meta_description": "系统了解 ESFJ-A 的照顾秩序、关系维护和责任分配，以及更能在既定关系网络中保持稳定自信，不轻易被短期评价带偏。包含适合谁、不适合谁、常见误解、职业、关系、压力场景和 FAQ。",
+        "answer_block": "ESFJ-A 是 ESFJ 核心人格加上 A 型身份风格的公开解释页，重点说明照顾秩序、关系维护和责任分配，并补充更能在既定关系网络中保持稳定自信，不轻易被短期评价带偏。阅读时应把它当作测试结果后的解释框架，用来比较个人偏好、压力反应和沟通方式。它适合用于自我理解、沟通校准和测试结果延伸，不适合作为职业录用、诊断或关系结论。",
+        "modules": [
+          {
+            "key": "definition",
+            "required": true,
+            "body": "ESFJ-A 不是独立于 ESFJ 的新类型，而是在 ESFJ 的认知与行为偏好上加入 A/T 身份风格视角，用来解释自信稳定度、反馈处理和压力下复盘方式。"
+          },
+          {
+            "key": "suitable_for",
+            "required": true,
+            "body": "适合已经知道自己可能接近 ESFJ，并希望理解照顾秩序、关系维护和责任分配如何影响学习、工作、关系沟通、压力处理和自我复盘的人。"
+          },
+          {
+            "key": "not_suitable_for",
+            "required": true,
+            "body": "不适合把人格类型当作招聘筛选、医学诊断、伴侣匹配结论或能力证明的人；页面只能提供语言和观察框架，不能替代个人评估或专业判断。"
+          },
+          {
+            "key": "common_misread",
+            "required": true,
+            "body": "常见误解是把 ESFJ-A 看成永远自信或永远正确。更准确的理解是：它描述反馈和不确定性下的倾向，不代表能力上限、道德水平或固定命运。"
+          },
+          {
+            "key": "base16_difference",
+            "required": true,
+            "body": "ESFJ-A 与 ESFJ 的关系是“基础 16 型 + A/T 身份风格”。基础 16 型解释信息关注和决策偏好，A/T 解释自我确认、压力反应和反馈复盘。"
+          },
+          {
+            "key": "at_difference",
+            "required": true,
+            "body": "ESFJ-A 与 ESFJ-T 的主要差异不在兴趣或能力，而在压力后是否更频繁复盘、是否更容易受外界评价牵动，以及行动前需要多少确认。"
+          },
+          {
+            "key": "career_scenarios",
+            "required": true,
+            "body": "职业场景应围绕照顾秩序、关系维护和责任分配来观察任务结构、反馈节奏、协作方式、决策责任和长期成长条件，而不是直接得出职业结论。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "required": true,
+            "body": "关系场景适合观察表达需求、回应冲突、处理边界和修复误会的方式；不要用 ESFJ-A 给对方贴标签或替代真实沟通与持续反馈。"
+          },
+          {
+            "key": "stress_scenarios",
+            "required": true,
+            "body": "压力下重点观察更能在既定关系网络中保持稳定自信，不轻易被短期评价带偏是否让行动更稳定，或是否导致忽视新证据；建议配合具体情境记录，而不是只看类型名。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ESFJ-A 人格特点是什么？",
+            "answer": "ESFJ-A 通常体现为照顾秩序、关系维护和责任分配，并在 A/T 维度上呈现更能在既定关系网络中保持稳定自信，不轻易被短期评价带偏。"
+          },
+          {
+            "question": "ESFJ-A 适合什么工作？",
+            "answer": "更适合讨论任务环境和工作方式，例如反馈频率、独立度、协作密度和决策责任；不能直接推出职业结论。"
+          },
+          {
+            "question": "ESFJ-A 和 ESFJ-T 有什么不同？",
+            "answer": "主要差异在自我确认、压力反应和反馈复盘方式，而不是基础兴趣、能力或价值高低；判断时应结合真实情境。"
+          },
+          {
+            "question": "ESFJ-A 在关系中容易被误解什么？",
+            "answer": "容易被简化成固定标签。实际关系仍要看沟通习惯、边界、承诺、冲突修复方式和双方持续反馈。"
+          },
+          {
+            "question": "这个页面可以替代 MBTI 测试吗？",
+            "answer": "不能。它是公共解释和内容资产草案，个人结果仍应结合正式测试、完整报告、真实反馈和长期观察。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI人格",
+            "purpose": "hub_return",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/esfj-t",
+            "anchor_text": "ESFJ-T",
+            "purpose": "at_sibling",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/esfj-a-vs-esfj-t",
+            "anchor_text": "ESFJ-A vs ESFJ-T",
+            "purpose": "at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI test",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-vs-intp",
+            "anchor_text": "INTJ vs INTP",
+            "purpose": "hot_comparison",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_required_before_publish": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "search_submission_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-cms-04:/en/personality/esfj-t",
+      "target_url": "https://fermatmind.com/en/personality/esfj-t",
+      "path": "/en/personality/esfj-t",
+      "framework": "mbti64",
+      "locale": "en",
+      "page_type": "variant",
+      "mbti_type": "ESFJ",
+      "variant": "T",
+      "archetype": "Consul",
+      "gsc_evidence": {
+        "impressions": 15,
+        "clicks": 0,
+        "average_position": 26.7,
+        "keyword_opportunity": [
+          "esfj-t",
+          "esfj t personality"
+        ],
+        "source_policy": "repo_artifact_snapshot_only_no_live_gsc_call"
+      },
+      "cms_fields": {
+        "title": "ESFJ-T Consul Personality: Traits, A/T Difference, Career and Relationships | FermatMind",
+        "h1": "ESFJ-T Consul Personality Traits",
+        "meta_description": "Understand ESFJ-T through relationship maintenance, shared standards, and practical support, more frequent self-review when group expectations or feedback shift, fit signals, misreads, A/T differences, career, relationships, stress scenarios, and FAQ.",
+        "answer_block": "ESFJ-T is a public profile page for the ESFJ core pattern plus the T identity style. It explains relationship maintenance, shared standards, and practical support and more frequent self-review when group expectations or feedback shift. Use it for self-understanding and communication calibration, not for hiring, diagnosis, or relationship conclusions.",
+        "modules": [
+          {
+            "key": "definition",
+            "required": true,
+            "body": "ESFJ-T is not a separate system from ESFJ; it layers the A/T identity style onto the base type to explain confidence, feedback processing, and pressure recovery."
+          },
+          {
+            "key": "suitable_for",
+            "required": true,
+            "body": "Best for readers who already relate to ESFJ and want to understand how relationship maintenance, shared standards, and practical support may show up in work, learning, relationships, and stress."
+          },
+          {
+            "key": "not_suitable_for",
+            "required": true,
+            "body": "Not suitable as a hiring filter, clinical diagnosis, relationship verdict, or proof of ability. The page provides a language framework only."
+          },
+          {
+            "key": "common_misread",
+            "required": true,
+            "body": "A common misread is treating ESFJ-T as permanently confident, fragile, talented, or limited. It describes tendencies under feedback and uncertainty, not fixed capability."
+          },
+          {
+            "key": "base16_difference",
+            "required": true,
+            "body": "ESFJ-T combines the base ESFJ pattern with an A/T identity style. The base type explains preference patterns; A/T explains confidence, self-review, and pressure response."
+          },
+          {
+            "key": "at_difference",
+            "required": true,
+            "body": "ESFJ-T differs from ESFJ-A mostly in self-confirmation, feedback sensitivity, and how much review is needed before acting, not in worth or ability."
+          },
+          {
+            "key": "career_scenarios",
+            "required": true,
+            "body": "Career discussion should focus on task structure, feedback rhythm, autonomy, collaboration, and decision ownership around relationship maintenance, shared standards, and practical support, not on deterministic job matching."
+          },
+          {
+            "key": "relationship_scenarios",
+            "required": true,
+            "body": "Relationship discussion should focus on needs, boundaries, conflict repair, and communication habits. Do not use ESFJ-T as a label that replaces real conversation."
+          },
+          {
+            "key": "stress_scenarios",
+            "required": true,
+            "body": "Under stress, watch whether more frequent self-review when group expectations or feedback shift supports steadier action or leads to ignoring new evidence. Pair the profile with concrete situation notes."
+          }
+        ],
+        "faq": [
+          {
+            "question": "What are ESFJ-T personality traits?",
+            "answer": "ESFJ-T usually combines relationship maintenance, shared standards, and practical support with more frequent self-review when group expectations or feedback shift."
+          },
+          {
+            "question": "What careers fit ESFJ-T?",
+            "answer": "Use this page to discuss work environments and task patterns, not to make deterministic career decisions."
+          },
+          {
+            "question": "How is ESFJ-T different from ESFJ-A?",
+            "answer": "The difference is mainly self-confirmation, pressure response, and feedback review style, not ability or value."
+          },
+          {
+            "question": "What is a common ESFJ-T misconception?",
+            "answer": "A common misconception is turning the type into a fixed label instead of a context-sensitive reflection tool."
+          },
+          {
+            "question": "Can this page replace an MBTI test?",
+            "answer": "No. It is a public explanation and non-production content asset; personal results should come from a full assessment and report."
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI人格",
+            "purpose": "hub_return",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/esfj-a",
+            "anchor_text": "ESFJ-A",
+            "purpose": "at_sibling",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/esfj-a-vs-esfj-t",
+            "anchor_text": "ESFJ-A vs ESFJ-T",
+            "purpose": "at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI test",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/intj-vs-intp",
+            "anchor_text": "INTJ vs INTP",
+            "purpose": "hot_comparison",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_required_before_publish": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "search_submission_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-cms-04:/en/personality/intp-a",
+      "target_url": "https://fermatmind.com/en/personality/intp-a",
+      "path": "/en/personality/intp-a",
+      "framework": "mbti64",
+      "locale": "en",
+      "page_type": "variant",
+      "mbti_type": "INTP",
+      "variant": "A",
+      "archetype": "Logician",
+      "gsc_evidence": {
+        "impressions": 1,
+        "clicks": 0,
+        "average_position": 9,
+        "keyword_opportunity": [
+          "intp-a",
+          "intp a personality"
+        ],
+        "source_policy": "repo_artifact_snapshot_only_no_live_gsc_call"
+      },
+      "cms_fields": {
+        "title": "INTP-A Logician Personality: Traits, A/T Difference, Career and Relationships | FermatMind",
+        "h1": "INTP-A Logician Personality Traits",
+        "meta_description": "Understand INTP-A through analysis, model building, and independent problem solving, steadier confidence in chosen hypotheses and less repeated reassurance seeking, fit signals, misreads, A/T differences, career, relationships, stress scenarios, and FAQ.",
+        "answer_block": "INTP-A is a public profile page for the INTP core pattern plus the A identity style. It explains analysis, model building, and independent problem solving and steadier confidence in chosen hypotheses and less repeated reassurance seeking. Use it for self-understanding and communication calibration, not for hiring, diagnosis, or relationship conclusions.",
+        "modules": [
+          {
+            "key": "definition",
+            "required": true,
+            "body": "INTP-A is not a separate system from INTP; it layers the A/T identity style onto the base type to explain confidence, feedback processing, and pressure recovery."
+          },
+          {
+            "key": "suitable_for",
+            "required": true,
+            "body": "Best for readers who already relate to INTP and want to understand how analysis, model building, and independent problem solving may show up in work, learning, relationships, and stress."
+          },
+          {
+            "key": "not_suitable_for",
+            "required": true,
+            "body": "Not suitable as a hiring filter, clinical diagnosis, relationship verdict, or proof of ability. The page provides a language framework only."
+          },
+          {
+            "key": "common_misread",
+            "required": true,
+            "body": "A common misread is treating INTP-A as permanently confident, fragile, talented, or limited. It describes tendencies under feedback and uncertainty, not fixed capability."
+          },
+          {
+            "key": "base16_difference",
+            "required": true,
+            "body": "INTP-A combines the base INTP pattern with an A/T identity style. The base type explains preference patterns; A/T explains confidence, self-review, and pressure response."
+          },
+          {
+            "key": "at_difference",
+            "required": true,
+            "body": "INTP-A differs from INTP-T mostly in self-confirmation, feedback sensitivity, and how much review is needed before acting, not in worth or ability."
+          },
+          {
+            "key": "career_scenarios",
+            "required": true,
+            "body": "Career discussion should focus on task structure, feedback rhythm, autonomy, collaboration, and decision ownership around analysis, model building, and independent problem solving, not on deterministic job matching."
+          },
+          {
+            "key": "relationship_scenarios",
+            "required": true,
+            "body": "Relationship discussion should focus on needs, boundaries, conflict repair, and communication habits. Do not use INTP-A as a label that replaces real conversation."
+          },
+          {
+            "key": "stress_scenarios",
+            "required": true,
+            "body": "Under stress, watch whether steadier confidence in chosen hypotheses and less repeated reassurance seeking supports steadier action or leads to ignoring new evidence. Pair the profile with concrete situation notes."
+          }
+        ],
+        "faq": [
+          {
+            "question": "What are INTP-A personality traits?",
+            "answer": "INTP-A usually combines analysis, model building, and independent problem solving with steadier confidence in chosen hypotheses and less repeated reassurance seeking."
+          },
+          {
+            "question": "What careers fit INTP-A?",
+            "answer": "Use this page to discuss work environments and task patterns, not to make deterministic career decisions."
+          },
+          {
+            "question": "How is INTP-A different from INTP-T?",
+            "answer": "The difference is mainly self-confirmation, pressure response, and feedback review style, not ability or value."
+          },
+          {
+            "question": "What is a common INTP-A misconception?",
+            "answer": "A common misconception is turning the type into a fixed label instead of a context-sensitive reflection tool."
+          },
+          {
+            "question": "Can this page replace an MBTI test?",
+            "answer": "No. It is a public explanation and non-production content asset; personal results should come from a full assessment and report."
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI人格",
+            "purpose": "hub_return",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/intp-t",
+            "anchor_text": "INTP-T",
+            "purpose": "at_sibling",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/intp-a-vs-intp-t",
+            "anchor_text": "INTP-A vs INTP-T",
+            "purpose": "at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI test",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/intj-vs-intp",
+            "anchor_text": "INTJ vs INTP",
+            "purpose": "hot_comparison",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_required_before_publish": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "search_submission_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-cms-04:/en/personality/istp-a",
+      "target_url": "https://fermatmind.com/en/personality/istp-a",
+      "path": "/en/personality/istp-a",
+      "framework": "mbti64",
+      "locale": "en",
+      "page_type": "variant",
+      "mbti_type": "ISTP",
+      "variant": "A",
+      "archetype": "Virtuoso",
+      "gsc_evidence": {
+        "impressions": 1,
+        "clicks": 0,
+        "average_position": 11,
+        "keyword_opportunity": [
+          "istp-a",
+          "istp a personality"
+        ],
+        "source_policy": "repo_artifact_snapshot_only_no_live_gsc_call"
+      },
+      "cms_fields": {
+        "title": "ISTP-A Virtuoso Personality: Traits, A/T Difference, Career and Relationships | FermatMind",
+        "h1": "ISTP-A Virtuoso Personality Traits",
+        "meta_description": "Understand ISTP-A through hands-on troubleshooting, tools, and direct experimentation, more confidence in in-the-moment judgment under practical pressure, fit signals, misreads, A/T differences, career, relationships, stress scenarios, and FAQ.",
+        "answer_block": "ISTP-A is a public profile page for the ISTP core pattern plus the A identity style. It explains hands-on troubleshooting, tools, and direct experimentation and more confidence in in-the-moment judgment under practical pressure. Use it for self-understanding and communication calibration, not for hiring, diagnosis, or relationship conclusions.",
+        "modules": [
+          {
+            "key": "definition",
+            "required": true,
+            "body": "ISTP-A is not a separate system from ISTP; it layers the A/T identity style onto the base type to explain confidence, feedback processing, and pressure recovery."
+          },
+          {
+            "key": "suitable_for",
+            "required": true,
+            "body": "Best for readers who already relate to ISTP and want to understand how hands-on troubleshooting, tools, and direct experimentation may show up in work, learning, relationships, and stress."
+          },
+          {
+            "key": "not_suitable_for",
+            "required": true,
+            "body": "Not suitable as a hiring filter, clinical diagnosis, relationship verdict, or proof of ability. The page provides a language framework only."
+          },
+          {
+            "key": "common_misread",
+            "required": true,
+            "body": "A common misread is treating ISTP-A as permanently confident, fragile, talented, or limited. It describes tendencies under feedback and uncertainty, not fixed capability."
+          },
+          {
+            "key": "base16_difference",
+            "required": true,
+            "body": "ISTP-A combines the base ISTP pattern with an A/T identity style. The base type explains preference patterns; A/T explains confidence, self-review, and pressure response."
+          },
+          {
+            "key": "at_difference",
+            "required": true,
+            "body": "ISTP-A differs from ISTP-T mostly in self-confirmation, feedback sensitivity, and how much review is needed before acting, not in worth or ability."
+          },
+          {
+            "key": "career_scenarios",
+            "required": true,
+            "body": "Career discussion should focus on task structure, feedback rhythm, autonomy, collaboration, and decision ownership around hands-on troubleshooting, tools, and direct experimentation, not on deterministic job matching."
+          },
+          {
+            "key": "relationship_scenarios",
+            "required": true,
+            "body": "Relationship discussion should focus on needs, boundaries, conflict repair, and communication habits. Do not use ISTP-A as a label that replaces real conversation."
+          },
+          {
+            "key": "stress_scenarios",
+            "required": true,
+            "body": "Under stress, watch whether more confidence in in-the-moment judgment under practical pressure supports steadier action or leads to ignoring new evidence. Pair the profile with concrete situation notes."
+          }
+        ],
+        "faq": [
+          {
+            "question": "What are ISTP-A personality traits?",
+            "answer": "ISTP-A usually combines hands-on troubleshooting, tools, and direct experimentation with more confidence in in-the-moment judgment under practical pressure."
+          },
+          {
+            "question": "What careers fit ISTP-A?",
+            "answer": "Use this page to discuss work environments and task patterns, not to make deterministic career decisions."
+          },
+          {
+            "question": "How is ISTP-A different from ISTP-T?",
+            "answer": "The difference is mainly self-confirmation, pressure response, and feedback review style, not ability or value."
+          },
+          {
+            "question": "What is a common ISTP-A misconception?",
+            "answer": "A common misconception is turning the type into a fixed label instead of a context-sensitive reflection tool."
+          },
+          {
+            "question": "Can this page replace an MBTI test?",
+            "answer": "No. It is a public explanation and non-production content asset; personal results should come from a full assessment and report."
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI人格",
+            "purpose": "hub_return",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/istp-t",
+            "anchor_text": "ISTP-T",
+            "purpose": "at_sibling",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/istp-a-vs-istp-t",
+            "anchor_text": "ISTP-A vs ISTP-T",
+            "purpose": "at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI test",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/intj-vs-intp",
+            "anchor_text": "INTJ vs INTP",
+            "purpose": "hot_comparison",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_required_before_publish": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "search_submission_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-cms-04:/en/personality/enfp-a",
+      "target_url": "https://fermatmind.com/en/personality/enfp-a",
+      "path": "/en/personality/enfp-a",
+      "framework": "mbti64",
+      "locale": "en",
+      "page_type": "variant",
+      "mbti_type": "ENFP",
+      "variant": "A",
+      "archetype": "Campaigner",
+      "gsc_evidence": {
+        "impressions": 10,
+        "clicks": 0,
+        "average_position": 38.4,
+        "keyword_opportunity": [
+          "enfp-a",
+          "enfp a personality"
+        ],
+        "source_policy": "repo_artifact_snapshot_only_no_live_gsc_call"
+      },
+      "cms_fields": {
+        "title": "ENFP-A Campaigner Personality: Traits, A/T Difference, Career and Relationships | FermatMind",
+        "h1": "ENFP-A Campaigner Personality Traits",
+        "meta_description": "Understand ENFP-A through possibility scanning, expression, and energizing new ideas, more stable self-direction when many options or social reactions compete, fit signals, misreads, A/T differences, career, relationships, stress scenarios, and FAQ.",
+        "answer_block": "ENFP-A is a public profile page for the ENFP core pattern plus the A identity style. It explains possibility scanning, expression, and energizing new ideas and more stable self-direction when many options or social reactions compete. Use it for self-understanding and communication calibration, not for hiring, diagnosis, or relationship conclusions.",
+        "modules": [
+          {
+            "key": "definition",
+            "required": true,
+            "body": "ENFP-A is not a separate system from ENFP; it layers the A/T identity style onto the base type to explain confidence, feedback processing, and pressure recovery."
+          },
+          {
+            "key": "suitable_for",
+            "required": true,
+            "body": "Best for readers who already relate to ENFP and want to understand how possibility scanning, expression, and energizing new ideas may show up in work, learning, relationships, and stress."
+          },
+          {
+            "key": "not_suitable_for",
+            "required": true,
+            "body": "Not suitable as a hiring filter, clinical diagnosis, relationship verdict, or proof of ability. The page provides a language framework only."
+          },
+          {
+            "key": "common_misread",
+            "required": true,
+            "body": "A common misread is treating ENFP-A as permanently confident, fragile, talented, or limited. It describes tendencies under feedback and uncertainty, not fixed capability."
+          },
+          {
+            "key": "base16_difference",
+            "required": true,
+            "body": "ENFP-A combines the base ENFP pattern with an A/T identity style. The base type explains preference patterns; A/T explains confidence, self-review, and pressure response."
+          },
+          {
+            "key": "at_difference",
+            "required": true,
+            "body": "ENFP-A differs from ENFP-T mostly in self-confirmation, feedback sensitivity, and how much review is needed before acting, not in worth or ability."
+          },
+          {
+            "key": "career_scenarios",
+            "required": true,
+            "body": "Career discussion should focus on task structure, feedback rhythm, autonomy, collaboration, and decision ownership around possibility scanning, expression, and energizing new ideas, not on deterministic job matching."
+          },
+          {
+            "key": "relationship_scenarios",
+            "required": true,
+            "body": "Relationship discussion should focus on needs, boundaries, conflict repair, and communication habits. Do not use ENFP-A as a label that replaces real conversation."
+          },
+          {
+            "key": "stress_scenarios",
+            "required": true,
+            "body": "Under stress, watch whether more stable self-direction when many options or social reactions compete supports steadier action or leads to ignoring new evidence. Pair the profile with concrete situation notes."
+          }
+        ],
+        "faq": [
+          {
+            "question": "What are ENFP-A personality traits?",
+            "answer": "ENFP-A usually combines possibility scanning, expression, and energizing new ideas with more stable self-direction when many options or social reactions compete."
+          },
+          {
+            "question": "What careers fit ENFP-A?",
+            "answer": "Use this page to discuss work environments and task patterns, not to make deterministic career decisions."
+          },
+          {
+            "question": "How is ENFP-A different from ENFP-T?",
+            "answer": "The difference is mainly self-confirmation, pressure response, and feedback review style, not ability or value."
+          },
+          {
+            "question": "What is a common ENFP-A misconception?",
+            "answer": "A common misconception is turning the type into a fixed label instead of a context-sensitive reflection tool."
+          },
+          {
+            "question": "Can this page replace an MBTI test?",
+            "answer": "No. It is a public explanation and non-production content asset; personal results should come from a full assessment and report."
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI人格",
+            "purpose": "hub_return",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/enfp-t",
+            "anchor_text": "ENFP-T",
+            "purpose": "at_sibling",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/enfp-a-vs-enfp-t",
+            "anchor_text": "ENFP-A vs ENFP-T",
+            "purpose": "at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI test",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          },
+          {
+            "href": "/en/personality/intj-vs-intp",
+            "anchor_text": "INTJ vs INTP",
+            "purpose": "hot_comparison",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_required_before_publish": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "search_submission_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-cms-04:/zh/personality/istj-a",
+      "target_url": "https://fermatmind.com/zh/personality/istj-a",
+      "path": "/zh/personality/istj-a",
+      "framework": "mbti64",
+      "locale": "zh-CN",
+      "page_type": "variant",
+      "mbti_type": "ISTJ",
+      "variant": "A",
+      "archetype": "物流师",
+      "gsc_evidence": {
+        "impressions": 23,
+        "clicks": 1,
+        "average_position": 9,
+        "keyword_opportunity": [
+          "istj-a",
+          "istj-a人格",
+          "istj a"
+        ],
+        "source_policy": "repo_artifact_snapshot_only_no_live_gsc_call"
+      },
+      "cms_fields": {
+        "title": "ISTJ-A 物流师人格：特点、A/T差异、职业与关系 | FermatMind",
+        "h1": "ISTJ-A 物流师人格特点",
+        "meta_description": "系统了解 ISTJ-A 的秩序、责任、事实核对和稳定执行，以及更能坚持既定标准，并在反馈出现时先按证据复核。包含适合谁、不适合谁、常见误解、职业、关系、压力场景和 FAQ。",
+        "answer_block": "ISTJ-A 是 ISTJ 核心人格加上 A 型身份风格的公开解释页，重点说明秩序、责任、事实核对和稳定执行，并补充更能坚持既定标准，并在反馈出现时先按证据复核。阅读时应把它当作测试结果后的解释框架，用来比较个人偏好、压力反应和沟通方式。它适合用于自我理解、沟通校准和测试结果延伸，不适合作为职业录用、诊断或关系结论。",
+        "modules": [
+          {
+            "key": "definition",
+            "required": true,
+            "body": "ISTJ-A 不是独立于 ISTJ 的新类型，而是在 ISTJ 的认知与行为偏好上加入 A/T 身份风格视角，用来解释自信稳定度、反馈处理和压力下复盘方式。"
+          },
+          {
+            "key": "suitable_for",
+            "required": true,
+            "body": "适合已经知道自己可能接近 ISTJ，并希望理解秩序、责任、事实核对和稳定执行如何影响学习、工作、关系沟通、压力处理和自我复盘的人。"
+          },
+          {
+            "key": "not_suitable_for",
+            "required": true,
+            "body": "不适合把人格类型当作招聘筛选、医学诊断、伴侣匹配结论或能力证明的人；页面只能提供语言和观察框架，不能替代个人评估或专业判断。"
+          },
+          {
+            "key": "common_misread",
+            "required": true,
+            "body": "常见误解是把 ISTJ-A 看成永远自信或永远正确。更准确的理解是：它描述反馈和不确定性下的倾向，不代表能力上限、道德水平或固定命运。"
+          },
+          {
+            "key": "base16_difference",
+            "required": true,
+            "body": "ISTJ-A 与 ISTJ 的关系是“基础 16 型 + A/T 身份风格”。基础 16 型解释信息关注和决策偏好，A/T 解释自我确认、压力反应和反馈复盘。"
+          },
+          {
+            "key": "at_difference",
+            "required": true,
+            "body": "ISTJ-A 与 ISTJ-T 的主要差异不在兴趣或能力，而在压力后是否更频繁复盘、是否更容易受外界评价牵动，以及行动前需要多少确认。"
+          },
+          {
+            "key": "career_scenarios",
+            "required": true,
+            "body": "职业场景应围绕秩序、责任、事实核对和稳定执行来观察任务结构、反馈节奏、协作方式、决策责任和长期成长条件，而不是直接得出职业结论。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "required": true,
+            "body": "关系场景适合观察表达需求、回应冲突、处理边界和修复误会的方式；不要用 ISTJ-A 给对方贴标签或替代真实沟通与持续反馈。"
+          },
+          {
+            "key": "stress_scenarios",
+            "required": true,
+            "body": "压力下重点观察更能坚持既定标准，并在反馈出现时先按证据复核是否让行动更稳定，或是否导致忽视新证据；建议配合具体情境记录，而不是只看类型名。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ISTJ-A 人格特点是什么？",
+            "answer": "ISTJ-A 通常体现为秩序、责任、事实核对和稳定执行，并在 A/T 维度上呈现更能坚持既定标准，并在反馈出现时先按证据复核。"
+          },
+          {
+            "question": "ISTJ-A 适合什么工作？",
+            "answer": "更适合讨论任务环境和工作方式，例如反馈频率、独立度、协作密度和决策责任；不能直接推出职业结论。"
+          },
+          {
+            "question": "ISTJ-A 和 ISTJ-T 有什么不同？",
+            "answer": "主要差异在自我确认、压力反应和反馈复盘方式，而不是基础兴趣、能力或价值高低；判断时应结合真实情境。"
+          },
+          {
+            "question": "ISTJ-A 在关系中容易被误解什么？",
+            "answer": "容易被简化成固定标签。实际关系仍要看沟通习惯、边界、承诺、冲突修复方式和双方持续反馈。"
+          },
+          {
+            "question": "这个页面可以替代 MBTI 测试吗？",
+            "answer": "不能。它是公共解释和内容资产草案，个人结果仍应结合正式测试、完整报告、真实反馈和长期观察。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI人格",
+            "purpose": "hub_return",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/istj-t",
+            "anchor_text": "ISTJ-T",
+            "purpose": "at_sibling",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/istj-a-vs-istj-t",
+            "anchor_text": "ISTJ-A vs ISTJ-T",
+            "purpose": "at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI test",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-vs-intp",
+            "anchor_text": "INTJ vs INTP",
+            "purpose": "hot_comparison",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_required_before_publish": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "search_submission_attempted": false
+      }
+    }
+  ],
+  "safety_boundary": {
+    "artifact_only": true,
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "db_migration_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "frontend_local_editorial_fallback_added": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_api_call_attempted": false,
+    "search_submission_attempted": false,
+    "production_deploy_attempted": false
+  },
+  "blockers": [],
+  "recommended_next_tasks": {
+    "cms_review": "Review MBTI-CMS-04 package in docs/seo/personality before any backend CMS import.",
+    "import": "Create a separate backend/CMS-authoritative import PR or approval-gated CMS operation if these fields are approved.",
+    "followup_frontend": "MBTI-SEO-05 comparison template refresh remains separate."
+  }
+}
