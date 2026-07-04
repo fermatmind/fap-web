@@ -227,19 +227,20 @@ Required stages:
 12. controlled publish.
 13. post-publish smoke.
 14. sitemap, llms, and llms-full release.
-15. URL Truth refresh.
-16. Search Channel Queue readiness.
-17. Search Channel Queue enqueue or explicit `DISCOVERABILITY_RECONCILED_SEARCH_BATCH_HELD`.
-18. IndexNow bounded submission only when the search batch is pre-authorized or separately authorized.
-19. GSC manual readiness and Request Indexing only when the target canonical URLs are pre-authorized or separately authorized.
-20. Baidu readiness/live path only when bounded queue item IDs are pre-authorized or separately authorized.
-21. article schema, breadcrumb schema, FAQ schema, and hreflang independent enhancement gates when the Authorization Profile allows them.
-22. GEO answer/media closeout when the package declares answer blocks or GEO media roles.
-23. final report.
-24. D1/D7/D14 observation queue.
-25. final reconciliation after schema, hreflang, GSC, Search Channel, IndexNow, Baidu, or GEO answer/media work.
+15. llms-full runtime stabilization gate.
+16. URL Truth refresh.
+17. Search Channel Queue readiness.
+18. Search Channel Queue enqueue or explicit `DISCOVERABILITY_RECONCILED_SEARCH_BATCH_HELD`.
+19. IndexNow bounded submission only when the search batch is pre-authorized or separately authorized.
+20. GSC manual readiness and Request Indexing only when the target canonical URLs are pre-authorized or separately authorized.
+21. Baidu readiness/live path only when bounded queue item IDs are pre-authorized or separately authorized.
+22. article schema, breadcrumb schema, FAQ schema, and hreflang independent enhancement gates when the Authorization Profile allows them.
+23. GEO answer/media closeout when the package declares answer blocks or GEO media roles.
+24. final report.
+25. D1/D7/D14 observation queue.
+26. final reconciliation after schema, hreflang, GSC, Search Channel, IndexNow, Baidu, or GEO answer/media work.
 
-Hard gates: follow the Authorization Profile. Run image asset bundle preflight before production draft dry-run. Run Article Identity Lock before preview QA, publish, discoverability release, schema, hreflang, Search Channel, GSC, or Baidu stages. Run schema and hreflang only as explicit independent SEO enhancement gates; if their verification fails, record `SEO_ENHANCEMENT_HELD_REASON` instead of mutating publish state. Treat GEO media fields as package/context evidence, not runtime authority. Search submissions are batch tasks and must not block the next daily content release once public/discoverability state is safe. Stop on any hard no-go.
+Hard gates: follow the Authorization Profile. Run image asset bundle preflight before production draft dry-run. Run Article Identity Lock before preview QA, publish, discoverability release, schema, hreflang, Search Channel, GSC, or Baidu stages. Run schema and hreflang only as explicit independent SEO enhancement gates; if their verification fails, record `SEO_ENHANCEMENT_HELD_REASON` instead of mutating publish state. Treat GEO media fields as package/context evidence, not runtime authority. Search submissions are batch tasks and must not block the next daily content release once public/discoverability state is safe. Do not close out a daily full-chain release on the first `/llms-full.txt` degraded response, HTTP/2 stream error, or missing URL: recheck with HTTP/1.1, retry for a bounded 5-10 minute window, run target article revalidation or llms-full warm when authorized, then rerun public smoke with `--expect-llms-full`. Only after those steps fail may the release record `LLMS_FULL_RUNTIME_HOLD_DOCUMENTED`. Stop on any hard no-go.
 
 ### `multi_article_release_retro`
 
@@ -274,6 +275,13 @@ Do:
 - Run or request read-only evidence for content state, title/meta/canonical/robots, public media URLs, reader-facing taxonomy, sitemap, llms, llms-full, URL Truth, Search Channel queue states, schema/hreflang gates, public HTML JSON-LD, GSC manual request status, and D1/D7/D14 observation queue.
 - Treat PR1 backend closeout and PR2 frontend smoke outputs as complementary: backend tells authority/state gaps; frontend confirms public runtime HTML and cache state.
 - Apply retry/cache-window judgment for public HTML smoke. Do not call one transient cache miss a release failure until the configured retry window completes.
+- For `llms-full`, apply the stricter stabilization rule before closeout:
+  first degraded/missing responses become `LLMS_FULL_DEGRADED_RETRY_REQUIRED`,
+  not final truth. Recheck with HTTP/1.1, retry for 5-10 minutes, run authorized
+  target revalidation or llms-full warm, then rerun public smoke with
+  `--expect-llms-full`. Record `LLMS_FULL_RUNTIME_HOLD_DOCUMENTED` only when
+  that sequence still fails and backend authority, sitemap, and `llms.txt`
+  evidence are captured.
 - Separate hard blockers from intentional holds. For daily full-chain releases,
   Article schema, Breadcrumb schema, and reciprocal bilingual hreflang are the
   expected completed SEO enhancement state when authorized and verified. FAQ
@@ -383,7 +391,7 @@ Use:
 - `references/article_identity_lock.md`.
 - `references/discoverability_release_playbook.md`.
 
-Hard gates: no private URL exposure, no schema/hreflang side effects, no search-channel submission.
+Hard gates: no private URL exposure, no schema/hreflang side effects, no search-channel submission. `llms-full` degraded mode, HTTP/2 stream errors, or temporary URL misses require the llms-full runtime stabilization gate before final closeout: HTTP/1.1 recheck, bounded retry, authorized target revalidation or warm, and a final `--expect-llms-full` verifier run.
 
 ### `search_discovery_pipeline`
 

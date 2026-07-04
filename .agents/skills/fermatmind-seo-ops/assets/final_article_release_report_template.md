@@ -17,7 +17,7 @@ translation_group_id: `<translation-group-id>`
 | --- | --- | --- | --- |
 | sitemap |  |  |  |
 | llms |  |  |  |
-| llms-full |  |  |  |
+| llms-full |  |  | mode/source, retry count, warm/revalidation attempts, resolved or documented runtime hold |
 | URL Truth |  |  |  |
 | Search Channel Queue |  |  |  |
 | IndexNow |  |  |  |
@@ -69,6 +69,26 @@ GEO media decision: `GEO_READY_OBSERVATION_PENDING` / `GEO_MEDIA_HELD_REASON`
 Held reason, if any:
 
 -
+
+## llms-full Runtime Stabilization
+
+`documented runtime hold` is not the default success path. It is allowed only
+after HTTP/1.1 recheck, bounded retry, and authorized target article
+revalidation or llms-full warm have failed to produce a complete response.
+
+| Check | Evidence | State | Notes |
+| --- | --- | --- | --- |
+| backend authority eligible |  |  |  |
+| sitemap.xml contains URLs |  |  |  |
+| llms.txt contains URLs |  |  |  |
+| llms-full mode |  | complete / degraded / unknown |  |
+| llms-full source |  | cache / generated / degraded / unknown |  |
+| HTTP/1.1 recheck |  |  |  |
+| retry window |  |  |  |
+| revalidation / warm attempts |  |  |  |
+| final `--expect-llms-full` verifier |  |  |  |
+
+llms-full decision: `LLMS_FULL_STABILIZED` / `LLMS_FULL_RUNTIME_HOLD_DOCUMENTED`
 
 ## Search Submission Detail
 
