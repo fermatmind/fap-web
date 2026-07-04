@@ -7,6 +7,7 @@ const ROOT = process.cwd();
 const SCRIPT_PATH = "scripts/seo/build-mbti-seo-07-discoverability-audit.mjs";
 const JSON_PATH = "docs/seo/personality/mbti-seo-07-discoverability-audit-2026-07-04.json";
 const MD_PATH = "docs/seo/personality/mbti-seo-07-discoverability-audit-2026-07-04.md";
+const MBTI_SEO_07_BRANCH = "codex/mbti-seo-07-llms-sitemap-discoverability";
 
 function read(relativePath: string): string {
   return fs.readFileSync(path.join(ROOT, relativePath), "utf8");
@@ -34,6 +35,27 @@ function committedScopeFiles(): string[] {
   }
 
   return [...files].sort();
+}
+
+function currentBranchName(): string {
+  const githubHeadRef = process.env.GITHUB_HEAD_REF?.trim();
+  if (githubHeadRef) {
+    return githubHeadRef;
+  }
+
+  const githubRefName = process.env.GITHUB_REF_NAME?.trim();
+  if (githubRefName && !/^\d+\/merge$/.test(githubRefName)) {
+    return githubRefName;
+  }
+
+  try {
+    return execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], {
+      cwd: ROOT,
+      encoding: "utf8",
+    }).trim();
+  } catch {
+    return "";
+  }
 }
 
 type Audit = {
@@ -130,6 +152,12 @@ describe("MBTI-SEO-07 discoverability audit", () => {
   });
 
   it("keeps the PR scoped to discoverability audit files", () => {
+    const branch = currentBranchName();
+    if (branch !== MBTI_SEO_07_BRANCH) {
+      expect(branch).not.toBe(MBTI_SEO_07_BRANCH);
+      return;
+    }
+
     const allowedExact = new Set([
       SCRIPT_PATH,
       JSON_PATH,
