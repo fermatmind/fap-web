@@ -60,5 +60,38 @@
     "why_not_current_pr_scope": "The MBTI CMS04 generated docs are unrelated to the IQ-METHOD-02 CMS Article asset package and are mutated by an existing MBTI contract.",
     "required_checks_affected": false,
     "recommended_follow_up": "Make the MBTI CMS04 contract write to a temp output path or avoid timestamp mutation in checked-in docs during unrelated full-suite validation."
+  },
+  {
+    "id": "local-pnpm-approve-builds-wrapper-mbti-asset-ops-09",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "MBTI-ASSET-OPS-09",
+    "branch": "codex/mbti-asset-ops-09-personality-asset-sop",
+    "blocker_type": "external_local_pnpm_wrapper_approve_builds_state",
+    "evidence": "The manifest command `pnpm test:contract` failed before running tests because the local Codex runtime pnpm wrapper attempted dependency installation and hit ERR_PNPM_IGNORED_BUILDS for esbuild, sharp, and unrs-resolver. The equivalent `corepack pnpm test:contract` completed successfully with contract shards passing.",
+    "why_not_current_pr_scope": "MBTI-ASSET-OPS-09 only changes SOP docs, generated read-only audit artifacts, one focused contract, sidecar notes, and PR-train ledger entries. It does not change dependency installation, lockfile, package manager configuration, or local pnpm approval state.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Normalize the local Codex pnpm wrapper approval state or standardize local repository checks on `corepack pnpm` so the manifest command does not fail before test execution."
+  },
+  {
+    "id": "external-article-topic-label-scope-drift-mbti-asset-ops-09",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "MBTI-ASSET-OPS-09",
+    "branch": "codex/mbti-asset-ops-09-personality-asset-sop",
+    "blocker_type": "external_uncommitted_scope_drift",
+    "evidence": "While closing OPS-09, app/(localized)/[locale]/articles/page.tsx, app/(localized)/[locale]/topics/page.tsx, and tests/contracts/mbti-ops-08-gsc-priority-monitoring.contract.test.ts appeared modified outside the OPS-09 docs/audit scope. The changes were preserved in stash: preserve external article topic ops08 changes before MBTI-ASSET-OPS-09 closeout 20260704.",
+    "why_not_current_pr_scope": "OPS-09 is limited to personality asset SOP docs, generated OPS-09 artifacts, one focused contract, sidecar notes, and PR-train ledger entries. Article/topic page UX and OPS-08 contract follow-up behavior belong to separate scopes.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Review the preserved stash and decide whether to open a separate article/topic label or OPS-08 contract maintenance PR."
+  },
+  {
+    "id": "stale-ops08-scope-contract-blocks-mbti-asset-ops-09",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "MBTI-ASSET-OPS-09",
+    "branch": "codex/mbti-asset-ops-09-personality-asset-sop",
+    "blocker_type": "stale_contract_scope_guard_blocks_required_check",
+    "evidence": "GitHub PR #1590 `contracts` failed in tests/contracts/mbti-ops-08-gsc-priority-monitoring.contract.test.ts. The stale OPS-08 scope test expected the active diff to contain only OPS-08 files and rejected valid OPS-09 files including docs/seo/personality/mbti-asset-ops-09-personality-asset-sop-2026-07-04.json and tests/contracts/mbti-asset-ops-09-personality-asset-sop.contract.test.ts.",
+    "why_not_current_pr_scope": "OPS-09 scope is a docs/audit SOP PR and does not include modifying the already-merged OPS-08 contract. Updating the stale OPS-08 scope guard would be a separate contract-maintenance scope or needs explicit scope-extension authorization.",
+    "required_checks_affected": true,
+    "recommended_follow_up": "Authorize a scoped fix to make the OPS-08 contract only enforce its scope when the active diff touches OPS-08 artifacts, then rerun PR #1590 checks."
   }
 ]
