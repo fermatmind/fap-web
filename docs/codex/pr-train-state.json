@@ -41444,15 +41444,23 @@
     "depends_on": [
       "MBTI-CMS-12"
     ],
-    "status": "planned",
-    "commit_sha": null,
-    "pr_url": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "status": "merged_dependency_reconciled",
+    "commit_sha": "31ad3e6c946080a9a84df200b85cce963e48faec",
+    "pr_url": "https://github.com/fermatmind/fap-api/pull/2720",
+    "merged_at": "2026-07-04T22:54:05Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
-    "checks": {},
-    "scope_validation": null,
+    "checks": {
+      "github_pr_state": "MERGED",
+      "origin_main_contains_merge_commit": true,
+      "remote_branch_deleted": true,
+      "local_fap_api_main_synced_clean": true
+    },
+    "scope_validation": {
+      "status": "reconciled_cross_repo_dependency",
+      "notes": "Verified by gh pr view 2720 --repo fermatmind/fap-api and fap-api remote branch lookup before starting MBTI-QA-14."
+    },
     "artifacts": [
       "fap-api backend comparison import dry-run artifacts"
     ],
@@ -41461,9 +41469,14 @@
         "at": "2026-07-04T12:00:00Z",
         "status": "planned",
         "notes": "Registered by MBTI personality asset operations train authorization; not yet started."
+      },
+      {
+        "at": "2026-07-04T23:26:31.653Z",
+        "status": "merged_dependency_reconciled",
+        "notes": "Reconciled fap-api PR #2720 as merged dependency for MBTI-QA-14; merge commit 31ad3e6c946080a9a84df200b85cce963e48faec is on origin/main and the task branch was deleted."
       }
     ],
-    "updated_at": "2026-07-04T12:00:00Z",
+    "updated_at": "2026-07-04T23:26:31.653Z",
     "next_task": "MBTI-QA-14"
   },
   "MBTI-QA-14": {
@@ -41475,29 +41488,89 @@
     "depends_on": [
       "MBTI-CMS-13"
     ],
-    "status": "planned",
-    "commit_sha": null,
+    "status": "committed_pending_push",
+    "commit_sha": "9df75cf648e8ae0f5209963d32c376d2ed3db1dc",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "failure_reason": null,
-    "checks": {},
-    "scope_validation": null,
+    "checks": {
+      "generator": {
+        "command": "node scripts/seo/build-mbti-qa-14-semantic-duplicate-gate.mjs",
+        "status": "passed",
+        "notes": "Generated artifact-only QA report; report final_decision is BLOCKED_MBTI_QA_14_CONTENT_REVIEW_REQUIRED for downstream content work, while gate execution passed."
+      },
+      "focused_contract": {
+        "command": "corepack pnpm exec vitest run tests/contracts/mbti-qa-14-semantic-duplicate-gate.contract.test.ts --reporter=dot",
+        "status": "passed",
+        "tests": 6
+      },
+      "full_contract": {
+        "command": "corepack pnpm test:contract",
+        "status": "passed",
+        "tests": 963,
+        "files": 166
+      },
+      "typecheck": {
+        "command": "corepack pnpm typecheck",
+        "status": "passed"
+      },
+      "build": {
+        "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+        "status": "passed"
+      },
+      "local_pnpm_wrapper": {
+        "command": "pnpm exec vitest run tests/contracts/mbti-qa-14-semantic-duplicate-gate.contract.test.ts --reporter=dot",
+        "status": "external_environment_mismatch_recorded_in_sidecar",
+        "notes": "Local Codex runtime pnpm 11.7.0 hit ERR_PNPM_IGNORED_BUILDS before tests; project-pinned corepack pnpm 10.28.1 validation passed."
+      }
+    },
+    "scope_validation": {
+      "status": "passed",
+      "changed_files": [
+        "docs/codex/pr-train-state.json",
+        "docs/seo/personality/mbti-qa-14-semantic-duplicate-gate-2026-07-04.json",
+        "docs/seo/personality/mbti-qa-14-semantic-duplicate-gate-2026-07-04.md",
+        "generated/pr-train-sidecar-issues/sidecar_issues.json",
+        "generated/pr-train-sidecar-issues/sidecar_issues.md",
+        "scripts/seo/build-mbti-qa-14-semantic-duplicate-gate.mjs",
+        "tests/contracts/mbti-qa-14-semantic-duplicate-gate.contract.test.ts"
+      ],
+      "notes": "Changed-file scope validation passed for MBTI-QA-14 manifest scope."
+    },
     "artifacts": [
-      "docs/seo/personality/mbti-qa-14-*",
-      "scripts/seo/build-mbti-qa-14-*",
-      "tests/contracts/mbti-qa-14-*"
+      "docs/seo/personality/mbti-qa-14-semantic-duplicate-gate-2026-07-04.json",
+      "docs/seo/personality/mbti-qa-14-semantic-duplicate-gate-2026-07-04.md",
+      "scripts/seo/build-mbti-qa-14-semantic-duplicate-gate.mjs",
+      "tests/contracts/mbti-qa-14-semantic-duplicate-gate.contract.test.ts",
+      "generated/pr-train-sidecar-issues/sidecar_issues.md",
+      "generated/pr-train-sidecar-issues/sidecar_issues.json"
     ],
     "events": [
       {
         "at": "2026-07-04T12:00:00Z",
         "status": "planned",
         "notes": "Registered by MBTI personality asset operations train authorization; not yet started."
+      },
+      {
+        "at": "2026-07-04T23:26:31.653Z",
+        "status": "local_checks_passed_pending_scope_validation",
+        "notes": "Implemented artifact-only semantic duplicate QA gate; local generator, focused contract, full contract, typecheck, and build validations passed using project-pinned corepack pnpm."
+      },
+      {
+        "at": "2026-07-04T23:28:19.522Z",
+        "status": "scope_validation_passed_ready_to_commit",
+        "notes": "Validated all changed files against MBTI-QA-14 scope before commit."
+      },
+      {
+        "at": "2026-07-04T23:31:00.326Z",
+        "status": "committed_pending_push",
+        "notes": "Committed MBTI-QA-14 implementation and validation artifacts on branch codex/mbti-qa-14-semantic-duplicate-gate."
       }
     ],
-    "updated_at": "2026-07-04T12:00:00Z",
+    "updated_at": "2026-07-04T23:31:00.326Z",
     "next_task": null
   },
-  "current_pr": "IQ-METHOD-07"
+  "current_pr": "MBTI-QA-14"
 }
