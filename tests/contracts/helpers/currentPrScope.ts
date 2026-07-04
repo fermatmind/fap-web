@@ -6305,3 +6305,33 @@ export function isIqMethod04AllowedFile(file: string): boolean {
 
   return IQ_METHOD_04_ALLOWED_FILES.has(file);
 }
+
+const IQ_METHOD_05_ALLOWED_FILES = new Set([
+  "generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/article.md",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/article.cms.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/seo.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/answer_surface_v1.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/landing_surface_v1.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/faq.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/geo_answer_block.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/claim_audit.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/internal_links.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/media_brief.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/qa_checklist.md",
+  "tests/contracts/iq-method-04-content-asset.contract.test.ts",
+  "tests/contracts/iq-method-05-content-asset.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
+export function isIqMethod05AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/iq-method-05-not-certification") {
+    return true;
+  }
+
+  return IQ_METHOD_05_ALLOWED_FILES.has(file);
+}
