@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T17:56:53Z",
+  "updated_at": "2026-07-04T16:51:36Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -40946,5 +40946,278 @@
     "next_pr": "IQ-METHOD-06",
     "current": "IQ-METHOD-05",
     "next": "IQ-METHOD-06"
+  },
+  "MBTI-ASSET-OPS-09": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-asset-ops-09-personality-asset-sop",
+    "title": "MBTI-ASSET-OPS-09: document personality asset execution SOP",
+    "train_scope": "mbti_personality_asset_operations_sop",
+    "depends_on": [
+      "MBTI-OPS-08"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "2558f8c051f974da3a25709ca2b24f6acb92ab7b",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1590",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "local_checks": {
+        "status": "passed_after_rebase",
+        "commands": [
+          "node scripts/seo/build-mbti-asset-ops-09-personality-asset-sop.mjs",
+          "corepack pnpm exec vitest run tests/contracts/mbti-asset-ops-09-personality-asset-sop.contract.test.ts --reporter=dot",
+          "corepack pnpm test:contract",
+          "corepack pnpm typecheck",
+          "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com corepack pnpm build",
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "python3 -m json.tool generated/pr-train-sidecar-issues/sidecar_issues.json >/dev/null",
+          "git diff --check",
+          "changed-file scope validation"
+        ],
+        "evidence": "Rebased PR #1590 onto origin/main bd2c766d after the OPS-08 contract blocker fix; generator, focused contract, full contract suite, typecheck, and production API build passed locally."
+      },
+      "github_checks": {
+        "status": "passed",
+        "evidence": "PR #1590 checks passed after rebase: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL/analyze, and CodeQL."
+      },
+      "scope_validation": {
+        "status": "passed",
+        "evidence": "Post-rebase scope validation shows only OPS-09 allowed files in the PR diff; transient CMS-04 contract side effects were reverted; git diff --check passed."
+      },
+      "diff_check": {
+        "status": "passed",
+        "command": "git diff --check"
+      }
+    },
+    "scope_validation": {
+      "status": "passed_before_merge",
+      "outside_scope_files": [],
+      "evidence": "PR diff remains limited to OPS-09 allowed docs, artifacts, generator, focused contract, sidecar files, and train ledger."
+    },
+    "artifacts": [
+      "docs/seo/personality/README.md",
+      "docs/seo/personality/mbti-asset-ops-09-personality-asset-sop-2026-07-04.json",
+      "docs/seo/personality/mbti-asset-ops-09-personality-asset-sop-2026-07-04.md",
+      "docs/seo/personality/mbti-asset-ops-09-personality-asset-sop-2026-07-04.csv",
+      "scripts/seo/build-mbti-asset-ops-09-personality-asset-sop.mjs",
+      "tests/contracts/mbti-asset-ops-09-personality-asset-sop.contract.test.ts"
+    ],
+    "events": [
+      {
+        "at": "2026-07-04T12:00:00Z",
+        "status": "in_progress",
+        "notes": "Started from latest main after OPS-08 merge reconciliation; scope limited to SOP docs, generated artifacts, focused contract, and train ledger."
+      },
+      {
+        "at": "2026-07-04T12:23:20Z",
+        "status": "local_checks_passed",
+        "notes": "OPS-09 generator, focused contract, full contract via corepack, typecheck, build, YAML/JSON validation passed; local bare pnpm wrapper issue recorded in sidecar."
+      },
+      {
+        "at": "2026-07-04T12:27:30Z",
+        "status": "scope_validation_passed",
+        "notes": "Changed-file scope validation and git diff --check passed; ready for commit."
+      },
+      {
+        "at": "2026-07-04T12:31:30Z",
+        "status": "committed",
+        "notes": "Recorded implementation commit c7d3be1a8d36810b7f18d2d9fec9238bfd6d5178; PR URL and GitHub checks remain pending until push and PR creation."
+      },
+      {
+        "at": "2026-07-04T12:49:20Z",
+        "status": "pr_created",
+        "notes": "Opened https://github.com/fermatmind/fap-web/pull/1590; recorded external article/topic drift in sidecar; GitHub checks pending."
+      },
+      {
+        "at": "2026-07-04T14:42:30Z",
+        "status": "github_checks_failed_blocked",
+        "notes": "Required GitHub contracts check failed because stale OPS-08 scope contract rejects valid OPS-09 files; fixing that contract is outside the declared OPS-09 scope without explicit authorization."
+      },
+      {
+        "at": "2026-07-04T15:42:08Z",
+        "status": "in_progress_after_contract_blocker_fix",
+        "notes": "PR #1595 fixed and merged the OPS-08 stale scope guard blocker; OPS-09 branch rebased onto origin/main for renewed local and GitHub validation."
+      },
+      {
+        "at": "2026-07-04T15:49:30Z",
+        "status": "local_checks_passed_after_contract_blocker_fix",
+        "notes": "Rebased onto origin/main containing PR #1595, reran OPS-09 generator, focused contract, full contract, typecheck, build, YAML/JSON validation, and diff check; all passed."
+      },
+      {
+        "at": "2026-07-04T16:23:46Z",
+        "status": "local_checks_passed_after_rebase",
+        "notes": "Rebased onto origin/main, preserved latest main active_train cursor, reconciled OPS-08 dependency state, restored out-of-scope CMS-04 generated side effects, and reran required OPS-09 local checks successfully."
+      },
+      {
+        "at": "2026-07-04T16:32:18Z",
+        "status": "ready_to_merge",
+        "notes": "GitHub required checks passed for PR #1590 after rebase; ready for squash merge when the final ledger commit checks pass."
+      }
+    ],
+    "updated_at": "2026-07-04T16:32:18Z",
+    "next_task": "MBTI-ASSET-SKILL-10"
+  },
+  "MBTI-ASSET-SKILL-10": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-asset-skill-10-profile-seo-runbook",
+    "title": "MBTI-ASSET-SKILL-10: optimize MBTI asset factory runbook",
+    "train_scope": "mbti_public_profile_seo_asset_factory_runbook",
+    "depends_on": [
+      "MBTI-ASSET-OPS-09"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {},
+    "scope_validation": null,
+    "artifacts": [
+      ".agents/skills/public-profile-seo-asset-factory/**"
+    ],
+    "events": [
+      {
+        "at": "2026-07-04T12:00:00Z",
+        "status": "planned",
+        "notes": "Registered by MBTI personality asset operations train authorization; not yet started."
+      }
+    ],
+    "updated_at": "2026-07-04T12:00:00Z",
+    "next_task": "MBTI-GSC-11"
+  },
+  "MBTI-GSC-11": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-gsc-11-query-evidence-export",
+    "title": "MBTI-GSC-11: stabilize MBTI GSC query evidence export",
+    "train_scope": "mbti_gsc_query_evidence_export_stabilization",
+    "depends_on": [
+      "MBTI-ASSET-SKILL-10"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {},
+    "scope_validation": null,
+    "artifacts": [
+      "docs/seo/personality/mbti-gsc-11-*",
+      "scripts/seo/build-mbti-gsc-11-*",
+      "tests/contracts/mbti-gsc-11-*"
+    ],
+    "events": [
+      {
+        "at": "2026-07-04T12:00:00Z",
+        "status": "planned",
+        "notes": "Registered by MBTI personality asset operations train authorization; not yet started."
+      }
+    ],
+    "updated_at": "2026-07-04T12:00:00Z",
+    "next_task": "MBTI-CMS-12"
+  },
+  "MBTI-CMS-12": {
+    "repo": "fap-api",
+    "base": "main",
+    "branch": "codex/mbti-cms-12-profile-import-dry-run",
+    "title": "MBTI-CMS-12: add profile CMS import dry-run",
+    "train_scope": "mbti_profile_cms_import_dry_run",
+    "depends_on": [
+      "MBTI-GSC-11"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {},
+    "scope_validation": null,
+    "artifacts": [
+      "fap-api backend profile import dry-run artifacts"
+    ],
+    "events": [
+      {
+        "at": "2026-07-04T12:00:00Z",
+        "status": "planned",
+        "notes": "Registered by MBTI personality asset operations train authorization; not yet started."
+      }
+    ],
+    "updated_at": "2026-07-04T12:00:00Z",
+    "next_task": "MBTI-CMS-13"
+  },
+  "MBTI-CMS-13": {
+    "repo": "fap-api",
+    "base": "main",
+    "branch": "codex/mbti-cms-13-comparison-import-dry-run",
+    "title": "MBTI-CMS-13: add comparison CMS import dry-run",
+    "train_scope": "mbti_comparison_cms_import_dry_run",
+    "depends_on": [
+      "MBTI-CMS-12"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {},
+    "scope_validation": null,
+    "artifacts": [
+      "fap-api backend comparison import dry-run artifacts"
+    ],
+    "events": [
+      {
+        "at": "2026-07-04T12:00:00Z",
+        "status": "planned",
+        "notes": "Registered by MBTI personality asset operations train authorization; not yet started."
+      }
+    ],
+    "updated_at": "2026-07-04T12:00:00Z",
+    "next_task": "MBTI-QA-14"
+  },
+  "MBTI-QA-14": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-qa-14-semantic-duplicate-gate",
+    "title": "MBTI-QA-14: add semantic quality and duplicate risk gate",
+    "train_scope": "mbti_semantic_quality_duplicate_risk_gate",
+    "depends_on": [
+      "MBTI-CMS-13"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {},
+    "scope_validation": null,
+    "artifacts": [
+      "docs/seo/personality/mbti-qa-14-*",
+      "scripts/seo/build-mbti-qa-14-*",
+      "tests/contracts/mbti-qa-14-*"
+    ],
+    "events": [
+      {
+        "at": "2026-07-04T12:00:00Z",
+        "status": "planned",
+        "notes": "Registered by MBTI personality asset operations train authorization; not yet started."
+      }
+    ],
+    "updated_at": "2026-07-04T12:00:00Z",
+    "next_task": null
   }
 }

@@ -13542,7 +13542,7 @@ prs:
     mode: execute
     train_scope: mbti_gsc_priority_monitoring
     risk_level: L1
-    status: planned
+    status: merged_cleanup_complete
     title: "MBTI-OPS-08: add MBTI GSC priority monitoring"
     goal: "Create a Top pages and queries tracking table for MBTI personality pages and comparisons using 28-day GSC data to guide the next content batch."
     in_scope:
@@ -13558,6 +13558,249 @@ prs:
       - frontend runtime renderer changes
       - frontend local editorial fallback content
     required_local_checks:
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-ASSET-OPS-09
+
+  - id: MBTI-ASSET-OPS-09
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-asset-ops-09-personality-asset-sop
+    base: main
+    depends_on:
+      - MBTI-OPS-08
+    mode: execute
+    train_scope: mbti_personality_asset_operations_sop
+    risk_level: L1
+    status: in_progress
+    title: "MBTI-ASSET-OPS-09: document personality asset execution SOP"
+    goal: "Update personality asset docs with the current Top10, comparison20, remaining58, pending GSC query export, and pending CMS import states, and map each state to the next PR without changing runtime behavior."
+    in_scope:
+      - docs/seo/personality/README.md
+      - docs/seo/personality/mbti-asset-ops-09-*
+      - scripts/seo/build-mbti-asset-ops-09-*
+      - tests/contracts/mbti-asset-ops-09-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api changes
+      - production CMS writes/imports
+      - GSC API calls or Search Console mutations
+      - frontend runtime renderer changes
+      - sitemap URL set or llms URL set expansion
+      - canonical/noindex/JSON-LD runtime changes
+      - frontend local editorial fallback content
+    required_local_checks:
+      - node scripts/seo/build-mbti-asset-ops-09-personality-asset-sop.mjs
+      - pnpm exec vitest run tests/contracts/mbti-asset-ops-09-personality-asset-sop.contract.test.ts --reporter=dot
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-ASSET-SKILL-10
+
+  - id: MBTI-ASSET-SKILL-10
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-asset-skill-10-profile-seo-runbook
+    base: main
+    depends_on:
+      - MBTI-ASSET-OPS-09
+    mode: execute
+    train_scope: mbti_public_profile_seo_asset_factory_runbook
+    risk_level: L1
+    status: planned
+    title: "MBTI-ASSET-SKILL-10: optimize MBTI asset factory runbook"
+    goal: "Update the public-profile-seo-asset-factory MBTI agent matrix with hot cross-type comparison ownership and expand the MBTI runbook into a GSC to content package to QA to fap-api dry-run to approval to promotion to sitemap/llms gate pipeline."
+    in_scope:
+      - .agents/skills/public-profile-seo-asset-factory/**
+      - tests/contracts/mbti-asset-skill-10-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api changes
+      - production CMS writes/imports
+      - GSC API calls or Search Console mutations
+      - frontend runtime renderer changes
+      - sitemap URL set or llms URL set expansion
+      - frontend local editorial fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/mbti-asset-skill-10-public-profile-seo-asset-factory.contract.test.ts --reporter=dot
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-GSC-11
+
+  - id: MBTI-GSC-11
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-gsc-11-query-evidence-export
+    base: main
+    depends_on:
+      - MBTI-ASSET-SKILL-10
+    mode: execute
+    train_scope: mbti_gsc_query_evidence_export_stabilization
+    risk_level: L1
+    status: planned
+    title: "MBTI-GSC-11: stabilize MBTI GSC query evidence export"
+    goal: "Resolve OPS08 pending query evidence by producing a stable import/export packet and validation path so later title, FAQ, and answer-block changes use real query evidence instead of guesses."
+    in_scope:
+      - docs/seo/personality/mbti-gsc-11-*
+      - scripts/seo/build-mbti-gsc-11-*
+      - tests/contracts/mbti-gsc-11-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - real GSC OAuth credentials or secrets
+      - Search Console mutations or URL submissions
+      - production CMS writes/imports
+      - frontend runtime renderer changes
+      - sitemap URL set or llms URL set expansion
+      - frontend local editorial fallback content
+    required_local_checks:
+      - node scripts/seo/build-mbti-gsc-11-query-evidence-export.mjs
+      - pnpm exec vitest run tests/contracts/mbti-gsc-11-query-evidence-export.contract.test.ts --reporter=dot
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-CMS-12
+
+  - id: MBTI-CMS-12
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/mbti-cms-12-profile-import-dry-run
+    base: main
+    depends_on:
+      - MBTI-GSC-11
+    mode: execute
+    train_scope: mbti_profile_cms_import_dry_run
+    risk_level: L1
+    status: planned
+    title: "MBTI-CMS-12: add profile CMS import dry-run"
+    goal: "Add backend CMS profile import dry-run and schema/field mapping for approved profile assets without production writes."
+    in_scope:
+      - backend/**
+      - docs/**
+      - tests/**
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - production deploy
+      - DB migrations unless dry-run/schema-only and explicitly scoped
+      - frontend fap-web runtime changes
+    required_local_checks:
+      - fap-api profile import dry-run tests
+      - fap-api schema/field mapping validation
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-CMS-13
+
+  - id: MBTI-CMS-13
+    repo: fap-api
+    repo_path: <workspace>/fap-api
+    branch: codex/mbti-cms-13-comparison-import-dry-run
+    base: main
+    depends_on:
+      - MBTI-CMS-12
+    mode: execute
+    train_scope: mbti_comparison_cms_import_dry_run
+    risk_level: L1
+    status: planned
+    title: "MBTI-CMS-13: add comparison CMS import dry-run"
+    goal: "Add backend CMS comparison import dry-run and schema/field mapping for A/T and hot comparison assets without production writes."
+    in_scope:
+      - backend/**
+      - docs/**
+      - tests/**
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - production deploy
+      - DB migrations unless dry-run/schema-only and explicitly scoped
+      - frontend fap-web runtime changes
+    required_local_checks:
+      - fap-api comparison import dry-run tests
+      - fap-api schema/field mapping validation
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-QA-14
+
+  - id: MBTI-QA-14
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-qa-14-semantic-duplicate-gate
+    base: main
+    depends_on:
+      - MBTI-CMS-13
+    mode: execute
+    train_scope: mbti_semantic_quality_duplicate_risk_gate
+    risk_level: L1
+    status: planned
+    title: "MBTI-QA-14: add semantic quality and duplicate risk gate"
+    goal: "Add stronger semantic quality and duplicate-risk gates for remaining58 and comparison batches so pages do not look complete but read like templates."
+    in_scope:
+      - docs/seo/personality/mbti-qa-14-*
+      - scripts/seo/build-mbti-qa-14-*
+      - tests/contracts/mbti-qa-14-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api changes
+      - production CMS writes/imports
+      - frontend runtime renderer changes
+      - sitemap URL set or llms URL set expansion
+      - frontend local editorial fallback content
+    required_local_checks:
+      - node scripts/seo/build-mbti-qa-14-semantic-duplicate-gate.mjs
+      - pnpm exec vitest run tests/contracts/mbti-qa-14-semantic-duplicate-gate.contract.test.ts --reporter=dot
       - pnpm test:contract
       - pnpm typecheck
       - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
