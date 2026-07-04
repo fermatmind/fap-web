@@ -39770,8 +39770,8 @@
     "depends_on": [
       "MBTI-SEO-03"
     ],
-    "status": "pr_open",
-    "commit_sha": "2f9e65110f8f64aa5658bfa3671639341030f2e5",
+    "status": "ready_to_merge",
+    "commit_sha": "b9d626ef91b2dd7fa304d5f7c3fa22075b2367c4",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1581",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -39795,8 +39795,22 @@
         "notes": "Focused MBTI-CMS-04 content asset contract, MBTI recommendation copy boundary, full contract suite, typecheck, production API build, manifest/state parse, and diff whitespace checks passed. An initial forbidden exact phrase hit was fixed inside the current asset-package scope and revalidated."
       },
       "github_checks": {
-        "status": "pending",
-        "evidence": null
+        "status": "passed",
+        "required": [
+          "build",
+          "contracts",
+          "verify-big5-contract-freeze",
+          "verify-enneagram-contract-freeze"
+        ],
+        "observed": [
+          "build",
+          "contracts",
+          "verify-big5-contract-freeze",
+          "verify-enneagram-contract-freeze",
+          "CodeQL",
+          "analyze (javascript-typescript)"
+        ],
+        "result": "all observed checks passed for PR #1581 before ready-to-merge state update"
       }
     },
     "scope_validation": {
@@ -39839,10 +39853,16 @@
         "commit_sha": "2f9e65110f8f64aa5658bfa3671639341030f2e5",
         "pr_url": "https://github.com/fermatmind/fap-web/pull/1581",
         "notes": "Opened PR #1581 for the MBTI-CMS-04 non-production content asset package."
+      },
+      {
+        "at": "2026-07-04T06:28:07Z",
+        "status": "ready_to_merge",
+        "commit_sha": "b9d626ef91b2dd7fa304d5f7c3fa22075b2367c4",
+        "notes": "GitHub checks passed for PR #1581; marking ready_to_merge before squash merge."
       }
     ],
     "base_commit_sha": "9eb8554e976eed08b65b2a1cfa76c0dff4a5d7fc",
-    "updated_at": "2026-07-04T06:19:18Z"
+    "updated_at": "2026-07-04T06:28:07Z"
   },
   "MBTI-SEO-05": {
     "repo": "fap-web",
