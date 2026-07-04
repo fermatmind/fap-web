@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T16:44:01Z",
+  "updated_at": "2026-07-04T16:45:13Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -28601,7 +28601,7 @@
       "branch": "codex/big5-result-page-renderer-hygiene-followup-01",
       "base": "main",
       "depends_on": [],
-      "status": "local_checks_passed",
+      "status": "pr_open",
       "title": "BIG5-RESULT-PAGE-RENDERER-HYGIENE-FOLLOWUP-01",
       "artifacts": [
         "components/big5/report/BlockRenderer.tsx",
@@ -28631,7 +28631,7 @@
       "status": "local_checks_passed",
       "title": "MBTI-SEO-01: refresh personality hub SEO/GEO structure",
       "train_scope": "mbti_personality_hub_seo_geo_refresh",
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1597",
       "commit_sha": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -29074,6 +29074,11 @@
           "at": "2026-07-04T16:44:01Z",
           "status": "local_checks_passed",
           "note": "Created local implementation commit ce0955a6fc281a9a7ee6638956fc8e6137b4b951 for IQ-METHOD-03; a follow-up ledger commit records this SHA to avoid a self-referential commit hash loop."
+        },
+        {
+          "at": "2026-07-04T16:45:13Z",
+          "status": "pr_open",
+          "note": "Created GitHub PR #1597 for IQ-METHOD-03 after local checks and scope validation passed."
         }
       ],
       "metadata": {
@@ -29091,7 +29096,7 @@
           "llms_eligible": false
         }
       },
-      "updated_at": "2026-07-04T16:44:01Z"
+      "updated_at": "2026-07-04T16:45:13Z"
     },
     {
       "id": "IQ-METHOD-04",
