@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T15:10:19.706Z",
+  "updated_at": "2026-07-04T15:11:20.942Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -28777,8 +28777,8 @@
       "id": "IQ-METHOD-01",
       "repo": "fap-web",
       "branch": "codex/iq-method-01-what-is-iq-style",
-      "status": "local_checks_passed",
-      "commit_sha": null,
+      "status": "committed",
+      "commit_sha": "98bd39db88e52f4d0d14bfdf66a411792cdafcc1",
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -28827,6 +28827,12 @@
           "at": "2026-07-04T15:10:19.706Z",
           "status": "local_checks_passed",
           "note": "Local checks and staged changed-file scope validation passed for IQ-METHOD-01. Unrelated unstaged local docs/seo and docs architecture/codex files remain isolated outside this PR scope."
+        },
+        {
+          "at": "2026-07-04T15:11:20.942Z",
+          "status": "committed",
+          "commit_sha": "98bd39db88e52f4d0d14bfdf66a411792cdafcc1",
+          "note": "Committed IQ-METHOD-01 scoped content asset package, contract, and train metadata after local checks and scope validation passed."
         }
       ],
       "metadata": {
@@ -28844,7 +28850,7 @@
           "llms_eligible": false
         }
       },
-      "updated_at": "2026-07-04T15:10:19.706Z"
+      "updated_at": "2026-07-04T15:11:20.942Z"
     },
     {
       "id": "IQ-METHOD-02",
