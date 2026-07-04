@@ -41347,9 +41347,9 @@
     "depends_on": [
       "MBTI-ASSET-SKILL-10"
     ],
-    "status": "local_checks_passed",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "37000dd8bc0d06cc8586913b10cb1a5680d9ec0a",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1604",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -41388,9 +41388,14 @@
         "at": "2026-07-04T20:32:00Z",
         "status": "local_checks_passed",
         "note": "Generated stable GSC query evidence export/import packet; focused contract, full contracts, typecheck, build with required site URL env, YAML/JSON, diff, and changed-file scope validation passed. Exact manifest build env mismatch recorded in sidecar."
+      },
+      {
+        "at": "2026-07-04T20:40:00Z",
+        "status": "github_checks_pending",
+        "notes": "Opened PR #1604 for MBTI-GSC-11 after scoped local validation; awaiting GitHub required checks."
       }
     ],
-    "updated_at": "2026-07-04T20:32:00Z",
+    "updated_at": "2026-07-04T20:40:00Z",
     "next_task": "MBTI-CMS-12"
   },
   "MBTI-CMS-12": {
