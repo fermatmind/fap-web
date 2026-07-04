@@ -1,0 +1,777 @@
+{
+  "artifact": "MBTI-GSC-11-QUERY-EVIDENCE-EXPORT",
+  "generated_at": "2026-07-04T20:20:00.000Z",
+  "status": "ready",
+  "final_decision": "PASS_MBTI_GSC_11_QUERY_EVIDENCE_EXPORT_READY",
+  "input_artifacts": {
+    "ops08": "docs/seo/personality/mbti-ops-08-gsc-priority-monitoring-2026-07-04.json",
+    "query_export": "docs/seo/personality/mbti64-seo-measurement-cohort-gsc-query-export-2026-06-22.json",
+    "query_packet": "docs/seo/personality/mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24.json"
+  },
+  "summary": {
+    "normalized_query_tracking_rows": 19,
+    "captured_query_rows": 3,
+    "pending_manual_or_api_query_export_rows": 10,
+    "operator_seed_requires_confirmation_rows": 6,
+    "import_template_rows": 16,
+    "profile_queue_size": 10,
+    "comparison_queue_size": 10
+  },
+  "evidence_policy": {
+    "captured_query_rows_can_inform_title_faq_answer_block": true,
+    "pending_rows_cannot_inform_serp_copy_until_imported": true,
+    "operator_seed_queries_require_gsc_metric_confirmation": true,
+    "missing_query_rows_are_not_zero_demand": true,
+    "frontend_editorial_fallback_allowed": false
+  },
+  "normalized_rows": [
+    {
+      "path": "/en/personality/enfj-a",
+      "target_url": "https://fermatmind.com/en/personality/enfj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "query": "enfj-a",
+      "query_status": "captured_query_row",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4,
+      "source": "mbti64-seo-measurement-cohort-gsc-query-export-2026-06-22",
+      "next_action": "eligible_for_title_faq_answer_block_review"
+    },
+    {
+      "path": "/zh/personality/intp-a",
+      "target_url": "https://fermatmind.com/zh/personality/intp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "query": "intp-a",
+      "query_status": "captured_query_row",
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 10.3,
+      "source": "mbti64-seo-measurement-cohort-gsc-query-export-2026-06-22",
+      "next_action": "eligible_for_title_faq_answer_block_review"
+    },
+    {
+      "path": "/zh/personality/esfp-a",
+      "target_url": "https://fermatmind.com/zh/personality/esfp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "query": "esfp-a",
+      "query_status": "captured_query_row",
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7,
+      "source": "mbti64-seo-measurement-cohort-gsc-query-export-2026-06-22",
+      "next_action": "eligible_for_title_faq_answer_block_review"
+    },
+    {
+      "path": "/en/personality/esfj-t",
+      "target_url": "https://fermatmind.com/en/personality/esfj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "query": null,
+      "query_status": "pending_manual_or_api_query_export",
+      "clicks": null,
+      "impressions": 15,
+      "ctr": null,
+      "position": 26.7,
+      "source": "mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24",
+      "next_action": "export_filtered_page_query_rows_before_serp_copy_rewrite",
+      "gsc_api_request_template": {
+        "siteUrl": "sc-domain:fermatmind.com",
+        "request": {
+          "startDate": "YYYY-MM-DD",
+          "endDate": "YYYY-MM-DD",
+          "dimensions": [
+            "page",
+            "query"
+          ],
+          "dimensionFilterGroups": [
+            {
+              "filters": [
+                {
+                  "dimension": "page",
+                  "operator": "equals",
+                  "expression": "https://fermatmind.com/en/personality/esfj-t"
+                }
+              ]
+            }
+          ],
+          "rowLimit": 250,
+          "startRow": 0
+        }
+      }
+    },
+    {
+      "path": "/en/personality/enfp-a",
+      "target_url": "https://fermatmind.com/en/personality/enfp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "query": null,
+      "query_status": "pending_manual_or_api_query_export",
+      "clicks": null,
+      "impressions": 10,
+      "ctr": null,
+      "position": 38.4,
+      "source": "mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24",
+      "next_action": "export_filtered_page_query_rows_before_serp_copy_rewrite",
+      "gsc_api_request_template": {
+        "siteUrl": "sc-domain:fermatmind.com",
+        "request": {
+          "startDate": "YYYY-MM-DD",
+          "endDate": "YYYY-MM-DD",
+          "dimensions": [
+            "page",
+            "query"
+          ],
+          "dimensionFilterGroups": [
+            {
+              "filters": [
+                {
+                  "dimension": "page",
+                  "operator": "equals",
+                  "expression": "https://fermatmind.com/en/personality/enfp-a"
+                }
+              ]
+            }
+          ],
+          "rowLimit": 250,
+          "startRow": 0
+        }
+      }
+    },
+    {
+      "path": "/zh/personality/istp-a",
+      "target_url": "https://fermatmind.com/zh/personality/istp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "query": null,
+      "query_status": "pending_manual_or_api_query_export",
+      "clicks": null,
+      "impressions": 7,
+      "ctr": null,
+      "position": 7.3,
+      "source": "mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24",
+      "next_action": "export_filtered_page_query_rows_before_serp_copy_rewrite",
+      "gsc_api_request_template": {
+        "siteUrl": "sc-domain:fermatmind.com",
+        "request": {
+          "startDate": "YYYY-MM-DD",
+          "endDate": "YYYY-MM-DD",
+          "dimensions": [
+            "page",
+            "query"
+          ],
+          "dimensionFilterGroups": [
+            {
+              "filters": [
+                {
+                  "dimension": "page",
+                  "operator": "equals",
+                  "expression": "https://fermatmind.com/zh/personality/istp-a"
+                }
+              ]
+            }
+          ],
+          "rowLimit": 250,
+          "startRow": 0
+        }
+      }
+    },
+    {
+      "path": "/zh/personality/intp-a-vs-intp-t",
+      "target_url": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+      "locale": "zh",
+      "page_type": "comparison",
+      "query": null,
+      "query_status": "pending_manual_or_api_query_export",
+      "clicks": null,
+      "impressions": 2,
+      "ctr": null,
+      "position": 11,
+      "source": "mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24",
+      "next_action": "export_filtered_page_query_rows_before_serp_copy_rewrite",
+      "gsc_api_request_template": {
+        "siteUrl": "sc-domain:fermatmind.com",
+        "request": {
+          "startDate": "YYYY-MM-DD",
+          "endDate": "YYYY-MM-DD",
+          "dimensions": [
+            "page",
+            "query"
+          ],
+          "dimensionFilterGroups": [
+            {
+              "filters": [
+                {
+                  "dimension": "page",
+                  "operator": "equals",
+                  "expression": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t"
+                }
+              ]
+            }
+          ],
+          "rowLimit": 250,
+          "startRow": 0
+        }
+      }
+    },
+    {
+      "path": "/en/personality/esfj-a",
+      "target_url": "https://fermatmind.com/en/personality/esfj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "query": null,
+      "query_status": "pending_manual_or_api_query_export",
+      "clicks": null,
+      "impressions": 3,
+      "ctr": null,
+      "position": 26.7,
+      "source": "mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24",
+      "next_action": "export_filtered_page_query_rows_before_serp_copy_rewrite",
+      "gsc_api_request_template": {
+        "siteUrl": "sc-domain:fermatmind.com",
+        "request": {
+          "startDate": "YYYY-MM-DD",
+          "endDate": "YYYY-MM-DD",
+          "dimensions": [
+            "page",
+            "query"
+          ],
+          "dimensionFilterGroups": [
+            {
+              "filters": [
+                {
+                  "dimension": "page",
+                  "operator": "equals",
+                  "expression": "https://fermatmind.com/en/personality/esfj-a"
+                }
+              ]
+            }
+          ],
+          "rowLimit": 250,
+          "startRow": 0
+        }
+      }
+    },
+    {
+      "path": "/zh/personality/esfj-a",
+      "target_url": "https://fermatmind.com/zh/personality/esfj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "query": null,
+      "query_status": "pending_manual_or_api_query_export",
+      "clicks": null,
+      "impressions": 1,
+      "ctr": null,
+      "position": 8,
+      "source": "mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24",
+      "next_action": "export_filtered_page_query_rows_before_serp_copy_rewrite",
+      "gsc_api_request_template": {
+        "siteUrl": "sc-domain:fermatmind.com",
+        "request": {
+          "startDate": "YYYY-MM-DD",
+          "endDate": "YYYY-MM-DD",
+          "dimensions": [
+            "page",
+            "query"
+          ],
+          "dimensionFilterGroups": [
+            {
+              "filters": [
+                {
+                  "dimension": "page",
+                  "operator": "equals",
+                  "expression": "https://fermatmind.com/zh/personality/esfj-a"
+                }
+              ]
+            }
+          ],
+          "rowLimit": 250,
+          "startRow": 0
+        }
+      }
+    },
+    {
+      "path": "/en/personality/intp-a",
+      "target_url": "https://fermatmind.com/en/personality/intp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "query": null,
+      "query_status": "pending_manual_or_api_query_export",
+      "clicks": null,
+      "impressions": 1,
+      "ctr": null,
+      "position": 9,
+      "source": "mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24",
+      "next_action": "export_filtered_page_query_rows_before_serp_copy_rewrite",
+      "gsc_api_request_template": {
+        "siteUrl": "sc-domain:fermatmind.com",
+        "request": {
+          "startDate": "YYYY-MM-DD",
+          "endDate": "YYYY-MM-DD",
+          "dimensions": [
+            "page",
+            "query"
+          ],
+          "dimensionFilterGroups": [
+            {
+              "filters": [
+                {
+                  "dimension": "page",
+                  "operator": "equals",
+                  "expression": "https://fermatmind.com/en/personality/intp-a"
+                }
+              ]
+            }
+          ],
+          "rowLimit": 250,
+          "startRow": 0
+        }
+      }
+    },
+    {
+      "path": "/en/personality/istp-a",
+      "target_url": "https://fermatmind.com/en/personality/istp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "query": null,
+      "query_status": "pending_manual_or_api_query_export",
+      "clicks": null,
+      "impressions": 1,
+      "ctr": null,
+      "position": 11,
+      "source": "mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24",
+      "next_action": "export_filtered_page_query_rows_before_serp_copy_rewrite",
+      "gsc_api_request_template": {
+        "siteUrl": "sc-domain:fermatmind.com",
+        "request": {
+          "startDate": "YYYY-MM-DD",
+          "endDate": "YYYY-MM-DD",
+          "dimensions": [
+            "page",
+            "query"
+          ],
+          "dimensionFilterGroups": [
+            {
+              "filters": [
+                {
+                  "dimension": "page",
+                  "operator": "equals",
+                  "expression": "https://fermatmind.com/en/personality/istp-a"
+                }
+              ]
+            }
+          ],
+          "rowLimit": 250,
+          "startRow": 0
+        }
+      }
+    },
+    {
+      "path": "/en/personality/entj-a",
+      "target_url": "https://fermatmind.com/en/personality/entj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "query": null,
+      "query_status": "pending_manual_or_api_query_export",
+      "clicks": null,
+      "impressions": 2,
+      "ctr": null,
+      "position": 25,
+      "source": "mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24",
+      "next_action": "export_filtered_page_query_rows_before_serp_copy_rewrite",
+      "gsc_api_request_template": {
+        "siteUrl": "sc-domain:fermatmind.com",
+        "request": {
+          "startDate": "YYYY-MM-DD",
+          "endDate": "YYYY-MM-DD",
+          "dimensions": [
+            "page",
+            "query"
+          ],
+          "dimensionFilterGroups": [
+            {
+              "filters": [
+                {
+                  "dimension": "page",
+                  "operator": "equals",
+                  "expression": "https://fermatmind.com/en/personality/entj-a"
+                }
+              ]
+            }
+          ],
+          "rowLimit": 250,
+          "startRow": 0
+        }
+      }
+    },
+    {
+      "path": "/en/personality/estp-t",
+      "target_url": "https://fermatmind.com/en/personality/estp-t",
+      "locale": "en",
+      "page_type": "variant",
+      "query": null,
+      "query_status": "pending_manual_or_api_query_export",
+      "clicks": null,
+      "impressions": 2,
+      "ctr": null,
+      "position": 46.5,
+      "source": "mbti64-gsc-query-api-or-manual-csv-export-10-2026-06-24",
+      "next_action": "export_filtered_page_query_rows_before_serp_copy_rewrite",
+      "gsc_api_request_template": {
+        "siteUrl": "sc-domain:fermatmind.com",
+        "request": {
+          "startDate": "YYYY-MM-DD",
+          "endDate": "YYYY-MM-DD",
+          "dimensions": [
+            "page",
+            "query"
+          ],
+          "dimensionFilterGroups": [
+            {
+              "filters": [
+                {
+                  "dimension": "page",
+                  "operator": "equals",
+                  "expression": "https://fermatmind.com/en/personality/estp-t"
+                }
+              ]
+            }
+          ],
+          "rowLimit": 250,
+          "startRow": 0
+        }
+      }
+    },
+    {
+      "path": "/zh/tests/mbti-personality-test-16-personality-types",
+      "target_url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "locale": "zh",
+      "page_type": "test",
+      "query": "mbti测试",
+      "query_status": "operator_seed_requires_gsc_confirmation",
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "position": null,
+      "source": "operator_gsc_28d_summary_seed",
+      "next_action": "confirm_query_metrics_in_next_manual_csv_or_api_export"
+    },
+    {
+      "path": "/zh/tests/mbti-personality-test-16-personality-types",
+      "target_url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "locale": "zh",
+      "page_type": "test",
+      "query": "mbti免费测试",
+      "query_status": "operator_seed_requires_gsc_confirmation",
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "position": null,
+      "source": "operator_gsc_28d_summary_seed",
+      "next_action": "confirm_query_metrics_in_next_manual_csv_or_api_export"
+    },
+    {
+      "path": "/zh/tests/mbti-personality-test-16-personality-types",
+      "target_url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "locale": "zh",
+      "page_type": "test",
+      "query": "16型人格测试",
+      "query_status": "operator_seed_requires_gsc_confirmation",
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "position": null,
+      "source": "operator_gsc_28d_summary_seed",
+      "next_action": "confirm_query_metrics_in_next_manual_csv_or_api_export"
+    },
+    {
+      "path": "/zh/personality/istp-a",
+      "target_url": "https://fermatmind.com/zh/personality/istp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "query": "istp-a",
+      "query_status": "operator_seed_requires_gsc_confirmation",
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "position": null,
+      "source": "operator_gsc_28d_summary_seed",
+      "next_action": "confirm_query_metrics_in_next_manual_csv_or_api_export"
+    },
+    {
+      "path": "/zh/personality/intp-a",
+      "target_url": "https://fermatmind.com/zh/personality/intp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "query": "intp a",
+      "query_status": "operator_seed_requires_gsc_confirmation",
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "position": null,
+      "source": "operator_gsc_28d_summary_seed",
+      "next_action": "confirm_query_metrics_in_next_manual_csv_or_api_export"
+    },
+    {
+      "path": "/zh/personality/istj-a",
+      "target_url": "https://fermatmind.com/zh/personality/istj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "query": "istj-a人格",
+      "query_status": "operator_seed_requires_gsc_confirmation",
+      "clicks": null,
+      "impressions": null,
+      "ctr": null,
+      "position": null,
+      "source": "operator_gsc_28d_summary_seed",
+      "next_action": "confirm_query_metrics_in_next_manual_csv_or_api_export"
+    }
+  ],
+  "import_template": {
+    "columns": [
+      "target_url",
+      "path",
+      "query",
+      "clicks",
+      "impressions",
+      "ctr",
+      "position",
+      "date_range",
+      "source",
+      "exported_at",
+      "expected_status_after_import"
+    ],
+    "rows": [
+      {
+        "target_url": "https://fermatmind.com/en/personality/esfj-t",
+        "path": "/en/personality/esfj-t",
+        "query": "",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/en/personality/enfp-a",
+        "path": "/en/personality/enfp-a",
+        "query": "",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/zh/personality/istp-a",
+        "path": "/zh/personality/istp-a",
+        "query": "",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+        "path": "/zh/personality/intp-a-vs-intp-t",
+        "query": "",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/en/personality/esfj-a",
+        "path": "/en/personality/esfj-a",
+        "query": "",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/zh/personality/esfj-a",
+        "path": "/zh/personality/esfj-a",
+        "query": "",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/en/personality/intp-a",
+        "path": "/en/personality/intp-a",
+        "query": "",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/en/personality/istp-a",
+        "path": "/en/personality/istp-a",
+        "query": "",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/en/personality/entj-a",
+        "path": "/en/personality/entj-a",
+        "query": "",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/en/personality/estp-t",
+        "path": "/en/personality/estp-t",
+        "query": "",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "path": "/zh/tests/mbti-personality-test-16-personality-types",
+        "query": "mbti测试",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "path": "/zh/tests/mbti-personality-test-16-personality-types",
+        "query": "mbti免费测试",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+        "path": "/zh/tests/mbti-personality-test-16-personality-types",
+        "query": "16型人格测试",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/zh/personality/istp-a",
+        "path": "/zh/personality/istp-a",
+        "query": "istp-a",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/zh/personality/intp-a",
+        "path": "/zh/personality/intp-a",
+        "query": "intp a",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      },
+      {
+        "target_url": "https://fermatmind.com/zh/personality/istj-a",
+        "path": "/zh/personality/istj-a",
+        "query": "istj-a人格",
+        "clicks": "",
+        "impressions": "",
+        "ctr": "",
+        "position": "",
+        "date_range": "YYYY-MM-DD..YYYY-MM-DD",
+        "source": "gsc_manual_csv_or_api",
+        "exported_at": "YYYY-MM-DDTHH:mm:ssZ",
+        "expected_status_after_import": "gsc_query_verified"
+      }
+    ]
+  },
+  "safety_boundary": {
+    "gsc_api_call_attempted": false,
+    "gsc_request_indexing_attempted": false,
+    "search_submit_attempted": false,
+    "search_queue_mutation_attempted": false,
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "production_deploy_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "sitemap_llms_mutation_attempted": false
+  },
+  "next_gates": {
+    "MBTI_CMS_12": "Use only captured or imported query-verified rows for profile title, FAQ, and answer-block revisions.",
+    "MBTI_CMS_13": "Use only captured or imported query-verified rows for comparison max-difference, FAQ, and snippet revisions.",
+    "MBTI_QA_14": "Fail duplicate-looking pages when query evidence is pending but copy changes claim query fit."
+  },
+  "blockers": []
+}
