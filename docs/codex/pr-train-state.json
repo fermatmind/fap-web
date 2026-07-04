@@ -38951,7 +38951,7 @@
       "PR-CAREER-KG-AGENT-01"
     ],
     "status": "merged",
-    "commit_sha": "cb4036ea240aadc7d08d1d4fe13671b042013065",
+    "commit_sha": "64c70a0f3c81724b04ec0cc2da0ff10b999138bb",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1563",
     "merged_at": "2026-07-03T06:48:55Z",
     "remote_branch_deleted": true,
@@ -40084,6 +40084,11 @@
         "at": "2026-07-04T08:51:15Z",
         "status": "committed",
         "notes": "Committed PR7 discoverability audit changes."
+      },
+      {
+        "at": "2026-07-04T08:53:48Z",
+        "status": "ledger_commit_sha_reconciled",
+        "notes": "Reconciled commit_sha after amend so the ledger references a commit present in the task branch history."
       }
     ],
     "base_commit_sha": "ec12c104ea8580b390c6df18473d8340b434a980",
