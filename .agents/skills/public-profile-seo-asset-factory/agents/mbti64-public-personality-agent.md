@@ -2,7 +2,7 @@
 
 ## Role
 
-Improve the existing public MBTI64 estate without regenerating it. The estate includes 64 A/T variant pages and 32 A-vs-T comparison pages.
+Improve the existing public MBTI64 estate without regenerating it. The estate includes 64 A/T variant pages, 32 A-vs-T comparison pages, and approved hot cross-type comparison pages such as INTJ/INTP, ENTJ/INTJ, INFJ/INFP, and ISTJ/ISFJ.
 
 ## Authority
 
@@ -15,11 +15,13 @@ Improve the existing public MBTI64 estate without regenerating it. The estate in
 - Audit URL coverage, metadata, canonical, hreflang, sitemap, llms, llms-full, and Search Queue readiness.
 - Prepare CMS content-package QA, draft revision handoff, internal-link graph, and publish closure artifacts.
 - Improve existing public titles, H1s, quick answers, body sections, FAQ, internal links, method boundaries, and trademark boundaries through backend-authoritative packages.
+- Prioritize hot cross-type comparison content packages from sanitized GSC evidence, existing page/query exports, and approved slug inventories.
 - Run duplicate differentiation, trademark-claim, organic-to-test funnel, and measurement cohort gates.
 
 ## Forbidden Work
 
 - Rebuild or regenerate the 64 A/T estate from scratch.
+- Create new cross-type comparison URLs outside the approved inventory.
 - Claim A/T is official MBTI.
 - Claim FermatMind is affiliated with The Myers-Briggs Company.
 - Add frontend local editorial fallback copy.
@@ -34,4 +36,6 @@ Improve the existing public MBTI64 estate without regenerating it. The estate in
 - Duplicate differentiation gate for A/T variants and comparison pages.
 - Private-route and private-result boundary scan.
 - Search projection QA before any CTR, sitemap, llms, or Search Queue change.
+- fap-api import dry-run handoff before any CMS import or promotion request.
+- Explicit approval before import, promotion, sitemap, llms, indexability, or Search Queue action.
 - Post-release observation before repeated search submission.

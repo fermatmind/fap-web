@@ -55,6 +55,7 @@ The public profile factory is split into framework-specific agents plus shared Q
 
 - Content Orchestrator Agent: routes work to framework agents, records inputs/outputs, and prevents scope mixing.
 - MBTI64 Public Personality Agent: audits and improves the existing 64 A/T variant pages and A-vs-T comparison pages.
+- MBTI Hot Cross-Type Comparison Agent: prioritizes and packages high-opportunity cross-type comparison assets, such as INTJ/INTP, ENTJ/INTJ, INFJ/INFP, and ISTJ/ISFJ, without creating frontend fallback copy.
 - Big Five Public Personality Agent: produces or QA-checks 5-domain, 10-pole, and 30-facet dimensional content packages.
 - Enneagram Public Personality Agent: upgrades hub, 3 centers, and 9 core types before wings or instinctual subtypes.
 - SEO Projection QA Agent: checks search-intent, title/description, internal-link, llms, sitemap, and Search Queue readiness artifacts.
@@ -75,9 +76,21 @@ Runner inputs are target URL, framework, current CMS/API or live surface, optimi
 - `big_five.content_package_generation`: create schema-valid packages for 5-10-30 dimensional assets. Do not create official 32 OCEAN SEO pages.
 - `enneagram.placeholder_upgrade`: upgrade V1 placeholder assets for hub, centers, and core types. Do not create 54 combination pages or Tritype.
 
+## MBTI Asset Pipeline
+
+For MBTI public profile work, use this executable sequence:
+
+1. GSC evidence: ingest existing sanitized page and query exports, or mark `GSC_EVIDENCE_PENDING`; do not call Search Console or mutate GSC state in this skill.
+2. Content package: select only approved existing MBTI profile, A/T comparison, or hot cross-type comparison slugs, then prepare backend-authoritative draft packets.
+3. QA: run schema, trademark/method boundary, duplicate/template risk, private-result leakage, SERP intent, internal-link, and GEO answer-surface gates.
+4. fap-api import dry-run: hand off a dry-run import packet and schema/field-mapping expectations to fap-api; this skill does not write CMS or backend data.
+5. Approval: require explicit operator approval before any import, promotion, Search Queue, sitemap, llms, or indexability action.
+6. Promotion: after approved backend import and API smoke, let the rendering/release PR consume the API output without local editorial fallback content.
+7. sitemap/llms gate: only a separate indexability PR may expand sitemap, llms, llms-full, canonical, robots, or Search Queue coverage after live authority and duplicate gates pass.
+
 ## Default Codex-Native Workflow
 
-The default content production flow is:
+For non-MBTI or narrow draft-only work, the default content production flow is:
 
 1. source ledger
 2. Codex native draft
@@ -88,6 +101,8 @@ The default content production flow is:
 7. handoff preview
 
 Codex output cannot be written directly to production seed or production CMS. Codex-generated content must be treated as an untrusted draft until schema, evidence, duplicate, private-result-boundary, framework, and indexability QA all pass.
+
+Do not write CMS from this skill. Backend imports require the separate fap-api dry-run, approval, and promotion gates above.
 
 ## External Model Protocol
 

@@ -6182,6 +6182,28 @@ export function isMbtiSeo05ComparisonTemplateRefreshAllowedFile(file: string): b
   return MBTI_SEO_05_COMPARISON_TEMPLATE_REFRESH_ALLOWED_FILES.has(file);
 }
 
+const MBTI_ASSET_SKILL_10_ALLOWED_FILES = new Set([
+  ".agents/skills/public-profile-seo-asset-factory/SKILL.md",
+  ".agents/skills/public-profile-seo-asset-factory/agents/mbti64-public-personality-agent.md",
+  ".agents/skills/public-profile-seo-asset-factory/orchestration/personality-agent-matrix.md",
+  ".agents/skills/public-profile-seo-asset-factory/orchestration/state-machine.md",
+  ".agents/skills/public-profile-seo-asset-factory/runbooks/mbti-existing-asset-enhancement.md",
+  "tests/contracts/mbti-asset-skill-10-public-profile-seo-asset-factory.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
+export function isMbtiAssetSkill10AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/mbti-asset-skill-10-profile-seo-runbook") {
+    return true;
+  }
+
+  return MBTI_ASSET_SKILL_10_ALLOWED_FILES.has(file);
+}
+
 const IQ_METHOD_01_ALLOWED_FILES = new Set([
   "generated/iq-method-pages-zh-cn-v0.2/README.md",
   "generated/iq-method-pages-zh-cn-v0.2/GLOBAL_CLAIM_POLICY.md",

@@ -13582,7 +13582,7 @@ prs:
     mode: execute
     train_scope: mbti_personality_asset_operations_sop
     risk_level: L1
-    status: in_progress
+    status: merged_cleanup_complete
     title: "MBTI-ASSET-OPS-09: document personality asset execution SOP"
     goal: "Update personality asset docs with the current Top10, comparison20, remaining58, pending GSC query export, and pending CMS import states, and map each state to the next PR without changing runtime behavior."
     in_scope:
@@ -13627,7 +13627,7 @@ prs:
     mode: execute
     train_scope: mbti_public_profile_seo_asset_factory_runbook
     risk_level: L1
-    status: planned
+    status: in_progress
     title: "MBTI-ASSET-SKILL-10: optimize MBTI asset factory runbook"
     goal: "Update the public-profile-seo-asset-factory MBTI agent matrix with hot cross-type comparison ownership and expand the MBTI runbook into a GSC to content package to QA to fap-api dry-run to approval to promotion to sitemap/llms gate pipeline."
     in_scope:
