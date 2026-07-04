@@ -11,7 +11,9 @@ vi.mock("next/link", () => ({
 }));
 
 vi.mock("@/components/marketing/LiveCompletedCounter", () => ({
-  LiveCompletedCounter: ({ className }: { className?: string }) => <span className={className}>1,049,304</span>,
+  LiveCompletedCounter: ({ className, suffix = "" }: { className?: string; suffix?: string }) => (
+    <span className={className}>1,201,183{suffix}</span>
+  ),
 }));
 
 describe("QuizTakeHeaderV2 contract", () => {
@@ -40,20 +42,18 @@ describe("QuizTakeHeaderV2 contract", () => {
     expect(screen.queryByText("次测评")).not.toBeInTheDocument();
   });
 
-  it("can render a static backend total count for localized take headers", () => {
+  it("renders the backend total label with the live completed counter", () => {
     render(
       <QuizTakeHeaderV2
         {...baseProps}
         completedPrefix=""
-        completedCountLabel="1200000+"
         completedSuffix="后台测试数据总计"
       />
     );
 
-    expect(screen.getByText("1200000+")).toBeInTheDocument();
+    expect(screen.getByText("1,201,183+")).toBeInTheDocument();
     expect(screen.getByText("后台测试数据总计")).toBeInTheDocument();
     expect(screen.queryByText("过去30天已完成")).not.toBeInTheDocument();
-    expect(screen.queryByText("1,049,304")).not.toBeInTheDocument();
     expect(screen.queryByText("次测评")).not.toBeInTheDocument();
   });
 });

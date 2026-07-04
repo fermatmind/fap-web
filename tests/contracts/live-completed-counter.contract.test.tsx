@@ -1,42 +1,33 @@
-import { act, render, screen } from "@testing-library/react";
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { render, screen, waitFor } from "@testing-library/react";
+import { afterEach, describe, expect, it, vi } from "vitest";
 import { LiveCompletedCounter } from "@/components/marketing/LiveCompletedCounter";
-import { LIVE_COMPLETED_COUNT, LIVE_COMPLETED_COUNT_TICK_MS } from "@/lib/marketing/completionStats";
-
-type AnimatedCounterProps = {
-  value: number;
-  className?: string;
-};
-
-vi.mock("@/components/design/AnimatedCounter", () => ({
-  AnimatedCounter: ({ value, className }: AnimatedCounterProps) => (
-    <span data-testid="animated-counter" className={className}>
-      {value}
-    </span>
-  ),
-}));
 
 describe("LiveCompletedCounter contract", () => {
-  beforeEach(() => {
-    vi.useFakeTimers();
-  });
-
   afterEach(() => {
-    vi.useRealTimers();
     vi.restoreAllMocks();
+    vi.unstubAllGlobals();
   });
 
-  it("increments the shared completed count once per second using a random step", () => {
-    vi.spyOn(Math, "random").mockReturnValue(0.6);
+  it("renders the baseline plus the backend cumulative successful attempts without a ticker", async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        ok: true,
+        test_metrics_summary: {
+          cumulative_successful_attempts: 1183,
+        },
+      }),
+    });
+    vi.stubGlobal("fetch", fetchMock);
 
-    render(<LiveCompletedCounter />);
+    render(<LiveCompletedCounter suffix="+" />);
 
-    expect(screen.getByTestId("animated-counter")).toHaveTextContent(String(LIVE_COMPLETED_COUNT));
+    expect(screen.getByText("1,200,000+")).toBeInTheDocument();
 
-    act(() => {
-      vi.advanceTimersByTime(LIVE_COMPLETED_COUNT_TICK_MS);
+    await waitFor(() => {
+      expect(screen.getByText("1,201,183+")).toBeInTheDocument();
     });
 
-    expect(screen.getByTestId("animated-counter")).toHaveTextContent(String(LIVE_COMPLETED_COUNT + 3));
+    expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 });

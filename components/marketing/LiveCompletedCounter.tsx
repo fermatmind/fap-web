@@ -1,51 +1,75 @@
 "use client";
 
-import { useSyncExternalStore } from "react";
-import { AnimatedCounter, type AnimatedCounterProps } from "@/components/design/AnimatedCounter";
+import { useEffect, useMemo, useState } from "react";
+import { buildApiUrl } from "@/lib/api-base";
 import {
-  getRandomLiveCompletedCountIncrement,
-  LIVE_COMPLETED_COUNT,
-  LIVE_COMPLETED_COUNT_TICK_MS,
+  LIVE_COMPLETED_COUNT_BASELINE,
+  LIVE_COMPLETED_COUNT_METRICS_PATH,
 } from "@/lib/marketing/completionStats";
 
-let currentCompletedCount = LIVE_COMPLETED_COUNT;
-let intervalId: number | null = null;
-const listeners = new Set<() => void>();
+type LiveCompletedCounterProps = {
+  className?: string;
+  prefix?: string;
+  suffix?: string;
+};
 
-function emitChange() {
-  listeners.forEach((listener) => listener());
-}
+type PublicTestMetricsSummaryResponse = {
+  test_metrics_summary?: {
+    cumulative_successful_attempts?: unknown;
+  };
+};
 
-function ensureCounterTicker() {
-  if (typeof window === "undefined" || intervalId !== null) {
-    return;
+function normalizeCount(value: unknown): number {
+  const numeric = typeof value === "number" ? value : Number(value);
+  if (!Number.isFinite(numeric) || numeric < 0) {
+    return 0;
   }
 
-  intervalId = window.setInterval(() => {
-    currentCompletedCount += getRandomLiveCompletedCountIncrement();
-    emitChange();
-  }, LIVE_COMPLETED_COUNT_TICK_MS);
+  return Math.floor(numeric);
 }
 
-function subscribe(listener: () => void) {
-  listeners.add(listener);
-  ensureCounterTicker();
+export function LiveCompletedCounter({ className, prefix = "", suffix = "" }: LiveCompletedCounterProps) {
+  const [backendSuccessfulAttempts, setBackendSuccessfulAttempts] = useState(0);
+  const completedCount = LIVE_COMPLETED_COUNT_BASELINE + backendSuccessfulAttempts;
+  const formattedCount = useMemo(() => new Intl.NumberFormat("en-US").format(completedCount), [completedCount]);
 
-  return () => {
-    listeners.delete(listener);
+  useEffect(() => {
+    const controller = new AbortController();
+    let isMounted = true;
 
-    if (listeners.size === 0 && intervalId !== null) {
-      window.clearInterval(intervalId);
-      intervalId = null;
-    }
-  };
-}
+    fetch(buildApiUrl(LIVE_COMPLETED_COUNT_METRICS_PATH), {
+      signal: controller.signal,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((payload: PublicTestMetricsSummaryResponse | null) => {
+        if (!isMounted) {
+          return;
+        }
 
-function getSnapshot() {
-  return currentCompletedCount;
-}
+        setBackendSuccessfulAttempts(
+          normalizeCount(payload?.test_metrics_summary?.cumulative_successful_attempts)
+        );
+      })
+      .catch(() => {
+        if (isMounted) {
+          setBackendSuccessfulAttempts(0);
+        }
+      });
 
-export function LiveCompletedCounter(props: Omit<AnimatedCounterProps, "value">) {
-  const liveCompletedCount = useSyncExternalStore(subscribe, getSnapshot, () => LIVE_COMPLETED_COUNT);
-  return <AnimatedCounter {...props} value={liveCompletedCount} />;
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
+  }, []);
+
+  return (
+    <span className={className} aria-live="polite">
+      {prefix}
+      {formattedCount}
+      {suffix}
+    </span>
+  );
 }

@@ -17,7 +17,6 @@ const zh: SiteDictionary = {
     closeMenu: "关闭菜单",
     completedPrefix: "",
     completedSuffix: "后台测试数据总计",
-    completedCountLabel: "1200000+",
     switchToEnglish: "EN",
     switchToChinese: "中文",
   },
