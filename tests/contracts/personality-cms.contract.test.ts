@@ -906,8 +906,10 @@ describe("personality cms adapter contract", () => {
     expect(source).toContain("extractProjectionFaqItems");
     expect(source).toContain("detail.answerSurface?.faqBlocks.length");
     expect(source).toContain("const projectionFaqItems = extractProjectionFaqItems(detail.projection.sections);");
-    expect(source).toContain("const legacyFaqItems = extractPersonalityFaqItems(detail.faqSections);");
+    expect(source).toContain("const supplementalFaqItems = extractPersonalityFaqItems(detail.supplementalSections);");
+    expect(source).toContain("const legacyFaqItems = extractPersonalityFaqItems([...detail.faqSections, ...detail.supplementalSections]);");
     expect(source).toContain("projectionFaqItems.length");
+    expect(source).toContain("supplementalFaqItems.length");
     expect(source).toContain("cmsQuickAnswerBody(detail.supplementalSections)");
     expect(source).toContain("comparisonQuickAnswerBody(comparison)");
     expect(source).toContain('data-testid="personality-comparison-quick-answer"');
@@ -917,6 +919,7 @@ describe("personality cms adapter contract", () => {
     expect(source).toContain("const renderedV85Sections = renderPersonalitySections(v85Sections, locale);");
     expect(source).toContain('[...legacySections.filter((section) => section.sectionKey !== "quick_answer"), ...detail.faqSections]');
     expect(source).toContain('data-testid="personality-detail-v85-primary-sections"');
+    expect(source).toContain('testId="personality-detail-v85-answer-surface"');
     expect(source).toContain("AnswerSurfaceSection");
     expect(source).toContain("buildFAQPageJsonLd");
     expect(source).toContain("buildWebPageJsonLd");
