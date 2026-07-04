@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T15:11:20.942Z",
+  "updated_at": "2026-07-04T15:12:19.935Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -28777,9 +28777,9 @@
       "id": "IQ-METHOD-01",
       "repo": "fap-web",
       "branch": "codex/iq-method-01-what-is-iq-style",
-      "status": "committed",
-      "commit_sha": "98bd39db88e52f4d0d14bfdf66a411792cdafcc1",
-      "pr_url": null,
+      "status": "pr_open",
+      "commit_sha": "c2ae5a962506eb15216898d6fb26e9939efc4ae0",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1594",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -28814,7 +28814,8 @@
         },
         "github": {
           "status": "pending",
-          "checks": []
+          "checks": [],
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1594"
         }
       },
       "history": [
@@ -28833,6 +28834,13 @@
           "status": "committed",
           "commit_sha": "98bd39db88e52f4d0d14bfdf66a411792cdafcc1",
           "note": "Committed IQ-METHOD-01 scoped content asset package, contract, and train metadata after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-07-04T15:12:19.935Z",
+          "status": "pr_open",
+          "commit_sha": "c2ae5a962506eb15216898d6fb26e9939efc4ae0",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1594",
+          "note": "Opened PR #1594 for IQ-METHOD-01 after local checks and scope validation passed."
         }
       ],
       "metadata": {
@@ -28850,7 +28858,7 @@
           "llms_eligible": false
         }
       },
-      "updated_at": "2026-07-04T15:11:20.942Z"
+      "updated_at": "2026-07-04T15:12:19.935Z"
     },
     {
       "id": "IQ-METHOD-02",
