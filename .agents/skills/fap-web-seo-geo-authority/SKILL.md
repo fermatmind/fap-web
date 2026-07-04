@@ -25,7 +25,7 @@ Keep fap-web SEO and GEO surfaces aligned with backend or CMS authority without 
 - Stop if active Critical/High/Medium appears during Low/Informational work.
 - Do not weaken previously fixed security boundaries.
 - Required checks for fap-web are build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze.
-- Sitemap, `llms.txt`, metadata, and structured data must enumerate from CMS or public APIs for CMS-backed surfaces.
+- Sitemap, `llms.txt`, `llms-full.txt`, metadata, and structured data must enumerate from CMS or public APIs for CMS-backed surfaces.
 
 ## Standard workflow
 1. Identify the SEO/GEO surface, authoritative API, cache behavior, and fallback state.

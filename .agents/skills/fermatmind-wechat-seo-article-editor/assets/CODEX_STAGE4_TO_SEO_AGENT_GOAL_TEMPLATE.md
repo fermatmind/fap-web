@@ -156,7 +156,8 @@ canonical URLs:
 - controlled publish after rehearsal passes;
 - public smoke;
 - sitemap/llms/llms-full discoverability release;
-- content-release revalidation and sitemap-source warm when required for parity;
+- llms-full runtime stabilization gate before final closeout;
+- content-release revalidation, sitemap-source warm, and llms-full warm when required for parity;
 - URL Truth refresh/write;
 - Search Channel enqueue, approve, and bounded live submit for `indexnow` and `baidu_push`, using `queue_item_ids` from the enqueue output, not `batch_ids`;
 - GSC manual Request Indexing for the exact zh/en canonical URLs;
@@ -166,6 +167,14 @@ canonical URLs:
   - `--enable-faq-schema` only when visible FAQ and JSON-LD FAQPage parity passes, otherwise `--hold-faq-schema`;
 - `articles:release-closeout` evidence ingestion with public smoke, GSC manual, and observation JSON artifacts;
 - final reconciliation and D1/D7/D14 observation checklist.
+
+The llms-full runtime stabilization gate must not treat the first degraded or
+missing response as final truth. If `/llms-full.txt` returns degraded mode, an
+HTTP/2 stream error, or does not contain both target URLs, the generated goal
+must require an HTTP/1.1 recheck, a bounded 5-10 minute retry window, target
+article content-release revalidation or llms-full warm when allowed, and a final
+public verifier run with `--expect-llms-full`. Only after those steps still fail
+may the release record `LLMS_FULL_RUNTIME_HOLD_DOCUMENTED`.
 
 The full-chain variant treats schema and hreflang as independent post-publish
 SEO enhancement gates, not as implicit side effects of CMS publish. It must stop on failed preflight,
@@ -264,11 +273,12 @@ Required outputs:
 - preview QA report
 - publish rehearsal/report
 - public smoke report
-- discoverability parity report proving public `/sitemap.xml`, `/llms.txt`, and `/llms-full.txt` contain both canonical URLs in the same release chain
+- discoverability parity report proving public `/sitemap.xml`, `/llms.txt`, and `/llms-full.txt` contain both canonical URLs in the same release chain, including llms-full mode/source and retry/warm evidence when stabilization was needed
 - schema/hreflang gate report with `SEO_ENHANCEMENT_COMPLETE` or `SEO_ENHANCEMENT_HELD_REASON`
 - URL Truth/Search Channel/GSC reports, including queue item IDs and GSC manual evidence JSON
 - answer-surface FAQ check, including `ANSWER_SURFACE_FAQ_ENHANCEMENT_RECOMMENDED` when package FAQ is present but the public answer-surface block still renders generic FAQ
 - GEO answer/media closeout with `GEO_READY_OBSERVATION_PENDING` when public article answer blocks, media, internal links, and claim boundaries are visible and only D1/D7/D14 performance observation remains
+- llms-full runtime stabilization report with `LLMS_FULL_DEGRADED_RETRY_REQUIRED`, `LLMS_FULL_STABILIZED`, or `LLMS_FULL_RUNTIME_HOLD_DOCUMENTED`
 - D1/D7/D14 observation queue with `Unknown` placeholders for missing metrics
 - final `articles:release-closeout` report using `--public-smoke-json`, `--gsc-manual-json`, and `--observation-json` when those artifacts exist
 - NEXT_EXACT_AUTHORIZATION_PROMPTS.md only for blockers outside this full-chain profile
@@ -281,6 +291,7 @@ Final decision:
 - SEO_ENHANCEMENT_COMPLETE
 - SEO_ENHANCEMENT_HELD_REASON
 - GEO_READY_OBSERVATION_PENDING
+- GEO_READY_OBSERVATION_PENDING_WITH_DOCUMENTED_LLMS_FULL_RUNTIME_HOLD
 - ARTICLE_RELEASE_COMPLETE_SEARCH_OBSERVATION_PENDING
 - ARTICLE_RELEASE_COMPLETE_PROVIDER_HELD
 - BLOCKED_NEEDS_OPERATOR_INPUT

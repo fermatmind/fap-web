@@ -104,6 +104,8 @@ Daily completion definition:
 - CTA smoke must prove localized public CTA routes and expected article `content_id`.
 - discoverability parity must prove both localized URLs appear in `sitemap.xml`, `llms.txt`, and `llms-full.txt`.
 - public sitemap parity uses the runtime backend-authority `/sitemap.xml`; do not require a frontend rebuild/deploy or static sitemap refresh as a daily article step when parity passes.
+- llms-full runtime stabilization gate must run before final closeout. If `/llms-full.txt` returns degraded mode, HTTP/2 stream errors, or misses either localized URL, record `LLMS_FULL_DEGRADED_RETRY_REQUIRED`, recheck with HTTP/1.1, wait and retry for 5-10 minutes, run target article content-release revalidation or llms-full warm when allowed, then rerun the public verifier with `--expect-llms-full`.
+- Do not enter final closeout on the first llms-full degraded/missing response. Only record `LLMS_FULL_RUNTIME_HOLD_DOCUMENTED` after retry plus warm still fails, with backend authority eligibility, sitemap state, llms.txt state, llms-full mode/source, and response evidence.
 - schema/hreflang parity must be run as an independent post-publish gate: Article and Breadcrumb schema enabled when public JSON-LD verifies; FAQ schema enabled only when visible FAQ and JSON-LD FAQPage parity passes, otherwise record `SEO_ENHANCEMENT_HELD_REASON=faq_schema_parity_not_verified`.
 - hreflang parity must prove reciprocal `zh-CN`, `en`, and `x-default` alternates for the bilingual article pair before closeout marks hreflang complete.
 - final public smoke for a full-chain bilingual article should expect `Article,BreadcrumbList`, forbid `FAQPage` when FAQ parity is not enabled, and expect exact `en`, `zh-CN`, and `x-default` hreflang alternates.
@@ -165,6 +167,7 @@ Final Decision must be one of:
 - SEO_ENHANCEMENT_COMPLETE
 - SEO_ENHANCEMENT_HELD_REASON
 - GEO_READY_OBSERVATION_PENDING
+- GEO_READY_OBSERVATION_PENDING_WITH_DOCUMENTED_LLMS_FULL_RUNTIME_HOLD
 - FULL_RELEASE_COMPLETED_AND_SEARCH_SUBMITTED
 - FULL_RELEASE_COMPLETED_GSC_HELD_BY_LOGIN_OR_CAPTCHA
 - FULL_RELEASE_COMPLETED_PROVIDER_HELD
