@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T18:17:00Z",
+  "updated_at": "2026-07-04T18:20:00Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -29397,7 +29397,7 @@
       "repo": "fap-web",
       "branch": "codex/iq-method-06-privacy-data-boundary",
       "status": "local_checks_passed",
-      "commit_sha": null,
+      "commit_sha": "cb97b3ca3251af68e2e0e5c4be0ad37000f45049",
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -29448,6 +29448,11 @@
           "at": "2026-07-04T18:17:00Z",
           "status": "local_checks_passed",
           "note": "Completed IQ-METHOD-06 privacy/data-boundary draft-review asset package, PR5 train-forward contract compatibility, and required local validation without CMS writes, frontend runtime content, discoverability activation, production import, or deploy."
+        },
+        {
+          "at": "2026-07-04T18:20:00Z",
+          "status": "local_checks_passed",
+          "note": "Created local implementation commit cb97b3ca3251af68e2e0e5c4be0ad37000f45049 for IQ-METHOD-06; a follow-up ledger commit records this SHA to avoid a self-referential commit hash loop."
         }
       ],
       "metadata": {
@@ -29465,7 +29470,7 @@
           "llms_eligible": false
         }
       },
-      "updated_at": "2026-07-04T18:17:00Z"
+      "updated_at": "2026-07-04T18:20:00Z"
     },
     {
       "id": "IQ-METHOD-07",
