@@ -1,0 +1,5637 @@
+{
+  "id": "MBTI-QA-14",
+  "artifact": "MBTI-QA-14-SEMANTIC-DUPLICATE-GATE",
+  "generated_at": "2026-07-04T23:30:00.000Z",
+  "input_artifacts": {
+    "remaining58": "docs/seo/personality/mbti64-remaining-58-competitor-gap-content-expansion-v2-2026-06-28.json",
+    "comparison20": "docs/seo/personality/mbti-cms-06-comparison-content-assets-2026-07-04.json"
+  },
+  "final_decision": "BLOCKED_MBTI_QA_14_CONTENT_REVIEW_REQUIRED",
+  "summary": {
+    "target_count": 78,
+    "pass_count": 25,
+    "blocked_count": 53,
+    "remaining58_count": 58,
+    "comparison20_count": 20,
+    "remaining58_pass_count": 25,
+    "comparison20_pass_count": 0,
+    "remaining58_blocked_count": 33,
+    "comparison20_blocked_count": 20,
+    "remaining58_min_faq_count": 9,
+    "comparison20_min_faq_count": 5
+  },
+  "gate_totals": {
+    "structure_gate": {
+      "passed": 78,
+      "failed": 0
+    },
+    "answer_surface_gate": {
+      "passed": 49,
+      "failed": 29
+    },
+    "scenario_specificity_gate": {
+      "passed": 29,
+      "failed": 49
+    },
+    "faq_gate": {
+      "passed": 29,
+      "failed": 49
+    },
+    "template_marker_gate": {
+      "passed": 45,
+      "failed": 33
+    },
+    "private_route_gate": {
+      "passed": 78,
+      "failed": 0
+    },
+    "exact_duplicate_gate": {
+      "passed": 78,
+      "failed": 0
+    },
+    "quick_judgment_gate": {
+      "passed": 20,
+      "failed": 0
+    }
+  },
+  "page_results": [
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/enfj-t",
+      "target_url": "https://fermatmind.com/en/personality/enfj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ENFJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/enfp-a",
+      "target_url": "https://fermatmind.com/en/personality/enfp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ENFP-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/enfp-t",
+      "target_url": "https://fermatmind.com/en/personality/enfp-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ENFP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/entj-a",
+      "target_url": "https://fermatmind.com/en/personality/entj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ENTJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "same as"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "same as"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/entj-t",
+      "target_url": "https://fermatmind.com/en/personality/entj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ENTJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "same as"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "same as"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/entp-a",
+      "target_url": "https://fermatmind.com/en/personality/entp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ENTP-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "same as"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "same as"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/entp-t",
+      "target_url": "https://fermatmind.com/en/personality/entp-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ENTP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "same as"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "same as"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/esfj-a",
+      "target_url": "https://fermatmind.com/en/personality/esfj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ESFJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/esfj-t",
+      "target_url": "https://fermatmind.com/en/personality/esfj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ESFJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/esfp-t",
+      "target_url": "https://fermatmind.com/en/personality/esfp-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ESFP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/estj-a",
+      "target_url": "https://fermatmind.com/en/personality/estj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ESTJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/estj-t",
+      "target_url": "https://fermatmind.com/en/personality/estj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ESTJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/estp-a",
+      "target_url": "https://fermatmind.com/en/personality/estp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ESTP-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/estp-t",
+      "target_url": "https://fermatmind.com/en/personality/estp-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ESTP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/infj-a",
+      "target_url": "https://fermatmind.com/en/personality/infj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "INFJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/infj-t",
+      "target_url": "https://fermatmind.com/en/personality/infj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "INFJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/infp-a",
+      "target_url": "https://fermatmind.com/en/personality/infp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "INFP-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/infp-t",
+      "target_url": "https://fermatmind.com/en/personality/infp-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "INFP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/intj-a",
+      "target_url": "https://fermatmind.com/en/personality/intj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "INTJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/intj-t",
+      "target_url": "https://fermatmind.com/en/personality/intj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "INTJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/intp-t",
+      "target_url": "https://fermatmind.com/en/personality/intp-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "INTP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/isfj-a",
+      "target_url": "https://fermatmind.com/en/personality/isfj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ISFJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/isfj-t",
+      "target_url": "https://fermatmind.com/en/personality/isfj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ISFJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/isfp-a",
+      "target_url": "https://fermatmind.com/en/personality/isfp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ISFP-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/isfp-t",
+      "target_url": "https://fermatmind.com/en/personality/isfp-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ISFP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/istj-a",
+      "target_url": "https://fermatmind.com/en/personality/istj-a",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ISTJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/istj-t",
+      "target_url": "https://fermatmind.com/en/personality/istj-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ISTJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/istp-a",
+      "target_url": "https://fermatmind.com/en/personality/istp-a",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ISTP-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/en/personality/istp-t",
+      "target_url": "https://fermatmind.com/en/personality/istp-t",
+      "locale": "en",
+      "page_type": "variant",
+      "type_code": "ISTP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Quick answer is extractable and type-specific.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "pass",
+          "evidence": "Work, relationship, stress, misread, and safe-use sections have enough depth.",
+          "failures": []
+        },
+        "faq_gate": {
+          "status": "pass",
+          "evidence": "FAQ coverage is deep enough for remaining58 assets.",
+          "failures": []
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "PASS_SEMANTIC_DUPLICATE_GATE",
+      "blocked_reason": null
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/enfj-t",
+      "target_url": "https://fermatmind.com/zh/personality/enfj-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ENFJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/enfj-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/enfj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/enfj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/enfj-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/enfj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/enfj-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/enfp-a",
+      "target_url": "https://fermatmind.com/zh/personality/enfp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ENFP-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/enfp-a"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/enfp-a"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/enfp-a"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/enfp-a"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/enfp-a"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/enfp-a"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/enfp-t",
+      "target_url": "https://fermatmind.com/zh/personality/enfp-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ENFP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/enfp-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/enfp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/enfp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/enfp-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/enfp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/enfp-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/entj-a",
+      "target_url": "https://fermatmind.com/zh/personality/entj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ENTJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/entj-a"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/entj-a"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/entj-a"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/entj-a"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/entj-a"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/entj-a"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/entj-t",
+      "target_url": "https://fermatmind.com/zh/personality/entj-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ENTJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/entj-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/entj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/entj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/entj-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/entj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/entj-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/entp-a",
+      "target_url": "https://fermatmind.com/zh/personality/entp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ENTP-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/entp-a"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/entp-a"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/entp-a"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/entp-a"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/entp-a"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/entp-a"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/entp-t",
+      "target_url": "https://fermatmind.com/zh/personality/entp-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ENTP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/entp-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/entp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/entp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/entp-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/entp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/entp-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/esfj-a",
+      "target_url": "https://fermatmind.com/zh/personality/esfj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ESFJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/esfj-a"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/esfj-a"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/esfj-a"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/esfj-a"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/esfj-a"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/esfj-a"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/esfj-t",
+      "target_url": "https://fermatmind.com/zh/personality/esfj-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ESFJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/esfj-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/esfj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/esfj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/esfj-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/esfj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/esfj-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/esfp-t",
+      "target_url": "https://fermatmind.com/zh/personality/esfp-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ESFP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/esfp-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/esfp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/esfp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/esfp-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/esfp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/esfp-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/estj-a",
+      "target_url": "https://fermatmind.com/zh/personality/estj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ESTJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/estj-a"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/estj-a"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/estj-a"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/estj-a"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/estj-a"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/estj-a"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/estj-t",
+      "target_url": "https://fermatmind.com/zh/personality/estj-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ESTJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/estj-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/estj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/estj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/estj-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/estj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/estj-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/estp-a",
+      "target_url": "https://fermatmind.com/zh/personality/estp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ESTP-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/estp-a"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/estp-a"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/estp-a"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/estp-a"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/estp-a"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/estp-a"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/estp-t",
+      "target_url": "https://fermatmind.com/zh/personality/estp-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ESTP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/estp-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/estp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/estp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/estp-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/estp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/estp-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/infj-a",
+      "target_url": "https://fermatmind.com/zh/personality/infj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "INFJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/infj-a"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/infj-a"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/infj-a"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/infj-a"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/infj-a"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/infj-a"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/infj-t",
+      "target_url": "https://fermatmind.com/zh/personality/infj-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "INFJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/infj-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/infj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/infj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/infj-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/infj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/infj-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/infp-a",
+      "target_url": "https://fermatmind.com/zh/personality/infp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "INFP-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/infp-a"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/infp-a"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/infp-a"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/infp-a"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/infp-a"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/infp-a"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/infp-t",
+      "target_url": "https://fermatmind.com/zh/personality/infp-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "INFP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/infp-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/infp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/infp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/infp-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/infp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/infp-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/intj-a",
+      "target_url": "https://fermatmind.com/zh/personality/intj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "INTJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/intj-a"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/intj-a"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/intj-a"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/intj-a"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/intj-a"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/intj-a"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/intj-t",
+      "target_url": "https://fermatmind.com/zh/personality/intj-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "INTJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/intj-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/intj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/intj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/intj-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/intj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/intj-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/intp-t",
+      "target_url": "https://fermatmind.com/zh/personality/intp-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "INTP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/intp-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/intp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/intp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/intp-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/intp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/intp-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/isfj-a",
+      "target_url": "https://fermatmind.com/zh/personality/isfj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ISFJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/isfj-a"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/isfj-a"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/isfj-a"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/isfj-a"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/isfj-a"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/isfj-a"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/isfj-t",
+      "target_url": "https://fermatmind.com/zh/personality/isfj-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ISFJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/isfj-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/isfj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/isfj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/isfj-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/isfj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/isfj-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/isfp-a",
+      "target_url": "https://fermatmind.com/zh/personality/isfp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ISFP-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/isfp-a"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/isfp-a"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/isfp-a"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/isfp-a"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/isfp-a"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/isfp-a"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/isfp-t",
+      "target_url": "https://fermatmind.com/zh/personality/isfp-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ISFP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/isfp-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/isfp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/isfp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/isfp-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/isfp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/isfp-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/istj-a",
+      "target_url": "https://fermatmind.com/zh/personality/istj-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ISTJ-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/istj-a"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/istj-a"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/istj-a"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/istj-a"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/istj-a"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/istj-a"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/istj-t",
+      "target_url": "https://fermatmind.com/zh/personality/istj-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ISTJ-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/istj-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/istj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/istj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/istj-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/istj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/istj-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/istp-a",
+      "target_url": "https://fermatmind.com/zh/personality/istp-a",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ISTP-A",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/istp-a"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/istp-a"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/istp-a"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/istp-a"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/istp-a"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/istp-a"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "remaining58",
+      "path": "/zh/personality/istp-t",
+      "target_url": "https://fermatmind.com/zh/personality/istp-t",
+      "locale": "zh",
+      "page_type": "variant",
+      "type_code": "ISTP-T",
+      "comparison_pair": null,
+      "module_count": 8,
+      "faq_count": 9,
+      "internal_link_count": 4,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All remaining58 profile modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "fail",
+          "evidence": "Quick answer must be long enough and include the exact type anchor.",
+          "failures": [
+            "/zh/personality/istp-t"
+          ]
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Scenario sections are missing or too short.",
+          "failures": [
+            "/zh/personality/istp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/istp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "fail",
+          "evidence": "Template or competitor-copy marker detected.",
+          "failures": [
+            "复制竞品"
+          ]
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "answer_surface_gate",
+          "failures": [
+            "/zh/personality/istp-t"
+          ]
+        },
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/istp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/istp-t"
+          ]
+        },
+        {
+          "gate": "template_marker_gate",
+          "failures": [
+            "复制竞品"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/intj-a-vs-intj-t",
+      "target_url": "https://fermatmind.com/zh/personality/intj-a-vs-intj-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "INTJ-A",
+        "right": "INTJ-T",
+        "left_label": "INTJ-A 建筑师",
+        "right_label": "INTJ-T 建筑师"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/intj-a-vs-intj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/intj-a-vs-intj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/intj-a-vs-intj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/intj-a-vs-intj-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/intp-a-vs-intp-t",
+      "target_url": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "INTP-A",
+        "right": "INTP-T",
+        "left_label": "INTP-A 逻辑学家",
+        "right_label": "INTP-T 逻辑学家"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/intp-a-vs-intp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/intp-a-vs-intp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/intp-a-vs-intp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/intp-a-vs-intp-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/entj-a-vs-entj-t",
+      "target_url": "https://fermatmind.com/zh/personality/entj-a-vs-entj-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ENTJ-A",
+        "right": "ENTJ-T",
+        "left_label": "ENTJ-A 指挥官",
+        "right_label": "ENTJ-T 指挥官"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/entj-a-vs-entj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/entj-a-vs-entj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/entj-a-vs-entj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/entj-a-vs-entj-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/entp-a-vs-entp-t",
+      "target_url": "https://fermatmind.com/zh/personality/entp-a-vs-entp-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ENTP-A",
+        "right": "ENTP-T",
+        "left_label": "ENTP-A 辩论家",
+        "right_label": "ENTP-T 辩论家"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/entp-a-vs-entp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/entp-a-vs-entp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/entp-a-vs-entp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/entp-a-vs-entp-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/infj-a-vs-infj-t",
+      "target_url": "https://fermatmind.com/zh/personality/infj-a-vs-infj-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "INFJ-A",
+        "right": "INFJ-T",
+        "left_label": "INFJ-A 提倡者",
+        "right_label": "INFJ-T 提倡者"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/infj-a-vs-infj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/infj-a-vs-infj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/infj-a-vs-infj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/infj-a-vs-infj-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/infp-a-vs-infp-t",
+      "target_url": "https://fermatmind.com/zh/personality/infp-a-vs-infp-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "INFP-A",
+        "right": "INFP-T",
+        "left_label": "INFP-A 调停者",
+        "right_label": "INFP-T 调停者"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/infp-a-vs-infp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/infp-a-vs-infp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/infp-a-vs-infp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/infp-a-vs-infp-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/enfj-a-vs-enfj-t",
+      "target_url": "https://fermatmind.com/zh/personality/enfj-a-vs-enfj-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ENFJ-A",
+        "right": "ENFJ-T",
+        "left_label": "ENFJ-A 主人公",
+        "right_label": "ENFJ-T 主人公"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/enfj-a-vs-enfj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/enfj-a-vs-enfj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/enfj-a-vs-enfj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/enfj-a-vs-enfj-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/enfp-a-vs-enfp-t",
+      "target_url": "https://fermatmind.com/zh/personality/enfp-a-vs-enfp-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ENFP-A",
+        "right": "ENFP-T",
+        "left_label": "ENFP-A 竞选者",
+        "right_label": "ENFP-T 竞选者"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/enfp-a-vs-enfp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/enfp-a-vs-enfp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/enfp-a-vs-enfp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/enfp-a-vs-enfp-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/istj-a-vs-istj-t",
+      "target_url": "https://fermatmind.com/zh/personality/istj-a-vs-istj-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ISTJ-A",
+        "right": "ISTJ-T",
+        "left_label": "ISTJ-A 物流师",
+        "right_label": "ISTJ-T 物流师"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/istj-a-vs-istj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/istj-a-vs-istj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/istj-a-vs-istj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/istj-a-vs-istj-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/isfj-a-vs-isfj-t",
+      "target_url": "https://fermatmind.com/zh/personality/isfj-a-vs-isfj-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ISFJ-A",
+        "right": "ISFJ-T",
+        "left_label": "ISFJ-A 守卫者",
+        "right_label": "ISFJ-T 守卫者"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/isfj-a-vs-isfj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/isfj-a-vs-isfj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/isfj-a-vs-isfj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/isfj-a-vs-isfj-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/estj-a-vs-estj-t",
+      "target_url": "https://fermatmind.com/zh/personality/estj-a-vs-estj-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ESTJ-A",
+        "right": "ESTJ-T",
+        "left_label": "ESTJ-A 总经理",
+        "right_label": "ESTJ-T 总经理"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/estj-a-vs-estj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/estj-a-vs-estj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/estj-a-vs-estj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/estj-a-vs-estj-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/esfj-a-vs-esfj-t",
+      "target_url": "https://fermatmind.com/zh/personality/esfj-a-vs-esfj-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ESFJ-A",
+        "right": "ESFJ-T",
+        "left_label": "ESFJ-A 执政官",
+        "right_label": "ESFJ-T 执政官"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/esfj-a-vs-esfj-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/esfj-a-vs-esfj-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/esfj-a-vs-esfj-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/esfj-a-vs-esfj-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/istp-a-vs-istp-t",
+      "target_url": "https://fermatmind.com/zh/personality/istp-a-vs-istp-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ISTP-A",
+        "right": "ISTP-T",
+        "left_label": "ISTP-A 鉴赏家",
+        "right_label": "ISTP-T 鉴赏家"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/istp-a-vs-istp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/istp-a-vs-istp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/istp-a-vs-istp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/istp-a-vs-istp-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/isfp-a-vs-isfp-t",
+      "target_url": "https://fermatmind.com/zh/personality/isfp-a-vs-isfp-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ISFP-A",
+        "right": "ISFP-T",
+        "left_label": "ISFP-A 探险家",
+        "right_label": "ISFP-T 探险家"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/isfp-a-vs-isfp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/isfp-a-vs-isfp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/isfp-a-vs-isfp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/isfp-a-vs-isfp-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/estp-a-vs-estp-t",
+      "target_url": "https://fermatmind.com/zh/personality/estp-a-vs-estp-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ESTP-A",
+        "right": "ESTP-T",
+        "left_label": "ESTP-A 企业家",
+        "right_label": "ESTP-T 企业家"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/estp-a-vs-estp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/estp-a-vs-estp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/estp-a-vs-estp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/estp-a-vs-estp-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/esfp-a-vs-esfp-t",
+      "target_url": "https://fermatmind.com/zh/personality/esfp-a-vs-esfp-t",
+      "locale": "zh-CN",
+      "page_type": "at_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ESFP-A",
+        "right": "ESFP-T",
+        "left_label": "ESFP-A 表演者",
+        "right_label": "ESFP-T 表演者"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 5,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/esfp-a-vs-esfp-t"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/esfp-a-vs-esfp-t"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/esfp-a-vs-esfp-t"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/esfp-a-vs-esfp-t"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/intj-vs-intp",
+      "target_url": "https://fermatmind.com/zh/personality/intj-vs-intp",
+      "locale": "zh-CN",
+      "page_type": "hot_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "INTJ",
+        "right": "INTP",
+        "left_label": "INTJ 建筑师",
+        "right_label": "INTP 逻辑学家"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 6,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/intj-vs-intp"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/intj-vs-intp"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/intj-vs-intp"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/intj-vs-intp"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/entj-vs-intj",
+      "target_url": "https://fermatmind.com/zh/personality/entj-vs-intj",
+      "locale": "zh-CN",
+      "page_type": "hot_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ENTJ",
+        "right": "INTJ",
+        "left_label": "ENTJ 指挥官",
+        "right_label": "INTJ 建筑师"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 6,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/entj-vs-intj"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/entj-vs-intj"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/entj-vs-intj"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/entj-vs-intj"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/infj-vs-infp",
+      "target_url": "https://fermatmind.com/zh/personality/infj-vs-infp",
+      "locale": "zh-CN",
+      "page_type": "hot_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "INFJ",
+        "right": "INFP",
+        "left_label": "INFJ 提倡者",
+        "right_label": "INFP 调停者"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 6,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/infj-vs-infp"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/infj-vs-infp"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/infj-vs-infp"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/infj-vs-infp"
+          ]
+        }
+      ]
+    },
+    {
+      "source_batch": "comparison20",
+      "path": "/zh/personality/istj-vs-isfj",
+      "target_url": "https://fermatmind.com/zh/personality/istj-vs-isfj",
+      "locale": "zh-CN",
+      "page_type": "hot_comparison",
+      "type_code": null,
+      "comparison_pair": {
+        "left": "ISTJ",
+        "right": "ISFJ",
+        "left_label": "ISTJ 物流师",
+        "right_label": "ISFJ 守卫者"
+      },
+      "module_count": 6,
+      "faq_count": 5,
+      "internal_link_count": 6,
+      "gates": {
+        "structure_gate": {
+          "status": "pass",
+          "evidence": "All required comparison modules are present.",
+          "failures": []
+        },
+        "answer_surface_gate": {
+          "status": "pass",
+          "evidence": "Comparison answer block is extractable and pair-specific.",
+          "failures": []
+        },
+        "quick_judgment_gate": {
+          "status": "pass",
+          "evidence": "Quick judgment table has enough paired rows.",
+          "failures": []
+        },
+        "scenario_specificity_gate": {
+          "status": "fail",
+          "evidence": "Comparison modules are too generic or not pair-specific.",
+          "failures": [
+            "/zh/personality/istj-vs-isfj"
+          ]
+        },
+        "faq_gate": {
+          "status": "fail",
+          "evidence": "Comparison FAQ count or answer depth is too thin.",
+          "failures": [
+            "/zh/personality/istj-vs-isfj"
+          ]
+        },
+        "template_marker_gate": {
+          "status": "pass",
+          "evidence": "No placeholder/template-copy marker detected.",
+          "failures": []
+        },
+        "private_route_gate": {
+          "status": "pass",
+          "evidence": "Internal links stay on public routes.",
+          "failures": []
+        },
+        "exact_duplicate_gate": {
+          "status": "pass",
+          "evidence": "No exact duplicate answer block or module-body set detected.",
+          "failures": []
+        }
+      },
+      "qa_decision": "BLOCKED_NEEDS_CONTENT_REVIEW",
+      "blocked_reason": [
+        {
+          "gate": "scenario_specificity_gate",
+          "failures": [
+            "/zh/personality/istj-vs-isfj"
+          ]
+        },
+        {
+          "gate": "faq_gate",
+          "failures": [
+            "/zh/personality/istj-vs-isfj"
+          ]
+        }
+      ]
+    }
+  ],
+  "safety_boundary": {
+    "artifact_only": true,
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "db_migration_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "frontend_local_editorial_fallback_added": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_api_call_attempted": false,
+    "search_submission_attempted": false,
+    "production_deploy_attempted": false
+  },
+  "blockers": [
+    "/en/personality/entj-a: template_marker_gate",
+    "/en/personality/entj-t: template_marker_gate",
+    "/en/personality/entp-a: template_marker_gate",
+    "/en/personality/entp-t: template_marker_gate",
+    "/zh/personality/enfj-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/enfp-a: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/enfp-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/entj-a: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/entj-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/entp-a: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/entp-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/esfj-a: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/esfj-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/esfp-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/estj-a: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/estj-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/estp-a: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/estp-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/infj-a: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/infj-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/infp-a: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/infp-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/intj-a: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/intj-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/intp-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/isfj-a: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/isfj-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/isfp-a: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/isfp-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/istj-a: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/istj-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/istp-a: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/istp-t: answer_surface_gate, scenario_specificity_gate, faq_gate, template_marker_gate",
+    "/zh/personality/intj-a-vs-intj-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/intp-a-vs-intp-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/entj-a-vs-entj-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/entp-a-vs-entp-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/infj-a-vs-infj-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/infp-a-vs-infp-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/enfj-a-vs-enfj-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/enfp-a-vs-enfp-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/istj-a-vs-istj-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/isfj-a-vs-isfj-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/estj-a-vs-estj-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/esfj-a-vs-esfj-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/istp-a-vs-istp-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/isfp-a-vs-isfp-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/estp-a-vs-estp-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/esfp-a-vs-esfp-t: scenario_specificity_gate, faq_gate",
+    "/zh/personality/intj-vs-intp: scenario_specificity_gate, faq_gate",
+    "/zh/personality/entj-vs-intj: scenario_specificity_gate, faq_gate",
+    "/zh/personality/infj-vs-infp: scenario_specificity_gate, faq_gate",
+    "/zh/personality/istj-vs-isfj: scenario_specificity_gate, faq_gate"
+  ]
+}

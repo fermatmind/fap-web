@@ -111,3 +111,13 @@
 - why not current PR scope: MBTI-GSC-11 adds artifact-only GSC evidence docs, a build script, a focused contract, and PR-train metadata. It does not change robots, sitemap, site URL validation, runtime routes, or build environment requirements.
 - whether required checks are affected: no; `NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com corepack pnpm build` passed.
 - recommended follow-up: Normalize fap-web PR train build commands or CI docs so local build validation includes `NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com` whenever robots/sitemap routes are built.
+
+## Local pnpm approve-builds wrapper state during MBTI-QA-14
+
+- repo: fermatmind/fap-web
+- PR id / branch: MBTI-QA-14 / codex/mbti-qa-14-semantic-duplicate-gate
+- blocker type: external_local_pnpm_wrapper_approve_builds_state
+- evidence: the manifest-style local command `pnpm exec vitest run tests/contracts/mbti-qa-14-semantic-duplicate-gate.contract.test.ts --reporter=dot` invoked the local Codex runtime pnpm wrapper version 11.7.0 and failed before running tests with `ERR_PNPM_IGNORED_BUILDS` for `esbuild`, `sharp`, and `unrs-resolver`; the project-pinned `corepack pnpm` version 10.28.1 ran the same focused test successfully.
+- why not current PR scope: MBTI-QA-14 only adds an artifact-only semantic duplicate QA gate, generated QA report, focused contract, train ledger updates, and sidecar record. It does not change dependency installation, lockfile, package manager configuration, or local pnpm approval state.
+- whether required checks are affected: no; `corepack pnpm exec vitest run tests/contracts/mbti-qa-14-semantic-duplicate-gate.contract.test.ts --reporter=dot`, `corepack pnpm test:contract`, `corepack pnpm typecheck`, and production API build validation passed locally.
+- recommended follow-up: normalize the local Codex pnpm wrapper approval state or standardize local repository checks on `corepack pnpm` so manifest commands do not fail before test execution on this machine.
