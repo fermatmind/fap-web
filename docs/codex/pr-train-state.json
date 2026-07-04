@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T16:51:36Z",
+  "updated_at": "2026-07-04T17:21:14Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -29017,12 +29017,12 @@
       "id": "IQ-METHOD-03",
       "repo": "fap-web",
       "branch": "codex/iq-method-03-score-meaning-boundary",
-      "status": "in_progress",
+      "status": "merged",
       "commit_sha": null,
-      "pr_url": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1597",
+      "merged_at": "2026-07-04T16:58:15Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -29055,32 +29055,32 @@
             {
               "name": "build",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T16:48:15Z"
+              "completed_at": "2026-07-04T16:55:16Z"
             },
             {
               "name": "contracts",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T16:50:15Z"
+              "completed_at": "2026-07-04T16:56:35Z"
             },
             {
               "name": "verify-big5-contract-freeze",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T16:46:07Z"
+              "completed_at": "2026-07-04T16:52:32Z"
             },
             {
               "name": "verify-enneagram-contract-freeze",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T16:46:09Z"
+              "completed_at": "2026-07-04T16:52:32Z"
             },
             {
               "name": "analyze (javascript-typescript)",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T16:49:02Z"
+              "completed_at": "2026-07-04T16:55:15Z"
             },
             {
               "name": "CodeQL",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T16:48:53Z"
+              "completed_at": "2026-07-04T16:55:08Z"
             }
           ]
         }
@@ -29115,6 +29115,11 @@
           "at": "2026-07-04T16:51:36Z",
           "status": "ready_to_merge",
           "note": "GitHub checks passed, PR mergeStateStatus is CLEAN, and PR diff scope validation passed for 17 files."
+        },
+        {
+          "at": "2026-07-04T17:07:57Z",
+          "status": "merged",
+          "note": "Reconciled IQ-METHOD-03 after GitHub PR #1597 merged with merge commit a2fe6597d5c9e1c80aa5c855afb60df95e0621e0; origin/main contains the merge commit and local/remote task branches are deleted."
         }
       ],
       "metadata": {
@@ -29132,13 +29137,13 @@
           "llms_eligible": false
         }
       },
-      "updated_at": "2026-07-04T16:51:36Z"
+      "updated_at": "2026-07-04T17:07:57Z"
     },
     {
       "id": "IQ-METHOD-04",
       "repo": "fap-web",
       "branch": "codex/iq-method-04-matrix-reasoning-guide",
-      "status": "planned",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
       "merged_at": null,
@@ -29151,16 +29156,25 @@
           "evidence": "User explicitly authorized adding and executing IQ-METHOD-01 through IQ-METHOD-07, including fap-web docs/codex metadata updates, in the attached /goal request."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on IQ-METHOD-03 merging into main."
+          "status": "pass",
+          "evidence": "IQ-METHOD-03 is merged in GitHub PR #1597 and origin/main contains merge commit a2fe6597d5c9e1c80aa5c855afb60df95e0621e0."
         },
         "scope": {
-          "status": "planned",
-          "evidence": "Scope is limited to CMS Article draft-review assets for matrix-reasoning-pattern-recognition-guide, tests/contracts/helpers/currentPrScope.ts, focused contract coverage, docs/codex metadata, and sidecar issue records if needed."
+          "status": "pass",
+          "evidence": "git diff --name-only is limited to IQ-METHOD-04 CMS Article draft-review assets, PR_TRAIN_INDEX, PR train metadata, IQ-METHOD-03/04 contract harness, currentPrScope, and no sidecar issue records."
         },
         "local": {
-          "status": "pending",
-          "commands": []
+          "status": "pass",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/iq-method-04-content-asset.contract.test.ts",
+            "pnpm exec vitest run tests/contracts/iq-method-03-content-asset.contract.test.ts tests/contracts/iq-method-04-content-asset.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "node JSON parse for docs/codex/pr-train-state.json, generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json, and IQ-METHOD-04 page JSON assets",
+            "ruby YAML parse for docs/codex/pr-train.yaml",
+            "git diff --check"
+          ]
         },
         "github": {
           "status": "pending",
@@ -29172,6 +29186,16 @@
           "at": "2026-07-04T15:02:10.277Z",
           "status": "planned",
           "note": "Registered IQ-METHOD-04 for later execution after dependencies merge."
+        },
+        {
+          "at": "2026-07-04T17:07:57Z",
+          "status": "in_progress",
+          "note": "Started IQ-METHOD-04 after reconciling IQ-METHOD-03 merge; preparing matrix reasoning CMS Article draft-review content assets without CMS writes or discoverability activation."
+        },
+        {
+          "at": "2026-07-04T17:21:14Z",
+          "status": "local_checks_passed",
+          "note": "Completed IQ-METHOD-04 matrix reasoning draft-review asset package, PR3 train-forward contract compatibility, and required local validation without CMS writes, frontend runtime content, discoverability activation, production import, or deploy."
         }
       ],
       "metadata": {
@@ -29188,7 +29212,8 @@
           "sitemap_eligible": false,
           "llms_eligible": false
         }
-      }
+      },
+      "updated_at": "2026-07-04T17:21:14Z"
     },
     {
       "id": "IQ-METHOD-05",
@@ -40801,9 +40826,9 @@
     "updated_at": "2026-07-04T10:33:00Z"
   },
   "active_train": {
-    "current_pr": "IQ-METHOD-02",
-    "next_pr": "IQ-METHOD-03",
-    "current": "IQ-METHOD-02",
-    "next": "IQ-METHOD-03"
+    "current_pr": "IQ-METHOD-04",
+    "next_pr": "IQ-METHOD-05",
+    "current": "IQ-METHOD-04",
+    "next": "IQ-METHOD-05"
   }
 }

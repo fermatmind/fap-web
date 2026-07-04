@@ -13074,7 +13074,7 @@ prs:
     base: main
     depends_on: [IQ-METHOD-02]
     mode: execute
-    status: in_progress
+    status: merged
     title: "IQ-METHOD-03｜结果页支持：原始分、正确率、完成时间说明什么？"
     goal: "Prepare the zh-CN CMS Article draft-review asset package for raw score, accuracy, completion time, dimension signal, and stability interpretation boundaries."
     slug: iq-test-score-meaning-boundary
@@ -13108,13 +13108,14 @@ prs:
     base: main
     depends_on: [IQ-METHOD-03]
     mode: execute
-    status: planned
+    status: in_progress
     title: "IQ-METHOD-04｜题型页：矩阵推理和模式识别题在测什么？"
     goal: "Prepare the zh-CN CMS Article draft-review asset package for matrix reasoning and pattern recognition task explanation."
     slug: matrix-reasoning-pattern-recognition-guide
     in_scope:
       - generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json
       - generated/iq-method-pages-zh-cn-v0.2/pages/04-matrix-reasoning-pattern-recognition-guide/**
+      - tests/contracts/iq-method-03-content-asset.contract.test.ts
       - tests/contracts/iq-method-04-content-asset.contract.test.ts
       - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml

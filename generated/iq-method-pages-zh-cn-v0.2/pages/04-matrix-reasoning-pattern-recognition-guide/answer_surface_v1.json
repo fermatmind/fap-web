@@ -1,0 +1,58 @@
+{
+  "version": "answer_surface_v1",
+  "status": "draft_review_only",
+  "quick_answer": "矩阵推理和模式识别题通常要求用户观察图形、方向、数量、位置或组合关系，找出缺失项背后的规律。FermatMind IQ V1 用这类任务观察本次视觉空间和规律推理表现，但不声称使用任何外部正式量表，也不提供外部证明。",
+  "definition_or_scope": "矩阵推理是从行列结构中发现图形规律；模式识别是从变化序列中识别重复、递进、替换或组合关系。",
+  "method_explanation": "页面说明图形变化、规律补全、空间关系和抽象推理的高层概念，不展示具体题目、答案或解题规则。",
+  "boundary_caveat": "本页只解释 FermatMind IQ V1 的公开方法与边界。它是非官方、非临床、非认证的在线 IQ 风格推理测试，不用于升学、用人、收入或岗位决策。",
+  "facts": [
+    "FermatMind IQ V1 为原创 30 题。",
+    "预计完成时间约 20 分钟。",
+    "题库、答案和评分逻辑由后端私有评分控制。",
+    "公开安全表达限于原始分、正确率、完成时间、维度表现、稳定性提示和本次推理任务表现。",
+    "当前高层维度描述限于视觉空间洞察、视觉空间模式推理、数字规律推理。"
+  ],
+  "faq_items": [
+    {
+      "question": "矩阵推理就是某个外部量表吗？",
+      "answer": "不是。FermatMind V1 只使用矩阵和图形推理风格的原创任务，不声称使用任何外部正式量表。"
+    },
+    {
+      "question": "图形推理能代表全部能力吗？",
+      "answer": "不能。它只是认知任务的一部分，不能覆盖所有能力维度。"
+    },
+    {
+      "question": "为什么不公开解题步骤？",
+      "answer": "公开解题步骤会破坏测试有效性，也可能导致刷题和背答案。"
+    },
+    {
+      "question": "数字规律推理会出现吗？",
+      "answer": "V1 中可有少量规律类任务，但不会把它扩展为正式数量推理测评。"
+    }
+  ],
+  "next_steps": [
+    {
+      "label": "开始 IQ 风格推理测试",
+      "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+    },
+    {
+      "label": "阅读相邻方法页",
+      "href": "/zh/articles/why-fermatmind-iq-v1-not-certification"
+    }
+  ],
+  "related_links": [
+    {
+      "label": "开始 IQ 风格推理测试",
+      "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+    },
+    {
+      "label": "为什么 FermatMind IQ V1 是非认证测试？",
+      "href": "/zh/articles/why-fermatmind-iq-v1-not-certification"
+    },
+    {
+      "label": "IQ 风格测试的数据和隐私边界是什么？",
+      "href": "/zh/articles/iq-test-privacy-data-boundary"
+    }
+  ],
+  "last_reviewed_note": "待方法与 claim 审核"
+}
