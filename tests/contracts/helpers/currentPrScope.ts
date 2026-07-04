@@ -6215,3 +6215,33 @@ export function isIqMethod01AllowedFile(file: string): boolean {
 
   return IQ_METHOD_01_ALLOWED_FILES.has(file);
 }
+
+const IQ_METHOD_02_ALLOWED_FILES = new Set([
+  "generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/article.md",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/article.cms.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/seo.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/answer_surface_v1.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/landing_surface_v1.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/faq.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/geo_answer_block.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/claim_audit.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/internal_links.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/media_brief.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/qa_checklist.md",
+  "tests/contracts/iq-method-01-content-asset.contract.test.ts",
+  "tests/contracts/iq-method-02-content-asset.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
+export function isIqMethod02AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/iq-method-02-online-vs-professional") {
+    return true;
+  }
+
+  return IQ_METHOD_02_ALLOWED_FILES.has(file);
+}

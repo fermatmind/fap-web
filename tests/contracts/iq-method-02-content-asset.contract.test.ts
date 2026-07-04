@@ -2,12 +2,13 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { isIqMethod01AllowedFile } from "./helpers/currentPrScope";
+import { isIqMethod02AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const PACKAGE_DIR = "generated/iq-method-pages-zh-cn-v0.2";
-const PAGE_DIR = `${PACKAGE_DIR}/pages/01-what-is-iq-style-reasoning-test`;
-const SLUG = "what-is-iq-style-reasoning-test";
+const PAGE_DIR = `${PACKAGE_DIR}/pages/02-online-iq-test-vs-professional-assessment`;
+const DEFINITION_SLUG = "what-is-iq-style-reasoning-test";
+const SLUG = "online-iq-test-vs-professional-assessment";
 const CANONICAL = `https://fermatmind.com/zh/articles/${SLUG}`;
 const TEST_PATH = "/zh/tests/iq-test-intelligence-quotient-assessment";
 
@@ -40,6 +41,9 @@ const FORBIDDEN_PUBLISHABLE_PATTERNS = [
   /诊断级/,
   /薪资预测/,
   /固定智力/,
+  /替代心理学家/,
+  /用于(?:教育|招聘|用人)决策/,
+  /可用于(?:教育|招聘|用人)决策/,
 ];
 
 const PRIVATE_FLOW_PATTERNS = [
@@ -101,7 +105,7 @@ function changedFiles(): string[] {
   return Array.from(new Set(files)).filter((file) => file.length > 0 && !FULL_CONTRACT_RUN_SIDE_EFFECT_FILES.has(file));
 }
 
-describe("IQ-METHOD-01 content asset package", () => {
+describe("IQ-METHOD-02 content asset package", () => {
   it("keeps the PR diff inside the approved content-asset scope", () => {
     const files = changedFiles();
 
@@ -110,15 +114,11 @@ describe("IQ-METHOD-01 content asset package", () => {
     }
 
     expect(files.length).toBeGreaterThan(0);
-    expect(files.every(isIqMethod01AllowedFile), files.join("\n")).toBe(true);
+    expect(files.every(isIqMethod02AllowedFile), files.join("\n")).toBe(true);
   });
 
-  it("includes exactly the definition page artifacts for this PR", () => {
+  it("includes exactly the professional-assessment boundary artifacts for this PR", () => {
     for (const file of [
-      `${PACKAGE_DIR}/README.md`,
-      `${PACKAGE_DIR}/GLOBAL_CLAIM_POLICY.md`,
-      `${PACKAGE_DIR}/GLOBAL_SEO_GEO_STANDARD.md`,
-      `${PACKAGE_DIR}/DUPLICATE_CANNIBALIZATION_MAP.md`,
       `${PACKAGE_DIR}/PR_TRAIN_INDEX.json`,
       ...REQUIRED_PAGE_FILES.map((file) => `${PAGE_DIR}/${file}`),
     ]) {
@@ -134,11 +134,8 @@ describe("IQ-METHOD-01 content asset package", () => {
     }>(`${PACKAGE_DIR}/PR_TRAIN_INDEX.json`);
 
     expect(index.status).toBe("draft_review_only");
-    expect(index.current_pr).toMatch(/^IQ-METHOD-0[1-7]$/);
-    expect(index.included_pages).toContain(SLUG);
-    if (index.current_pr === "IQ-METHOD-01") {
-      expect(index.included_pages).toEqual([SLUG]);
-    }
+    expect(index.current_pr).toBe("IQ-METHOD-02");
+    expect(index.included_pages).toEqual([DEFINITION_SLUG, SLUG]);
     expect(index.planned_pages).toHaveLength(7);
     expect(index.publish_gate).toMatchObject({
       cms_write_attempted: false,
@@ -182,7 +179,7 @@ describe("IQ-METHOD-01 content asset package", () => {
       status: "draft_review_only",
       locale: "zh-CN",
       slug: SLUG,
-      title: "什么是 IQ 风格推理测试？",
+      title: "在线 IQ 风格测试和专业智力测评有什么区别？",
       related_test_slug: "iq-test-intelligence-quotient-assessment",
       category_suggestion: "测评方法与边界",
       is_public: false,
@@ -205,27 +202,31 @@ describe("IQ-METHOD-01 content asset package", () => {
       sitemap_eligible: false,
       llms_eligible: false,
     });
-    expect(seo.seo_title).toContain("IQ 风格推理测试");
-    expect(seo.seo_description).toContain("非官方、非临床、非认证");
+    expect(seo.seo_title).toContain("专业智力测评");
+    expect(seo.seo_description).toContain("常模、监督流程、误差解释");
     expect(seo.structured_data_candidates).toEqual(["Article", "BreadcrumbList", "FAQPage"]);
     expect(seo.structured_data_forbidden).toEqual(
       expect.arrayContaining(["Product", "SoftwareApplication", "Certificate", "Course", "MedicalWebPage"]),
     );
   });
 
-  it("keeps the article body answer-first, visible, and free of H1 duplication", () => {
+  it("keeps the article body answer-first and centered on professional-assessment boundaries", () => {
     const article = read(`${PAGE_DIR}/article.md`);
 
     expect(article.startsWith("#")).toBe(false);
-    expect(article).toContain("IQ 风格推理测试是一类用图形、矩阵和规律补全任务观察推理表现的在线测试。");
-    expect(article).toContain("FermatMind IQ V1 使用原创 30 题，约 20 分钟");
+    expect(article).toContain("在线 IQ 风格测试适合快速理解一次推理任务中的表现");
+    expect(article).toContain("专业智力测评通常需要常模、监督流程、误差解释和专业人员解读");
     expect(article).toContain("## 这是什么 / 这不是什么");
-    expect(article).toContain("## 可以理解什么");
-    expect(article).toContain("## 不能据此推断什么");
+    expect(article).toContain("## 两类测试的核心区别");
+    expect(article).toContain("## 为什么专业测评更严格");
+    expect(article).toContain("## FermatMind IQ V1 的边界");
+    expect(article).toContain("这次 30 题完成情况");
+    expect(article).toContain("结果页应关注原始分、正确率、完成时间、维度表现和稳定性提示");
+    expect(article).toContain("不用于医疗、升学、用人或收入决策");
     expect(article).toContain("## FAQ");
   });
 
-  it("keeps GEO, FAQ, and internal links aligned to the definition-page intent", () => {
+  it("keeps GEO, FAQ, and internal links aligned to the boundary-page intent", () => {
     const answer = readJson<{
       status: string;
       quick_answer: string;
@@ -242,21 +243,25 @@ describe("IQ-METHOD-01 content asset package", () => {
     }>(`${PAGE_DIR}/internal_links.json`);
 
     expect(answer.status).toBe("draft_review_only");
-    expect(answer.quick_answer).toContain("原创 30 题");
-    expect(answer.definition_or_scope).toContain("图形、矩阵、规律变化和空间关系判断");
+    expect(answer.quick_answer).toContain("专业智力测评通常需要明确常模、监督流程、误差解释和专业人员解读");
+    expect(answer.definition_or_scope).toContain("专业智力测评是更严格的标准化评估流程");
     expect(answer.boundary_caveat).toContain("非官方、非临床、非认证");
+    expect(answer.boundary_caveat).toContain("不用于升学、用人、收入或岗位决策");
     expect(answer.facts).toEqual(expect.arrayContaining([
       "FermatMind IQ V1 为原创 30 题。",
       "预计完成时间约 20 分钟。",
+      "题库、答案和评分逻辑由后端私有评分控制。",
     ]));
     expect(faq).toMatchObject({ status: "draft_review_only" });
+    expect(faq.items).toEqual(answer.faq_items);
     expect(faq.items).toHaveLength(4);
     expect(internalLinks.private_flow_guard.status).toBe("passed_planning_check");
     expect(internalLinks.links_out.map((link) => link.href)).toEqual(
       expect.arrayContaining([
         TEST_PATH,
-        "/zh/articles/online-iq-test-vs-professional-assessment",
+        "/zh/articles/what-is-iq-style-reasoning-test",
         "/zh/articles/iq-test-score-meaning-boundary",
+        "/zh/articles/why-fermatmind-iq-v1-not-certification",
       ]),
     );
   });
@@ -286,6 +291,8 @@ describe("IQ-METHOD-01 content asset package", () => {
     for (const pattern of PRIVATE_FLOW_PATTERNS) {
       expect(combined).not.toMatch(pattern);
     }
+    expect(combined).toMatch(/不用于医疗、升学、用人或收入决策/);
+    expect(combined).toMatch(/不能用于升学、用人或收入判断/);
     expect(claimAudit).toMatchObject({
       status: "draft_review_only",
       page_slug: SLUG,

@@ -13040,13 +13040,14 @@ prs:
     base: main
     depends_on: [IQ-METHOD-01]
     mode: execute
-    status: planned
+    status: in_progress
     title: "IQ-METHOD-02｜边界页：在线 IQ 风格测试 vs 专业智力测评"
     goal: "Prepare the zh-CN CMS Article draft-review asset package for the online IQ-style test versus professional assessment boundary page."
     slug: online-iq-test-vs-professional-assessment
     in_scope:
       - generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json
       - generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/**
+      - tests/contracts/iq-method-01-content-asset.contract.test.ts
       - tests/contracts/iq-method-02-content-asset.contract.test.ts
       - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
