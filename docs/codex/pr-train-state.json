@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T18:22:00Z",
+  "updated_at": "2026-07-04T18:26:00Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -29396,7 +29396,7 @@
       "id": "IQ-METHOD-06",
       "repo": "fap-web",
       "branch": "codex/iq-method-06-privacy-data-boundary",
-      "status": "pr_open",
+      "status": "ready_to_merge",
       "commit_sha": "cb97b3ca3251af68e2e0e5c4be0ad37000f45049",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1600",
       "merged_at": null,
@@ -29429,8 +29429,39 @@
           ]
         },
         "github": {
-          "status": "pending",
-          "checks": []
+          "status": "pass",
+          "checks": [
+            {
+              "name": "build",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-04T18:23:40Z"
+            },
+            {
+              "name": "contracts",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-04T18:25:14Z"
+            },
+            {
+              "name": "verify-big5-contract-freeze",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-04T18:21:19Z"
+            },
+            {
+              "name": "verify-enneagram-contract-freeze",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-04T18:21:19Z"
+            },
+            {
+              "name": "analyze (javascript-typescript)",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-04T18:24:18Z"
+            },
+            {
+              "name": "CodeQL",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-04T18:24:09Z"
+            }
+          ]
         }
       },
       "history": [
@@ -29458,6 +29489,11 @@
           "at": "2026-07-04T18:22:00Z",
           "status": "pr_open",
           "note": "Created GitHub PR #1600 for IQ-METHOD-06 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-07-04T18:26:00Z",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed, PR mergeStateStatus is CLEAN, and PR diff scope validation passed for 17 files."
         }
       ],
       "metadata": {
@@ -29475,7 +29511,7 @@
           "llms_eligible": false
         }
       },
-      "updated_at": "2026-07-04T18:22:00Z"
+      "updated_at": "2026-07-04T18:26:00Z"
     },
     {
       "id": "IQ-METHOD-07",
