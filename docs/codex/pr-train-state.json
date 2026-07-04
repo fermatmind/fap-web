@@ -41275,11 +41275,11 @@
     "depends_on": [
       "MBTI-ASSET-OPS-09"
     ],
-    "status": "ready_to_merge",
+    "status": "merged",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1602",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-04T20:00:22Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "focused_contract": "passed: corepack pnpm exec vitest run tests/contracts/mbti-asset-skill-10-public-profile-seo-asset-factory.contract.test.ts --reporter=dot",
@@ -41327,10 +41327,16 @@
         "at": "2026-07-04T19:54:00Z",
         "status": "ready_to_merge",
         "note": "PR #1602 checks passed on branch head undefined; marked ready for squash merge pending final metadata check run."
+      },
+      {
+        "at": "2026-07-04T20:04:00Z",
+        "status": "merged",
+        "note": "Reconciled during MBTI-GSC-11 preflight: PR #1602 is MERGED, origin/main contains merge commit 177d9d2b25cac5e8c29a26e597a8c347c4b5b22f, remote branch deleted, local task worktree and branch cleaned."
       }
     ],
-    "updated_at": "2026-07-04T19:54:00Z",
-    "next_task": "MBTI-GSC-11"
+    "updated_at": "2026-07-04T20:04:00Z",
+    "next_task": "MBTI-GSC-11",
+    "commit_sha": "177d9d2b25cac5e8c29a26e597a8c347c4b5b22f"
   },
   "MBTI-GSC-11": {
     "repo": "fap-web",
@@ -41341,15 +41347,28 @@
     "depends_on": [
       "MBTI-ASSET-SKILL-10"
     ],
-    "status": "planned",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "ready_to_merge",
+    "commit_sha": "d62bf07c2d16a479c0b70b8620edd159c447c343",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1604",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "failure_reason": null,
-    "checks": {},
-    "scope_validation": null,
+    "checks": {
+      "dependency_reconciliation": "passed: MBTI-ASSET-SKILL-10 PR #1602 merged and origin/main contains merge commit 177d9d2b25cac5e8c29a26e597a8c347c4b5b22f",
+      "build_script": "passed: node scripts/seo/build-mbti-gsc-11-query-evidence-export.mjs",
+      "focused_contract": "passed: corepack pnpm exec vitest run tests/contracts/mbti-gsc-11-query-evidence-export.contract.test.ts --reporter=dot",
+      "contracts": "passed: corepack pnpm test:contract",
+      "typecheck": "passed: corepack pnpm typecheck",
+      "build": "passed: NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com corepack pnpm build",
+      "build_manifest_env_note": "manifest command without NEXT_PUBLIC_SITE_URL failed on existing robots/sitemap site-url guard; recorded as sidecar issue and rerun with required production site URL passed",
+      "yaml": "passed: ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+      "json": "passed: python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+      "diff_check": "passed: git diff --check",
+      "scope_validation": "passed: changed files limited to MBTI-GSC-11 manifest scope plus dependency ledger reconciliation and sidecar issue files",
+      "github_checks": "passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL/analyze"
+    },
+    "scope_validation": "passed",
     "artifacts": [
       "docs/seo/personality/mbti-gsc-11-*",
       "scripts/seo/build-mbti-gsc-11-*",
@@ -41360,9 +41379,29 @@
         "at": "2026-07-04T12:00:00Z",
         "status": "planned",
         "notes": "Registered by MBTI personality asset operations train authorization; not yet started."
+      },
+      {
+        "at": "2026-07-04T20:20:00Z",
+        "status": "in_progress",
+        "notes": "Started from origin/main 177d9d2b25cac5e8c29a26e597a8c347c4b5b22f; scope limited to MBTI-GSC-11 query evidence artifacts, builder script, focused contract, and train metadata reconciliation."
+      },
+      {
+        "at": "2026-07-04T20:32:00Z",
+        "status": "local_checks_passed",
+        "note": "Generated stable GSC query evidence export/import packet; focused contract, full contracts, typecheck, build with required site URL env, YAML/JSON, diff, and changed-file scope validation passed. Exact manifest build env mismatch recorded in sidecar."
+      },
+      {
+        "at": "2026-07-04T20:40:00Z",
+        "status": "github_checks_pending",
+        "notes": "Opened PR #1604 for MBTI-GSC-11 after scoped local validation; awaiting GitHub required checks."
+      },
+      {
+        "at": "2026-07-04T20:52:00Z",
+        "status": "ready_to_merge",
+        "notes": "PR #1604 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL/analyze. Merge state CLEAN."
       }
     ],
-    "updated_at": "2026-07-04T12:00:00Z",
+    "updated_at": "2026-07-04T20:52:00Z",
     "next_task": "MBTI-CMS-12"
   },
   "MBTI-CMS-12": {

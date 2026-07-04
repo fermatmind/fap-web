@@ -101,3 +101,13 @@
 - recommended follow-up: Open a separate scoped fap-web PR or explicitly authorize scope expansion to make the MBTI-ASSET-OPS-09 scope test branch-scoped/train-forward compatible, then rebase IQ-METHOD-06 and rerun `pnpm test:contract`.
 - resolution: Resolved by fap-web PR #1601, which made `tests/contracts/mbti-asset-ops-09-personality-asset-sop.contract.test.ts` enforce OPS-09 scope only on branch `codex/mbti-asset-ops-09-personality-asset-sop`.
 - resolved at: 2026-07-05T03:03:00+08:00.
+
+## Build Environment Guard Requires Site URL During MBTI-GSC-11
+
+- repo: fap-web
+- PR id / branch: MBTI-GSC-11 / codex/mbti-gsc-11-query-evidence-export
+- blocker type: local_build_environment_mismatch
+- evidence: `NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build` compiled successfully but failed while collecting `/robots.txt` page data with `NEXT_PUBLIC_SITE_URL must be set to a production absolute HTTP(S) URL (non-localhost)`.
+- why not current PR scope: MBTI-GSC-11 adds artifact-only GSC evidence docs, a build script, a focused contract, and PR-train metadata. It does not change robots, sitemap, site URL validation, runtime routes, or build environment requirements.
+- whether required checks are affected: no; `NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com corepack pnpm build` passed.
+- recommended follow-up: Normalize fap-web PR train build commands or CI docs so local build validation includes `NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com` whenever robots/sitemap routes are built.
