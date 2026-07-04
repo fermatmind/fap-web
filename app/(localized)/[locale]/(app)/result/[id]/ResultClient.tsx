@@ -3,8 +3,6 @@
 import { type FormEvent, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
-import { AnticipationSkeleton } from "@/components/design/AnticipationSkeleton";
-import { MbtiResultShellLoadingShell } from "@/components/result/mbti/MbtiResultShell";
 import { IqResultShell } from "@/components/result/iq/IqResultShell";
 import { RiasecResultShell } from "@/components/result/riasec/RiasecResultShell";
 import { EQResultV5 } from "@/components/result/eq/EQResultV5";
@@ -67,6 +65,8 @@ import { Button } from "@/components/ui/button";
 
 const RESULT_POLL_FALLBACK_MS = 3000;
 const RESULT_POLL_MAX = 10;
+const RESULT_PROCESSING_MIN_MS = 10_000;
+const RESULT_PROCESSING_PROGRESS_CAP = 92;
 const INVITE_PROGRESS_POLL_MS = 15000;
 const MBTI_PDF_REQUIRED_SELECTORS = [
   '[data-pdf-section="personality-traits"]',
@@ -547,32 +547,84 @@ function resolveRetakeHrefByScale(locale: Locale, scaleCode: string): string {
   return localizedPath(`/tests/${canonicalSlug}/take`, locale);
 }
 
-function resolveMbtiLoadingStatusText(locale: Locale, state: "processing" | "failed", error: string | null) {
-  if (state === "processing") {
-    return locale === "zh" ? "正在生成你的结果..." : "We are generating your result...";
-  }
-
-  return error ?? (locale === "zh" ? "结果暂时无法读取，请返回后再试。" : "The result is temporarily unavailable, please try again.");
-}
-
 function resolveReportGeneratingMessage(locale: Locale, scaleCode: string): string {
   const normalized = scaleCode.toUpperCase();
 
   if (normalized === "EQ_60") {
     return locale === "zh"
-      ? "情商测试结果正在生成中，系统会自动刷新；通常只需要几秒钟。"
-      : "Your EQ result is still generating. This page refreshes automatically and usually completes in a few seconds.";
+      ? "情商测试结果会在后端完成完整组合后自动展示，最短等待 10 秒。"
+      : "Your EQ result will appear once the backend has assembled the full page. Minimum wait: 10 seconds.";
   }
 
   if (normalized === "RIASEC") {
     return locale === "zh"
-      ? "霍兰德职业兴趣测试结果正在生成中，系统会自动刷新；通常只需要几秒钟。"
-      : "Your Holland/RIASEC result is still generating. This page refreshes automatically and usually completes in a few seconds.";
+      ? "霍兰德职业兴趣测试结果会在后端完成完整组合后自动展示，最短等待 10 秒。"
+      : "Your Holland/RIASEC result will appear once the backend has assembled the full page. Minimum wait: 10 seconds.";
   }
 
   return locale === "zh"
-    ? "结果正在生成中，系统会自动刷新；通常只需要几秒钟。"
-    : "Your result is still generating. This page refreshes automatically and usually completes in a few seconds.";
+    ? "结果页会在后端完成完整组合后自动展示，最短等待 10 秒。"
+    : "Your result page will appear once the backend has assembled the full page. Minimum wait: 10 seconds.";
+}
+
+function resolveResultProcessingHeadline(locale: Locale): string {
+  return locale === "zh" ? "正在生成你的测评结果..." : "Generating your assessment result...";
+}
+
+function ResultProcessingGate({
+  backendReady,
+  helperText,
+  locale,
+  minDurationMs,
+  phases,
+  startedAt,
+}: {
+  backendReady: boolean;
+  helperText: string;
+  locale: Locale;
+  minDurationMs: number;
+  phases: string[];
+  startedAt: number | null;
+}) {
+  const [now, setNow] = useState(() => Date.now());
+
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(Date.now()), 250);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const elapsedMs = startedAt === null ? 0 : Math.max(0, now - startedAt);
+  const rawProgress = Math.round((elapsedMs / minDurationMs) * 100);
+  const progress = Math.max(8, Math.min(backendReady ? 100 : RESULT_PROCESSING_PROGRESS_CAP, rawProgress));
+  const safePhases = phases.length > 0 ? phases : [helperText];
+  const phaseIndex = Math.min(safePhases.length - 1, Math.floor(elapsedMs / Math.max(1, minDurationMs / safePhases.length)));
+  const phaseText = safePhases[phaseIndex] ?? helperText;
+
+  return (
+    <div className="flex min-h-[52vh] items-center justify-center px-4 py-16" data-testid="result-processing-wait">
+      <section
+        className="w-full max-w-xl rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-6 shadow-[var(--fm-shadow-lg)] sm:p-8"
+        role="status"
+        aria-live="polite"
+      >
+        <p className="text-xl font-semibold text-[var(--fm-text)]">{resolveResultProcessingHeadline(locale)}</p>
+        <div
+          className="mt-4 h-2 overflow-hidden rounded-full bg-[var(--fm-muted)]"
+          role="progressbar"
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-valuenow={progress}
+        >
+          <div
+            className="h-full rounded-full bg-gradient-to-r from-[var(--fm-trust-blue)] to-emerald-500 transition-[width] duration-300 ease-out"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+        <p className="mt-3 text-sm text-[var(--fm-muted-foreground)]">{phaseText}</p>
+        <p className="mt-2 text-xs text-[var(--fm-muted-foreground)]">{helperText}</p>
+      </section>
+    </div>
+  );
 }
 
 function isAttemptResubmitConflictMessage(message: string | null | undefined): boolean {
@@ -815,6 +867,26 @@ export default function ResultClient({
   const routeScaleCodeRef = useRef(initialReportReady ? resolveScaleCodeForTelemetry(initialReportData ?? null, null) : "UNKNOWN");
   const inviteProgressSnapshotRef = useRef<InviteProgressSnapshot | null>(null);
   const mbtiBootstrapPhaseTrackedRef = useRef(false);
+  const processingGateStartedAtRef = useRef<number | null>(null);
+  const [processingGateStartedAt, setProcessingGateStartedAt] = useState<number | null>(null);
+  const [readyHoldElapsed, setReadyHoldElapsed] = useState(true);
+
+  const beginMinimumProcessingGate = useCallback(() => {
+    if (printMode || processingGateStartedAtRef.current !== null) {
+      return;
+    }
+
+    const startedAt = Date.now();
+    processingGateStartedAtRef.current = startedAt;
+    setProcessingGateStartedAt(startedAt);
+    setReadyHoldElapsed(false);
+  }, [printMode]);
+
+  const resetMinimumProcessingGate = useCallback(() => {
+    processingGateStartedAtRef.current = null;
+    setProcessingGateStartedAt(null);
+    setReadyHoldElapsed(true);
+  }, []);
 
   useEffect(() => {
     if (printMode) {
@@ -1295,6 +1367,7 @@ export default function ResultClient({
         if (response.generating === true || submissionState === "pending" || submissionState === "running") {
           setReportData(null);
           setResultData(null);
+          beginMinimumProcessingGate();
           setStatus("generating");
           scheduleRetry(attempt, resolveResponseRetryMs(response));
 
@@ -1304,6 +1377,7 @@ export default function ResultClient({
         if (submissionState === "succeeded") {
           setReportData(null);
           setResultData(null);
+          beginMinimumProcessingGate();
           setStatus("generating");
           scheduleRetry(attempt, RESULT_POLL_FALLBACK_MS);
 
@@ -1336,6 +1410,7 @@ export default function ResultClient({
         setMbtiAccessPath(false);
         setEmailGateError(null);
         setEmailBindFeedback(null);
+        resetMinimumProcessingGate();
         inviteProgressSnapshotRef.current = null;
         mbtiBootstrapPhaseTrackedRef.current = false;
 
@@ -1409,6 +1484,7 @@ export default function ResultClient({
         if (isProjectionProcessing(nextAccessView)) {
           setReportData(null);
           setResultData(null);
+          beginMinimumProcessingGate();
           setStatus("generating");
           scheduleRetry(attempt, resolveAccessResponseRetryMs(accessResponse));
           return;
@@ -1460,6 +1536,7 @@ export default function ResultClient({
         }
 
         if (isGeneratingReportResponse(reportResponse)) {
+          beginMinimumProcessingGate();
           setStatus("generating");
           scheduleRetry(attempt, resolveResponseRetryMs(reportResponse));
           return;
@@ -1553,6 +1630,7 @@ export default function ResultClient({
   }, [
     anonId,
     attemptId,
+    beginMinimumProcessingGate,
     canLoadRichReport,
     dict.result.reportUnavailable,
     fetchInviteUnlockProgressWithAuthMismatchRetry,
@@ -1566,11 +1644,27 @@ export default function ResultClient({
     locale,
     printMode,
     reloadNonce,
+    resetMinimumProcessingGate,
     resultAccessToken,
     runWithAuthRetry,
     showEmailGateForError,
     usePrintAccessTokenOnly,
   ]);
+
+  useEffect(() => {
+    if (printMode || status !== "ready" || processingGateStartedAt === null) {
+      return;
+    }
+
+    const elapsedMs = Date.now() - processingGateStartedAt;
+    if (elapsedMs >= RESULT_PROCESSING_MIN_MS) {
+      setReadyHoldElapsed(true);
+      return;
+    }
+
+    const timer = window.setTimeout(() => setReadyHoldElapsed(true), RESULT_PROCESSING_MIN_MS - elapsedMs);
+    return () => window.clearTimeout(timer);
+  }, [printMode, processingGateStartedAt, status]);
 
   const hasEqV5Report = reportData ? isEqV5ReportResponse(reportData) : false;
   const hasRichReport = reportData ? canRenderRichResultReport(reportData) : false;
@@ -1643,12 +1737,15 @@ export default function ResultClient({
   );
   const renderOptionalEmailRecoveryCard = () => (printMode ? null : renderEmailRecoveryCard());
 
-  const viewState: "processing" | "ready" | "failed" =
+  const rawViewState: "processing" | "ready" | "failed" =
     status === "loading" || status === "generating"
       ? "processing"
       : status === "ready" && (hasEqV5Report || hasRichReport || hasReadyResultPayload(resultData))
         ? "ready"
         : "failed";
+  const viewState: "processing" | "ready" | "failed" =
+    rawViewState === "ready" && processingGateStartedAt !== null && !readyHoldElapsed ? "processing" : rawViewState;
+  const processingBackendReady = rawViewState === "ready";
   const mbtiPdfReadyCandidate = printSnapshotContractValid && resolvedScaleCode === "MBTI" && viewState === "ready" && hasRichReport && Boolean(reportData);
   const mbtiPdfContentReadyCandidate =
     !mbtiPdfReadyCandidate
@@ -1828,31 +1925,16 @@ export default function ResultClient({
     );
   }
 
-  if (isMbtiReadyPath && viewState === "processing") {
-    const retakeHref = resolveRetakeHrefByScale(locale, resolvedScaleCode === "MBTI" ? resolvedScaleCode : "MBTI");
-    const statusText = resolveMbtiLoadingStatusText(locale, viewState, error);
-    const primaryCtaLabel = locale === "zh" ? "解锁完整报告" : "Unlock full report";
-
-    return (
-      <MbtiResultShellLoadingShell
-        locale={locale}
-        retakeHref={retakeHref}
-        statusText={statusText}
-        unlockStage={accessView?.unlockStage ?? null}
-        inviteUnlockProgress={inviteUnlockProgress}
-        primaryCtaLabel={primaryCtaLabel}
-        primaryCtaHref="#offer-full"
-        primaryCtaIsInternal={false}
-      />
-    );
-  }
-
   if (viewState === "processing") {
     return (
-      <div className="space-y-[var(--fm-gap-md)]">
-        <Alert>{resolveReportGeneratingMessage(locale, resolvedScaleCode)}</Alert>
-        <AnticipationSkeleton phases={dict.loading.phases} />
-      </div>
+      <ResultProcessingGate
+        backendReady={processingBackendReady}
+        helperText={resolveReportGeneratingMessage(locale, resolvedScaleCode)}
+        locale={locale}
+        minDurationMs={RESULT_PROCESSING_MIN_MS}
+        phases={dict.loading.phases}
+        startedAt={processingGateStartedAt}
+      />
     );
   }
 

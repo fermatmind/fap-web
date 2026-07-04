@@ -83,10 +83,6 @@ vi.mock("next/navigation", () => ({
   useSearchParams: () => new URLSearchParams(hoisted.search),
 }));
 
-vi.mock("@/components/design/AnticipationSkeleton", () => ({
-  AnticipationSkeleton: () => <div data-testid="skeleton">processing-skeleton</div>,
-}));
-
 vi.mock("@/components/result/RichResultReport", () => ({
   canRenderRichResultReport: (
     report: {
@@ -959,12 +955,11 @@ describe("ResultClient view-state contract", () => {
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
 
     await waitFor(() => {
-      expect(screen.getByRole("alert")).toHaveTextContent(
-        "Your result is still generating. This page refreshes automatically and usually completes in a few seconds."
-      );
+      expect(screen.getByTestId("result-processing-wait")).toBeInTheDocument();
     });
 
-    expect(screen.getByTestId("skeleton")).toBeInTheDocument();
+    expect(screen.getByText("phase-1")).toBeInTheDocument();
+    expect(screen.getByText("Your result page will appear once the backend has assembled the full page. Minimum wait: 10 seconds.")).toBeInTheDocument();
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
     expect(screen.queryByTestId("rich-result-report")).not.toBeInTheDocument();
   });
@@ -998,11 +993,11 @@ describe("ResultClient view-state contract", () => {
     });
 
     expect(screen.queryByRole("alert")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("skeleton")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("result-processing-wait")).not.toBeInTheDocument();
     expect(hoisted.fetchAttemptResult).not.toHaveBeenCalled();
   });
 
-  it("shows MBTI critical-surface loading shell early after access projection is identified", async () => {
+  it("shows the controlled processing gate early after MBTI access projection is identified", async () => {
     hoisted.fetchAttemptReportAccess.mockResolvedValue(
       createAccessProjection({
         report_state: "pending",
@@ -1019,7 +1014,7 @@ describe("ResultClient view-state contract", () => {
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
 
     await waitFor(() => {
-      expect(screen.getByTestId("mbti-loading-critical-surface")).toBeInTheDocument();
+      expect(screen.getByTestId("result-processing-wait")).toBeInTheDocument();
     });
 
     expect(hoisted.trackEvent).toHaveBeenCalledWith(
@@ -1031,7 +1026,7 @@ describe("ResultClient view-state contract", () => {
       })
     );
     expect(hoisted.fetchAttemptReport).not.toHaveBeenCalled();
-    expect(screen.queryByTestId("skeleton")).not.toBeInTheDocument();
+    expect(screen.getByText("phase-1")).toBeInTheDocument();
   });
 
   it("shows an actionable failure state instead of MBTI loading shell when submission ended with different answers conflict", async () => {
@@ -1076,8 +1071,7 @@ describe("ResultClient view-state contract", () => {
       "href",
       expect.stringContaining("force_new_attempt=1&reason=submission_conflict")
     );
-    expect(screen.queryByTestId("mbti-loading-critical-surface")).not.toBeInTheDocument();
-    expect(screen.queryByTestId("skeleton")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("result-processing-wait")).not.toBeInTheDocument();
   });
 
   it("keeps the page in processing state when report access is 404 but submission is still pending", async () => {
@@ -1108,12 +1102,10 @@ describe("ResultClient view-state contract", () => {
     render(<ResultClient attemptId="attempt-123" rolloutEnv={{} as never} />);
 
     await waitFor(() => {
-      expect(screen.getByRole("alert")).toHaveTextContent(
-        "Your result is still generating. This page refreshes automatically and usually completes in a few seconds."
-      );
+      expect(screen.getByTestId("result-processing-wait")).toBeInTheDocument();
     });
 
-    expect(screen.getByTestId("skeleton")).toBeInTheDocument();
+    expect(screen.getByText("phase-1")).toBeInTheDocument();
     expect(hoisted.fetchAttemptReportAccess).toHaveBeenCalledTimes(2);
     expect(hoisted.fetchAttemptSubmission).toHaveBeenCalledWith({
       attemptId: "attempt-123",
