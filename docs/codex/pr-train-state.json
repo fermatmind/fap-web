@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T17:21:14Z",
+  "updated_at": "2026-07-04T17:23:28Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -29144,7 +29144,7 @@
       "repo": "fap-web",
       "branch": "codex/iq-method-04-matrix-reasoning-guide",
       "status": "local_checks_passed",
-      "commit_sha": null,
+      "commit_sha": "57b1ed73af589c4f5350229f3a5dcf4f31b17fc9",
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -29196,6 +29196,11 @@
           "at": "2026-07-04T17:21:14Z",
           "status": "local_checks_passed",
           "note": "Completed IQ-METHOD-04 matrix reasoning draft-review asset package, PR3 train-forward contract compatibility, and required local validation without CMS writes, frontend runtime content, discoverability activation, production import, or deploy."
+        },
+        {
+          "at": "2026-07-04T17:23:28Z",
+          "status": "local_checks_passed",
+          "note": "Created local implementation commit 57b1ed73af589c4f5350229f3a5dcf4f31b17fc9 for IQ-METHOD-04; a follow-up ledger commit records this SHA to avoid a self-referential commit hash loop."
         }
       ],
       "metadata": {
@@ -29213,7 +29218,7 @@
           "llms_eligible": false
         }
       },
-      "updated_at": "2026-07-04T17:21:14Z"
+      "updated_at": "2026-07-04T17:23:28Z"
     },
     {
       "id": "IQ-METHOD-05",
