@@ -1,0 +1,20 @@
+{
+  "status": "draft_review_only",
+  "page_slug": "online-iq-test-vs-professional-assessment",
+  "allowed_terms_used": [
+    "IQ 风格推理测试",
+    "原始分",
+    "图形推理",
+    "完成时间",
+    "模式识别",
+    "正确率",
+    "矩阵推理",
+    "非临床",
+    "非官方",
+    "非认证"
+  ],
+  "forbidden_terms_found": [],
+  "page_status": "draft_review_only_passed_text_scan",
+  "human_review_required": true,
+  "notes": "自动文本扫描只覆盖显式字符串；仍需方法与 claim 人工审核。"
+}

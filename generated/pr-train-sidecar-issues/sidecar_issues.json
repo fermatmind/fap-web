@@ -50,5 +50,15 @@
     "why_not_current_pr_scope": "OPS-08 only adds a read-only GSC monitoring artifact generator, generated docs/csv/json, one contract, sidecar, and train ledger updates. The local pnpm approve-builds state is machine/runtime configuration outside repository scope and predates the PR.",
     "required_checks_affected": false,
     "recommended_follow_up": "Normalize local Codex pnpm wrapper approval state or run repository checks through corepack pnpm, matching CI behavior, before requiring bare pnpm locally."
+  },
+  {
+    "repo": "fap-web",
+    "pr_id": "IQ-METHOD-02",
+    "branch": "codex/iq-method-02-online-vs-professional",
+    "blocker_type": "local_contract_side_effect",
+    "evidence": "pnpm test:contract rewrote docs/seo/personality/mbti-cms-04-top-profile-content-assets-2026-07-04.json and .md with a fresh generated timestamp during full contract validation.",
+    "why_not_current_pr_scope": "The MBTI CMS04 generated docs are unrelated to the IQ-METHOD-02 CMS Article asset package and are mutated by an existing MBTI contract.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Make the MBTI CMS04 contract write to a temp output path or avoid timestamp mutation in checked-in docs during unrelated full-suite validation."
   }
 ]

@@ -1,0 +1,113 @@
+{
+  "status": "draft_review_only",
+  "locale": "zh-CN",
+  "slug": "online-iq-test-vs-professional-assessment",
+  "title": "在线 IQ 风格测试和专业智力测评有什么区别？",
+  "excerpt": "对比在线推理练习与专业智力测评的常模、监督流程、误差解释和用途边界。",
+  "content_md": "在线 IQ 风格测试适合快速理解一次推理任务中的表现；专业智力测评通常需要常模、监督流程、误差解释和专业人员解读。FermatMind IQ V1 属于在线自助推理测试，结果用于自我理解和练习参考，不是外部证明。\n\n## 这是什么 / 这不是什么\n\n| 这是什么 | 这不是什么 |\n|---|---|\n| 在线自助完成的推理任务 | 不是监督环境下的专业测评 |\n| 用于观察本次答题表现 | 不是正式常模报告 |\n| 提供原始分、正确率、完成时间等信号 | 不提供人群排名式结论 |\n| 适合自我了解和练习 | 不用于医疗、升学、用人或收入决策 |\n\n## 两类测试的核心区别\n\n| 项目 | 在线 IQ 风格测试 | 专业智力测评 |\n|---|---|---|\n| 使用方式 | 用户在线自行完成 | 通常有更严格的施测流程 |\n| 结果重点 | 本次任务表现信号 | 更完整的评估解释 |\n| 常模要求 | V1 不做正式常模承诺 | 通常需要清晰样本和标准化 |\n| 监督要求 | 一般不监督 | 可能需要专业人员或受控环境 |\n| 用途边界 | 自我了解、练习、反思 | 特定专业场景下解释 |\n| 误差说明 | 需要保守表达 | 通常会纳入专业解释 |\n\n## 为什么专业测评更严格\n\n专业测评不仅是做题。它通常还要考虑题库质量、施测环境、样本来源、误差范围、答题状态和解释人员的专业判断。同一个人在不同时间、不同环境、不同题组中的表现可能不同，因此不能只看一次在线结果就下长期结论。\n\n## FermatMind IQ V1 的边界\n\nFermatMind IQ V1 的目标是让用户免费完成一组图形、矩阵和规律任务，理解本次答题表现。它不会把结果包装成外部证明，也不会把用户归入固定能力等级。结果页应关注原始分、正确率、完成时间、维度表现和稳定性提示。\n\n## 可以理解什么\n\n你可以理解：\n\n- 这次 30 题完成情况；\n- 哪类题型表现更顺；\n- 答题节奏是否需要调整；\n- 是否需要更多练习或复盘；\n- 在线测试和专业测评为什么不能混为一谈。\n\n## 不能据此推断什么\n\n你不能据此推断：\n\n- 自己在所有人群中的稳定位置；\n- 是否适合某所学校、某个岗位或某种收入水平；\n- 是否具备任何外部资格；\n- 是否存在医疗或心理健康结论。\n\n## FAQ\n\n### 在线测试是不是没有价值？\n不是。它可以帮助你观察本次任务表现，但价值在于自我理解和练习，不在于外部证明。\n\n### 为什么不直接给正式结论？\n正式结论需要更严格的样本、流程和解释条件，V1 不做这样的承诺。\n\n### 专业测评一定更好吗？\n它适合更严肃的专业场景，但也需要明确目的、资质和解释边界。\n\n### FermatMind V1 适合什么人？\n适合想体验图形推理、矩阵推理和模式识别任务的人。",
+  "related_test_slug": "iq-test-intelligence-quotient-assessment",
+  "category_suggestion": "测评方法与边界",
+  "tags": [
+    "IQ 风格推理测试",
+    "测评方法与边界",
+    "非官方非认证",
+    "推理表现"
+  ],
+  "is_public": false,
+  "is_indexable": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "reviewer_status": "method_and_claim_review_required",
+  "canonical_url": "https://fermatmind.com/zh/articles/online-iq-test-vs-professional-assessment",
+  "robots": "noindex,follow",
+  "schema_json": {
+    "editorial_package_v1": {
+      "package_version": "iq-method-pages-zh-cn-v0.2",
+      "answer_surface_policy": "editor_supplied",
+      "answer_surface_v1": {
+        "version": "answer_surface_v1",
+        "status": "draft_review_only",
+        "quick_answer": "在线 IQ 风格测试更适合帮助用户快速理解一次推理任务中的表现；专业智力测评通常需要明确常模、监督流程、误差解释和专业人员解读。FermatMind IQ V1 是在线推理测试，不是外部证明、非临床结论，也不能用于升学、用人或收入判断。",
+        "definition_or_scope": "在线 IQ 风格测试是轻量的自助推理任务；专业智力测评是更严格的标准化评估流程。",
+        "method_explanation": "页面用对比表说明两类测评在场景、流程、常模、监督、解释和用途边界上的差异。",
+        "boundary_caveat": "本页只解释 FermatMind IQ V1 的公开方法与边界。它是非官方、非临床、非认证的在线 IQ 风格推理测试，不用于升学、用人、收入或岗位决策。",
+        "facts": [
+          "FermatMind IQ V1 为原创 30 题。",
+          "预计完成时间约 20 分钟。",
+          "题库、答案和评分逻辑由后端私有评分控制。",
+          "公开安全表达限于原始分、正确率、完成时间、维度表现、稳定性提示和本次推理任务表现。",
+          "当前高层维度描述限于视觉空间洞察、视觉空间模式推理、数字规律推理。"
+        ],
+        "faq_items": [
+          {
+            "question": "在线测试是不是没有价值？",
+            "answer": "不是。它可以帮助你观察本次任务表现，但价值在于自我理解和练习，不在于外部证明。"
+          },
+          {
+            "question": "为什么不直接给正式结论？",
+            "answer": "正式结论需要更严格的样本、流程和解释条件，V1 不做这样的承诺。"
+          },
+          {
+            "question": "专业测评一定更好吗？",
+            "answer": "它适合更严肃的专业场景，但也需要明确目的、资质和解释边界。"
+          },
+          {
+            "question": "FermatMind V1 适合什么人？",
+            "answer": "适合想体验图形推理、矩阵推理和模式识别任务的人。"
+          }
+        ],
+        "next_steps": [
+          {
+            "label": "开始 IQ 风格推理测试",
+            "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+          },
+          {
+            "label": "阅读相邻方法页",
+            "href": "/zh/articles/iq-test-score-meaning-boundary"
+          }
+        ],
+        "related_links": [
+          {
+            "label": "开始 IQ 风格推理测试",
+            "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+          },
+          {
+            "label": "IQ 风格测试里的原始分、正确率和完成时间说明什么？",
+            "href": "/zh/articles/iq-test-score-meaning-boundary"
+          },
+          {
+            "label": "什么是 IQ 风格推理测试？",
+            "href": "/zh/articles/what-is-iq-style-reasoning-test"
+          },
+          {
+            "label": "为什么 FermatMind IQ V1 是非认证测试？",
+            "href": "/zh/articles/why-fermatmind-iq-v1-not-certification"
+          }
+        ],
+        "last_reviewed_note": "待方法与 claim 审核"
+      },
+      "cta_slots": [
+        {
+          "slot": "primary",
+          "label": "开始 IQ 风格推理测试",
+          "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+        },
+        {
+          "slot": "secondary",
+          "label": "继续阅读方法与边界说明",
+          "href": "/zh/articles/iq-test-score-meaning-boundary"
+        }
+      ],
+      "claim_boundary_metadata": {
+        "positioning": "IQ-style reasoning test",
+        "non_official": true,
+        "non_clinical": true,
+        "non_certification": true,
+        "no_formal_population_ranking": true,
+        "no_private_flow_urls": true
+      },
+      "content_authority_note": "CMS/backend authoritative; frontend fallback forbidden",
+      "review_required_before_publish": true
+    }
+  }
+}

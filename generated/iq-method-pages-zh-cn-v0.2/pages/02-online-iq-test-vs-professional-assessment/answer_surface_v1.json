@@ -1,0 +1,62 @@
+{
+  "version": "answer_surface_v1",
+  "status": "draft_review_only",
+  "quick_answer": "在线 IQ 风格测试更适合帮助用户快速理解一次推理任务中的表现；专业智力测评通常需要明确常模、监督流程、误差解释和专业人员解读。FermatMind IQ V1 是在线推理测试，不是外部证明、非临床结论，也不能用于升学、用人或收入判断。",
+  "definition_or_scope": "在线 IQ 风格测试是轻量的自助推理任务；专业智力测评是更严格的标准化评估流程。",
+  "method_explanation": "页面用对比表说明两类测评在场景、流程、常模、监督、解释和用途边界上的差异。",
+  "boundary_caveat": "本页只解释 FermatMind IQ V1 的公开方法与边界。它是非官方、非临床、非认证的在线 IQ 风格推理测试，不用于升学、用人、收入或岗位决策。",
+  "facts": [
+    "FermatMind IQ V1 为原创 30 题。",
+    "预计完成时间约 20 分钟。",
+    "题库、答案和评分逻辑由后端私有评分控制。",
+    "公开安全表达限于原始分、正确率、完成时间、维度表现、稳定性提示和本次推理任务表现。",
+    "当前高层维度描述限于视觉空间洞察、视觉空间模式推理、数字规律推理。"
+  ],
+  "faq_items": [
+    {
+      "question": "在线测试是不是没有价值？",
+      "answer": "不是。它可以帮助你观察本次任务表现，但价值在于自我理解和练习，不在于外部证明。"
+    },
+    {
+      "question": "为什么不直接给正式结论？",
+      "answer": "正式结论需要更严格的样本、流程和解释条件，V1 不做这样的承诺。"
+    },
+    {
+      "question": "专业测评一定更好吗？",
+      "answer": "它适合更严肃的专业场景，但也需要明确目的、资质和解释边界。"
+    },
+    {
+      "question": "FermatMind V1 适合什么人？",
+      "answer": "适合想体验图形推理、矩阵推理和模式识别任务的人。"
+    }
+  ],
+  "next_steps": [
+    {
+      "label": "开始 IQ 风格推理测试",
+      "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+    },
+    {
+      "label": "阅读相邻方法页",
+      "href": "/zh/articles/iq-test-score-meaning-boundary"
+    }
+  ],
+  "related_links": [
+    {
+      "label": "开始 IQ 风格推理测试",
+      "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+    },
+    {
+      "label": "IQ 风格测试里的原始分、正确率和完成时间说明什么？",
+      "href": "/zh/articles/iq-test-score-meaning-boundary"
+    },
+    {
+      "label": "什么是 IQ 风格推理测试？",
+      "href": "/zh/articles/what-is-iq-style-reasoning-test"
+    },
+    {
+      "label": "为什么 FermatMind IQ V1 是非认证测试？",
+      "href": "/zh/articles/why-fermatmind-iq-v1-not-certification"
+    }
+  ],
+  "last_reviewed_note": "待方法与 claim 审核"
+}

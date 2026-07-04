@@ -2,9 +2,10 @@
   "artifact": "IQ_METHOD_PAGES_ZH_CN_V0_2_PR_TRAIN_INDEX",
   "status": "draft_review_only",
   "content_authority": "CMS/backend authoritative; frontend local editorial fallback forbidden",
-  "current_pr": "IQ-METHOD-01",
+  "current_pr": "IQ-METHOD-02",
   "included_pages": [
-    "what-is-iq-style-reasoning-test"
+    "what-is-iq-style-reasoning-test",
+    "online-iq-test-vs-professional-assessment"
   ],
   "planned_pages": [
     {

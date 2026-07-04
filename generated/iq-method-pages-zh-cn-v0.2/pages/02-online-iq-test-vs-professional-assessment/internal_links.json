@@ -1,0 +1,55 @@
+{
+  "hub_name": "IQ 测试方法与边界",
+  "page_role": "IQ claim boundary 核心页",
+  "primary_test_link": {
+    "label": "开始 IQ 风格推理测试",
+    "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+  },
+  "links_out": [
+    {
+      "label": "开始 IQ 风格推理测试",
+      "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+    },
+    {
+      "label": "IQ 风格测试里的原始分、正确率和完成时间说明什么？",
+      "href": "/zh/articles/iq-test-score-meaning-boundary"
+    },
+    {
+      "label": "什么是 IQ 风格推理测试？",
+      "href": "/zh/articles/what-is-iq-style-reasoning-test"
+    },
+    {
+      "label": "为什么 FermatMind IQ V1 是非认证测试？",
+      "href": "/zh/articles/why-fermatmind-iq-v1-not-certification"
+    }
+  ],
+  "links_in_recommended": [
+    {
+      "from": "/zh/articles/what-is-iq-style-reasoning-test",
+      "anchor": "在线 IQ 风格测试和专业智力测评有什么区别？"
+    },
+    {
+      "from": "/zh/articles/iq-test-score-meaning-boundary",
+      "anchor": "在线 IQ 风格测试和专业智力测评有什么区别？"
+    },
+    {
+      "from": "/zh/articles/matrix-reasoning-pattern-recognition-guide",
+      "anchor": "在线 IQ 风格测试和专业智力测评有什么区别？"
+    },
+    {
+      "from": "/zh/articles/why-fermatmind-iq-v1-not-certification",
+      "anchor": "在线 IQ 风格测试和专业智力测评有什么区别？"
+    }
+  ],
+  "private_flow_guard": {
+    "blocked_prefixes": [
+      "/take",
+      "/results",
+      "/orders",
+      "/pay",
+      "/share",
+      "/history"
+    ],
+    "status": "passed_planning_check"
+  }
+}
