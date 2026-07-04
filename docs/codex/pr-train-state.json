@@ -39399,9 +39399,9 @@
   "active_mbti_train": {
     "train_name": "mbti-personality-seo-geo-growth-train",
     "current_pr": "MBTI-SEO-01",
-    "status": "committed",
+    "status": "pr_open",
     "authorized_by_goal": true,
-    "updated_at": "2026-07-04T03:59:38.110Z"
+    "updated_at": "2026-07-04T04:02:08.759Z"
   },
   "MBTI-SEO-01": {
     "repo": "fap-web",
@@ -39410,9 +39410,9 @@
     "title": "MBTI-SEO-01: refresh personality hub SEO/GEO structure",
     "train_scope": "mbti_personality_hub_seo_geo_refresh",
     "depends_on": [],
-    "status": "committed",
-    "commit_sha": "535fb4cf589bfe40ed1d5d837e18d6aca24f6be8",
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "fce4225e72b54d50f833a5571b27a49668ebdea3",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1577",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -39463,9 +39463,16 @@
         "status": "committed",
         "commit_sha": "535fb4cf589bfe40ed1d5d837e18d6aca24f6be8",
         "notes": "Committed MBTI-SEO-01 scoped hub SEO/GEO changes after local checks and scope validation passed."
+      },
+      {
+        "at": "2026-07-04T04:02:08.759Z",
+        "status": "pr_open",
+        "commit_sha": "fce4225e72b54d50f833a5571b27a49668ebdea3",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1577",
+        "notes": "Opened PR #1577 for MBTI-SEO-01."
       }
     ],
-    "updated_at": "2026-07-04T03:59:38.110Z"
+    "updated_at": "2026-07-04T04:02:08.759Z"
   },
   "MBTI-SEO-02": {
     "repo": "fap-web",
