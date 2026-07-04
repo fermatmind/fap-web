@@ -41198,9 +41198,8 @@
     "depends_on": [
       "MBTI-ASSET-OPS-09"
     ],
-    "status": "local_checks_passed",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open_checks_pending",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1602",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -41234,9 +41233,14 @@
         "at": "2026-07-04T19:24:00Z",
         "status": "local_checks_passed",
         "note": "Updated public-profile-seo-asset-factory MBTI runbook and agent matrix; all manifest local checks passed. Build required NEXT_PUBLIC_SITE_URL in addition to manifest API URL because robots/sitemap production URL guard is active."
+      },
+      {
+        "at": "2026-07-04T19:32:00Z",
+        "status": "pr_open_checks_pending",
+        "note": "Opened PR #1602 from rebased local-check commit undefined; waiting for GitHub required checks."
       }
     ],
-    "updated_at": "2026-07-04T19:24:00Z",
+    "updated_at": "2026-07-04T19:32:00Z",
     "next_task": "MBTI-GSC-11"
   },
   "MBTI-GSC-11": {
