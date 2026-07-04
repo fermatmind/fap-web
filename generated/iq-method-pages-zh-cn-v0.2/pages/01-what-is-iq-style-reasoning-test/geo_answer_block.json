@@ -1,0 +1,54 @@
+{
+  "status": "draft_review_only",
+  "page_slug": "what-is-iq-style-reasoning-test",
+  "answer_blocks": [
+    {
+      "type": "quick_answer",
+      "text": "IQ 风格推理测试是一类用图形、矩阵、规律补全等任务观察推理表现的在线测试。FermatMind IQ V1 为原创 30 题，约 20 分钟，结果围绕原始分、正确率、完成时间和维度表现说明。它用于理解本次推理任务表现，非官方、非临床、非认证。"
+    },
+    {
+      "type": "boundary_box",
+      "text": "本页只解释 FermatMind IQ V1 的公开方法与边界。它是非官方、非临床、非认证的在线 IQ 风格推理测试，不用于升学、用人、收入或岗位决策。"
+    },
+    {
+      "type": "method_table",
+      "text": "页面正文包含方法解释表格或边界表格，用于 GEO 可截取答案。"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "question": "这是正式智力测评吗？",
+          "answer": "不是。它是在线 IQ 风格推理测试，用来理解本次推理任务表现。"
+        },
+        {
+          "question": "为什么叫 IQ 风格？",
+          "answer": "因为题型借鉴常见推理任务形式，但 FermatMind V1 不把结果解释为外部认证或正式结论。"
+        },
+        {
+          "question": "结果会告诉我什么？",
+          "answer": "结果应围绕原始分、正确率、完成时间和维度表现说明。"
+        },
+        {
+          "question": "可以把它用于升学或用人场景吗？",
+          "answer": "不建议。它不应作为外部决策依据。"
+        }
+      ]
+    },
+    {
+      "type": "next_step",
+      "links": [
+        {
+          "label": "开始 IQ 风格推理测试",
+          "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+        },
+        {
+          "label": "阅读相邻方法页",
+          "href": "/zh/articles/online-iq-test-vs-professional-assessment"
+        }
+      ]
+    }
+  ],
+  "ai_answer_risk": "low_after_human_review",
+  "geo_role": "IQ 方法论入口页"
+}

@@ -1,0 +1,23 @@
+{
+  "status": "draft_review_only",
+  "seo_title": "什么是 IQ 风格推理测试？图形推理说明",
+  "seo_description": "了解 IQ 风格推理测试的边界：30 题、约 20 分钟，观察图形、矩阵和规律任务表现；非官方、非临床、非认证。",
+  "canonical_url": "https://fermatmind.com/zh/articles/what-is-iq-style-reasoning-test",
+  "robots": "noindex,follow",
+  "structured_data_candidates": [
+    "Article",
+    "BreadcrumbList",
+    "FAQPage"
+  ],
+  "structured_data_forbidden": [
+    "Product",
+    "SoftwareApplication",
+    "Certificate",
+    "Course",
+    "MedicalWebPage"
+  ],
+  "faqpage_policy": "allowed only if visible FAQ text remains in article.md and CMS rendering preserves it",
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "publish_gate": "only after human review, CMS publish approval, claim gate pass, and runtime readback"
+}
