@@ -1,0 +1,23 @@
+{
+  "status": "draft_review_only",
+  "seo_title": "原始分、正确率和完成时间说明什么？",
+  "seo_description": "FermatMind IQ V1 只解释本次答题表现信号：原始分、正确率、完成时间和维度表现，不输出外部证明或人群排名。",
+  "canonical_url": "https://fermatmind.com/zh/articles/iq-test-score-meaning-boundary",
+  "robots": "noindex,follow",
+  "structured_data_candidates": [
+    "Article",
+    "BreadcrumbList",
+    "FAQPage"
+  ],
+  "structured_data_forbidden": [
+    "Product",
+    "SoftwareApplication",
+    "Certificate",
+    "Course",
+    "MedicalWebPage"
+  ],
+  "faqpage_policy": "allowed only if visible FAQ text remains in article.md and CMS rendering preserves it",
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "publish_gate": "only after human review, CMS publish approval, claim gate pass, and runtime readback"
+}

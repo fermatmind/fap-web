@@ -1,0 +1,20 @@
+{
+  "status": "draft_review_only",
+  "primary_cta": {
+    "label": "开始 IQ 风格推理测试",
+    "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+  },
+  "secondary_cta": {
+    "label": "查看 IQ 测试方法与边界",
+    "href": "/zh/articles/what-is-iq-style-reasoning-test"
+  },
+  "forbidden_hrefs": [
+    "/take",
+    "/results",
+    "/orders",
+    "/pay",
+    "/share",
+    "/history"
+  ],
+  "notes": "该 landing surface 仅供 CMS 方法页内部 CTA 使用，不指向私有流程。"
+}
