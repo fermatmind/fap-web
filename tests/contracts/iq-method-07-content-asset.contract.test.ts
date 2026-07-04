@@ -2,17 +2,18 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { isIqMethod06AllowedFile } from "./helpers/currentPrScope";
+import { isIqMethod07AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const PACKAGE_DIR = "generated/iq-method-pages-zh-cn-v0.2";
-const PAGE_DIR = `${PACKAGE_DIR}/pages/06-iq-test-privacy-data-boundary`;
+const PAGE_DIR = `${PACKAGE_DIR}/pages/07-iq-expert-review-disclosure`;
 const DEFINITION_SLUG = "what-is-iq-style-reasoning-test";
 const PROFESSIONAL_BOUNDARY_SLUG = "online-iq-test-vs-professional-assessment";
 const SCORE_BOUNDARY_SLUG = "iq-test-score-meaning-boundary";
 const MATRIX_REASONING_SLUG = "matrix-reasoning-pattern-recognition-guide";
 const NOT_CERTIFICATION_SLUG = "why-fermatmind-iq-v1-not-certification";
-const SLUG = "iq-test-privacy-data-boundary";
+const PRIVACY_BOUNDARY_SLUG = "iq-test-privacy-data-boundary";
+const SLUG = "iq-expert-review-disclosure";
 const CANONICAL = `https://fermatmind.com/zh/articles/${SLUG}`;
 const TEST_PATH = "/zh/tests/iq-test-intelligence-quotient-assessment";
 
@@ -52,6 +53,9 @@ const FORBIDDEN_CLAIM_PATTERNS = [
   /长期固定能力标签/,
   /用于(?:教育|招聘|用人)决策/,
   /可用于(?:教育|招聘|用人)决策/,
+  /博士认证/,
+  /临床级验证/,
+  /官方认可/,
 ];
 
 const FORBIDDEN_SECRET_PATTERNS = [
@@ -121,7 +125,7 @@ function changedFiles(): string[] {
   return Array.from(new Set(files)).filter((file) => file.length > 0 && !FULL_CONTRACT_RUN_SIDE_EFFECT_FILES.has(file));
 }
 
-describe("IQ-METHOD-06 content asset package", () => {
+describe("IQ-METHOD-07 content asset package", () => {
   it("keeps the PR diff inside the approved content-asset scope", () => {
     const files = changedFiles();
 
@@ -130,10 +134,10 @@ describe("IQ-METHOD-06 content asset package", () => {
     }
 
     expect(files.length).toBeGreaterThan(0);
-    expect(files.every(isIqMethod06AllowedFile), files.join("\n")).toBe(true);
+    expect(files.every(isIqMethod07AllowedFile), files.join("\n")).toBe(true);
   });
 
-  it("includes the privacy and data boundary artifacts for this PR", () => {
+  it("includes the expert review disclosure artifacts for this PR", () => {
     for (const file of [
       `${PACKAGE_DIR}/PR_TRAIN_INDEX.json`,
       ...REQUIRED_PAGE_FILES.map((file) => `${PAGE_DIR}/${file}`),
@@ -157,15 +161,17 @@ describe("IQ-METHOD-06 content asset package", () => {
       SCORE_BOUNDARY_SLUG,
       MATRIX_REASONING_SLUG,
       NOT_CERTIFICATION_SLUG,
+      PRIVACY_BOUNDARY_SLUG,
       SLUG,
     ]));
-    if (index.current_pr === "IQ-METHOD-06") {
+    if (index.current_pr === "IQ-METHOD-07") {
       expect(index.included_pages).toEqual([
         DEFINITION_SLUG,
         PROFESSIONAL_BOUNDARY_SLUG,
         SCORE_BOUNDARY_SLUG,
         MATRIX_REASONING_SLUG,
         NOT_CERTIFICATION_SLUG,
+        PRIVACY_BOUNDARY_SLUG,
         SLUG,
       ]);
     }
@@ -212,7 +218,7 @@ describe("IQ-METHOD-06 content asset package", () => {
       status: "draft_review_only",
       locale: "zh-CN",
       slug: SLUG,
-      title: "IQ 风格测试的数据和隐私边界是什么？",
+      title: "FermatMind 如何审查 IQ 风格测试内容？",
       related_test_slug: "iq-test-intelligence-quotient-assessment",
       category_suggestion: "测评方法与边界",
       is_public: false,
@@ -235,44 +241,40 @@ describe("IQ-METHOD-06 content asset package", () => {
       sitemap_eligible: false,
       llms_eligible: false,
     });
-    expect(seo.seo_title).toContain("数据和隐私边界");
-    expect(seo.seo_description).toContain("公开测试页、答题流程、私人结果页和后端私有评分的边界");
+    expect(seo.seo_title).toContain("FermatMind 如何审查 IQ 风格测试内容");
+    expect(seo.seo_description).toContain("顾问和博士团队");
+    expect(seo.seo_description).toContain("不等于正式认证");
     expect(seo.structured_data_candidates).toEqual(["Article", "BreadcrumbList", "FAQPage"]);
     expect(seo.structured_data_forbidden).toEqual(
       expect.arrayContaining(["Product", "SoftwareApplication", "Certificate", "Course", "MedicalWebPage"]),
     );
   });
 
-  it("keeps the article body focused on public, private, and backend scoring boundaries", () => {
+  it("keeps the article body focused on expert review disclosure without endorsement claims", () => {
     const article = read(`${PAGE_DIR}/article.md`);
 
     expect(article.startsWith("#")).toBe(false);
-    expect(article).toContain("FermatMind IQ V1 区分公开页面和私人测试流程");
-    expect(article).toContain("公开页面解释方法和边界");
-    expect(article).toContain("答题流程与个人结果页不应作为公开 SEO 页面");
-    expect(article).toContain("题库答案、评分逻辑和私有报告字段由后端控制");
+    expect(article).toContain("专家顾问和博士团队可以参与 FermatMind IQ V1 的题目方向、方法边界、解释文案和风险声明审阅");
+    expect(article).toContain("这不等于正式认证、外部资格证明或正式心理测评验证");
     expect(article).toContain("## 这是什么 / 这不是什么");
-    expect(article).toContain("不替代正式隐私政策");
-    expect(article).toContain("## 哪些内容可以公开");
-    expect(article).toContain("测试目的、题量、预计时间、结果解释边界、方法说明、FAQ 和安全 CTA");
-    expect(article).toContain("本测试是 30 题、约 20 分钟");
-    expect(article).toContain("结果围绕原始分和正确率展开");
-    expect(article).toContain("## 哪些内容不应该公开");
-    expect(article).toContain("答案和正确选项");
-    expect(article).toContain("解题规则");
-    expect(article).toContain("后端评分逻辑");
-    expect(article).toContain("私人结果链接");
-    expect(article).toContain("订单、支付、账户、恢复链接");
-    expect(article).toContain("私有报告字段");
-    expect(article).toContain("## 答题页和结果页的边界");
-    expect(article).toContain("个人结果页是用户完成后的私人体验");
-    expect(article).toContain("不能展示真实用户结果或内部字段");
-    expect(article).toContain("公开透明不等于公开所有内部机制");
-    expect(article).toContain("内容资产不应生成题目、答案、解题步骤或评分表");
+    expect(article).toContain("专家参与审阅的透明说明");
+    expect(article).toContain("不是正式认证声明");
+    expect(article).toContain("## 专家可以审阅什么");
+    expect(article).toContain("题目方向是否符合图形、矩阵和规律任务定位");
+    expect(article).toContain("结果解释是否过度");
+    expect(article).toContain("方法边界是否清楚");
+    expect(article).toContain("隐私和数据说明是否足够保守");
+    expect(article).toContain("## 专家审阅不能自动代表什么");
+    expect(article).toContain("不能代表外部资格证明");
+    expect(article).toContain("不能代表医疗或心理服务结论");
+    expect(article).toContain("## 为什么要公开审阅边界");
+    expect(article).toContain("谨慎表达比强宣传更重要");
+    expect(article).toContain("## 不能据此推断什么");
+    expect(article).toContain("专家审阅是质量控制的一部分，不等于完成全部专业测评流程");
     expect(article).toContain("## FAQ");
   });
 
-  it("keeps GEO, FAQ, and internal links aligned to the privacy boundary intent", () => {
+  it("keeps GEO, FAQ, and internal links aligned to the expert review disclosure intent", () => {
     const answer = readJson<{
       status: string;
       quick_answer: string;
@@ -290,11 +292,11 @@ describe("IQ-METHOD-06 content asset package", () => {
     }>(`${PAGE_DIR}/internal_links.json`);
 
     expect(answer.status).toBe("draft_review_only");
-    expect(answer.quick_answer).toContain("区分公开页面和私人测试流程");
-    expect(answer.quick_answer).toContain("不应作为公开 SEO 页面");
-    expect(answer.definition_or_scope).toContain("公开说明、答题流程、私人结果和后端评分");
-    expect(answer.method_explanation).toContain("哪些内容可以公开、哪些内容必须保持私有");
-    expect(answer.method_explanation).toContain("不公开答案和评分规则");
+    expect(answer.quick_answer).toContain("专家顾问和博士团队可以参与 FermatMind IQ V1");
+    expect(answer.quick_answer).toContain("不等于正式认证");
+    expect(answer.definition_or_scope).toContain("专家审阅指对题目方向、方法边界和结果解释进行专业意见检查");
+    expect(answer.method_explanation).toContain("专家可审阅的内容、不能代表的结论");
+    expect(answer.method_explanation).toContain("未来若升级为更专业版本需要的条件");
     expect(answer.boundary_caveat).toContain("非官方、非临床、非认证");
     expect(answer.boundary_caveat).toContain("不用于升学、用人、收入或岗位决策");
     expect(answer.facts).toEqual(expect.arrayContaining([
@@ -305,13 +307,19 @@ describe("IQ-METHOD-06 content asset package", () => {
     expect(faq).toMatchObject({ status: "draft_review_only" });
     expect(faq.items).toEqual(answer.faq_items);
     expect(faq.items).toHaveLength(4);
+    expect(faq.items.map((item) => item.question)).toEqual([
+      "有专家参与就代表正式认证吗？",
+      "专家会看哪些内容？",
+      "可以把结果当作专业证明吗？",
+      "未来是否可能建设更专业版本？",
+    ]);
     expect(internalLinks.private_flow_guard.status).toBe("passed_planning_check");
     expect(internalLinks.private_flow_guard.blocked_prefixes).toEqual(["/take", "/results", "/orders", "/pay", "/share", "/history"]);
     expect(internalLinks.links_out.map((link) => link.href)).toEqual(
       expect.arrayContaining([
         TEST_PATH,
-        "/zh/articles/iq-expert-review-disclosure",
         "/zh/articles/what-is-iq-style-reasoning-test",
+        "/zh/articles/online-iq-test-vs-professional-assessment",
       ]),
     );
   });
@@ -345,16 +353,20 @@ describe("IQ-METHOD-06 content asset package", () => {
     for (const pattern of FORBIDDEN_SECRET_PATTERNS) {
       expect(combined).not.toMatch(pattern);
     }
-    expect(combined).toMatch(/公开页面/);
-    expect(combined).toMatch(/私人测试流程/);
-    expect(combined).toMatch(/答题流程/);
-    expect(combined).toMatch(/个人结果页/);
-    expect(combined).toMatch(/后端控制/);
+    expect(combined).toMatch(/专家顾问和博士团队/);
+    expect(combined).toMatch(/题目方向、方法边界、解释文案和风险声明/);
+    expect(combined).toMatch(/质量控制的一部分/);
+    expect(combined).toMatch(/不等于正式认证/);
+    expect(combined).toMatch(/不是外部证明产品/);
+    expect(combined).toMatch(/不能代表医疗或心理服务结论/);
+    expect(combined).toMatch(/非官方、非临床、非认证/);
+    expect(combined).toMatch(/正式心理测评验证/);
+    expect(combined).toMatch(/不能因为有博士或顾问参与/);
     expect(combined).toMatch(/私有评分控制/);
-    expect(combined).toMatch(/不替代正式隐私政策/);
-    expect(combined).toMatch(/不公开答案或评分规则/);
-    expect(combined).toMatch(/不展示私有报告字段/);
     expect(combined).toMatch(/不用于升学、用人、收入或岗位决策/);
+    expect(combined).not.toMatch(/博士认证/);
+    expect(combined).not.toMatch(/临床级验证/);
+    expect(combined).not.toMatch(/官方认可/);
     expect(landing.forbidden_hrefs).toEqual(["/take", "/results", "/orders", "/pay", "/share", "/history"]);
     expect(landing.notes).toContain("不指向私有流程");
     expect(claimAudit).toMatchObject({
