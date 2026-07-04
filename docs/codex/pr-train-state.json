@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T05:27:05.511Z",
+  "updated_at": "2026-07-04T05:32:18.883Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -39653,8 +39653,8 @@
     "depends_on": [
       "MBTI-SEO-02"
     ],
-    "status": "pr_opened",
-    "commit_sha": "d17cebabafc5dcd7570ac9b501601231919bb8e8",
+    "status": "ready_to_merge",
+    "commit_sha": "676fe63478bd480aa4e06968e3458aa97fa7f21e",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1580",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -39676,8 +39676,22 @@
         "notes": "Focused personality CMS/section contracts, typecheck, full contract suite, production API build, manifest/state parse, and diff whitespace checks all passed."
       },
       "github_checks": {
-        "status": "pending",
-        "evidence": null
+        "status": "passed",
+        "required": [
+          "build",
+          "contracts",
+          "verify-big5-contract-freeze",
+          "verify-enneagram-contract-freeze"
+        ],
+        "observed": [
+          "build",
+          "contracts",
+          "verify-big5-contract-freeze",
+          "verify-enneagram-contract-freeze",
+          "CodeQL",
+          "analyze (javascript-typescript)"
+        ],
+        "result": "all observed checks passed for PR #1580 before ready-to-merge state update"
       }
     },
     "scope_validation": {
@@ -39714,7 +39728,7 @@
       }
     ],
     "base_commit_sha": "fde0d87139e6a40e02aeb60b74013ead728bf435",
-    "updated_at": "2026-07-04T05:27:05.511Z",
+    "updated_at": "2026-07-04T05:32:18.883Z",
     "history": [
       {
         "at": "2026-07-04T05:24:06.790Z",
@@ -39732,6 +39746,12 @@
         "commit_sha": "d17cebabafc5dcd7570ac9b501601231919bb8e8",
         "pr_url": "https://github.com/fermatmind/fap-web/pull/1580",
         "notes": "Opened PR #1580 after local checks and scope validation passed."
+      },
+      {
+        "at": "2026-07-04T05:32:18.883Z",
+        "status": "ready_to_merge",
+        "commit_sha": "676fe63478bd480aa4e06968e3458aa97fa7f21e",
+        "notes": "GitHub checks passed for PR #1580; marking ready_to_merge before squash merge."
       }
     ]
   },
