@@ -1,0 +1,61 @@
+{
+  "id": "MBTI-SEO-07",
+  "title": "MBTI-SEO-07: llms.txt / sitemap / discoverability audit",
+  "generated_at": "2026-07-04T08:30:00.000Z",
+  "scope": {
+    "goal": "Verify MBTI personality profile and comparison discoverability through llms/sitemap authority paths without widening URL sets before content and indexability gates are ready.",
+    "runtime_url_expansion": false,
+    "sitemap_url_expansion": false,
+    "llms_url_expansion": false,
+    "cms_write_or_import": false,
+    "production_deploy": false
+  },
+  "current_authority": {
+    "llms_txt": {
+      "source": "CMS public personality APIs",
+      "profiles": "listPersonalityProfiles per locale, budgeted at 64 entries",
+      "comparisons": "listPersonalityComparisons per locale, filtered by isPublic and isIndexable",
+      "fallback_policy": "fail closed; no local MBTI personality fallback"
+    },
+    "llms_full_txt": {
+      "source": "CMS public personality APIs plus per-entry enrichment",
+      "profile_cohort": "32 A/T variants per locale, 64 total",
+      "comparison_cohort": "16 comparison pages per locale, 32 total",
+      "cache_gate": "complete artifact requires the MBTI64 personality cohort unless explicitly disabled in tests"
+    },
+    "sitemap_xml": {
+      "hub_paths": [
+        "/en/personality",
+        "/zh/personality"
+      ],
+      "detail_paths": "accepted only from backend sitemap-source authority when canonical/indexability gates are ready",
+      "no_static_detail_expansion": true,
+      "invalid_base_type_policy": "base 16 slugs such as /en/personality/intp are excluded from sitemap detail promotion"
+    }
+  },
+  "content_readiness_inputs": {
+    "top_profile_package": {
+      "path": "docs/seo/personality/mbti-cms-04-top-profile-content-assets-2026-07-04.json",
+      "asset_count": 10
+    },
+    "comparison_package": {
+      "path": "docs/seo/personality/mbti-cms-06-comparison-content-assets-2026-07-04.json",
+      "asset_count": 20,
+      "at_comparison_count": 16,
+      "hot_cross_type_comparison_count": 4
+    }
+  },
+  "release_gates_before_url_expansion": [
+    "CMS/backend import dry-run succeeds for target personality profiles or comparison pages.",
+    "CMS public API marks each target route public and indexable.",
+    "Backend sitemap-source emits the exact canonical route with sitemap eligibility.",
+    "llms.txt and llms-full.txt include only CMS/API-authoritative public entries.",
+    "No frontend local editorial fallback is added.",
+    "Canonical/noindex and JSON-LD behavior remain owned by the relevant authority layer."
+  ],
+  "recommended_next_actions": [
+    "Keep sitemap detail expansion backend-source-only in PR7.",
+    "Use MBTI-OPS-08 GSC data to choose the next profile/comparison URLs before any wider llms/sitemap promotion.",
+    "After CMS import/indexability gates are ready, expand the URL set in a separate scoped PR with live-source evidence."
+  ]
+}

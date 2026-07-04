@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T08:14:46.855Z",
+  "updated_at": "2026-07-04T08:37:42.840Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -38951,7 +38951,7 @@
       "PR-CAREER-KG-AGENT-01"
     ],
     "status": "merged",
-    "commit_sha": null,
+    "commit_sha": "cb4036ea240aadc7d08d1d4fe13671b042013065",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1563",
     "merged_at": "2026-07-03T06:48:55Z",
     "remote_branch_deleted": true,
@@ -39974,17 +39974,28 @@
     "depends_on": [
       "MBTI-SEO-05"
     ],
-    "status": "pr_open",
+    "status": "merged",
     "commit_sha": "bd6604c7f6f0d81cb12ff47ee98362fb8523cf0a",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1585",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-04T08:23:52Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "local_checks": {
-        "status": "pending",
-        "commands": []
+        "status": "passed",
+        "commands": [
+          "node scripts/seo/build-mbti-seo-07-discoverability-audit.mjs",
+          "pnpm exec vitest run tests/contracts/mbti-seo-07-discoverability-audit.contract.test.ts --reporter=dot",
+          "pnpm exec vitest run tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/public-sitemap-route.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts --reporter=dot",
+          "pnpm typecheck",
+          "pnpm test:contract",
+          "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "ruby -r psych -e \"Psych.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "node -e \"JSON.parse(fs.readFileSync('docs/codex/pr-train-state.json','utf8')); JSON.parse(fs.readFileSync('docs/seo/personality/mbti-seo-07-discoverability-audit-2026-07-04.json','utf8'))\"",
+          "git diff --check",
+          "changed_file_scope_validation"
+        ]
       },
       "github_checks": {
         "status": "pending",
@@ -39992,9 +40003,9 @@
       }
     },
     "scope_validation": {
-      "status": "pending",
+      "status": "passed",
       "outside_scope_files": [],
-      "evidence": null
+      "evidence": "Changed files limited to MBTI-SEO-07 audit script, generated audit markdown/json, contract test, and train ledger."
     },
     "events": [
       {
@@ -40009,7 +40020,7 @@
       }
     ],
     "base_commit_sha": "de88456f4fbfeb65696642ab971e55a5553fa409",
-    "updated_at": "2026-07-04T08:14:46.855Z",
+    "updated_at": "2026-07-04T08:37:42.840Z",
     "local_checks": {
       "node scripts/seo/build-mbti-cms-06-comparison-content-assets.mjs": "passed",
       "pnpm test:contract": "passed",
@@ -40019,7 +40030,8 @@
       "json_parse_docs/codex/pr-train-state.json": "passed",
       "git diff --check": "passed",
       "changed_file_scope_validation": "passed"
-    }
+    },
+    "merge_commit_sha": "ec12c104ea8580b390c6df18473d8340b434a980"
   },
   "MBTI-SEO-07": {
     "repo": "fap-web",
@@ -40030,7 +40042,7 @@
     "depends_on": [
       "MBTI-CMS-06"
     ],
-    "status": "planned",
+    "status": "in_progress",
     "commit_sha": null,
     "pr_url": null,
     "merged_at": null,
@@ -40057,8 +40069,25 @@
         "at": "2026-07-04T03:27:14.152Z",
         "status": "planned",
         "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
+      },
+      {
+        "at": "2026-07-04T08:37:42.840Z",
+        "status": "in_progress",
+        "notes": "Started after MBTI-CMS-06 post-merge verification; scope limited to llms/sitemap discoverability audit and gates."
+      },
+      {
+        "at": "2026-07-04T08:48:54Z",
+        "status": "local_checks_passed",
+        "notes": "Focused audit generation, focused contracts, llms/sitemap contracts, typecheck, full contract suite, production API build, YAML/JSON parse, diff check, and changed-file scope validation passed."
+      },
+      {
+        "at": "2026-07-04T08:51:15Z",
+        "status": "committed",
+        "notes": "Committed PR7 discoverability audit changes."
       }
-    ]
+    ],
+    "base_commit_sha": "ec12c104ea8580b390c6df18473d8340b434a980",
+    "updated_at": "2026-07-04T08:51:15Z"
   },
   "MBTI-OPS-08": {
     "repo": "fap-web",
@@ -40100,9 +40129,9 @@
     ]
   },
   "active_train": {
-    "current_pr": "MBTI-CMS-06",
-    "next_pr": "MBTI-SEO-07",
-    "current": "MBTI-CMS-06",
-    "next": "MBTI-SEO-07"
+    "current_pr": "MBTI-SEO-07",
+    "next_pr": "MBTI-OPS-08",
+    "current": "MBTI-SEO-07",
+    "next": "MBTI-OPS-08"
   }
 }
