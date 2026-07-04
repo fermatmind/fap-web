@@ -41488,9 +41488,9 @@
     "depends_on": [
       "MBTI-CMS-13"
     ],
-    "status": "committed_pending_push",
-    "commit_sha": "9df75cf648e8ae0f5209963d32c376d2ed3db1dc",
-    "pr_url": null,
+    "status": "pr_open_checks_pending",
+    "commit_sha": "fb70f255",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1605",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -41524,6 +41524,10 @@
         "command": "pnpm exec vitest run tests/contracts/mbti-qa-14-semantic-duplicate-gate.contract.test.ts --reporter=dot",
         "status": "external_environment_mismatch_recorded_in_sidecar",
         "notes": "Local Codex runtime pnpm 11.7.0 hit ERR_PNPM_IGNORED_BUILDS before tests; project-pinned corepack pnpm 10.28.1 validation passed."
+      },
+      "github": {
+        "status": "pending",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1605"
       }
     },
     "scope_validation": {
@@ -41567,9 +41571,14 @@
         "at": "2026-07-04T23:31:00.326Z",
         "status": "committed_pending_push",
         "notes": "Committed MBTI-QA-14 implementation and validation artifacts on branch codex/mbti-qa-14-semantic-duplicate-gate."
+      },
+      {
+        "at": "2026-07-04T23:32:56.626Z",
+        "status": "pr_open_checks_pending",
+        "notes": "Opened fap-web PR #1605 for MBTI-QA-14 and pushed branch codex/mbti-qa-14-semantic-duplicate-gate."
       }
     ],
-    "updated_at": "2026-07-04T23:31:00.326Z",
+    "updated_at": "2026-07-04T23:32:56.626Z",
     "next_task": null
   },
   "current_pr": "MBTI-QA-14"
