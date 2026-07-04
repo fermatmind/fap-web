@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T05:24:06.790Z",
+  "updated_at": "2026-07-04T05:27:05.511Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -39653,9 +39653,9 @@
     "depends_on": [
       "MBTI-SEO-02"
     ],
-    "status": "local_checks_passed",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_opened",
+    "commit_sha": "d17cebabafc5dcd7570ac9b501601231919bb8e8",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1580",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -39714,7 +39714,7 @@
       }
     ],
     "base_commit_sha": "fde0d87139e6a40e02aeb60b74013ead728bf435",
-    "updated_at": "2026-07-04T05:24:06.790Z",
+    "updated_at": "2026-07-04T05:27:05.511Z",
     "history": [
       {
         "at": "2026-07-04T05:24:06.790Z",
@@ -39725,6 +39725,13 @@
         "at": "2026-07-04T05:24:06.790Z",
         "status": "scope_validation_passed",
         "notes": "Changed files are limited to the MBTI-SEO-03 manifest scope; no frontend-authored editorial fallback content added."
+      },
+      {
+        "at": "2026-07-04T05:27:05.511Z",
+        "status": "pr_opened",
+        "commit_sha": "d17cebabafc5dcd7570ac9b501601231919bb8e8",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1580",
+        "notes": "Opened PR #1580 after local checks and scope validation passed."
       }
     ]
   },
