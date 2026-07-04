@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { LiveCompletedCounter } from "@/components/marketing/LiveCompletedCounter";
 
 export function QuizTakeHeaderV2({
@@ -8,8 +7,6 @@ export function QuizTakeHeaderV2({
   estimatedTimeLabel,
   minutesUnit,
   estimatedMinutes,
-  backHref,
-  backLabel,
   progressText,
   current,
   total,
@@ -22,8 +19,6 @@ export function QuizTakeHeaderV2({
   estimatedTimeLabel: string;
   minutesUnit: string;
   estimatedMinutes?: number | null;
-  backHref?: string;
-  backLabel?: string;
   progressText: string;
   current: number;
   total: number;
@@ -36,12 +31,6 @@ export function QuizTakeHeaderV2({
 
   return (
     <header className="space-y-[var(--fm-gap-sm)] rounded-2xl border border-[var(--fm-border)] bg-white/95 p-[var(--fm-space-4)] shadow-[var(--fm-shadow-sm)] backdrop-blur">
-      {backHref && backLabel ? (
-        <Link href={backHref} className="text-sm font-medium text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]">
-          {backLabel}
-        </Link>
-      ) : null}
-
       <div className="flex flex-wrap items-start justify-between gap-[var(--fm-gap-sm)]">
         <div className="min-w-0">
           <p className="m-0 font-serif text-lg font-semibold text-[var(--fm-text)]">{brand}</p>

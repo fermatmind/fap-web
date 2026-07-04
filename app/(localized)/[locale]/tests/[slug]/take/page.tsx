@@ -20,7 +20,6 @@ import {
   type SupportedScaleCode,
 } from "@/lib/rollout/scaleRollout";
 import { NOINDEX_ROBOTS } from "@/lib/seo/noindex";
-import { isImmersiveSingleFlowEnabled } from "@/lib/quiz/uxFlags";
 import { getFreeTestStartLabel } from "@/lib/tests/freeTestLabels";
 import Big5TakeClient from "./Big5TakeClient";
 import ClinicalTakeClient from "./ClinicalTakeClient";
@@ -195,18 +194,8 @@ export default async function TakePage({
     redirect(withLocale(`/tests/${slug}?maintenance=1`));
   }
 
-  const immersiveEnabled = isImmersiveSingleFlowEnabled();
-
   return (
     <main className="mx-auto w-full max-w-5xl px-[var(--fm-container-gutter)] py-[var(--fm-space-4)]">
-      {!immersiveEnabled ? (
-        <div className="mb-[var(--fm-space-4)]">
-          <Link href={withLocale(`/tests/${slug}`)} className="text-sm font-medium text-sky-700 hover:text-sky-800">
-            {locale === "zh" ? "返回详情" : "Back to landing"}
-          </Link>
-        </div>
-      ) : null}
-
       {test.scale_code === "BIG5_OCEAN" ? (
         <Big5TakeClient
           slug={slug}

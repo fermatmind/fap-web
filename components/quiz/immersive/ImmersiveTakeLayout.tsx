@@ -1,4 +1,3 @@
-import Link from "next/link";
 import type { ReactNode } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -6,8 +5,6 @@ import { cn } from "@/lib/utils";
 type TransitionDirection = "forward" | "backward" | "none";
 
 export function ImmersiveTakeLayout({
-  backHref,
-  backLabel,
   current,
   total,
   answered,
@@ -60,10 +57,7 @@ export function ImmersiveTakeLayout({
         headerSlot
       ) : !hideHeader ? (
         <header className="space-y-[var(--fm-gap-xs)]">
-          <div className="flex items-center justify-between gap-[var(--fm-gap-sm)]">
-            <Link href={backHref} className="text-sm font-medium text-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue-strong)]">
-              {backLabel}
-            </Link>
+          <div className="flex items-center justify-end gap-[var(--fm-gap-sm)]">
             <p className="m-0 text-sm font-semibold text-[var(--fm-text)]">
               {safeCurrent}/{safeTotal}
             </p>

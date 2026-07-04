@@ -159,8 +159,8 @@ vi.mock("@/lib/i18n/getDict", () => ({
   getDictSync: () => ({
     header: {
       brand: "FAP",
-      completedPrefix: "已有",
-      completedSuffix: "人完成测评",
+      completedPrefix: "累计测试人数：",
+      completedSuffix: "",
     },
     common: {
       minutes_unit: "分钟",

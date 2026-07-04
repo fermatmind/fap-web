@@ -19,8 +19,8 @@ vi.mock("@/components/marketing/LiveCompletedCounter", () => ({
 describe("QuizTakeHeaderV2 contract", () => {
   const baseProps = {
     brand: "九型人格测试",
-    completedPrefix: "过去30天已完成",
-    completedSuffix: "次测评",
+    completedPrefix: "累计测试人数：",
+    completedSuffix: "",
     estimatedTimeLabel: "预计用时",
     minutesUnit: "分钟",
     estimatedMinutes: 18,
@@ -28,8 +28,6 @@ describe("QuizTakeHeaderV2 contract", () => {
     current: 18,
     total: 144,
     answered: 18,
-    backHref: "/zh/tests/enneagram-personality-test-nine-types",
-    backLabel: "返回详情",
   };
 
   it("can hide the live completed-count row on take flows that should only show progress", () => {
@@ -42,18 +40,17 @@ describe("QuizTakeHeaderV2 contract", () => {
     expect(screen.queryByText("次测评")).not.toBeInTheDocument();
   });
 
-  it("renders the backend total label with the live completed counter", () => {
+  it("renders the backend cumulative total label with the unchanged live completed counter", () => {
     render(
       <QuizTakeHeaderV2
         {...baseProps}
-        completedPrefix=""
-        completedSuffix="后台测试数据总计"
       />
     );
 
+    expect(screen.getByText("累计测试人数：")).toBeInTheDocument();
     expect(screen.getByText("1,201,183+")).toBeInTheDocument();
-    expect(screen.getByText("后台测试数据总计")).toBeInTheDocument();
     expect(screen.queryByText("过去30天已完成")).not.toBeInTheDocument();
     expect(screen.queryByText("次测评")).not.toBeInTheDocument();
+    expect(screen.queryByText("返回详情")).not.toBeInTheDocument();
   });
 });

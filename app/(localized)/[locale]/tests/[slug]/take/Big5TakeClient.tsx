@@ -2,12 +2,11 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { ConsentGate } from "@/components/clinical/quiz/ConsentGate";
 import { QuizShell } from "@/components/quiz/QuizShell";
 import { QuizTakeHeaderV2 } from "@/components/quiz/QuizTakeHeaderV2";
-import { AdaptiveOptionGroup } from "@/components/quiz/immersive/AdaptiveOptionGroup";
 import { ImmersiveTakeLayout } from "@/components/quiz/immersive/ImmersiveTakeLayout";
 import { SubmitPhaseOverlay } from "@/components/quiz/immersive/SubmitPhaseOverlay";
+import { V2LikertScale } from "@/components/quiz/immersive/V2LikertScale";
 import {
   useAutoAdvanceFlow,
   type LastSelectionContext,
@@ -95,14 +94,10 @@ export default function Big5TakeClient({
   const answers = useBig5AttemptStore((store) => store.answers);
   const currentIndex = useBig5AttemptStore((store) => store.currentIndex);
   const startedAt = useBig5AttemptStore((store) => store.startedAt);
-  const disclaimerVersion = useBig5AttemptStore((store) => store.disclaimerVersion);
-  const disclaimerHash = useBig5AttemptStore((store) => store.disclaimerHash);
-  const disclaimerAcceptedAt = useBig5AttemptStore((store) => store.disclaimerAcceptedAt);
 
   const setAttemptMeta = useBig5AttemptStore((store) => store.setAttemptMeta);
   const setAnswer = useBig5AttemptStore((store) => store.setAnswer);
   const setCurrentIndex = useBig5AttemptStore((store) => store.setCurrentIndex);
-  const acceptDisclaimer = useBig5AttemptStore((store) => store.acceptDisclaimer);
   const hydrateAnonId = useBig5AttemptStore((store) => store.hydrateAnonId);
   const setSessionContext = useBig5AttemptStore((store) => store.setSessionContext);
   const markSubmitted = useBig5AttemptStore((store) => store.markSubmitted);
@@ -121,8 +116,6 @@ export default function Big5TakeClient({
 
   const [serverDisclaimerVersion, setServerDisclaimerVersion] = useState<string | null>(null);
   const [serverDisclaimerHash, setServerDisclaimerHash] = useState<string | null>(null);
-  const [serverDisclaimerText, setServerDisclaimerText] = useState<string>("");
-  const [consentChecked, setConsentChecked] = useState(false);
   const [starting, setStarting] = useState(false);
   const [startError, setStartError] = useState<string | null>(null);
 
@@ -177,12 +170,6 @@ export default function Big5TakeClient({
     () => questions.reduce((sum, item) => sum + (answers[item.question_id] ? 1 : 0), 0),
     [answers, questions]
   );
-  const hasServerDisclaimerSnapshot = Boolean(serverDisclaimerVersion && serverDisclaimerHash);
-  const needsConsent =
-    !disclaimerAcceptedAt ||
-    (hasServerDisclaimerSnapshot &&
-      (disclaimerVersion !== serverDisclaimerVersion || disclaimerHash !== serverDisclaimerHash));
-
   const withLocale = useCallback((path: string) => localizedPath(path, locale), [locale]);
   const big5RetakeCopy = dict.quiz.big5Retake;
   const retryCountdownText = useCallback((seconds: number): string => (
@@ -192,11 +179,6 @@ export default function Big5TakeClient({
   const progressStatus = locale === "zh"
     ? `${answeredCount}/${total} 已答 · 约 ${effectiveEstimatedMinutes} 分钟`
     : `${answeredCount}/${total} answered · about ${effectiveEstimatedMinutes} min`;
-  const consentRequiredMessage =
-    locale === "zh"
-      ? "请先阅读并同意测评说明，然后再开始答题。"
-      : "Please review and accept the assessment disclaimer before answering.";
-
   const trackingFallback = useMemo<Big5TrackingContext>(
     () => ({
       scale_code: testKpiMetadata.scale_code,
@@ -535,8 +517,6 @@ export default function Big5TakeClient({
         const version =
           typeof response.meta?.disclaimer_version === "string" ? response.meta.disclaimer_version : null;
         const hash = typeof response.meta?.disclaimer_hash === "string" ? response.meta.disclaimer_hash : null;
-        const disclaimerText =
-          typeof response.meta?.disclaimer_text === "string" ? response.meta.disclaimer_text.trim() : "";
         const contentVersion =
           (typeof response.content_package_version === "string" && response.content_package_version) ||
           (typeof response.dir_version === "string" && response.dir_version) ||
@@ -573,7 +553,6 @@ export default function Big5TakeClient({
         setQuestions(options);
         setServerDisclaimerVersion(version);
         setServerDisclaimerHash(hash);
-        setServerDisclaimerText(disclaimerText);
         setPackVersion(contentVersion);
         setTrackingBase(context);
       } catch (error) {
@@ -628,11 +607,6 @@ export default function Big5TakeClient({
 
   const startFreshAttempt = useCallback(async (runId?: number): Promise<string | null> => {
     if (authBlockError || staleDraftError) {
-      return null;
-    }
-
-    if (needsConsent) {
-      setStartError(consentRequiredMessage);
       return null;
     }
 
@@ -792,8 +766,6 @@ export default function Big5TakeClient({
     staleDraftError,
     retryCountdownText,
     big5RetakeCopy,
-    consentRequiredMessage,
-    needsConsent,
     testKpiMetadata,
   ]);
 
@@ -815,37 +787,7 @@ export default function Big5TakeClient({
     return startFreshAttempt(runId);
   }, [attemptId, authBlockError, clearAttemptMeta, forceNewAttemptRequested, matchesSavedAttempt, staleDraftError, startFreshAttempt]);
 
-  useEffect(() => {
-    if (!needsConsent) {
-      return;
-    }
-    if (!attemptId && !ensureAttemptPromiseRef.current && !submitInFlightRef.current && !recoveringAttemptRef.current) {
-      return;
-    }
-
-    clearAttemptMeta();
-    cancelPendingSubmitSideEffects();
-  }, [attemptId, cancelPendingSubmitSideEffects, clearAttemptMeta, needsConsent]);
-
-  const handleAcceptDisclaimerAndStart = useCallback(() => {
-    if (loadingQuestions || questions.length === 0 || !needsConsent) {
-      return;
-    }
-
-    acceptDisclaimer({
-      version: serverDisclaimerVersion,
-      hash: serverDisclaimerHash,
-    });
-    setConsentChecked(false);
-    setStartError(null);
-  }, [acceptDisclaimer, loadingQuestions, needsConsent, questions.length, serverDisclaimerHash, serverDisclaimerVersion]);
-
   const handleSelectAnswer = (questionId: string, code: string) => {
-    if (needsConsent) {
-      setStartError(consentRequiredMessage);
-      return;
-    }
-
     const shouldPrimeAttempt =
       !attemptId &&
       !matchesSavedAttempt &&
@@ -920,14 +862,6 @@ export default function Big5TakeClient({
 
     submitInFlightRef.current = true;
     const activeRunId = typeof runId === "number" ? runId : takeFlowRef.current.beginRun();
-
-    if (needsConsent) {
-      if (isFlowActive(activeRunId)) {
-        setSubmitError(consentRequiredMessage);
-      }
-      submitInFlightRef.current = false;
-      return null;
-    }
 
     const activeAttemptId = await ensureAttempt(activeRunId);
     if (!isFlowActive(activeRunId)) {
@@ -1071,14 +1005,12 @@ export default function Big5TakeClient({
     applyUiError,
     buildAnswersSnapshot,
     buildEventPayload,
-    consentRequiredMessage,
     cooldownSeconds,
     clearAttemptMeta,
     ensureAttempt,
     inCooldown,
     isFlowActive,
     locale,
-    needsConsent,
     questions,
     resolvedFormCode,
     setCurrentIndex,
@@ -1232,27 +1164,6 @@ export default function Big5TakeClient({
     );
   }
 
-  if (needsConsent && questions.length > 0) {
-    return (
-      <ConsentGate
-        locale={locale}
-        text={
-          serverDisclaimerText ||
-          (locale === "zh"
-            ? "本测评仅用于自我了解，不构成医疗、诊断或招聘筛选建议。"
-            : "This assessment is for self-discovery only and is not medical, diagnostic, or employment-screening advice.")
-        }
-        version={serverDisclaimerVersion ?? undefined}
-        checkboxLabel={locale === "zh" ? "我已阅读并同意测评说明。" : "I have read and agree to the disclaimer."}
-        checked={consentChecked}
-        starting={starting}
-        error={startError}
-        onCheckedChange={setConsentChecked}
-        onStart={handleAcceptDisclaimerAndStart}
-      />
-    );
-  }
-
   if (!currentQuestion) {
     return (
       <div className="space-y-[var(--fm-gap-sm)] rounded-2xl border border-slate-200 bg-white p-[var(--fm-space-5)] shadow-sm">
@@ -1280,7 +1191,6 @@ export default function Big5TakeClient({
               current={currentIndex + 1}
               total={total}
               answered={answeredCount}
-              showCompletedCount={false}
             />
           }
           backHref={withLocale(`/tests/${slug}`)}
@@ -1328,11 +1238,10 @@ export default function Big5TakeClient({
               </div>
             ) : null}
 
-            <AdaptiveOptionGroup
+            <V2LikertScale
               questionId={currentQuestion.question_id}
               options={currentQuestion.options}
               value={answers[currentQuestion.question_id]}
-              noOptionsLabel={dict.quiz.immersive.noOptions}
               onChange={(code) =>
                 selectAndAdvance(() => {
                   handleSelectAnswer(currentQuestion.question_id, code);
@@ -1367,13 +1276,10 @@ export default function Big5TakeClient({
         estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
         minutesUnit={dict.common.minutes_unit}
         estimatedMinutes={effectiveEstimatedMinutes}
-        backHref={withLocale(`/tests/${slug}`)}
-        backLabel={dict.quiz.immersive.backToDetails}
         progressText={progressStatus}
         current={currentIndex + 1}
         total={total}
         answered={answeredCount}
-        showCompletedCount={false}
       />
 
       {milestoneHint ? (
@@ -1388,11 +1294,10 @@ export default function Big5TakeClient({
         </p>
         <h2 className="m-0 text-2xl font-semibold leading-9 text-[var(--fm-text)]">{currentQuestion.text}</h2>
 
-        <AdaptiveOptionGroup
+        <V2LikertScale
           questionId={currentQuestion.question_id}
           options={currentQuestion.options}
           value={answers[currentQuestion.question_id]}
-          noOptionsLabel={dict.quiz.immersive.noOptions}
           onChange={(code) =>
             selectAndAdvance(() => {
               handleSelectAnswer(currentQuestion.question_id, code);
