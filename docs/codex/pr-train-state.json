@@ -40044,7 +40044,7 @@
     ],
     "status": "in_progress",
     "commit_sha": null,
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1587",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -40089,10 +40089,15 @@
         "at": "2026-07-04T08:53:48Z",
         "status": "ledger_commit_sha_reconciled",
         "notes": "Reconciled commit_sha after amend so the ledger references a commit present in the task branch history."
+      },
+      {
+        "at": "2026-07-04T08:56:06Z",
+        "status": "pr_opened",
+        "notes": "Opened PR #1587 for MBTI-SEO-07."
       }
     ],
     "base_commit_sha": "ec12c104ea8580b390c6df18473d8340b434a980",
-    "updated_at": "2026-07-04T08:51:15Z"
+    "updated_at": "2026-07-04T08:56:06Z"
   },
   "MBTI-OPS-08": {
     "repo": "fap-web",
