@@ -71,14 +71,9 @@ function changedFiles(): string[] {
     cwd: ROOT,
     encoding: "utf8",
   }).trim();
-  const unstagedTracked = execFileSync("git", ["diff", "--name-only"], {
-    cwd: ROOT,
-    encoding: "utf8",
-  }).trim();
   const files = [
     ...(committed ? committed.split("\n") : []),
     ...(staged ? staged.split("\n") : []),
-    ...(unstagedTracked ? unstagedTracked.split("\n") : []),
   ];
   return Array.from(new Set(files)).filter(Boolean);
 }

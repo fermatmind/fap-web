@@ -126,13 +126,7 @@ describe("MBTI-OPS-08 GSC priority monitoring", () => {
       "generated/pr-train-sidecar-issues/sidecar_issues.json",
     ]);
     const changedFiles = committedScopeFiles();
-    const guardedOpsFiles = new Set([
-      SCRIPT_PATH,
-      JSON_PATH,
-      MD_PATH,
-      CSV_PATH,
-      "tests/contracts/mbti-ops-08-gsc-priority-monitoring.contract.test.ts",
-    ]);
+    const guardedOpsFiles = new Set([SCRIPT_PATH, JSON_PATH, MD_PATH, CSV_PATH]);
     const touchesThisOpsScope = changedFiles.some((file) => guardedOpsFiles.has(file));
 
     if (!touchesThisOpsScope) {

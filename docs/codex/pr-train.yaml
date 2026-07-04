@@ -12998,6 +12998,7 @@ prs:
       - generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json
       - generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/**
       - tests/contracts/iq-method-01-content-asset.contract.test.ts
+      - tests/contracts/mbti-ops-08-gsc-priority-monitoring.contract.test.ts
       - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json

@@ -6200,6 +6200,7 @@ const IQ_METHOD_01_ALLOWED_FILES = new Set([
   "generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/media_brief.json",
   "generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/qa_checklist.md",
   "tests/contracts/iq-method-01-content-asset.contract.test.ts",
+  "tests/contracts/mbti-ops-08-gsc-priority-monitoring.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",

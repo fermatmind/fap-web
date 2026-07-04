@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T15:12:19.935Z",
+  "updated_at": "2026-07-04T15:21:55.971Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -28777,8 +28777,8 @@
       "id": "IQ-METHOD-01",
       "repo": "fap-web",
       "branch": "codex/iq-method-01-what-is-iq-style",
-      "status": "pr_open",
-      "commit_sha": "c2ae5a962506eb15216898d6fb26e9939efc4ae0",
+      "status": "github_contracts_failed_then_fixed_locally",
+      "commit_sha": "f2704a564fdd7e95a6ed6f23a661f5e466a2757d",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1594",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -28795,10 +28795,10 @@
         },
         "scope": {
           "status": "pass",
-          "evidence": "Changed-file scope validation passed for staged PR diff: docs/codex metadata, PR1 generated CMS Article draft-review assets, helper scope guard, and focused IQ-METHOD-01 contract only."
+          "evidence": "Changed-file scope validation includes the declared IQ-METHOD-01 assets plus the minimal MBTI-OPS-08 scope-guard harness fix needed to unblock required contracts."
         },
         "local": {
-          "status": "pass",
+          "status": "pass_after_github_contract_fix",
           "commands": [
             "pnpm exec vitest run tests/contracts/iq-method-01-content-asset.contract.test.ts",
             "pnpm typecheck",
@@ -28808,14 +28808,16 @@
             "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
             "git diff --check",
             "git diff --cached --check",
-            "changed-file scope validation"
+            "changed-file scope validation",
+            "pnpm exec vitest run tests/contracts/mbti-ops-08-gsc-priority-monitoring.contract.test.ts tests/contracts/iq-method-01-content-asset.contract.test.ts"
           ],
           "evidence": "Focused contract, typecheck, full contract suite, production API build, YAML/JSON parse, diff checks, and changed-file scope validation passed locally."
         },
         "github": {
-          "status": "pending",
-          "checks": [],
-          "pr_url": "https://github.com/fermatmind/fap-web/pull/1594"
+          "status": "failed_then_fixed_locally_pending_rerun",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1594",
+          "failing_check": "contracts",
+          "evidence": "GitHub contracts failed in tests/contracts/mbti-ops-08-gsc-priority-monitoring.contract.test.ts because the old OPS scope guard treated shared docs/codex/pr-train-state.json changes as an OPS scope trigger. Fixed by requiring actual OPS artifact/script touches before applying the OPS-only allowlist; focused contracts, full pnpm test:contract, and pnpm typecheck pass locally."
         }
       },
       "history": [
@@ -28841,6 +28843,11 @@
           "commit_sha": "c2ae5a962506eb15216898d6fb26e9939efc4ae0",
           "pr_url": "https://github.com/fermatmind/fap-web/pull/1594",
           "note": "Opened PR #1594 for IQ-METHOD-01 after local checks and scope validation passed."
+        },
+        {
+          "at": "2026-07-04T15:21:55.971Z",
+          "status": "github_contracts_failed_then_fixed_locally",
+          "note": "Inspected failing GitHub contracts job. Failure was an existing OPS-08 scope guard false positive triggered by shared ledger changes; fixed the test harness and revalidated focused contracts, full contracts, and typecheck locally."
         }
       ],
       "metadata": {
@@ -28858,7 +28865,7 @@
           "llms_eligible": false
         }
       },
-      "updated_at": "2026-07-04T15:12:19.935Z"
+      "updated_at": "2026-07-04T15:21:55.971Z"
     },
     {
       "id": "IQ-METHOD-02",
