@@ -152,6 +152,14 @@ function TypeGroupBrowse({
       .replace(new RegExp(`^${type.typeCode}\\s*[-—–]\\s*`, "i"), "")
       .replace(new RegExp(`^${type.baseTypeCode}\\s*[-—–]\\s*`, "i"), "")
       .trim();
+  const formatDisplayNameText = (displayName: string) =>
+    locale === "zh" ? Array.from(displayName).join(" ") : displayName;
+  const displayNameClassName =
+    locale === "zh"
+      ? "m-0 mt-2 w-full text-center font-sans text-base font-semibold tracking-[0.08em] text-[#17112f]"
+      : "m-0 mt-2 w-full text-center font-sans text-[0.95rem] font-semibold tracking-[0.03em] text-[#17112f]";
+  const clickablePillMotion =
+    "transition-transform duration-150 ease-out hover:scale-110 hover:shadow-[0_8px_18px_rgba(33,119,140,0.18)] focus-visible:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current";
   const getTone = (groupKey: string) => GROUP_TONES[groupKey] ?? GROUP_TONES.NT;
   const comparisonLabel = (item: ComparisonListItem) =>
     item.leftType && item.rightType ? `${item.leftType} VS ${item.rightType}` : item.title;
@@ -246,7 +254,7 @@ function TypeGroupBrowse({
           <div className="space-y-8">
             <div className="max-w-3xl space-y-4">
               <h1 className="m-0 text-4xl font-semibold leading-tight tracking-normal text-[#17112f] md:text-[2.75rem] xl:text-5xl">
-                {locale === "zh" ? "探索16型人格" : "Explore 16 personality types"}
+                {locale === "zh" ? "探索MBTI 16型人格" : "Explore 16 personality types"}
               </h1>
               <p className="m-0 max-w-2xl text-base leading-8 text-[#586271]">
                 {locale === "zh"
@@ -306,15 +314,7 @@ function TypeGroupBrowse({
 
             return (
               <section key={`${group.groupKey}-types`} id={group.groupKey.toLowerCase()} className="scroll-mt-24">
-                <div className="mb-5 space-y-2">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <h2 className="m-0 text-2xl font-semibold text-[#17112f]">
-                      {group.groupKey} {group.title}
-                    </h2>
-                  </div>
-                </div>
-
-                <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                <div className="grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-4">
                   {groupCardsByBaseType(group.cards).map((typeGroup, typeIndex) => {
                     const TypeIcon = TYPE_ICONS[typeGroup.baseTypeCode] ?? Atom;
                     const variantA = typeGroup.variants.find(
@@ -335,12 +335,13 @@ function TypeGroupBrowse({
                         : null);
 
                     return (
-                      <article
-                        key={typeGroup.baseTypeCode}
-                        className="group rounded-xl border border-[#e6e4ea] bg-white p-4 text-[#17112f] shadow-sm transition hover:-translate-y-0.5 hover:border-[#d4c9df] hover:shadow-md"
-                      >
-                        <div className="flex items-center gap-4">
-                          <span className="grid h-20 w-20 shrink-0 place-items-center rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
+                      <div key={typeGroup.baseTypeCode} className="flex h-full flex-col gap-2">
+                        <p className={displayNameClassName}>
+                          {formatDisplayNameText(typeGroup.displayName)}
+                        </p>
+                        <article className="flex min-h-[8.75rem] flex-1 flex-col rounded-xl border border-[#e6e4ea] bg-white p-4 text-[#17112f] shadow-sm">
+                        <div className="flex items-center gap-2.5">
+                          <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-white shadow-sm ring-1 ring-black/5">
                             {type?.imageUrl ? (
                               <Image
                                 src={type.imageUrl}
@@ -348,28 +349,28 @@ function TypeGroupBrowse({
                                 width={112}
                                 height={112}
                                 sizes="112px"
-                                className="h-16 w-16 object-contain"
+                                className="h-9 w-9 object-contain"
                                 data-testid="personality-type-image"
                                 data-loading-strategy={isPriorityImage ? "priority" : "lazy"}
                                 {...(isPriorityImage ? { priority: true } : { loading: "lazy" as const })}
                               />
                             ) : (
                               <span
-                                className={`grid h-14 w-14 place-items-center rounded-xl ${tone.icon}`}
+                                className={`grid h-9 w-9 place-items-center rounded-xl ${tone.icon}`}
                                 data-testid="personality-type-code-fallback"
                               >
-                                <TypeIcon className="h-7 w-7" aria-hidden="true" />
+                                <TypeIcon className="h-[18px] w-[18px]" aria-hidden="true" />
                               </span>
                             )}
                           </span>
-                          <div className="min-w-0">
-                            <h3 className="m-0 text-2xl font-semibold leading-tight">{typeGroup.baseTypeCode}</h3>
-                            <p className="m-0 mt-1 text-sm font-medium text-[#586271]">{typeGroup.displayName}</p>
-                            <div className="mt-3 flex flex-wrap gap-2">
+                          <div className="flex min-w-0 flex-1 flex-col items-center">
+                            <div
+                              className="inline-flex w-fit max-w-full flex-nowrap items-center gap-2 whitespace-nowrap"
+                            >
                               {variantA ? (
                                 <Link
                                   href={variantA.href}
-                                  className={`inline-flex items-center justify-center rounded-full border px-3 py-1.5 text-xs font-semibold ${tone.chip}`}
+                                  className={`inline-flex h-11 w-[4.75rem] shrink-0 items-center justify-center rounded-full border text-sm font-semibold leading-none ${clickablePillMotion} ${tone.chip}`}
                                 >
                                   {variantA.typeCode}
                                 </Link>
@@ -377,7 +378,7 @@ function TypeGroupBrowse({
                               {variantT ? (
                                 <Link
                                   href={variantT.href}
-                                  className={`inline-flex items-center justify-center rounded-full border px-3 py-1.5 text-xs font-semibold ${tone.chip}`}
+                                  className={`inline-flex h-11 w-[4.75rem] shrink-0 items-center justify-center rounded-full border text-sm font-semibold leading-none ${clickablePillMotion} ${tone.chip}`}
                                 >
                                   {variantT.typeCode}
                                 </Link>
@@ -386,12 +387,12 @@ function TypeGroupBrowse({
                           </div>
                         </div>
 
-                        <div className="mt-5 flex flex-wrap gap-2">
+                        <div className="mt-auto flex flex-wrap gap-2 pt-5">
                           {(crossComparisonsByBaseType.get(typeGroup.baseTypeCode) ?? []).slice(0, 2).map((item) => (
                             <Link
                               key={item.slug}
                               href={item.href}
-                              className={`inline-flex items-center justify-center gap-1 rounded-full border px-3 py-1.5 text-xs font-semibold ${tone.chip}`}
+                              className={`inline-flex items-center justify-center gap-1 rounded-full border px-3 py-1.5 text-xs font-semibold ${clickablePillMotion} ${tone.chip}`}
                             >
                               {comparisonLabel(item)}
                               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
@@ -400,14 +401,15 @@ function TypeGroupBrowse({
                           {comparisonHref && variantA && variantT ? (
                             <Link
                               href={comparisonHref}
-                              className={`inline-flex items-center justify-center gap-1 rounded-full border px-3 py-1.5 text-xs font-semibold ${tone.chip}`}
+                              className={`inline-flex items-center justify-center gap-1 rounded-full border px-3 py-1.5 text-xs font-semibold ${clickablePillMotion} ${tone.chip}`}
                             >
                               {variantA.typeCode} VS {variantT.typeCode}
                               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
                             </Link>
                           ) : null}
                         </div>
-                      </article>
+                        </article>
+                      </div>
                     );
                   })}
                 </div>

@@ -26,25 +26,15 @@ afterEach(() => {
 });
 
 describe("WEB-01 personality A/T comparison homepage module", () => {
-  it("adds personality comparisons as a sibling item in the personality nav dropdown", () => {
+  it("keeps personality comparisons out of the top personality nav dropdown", () => {
     const enPersonalityMenu = getHeaderDropdownMenus("en").find((menu) => menu.key === "personality");
     const zhPersonalityMenu = getHeaderDropdownMenus("zh").find((menu) => menu.key === "personality");
 
-    expect(enPersonalityMenu?.items).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          href: "/personality#personality-comparisons",
-          label: "Personality comparisons",
-        }),
-      ])
+    expect(enPersonalityMenu?.items).not.toEqual(
+      expect.arrayContaining([expect.objectContaining({ href: "/personality#personality-comparisons" })])
     );
-    expect(zhPersonalityMenu?.items).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({
-          href: "/personality#personality-comparisons",
-          label: "性格对比",
-        }),
-      ])
+    expect(zhPersonalityMenu?.items).not.toEqual(
+      expect.arrayContaining([expect.objectContaining({ href: "/personality#personality-comparisons" })])
     );
   });
 
