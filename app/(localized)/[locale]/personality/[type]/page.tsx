@@ -65,6 +65,24 @@ type PersonalitySectionShortcut = PersonalityIntentLink & {
   description: string;
 };
 
+type ComparisonTemplateRow = {
+  key: string;
+  cue: string;
+  left: string;
+  right: string;
+};
+
+type ComparisonTemplateCard = {
+  key: string;
+  title: string;
+  body: string;
+};
+
+type ComparisonFaqItem = {
+  question: string;
+  answer: string;
+};
+
 function normalizeDisplayText(value: string | null | undefined): string {
   return String(value ?? "").replace(/\s+/g, " ").trim();
 }
@@ -712,80 +730,281 @@ function isCrossTypeComparison(comparison: PersonalityComparisonViewModel): bool
   return comparison.publicRouteType === "cross-type-comparison" || comparison.comparisonType === "mbti_cross_type";
 }
 
-function crossTypeSectionNavLabel(section: PersonalityCrossTypeSectionViewModel, locale: Locale): string {
-  const normalized = section.id.toLowerCase();
-
-  if (locale === "zh") {
-    if (normalized.includes("quick")) {
-      return "快速结论";
-    }
-    if (normalized.includes("confused")) {
-      return "混淆原因";
-    }
-    if (normalized.includes("shared")) {
-      return "共同点";
-    }
-    if (normalized.includes("core")) {
-      return "核心差异";
-    }
-    if (normalized.includes("work") || normalized.includes("learning")) {
-      return "工作学习";
-    }
-    if (normalized.includes("communication") || normalized.includes("relationship")) {
-      return "沟通关系";
-    }
-    return section.title;
-  }
-
-  if (normalized.includes("quick")) {
-    return "Quick answer";
-  }
-  if (normalized.includes("confused")) {
-    return "Why confused";
-  }
-  if (normalized.includes("shared")) {
-    return "Shared traits";
-  }
-  if (normalized.includes("core")) {
-    return "Core difference";
-  }
-  if (normalized.includes("work") || normalized.includes("learning")) {
-    return "Work and learning";
-  }
-  if (normalized.includes("communication") || normalized.includes("relationship")) {
-    return "Communication";
-  }
-  return section.title;
-}
-
 function buildComparisonReaderLinks(
   comparison: PersonalityComparisonViewModel,
   locale: Locale,
-  hasQuickAnswer: boolean
+  hasQuickAnswer: boolean,
+  options?: {
+    hasQuickJudgment?: boolean;
+    hasMisreadRisks?: boolean;
+    hasScenarioDifferences?: boolean;
+    hasFaq?: boolean;
+  }
 ): PersonalityIntentLink[] {
   const crossType = isCrossTypeComparison(comparison);
-  const blockLinks = crossType
-    ? comparison.crossTypeSections.slice(0, 7).map((section) => ({
-        key: `cross-type-${section.id}`,
-        href: `#comparison-${section.id}`,
-        label: crossTypeSectionNavLabel(section, locale),
-        kind: "anchor" as const,
-      }))
-    : comparison.comparisonBlocks.slice(0, 7).map((block) => ({
-        key: `block-${block.key}`,
-        href: `#comparison-${block.key}`,
-        label: comparisonSectionLabel(block.key, locale),
-        kind: "anchor" as const,
-      }));
 
   return [
     { key: "overview", href: "#comparison-overview", label: locale === "zh" ? "概览" : "Overview", kind: "anchor" },
     ...(hasQuickAnswer
-      ? [{ key: "quick-answer", href: "#comparison-quick-answer", label: locale === "zh" ? "快速答案" : "Quick answer", kind: "anchor" as const }]
+      ? [{ key: "maximum-difference", href: "#comparison-quick-answer", label: locale === "zh" ? "最大区别" : "Biggest difference", kind: "anchor" as const }]
+      : []),
+    ...(options?.hasQuickJudgment
+      ? [{ key: "quick-judgment", href: "#comparison-quick-judgment", label: locale === "zh" ? "快速判断" : "Quick judgment", kind: "anchor" as const }]
       : []),
     { key: "variants", href: "#comparison-variants", label: crossType ? (locale === "zh" ? "类型" : "Types") : "A/T", kind: "anchor" },
-    ...blockLinks,
+    ...(options?.hasMisreadRisks
+      ? [{ key: "misread-risks", href: "#comparison-misread-risks", label: locale === "zh" ? "误判风险" : "Misread risks", kind: "anchor" as const }]
+      : []),
+    ...(options?.hasScenarioDifferences
+      ? [{ key: "scenario-differences", href: "#comparison-scenario-differences", label: locale === "zh" ? "场景差异" : "Scenario differences", kind: "anchor" as const }]
+      : []),
+    ...(options?.hasFaq
+      ? [{ key: "faq", href: "#comparison-faq", label: "FAQ", kind: "anchor" as const }]
+      : []),
   ];
+}
+
+function templateKeywordMatches(value: string, keywords: string[]): boolean {
+  const normalized = value.toLowerCase();
+
+  return keywords.some((keyword) => normalized.includes(keyword));
+}
+
+function comparisonTemplateText(...parts: Array<string | null | undefined>): string {
+  return normalizeDisplayText(parts.filter(Boolean).join(" "));
+}
+
+function buildComparisonQuickJudgmentRows(comparison: PersonalityComparisonViewModel): ComparisonTemplateRow[] {
+  if (isCrossTypeComparison(comparison)) {
+    return comparison.crossTypeSections.map((section) => ({
+      key: `cross-${section.id}`,
+      cue: section.title,
+      left: section.body.join(" "),
+      right: "",
+    }));
+  }
+
+  return comparison.comparisonBlocks
+    .filter((block) => block.variants.a || block.variants.t || block.bodyMd)
+    .map((block) => ({
+      key: `block-${block.key}`,
+      cue: block.title || comparisonSectionLabel(block.key, "en"),
+      left: block.variants.a || block.bodyMd,
+      right: block.variants.t || "",
+    }));
+}
+
+function blockToTemplateCard(block: PersonalityComparisonBlockViewModel): ComparisonTemplateCard | null {
+  const body = comparisonTemplateText(block.bodyMd, block.variants.a, block.variants.t);
+
+  return body ? { key: `block-${block.key}`, title: block.title, body } : null;
+}
+
+function crossTypeSectionToTemplateCard(section: PersonalityCrossTypeSectionViewModel): ComparisonTemplateCard | null {
+  const body = comparisonTemplateText(...section.body);
+
+  return body ? { key: `cross-${section.id}`, title: section.title, body } : null;
+}
+
+function answerSurfaceBlocksToTemplateCards(
+  blocks: NonNullable<PersonalityComparisonViewModel["answerSurface"]>["compareBlocks"],
+  prefix: string
+): ComparisonTemplateCard[] {
+  return blocks
+    .map((block) => {
+      const title = normalizeDisplayText(block.title);
+      const body = normalizeDisplayText(block.body);
+
+      return title && body ? { key: `${prefix}-${block.key}`, title, body } : null;
+    })
+    .filter((item): item is ComparisonTemplateCard => item !== null);
+}
+
+function buildComparisonMisreadCards(comparison: PersonalityComparisonViewModel): ComparisonTemplateCard[] {
+  const keywords = ["misread", "confus", "mistake", "risk", "watchout", "误", "混淆", "误判", "风险"];
+  const sectionCards = isCrossTypeComparison(comparison)
+    ? comparison.crossTypeSections
+        .filter((section) => templateKeywordMatches(`${section.id} ${section.title}`, keywords))
+        .map(crossTypeSectionToTemplateCard)
+    : comparison.comparisonBlocks
+        .filter((block) => templateKeywordMatches(`${block.key} ${block.title}`, keywords))
+        .map(blockToTemplateCard);
+
+  return [
+    ...sectionCards.filter((item): item is ComparisonTemplateCard => item !== null),
+    ...answerSurfaceBlocksToTemplateCards(comparison.answerSurface?.compareBlocks ?? [], "answer-compare"),
+  ];
+}
+
+function buildComparisonScenarioCards(comparison: PersonalityComparisonViewModel): ComparisonTemplateCard[] {
+  const keywords = ["scenario", "work", "career", "relationship", "communication", "social", "love", "stress", "pressure", "场景", "工作", "职业", "关系", "沟通", "压力"];
+  const sectionCards = isCrossTypeComparison(comparison)
+    ? comparison.crossTypeSections
+        .filter((section) => templateKeywordMatches(`${section.id} ${section.title}`, keywords))
+        .map(crossTypeSectionToTemplateCard)
+    : comparison.comparisonBlocks
+        .filter((block) => templateKeywordMatches(`${block.key} ${block.title}`, keywords))
+        .map(blockToTemplateCard);
+
+  return [
+    ...sectionCards.filter((item): item is ComparisonTemplateCard => item !== null),
+    ...answerSurfaceBlocksToTemplateCards(comparison.answerSurface?.sceneSummaryBlocks ?? [], "answer-scene"),
+  ];
+}
+
+function buildVisibleComparisonFaqItems(comparison: PersonalityComparisonViewModel): ComparisonFaqItem[] {
+  const cmsFaqItems = isCrossTypeComparison(comparison)
+    ? comparison.crossTypeFaq.map((item) => ({ question: item.question, answer: item.answer }))
+    : extractPersonalityFaqItems(comparison.sections);
+  const answerSurfaceFaqItems =
+    comparison.answerSurface?.faqBlocks
+      .map((item) => ({
+        question: normalizeDisplayText(item.question),
+        answer: normalizeDisplayText(item.answer),
+      }))
+      .filter((item) => item.question && item.answer) ?? [];
+  const deduped = new Map<string, ComparisonFaqItem>();
+
+  for (const item of [...cmsFaqItems, ...answerSurfaceFaqItems]) {
+    const question = normalizeDisplayText(item.question);
+    const answer = normalizeDisplayText(item.answer);
+    if (question && answer && !deduped.has(question)) {
+      deduped.set(question, { question, answer });
+    }
+  }
+
+  return [...deduped.values()];
+}
+
+function buildComparisonSecondaryAnswerSurface(comparison: PersonalityComparisonViewModel): PersonalityComparisonViewModel["answerSurface"] {
+  if (!comparison.answerSurface) {
+    return null;
+  }
+
+  return {
+    ...comparison.answerSurface,
+    summaryBlocks: [],
+    faqBlocks: [],
+    compareBlocks: [],
+    sceneSummaryBlocks: [],
+  };
+}
+
+function ComparisonQuickJudgmentTable({
+  rows,
+  leftLabel,
+  rightLabel,
+  locale,
+}: {
+  rows: ComparisonTemplateRow[];
+  leftLabel: string;
+  rightLabel: string;
+  locale: Locale;
+}) {
+  if (rows.length === 0) {
+    return null;
+  }
+
+  const hasPairColumns = rows.some((row) => row.left && row.right);
+
+  return (
+    <section
+      id="comparison-quick-judgment"
+      className="rounded-[1.25rem] border border-[rgba(16,24,40,0.10)] bg-white p-5 shadow-[0_12px_35px_rgba(15,23,42,0.05)]"
+      data-testid="personality-comparison-quick-judgment"
+      data-authority-source="comparison_public_projection_v1"
+    >
+      <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+        {locale === "zh" ? "快速判断表" : "Quick judgment table"}
+      </p>
+      <div className="mt-4 overflow-hidden rounded-xl border border-[var(--fm-border)]">
+        <table className="w-full border-collapse text-left text-sm">
+          <thead className="bg-[var(--fm-surface-muted)] text-[var(--fm-text)]">
+            <tr>
+              <th className="w-1/4 px-4 py-3 font-semibold">{locale === "zh" ? "线索" : "Cue"}</th>
+              <th className="px-4 py-3 font-semibold">{hasPairColumns ? leftLabel : locale === "zh" ? "如何判断" : "How to read it"}</th>
+              {hasPairColumns ? <th className="px-4 py-3 font-semibold">{rightLabel}</th> : null}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => (
+              <tr key={row.key} className="border-t border-[var(--fm-border)] align-top">
+                <td className="px-4 py-3 font-semibold text-[var(--fm-text)]">{row.cue}</td>
+                <td className="px-4 py-3 leading-7 text-[var(--fm-text-muted)]">{row.left}</td>
+                {hasPairColumns ? <td className="px-4 py-3 leading-7 text-[var(--fm-text-muted)]">{row.right}</td> : null}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  );
+}
+
+function ComparisonTemplateCardsSection({
+  id,
+  testId,
+  title,
+  cards,
+}: {
+  id: string;
+  testId: string;
+  title: string;
+  cards: ComparisonTemplateCard[];
+}) {
+  if (cards.length === 0) {
+    return null;
+  }
+
+  return (
+    <section
+      id={id}
+      className="rounded-[1.25rem] border border-[rgba(16,24,40,0.10)] bg-white p-5 shadow-[0_12px_35px_rgba(15,23,42,0.05)]"
+      data-testid={testId}
+      data-authority-source="comparison_public_projection_v1"
+    >
+      <h2 className="m-0 text-xl font-semibold text-[var(--fm-text)]">{title}</h2>
+      <div className="mt-4 grid gap-3 md:grid-cols-2">
+        {cards.map((card) => (
+          <article key={card.key} className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
+            <p className="m-0 text-sm font-semibold text-[var(--fm-text)]">{card.title}</p>
+            <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{card.body}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ComparisonVisibleFaqSection({
+  items,
+  locale,
+}: {
+  items: ComparisonFaqItem[];
+  locale: Locale;
+}) {
+  if (items.length === 0) {
+    return null;
+  }
+
+  return (
+    <section
+      id="comparison-faq"
+      className="rounded-[1.25rem] border border-[rgba(16,24,40,0.10)] bg-white p-5 shadow-[0_12px_35px_rgba(15,23,42,0.05)]"
+      data-testid="personality-comparison-visible-faq"
+      data-authority-source="comparison_public_projection_v1"
+    >
+      <h2 className="m-0 text-xl font-semibold text-[var(--fm-text)]">{locale === "zh" ? "常见问题" : "FAQ"}</h2>
+      <div className="mt-4 space-y-4">
+        {items.map((item) => (
+          <article key={item.question} className="border-t border-[var(--fm-border)] pt-4 first:border-t-0 first:pt-0">
+            <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{item.question}</h3>
+            <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 function asPlainRecord(value: unknown): Record<string, unknown> | null {
@@ -894,30 +1113,6 @@ function CrossTypeBaseCard({
   );
 }
 
-function CrossTypeSectionCard({
-  section,
-}: {
-  section: PersonalityCrossTypeSectionViewModel;
-}) {
-  return (
-    <article
-      id={`comparison-${section.id}`}
-      className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-      data-testid={`personality-cross-type-section-${section.id}`}
-      data-authority-source="mbti.cross_type_comparison.public.v1"
-    >
-      <h2 className="m-0 text-xl font-semibold text-[var(--fm-text)]">{section.title}</h2>
-      <div className="mt-3 space-y-3 text-sm leading-7 text-[var(--fm-text-muted)]">
-        {section.body.map((paragraph) => (
-          <p key={paragraph} className="m-0">
-            {paragraph}
-          </p>
-        ))}
-      </div>
-    </article>
-  );
-}
-
 function CrossTypeInternalLinks({
   links,
   locale,
@@ -950,43 +1145,6 @@ function CrossTypeInternalLinks({
         ))}
       </div>
     </section>
-  );
-}
-
-function ComparisonBlock({
-  block,
-  assertiveLabel,
-  turbulentLabel,
-  locale,
-}: {
-  block: PersonalityComparisonBlockViewModel;
-  assertiveLabel: string;
-  turbulentLabel: string;
-  locale: Locale;
-}) {
-  return (
-    <article
-      id={`comparison-${block.key}`}
-      className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-      data-testid={`personality-comparison-block-${block.key}`}
-      data-authority-source={block.source ?? "comparison_public_projection_v1"}
-    >
-      <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-        {comparisonSectionLabel(block.key, locale)}
-      </p>
-      <h2 className="m-0 mt-2 text-xl font-semibold text-[var(--fm-text)]">{block.title}</h2>
-      {block.bodyMd ? <p className="m-0 mt-3 text-sm leading-7 text-[var(--fm-text-muted)]">{block.bodyMd}</p> : null}
-      <div className="mt-4 grid gap-3 md:grid-cols-2">
-        <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">{assertiveLabel}</p>
-          {block.variants.a ? <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{block.variants.a}</p> : null}
-        </div>
-        <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">{turbulentLabel}</p>
-          {block.variants.t ? <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">{block.variants.t}</p> : null}
-        </div>
-      </div>
-    </article>
   );
 }
 
@@ -1107,12 +1265,19 @@ function PersonalityComparisonPage({
   const assertiveLabel = comparison.variants?.a.runtimeTypeCode ?? comparison.leftType ?? "";
   const turbulentLabel = comparison.variants?.t.runtimeTypeCode ?? comparison.rightType ?? "";
   const quickAnswerBody = comparisonQuickAnswerBody(comparison);
+  const quickJudgmentRows = buildComparisonQuickJudgmentRows(comparison);
+  const misreadCards = buildComparisonMisreadCards(comparison);
+  const scenarioCards = buildComparisonScenarioCards(comparison);
   const renderedComparisonSections = renderPersonalitySections(comparison.sections, locale);
-  const comparisonFaqItems = crossType
-    ? comparison.crossTypeFaq.map((item) => ({ question: item.question, answer: item.answer }))
-    : extractPersonalityFaqItems(comparison.sections);
+  const comparisonFaqItems = buildVisibleComparisonFaqItems(comparison);
+  const secondaryAnswerSurface = buildComparisonSecondaryAnswerSurface(comparison);
   const nextStepBlocks = comparison.answerSurface?.nextStepBlocks ?? [];
-  const readerLinks = buildComparisonReaderLinks(comparison, locale, Boolean(quickAnswerBody));
+  const readerLinks = buildComparisonReaderLinks(comparison, locale, Boolean(quickAnswerBody), {
+    hasQuickJudgment: quickJudgmentRows.length > 0,
+    hasMisreadRisks: misreadCards.length > 0,
+    hasScenarioDifferences: scenarioCards.length > 0,
+    hasFaq: comparisonFaqItems.length > 0,
+  });
   const canRenderStructuredData =
     comparison.isIndexable && !shouldNoindex(comparison.seoSurface?.robotsPolicy ?? comparison.seoMeta?.robots);
 
@@ -1181,11 +1346,18 @@ function PersonalityComparisonPage({
               data-testid="personality-comparison-quick-answer"
             >
               <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-                {locale === "zh" ? "快速答案" : "Quick answer"}
+                {locale === "zh" ? "最大区别" : "Biggest difference"}
               </p>
               <p className="m-0 mt-2 text-base leading-8 text-[var(--fm-text-muted)]">{quickAnswerBody}</p>
             </section>
           ) : null}
+
+          <ComparisonQuickJudgmentTable
+            rows={quickJudgmentRows}
+            leftLabel={assertiveLabel}
+            rightLabel={turbulentLabel}
+            locale={locale}
+          />
 
           <ComparisonMethodCard comparison={comparison} locale={locale} />
 
@@ -1201,27 +1373,19 @@ function PersonalityComparisonPage({
             </section>
           )}
 
-          {comparison.comparisonBlocks.length ? (
-            <section className="space-y-4" data-testid="personality-comparison-blocks">
-              {comparison.comparisonBlocks.map((block) => (
-                <ComparisonBlock
-                  key={block.key}
-                  block={block}
-                  assertiveLabel={assertiveLabel}
-                  turbulentLabel={turbulentLabel}
-                  locale={locale}
-                />
-              ))}
-            </section>
-          ) : null}
+          <ComparisonTemplateCardsSection
+            id="comparison-misread-risks"
+            testId="personality-comparison-misread-risks"
+            title={locale === "zh" ? "容易误判的地方" : "Common misreads"}
+            cards={misreadCards}
+          />
 
-          {comparison.crossTypeSections.length ? (
-            <section className="space-y-4" data-testid="personality-cross-type-sections">
-              {comparison.crossTypeSections.map((section) => (
-                <CrossTypeSectionCard key={section.id} section={section} />
-              ))}
-            </section>
-          ) : null}
+          <ComparisonTemplateCardsSection
+            id="comparison-scenario-differences"
+            testId="personality-comparison-scenario-differences"
+            title={locale === "zh" ? "真实场景差异" : "Real scenario differences"}
+            cards={scenarioCards}
+          />
 
           {renderedComparisonSections.length > 0 ? (
             <section className="space-y-4" data-testid="personality-comparison-promoted-sections">
@@ -1230,7 +1394,7 @@ function PersonalityComparisonPage({
           ) : null}
 
           <AnswerSurfaceSection
-            surface={comparison.answerSurface}
+            surface={secondaryAnswerSurface}
             locale={locale}
             testId="personality-comparison-answer-surface"
             pageFamily="personality_detail"
@@ -1238,6 +1402,8 @@ function PersonalityComparisonPage({
             hideCompareLabel
           />
           {/* Contract marker: comparison pages must not use frontend editorial fallback content. */}
+
+          <ComparisonVisibleFaqSection items={comparisonFaqItems} locale={locale} />
 
           <CrossTypeInternalLinks links={comparison.crossTypeInternalLinks} locale={locale} />
         </section>
