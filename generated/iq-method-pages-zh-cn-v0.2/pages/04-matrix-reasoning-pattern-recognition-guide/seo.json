@@ -1,0 +1,23 @@
+{
+  "status": "draft_review_only",
+  "seo_title": "矩阵推理和模式识别题在测什么？",
+  "seo_description": "解释矩阵推理、图形变化、规律补全和抽象推理的基本思路；不关联任何外部量表或正式认证。",
+  "canonical_url": "https://fermatmind.com/zh/articles/matrix-reasoning-pattern-recognition-guide",
+  "robots": "noindex,follow",
+  "structured_data_candidates": [
+    "Article",
+    "BreadcrumbList",
+    "FAQPage"
+  ],
+  "structured_data_forbidden": [
+    "Product",
+    "SoftwareApplication",
+    "Certificate",
+    "Course",
+    "MedicalWebPage"
+  ],
+  "faqpage_policy": "allowed only if visible FAQ text remains in article.md and CMS rendering preserves it",
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "publish_gate": "only after human review, CMS publish approval, claim gate pass, and runtime readback"
+}
