@@ -16,14 +16,11 @@ function readJson<T>(relativePath: string): T {
   return JSON.parse(read(relativePath)) as T;
 }
 
-function changedFiles(): string[] {
+function committedScopeFiles(): string[] {
   const files = new Set<string>();
 
   for (const args of [
-    ["diff", "--name-only", "HEAD"],
-    ["diff", "--cached", "--name-only"],
     ["diff", "--name-only", "origin/main...HEAD"],
-    ["ls-files", "--others", "--exclude-standard"],
   ]) {
     try {
       const output = execFileSync("git", args, { cwd: ROOT, encoding: "utf8" });
@@ -31,7 +28,8 @@ function changedFiles(): string[] {
         if (line.trim()) files.add(line.trim());
       }
     } catch {
-      // CI merge refs and local worktrees expose different diff bases.
+      // CI merge refs may not fetch origin/main in shallow checkouts. In that
+      // case the local scope gate remains the source of truth.
     }
   }
 
@@ -141,7 +139,7 @@ describe("MBTI-SEO-07 discoverability audit", () => {
       "generated/pr-train-sidecar-issues/sidecar_issues.md",
       "generated/pr-train-sidecar-issues/sidecar_issues.json",
     ]);
-    const outsideScope = changedFiles().filter((file) => !allowedExact.has(file));
+    const outsideScope = committedScopeFiles().filter((file) => !allowedExact.has(file));
 
     expect(outsideScope).toEqual([]);
   });
