@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T03:53:32.217Z",
+  "updated_at": "2026-07-04T05:24:06.790Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -39528,12 +39528,12 @@
     "depends_on": [
       "MBTI-SEO-01"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "f7718dbd90162a3e46836547f83129261b48d1af",
+    "status": "merged",
+    "commit_sha": "fde0d87139e6a40e02aeb60b74013ead728bf435",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1579",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-04T04:55:21Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "local_checks": {
@@ -39632,10 +39632,17 @@
         "status": "ready_to_merge",
         "commit_sha": "f7718dbd90162a3e46836547f83129261b48d1af",
         "notes": "MBTI-SEO-02 ready to merge after checks and scope validation."
+      },
+      {
+        "at": "2026-07-04T05:13:53.151Z",
+        "status": "merged",
+        "commit_sha": "fde0d87139e6a40e02aeb60b74013ead728bf435",
+        "notes": "Reconciled after PR #1579 squash merge: origin/main contains merge commit, local main synced, worktree clean, and local/remote task branch cleanup verified."
       }
     ],
     "base_commit_sha": "eb4d2ac21e949b00a163ab4817e8408613a36d15",
-    "updated_at": "2026-07-04T04:48:49.142Z"
+    "updated_at": "2026-07-04T05:13:53.151Z",
+    "merge_commit_sha": "fde0d87139e6a40e02aeb60b74013ead728bf435"
   },
   "MBTI-SEO-03": {
     "repo": "fap-web",
@@ -39646,7 +39653,7 @@
     "depends_on": [
       "MBTI-SEO-02"
     ],
-    "status": "planned",
+    "status": "local_checks_passed",
     "commit_sha": null,
     "pr_url": null,
     "merged_at": null,
@@ -39655,8 +39662,18 @@
     "failure_reason": null,
     "checks": {
       "local_checks": {
-        "status": "pending",
-        "commands": []
+        "status": "passed",
+        "commands": [
+          "corepack pnpm exec vitest run tests/contracts/personality-cms.contract.test.ts tests/contracts/personality-sections.contract.test.tsx --reporter=dot",
+          "corepack pnpm typecheck",
+          "corepack pnpm test:contract",
+          "NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "ruby YAML.load_file docs/codex/pr-train.yaml",
+          "git diff --check"
+        ],
+        "result": "passed",
+        "notes": "Focused personality CMS/section contracts, typecheck, full contract suite, production API build, manifest/state parse, and diff whitespace checks all passed."
       },
       "github_checks": {
         "status": "pending",
@@ -39664,15 +39681,50 @@
       }
     },
     "scope_validation": {
-      "status": "pending",
-      "outside_scope_files": [],
-      "evidence": null
+      "status": "passed",
+      "changed_files": [
+        "app/(localized)/[locale]/personality/[type]/page.tsx",
+        "docs/codex/pr-train-state.json",
+        "lib/cms/personality-sections.tsx",
+        "tests/contracts/personality-cms.contract.test.ts",
+        "tests/contracts/personality-sections.contract.test.tsx"
+      ],
+      "allowed_scope": [
+        "app/(localized)/[locale]/personality/[type]/page.tsx",
+        "lib/cms/personality-sections.tsx",
+        "lib/cms/personality.ts",
+        "tests/contracts/personality-cms.contract.test.ts",
+        "tests/contracts/personality-sections.contract.test.tsx",
+        "generated/pr-train-sidecar-issues/**",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "result": "passed: changed files limited to MBTI-SEO-03 allowed frontend profile rendering contract scope plus authorized train state metadata."
     },
     "events": [
       {
         "at": "2026-07-04T03:27:14.152Z",
         "status": "planned",
         "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
+      },
+      {
+        "at": "2026-07-04T05:13:53.151Z",
+        "status": "in_progress",
+        "notes": "Started MBTI-SEO-03 from latest main after MBTI-SEO-02 post-merge reconciliation."
+      }
+    ],
+    "base_commit_sha": "fde0d87139e6a40e02aeb60b74013ead728bf435",
+    "updated_at": "2026-07-04T05:24:06.790Z",
+    "history": [
+      {
+        "at": "2026-07-04T05:24:06.790Z",
+        "status": "local_checks_passed",
+        "notes": "Implemented CMS/API-driven 32 personality profile rendering hardening; local checks passed and scope validation is clean."
+      },
+      {
+        "at": "2026-07-04T05:24:06.790Z",
+        "status": "scope_validation_passed",
+        "notes": "Changed files are limited to the MBTI-SEO-03 manifest scope; no frontend-authored editorial fallback content added."
       }
     ]
   },
@@ -39870,5 +39922,9 @@
         "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
       }
     ]
+  },
+  "active_train": {
+    "current_pr": "MBTI-SEO-03",
+    "next_pr": "MBTI-CMS-04"
   }
 }

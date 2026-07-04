@@ -1410,11 +1410,14 @@ export default async function PersonalityDetailPage({
       }))
     : [];
   const projectionFaqItems = extractProjectionFaqItems(detail.projection.sections);
-  const legacyFaqItems = extractPersonalityFaqItems(detail.faqSections);
+  const supplementalFaqItems = extractPersonalityFaqItems(detail.supplementalSections);
+  const legacyFaqItems = extractPersonalityFaqItems([...detail.faqSections, ...detail.supplementalSections]);
   const faqItems = answerSurfaceFaqItems.length
     ? answerSurfaceFaqItems
     : projectionFaqItems.length
       ? projectionFaqItems
+      : supplementalFaqItems.length
+        ? supplementalFaqItems
       : legacyFaqItems;
   const quickAnswerBody = projectionQuickAnswerBody(detail.projection.sections) || cmsQuickAnswerBody(detail.supplementalSections);
   const webPageJsonLd = buildWebPageJsonLd({
@@ -1711,6 +1714,16 @@ export default async function PersonalityDetailPage({
           <section className="w-full min-w-0 space-y-8" data-testid="personality-detail-v85-primary-sections">
             {renderedLeadingProjectionSections}
             {renderedV85Sections}
+            <AnswerSurfaceSection
+              surface={detail.answerSurface}
+              locale={locale}
+              testId="personality-detail-v85-answer-surface"
+              pageFamily="personality_detail"
+              hideHeading={locale === "zh"}
+              hideCompareLabel={locale === "zh"}
+              hideSceneLabel={locale === "zh"}
+              hideSummaryLabel={locale === "zh"}
+            />
           </section>
           <aside
             className="sticky top-24 hidden space-y-4 xl:block"

@@ -157,6 +157,58 @@ describe("personality projection section renderer contract", () => {
     expect(legacySections.map((section) => section.sectionKey)).toEqual(["meaning", "related_content"]);
   });
 
+  it("renders V8.5 backend FAQ and safe internal links without frontend-authored copy", () => {
+    const sections = [
+      cmsSection({
+        sectionKey: "v8_5_ai_search_answer",
+        title: "AI answer",
+        renderVariant: "callout",
+        bodyMd: "Backend-authored direct answer.",
+        payloadJson: {
+          raw_row: {
+            faq: [
+              {
+                question: "What is INTJ-A?",
+                answer: "It is a backend-authored explanation for the public INTJ-A page.",
+              },
+            ],
+            internal_links: [
+              {
+                href: "/en/personality/intj-a-vs-intj-t",
+                anchor_text: "Compare INTJ-A and INTJ-T",
+                safe_public_route: true,
+              },
+              {
+                href: "/en/account",
+                anchor_text: "Account",
+                safe_public_route: false,
+              },
+            ],
+          },
+        },
+      }),
+    ];
+
+    const { container } = render(<div>{renderPersonalitySections(sections, "en")}</div>);
+
+    expect(screen.getByTestId("mbti64-v85-ai-search-answer")).toBeInTheDocument();
+    expect(screen.getByText("Backend-authored direct answer.")).toBeInTheDocument();
+    expect(screen.getByText("What is INTJ-A?")).toBeInTheDocument();
+    expect(screen.getByText("It is a backend-authored explanation for the public INTJ-A page.")).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: "Compare INTJ-A and INTJ-T" })).toHaveAttribute(
+      "href",
+      "/en/personality/intj-a-vs-intj-t"
+    );
+    expect(screen.queryByText("Account")).not.toBeInTheDocument();
+    expect(container.innerHTML).not.toContain("/account");
+    expect(extractPersonalityFaqItems(sections)).toEqual([
+      {
+        question: "What is INTJ-A?",
+        answer: "It is a backend-authored explanation for the public INTJ-A page.",
+      },
+    ]);
+  });
+
   it("renders V8.5 long-form modules as readable editorial cards without dropping CMS text", () => {
     render(
       <div>

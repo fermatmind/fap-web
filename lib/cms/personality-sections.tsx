@@ -2017,25 +2017,49 @@ function renderV85AgencyBoundaryReadableBody(section: CmsPersonalitySection, loc
 
 function renderMbti64V85FirstClassSection(section: CmsPersonalitySection, locale: Locale) {
   const payload = asRecord(section.payloadJson);
+  const recommendation = resolveStructuredRecommendationPayload(payload);
   const linkItems = [
     ...asArray<LinkItem>(payload?.items),
     ...asArray<LinkItem>(payload?.links),
     ...asArray<LinkItem>(payload?.internal_links),
+    ...asArray<LinkItem>(recommendation?.internal_links),
   ];
-  const safeLinks = section.sectionKey === "v8_5_search_user_paths" ? renderSafeInternalLinks(linkItems, locale) : null;
+  const safeLinks = renderSafeInternalLinks(linkItems, locale);
+  const faq = asArray<FaqItem>(payload?.faq).length ? asArray<FaqItem>(payload?.faq) : asArray<FaqItem>(recommendation?.faq);
+  const renderedFaq = faq.length
+    ? renderLegacyFaqSection(
+        {
+          sectionKey: "faq",
+          title: "FAQ",
+          renderVariant: "faq",
+          bodyMd: "",
+          bodyHtml: "",
+          payloadJson: { items: faq },
+          sortOrder: 0,
+          isEnabled: true,
+        },
+        locale
+      )
+    : null;
   const body = section.sectionKey === "v8_5_module_03_agency_boundary"
     ? renderV85AgencyBoundaryReadableBody(section, locale)
     : isMbti64V85ReaderModuleSectionKey(section.sectionKey)
       ? renderV85GenericReadableBody(section, locale)
       : renderRichTextBlock(section.bodyHtml, normalizeV85ReaderBodyMd(section.sectionKey, section.bodyMd, locale), locale);
 
-  if (!body && !safeLinks) {
+  if (!body && !renderedFaq && !safeLinks) {
     return null;
   }
 
   return (
     <div className="space-y-4" data-testid={mbti64V85TestId(section.sectionKey)}>
       {body}
+      {renderedFaq ? (
+        <section className="space-y-3" data-testid={`${mbti64V85TestId(section.sectionKey)}-faq`}>
+          <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">{locale === "zh" ? "常见问题" : "FAQ"}</h3>
+          {renderedFaq}
+        </section>
+      ) : null}
       {safeLinks}
     </div>
   );
