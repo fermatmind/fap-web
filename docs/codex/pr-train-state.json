@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T08:37:42.840Z",
+  "updated_at": "2026-07-04T10:20:00Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -28742,15 +28742,16 @@
       "depends_on": [
         "MBTI-CMS-06"
       ],
-      "status": "planned",
+      "status": "merged",
       "title": "MBTI-SEO-07: audit personality llms and sitemap discoverability",
       "train_scope": "mbti_personality_discoverability_audit",
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1587",
       "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
-      "failure_reason": null
+      "merged_at": "2026-07-04T09:35:11Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "failure_reason": null,
+      "merge_commit_sha": "1ebd32d2e6f09a86275e06b3177f9cd1f2b1fe53"
     },
     {
       "id": "MBTI-OPS-08",
@@ -28761,15 +28762,16 @@
       "depends_on": [
         "MBTI-SEO-07"
       ],
-      "status": "planned",
+      "status": "committed",
       "title": "MBTI-OPS-08: add MBTI GSC priority monitoring",
       "train_scope": "mbti_gsc_priority_monitoring",
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "f507908610a34b966cfbf3b36e29d9ec86868364",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "failure_reason": null
+      "failure_reason": null,
+      "base_commit_sha": "1ebd32d2e6f09a86275e06b3177f9cd1f2b1fe53"
     }
   ],
   "sidecar_issues": [
@@ -40042,12 +40044,12 @@
     "depends_on": [
       "MBTI-CMS-06"
     ],
-    "status": "ready_to_merge",
+    "status": "merged",
     "commit_sha": "44396ce133267cb4f457da4bd06ed0fbd50eb454",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1587",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-04T09:35:11Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "local_checks": {
@@ -40067,7 +40069,7 @@
       },
       "github_checks": {
         "status": "passed",
-        "evidence": "PR #1587 checks passed after scoped fix: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL/analyze."
+        "evidence": "GitHub required checks passed before squash merge of PR #1587."
       }
     },
     "scope_validation": {
@@ -40115,10 +40117,16 @@
         "at": "2026-07-04T09:26:08Z",
         "status": "ready_to_merge",
         "notes": "GitHub checks passed after scoped fix: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL/analyze."
+      },
+      {
+        "at": "2026-07-04T10:05:00Z",
+        "status": "post_merge_revalidated",
+        "notes": "Confirmed PR #1587 merged, origin/main contains merge commit, local main was synced, worktree was clean, and task branches were cleaned or absent."
       }
     ],
     "base_commit_sha": "ec12c104ea8580b390c6df18473d8340b434a980",
-    "updated_at": "2026-07-04T09:26:08Z"
+    "updated_at": "2026-07-04T10:05:00Z",
+    "merge_commit_sha": "1ebd32d2e6f09a86275e06b3177f9cd1f2b1fe53"
   },
   "MBTI-OPS-08": {
     "repo": "fap-web",
@@ -40129,40 +40137,88 @@
     "depends_on": [
       "MBTI-SEO-07"
     ],
-    "status": "planned",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "ready_to_merge",
+    "commit_sha": "149dd782af80235f2d9b6898bf33587fdbffb762",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1589",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "failure_reason": null,
     "checks": {
       "local_checks": {
-        "status": "pending",
-        "commands": []
+        "status": "passed_with_external_pnpm_wrapper_sidecar",
+        "commands": [
+          "node scripts/seo/build-mbti-ops-08-gsc-priority-monitoring.mjs",
+          "corepack pnpm exec vitest run tests/contracts/mbti-ops-08-gsc-priority-monitoring.contract.test.ts --reporter=dot",
+          "corepack pnpm test:contract",
+          "corepack pnpm typecheck",
+          "NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "git diff --check",
+          "changed-file scope validation"
+        ],
+        "note": "Bare pnpm test:contract was blocked by local approve-builds wrapper state before tests ran; equivalent corepack pnpm contract/typecheck/build checks passed."
       },
       "github_checks": {
-        "status": "pending",
-        "evidence": null
+        "status": "passed",
+        "evidence": "PR #1589 checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL/analyze."
       }
     },
     "scope_validation": {
-      "status": "pending",
+      "status": "passed",
       "outside_scope_files": [],
-      "evidence": null
+      "evidence": "Changed files limited to OPS-08 monitoring generator, generated monitoring artifacts, focused contract, sidecar issue report, and train ledger."
     },
     "events": [
       {
         "at": "2026-07-04T03:27:14.152Z",
         "status": "planned",
         "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
+      },
+      {
+        "at": "2026-07-04T10:05:00Z",
+        "status": "in_progress",
+        "notes": "Started after MBTI-SEO-07 post-merge reconciliation; scope limited to GSC priority monitoring docs, script, contract, sidecar, and train ledger."
+      },
+      {
+        "at": "2026-07-04T10:12:00Z",
+        "status": "local_checks_passed",
+        "notes": "Focused contract, full contract suite via corepack pnpm, typecheck, production API build, YAML/JSON parse, diff check, and scope validation passed; local bare pnpm wrapper approval issue recorded as sidecar."
+      },
+      {
+        "at": "2026-07-04T10:18:00Z",
+        "status": "committed",
+        "notes": "Committed OPS-08 GSC priority monitoring artifacts and contract."
+      },
+      {
+        "at": "2026-07-04T10:19:00Z",
+        "status": "ledger_commit_sha_reconciled",
+        "notes": "Reconciled commit_sha after amend so the ledger references a commit present in the task branch history."
+      },
+      {
+        "at": "2026-07-04T10:20:00Z",
+        "status": "ledger_commit_sha_reconciled",
+        "notes": "Recorded the OPS-08 implementation commit present in branch history; this ledger reconciliation is committed separately to avoid impossible self-referential SHA drift."
+      },
+      {
+        "at": "2026-07-04T10:28:00Z",
+        "status": "pr_opened",
+        "notes": "Opened PR #1589 for MBTI-OPS-08 and left GitHub checks pending."
+      },
+      {
+        "at": "2026-07-04T10:33:00Z",
+        "status": "ready_to_merge",
+        "notes": "GitHub checks passed for PR #1589: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL/analyze."
       }
-    ]
+    ],
+    "base_commit_sha": "1ebd32d2e6f09a86275e06b3177f9cd1f2b1fe53",
+    "updated_at": "2026-07-04T10:33:00Z"
   },
   "active_train": {
-    "current_pr": "MBTI-SEO-07",
-    "next_pr": "MBTI-OPS-08",
-    "current": "MBTI-SEO-07",
-    "next": "MBTI-OPS-08"
+    "current_pr": "MBTI-OPS-08",
+    "next_pr": null,
+    "current": "MBTI-OPS-08",
+    "next": null
   }
 }
