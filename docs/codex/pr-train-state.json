@@ -39399,9 +39399,9 @@
   "active_mbti_train": {
     "train_name": "mbti-personality-seo-geo-growth-train",
     "current_pr": "MBTI-SEO-01",
-    "status": "pr_open",
+    "status": "ready_to_merge",
     "authorized_by_goal": true,
-    "updated_at": "2026-07-04T04:02:08.759Z"
+    "updated_at": "2026-07-04T04:07:39.049Z"
   },
   "MBTI-SEO-01": {
     "repo": "fap-web",
@@ -39410,8 +39410,8 @@
     "title": "MBTI-SEO-01: refresh personality hub SEO/GEO structure",
     "train_scope": "mbti_personality_hub_seo_geo_refresh",
     "depends_on": [],
-    "status": "pr_open",
-    "commit_sha": "fce4225e72b54d50f833a5571b27a49668ebdea3",
+    "status": "ready_to_merge",
+    "commit_sha": "22ee5322771ffb72484ac3ea88aef3726495fa85",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1577",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -39432,7 +39432,33 @@
       "github_checks": {
         "status": "pending",
         "evidence": null
-      }
+      },
+      "github": [
+        {
+          "name": "CodeQL",
+          "status": "passed"
+        },
+        {
+          "name": "analyze (javascript-typescript)",
+          "status": "passed"
+        },
+        {
+          "name": "build",
+          "status": "passed"
+        },
+        {
+          "name": "contracts",
+          "status": "passed"
+        },
+        {
+          "name": "verify-big5-contract-freeze",
+          "status": "passed"
+        },
+        {
+          "name": "verify-enneagram-contract-freeze",
+          "status": "passed"
+        }
+      ]
     },
     "scope_validation": {
       "status": "passed",
@@ -39470,9 +39496,21 @@
         "commit_sha": "fce4225e72b54d50f833a5571b27a49668ebdea3",
         "pr_url": "https://github.com/fermatmind/fap-web/pull/1577",
         "notes": "Opened PR #1577 for MBTI-SEO-01."
+      },
+      {
+        "at": "2026-07-04T04:07:39.049Z",
+        "status": "github_checks_passed",
+        "commit_sha": "22ee5322771ffb72484ac3ea88aef3726495fa85",
+        "notes": "GitHub required checks passed for PR #1577: CodeQL, analyze, build, contracts, and freeze checks."
+      },
+      {
+        "at": "2026-07-04T04:07:39.049Z",
+        "status": "ready_to_merge",
+        "commit_sha": "22ee5322771ffb72484ac3ea88aef3726495fa85",
+        "notes": "MBTI-SEO-01 ready to merge after checks and scope validation."
       }
     ],
-    "updated_at": "2026-07-04T04:02:08.759Z"
+    "updated_at": "2026-07-04T04:07:39.049Z"
   },
   "MBTI-SEO-02": {
     "repo": "fap-web",
