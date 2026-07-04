@@ -41488,8 +41488,8 @@
     "depends_on": [
       "MBTI-CMS-13"
     ],
-    "status": "pr_open_checks_pending",
-    "commit_sha": "fb70f255",
+    "status": "ready_to_merge",
+    "commit_sha": "46348976",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1605",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -41526,8 +41526,16 @@
         "notes": "Local Codex runtime pnpm 11.7.0 hit ERR_PNPM_IGNORED_BUILDS before tests; project-pinned corepack pnpm 10.28.1 validation passed."
       },
       "github": {
-        "status": "pending",
-        "pr_url": "https://github.com/fermatmind/fap-web/pull/1605"
+        "status": "passed",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1605",
+        "checks": {
+          "CodeQL": "passed",
+          "analyze (javascript-typescript)": "passed",
+          "build": "passed",
+          "contracts": "passed",
+          "verify-big5-contract-freeze": "passed",
+          "verify-enneagram-contract-freeze": "passed"
+        }
       }
     },
     "scope_validation": {
@@ -41576,9 +41584,14 @@
         "at": "2026-07-04T23:32:56.626Z",
         "status": "pr_open_checks_pending",
         "notes": "Opened fap-web PR #1605 for MBTI-QA-14 and pushed branch codex/mbti-qa-14-semantic-duplicate-gate."
+      },
+      {
+        "at": "2026-07-04T23:39:25.711Z",
+        "status": "ready_to_merge",
+        "notes": "GitHub checks passed for PR #1605; ready for squash merge under repository policy."
       }
     ],
-    "updated_at": "2026-07-04T23:32:56.626Z",
+    "updated_at": "2026-07-04T23:39:25.711Z",
     "next_task": null
   },
   "current_pr": "MBTI-QA-14"
