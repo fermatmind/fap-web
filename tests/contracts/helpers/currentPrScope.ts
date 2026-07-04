@@ -3424,6 +3424,18 @@ const PERSONALITY_COMPARISON_PAGES_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-comparison-pages.contract.test.tsx",
 ]);
 
+const MBTI_SEO_05_COMPARISON_TEMPLATE_REFRESH_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/personality/[type]/page.tsx",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "lib/cms/personality.ts",
+  "lib/mbti/personalityComparison.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-comparison-pages.contract.test.tsx",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
 const PERSONALITY_AT_COMPARISON_HOMEPAGE_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/personality/page.tsx",
   "lib/cms/personality.ts",
@@ -5484,6 +5496,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
     return PERSONALITY_COMPARISON_PAGES_01_ALLOWED_FILES.has(file);
   }
 
+  if (CURRENT_BRANCH === "codex/mbti-seo-05-comparison-template-refresh") {
+    return MBTI_SEO_05_COMPARISON_TEMPLATE_REFRESH_ALLOWED_FILES.has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/mbti64-serp-snippet-metadata-adapter-repair-01") {
     return MBTI64_SERP_SNIPPET_METADATA_ADAPTER_REPAIR_01_ALLOWED_FILES.has(file);
   }
@@ -6156,4 +6172,12 @@ export function isPersonalityComparisonSeoGate01AllowedFile(file: string): boole
     "tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts",
     "tests/contracts/public-sitemap-route.contract.test.ts",
   ]).has(file);
+}
+
+export function isMbtiSeo05ComparisonTemplateRefreshAllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/mbti-seo-05-comparison-template-refresh") {
+    return false;
+  }
+
+  return MBTI_SEO_05_COMPARISON_TEMPLATE_REFRESH_ALLOWED_FILES.has(file);
 }

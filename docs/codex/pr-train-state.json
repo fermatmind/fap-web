@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T05:32:18.883Z",
+  "updated_at": "2026-07-04T07:22:05Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -39770,12 +39770,12 @@
     "depends_on": [
       "MBTI-SEO-03"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "b9d626ef91b2dd7fa304d5f7c3fa22075b2367c4",
+    "status": "merged",
+    "commit_sha": "5482921e968973d5557b3b420f0231e1efd5ff96",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1581",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-04T06:35:01Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "local_checks": {
@@ -39859,6 +39859,12 @@
         "status": "ready_to_merge",
         "commit_sha": "b9d626ef91b2dd7fa304d5f7c3fa22075b2367c4",
         "notes": "GitHub checks passed for PR #1581; marking ready_to_merge before squash merge."
+      },
+      {
+        "at": "2026-07-04T06:39:22Z",
+        "status": "merged",
+        "commit_sha": "5482921e968973d5557b3b420f0231e1efd5ff96",
+        "notes": "Reconciled after PR #1581 squash merge: origin/main contains merge commit, local main is synced, worktree is clean, local task branch is deleted, and remote branch deletion was verified by fetch --prune."
       }
     ],
     "base_commit_sha": "9eb8554e976eed08b65b2a1cfa76c0dff4a5d7fc",
@@ -39873,8 +39879,8 @@
     "depends_on": [
       "MBTI-CMS-04"
     ],
-    "status": "planned",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "af3371c840d167fb42566227c0425595c6ee7345",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -39882,26 +39888,51 @@
     "failure_reason": null,
     "checks": {
       "local_checks": {
-        "status": "pending",
-        "commands": []
+        "pnpm exec vitest run tests/contracts/personality-comparison-pages.contract.test.tsx --reporter=dot": "passed",
+        "pnpm typecheck": "passed",
+        "pnpm test:contract": "passed",
+        "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build": "passed",
+        "yaml parse docs/codex/pr-train.yaml": "passed",
+        "json parse docs/codex/pr-train-state.json": "passed",
+        "git diff --check": "passed",
+        "changed-file scope validation": "passed"
       },
-      "github_checks": {
-        "status": "pending",
-        "evidence": null
-      }
+      "github_checks": {}
     },
     "scope_validation": {
-      "status": "pending",
-      "outside_scope_files": [],
-      "evidence": null
+      "status": "passed",
+      "changed_files": [
+        "app/(localized)/[locale]/personality/[type]/page.tsx",
+        "docs/codex/pr-train-state.json",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "tests/contracts/personality-comparison-pages.contract.test.tsx"
+      ]
     },
     "events": [
       {
         "at": "2026-07-04T03:27:14.152Z",
         "status": "planned",
         "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
+      },
+      {
+        "at": "2026-07-04T06:39:22Z",
+        "status": "in_progress",
+        "notes": "Started MBTI-SEO-05 from latest main after MBTI-CMS-04 post-merge reconciliation."
+      },
+      {
+        "at": "2026-07-04T07:19:12Z",
+        "status": "local_checks_passed",
+        "notes": "PR5 local checks and changed-file scope validation passed; ready to commit."
+      },
+      {
+        "at": "2026-07-04T07:22:05Z",
+        "status": "committed",
+        "commit_sha": "af3371c840d167fb42566227c0425595c6ee7345",
+        "notes": "Committed PR5 scoped comparison template refresh after local checks passed."
       }
-    ]
+    ],
+    "base_commit_sha": "5482921e968973d5557b3b420f0231e1efd5ff96",
+    "updated_at": "2026-07-04T07:22:05Z"
   },
   "MBTI-CMS-06": {
     "repo": "fap-web",
@@ -40021,7 +40052,7 @@
     ]
   },
   "active_train": {
-    "current_pr": "MBTI-CMS-04",
-    "next_pr": "MBTI-SEO-05"
+    "current_pr": "MBTI-SEO-05",
+    "next_pr": "MBTI-CMS-06"
   }
 }

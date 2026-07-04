@@ -13,6 +13,7 @@ import {
 import { buildPublicSitemapEntries } from "@/lib/seo/publicSitemap";
 import {
   isCurrentRiasecPack12AllowedFile,
+  isMbtiSeo05ComparisonTemplateRefreshAllowedFile,
   isPersonalityComparisonSeoGate01AllowedFile,
   isPersonalityComparisonV1FromAssetsAllowedFile,
 } from "./helpers/currentPrScope";
@@ -337,17 +338,22 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     expect(pageSource).toContain('data-testid="personality-comparison-page"');
     expect(pageSource).toContain('data-testid="personality-comparison-asset-nav"');
     expect(pageSource).toContain('data-testid="personality-comparison-method-boundary"');
+    expect(pageSource).toContain('data-testid="personality-comparison-quick-judgment"');
+    expect(pageSource).toContain('testId="personality-comparison-misread-risks"');
+    expect(pageSource).toContain('testId="personality-comparison-scenario-differences"');
+    expect(pageSource).toContain('data-testid="personality-comparison-visible-faq"');
     expect(pageSource).toContain("comparison.jsonld");
     expect(pageSource).toContain("const canRenderStructuredData");
     expect(pageSource).toContain("comparison.isIndexable && !shouldNoindex");
     expect(pageSource).toContain("personality-comparison-breadcrumb");
-    expect(pageSource).toContain("comparison.comparisonBlocks.map");
+    expect(pageSource).toContain("buildComparisonQuickJudgmentRows(comparison)");
+    expect(pageSource).toContain("buildVisibleComparisonFaqItems(comparison)");
     expect(pageSource).toContain("comparison.answerSurface?.nextStepBlocks");
     expect(pageSource).toContain("hideSummaryBlocks");
+    expect(pageSource).toContain("buildComparisonSecondaryAnswerSurface(comparison)");
     expect(pageSource).toContain("comparisonBoundaryCopy(locale)");
     expect(pageSource).toContain("frontend editorial fallback");
     expect(pageSource).toContain("isCrossTypeComparison(comparison)");
-    expect(pageSource).toContain('data-testid="personality-cross-type-sections"');
     expect(pageSource).toContain('data-testid="personality-cross-type-bases"');
     expect(pageSource).toContain("CrossTypeInternalLinks");
 
@@ -380,6 +386,7 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     const allowed = changedFiles().filter(
       (file) =>
         !isCurrentRiasecPack12AllowedFile(file) &&
+        !isMbtiSeo05ComparisonTemplateRefreshAllowedFile(file) &&
         !isPersonalityComparisonV1FromAssetsAllowedFile(file) &&
         !isPersonalityComparisonSeoGate01AllowedFile(file)
     );
