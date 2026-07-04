@@ -1,0 +1,80 @@
+{
+  "artifact": "IQ_METHOD_PAGES_ZH_CN_V0_2_PR_TRAIN_INDEX",
+  "status": "draft_review_only",
+  "content_authority": "CMS/backend authoritative; frontend local editorial fallback forbidden",
+  "current_pr": "IQ-METHOD-01",
+  "included_pages": [
+    "what-is-iq-style-reasoning-test"
+  ],
+  "planned_pages": [
+    {
+      "index": "01",
+      "slug": "what-is-iq-style-reasoning-test",
+      "title": "什么是 IQ 风格推理测试？",
+      "canonical_url": "https://fermatmind.com/zh/articles/what-is-iq-style-reasoning-test",
+      "status": "draft_review_only",
+      "pr_id": "IQ-METHOD-01"
+    },
+    {
+      "index": "02",
+      "slug": "online-iq-test-vs-professional-assessment",
+      "title": "在线 IQ 风格测试和专业智力测评有什么区别？",
+      "canonical_url": "https://fermatmind.com/zh/articles/online-iq-test-vs-professional-assessment",
+      "status": "draft_review_only",
+      "pr_id": "IQ-METHOD-02"
+    },
+    {
+      "index": "03",
+      "slug": "iq-test-score-meaning-boundary",
+      "title": "IQ 风格测试里的原始分、正确率和完成时间说明什么？",
+      "canonical_url": "https://fermatmind.com/zh/articles/iq-test-score-meaning-boundary",
+      "status": "draft_review_only",
+      "pr_id": "IQ-METHOD-03"
+    },
+    {
+      "index": "04",
+      "slug": "matrix-reasoning-pattern-recognition-guide",
+      "title": "矩阵推理和模式识别题在测什么？",
+      "canonical_url": "https://fermatmind.com/zh/articles/matrix-reasoning-pattern-recognition-guide",
+      "status": "draft_review_only",
+      "pr_id": "IQ-METHOD-04"
+    },
+    {
+      "index": "05",
+      "slug": "why-fermatmind-iq-v1-not-certification",
+      "title": "为什么 FermatMind IQ V1 是非认证测试？",
+      "canonical_url": "https://fermatmind.com/zh/articles/why-fermatmind-iq-v1-not-certification",
+      "status": "draft_review_only",
+      "pr_id": "IQ-METHOD-05"
+    },
+    {
+      "index": "06",
+      "slug": "iq-test-privacy-data-boundary",
+      "title": "IQ 风格测试的数据和隐私边界是什么？",
+      "canonical_url": "https://fermatmind.com/zh/articles/iq-test-privacy-data-boundary",
+      "status": "draft_review_only",
+      "pr_id": "IQ-METHOD-06"
+    },
+    {
+      "index": "07",
+      "slug": "iq-expert-review-disclosure",
+      "title": "FermatMind 如何审查 IQ 风格测试内容？",
+      "canonical_url": "https://fermatmind.com/zh/articles/iq-expert-review-disclosure",
+      "status": "draft_review_only",
+      "pr_id": "IQ-METHOD-07"
+    }
+  ],
+  "publish_gate": {
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "sitemap_llms_activation_attempted": false,
+    "required_before_publish": [
+      "method review",
+      "claim review",
+      "CMS owner approval",
+      "CMS dry-run import/readback",
+      "private URL guard"
+    ]
+  }
+}

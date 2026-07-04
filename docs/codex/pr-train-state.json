@@ -2,9 +2,9 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T10:20:00Z",
+  "updated_at": "2026-07-04T15:10:19.706Z",
   "status": "active",
-  "phase": "fa30_non_agent_pr_train",
+  "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
   "branch_naming_convention": "codex/pr-prac-<nn>-<short-scope>",
   "mode": "local_clone_preferred",
@@ -28772,6 +28772,415 @@
       "local_cleanup_executed": false,
       "failure_reason": null,
       "base_commit_sha": "1ebd32d2e6f09a86275e06b3177f9cd1f2b1fe53"
+    },
+    {
+      "id": "IQ-METHOD-01",
+      "repo": "fap-web",
+      "branch": "codex/iq-method-01-what-is-iq-style",
+      "status": "local_checks_passed",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding and executing IQ-METHOD-01 through IQ-METHOD-07, including fap-web docs/codex metadata updates, in the attached /goal request."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "IQ-METHOD-01 has no dependencies and starts from latest fap-web main."
+        },
+        "scope": {
+          "status": "pass",
+          "evidence": "Changed-file scope validation passed for staged PR diff: docs/codex metadata, PR1 generated CMS Article draft-review assets, helper scope guard, and focused IQ-METHOD-01 contract only."
+        },
+        "local": {
+          "status": "pass",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/iq-method-01-content-asset.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "git diff --check",
+            "git diff --cached --check",
+            "changed-file scope validation"
+          ],
+          "evidence": "Focused contract, typecheck, full contract suite, production API build, YAML/JSON parse, diff checks, and changed-file scope validation passed locally."
+        },
+        "github": {
+          "status": "pending",
+          "checks": []
+        }
+      },
+      "history": [
+        {
+          "at": "2026-07-04T15:02:10.277Z",
+          "status": "in_progress",
+          "note": "Started IQ-METHOD-01 on codex/iq-method-01-what-is-iq-style; preparing what-is-iq-style-reasoning-test CMS Article draft-review content asset package without CMS writes or frontend runtime changes."
+        },
+        {
+          "at": "2026-07-04T15:10:19.706Z",
+          "status": "local_checks_passed",
+          "note": "Local checks and staged changed-file scope validation passed for IQ-METHOD-01. Unrelated unstaged local docs/seo and docs architecture/codex files remain isolated outside this PR scope."
+        }
+      ],
+      "metadata": {
+        "title": "IQ-METHOD-01｜定义页：什么是 IQ 风格推理测试？",
+        "slug": "what-is-iq-style-reasoning-test",
+        "cms_resource_type": "Article",
+        "canonical_url": "https://fermatmind.com/zh/articles/what-is-iq-style-reasoning-test",
+        "content_authority": "CMS/backend authoritative; frontend fallback forbidden",
+        "publish_state": {
+          "status": "draft_review_only",
+          "is_public": false,
+          "is_indexable": false,
+          "robots": "noindex,follow",
+          "sitemap_eligible": false,
+          "llms_eligible": false
+        }
+      },
+      "updated_at": "2026-07-04T15:10:19.706Z"
+    },
+    {
+      "id": "IQ-METHOD-02",
+      "repo": "fap-web",
+      "branch": "codex/iq-method-02-online-vs-professional",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding and executing IQ-METHOD-01 through IQ-METHOD-07, including fap-web docs/codex metadata updates, in the attached /goal request."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on IQ-METHOD-01 merging into main."
+        },
+        "scope": {
+          "status": "planned",
+          "evidence": "Scope is limited to CMS Article draft-review assets for online-iq-test-vs-professional-assessment, tests/contracts/helpers/currentPrScope.ts, focused contract coverage, docs/codex metadata, and sidecar issue records if needed."
+        },
+        "local": {
+          "status": "pending",
+          "commands": []
+        },
+        "github": {
+          "status": "pending",
+          "checks": []
+        }
+      },
+      "history": [
+        {
+          "at": "2026-07-04T15:02:10.277Z",
+          "status": "planned",
+          "note": "Registered IQ-METHOD-02 for later execution after dependencies merge."
+        }
+      ],
+      "metadata": {
+        "title": "IQ-METHOD-02｜边界页：在线 IQ 风格测试 vs 专业智力测评",
+        "slug": "online-iq-test-vs-professional-assessment",
+        "cms_resource_type": "Article",
+        "canonical_url": "https://fermatmind.com/zh/articles/online-iq-test-vs-professional-assessment",
+        "content_authority": "CMS/backend authoritative; frontend fallback forbidden",
+        "publish_state": {
+          "status": "draft_review_only",
+          "is_public": false,
+          "is_indexable": false,
+          "robots": "noindex,follow",
+          "sitemap_eligible": false,
+          "llms_eligible": false
+        }
+      }
+    },
+    {
+      "id": "IQ-METHOD-03",
+      "repo": "fap-web",
+      "branch": "codex/iq-method-03-score-meaning-boundary",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding and executing IQ-METHOD-01 through IQ-METHOD-07, including fap-web docs/codex metadata updates, in the attached /goal request."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on IQ-METHOD-02 merging into main."
+        },
+        "scope": {
+          "status": "planned",
+          "evidence": "Scope is limited to CMS Article draft-review assets for iq-test-score-meaning-boundary, tests/contracts/helpers/currentPrScope.ts, focused contract coverage, docs/codex metadata, and sidecar issue records if needed."
+        },
+        "local": {
+          "status": "pending",
+          "commands": []
+        },
+        "github": {
+          "status": "pending",
+          "checks": []
+        }
+      },
+      "history": [
+        {
+          "at": "2026-07-04T15:02:10.277Z",
+          "status": "planned",
+          "note": "Registered IQ-METHOD-03 for later execution after dependencies merge."
+        }
+      ],
+      "metadata": {
+        "title": "IQ-METHOD-03｜结果页支持：原始分、正确率、完成时间说明什么？",
+        "slug": "iq-test-score-meaning-boundary",
+        "cms_resource_type": "Article",
+        "canonical_url": "https://fermatmind.com/zh/articles/iq-test-score-meaning-boundary",
+        "content_authority": "CMS/backend authoritative; frontend fallback forbidden",
+        "publish_state": {
+          "status": "draft_review_only",
+          "is_public": false,
+          "is_indexable": false,
+          "robots": "noindex,follow",
+          "sitemap_eligible": false,
+          "llms_eligible": false
+        }
+      }
+    },
+    {
+      "id": "IQ-METHOD-04",
+      "repo": "fap-web",
+      "branch": "codex/iq-method-04-matrix-reasoning-guide",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding and executing IQ-METHOD-01 through IQ-METHOD-07, including fap-web docs/codex metadata updates, in the attached /goal request."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on IQ-METHOD-03 merging into main."
+        },
+        "scope": {
+          "status": "planned",
+          "evidence": "Scope is limited to CMS Article draft-review assets for matrix-reasoning-pattern-recognition-guide, tests/contracts/helpers/currentPrScope.ts, focused contract coverage, docs/codex metadata, and sidecar issue records if needed."
+        },
+        "local": {
+          "status": "pending",
+          "commands": []
+        },
+        "github": {
+          "status": "pending",
+          "checks": []
+        }
+      },
+      "history": [
+        {
+          "at": "2026-07-04T15:02:10.277Z",
+          "status": "planned",
+          "note": "Registered IQ-METHOD-04 for later execution after dependencies merge."
+        }
+      ],
+      "metadata": {
+        "title": "IQ-METHOD-04｜题型页：矩阵推理和模式识别题在测什么？",
+        "slug": "matrix-reasoning-pattern-recognition-guide",
+        "cms_resource_type": "Article",
+        "canonical_url": "https://fermatmind.com/zh/articles/matrix-reasoning-pattern-recognition-guide",
+        "content_authority": "CMS/backend authoritative; frontend fallback forbidden",
+        "publish_state": {
+          "status": "draft_review_only",
+          "is_public": false,
+          "is_indexable": false,
+          "robots": "noindex,follow",
+          "sitemap_eligible": false,
+          "llms_eligible": false
+        }
+      }
+    },
+    {
+      "id": "IQ-METHOD-05",
+      "repo": "fap-web",
+      "branch": "codex/iq-method-05-not-certification",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding and executing IQ-METHOD-01 through IQ-METHOD-07, including fap-web docs/codex metadata updates, in the attached /goal request."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on IQ-METHOD-04 merging into main."
+        },
+        "scope": {
+          "status": "planned",
+          "evidence": "Scope is limited to CMS Article draft-review assets for why-fermatmind-iq-v1-not-certification, tests/contracts/helpers/currentPrScope.ts, focused contract coverage, docs/codex metadata, and sidecar issue records if needed."
+        },
+        "local": {
+          "status": "pending",
+          "commands": []
+        },
+        "github": {
+          "status": "pending",
+          "checks": []
+        }
+      },
+      "history": [
+        {
+          "at": "2026-07-04T15:02:10.277Z",
+          "status": "planned",
+          "note": "Registered IQ-METHOD-05 for later execution after dependencies merge."
+        }
+      ],
+      "metadata": {
+        "title": "IQ-METHOD-05｜信任页：为什么 FermatMind IQ V1 是非认证测试？",
+        "slug": "why-fermatmind-iq-v1-not-certification",
+        "cms_resource_type": "Article",
+        "canonical_url": "https://fermatmind.com/zh/articles/why-fermatmind-iq-v1-not-certification",
+        "content_authority": "CMS/backend authoritative; frontend fallback forbidden",
+        "publish_state": {
+          "status": "draft_review_only",
+          "is_public": false,
+          "is_indexable": false,
+          "robots": "noindex,follow",
+          "sitemap_eligible": false,
+          "llms_eligible": false
+        }
+      }
+    },
+    {
+      "id": "IQ-METHOD-06",
+      "repo": "fap-web",
+      "branch": "codex/iq-method-06-privacy-data-boundary",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding and executing IQ-METHOD-01 through IQ-METHOD-07, including fap-web docs/codex metadata updates, in the attached /goal request."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on IQ-METHOD-05 merging into main."
+        },
+        "scope": {
+          "status": "planned",
+          "evidence": "Scope is limited to CMS Article draft-review assets for iq-test-privacy-data-boundary, tests/contracts/helpers/currentPrScope.ts, focused contract coverage, docs/codex metadata, and sidecar issue records if needed."
+        },
+        "local": {
+          "status": "pending",
+          "commands": []
+        },
+        "github": {
+          "status": "pending",
+          "checks": []
+        }
+      },
+      "history": [
+        {
+          "at": "2026-07-04T15:02:10.277Z",
+          "status": "planned",
+          "note": "Registered IQ-METHOD-06 for later execution after dependencies merge."
+        }
+      ],
+      "metadata": {
+        "title": "IQ-METHOD-06｜隐私与安全页：IQ 测试的数据和隐私边界是什么？",
+        "slug": "iq-test-privacy-data-boundary",
+        "cms_resource_type": "Article",
+        "canonical_url": "https://fermatmind.com/zh/articles/iq-test-privacy-data-boundary",
+        "content_authority": "CMS/backend authoritative; frontend fallback forbidden",
+        "publish_state": {
+          "status": "draft_review_only",
+          "is_public": false,
+          "is_indexable": false,
+          "robots": "noindex,follow",
+          "sitemap_eligible": false,
+          "llms_eligible": false
+        }
+      }
+    },
+    {
+      "id": "IQ-METHOD-07",
+      "repo": "fap-web",
+      "branch": "codex/iq-method-07-expert-review-disclosure",
+      "status": "planned",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized adding and executing IQ-METHOD-01 through IQ-METHOD-07, including fap-web docs/codex metadata updates, in the attached /goal request."
+        },
+        "dependency": {
+          "status": "pending",
+          "evidence": "Depends on IQ-METHOD-06 merging into main."
+        },
+        "scope": {
+          "status": "planned",
+          "evidence": "Scope is limited to CMS Article draft-review assets for iq-expert-review-disclosure, tests/contracts/helpers/currentPrScope.ts, focused contract coverage, docs/codex metadata, and sidecar issue records if needed."
+        },
+        "local": {
+          "status": "pending",
+          "commands": []
+        },
+        "github": {
+          "status": "pending",
+          "checks": []
+        }
+      },
+      "history": [
+        {
+          "at": "2026-07-04T15:02:10.277Z",
+          "status": "planned",
+          "note": "Registered IQ-METHOD-07 for later execution after dependencies merge."
+        }
+      ],
+      "metadata": {
+        "title": "IQ-METHOD-07｜专家审阅页：FermatMind 如何审查 IQ 风格测试内容？",
+        "slug": "iq-expert-review-disclosure",
+        "cms_resource_type": "Article",
+        "canonical_url": "https://fermatmind.com/zh/articles/iq-expert-review-disclosure",
+        "content_authority": "CMS/backend authoritative; frontend fallback forbidden",
+        "publish_state": {
+          "status": "draft_review_only",
+          "is_public": false,
+          "is_indexable": false,
+          "robots": "noindex,follow",
+          "sitemap_eligible": false,
+          "llms_eligible": false
+        }
+      }
     }
   ],
   "sidecar_issues": [
@@ -40216,9 +40625,9 @@
     "updated_at": "2026-07-04T10:33:00Z"
   },
   "active_train": {
-    "current_pr": "MBTI-OPS-08",
-    "next_pr": null,
-    "current": "MBTI-OPS-08",
-    "next": null
+    "current_pr": "IQ-METHOD-01",
+    "next_pr": "IQ-METHOD-02",
+    "current": "IQ-METHOD-01",
+    "next": "IQ-METHOD-02"
   }
 }

@@ -12979,6 +12979,257 @@ prs:
       auto_merge: true
     next_task: null
 
+  - id: IQ-METHOD-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-method-01-what-is-iq-style
+    base: main
+    depends_on: []
+    mode: execute
+    status: in_progress
+    title: "IQ-METHOD-01｜定义页：什么是 IQ 风格推理测试？"
+    goal: "Prepare the zh-CN CMS Article draft-review asset package for the IQ-style reasoning test definition page without CMS writes, frontend fallback content, or discoverability activation."
+    slug: what-is-iq-style-reasoning-test
+    in_scope:
+      - generated/iq-method-pages-zh-cn-v0.2/README.md
+      - generated/iq-method-pages-zh-cn-v0.2/GLOBAL_CLAIM_POLICY.md
+      - generated/iq-method-pages-zh-cn-v0.2/GLOBAL_SEO_GEO_STANDARD.md
+      - generated/iq-method-pages-zh-cn-v0.2/DUPLICATE_CANNIBALIZATION_MAP.md
+      - generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json
+      - generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/**
+      - tests/contracts/iq-method-01-content-asset.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    out_of_scope:
+      - app/**
+      - components/**
+      - lib/**
+      - public/**
+      - CMS writes
+      - production import
+      - DB migration
+      - sitemap/llms/canonical/indexable activation
+      - production deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/iq-method-01-content-asset.contract.test.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    acceptance:
+      - The definition page maps to CMS Article draft-review assets for /zh/articles/what-is-iq-style-reasoning-test.
+      - The page explains IQ-style reasoning tasks without official IQ, percentile, certificate, Mensa, diagnosis, or external proof claims.
+      - The package keeps is_public=false, is_indexable=false, robots=noindex,follow, sitemap_eligible=false, and llms_eligible=false.
+      - Contract coverage validates CMS authority, claim guard, private URL guard, and no frontend editorial authority.
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-METHOD-02
+
+  - id: IQ-METHOD-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-method-02-online-vs-professional
+    base: main
+    depends_on: [IQ-METHOD-01]
+    mode: execute
+    status: planned
+    title: "IQ-METHOD-02｜边界页：在线 IQ 风格测试 vs 专业智力测评"
+    goal: "Prepare the zh-CN CMS Article draft-review asset package for the online IQ-style test versus professional assessment boundary page."
+    slug: online-iq-test-vs-professional-assessment
+    in_scope:
+      - generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json
+      - generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/**
+      - tests/contracts/iq-method-02-content-asset.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    out_of_scope:
+      - frontend runtime content
+      - CMS writes
+      - production import
+      - discoverability activation
+    acceptance:
+      - The page covers norms, standardized administration, supervision, error interpretation, professional interpretation, and use boundaries.
+      - The page does not imply FermatMind replaces psychologists or supports education/hiring decisions.
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-METHOD-03
+
+  - id: IQ-METHOD-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-method-03-score-meaning-boundary
+    base: main
+    depends_on: [IQ-METHOD-02]
+    mode: execute
+    status: planned
+    title: "IQ-METHOD-03｜结果页支持：原始分、正确率、完成时间说明什么？"
+    goal: "Prepare the zh-CN CMS Article draft-review asset package for raw score, accuracy, completion time, dimension signal, and stability interpretation boundaries."
+    slug: iq-test-score-meaning-boundary
+    in_scope:
+      - generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json
+      - generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/**
+      - tests/contracts/iq-method-03-content-asset.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    out_of_scope:
+      - frontend runtime content
+      - CMS writes
+      - production import
+      - IQ estimate or percentile claims
+    acceptance:
+      - The page frames raw score, accuracy, time, dimensions, and stability as current 30-item task signals only.
+      - The page rejects population ranking, fixed ability labels, clinical/education/hiring use, and certificate claims.
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-METHOD-04
+
+  - id: IQ-METHOD-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-method-04-matrix-reasoning-guide
+    base: main
+    depends_on: [IQ-METHOD-03]
+    mode: execute
+    status: planned
+    title: "IQ-METHOD-04｜题型页：矩阵推理和模式识别题在测什么？"
+    goal: "Prepare the zh-CN CMS Article draft-review asset package for matrix reasoning and pattern recognition task explanation."
+    slug: matrix-reasoning-pattern-recognition-guide
+    in_scope:
+      - generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json
+      - generated/iq-method-pages-zh-cn-v0.2/pages/04-matrix-reasoning-pattern-recognition-guide/**
+      - tests/contracts/iq-method-04-content-asset.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    out_of_scope:
+      - frontend runtime content
+      - CMS writes
+      - production import
+      - item, answer, solution, or scoring disclosure
+      - external scale affiliation claims
+    acceptance:
+      - The page explains matrix and pattern reasoning while clearly stating FermatMind uses original items and is not affiliated with Raven, Pearson, Mensa, or any official external scale.
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-METHOD-05
+
+  - id: IQ-METHOD-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-method-05-not-certification
+    base: main
+    depends_on: [IQ-METHOD-04]
+    mode: execute
+    status: planned
+    title: "IQ-METHOD-05｜信任页：为什么 FermatMind IQ V1 是非认证测试？"
+    goal: "Prepare the zh-CN CMS Article draft-review asset package explaining why FermatMind IQ V1 does not provide certificates, certification, or official IQ proof."
+    slug: why-fermatmind-iq-v1-not-certification
+    in_scope:
+      - generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json
+      - generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/**
+      - tests/contracts/iq-method-05-content-asset.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    out_of_scope:
+      - frontend runtime content
+      - CMS writes
+      - production import
+      - certificate or official proof claims
+    acceptance:
+      - The page explains identity verification, proctoring, standardization, norms, error interpretation, professional interpretation, and compliance governance as certification prerequisites.
+      - The page does not promise a future professional version.
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-METHOD-06
+
+  - id: IQ-METHOD-06
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-method-06-privacy-data-boundary
+    base: main
+    depends_on: [IQ-METHOD-05]
+    mode: execute
+    status: planned
+    title: "IQ-METHOD-06｜隐私与安全页：IQ 测试的数据和隐私边界是什么？"
+    goal: "Prepare the zh-CN CMS Article draft-review asset package for public article, answering flow, private result, backend scoring, and test-material security boundaries."
+    slug: iq-test-privacy-data-boundary
+    in_scope:
+      - generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json
+      - generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/**
+      - tests/contracts/iq-method-06-content-asset.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    out_of_scope:
+      - frontend runtime content
+      - CMS writes
+      - production import
+      - answers, scoring rules, private URLs, orders, payment, or account recovery links
+    acceptance:
+      - The page keeps answer_key, correct_answer, scoring rules, private report fields, result links, order links, payment links, and recovery links out of public content.
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-METHOD-07
+
+  - id: IQ-METHOD-07
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-method-07-expert-review-disclosure
+    base: main
+    depends_on: [IQ-METHOD-06]
+    mode: execute
+    status: planned
+    title: "IQ-METHOD-07｜专家审阅页：FermatMind 如何审查 IQ 风格测试内容？"
+    goal: "Prepare the zh-CN CMS Article draft-review asset package for expert review disclosure without certification, clinical validation, or external endorsement claims."
+    slug: iq-expert-review-disclosure
+    in_scope:
+      - generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json
+      - generated/iq-method-pages-zh-cn-v0.2/pages/07-iq-expert-review-disclosure/**
+      - tests/contracts/iq-method-07-content-asset.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    out_of_scope:
+      - frontend runtime content
+      - CMS writes
+      - production import
+      - personal credentials or certificate files
+      - certification, clinical validation, official recognition, or external endorsement claims
+    acceptance:
+      - The page may state that advisor/doctoral teams participate in method-boundary, item-direction, explanatory-copy, risk-statement, fairness, and bias-expression review.
+      - The page must state that expert participation does not equal clinical certification, official certification, external proof, or a completed professional assessment.
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null
+
   - id: MBTI-SEO-01
     repo: fap-web
     repo_path: <workspace>/fap-web
