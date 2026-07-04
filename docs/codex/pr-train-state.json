@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T03:08:00+08:00",
+  "updated_at": "2026-07-05T03:14:00+08:00",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -29396,8 +29396,8 @@
       "id": "IQ-METHOD-06",
       "repo": "fap-web",
       "branch": "codex/iq-method-06-privacy-data-boundary",
-      "status": "local_checks_passed_after_external_blocker_fix",
-      "commit_sha": "848ffc59",
+      "status": "ready_to_merge",
+      "commit_sha": "8ceb8194713691add4a2d48af1d42bb690f1b927",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1600",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -29414,7 +29414,7 @@
         },
         "scope": {
           "status": "pass",
-          "evidence": "Rebased IQ-METHOD-06 diff against origin/main d0f7be6f remains limited to the approved CMS Article draft-review asset package, PR_TRAIN_INDEX, IQ-METHOD-05/06 contract harness, currentPrScope, docs/codex metadata, and sidecar records."
+          "evidence": "GitHub PR #1600 diff scope validation passed after rebase; changed files remain limited to IQ-METHOD-06 assets, PR train metadata, sidecar records, and IQ contract harness files."
         },
         "local": {
           "status": "pass",
@@ -29429,9 +29429,41 @@
           "evidence": "Focused IQ contracts passed, metadata parse passed, diff check passed, typecheck passed, full contract suite passed after PR #1601, production API build passed, and known MBTI CMS04 contract side effects were restored."
         },
         "github": {
-          "status": "pending_revalidation_after_force_push",
+          "status": "pass",
+          "head_sha": "8ceb8194713691add4a2d48af1d42bb690f1b927",
           "pr_url": "https://github.com/fermatmind/fap-web/pull/1600",
-          "evidence": "GitHub checks must rerun after the rebased IQ-METHOD-06 branch is pushed."
+          "checks": [
+            {
+              "name": "build",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-04T19:11:02Z"
+            },
+            {
+              "name": "contracts",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-04T19:13:03Z"
+            },
+            {
+              "name": "verify-big5-contract-freeze",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-04T19:08:53Z"
+            },
+            {
+              "name": "verify-enneagram-contract-freeze",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-04T19:08:53Z"
+            },
+            {
+              "name": "analyze (javascript-typescript)",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-04T19:11:33Z"
+            },
+            {
+              "name": "CodeQL",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-04T19:11:27Z"
+            }
+          ]
         }
       },
       "history": [
@@ -29479,6 +29511,11 @@
           "at": "2026-07-05T03:08:00+08:00",
           "status": "local_checks_passed_after_external_blocker_fix",
           "note": "After PR #1601 fixed the external OPS-09 scope guard, reran focused IQ contracts, JSON/YAML parse, diff check, typecheck, full contract suite, production API build, and scope validation successfully."
+        },
+        {
+          "at": "2026-07-05T03:14:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1600 after rebase and external blocker fix; PR is mergeable and scope validation passed."
         }
       ],
       "metadata": {
@@ -29496,7 +29533,7 @@
           "llms_eligible": false
         }
       },
-      "updated_at": "2026-07-05T03:08:00+08:00"
+      "updated_at": "2026-07-05T03:14:00+08:00"
     },
     {
       "id": "IQ-METHOD-07",
