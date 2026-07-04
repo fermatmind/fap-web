@@ -39,3 +39,13 @@
 - why not current PR scope: MBTI-CMS-06 only packages CMS handoff assets for A/T and hot comparison pages under `docs/seo/personality/**`, plus its generator and contract test. Generic result-page runtime UX belongs to a separate result-shell PR.
 - whether required checks are affected: no; PR6 local checks, scope validation, and merge policy do not require this result-page runtime change.
 - recommended follow-up: Review the preserved stash and open a separate scoped result-page UX PR if the minimum processing wait gate should ship.
+
+## Local pnpm approve-builds wrapper state
+
+- repo: fermatmind/fap-web
+- PR id / branch: MBTI-OPS-08 / codex/mbti-ops-08-gsc-priority-monitoring
+- blocker type: external_local_pnpm_wrapper_approve_builds_state
+- evidence: `pnpm test:contract` failed before running tests with `ERR_PNPM_IGNORED_BUILDS` for `esbuild`, `sharp`, and `unrs-resolver`; `corepack pnpm test:contract` passed all contract shards.
+- why not current PR scope: OPS-08 is a read-only monitoring artifact PR and does not change dependency installation, lockfile, or local pnpm approval state.
+- whether required checks are affected: no; GitHub CI and `corepack pnpm` local validation are not blocked by this local wrapper state.
+- recommended follow-up: normalize local Codex pnpm wrapper approval state or standardize local checks on `corepack pnpm` for this repository.

@@ -39,5 +39,16 @@
     "why_not_current_pr_scope": "MBTI-CMS-06 only packages CMS handoff assets for A/T and hot comparison pages under docs/seo/personality/**, plus its generator and contract test. Generic result-page runtime UX belongs to a separate result-shell PR.",
     "required_checks_affected": false,
     "recommended_follow_up": "Review the preserved stash and open a separate scoped result-page UX PR if the minimum processing wait gate should ship."
+  },
+  {
+    "id": "local-pnpm-approve-builds-wrapper-mbti-ops-08",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "MBTI-OPS-08",
+    "branch": "codex/mbti-ops-08-gsc-priority-monitoring",
+    "blocker_type": "external_local_pnpm_wrapper_approve_builds_state",
+    "evidence": "The manifest command `pnpm test:contract` failed before running tests because the local Codex runtime pnpm wrapper attempted `pnpm install` and hit ERR_PNPM_IGNORED_BUILDS for esbuild, sharp, and unrs-resolver. The equivalent `corepack pnpm test:contract` completed successfully with all contract shards passing.",
+    "why_not_current_pr_scope": "OPS-08 only adds a read-only GSC monitoring artifact generator, generated docs/csv/json, one contract, sidecar, and train ledger updates. The local pnpm approve-builds state is machine/runtime configuration outside repository scope and predates the PR.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Normalize local Codex pnpm wrapper approval state or run repository checks through corepack pnpm, matching CI behavior, before requiring bare pnpm locally."
   }
 ]
