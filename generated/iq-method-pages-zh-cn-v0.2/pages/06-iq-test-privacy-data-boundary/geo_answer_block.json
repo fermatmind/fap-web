@@ -1,0 +1,54 @@
+{
+  "status": "draft_review_only",
+  "page_slug": "iq-test-privacy-data-boundary",
+  "answer_blocks": [
+    {
+      "type": "quick_answer",
+      "text": "FermatMind IQ V1 区分公开页面和私人测试流程。公开页面解释方法和边界；答题流程与个人结果页不应作为公开 SEO 页面；题库答案、评分逻辑、私有报告字段由后端控制，不应在公开内容中泄露。用户可查看自己的完整结果，但公开页面只说明通用方法。"
+    },
+    {
+      "type": "boundary_box",
+      "text": "本页只解释 FermatMind IQ V1 的公开方法与边界。它是非官方、非临床、非认证的在线 IQ 风格推理测试，不用于升学、用人、收入或岗位决策。"
+    },
+    {
+      "type": "method_table",
+      "text": "页面正文包含方法解释表格或边界表格，用于 GEO 可截取答案。"
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "question": "我的结果会被公开吗？",
+          "answer": "个人结果页默认属于私人体验，不应作为公开 SEO 页面。"
+        },
+        {
+          "question": "为什么不公开答案？",
+          "answer": "公开答案会破坏测试有效性，也会影响后续用户的真实答题表现。"
+        },
+        {
+          "question": "方法页为什么能公开？",
+          "answer": "方法页解释的是通用边界和概念，不包含私人结果或评分秘密。"
+        },
+        {
+          "question": "可以在文章里展示题目吗？",
+          "answer": "不建议。内容资产不应生成题目、答案、解题步骤或评分表。"
+        }
+      ]
+    },
+    {
+      "type": "next_step",
+      "links": [
+        {
+          "label": "开始 IQ 风格推理测试",
+          "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+        },
+        {
+          "label": "阅读相邻方法页",
+          "href": "/zh/articles/iq-expert-review-disclosure"
+        }
+      ]
+    }
+  ],
+  "ai_answer_risk": "low_after_human_review",
+  "geo_role": "IQ 隐私与数据边界页"
+}

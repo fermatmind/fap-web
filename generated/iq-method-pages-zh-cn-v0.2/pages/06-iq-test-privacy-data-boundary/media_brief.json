@@ -1,0 +1,22 @@
+{
+  "status": "draft_review_only",
+  "do_not_generate_images": true,
+  "cover_image_direction": "中性教育风格插图：IQ 风格测试的数据和隐私边界是什么？，使用抽象图形、矩阵网格、笔记本或方法边界卡片，不出现证书、排行榜、医生医院、学校录取或数字炫耀。",
+  "body_visual_directions": [
+    "一张边界表格视觉图：左侧是可以理解的内容，右侧是不能据此推断的内容。",
+    "一张抽象矩阵/图形规律示意图，只表现概念，不展示真实题目或答案。"
+  ],
+  "forbidden_visuals": [
+    "官方证明文件",
+    "医院/医生场景",
+    "奖章排行榜",
+    "第三方机构徽章",
+    "大号能力数字炫耀",
+    "招聘或学校录取场景"
+  ],
+  "alt_text_suggestions": [
+    "IQ 风格测试的数据和隐私边界是什么？的中性方法说明图",
+    "IQ 风格推理测试边界说明示意图"
+  ],
+  "media_library_required": true
+}

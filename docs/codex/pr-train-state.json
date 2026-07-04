@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T18:23:17Z",
+  "updated_at": "2026-07-04T18:17:00Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -29270,12 +29270,12 @@
       "id": "IQ-METHOD-05",
       "repo": "fap-web",
       "branch": "codex/iq-method-05-not-certification",
-      "status": "ready_to_merge",
+      "status": "merged",
       "commit_sha": "8030815a32502ba772a05dbceec9cd59991cfd4c",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1599",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-07-04T18:04:39Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -29308,32 +29308,32 @@
             {
               "name": "build",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T17:55:32Z"
+              "completed_at": "2026-07-04T18:00:28Z"
             },
             {
               "name": "contracts",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T17:55:52Z"
+              "completed_at": "2026-07-04T18:02:17Z"
             },
             {
               "name": "verify-big5-contract-freeze",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T17:52:45Z"
+              "completed_at": "2026-07-04T17:58:11Z"
             },
             {
               "name": "verify-enneagram-contract-freeze",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T17:52:48Z"
+              "completed_at": "2026-07-04T17:58:07Z"
             },
             {
               "name": "analyze (javascript-typescript)",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T17:55:36Z"
+              "completed_at": "2026-07-04T18:00:48Z"
             },
             {
               "name": "CodeQL",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T17:55:30Z"
+              "completed_at": "2026-07-04T18:00:41Z"
             }
           ]
         }
@@ -29368,6 +29368,11 @@
           "at": "2026-07-04T17:56:53Z",
           "status": "ready_to_merge",
           "note": "GitHub checks passed, PR mergeStateStatus is CLEAN, and PR diff scope validation passed for 17 files."
+        },
+        {
+          "at": "2026-07-04T18:10:00Z",
+          "status": "merged",
+          "note": "Reconciled IQ-METHOD-05 after GitHub PR #1599 merged with merge commit 3d5d1d5f739c8099fec9491904c748e8f7d04ae5; origin/main contains the merge commit and local/remote task branches are deleted."
         }
       ],
       "metadata": {
@@ -29385,13 +29390,13 @@
           "llms_eligible": false
         }
       },
-      "updated_at": "2026-07-04T17:56:53Z"
+      "updated_at": "2026-07-04T18:10:00Z"
     },
     {
       "id": "IQ-METHOD-06",
       "repo": "fap-web",
       "branch": "codex/iq-method-06-privacy-data-boundary",
-      "status": "planned",
+      "status": "local_checks_passed",
       "commit_sha": null,
       "pr_url": null,
       "merged_at": null,
@@ -29404,16 +29409,24 @@
           "evidence": "User explicitly authorized adding and executing IQ-METHOD-01 through IQ-METHOD-07, including fap-web docs/codex metadata updates, in the attached /goal request."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on IQ-METHOD-05 merging into main."
+          "status": "pass",
+          "evidence": "IQ-METHOD-05 is merged in GitHub PR #1599 and origin/main contains merge commit 3d5d1d5f739c8099fec9491904c748e8f7d04ae5."
         },
         "scope": {
-          "status": "planned",
-          "evidence": "Scope is limited to CMS Article draft-review assets for iq-test-privacy-data-boundary, tests/contracts/helpers/currentPrScope.ts, focused contract coverage, docs/codex metadata, and sidecar issue records if needed."
+          "status": "pass",
+          "evidence": "git diff plus path-limited generated page staging is limited to IQ-METHOD-06 CMS Article draft-review assets, PR_TRAIN_INDEX, PR train metadata, IQ-METHOD-05/06 contract harness, currentPrScope, and no sidecar issue records."
         },
         "local": {
-          "status": "pending",
-          "commands": []
+          "status": "pass",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/iq-method-05-content-asset.contract.test.ts tests/contracts/iq-method-06-content-asset.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "node JSON parse for docs/codex/pr-train-state.json, generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json, and IQ-METHOD-06 page JSON assets",
+            "ruby YAML parse for docs/codex/pr-train.yaml",
+            "git diff --check"
+          ]
         },
         "github": {
           "status": "pending",
@@ -29425,6 +29438,16 @@
           "at": "2026-07-04T15:02:10.277Z",
           "status": "planned",
           "note": "Registered IQ-METHOD-06 for later execution after dependencies merge."
+        },
+        {
+          "at": "2026-07-04T18:10:00Z",
+          "status": "in_progress",
+          "note": "Started IQ-METHOD-06 after reconciling IQ-METHOD-05 merge; preparing privacy/data-boundary CMS Article draft-review content assets without CMS writes, frontend runtime content, discoverability activation, production import, or deploy."
+        },
+        {
+          "at": "2026-07-04T18:17:00Z",
+          "status": "local_checks_passed",
+          "note": "Completed IQ-METHOD-06 privacy/data-boundary draft-review asset package, PR5 train-forward contract compatibility, and required local validation without CMS writes, frontend runtime content, discoverability activation, production import, or deploy."
         }
       ],
       "metadata": {
@@ -29441,7 +29464,8 @@
           "sitemap_eligible": false,
           "llms_eligible": false
         }
-      }
+      },
+      "updated_at": "2026-07-04T18:17:00Z"
     },
     {
       "id": "IQ-METHOD-07",
@@ -40942,10 +40966,10 @@
     "updated_at": "2026-07-04T10:33:00Z"
   },
   "active_train": {
-    "current_pr": "IQ-METHOD-05",
-    "next_pr": "IQ-METHOD-06",
-    "current": "IQ-METHOD-05",
-    "next": "IQ-METHOD-06"
+    "current_pr": "IQ-METHOD-06",
+    "next_pr": "IQ-METHOD-07",
+    "current": "IQ-METHOD-06",
+    "next": "IQ-METHOD-07"
   },
   "MBTI-ASSET-OPS-09": {
     "repo": "fap-web",
