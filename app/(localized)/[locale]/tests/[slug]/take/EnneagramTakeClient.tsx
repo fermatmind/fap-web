@@ -811,9 +811,6 @@ function EnneagramTakeInner({
               current={currentIndex + 1}
               total={total}
               answered={answeredCount}
-              showCompletedCount={false}
-              backHref={withLocale(`/tests/${slug}`)}
-              backLabel={dict.quiz.immersive.backToDetails}
             />
           }
           footerSlot={
@@ -869,9 +866,6 @@ function EnneagramTakeInner({
         current={currentIndex + 1}
         total={total}
         answered={answeredCount}
-        showCompletedCount={false}
-        backHref={withLocale(`/tests/${slug}`)}
-        backLabel={dict.quiz.immersive.backToDetails}
       />
 
       <article className="space-y-[var(--fm-space-5)] rounded-2xl border border-[var(--fm-border-strong)] bg-white p-[var(--fm-space-6)] shadow-[var(--fm-shadow-md)]">

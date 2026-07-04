@@ -722,7 +722,7 @@ export default function ClinicalTakeClient({
       if (isFlowActive(activeRunId)) {
         setSubmitError(
           isZh
-            ? "当前会话缺少同意书快照，请返回详情页重新开始测评。"
+            ? "当前会话缺少同意书快照，请重新开始测评。"
             : "Consent snapshot is missing for this session. Please restart the assessment from test details."
         );
       }
@@ -1187,10 +1187,6 @@ export default function ClinicalTakeClient({
             }}
           >
             {submitting ? (isZh ? "提交中..." : "Submitting...") : isZh ? "提交" : "Submit"}
-          </Button>
-
-          <Button type="button" variant="ghost" onClick={() => router.push(withLocale(`/tests/${slug}`))}>
-            {isZh ? "返回详情" : "Back to details"}
           </Button>
         </div>
       </QuizShell>

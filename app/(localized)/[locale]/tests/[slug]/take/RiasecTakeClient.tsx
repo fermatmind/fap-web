@@ -244,18 +244,15 @@ export default function RiasecTakeClient({
     <QuizShell>
       <QuizTakeHeaderV2
         brand={locale === "zh" ? "霍兰德职业兴趣测试" : "Holland Career Interest Test"}
-        completedPrefix={locale === "zh" ? "已有" : ""}
-        completedSuffix={locale === "zh" ? "人完成测评" : "completed"}
+        completedPrefix={dict.header.completedPrefix}
+        completedSuffix={dict.header.completedSuffix}
         estimatedTimeLabel={locale === "zh" ? "预计用时" : "Estimated time"}
         minutesUnit={locale === "zh" ? "分钟" : "min"}
         estimatedMinutes={effectiveEstimatedMinutes}
-        backHref={withLocale(`/tests/${slug}`)}
-        backLabel={locale === "zh" ? "返回详情" : "Back to landing"}
         progressText={locale === "zh" ? "作答进度" : "Progress"}
         current={Math.min(currentIndex + 1, questions.length)}
         total={questions.length}
         answered={answeredCount}
-        showCompletedCount={false}
       />
 
       {currentQuestion ? (

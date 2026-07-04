@@ -1602,8 +1602,6 @@ function QuizTakeInner({
               current={currentIndex + 1}
               total={total}
               answered={answeredCount}
-              backHref={withLocale(`/tests/${slug}`)}
-              backLabel={dict.quiz.immersive.backToDetails}
             />
           }
           footerSlot={
@@ -1759,8 +1757,6 @@ function QuizTakeInner({
         current={currentIndex + 1}
         total={total}
         answered={answeredCount}
-        backHref={withLocale(`/tests/${slug}`)}
-        backLabel={dict.quiz.immersive.backToDetails}
       />
 
       <article

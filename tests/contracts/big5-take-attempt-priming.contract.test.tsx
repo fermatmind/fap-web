@@ -108,8 +108,8 @@ vi.mock("@/components/big5/quiz/QuestionNavigator", () => ({
   QuestionNavigator: () => <div data-testid="question-navigator" />,
 }));
 
-vi.mock("@/components/quiz/immersive/AdaptiveOptionGroup", () => ({
-  AdaptiveOptionGroup: ({ onChange }: { onChange: (code: string) => void }) => (
+vi.mock("@/components/quiz/immersive/V2LikertScale", () => ({
+  V2LikertScale: ({ onChange }: { onChange: (code: string) => void }) => (
     <div data-testid="adaptive-option-group">
       <button type="button" onClick={() => onChange("5")}>
         Answer current
@@ -315,28 +315,6 @@ async function waitForFirstQuestion() {
   });
 }
 
-async function waitForBig5ConsentGate() {
-  await waitFor(() => {
-    expect(screen.getByRole("button", { name: "Agree and start" })).toBeInTheDocument();
-  });
-  expect(screen.getByLabelText("I have read and agree to the disclaimer.")).toBeInTheDocument();
-}
-
-async function acceptBig5DisclaimerGate() {
-  await waitForBig5ConsentGate();
-  fireEvent.click(screen.getByLabelText("I have read and agree to the disclaimer."));
-  let clicked = false;
-  await waitFor(() => {
-    const startButton = screen.getByRole("button", { name: "Agree and start" });
-    expect(startButton).not.toBeDisabled();
-    if (!clicked) {
-      clicked = true;
-      fireEvent.click(startButton);
-    }
-  });
-  await waitForFirstQuestion();
-}
-
 describe("Big Five take attempt priming", () => {
   beforeEach(() => {
     vi.clearAllMocks();
@@ -374,12 +352,8 @@ describe("Big Five take attempt priming", () => {
   it("primes a Big Five server attempt on the first answer using the active 90Q form", async () => {
     renderClient("big5_90");
 
-    await waitForBig5ConsentGate();
-    expect(screen.queryByText("Big Five question 1")).toBeNull();
-    expect(hoisted.startBig5Attempt).not.toHaveBeenCalled();
-
-    await acceptBig5DisclaimerGate();
-
+    await waitForFirstQuestion();
+    expect(screen.queryByRole("button", { name: "Agree and start" })).toBeNull();
     expect(hoisted.startBig5Attempt).not.toHaveBeenCalled();
 
     fireEvent.click(await screen.findByRole("button", { name: "Answer current" }));
@@ -404,7 +378,7 @@ describe("Big Five take attempt priming", () => {
       "form=big5_90&token=fm_query_token&fm_token=fm_query_other&authorization=Bearer%20query&utm_source=organic"
     );
 
-    await waitForBig5ConsentGate();
+    await waitForFirstQuestion();
 
     await waitFor(() => {
       expect(hoisted.routerReplace).toHaveBeenCalledWith(
@@ -437,7 +411,7 @@ describe("Big Five take attempt priming", () => {
 
     renderClient("big5_90");
 
-    await waitForBig5ConsentGate();
+    await waitForFirstQuestion();
 
     expect(screen.queryByTestId("stale-reset")).toBeNull();
     expect(screen.queryByText("Draft reset required.")).toBeNull();

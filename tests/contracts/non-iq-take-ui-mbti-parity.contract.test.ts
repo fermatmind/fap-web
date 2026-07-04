@@ -12,11 +12,28 @@ describe("non-IQ take UI MBTI parity", () => {
 
     expect(source).toContain("@/components/quiz/QuizShell");
     expect(source).toContain("@/components/quiz/QuizTakeHeaderV2");
-    expect(source).toContain("@/components/quiz/immersive/AdaptiveOptionGroup");
+    expect(source).toContain("@/components/quiz/immersive/V2LikertScale");
     expect(source).toContain("@/components/quiz/immersive/SubmitPhaseOverlay");
+    expect(source).not.toContain("@/components/clinical/quiz/ConsentGate");
+    expect(source).not.toContain("handleAcceptDisclaimerAndStart");
     expect(source).not.toContain("@/components/quiz/matrix/MatrixProgressHeader");
     expect(source).not.toContain("@/components/big5/quiz/QuestionNavigator");
     expect(source).not.toContain("@/components/big5/quiz/QuestionCard");
+  });
+
+  it("keeps the shared take header free of back-detail links and uses the cumulative user label", () => {
+    const headerSource = readRepoFile("components/quiz/QuizTakeHeaderV2.tsx");
+    const immersiveLayoutSource = readRepoFile("components/quiz/immersive/ImmersiveTakeLayout.tsx");
+    const zhSource = readRepoFile("lib/i18n/locales/zh.ts");
+
+    expect(headerSource).not.toContain("next/link");
+    expect(headerSource).not.toContain("backLabel");
+    expect(headerSource).not.toContain("backHref");
+    expect(immersiveLayoutSource).not.toContain("next/link");
+    expect(immersiveLayoutSource).not.toContain("{backLabel}");
+    expect(headerSource).toContain('suffix="+"');
+    expect(zhSource).toContain('completedPrefix: "累计测试人数："');
+    expect(zhSource).toContain('completedSuffix: ""');
   });
 
   it("keeps RIASEC and EQ on the shared MBTI-like QuizTakeClient path without pulling IQ into parity", () => {

@@ -313,8 +313,8 @@ describe("enneagram take flow contract", () => {
     );
 
     await waitForQuestion("I notice what can be improved.");
-    expect(screen.getByTestId("quiz-header")).toHaveAttribute("data-show-completed-count", "false");
-    expect(screen.queryByText("Completed")).not.toBeInTheDocument();
+    expect(screen.getByTestId("quiz-header")).toHaveAttribute("data-show-completed-count", "true");
+    expect(screen.getByText("Completed")).toBeInTheDocument();
     expect(screen.queryByText(/Forced choice/i)).not.toBeInTheDocument();
     expect(screen.queryByRole("heading", { name: "Question 1" })).not.toBeInTheDocument();
     expect(screen.getByTestId("enneagram-forced-choice-pair")).toBeInTheDocument();
