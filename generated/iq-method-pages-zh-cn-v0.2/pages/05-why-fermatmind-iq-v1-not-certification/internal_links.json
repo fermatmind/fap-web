@@ -1,0 +1,51 @@
+{
+  "hub_name": "IQ 测试方法与边界",
+  "page_role": "IQ 信任与边界页",
+  "primary_test_link": {
+    "label": "开始 IQ 风格推理测试",
+    "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+  },
+  "links_out": [
+    {
+      "label": "开始 IQ 风格推理测试",
+      "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+    },
+    {
+      "label": "IQ 风格测试的数据和隐私边界是什么？",
+      "href": "/zh/articles/iq-test-privacy-data-boundary"
+    },
+    {
+      "label": "FermatMind 如何审查 IQ 风格测试内容？",
+      "href": "/zh/articles/iq-expert-review-disclosure"
+    }
+  ],
+  "links_in_recommended": [
+    {
+      "from": "/zh/articles/what-is-iq-style-reasoning-test",
+      "anchor": "为什么 FermatMind IQ V1 是非认证测试？"
+    },
+    {
+      "from": "/zh/articles/online-iq-test-vs-professional-assessment",
+      "anchor": "为什么 FermatMind IQ V1 是非认证测试？"
+    },
+    {
+      "from": "/zh/articles/iq-test-score-meaning-boundary",
+      "anchor": "为什么 FermatMind IQ V1 是非认证测试？"
+    },
+    {
+      "from": "/zh/articles/matrix-reasoning-pattern-recognition-guide",
+      "anchor": "为什么 FermatMind IQ V1 是非认证测试？"
+    }
+  ],
+  "private_flow_guard": {
+    "blocked_prefixes": [
+      "/take",
+      "/results",
+      "/orders",
+      "/pay",
+      "/share",
+      "/history"
+    ],
+    "status": "passed_planning_check"
+  }
+}

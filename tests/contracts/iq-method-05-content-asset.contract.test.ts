@@ -2,15 +2,16 @@ import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { isIqMethod04AllowedFile } from "./helpers/currentPrScope";
+import { isIqMethod05AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const PACKAGE_DIR = "generated/iq-method-pages-zh-cn-v0.2";
-const PAGE_DIR = `${PACKAGE_DIR}/pages/04-matrix-reasoning-pattern-recognition-guide`;
+const PAGE_DIR = `${PACKAGE_DIR}/pages/05-why-fermatmind-iq-v1-not-certification`;
 const DEFINITION_SLUG = "what-is-iq-style-reasoning-test";
 const PROFESSIONAL_BOUNDARY_SLUG = "online-iq-test-vs-professional-assessment";
 const SCORE_BOUNDARY_SLUG = "iq-test-score-meaning-boundary";
-const SLUG = "matrix-reasoning-pattern-recognition-guide";
+const MATRIX_REASONING_SLUG = "matrix-reasoning-pattern-recognition-guide";
+const SLUG = "why-fermatmind-iq-v1-not-certification";
 const CANONICAL = `https://fermatmind.com/zh/articles/${SLUG}`;
 const TEST_PATH = "/zh/tests/iq-test-intelligence-quotient-assessment";
 
@@ -38,6 +39,8 @@ const FORBIDDEN_PUBLISHABLE_PATTERNS = [
   /官方\s*IQ/i,
   /认证\s*IQ/i,
   /智商证书/,
+  /\bcertificate\b/i,
+  /PDF certificate/i,
   /\bRaven\b/i,
   /\bPearson\b/i,
   /\bMensa\b/i,
@@ -109,7 +112,7 @@ function changedFiles(): string[] {
   return Array.from(new Set(files)).filter((file) => file.length > 0 && !FULL_CONTRACT_RUN_SIDE_EFFECT_FILES.has(file));
 }
 
-describe("IQ-METHOD-04 content asset package", () => {
+describe("IQ-METHOD-05 content asset package", () => {
   it("keeps the PR diff inside the approved content-asset scope", () => {
     const files = changedFiles();
 
@@ -118,10 +121,10 @@ describe("IQ-METHOD-04 content asset package", () => {
     }
 
     expect(files.length).toBeGreaterThan(0);
-    expect(files.every(isIqMethod04AllowedFile), files.join("\n")).toBe(true);
+    expect(files.every(isIqMethod05AllowedFile), files.join("\n")).toBe(true);
   });
 
-  it("includes exactly the matrix reasoning guide artifacts for this PR", () => {
+  it("includes exactly the not certification guide artifacts for this PR", () => {
     for (const file of [
       `${PACKAGE_DIR}/PR_TRAIN_INDEX.json`,
       ...REQUIRED_PAGE_FILES.map((file) => `${PAGE_DIR}/${file}`),
@@ -138,13 +141,14 @@ describe("IQ-METHOD-04 content asset package", () => {
     }>(`${PACKAGE_DIR}/PR_TRAIN_INDEX.json`);
 
     expect(index.status).toBe("draft_review_only");
-    expect(index.current_pr).toMatch(/^IQ-METHOD-0[1-7]$/);
-    expect(index.included_pages).toEqual(
-      expect.arrayContaining([DEFINITION_SLUG, PROFESSIONAL_BOUNDARY_SLUG, SCORE_BOUNDARY_SLUG, SLUG]),
-    );
-    if (index.current_pr === "IQ-METHOD-04") {
-      expect(index.included_pages).toEqual([DEFINITION_SLUG, PROFESSIONAL_BOUNDARY_SLUG, SCORE_BOUNDARY_SLUG, SLUG]);
-    }
+    expect(index.current_pr).toBe("IQ-METHOD-05");
+    expect(index.included_pages).toEqual([
+      DEFINITION_SLUG,
+      PROFESSIONAL_BOUNDARY_SLUG,
+      SCORE_BOUNDARY_SLUG,
+      MATRIX_REASONING_SLUG,
+      SLUG,
+    ]);
     expect(index.planned_pages).toHaveLength(7);
     expect(index.publish_gate).toMatchObject({
       cms_write_attempted: false,
@@ -188,9 +192,9 @@ describe("IQ-METHOD-04 content asset package", () => {
       status: "draft_review_only",
       locale: "zh-CN",
       slug: SLUG,
-      title: "矩阵推理和模式识别题在测什么？",
+      title: "为什么 FermatMind IQ V1 是非认证测试？",
       related_test_slug: "iq-test-intelligence-quotient-assessment",
-      category_suggestion: "能力与认知",
+      category_suggestion: "测评方法与边界",
       is_public: false,
       is_indexable: false,
       sitemap_eligible: false,
@@ -211,39 +215,42 @@ describe("IQ-METHOD-04 content asset package", () => {
       sitemap_eligible: false,
       llms_eligible: false,
     });
-    expect(seo.seo_title).toContain("矩阵推理");
-    expect(seo.seo_description).toContain("矩阵推理、图形变化、规律补全和抽象推理");
+    expect(seo.seo_title).toContain("非认证测试");
+    expect(seo.seo_description).toContain("不是监督测评、正式常模报告或外部证明");
     expect(seo.structured_data_candidates).toEqual(["Article", "BreadcrumbList", "FAQPage"]);
     expect(seo.structured_data_forbidden).toEqual(
       expect.arrayContaining(["Product", "SoftwareApplication", "Certificate", "Course", "MedicalWebPage"]),
     );
   });
 
-  it("keeps the article body answer-first and centered on high-level task-type boundaries", () => {
+  it("keeps the article body answer-first and centered on non-certification boundaries", () => {
     const article = read(`${PAGE_DIR}/article.md`);
 
     expect(article.startsWith("#")).toBe(false);
-    expect(article).toContain("矩阵推理和模式识别题通常要求用户观察图形、方向、数量、位置或组合关系");
-    expect(article).toContain("不声称使用任何外部正式量表");
-    expect(article).toContain("不提供外部证明");
+    expect(article).toContain("FermatMind IQ V1 是非认证测试");
+    expect(article).toContain("不是监督环境下的专业智力测评");
+    expect(article).toContain("不适合作为外部证明、医疗或教育决策依据");
     expect(article).toContain("## 这是什么 / 这不是什么");
-    expect(article).toContain("图形和矩阵规律任务");
-    expect(article).toContain("不公开题目答案和评分规则");
-    expect(article).toContain("## 矩阵推理在看什么");
-    expect(article).toContain("图形方向变化");
-    expect(article).toContain("元素数量变化");
-    expect(article).toContain("位置移动");
-    expect(article).toContain("组合或拆分");
-    expect(article).toContain("对称或递进关系");
-    expect(article).toContain("## 模式识别在看什么");
-    expect(article).toContain("不公开具体规则或答案");
-    expect(article).toContain("## 图形推理和空间推理有什么关系");
-    expect(article).toContain("不能据此推断外部资格、长期固定能力、岗位匹配、收入走向或医疗判断");
-    expect(article).toContain("不用于升学、用人、收入或岗位决策");
+    expect(article).toContain("不是正式认证项目");
+    expect(article).toContain("不是外部证明文件");
+    expect(article).toContain("不用于升学、用人或收入判断");
+    expect(article).toContain("## 为什么 V1 不做正式认证");
+    expect(article).toContain("身份核验、监督环境、明确常模、误差解释、专业人员审阅和合规流程");
+    expect(article).toContain("## 正式测评通常需要哪些条件");
+    expect(article).toContain("受控环境");
+    expect(article).toContain("标准化流程");
+    expect(article).toContain("常模资料");
+    expect(article).toContain("误差说明");
+    expect(article).toContain("专业解释");
+    expect(article).toContain("合规流程");
+    expect(article).toContain("V1 提供的是 30 题在线推理任务、结果解释和方法边界");
+    expect(article).toContain("不是提供外部资格证明");
+    expect(article).toContain("不能把 V1 结果用于外部证明、医疗判断、学校或机构决策、用人判断、收入判断或人的长期能力定性");
+    expect(article).toContain("需要作为独立产品线另行建设，并经过常模、专业审阅和合规流程；本页不作上线承诺");
     expect(article).toContain("## FAQ");
   });
 
-  it("keeps GEO, FAQ, and internal links aligned to the task-type explanation intent", () => {
+  it("keeps GEO, FAQ, and internal links aligned to the non-certification intent", () => {
     const answer = readJson<{
       status: string;
       quick_answer: string;
@@ -261,11 +268,10 @@ describe("IQ-METHOD-04 content asset package", () => {
     }>(`${PAGE_DIR}/internal_links.json`);
 
     expect(answer.status).toBe("draft_review_only");
-    expect(answer.quick_answer).toContain("图形、方向、数量、位置或组合关系");
-    expect(answer.quick_answer).toContain("不声称使用任何外部正式量表");
-    expect(answer.definition_or_scope).toContain("矩阵推理是从行列结构中发现图形规律");
-    expect(answer.definition_or_scope).toContain("模式识别是从变化序列中识别重复、递进、替换或组合关系");
-    expect(answer.method_explanation).toContain("不展示具体题目、答案或解题规则");
+    expect(answer.quick_answer).toContain("FermatMind IQ V1 是非认证测试");
+    expect(answer.quick_answer).toContain("不是监督环境下的专业智力测评");
+    expect(answer.definition_or_scope).toContain("不用于外部资格证明");
+    expect(answer.method_explanation).toContain("监督流程、常模、身份核验、误差解释和专业解读");
     expect(answer.boundary_caveat).toContain("非官方、非临床、非认证");
     expect(answer.boundary_caveat).toContain("不用于升学、用人、收入或岗位决策");
     expect(answer.facts).toEqual(expect.arrayContaining([
@@ -280,8 +286,8 @@ describe("IQ-METHOD-04 content asset package", () => {
     expect(internalLinks.links_out.map((link) => link.href)).toEqual(
       expect.arrayContaining([
         TEST_PATH,
-        "/zh/articles/why-fermatmind-iq-v1-not-certification",
         "/zh/articles/iq-test-privacy-data-boundary",
+        "/zh/articles/iq-expert-review-disclosure",
       ]),
     );
   });
@@ -311,10 +317,14 @@ describe("IQ-METHOD-04 content asset package", () => {
     for (const pattern of PRIVATE_FLOW_PATTERNS) {
       expect(combined).not.toMatch(pattern);
     }
-    expect(combined).toMatch(/原创 30 题/);
-    expect(combined).toMatch(/不声称使用任何外部正式量表/);
-    expect(combined).toMatch(/不展示具体题目、答案或解题规则/);
-    expect(combined).toMatch(/不公开题目答案和评分规则/);
+    expect(combined).toMatch(/身份核验/);
+    expect(combined).toMatch(/监督环境/);
+    expect(combined).toMatch(/标准化流程/);
+    expect(combined).toMatch(/常模资料/);
+    expect(combined).toMatch(/误差说明/);
+    expect(combined).toMatch(/专业解释/);
+    expect(combined).toMatch(/合规流程/);
+    expect(combined).toMatch(/不作上线承诺/);
     expect(combined).toMatch(/不用于升学、用人、收入或岗位决策/);
     expect(claimAudit).toMatchObject({
       status: "draft_review_only",
