@@ -39,4 +39,21 @@ describe("QuizTakeHeaderV2 contract", () => {
     expect(screen.queryByText("1,049,304")).not.toBeInTheDocument();
     expect(screen.queryByText("次测评")).not.toBeInTheDocument();
   });
+
+  it("can render a static backend total count for localized take headers", () => {
+    render(
+      <QuizTakeHeaderV2
+        {...baseProps}
+        completedPrefix=""
+        completedCountLabel="1200000+"
+        completedSuffix="后台测试数据总计"
+      />
+    );
+
+    expect(screen.getByText("1200000+")).toBeInTheDocument();
+    expect(screen.getByText("后台测试数据总计")).toBeInTheDocument();
+    expect(screen.queryByText("过去30天已完成")).not.toBeInTheDocument();
+    expect(screen.queryByText("1,049,304")).not.toBeInTheDocument();
+    expect(screen.queryByText("次测评")).not.toBeInTheDocument();
+  });
 });
