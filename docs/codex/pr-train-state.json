@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T02:43:00+08:00",
+  "updated_at": "2026-07-05T03:08:00+08:00",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -29396,13 +29396,13 @@
       "id": "IQ-METHOD-06",
       "repo": "fap-web",
       "branch": "codex/iq-method-06-privacy-data-boundary",
-      "status": "local_checks_failed_external_blocker",
-      "commit_sha": "cb97b3ca3251af68e2e0e5c4be0ad37000f45049",
+      "status": "local_checks_passed_after_external_blocker_fix",
+      "commit_sha": "848ffc59",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1600",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "failure_reason": "After rebase onto origin/main a5d0798d, pnpm test:contract failed because the newly merged MBTI-ASSET-OPS-09 scope contract rejects IQ-METHOD-06 branch files. This is external to IQ-METHOD-06 but affects required local checks, so the PR train must stop until the external scope guard is fixed or scope expansion is explicitly authorized.",
+      "failure_reason": null,
       "checks": {
         "authorization": {
           "status": "pass",
@@ -29413,56 +29413,25 @@
           "evidence": "IQ-METHOD-05 is merged in GitHub PR #1599 and origin/main contains merge commit 3d5d1d5f739c8099fec9491904c748e8f7d04ae5."
         },
         "scope": {
-          "status": "pass_current_pr_scope_but_blocked_by_external_contract",
-          "evidence": "IQ-METHOD-06 diff against origin/main remains limited to its approved 17 files, but full contract is blocked by an external MBTI-ASSET-OPS-09 scope guard."
+          "status": "pass",
+          "evidence": "Rebased IQ-METHOD-06 diff against origin/main d0f7be6f remains limited to the approved CMS Article draft-review asset package, PR_TRAIN_INDEX, IQ-METHOD-05/06 contract harness, currentPrScope, docs/codex metadata, and sidecar records."
         },
         "local": {
-          "status": "failed_external_blocker",
+          "status": "pass",
           "commands": [
             "pnpm exec vitest run tests/contracts/iq-method-05-content-asset.contract.test.ts tests/contracts/iq-method-06-content-asset.contract.test.ts",
+            "node JSON parse for IQ-METHOD-06 package and train metadata; ruby YAML parse for docs/codex/pr-train.yaml",
+            "git diff --check",
             "pnpm typecheck",
-            "pnpm test:contract"
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build"
           ],
-          "failure": {
-            "command": "pnpm test:contract",
-            "failing_test": "tests/contracts/mbti-asset-ops-09-personality-asset-sop.contract.test.ts > keeps the PR scoped to OPS-09 docs, artifacts, contract, and train ledger",
-            "evidence": "The OPS-09 test expected no outside-scope files but received IQ-METHOD-06 files such as generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/** and tests/contracts/iq-method-06-content-asset.contract.test.ts."
-          }
+          "evidence": "Focused IQ contracts passed, metadata parse passed, diff check passed, typecheck passed, full contract suite passed after PR #1601, production API build passed, and known MBTI CMS04 contract side effects were restored."
         },
         "github": {
-          "status": "pass",
-          "checks": [
-            {
-              "name": "build",
-              "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T18:23:40Z"
-            },
-            {
-              "name": "contracts",
-              "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T18:25:14Z"
-            },
-            {
-              "name": "verify-big5-contract-freeze",
-              "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T18:21:19Z"
-            },
-            {
-              "name": "verify-enneagram-contract-freeze",
-              "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T18:21:19Z"
-            },
-            {
-              "name": "analyze (javascript-typescript)",
-              "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T18:24:18Z"
-            },
-            {
-              "name": "CodeQL",
-              "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T18:24:09Z"
-            }
-          ]
+          "status": "pending_revalidation_after_force_push",
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1600",
+          "evidence": "GitHub checks must rerun after the rebased IQ-METHOD-06 branch is pushed."
         }
       },
       "history": [
@@ -29500,6 +29469,16 @@
           "at": "2026-07-05T02:43:00+08:00",
           "status": "local_checks_failed_external_blocker",
           "note": "After rebase onto origin/main a5d0798d, focused IQ contracts and typecheck passed, but pnpm test:contract failed because the external MBTI-ASSET-OPS-09 scope guard rejects IQ-METHOD-06 files. Recorded sidecar issue external-mbti-asset-ops-09-scope-guard-blocks-iq-method-06 and stopped train progression."
+        },
+        {
+          "at": "2026-07-05T03:03:00+08:00",
+          "status": "external_blocker_fixed_revalidating",
+          "note": "External blocker fixed by PR #1601 (merge commit d0f7be6f5f3a73f2e48d04e622837da4d86932a4). Rebased IQ-METHOD-06 onto latest origin/main and resumed local required validation."
+        },
+        {
+          "at": "2026-07-05T03:08:00+08:00",
+          "status": "local_checks_passed_after_external_blocker_fix",
+          "note": "After PR #1601 fixed the external OPS-09 scope guard, reran focused IQ contracts, JSON/YAML parse, diff check, typecheck, full contract suite, production API build, and scope validation successfully."
         }
       ],
       "metadata": {
@@ -29517,7 +29496,7 @@
           "llms_eligible": false
         }
       },
-      "updated_at": "2026-07-05T02:43:00+08:00"
+      "updated_at": "2026-07-05T03:08:00+08:00"
     },
     {
       "id": "IQ-METHOD-07",
@@ -41325,5 +41304,6 @@
     ],
     "updated_at": "2026-07-04T12:00:00Z",
     "next_task": null
-  }
+  },
+  "current_pr": "IQ-METHOD-06"
 }

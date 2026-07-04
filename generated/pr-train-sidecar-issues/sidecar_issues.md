@@ -99,3 +99,5 @@
 - why not current PR scope: IQ-METHOD-06 is scoped to the privacy/data-boundary CMS Article draft-review package and its IQ contract harness. Changing the MBTI-ASSET-OPS-09 contract would be an external train-forward compatibility fix for a previously merged MBTI PR.
 - required checks affected: true; this blocks required local contract validation for IQ-METHOD-06 after rebase.
 - recommended follow-up: Open a separate scoped fap-web PR or explicitly authorize scope expansion to make the MBTI-ASSET-OPS-09 scope test branch-scoped/train-forward compatible, then rebase IQ-METHOD-06 and rerun `pnpm test:contract`.
+- resolution: Resolved by fap-web PR #1601, which made `tests/contracts/mbti-asset-ops-09-personality-asset-sop.contract.test.ts` enforce OPS-09 scope only on branch `codex/mbti-asset-ops-09-personality-asset-sop`.
+- resolved at: 2026-07-05T03:03:00+08:00.
