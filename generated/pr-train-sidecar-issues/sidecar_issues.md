@@ -89,3 +89,13 @@
 - why not current PR scope: OPS-09 scope is a docs/audit SOP PR and does not include modifying the already-merged OPS-08 contract. Updating the stale OPS-08 scope guard would be a separate contract-maintenance scope or needs explicit scope-extension authorization.
 - whether required checks are affected: yes; the required `contracts` check is failing, so the PR train must stop before merge or before starting MBTI-ASSET-SKILL-10.
 - recommended follow-up: authorize a scoped fix to make the OPS-08 contract only enforce its scope when the active diff touches OPS-08 artifacts, then rerun PR #1590 checks.
+
+## external-mbti-asset-ops-09-scope-guard-blocks-iq-method-06
+
+- repo: fermatmind/fap-web
+- PR id / branch: IQ-METHOD-06 / codex/iq-method-06-privacy-data-boundary
+- blocker type: external_train_scope_guard_blocks_required_contracts
+- evidence: After rebasing IQ-METHOD-06 onto origin/main a5d0798d, `pnpm test:contract` failed only in `tests/contracts/mbti-asset-ops-09-personality-asset-sop.contract.test.ts`. Its OPS-09 scope test rejects the IQ-METHOD-06 generated assets and contract files in the current branch diff.
+- why not current PR scope: IQ-METHOD-06 is scoped to the privacy/data-boundary CMS Article draft-review package and its IQ contract harness. Changing the MBTI-ASSET-OPS-09 contract would be an external train-forward compatibility fix for a previously merged MBTI PR.
+- required checks affected: true; this blocks required local contract validation for IQ-METHOD-06 after rebase.
+- recommended follow-up: Open a separate scoped fap-web PR or explicitly authorize scope expansion to make the MBTI-ASSET-OPS-09 scope test branch-scoped/train-forward compatible, then rebase IQ-METHOD-06 and rerun `pnpm test:contract`.

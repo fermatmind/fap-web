@@ -93,5 +93,16 @@
     "why_not_current_pr_scope": "OPS-09 scope is a docs/audit SOP PR and does not include modifying the already-merged OPS-08 contract. Updating the stale OPS-08 scope guard would be a separate contract-maintenance scope or needs explicit scope-extension authorization.",
     "required_checks_affected": true,
     "recommended_follow_up": "Authorize a scoped fix to make the OPS-08 contract only enforce its scope when the active diff touches OPS-08 artifacts, then rerun PR #1590 checks."
+  },
+  {
+    "id": "external-mbti-asset-ops-09-scope-guard-blocks-iq-method-06",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "IQ-METHOD-06",
+    "branch": "codex/iq-method-06-privacy-data-boundary",
+    "blocker_type": "external_train_scope_guard_blocks_required_contracts",
+    "evidence": "After rebasing IQ-METHOD-06 onto origin/main a5d0798d, `pnpm test:contract` failed only in tests/contracts/mbti-asset-ops-09-personality-asset-sop.contract.test.ts. Its OPS-09 scope test compares committedScopeFiles() for the current IQ branch and rejects IQ-METHOD-06 files including generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json, generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/**, tests/contracts/helpers/currentPrScope.ts, tests/contracts/iq-method-05-content-asset.contract.test.ts, and tests/contracts/iq-method-06-content-asset.contract.test.ts.",
+    "why_not_current_pr_scope": "IQ-METHOD-06 scope is limited to the privacy/data-boundary CMS Article draft-review asset package, PR_TRAIN_INDEX, IQ-METHOD-05/06 contract harness, currentPrScope, docs/codex metadata, and sidecar issue records. Changing the MBTI-ASSET-OPS-09 contract is an external train-forward compatibility fix for a previously merged MBTI PR and would expand this PR beyond one scope.",
+    "required_checks_affected": true,
+    "recommended_follow_up": "Open a separate scoped fap-web PR or authorize scope expansion to make tests/contracts/mbti-asset-ops-09-personality-asset-sop.contract.test.ts enforce OPS-09 scope only on branch codex/mbti-asset-ops-09-personality-asset-sop, then rebase IQ-METHOD-06 and rerun pnpm test:contract."
   }
 ]
