@@ -40042,8 +40042,8 @@
     "depends_on": [
       "MBTI-CMS-06"
     ],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "ready_to_merge",
+    "commit_sha": "44396ce133267cb4f457da4bd06ed0fbd50eb454",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1587",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -40051,18 +40051,29 @@
     "failure_reason": null,
     "checks": {
       "local_checks": {
-        "status": "pending",
-        "commands": []
+        "status": "passed",
+        "commands": [
+          "node scripts/seo/build-mbti-seo-07-discoverability-audit.mjs",
+          "pnpm exec vitest run tests/contracts/mbti-seo-07-discoverability-audit.contract.test.ts --reporter=dot",
+          "pnpm exec vitest run tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/public-sitemap-route.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts --reporter=dot",
+          "pnpm typecheck",
+          "pnpm test:contract",
+          "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+          "ruby -r psych -e \"Psych.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "node -e \"const fs=require('fs'); JSON.parse(fs.readFileSync('docs/codex/pr-train-state.json','utf8')); JSON.parse(fs.readFileSync('docs/seo/personality/mbti-seo-07-discoverability-audit-2026-07-04.json','utf8'))\"",
+          "git diff --check",
+          "changed_file_scope_validation"
+        ]
       },
       "github_checks": {
-        "status": "pending",
-        "evidence": null
+        "status": "passed",
+        "evidence": "PR #1587 checks passed after scoped fix: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL/analyze."
       }
     },
     "scope_validation": {
-      "status": "pending",
+      "status": "passed",
       "outside_scope_files": [],
-      "evidence": null
+      "evidence": "Changed files limited to MBTI-SEO-07 audit script, generated audit markdown/json, contract test, and train ledger."
     },
     "events": [
       {
@@ -40099,10 +40110,15 @@
         "at": "2026-07-04T09:18:55Z",
         "status": "github_contracts_failed_then_fixed",
         "notes": "Inspected failing contracts job. Failure was in tests/contracts/mbti-seo-07-discoverability-audit.contract.test.ts scope check, caused by CI runtime-generated PR4 asset drift in the same shard. Fixed within PR7 by checking committed PR diff instead of dirty worktree state; focused contract and full pnpm test:contract passed locally."
+      },
+      {
+        "at": "2026-07-04T09:26:08Z",
+        "status": "ready_to_merge",
+        "notes": "GitHub checks passed after scoped fix: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL/analyze."
       }
     ],
     "base_commit_sha": "ec12c104ea8580b390c6df18473d8340b434a980",
-    "updated_at": "2026-07-04T09:18:55Z"
+    "updated_at": "2026-07-04T09:26:08Z"
   },
   "MBTI-OPS-08": {
     "repo": "fap-web",
