@@ -39528,9 +39528,9 @@
     "depends_on": [
       "MBTI-SEO-01"
     ],
-    "status": "committed",
-    "commit_sha": "1b57e6a1ee04c1bbd26982ce2c0f52a619c5e6d5",
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "7f28b7b8ded0a1de0bf6e741f9339ac3d9be0ddc",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1579",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -39587,10 +39587,17 @@
         "status": "committed",
         "commit_sha": "1b57e6a1ee04c1bbd26982ce2c0f52a619c5e6d5",
         "notes": "Committed MBTI-SEO-02 scoped test landing personality link bridge after local checks and scope validation passed."
+      },
+      {
+        "at": "2026-07-04T04:41:34.908Z",
+        "status": "pr_open",
+        "commit_sha": "7f28b7b8ded0a1de0bf6e741f9339ac3d9be0ddc",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1579",
+        "notes": "Opened PR #1579 for MBTI-SEO-02."
       }
     ],
     "base_commit_sha": "eb4d2ac21e949b00a163ab4817e8408613a36d15",
-    "updated_at": "2026-07-04T04:38:24.164Z"
+    "updated_at": "2026-07-04T04:41:34.908Z"
   },
   "MBTI-SEO-03": {
     "repo": "fap-web",
