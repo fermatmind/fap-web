@@ -100,11 +100,13 @@ describe("personality semantics contract", () => {
     expect(pageSource).toContain('id="personality-itemlist-jsonld"');
   });
 
-  it("does not render FAQPage schema unless FAQ content is reintroduced to the page", () => {
+  it("renders visible hub FAQ and FAQPage schema from the formal hub payload", () => {
     const pagePath = path.join(process.cwd(), "app/(localized)/[locale]/personality/page.tsx");
     const pageSource = fs.readFileSync(pagePath, "utf8");
 
-    expect(pageSource).not.toContain("buildFAQPageJsonLd");
-    expect(pageSource).not.toContain("<PersonalityFaq");
+    expect(pageSource).toContain("buildFAQPageJsonLd");
+    expect(pageSource).toContain("<PersonalityFaq");
+    expect(pageSource).toContain("const faqItems = hubPayload.faqBlocks");
+    expect(pageSource).toContain('id="personality-faq-jsonld"');
   });
 });

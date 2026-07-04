@@ -105,9 +105,13 @@ describe("personality hub contract", () => {
 
     expect(pageSource).toContain('from "@/lib/mbti/personalityHub.adapter"');
     expect(pageSource).toContain("buildItemListJsonLd");
+    expect(pageSource).toContain("buildFAQPageJsonLd");
     expect(pageSource).toContain("buildPersonalityHubPayload({");
     expect(pageSource).toContain('data-testid="personality-type-group-browse"');
+    expect(pageSource).toContain('data-testid="personality-hub-seo-overview"');
+    expect(pageSource).toContain('data-testid="personality-popular-comparisons"');
     expect(pageSource).toContain('data-testid="personality-type-directory"');
+    expect(pageSource).toContain("<PersonalityFaq");
     expect(pageSource).toContain('from "next/image"');
     expect(pageSource).toContain('data-testid="personality-type-image"');
     expect(pageSource).toContain('data-testid="personality-type-code-fallback"');
