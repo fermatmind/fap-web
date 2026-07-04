@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-04T16:25:25.682Z",
+  "updated_at": "2026-07-04T16:42:58Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -28601,7 +28601,7 @@
       "branch": "codex/big5-result-page-renderer-hygiene-followup-01",
       "base": "main",
       "depends_on": [],
-      "status": "in_progress",
+      "status": "local_checks_passed",
       "title": "BIG5-RESULT-PAGE-RENDERER-HYGIENE-FOLLOWUP-01",
       "artifacts": [
         "components/big5/report/BlockRenderer.tsx",
@@ -28896,12 +28896,12 @@
       "id": "IQ-METHOD-02",
       "repo": "fap-web",
       "branch": "codex/iq-method-02-online-vs-professional",
-      "status": "ready_to_merge",
+      "status": "merged",
       "commit_sha": "153397b16c5424896a5b568468d382768b17847d",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1596",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-07-04T16:30:57Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -28989,6 +28989,11 @@
           "at": "2026-07-04T16:25:25.682Z",
           "status": "ready_to_merge",
           "note": "GitHub PR #1596 checks passed and mergeStateStatus is CLEAN; ready for squash merge under repo policy."
+        },
+        {
+          "at": "2026-07-04T16:34:44.211Z",
+          "status": "merged_reconciled",
+          "note": "Reconciled IQ-METHOD-02 after GitHub PR #1596 merged with merge commit a596b58d802507d4c834a4a92d8d2a109db159fd; origin/main contains the merge commit and local/remote task branches are deleted."
         }
       ],
       "metadata": {
@@ -29006,13 +29011,13 @@
           "llms_eligible": false
         }
       },
-      "updated_at": "2026-07-04T16:25:25.682Z"
+      "updated_at": "2026-07-04T16:34:44.211Z"
     },
     {
       "id": "IQ-METHOD-03",
       "repo": "fap-web",
       "branch": "codex/iq-method-03-score-meaning-boundary",
-      "status": "planned",
+      "status": "in_progress",
       "commit_sha": null,
       "pr_url": null,
       "merged_at": null,
@@ -29025,16 +29030,24 @@
           "evidence": "User explicitly authorized adding and executing IQ-METHOD-01 through IQ-METHOD-07, including fap-web docs/codex metadata updates, in the attached /goal request."
         },
         "dependency": {
-          "status": "pending",
-          "evidence": "Depends on IQ-METHOD-02 merging into main."
+          "status": "pass",
+          "evidence": "IQ-METHOD-02 is merged in GitHub PR #1596 and origin/main contains merge commit a596b58d802507d4c834a4a92d8d2a109db159fd."
         },
         "scope": {
-          "status": "planned",
-          "evidence": "Scope is limited to CMS Article draft-review assets for iq-test-score-meaning-boundary, tests/contracts/helpers/currentPrScope.ts, focused contract coverage, docs/codex metadata, and sidecar issue records if needed."
+          "status": "pass",
+          "evidence": "git diff --name-only is limited to IQ-METHOD-03 CMS Article draft-review assets, PR_TRAIN_INDEX, PR train metadata, IQ-METHOD-02/03 contract harness, currentPrScope, and no sidecar issue records."
         },
         "local": {
-          "status": "pending",
-          "commands": []
+          "status": "pass",
+          "commands": [
+            "pnpm exec vitest run tests/contracts/iq-method-02-content-asset.contract.test.ts tests/contracts/iq-method-03-content-asset.contract.test.ts",
+            "pnpm typecheck",
+            "pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build",
+            "node JSON parse for docs/codex/pr-train-state.json, generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json, and IQ-METHOD-03 page JSON assets",
+            "ruby YAML parse for docs/codex/pr-train.yaml",
+            "git diff --check"
+          ]
         },
         "github": {
           "status": "pending",
@@ -29046,6 +29059,16 @@
           "at": "2026-07-04T15:02:10.277Z",
           "status": "planned",
           "note": "Registered IQ-METHOD-03 for later execution after dependencies merge."
+        },
+        {
+          "at": "2026-07-04T16:34:44.211Z",
+          "status": "in_progress",
+          "note": "Started IQ-METHOD-03 after reconciling IQ-METHOD-02 merge; preparing score meaning CMS Article draft-review content assets without CMS writes or discoverability activation."
+        },
+        {
+          "at": "2026-07-04T16:42:58Z",
+          "status": "local_checks_passed",
+          "note": "Completed IQ-METHOD-03 score meaning draft-review asset package and required local validation without CMS writes, frontend runtime content, discoverability activation, production import, or deploy."
         }
       ],
       "metadata": {
@@ -29062,7 +29085,8 @@
           "sitemap_eligible": false,
           "llms_eligible": false
         }
-      }
+      },
+      "updated_at": "2026-07-04T16:42:58Z"
     },
     {
       "id": "IQ-METHOD-04",

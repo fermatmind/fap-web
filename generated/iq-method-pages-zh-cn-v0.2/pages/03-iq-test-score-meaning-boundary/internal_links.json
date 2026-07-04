@@ -1,0 +1,51 @@
+{
+  "hub_name": "IQ 测试方法与边界",
+  "page_role": "结果解释支持页",
+  "primary_test_link": {
+    "label": "开始 IQ 风格推理测试",
+    "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+  },
+  "links_out": [
+    {
+      "label": "开始 IQ 风格推理测试",
+      "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+    },
+    {
+      "label": "矩阵推理和模式识别题在测什么？",
+      "href": "/zh/articles/matrix-reasoning-pattern-recognition-guide"
+    },
+    {
+      "label": "为什么 FermatMind IQ V1 是非认证测试？",
+      "href": "/zh/articles/why-fermatmind-iq-v1-not-certification"
+    }
+  ],
+  "links_in_recommended": [
+    {
+      "from": "/zh/articles/what-is-iq-style-reasoning-test",
+      "anchor": "IQ 风格测试里的原始分、正确率和完成时间说明什么？"
+    },
+    {
+      "from": "/zh/articles/online-iq-test-vs-professional-assessment",
+      "anchor": "IQ 风格测试里的原始分、正确率和完成时间说明什么？"
+    },
+    {
+      "from": "/zh/articles/matrix-reasoning-pattern-recognition-guide",
+      "anchor": "IQ 风格测试里的原始分、正确率和完成时间说明什么？"
+    },
+    {
+      "from": "/zh/articles/why-fermatmind-iq-v1-not-certification",
+      "anchor": "IQ 风格测试里的原始分、正确率和完成时间说明什么？"
+    }
+  ],
+  "private_flow_guard": {
+    "blocked_prefixes": [
+      "/take",
+      "/results",
+      "/orders",
+      "/pay",
+      "/share",
+      "/history"
+    ],
+    "status": "passed_planning_check"
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "status": "draft_review_only",
+  "locale": "zh-CN",
+  "slug": "iq-test-score-meaning-boundary",
+  "title": "IQ 风格测试里的原始分、正确率和完成时间说明什么？",
+  "excerpt": "解释 IQ V1 结果里的原始分、正确率、完成时间和维度表现该如何理解，避免误读。",
+  "content_md": "FermatMind IQ V1 的原始分、正确率和完成时间，是本次 30 题推理任务中的表现信号。原始分说明答对题数，正确率说明准确程度，完成时间说明答题节奏。它们不等于外部证明，也不应被解释为长期能力标签。\n\n## 这是什么 / 这不是什么\n\n| 这是什么 | 这不是什么 |\n|---|---|\n| 本次答题表现信号 | 不是外部认证 |\n| 原始分、正确率、完成时间 | 不是人群排名式结论 |\n| 帮助理解解题过程 | 不是医疗或心理健康判断 |\n| 可用于复盘和练习 | 不用于升学、用人、收入或岗位决策 |\n\n## 原始分说明什么\n\n原始分表示你在 30 题中答对了多少题。它是最直接的结果指标，但不能单独代表完整的认知能力。比如同样答对 22 题，有人可能做得很快但粗心，有人可能做得慢但稳定。原始分需要结合完成时间、题型表现和稳定性提示一起看。\n\n## 正确率说明什么\n\n正确率表示答对题数占总题数的比例。它适合帮助你理解本次题组的准确程度。\n\n| 指标 | 可以理解为 |\n|---|---|\n| 原始分 | 本次答对题数 |\n| 正确率 | 本次答题准确程度 |\n| 完成时间 | 本次答题节奏 |\n| 维度表现 | 哪些推理任务相对更顺或更难 |\n| 稳定性提示 | 结果是否需要谨慎解释 |\n\n## 完成时间说明什么\n\n完成时间不是正式的速度测评。它只能作为节奏参考。过快可能意味着直觉反应强，也可能意味着没有充分检查；过慢可能意味着认真分析，也可能说明部分规律较难识别。时间应和正确率一起看，而不是单独作为能力高低判断。\n\n## 可以理解什么\n\n你可以用结果回答这些问题：\n\n- 我这次答对了多少题？\n- 我是否容易识别图形或矩阵规律？\n- 我的答题节奏是否明显偏快或偏慢？\n- 哪些任务方向值得继续练习？\n- 这次结果是否需要谨慎解读？\n\n## 不能据此推断什么\n\n你不能用这些指标推断外部资格、长期固定能力、医疗判断、升学结果、岗位匹配或收入走向。它们只是本次任务表现，不是对人的完整定义。\n\n## FAQ\n\n### 原始分越高就一定代表能力越强吗？\n不一定。原始分只能说明本次题组表现，还要结合题型、时间和稳定性提示。\n\n### 完成时间越短越好吗？\n不一定。完成时间是节奏参考，不是正式速度指标。\n\n### 为什么不显示人群排名？\nV1 不做这种公开承诺，避免用户把一次在线任务误读为正式结论。\n\n### 结果可以怎么用？\n可以用于复盘、练习和自我了解，不应用于外部决策。",
+  "related_test_slug": "iq-test-intelligence-quotient-assessment",
+  "category_suggestion": "测评方法与边界",
+  "tags": [
+    "IQ 风格推理测试",
+    "测评方法与边界",
+    "非官方非认证",
+    "推理表现"
+  ],
+  "is_public": false,
+  "is_indexable": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "reviewer_status": "method_and_claim_review_required",
+  "canonical_url": "https://fermatmind.com/zh/articles/iq-test-score-meaning-boundary",
+  "robots": "noindex,follow",
+  "schema_json": {
+    "editorial_package_v1": {
+      "package_version": "iq-method-pages-zh-cn-v0.2",
+      "answer_surface_policy": "editor_supplied",
+      "answer_surface_v1": {
+        "version": "answer_surface_v1",
+        "status": "draft_review_only",
+        "quick_answer": "原始分、正确率和完成时间是本次 30 题推理任务的表现信号。原始分说明答对题数，正确率说明答题准确程度，完成时间可作为解题节奏参考。它们不等于外部证明、人群排名、稳定能力结论，也不能用于升学、用人或收入判断。",
+        "definition_or_scope": "本页把结果页中的基础指标解释为本次任务表现，而不是正式智力结论。",
+        "method_explanation": "页面解释原始分、正确率、完成时间和维度表现的含义，并说明它们不能支持哪些推断。",
+        "boundary_caveat": "本页只解释 FermatMind IQ V1 的公开方法与边界。它是非官方、非临床、非认证的在线 IQ 风格推理测试，不用于升学、用人、收入或岗位决策。",
+        "facts": [
+          "FermatMind IQ V1 为原创 30 题。",
+          "预计完成时间约 20 分钟。",
+          "题库、答案和评分逻辑由后端私有评分控制。",
+          "公开安全表达限于原始分、正确率、完成时间、维度表现、稳定性提示和本次推理任务表现。",
+          "当前高层维度描述限于视觉空间洞察、视觉空间模式推理、数字规律推理。"
+        ],
+        "faq_items": [
+          {
+            "question": "原始分越高就一定代表能力越强吗？",
+            "answer": "不一定。原始分只能说明本次题组表现，还要结合题型、时间和稳定性提示。"
+          },
+          {
+            "question": "完成时间越短越好吗？",
+            "answer": "不一定。完成时间是节奏参考，不是正式速度指标。"
+          },
+          {
+            "question": "为什么不显示人群排名？",
+            "answer": "V1 不做这种公开承诺，避免用户把一次在线任务误读为正式结论。"
+          },
+          {
+            "question": "结果可以怎么用？",
+            "answer": "可以用于复盘、练习和自我了解，不应用于外部决策。"
+          }
+        ],
+        "next_steps": [
+          {
+            "label": "开始 IQ 风格推理测试",
+            "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+          },
+          {
+            "label": "阅读相邻方法页",
+            "href": "/zh/articles/matrix-reasoning-pattern-recognition-guide"
+          }
+        ],
+        "related_links": [
+          {
+            "label": "开始 IQ 风格推理测试",
+            "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+          },
+          {
+            "label": "矩阵推理和模式识别题在测什么？",
+            "href": "/zh/articles/matrix-reasoning-pattern-recognition-guide"
+          },
+          {
+            "label": "为什么 FermatMind IQ V1 是非认证测试？",
+            "href": "/zh/articles/why-fermatmind-iq-v1-not-certification"
+          }
+        ],
+        "last_reviewed_note": "待方法与 claim 审核"
+      },
+      "cta_slots": [
+        {
+          "slot": "primary",
+          "label": "开始 IQ 风格推理测试",
+          "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+        },
+        {
+          "slot": "secondary",
+          "label": "继续阅读方法与边界说明",
+          "href": "/zh/articles/matrix-reasoning-pattern-recognition-guide"
+        }
+      ],
+      "claim_boundary_metadata": {
+        "positioning": "IQ-style reasoning test",
+        "non_official": true,
+        "non_clinical": true,
+        "non_certification": true,
+        "no_formal_population_ranking": true,
+        "no_private_flow_urls": true
+      },
+      "content_authority_note": "CMS/backend authoritative; frontend fallback forbidden",
+      "review_required_before_publish": true
+    }
+  }
+}

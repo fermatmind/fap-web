@@ -6245,3 +6245,33 @@ export function isIqMethod02AllowedFile(file: string): boolean {
 
   return IQ_METHOD_02_ALLOWED_FILES.has(file);
 }
+
+const IQ_METHOD_03_ALLOWED_FILES = new Set([
+  "generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/article.md",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/article.cms.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/seo.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/answer_surface_v1.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/landing_surface_v1.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/faq.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/geo_answer_block.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/claim_audit.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/internal_links.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/media_brief.json",
+  "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/qa_checklist.md",
+  "tests/contracts/iq-method-02-content-asset.contract.test.ts",
+  "tests/contracts/iq-method-03-content-asset.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
+export function isIqMethod03AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/iq-method-03-score-meaning-boundary") {
+    return true;
+  }
+
+  return IQ_METHOD_03_ALLOWED_FILES.has(file);
+}

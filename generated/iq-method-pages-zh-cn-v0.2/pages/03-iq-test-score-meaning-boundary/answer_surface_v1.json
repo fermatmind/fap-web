@@ -1,0 +1,58 @@
+{
+  "version": "answer_surface_v1",
+  "status": "draft_review_only",
+  "quick_answer": "原始分、正确率和完成时间是本次 30 题推理任务的表现信号。原始分说明答对题数，正确率说明答题准确程度，完成时间可作为解题节奏参考。它们不等于外部证明、人群排名、稳定能力结论，也不能用于升学、用人或收入判断。",
+  "definition_or_scope": "本页把结果页中的基础指标解释为本次任务表现，而不是正式智力结论。",
+  "method_explanation": "页面解释原始分、正确率、完成时间和维度表现的含义，并说明它们不能支持哪些推断。",
+  "boundary_caveat": "本页只解释 FermatMind IQ V1 的公开方法与边界。它是非官方、非临床、非认证的在线 IQ 风格推理测试，不用于升学、用人、收入或岗位决策。",
+  "facts": [
+    "FermatMind IQ V1 为原创 30 题。",
+    "预计完成时间约 20 分钟。",
+    "题库、答案和评分逻辑由后端私有评分控制。",
+    "公开安全表达限于原始分、正确率、完成时间、维度表现、稳定性提示和本次推理任务表现。",
+    "当前高层维度描述限于视觉空间洞察、视觉空间模式推理、数字规律推理。"
+  ],
+  "faq_items": [
+    {
+      "question": "原始分越高就一定代表能力越强吗？",
+      "answer": "不一定。原始分只能说明本次题组表现，还要结合题型、时间和稳定性提示。"
+    },
+    {
+      "question": "完成时间越短越好吗？",
+      "answer": "不一定。完成时间是节奏参考，不是正式速度指标。"
+    },
+    {
+      "question": "为什么不显示人群排名？",
+      "answer": "V1 不做这种公开承诺，避免用户把一次在线任务误读为正式结论。"
+    },
+    {
+      "question": "结果可以怎么用？",
+      "answer": "可以用于复盘、练习和自我了解，不应用于外部决策。"
+    }
+  ],
+  "next_steps": [
+    {
+      "label": "开始 IQ 风格推理测试",
+      "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+    },
+    {
+      "label": "阅读相邻方法页",
+      "href": "/zh/articles/matrix-reasoning-pattern-recognition-guide"
+    }
+  ],
+  "related_links": [
+    {
+      "label": "开始 IQ 风格推理测试",
+      "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+    },
+    {
+      "label": "矩阵推理和模式识别题在测什么？",
+      "href": "/zh/articles/matrix-reasoning-pattern-recognition-guide"
+    },
+    {
+      "label": "为什么 FermatMind IQ V1 是非认证测试？",
+      "href": "/zh/articles/why-fermatmind-iq-v1-not-certification"
+    }
+  ],
+  "last_reviewed_note": "待方法与 claim 审核"
+}
