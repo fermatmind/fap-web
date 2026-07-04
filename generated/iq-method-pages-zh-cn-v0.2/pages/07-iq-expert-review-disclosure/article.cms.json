@@ -1,0 +1,109 @@
+{
+  "status": "draft_review_only",
+  "locale": "zh-CN",
+  "slug": "iq-expert-review-disclosure",
+  "title": "FermatMind 如何审查 IQ 风格测试内容？",
+  "excerpt": "说明专家顾问和博士团队如何参与 IQ V1 的题目方向、方法边界和解释文案审阅。",
+  "content_md": "专家顾问和博士团队可以参与 FermatMind IQ V1 的题目方向、方法边界、解释文案和风险声明审阅，帮助测试保持清晰、保守和负责任。但这不等于正式认证、外部资格证明或正式心理测评验证。V1 仍应被理解为在线 IQ 风格推理测试。\n\n## 这是什么 / 这不是什么\n\n| 这是什么 | 这不是什么 |\n|---|---|\n| 专家参与审阅的透明说明 | 不是正式认证声明 |\n| 对题目方向和边界文案的审查 | 不是外部资格证明 |\n| 对风险表达的保守把关 | 不是医疗或心理服务结论 |\n| 未来若建设更专业版本时的准备事项 | 不代表 V1 已是专业测评 |\n\n## 专家可以审阅什么\n\n专家可以参与以下环节：\n\n- 题目方向是否符合图形、矩阵和规律任务定位；\n- 结果解释是否过度；\n- 是否出现不适合的外部证明表述；\n- 方法边界是否清楚；\n- 隐私和数据说明是否足够保守；\n- 未来若建设更专业版本是否需要更多样本、流程和治理。\n\n## 专家审阅不能自动代表什么\n\n| 可以代表 | 不能代表 |\n|---|---|\n| 有专业意见参与文案和方法边界 | 不能代表正式认证 |\n| 题目方向经过审阅 | 不能代表外部资格证明 |\n| 风险声明更清晰 | 不能代表医疗或心理服务结论 |\n| 为未来专业版做准备 | 不能代表 V1 已完成专业评估体系 |\n\n## 为什么要公开审阅边界\n\n公开审阅边界能让用户知道：FermatMind 不是用夸张词包装结果，而是主动限制结果用途。对于 IQ 这类容易被误解的测试，谨慎表达比强宣传更重要。\n\n## 可以理解什么\n\n用户可以理解：\n\n- 谁参与了方法方向和文案审阅；\n- 审阅主要关注哪些边界；\n- 为什么 V1 不做外部证明；\n- 未来若建设更专业版本还需要哪些条件。\n\n## 不能据此推断什么\n\n不能因为有博士或顾问参与，就把 V1 说成正式认证、医疗结论或可用于第三方决策的证明。专家审阅是质量控制的一部分，不等于完成全部专业测评流程。\n\n## FAQ\n\n### 有专家参与就代表正式认证吗？\n不代表。专家参与可以提高审阅质量，但不能自动改变产品性质。\n\n### 专家会看哪些内容？\n可以看题目方向、方法边界、解释文案、风险声明和未来升级路径。\n\n### 可以把结果当作专业证明吗？\n不可以。V1 不是外部证明产品。\n\n### 未来是否可能建设更专业版本？\n只能作为规划方向；是否建设需要常模、治理、审阅、流程和独立产品线另行完成。",
+  "related_test_slug": "iq-test-intelligence-quotient-assessment",
+  "category_suggestion": "测评方法与边界",
+  "tags": [
+    "IQ 风格推理测试",
+    "测评方法与边界",
+    "非官方非认证",
+    "推理表现"
+  ],
+  "is_public": false,
+  "is_indexable": false,
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "reviewer_status": "method_and_claim_review_required",
+  "canonical_url": "https://fermatmind.com/zh/articles/iq-expert-review-disclosure",
+  "robots": "noindex,follow",
+  "schema_json": {
+    "editorial_package_v1": {
+      "package_version": "iq-method-pages-zh-cn-v0.2",
+      "answer_surface_policy": "editor_supplied",
+      "answer_surface_v1": {
+        "version": "answer_surface_v1",
+        "status": "draft_review_only",
+        "quick_answer": "专家顾问和博士团队可以参与 FermatMind IQ V1 的题目方向、方法边界、解释文案和风险声明审阅，帮助测试保持清晰、保守和负责任。但这不等于正式认证、外部资格证明或正式心理测评验证。V1 仍应被理解为在线 IQ 风格推理测试。",
+        "definition_or_scope": "专家审阅指对题目方向、方法边界和结果解释进行专业意见检查，而不是把产品变成认证测评。",
+        "method_explanation": "页面说明专家可审阅的内容、不能代表的结论，以及未来若升级为更专业版本需要的条件。",
+        "boundary_caveat": "本页只解释 FermatMind IQ V1 的公开方法与边界。它是非官方、非临床、非认证的在线 IQ 风格推理测试，不用于升学、用人、收入或岗位决策。",
+        "facts": [
+          "FermatMind IQ V1 为原创 30 题。",
+          "预计完成时间约 20 分钟。",
+          "题库、答案和评分逻辑由后端私有评分控制。",
+          "公开安全表达限于原始分、正确率、完成时间、维度表现、稳定性提示和本次推理任务表现。",
+          "当前高层维度描述限于视觉空间洞察、视觉空间模式推理、数字规律推理。"
+        ],
+        "faq_items": [
+          {
+            "question": "有专家参与就代表正式认证吗？",
+            "answer": "不代表。专家参与可以提高审阅质量，但不能自动改变产品性质。"
+          },
+          {
+            "question": "专家会看哪些内容？",
+            "answer": "可以看题目方向、方法边界、解释文案、风险声明和未来升级路径。"
+          },
+          {
+            "question": "可以把结果当作专业证明吗？",
+            "answer": "不可以。V1 不是外部证明产品。"
+          },
+          {
+            "question": "未来是否可能建设更专业版本？",
+            "answer": "只能作为规划方向；是否建设需要常模、治理、审阅、流程和独立产品线另行完成。"
+          }
+        ],
+        "next_steps": [
+          {
+            "label": "开始 IQ 风格推理测试",
+            "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+          },
+          {
+            "label": "阅读相邻方法页",
+            "href": "/zh/articles/what-is-iq-style-reasoning-test"
+          }
+        ],
+        "related_links": [
+          {
+            "label": "开始 IQ 风格推理测试",
+            "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+          },
+          {
+            "label": "什么是 IQ 风格推理测试？",
+            "href": "/zh/articles/what-is-iq-style-reasoning-test"
+          },
+          {
+            "label": "在线 IQ 风格测试和专业智力测评有什么区别？",
+            "href": "/zh/articles/online-iq-test-vs-professional-assessment"
+          }
+        ],
+        "last_reviewed_note": "待方法与 claim 审核"
+      },
+      "cta_slots": [
+        {
+          "slot": "primary",
+          "label": "开始 IQ 风格推理测试",
+          "href": "/zh/tests/iq-test-intelligence-quotient-assessment"
+        },
+        {
+          "slot": "secondary",
+          "label": "继续阅读方法与边界说明",
+          "href": "/zh/articles/what-is-iq-style-reasoning-test"
+        }
+      ],
+      "claim_boundary_metadata": {
+        "positioning": "IQ-style reasoning test",
+        "non_official": true,
+        "non_clinical": true,
+        "non_certification": true,
+        "no_formal_population_ranking": true,
+        "no_private_flow_urls": true
+      },
+      "content_authority_note": "CMS/backend authoritative; frontend fallback forbidden",
+      "review_required_before_publish": true
+    }
+  }
+}

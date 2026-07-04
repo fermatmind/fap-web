@@ -1,0 +1,23 @@
+{
+  "status": "draft_review_only",
+  "seo_title": "FermatMind 如何审查 IQ 风格测试内容？",
+  "seo_description": "说明顾问和博士团队可参与题目方向、方法边界和解释文案审阅；这不等于正式认证或正式心理测评验证。",
+  "canonical_url": "https://fermatmind.com/zh/articles/iq-expert-review-disclosure",
+  "robots": "noindex,follow",
+  "structured_data_candidates": [
+    "Article",
+    "BreadcrumbList",
+    "FAQPage"
+  ],
+  "structured_data_forbidden": [
+    "Product",
+    "SoftwareApplication",
+    "Certificate",
+    "Course",
+    "MedicalWebPage"
+  ],
+  "faqpage_policy": "allowed only if visible FAQ text remains in article.md and CMS rendering preserves it",
+  "sitemap_eligible": false,
+  "llms_eligible": false,
+  "publish_gate": "only after human review, CMS publish approval, claim gate pass, and runtime readback"
+}
