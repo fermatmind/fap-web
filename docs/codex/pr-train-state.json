@@ -41347,8 +41347,8 @@
     "depends_on": [
       "MBTI-ASSET-SKILL-10"
     ],
-    "status": "github_checks_pending",
-    "commit_sha": "37000dd8bc0d06cc8586913b10cb1a5680d9ec0a",
+    "status": "ready_to_merge",
+    "commit_sha": "d62bf07c2d16a479c0b70b8620edd159c447c343",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1604",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -41365,7 +41365,8 @@
       "yaml": "passed: ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
       "json": "passed: python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
       "diff_check": "passed: git diff --check",
-      "scope_validation": "passed: changed files limited to MBTI-GSC-11 manifest scope plus dependency ledger reconciliation and sidecar issue files"
+      "scope_validation": "passed: changed files limited to MBTI-GSC-11 manifest scope plus dependency ledger reconciliation and sidecar issue files",
+      "github_checks": "passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL/analyze"
     },
     "scope_validation": "passed",
     "artifacts": [
@@ -41393,9 +41394,14 @@
         "at": "2026-07-04T20:40:00Z",
         "status": "github_checks_pending",
         "notes": "Opened PR #1604 for MBTI-GSC-11 after scoped local validation; awaiting GitHub required checks."
+      },
+      {
+        "at": "2026-07-04T20:52:00Z",
+        "status": "ready_to_merge",
+        "notes": "PR #1604 GitHub checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL/analyze. Merge state CLEAN."
       }
     ],
-    "updated_at": "2026-07-04T20:40:00Z",
+    "updated_at": "2026-07-04T20:52:00Z",
     "next_task": "MBTI-CMS-12"
   },
   "MBTI-CMS-12": {
