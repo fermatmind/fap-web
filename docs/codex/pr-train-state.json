@@ -39410,12 +39410,12 @@
     "title": "MBTI-SEO-01: refresh personality hub SEO/GEO structure",
     "train_scope": "mbti_personality_hub_seo_geo_refresh",
     "depends_on": [],
-    "status": "ready_to_merge",
+    "status": "merged",
     "commit_sha": "22ee5322771ffb72484ac3ea88aef3726495fa85",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1577",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-04T04:15:07Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "local_checks": {
@@ -39430,8 +39430,8 @@
         "evidence": "Focused contracts passed; typecheck passed; diff check passed; production API build passed; full contract shards passed after external CSP changes were preserved in stash."
       },
       "github_checks": {
-        "status": "pending",
-        "evidence": null
+        "status": "passed",
+        "evidence": "GitHub PR #1577 merged; required checks passed before squash merge."
       },
       "github": [
         {
@@ -39508,9 +39508,16 @@
         "status": "ready_to_merge",
         "commit_sha": "22ee5322771ffb72484ac3ea88aef3726495fa85",
         "notes": "MBTI-SEO-01 ready to merge after checks and scope validation."
+      },
+      {
+        "at": "2026-07-04T04:29:34.284Z",
+        "status": "merged",
+        "commit_sha": "eb4d2ac21e949b00a163ab4817e8408613a36d15",
+        "notes": "Reconciled after PR #1577 squash merge: origin/main contains merge commit, local main synced, worktree clean, and local/remote task branch cleanup verified."
       }
     ],
-    "updated_at": "2026-07-04T04:07:39.049Z"
+    "updated_at": "2026-07-04T04:29:34.284Z",
+    "merge_commit_sha": "eb4d2ac21e949b00a163ab4817e8408613a36d15"
   },
   "MBTI-SEO-02": {
     "repo": "fap-web",
@@ -39521,8 +39528,8 @@
     "depends_on": [
       "MBTI-SEO-01"
     ],
-    "status": "planned",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "1b57e6a1ee04c1bbd26982ce2c0f52a619c5e6d5",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -39530,8 +39537,19 @@
     "failure_reason": null,
     "checks": {
       "local_checks": {
-        "status": "pending",
-        "commands": []
+        "status": "passed",
+        "commands": [
+          "corepack pnpm exec vitest run tests/contracts/test-detail-authority-convergence.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts --reporter=dot",
+          "corepack pnpm exec vitest run tests/contracts/mbti-landing-structure.contract.test.tsx --reporter=dot",
+          "corepack pnpm typecheck",
+          "git diff --check",
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+          "NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+          "corepack pnpm test:contract",
+          "changed-file scope validation"
+        ],
+        "evidence": "Focused test-detail contracts passed, MBTI landing structure contract passed, typecheck passed, diff/yaml/json checks passed, production API build passed, full contract shards passed, and changed-file scope validation passed."
       },
       "github_checks": {
         "status": "pending",
@@ -39539,17 +39557,40 @@
       }
     },
     "scope_validation": {
-      "status": "pending",
+      "status": "passed",
       "outside_scope_files": [],
-      "evidence": null
+      "evidence": [
+        "components/tests/MbtiLandingSurfaceSections.tsx",
+        "docs/codex/pr-train-state.json",
+        "tests/contracts/mbti-landing-structure.contract.test.tsx",
+        "tests/contracts/test-detail-landing.contract.test.ts"
+      ]
     },
     "events": [
       {
         "at": "2026-07-04T03:27:14.152Z",
         "status": "planned",
         "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
+      },
+      {
+        "at": "2026-07-04T04:29:34.284Z",
+        "status": "in_progress",
+        "notes": "Started MBTI-SEO-02 from latest main after MBTI-SEO-01 post-merge verification."
+      },
+      {
+        "at": "2026-07-04T04:36:45.102Z",
+        "status": "local_checks_passed",
+        "notes": "Local checks and scope validation passed for MBTI-SEO-02."
+      },
+      {
+        "at": "2026-07-04T04:38:24.164Z",
+        "status": "committed",
+        "commit_sha": "1b57e6a1ee04c1bbd26982ce2c0f52a619c5e6d5",
+        "notes": "Committed MBTI-SEO-02 scoped test landing personality link bridge after local checks and scope validation passed."
       }
-    ]
+    ],
+    "base_commit_sha": "eb4d2ac21e949b00a163ab4817e8408613a36d15",
+    "updated_at": "2026-07-04T04:38:24.164Z"
   },
   "MBTI-SEO-03": {
     "repo": "fap-web",

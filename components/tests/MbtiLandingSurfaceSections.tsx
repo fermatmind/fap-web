@@ -29,6 +29,31 @@ function itemMatches(item: LandingDiscoverabilityItemViewModel, needles: string[
   return tokenIncludes(item.key, needles) || tokenIncludes(item.kind, needles);
 }
 
+function getHrefPath(item: LandingDiscoverabilityItemViewModel): string {
+  return item.href.split(/[?#]/)[0]?.replace(/\/+$/, "") || "/";
+}
+
+function isPersonalityHref(item: LandingDiscoverabilityItemViewModel): boolean {
+  return /^\/(?:[a-z]{2}(?:-[A-Z]{2})?\/)?personality(?:\/|$)/.test(getHrefPath(item));
+}
+
+function isPersonalityHubLink(item: LandingDiscoverabilityItemViewModel): boolean {
+  const path = getHrefPath(item);
+
+  return (
+    itemMatches(item, ["personality_hub", "mbti_personality_hub", "personality_directory", "type_directory"]) ||
+    /^\/(?:[a-z]{2}(?:-[A-Z]{2})?\/)?personality$/.test(path)
+  );
+}
+
+function isPersonalityComparisonLink(item: LandingDiscoverabilityItemViewModel): boolean {
+  return (
+    !isPersonalityHubLink(item) &&
+    (itemMatches(item, ["personality_comparison", "mbti_comparison", "type_comparison", "compare_types", "comparison_internal_link"]) ||
+      (isPersonalityHref(item) && getHrefPath(item).includes("-vs-")))
+  );
+}
+
 function buildModules(surface: LandingSurfaceViewModel): MbtiLandingModule[] {
   const moduleSpecs = [
     {
@@ -57,12 +82,57 @@ function buildModules(surface: LandingSurfaceViewModel): MbtiLandingModule[] {
     .filter((module) => module.blocks.length > 0);
 }
 
+function findPersonalityHubLinks(surface: LandingSurfaceViewModel): LandingDiscoverabilityItemViewModel[] {
+  return surface.discoverabilityItems.filter(isPersonalityHubLink);
+}
+
 function findTypeLinks(surface: LandingSurfaceViewModel): LandingDiscoverabilityItemViewModel[] {
   return surface.discoverabilityItems.filter(
     (item) =>
-      itemMatches(item, ["personality_type", "mbti_type", "type_profile", "type_internal_link"]) ||
-      item.href.includes("/personality/") ||
-      item.href.includes("/personality-types/")
+      !isPersonalityHubLink(item) &&
+      !isPersonalityComparisonLink(item) &&
+      (itemMatches(item, ["personality_type", "mbti_type", "type_profile", "type_internal_link"]) ||
+        isPersonalityHref(item) ||
+        item.href.includes("/personality-types/"))
+  );
+}
+
+function findComparisonLinks(surface: LandingSurfaceViewModel): LandingDiscoverabilityItemViewModel[] {
+  return surface.discoverabilityItems.filter(isPersonalityComparisonLink);
+}
+
+function LandingDiscoverabilityLinks({
+  items,
+  testId,
+}: {
+  items: LandingDiscoverabilityItemViewModel[];
+  testId: string;
+}) {
+  if (!items.length) {
+    return null;
+  }
+
+  return (
+    <div
+      className="grid gap-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:grid-cols-2"
+      data-testid={testId}
+    >
+      {items.map((item) => (
+        <Link
+          key={item.key}
+          href={item.href}
+          className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 transition hover:border-[var(--fm-accent)]"
+        >
+          {item.badgeLabel ? (
+            <span className="mb-2 inline-flex text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
+              {item.badgeLabel}
+            </span>
+          ) : null}
+          <span className="block text-base font-semibold text-[var(--fm-text)]">{item.title}</span>
+          {item.summary ? <span className="mt-2 block text-sm leading-7 text-[var(--fm-text-muted)]">{item.summary}</span> : null}
+        </Link>
+      ))}
+    </div>
   );
 }
 
@@ -72,9 +142,11 @@ export function MbtiLandingSurfaceSections({ surface }: MbtiLandingSurfaceSectio
   }
 
   const modules = buildModules(surface);
+  const hubLinks = findPersonalityHubLinks(surface);
   const typeLinks = findTypeLinks(surface);
+  const comparisonLinks = findComparisonLinks(surface);
 
-  if (!modules.length && !typeLinks.length) {
+  if (!modules.length && !hubLinks.length && !typeLinks.length && !comparisonLinks.length) {
     return null;
   }
 
@@ -95,28 +167,9 @@ export function MbtiLandingSurfaceSections({ surface }: MbtiLandingSurfaceSectio
         </div>
       ))}
 
-      {typeLinks.length > 0 ? (
-        <div
-          className="grid gap-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:grid-cols-2"
-          data-testid="mbti-landing-type-internal-links"
-        >
-          {typeLinks.map((item) => (
-            <Link
-              key={item.key}
-              href={item.href}
-              className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4 transition hover:border-[var(--fm-accent)]"
-            >
-              {item.badgeLabel ? (
-                <span className="mb-2 inline-flex text-xs font-semibold uppercase tracking-[0.12em] text-[var(--fm-accent)]">
-                  {item.badgeLabel}
-                </span>
-              ) : null}
-              <span className="block text-base font-semibold text-[var(--fm-text)]">{item.title}</span>
-              {item.summary ? <span className="mt-2 block text-sm leading-7 text-[var(--fm-text-muted)]">{item.summary}</span> : null}
-            </Link>
-          ))}
-        </div>
-      ) : null}
+      <LandingDiscoverabilityLinks items={hubLinks} testId="mbti-landing-personality-hub-links" />
+      <LandingDiscoverabilityLinks items={typeLinks} testId="mbti-landing-type-internal-links" />
+      <LandingDiscoverabilityLinks items={comparisonLinks} testId="mbti-landing-comparison-internal-links" />
     </section>
   );
 }

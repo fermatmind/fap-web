@@ -10,6 +10,7 @@ const PAGE_PATH = path.join(
   "app/(localized)/[locale]/tests/[slug]/page.tsx"
 );
 const CTA_STICKY_PATH = path.join(process.cwd(), "components/business/CTASticky.tsx");
+const MBTI_LANDING_SURFACE_PATH = path.join(process.cwd(), "components/tests/MbtiLandingSurfaceSections.tsx");
 const MBTI_FAQ_SCHEMA_EVIDENCE_PATH = path.join(
   process.cwd(),
   "docs/seo/evidence/mbti-personality-test-16-personality-types/structured-data/faq-schema-parity-readback-2026-06-29.json"
@@ -156,6 +157,23 @@ describe("test detail landing contract", () => {
     expect(source).toContain('attributionParams: landingAttributionParams');
     expect(source).toContain('attributionPayload: landingAttributionPayload');
     expect(source).toContain('targetAction: "start_mbti_test_primary"');
+  });
+
+  it("renders CMS-driven MBTI personality hub, profile, and comparison link groups", () => {
+    const pageSource = fs.readFileSync(PAGE_PATH, "utf8");
+    const componentSource = fs.readFileSync(MBTI_LANDING_SURFACE_PATH, "utf8");
+
+    expect(pageSource).toContain('import { MbtiLandingSurfaceSections } from "@/components/tests/MbtiLandingSurfaceSections";');
+    expect(pageSource).toContain("{showsMbtiActions ? <MbtiLandingSurfaceSections surface={landingSurface} /> : null}");
+    expect(componentSource).toContain("findPersonalityHubLinks");
+    expect(componentSource).toContain("findTypeLinks");
+    expect(componentSource).toContain("findComparisonLinks");
+    expect(componentSource).toContain('testId="mbti-landing-personality-hub-links"');
+    expect(componentSource).toContain('testId="mbti-landing-type-internal-links"');
+    expect(componentSource).toContain('testId="mbti-landing-comparison-internal-links"');
+    expect(componentSource).toContain('data-authority-source="landing_surface_v1"');
+    expect(componentSource).not.toContain("热门对比");
+    expect(componentSource).not.toContain("32 人格");
   });
 
   it("derives detail-page lens copy from scale code instead of hardcoding personality framing", () => {

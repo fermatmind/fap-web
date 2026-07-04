@@ -36,12 +36,28 @@ describe("ANALYTICS-SEO-P1-06 MBTI landing structure contract", () => {
       ],
       discoverability_items: [
         {
+          key: "mbti_personality_hub",
+          kind: "personality_hub",
+          title: "Backend personality hub",
+          summary: "Backend-owned hub link summary.",
+          href: "/zh/personality",
+          badge_label: "Hub",
+        },
+        {
           key: "infj_type_profile",
           kind: "personality_type",
           title: "INFJ backend profile",
           summary: "Backend-owned type link summary.",
-          href: "/zh/personality/infj",
+          href: "/zh/personality/infj-a",
           badge_label: "MBTI",
+        },
+        {
+          key: "entj_vs_intj",
+          kind: "personality_comparison",
+          title: "ENTJ vs INTJ backend comparison",
+          summary: "Backend-owned comparison link summary.",
+          href: "/zh/personality/entj-vs-intj",
+          badge_label: "Compare",
         },
       ],
     });
@@ -55,9 +71,15 @@ describe("ANALYTICS-SEO-P1-06 MBTI landing structure contract", () => {
     expect(html).toContain("Backend career directions");
     expect(html).toContain('data-testid="mbti-landing-comparisons"');
     expect(html).toContain("Backend comparison module");
+    expect(html).toContain('data-testid="mbti-landing-personality-hub-links"');
+    expect(html).toContain("/zh/personality");
+    expect(html).toContain("Backend personality hub");
     expect(html).toContain('data-testid="mbti-landing-type-internal-links"');
-    expect(html).toContain("/zh/personality/infj");
+    expect(html).toContain("/zh/personality/infj-a");
     expect(html).toContain("INFJ backend profile");
+    expect(html).toContain('data-testid="mbti-landing-comparison-internal-links"');
+    expect(html).toContain("/zh/personality/entj-vs-intj");
+    expect(html).toContain("ENTJ vs INTJ backend comparison");
   });
 
   it("does not invent frontend editorial fallback modules when the backend surface is absent", () => {
