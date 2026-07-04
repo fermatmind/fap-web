@@ -41048,12 +41048,12 @@
     "depends_on": [
       "MBTI-OPS-08"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "7bd8fe39fb45317ba829e43735b1ee668409280d",
+    "status": "merged",
+    "commit_sha": "a5d0798d90163f8b01d145e18128654f9ac586d6",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1590",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-04T18:31:11Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "local_checks": {
@@ -41086,9 +41086,9 @@
       }
     },
     "scope_validation": {
-      "status": "passed_before_merge",
+      "status": "post_merge_revalidated",
       "outside_scope_files": [],
-      "evidence": "PR diff remains limited to OPS-09 allowed docs, artifacts, generator, focused contract, sidecar files, and train ledger; GitHub mergeStateStatus is CLEAN."
+      "evidence": "PR #1590 is merged; origin/main contains merge commit a5d0798d90163f8b01d145e18128654f9ac586d6; local main was synced to origin/main; local main equals origin/main; worktree clean; local task branch deleted; remote branch deleted."
     },
     "artifacts": [
       "docs/seo/personality/README.md",
@@ -41178,10 +41178,16 @@
         "at": "2026-07-04T18:23:17Z",
         "status": "ready_to_merge",
         "notes": "GitHub required checks passed for PR #1590 after rebase to origin/main 3d5d1d5f; mergeStateStatus CLEAN; ready for squash merge after this ledger commit checks pass."
+      },
+      {
+        "at": "2026-07-04T18:45:00Z",
+        "status": "post_merge_revalidated",
+        "notes": "Reconciled after PR #1590 squash merge while starting MBTI-ASSET-SKILL-10; GitHub reports MERGED at 2026-07-04T18:31:11Z with merge commit a5d0798d90163f8b01d145e18128654f9ac586d6, origin/main contains it, local main is synced and clean, and local/remote task branches are cleaned."
       }
     ],
-    "updated_at": "2026-07-04T18:23:17Z",
-    "next_task": "MBTI-ASSET-SKILL-10"
+    "updated_at": "2026-07-04T18:45:00Z",
+    "next_task": "MBTI-ASSET-SKILL-10",
+    "merge_commit_sha": "a5d0798d90163f8b01d145e18128654f9ac586d6"
   },
   "MBTI-ASSET-SKILL-10": {
     "repo": "fap-web",
@@ -41192,15 +41198,24 @@
     "depends_on": [
       "MBTI-ASSET-OPS-09"
     ],
-    "status": "planned",
+    "status": "local_checks_passed",
     "commit_sha": null,
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "failure_reason": null,
-    "checks": {},
-    "scope_validation": null,
+    "checks": {
+      "focused_contract": "passed: corepack pnpm exec vitest run tests/contracts/mbti-asset-skill-10-public-profile-seo-asset-factory.contract.test.ts --reporter=dot",
+      "contracts": "passed: corepack pnpm test:contract",
+      "typecheck": "passed: corepack pnpm typecheck",
+      "build": "passed: NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://www.fermatmind.com corepack pnpm build",
+      "yaml": "passed: ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+      "json": "passed: python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+      "diff_check": "passed: git diff --check",
+      "scope_validation": "passed: changed files limited to MBTI-ASSET-SKILL-10 manifest scope"
+    },
+    "scope_validation": "passed",
     "artifacts": [
       ".agents/skills/public-profile-seo-asset-factory/**"
     ],
@@ -41209,9 +41224,19 @@
         "at": "2026-07-04T12:00:00Z",
         "status": "planned",
         "notes": "Registered by MBTI personality asset operations train authorization; not yet started."
+      },
+      {
+        "at": "2026-07-04T18:45:00Z",
+        "status": "in_progress",
+        "notes": "Started from origin/main a5d0798d90163f8b01d145e18128654f9ac586d6 after OPS-09 merge reconciliation; scope limited to public-profile-seo-asset-factory skill docs, focused contract, scope helper, and train metadata."
+      },
+      {
+        "at": "2026-07-04T19:24:00Z",
+        "status": "local_checks_passed",
+        "note": "Updated public-profile-seo-asset-factory MBTI runbook and agent matrix; all manifest local checks passed. Build required NEXT_PUBLIC_SITE_URL in addition to manifest API URL because robots/sitemap production URL guard is active."
       }
     ],
-    "updated_at": "2026-07-04T12:00:00Z",
+    "updated_at": "2026-07-04T19:24:00Z",
     "next_task": "MBTI-GSC-11"
   },
   "MBTI-GSC-11": {
