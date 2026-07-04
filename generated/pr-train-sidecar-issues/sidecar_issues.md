@@ -29,3 +29,13 @@
 - Why not current PR scope: MBTI-SEO-01 only changes /zh/personality hub SEO/rendering, hub FAQ/schema tests, PR-train metadata, and sidecar files. CSP/security-header behavior belongs to a separate security/local-development PR.
 - Required checks affected: false
 - Recommended follow-up: Review the preserved stash named preserve external CSP local dev change before deciding whether to open a separate scoped PR for local API CSP support.
+
+## External Result Processing Gate Scope Drift
+
+- repo: fermatmind/fap-web
+- PR id / branch: MBTI-CMS-06 / codex/mbti-cms-06-comparison-content-assets
+- blocker type: external_uncommitted_scope_drift
+- evidence: After MBTI-CMS-06 local checks passed, `app/(localized)/[locale]/(app)/result/[id]/ResultClient.tsx` appeared modified with a result processing wait gate and message changes. This file is outside the MBTI-CMS-06 content asset package scope and was preserved in stash `preserve external result processing gate change before MBTI-CMS-06 push 20260704`.
+- why not current PR scope: MBTI-CMS-06 only packages CMS handoff assets for A/T and hot comparison pages under `docs/seo/personality/**`, plus its generator and contract test. Generic result-page runtime UX belongs to a separate result-shell PR.
+- whether required checks are affected: no; PR6 local checks, scope validation, and merge policy do not require this result-page runtime change.
+- recommended follow-up: Review the preserved stash and open a separate scoped result-page UX PR if the minimum processing wait gate should ship.
