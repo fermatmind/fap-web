@@ -100,6 +100,29 @@ function gitRefExists(ref, cwd = ROOT) {
   return result.status === 0;
 }
 
+function gitHasMergeBase(leftRef, rightRef = "HEAD", cwd = ROOT) {
+  const result = spawnSync("git", ["merge-base", leftRef, rightRef], {
+    cwd,
+    stdio: "ignore",
+  });
+  return result.status === 0;
+}
+
+function isShallowRepository(cwd = ROOT) {
+  const result = spawnSync("git", ["rev-parse", "--is-shallow-repository"], {
+    cwd,
+    encoding: "utf8",
+  });
+  return result.status === 0 && result.stdout.trim() === "true";
+}
+
+function runGitFetch(args, cwd = ROOT) {
+  return spawnSync("git", ["fetch", "--no-tags", ...args], {
+    cwd,
+    stdio: "inherit",
+  });
+}
+
 function ensureGitHubActionsBaseRef(cwd = ROOT) {
   if (process.env.GITHUB_ACTIONS !== "true") {
     return;
@@ -112,22 +135,41 @@ function ensureGitHubActionsBaseRef(cwd = ROOT) {
 
   const remoteBaseRef = `origin/${baseRef}`;
   if (gitRefExists(remoteBaseRef, cwd)) {
+    if (gitHasMergeBase(remoteBaseRef, "HEAD", cwd)) {
+      return;
+    }
+  } else {
+    console.log(`[contract-runner] fetching ${remoteBaseRef} for git diff scope contracts`);
+    const result = runGitFetch(["--depth=100", "origin", `+refs/heads/${baseRef}:refs/remotes/origin/${baseRef}`], cwd);
+
+    if (result.status !== 0) {
+      console.warn(`[contract-runner] unable to fetch ${remoteBaseRef}; git diff scope contracts may fail`);
+      return;
+    }
+  }
+
+  if (gitHasMergeBase(remoteBaseRef, "HEAD", cwd)) {
     return;
   }
 
-  console.log(`[contract-runner] fetching ${remoteBaseRef} for git diff scope contracts`);
-  const result = spawnSync(
-    "git",
-    ["fetch", "--no-tags", "--depth=1", "origin", `+refs/heads/${baseRef}:refs/remotes/origin/${baseRef}`],
-    {
-      cwd,
-      stdio: "inherit",
-    },
-  );
+  console.log(`[contract-runner] deepening checkout to find merge base for ${remoteBaseRef}...HEAD`);
+  const deepenHead = runGitFetch(["--deepen=200", "origin"], cwd);
+  const deepenBase = runGitFetch(["--depth=200", "origin", `+refs/heads/${baseRef}:refs/remotes/origin/${baseRef}`], cwd);
 
-  if (result.status !== 0) {
-    console.warn(`[contract-runner] unable to fetch ${remoteBaseRef}; git diff scope contracts may fail`);
+  if ((deepenHead.status === 0 || deepenBase.status === 0) && gitHasMergeBase(remoteBaseRef, "HEAD", cwd)) {
+    return;
   }
+
+  if (isShallowRepository(cwd)) {
+    console.log(`[contract-runner] unshallowing checkout to find merge base for ${remoteBaseRef}...HEAD`);
+    const unshallow = runGitFetch(["--unshallow", "origin"], cwd);
+    const refreshBase = runGitFetch(["origin", `+refs/heads/${baseRef}:refs/remotes/origin/${baseRef}`], cwd);
+    if ((unshallow.status === 0 || refreshBase.status === 0) && gitHasMergeBase(remoteBaseRef, "HEAD", cwd)) {
+      return;
+    }
+  }
+
+  console.warn(`[contract-runner] unable to find merge base for ${remoteBaseRef}...HEAD; git diff scope contracts may fail`);
 }
 
 function walkFiles(dir, root = dir) {
