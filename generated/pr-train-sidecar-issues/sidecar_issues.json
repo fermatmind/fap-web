@@ -8,5 +8,25 @@
     "why_not_current_pr_scope": "PR14 scope is limited to Big Five renderer files and contracts. Changing the generic result client recovery banner would affect non-Big-Five result pages and requires a separate result-shell UX scope.",
     "required_checks_affected": false,
     "recommended_follow_up": "Open a scoped fap-web PR for result recovery banner UX, with assertions covering Big Five and non-Big-Five result pages."
+  },
+  {
+    "repo": "fap-web",
+    "pr_id": "MBTI-SEO-01",
+    "branch": "codex/mbti-seo-01-hub-seo-geo-refresh",
+    "blocker_type": "stale_ledger_status",
+    "evidence": "gh pr view 762 reports PR #762 as MERGED with merge commit 3a08d486a3645292bbb3f9ac5b072ba8458a47dd, while docs/codex/pr-train-state.json still has the old PR-WEB-HOTFIX-761A array entry as open.",
+    "why_not_current_pr_scope": "This stale state predates the MBTI SEO/GEO train and belongs to an unrelated career hotfix PR; MBTI-SEO-01 does not depend on it.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Reconcile PR-WEB-HOTFIX-761A ledger facts in a future housekeeping PR if needed."
+  },
+  {
+    "repo": "fermatmind/fap-web",
+    "pr_id": "MBTI-SEO-01",
+    "branch": "codex/mbti-seo-01-hub-seo-geo-refresh",
+    "blocker_type": "external_uncommitted_scope_drift",
+    "evidence": "During MBTI-SEO-01 validation, next.config.mjs and tests/contracts/security-headers.contract.test.ts appeared modified with a loopback HTTP API CSP development allowance. These files are outside the MBTI Hub SEO scope and were not touched by the MBTI-SEO-01 implementation.",
+    "why_not_current_pr_scope": "MBTI-SEO-01 only changes /zh/personality hub SEO/rendering, hub FAQ/schema tests, PR-train metadata, and sidecar files. CSP/security-header behavior belongs to a separate security/local-development PR.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Review the preserved stash named preserve external CSP local dev change before deciding whether to open a separate scoped PR for local API CSP support."
   }
 ]

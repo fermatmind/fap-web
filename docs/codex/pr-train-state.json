@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-03T17:58:00+08:00",
+  "updated_at": "2026-07-04T03:53:32.217Z",
   "status": "active",
   "phase": "fa30_non_agent_pr_train",
   "pr_namespace": "PR-PRAC-*",
@@ -28620,6 +28620,156 @@
         "docs/codex/pr-train.yaml",
         "docs/codex/pr-train-state.json"
       ]
+    },
+    {
+      "id": "MBTI-SEO-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/mbti-seo-01-hub-seo-geo-refresh",
+      "base": "main",
+      "depends_on": [],
+      "status": "local_checks_passed",
+      "title": "MBTI-SEO-01: refresh personality hub SEO/GEO structure",
+      "train_scope": "mbti_personality_hub_seo_geo_refresh",
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null
+    },
+    {
+      "id": "MBTI-SEO-02",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/mbti-seo-02-test-personality-link-bridge",
+      "base": "main",
+      "depends_on": [
+        "MBTI-SEO-01"
+      ],
+      "status": "planned",
+      "title": "MBTI-SEO-02: connect MBTI test pages to personality routes",
+      "train_scope": "mbti_test_personality_internal_link_bridge",
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null
+    },
+    {
+      "id": "MBTI-SEO-03",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/mbti-seo-03-profile-rendering-contract",
+      "base": "main",
+      "depends_on": [
+        "MBTI-SEO-02"
+      ],
+      "status": "planned",
+      "title": "MBTI-SEO-03: harden 32 personality profile rendering",
+      "train_scope": "mbti_32_profile_rendering_contract",
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null
+    },
+    {
+      "id": "MBTI-CMS-04",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/mbti-cms-04-top-profile-content-assets",
+      "base": "main",
+      "depends_on": [
+        "MBTI-SEO-03"
+      ],
+      "status": "planned",
+      "title": "MBTI-CMS-04: package top exposed personality content assets",
+      "train_scope": "mbti_top_profile_content_asset_package",
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null
+    },
+    {
+      "id": "MBTI-SEO-05",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/mbti-seo-05-comparison-template-refresh",
+      "base": "main",
+      "depends_on": [
+        "MBTI-CMS-04"
+      ],
+      "status": "planned",
+      "title": "MBTI-SEO-05: refresh personality comparison page template",
+      "train_scope": "mbti_comparison_template_refresh",
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null
+    },
+    {
+      "id": "MBTI-CMS-06",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/mbti-cms-06-comparison-content-assets",
+      "base": "main",
+      "depends_on": [
+        "MBTI-SEO-05"
+      ],
+      "status": "planned",
+      "title": "MBTI-CMS-06: package A/T and hot comparison content assets",
+      "train_scope": "mbti_comparison_content_asset_package",
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null
+    },
+    {
+      "id": "MBTI-SEO-07",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/mbti-seo-07-llms-sitemap-discoverability",
+      "base": "main",
+      "depends_on": [
+        "MBTI-CMS-06"
+      ],
+      "status": "planned",
+      "title": "MBTI-SEO-07: audit personality llms and sitemap discoverability",
+      "train_scope": "mbti_personality_discoverability_audit",
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null
+    },
+    {
+      "id": "MBTI-OPS-08",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/mbti-ops-08-gsc-priority-monitoring",
+      "base": "main",
+      "depends_on": [
+        "MBTI-SEO-07"
+      ],
+      "status": "planned",
+      "title": "MBTI-OPS-08: add MBTI GSC priority monitoring",
+      "train_scope": "mbti_gsc_priority_monitoring",
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null
     }
   ],
   "sidecar_issues": [
@@ -39243,6 +39393,395 @@
         "commit_sha": "5071e3b23dcf8523a12015936c068fc03580af1c",
         "pr_url": "https://github.com/fermatmind/fap-web/pull/1571",
         "notes": "Pushed branch and opened PR #1571; waiting for GitHub checks."
+      }
+    ]
+  },
+  "active_mbti_train": {
+    "train_name": "mbti-personality-seo-geo-growth-train",
+    "current_pr": "MBTI-SEO-01",
+    "status": "ready_to_merge",
+    "authorized_by_goal": true,
+    "updated_at": "2026-07-04T04:07:39.049Z"
+  },
+  "MBTI-SEO-01": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-seo-01-hub-seo-geo-refresh",
+    "title": "MBTI-SEO-01: refresh personality hub SEO/GEO structure",
+    "train_scope": "mbti_personality_hub_seo_geo_refresh",
+    "depends_on": [],
+    "status": "ready_to_merge",
+    "commit_sha": "22ee5322771ffb72484ac3ea88aef3726495fa85",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1577",
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "local_checks": {
+        "status": "passed",
+        "commands": [
+          "corepack pnpm exec vitest run tests/contracts/personality-semantics.contract.test.ts tests/contracts/personality-hub-contract.test.ts tests/contracts/personality-type-browse.contract.test.tsx --reporter=dot",
+          "corepack pnpm typecheck",
+          "git diff --check",
+          "NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+          "corepack pnpm test:contract"
+        ],
+        "evidence": "Focused contracts passed; typecheck passed; diff check passed; production API build passed; full contract shards passed after external CSP changes were preserved in stash."
+      },
+      "github_checks": {
+        "status": "pending",
+        "evidence": null
+      },
+      "github": [
+        {
+          "name": "CodeQL",
+          "status": "passed"
+        },
+        {
+          "name": "analyze (javascript-typescript)",
+          "status": "passed"
+        },
+        {
+          "name": "build",
+          "status": "passed"
+        },
+        {
+          "name": "contracts",
+          "status": "passed"
+        },
+        {
+          "name": "verify-big5-contract-freeze",
+          "status": "passed"
+        },
+        {
+          "name": "verify-enneagram-contract-freeze",
+          "status": "passed"
+        }
+      ]
+    },
+    "scope_validation": {
+      "status": "passed",
+      "outside_scope_files": [],
+      "evidence": [
+        "app/(localized)/[locale]/personality/page.tsx",
+        "docs/codex/pr-train-state.json",
+        "docs/codex/pr-train.yaml",
+        "generated/pr-train-sidecar-issues/sidecar_issues.json",
+        "generated/pr-train-sidecar-issues/sidecar_issues.md",
+        "tests/contracts/personality-hub-contract.test.ts",
+        "tests/contracts/personality-semantics.contract.test.ts"
+      ]
+    },
+    "events": [
+      {
+        "at": "2026-07-04T03:27:14.151Z",
+        "status": "in_progress",
+        "notes": "Started MBTI SEO/GEO train registration and MBTI-SEO-01 implementation on branch codex/mbti-seo-01-hub-seo-geo-refresh from latest main."
+      },
+      {
+        "at": "2026-07-04T03:53:32.217Z",
+        "status": "local_checks_passed",
+        "notes": "Local checks and scope validation passed for MBTI-SEO-01. External CSP local-dev changes were recorded in sidecar and preserved in stash."
+      },
+      {
+        "at": "2026-07-04T03:59:38.110Z",
+        "status": "committed",
+        "commit_sha": "535fb4cf589bfe40ed1d5d837e18d6aca24f6be8",
+        "notes": "Committed MBTI-SEO-01 scoped hub SEO/GEO changes after local checks and scope validation passed."
+      },
+      {
+        "at": "2026-07-04T04:02:08.759Z",
+        "status": "pr_open",
+        "commit_sha": "fce4225e72b54d50f833a5571b27a49668ebdea3",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1577",
+        "notes": "Opened PR #1577 for MBTI-SEO-01."
+      },
+      {
+        "at": "2026-07-04T04:07:39.049Z",
+        "status": "github_checks_passed",
+        "commit_sha": "22ee5322771ffb72484ac3ea88aef3726495fa85",
+        "notes": "GitHub required checks passed for PR #1577: CodeQL, analyze, build, contracts, and freeze checks."
+      },
+      {
+        "at": "2026-07-04T04:07:39.049Z",
+        "status": "ready_to_merge",
+        "commit_sha": "22ee5322771ffb72484ac3ea88aef3726495fa85",
+        "notes": "MBTI-SEO-01 ready to merge after checks and scope validation."
+      }
+    ],
+    "updated_at": "2026-07-04T04:07:39.049Z"
+  },
+  "MBTI-SEO-02": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-seo-02-test-personality-link-bridge",
+    "title": "MBTI-SEO-02: connect MBTI test pages to personality routes",
+    "train_scope": "mbti_test_personality_internal_link_bridge",
+    "depends_on": [
+      "MBTI-SEO-01"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "local_checks": {
+        "status": "pending",
+        "commands": []
+      },
+      "github_checks": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "status": "pending",
+      "outside_scope_files": [],
+      "evidence": null
+    },
+    "events": [
+      {
+        "at": "2026-07-04T03:27:14.152Z",
+        "status": "planned",
+        "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
+      }
+    ]
+  },
+  "MBTI-SEO-03": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-seo-03-profile-rendering-contract",
+    "title": "MBTI-SEO-03: harden 32 personality profile rendering",
+    "train_scope": "mbti_32_profile_rendering_contract",
+    "depends_on": [
+      "MBTI-SEO-02"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "local_checks": {
+        "status": "pending",
+        "commands": []
+      },
+      "github_checks": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "status": "pending",
+      "outside_scope_files": [],
+      "evidence": null
+    },
+    "events": [
+      {
+        "at": "2026-07-04T03:27:14.152Z",
+        "status": "planned",
+        "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
+      }
+    ]
+  },
+  "MBTI-CMS-04": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-cms-04-top-profile-content-assets",
+    "title": "MBTI-CMS-04: package top exposed personality content assets",
+    "train_scope": "mbti_top_profile_content_asset_package",
+    "depends_on": [
+      "MBTI-SEO-03"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "local_checks": {
+        "status": "pending",
+        "commands": []
+      },
+      "github_checks": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "status": "pending",
+      "outside_scope_files": [],
+      "evidence": null
+    },
+    "events": [
+      {
+        "at": "2026-07-04T03:27:14.152Z",
+        "status": "planned",
+        "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
+      }
+    ]
+  },
+  "MBTI-SEO-05": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-seo-05-comparison-template-refresh",
+    "title": "MBTI-SEO-05: refresh personality comparison page template",
+    "train_scope": "mbti_comparison_template_refresh",
+    "depends_on": [
+      "MBTI-CMS-04"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "local_checks": {
+        "status": "pending",
+        "commands": []
+      },
+      "github_checks": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "status": "pending",
+      "outside_scope_files": [],
+      "evidence": null
+    },
+    "events": [
+      {
+        "at": "2026-07-04T03:27:14.152Z",
+        "status": "planned",
+        "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
+      }
+    ]
+  },
+  "MBTI-CMS-06": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-cms-06-comparison-content-assets",
+    "title": "MBTI-CMS-06: package A/T and hot comparison content assets",
+    "train_scope": "mbti_comparison_content_asset_package",
+    "depends_on": [
+      "MBTI-SEO-05"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "local_checks": {
+        "status": "pending",
+        "commands": []
+      },
+      "github_checks": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "status": "pending",
+      "outside_scope_files": [],
+      "evidence": null
+    },
+    "events": [
+      {
+        "at": "2026-07-04T03:27:14.152Z",
+        "status": "planned",
+        "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
+      }
+    ]
+  },
+  "MBTI-SEO-07": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-seo-07-llms-sitemap-discoverability",
+    "title": "MBTI-SEO-07: audit personality llms and sitemap discoverability",
+    "train_scope": "mbti_personality_discoverability_audit",
+    "depends_on": [
+      "MBTI-CMS-06"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "local_checks": {
+        "status": "pending",
+        "commands": []
+      },
+      "github_checks": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "status": "pending",
+      "outside_scope_files": [],
+      "evidence": null
+    },
+    "events": [
+      {
+        "at": "2026-07-04T03:27:14.152Z",
+        "status": "planned",
+        "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
+      }
+    ]
+  },
+  "MBTI-OPS-08": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-ops-08-gsc-priority-monitoring",
+    "title": "MBTI-OPS-08: add MBTI GSC priority monitoring",
+    "train_scope": "mbti_gsc_priority_monitoring",
+    "depends_on": [
+      "MBTI-SEO-07"
+    ],
+    "status": "planned",
+    "commit_sha": null,
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "local_checks": {
+        "status": "pending",
+        "commands": []
+      },
+      "github_checks": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "status": "pending",
+      "outside_scope_files": [],
+      "evidence": null
+    },
+    "events": [
+      {
+        "at": "2026-07-04T03:27:14.152Z",
+        "status": "planned",
+        "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
       }
     ]
   }

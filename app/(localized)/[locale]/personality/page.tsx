@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { Container } from "@/components/layout/Container";
+import { PersonalityFaq } from "@/components/personality/PersonalityFaq";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import {
@@ -40,10 +41,21 @@ import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
 import { buildMbtiEntryTrackingPayload } from "@/lib/mbti/entryTracking";
 import { buildPersonalityHubPayload } from "@/lib/mbti/personalityHub.adapter";
 import type { PersonalityHubFamilyGroup } from "@/lib/mbti/personalityHub.types";
-import { buildBreadcrumbJsonLd, buildItemListJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
+import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildItemListJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const revalidate = 300;
+
+function getPersonalityPageSeoCopy(locale: Locale) {
+  return {
+    title: locale === "zh" ? "MBTI人格与16型人格" : "MBTI personalities and 16 personality types",
+    description:
+      locale === "zh"
+        ? "浏览 MBTI 16 型人格与 32 个 A/T 人格变体，查看人格解释、热门对比和免费 MBTI 测试入口。"
+        : "Browse MBTI 16 personality types, 32 A/T variants, popular comparisons, and the free MBTI test entry.",
+    h1: locale === "zh" ? "探索MBTI 16型人格" : "Explore MBTI 16 personality types",
+  };
+}
 
 export async function generateMetadata({
   params,
@@ -52,15 +64,13 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
+  const seoCopy = getPersonalityPageSeoCopy(locale);
 
   return buildPageMetadata({
     locale,
     pathname: locale === "zh" ? "/zh/personality" : "/en/personality",
-    title: locale === "zh" ? "人格类型" : "Personality Types",
-    description:
-      locale === "zh"
-        ? "先做 MBTI 测试，或直接浏览 32 个 A/T 人格变体内容。"
-        : "Start the MBTI test or browse the 32 A/T personality variant profiles directly.",
+    title: seoCopy.title,
+    description: seoCopy.description,
     alternatesByLocale: {
       en: "/en/personality",
       zh: "/zh/personality",
@@ -163,9 +173,10 @@ function TypeGroupBrowse({
   const getTone = (groupKey: string) => GROUP_TONES[groupKey] ?? GROUP_TONES.NT;
   const comparisonLabel = (item: ComparisonListItem) =>
     item.leftType && item.rightType ? `${item.leftType} VS ${item.rightType}` : item.title;
+  const allComparisonItems = comparisonGroups.flatMap((group) => group.items);
+  const popularComparisons = allComparisonItems.slice(0, 8);
   const comparisonHrefByBaseType = new Map(
-    comparisonGroups
-      .flatMap((group) => group.items)
+    allComparisonItems
       .filter((item) => item.comparisonType === "mbti_at_comparison" && item.baseTypeCode)
       .map((item) => [item.baseTypeCode.toUpperCase(), item.href])
   );
@@ -245,6 +256,9 @@ function TypeGroupBrowse({
       body: locale === "zh" ? "助力成长与决策" : "Support growth decisions",
     },
   ];
+  const variantCount = groups.reduce((count, group) => count + group.cards.length, 0);
+  const baseTypeCount = groups.reduce((count, group) => count + groupCardsByBaseType(group.cards).length, 0);
+  const seoCopy = getPersonalityPageSeoCopy(locale);
 
   return (
     <section id="type-groups" className="space-y-8" data-testid="personality-type-group-browse">
@@ -254,7 +268,7 @@ function TypeGroupBrowse({
           <div className="space-y-8">
             <div className="max-w-3xl space-y-4">
               <h1 className="m-0 text-4xl font-semibold leading-tight tracking-normal text-[#17112f] md:text-[2.75rem] xl:text-5xl">
-                {locale === "zh" ? "探索MBTI 16型人格" : "Explore 16 personality types"}
+                {seoCopy.h1}
               </h1>
               <p className="m-0 max-w-2xl text-base leading-8 text-[#586271]">
                 {locale === "zh"
@@ -302,6 +316,56 @@ function TypeGroupBrowse({
             })}
           </div>
         </div>
+      </section>
+
+      <section
+        className="grid gap-5 rounded-[1.75rem] border border-[#e7e3ec] bg-white px-5 py-7 shadow-[0_18px_70px_rgba(38,28,54,0.06)] lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.9fr)]"
+        data-testid="personality-hub-seo-overview"
+      >
+        <div className="space-y-4">
+          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[#5f447e]">
+            {locale === "zh" ? "MBTI 人格目录" : "MBTI directory"}
+          </p>
+          <h2 className="m-0 text-2xl font-semibold tracking-normal text-[#17112f]">
+            {locale === "zh" ? "先看 16 型，再进入 32 个 A/T 人格" : "Start with 16 types, then open 32 A/T variants"}
+          </h2>
+          <p className="m-0 max-w-3xl text-sm leading-7 text-[#586271]">
+            {locale === "zh"
+              ? "每个基础人格都保留 A 型与 T 型两个入口，用同一张目录连接人格解释、A/T 差异、相近人格对比和 MBTI 免费测试。"
+              : "Each base type keeps separate A and T entries so the directory can connect type profiles, A/T differences, adjacent comparisons, and the free MBTI test."}
+          </p>
+          <div className="flex flex-wrap gap-2">
+            <span className="rounded-full border border-[#ded7e8] bg-[#fbfafc] px-3 py-1.5 text-xs font-semibold text-[#5f447e]">
+              {locale === "zh" ? `${baseTypeCount} 个基础人格` : `${baseTypeCount} base types`}
+            </span>
+            <span className="rounded-full border border-[#ded7e8] bg-[#fbfafc] px-3 py-1.5 text-xs font-semibold text-[#5f447e]">
+              {locale === "zh" ? `${variantCount} 个 A/T 变体` : `${variantCount} A/T variants`}
+            </span>
+            <span className="rounded-full border border-[#ded7e8] bg-[#fbfafc] px-3 py-1.5 text-xs font-semibold text-[#5f447e]">
+              {locale === "zh" ? "人格解释与对比入口" : "Profile and comparison paths"}
+            </span>
+          </div>
+        </div>
+
+        {popularComparisons.length > 0 ? (
+          <div className="rounded-2xl border border-[#e7e3ec] bg-[#fbfafc] p-4" data-testid="personality-popular-comparisons">
+            <h2 className="m-0 text-base font-semibold text-[#17112f]">
+              {locale === "zh" ? "热门人格对比" : "Popular personality comparisons"}
+            </h2>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {popularComparisons.map((item) => (
+                <Link
+                  key={item.slug}
+                  href={item.href}
+                  className="inline-flex items-center gap-1 rounded-full border border-[#b9dfe6] bg-white px-3 py-1.5 text-xs font-semibold text-[#21778c] transition-transform duration-150 ease-out hover:scale-105 focus-visible:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-current"
+                >
+                  {comparisonLabel(item)}
+                  <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </Link>
+              ))}
+            </div>
+          </div>
+        ) : null}
       </section>
 
       <section
@@ -456,6 +520,7 @@ export default async function PersonalityPage({
     })),
   ]);
   const canonicalPath = locale === "zh" ? "/zh/personality" : "/en/personality";
+  const seoCopy = getPersonalityPageSeoCopy(locale);
   const hubPayload = buildPersonalityHubPayload({
     locale,
     canonicalPath,
@@ -471,13 +536,12 @@ export default async function PersonalityPage({
     sourcePath: canonicalPath,
   });
   const typeItemList = hubPayload.jsonLdInputs?.typeItemList ?? [];
+  const faqItems = hubPayload.faqBlocks;
+  const faqJsonLd = faqItems.length ? buildFAQPageJsonLd(faqItems) : null;
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
-    title: locale === "zh" ? "人格类型" : "Personality Types",
-    description:
-      locale === "zh"
-        ? "先做 MBTI 测试，或直接浏览 32 个 A/T 人格变体内容。"
-        : "Start the MBTI test or browse the 32 A/T personality variant profiles directly.",
+    title: seoCopy.title,
+    description: seoCopy.description,
     locale,
   });
   const breadcrumbJsonLd = buildBreadcrumbJsonLd([
@@ -508,6 +572,7 @@ export default async function PersonalityPage({
       <JsonLd id="personality-webpage" data={webPageJsonLd} />
       <JsonLd id="personality-breadcrumb" data={breadcrumbJsonLd} />
       {itemListJsonLd ? <JsonLd id="personality-itemlist-jsonld" data={itemListJsonLd} /> : null}
+      {faqJsonLd ? <JsonLd id="personality-faq-jsonld" data={faqJsonLd} /> : null}
       <Breadcrumb
         items={[
           { label: locale === "zh" ? "首页" : "Home", href: withLocale("/") },
@@ -522,6 +587,7 @@ export default async function PersonalityPage({
         mbtiTestHref={withLocale("/tests/mbti-personality-test-16-personality-types")}
         careerHref={withLocale("/career/recommendations")}
       />
+      <PersonalityFaq locale={locale} items={faqItems} />
     </Container>
   );
 }

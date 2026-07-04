@@ -9,3 +9,23 @@
 - why not current PR scope: PR14 scope is limited to `lib/big5/**`, `components/big5/**`, `components/result/big5/**`, and Big Five contracts; changing the generic result client recovery banner would affect non-Big-Five result pages and requires a separate result-shell UX scope.
 - whether required checks are affected: no; current Big Five renderer hygiene checks can pass without changing the generic recovery banner.
 - recommended follow-up: open a scoped fap-web PR for result recovery banner UX, with assertions covering Big Five and non-Big-Five result pages.
+
+## Stale PR-WEB-HOTFIX-761A Ledger Status
+
+- repo: fap-web
+- PR id / branch: MBTI-SEO-01 / codex/mbti-seo-01-hub-seo-geo-refresh
+- blocker type: stale_ledger_status
+- evidence: `gh pr view 762` reports PR #762 as `MERGED` with merge commit `3a08d486a3645292bbb3f9ac5b072ba8458a47dd`, while `docs/codex/pr-train-state.json` still has the old PR-WEB-HOTFIX-761A array entry as `open`.
+- why not current PR scope: this stale state predates the MBTI SEO/GEO train and belongs to an unrelated career hotfix PR; MBTI-SEO-01 does not depend on it.
+- whether required checks are affected: no; GitHub currently has no open PRs and this stale ledger entry does not affect MBTI-SEO-01 local checks, required GitHub checks, or scope validation.
+- recommended follow-up: reconcile PR-WEB-HOTFIX-761A ledger facts in a future housekeeping PR if needed.
+
+## External CSP Local Development Scope Drift
+
+- Repo: fermatmind/fap-web
+- PR id / branch: MBTI-SEO-01 / codex/mbti-seo-01-hub-seo-geo-refresh
+- Blocker type: external_uncommitted_scope_drift
+- Evidence: During MBTI-SEO-01 validation, next.config.mjs and tests/contracts/security-headers.contract.test.ts appeared modified with a loopback HTTP API CSP development allowance. These files are outside the MBTI Hub SEO scope and were not touched by the MBTI-SEO-01 implementation.
+- Why not current PR scope: MBTI-SEO-01 only changes /zh/personality hub SEO/rendering, hub FAQ/schema tests, PR-train metadata, and sidecar files. CSP/security-header behavior belongs to a separate security/local-development PR.
+- Required checks affected: false
+- Recommended follow-up: Review the preserved stash named preserve external CSP local dev change before deciding whether to open a separate scoped PR for local API CSP support.

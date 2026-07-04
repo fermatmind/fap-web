@@ -12979,6 +12979,342 @@ prs:
       auto_merge: true
     next_task: null
 
+  - id: MBTI-SEO-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-seo-01-hub-seo-geo-refresh
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: mbti_personality_hub_seo_geo_refresh
+    risk_level: L1
+    status: in_progress
+    title: "MBTI-SEO-01: refresh personality hub SEO/GEO structure"
+    goal: "Refresh /zh/personality metadata, H1, visible 32-personality explanation, popular comparisons, visible FAQ, FAQPage schema, and preserve ItemList without adding frontend editorial fallback."
+    in_scope:
+      - app/(localized)/[locale]/personality/page.tsx
+      - components/personality/PersonalityFaq.tsx
+      - tests/contracts/personality-semantics.contract.test.ts
+      - tests/contracts/personality-hub-contract.test.ts
+      - tests/contracts/personality-type-browse.contract.test.tsx
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api changes
+      - MBTI test page runtime changes
+      - personality detail page renderer changes
+      - comparison page renderer changes
+      - production CMS writes/imports
+      - sitemap URL set or llms URL set expansion
+      - frontend local editorial fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/personality-semantics.contract.test.ts tests/contracts/personality-hub-contract.test.ts tests/contracts/personality-type-browse.contract.test.tsx --reporter=dot
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    acceptance:
+      - /zh/personality metadata and H1 target MBTI 16-type search intent.
+      - Visible hub content explains 32 A/T personality variants without becoming a frontend editorial fallback source.
+      - Popular comparison entry points are visible on the hub.
+      - FAQPage JSON-LD is emitted only when matching FAQ content is visibly rendered.
+      - Existing 32-item ItemList JSON-LD remains present.
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-SEO-02
+
+  - id: MBTI-SEO-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-seo-02-test-personality-link-bridge
+    base: main
+    depends_on:
+      - MBTI-SEO-01
+    mode: execute
+    train_scope: mbti_test_personality_internal_link_bridge
+    risk_level: L1
+    status: planned
+    title: "MBTI-SEO-02: connect MBTI test pages to personality routes"
+    goal: "Add MBTI test page and post-result internal links to the personality hub, 32 personalities, and popular comparisons through CMS/landing-surface driven rendering where available."
+    in_scope:
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - components/tests/**
+      - lib/cms/**
+      - tests/contracts/*test-detail*
+      - tests/contracts/*mbti*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - scoring, attempt, payment, or report entitlement changes
+      - frontend local editorial fallback content
+      - personality hub/detail/comparison renderer changes outside link bridge needs
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/test-detail-authority-convergence.contract.test.ts tests/contracts/test-detail-landing.contract.test.ts --reporter=dot
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-SEO-03
+
+  - id: MBTI-SEO-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-seo-03-profile-rendering-contract
+    base: main
+    depends_on:
+      - MBTI-SEO-02
+    mode: execute
+    train_scope: mbti_32_profile_rendering_contract
+    risk_level: L1
+    status: planned
+    title: "MBTI-SEO-03: harden 32 personality profile rendering"
+    goal: "Ensure single personality pages consistently render backend/CMS answer blocks, visible FAQ, A/T differences, and comparison links without frontend-authored body content."
+    in_scope:
+      - app/(localized)/[locale]/personality/[type]/page.tsx
+      - lib/cms/personality-sections.tsx
+      - lib/cms/personality.ts
+      - tests/contracts/personality-cms.contract.test.ts
+      - tests/contracts/personality-sections.contract.test.tsx
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - comparison page template changes
+      - sitemap URL set or llms URL set expansion
+      - frontend local editorial fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/personality-cms.contract.test.ts tests/contracts/personality-sections.contract.test.tsx --reporter=dot
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-CMS-04
+
+  - id: MBTI-CMS-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-cms-04-top-profile-content-assets
+    base: main
+    depends_on:
+      - MBTI-SEO-03
+    mode: execute
+    train_scope: mbti_top_profile_content_asset_package
+    risk_level: L1
+    status: planned
+    title: "MBTI-CMS-04: package top exposed personality content assets"
+    goal: "Create a non-production content asset package for the GSC Top 10 exposed personality pages covering definitions, fit, misread risks, A/T differences, career, relationship, stress scenarios, and FAQ."
+    in_scope:
+      - docs/seo/personality/**
+      - scripts/seo/**
+      - tests/contracts/*personality*content*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - DB migrations
+      - frontend runtime renderer changes
+      - frontend local editorial fallback content
+    required_local_checks:
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-SEO-05
+
+  - id: MBTI-SEO-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-seo-05-comparison-template-refresh
+    base: main
+    depends_on:
+      - MBTI-CMS-04
+    mode: execute
+    train_scope: mbti_comparison_template_refresh
+    risk_level: L1
+    status: planned
+    title: "MBTI-SEO-05: refresh personality comparison page template"
+    goal: "Standardize comparison page rendering for maximum difference, quick judgment table, misread risks, real scenario differences, and visible FAQ from backend/CMS comparison payloads."
+    in_scope:
+      - app/(localized)/[locale]/personality/[type]/page.tsx
+      - lib/mbti/personalityComparison.ts
+      - lib/cms/personality.ts
+      - tests/contracts/personality-comparison-pages.contract.test.tsx
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - single personality profile renderer changes not required by comparison template
+      - sitemap URL set or llms URL set expansion
+      - frontend local editorial fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/personality-comparison-pages.contract.test.tsx --reporter=dot
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-CMS-06
+
+  - id: MBTI-CMS-06
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-cms-06-comparison-content-assets
+    base: main
+    depends_on:
+      - MBTI-SEO-05
+    mode: execute
+    train_scope: mbti_comparison_content_asset_package
+    risk_level: L1
+    status: planned
+    title: "MBTI-CMS-06: package A/T and hot comparison content assets"
+    goal: "Create a non-production content asset package for 16 A/T comparison pages and hot comparisons such as INTJ/INTP, ENTJ/INTJ, INFJ/INFP, and ISTJ/ISFJ."
+    in_scope:
+      - docs/seo/personality/**
+      - scripts/seo/**
+      - tests/contracts/*personality*comparison*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - DB migrations
+      - frontend runtime renderer changes
+      - frontend local editorial fallback content
+    required_local_checks:
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-SEO-07
+
+  - id: MBTI-SEO-07
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-seo-07-llms-sitemap-discoverability
+    base: main
+    depends_on:
+      - MBTI-CMS-06
+    mode: execute
+    train_scope: mbti_personality_discoverability_audit
+    risk_level: L1
+    status: planned
+    title: "MBTI-SEO-07: audit personality llms and sitemap discoverability"
+    goal: "Verify personality profiles and comparisons are correctly enumerated by llms/sitemap authority paths, without widening URL sets before content and indexability gates are ready."
+    in_scope:
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - lib/seo/llmsRouteBudget.ts
+      - lib/seo/sitemapAuthorityAdapters.cjs
+      - tests/contracts/*llms*
+      - tests/contracts/*sitemap*
+      - docs/seo/personality/**
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - SEO runtime URL expansion without explicit indexability evidence
+      - canonical/noindex changes outside discoverability audit scope
+      - frontend local editorial fallback content
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/public-sitemap-route.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts --reporter=dot
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-OPS-08
+
+  - id: MBTI-OPS-08
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-ops-08-gsc-priority-monitoring
+    base: main
+    depends_on:
+      - MBTI-SEO-07
+    mode: execute
+    train_scope: mbti_gsc_priority_monitoring
+    risk_level: L1
+    status: planned
+    title: "MBTI-OPS-08: add MBTI GSC priority monitoring"
+    goal: "Create a Top pages and queries tracking table for MBTI personality pages and comparisons using 28-day GSC data to guide the next content batch."
+    in_scope:
+      - docs/seo/personality/**
+      - scripts/seo/**
+      - tests/contracts/*personality*seo*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - production deploy
+      - frontend runtime renderer changes
+      - frontend local editorial fallback content
+    required_local_checks:
+      - pnpm test:contract
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null
+
   - id: PR-CAREER-KG-00
     repo: fap-web
     repo_path: <workspace>/fap-web
