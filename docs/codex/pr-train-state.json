@@ -39653,12 +39653,12 @@
     "depends_on": [
       "MBTI-SEO-02"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "676fe63478bd480aa4e06968e3458aa97fa7f21e",
+    "status": "merged",
+    "commit_sha": "9eb8554e976eed08b65b2a1cfa76c0dff4a5d7fc",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1580",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-04T05:38:35Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "local_checks": {
@@ -39752,6 +39752,12 @@
         "status": "ready_to_merge",
         "commit_sha": "676fe63478bd480aa4e06968e3458aa97fa7f21e",
         "notes": "GitHub checks passed for PR #1580; marking ready_to_merge before squash merge."
+      },
+      {
+        "at": "2026-07-04T05:53:02Z",
+        "status": "merged",
+        "commit_sha": "9eb8554e976eed08b65b2a1cfa76c0dff4a5d7fc",
+        "notes": "Reconciled after PR #1580 squash merge: origin/main contains merge commit, local main synced, worktree clean, and local/remote task branch cleanup verified."
       }
     ]
   },
@@ -39764,7 +39770,7 @@
     "depends_on": [
       "MBTI-SEO-03"
     ],
-    "status": "planned",
+    "status": "in_progress",
     "commit_sha": null,
     "pr_url": null,
     "merged_at": null,
@@ -39773,8 +39779,20 @@
     "failure_reason": null,
     "checks": {
       "local_checks": {
-        "status": "pending",
-        "commands": []
+        "status": "passed",
+        "commands": [
+          "node scripts/seo/build-mbti-cms-04-top-profile-content-assets.mjs",
+          "corepack pnpm exec vitest run tests/contracts/mbti-cms-04-personality-top-profile-content-assets.contract.test.ts --reporter=dot",
+          "corepack pnpm exec vitest run tests/contracts/mbti-cms-04-personality-top-profile-content-assets.contract.test.ts tests/contracts/mbti-recommendation-copy-boundary.contract.test.ts --reporter=dot",
+          "corepack pnpm test:contract",
+          "corepack pnpm typecheck",
+          "NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+          "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml')\"",
+          "python3 -m json.tool docs/codex/pr-train-state.json",
+          "git diff --check"
+        ],
+        "result": "passed",
+        "notes": "Focused MBTI-CMS-04 content asset contract, MBTI recommendation copy boundary, full contract suite, typecheck, production API build, manifest/state parse, and diff whitespace checks passed. An initial forbidden exact phrase hit was fixed inside the current asset-package scope and revalidated."
       },
       "github_checks": {
         "status": "pending",
@@ -39782,17 +39800,42 @@
       }
     },
     "scope_validation": {
-      "status": "pending",
+      "status": "passed",
       "outside_scope_files": [],
-      "evidence": null
+      "evidence": [
+        "docs/codex/pr-train-state.json",
+        "docs/seo/personality/mbti-cms-04-top-profile-content-assets-2026-07-04.csv",
+        "docs/seo/personality/mbti-cms-04-top-profile-content-assets-2026-07-04.json",
+        "docs/seo/personality/mbti-cms-04-top-profile-content-assets-2026-07-04.md",
+        "scripts/seo/build-mbti-cms-04-top-profile-content-assets.mjs",
+        "tests/contracts/mbti-cms-04-personality-top-profile-content-assets.contract.test.ts"
+      ],
+      "result": "passed: changed files are limited to the MBTI-CMS-04 non-production personality content asset package scope."
     },
     "events": [
       {
         "at": "2026-07-04T03:27:14.152Z",
         "status": "planned",
         "notes": "Registered by MBTI SEO/GEO goal authorization; not yet started."
+      },
+      {
+        "at": "2026-07-04T05:53:02Z",
+        "status": "in_progress",
+        "notes": "Started MBTI-CMS-04 from latest main after MBTI-SEO-03 post-merge reconciliation."
+      },
+      {
+        "at": "2026-07-04T06:13:46Z",
+        "status": "local_checks_passed",
+        "notes": "Generated top exposed MBTI64 personality profile content asset package; local checks passed after fixing a current-scope forbidden exact phrase."
+      },
+      {
+        "at": "2026-07-04T06:13:46Z",
+        "status": "scope_validation_passed",
+        "notes": "Changed files are limited to docs/seo/personality assets, scripts/seo generator, personality content contract, and train state metadata."
       }
-    ]
+    ],
+    "base_commit_sha": "9eb8554e976eed08b65b2a1cfa76c0dff4a5d7fc",
+    "updated_at": "2026-07-04T06:13:46Z"
   },
   "MBTI-SEO-05": {
     "repo": "fap-web",
@@ -39951,7 +39994,7 @@
     ]
   },
   "active_train": {
-    "current_pr": "MBTI-SEO-03",
-    "next_pr": "MBTI-CMS-04"
+    "current_pr": "MBTI-CMS-04",
+    "next_pr": "MBTI-SEO-05"
   }
 }
