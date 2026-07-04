@@ -40137,8 +40137,8 @@
     "depends_on": [
       "MBTI-SEO-07"
     ],
-    "status": "pr_opened",
-    "commit_sha": "f507908610a34b966cfbf3b36e29d9ec86868364",
+    "status": "ready_to_merge",
+    "commit_sha": "149dd782af80235f2d9b6898bf33587fdbffb762",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1589",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -40161,8 +40161,8 @@
         "note": "Bare pnpm test:contract was blocked by local approve-builds wrapper state before tests ran; equivalent corepack pnpm contract/typecheck/build checks passed."
       },
       "github_checks": {
-        "status": "pending",
-        "evidence": null
+        "status": "passed",
+        "evidence": "PR #1589 checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL/analyze."
       }
     },
     "scope_validation": {
@@ -40205,10 +40205,15 @@
         "at": "2026-07-04T10:28:00Z",
         "status": "pr_opened",
         "notes": "Opened PR #1589 for MBTI-OPS-08 and left GitHub checks pending."
+      },
+      {
+        "at": "2026-07-04T10:33:00Z",
+        "status": "ready_to_merge",
+        "notes": "GitHub checks passed for PR #1589: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL/analyze."
       }
     ],
     "base_commit_sha": "1ebd32d2e6f09a86275e06b3177f9cd1f2b1fe53",
-    "updated_at": "2026-07-04T10:28:00Z"
+    "updated_at": "2026-07-04T10:33:00Z"
   },
   "active_train": {
     "current_pr": "MBTI-OPS-08",
