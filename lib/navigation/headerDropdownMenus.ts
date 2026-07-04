@@ -34,7 +34,6 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
     ],
     personality: [
       { href: "/personality", label: "All personality profiles" },
-      { href: "/personality#personality-comparisons", label: "Personality comparisons" },
       { href: "/personality/big-five", label: "Big Five (OCEAN)" },
       { href: "/personality/enneagram", label: "Enneagram" },
       { href: "/personality#nt", label: "Analysts (NT)" },
@@ -75,8 +74,7 @@ const HEADER_DROPDOWN_MENUS: Record<Locale, HeaderDropdownRegistry> = {
       { href: "/articles/eq-test-tool-guide", label: "EQ 工具说明" },
     ],
     personality: [
-      { href: "/personality", label: "16型人格" },
-      { href: "/personality#personality-comparisons", label: "性格对比" },
+      { href: "/personality", label: "MBTI人格" },
       { href: "/personality/big-five", label: "大五人格（OCEAN）" },
       { href: "/personality/enneagram", label: "九型人格" },
     ],

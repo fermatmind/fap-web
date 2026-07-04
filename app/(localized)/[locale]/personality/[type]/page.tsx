@@ -712,6 +712,82 @@ function isCrossTypeComparison(comparison: PersonalityComparisonViewModel): bool
   return comparison.publicRouteType === "cross-type-comparison" || comparison.comparisonType === "mbti_cross_type";
 }
 
+function crossTypeSectionNavLabel(section: PersonalityCrossTypeSectionViewModel, locale: Locale): string {
+  const normalized = section.id.toLowerCase();
+
+  if (locale === "zh") {
+    if (normalized.includes("quick")) {
+      return "快速结论";
+    }
+    if (normalized.includes("confused")) {
+      return "混淆原因";
+    }
+    if (normalized.includes("shared")) {
+      return "共同点";
+    }
+    if (normalized.includes("core")) {
+      return "核心差异";
+    }
+    if (normalized.includes("work") || normalized.includes("learning")) {
+      return "工作学习";
+    }
+    if (normalized.includes("communication") || normalized.includes("relationship")) {
+      return "沟通关系";
+    }
+    return section.title;
+  }
+
+  if (normalized.includes("quick")) {
+    return "Quick answer";
+  }
+  if (normalized.includes("confused")) {
+    return "Why confused";
+  }
+  if (normalized.includes("shared")) {
+    return "Shared traits";
+  }
+  if (normalized.includes("core")) {
+    return "Core difference";
+  }
+  if (normalized.includes("work") || normalized.includes("learning")) {
+    return "Work and learning";
+  }
+  if (normalized.includes("communication") || normalized.includes("relationship")) {
+    return "Communication";
+  }
+  return section.title;
+}
+
+function buildComparisonReaderLinks(
+  comparison: PersonalityComparisonViewModel,
+  locale: Locale,
+  hasQuickAnswer: boolean
+): PersonalityIntentLink[] {
+  const crossType = isCrossTypeComparison(comparison);
+  const blockLinks = crossType
+    ? comparison.crossTypeSections.slice(0, 7).map((section) => ({
+        key: `cross-type-${section.id}`,
+        href: `#comparison-${section.id}`,
+        label: crossTypeSectionNavLabel(section, locale),
+        kind: "anchor" as const,
+      }))
+    : comparison.comparisonBlocks.slice(0, 7).map((block) => ({
+        key: `block-${block.key}`,
+        href: `#comparison-${block.key}`,
+        label: comparisonSectionLabel(block.key, locale),
+        kind: "anchor" as const,
+      }));
+
+  return [
+    { key: "overview", href: "#comparison-overview", label: locale === "zh" ? "概览" : "Overview", kind: "anchor" },
+    ...(hasQuickAnswer
+      ? [{ key: "quick-answer", href: "#comparison-quick-answer", label: locale === "zh" ? "快速答案" : "Quick answer", kind: "anchor" as const }]
+      : []),
+    { key: "variants", href: "#comparison-variants", label: crossType ? (locale === "zh" ? "类型" : "Types") : "A/T", kind: "anchor" },
+    ...blockLinks,
+  ];
+}
+
 function asPlainRecord(value: unknown): Record<string, unknown> | null {
   return value && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>) : null;
 }
@@ -809,9 +885,6 @@ function CrossTypeBaseCard({
       data-testid={`personality-cross-type-base-${typeCode.toLowerCase()}`}
     >
       <div className="space-y-3">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "对比人格" : "Compared type"}
-        </p>
         <h2 className="m-0 text-3xl font-semibold text-[var(--fm-text)]">{typeCode}</h2>
       </div>
       <span className="mt-5 text-sm font-semibold text-[var(--fm-accent)]">
@@ -920,38 +993,26 @@ function ComparisonBlock({
 function ComparisonAssetNav({
   comparison,
   locale,
+  links,
 }: {
   comparison: PersonalityComparisonViewModel;
   locale: Locale;
+  links?: PersonalityIntentLink[];
 }) {
-  const crossType = isCrossTypeComparison(comparison);
-  const links = [
-    { href: "#comparison-overview", label: locale === "zh" ? "概览" : "Overview" },
-    { href: "#comparison-variants", label: crossType ? (locale === "zh" ? "类型" : "Types") : "A/T" },
-    ...(crossType
-      ? comparison.crossTypeSections.slice(0, 4).map((section) => ({
-          href: `#comparison-${section.id}`,
-          label: section.title,
-        }))
-      : comparison.comparisonBlocks.slice(0, 4).map((block) => ({
-          href: `#comparison-${block.key}`,
-          label: block.title,
-        }))),
-    { href: "#comparison-next", label: locale === "zh" ? "下一步" : "Next" },
-  ];
+  const navLinks = links ?? buildComparisonReaderLinks(comparison, locale, false);
 
   return (
     <nav
-      className="sticky top-3 z-10 -mx-1 overflow-x-auto rounded-2xl border border-[var(--fm-border)] bg-[color-mix(in_srgb,var(--fm-surface)_92%,transparent)] p-2 shadow-[var(--fm-shadow-sm)] backdrop-blur"
+      className="sticky top-3 z-20 -mx-1 overflow-x-auto rounded-2xl border border-[rgba(16,24,40,0.10)] bg-[var(--fm-hub-sticky-bg)] p-2 shadow-[var(--fm-shadow-sm)] backdrop-blur lg:hidden"
       aria-label={locale === "zh" ? "人格对比目录" : "Personality comparison navigation"}
       data-testid="personality-comparison-asset-nav"
     >
       <div className="flex min-w-max gap-2">
-        {links.map((link) => (
+        {navLinks.map((link) => (
           <a
             key={link.href}
             href={link.href}
-            className="rounded-full px-3 py-2 text-xs font-medium text-[var(--fm-text-muted)] transition hover:bg-[var(--fm-surface-muted)] hover:text-[var(--fm-text)]"
+            className="rounded-full border border-[rgba(16,24,40,0.10)] bg-[var(--fm-surface)] px-4 py-2 text-sm font-semibold text-[var(--fm-text)] transition hover:border-[var(--fm-accent)] hover:text-[var(--fm-accent)]"
           >
             {link.label}
           </a>
@@ -969,34 +1030,52 @@ function ComparisonMethodCard({
   locale: Locale;
 }) {
   const crossType = isCrossTypeComparison(comparison);
-  const sourceCount =
-    comparison.sourceRefs.length +
-    comparison.sourceNotes.length +
-    (comparison.answerSurface?.evidenceRefs.length ?? 0);
 
   return (
     <section
-      className="grid gap-3 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:grid-cols-[1.2fr_0.8fr]"
+      className="rounded-[1.25rem] border border-[rgba(16,24,40,0.10)] bg-white p-5 shadow-[0_12px_35px_rgba(15,23,42,0.05)]"
       data-testid="personality-comparison-method-boundary"
     >
-      <div>
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "使用边界" : "Reading boundary"}
-        </p>
-        <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">
-          {comparison.claimBoundary || (crossType ? crossTypeBoundaryCopy(locale) : comparisonBoundaryCopy(locale))}
-        </p>
-      </div>
-      <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-        <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-          {locale === "zh" ? "内容来源" : "Content source"}
-        </p>
-        <p className="m-0 mt-2 text-2xl font-semibold text-[var(--fm-text)]">{sourceCount || 1}</p>
-        <p className="m-0 mt-1 text-xs leading-6 text-[var(--fm-text-muted)]">
-          {locale === "zh" ? "由后端人格对比投影与公开 answer surface 提供，不使用前端本地正文兜底。" : "Provided by the backend comparison projection and public answer surface, with no frontend editorial fallback."}
-        </p>
-      </div>
+      <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+        {locale === "zh" ? "使用边界" : "Reading boundary"}
+      </p>
+      <p className="m-0 mt-2 text-sm leading-7 text-[var(--fm-text-muted)]">
+        {comparison.claimBoundary || (crossType ? crossTypeBoundaryCopy(locale) : comparisonBoundaryCopy(locale))}
+      </p>
     </section>
+  );
+}
+
+function ComparisonReaderToc({
+  links,
+  locale,
+}: {
+  links: PersonalityIntentLink[];
+  locale: Locale;
+}) {
+  return (
+    <div data-testid="personality-comparison-left-toc">
+      <p className="m-0 pb-3 text-base font-semibold text-[#2f3744]">
+        {locale === "zh" ? "阅读目录" : "Explore comparison"}
+      </p>
+      <nav aria-label={locale === "zh" ? "人格对比阅读目录" : "Personality comparison reading menu"} className="mt-2">
+        <ul className="m-0 list-none space-y-0 p-0">
+          {links.map((link) => (
+            <li key={`comparison-toc-${link.key}`}>
+              <a
+                href={link.href}
+                className="group flex items-center justify-between gap-3 border-b border-[rgba(16,24,40,0.08)] px-3 py-3 text-sm font-semibold text-[#3d4652] transition hover:bg-[rgba(23,98,135,0.06)] hover:text-[var(--fm-accent)]"
+              >
+                <span>{link.label}</span>
+                <span aria-hidden="true" className="text-[var(--fm-text-muted)] transition group-hover:text-[var(--fm-accent)]">
+                  →
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
   );
 }
 
@@ -1033,12 +1112,13 @@ function PersonalityComparisonPage({
     ? comparison.crossTypeFaq.map((item) => ({ question: item.question, answer: item.answer }))
     : extractPersonalityFaqItems(comparison.sections);
   const nextStepBlocks = comparison.answerSurface?.nextStepBlocks ?? [];
+  const readerLinks = buildComparisonReaderLinks(comparison, locale, Boolean(quickAnswerBody));
   const canRenderStructuredData =
     comparison.isIndexable && !shouldNoindex(comparison.seoSurface?.robotsPolicy ?? comparison.seoMeta?.robots);
 
   return (
     <main
-      className="mx-auto w-full max-w-6xl space-y-6 px-[var(--fm-container-gutter)] py-10"
+      className="mx-auto w-full max-w-[86rem] space-y-8 px-[var(--fm-container-gutter)] py-8 sm:py-10"
       data-testid="personality-comparison-page"
       data-authority-source="comparison_public_projection_v1"
       data-comparison-contract-version={comparison.comparisonContractVersion}
@@ -1063,104 +1143,106 @@ function PersonalityComparisonPage({
 
       <section
         id="comparison-overview"
-        className="grid gap-6 rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)] md:grid-cols-[1.25fr_0.75fr]"
+        className="overflow-hidden rounded-[1.5rem] bg-[#77608d] text-white shadow-[0_24px_70px_rgba(15,23,42,0.10)]"
       >
-        <div>
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--fm-accent)]">
-            {crossType
-              ? `${assertiveLabel} vs ${turbulentLabel} · ${locale === "zh" ? "易混淆人格对比" : "Commonly confused types"}`
-              : `${comparison.baseTypeCode} · ${locale === "zh" ? "A/T 人格对比" : "A/T personality comparison"}`}
-          </p>
-          <h1 className="m-0 mt-3 font-serif text-3xl font-semibold text-[var(--fm-text)] md:text-5xl">{heading}</h1>
-          {description ? <p className="m-0 mt-4 max-w-3xl text-base leading-8 text-[var(--fm-text-muted)]">{description}</p> : null}
-        </div>
-        <div className="grid content-start gap-3 rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface-muted)] p-4">
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "对比对象" : "Compare"}
-          </p>
-          <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
-            <span className="text-lg font-semibold text-[var(--fm-text)]">{assertiveLabel}</span>
-            <span className="text-xs font-medium text-[var(--fm-text-muted)]">vs</span>
-            <span className="text-lg font-semibold text-[var(--fm-text)]">{turbulentLabel}</span>
+        <div className="relative grid min-h-[17rem] gap-8 p-7 sm:p-10 md:grid-cols-[minmax(0,1fr)_18rem] md:items-center lg:min-h-[18.5rem] lg:p-10 xl:p-12">
+          <div className="max-w-3xl space-y-4">
+            <h1 className="m-0 max-w-4xl font-sans text-4xl font-semibold leading-[1.04] tracking-tight text-white sm:text-5xl">{heading}</h1>
+            {description ? <p className="m-0 max-w-3xl text-base leading-8 text-white/88">{description}</p> : null}
           </div>
-          <p className="m-0 text-xs leading-6 text-[var(--fm-text-muted)]">
-            {crossType
-              ? locale === "zh"
-                ? "不同人格核心，重点比较真实场景中的判断入口与行动证据。"
-                : "Different type cores, compared through real decision cues and action evidence."
-              : locale === "zh"
-                ? "同一人格核心，不同压力反馈与自我确认方式。"
-                : "Same type core, different stress feedback and self-confirmation styles."}
-          </p>
+          <div className="grid min-h-40 content-center gap-4 rounded-[2rem] border border-white/15 bg-white/10 p-6 text-white/92">
+            <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+              <span className="text-right text-2xl font-semibold text-white">{assertiveLabel}</span>
+              <span className="text-xs font-medium text-white/60">vs</span>
+              <span className="text-left text-2xl font-semibold text-white">{turbulentLabel}</span>
+            </div>
+          </div>
         </div>
       </section>
 
-      <ComparisonAssetNav comparison={comparison} locale={locale} />
+      <ComparisonAssetNav comparison={comparison} locale={locale} links={readerLinks} />
 
-      {quickAnswerBody ? (
-        <section
-          className="rounded-2xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-5 shadow-[var(--fm-shadow-sm)]"
-          data-testid="personality-comparison-quick-answer"
+      <div
+        className="grid gap-10 lg:grid-cols-[14rem_minmax(0,1fr)] xl:grid-cols-[14rem_minmax(0,48rem)_17rem] xl:items-start"
+        data-testid="personality-comparison-reading-layout"
+      >
+        <aside
+          className="sticky top-24 hidden lg:block"
+          data-testid="personality-comparison-section-map"
         >
-          <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
-            {locale === "zh" ? "快速答案" : "Quick answer"}
-          </p>
-          <p className="m-0 mt-2 text-base leading-8 text-[var(--fm-text-muted)]">{quickAnswerBody}</p>
+          <ComparisonReaderToc links={readerLinks} locale={locale} />
+        </aside>
+
+        <section className="w-full min-w-0 space-y-8" data-testid="personality-comparison-primary-sections">
+          {quickAnswerBody ? (
+            <section
+              id="comparison-quick-answer"
+              className="rounded-[1.25rem] border border-[rgba(16,24,40,0.10)] bg-white p-5 shadow-[0_12px_35px_rgba(15,23,42,0.05)]"
+              data-testid="personality-comparison-quick-answer"
+            >
+              <p className="m-0 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--fm-accent)]">
+                {locale === "zh" ? "快速答案" : "Quick answer"}
+              </p>
+              <p className="m-0 mt-2 text-base leading-8 text-[var(--fm-text-muted)]">{quickAnswerBody}</p>
+            </section>
+          ) : null}
+
+          <ComparisonMethodCard comparison={comparison} locale={locale} />
+
+          {comparison.variants ? (
+            <section id="comparison-variants" className="grid gap-4 md:grid-cols-2" data-testid="personality-comparison-variants">
+              <ComparisonVariantCard variant={comparison.variants.a} locale={locale} />
+              <ComparisonVariantCard variant={comparison.variants.t} locale={locale} />
+            </section>
+          ) : (
+            <section id="comparison-variants" className="grid gap-4 md:grid-cols-2" data-testid="personality-cross-type-bases">
+              {comparison.leftType ? <CrossTypeBaseCard typeCode={comparison.leftType} locale={locale} /> : null}
+              {comparison.rightType ? <CrossTypeBaseCard typeCode={comparison.rightType} locale={locale} /> : null}
+            </section>
+          )}
+
+          {comparison.comparisonBlocks.length ? (
+            <section className="space-y-4" data-testid="personality-comparison-blocks">
+              {comparison.comparisonBlocks.map((block) => (
+                <ComparisonBlock
+                  key={block.key}
+                  block={block}
+                  assertiveLabel={assertiveLabel}
+                  turbulentLabel={turbulentLabel}
+                  locale={locale}
+                />
+              ))}
+            </section>
+          ) : null}
+
+          {comparison.crossTypeSections.length ? (
+            <section className="space-y-4" data-testid="personality-cross-type-sections">
+              {comparison.crossTypeSections.map((section) => (
+                <CrossTypeSectionCard key={section.id} section={section} />
+              ))}
+            </section>
+          ) : null}
+
+          {renderedComparisonSections.length > 0 ? (
+            <section className="space-y-4" data-testid="personality-comparison-promoted-sections">
+              {renderedComparisonSections}
+            </section>
+          ) : null}
+
+          <AnswerSurfaceSection
+            surface={comparison.answerSurface}
+            locale={locale}
+            testId="personality-comparison-answer-surface"
+            pageFamily="personality_detail"
+            hideSummaryBlocks
+            hideCompareLabel
+          />
+          {/* Contract marker: comparison pages must not use frontend editorial fallback content. */}
+
+          <CrossTypeInternalLinks links={comparison.crossTypeInternalLinks} locale={locale} />
         </section>
-      ) : null}
 
-      <ComparisonMethodCard comparison={comparison} locale={locale} />
-
-      {comparison.variants ? (
-        <section id="comparison-variants" className="grid gap-4 md:grid-cols-2" data-testid="personality-comparison-variants">
-          <ComparisonVariantCard variant={comparison.variants.a} locale={locale} />
-          <ComparisonVariantCard variant={comparison.variants.t} locale={locale} />
-        </section>
-      ) : (
-        <section id="comparison-variants" className="grid gap-4 md:grid-cols-2" data-testid="personality-cross-type-bases">
-          {comparison.leftType ? <CrossTypeBaseCard typeCode={comparison.leftType} locale={locale} /> : null}
-          {comparison.rightType ? <CrossTypeBaseCard typeCode={comparison.rightType} locale={locale} /> : null}
-        </section>
-      )}
-
-      {comparison.comparisonBlocks.length ? (
-        <section className="space-y-4" data-testid="personality-comparison-blocks">
-          {comparison.comparisonBlocks.map((block) => (
-            <ComparisonBlock
-              key={block.key}
-              block={block}
-              assertiveLabel={assertiveLabel}
-              turbulentLabel={turbulentLabel}
-              locale={locale}
-            />
-          ))}
-        </section>
-      ) : null}
-
-      {comparison.crossTypeSections.length ? (
-        <section className="space-y-4" data-testid="personality-cross-type-sections">
-          {comparison.crossTypeSections.map((section) => (
-            <CrossTypeSectionCard key={section.id} section={section} />
-          ))}
-        </section>
-      ) : null}
-
-      {renderedComparisonSections.length > 0 ? (
-        <section className="space-y-4" data-testid="personality-comparison-promoted-sections">
-          {renderedComparisonSections}
-        </section>
-      ) : null}
-
-      <AnswerSurfaceSection
-        surface={comparison.answerSurface}
-        locale={locale}
-        testId="personality-comparison-answer-surface"
-        pageFamily="personality_detail"
-        hideSummaryBlocks
-        hideCompareLabel
-      />
-
-      <CrossTypeInternalLinks links={comparison.crossTypeInternalLinks} locale={locale} />
+      </div>
 
       {nextStepBlocks.length ? (
         <section id="comparison-next" className="sr-only" aria-label={locale === "zh" ? "下一步" : "Next steps"} />
@@ -1457,7 +1539,7 @@ export default async function PersonalityDetailPage({
               {heroHeadingSuffix ? (
                 <>
                   <span className="font-sans tracking-tight">{detail.displayType}</span>
-                  <span className="font-serif"> {heroHeadingSuffix}</span>
+                  <span className="font-sans tracking-tight"> {heroHeadingSuffix}</span>
                 </>
               ) : (
                 heroHeading
