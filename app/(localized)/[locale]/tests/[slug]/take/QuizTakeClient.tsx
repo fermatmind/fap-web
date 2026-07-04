@@ -1595,7 +1595,6 @@ function QuizTakeInner({
               brand={quizHeaderBrand}
               completedPrefix={dict.header.completedPrefix}
               completedSuffix={dict.header.completedSuffix}
-              completedCountLabel={dict.header.completedCountLabel}
               estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
               minutesUnit={dict.common.minutes_unit}
               estimatedMinutes={resolvedEstimatedMinutes}
@@ -1753,7 +1752,6 @@ function QuizTakeInner({
         brand={quizHeaderBrand}
         completedPrefix={dict.header.completedPrefix}
         completedSuffix={dict.header.completedSuffix}
-        completedCountLabel={dict.header.completedCountLabel}
         estimatedTimeLabel={dict.quiz.estimatedTimeLabel}
         minutesUnit={dict.common.minutes_unit}
         estimatedMinutes={resolvedEstimatedMinutes}

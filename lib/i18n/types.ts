@@ -17,7 +17,6 @@ export type SiteDictionary = {
     closeMenu: string;
     completedPrefix: string;
     completedSuffix: string;
-    completedCountLabel?: string;
     switchToEnglish: string;
     switchToChinese: string;
   };

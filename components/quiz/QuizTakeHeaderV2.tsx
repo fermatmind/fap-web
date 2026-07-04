@@ -5,7 +5,6 @@ export function QuizTakeHeaderV2({
   brand,
   completedPrefix,
   completedSuffix,
-  completedCountLabel,
   estimatedTimeLabel,
   minutesUnit,
   estimatedMinutes,
@@ -20,7 +19,6 @@ export function QuizTakeHeaderV2({
   brand: string;
   completedPrefix: string;
   completedSuffix: string;
-  completedCountLabel?: string;
   estimatedTimeLabel: string;
   minutesUnit: string;
   estimatedMinutes?: number | null;
@@ -50,11 +48,7 @@ export function QuizTakeHeaderV2({
           {showCompletedCount ? (
             <p className="fm-tabular-nums mt-1 flex flex-wrap items-baseline gap-1 text-xs text-[var(--fm-text-muted)]">
               {completedPrefix ? <span>{completedPrefix}</span> : null}
-              {completedCountLabel ? (
-                <span className="font-semibold text-[var(--fm-text)]">{completedCountLabel}</span>
-              ) : (
-                <LiveCompletedCounter className="font-semibold text-[var(--fm-text)]" />
-              )}
+              <LiveCompletedCounter className="font-semibold text-[var(--fm-text)]" suffix="+" />
               {completedSuffix ? <span>{completedSuffix}</span> : null}
             </p>
           ) : null}
