@@ -5,7 +5,7 @@ import { Container } from "@/components/layout/Container";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
-import { formatTopicDisplayCode, listTopics } from "@/lib/cms/topics";
+import { listTopics } from "@/lib/cms/topics";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { buildBreadcrumbJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
@@ -46,9 +46,14 @@ function buildTopicNavigationGroups(locale: Locale, withLocale: (pathname: strin
           href: withLocale("/topics/big-five"),
         },
         {
-          label: isZh ? "IQ / EQ 文章" : "IQ / EQ articles",
-          description: isZh ? "认知能力、情绪能力与解释边界。" : "Cognitive ability, emotional skills, and interpretation boundaries.",
-          href: withLocale("/topics/iq-eq"),
+          label: isZh ? "IQ 文章" : "IQ articles",
+          description: isZh ? "认知能力、推理表现与解释边界。" : "Cognitive ability, reasoning performance, and interpretation boundaries.",
+          href: withLocale("/topics/iq-eq#iq"),
+        },
+        {
+          label: isZh ? "EQ 文章" : "EQ articles",
+          description: isZh ? "情绪能力、沟通场景与解释边界。" : "Emotional skills, communication contexts, and interpretation boundaries.",
+          href: withLocale("/topics/iq-eq#eq"),
         },
       ],
     },
@@ -68,11 +73,6 @@ function buildTopicNavigationGroups(locale: Locale, withLocale: (pathname: strin
           description: isZh ? "浏览已发布的公开文章列表。" : "Browse the full published article list.",
           href: withLocale("/articles"),
         },
-        {
-          label: isZh ? "九型人格测试" : "Enneagram test",
-          description: isZh ? "从核心动机与压力反应理解行为模式。" : "Understand behavior through motivation and stress patterns.",
-          href: withLocale("/tests/enneagram-personality-test-nine-types"),
-        },
       ],
     },
     {
@@ -90,11 +90,6 @@ function buildTopicNavigationGroups(locale: Locale, withLocale: (pathname: strin
           label: isZh ? "职业库" : "Career library",
           description: isZh ? "进入职业页面与岗位内容。" : "Open career and role pages.",
           href: withLocale("/career"),
-        },
-        {
-          label: isZh ? "霍兰德职业兴趣测试" : "Holland career interest test",
-          description: isZh ? "先获得职业兴趣结构，再阅读相关内容。" : "Start with interest structure before reading related content.",
-          href: withLocale("/tests/holland-career-interest-test-riasec"),
         },
       ],
     },
@@ -217,7 +212,6 @@ export default async function TopicsPage({
                   <p className="m-0 text-sm text-[var(--fm-text-muted)]">{topic.excerpt || topic.subtitle || "-"}</p>
                 </CardHeader>
                 <CardContent className="space-y-3 text-sm text-[var(--fm-text-muted)]">
-                  <p className="m-0">{formatTopicDisplayCode(topic.topicCode || topic.slug)}</p>
                   <Link
                     href={withLocale(`/topics/${topic.slug}`)}
                     className="text-sm font-semibold text-[var(--fm-accent)] hover:text-[var(--fm-accent-strong)]"

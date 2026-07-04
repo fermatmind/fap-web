@@ -132,13 +132,7 @@ export default async function ArticlesPage({
           { label: dict.articles.title },
         ]}
       />
-      <header className="max-w-3xl space-y-3">
-        <h1 className="m-0 font-serif text-4xl font-semibold leading-tight text-[var(--fm-text)] md:text-5xl">
-          {articleIndexTitle}
-        </h1>
-        <p className="m-0 text-base leading-7 text-[var(--fm-text-muted)] md:text-lg">{dict.articles.subtitle}</p>
-      </header>
-
+      <h1 className="sr-only">{articleIndexTitle}</h1>
       {items.length > 0 ? (
         <>
           <section className="grid gap-5 border-y border-[var(--fm-border)] py-6 lg:grid-cols-[1.2fr_0.8fr]">

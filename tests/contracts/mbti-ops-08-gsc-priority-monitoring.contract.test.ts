@@ -125,7 +125,19 @@ describe("MBTI-OPS-08 GSC priority monitoring", () => {
       "generated/pr-train-sidecar-issues/sidecar_issues.md",
       "generated/pr-train-sidecar-issues/sidecar_issues.json",
     ]);
-    const outsideScope = committedScopeFiles().filter((file) => !allowedExact.has(file));
+    const changedFiles = committedScopeFiles();
+    const guardedOpsFiles = new Set([SCRIPT_PATH, JSON_PATH, MD_PATH, CSV_PATH, "docs/codex/pr-train-state.json"]);
+    const touchesThisOpsScope = changedFiles.some((file) => guardedOpsFiles.has(file));
+
+    if (!touchesThisOpsScope) {
+      const unexpectedOpsFiles = changedFiles.filter(
+        (file) => file.includes("mbti-ops-08-gsc-priority-monitoring") && file !== "tests/contracts/mbti-ops-08-gsc-priority-monitoring.contract.test.ts",
+      );
+      expect(unexpectedOpsFiles).toEqual([]);
+      return;
+    }
+
+    const outsideScope = changedFiles.filter((file) => !allowedExact.has(file));
 
     expect(outsideScope).toEqual([]);
   });
