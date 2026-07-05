@@ -54,6 +54,10 @@ function SectionBody({ section, locale }: { section: PersonalityPublicContentSec
   return null;
 }
 
+function hasRenderableSectionBody(section: PersonalityPublicContentSection): boolean {
+  return Boolean(section.bodyMd.trim() || section.bodyHtml.trim());
+}
+
 export function PublicContentAssetRenderer({
   asset,
   locale,
@@ -62,7 +66,7 @@ export function PublicContentAssetRenderer({
   locale: Locale;
 }) {
   const testCta = frameworkCta(asset, locale);
-  const visibleSections = asset.sections.filter((section) => section.title || section.bodyMd || section.bodyHtml);
+  const visibleSections = asset.sections.filter(hasRenderableSectionBody);
   const visibleFaq = asset.faq.filter((item) => item.question && item.answer);
   const visibleLinks = asset.internalLinks.filter((item) => item.label && item.href);
   const boundary = asset.methodBoundary;
