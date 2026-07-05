@@ -9,6 +9,22 @@ export type BigFivePublicRouteEntry = {
   pathSuffix: string;
 };
 
+const BIG_FIVE_TRAIT_CODES = ["openness", "conscientiousness", "extraversion", "agreeableness", "neuroticism"] as const;
+const BIG_FIVE_RANGE_CODES = ["high", "mid", "low"] as const;
+
+const BIG_FIVE_V2_RANGE_ROUTE_ENTRIES: readonly BigFivePublicRouteEntry[] = BIG_FIVE_TRAIT_CODES.flatMap((trait) =>
+  BIG_FIVE_RANGE_CODES.map((range) => {
+    const slug = `${trait}-${range}`;
+
+    return {
+      entityType: "polarity",
+      code: slug,
+      routeSlug: slug,
+      pathSuffix: `/${slug}`,
+    } satisfies BigFivePublicRouteEntry;
+  })
+);
+
 export const BIG_FIVE_PUBLIC_ROUTE_ENTRIES: readonly BigFivePublicRouteEntry[] = [
   { entityType: "hub", code: "big-five", routeSlug: "", pathSuffix: "" },
   { entityType: "domain", code: "openness", routeSlug: "openness", pathSuffix: "/openness" },
@@ -16,6 +32,7 @@ export const BIG_FIVE_PUBLIC_ROUTE_ENTRIES: readonly BigFivePublicRouteEntry[] =
   { entityType: "domain", code: "extraversion", routeSlug: "extraversion", pathSuffix: "/extraversion" },
   { entityType: "domain", code: "agreeableness", routeSlug: "agreeableness", pathSuffix: "/agreeableness" },
   { entityType: "domain", code: "neuroticism", routeSlug: "neuroticism", pathSuffix: "/neuroticism" },
+  ...BIG_FIVE_V2_RANGE_ROUTE_ENTRIES,
   { entityType: "polarity", code: "high-openness", routeSlug: "high-openness", pathSuffix: "/high-openness" },
   { entityType: "polarity", code: "low-openness", routeSlug: "low-openness", pathSuffix: "/low-openness" },
   {

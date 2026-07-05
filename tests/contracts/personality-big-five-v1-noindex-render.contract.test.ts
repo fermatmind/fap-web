@@ -127,20 +127,49 @@ afterEach(() => {
 });
 
 describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
-  it("defines exactly 17 Big Five V1 route candidates per locale and rejects facet detail routes", () => {
-    expect(BIG_FIVE_PUBLIC_ROUTE_ENTRIES).toHaveLength(17);
+  it("defines Big Five CMS-backed public route candidates per locale and rejects nested detail routes", () => {
+    const v2RangeSlugs = [
+      "openness-high",
+      "openness-mid",
+      "openness-low",
+      "conscientiousness-high",
+      "conscientiousness-mid",
+      "conscientiousness-low",
+      "extraversion-high",
+      "extraversion-mid",
+      "extraversion-low",
+      "agreeableness-high",
+      "agreeableness-mid",
+      "agreeableness-low",
+      "neuroticism-high",
+      "neuroticism-mid",
+      "neuroticism-low",
+    ];
+
+    expect(BIG_FIVE_PUBLIC_ROUTE_ENTRIES).toHaveLength(32);
     expect(BIG_FIVE_PUBLIC_ROUTE_ENTRIES.filter((entry) => entry.entityType === "facet_hub")).toHaveLength(1);
     expect(resolveBigFivePublicRouteEntry([])?.code).toBe("big-five");
     expect(resolveBigFivePublicRouteEntry(["openness"])?.entityType).toBe("domain");
     expect(resolveBigFivePublicRouteEntry(["facets"])?.entityType).toBe("facet_hub");
+    expect(resolveBigFivePublicRouteEntry(["openness", "high"])).toBeNull();
     expect(resolveBigFivePublicRouteEntry(["facets", "imagination"])).toBeNull();
+    for (const slug of v2RangeSlugs) {
+      expect(resolveBigFivePublicRouteEntry([slug])).toMatchObject({
+        entityType: "polarity",
+        code: slug,
+        routeSlug: slug,
+        pathSuffix: `/${slug}`,
+      });
+    }
 
     const paths = BIG_FIVE_PUBLIC_ROUTE_ENTRIES.flatMap((entry) => [
       buildBigFivePublicContentPath("en", entry),
       buildBigFivePublicContentPath("zh", entry),
     ]);
-    expect(paths).toHaveLength(34);
+    expect(paths).toHaveLength(64);
     expect(paths).toContain("/en/personality/big-five/facets");
+    expect(paths).toContain("/zh/personality/big-five/openness-high");
+    expect(paths).toContain("/zh/personality/big-five/neuroticism-low");
     expect(paths).not.toContain("/en/personality/big-five/facets/imagination");
   });
 
@@ -180,6 +209,79 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     expect(asset?.sections[0]?.bodyMd).toBe("Backend supplied body.");
     expect(asset?.methodBoundary?.notFor).toContain("clinical diagnosis");
     expect(asset?.schemaRuntimeEligible).toBe(false);
+  });
+
+  it("resolves all 15 v2 trait-first range URLs through backend polarity asset lookup", async () => {
+    const v2RangeSlugs = [
+      "openness-high",
+      "openness-mid",
+      "openness-low",
+      "conscientiousness-high",
+      "conscientiousness-mid",
+      "conscientiousness-low",
+      "extraversion-high",
+      "extraversion-mid",
+      "extraversion-low",
+      "agreeableness-high",
+      "agreeableness-mid",
+      "agreeableness-low",
+      "neuroticism-high",
+      "neuroticism-mid",
+      "neuroticism-low",
+    ];
+    const requestedUrls: string[] = [];
+
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+        requestedUrls.push(url);
+        const slug = decodeURIComponent(url.match(/\/polarity\/([^?]+)/)?.[1] ?? "");
+
+        return jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: sampleAsset({
+            entity_type: "polarity",
+            code: slug,
+            entity_key: slug,
+            slug: `big-five/${slug}`,
+            canonical_path: `/zh/personality/big-five/${slug}`,
+            canonical: { path: `/zh/personality/big-five/${slug}` },
+            hreflang: {
+              en: `/en/personality/big-five/${slug}`,
+              "zh-CN": `/zh/personality/big-five/${slug}`,
+            },
+            locale: "zh-CN",
+            title: slug,
+            schema_runtime_eligible: false,
+          }),
+        });
+      })
+    );
+
+    for (const slug of v2RangeSlugs) {
+      const entry = resolveBigFivePublicRouteEntry([slug]);
+      expect(entry).toMatchObject({ entityType: "polarity", code: slug, pathSuffix: `/${slug}` });
+
+      const asset = await getBigFivePublicContentAsset("zh", entry!);
+      expect(asset).toMatchObject({
+        entityType: "polarity",
+        code: slug,
+        canonicalPath: `/zh/personality/big-five/${slug}`,
+        robots: "noindex,follow",
+        indexEligible: false,
+        sitemapEligible: false,
+        llmsEligible: false,
+        schemaRuntimeEligible: false,
+      });
+    }
+
+    expect(requestedUrls).toHaveLength(15);
+    for (const slug of v2RangeSlugs) {
+      expect(requestedUrls.some((url) => url.includes(`/api/v0.5/personality-content-assets/big_five/polarity/${slug}?`))).toBe(
+        true
+      );
+    }
   });
 
   it("fails closed for facet stubs, unpublished states, and API 404s", async () => {
