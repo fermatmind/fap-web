@@ -121,3 +121,13 @@
 - why not current PR scope: MBTI-QA-14 only adds an artifact-only semantic duplicate QA gate, generated QA report, focused contract, train ledger updates, and sidecar record. It does not change dependency installation, lockfile, package manager configuration, or local pnpm approval state.
 - whether required checks are affected: no; `corepack pnpm exec vitest run tests/contracts/mbti-qa-14-semantic-duplicate-gate.contract.test.ts --reporter=dot`, `corepack pnpm test:contract`, `corepack pnpm typecheck`, and production API build validation passed locally.
 - recommended follow-up: normalize the local Codex pnpm wrapper approval state or standardize local repository checks on `corepack pnpm` so manifest commands do not fail before test execution on this machine.
+
+## External Global Spacing Token Debt During IQ CMS Dry-Run
+
+- repo: fermatmind/fap-web
+- PR id / branch: IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01 / codex/iq-method-pages-cms-dry-run-01
+- blocker type: external_global_spacing_token_debt
+- evidence: `corepack pnpm lint:spacing` failed on pre-existing spacing-token violations across unrelated `app/**`, `components/**`, and `lib/**` UI files. Current PR changes no runtime UI files.
+- why not current PR scope: this PR only prepares CMS dry-run artifacts and validation. Fixing global spacing debt would touch many unrelated frontend files and violate one-PR-one-scope.
+- whether required checks are affected: no; focused contract, full contract, lint, typecheck, production API build, JSON/YAML parse, diff check, and scope validation are separate from the known full-repo spacing debt.
+- recommended follow-up: open a separate spacing-token cleanup PR or establish a lint:spacing baseline for artifact-only PRs.

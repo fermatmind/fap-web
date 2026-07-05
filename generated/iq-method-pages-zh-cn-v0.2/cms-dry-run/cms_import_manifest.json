@@ -1,0 +1,461 @@
+{
+  "schema_version": "fermatmind.iq_method_pages.cms_dry_run_manifest.v1",
+  "pr_id": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01",
+  "mode": "cms_dry_run_contract_only",
+  "created_at": "2026-07-05T00:00:00Z",
+  "source_package": "generated/iq-method-pages-zh-cn-v0.2",
+  "content_authority": "fap-api CMS/backend authoritative; fap-web must not create runtime editorial fallback",
+  "target_environment": "backend CMS importer dry-run first; production mutation requires separate fap-api PR and explicit authorization",
+  "mutation_policy": {
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "publish_attempted": false,
+    "sitemap_llms_activation_attempted": false,
+    "frontend_runtime_change_attempted": false
+  },
+  "required_default_publish_state": {
+    "status": "draft_review_only",
+    "is_public": false,
+    "is_indexable": false,
+    "robots": "noindex,follow",
+    "sitemap_eligible": false,
+    "llms_eligible": false
+  },
+  "import_order": [
+    "validate source package and hashes",
+    "upsert 7 Article drafts with noindex flags",
+    "upsert Topic iq_articles group under /zh/topics/iq-eq as draft/non-indexable grouping metadata",
+    "upsert IQ test landing/page_blocks draft links only if backend landing_surfaces supports it",
+    "read back CMS draft records and compare against this manifest"
+  ],
+  "article_imports": [
+    {
+      "order": 1,
+      "cms_resource_type": "Article",
+      "operation": "upsert_draft_only",
+      "locale": "zh-CN",
+      "slug": "what-is-iq-style-reasoning-test",
+      "title": "什么是 IQ 风格推理测试？",
+      "canonical_url": "https://fermatmind.com/zh/articles/what-is-iq-style-reasoning-test",
+      "route": "/zh/articles/what-is-iq-style-reasoning-test",
+      "source_files": {
+        "article_md": "generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/article.md",
+        "article_cms_json": "generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/article.cms.json",
+        "seo_json": "generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/seo.json",
+        "faq_json": "generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/faq.json",
+        "internal_links_json": "generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/internal_links.json",
+        "answer_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/answer_surface_v1.json",
+        "landing_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/landing_surface_v1.json",
+        "geo_answer_block_json": "generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/geo_answer_block.json",
+        "media_brief_json": "generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/media_brief.json",
+        "claim_audit_json": "generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/claim_audit.json",
+        "qa_checklist_md": "generated/iq-method-pages-zh-cn-v0.2/pages/01-what-is-iq-style-reasoning-test/qa_checklist.md"
+      },
+      "required_cms_fields": {
+        "content_md": "article.cms.json.content_md or article.md converted by backend importer",
+        "excerpt": "article.cms.json.excerpt",
+        "seo_title": "seo.json.seo_title",
+        "seo_description": "seo.json.seo_description",
+        "canonical_url": "article.cms.json.canonical_url",
+        "robots": "noindex,follow",
+        "category": "测评方法与边界",
+        "tags": [
+          "IQ 风格推理测试",
+          "测评方法与边界",
+          "非官方非认证",
+          "推理表现"
+        ],
+        "related_test_slug": "iq-test-intelligence-quotient-assessment",
+        "faq_items": "faq.json.items; visible in article body or answer_surface_v1.faq_items",
+        "internal_links": "internal_links.json.links_out and links_in_recommended",
+        "answer_surface_v1": "answer_surface_v1.json",
+        "landing_surface_v1": "landing_surface_v1.json",
+        "media_brief": "media_brief.json; upload via Media Library before URL assignment"
+      },
+      "publish_state": {
+        "status": "draft_review_only",
+        "is_public": false,
+        "is_indexable": false,
+        "robots": "noindex,follow",
+        "sitemap_eligible": false,
+        "llms_eligible": false
+      },
+      "gates": {
+        "human_method_review_required": true,
+        "human_claim_review_required": true,
+        "cms_dry_run_required": true,
+        "cms_readback_required": true,
+        "private_url_guard_required": true,
+        "production_publish_allowed_in_this_pr": false,
+        "sitemap_llms_activation_allowed_in_this_pr": false
+      }
+    },
+    {
+      "order": 2,
+      "cms_resource_type": "Article",
+      "operation": "upsert_draft_only",
+      "locale": "zh-CN",
+      "slug": "online-iq-test-vs-professional-assessment",
+      "title": "在线 IQ 风格测试和专业智力测评有什么区别？",
+      "canonical_url": "https://fermatmind.com/zh/articles/online-iq-test-vs-professional-assessment",
+      "route": "/zh/articles/online-iq-test-vs-professional-assessment",
+      "source_files": {
+        "article_md": "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/article.md",
+        "article_cms_json": "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/article.cms.json",
+        "seo_json": "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/seo.json",
+        "faq_json": "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/faq.json",
+        "internal_links_json": "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/internal_links.json",
+        "answer_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/answer_surface_v1.json",
+        "landing_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/landing_surface_v1.json",
+        "geo_answer_block_json": "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/geo_answer_block.json",
+        "media_brief_json": "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/media_brief.json",
+        "claim_audit_json": "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/claim_audit.json",
+        "qa_checklist_md": "generated/iq-method-pages-zh-cn-v0.2/pages/02-online-iq-test-vs-professional-assessment/qa_checklist.md"
+      },
+      "required_cms_fields": {
+        "content_md": "article.cms.json.content_md or article.md converted by backend importer",
+        "excerpt": "article.cms.json.excerpt",
+        "seo_title": "seo.json.seo_title",
+        "seo_description": "seo.json.seo_description",
+        "canonical_url": "article.cms.json.canonical_url",
+        "robots": "noindex,follow",
+        "category": "测评方法与边界",
+        "tags": [
+          "IQ 风格推理测试",
+          "测评方法与边界",
+          "非官方非认证",
+          "推理表现"
+        ],
+        "related_test_slug": "iq-test-intelligence-quotient-assessment",
+        "faq_items": "faq.json.items; visible in article body or answer_surface_v1.faq_items",
+        "internal_links": "internal_links.json.links_out and links_in_recommended",
+        "answer_surface_v1": "answer_surface_v1.json",
+        "landing_surface_v1": "landing_surface_v1.json",
+        "media_brief": "media_brief.json; upload via Media Library before URL assignment"
+      },
+      "publish_state": {
+        "status": "draft_review_only",
+        "is_public": false,
+        "is_indexable": false,
+        "robots": "noindex,follow",
+        "sitemap_eligible": false,
+        "llms_eligible": false
+      },
+      "gates": {
+        "human_method_review_required": true,
+        "human_claim_review_required": true,
+        "cms_dry_run_required": true,
+        "cms_readback_required": true,
+        "private_url_guard_required": true,
+        "production_publish_allowed_in_this_pr": false,
+        "sitemap_llms_activation_allowed_in_this_pr": false
+      }
+    },
+    {
+      "order": 3,
+      "cms_resource_type": "Article",
+      "operation": "upsert_draft_only",
+      "locale": "zh-CN",
+      "slug": "iq-test-score-meaning-boundary",
+      "title": "IQ 风格测试里的原始分、正确率和完成时间说明什么？",
+      "canonical_url": "https://fermatmind.com/zh/articles/iq-test-score-meaning-boundary",
+      "route": "/zh/articles/iq-test-score-meaning-boundary",
+      "source_files": {
+        "article_md": "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/article.md",
+        "article_cms_json": "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/article.cms.json",
+        "seo_json": "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/seo.json",
+        "faq_json": "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/faq.json",
+        "internal_links_json": "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/internal_links.json",
+        "answer_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/answer_surface_v1.json",
+        "landing_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/landing_surface_v1.json",
+        "geo_answer_block_json": "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/geo_answer_block.json",
+        "media_brief_json": "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/media_brief.json",
+        "claim_audit_json": "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/claim_audit.json",
+        "qa_checklist_md": "generated/iq-method-pages-zh-cn-v0.2/pages/03-iq-test-score-meaning-boundary/qa_checklist.md"
+      },
+      "required_cms_fields": {
+        "content_md": "article.cms.json.content_md or article.md converted by backend importer",
+        "excerpt": "article.cms.json.excerpt",
+        "seo_title": "seo.json.seo_title",
+        "seo_description": "seo.json.seo_description",
+        "canonical_url": "article.cms.json.canonical_url",
+        "robots": "noindex,follow",
+        "category": "测评方法与边界",
+        "tags": [
+          "IQ 风格推理测试",
+          "测评方法与边界",
+          "非官方非认证",
+          "推理表现"
+        ],
+        "related_test_slug": "iq-test-intelligence-quotient-assessment",
+        "faq_items": "faq.json.items; visible in article body or answer_surface_v1.faq_items",
+        "internal_links": "internal_links.json.links_out and links_in_recommended",
+        "answer_surface_v1": "answer_surface_v1.json",
+        "landing_surface_v1": "landing_surface_v1.json",
+        "media_brief": "media_brief.json; upload via Media Library before URL assignment"
+      },
+      "publish_state": {
+        "status": "draft_review_only",
+        "is_public": false,
+        "is_indexable": false,
+        "robots": "noindex,follow",
+        "sitemap_eligible": false,
+        "llms_eligible": false
+      },
+      "gates": {
+        "human_method_review_required": true,
+        "human_claim_review_required": true,
+        "cms_dry_run_required": true,
+        "cms_readback_required": true,
+        "private_url_guard_required": true,
+        "production_publish_allowed_in_this_pr": false,
+        "sitemap_llms_activation_allowed_in_this_pr": false
+      }
+    },
+    {
+      "order": 4,
+      "cms_resource_type": "Article",
+      "operation": "upsert_draft_only",
+      "locale": "zh-CN",
+      "slug": "matrix-reasoning-pattern-recognition-guide",
+      "title": "矩阵推理和模式识别题在测什么？",
+      "canonical_url": "https://fermatmind.com/zh/articles/matrix-reasoning-pattern-recognition-guide",
+      "route": "/zh/articles/matrix-reasoning-pattern-recognition-guide",
+      "source_files": {
+        "article_md": "generated/iq-method-pages-zh-cn-v0.2/pages/04-matrix-reasoning-pattern-recognition-guide/article.md",
+        "article_cms_json": "generated/iq-method-pages-zh-cn-v0.2/pages/04-matrix-reasoning-pattern-recognition-guide/article.cms.json",
+        "seo_json": "generated/iq-method-pages-zh-cn-v0.2/pages/04-matrix-reasoning-pattern-recognition-guide/seo.json",
+        "faq_json": "generated/iq-method-pages-zh-cn-v0.2/pages/04-matrix-reasoning-pattern-recognition-guide/faq.json",
+        "internal_links_json": "generated/iq-method-pages-zh-cn-v0.2/pages/04-matrix-reasoning-pattern-recognition-guide/internal_links.json",
+        "answer_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/04-matrix-reasoning-pattern-recognition-guide/answer_surface_v1.json",
+        "landing_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/04-matrix-reasoning-pattern-recognition-guide/landing_surface_v1.json",
+        "geo_answer_block_json": "generated/iq-method-pages-zh-cn-v0.2/pages/04-matrix-reasoning-pattern-recognition-guide/geo_answer_block.json",
+        "media_brief_json": "generated/iq-method-pages-zh-cn-v0.2/pages/04-matrix-reasoning-pattern-recognition-guide/media_brief.json",
+        "claim_audit_json": "generated/iq-method-pages-zh-cn-v0.2/pages/04-matrix-reasoning-pattern-recognition-guide/claim_audit.json",
+        "qa_checklist_md": "generated/iq-method-pages-zh-cn-v0.2/pages/04-matrix-reasoning-pattern-recognition-guide/qa_checklist.md"
+      },
+      "required_cms_fields": {
+        "content_md": "article.cms.json.content_md or article.md converted by backend importer",
+        "excerpt": "article.cms.json.excerpt",
+        "seo_title": "seo.json.seo_title",
+        "seo_description": "seo.json.seo_description",
+        "canonical_url": "article.cms.json.canonical_url",
+        "robots": "noindex,follow",
+        "category": "能力与认知",
+        "tags": [
+          "IQ 风格推理测试",
+          "测评方法与边界",
+          "非官方非认证",
+          "推理表现"
+        ],
+        "related_test_slug": "iq-test-intelligence-quotient-assessment",
+        "faq_items": "faq.json.items; visible in article body or answer_surface_v1.faq_items",
+        "internal_links": "internal_links.json.links_out and links_in_recommended",
+        "answer_surface_v1": "answer_surface_v1.json",
+        "landing_surface_v1": "landing_surface_v1.json",
+        "media_brief": "media_brief.json; upload via Media Library before URL assignment"
+      },
+      "publish_state": {
+        "status": "draft_review_only",
+        "is_public": false,
+        "is_indexable": false,
+        "robots": "noindex,follow",
+        "sitemap_eligible": false,
+        "llms_eligible": false
+      },
+      "gates": {
+        "human_method_review_required": true,
+        "human_claim_review_required": true,
+        "cms_dry_run_required": true,
+        "cms_readback_required": true,
+        "private_url_guard_required": true,
+        "production_publish_allowed_in_this_pr": false,
+        "sitemap_llms_activation_allowed_in_this_pr": false
+      }
+    },
+    {
+      "order": 5,
+      "cms_resource_type": "Article",
+      "operation": "upsert_draft_only",
+      "locale": "zh-CN",
+      "slug": "why-fermatmind-iq-v1-not-certification",
+      "title": "为什么 FermatMind IQ V1 是非认证测试？",
+      "canonical_url": "https://fermatmind.com/zh/articles/why-fermatmind-iq-v1-not-certification",
+      "route": "/zh/articles/why-fermatmind-iq-v1-not-certification",
+      "source_files": {
+        "article_md": "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/article.md",
+        "article_cms_json": "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/article.cms.json",
+        "seo_json": "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/seo.json",
+        "faq_json": "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/faq.json",
+        "internal_links_json": "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/internal_links.json",
+        "answer_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/answer_surface_v1.json",
+        "landing_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/landing_surface_v1.json",
+        "geo_answer_block_json": "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/geo_answer_block.json",
+        "media_brief_json": "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/media_brief.json",
+        "claim_audit_json": "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/claim_audit.json",
+        "qa_checklist_md": "generated/iq-method-pages-zh-cn-v0.2/pages/05-why-fermatmind-iq-v1-not-certification/qa_checklist.md"
+      },
+      "required_cms_fields": {
+        "content_md": "article.cms.json.content_md or article.md converted by backend importer",
+        "excerpt": "article.cms.json.excerpt",
+        "seo_title": "seo.json.seo_title",
+        "seo_description": "seo.json.seo_description",
+        "canonical_url": "article.cms.json.canonical_url",
+        "robots": "noindex,follow",
+        "category": "测评方法与边界",
+        "tags": [
+          "IQ 风格推理测试",
+          "测评方法与边界",
+          "非官方非认证",
+          "推理表现"
+        ],
+        "related_test_slug": "iq-test-intelligence-quotient-assessment",
+        "faq_items": "faq.json.items; visible in article body or answer_surface_v1.faq_items",
+        "internal_links": "internal_links.json.links_out and links_in_recommended",
+        "answer_surface_v1": "answer_surface_v1.json",
+        "landing_surface_v1": "landing_surface_v1.json",
+        "media_brief": "media_brief.json; upload via Media Library before URL assignment"
+      },
+      "publish_state": {
+        "status": "draft_review_only",
+        "is_public": false,
+        "is_indexable": false,
+        "robots": "noindex,follow",
+        "sitemap_eligible": false,
+        "llms_eligible": false
+      },
+      "gates": {
+        "human_method_review_required": true,
+        "human_claim_review_required": true,
+        "cms_dry_run_required": true,
+        "cms_readback_required": true,
+        "private_url_guard_required": true,
+        "production_publish_allowed_in_this_pr": false,
+        "sitemap_llms_activation_allowed_in_this_pr": false
+      }
+    },
+    {
+      "order": 6,
+      "cms_resource_type": "Article",
+      "operation": "upsert_draft_only",
+      "locale": "zh-CN",
+      "slug": "iq-test-privacy-data-boundary",
+      "title": "IQ 风格测试的数据和隐私边界是什么？",
+      "canonical_url": "https://fermatmind.com/zh/articles/iq-test-privacy-data-boundary",
+      "route": "/zh/articles/iq-test-privacy-data-boundary",
+      "source_files": {
+        "article_md": "generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/article.md",
+        "article_cms_json": "generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/article.cms.json",
+        "seo_json": "generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/seo.json",
+        "faq_json": "generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/faq.json",
+        "internal_links_json": "generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/internal_links.json",
+        "answer_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/answer_surface_v1.json",
+        "landing_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/landing_surface_v1.json",
+        "geo_answer_block_json": "generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/geo_answer_block.json",
+        "media_brief_json": "generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/media_brief.json",
+        "claim_audit_json": "generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/claim_audit.json",
+        "qa_checklist_md": "generated/iq-method-pages-zh-cn-v0.2/pages/06-iq-test-privacy-data-boundary/qa_checklist.md"
+      },
+      "required_cms_fields": {
+        "content_md": "article.cms.json.content_md or article.md converted by backend importer",
+        "excerpt": "article.cms.json.excerpt",
+        "seo_title": "seo.json.seo_title",
+        "seo_description": "seo.json.seo_description",
+        "canonical_url": "article.cms.json.canonical_url",
+        "robots": "noindex,follow",
+        "category": "测评方法与边界",
+        "tags": [
+          "IQ 风格推理测试",
+          "测评方法与边界",
+          "非官方非认证",
+          "推理表现"
+        ],
+        "related_test_slug": "iq-test-intelligence-quotient-assessment",
+        "faq_items": "faq.json.items; visible in article body or answer_surface_v1.faq_items",
+        "internal_links": "internal_links.json.links_out and links_in_recommended",
+        "answer_surface_v1": "answer_surface_v1.json",
+        "landing_surface_v1": "landing_surface_v1.json",
+        "media_brief": "media_brief.json; upload via Media Library before URL assignment"
+      },
+      "publish_state": {
+        "status": "draft_review_only",
+        "is_public": false,
+        "is_indexable": false,
+        "robots": "noindex,follow",
+        "sitemap_eligible": false,
+        "llms_eligible": false
+      },
+      "gates": {
+        "human_method_review_required": true,
+        "human_claim_review_required": true,
+        "cms_dry_run_required": true,
+        "cms_readback_required": true,
+        "private_url_guard_required": true,
+        "production_publish_allowed_in_this_pr": false,
+        "sitemap_llms_activation_allowed_in_this_pr": false
+      }
+    },
+    {
+      "order": 7,
+      "cms_resource_type": "Article",
+      "operation": "upsert_draft_only",
+      "locale": "zh-CN",
+      "slug": "iq-expert-review-disclosure",
+      "title": "FermatMind 如何审查 IQ 风格测试内容？",
+      "canonical_url": "https://fermatmind.com/zh/articles/iq-expert-review-disclosure",
+      "route": "/zh/articles/iq-expert-review-disclosure",
+      "source_files": {
+        "article_md": "generated/iq-method-pages-zh-cn-v0.2/pages/07-iq-expert-review-disclosure/article.md",
+        "article_cms_json": "generated/iq-method-pages-zh-cn-v0.2/pages/07-iq-expert-review-disclosure/article.cms.json",
+        "seo_json": "generated/iq-method-pages-zh-cn-v0.2/pages/07-iq-expert-review-disclosure/seo.json",
+        "faq_json": "generated/iq-method-pages-zh-cn-v0.2/pages/07-iq-expert-review-disclosure/faq.json",
+        "internal_links_json": "generated/iq-method-pages-zh-cn-v0.2/pages/07-iq-expert-review-disclosure/internal_links.json",
+        "answer_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/07-iq-expert-review-disclosure/answer_surface_v1.json",
+        "landing_surface_v1_json": "generated/iq-method-pages-zh-cn-v0.2/pages/07-iq-expert-review-disclosure/landing_surface_v1.json",
+        "geo_answer_block_json": "generated/iq-method-pages-zh-cn-v0.2/pages/07-iq-expert-review-disclosure/geo_answer_block.json",
+        "media_brief_json": "generated/iq-method-pages-zh-cn-v0.2/pages/07-iq-expert-review-disclosure/media_brief.json",
+        "claim_audit_json": "generated/iq-method-pages-zh-cn-v0.2/pages/07-iq-expert-review-disclosure/claim_audit.json",
+        "qa_checklist_md": "generated/iq-method-pages-zh-cn-v0.2/pages/07-iq-expert-review-disclosure/qa_checklist.md"
+      },
+      "required_cms_fields": {
+        "content_md": "article.cms.json.content_md or article.md converted by backend importer",
+        "excerpt": "article.cms.json.excerpt",
+        "seo_title": "seo.json.seo_title",
+        "seo_description": "seo.json.seo_description",
+        "canonical_url": "article.cms.json.canonical_url",
+        "robots": "noindex,follow",
+        "category": "测评方法与边界",
+        "tags": [
+          "IQ 风格推理测试",
+          "测评方法与边界",
+          "非官方非认证",
+          "推理表现"
+        ],
+        "related_test_slug": "iq-test-intelligence-quotient-assessment",
+        "faq_items": "faq.json.items; visible in article body or answer_surface_v1.faq_items",
+        "internal_links": "internal_links.json.links_out and links_in_recommended",
+        "answer_surface_v1": "answer_surface_v1.json",
+        "landing_surface_v1": "landing_surface_v1.json",
+        "media_brief": "media_brief.json; upload via Media Library before URL assignment"
+      },
+      "publish_state": {
+        "status": "draft_review_only",
+        "is_public": false,
+        "is_indexable": false,
+        "robots": "noindex,follow",
+        "sitemap_eligible": false,
+        "llms_eligible": false
+      },
+      "gates": {
+        "human_method_review_required": true,
+        "human_claim_review_required": true,
+        "cms_dry_run_required": true,
+        "cms_readback_required": true,
+        "private_url_guard_required": true,
+        "production_publish_allowed_in_this_pr": false,
+        "sitemap_llms_activation_allowed_in_this_pr": false
+      }
+    }
+  ],
+  "next_authorized_scope": "IQ-METHOD-PAGES-ZH-CN-CMS-IMPORT-01 in fap-api only after this dry-run package is reviewed"
+}

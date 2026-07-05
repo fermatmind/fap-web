@@ -130,5 +130,16 @@
     "why_not_current_pr_scope": "MBTI-QA-14 only adds an artifact-only semantic duplicate QA gate, generated QA report, focused contract, train ledger updates, and sidecar record. It does not change dependency installation, lockfile, package manager configuration, or local pnpm approval state.",
     "required_checks_affected": false,
     "recommended_follow_up": "Normalize the local Codex pnpm wrapper approval state or standardize local repository checks on `corepack pnpm` so manifest commands do not fail before test execution on this machine."
+  },
+  {
+    "id": "external-global-spacing-token-debt-iq-method-pages-cms-dry-run-01",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01",
+    "branch": "codex/iq-method-pages-cms-dry-run-01",
+    "blocker_type": "external_global_spacing_token_debt",
+    "evidence": "corepack pnpm lint:spacing failed on pre-existing spacing-token violations across unrelated app/components/lib files such as app/(localized)/[locale]/career/jobs/page.tsx, app/(localized)/[locale]/personality/page.tsx, components/layout/SiteHeader.tsx, components/result/DimensionBars.tsx, and lib/cms/personality-sections.tsx. Current PR changes no app, component, or runtime styling files.",
+    "why_not_current_pr_scope": "This PR is limited to IQ method CMS dry-run artifacts, one contract test, scope helper updates, and docs/codex metadata. Fixing global UI spacing debt would touch many unrelated frontend runtime files and violate one-PR-one-scope.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Open a separate fap-web spacing-token cleanup PR or update the lint:spacing baseline so artifact-only CMS dry-run PRs are not blocked by unrelated legacy UI spacing debt."
   }
 ]

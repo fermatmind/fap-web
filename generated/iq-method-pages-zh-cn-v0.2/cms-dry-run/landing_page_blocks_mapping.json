@@ -1,0 +1,69 @@
+{
+  "schema_version": "fermatmind.iq_method_pages.landing_page_blocks_mapping.v1",
+  "pr_id": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01",
+  "mode": "draft_mapping_only",
+  "target_landing_surface": {
+    "locale": "zh-CN",
+    "related_test_slug": "iq-test-intelligence-quotient-assessment",
+    "route": "/zh/tests/iq-test-intelligence-quotient-assessment",
+    "cms_resource_type": "landing_surfaces/page_blocks",
+    "operation": "draft_update_only_after_backend_support"
+  },
+  "proposed_page_blocks": [
+    {
+      "block_key": "iq_methodology_boundary_links",
+      "block_type": "article_link_cluster",
+      "label": "IQ 测试方法与边界",
+      "placement": "supporting_methodology_links",
+      "source": "CMS Article records",
+      "items": [
+        {
+          "title": "什么是 IQ 风格推理测试？",
+          "href": "/zh/articles/what-is-iq-style-reasoning-test",
+          "slug": "what-is-iq-style-reasoning-test"
+        },
+        {
+          "title": "在线 IQ 风格测试和专业智力测评有什么区别？",
+          "href": "/zh/articles/online-iq-test-vs-professional-assessment",
+          "slug": "online-iq-test-vs-professional-assessment"
+        },
+        {
+          "title": "IQ 风格测试里的原始分、正确率和完成时间说明什么？",
+          "href": "/zh/articles/iq-test-score-meaning-boundary",
+          "slug": "iq-test-score-meaning-boundary"
+        },
+        {
+          "title": "矩阵推理和模式识别题在测什么？",
+          "href": "/zh/articles/matrix-reasoning-pattern-recognition-guide",
+          "slug": "matrix-reasoning-pattern-recognition-guide"
+        },
+        {
+          "title": "为什么 FermatMind IQ V1 是非认证测试？",
+          "href": "/zh/articles/why-fermatmind-iq-v1-not-certification",
+          "slug": "why-fermatmind-iq-v1-not-certification"
+        },
+        {
+          "title": "IQ 风格测试的数据和隐私边界是什么？",
+          "href": "/zh/articles/iq-test-privacy-data-boundary",
+          "slug": "iq-test-privacy-data-boundary"
+        },
+        {
+          "title": "FermatMind 如何审查 IQ 风格测试内容？",
+          "href": "/zh/articles/iq-expert-review-disclosure",
+          "slug": "iq-expert-review-disclosure"
+        }
+      ]
+    }
+  ],
+  "guardrails": {
+    "frontend_hardcode_allowed": false,
+    "private_flow_links_allowed": false,
+    "result_or_order_links_allowed": false,
+    "publish_or_indexing_change_allowed_in_this_pr": false
+  },
+  "readback_expectations": [
+    "Landing/page_blocks API returns the article link cluster only from backend CMS authority.",
+    "If backend support is unavailable, fap-web renders no local editorial fallback.",
+    "All links are public article/test routes, not attempt, result, order, payment, share, history, recover, or restore URLs."
+  ]
+}
