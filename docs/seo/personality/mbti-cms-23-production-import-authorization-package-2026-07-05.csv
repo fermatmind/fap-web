@@ -1,0 +1,10 @@
+target_path,kind,cms_resource,locale,slug,code,import_action,payload_sha256,production_import_authorized
+/zh/personality/istj-a,profile,personality_profile,zh-CN,istj-a,ISTJ-A,upsert_profile_content_draft,5831d9f833280084fc877ab6c1c755fbbe7cb24827f3b81b749f6bf74d033269,false
+/zh/personality/istp-a,profile,personality_profile,zh-CN,istp-a,ISTP-A,upsert_profile_content_draft,52ba51b59bb040f70ac3e97e5817bba302a5df7b0a1d064046442442c5539848,false
+/zh/personality/isfp-a,profile,personality_profile,zh-CN,isfp-a,ISFP-A,upsert_profile_content_draft,f629422b6cf7234e19ee0a67d38195a2b56f16f5e91d02e381ddcaf0f7be5466,false
+/zh/personality/esfj-a,profile,personality_profile,zh-CN,esfj-a,ESFJ-A,upsert_profile_content_draft,024a1c269ac647728ba5d5e3c2e8aa6144af845d849c8f8658a76d05b98d8d23,false
+/zh/personality/intp-a-vs-intp-t,comparison,personality_comparison,zh-CN,intp-a-vs-intp-t,intp-a-vs-intp-t,upsert_comparison_content_draft,2d878fd7623db1a86f0335f7fbe2f2f02c1d642fee12b004f470e586c3519a00,false
+/zh/personality/intj-vs-intp,comparison,personality_comparison,zh-CN,intj-vs-intp,intj-vs-intp,upsert_comparison_content_draft,9b5a4a3a5736a069016ea650bb8cb9dbb74b655c9fa53e385448d16eff692069,false
+/zh/personality/entj-vs-intj,comparison,personality_comparison,zh-CN,entj-vs-intj,entj-vs-intj,upsert_comparison_content_draft,b8b23d37bed325c3ed0204cfddfcbcd4f775e7cd070b6518b5b1ea71ebeef486,false
+/zh/personality/infj-vs-infp,comparison,personality_comparison,zh-CN,infj-vs-infp,infj-vs-infp,upsert_comparison_content_draft,57f8afdc5ebd8f25645c66e2073e4414fcb34d03957dad4f0069473ff8e63b31,false
+/zh/personality/istj-vs-isfj,comparison,personality_comparison,zh-CN,istj-vs-isfj,istj-vs-isfj,upsert_comparison_content_draft,fc5a8a87cdff0b65c2e13f676dd3ea79cdf98871dbf851ce207a8c15290d3b6f,false

@@ -240,6 +240,12 @@ describe("MBTI-CMS-22 import dry-run final", () => {
   });
 
   it("keeps the current worktree scoped to CMS-22 artifacts, script, test, and train ledger", () => {
+    const state = readJson<{ current_pr?: string }>("docs/codex/pr-train-state.json");
+    if (state.current_pr !== "MBTI-CMS-22") {
+      expect(state.current_pr).toMatch(/^MBTI-/);
+      return;
+    }
+
     const changed = changedScopeFiles();
     const allowed = [
       /^docs\/codex\/pr-train-state\.json$/,

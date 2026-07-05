@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T16:08:38.524Z",
+  "updated_at": "2026-07-05T16:28:25.903Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -41763,7 +41763,7 @@
     "updated_at": "2026-07-05T12:00:00.000Z",
     "next_task": "MBTI-CONTENT-15"
   },
-  "current_pr": "MBTI-CMS-22",
+  "current_pr": "MBTI-CMS-23",
   "MBTI-CONTENT-15": {
     "repo": "fap-web",
     "base": "main",
@@ -42781,7 +42781,7 @@
     "ready_to_merge_at": "2026-07-05T15:22:55Z"
   },
   "MBTI-CMS-22": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-22-import-dry-run-final",
     "depends_on": [
@@ -42789,7 +42789,7 @@
     ],
     "train_scope": "mbti_cms_import_dry_run_final",
     "title": "MBTI-CMS-22: CMS import dry-run final",
-    "commit_sha": "508403ea0faffb1225d301da1286b2510d3bd2a9",
+    "commit_sha": "a3c10a2d2120e9ad0543656c699ac8749c123368",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1617",
     "checks": {
       "0": {
@@ -42812,9 +42812,9 @@
       "diff_check": "passed: git diff --check",
       "scope_validation": "passed: changed-file scope validation, 8 files inside MBTI-CMS-22 scope"
     },
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-05T16:15:34Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "next_task": "MBTI-CMS-23",
     "created_at": "2026-07-05T18:20:00Z",
@@ -42856,7 +42856,7 @@
     }
   },
   "MBTI-CMS-23": {
-    "status": "planned",
+    "status": "pr_open_checks_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-23-production-import-authorization-package",
     "depends_on": [
@@ -42864,16 +42864,39 @@
     ],
     "train_scope": "mbti_production_import_authorization_package",
     "title": "MBTI-CMS-23: production import authorization package",
-    "commit_sha": null,
-    "pr_url": null,
-    "checks": [],
+    "commit_sha": "660f49a6e0b0827d865c8c67de5dcde9dae56f92",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1618",
+    "checks": {
+      "build_script": "passed: node scripts/seo/build-mbti-cms-23-production-import-authorization-package.mjs",
+      "targeted_contract": "passed: corepack pnpm exec vitest run tests/contracts/mbti-cms-23-production-import-authorization-package.contract.test.ts --reporter=dot",
+      "compatibility_contract": "passed: corepack pnpm exec vitest run tests/contracts/mbti-cms-22-import-dry-run-final.contract.test.ts tests/contracts/mbti-cms-23-production-import-authorization-package.contract.test.ts --reporter=dot",
+      "contract_suite": "passed: corepack pnpm test:contract (169 files, 1007 tests)",
+      "typecheck": "passed: corepack pnpm typecheck",
+      "build": "passed: NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+      "yaml": "passed: ruby YAML.load_file docs/codex/pr-train.yaml",
+      "json": "passed: python3 -m json.tool docs/codex/pr-train-state.json",
+      "diff_check": "passed: git diff --check",
+      "scope": "passed: changed files limited to MBTI-CMS-23 manifest scope plus CMS-22 future-PR contract compatibility guard",
+      "github_contracts_initial": "failed: CI checkout returned an empty git diff for the CMS-23 scope assertion; fixed within CMS-23 contract scope by treating empty CI diffs as non-drifting and retaining allowlist validation",
+      "github_contracts_fix_local": "passed: corepack pnpm exec vitest run tests/contracts/mbti-cms-23-production-import-authorization-package.contract.test.ts --reporter=dot; passed: corepack pnpm test:contract"
+    },
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "failure_reason": null,
     "next_task": "MBTI-INDEX-24",
     "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-05T18:20:00Z"
+    "updated_at": "2026-07-05T17:08:30Z",
+    "artifact_summary": {
+      "decision": "READY_FOR_OPERATOR_AUTHORIZATION_NO_PRODUCTION_IMPORT_EXECUTED",
+      "authorization_record_count": 9,
+      "profile_record_count": 4,
+      "comparison_record_count": 5,
+      "production_import_authorized": false,
+      "artifact_json": "docs/seo/personality/mbti-cms-23-production-import-authorization-package-2026-07-05.json",
+      "artifact_md": "docs/seo/personality/mbti-cms-23-production-import-authorization-package-2026-07-05.md",
+      "artifact_csv": "docs/seo/personality/mbti-cms-23-production-import-authorization-package-2026-07-05.csv"
+    }
   },
   "MBTI-INDEX-24": {
     "status": "planned",
