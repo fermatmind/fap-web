@@ -14089,6 +14089,269 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
+    next_task: MBTI-CMS-20
+
+  - id: MBTI-CMS-20
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-cms-20-profile-approval-review
+    base: main
+    depends_on:
+      - MBTI-GSC-19
+    mode: execute
+    train_scope: mbti_profile_content_approval_review
+    risk_level: L1
+    status: planned
+    title: "MBTI-CMS-20: profile content approval review"
+    goal: "Review the MBTI-CMS-16 profile approval package against CMS entry criteria, output approved and needs_revision lists, and keep production CMS writes/imports out of scope."
+    in_scope:
+      - docs/seo/personality/mbti-cms-20-*
+      - scripts/seo/build-mbti-cms-20-*
+      - tests/contracts/mbti-cms-20-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - fap-api changes
+      - frontend runtime renderer changes
+      - frontend local editorial fallback content
+      - sitemap or llms runtime mutation
+      - GSC submission or URL inspection
+      - manual deploy or production deploy
+    required_local_checks:
+      - node scripts/seo/build-mbti-cms-20-profile-approval-review.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-cms-20-profile-approval-review.contract.test.ts --reporter=dot
+      - corepack pnpm test:contract
+      - corepack pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-CMS-21
+
+  - id: MBTI-CMS-21
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-cms-21-comparison-approval-review
+    base: main
+    depends_on:
+      - MBTI-CMS-20
+    mode: execute
+    train_scope: mbti_comparison_content_approval_review
+    risk_level: L1
+    status: planned
+    title: "MBTI-CMS-21: comparison content approval review"
+    goal: "Review the MBTI-CMS-17 comparison approval package for max difference, quick judgment table, confusion risks, real scenario differences, and FAQ; output approved/needs_revision and hot-comparison priority without production CMS writes."
+    in_scope:
+      - docs/seo/personality/mbti-cms-21-*
+      - scripts/seo/build-mbti-cms-21-*
+      - tests/contracts/mbti-cms-21-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - fap-api changes
+      - frontend runtime renderer changes
+      - frontend local editorial fallback content
+      - sitemap or llms runtime mutation
+      - GSC submission or URL inspection
+      - manual deploy or production deploy
+    required_local_checks:
+      - node scripts/seo/build-mbti-cms-21-comparison-approval-review.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-cms-21-comparison-approval-review.contract.test.ts --reporter=dot
+      - corepack pnpm test:contract
+      - corepack pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-CMS-22
+
+  - id: MBTI-CMS-22
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-cms-22-import-dry-run-final
+    base: main
+    depends_on:
+      - MBTI-CMS-21
+    mode: execute
+    train_scope: mbti_cms_import_dry_run_final
+    risk_level: L1
+    status: planned
+    title: "MBTI-CMS-22: CMS import dry-run final"
+    goal: "Prepare the final CMS import dry-run package by validating schema, slug, locale, section keys, FAQ, and SEO fields; do not write production CMS."
+    in_scope:
+      - docs/seo/personality/mbti-cms-22-*
+      - scripts/seo/build-mbti-cms-22-*
+      - tests/contracts/mbti-cms-22-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - fap-api changes
+      - frontend runtime renderer changes
+      - frontend local editorial fallback content
+      - sitemap or llms runtime mutation
+      - GSC submission or URL inspection
+      - manual deploy or production deploy
+    required_local_checks:
+      - node scripts/seo/build-mbti-cms-22-import-dry-run-final.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-cms-22-import-dry-run-final.contract.test.ts --reporter=dot
+      - corepack pnpm test:contract
+      - corepack pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-CMS-23
+
+  - id: MBTI-CMS-23
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-cms-23-production-import-authorization-package
+    base: main
+    depends_on:
+      - MBTI-CMS-22
+    mode: execute
+    train_scope: mbti_production_import_authorization_package
+    risk_level: L1
+    status: planned
+    title: "MBTI-CMS-23: production import authorization package"
+    goal: "Generate a production CMS import authorization package naming the exact package, exact commit/artifact, and import scope; do not execute production CMS import."
+    in_scope:
+      - docs/seo/personality/mbti-cms-23-*
+      - scripts/seo/build-mbti-cms-23-*
+      - tests/contracts/mbti-cms-23-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - fap-api changes
+      - frontend runtime renderer changes
+      - frontend local editorial fallback content
+      - sitemap or llms runtime mutation
+      - GSC submission or URL inspection
+      - manual deploy or production deploy
+    required_local_checks:
+      - node scripts/seo/build-mbti-cms-23-production-import-authorization-package.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-cms-23-production-import-authorization-package.contract.test.ts --reporter=dot
+      - corepack pnpm test:contract
+      - corepack pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-INDEX-24
+
+  - id: MBTI-INDEX-24
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-index-24-release-indexability-gate
+    base: main
+    depends_on:
+      - MBTI-CMS-23
+    mode: execute
+    train_scope: mbti_release_indexability_gate
+    risk_level: L1
+    status: planned
+    title: "MBTI-INDEX-24: release indexability gate"
+    goal: "Re-run sitemap, llms, canonical, noindex, and schema gate after CMS import authorization; allow URL expansion only if authority and quality gates pass. Do not submit GSC."
+    in_scope:
+      - docs/seo/personality/mbti-index-24-*
+      - scripts/seo/build-mbti-index-24-*
+      - tests/contracts/mbti-index-24-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - fap-api changes
+      - frontend runtime renderer changes
+      - frontend local editorial fallback content
+      - live GSC submission or URL inspection
+      - manual deploy or production deploy
+    required_local_checks:
+      - node scripts/seo/build-mbti-index-24-release-indexability-gate.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-index-24-release-indexability-gate.contract.test.ts --reporter=dot
+      - corepack pnpm test:contract
+      - corepack pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-GSC-25
+
+  - id: MBTI-GSC-25
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-gsc-25-submit-monitoring-execution
+    base: main
+    depends_on:
+      - MBTI-INDEX-24
+    mode: execute
+    train_scope: mbti_gsc_submission_monitoring_execution
+    risk_level: L1
+    status: planned
+    title: "MBTI-GSC-25: GSC submission and monitoring execution"
+    goal: "Execute or prepare GSC sitemap submission, core URL inspection/indexing requests, and 7/14/28 day monitoring only after INDEX-24 explicitly allows URL expansion; stop for browser login or permission authorization."
+    in_scope:
+      - docs/seo/personality/mbti-gsc-25-*
+      - scripts/seo/build-mbti-gsc-25-*
+      - tests/contracts/mbti-gsc-25-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - fap-api changes
+      - frontend runtime renderer changes
+      - frontend local editorial fallback content
+      - sitemap or llms runtime mutation
+      - manual deploy or production deploy
+      - live GSC mutation without explicit same-turn authorization and an INDEX-24 allow decision
+    required_local_checks:
+      - node scripts/seo/build-mbti-gsc-25-submit-monitoring-execution.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-gsc-25-submit-monitoring-execution.contract.test.ts --reporter=dot
+      - corepack pnpm test:contract
+      - corepack pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
     next_task: null
 
   - id: PR-CAREER-KG-00
