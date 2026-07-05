@@ -42364,7 +42364,7 @@
     "post_merge_revalidated_at": "2026-07-05T09:10:00Z"
   },
   "MBTI-GSC-19": {
-    "status": "pr_open",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-gsc-19-submission-monitoring",
     "depends_on": [
@@ -42434,7 +42434,7 @@
     "failure_reason": null,
     "next_task": null,
     "created_at": "2026-07-05T07:52:44.152Z",
-    "updated_at": "2026-07-05T09:40:00Z",
+    "updated_at": "2026-07-05T09:50:00Z",
     "notes": "Artifact-only GSC submission-readiness and 7/14/28 monitoring package. INDEX-18 held all URL expansion, so no live GSC mutation, sitemap submission, URL inspection, CMS write/import, runtime mutation, deploy, or staging wait was attempted.",
     "started_at": "2026-07-05T09:10:00Z",
     "artifacts": [
@@ -42454,6 +42454,39 @@
       "sitemap_submission_now_count": 0,
       "url_inspection_request_now_count": 0
     },
-    "artifact_decision": "PASS_MBTI_GSC_19_MONITORING_READY_GSC_SUBMISSION_HELD"
+    "artifact_decision": "PASS_MBTI_GSC_19_MONITORING_READY_GSC_SUBMISSION_HELD",
+    "merge_ready_at": "2026-07-05T09:50:00Z",
+    "github_checks": [
+      {
+        "name": "verify-big5-contract-freeze",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28736380996/job/85211211207"
+      },
+      {
+        "name": "verify-enneagram-contract-freeze",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28736380996/job/85211211215"
+      },
+      {
+        "name": "build",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28736380996/job/85211211209"
+      },
+      {
+        "name": "contracts",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28736380996/job/85211211203"
+      },
+      {
+        "name": "analyze (javascript-typescript)",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28736380986/job/85211221338"
+      },
+      {
+        "name": "CodeQL",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/runs/85211405470"
+      }
+    ]
   }
 }
