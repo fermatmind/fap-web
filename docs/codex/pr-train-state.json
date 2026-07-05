@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T03:49:10Z",
+  "updated_at": "2026-07-05T03:50:20Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -29683,8 +29683,8 @@
       "id": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01",
       "repo": "fap-web",
       "branch": "codex/iq-method-pages-cms-dry-run-01",
-      "status": "scope_validation_passed_ready_to_commit",
-      "commit_sha": null,
+      "status": "committed_pending_push",
+      "commit_sha": "0f86f49655751c48d685e7c1eecef1b3e0e3069e",
       "pr_url": null,
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -29745,6 +29745,11 @@
           "at": "2026-07-05T11:49:10+08:00",
           "status": "scope_validation_passed_ready_to_commit",
           "note": "Path-limited staging and focused changed-file scope validation passed for the dry-run package scope."
+        },
+        {
+          "at": "2026-07-05T11:50:20+08:00",
+          "status": "committed_pending_push",
+          "note": "Created local implementation commit 0f86f496 for the IQ CMS dry-run package; this follow-up ledger update records the implementation SHA before push."
         }
       ],
       "metadata": {
@@ -29772,7 +29777,7 @@
           "frontend runtime content"
         ]
       },
-      "updated_at": "2026-07-05T11:49:10+08:00"
+      "updated_at": "2026-07-05T11:50:20+08:00"
     }
   ],
   "sidecar_issues": [
