@@ -41774,7 +41774,7 @@
       "MBTI-QA-14"
     ],
     "status": "committed_pending_push",
-    "commit_sha": "878aabb2817e6d29126d45d5ce64799c50f806d6",
+    "commit_sha": "4d16f3feaabb7b3e29e9af55f5536cb44862ee1c",
     "pr_url": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -41875,9 +41875,14 @@
         "at": "2026-07-05T12:12:00.000Z",
         "status": "committed_pending_push",
         "notes": "Committed MBTI-CONTENT-15 implementation and validation artifacts on branch codex/mbti-content-15-top-blocker-assets."
+      },
+      {
+        "at": "2026-07-05T12:13:00.000Z",
+        "status": "ledger_commit_sha_recorded",
+        "notes": "Recorded implementation commit SHA 4d16f3feaabb7b3e29e9af55f5536cb44862ee1c before push. Final PR head may include ledger-only bookkeeping."
       }
     ],
-    "updated_at": "2026-07-05T12:12:00.000Z",
+    "updated_at": "2026-07-05T12:13:00.000Z",
     "next_task": null
   }
 }
