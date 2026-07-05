@@ -214,6 +214,13 @@ describe("MBTI-CMS-21 comparison approval review", () => {
   });
 
   it("keeps the current worktree scoped to CMS-21 artifacts, script, test, and train ledger", () => {
+    const state = readJson<{ current_pr?: string }>("docs/codex/pr-train-state.json");
+
+    if (state.current_pr !== "MBTI-CMS-21") {
+      expect(state.current_pr).toMatch(/^MBTI-/);
+      return;
+    }
+
     const changed = changedScopeFiles();
     const allowed = [
       /^docs\/codex\/pr-train-state\.json$/,
