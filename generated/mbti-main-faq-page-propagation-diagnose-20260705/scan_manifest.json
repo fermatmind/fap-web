@@ -1,0 +1,79 @@
+{
+  "id": "MBTI-MAIN-FAQ-PAGE-PROPAGATION-DIAGNOSE-01",
+  "repo": "fap-web",
+  "generated_at": "2026-07-05T09:53:18Z",
+  "scope": "read-only diagnosis",
+  "source_files_reviewed": [
+    "app/(localized)/[locale]/tests/[slug]/page.tsx",
+    "components/tests/MbtiLandingSurfaceSections.tsx",
+    "components/business/FAQAccordion.tsx",
+    "lib/landing/landingSurface.ts",
+    "lib/seo/testDetailAuthority.ts",
+    "lib/publicApiCache.ts",
+    "lib/api-base.ts",
+    "lib/cms/landing-surfaces.ts",
+    "lib/cms/last-known-good.ts"
+  ],
+  "production_observations": {
+    "scale_lookup_api": {
+      "url": "https://api.fermatmind.com/api/v0.3/scales/lookup?slug=mbti-personality-test-16-personality-types&locale=zh",
+      "http_status": 200,
+      "cache_header": "x-fastcgi-cache: BYPASS",
+      "content_i18n_keys": ["en", "zh"],
+      "content_i18n_json_zh_faq_count": 8
+    },
+    "canonical_page": {
+      "requested_url": "https://www.fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "final_url": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types",
+      "redirect": "HTTP 308 from www to apex",
+      "http_status": 200,
+      "cache_control": "public, s-maxage=60, stale-while-revalidate=300",
+      "x_proxy_cache": "STALE",
+      "visible_faq_count": 4,
+      "faqpage_json_ld_count": 4,
+      "contains_new_api_question": false,
+      "contains_old_question": true
+    },
+    "cache_bust_page": {
+      "url_shape": "https://fermatmind.com/zh/tests/mbti-personality-test-16-personality-types?codex_faq_diag={timestamp}",
+      "http_status": 200,
+      "cache_control": "public, s-maxage=60, stale-while-revalidate=300",
+      "x_proxy_cache": "MISS",
+      "visible_faq_count": 8,
+      "faqpage_json_ld_count": 8,
+      "contains_new_api_question": true,
+      "contains_old_question": false
+    },
+    "cms_landing_surface": {
+      "url": "https://api.fermatmind.com/api/v0.5/landing-surfaces/test_detail_mbti_personality_test_16_personality_types?locale=zh-CN&org_id=0",
+      "http_status": 200,
+      "status": "published",
+      "is_public": true,
+      "payload_contains_faq": false,
+      "page_blocks_count": 0
+    }
+  },
+  "code_path_findings": {
+    "page_reads_content_i18n_json_zh_faq": true,
+    "visible_faq_and_json_ld_share_mergedFaq": true,
+    "cms_landing_surface_overrides_faq": false,
+    "local_fallback_needed_for_current_api_payload": false
+  },
+  "decision": "CACHE_REVALIDATION_REPAIR_RECOMMENDED",
+  "recommended_next": "MBTI-MAIN-FAQ-CACHE-REVALIDATION-REPAIR-01",
+  "not_recommended_now": [
+    "MBTI-MAIN-FAQ-WEB-ADAPTER-PROPAGATION-REPAIR-01",
+    "MBTI-MAIN-FAQ-RUNTIME-DATA-SOURCE-REPAIR-01"
+  ],
+  "actions_not_taken": [
+    "runtime code change",
+    "CMS write",
+    "production import",
+    "database migration",
+    "sitemap or llms change",
+    "Search Channel action",
+    "staging deploy wait",
+    "manual deploy",
+    "production deploy"
+  ]
+}
