@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T22:55:00+08:00",
+  "updated_at": "2026-07-05T23:00:00+08:00",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -42623,7 +42623,7 @@
     ]
   },
   "MBTI-CMS-21": {
-    "status": "local_checks_passed",
+    "status": "pr_open_checks_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-21-comparison-approval-review",
     "depends_on": [
@@ -42631,8 +42631,8 @@
     ],
     "train_scope": "mbti_comparison_content_approval_review",
     "title": "MBTI-CMS-21: comparison content approval review",
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "0a39a35558bb",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1614",
     "checks": [
       {
         "name": "node scripts/seo/build-mbti-cms-21-comparison-approval-review.mjs",
@@ -42670,7 +42670,7 @@
       },
       {
         "name": "changed-file scope validation",
-        "status": "pending_final",
+        "status": "passed",
         "files": [
           "docs/codex/pr-train-state.json",
           "docs/seo/personality/mbti-cms-21-comparison-approval-review-2026-07-05.csv",
@@ -42687,7 +42687,7 @@
     "failure_reason": null,
     "next_task": "MBTI-CMS-22",
     "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-05T22:55:00+08:00",
+    "updated_at": "2026-07-05T23:00:00+08:00",
     "artifacts": [
       "docs/seo/personality/mbti-cms-21-comparison-approval-review-2026-07-05.json",
       "docs/seo/personality/mbti-cms-21-comparison-approval-review-2026-07-05.md",
@@ -42716,6 +42716,11 @@
         "at": "2026-07-05T22:55:00+08:00",
         "status": "local_checks_passed",
         "note": "Generated CMS-21 comparison approval review artifact: 5/5 comparison packages approved, 0 needs_revision; focused test, full contract suite, typecheck, build, YAML/JSON parse, and diff check passed."
+      },
+      {
+        "at": "2026-07-05T23:00:00+08:00",
+        "status": "pr_open_checks_pending",
+        "note": "Opened fap-web PR #1614 for MBTI-CMS-21 after scoped local validation passed."
       }
     ]
   },
