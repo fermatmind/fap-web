@@ -42214,7 +42214,7 @@
     "merge_commit_sha": "088013e9b4bc9bb7bcb56bf205eb415e3f557daf"
   },
   "MBTI-INDEX-18": {
-    "status": "local_checks_passed",
+    "status": "local_checks_passed_after_github_contract_fix",
     "repo": "fap-web",
     "branch": "codex/mbti-index-18-sitemap-llms-indexability-gate",
     "depends_on": [
@@ -42222,55 +42222,55 @@
       "MBTI-CMS-17"
     ],
     "train_scope": "mbti_sitemap_llms_indexability_gate",
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "91d030f323f101f9ac263ce7d2e69d83ba27e7c5",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1610",
     "checks": [
       {
         "name": "node scripts/seo/build-mbti-index-18-sitemap-llms-indexability-gate.mjs",
         "status": "passed",
-        "ran_at": "2026-07-05T08:07:11Z"
+        "ran_at": "2026-07-05T08:31:34Z"
       },
       {
-        "name": "corepack pnpm exec vitest run tests/contracts/mbti-index-18-sitemap-llms-indexability-gate.contract.test.ts --reporter=dot",
+        "name": "corepack pnpm exec vitest run tests/contracts/mbti-index-18-sitemap-llms-indexability-gate.contract.test.ts tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts --reporter=dot",
         "status": "passed",
-        "ran_at": "2026-07-05T08:07:11Z",
-        "details": "4 tests passed."
+        "ran_at": "2026-07-05T08:31:34Z",
+        "details": "13 tests passed; verifies PR18 gate and CMS17 scope-guard compatibility."
       },
       {
         "name": "corepack pnpm test:contract",
         "status": "passed",
-        "ran_at": "2026-07-05T08:07:11Z",
-        "details": "Full contract shard runner completed with exit code 0 after reverting unrelated CMS04 generated artifact drift."
+        "ran_at": "2026-07-05T08:31:34Z",
+        "details": "Full contract shard runner completed with exit code 0; CMS04 generated drift restored before scope validation."
       },
       {
         "name": "corepack pnpm typecheck",
         "status": "passed",
-        "ran_at": "2026-07-05T08:07:11Z"
+        "ran_at": "2026-07-05T08:31:34Z"
       },
       {
         "name": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
         "status": "passed",
-        "ran_at": "2026-07-05T08:07:11Z"
+        "ran_at": "2026-07-05T08:31:34Z"
       },
       {
         "name": "git diff --check",
         "status": "passed",
-        "ran_at": "2026-07-05T08:07:11Z"
+        "ran_at": "2026-07-05T08:31:34Z"
       },
       {
         "name": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml')\"",
         "status": "passed",
-        "ran_at": "2026-07-05T08:07:11Z"
+        "ran_at": "2026-07-05T08:31:34Z"
       },
       {
         "name": "python3 -m json.tool docs/codex/pr-train-state.json",
         "status": "passed",
-        "ran_at": "2026-07-05T08:07:11Z"
+        "ran_at": "2026-07-05T08:31:34Z"
       },
       {
         "name": "changed-file scope validation",
         "status": "passed",
-        "ran_at": "2026-07-05T08:07:11Z",
+        "ran_at": "2026-07-05T08:31:34Z",
         "files": [
           "docs/codex/pr-train-state.json",
           "docs/codex/pr-train.yaml",
@@ -42278,6 +42278,7 @@
           "docs/seo/personality/mbti-index-18-sitemap-llms-indexability-gate-2026-07-05.json",
           "docs/seo/personality/mbti-index-18-sitemap-llms-indexability-gate-2026-07-05.md",
           "scripts/seo/build-mbti-index-18-sitemap-llms-indexability-gate.mjs",
+          "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts",
           "tests/contracts/mbti-index-18-sitemap-llms-indexability-gate.contract.test.ts"
         ]
       }
@@ -42287,7 +42288,8 @@
       "docs/seo/personality/mbti-index-18-sitemap-llms-indexability-gate-2026-07-05.md",
       "docs/seo/personality/mbti-index-18-sitemap-llms-indexability-gate-2026-07-05.csv",
       "scripts/seo/build-mbti-index-18-sitemap-llms-indexability-gate.mjs",
-      "tests/contracts/mbti-index-18-sitemap-llms-indexability-gate.contract.test.ts"
+      "tests/contracts/mbti-index-18-sitemap-llms-indexability-gate.contract.test.ts",
+      "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts"
     ],
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -42295,7 +42297,7 @@
     "failure_reason": null,
     "next_task": "MBTI-GSC-19",
     "started_at": "2026-07-05T07:52:44.152Z",
-    "updated_at": "2026-07-05T08:07:11Z",
+    "updated_at": "2026-07-05T08:31:34Z",
     "notes": "Artifact-only gate. No sitemap/llms/canonical/noindex/JSON-LD runtime mutation, no GSC submission, no CMS write/import, and no deploy.",
     "artifact_summary": {
       "final_decision": "PASS_INDEXABILITY_GATE_HELD_NO_URL_EXPANSION",
@@ -42307,7 +42309,19 @@
       "sitemap_expand_now_count": 0,
       "llms_expand_now_count": 0,
       "gsc_submit_now_count": 0
-    }
+    },
+    "github_check_history": [
+      {
+        "run_id": 28734366470,
+        "job_id": 85205815795,
+        "check": "contracts",
+        "status": "failed",
+        "observed_at": "2026-07-05T08:31:34Z",
+        "evidence": "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts failed its committed file scope assertion because the legacy CMS17 scope guard evaluated origin/main...HEAD for the later MBTI-INDEX-18 PR files.",
+        "current_pr_scope": true,
+        "resolution": "Made the CMS17 contract scope guard conditional on touching CMS17 files and added that compatibility contract to MBTI-INDEX-18 in_scope."
+      }
+    ]
   },
   "MBTI-GSC-19": {
     "status": "planned",
