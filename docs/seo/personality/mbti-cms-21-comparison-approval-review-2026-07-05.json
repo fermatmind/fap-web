@@ -1,0 +1,494 @@
+{
+  "id": "MBTI-CMS-21",
+  "artifact": "MBTI-CMS-21-COMPARISON-APPROVAL-REVIEW",
+  "generated_at": "2026-07-05T19:05:00.000Z",
+  "source_artifact": {
+    "id": "MBTI-CMS-17",
+    "path": "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.json",
+    "final_decision": "PASS_COMPARISON_DRY_RUN_APPROVAL_PACKAGE_READY",
+    "comparison_record_count": 5
+  },
+  "status": "comparison_review_approved",
+  "final_decision": "PASS_COMPARISON_APPROVAL_REVIEW_READY_FOR_FINAL_DRY_RUN",
+  "summary": {
+    "reviewed_comparison_count": 5,
+    "approved_count": 5,
+    "needs_revision_count": 0,
+    "at_comparison_count": 1,
+    "hot_cross_type_count": 4
+  },
+  "cms_entry_standard": {
+    "required_field_mapping_keys": [
+      "title",
+      "meta_description",
+      "h1",
+      "summary",
+      "comparison_pair",
+      "canonical",
+      "robots",
+      "direct_answer",
+      "quick_judgment_table",
+      "easy_misread",
+      "real_scenario_differences",
+      "do_not_misjudge",
+      "faq",
+      "internal_links",
+      "method_boundary"
+    ],
+    "required_section_keys": [
+      "direct_answer",
+      "quick_judgment_table",
+      "easy_misread",
+      "real_scenario_differences",
+      "do_not_misjudge",
+      "next_reading"
+    ],
+    "required_faq_topics": [
+      "maximum difference",
+      "why easily confused",
+      "work or real scenario",
+      "do-not-misjudge warning",
+      "non-diagnostic/non-decision boundary"
+    ]
+  },
+  "approval_lists": {
+    "approved_for_final_dry_run": [
+      "/zh/personality/intp-a-vs-intp-t",
+      "/zh/personality/intj-vs-intp",
+      "/zh/personality/entj-vs-intj",
+      "/zh/personality/infj-vs-infp",
+      "/zh/personality/istj-vs-isfj"
+    ],
+    "needs_revision": []
+  },
+  "hot_comparison_priority": [
+    {
+      "rank": 1,
+      "target_path": "/zh/personality/intp-a-vs-intp-t",
+      "comparison_kind": "at_comparison",
+      "comparison_pair": [
+        "INTP-A",
+        "INTP-T"
+      ],
+      "recommended_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    },
+    {
+      "rank": 2,
+      "target_path": "/zh/personality/intj-vs-intp",
+      "comparison_kind": "hot_cross_type_comparison",
+      "comparison_pair": [
+        "INTJ",
+        "INTP"
+      ],
+      "recommended_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    },
+    {
+      "rank": 3,
+      "target_path": "/zh/personality/entj-vs-intj",
+      "comparison_kind": "hot_cross_type_comparison",
+      "comparison_pair": [
+        "ENTJ",
+        "INTJ"
+      ],
+      "recommended_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    },
+    {
+      "rank": 4,
+      "target_path": "/zh/personality/infj-vs-infp",
+      "comparison_kind": "hot_cross_type_comparison",
+      "comparison_pair": [
+        "INFJ",
+        "INFP"
+      ],
+      "recommended_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    },
+    {
+      "rank": 5,
+      "target_path": "/zh/personality/istj-vs-isfj",
+      "comparison_kind": "hot_cross_type_comparison",
+      "comparison_pair": [
+        "ISTJ",
+        "ISFJ"
+      ],
+      "recommended_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    }
+  ],
+  "safety_boundary": {
+    "artifact_only": true,
+    "comparison_review_only": true,
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "db_migration_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "frontend_local_editorial_fallback_added": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_api_call_attempted": false,
+    "gsc_request_indexing_attempted": false,
+    "search_submission_attempted": false,
+    "production_deploy_attempted": false
+  },
+  "reviews": [
+    {
+      "target_path": "/zh/personality/intp-a-vs-intp-t",
+      "code": "intp-a-vs-intp-t",
+      "locale": "zh-CN",
+      "comparison_kind": "at_comparison",
+      "comparison_pair": [
+        "INTP-A",
+        "INTP-T"
+      ],
+      "priority_rank": 1,
+      "decision": "approved_for_final_dry_run",
+      "reasons": [],
+      "checks": [
+        {
+          "key": "field_mapping_complete",
+          "status": "pass"
+        },
+        {
+          "key": "comparison_pair_complete",
+          "status": "pass"
+        },
+        {
+          "key": "max_difference_present",
+          "status": "pass"
+        },
+        {
+          "key": "quick_judgment_table_present",
+          "status": "pass"
+        },
+        {
+          "key": "easy_misread_present",
+          "status": "pass"
+        },
+        {
+          "key": "real_scenario_differences_present",
+          "status": "pass"
+        },
+        {
+          "key": "do_not_misjudge_present",
+          "status": "pass"
+        },
+        {
+          "key": "comparison_section_set_complete",
+          "status": "pass"
+        },
+        {
+          "key": "faq_complete",
+          "status": "pass"
+        },
+        {
+          "key": "internal_link_loop_complete",
+          "status": "pass"
+        },
+        {
+          "key": "seo_fields_present",
+          "status": "pass"
+        },
+        {
+          "key": "method_boundary_clean",
+          "status": "pass"
+        },
+        {
+          "key": "indexability_still_held",
+          "status": "pass"
+        },
+        {
+          "key": "production_write_blocked",
+          "status": "pass"
+        }
+      ],
+      "required_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    },
+    {
+      "target_path": "/zh/personality/intj-vs-intp",
+      "code": "intj-vs-intp",
+      "locale": "zh-CN",
+      "comparison_kind": "hot_cross_type_comparison",
+      "comparison_pair": [
+        "INTJ",
+        "INTP"
+      ],
+      "priority_rank": 2,
+      "decision": "approved_for_final_dry_run",
+      "reasons": [],
+      "checks": [
+        {
+          "key": "field_mapping_complete",
+          "status": "pass"
+        },
+        {
+          "key": "comparison_pair_complete",
+          "status": "pass"
+        },
+        {
+          "key": "max_difference_present",
+          "status": "pass"
+        },
+        {
+          "key": "quick_judgment_table_present",
+          "status": "pass"
+        },
+        {
+          "key": "easy_misread_present",
+          "status": "pass"
+        },
+        {
+          "key": "real_scenario_differences_present",
+          "status": "pass"
+        },
+        {
+          "key": "do_not_misjudge_present",
+          "status": "pass"
+        },
+        {
+          "key": "comparison_section_set_complete",
+          "status": "pass"
+        },
+        {
+          "key": "faq_complete",
+          "status": "pass"
+        },
+        {
+          "key": "internal_link_loop_complete",
+          "status": "pass"
+        },
+        {
+          "key": "seo_fields_present",
+          "status": "pass"
+        },
+        {
+          "key": "method_boundary_clean",
+          "status": "pass"
+        },
+        {
+          "key": "indexability_still_held",
+          "status": "pass"
+        },
+        {
+          "key": "production_write_blocked",
+          "status": "pass"
+        }
+      ],
+      "required_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    },
+    {
+      "target_path": "/zh/personality/entj-vs-intj",
+      "code": "entj-vs-intj",
+      "locale": "zh-CN",
+      "comparison_kind": "hot_cross_type_comparison",
+      "comparison_pair": [
+        "ENTJ",
+        "INTJ"
+      ],
+      "priority_rank": 3,
+      "decision": "approved_for_final_dry_run",
+      "reasons": [],
+      "checks": [
+        {
+          "key": "field_mapping_complete",
+          "status": "pass"
+        },
+        {
+          "key": "comparison_pair_complete",
+          "status": "pass"
+        },
+        {
+          "key": "max_difference_present",
+          "status": "pass"
+        },
+        {
+          "key": "quick_judgment_table_present",
+          "status": "pass"
+        },
+        {
+          "key": "easy_misread_present",
+          "status": "pass"
+        },
+        {
+          "key": "real_scenario_differences_present",
+          "status": "pass"
+        },
+        {
+          "key": "do_not_misjudge_present",
+          "status": "pass"
+        },
+        {
+          "key": "comparison_section_set_complete",
+          "status": "pass"
+        },
+        {
+          "key": "faq_complete",
+          "status": "pass"
+        },
+        {
+          "key": "internal_link_loop_complete",
+          "status": "pass"
+        },
+        {
+          "key": "seo_fields_present",
+          "status": "pass"
+        },
+        {
+          "key": "method_boundary_clean",
+          "status": "pass"
+        },
+        {
+          "key": "indexability_still_held",
+          "status": "pass"
+        },
+        {
+          "key": "production_write_blocked",
+          "status": "pass"
+        }
+      ],
+      "required_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    },
+    {
+      "target_path": "/zh/personality/infj-vs-infp",
+      "code": "infj-vs-infp",
+      "locale": "zh-CN",
+      "comparison_kind": "hot_cross_type_comparison",
+      "comparison_pair": [
+        "INFJ",
+        "INFP"
+      ],
+      "priority_rank": 4,
+      "decision": "approved_for_final_dry_run",
+      "reasons": [],
+      "checks": [
+        {
+          "key": "field_mapping_complete",
+          "status": "pass"
+        },
+        {
+          "key": "comparison_pair_complete",
+          "status": "pass"
+        },
+        {
+          "key": "max_difference_present",
+          "status": "pass"
+        },
+        {
+          "key": "quick_judgment_table_present",
+          "status": "pass"
+        },
+        {
+          "key": "easy_misread_present",
+          "status": "pass"
+        },
+        {
+          "key": "real_scenario_differences_present",
+          "status": "pass"
+        },
+        {
+          "key": "do_not_misjudge_present",
+          "status": "pass"
+        },
+        {
+          "key": "comparison_section_set_complete",
+          "status": "pass"
+        },
+        {
+          "key": "faq_complete",
+          "status": "pass"
+        },
+        {
+          "key": "internal_link_loop_complete",
+          "status": "pass"
+        },
+        {
+          "key": "seo_fields_present",
+          "status": "pass"
+        },
+        {
+          "key": "method_boundary_clean",
+          "status": "pass"
+        },
+        {
+          "key": "indexability_still_held",
+          "status": "pass"
+        },
+        {
+          "key": "production_write_blocked",
+          "status": "pass"
+        }
+      ],
+      "required_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    },
+    {
+      "target_path": "/zh/personality/istj-vs-isfj",
+      "code": "istj-vs-isfj",
+      "locale": "zh-CN",
+      "comparison_kind": "hot_cross_type_comparison",
+      "comparison_pair": [
+        "ISTJ",
+        "ISFJ"
+      ],
+      "priority_rank": 5,
+      "decision": "approved_for_final_dry_run",
+      "reasons": [],
+      "checks": [
+        {
+          "key": "field_mapping_complete",
+          "status": "pass"
+        },
+        {
+          "key": "comparison_pair_complete",
+          "status": "pass"
+        },
+        {
+          "key": "max_difference_present",
+          "status": "pass"
+        },
+        {
+          "key": "quick_judgment_table_present",
+          "status": "pass"
+        },
+        {
+          "key": "easy_misread_present",
+          "status": "pass"
+        },
+        {
+          "key": "real_scenario_differences_present",
+          "status": "pass"
+        },
+        {
+          "key": "do_not_misjudge_present",
+          "status": "pass"
+        },
+        {
+          "key": "comparison_section_set_complete",
+          "status": "pass"
+        },
+        {
+          "key": "faq_complete",
+          "status": "pass"
+        },
+        {
+          "key": "internal_link_loop_complete",
+          "status": "pass"
+        },
+        {
+          "key": "seo_fields_present",
+          "status": "pass"
+        },
+        {
+          "key": "method_boundary_clean",
+          "status": "pass"
+        },
+        {
+          "key": "indexability_still_held",
+          "status": "pass"
+        },
+        {
+          "key": "production_write_blocked",
+          "status": "pass"
+        }
+      ],
+      "required_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    }
+  ],
+  "blockers": [],
+  "recommended_next_task": "MBTI-CMS-22 CMS import dry-run final"
+}

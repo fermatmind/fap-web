@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T18:55:00Z",
+  "updated_at": "2026-07-05T15:22:55Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -41763,7 +41763,7 @@
     "updated_at": "2026-07-05T12:00:00.000Z",
     "next_task": "MBTI-CONTENT-15"
   },
-  "current_pr": "MBTI-CMS-20",
+  "current_pr": "MBTI-CMS-21",
   "MBTI-CONTENT-15": {
     "repo": "fap-web",
     "base": "main",
@@ -42498,7 +42498,7 @@
     }
   },
   "MBTI-CMS-20": {
-    "status": "ready_to_merge",
+    "status": "merged_reconciled",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-20-profile-approval-review",
     "depends_on": [
@@ -42506,7 +42506,7 @@
     ],
     "train_scope": "mbti_profile_content_approval_review",
     "title": "MBTI-CMS-20: profile content approval review",
-    "commit_sha": "c263a2f6",
+    "commit_sha": "b877c35bd026fb578bbed0bdf679c7ad82b8cd0b",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1613",
     "checks": [
       {
@@ -42556,13 +42556,13 @@
         ]
       }
     ],
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-05T14:18:06Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "next_task": "MBTI-CMS-21",
     "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-05T18:55:00Z",
+    "updated_at": "2026-07-05T22:55:00+08:00",
     "artifacts": [
       "docs/seo/personality/mbti-cms-20-profile-approval-review-2026-07-05.json",
       "docs/seo/personality/mbti-cms-20-profile-approval-review-2026-07-05.md",
@@ -42609,10 +42609,21 @@
         "status": "passed",
         "url": "https://github.com/fermatmind/fap-web/actions/runs/28743386029/job/85230002364"
       }
+    ],
+    "ledger_reconciliation": {
+      "status": "pass",
+      "evidence": "GitHub reports PR #1613 MERGED at 2026-07-05T14:18:06Z with merge commit b877c35bd026fb578bbed0bdf679c7ad82b8cd0b; origin/main contains the merge commit; local and remote task branches are absent in this local clone."
+    },
+    "history": [
+      {
+        "at": "2026-07-05T22:55:00+08:00",
+        "status": "merged_reconciled",
+        "note": "Reconciled CMS-20 after merge before continuing CMS-21: PR #1613 is merged, origin/main contains b877c35bd026fb578bbed0bdf679c7ad82b8cd0b, and task branches are cleaned."
+      }
     ]
   },
   "MBTI-CMS-21": {
-    "status": "planned",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-21-comparison-approval-review",
     "depends_on": [
@@ -42620,16 +42631,149 @@
     ],
     "train_scope": "mbti_comparison_content_approval_review",
     "title": "MBTI-CMS-21: comparison content approval review",
-    "commit_sha": null,
-    "pr_url": null,
-    "checks": [],
+    "commit_sha": "bd241966b23c7321e50b47ee26d689c24496eaba",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1614",
+    "checks": [
+      {
+        "name": "node scripts/seo/build-mbti-cms-21-comparison-approval-review.mjs",
+        "status": "passed"
+      },
+      {
+        "name": "corepack pnpm exec vitest run tests/contracts/mbti-cms-21-comparison-approval-review.contract.test.ts --reporter=dot",
+        "status": "passed",
+        "details": "1 file, 8 tests passed"
+      },
+      {
+        "name": "corepack pnpm test:contract",
+        "status": "passed",
+        "details": "168/169 shard files locally passed before CI; after compatibility fix full contract passed all shards locally: 169+169+169+168 files and 940+898+...+1001 tests. CI contracts failure was traced to stale CMS-20 scope guard and fixed in this PR."
+      },
+      {
+        "name": "corepack pnpm typecheck",
+        "status": "passed"
+      },
+      {
+        "name": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+        "status": "passed"
+      },
+      {
+        "name": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+        "status": "passed"
+      },
+      {
+        "name": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+        "status": "passed"
+      },
+      {
+        "name": "git diff --check",
+        "status": "passed"
+      },
+      {
+        "name": "changed-file scope validation",
+        "status": "passed",
+        "files": [
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "docs/seo/personality/mbti-cms-21-comparison-approval-review-2026-07-05.csv",
+          "docs/seo/personality/mbti-cms-21-comparison-approval-review-2026-07-05.json",
+          "docs/seo/personality/mbti-cms-21-comparison-approval-review-2026-07-05.md",
+          "scripts/seo/build-mbti-cms-21-comparison-approval-review.mjs",
+          "tests/contracts/mbti-cms-20-profile-approval-review.contract.test.ts",
+          "tests/contracts/mbti-cms-21-comparison-approval-review.contract.test.ts"
+        ],
+        "checked_at": "2026-07-05T15:22:55Z"
+      },
+      {
+        "name": "corepack pnpm exec vitest run tests/contracts/mbti-cms-20-profile-approval-review.contract.test.ts --reporter=dot",
+        "status": "passed",
+        "details": "1 file, 8 tests passed after future-PR scope guard compatibility fix"
+      }
+    ],
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "failure_reason": null,
     "next_task": "MBTI-CMS-22",
     "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-05T18:20:00Z"
+    "updated_at": "2026-07-05T23:14:00+08:00",
+    "artifacts": [
+      "docs/seo/personality/mbti-cms-21-comparison-approval-review-2026-07-05.json",
+      "docs/seo/personality/mbti-cms-21-comparison-approval-review-2026-07-05.md",
+      "docs/seo/personality/mbti-cms-21-comparison-approval-review-2026-07-05.csv",
+      "scripts/seo/build-mbti-cms-21-comparison-approval-review.mjs",
+      "tests/contracts/mbti-cms-21-comparison-approval-review.contract.test.ts"
+    ],
+    "artifact_summary": {
+      "reviewed_comparison_count": 5,
+      "approved_count": 5,
+      "needs_revision_count": 0,
+      "at_comparison_count": 1,
+      "hot_cross_type_count": 4,
+      "priority_order": [
+        "/zh/personality/intp-a-vs-intp-t",
+        "/zh/personality/intj-vs-intp",
+        "/zh/personality/entj-vs-intj",
+        "/zh/personality/infj-vs-infp",
+        "/zh/personality/istj-vs-isfj"
+      ]
+    },
+    "artifact_decision": "PASS_COMPARISON_APPROVAL_REVIEW_READY_FOR_FINAL_DRY_RUN",
+    "notes": "Comparison approval review only. No CMS write, production import, sitemap/llms mutation, GSC submission, frontend runtime change, deploy, or staging wait attempted.",
+    "history": [
+      {
+        "at": "2026-07-05T22:55:00+08:00",
+        "status": "local_checks_passed",
+        "note": "Generated CMS-21 comparison approval review artifact: 5/5 comparison packages approved, 0 needs_revision; focused test, full contract suite, typecheck, build, YAML/JSON parse, and diff check passed."
+      },
+      {
+        "at": "2026-07-05T23:00:00+08:00",
+        "status": "pr_open_checks_pending",
+        "note": "Opened fap-web PR #1614 for MBTI-CMS-21 after scoped local validation passed."
+      },
+      {
+        "at": "2026-07-05T23:14:00+08:00",
+        "status": "local_checks_passed_after_ci_fix",
+        "note": "Inspected failing GitHub contracts job: stale CMS-20 scope guard failed on CMS-21 diff. Added future-PR guard compatibility patch, updated CMS-21 manifest/test allowlist, and reran CMS-20 focused, CMS-21 focused, full contract suite, typecheck, build, YAML/JSON parse, and diff check locally."
+      }
+    ],
+    "ci_failure_inspection": {
+      "status": "fixed_in_scope",
+      "failing_job": "contracts",
+      "evidence": "GitHub PR #1614 contracts job failed in tests/contracts/mbti-cms-20-profile-approval-review.contract.test.ts scope guard because origin/main...HEAD on MBTI-CMS-21 includes CMS-21 files. The business tests passed; the stale historical scope guard was not future-PR aware.",
+      "fix": "CMS-20 scope guard now enforces CMS-20 file scope only when docs/codex/pr-train-state.json current_pr is MBTI-CMS-20; CMS-21 manifest and scope guard allow this compatibility patch."
+    },
+    "github_checks": {
+      "status": "passed",
+      "checked_at": "2026-07-05T15:22:55Z",
+      "checks": [
+        {
+          "name": "build",
+          "status": "passed"
+        },
+        {
+          "name": "contracts",
+          "status": "passed"
+        },
+        {
+          "name": "verify-big5-contract-freeze",
+          "status": "passed"
+        },
+        {
+          "name": "verify-enneagram-contract-freeze",
+          "status": "passed"
+        },
+        {
+          "name": "CodeQL",
+          "status": "passed"
+        },
+        {
+          "name": "analyze (javascript-typescript)",
+          "status": "passed"
+        }
+      ],
+      "source": "gh pr checks 1614 --watch --interval 20"
+    },
+    "ready_to_merge_at": "2026-07-05T15:22:55Z"
   },
   "MBTI-CMS-22": {
     "status": "planned",
