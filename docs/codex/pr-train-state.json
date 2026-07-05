@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T06:41:12.333Z",
+  "updated_at": "2026-07-05T06:44:01.592Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -41989,15 +41989,15 @@
     "merge_commit_sha": "c517c2d1cd38b5cba2bcd22052ceb3907cf2542b"
   },
   "MBTI-CMS-17": {
-    "status": "local_checks_passed_pending_commit",
+    "status": "pr_open_checks_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-17-comparison-dry-run-approval-package",
     "depends_on": [
       "MBTI-CMS-16"
     ],
     "train_scope": "mbti_comparison_content_dry_run_approval_package",
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "4a4795856321e81a2f3543d08d6696f87313d670",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1609",
     "checks": [
       {
         "name": "node scripts/seo/build-mbti-cms-17-comparison-dry-run-approval-package.mjs",
@@ -42070,6 +42070,6 @@
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "next_task": "MBTI-INDEX-18",
-    "updated_at": "2026-07-05T06:41:12.333Z"
+    "updated_at": "2026-07-05T06:44:01.592Z"
   }
 }
