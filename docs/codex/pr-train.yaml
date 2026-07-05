@@ -13999,6 +13999,98 @@ prs:
       auto_merge: true
     next_task: MBTI-INDEX-18
 
+  - id: MBTI-INDEX-18
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-index-18-sitemap-llms-indexability-gate
+    base: main
+    depends_on:
+      - MBTI-CMS-16
+      - MBTI-CMS-17
+    mode: execute
+    train_scope: mbti_sitemap_llms_indexability_gate
+    risk_level: L1
+    status: planned
+    title: "MBTI-INDEX-18: sitemap llms indexability gate"
+    goal: "Check MBTI profile and comparison approval packages against sitemap, llms, robots, indexability, and GSC readiness gates without mutating runtime sitemap/llms/canonical/noindex/JSON-LD surfaces, submitting GSC, writing CMS, importing production data, or deploying."
+    in_scope:
+      - docs/seo/personality/mbti-index-18-*
+      - scripts/seo/build-mbti-index-18-*
+      - tests/contracts/mbti-index-18-*
+      - tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - fap-api changes
+      - frontend runtime renderer changes
+      - frontend local editorial fallback content
+      - sitemap runtime mutation
+      - llms or llms-full runtime mutation
+      - canonical, robots, noindex, or JSON-LD runtime mutation
+      - GSC URL inspection/request indexing/search submission
+      - manual deploy or production deploy
+    required_local_checks:
+      - node scripts/seo/build-mbti-index-18-sitemap-llms-indexability-gate.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-index-18-sitemap-llms-indexability-gate.contract.test.ts --reporter=dot
+      - corepack pnpm test:contract
+      - corepack pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-GSC-19
+
+  - id: MBTI-GSC-19
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-gsc-19-submission-monitoring
+    base: main
+    depends_on:
+      - MBTI-INDEX-18
+    mode: execute
+    train_scope: mbti_gsc_submission_monitoring
+    risk_level: L1
+    status: planned
+    title: "MBTI-GSC-19: GSC submission and monitoring"
+    goal: "Prepare MBTI sitemap submission, core URL indexing request, and 7/14/28 day tracking artifacts only after INDEX-18 allows URLs; stop for explicit authorization before any live GSC mutation if the gate remains held or browser/manual submission is required."
+    in_scope:
+      - docs/seo/personality/mbti-gsc-19-*
+      - scripts/seo/build-mbti-gsc-19-*
+      - tests/contracts/mbti-gsc-19-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - fap-api changes
+      - frontend runtime renderer changes
+      - frontend local editorial fallback content
+      - sitemap or llms runtime mutation
+      - manual deploy or production deploy
+      - live GSC mutation without explicit same-turn authorization and an INDEX-18 allow decision
+    required_local_checks:
+      - node scripts/seo/build-mbti-gsc-19-submission-monitoring.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-gsc-19-submission-monitoring.contract.test.ts --reporter=dot
+      - corepack pnpm test:contract
+      - corepack pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null
+
   - id: PR-CAREER-KG-00
     repo: fap-web
     repo_path: <workspace>/fap-web

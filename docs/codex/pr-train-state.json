@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T06:44:01.592Z",
+  "updated_at": "2026-07-05T08:07:11Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -41763,7 +41763,7 @@
     "updated_at": "2026-07-05T12:00:00.000Z",
     "next_task": "MBTI-CONTENT-15"
   },
-  "current_pr": "MBTI-CMS-17",
+  "current_pr": "MBTI-INDEX-18",
   "MBTI-CONTENT-15": {
     "repo": "fap-web",
     "base": "main",
@@ -41989,7 +41989,7 @@
     "merge_commit_sha": "c517c2d1cd38b5cba2bcd22052ceb3907cf2542b"
   },
   "MBTI-CMS-17": {
-    "status": "ready_to_merge",
+    "status": "merged_reconciled",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-17-comparison-dry-run-approval-package",
     "depends_on": [
@@ -42172,11 +42172,11 @@
       "validation_failure_count": 0
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-05T07:39:25Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "next_task": "MBTI-INDEX-18",
-    "updated_at": "2026-07-05T07:32:27.406Z",
+    "updated_at": "2026-07-05T07:52:44.152Z",
     "ci_inspection": [
       {
         "github_run_id": "28732345461",
@@ -42210,6 +42210,175 @@
         "CodeQL"
       ],
       "evidence": "gh pr checks 1609 reported build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL/analyze all passing."
-    }
+    },
+    "merge_commit_sha": "088013e9b4bc9bb7bcb56bf205eb415e3f557daf"
+  },
+  "MBTI-INDEX-18": {
+    "status": "ready_to_merge",
+    "repo": "fap-web",
+    "branch": "codex/mbti-index-18-sitemap-llms-indexability-gate",
+    "depends_on": [
+      "MBTI-CMS-16",
+      "MBTI-CMS-17"
+    ],
+    "train_scope": "mbti_sitemap_llms_indexability_gate",
+    "commit_sha": "88bf610daa630fbeff0386155c6e23d4fd3d768a",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1610",
+    "checks": [
+      {
+        "name": "node scripts/seo/build-mbti-index-18-sitemap-llms-indexability-gate.mjs",
+        "status": "passed",
+        "ran_at": "2026-07-05T08:50:14Z"
+      },
+      {
+        "name": "corepack pnpm exec vitest run tests/contracts/mbti-index-18-sitemap-llms-indexability-gate.contract.test.ts tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts --reporter=dot",
+        "status": "passed",
+        "ran_at": "2026-07-05T08:50:14Z",
+        "details": "13 tests passed after narrowing the CMS17 scope trigger and syncing the PR18 allowlist."
+      },
+      {
+        "name": "corepack pnpm test:contract",
+        "status": "passed",
+        "ran_at": "2026-07-05T08:50:14Z",
+        "details": "Full contract shard runner completed with exit code 0; CMS04 generated drift restored before scope validation."
+      },
+      {
+        "name": "corepack pnpm typecheck",
+        "status": "passed",
+        "ran_at": "2026-07-05T08:50:14Z"
+      },
+      {
+        "name": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+        "status": "passed",
+        "ran_at": "2026-07-05T08:50:14Z"
+      },
+      {
+        "name": "git diff --check",
+        "status": "passed",
+        "ran_at": "2026-07-05T08:50:14Z"
+      },
+      {
+        "name": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml')\"",
+        "status": "passed",
+        "ran_at": "2026-07-05T08:50:14Z"
+      },
+      {
+        "name": "python3 -m json.tool docs/codex/pr-train-state.json",
+        "status": "passed",
+        "ran_at": "2026-07-05T08:50:14Z"
+      },
+      {
+        "name": "changed-file scope validation",
+        "status": "passed",
+        "ran_at": "2026-07-05T08:50:14Z",
+        "files": [
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "docs/seo/personality/mbti-index-18-sitemap-llms-indexability-gate-2026-07-05.csv",
+          "docs/seo/personality/mbti-index-18-sitemap-llms-indexability-gate-2026-07-05.json",
+          "docs/seo/personality/mbti-index-18-sitemap-llms-indexability-gate-2026-07-05.md",
+          "scripts/seo/build-mbti-index-18-sitemap-llms-indexability-gate.mjs",
+          "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts",
+          "tests/contracts/mbti-index-18-sitemap-llms-indexability-gate.contract.test.ts"
+        ]
+      }
+    ],
+    "artifacts": [
+      "docs/seo/personality/mbti-index-18-sitemap-llms-indexability-gate-2026-07-05.json",
+      "docs/seo/personality/mbti-index-18-sitemap-llms-indexability-gate-2026-07-05.md",
+      "docs/seo/personality/mbti-index-18-sitemap-llms-indexability-gate-2026-07-05.csv",
+      "scripts/seo/build-mbti-index-18-sitemap-llms-indexability-gate.mjs",
+      "tests/contracts/mbti-index-18-sitemap-llms-indexability-gate.contract.test.ts",
+      "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts"
+    ],
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "next_task": "MBTI-GSC-19",
+    "started_at": "2026-07-05T07:52:44.152Z",
+    "updated_at": "2026-07-05T08:58:49Z",
+    "notes": "Artifact-only gate. No sitemap/llms/canonical/noindex/JSON-LD runtime mutation, no GSC submission, no CMS write/import, and no deploy.",
+    "artifact_summary": {
+      "final_decision": "PASS_INDEXABILITY_GATE_HELD_NO_URL_EXPANSION",
+      "checked_url_count": 10,
+      "profile_url_count": 5,
+      "comparison_url_count": 5,
+      "quality_pass_count": 10,
+      "production_promotion_blocked_count": 10,
+      "sitemap_expand_now_count": 0,
+      "llms_expand_now_count": 0,
+      "gsc_submit_now_count": 0
+    },
+    "github_check_history": [
+      {
+        "run_id": 28734366470,
+        "job_id": 85205815795,
+        "check": "contracts",
+        "status": "failed",
+        "observed_at": "2026-07-05T08:31:34Z",
+        "evidence": "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts failed its committed file scope assertion because the legacy CMS17 scope guard evaluated origin/main...HEAD for the later MBTI-INDEX-18 PR files.",
+        "current_pr_scope": true,
+        "resolution": "Made the CMS17 contract scope guard conditional on touching CMS17 files and added that compatibility contract to MBTI-INDEX-18 in_scope."
+      },
+      {
+        "run_id": 28734910699,
+        "job_id": 85207221458,
+        "check": "contracts",
+        "status": "failed",
+        "observed_at": "2026-07-05T08:50:14Z",
+        "evidence": "tests/contracts/mbti-index-18-sitemap-llms-indexability-gate.contract.test.ts failed PR18 scope validation because the CMS17 compatibility test file was added to manifest scope but not to the PR18 test allowlist.",
+        "current_pr_scope": true,
+        "resolution": "Added tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts to PR18 scope contract allowlist and narrowed the CMS17 guard to only enforce on CMS17 asset/script changes."
+      }
+    ],
+    "github_checks": [
+      {
+        "name": "verify-big5-contract-freeze",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28735375526/job/85208471477"
+      },
+      {
+        "name": "verify-enneagram-contract-freeze",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28735375526/job/85208471472"
+      },
+      {
+        "name": "build",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28735375526/job/85208471478"
+      },
+      {
+        "name": "contracts",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28735375526/job/85208471473"
+      },
+      {
+        "name": "CodeQL",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/runs/85208622047"
+      }
+    ],
+    "merge_ready_at": "2026-07-05T08:58:49Z"
+  },
+  "MBTI-GSC-19": {
+    "status": "planned",
+    "repo": "fap-web",
+    "branch": "codex/mbti-gsc-19-submission-monitoring",
+    "depends_on": [
+      "MBTI-INDEX-18"
+    ],
+    "train_scope": "mbti_gsc_submission_monitoring",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": [],
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "next_task": null,
+    "created_at": "2026-07-05T07:52:44.152Z",
+    "updated_at": "2026-07-05T07:52:44.152Z",
+    "notes": "Must stop before any live GSC mutation unless INDEX-18 allows URLs and explicit same-turn authorization is present."
   }
 }
