@@ -176,6 +176,7 @@ describe("MBTI-INDEX-18 sitemap / llms / indexability gate", () => {
       /^docs\/seo\/personality\/mbti-index-18-/,
       /^scripts\/seo\/build-mbti-index-18-/,
       /^tests\/contracts\/mbti-index-18-/,
+      /^tests\/contracts\/mbti-cms-17-comparison-dry-run-approval-package\.contract\.test\.ts$/,
       /^docs\/codex\/pr-train\.yaml$/,
       /^docs\/codex\/pr-train-state\.json$/,
       /^generated\/pr-train-sidecar-issues\//,

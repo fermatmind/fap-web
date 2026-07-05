@@ -42214,7 +42214,7 @@
     "merge_commit_sha": "088013e9b4bc9bb7bcb56bf205eb415e3f557daf"
   },
   "MBTI-INDEX-18": {
-    "status": "local_checks_passed_after_github_contract_fix",
+    "status": "local_checks_passed_after_second_github_contract_fix",
     "repo": "fap-web",
     "branch": "codex/mbti-index-18-sitemap-llms-indexability-gate",
     "depends_on": [
@@ -42222,55 +42222,55 @@
       "MBTI-CMS-17"
     ],
     "train_scope": "mbti_sitemap_llms_indexability_gate",
-    "commit_sha": "91d030f323f101f9ac263ce7d2e69d83ba27e7c5",
+    "commit_sha": "73d0a2f2422fb435be0cf2caf96efb6e7760630f",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1610",
     "checks": [
       {
         "name": "node scripts/seo/build-mbti-index-18-sitemap-llms-indexability-gate.mjs",
         "status": "passed",
-        "ran_at": "2026-07-05T08:31:34Z"
+        "ran_at": "2026-07-05T08:50:14Z"
       },
       {
         "name": "corepack pnpm exec vitest run tests/contracts/mbti-index-18-sitemap-llms-indexability-gate.contract.test.ts tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts --reporter=dot",
         "status": "passed",
-        "ran_at": "2026-07-05T08:31:34Z",
-        "details": "13 tests passed; verifies PR18 gate and CMS17 scope-guard compatibility."
+        "ran_at": "2026-07-05T08:50:14Z",
+        "details": "13 tests passed after narrowing the CMS17 scope trigger and syncing the PR18 allowlist."
       },
       {
         "name": "corepack pnpm test:contract",
         "status": "passed",
-        "ran_at": "2026-07-05T08:31:34Z",
+        "ran_at": "2026-07-05T08:50:14Z",
         "details": "Full contract shard runner completed with exit code 0; CMS04 generated drift restored before scope validation."
       },
       {
         "name": "corepack pnpm typecheck",
         "status": "passed",
-        "ran_at": "2026-07-05T08:31:34Z"
+        "ran_at": "2026-07-05T08:50:14Z"
       },
       {
         "name": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
         "status": "passed",
-        "ran_at": "2026-07-05T08:31:34Z"
+        "ran_at": "2026-07-05T08:50:14Z"
       },
       {
         "name": "git diff --check",
         "status": "passed",
-        "ran_at": "2026-07-05T08:31:34Z"
+        "ran_at": "2026-07-05T08:50:14Z"
       },
       {
         "name": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml')\"",
         "status": "passed",
-        "ran_at": "2026-07-05T08:31:34Z"
+        "ran_at": "2026-07-05T08:50:14Z"
       },
       {
         "name": "python3 -m json.tool docs/codex/pr-train-state.json",
         "status": "passed",
-        "ran_at": "2026-07-05T08:31:34Z"
+        "ran_at": "2026-07-05T08:50:14Z"
       },
       {
         "name": "changed-file scope validation",
         "status": "passed",
-        "ran_at": "2026-07-05T08:31:34Z",
+        "ran_at": "2026-07-05T08:50:14Z",
         "files": [
           "docs/codex/pr-train-state.json",
           "docs/codex/pr-train.yaml",
@@ -42297,7 +42297,7 @@
     "failure_reason": null,
     "next_task": "MBTI-GSC-19",
     "started_at": "2026-07-05T07:52:44.152Z",
-    "updated_at": "2026-07-05T08:31:34Z",
+    "updated_at": "2026-07-05T08:51:28Z",
     "notes": "Artifact-only gate. No sitemap/llms/canonical/noindex/JSON-LD runtime mutation, no GSC submission, no CMS write/import, and no deploy.",
     "artifact_summary": {
       "final_decision": "PASS_INDEXABILITY_GATE_HELD_NO_URL_EXPANSION",
@@ -42320,6 +42320,16 @@
         "evidence": "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts failed its committed file scope assertion because the legacy CMS17 scope guard evaluated origin/main...HEAD for the later MBTI-INDEX-18 PR files.",
         "current_pr_scope": true,
         "resolution": "Made the CMS17 contract scope guard conditional on touching CMS17 files and added that compatibility contract to MBTI-INDEX-18 in_scope."
+      },
+      {
+        "run_id": 28734910699,
+        "job_id": 85207221458,
+        "check": "contracts",
+        "status": "failed",
+        "observed_at": "2026-07-05T08:50:14Z",
+        "evidence": "tests/contracts/mbti-index-18-sitemap-llms-indexability-gate.contract.test.ts failed PR18 scope validation because the CMS17 compatibility test file was added to manifest scope but not to the PR18 test allowlist.",
+        "current_pr_scope": true,
+        "resolution": "Added tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts to PR18 scope contract allowlist and narrowed the CMS17 guard to only enforce on CMS17 asset/script changes."
       }
     ]
   },
