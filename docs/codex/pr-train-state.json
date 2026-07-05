@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T03:50:20Z",
+  "updated_at": "2026-07-05T03:51:25Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -29683,9 +29683,9 @@
       "id": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01",
       "repo": "fap-web",
       "branch": "codex/iq-method-pages-cms-dry-run-01",
-      "status": "committed_pending_push",
-      "commit_sha": "0f86f49655751c48d685e7c1eecef1b3e0e3069e",
-      "pr_url": null,
+      "status": "pr_open_github_checks_pending",
+      "commit_sha": "e0072d519e964de9488fcbbb77b4e22411aead70",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1606",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -29721,7 +29721,8 @@
         },
         "github": {
           "status": "pending",
-          "pr_url": null,
+          "pr_url": "https://github.com/fermatmind/fap-web/pull/1606",
+          "head_sha": "e0072d519e964de9488fcbbb77b4e22411aead70",
           "checks": []
         }
       },
@@ -29750,6 +29751,11 @@
           "at": "2026-07-05T11:50:20+08:00",
           "status": "committed_pending_push",
           "note": "Created local implementation commit 0f86f496 for the IQ CMS dry-run package; this follow-up ledger update records the implementation SHA before push."
+        },
+        {
+          "at": "2026-07-05T11:51:25+08:00",
+          "status": "pr_open_github_checks_pending",
+          "note": "Created GitHub PR #1606 for the IQ method pages CMS dry-run package after local validation and scope validation passed with external spacing debt recorded in sidecar."
         }
       ],
       "metadata": {
@@ -29777,7 +29783,7 @@
           "frontend runtime content"
         ]
       },
-      "updated_at": "2026-07-05T11:50:20+08:00"
+      "updated_at": "2026-07-05T11:51:25+08:00"
     }
   ],
   "sidecar_issues": [
