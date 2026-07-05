@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T15:56:53.953Z",
+  "updated_at": "2026-07-05T16:02:37.901Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -42781,7 +42781,7 @@
     "ready_to_merge_at": "2026-07-05T15:22:55Z"
   },
   "MBTI-CMS-22": {
-    "status": "ready_to_commit",
+    "status": "pr_open_checks_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-22-import-dry-run-final",
     "depends_on": [
@@ -42789,8 +42789,8 @@
     ],
     "train_scope": "mbti_cms_import_dry_run_final",
     "title": "MBTI-CMS-22: CMS import dry-run final",
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "9a6fe182",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1617",
     "checks": {
       "0": {
         "name": "node scripts/seo/build-mbti-cms-22-import-dry-run-final.mjs",
