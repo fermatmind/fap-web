@@ -42856,7 +42856,7 @@
     }
   },
   "MBTI-CMS-23": {
-    "status": "local_checks_passed",
+    "status": "pr_open_checks_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-23-production-import-authorization-package",
     "depends_on": [
@@ -42864,8 +42864,8 @@
     ],
     "train_scope": "mbti_production_import_authorization_package",
     "title": "MBTI-CMS-23: production import authorization package",
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "35279661ba43655e9594da65426e06113d29dbea",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1618",
     "checks": {
       "build_script": "passed: node scripts/seo/build-mbti-cms-23-production-import-authorization-package.mjs",
       "targeted_contract": "passed: corepack pnpm exec vitest run tests/contracts/mbti-cms-23-production-import-authorization-package.contract.test.ts --reporter=dot",
@@ -42884,7 +42884,7 @@
     "failure_reason": null,
     "next_task": "MBTI-INDEX-24",
     "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-05T16:45:00Z",
+    "updated_at": "2026-07-05T16:49:00Z",
     "artifact_summary": {
       "decision": "READY_FOR_OPERATOR_AUTHORIZATION_NO_PRODUCTION_IMPORT_EXECUTED",
       "authorization_record_count": 9,
