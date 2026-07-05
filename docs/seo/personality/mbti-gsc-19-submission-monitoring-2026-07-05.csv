@@ -1,0 +1,11 @@
+target_path,asset_kind,query_evidence_status,primary_query,baseline_clicks,baseline_impressions,baseline_ctr,baseline_position,index18_decision,next_action
+/zh/personality/istj-a,profile,pending_or_seed_only,istj-a人格,,,,,not_in_scope_do_not_submit,hold_until_index18_allows_gsc_submission_after_backend_promotion
+/zh/personality/istp-a,profile,pending_or_seed_only,,,7,,7.3,not_in_scope_do_not_submit,hold_until_index18_allows_gsc_submission_after_backend_promotion
+/zh/personality/isfp-a,profile,pending_or_seed_only,,,,,,not_in_scope_do_not_submit,hold_until_index18_allows_gsc_submission_after_backend_promotion
+/zh/personality/esfj-a,profile,pending_or_seed_only,,,1,,8,not_in_scope_do_not_submit,hold_until_index18_allows_gsc_submission_after_backend_promotion
+/zh/personality/intp-a,profile,confirmed_query_rows_present,intp-a,0,3,0,10.3,not_in_scope_do_not_submit,hold_until_index18_allows_gsc_submission_after_backend_promotion
+/zh/personality/intp-a-vs-intp-t,comparison,pending_or_seed_only,,,2,,11,not_in_scope_do_not_submit,hold_until_index18_allows_gsc_submission_after_backend_promotion
+/zh/personality/intj-vs-intp,comparison,pending_or_seed_only,,,,,,not_in_scope_do_not_submit,hold_until_index18_allows_gsc_submission_after_backend_promotion
+/zh/personality/entj-vs-intj,comparison,pending_or_seed_only,,,,,,not_in_scope_do_not_submit,hold_until_index18_allows_gsc_submission_after_backend_promotion
+/zh/personality/infj-vs-infp,comparison,pending_or_seed_only,,,,,,not_in_scope_do_not_submit,hold_until_index18_allows_gsc_submission_after_backend_promotion
+/zh/personality/istj-vs-isfj,comparison,pending_or_seed_only,,,,,,not_in_scope_do_not_submit,hold_until_index18_allows_gsc_submission_after_backend_promotion
