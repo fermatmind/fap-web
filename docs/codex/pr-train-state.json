@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T06:12:22.626Z",
+  "updated_at": "2026-07-05T06:14:46.266Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -41941,9 +41941,9 @@
     "depends_on": [
       "MBTI-CONTENT-15"
     ],
-    "status": "committed_pending_push",
-    "commit_sha": "03a820060e2d6535cc74cd4af827a7f86908df77",
-    "pr_url": null,
+    "status": "pr_open_checks_pending",
+    "commit_sha": "fdf6096e82846447968d59f247827492555c9d81",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1608",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -41984,7 +41984,7 @@
         "notes": "Started from origin/main after confirming MBTI-CONTENT-15 merged; generating profile dry-run approval package only, with no CMS write, production import, frontend fallback, sitemap/llms mutation, GSC submission, or deploy."
       }
     ],
-    "updated_at": "2026-07-05T06:12:22.626Z",
+    "updated_at": "2026-07-05T06:14:46.266Z",
     "next_task": "MBTI-CMS-17"
   }
 }
