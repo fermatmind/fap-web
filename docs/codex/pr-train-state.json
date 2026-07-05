@@ -41641,12 +41641,12 @@
     "depends_on": [
       "MBTI-CMS-13"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "46348976",
+    "status": "merged_reconciled",
+    "commit_sha": "1a0b7bb4f05700a336ccab72926271e81a81913a",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1605",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-04T23:45:42Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "generator": {
@@ -41689,6 +41689,16 @@
           "verify-big5-contract-freeze": "passed",
           "verify-enneagram-contract-freeze": "passed"
         }
+      },
+      "post_merge_reconcile": {
+        "status": "passed",
+        "github_pr_state": "MERGED",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1605",
+        "merge_commit": "1a0b7bb4f05700a336ccab72926271e81a81913a",
+        "origin_main_contains_merge_commit": true,
+        "local_main_equals_origin_main_at_reconcile": true,
+        "remote_branch_deleted": true,
+        "local_branch_or_worktree_residue_found": false
       }
     },
     "scope_validation": {
@@ -41702,7 +41712,8 @@
         "scripts/seo/build-mbti-qa-14-semantic-duplicate-gate.mjs",
         "tests/contracts/mbti-qa-14-semantic-duplicate-gate.contract.test.ts"
       ],
-      "notes": "Changed-file scope validation passed for MBTI-QA-14 manifest scope."
+      "notes": "Changed-file scope validation passed for MBTI-QA-14 manifest scope.",
+      "post_merge_reconcile": "Verified merged PR #1605, merge commit on origin/main, remote branch absent, and no local QA-14 branch/worktree residue before MBTI-CONTENT-15."
     },
     "artifacts": [
       "docs/seo/personality/mbti-qa-14-semantic-duplicate-gate-2026-07-04.json",
@@ -41742,10 +41753,131 @@
         "at": "2026-07-04T23:39:25.711Z",
         "status": "ready_to_merge",
         "notes": "GitHub checks passed for PR #1605; ready for squash merge under repository policy."
+      },
+      {
+        "at": "2026-07-05T12:00:00.000Z",
+        "status": "merged_reconciled",
+        "notes": "Reconciled stale ready_to_merge ledger: GitHub PR #1605 is merged, merge commit is contained by origin/main, remote branch is deleted, and no local QA-14 branch/worktree residue was found."
       }
     ],
-    "updated_at": "2026-07-04T23:39:25.711Z",
-    "next_task": null
+    "updated_at": "2026-07-05T12:00:00.000Z",
+    "next_task": "MBTI-CONTENT-15"
   },
-  "current_pr": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01"
+  "current_pr": "MBTI-CONTENT-15",
+  "MBTI-CONTENT-15": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-content-15-top-blocker-assets",
+    "title": "MBTI-CONTENT-15: repair top QA blocker MBTI content assets",
+    "train_scope": "mbti_top_blocker_content_asset_repair",
+    "depends_on": [
+      "MBTI-QA-14"
+    ],
+    "status": "committed_pending_push",
+    "commit_sha": "878aabb2817e6d29126d45d5ce64799c50f806d6",
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "dependency_reconcile": {
+        "status": "passed",
+        "dependency": "MBTI-QA-14",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1605",
+        "merge_commit": "1a0b7bb4f05700a336ccab72926271e81a81913a",
+        "origin_main_contains_merge_commit": true
+      },
+      "generator": {
+        "command": "node scripts/seo/build-mbti-content-15-top-blocker-assets.mjs",
+        "status": "passed",
+        "package_count": 10,
+        "final_decision": "PASS_MBTI_CONTENT_15_READY_FOR_FAP_API_DRY_RUN"
+      },
+      "focused_contract": {
+        "command": "corepack pnpm exec vitest run tests/contracts/mbti-content-15-top-blocker-assets.contract.test.ts --reporter=dot",
+        "status": "passed",
+        "tests": 7
+      },
+      "full_contract": {
+        "command": "corepack pnpm test:contract",
+        "status": "passed",
+        "tests": 3872,
+        "files": 668
+      },
+      "typecheck": {
+        "command": "corepack pnpm typecheck",
+        "status": "passed"
+      },
+      "build": {
+        "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+        "status": "passed_with_required_public_site_url_env",
+        "notes": "Initial local build without NEXT_PUBLIC_SITE_URL failed at /robots.txt page data collection because current repo requires a production absolute site URL. Re-ran the same production API build with exported NEXT_PUBLIC_SITE_URL=https://fermatmind.com; build passed. This is an environment prerequisite, not a CONTENT-15 code issue."
+      },
+      "yaml": {
+        "command": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+        "status": "passed"
+      },
+      "json": {
+        "command": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+        "status": "passed"
+      },
+      "diff_check": {
+        "command": "git diff --check",
+        "status": "passed"
+      },
+      "scope_validation": {
+        "command": "changed-file scope validation",
+        "status": "passed",
+        "changed_files": [
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.csv",
+          "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.json",
+          "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.md",
+          "scripts/seo/build-mbti-content-15-top-blocker-assets.mjs",
+          "tests/contracts/mbti-content-15-top-blocker-assets.contract.test.ts"
+        ]
+      }
+    },
+    "scope_validation": {
+      "status": "passed",
+      "changed_files": [
+        "docs/codex/pr-train-state.json",
+        "docs/codex/pr-train.yaml",
+        "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.csv",
+        "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.json",
+        "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.md",
+        "scripts/seo/build-mbti-content-15-top-blocker-assets.mjs",
+        "tests/contracts/mbti-content-15-top-blocker-assets.contract.test.ts"
+      ],
+      "notes": "Changed-file scope validation passed for MBTI-CONTENT-15. Full contract regenerated two MBTI-CMS-04 timestamps as a test side effect; those out-of-scope timestamp-only changes were removed before validation."
+    },
+    "artifacts": [
+      "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.json",
+      "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.md",
+      "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.csv",
+      "scripts/seo/build-mbti-content-15-top-blocker-assets.mjs",
+      "tests/contracts/mbti-content-15-top-blocker-assets.contract.test.ts"
+    ],
+    "events": [
+      {
+        "at": "2026-07-05T12:00:00.000Z",
+        "status": "in_progress",
+        "notes": "Started from origin/main after confirming MBTI-QA-14 merged; generating artifact-only MBTI content repair packages without CMS writes, frontend runtime fallback, sitemap/llms mutation, GSC submission, or deploy."
+      },
+      {
+        "at": "2026-07-05T12:08:00.000Z",
+        "status": "local_checks_passed_pending_commit",
+        "notes": "Generator, focused contract, full contract, typecheck, build with required public site URL env, YAML/JSON validation, diff check, and changed-file scope validation passed."
+      },
+      {
+        "at": "2026-07-05T12:12:00.000Z",
+        "status": "committed_pending_push",
+        "notes": "Committed MBTI-CONTENT-15 implementation and validation artifacts on branch codex/mbti-content-15-top-blocker-assets."
+      }
+    ],
+    "updated_at": "2026-07-05T12:12:00.000Z",
+    "next_task": null
+  }
 }

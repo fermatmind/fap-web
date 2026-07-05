@@ -13864,6 +13864,50 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
+    next_task: MBTI-CONTENT-15
+
+  - id: MBTI-CONTENT-15
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-content-15-top-blocker-assets
+    base: main
+    depends_on:
+      - MBTI-QA-14
+    mode: execute
+    train_scope: mbti_top_blocker_content_asset_repair
+    risk_level: L1
+    status: planned
+    title: "MBTI-CONTENT-15: repair top QA blocker MBTI content assets"
+    goal: "Generate GSC-led, QA-14 blocker-led MBTI content asset repair packages for top zh 32-personality and comparison assets without CMS writes, frontend editorial fallback, sitemap/llms mutation, or GSC submission."
+    in_scope:
+      - docs/seo/personality/mbti-content-15-*
+      - scripts/seo/build-mbti-content-15-*
+      - tests/contracts/mbti-content-15-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production CMS writes/imports
+      - fap-api changes
+      - frontend runtime renderer changes
+      - frontend local editorial fallback content
+      - sitemap URL set or llms URL set expansion
+      - GSC URL inspection/request indexing/search submission
+      - production deploy
+    required_local_checks:
+      - node scripts/seo/build-mbti-content-15-top-blocker-assets.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-content-15-top-blocker-assets.contract.test.ts --reporter=dot
+      - corepack pnpm test:contract
+      - corepack pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
     next_task: null
 
   - id: PR-CAREER-KG-00
