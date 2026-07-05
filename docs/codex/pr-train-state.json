@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T03:51:25Z",
+  "updated_at": "2026-07-05T03:56:00Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -29683,8 +29683,8 @@
       "id": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01",
       "repo": "fap-web",
       "branch": "codex/iq-method-pages-cms-dry-run-01",
-      "status": "pr_open_github_checks_pending",
-      "commit_sha": "e0072d519e964de9488fcbbb77b4e22411aead70",
+      "status": "ready_to_merge",
+      "commit_sha": "7aa261de6da928bb78872275b33bb21660eb290c",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1606",
       "merged_at": null,
       "remote_branch_deleted": false,
@@ -29720,10 +29720,41 @@
           "external_sidecar_issue_id": "external-global-spacing-token-debt-iq-method-pages-cms-dry-run-01"
         },
         "github": {
-          "status": "pending",
+          "status": "pass",
+          "head_sha": "7aa261de6da928bb78872275b33bb21660eb290c",
           "pr_url": "https://github.com/fermatmind/fap-web/pull/1606",
-          "head_sha": "e0072d519e964de9488fcbbb77b4e22411aead70",
-          "checks": []
+          "checks": [
+            {
+              "name": "build",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-05T03:53:32Z"
+            },
+            {
+              "name": "contracts",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-05T03:55:11Z"
+            },
+            {
+              "name": "verify-big5-contract-freeze",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-05T03:51:00Z"
+            },
+            {
+              "name": "verify-enneagram-contract-freeze",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-05T03:50:58Z"
+            },
+            {
+              "name": "analyze (javascript-typescript)",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-05T03:53:43Z"
+            },
+            {
+              "name": "CodeQL",
+              "conclusion": "SUCCESS",
+              "completed_at": "2026-07-05T03:53:36Z"
+            }
+          ]
         }
       },
       "history": [
@@ -29756,6 +29787,11 @@
           "at": "2026-07-05T11:51:25+08:00",
           "status": "pr_open_github_checks_pending",
           "note": "Created GitHub PR #1606 for the IQ method pages CMS dry-run package after local validation and scope validation passed with external spacing debt recorded in sidecar."
+        },
+        {
+          "at": "2026-07-05T11:56:00+08:00",
+          "status": "ready_to_merge",
+          "note": "GitHub checks passed on PR #1606, mergeStateStatus is CLEAN, and dry-run scope validation passed. Pushing this ledger update before merge per PR-train rules."
         }
       ],
       "metadata": {
@@ -29783,7 +29819,7 @@
           "frontend runtime content"
         ]
       },
-      "updated_at": "2026-07-05T11:51:25+08:00"
+      "updated_at": "2026-07-05T11:56:00+08:00"
     }
   ],
   "sidecar_issues": [
