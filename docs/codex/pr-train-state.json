@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T06:14:46.266Z",
+  "updated_at": "2026-07-05T06:41:12.333Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -41763,7 +41763,7 @@
     "updated_at": "2026-07-05T12:00:00.000Z",
     "next_task": "MBTI-CONTENT-15"
   },
-  "current_pr": "MBTI-CMS-16",
+  "current_pr": "MBTI-CMS-17",
   "MBTI-CONTENT-15": {
     "repo": "fap-web",
     "base": "main",
@@ -41941,12 +41941,12 @@
     "depends_on": [
       "MBTI-CONTENT-15"
     ],
-    "status": "pr_open_checks_pending",
+    "status": "merged_reconciled",
     "commit_sha": "fdf6096e82846447968d59f247827492555c9d81",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1608",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-05T06:21:39Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "dependency_reconcile": {
@@ -41984,7 +41984,92 @@
         "notes": "Started from origin/main after confirming MBTI-CONTENT-15 merged; generating profile dry-run approval package only, with no CMS write, production import, frontend fallback, sitemap/llms mutation, GSC submission, or deploy."
       }
     ],
-    "updated_at": "2026-07-05T06:14:46.266Z",
-    "next_task": "MBTI-CMS-17"
+    "updated_at": "2026-07-05T06:35:45.957Z",
+    "next_task": "MBTI-CMS-17",
+    "merge_commit_sha": "c517c2d1cd38b5cba2bcd22052ceb3907cf2542b"
+  },
+  "MBTI-CMS-17": {
+    "status": "local_checks_passed_pending_commit",
+    "repo": "fap-web",
+    "branch": "codex/mbti-cms-17-comparison-dry-run-approval-package",
+    "depends_on": [
+      "MBTI-CMS-16"
+    ],
+    "train_scope": "mbti_comparison_content_dry_run_approval_package",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": [
+      {
+        "name": "node scripts/seo/build-mbti-cms-17-comparison-dry-run-approval-package.mjs",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "corepack pnpm exec vitest run tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts --reporter=dot",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "corepack pnpm test:contract",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "corepack pnpm typecheck",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml')\"",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "python3 -m json.tool docs/codex/pr-train-state.json",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "git diff --check",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "changed-file scope validation",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z",
+        "files": [
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.csv",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.json",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.md",
+          "scripts/seo/build-mbti-cms-17-comparison-dry-run-approval-package.mjs",
+          "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts"
+        ]
+      }
+    ],
+    "artifacts": [
+      "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.json",
+      "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.md",
+      "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.csv"
+    ],
+    "summary": {
+      "comparison_record_count": 5,
+      "at_comparison_count": 1,
+      "hot_cross_type_count": 4,
+      "validation_failure_count": 0
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "next_task": "MBTI-INDEX-18",
+    "updated_at": "2026-07-05T06:41:12.333Z"
   }
 }

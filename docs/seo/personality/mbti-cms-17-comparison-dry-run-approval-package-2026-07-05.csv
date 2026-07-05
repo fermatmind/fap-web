@@ -1,0 +1,6 @@
+target_path,pair,comparison_kind,dry_run_operation,approval_state,section_count,quick_judgment_rows,faq_count,internal_link_count,validation_status
+/zh/personality/intp-a-vs-intp-t,INTP-A vs INTP-T,at_comparison,upsert_comparison_content_draft,pending_operator_review,6,4,5,5,pass
+/zh/personality/intj-vs-intp,INTJ vs INTP,hot_cross_type_comparison,upsert_comparison_content_draft,pending_operator_review,6,4,5,5,pass
+/zh/personality/entj-vs-intj,ENTJ vs INTJ,hot_cross_type_comparison,upsert_comparison_content_draft,pending_operator_review,6,4,5,5,pass
+/zh/personality/infj-vs-infp,INFJ vs INFP,hot_cross_type_comparison,upsert_comparison_content_draft,pending_operator_review,6,4,5,5,pass
+/zh/personality/istj-vs-isfj,ISTJ vs ISFJ,hot_cross_type_comparison,upsert_comparison_content_draft,pending_operator_review,6,4,5,5,pass

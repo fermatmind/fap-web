@@ -1,0 +1,1264 @@
+{
+  "id": "MBTI-CMS-17",
+  "artifact": "MBTI-CMS-17-COMPARISON-DRY-RUN-APPROVAL-PACKAGE",
+  "generated_at": "2026-07-05T14:30:00.000Z",
+  "source_artifact": {
+    "id": "MBTI-CONTENT-15",
+    "path": "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.json",
+    "final_decision": "PASS_MBTI_CONTENT_15_READY_FOR_FAP_API_DRY_RUN",
+    "package_count": 10
+  },
+  "dependency_artifact": {
+    "id": "MBTI-CMS-16",
+    "path": "docs/seo/personality/mbti-cms-16-profile-dry-run-approval-package-2026-07-05.json",
+    "dependency_reason": "Reuse locale, review-state, safety-boundary, and CMS dry-run approval conventions from profile mapping."
+  },
+  "status": "ready_for_backend_dry_run_review",
+  "final_decision": "PASS_COMPARISON_DRY_RUN_APPROVAL_PACKAGE_READY",
+  "summary": {
+    "comparison_record_count": 5,
+    "at_comparison_count": 1,
+    "hot_cross_type_count": 4,
+    "import_candidate_count": 5,
+    "locale_count": 1,
+    "validation_failure_count": 0
+  },
+  "schema_mapping": {
+    "authority": "fap-api CMS personality_comparison import dry-run",
+    "source_of_truth_after_approval": "backend CMS/API",
+    "frontend_role": "render CMS/API output only",
+    "comparison_key_fields": [
+      "locale",
+      "framework",
+      "comparison_slug",
+      "left_code",
+      "right_code"
+    ],
+    "required_payload_fields": [
+      "title",
+      "summary",
+      "seo",
+      "canonical",
+      "robots",
+      "comparison_pair",
+      "sections",
+      "faq",
+      "internal_links",
+      "method_boundary"
+    ],
+    "nullable_or_review_only_fields": [
+      "hreflang",
+      "schema",
+      "evidence_notes"
+    ]
+  },
+  "qa_gates": {
+    "source_content15_passed": {
+      "status": "pass"
+    },
+    "cms16_dependency_merged": {
+      "status": "pass"
+    },
+    "cms_write_blocked": {
+      "status": "pass"
+    },
+    "production_import_blocked": {
+      "status": "pass"
+    },
+    "indexability_held": {
+      "status": "pass"
+    },
+    "comparison_schema_mapping_present": {
+      "status": "pass"
+    },
+    "operator_approval_required": {
+      "status": "pass"
+    }
+  },
+  "safety_boundary": {
+    "artifact_only": true,
+    "dry_run_package_only": true,
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "db_migration_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "frontend_local_editorial_fallback_added": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_api_call_attempted": false,
+    "gsc_request_indexing_attempted": false,
+    "search_submission_attempted": false,
+    "production_deploy_attempted": false
+  },
+  "records": [
+    {
+      "record_id": "mbti-cms-17:intp-a-vs-intp-t",
+      "source_artifact_id": "MBTI-CONTENT-15",
+      "source_path": "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.json",
+      "target_path": "/zh/personality/intp-a-vs-intp-t",
+      "target_url": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+      "locale": "zh-CN",
+      "framework": "mbti64",
+      "entity_type": "at_comparison",
+      "comparison_kind": "at_comparison",
+      "code": "intp-a-vs-intp-t",
+      "slug": "intp-a-vs-intp-t",
+      "comparison_pair": [
+        "INTP-A",
+        "INTP-T"
+      ],
+      "cms_resource": "personality_comparison",
+      "dry_run_operation": "upsert_comparison_content_draft",
+      "approval_state": "pending_operator_review",
+      "import_candidate": true,
+      "cms_key": {
+        "locale": "zh-CN",
+        "framework": "mbti",
+        "comparison_slug": "intp-a-vs-intp-t",
+        "left_code": "INTP-A",
+        "right_code": "INTP-T"
+      },
+      "field_mapping": {
+        "title": "seo.title",
+        "meta_description": "seo.meta_description",
+        "h1": "display.heading",
+        "summary": "summary",
+        "comparison_pair": "comparison.pair",
+        "canonical": "seo.canonical_url",
+        "robots": "seo.robots",
+        "direct_answer": "content_sections.direct_answer",
+        "quick_judgment_table": "content_sections.quick_judgment_table",
+        "easy_misread": "content_sections.easy_misread",
+        "real_scenario_differences": "content_sections.real_scenario_differences",
+        "do_not_misjudge": "content_sections.do_not_misjudge",
+        "next_reading": "content_sections.next_reading",
+        "faq": "faq_items[]",
+        "internal_links": "related_links[]",
+        "method_boundary": "safety.method_boundary",
+        "schema": "seo.structured_data_recommendations",
+        "evidence_notes": "editorial.evidence_notes"
+      },
+      "dry_run_payload": {
+        "title": "INTP-A 和 INTP-T 的区别：自我确认、复盘强度和行动节奏",
+        "summary": "INTP-A 更容易在逻辑自洽后推进实验，INTP-T 更容易继续检查漏洞和外部评价。最大区别不是聪明程度，而是面对不确定性时先行动还是先复盘。",
+        "seo": {
+          "title": "INTP-A 和 INTP-T 的区别：自我确认、复盘强度和行动节奏 | FermatMind",
+          "meta_description": "INTP-A 和 INTP-T 有什么区别？用最大区别、快速判断表、容易误判、真实场景和 FAQ 快速判断。",
+          "primary_query": "intp-a vs intp-t",
+          "secondary_queries": [
+            "intp-a和intp-t区别",
+            "intp a vs intp t"
+          ]
+        },
+        "canonical": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+        "hreflang": [
+          {
+            "locale": "zh",
+            "href": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t"
+          },
+          {
+            "locale": "en",
+            "href": "https://fermatmind.com/en/personality/intp-a-vs-intp-t"
+          }
+        ],
+        "robots": "noindex,follow",
+        "launch_state": "draft_pending_import_approval",
+        "index_eligible": false,
+        "sitemap_eligible": false,
+        "llms_eligible": false,
+        "comparison_pair": [
+          "INTP-A",
+          "INTP-T"
+        ],
+        "sections": [
+          {
+            "key": "direct_answer",
+            "title": "最大区别",
+            "body": "INTP-A 更容易在逻辑自洽后推进实验，INTP-T 更容易继续检查漏洞和外部评价。最大区别不是聪明程度，而是面对不确定性时先行动还是先复盘。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "rows": [
+              {
+                "dimension": "决策启动",
+                "INTP-A": "先用可运行假设推进",
+                "INTP-T": "先补齐漏洞和反证"
+              },
+              {
+                "dimension": "被质疑时",
+                "INTP-A": "回到模型和证据，较快恢复",
+                "INTP-T": "更容易重新检查自己是否遗漏"
+              },
+              {
+                "dimension": "学习方式",
+                "INTP-A": "偏独立试错和系统搭建",
+                "INTP-T": "偏多轮校准和精细修正"
+              },
+              {
+                "dimension": "风险",
+                "INTP-A": "低估他人的理解成本",
+                "INTP-T": "把复盘拖成迟迟不发布"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "不要把 INTP-A 看成不反思，也不要把 INTP-T 看成没主见。两者都可能很理性，只是压力下的校准顺序不同。"
+          },
+          {
+            "key": "real_scenario_differences",
+            "title": "真实场景差异",
+            "body": "在产品原型里，INTP-A 可能先搭一个可验证版本，让数据暴露问题；INTP-T 可能先梳理边界条件，避免实验误导。团队需要同时保留快速实验和反证复盘。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要这样误判",
+            "body": "不要只用外向程度、成绩或职业头衔判断 A/T。观察一个人在模型被挑战后，是先稳定推进，还是先重新检查评价和风险。"
+          },
+          {
+            "key": "next_reading",
+            "title": "下一步阅读",
+            "body": "继续查看 INTP-A、INTP-T 的单独页面、A/T 页面和 MBTI 测试页，避免只凭一个对比标签下结论。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INTP-A 和 INTP-T 最大区别是什么？",
+            "answer": "INTP-A 更容易在逻辑自洽后推进实验，INTP-T 更容易继续检查漏洞和外部评价。最大区别不是聪明程度，而是面对不确定性时先行动还是先复盘。"
+          },
+          {
+            "question": "为什么 INTP-A 和 INTP-T 容易被混淆？",
+            "answer": "不要把 INTP-A 看成不反思，也不要把 INTP-T 看成没主见。两者都可能很理性，只是压力下的校准顺序不同。"
+          },
+          {
+            "question": "在工作场景怎么区分 INTP-A 和 INTP-T？",
+            "answer": "在产品原型里，INTP-A 可能先搭一个可验证版本，让数据暴露问题；INTP-T 可能先梳理边界条件，避免实验误导。团队需要同时保留快速实验和反证复盘。"
+          },
+          {
+            "question": "判断 INTP-A 和 INTP-T 时最容易犯什么错？",
+            "answer": "不要只用外向程度、成绩或职业头衔判断 A/T。观察一个人在模型被挑战后，是先稳定推进，还是先重新检查评价和风险。"
+          },
+          {
+            "question": "这个对比能决定职业或关系选择吗？",
+            "answer": "不能。它只能帮助观察信息处理和压力反馈差异，重要选择仍需要结合能力、经验、价值观、环境和长期反馈。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/intp-a",
+            "anchor_text": "INTP A",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intp-t",
+            "anchor_text": "INTP T",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-vs-intp",
+            "anchor_text": "INTJ VS INTP",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI 人格",
+            "reason": "Return readers to the public MBTI hub and 32 variant index.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI 免费测试",
+            "reason": "Close the public test-to-profile loop without private result URLs.",
+            "safe_public_route": true
+          }
+        ],
+        "schema": {
+          "recommended_types_after_import": [
+            "WebPage",
+            "FAQPage",
+            "BreadcrumbList"
+          ],
+          "schema_authority": "backend_cms_after_import"
+        },
+        "method_boundary": {
+          "medical_diagnostic_claim": false,
+          "hiring_screen_claim": false,
+          "official_mbti_affiliation_claim": false,
+          "deterministic_career_claim": false,
+          "relationship_prediction_claim": false,
+          "private_result_copy_used": false,
+          "frontend_editorial_fallback": false
+        },
+        "evidence_notes": [
+          "Codex-native repaired comparison draft for backend CMS dry-run, not production CMS truth.",
+          "Comparison content repairs scenario specificity and FAQ depth without changing renderer code.",
+          "No Search Console indexing, sitemap, llms, or production import action is performed in this PR."
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "section_keys": [
+          "direct_answer",
+          "quick_judgment_table",
+          "easy_misread",
+          "real_scenario_differences",
+          "do_not_misjudge",
+          "next_reading"
+        ],
+        "section_count": 6,
+        "faq_count": 5,
+        "internal_link_count": 5,
+        "quick_judgment_rows": 4,
+        "private_result_boundary_ok": true,
+        "indexability_held": true
+      },
+      "required_approval_before_import": true,
+      "production_write_allowed": false
+    },
+    {
+      "record_id": "mbti-cms-17:intj-vs-intp",
+      "source_artifact_id": "MBTI-CONTENT-15",
+      "source_path": "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.json",
+      "target_path": "/zh/personality/intj-vs-intp",
+      "target_url": "https://fermatmind.com/zh/personality/intj-vs-intp",
+      "locale": "zh-CN",
+      "framework": "mbti64",
+      "entity_type": "hot_comparison",
+      "comparison_kind": "hot_cross_type_comparison",
+      "code": "intj-vs-intp",
+      "slug": "intj-vs-intp",
+      "comparison_pair": [
+        "INTJ",
+        "INTP"
+      ],
+      "cms_resource": "personality_comparison",
+      "dry_run_operation": "upsert_comparison_content_draft",
+      "approval_state": "pending_operator_review",
+      "import_candidate": true,
+      "cms_key": {
+        "locale": "zh-CN",
+        "framework": "mbti",
+        "comparison_slug": "intj-vs-intp",
+        "left_code": "INTJ",
+        "right_code": "INTP"
+      },
+      "field_mapping": {
+        "title": "seo.title",
+        "meta_description": "seo.meta_description",
+        "h1": "display.heading",
+        "summary": "summary",
+        "comparison_pair": "comparison.pair",
+        "canonical": "seo.canonical_url",
+        "robots": "seo.robots",
+        "direct_answer": "content_sections.direct_answer",
+        "quick_judgment_table": "content_sections.quick_judgment_table",
+        "easy_misread": "content_sections.easy_misread",
+        "real_scenario_differences": "content_sections.real_scenario_differences",
+        "do_not_misjudge": "content_sections.do_not_misjudge",
+        "next_reading": "content_sections.next_reading",
+        "faq": "faq_items[]",
+        "internal_links": "related_links[]",
+        "method_boundary": "safety.method_boundary",
+        "schema": "seo.structured_data_recommendations",
+        "evidence_notes": "editorial.evidence_notes"
+      },
+      "dry_run_payload": {
+        "title": "INTJ 和 INTP 的区别：战略收敛与模型探索",
+        "summary": "INTJ 更容易把复杂信息收敛成路线图，INTP 更容易把问题拆成可讨论的模型。最大区别不是谁更理性，而是谁更快走向执行结构。",
+        "seo": {
+          "title": "INTJ 和 INTP 的区别：战略收敛与模型探索 | FermatMind",
+          "meta_description": "INTJ 和 INTP 有什么区别？用最大区别、快速判断表、容易误判、真实场景和 FAQ 快速判断。",
+          "primary_query": "intj vs intp",
+          "secondary_queries": [
+            "intj和intp区别",
+            "intj vs intp"
+          ]
+        },
+        "canonical": "https://fermatmind.com/zh/personality/intj-vs-intp",
+        "hreflang": [
+          {
+            "locale": "zh",
+            "href": "https://fermatmind.com/zh/personality/intj-vs-intp"
+          },
+          {
+            "locale": "en",
+            "href": "https://fermatmind.com/en/personality/intj-vs-intp"
+          }
+        ],
+        "robots": "noindex,follow",
+        "launch_state": "draft_pending_import_approval",
+        "index_eligible": false,
+        "sitemap_eligible": false,
+        "llms_eligible": false,
+        "comparison_pair": [
+          "INTJ",
+          "INTP"
+        ],
+        "sections": [
+          {
+            "key": "direct_answer",
+            "title": "最大区别",
+            "body": "INTJ 更容易把复杂信息收敛成路线图，INTP 更容易把问题拆成可讨论的模型。最大区别不是谁更理性，而是谁更快走向执行结构。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "rows": [
+              {
+                "dimension": "问题入口",
+                "INTJ": "先问长期方向和关键路径",
+                "INTP": "先问概念是否自洽"
+              },
+              {
+                "dimension": "输出形态",
+                "INTJ": "路线、优先级、决策标准",
+                "INTP": "模型、假设、反例空间"
+              },
+              {
+                "dimension": "协作痛点",
+                "INTJ": "觉得讨论没有推进",
+                "INTP": "觉得结论太早关闭"
+              },
+              {
+                "dimension": "成熟表现",
+                "INTJ": "保留反证入口",
+                "INTP": "把模型转成可执行试验"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "两者都可能安静、抽象、重逻辑，因此容易混淆。区别要看他们如何结束讨论：INTJ 倾向形成方向，INTP 倾向保留问题空间。"
+          },
+          {
+            "key": "real_scenario_differences",
+            "title": "真实场景差异",
+            "body": "做新产品定位时，INTJ 会追问哪条路径最可能赢；INTP 会追问定义、分类和假设是否站得住。好的协作是先允许模型展开，再设定决策截止点。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要这样误判",
+            "body": "不要用是否喜欢独处判断 INTJ/INTP，也不要把组织能力等同于 INTJ、好奇心等同于 INTP。要看信息处理后的自然落点。"
+          },
+          {
+            "key": "next_reading",
+            "title": "下一步阅读",
+            "body": "继续查看 INTJ、INTP 的单独页面、A/T 页面和 MBTI 测试页，避免只凭一个对比标签下结论。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INTJ 和 INTP 最大区别是什么？",
+            "answer": "INTJ 更容易把复杂信息收敛成路线图，INTP 更容易把问题拆成可讨论的模型。最大区别不是谁更理性，而是谁更快走向执行结构。"
+          },
+          {
+            "question": "为什么 INTJ 和 INTP 容易被混淆？",
+            "answer": "两者都可能安静、抽象、重逻辑，因此容易混淆。区别要看他们如何结束讨论：INTJ 倾向形成方向，INTP 倾向保留问题空间。"
+          },
+          {
+            "question": "在工作场景怎么区分 INTJ 和 INTP？",
+            "answer": "做新产品定位时，INTJ 会追问哪条路径最可能赢；INTP 会追问定义、分类和假设是否站得住。好的协作是先允许模型展开，再设定决策截止点。"
+          },
+          {
+            "question": "判断 INTJ 和 INTP 时最容易犯什么错？",
+            "answer": "不要用是否喜欢独处判断 INTJ/INTP，也不要把组织能力等同于 INTJ、好奇心等同于 INTP。要看信息处理后的自然落点。"
+          },
+          {
+            "question": "这个对比能决定职业或关系选择吗？",
+            "answer": "不能。它只能帮助观察信息处理和压力反馈差异，重要选择仍需要结合能力、经验、价值观、环境和长期反馈。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/intj-a",
+            "anchor_text": "INTJ A",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intp-a",
+            "anchor_text": "INTP A",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entj-vs-intj",
+            "anchor_text": "ENTJ VS INTJ",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI 人格",
+            "reason": "Return readers to the public MBTI hub and 32 variant index.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI 免费测试",
+            "reason": "Close the public test-to-profile loop without private result URLs.",
+            "safe_public_route": true
+          }
+        ],
+        "schema": {
+          "recommended_types_after_import": [
+            "WebPage",
+            "FAQPage",
+            "BreadcrumbList"
+          ],
+          "schema_authority": "backend_cms_after_import"
+        },
+        "method_boundary": {
+          "medical_diagnostic_claim": false,
+          "hiring_screen_claim": false,
+          "official_mbti_affiliation_claim": false,
+          "deterministic_career_claim": false,
+          "relationship_prediction_claim": false,
+          "private_result_copy_used": false,
+          "frontend_editorial_fallback": false
+        },
+        "evidence_notes": [
+          "Codex-native repaired comparison draft for backend CMS dry-run, not production CMS truth.",
+          "Comparison content repairs scenario specificity and FAQ depth without changing renderer code.",
+          "No Search Console indexing, sitemap, llms, or production import action is performed in this PR."
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "section_keys": [
+          "direct_answer",
+          "quick_judgment_table",
+          "easy_misread",
+          "real_scenario_differences",
+          "do_not_misjudge",
+          "next_reading"
+        ],
+        "section_count": 6,
+        "faq_count": 5,
+        "internal_link_count": 5,
+        "quick_judgment_rows": 4,
+        "private_result_boundary_ok": true,
+        "indexability_held": true
+      },
+      "required_approval_before_import": true,
+      "production_write_allowed": false
+    },
+    {
+      "record_id": "mbti-cms-17:entj-vs-intj",
+      "source_artifact_id": "MBTI-CONTENT-15",
+      "source_path": "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.json",
+      "target_path": "/zh/personality/entj-vs-intj",
+      "target_url": "https://fermatmind.com/zh/personality/entj-vs-intj",
+      "locale": "zh-CN",
+      "framework": "mbti64",
+      "entity_type": "hot_comparison",
+      "comparison_kind": "hot_cross_type_comparison",
+      "code": "entj-vs-intj",
+      "slug": "entj-vs-intj",
+      "comparison_pair": [
+        "ENTJ",
+        "INTJ"
+      ],
+      "cms_resource": "personality_comparison",
+      "dry_run_operation": "upsert_comparison_content_draft",
+      "approval_state": "pending_operator_review",
+      "import_candidate": true,
+      "cms_key": {
+        "locale": "zh-CN",
+        "framework": "mbti",
+        "comparison_slug": "entj-vs-intj",
+        "left_code": "ENTJ",
+        "right_code": "INTJ"
+      },
+      "field_mapping": {
+        "title": "seo.title",
+        "meta_description": "seo.meta_description",
+        "h1": "display.heading",
+        "summary": "summary",
+        "comparison_pair": "comparison.pair",
+        "canonical": "seo.canonical_url",
+        "robots": "seo.robots",
+        "direct_answer": "content_sections.direct_answer",
+        "quick_judgment_table": "content_sections.quick_judgment_table",
+        "easy_misread": "content_sections.easy_misread",
+        "real_scenario_differences": "content_sections.real_scenario_differences",
+        "do_not_misjudge": "content_sections.do_not_misjudge",
+        "next_reading": "content_sections.next_reading",
+        "faq": "faq_items[]",
+        "internal_links": "related_links[]",
+        "method_boundary": "safety.method_boundary",
+        "schema": "seo.structured_data_recommendations",
+        "evidence_notes": "editorial.evidence_notes"
+      },
+      "dry_run_payload": {
+        "title": "ENTJ 和 INTJ 的区别：外部推进与内部战略建模",
+        "summary": "ENTJ 更容易通过组织行动校准现实，INTJ 更容易先在内部搭好长期模型。最大区别不是领导力强弱，而是战略如何进入现实。",
+        "seo": {
+          "title": "ENTJ 和 INTJ 的区别：外部推进与内部战略建模 | FermatMind",
+          "meta_description": "ENTJ 和 INTJ 有什么区别？用最大区别、快速判断表、容易误判、真实场景和 FAQ 快速判断。",
+          "primary_query": "entj vs intj",
+          "secondary_queries": [
+            "entj和intj区别",
+            "entj vs intj"
+          ]
+        },
+        "canonical": "https://fermatmind.com/zh/personality/entj-vs-intj",
+        "hreflang": [
+          {
+            "locale": "zh",
+            "href": "https://fermatmind.com/zh/personality/entj-vs-intj"
+          },
+          {
+            "locale": "en",
+            "href": "https://fermatmind.com/en/personality/entj-vs-intj"
+          }
+        ],
+        "robots": "noindex,follow",
+        "launch_state": "draft_pending_import_approval",
+        "index_eligible": false,
+        "sitemap_eligible": false,
+        "llms_eligible": false,
+        "comparison_pair": [
+          "ENTJ",
+          "INTJ"
+        ],
+        "sections": [
+          {
+            "key": "direct_answer",
+            "title": "最大区别",
+            "body": "ENTJ 更容易通过组织行动校准现实，INTJ 更容易先在内部搭好长期模型。最大区别不是领导力强弱，而是战略如何进入现实。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "rows": [
+              {
+                "dimension": "推进方式",
+                "ENTJ": "调动资源、分责、压节奏",
+                "INTJ": "先建模型、排除噪声、定方向"
+              },
+              {
+                "dimension": "压力下",
+                "ENTJ": "可能过快要求他人执行",
+                "INTJ": "可能过久停留在内部判断"
+              },
+              {
+                "dimension": "沟通风格",
+                "ENTJ": "直接把问题放到桌面",
+                "INTJ": "先筛掉无关信息再表达"
+              },
+              {
+                "dimension": "成熟表现",
+                "ENTJ": "给团队留理解空间",
+                "INTJ": "让关键判断及时外化"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ENTJ 和 INTJ 都可能目标导向、标准高。混淆点在于：ENTJ 通常通过组织反馈修正路线，INTJ 更常通过独立推演修正路线。"
+          },
+          {
+            "key": "real_scenario_differences",
+            "title": "真实场景差异",
+            "body": "在危机项目里，ENTJ 可能先重排责任和节奏，INTJ 可能先确认根因和长期后果。前者防止停滞，后者防止错误方向越推越远。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要这样误判",
+            "body": "不要把说话强势直接判成 ENTJ，也不要把安静直接判成 INTJ。看对方遇到不确定性时，是先拉人推进，还是先收集结构证据。"
+          },
+          {
+            "key": "next_reading",
+            "title": "下一步阅读",
+            "body": "继续查看 ENTJ、INTJ 的单独页面、A/T 页面和 MBTI 测试页，避免只凭一个对比标签下结论。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ENTJ 和 INTJ 最大区别是什么？",
+            "answer": "ENTJ 更容易通过组织行动校准现实，INTJ 更容易先在内部搭好长期模型。最大区别不是领导力强弱，而是战略如何进入现实。"
+          },
+          {
+            "question": "为什么 ENTJ 和 INTJ 容易被混淆？",
+            "answer": "ENTJ 和 INTJ 都可能目标导向、标准高。混淆点在于：ENTJ 通常通过组织反馈修正路线，INTJ 更常通过独立推演修正路线。"
+          },
+          {
+            "question": "在工作场景怎么区分 ENTJ 和 INTJ？",
+            "answer": "在危机项目里，ENTJ 可能先重排责任和节奏，INTJ 可能先确认根因和长期后果。前者防止停滞，后者防止错误方向越推越远。"
+          },
+          {
+            "question": "判断 ENTJ 和 INTJ 时最容易犯什么错？",
+            "answer": "不要把说话强势直接判成 ENTJ，也不要把安静直接判成 INTJ。看对方遇到不确定性时，是先拉人推进，还是先收集结构证据。"
+          },
+          {
+            "question": "这个对比能决定职业或关系选择吗？",
+            "answer": "不能。它只能帮助观察信息处理和压力反馈差异，重要选择仍需要结合能力、经验、价值观、环境和长期反馈。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/entj-a",
+            "anchor_text": "ENTJ A",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-a",
+            "anchor_text": "INTJ A",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-vs-intp",
+            "anchor_text": "INTJ VS INTP",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI 人格",
+            "reason": "Return readers to the public MBTI hub and 32 variant index.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI 免费测试",
+            "reason": "Close the public test-to-profile loop without private result URLs.",
+            "safe_public_route": true
+          }
+        ],
+        "schema": {
+          "recommended_types_after_import": [
+            "WebPage",
+            "FAQPage",
+            "BreadcrumbList"
+          ],
+          "schema_authority": "backend_cms_after_import"
+        },
+        "method_boundary": {
+          "medical_diagnostic_claim": false,
+          "hiring_screen_claim": false,
+          "official_mbti_affiliation_claim": false,
+          "deterministic_career_claim": false,
+          "relationship_prediction_claim": false,
+          "private_result_copy_used": false,
+          "frontend_editorial_fallback": false
+        },
+        "evidence_notes": [
+          "Codex-native repaired comparison draft for backend CMS dry-run, not production CMS truth.",
+          "Comparison content repairs scenario specificity and FAQ depth without changing renderer code.",
+          "No Search Console indexing, sitemap, llms, or production import action is performed in this PR."
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "section_keys": [
+          "direct_answer",
+          "quick_judgment_table",
+          "easy_misread",
+          "real_scenario_differences",
+          "do_not_misjudge",
+          "next_reading"
+        ],
+        "section_count": 6,
+        "faq_count": 5,
+        "internal_link_count": 5,
+        "quick_judgment_rows": 4,
+        "private_result_boundary_ok": true,
+        "indexability_held": true
+      },
+      "required_approval_before_import": true,
+      "production_write_allowed": false
+    },
+    {
+      "record_id": "mbti-cms-17:infj-vs-infp",
+      "source_artifact_id": "MBTI-CONTENT-15",
+      "source_path": "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.json",
+      "target_path": "/zh/personality/infj-vs-infp",
+      "target_url": "https://fermatmind.com/zh/personality/infj-vs-infp",
+      "locale": "zh-CN",
+      "framework": "mbti64",
+      "entity_type": "hot_comparison",
+      "comparison_kind": "hot_cross_type_comparison",
+      "code": "infj-vs-infp",
+      "slug": "infj-vs-infp",
+      "comparison_pair": [
+        "INFJ",
+        "INFP"
+      ],
+      "cms_resource": "personality_comparison",
+      "dry_run_operation": "upsert_comparison_content_draft",
+      "approval_state": "pending_operator_review",
+      "import_candidate": true,
+      "cms_key": {
+        "locale": "zh-CN",
+        "framework": "mbti",
+        "comparison_slug": "infj-vs-infp",
+        "left_code": "INFJ",
+        "right_code": "INFP"
+      },
+      "field_mapping": {
+        "title": "seo.title",
+        "meta_description": "seo.meta_description",
+        "h1": "display.heading",
+        "summary": "summary",
+        "comparison_pair": "comparison.pair",
+        "canonical": "seo.canonical_url",
+        "robots": "seo.robots",
+        "direct_answer": "content_sections.direct_answer",
+        "quick_judgment_table": "content_sections.quick_judgment_table",
+        "easy_misread": "content_sections.easy_misread",
+        "real_scenario_differences": "content_sections.real_scenario_differences",
+        "do_not_misjudge": "content_sections.do_not_misjudge",
+        "next_reading": "content_sections.next_reading",
+        "faq": "faq_items[]",
+        "internal_links": "related_links[]",
+        "method_boundary": "safety.method_boundary",
+        "schema": "seo.structured_data_recommendations",
+        "evidence_notes": "editorial.evidence_notes"
+      },
+      "dry_run_payload": {
+        "title": "INFJ 和 INFP 的区别：意义结构与价值真实性",
+        "summary": "INFJ 更容易把人的处境组织成一个可理解的意义结构，INFP 更容易先确认内在价值是否真实。最大区别不是谁更温柔，而是共情之后如何判断。",
+        "seo": {
+          "title": "INFJ 和 INFP 的区别：意义结构与价值真实性 | FermatMind",
+          "meta_description": "INFJ 和 INFP 有什么区别？用最大区别、快速判断表、容易误判、真实场景和 FAQ 快速判断。",
+          "primary_query": "infj vs infp",
+          "secondary_queries": [
+            "infj和infp区别",
+            "infj vs infp"
+          ]
+        },
+        "canonical": "https://fermatmind.com/zh/personality/infj-vs-infp",
+        "hreflang": [
+          {
+            "locale": "zh",
+            "href": "https://fermatmind.com/zh/personality/infj-vs-infp"
+          },
+          {
+            "locale": "en",
+            "href": "https://fermatmind.com/en/personality/infj-vs-infp"
+          }
+        ],
+        "robots": "noindex,follow",
+        "launch_state": "draft_pending_import_approval",
+        "index_eligible": false,
+        "sitemap_eligible": false,
+        "llms_eligible": false,
+        "comparison_pair": [
+          "INFJ",
+          "INFP"
+        ],
+        "sections": [
+          {
+            "key": "direct_answer",
+            "title": "最大区别",
+            "body": "INFJ 更容易把人的处境组织成一个可理解的意义结构，INFP 更容易先确认内在价值是否真实。最大区别不是谁更温柔，而是共情之后如何判断。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "rows": [
+              {
+                "dimension": "共情入口",
+                "INFJ": "看关系模式和长期影响",
+                "INFP": "看个人感受和价值一致性"
+              },
+              {
+                "dimension": "表达方式",
+                "INFJ": "引导、解释、连接线索",
+                "INFP": "书写、倾听、保护真实感"
+              },
+              {
+                "dimension": "冲突风险",
+                "INFJ": "过度替他人解释意义",
+                "INFP": "过度退回个人感受"
+              },
+              {
+                "dimension": "成熟表现",
+                "INFJ": "不替别人定义人生",
+                "INFP": "把价值转成可沟通边界"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "两者都可能敏感、理想主义、重意义。区别在于 INFJ 更常组织关系图景，INFP 更常守住个人真实。"
+          },
+          {
+            "key": "real_scenario_differences",
+            "title": "真实场景差异",
+            "body": "朋友陷入困境时，INFJ 可能帮助对方看见模式和未来路径；INFP 可能先确认对方真实感受有没有被尊重。两种支持都重要，但节奏不同。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要这样误判",
+            "body": "不要用是否外向、是否会安慰人判断 INFJ/INFP。观察他们面对价值冲突时，是先建构整体意义，还是先确认内在真实。"
+          },
+          {
+            "key": "next_reading",
+            "title": "下一步阅读",
+            "body": "继续查看 INFJ、INFP 的单独页面、A/T 页面和 MBTI 测试页，避免只凭一个对比标签下结论。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INFJ 和 INFP 最大区别是什么？",
+            "answer": "INFJ 更容易把人的处境组织成一个可理解的意义结构，INFP 更容易先确认内在价值是否真实。最大区别不是谁更温柔，而是共情之后如何判断。"
+          },
+          {
+            "question": "为什么 INFJ 和 INFP 容易被混淆？",
+            "answer": "两者都可能敏感、理想主义、重意义。区别在于 INFJ 更常组织关系图景，INFP 更常守住个人真实。"
+          },
+          {
+            "question": "在工作场景怎么区分 INFJ 和 INFP？",
+            "answer": "朋友陷入困境时，INFJ 可能帮助对方看见模式和未来路径；INFP 可能先确认对方真实感受有没有被尊重。两种支持都重要，但节奏不同。"
+          },
+          {
+            "question": "判断 INFJ 和 INFP 时最容易犯什么错？",
+            "answer": "不要用是否外向、是否会安慰人判断 INFJ/INFP。观察他们面对价值冲突时，是先建构整体意义，还是先确认内在真实。"
+          },
+          {
+            "question": "这个对比能决定职业或关系选择吗？",
+            "answer": "不能。它只能帮助观察信息处理和压力反馈差异，重要选择仍需要结合能力、经验、价值观、环境和长期反馈。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/infj-a",
+            "anchor_text": "INFJ A",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infp-a",
+            "anchor_text": "INFP A",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/isfp-a",
+            "anchor_text": "ISFP A",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI 人格",
+            "reason": "Return readers to the public MBTI hub and 32 variant index.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI 免费测试",
+            "reason": "Close the public test-to-profile loop without private result URLs.",
+            "safe_public_route": true
+          }
+        ],
+        "schema": {
+          "recommended_types_after_import": [
+            "WebPage",
+            "FAQPage",
+            "BreadcrumbList"
+          ],
+          "schema_authority": "backend_cms_after_import"
+        },
+        "method_boundary": {
+          "medical_diagnostic_claim": false,
+          "hiring_screen_claim": false,
+          "official_mbti_affiliation_claim": false,
+          "deterministic_career_claim": false,
+          "relationship_prediction_claim": false,
+          "private_result_copy_used": false,
+          "frontend_editorial_fallback": false
+        },
+        "evidence_notes": [
+          "Codex-native repaired comparison draft for backend CMS dry-run, not production CMS truth.",
+          "Comparison content repairs scenario specificity and FAQ depth without changing renderer code.",
+          "No Search Console indexing, sitemap, llms, or production import action is performed in this PR."
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "section_keys": [
+          "direct_answer",
+          "quick_judgment_table",
+          "easy_misread",
+          "real_scenario_differences",
+          "do_not_misjudge",
+          "next_reading"
+        ],
+        "section_count": 6,
+        "faq_count": 5,
+        "internal_link_count": 5,
+        "quick_judgment_rows": 4,
+        "private_result_boundary_ok": true,
+        "indexability_held": true
+      },
+      "required_approval_before_import": true,
+      "production_write_allowed": false
+    },
+    {
+      "record_id": "mbti-cms-17:istj-vs-isfj",
+      "source_artifact_id": "MBTI-CONTENT-15",
+      "source_path": "docs/seo/personality/mbti-content-15-top-blocker-assets-2026-07-05.json",
+      "target_path": "/zh/personality/istj-vs-isfj",
+      "target_url": "https://fermatmind.com/zh/personality/istj-vs-isfj",
+      "locale": "zh-CN",
+      "framework": "mbti64",
+      "entity_type": "hot_comparison",
+      "comparison_kind": "hot_cross_type_comparison",
+      "code": "istj-vs-isfj",
+      "slug": "istj-vs-isfj",
+      "comparison_pair": [
+        "ISTJ",
+        "ISFJ"
+      ],
+      "cms_resource": "personality_comparison",
+      "dry_run_operation": "upsert_comparison_content_draft",
+      "approval_state": "pending_operator_review",
+      "import_candidate": true,
+      "cms_key": {
+        "locale": "zh-CN",
+        "framework": "mbti",
+        "comparison_slug": "istj-vs-isfj",
+        "left_code": "ISTJ",
+        "right_code": "ISFJ"
+      },
+      "field_mapping": {
+        "title": "seo.title",
+        "meta_description": "seo.meta_description",
+        "h1": "display.heading",
+        "summary": "summary",
+        "comparison_pair": "comparison.pair",
+        "canonical": "seo.canonical_url",
+        "robots": "seo.robots",
+        "direct_answer": "content_sections.direct_answer",
+        "quick_judgment_table": "content_sections.quick_judgment_table",
+        "easy_misread": "content_sections.easy_misread",
+        "real_scenario_differences": "content_sections.real_scenario_differences",
+        "do_not_misjudge": "content_sections.do_not_misjudge",
+        "next_reading": "content_sections.next_reading",
+        "faq": "faq_items[]",
+        "internal_links": "related_links[]",
+        "method_boundary": "safety.method_boundary",
+        "schema": "seo.structured_data_recommendations",
+        "evidence_notes": "editorial.evidence_notes"
+      },
+      "dry_run_payload": {
+        "title": "ISTJ 和 ISFJ 的区别：制度可靠性与照顾可靠性",
+        "summary": "ISTJ 更容易用规则、记录和标准保证可靠，ISFJ 更容易用照顾、记忆和关系稳定保证可靠。最大区别不是谁更负责，而是责任感优先服务什么。",
+        "seo": {
+          "title": "ISTJ 和 ISFJ 的区别：制度可靠性与照顾可靠性 | FermatMind",
+          "meta_description": "ISTJ 和 ISFJ 有什么区别？用最大区别、快速判断表、容易误判、真实场景和 FAQ 快速判断。",
+          "primary_query": "istj vs isfj",
+          "secondary_queries": [
+            "istj和isfj区别",
+            "istj vs isfj"
+          ]
+        },
+        "canonical": "https://fermatmind.com/zh/personality/istj-vs-isfj",
+        "hreflang": [
+          {
+            "locale": "zh",
+            "href": "https://fermatmind.com/zh/personality/istj-vs-isfj"
+          },
+          {
+            "locale": "en",
+            "href": "https://fermatmind.com/en/personality/istj-vs-isfj"
+          }
+        ],
+        "robots": "noindex,follow",
+        "launch_state": "draft_pending_import_approval",
+        "index_eligible": false,
+        "sitemap_eligible": false,
+        "llms_eligible": false,
+        "comparison_pair": [
+          "ISTJ",
+          "ISFJ"
+        ],
+        "sections": [
+          {
+            "key": "direct_answer",
+            "title": "最大区别",
+            "body": "ISTJ 更容易用规则、记录和标准保证可靠，ISFJ 更容易用照顾、记忆和关系稳定保证可靠。最大区别不是谁更负责，而是责任感优先服务什么。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "rows": [
+              {
+                "dimension": "可靠性的来源",
+                "ISTJ": "流程、证据、责任边界",
+                "ISFJ": "需要、习惯、关系记忆"
+              },
+              {
+                "dimension": "冲突中",
+                "ISTJ": "先确认规则是否被破坏",
+                "ISFJ": "先确认人是否被忽略"
+              },
+              {
+                "dimension": "工作优势",
+                "ISTJ": "复核、合规、稳定交付",
+                "ISFJ": "服务、支持、细节照顾"
+              },
+              {
+                "dimension": "盲点",
+                "ISTJ": "忽略情绪成本",
+                "ISFJ": "忽略边界和拒绝"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ISTJ 和 ISFJ 都可能认真、低调、守承诺。区别在于 ISTJ 更常先维护系统，ISFJ 更常先维护人。"
+          },
+          {
+            "key": "real_scenario_differences",
+            "title": "真实场景差异",
+            "body": "团队排班出错时，ISTJ 会追问流程为何失效，ISFJ 会先看谁被影响最大。成熟团队需要同时修流程和补偿人的压力。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要这样误判",
+            "body": "不要用是否温柔或是否严肃判断。看他们在资源有限时优先保护制度秩序，还是优先保护人的感受和安全。"
+          },
+          {
+            "key": "next_reading",
+            "title": "下一步阅读",
+            "body": "继续查看 ISTJ、ISFJ 的单独页面、A/T 页面和 MBTI 测试页，避免只凭一个对比标签下结论。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ISTJ 和 ISFJ 最大区别是什么？",
+            "answer": "ISTJ 更容易用规则、记录和标准保证可靠，ISFJ 更容易用照顾、记忆和关系稳定保证可靠。最大区别不是谁更负责，而是责任感优先服务什么。"
+          },
+          {
+            "question": "为什么 ISTJ 和 ISFJ 容易被混淆？",
+            "answer": "ISTJ 和 ISFJ 都可能认真、低调、守承诺。区别在于 ISTJ 更常先维护系统，ISFJ 更常先维护人。"
+          },
+          {
+            "question": "在工作场景怎么区分 ISTJ 和 ISFJ？",
+            "answer": "团队排班出错时，ISTJ 会追问流程为何失效，ISFJ 会先看谁被影响最大。成熟团队需要同时修流程和补偿人的压力。"
+          },
+          {
+            "question": "判断 ISTJ 和 ISFJ 时最容易犯什么错？",
+            "answer": "不要用是否温柔或是否严肃判断。看他们在资源有限时优先保护制度秩序，还是优先保护人的感受和安全。"
+          },
+          {
+            "question": "这个对比能决定职业或关系选择吗？",
+            "answer": "不能。它只能帮助观察信息处理和压力反馈差异，重要选择仍需要结合能力、经验、价值观、环境和长期反馈。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/istj-a",
+            "anchor_text": "ISTJ A",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/isfj-a",
+            "anchor_text": "ISFJ A",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/esfj-a",
+            "anchor_text": "ESFJ A",
+            "reason": "Connect same-cluster public personality assets without private result routes.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "anchor_text": "MBTI 人格",
+            "reason": "Return readers to the public MBTI hub and 32 variant index.",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "anchor_text": "MBTI 免费测试",
+            "reason": "Close the public test-to-profile loop without private result URLs.",
+            "safe_public_route": true
+          }
+        ],
+        "schema": {
+          "recommended_types_after_import": [
+            "WebPage",
+            "FAQPage",
+            "BreadcrumbList"
+          ],
+          "schema_authority": "backend_cms_after_import"
+        },
+        "method_boundary": {
+          "medical_diagnostic_claim": false,
+          "hiring_screen_claim": false,
+          "official_mbti_affiliation_claim": false,
+          "deterministic_career_claim": false,
+          "relationship_prediction_claim": false,
+          "private_result_copy_used": false,
+          "frontend_editorial_fallback": false
+        },
+        "evidence_notes": [
+          "Codex-native repaired comparison draft for backend CMS dry-run, not production CMS truth.",
+          "Comparison content repairs scenario specificity and FAQ depth without changing renderer code.",
+          "No Search Console indexing, sitemap, llms, or production import action is performed in this PR."
+        ]
+      },
+      "validation": {
+        "status": "pass",
+        "errors": [],
+        "section_keys": [
+          "direct_answer",
+          "quick_judgment_table",
+          "easy_misread",
+          "real_scenario_differences",
+          "do_not_misjudge",
+          "next_reading"
+        ],
+        "section_count": 6,
+        "faq_count": 5,
+        "internal_link_count": 5,
+        "quick_judgment_rows": 4,
+        "private_result_boundary_ok": true,
+        "indexability_held": true
+      },
+      "required_approval_before_import": true,
+      "production_write_allowed": false
+    }
+  ],
+  "blockers": [],
+  "approval_packet": {
+    "reviewer_action": "Review A/T and hot cross-type comparison import candidates, field mapping, safety boundaries, and validation before any fap-api dry-run/import work.",
+    "approval_required_for": [
+      "/zh/personality/intp-a-vs-intp-t",
+      "/zh/personality/intj-vs-intp",
+      "/zh/personality/entj-vs-intj",
+      "/zh/personality/infj-vs-infp",
+      "/zh/personality/istj-vs-isfj"
+    ],
+    "next_allowed_task": "MBTI-INDEX-18 only after MBTI-CMS-16 and MBTI-CMS-17 are merged and content quality gates remain passing.",
+    "still_forbidden": [
+      "production CMS write",
+      "production import",
+      "sitemap/llms URL expansion",
+      "GSC URL inspection/request indexing/search submission",
+      "production deploy"
+    ]
+  },
+  "recommended_next_task": "MBTI-INDEX-18 sitemap / llms / indexability gate"
+}
