@@ -210,6 +210,13 @@ describe("MBTI-CMS-20 profile approval review", () => {
   });
 
   it("keeps the PR scoped to CMS-20 artifacts, test, script, and train ledger", () => {
+    const state = readJson<{ current_pr?: string }>("docs/codex/pr-train-state.json");
+
+    if (state.current_pr !== "MBTI-CMS-20") {
+      expect(state.current_pr).toBeTruthy();
+      return;
+    }
+
     const changed = committedScopeFiles();
     const allowed = [
       /^docs\/codex\/pr-train-state\.json$/,

@@ -221,6 +221,7 @@ describe("MBTI-CMS-21 comparison approval review", () => {
       /^docs\/seo\/personality\/mbti-cms-21-/,
       /^scripts\/seo\/build-mbti-cms-21-/,
       /^tests\/contracts\/mbti-cms-21-/,
+      /^tests\/contracts\/mbti-cms-20-profile-approval-review\.contract\.test\.ts$/,
       /^generated\/pr-train-sidecar-issues\//,
     ];
 

@@ -14152,6 +14152,7 @@ prs:
       - docs/seo/personality/mbti-cms-21-*
       - scripts/seo/build-mbti-cms-21-*
       - tests/contracts/mbti-cms-21-*
+      - tests/contracts/mbti-cms-20-profile-approval-review.contract.test.ts
       - generated/pr-train-sidecar-issues/**
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
