@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T08:07:11Z",
+  "updated_at": "2026-07-05T18:55:00Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -41763,7 +41763,7 @@
     "updated_at": "2026-07-05T12:00:00.000Z",
     "next_task": "MBTI-CONTENT-15"
   },
-  "current_pr": "MBTI-GSC-19",
+  "current_pr": "MBTI-CMS-20",
   "MBTI-CONTENT-15": {
     "repo": "fap-web",
     "base": "main",
@@ -42364,14 +42364,14 @@
     "post_merge_revalidated_at": "2026-07-05T09:10:00Z"
   },
   "MBTI-GSC-19": {
-    "status": "ready_to_merge",
+    "status": "merged_reconciled",
     "repo": "fap-web",
     "branch": "codex/mbti-gsc-19-submission-monitoring",
     "depends_on": [
       "MBTI-INDEX-18"
     ],
     "train_scope": "mbti_gsc_submission_monitoring",
-    "commit_sha": "9ba4ed5416133fae96042eea6d03140f311a5133",
+    "commit_sha": "8c350248b46a63c343f93082da7710e5dd677fed",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1611",
     "checks": [
       {
@@ -42428,11 +42428,11 @@
         ]
       }
     ],
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-05T09:45:49Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
-    "next_task": null,
+    "next_task": "MBTI-CMS-20",
     "created_at": "2026-07-05T07:52:44.152Z",
     "updated_at": "2026-07-05T09:50:00Z",
     "notes": "Artifact-only GSC submission-readiness and 7/14/28 monitoring package. INDEX-18 held all URL expansion, so no live GSC mutation, sitemap submission, URL inspection, CMS write/import, runtime mutation, deploy, or staging wait was attempted.",
@@ -42487,6 +42487,228 @@
         "status": "passed",
         "url": "https://github.com/fermatmind/fap-web/runs/85211405470"
       }
+    ],
+    "reconciliation": {
+      "status": "passed",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1611",
+      "merge_commit": "8c350248b46a63c343f93082da7710e5dd677fed",
+      "origin_main_contains_merge_commit": true,
+      "reconciled_at": "2026-07-05T18:20:00Z",
+      "notes": "Reconciled stale ready_to_merge ledger before MBTI-CMS-20; GitHub PR #1611 is merged and the task branch was already cleaned."
+    }
+  },
+  "MBTI-CMS-20": {
+    "status": "ready_to_merge",
+    "repo": "fap-web",
+    "branch": "codex/mbti-cms-20-profile-approval-review",
+    "depends_on": [
+      "MBTI-GSC-19"
+    ],
+    "train_scope": "mbti_profile_content_approval_review",
+    "title": "MBTI-CMS-20: profile content approval review",
+    "commit_sha": "c263a2f6",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1613",
+    "checks": [
+      {
+        "name": "node scripts/seo/build-mbti-cms-20-profile-approval-review.mjs",
+        "status": "passed"
+      },
+      {
+        "name": "corepack pnpm exec vitest run tests/contracts/mbti-cms-20-profile-approval-review.contract.test.ts --reporter=dot",
+        "status": "passed",
+        "details": "1 file, 8 tests passed"
+      },
+      {
+        "name": "corepack pnpm test:contract",
+        "status": "passed"
+      },
+      {
+        "name": "corepack pnpm typecheck",
+        "status": "passed"
+      },
+      {
+        "name": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+        "status": "passed"
+      },
+      {
+        "name": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+        "status": "passed"
+      },
+      {
+        "name": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+        "status": "passed"
+      },
+      {
+        "name": "git diff --check",
+        "status": "passed"
+      },
+      {
+        "name": "changed-file scope validation",
+        "status": "passed",
+        "files": [
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "docs/seo/personality/mbti-cms-20-profile-approval-review-2026-07-05.csv",
+          "docs/seo/personality/mbti-cms-20-profile-approval-review-2026-07-05.json",
+          "docs/seo/personality/mbti-cms-20-profile-approval-review-2026-07-05.md",
+          "scripts/seo/build-mbti-cms-20-profile-approval-review.mjs",
+          "tests/contracts/mbti-cms-20-profile-approval-review.contract.test.ts"
+        ]
+      }
+    ],
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "next_task": "MBTI-CMS-21",
+    "created_at": "2026-07-05T18:20:00Z",
+    "updated_at": "2026-07-05T18:55:00Z",
+    "artifacts": [
+      "docs/seo/personality/mbti-cms-20-profile-approval-review-2026-07-05.json",
+      "docs/seo/personality/mbti-cms-20-profile-approval-review-2026-07-05.md",
+      "docs/seo/personality/mbti-cms-20-profile-approval-review-2026-07-05.csv",
+      "scripts/seo/build-mbti-cms-20-profile-approval-review.mjs",
+      "tests/contracts/mbti-cms-20-profile-approval-review.contract.test.ts"
+    ],
+    "artifact_summary": {
+      "reviewed_profile_count": 5,
+      "approved_import_candidate_count": 4,
+      "verify_only_approved_count": 1,
+      "needs_revision_count": 0
+    },
+    "artifact_decision": "PASS_PROFILE_APPROVAL_REVIEW_READY_FOR_FINAL_DRY_RUN",
+    "notes": "Profile approval review only. No CMS write, production import, sitemap/llms mutation, GSC submission, frontend runtime change, deploy, or staging wait attempted.",
+    "github_checks": [
+      {
+        "name": "CodeQL",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/runs/85230219557"
+      },
+      {
+        "name": "analyze (javascript-typescript)",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28743386033/job/85230017191"
+      },
+      {
+        "name": "build",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28743386029/job/85230002352"
+      },
+      {
+        "name": "contracts",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28743386029/job/85230002357"
+      },
+      {
+        "name": "verify-big5-contract-freeze",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28743386029/job/85230002354"
+      },
+      {
+        "name": "verify-enneagram-contract-freeze",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28743386029/job/85230002364"
+      }
     ]
+  },
+  "MBTI-CMS-21": {
+    "status": "planned",
+    "repo": "fap-web",
+    "branch": "codex/mbti-cms-21-comparison-approval-review",
+    "depends_on": [
+      "MBTI-CMS-20"
+    ],
+    "train_scope": "mbti_comparison_content_approval_review",
+    "title": "MBTI-CMS-21: comparison content approval review",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": [],
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "next_task": "MBTI-CMS-22",
+    "created_at": "2026-07-05T18:20:00Z",
+    "updated_at": "2026-07-05T18:20:00Z"
+  },
+  "MBTI-CMS-22": {
+    "status": "planned",
+    "repo": "fap-web",
+    "branch": "codex/mbti-cms-22-import-dry-run-final",
+    "depends_on": [
+      "MBTI-CMS-21"
+    ],
+    "train_scope": "mbti_cms_import_dry_run_final",
+    "title": "MBTI-CMS-22: CMS import dry-run final",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": [],
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "next_task": "MBTI-CMS-23",
+    "created_at": "2026-07-05T18:20:00Z",
+    "updated_at": "2026-07-05T18:20:00Z"
+  },
+  "MBTI-CMS-23": {
+    "status": "planned",
+    "repo": "fap-web",
+    "branch": "codex/mbti-cms-23-production-import-authorization-package",
+    "depends_on": [
+      "MBTI-CMS-22"
+    ],
+    "train_scope": "mbti_production_import_authorization_package",
+    "title": "MBTI-CMS-23: production import authorization package",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": [],
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "next_task": "MBTI-INDEX-24",
+    "created_at": "2026-07-05T18:20:00Z",
+    "updated_at": "2026-07-05T18:20:00Z"
+  },
+  "MBTI-INDEX-24": {
+    "status": "planned",
+    "repo": "fap-web",
+    "branch": "codex/mbti-index-24-release-indexability-gate",
+    "depends_on": [
+      "MBTI-CMS-23"
+    ],
+    "train_scope": "mbti_release_indexability_gate",
+    "title": "MBTI-INDEX-24: release indexability gate",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": [],
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "next_task": "MBTI-GSC-25",
+    "created_at": "2026-07-05T18:20:00Z",
+    "updated_at": "2026-07-05T18:20:00Z"
+  },
+  "MBTI-GSC-25": {
+    "status": "planned",
+    "repo": "fap-web",
+    "branch": "codex/mbti-gsc-25-submit-monitoring-execution",
+    "depends_on": [
+      "MBTI-INDEX-24"
+    ],
+    "train_scope": "mbti_gsc_submission_monitoring_execution",
+    "title": "MBTI-GSC-25: GSC submission and monitoring execution",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": [],
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "next_task": null,
+    "created_at": "2026-07-05T18:20:00Z",
+    "updated_at": "2026-07-05T18:20:00Z"
   }
 }

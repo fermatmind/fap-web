@@ -1,0 +1,6 @@
+target_path,code,decision,import_candidate,failed_checks,required_next_action
+/zh/personality/istj-a,ISTJ-A,approved_for_final_dry_run,true,,Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized.
+/zh/personality/istp-a,ISTP-A,approved_for_final_dry_run,true,,Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized.
+/zh/personality/isfp-a,ISFP-A,approved_for_final_dry_run,true,,Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized.
+/zh/personality/esfj-a,ESFJ-A,approved_for_final_dry_run,true,,Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized.
+/zh/personality/intp-a,INTP-A,approved_verify_only,false,,Keep as verify-only evidence; do not import profile body.

@@ -1,0 +1,366 @@
+{
+  "id": "MBTI-CMS-20",
+  "artifact": "MBTI-CMS-20-PROFILE-APPROVAL-REVIEW",
+  "generated_at": "2026-07-05T18:20:00.000Z",
+  "source_artifact": {
+    "id": "MBTI-CMS-16",
+    "path": "docs/seo/personality/mbti-cms-16-profile-dry-run-approval-package-2026-07-05.json",
+    "final_decision": "PASS_PROFILE_DRY_RUN_APPROVAL_PACKAGE_READY",
+    "profile_record_count": 5
+  },
+  "status": "profile_review_approved",
+  "final_decision": "PASS_PROFILE_APPROVAL_REVIEW_READY_FOR_FINAL_DRY_RUN",
+  "summary": {
+    "reviewed_profile_count": 5,
+    "approved_count": 5,
+    "approved_import_candidate_count": 4,
+    "verify_only_approved_count": 1,
+    "needs_revision_count": 0
+  },
+  "cms_entry_standard": {
+    "required_field_mapping_keys": [
+      "title",
+      "meta_description",
+      "h1",
+      "summary",
+      "canonical",
+      "robots",
+      "sections",
+      "faq",
+      "internal_links",
+      "method_boundary"
+    ],
+    "required_section_keys": [
+      "direct_answer",
+      "who_it_fits",
+      "who_it_does_not_fit",
+      "common_misunderstanding",
+      "at_difference",
+      "career_scenario",
+      "relationship_scenario",
+      "stress_scenario"
+    ],
+    "required_profile_links": [
+      "opposite_variant",
+      "at_comparison",
+      "hub",
+      "mbti_test",
+      "one_related_public_profile_or_comparison"
+    ],
+    "required_faq_topics": [
+      "definition",
+      "A/T difference",
+      "career or work scene",
+      "common misunderstanding",
+      "relationship scene",
+      "pressure or growth scene",
+      "non-diagnostic/non-hiring boundary",
+      "next internal-link action"
+    ]
+  },
+  "approval_lists": {
+    "approved_for_final_dry_run": [
+      "/zh/personality/istj-a",
+      "/zh/personality/istp-a",
+      "/zh/personality/isfp-a",
+      "/zh/personality/esfj-a"
+    ],
+    "approved_verify_only": [
+      "/zh/personality/intp-a"
+    ],
+    "needs_revision": []
+  },
+  "safety_boundary": {
+    "artifact_only": true,
+    "profile_review_only": true,
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "db_migration_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "frontend_local_editorial_fallback_added": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_api_call_attempted": false,
+    "gsc_request_indexing_attempted": false,
+    "search_submission_attempted": false,
+    "production_deploy_attempted": false
+  },
+  "reviews": [
+    {
+      "target_path": "/zh/personality/istj-a",
+      "code": "ISTJ-A",
+      "locale": "zh-CN",
+      "import_candidate": true,
+      "decision": "approved_for_final_dry_run",
+      "reasons": [],
+      "checks": [
+        {
+          "key": "field_mapping_complete",
+          "status": "pass"
+        },
+        {
+          "key": "direct_answer_present",
+          "status": "pass"
+        },
+        {
+          "key": "profile_section_set_complete",
+          "status": "pass"
+        },
+        {
+          "key": "fit_and_misfit_present",
+          "status": "pass"
+        },
+        {
+          "key": "common_misunderstanding_present",
+          "status": "pass"
+        },
+        {
+          "key": "at_difference_table_present",
+          "status": "pass"
+        },
+        {
+          "key": "career_relationship_pressure_present",
+          "status": "pass"
+        },
+        {
+          "key": "faq_complete",
+          "status": "pass"
+        },
+        {
+          "key": "internal_link_loop_complete",
+          "status": "pass"
+        },
+        {
+          "key": "seo_fields_present",
+          "status": "pass"
+        },
+        {
+          "key": "method_boundary_clean",
+          "status": "pass"
+        },
+        {
+          "key": "indexability_still_held",
+          "status": "pass"
+        },
+        {
+          "key": "production_write_blocked",
+          "status": "pass"
+        }
+      ],
+      "required_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    },
+    {
+      "target_path": "/zh/personality/istp-a",
+      "code": "ISTP-A",
+      "locale": "zh-CN",
+      "import_candidate": true,
+      "decision": "approved_for_final_dry_run",
+      "reasons": [],
+      "checks": [
+        {
+          "key": "field_mapping_complete",
+          "status": "pass"
+        },
+        {
+          "key": "direct_answer_present",
+          "status": "pass"
+        },
+        {
+          "key": "profile_section_set_complete",
+          "status": "pass"
+        },
+        {
+          "key": "fit_and_misfit_present",
+          "status": "pass"
+        },
+        {
+          "key": "common_misunderstanding_present",
+          "status": "pass"
+        },
+        {
+          "key": "at_difference_table_present",
+          "status": "pass"
+        },
+        {
+          "key": "career_relationship_pressure_present",
+          "status": "pass"
+        },
+        {
+          "key": "faq_complete",
+          "status": "pass"
+        },
+        {
+          "key": "internal_link_loop_complete",
+          "status": "pass"
+        },
+        {
+          "key": "seo_fields_present",
+          "status": "pass"
+        },
+        {
+          "key": "method_boundary_clean",
+          "status": "pass"
+        },
+        {
+          "key": "indexability_still_held",
+          "status": "pass"
+        },
+        {
+          "key": "production_write_blocked",
+          "status": "pass"
+        }
+      ],
+      "required_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    },
+    {
+      "target_path": "/zh/personality/isfp-a",
+      "code": "ISFP-A",
+      "locale": "zh-CN",
+      "import_candidate": true,
+      "decision": "approved_for_final_dry_run",
+      "reasons": [],
+      "checks": [
+        {
+          "key": "field_mapping_complete",
+          "status": "pass"
+        },
+        {
+          "key": "direct_answer_present",
+          "status": "pass"
+        },
+        {
+          "key": "profile_section_set_complete",
+          "status": "pass"
+        },
+        {
+          "key": "fit_and_misfit_present",
+          "status": "pass"
+        },
+        {
+          "key": "common_misunderstanding_present",
+          "status": "pass"
+        },
+        {
+          "key": "at_difference_table_present",
+          "status": "pass"
+        },
+        {
+          "key": "career_relationship_pressure_present",
+          "status": "pass"
+        },
+        {
+          "key": "faq_complete",
+          "status": "pass"
+        },
+        {
+          "key": "internal_link_loop_complete",
+          "status": "pass"
+        },
+        {
+          "key": "seo_fields_present",
+          "status": "pass"
+        },
+        {
+          "key": "method_boundary_clean",
+          "status": "pass"
+        },
+        {
+          "key": "indexability_still_held",
+          "status": "pass"
+        },
+        {
+          "key": "production_write_blocked",
+          "status": "pass"
+        }
+      ],
+      "required_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    },
+    {
+      "target_path": "/zh/personality/esfj-a",
+      "code": "ESFJ-A",
+      "locale": "zh-CN",
+      "import_candidate": true,
+      "decision": "approved_for_final_dry_run",
+      "reasons": [],
+      "checks": [
+        {
+          "key": "field_mapping_complete",
+          "status": "pass"
+        },
+        {
+          "key": "direct_answer_present",
+          "status": "pass"
+        },
+        {
+          "key": "profile_section_set_complete",
+          "status": "pass"
+        },
+        {
+          "key": "fit_and_misfit_present",
+          "status": "pass"
+        },
+        {
+          "key": "common_misunderstanding_present",
+          "status": "pass"
+        },
+        {
+          "key": "at_difference_table_present",
+          "status": "pass"
+        },
+        {
+          "key": "career_relationship_pressure_present",
+          "status": "pass"
+        },
+        {
+          "key": "faq_complete",
+          "status": "pass"
+        },
+        {
+          "key": "internal_link_loop_complete",
+          "status": "pass"
+        },
+        {
+          "key": "seo_fields_present",
+          "status": "pass"
+        },
+        {
+          "key": "method_boundary_clean",
+          "status": "pass"
+        },
+        {
+          "key": "indexability_still_held",
+          "status": "pass"
+        },
+        {
+          "key": "production_write_blocked",
+          "status": "pass"
+        }
+      ],
+      "required_next_action": "Eligible for MBTI-CMS-22 final import dry-run package; production import remains unauthorized."
+    },
+    {
+      "target_path": "/zh/personality/intp-a",
+      "code": "INTP-A",
+      "locale": "zh-CN",
+      "import_candidate": false,
+      "decision": "approved_verify_only",
+      "reasons": [],
+      "checks": [
+        {
+          "key": "verify_only_boundary",
+          "status": "pass"
+        },
+        {
+          "key": "verify_only_internal_links",
+          "status": "pass"
+        },
+        {
+          "key": "production_write_blocked",
+          "status": "pass"
+        }
+      ],
+      "required_next_action": "Keep as verify-only evidence; do not import profile body."
+    }
+  ],
+  "blockers": [],
+  "recommended_next_task": "MBTI-CMS-21 comparison approval review"
+}
