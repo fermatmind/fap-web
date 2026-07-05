@@ -1,0 +1,396 @@
+{
+  "id": "MBTI-CMS-23",
+  "artifact": "MBTI-CMS-23-PRODUCTION-IMPORT-AUTHORIZATION-PACKAGE",
+  "generated_at": "2026-07-05T16:25:00.000Z",
+  "status": "ready_for_operator_authorization",
+  "final_decision": "READY_FOR_OPERATOR_AUTHORIZATION_NO_PRODUCTION_IMPORT_EXECUTED",
+  "source_artifact": {
+    "id": "MBTI-CMS-22",
+    "path": "docs/seo/personality/mbti-cms-22-import-dry-run-final-2026-07-05.json",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1617",
+    "merge_commit": "a3c10a2d2120e9ad0543656c699ac8749c123368",
+    "final_decision": "PASS_CMS_IMPORT_DRY_RUN_FINAL_READY_FOR_AUTHORIZATION_PACKAGE",
+    "package_id": "mbti-cms-22-final-dry-run-2026-07-05",
+    "package_sha256": "75244fa4af3c234851519eba5a426daf8766c13e7c4b2bc9e94d5a5855ce6ccb"
+  },
+  "summary": {
+    "authorization_record_count": 9,
+    "profile_record_count": 4,
+    "comparison_record_count": 5,
+    "verify_only_excluded_count": 1,
+    "blocker_count": 0,
+    "production_import_authorized": false
+  },
+  "import_scope": {
+    "mode": "top_blocker_batch_only",
+    "profiles": [
+      "/zh/personality/istj-a",
+      "/zh/personality/istp-a",
+      "/zh/personality/isfp-a",
+      "/zh/personality/esfj-a"
+    ],
+    "comparisons": [
+      "/zh/personality/intp-a-vs-intp-t",
+      "/zh/personality/intj-vs-intp",
+      "/zh/personality/entj-vs-intj",
+      "/zh/personality/infj-vs-infp",
+      "/zh/personality/istj-vs-isfj"
+    ],
+    "excluded_verify_only": [
+      "/zh/personality/intp-a"
+    ]
+  },
+  "authorization_package": {
+    "package_id": "mbti-cms-23-production-import-authorization-2026-07-05",
+    "generated_at": "2026-07-05T16:25:00.000Z",
+    "status": "not_authorized",
+    "production_import_authorized": false,
+    "exact_authorization_payload_sha256": "be0d1bb584c15f383322c9e5aff560709c46ea1e34d135cb9ced6d1e4601fe15",
+    "source_package_id": "mbti-cms-22-final-dry-run-2026-07-05",
+    "source_package_sha256": "75244fa4af3c234851519eba5a426daf8766c13e7c4b2bc9e94d5a5855ce6ccb",
+    "source_artifact": "docs/seo/personality/mbti-cms-22-import-dry-run-final-2026-07-05.json",
+    "source_pr_url": "https://github.com/fermatmind/fap-web/pull/1617",
+    "source_merge_commit": "a3c10a2d2120e9ad0543656c699ac8749c123368",
+    "import_scope_mode": "top_blocker_batch_only",
+    "records": [
+      {
+        "authorization_record_id": "mbti-cms-23:profile:istj-a",
+        "source_dry_run_record_id": "mbti-cms-22:profile:istj-a",
+        "target_path": "/zh/personality/istj-a",
+        "target_url": "https://fermatmind.com/zh/personality/istj-a",
+        "kind": "profile",
+        "locale": "zh-CN",
+        "slug": "istj-a",
+        "code": "ISTJ-A",
+        "cms_resource": "personality_profile",
+        "cms_key": {
+          "locale": "zh-CN",
+          "framework": "mbti",
+          "profile_code": "ISTJ-A",
+          "slug": "istj-a"
+        },
+        "import_action": "upsert_profile_content_draft",
+        "exact_payload_sha256": "5831d9f833280084fc877ab6c1c755fbbe7cb24827f3b81b749f6bf74d033269",
+        "required_schema_status": "pass",
+        "faq_count": 9,
+        "section_keys": [
+          "direct_answer",
+          "who_it_fits",
+          "who_it_does_not_fit",
+          "common_misunderstanding",
+          "at_difference",
+          "career_scenario",
+          "relationship_scenario",
+          "stress_scenario"
+        ],
+        "indexability_held_before_import": true,
+        "production_import_authorized": false,
+        "operator_review_required": true
+      },
+      {
+        "authorization_record_id": "mbti-cms-23:profile:istp-a",
+        "source_dry_run_record_id": "mbti-cms-22:profile:istp-a",
+        "target_path": "/zh/personality/istp-a",
+        "target_url": "https://fermatmind.com/zh/personality/istp-a",
+        "kind": "profile",
+        "locale": "zh-CN",
+        "slug": "istp-a",
+        "code": "ISTP-A",
+        "cms_resource": "personality_profile",
+        "cms_key": {
+          "locale": "zh-CN",
+          "framework": "mbti",
+          "profile_code": "ISTP-A",
+          "slug": "istp-a"
+        },
+        "import_action": "upsert_profile_content_draft",
+        "exact_payload_sha256": "52ba51b59bb040f70ac3e97e5817bba302a5df7b0a1d064046442442c5539848",
+        "required_schema_status": "pass",
+        "faq_count": 9,
+        "section_keys": [
+          "direct_answer",
+          "who_it_fits",
+          "who_it_does_not_fit",
+          "common_misunderstanding",
+          "at_difference",
+          "career_scenario",
+          "relationship_scenario",
+          "stress_scenario"
+        ],
+        "indexability_held_before_import": true,
+        "production_import_authorized": false,
+        "operator_review_required": true
+      },
+      {
+        "authorization_record_id": "mbti-cms-23:profile:isfp-a",
+        "source_dry_run_record_id": "mbti-cms-22:profile:isfp-a",
+        "target_path": "/zh/personality/isfp-a",
+        "target_url": "https://fermatmind.com/zh/personality/isfp-a",
+        "kind": "profile",
+        "locale": "zh-CN",
+        "slug": "isfp-a",
+        "code": "ISFP-A",
+        "cms_resource": "personality_profile",
+        "cms_key": {
+          "locale": "zh-CN",
+          "framework": "mbti",
+          "profile_code": "ISFP-A",
+          "slug": "isfp-a"
+        },
+        "import_action": "upsert_profile_content_draft",
+        "exact_payload_sha256": "f629422b6cf7234e19ee0a67d38195a2b56f16f5e91d02e381ddcaf0f7be5466",
+        "required_schema_status": "pass",
+        "faq_count": 9,
+        "section_keys": [
+          "direct_answer",
+          "who_it_fits",
+          "who_it_does_not_fit",
+          "common_misunderstanding",
+          "at_difference",
+          "career_scenario",
+          "relationship_scenario",
+          "stress_scenario"
+        ],
+        "indexability_held_before_import": true,
+        "production_import_authorized": false,
+        "operator_review_required": true
+      },
+      {
+        "authorization_record_id": "mbti-cms-23:profile:esfj-a",
+        "source_dry_run_record_id": "mbti-cms-22:profile:esfj-a",
+        "target_path": "/zh/personality/esfj-a",
+        "target_url": "https://fermatmind.com/zh/personality/esfj-a",
+        "kind": "profile",
+        "locale": "zh-CN",
+        "slug": "esfj-a",
+        "code": "ESFJ-A",
+        "cms_resource": "personality_profile",
+        "cms_key": {
+          "locale": "zh-CN",
+          "framework": "mbti",
+          "profile_code": "ESFJ-A",
+          "slug": "esfj-a"
+        },
+        "import_action": "upsert_profile_content_draft",
+        "exact_payload_sha256": "024a1c269ac647728ba5d5e3c2e8aa6144af845d849c8f8658a76d05b98d8d23",
+        "required_schema_status": "pass",
+        "faq_count": 9,
+        "section_keys": [
+          "direct_answer",
+          "who_it_fits",
+          "who_it_does_not_fit",
+          "common_misunderstanding",
+          "at_difference",
+          "career_scenario",
+          "relationship_scenario",
+          "stress_scenario"
+        ],
+        "indexability_held_before_import": true,
+        "production_import_authorized": false,
+        "operator_review_required": true
+      },
+      {
+        "authorization_record_id": "mbti-cms-23:comparison:intp-a-vs-intp-t",
+        "source_dry_run_record_id": "mbti-cms-22:comparison:intp-a-vs-intp-t",
+        "target_path": "/zh/personality/intp-a-vs-intp-t",
+        "target_url": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+        "kind": "comparison",
+        "locale": "zh-CN",
+        "slug": "intp-a-vs-intp-t",
+        "code": "intp-a-vs-intp-t",
+        "cms_resource": "personality_comparison",
+        "cms_key": {
+          "locale": "zh-CN",
+          "framework": "mbti",
+          "comparison_slug": "intp-a-vs-intp-t",
+          "left_code": "INTP-A",
+          "right_code": "INTP-T"
+        },
+        "import_action": "upsert_comparison_content_draft",
+        "exact_payload_sha256": "2d878fd7623db1a86f0335f7fbe2f2f02c1d642fee12b004f470e586c3519a00",
+        "required_schema_status": "pass",
+        "faq_count": 5,
+        "section_keys": [
+          "direct_answer",
+          "quick_judgment_table",
+          "easy_misread",
+          "real_scenario_differences",
+          "do_not_misjudge",
+          "next_reading"
+        ],
+        "indexability_held_before_import": true,
+        "production_import_authorized": false,
+        "operator_review_required": true
+      },
+      {
+        "authorization_record_id": "mbti-cms-23:comparison:intj-vs-intp",
+        "source_dry_run_record_id": "mbti-cms-22:comparison:intj-vs-intp",
+        "target_path": "/zh/personality/intj-vs-intp",
+        "target_url": "https://fermatmind.com/zh/personality/intj-vs-intp",
+        "kind": "comparison",
+        "locale": "zh-CN",
+        "slug": "intj-vs-intp",
+        "code": "intj-vs-intp",
+        "cms_resource": "personality_comparison",
+        "cms_key": {
+          "locale": "zh-CN",
+          "framework": "mbti",
+          "comparison_slug": "intj-vs-intp",
+          "left_code": "INTJ",
+          "right_code": "INTP"
+        },
+        "import_action": "upsert_comparison_content_draft",
+        "exact_payload_sha256": "9b5a4a3a5736a069016ea650bb8cb9dbb74b655c9fa53e385448d16eff692069",
+        "required_schema_status": "pass",
+        "faq_count": 5,
+        "section_keys": [
+          "direct_answer",
+          "quick_judgment_table",
+          "easy_misread",
+          "real_scenario_differences",
+          "do_not_misjudge",
+          "next_reading"
+        ],
+        "indexability_held_before_import": true,
+        "production_import_authorized": false,
+        "operator_review_required": true
+      },
+      {
+        "authorization_record_id": "mbti-cms-23:comparison:entj-vs-intj",
+        "source_dry_run_record_id": "mbti-cms-22:comparison:entj-vs-intj",
+        "target_path": "/zh/personality/entj-vs-intj",
+        "target_url": "https://fermatmind.com/zh/personality/entj-vs-intj",
+        "kind": "comparison",
+        "locale": "zh-CN",
+        "slug": "entj-vs-intj",
+        "code": "entj-vs-intj",
+        "cms_resource": "personality_comparison",
+        "cms_key": {
+          "locale": "zh-CN",
+          "framework": "mbti",
+          "comparison_slug": "entj-vs-intj",
+          "left_code": "ENTJ",
+          "right_code": "INTJ"
+        },
+        "import_action": "upsert_comparison_content_draft",
+        "exact_payload_sha256": "b8b23d37bed325c3ed0204cfddfcbcd4f775e7cd070b6518b5b1ea71ebeef486",
+        "required_schema_status": "pass",
+        "faq_count": 5,
+        "section_keys": [
+          "direct_answer",
+          "quick_judgment_table",
+          "easy_misread",
+          "real_scenario_differences",
+          "do_not_misjudge",
+          "next_reading"
+        ],
+        "indexability_held_before_import": true,
+        "production_import_authorized": false,
+        "operator_review_required": true
+      },
+      {
+        "authorization_record_id": "mbti-cms-23:comparison:infj-vs-infp",
+        "source_dry_run_record_id": "mbti-cms-22:comparison:infj-vs-infp",
+        "target_path": "/zh/personality/infj-vs-infp",
+        "target_url": "https://fermatmind.com/zh/personality/infj-vs-infp",
+        "kind": "comparison",
+        "locale": "zh-CN",
+        "slug": "infj-vs-infp",
+        "code": "infj-vs-infp",
+        "cms_resource": "personality_comparison",
+        "cms_key": {
+          "locale": "zh-CN",
+          "framework": "mbti",
+          "comparison_slug": "infj-vs-infp",
+          "left_code": "INFJ",
+          "right_code": "INFP"
+        },
+        "import_action": "upsert_comparison_content_draft",
+        "exact_payload_sha256": "57f8afdc5ebd8f25645c66e2073e4414fcb34d03957dad4f0069473ff8e63b31",
+        "required_schema_status": "pass",
+        "faq_count": 5,
+        "section_keys": [
+          "direct_answer",
+          "quick_judgment_table",
+          "easy_misread",
+          "real_scenario_differences",
+          "do_not_misjudge",
+          "next_reading"
+        ],
+        "indexability_held_before_import": true,
+        "production_import_authorized": false,
+        "operator_review_required": true
+      },
+      {
+        "authorization_record_id": "mbti-cms-23:comparison:istj-vs-isfj",
+        "source_dry_run_record_id": "mbti-cms-22:comparison:istj-vs-isfj",
+        "target_path": "/zh/personality/istj-vs-isfj",
+        "target_url": "https://fermatmind.com/zh/personality/istj-vs-isfj",
+        "kind": "comparison",
+        "locale": "zh-CN",
+        "slug": "istj-vs-isfj",
+        "code": "istj-vs-isfj",
+        "cms_resource": "personality_comparison",
+        "cms_key": {
+          "locale": "zh-CN",
+          "framework": "mbti",
+          "comparison_slug": "istj-vs-isfj",
+          "left_code": "ISTJ",
+          "right_code": "ISFJ"
+        },
+        "import_action": "upsert_comparison_content_draft",
+        "exact_payload_sha256": "fc5a8a87cdff0b65c2e13f676dd3ea79cdf98871dbf851ce207a8c15290d3b6f",
+        "required_schema_status": "pass",
+        "faq_count": 5,
+        "section_keys": [
+          "direct_answer",
+          "quick_judgment_table",
+          "easy_misread",
+          "real_scenario_differences",
+          "do_not_misjudge",
+          "next_reading"
+        ],
+        "indexability_held_before_import": true,
+        "production_import_authorized": false,
+        "operator_review_required": true
+      }
+    ]
+  },
+  "operator_authorization_required": {
+    "required": true,
+    "accepted_decision_values": [
+      "authorized_for_production_import",
+      "needs_revision",
+      "hold"
+    ],
+    "required_fields": [
+      "decision",
+      "source_merge_commit",
+      "source_package_sha256",
+      "authorization_payload_sha256",
+      "import_scope_mode",
+      "record_count"
+    ],
+    "exact_values": {
+      "source_merge_commit": "a3c10a2d2120e9ad0543656c699ac8749c123368",
+      "source_package_sha256": "75244fa4af3c234851519eba5a426daf8766c13e7c4b2bc9e94d5a5855ce6ccb",
+      "authorization_payload_sha256": "be0d1bb584c15f383322c9e5aff560709c46ea1e34d135cb9ced6d1e4601fe15",
+      "import_scope_mode": "top_blocker_batch_only",
+      "record_count": 9
+    },
+    "production_import_command_allowed_after_authorization": false,
+    "note": "This PR generates the authorization package only. A later operator-approved task must name these exact values before any CMS write/import."
+  },
+  "safety_boundary": {
+    "artifact_only": true,
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "db_migration_attempted": false,
+    "fap_api_change_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_submission_attempted": false,
+    "deploy_attempted": false
+  },
+  "blockers": []
+}
