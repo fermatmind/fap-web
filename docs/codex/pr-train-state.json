@@ -42214,7 +42214,7 @@
     "merge_commit_sha": "088013e9b4bc9bb7bcb56bf205eb415e3f557daf"
   },
   "MBTI-INDEX-18": {
-    "status": "local_checks_passed_after_second_github_contract_fix",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-index-18-sitemap-llms-indexability-gate",
     "depends_on": [
@@ -42222,7 +42222,7 @@
       "MBTI-CMS-17"
     ],
     "train_scope": "mbti_sitemap_llms_indexability_gate",
-    "commit_sha": "73d0a2f2422fb435be0cf2caf96efb6e7760630f",
+    "commit_sha": "88bf610daa630fbeff0386155c6e23d4fd3d768a",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1610",
     "checks": [
       {
@@ -42297,7 +42297,7 @@
     "failure_reason": null,
     "next_task": "MBTI-GSC-19",
     "started_at": "2026-07-05T07:52:44.152Z",
-    "updated_at": "2026-07-05T08:51:28Z",
+    "updated_at": "2026-07-05T08:58:49Z",
     "notes": "Artifact-only gate. No sitemap/llms/canonical/noindex/JSON-LD runtime mutation, no GSC submission, no CMS write/import, and no deploy.",
     "artifact_summary": {
       "final_decision": "PASS_INDEXABILITY_GATE_HELD_NO_URL_EXPANSION",
@@ -42331,7 +42331,35 @@
         "current_pr_scope": true,
         "resolution": "Added tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts to PR18 scope contract allowlist and narrowed the CMS17 guard to only enforce on CMS17 asset/script changes."
       }
-    ]
+    ],
+    "github_checks": [
+      {
+        "name": "verify-big5-contract-freeze",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28735375526/job/85208471477"
+      },
+      {
+        "name": "verify-enneagram-contract-freeze",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28735375526/job/85208471472"
+      },
+      {
+        "name": "build",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28735375526/job/85208471478"
+      },
+      {
+        "name": "contracts",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28735375526/job/85208471473"
+      },
+      {
+        "name": "CodeQL",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/runs/85208622047"
+      }
+    ],
+    "merge_ready_at": "2026-07-05T08:58:49Z"
   },
   "MBTI-GSC-19": {
     "status": "planned",
