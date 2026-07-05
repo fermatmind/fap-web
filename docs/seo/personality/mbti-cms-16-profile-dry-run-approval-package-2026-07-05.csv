@@ -1,0 +1,6 @@
+target_path,code,locale,dry_run_operation,approval_state,import_candidate,section_count,faq_count,internal_link_count,validation_status
+/zh/personality/istj-a,ISTJ-A,zh-CN,upsert_profile_content_draft,pending_operator_review,true,8,9,5,pass
+/zh/personality/istp-a,ISTP-A,zh-CN,upsert_profile_content_draft,pending_operator_review,true,8,9,5,pass
+/zh/personality/isfp-a,ISFP-A,zh-CN,upsert_profile_content_draft,pending_operator_review,true,8,9,5,pass
+/zh/personality/esfj-a,ESFJ-A,zh-CN,upsert_profile_content_draft,pending_operator_review,true,8,9,5,pass
+/zh/personality/intp-a,INTP-A,zh-CN,verify_existing_profile_projection_only,verify_only_not_import_candidate,false,0,0,5,pass

@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T03:56:00Z",
+  "updated_at": "2026-07-05T06:12:22.626Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -2959,7 +2959,7 @@
       "base": "main",
       "depends_on": [],
       "status": "merged",
-      "title": "PR-HOME-01\uff5cHomepage Recommended Articles CMS Cover Display",
+      "title": "PR-HOME-01｜Homepage Recommended Articles CMS Cover Display",
       "mode": "execute",
       "risk_level": "L1",
       "allowed_paths": [
@@ -4226,7 +4226,7 @@
         "PR-GRAPH-01:fap-api"
       ],
       "status": "merged",
-      "title": "PR-GRAPH-01\uff5cArticle Multi-Test Graph Edges",
+      "title": "PR-GRAPH-01｜Article Multi-Test Graph Edges",
       "mode": "execute",
       "risk_level": "L2",
       "allowed_paths": [
@@ -20255,7 +20255,7 @@
         },
         "guarded_phrase_scan": {
           "status": "pass",
-          "command": "rg \"\u6700\u9002\u5408\u804c\u4e1a|\u7cbe\u51c6\u5339\u914d|\u4fdd\u8bc1\u6210\u529f|\u771f\u5b9e IQ|\u6743\u5a01\u8ba4\u8bc1|\u786e\u8bca|\u6cbb\u7597\u5efa\u8bae|\u62db\u8058\u7b5b\u9009\u51c6\u786e\u9884\u6d4b\" docs/ux || true",
+          "command": "rg \"最适合职业|精准匹配|保证成功|真实 IQ|权威认证|确诊|治疗建议|招聘筛选准确预测\" docs/ux || true",
           "evidence": "No guarded phrases found in docs/ux."
         },
         "diff_check": {
@@ -20364,7 +20364,7 @@
         },
         "guarded_phrase_scan": {
           "status": "pass",
-          "command": "rg \"\u6700\u9002\u5408\u804c\u4e1a|\u7cbe\u51c6\u5339\u914d|\u4fdd\u8bc1\u6210\u529f|\u771f\u5b9e IQ|\u6743\u5a01\u8ba4\u8bc1|\u786e\u8bca|\u6cbb\u7597\u5efa\u8bae|\u62db\u8058\u7b5b\u9009\u51c6\u786e\u9884\u6d4b\" docs/ux/pr-ux-01-homepage-tests-hub-specialized-scan.md || true",
+          "command": "rg \"最适合职业|精准匹配|保证成功|真实 IQ|权威认证|确诊|治疗建议|招聘筛选准确预测\" docs/ux/pr-ux-01-homepage-tests-hub-specialized-scan.md || true",
           "evidence": "No exact guarded phrase matches in PR-UX-01 scan doc."
         },
         "github_contracts_initial_failure": {
@@ -28874,7 +28874,7 @@
         }
       ],
       "metadata": {
-        "title": "IQ-METHOD-01\uff5c\u5b9a\u4e49\u9875\uff1a\u4ec0\u4e48\u662f IQ \u98ce\u683c\u63a8\u7406\u6d4b\u8bd5\uff1f",
+        "title": "IQ-METHOD-01｜定义页：什么是 IQ 风格推理测试？",
         "slug": "what-is-iq-style-reasoning-test",
         "cms_resource_type": "Article",
         "canonical_url": "https://fermatmind.com/zh/articles/what-is-iq-style-reasoning-test",
@@ -28997,7 +28997,7 @@
         }
       ],
       "metadata": {
-        "title": "IQ-METHOD-02\uff5c\u8fb9\u754c\u9875\uff1a\u5728\u7ebf IQ \u98ce\u683c\u6d4b\u8bd5 vs \u4e13\u4e1a\u667a\u529b\u6d4b\u8bc4",
+        "title": "IQ-METHOD-02｜边界页：在线 IQ 风格测试 vs 专业智力测评",
         "slug": "online-iq-test-vs-professional-assessment",
         "cms_resource_type": "Article",
         "canonical_url": "https://fermatmind.com/zh/articles/online-iq-test-vs-professional-assessment",
@@ -29123,7 +29123,7 @@
         }
       ],
       "metadata": {
-        "title": "IQ-METHOD-03\uff5c\u7ed3\u679c\u9875\u652f\u6301\uff1a\u539f\u59cb\u5206\u3001\u6b63\u786e\u7387\u3001\u5b8c\u6210\u65f6\u95f4\u8bf4\u660e\u4ec0\u4e48\uff1f",
+        "title": "IQ-METHOD-03｜结果页支持：原始分、正确率、完成时间说明什么？",
         "slug": "iq-test-score-meaning-boundary",
         "cms_resource_type": "Article",
         "canonical_url": "https://fermatmind.com/zh/articles/iq-test-score-meaning-boundary",
@@ -29250,7 +29250,7 @@
         }
       ],
       "metadata": {
-        "title": "IQ-METHOD-04\uff5c\u9898\u578b\u9875\uff1a\u77e9\u9635\u63a8\u7406\u548c\u6a21\u5f0f\u8bc6\u522b\u9898\u5728\u6d4b\u4ec0\u4e48\uff1f",
+        "title": "IQ-METHOD-04｜题型页：矩阵推理和模式识别题在测什么？",
         "slug": "matrix-reasoning-pattern-recognition-guide",
         "cms_resource_type": "Article",
         "canonical_url": "https://fermatmind.com/zh/articles/matrix-reasoning-pattern-recognition-guide",
@@ -29376,7 +29376,7 @@
         }
       ],
       "metadata": {
-        "title": "IQ-METHOD-05\uff5c\u4fe1\u4efb\u9875\uff1a\u4e3a\u4ec0\u4e48 FermatMind IQ V1 \u662f\u975e\u8ba4\u8bc1\u6d4b\u8bd5\uff1f",
+        "title": "IQ-METHOD-05｜信任页：为什么 FermatMind IQ V1 是非认证测试？",
         "slug": "why-fermatmind-iq-v1-not-certification",
         "cms_resource_type": "Article",
         "canonical_url": "https://fermatmind.com/zh/articles/why-fermatmind-iq-v1-not-certification",
@@ -29529,7 +29529,7 @@
         }
       ],
       "metadata": {
-        "title": "IQ-METHOD-06\uff5c\u9690\u79c1\u4e0e\u5b89\u5168\u9875\uff1aIQ \u6d4b\u8bd5\u7684\u6570\u636e\u548c\u9690\u79c1\u8fb9\u754c\u662f\u4ec0\u4e48\uff1f",
+        "title": "IQ-METHOD-06｜隐私与安全页：IQ 测试的数据和隐私边界是什么？",
         "slug": "iq-test-privacy-data-boundary",
         "cms_resource_type": "Article",
         "canonical_url": "https://fermatmind.com/zh/articles/iq-test-privacy-data-boundary",
@@ -29663,7 +29663,7 @@
         }
       ],
       "metadata": {
-        "title": "IQ-METHOD-07\uff5c\u4e13\u5bb6\u5ba1\u9605\u9875\uff1aFermatMind \u5982\u4f55\u5ba1\u67e5 IQ \u98ce\u683c\u6d4b\u8bd5\u5185\u5bb9\uff1f",
+        "title": "IQ-METHOD-07｜专家审阅页：FermatMind 如何审查 IQ 风格测试内容？",
         "slug": "iq-expert-review-disclosure",
         "cms_resource_type": "Article",
         "canonical_url": "https://fermatmind.com/zh/articles/iq-expert-review-disclosure",
@@ -29693,7 +29693,7 @@
       "checks": {
         "authorization": {
           "status": "pass",
-          "evidence": "User explicitly authorized implementing the IQ 7 \u9875 CMS \u4e0a\u7ebf\u6267\u884c\u8ba1\u5212, including adding the missing dry-run manifest/state entry for IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01."
+          "evidence": "User explicitly authorized implementing the IQ 7 页 CMS 上线执行计划, including adding the missing dry-run manifest/state entry for IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01."
         },
         "dependency": {
           "status": "pass",
@@ -29761,7 +29761,7 @@
         {
           "at": "2026-07-05T03:39:47Z",
           "status": "planned",
-          "note": "Registered by user-approved IQ CMS\u4e0a\u7ebf execution plan after IQ-METHOD-01 through IQ-METHOD-07 content assets were merged."
+          "note": "Registered by user-approved IQ CMS上线 execution plan after IQ-METHOD-01 through IQ-METHOD-07 content assets were merged."
         },
         {
           "at": "2026-07-05T11:39:47+08:00",
@@ -29795,7 +29795,7 @@
         }
       ],
       "metadata": {
-        "title": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01\uff5c7 \u4e2a IQ \u65b9\u6cd5\u8bba\u9875\u9762 CMS dry-run \u5305",
+        "title": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01｜7 个 IQ 方法论页面 CMS dry-run 包",
         "package_dir": "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run",
         "content_authority": "CMS/backend authoritative; frontend fallback forbidden",
         "cms_resource_types": [
@@ -41763,7 +41763,7 @@
     "updated_at": "2026-07-05T12:00:00.000Z",
     "next_task": "MBTI-CONTENT-15"
   },
-  "current_pr": "MBTI-CONTENT-15",
+  "current_pr": "MBTI-CMS-16",
   "MBTI-CONTENT-15": {
     "repo": "fap-web",
     "base": "main",
@@ -41773,12 +41773,12 @@
     "depends_on": [
       "MBTI-QA-14"
     ],
-    "status": "ready_to_merge",
+    "status": "merged_reconciled",
     "commit_sha": "3650e88f7884afa4d831503811b96491a752a483",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1607",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-05T04:54:09Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "dependency_reconcile": {
@@ -41851,6 +41851,15 @@
           "verify-big5-contract-freeze": "passed",
           "verify-enneagram-contract-freeze": "passed"
         }
+      },
+      "post_merge_reconcile": {
+        "status": "passed",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1607",
+        "merge_commit": "57d1844c5bb471a635a9828af0d6df2e4a058e7f",
+        "origin_main_contains_merge_commit": true,
+        "remote_branch_deleted": true,
+        "local_cleanup_executed": true,
+        "notes": "Reconciled stale ready_to_merge ledger before MBTI-CMS-16; GitHub PR #1607 is merged and origin/main contains the merge commit."
       }
     },
     "scope_validation": {
@@ -41913,9 +41922,69 @@
         "at": "2026-07-05T12:47:00.000Z",
         "status": "ready_to_merge",
         "notes": "GitHub required checks passed for PR #1607 after rebase and scope-contract hardening; ready for squash merge under repository policy."
+      },
+      {
+        "at": "2026-07-05T13:10:00.000Z",
+        "status": "merged_reconciled",
+        "notes": "Verified merged PR #1607 and reconciled CONTENT-15 as completed dependency for MBTI-CMS-16."
       }
     ],
-    "updated_at": "2026-07-05T12:47:00.000Z",
-    "next_task": null
+    "updated_at": "2026-07-05T13:10:00.000Z",
+    "next_task": "MBTI-CMS-16"
+  },
+  "MBTI-CMS-16": {
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-cms-16-profile-dry-run-approval-package",
+    "title": "MBTI-CMS-16: profile content dry-run approval package",
+    "train_scope": "mbti_profile_content_dry_run_approval_package",
+    "depends_on": [
+      "MBTI-CONTENT-15"
+    ],
+    "status": "committed_pending_push",
+    "commit_sha": "03a820060e2d6535cc74cd4af827a7f86908df77",
+    "pr_url": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "checks": {
+      "dependency_reconcile": {
+        "status": "passed",
+        "dependency": "MBTI-CONTENT-15",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1607",
+        "merge_commit": "57d1844c5bb471a635a9828af0d6df2e4a058e7f",
+        "origin_main_contains_merge_commit": true
+      },
+      "generator": {
+        "command": "node scripts/seo/build-mbti-cms-16-profile-dry-run-approval-package.mjs",
+        "status": "passed",
+        "profile_record_count": 5,
+        "import_candidate_count": 4,
+        "verify_only_count": 1,
+        "final_decision": "PASS_PROFILE_DRY_RUN_APPROVAL_PACKAGE_READY"
+      }
+    },
+    "scope_validation": {
+      "status": "pending",
+      "changed_files": [],
+      "notes": null
+    },
+    "artifacts": [
+      "docs/seo/personality/mbti-cms-16-profile-dry-run-approval-package-2026-07-05.json",
+      "docs/seo/personality/mbti-cms-16-profile-dry-run-approval-package-2026-07-05.md",
+      "docs/seo/personality/mbti-cms-16-profile-dry-run-approval-package-2026-07-05.csv",
+      "scripts/seo/build-mbti-cms-16-profile-dry-run-approval-package.mjs",
+      "tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts"
+    ],
+    "events": [
+      {
+        "at": "2026-07-05T13:10:00.000Z",
+        "status": "in_progress",
+        "notes": "Started from origin/main after confirming MBTI-CONTENT-15 merged; generating profile dry-run approval package only, with no CMS write, production import, frontend fallback, sitemap/llms mutation, GSC submission, or deploy."
+      }
+    ],
+    "updated_at": "2026-07-05T06:12:22.626Z",
+    "next_task": "MBTI-CMS-17"
   }
 }
