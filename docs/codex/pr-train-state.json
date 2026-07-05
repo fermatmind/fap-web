@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T18:45:00Z",
+  "updated_at": "2026-07-05T18:55:00Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -42498,7 +42498,7 @@
     }
   },
   "MBTI-CMS-20": {
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-20-profile-approval-review",
     "depends_on": [
@@ -42506,7 +42506,7 @@
     ],
     "train_scope": "mbti_profile_content_approval_review",
     "title": "MBTI-CMS-20: profile content approval review",
-    "commit_sha": "0e55c021",
+    "commit_sha": "c263a2f6",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1613",
     "checks": [
       {
@@ -42562,7 +42562,7 @@
     "failure_reason": null,
     "next_task": "MBTI-CMS-21",
     "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-05T18:45:00Z",
+    "updated_at": "2026-07-05T18:55:00Z",
     "artifacts": [
       "docs/seo/personality/mbti-cms-20-profile-approval-review-2026-07-05.json",
       "docs/seo/personality/mbti-cms-20-profile-approval-review-2026-07-05.md",
@@ -42577,7 +42577,39 @@
       "needs_revision_count": 0
     },
     "artifact_decision": "PASS_PROFILE_APPROVAL_REVIEW_READY_FOR_FINAL_DRY_RUN",
-    "notes": "Profile approval review only. No CMS write, production import, sitemap/llms mutation, GSC submission, frontend runtime change, deploy, or staging wait attempted."
+    "notes": "Profile approval review only. No CMS write, production import, sitemap/llms mutation, GSC submission, frontend runtime change, deploy, or staging wait attempted.",
+    "github_checks": [
+      {
+        "name": "CodeQL",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/runs/85230219557"
+      },
+      {
+        "name": "analyze (javascript-typescript)",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28743386033/job/85230017191"
+      },
+      {
+        "name": "build",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28743386029/job/85230002352"
+      },
+      {
+        "name": "contracts",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28743386029/job/85230002357"
+      },
+      {
+        "name": "verify-big5-contract-freeze",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28743386029/job/85230002354"
+      },
+      {
+        "name": "verify-enneagram-contract-freeze",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28743386029/job/85230002364"
+      }
+    ]
   },
   "MBTI-CMS-21": {
     "status": "planned",
