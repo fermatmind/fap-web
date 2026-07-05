@@ -41763,7 +41763,7 @@
     "updated_at": "2026-07-05T12:00:00.000Z",
     "next_task": "MBTI-CONTENT-15"
   },
-  "current_pr": "MBTI-INDEX-18",
+  "current_pr": "MBTI-GSC-19",
   "MBTI-CONTENT-15": {
     "repo": "fap-web",
     "base": "main",
@@ -42214,7 +42214,7 @@
     "merge_commit_sha": "088013e9b4bc9bb7bcb56bf205eb415e3f557daf"
   },
   "MBTI-INDEX-18": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-index-18-sitemap-llms-indexability-gate",
     "depends_on": [
@@ -42291,13 +42291,13 @@
       "tests/contracts/mbti-index-18-sitemap-llms-indexability-gate.contract.test.ts",
       "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts"
     ],
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-05T09:04:27Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "next_task": "MBTI-GSC-19",
     "started_at": "2026-07-05T07:52:44.152Z",
-    "updated_at": "2026-07-05T08:58:49Z",
+    "updated_at": "2026-07-05T09:10:00Z",
     "notes": "Artifact-only gate. No sitemap/llms/canonical/noindex/JSON-LD runtime mutation, no GSC submission, no CMS write/import, and no deploy.",
     "artifact_summary": {
       "final_decision": "PASS_INDEXABILITY_GATE_HELD_NO_URL_EXPANSION",
@@ -42359,26 +42359,134 @@
         "url": "https://github.com/fermatmind/fap-web/runs/85208622047"
       }
     ],
-    "merge_ready_at": "2026-07-05T08:58:49Z"
+    "merge_ready_at": "2026-07-05T08:58:49Z",
+    "merge_commit_sha": "5e223d85587255bc253535669da5fafaf7aa84ee",
+    "post_merge_revalidated_at": "2026-07-05T09:10:00Z"
   },
   "MBTI-GSC-19": {
-    "status": "planned",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-gsc-19-submission-monitoring",
     "depends_on": [
       "MBTI-INDEX-18"
     ],
     "train_scope": "mbti_gsc_submission_monitoring",
-    "commit_sha": null,
-    "pr_url": null,
-    "checks": [],
+    "commit_sha": "9ba4ed5416133fae96042eea6d03140f311a5133",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1611",
+    "checks": [
+      {
+        "name": "node scripts/seo/build-mbti-gsc-19-submission-monitoring.mjs",
+        "status": "passed",
+        "ran_at": "2026-07-05T09:25:00Z"
+      },
+      {
+        "name": "corepack pnpm exec vitest run tests/contracts/mbti-gsc-19-submission-monitoring.contract.test.ts --reporter=dot",
+        "status": "passed",
+        "ran_at": "2026-07-05T09:25:00Z"
+      },
+      {
+        "name": "corepack pnpm test:contract",
+        "status": "passed",
+        "ran_at": "2026-07-05T09:25:00Z"
+      },
+      {
+        "name": "corepack pnpm typecheck",
+        "status": "passed",
+        "ran_at": "2026-07-05T09:25:00Z"
+      },
+      {
+        "name": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+        "status": "passed",
+        "ran_at": "2026-07-05T09:25:00Z"
+      },
+      {
+        "name": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+        "status": "passed",
+        "ran_at": "2026-07-05T09:25:00Z"
+      },
+      {
+        "name": "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+        "status": "passed",
+        "ran_at": "2026-07-05T09:25:00Z"
+      },
+      {
+        "name": "git diff --check",
+        "status": "passed",
+        "ran_at": "2026-07-05T09:25:00Z"
+      },
+      {
+        "name": "changed-file scope validation",
+        "status": "passed",
+        "ran_at": "2026-07-05T09:25:00Z",
+        "files": [
+          "docs/codex/pr-train-state.json",
+          "docs/seo/personality/mbti-gsc-19-submission-monitoring-2026-07-05.csv",
+          "docs/seo/personality/mbti-gsc-19-submission-monitoring-2026-07-05.json",
+          "docs/seo/personality/mbti-gsc-19-submission-monitoring-2026-07-05.md",
+          "scripts/seo/build-mbti-gsc-19-submission-monitoring.mjs",
+          "tests/contracts/mbti-gsc-19-submission-monitoring.contract.test.ts"
+        ]
+      }
+    ],
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "failure_reason": null,
     "next_task": null,
     "created_at": "2026-07-05T07:52:44.152Z",
-    "updated_at": "2026-07-05T07:52:44.152Z",
-    "notes": "Must stop before any live GSC mutation unless INDEX-18 allows URLs and explicit same-turn authorization is present."
+    "updated_at": "2026-07-05T09:50:00Z",
+    "notes": "Artifact-only GSC submission-readiness and 7/14/28 monitoring package. INDEX-18 held all URL expansion, so no live GSC mutation, sitemap submission, URL inspection, CMS write/import, runtime mutation, deploy, or staging wait was attempted.",
+    "started_at": "2026-07-05T09:10:00Z",
+    "artifacts": [
+      "docs/seo/personality/mbti-gsc-19-submission-monitoring-2026-07-05.json",
+      "docs/seo/personality/mbti-gsc-19-submission-monitoring-2026-07-05.md",
+      "docs/seo/personality/mbti-gsc-19-submission-monitoring-2026-07-05.csv",
+      "scripts/seo/build-mbti-gsc-19-submission-monitoring.mjs",
+      "tests/contracts/mbti-gsc-19-submission-monitoring.contract.test.ts"
+    ],
+    "artifact_summary": {
+      "monitored_url_count": 10,
+      "profile_url_count": 5,
+      "comparison_url_count": 5,
+      "confirmed_query_url_count": 1,
+      "pending_query_url_count": 9,
+      "gsc_submit_now_count": 0,
+      "sitemap_submission_now_count": 0,
+      "url_inspection_request_now_count": 0
+    },
+    "artifact_decision": "PASS_MBTI_GSC_19_MONITORING_READY_GSC_SUBMISSION_HELD",
+    "merge_ready_at": "2026-07-05T09:50:00Z",
+    "github_checks": [
+      {
+        "name": "verify-big5-contract-freeze",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28736380996/job/85211211207"
+      },
+      {
+        "name": "verify-enneagram-contract-freeze",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28736380996/job/85211211215"
+      },
+      {
+        "name": "build",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28736380996/job/85211211209"
+      },
+      {
+        "name": "contracts",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28736380996/job/85211211203"
+      },
+      {
+        "name": "analyze (javascript-typescript)",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/actions/runs/28736380986/job/85211221338"
+      },
+      {
+        "name": "CodeQL",
+        "status": "passed",
+        "url": "https://github.com/fermatmind/fap-web/runs/85211405470"
+      }
+    ]
   }
 }
