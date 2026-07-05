@@ -41774,7 +41774,7 @@
       "MBTI-QA-14"
     ],
     "status": "pr_open_checks_pending",
-    "commit_sha": "4d16f3feaabb7b3e29e9af55f5536cb44862ee1c",
+    "commit_sha": "42f2c904adbf31e9319f6bafbdb441468f29e140",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1607",
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -41796,23 +41796,24 @@
       },
       "focused_contract": {
         "command": "corepack pnpm exec vitest run tests/contracts/mbti-content-15-top-blocker-assets.contract.test.ts --reporter=dot",
-        "status": "passed",
+        "status": "passed_after_scope_contract_hardening",
         "tests": 7
       },
       "full_contract": {
         "command": "corepack pnpm test:contract",
-        "status": "passed",
-        "tests": 3872,
-        "files": 668
+        "status": "passed_after_scope_contract_hardening",
+        "tests": 3877,
+        "files": 669,
+        "notes": "Initial post-rebase full contract exposed that this PR scope test read uncommitted working-tree side effects from older generator contracts. The CONTENT-15 scope contract now validates committed branch diff against origin/main, while external changed-file scope validation still verifies a clean scoped worktree."
       },
       "typecheck": {
         "command": "corepack pnpm typecheck",
         "status": "passed"
       },
       "build": {
-        "command": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+        "command": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
         "status": "passed_with_required_public_site_url_env",
-        "notes": "Initial local build without NEXT_PUBLIC_SITE_URL failed at /robots.txt page data collection because current repo requires a production absolute site URL. Re-ran the same production API build with exported NEXT_PUBLIC_SITE_URL=https://fermatmind.com; build passed. This is an environment prerequisite, not a CONTENT-15 code issue."
+        "notes": "Local Next build passed with explicit public site URL and production API URL; no deploy was triggered."
       },
       "yaml": {
         "command": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
@@ -41841,7 +41842,8 @@
       },
       "github": {
         "status": "pending",
-        "pr_url": "https://github.com/fermatmind/fap-web/pull/1607"
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1607",
+        "notes": "Checks restarted after rebase and scope-contract hardening push."
       }
     },
     "scope_validation": {
@@ -41889,9 +41891,19 @@
         "at": "2026-07-05T12:16:00.000Z",
         "status": "pr_open_checks_pending",
         "notes": "Opened fap-web PR #1607 for MBTI-CONTENT-15 and pushed branch codex/mbti-content-15-top-blocker-assets."
+      },
+      {
+        "at": "2026-07-05T12:40:00.000Z",
+        "status": "scope_contract_hardened_after_rebase",
+        "notes": "Rebased PR branch on origin/main, resolved train ledger conflict, and hardened CONTENT-15 scope contract so full-suite generator side effects do not create false scope failures."
+      },
+      {
+        "at": "2026-07-05T12:41:00.000Z",
+        "status": "pr_updated_checks_pending",
+        "notes": "Force-pushed rebased branch and current PR updates; GitHub build, contracts, and CodeQL checks are pending."
       }
     ],
-    "updated_at": "2026-07-05T12:16:00.000Z",
+    "updated_at": "2026-07-05T12:41:00.000Z",
     "next_task": null
   }
 }
