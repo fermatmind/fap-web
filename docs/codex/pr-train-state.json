@@ -41989,14 +41989,14 @@
     "merge_commit_sha": "c517c2d1cd38b5cba2bcd22052ceb3907cf2542b"
   },
   "MBTI-CMS-17": {
-    "status": "pr_open_ci_scope_guard_fix_v2_local_passed",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-17-comparison-dry-run-approval-package",
     "depends_on": [
       "MBTI-CMS-16"
     ],
     "train_scope": "mbti_comparison_content_dry_run_approval_package",
-    "commit_sha": "4a4795856321e81a2f3543d08d6696f87313d670",
+    "commit_sha": "4b32b6439c450a92e3c2ad1955770c79f17826d7",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1609",
     "checks": [
       {
@@ -42171,12 +42171,12 @@
       "hot_cross_type_count": 4,
       "validation_failure_count": 0
     },
-    "failure_reason": "GitHub contracts failed because the first CMS16 scope-guard compatibility fix still validated the full future PR diff when the CMS16 contract file itself was intentionally touched by MBTI-CMS-17. V2 limits the CMS16 guard to CMS16 touched files and explicitly allowlists that compatibility contract in MBTI-CMS-17 scope.",
+    "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "next_task": "MBTI-INDEX-18",
-    "updated_at": "2026-07-05T07:24:40.423Z",
+    "updated_at": "2026-07-05T07:32:27.406Z",
     "ci_inspection": [
       {
         "github_run_id": "28732345461",
@@ -42198,6 +42198,18 @@
         "current_pr_scope": true,
         "resolution": "Tightened CMS16 compatibility guard to validate only CMS16 touched files and added the CMS16 contract file to the MBTI-CMS-17 scope allowlist."
       }
-    ]
+    ],
+    "github_checks": {
+      "status": "passed",
+      "checked_at": "2026-07-05T07:32:27.406Z",
+      "required_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "evidence": "gh pr checks 1609 reported build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL/analyze all passing."
+    }
   }
 }
