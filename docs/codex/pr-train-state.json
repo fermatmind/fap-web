@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T23:14:00+08:00",
+  "updated_at": "2026-07-05T15:22:55Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -42623,7 +42623,7 @@
     ]
   },
   "MBTI-CMS-21": {
-    "status": "local_checks_passed_after_ci_fix",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-21-comparison-approval-review",
     "depends_on": [
@@ -42631,7 +42631,7 @@
     ],
     "train_scope": "mbti_comparison_content_approval_review",
     "title": "MBTI-CMS-21: comparison content approval review",
-    "commit_sha": "5e6c754eaf04",
+    "commit_sha": "bd241966b23c7321e50b47ee26d689c24496eaba",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1614",
     "checks": [
       {
@@ -42670,7 +42670,7 @@
       },
       {
         "name": "changed-file scope validation",
-        "status": "pending_final",
+        "status": "passed",
         "files": [
           "docs/codex/pr-train-state.json",
           "docs/codex/pr-train.yaml",
@@ -42680,7 +42680,8 @@
           "scripts/seo/build-mbti-cms-21-comparison-approval-review.mjs",
           "tests/contracts/mbti-cms-20-profile-approval-review.contract.test.ts",
           "tests/contracts/mbti-cms-21-comparison-approval-review.contract.test.ts"
-        ]
+        ],
+        "checked_at": "2026-07-05T15:22:55Z"
       },
       {
         "name": "corepack pnpm exec vitest run tests/contracts/mbti-cms-20-profile-approval-review.contract.test.ts --reporter=dot",
@@ -42740,7 +42741,39 @@
       "failing_job": "contracts",
       "evidence": "GitHub PR #1614 contracts job failed in tests/contracts/mbti-cms-20-profile-approval-review.contract.test.ts scope guard because origin/main...HEAD on MBTI-CMS-21 includes CMS-21 files. The business tests passed; the stale historical scope guard was not future-PR aware.",
       "fix": "CMS-20 scope guard now enforces CMS-20 file scope only when docs/codex/pr-train-state.json current_pr is MBTI-CMS-20; CMS-21 manifest and scope guard allow this compatibility patch."
-    }
+    },
+    "github_checks": {
+      "status": "passed",
+      "checked_at": "2026-07-05T15:22:55Z",
+      "checks": [
+        {
+          "name": "build",
+          "status": "passed"
+        },
+        {
+          "name": "contracts",
+          "status": "passed"
+        },
+        {
+          "name": "verify-big5-contract-freeze",
+          "status": "passed"
+        },
+        {
+          "name": "verify-enneagram-contract-freeze",
+          "status": "passed"
+        },
+        {
+          "name": "CodeQL",
+          "status": "passed"
+        },
+        {
+          "name": "analyze (javascript-typescript)",
+          "status": "passed"
+        }
+      ],
+      "source": "gh pr checks 1614 --watch --interval 20"
+    },
+    "ready_to_merge_at": "2026-07-05T15:22:55Z"
   },
   "MBTI-CMS-22": {
     "status": "planned",
