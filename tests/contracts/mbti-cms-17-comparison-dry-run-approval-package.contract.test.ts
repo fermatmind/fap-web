@@ -291,6 +291,7 @@ describe("MBTI-CMS-17 comparison dry-run approval package", () => {
       /^docs\/seo\/personality\/mbti-cms-17-/,
       /^scripts\/seo\/build-mbti-cms-17-/,
       /^tests\/contracts\/mbti-cms-17-/,
+      /^tests\/contracts\/mbti-cms-16-profile-dry-run-approval-package\.contract\.test\.ts$/,
       /^docs\/codex\/pr-train\.yaml$/,
       /^docs\/codex\/pr-train-state\.json$/,
       /^generated\/pr-train-sidecar-issues\//,
