@@ -41989,7 +41989,7 @@
     "merge_commit_sha": "c517c2d1cd38b5cba2bcd22052ceb3907cf2542b"
   },
   "MBTI-CMS-17": {
-    "status": "pr_open_checks_pending",
+    "status": "pr_open_ci_scope_guard_fix_ready_to_push",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-17-comparison-dry-run-approval-package",
     "depends_on": [
@@ -42052,6 +42052,59 @@
           "scripts/seo/build-mbti-cms-17-comparison-dry-run-approval-package.mjs",
           "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts"
         ]
+      },
+      {
+        "name": "corepack pnpm exec vitest run tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts --reporter=dot",
+        "status": "passed",
+        "ran_at": "2026-07-05T07:02:49Z",
+        "details": "17 tests passed after CMS16 scope guard compatibility fix."
+      },
+      {
+        "name": "corepack pnpm test:contract",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:02:49Z",
+        "details": "Full contract shard runner passed locally after reverting unrelated CMS04 generated artifact drift."
+      },
+      {
+        "name": "changed-file scope validation",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:02:49Z",
+        "files": [
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.csv",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.json",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.md",
+          "scripts/seo/build-mbti-cms-17-comparison-dry-run-approval-package.mjs",
+          "tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts",
+          "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts"
+        ],
+        "details": "Changed files remain within MBTI-CMS-17 artifacts/train metadata plus explicit CMS16 contract compatibility guard needed for current required check."
+      },
+      {
+        "name": "corepack pnpm typecheck",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:06:16Z"
+      },
+      {
+        "name": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:06:16Z"
+      },
+      {
+        "name": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml')\"",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:06:16Z"
+      },
+      {
+        "name": "python3 -m json.tool docs/codex/pr-train-state.json",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:06:16Z"
+      },
+      {
+        "name": "git diff --check",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:06:16Z"
       }
     ],
     "artifacts": [
@@ -42065,11 +42118,19 @@
       "hot_cross_type_count": 4,
       "validation_failure_count": 0
     },
-    "failure_reason": null,
+    "failure_reason": "GitHub contracts initially failed on stale CMS16 scope guard; fixed with a narrow compatibility check and reran focused contracts, full contracts, typecheck, build, YAML/JSON parse, diff check, and changed-file scope validation locally.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "next_task": "MBTI-INDEX-18",
-    "updated_at": "2026-07-05T06:44:01.592Z"
+    "updated_at": "2026-07-05T07:06:16Z",
+    "ci_inspection": {
+      "github_run_id": "28732345461",
+      "github_job_id": "85200217204",
+      "failed_check": "contracts",
+      "failed_test": "tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts > keeps the PR scoped to CMS-16 artifacts, contract, and train ledger",
+      "evidence": "Remote log showed shard 3 failed with AssertionError at line 278; local focused CMS16+CMS17 contracts and full test:contract pass after the compatibility guard fix.",
+      "why_included_in_pr17_scope": "The stale CMS16 scope guard blocked PR17 required GitHub contracts even though PR17 local artifacts were valid; the fix is contract-only and does not change CMS assets, frontend runtime, sitemap/llms, GSC, or production writes."
+    }
   }
 }
