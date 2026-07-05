@@ -42864,7 +42864,7 @@
     ],
     "train_scope": "mbti_production_import_authorization_package",
     "title": "MBTI-CMS-23: production import authorization package",
-    "commit_sha": "35279661ba43655e9594da65426e06113d29dbea",
+    "commit_sha": "660f49a6e0b0827d865c8c67de5dcde9dae56f92",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1618",
     "checks": {
       "build_script": "passed: node scripts/seo/build-mbti-cms-23-production-import-authorization-package.mjs",
@@ -42876,7 +42876,9 @@
       "yaml": "passed: ruby YAML.load_file docs/codex/pr-train.yaml",
       "json": "passed: python3 -m json.tool docs/codex/pr-train-state.json",
       "diff_check": "passed: git diff --check",
-      "scope": "passed: changed files limited to MBTI-CMS-23 manifest scope plus CMS-22 future-PR contract compatibility guard"
+      "scope": "passed: changed files limited to MBTI-CMS-23 manifest scope plus CMS-22 future-PR contract compatibility guard",
+      "github_contracts_initial": "failed: CI checkout returned an empty git diff for the CMS-23 scope assertion; fixed within CMS-23 contract scope by treating empty CI diffs as non-drifting and retaining allowlist validation",
+      "github_contracts_fix_local": "passed: corepack pnpm exec vitest run tests/contracts/mbti-cms-23-production-import-authorization-package.contract.test.ts --reporter=dot; passed: corepack pnpm test:contract"
     },
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -42884,7 +42886,7 @@
     "failure_reason": null,
     "next_task": "MBTI-INDEX-24",
     "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-05T16:49:00Z",
+    "updated_at": "2026-07-05T17:08:30Z",
     "artifact_summary": {
       "decision": "READY_FOR_OPERATOR_AUTHORIZATION_NO_PRODUCTION_IMPORT_EXECUTED",
       "authorization_record_count": 9,
