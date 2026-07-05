@@ -42364,15 +42364,15 @@
     "post_merge_revalidated_at": "2026-07-05T09:10:00Z"
   },
   "MBTI-GSC-19": {
-    "status": "committed",
+    "status": "pr_open",
     "repo": "fap-web",
     "branch": "codex/mbti-gsc-19-submission-monitoring",
     "depends_on": [
       "MBTI-INDEX-18"
     ],
     "train_scope": "mbti_gsc_submission_monitoring",
-    "commit_sha": "b6a52c8e553b150b7aa2cf3881caea3548123cb9",
-    "pr_url": null,
+    "commit_sha": "9ba4ed5416133fae96042eea6d03140f311a5133",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1611",
     "checks": [
       {
         "name": "node scripts/seo/build-mbti-gsc-19-submission-monitoring.mjs",
@@ -42434,7 +42434,7 @@
     "failure_reason": null,
     "next_task": null,
     "created_at": "2026-07-05T07:52:44.152Z",
-    "updated_at": "2026-07-05T09:35:00Z",
+    "updated_at": "2026-07-05T09:40:00Z",
     "notes": "Artifact-only GSC submission-readiness and 7/14/28 monitoring package. INDEX-18 held all URL expansion, so no live GSC mutation, sitemap submission, URL inspection, CMS write/import, runtime mutation, deploy, or staging wait was attempted.",
     "started_at": "2026-07-05T09:10:00Z",
     "artifacts": [
