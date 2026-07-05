@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T06:14:46.266Z",
+  "updated_at": "2026-07-05T06:44:01.592Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -41763,7 +41763,7 @@
     "updated_at": "2026-07-05T12:00:00.000Z",
     "next_task": "MBTI-CONTENT-15"
   },
-  "current_pr": "MBTI-CMS-16",
+  "current_pr": "MBTI-CMS-17",
   "MBTI-CONTENT-15": {
     "repo": "fap-web",
     "base": "main",
@@ -41941,12 +41941,12 @@
     "depends_on": [
       "MBTI-CONTENT-15"
     ],
-    "status": "pr_open_checks_pending",
+    "status": "merged_reconciled",
     "commit_sha": "fdf6096e82846447968d59f247827492555c9d81",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1608",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-05T06:21:39Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "checks": {
       "dependency_reconcile": {
@@ -41984,7 +41984,232 @@
         "notes": "Started from origin/main after confirming MBTI-CONTENT-15 merged; generating profile dry-run approval package only, with no CMS write, production import, frontend fallback, sitemap/llms mutation, GSC submission, or deploy."
       }
     ],
-    "updated_at": "2026-07-05T06:14:46.266Z",
-    "next_task": "MBTI-CMS-17"
+    "updated_at": "2026-07-05T06:35:45.957Z",
+    "next_task": "MBTI-CMS-17",
+    "merge_commit_sha": "c517c2d1cd38b5cba2bcd22052ceb3907cf2542b"
+  },
+  "MBTI-CMS-17": {
+    "status": "ready_to_merge",
+    "repo": "fap-web",
+    "branch": "codex/mbti-cms-17-comparison-dry-run-approval-package",
+    "depends_on": [
+      "MBTI-CMS-16"
+    ],
+    "train_scope": "mbti_comparison_content_dry_run_approval_package",
+    "commit_sha": "4b32b6439c450a92e3c2ad1955770c79f17826d7",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1609",
+    "checks": [
+      {
+        "name": "node scripts/seo/build-mbti-cms-17-comparison-dry-run-approval-package.mjs",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "corepack pnpm exec vitest run tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts --reporter=dot",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "corepack pnpm test:contract",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "corepack pnpm typecheck",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml')\"",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "python3 -m json.tool docs/codex/pr-train-state.json",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "git diff --check",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z"
+      },
+      {
+        "name": "changed-file scope validation",
+        "status": "passed",
+        "ran_at": "2026-07-05T06:41:12.333Z",
+        "files": [
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.csv",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.json",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.md",
+          "scripts/seo/build-mbti-cms-17-comparison-dry-run-approval-package.mjs",
+          "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts"
+        ]
+      },
+      {
+        "name": "corepack pnpm exec vitest run tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts --reporter=dot",
+        "status": "passed",
+        "ran_at": "2026-07-05T07:02:49Z",
+        "details": "17 tests passed after CMS16 scope guard compatibility fix."
+      },
+      {
+        "name": "corepack pnpm test:contract",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:02:49Z",
+        "details": "Full contract shard runner passed locally after reverting unrelated CMS04 generated artifact drift."
+      },
+      {
+        "name": "changed-file scope validation",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:02:49Z",
+        "files": [
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.csv",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.json",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.md",
+          "scripts/seo/build-mbti-cms-17-comparison-dry-run-approval-package.mjs",
+          "tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts",
+          "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts"
+        ],
+        "details": "Changed files remain within MBTI-CMS-17 artifacts/train metadata plus explicit CMS16 contract compatibility guard needed for current required check."
+      },
+      {
+        "name": "corepack pnpm typecheck",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:06:16Z"
+      },
+      {
+        "name": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:06:16Z"
+      },
+      {
+        "name": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml')\"",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:06:16Z"
+      },
+      {
+        "name": "python3 -m json.tool docs/codex/pr-train-state.json",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:06:16Z"
+      },
+      {
+        "name": "git diff --check",
+        "status": "passed_after_ci_scope_guard_fix",
+        "ran_at": "2026-07-05T07:06:16Z"
+      },
+      {
+        "name": "corepack pnpm exec vitest run tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts --reporter=dot",
+        "status": "passed_after_ci_scope_guard_fix_v2",
+        "ran_at": "2026-07-05T07:24:40.423Z",
+        "details": "Focused CMS16/CMS17 contracts passed: 17 tests."
+      },
+      {
+        "name": "corepack pnpm test:contract",
+        "status": "passed_after_ci_scope_guard_fix_v2",
+        "ran_at": "2026-07-05T07:24:40.423Z",
+        "details": "Full contract shard runner passed locally after reverting unrelated CMS04 generated artifact drift; all shards completed without failures."
+      },
+      {
+        "name": "corepack pnpm typecheck",
+        "status": "passed_after_ci_scope_guard_fix_v2",
+        "ran_at": "2026-07-05T07:24:40.423Z"
+      },
+      {
+        "name": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+        "status": "passed_after_ci_scope_guard_fix_v2",
+        "ran_at": "2026-07-05T07:24:40.423Z"
+      },
+      {
+        "name": "git diff --check",
+        "status": "passed_after_ci_scope_guard_fix_v2",
+        "ran_at": "2026-07-05T07:24:40.423Z"
+      },
+      {
+        "name": "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml')\"",
+        "status": "passed_after_ci_scope_guard_fix_v2",
+        "ran_at": "2026-07-05T07:24:40.423Z"
+      },
+      {
+        "name": "python3 -m json.tool docs/codex/pr-train-state.json",
+        "status": "passed_after_ci_scope_guard_fix_v2",
+        "ran_at": "2026-07-05T07:24:40.423Z"
+      },
+      {
+        "name": "changed-file scope validation",
+        "status": "passed_after_ci_scope_guard_fix_v2",
+        "ran_at": "2026-07-05T07:24:40.423Z",
+        "details": "Changed files remain in MBTI-CMS-17 declared scope plus explicit CMS16 compatibility contract needed to unblock required contracts.",
+        "files": [
+          "docs/codex/pr-train-state.json",
+          "docs/codex/pr-train.yaml",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.csv",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.json",
+          "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.md",
+          "scripts/seo/build-mbti-cms-17-comparison-dry-run-approval-package.mjs",
+          "tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts",
+          "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts"
+        ]
+      }
+    ],
+    "artifacts": [
+      "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.json",
+      "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.md",
+      "docs/seo/personality/mbti-cms-17-comparison-dry-run-approval-package-2026-07-05.csv"
+    ],
+    "summary": {
+      "comparison_record_count": 5,
+      "at_comparison_count": 1,
+      "hot_cross_type_count": 4,
+      "validation_failure_count": 0
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "next_task": "MBTI-INDEX-18",
+    "updated_at": "2026-07-05T07:32:27.406Z",
+    "ci_inspection": [
+      {
+        "github_run_id": "28732345461",
+        "github_job_id": "85200217204",
+        "failed_check": "contracts",
+        "failed_test": "tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts > keeps the PR scoped to CMS-16 artifacts, contract, and train ledger",
+        "evidence": "Remote log showed shard 3 failed with AssertionError at line 278; local focused CMS16+CMS17 contracts and full test:contract pass after the compatibility guard fix.",
+        "why_included_in_pr17_scope": "The stale CMS16 scope guard blocked PR17 required GitHub contracts even though PR17 local artifacts were valid; the fix is contract-only and does not change CMS assets, frontend runtime, sitemap/llms, GSC, or production writes."
+      },
+      {
+        "at": "2026-07-05T07:24:40.423Z",
+        "run_id": "28732870398",
+        "job_id": "85201660409",
+        "status": "failed_inspected",
+        "evidence": [
+          "tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts failed because full origin/main...HEAD diff contained MBTI-CMS-17 files while the CMS16 contract file was touched.",
+          "tests/contracts/mbti-cms-17-comparison-dry-run-approval-package.contract.test.ts failed because the scope allowlist did not include the explicit CMS16 compatibility contract file."
+        ],
+        "current_pr_scope": true,
+        "resolution": "Tightened CMS16 compatibility guard to validate only CMS16 touched files and added the CMS16 contract file to the MBTI-CMS-17 scope allowlist."
+      }
+    ],
+    "github_checks": {
+      "status": "passed",
+      "checked_at": "2026-07-05T07:32:27.406Z",
+      "required_checks": [
+        "build",
+        "contracts",
+        "verify-big5-contract-freeze",
+        "verify-enneagram-contract-freeze",
+        "CodeQL"
+      ],
+      "evidence": "gh pr checks 1609 reported build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL/analyze all passing."
+    }
   }
 }

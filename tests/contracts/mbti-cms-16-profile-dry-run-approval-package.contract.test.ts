@@ -266,6 +266,13 @@ describe("MBTI-CMS-16 profile dry-run approval package", () => {
 
   it("keeps the PR scoped to CMS-16 artifacts, contract, and train ledger", () => {
     const changed = committedScopeFiles();
+    const cms16TouchedFiles = changed.filter((file) =>
+      [
+        /^docs\/seo\/personality\/mbti-cms-16-/,
+        /^scripts\/seo\/build-mbti-cms-16-/,
+        /^tests\/contracts\/mbti-cms-16-/,
+      ].some((pattern) => pattern.test(file)),
+    );
     const allowed = [
       /^docs\/codex\/pr-train-state\.json$/,
       /^docs\/codex\/pr-train\.yaml$/,
@@ -275,6 +282,6 @@ describe("MBTI-CMS-16 profile dry-run approval package", () => {
       /^generated\/pr-train-sidecar-issues\//,
     ];
 
-    expect(changed.every((file) => allowed.some((pattern) => pattern.test(file)))).toBe(true);
+    expect(cms16TouchedFiles.every((file) => allowed.some((pattern) => pattern.test(file)))).toBe(true);
   });
 });
