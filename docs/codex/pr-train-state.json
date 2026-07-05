@@ -2,7 +2,7 @@
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
-  "updated_at": "2026-07-05T03:38:00+08:00",
+  "updated_at": "2026-07-05T03:49:10Z",
   "status": "active",
   "phase": "iq_method_content_asset_train",
   "pr_namespace": "PR-PRAC-*",
@@ -29549,12 +29549,12 @@
       "id": "IQ-METHOD-07",
       "repo": "fap-web",
       "branch": "codex/iq-method-07-expert-review-disclosure",
-      "status": "ready_to_merge",
-      "commit_sha": "6285c460a850a1225c03a764e2d4548b7fee2cb8",
+      "status": "merged",
+      "commit_sha": "3c89084642481d0f5f82a0c1e075be87ba53bf15",
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1603",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-07-04T19:44:11Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "failure_reason": null,
       "checks": {
         "authorization": {
@@ -29583,40 +29583,46 @@
         },
         "github": {
           "status": "pass",
-          "head_sha": "6285c460a850a1225c03a764e2d4548b7fee2cb8",
+          "head_sha": "3c89084642481d0f5f82a0c1e075be87ba53bf15",
           "pr_url": "https://github.com/fermatmind/fap-web/pull/1603",
+          "merge_commit": "26dea6216007282ee3b1b9b0b81de2303c86fde7",
+          "merged_at": "2026-07-04T19:44:11Z",
           "checks": [
             {
               "name": "build",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T19:35:07Z"
+              "completed_at": "2026-07-04T19:41:36Z"
             },
             {
               "name": "contracts",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T19:37:26Z"
+              "completed_at": "2026-07-04T19:43:16Z"
             },
             {
               "name": "verify-big5-contract-freeze",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T19:33:19Z"
+              "completed_at": "2026-07-04T19:39:06Z"
             },
             {
               "name": "verify-enneagram-contract-freeze",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T19:33:24Z"
+              "completed_at": "2026-07-04T19:39:10Z"
             },
             {
               "name": "analyze (javascript-typescript)",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T19:36:15Z"
+              "completed_at": "2026-07-04T19:41:46Z"
             },
             {
               "name": "CodeQL",
               "conclusion": "SUCCESS",
-              "completed_at": "2026-07-04T19:36:09Z"
+              "completed_at": "2026-07-04T19:41:39Z"
             }
           ]
+        },
+        "post_merge_reconciliation": {
+          "status": "pass",
+          "evidence": "GitHub PR #1603 is MERGED with merge commit 26dea6216007282ee3b1b9b0b81de2303c86fde7; origin/main contains the merge commit; remote branch is absent; no local task branch exists in this worktree."
         }
       },
       "history": [
@@ -29649,6 +29655,11 @@
           "at": "2026-07-05T03:38:00+08:00",
           "status": "ready_to_merge",
           "note": "GitHub checks passed on PR #1603, PR is mergeable, and PR diff scope validation passed."
+        },
+        {
+          "at": "2026-07-05T11:39:47+08:00",
+          "status": "merged_reconciled",
+          "note": "Reconciled stale ready_to_merge ledger state for PR #1603 before starting IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01; GitHub reports merged, origin/main contains merge commit 26dea6216007282ee3b1b9b0b81de2303c86fde7, and branch cleanup is complete."
         }
       ],
       "metadata": {
@@ -29666,7 +29677,102 @@
           "llms_eligible": false
         }
       },
-      "updated_at": "2026-07-05T03:38:00+08:00"
+      "updated_at": "2026-07-05T11:39:47+08:00"
+    },
+    {
+      "id": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01",
+      "repo": "fap-web",
+      "branch": "codex/iq-method-pages-cms-dry-run-01",
+      "status": "scope_validation_passed_ready_to_commit",
+      "commit_sha": null,
+      "pr_url": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "failure_reason": null,
+      "checks": {
+        "authorization": {
+          "status": "pass",
+          "evidence": "User explicitly authorized implementing the IQ 7 页 CMS 上线执行计划, including adding the missing dry-run manifest/state entry for IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01."
+        },
+        "dependency": {
+          "status": "pass",
+          "evidence": "IQ-METHOD-07 is merged in GitHub PR #1603 and origin/main contains merge commit 26dea6216007282ee3b1b9b0b81de2303c86fde7."
+        },
+        "scope": {
+          "status": "pass",
+          "evidence": "Path-limited staged files are limited to docs/codex metadata, generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json, generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/**, sidecar issues, currentPrScope, and the dry-run contract test. Focused scope contract passed after staging."
+        },
+        "local": {
+          "status": "pass_with_external_sidecar",
+          "commands": [
+            "corepack pnpm exec vitest run tests/contracts/iq-method-pages-cms-dry-run-01.contract.test.ts --reporter=dot",
+            "corepack pnpm lint",
+            "corepack pnpm lint:spacing",
+            "corepack pnpm typecheck",
+            "corepack pnpm test:contract",
+            "NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build",
+            "ruby -e \"require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'\"",
+            "python3 -m json.tool docs/codex/pr-train-state.json >/dev/null",
+            "git diff --check"
+          ],
+          "evidence": "Focused dry-run contract passed; eslint passed with warnings only; typecheck passed; full contract suite passed on rerun after fixing the current dry-run scope test; production API build passed; JSON/YAML parse passed; git diff --check passed. corepack pnpm lint:spacing failed on unrelated pre-existing UI spacing-token debt and was recorded in sidecar external-global-spacing-token-debt-iq-method-pages-cms-dry-run-01.",
+          "external_sidecar_issue_id": "external-global-spacing-token-debt-iq-method-pages-cms-dry-run-01"
+        },
+        "github": {
+          "status": "pending",
+          "pr_url": null,
+          "checks": []
+        }
+      },
+      "history": [
+        {
+          "at": "2026-07-05T03:39:47Z",
+          "status": "planned",
+          "note": "Registered by user-approved IQ CMS上线 execution plan after IQ-METHOD-01 through IQ-METHOD-07 content assets were merged."
+        },
+        {
+          "at": "2026-07-05T11:39:47+08:00",
+          "status": "in_progress",
+          "note": "Started CMS dry-run package PR from origin/main; scope is limited to dry-run import manifest, article/topic/page_blocks mapping, SEO/GEO gate, claim audit summary, readback checklist, contract coverage, and docs/codex metadata. CMS writes, production import, publish, sitemap/llms activation, backend importer implementation, media uploads, article body rewrites, and frontend runtime content are out of scope."
+        },
+        {
+          "at": "2026-07-05T11:48:05+08:00",
+          "status": "local_checks_passed_with_external_spacing_sidecar",
+          "note": "Focused dry-run contract, eslint, typecheck, full contract suite, production API build, JSON/YAML parse, and diff check passed. lint:spacing failed on unrelated pre-existing UI spacing debt; recorded sidecar issue external-global-spacing-token-debt-iq-method-pages-cms-dry-run-01 and continued under user-approved external-blocker policy."
+        },
+        {
+          "at": "2026-07-05T11:49:10+08:00",
+          "status": "scope_validation_passed_ready_to_commit",
+          "note": "Path-limited staging and focused changed-file scope validation passed for the dry-run package scope."
+        }
+      ],
+      "metadata": {
+        "title": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01｜7 个 IQ 方法论页面 CMS dry-run 包",
+        "package_dir": "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run",
+        "content_authority": "CMS/backend authoritative; frontend fallback forbidden",
+        "cms_resource_types": [
+          "Article",
+          "Topic",
+          "landing_surfaces/page_blocks"
+        ],
+        "publish_state": {
+          "status": "draft_review_only",
+          "is_public": false,
+          "is_indexable": false,
+          "robots": "noindex,follow",
+          "sitemap_eligible": false,
+          "llms_eligible": false
+        },
+        "out_of_scope": [
+          "CMS writes",
+          "production import",
+          "publish state changes",
+          "sitemap/llms activation",
+          "frontend runtime content"
+        ]
+      },
+      "updated_at": "2026-07-05T11:49:10+08:00"
     }
   ],
   "sidecar_issues": [
@@ -41594,5 +41700,5 @@
     "updated_at": "2026-07-04T23:39:25.711Z",
     "next_task": null
   },
-  "current_pr": "MBTI-QA-14"
+  "current_pr": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01"
 }

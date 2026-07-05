@@ -1,0 +1,141 @@
+{
+  "schema_version": "fermatmind.iq_method_pages.claim_audit_summary.v1",
+  "pr_id": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01",
+  "status": "automated_text_scan_passed_human_review_required",
+  "pages": [
+    {
+      "slug": "what-is-iq-style-reasoning-test",
+      "status": "draft_review_only",
+      "page_status": "draft_review_only_passed_text_scan",
+      "forbidden_terms_found": [],
+      "human_review_required": true,
+      "allowed_terms_used": [
+        "IQ 风格推理测试",
+        "原始分",
+        "图形推理",
+        "完成时间",
+        "正确率",
+        "用于理解本次推理任务表现",
+        "矩阵推理",
+        "非临床",
+        "非官方",
+        "非认证"
+      ]
+    },
+    {
+      "slug": "online-iq-test-vs-professional-assessment",
+      "status": "draft_review_only",
+      "page_status": "draft_review_only_passed_text_scan",
+      "forbidden_terms_found": [],
+      "human_review_required": true,
+      "allowed_terms_used": [
+        "IQ 风格推理测试",
+        "原始分",
+        "图形推理",
+        "完成时间",
+        "模式识别",
+        "正确率",
+        "矩阵推理",
+        "非临床",
+        "非官方",
+        "非认证"
+      ]
+    },
+    {
+      "slug": "iq-test-score-meaning-boundary",
+      "status": "draft_review_only",
+      "page_status": "draft_review_only_passed_text_scan",
+      "forbidden_terms_found": [],
+      "human_review_required": true,
+      "allowed_terms_used": [
+        "IQ 风格推理测试",
+        "原始分",
+        "完成时间",
+        "模式识别",
+        "正确率",
+        "矩阵推理",
+        "非临床",
+        "非官方",
+        "非认证"
+      ]
+    },
+    {
+      "slug": "matrix-reasoning-pattern-recognition-guide",
+      "status": "draft_review_only",
+      "page_status": "draft_review_only_passed_text_scan",
+      "forbidden_terms_found": [],
+      "human_review_required": true,
+      "allowed_terms_used": [
+        "IQ 风格推理测试",
+        "原始分",
+        "图形推理",
+        "完成时间",
+        "模式识别",
+        "正确率",
+        "矩阵推理",
+        "非临床",
+        "非官方",
+        "非认证"
+      ]
+    },
+    {
+      "slug": "why-fermatmind-iq-v1-not-certification",
+      "status": "draft_review_only",
+      "page_status": "draft_review_only_passed_text_scan",
+      "forbidden_terms_found": [],
+      "human_review_required": true,
+      "allowed_terms_used": [
+        "IQ 风格推理测试",
+        "原始分",
+        "图形推理",
+        "完成时间",
+        "模式识别",
+        "正确率",
+        "非临床",
+        "非官方",
+        "非认证"
+      ]
+    },
+    {
+      "slug": "iq-test-privacy-data-boundary",
+      "status": "draft_review_only",
+      "page_status": "draft_review_only_passed_text_scan",
+      "forbidden_terms_found": [],
+      "human_review_required": true,
+      "allowed_terms_used": [
+        "IQ 风格推理测试",
+        "原始分",
+        "完成时间",
+        "正确率",
+        "非临床",
+        "非官方",
+        "非认证"
+      ]
+    },
+    {
+      "slug": "iq-expert-review-disclosure",
+      "status": "draft_review_only",
+      "page_status": "draft_review_only_passed_text_scan",
+      "forbidden_terms_found": [],
+      "human_review_required": true,
+      "allowed_terms_used": [
+        "IQ 风格推理测试",
+        "原始分",
+        "完成时间",
+        "正确率",
+        "非临床",
+        "非官方",
+        "非认证"
+      ]
+    }
+  ],
+  "global_forbidden_public_claims": [
+    "official IQ or certified IQ proof",
+    "clinical diagnosis or medical/education/hiring decision use",
+    "population percentile or IQ score promise unless backend authority explicitly enables it later",
+    "certificate or PDF certificate product claim",
+    "third-party affiliation or endorsement claim",
+    "answer keys, correct answers, item rules, scoring formulas, private result/order/payment/recovery links"
+  ],
+  "gate_result": "pass_with_human_review_required"
+}

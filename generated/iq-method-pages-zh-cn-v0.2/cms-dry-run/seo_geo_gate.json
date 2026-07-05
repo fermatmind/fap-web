@@ -1,0 +1,91 @@
+{
+  "schema_version": "fermatmind.iq_method_pages.seo_geo_gate.v1",
+  "pr_id": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01",
+  "status": "hold_noindex_until_human_and_cms_readback_pass",
+  "default_gate": {
+    "status": "draft_review_only",
+    "is_public": false,
+    "is_indexable": false,
+    "robots": "noindex,follow",
+    "sitemap_eligible": false,
+    "llms_eligible": false
+  },
+  "structured_data_policy": {
+    "allowed_candidates_after_publish": [
+      "Article",
+      "BreadcrumbList",
+      "FAQPage"
+    ],
+    "forbidden_types": [
+      "Certificate",
+      "Course",
+      "MedicalWebPage",
+      "Product",
+      "SoftwareApplication"
+    ],
+    "faqpage_condition": "Only if FAQ text is visible in rendered article body and CMS readback confirms parity."
+  },
+  "sitemap_llms_policy": {
+    "current_pr_activation_allowed": false,
+    "activation_pr_required": "IQ-METHOD-PAGES-ZH-CN-SEO-GEO-ACTIVATE-01",
+    "before_activation_requirements": [
+      "CMS Article status is public in backend readback",
+      "is_indexable is true in backend readback",
+      "robots is index,follow or approved equivalent",
+      "canonical URLs are stable and public",
+      "private URL and scoring-secret guard passes",
+      "method review and claim review approvals are recorded"
+    ]
+  },
+  "pages": [
+    {
+      "slug": "what-is-iq-style-reasoning-test",
+      "canonical_url": "https://fermatmind.com/zh/articles/what-is-iq-style-reasoning-test",
+      "robots": "noindex,follow",
+      "sitemap_eligible": false,
+      "llms_eligible": false
+    },
+    {
+      "slug": "online-iq-test-vs-professional-assessment",
+      "canonical_url": "https://fermatmind.com/zh/articles/online-iq-test-vs-professional-assessment",
+      "robots": "noindex,follow",
+      "sitemap_eligible": false,
+      "llms_eligible": false
+    },
+    {
+      "slug": "iq-test-score-meaning-boundary",
+      "canonical_url": "https://fermatmind.com/zh/articles/iq-test-score-meaning-boundary",
+      "robots": "noindex,follow",
+      "sitemap_eligible": false,
+      "llms_eligible": false
+    },
+    {
+      "slug": "matrix-reasoning-pattern-recognition-guide",
+      "canonical_url": "https://fermatmind.com/zh/articles/matrix-reasoning-pattern-recognition-guide",
+      "robots": "noindex,follow",
+      "sitemap_eligible": false,
+      "llms_eligible": false
+    },
+    {
+      "slug": "why-fermatmind-iq-v1-not-certification",
+      "canonical_url": "https://fermatmind.com/zh/articles/why-fermatmind-iq-v1-not-certification",
+      "robots": "noindex,follow",
+      "sitemap_eligible": false,
+      "llms_eligible": false
+    },
+    {
+      "slug": "iq-test-privacy-data-boundary",
+      "canonical_url": "https://fermatmind.com/zh/articles/iq-test-privacy-data-boundary",
+      "robots": "noindex,follow",
+      "sitemap_eligible": false,
+      "llms_eligible": false
+    },
+    {
+      "slug": "iq-expert-review-disclosure",
+      "canonical_url": "https://fermatmind.com/zh/articles/iq-expert-review-disclosure",
+      "robots": "noindex,follow",
+      "sitemap_eligible": false,
+      "llms_eligible": false
+    }
+  ]
+}

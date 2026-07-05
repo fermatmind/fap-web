@@ -6417,3 +6417,30 @@ export function isIqMethod07AllowedFile(file: string): boolean {
 
   return IQ_METHOD_07_ALLOWED_FILES.has(file);
 }
+
+const IQ_METHOD_PAGES_CMS_DRY_RUN_01_ALLOWED_FILES = new Set([
+  "generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json",
+  "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/README.md",
+  "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/cms_import_manifest.json",
+  "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/topic_iq_articles_mapping.json",
+  "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/landing_page_blocks_mapping.json",
+  "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/seo_geo_gate.json",
+  "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/claim_audit_summary.json",
+  "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/dry_run_report.json",
+  "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/readback_checklist.md",
+  "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/sha256_manifest.json",
+  "tests/contracts/iq-method-pages-cms-dry-run-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+]);
+
+export function isIqMethodPagesCmsDryRun01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/iq-method-pages-cms-dry-run-01") {
+    return true;
+  }
+
+  return IQ_METHOD_PAGES_CMS_DRY_RUN_01_ALLOWED_FILES.has(file);
+}

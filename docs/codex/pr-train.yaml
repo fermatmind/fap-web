@@ -13209,7 +13209,7 @@ prs:
     base: main
     depends_on: [IQ-METHOD-06]
     mode: execute
-    status: planned
+    status: merged
     title: "IQ-METHOD-07｜专家审阅页：FermatMind 如何审查 IQ 风格测试内容？"
     goal: "Prepare the zh-CN CMS Article draft-review asset package for expert review disclosure without certification, clinical validation, or external endorsement claims."
     slug: iq-expert-review-disclosure
@@ -13234,7 +13234,58 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
-    next_task: null
+    next_task: IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01
+
+  - id: IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/iq-method-pages-cms-dry-run-01
+    base: main
+    depends_on: [IQ-METHOD-07]
+    mode: execute
+    status: in_progress
+    title: "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01｜7 个 IQ 方法论页面 CMS dry-run 包"
+    goal: "Prepare the CMS dry-run import package, article/topic/page_blocks mapping, SEO/GEO gate, claim audit summary, and readback checklist for the seven zh-CN IQ method pages without CMS writes or discoverability activation."
+    train_scope: iq_method_pages_zh_cn_cms_dry_run_package
+    in_scope:
+      - generated/iq-method-pages-zh-cn-v0.2/PR_TRAIN_INDEX.json
+      - generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/**
+      - tests/contracts/iq-method-pages-cms-dry-run-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    out_of_scope:
+      - frontend runtime content
+      - CMS writes
+      - CMS production import
+      - CMS publish state changes
+      - sitemap or llms activation
+      - backend importer implementation
+      - Media Library uploads
+      - article body rewrites
+    local_checks:
+      - pnpm exec vitest run tests/contracts/iq-method-pages-cms-dry-run-01.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    acceptance:
+      - The dry-run package maps all seven IQ method pages to CMS Article draft-review imports.
+      - The package defines /zh/topics/iq-eq IQ article grouping separately from EQ article grouping.
+      - The package defines IQ test landing/page_blocks article links as backend-authoritative mapping only.
+      - The package keeps status=draft_review_only, is_public=false, is_indexable=false, robots=noindex,follow, sitemap_eligible=false, and llms_eligible=false.
+      - Contract coverage verifies no CMS write, production import, publish, sitemap, llms, frontend runtime content, or local editorial fallback is introduced.
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: IQ-METHOD-PAGES-ZH-CN-CMS-IMPORT-01
 
   - id: MBTI-SEO-01
     repo: fap-web

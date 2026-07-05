@@ -1,0 +1,28 @@
+{
+  "schema_version": "fermatmind.iq_method_pages.cms_dry_run_report.v1",
+  "pr_id": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01",
+  "status": "prepared_not_imported",
+  "summary": {
+    "article_count": 7,
+    "topic_mapping_count": 1,
+    "landing_page_block_mapping_count": 1,
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "publish_attempted": false,
+    "sitemap_llms_activation_attempted": false
+  },
+  "pass_fail": {
+    "all_pages_have_article_cms_json": true,
+    "all_pages_noindex": true,
+    "all_pages_not_public": true,
+    "all_pages_not_sitemap_llms_eligible": true,
+    "all_claim_scans_clean": true,
+    "media_library_required": true
+  },
+  "next_steps": [
+    "Run fap-api importer dry-run against cms_import_manifest.json.",
+    "If dry-run passes, create CMS Article drafts only, preserving noindex flags.",
+    "Run CMS readback and compare each field to readback_checklist.md.",
+    "Do not publish or activate sitemap/llms until separate publish and SEO/GEO activation PRs."
+  ]
+}

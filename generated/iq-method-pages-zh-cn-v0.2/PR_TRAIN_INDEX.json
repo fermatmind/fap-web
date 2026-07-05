@@ -82,5 +82,24 @@
       "CMS dry-run import/readback",
       "private URL guard"
     ]
+  },
+  "cms_dry_run": {
+    "pr_id": "IQ-METHOD-PAGES-ZH-CN-CMS-DRY-RUN-01",
+    "status": "prepared_not_imported",
+    "package_dir": "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run",
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "publish_attempted": false,
+    "sitemap_llms_activation_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "files": [
+      "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/cms_import_manifest.json",
+      "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/topic_iq_articles_mapping.json",
+      "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/landing_page_blocks_mapping.json",
+      "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/seo_geo_gate.json",
+      "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/claim_audit_summary.json",
+      "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/dry_run_report.json",
+      "generated/iq-method-pages-zh-cn-v0.2/cms-dry-run/readback_checklist.md"
+    ]
   }
 }
