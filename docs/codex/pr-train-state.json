@@ -41773,9 +41773,9 @@
     "depends_on": [
       "MBTI-QA-14"
     ],
-    "status": "committed_pending_push",
+    "status": "pr_open_checks_pending",
     "commit_sha": "4d16f3feaabb7b3e29e9af55f5536cb44862ee1c",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1607",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -41838,6 +41838,10 @@
           "scripts/seo/build-mbti-content-15-top-blocker-assets.mjs",
           "tests/contracts/mbti-content-15-top-blocker-assets.contract.test.ts"
         ]
+      },
+      "github": {
+        "status": "pending",
+        "pr_url": "https://github.com/fermatmind/fap-web/pull/1607"
       }
     },
     "scope_validation": {
@@ -41880,9 +41884,14 @@
         "at": "2026-07-05T12:13:00.000Z",
         "status": "ledger_commit_sha_recorded",
         "notes": "Recorded implementation commit SHA 4d16f3feaabb7b3e29e9af55f5536cb44862ee1c before push. Final PR head may include ledger-only bookkeeping."
+      },
+      {
+        "at": "2026-07-05T12:16:00.000Z",
+        "status": "pr_open_checks_pending",
+        "notes": "Opened fap-web PR #1607 for MBTI-CONTENT-15 and pushed branch codex/mbti-content-15-top-blocker-assets."
       }
     ],
-    "updated_at": "2026-07-05T12:13:00.000Z",
+    "updated_at": "2026-07-05T12:16:00.000Z",
     "next_task": null
   }
 }
