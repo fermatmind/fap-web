@@ -29,6 +29,7 @@ function asset(overrides: Partial<PersonalityPublicContentAsset> = {}): Personal
       alt: null,
     },
     schemaType: null,
+    schemaRuntimeEligible: false,
     methodBoundary: null,
     evidenceNotes: [],
     internalLinks: [],

@@ -73,6 +73,7 @@ export type PersonalityPublicContentAsset = {
   faq: PersonalityPublicContentFaqItem[];
   media: PersonalityPublicContentMedia;
   schemaType: string | null;
+  schemaRuntimeEligible: boolean;
   methodBoundary: PersonalityPublicContentMethodBoundary | null;
   evidenceNotes: PersonalityPublicContentEvidenceNote[];
   internalLinks: PersonalityPublicContentInternalLink[];
@@ -296,6 +297,7 @@ function normalizeAsset(
     faq: normalizeFaq(record.faq),
     media: normalizeMedia(record.media),
     schemaType: asNullableString(schema["@type"] ?? schema.type),
+    schemaRuntimeEligible: asBoolean(record.schema_runtime_eligible ?? record.schemaRuntimeEligible),
     methodBoundary: normalizeMethodBoundary(record.method_boundary),
     evidenceNotes: normalizeEvidenceNotes(record.evidence_notes),
     internalLinks: normalizeInternalLinks(record.internal_links),

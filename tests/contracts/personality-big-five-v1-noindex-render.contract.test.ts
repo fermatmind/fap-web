@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
+import { render, screen } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { getBigFivePublicContentAsset } from "@/lib/cms/personality-public-content-assets";
 import {
@@ -48,6 +49,7 @@ function sampleAsset(overrides: Record<string, unknown> = {}) {
     faq: [{ question: "Is this a type?", answer: "No. The page describes a dimensional trait." }],
     media: { status: "placeholder", hero_image_asset_key: null, alt: "Openness" },
     schema: { "@type": "WebPage" },
+    schema_runtime_eligible: false,
     method_boundary: {
       summary: "Backend supplied method boundary.",
       not_for: ["clinical diagnosis", "employment screening"],
@@ -177,6 +179,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     });
     expect(asset?.sections[0]?.bodyMd).toBe("Backend supplied body.");
     expect(asset?.methodBoundary?.notFor).toContain("clinical diagnosis");
+    expect(asset?.schemaRuntimeEligible).toBe(false);
   });
 
   it("fails closed for facet stubs, unpublished states, and API 404s", async () => {
@@ -248,6 +251,68 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     });
   });
 
+  it("renders Big Five JSON-LD only when the backend runtime schema gate allows it", async () => {
+    const route = await import("@/app/(localized)/[locale]/personality/big-five/[[...slug]]/page");
+    const hubAsset = {
+      entity_type: "hub",
+      code: "big-five",
+      entity_key: "big-five",
+      slug: "big-five",
+      canonical_path: "/en/personality/big-five",
+      canonical: { path: "/en/personality/big-five" },
+      hreflang: {
+        en: "/en/personality/big-five",
+        "zh-CN": "/zh/personality/big-five",
+      },
+    };
+
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: sampleAsset({
+            ...hubAsset,
+            schema_runtime_eligible: false,
+          }),
+        })
+      )
+    );
+
+    const noSchemaView = render(
+      await route.default({
+        params: Promise.resolve({ locale: "en", slug: [] }),
+      })
+    );
+
+    expect(noSchemaView.container.querySelectorAll('script[type="application/ld+json"]')).toHaveLength(0);
+    expect(screen.getByRole("heading", { name: "Openness" })).toBeInTheDocument();
+    noSchemaView.unmount();
+
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: sampleAsset({
+            ...hubAsset,
+            schema_runtime_eligible: true,
+          }),
+        })
+      )
+    );
+
+    const schemaAllowedView = render(
+      await route.default({
+        params: Promise.resolve({ locale: "en", slug: [] }),
+      })
+    );
+
+    expect(schemaAllowedView.container.querySelector("#big-five-public-content-page-jsonld")).toBeInTheDocument();
+    expect(schemaAllowedView.container.querySelector("#big-five-public-content-breadcrumb-jsonld")).toBeInTheDocument();
+    expect(schemaAllowedView.container.querySelector("#big-five-public-content-faq-jsonld")).toBeInTheDocument();
+  });
+
   it("keeps Big Five V1 noindex routes out of sitemap and llms surfaces", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");
@@ -270,6 +335,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     expect(routeSource).toContain("getBigFivePublicContentAsset");
     expect(routeSource).toContain("notFound()");
     expect(routeSource).toContain("noindex: true");
+    expect(routeSource).toContain("asset.schemaRuntimeEligible");
     expect(routeSource).toContain("buildFAQPageJsonLd");
     expect(routeSource).toContain("buildCollectionPageJsonLd");
     expect(routeSource).not.toContain("SoftwareApplication");

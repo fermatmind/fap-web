@@ -117,8 +117,8 @@ export default async function BigFivePublicContentPage({
     ...(entry.entityType === "hub" ? [] : [{ name: asset.title, path: pathname }]),
   ];
   const visibleFaq = asset.faq.filter((item) => item.question && item.answer);
-  const pageJsonLd =
-    asset.entityType === "hub" || asset.entityType === "facet_hub"
+  const pageJsonLd = asset.schemaRuntimeEligible
+    ? asset.entityType === "hub" || asset.entityType === "facet_hub"
       ? buildCollectionPageJsonLd({
           path: pathname,
           title: asset.title,
@@ -130,13 +130,18 @@ export default async function BigFivePublicContentPage({
           title: asset.title,
           description: asset.seo.description || asset.summary,
           locale,
-        });
+        })
+    : null;
 
   return (
     <>
-      <JsonLd id="big-five-public-content-page-jsonld" data={pageJsonLd} />
-      <JsonLd id="big-five-public-content-breadcrumb-jsonld" data={buildBreadcrumbJsonLd(breadcrumbItems)} />
-      {visibleFaq.length > 0 ? <JsonLd id="big-five-public-content-faq-jsonld" data={buildFAQPageJsonLd(visibleFaq)} /> : null}
+      {pageJsonLd ? <JsonLd id="big-five-public-content-page-jsonld" data={pageJsonLd} /> : null}
+      {asset.schemaRuntimeEligible ? (
+        <JsonLd id="big-five-public-content-breadcrumb-jsonld" data={buildBreadcrumbJsonLd(breadcrumbItems)} />
+      ) : null}
+      {asset.schemaRuntimeEligible && visibleFaq.length > 0 ? (
+        <JsonLd id="big-five-public-content-faq-jsonld" data={buildFAQPageJsonLd(visibleFaq)} />
+      ) : null}
       <div className="border-b border-[var(--fm-border)] bg-[var(--fm-surface)] px-5 py-4 md:px-8">
         <div className="mx-auto max-w-6xl">
           <Breadcrumb
