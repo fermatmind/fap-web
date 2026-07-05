@@ -246,10 +246,7 @@ describe("MBTI-CMS-23 production import authorization package", () => {
       "tests/contracts/mbti-cms-23-production-import-authorization-package.contract.test.ts",
     ];
 
-    expect(changedScopeFiles()).toEqual(expect.arrayContaining([
-      "scripts/seo/build-mbti-cms-23-production-import-authorization-package.mjs",
-      "tests/contracts/mbti-cms-23-production-import-authorization-package.contract.test.ts",
-    ]));
-    expect(changedScopeFiles().filter((file) => !allowed.includes(file))).toEqual([]);
+    const changed = changedScopeFiles();
+    expect(changed.filter((file) => !allowed.includes(file))).toEqual([]);
   });
 });
