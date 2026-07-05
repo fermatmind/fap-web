@@ -68,9 +68,6 @@ function committedScopeFiles(): string[] {
   const files = new Set<string>();
   for (const args of [
     ["diff", "--name-only", "origin/main...HEAD"],
-    ["diff", "--name-only", "HEAD"],
-    ["diff", "--cached", "--name-only"],
-    ["ls-files", "--others", "--exclude-standard"],
   ]) {
     try {
       const output = execFileSync("git", args, { cwd: ROOT, encoding: "utf8" });
