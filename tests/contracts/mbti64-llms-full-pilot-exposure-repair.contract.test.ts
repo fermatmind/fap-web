@@ -189,6 +189,7 @@ function mockLlmsFullMbti64Dependencies(options: { personalityDelayMs?: number }
     adaptCareerRecommendationIndex: vi.fn(() => []),
   }));
   vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+      listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
     listBackendSitemapCareerJobPaths: vi.fn(async () => []),
   }));
   vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({

@@ -132,6 +132,7 @@ function mockRouteDependencies() {
     getTopicBySlug: vi.fn(async () => null),
   }));
   vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+      listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
     listBackendSitemapCareerJobPaths: vi.fn(async () => []),
   }));
   vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({

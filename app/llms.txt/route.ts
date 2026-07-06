@@ -17,7 +17,10 @@ import {
 import { listTopics } from "@/lib/cms/topics";
 import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
-import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
+import {
+  listBackendSitemapBigFiveZhPaths,
+  listBackendSitemapCareerJobPaths,
+} from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
 import { listDailyGivingDiscoverabilityEntries } from "@/lib/foundation/dailyGivingSeo";
 import {
@@ -167,12 +170,15 @@ function personalityComparisonPathsFromAuthority(
 }
 
 async function listPersonalityPaths(): Promise<string[]> {
+  const bigFiveZhPathsPromise = listBackendSitemapBigFiveZhPaths().catch(() => []);
+
   try {
-    const [enProfiles, zhProfiles, enComparisons, zhComparisons] = await Promise.all([
+    const [enProfiles, zhProfiles, enComparisons, zhComparisons, bigFiveZhPaths] = await Promise.all([
       listPersonalityProfiles({ locale: "en", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
       listPersonalityProfiles({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
       listPersonalityComparisons("en"),
       listPersonalityComparisons("zh"),
+      bigFiveZhPathsPromise,
     ]);
 
     return dedupePaths([
@@ -190,12 +196,13 @@ async function listPersonalityPaths(): Promise<string[]> {
         ),
       ...personalityComparisonPathsFromAuthority(enComparisons, "en"),
       ...personalityComparisonPathsFromAuthority(zhComparisons, "zh"),
+      ...bigFiveZhPaths,
     ]);
   } catch {
     // Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.
   }
 
-  return [];
+  return dedupePaths(await bigFiveZhPathsPromise);
 }
 
 async function listTopicPaths(): Promise<string[]> {

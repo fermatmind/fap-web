@@ -144,6 +144,10 @@ function normalizeEntityType(value: unknown): PersonalityPublicEntityType | null
   return null;
 }
 
+function isReadableLaunchState(value: string): boolean {
+  return value === "content_ready" || value === "published";
+}
+
 function normalizeSections(value: unknown): PersonalityPublicContentSection[] {
   return asArray(value)
     .map((item): PersonalityPublicContentSection | null => {
@@ -270,7 +274,7 @@ function normalizeAsset(
     entityType !== expected.entityType ||
     code !== expected.code ||
     asString(record.locale) !== apiLocale ||
-    launchState !== "content_ready" ||
+    !isReadableLaunchState(launchState) ||
     !isPublic
   ) {
     return null;

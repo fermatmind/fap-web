@@ -24,7 +24,10 @@ import {
 } from "@/lib/compliance/mentalHealthScreening";
 import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
-import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
+import {
+  listBackendSitemapBigFiveZhPaths,
+  listBackendSitemapCareerJobPaths,
+} from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
 import { listDailyGivingDiscoverabilityEntries } from "@/lib/foundation/dailyGivingSeo";
 import {
@@ -90,8 +93,9 @@ const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE = 32;
 const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE = 16;
 const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2;
 const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2;
+const LLMS_FULL_BIG_FIVE_ZH_ENTRY_LIMIT = 20;
 const LLMS_FULL_PERSONALITY_ENTRY_LIMIT =
-  LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT + LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT;
+  LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT + LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT + LLMS_FULL_BIG_FIVE_ZH_ENTRY_LIMIT;
 const LLMS_FULL_REQUIRED_PERSONALITY_PILOT_PATHS = [
   "/en/personality/intj-a-vs-intj-t",
   "/zh/personality/istj-a",
@@ -276,6 +280,24 @@ function buildCareerJobEntry(path: string): LlmsFullEntry | null {
     path: normalized,
     title: titleFromSlug(slug),
     type: "career_job_detail",
+    updatedAt: "",
+  };
+}
+
+function buildBigFivePublicAssetEntry(path: string): LlmsFullEntry | null {
+  const normalized = normalizePath(path);
+  const locale = localeFromLocalizedPath(normalized);
+  const slug = extractSlugFromPath(normalized);
+
+  if (locale !== "zh" || !slug) {
+    return null;
+  }
+
+  return {
+    locale,
+    path: normalized,
+    title: titleFromSlug(slug),
+    type: "personality_public_content_asset",
     updatedAt: "",
   };
 }
@@ -836,8 +858,24 @@ function buildPersonalityComparisonEntries(
 }
 
 async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
+  const bigFiveZhEntriesPromise = listBackendSitemapBigFiveZhPaths({ limit: LLMS_FULL_BIG_FIVE_ZH_ENTRY_LIMIT })
+    .then((paths) =>
+      paths
+        .map((path) => buildBigFivePublicAssetEntry(path))
+        .filter((entry): entry is LlmsFullEntry => Boolean(entry))
+    )
+    .catch(() => []);
+
   try {
-    const [enProfiles, zhProfiles, enVariantProfiles, zhVariantProfiles, enComparisonList, zhComparisonList] = await Promise.all([
+    const [
+      enProfiles,
+      zhProfiles,
+      enVariantProfiles,
+      zhVariantProfiles,
+      enComparisonList,
+      zhComparisonList,
+      bigFiveZhPaths,
+    ] = await Promise.all([
       listPersonalityProfiles({ locale: "en", perPage: LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE }),
       listPersonalityProfiles({ locale: "zh", perPage: LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE }),
       listPersonalityProfiles({
@@ -852,6 +890,7 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
       }),
       listPersonalityComparisons("en"),
       listPersonalityComparisons("zh"),
+      bigFiveZhEntriesPromise,
     ]);
 
     const enBaseProfiles = enProfiles.items.filter((item) => item.isIndexable);
@@ -869,18 +908,18 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
       zhComparisonList.groups.flatMap((group) => group.items),
       "zh"
     );
-
     return limitLlmsRouteEntries(uniqueEntriesByPath([
       ...enVariantEntries,
       ...zhVariantEntries,
       ...enComparisonEntries,
       ...zhComparisonEntries,
+      ...bigFiveZhPaths,
     ]), LLMS_FULL_PERSONALITY_ENTRY_LIMIT);
   } catch {
     // Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.
   }
 
-  return [];
+  return uniqueEntriesByPath(await bigFiveZhEntriesPromise);
 }
 
 async function listTopicEntries(): Promise<LlmsFullEntry[]> {

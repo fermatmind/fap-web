@@ -9,6 +9,7 @@ import {
   buildBigFivePublicContentPath,
   resolveBigFivePublicRouteEntry,
 } from "@/lib/personality/bigFivePublicRoutes";
+import { extractBackendSitemapBigFiveZhPaths } from "@/lib/seo/backendSitemapSource";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { isCleanMainLikeCheckout, isPersonalityBig5V1NoindexRender01AllowedFile } from "./helpers/currentPrScope";
 
@@ -211,6 +212,44 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     expect(asset?.schemaRuntimeEligible).toBe(false);
   });
 
+  it("accepts backend-published Big Five assets for SEO readback without weakening noindex fallback", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: sampleAsset({
+            robots: "index,follow",
+            index_eligible: true,
+            sitemap_eligible: true,
+            llms_eligible: true,
+            launch_state: "published",
+            review_state: "operator_approved_published",
+            schema_runtime_eligible: true,
+          }),
+        })
+      )
+    );
+
+    const asset = await getBigFivePublicContentAsset("en", {
+      entityType: "domain",
+      code: "openness",
+      routeSlug: "openness",
+      pathSuffix: "/openness",
+    });
+
+    expect(asset).toMatchObject({
+      framework: "big_five",
+      code: "openness",
+      robots: "index,follow",
+      indexEligible: true,
+      sitemapEligible: true,
+      llmsEligible: true,
+      launchState: "published",
+      schemaRuntimeEligible: true,
+    });
+  });
+
   it("resolves all 15 v2 trait-first range URLs through backend polarity asset lookup", async () => {
     const v2RangeSlugs = [
       "openness-high",
@@ -321,7 +360,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     ).resolves.toBeNull();
   });
 
-  it("builds route metadata from the API asset with noindex, canonical, and hreflang", async () => {
+  it("builds route metadata from a noindex API asset with canonical and hreflang", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn(async () =>
@@ -348,6 +387,38 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
       follow: true,
       googleBot: {
         index: false,
+        follow: true,
+      },
+    });
+  });
+
+  it("builds indexable route metadata only when the API asset is released and index eligible", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: sampleAsset({
+            robots: "index,follow",
+            index_eligible: true,
+            sitemap_eligible: true,
+            llms_eligible: true,
+            launch_state: "published",
+            schema_runtime_eligible: true,
+          }),
+        })
+      )
+    );
+    const route = await import("@/app/(localized)/[locale]/personality/big-five/[[...slug]]/page");
+    const metadata = await route.generateMetadata({
+      params: Promise.resolve({ locale: "en", slug: ["openness"] }),
+    });
+
+    expect(metadata.robots).toMatchObject({
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
         follow: true,
       },
     });
@@ -415,7 +486,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     expect(schemaAllowedView.container.querySelector("#big-five-public-content-faq-jsonld")).toBeInTheDocument();
   });
 
-  it("keeps Big Five V1 noindex routes out of sitemap and llms surfaces", () => {
+  it("keeps noindex Big Five routes blocked while allowing backend sitemap-source released zh paths into llms", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");
 
@@ -423,10 +494,24 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
       for (const locale of ["en", "zh"] as const) {
         const path = buildBigFivePublicContentPath(locale, entry);
         expect(shouldIncludeInSitemap(path, { indexEligible: false, indexState: "noindex" })).toBe(false);
-        expect(llms).not.toContain(path);
-        expect(llmsFull).not.toContain(path);
       }
     }
+
+    expect(llms).toContain("listBackendSitemapBigFiveZhPaths");
+    expect(llmsFull).toContain("listBackendSitemapBigFiveZhPaths");
+    expect(extractBackendSitemapBigFiveZhPaths({
+      items: [
+        { loc: "https://fermatmind.com/zh/personality/big-five/openness" },
+        { loc: "https://fermatmind.com/zh/personality/big-five/openness-high" },
+        { loc: "https://fermatmind.com/zh/personality/big-five" },
+        { loc: "https://fermatmind.com/en/personality/big-five/openness" },
+        { loc: "https://fermatmind.com/zh/big-five/openness" },
+        { loc: "https://staging.fermatmind.com/zh/personality/big-five/openness" },
+      ],
+    })).toEqual([
+      "/zh/personality/big-five/openness",
+      "/zh/personality/big-five/openness-high",
+    ]);
   });
 
   it("anchors the renderer to API content without local editorial fallback or SoftwareApplication schema", () => {
@@ -436,7 +521,8 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
 
     expect(routeSource).toContain("getBigFivePublicContentAsset");
     expect(routeSource).toContain("notFound()");
-    expect(routeSource).toContain("noindex: true");
+    expect(routeSource).toContain("noindex: !shouldIndex");
+    expect(routeSource).toContain("robotsAllowsIndex");
     expect(routeSource).toContain("asset.schemaRuntimeEligible");
     expect(routeSource).toContain("buildFAQPageJsonLd");
     expect(routeSource).toContain("buildCollectionPageJsonLd");
@@ -444,7 +530,9 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     expect(rendererSource).toContain("asset.sections");
     expect(rendererSource).toContain("asset.methodBoundary");
     expect(rendererSource).toContain("asset.internalLinks");
-    expect(adapterSource).toContain("launchState !== \"content_ready\"");
+    expect(adapterSource).toContain("isReadableLaunchState");
+    expect(adapterSource).toContain("content_ready");
+    expect(adapterSource).toContain("published");
     expect(adapterSource).toContain("return null");
   });
 

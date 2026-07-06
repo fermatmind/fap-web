@@ -165,6 +165,7 @@ function mockLlmsDependencies() {
     adaptCareerRecommendationIndex: vi.fn(() => []),
   }));
   vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+      listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
     listBackendSitemapCareerJobPaths: vi.fn(async () => ["/en/career/jobs/private-denied-by-policy"]),
   }));
   vi.doMock("@/lib/cms/articles", () => ({
