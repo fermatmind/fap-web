@@ -141,6 +141,7 @@ function installCareerIndustryMocks() {
   }));
 
   vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+      listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
     listBackendSitemapCareerJobPaths: vi.fn(async () => [
       "/en/career/jobs/data-engineers",
       "/zh/career/jobs/data-engineers",

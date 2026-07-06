@@ -47,7 +47,8 @@ describe("personality cleanup contract", () => {
 
     expect(personalityBlock).toContain("listPersonalityProfiles");
     expect(personalityBlock).toContain("item.isIndexable");
-    expect(personalityBlock).toContain("return [];");
+    expect(personalityBlock).toContain("listBackendSitemapBigFiveZhPaths");
+    expect(personalityBlock).toContain("return dedupePaths(await bigFiveZhPathsPromise);");
     expect(personalityBlock).not.toContain("listMbtiRecommendationTypes()");
     expect(personalityBlock).not.toContain("Fall back to local MBTI coverage");
   });
@@ -58,7 +59,8 @@ describe("personality cleanup contract", () => {
 
     expect(personalityBlock).toContain("listPersonalityProfiles");
     expect(personalityBlock).toContain("item.isIndexable");
-    expect(personalityBlock).toContain("return [];");
+    expect(personalityBlock).toContain("listBackendSitemapBigFiveZhPaths");
+    expect(personalityBlock).toContain("return uniqueEntriesByPath(await bigFiveZhEntriesPromise);");
     expect(personalityBlock).not.toContain("listMbtiRecommendationTypes()");
     expect(personalityBlock).not.toContain("Fall back to local MBTI coverage");
   });

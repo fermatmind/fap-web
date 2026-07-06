@@ -18,6 +18,7 @@ type BackendSitemapCareerJobPathOptions = {
 const BACKEND_SITEMAP_SOURCE_TIMEOUT_MS = 20_000;
 const CAREER_JOB_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i;
 const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
+const BIG_FIVE_ZH_PUBLIC_ASSET_RE = /^\/zh\/personality\/big-five\/[^/?#]+$/i;
 const BACKEND_SITEMAP_CANONICAL_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
 const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
   "software-developers",
@@ -26,6 +27,7 @@ const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
 ]);
 
 let careerJobPathCache: string[] | null = null;
+let bigFiveZhPathCache: string[] | null = null;
 
 function normalizePath(path: string): string {
   const value = String(path || "").trim() || "/";
@@ -89,7 +91,32 @@ function shouldKeepCareerJobDetailPath(path: string): boolean {
   );
 }
 
+function shouldKeepBigFiveZhPublicAssetPath(path: string): boolean {
+  const normalized = normalizePath(path);
+
+  return (
+    BIG_FIVE_ZH_PUBLIC_ASSET_RE.test(normalized) &&
+    shouldIncludeInSitemap(normalized, {
+      indexEligible: true,
+      indexState: "indexed",
+    })
+  );
+}
+
 function limitCareerJobCandidatePaths(paths: string[], limit: number | undefined): string[] {
+  if (!Number.isFinite(limit)) {
+    return paths;
+  }
+
+  const normalizedLimit = Math.floor(Number(limit));
+  if (normalizedLimit <= 0) {
+    return [];
+  }
+
+  return paths.slice(0, normalizedLimit);
+}
+
+function limitCandidatePaths(paths: string[], limit: number | undefined): string[] {
   if (!Number.isFinite(limit)) {
     return paths;
   }
@@ -159,6 +186,20 @@ export function extractBackendSitemapCareerJobPaths(payload: BackendSitemapSourc
   return [...paths].sort((left, right) => left.localeCompare(right));
 }
 
+export function extractBackendSitemapBigFiveZhPaths(payload: BackendSitemapSourcePayload): string[] {
+  const items = Array.isArray(payload.items) ? payload.items : [];
+  const paths = new Set<string>();
+
+  for (const item of items) {
+    const path = extractPathFromCanonicalUrl(item?.loc);
+    if (shouldKeepBigFiveZhPublicAssetPath(path)) {
+      paths.add(normalizePath(path));
+    }
+  }
+
+  return [...paths].sort((left, right) => left.localeCompare(right));
+}
+
 export async function listBackendSitemapCareerJobPaths(
   options: BackendSitemapCareerJobPathOptions = {}
 ): Promise<string[]> {
@@ -172,6 +213,24 @@ export async function listBackendSitemapCareerJobPaths(
 
   if (shouldUseCache) {
     careerJobPathCache = filteredPaths;
+  }
+
+  return filteredPaths;
+}
+
+export async function listBackendSitemapBigFiveZhPaths(
+  options: BackendSitemapCareerJobPathOptions = {}
+): Promise<string[]> {
+  const shouldUseCache = options.limit === undefined && !options.signal;
+  if (shouldUseCache && bigFiveZhPathCache) {
+    return bigFiveZhPathCache;
+  }
+
+  const payload = await fetchBackendSitemapSource(options.signal);
+  const filteredPaths = limitCandidatePaths(extractBackendSitemapBigFiveZhPaths(payload), options.limit);
+
+  if (shouldUseCache) {
+    bigFiveZhPathCache = filteredPaths;
   }
 
   return filteredPaths;

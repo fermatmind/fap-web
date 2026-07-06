@@ -117,6 +117,10 @@ describe("career llms alignment contract", () => {
 
   it("llms.txt reflects current live Career authority routes and excludes query search urls", async () => {
     vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+      listBackendSitemapBigFiveZhPaths: vi.fn(async () => [
+        "/zh/personality/big-five/openness",
+        "/zh/personality/big-five/openness-high",
+      ]),
       listBackendSitemapCareerJobPaths: vi.fn(async () => [
         "/en/career/jobs/backend-architect",
         "/zh/career/jobs/backend-architect",
@@ -207,6 +211,10 @@ describe("career llms alignment contract", () => {
     expect(text).not.toContain("https://fermatmind.com/en/career/recommendations");
     expect(text).toContain("https://fermatmind.com/en/career/jobs/backend-architect");
     expect(text).toContain("https://fermatmind.com/zh/career/jobs/backend-architect");
+    expect(text).toContain("https://fermatmind.com/zh/personality/big-five/openness");
+    expect(text).toContain("https://fermatmind.com/zh/personality/big-five/openness-high");
+    expect(text).not.toContain("https://fermatmind.com/en/personality/big-five/openness");
+    expect(text).not.toContain("https://fermatmind.com/zh/big-five/openness");
     expect(text).not.toContain("https://fermatmind.com/en/career/jobs/data-engineer");
     expect(text).not.toContain("https://fermatmind.com/en/career/family/data-science");
     expect(text).not.toContain("https://fermatmind.com/en/career/recommendations/mbti/intj-a");
@@ -217,6 +225,10 @@ describe("career llms alignment contract", () => {
 
   it("llms-full.txt reflects backend-owned Career detail routes and excludes query search urls", async () => {
     vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+      listBackendSitemapBigFiveZhPaths: vi.fn(async () => [
+        "/zh/personality/big-five/openness",
+        "/zh/personality/big-five/openness-high",
+      ]),
       listBackendSitemapCareerJobPaths: vi.fn(async () => [
         "/en/career/jobs/backend-architect",
         "/zh/career/jobs/backend-architect",
@@ -359,6 +371,10 @@ describe("career llms alignment contract", () => {
     expect(text).not.toContain("[en] Career recommendations | https://fermatmind.com/en/career/recommendations");
     expect(text).toContain("[en] Backend Architect | https://fermatmind.com/en/career/jobs/backend-architect");
     expect(text).toContain("[zh] Backend Architect | https://fermatmind.com/zh/career/jobs/backend-architect");
+    expect(text).toContain("[zh] Openness | https://fermatmind.com/zh/personality/big-five/openness");
+    expect(text).toContain("[zh] Openness High | https://fermatmind.com/zh/personality/big-five/openness-high");
+    expect(text).not.toContain("https://fermatmind.com/en/personality/big-five/openness");
+    expect(text).not.toContain("https://fermatmind.com/zh/big-five/openness");
     expect(text).not.toContain("[en] Data Engineer | https://fermatmind.com/en/career/jobs/data-engineer");
     expect(text).not.toContain("[en] Data Science | https://fermatmind.com/en/career/family/data-science");
     expect(text).not.toContain("[en] INTJ Career Match | https://fermatmind.com/en/career/recommendations/mbti/intj-a");

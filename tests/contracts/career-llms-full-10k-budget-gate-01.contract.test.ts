@@ -45,6 +45,7 @@ function mockLlmsFullDependencies(paths: () => string[]) {
     isConfiguredStagingDiscoverability: vi.fn(() => false),
   }));
   vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+      listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
     listBackendSitemapCareerJobPaths,
   }));
   vi.doMock("@/lib/career/api/fetchCareerRecommendationIndex", () => ({

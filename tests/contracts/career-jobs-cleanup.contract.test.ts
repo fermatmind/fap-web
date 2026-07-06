@@ -109,8 +109,10 @@ describe("career routing cleanup contract", () => {
     expect(llms).not.toContain('import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex"');
     expect(llmsFull).not.toContain('import { fetchCareerJobIndex } from "@/lib/career/api/fetchCareerJobIndex"');
     expect(llmsFull).not.toContain('import { adaptCareerJobIndex } from "@/lib/career/adapters/adaptCareerJobIndex"');
-    expect(llms).toContain('import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource"');
-    expect(llmsFull).toContain('import { listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource"');
+    expect(llms).toContain("listBackendSitemapCareerJobPaths");
+    expect(llms).toContain('from "@/lib/seo/backendSitemapSource"');
+    expect(llmsFull).toContain("listBackendSitemapCareerJobPaths");
+    expect(llmsFull).toContain('from "@/lib/seo/backendSitemapSource"');
     expect(llms).not.toContain('^\\/career\\/jobs\\/[^/]+$');
     expect(llmsFull).not.toContain('^\\/career\\/jobs\\/[^/]+$');
     expect(llms).not.toContain("isCareerJobDetailDiscoverableByManifest");

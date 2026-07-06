@@ -331,7 +331,8 @@ describe("PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01 contract", () => {
     expect(rendererSource).toContain("asset.methodBoundary");
     expect(rendererSource).toContain("asset.internalLinks");
     expect(adapterSource).toContain("framework !== expectedFramework");
-    expect(adapterSource).toContain("launchState !== \"content_ready\"");
+    expect(adapterSource).toContain("isReadableLaunchState");
+    expect(adapterSource).toContain("content_ready");
     expect(adapterSource).toContain("return null");
   });
 

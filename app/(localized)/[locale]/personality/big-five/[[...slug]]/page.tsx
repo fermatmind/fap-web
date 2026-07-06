@@ -3,7 +3,10 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { PublicContentAssetRenderer } from "@/components/personality/PublicContentAssetRenderer";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getBigFivePublicContentAsset } from "@/lib/cms/personality-public-content-assets";
+import {
+  getBigFivePublicContentAsset,
+  type PersonalityPublicContentAsset,
+} from "@/lib/cms/personality-public-content-assets";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import type { Locale } from "@/lib/i18n/locales";
 import {
@@ -48,6 +51,12 @@ function robotsAllowsFollow(robots: string): boolean {
   return !robots.toLowerCase().split(",").map((part) => part.trim()).includes("nofollow");
 }
 
+function robotsAllowsIndex(asset: PersonalityPublicContentAsset): boolean {
+  const robots = asset.robots.toLowerCase().split(",").map((part) => part.trim());
+
+  return asset.indexEligible === true && !robots.includes("noindex");
+}
+
 function alternatePath(assetPath: string | null | undefined, fallback: string): string {
   return assetPath && assetPath.startsWith("/") ? assetPath : fallback;
 }
@@ -70,6 +79,7 @@ export async function generateMetadata({
   }
 
   const pathname = buildBigFivePublicContentPath(locale, entry);
+  const shouldIndex = robotsAllowsIndex(asset);
   return buildPageMetadata({
     locale,
     pathname,
@@ -77,11 +87,11 @@ export async function generateMetadata({
     title: asset.seo.title,
     description: asset.seo.description,
     imagePath: asset.media.imageUrl ?? undefined,
-    noindex: true,
+    noindex: !shouldIndex,
     noindexFollow: robotsAllowsFollow(asset.robots),
     explicitIndexGate: {
       indexEligible: asset.indexEligible,
-      indexState: asset.robots.includes("noindex") ? "noindex" : null,
+      indexState: shouldIndex ? "indexed" : "noindex",
     },
     alternatesByLocale: {
       en: alternatePath(asset.hreflang.en, buildBigFivePublicContentPath("en", entry)),
