@@ -126,6 +126,7 @@ function isAllowedPublicPath(path: string): boolean {
     /^\/(?:zh|en)\/career\/jobs\/[a-z0-9][a-z0-9-]*$/,
     /^\/(?:zh|en)\/tests\/[a-z0-9][a-z0-9-]*$/,
     /^\/(?:zh|en)\/personality(?:\/[a-z0-9][a-z0-9-]*)?$/,
+    /^\/(?:zh|en)\/personality\/big-five\/[a-z0-9][a-z0-9-]*$/,
     /^\/(?:zh|en)\/(?:about|brand|charter|foundation|careers|policies)$/,
     /^\/(?:zh|en)\/help\/[a-z0-9][a-z0-9-]*$/,
     /^\/(?:zh|en)\/support(?:\/[a-z0-9][a-z0-9-]*)?$/,

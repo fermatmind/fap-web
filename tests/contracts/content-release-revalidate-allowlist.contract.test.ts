@@ -32,6 +32,8 @@ describe("content release revalidate allowlist", () => {
             "/zh/tests/mbti-personality-test-16-personality-types",
             "/zh/personality",
             "/zh/personality/infj-a",
+            "/zh/personality/big-five/openness",
+            "/zh/personality/big-five/openness-high",
             "/llms.txt",
             "/llms-full.txt",
             "/en",
@@ -43,6 +45,8 @@ describe("content release revalidate allowlist", () => {
             "/en/tests/mbti-personality-test-16-personality-types",
             "/en/personality",
             "/en/personality/infj-a",
+            "/en/personality/big-five/openness",
+            "/en/personality/big-five/openness-high",
           ],
         },
       },
@@ -60,6 +64,8 @@ describe("content release revalidate allowlist", () => {
       "/zh/tests/mbti-personality-test-16-personality-types",
       "/zh/personality",
       "/zh/personality/infj-a",
+      "/zh/personality/big-five/openness",
+      "/zh/personality/big-five/openness-high",
       "/llms.txt",
       "/llms-full.txt",
       "/en",
@@ -71,6 +77,34 @@ describe("content release revalidate allowlist", () => {
       "/en/tests/mbti-personality-test-16-personality-types",
       "/en/personality",
       "/en/personality/infj-a",
+      "/en/personality/big-five/openness",
+      "/en/personality/big-five/openness-high",
+    ]);
+  });
+
+  it("accepts Big Five public asset paths while rejecting deeper unpublished nested paths", () => {
+    const decisions = collectPathDecisions(
+      {
+        content: { type: "personality_public_content_asset", locale: "zh-CN" },
+        cache_signal: {
+          paths: [
+            "/zh/personality/big-five/openness",
+            "/zh/personality/big-five/openness-high",
+            "/zh/personality/big-five/neuroticism-low",
+            "/zh/personality/big-five/facets/imagination",
+          ],
+        },
+      },
+      "https://fermatmind.com"
+    );
+
+    expect(decisions.accepted).toEqual([
+      "/zh/personality/big-five/openness",
+      "/zh/personality/big-five/openness-high",
+      "/zh/personality/big-five/neuroticism-low",
+    ]);
+    expect(decisions.rejected).toEqual([
+      { path: "/zh/personality/big-five/facets/imagination", reason: "not_allowlisted" },
     ]);
   });
 
