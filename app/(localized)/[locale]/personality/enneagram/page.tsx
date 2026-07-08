@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
-import EnneagramHubContentScaffold from "@/components/personality/EnneagramHubContentScaffold";
+import { PublicContentAssetRenderer } from "@/components/personality/PublicContentAssetRenderer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getEnneagramPublicContentAsset } from "@/lib/cms/personality-public-content-assets";
 import { resolveLocale } from "@/lib/i18n/getDict";
@@ -129,7 +129,7 @@ export default async function EnneagramHubPage({
           />
         </div>
       </div>
-      <EnneagramHubContentScaffold locale={locale} />
+      <PublicContentAssetRenderer asset={asset} locale={locale} />
     </>
   );
 }
