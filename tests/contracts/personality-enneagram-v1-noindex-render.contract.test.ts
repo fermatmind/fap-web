@@ -317,16 +317,24 @@ describe("PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01 contract", () => {
   });
 
   it("anchors the renderer to API content without local editorial fallback or SoftwareApplication schema", () => {
-    const routeSource = read("app/(localized)/[locale]/personality/enneagram/[...slug]/page.tsx");
+    const hubSource = read("app/(localized)/[locale]/personality/enneagram/page.tsx");
+    const subSource = read("app/(localized)/[locale]/personality/enneagram/[...slug]/page.tsx");
     const rendererSource = read("components/personality/PublicContentAssetRenderer.tsx");
     const adapterSource = read("lib/cms/personality-public-content-assets.ts");
 
-    expect(routeSource).toContain("getEnneagramPublicContentAsset");
-    expect(routeSource).toContain("notFound()");
-    expect(routeSource).toContain("noindex: true");
-    expect(routeSource).toContain("buildFAQPageJsonLd");
-    expect(routeSource).toContain("buildCollectionPageJsonLd");
-    expect(routeSource).not.toContain("SoftwareApplication");
+    // Hub page assertions
+    expect(hubSource).toContain("getEnneagramPublicContentAsset");
+    expect(hubSource).toContain("notFound()");
+    expect(hubSource).toContain("buildFAQPageJsonLd");
+    expect(hubSource).toContain("buildCollectionPageJsonLd");
+    expect(hubSource).not.toContain("SoftwareApplication");
+
+    // Sub-page assertions
+    expect(subSource).toContain("getEnneagramPublicContentAsset");
+    expect(subSource).toContain("notFound()");
+    expect(subSource).toContain("noindex: true");
+    expect(subSource).toContain("buildFAQPageJsonLd");
+    expect(subSource).not.toContain("SoftwareApplication");
     expect(rendererSource).toContain("asset.sections");
     expect(rendererSource).toContain("asset.methodBoundary");
     expect(rendererSource).toContain("asset.internalLinks");
