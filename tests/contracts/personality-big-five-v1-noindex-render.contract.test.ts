@@ -370,9 +370,9 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
         })
       )
     );
-    const route = await import("@/app/(localized)/[locale]/personality/big-five/[[...slug]]/page");
+    const route = await import("@/app/(localized)/[locale]/personality/big-five/[slug]/page");
     const metadata = await route.generateMetadata({
-      params: Promise.resolve({ locale: "en", slug: ["openness"] }),
+      params: Promise.resolve({ locale: "en", slug: "openness" }),
     });
 
     expect(metadata.title).toBe("Openness | FermatMind Big Five");
@@ -409,9 +409,9 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
         })
       )
     );
-    const route = await import("@/app/(localized)/[locale]/personality/big-five/[[...slug]]/page");
+    const route = await import("@/app/(localized)/[locale]/personality/big-five/[slug]/page");
     const metadata = await route.generateMetadata({
-      params: Promise.resolve({ locale: "en", slug: ["openness"] }),
+      params: Promise.resolve({ locale: "en", slug: "openness" }),
     });
 
     expect(metadata.robots).toMatchObject({
@@ -425,7 +425,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
   });
 
   it("renders Big Five JSON-LD only when the backend runtime schema gate allows it", async () => {
-    const route = await import("@/app/(localized)/[locale]/personality/big-five/[[...slug]]/page");
+    const route = await import("@/app/(localized)/[locale]/personality/big-five/page");
     const hubAsset = {
       entity_type: "hub",
       code: "big-five",
@@ -515,7 +515,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
   });
 
   it("anchors the renderer to API content without local editorial fallback or SoftwareApplication schema", () => {
-    const routeSource = read("app/(localized)/[locale]/personality/big-five/[[...slug]]/page.tsx");
+    const routeSource = read("app/(localized)/[locale]/personality/big-five/[slug]/page.tsx");
     const rendererSource = read("components/personality/PublicContentAssetRenderer.tsx");
     const adapterSource = read("lib/cms/personality-public-content-assets.ts");
 

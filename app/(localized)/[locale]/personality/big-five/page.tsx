@@ -19,9 +19,8 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
 
-type BigFivePageParams = {
+type HubPageParams = {
   locale: string;
-  slug?: string[];
 };
 
 function localizedBigFiveLabel(locale: Locale): string {
@@ -64,11 +63,11 @@ function alternatePath(assetPath: string | null | undefined, fallback: string): 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<BigFivePageParams>;
+  params: Promise<HubPageParams>;
 }): Promise<Metadata> {
-  const { locale: localeParam, slug } = await params;
+  const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const entry = resolveBigFivePublicRouteEntry(slug);
+  const entry = resolveBigFivePublicRouteEntry(undefined);
   if (!entry) {
     return buildFallbackMetadata(locale, null);
   }
@@ -101,14 +100,14 @@ export async function generateMetadata({
   });
 }
 
-export default async function BigFivePublicContentPage({
+export default async function BigFiveHubPage({
   params,
 }: {
-  params: Promise<BigFivePageParams>;
+  params: Promise<HubPageParams>;
 }) {
-  const { locale: localeParam, slug } = await params;
+  const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
-  const entry = resolveBigFivePublicRouteEntry(slug);
+  const entry = resolveBigFivePublicRouteEntry(undefined);
   if (!entry) {
     notFound();
   }
@@ -124,7 +123,6 @@ export default async function BigFivePublicContentPage({
   const breadcrumbItems = [
     { name: locale === "zh" ? "人格" : "Personality", path: personalityHref },
     { name: localizedBigFiveLabel(locale), path: hubHref },
-    ...(entry.entityType === "hub" ? [] : [{ name: asset.title, path: pathname }]),
   ];
   const visibleFaq = asset.faq.filter((item) => item.question && item.answer);
   const pageJsonLd = asset.schemaRuntimeEligible
@@ -145,20 +143,19 @@ export default async function BigFivePublicContentPage({
 
   return (
     <>
-      {pageJsonLd ? <JsonLd id="big-five-public-content-page-jsonld" data={pageJsonLd} /> : null}
+      {pageJsonLd ? <JsonLd id="big-five-hub-page-jsonld" data={pageJsonLd} /> : null}
       {asset.schemaRuntimeEligible ? (
-        <JsonLd id="big-five-public-content-breadcrumb-jsonld" data={buildBreadcrumbJsonLd(breadcrumbItems)} />
+        <JsonLd id="big-five-hub-breadcrumb-jsonld" data={buildBreadcrumbJsonLd(breadcrumbItems)} />
       ) : null}
       {asset.schemaRuntimeEligible && visibleFaq.length > 0 ? (
-        <JsonLd id="big-five-public-content-faq-jsonld" data={buildFAQPageJsonLd(visibleFaq)} />
+        <JsonLd id="big-five-hub-faq-jsonld" data={buildFAQPageJsonLd(visibleFaq)} />
       ) : null}
       <div className="border-b border-[var(--fm-border)] bg-[var(--fm-surface)] px-5 py-4 md:px-8">
         <div className="mx-auto max-w-6xl">
           <Breadcrumb
             items={[
               { label: locale === "zh" ? "人格" : "Personality", href: personalityHref },
-              { label: localizedBigFiveLabel(locale), href: entry.entityType === "hub" ? undefined : hubHref },
-              ...(entry.entityType === "hub" ? [] : [{ label: asset.title }]),
+              { label: localizedBigFiveLabel(locale) },
             ]}
           />
         </div>
