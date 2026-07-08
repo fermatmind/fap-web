@@ -370,9 +370,9 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
         })
       )
     );
-    const route = await import("@/app/(localized)/[locale]/personality/big-five/[[...slug]]/page");
+    const route = await import("@/app/(localized)/[locale]/personality/big-five/[slug]/page");
     const metadata = await route.generateMetadata({
-      params: Promise.resolve({ locale: "en", slug: ["openness"] }),
+      params: Promise.resolve({ locale: "en", slug: "openness" }),
     });
 
     expect(metadata.title).toBe("Openness | FermatMind Big Five");
@@ -409,9 +409,9 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
         })
       )
     );
-    const route = await import("@/app/(localized)/[locale]/personality/big-five/[[...slug]]/page");
+    const route = await import("@/app/(localized)/[locale]/personality/big-five/[slug]/page");
     const metadata = await route.generateMetadata({
-      params: Promise.resolve({ locale: "en", slug: ["openness"] }),
+      params: Promise.resolve({ locale: "en", slug: "openness" }),
     });
 
     expect(metadata.robots).toMatchObject({
@@ -425,7 +425,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
   });
 
   it("renders Big Five JSON-LD only when the backend runtime schema gate allows it", async () => {
-    const route = await import("@/app/(localized)/[locale]/personality/big-five/[[...slug]]/page");
+    const route = await import("@/app/(localized)/[locale]/personality/big-five/page");
     const hubAsset = {
       entity_type: "hub",
       code: "big-five",
@@ -454,7 +454,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
 
     const noSchemaView = render(
       await route.default({
-        params: Promise.resolve({ locale: "en", slug: [] }),
+        params: Promise.resolve({ locale: "en" }),
       })
     );
 
@@ -477,13 +477,13 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
 
     const schemaAllowedView = render(
       await route.default({
-        params: Promise.resolve({ locale: "en", slug: [] }),
+        params: Promise.resolve({ locale: "en" }),
       })
     );
 
-    expect(schemaAllowedView.container.querySelector("#big-five-public-content-page-jsonld")).toBeInTheDocument();
-    expect(schemaAllowedView.container.querySelector("#big-five-public-content-breadcrumb-jsonld")).toBeInTheDocument();
-    expect(schemaAllowedView.container.querySelector("#big-five-public-content-faq-jsonld")).toBeInTheDocument();
+    expect(schemaAllowedView.container.querySelector("#big-five-hub-page-jsonld")).toBeInTheDocument();
+    expect(schemaAllowedView.container.querySelector("#big-five-hub-breadcrumb-jsonld")).toBeInTheDocument();
+    expect(schemaAllowedView.container.querySelector("#big-five-hub-faq-jsonld")).toBeInTheDocument();
   });
 
   it("keeps noindex Big Five routes blocked while allowing backend sitemap-source released zh paths into llms", () => {
@@ -515,7 +515,8 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
   });
 
   it("anchors the renderer to API content without local editorial fallback or SoftwareApplication schema", () => {
-    const routeSource = read("app/(localized)/[locale]/personality/big-five/[[...slug]]/page.tsx");
+    const routeSource = read("app/(localized)/[locale]/personality/big-five/page.tsx");
+    const dimSource = read("app/(localized)/[locale]/personality/big-five/[slug]/page.tsx");
     const rendererSource = read("components/personality/PublicContentAssetRenderer.tsx");
     const adapterSource = read("lib/cms/personality-public-content-assets.ts");
 

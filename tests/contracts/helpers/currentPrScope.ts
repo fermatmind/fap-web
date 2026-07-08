@@ -3500,7 +3500,8 @@ const PERSONALITY_HUB_32_VARIANTS_01_ALLOWED_FILES = new Set([
 ]);
 
 const PERSONALITY_BIG5_V1_NOINDEX_RENDER_01_ALLOWED_FILES = new Set([
-  "app/(localized)/[locale]/personality/big-five/[[...slug]]/page.tsx",
+  "app/(localized)/[locale]/personality/big-five/[slug]/page.tsx",
+  "app/(localized)/[locale]/personality/big-five/page.tsx",
   "components/personality/PublicContentAssetRenderer.tsx",
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
