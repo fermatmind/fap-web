@@ -209,7 +209,7 @@ log "current commit: $(git rev-parse --short HEAD)"
 log "install/build"
 rm -rf .next
 pnpm install --frozen-lockfile
-pnpm run build
+NODE_OPTIONS='' pnpm run build
 
 if [[ ! -f .next/standalone/server.js ]]; then
   log "missing build artifact: .next/standalone/server.js"
