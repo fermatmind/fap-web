@@ -11,14 +11,14 @@ import {
   resolveEnneagramPublicRouteEntry,
   type EnneagramPublicRouteEntry,
 } from "@/lib/personality/enneagramPublicRoutes";
-import { buildBreadcrumbJsonLd, buildCollectionPageJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
+import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
 
-type EnneagramPageParams = {
+type SubPageParams = {
   locale: string;
-  slug?: string[];
+  slug: string[];
 };
 
 function localizedEnneagramLabel(locale: Locale): string {
@@ -55,7 +55,7 @@ function alternatePath(assetPath: string | null | undefined, fallback: string): 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<EnneagramPageParams>;
+  params: Promise<SubPageParams>;
 }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
@@ -91,10 +91,10 @@ export async function generateMetadata({
   });
 }
 
-export default async function EnneagramPublicContentPage({
+export default async function EnneagramSubPage({
   params,
 }: {
-  params: Promise<EnneagramPageParams>;
+  params: Promise<SubPageParams>;
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
@@ -115,36 +115,28 @@ export default async function EnneagramPublicContentPage({
   const breadcrumbItems = [
     { name: locale === "zh" ? "人格" : "Personality", path: personalityHref },
     { name: localizedEnneagramLabel(locale), path: hubHref },
-    ...(entry.entityType === "hub" ? [] : [{ name: asset.title, path: pathname }]),
+    { name: asset.title, path: pathname },
   ];
   const visibleFaq = asset.faq.filter((item) => item.question && item.answer);
-  const pageJsonLd =
-    asset.entityType === "hub"
-      ? buildCollectionPageJsonLd({
-          path: pathname,
-          title: asset.title,
-          description: asset.seo.description || asset.summary,
-          locale,
-        })
-      : buildWebPageJsonLd({
-          path: pathname,
-          title: asset.title,
-          description: asset.seo.description || asset.summary,
-          locale,
-        });
+  const pageJsonLd = buildWebPageJsonLd({
+    path: pathname,
+    title: asset.title,
+    description: asset.seo.description || asset.summary,
+    locale,
+  });
 
   return (
     <>
-      <JsonLd id="enneagram-public-content-page-jsonld" data={pageJsonLd} />
-      <JsonLd id="enneagram-public-content-breadcrumb-jsonld" data={buildBreadcrumbJsonLd(breadcrumbItems)} />
-      {visibleFaq.length > 0 ? <JsonLd id="enneagram-public-content-faq-jsonld" data={buildFAQPageJsonLd(visibleFaq)} /> : null}
+      <JsonLd id="enneagram-sub-page-jsonld" data={pageJsonLd} />
+      <JsonLd id="enneagram-sub-breadcrumb-jsonld" data={buildBreadcrumbJsonLd(breadcrumbItems)} />
+      {visibleFaq.length > 0 ? <JsonLd id="enneagram-sub-faq-jsonld" data={buildFAQPageJsonLd(visibleFaq)} /> : null}
       <div className="border-b border-[var(--fm-border)] bg-[var(--fm-surface)] px-5 py-4 md:px-8">
         <div className="mx-auto max-w-6xl">
           <Breadcrumb
             items={[
               { label: locale === "zh" ? "人格" : "Personality", href: personalityHref },
-              { label: localizedEnneagramLabel(locale), href: entry.entityType === "hub" ? undefined : hubHref },
-              ...(entry.entityType === "hub" ? [] : [{ label: asset.title }]),
+              { label: localizedEnneagramLabel(locale), href: hubHref },
+              { label: asset.title },
             ]}
           />
         </div>
