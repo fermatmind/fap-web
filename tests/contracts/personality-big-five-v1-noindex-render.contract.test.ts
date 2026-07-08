@@ -481,9 +481,9 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
       })
     );
 
-    expect(schemaAllowedView.container.querySelector("#big-five-public-content-page-jsonld")).toBeInTheDocument();
-    expect(schemaAllowedView.container.querySelector("#big-five-public-content-breadcrumb-jsonld")).toBeInTheDocument();
-    expect(schemaAllowedView.container.querySelector("#big-five-public-content-faq-jsonld")).toBeInTheDocument();
+    expect(schemaAllowedView.container.querySelector("#big-five-hub-page-jsonld")).toBeInTheDocument();
+    expect(schemaAllowedView.container.querySelector("#big-five-hub-breadcrumb-jsonld")).toBeInTheDocument();
+    expect(schemaAllowedView.container.querySelector("#big-five-hub-faq-jsonld")).toBeInTheDocument();
   });
 
   it("keeps noindex Big Five routes blocked while allowing backend sitemap-source released zh paths into llms", () => {
