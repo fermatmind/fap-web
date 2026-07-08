@@ -459,7 +459,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     );
 
     expect(noSchemaView.container.querySelectorAll('script[type="application/ld+json"]')).toHaveLength(0);
-    expect(screen.getByRole("heading", { name: "大五人格是什么" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "What is the Big Five Personality" })).toBeInTheDocument();
     noSchemaView.unmount();
 
     vi.stubGlobal(
