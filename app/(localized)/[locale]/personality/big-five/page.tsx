@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { cookies } from "next/headers";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
-import { PublicContentAssetRenderer } from "@/components/personality/PublicContentAssetRenderer";
 import BigFiveHubContentScaffold from "@/components/personality/BigFiveHubContentScaffold";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
@@ -143,9 +141,6 @@ export default async function BigFiveHubPage({
         })
     : null;
 
-  const cookieStore = await cookies();
-  const showPreview = cookieStore.get("fm_preview")?.value === "big-five-v2";
-
   return (
     <>
       {pageJsonLd ? <JsonLd id="big-five-hub-page-jsonld" data={pageJsonLd} /> : null}
@@ -165,11 +160,7 @@ export default async function BigFiveHubPage({
           />
         </div>
       </div>
-      {showPreview ? (
-        <BigFiveHubContentScaffold locale={locale} />
-      ) : (
-        <PublicContentAssetRenderer asset={asset} locale={locale} />
-      )}
+      <BigFiveHubContentScaffold locale={locale} />
     </>
   );
 }
