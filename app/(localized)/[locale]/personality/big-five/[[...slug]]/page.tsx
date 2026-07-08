@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { PublicContentAssetRenderer } from "@/components/personality/PublicContentAssetRenderer";
+import BigFiveHubContentScaffold from "@/components/personality/BigFiveHubContentScaffold";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   getBigFivePublicContentAsset,
@@ -103,8 +104,10 @@ export async function generateMetadata({
 
 export default async function BigFivePublicContentPage({
   params,
+  searchParams,
 }: {
   params: Promise<BigFivePageParams>;
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
@@ -143,6 +146,12 @@ export default async function BigFivePublicContentPage({
         })
     : null;
 
+  // Preview mode: ?layout_preview=big-five-v2 — only on Big Five Hub
+  const sp = searchParams ? await searchParams : {};
+  const previewFlag = typeof sp.layout_preview === "string" ? sp.layout_preview : "";
+  const isHub = entry.entityType === "hub" && entry.code === "big-five";
+  const showPreview = isHub && previewFlag === "big-five-v2";
+
   return (
     <>
       {pageJsonLd ? <JsonLd id="big-five-public-content-page-jsonld" data={pageJsonLd} /> : null}
@@ -163,7 +172,11 @@ export default async function BigFivePublicContentPage({
           />
         </div>
       </div>
-      <PublicContentAssetRenderer asset={asset} locale={locale} />
+      {showPreview ? (
+        <BigFiveHubContentScaffold locale={locale} />
+      ) : (
+        <PublicContentAssetRenderer asset={asset} locale={locale} />
+      )}
     </>
   );
 }
