@@ -425,6 +425,11 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
   });
 
   it("renders Big Five JSON-LD only when the backend runtime schema gate allows it", async () => {
+    vi.mock("next/headers", () => ({
+      cookies: vi.fn(async () => ({
+        get: vi.fn(() => undefined),
+      })),
+    }));
     const route = await import("@/app/(localized)/[locale]/personality/big-five/page");
     const hubAsset = {
       entity_type: "hub",
