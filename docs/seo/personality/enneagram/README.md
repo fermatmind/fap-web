@@ -17,6 +17,11 @@ These artifacts document the current state of Enneagram public pages, CMS conten
 - **[zh-center-content-package-2026-07-09.json](zh-center-content-package-2026-07-09.json)** — Machine-readable QA summary for the center content package.
 - **[content-packages/zh-centers-v1/](content-packages/zh-centers-v1/)** — Full zh-CN center content drafts (JSON + MD per center, combined package JSON).
 
+## QA Artifacts
+
+- **[zh13-content-qa-2026-07-09.md](zh13-content-qa-2026-07-09.md)** — Editorial QA report for all 13 zh-CN Enneagram pages (PASS, 13/13 validated).
+- **[zh13-content-qa-2026-07-09.json](zh13-content-qa-2026-07-09.json)** — Machine-readable QA summary (101 sections, 56 FAQ, 0 blockers).
+
 ## Key Findings (2026-07-09)
 
 - **26 personality pages** are live at runtime but contain only skeleton content (~60-100 words/page).
@@ -26,7 +31,7 @@ These artifacts document the current state of Enneagram public pages, CMS conten
 
 ## Recommended Next PR
 
-**ENNEAGRAM-ZH13-CONTENT-QA-01** — Editorial QA pass across all 13 zh-CN Enneagram pages.
+**ENNEAGRAM-ZH13-CMS-PACKAGE-NORMALIZE-01** — Normalize all 13 content packages into CMS-import-ready format.
 
 ## Warning
 
