@@ -20,6 +20,7 @@ import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import {
   listBackendSitemapBigFiveZhPaths,
   listBackendSitemapCareerJobPaths,
+  listBackendSitemapEnneagramZhPaths,
 } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
 import { listDailyGivingDiscoverabilityEntries } from "@/lib/foundation/dailyGivingSeo";
@@ -171,14 +172,16 @@ function personalityComparisonPathsFromAuthority(
 
 async function listPersonalityPaths(): Promise<string[]> {
   const bigFiveZhPathsPromise = listBackendSitemapBigFiveZhPaths().catch(() => []);
+  const enneagramZhPathsPromise = listBackendSitemapEnneagramZhPaths().catch(() => []);
 
   try {
-    const [enProfiles, zhProfiles, enComparisons, zhComparisons, bigFiveZhPaths] = await Promise.all([
+    const [enProfiles, zhProfiles, enComparisons, zhComparisons, bigFiveZhPaths, enneagramZhPaths] = await Promise.all([
       listPersonalityProfiles({ locale: "en", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
       listPersonalityProfiles({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
       listPersonalityComparisons("en"),
       listPersonalityComparisons("zh"),
       bigFiveZhPathsPromise,
+      enneagramZhPathsPromise,
     ]);
 
     return dedupePaths([
@@ -197,12 +200,17 @@ async function listPersonalityPaths(): Promise<string[]> {
       ...personalityComparisonPathsFromAuthority(enComparisons, "en"),
       ...personalityComparisonPathsFromAuthority(zhComparisons, "zh"),
       ...bigFiveZhPaths,
+      ...enneagramZhPaths,
     ]);
   } catch {
     // Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.
   }
 
-  return dedupePaths(await bigFiveZhPathsPromise);
+  const [bfFallback, enneagramFallback] = await Promise.all([
+    bigFiveZhPathsPromise,
+    enneagramZhPathsPromise,
+  ]);
+  return dedupePaths([...bfFallback, ...enneagramFallback]);
 }
 
 async function listTopicPaths(): Promise<string[]> {

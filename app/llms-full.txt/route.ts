@@ -27,6 +27,7 @@ import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import {
   listBackendSitemapBigFiveZhPaths,
   listBackendSitemapCareerJobPaths,
+  listBackendSitemapEnneagramZhPaths,
 } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
 import { listDailyGivingDiscoverabilityEntries } from "@/lib/foundation/dailyGivingSeo";
@@ -297,6 +298,29 @@ function buildBigFivePublicAssetEntry(path: string): LlmsFullEntry | null {
     locale,
     path: normalized,
     title: titleFromSlug(slug),
+    type: "personality_public_content_asset",
+    updatedAt: "",
+  };
+}
+
+function buildEnneagramPublicAssetEntry(path: string): LlmsFullEntry | null {
+  const normalized = normalizePath(path);
+  const locale = localeFromLocalizedPath(normalized);
+
+  if (locale !== "zh") {
+    return null;
+  }
+
+  // Extract entity key from path for title
+  const pathSegments = normalized.replace(/^\/zh\/personality\/enneagram\/?/, "");
+  const titleFallback = pathSegments === ""
+    ? "九型人格公开指南"
+    : pathSegments.replace(/\//g, " ");
+
+  return {
+    locale,
+    path: normalized,
+    title: titleFallback,
     type: "personality_public_content_asset",
     updatedAt: "",
   };
@@ -866,6 +890,14 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
     )
     .catch(() => []);
 
+  const enneagramZhEntriesPromise = listBackendSitemapEnneagramZhPaths({ limit: LLMS_FULL_BIG_FIVE_ZH_ENTRY_LIMIT })
+    .then((paths) =>
+      paths
+        .map((path) => buildEnneagramPublicAssetEntry(path))
+        .filter((entry): entry is LlmsFullEntry => Boolean(entry))
+    )
+    .catch(() => []);
+
   try {
     const [
       enProfiles,
@@ -875,6 +907,7 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
       enComparisonList,
       zhComparisonList,
       bigFiveZhPaths,
+      enneagramZhPaths,
     ] = await Promise.all([
       listPersonalityProfiles({ locale: "en", perPage: LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE }),
       listPersonalityProfiles({ locale: "zh", perPage: LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE }),
@@ -891,6 +924,7 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
       listPersonalityComparisons("en"),
       listPersonalityComparisons("zh"),
       bigFiveZhEntriesPromise,
+      enneagramZhEntriesPromise,
     ]);
 
     const enBaseProfiles = enProfiles.items.filter((item) => item.isIndexable);
@@ -914,12 +948,17 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
       ...enComparisonEntries,
       ...zhComparisonEntries,
       ...bigFiveZhPaths,
+      ...enneagramZhPaths,
     ]), LLMS_FULL_PERSONALITY_ENTRY_LIMIT);
   } catch {
     // Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.
   }
 
-  return uniqueEntriesByPath(await bigFiveZhEntriesPromise);
+  const [bfFallback, enneagramFallback] = await Promise.all([
+    bigFiveZhEntriesPromise,
+    enneagramZhEntriesPromise,
+  ]);
+  return uniqueEntriesByPath([...bfFallback, ...enneagramFallback]);
 }
 
 async function listTopicEntries(): Promise<LlmsFullEntry[]> {
