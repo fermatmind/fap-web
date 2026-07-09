@@ -49,8 +49,8 @@ jobs:
             const isManualDispatch = process.env.GITHUB_EVENT_NAME === 'workflow_dispatch';
             const deploySha = process.env.GITHUB_EVENT_NAME === 'workflow_run'
               ? process.env.WORKFLOW_RUN_HEAD_SHA
-              : (DISPATCH_DEPLOY_SHA || context.payload.inputs?.deploy_sha || '');
-            const manualRiskApproval = (process.env.DISPATCH_MANUAL_RISK_APPROVAL || '${{ inputs.manual_risk_approval }}' || '').trim();
+              : (DISPATCH_DEPLOY_SHA || github.event.inputs?.deploy_sha || '');
+            const manualRiskApproval = (process.env.DISPATCH_MANUAL_RISK_APPROVAL || github.event.inputs?.manual_risk_approval || '').trim();
 
             if (isManualDispatch && !deploySha) {
               core.setOutput('auto_deploy_allowed', 'false');
