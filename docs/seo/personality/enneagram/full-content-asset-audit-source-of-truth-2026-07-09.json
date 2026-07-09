@@ -1,0 +1,78 @@
+{
+  "artifact": "ENNEAGRAM-AUDIT-SOURCE-OF-TRUTH-COMMIT-01",
+  "source_audit": "ENNEAGRAM_PERSONALITY_FULL_CONTENT_ASSET_AUDIT_SOURCE_OF_TRUTH_2026-07-09",
+  "audit_date": "2026-07-09",
+  "status": "source_of_truth_committed",
+  "scope": "read_only_audit_artifact_commit_only",
+  "summary": {
+    "runtime_personality_pages": 26,
+    "test_pages": 2,
+    "article_pages": 3,
+    "zh_cms_assets_total": 10,
+    "zh_hub_assets": 1,
+    "zh_core_type_assets": 9,
+    "zh_center_assets": 0,
+    "en_cms_assets_total": 0,
+    "thin_personality_pages": 26,
+    "sitemap_personality_coverage": "0/26",
+    "llms_personality_coverage": "0/26",
+    "llms_full_personality_coverage": "0/26",
+    "gpt_packages_needed_zh": 13,
+    "gpt_packages_written_zh": 10,
+    "gpt_packages_remaining_zh": 3
+  },
+  "blockers": [
+    {
+      "id": "B2",
+      "severity": "P0",
+      "title": "[...slug]/page.tsx hardcoded noindex",
+      "recommended_pr": "ENNEAGRAM-TYPE-CENTER-NOINDEX-GATE-REPAIR-01"
+    },
+    {
+      "id": "B3",
+      "severity": "P0",
+      "title": "SitemapGenerator hardcoded Big Five",
+      "recommended_pr": "ENNEAGRAM-SITEMAP-GENERATOR-SUPPORT-01"
+    },
+    {
+      "id": "B4",
+      "severity": "P0",
+      "title": "No Enneagram publish gate command",
+      "recommended_pr": "ENNEAGRAM-CMS-PUBLISH-GATE-COMMAND-01"
+    },
+    {
+      "id": "B5",
+      "severity": "P0",
+      "title": "LLMs feed excludes enneagram",
+      "recommended_pr": "ENNEAGRAM-LLMS-FEED-SUPPORT-01"
+    }
+  ],
+  "content_gaps": [
+    {
+      "id": "C1",
+      "title": "zh-CN center pages missing content assets",
+      "pages": [
+        "/zh/personality/enneagram/centers/gut",
+        "/zh/personality/enneagram/centers/heart",
+        "/zh/personality/enneagram/centers/head"
+      ],
+      "recommended_pr": "ENNEAGRAM-ZH-CENTER-CONTENT-PACKAGE-01"
+    },
+    {
+      "id": "C2",
+      "title": "en Enneagram CMS assets missing",
+      "status": "deferred"
+    }
+  ],
+  "recommended_next_pr": "ENNEAGRAM-ZH-CENTER-CONTENT-PACKAGE-01",
+  "explicit_non_goals": [
+    "no frontend runtime change",
+    "no backend runtime change",
+    "no CMS write",
+    "no publish",
+    "no sitemap change",
+    "no llms change",
+    "no llms-full change",
+    "no search submission"
+  ]
+}
