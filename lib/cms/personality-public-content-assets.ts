@@ -135,6 +135,7 @@ function normalizeEntityType(value: unknown): PersonalityPublicEntityType | null
     normalized === "domain" ||
     normalized === "polarity" ||
     normalized === "facet_hub" ||
+    normalized === "facet_detail" ||
     normalized === "center" ||
     normalized === "core_type"
   ) {

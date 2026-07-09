@@ -18,6 +18,9 @@ export type HubSectionSlotId =
   | "big_five_mbti_bridge"
   | "dimension_self_check"
   | "faq_expansion"
+  | "test_intro"
+  | "self_reflection"
+  | "scientific_background"
   | "method_boundary"
   | "cta_related_links";
 
@@ -101,6 +104,30 @@ export const BIG_FIVE_HUB_SECTION_SLOTS: HubSectionSlot[] = [
     placement: "main",
     expectedContentType: "FAQ accordion(现有 5 题 + 2-3 新题)",
     cmsFieldHint: "asset.faq[] — 复用现有 FAQ 渲染",
+    requiredForPublish: false,
+  },
+  {
+    id: "test_intro",
+    title: "大五人格测试介绍",
+    placement: "main",
+    expectedContentType: "200-300 字介绍(测试内容、时长、用途、边界)",
+    cmsFieldHint: "asset.sections[] with key=test_intro",
+    requiredForPublish: false,
+  },
+  {
+    id: "self_reflection",
+    title: "五个维度的自省题",
+    placement: "main",
+    expectedContentType: "5 维度 x 3-4 道自省题(引导用户在测试前建立直觉)",
+    cmsFieldHint: "asset.sections[] with key=self_reflection",
+    requiredForPublish: false,
+  },
+  {
+    id: "scientific_background",
+    title: "大五人格的科学背景",
+    placement: "main",
+    expectedContentType: "400-500 字科学背景(FFM vs IPIP vs NEO、研究历史、Big Five 命名由来)",
+    cmsFieldHint: "asset.sections[] with key=scientific_background",
     requiredForPublish: false,
   },
   {
@@ -655,6 +682,116 @@ export default function BigFiveHubContentScaffold({
               ? "现有 5 题 FAQ 将保留。未来计划扩展到 7-8 题，新增如'大五和 MBTI 的区别''结果会不会变'等常见问题。FAQ 的渲染已有生产组件支持。"
               : "Existing 5 FAQ items will be preserved. Planned expansion to 7-8 items."}
           </p>
+        </PreviewCard>
+
+        {/* Slot 10: Test Intro */}
+        <PreviewCard
+          slotId="test_intro"
+          title={isZh ? "大五人格测试介绍" : "What is the Big Five Test"}
+        >
+          <p className="m-0">
+            {isZh
+              ? "大五人格测试通过约 120 道自评题目，从五个独立维度测量稳定的人格倾向，通常需要 15–20 分钟完成。测试不是诊断工具，不判断对错、好坏或能力高低——它提供的是一个用来理解行为偏好和沟通风格的参考框架。每个维度给出从低到高的连续分数，帮助回答\u201c我在什么场景下倾向做什么，又在什么场景下需要补充策略\u201d。分数在不同阶段可能变化，不代表固定身份。"
+              : "The Big Five test uses about 120 self-report items to measure stable personality tendencies across five independent dimensions, typically taking 15–20 minutes. The test is not a diagnostic tool and does not judge right/wrong, good/bad, or ability — it provides a reference framework for understanding behavioral preferences and communication styles."}
+          </p>
+        </PreviewCard>
+
+        {/* Slot 11: Self-Reflection Questions */}
+        <PreviewCard
+          slotId="self_reflection"
+          title={isZh ? "五个维度的自省题" : "Self-Reflection Questions for Each Dimension"}
+        >
+          <div className="space-y-5">
+            {[
+              {
+                dim: isZh ? "开放性" : "Openness",
+                questions: isZh
+                  ? "你最近一次被一个新想法或陌生的艺术形式吸引是什么时候？在你熟悉的日常中，有哪些事你宁愿按老办法做？如果明天必须学一样完全陌生的东西，你的第一反应是兴奋还是抗拒？"
+                  : "When was the last time you were drawn to a new idea or unfamiliar art form? In your daily routine, what do you prefer to do the old way? If you had to learn something completely unfamiliar tomorrow, would your first reaction be excitement or resistance?",
+              },
+              {
+                dim: isZh ? "尽责性" : "Conscientiousness",
+                questions: isZh
+                  ? "你最近一次因为计划被打乱而感到烦躁是什么情境？你是更享受制定计划的过程，还是更享受计划完成后的成就感？在没有人监督的情况下，你的效率会变高还是变低？"
+                  : "When was the last time you felt frustrated because your plan was disrupted? Do you enjoy the process of making plans more, or the satisfaction of completing them? Without supervision, does your productivity increase or decrease?",
+              },
+              {
+                dim: isZh ? "外向性" : "Extraversion",
+                questions: isZh
+                  ? "一次社交活动结束后，你的精力通常是在消耗还是补充？你更喜欢和三五个人深聊，还是在一大群人中自由切换？当你需要思考一个重要问题时，你倾向找人讨论还是独自整理？"
+                  : "After a social event, does your energy usually feel drained or replenished? Do you prefer deep conversations with a few people, or freely moving among a larger group? When you need to think through an important issue, do you tend to discuss it or sort it out alone?",
+              },
+              {
+                dim: isZh ? "宜人性" : "Agreeableness",
+                questions: isZh
+                  ? "你在冲突中是先理解对方感受，还是先陈述自己的立场？你更看重关系和谐，还是更看重把问题说清楚？当别人提出不合理要求时，你通常怎么回应？"
+                  : "In a conflict, do you first try to understand the other person's feelings, or first state your position? Do you value harmony more, or clarity more? When someone makes an unreasonable request, how do you typically respond?",
+              },
+              {
+                dim: isZh ? "神经质 / 情绪敏感性" : "Neuroticism",
+                questions: isZh
+                  ? "你最近一次感到压力时，那种感觉持续了多久？你更容易注意到环境中可能出错的地方，还是更容易注意到已经顺利的地方？当你情绪波动时，恢复到平稳状态通常需要多长时间？"
+                  : "The last time you felt stressed, how long did that feeling last? Are you more likely to notice what could go wrong, or what is already going well? When your emotions fluctuate, how long does it typically take to return to a stable state?",
+              },
+            ].map(({ dim, questions }) => (
+              <div key={dim} className="rounded-xl border border-[var(--fm-border)] bg-white p-4">
+                <h3 className="m-0 mb-2 text-base font-semibold text-[var(--fm-text)]">{dim}</h3>
+                <p className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]">{questions}</p>
+              </div>
+            ))}
+          </div>
+        </PreviewCard>
+
+        {/* Slot 12: Scientific Background */}
+        <PreviewCard
+          slotId="scientific_background"
+          title={isZh ? "大五人格的科学背景" : "How Was the Big Five Created"}
+        >
+          <div className="space-y-4 text-sm leading-7 text-[var(--fm-text-muted)]">
+            <p className="m-0">
+              {isZh
+                ? "大五人格的五个维度并非人为设计出来的，而是通过数十年跨语言、跨文化的词汇研究和因素分析自然浮现的。"
+                : "The five dimensions of the Big Five were not designed by any single researcher — they emerged naturally through decades of cross-language, cross-cultural lexical research and factor analysis."}
+            </p>
+            <div className="rounded-xl border border-[var(--fm-border)] bg-[var(--fm-surface)] p-4">
+              <h3 className="m-0 mb-2 text-base font-semibold text-[var(--fm-text)]">
+                {isZh ? "起源" : "Origins"}
+              </h3>
+              <p className="m-0">
+                {isZh
+                  ? "20 世纪上半叶，研究者 Allport 和 Odbert 从英语词典中提取了数千个描述人格的词汇。后续研究者通过统计分析，发现这些词汇反复收敛到五个主要因素——这就是\u201cBig Five\u201d名称的由来。"
+                  : "In the early 20th century, researchers Allport and Odbert extracted thousands of personality-descriptive words from the English dictionary. Subsequent statistical analysis showed these words consistently converged into five major factors — hence the name 'Big Five.'"}
+              </p>
+            </div>
+            <h3 className="m-0 text-base font-semibold text-[var(--fm-text)]">
+              {isZh ? "主要理论脉络" : "Major Theoretical Traditions"}
+            </h3>
+            <ul className="m-0 space-y-2 pl-5">
+              <li>
+                <strong>{isZh ? "五因素模型 (FFM)" : "Five Factor Model (FFM)"}</strong>
+                ：{isZh
+                  ? "由 Costa 和 McCrae 提出，以 NEO-PI-R 量表为代表，包含 30 个 facet 的层级结构。"
+                  : "Proposed by Costa and McCrae, represented by the NEO-PI-R inventory, including a hierarchical structure of 30 facets."}
+              </li>
+              <li>
+                <strong>{isZh ? "大五 (Big Five)" : "Big Five (Lexical)"}</strong>
+                ：{isZh
+                  ? "来自词汇研究传统，由 Goldberg、John 等人发展，以 BFI 和 IPIP 为代表，强调跨语言可重复性。"
+                  : "From the lexical research tradition, developed by Goldberg, John, and others, represented by BFI and IPIP, emphasizing cross-language replicability."}
+              </li>
+              <li>
+                <strong>{isZh ? "IPIP" : "IPIP (International Personality Item Pool)"}</strong>
+                ：{isZh
+                  ? "公开量表生态，在研究中常被用作 NEO 的替代工具。"
+                  : "An open-source item pool, often used as an alternative to NEO in research."}
+              </li>
+            </ul>
+            <p className="m-0">
+              {isZh
+                ? "FFM 和 Big Five 共享同样的五个维度命名，研究高度交叉引用，但理论基础和量表编制路径有所不同。大五维度的跨文化可重复性、重测信度和与行为指标的关联已积累了大量实证文献。"
+                : "FFM and Big Five share the same five dimension names and highly cross-reference each other in research, but differ in theoretical foundation and scale development approaches. The Big Five dimensions have accumulated substantial empirical evidence for cross-cultural replicability, test-retest reliability, and associations with behavioral indicators."}
+            </p>
+          </div>
         </PreviewCard>
 
         {/* CTA band before footer */}
