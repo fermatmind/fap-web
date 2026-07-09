@@ -42,20 +42,15 @@ jobs:
       - name: Evaluate production auto-deploy policy
         id: evaluate
         uses: actions/github-script@v8
-        env:
-          WORKFLOW_RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
-          DISPATCH_DEPLOY_SHA: ${{ inputs.deploy_sha }}
-          DISPATCH_MANUAL_RISK_APPROVAL: ${{ inputs.manual_risk_approval }}
         with:
           script: |
+            const DISPATCH_DEPLOY_SHA = '${{ inputs.deploy_sha }}';
             const RISKY_DEPLOY_APPROVAL_PREFIX = 'APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:';
             const isManualDispatch = process.env.GITHUB_EVENT_NAME === 'workflow_dispatch';
             const deploySha = process.env.GITHUB_EVENT_NAME === 'workflow_run'
               ? process.env.WORKFLOW_RUN_HEAD_SHA
-              : (process.env.DISPATCH_DEPLOY_SHA || context.payload.inputs?.deploy_sha);
-            const manualRiskApproval = isManualDispatch
-              ? (process.env.DISPATCH_MANUAL_RISK_APPROVAL || context.payload.inputs?.manual_risk_approval || '').trim()
-              : '';
+              : (DISPATCH_DEPLOY_SHA || context.payload.inputs?.deploy_sha || '');
+            const manualRiskApproval = (process.env.DISPATCH_MANUAL_RISK_APPROVAL || '${{ inputs.manual_risk_approval }}' || '').trim();
 
             if (isManualDispatch && !deploySha) {
               core.setOutput('auto_deploy_allowed', 'false');
