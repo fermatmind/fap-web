@@ -77,7 +77,7 @@ export async function generateMetadata({
     title: asset.seo.title,
     description: asset.seo.description,
     imagePath: asset.media.imageUrl ?? undefined,
-    noindex: true,
+    noindex: !asset.indexEligible || asset.robots.includes("noindex"),
     noindexFollow: robotsAllowsFollow(asset.robots),
     explicitIndexGate: {
       indexEligible: asset.indexEligible,
