@@ -1,0 +1,54 @@
+{
+  "artifact": "ENNEAGRAM-ZH-CENTER-CONTENT-PACKAGE-01",
+  "version": "zh-centers-v1",
+  "status": "draft_for_editorial_and_later_cms_normalization",
+  "locale": "zh-CN",
+  "framework": "enneagram",
+  "entity_type": "center",
+  "source_audit": "full-content-asset-audit-source-of-truth-2026-07-09",
+  "page_count": 3,
+  "pages": [
+    {
+      "page_path": "/zh/personality/enneagram/centers/gut",
+      "center_key": "gut",
+      "zh_name": "本能中心",
+      "included_types": [
+        8,
+        9,
+        1
+      ],
+      "sections_count": 9,
+      "faq_count": 7,
+      "links_count": 6,
+      "body_chars": 3708
+    },
+    {
+      "page_path": "/zh/personality/enneagram/centers/heart",
+      "center_key": "heart",
+      "zh_name": "情感中心",
+      "included_types": [
+        2,
+        3,
+        4
+      ],
+      "sections_count": 9,
+      "faq_count": 6,
+      "links_count": 6,
+      "body_chars": 3422
+    },
+    {
+      "page_path": "/zh/personality/enneagram/centers/head",
+      "center_key": "head",
+      "zh_name": "思维中心",
+      "included_types": [
+        5,
+        6,
+        7
+      ],
+      "sections_count": 9,
+      "faq_count": 6,
+      "links_count": 6,
+      "body_chars": 3581
+    }
+  ]
+}
