@@ -42,9 +42,10 @@ jobs:
       - name: Evaluate production auto-deploy policy
         id: evaluate
         uses: actions/github-script@v8
+        env:
+          WORKFLOW_RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
         with:
           script: |
-            const DISPATCH_DEPLOY_SHA = '${{ inputs.deploy_sha }}';
             const RISKY_DEPLOY_APPROVAL_PREFIX = 'APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:';
             const isManualDispatch = process.env.GITHUB_EVENT_NAME === 'workflow_dispatch';
             const deploySha = process.env.GITHUB_EVENT_NAME === 'workflow_run'
@@ -86,15 +87,17 @@ jobs:
             core.setOutput('associated_pr', String(pull.number));
             core.info(`Associated PR: #${pull.number} ${pull.title}`);
 
-            // --- Manual risk approval gate ---
-            const approvalTokenValid = manualRiskApproval.length > 0
-              && manualRiskApproval.startsWith(RISKY_DEPLOY_APPROVAL_PREFIX)
-              && manualRiskApproval.indexOf(RISKY_DEPLOY_APPROVAL_PREFIX + deploySha) === 0;
-
-            if (isManualDispatch && approvalTokenValid) {
-              core.info('Manual risk approval token validated — risky-path guard waived for this dispatch.');
-              core.setOutput('auto_deploy_allowed', 'true');
-              core.info('Production manual deploy allowed via risk approval.');
+            // --- Manual risk approval gate (workflow_dispatch only) ---
+            if (isManualDispatch && manualRiskApproval.length > 0) {
+              const approvalTokenValid = manualRiskApproval === `${RISKY_DEPLOY_APPROVAL_PREFIX}${deploySha}`;
+              if (approvalTokenValid) {
+                core.info('Manual risk approval token validated — risky-path guard waived for this dispatch.');
+                core.setOutput('auto_deploy_allowed', 'true');
+                core.info('Production manual deploy allowed via risk approval.');
+                return;
+              }
+              core.setOutput('auto_deploy_allowed', 'false');
+              core.setFailed('Manual risk approval token invalid (must match APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<deploy_sha>)');
               return;
             }
 
@@ -145,14 +148,11 @@ jobs:
 
             if (riskyLabels.length > 0 || riskyFiles.length > 0) {
               core.setOutput('auto_deploy_allowed', 'false');
-              const approvalHint = isManualDispatch
-                ? '\nManual dispatch: set manual_risk_approval=APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<SHA> to deploy.'
-                : '';
               core.setFailed([
                 'Production auto-deploy policy failed closed.',
                 riskyLabels.length > 0 ? `Risk labels: ${riskyLabels.join(', ')}` : 'Risk labels: none',
                 riskyFiles.length > 0 ? `Risk files: ${riskyFiles.join(', ')}` : 'Risk files: none',
-                `Use the manual deploy-readiness path for this change.${approvalHint}`,
+                'Use the manual deploy-readiness path: dispatch with manual_risk_approval=APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<SHA>.',
               ].join('\n'));
               return;
             }
