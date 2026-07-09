@@ -68,6 +68,12 @@ export async function generateMetadata({
     title: asset.seo.title,
     description: asset.seo.description,
     imagePath: asset.media.imageUrl ?? undefined,
+    noindex: !asset.indexEligible || asset.robots.includes("noindex"),
+    noindexFollow: asset.robots.includes("nofollow") ? true : undefined,
+    explicitIndexGate: {
+      indexEligible: asset.indexEligible,
+      indexState: asset.robots.includes("noindex") ? "noindex" : null,
+    },
     alternatesByLocale: {
       en: asset.hreflang.en ?? buildEnneagramPublicContentPath("en", entry),
       zh: asset.hreflang["zh-CN"] ?? buildEnneagramPublicContentPath("zh", entry),
