@@ -147,13 +147,16 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
       "neuroticism-low",
     ];
 
-    expect(BIG_FIVE_PUBLIC_ROUTE_ENTRIES).toHaveLength(32);
+    expect(BIG_FIVE_PUBLIC_ROUTE_ENTRIES).toHaveLength(62);
     expect(BIG_FIVE_PUBLIC_ROUTE_ENTRIES.filter((entry) => entry.entityType === "facet_hub")).toHaveLength(1);
+    expect(BIG_FIVE_PUBLIC_ROUTE_ENTRIES.filter((entry) => entry.entityType === "facet_detail")).toHaveLength(30);
     expect(resolveBigFivePublicRouteEntry([])?.code).toBe("big-five");
     expect(resolveBigFivePublicRouteEntry(["openness"])?.entityType).toBe("domain");
     expect(resolveBigFivePublicRouteEntry(["facets"])?.entityType).toBe("facet_hub");
     expect(resolveBigFivePublicRouteEntry(["openness", "high"])).toBeNull();
-    expect(resolveBigFivePublicRouteEntry(["facets", "imagination"])).toBeNull();
+    expect(resolveBigFivePublicRouteEntry(["facets", "imagination"])?.code).toBe("imagination");
+    expect(resolveBigFivePublicRouteEntry(["facets", "imagination"])?.entityType).toBe("facet_detail");
+    expect(resolveBigFivePublicRouteEntry(["facets", "values"])?.code).toBe("values");
     for (const slug of v2RangeSlugs) {
       expect(resolveBigFivePublicRouteEntry([slug])).toMatchObject({
         entityType: "polarity",
@@ -167,11 +170,12 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
       buildBigFivePublicContentPath("en", entry),
       buildBigFivePublicContentPath("zh", entry),
     ]);
-    expect(paths).toHaveLength(64);
+    expect(paths).toHaveLength(124);
     expect(paths).toContain("/en/personality/big-five/facets");
     expect(paths).toContain("/zh/personality/big-five/openness-high");
     expect(paths).toContain("/zh/personality/big-five/neuroticism-low");
-    expect(paths).not.toContain("/en/personality/big-five/facets/imagination");
+    expect(paths).toContain("/en/personality/big-five/facets/imagination");
+    expect(paths).toContain("/zh/personality/big-five/facets/values");
   });
 
   it("uses the stable framework + locale + entity_type + code API lookup and preserves noindex flags", async () => {
@@ -370,9 +374,9 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
         })
       )
     );
-    const route = await import("@/app/(localized)/[locale]/personality/big-five/[slug]/page");
+    const route = await import("@/app/(localized)/[locale]/personality/big-five/[...slug]/page");
     const metadata = await route.generateMetadata({
-      params: Promise.resolve({ locale: "en", slug: "openness" }),
+      params: Promise.resolve({ locale: "en", slug: ["openness"] }),
     });
 
     expect(metadata.title).toBe("Openness | FermatMind Big Five");
@@ -409,9 +413,9 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
         })
       )
     );
-    const route = await import("@/app/(localized)/[locale]/personality/big-five/[slug]/page");
+    const route = await import("@/app/(localized)/[locale]/personality/big-five/[...slug]/page");
     const metadata = await route.generateMetadata({
-      params: Promise.resolve({ locale: "en", slug: "openness" }),
+      params: Promise.resolve({ locale: "en", slug: ["openness"] }),
     });
 
     expect(metadata.robots).toMatchObject({
@@ -516,7 +520,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
 
   it("anchors the renderer to API content without local editorial fallback or SoftwareApplication schema", () => {
     const routeSource = read("app/(localized)/[locale]/personality/big-five/page.tsx");
-    const dimSource = read("app/(localized)/[locale]/personality/big-five/[slug]/page.tsx");
+    const dimSource = read("app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx");
     const rendererSource = read("components/personality/PublicContentAssetRenderer.tsx");
     const adapterSource = read("lib/cms/personality-public-content-assets.ts");
 

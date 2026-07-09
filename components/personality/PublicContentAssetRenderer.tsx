@@ -17,6 +17,7 @@ function entityLabel(asset: PersonalityPublicContentAsset, locale: Locale): stri
     domain: { en: "Domain", zh: "维度" },
     polarity: { en: "Pole", zh: "高低极" },
     facet_hub: { en: "Facets", zh: "细分面" },
+    facet_detail: { en: "Facet Detail", zh: "细分面向详情" },
     center: { en: "Center", zh: "中心" },
     core_type: { en: "Core type", zh: "核心型" },
   };

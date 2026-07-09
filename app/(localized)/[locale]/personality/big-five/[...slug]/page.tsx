@@ -21,7 +21,7 @@ export const dynamic = "force-dynamic";
 
 type DimensionPageParams = {
   locale: string;
-  slug: string;
+  slug: string[];
 };
 
 function localizedBigFiveLabel(locale: Locale): string {
@@ -68,7 +68,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const entry = resolveBigFivePublicRouteEntry([slug]);
+  const entry = resolveBigFivePublicRouteEntry(slug);
   if (!entry) {
     return buildFallbackMetadata(locale, null);
   }
@@ -108,7 +108,7 @@ export default async function BigFiveDimensionPage({
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const entry = resolveBigFivePublicRouteEntry([slug]);
+  const entry = resolveBigFivePublicRouteEntry(slug);
   if (!entry) {
     notFound();
   }
