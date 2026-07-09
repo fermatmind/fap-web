@@ -435,6 +435,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
       code: "big-five",
       entity_key: "big-five",
       slug: "big-five",
+      title: "Big Five Personality",
       canonical_path: "/en/personality/big-five",
       canonical: { path: "/en/personality/big-five" },
       hreflang: {
@@ -459,11 +460,12 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     const noSchemaView = render(
       await route.default({
         params: Promise.resolve({ locale: "en" }),
+        searchParams: Promise.resolve({}),
       })
     );
 
     expect(noSchemaView.container.querySelectorAll('script[type="application/ld+json"]')).toHaveLength(0);
-    expect(screen.getByRole("heading", { name: "What is the Big Five Personality" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Big Five Personality" })).toBeInTheDocument();
     noSchemaView.unmount();
 
     vi.stubGlobal(
@@ -482,6 +484,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     const schemaAllowedView = render(
       await route.default({
         params: Promise.resolve({ locale: "en" }),
+        searchParams: Promise.resolve({}),
       })
     );
 
@@ -549,5 +552,56 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     const files = changedFiles();
     expect(files.length).toBeGreaterThan(0);
     expect(files.every(isPersonalityBig5V1NoindexRender01AllowedFile), files.join("\n")).toBe(true);
+  });
+});
+
+describe("PERSONALITY-BIG5-V1-HUB-CMS-RENDERER contract", () => {
+  it("hub page source imports PublicContentAssetRenderer", () => {
+    const hubSource = read("app/(localized)/[locale]/personality/big-five/page.tsx");
+    expect(hubSource).toContain("PublicContentAssetRenderer");
+  });
+
+  it("hub page source gates BigFiveHubContentScaffold behind layout_preview flag", () => {
+    const hubSource = read("app/(localized)/[locale]/personality/big-five/page.tsx");
+    expect(hubSource).toContain("layout_preview");
+    expect(hubSource).toContain("isPreviewMode");
+    expect(hubSource).toContain("PublicContentAssetRenderer");
+  });
+
+  it("hub page source reads searchParams for layout_preview", () => {
+    const hubSource = read("app/(localized)/[locale]/personality/big-five/page.tsx");
+    expect(hubSource).toContain("searchParams");
+    expect(hubSource).toContain("HubPageSearchParams");
+    expect(hubSource).toContain("layout_preview");
+  });
+
+  it("BigFiveHubContentScaffold accepts preview prop and gates preview badge", () => {
+    const scaffoldSource = read("components/personality/BigFiveHubContentScaffold.tsx");
+    expect(scaffoldSource).toContain("preview?: boolean");
+    expect(scaffoldSource).toContain("{preview ? (");
+    expect(scaffoldSource).toContain("asset?: PersonalityPublicContentAsset");
+  });
+
+  it("hub page source no longer unconditionally renders BigFiveHubContentScaffold", () => {
+    const hubSource = read("app/(localized)/[locale]/personality/big-five/page.tsx");
+    // Must contain both the scaffold import (for preview) and the renderer import (for production)
+    expect(hubSource).toContain("BigFiveHubContentScaffold");
+    expect(hubSource).toContain("PublicContentAssetRenderer");
+    // Scaffold should only be rendered conditionally
+    expect(hubSource).toContain("isPreviewMode");
+  });
+
+  it("preview badge text is absent from production code path", () => {
+    const hubSource = read("app/(localized)/[locale]/personality/big-five/page.tsx");
+    // The production renderer (PublicContentAssetRenderer) should NOT contain preview text
+    expect(hubSource).not.toContain("CMS 内容待填充");
+    expect(hubSource).not.toContain("Preview Slot Placeholder");
+  });
+
+  it("hub page still fetches CMS asset and passes it to renderers", () => {
+    const hubSource = read("app/(localized)/[locale]/personality/big-five/page.tsx");
+    expect(hubSource).toContain("getBigFivePublicContentAsset");
+    // asset must be used (not discarded) — passed to either renderer
+    expect(hubSource).toContain("asset=");
   });
 });

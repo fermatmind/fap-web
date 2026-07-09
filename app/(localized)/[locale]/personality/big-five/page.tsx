@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import BigFiveHubContentScaffold from "@/components/personality/BigFiveHubContentScaffold";
+import { PublicContentAssetRenderer } from "@/components/personality/PublicContentAssetRenderer";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   getBigFivePublicContentAsset,
@@ -21,6 +22,10 @@ export const dynamic = "force-dynamic";
 
 type HubPageParams = {
   locale: string;
+};
+
+type HubPageSearchParams = {
+  layout_preview?: string;
 };
 
 function localizedBigFiveLabel(locale: Locale): string {
@@ -102,8 +107,10 @@ export async function generateMetadata({
 
 export default async function BigFiveHubPage({
   params,
+  searchParams,
 }: {
   params: Promise<HubPageParams>;
+  searchParams: Promise<HubPageSearchParams>;
 }) {
   const { locale: localeParam } = await params;
   const locale = resolveLocale(localeParam);
@@ -117,9 +124,17 @@ export default async function BigFiveHubPage({
     notFound();
   }
 
+  const { layout_preview: layoutPreview } = await searchParams;
+  const isPreviewMode = layoutPreview === "big-five-v2";
+
   const pathname = buildBigFivePublicContentPath(locale, entry);
   const personalityHref = `/${locale}/personality`;
-  const hubHref = buildBigFivePublicContentPath(locale, { entityType: "hub", code: "big-five", routeSlug: "", pathSuffix: "" });
+  const hubHref = buildBigFivePublicContentPath(locale, {
+    entityType: "hub",
+    code: "big-five",
+    routeSlug: "",
+    pathSuffix: "",
+  });
   const breadcrumbItems = [
     { name: locale === "zh" ? "人格" : "Personality", path: personalityHref },
     { name: localizedBigFiveLabel(locale), path: hubHref },
@@ -160,7 +175,11 @@ export default async function BigFiveHubPage({
           />
         </div>
       </div>
-      <BigFiveHubContentScaffold locale={locale} />
+      {isPreviewMode ? (
+        <BigFiveHubContentScaffold locale={locale} asset={asset} preview />
+      ) : (
+        <PublicContentAssetRenderer asset={asset} locale={locale} />
+      )}
     </>
   );
 }

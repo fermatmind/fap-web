@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { ArrowRight, BookOpen, CheckCircle2, ShieldCheck, Compass, Briefcase, GraduationCap, Heart } from "lucide-react";
 import type { Locale } from "@/lib/i18n/locales";
+import type { PersonalityPublicContentAsset } from "@/lib/cms/personality-public-content-assets";
 
 // ---------------------------------------------------------------------------
 // Section slot definition
@@ -323,8 +324,12 @@ const PREVIEW_DIMENSIONS = [
 
 export default function BigFiveHubContentScaffold({
   locale,
+  asset,
+  preview = false,
 }: {
   locale: Locale;
+  asset?: PersonalityPublicContentAsset;
+  preview?: boolean;
 }) {
   const isZh = locale === "zh";
 
@@ -819,7 +824,8 @@ export default function BigFiveHubContentScaffold({
 
       {/* ===== SIDEBAR ===== */}
       <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
-        {/* Preview mode indicator */}
+        {/* Preview mode indicator — only shown in explicit preview mode */}
+      {preview ? (
         <div className="rounded-2xl border border-dashed border-amber-300 bg-amber-50 p-4">
           <p className="m-0 text-xs font-medium text-amber-700">
             ⚠️ {isZh ? "预览模式" : "Preview Mode"} —{" "}
@@ -833,6 +839,7 @@ export default function BigFiveHubContentScaffold({
               : "This layout contains CMS placeholders. Not shown in production."}
           </p>
         </div>
+      ) : null}
 
         {/* Slot 10: Method Boundary (placeholder — production uses real CMS data) */}
         <section
