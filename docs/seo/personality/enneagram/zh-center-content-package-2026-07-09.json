@@ -1,0 +1,72 @@
+{
+  "artifact": "ENNEAGRAM-ZH-CENTER-CONTENT-PACKAGE-01",
+  "status": "pass",
+  "page_count": 3,
+  "paths": [
+    "/zh/personality/enneagram/centers/gut",
+    "/zh/personality/enneagram/centers/heart",
+    "/zh/personality/enneagram/centers/head"
+  ],
+  "summary": {
+    "gut_center_written": true,
+    "heart_center_written": true,
+    "head_center_written": true,
+    "total_sections": 27,
+    "total_faq_items": 19,
+    "private_route_hits": [],
+    "forbidden_claim_hits": [],
+    "body_chars_gut": 3570,
+    "body_chars_heart": 3620,
+    "body_chars_head": 3525,
+    "ready_for_editorial_review": true,
+    "ready_for_cms_import": false
+  },
+  "per_page_results": [
+    {
+      "path": "/zh/personality/enneagram/centers/gut",
+      "center_key": "gut",
+      "sections": 9,
+      "faq": 7,
+      "internal_links": 6,
+      "links_to_included_types": true,
+      "links_to_hub": true,
+      "links_to_test": true,
+      "claim_boundary_present": true,
+      "qa_pass": true
+    },
+    {
+      "path": "/zh/personality/enneagram/centers/heart",
+      "center_key": "heart",
+      "sections": 9,
+      "faq": 6,
+      "internal_links": 6,
+      "links_to_included_types": true,
+      "links_to_hub": true,
+      "links_to_test": true,
+      "claim_boundary_present": true,
+      "qa_pass": true
+    },
+    {
+      "path": "/zh/personality/enneagram/centers/head",
+      "center_key": "head",
+      "sections": 9,
+      "faq": 6,
+      "internal_links": 6,
+      "links_to_included_types": true,
+      "links_to_hub": true,
+      "links_to_test": true,
+      "claim_boundary_present": true,
+      "qa_pass": true
+    }
+  ],
+  "known_holds": [
+    "not imported into CMS",
+    "not published",
+    "not indexable",
+    "not in sitemap",
+    "not in llms",
+    "not in llms-full",
+    "not search submitted"
+  ],
+  "recommended_next_pr": "ENNEAGRAM-ZH13-CONTENT-QA-01"
+}
