@@ -77,14 +77,20 @@ describe("SECURITY-103-WEB-01 deploy workflow hardening", () => {
     expect(stagingWorkflow).not.toContain("git reset --hard '$GITHUB_SHA'");
   });
 
-  it("allows a verified main revision to deploy without path or label classification", () => {
+  it("keeps risky production PR metadata fail-closed after verifying the exact main revision", () => {
     expect(productionWorkflow).toContain("listPullRequestsAssociatedWithCommit");
     expect(productionWorkflow).toContain("expected exactly one merged main PR");
     expect(productionWorkflow).toContain("Production auto-deploy policy passed for the verified latest main revision.");
+    expect(productionWorkflow).toContain("Production auto-deploy policy failed closed.");
+    expect(productionWorkflow).toContain("riskyLabelPatterns");
+    expect(productionWorkflow).toContain("riskyPathPatterns");
+    expect(productionWorkflow).toContain(
+      "Risky production revisions cannot be waived by workflow input. Prepare a policy-compliant revision and use the protected production GitHub Environment approval gate.",
+    );
     expect(productionWorkflow).not.toContain("manual_risk_approval");
-    expect(productionWorkflow).not.toContain("riskyLabelPatterns");
-    expect(productionWorkflow).not.toContain("riskyPathPatterns");
-    expect(productionWorkflow).not.toContain("Use the manual deploy-readiness path:");
+    expect(productionWorkflow).not.toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY");
+    expect(productionWorkflow).not.toContain("Continuing only through the production GitHub Environment approval gate.");
+    expect(productionWorkflow).not.toContain("detected risky PR metadata, but this is a manual workflow_dispatch run");
   });
 
   it("moves staging deploy target settings out of the workflow body", () => {
