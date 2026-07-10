@@ -23645,7 +23645,7 @@ prs:
     mode: execute
     train_scope: security_123_web_enneagram_robots_follow_semantics
     risk_level: informational
-    status: pr_open
+    status: ready_to_merge
     title: "SECURITY-123-WEB-08: Enneagram robots follow semantics"
     findings:
       - "Enneagram hub inverts CMS follow/nofollow robots flag"
