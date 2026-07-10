@@ -41,26 +41,28 @@ describe("personality cleanup contract", () => {
     expect(source).toContain("return notFound();");
   });
 
-  it("llms.txt personality coverage is cms-driven and has no local fallback branch", () => {
+  it("llms.txt personality coverage follows backend sitemap authority without local inference", () => {
     const source = read("app/llms.txt/route.ts");
     const personalityBlock = sliceBetween(source, "async function listPersonalityPaths()", "async function listTopicPaths()");
 
-    expect(personalityBlock).toContain("listPersonalityProfiles");
-    expect(personalityBlock).toContain("item.isIndexable");
+    expect(personalityBlock).toContain("listBackendSitemapMbtiPersonalityPaths");
     expect(personalityBlock).toContain("listBackendSitemapBigFiveZhPaths");
-    expect(personalityBlock).toContain("return dedupePaths(await bigFiveZhPathsPromise);");
+    expect(personalityBlock).toContain("return dedupePaths([...mbtiPersonalityPaths, ...bigFiveZhPaths]);");
+    expect(personalityBlock).not.toContain("listPersonalityProfiles");
+    expect(personalityBlock).not.toContain("publishedPersonalityVariantSlugs");
     expect(personalityBlock).not.toContain("listMbtiRecommendationTypes()");
     expect(personalityBlock).not.toContain("Fall back to local MBTI coverage");
   });
 
-  it("llms-full.txt personality coverage is cms-driven and has no local fallback branch", () => {
+  it("llms-full.txt personality coverage follows backend sitemap authority without local inference", () => {
     const source = read("app/llms-full.txt/route.ts");
     const personalityBlock = sliceBetween(source, "async function listPersonalityEntries()", "async function listTopicEntries()");
 
-    expect(personalityBlock).toContain("listPersonalityProfiles");
-    expect(personalityBlock).toContain("item.isIndexable");
+    expect(personalityBlock).toContain("listBackendSitemapMbtiPersonalityPaths");
     expect(personalityBlock).toContain("listBackendSitemapBigFiveZhPaths");
-    expect(personalityBlock).toContain("return uniqueEntriesByPath(await bigFiveZhEntriesPromise);");
+    expect(personalityBlock).toContain("return uniqueEntriesByPath([...mbtiEntries, ...bigFiveZhEntries]);");
+    expect(personalityBlock).not.toContain("listPersonalityProfiles");
+    expect(personalityBlock).not.toContain("personalityVariantEntriesFromBaseProfile");
     expect(personalityBlock).not.toContain("listMbtiRecommendationTypes()");
     expect(personalityBlock).not.toContain("Fall back to local MBTI coverage");
   });

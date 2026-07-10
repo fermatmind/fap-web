@@ -58,22 +58,17 @@ const llmsFullComparisonRepairTest = read("tests/contracts/personality-llms-full
 const topProfilePackage = readJson("docs/seo/personality/mbti-cms-04-top-profile-content-assets-2026-07-04.json");
 const comparisonPackage = readJson("docs/seo/personality/mbti-cms-06-comparison-content-assets-2026-07-04.json");
 
-assertContains(llmsRoute, "listPersonalityProfiles({ locale: \"en\"", "llms.txt");
-assertContains(llmsRoute, "listPersonalityProfiles({ locale: \"zh\"", "llms.txt");
-assertContains(llmsRoute, "listPersonalityComparisons(\"en\")", "llms.txt");
-assertContains(llmsRoute, "listPersonalityComparisons(\"zh\")", "llms.txt");
-assertContains(llmsRoute, "item.isPublic && item.isIndexable", "llms.txt");
-assertContains(llmsRoute, "Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.", "llms.txt");
+assertContains(llmsRoute, "listBackendSitemapMbtiPersonalityPaths", "llms.txt");
+assertContains(llmsRoute, "return dedupePaths([...mbtiPersonalityPaths, ...bigFiveZhPaths]);", "llms.txt");
+assertNotContains(llmsRoute, "listPersonalityProfiles", "llms.txt");
+assertNotContains(llmsRoute, "publishedPersonalityVariantSlugs", "llms.txt");
 assertNotContains(llmsRoute, "MBTI_BASE_TYPES.map", "llms.txt");
 
-assertContains(llmsFullRoute, "LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE = 32", "llms-full");
-assertContains(llmsFullRoute, "LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE = 16", "llms-full");
-assertContains(llmsFullRoute, "LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT + LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT", "llms-full");
-assertContains(llmsFullRoute, "function buildPersonalityVariantEntries(", "llms-full");
-assertContains(llmsFullRoute, "function buildPersonalityComparisonEntries(", "llms-full");
-assertContains(llmsFullRoute, "Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.", "llms-full");
-assertContains(llmsFullRoute, "/zh/personality/intp-a", "llms-full");
-assertContains(llmsFullRoute, "/zh/personality/istp-a", "llms-full");
+assertContains(llmsFullRoute, "listBackendSitemapMbtiPersonalityPaths", "llms-full");
+assertContains(llmsFullRoute, "function buildMbtiPersonalityAuthorityEntry(", "llms-full");
+assertContains(llmsFullRoute, "hasExactMbtiPersonalityAuthorityCohort", "llms-full");
+assertContains(llmsFullRoute, "expectedMbtiPersonalityPaths", "llms-full");
+assertNotContains(llmsFullRoute, "personalityVariantEntriesFromBaseProfile", "llms-full");
 assertNotContains(llmsFullRoute, "buildPersonalityComparisonSlugsFromProfiles", "llms-full");
 
 assertContains(budget, "personalityProfiles: 64", "llmsRouteBudget");
@@ -87,7 +82,7 @@ assertContains(sitemapIndexabilityTest, "/en/personality/intp-a", "sitemap-index
 assertContains(sitemapIndexabilityTest, "expect(locs).not.toContain(\"/en/personality/intp\")", "sitemap-indexability");
 
 assertContains(llmsFullPilotTest, "expect(personalityUrls.size).toBe(96)", "llms-full-pilot");
-assertContains(llmsFullComparisonRepairTest, "LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2", "llms-full-comparison");
+assertContains(llmsFullComparisonRepairTest, "listBackendSitemapMbtiPersonalityPaths", "llms-full-comparison");
 
 const topProfileAssets = Array.isArray(topProfilePackage.assets) ? topProfilePackage.assets : [];
 const comparisonAssets = Array.isArray(comparisonPackage.assets) ? comparisonPackage.assets : [];
@@ -109,16 +104,16 @@ const audit = {
   },
   current_authority: {
     llms_txt: {
-      source: "CMS public personality APIs",
-      profiles: "listPersonalityProfiles per locale, budgeted at 64 entries",
-      comparisons: "listPersonalityComparisons per locale, filtered by isPublic and isIndexable",
+      source: "backend sitemap-source authority",
+      profiles: "variant paths emitted only after backend robots/indexability gates pass",
+      comparisons: "A/T and cross-type paths emitted only after backend indexability gates pass",
       fallback_policy: "fail closed; no local MBTI personality fallback",
     },
     llms_full_txt: {
-      source: "CMS public personality APIs plus per-entry enrichment",
-      profile_cohort: "32 A/T variants per locale, 64 total",
-      comparison_cohort: "16 comparison pages per locale, 32 total",
-      cache_gate: "complete artifact requires the MBTI64 personality cohort unless explicitly disabled in tests",
+      source: "backend sitemap-source authority plus per-entry CMS enrichment",
+      profile_cohort: "dynamic backend-authorized A/T variant paths",
+      comparison_cohort: "dynamic backend-authorized A/T and cross-type comparison paths",
+      cache_gate: "cached artifact MBTI entries must exactly match current backend sitemap authority",
     },
     sitemap_xml: {
       hub_paths: ["/en/personality", "/zh/personality"],

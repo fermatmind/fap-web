@@ -1,5 +1,10 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { extractBackendSitemapCareerJobPaths, listBackendSitemapCareerJobPaths } from "@/lib/seo/backendSitemapSource";
+import {
+  extractBackendSitemapCareerJobPaths,
+  extractBackendSitemapMbtiPersonalityPaths,
+  listBackendSitemapCareerJobPaths,
+  listBackendSitemapMbtiPersonalityPaths,
+} from "@/lib/seo/backendSitemapSource";
 import { LLMS_ROUTE_LIMITS } from "@/lib/seo/llmsRouteBudget";
 
 function jsonResponse(payload: unknown, status = 200): Response {
@@ -18,6 +23,39 @@ afterEach(() => {
 });
 
 describe("career llms alignment contract", () => {
+  it("extracts only backend-authorized MBTI profile and comparison paths", () => {
+    expect(extractBackendSitemapMbtiPersonalityPaths({
+      items: [
+        { loc: "https://fermatmind.com/zh/personality/intp-a" },
+        { loc: "https://fermatmind.com/zh/personality/intp-a-vs-intp-t" },
+        { loc: "https://fermatmind.com/zh/personality/entj-vs-intj" },
+        { loc: "https://fermatmind.com/zh/personality/intp-a-vs-intj-t" },
+        { loc: "https://fermatmind.com/zh/personality/xxxx-a" },
+        { loc: "https://fermatmind.com/zh/personality/intj-vs-intj" },
+        { loc: "https://staging.fermatmind.com/zh/personality/intj-a" },
+        { loc: "http://fermatmind.com/zh/personality/intj-a" },
+      ],
+    })).toEqual([
+      "/zh/personality/entj-vs-intj",
+      "/zh/personality/intp-a",
+      "/zh/personality/intp-a-vs-intp-t",
+    ]);
+  });
+
+  it("re-reads MBTI sitemap authority so a later noindex hold fails closed", async () => {
+    const responses = [
+      [{ loc: "https://fermatmind.com/zh/personality/intp-a" }],
+      [],
+    ];
+    vi.stubGlobal("fetch", vi.fn(async () => jsonResponse({ items: responses.shift() ?? [] })));
+
+    await expect(listBackendSitemapMbtiPersonalityPaths()).resolves.toEqual([
+      "/zh/personality/intp-a",
+    ]);
+    await expect(listBackendSitemapMbtiPersonalityPaths()).resolves.toEqual([]);
+    expect(fetch).toHaveBeenCalledTimes(2);
+  });
+
   it("extracts only safe canonical backend sitemap-source Career job detail candidates", () => {
     expect(
       extractBackendSitemapCareerJobPaths({
@@ -117,6 +155,7 @@ describe("career llms alignment contract", () => {
 
   it("llms.txt reflects current live Career authority routes and excludes query search urls", async () => {
     vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+      listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => []),
       listBackendSitemapBigFiveZhPaths: vi.fn(async () => [
         "/zh/personality/big-five/openness",
         "/zh/personality/big-five/openness-high",
@@ -225,6 +264,7 @@ describe("career llms alignment contract", () => {
 
   it("llms-full.txt reflects backend-owned Career detail routes and excludes query search urls", async () => {
     vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+      listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => []),
       listBackendSitemapBigFiveZhPaths: vi.fn(async () => [
         "/zh/personality/big-five/openness",
         "/zh/personality/big-five/openness-high",

@@ -96,7 +96,10 @@ function personalitySummary({
   };
 }
 
-function mockLlmsFullMbti64Dependencies(options: { personalityDelayMs?: number } = {}) {
+function mockLlmsFullMbti64Dependencies(options: {
+  personalityDelayMs?: number;
+  authorityPaths?: string[];
+} = {}) {
   vi.resetModules();
   const personalityDelayMs = options.personalityDelayMs ?? 0;
 
@@ -189,8 +192,15 @@ function mockLlmsFullMbti64Dependencies(options: { personalityDelayMs?: number }
     adaptCareerRecommendationIndex: vi.fn(() => []),
   }));
   vi.doMock("@/lib/seo/backendSitemapSource", () => ({
-      listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
+    listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
     listBackendSitemapCareerJobPaths: vi.fn(async () => []),
+    listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => {
+      if (personalityDelayMs > 0) {
+        await new Promise((resolve) => setTimeout(resolve, personalityDelayMs));
+      }
+
+      return options.authorityPaths ?? completeMbti64Urls().map((url) => new URL(url).pathname);
+    }),
   }));
   vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({
     listBackendDiscoverabilityTestEntries: vi.fn(async () => []),
@@ -310,6 +320,32 @@ describe("MBTI64-LLMS-FULL-PILOT-EXPOSURE-REPAIR-02", () => {
       expect(text).toContain(`${SITE_URL}${path}`);
     }
     expect(personalityUrls.size).toBe(96);
+  });
+
+  it("excludes held MBTI URLs from generated entries and rejects stale cache membership", async () => {
+    const heldPaths = [
+      "/zh/personality/istj-a",
+      "/zh/personality/intp-a-vs-intp-t",
+    ];
+    const authorityPaths = completeMbti64Urls()
+      .map((url) => new URL(url).pathname)
+      .filter((path) => !heldPaths.includes(path));
+    mockLlmsFullMbti64Dependencies();
+    vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+      listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
+      listBackendSitemapCareerJobPaths: vi.fn(async () => []),
+      listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => authorityPaths),
+    }));
+
+    const { buildLlmsFullText, isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
+    const text = await buildLlmsFullText(SITE_URL);
+    const lines = text.split("\n");
+
+    for (const path of heldPaths) {
+      expect(lines).not.toContain(`- URL: ${SITE_URL}${path}`);
+    }
+    expect(isCompleteLlmsFullText(text, SITE_URL, authorityPaths)).toBe(true);
+    expect(isCompleteLlmsFullText(text, SITE_URL, [...authorityPaths, heldPaths[0]])).toBe(false);
   });
 
   it("does not treat an incomplete MBTI64 personality cohort as a complete llms-full cache artifact", async () => {
