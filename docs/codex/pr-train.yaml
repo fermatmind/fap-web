@@ -23685,7 +23685,7 @@ prs:
     mode: execute
     train_scope: security_123_web_big_five_facet_hub_jsonld
     risk_level: informational
-    status: pr_open
+    status: ready_to_merge
     title: "SECURITY-123-WEB-09: Big Five facet hub JSON-LD"
     findings:
       - "Facet hub JSON-LD dropped by Big Five route split"
