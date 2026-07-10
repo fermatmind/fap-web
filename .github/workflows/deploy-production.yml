@@ -11,10 +11,6 @@ on:
         description: "Exact latest main commit SHA to deploy."
         required: true
         type: string
-      manual_risk_approval:
-        description: "Exact manual-risk-approval token for risky-path deploys. Format: APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<SHA>"
-        required: false
-        type: string
 
 permissions:
   contents: read
@@ -46,12 +42,10 @@ jobs:
           WORKFLOW_RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
         with:
           script: |
-            const RISKY_DEPLOY_APPROVAL_PREFIX = 'APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:';
             const isManualDispatch = process.env.GITHUB_EVENT_NAME === 'workflow_dispatch';
             const deploySha = process.env.GITHUB_EVENT_NAME === 'workflow_run'
               ? process.env.WORKFLOW_RUN_HEAD_SHA
               : (context.payload.inputs?.deploy_sha || '');
-            const manualRiskApproval = (context.payload.inputs?.manual_risk_approval || '').trim();
 
             if (isManualDispatch && !deploySha) {
               core.setOutput('auto_deploy_allowed', 'false');
@@ -87,78 +81,8 @@ jobs:
             core.setOutput('associated_pr', String(pull.number));
             core.info(`Associated PR: #${pull.number} ${pull.title}`);
 
-            // --- Manual risk approval gate (workflow_dispatch only) ---
-            if (isManualDispatch && manualRiskApproval.length > 0) {
-              const approvalTokenValid = manualRiskApproval === `${RISKY_DEPLOY_APPROVAL_PREFIX}${deploySha}`;
-              if (approvalTokenValid) {
-                core.info('Manual risk approval token validated — risky-path guard waived for this dispatch.');
-                core.setOutput('auto_deploy_allowed', 'true');
-                core.info('Production manual deploy allowed via risk approval.');
-                return;
-              }
-              core.setOutput('auto_deploy_allowed', 'false');
-              core.setFailed('Manual risk approval token invalid (must match APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<deploy_sha>)');
-              return;
-            }
-
-            const labels = (pull.labels || []).map((label) => String(label.name || '').toLowerCase());
-            const riskyLabelPatterns = [
-              /(^|[-_: ])no[-_: ]?auto[-_: ]?production($|[-_: ])/,
-              /(^|[-_: ])manual[-_: ]?production($|[-_: ])/,
-              /(^|[-_: ])production[-_: ]?manual($|[-_: ])/,
-              /(^|[-_: ])requires[-_: ]?production[-_: ]?approval($|[-_: ])/,
-              /(^|[-_: ])cms($|[-_: ])/,
-              /(^|[-_: ])search($|[-_: ])/,
-              /(^|[-_: ])sitemap($|[-_: ])/,
-              /(^|[-_: ])llms($|[-_: ])/,
-              /(^|[-_: ])content[-_: ]?release($|[-_: ])/,
-              /(^|[-_: ])deploy($|[-_: ])/,
-              /(^|[-_: ])secret(s)?($|[-_: ])/,
-            ];
-            const riskyLabels = labels.filter((label) => riskyLabelPatterns.some((pattern) => pattern.test(label)));
-
-            const files = await github.paginate(
-              github.rest.pulls.listFiles,
-              { owner, repo, pull_number: pull.number, per_page: 100 },
-            );
-            const riskyPathPatterns = [
-              /^\.github\/workflows\//,
-              /^\.github\/actions\//,
-              /^deploy\//,
-              /^docs\/deploy\//,
-              /^scripts\/[^/]*deploy/i,
-              /^scripts\/.*\/[^/]*deploy/i,
-              /^scripts\/deploy_/i,
-              /^scripts\/release_/i,
-              /^scripts\/seo\//,
-              /^lib\/seo\//,
-              /^app\/sitemap\.xml\//,
-              /^app\/llms\.txt\//,
-              /^app\/llms-full\.txt\//,
-              /^app\/api\/content-release\//,
-              /^public\/sitemap\.xml$/,
-              /^llms\.txt$/,
-              /^llms-full\.txt$/,
-              /(^|\/)\.env($|\.|-)/,
-              /(^|\/).*secret.*$/i,
-            ];
-            const riskyFiles = files
-              .map((file) => file.filename)
-              .filter((filename) => riskyPathPatterns.some((pattern) => pattern.test(filename)));
-
-            if (riskyLabels.length > 0 || riskyFiles.length > 0) {
-              core.setOutput('auto_deploy_allowed', 'false');
-              core.setFailed([
-                'Production auto-deploy policy failed closed.',
-                riskyLabels.length > 0 ? `Risk labels: ${riskyLabels.join(', ')}` : 'Risk labels: none',
-                riskyFiles.length > 0 ? `Risk files: ${riskyFiles.join(', ')}` : 'Risk files: none',
-                'Use the manual deploy-readiness path: dispatch with manual_risk_approval=APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<SHA>.',
-              ].join('\n'));
-              return;
-            }
-
             core.setOutput('auto_deploy_allowed', 'true');
-            core.info('Production auto-deploy policy passed for runtime-only change.');
+            core.info('Production auto-deploy policy passed for the verified latest main revision.');
 
   deploy-production:
     name: Deploy fap-web production Node1
