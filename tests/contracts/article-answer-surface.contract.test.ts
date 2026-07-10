@@ -400,6 +400,49 @@ describe("article answer surface rendering", () => {
     expect(html).not.toContain('"@type":"FAQPage"');
   });
 
+  it("lets projected granular gates override a legacy schema hold without exposing the control flag", async () => {
+    const article = {
+      ...makeArticle(),
+      slug: "major-category-program-tracking-riasec-choice-checklist",
+      seoMeta: {
+        schema_json: { enabled: false },
+        schema_gates_v1: {
+          article_schema_gate_v1: { enabled: true },
+          breadcrumb_schema_gate_v1: { enabled: true },
+          faq_schema_gate_v1: { enabled: false },
+        },
+      },
+    };
+    const seo = {
+      meta: {
+        title: "Program Tracking Checklist",
+        description: "Compare tracks with courses, criteria, and RIASEC.",
+        canonical: "https://fermatmind.com/en/articles/major-category-program-tracking-riasec-choice-checklist",
+        robots: "index,follow",
+        alternates: {},
+        og: {},
+        twitter: {},
+      },
+      surface: null,
+      jsonld: {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        headline: "Program Tracking Checklist",
+        enabled: false,
+      },
+    };
+
+    const html = await renderArticleDetail(article, seo);
+
+    expect(html).toContain('id="article-jsonld-major-category-program-tracking-riasec-choice-checklist"');
+    expect(html).toContain('"@type":"Article"');
+    expect(html).toContain('id="article-breadcrumb-major-category-program-tracking-riasec-choice-checklist"');
+    expect(html).toContain('"@type":"BreadcrumbList"');
+    expect(html).not.toContain('id="article-faq-major-category-program-tracking-riasec-choice-checklist"');
+    expect(html).not.toContain('"@type":"FAQPage"');
+    expect(html).not.toContain('"enabled":false');
+  });
+
   it("does not emit FAQPage JSON-LD when no visible answer-surface FAQ exists", async () => {
     const article = makeArticle({
       ...answerSurfaceFixture,

@@ -174,14 +174,14 @@ function readArticleSchemaGate(source: unknown): ArticleSchemaGateRead {
     hasExplicitSchemaGate,
   };
 
-  const gateBundle = readArticleSchemaGate(record.schema_gates_v1 ?? record.schemaGatesV1);
-  if (gateBundle.hasExplicitSchemaGate) {
-    read = mergeSchemaGateRead(read, gateBundle);
-  }
-
   const schemaJson = readArticleSchemaGate(record.schema_json ?? record.schemaJson);
   if (schemaJson.hasExplicitSchemaGate) {
     read = mergeSchemaGateRead(read, schemaJson);
+  }
+
+  const gateBundle = readArticleSchemaGate(record.schema_gates_v1 ?? record.schemaGatesV1);
+  if (gateBundle.hasExplicitSchemaGate) {
+    read = mergeSchemaGateRead(read, gateBundle);
   }
 
   return read;
