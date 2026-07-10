@@ -328,11 +328,9 @@ export async function getBigFivePublicContentAsset(
         toApiLocale(locale)
       )}&org_id=0`,
       {
-        ...PUBLIC_API_CACHE_OPTIONS,
         skipAuth: true,
         locale,
-        // Bypass fetch cache so CMS content patches are reflected on the next SSR render.
-        // The page itself is force-dynamic; this ensures the API response is always fresh.
+        // Use one explicit policy: this force-dynamic page must observe CMS patches on the next SSR render.
         cache: "no-store",
       }
     );

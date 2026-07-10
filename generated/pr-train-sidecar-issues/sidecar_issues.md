@@ -239,3 +239,14 @@
 - recommended follow-up: use the repository Node 24 runtime or configure the local contract runner timeout consistently with CI for CMS-backed sitemap/personality cleanup contracts.
 - detected at: 2026-07-10T19:07:00+08:00
 - disposition: recorded as non-blocking local runtime debt; GitHub contracts rerun is required after the CMS-16 branch-aware fix.
+## External Contract Runner Issues During SECURITY-123-WEB-07
+
+- repo: fermatmind/fap-web
+- PR id / branch: SECURITY-123-WEB-07 / codex/security-123-web-07
+- blocker type: external branch-agnostic MBTI-CMS-23 scope guard and Node20 local timeout
+- evidence: timeout-adjusted local contracts passed the WEB-07 focused asset-cache and Big Five noindex contracts. The local run was blocked only by the historical CMS-23 scope assertion and pre-existing CMS-backed career-guide, sitemap-indexability, personality-cleanup, and topics-cleanup tests exceeding 60 seconds.
+- why not current PR scope: WEB-07 changes only the Big Five CMS asset cache policy and contracts.
+- whether required checks are affected: no; GitHub contracts remains the merge gate.
+- recommended follow-up: make CMS-23 scope branch-aware and use Node24 or a consistent contract timeout for local cleanup tests.
+- detected at: 2026-07-10T19:28:00+08:00
+- disposition: recorded as non-blocking external debt.
