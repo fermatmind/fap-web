@@ -30103,7 +30103,7 @@
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "252611ae",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
