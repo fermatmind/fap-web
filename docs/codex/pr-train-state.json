@@ -29941,18 +29941,19 @@
       "scope": {"status": "passed", "evidence": "WEB-02 focused scope contract accepts the complete changed-file set; the declared files remain limited to LLMS article enumeration, contracts, scope helper, sidecar, and train metadata."}
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1649",
+      "commit_sha": "672d78fb",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
       "history": [
         {"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-02; execution waits for SECURITY-123-WEB-01 merge."},
         {"at": "2026-07-10T17:07:00+08:00", "status": "in_progress", "summary": "Started WEB-02 from origin/main after WEB-01 merge; scope is limited to CMS article enumeration caching/concurrency, LLMS contracts, scope helper, and train metadata."},
-        {"at": "2026-07-10T17:14:00+08:00", "status": "ready_to_merge", "summary": "Focused and full local validation passed; pnpm test:contract passed 4 shards with 3,968 tests, while pre-existing lint:spacing debt remains recorded in sidecar."}
+        {"at": "2026-07-10T17:14:00+08:00", "status": "ready_to_merge", "summary": "Focused and full local validation passed; pnpm test:contract passed 4 shards with 3,968 tests, while pre-existing lint:spacing debt remains recorded in sidecar."},
+        {"at": "2026-07-10T17:15:00+08:00", "status": "pr_open", "summary": "Opened PR #1649 at head 672d78fb; required GitHub checks are pending."}
       ],
       "sidecar_issues": ["external-global-spacing-token-debt-security-123-web-02"],
-      "updated_at": "2026-07-10T17:14:00+08:00"
+      "updated_at": "2026-07-10T17:15:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-03",
