@@ -23435,7 +23435,7 @@ prs:
     mode: execute
     train_scope: security_123_web_big5_explicit_disclaimer_consent
     risk_level: medium
-    status: ready_to_merge
+    status: merged
     title: "SECURITY-123-WEB-03: Big Five explicit disclaimer consent"
     findings:
       - "Big Five flow records consent without user acceptance"

@@ -29980,12 +29980,12 @@
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1651",
       "commit_sha": "2b352958",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
-      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-03; execution waits for SECURITY-123-WEB-02 merge."}, {"at": "2026-07-10T17:24:00+08:00", "status": "in_progress", "summary": "Started WEB-03 from origin/main after WEB-02 merge; scope is limited to Big Five disclaimer consent UI, focused contracts, scope helper, sidecar, and train metadata."}, {"at": "2026-07-10T17:52:00+08:00", "status": "ready_to_merge", "summary": "Implementation commit 2b352958 is ready; focused checks, lint, spacing, typecheck, build, freeze checks, and timeout-adjusted full contract suite passed. Bare local contract runner timeout is recorded as non-blocking sidecar debt."}, {"at": "2026-07-10T17:55:00+08:00", "status": "pr_open", "summary": "Opened PR #1651 from the latest origin/main-based WEB-03 branch; required GitHub checks are pending."}, {"at": "2026-07-10T18:03:00+08:00", "status": "ready_to_merge", "summary": "PR #1651 required checks are all green and merge state is CLEAN; ready for squash auto-merge."}],
+      "merged_at": "2026-07-10T10:01:44Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-03; execution waits for SECURITY-123-WEB-02 merge."}, {"at": "2026-07-10T17:24:00+08:00", "status": "in_progress", "summary": "Started WEB-03 from origin/main after WEB-02 merge; scope is limited to Big Five disclaimer consent UI, focused contracts, scope helper, sidecar, and train metadata."}, {"at": "2026-07-10T17:52:00+08:00", "status": "ready_to_merge", "summary": "Implementation commit 2b352958 is ready; focused checks, lint, spacing, typecheck, build, freeze checks, and timeout-adjusted full contract suite passed. Bare local contract runner timeout is recorded as non-blocking sidecar debt."}, {"at": "2026-07-10T17:55:00+08:00", "status": "pr_open", "summary": "Opened PR #1651 from the latest origin/main-based WEB-03 branch; required GitHub checks are pending."}, {"at": "2026-07-10T18:03:00+08:00", "status": "ready_to_merge", "summary": "PR #1651 required checks are all green and merge state is CLEAN; ready for squash auto-merge."}, {"at": "2026-07-10T18:05:00+08:00", "status": "merged", "summary": "PR #1651 merged by squash as 1f0f37404ff55c422107487364bfd86c416c7c6f; remote branch deleted and local task worktree/branch cleaned."}],
       "sidecar_issues": ["external-contract-runner-timeout-security-123-web-03"],
-      "updated_at": "2026-07-10T18:03:00+08:00"
+      "updated_at": "2026-07-10T18:05:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-04",
