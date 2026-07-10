@@ -43302,8 +43302,8 @@
     "depends_on": [
       "BIG5-ZH-LEGACY-ROUTE-AUDIT-01"
     ],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "local_verified",
+    "commit_sha": "0245c6fa9c883603e8767968b5fbf5f371a4c181",
     "pr_url": null,
     "checks": {
       "manifest_registration": {
@@ -43327,8 +43327,8 @@
         "evidence": "pnpm typecheck exited 0 under canonical Node 24.14.0 and pnpm 10.28.1."
       },
       "lint_spacing": {
-        "status": "fail",
-        "evidence": "pnpm lint:spacing exited 1 on repository-wide pre-existing spacing-token violations. The same failure reproduced on clean local main at origin/main 4eec7042bbd0b51b0dcb6b8cdd3f9f1b2487c4fe; none of the reported files is changed by this PR. Required local checks cannot be sidecar-overridden."
+        "status": "pass",
+        "evidence": "After PR #1648 merged, pnpm lint:spacing passed with 121 known occurrences across 79 locked signatures."
       },
       "lint_spacing_blocker_revalidation": {
         "status": "fail",
@@ -43337,11 +43337,27 @@
       "lint_spacing_prerequisite_repair": {
         "status": "pass",
         "evidence": "User-authorized ad-hoc fap-web PR #1648 is MERGED; origin/main contains merge commit 3a2a8ba4268af76daf8dad90d9ce4520b12e9aa6, which restores a passing count-locked spacing baseline without changing this PR scope."
+      },
+      "full_contract": {
+        "status": "pass",
+        "evidence": "After rebasing onto origin/main f2850564, pnpm test:contract passed all four shards: 996 + 1012 + 1000 + 964 tests."
+      },
+      "production_build": {
+        "status": "pass",
+        "evidence": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed under Node 24.14.0."
+      },
+      "manifest_and_scope": {
+        "status": "pass",
+        "evidence": "Manifest YAML and state JSON parse successfully; git diff --check passed; changed files are limited to the five manifest-allowed paths."
+      },
+      "latest_main_revalidation": {
+        "status": "pass",
+        "evidence": "Rebased onto origin/main f2850564 after SECURITY-123-WEB-02 merged; reran the targeted contract, spacing guard, lint, typecheck, full contract suite, and production build successfully."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
-      "local_validation_passed": false,
+      "local_validation_passed": true,
       "github_checks_green": null,
       "post_merge_revalidated": false
     },
@@ -43373,6 +43389,12 @@
         "from": "local_checks_failed",
         "to": "in_progress",
         "note": "Resumed after user-authorized baseline repair PR #1648 merged and origin/main containment, synchronization, and branch cleanup were verified."
+      },
+      {
+        "at": "2026-07-10T09:21:48Z",
+        "from": "in_progress",
+        "to": "local_verified",
+        "note": "All manifest-required local checks passed on latest origin/main with the exact five-file scope."
       }
     ]
   }
