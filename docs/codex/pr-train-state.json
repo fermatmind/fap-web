@@ -30118,7 +30118,7 @@
       "branch": "codex/security-123-web-08",
       "base": "main",
       "depends_on": ["SECURITY-123-WEB-07"],
-      "status": "ready_to_merge",
+      "status": "pr_open",
       "train_scope": "security_123_web_enneagram_robots_follow_semantics",
       "risk_level": "informational",
       "title": "SECURITY-123-WEB-08: Enneagram robots follow semantics",
@@ -30133,14 +30133,14 @@
         "scope": {"status": "passed", "evidence": "Changed files are limited to Enneagram hub robots semantics, WEB-08 focused contracts, currentPrScope helper, WEB-07 reconciliation/WEB-08 train metadata, and WEB-08 sidecars."}
       },
       "failure_reason": null,
-      "pr_url": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1657",
       "commit_sha": "ca3a4d805ae12c7768b0903afe3118f6cb0d8c17",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-08; execution waits for SECURITY-123-WEB-07 merge."}, {"at": "2026-07-10T19:50:00+08:00", "status": "in_progress", "summary": "Started WEB-08 from origin/main after WEB-07 squash merge; scope is limited to Enneagram hub robots follow semantics, focused contracts, scope helper, and train metadata, with WEB-07 post-merge ledger reconciliation included in this same docs scope."}, {"at": "2026-07-10T19:55:00+08:00", "status": "ready_to_merge", "summary": "Implementation is ready; focused robots contracts, lint, spacing, typecheck, 206-route production build, manifest parse, diff check, and scope validation passed. Local full contracts are sidecar-limited by unrelated CMS-23 scope, Node20 cleanup timeout, and MBTI checkout timing debt."}],
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-08; execution waits for SECURITY-123-WEB-07 merge."}, {"at": "2026-07-10T19:50:00+08:00", "status": "in_progress", "summary": "Started WEB-08 from origin/main after WEB-07 squash merge; scope is limited to Enneagram hub robots follow semantics, focused contracts, scope helper, and train metadata, with WEB-07 post-merge ledger reconciliation included in this same docs scope."}, {"at": "2026-07-10T19:55:00+08:00", "status": "ready_to_merge", "summary": "Implementation is ready; focused robots contracts, lint, spacing, typecheck, 206-route production build, manifest parse, diff check, and scope validation passed. Local full contracts are sidecar-limited by unrelated CMS-23 scope, Node20 cleanup timeout, and MBTI checkout timing debt."}, {"at": "2026-07-10T20:00:00+08:00", "status": "pr_open", "summary": "Opened PR #1657 from WEB-08 commits ca3a4d80/bd87c4c4; required GitHub checks are pending."}],
       "sidecar_issues": ["external-mbti-cms23-scope-guard-security-123-web-08", "external-contract-runner-timeout-security-123-web-08"],
-      "updated_at": "2026-07-10T19:55:00+08:00"
+      "updated_at": "2026-07-10T20:00:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-09",
