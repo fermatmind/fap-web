@@ -1,0 +1,480 @@
+{
+  "schema_version": "spacing-token-baseline.v1",
+  "policy": "Known spacing-token debt is count-locked by file, rule, and token. New, increased, or stale debt fails the guard.",
+  "violations": [
+    {
+      "file": "app/(localized)/[locale]/career/page.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "pt-9",
+      "count": 1
+    },
+    {
+      "file": "components/big5/report/SectionRenderer.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "mt-28",
+      "count": 1
+    },
+    {
+      "file": "components/content-pages/ContentPageTemplate.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "mt-28",
+      "count": 1
+    },
+    {
+      "file": "components/layout/SiteFooter.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "py-28",
+      "count": 1
+    },
+    {
+      "file": "components/marketing/HomePageExperience.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "mt-9",
+      "count": 2
+    },
+    {
+      "file": "components/marketing/HomePageExperience.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "py-9",
+      "count": 1
+    },
+    {
+      "file": "components/ops/shared/FilterBar.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "pl-9",
+      "count": 1
+    },
+    {
+      "file": "components/personality/PersonalityQuickLocateBar.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "mt-28",
+      "count": 1
+    },
+    {
+      "file": "components/personality/PublicContentAssetRenderer.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "py-18",
+      "count": 1
+    },
+    {
+      "file": "components/result/mbti/MbtiChapterSection.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "mt-28",
+      "count": 1
+    },
+    {
+      "file": "components/result/mbti/MbtiDominantTraitsSection.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "mt-28",
+      "count": 1
+    },
+    {
+      "file": "components/result/mbti/MbtiOfferComparisonSection.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "mt-28",
+      "count": 1
+    },
+    {
+      "file": "components/result/mbti/MbtiResultShell.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "mt-28",
+      "count": 2
+    },
+    {
+      "file": "components/result/mbti/MbtiResultShell.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "pb-28",
+      "count": 1
+    },
+    {
+      "file": "components/result/mbti/MbtiSceneFingerprintSummary.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "mt-28",
+      "count": 1
+    },
+    {
+      "file": "components/support/SupportTrustDetailTemplate.tsx",
+      "rule": "disallowed-spacing-key",
+      "snippet": "mt-28",
+      "count": 1
+    },
+    {
+      "file": "components/marketing/home/HeroHudArtwork.tsx",
+      "rule": "no-arbitrary-px-utility",
+      "snippet": "ml-[193.5px]",
+      "count": 1
+    },
+    {
+      "file": "components/marketing/home/HeroHudArtwork.tsx",
+      "rule": "no-arbitrary-px-utility",
+      "snippet": "mt-[7px]",
+      "count": 1
+    },
+    {
+      "file": "components/marketing/home/HeroHudArtwork.tsx",
+      "rule": "no-arbitrary-px-utility",
+      "snippet": "mt-[8px]",
+      "count": 1
+    },
+    {
+      "file": "components/marketing/home/HeroHudArtwork.tsx",
+      "rule": "no-arbitrary-px-utility",
+      "snippet": "mt-[calc(4.842vw-53px)]",
+      "count": 1
+    },
+    {
+      "file": "components/personality/PersonalityMobileDecisionBar.tsx",
+      "rule": "no-arbitrary-px-utility",
+      "snippet": "pb-[max(env(safe-area-inset-bottom),0px)]",
+      "count": 1
+    },
+    {
+      "file": "components/result/DimensionBars.tsx",
+      "rule": "no-arbitrary-px-utility",
+      "snippet": "gap-[8px]",
+      "count": 2
+    },
+    {
+      "file": "components/result/DimensionBars.tsx",
+      "rule": "no-arbitrary-px-utility",
+      "snippet": "px-[10px]",
+      "count": 1
+    },
+    {
+      "file": "components/result/DimensionBars.tsx",
+      "rule": "no-arbitrary-px-utility",
+      "snippet": "py-[8px]",
+      "count": 1
+    },
+    {
+      "file": "components/result/DimensionBars.tsx",
+      "rule": "no-arbitrary-px-utility",
+      "snippet": "space-y-[16px]",
+      "count": 1
+    },
+    {
+      "file": "app/(localized)/[locale]/career/jobs/page.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-1.5",
+      "count": 2
+    },
+    {
+      "file": "app/(localized)/[locale]/personality/[type]/page.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-2.5",
+      "count": 1
+    },
+    {
+      "file": "app/(localized)/[locale]/personality/[type]/page.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "px-3.5",
+      "count": 2
+    },
+    {
+      "file": "app/(localized)/[locale]/personality/[type]/page.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-1.5",
+      "count": 2
+    },
+    {
+      "file": "app/(localized)/[locale]/personality/page.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-2.5",
+      "count": 1
+    },
+    {
+      "file": "app/(localized)/[locale]/personality/page.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-1.5",
+      "count": 6
+    },
+    {
+      "file": "app/(localized)/[locale]/support/page.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "mt-0.5",
+      "count": 1
+    },
+    {
+      "file": "app/(localized)/[locale]/support/page.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "px-2.5",
+      "count": 1
+    },
+    {
+      "file": "app/(localized)/[locale]/tests/[slug]/page.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "px-2.5",
+      "count": 1
+    },
+    {
+      "file": "components/big5/report/BlockRenderer.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-0.5",
+      "count": 1
+    },
+    {
+      "file": "components/career/v1/ConfidenceBoundary.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "mt-1.5",
+      "count": 1
+    },
+    {
+      "file": "components/layout/SiteFooter.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "space-y-2.5",
+      "count": 1
+    },
+    {
+      "file": "components/layout/SiteHeader.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-0.5",
+      "count": 1
+    },
+    {
+      "file": "components/layout/SiteHeader.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-2.5",
+      "count": 1
+    },
+    {
+      "file": "components/layout/SiteHeader.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-3.5",
+      "count": 2
+    },
+    {
+      "file": "components/layout/SiteHeader.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "px-1.5",
+      "count": 1
+    },
+    {
+      "file": "components/layout/SiteHeader.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-2.5",
+      "count": 1
+    },
+    {
+      "file": "components/marketing/HeroEvidencePanel.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "p-3.5",
+      "count": 3
+    },
+    {
+      "file": "components/marketing/HeroEvidencePanel.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-2.5",
+      "count": 2
+    },
+    {
+      "file": "components/marketing/HomePageExperience.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-0.5",
+      "count": 1
+    },
+    {
+      "file": "components/marketing/tests/TestsHubExperience.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "px-2.5",
+      "count": 3
+    },
+    {
+      "file": "components/marketing/tests/TestsShared.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "px-2.5",
+      "count": 2
+    },
+    {
+      "file": "components/ops/career/CrosswalkPatchForm.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-1.5",
+      "count": 3
+    },
+    {
+      "file": "components/ops/career/CrosswalkPatchHistory.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-0.5",
+      "count": 2
+    },
+    {
+      "file": "components/ops/content-pages/ContentPageEditorForm.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-1.5",
+      "count": 2
+    },
+    {
+      "file": "components/ops/seo/IssueQueueTable.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "mt-0.5",
+      "count": 1
+    },
+    {
+      "file": "components/ops/seo/SeoOperationsDashboard.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-1.5",
+      "count": 1
+    },
+    {
+      "file": "components/ops/shared/KpiCard.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-0.5",
+      "count": 1
+    },
+    {
+      "file": "components/ops/shared/StatusBadge.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-0.5",
+      "count": 1
+    },
+    {
+      "file": "components/personality/BigFiveHubContentScaffold.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-1.5",
+      "count": 1
+    },
+    {
+      "file": "components/personality/BigFiveHubContentScaffold.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "ml-1.5",
+      "count": 3
+    },
+    {
+      "file": "components/personality/BigFiveHubContentScaffold.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "px-1.5",
+      "count": 1
+    },
+    {
+      "file": "components/personality/BigFiveHubContentScaffold.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "px-2.5",
+      "count": 2
+    },
+    {
+      "file": "components/personality/BigFiveHubContentScaffold.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-0.5",
+      "count": 9
+    },
+    {
+      "file": "components/personality/BigFiveHubContentScaffold.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "space-y-1.5",
+      "count": 2
+    },
+    {
+      "file": "components/personality/EnneagramHubContentScaffold.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-1.5",
+      "count": 2
+    },
+    {
+      "file": "components/personality/EnneagramHubContentScaffold.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "px-1.5",
+      "count": 1
+    },
+    {
+      "file": "components/personality/EnneagramHubContentScaffold.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-0.5",
+      "count": 2
+    },
+    {
+      "file": "components/personality/EnneagramHubContentScaffold.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "space-y-1.5",
+      "count": 2
+    },
+    {
+      "file": "components/quiz/iq/IqOptionBoard.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-2.5",
+      "count": 1
+    },
+    {
+      "file": "components/result/big5/Big5ResultShell.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "px-2.5",
+      "count": 1
+    },
+    {
+      "file": "components/result/big5/Big5ResultShell.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-1.5",
+      "count": 1
+    },
+    {
+      "file": "components/result/DimensionBars.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-1.5",
+      "count": 1
+    },
+    {
+      "file": "components/result/DimensionBars.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "px-2.5",
+      "count": 1
+    },
+    {
+      "file": "components/result/eq/EQQualityBanner.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "mt-0.5",
+      "count": 1
+    },
+    {
+      "file": "components/result/eq/EQResultHero.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "mt-0.5",
+      "count": 1
+    },
+    {
+      "file": "components/result/iq/IqReportModule.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-1.5",
+      "count": 1
+    },
+    {
+      "file": "components/result/iq/IqResultShell.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "gap-1.5",
+      "count": 1
+    },
+    {
+      "file": "components/share/MbtiShareSummaryCard.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "space-y-1.5",
+      "count": 1
+    },
+    {
+      "file": "lib/cms/personality-sections.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "mt-0.5",
+      "count": 4
+    },
+    {
+      "file": "lib/cms/personality-sections.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "px-2.5",
+      "count": 1
+    },
+    {
+      "file": "lib/cms/personality-sections.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-3.5",
+      "count": 2
+    },
+    {
+      "file": "lib/cms/personality-sections.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "space-y-2.5",
+      "count": 2
+    },
+    {
+      "file": "lib/content/renderSimpleMarkdown.tsx",
+      "rule": "no-new-half-step-utility",
+      "snippet": "py-0.5",
+      "count": 1
+    }
+  ]
+}
