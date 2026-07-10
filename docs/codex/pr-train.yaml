@@ -23390,7 +23390,7 @@ prs:
     mode: execute
     train_scope: security_123_web_llms_article_cache_concurrency
     risk_level: medium
-    status: in_progress
+    status: ready_to_merge
     title: "SECURITY-123-WEB-02: LLMS article cache and concurrency hardening"
     findings:
       - "Uncached llms article enumeration enables backend fanout DoS"
