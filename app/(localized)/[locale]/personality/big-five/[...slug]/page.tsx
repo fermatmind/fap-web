@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { PublicContentAssetRenderer } from "@/components/personality/PublicContentAssetRenderer";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -11,6 +11,7 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import type { Locale } from "@/lib/i18n/locales";
 import {
   buildBigFivePublicContentPath,
+  resolveBigFiveLegacyRedirectPath,
   resolveBigFivePublicRouteEntry,
   type BigFivePublicRouteEntry,
 } from "@/lib/personality/bigFivePublicRoutes";
@@ -68,6 +69,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
+  const legacyRedirectPath = resolveBigFiveLegacyRedirectPath(locale, slug);
+  if (legacyRedirectPath) {
+    permanentRedirect(legacyRedirectPath);
+  }
+
   const entry = resolveBigFivePublicRouteEntry(slug);
   if (!entry) {
     return buildFallbackMetadata(locale, null);
@@ -108,6 +114,11 @@ export default async function BigFiveDimensionPage({
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
+  const legacyRedirectPath = resolveBigFiveLegacyRedirectPath(locale, slug);
+  if (legacyRedirectPath) {
+    permanentRedirect(legacyRedirectPath);
+  }
+
   const entry = resolveBigFivePublicRouteEntry(slug);
   if (!entry) {
     notFound();

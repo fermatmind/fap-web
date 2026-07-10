@@ -23714,3 +23714,46 @@ prs:
     scope_validation: *security_123_scope_validation
     merge_policy: *security_123_merge_policy
     next_task: null
+  - id: BIG5-ZH-LEGACY-ROUTE-DEPRECATION-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-zh-legacy-route-deprecation-02
+    base: main
+    title: "BIG5-ZH-LEGACY-ROUTE-DEPRECATION-02: redirect ten Chinese Legacy Big Five routes to V2"
+    depends_on:
+      - BIG5-ZH-LEGACY-ROUTE-AUDIT-01
+    mode: execute
+    train_scope: big5_zh_legacy_route_deprecation
+    status: planned
+    goal: "Permanently redirect exactly ten Chinese Big Five Legacy routes to their frozen V2 targets without changing English routes or frontend content authority."
+    allowed_paths:
+      - lib/personality/bigFivePublicRoutes.ts
+      - app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx
+      - tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    out_of_scope:
+      - English Legacy route redirects
+      - New Legacy body, FAQ, media, or schema
+      - CMS writes, production import, database migration, sitemap, llms, indexability, search submission, or deployment
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts --reporter=dot
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    runtime_change: true
+    cms_authority_change: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: BIG5-ZH-FACET-HUB-CONTENT-REPAIR-01

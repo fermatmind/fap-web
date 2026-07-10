@@ -12,6 +12,19 @@ export type BigFivePublicRouteEntry = {
 const BIG_FIVE_TRAIT_CODES = ["openness", "conscientiousness", "extraversion", "agreeableness", "neuroticism"] as const;
 const BIG_FIVE_RANGE_CODES = ["high", "mid", "low"] as const;
 
+export const BIG_FIVE_ZH_LEGACY_TO_V2_SLUG = {
+  "high-openness": "openness-high",
+  "low-openness": "openness-low",
+  "high-conscientiousness": "conscientiousness-high",
+  "low-conscientiousness": "conscientiousness-low",
+  "high-extraversion": "extraversion-high",
+  "low-extraversion": "extraversion-low",
+  "high-agreeableness": "agreeableness-high",
+  "low-agreeableness": "agreeableness-low",
+  "high-neuroticism": "neuroticism-high",
+  "emotional-stability": "neuroticism-low",
+} as const;
+
 const BIG_FIVE_V2_RANGE_ROUTE_ENTRIES: readonly BigFivePublicRouteEntry[] = BIG_FIVE_TRAIT_CODES.flatMap((trait) =>
   BIG_FIVE_RANGE_CODES.map((range) => {
     const slug = `${trait}-${range}`;
@@ -89,6 +102,25 @@ export const BIG_FIVE_PUBLIC_ROUTE_ENTRIES: readonly BigFivePublicRouteEntry[] =
 
 export function buildBigFivePublicContentPath(locale: Locale, entry: BigFivePublicRouteEntry): string {
   return `/${locale}/personality/big-five${entry.pathSuffix}`;
+}
+
+export function resolveBigFiveLegacyRedirectPath(
+  locale: Locale,
+  slugSegments: readonly string[] | undefined
+): string | null {
+  if (locale !== "zh") {
+    return null;
+  }
+
+  const segments = (slugSegments ?? []).map((segment) => segment.trim().toLowerCase()).filter(Boolean);
+  if (segments.length !== 1) {
+    return null;
+  }
+
+  const legacySlug = segments[0] as keyof typeof BIG_FIVE_ZH_LEGACY_TO_V2_SLUG;
+  const v2Slug = BIG_FIVE_ZH_LEGACY_TO_V2_SLUG[legacySlug];
+
+  return v2Slug ? `/zh/personality/big-five/${v2Slug}` : null;
 }
 
 export function resolveBigFivePublicRouteEntry(slugSegments: readonly string[] | undefined): BigFivePublicRouteEntry | null {

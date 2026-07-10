@@ -43292,5 +43292,126 @@
     "next_task": null,
     "created_at": "2026-07-05T18:20:00Z",
     "updated_at": "2026-07-05T18:20:00Z"
+  },
+  "BIG5-ZH-LEGACY-ROUTE-DEPRECATION-02": {
+    "id": "BIG5-ZH-LEGACY-ROUTE-DEPRECATION-02",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/big5-zh-legacy-route-deprecation-02",
+    "title": "BIG5-ZH-LEGACY-ROUTE-DEPRECATION-02: redirect ten Chinese Legacy Big Five routes to V2",
+    "depends_on": [
+      "BIG5-ZH-LEGACY-ROUTE-AUDIT-01"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "971925c67a32778096a853bd0ddd5a5fd3fad6fe",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1650",
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The user-provided locked goal explicitly authorized this exact current PR and its manifest/state registration."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "fap-api PR #2867 is MERGED at 3730de5e8175b67273c0e0a9ef17db0de2a0a09b, and fap-api origin/main contains that merge commit."
+      },
+      "targeted_redirect_contract": {
+        "status": "pass",
+        "evidence": "20/20 targeted tests passed: exact ten zh mappings, redirect-before-fetch behavior, V2 targets, and unchanged English Legacy CMS resolution."
+      },
+      "lint": {
+        "status": "pass",
+        "evidence": "pnpm lint exited 0 with existing warnings only."
+      },
+      "typecheck": {
+        "status": "pass",
+        "evidence": "pnpm typecheck exited 0 under canonical Node 24.14.0 and pnpm 10.28.1."
+      },
+      "lint_spacing": {
+        "status": "pass",
+        "evidence": "After PR #1648 merged, pnpm lint:spacing passed with 121 known occurrences across 79 locked signatures."
+      },
+      "lint_spacing_blocker_revalidation": {
+        "status": "fail",
+        "evidence": "Revalidated after a fresh fetch at 2026-07-10T08:54:30Z: fap-web origin/main remains 4eec7042bbd0b51b0dcb6b8cdd3f9f1b2487c4fe and still fails pnpm lint:spacing. scripts/check-spacing-tokens.mjs scans all app/components/lib files and exposes no baseline, changed-only mode, or supported override."
+      },
+      "lint_spacing_prerequisite_repair": {
+        "status": "pass",
+        "evidence": "User-authorized ad-hoc fap-web PR #1648 is MERGED; origin/main contains merge commit 3a2a8ba4268af76daf8dad90d9ce4520b12e9aa6, which restores a passing count-locked spacing baseline without changing this PR scope."
+      },
+      "full_contract": {
+        "status": "pass",
+        "evidence": "After rebasing onto origin/main f2850564, pnpm test:contract passed all four shards: 996 + 1012 + 1000 + 964 tests."
+      },
+      "production_build": {
+        "status": "pass",
+        "evidence": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed under Node 24.14.0."
+      },
+      "manifest_and_scope": {
+        "status": "pass",
+        "evidence": "Manifest YAML and state JSON parse successfully; git diff --check passed; changed files are limited to the five manifest-allowed paths."
+      },
+      "latest_main_revalidation": {
+        "status": "pass",
+        "evidence": "Rebased onto origin/main f2850564 after SECURITY-123-WEB-02 merged; reran the targeted contract, spacing guard, lint, typecheck, full contract suite, and production build successfully."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1650 required checks passed for head 971925c6: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, and CodeQL result."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "transitions": [
+      {
+        "at": "2026-07-10T08:47:37Z",
+        "from": "unregistered",
+        "to": "planned",
+        "note": "Registered only after the cross-repository audit dependency was merged and verified."
+      },
+      {
+        "at": "2026-07-10T08:47:37Z",
+        "from": "planned",
+        "to": "in_progress",
+        "note": "Started the exact ten-route zh-only permanent redirect implementation."
+      },
+      {
+        "at": "2026-07-10T08:52:49Z",
+        "from": "in_progress",
+        "to": "local_checks_failed",
+        "note": "Stopped on required pnpm lint:spacing failure reproduced on clean origin/main; all violations are outside this PR's allowed_paths."
+      },
+      {
+        "at": "2026-07-10T09:17:13Z",
+        "from": "local_checks_failed",
+        "to": "in_progress",
+        "note": "Resumed after user-authorized baseline repair PR #1648 merged and origin/main containment, synchronization, and branch cleanup were verified."
+      },
+      {
+        "at": "2026-07-10T09:21:48Z",
+        "from": "in_progress",
+        "to": "local_verified",
+        "note": "All manifest-required local checks passed on latest origin/main with the exact five-file scope."
+      },
+      {
+        "at": "2026-07-10T09:28:59Z",
+        "from": "local_verified",
+        "to": "pr_open",
+        "note": "Opened fap-web PR #1650 after latest-main revalidation and exact changed-file scope review."
+      },
+      {
+        "at": "2026-07-10T09:33:30Z",
+        "from": "pr_open",
+        "to": "ready_to_merge",
+        "note": "All required GitHub checks passed; PR is CLEAN, MERGEABLE, and has no review decision block."
+      }
+    ]
   }
 }
