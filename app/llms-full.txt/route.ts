@@ -8,15 +8,10 @@ import {
   type ContentPage,
 } from "@/lib/cms/content-pages";
 import {
-  buildDefaultPublicPersonalitySlug,
   getPersonalityComparisonBySlug,
   getPersonalityProjectionDetailBySlugOrType,
-  listPersonalityComparisons,
-  listPersonalityProfiles,
-  type PersonalityComparisonListItemViewModel,
 } from "@/lib/cms/personality";
 import { isPersonalityComparisonSlug } from "@/lib/mbti/personalityComparison";
-import type { CmsPersonalityProfileSummary } from "@/lib/cms/personality";
 import { getTopicBySlug, listTopics } from "@/lib/cms/topics";
 import {
   MENTAL_HEALTH_NON_MEDICAL_DISCLAIMER,
@@ -27,6 +22,7 @@ import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import {
   listBackendSitemapBigFiveZhPaths,
   listBackendSitemapCareerJobPaths,
+  listBackendSitemapMbtiPersonalityPaths,
 } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
 import { listDailyGivingDiscoverabilityEntries } from "@/lib/foundation/dailyGivingSeo";
@@ -90,13 +86,9 @@ const LLMS_FULL_CACHE_FRESH_MS = 60 * 60 * 1000;
 const LLMS_FULL_CACHE_STALE_MS = 24 * 60 * 60 * 1000;
 const LLMS_FULL_RESPONSE_TIMEOUT = Symbol("llms-full-response-timeout");
 const LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT = 1046 * 2;
-const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE = 32;
-const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE = 16;
 const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2;
 const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2;
 const LLMS_FULL_BIG_FIVE_ZH_ENTRY_LIMIT = 20;
-const LLMS_FULL_PERSONALITY_ENTRY_LIMIT =
-  LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT + LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT + LLMS_FULL_BIG_FIVE_ZH_ENTRY_LIMIT;
 const LLMS_FULL_REQUIRED_PERSONALITY_PILOT_PATHS = [
   "/en/personality/intj-a-vs-intj-t",
   "/zh/personality/istj-a",
@@ -154,7 +146,7 @@ function shouldRequireCompleteCareerJobCohort(): boolean {
 }
 
 function shouldRequireCompletePersonalityCohort(): boolean {
-  return process.env.NODE_ENV !== "test" || process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT === "true";
+  return process.env.FERMATMIND_LLMS_FULL_REQUIRE_PERSONALITY_COHORT === "true";
 }
 
 function shouldRequireCompleteTestCohort(): boolean {
@@ -513,6 +505,8 @@ function createLlmsFullResponse(text: string, mode: LlmsFullResponseMode, source
 const CAREER_JOB_CANONICAL_PATH_RE = /^\/(?:en|zh)\/career\/jobs\/[a-z0-9-]+$/;
 const MBTI64_PERSONALITY_VARIANT_CANONICAL_PATH_RE = /^\/(?:en|zh)\/personality\/[a-z]{4}-[at]$/;
 const MBTI64_PERSONALITY_COMPARISON_CANONICAL_PATH_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-a-vs-\1-t$/;
+const MBTI_PERSONALITY_AUTHORITY_CANONICAL_PATH_RE =
+  /^\/(?:en|zh)\/personality\/(?:[a-z]{4}-[at]|[a-z]{4}-a-vs-[a-z]{4}-t|[a-z]{4}-vs-[a-z]{4})$/;
 
 function canonicalCareerJobUrlSet(text: string, siteUrl: string): Set<string> {
   let siteOrigin: string;
@@ -572,7 +566,43 @@ function hasCompleteMbti64PersonalityCohort(text: string, siteUrl: string): bool
   return LLMS_FULL_REQUIRED_PERSONALITY_PATHS.every((path) => text.includes(`${siteUrl}${path}`));
 }
 
-export function isCompleteLlmsFullText(text: string, siteUrl: string): boolean {
+function llmsFullEntryMbtiAuthorityUrlSet(text: string, siteUrl: string): Set<string> {
+  let siteOrigin: string;
+  try {
+    siteOrigin = new URL(siteUrl).origin;
+  } catch {
+    return new Set();
+  }
+
+  const entryUrls = [...text.matchAll(/^- URL:\s+(https?:\/\/[^\s]+)\s*$/gm)].map((match) => match[1]);
+  return new Set(entryUrls.flatMap((url) => {
+    try {
+      const parsed = new URL(url);
+      return parsed.origin === siteOrigin && MBTI_PERSONALITY_AUTHORITY_CANONICAL_PATH_RE.test(parsed.pathname)
+        ? [`${siteOrigin}${parsed.pathname}`]
+        : [];
+    } catch {
+      return [];
+    }
+  }));
+}
+
+function hasExactMbtiPersonalityAuthorityCohort(
+  text: string,
+  siteUrl: string,
+  expectedPaths: readonly string[]
+): boolean {
+  const actualUrls = llmsFullEntryMbtiAuthorityUrlSet(text, siteUrl);
+  const expectedUrls = new Set(expectedPaths.map((path) => toCanonical(siteUrl, normalizePath(path))));
+
+  return actualUrls.size === expectedUrls.size && [...expectedUrls].every((url) => actualUrls.has(url));
+}
+
+export function isCompleteLlmsFullText(
+  text: string,
+  siteUrl: string,
+  expectedMbtiPersonalityPaths?: readonly string[]
+): boolean {
   if (!text.includes("# FermatMind llms-full.txt") || text.includes("Mode: degraded")) {
     return false;
   }
@@ -603,6 +633,13 @@ export function isCompleteLlmsFullText(text: string, siteUrl: string): boolean {
   }
 
   if (shouldRequireCompletePersonalityCohort() && !hasCompleteMbti64PersonalityCohort(text, siteUrl)) {
+    return false;
+  }
+
+  if (
+    expectedMbtiPersonalityPaths &&
+    !hasExactMbtiPersonalityAuthorityCohort(text, siteUrl, expectedMbtiPersonalityPaths)
+  ) {
     return false;
   }
 
@@ -738,27 +775,6 @@ function shouldKeepCareerAuthorityEntry(entry: {
   });
 }
 
-function publishedPersonalityVariantSlugs(value: string): string[] {
-  const defaultSlug = buildDefaultPublicPersonalitySlug(value);
-  if (!defaultSlug) {
-    return [];
-  }
-
-  if (defaultSlug.endsWith("-a")) {
-    const baseSlug = defaultSlug.slice(0, -2);
-
-    return [defaultSlug, `${baseSlug}-t`];
-  }
-
-  return [defaultSlug];
-}
-
-function normalizePersonalityVariantSlug(value: string | null | undefined): string | null {
-  const normalized = String(value ?? "").trim().toLowerCase();
-
-  return /^[ie][ns][ft][jp]-[at]$/.test(normalized) ? normalized : null;
-}
-
 function uniqueEntriesByPath(entries: LlmsFullEntry[]): LlmsFullEntry[] {
   const seen = new Set<string>();
   const results: LlmsFullEntry[] = [];
@@ -776,89 +792,31 @@ function uniqueEntriesByPath(entries: LlmsFullEntry[]): LlmsFullEntry[] {
   return results;
 }
 
-function personalityVariantEntryFromProfile(
-  item: CmsPersonalityProfileSummary,
-  locale: LlmsLocale
-): LlmsFullEntry | null {
-  if (!item.isIndexable) {
-    return null;
-  }
-
-  const slug =
-    normalizePersonalityVariantSlug(item.publicRouteSlug) ??
-    normalizePersonalityVariantSlug(item.runtimeTypeCode) ??
-    normalizePersonalityVariantSlug(item.slug);
-
-  if (!slug) {
+function buildMbtiPersonalityAuthorityEntry(path: string): LlmsFullEntry | null {
+  const normalized = normalizePath(path);
+  const match = normalized.match(/^\/(en|zh)\/personality\/([^/]+)$/i);
+  const locale = match?.[1]?.toLowerCase();
+  const slug = match?.[2]?.toLowerCase();
+  if ((locale !== "en" && locale !== "zh") || !slug) {
     return null;
   }
 
   return {
     locale,
-    path: `/${locale}/personality/${slug}`,
-    title: `${slug.toUpperCase()} | ${item.title || item.displayType || item.typeCode}`,
+    path: normalized,
+    title: slug.toUpperCase().replaceAll("-VS-", " vs "),
     type: "personality",
-    summary: summaryFromRecord(item),
-    updatedAt: item.updatedAt ?? "",
   };
 }
 
-function personalityVariantEntriesFromBaseProfile(
-  item: CmsPersonalityProfileSummary,
-  locale: LlmsLocale
-): LlmsFullEntry[] {
-  if (!item.isIndexable) {
-    return [];
-  }
-
-  return publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
-    .map((slug) => normalizePersonalityVariantSlug(slug))
-    .filter((slug): slug is string => Boolean(slug))
-    .map((slug) => ({
-      locale,
-      path: `/${locale}/personality/${slug}`,
-      title: `${slug.toUpperCase()} | ${item.title || item.typeCode}`,
-      type: "personality",
-      summary: summaryFromRecord(item),
-      updatedAt: item.updatedAt ?? "",
-    }));
-}
-
-function buildPersonalityVariantEntries(
-  variantProfiles: CmsPersonalityProfileSummary[],
-  baseProfiles: CmsPersonalityProfileSummary[],
-  locale: LlmsLocale
-): LlmsFullEntry[] {
-  const variantEntries = variantProfiles
-    .map((item) => personalityVariantEntryFromProfile(item, locale))
-    .filter((entry): entry is LlmsFullEntry => Boolean(entry));
-  const fallbackEntries = baseProfiles.flatMap((item) => personalityVariantEntriesFromBaseProfile(item, locale));
-
-  return limitLlmsRouteEntries(
-    uniqueEntriesByPath([...variantEntries, ...fallbackEntries]),
-    LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE
-  );
-}
-
-function buildPersonalityComparisonEntries(
-  items: PersonalityComparisonListItemViewModel[],
-  locale: LlmsLocale
-): LlmsFullEntry[] {
-  return limitLlmsRouteEntries(
-    uniqueEntriesByPath(
-      items.filter((item) => item.isPublic && item.isIndexable).map((item) => ({
-        locale,
-        path: item.href || `/${locale}/personality/${item.slug}`,
-        title: item.title || item.slug.toUpperCase(),
-        type: "personality",
-        summary: item.summary || item.description || "",
-      }))
-    ),
-    LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE
-  );
-}
-
 async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
+  const mbtiEntriesPromise = listBackendSitemapMbtiPersonalityPaths()
+    .then((paths) =>
+      paths
+        .map((path) => buildMbtiPersonalityAuthorityEntry(path))
+        .filter((entry): entry is LlmsFullEntry => Boolean(entry))
+    )
+    .catch(() => []);
   const bigFiveZhEntriesPromise = listBackendSitemapBigFiveZhPaths({ limit: LLMS_FULL_BIG_FIVE_ZH_ENTRY_LIMIT })
     .then((paths) =>
       paths
@@ -867,60 +825,12 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
     )
     .catch(() => []);
 
-  try {
-    const [
-      enProfiles,
-      zhProfiles,
-      enVariantProfiles,
-      zhVariantProfiles,
-      enComparisonList,
-      zhComparisonList,
-      bigFiveZhPaths,
-    ] = await Promise.all([
-      listPersonalityProfiles({ locale: "en", perPage: LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE }),
-      listPersonalityProfiles({ locale: "zh", perPage: LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE }),
-      listPersonalityProfiles({
-        locale: "en",
-        perPage: LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE,
-        includeVariants: true,
-      }),
-      listPersonalityProfiles({
-        locale: "zh",
-        perPage: LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE,
-        includeVariants: true,
-      }),
-      listPersonalityComparisons("en"),
-      listPersonalityComparisons("zh"),
-      bigFiveZhEntriesPromise,
-    ]);
+  const [mbtiEntries, bigFiveZhEntries] = await Promise.all([
+    mbtiEntriesPromise,
+    bigFiveZhEntriesPromise,
+  ]);
 
-    const enBaseProfiles = enProfiles.items.filter((item) => item.isIndexable);
-    const zhBaseProfiles = zhProfiles.items.filter((item) => item.isIndexable);
-    const enVariantProfilesForLlmsFull = enVariantProfiles.items.filter((item) => item.isIndexable);
-    const zhVariantProfilesForLlmsFull = zhVariantProfiles.items.filter((item) => item.isIndexable);
-
-    const enVariantEntries = buildPersonalityVariantEntries(enVariantProfilesForLlmsFull, enBaseProfiles, "en");
-    const zhVariantEntries = buildPersonalityVariantEntries(zhVariantProfilesForLlmsFull, zhBaseProfiles, "zh");
-    const enComparisonEntries = buildPersonalityComparisonEntries(
-      enComparisonList.groups.flatMap((group) => group.items),
-      "en"
-    );
-    const zhComparisonEntries = buildPersonalityComparisonEntries(
-      zhComparisonList.groups.flatMap((group) => group.items),
-      "zh"
-    );
-    return limitLlmsRouteEntries(uniqueEntriesByPath([
-      ...enVariantEntries,
-      ...zhVariantEntries,
-      ...enComparisonEntries,
-      ...zhComparisonEntries,
-      ...bigFiveZhPaths,
-    ]), LLMS_FULL_PERSONALITY_ENTRY_LIMIT);
-  } catch {
-    // Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.
-  }
-
-  return uniqueEntriesByPath(await bigFiveZhEntriesPromise);
+  return uniqueEntriesByPath([...mbtiEntries, ...bigFiveZhEntries]);
 }
 
 async function listTopicEntries(): Promise<LlmsFullEntry[]> {
@@ -1343,7 +1253,10 @@ export async function buildAndCacheLlmsFullText(siteUrl: string, text = ""): Pro
   careerJobUrlCount: number;
 }> {
   const resolvedText = text || (await buildLlmsFullText(siteUrl));
-  const cacheOptions = { isCacheable: (value: string) => isCompleteLlmsFullText(value, siteUrl) };
+  const mbtiPersonalityPaths = await listBackendSitemapMbtiPersonalityPaths().catch(() => []);
+  const cacheOptions = {
+    isCacheable: (value: string) => isCompleteLlmsFullText(value, siteUrl, mbtiPersonalityPaths),
+  };
   const result = await writeLlmsFullResponseCache(siteUrl, resolvedText, cacheOptions);
 
   return {
@@ -1360,7 +1273,14 @@ export async function GET() {
   }
 
   const siteUrl = getSiteUrlOrThrow();
-  const cacheOptions = { isCacheable: (text: string) => isCompleteLlmsFullText(text, siteUrl) };
+  const mbtiPersonalityPaths = await withLlmsRouteBudget(
+    (signal) => listBackendSitemapMbtiPersonalityPaths({ signal }),
+    [],
+    { timeoutMs: LLMS_FULL_PERSONALITY_SOURCE_TIMEOUT_MS }
+  );
+  const cacheOptions = {
+    isCacheable: (text: string) => isCompleteLlmsFullText(text, siteUrl, mbtiPersonalityPaths),
+  };
   const freshCachedText = await getCachedLlmsFullText(siteUrl, LLMS_FULL_CACHE_FRESH_MS, cacheOptions);
   if (freshCachedText) {
     return createLlmsFullResponse(freshCachedText, "complete", "cache");

@@ -8,18 +8,13 @@ import {
   type ContentPage,
 } from "@/lib/cms/content-pages";
 import type { Locale } from "@/lib/i18n/locales";
-import {
-  buildDefaultPublicPersonalitySlug,
-  listPersonalityComparisons,
-  listPersonalityProfiles,
-  type PersonalityComparisonListViewModel,
-} from "@/lib/cms/personality";
 import { listTopics } from "@/lib/cms/topics";
 import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import {
   listBackendSitemapBigFiveZhPaths,
   listBackendSitemapCareerJobPaths,
+  listBackendSitemapMbtiPersonalityPaths,
 } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
 import { listDailyGivingDiscoverabilityEntries } from "@/lib/foundation/dailyGivingSeo";
@@ -143,66 +138,15 @@ function shouldKeepCareerAuthorityRoute(item: {
   });
 }
 
-function publishedPersonalityVariantSlugs(value: string): string[] {
-  const defaultSlug = buildDefaultPublicPersonalitySlug(value);
-  if (!defaultSlug) {
-    return [];
-  }
-
-  if (defaultSlug.endsWith("-a")) {
-    const baseSlug = defaultSlug.slice(0, -2);
-
-    return [defaultSlug, `${baseSlug}-t`];
-  }
-
-  return [defaultSlug];
-}
-
-function personalityComparisonPathsFromAuthority(
-  list: PersonalityComparisonListViewModel,
-  locale: Locale
-): string[] {
-  return list.groups.flatMap((group) =>
-    group.items
-      .filter((item) => item.isPublic && item.isIndexable)
-      .map((item) => item.href || `/${locale}/personality/${item.slug}`)
-  );
-}
-
 async function listPersonalityPaths(): Promise<string[]> {
+  const mbtiPersonalityPathsPromise = listBackendSitemapMbtiPersonalityPaths().catch(() => []);
   const bigFiveZhPathsPromise = listBackendSitemapBigFiveZhPaths().catch(() => []);
+  const [mbtiPersonalityPaths, bigFiveZhPaths] = await Promise.all([
+    mbtiPersonalityPathsPromise,
+    bigFiveZhPathsPromise,
+  ]);
 
-  try {
-    const [enProfiles, zhProfiles, enComparisons, zhComparisons, bigFiveZhPaths] = await Promise.all([
-      listPersonalityProfiles({ locale: "en", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
-      listPersonalityProfiles({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.personalityProfiles }),
-      listPersonalityComparisons("en"),
-      listPersonalityComparisons("zh"),
-      bigFiveZhPathsPromise,
-    ]);
-
-    return dedupePaths([
-      ...limitLlmsRouteEntries(enProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
-        .filter((item) => item.isIndexable)
-        .flatMap((item) =>
-          publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
-            .map((slug) => `/en/personality/${slug}`)
-        ),
-      ...limitLlmsRouteEntries(zhProfiles.items, LLMS_ROUTE_LIMITS.personalityProfiles)
-        .filter((item) => item.isIndexable)
-        .flatMap((item) =>
-          publishedPersonalityVariantSlugs(String(item.typeCode ?? item.slug ?? ""))
-            .map((slug) => `/zh/personality/${slug}`)
-        ),
-      ...personalityComparisonPathsFromAuthority(enComparisons, "en"),
-      ...personalityComparisonPathsFromAuthority(zhComparisons, "zh"),
-      ...bigFiveZhPaths,
-    ]);
-  } catch {
-    // Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.
-  }
-
-  return dedupePaths(await bigFiveZhPathsPromise);
+  return dedupePaths([...mbtiPersonalityPaths, ...bigFiveZhPaths]);
 }
 
 async function listTopicPaths(): Promise<string[]> {

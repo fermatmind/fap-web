@@ -87,6 +87,14 @@ function mockLlmsFullDependencies({ includeSurfaces = true }: { includeSurfaces?
   vi.doMock("@/lib/career/launchPolicy", () => ({
     isCareerFamilyHubDiscoverableByManifest: vi.fn(() => false),
   }));
+  vi.doMock("@/lib/seo/backendSitemapSource", () => ({
+    listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
+    listBackendSitemapCareerJobPaths: vi.fn(async () => []),
+    listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => [
+      "/en/personality/infj-a",
+      "/en/personality/infj-a-vs-infj-t",
+    ]),
+  }));
   vi.doMock("@/lib/cms/articles", () => ({
     listCmsArticlesForLlmsWithLastKnownGood: vi.fn(async ({ locale }: { locale: "en" | "zh" }) => ({
       value:

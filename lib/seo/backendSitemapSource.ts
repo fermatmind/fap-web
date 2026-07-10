@@ -20,6 +20,13 @@ const CAREER_JOB_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i;
 const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
 const BIG_FIVE_ZH_PUBLIC_ASSET_RE = /^\/zh\/personality\/big-five\/[^/?#]+$/i;
 const ENNEAGRAM_ZH_PUBLIC_ASSET_RE = /^\/zh\/personality\/enneagram(?:\/(?:type-[1-9]|centers\/(?:gut|heart|head)))?$/i;
+const MBTI_PERSONALITY_DETAIL_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-([at])$/i;
+const MBTI_PERSONALITY_AT_COMPARISON_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-a-vs-([a-z]{4})-t$/i;
+const MBTI_PERSONALITY_CROSS_TYPE_COMPARISON_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-vs-([a-z]{4})$/i;
+const MBTI_BASE_TYPES = new Set([
+  "intj", "intp", "entj", "entp", "infj", "infp", "enfj", "enfp",
+  "istj", "isfj", "estj", "esfj", "istp", "isfp", "estp", "esfp",
+]);
 const BACKEND_SITEMAP_CANONICAL_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
 const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
   "software-developers",
@@ -115,6 +122,27 @@ function shouldKeepEnneagramZhPublicAssetPath(path: string): boolean {
       indexState: "indexed",
     })
   );
+}
+
+function shouldKeepMbtiPersonalityPath(path: string): boolean {
+  const normalized = normalizePath(path);
+  const detail = normalized.match(MBTI_PERSONALITY_DETAIL_RE);
+  const atComparison = normalized.match(MBTI_PERSONALITY_AT_COMPARISON_RE);
+  const crossTypeComparison = normalized.match(MBTI_PERSONALITY_CROSS_TYPE_COMPARISON_RE);
+  const hasValidType = detail
+    ? MBTI_BASE_TYPES.has(detail[1].toLowerCase())
+    : atComparison
+      ? atComparison[1].toLowerCase() === atComparison[2].toLowerCase() && MBTI_BASE_TYPES.has(atComparison[1].toLowerCase())
+      : crossTypeComparison
+        ? MBTI_BASE_TYPES.has(crossTypeComparison[1].toLowerCase()) &&
+          MBTI_BASE_TYPES.has(crossTypeComparison[2].toLowerCase()) &&
+          crossTypeComparison[1].toLowerCase() !== crossTypeComparison[2].toLowerCase()
+        : false;
+
+  return hasValidType && shouldIncludeInSitemap(normalized, {
+    indexEligible: true,
+    indexState: "indexed",
+  });
 }
 
 function limitCareerJobCandidatePaths(paths: string[], limit: number | undefined): string[] {
@@ -228,6 +256,20 @@ export function extractBackendSitemapEnneagramZhPaths(payload: BackendSitemapSou
   return [...paths].sort((left, right) => left.localeCompare(right));
 }
 
+export function extractBackendSitemapMbtiPersonalityPaths(payload: BackendSitemapSourcePayload): string[] {
+  const items = Array.isArray(payload.items) ? payload.items : [];
+  const paths = new Set<string>();
+
+  for (const item of items) {
+    const path = extractPathFromCanonicalUrl(item?.loc);
+    if (shouldKeepMbtiPersonalityPath(path)) {
+      paths.add(normalizePath(path));
+    }
+  }
+
+  return [...paths].sort((left, right) => left.localeCompare(right));
+}
+
 export async function listBackendSitemapCareerJobPaths(
   options: BackendSitemapCareerJobPathOptions = {}
 ): Promise<string[]> {
@@ -280,4 +322,11 @@ export async function listBackendSitemapEnneagramZhPaths(
   }
 
   return filteredPaths;
+}
+
+export async function listBackendSitemapMbtiPersonalityPaths(
+  options: BackendSitemapCareerJobPathOptions = {}
+): Promise<string[]> {
+  const payload = await fetchBackendSitemapSource(options.signal);
+  return limitCandidatePaths(extractBackendSitemapMbtiPersonalityPaths(payload), options.limit);
 }

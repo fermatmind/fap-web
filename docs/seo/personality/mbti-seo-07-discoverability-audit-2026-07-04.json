@@ -12,16 +12,16 @@
   },
   "current_authority": {
     "llms_txt": {
-      "source": "CMS public personality APIs",
-      "profiles": "listPersonalityProfiles per locale, budgeted at 64 entries",
-      "comparisons": "listPersonalityComparisons per locale, filtered by isPublic and isIndexable",
+      "source": "backend sitemap-source authority",
+      "profiles": "variant paths emitted only after backend robots/indexability gates pass",
+      "comparisons": "A/T and cross-type paths emitted only after backend indexability gates pass",
       "fallback_policy": "fail closed; no local MBTI personality fallback"
     },
     "llms_full_txt": {
-      "source": "CMS public personality APIs plus per-entry enrichment",
-      "profile_cohort": "32 A/T variants per locale, 64 total",
-      "comparison_cohort": "16 comparison pages per locale, 32 total",
-      "cache_gate": "complete artifact requires the MBTI64 personality cohort unless explicitly disabled in tests"
+      "source": "backend sitemap-source authority plus per-entry CMS enrichment",
+      "profile_cohort": "dynamic backend-authorized A/T variant paths",
+      "comparison_cohort": "dynamic backend-authorized A/T and cross-type comparison paths",
+      "cache_gate": "cached artifact MBTI entries must exactly match current backend sitemap authority"
     },
     "sitemap_xml": {
       "hub_paths": [

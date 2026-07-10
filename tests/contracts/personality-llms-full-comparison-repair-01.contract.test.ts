@@ -36,25 +36,17 @@ function changedFiles(): string[] {
 }
 
 describe("PERSONALITY-LLMS-FULL-COMPARISON-REPAIR-01", () => {
-  it("keeps llms-full personality comparison entries after the 64 detail URL cohort", () => {
+  it("keeps llms-full profile and comparison entries aligned to backend sitemap authority", () => {
     const route = read("app/llms-full.txt/route.ts");
     const scopeHelper = read("tests/contracts/helpers/currentPrScope.ts");
-    const compactRoute = route.replace(/\s+/g, " ");
-
-    expect(route).toContain("LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2");
-    expect(route).toContain("LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2");
-    expect(route).toContain(
-      "LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT + LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT"
-    );
-    expect(route).toContain("LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE = 32");
-    expect(route).toContain("LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE = 16");
-    expect(route).toContain("function buildPersonalityVariantEntries(");
-    expect(route).toContain("function buildPersonalityComparisonEntries(");
-    expect(route).toContain("listPersonalityComparisons");
+    expect(route).toContain("listBackendSitemapMbtiPersonalityPaths");
+    expect(route).toContain("function buildMbtiPersonalityAuthorityEntry(");
+    expect(route).toContain("hasExactMbtiPersonalityAuthorityCohort");
+    expect(route).toContain("expectedMbtiPersonalityPaths");
+    expect(route).toContain("return uniqueEntriesByPath([...mbtiEntries, ...bigFiveZhEntries]);");
+    expect(route).not.toContain("listPersonalityComparisons");
+    expect(route).not.toContain("personalityVariantEntriesFromBaseProfile");
     expect(route).not.toContain("buildPersonalityComparisonSlugsFromProfiles");
-    expect(compactRoute).toContain("limitLlmsRouteEntries(uniqueEntriesByPath([");
-    expect(compactRoute).toContain("]), LLMS_FULL_PERSONALITY_ENTRY_LIMIT)");
-    expect(compactRoute).not.toContain("limitLlmsRouteEntries(personalityEntries, LLMS_ROUTE_LIMITS.personalityProfiles)");
     expect(scopeHelper).toContain("GITHUB_EVENT_PATH");
     expect(scopeHelper).toContain("pull_request?.head?.ref");
     expect(scopeHelper).toContain("IS_GITHUB_PULL_REQUEST_MERGE_REF");

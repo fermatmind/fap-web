@@ -122,19 +122,17 @@ describe("MBTI-SEO-07 discoverability audit", () => {
     const llmsRoute = read("app/llms.txt/route.ts");
     const llmsFullRoute = read("app/llms-full.txt/route.ts");
 
-    expect(llmsRoute).toContain("listPersonalityProfiles({ locale: \"en\"");
-    expect(llmsRoute).toContain("listPersonalityProfiles({ locale: \"zh\"");
-    expect(llmsRoute).toContain("listPersonalityComparisons(\"en\")");
-    expect(llmsRoute).toContain("listPersonalityComparisons(\"zh\")");
-    expect(llmsRoute).toContain("item.isPublic && item.isIndexable");
-    expect(llmsRoute).toContain("Personality coverage is CMS-authoritative; do not fall back to local MBTI data here.");
+    expect(llmsRoute).toContain("listBackendSitemapMbtiPersonalityPaths");
+    expect(llmsRoute).toContain("return dedupePaths([...mbtiPersonalityPaths, ...bigFiveZhPaths]);");
+    expect(llmsRoute).not.toContain("listPersonalityProfiles");
+    expect(llmsRoute).not.toContain("publishedPersonalityVariantSlugs");
     expect(llmsRoute).not.toContain("MBTI_BASE_TYPES.map");
 
-    expect(llmsFullRoute).toContain("LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT_PER_LOCALE = 32");
-    expect(llmsFullRoute).toContain("LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT_PER_LOCALE = 16");
-    expect(llmsFullRoute).toContain("LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT + LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT");
-    expect(llmsFullRoute).toContain("function buildPersonalityVariantEntries(");
-    expect(llmsFullRoute).toContain("function buildPersonalityComparisonEntries(");
+    expect(llmsFullRoute).toContain("listBackendSitemapMbtiPersonalityPaths");
+    expect(llmsFullRoute).toContain("function buildMbtiPersonalityAuthorityEntry(");
+    expect(llmsFullRoute).toContain("hasExactMbtiPersonalityAuthorityCohort");
+    expect(llmsFullRoute).toContain("expectedMbtiPersonalityPaths");
+    expect(llmsFullRoute).not.toContain("personalityVariantEntriesFromBaseProfile");
     expect(llmsFullRoute).not.toContain("buildPersonalityComparisonSlugsFromProfiles");
   });
 

@@ -373,10 +373,10 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
       ])
     );
 
-    expect(llmsSource).toContain("listPersonalityComparisons");
-    expect(llmsSource).toContain("personalityComparisonPathsFromAuthority");
-    expect(llmsFullSource).toContain("listPersonalityComparisons");
-    expect(llmsFullSource).toContain("buildPersonalityComparisonEntries(");
+    expect(llmsSource).toContain("listBackendSitemapMbtiPersonalityPaths");
+    expect(llmsFullSource).toContain("listBackendSitemapMbtiPersonalityPaths");
+    expect(llmsFullSource).toContain("buildMbtiPersonalityAuthorityEntry(");
+    expect(llmsFullSource).toContain("hasExactMbtiPersonalityAuthorityCohort");
     expect(llmsSource).not.toContain("buildPersonalityComparisonSlugsFromProfiles");
     expect(llmsFullSource).not.toContain("buildPersonalityComparisonSlugsFromProfiles");
     expect(llmsFullSource).toContain("getPersonalityComparisonBySlug(slug, entry.locale)");
