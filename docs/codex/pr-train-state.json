@@ -30098,18 +30098,18 @@
         "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-07 and its declared informational cache scope."},
         "dependency": {"status": "passed", "evidence": "SECURITY-123-WEB-06 merged as ae5e8473103c4fa22107ae45af1a977aea8924f5; origin/main contains the squash merge and the remote task branch is deleted."},
         "local": {"status": "passed_with_sidecars", "passed": ["focused WEB-07 asset cache contracts: 2 files, 22 tests", "pnpm lint", "pnpm lint:spacing", "pnpm typecheck", "production build: 206 routes", "manifest/state/sidecar YAML/JSON parse", "git diff --check", "changed-file scope validation including untracked files"], "failed": ["bare pnpm test:contract and timeout-adjusted local run: existing MBTI-CMS-23 scope assertion and Node20 sitemap/personality cleanup timeouts recorded in sidecars"]},
-        "github": {"status": "pending", "passed": [], "failed": []},
+        "github": {"status": "passed", "passed": ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze", "CodeQL", "analyze (javascript-typescript)"], "failed": [], "evidence": "PR #1655 head 966a0533 passed all required GitHub checks."},
         "scope": {"status": "passed", "evidence": "Changed files are limited to Big Five CMS asset cache policy, WEB-07 focused contract, currentPrScope helper, WEB-06 reconciliation/WEB-07 train metadata, and WEB-07 sidecars."}
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1655",
-      "commit_sha": "e1bdda00",
+      "commit_sha": "966a0533",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-07; execution waits for SECURITY-123-WEB-06 merge."}, {"at": "2026-07-10T19:19:00+08:00", "status": "in_progress", "summary": "Started WEB-07 from origin/main after WEB-06 squash merge; scope is limited to Big Five CMS asset cache directive consistency, focused contracts, scope helper, and train metadata, with WEB-06 post-merge ledger reconciliation included in this same docs scope."}, {"at": "2026-07-10T19:30:00+08:00", "status": "ready_to_merge", "summary": "Implementation is ready; focused asset-cache/noindex contracts, lint, spacing, typecheck, 206-route production build, manifest parse, diff check, and scope validation passed. Local full contracts are sidecar-limited by unrelated CMS-23 scope and Node20 timeout debt."}, {"at": "2026-07-10T19:33:00+08:00", "status": "pr_open", "summary": "Opened PR #1655 from WEB-07 commits e1bdda00/252611ae; required GitHub checks are pending."}],
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-07; execution waits for SECURITY-123-WEB-06 merge."}, {"at": "2026-07-10T19:19:00+08:00", "status": "in_progress", "summary": "Started WEB-07 from origin/main after WEB-06 squash merge; scope is limited to Big Five CMS asset cache directive consistency, focused contracts, scope helper, and train metadata, with WEB-06 post-merge ledger reconciliation included in this same docs scope."}, {"at": "2026-07-10T19:30:00+08:00", "status": "ready_to_merge", "summary": "Implementation is ready; focused asset-cache/noindex contracts, lint, spacing, typecheck, 206-route production build, manifest parse, diff check, and scope validation passed. Local full contracts are sidecar-limited by unrelated CMS-23 scope and Node20 timeout debt."}, {"at": "2026-07-10T19:33:00+08:00", "status": "pr_open", "summary": "Opened PR #1655 from WEB-07 commits e1bdda00/252611ae; required GitHub checks are pending."}, {"at": "2026-07-10T19:43:00+08:00", "status": "ready_to_merge", "summary": "PR #1655 head 966a0533 passed build, contracts, Big5 freeze, Enneagram freeze, CodeQL, and analyze; ready for squash merge."}],
       "sidecar_issues": ["external-mbti-cms23-scope-guard-security-123-web-07", "external-contract-runner-timeout-security-123-web-07"],
-      "updated_at": "2026-07-10T19:33:00+08:00"
+      "updated_at": "2026-07-10T19:43:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-08",
