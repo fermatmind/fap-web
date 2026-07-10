@@ -1388,6 +1388,16 @@ const SECURITY_123_WEB_04_ALLOWED_FILES = new Set([
   "tests/contracts/security-123-web-04-gsc-csv-formula-guards.contract.test.ts",
 ]);
 
+const SECURITY_123_WEB_05_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts",
+  "tests/contracts/security-123-web-05-cms16-full-diff-scope.contract.test.ts",
+]);
+
 const SECURITY_122_WEB_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -4065,6 +4075,14 @@ export function isSecurity123Web04AllowedFile(file: string): boolean {
   }
 
   return SECURITY_123_WEB_04_ALLOWED_FILES.has(file);
+}
+
+export function isSecurity123Web05AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-123-web-05") {
+    return true;
+  }
+
+  return SECURITY_123_WEB_05_ALLOWED_FILES.has(file);
 }
 
 export function isSecurity122Web01AllowedFile(file: string): boolean {

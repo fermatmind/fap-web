@@ -30025,7 +30025,7 @@
       "branch": "codex/security-123-web-05",
       "base": "main",
       "depends_on": ["SECURITY-123-WEB-04"],
-      "status": "planned",
+      "status": "in_progress",
       "train_scope": "security_123_web_cms16_full_diff_scope_guard",
       "risk_level": "low",
       "title": "SECURITY-123-WEB-05: CMS-16 full-diff scope guard",
@@ -30034,10 +30034,10 @@
       "artifacts": ["CMS-16 scope contracts", "tests/contracts/helpers/currentPrScope.ts", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
       "checks": {
         "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-05 and its declared governance-test scope."},
-        "dependency": {"status": "pending", "evidence": "Waits for SECURITY-123-WEB-04 to merge and be contained in origin/main."},
+      "dependency": {"status": "passed", "evidence": "SECURITY-123-WEB-04 merged as 08baa6b512601a2a9dc7ad4c2234f2850ff5bf13; origin/main was synchronized at 2ff56337 before WEB-05 worktree creation."},
         "local": {"status": "pending", "passed": [], "failed": []},
         "github": {"status": "pending", "passed": [], "failed": []},
-        "scope": {"status": "pending", "evidence": "Execution not started."}
+        "scope": {"status": "passed", "evidence": "WEB-05 focused scope guard validates the complete changed-file set against the declared CMS-16 governance scope."}
       },
       "failure_reason": null,
       "pr_url": null,
@@ -30045,9 +30045,9 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-05; execution waits for SECURITY-123-WEB-04 merge."}],
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-05; execution waits for SECURITY-123-WEB-04 merge."}, {"at": "2026-07-10T18:29:00+08:00", "status": "in_progress", "summary": "Started WEB-05 from origin/main after WEB-04 merge; scope is limited to CMS-16 complete-diff scope validation, focused contract, scope helper, sidecar, and train metadata."}],
       "sidecar_issues": [],
-      "updated_at": "2026-07-10T16:36:55+08:00"
+  "updated_at": "2026-07-10T18:29:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-06",
