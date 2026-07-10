@@ -29828,7 +29828,7 @@
       "branch": "codex/security-123-web-01",
       "base": "main",
       "depends_on": [],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_123_web_production_manual_risk_approval_guard",
       "risk_level": "high",
       "title": "SECURITY-123-WEB-01: production manual risk approval guard",
@@ -29873,8 +29873,8 @@
         ]
         },
       "github": {
-        "status": "pending",
-          "passed": [],
+        "status": "passed",
+          "passed": ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze", "CodeQL", "analyze (javascript-typescript)"],
           "failed": []
         },
       "scope": {
@@ -29884,10 +29884,10 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1647",
-      "commit_sha": "3e584ac1",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "31bd497ad46e5c0e38a6223d733821a7a7d4ec59",
+      "merged_at": "2026-07-10T09:01:15Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-10T16:36:55+08:00",
@@ -29903,13 +29903,18 @@
           "at": "2026-07-10T16:57:00+08:00",
           "status": "ready_to_merge",
           "summary": "Opened PR #1647 at head 3e584ac1 after focused and full local validation; required GitHub checks are pending."
+        },
+        {
+          "at": "2026-07-10T17:03:00+08:00",
+          "status": "merged",
+          "summary": "PR #1647 merged by squash as 31bd497ad46e5c0e38a6223d733821a7a7d4ec59; required GitHub checks passed, remote branch was deleted, and the local task worktree/branch were cleaned up."
         }
       ],
     "sidecar_issues": [
       "external-global-spacing-token-debt-security-123-web-01",
       "external-mbti-cms23-scope-guard-security-123-web-01"
     ],
-    "updated_at": "2026-07-10T16:56:00+08:00"
+    "updated_at": "2026-07-10T17:03:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-02",

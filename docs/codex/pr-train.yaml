@@ -23338,7 +23338,7 @@ prs:
     mode: execute
     train_scope: security_123_web_production_manual_risk_approval_guard
     risk_level: high
-    status: ready_to_merge
+    status: merged
     title: "SECURITY-123-WEB-01: production manual risk approval guard"
     findings:
       - "Predictable token bypasses production risky-path guard"
