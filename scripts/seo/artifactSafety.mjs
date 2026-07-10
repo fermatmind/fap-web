@@ -64,9 +64,10 @@ export function sanitizeDateSlug(value, label = "date") {
   return text;
 }
 
-export function csvEscape(value) {
+export function csvEscape(value, { quoteAlways = true } = {}) {
   const text = String(value ?? "");
   const safeText = SPREADSHEET_FORMULA_PREFIX.test(text) ? `'${text}` : text;
+  if (!quoteAlways && !/[",\n\r]/.test(safeText)) return safeText;
   return `"${safeText.replaceAll('"', '""')}"`;
 }
 

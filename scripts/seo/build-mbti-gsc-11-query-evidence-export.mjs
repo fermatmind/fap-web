@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs/promises";
 import path from "node:path";
+import { csvEscape } from "./artifactSafety.mjs";
 
 const ROOT = process.cwd();
 const GENERATED_AT = getArgValue("--generated-at") ?? "2026-07-04T20:20:00.000Z";
@@ -72,15 +73,12 @@ function pathLocale(pagePath) {
   return null;
 }
 
-function csvEscape(value) {
-  if (value === null || value === undefined) return "";
-  return `"${String(value).replaceAll('"', '""')}"`;
-}
-
 function toCsv(rows) {
   const lines = [CSV_COLUMNS.join(",")];
   for (const row of rows) {
-    lines.push(CSV_COLUMNS.map((column) => csvEscape(row[column])).join(","));
+    lines.push(
+      CSV_COLUMNS.map((column) => csvEscape(row[column], { quoteAlways: row[column] !== null && row[column] !== undefined })).join(","),
+    );
   }
   return `${lines.join("\n")}\n`;
 }
