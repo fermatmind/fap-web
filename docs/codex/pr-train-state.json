@@ -30165,7 +30165,7 @@
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "50bfea7182ecdfb008ec36994683f39caa65d0ef",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
