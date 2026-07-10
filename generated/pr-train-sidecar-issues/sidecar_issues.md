@@ -191,3 +191,15 @@
 - recommended follow-up: use the repository Node 24 runtime or configure the local contract runner timeout consistently with CI before treating the default local timeout as a hard failure.
 - detected at: 2026-07-10T18:16:00+08:00
 - disposition: recorded as non-blocking local runtime debt; the timeout-adjusted full contract suite passed.
+
+## External Contract Runner Timeout During SECURITY-123-WEB-05
+
+- repo: fap-web
+- PR id / branch: SECURITY-123-WEB-05 / codex/security-123-web-05
+- blocker type: external_local_contract_timeout
+- evidence: the manifest command `corepack pnpm test:contract` uses the existing 5-second Vitest timeout and is expected to time out in CMS-backed sitemap/personality cleanup contracts on this Node 20 runtime. The same four-shard runner with `--testTimeout=60000` passed all shard files and tests; no WEB-05 contract failed.
+- why not current PR scope: WEB-05 changes only the CMS-16 complete-diff scope guard, focused contract, scope helper, and train metadata. Increasing the local timeout or changing unrelated CMS-backed sitemap contracts would expand beyond the governance-test scope.
+- whether required checks are affected: no; focused contracts, lint, spacing, typecheck, build, freeze checks, manifest parse, diff check, and timeout-adjusted full contracts passed.
+- recommended follow-up: use the repository Node 24 runtime or configure the local contract runner timeout consistently with CI before treating the default local timeout as a hard failure.
+- detected at: 2026-07-10T18:34:00+08:00
+- disposition: recorded as non-blocking local runtime debt; the timeout-adjusted full contract suite passed.

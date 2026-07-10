@@ -30025,7 +30025,7 @@
       "branch": "codex/security-123-web-05",
       "base": "main",
       "depends_on": ["SECURITY-123-WEB-04"],
-      "status": "in_progress",
+      "status": "ready_to_merge",
       "train_scope": "security_123_web_cms16_full_diff_scope_guard",
       "risk_level": "low",
       "title": "SECURITY-123-WEB-05: CMS-16 full-diff scope guard",
@@ -30035,19 +30035,20 @@
       "checks": {
         "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-05 and its declared governance-test scope."},
       "dependency": {"status": "passed", "evidence": "SECURITY-123-WEB-04 merged as 08baa6b512601a2a9dc7ad4c2234f2850ff5bf13; origin/main was synchronized at 2ff56337 before WEB-05 worktree creation."},
-        "local": {"status": "pending", "passed": [], "failed": []},
+        "local": {"status": "passed_with_sidecars", "passed": ["focused WEB-05 CMS-16 contracts: 2 files, 10 tests", "pnpm lint", "pnpm lint:spacing", "pnpm typecheck", "production build: 206 routes", "pnpm test:contract with --testTimeout=60000: 4 shards, 685 files, 3,980 tests", "verify-big5-contract-freeze: 29 tests", "verify-enneagram-contract-freeze: 24 tests", "manifest/state/sidecar YAML/JSON parse", "git diff --check", "changed-file scope validation including untracked files"], "failed": ["bare pnpm test:contract: existing 5-second timeout in unrelated CMS-backed sitemap/personality cleanup contracts; timeout-adjusted rerun passed and is recorded in sidecar"]},
         "github": {"status": "pending", "passed": [], "failed": []},
         "scope": {"status": "passed", "evidence": "WEB-05 focused scope guard validates the complete changed-file set against the declared CMS-16 governance scope."}
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "ae7498a1",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
       "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-05; execution waits for SECURITY-123-WEB-04 merge."}, {"at": "2026-07-10T18:29:00+08:00", "status": "in_progress", "summary": "Started WEB-05 from origin/main after WEB-04 merge; scope is limited to CMS-16 complete-diff scope validation, focused contract, scope helper, sidecar, and train metadata."}],
-      "sidecar_issues": [],
-  "updated_at": "2026-07-10T18:29:00+08:00"
+      "sidecar_issues": ["external-contract-runner-timeout-security-123-web-05"],
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-05; execution waits for SECURITY-123-WEB-04 merge."}, {"at": "2026-07-10T18:29:00+08:00", "status": "in_progress", "summary": "Started WEB-05 from origin/main after WEB-04 merge; scope is limited to CMS-16 complete-diff scope validation, focused contract, scope helper, sidecar, and train metadata."}, {"at": "2026-07-10T18:36:00+08:00", "status": "ready_to_merge", "summary": "Implementation commit ae7498a1 is ready; focused/full timeout-adjusted contracts, lint, typecheck, build, freeze checks, and scope validation passed."}],
+      "updated_at": "2026-07-10T18:36:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-06",
