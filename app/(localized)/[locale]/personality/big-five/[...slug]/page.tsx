@@ -15,7 +15,7 @@ import {
   resolveBigFivePublicRouteEntry,
   type BigFivePublicRouteEntry,
 } from "@/lib/personality/bigFivePublicRoutes";
-import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
+import { buildBreadcrumbJsonLd, buildCollectionPageJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const dynamic = "force-dynamic";
@@ -140,7 +140,12 @@ export default async function BigFiveDimensionPage({
   const visibleFaq = asset.faq.filter((item) => item.question && item.answer);
   const pageJsonLd = asset.schemaRuntimeEligible
     ? asset.entityType === "hub" || asset.entityType === "facet_hub"
-      ? null
+      ? buildCollectionPageJsonLd({
+          path: pathname,
+          title: asset.title,
+          description: asset.seo.description || asset.summary,
+          locale,
+        })
       : buildWebPageJsonLd({
           path: pathname,
           title: asset.title,

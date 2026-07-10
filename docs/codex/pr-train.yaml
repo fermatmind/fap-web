@@ -23645,7 +23645,7 @@ prs:
     mode: execute
     train_scope: security_123_web_enneagram_robots_follow_semantics
     risk_level: informational
-    status: ready_to_merge
+    status: merged
     title: "SECURITY-123-WEB-08: Enneagram robots follow semantics"
     findings:
       - "Enneagram hub inverts CMS follow/nofollow robots flag"
@@ -23685,7 +23685,7 @@ prs:
     mode: execute
     train_scope: security_123_web_big_five_facet_hub_jsonld
     risk_level: informational
-    status: planned
+    status: ready_to_merge
     title: "SECURITY-123-WEB-09: Big Five facet hub JSON-LD"
     findings:
       - "Facet hub JSON-LD dropped by Big Five route split"
