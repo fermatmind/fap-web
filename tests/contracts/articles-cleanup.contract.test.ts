@@ -190,10 +190,12 @@ describe("articles cleanup contract", () => {
   });
 
   it("articles cms adapter paginates locale-scoped llms enumeration", async () => {
-    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
       const url = String(input);
       const page = new URL(url, "http://localhost:3000").searchParams.get("page");
 
+      expect(init).toMatchObject({ cache: "no-store" });
+      expect(init).not.toHaveProperty("next");
       expect(url).toContain("/api/v0.5/articles?");
       expect(url).toContain("locale=zh-CN");
       expect(url).toContain("org_id=0");
