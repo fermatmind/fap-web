@@ -141,5 +141,31 @@
     "why_not_current_pr_scope": "This PR is limited to IQ method CMS dry-run artifacts, one contract test, scope helper updates, and docs/codex metadata. Fixing global UI spacing debt would touch many unrelated frontend runtime files and violate one-PR-one-scope.",
     "required_checks_affected": false,
     "recommended_follow_up": "Open a separate fap-web spacing-token cleanup PR or update the lint:spacing baseline so artifact-only CMS dry-run PRs are not blocked by unrelated legacy UI spacing debt."
+  },
+  {
+    "id": "external-global-spacing-token-debt-security-123-web-01",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "SECURITY-123-WEB-01",
+    "branch": "codex/security-123-web-01",
+    "blocker_type": "external_global_spacing_token_debt",
+    "evidence": "PATH=/usr/local/bin:/usr/bin:/bin /usr/local/bin/pnpm lint:spacing failed on pre-existing spacing-token violations across unrelated app/**, components/**, and lib/** UI files. SECURITY-123-WEB-01 changes only the production workflow, deploy contracts, scope helper, PR-train metadata, and this sidecar record.",
+    "why_not_current_pr_scope": "SECURITY-123-WEB-01 is limited to the production manual risk approval guard. Fixing global UI spacing debt would touch many unrelated runtime files and violate one-PR-one-scope.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Open a separate fap-web spacing-token cleanup PR or establish a baseline-aware spacing guard that reports only newly introduced violations.",
+    "detected_at": "2026-07-10T16:42:00+08:00",
+    "disposition": "recorded_non_blocking_external_debt; continue because focused tests, ordinary lint, scope validation, and GitHub required checks are independently enforced"
+  },
+  {
+    "id": "external-mbti-cms23-scope-guard-security-123-web-01",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "SECURITY-123-WEB-01",
+    "branch": "codex/security-123-web-01",
+    "blocker_type": "external_branch_agnostic_legacy_scope_guard",
+    "evidence": "The local full contract run failed only in tests/contracts/mbti-cms-23-production-import-authorization-package.contract.test.ts after otherwise passing its shard. That legacy contract collects the active working-tree, staged, and untracked diff without checking the MBTI-CMS-23 branch, then rejects valid SECURITY-123-WEB-01 files against the historical CMS-23 allowlist.",
+    "why_not_current_pr_scope": "SECURITY-123-WEB-01 is limited to the production manual risk approval guard. Changing a previously merged CMS production-import authorization contract would expand this security PR beyond one scope.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Make the MBTI-CMS-23 scope assertion branch-scoped or validate its own committed PR diff. The current PR will rerun the complete suite from a clean committed tree and verify the required GitHub contracts check.",
+    "detected_at": "2026-07-10T16:49:00+08:00",
+    "disposition": "recorded_non_blocking_external_contract_debt; do not modify the legacy contract in WEB-01"
   }
 ]

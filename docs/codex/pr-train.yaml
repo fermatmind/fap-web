@@ -23328,3 +23328,388 @@ prs:
       squash: true
       auto_merge: true
     next_task: null
+
+  - id: SECURITY-123-WEB-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-123-web-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: security_123_web_production_manual_risk_approval_guard
+    risk_level: high
+    status: in_progress
+    title: "SECURITY-123-WEB-01: production manual risk approval guard"
+    findings:
+      - "Predictable token bypasses production risky-path guard"
+    goal: "Remove the predictable risky-path production deploy waiver; workflow_dispatch must fail closed and real human approval must rely on the protected GitHub production environment."
+    in_scope: &security_123_web_01_paths
+      - .github/workflows/deploy-production.yml
+      - tests/contracts/deploy-production-workflow-env.contract.test.ts
+      - tests/contracts/security-123-web-01-production-approval-guard.contract.test.ts
+      - tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths: *security_123_web_01_paths
+    out_of_scope: &security_123_common_out_of_scope
+      - fap-api changes
+      - adjacent SECURITY-123 scopes
+      - CMS writes, production imports, or DB migrations
+      - staging deploy wait or server verification
+      - manual deploy or production deploy
+      - secrets reads or mutations
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/security-123-web-01-production-approval-guard.contract.test.ts tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts tests/contracts/deploy-production-workflow-env.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    scope_validation: &security_123_scope_validation
+      stop_if_changed_files_outside_scope: true
+      record_external_blocker_as_sidecar: true
+    merge_policy: &security_123_merge_policy
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: SECURITY-123-WEB-02
+
+  - id: SECURITY-123-WEB-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-123-web-02
+    base: main
+    depends_on: [SECURITY-123-WEB-01]
+    mode: execute
+    train_scope: security_123_web_llms_article_cache_concurrency
+    risk_level: medium
+    status: planned
+    title: "SECURITY-123-WEB-02: LLMS article cache and concurrency hardening"
+    findings:
+      - "Uncached llms article enumeration enables backend fanout DoS"
+      - "Fractional article concurrency can hang enumeration"
+    goal: "Bound public LLMS article enumeration with shared short-lived caching/singleflight behavior and normalize fractional or invalid page concurrency to at least one without adding frontend editorial fallback."
+    in_scope: &security_123_web_02_paths
+      - lib/cms/articles.ts
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - tests/contracts/security-123-web-02-llms-article-cache-concurrency.contract.test.ts
+      - tests/contracts/articles-cleanup.contract.test.ts
+      - tests/contracts/llms-route-fanout.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths: *security_123_web_02_paths
+    out_of_scope: *security_123_common_out_of_scope
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/security-123-web-02-llms-article-cache-concurrency.contract.test.ts tests/contracts/articles-cleanup.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    scope_validation: *security_123_scope_validation
+    merge_policy: *security_123_merge_policy
+    next_task: SECURITY-123-WEB-03
+
+  - id: SECURITY-123-WEB-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-123-web-03
+    base: main
+    depends_on: [SECURITY-123-WEB-02]
+    mode: execute
+    train_scope: security_123_web_big5_explicit_disclaimer_consent
+    risk_level: medium
+    status: planned
+    title: "SECURITY-123-WEB-03: Big Five explicit disclaimer consent"
+    findings:
+      - "Big Five flow records consent without user acceptance"
+    goal: "Require the user to see and explicitly accept the server-provided Big Five disclaimer before creating an attempt or submitting accepted_at/version/hash metadata."
+    in_scope: &security_123_web_03_paths
+      - app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx
+      - tests/contracts/security-123-web-03-big5-explicit-consent.contract.test.tsx
+      - tests/contracts/big5-take-attempt-priming.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths: *security_123_web_03_paths
+    out_of_scope: *security_123_common_out_of_scope
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/security-123-web-03-big5-explicit-consent.contract.test.tsx tests/contracts/big5-take-attempt-priming.contract.test.tsx
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    scope_validation: *security_123_scope_validation
+    merge_policy: *security_123_merge_policy
+    next_task: SECURITY-123-WEB-04
+
+  - id: SECURITY-123-WEB-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-123-web-04
+    base: main
+    depends_on: [SECURITY-123-WEB-03]
+    mode: execute
+    train_scope: security_123_web_gsc_csv_formula_neutralization
+    risk_level: medium
+    status: planned
+    title: "SECURITY-123-WEB-04: GSC CSV formula neutralization"
+    findings:
+      - "GSC CSV export allows spreadsheet formula injection"
+      - "CSV formula injection in GSC monitoring export"
+      - "GSC query CSV output is vulnerable to formula injection"
+    goal: "Converge the three GSC CSV generators on a shared spreadsheet-safe escaping boundary while preserving deterministic output."
+    in_scope: &security_123_web_04_paths
+      - scripts/seo/build-mbti-gsc-11-query-evidence-export.mjs
+      - scripts/seo/build-mbti-gsc-19-submission-monitoring.mjs
+      - scripts/seo/build-mbti-ops-08-gsc-priority-monitoring.mjs
+      - scripts/seo/artifactSafety.mjs
+      - docs/seo/personality/mbti-gsc-11-*
+      - docs/seo/personality/mbti-gsc-19-*
+      - docs/seo/personality/mbti-ops-08-*
+      - tests/contracts/security-123-web-04-gsc-csv-formula-guards.contract.test.ts
+      - tests/contracts/mbti-gsc-11-query-evidence-export.contract.test.ts
+      - tests/contracts/mbti-gsc-19-submission-monitoring.contract.test.ts
+      - tests/contracts/mbti-ops-08-gsc-priority-monitoring.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths: *security_123_web_04_paths
+    out_of_scope: *security_123_common_out_of_scope
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/security-123-web-04-gsc-csv-formula-guards.contract.test.ts tests/contracts/mbti-gsc-11-query-evidence-export.contract.test.ts tests/contracts/mbti-gsc-19-submission-monitoring.contract.test.ts tests/contracts/mbti-ops-08-gsc-priority-monitoring.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    scope_validation: *security_123_scope_validation
+    merge_policy: *security_123_merge_policy
+    next_task: SECURITY-123-WEB-05
+
+  - id: SECURITY-123-WEB-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-123-web-05
+    base: main
+    depends_on: [SECURITY-123-WEB-04]
+    mode: execute
+    train_scope: security_123_web_cms16_full_diff_scope_guard
+    risk_level: low
+    status: planned
+    title: "SECURITY-123-WEB-05: CMS-16 full-diff scope guard"
+    findings:
+      - "CMS-16 scope guard ignores out-of-scope files"
+    goal: "Make the CMS-16 contract validate the complete committed PR diff instead of filtering to CMS-16 paths before applying the allowlist."
+    in_scope: &security_123_web_05_paths
+      - tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts
+      - tests/contracts/security-123-web-05-cms16-full-diff-scope.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths: *security_123_web_05_paths
+    out_of_scope: *security_123_common_out_of_scope
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/security-123-web-05-cms16-full-diff-scope.contract.test.ts tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    scope_validation: *security_123_scope_validation
+    merge_policy: *security_123_merge_policy
+    next_task: SECURITY-123-WEB-06
+
+  - id: SECURITY-123-WEB-06
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-123-web-06
+    base: main
+    depends_on: [SECURITY-123-WEB-05]
+    mode: execute
+    train_scope: security_123_web_personality_v85_array_normalization
+    risk_level: low
+    status: planned
+    title: "SECURITY-123-WEB-06: personality V8.5 array normalization"
+    findings:
+      - "Malformed V8.5 CMS arrays can crash profile rendering"
+    goal: "Validate FAQ, internal link, and related structured array items at the CMS rendering boundary so malformed values are ignored instead of crashing public SSR."
+    in_scope: &security_123_web_06_paths
+      - lib/cms/personality-sections.tsx
+      - tests/contracts/security-123-web-06-personality-array-normalization.contract.test.tsx
+      - tests/contracts/personality-sections.contract.test.tsx
+      - tests/contracts/helpers/currentPrScope.ts
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths: *security_123_web_06_paths
+    out_of_scope: *security_123_common_out_of_scope
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/security-123-web-06-personality-array-normalization.contract.test.tsx tests/contracts/personality-sections.contract.test.tsx
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    scope_validation: *security_123_scope_validation
+    merge_policy: *security_123_merge_policy
+    next_task: SECURITY-123-WEB-07
+
+  - id: SECURITY-123-WEB-07
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-123-web-07
+    base: main
+    depends_on: [SECURITY-123-WEB-06]
+    mode: execute
+    train_scope: security_123_web_personality_asset_cache_directive_consistency
+    risk_level: informational
+    status: planned
+    title: "SECURITY-123-WEB-07: personality asset cache directive consistency"
+    findings:
+      - "Conflicting fetch cache directives for CMS asset request"
+    goal: "Use one explicit Next.js cache policy for Big Five public CMS asset requests without changing backend authority or adding local fallback."
+    in_scope: &security_123_web_07_paths
+      - lib/cms/personality-public-content-assets.ts
+      - tests/contracts/security-123-web-07-personality-asset-cache.contract.test.ts
+      - tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths: *security_123_web_07_paths
+    out_of_scope: *security_123_common_out_of_scope
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/security-123-web-07-personality-asset-cache.contract.test.ts tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    scope_validation: *security_123_scope_validation
+    merge_policy: *security_123_merge_policy
+    next_task: SECURITY-123-WEB-08
+
+  - id: SECURITY-123-WEB-08
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-123-web-08
+    base: main
+    depends_on: [SECURITY-123-WEB-07]
+    mode: execute
+    train_scope: security_123_web_enneagram_robots_follow_semantics
+    risk_level: informational
+    status: planned
+    title: "SECURITY-123-WEB-08: Enneagram robots follow semantics"
+    findings:
+      - "Enneagram hub inverts CMS follow/nofollow robots flag"
+    goal: "Preserve CMS robots semantics on the Enneagram hub without widening indexability or changing canonical, sitemap, or LLMS enumeration."
+    in_scope: &security_123_web_08_paths
+      - app/(localized)/[locale]/personality/enneagram/page.tsx
+      - tests/contracts/security-123-web-08-enneagram-robots-follow.contract.test.ts
+      - tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths: *security_123_web_08_paths
+    out_of_scope: *security_123_common_out_of_scope
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/security-123-web-08-enneagram-robots-follow.contract.test.ts tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    scope_validation: *security_123_scope_validation
+    merge_policy: *security_123_merge_policy
+    next_task: SECURITY-123-WEB-09
+
+  - id: SECURITY-123-WEB-09
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/security-123-web-09
+    base: main
+    depends_on: [SECURITY-123-WEB-08]
+    mode: execute
+    train_scope: security_123_web_big_five_facet_hub_jsonld
+    risk_level: informational
+    status: planned
+    title: "SECURITY-123-WEB-09: Big Five facet hub JSON-LD"
+    findings:
+      - "Facet hub JSON-LD dropped by Big Five route split"
+    goal: "Restore CollectionPage JSON-LD for backend-authorized Big Five facet hubs without bypassing schema_runtime_eligible or changing indexability."
+    in_scope: &security_123_web_09_paths
+      - app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx
+      - tests/contracts/security-123-web-09-big-five-facet-hub-jsonld.contract.test.ts
+      - tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    allowed_paths: *security_123_web_09_paths
+    out_of_scope: *security_123_common_out_of_scope
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/security-123-web-09-big-five-facet-hub-jsonld.contract.test.ts tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    scope_validation: *security_123_scope_validation
+    merge_policy: *security_123_merge_policy
+    next_task: null

@@ -1335,6 +1335,18 @@ const SECURITY_103_WEB_01_ALLOWED_FILES = new Set([
   "tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts",
 ]);
 
+const SECURITY_123_WEB_01_ALLOWED_FILES = new Set([
+  ".github/workflows/deploy-production.yml",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "tests/contracts/deploy-production-workflow-env.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts",
+  "tests/contracts/security-123-web-01-production-approval-guard.contract.test.ts",
+]);
+
 const SECURITY_122_WEB_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -3980,6 +3992,14 @@ export function isSecurity103Web01AllowedFile(file: string): boolean {
   }
 
   return SECURITY_103_WEB_01_ALLOWED_FILES.has(file);
+}
+
+export function isSecurity123Web01AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-123-web-01") {
+    return true;
+  }
+
+  return SECURITY_123_WEB_01_ALLOWED_FILES.has(file);
 }
 
 export function isSecurity122Web01AllowedFile(file: string): boolean {

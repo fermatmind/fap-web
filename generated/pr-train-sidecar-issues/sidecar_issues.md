@@ -131,3 +131,27 @@
 - why not current PR scope: this PR only prepares CMS dry-run artifacts and validation. Fixing global spacing debt would touch many unrelated frontend files and violate one-PR-one-scope.
 - whether required checks are affected: no; focused contract, full contract, lint, typecheck, production API build, JSON/YAML parse, diff check, and scope validation are separate from the known full-repo spacing debt.
 - recommended follow-up: open a separate spacing-token cleanup PR or establish a lint:spacing baseline for artifact-only PRs.
+
+## External Global Spacing Token Debt During SECURITY-123-WEB-01
+
+- repo: fermatmind/fap-web
+- PR id / branch: SECURITY-123-WEB-01 / codex/security-123-web-01
+- blocker type: external_global_spacing_token_debt
+- evidence: `PATH=/usr/local/bin:/usr/bin:/bin /usr/local/bin/pnpm lint:spacing` failed on pre-existing spacing-token violations across unrelated `app/**`, `components/**`, and `lib/**` UI files. WEB-01 changes only the production workflow, deploy contracts, scope helper, train metadata, and this sidecar record.
+- why not current PR scope: WEB-01 is limited to the production manual risk approval guard. Fixing global UI spacing debt would touch many unrelated runtime files and violate one-PR-one-scope.
+- whether required checks are affected: no; focused tests and ordinary lint passed, while scope validation and GitHub required checks remain independently enforced.
+- recommended follow-up: open a separate spacing-token cleanup PR or establish a baseline-aware spacing guard that reports only newly introduced violations.
+- detected at: 2026-07-10T16:42:00+08:00
+- disposition: recorded as non-blocking external debt under the user-authorized PR-train sidecar policy.
+
+## Legacy MBTI-CMS-23 Scope Guard During SECURITY-123-WEB-01
+
+- repo: fermatmind/fap-web
+- PR id / branch: SECURITY-123-WEB-01 / codex/security-123-web-01
+- blocker type: external branch-agnostic legacy scope guard
+- evidence: the local full contract run failed only in `tests/contracts/mbti-cms-23-production-import-authorization-package.contract.test.ts` after otherwise passing its shard. That legacy test reads the active working-tree, staged, and untracked diff without checking the MBTI-CMS-23 branch, then rejects valid WEB-01 files against its historical allowlist.
+- why not current PR scope: WEB-01 is limited to the production manual risk approval guard. Editing a previously merged CMS production-import authorization contract would violate one-PR-one-scope.
+- whether required checks are affected: no; the test sees no diff in a clean committed checkout. WEB-01 will rerun the complete suite from a clean committed tree and independently require GitHub contracts to be green.
+- recommended follow-up: make the MBTI-CMS-23 scope assertion branch-scoped or validate its own committed PR diff.
+- detected at: 2026-07-10T16:49:00+08:00
+- disposition: recorded as non-blocking external contract debt; do not modify the legacy contract in WEB-01.

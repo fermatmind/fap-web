@@ -29820,6 +29820,342 @@
         ]
       },
       "updated_at": "2026-07-05T11:56:00+08:00"
+    },
+    {
+      "id": "SECURITY-123-WEB-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-123-web-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "in_progress",
+      "train_scope": "security_123_web_production_manual_risk_approval_guard",
+      "risk_level": "high",
+      "title": "SECURITY-123-WEB-01: production manual risk approval guard",
+      "findings": [
+        "Predictable token bypasses production risky-path guard"
+      ],
+      "goal": "Remove the predictable risky-path production deploy waiver; workflow_dispatch must fail closed and real human approval must rely on the protected GitHub production environment.",
+    "artifacts": [
+      ".github/workflows/deploy-production.yml",
+      "tests/contracts/deploy-production-workflow-env.contract.test.ts",
+      "tests/contracts/security-123-web-01-production-approval-guard.contract.test.ts",
+        "tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts",
+        "tests/contracts/helpers/currentPrScope.ts",
+        "docs/codex/pr-train.yaml",
+        "docs/codex/pr-train-state.json"
+      ],
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized manifest/state registration and continuous execution for SECURITY-123-WEB-01 through SECURITY-123-WEB-09."
+        },
+      "dependency": {
+        "status": "passed",
+        "evidence": "SECURITY-123-WEB-01 has no train dependency and was rebased before validation onto latest origin/main 4eec7042bbd0b51b0dcb6b8cdd3f9f1b2487c4fe."
+      },
+      "local": {
+        "status": "in_progress",
+        "passed": [
+          "focused deploy workflow contracts: 3 files, 13 tests",
+          "pnpm lint",
+          "pnpm typecheck",
+          "production-environment pnpm build: 206 routes",
+          "pnpm verify-big5-contract-freeze: 29 tests",
+          "pnpm verify-enneagram-contract-freeze: 24 tests",
+          "career package validator under Python 3.14: 5 tests",
+          "manifest/state YAML/JSON parse",
+          "git diff --check"
+        ],
+        "failed": [
+          "pnpm lint:spacing: pre-existing global spacing debt recorded in sidecar",
+          "pre-commit pnpm test:contract: legacy MBTI-CMS-23 scope guard rejected the active WEB-01 working-tree diff; clean committed-tree rerun pending"
+        ]
+        },
+        "github": {
+          "status": "pending",
+          "passed": [],
+          "failed": []
+        },
+      "scope": {
+        "status": "passed",
+        "evidence": "WEB-01 focused scope contract accepts all tracked, staged, committed, and untracked changed files after the latest-main rebase; no future train scope is included."
+        }
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-10T16:36:55+08:00",
+          "status": "planned",
+          "summary": "Registered SECURITY-123-WEB-01 from the user-authorized continuous frontend security remediation train."
+        },
+        {
+          "at": "2026-07-10T16:36:55+08:00",
+          "status": "in_progress",
+          "summary": "Started SECURITY-123-WEB-01 in an isolated worktree from latest origin/main; scope is limited to the production manual risk approval guard, focused contracts, scope helper, and train metadata."
+        }
+      ],
+    "sidecar_issues": [
+      "external-global-spacing-token-debt-security-123-web-01",
+      "external-mbti-cms23-scope-guard-security-123-web-01"
+    ],
+    "updated_at": "2026-07-10T16:53:00+08:00"
+    },
+    {
+      "id": "SECURITY-123-WEB-02",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-123-web-02",
+      "base": "main",
+      "depends_on": ["SECURITY-123-WEB-01"],
+      "status": "planned",
+      "train_scope": "security_123_web_llms_article_cache_concurrency",
+      "risk_level": "medium",
+      "title": "SECURITY-123-WEB-02: LLMS article cache and concurrency hardening",
+      "findings": [
+        "Uncached llms article enumeration enables backend fanout DoS",
+        "Fractional article concurrency can hang enumeration"
+      ],
+      "goal": "Bound public LLMS article enumeration with shared short-lived caching/singleflight behavior and normalize fractional or invalid page concurrency to at least one without adding frontend editorial fallback.",
+      "artifacts": ["lib/cms/articles.ts", "LLMS/article focused contracts", "tests/contracts/helpers/currentPrScope.ts", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
+      "checks": {
+        "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-02 and its declared LLMS runtime scope."},
+        "dependency": {"status": "pending", "evidence": "Waits for SECURITY-123-WEB-01 to merge and be contained in origin/main."},
+        "local": {"status": "pending", "passed": [], "failed": []},
+        "github": {"status": "pending", "passed": [], "failed": []},
+        "scope": {"status": "pending", "evidence": "Execution not started."}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-02; execution waits for SECURITY-123-WEB-01 merge."}],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-10T16:36:55+08:00"
+    },
+    {
+      "id": "SECURITY-123-WEB-03",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-123-web-03",
+      "base": "main",
+      "depends_on": ["SECURITY-123-WEB-02"],
+      "status": "planned",
+      "train_scope": "security_123_web_big5_explicit_disclaimer_consent",
+      "risk_level": "medium",
+      "title": "SECURITY-123-WEB-03: Big Five explicit disclaimer consent",
+      "findings": ["Big Five flow records consent without user acceptance"],
+      "goal": "Require the user to see and explicitly accept the server-provided Big Five disclaimer before creating an attempt or submitting accepted_at/version/hash metadata.",
+      "artifacts": ["app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx", "Big Five take/consent focused contracts", "tests/contracts/helpers/currentPrScope.ts", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
+      "checks": {
+        "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-03 and its declared Big Five consent scope."},
+        "dependency": {"status": "pending", "evidence": "Waits for SECURITY-123-WEB-02 to merge and be contained in origin/main."},
+        "local": {"status": "pending", "passed": [], "failed": []},
+        "github": {"status": "pending", "passed": [], "failed": []},
+        "scope": {"status": "pending", "evidence": "Execution not started."}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-03; execution waits for SECURITY-123-WEB-02 merge."}],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-10T16:36:55+08:00"
+    },
+    {
+      "id": "SECURITY-123-WEB-04",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-123-web-04",
+      "base": "main",
+      "depends_on": ["SECURITY-123-WEB-03"],
+      "status": "planned",
+      "train_scope": "security_123_web_gsc_csv_formula_neutralization",
+      "risk_level": "medium",
+      "title": "SECURITY-123-WEB-04: GSC CSV formula neutralization",
+      "findings": ["GSC CSV export allows spreadsheet formula injection", "CSV formula injection in GSC monitoring export", "GSC query CSV output is vulnerable to formula injection"],
+      "goal": "Converge the three GSC CSV generators on a shared spreadsheet-safe escaping boundary while preserving deterministic output.",
+      "artifacts": ["three declared GSC CSV generators", "scripts/seo/artifactSafety.mjs", "GSC focused contracts", "tests/contracts/helpers/currentPrScope.ts", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
+      "checks": {
+        "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-04 and its declared GSC CSV scope."},
+        "dependency": {"status": "pending", "evidence": "Waits for SECURITY-123-WEB-03 to merge and be contained in origin/main."},
+        "local": {"status": "pending", "passed": [], "failed": []},
+        "github": {"status": "pending", "passed": [], "failed": []},
+        "scope": {"status": "pending", "evidence": "Execution not started."}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-04; execution waits for SECURITY-123-WEB-03 merge."}],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-10T16:36:55+08:00"
+    },
+    {
+      "id": "SECURITY-123-WEB-05",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-123-web-05",
+      "base": "main",
+      "depends_on": ["SECURITY-123-WEB-04"],
+      "status": "planned",
+      "train_scope": "security_123_web_cms16_full_diff_scope_guard",
+      "risk_level": "low",
+      "title": "SECURITY-123-WEB-05: CMS-16 full-diff scope guard",
+      "findings": ["CMS-16 scope guard ignores out-of-scope files"],
+      "goal": "Make the CMS-16 contract validate the complete committed PR diff instead of filtering to CMS-16 paths before applying the allowlist.",
+      "artifacts": ["CMS-16 scope contracts", "tests/contracts/helpers/currentPrScope.ts", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
+      "checks": {
+        "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-05 and its declared governance-test scope."},
+        "dependency": {"status": "pending", "evidence": "Waits for SECURITY-123-WEB-04 to merge and be contained in origin/main."},
+        "local": {"status": "pending", "passed": [], "failed": []},
+        "github": {"status": "pending", "passed": [], "failed": []},
+        "scope": {"status": "pending", "evidence": "Execution not started."}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-05; execution waits for SECURITY-123-WEB-04 merge."}],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-10T16:36:55+08:00"
+    },
+    {
+      "id": "SECURITY-123-WEB-06",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-123-web-06",
+      "base": "main",
+      "depends_on": ["SECURITY-123-WEB-05"],
+      "status": "planned",
+      "train_scope": "security_123_web_personality_v85_array_normalization",
+      "risk_level": "low",
+      "title": "SECURITY-123-WEB-06: personality V8.5 array normalization",
+      "findings": ["Malformed V8.5 CMS arrays can crash profile rendering"],
+      "goal": "Validate FAQ, internal link, and related structured array items at the CMS rendering boundary so malformed values are ignored instead of crashing public SSR.",
+      "artifacts": ["lib/cms/personality-sections.tsx", "personality renderer focused contracts", "tests/contracts/helpers/currentPrScope.ts", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
+      "checks": {
+        "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-06 and its declared CMS consumer boundary scope without CMS writes."},
+        "dependency": {"status": "pending", "evidence": "Waits for SECURITY-123-WEB-05 to merge and be contained in origin/main."},
+        "local": {"status": "pending", "passed": [], "failed": []},
+        "github": {"status": "pending", "passed": [], "failed": []},
+        "scope": {"status": "pending", "evidence": "Execution not started."}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-06; execution waits for SECURITY-123-WEB-05 merge."}],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-10T16:36:55+08:00"
+    },
+    {
+      "id": "SECURITY-123-WEB-07",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-123-web-07",
+      "base": "main",
+      "depends_on": ["SECURITY-123-WEB-06"],
+      "status": "planned",
+      "train_scope": "security_123_web_personality_asset_cache_directive_consistency",
+      "risk_level": "informational",
+      "title": "SECURITY-123-WEB-07: personality asset cache directive consistency",
+      "findings": ["Conflicting fetch cache directives for CMS asset request"],
+      "goal": "Use one explicit Next.js cache policy for Big Five public CMS asset requests without changing backend authority or adding local fallback.",
+      "artifacts": ["lib/cms/personality-public-content-assets.ts", "personality asset cache focused contracts", "tests/contracts/helpers/currentPrScope.ts", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
+      "checks": {
+        "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-07 and its declared informational cache scope."},
+        "dependency": {"status": "pending", "evidence": "Waits for SECURITY-123-WEB-06 to merge and be contained in origin/main."},
+        "local": {"status": "pending", "passed": [], "failed": []},
+        "github": {"status": "pending", "passed": [], "failed": []},
+        "scope": {"status": "pending", "evidence": "Execution not started."}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-07; execution waits for SECURITY-123-WEB-06 merge."}],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-10T16:36:55+08:00"
+    },
+    {
+      "id": "SECURITY-123-WEB-08",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-123-web-08",
+      "base": "main",
+      "depends_on": ["SECURITY-123-WEB-07"],
+      "status": "planned",
+      "train_scope": "security_123_web_enneagram_robots_follow_semantics",
+      "risk_level": "informational",
+      "title": "SECURITY-123-WEB-08: Enneagram robots follow semantics",
+      "findings": ["Enneagram hub inverts CMS follow/nofollow robots flag"],
+      "goal": "Preserve CMS robots semantics on the Enneagram hub without widening indexability or changing canonical, sitemap, or LLMS enumeration.",
+      "artifacts": ["app/(localized)/[locale]/personality/enneagram/page.tsx", "Enneagram metadata focused contracts", "tests/contracts/helpers/currentPrScope.ts", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
+      "checks": {
+        "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-08 and its declared informational robots scope."},
+        "dependency": {"status": "pending", "evidence": "Waits for SECURITY-123-WEB-07 to merge and be contained in origin/main."},
+        "local": {"status": "pending", "passed": [], "failed": []},
+        "github": {"status": "pending", "passed": [], "failed": []},
+        "scope": {"status": "pending", "evidence": "Execution not started."}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-08; execution waits for SECURITY-123-WEB-07 merge."}],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-10T16:36:55+08:00"
+    },
+    {
+      "id": "SECURITY-123-WEB-09",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-123-web-09",
+      "base": "main",
+      "depends_on": ["SECURITY-123-WEB-08"],
+      "status": "planned",
+      "train_scope": "security_123_web_big_five_facet_hub_jsonld",
+      "risk_level": "informational",
+      "title": "SECURITY-123-WEB-09: Big Five facet hub JSON-LD",
+      "findings": ["Facet hub JSON-LD dropped by Big Five route split"],
+      "goal": "Restore CollectionPage JSON-LD for backend-authorized Big Five facet hubs without bypassing schema_runtime_eligible or changing indexability.",
+      "artifacts": ["app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx", "Big Five structured-data focused contracts", "tests/contracts/helpers/currentPrScope.ts", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
+      "checks": {
+        "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-09 and its declared informational JSON-LD scope."},
+        "dependency": {"status": "pending", "evidence": "Waits for SECURITY-123-WEB-08 to merge and be contained in origin/main."},
+        "local": {"status": "pending", "passed": [], "failed": []},
+        "github": {"status": "pending", "passed": [], "failed": []},
+        "scope": {"status": "pending", "evidence": "Execution not started."}
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-09; execution waits for SECURITY-123-WEB-08 merge."}],
+      "sidecar_issues": [],
+      "updated_at": "2026-07-10T16:36:55+08:00"
     }
   ],
   "sidecar_issues": [
