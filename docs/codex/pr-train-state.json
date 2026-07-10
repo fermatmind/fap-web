@@ -29994,7 +29994,7 @@
       "branch": "codex/security-123-web-04",
       "base": "main",
       "depends_on": ["SECURITY-123-WEB-03"],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_123_web_gsc_csv_formula_neutralization",
       "risk_level": "medium",
       "title": "SECURITY-123-WEB-04: GSC CSV formula neutralization",
@@ -30011,12 +30011,12 @@
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1652",
       "commit_sha": "8a9a80e8",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-07-10T10:25:13Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": ["external-contract-runner-timeout-security-123-web-04"],
-  "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-04; execution waits for SECURITY-123-WEB-03 merge."}, {"at": "2026-07-10T18:08:00+08:00", "status": "in_progress", "summary": "Started WEB-04 from origin/main after WEB-03 merge; scope is limited to shared spreadsheet-safe CSV escaping, three GSC generators, focused contracts, scope helper, and train metadata."}, {"at": "2026-07-10T18:18:00+08:00", "status": "ready_to_merge", "summary": "Implementation commit 8a9a80e8 plus train-forward OPS-08 scope guard are ready; focused/full timeout-adjusted contracts, lint, typecheck, build, freeze checks, and scope validation passed."}, {"at": "2026-07-10T18:20:00+08:00", "status": "pr_open", "summary": "Opened PR #1652; required GitHub checks are pending."}, {"at": "2026-07-10T18:25:00+08:00", "status": "ready_to_merge", "summary": "PR #1652 required checks are all green and merge state is CLEAN; ready for squash auto-merge."}],
-  "updated_at": "2026-07-10T18:25:00+08:00"
+  "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-04; execution waits for SECURITY-123-WEB-03 merge."}, {"at": "2026-07-10T18:08:00+08:00", "status": "in_progress", "summary": "Started WEB-04 from origin/main after WEB-03 merge; scope is limited to shared spreadsheet-safe CSV escaping, three GSC generators, focused contracts, scope helper, and train metadata."}, {"at": "2026-07-10T18:18:00+08:00", "status": "ready_to_merge", "summary": "Implementation commit 8a9a80e8 plus train-forward OPS-08 scope guard are ready; focused/full timeout-adjusted contracts, lint, typecheck, build, freeze checks, and scope validation passed."}, {"at": "2026-07-10T18:20:00+08:00", "status": "pr_open", "summary": "Opened PR #1652; required GitHub checks are pending."}, {"at": "2026-07-10T18:25:00+08:00", "status": "ready_to_merge", "summary": "PR #1652 required checks are all green and merge state is CLEAN; ready for squash auto-merge."}, {"at": "2026-07-10T18:27:00+08:00", "status": "merged", "summary": "PR #1652 merged by squash as 08baa6b512601a2a9dc7ad4c2234f2850ff5bf13; remote branch deleted and local task worktree/branch cleaned."}],
+  "updated_at": "2026-07-10T18:27:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-05",
