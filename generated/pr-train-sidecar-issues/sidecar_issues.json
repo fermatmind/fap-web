@@ -167,5 +167,18 @@
     "recommended_follow_up": "Make the MBTI-CMS-23 scope assertion branch-scoped or validate its own committed PR diff. The current PR will rerun the complete suite from a clean committed tree and verify the required GitHub contracts check.",
     "detected_at": "2026-07-10T16:49:00+08:00",
     "disposition": "recorded_non_blocking_external_contract_debt; do not modify the legacy contract in WEB-01"
+  },
+  {
+    "id": "external-global-spacing-token-debt-security-123-web-02",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "SECURITY-123-WEB-02",
+    "branch": "codex/security-123-web-02",
+    "blocker_type": "external_global_spacing_token_debt",
+    "evidence": "PATH=/usr/local/bin:/usr/bin:/bin /usr/local/bin/pnpm lint:spacing failed on the same pre-existing spacing-token violations across unrelated app/**, components/**, and lib/** UI files seen during WEB-01. WEB-02 changes CMS article enumeration and contracts only.",
+    "why_not_current_pr_scope": "SECURITY-123-WEB-02 is limited to LLMS article caching/concurrency and authority-bound contracts. Fixing repository-wide UI spacing debt would touch unrelated runtime files and violate one-PR-one-scope.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Open a separate spacing-token cleanup PR or establish a baseline-aware spacing guard that reports only newly introduced violations.",
+    "detected_at": "2026-07-10T17:09:00+08:00",
+    "disposition": "recorded_non_blocking_external_debt; continue because focused tests, ordinary lint, typecheck, build, scope validation, and GitHub required checks are independently enforced"
   }
 ]

@@ -23390,7 +23390,7 @@ prs:
     mode: execute
     train_scope: security_123_web_llms_article_cache_concurrency
     risk_level: medium
-    status: planned
+    status: ready_to_merge
     title: "SECURITY-123-WEB-02: LLMS article cache and concurrency hardening"
     findings:
       - "Uncached llms article enumeration enables backend fanout DoS"
@@ -23403,6 +23403,7 @@ prs:
       - tests/contracts/security-123-web-02-llms-article-cache-concurrency.contract.test.ts
       - tests/contracts/articles-cleanup.contract.test.ts
       - tests/contracts/llms-route-fanout.contract.test.ts
+      - tests/contracts/public-surface-lkg-coverage.contract.test.ts
       - tests/contracts/helpers/currentPrScope.ts
       - generated/pr-train-sidecar-issues/**
       - docs/codex/pr-train.yaml
@@ -23410,7 +23411,7 @@ prs:
     allowed_paths: *security_123_web_02_paths
     out_of_scope: *security_123_common_out_of_scope
     required_local_checks:
-      - pnpm exec vitest run tests/contracts/security-123-web-02-llms-article-cache-concurrency.contract.test.ts tests/contracts/articles-cleanup.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts
+      - pnpm exec vitest run tests/contracts/security-123-web-02-llms-article-cache-concurrency.contract.test.ts tests/contracts/articles-cleanup.contract.test.ts tests/contracts/llms-route-fanout.contract.test.ts tests/contracts/public-surface-lkg-coverage.contract.test.ts
       - pnpm lint
       - pnpm lint:spacing
       - pnpm typecheck

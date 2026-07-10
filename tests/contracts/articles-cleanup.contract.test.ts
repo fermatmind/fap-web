@@ -194,8 +194,8 @@ describe("articles cleanup contract", () => {
       const url = String(input);
       const page = new URL(url, "http://localhost:3000").searchParams.get("page");
 
-      expect(init).toMatchObject({ cache: "no-store" });
-      expect(init).not.toHaveProperty("next");
+      expect(init).toMatchObject({ next: { revalidate: 300 } });
+      expect(init).not.toHaveProperty("cache");
       expect(url).toContain("/api/v0.5/articles?");
       expect(url).toContain("locale=zh-CN");
       expect(url).toContain("org_id=0");

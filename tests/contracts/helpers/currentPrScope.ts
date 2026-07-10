@@ -1347,6 +1347,21 @@ const SECURITY_123_WEB_01_ALLOWED_FILES = new Set([
   "tests/contracts/security-123-web-01-production-approval-guard.contract.test.ts",
 ]);
 
+const SECURITY_123_WEB_02_ALLOWED_FILES = new Set([
+  "app/llms-full.txt/route.ts",
+  "app/llms.txt/route.ts",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "lib/cms/articles.ts",
+  "tests/contracts/articles-cleanup.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/llms-route-fanout.contract.test.ts",
+  "tests/contracts/public-surface-lkg-coverage.contract.test.ts",
+  "tests/contracts/security-123-web-02-llms-article-cache-concurrency.contract.test.ts",
+]);
+
 const SECURITY_122_WEB_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -4000,6 +4015,14 @@ export function isSecurity123Web01AllowedFile(file: string): boolean {
   }
 
   return SECURITY_123_WEB_01_ALLOWED_FILES.has(file);
+}
+
+export function isSecurity123Web02AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-123-web-02") {
+    return true;
+  }
+
+  return SECURITY_123_WEB_02_ALLOWED_FILES.has(file);
 }
 
 export function isSecurity122Web01AllowedFile(file: string): boolean {

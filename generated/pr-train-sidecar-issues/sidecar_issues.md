@@ -155,3 +155,15 @@
 - recommended follow-up: make the MBTI-CMS-23 scope assertion branch-scoped or validate its own committed PR diff.
 - detected at: 2026-07-10T16:49:00+08:00
 - disposition: recorded as non-blocking external contract debt; do not modify the legacy contract in WEB-01.
+
+## External Global Spacing Token Debt During SECURITY-123-WEB-02
+
+- repo: fermatmind/fap-web
+- PR id / branch: SECURITY-123-WEB-02 / codex/security-123-web-02
+- blocker type: external_global_spacing_token_debt
+- evidence: `pnpm lint:spacing` failed on the same pre-existing spacing-token violations across unrelated `app/**`, `components/**`, and `lib/**` files seen during WEB-01. WEB-02 changes CMS article enumeration and contracts only.
+- why not current PR scope: WEB-02 is limited to LLMS article caching/concurrency and authority-bound contracts. Fixing repository-wide UI spacing debt would touch unrelated runtime files and violate one-PR-one-scope.
+- whether required checks are affected: no; focused tests, ordinary lint, typecheck, build, scope validation, and GitHub required checks are independently enforced.
+- recommended follow-up: open a separate spacing-token cleanup PR or establish a baseline-aware spacing guard that reports only newly introduced violations.
+- detected at: 2026-07-10T17:09:00+08:00
+- disposition: recorded as non-blocking external debt; continue within WEB-02.
