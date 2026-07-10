@@ -30071,12 +30071,12 @@
         "scope": {"status": "passed", "evidence": "Changed files are limited to personality-sections array normalization, the focused WEB-06 contract, currentPrScope helper, WEB-05 reconciliation/WEB-06 train metadata, and the WEB-06 sidecar."}
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": "4ce0ec31",
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1654",
+      "commit_sha": "c2be0591",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-06; execution waits for SECURITY-123-WEB-05 merge."}, {"at": "2026-07-10T18:52:00+08:00", "status": "in_progress", "summary": "Started WEB-06 from origin/main after WEB-05 squash merge; scope is limited to personality CMS array normalization, focused contracts, scope helper, and train metadata, with WEB-05 post-merge ledger reconciliation included in this same docs scope."}, {"at": "2026-07-10T18:56:00+08:00", "status": "ready_to_merge", "summary": "Implementation commit 4ce0ec31 is ready; focused contracts, lint, spacing, typecheck, 206-route production build, freeze checks, and scope validation passed. Timeout-adjusted full contracts passed all WEB-06-relevant tests; the unrelated MBTI-CMS-23 scope assertion remains a non-blocking sidecar."}],
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-06; execution waits for SECURITY-123-WEB-05 merge."}, {"at": "2026-07-10T18:52:00+08:00", "status": "in_progress", "summary": "Started WEB-06 from origin/main after WEB-05 squash merge; scope is limited to personality CMS array normalization, focused contracts, scope helper, and train metadata, with WEB-05 post-merge ledger reconciliation included in this same docs scope."}, {"at": "2026-07-10T18:56:00+08:00", "status": "ready_to_merge", "summary": "Implementation commit 4ce0ec31 is ready; focused contracts, lint, spacing, typecheck, 206-route production build, freeze checks, and scope validation passed. Timeout-adjusted full contracts passed all WEB-06-relevant tests; the unrelated MBTI-CMS-23 scope assertion remains a non-blocking sidecar."}, {"at": "2026-07-10T18:58:00+08:00", "status": "pr_open", "summary": "Opened PR #1654 from WEB-06 commits c2be0591/4ce0ec31; required GitHub checks are pending."}],
       "sidecar_issues": ["external-mbti-cms23-scope-guard-security-123-web-06"],
       "updated_at": "2026-07-10T18:56:00+08:00"
     },
