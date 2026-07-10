@@ -1,5 +1,9 @@
 export const LLMS_ROUTE_SOURCE_TIMEOUT_MS = 1500;
 export const LLMS_ROUTE_ARTICLE_TIMEOUT_MS = 10_000;
+// Complete artifacts rebuild off-request, so their article enumeration may outlive
+// the public response deadline while the route continues to serve verified cache.
+export const LLMS_FULL_ARTICLE_ENUMERATION_TIMEOUT_MS = 30_000;
+export const LLMS_FULL_ARTICLE_ENUMERATION_PAGE_CONCURRENCY = 3;
 export const LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS = 5_000;
 export const LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS = 30_000;
 export const LLMS_FULL_PERSONALITY_SOURCE_TIMEOUT_MS = 8_000;

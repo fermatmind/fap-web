@@ -36,8 +36,9 @@ import {
 } from "@/lib/seo/stagingDiscoverability";
 import {
   LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS,
-  LLMS_ROUTE_ARTICLE_TIMEOUT_MS,
   LLMS_ROUTE_ARTICLE_MAX_PAGES,
+  LLMS_FULL_ARTICLE_ENUMERATION_PAGE_CONCURRENCY,
+  LLMS_FULL_ARTICLE_ENUMERATION_TIMEOUT_MS,
   LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS,
   LLMS_ROUTE_LIMITS,
   limitLlmsRouteEntries,
@@ -1084,9 +1085,10 @@ export async function buildLlmsFullText(siteUrl: string): Promise<string> {
           locale: "en",
           perPage: LLMS_ROUTE_LIMITS.articles,
           maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES,
+          pageConcurrency: LLMS_FULL_ARTICLE_ENUMERATION_PAGE_CONCURRENCY,
         }).then((result) => result.value),
       [],
-      { timeoutMs: LLMS_ROUTE_ARTICLE_TIMEOUT_MS }
+      { timeoutMs: LLMS_FULL_ARTICLE_ENUMERATION_TIMEOUT_MS }
     ),
     withLlmsRouteBudget(
       () =>
@@ -1094,9 +1096,10 @@ export async function buildLlmsFullText(siteUrl: string): Promise<string> {
           locale: "zh",
           perPage: LLMS_ROUTE_LIMITS.articles,
           maxPages: LLMS_ROUTE_ARTICLE_MAX_PAGES,
+          pageConcurrency: LLMS_FULL_ARTICLE_ENUMERATION_PAGE_CONCURRENCY,
         }).then((result) => result.value),
       [],
-      { timeoutMs: LLMS_ROUTE_ARTICLE_TIMEOUT_MS }
+      { timeoutMs: LLMS_FULL_ARTICLE_ENUMERATION_TIMEOUT_MS }
     ),
     withLlmsRouteBudget(
       () =>

@@ -277,6 +277,53 @@ describe("articles cleanup contract", () => {
     ]);
   });
 
+  it("bounds llms enumeration concurrency after the first page establishes the cohort", async () => {
+    let releaseSecondPage: (() => void) | undefined;
+    let secondPageStarted = false;
+    let thirdPageStarted = false;
+    const fetchMock = vi.fn((input: RequestInfo | URL) => {
+      const page = new URL(String(input), "http://localhost:3000").searchParams.get("page");
+      const response = (currentPage: number, lastPage: number) =>
+        jsonResponse({
+          ok: true,
+          items: [
+            {
+              slug: `article-${currentPage}`,
+              locale: "zh-CN",
+              title: `Article ${currentPage}`,
+              status: "published",
+              is_public: true,
+              is_indexable: true,
+              published_revision_id: currentPage,
+            },
+          ],
+          pagination: { current_page: currentPage, per_page: 100, total: 3, last_page: lastPage },
+        });
+
+      if (page === "1") {
+        return Promise.resolve(response(1, 3));
+      }
+      if (page === "2") {
+        secondPageStarted = true;
+        return new Promise<Response>((resolve) => {
+          releaseSecondPage = () => resolve(response(2, 3));
+        });
+      }
+
+      thirdPageStarted = true;
+      return Promise.resolve(response(3, 3));
+    });
+    vi.stubGlobal("fetch", fetchMock);
+
+    const entriesPromise = listCmsArticlesForLlms({ locale: "zh", maxPages: 3, pageConcurrency: 2 });
+    await vi.waitFor(() => expect(secondPageStarted).toBe(true));
+    expect(thirdPageStarted).toBe(true);
+    releaseSecondPage?.();
+
+    await expect(entriesPromise).resolves.toHaveLength(3);
+    expect(fetchMock).toHaveBeenCalledTimes(3);
+  });
+
   it("does not use local blog article content when cms detail returns 404", async () => {
     const fetchMock = vi.fn(async () =>
       jsonResponse(

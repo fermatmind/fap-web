@@ -9,6 +9,8 @@ import {
   LLMS_ROUTE_LIMITS,
   LLMS_ROUTE_SOURCE_TIMEOUT_MS,
   LLMS_FULL_DEGRADED_CAREER_JOB_TIMEOUT_MS,
+  LLMS_FULL_ARTICLE_ENUMERATION_PAGE_CONCURRENCY,
+  LLMS_FULL_ARTICLE_ENUMERATION_TIMEOUT_MS,
   LLMS_FULL_ENRICHMENT_TIMEOUT_MS,
   LLMS_FULL_RESPONSE_DEADLINE_MS,
   LLMS_FULL_TEST_SOURCE_TIMEOUT_MS,
@@ -51,6 +53,10 @@ describe("llms route fanout budget contract", () => {
     expect(LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS).toBeLessThanOrEqual(30_000);
     expect(LLMS_ROUTE_ARTICLE_TIMEOUT_MS).toBeGreaterThan(LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS);
     expect(LLMS_ROUTE_ARTICLE_TIMEOUT_MS).toBeLessThan(LLMS_FULL_RESPONSE_DEADLINE_MS);
+    expect(LLMS_FULL_ARTICLE_ENUMERATION_TIMEOUT_MS).toBeGreaterThan(LLMS_FULL_RESPONSE_DEADLINE_MS);
+    expect(LLMS_FULL_ARTICLE_ENUMERATION_TIMEOUT_MS).toBeLessThanOrEqual(30_000);
+    expect(LLMS_FULL_ARTICLE_ENUMERATION_PAGE_CONCURRENCY).toBeGreaterThanOrEqual(2);
+    expect(LLMS_FULL_ARTICLE_ENUMERATION_PAGE_CONCURRENCY).toBeLessThanOrEqual(4);
     expect(LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS).toBeGreaterThan(LLMS_ROUTE_SOURCE_TIMEOUT_MS);
     expect(LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS).toBeLessThanOrEqual(5_000);
     expect(LLMS_FULL_RESPONSE_DEADLINE_MS).toBeLessThan(30_000);
@@ -91,6 +97,9 @@ describe("llms route fanout budget contract", () => {
     expect(source).toContain("withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
     expect(source).toContain("withLlmsRouteBudget(() => enrichCareerGuideEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })");
     expect(source).toContain("LLMS_FULL_TEST_SOURCE_TIMEOUT_MS");
+    expect(source).toContain("LLMS_FULL_ARTICLE_ENUMERATION_TIMEOUT_MS");
+    expect(source).toContain("LLMS_FULL_ARTICLE_ENUMERATION_PAGE_CONCURRENCY");
+    expect(source).toContain("pageConcurrency: LLMS_FULL_ARTICLE_ENUMERATION_PAGE_CONCURRENCY");
     expect(source.match(/timeoutMs: LLMS_FULL_TEST_SOURCE_TIMEOUT_MS/g)?.length).toBeGreaterThanOrEqual(2);
   });
 
