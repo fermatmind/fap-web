@@ -1362,6 +1362,17 @@ const SECURITY_123_WEB_02_ALLOWED_FILES = new Set([
   "tests/contracts/security-123-web-02-llms-article-cache-concurrency.contract.test.ts",
 ]);
 
+const SECURITY_123_WEB_03_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "tests/contracts/big5-take-attempt-priming.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/security-123-web-03-big5-explicit-consent.contract.test.tsx",
+]);
+
 const SECURITY_122_WEB_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -4023,6 +4034,14 @@ export function isSecurity123Web02AllowedFile(file: string): boolean {
   }
 
   return SECURITY_123_WEB_02_ALLOWED_FILES.has(file);
+}
+
+export function isSecurity123Web03AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-123-web-03") {
+    return true;
+  }
+
+  return SECURITY_123_WEB_03_ALLOWED_FILES.has(file);
 }
 
 export function isSecurity122Web01AllowedFile(file: string): boolean {
