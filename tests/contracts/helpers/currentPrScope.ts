@@ -1368,9 +1368,24 @@ const SECURITY_123_WEB_03_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "generated/pr-train-sidecar-issues/sidecar_issues.json",
   "generated/pr-train-sidecar-issues/sidecar_issues.md",
-  "tests/contracts/big5-take-attempt-priming.contract.test.tsx",
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/security-123-web-03-big5-explicit-consent.contract.test.tsx",
+]);
+
+const SECURITY_123_WEB_04_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "scripts/seo/artifactSafety.mjs",
+  "scripts/seo/build-mbti-gsc-11-query-evidence-export.mjs",
+  "scripts/seo/build-mbti-gsc-19-submission-monitoring.mjs",
+  "scripts/seo/build-mbti-ops-08-gsc-priority-monitoring.mjs",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-gsc-11-query-evidence-export.contract.test.ts",
+  "tests/contracts/mbti-gsc-19-submission-monitoring.contract.test.ts",
+  "tests/contracts/mbti-ops-08-gsc-priority-monitoring.contract.test.ts",
+  "tests/contracts/security-123-web-04-gsc-csv-formula-guards.contract.test.ts",
 ]);
 
 const SECURITY_122_WEB_01_ALLOWED_FILES = new Set([
@@ -4042,6 +4057,14 @@ export function isSecurity123Web03AllowedFile(file: string): boolean {
   }
 
   return SECURITY_123_WEB_03_ALLOWED_FILES.has(file);
+}
+
+export function isSecurity123Web04AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-123-web-04") {
+    return true;
+  }
+
+  return SECURITY_123_WEB_04_ALLOWED_FILES.has(file);
 }
 
 export function isSecurity122Web01AllowedFile(file: string): boolean {

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
+import { csvEscape } from "./artifactSafety.mjs";
 
 const ROOT = process.cwd();
 const GENERATED_AT = "2026-07-05T18:00:00.000Z";
@@ -18,12 +19,6 @@ function writeFile(targetPath, body) {
   const absolute = path.isAbsolute(targetPath) ? targetPath : path.join(ROOT, targetPath);
   fs.mkdirSync(path.dirname(absolute), { recursive: true });
   fs.writeFileSync(absolute, body);
-}
-
-function csvEscape(value) {
-  const text = String(value ?? "");
-  if (/[",\n]/.test(text)) return `"${text.replaceAll('"', '""')}"`;
-  return text;
 }
 
 function monitoringRows(index18, gsc11) {
@@ -257,7 +252,7 @@ function csv(report) {
     row.next_action,
   ]);
 
-  return [header, ...rows].map((row) => row.map(csvEscape).join(",")).join("\n") + "\n";
+  return [header, ...rows].map((row) => row.map((value) => csvEscape(value, { quoteAlways: false })).join(",")).join("\n") + "\n";
 }
 
 const report = buildReport();
