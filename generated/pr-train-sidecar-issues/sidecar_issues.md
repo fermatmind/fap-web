@@ -167,3 +167,15 @@
 - recommended follow-up: open a separate spacing-token cleanup PR or establish a baseline-aware spacing guard that reports only newly introduced violations.
 - detected at: 2026-07-10T17:09:00+08:00
 - disposition: recorded as non-blocking external debt; continue within WEB-02.
+
+## External Contract Runner Timeout During SECURITY-123-WEB-03
+
+- repo: fap-web
+- PR id / branch: SECURITY-123-WEB-03 / codex/security-123-web-03
+- blocker type: external_local_contract_timeout
+- evidence: the manifest command `corepack pnpm test:contract` hit the existing 5-second Vitest timeout in CMS-backed sitemap/personality/career cleanup contracts on this Node 20 runtime. The same four-shard runner with `--testTimeout=60000` passed all 170 files and 971 tests; no WEB-03 contract failed.
+- why not current PR scope: WEB-03 changes only the Big Five disclaimer consent gate and its contracts. Increasing the local timeout or changing unrelated CMS-backed sitemap contracts would expand beyond the security scope.
+- whether required checks are affected: no; the timeout-adjusted full contract suite passed and the focused WEB-03 contracts, lint, typecheck, build, freeze checks, manifest parse, diff check, and scope validation passed.
+- recommended follow-up: use the repository Node 24 runtime or configure the local contract runner timeout consistently with CI before treating the default local timeout as a hard failure.
+- detected at: 2026-07-10T17:50:00+08:00
+- disposition: recorded as non-blocking local runtime debt; the timeout-adjusted full contract suite passed.
