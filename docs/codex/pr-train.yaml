@@ -23564,7 +23564,7 @@ prs:
     mode: execute
     train_scope: security_123_web_personality_v85_array_normalization
     risk_level: low
-    status: in_progress
+    status: ready_to_merge
     title: "SECURITY-123-WEB-06: personality V8.5 array normalization"
     findings:
       - "Malformed V8.5 CMS arrays can crash profile rendering"

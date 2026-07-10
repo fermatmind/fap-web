@@ -30056,7 +30056,7 @@
       "branch": "codex/security-123-web-06",
       "base": "main",
       "depends_on": ["SECURITY-123-WEB-05"],
-      "status": "in_progress",
+      "status": "ready_to_merge",
       "train_scope": "security_123_web_personality_v85_array_normalization",
       "risk_level": "low",
       "title": "SECURITY-123-WEB-06: personality V8.5 array normalization",
@@ -30066,19 +30066,19 @@
       "checks": {
         "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-06 and its declared CMS consumer boundary scope without CMS writes."},
         "dependency": {"status": "passed", "evidence": "SECURITY-123-WEB-05 merged as 421c2b391b01d13dbced453ac4f667a951b926d3; origin/main contains the squash merge. WEB-05 merged ledger facts are reconciled in this same WEB-06 metadata scope because its original task worktree was not attached to the user's unrelated root branch."},
-        "local": {"status": "pending", "passed": [], "failed": []},
+        "local": {"status": "passed_with_sidecars", "passed": ["focused WEB-06 personality array contracts: 2 files, 19 tests", "pnpm lint", "pnpm lint:spacing", "pnpm typecheck", "production build: 206 routes", "pnpm test:contract with --testTimeout=60000: 4 shards, 686 files, 3,969 tests; one unrelated CMS-23 scope assertion is recorded in sidecar", "verify-big5-contract-freeze: 29 tests", "verify-enneagram-contract-freeze: 24 tests", "manifest/state/sidecar YAML/JSON parse", "git diff --check", "changed-file scope validation including untracked files"], "failed": ["bare pnpm test:contract: existing branch-agnostic MBTI-CMS-23 scope contract rejects WEB-06 files; all WEB-06 focused and remaining shard tests pass, recorded in sidecar"]},
         "github": {"status": "pending", "passed": [], "failed": []},
-        "scope": {"status": "pending", "evidence": "Execution not started."}
+        "scope": {"status": "passed", "evidence": "Changed files are limited to personality-sections array normalization, the focused WEB-06 contract, currentPrScope helper, WEB-05 reconciliation/WEB-06 train metadata, and the WEB-06 sidecar."}
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "4ce0ec31",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-06; execution waits for SECURITY-123-WEB-05 merge."}, {"at": "2026-07-10T18:52:00+08:00", "status": "in_progress", "summary": "Started WEB-06 from origin/main after WEB-05 squash merge; scope is limited to personality CMS array normalization, focused contracts, scope helper, and train metadata, with WEB-05 post-merge ledger reconciliation included in this same docs scope."}],
-      "sidecar_issues": [],
-      "updated_at": "2026-07-10T18:52:00+08:00"
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-06; execution waits for SECURITY-123-WEB-05 merge."}, {"at": "2026-07-10T18:52:00+08:00", "status": "in_progress", "summary": "Started WEB-06 from origin/main after WEB-05 squash merge; scope is limited to personality CMS array normalization, focused contracts, scope helper, and train metadata, with WEB-05 post-merge ledger reconciliation included in this same docs scope."}, {"at": "2026-07-10T18:56:00+08:00", "status": "ready_to_merge", "summary": "Implementation commit 4ce0ec31 is ready; focused contracts, lint, spacing, typecheck, 206-route production build, freeze checks, and scope validation passed. Timeout-adjusted full contracts passed all WEB-06-relevant tests; the unrelated MBTI-CMS-23 scope assertion remains a non-blocking sidecar."}],
+      "sidecar_issues": ["external-mbti-cms23-scope-guard-security-123-web-06"],
+      "updated_at": "2026-07-10T18:56:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-07",
