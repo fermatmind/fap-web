@@ -6,7 +6,9 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { getBigFivePublicContentAsset } from "@/lib/cms/personality-public-content-assets";
 import {
   BIG_FIVE_PUBLIC_ROUTE_ENTRIES,
+  BIG_FIVE_ZH_LEGACY_TO_V2_SLUG,
   buildBigFivePublicContentPath,
+  resolveBigFiveLegacyRedirectPath,
   resolveBigFivePublicRouteEntry,
 } from "@/lib/personality/bigFivePublicRoutes";
 import { extractBackendSitemapBigFiveZhPaths } from "@/lib/seo/backendSitemapSource";
@@ -14,6 +16,17 @@ import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import { isCleanMainLikeCheckout, isPersonalityBig5V1NoindexRender01AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
+
+const navigationMocks = vi.hoisted(() => ({
+  notFound: vi.fn(() => {
+    throw new Error("NEXT_NOT_FOUND");
+  }),
+  permanentRedirect: vi.fn((path: string) => {
+    throw new Error(`NEXT_REDIRECT:${path}`);
+  }),
+}));
+
+vi.mock("next/navigation", () => navigationMocks);
 
 function read(relPath: string): string {
   return fs.readFileSync(path.join(ROOT, relPath), "utf8");
@@ -122,12 +135,85 @@ function changedFiles(): string[] {
 }
 
 afterEach(() => {
+  vi.clearAllMocks();
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
   vi.resetModules();
 });
 
 describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
+  it("permanently redirects exactly ten Chinese Legacy routes before CMS lookup and leaves English unchanged", async () => {
+    const expectedMappings = [
+      ["high-openness", "openness-high"],
+      ["low-openness", "openness-low"],
+      ["high-conscientiousness", "conscientiousness-high"],
+      ["low-conscientiousness", "conscientiousness-low"],
+      ["high-extraversion", "extraversion-high"],
+      ["low-extraversion", "extraversion-low"],
+      ["high-agreeableness", "agreeableness-high"],
+      ["low-agreeableness", "agreeableness-low"],
+      ["high-neuroticism", "neuroticism-high"],
+      ["emotional-stability", "neuroticism-low"],
+    ] as const;
+
+    expect(Object.entries(BIG_FIVE_ZH_LEGACY_TO_V2_SLUG)).toEqual(expectedMappings);
+    for (const [legacySlug, v2Slug] of expectedMappings) {
+      expect(resolveBigFiveLegacyRedirectPath("zh", [legacySlug])).toBe(
+        `/zh/personality/big-five/${v2Slug}`
+      );
+      expect(resolveBigFiveLegacyRedirectPath("en", [legacySlug])).toBeNull();
+    }
+    expect(resolveBigFiveLegacyRedirectPath("zh", ["openness-high"])).toBeNull();
+    expect(resolveBigFiveLegacyRedirectPath("zh", ["facets", "imagination"])).toBeNull();
+
+    const fetchMock = vi.fn();
+    vi.stubGlobal("fetch", fetchMock);
+    const route = await import("@/app/(localized)/[locale]/personality/big-five/[...slug]/page");
+
+    await expect(
+      route.generateMetadata({
+        params: Promise.resolve({ locale: "zh", slug: ["high-openness"] }),
+      })
+    ).rejects.toThrow("NEXT_REDIRECT:/zh/personality/big-five/openness-high");
+    expect(navigationMocks.permanentRedirect).toHaveBeenCalledWith("/zh/personality/big-five/openness-high");
+    expect(fetchMock).not.toHaveBeenCalled();
+
+    navigationMocks.permanentRedirect.mockClear();
+    await expect(
+      route.default({
+        params: Promise.resolve({ locale: "zh", slug: ["emotional-stability"] }),
+      })
+    ).rejects.toThrow("NEXT_REDIRECT:/zh/personality/big-five/neuroticism-low");
+    expect(navigationMocks.permanentRedirect).toHaveBeenCalledWith("/zh/personality/big-five/neuroticism-low");
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
+  it("continues to resolve English Legacy routes through backend CMS authority", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: sampleAsset({
+            entity_type: "polarity",
+            code: "high-openness",
+            entity_key: "high-openness",
+            slug: "big-five/high-openness",
+            canonical_path: "/en/personality/big-five/high-openness",
+            canonical: { path: "/en/personality/big-five/high-openness" },
+          }),
+        })
+      )
+    );
+    const route = await import("@/app/(localized)/[locale]/personality/big-five/[...slug]/page");
+    const metadata = await route.generateMetadata({
+      params: Promise.resolve({ locale: "en", slug: ["high-openness"] }),
+    });
+
+    expect(navigationMocks.permanentRedirect).not.toHaveBeenCalled();
+    expect(metadata.alternates?.canonical).toBe("http://localhost:3000/en/personality/big-five/high-openness");
+  });
+
   it("defines Big Five CMS-backed public route candidates per locale and rejects nested detail routes", () => {
     const v2RangeSlugs = [
       "openness-high",
