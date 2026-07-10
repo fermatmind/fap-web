@@ -250,3 +250,14 @@
 - recommended follow-up: make CMS-23 scope branch-aware and use Node24 or a consistent contract timeout for local cleanup tests.
 - detected at: 2026-07-10T19:28:00+08:00
 - disposition: recorded as non-blocking external debt.
+## External Contract Runner Issues During SECURITY-123-WEB-08
+
+- repo: fermatmind/fap-web
+- PR id / branch: SECURITY-123-WEB-08 / codex/security-123-web-08
+- blocker type: external branch-agnostic MBTI-CMS-23 scope guard and Node20 local timeout
+- evidence: timeout-adjusted local contracts passed the WEB-08 focused robots contracts and 1,006 tests. The local run was blocked only by the historical CMS-23 scope assertion, one pre-existing personality-cleanup sitemap timeout, and an unrelated timing-sensitive MBTI checkout assertion.
+- why not current PR scope: WEB-08 changes only the Enneagram metadata boundary and contracts.
+- whether required checks are affected: no; GitHub contracts remains the merge gate.
+- recommended follow-up: make CMS-23 scope branch-aware and use Node24 or a consistent contract timeout locally; investigate the checkout timing test separately.
+- detected at: 2026-07-10T19:53:00+08:00
+- disposition: recorded as non-blocking external debt.

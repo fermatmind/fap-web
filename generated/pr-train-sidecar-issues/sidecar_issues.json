@@ -285,4 +285,30 @@
     "detected_at": "2026-07-10T19:28:00+08:00",
     "disposition": "recorded_non_blocking_local_runtime_debt; GitHub contracts is the merge gate"
   }
+  ,{
+    "id": "external-mbti-cms23-scope-guard-security-123-web-08",
+    "repo": "fap-web",
+    "pr_id": "SECURITY-123-WEB-08",
+    "branch": "codex/security-123-web-08",
+    "blocker_type": "external_branch_agnostic_legacy_scope_guard",
+    "evidence": "The timeout-adjusted local contract run failed only in tests/contracts/mbti-cms-23-production-import-authorization-package.contract.test.ts because its historical scope assertion reads the WEB-08 diff without checking the MBTI-CMS-23 branch. The WEB-08 focused robots contracts passed.",
+    "why_not_current_pr_scope": "WEB-08 changes only Enneagram hub robots follow semantics and governance contracts; changing CMS-23 history would expand beyond scope.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Make the MBTI-CMS-23 scope assertion branch-scoped or validate its own committed PR diff.",
+    "detected_at": "2026-07-10T19:53:00+08:00",
+    "disposition": "recorded_non_blocking_external_contract_debt; GitHub contracts remains the merge gate"
+  },
+  {
+    "id": "external-contract-runner-timeout-security-123-web-08",
+    "repo": "fap-web",
+    "pr_id": "SECURITY-123-WEB-08",
+    "branch": "codex/security-123-web-08",
+    "blocker_type": "external_local_contract_timeout",
+    "evidence": "The timeout-adjusted local runner passed the WEB-08 focused robots contracts and 1,006 tests; one pre-existing personality-cleanup sitemap test exceeded 60 seconds on Node 20. An unrelated MBTI checkout contract also failed a timing-sensitive Alipay assertion.",
+    "why_not_current_pr_scope": "WEB-08 changes only the Enneagram metadata boundary and contracts. Changing unrelated checkout/sitemap cleanup tests or local timeout would expand beyond scope.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Use Node 24 or configure the local contract runner timeout consistently with CI; investigate the timing-sensitive MBTI checkout test separately.",
+    "detected_at": "2026-07-10T19:53:00+08:00",
+    "disposition": "recorded_non_blocking_local_runtime_debt; GitHub contracts remains the merge gate"
+  }
 ]
