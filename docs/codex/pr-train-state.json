@@ -43302,9 +43302,9 @@
     "depends_on": [
       "BIG5-ZH-LEGACY-ROUTE-AUDIT-01"
     ],
-    "status": "local_verified",
-    "commit_sha": "0245c6fa9c883603e8767968b5fbf5f371a4c181",
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "6456aa5a598672a1924a4e7014b4098deee18f8f",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1650",
     "checks": {
       "manifest_registration": {
         "status": "pass",
@@ -43395,6 +43395,12 @@
         "from": "in_progress",
         "to": "local_verified",
         "note": "All manifest-required local checks passed on latest origin/main with the exact five-file scope."
+      },
+      {
+        "at": "2026-07-10T09:28:59Z",
+        "from": "local_verified",
+        "to": "pr_open",
+        "note": "Opened fap-web PR #1650 after latest-main revalidation and exact changed-file scope review."
       }
     ]
   }
