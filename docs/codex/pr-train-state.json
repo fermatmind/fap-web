@@ -29963,7 +29963,7 @@
       "branch": "codex/security-123-web-03",
       "base": "main",
       "depends_on": ["SECURITY-123-WEB-02"],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_123_web_big5_explicit_disclaimer_consent",
       "risk_level": "medium",
       "title": "SECURITY-123-WEB-03: Big Five explicit disclaimer consent",
