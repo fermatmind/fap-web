@@ -302,6 +302,34 @@ describe("PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01 contract", () => {
     });
   });
 
+  it("preserves backend nofollow semantics on the Enneagram hub", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: sampleAsset({
+            entity_type: "hub",
+            code: "enneagram",
+            entity_key: "enneagram",
+            slug: "enneagram",
+            canonical_path: "/en/personality/enneagram",
+            canonical: { path: "/en/personality/enneagram" },
+            robots: "noindex,nofollow",
+          }),
+        })
+      )
+    );
+    const route = await import("@/app/(localized)/[locale]/personality/enneagram/page");
+    const metadata = await route.generateMetadata({ params: Promise.resolve({ locale: "en" }) });
+
+    expect(metadata.robots).toMatchObject({
+      index: false,
+      follow: false,
+      googleBot: { index: false, follow: false },
+    });
+  });
+
   it("keeps Enneagram V1 noindex routes out of sitemap and llms surfaces", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");

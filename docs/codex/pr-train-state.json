@@ -30087,7 +30087,7 @@
       "branch": "codex/security-123-web-07",
       "base": "main",
       "depends_on": ["SECURITY-123-WEB-06"],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_123_web_personality_asset_cache_directive_consistency",
       "risk_level": "informational",
       "title": "SECURITY-123-WEB-07: personality asset cache directive consistency",
@@ -30103,13 +30103,13 @@
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1655",
-      "commit_sha": "966a0533",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "20e0aec6c95c4df611eb2338f8d2e1a034a9dcfd",
+      "merged_at": "2026-07-10T11:42:26Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-07; execution waits for SECURITY-123-WEB-06 merge."}, {"at": "2026-07-10T19:19:00+08:00", "status": "in_progress", "summary": "Started WEB-07 from origin/main after WEB-06 squash merge; scope is limited to Big Five CMS asset cache directive consistency, focused contracts, scope helper, and train metadata, with WEB-06 post-merge ledger reconciliation included in this same docs scope."}, {"at": "2026-07-10T19:30:00+08:00", "status": "ready_to_merge", "summary": "Implementation is ready; focused asset-cache/noindex contracts, lint, spacing, typecheck, 206-route production build, manifest parse, diff check, and scope validation passed. Local full contracts are sidecar-limited by unrelated CMS-23 scope and Node20 timeout debt."}, {"at": "2026-07-10T19:33:00+08:00", "status": "pr_open", "summary": "Opened PR #1655 from WEB-07 commits e1bdda00/252611ae; required GitHub checks are pending."}, {"at": "2026-07-10T19:43:00+08:00", "status": "ready_to_merge", "summary": "PR #1655 head 966a0533 passed build, contracts, Big5 freeze, Enneagram freeze, CodeQL, and analyze; ready for squash merge."}],
       "sidecar_issues": ["external-mbti-cms23-scope-guard-security-123-web-07", "external-contract-runner-timeout-security-123-web-07"],
-      "updated_at": "2026-07-10T19:43:00+08:00"
+      "updated_at": "2026-07-10T19:50:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-08",
@@ -30118,7 +30118,7 @@
       "branch": "codex/security-123-web-08",
       "base": "main",
       "depends_on": ["SECURITY-123-WEB-07"],
-      "status": "planned",
+      "status": "ready_to_merge",
       "train_scope": "security_123_web_enneagram_robots_follow_semantics",
       "risk_level": "informational",
       "title": "SECURITY-123-WEB-08: Enneagram robots follow semantics",
@@ -30127,20 +30127,20 @@
       "artifacts": ["app/(localized)/[locale]/personality/enneagram/page.tsx", "Enneagram metadata focused contracts", "tests/contracts/helpers/currentPrScope.ts", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
       "checks": {
         "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-08 and its declared informational robots scope."},
-        "dependency": {"status": "pending", "evidence": "Waits for SECURITY-123-WEB-07 to merge and be contained in origin/main."},
-        "local": {"status": "pending", "passed": [], "failed": []},
-        "github": {"status": "pending", "passed": [], "failed": []},
-        "scope": {"status": "pending", "evidence": "Execution not started."}
+        "dependency": {"status": "passed", "evidence": "SECURITY-123-WEB-07 merged as 20e0aec6c95c4df611eb2338f8d2e1a034a9dcfd; origin/main contains the squash merge and the remote task branch is deleted."},
+        "local": {"status": "passed_with_sidecars", "passed": ["focused WEB-08 robots contracts: 2 files, 9 tests", "pnpm lint", "pnpm lint:spacing", "pnpm typecheck", "production build: 206 routes", "manifest/state/sidecar YAML/JSON parse", "git diff --check", "changed-file scope validation including untracked files"], "failed": ["bare pnpm test:contract and timeout-adjusted local run: existing CMS-23 scope assertion, Node20 cleanup timeout, and unrelated MBTI checkout timing assertion recorded in sidecars"]},
+        "github": {"status": "passed", "passed": ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze", "CodeQL", "analyze (javascript-typescript)"], "failed": [], "evidence": "PR #1657 head aece94e8 passed all required GitHub checks."},
+        "scope": {"status": "passed", "evidence": "Changed files are limited to Enneagram hub robots semantics, WEB-08 focused contracts, currentPrScope helper, WEB-07 reconciliation/WEB-08 train metadata, and WEB-08 sidecars."}
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1657",
+      "commit_sha": "ca3a4d805ae12c7768b0903afe3118f6cb0d8c17",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-08; execution waits for SECURITY-123-WEB-07 merge."}],
-      "sidecar_issues": [],
-      "updated_at": "2026-07-10T16:36:55+08:00"
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-08; execution waits for SECURITY-123-WEB-07 merge."}, {"at": "2026-07-10T19:50:00+08:00", "status": "in_progress", "summary": "Started WEB-08 from origin/main after WEB-07 squash merge; scope is limited to Enneagram hub robots follow semantics, focused contracts, scope helper, and train metadata, with WEB-07 post-merge ledger reconciliation included in this same docs scope."}, {"at": "2026-07-10T19:55:00+08:00", "status": "ready_to_merge", "summary": "Implementation is ready; focused robots contracts, lint, spacing, typecheck, 206-route production build, manifest parse, diff check, and scope validation passed. Local full contracts are sidecar-limited by unrelated CMS-23 scope, Node20 cleanup timeout, and MBTI checkout timing debt."}, {"at": "2026-07-10T20:00:00+08:00", "status": "pr_open", "summary": "Opened PR #1657 from WEB-08 commits ca3a4d80/bd87c4c4; required GitHub checks are pending."}, {"at": "2026-07-10T20:08:00+08:00", "status": "ready_to_merge", "summary": "PR #1657 head aece94e8 passed build, contracts, Big5 freeze, Enneagram freeze, CodeQL, and analyze; ready for squash merge."}],
+      "sidecar_issues": ["external-mbti-cms23-scope-guard-security-123-web-08", "external-contract-runner-timeout-security-123-web-08"],
+      "updated_at": "2026-07-10T20:08:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-09",

@@ -24,6 +24,10 @@ function localizedEnneagramLabel(locale: Locale): string {
   return locale === "zh" ? "九型人格" : "Enneagram";
 }
 
+function robotsAllowsFollow(robots: string): boolean {
+  return !robots.toLowerCase().split(",").map((part) => part.trim()).includes("nofollow");
+}
+
 function buildFallbackMetadata(locale: Locale, entry: EnneagramPublicRouteEntry | null): Metadata {
   const fallbackPath = entry ? buildEnneagramPublicContentPath(locale, entry) : `/${locale}/personality/enneagram`;
   const alternateEntry = entry ?? { entityType: "hub" as const, code: "enneagram", routeSlug: "", pathSuffix: "" };
@@ -69,7 +73,7 @@ export async function generateMetadata({
     description: asset.seo.description,
     imagePath: asset.media.imageUrl ?? undefined,
     noindex: !asset.indexEligible || asset.robots.includes("noindex"),
-    noindexFollow: asset.robots.includes("nofollow") ? true : undefined,
+    noindexFollow: robotsAllowsFollow(asset.robots),
     explicitIndexGate: {
       indexEligible: asset.indexEligible,
       indexState: asset.robots.includes("noindex") ? "noindex" : null,
