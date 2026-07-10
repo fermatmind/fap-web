@@ -79,7 +79,9 @@ describe("SECURITY-103-WEB-01 deploy workflow hardening", () => {
 
   it("keeps risky production PR metadata fail-closed for workflow_dispatch too", () => {
     expect(productionWorkflow).toContain("Production auto-deploy policy failed closed.");
-    expect(productionWorkflow).toContain("Use the manual deploy-readiness path for this change.");
+    expect(productionWorkflow).toContain(
+      "Use the manual deploy-readiness path: dispatch with manual_risk_approval=APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<SHA>.",
+    );
     expect(productionWorkflow).not.toContain("Continuing only through the production GitHub Environment approval gate.");
     expect(productionWorkflow).not.toContain("detected risky PR metadata, but this is a manual workflow_dispatch run");
   });
