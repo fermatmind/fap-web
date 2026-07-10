@@ -23525,7 +23525,7 @@ prs:
     mode: execute
     train_scope: security_123_web_cms16_full_diff_scope_guard
     risk_level: low
-    status: ready_to_merge
+    status: merged
     title: "SECURITY-123-WEB-05: CMS-16 full-diff scope guard"
     findings:
       - "CMS-16 scope guard ignores out-of-scope files"
@@ -23564,7 +23564,7 @@ prs:
     mode: execute
     train_scope: security_123_web_personality_v85_array_normalization
     risk_level: low
-    status: planned
+    status: ready_to_merge
     title: "SECURITY-123-WEB-06: personality V8.5 array normalization"
     findings:
       - "Malformed V8.5 CMS arrays can crash profile rendering"
@@ -23572,6 +23572,7 @@ prs:
     in_scope: &security_123_web_06_paths
       - lib/cms/personality-sections.tsx
       - tests/contracts/security-123-web-06-personality-array-normalization.contract.test.tsx
+      - tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts
       - tests/contracts/personality-sections.contract.test.tsx
       - tests/contracts/helpers/currentPrScope.ts
       - generated/pr-train-sidecar-issues/**
