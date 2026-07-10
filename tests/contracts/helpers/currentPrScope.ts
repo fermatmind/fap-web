@@ -4122,12 +4122,20 @@ export function isSecurity123Web04AllowedFile(file: string): boolean {
   return SECURITY_123_WEB_04_ALLOWED_FILES.has(file);
 }
 
+export function isSecurity123Web04ScopeActive(branch = CURRENT_BRANCH): boolean {
+  return branch === "codex/security-123-web-04";
+}
+
 export function isSecurity123Web05AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH !== "codex/security-123-web-05") {
     return true;
   }
 
   return SECURITY_123_WEB_05_ALLOWED_FILES.has(file);
+}
+
+export function isSecurity123Web05ScopeActive(branch = CURRENT_BRANCH): boolean {
+  return branch === "codex/security-123-web-05";
 }
 
 export function isSecurity123Web06AllowedFile(file: string): boolean {

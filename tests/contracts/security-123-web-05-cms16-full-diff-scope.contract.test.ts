@@ -1,7 +1,10 @@
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { isSecurity123Web05AllowedFile } from "./helpers/currentPrScope";
+import {
+  isSecurity123Web05AllowedFile,
+  isSecurity123Web05ScopeActive,
+} from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const CMS16_CONTRACT = "tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts";
@@ -23,6 +26,12 @@ function changedFiles(): string[] {
 }
 
 describe("SECURITY-123-WEB-05 CMS-16 complete diff scope", () => {
+  it("enforces the diff scope only on the original WEB-05 task branch", () => {
+    expect(isSecurity123Web05ScopeActive("codex/security-123-web-05")).toBe(true);
+    expect(isSecurity123Web05ScopeActive("main")).toBe(false);
+    expect(isSecurity123Web05ScopeActive("codex/unrelated-task")).toBe(false);
+  });
+
   it("checks the complete committed diff instead of filtering to CMS-16 paths first", () => {
     const source = readFileSync(`${ROOT}/${CMS16_CONTRACT}`, "utf8");
     expect(source).toContain("const outsideScope = changed.filter");
@@ -31,6 +40,8 @@ describe("SECURITY-123-WEB-05 CMS-16 complete diff scope", () => {
   });
 
   it("keeps the complete WEB-05 diff inside the declared scope", () => {
+    if (!isSecurity123Web05ScopeActive()) return;
+
     const changed = changedFiles();
     expect(changed.length).toBeGreaterThan(0);
     expect(changed.every(isSecurity123Web05AllowedFile), changed.join("\n")).toBe(true);

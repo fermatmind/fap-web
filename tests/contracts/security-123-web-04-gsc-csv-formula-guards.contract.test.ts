@@ -1,7 +1,10 @@
 import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { isSecurity123Web04AllowedFile } from "./helpers/currentPrScope";
+import {
+  isSecurity123Web04AllowedFile,
+  isSecurity123Web04ScopeActive,
+} from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 const SCRIPTS = [
@@ -27,6 +30,12 @@ function changedFiles(): string[] {
 }
 
 describe("SECURITY-123-WEB-04 GSC CSV formula guards", () => {
+  it("enforces the diff scope only on the original WEB-04 task branch", () => {
+    expect(isSecurity123Web04ScopeActive("codex/security-123-web-04")).toBe(true);
+    expect(isSecurity123Web04ScopeActive("main")).toBe(false);
+    expect(isSecurity123Web04ScopeActive("codex/unrelated-task")).toBe(false);
+  });
+
   it("uses the shared spreadsheet-safe CSV boundary in all three GSC generators", () => {
     for (const script of SCRIPTS) {
       const source = readFileSync(`${ROOT}/${script}`, "utf8");
@@ -55,6 +64,8 @@ describe("SECURITY-123-WEB-04 GSC CSV formula guards", () => {
   });
 
   it("keeps the complete WEB-04 diff inside the declared scope", () => {
+    if (!isSecurity123Web04ScopeActive()) return;
+
     const changed = changedFiles();
     expect(changed.length).toBeGreaterThan(0);
     expect(changed.every(isSecurity123Web04AllowedFile), changed.join("\n")).toBe(true);
