@@ -29994,7 +29994,7 @@
       "branch": "codex/security-123-web-04",
       "base": "main",
       "depends_on": ["SECURITY-123-WEB-03"],
-      "status": "in_progress",
+      "status": "ready_to_merge",
       "train_scope": "security_123_web_gsc_csv_formula_neutralization",
       "risk_level": "medium",
       "title": "SECURITY-123-WEB-04: GSC CSV formula neutralization",
@@ -30004,19 +30004,19 @@
       "checks": {
         "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-04 and its declared GSC CSV scope."},
       "dependency": {"status": "passed", "evidence": "SECURITY-123-WEB-03 merged as 1f0f37404ff55c422107487364bfd86c416c7c6f; origin/main was synchronized at 9d360a2f before WEB-04 worktree creation."},
-        "local": {"status": "pending", "passed": [], "failed": []},
+        "local": {"status": "passed_with_sidecars", "passed": ["focused WEB-04 GSC contracts: 4 files, 15 tests", "pnpm lint", "pnpm lint:spacing", "pnpm typecheck", "production build: 206 routes", "pnpm test:contract with --testTimeout=60000: 4 shards, 171 files, 3,992 tests", "verify-big5-contract-freeze: 29 tests", "verify-enneagram-contract-freeze: 24 tests", "manifest/state/sidecar YAML/JSON parse", "git diff --check", "changed-file scope validation including untracked files"], "failed": ["bare pnpm test:contract: existing 5-second timeout in unrelated CMS-backed sitemap/personality cleanup contracts; timeout-adjusted rerun passed and is recorded in sidecar"]},
         "github": {"status": "pending", "passed": [], "failed": []},
       "scope": {"status": "passed", "evidence": "WEB-04 focused scope guard validates the complete changed-file set against the declared GSC CSV formula scope."}
       },
       "failure_reason": null,
       "pr_url": null,
-      "commit_sha": null,
+      "commit_sha": "8a9a80e8",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "sidecar_issues": [],
-  "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-04; execution waits for SECURITY-123-WEB-03 merge."}, {"at": "2026-07-10T18:08:00+08:00", "status": "in_progress", "summary": "Started WEB-04 from origin/main after WEB-03 merge; scope is limited to shared spreadsheet-safe CSV escaping, three GSC generators, focused contracts, scope helper, and train metadata."}],
-  "updated_at": "2026-07-10T18:08:00+08:00"
+      "sidecar_issues": ["external-contract-runner-timeout-security-123-web-04"],
+  "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-04; execution waits for SECURITY-123-WEB-03 merge."}, {"at": "2026-07-10T18:08:00+08:00", "status": "in_progress", "summary": "Started WEB-04 from origin/main after WEB-03 merge; scope is limited to shared spreadsheet-safe CSV escaping, three GSC generators, focused contracts, scope helper, and train metadata."}, {"at": "2026-07-10T18:18:00+08:00", "status": "ready_to_merge", "summary": "Implementation commit 8a9a80e8 plus train-forward OPS-08 scope guard are ready; focused/full timeout-adjusted contracts, lint, typecheck, build, freeze checks, and scope validation passed."}],
+  "updated_at": "2026-07-10T18:18:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-05",

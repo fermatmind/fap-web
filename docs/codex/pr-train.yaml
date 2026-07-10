@@ -23475,7 +23475,7 @@ prs:
     mode: execute
     train_scope: security_123_web_gsc_csv_formula_neutralization
     risk_level: medium
-    status: in_progress
+    status: ready_to_merge
     title: "SECURITY-123-WEB-04: GSC CSV formula neutralization"
     findings:
       - "GSC CSV export allows spreadsheet formula injection"
