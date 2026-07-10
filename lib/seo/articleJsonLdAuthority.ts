@@ -25,9 +25,11 @@ export function normalizeArticleJsonLdAuthorityPayload(data: unknown): unknown |
   }
 
   const record = data as Record<string, unknown>;
+  const structuredData = { ...record };
+  delete structuredData.enabled;
 
   return {
-    ...record,
+    ...structuredData,
     author: {
       "@type": "Organization",
       name: ARTICLE_AUTHOR_NAME,

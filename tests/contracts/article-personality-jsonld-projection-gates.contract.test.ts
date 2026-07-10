@@ -168,6 +168,21 @@ describe("Article / Personality JSON-LD and projection gates", () => {
         },
       },
     });
+    const projectedGranularGateOverLegacyHold = resolveArticleSchemaGate({
+      noindex: false,
+      cmsArticleSeoJsonLd: { "@type": "Article", enabled: false },
+      article: {
+        slug: "major-category-program-tracking-riasec-choice-checklist",
+        seoMeta: {
+          schema_json: { enabled: false },
+          schema_gates_v1: {
+            article_schema_gate_v1: { enabled: true },
+            breadcrumb_schema_gate_v1: { enabled: true },
+            faq_schema_gate_v1: { enabled: false },
+          },
+        },
+      },
+    });
     const legacyCompatibilityGate = resolveArticleSchemaGate({
       noindex: false,
       cmsArticleSeoJsonLd: { "@type": "Article" },
@@ -198,6 +213,12 @@ describe("Article / Personality JSON-LD and projection gates", () => {
       canRenderFAQPageJsonLd: false,
     });
     expect(explicitCmsGranularGate).toMatchObject({
+      source: "explicit_cms_schema_gate",
+      canRenderArticleJsonLd: true,
+      canRenderBreadcrumbJsonLd: true,
+      canRenderFAQPageJsonLd: false,
+    });
+    expect(projectedGranularGateOverLegacyHold).toMatchObject({
       source: "explicit_cms_schema_gate",
       canRenderArticleJsonLd: true,
       canRenderBreadcrumbJsonLd: true,
@@ -245,6 +266,21 @@ describe("Article / Personality JSON-LD and projection gates", () => {
       url: "https://fermatmind.com",
     });
     expect(JSON.stringify(normalized)).not.toContain("FAQPage");
+  });
+
+  it("removes the backend schema control flag from public Article JSON-LD", () => {
+    const normalized = normalizeArticleJsonLdAuthorityPayload({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: "Program tracking checklist",
+      enabled: false,
+    }) as Record<string, unknown>;
+
+    expect(normalized).not.toHaveProperty("enabled");
+    expect(normalized).toMatchObject({
+      "@type": "Article",
+      headline: "Program tracking checklist",
+    });
   });
 
   it("decouples article hreflang output from indexability until an explicit hreflang gate allows it", () => {
