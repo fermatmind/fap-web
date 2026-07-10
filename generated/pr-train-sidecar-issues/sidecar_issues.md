@@ -227,3 +227,15 @@
 - recommended follow-up: make the CMS-16 scope assertion branch-aware so it validates only `codex/mbti-cms-16-profile-dry-run-approval-package`; WEB-06 includes that governance-only fix and will rerun required contracts.
 - detected at: 2026-07-10T19:05:00+08:00
 - disposition: fixed in the current PR as governance scope hardening; rerun GitHub contracts before merge.
+
+## External Contract Runner Timeout During SECURITY-123-WEB-06
+
+- repo: fermatmind/fap-web
+- PR id / branch: SECURITY-123-WEB-06 / codex/security-123-web-06
+- blocker type: external local contract timeout
+- evidence: the timeout-adjusted local runner with `--testTimeout=60000` passed the CMS-16 contract, WEB-06 focused contract, and all other relevant tests, but three pre-existing CMS-backed sitemap/personality cleanup tests exceeded 60 seconds on Node 20. The failure is unrelated to WEB-06 behavior.
+- why not current PR scope: WEB-06 changes only personality CMS array normalization and governance contracts; changing sitemap cleanup implementations or the local runner timeout would expand beyond the declared security scope.
+- whether required checks are affected: no; GitHub required checks run in Node24 and must be rerun after the CMS-16 branch-aware fix.
+- recommended follow-up: use the repository Node 24 runtime or configure the local contract runner timeout consistently with CI for CMS-backed sitemap/personality cleanup contracts.
+- detected at: 2026-07-10T19:07:00+08:00
+- disposition: recorded as non-blocking local runtime debt; GitHub contracts rerun is required after the CMS-16 branch-aware fix.
