@@ -1405,6 +1405,7 @@ const SECURITY_123_WEB_06_ALLOWED_FILES = new Set([
   "generated/pr-train-sidecar-issues/sidecar_issues.md",
   "lib/cms/personality-sections.tsx",
   "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts",
   "tests/contracts/personality-sections.contract.test.tsx",
   "tests/contracts/security-123-web-06-personality-array-normalization.contract.test.tsx",
 ]);

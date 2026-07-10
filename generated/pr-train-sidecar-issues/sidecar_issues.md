@@ -215,3 +215,15 @@
 - recommended follow-up: make the MBTI-CMS-23 scope assertion branch-scoped or validate only its own committed PR diff.
 - detected at: 2026-07-10T18:54:00+08:00
 - disposition: recorded as non-blocking external contract debt under the user-authorized PR-train sidecar policy.
+
+## Branch-Agnostic MBTI-CMS-16 Scope Guard During SECURITY-123-WEB-06
+
+- repo: fermatmind/fap-web
+- PR id / branch: SECURITY-123-WEB-06 / codex/security-123-web-06
+- blocker type: external branch-agnostic legacy scope guard
+- evidence: GitHub contracts failed only because `tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts` compared the complete `origin/main...HEAD` diff on WEB-06 and rejected the WEB-06 runtime and contract files. The focused WEB-06 contracts and all other contract tests passed.
+- why not current PR scope: WEB-06 does not change CMS-16 runtime artifacts; the historical contract was incorrectly enforcing its own allowlist on every branch.
+- whether required checks are affected: yes, the required contracts check failed on the historical guard.
+- recommended follow-up: make the CMS-16 scope assertion branch-aware so it validates only `codex/mbti-cms-16-profile-dry-run-approval-package`; WEB-06 includes that governance-only fix and will rerun required contracts.
+- detected at: 2026-07-10T19:05:00+08:00
+- disposition: fixed in the current PR as governance scope hardening; rerun GitHub contracts before merge.

@@ -232,5 +232,18 @@
     "recommended_follow_up": "Make the MBTI-CMS-23 scope assertion branch-scoped or validate only its own committed PR diff before treating the full local contract runner as clean.",
     "detected_at": "2026-07-10T18:54:00+08:00",
     "disposition": "recorded_non_blocking_external_contract_debt; WEB-06 focused contracts, lint, spacing, typecheck, production build, freeze checks, parse, diff check, and scope validation remain required and independent"
+  },
+  {
+    "id": "external-mbti-cms16-scope-guard-security-123-web-06",
+    "repo": "fap-web",
+    "pr_id": "SECURITY-123-WEB-06",
+    "branch": "codex/security-123-web-06",
+    "blocker_type": "external_branch_agnostic_legacy_scope_guard",
+    "evidence": "GitHub contracts check failed only because tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts compared the complete origin/main...HEAD diff on WEB-06 and rejected lib/cms/personality-sections.tsx plus WEB-06 contract files. The focused WEB-06 contracts and all other contract tests passed.",
+    "why_not_current_pr_scope": "WEB-06 does not change CMS-16 runtime artifacts; the historical contract was incorrectly enforcing its own allowlist on every branch.",
+    "required_checks_affected": true,
+    "recommended_follow_up": "Make the CMS-16 scope assertion branch-aware so it validates only codex/mbti-cms-16-profile-dry-run-approval-package; WEB-06 includes that governance-only fix and will rerun required contracts.",
+    "detected_at": "2026-07-10T19:05:00+08:00",
+    "disposition": "fixed_in_current_pr_as_governance_scope_hardening; rerun GitHub contracts before merge"
   }
 ]

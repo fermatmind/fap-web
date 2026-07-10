@@ -71,6 +71,18 @@ function readJson<T>(relativePath: string): T {
 }
 
 function committedScopeFiles(): string[] {
+  const branch = process.env.GITHUB_HEAD_REF ?? (() => {
+    try {
+      return execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], { cwd: ROOT, encoding: "utf8" }).trim();
+    } catch {
+      return "";
+    }
+  })();
+
+  if (branch !== "codex/mbti-cms-16-profile-dry-run-approval-package") {
+    return [];
+  }
+
   try {
     return execFileSync("git", ["diff", "--name-only", "origin/main...HEAD"], { cwd: ROOT, encoding: "utf8" })
       .split("\n")

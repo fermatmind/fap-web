@@ -23564,7 +23564,7 @@ prs:
     mode: execute
     train_scope: security_123_web_personality_v85_array_normalization
     risk_level: low
-    status: ready_to_merge
+    status: in_progress
     title: "SECURITY-123-WEB-06: personality V8.5 array normalization"
     findings:
       - "Malformed V8.5 CMS arrays can crash profile rendering"
@@ -23572,6 +23572,7 @@ prs:
     in_scope: &security_123_web_06_paths
       - lib/cms/personality-sections.tsx
       - tests/contracts/security-123-web-06-personality-array-normalization.contract.test.tsx
+      - tests/contracts/mbti-cms-16-profile-dry-run-approval-package.contract.test.ts
       - tests/contracts/personality-sections.contract.test.tsx
       - tests/contracts/helpers/currentPrScope.ts
       - generated/pr-train-sidecar-issues/**
