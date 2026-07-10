@@ -1080,6 +1080,7 @@ export async function listCmsArticlesForLlms(
       locale,
       page: currentPage,
       perPage,
+      allowLocalFallback: false,
     });
 
     lastPage = Math.max(1, response.pagination.lastPage);
