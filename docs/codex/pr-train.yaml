@@ -23525,7 +23525,7 @@ prs:
     mode: execute
     train_scope: security_123_web_cms16_full_diff_scope_guard
     risk_level: low
-    status: ready_to_merge
+    status: pr_open
     title: "SECURITY-123-WEB-05: CMS-16 full-diff scope guard"
     findings:
       - "CMS-16 scope guard ignores out-of-scope files"
