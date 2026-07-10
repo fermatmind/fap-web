@@ -29923,7 +29923,7 @@
       "branch": "codex/security-123-web-02",
       "base": "main",
       "depends_on": ["SECURITY-123-WEB-01"],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_123_web_llms_article_cache_concurrency",
       "risk_level": "medium",
       "title": "SECURITY-123-WEB-02: LLMS article cache and concurrency hardening",
@@ -29937,23 +29937,24 @@
         "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-02 and its declared LLMS runtime scope."},
         "dependency": {"status": "passed", "evidence": "SECURITY-123-WEB-01 merged as 31bd497ad46e5c0e38a6223d733821a7a7d4ec59; origin/main was synchronized at f218f06eaa2ab3c7db49b5da1da67cd112b14a92 before WEB-02 worktree creation."},
       "local": {"status": "passed_with_sidecars", "passed": ["focused LLMS/cache contracts: 4 files, 33 tests", "pnpm lint", "pnpm typecheck", "production build: 206 routes", "pnpm test:contract: 4 shards, 681 files, 3,968 tests", "manifest/state YAML/JSON parse", "git diff --check"], "failed": ["pnpm lint:spacing: pre-existing global spacing debt recorded in sidecar"]},
-        "github": {"status": "pending", "passed": [], "failed": []},
+        "github": {"status": "passed", "passed": ["build", "contracts", "verify-big5-contract-freeze", "verify-enneagram-contract-freeze", "CodeQL", "analyze (javascript-typescript)"], "failed": []},
       "scope": {"status": "passed", "evidence": "WEB-02 focused scope contract accepts the complete changed-file set; the declared files remain limited to LLMS article enumeration, contracts, scope helper, sidecar, and train metadata."}
       },
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1649",
-      "commit_sha": "50180ad5",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "commit_sha": "87c63a52f1b3d2129294134cb63761fc7b3ee659",
+      "merged_at": "2026-07-10T09:21:18Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-02; execution waits for SECURITY-123-WEB-01 merge."},
         {"at": "2026-07-10T17:07:00+08:00", "status": "in_progress", "summary": "Started WEB-02 from origin/main after WEB-01 merge; scope is limited to CMS article enumeration caching/concurrency, LLMS contracts, scope helper, and train metadata."},
         {"at": "2026-07-10T17:14:00+08:00", "status": "ready_to_merge", "summary": "Focused and full local validation passed; pnpm test:contract passed 4 shards with 3,968 tests, while pre-existing lint:spacing debt remains recorded in sidecar."},
-        {"at": "2026-07-10T17:15:00+08:00", "status": "pr_open", "summary": "Opened PR #1649; required GitHub checks are pending. Implementation commit: 50180ad5."}
+        {"at": "2026-07-10T17:15:00+08:00", "status": "pr_open", "summary": "Opened PR #1649; required GitHub checks are pending. Implementation commit: 50180ad5."},
+        {"at": "2026-07-10T17:22:00+08:00", "status": "merged", "summary": "PR #1649 merged by squash as 87c63a52f1b3d2129294134cb63761fc7b3ee659; required GitHub checks passed, remote branch was deleted, and the local task worktree/branch were cleaned up."}
       ],
       "sidecar_issues": ["external-global-spacing-token-debt-security-123-web-02"],
-      "updated_at": "2026-07-10T17:15:00+08:00"
+      "updated_at": "2026-07-10T17:22:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-03",
