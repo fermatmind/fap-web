@@ -29855,7 +29855,7 @@
         "evidence": "SECURITY-123-WEB-01 has no train dependency and was rebased before validation onto latest origin/main 4eec7042bbd0b51b0dcb6b8cdd3f9f1b2487c4fe."
       },
       "local": {
-        "status": "in_progress",
+        "status": "passed_with_sidecars",
         "passed": [
           "focused deploy workflow contracts: 3 files, 13 tests",
           "pnpm lint",
@@ -29864,16 +29864,16 @@
           "pnpm verify-big5-contract-freeze: 29 tests",
           "pnpm verify-enneagram-contract-freeze: 24 tests",
           "career package validator under Python 3.14: 5 tests",
+          "pnpm test:contract: 4 shards, 680 files, 3,963 tests",
           "manifest/state YAML/JSON parse",
           "git diff --check"
         ],
         "failed": [
-          "pnpm lint:spacing: pre-existing global spacing debt recorded in sidecar",
-          "pre-commit pnpm test:contract: legacy MBTI-CMS-23 scope guard rejected the active WEB-01 working-tree diff; clean committed-tree rerun pending"
+          "pnpm lint:spacing: pre-existing global spacing debt recorded in sidecar"
         ]
         },
-        "github": {
-          "status": "pending",
+      "github": {
+        "status": "pending",
           "passed": [],
           "failed": []
         },
@@ -29904,7 +29904,7 @@
       "external-global-spacing-token-debt-security-123-web-01",
       "external-mbti-cms23-scope-guard-security-123-web-01"
     ],
-    "updated_at": "2026-07-10T16:53:00+08:00"
+    "updated_at": "2026-07-10T16:56:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-02",
