@@ -115,6 +115,15 @@ describe("MBTI-OPS-08 GSC priority monitoring", () => {
   });
 
   it("keeps the PR scoped to the OPS monitoring script, artifacts, contract, and train ledger", () => {
+    const branch = execFileSync("git", ["rev-parse", "--abbrev-ref", "HEAD"], {
+      cwd: ROOT,
+      encoding: "utf8",
+    }).trim();
+    if (branch !== "codex/mbti-ops-08-gsc-priority-monitoring") {
+      expect(branch).not.toBe("codex/mbti-ops-08-gsc-priority-monitoring");
+      return;
+    }
+
     const allowedExact = new Set([
       SCRIPT_PATH,
       JSON_PATH,

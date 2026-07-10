@@ -1381,7 +1381,6 @@ const SECURITY_123_WEB_04_ALLOWED_FILES = new Set([
   "scripts/seo/build-mbti-gsc-11-query-evidence-export.mjs",
   "scripts/seo/build-mbti-gsc-19-submission-monitoring.mjs",
   "scripts/seo/build-mbti-ops-08-gsc-priority-monitoring.mjs",
-  "tests/contracts/big5-take-attempt-priming.contract.test.tsx",
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/mbti-gsc-11-query-evidence-export.contract.test.ts",
   "tests/contracts/mbti-gsc-19-submission-monitoring.contract.test.ts",
