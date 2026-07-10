@@ -278,6 +278,12 @@ function asArray<T = unknown>(value: unknown): T[] {
   return Array.isArray(value) ? (value as T[]) : [];
 }
 
+function asObjectArray<T extends object = Record<string, unknown>>(value: unknown): T[] {
+  return Array.isArray(value)
+    ? value.filter((item): item is T => Boolean(item) && typeof item === "object" && !Array.isArray(item))
+    : [];
+}
+
 const FORBIDDEN_PUBLIC_CONTENT_ROUTE_RE =
   /(?:^|\/)(?:result|results|orders|share|pay|payment|history|private|account)(?:\/|$)|(?:[?&](?:token|session|user|result_id|report_id|order_no)=)/i;
 
@@ -767,7 +773,7 @@ function renderLegacyBulletsSection(section: CmsPersonalitySection) {
 
 function renderLegacyFaqSection(section: CmsPersonalitySection, locale: Locale) {
   const payload = asRecord(section.payloadJson);
-  const items = asArray<FaqItem>(payload?.items);
+  const items = asObjectArray<FaqItem>(payload?.items);
 
   if (items.length === 0) {
     return renderRichTextBlock(section.bodyHtml, section.bodyMd, locale);
@@ -862,8 +868,8 @@ function renderGenericCards(items: Array<{ title: string; href: string | null; s
 
 function renderLegacyCareerFitSection(section: CmsPersonalitySection, locale: Locale) {
   const payload = asRecord(section.payloadJson) as CareerFitPayload | null;
-  const recommended = normalizeLinkItems(asArray<LinkItem>(payload?.recommended_jobs), locale);
-  const avoid = normalizeLinkItems(asArray<LinkItem>(payload?.avoid_jobs), locale);
+  const recommended = normalizeLinkItems(asObjectArray<LinkItem>(payload?.recommended_jobs), locale);
+  const avoid = normalizeLinkItems(asObjectArray<LinkItem>(payload?.avoid_jobs), locale);
   const workEnv = normalizeText(payload?.work_env);
 
   return (
@@ -904,7 +910,7 @@ function renderLegacyCardsSection(section: CmsPersonalitySection, locale: Locale
 
   const payload = asRecord(section.payloadJson);
   const items = normalizeLinkItems(
-    [...asArray<LinkItem>(payload?.items), ...asArray<LinkItem>(payload?.links)],
+    [...asObjectArray<LinkItem>(payload?.items), ...asObjectArray<LinkItem>(payload?.links)],
     locale
   );
   const renderedCards = renderGenericCards(items);
@@ -1179,8 +1185,8 @@ function renderMbti64ReaderExperiencePayload(payload: Record<string, unknown> | 
   const aiSearchAnswer =
     asRecord(readerExperience?.ai_search_answer) ?? asRecord(geoSummary?.ai_search_answer_block);
   const modules = recommendation?.modules;
-  const faq = asArray<FaqItem>(recommendation?.faq);
-  const internalLinks = asArray<LinkItem>(recommendation?.internal_links);
+  const faq = asObjectArray<FaqItem>(recommendation?.faq);
+  const internalLinks = asObjectArray<LinkItem>(recommendation?.internal_links);
   const contentBlocks: ReactNode[] = [];
 
   const overview = renderThirtySecondOverview(readerExperience?.thirty_second_overview, locale);
@@ -1396,8 +1402,8 @@ function renderMbti64ContentEntries(content: Record<string, unknown>, locale: Lo
 function renderMbti64ComparisonSection(section: CmsPersonalitySection, locale: Locale) {
   const payload = asRecord(section.payloadJson);
   const content = asRecord(payload?.content);
-  const faq = asArray<FaqItem>(payload?.faq);
-  const internalLinks = asArray<LinkItem>(payload?.internal_links);
+  const faq = asObjectArray<FaqItem>(payload?.faq);
+  const internalLinks = asObjectArray<LinkItem>(payload?.internal_links);
   const contentEntries = content ? renderMbti64ContentEntries(content, locale) : [];
   const renderedFaq = faq.length
     ? renderLegacyFaqSection(
@@ -1649,7 +1655,7 @@ function renderProjectionBulletsSection(section: RenderableProjectionSection) {
 }
 
 function renderProjectionFaqSection(section: RenderableProjectionSection, locale: Locale) {
-  const items = asArray<FaqItem>(section.payload?.items)
+  const items = asObjectArray<FaqItem>(section.payload?.items)
     .map((item) => ({
       question: normalizeText(item.question),
       answer: normalizeText(item.answer),
@@ -2019,13 +2025,14 @@ function renderMbti64V85FirstClassSection(section: CmsPersonalitySection, locale
   const payload = asRecord(section.payloadJson);
   const recommendation = resolveStructuredRecommendationPayload(payload);
   const linkItems = [
-    ...asArray<LinkItem>(payload?.items),
-    ...asArray<LinkItem>(payload?.links),
-    ...asArray<LinkItem>(payload?.internal_links),
-    ...asArray<LinkItem>(recommendation?.internal_links),
+    ...asObjectArray<LinkItem>(payload?.items),
+    ...asObjectArray<LinkItem>(payload?.links),
+    ...asObjectArray<LinkItem>(payload?.internal_links),
+    ...asObjectArray<LinkItem>(recommendation?.internal_links),
   ];
   const safeLinks = renderSafeInternalLinks(linkItems, locale);
-  const faq = asArray<FaqItem>(payload?.faq).length ? asArray<FaqItem>(payload?.faq) : asArray<FaqItem>(recommendation?.faq);
+  const payloadFaq = asObjectArray<FaqItem>(payload?.faq);
+  const faq = payloadFaq.length ? payloadFaq : asObjectArray<FaqItem>(recommendation?.faq);
   const renderedFaq = faq.length
     ? renderLegacyFaqSection(
         {
@@ -2189,7 +2196,11 @@ export function buildPersonalitySectionLinks(
 ): Array<{ title: string; href: string | null; summary: string }> {
   const payload = asRecord(section.payloadJson);
   return normalizeLinkItems(
-    [...asArray<LinkItem>(payload?.items), ...asArray<LinkItem>(payload?.links), ...asArray<LinkItem>(payload?.internal_links)],
+    [
+      ...asObjectArray<LinkItem>(payload?.items),
+      ...asObjectArray<LinkItem>(payload?.links),
+      ...asObjectArray<LinkItem>(payload?.internal_links),
+    ],
     locale
   );
 }
@@ -2199,12 +2210,12 @@ export function extractPersonalityFaqItems(sections: CmsPersonalitySection[]): F
     .flatMap((section) => {
       const payload = asRecord(section.payloadJson);
       const recommendation = resolveStructuredRecommendationPayload(payload);
-      const structuredFaq = asArray<FaqItem>(recommendation?.faq);
+      const structuredFaq = asObjectArray<FaqItem>(recommendation?.faq);
       const items =
         section.sectionKey === "mbti64_comparison_a_vs_t"
-          ? asArray<FaqItem>(payload?.faq)
+          ? asObjectArray<FaqItem>(payload?.faq)
           : section.sectionKey === "faq"
-            ? asArray<FaqItem>(payload?.items)
+            ? asObjectArray<FaqItem>(payload?.items)
             : structuredFaq;
 
       return items
@@ -2220,7 +2231,7 @@ export function extractProjectionFaqItems(sections: PersonalityProjectionSection
   return normalizeProjectionSections(sections)
     .filter((section) => section.key === "faq" && section.render === "faq")
     .flatMap((section) => {
-      const items = asArray<FaqItem>(section.payload?.items);
+      const items = asObjectArray<FaqItem>(section.payload?.items);
 
       return items
         .map((item) => ({

@@ -30025,7 +30025,7 @@
       "branch": "codex/security-123-web-05",
       "base": "main",
       "depends_on": ["SECURITY-123-WEB-04"],
-      "status": "ready_to_merge",
+      "status": "merged",
       "train_scope": "security_123_web_cms16_full_diff_scope_guard",
       "risk_level": "low",
       "title": "SECURITY-123-WEB-05: CMS-16 full-diff scope guard",
@@ -30042,11 +30042,11 @@
       "failure_reason": null,
       "pr_url": "https://github.com/fermatmind/fap-web/pull/1653",
       "commit_sha": "ae7498a1",
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "merged_at": "2026-07-10T10:43:39Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "sidecar_issues": ["external-contract-runner-timeout-security-123-web-05"],
-      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-05; execution waits for SECURITY-123-WEB-04 merge."}, {"at": "2026-07-10T18:29:00+08:00", "status": "in_progress", "summary": "Started WEB-05 from origin/main after WEB-04 merge; scope is limited to CMS-16 complete-diff scope validation, focused contract, scope helper, sidecar, and train metadata."}, {"at": "2026-07-10T18:36:00+08:00", "status": "ready_to_merge", "summary": "Implementation commit ae7498a1 is ready; focused/full timeout-adjusted contracts, lint, typecheck, build, freeze checks, and scope validation passed."}, {"at": "2026-07-10T18:38:00+08:00", "status": "pr_open", "summary": "Opened PR #1653; required GitHub checks are pending."}, {"at": "2026-07-10T18:44:00+08:00", "status": "ready_to_merge", "summary": "PR #1653 required checks are all green and merge state is CLEAN; ready for squash auto-merge."}],
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-05; execution waits for SECURITY-123-WEB-04 merge."}, {"at": "2026-07-10T18:29:00+08:00", "status": "in_progress", "summary": "Started WEB-05 from origin/main after WEB-04 merge; scope is limited to CMS-16 complete-diff scope validation, focused contract, scope helper, sidecar, and train metadata."}, {"at": "2026-07-10T18:36:00+08:00", "status": "ready_to_merge", "summary": "Implementation commit ae7498a1 is ready; focused/full timeout-adjusted contracts, lint, typecheck, build, freeze checks, and scope validation passed."}, {"at": "2026-07-10T18:38:00+08:00", "status": "pr_open", "summary": "Opened PR #1653; required GitHub checks are pending."}, {"at": "2026-07-10T18:44:00+08:00", "status": "ready_to_merge", "summary": "PR #1653 required checks are all green and merge state is CLEAN; ready for squash auto-merge."}, {"at": "2026-07-10T18:52:00+08:00", "status": "merged", "summary": "PR #1653 merged by squash as 421c2b391b01d13dbced453ac4f667a951b926d3; required checks passed, remote branch was deleted, and the local task worktree was removed during cleanup."}],
       "updated_at": "2026-07-10T18:44:00+08:00"
     },
     {
@@ -30056,7 +30056,7 @@
       "branch": "codex/security-123-web-06",
       "base": "main",
       "depends_on": ["SECURITY-123-WEB-05"],
-      "status": "planned",
+      "status": "in_progress",
       "train_scope": "security_123_web_personality_v85_array_normalization",
       "risk_level": "low",
       "title": "SECURITY-123-WEB-06: personality V8.5 array normalization",
@@ -30065,7 +30065,7 @@
       "artifacts": ["lib/cms/personality-sections.tsx", "personality renderer focused contracts", "tests/contracts/helpers/currentPrScope.ts", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
       "checks": {
         "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-06 and its declared CMS consumer boundary scope without CMS writes."},
-        "dependency": {"status": "pending", "evidence": "Waits for SECURITY-123-WEB-05 to merge and be contained in origin/main."},
+        "dependency": {"status": "passed", "evidence": "SECURITY-123-WEB-05 merged as 421c2b391b01d13dbced453ac4f667a951b926d3; origin/main contains the squash merge. WEB-05 merged ledger facts are reconciled in this same WEB-06 metadata scope because its original task worktree was not attached to the user's unrelated root branch."},
         "local": {"status": "pending", "passed": [], "failed": []},
         "github": {"status": "pending", "passed": [], "failed": []},
         "scope": {"status": "pending", "evidence": "Execution not started."}
@@ -30076,9 +30076,9 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-06; execution waits for SECURITY-123-WEB-05 merge."}],
+      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-06; execution waits for SECURITY-123-WEB-05 merge."}, {"at": "2026-07-10T18:52:00+08:00", "status": "in_progress", "summary": "Started WEB-06 from origin/main after WEB-05 squash merge; scope is limited to personality CMS array normalization, focused contracts, scope helper, and train metadata, with WEB-05 post-merge ledger reconciliation included in this same docs scope."}],
       "sidecar_issues": [],
-      "updated_at": "2026-07-10T16:36:55+08:00"
+      "updated_at": "2026-07-10T18:52:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-07",

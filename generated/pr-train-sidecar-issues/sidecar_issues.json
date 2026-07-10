@@ -219,5 +219,18 @@
     "recommended_follow_up": "Use the repository Node 24 runtime or configure the local contract runner timeout consistently with CI before treating the default local timeout as a hard failure.",
     "detected_at": "2026-07-10T18:34:00+08:00",
     "disposition": "recorded_non_blocking_local_runtime_debt; the timeout-adjusted full contract suite passed"
+  },
+  {
+    "id": "external-mbti-cms23-scope-guard-security-123-web-06",
+    "repo": "fap-web",
+    "pr_id": "SECURITY-123-WEB-06",
+    "branch": "codex/security-123-web-06",
+    "blocker_type": "external_branch_agnostic_legacy_scope_guard",
+    "evidence": "The timeout-adjusted full contract run failed only in tests/contracts/mbti-cms-23-production-import-authorization-package.contract.test.ts because its historical scope assertion reads the current working-tree diff without checking the MBTI-CMS-23 branch. It rejected lib/cms/personality-sections.tsx, tests/contracts/helpers/currentPrScope.ts, and the WEB-06 focused contract; all four WEB-06-relevant tests and the remaining shard tests passed.",
+    "why_not_current_pr_scope": "WEB-06 is limited to fail-closed CMS personality FAQ/internal-link/related-array normalization, focused contracts, scope helper, and train metadata. Changing the legacy CMS-23 scope contract would expand beyond the declared security scope.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Make the MBTI-CMS-23 scope assertion branch-scoped or validate only its own committed PR diff before treating the full local contract runner as clean.",
+    "detected_at": "2026-07-10T18:54:00+08:00",
+    "disposition": "recorded_non_blocking_external_contract_debt; WEB-06 focused contracts, lint, spacing, typecheck, production build, freeze checks, parse, diff check, and scope validation remain required and independent"
   }
 ]

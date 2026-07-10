@@ -203,3 +203,15 @@
 - recommended follow-up: use the repository Node 24 runtime or configure the local contract runner timeout consistently with CI before treating the default local timeout as a hard failure.
 - detected at: 2026-07-10T18:34:00+08:00
 - disposition: recorded as non-blocking local runtime debt; the timeout-adjusted full contract suite passed.
+
+## Legacy MBTI-CMS-23 Scope Guard During SECURITY-123-WEB-06
+
+- repo: fermatmind/fap-web
+- PR id / branch: SECURITY-123-WEB-06 / codex/security-123-web-06
+- blocker type: external branch-agnostic legacy scope guard
+- evidence: the timeout-adjusted full contract run failed only in `tests/contracts/mbti-cms-23-production-import-authorization-package.contract.test.ts` because its historical scope assertion reads the current working-tree diff without checking the MBTI-CMS-23 branch. It rejected `lib/cms/personality-sections.tsx`, `tests/contracts/helpers/currentPrScope.ts`, and the WEB-06 focused contract; all WEB-06-relevant tests and the remaining shard tests passed.
+- why not current PR scope: WEB-06 is limited to fail-closed CMS personality FAQ/internal-link/related-array normalization, focused contracts, scope helper, and train metadata. Changing the legacy CMS-23 scope contract would expand beyond the declared security scope.
+- whether required checks are affected: no; focused contracts, lint, spacing, typecheck, production build, freeze checks, manifest parse, diff check, and explicit WEB-06 scope validation are independent and passed.
+- recommended follow-up: make the MBTI-CMS-23 scope assertion branch-scoped or validate only its own committed PR diff.
+- detected at: 2026-07-10T18:54:00+08:00
+- disposition: recorded as non-blocking external contract debt under the user-authorized PR-train sidecar policy.
