@@ -1432,6 +1432,17 @@ const SECURITY_123_WEB_08_ALLOWED_FILES = new Set([
   "tests/contracts/security-123-web-08-enneagram-robots-follow.contract.test.ts",
 ]);
 
+const SECURITY_123_WEB_09_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts",
+  "tests/contracts/security-123-web-09-big-five-facet-hub-jsonld.contract.test.ts",
+]);
+
 const SECURITY_122_WEB_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -4141,6 +4152,14 @@ export function isSecurity123Web08AllowedFile(file: string): boolean {
   }
 
   return SECURITY_123_WEB_08_ALLOWED_FILES.has(file);
+}
+
+export function isSecurity123Web09AllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/security-123-web-09") {
+    return true;
+  }
+
+  return SECURITY_123_WEB_09_ALLOWED_FILES.has(file);
 }
 
 export function isSecurity122Web01AllowedFile(file: string): boolean {

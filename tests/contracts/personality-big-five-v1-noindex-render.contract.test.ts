@@ -579,6 +579,42 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     expect(schemaAllowedView.container.querySelector("#big-five-hub-faq-jsonld")).toBeInTheDocument();
   });
 
+  it("renders CollectionPage JSON-LD for a schema-eligible facet hub without changing robots gates", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: sampleAsset({
+            entity_type: "facet_hub",
+            code: "facets",
+            entity_key: "facets",
+            slug: "big-five/facets",
+            title: "Big Five Facets",
+            canonical_path: "/en/personality/big-five/facets",
+            canonical: { path: "/en/personality/big-five/facets" },
+            schema_runtime_eligible: true,
+          }),
+        })
+      )
+    );
+    const route = await import("@/app/(localized)/[locale]/personality/big-five/[...slug]/page");
+    const view = render(
+      await route.default({
+        params: Promise.resolve({ locale: "en", slug: ["facets"] }),
+      })
+    );
+
+    const jsonLd = view.container.querySelector("#big-five-dimension-page-jsonld");
+    expect(jsonLd).toBeInTheDocument();
+    expect(JSON.parse(jsonLd?.textContent ?? "{}")).toMatchObject({
+      "@type": "CollectionPage",
+      url: "http://localhost:3000/en/personality/big-five/facets",
+    });
+    expect(view.container.querySelector("#big-five-dimension-breadcrumb-jsonld")).toBeInTheDocument();
+    view.unmount();
+  });
+
   it("keeps noindex Big Five routes blocked while allowing backend sitemap-source released zh paths into llms", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");
