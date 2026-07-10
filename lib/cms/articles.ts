@@ -263,6 +263,7 @@ export type ListCmsArticlesForLlmsParams = {
   locale: Locale | string;
   perPage?: number;
   maxPages?: number;
+  pageConcurrency?: number;
 };
 
 export const ARTICLE_RUNTIME_CONTRACT_VERSION = "article.runtime.v1";
@@ -1069,22 +1070,41 @@ export async function listCmsArticlesForLlms(
     typeof params.maxPages === "number" && params.maxPages > 0
       ? Math.floor(params.maxPages)
       : Number.POSITIVE_INFINITY;
+  const pageConcurrency =
+    typeof params.pageConcurrency === "number" && params.pageConcurrency > 0
+      ? Math.min(4, Math.floor(params.pageConcurrency))
+      : 1;
   const seen = new Set<string>();
   const entries: CmsArticleLlmsEntry[] = [];
 
-  let currentPage = 1;
-  let lastPage = 1;
+  const firstResponse = await getCmsArticles({
+    locale,
+    page: 1,
+    perPage,
+    allowLocalFallback: false,
+  });
+  const lastPage = Math.min(Math.max(1, firstResponse.pagination.lastPage), maxPages);
+  const responses = [firstResponse];
 
-  while (currentPage <= lastPage && currentPage <= maxPages) {
-    const response = await getCmsArticles({
-      locale,
-      page: currentPage,
-      perPage,
-      allowLocalFallback: false,
-    });
+  for (let startPage = 2; startPage <= lastPage; startPage += pageConcurrency) {
+    const pageBatch = Array.from(
+      { length: Math.min(pageConcurrency, lastPage - startPage + 1) },
+      (_, index) => startPage + index
+    );
+    const batchResponses = await Promise.all(
+      pageBatch.map((page) =>
+        getCmsArticles({
+          locale,
+          page,
+          perPage,
+          allowLocalFallback: false,
+        })
+      )
+    );
+    responses.push(...batchResponses);
+  }
 
-    lastPage = Math.max(1, response.pagination.lastPage);
-
+  for (const response of responses) {
     for (const article of response.items) {
       const slug = normalizeArticleSlug(article.slug);
       const title = fallbackText(article.title);
@@ -1109,8 +1129,6 @@ export async function listCmsArticlesForLlms(
         updatedAt: article.updatedAt ?? article.publishedAt ?? article.createdAt,
       });
     }
-
-    currentPage += 1;
   }
 
   return entries;
@@ -1128,10 +1146,14 @@ export async function listCmsArticlesForLlmsWithLastKnownGood(
     typeof params.maxPages === "number" && params.maxPages > 0
       ? Math.floor(params.maxPages)
       : Number.POSITIVE_INFINITY;
+  const pageConcurrency =
+    typeof params.pageConcurrency === "number" && params.pageConcurrency > 0
+      ? Math.min(4, Math.floor(params.pageConcurrency))
+      : 1;
 
   return withLastKnownGood({
     key: `articles:llms:${locale}:${perPage}:${maxPages}`,
-    load: () => listCmsArticlesForLlms({ locale, perPage, maxPages }),
+    load: () => listCmsArticlesForLlms({ locale, perPage, maxPages, pageConcurrency }),
     isUsable: (entries) => entries.length > 0,
     useStaleOnUnusable: false,
     useStaleOnError: false,
