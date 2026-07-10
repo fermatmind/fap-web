@@ -24371,7 +24371,7 @@
           "details": "No whitespace errors in unstaged diff."
         }
       ],
-      "failure_reason": null,
+    "failure_reason": null,
       "pr_url": null,
       "commit_sha": null,
       "merged_at": null,
@@ -29828,7 +29828,7 @@
       "branch": "codex/security-123-web-01",
       "base": "main",
       "depends_on": [],
-      "status": "in_progress",
+      "status": "ready_to_merge",
       "train_scope": "security_123_web_production_manual_risk_approval_guard",
       "risk_level": "high",
       "title": "SECURITY-123-WEB-01: production manual risk approval guard",
@@ -29883,8 +29883,8 @@
         }
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1647",
+      "commit_sha": "3e584ac1",
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
@@ -29898,6 +29898,11 @@
           "at": "2026-07-10T16:36:55+08:00",
           "status": "in_progress",
           "summary": "Started SECURITY-123-WEB-01 in an isolated worktree from latest origin/main; scope is limited to the production manual risk approval guard, focused contracts, scope helper, and train metadata."
+        },
+        {
+          "at": "2026-07-10T16:57:00+08:00",
+          "status": "ready_to_merge",
+          "summary": "Opened PR #1647 at head 3e584ac1 after focused and full local validation; required GitHub checks are pending."
         }
       ],
     "sidecar_issues": [
