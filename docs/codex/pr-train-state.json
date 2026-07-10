@@ -29923,7 +29923,7 @@
       "branch": "codex/security-123-web-02",
       "base": "main",
       "depends_on": ["SECURITY-123-WEB-01"],
-      "status": "planned",
+      "status": "in_progress",
       "train_scope": "security_123_web_llms_article_cache_concurrency",
       "risk_level": "medium",
       "title": "SECURITY-123-WEB-02: LLMS article cache and concurrency hardening",
@@ -29932,13 +29932,13 @@
         "Fractional article concurrency can hang enumeration"
       ],
       "goal": "Bound public LLMS article enumeration with shared short-lived caching/singleflight behavior and normalize fractional or invalid page concurrency to at least one without adding frontend editorial fallback.",
-      "artifacts": ["lib/cms/articles.ts", "LLMS/article focused contracts", "tests/contracts/helpers/currentPrScope.ts", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
+      "artifacts": ["lib/cms/articles.ts", "tests/contracts/security-123-web-02-llms-article-cache-concurrency.contract.test.ts", "tests/contracts/articles-cleanup.contract.test.ts", "tests/contracts/llms-route-fanout.contract.test.ts", "tests/contracts/public-surface-lkg-coverage.contract.test.ts", "tests/contracts/helpers/currentPrScope.ts", "generated/pr-train-sidecar-issues/sidecar_issues.json", "generated/pr-train-sidecar-issues/sidecar_issues.md", "docs/codex/pr-train.yaml", "docs/codex/pr-train-state.json"],
       "checks": {
         "authorization": {"status": "passed", "evidence": "User explicitly authorized SECURITY-123-WEB-02 and its declared LLMS runtime scope."},
-        "dependency": {"status": "pending", "evidence": "Waits for SECURITY-123-WEB-01 to merge and be contained in origin/main."},
-        "local": {"status": "pending", "passed": [], "failed": []},
+        "dependency": {"status": "passed", "evidence": "SECURITY-123-WEB-01 merged as 31bd497ad46e5c0e38a6223d733821a7a7d4ec59; origin/main was synchronized at f218f06eaa2ab3c7db49b5da1da67cd112b14a92 before WEB-02 worktree creation."},
+      "local": {"status": "passed_with_sidecars", "passed": ["focused LLMS/cache contracts: 4 files, 33 tests", "pnpm lint", "pnpm typecheck", "production build: 206 routes", "manifest/state YAML/JSON parse", "git diff --check"], "failed": ["pnpm lint:spacing: pre-existing global spacing debt recorded in sidecar"]},
         "github": {"status": "pending", "passed": [], "failed": []},
-        "scope": {"status": "pending", "evidence": "Execution not started."}
+      "scope": {"status": "passed", "evidence": "WEB-02 focused scope contract accepts the complete changed-file set; the declared files remain limited to LLMS article enumeration, contracts, scope helper, sidecar, and train metadata."}
       },
       "failure_reason": null,
       "pr_url": null,
@@ -29946,9 +29946,12 @@
       "merged_at": null,
       "remote_branch_deleted": false,
       "local_cleanup_executed": false,
-      "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-02; execution waits for SECURITY-123-WEB-01 merge."}],
-      "sidecar_issues": [],
-      "updated_at": "2026-07-10T16:36:55+08:00"
+      "history": [
+        {"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-02; execution waits for SECURITY-123-WEB-01 merge."},
+        {"at": "2026-07-10T17:07:00+08:00", "status": "in_progress", "summary": "Started WEB-02 from origin/main after WEB-01 merge; scope is limited to CMS article enumeration caching/concurrency, LLMS contracts, scope helper, and train metadata."}
+      ],
+      "sidecar_issues": ["external-global-spacing-token-debt-security-123-web-02"],
+      "updated_at": "2026-07-10T17:09:00+08:00"
     },
     {
       "id": "SECURITY-123-WEB-03",
