@@ -615,7 +615,7 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     view.unmount();
   });
 
-  it("keeps noindex Big Five routes blocked while allowing backend sitemap-source released zh paths into llms", () => {
+  it("keeps noindex Big Five routes blocked while allowing backend sitemap-source released canonical paths into llms", () => {
     const llms = read("app/llms.txt/route.ts");
     const llmsFull = read("app/llms-full.txt/route.ts");
 
@@ -638,6 +638,8 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
         { loc: "https://staging.fermatmind.com/zh/personality/big-five/openness" },
       ],
     })).toEqual([
+      "/en/personality/big-five/openness",
+      "/zh/personality/big-five",
       "/zh/personality/big-five/openness",
       "/zh/personality/big-five/openness-high",
     ]);

@@ -44246,6 +44246,37 @@
     ],
     "updated_at": "2026-07-11T10:03:49Z"
   },
+  "BIG5-114-SEO-RUNTIME-RELEASE-01": {
+    "id": "BIG5-114-SEO-RUNTIME-RELEASE-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/big5-114-seo-runtime-release-01",
+    "title": "BIG5-114-SEO-RUNTIME-RELEASE-01: release 114 canonical Big Five SEO runtime entries",
+    "depends_on": ["BIG5-114-INDEXABILITY-PUBLISH-GATE-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "pass", "evidence": "The locked Big Five 124/114 /goal explicitly authorized this PR and manifest/state registration."},
+      "dependency": {"status": "pass", "evidence": "fap-api PR #2993 merged as ad17573acbb4f0ce2d3542f4982e92b31e6ebe6c; exact-SHA production deploy and the separately approved 93-row indexability promotion run 29156685228 both succeeded."},
+      "focused_contracts": {"status": "pass", "evidence": "Focused Big Five 114, renderer, JSON-LD, llms compatibility, and historical discoverability contracts passed 33/33."},
+      "lint_spacing_typecheck": {"status": "pass", "evidence": "pnpm lint completed with 25 pre-existing warnings and 0 errors; pnpm lint:spacing and pnpm typecheck passed on Node 24.14.0."},
+      "production_build": {"status": "pass", "evidence": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed and generated all 206 routes."},
+      "full_contracts": {"status": "pass", "evidence": "pnpm test:contract passed all four shards after retaining the historical local Big Five variable names while expanding their backend-authorized semantics."},
+      "freeze_suites": {"status": "pass", "evidence": "Big Five freeze passed 29/29 and Enneagram freeze passed 24/24."},
+      "production_authority_observation": {"status": "pending_cache_refresh", "evidence": "Immediately after promotion, the live sitemap-source cache still exposed the previous 21 Big Five entries (zh 21, en 0, aliases 0). Backend schedules seo:warm-sitemap-source-cache every ten minutes; live 114 readback remains required before merge."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-11T22:48:23+08:00", "status": "in_progress", "summary": "Started from fap-web origin/main in an isolated clean worktree after the approved 93-row backend promotion succeeded. Scope is backend-authorized Big Five renderer/discoverability release only; no frontend editorial fallback, CMS mutation, search submission, or production deploy is authorized."},
+      {"at": "2026-07-11T23:00:00+08:00", "status": "local_verified", "summary": "Canonical route extraction proves en 62 plus zh 52 with ten zh aliases excluded; focused contracts, lint/spacing/typecheck, production build, four full contract shards, both personality freeze suites, manifest/state parse, diff checks, and exact allowed-path validation passed. Live sitemap-source remains on its previous 21-entry cache and must refresh to 114 before merge."}
+    ],
+    "updated_at": "2026-07-11T23:00:00+08:00"
+  },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
     "repo": "fap-web",

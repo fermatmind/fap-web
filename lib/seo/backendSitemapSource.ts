@@ -1,6 +1,10 @@
 import { buildApiUrl } from "@/lib/api-base";
 import { normalizeCareerJobSlug } from "@/lib/career/slugSafety";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
+import {
+  BIG_FIVE_PUBLIC_ROUTE_ENTRIES,
+  BIG_FIVE_ZH_LEGACY_TO_V2_SLUG,
+} from "@/lib/personality/bigFivePublicRoutes";
 
 type BackendSitemapSourceItem = {
   loc?: unknown;
@@ -18,7 +22,7 @@ type BackendSitemapCareerJobPathOptions = {
 const BACKEND_SITEMAP_SOURCE_TIMEOUT_MS = 20_000;
 const CAREER_JOB_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i;
 const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
-const BIG_FIVE_ZH_PUBLIC_ASSET_RE = /^\/zh\/personality\/big-five\/[^/?#]+$/i;
+const BIG_FIVE_PUBLIC_ASSET_RE = /^\/(en|zh)\/personality\/big-five(?:\/(.+))?$/i;
 const ENNEAGRAM_PUBLIC_ASSET_RE =
   /^\/(?:en|zh)\/personality\/enneagram(?:\/(?:type-[1-9]|centers\/(?:gut|heart|head)|wings\/(?:1w9|1w2|2w1|2w3|3w2|3w4|4w3|4w5|5w4|5w6|6w5|6w7|7w6|7w8|8w7|8w9|9w8|9w1)|type-[1-9]\/instincts\/(?:self-preservation|social|one-to-one)))?$/i;
 const MBTI_PERSONALITY_DETAIL_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-([at])$/i;
@@ -36,7 +40,7 @@ const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
 ]);
 
 let careerJobPathCache: string[] | null = null;
-let bigFiveZhPathCache: string[] | null = null;
+let bigFivePublicAssetPathCache: string[] | null = null;
 let enneagramPublicAssetPathCache: string[] | null = null;
 
 function normalizePath(path: string): string {
@@ -101,11 +105,19 @@ function shouldKeepCareerJobDetailPath(path: string): boolean {
   );
 }
 
-function shouldKeepBigFiveZhPublicAssetPath(path: string): boolean {
+const BIG_FIVE_CANONICAL_ROUTE_SLUGS = new Set(BIG_FIVE_PUBLIC_ROUTE_ENTRIES.map((entry) => entry.routeSlug));
+const BIG_FIVE_ZH_REDIRECT_ONLY_SLUGS = new Set(Object.keys(BIG_FIVE_ZH_LEGACY_TO_V2_SLUG));
+
+function shouldKeepBigFivePublicAssetPath(path: string): boolean {
   const normalized = normalizePath(path);
+  const match = normalized.match(BIG_FIVE_PUBLIC_ASSET_RE);
+  const locale = match?.[1]?.toLowerCase();
+  const routeSlug = (match?.[2] ?? "").toLowerCase();
 
   return (
-    BIG_FIVE_ZH_PUBLIC_ASSET_RE.test(normalized) &&
+    (locale === "en" || locale === "zh") &&
+    BIG_FIVE_CANONICAL_ROUTE_SLUGS.has(routeSlug) &&
+    !(locale === "zh" && BIG_FIVE_ZH_REDIRECT_ONLY_SLUGS.has(routeSlug)) &&
     shouldIncludeInSitemap(normalized, {
       indexEligible: true,
       indexState: "indexed",
@@ -235,7 +247,7 @@ export function extractBackendSitemapBigFiveZhPaths(payload: BackendSitemapSourc
 
   for (const item of items) {
     const path = extractPathFromCanonicalUrl(item?.loc);
-    if (shouldKeepBigFiveZhPublicAssetPath(path)) {
+    if (shouldKeepBigFivePublicAssetPath(path)) {
       paths.add(normalizePath(path));
     }
   }
@@ -297,15 +309,15 @@ export async function listBackendSitemapBigFiveZhPaths(
   options: BackendSitemapCareerJobPathOptions = {}
 ): Promise<string[]> {
   const shouldUseCache = options.limit === undefined && !options.signal;
-  if (shouldUseCache && bigFiveZhPathCache) {
-    return bigFiveZhPathCache;
+  if (shouldUseCache && bigFivePublicAssetPathCache) {
+    return bigFivePublicAssetPathCache;
   }
 
   const payload = await fetchBackendSitemapSource(options.signal);
   const filteredPaths = limitCandidatePaths(extractBackendSitemapBigFiveZhPaths(payload), options.limit);
 
   if (shouldUseCache) {
-    bigFiveZhPathCache = filteredPaths;
+    bigFivePublicAssetPathCache = filteredPaths;
   }
 
   return filteredPaths;
