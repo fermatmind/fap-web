@@ -1249,11 +1249,6 @@ function PersonalityComparisonPage({
   const heading = comparisonPageHeading(comparison);
   const description = comparisonSeoDescription(comparison);
   const crossType = isCrossTypeComparison(comparison);
-  const breadcrumbJsonLd = buildBreadcrumbJsonLd([
-    { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
-    { name: locale === "zh" ? "人格" : "Personality", path: localizedPath("/personality", locale) },
-    { name: heading, path: canonicalPath },
-  ]);
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -1278,8 +1273,7 @@ function PersonalityComparisonPage({
     hasScenarioDifferences: scenarioCards.length > 0,
     hasFaq: comparisonFaqItems.length > 0,
   });
-  const canRenderStructuredData =
-    comparison.isIndexable && !shouldNoindex(comparison.seoSurface?.robotsPolicy ?? comparison.seoMeta?.robots);
+  const hasAuthoritativeComparisonJsonLd = comparison.jsonld !== null;
 
   return (
     <main
@@ -1289,14 +1283,8 @@ function PersonalityComparisonPage({
       data-comparison-contract-version={comparison.comparisonContractVersion}
     >
       <AnalyticsPageViewTracker eventName="landing_view" properties={mbtiEntryViewTrackingProps} />
-      {canRenderStructuredData ? (
+      {hasAuthoritativeComparisonJsonLd ? (
         <JsonLd id={`personality-comparison-jsonld-${comparison.comparisonSlug}`} data={comparison.jsonld} />
-      ) : null}
-      {canRenderStructuredData ? (
-        <JsonLd id={`personality-comparison-breadcrumb-${comparison.comparisonSlug}`} data={breadcrumbJsonLd} />
-      ) : null}
-      {canRenderStructuredData && comparisonFaqItems.length > 0 ? (
-        <JsonLd id={`personality-comparison-faq-${comparison.comparisonSlug}`} data={buildFAQPageJsonLd(comparisonFaqItems)} />
       ) : null}
       <Breadcrumb
         items={[
