@@ -303,8 +303,8 @@
     "base": "main",
     "branch": "codex/enneagram-90-cross-repo-readiness-01",
     "depends_on": ["ENNEAGRAM-90-FRONTEND-SITEMAP-EXTRACTOR-01"],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "8754db448ac9149c7444b0335f3011fbe4b34299",
     "pr_url": null,
     "failure_reason": null,
     "merged_at": null,
@@ -368,6 +368,12 @@
         "from": "in_progress",
         "to": "local_checks_passed",
         "note": "Read-only cross-repo evidence scan, focused readiness contract, typecheck, manifest/state/report syntax, diff check, and path-limited scope validation passed."
+      },
+      {
+        "at": "2026-07-11T20:22:00+08:00",
+        "from": "local_checks_passed",
+        "to": "committed",
+        "note": "Committed scoped ENNEAGRAM-90 cross-repo readiness reports and contract after explicit path-limited staging."
       }
     ]
   },
