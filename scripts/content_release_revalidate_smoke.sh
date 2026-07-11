@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REVALIDATE_URL="${CONTENT_RELEASE_REVALIDATE_URL:-${PUBLIC_BASE_URL:-https://fermatmind.com}/api/content-release/revalidate}"
-REVALIDATE_TOKEN="${CONTENT_RELEASE_REVALIDATE_TOKEN:-}"
+REVALIDATE_SECRET="${CONTENT_RELEASE_REVALIDATE_SECRET:-}"
 REVALIDATE_LOCALE="${CONTENT_RELEASE_REVALIDATE_LOCALE:-zh-CN}"
 REVALIDATE_TYPE="${CONTENT_RELEASE_REVALIDATE_TYPE:-content_page}"
 REVALIDATE_SLUG="${CONTENT_RELEASE_REVALIDATE_SLUG:-help-privacy}"
@@ -21,9 +21,10 @@ require_bin() {
 
 require_bin curl
 require_bin node
+require_bin openssl
 
-if [[ -z "$REVALIDATE_TOKEN" ]]; then
-  log "CONTENT_RELEASE_REVALIDATE_TOKEN is required"
+if [[ -z "$REVALIDATE_SECRET" ]]; then
+  log "CONTENT_RELEASE_REVALIDATE_SECRET is required"
   exit 1
 fi
 
@@ -62,6 +63,9 @@ const payload = {
 process.stdout.write(JSON.stringify(payload));
 NODE
 )"
+timestamp="$(date +%s)"
+nonce="$(openssl rand -hex 16)"
+signature="$(printf '%s' "${timestamp}.${nonce}.${payload}" | openssl dgst -sha256 -hmac "$REVALIDATE_SECRET" | awk '{print $NF}')"
 
 curl_header_config="$(mktemp "${TMPDIR:-/tmp}/content-release-revalidate-curl.XXXXXX")"
 cleanup_header_config() {
@@ -71,7 +75,9 @@ trap cleanup_header_config EXIT
 chmod 600 "$curl_header_config"
 printf '%s\n' \
   'header = "Content-Type: application/json"' \
-  "header = \"x-fm-content-release-token: ${REVALIDATE_TOKEN}\"" \
+  "header = \"x-fm-content-release-timestamp: ${timestamp}\"" \
+  "header = \"x-fm-content-release-nonce: ${nonce}\"" \
+  "header = \"x-fm-content-release-signature: sha256=${signature}\"" \
   >"$curl_header_config"
 
 response="$(curl -fsS -X POST "$REVALIDATE_URL" \

@@ -14,6 +14,10 @@ vi.mock("@/lib/seo/llmsFullResponseCache", () => ({
   clearLlmsFullResponseCache: mocks.clearLlmsFullResponseCache,
 }));
 
+vi.mock("@/lib/security/contentReleaseRevalidationAuth", () => ({
+  authenticateContentReleaseRevalidation: vi.fn(async () => ({ ok: true, nonceHash: "test-nonce-hash" })),
+}));
+
 import { collectPathDecisions, POST } from "@/app/api/content-release/revalidate/route";
 
 describe("PR-FDN-01 llms-full recheck or repair", () => {

@@ -1,7 +1,7 @@
-import { createHash, timingSafeEqual } from "node:crypto";
 import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import { clearLlmsFullResponseCache } from "@/lib/seo/llmsFullResponseCache";
+import { authenticateContentReleaseRevalidation } from "@/lib/security/contentReleaseRevalidationAuth";
 
 type ContentReleasePayload = {
   content?: {
@@ -178,13 +178,6 @@ function rejectionReason(path: string | null): string | null {
   return null;
 }
 
-function secureEquals(expected: string, actual: string): boolean {
-  const expectedHash = createHash("sha256").update(expected).digest();
-  const actualHash = createHash("sha256").update(actual).digest();
-
-  return timingSafeEqual(expectedHash, actualHash);
-}
-
 export function collectPathDecisions(payload: ContentReleasePayload, requestOrigin = "https://fermatmind.com") {
   const locale = normalizeLocaleToSegment(payload.content?.locale);
   const directPaths = [...(payload.cache_signal?.paths ?? []), ...(payload.cache_signal?.urls ?? [])]
@@ -264,21 +257,23 @@ export function collectPathDecisions(payload: ContentReleasePayload, requestOrig
 }
 
 export async function POST(request: NextRequest) {
-  const expectedToken = String(process.env.CONTENT_RELEASE_REVALIDATE_TOKEN ?? "").trim();
-  const providedToken = request.headers.get("x-fm-content-release-token")?.trim() ?? "";
-
-  if (!expectedToken || !providedToken || !secureEquals(expectedToken, providedToken)) {
+  const rawBody = await request.text();
+  const auth = await authenticateContentReleaseRevalidation(request, rawBody);
+  if (!auth.ok) {
+    console.warn("content_release_revalidation_rejected", { error_code: auth.errorCode });
     return NextResponse.json(
       {
         ok: false,
-        error_code: "UNAUTHORIZED",
-        message: "content release revalidation token is invalid.",
+        error_code: auth.errorCode,
+        message: auth.message,
       },
-      { status: 401 }
+      { status: auth.status }
     );
   }
 
-  const payload = (await request.json().catch(() => null)) as ContentReleasePayload | null;
+  const payload = (() => {
+    try { return JSON.parse(rawBody) as ContentReleasePayload; } catch { return null; }
+  })();
   const { accepted, rejected } = collectPathDecisions(payload ?? {}, request.nextUrl.origin);
 
   for (const path of accepted) {
@@ -288,6 +283,12 @@ export async function POST(request: NextRequest) {
   if (accepted.includes("/llms-full.txt")) {
     clearLlmsFullResponseCache();
   }
+
+  console.info("content_release_revalidation_completed", {
+    nonce_hash: auth.nonceHash,
+    accepted_count: accepted.length,
+    rejected_count: rejected.length,
+  });
 
   return NextResponse.json({
     ok: true,

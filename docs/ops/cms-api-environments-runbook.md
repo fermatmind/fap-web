@@ -193,7 +193,7 @@ The deploy script leaves this disabled by default so production deploys and unre
 ```bash
 RUN_CONTENT_RELEASE_REVALIDATE_SMOKE=1 \
 CONTENT_RELEASE_REVALIDATE_URL=https://www.fermatmind.com/api/content-release/revalidate \
-CONTENT_RELEASE_REVALIDATE_TOKEN=shared-release-token \
+CONTENT_RELEASE_REVALIDATE_SECRET=shared-release-secret \
 CONTENT_RELEASE_REVALIDATE_LOCALE=zh-CN \
 CONTENT_RELEASE_REVALIDATE_TYPE=content_page \
 CONTENT_RELEASE_REVALIDATE_SLUG=help-privacy \
@@ -205,14 +205,14 @@ Use the packaged smoke directly when validating a deployed environment outside t
 
 ```bash
 CONTENT_RELEASE_REVALIDATE_URL=https://www.fermatmind.com/api/content-release/revalidate \
-CONTENT_RELEASE_REVALIDATE_TOKEN=shared-release-token \
+CONTENT_RELEASE_REVALIDATE_SECRET=shared-release-secret \
 pnpm cms:content-release:smoke
 ```
 
 This smoke is read-only with respect to CMS data. It only verifies that:
 
 - the frontend revalidation consumer is reachable
-- the shared token is accepted
+- the timestamped nonce and exact request body HMAC are accepted once
 - release payload paths are normalized into localized frontend paths
 - the response reports the expected `revalidated_paths`
 
@@ -220,9 +220,10 @@ Deployment wiring for end-to-end release invalidation must stay aligned across b
 
 - backend: `OPS_CONTENT_RELEASE_CACHE_INVALIDATION_URLS`
 - backend: `OPS_CONTENT_RELEASE_CACHE_INVALIDATION_SECRET`
-- frontend: `CONTENT_RELEASE_REVALIDATE_TOKEN`
+- frontend: `CONTENT_RELEASE_REVALIDATE_SECRET`
+- frontend: `CONTENT_RELEASE_REVALIDATE_REDIS_URL` and `CONTENT_RELEASE_REVALIDATE_REDIS_TOKEN`
 
-The backend invalidation URL list should point at the frontend `/api/content-release/revalidate` consumer, and the backend secret must match the frontend token exactly.
+The backend invalidation URL list should point at the frontend `/api/content-release/revalidate` consumer. The sender must sign `timestamp.nonce.raw_body` with HMAC-SHA256 using the same secret; static token headers are rejected. The frontend Redis REST store is mandatory for atomic nonce replay rejection and rate limiting.
 
 For article releases, the backend content-release planner sends locale-aware paths instead of relying on manual cache-busters. The default release set must include the localized homepage, article list, article detail, `/llms.txt`, and `/llms-full.txt`; package graph metadata can add Topic, Test, Personality, and Career Guide paths. The frontend consumer intentionally accepts only public content paths and reports any rejected paths in `rejected_paths`.
 
@@ -230,7 +231,9 @@ Minimum production release wiring:
 
 - `OPS_CONTENT_RELEASE_CACHE_INVALIDATION_URLS=https://www.fermatmind.com/api/content-release/revalidate`
 - `OPS_CONTENT_RELEASE_CACHE_INVALIDATION_SECRET=<shared secret>`
-- `CONTENT_RELEASE_REVALIDATE_TOKEN=<same shared secret>`
+- `CONTENT_RELEASE_REVALIDATE_SECRET=<same shared secret>`
+- `CONTENT_RELEASE_REVALIDATE_REDIS_URL=<protected Redis REST endpoint>`
+- `CONTENT_RELEASE_REVALIDATE_REDIS_TOKEN=<protected Redis REST token>`
 
 Sitemap note: `sitemap.xml` is a generated static artifact, not a path that this revalidation consumer can rewrite. Daily publishing still needs a sitemap regeneration/deploy step, or a future dynamic sitemap rollout, before sitemap freshness can be treated as automatic.
 

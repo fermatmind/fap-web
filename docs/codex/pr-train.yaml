@@ -23936,3 +23936,51 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: AUDIT-PRR2-API-06
+
+  - id: AUDIT-PRR2-WEB-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/audit-prr2-web-02-revalidation-hmac
+    base: main
+    title: "AUDIT-PRR2-WEB-02: protect revalidation with HMAC and replay controls"
+    depends_on: [AUDIT-PRR2-WEB-01]
+    mode: execute
+    train_scope: prr2_web_revalidation_hmac_replay
+    status: user_authorized
+    goal: "Replace the static token endpoint with exact-body HMAC timestamp, nonce replay rejection, Redis-backed rate limiting, and redacted audit events."
+    allowed_paths:
+      - .env.example
+      - app/api/content-release/revalidate/route.ts
+      - lib/security/contentReleaseRevalidationAuth.ts
+      - scripts/content_release_revalidate_smoke.sh
+      - scripts/deploy_web_pm2.sh
+      - docs/ops/cms-api-environments-runbook.md
+      - tests/contracts/audit-prr2-web-02-revalidation-hmac.contract.test.ts
+      - tests/contracts/content-release-revalidate-allowlist.contract.test.ts
+      - tests/contracts/content-release-revalidate-smoke.contract.test.ts
+      - tests/contracts/non-article-multilingual-rollout.contract.test.ts
+      - tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - fap-api sender implementation, Redis/environment mutation, workflow dispatch, deploy, server verification, CMS/SEO writes, sitemap, canonical, noindex, JSON-LD, or content authority changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/audit-prr2-web-02-revalidation-hmac.contract.test.ts tests/contracts/content-release-revalidate-allowlist.contract.test.ts tests/contracts/content-release-revalidate-smoke.contract.test.ts tests/contracts/non-article-multilingual-rollout.contract.test.ts tests/contracts/pr-fdn-01-llms-full-recheck-or-repair.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json"))'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: AUDIT-PRR2-WEB-03

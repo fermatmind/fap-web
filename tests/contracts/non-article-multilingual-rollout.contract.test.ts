@@ -26,11 +26,14 @@ describe("non-article multilingual public rollout contract", () => {
     expect(interpretationGuidePage).toContain("buildInterpretationGuidePath");
   });
 
-  it("defines a token-gated content release revalidation endpoint", () => {
+  it("defines a replay-protected HMAC content release revalidation endpoint", () => {
     const routeSource = read("app/api/content-release/revalidate/route.ts");
 
-    expect(routeSource).toContain("CONTENT_RELEASE_REVALIDATE_TOKEN");
-    expect(routeSource).toContain("x-fm-content-release-token");
+    expect(routeSource).toContain("authenticateContentReleaseRevalidation");
+    const authSource = read("lib/security/contentReleaseRevalidationAuth.ts");
+    expect(authSource).toContain("CONTENT_RELEASE_REVALIDATE_SECRET");
+    expect(authSource).toContain("x-fm-content-release-signature");
+    expect(authSource).toContain("CONTENT_RELEASE_REVALIDATE_REDIS_URL");
     expect(routeSource).toContain("revalidatePath");
   });
 });
