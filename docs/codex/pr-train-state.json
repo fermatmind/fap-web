@@ -44253,9 +44253,9 @@
     "branch": "codex/big5-114-seo-runtime-release-01",
     "title": "BIG5-114-SEO-RUNTIME-RELEASE-01: release 114 canonical Big Five SEO runtime entries",
     "depends_on": ["BIG5-114-INDEXABILITY-PUBLISH-GATE-01"],
-    "status": "committed",
-    "commit_sha": "a63f3d9ea1b04ac6694afaa99dab511cfe6c051f",
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "d6d5eb5dfc88f71b47c790eff37f0d03134b6bba",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1696",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The locked Big Five 124/114 /goal explicitly authorized this PR and manifest/state registration."},
       "dependency": {"status": "pass", "evidence": "fap-api PR #2993 merged as ad17573acbb4f0ce2d3542f4982e92b31e6ebe6c; exact-SHA production deploy and the separately approved 93-row indexability promotion run 29156685228 both succeeded."},
@@ -44274,9 +44274,10 @@
     "history": [
       {"at": "2026-07-11T22:48:23+08:00", "status": "in_progress", "summary": "Started from fap-web origin/main in an isolated clean worktree after the approved 93-row backend promotion succeeded. Scope is backend-authorized Big Five renderer/discoverability release only; no frontend editorial fallback, CMS mutation, search submission, or production deploy is authorized."},
       {"at": "2026-07-11T23:00:00+08:00", "status": "local_verified", "summary": "Canonical route extraction proves en 62 plus zh 52 with ten zh aliases excluded; focused contracts, lint/spacing/typecheck, production build, four full contract shards, both personality freeze suites, manifest/state parse, diff checks, and exact allowed-path validation passed. Live sitemap-source remains on its previous 21-entry cache and must refresh to 114 before merge."},
-      {"at": "2026-07-11T23:02:00+08:00", "status": "committed", "summary": "Committed the exact seven-path BIG5-114 frontend runtime scope at a63f3d9ea1b04ac6694afaa99dab511cfe6c051f after path-limited staging."}
+      {"at": "2026-07-11T23:02:00+08:00", "status": "committed", "summary": "Committed the exact seven-path BIG5-114 frontend runtime scope at a63f3d9ea1b04ac6694afaa99dab511cfe6c051f after path-limited staging."},
+      {"at": "2026-07-11T23:04:00+08:00", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1696. Required GitHub checks and live backend sitemap-source 114-entry readback are pending; no frontend deploy was triggered."}
     ],
-    "updated_at": "2026-07-11T23:02:00+08:00"
+    "updated_at": "2026-07-11T23:04:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
