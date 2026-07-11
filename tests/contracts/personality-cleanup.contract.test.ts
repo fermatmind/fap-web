@@ -22,12 +22,14 @@ function sliceBetween(source: string, start: string, end: string): string {
 }
 
 describe("personality cleanup contract", () => {
-  it("frontend next-sitemap keeps public personality landing coverage available", async () => {
-    const config = requireFromRoot("./next-sitemap.config.js");
-    const additionalPaths = await config.additionalPaths();
-    const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
+  it("frontend next-sitemap keeps public personality landing coverage available", () => {
+    const configSource = read("next-sitemap.config.js");
+    const { buildStaticGeneratedPaths } = requireFromRoot("./lib/seo/sitemapAuthorityAdapters.cjs") as {
+      buildStaticGeneratedPaths: () => string[];
+    };
 
-    expect(locs).toEqual(expect.arrayContaining(["/en/personality", "/zh/personality"]));
+    expect(configSource).toContain("buildStaticGeneratedPaths");
+    expect(buildStaticGeneratedPaths()).toEqual(expect.arrayContaining(["/en/personality", "/zh/personality"]));
   });
 
   it("personality detail page no longer imports or uses the local mbti fallback", () => {
@@ -43,10 +45,15 @@ describe("personality cleanup contract", () => {
 
   it("llms.txt personality coverage follows backend sitemap authority without local inference", () => {
     const source = read("app/llms.txt/route.ts");
-    const personalityBlock = sliceBetween(source, "async function listPersonalityPaths()", "async function listTopicPaths()");
+    const personalityBlock = sliceBetween(
+      source,
+      "async function listPersonalityPaths(signal?: AbortSignal)",
+      "async function listTopicPaths()",
+    );
 
     expect(personalityBlock).toContain("listBackendSitemapMbtiPersonalityPaths");
     expect(personalityBlock).toContain("listBackendSitemapBigFiveZhPaths");
+    expect(personalityBlock).toContain("{ signal }");
     expect(personalityBlock).toContain("return dedupePaths([...mbtiPersonalityPaths, ...bigFiveZhPaths]);");
     expect(personalityBlock).not.toContain("listPersonalityProfiles");
     expect(personalityBlock).not.toContain("publishedPersonalityVariantSlugs");

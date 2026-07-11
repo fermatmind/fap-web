@@ -14569,7 +14569,7 @@ prs:
     mode: execute
     train_scope: mbti_render_backend_authoritative_comparison_jsonld
     risk_level: L1
-    status: in_progress
+    status: merged
     title: "MBTI-INDEX-24A: render backend-authoritative comparison JSON-LD"
     goal: "Render only backend-authoritative comparison JSON-LD, including during the noindex verification stage, while keeping robots, sitemap, and llms gates unchanged."
     in_scope:
@@ -14602,13 +14602,97 @@ prs:
       auto_merge: true
     next_task: MBTI-INDEX-24B
 
+  - id: MBTI-INDEX-24C
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-index-24c-llms-personality-budget
+    base: main
+    depends_on:
+      - MBTI-INDEX-24A
+    mode: execute
+    train_scope: mbti_llms_personality_authority_budget_stability
+    risk_level: L1
+    status: in_progress
+    title: "MBTI-INDEX-24C: stabilize llms personality authority enumeration"
+    goal: "Give backend-authoritative MBTI personality enumeration a bounded dedicated budget and AbortSignal so promoted URLs reliably reach llms.txt without local fallback."
+    in_scope:
+      - app/llms.txt/route.ts
+      - lib/seo/llmsRouteBudget.ts
+      - tests/contracts/mbti-index-24c-llms-personality-budget.contract.test.ts
+      - tests/contracts/big5-114-seo-runtime-release-01.contract.test.ts
+      - tests/contracts/personality-cleanup.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - frontend or backend editorial fallback content
+      - fap-api changes or CMS writes
+      - indexability promotion
+      - live GSC submission or URL inspection
+      - manual or production deploy
+    required_local_checks:
+      - corepack pnpm exec vitest run tests/contracts/mbti-index-24c-llms-personality-budget.contract.test.ts tests/contracts/personality-cleanup.contract.test.ts tests/contracts/llms-url-hygiene.contract.test.ts --reporter=dot
+      - corepack pnpm typecheck
+      - corepack pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-INDEX-24R
+
+  - id: MBTI-INDEX-24R
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-index-24r-release-gate-revalidation
+    base: main
+    depends_on:
+      - MBTI-INDEX-24C
+    mode: execute
+    train_scope: mbti_nine_url_release_gate_revalidation
+    risk_level: L1
+    status: planned
+    title: "MBTI-INDEX-24R: revalidate nine promoted MBTI URLs"
+    goal: "Read-only revalidate CMS/API content, canonical, robots, JSON-LD, FAQ parity, sitemap, llms and llms-full for the exact nine promoted URLs; allow GSC only on 9/9 success."
+    in_scope:
+      - docs/seo/personality/mbti-index-24r-*
+      - scripts/seo/build-mbti-index-24r-*
+      - tests/contracts/mbti-index-24r-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS writes or indexability promotion
+      - fap-api or frontend runtime changes
+      - frontend local editorial fallback content
+      - live GSC submission or URL inspection
+      - manual or production deploy
+    required_local_checks:
+      - node scripts/seo/build-mbti-index-24r-release-gate-revalidation.mjs --allow-network
+      - corepack pnpm exec vitest run tests/contracts/mbti-index-24r-release-gate-revalidation.contract.test.ts --reporter=dot
+      - corepack pnpm test:contract
+      - corepack pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-GSC-25
+
   - id: MBTI-GSC-25
     repo: fap-web
     repo_path: <workspace>/fap-web
     branch: codex/mbti-gsc-25-submit-monitoring-execution
     base: main
     depends_on:
-      - MBTI-INDEX-24
+      - MBTI-INDEX-24R
     mode: execute
     train_scope: mbti_gsc_submission_monitoring_execution
     risk_level: L1

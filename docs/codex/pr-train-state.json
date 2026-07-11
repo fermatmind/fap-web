@@ -43836,7 +43836,7 @@
     "merge_commit_sha": "8345a5c6545c2a2144aa7fa6fce3f6a3c1db79c0"
   },
   "MBTI-INDEX-24A": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-index-24a-render-comparison-jsonld",
     "depends_on": [
@@ -43844,7 +43844,7 @@
     ],
     "train_scope": "mbti_render_backend_authoritative_comparison_jsonld",
     "title": "MBTI-INDEX-24A: render backend-authoritative comparison JSON-LD",
-    "commit_sha": "e5762405",
+    "commit_sha": "047776a3cdee13a2a09448ec71ed9926ad5fb980",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1685",
     "checks": {
       "dependency": {
@@ -43859,13 +43859,14 @@
       "diff_check": "passed",
       "github_required_checks": "passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL"
     },
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-11T10:05:27Z",
+    "merge_commit_sha": "047776a3cdee13a2a09448ec71ed9926ad5fb980",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "next_task": "MBTI-INDEX-24B",
     "created_at": "2026-07-11T18:45:00+08:00",
-    "updated_at": "2026-07-11T19:18:00+08:00",
+    "updated_at": "2026-07-12T04:13:51+08:00",
     "history": [
       {
         "at": "2026-07-11T18:45:00+08:00",
@@ -43886,15 +43887,88 @@
         "at": "2026-07-11T19:18:00+08:00",
         "status": "ready_to_merge",
         "note": "All six required GitHub checks passed and PR #1685 remains scope-clean and mergeable."
+      },
+      {
+        "at": "2026-07-12T04:13:51+08:00",
+        "status": "merged",
+        "note": "Reconciled from GitHub: PR #1685 merged at 047776a3cdee13a2a09448ec71ed9926ad5fb980, origin/main contains the merge commit, and the local and remote task branches are absent."
       }
     ]
+  },
+  "MBTI-INDEX-24C": {
+    "status": "local_checks_passed",
+    "repo": "fap-web",
+    "branch": "codex/mbti-index-24c-llms-personality-budget",
+    "depends_on": [
+      "MBTI-INDEX-24A"
+    ],
+    "train_scope": "mbti_llms_personality_authority_budget_stability",
+    "title": "MBTI-INDEX-24C: stabilize llms personality authority enumeration",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {
+        "status": "passed",
+        "evidence": "MBTI-INDEX-24A PR #1685 is merged at 047776a3cdee13a2a09448ec71ed9926ad5fb980 and origin/main contains the merge commit."
+      },
+      "live_blocker": {
+        "status": "confirmed",
+        "evidence": "The exact nine promoted URLs are 9/9 in sitemap.xml and llms-full.txt but 0/9 in llms.txt; the route currently applies the 1500ms generic source budget to backend personality enumeration."
+      },
+      "focused_contracts": "passed: 4 files, 11 tests",
+      "typecheck": "passed with Node 24",
+      "full_contracts": "passed: all 4 shards",
+      "production_build": "passed with production site/API URLs",
+      "yaml_json": "passed",
+      "diff_check": "passed",
+      "scope_validation": "passed: exact seven-path allowlist"
+    },
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "next_task": "MBTI-INDEX-24R",
+    "created_at": "2026-07-12T04:13:51+08:00",
+    "updated_at": "2026-07-12T04:47:59+08:00",
+    "history": [
+      {
+        "at": "2026-07-12T04:13:51+08:00",
+        "status": "in_progress",
+        "note": "Registered from the user-approved INDEX-24R/GSC-25 closeout plan. Scope is bounded llms.txt personality authority budget and AbortSignal wiring only; no local URL fallback, deploy, GSC action, CMS write, or promotion is authorized."
+      },
+      {
+        "at": "2026-07-12T04:47:59+08:00",
+        "status": "local_checks_passed",
+        "note": "Focused llms authority contracts, Node 24 typecheck, all four contract shards, production API build, YAML/JSON parsing, diff check, and exact changed-file scope validation passed. The branch was rebased onto current origin/main before final verification."
+      }
+    ]
+  },
+  "MBTI-INDEX-24R": {
+    "status": "planned",
+    "repo": "fap-web",
+    "branch": "codex/mbti-index-24r-release-gate-revalidation",
+    "depends_on": [
+      "MBTI-INDEX-24C"
+    ],
+    "train_scope": "mbti_nine_url_release_gate_revalidation",
+    "title": "MBTI-INDEX-24R: revalidate nine promoted MBTI URLs",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": [],
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "next_task": "MBTI-GSC-25",
+    "created_at": "2026-07-12T04:13:51+08:00",
+    "updated_at": "2026-07-12T04:13:51+08:00"
   },
   "MBTI-GSC-25": {
     "status": "planned",
     "repo": "fap-web",
     "branch": "codex/mbti-gsc-25-submit-monitoring-execution",
     "depends_on": [
-      "MBTI-INDEX-24"
+      "MBTI-INDEX-24R"
     ],
     "train_scope": "mbti_gsc_submission_monitoring_execution",
     "title": "MBTI-GSC-25: GSC submission and monitoring execution",
@@ -43907,7 +43981,7 @@
     "failure_reason": null,
     "next_task": null,
     "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-05T18:20:00Z"
+    "updated_at": "2026-07-12T04:13:51+08:00"
   },
   "BIG5-ZH-LEGACY-ROUTE-DEPRECATION-02": {
     "id": "BIG5-ZH-LEGACY-ROUTE-DEPRECATION-02",
