@@ -53,9 +53,9 @@ describe("PERSONALITY-AGENT-AUTO-RUNNER-SCHEDULER-ACTIVATION-01", () => {
     expect(workflow).toContain("schedule:");
     expect(workflow).toContain('cron: "23 2 * * 1-5"');
     expect(workflow).toContain("permissions:\n  contents: read");
-    expect(workflow).toContain("actions/checkout@v6");
-    expect(workflow).toContain("actions/setup-node@v6");
-    expect(workflow).toContain("actions/upload-artifact@v4");
+    expect(workflow).toMatch(/actions\/checkout@[0-9a-f]{40} # v6/);
+    expect(workflow).toMatch(/actions\/setup-node@[0-9a-f]{40} # v6/);
+    expect(workflow).toMatch(/actions\/upload-artifact@[0-9a-f]{40} # v4/);
     expect(workflow).toContain("scripts/seo/run-personality-agent-auto-runner.mjs");
     expect(workflow).toContain("--scheduler-activation=scheduled_actions_artifact_only_enabled");
     expect(workflow).toContain("jq empty");

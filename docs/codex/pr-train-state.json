@@ -43782,6 +43782,7 @@
     "history": [
       {"at": "2026-07-11T09:17:00Z", "status": "in_progress", "summary": "Started from current origin/main. Scope is immutable action references only; no workflow behavior, dispatch, deploy, environment, secret, CMS, or production mutation is authorized."},
       {"at": "2026-07-11T09:20:00Z", "status": "local_verified", "summary": "Immutable-action contract and deploy guards passed 14/14; actionlint passed with two exact pre-existing findings sidecarred, lint baseline warnings only, spacing, cold typecheck, workflow/YAML/manifest/state parse, diff check, and exact nine-path scope validation passed."}
+      ,{"at": "2026-07-11T09:26:00Z", "status": "github_check_repair", "summary": "Inspected failed contracts job: runtime contracts passed, but three historical tests still required mutable v4/v6 refs. Updated them within WEB-04 scope to require 40-character SHAs plus readable major-version comments; focused contracts passed 16/16."}
     ],
     "updated_at": "2026-07-11T09:20:00Z"
   }

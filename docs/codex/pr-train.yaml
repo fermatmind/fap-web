@@ -24099,6 +24099,9 @@ prs:
       - .github/workflows/live-result-smoke.yml
       - .github/workflows/personality-agent-auto-runner.yml
       - tests/contracts/audit-prr2-web-04-actions-sha-pinning.contract.test.ts
+      - tests/contracts/ci-validator-hygiene.contract.test.ts
+      - tests/contracts/codeql-generated-artifact-scan-boundary.contract.test.ts
+      - tests/contracts/personality-agent-auto-runner-scheduler-activation-01.contract.test.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     out_of_scope:
