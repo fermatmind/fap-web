@@ -94,6 +94,11 @@ type PersonalityPublicContentAssetResponse = {
   personality_public_content_asset_v1?: unknown;
 };
 
+type PersonalityPublicContentAssetIndexResponse = {
+  ok?: boolean;
+  items?: unknown[];
+};
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
@@ -355,6 +360,37 @@ export async function getEnneagramPublicContentAsset(
   locale: Locale,
   entry: EnneagramPublicRouteEntry
 ): Promise<PersonalityPublicContentAsset | null> {
+  if (entry.entityType === "instinctual_subtype") {
+    try {
+      const response = await apiClient.get<PersonalityPublicContentAssetIndexResponse>(
+        `/v0.5/personality-content-assets?locale=${encodeURIComponent(toApiLocale(locale))}&framework=enneagram&entity_type=${
+          entry.entityType
+        }&per_page=100&org_id=0`,
+        {
+          ...PUBLIC_API_CACHE_OPTIONS,
+          skipAuth: true,
+          locale,
+        }
+      );
+
+      if (response?.ok !== true) {
+        return null;
+      }
+
+      const normalized = (response.items ?? [])
+        .map((item) => normalizeAsset(item, entry, locale, "enneagram"))
+        .find((asset): asset is PersonalityPublicContentAsset => asset !== null);
+
+      return normalized ?? null;
+    } catch (error) {
+      if (error instanceof ApiError && (error.status === 404 || error.status === 422)) {
+        return null;
+      }
+
+      return null;
+    }
+  }
+
   try {
     const response = await apiClient.get<PersonalityPublicContentAssetResponse>(
       `/v0.5/personality-content-assets/enneagram/${entry.entityType}/${encodeURIComponent(

@@ -88,7 +88,7 @@ export function resolveEnneagramPublicRouteEntry(slugSegments: readonly string[]
     return ENNEAGRAM_PUBLIC_ROUTE_ENTRIES[0] ?? null;
   }
 
-  if (segments.length > 3) {
+  if (segments.length > 4) {
     return null;
   }
 

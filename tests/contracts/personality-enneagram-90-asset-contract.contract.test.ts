@@ -111,6 +111,7 @@ describe("ENNEAGRAM-90-FRONTEND-ASSET-CONTRACT-01", () => {
       entityType: "instinctual_subtype",
       code: "type-2/self-preservation",
     });
+    expect(resolveEnneagramPublicRouteEntry(["type-2", "instincts", "self-preservation", "extra", "segment"])).toBeNull();
   });
 
   it("normalizes wing q/a FAQ aliases and label/url internal links while dropping unsafe or empty links", async () => {
@@ -159,27 +160,39 @@ describe("ENNEAGRAM-90-FRONTEND-ASSET-CONTRACT-01", () => {
     ]);
   });
 
-  it("normalizes encoded subtype asset identity and fails closed for mismatched or private assets", async () => {
+  it("normalizes subtype asset identity through the index endpoint and fails closed for mismatched or private assets", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn(async (input: RequestInfo | URL) => {
         const url = String(input);
-        expect(url).toContain(
-          "/api/v0.5/personality-content-assets/enneagram/instinctual_subtype/type-2%2Fself-preservation?"
-        );
+        expect(url).toContain("/api/v0.5/personality-content-assets?");
+        expect(url).toContain("framework=enneagram");
+        expect(url).toContain("entity_type=instinctual_subtype");
+        expect(url).toContain("per_page=100");
         expect(url).toContain("locale=zh-CN");
 
         return jsonResponse({
           ok: true,
-          personality_public_content_asset_v1: sampleAsset({
-            entity_type: "instinctual_subtype",
-            code: "type-2/self-preservation",
-            entity_key: "type-2/self-preservation",
-            slug: "enneagram/type-2/self-preservation",
-            locale: "zh-CN",
-            title: "二号自保副型",
-            canonical_path: "/zh/personality/enneagram/type-2/instincts/self-preservation",
-          }),
+          items: [
+            sampleAsset({
+              entity_type: "instinctual_subtype",
+              code: "type-2/social",
+              entity_key: "type-2/social",
+              slug: "enneagram/type-2/social",
+              locale: "zh-CN",
+              title: "二号社交副型",
+              canonical_path: "/zh/personality/enneagram/type-2/instincts/social",
+            }),
+            sampleAsset({
+              entity_type: "instinctual_subtype",
+              code: "type-2/self-preservation",
+              entity_key: "type-2/self-preservation",
+              slug: "enneagram/type-2/self-preservation",
+              locale: "zh-CN",
+              title: "二号自保副型",
+              canonical_path: "/zh/personality/enneagram/type-2/instincts/self-preservation",
+            }),
+          ],
         });
       })
     );
