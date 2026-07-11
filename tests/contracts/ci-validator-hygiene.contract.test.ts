@@ -6,6 +6,9 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
+const CHECKOUT_SHA = "df4cb1c069e1874edd31b4311f1884172cec0e10";
+const SETUP_NODE_SHA = "48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e";
+const CODEQL_SHA = "1ad29ea4a422cce9a242a9fae469541dcd08addc";
 const liveUrlCheckModule = pathToFileURL(path.join(ROOT, "scripts/seo/lib/live-url-check.mjs")).href;
 
 function read(relPath: string): string {
@@ -63,8 +66,8 @@ describe("CI validator hygiene", () => {
     expect(workflow).not.toContain("pnpm/action-setup@");
     expect(uses).not.toContain("pnpm/action-setup@v4");
     expect(uses).not.toContain("actions/setup-node@v4");
-    expect(countUses(uses, "actions/checkout@v6")).toBe(4);
-    expect(countUses(uses, "actions/setup-node@v6")).toBe(4);
+    expect(countUses(uses, `actions/checkout@${CHECKOUT_SHA}`)).toBe(4);
+    expect(countUses(uses, `actions/setup-node@${SETUP_NODE_SHA}`)).toBe(4);
     expect(workflow.match(/corepack enable/g)).toHaveLength(4);
     expect(workflow.match(/pnpm install --frozen-lockfile/g)).toHaveLength(4);
   });
@@ -77,14 +80,14 @@ describe("CI validator hygiene", () => {
 
     expect(actionUses).toEqual(
       expect.arrayContaining([
-        "actions/checkout@v6",
-        "actions/setup-node@v6",
-        "github/codeql-action/init@v4",
-        "github/codeql-action/analyze@v4",
+        `actions/checkout@${CHECKOUT_SHA}`,
+        `actions/setup-node@${SETUP_NODE_SHA}`,
+        `github/codeql-action/init@${CODEQL_SHA}`,
+        `github/codeql-action/analyze@${CODEQL_SHA}`,
       ])
     );
     for (const actionRef of actionUses) {
-      expect(actionRef).toMatch(/^(actions\/(?:checkout|setup-node)@v6|github\/codeql-action\/(?:init|analyze)@v4)$/);
+      expect(actionRef).toMatch(/^(?:actions\/(?:checkout|setup-node)|github\/codeql-action\/(?:init|analyze))@[0-9a-f]{40}$/);
       expect(actionRef).not.toMatch(/@(main|master|latest|HEAD)$/);
     }
   });

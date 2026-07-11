@@ -44,7 +44,7 @@ jobs:
     steps:
       - name: Evaluate production auto-deploy policy
         id: evaluate
-        uses: actions/github-script@v8
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
         env:
           MANUAL_RISK_APPROVAL: ${{ github.event.inputs.manual_risk_approval }}
           WORKFLOW_RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
@@ -322,7 +322,7 @@ jobs:
 
     steps:
       - name: Checkout approved revision
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
           ref: ${{ needs.policy-guard.outputs.deploy_sha }}
 

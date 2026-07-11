@@ -43738,19 +43738,19 @@
     "branch": "codex/audit-prr2-web-03-topic-backend-authority",
     "title": "AUDIT-PRR2-WEB-03: remove local topic discoverability fixtures",
     "depends_on": ["AUDIT-PRR2-WEB-02"],
-    "status": "pr_open",
-    "commit_sha": "63f5a91cf091905e4a50413236751dd3f1c9428e",
+    "status": "merged",
+    "commit_sha": "6cb6f5b008e334f70c40c19367cc4555b2b07c9e",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1683",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The PRR2 /goal explicitly authorized WEB-03 and manifest/state registration."},
       "dependency": {"status": "pass", "evidence": "WEB-02 is merged at 5160921d352756fb5007a7dac57198608bd1d012 and contained in origin/main."},
       "backend_contract": {"status": "pass", "evidence": "The existing public /v0.5/topics contract supplies locale, public, and indexable exposure state; no backend mutation is required."}
     },
-    "scope_validation": {"allowed_paths_only": null, "local_validation_passed": false, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-11T09:15:26Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {"at": "2026-07-11T08:55:00Z", "status": "in_progress", "summary": "Started from current origin/main after WEB-02 reconciliation. Scope is frontend topic discoverability authority only; no CMS mutation, exposure widening, deploy, or production write is authorized."},
       {"at": "2026-07-11T09:06:30Z", "status": "local_verified", "summary": "Focused authority/LKG contracts 26/26 plus repaired historical governance contracts passed; lint with baseline warnings only, spacing, typecheck, 206-route production build, four contract shards, Big Five 29/29, Enneagram 24/24, manifest/state parse, diff check, and exact allowed-path scope validation passed."}
@@ -43758,6 +43758,32 @@
       ,{"at": "2026-07-11T09:09:00Z", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1683; required GitHub checks are pending and no deploy or CMS mutation occurred."}
       ,{"at": "2026-07-11T09:10:30Z", "status": "github_check_repair", "summary": "Inspected failed build job: cold TypeScript check found an implicit-any callback in the WEB-03 sitemap contract. Added the explicit string type and passed non-incremental typecheck plus the 8-case focused contract."}
     ],
-    "updated_at": "2026-07-11T09:06:30Z"
+    "updated_at": "2026-07-11T09:17:00Z"
+  },
+  "AUDIT-PRR2-WEB-04": {
+    "id": "AUDIT-PRR2-WEB-04",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/audit-prr2-web-04-pin-actions",
+    "title": "AUDIT-PRR2-WEB-04: pin GitHub Actions to immutable SHAs",
+    "depends_on": ["AUDIT-PRR2-WEB-03"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "pass", "evidence": "The PRR2 /goal explicitly authorized WEB-04 and manifest/state registration."},
+      "dependency": {"status": "pass", "evidence": "WEB-03 is merged at 6cb6f5b008e334f70c40c19367cc4555b2b07c9e and post-merge revalidated."}
+    },
+    "scope_validation": {"allowed_paths_only": null, "local_validation_passed": false, "github_checks_green": false, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-11T09:17:00Z", "status": "in_progress", "summary": "Started from current origin/main. Scope is immutable action references only; no workflow behavior, dispatch, deploy, environment, secret, CMS, or production mutation is authorized."},
+      {"at": "2026-07-11T09:20:00Z", "status": "local_verified", "summary": "Immutable-action contract and deploy guards passed 14/14; actionlint passed with two exact pre-existing findings sidecarred, lint baseline warnings only, spacing, cold typecheck, workflow/YAML/manifest/state parse, diff check, and exact nine-path scope validation passed."}
+      ,{"at": "2026-07-11T09:26:00Z", "status": "github_check_repair", "summary": "Inspected failed contracts job: runtime contracts passed, but three historical tests still required mutable v4/v6 refs. Updated them within WEB-04 scope to require 40-character SHAs plus readable major-version comments; focused contracts passed 16/16."}
+    ],
+    "updated_at": "2026-07-11T09:20:00Z"
   }
 }

@@ -65,10 +65,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
           node-version: 24
 
@@ -122,7 +122,7 @@ jobs:
           jq empty "${{ steps.paths.outputs.output_json }}"
 
       - name: Upload personality agent artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@99df26d4f13ea111d4ec1a7dddef6063f76b97e9 # v4
         with:
           name: personality-agent-auto-runner-${{ steps.paths.outputs.run_date }}
           path: ${{ steps.paths.outputs.artifact_dir }}
