@@ -80,7 +80,7 @@ describe("SECURITY-103-WEB-01 deploy workflow hardening", () => {
   it("keeps risky production PR metadata fail-closed after verifying the exact main revision", () => {
     expect(productionWorkflow).toContain("listPullRequestsAssociatedWithCommit");
     expect(productionWorkflow).toContain("expected exactly one merged main PR");
-    expect(productionWorkflow).toContain("Production auto-deploy policy passed for the verified latest main revision.");
+    expect(productionWorkflow).toContain("Production auto-deploy policy passed for the complete verified main change range.");
     expect(productionWorkflow).toContain("Production auto-deploy policy failed closed.");
     expect(productionWorkflow).toContain("riskyLabelPatterns");
     expect(productionWorkflow).toContain("riskyPathPatterns");

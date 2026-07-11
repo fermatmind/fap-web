@@ -14,6 +14,7 @@ on:
 
 permissions:
   contents: read
+  deployments: read
   pull-requests: read
 
 jobs:
@@ -62,26 +63,95 @@ jobs:
             core.setOutput('deploy_sha', deploySha);
 
             const { owner, repo } = context.repo;
-            const associatedPulls = await github.paginate(
-              github.rest.repos.listPullRequestsAssociatedWithCommit,
-              { owner, repo, commit_sha: deploySha, per_page: 100 },
-            );
-            const mergedMainPulls = associatedPulls
-              .filter((pull) => pull.base?.ref === 'main' && pull.merged_at)
-              .sort((left, right) => new Date(right.merged_at) - new Date(left.merged_at));
+            try {
+              const main = await github.rest.repos.getBranch({ owner, repo, branch: 'main' });
+              const latestMainSha = main.data.commit.sha;
+              if (deploySha !== latestMainSha) {
+                core.setFailed(
+                  `Production auto-deploy policy failed closed: deploy SHA ${deploySha} is not latest main ${latestMainSha}.`,
+                );
+                return;
+              }
 
-            if (mergedMainPulls.length !== 1) {
-              core.setFailed(
-                `Production auto-deploy policy failed closed: expected exactly one merged main PR for ${deploySha}, found ${mergedMainPulls.length}.`,
+              const deployments = await github.paginate(
+                github.rest.repos.listDeployments,
+                { owner, repo, environment: 'production', per_page: 100 },
               );
-              return;
-            }
+              let baselineSha = '';
+              for (const deployment of deployments) {
+                const candidateSha = String(deployment.sha || '');
+                if (!/^[0-9a-f]{40}$/.test(candidateSha) || candidateSha === deploySha) {
+                  continue;
+                }
 
-            const pull = mergedMainPulls[0];
-            core.setOutput('associated_pr', String(pull.number));
-            core.info(`Associated PR: #${pull.number} ${pull.title}`);
+                const statuses = await github.paginate(
+                  github.rest.repos.listDeploymentStatuses,
+                  { owner, repo, deployment_id: deployment.id, per_page: 100 },
+                );
+                if (statuses.some((status) => status.state === 'success')) {
+                  baselineSha = candidateSha;
+                  break;
+                }
+              }
 
-            const labels = (pull.labels || []).map((label) => String(label.name || '').toLowerCase());
+              if (!baselineSha) {
+                core.setFailed('Production auto-deploy policy failed closed: no previous successful production deployment baseline was found.');
+                return;
+              }
+
+              const comparison = await github.rest.repos.compareCommitsWithBasehead({
+                owner,
+                repo,
+                basehead: `${baselineSha}...${deploySha}`,
+                per_page: 100,
+              });
+              if (comparison.data.status !== 'ahead' || comparison.data.behind_by !== 0) {
+                core.setFailed(
+                  `Production auto-deploy policy failed closed: production baseline ${baselineSha} is not an ancestor of ${deploySha}.`,
+                );
+                return;
+              }
+
+              const commits = await github.paginate(
+                github.rest.repos.compareCommitsWithBasehead,
+                { owner, repo, basehead: `${baselineSha}...${deploySha}`, per_page: 100 },
+                (response) => response.data.commits,
+              );
+              if (commits.length === 0 || commits.at(-1)?.sha !== deploySha) {
+                core.setFailed('Production auto-deploy policy failed closed: deployment change range is empty or incomplete.');
+                return;
+              }
+
+              const pullsByNumber = new Map();
+              for (const commit of commits) {
+                const associatedPulls = await github.paginate(
+                  github.rest.repos.listPullRequestsAssociatedWithCommit,
+                  { owner, repo, commit_sha: commit.sha, per_page: 100 },
+                );
+                const mergedMainPulls = [
+                  ...new Map(
+                    associatedPulls
+                      .filter((pull) => pull.base?.ref === 'main' && pull.merged_at)
+                      .map((pull) => [pull.number, pull]),
+                  ).values(),
+                ];
+                if (mergedMainPulls.length !== 1) {
+                  core.setFailed(
+                    `Production auto-deploy policy failed closed: expected exactly one merged main PR for range commit ${commit.sha}, found ${mergedMainPulls.length}.`,
+                  );
+                  return;
+                }
+                pullsByNumber.set(mergedMainPulls[0].number, mergedMainPulls[0]);
+              }
+
+              const pulls = [...pullsByNumber.values()];
+              core.setOutput('associated_pr', pulls.map((pull) => pull.number).join(','));
+              core.info(`Production deploy range: ${baselineSha}...${deploySha}`);
+              core.info(`Associated PRs: ${pulls.map((pull) => `#${pull.number} ${pull.title}`).join('; ')}`);
+
+              const labels = pulls.flatMap((pull) =>
+                (pull.labels || []).map((label) => String(label.name || '').toLowerCase()),
+              );
             const riskyLabelPatterns = [
               /(^|[-_: ])no[-_: ]?auto[-_: ]?production($|[-_: ])/,
               /(^|[-_: ])manual[-_: ]?production($|[-_: ])/,
@@ -95,12 +165,17 @@ jobs:
               /(^|[-_: ])deploy($|[-_: ])/,
               /(^|[-_: ])secret(s)?($|[-_: ])/,
             ];
-            const riskyLabels = labels.filter((label) => riskyLabelPatterns.some((pattern) => pattern.test(label)));
+              const riskyLabels = [...new Set(
+                labels.filter((label) => riskyLabelPatterns.some((pattern) => pattern.test(label))),
+              )];
 
-            const files = await github.paginate(
-              github.rest.pulls.listFiles,
-              { owner, repo, pull_number: pull.number, per_page: 100 },
-            );
+              const files = [];
+              for (const pull of pulls) {
+                files.push(...await github.paginate(
+                  github.rest.pulls.listFiles,
+                  { owner, repo, pull_number: pull.number, per_page: 100 },
+                ));
+              }
             const riskyPathPatterns = [
               /^\.github\/workflows\//,
               /^\.github\/actions\//,
@@ -122,23 +197,29 @@ jobs:
               /(^|\/)\.env($|\.|-)/,
               /(^|\/).*secret.*$/i,
             ];
-            const riskyFiles = files
-              .map((file) => file.filename)
-              .filter((filename) => riskyPathPatterns.some((pattern) => pattern.test(filename)));
+              const riskyFiles = [...new Set(
+                files
+                  .map((file) => file.filename)
+                  .filter((filename) => riskyPathPatterns.some((pattern) => pattern.test(filename))),
+              )];
 
-            if (riskyLabels.length > 0 || riskyFiles.length > 0) {
+              if (riskyLabels.length > 0 || riskyFiles.length > 0) {
+                core.setOutput('auto_deploy_allowed', 'false');
+                core.setFailed([
+                  'Production auto-deploy policy failed closed.',
+                  riskyLabels.length > 0 ? `Risk labels: ${riskyLabels.join(', ')}` : 'Risk labels: none',
+                  riskyFiles.length > 0 ? `Risk files: ${riskyFiles.join(', ')}` : 'Risk files: none',
+                  'Risky production revisions cannot be waived by workflow input. Prepare a policy-compliant revision and use the protected production GitHub Environment approval gate.',
+                ].join('\n'));
+                return;
+              }
+
+              core.setOutput('auto_deploy_allowed', 'true');
+              core.info('Production auto-deploy policy passed for the complete verified main change range.');
+            } catch (error) {
               core.setOutput('auto_deploy_allowed', 'false');
-              core.setFailed([
-                'Production auto-deploy policy failed closed.',
-                riskyLabels.length > 0 ? `Risk labels: ${riskyLabels.join(', ')}` : 'Risk labels: none',
-                riskyFiles.length > 0 ? `Risk files: ${riskyFiles.join(', ')}` : 'Risk files: none',
-                'Risky production revisions cannot be waived by workflow input. Prepare a policy-compliant revision and use the protected production GitHub Environment approval gate.',
-              ].join('\n'));
-              return;
+              core.setFailed(`Production auto-deploy policy failed closed after a GitHub API error: ${error.message}`);
             }
-
-            core.setOutput('auto_deploy_allowed', 'true');
-            core.info('Production auto-deploy policy passed for the verified latest main revision.');
 
   deploy-production:
     name: Deploy fap-web production Node1
