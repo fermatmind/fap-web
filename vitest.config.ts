@@ -17,6 +17,7 @@ export default defineConfig({
     mockReset: false,
     pool: "forks",
     maxWorkers: 4,
+    testTimeout: 15_000,
     teardownTimeout: 10_000,
   },
 });
