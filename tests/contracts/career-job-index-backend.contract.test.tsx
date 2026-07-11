@@ -90,7 +90,19 @@ describe("career job index backend contract", () => {
 
     const payload = await fetchCareerDirectory({ locale: "zh", page: 2, perPage: 50, family: "healthcare", query: "nurse" });
 
-    expect(payload).not.toBeNull();
+    expect(payload.state).toBe("empty");
+    expect(payload.payload).not.toBeNull();
+  });
+
+  it.each([408, 429, 500, 502, 503, 504])("treats backend status %s as unavailable instead of an empty directory", async (status) => {
+    vi.spyOn(console, "error").mockImplementation(() => undefined);
+    vi.stubGlobal("fetch", vi.fn(async () => jsonResponse({ error_code: `HTTP_${status}` }, status)));
+
+    const result = await fetchCareerDirectory({ locale: "zh" });
+
+    expect(result.state).toBe("unavailable");
+    expect(result.payload).toBeNull();
+    expect(result.error).toEqual(expect.objectContaining({ status, endpoint: expect.stringContaining("/v0.5/career/directory"), durationMs: expect.any(Number) }));
   });
 
   it("requests the backend lightweight job index endpoint", async () => {
@@ -433,6 +445,30 @@ describe("career job index backend contract", () => {
 
     expect(html).toContain("No matching occupations found.");
     expect(html).not.toContain("CMS did not return any public career jobs");
+  });
+
+  it("renders unavailable with retry and never shows zero summary metrics on an unfiltered failure", async () => {
+    vi.doMock("next/link", () => ({
+      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => <a href={href} {...props}>{children}</a>,
+    }));
+    vi.doMock("@/lib/i18n/getDict", () => ({ resolveLocale: vi.fn(() => "zh") }));
+    vi.doMock("@/lib/career/api/fetchCareerDirectory", () => ({
+      fetchCareerDirectory: vi.fn(async () => ({
+        state: "unavailable",
+        payload: null,
+        error: { endpoint: "/v0.5/career/directory", status: 504, errorCode: "HTTP_504", requestId: "req-safe", durationMs: 15000 },
+      })),
+    }));
+
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const page = await CareerJobsPage({ params: Promise.resolve({ locale: "zh" }), searchParams: Promise.resolve({}) });
+    const html = renderToStaticMarkup(page as ReactNode);
+
+    expect(html).toContain("career-directory-unavailable");
+    expect(html).toContain("职业库暂时无法加载");
+    expect(html).toContain("重试");
+    expect(html).not.toContain("career-library-summary");
+    expect(html).not.toContain("全部职业</div><div>0");
   });
 
   it("career jobs page renders the same breadcrumb trail used by other public hubs", () => {

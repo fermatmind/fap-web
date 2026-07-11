@@ -1,4 +1,5 @@
 import type { CareerDirectoryResponseRaw } from "@/lib/career/api/types";
+import type { CareerDirectoryFetchResult, CareerDirectoryFetchState } from "@/lib/career/api/fetchCareerDirectory";
 import type { CareerDatasetMemberAdapter } from "@/lib/career/adapters/types";
 import {
   formatCareerFamilyTitle,
@@ -17,6 +18,8 @@ export type CareerDirectoryFamilyFacetAdapter = {
 };
 
 export type CareerDirectoryAdapter = {
+  state: CareerDirectoryFetchState;
+  error: CareerDirectoryFetchResult["error"];
   authorityVersion: string | null;
   publicTruth: {
     publicDetailIndexableCount: number;
@@ -45,7 +48,7 @@ export type CareerDirectoryAdapter = {
 
 type AdaptCareerDirectoryInput = {
   locale: Locale;
-  payload: CareerDirectoryResponseRaw | null;
+  payload: CareerDirectoryResponseRaw | CareerDirectoryFetchResult | null;
 };
 
 const STATIC_OCCUPATION_TITLE_BY_SLUG = new Map(
@@ -174,7 +177,12 @@ function adaptMember(raw: unknown): CareerDatasetMemberAdapter | null {
 }
 
 export function adaptCareerDirectory(input: AdaptCareerDirectoryInput): CareerDirectoryAdapter {
-  const payload = input.payload ?? {};
+  const fetchResult = isRecord(input.payload) && "state" in input.payload && "payload" in input.payload
+    ? input.payload as CareerDirectoryFetchResult
+    : null;
+  const payload: CareerDirectoryResponseRaw = fetchResult?.payload
+    ?? (fetchResult ? null : input.payload as CareerDirectoryResponseRaw | null)
+    ?? {};
   const publicTruth = isRecord(payload.public_truth) ? payload.public_truth : {};
   const pagination = isRecord(payload.pagination) ? payload.pagination : {};
   const filters = isRecord(payload.filters) ? payload.filters : {};
@@ -183,6 +191,8 @@ export function adaptCareerDirectory(input: AdaptCareerDirectoryInput): CareerDi
   const rawItems = Array.isArray(payload.items) ? payload.items : [];
 
   return {
+    state: fetchResult?.state ?? (normalizeNumber(pagination.total) === 0 ? "empty" : "success"),
+    error: fetchResult?.error ?? null,
     authorityVersion: normalizeString(payload.authority_version),
     publicTruth: {
       publicDetailIndexableCount: normalizeNumber(publicTruth.public_detail_indexable_count),

@@ -10,6 +10,20 @@ type FetchCareerDirectoryInput = {
   query?: string | null;
 };
 
+export type CareerDirectoryFetchState = "success" | "empty" | "stale" | "unavailable";
+
+export type CareerDirectoryFetchResult = {
+  state: CareerDirectoryFetchState;
+  payload: CareerDirectoryResponseRaw | null;
+  error: null | {
+    endpoint: string;
+    status: number | null;
+    errorCode: string;
+    requestId: string | null;
+    durationMs: number;
+  };
+};
+
 function normalizePositiveInteger(value: number | undefined, fallback: number): number {
   if (typeof value !== "number" || !Number.isFinite(value)) {
     return fallback;
@@ -38,18 +52,39 @@ function buildQuery(input: FetchCareerDirectoryInput): string {
   return `?${query.toString()}`;
 }
 
-export async function fetchCareerDirectory(input: FetchCareerDirectoryInput): Promise<CareerDirectoryResponseRaw | null> {
+export async function fetchCareerDirectory(input: FetchCareerDirectoryInput): Promise<CareerDirectoryFetchResult> {
+  const endpoint = `/v0.5/career/directory${buildQuery(input)}`;
+  const startedAt = Date.now();
+
   try {
-    return await apiClient.get<CareerDirectoryResponseRaw>(`/v0.5/career/directory${buildQuery(input)}`, {
+    const payload = await apiClient.get<CareerDirectoryResponseRaw>(endpoint, {
       locale: input.locale,
       skipAuth: true,
       cache: "no-store",
     });
-  } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
-      return null;
-    }
+    const pagination = payload.pagination && typeof payload.pagination === "object" && !Array.isArray(payload.pagination)
+      ? payload.pagination as Record<string, unknown>
+      : {};
+    const total = Number(pagination.total ?? 0);
+    const cacheState = String((payload as Record<string, unknown>)?.cache_state ?? "").toLowerCase();
 
-    return null;
+    return {
+      state: cacheState === "stale" ? "stale" : total === 0 ? "empty" : "success",
+      payload,
+      error: null,
+    };
+  } catch (error) {
+    const apiError = error instanceof ApiError ? error : null;
+    const failure = {
+      endpoint,
+      status: apiError?.status ?? null,
+      errorCode: apiError?.errorCode ?? "NETWORK_ERROR",
+      requestId: apiError?.requestId ?? null,
+      durationMs: Date.now() - startedAt,
+    };
+
+    console.error("career_directory_unavailable", failure);
+
+    return { state: "unavailable", payload: null, error: failure };
   }
 }

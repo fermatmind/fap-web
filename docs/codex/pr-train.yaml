@@ -164,6 +164,45 @@ merge_policy_defaults:
     - sidecar issues are documented
 
 prs:
+  - id: CAREER-DIRECTORY-ERROR-SEMANTICS-01
+    repo: fap-web
+    depends_on: [CAREER-DIRECTORY-READ-MODEL-PERFORMANCE-01]
+    branch: codex/career-directory-error-semantics-01
+    base: main
+    title: "CAREER-DIRECTORY-ERROR-SEMANTICS-01 career directory error semantics"
+    train_scope: career_10k_stability
+    status: in_progress
+    scope:
+      - Model Career directory responses as success, empty, stale, or unavailable without converting backend failures into zero counts.
+      - Render a retryable unavailable state and an explicit last-known-good stale notice while preserving real filtered empty results.
+      - Log endpoint, status, error code, request ID, and duration without sensitive request data.
+    allowed_paths:
+      - app/(localized)/[locale]/career/jobs/page.tsx
+      - lib/career/api/fetchCareerDirectory.ts
+      - lib/career/adapters/adaptCareerDirectory.ts
+      - tests/contracts/career-job-index-backend.contract.test.tsx
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Add frontend Career content fallback, change backend/CMS authority, canonical, sitemap, llms, JSON-LD, or unrelated Career surfaces.
+      - Change timeout duration as the primary fix, deploy, publish, import, or mutate production/CMS/DB state.
+      - Pull runtime alerting, detail delivery, capacity, or rollout work from later train items.
+    validation:
+      - pnpm exec vitest run tests/contracts/career-job-index-backend.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    api_runtime_change: true
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+
   - id: PR-PRAC-01
     repo: fap-web
     repo_path: <workspace>/fap-web

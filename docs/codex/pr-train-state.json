@@ -1,4 +1,32 @@
 {
+  "CAREER-DIRECTORY-ERROR-SEMANTICS-01": {
+    "id": "CAREER-DIRECTORY-ERROR-SEMANTICS-01",
+    "repo": "fap-web",
+    "title": "CAREER-DIRECTORY-ERROR-SEMANTICS-01 career directory error semantics",
+    "base": "main",
+    "branch": "codex/career-directory-error-semantics-01",
+    "depends_on": ["CAREER-DIRECTORY-READ-MODEL-PERFORMANCE-01"],
+    "status": "focused_checks_passed",
+    "commit_sha": null,
+    "pr_url": null,
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "checks": {
+      "manifest_registration": {"status": "pass", "evidence": "The Career 10k Stability /goal explicitly authorized this fap-web PR and manifest/state registration."},
+      "dependency": {"status": "pass", "evidence": "Backend dependency PR #2952 is merged and its merge commit is present on fap-api origin/main."},
+      "focused_contract": {"status": "pass", "evidence": "career-job-index-backend contract passed 18 tests, including 408/429/500/502/503/504 unavailable semantics and retry UI."},
+      "typecheck": {"status": "pass", "evidence": "pnpm typecheck passed with bundled Node 24."},
+      "build": {"status": "pass", "evidence": "Production Next.js build passed with the required public API/site URLs and generated 206 static pages."},
+      "full_contracts": {"status": "pass", "evidence": "pnpm test:contract completed all four shards successfully; test-generated unrelated artifacts were removed from the diff."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "transitions": [
+      {"at": "2026-07-11T14:44:00+08:00", "from": "unregistered", "to": "in_progress", "note": "Started from latest fap-web origin/main in an isolated worktree; no deploy or authority mutation was performed."},
+      {"at": "2026-07-11T14:52:00+08:00", "from": "in_progress", "to": "focused_checks_passed", "note": "Focused contract, typecheck, production build, full four-shard contract suite, YAML/JSON, diff, and exact six-path scope validation passed."}
+    ]
+  },
   "train_name": "public-runtime-authority-convergence-train",
   "train_description": "Governance, inventory, contract, and report train for FermatMind Public Runtime Authority Convergence.",
   "started_at": "2026-05-08T00:00:00Z",
