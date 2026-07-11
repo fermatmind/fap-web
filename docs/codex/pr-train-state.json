@@ -6,8 +6,8 @@
     "base": "main",
     "branch": "codex/career-detail-delivery-10k-01",
     "depends_on": ["CAREER-DETAIL-READ-MODEL-10K-01"],
-    "status": "pr_open",
-    "commit_sha": "8ffae90b74c5a744a9aaeadfd088d61e4e37ae81",
+    "status": "ready_to_merge",
+    "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
     "merged_at": null,
@@ -20,9 +20,9 @@
       "typecheck": {"status": "pass", "evidence": "pnpm typecheck passes with bundled Node 24."},
       "build": {"status": "pass", "evidence": "Production Next.js build passes with NEXT_PUBLIC_API_URL and NEXT_PUBLIC_SITE_URL, compiling successfully and generating 206 static pages."},
       "full_contracts": {"status": "pass", "evidence": "pnpm test:contract passes all four shards: 698 files and 4033 tests; test-generated unrelated artifacts were removed from the diff."},
-      "github_required_checks": {"status": "pending", "evidence": null}
+      "github_required_checks": {"status": "pass", "evidence": "PR #1682 passes build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, and CodeQL."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -32,7 +32,8 @@
     "transitions": [
       {"at": "2026-07-11T18:10:00+08:00", "from": "unregistered", "to": "in_progress", "note": "Started from clean latest fap-web origin/main in an isolated worktree after backend PR5 dependency was verified merged; no deployment or authority mutation was performed."},
       {"at": "2026-07-11T18:20:00+08:00", "from": "in_progress", "to": "focused_checks_passed", "note": "Bounded detail HTML/API revalidation, shared metadata/body authority load, six-request cap, exact slug+locale tag invalidation, revocation-safe hard expiry, request parallelization, focused contracts, typecheck, production build, full four-shard contracts, and exact six-path scope validation passed."},
-      {"at": "2026-07-11T18:25:00+08:00", "from": "focused_checks_passed", "to": "pr_open", "note": "Committed and pushed the exact six-path scope as 8ffae90b, then opened PR #1682; GitHub required checks are pending."}
+      {"at": "2026-07-11T18:25:00+08:00", "from": "focused_checks_passed", "to": "pr_open", "note": "Committed and pushed the exact six-path scope as 8ffae90b, then opened PR #1682; GitHub required checks are pending."},
+      {"at": "2026-07-11T18:32:00+08:00", "from": "pr_open", "to": "ready_to_merge", "note": "All GitHub required checks passed; GitHub reports CLEAN/MERGEABLE and exact six-path scope validation passed."}
     ]
   },
   "CAREER-DIRECTORY-ERROR-SEMANTICS-01": {
