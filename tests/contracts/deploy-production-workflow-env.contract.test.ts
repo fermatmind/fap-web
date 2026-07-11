@@ -33,7 +33,7 @@ describe("production deploy workflow environment contract", () => {
     expect(workflow).toContain("github.event_name == 'workflow_dispatch'");
     expect(workflow).toContain("process.env.GITHUB_EVENT_NAME === 'workflow_dispatch'");
     expect(workflow).toContain("Manual production deploy failed closed: deploy_sha is required.");
-    expect(workflow).toContain("expected exactly one merged main PR");
+    expect(workflow).toContain("expected exactly one merged main PR for range commit");
     expect(workflow).toContain('test "$DEPLOY_SHA" = "$LATEST_MAIN_SHA"');
     expect(workflow).not.toContain("manual_risk_approval");
     expect(workflow).toContain("riskyLabelPatterns");

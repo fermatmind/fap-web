@@ -30172,6 +30172,74 @@
       "history": [{"at": "2026-07-10T16:36:55+08:00", "status": "planned", "summary": "Registered SECURITY-123-WEB-09; execution waits for SECURITY-123-WEB-08 merge."}, {"at": "2026-07-10T20:10:00+08:00", "status": "in_progress", "summary": "Started WEB-09 from origin/main after WEB-08 squash merge; scope is limited to backend-gated Big Five facet-hub CollectionPage JSON-LD, focused contracts, scope helper, and train metadata, with WEB-08 post-merge ledger reconciliation included in this same docs scope."}, {"at": "2026-07-10T20:28:00+08:00", "status": "ready_to_merge", "summary": "Implementation is ready; focused facet-hub JSON-LD contracts, lint, spacing, typecheck, 206-route production build, Big Five/Enneagram freezes, manifest parse, diff check, and scope validation passed. Local full contracts are sidecar-limited by unrelated CMS-23 scope, Node20 cleanup timeouts, and MBTI checkout timing debt."}, {"at": "2026-07-10T20:30:00+08:00", "status": "pr_open", "summary": "Opened PR #1658 from WEB-09 commits 50bfea71/f209a64c; required GitHub checks are pending."}, {"at": "2026-07-10T20:38:00+08:00", "status": "ready_to_merge", "summary": "PR #1658 head 35f40092 passed build, contracts, Big5 freeze, Enneagram freeze, CodeQL, and analyze; ready for squash merge."}, {"at": "2026-07-10T20:42:00+08:00", "status": "merged", "summary": "PR #1658 merged as squash commit 1c5b23cc388e4266d45ca2b0eedb322dce16a157; origin/main contains the merge, remote branch deletion is confirmed, and the local task worktree was cleaned."}],
       "sidecar_issues": ["external-mbti-cms23-scope-guard-security-123-web-09", "external-contract-runner-timeout-security-123-web-09"],
       "updated_at": "2026-07-10T20:42:00+08:00"
+    },
+    {
+      "id": "SECURITY-124-WEB-01",
+      "repo": "fap-web",
+      "repo_path": "<workspace>/fap-web",
+      "branch": "codex/security-124-web-01",
+      "base": "main",
+      "depends_on": [],
+      "status": "in_progress",
+      "train_scope": "security_124_web_production_deploy_change_ranges",
+      "title": "SECURITY-124-WEB-01: validate production deploy change ranges",
+      "checks": {
+        "authorization": {
+          "status": "passed",
+          "evidence": "User explicitly authorized SECURITY-124-WEB-01 and manifest/state registration without any workflow dispatch or deployment."
+        },
+        "local": {
+          "status": "passed",
+          "passed": [
+            "focused production deploy range contracts: 3 files, 15 tests",
+            "pnpm lint",
+            "pnpm lint:spacing",
+            "pnpm typecheck",
+            "Node 24 production build: 206 routes",
+            "full contracts: 1045 + 953 + 995 + 977 tests",
+            "Big Five freeze: 29 tests",
+            "Enneagram freeze: 24 tests",
+            "manifest/state/workflow parse",
+            "git diff --check",
+            "changed-file scope validation"
+          ],
+          "failed": []
+        },
+        "github": {
+          "status": "pending",
+          "passed": [],
+          "failed": []
+        },
+        "scope": {
+          "status": "passed",
+          "evidence": "Changed and untracked files are limited to the production workflow, three deploy workflow contracts, and manifest/state metadata; generated contract artifacts were restored to HEAD."
+        }
+      },
+      "scope_validation": {
+        "allowed_paths_only": true,
+        "local_validation_passed": true,
+        "github_checks_green": false,
+        "post_merge_revalidated": false
+      },
+      "failure_reason": null,
+      "pr_url": null,
+      "commit_sha": null,
+      "merged_at": null,
+      "remote_branch_deleted": false,
+      "local_cleanup_executed": false,
+      "history": [
+        {
+          "at": "2026-07-11T09:35:00+08:00",
+          "status": "in_progress",
+          "summary": "Started from latest origin/main in an isolated worktree; scope is limited to the production range guard, focused contracts, and train metadata, with all deploy execution forbidden."
+        },
+        {
+          "at": "2026-07-11T09:42:00+08:00",
+          "status": "local_verified",
+          "summary": "Focused contracts, lint, spacing, typecheck, Node 24 production build, all four contract shards, Big Five and Enneagram freeze gates, manifest parsing, diff check, and exact scope validation passed."
+        }
+      ],
+      "updated_at": "2026-07-11T09:42:00+08:00"
     }
   ],
   "sidecar_issues": [
