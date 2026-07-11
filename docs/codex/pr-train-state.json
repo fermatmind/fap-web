@@ -44338,8 +44338,8 @@
     "branch": "codex/big5-sitemap-private-path-gate-precision-repair-01",
     "title": "BIG5-SITEMAP-PRIVATE-PATH-GATE-PRECISION-REPAIR-01: repair sitemap private-path gate precision",
     "depends_on": ["BIG5-114-LLMS-WORKER-CACHE-CONSISTENCY-REPAIR-01"],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "a988218a951c8c2abd02102f8b98ababaff371a0",
     "pr_url": null,
     "checks": {
       "authorization": {"status": "pass", "evidence": "User explicitly authorized this exact fap-web repair plus manifest/state registration, staging after merge, and a new exact-SHA production authorization request."},
@@ -44352,8 +44352,8 @@
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": [{"at": "2026-07-12T04:06:00+08:00", "status": "in_progress", "summary": "Started from exact clean fap-web origin/main 674f72ed in an isolated worktree. Scope is only deploy sitemap private-path precision, focused contracts, and authorized train metadata; no sitemap authority/content change or deploy is included in this PR."}, {"at": "2026-07-12T04:14:00+08:00", "status": "local_verified", "summary": "Anchored sitemap private-family detection at the URL host/root boundary. Both en/zh Big Five facets/order canonicals pass, true localized and unlocalized private URL families plus test-take routes remain fail-closed, and all manifest checks passed within the exact five-path scope."}],
-    "updated_at": "2026-07-12T04:14:00+08:00"
+    "history": [{"at": "2026-07-12T04:06:00+08:00", "status": "in_progress", "summary": "Started from exact clean fap-web origin/main 674f72ed in an isolated worktree. Scope is only deploy sitemap private-path precision, focused contracts, and authorized train metadata; no sitemap authority/content change or deploy is included in this PR."}, {"at": "2026-07-12T04:14:00+08:00", "status": "local_verified", "summary": "Anchored sitemap private-family detection at the URL host/root boundary. Both en/zh Big Five facets/order canonicals pass, true localized and unlocalized private URL families plus test-take routes remain fail-closed, and all manifest checks passed within the exact five-path scope."}, {"at": "2026-07-12T04:15:00+08:00", "status": "committed", "summary": "Committed the exact five-path repair and contract scope at a988218a951c8c2abd02102f8b98ababaff371a0 using path-limited staging. No workflow dispatch or deploy occurred."}],
+    "updated_at": "2026-07-12T04:15:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
