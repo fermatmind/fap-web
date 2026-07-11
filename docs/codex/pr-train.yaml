@@ -164,6 +164,50 @@ merge_policy_defaults:
     - sidecar issues are documented
 
 prs:
+  - id: ENNEAGRAM-90-FRONTEND-ROUTE-RESOLVER-01
+    repo: fap-web
+    depends_on: [ENNEAGRAM-90-BACKEND-SITEMAP-ENTITY-LOCALE-01]
+    branch: codex/enneagram-90-frontend-route-resolver-01
+    base: main
+    title: "ENNEAGRAM-90-FRONTEND-ROUTE-RESOLVER-01: support Enneagram wing and subtype public routes"
+    train_scope: enneagram_90_frontend_route_resolver
+    status: user_authorized
+    scope:
+      - Extend Enneagram public route resolver to support /personality/enneagram/wings/:code.
+      - Extend Enneagram public route resolver to support /personality/enneagram/type-:n/instincts/:subtype.
+      - Preserve backend/CMS public content asset authority with no local editorial fallback content.
+      - Preserve existing hub, center, and core type behavior.
+      - Keep invalid routes such as bare wing codes, missing instincts segment, unsupported subtype aliases, and tritype routes fail-closed.
+    allowed_paths:
+      - components/personality/PublicContentAssetRenderer.tsx
+      - lib/cms/personality-public-content-assets.ts
+      - lib/personality/enneagramPublicRoutes.ts
+      - tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Add frontend editorial fallback content, generated SEO artifacts, sitemap extractor changes, llms changes, backend code, CMS writes, production imports, publish, deploy, or cache warm.
+      - Modify Big Five route semantics or unrelated personality/test/payment/report surfaces.
+      - Treat frontend route enumeration as content authority; backend/CMS public asset API remains the authority.
+    validation:
+      - pnpm exec vitest run tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts -t "defines Enneagram V1 route candidates|uses encoded Enneagram wing and subtype" --reporter=dot
+      - pnpm typecheck
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    api_runtime_change: true
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+
   - id: CAREER-DIRECTORY-ERROR-SEMANTICS-01
     repo: fap-web
     depends_on: [CAREER-DIRECTORY-READ-MODEL-PERFORMANCE-01]

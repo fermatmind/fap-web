@@ -20,6 +20,8 @@ function entityLabel(asset: PersonalityPublicContentAsset, locale: Locale): stri
     facet_detail: { en: "Facet Detail", zh: "细分面向详情" },
     center: { en: "Center", zh: "中心" },
     core_type: { en: "Core type", zh: "核心型" },
+    wing: { en: "Wing", zh: "翼型" },
+    instinctual_subtype: { en: "Instinctual subtype", zh: "本能副型" },
   };
 
   return labels[asset.entityType][locale];
