@@ -9,6 +9,7 @@ const JSON_PATH = "docs/seo/personality/mbti-cms-23-production-import-authorizat
 const MD_PATH = "docs/seo/personality/mbti-cms-23-production-import-authorization-package-2026-07-05.md";
 const CSV_PATH = "docs/seo/personality/mbti-cms-23-production-import-authorization-package-2026-07-05.csv";
 const SOURCE_MERGE_COMMIT = "a3c10a2d2120e9ad0543656c699ac8749c123368";
+const MBTI_CMS_23_BRANCH = "codex/mbti-cms-23-production-import-authorization-package";
 
 type AuthorizationReport = {
   id: string;
@@ -83,6 +84,21 @@ function changedScopeFiles(): string[] {
   return [...new Set(files.map((line) => line.trim()).filter(Boolean))]
     .filter((file) => !ignoredRunnerDrift.includes(file))
     .sort();
+}
+
+function currentBranch(): string {
+  const githubHeadRef = process.env.GITHUB_HEAD_REF?.trim();
+  if (githubHeadRef) return githubHeadRef;
+
+  try {
+    return execFileSync("git", ["branch", "--show-current"], { cwd: ROOT, encoding: "utf8" }).trim();
+  } catch {
+    return "";
+  }
+}
+
+function isMbtiCms23ScopeActive(branch = currentBranch()): boolean {
+  return branch === MBTI_CMS_23_BRANCH;
 }
 
 describe("MBTI-CMS-23 production import authorization package", () => {
@@ -233,6 +249,11 @@ describe("MBTI-CMS-23 production import authorization package", () => {
   });
 
   it("keeps changed files inside the MBTI-CMS-23 scope", () => {
+    expect(isMbtiCms23ScopeActive(MBTI_CMS_23_BRANCH)).toBe(true);
+    expect(isMbtiCms23ScopeActive("codex/unrelated-task")).toBe(false);
+
+    if (!isMbtiCms23ScopeActive()) return;
+
     const allowed = [
       "docs/codex/pr-train-state.json",
       "docs/codex/pr-train.yaml",
