@@ -43915,23 +43915,43 @@
     "branch": "codex/audit-prr2-web-04-pin-actions",
     "title": "AUDIT-PRR2-WEB-04: pin GitHub Actions to immutable SHAs",
     "depends_on": ["AUDIT-PRR2-WEB-03"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "merged",
+    "commit_sha": "fd18301e7af4d5f8cc41334845eac243715c2c20",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1684",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The PRR2 /goal explicitly authorized WEB-04 and manifest/state registration."},
       "dependency": {"status": "pass", "evidence": "WEB-03 is merged at 6cb6f5b008e334f70c40c19367cc4555b2b07c9e and post-merge revalidated."}
     },
-    "scope_validation": {"allowed_paths_only": null, "local_validation_passed": false, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-11T10:03:49Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {"at": "2026-07-11T09:17:00Z", "status": "in_progress", "summary": "Started from current origin/main. Scope is immutable action references only; no workflow behavior, dispatch, deploy, environment, secret, CMS, or production mutation is authorized."},
       {"at": "2026-07-11T09:20:00Z", "status": "local_verified", "summary": "Immutable-action contract and deploy guards passed 14/14; actionlint passed with two exact pre-existing findings sidecarred, lint baseline warnings only, spacing, cold typecheck, workflow/YAML/manifest/state parse, diff check, and exact nine-path scope validation passed."}
       ,{"at": "2026-07-11T09:26:00Z", "status": "github_check_repair", "summary": "Inspected failed contracts job: runtime contracts passed, but three historical tests still required mutable v4/v6 refs. Updated them within WEB-04 scope to require 40-character SHAs plus readable major-version comments; focused contracts passed 16/16."}
+      ,{"at": "2026-07-11T10:03:49Z", "status": "merged", "summary": "PR #1684 passed required checks and merged at fd18301e7af4d5f8cc41334845eac243715c2c20; origin/main contains it and task branches are deleted."}
     ],
-    "updated_at": "2026-07-11T09:20:00Z"
+    "updated_at": "2026-07-11T10:03:49Z"
+  },
+  "AUDIT-PRR2-WEB-05": {
+    "id": "AUDIT-PRR2-WEB-05",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/audit-prr2-web-05-csp-nonce",
+    "title": "AUDIT-PRR2-WEB-05: migrate CSP to per-request nonces",
+    "depends_on": ["AUDIT-PRR2-WEB-04"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {"authorization": {"status": "pass", "evidence": "The PRR2 /goal explicitly authorized WEB-05 and manifest/state registration."}, "dependency": {"status": "pass", "evidence": "WEB-04 is merged at fd18301e7af4d5f8cc41334845eac243715c2c20 and contained in origin/main."}},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [{"at": "2026-07-11T11:25:00Z", "status": "in_progress", "summary": "Started per-request nonce CSP with report-only non-production rollout and production enforcement; no environment mutation, deploy, CMS/SEO payload change, or production write is authorized."}, {"at": "2026-07-11T11:31:00Z", "status": "local_check_failed_external", "summary": "Initial full-contract run reported an MBTI PDF snapshot hash mismatch."}, {"at": "2026-07-11T11:34:00Z", "status": "in_progress", "summary": "Re-audit proved clean main passes and WEB-05 proxy.ts changes the declared print-impact input. Reclassified this as current-scope integration work and synchronized the deterministic hash within WEB-05."}, {"at": "2026-07-11T11:39:00Z", "status": "local_verified", "summary": "Nonce CSP/proxy/PDF guards 27/27, typecheck, lint with baseline warnings only, spacing, four full contract shards, Big Five 29/29, Enneagram 24/24, Node 24 production build, local production header/HTML nonce match, YAML/JSON/diff and exact nine-path scope validation passed."}],
+    "updated_at": "2026-07-11T11:39:00Z"
   }
 }
