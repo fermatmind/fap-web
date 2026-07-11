@@ -33,6 +33,10 @@ Options:
   --forbid-jsonld=FAQPage
   --forbid-hreflang
   --expect-hreflang=en=<url>,zh-CN=<url>,x-default=<url>
+  --expect-body-visual=<public-cdn-url>
+  --expect-body-anchor=<anchor-or-id>
+  --expect-answer-block=<answer-block-id>
+  --forbid-body-visual
   --retry=3
   --retry-delay-ms=60000
   --timeout-ms=30000
@@ -121,6 +125,10 @@ export function parseArgs(argv) {
     forbidJsonLd: [],
     forbidHreflang: false,
     expectHreflang: {},
+    expectBodyVisual: "",
+    expectBodyAnchor: "",
+    expectAnswerBlock: "",
+    forbidBodyVisual: false,
     json: false,
   };
 
@@ -182,6 +190,18 @@ export function parseArgs(argv) {
         break;
       case "--expect-hreflang":
         options.expectHreflang = parseHreflangMap(value);
+        break;
+      case "--expect-body-visual":
+        options.expectBodyVisual = String(value);
+        break;
+      case "--expect-body-anchor":
+        options.expectBodyAnchor = String(value);
+        break;
+      case "--expect-answer-block":
+        options.expectAnswerBlock = String(value);
+        break;
+      case "--forbid-body-visual":
+        options.forbidBodyVisual = true;
         break;
       case "--retry":
         options.retry = parsePositiveInt(value, DEFAULT_RETRY_COUNT);
@@ -251,6 +271,76 @@ function extractHreflangLinks(html, baseUrl) {
   return links;
 }
 
+function extractArticleBody(html) {
+  const source = String(html || "");
+  const opening = source.match(/<article\b[^>]*data-testid=["']article-detail-content["'][^>]*>/i);
+  if (!opening || opening.index === undefined) {
+    return "";
+  }
+
+  const start = opening.index;
+  const end = source.indexOf("</article>", start + opening[0].length);
+  return end >= 0 ? source.slice(start, end + "</article>".length) : "";
+}
+
+function decodedImageUrl(value, baseUrl) {
+  if (!value) {
+    return "";
+  }
+
+  try {
+    const parsed = new URL(value, baseUrl);
+    if (parsed.pathname === "/_next/image" && parsed.searchParams.get("url")) {
+      return new URL(parsed.searchParams.get("url"), baseUrl).toString();
+    }
+    return parsed.toString();
+  } catch {
+    return "";
+  }
+}
+
+function extractBodyImages(articleBody, baseUrl) {
+  const tags = String(articleBody || "").match(/<img\b[^>]*>/gi) || [];
+  return tags.map((tag) => {
+    const candidates = [readAttribute(tag, "src")];
+    const srcset = readAttribute(tag, "srcset");
+    if (srcset) {
+      candidates.push(...srcset.split(",").map((item) => item.trim().split(/\s+/)[0]));
+    }
+
+    return {
+      alt: normalizeSpace(readAttribute(tag, "alt")),
+      className: readAttribute(tag, "class"),
+      urls: Array.from(new Set(candidates.map((item) => decodedImageUrl(item, baseUrl)).filter(Boolean))),
+    };
+  });
+}
+
+function hasElementId(html, expectedId) {
+  if (!expectedId) {
+    return false;
+  }
+  const tags = String(html || "").match(/<[^>]+>/g) || [];
+  return tags.some((tag) => readAttribute(tag, "id") === expectedId);
+}
+
+function isSafePublicBodyVisualUrl(value) {
+  try {
+    const parsed = new URL(value);
+    const host = parsed.hostname.toLowerCase();
+    return (
+      parsed.protocol === "https:" &&
+      !parsed.username &&
+      !parsed.password &&
+      parsed.port === "" &&
+      (host === "fermatmind.com" || host.endsWith(".fermatmind.com")) &&
+      !/(?:^|[?&])(token|access_token|result_access_token|order_id|session_id)=/i.test(parsed.search)
+    );
+  } catch {
+    return false;
+  }
+}
+
 function robotsTokens(value) {
   return new Set(
     String(value || "")
@@ -301,6 +391,37 @@ function checkHtml(url, fetched, options) {
   const hreflangLinks = extractHreflangLinks(fetched.body, url);
   const expectedCanonical =
     options.expectCanonical === true ? url : options.expectCanonical ? String(options.expectCanonical) : "";
+  const articleBody = extractArticleBody(fetched.body);
+  const bodyImages = extractBodyImages(articleBody, url);
+  const expectedBodyVisual = String(options.expectBodyVisual || "");
+  const matchingBodyImages = expectedBodyVisual
+    ? bodyImages.filter((image) => image.urls.some((candidate) => sameNormalizedUrl(candidate, expectedBodyVisual)))
+    : [];
+  const bodyAnchorMatch = hasElementId(articleBody, String(options.expectBodyAnchor || ""));
+  const answerBlockMatch = hasElementId(articleBody, String(options.expectAnswerBlock || ""));
+
+  if ((expectedBodyVisual || options.forbidBodyVisual) && !articleBody) {
+    addIssue(issues, "missing-article-body-container");
+  }
+  if (expectedBodyVisual) {
+    if (!isSafePublicBodyVisualUrl(expectedBodyVisual)) {
+      addIssue(issues, "unsafe-body-visual-url", expectedBodyVisual);
+    }
+    if (matchingBodyImages.length === 0) {
+      addIssue(issues, "body-visual-not-public-visible", expectedBodyVisual);
+    } else if (!matchingBodyImages.some((image) => image.alt !== "")) {
+      addIssue(issues, "body-visual-alt-missing");
+    }
+  }
+  if (options.expectBodyAnchor && !bodyAnchorMatch) {
+    addIssue(issues, "body-anchor-mismatch", String(options.expectBodyAnchor));
+  }
+  if (options.expectAnswerBlock && !answerBlockMatch) {
+    addIssue(issues, "answer-block-mismatch", String(options.expectAnswerBlock));
+  }
+  if (options.forbidBodyVisual && bodyImages.some((image) => image.className.includes("aspect-[16/9]"))) {
+    addIssue(issues, "forbidden-body-visual");
+  }
 
   if (fetched.status < 200 || fetched.status >= 300) {
     addIssue(issues, "bad-status", `status=${fetched.status}`);
@@ -403,6 +524,21 @@ function checkHtml(url, fetched, options) {
       canonical,
       jsonld_types: jsonLdTypes,
       hreflang_links: hreflangLinks,
+      body_visual: {
+        ok:
+          !expectedBodyVisual ||
+          (isSafePublicBodyVisualUrl(expectedBodyVisual) &&
+            matchingBodyImages.some((image) => image.alt !== "") &&
+            (!options.expectBodyAnchor || bodyAnchorMatch) &&
+            (!options.expectAnswerBlock || answerBlockMatch)),
+        required: Boolean(expectedBodyVisual),
+        url: expectedBodyVisual,
+        public_visible: matchingBodyImages.length > 0,
+        body_anchor_match: bodyAnchorMatch,
+        answer_block_match: answerBlockMatch,
+        alt_text_present: matchingBodyImages.some((image) => image.alt !== ""),
+        url_count: matchingBodyImages.length,
+      },
     },
   };
 }
@@ -504,6 +640,10 @@ export async function verifyPublicArticleRelease(rawOptions) {
     forbidJsonLd: [],
     forbidHreflang: false,
     expectHreflang: {},
+    expectBodyVisual: "",
+    expectBodyAnchor: "",
+    expectAnswerBlock: "",
+    forbidBodyVisual: false,
     ...rawOptions,
   };
   const attempts = [];
@@ -523,6 +663,16 @@ export async function verifyPublicArticleRelease(rawOptions) {
 
   const finalAttempt = attempts[attempts.length - 1];
   const ok = Boolean(finalAttempt?.ok);
+  const bodyVisualCheck = finalAttempt?.checks?.html?.body_visual || {
+    ok: !options.expectBodyVisual,
+    required: Boolean(options.expectBodyVisual),
+    url: String(options.expectBodyVisual || ""),
+    public_visible: false,
+    body_anchor_match: false,
+    answer_block_match: false,
+    alt_text_present: false,
+    url_count: 0,
+  };
 
   return {
     ok,
@@ -537,6 +687,16 @@ export async function verifyPublicArticleRelease(rawOptions) {
     },
     attempts,
     issues: finalAttempt?.issues || [],
+    checks: {
+      body_visual: bodyVisualCheck,
+    },
+    body_visual_required: Boolean(options.expectBodyVisual),
+    body_visual_url: String(options.expectBodyVisual || ""),
+    body_visual_public_visible: Boolean(bodyVisualCheck.public_visible),
+    body_anchor_match: Boolean(bodyVisualCheck.body_anchor_match),
+    answer_block_match: Boolean(bodyVisualCheck.answer_block_match),
+    alt_text_present: Boolean(bodyVisualCheck.alt_text_present),
+    body_visual_url_count: Number(bodyVisualCheck.url_count || 0),
     external_search_submission_attempted: false,
     cms_content_write_attempted: false,
     production_write_attempted: false,
