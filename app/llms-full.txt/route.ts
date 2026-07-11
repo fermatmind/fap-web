@@ -86,7 +86,7 @@ const LLMS_FULL_RESPONSE_TIMEOUT = Symbol("llms-full-response-timeout");
 const LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT = 1046 * 2;
 const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2;
 const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2;
-const LLMS_FULL_BIG_FIVE_ZH_ENTRY_LIMIT = 20;
+const LLMS_FULL_BIG_FIVE_CANONICAL_ENTRY_LIMIT = 114;
 const LLMS_FULL_REQUIRED_PERSONALITY_PILOT_PATHS = [
   "/en/personality/intj-a-vs-intj-t",
   "/zh/personality/istj-a",
@@ -280,7 +280,7 @@ function buildBigFivePublicAssetEntry(path: string): LlmsFullEntry | null {
   const locale = localeFromLocalizedPath(normalized);
   const slug = extractSlugFromPath(normalized);
 
-  if (locale !== "zh" || !slug) {
+  if (!locale || !slug) {
     return null;
   }
 
@@ -815,7 +815,7 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
         .filter((entry): entry is LlmsFullEntry => Boolean(entry))
     )
     .catch(() => []);
-  const bigFiveZhEntriesPromise = listBackendSitemapBigFiveZhPaths({ limit: LLMS_FULL_BIG_FIVE_ZH_ENTRY_LIMIT })
+  const bigFiveZhEntriesPromise = listBackendSitemapBigFiveZhPaths({ limit: LLMS_FULL_BIG_FIVE_CANONICAL_ENTRY_LIMIT })
     .then((paths) =>
       paths
         .map((path) => buildBigFivePublicAssetEntry(path))

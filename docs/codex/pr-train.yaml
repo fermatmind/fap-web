@@ -6083,7 +6083,6 @@ prs:
     goal: "Repair llms-full personality enumeration so the 32 backend-authoritative A/T comparison pages remain present after the 64 detail page cohort is enriched."
     artifacts:
       - app/llms-full.txt/route.ts
-      - tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts
       - tests/contracts/helpers/currentPrScope.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
@@ -24377,3 +24376,47 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: AUDIT-PRR2-API-15
+
+  - id: BIG5-114-SEO-RUNTIME-RELEASE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-114-seo-runtime-release-01
+    base: main
+    title: "BIG5-114-SEO-RUNTIME-RELEASE-01: release 114 canonical Big Five SEO runtime entries"
+    depends_on: [BIG5-114-INDEXABILITY-PUBLISH-GATE-01]
+    mode: execute
+    train_scope: big5_114_seo_runtime_release
+    status: user_authorized
+    goal: "Consume backend authority for 114 canonical Big Five pages across renderer, metadata, canonical, hreflang, JSON-LD, sitemap, llms, and llms-full while keeping 10 zh Legacy aliases redirect-only."
+    allowed_paths:
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - lib/seo/backendSitemapSource.ts
+      - tests/contracts/big5-114-seo-runtime-release-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts
+      - tests/contracts/personality-llms-full-comparison-repair-01.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - frontend editorial fallback, backend or CMS mutation, production deploy, search submission, route expansion beyond the 114 backend-authorized canonical pages, or promotion of the 10 zh Legacy aliases
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/big5-114-seo-runtime-release-01.contract.test.ts tests/contracts/career-llms-alignment.contract.test.ts tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts tests/contracts/security-123-web-09-big-five-facet-hub-jsonld.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json"))'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: BIG5-114-RUNTIME-CLOSEOUT-01
