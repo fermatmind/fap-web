@@ -24420,3 +24420,43 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: BIG5-114-RUNTIME-CLOSEOUT-01
+
+  - id: BIG5-ZH-LEGACY-EXACT-301-REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-zh-legacy-exact-301-repair-01
+    base: main
+    title: "BIG5-ZH-LEGACY-EXACT-301-REPAIR-01: return exact 301 for ten Chinese Legacy aliases"
+    depends_on: [BIG5-ZH-LEGACY-ROUTE-DEPRECATION-02, BIG5-114-SEO-RUNTIME-RELEASE-01]
+    mode: execute
+    train_scope: big5_zh_legacy_exact_301_repair
+    status: user_authorized
+    goal: "Return exact HTTP 301 for the ten frozen Chinese Big Five Legacy aliases while preserving all English Legacy canonical routes."
+    allowed_paths:
+      - next.config.mjs
+      - tests/contracts/big5-zh-legacy-exact-301-repair-01.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - English Big Five Legacy redirects or canonical behavior
+      - CMS content, backend authority, sitemap, llms, JSON-LD, indexability, production deploy, or production import
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/big5-zh-legacy-exact-301-repair-01.contract.test.ts tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json"))'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: BIG5-114-RUNTIME-CLOSEOUT-01
