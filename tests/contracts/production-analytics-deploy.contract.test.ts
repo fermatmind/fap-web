@@ -18,7 +18,12 @@ describe("production analytics deploy contract", () => {
     expect(deployScript).toContain('phase=${phase} path=${path}');
     expect(deployScript).toContain("fm-analytics-bootstrap");
     expect(deployScript).toContain("data-analytics-bootstrap");
-    expect(deployScript).toContain("/zh/personality/intj-a");
+    expect(deployScript).toContain(
+      'ANALYTICS_PUBLIC_PATHS="${ANALYTICS_PUBLIC_PATHS:-/zh /zh/personality /zh/articles}"',
+    );
+    expect(deployScript).not.toContain(
+      'ANALYTICS_PUBLIC_PATHS="${ANALYTICS_PUBLIC_PATHS:-/zh /zh/personality/intj-a',
+    );
     expect(deployScript).toContain("/zh/articles");
     expect(deployScript).toContain("/zh/result/SYNTHETIC_DO_NOT_USE");
     expect(deployScript).toContain("/zh/orders/lookup");
