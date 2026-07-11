@@ -40,7 +40,7 @@ describe("topics cleanup contract", () => {
     });
   });
 
-  it("frontend sitemap config includes public topic routes and does not exclude them", async () => {
+  it("does not invent topic detail routes in the frontend sitemap adapter", async () => {
     const config = requireFromRoot("./next-sitemap.config.js");
     const additionalPaths = await config.additionalPaths();
     const excluded = Array.isArray(config.exclude) ? config.exclude : [];
@@ -51,9 +51,7 @@ describe("topics cleanup contract", () => {
     expect(excluded).not.toEqual(
       expect.arrayContaining(["/en/topics", "/zh/topics", "/en/topics/*", "/zh/topics/*"])
     );
-    expect(generatedTopicLocs).toEqual(
-      expect.arrayContaining(["/en/topics/mbti", "/zh/topics/mbti"])
-    );
+    expect(generatedTopicLocs).toEqual([]);
   });
 
   it("legacy local topics source file is removed", () => {

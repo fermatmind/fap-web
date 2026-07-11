@@ -43709,19 +43709,19 @@
     "branch": "codex/audit-prr2-web-02-revalidation-hmac",
     "title": "AUDIT-PRR2-WEB-02: protect revalidation with HMAC and replay controls",
     "depends_on": ["AUDIT-PRR2-WEB-01"],
-    "status": "ready_to_merge",
-    "commit_sha": "f24dc247370232338eea490b10946b3bb4f220c5",
+    "status": "merged",
+    "commit_sha": "5160921d352756fb5007a7dac57198608bd1d012",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1681",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The PRR2 /goal explicitly authorized WEB-02."},
       "dependency": {"status": "pass", "evidence": "WEB-01 is merged at 12fe250fa2b7c7a06e2e94b6164d7b6af736e8ab."},
       "local": {"status": "pass", "evidence": "Node 24 focused HMAC contracts 20/20, lint with baseline warnings only, spacing, typecheck, full four-shard contracts, Big Five 29/29, Enneagram 24/24, and 206-route production build passed."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-11T07:28:46Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {"at": "2026-07-11T07:00:00Z", "status": "in_progress", "summary": "Started from current origin/main; no deploy, environment, Redis, CMS, SEO, or production mutation is in scope."},
       {"at": "2026-07-11T07:16:00Z", "status": "local_verified", "summary": "Exact-body HMAC, timestamp tolerance, nonce replay, Redis fail-closed, rate limit, audit, smoke, allowlist, full contracts, freeze suites, lint/spacing/typecheck and production build passed. Backend static-token sender gap recorded as sidecar."}
@@ -43729,6 +43729,33 @@
       ,{"at": "2026-07-11T07:20:00Z", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1681; required GitHub checks are pending and no deploy or environment mutation occurred."}
       ,{"at": "2026-07-11T07:26:00Z", "status": "ready_to_merge", "summary": "All six required GitHub checks passed on head f24dc247; PR #1681 is mergeable, review-unblocked, and its thirteen paths match the manifest."}
     ],
-    "updated_at": "2026-07-11T07:26:00Z"
+    "updated_at": "2026-07-11T08:55:00Z"
+  },
+  "AUDIT-PRR2-WEB-03": {
+    "id": "AUDIT-PRR2-WEB-03",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/audit-prr2-web-03-topic-backend-authority",
+    "title": "AUDIT-PRR2-WEB-03: remove local topic discoverability fixtures",
+    "depends_on": ["AUDIT-PRR2-WEB-02"],
+    "status": "committed",
+    "commit_sha": "677dac43",
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "pass", "evidence": "The PRR2 /goal explicitly authorized WEB-03 and manifest/state registration."},
+      "dependency": {"status": "pass", "evidence": "WEB-02 is merged at 5160921d352756fb5007a7dac57198608bd1d012 and contained in origin/main."},
+      "backend_contract": {"status": "pass", "evidence": "The existing public /v0.5/topics contract supplies locale, public, and indexable exposure state; no backend mutation is required."}
+    },
+    "scope_validation": {"allowed_paths_only": null, "local_validation_passed": false, "github_checks_green": false, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-11T08:55:00Z", "status": "in_progress", "summary": "Started from current origin/main after WEB-02 reconciliation. Scope is frontend topic discoverability authority only; no CMS mutation, exposure widening, deploy, or production write is authorized."},
+      {"at": "2026-07-11T09:06:30Z", "status": "local_verified", "summary": "Focused authority/LKG contracts 26/26 plus repaired historical governance contracts passed; lint with baseline warnings only, spacing, typecheck, 206-route production build, four contract shards, Big Five 29/29, Enneagram 24/24, manifest/state parse, diff check, and exact allowed-path scope validation passed."}
+      ,{"at": "2026-07-11T09:07:00Z", "status": "committed", "summary": "Committed the exact eighteen-path WEB-03 scope; final commit hash is recorded after amend."}
+    ],
+    "updated_at": "2026-07-11T09:06:30Z"
   }
 }

@@ -289,8 +289,6 @@ describe("sitemap indexability contract", () => {
 
     expect(locs).toEqual(
       expect.arrayContaining([
-        "/en/topics/mbti",
-        "/zh/topics/mbti",
         "/en/personality",
         "/zh/personality",
         "/en/articles",
@@ -301,6 +299,7 @@ describe("sitemap indexability contract", () => {
         "/zh/career/recommendations/mbti/intj-a",
       ])
     );
+    expect(locs.some((loc) => /^\/(?:en|zh)\/topics\/.+/.test(loc))).toBe(false);
     expect(locs).toContain("/en/career/jobs/backend-architect");
     expect(locs).toContain("/zh/career/jobs/backend-architect");
     expect(locs).not.toContain("/en/help/about");

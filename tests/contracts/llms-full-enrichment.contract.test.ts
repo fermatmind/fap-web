@@ -192,8 +192,12 @@ function mockLlmsFullDependencies({ includeSurfaces = true }: { includeSurfaces?
     })),
   }));
   vi.doMock("@/lib/cms/topics", () => ({
-    listTopics: vi.fn(async (params: { locale: "en" | "zh" }) => ({
-      items: params.locale === "en" ? [{ slug: "mbti", title: "MBTI", isIndexable: true }] : [],
+    listDiscoverableTopicsWithLastKnownGood: vi.fn(async (params: { locale: "en" | "zh" }) => ({
+      value: {
+        items: params.locale === "en" ? [{ slug: "mbti", title: "MBTI", isIndexable: true }] : [],
+      },
+      source: "fresh",
+      stale: false,
     })),
     getTopicBySlug: vi.fn(async () => ({
       answerSurface: includeSurfaces ? buildAnswerSurface({ summary: "Topic answer summary from CMS." }) : null,

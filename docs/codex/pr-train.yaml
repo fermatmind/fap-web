@@ -24026,3 +24026,56 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: AUDIT-PRR2-WEB-03
+
+  - id: AUDIT-PRR2-WEB-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/audit-prr2-web-03-topic-backend-authority
+    base: main
+    title: "AUDIT-PRR2-WEB-03: remove local topic discoverability fixtures"
+    depends_on: [AUDIT-PRR2-WEB-02]
+    mode: execute
+    train_scope: prr2_web_topic_backend_authority
+    status: user_authorized
+    goal: "Use backend/CMS topic exposure as authority, validated LKG during transient failure, and an empty minimal discoverability set without local topic fixtures."
+    allowed_paths:
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - lib/cms/topics.ts
+      - lib/seo/sitemapAuthorityAdapters.cjs
+      - tests/contracts/audit-prr2-web-03-topic-backend-authority.contract.test.ts
+      - tests/contracts/fallback-owner-gates.contract.test.ts
+      - tests/contracts/frontend-fallback-authority-inventory.contract.test.ts
+      - tests/contracts/discoverability-authority-matrix.contract.test.ts
+      - tests/contracts/llms-full-enrichment.contract.test.ts
+      - tests/contracts/llms-topic-fallback-governance.contract.test.ts
+      - tests/contracts/topic-llms-exposure-convergence.contract.test.ts
+      - tests/contracts/sitemap-authority-adapters.contract.test.ts
+      - tests/contracts/sitemap-indexability.contract.test.ts
+      - tests/contracts/sitemap-llms-lastmod-authority.contract.test.ts
+      - tests/contracts/topics-cleanup.contract.test.ts
+      - docs/seo/audit-prr2-web-03-topic-authority.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS mutation, topic publication, backend contract changes, topic graph expansion, sitemap or llms exposure widening, deploy, or production writes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/audit-prr2-web-03-topic-backend-authority.contract.test.ts tests/contracts/llms-topic-fallback-governance.contract.test.ts tests/contracts/topic-llms-exposure-convergence.contract.test.ts tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/topics-cleanup.contract.test.ts tests/contracts/topics-cms.contract.test.tsx
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json"))'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: AUDIT-PRR2-WEB-04

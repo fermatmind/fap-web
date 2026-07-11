@@ -5,6 +5,7 @@ import { canonicalUrl } from "@/lib/site";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
+import { withLastKnownGood, type LastKnownGoodResult } from "@/lib/cms/last-known-good";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 
@@ -614,6 +615,32 @@ export async function listTopics(params: ListTopicsParams): Promise<ListTopicsRe
 
     throw error;
   }
+}
+
+function isDiscoverableTopicList(result: ListTopicsResult): boolean {
+  return result.items.every((item) => item.isPublic && item.isIndexable && Boolean(item.slug));
+}
+
+export async function listDiscoverableTopicsWithLastKnownGood(
+  params: ListTopicsParams
+): Promise<LastKnownGoodResult<ListTopicsResult>> {
+  const locale = normalizeLocale(params.locale);
+  const page = params.page ?? 1;
+  const perPage = params.perPage ?? DEFAULT_PER_PAGE;
+
+  return withLastKnownGood({
+    key: `topics:discoverable:${locale}:${page}:${perPage}`,
+    load: async () => {
+      const result = await listTopics({ ...params, locale });
+      return {
+        ...result,
+        items: result.items.filter((item) => item.isPublic && item.isIndexable),
+      };
+    },
+    isUsable: isDiscoverableTopicList,
+    isStaleUsable: isDiscoverableTopicList,
+    clearStaleOnUnusable: true,
+  });
 }
 
 export async function getTopicBySlug(

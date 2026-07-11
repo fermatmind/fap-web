@@ -8,7 +8,7 @@ import {
   type ContentPage,
 } from "@/lib/cms/content-pages";
 import type { Locale } from "@/lib/i18n/locales";
-import { listTopics } from "@/lib/cms/topics";
+import { listDiscoverableTopicsWithLastKnownGood } from "@/lib/cms/topics";
 import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import {
@@ -31,10 +31,8 @@ import {
   limitLlmsRouteEntries,
   withLlmsRouteBudget,
 } from "@/lib/seo/llmsRouteBudget";
-import { TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS } from "@/lib/seo/topicLlmsAuthority";
 import { getSiteUrlOrThrow } from "@/lib/site";
 
-const TOPIC_FALLBACK_SLUGS = TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS;
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,
@@ -150,27 +148,20 @@ async function listPersonalityPaths(): Promise<string[]> {
 }
 
 async function listTopicPaths(): Promise<string[]> {
-  try {
-    const [enTopics, zhTopics] = await Promise.all([
-      listTopics({ locale: "en", perPage: LLMS_ROUTE_LIMITS.topics }),
-      listTopics({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.topics }),
-    ]);
-    const slugs = new Set(
-      [...enTopics.items, ...zhTopics.items]
-        .map((item) => String(item.slug ?? "").trim().toLowerCase())
-        .filter(Boolean)
-    );
-
-    if (slugs.size > 0) {
-      return dedupePaths(
-        [...slugs].flatMap((slug) => [`/en/topics/${slug}`, `/zh/topics/${slug}`])
-      );
+  const locales: Locale[] = ["en", "zh"];
+  const paths = await Promise.all(locales.map(async (locale) => {
+    try {
+      const result = await listDiscoverableTopicsWithLastKnownGood({
+        locale,
+        perPage: LLMS_ROUTE_LIMITS.topics,
+      });
+      return result.value.items.map((item) => `/${locale}/topics/${item.slug}`);
+    } catch {
+      return [];
     }
-  } catch {
-    // Fall back to the stable public topic set when the topics CMS is unavailable.
-  }
+  }));
 
-  return dedupePaths(TOPIC_FALLBACK_SLUGS.flatMap((slug) => [`/en/topics/${slug}`, `/zh/topics/${slug}`]));
+  return dedupePaths(paths.flat());
 }
 
 export async function GET() {
