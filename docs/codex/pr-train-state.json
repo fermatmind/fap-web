@@ -106,7 +106,7 @@
     "branch": "codex/enneagram-90-frontend-asset-contract-01",
     "depends_on": ["ENNEAGRAM-90-FRONTEND-ROUTE-RESOLVER-01"],
     "status": "committed",
-    "commit_sha": "7bf26a59386daa4ef63f8731266bd30086cf3b51",
+    "commit_sha": "6bda014aff2cf80ed5d1fea747ca011b7c876261",
     "pr_url": null,
     "failure_reason": null,
     "merged_at": null,
