@@ -43432,7 +43432,7 @@
     "merge_commit_sha": "8345a5c6545c2a2144aa7fa6fce3f6a3c1db79c0"
   },
   "MBTI-INDEX-24A": {
-    "status": "pr_open_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-index-24a-render-comparison-jsonld",
     "depends_on": [
@@ -43440,7 +43440,7 @@
     ],
     "train_scope": "mbti_render_backend_authoritative_comparison_jsonld",
     "title": "MBTI-INDEX-24A: render backend-authoritative comparison JSON-LD",
-    "commit_sha": "ec9bbf8e",
+    "commit_sha": "e5762405",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1685",
     "checks": {
       "dependency": {
@@ -43452,7 +43452,8 @@
       "full_contracts": "passed: all 4 shards",
       "production_build": "passed: 206 static pages with production public API/site URLs",
       "yaml_json": "passed",
-      "diff_check": "passed"
+      "diff_check": "passed",
+      "github_required_checks": "passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL"
     },
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -43460,7 +43461,7 @@
     "failure_reason": null,
     "next_task": "MBTI-INDEX-24B",
     "created_at": "2026-07-11T18:45:00+08:00",
-    "updated_at": "2026-07-11T19:10:00+08:00",
+    "updated_at": "2026-07-11T19:18:00+08:00",
     "history": [
       {
         "at": "2026-07-11T18:45:00+08:00",
@@ -43476,6 +43477,11 @@
         "at": "2026-07-11T19:10:00+08:00",
         "status": "pr_open_checks_pending",
         "note": "Pushed the exact seven-path scope and opened PR #1685. Required GitHub checks are pending; no deploy, promotion, sitemap/llms mutation, CMS write, or GSC action occurred."
+      },
+      {
+        "at": "2026-07-11T19:18:00+08:00",
+        "status": "ready_to_merge",
+        "note": "All six required GitHub checks passed and PR #1685 remains scope-clean and mergeable."
       }
     ]
   },
