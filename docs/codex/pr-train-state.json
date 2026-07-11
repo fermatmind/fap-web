@@ -204,13 +204,13 @@
     "base": "main",
     "branch": "codex/enneagram-90-frontend-sitemap-extractor-01",
     "depends_on": ["ENNEAGRAM-90-FRONTEND-ASSET-CONTRACT-01"],
-    "status": "ready_to_merge",
+    "status": "merged",
     "commit_sha": "3ff7ead27d35cb8d25e90df9e4a76ec8c51ab484",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1690",
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-11T12:03:28Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "checks": {
       "manifest_registration": {
         "status": "pass",
@@ -249,7 +249,7 @@
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -287,6 +287,87 @@
         "from": "pr_open",
         "to": "ready_to_merge",
         "note": "All GitHub required checks passed; GitHub reports the PR scope as the four allowed changed files."
+      },
+      {
+        "at": "2026-07-11T20:15:00+08:00",
+        "from": "ready_to_merge",
+        "to": "merged",
+        "note": "PR #1690 merged as bf495884ec6b8d9ea918b66e140a9da9daad9b84; origin/main contains the merge commit, main worktree synced to origin/main, and local/remote task branches were cleaned."
+      }
+    ]
+  },
+  "ENNEAGRAM-90-CROSS-REPO-READINESS-01": {
+    "id": "ENNEAGRAM-90-CROSS-REPO-READINESS-01",
+    "repo": "fap-web",
+    "title": "ENNEAGRAM-90-CROSS-REPO-READINESS-01: record local cross-repo readiness",
+    "base": "main",
+    "branch": "codex/enneagram-90-cross-repo-readiness-01",
+    "depends_on": ["ENNEAGRAM-90-FRONTEND-SITEMAP-EXTRACTOR-01"],
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The ENNEAGRAM-90 / ENNEAGRAM-116 /goal explicitly authorized ENNEAGRAM-90-CROSS-REPO-READINESS-01 and manifest/state registration."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "ENNEAGRAM-90-FRONTEND-SITEMAP-EXTRACTOR-01 PR #1690 merged as bf495884ec6b8d9ea918b66e140a9da9daad9b84 and fap-web origin/main contains it."
+      },
+      "cross_repo_readonly_evidence": {
+        "status": "pass",
+        "evidence": "fap-api ENNEAGRAM-90 package has 90 assets; personality-public-assets:import dry-run validated 90/90 with 0 errors and no index/sitemap/llms eligibility; fap-web route/asset/sitemap focused contracts passed."
+      },
+      "focused_contract": {
+        "status": "pass",
+        "evidence": "pnpm exec vitest run tests/contracts/personality-enneagram-90-cross-repo-readiness.contract.test.ts --reporter=dot passed 2 tests."
+      },
+      "typecheck": {
+        "status": "pass",
+        "evidence": "pnpm typecheck passed; local Node warning noted because shell uses Node v20.20.0 while repository requires Node >=24 <25."
+      },
+      "manifest_state": {
+        "status": "pass",
+        "evidence": "ruby YAML parse passed for docs/codex/pr-train.yaml; python3 json.tool passed for docs/codex/pr-train-state.json and the readiness JSON report."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "evidence": "Changed files are limited to the cross-repo readiness JSON/Markdown reports, the focused readiness contract, and docs/codex manifest/state. Existing untracked docs/seo/personality/enneagram blueprint/handoff files are unrelated and left unstaged."
+      },
+      "diff_checks": {
+        "status": "pass",
+        "evidence": "git diff --check completed without errors before staging."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "transitions": [
+      {
+        "at": "2026-07-11T20:16:00+08:00",
+        "from": "user_authorized",
+        "to": "in_progress",
+        "note": "Started read-only local cross-repo readiness scope from latest fap-web origin/main; existing untracked docs/seo/personality/enneagram files are unrelated and left unstaged."
+      },
+      {
+        "at": "2026-07-11T20:20:00+08:00",
+        "from": "in_progress",
+        "to": "local_checks_passed",
+        "note": "Read-only cross-repo evidence scan, focused readiness contract, typecheck, manifest/state/report syntax, diff check, and path-limited scope validation passed."
       }
     ]
   },

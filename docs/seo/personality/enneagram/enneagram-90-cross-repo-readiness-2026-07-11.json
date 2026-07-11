@@ -1,0 +1,102 @@
+{
+  "artifact": "ENNEAGRAM-90-CROSS-REPO-READINESS-01",
+  "generated_at": "2026-07-11T20:10:00+08:00",
+  "status": "PASS_READONLY_LOCAL",
+  "scope": {
+    "fap_api": "/Users/rainie/Desktop/GitHub/fap-api",
+    "fap_web": "/Users/rainie/Desktop/GitHub/fap-web",
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish": false,
+    "deploy": false,
+    "sitemap_cache_warm": false,
+    "llms_release": false,
+    "search_release": false
+  },
+  "checks": {
+    "content_package": {
+      "status": "PASS",
+      "evidence": {
+        "package": "enneagram-90-cms-v1",
+        "manifest_status": "complete_dry_run_validated",
+        "qa_status": "PASS",
+        "asset_files": 90,
+        "wings": 36,
+        "instinctual_subtypes": 54,
+        "zh_CN": 45,
+        "en": 45,
+        "source": "fap-api/docs/seo/personality/enneagram/content-packages/enneagram-90-cms-v1"
+      }
+    },
+    "backend_import_contract": {
+      "status": "PASS",
+      "command": "APP_ENV=testing DB_CONNECTION=sqlite DB_DATABASE=':memory:' php artisan personality-public-assets:import --source=/Users/rainie/Desktop/GitHub/fap-api/docs/seo/personality/enneagram/content-packages/enneagram-90-cms-v1/cms-import-dry-run-package.json --framework=enneagram",
+      "evidence": {
+        "assets_found": 90,
+        "valid_count": 90,
+        "errors_count": 0,
+        "will_create": 90,
+        "will_update": 0,
+        "will_skip": 0,
+        "indexable_count": 0,
+        "sitemap_eligible_count": 0,
+        "llms_eligible_count": 0
+      }
+    },
+    "frontend_route_resolver": {
+      "status": "PASS",
+      "command": "pnpm exec vitest run tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts -t \"defines Enneagram V1 route candidates|uses encoded Enneagram wing and subtype|builds route metadata|keeps Enneagram V1 noindex routes out of sitemap\" --reporter=dot",
+      "evidence": {
+        "route_entries": 58,
+        "bilingual_paths": 116,
+        "wings": 18,
+        "instinctual_subtypes": 27,
+        "tests_passed": 4
+      }
+    },
+    "frontend_asset_contract": {
+      "status": "PASS",
+      "command": "pnpm exec vitest run tests/contracts/personality-enneagram-90-asset-contract.contract.test.ts tests/contracts/personality-enneagram-90-sitemap-extractor.contract.test.ts --reporter=dot",
+      "evidence": {
+        "asset_contract_tests_passed": 4,
+        "sitemap_extractor_tests_passed": 3,
+        "faq_alias_normalization": "question_answer",
+        "internal_link_alias_normalization": "label_href",
+        "private_or_mismatched_assets": "fail_closed"
+      }
+    },
+    "metadata_canonical_hreflang_faq_internal_links": {
+      "status": "PASS",
+      "evidence": {
+        "source_files": [
+          "app/(localized)/[locale]/personality/enneagram/page.tsx",
+          "app/(localized)/[locale]/personality/enneagram/[...slug]/page.tsx",
+          "components/personality/PublicContentAssetRenderer.tsx",
+          "lib/cms/personality-public-content-assets.ts"
+        ],
+        "canonical": "backend asset canonical with route fallback",
+        "hreflang": "backend en/zh-CN with route fallback",
+        "faq_schema": "FAQPage rendered only from visible backend FAQ when schemaRuntimeEligible allows route schema rendering",
+        "internal_links": "normalized through safe internal href guard"
+      }
+    },
+    "sitemap_candidate": {
+      "status": "PASS",
+      "evidence": {
+        "extractor": "extractBackendSitemapEnneagramPublicAssetPaths",
+        "candidate_paths": 116,
+        "locales": ["en", "zh"],
+        "invalid_aliases": "fail_closed",
+        "query_hash_urls": "fail_closed",
+        "llms_hold": true
+      }
+    }
+  },
+  "go_no_go": {
+    "code_deploy_readiness": "GO_WITH_EXACT_SHA_AUTHORIZATION",
+    "cms_import_readiness": "GO_DRY_RUN_ONLY_UNTIL_SEPARATE_AUTHORIZATION",
+    "publish_readiness": "HOLD_UNTIL_POST_IMPORT_NOINDEX_RUNTIME_SMOKE",
+    "llms_search": "HOLD"
+  }
+}
