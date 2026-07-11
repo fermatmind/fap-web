@@ -62,3 +62,18 @@ For a pair of new zh/en articles, require:
 - body visual status, verified body visual asset or operator-authorized fallback, and no unresolved active placeholder.
 
 If the topic touches career resilience, layoffs, industry change, AI disruption, career security, employability, or future-proofing, run the V1.1 career resilience claim taxonomy from `claim_gate_playbook.md`.
+
+## Daily Importer Compatibility Checks
+
+Before `GO_FOR_PREVIEW`, verify locale/slug importer file names, required
+public-route/social/private-URL contracts, field mappings, metadata limits,
+translation-group length, structured media dimensions/provenance, synchronized
+holds, source/derived hashes, and importer dry-run readiness.
+
+FAQ, CTA, internal links, and body visual references must agree across page
+markdown, CMS fields, and CMS import draft. A required body visual must resolve
+at the declared body anchor and answer block.
+
+Additional blocking decisions are `BLOCKED_IMPORTER_COMPATIBILITY`,
+`BLOCKED_METADATA_LENGTH`, `BLOCKED_BODY_VISUAL_PROJECTION`, and
+`BLOCKED_BODY_VISUAL_PUBLIC_PARITY`.

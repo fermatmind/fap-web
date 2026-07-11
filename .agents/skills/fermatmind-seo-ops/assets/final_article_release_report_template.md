@@ -140,3 +140,19 @@ observation remains open.
 entity consistency, claim boundaries, internal links, and media answer assets
 are visible and reconciled; only D1/D7/D14 GEO/SEO performance observation
 remains open.
+
+## Provider And Body Visual Reconciliation Addendum
+
+For each provider record queue IDs, transport mode, execution state, submitted
+flag, and hold reason. Allowed Baidu states are `submitted`,
+`provider_security_hold`, `platform_action_required`, and `failed`.
+`provider_security_hold` requires `submitted=false`, `intentional_hold=true`,
+and matching audited evidence; it is not live submission.
+
+| Body visual required | Asset key | Preview visible | Public visible | Body anchor | Answer block | URL count | State |
+| --- | --- | --- | --- | --- | --- | ---: | --- |
+|  |  |  |  |  |  |  |  |
+
+A required visual with zero URL count or missing preview/public projection
+blocks `GEO_READY_OBSERVATION_PENDING` with
+`BLOCKED_BODY_VISUAL_PUBLIC_PARITY`.

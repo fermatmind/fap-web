@@ -265,3 +265,32 @@ Before downstream rollout, the handoff must include or request:
 - search batch hold note.
 
 When article IDs are not yet known, use placeholders and require a later `ARTICLE_IDENTITY_LOCK` before any downstream action.
+
+## Daily Importer-Compatible Projection Rule
+
+Daily packages include locale-and-slug importer projections in addition to
+generic authoring files. Page markdown, CMS fields, and CMS import draft are
+one synchronized contract: FAQ, CTA, internal links, media references, slug,
+canonical, and translation-group identity must agree across all three.
+
+Map `seo_title -> meta_title`, `canonical_url -> canonical_path`,
+`category_suggestion -> category_name`, and the selected CTA to
+`primary_cta.href` / `primary_cta.label`. `body_markdown_file` resolves to the
+derived locale page. Translation group IDs fit the 64-character backend field.
+
+## Metadata Length And Single Derived Package Rule
+
+Validate metadata before Media Library or CMS work. A deterministic length
+repair may only shorten the affected projection without changing topic,
+claims, FAQ, CTA, links, identity, media, or release holds.
+
+Stage 4 produces one `FINAL_DERIVED_IMPORT_READY_PACKAGE` with source/derived
+hashes and a deterministic change ledger. Stage 5 must not create serial media,
+compatibility, and metadata repair packages. If normalization is ambiguous,
+stop with `BLOCKED_IMPORTER_COMPATIBILITY`.
+
+## Body Visual Projection Rule
+
+When required, manifest entry, CMS metadata, markdown reference, body anchor,
+and answer-block identity must agree. A verified Media Library asset without a
+rendered body projection returns `BLOCKED_BODY_VISUAL_PROJECTION`.
