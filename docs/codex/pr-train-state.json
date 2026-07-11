@@ -43334,7 +43334,7 @@
     "merge_commit_sha": "0e2405cddd3291f9d88804616ad96616aecfff9f"
   },
   "MBTI-INDEX-24": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-index-24-release-indexability-gate",
     "depends_on": [
@@ -43342,8 +43342,8 @@
     ],
     "train_scope": "mbti_release_indexability_gate",
     "title": "MBTI-INDEX-24: release indexability gate",
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "cb5b980c",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1674",
     "checks": {
       "artifact_builder": "passed: node scripts/seo/build-mbti-index-24-release-indexability-gate.mjs",
       "focused_contract": "passed: 2 tests",
@@ -43359,7 +43359,7 @@
     "failure_reason": null,
     "next_task": "MBTI-GSC-25",
     "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-11T03:45:00Z"
+    "updated_at": "2026-07-11T03:51:00Z"
   },
   "MBTI-GSC-25": {
     "status": "planned",
