@@ -23852,3 +23852,48 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: null
+
+  - id: AUDIT-PRR2-WEB-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/audit-prr2-web-01-deploy-recovery-lane
+    base: main
+    title: "AUDIT-PRR2-WEB-01: make production deploy recovery explicit"
+    depends_on: []
+    mode: execute
+    train_scope: prr2_web_production_deploy_recovery_lane
+    status: user_authorized
+    goal: "Require an explicit authorization mode for benign auto-deploys and SHA-bound manual recovery while retaining the protected production environment and mandatory revision/smoke gates."
+    allowed_paths:
+      - .github/workflows/deploy-production.yml
+      - tests/contracts/audit-prr2-web-01-deploy-recovery-lane.contract.test.ts
+      - tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts
+      - tests/contracts/security-123-web-01-production-approval-guard.contract.test.ts
+      - tests/contracts/deploy-production-workflow-env.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/deploy-guard/deploy-guard.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - workflow dispatch, staging or production deploy, server/SSH verification, GitHub Environment mutation, or secrets mutation
+      - CMS/SEO runtime, sitemap, llms, canonical, noindex, JSON-LD, content authority, or application runtime changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/audit-prr2-web-01-deploy-recovery-lane.contract.test.ts tests/contracts/security-123-web-01-production-approval-guard.contract.test.ts tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts tests/contracts/deploy-production-workflow-env.contract.test.ts tests/deploy-guard/deploy-guard.test.ts
+      - actionlint .github/workflows/deploy-production.yml
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); YAML.load_file(".github/workflows/deploy-production.yml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state/workflow ok"'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    runtime_change: false
+    workflow_policy_change: true
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: AUDIT-PRR2-API-06

@@ -43605,5 +43605,30 @@
       }
     ],
     "updated_at": "2026-07-11T01:26:38Z"
+  },
+  "AUDIT-PRR2-WEB-01": {
+    "id": "AUDIT-PRR2-WEB-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/audit-prr2-web-01-deploy-recovery-lane",
+    "title": "AUDIT-PRR2-WEB-01: make production deploy recovery explicit",
+    "depends_on": [],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "pass", "evidence": "The PRR2 /goal authorized WEB-01. The user later explicitly selected the solo-operator reviewer model and waived distinct-reviewer separation without authorizing any Environment mutation or deploy."},
+      "dependency": {"status": "pass", "evidence": "No dependency is declared; work started from fap-web origin/main 232c4a2943bce24cc23b9bb4f417ab23b2639fa4."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-11T05:30:00Z", "status": "in_progress", "summary": "Started after the user resolved the reviewer-separation sidecar with a solo-operator exception. No workflow dispatch, deploy, Environment, secret, or server action is in scope."}
+      ,{"at": "2026-07-11T05:38:00Z", "status": "local_verified", "summary": "Node 24 focused workflow/guard contracts passed 54/54; actionlint v1.7.12, lint with existing warnings only, spacing, typecheck, YAML/JSON parse, diff check, and exact six-file scope validation passed."}
+    ],
+    "updated_at": "2026-07-11T05:38:00Z"
   }
 }
