@@ -6,8 +6,8 @@
     "base": "main",
     "branch": "codex/enneagram-90-frontend-route-resolver-01",
     "depends_on": ["ENNEAGRAM-90-BACKEND-SITEMAP-ENTITY-LOCALE-01"],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "2ebf8b202466ebef15097bfd140bfc761c8c8336",
     "pr_url": null,
     "failure_reason": null,
     "merged_at": null,
@@ -67,6 +67,12 @@
         "from": "in_progress",
         "to": "local_checks_passed",
         "note": "Focused route resolver contract, typecheck, manifest/state syntax, diff checks, and path-limited scope validation passed."
+      },
+      {
+        "at": "2026-07-11T19:20:00+08:00",
+        "from": "local_checks_passed",
+        "to": "committed",
+        "note": "Committed scoped ENNEAGRAM-90 frontend route resolver changes after path-limited staging."
       }
     ]
   },
