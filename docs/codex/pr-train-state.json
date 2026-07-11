@@ -1,4 +1,41 @@
 {
+  "CAREER-DETAIL-DELIVERY-10K-01": {
+    "id": "CAREER-DETAIL-DELIVERY-10K-01",
+    "repo": "fap-web",
+    "title": "CAREER-DETAIL-DELIVERY-10K-01 career detail delivery for 10k",
+    "base": "main",
+    "branch": "codex/career-detail-delivery-10k-01",
+    "depends_on": ["CAREER-DETAIL-READ-MODEL-10K-01"],
+    "status": "ready_to_merge",
+    "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "checks": {
+      "manifest_registration": {"status": "pass", "evidence": "The Career 10k Stability /goal explicitly authorized PR6 and manifest/state registration."},
+      "dependency": {"status": "pass", "evidence": "Backend PR5 #2962 is merged as 48e73fa88ed73351495a584930540a7e4b873be3 and fap-api origin/main contains it."},
+      "focused_contracts": {"status": "pass", "evidence": "Career detail delivery, cache-budget, signed revalidation, metadata, and SEO authority contracts pass 25/25; broader revalidation compatibility contracts also pass."},
+      "typecheck": {"status": "pass", "evidence": "pnpm typecheck passes with bundled Node 24."},
+      "build": {"status": "pass", "evidence": "Production Next.js build passes with NEXT_PUBLIC_API_URL and NEXT_PUBLIC_SITE_URL, compiling successfully and generating 206 static pages."},
+      "full_contracts": {"status": "pass", "evidence": "pnpm test:contract passes all four shards: 698 files and 4033 tests; test-generated unrelated artifacts were removed from the diff."},
+      "github_required_checks": {"status": "pass", "evidence": "PR #1682 passes build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, and CodeQL."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": true,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "transitions": [
+      {"at": "2026-07-11T18:10:00+08:00", "from": "unregistered", "to": "in_progress", "note": "Started from clean latest fap-web origin/main in an isolated worktree after backend PR5 dependency was verified merged; no deployment or authority mutation was performed."},
+      {"at": "2026-07-11T18:20:00+08:00", "from": "in_progress", "to": "focused_checks_passed", "note": "Bounded detail HTML/API revalidation, shared metadata/body authority load, six-request cap, exact slug+locale tag invalidation, revocation-safe hard expiry, request parallelization, focused contracts, typecheck, production build, full four-shard contracts, and exact six-path scope validation passed."},
+      {"at": "2026-07-11T18:25:00+08:00", "from": "focused_checks_passed", "to": "pr_open", "note": "Committed and pushed the exact six-path scope as 8ffae90b, then opened PR #1682; GitHub required checks are pending."},
+      {"at": "2026-07-11T18:32:00+08:00", "from": "pr_open", "to": "ready_to_merge", "note": "All GitHub required checks passed; GitHub reports CLEAN/MERGEABLE and exact six-path scope validation passed."}
+    ]
+  },
   "CAREER-DIRECTORY-ERROR-SEMANTICS-01": {
     "id": "CAREER-DIRECTORY-ERROR-SEMANTICS-01",
     "repo": "fap-web",
@@ -6,13 +43,13 @@
     "base": "main",
     "branch": "codex/career-directory-error-semantics-01",
     "depends_on": ["CAREER-DIRECTORY-READ-MODEL-PERFORMANCE-01"],
-    "status": "ready_to_merge",
-    "commit_sha": "b381c2345d271de53fbb7860a1d6b4e83bd3df10",
+    "status": "merged",
+    "commit_sha": "6508f2da6fb56a59eff804e7f3cf244595c16b29",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1680",
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-11T07:03:07Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The Career 10k Stability /goal explicitly authorized this fap-web PR and manifest/state registration."},
       "dependency": {"status": "pass", "evidence": "Backend dependency PR #2952 is merged and its merge commit is present on fap-api origin/main."},
@@ -22,7 +59,7 @@
       "full_contracts": {"status": "pass", "evidence": "pnpm test:contract completed all four shards successfully; test-generated unrelated artifacts were removed from the diff."},
       "github_required_checks": {"status": "pass", "evidence": "PR #1680 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, and CodeQL."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "transitions": [
       {"at": "2026-07-11T14:44:00+08:00", "from": "unregistered", "to": "in_progress", "note": "Started from latest fap-web origin/main in an isolated worktree; no deploy or authority mutation was performed."},
       {"at": "2026-07-11T14:52:00+08:00", "from": "in_progress", "to": "focused_checks_passed", "note": "Focused contract, typecheck, production build, full four-shard contract suite, YAML/JSON, diff, and exact six-path scope validation passed."},

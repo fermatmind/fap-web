@@ -1,4 +1,4 @@
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import { clearLlmsFullResponseCache } from "@/lib/seo/llmsFullResponseCache";
 import { authenticateContentReleaseRevalidation } from "@/lib/security/contentReleaseRevalidationAuth";
@@ -8,6 +8,8 @@ type ContentReleasePayload = {
     type?: string;
     slug?: string;
     locale?: string;
+    publication_state?: string;
+    indexable?: boolean;
   };
   cache_signal?: {
     paths?: string[];
@@ -30,6 +32,7 @@ const PERSONALITY_CONTENT_TYPES = new Set([
   "mbti64_personality_profile_variant",
   "mbti64_personality_profile_comparison",
 ]);
+const CAREER_JOB_CONTENT_TYPES = new Set(["career_job", "career_job_detail"]);
 
 function normalizeLocaleToSegment(locale: string | null | undefined): "en" | "zh" {
   return String(locale ?? "").toLowerCase().startsWith("zh") ? "zh" : "en";
@@ -229,6 +232,10 @@ export function collectPathDecisions(payload: ContentReleasePayload, requestOrig
     localized.push("/llms.txt", "/llms-full.txt");
   }
 
+  if (CAREER_JOB_CONTENT_TYPES.has(type) && slug) {
+    localized.push(localizedPath(`/career/jobs/${slug}`, locale));
+  }
+
   const accepted: string[] = [];
   const rejected: PathDecision[] = [];
   const seen = new Set<string>();
@@ -280,6 +287,16 @@ export async function POST(request: NextRequest) {
     revalidatePath(path);
   }
 
+  const contentType = String(payload?.content?.type ?? "").trim();
+  const careerSlug = normalizeSlug(payload?.content?.slug);
+  const careerLocale = normalizeLocaleToSegment(payload?.content?.locale) === "zh" ? "zh-CN" : "en";
+  const invalidatedTags: string[] = [];
+  if (CAREER_JOB_CONTENT_TYPES.has(contentType) && careerSlug) {
+    const tag = `career-detail:${careerLocale}:${careerSlug}`;
+    revalidateTag(tag, { expire: 0 });
+    invalidatedTags.push(tag);
+  }
+
   if (accepted.includes("/llms-full.txt")) {
     clearLlmsFullResponseCache();
   }
@@ -288,11 +305,13 @@ export async function POST(request: NextRequest) {
     nonce_hash: auth.nonceHash,
     accepted_count: accepted.length,
     rejected_count: rejected.length,
+    invalidated_tag_count: invalidatedTags.length,
   });
 
   return NextResponse.json({
     ok: true,
     revalidated_paths: accepted,
     rejected_paths: rejected,
+    invalidated_tags: invalidatedTags,
   });
 }

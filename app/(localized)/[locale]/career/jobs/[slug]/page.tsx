@@ -56,6 +56,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 import { appendAttributionParamsToHref, extractAttributionParamsFromRecord } from "@/lib/tracking/attribution";
 
 export const revalidate = 300;
+export const CAREER_DETAIL_MAX_BACKEND_REQUESTS_PER_RENDER = 6;
 
 type CareerJobSearchParams = Record<string, string | string[] | undefined>;
 
@@ -841,10 +842,12 @@ export default async function CareerJobDetailPage({
   const hasInboundAttribution = Object.keys(displayCtaAttributionParams).length > 0;
   const displayCtaLandingPath = appendAttributionParamsToHref(jobDetailLandingPath, displayCtaAttributionParams);
   const displaySurface = job.displaySurfaceV1;
-  const salaryAssetPreview = await loadCareerSalaryAssetPreview(locale, job.slug);
-  const aiImpactAssetPreview = displaySurface ? await loadCareerAiImpactAssetPreview(locale, job.slug) : null;
 
   if (displaySurface) {
+    const [salaryAssetPreview, aiImpactAssetPreview] = await Promise.all([
+      loadCareerSalaryAssetPreview(locale, job.slug),
+      loadCareerAiImpactAssetPreview(locale, job.slug),
+    ]);
     const displayFAQJsonLd = buildCareerDisplayFAQPageJsonLd(displaySurface);
     const breadcrumbItems = [
       { label: locale === "zh" ? "首页" : "Home", href: localizedPath("/", locale) },
@@ -888,7 +891,8 @@ export default async function CareerJobDetailPage({
     );
   }
 
-  const [explainability, nextStepLinks, runtimeConfig] = await Promise.all([
+  const [salaryAssetPreview, explainability, nextStepLinks, runtimeConfig] = await Promise.all([
+    loadCareerSalaryAssetPreview(locale, job.slug),
     renderState.canRenderFitSurface ? loadCareerJobExplainability(locale, slug) : Promise.resolve(null),
     loadCareerNextStepLinks(locale, slug),
     loadRuntimeConfig(locale),

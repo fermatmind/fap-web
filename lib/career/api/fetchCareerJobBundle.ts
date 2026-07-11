@@ -11,6 +11,20 @@ type FetchCareerJobBundleInput = {
 
 const DEFAULT_ORG_ID = "0";
 const CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS = 12_000;
+export const CAREER_DETAIL_REVALIDATE_SECONDS = 300;
+
+export function careerDetailCacheTag(locale: Locale | string, slug: string): string {
+  return `career-detail:${toApiLocale(locale)}:${String(slug ?? "").trim().toLowerCase()}`;
+}
+
+function detailCacheOptions(locale: Locale | string, slug: string): { next: { revalidate: number; tags: string[] } } {
+  return {
+    next: {
+      revalidate: CAREER_DETAIL_REVALIDATE_SECONDS,
+      tags: [careerDetailCacheTag(locale, slug)],
+    },
+  };
+}
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -40,6 +54,7 @@ async function fetchCareerJobSeoAuthority(
         timeoutMs: CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS,
         skipAuth: true,
         ...PUBLIC_API_CACHE_OPTIONS,
+        ...detailCacheOptions(input.locale, input.normalizedSlug),
       }
     );
   } catch (error) {
@@ -94,6 +109,7 @@ export async function fetchCareerJobBundle(
         timeoutMs: CAREER_JOB_DETAIL_FETCH_TIMEOUT_MS,
         skipAuth: true,
         ...PUBLIC_API_CACHE_OPTIONS,
+        ...detailCacheOptions(input.locale, normalizedSlug),
       }
     );
     if (input.includeSeoAuthority !== true) {
