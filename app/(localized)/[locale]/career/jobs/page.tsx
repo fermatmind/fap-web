@@ -136,6 +136,26 @@ export default async function CareerJobsPage({
   });
   const hasActiveFilters = Boolean(submittedQuery || selectedFamily);
 
+  if (directory.state === "unavailable") {
+    return (
+      <main className="min-h-screen bg-slate-50">
+        <Container as="div" className="py-16">
+          <section className="mx-auto max-w-2xl rounded-3xl border border-amber-200 bg-white p-8 text-center shadow-sm" data-testid="career-directory-unavailable">
+            <h1 className="m-0 text-2xl font-semibold text-slate-950">
+              {locale === "zh" ? "职业库暂时无法加载" : "The occupation library is temporarily unavailable"}
+            </h1>
+            <p className="mt-3 text-sm text-slate-600">
+              {locale === "zh" ? "这不是空职业库，请稍后重试。" : "This is not an empty directory. Please try again shortly."}
+            </p>
+            <Link href={buildJobsQueryPath(jobsPath, { query: submittedQuery, family: selectedFamily, page })} className={buttonVariants({ className: "mt-6" })}>
+              {locale === "zh" ? "重试" : "Retry"}
+            </Link>
+          </section>
+        </Container>
+      </main>
+    );
+  }
+
   return (
     <main className="min-h-screen bg-slate-50">
       <Container as="div" className="space-y-10 py-10 md:space-y-12 md:py-16">
@@ -163,6 +183,11 @@ export default async function CareerJobsPage({
         </section>
 
         <section className="space-y-5" data-testid="career-library-workspace">
+          {directory.state === "stale" ? (
+            <div className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900" data-testid="career-directory-stale">
+              {locale === "zh" ? "当前显示上一版可用职业数据。" : "Showing the last known good occupation data."}
+            </div>
+          ) : null}
           <div className="space-y-5">
             <form action={jobsPath} method="get" className="rounded-3xl border border-slate-200 bg-white p-3 shadow-sm md:flex md:items-center md:gap-3" data-testid="career-occupation-search-form">
               <input
