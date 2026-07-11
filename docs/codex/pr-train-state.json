@@ -6,13 +6,13 @@
     "base": "main",
     "branch": "codex/enneagram-90-frontend-route-resolver-01",
     "depends_on": ["ENNEAGRAM-90-BACKEND-SITEMAP-ENTITY-LOCALE-01"],
-    "status": "ready_to_merge",
+    "status": "merged",
     "commit_sha": "2ebf8b202466ebef15097bfd140bfc761c8c8336",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1686",
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-11T11:28:49Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "checks": {
       "manifest_registration": {
         "status": "pass",
@@ -51,7 +51,7 @@
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -89,6 +89,89 @@
         "from": "pr_open",
         "to": "ready_to_merge",
         "note": "All GitHub required checks passed; GitHub reports CLEAN/MERGEABLE and PR files remain scoped."
+      },
+      {
+        "at": "2026-07-11T19:30:00+08:00",
+        "from": "ready_to_merge",
+        "to": "merged",
+        "note": "PR #1686 merged as af6becb0991125f37ccbd280f1178bce70ec6e55; origin/main contains the merge commit, local main synced to origin/main, and local/remote task branches were cleaned."
+      }
+    ]
+  },
+  "ENNEAGRAM-90-FRONTEND-ASSET-CONTRACT-01": {
+    "id": "ENNEAGRAM-90-FRONTEND-ASSET-CONTRACT-01",
+    "repo": "fap-web",
+    "title": "ENNEAGRAM-90-FRONTEND-ASSET-CONTRACT-01: harden Enneagram 90 public asset normalization contract",
+    "base": "main",
+    "branch": "codex/enneagram-90-frontend-asset-contract-01",
+    "depends_on": ["ENNEAGRAM-90-FRONTEND-ROUTE-RESOLVER-01"],
+    "status": "committed",
+    "commit_sha": "7bf26a59386daa4ef63f8731266bd30086cf3b51",
+    "pr_url": null,
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The ENNEAGRAM-90 / ENNEAGRAM-116 /goal explicitly authorized ENNEAGRAM-90-FRONTEND-ASSET-CONTRACT-01 and manifest/state registration."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "ENNEAGRAM-90-FRONTEND-ROUTE-RESOLVER-01 PR #1686 merged as af6becb0991125f37ccbd280f1178bce70ec6e55 and fap-web origin/main contains it."
+      },
+      "focused_contract": {
+        "status": "pass",
+        "evidence": "pnpm exec vitest run tests/contracts/personality-enneagram-90-asset-contract.contract.test.ts --reporter=dot passed 4 tests."
+      },
+      "typecheck": {
+        "status": "pass",
+        "evidence": "pnpm typecheck passed; local Node warning noted because shell uses Node v20.20.0 while repository requires Node >=24 <25."
+      },
+      "manifest_state": {
+        "status": "pass",
+        "evidence": "ruby YAML parse passed for docs/codex/pr-train.yaml; python3 json.tool passed for docs/codex/pr-train-state.json."
+      },
+      "scope_validation": {
+        "status": "pass",
+        "evidence": "Changed files are limited to personality-public-content-assets, the new Enneagram 90 asset contract, and docs/codex manifest/state. Existing untracked docs/seo/personality/enneagram files are unrelated and left unstaged."
+      },
+      "diff_checks": {
+        "status": "pass",
+        "evidence": "git diff --check completed without errors before staging."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": true,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "transitions": [
+      {
+        "at": "2026-07-11T19:31:00+08:00",
+        "from": "user_authorized",
+        "to": "in_progress",
+        "note": "Started ENNEAGRAM-90 frontend asset contract scope from latest fap-web main; existing untracked docs/seo/personality/enneagram files are unrelated and left unstaged."
+      },
+      {
+        "at": "2026-07-11T19:36:00+08:00",
+        "from": "in_progress",
+        "to": "local_checks_passed",
+        "note": "Focused asset contract, typecheck, manifest/state syntax, diff check, and path-limited scope validation passed."
+      },
+      {
+        "at": "2026-07-11T19:38:00+08:00",
+        "from": "local_checks_passed",
+        "to": "committed",
+        "note": "Committed scoped ENNEAGRAM-90 frontend asset contract changes after explicit path-limited staging."
       }
     ]
   },

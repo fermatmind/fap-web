@@ -178,8 +178,8 @@ function normalizeFaq(value: unknown): PersonalityPublicContentFaqItem[] {
   return asArray(value)
     .map((item): PersonalityPublicContentFaqItem | null => {
       const record = asRecord(item);
-      const question = asString(record.question);
-      const answer = asString(record.answer);
+      const question = asString(record.question ?? record.q);
+      const answer = asString(record.answer ?? record.a);
 
       return question && answer ? { question, answer } : null;
     })
@@ -191,7 +191,7 @@ function normalizeInternalLinks(value: unknown): PersonalityPublicContentInterna
     .map((item): PersonalityPublicContentInternalLink | null => {
       const record = asRecord(item);
       const label = asString(record.label);
-      const href = normalizeInternalHref(record.href);
+      const href = normalizeInternalHref(record.href ?? record.url);
       if (!label || !href) {
         return null;
       }

@@ -208,6 +208,48 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend
 
+  - id: ENNEAGRAM-90-FRONTEND-ASSET-CONTRACT-01
+    repo: fap-web
+    depends_on: [ENNEAGRAM-90-FRONTEND-ROUTE-RESOLVER-01]
+    branch: codex/enneagram-90-frontend-asset-contract-01
+    base: main
+    title: "ENNEAGRAM-90-FRONTEND-ASSET-CONTRACT-01: harden Enneagram 90 public asset normalization contract"
+    train_scope: enneagram_90_frontend_asset_contract
+    status: user_authorized
+    scope:
+      - Ensure the frontend public asset normalizer accepts Enneagram wing and instinctual_subtype entity identities from the backend public asset API.
+      - Normalize FAQ q/a aliases into question/answer and internal link url aliases into href without adding frontend editorial fallback content.
+      - Keep empty FAQ items, unsafe external links, empty internal link labels, private assets, invalid launch states, and entity mismatches fail-closed.
+      - Preserve existing Enneagram hub, center, core type, and Big Five public asset contracts.
+    allowed_paths:
+      - lib/cms/personality-public-content-assets.ts
+      - tests/contracts/personality-enneagram-90-asset-contract.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Add frontend editorial fallback content, generated SEO artifacts, sitemap extractor changes, llms changes, backend code, CMS writes, production imports, publish, deploy, or cache warm.
+      - Modify route resolver semantics beyond the already-merged route resolver dependency.
+      - Modify Big Five behavior except for explicit non-regression contract coverage.
+      - Treat frontend asset normalization as content authority; backend/CMS public asset API remains the authority.
+    validation:
+      - pnpm exec vitest run tests/contracts/personality-enneagram-90-asset-contract.contract.test.ts --reporter=dot
+      - pnpm typecheck
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    api_runtime_change: true
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+
   - id: CAREER-DIRECTORY-ERROR-SEMANTICS-01
     repo: fap-web
     depends_on: [CAREER-DIRECTORY-READ-MODEL-PERFORMANCE-01]
