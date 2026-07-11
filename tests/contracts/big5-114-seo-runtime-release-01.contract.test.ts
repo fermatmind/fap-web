@@ -40,7 +40,7 @@ describe("BIG5-114-SEO-RUNTIME-RELEASE-01", () => {
     const llmsFull = readFileSync("app/llms-full.txt/route.ts", "utf8");
     const sitemap = readFileSync("app/sitemap.xml/route.ts", "utf8");
 
-    expect(llms).toContain("listBackendSitemapBigFiveZhPaths()");
+    expect(llms).toContain("listBackendSitemapBigFiveZhPaths({ signal })");
     expect(llms).toContain("...bigFiveZhPaths");
     expect(llmsFull).toContain("LLMS_FULL_BIG_FIVE_CANONICAL_ENTRY_LIMIT = 114");
     expect(llmsFull).toContain("...bigFiveZhEntries");

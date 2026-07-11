@@ -27,6 +27,7 @@ import {
   LLMS_ROUTE_ARTICLE_TIMEOUT_MS,
   LLMS_ROUTE_ARTICLE_MAX_PAGES,
   LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS,
+  LLMS_ROUTE_PERSONALITY_TIMEOUT_MS,
   LLMS_ROUTE_LIMITS,
   limitLlmsRouteEntries,
   withLlmsRouteBudget,
@@ -136,9 +137,9 @@ function shouldKeepCareerAuthorityRoute(item: {
   });
 }
 
-async function listPersonalityPaths(): Promise<string[]> {
-  const mbtiPersonalityPathsPromise = listBackendSitemapMbtiPersonalityPaths().catch(() => []);
-  const bigFiveZhPathsPromise = listBackendSitemapBigFiveZhPaths().catch(() => []);
+async function listPersonalityPaths(signal?: AbortSignal): Promise<string[]> {
+  const mbtiPersonalityPathsPromise = listBackendSitemapMbtiPersonalityPaths({ signal }).catch(() => []);
+  const bigFiveZhPathsPromise = listBackendSitemapBigFiveZhPaths({ signal }).catch(() => []);
   const [mbtiPersonalityPaths, bigFiveZhPaths] = await Promise.all([
     mbtiPersonalityPathsPromise,
     bigFiveZhPathsPromise,
@@ -214,7 +215,9 @@ export async function GET() {
         ),
       []
     ),
-    withLlmsRouteBudget(() => listPersonalityPaths(), []),
+    withLlmsRouteBudget((signal) => listPersonalityPaths(signal), [], {
+      timeoutMs: LLMS_ROUTE_PERSONALITY_TIMEOUT_MS,
+    }),
     withLlmsRouteBudget(() => listTopicPaths(), []),
     withLlmsRouteBudget(
       () =>
