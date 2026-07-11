@@ -1,0 +1,207 @@
+{
+  "id": "MBTI-INDEX-24",
+  "artifact": "MBTI-INDEX-24-RELEASE-INDEXABILITY-GATE",
+  "generated_at": "2026-07-11T02:19:02.000Z",
+  "evidence_scope": "read_only_production_cms28_revalidation",
+  "backend_deployed_revision": "9bb8319a23e11f4c359bebabc0e604db25191898",
+  "backend_contains_authorized_sha": "16a31281b1f73f6691b0c708cc3c6d62e58073f2",
+  "cms28": {
+    "result": "PASS_9_OF_9",
+    "profile_count": 4,
+    "comparison_count": 5
+  },
+  "gate_checks": {
+    "content_quality": "pass",
+    "canonical": "pass",
+    "robots_consistency": "pass_noindex",
+    "schema_presence": "hold_comparison_jsonld_missing",
+    "backend_indexability_authority": "hold",
+    "sitemap_absence_while_held": "pass",
+    "llms_absence_while_held": "pass",
+    "llms_full_absence_while_held": "pass"
+  },
+  "final_decision": "HOLD_NO_URL_EXPANSION_NOINDEX_AND_COMPARISON_SCHEMA_MISSING",
+  "expansion_allowed": false,
+  "gsc_allowed": false,
+  "records": [
+    {
+      "path": "/zh/personality/istj-a",
+      "kind": "profile",
+      "cms28_result": "pass",
+      "api_indexability": "noindex",
+      "canonical": "https://fermatmind.com/zh/personality/istj-a",
+      "page_robots": "noindex,nofollow,noarchive,nocache",
+      "content_complete": true,
+      "schema_present": true,
+      "sitemap_present": false,
+      "llms_present": false,
+      "llms_full_present": false,
+      "release_decision": "hold_no_url_expansion",
+      "blockers": [
+        "backend_authority_still_noindex"
+      ]
+    },
+    {
+      "path": "/zh/personality/istp-a",
+      "kind": "profile",
+      "cms28_result": "pass",
+      "api_indexability": "noindex",
+      "canonical": "https://fermatmind.com/zh/personality/istp-a",
+      "page_robots": "noindex,nofollow,noarchive,nocache",
+      "content_complete": true,
+      "schema_present": true,
+      "sitemap_present": false,
+      "llms_present": false,
+      "llms_full_present": false,
+      "release_decision": "hold_no_url_expansion",
+      "blockers": [
+        "backend_authority_still_noindex"
+      ]
+    },
+    {
+      "path": "/zh/personality/isfp-a",
+      "kind": "profile",
+      "cms28_result": "pass",
+      "api_indexability": "noindex",
+      "canonical": "https://fermatmind.com/zh/personality/isfp-a",
+      "page_robots": "noindex,nofollow,noarchive,nocache",
+      "content_complete": true,
+      "schema_present": true,
+      "sitemap_present": false,
+      "llms_present": false,
+      "llms_full_present": false,
+      "release_decision": "hold_no_url_expansion",
+      "blockers": [
+        "backend_authority_still_noindex"
+      ]
+    },
+    {
+      "path": "/zh/personality/esfj-a",
+      "kind": "profile",
+      "cms28_result": "pass",
+      "api_indexability": "noindex",
+      "canonical": "https://fermatmind.com/zh/personality/esfj-a",
+      "page_robots": "noindex,nofollow,noarchive,nocache",
+      "content_complete": true,
+      "schema_present": true,
+      "sitemap_present": false,
+      "llms_present": false,
+      "llms_full_present": false,
+      "release_decision": "hold_no_url_expansion",
+      "blockers": [
+        "backend_authority_still_noindex"
+      ]
+    },
+    {
+      "path": "/zh/personality/intp-a-vs-intp-t",
+      "kind": "comparison",
+      "cms28_result": "pass",
+      "api_indexability": "held_for_mbti_index_24",
+      "canonical": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+      "page_robots": "noindex,nofollow,noarchive,nocache",
+      "content_complete": true,
+      "schema_present": false,
+      "sitemap_present": false,
+      "llms_present": false,
+      "llms_full_present": false,
+      "release_decision": "hold_no_url_expansion",
+      "blockers": [
+        "backend_authority_still_noindex",
+        "comparison_jsonld_missing"
+      ]
+    },
+    {
+      "path": "/zh/personality/intj-vs-intp",
+      "kind": "comparison",
+      "cms28_result": "pass",
+      "api_indexability": "held_for_mbti_index_24",
+      "canonical": "https://fermatmind.com/zh/personality/intj-vs-intp",
+      "page_robots": "noindex,nofollow,noarchive,nocache",
+      "content_complete": true,
+      "schema_present": false,
+      "sitemap_present": false,
+      "llms_present": false,
+      "llms_full_present": false,
+      "release_decision": "hold_no_url_expansion",
+      "blockers": [
+        "backend_authority_still_noindex",
+        "comparison_jsonld_missing"
+      ]
+    },
+    {
+      "path": "/zh/personality/entj-vs-intj",
+      "kind": "comparison",
+      "cms28_result": "pass",
+      "api_indexability": "held_for_mbti_index_24",
+      "canonical": "https://fermatmind.com/zh/personality/entj-vs-intj",
+      "page_robots": "noindex,nofollow,noarchive,nocache",
+      "content_complete": true,
+      "schema_present": false,
+      "sitemap_present": false,
+      "llms_present": false,
+      "llms_full_present": false,
+      "release_decision": "hold_no_url_expansion",
+      "blockers": [
+        "backend_authority_still_noindex",
+        "comparison_jsonld_missing"
+      ]
+    },
+    {
+      "path": "/zh/personality/infj-vs-infp",
+      "kind": "comparison",
+      "cms28_result": "pass",
+      "api_indexability": "held_for_mbti_index_24",
+      "canonical": "https://fermatmind.com/zh/personality/infj-vs-infp",
+      "page_robots": "noindex,nofollow,noarchive,nocache",
+      "content_complete": true,
+      "schema_present": false,
+      "sitemap_present": false,
+      "llms_present": false,
+      "llms_full_present": false,
+      "release_decision": "hold_no_url_expansion",
+      "blockers": [
+        "backend_authority_still_noindex",
+        "comparison_jsonld_missing"
+      ]
+    },
+    {
+      "path": "/zh/personality/istj-vs-isfj",
+      "kind": "comparison",
+      "cms28_result": "pass",
+      "api_indexability": "held_for_mbti_index_24",
+      "canonical": "https://fermatmind.com/zh/personality/istj-vs-isfj",
+      "page_robots": "noindex,nofollow,noarchive,nocache",
+      "content_complete": true,
+      "schema_present": false,
+      "sitemap_present": false,
+      "llms_present": false,
+      "llms_full_present": false,
+      "release_decision": "hold_no_url_expansion",
+      "blockers": [
+        "backend_authority_still_noindex",
+        "comparison_jsonld_missing"
+      ]
+    }
+  ],
+  "required_next_tasks": [
+    {
+      "id": "MBTI-INDEX-24A",
+      "repo": "fap-web",
+      "scope": "render backend-authoritative JSON-LD for the five verified comparison pages"
+    },
+    {
+      "id": "MBTI-INDEX-24B",
+      "repo": "fap-api",
+      "scope": "operator-approved backend indexability promotion after schema revalidation"
+    }
+  ],
+  "safety_boundary": {
+    "artifact_only": true,
+    "cms_write_attempted": false,
+    "database_mutation_attempted": false,
+    "sitemap_runtime_mutation_attempted": false,
+    "llms_runtime_mutation_attempted": false,
+    "gsc_submission_attempted": false,
+    "production_deploy_attempted": false
+  }
+}
