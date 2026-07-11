@@ -38,6 +38,8 @@ Run exactly one fap-web PR-train item with strict scope, dependency, verificatio
 8. Stop before merge unless checks, deploy status when relevant, reviews, and scope state are all clean.
 
 ## Acceptance commands
+`fermatmind-pr-train` is a manifest-driven workflow, so its declared checks remain authoritative. The full commands below are not the default for ordinary ad-hoc PRs, which use focused local checks while retaining complete GitHub required checks:
+
 ```bash
 cd /Users/rainie/Desktop/GitHub/fap-web && pnpm typecheck
 cd /Users/rainie/Desktop/GitHub/fap-web && NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build

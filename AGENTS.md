@@ -69,6 +69,12 @@
 - Ordinary scoped PRs, such as repository rule updates, documentation summaries, cleanup-only changes, CI fixes, and small emergency repairs, may be opened without a train id.
 - Ad-hoc PRs must not modify `docs/codex/pr-train.yaml` or `docs/codex/pr-train-state.json` unless the user explicitly asks for PR-train metadata updates.
 
+## Local verification tiers
+- Ordinary scoped PRs default to focused local verification: run the Vitest or contract files that directly cover the changed behavior, lint the touched scope, and run `git diff --check`.
+- Run `pnpm typecheck` when TypeScript interfaces, adapters, components, routes, or runtime code change.
+- Run `pnpm build`, the complete `pnpm test:contract`, and Big Five or Enneagram freeze suites locally only when the manifest, a security/high-risk skill, the changed runtime boundary, or the user explicitly requires them.
+- Pull requests still require the complete GitHub required checks: build, contracts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. Focused local checks never permit merging with a failed or missing required check.
+
 ## Audit PR execution workflow
 - When the user asks Codex to execute the current AUDIT PR, use this order unless the task gives a stricter order:
   1. Create or switch to the scoped task branch from latest `main`.
@@ -123,7 +129,7 @@
 - Reconciliation is bookkeeping, not a retry of the failed PR.
 - If reconciliation touches only PR train metadata needed to unblock the current train item, it may be included with the current PR and called out in the PR body.
 - If stale post-merge ledger state does not block the next requested task, do not open a standalone reconciliation PR. Leave the previous item as pending closeout and include the verified merge/cleanup facts in the final response.
-- If stale post-merge ledger state blocks dependency resolution, prefer reconciling it inside the next same-repository PR that already modifies `docs/codex`. If no natural PR exists, use one ledger-only ad-hoc PR; do not create a new `*-RECONCILE-*` PR-train item unless the user explicitly asks to track reconciliation as a train item.
+- If stale post-merge ledger state blocks dependency resolution, prefer reconciling it inside the next same-repository PR that already modifies `docs/codex`. If no natural PR exists, request explicit user authorization before creating one ledger-only ad-hoc PR; do not create a new `*-RECONCILE-*` PR-train item unless the user explicitly asks to track reconciliation as a train item.
 - Cross-repository ledger reconciliation must be done in the repository that owns that ledger.
 
 ## Failure policy
