@@ -44253,7 +44253,7 @@
     "branch": "codex/big5-114-seo-runtime-release-01",
     "title": "BIG5-114-SEO-RUNTIME-RELEASE-01: release 114 canonical Big Five SEO runtime entries",
     "depends_on": ["BIG5-114-INDEXABILITY-PUBLISH-GATE-01"],
-    "status": "pr_open",
+    "status": "blocked_runtime_authority_cache",
     "commit_sha": "d6d5eb5dfc88f71b47c790eff37f0d03134b6bba",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1696",
     "checks": {
@@ -44267,7 +44267,7 @@
       "production_authority_observation": {"status": "pending_cache_refresh", "evidence": "Immediately after promotion, the live sitemap-source cache still exposed the previous 21 Big Five entries (zh 21, en 0, aliases 0). Backend schedules seo:warm-sitemap-source-cache every ten minutes; live 114 readback remains required before merge."}
     },
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
-    "failure_reason": null,
+    "failure_reason": "Production /api/v0.5/seo/sitemap-source remains at the pre-promotion 21-entry Big Five cache (en 0, zh 21, aliases 0) after the approved 93-row write and more than one scheduled warm interval. The promotion workflow does not invalidate/warm discoverability caches or assert 114 readback; a separately authorized fap-api repair PR is required before this frontend PR may merge.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -44275,9 +44275,10 @@
       {"at": "2026-07-11T22:48:23+08:00", "status": "in_progress", "summary": "Started from fap-web origin/main in an isolated clean worktree after the approved 93-row backend promotion succeeded. Scope is backend-authorized Big Five renderer/discoverability release only; no frontend editorial fallback, CMS mutation, search submission, or production deploy is authorized."},
       {"at": "2026-07-11T23:00:00+08:00", "status": "local_verified", "summary": "Canonical route extraction proves en 62 plus zh 52 with ten zh aliases excluded; focused contracts, lint/spacing/typecheck, production build, four full contract shards, both personality freeze suites, manifest/state parse, diff checks, and exact allowed-path validation passed. Live sitemap-source remains on its previous 21-entry cache and must refresh to 114 before merge."},
       {"at": "2026-07-11T23:02:00+08:00", "status": "committed", "summary": "Committed the exact seven-path BIG5-114 frontend runtime scope at a63f3d9ea1b04ac6694afaa99dab511cfe6c051f after path-limited staging."},
-      {"at": "2026-07-11T23:04:00+08:00", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1696. Required GitHub checks and live backend sitemap-source 114-entry readback are pending; no frontend deploy was triggered."}
+      {"at": "2026-07-11T23:04:00+08:00", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1696. Required GitHub checks and live backend sitemap-source 114-entry readback are pending; no frontend deploy was triggered."},
+      {"at": "2026-07-11T23:10:00+08:00", "status": "blocked_runtime_authority_cache", "summary": "All PR #1696 GitHub checks passed, but repeated production sitemap-source readback remained cache=hit with Big Five en 0, zh 21, aliases 0. Read-only source inspection proved the 93-row promotion workflow omits discoverability cache invalidation, warm, and 114 readback. The locked goal requires stopping for authorization of a separate fap-api repair PR; #1696 was not merged."}
     ],
-    "updated_at": "2026-07-11T23:04:00+08:00"
+    "updated_at": "2026-07-11T23:10:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
