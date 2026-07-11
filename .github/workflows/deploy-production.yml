@@ -40,6 +40,7 @@ jobs:
       auto_deploy_allowed: ${{ steps.evaluate.outputs.auto_deploy_allowed }}
       deploy_sha: ${{ steps.evaluate.outputs.deploy_sha }}
       associated_pr: ${{ steps.evaluate.outputs.associated_pr }}
+      authorization_mode: ${{ steps.evaluate.outputs.authorization_mode }}
     steps:
       - name: Evaluate production auto-deploy policy
         id: evaluate
@@ -50,6 +51,7 @@ jobs:
         with:
           script: |
             const isManualDispatch = process.env.GITHUB_EVENT_NAME === 'workflow_dispatch';
+            core.setOutput('authorization_mode', 'denied');
             const deploySha = process.env.GITHUB_EVENT_NAME === 'workflow_run'
               ? process.env.WORKFLOW_RUN_HEAD_SHA
               : (context.payload.inputs?.deploy_sha || '');
@@ -262,10 +264,15 @@ jobs:
                   'The deploy job remains gated by the protected production GitHub Environment.',
                 ].join('\n'));
                 core.setOutput('auto_deploy_allowed', 'true');
+                core.setOutput('authorization_mode', 'manual_sha_bound_recovery');
                 return;
               }
 
               core.setOutput('auto_deploy_allowed', 'true');
+              core.setOutput(
+                'authorization_mode',
+                isManualDispatch ? 'manual_sha_bound_recovery' : 'automatic_benign',
+              );
               core.info('Production auto-deploy policy passed for the complete verified main change range.');
             } catch (error) {
               core.setOutput('auto_deploy_allowed', 'false');
@@ -277,12 +284,21 @@ jobs:
     needs: policy-guard
     runs-on: ubuntu-latest
     timeout-minutes: 45
-    if: ${{ needs.policy-guard.outputs.auto_deploy_allowed == 'true' }}
+    if: >-
+      ${{
+        needs.policy-guard.outputs.auto_deploy_allowed == 'true' &&
+        (
+          needs.policy-guard.outputs.authorization_mode == 'automatic_benign' ||
+          needs.policy-guard.outputs.authorization_mode == 'manual_sha_bound_recovery'
+        )
+      }}
     concurrency:
       group: deploy-web-production-${{ github.repository }}
       cancel-in-progress: false
     environment:
       name: production
+      # Solo-operator decision: the repository owner may approve this protected
+      # environment, but only after the SHA-bound policy guard has succeeded.
     env:
       DEPLOY_HOST: ${{ secrets.WEB_NODE1_DEPLOY_HOST || vars.WEB_NODE1_DEPLOY_HOST }}
       DEPLOY_USER: ${{ secrets.WEB_NODE1_DEPLOY_USER || vars.WEB_NODE1_DEPLOY_USER }}
@@ -300,6 +316,7 @@ jobs:
       NEXT_PUBLIC_BAIDU_TONGJI_ID: ${{ secrets.WEB_NEXT_PUBLIC_BAIDU_TONGJI_ID || vars.WEB_NEXT_PUBLIC_BAIDU_TONGJI_ID }}
       CORE_PUBLIC_PATH: ${{ secrets.WEB_PRODUCTION_CORE_PUBLIC_PATH || vars.WEB_PRODUCTION_CORE_PUBLIC_PATH }}
       RUN_SITEMAP_HEALTH: ${{ secrets.WEB_PRODUCTION_RUN_SITEMAP_HEALTH || vars.WEB_PRODUCTION_RUN_SITEMAP_HEALTH }}
+      AUTHORIZATION_MODE: ${{ needs.policy-guard.outputs.authorization_mode }}
       SSH_RETRY_ATTEMPTS: "3"
       SSH_RETRY_DELAY_SECONDS: "10"
 
@@ -318,6 +335,10 @@ jobs:
           DEPLOY_SHA="$POLICY_DEPLOY_SHA"
 
           test -n "$DEPLOY_SHA"
+          case "$AUTHORIZATION_MODE" in
+            automatic_benign|manual_sha_bound_recovery) ;;
+            *) echo "invalid production authorization mode" >&2; exit 1 ;;
+          esac
           test -n "$DEPLOY_HOST"
           test -n "$DEPLOY_USER"
 

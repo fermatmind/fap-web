@@ -946,6 +946,7 @@ const MBTI64_GSC_QUERY_EXPORT_10_01_ALLOWED_FILES = new Set([
 const FAP_WEB_PRODUCTION_AUTO_DEPLOY_ENV_FIX_01_ALLOWED_FILES = new Set([
   ".github/workflows/deploy-production.yml",
   "tests/contracts/deploy-production-workflow-env.contract.test.ts",
+  "tests/contracts/audit-prr2-web-01-deploy-recovery-lane.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
@@ -1342,6 +1343,7 @@ const SECURITY_123_WEB_01_ALLOWED_FILES = new Set([
   "generated/pr-train-sidecar-issues/sidecar_issues.json",
   "generated/pr-train-sidecar-issues/sidecar_issues.md",
   "tests/contracts/deploy-production-workflow-env.contract.test.ts",
+  "tests/contracts/audit-prr2-web-01-deploy-recovery-lane.contract.test.ts",
   "tests/contracts/helpers/currentPrScope.ts",
   "tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts",
   "tests/contracts/security-123-web-01-production-approval-guard.contract.test.ts",

@@ -53,7 +53,8 @@ describe("SECURITY-123-WEB-01 production approval guard", () => {
 
   it("retains the protected production environment boundary", () => {
     expect(workflow).toContain("environment:\n      name: production");
-    expect(workflow).toContain("if: ${{ needs.policy-guard.outputs.auto_deploy_allowed == 'true' }}");
+    expect(workflow).toContain("needs.policy-guard.outputs.auto_deploy_allowed == 'true'");
+    expect(workflow).toContain("needs.policy-guard.outputs.authorization_mode == 'manual_sha_bound_recovery'");
   });
 
   it("keeps the current PR diff inside the declared WEB-01 scope", () => {
