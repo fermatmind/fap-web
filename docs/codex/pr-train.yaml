@@ -290,6 +290,46 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend
 
+  - id: ENNEAGRAM-90-CROSS-REPO-READINESS-01
+    repo: fap-web
+    depends_on: [ENNEAGRAM-90-FRONTEND-SITEMAP-EXTRACTOR-01]
+    branch: codex/enneagram-90-cross-repo-readiness-01
+    base: main
+    title: "ENNEAGRAM-90-CROSS-REPO-READINESS-01: record local cross-repo readiness"
+    train_scope: enneagram_90_cross_repo_readiness
+    status: user_authorized
+    scope:
+      - Record read-only local cross-repo readiness evidence for the fap-api ENNEAGRAM-90 content package and fap-web route, asset, metadata, canonical/hreflang, FAQ/schema, internal-link, and sitemap candidate contracts.
+      - Confirm package, API import dry-run contract, route resolver, asset contract, and sitemap candidate checks pass without CMS writes, publish, deploy, llms, or search release.
+      - Preserve code deploy, CMS import, publish/cache warm, llms, and search as separately authorized follow-up items.
+    allowed_paths:
+      - docs/seo/personality/enneagram/enneagram-90-cross-repo-readiness-2026-07-11.json
+      - docs/seo/personality/enneagram/enneagram-90-cross-repo-readiness-2026-07-11.md
+      - tests/contracts/personality-enneagram-90-cross-repo-readiness.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Modify runtime code, backend code, content assets, CMS data, sitemap runtime, llms, search release, deployment workflows, or production state.
+      - Execute CMS write/import, publish, sitemap cache warm, production deploy, manual deploy, or external server verification.
+    validation:
+      - pnpm exec vitest run tests/contracts/personality-enneagram-90-cross-repo-readiness.contract.test.ts --reporter=dot
+      - pnpm typecheck
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -m json.tool docs/seo/personality/enneagram/enneagram-90-cross-repo-readiness-2026-07-11.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    api_runtime_change: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+
   - id: CAREER-DIRECTORY-ERROR-SEMANTICS-01
     repo: fap-web
     depends_on: [CAREER-DIRECTORY-READ-MODEL-PERFORMANCE-01]
