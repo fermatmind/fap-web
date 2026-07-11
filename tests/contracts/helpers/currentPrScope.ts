@@ -1456,6 +1456,15 @@ const BIG5_114_SEO_RUNTIME_RELEASE_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts",
 ]);
 
+const BIG5_114_LLMS_WORKER_CACHE_CONSISTENCY_REPAIR_01_ALLOWED_FILES = new Set([
+  "app/llms-full.txt/route.ts",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "lib/seo/backendSitemapSource.ts",
+  "tests/contracts/big5-114-llms-worker-cache-consistency-repair-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const SECURITY_122_WEB_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -5110,6 +5119,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/big5-114-seo-runtime-release-01") {
     return BIG5_114_SEO_RUNTIME_RELEASE_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/big5-114-llms-worker-cache-consistency-repair-01") {
+    return BIG5_114_LLMS_WORKER_CACHE_CONSISTENCY_REPAIR_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-02-followup-notfound-rsc-payload-cleanup-01") {

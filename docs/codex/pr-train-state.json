@@ -44253,8 +44253,8 @@
     "branch": "codex/big5-114-seo-runtime-release-01",
     "title": "BIG5-114-SEO-RUNTIME-RELEASE-01: release 114 canonical Big Five SEO runtime entries",
     "depends_on": ["BIG5-114-INDEXABILITY-PUBLISH-GATE-01"],
-    "status": "ready_to_merge",
-    "commit_sha": "d6d5eb5dfc88f71b47c790eff37f0d03134b6bba",
+    "status": "merged",
+    "commit_sha": "a461ba765240f804ea751e706e8c09d43152f471",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1696",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The locked Big Five 124/114 /goal explicitly authorized this PR and manifest/state registration."},
@@ -44266,11 +44266,11 @@
       "freeze_suites": {"status": "pass", "evidence": "Big Five freeze passed 29/29 and Enneagram freeze passed 24/24."},
       "production_authority_observation": {"status": "pass", "evidence": "fap-api PR #2995 merged as 89fda388f7c2f87bb81e19d71dfa42dc741f714a. Production deploy run 29159596251 successfully deployed exact revision 425e94a52c2fbeda5a2c851031c09d0257a191cc, executed seo:warm-sitemap-source-cache, and production sitemap-source readback returned exactly 114 canonical Big Five routes: en 62, zh 52, aliases 0 with x-fermat-cache=hit."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-11T16:41:05Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {"at": "2026-07-11T22:48:23+08:00", "status": "in_progress", "summary": "Started from fap-web origin/main in an isolated clean worktree after the approved 93-row backend promotion succeeded. Scope is backend-authorized Big Five renderer/discoverability release only; no frontend editorial fallback, CMS mutation, search submission, or production deploy is authorized."},
       {"at": "2026-07-11T23:00:00+08:00", "status": "local_verified", "summary": "Canonical route extraction proves en 62 plus zh 52 with ten zh aliases excluded; focused contracts, lint/spacing/typecheck, production build, four full contract shards, both personality freeze suites, manifest/state parse, diff checks, and exact allowed-path validation passed. Live sitemap-source remains on its previous 21-entry cache and must refresh to 114 before merge."},
@@ -44278,9 +44278,10 @@
       {"at": "2026-07-11T23:04:00+08:00", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1696. Required GitHub checks and live backend sitemap-source 114-entry readback are pending; no frontend deploy was triggered."},
       {"at": "2026-07-11T23:10:00+08:00", "status": "blocked_runtime_authority_cache", "summary": "All PR #1696 GitHub checks passed, but repeated production sitemap-source readback remained cache=hit with Big Five en 0, zh 21, aliases 0. Initial evidence showed the promotion workflow omits discoverability cache invalidation, warm, and 114 readback; #1696 was not merged."},
       {"at": "2026-07-11T23:14:00+08:00", "status": "blocked_backend_sitemap_authority", "summary": "Deeper read-only inspection proved the durable blocker: backend SitemapGenerator hard-codes personality public assets to zh-CN and excludes facet_hub/facet_detail, so a cache refresh can never yield en 62 plus zh 52. The required repair must update backend enumeration and then invalidate, warm, and assert exact 114/0-alias readback."},
-      {"at": "2026-07-12T00:36:00+08:00", "status": "ready_to_merge", "summary": "Backend authority repair #2995 is merged; exact production deploy 29159596251 succeeded at 425e94a52c2fbeda5a2c851031c09d0257a191cc and ran the controlled sitemap warm. Live cached readback is exactly 114 canonical routes, en 62, zh 52, aliases 0. Existing PR checks and exact seven-path scope are green."}
+      {"at": "2026-07-12T00:36:00+08:00", "status": "ready_to_merge", "summary": "Backend authority repair #2995 is merged; exact production deploy 29159596251 succeeded at 425e94a52c2fbeda5a2c851031c09d0257a191cc and ran the controlled sitemap warm. Live cached readback is exactly 114 canonical routes, en 62, zh 52, aliases 0. Existing PR checks and exact seven-path scope are green."},
+      {"at": "2026-07-11T16:41:05Z", "status": "merged", "summary": "PR #1696 squash-merged at a461ba765240f804ea751e706e8c09d43152f471; origin/main containment and local/remote branch cleanup were verified."}
     ],
-    "updated_at": "2026-07-12T00:36:00+08:00"
+    "updated_at": "2026-07-11T16:41:05Z"
   },
   "BIG5-ZH-LEGACY-EXACT-301-REPAIR-01": {
     "id": "BIG5-ZH-LEGACY-EXACT-301-REPAIR-01",
@@ -44289,8 +44290,8 @@
     "branch": "codex/big5-zh-legacy-exact-301-repair-01",
     "title": "BIG5-ZH-LEGACY-EXACT-301-REPAIR-01: return exact 301 for ten Chinese Legacy aliases",
     "depends_on": ["BIG5-ZH-LEGACY-ROUTE-DEPRECATION-02", "BIG5-114-SEO-RUNTIME-RELEASE-01"],
-    "status": "ready_to_merge",
-    "commit_sha": "b656c8b3",
+    "status": "merged",
+    "commit_sha": "579bf294601ff953e3ebeae3d5e150f3a61c839f",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1697",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The user explicitly authorized this exact fap-web repair and manifest/state registration; production deploy remains separately gated."},
@@ -44298,13 +44299,37 @@
       "exact_301_contract": {"status": "pass", "evidence": "Next production routes manifest contains exactly ten zh Big Five Legacy redirects, each with statusCode 301 and its frozen V2 destination; no en Big Five redirect was added."},
       "required_local_checks": {"status": "pass", "evidence": "Focused redirect and renderer contracts passed 24/24; lint, spacing, Node 24 typecheck, 206-route production build, all four contract shards, Big Five 29/29 and Enneagram 24/24 passed."}
     },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
+    "failure_reason": null,
+    "merged_at": "2026-07-11T17:39:50Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
+    "history": [{"at": "2026-07-12T01:20:00+08:00", "status": "in_progress", "summary": "Started from fap-web origin/main a461ba76 in an isolated clean worktree. Scope is exact 301 routing for ten zh aliases plus focused contract and train metadata; no English route, CMS/backend authority, sitemap/llms, import, or deploy change is authorized."}, {"at": "2026-07-12T01:24:00+08:00", "status": "current_scope_check_repair", "summary": "The first full-contract run showed the new redirect spread displaced the repository-required first www canonical redirect and second /tests redirect. Reordered only the new exact-301 rules after the existing root test aliases; focused regression passed."}, {"at": "2026-07-12T01:27:00+08:00", "status": "local_verified", "summary": "Exact ten-route 301 manifest evidence, focused contracts 24/24, lint/spacing/typecheck, Node 24 production build, all four contract shards, Big Five 29/29, Enneagram 24/24, manifest/state parse, diff and exact four-path scope validation passed. No production deploy occurred."}, {"at": "2026-07-12T01:28:00+08:00", "status": "committed", "summary": "Committed the exact four-path implementation scope at fb9c23275 using path-limited staging. No production deploy occurred."}, {"at": "2026-07-12T01:30:00+08:00", "status": "pr_open", "summary": "Pushed final head b656c8b3 and opened PR #1697. Required GitHub checks are pending; no production deploy occurred."}, {"at": "2026-07-12T01:36:00+08:00", "status": "ready_to_merge", "summary": "All six required GitHub checks passed on PR #1697. Exact four-path scope, changed files, PR body, clean merge state and squash-auto-merge policy were revalidated."}, {"at": "2026-07-11T17:39:50Z", "status": "merged", "summary": "PR #1697 squash-merged at 579bf294601ff953e3ebeae3d5e150f3a61c839f; origin/main containment and local/remote branch cleanup were verified."}],
+    "updated_at": "2026-07-11T17:39:50Z"
+  },
+  "BIG5-114-LLMS-WORKER-CACHE-CONSISTENCY-REPAIR-01": {
+    "id": "BIG5-114-LLMS-WORKER-CACHE-CONSISTENCY-REPAIR-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/big5-114-llms-worker-cache-consistency-repair-01",
+    "title": "BIG5-114-LLMS-WORKER-CACHE-CONSISTENCY-REPAIR-01: repair Big Five llms worker cache consistency",
+    "depends_on": ["BIG5-114-SEO-RUNTIME-RELEASE-01", "BIG5-ZH-LEGACY-EXACT-301-REPAIR-01"],
+    "status": "ready_to_merge",
+    "commit_sha": "68f26a4715404810b1090cd2147e29028ee6a8f9",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1698",
+    "checks": {
+      "authorization": {"status": "pass", "evidence": "User explicitly authorized this exact fap-web repair and manifest/state initialization; staging is allowed after merge, while production deploy still requires a new exact merge SHA authorization."},
+      "dependencies": {"status": "pass", "evidence": "PR #1696 merged at a461ba765240f804ea751e706e8c09d43152f471 and PR #1697 merged at 579bf294601ff953e3ebeae3d5e150f3a61c839f; origin/main contains both."},
+      "production_diagnosis": {"status": "pass", "evidence": "After successful same-SHA production redeploy run 29164996210, repeated public llms.txt samples still alternated between 0 and 114 Big Five paths. Source inspection proved incomplete arrays were cached permanently per process in backendSitemapSource.ts."},
+      "required_local_checks": {"status": "pass", "evidence": "Focused worker-cache contracts passed 3/3; the related sitemap/llms contracts passed 12/12; lint passed with 25 pre-existing warnings and zero errors; spacing, Node 24 typecheck, 206-route production build, all four full contract shards, Big Five freeze 29/29, Enneagram freeze 24/24, YAML/JSON parse, git diff --check, and exact six-path scope validation passed."}
+    },
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": [{"at": "2026-07-12T01:20:00+08:00", "status": "in_progress", "summary": "Started from fap-web origin/main a461ba76 in an isolated clean worktree. Scope is exact 301 routing for ten zh aliases plus focused contract and train metadata; no English route, CMS/backend authority, sitemap/llms, import, or deploy change is authorized."}, {"at": "2026-07-12T01:24:00+08:00", "status": "current_scope_check_repair", "summary": "The first full-contract run showed the new redirect spread displaced the repository-required first www canonical redirect and second /tests redirect. Reordered only the new exact-301 rules after the existing root test aliases; focused regression passed."}, {"at": "2026-07-12T01:27:00+08:00", "status": "local_verified", "summary": "Exact ten-route 301 manifest evidence, focused contracts 24/24, lint/spacing/typecheck, Node 24 production build, all four contract shards, Big Five 29/29, Enneagram 24/24, manifest/state parse, diff and exact four-path scope validation passed. No production deploy occurred."}, {"at": "2026-07-12T01:28:00+08:00", "status": "committed", "summary": "Committed the exact four-path implementation scope at fb9c23275 using path-limited staging. No production deploy occurred."}, {"at": "2026-07-12T01:30:00+08:00", "status": "pr_open", "summary": "Pushed final head b656c8b3 and opened PR #1697. Required GitHub checks are pending; no production deploy occurred."}, {"at": "2026-07-12T01:36:00+08:00", "status": "ready_to_merge", "summary": "All six required GitHub checks passed on PR #1697. Exact four-path scope, changed files, PR body, clean merge state and squash-auto-merge policy were revalidated."}],
-    "updated_at": "2026-07-12T01:36:00+08:00"
+    "history": [{"at": "2026-07-12T03:25:00+08:00", "status": "in_progress", "summary": "Started the explicitly authorized worker-cache consistency repair from exact origin/main 579bf294 in an isolated clean worktree. Scope is code/contracts/train metadata only; no workflow dispatch, deploy, cache purge, CMS/backend mutation, alias promotion, or search action is authorized in this PR."}, {"at": "2026-07-12T03:40:00+08:00", "status": "local_verified", "summary": "Incomplete Big Five cohorts are no longer process-cached, complete responses recover to the exact 114 canonical set, independent worker initialization is consistent, and llms-full rejects missing paths or Chinese aliases. All manifest local checks and exact six-path scope validation passed."}, {"at": "2026-07-12T03:42:00+08:00", "status": "committed", "summary": "Committed the exact six-path implementation and contract scope at 68f26a4715404810b1090cd2147e29028ee6a8f9 using path-limited staging. No deploy or remote mutation beyond the forthcoming PR push occurred."}, {"at": "2026-07-12T03:45:00+08:00", "status": "pr_open", "summary": "Pushed the exact six-path branch and opened PR #1698. Required GitHub checks are pending; no deploy, cache purge, or production mutation occurred."}, {"at": "2026-07-12T03:51:00+08:00", "status": "ready_to_merge", "summary": "All required GitHub checks passed. PR #1698 is mergeable and clean; exact six-path scope, changed files, PR body, and squash merge policy were revalidated."}],
+    "updated_at": "2026-07-12T03:51:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",

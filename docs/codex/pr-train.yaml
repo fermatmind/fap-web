@@ -24460,3 +24460,44 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: BIG5-114-RUNTIME-CLOSEOUT-01
+
+  - id: BIG5-114-LLMS-WORKER-CACHE-CONSISTENCY-REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-114-llms-worker-cache-consistency-repair-01
+    base: main
+    title: "BIG5-114-LLMS-WORKER-CACHE-CONSISTENCY-REPAIR-01: repair Big Five llms worker cache consistency"
+    depends_on: [BIG5-114-SEO-RUNTIME-RELEASE-01, BIG5-ZH-LEGACY-EXACT-301-REPAIR-01]
+    mode: execute
+    train_scope: big5_114_llms_worker_cache_consistency_repair
+    status: user_authorized
+    goal: "Prevent empty or incomplete backend Big Five cohorts from becoming permanent process-local llms authority, and require the exact 114-canonical zero-alias cohort for complete llms-full cache artifacts."
+    allowed_paths:
+      - app/llms-full.txt/route.ts
+      - lib/seo/backendSitemapSource.ts
+      - tests/contracts/big5-114-llms-worker-cache-consistency-repair-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS/backend mutation, frontend editorial fallback, canonical route expansion, alias promotion, cache purge, workflow dispatch, staging or production deploy, search-provider action, or production environment changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/big5-114-llms-worker-cache-consistency-repair-01.contract.test.ts tests/contracts/big5-114-seo-runtime-release-01.contract.test.ts tests/contracts/career-llms-alignment.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json"))'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: BIG5-114-D1-D7-OBSERVATION-01
