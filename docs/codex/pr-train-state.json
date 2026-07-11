@@ -43423,9 +43423,9 @@
     "depends_on": [
       "ENNEAGRAM-EN13-PUBLIC-ASSET-CONTRACT-NORMALIZE-01"
     ],
-    "status": "local_verified",
-    "commit_sha": "a2b8c84117414a79ef33933c3e992e6d7bf574b9",
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "94a205b75be356bf331ebdb4fa07f01292cbf514",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1665",
     "checks": {
       "authorization": {
         "status": "pass",
@@ -43496,8 +43496,13 @@
         "at": "2026-07-11T01:17:30Z",
         "status": "local_verified",
         "summary": "All manifest checks passed after dependency repair: focused contracts 10/10, lint, spacing, typecheck, 206-route production build, isolated full contracts 1035+998+995+967, Big Five freeze 29/29, Enneagram freeze 24/24, manifest/state parse, diff check, and exact four-file scope validation."
+      },
+      {
+        "at": "2026-07-11T01:19:00Z",
+        "status": "pr_open",
+        "summary": "Opened PR #1665 from the exact four-file scope after all local checks passed; required GitHub checks are pending and no deploy or production action is authorized."
       }
     ],
-    "updated_at": "2026-07-11T01:17:30Z"
+    "updated_at": "2026-07-11T01:19:00Z"
   }
 }

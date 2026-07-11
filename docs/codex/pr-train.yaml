@@ -23768,7 +23768,7 @@ prs:
     mode: execute
     train_scope: enneagram_en13_hub_faqpage_gate_normalize
     risk_level: low
-    status: local_verified
+    status: pr_open
     title: "ENNEAGRAM-EN13-HUB-FAQPAGE-GATE-NORMALIZE-01: align hub FAQPage rendering"
     goal: "Render backend-authoritative visible Enneagram hub FAQ as FAQPage consistently with the 12 subpages while preserving noindex and all non-FAQ schema gates."
     allowed_paths:
