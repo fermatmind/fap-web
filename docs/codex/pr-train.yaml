@@ -24079,3 +24079,44 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: AUDIT-PRR2-WEB-04
+
+  - id: AUDIT-PRR2-WEB-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/audit-prr2-web-04-pin-actions
+    base: main
+    title: "AUDIT-PRR2-WEB-04: pin GitHub Actions to immutable SHAs"
+    depends_on: [AUDIT-PRR2-WEB-03]
+    mode: execute
+    train_scope: prr2_web_actions_sha_pinning
+    status: user_authorized
+    goal: "Pin every external GitHub Action used by fap-web workflows to a full immutable commit SHA while retaining readable major-version comments."
+    allowed_paths:
+      - .github/workflows/ci.yml
+      - .github/workflows/codeql.yml
+      - .github/workflows/deploy-production.yml
+      - .github/workflows/deploy-staging.yml
+      - .github/workflows/live-result-smoke.yml
+      - .github/workflows/personality-agent-auto-runner.yml
+      - tests/contracts/audit-prr2-web-04-actions-sha-pinning.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - workflow behavior changes, deploy dispatch, environment/secrets mutation, application runtime, CMS/SEO authority, or production writes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/audit-prr2-web-04-actions-sha-pinning.contract.test.ts tests/contracts/deploy-production-workflow-env.contract.test.ts tests/contracts/security-103-web-01-deploy-workflow-hardening.contract.test.ts tests/contracts/security-123-web-01-production-approval-guard.contract.test.ts
+      - actionlint -ignore 'if: condition .* is always evaluated to true' -ignore 'SC2129' .github/workflows/*.yml
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - ruby -e 'require "yaml"; require "json"; Dir[".github/workflows/*.yml"].each { |path| YAML.load_file(path) }; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json"))'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    workflow_policy_change: true
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: AUDIT-PRR2-API-13
