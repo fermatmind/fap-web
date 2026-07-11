@@ -30180,7 +30180,7 @@
       "branch": "codex/security-124-web-01",
       "base": "main",
       "depends_on": [],
-      "status": "in_progress",
+      "status": "merged",
       "train_scope": "security_124_web_production_deploy_change_ranges",
       "title": "SECURITY-124-WEB-01: validate production deploy change ranges",
       "checks": {
@@ -30206,8 +30206,15 @@
           "failed": []
         },
         "github": {
-          "status": "pending",
-          "passed": [],
+          "status": "passed",
+          "passed": [
+            "build",
+            "contracts",
+            "verify-big5-contract-freeze",
+            "verify-enneagram-contract-freeze",
+            "CodeQL",
+            "analyze (javascript-typescript)"
+          ],
           "failed": []
         },
         "scope": {
@@ -30218,15 +30225,15 @@
       "scope_validation": {
         "allowed_paths_only": true,
         "local_validation_passed": true,
-        "github_checks_green": false,
-        "post_merge_revalidated": false
+        "github_checks_green": true,
+        "post_merge_revalidated": true
       },
       "failure_reason": null,
-      "pr_url": null,
-      "commit_sha": null,
-      "merged_at": null,
-      "remote_branch_deleted": false,
-      "local_cleanup_executed": false,
+      "pr_url": "https://github.com/fermatmind/fap-web/pull/1666",
+      "commit_sha": "4f2c6f9120389a040035c3999ad36c6da128affb",
+      "merged_at": "2026-07-11T01:49:28Z",
+      "remote_branch_deleted": true,
+      "local_cleanup_executed": true,
       "history": [
         {
           "at": "2026-07-11T09:35:00+08:00",
@@ -30237,9 +30244,14 @@
           "at": "2026-07-11T09:42:00+08:00",
           "status": "local_verified",
           "summary": "Focused contracts, lint, spacing, typecheck, Node 24 production build, all four contract shards, Big Five and Enneagram freeze gates, manifest parsing, diff check, and exact scope validation passed."
+        },
+        {
+          "at": "2026-07-11T09:49:28+08:00",
+          "status": "merged",
+          "summary": "PR #1666 passed all required checks and merged as 4f2c6f9120389a040035c3999ad36c6da128affb; origin/main contains the merge and the implementation branch is deleted remotely."
         }
       ],
-      "updated_at": "2026-07-11T09:42:00+08:00"
+      "updated_at": "2026-07-11T09:49:28+08:00"
     }
   ],
   "sidecar_issues": [
