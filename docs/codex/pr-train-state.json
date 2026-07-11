@@ -44253,7 +44253,7 @@
     "branch": "codex/big5-114-seo-runtime-release-01",
     "title": "BIG5-114-SEO-RUNTIME-RELEASE-01: release 114 canonical Big Five SEO runtime entries",
     "depends_on": ["BIG5-114-INDEXABILITY-PUBLISH-GATE-01"],
-    "status": "blocked_backend_sitemap_authority",
+    "status": "ready_to_merge",
     "commit_sha": "d6d5eb5dfc88f71b47c790eff37f0d03134b6bba",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1696",
     "checks": {
@@ -44264,10 +44264,10 @@
       "production_build": {"status": "pass", "evidence": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed and generated all 206 routes."},
       "full_contracts": {"status": "pass", "evidence": "pnpm test:contract passed all four shards after retaining the historical local Big Five variable names while expanding their backend-authorized semantics."},
       "freeze_suites": {"status": "pass", "evidence": "Big Five freeze passed 29/29 and Enneagram freeze passed 24/24."},
-      "production_authority_observation": {"status": "blocked_backend_generator", "evidence": "Live sitemap-source repeatedly exposed Big Five zh 21, en 0, aliases 0. Source inspection proved SitemapGenerator::getPersonalityPublicContentAssetUrls() hard-codes zh-CN and excludes facet_hub/facet_detail, so cache refresh alone cannot produce the required 114 cohort."}
+      "production_authority_observation": {"status": "pass", "evidence": "fap-api PR #2995 merged as 89fda388f7c2f87bb81e19d71dfa42dc741f714a. Production deploy run 29159596251 successfully deployed exact revision 425e94a52c2fbeda5a2c851031c09d0257a191cc, executed seo:warm-sitemap-source-cache, and production sitemap-source readback returned exactly 114 canonical Big Five routes: en 62, zh 52, aliases 0 with x-fermat-cache=hit."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
-    "failure_reason": "Production /api/v0.5/seo/sitemap-source remains at Big Five en 0, zh 21, aliases 0. Backend SitemapGenerator hard-codes personality public assets to zh-CN and excludes facet_hub/facet_detail, while the promotion workflow also omits discoverability cache invalidation, warm, and 114 readback. A separately authorized fap-api authority repair PR is required before this frontend PR may merge.",
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -44277,9 +44277,10 @@
       {"at": "2026-07-11T23:02:00+08:00", "status": "committed", "summary": "Committed the exact seven-path BIG5-114 frontend runtime scope at a63f3d9ea1b04ac6694afaa99dab511cfe6c051f after path-limited staging."},
       {"at": "2026-07-11T23:04:00+08:00", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1696. Required GitHub checks and live backend sitemap-source 114-entry readback are pending; no frontend deploy was triggered."},
       {"at": "2026-07-11T23:10:00+08:00", "status": "blocked_runtime_authority_cache", "summary": "All PR #1696 GitHub checks passed, but repeated production sitemap-source readback remained cache=hit with Big Five en 0, zh 21, aliases 0. Initial evidence showed the promotion workflow omits discoverability cache invalidation, warm, and 114 readback; #1696 was not merged."},
-      {"at": "2026-07-11T23:14:00+08:00", "status": "blocked_backend_sitemap_authority", "summary": "Deeper read-only inspection proved the durable blocker: backend SitemapGenerator hard-codes personality public assets to zh-CN and excludes facet_hub/facet_detail, so a cache refresh can never yield en 62 plus zh 52. The required repair must update backend enumeration and then invalidate, warm, and assert exact 114/0-alias readback."}
+      {"at": "2026-07-11T23:14:00+08:00", "status": "blocked_backend_sitemap_authority", "summary": "Deeper read-only inspection proved the durable blocker: backend SitemapGenerator hard-codes personality public assets to zh-CN and excludes facet_hub/facet_detail, so a cache refresh can never yield en 62 plus zh 52. The required repair must update backend enumeration and then invalidate, warm, and assert exact 114/0-alias readback."},
+      {"at": "2026-07-12T00:36:00+08:00", "status": "ready_to_merge", "summary": "Backend authority repair #2995 is merged; exact production deploy 29159596251 succeeded at 425e94a52c2fbeda5a2c851031c09d0257a191cc and ran the controlled sitemap warm. Live cached readback is exactly 114 canonical routes, en 62, zh 52, aliases 0. Existing PR checks and exact seven-path scope are green."}
     ],
-    "updated_at": "2026-07-11T23:14:00+08:00"
+    "updated_at": "2026-07-12T00:36:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
