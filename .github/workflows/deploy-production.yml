@@ -11,8 +11,13 @@ on:
         description: "Exact latest main commit SHA to deploy."
         required: true
         type: string
+      manual_risk_approval:
+        description: "APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<40-character deploy SHA>"
+        required: true
+        type: string
 
 permissions:
+  checks: read
   contents: read
   deployments: read
   pull-requests: read
@@ -40,6 +45,7 @@ jobs:
         id: evaluate
         uses: actions/github-script@v8
         env:
+          MANUAL_RISK_APPROVAL: ${{ github.event.inputs.manual_risk_approval }}
           WORKFLOW_RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
         with:
           script: |
@@ -60,6 +66,13 @@ jobs:
               return;
             }
 
+            const expectedManualApproval = `APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:${deploySha}`;
+            if (isManualDispatch && process.env.MANUAL_RISK_APPROVAL !== expectedManualApproval) {
+              core.setOutput('auto_deploy_allowed', 'false');
+              core.setFailed('Manual production deploy failed closed: manual_risk_approval must exactly match the SHA-bound approval text.');
+              return;
+            }
+
             core.setOutput('deploy_sha', deploySha);
 
             const { owner, repo } = context.repo;
@@ -69,6 +82,27 @@ jobs:
               if (deploySha !== latestMainSha) {
                 core.setFailed(
                   `Production auto-deploy policy failed closed: deploy SHA ${deploySha} is not latest main ${latestMainSha}.`,
+                );
+                return;
+              }
+
+              const requiredCheckNames = [
+                'build',
+                'contracts',
+                'verify-big5-contract-freeze',
+                'verify-enneagram-contract-freeze',
+              ];
+              const checkRuns = await github.paginate(
+                github.rest.checks.listForRef,
+                { owner, repo, ref: deploySha, per_page: 100 },
+                (response) => response.data.check_runs,
+              );
+              const failedRequiredChecks = requiredCheckNames.filter((name) =>
+                !checkRuns.some((run) => run.name === name && run.status === 'completed' && run.conclusion === 'success'),
+              );
+              if (failedRequiredChecks.length > 0) {
+                core.setFailed(
+                  `Production deploy failed closed: required checks are not successful: ${failedRequiredChecks.join(', ')}.`,
                 );
                 return;
               }
@@ -204,13 +238,24 @@ jobs:
               )];
 
               if (riskyLabels.length > 0 || riskyFiles.length > 0) {
-                core.setOutput('auto_deploy_allowed', 'false');
-                core.setFailed([
-                  'Production auto-deploy policy failed closed.',
+                if (!isManualDispatch) {
+                  core.setOutput('auto_deploy_allowed', 'false');
+                  core.setFailed([
+                    'Production auto-deploy policy failed closed.',
+                    riskyLabels.length > 0 ? `Risk labels: ${riskyLabels.join(', ')}` : 'Risk labels: none',
+                    riskyFiles.length > 0 ? `Risk files: ${riskyFiles.join(', ')}` : 'Risk files: none',
+                    'Risky production revisions require SHA-bound workflow_dispatch authorization and protected production Environment approval.',
+                  ].join('\n'));
+                  return;
+                }
+
+                core.warning([
+                  'Authorized manual risky production revision.',
                   riskyLabels.length > 0 ? `Risk labels: ${riskyLabels.join(', ')}` : 'Risk labels: none',
                   riskyFiles.length > 0 ? `Risk files: ${riskyFiles.join(', ')}` : 'Risk files: none',
-                  'Risky production revisions cannot be waived by workflow input. Prepare a policy-compliant revision and use the protected production GitHub Environment approval gate.',
+                  'The deploy job remains gated by the protected production GitHub Environment.',
                 ].join('\n'));
+                core.setOutput('auto_deploy_allowed', 'true');
                 return;
               }
 
@@ -244,6 +289,9 @@ jobs:
       PUBLIC_BASE_URL: ${{ secrets.WEB_PUBLIC_BASE_URL || vars.WEB_PUBLIC_BASE_URL }}
       NEXT_PUBLIC_API_URL: ${{ secrets.WEB_NEXT_PUBLIC_API_URL || vars.WEB_NEXT_PUBLIC_API_URL }}
       NEXT_PUBLIC_SITE_URL: ${{ secrets.WEB_NEXT_PUBLIC_SITE_URL || vars.WEB_NEXT_PUBLIC_SITE_URL }}
+      NEXT_PUBLIC_ANALYTICS_ENABLED: ${{ secrets.WEB_NEXT_PUBLIC_ANALYTICS_ENABLED || vars.WEB_NEXT_PUBLIC_ANALYTICS_ENABLED }}
+      NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.WEB_NEXT_PUBLIC_GA_MEASUREMENT_ID || vars.WEB_NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+      NEXT_PUBLIC_BAIDU_TONGJI_ID: ${{ secrets.WEB_NEXT_PUBLIC_BAIDU_TONGJI_ID || vars.WEB_NEXT_PUBLIC_BAIDU_TONGJI_ID }}
       CORE_PUBLIC_PATH: ${{ secrets.WEB_PRODUCTION_CORE_PUBLIC_PATH || vars.WEB_PRODUCTION_CORE_PUBLIC_PATH }}
       RUN_SITEMAP_HEALTH: ${{ secrets.WEB_PRODUCTION_RUN_SITEMAP_HEALTH || vars.WEB_PRODUCTION_RUN_SITEMAP_HEALTH }}
       SSH_RETRY_ATTEMPTS: "3"
@@ -266,6 +314,27 @@ jobs:
           test -n "$DEPLOY_SHA"
           test -n "$DEPLOY_HOST"
           test -n "$DEPLOY_USER"
+
+          analytics_config_failed=0
+          if [[ "$NEXT_PUBLIC_ANALYTICS_ENABLED" == "true" ]]; then
+            echo "analytics_enabled=PASS"
+          else
+            echo "analytics_enabled=FAIL"
+            analytics_config_failed=1
+          fi
+          if [[ "$NEXT_PUBLIC_GA_MEASUREMENT_ID" =~ ^G-[A-Z0-9]{4,32}$ ]]; then
+            echo "ga_measurement_id=PASS"
+          else
+            echo "ga_measurement_id=FAIL"
+            analytics_config_failed=1
+          fi
+          if [[ "$NEXT_PUBLIC_BAIDU_TONGJI_ID" =~ ^[a-f0-9]{16,64}$ ]]; then
+            echo "baidu_tongji_id=PASS"
+          else
+            echo "baidu_tongji_id=FAIL"
+            analytics_config_failed=1
+          fi
+          test "$analytics_config_failed" -eq 0
 
           : "${DEPLOY_PORT:=22}"
           : "${APP_DIR:=/opt/apps/fap-web}"
@@ -371,7 +440,7 @@ jobs:
             done
           }
           ssh_retry "$DEPLOY_USER@$DEPLOY_HOST" \
-            "cd '$APP_DIR' && git fetch --prune origin && git checkout -B '$GIT_BRANCH' 'origin/$GIT_BRANCH' && git reset --hard '$DEPLOY_SHA' && APP_DIR='$APP_DIR' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' APP_MANAGER='$APP_MANAGER' SYSTEMD_SERVICE='$SYSTEMD_SERVICE' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' NEXT_PUBLIC_API_URL='$NEXT_PUBLIC_API_URL' NEXT_PUBLIC_SITE_URL='$NEXT_PUBLIC_SITE_URL' GIT_BRANCH='$GIT_BRANCH' DEPLOY_SHA='$DEPLOY_SHA' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' RUN_CMS_BASELINE_STAGING_SMOKE='0' RUN_CONTENT_RELEASE_REVALIDATE_SMOKE='0' bash '$APP_DIR/scripts/deploy_web_pm2.sh'"
+            "cd '$APP_DIR' && git fetch --prune origin && git checkout -B '$GIT_BRANCH' 'origin/$GIT_BRANCH' && git reset --hard '$DEPLOY_SHA' && APP_DIR='$APP_DIR' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' APP_MANAGER='$APP_MANAGER' SYSTEMD_SERVICE='$SYSTEMD_SERVICE' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' NEXT_PUBLIC_API_URL='$NEXT_PUBLIC_API_URL' NEXT_PUBLIC_SITE_URL='$NEXT_PUBLIC_SITE_URL' NEXT_PUBLIC_ANALYTICS_ENABLED='$NEXT_PUBLIC_ANALYTICS_ENABLED' NEXT_PUBLIC_GA_MEASUREMENT_ID='$NEXT_PUBLIC_GA_MEASUREMENT_ID' NEXT_PUBLIC_BAIDU_TONGJI_ID='$NEXT_PUBLIC_BAIDU_TONGJI_ID' GIT_BRANCH='$GIT_BRANCH' DEPLOY_SHA='$DEPLOY_SHA' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' RUN_CMS_BASELINE_STAGING_SMOKE='0' RUN_CONTENT_RELEASE_REVALIDATE_SMOKE='0' bash '$APP_DIR/scripts/deploy_web_pm2.sh'"
 
       - name: Verify deployed revision
         shell: bash
@@ -403,9 +472,25 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          body_file="$(mktemp)"
+          trap 'rm -f "$body_file"' EXIT
+
           curl -fsSIL "${PUBLIC_BASE_URL}/en" | sed -n '1,20p'
           curl -fsSIL "${PUBLIC_BASE_URL}/zh" | sed -n '1,20p'
           curl -fsSIL "${PUBLIC_BASE_URL}${CORE_PUBLIC_PATH}" | sed -n '1,20p'
           curl -fsSI "${PUBLIC_BASE_URL}/sitemap.xml" | sed -n '1,20p'
           curl -fsSI "${PUBLIC_BASE_URL}/llms.txt" | sed -n '1,20p'
           curl -fsSI "${PUBLIC_BASE_URL}/llms-full.txt" | sed -n '1,20p'
+
+          for path in /zh /zh/personality/intj-a /zh/articles; do
+            curl -fsSL -o "$body_file" "${PUBLIC_BASE_URL}${path}"
+            grep -q 'fm-analytics-bootstrap' "$body_file"
+          done
+
+          for path in /zh/result/SYNTHETIC_DO_NOT_USE /zh/orders/lookup /zh/pay/wait /zh/payment/stripe/cancel; do
+            curl -sSL -o "$body_file" "${PUBLIC_BASE_URL}${path}"
+            if grep -Eiq 'fm-analytics-bootstrap|data-analytics-bootstrap|googletagmanager|hm\.baidu' "$body_file"; then
+              echo "private analytics smoke failed path=${path}" >&2
+              exit 1
+            fi
+          done

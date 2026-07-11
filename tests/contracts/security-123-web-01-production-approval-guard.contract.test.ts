@@ -32,17 +32,22 @@ function changedFiles(): string[] {
 describe("SECURITY-123-WEB-01 production approval guard", () => {
   const workflow = read(WORKFLOW_PATH);
 
-  it("does not expose a workflow input that can waive risky revision policy", () => {
-    expect(workflow).not.toContain("manual_risk_approval");
-    expect(workflow).not.toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY");
+  it("accepts only an exact SHA-bound manual risk authorization", () => {
+    expect(workflow).toContain("manual_risk_approval:");
+    expect(workflow).toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<40-character deploy SHA>");
+    expect(workflow).toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:${deploySha}");
+    expect(workflow).toContain("process.env.MANUAL_RISK_APPROVAL !== expectedManualApproval");
+    expect(workflow).toContain("manual_risk_approval must exactly match the SHA-bound approval text");
     expect(workflow).not.toContain("risky-path guard waived");
     expect(workflow).not.toContain("Production manual deploy allowed via risk approval");
   });
 
-  it("keeps manual dispatches subject to the same risky label and path checks", () => {
+  it("keeps automatic risky deploys fail-closed and manual risky deploys environment-gated", () => {
     expect(workflow).toContain("const isManualDispatch = process.env.GITHUB_EVENT_NAME === 'workflow_dispatch';");
     expect(workflow).toContain("if (riskyLabels.length > 0 || riskyFiles.length > 0)");
-    expect(workflow).toContain("Risky production revisions cannot be waived by workflow input.");
+    expect(workflow).toContain("if (!isManualDispatch)");
+    expect(workflow).toContain("Risky production revisions require SHA-bound workflow_dispatch authorization");
+    expect(workflow).toContain("The deploy job remains gated by the protected production GitHub Environment.");
     expect(workflow).toContain("core.setOutput('auto_deploy_allowed', 'false');");
   });
 
