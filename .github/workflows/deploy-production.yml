@@ -98,7 +98,9 @@ jobs:
                 (response) => response.data.check_runs,
               );
               const failedRequiredChecks = requiredCheckNames.filter((name) =>
-                !checkRuns.some((run) => run.name === name && run.status === 'completed' && run.conclusion === 'success'),
+                !checkRuns.some((run) => (
+                  run?.name === name && run?.status === 'completed' && run?.conclusion === 'success'
+                )),
               );
               if (failedRequiredChecks.length > 0) {
                 core.setFailed(
