@@ -26,6 +26,7 @@ describe("SECURITY-124-WEB-01 production deploy range guard", () => {
     expect(workflow).toContain("run?.name === name");
     expect(workflow).toContain("run?.status === 'completed'");
     expect(workflow).toContain("run?.conclusion === 'success'");
+    expect(workflow).not.toContain("(response) => response.data.check_runs");
   });
 
   it("blocks a risky PR even when a later PR in the deployment range is benign", () => {
