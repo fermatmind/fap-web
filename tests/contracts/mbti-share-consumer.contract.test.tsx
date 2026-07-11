@@ -749,25 +749,27 @@ describe("MBTI share consumer contract", () => {
       expect.stringContaining("/en/tests/big-five-personality-test-ocean-model")
     );
 
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "ui_card_impression",
-      expect.objectContaining({
-        visual_kind: "big5_share_public_surface",
-        entrySurface: "big5_share_landing",
-        publicSummaryFingerprint: "share-big5-fingerprint",
-      })
-    );
-    expect(hoisted.trackEvent).toHaveBeenCalledWith(
-      "ui_card_impression",
-      expect.objectContaining({
-        visual_kind: "share_widget_surface",
-        embedSurfaceKey: "big5_share_embed_card",
-        graphFingerprint: "share-big5-graph-fingerprint",
-        readScope: "partner_public_read",
-        widgetScope: "public_share_safe",
-        hostMode: "card",
-      })
-    );
+    await waitFor(() => {
+      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+        "ui_card_impression",
+        expect.objectContaining({
+          visual_kind: "big5_share_public_surface",
+          entrySurface: "big5_share_landing",
+          publicSummaryFingerprint: "share-big5-fingerprint",
+        })
+      );
+      expect(hoisted.trackEvent).toHaveBeenCalledWith(
+        "ui_card_impression",
+        expect.objectContaining({
+          visual_kind: "share_widget_surface",
+          embedSurfaceKey: "big5_share_embed_card",
+          graphFingerprint: "share-big5-graph-fingerprint",
+          readScope: "partner_public_read",
+          widgetScope: "public_share_safe",
+          hostMode: "card",
+        })
+      );
+    });
   });
 
   it("sends normalized share-click meta.utm and writes dedupe only after click success", async () => {
