@@ -29,9 +29,14 @@ describe("SECURITY-124-WEB-01 production deploy range guard", () => {
     expect(workflow).toContain("for (const commit of commits)");
     expect(workflow).toContain("pullsByNumber.set");
     expect(workflow).toContain("const pulls = [...pullsByNumber.values()]");
-    expect(workflow).toContain("const labels = pulls.flatMap");
+    expect(workflow).toContain("const labels = pulls");
+    expect(workflow).toContain(".flatMap((pull) => (pull.labels || []).map(normalizeLabelName))");
     expect(workflow).toContain("for (const pull of pulls)");
     expect(workflow).toContain("riskyLabels.length > 0 || riskyFiles.length > 0");
+    expect(workflow).toContain("const normalizeLabelName = (label)");
+    expect(workflow).toContain("typeof label === 'string'");
+    expect(workflow).toContain("String(label?.name || '').toLowerCase()");
+    expect(workflow).toContain(".filter(Boolean)");
   });
 
   it("allows only a complete range whose associated PRs are all benign", () => {

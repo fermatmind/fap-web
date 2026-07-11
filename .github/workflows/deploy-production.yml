@@ -183,9 +183,14 @@ jobs:
               core.info(`Production deploy range: ${baselineSha}...${deploySha}`);
               core.info(`Associated PRs: ${pulls.map((pull) => `#${pull.number} ${pull.title}`).join('; ')}`);
 
-              const labels = pulls.flatMap((pull) =>
-                (pull.labels || []).map((label) => String(label.name || '').toLowerCase()),
+              const normalizeLabelName = (label) => (
+                typeof label === 'string'
+                  ? label.toLowerCase()
+                  : String(label?.name || '').toLowerCase()
               );
+              const labels = pulls
+                .flatMap((pull) => (pull.labels || []).map(normalizeLabelName))
+                .filter(Boolean);
             const riskyLabelPatterns = [
               /(^|[-_: ])no[-_: ]?auto[-_: ]?production($|[-_: ])/,
               /(^|[-_: ])manual[-_: ]?production($|[-_: ])/,
