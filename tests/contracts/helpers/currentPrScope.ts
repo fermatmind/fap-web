@@ -1465,6 +1465,14 @@ const BIG5_114_LLMS_WORKER_CACHE_CONSISTENCY_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const BIG5_SITEMAP_PRIVATE_PATH_GATE_PRECISION_REPAIR_01_ALLOWED_FILES = new Set([
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "scripts/deploy_web_pm2.sh",
+  "tests/contracts/big5-sitemap-private-path-gate-precision-repair-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const SECURITY_122_WEB_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train.yaml",
   "docs/codex/pr-train-state.json",
@@ -5123,6 +5131,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/big5-114-llms-worker-cache-consistency-repair-01") {
     return BIG5_114_LLMS_WORKER_CACHE_CONSISTENCY_REPAIR_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/big5-sitemap-private-path-gate-precision-repair-01") {
+    return BIG5_SITEMAP_PRIVATE_PATH_GATE_PRECISION_REPAIR_01_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/pr-02-followup-notfound-rsc-payload-cleanup-01") {

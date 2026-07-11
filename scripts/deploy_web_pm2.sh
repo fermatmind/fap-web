@@ -35,6 +35,8 @@ SYNC_STANDALONE_ASSETS_SCRIPT="${SYNC_STANDALONE_ASSETS_SCRIPT:-${SCRIPT_DIR}/sy
 GENERATED_PUBLIC_ARTIFACTS="${GENERATED_PUBLIC_ARTIFACTS:-}"
 ANALYTICS_PUBLIC_PATHS="${ANALYTICS_PUBLIC_PATHS:-/zh /zh/personality /zh/articles}"
 ANALYTICS_PRIVATE_PATHS="${ANALYTICS_PRIVATE_PATHS:-/zh/result/SYNTHETIC_DO_NOT_USE /zh/orders/lookup /zh/pay/wait /zh/payment/stripe/cancel}"
+PRIVATE_SITEMAP_PATH_PATTERN='<loc>[[:space:]]*https?://[^/<]+(/(en|zh))?/(result|results|order|orders|share|pay|payment|payments|history)(/|[?#]|<)'
+PRIVATE_TEST_TAKE_SITEMAP_PATH_PATTERN='<loc>[[:space:]]*https?://[^/<]+(/(en|zh))?/tests/[^/<]+/take(/|[?#]|<)'
 
 log() {
   printf '[deploy_web_pm2] %s\n' "$*"
@@ -267,12 +269,12 @@ require_sitemap_health() {
     exit 1
   fi
 
-  if grep -Eiq '<loc>[[:space:]]*https?://[^<]+(/(en|zh))?/(result|results|order|orders|share|pay|payment|payments|history)(/|[?#]|<)' "$body_file"; then
+  if grep -Eiq "$PRIVATE_SITEMAP_PATH_PATTERN" "$body_file"; then
     log "sitemap health failed: private result/order/share/pay/history URL family found url=${url}"
     exit 1
   fi
 
-  if grep -Eiq '<loc>[[:space:]]*https?://[^<]+(/(en|zh))?/tests/[^/<]+/take(/|[?#]|<)' "$body_file"; then
+  if grep -Eiq "$PRIVATE_TEST_TAKE_SITEMAP_PATH_PATTERN" "$body_file"; then
     log "sitemap health failed: private test take URL found url=${url}"
     exit 1
   fi

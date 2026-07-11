@@ -24501,3 +24501,44 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: BIG5-114-D1-D7-OBSERVATION-01
+
+  - id: BIG5-SITEMAP-PRIVATE-PATH-GATE-PRECISION-REPAIR-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-sitemap-private-path-gate-precision-repair-01
+    base: main
+    title: "BIG5-SITEMAP-PRIVATE-PATH-GATE-PRECISION-REPAIR-01: repair sitemap private-path gate precision"
+    depends_on: [BIG5-114-LLMS-WORKER-CACHE-CONSISTENCY-REPAIR-01]
+    mode: execute
+    train_scope: big5_sitemap_private_path_gate_precision_repair
+    status: user_authorized
+    goal: "Keep the production sitemap health gate fail-closed for true root-level private URL families while allowing the legitimate bilingual Big Five facets/order canonicals."
+    allowed_paths:
+      - scripts/deploy_web_pm2.sh
+      - tests/contracts/big5-sitemap-private-path-gate-precision-repair-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - sitemap content or authority enumeration, CMS/backend mutation, public editorial content, route changes, workflow policy changes, workflow dispatch, staging or production deploy, GitHub Environment mutation, secrets mutation, or D1/D7 observation evidence
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/big5-sitemap-private-path-gate-precision-repair-01.contract.test.ts tests/contracts/production-analytics-deploy.contract.test.ts tests/contracts/frontend-deploy-generated-artifact-cleanup.contract.test.ts
+      - bash -n scripts/deploy_web_pm2.sh
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json"))'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: BIG5-114-D1-D7-OBSERVATION-01
