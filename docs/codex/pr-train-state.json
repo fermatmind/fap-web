@@ -43613,9 +43613,9 @@
     "branch": "codex/audit-prr2-web-01-deploy-recovery-lane",
     "title": "AUDIT-PRR2-WEB-01: make production deploy recovery explicit",
     "depends_on": [],
-    "status": "committed",
+    "status": "pr_open",
     "commit_sha": "de0ba452fd84d84c90247747abef0debc09e9cf3",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1679",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The PRR2 /goal authorized WEB-01. The user later explicitly selected the solo-operator reviewer model and waived distinct-reviewer separation without authorizing any Environment mutation or deploy."},
       "dependency": {"status": "pass", "evidence": "No dependency is declared; work started from fap-web origin/main 232c4a2943bce24cc23b9bb4f417ab23b2639fa4."}
@@ -43629,6 +43629,7 @@
       {"at": "2026-07-11T05:30:00Z", "status": "in_progress", "summary": "Started after the user resolved the reviewer-separation sidecar with a solo-operator exception. No workflow dispatch, deploy, Environment, secret, or server action is in scope."}
       ,{"at": "2026-07-11T05:38:00Z", "status": "local_verified", "summary": "Node 24 focused workflow/guard contracts passed 54/54; actionlint v1.7.12, lint with existing warnings only, spacing, typecheck, YAML/JSON parse, diff check, and exact six-file scope validation passed."}
       ,{"at": "2026-07-11T05:40:00Z", "status": "committed", "summary": "Committed the exact six-file WEB-01 scope at de0ba452fd84d84c90247747abef0debc09e9cf3 on current origin/main."}
+      ,{"at": "2026-07-11T05:42:00Z", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1679; required GitHub checks are pending and no deploy or Environment mutation occurred."}
     ],
     "updated_at": "2026-07-11T05:38:00Z"
   }
