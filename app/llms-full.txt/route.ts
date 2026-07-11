@@ -51,6 +51,10 @@ import {
   writeLlmsFullResponseCache,
 } from "@/lib/seo/llmsFullResponseCache";
 import { getSiteUrlOrThrow } from "@/lib/site";
+import {
+  BIG_FIVE_PUBLIC_ROUTE_ENTRIES,
+  BIG_FIVE_ZH_LEGACY_TO_V2_SLUG,
+} from "@/lib/personality/bigFivePublicRoutes";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { Locale } from "@/lib/i18n/locales";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
@@ -505,6 +509,15 @@ const MBTI64_PERSONALITY_VARIANT_CANONICAL_PATH_RE = /^\/(?:en|zh)\/personality\
 const MBTI64_PERSONALITY_COMPARISON_CANONICAL_PATH_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-a-vs-\1-t$/;
 const MBTI_PERSONALITY_AUTHORITY_CANONICAL_PATH_RE =
   /^\/(?:en|zh)\/personality\/(?:[a-z]{4}-[at]|[a-z]{4}-a-vs-[a-z]{4}-t|[a-z]{4}-vs-[a-z]{4})$/;
+const BIG_FIVE_PUBLIC_PATH_RE = /^\/(?:en|zh)\/personality\/big-five(?:\/[^/?#]+(?:\/[^/?#]+)?)?$/;
+const BIG_FIVE_EXPECTED_CANONICAL_PATHS = BIG_FIVE_PUBLIC_ROUTE_ENTRIES.flatMap((entry) => [
+  `/en/personality/big-five${entry.pathSuffix}`,
+  ...(
+    Object.hasOwn(BIG_FIVE_ZH_LEGACY_TO_V2_SLUG, entry.routeSlug)
+      ? []
+      : [`/zh/personality/big-five${entry.pathSuffix}`]
+  ),
+]);
 
 function canonicalCareerJobUrlSet(text: string, siteUrl: string): Set<string> {
   let siteOrigin: string;
@@ -562,6 +575,19 @@ function hasCompleteMbti64PersonalityCohort(text: string, siteUrl: string): bool
   }
 
   return LLMS_FULL_REQUIRED_PERSONALITY_PATHS.every((path) => text.includes(`${siteUrl}${path}`));
+}
+
+function shouldRequireCompleteBigFiveCohort(): boolean {
+  return process.env.NODE_ENV !== "test" || process.env.FERMATMIND_LLMS_FULL_REQUIRE_BIG_FIVE_COHORT === "true";
+}
+
+export function hasExactBigFiveCanonicalCohort(text: string, siteUrl: string): boolean {
+  const actualUrls = canonicalPathUrlSet(text, siteUrl, BIG_FIVE_PUBLIC_PATH_RE);
+  const expectedUrls = new Set(BIG_FIVE_EXPECTED_CANONICAL_PATHS.map((path) => toCanonical(siteUrl, path)));
+
+  return expectedUrls.size === 114
+    && actualUrls.size === expectedUrls.size
+    && [...expectedUrls].every((url) => actualUrls.has(url));
 }
 
 function llmsFullEntryMbtiAuthorityUrlSet(text: string, siteUrl: string): Set<string> {
@@ -631,6 +657,10 @@ export function isCompleteLlmsFullText(
   }
 
   if (shouldRequireCompletePersonalityCohort() && !hasCompleteMbti64PersonalityCohort(text, siteUrl)) {
+    return false;
+  }
+
+  if (shouldRequireCompleteBigFiveCohort() && !hasExactBigFiveCanonicalCohort(text, siteUrl)) {
     return false;
   }
 
