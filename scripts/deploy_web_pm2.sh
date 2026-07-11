@@ -139,6 +139,27 @@ require_analytics_build_config() {
   fi
 }
 
+write_systemd_analytics_runtime_env() {
+  local runtime_env
+  local runtime_env_tmp
+
+  if [[ "$APP_MANAGER" != "systemd" ]]; then
+    return 0
+  fi
+
+  runtime_env="${APP_DIR}/.next/standalone/.env.production.local"
+  runtime_env_tmp="${runtime_env}.tmp"
+  umask 077
+  {
+    printf 'NEXT_PUBLIC_ANALYTICS_ENABLED=%s\n' "$NEXT_PUBLIC_ANALYTICS_ENABLED"
+    printf 'NEXT_PUBLIC_GA_MEASUREMENT_ID=%s\n' "$NEXT_PUBLIC_GA_MEASUREMENT_ID"
+    printf 'NEXT_PUBLIC_BAIDU_TONGJI_ID=%s\n' "$NEXT_PUBLIC_BAIDU_TONGJI_ID"
+  } > "$runtime_env_tmp"
+  mv "$runtime_env_tmp" "$runtime_env"
+  chmod 600 "$runtime_env"
+  log "systemd analytics runtime environment prepared"
+}
+
 require_analytics_bootstrap_contract() {
   local base_url="$1"
   local phase="$2"
@@ -336,6 +357,7 @@ fi
 log "sync standalone static assets"
 bash "$SYNC_STANDALONE_ASSETS_SCRIPT"
 restore_generated_public_artifacts
+write_systemd_analytics_runtime_env
 require_candidate_analytics_smoke
 
 if [[ "$APP_MANAGER" == "pm2" ]]; then
