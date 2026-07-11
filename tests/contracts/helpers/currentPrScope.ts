@@ -6348,6 +6348,22 @@ export function isPersonalityComparisonV1FromAssetsAllowedFile(file: string): bo
   ]).has(file);
 }
 
+export function isMbtiIndex24aComparisonJsonLdAllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH !== "codex/mbti-index-24a-render-comparison-jsonld") {
+    return false;
+  }
+
+  return new Set([
+    "app/(localized)/[locale]/personality/[type]/page.tsx",
+    "lib/cms/personality.ts",
+    "tests/contracts/helpers/currentPrScope.ts",
+    "tests/contracts/mbti-index-24a-render-comparison-jsonld.contract.test.ts",
+    "tests/contracts/personality-comparison-pages.contract.test.tsx",
+    "docs/codex/pr-train.yaml",
+    "docs/codex/pr-train-state.json",
+  ]).has(file);
+}
+
 export function isPersonalityComparisonSeoGate01AllowedFile(file: string): boolean {
   if (CURRENT_BRANCH !== "codex/personality-comparison-seo-gate-01") {
     return false;

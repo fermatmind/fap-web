@@ -633,6 +633,24 @@ export type PersonalityComparisonViewModel = {
   isIndexable: boolean;
 };
 
+export function normalizePersonalityComparisonJsonLd(
+  jsonld: unknown,
+  canonical: string | null | undefined
+): Record<string, unknown> | null {
+  if (!jsonld || Array.isArray(jsonld) || typeof jsonld !== "object") {
+    return null;
+  }
+
+  const expectedCanonical = normalizeIsoValue(canonical);
+  const rawPayloadCanonical = (jsonld as Record<string, unknown>).url;
+  const payloadCanonical = normalizeIsoValue(typeof rawPayloadCanonical === "string" ? rawPayloadCanonical : null);
+  if (!expectedCanonical || payloadCanonical !== expectedCanonical) {
+    return null;
+  }
+
+  return jsonld as Record<string, unknown>;
+}
+
 export type PersonalityComparisonListItemViewModel = {
   slug: string;
   comparisonType: string;
@@ -1050,6 +1068,9 @@ function normalizePersonalityComparisonPayload(
   const summary = fallbackText(projection.summary, description);
   const robots = fallbackText(seoMeta?.robots, "index,follow");
   const projectionIndexable = projection.is_indexable === false ? false : null;
+  const canonical =
+    normalizeIsoValue(projection.canonical_url ?? seoMeta?.canonicalUrl) ??
+    canonicalUrl(buildPersonalityComparisonFrontendUrl(locale, comparisonSlug));
 
   return {
     comparisonContractVersion: fallbackText(
@@ -1070,7 +1091,7 @@ function normalizePersonalityComparisonPayload(
     title,
     description,
     summary,
-    canonicalUrl: normalizeIsoValue(projection.canonical_url ?? seoMeta?.canonicalUrl) ?? canonicalUrl(buildPersonalityComparisonFrontendUrl(locale, comparisonSlug)),
+    canonicalUrl: canonical,
     alternates: normalizeComparisonAlternates(projection.alternates),
     variants: assertive && turbulent ? { a: assertive, t: turbulent } : null,
     comparisonBlocks: Array.isArray(projection.comparison_blocks)
@@ -1105,7 +1126,7 @@ function normalizePersonalityComparisonPayload(
           .sort((left, right) => left.sortOrder - right.sortOrder)
       : [],
     seoMeta,
-    jsonld: response.jsonld ?? null,
+    jsonld: normalizePersonalityComparisonJsonLd(response.jsonld, canonical),
     seoSurface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
     landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
     answerSurface: normalizeAnswerSurface(response.answer_surface_v1 ?? null),

@@ -43402,7 +43402,7 @@
     "merge_commit_sha": "0e2405cddd3291f9d88804616ad96616aecfff9f"
   },
   "MBTI-INDEX-24": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-index-24-release-indexability-gate",
     "depends_on": [
@@ -43422,13 +43422,57 @@
       "diff_scope": "passed",
       "github_required_checks": "passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL"
     },
+    "merged_at": "2026-07-11T04:05:17Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
+    "failure_reason": null,
+    "next_task": "MBTI-GSC-25",
+    "created_at": "2026-07-05T18:20:00Z",
+    "updated_at": "2026-07-11T04:05:17Z",
+    "merge_commit_sha": "8345a5c6545c2a2144aa7fa6fce3f6a3c1db79c0"
+  },
+  "MBTI-INDEX-24A": {
+    "status": "in_progress",
+    "repo": "fap-web",
+    "branch": "codex/mbti-index-24a-render-comparison-jsonld",
+    "depends_on": [
+      "MBTI-INDEX-24A-API"
+    ],
+    "train_scope": "mbti_render_backend_authoritative_comparison_jsonld",
+    "title": "MBTI-INDEX-24A: render backend-authoritative comparison JSON-LD",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "dependency": {
+        "status": "passed",
+        "evidence": "fap-api MBTI-INDEX-24A-API PR #2951 is merged at e04b250b87028c32908e76262719e0a902a32be5; pinned backend revision 342e17cebd1a32a6901770521b47478d48f47048 is deployed and all five target comparison APIs return authoritative JSON-LD while remaining noindex."
+      },
+      "focused_contracts": "passed: 2 files, 7 tests",
+      "typecheck": "passed with Node 24",
+      "full_contracts": "passed: all 4 shards",
+      "production_build": "passed: 206 static pages with production public API/site URLs",
+      "yaml_json": "passed",
+      "diff_check": "passed"
+    },
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "failure_reason": null,
-    "next_task": "MBTI-GSC-25",
-    "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-11T03:58:30Z"
+    "next_task": "MBTI-INDEX-24B",
+    "created_at": "2026-07-11T18:45:00+08:00",
+    "updated_at": "2026-07-11T19:05:00+08:00",
+    "history": [
+      {
+        "at": "2026-07-11T18:45:00+08:00",
+        "status": "in_progress",
+        "note": "Registered from the previously authorized INDEX-24A plan and started from current fap-web origin/main. Scope is backend-authoritative comparison JSON-LD consumption only; no promotion, sitemap/llms change, GSC action, CMS write, or deploy is authorized."
+      },
+      {
+        "at": "2026-07-11T19:05:00+08:00",
+        "status": "local_checks_passed",
+        "note": "Focused authority contracts, Node 24 typecheck, all four contract shards, production API build, YAML/JSON parsing, diff check, and exact changed-file scope validation passed. Test-generated unrelated artifacts were removed from the diff."
+      }
+    ]
   },
   "MBTI-GSC-25": {
     "status": "planned",

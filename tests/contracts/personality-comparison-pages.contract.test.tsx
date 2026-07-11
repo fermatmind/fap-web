@@ -13,6 +13,7 @@ import {
 import { buildPublicSitemapEntries } from "@/lib/seo/publicSitemap";
 import {
   isCurrentRiasecPack12AllowedFile,
+  isMbtiIndex24aComparisonJsonLdAllowedFile,
   isMbtiSeo05ComparisonTemplateRefreshAllowedFile,
   isPersonalityComparisonSeoGate01AllowedFile,
   isPersonalityComparisonV1FromAssetsAllowedFile,
@@ -266,6 +267,7 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
         jsonld: {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
+          url: "https://fermatmind.com/en/personality/intj-a-vs-intj-t",
           mainEntity: {
             "@type": "ItemList",
           },
@@ -343,9 +345,10 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     expect(pageSource).toContain('testId="personality-comparison-scenario-differences"');
     expect(pageSource).toContain('data-testid="personality-comparison-visible-faq"');
     expect(pageSource).toContain("comparison.jsonld");
-    expect(pageSource).toContain("const canRenderStructuredData");
-    expect(pageSource).toContain("comparison.isIndexable && !shouldNoindex");
-    expect(pageSource).toContain("personality-comparison-breadcrumb");
+    expect(pageSource).toContain("const hasAuthoritativeComparisonJsonLd = comparison.jsonld !== null");
+    expect(pageSource).not.toContain("comparison.isIndexable && !shouldNoindex");
+    expect(pageSource).not.toContain("personality-comparison-breadcrumb-");
+    expect(pageSource).not.toContain("personality-comparison-faq-");
     expect(pageSource).toContain("buildComparisonQuickJudgmentRows(comparison)");
     expect(pageSource).toContain("buildVisibleComparisonFaqItems(comparison)");
     expect(pageSource).toContain("comparison.answerSurface?.nextStepBlocks");
@@ -386,6 +389,7 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     const allowed = changedFiles().filter(
       (file) =>
         !isCurrentRiasecPack12AllowedFile(file) &&
+        !isMbtiIndex24aComparisonJsonLdAllowedFile(file) &&
         !isMbtiSeo05ComparisonTemplateRefreshAllowedFile(file) &&
         !isPersonalityComparisonV1FromAssetsAllowedFile(file) &&
         !isPersonalityComparisonSeoGate01AllowedFile(file)

@@ -14361,7 +14361,7 @@ prs:
     mode: execute
     train_scope: mbti_release_indexability_gate
     risk_level: L1
-    status: ready_to_merge
+    status: merged
     title: "MBTI-INDEX-24: release indexability gate"
     goal: "Re-run sitemap, llms, canonical, noindex, and schema gate after CMS import authorization; allow URL expansion only if authority and quality gates pass. Do not submit GSC."
     in_scope:
@@ -14393,6 +14393,49 @@ prs:
       squash: true
       auto_merge: true
     next_task: MBTI-GSC-25
+
+  - id: MBTI-INDEX-24A
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-index-24a-render-comparison-jsonld
+    base: main
+    depends_on:
+      - MBTI-INDEX-24A-API
+    mode: execute
+    train_scope: mbti_render_backend_authoritative_comparison_jsonld
+    risk_level: L1
+    status: in_progress
+    title: "MBTI-INDEX-24A: render backend-authoritative comparison JSON-LD"
+    goal: "Render only backend-authoritative comparison JSON-LD, including during the noindex verification stage, while keeping robots, sitemap, and llms gates unchanged."
+    in_scope:
+      - app/(localized)/[locale]/personality/[type]/page.tsx
+      - lib/cms/personality.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/personality-comparison-pages.contract.test.tsx
+      - tests/contracts/mbti-index-24a-render-comparison-jsonld.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - frontend or backend editorial fallback content
+      - fap-api changes
+      - CMS writes or indexability promotion
+      - sitemap or llms enumeration changes
+      - GSC submission or URL inspection
+      - manual or production deploy
+    required_local_checks:
+      - corepack pnpm exec vitest run tests/contracts/mbti-index-24a-render-comparison-jsonld.contract.test.ts tests/contracts/personality-comparison-pages.contract.test.tsx --reporter=dot
+      - corepack pnpm typecheck
+      - corepack pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-INDEX-24B
 
   - id: MBTI-GSC-25
     repo: fap-web
