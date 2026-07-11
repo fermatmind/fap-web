@@ -57,28 +57,12 @@ const publicV05ApiProxySources = [
   "/api/v0.5/career/shortlist/state",
   "/api/v0.5/career/transition-preview",
 ];
-const cspDirectives = [
-  "default-src 'self'",
-  "base-uri 'self'",
-  "frame-ancestors 'self'",
-  "object-src 'none'",
-  "form-action 'self'",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://hm.baidu.com",
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https:",
-  "font-src 'self' data: https:",
-  "connect-src 'self' https:",
-  "frame-src 'self'",
-];
-const cspValue = cspDirectives.join("; ");
 const securityHeaders = [
   { key: "X-Frame-Options", value: "SAMEORIGIN" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()" },
   { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
-  { key: "Content-Security-Policy", value: cspValue },
-  { key: "Content-Security-Policy-Report-Only", value: cspValue },
 ];
 const privateNoindexHeaders = [
   { key: "X-Robots-Tag", value: "noindex, nofollow, noarchive, nocache" },

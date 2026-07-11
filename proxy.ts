@@ -21,6 +21,12 @@ import {
   isStagingRequestHost,
   withStagingNoindexHeader,
 } from "@/lib/seo/stagingDiscoverability";
+import {
+  applyNonceCspHeaders,
+  buildNonceCsp,
+  createCspNonce,
+  resolveCspMode,
+} from "@/lib/security/contentSecurityPolicy";
 
 const NOINDEX_VALUE = "noindex, nofollow, noarchive";
 const PRIVATE_NOINDEX_VALUE = "noindex, nofollow, noarchive, nocache";
@@ -221,6 +227,12 @@ export function proxy(request: NextRequest) {
   }
 
   const requestHeaders = new Headers(request.headers);
+  const cspNonce = createCspNonce();
+  requestHeaders.set("x-nonce", cspNonce);
+  applyNonceCspHeaders(requestHeaders, cspNonce, resolveCspMode());
+  // Next.js reads the nonce from the incoming CSP request header even during
+  // the report-only rollout phase; only the outgoing response controls enforcement.
+  requestHeaders.set("Content-Security-Policy", buildNonceCsp(cspNonce));
   requestHeaders.delete("x-anon-id");
   requestHeaders.delete(PRIVATE_ANALYTICS_SUPPRESSION_HEADER);
   requestHeaders.delete(RESULT_PAGE_SNAPSHOT_SHELL_HEADER);
@@ -251,6 +263,7 @@ export function proxy(request: NextRequest) {
       headers: requestHeaders,
     },
   });
+  applyNonceCspHeaders(response.headers, cspNonce, resolveCspMode());
 
   if (shouldAttachAnon && resolvedAnonId && (!cookieAnonId || cookieAnonId !== resolvedAnonId)) {
     response.cookies.set({
