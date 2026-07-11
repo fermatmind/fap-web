@@ -1061,3 +1061,14 @@ Weekly example:
 ```text
 Use fermatmind-seo-ops weekly_article_review for articles published or updated this week. Use fap-api `articles:weekly-seo-observation-export` output, GSC/GA4 evidence if provided, and competitor structure notes if current web research is requested. Produce WEEKLY_ARTICLE_SEO_REVIEW.md, ARTICLE_OPTIMIZATION_QUEUE.csv, and next workflow recommendations. Do not mutate CMS, publish, revalidate, submit search, enable schema/hreflang, or change sitemap/llms.
 ```
+
+## Daily Full-Chain Hardening Addendum
+
+- Do not begin production writes before Platform Readiness Preflight confirms
+  deployed commands and required runtime surfaces.
+- Stage 5 consumes one deterministic `FINAL_DERIVED_IMPORT_READY_PACKAGE`;
+  it does not create serial compatibility packages.
+- Never report `provider_security_hold` as submitted, disable TLS
+  verification, or send credentials over plaintext transport.
+- Never report GEO ready when a required visual lacks preview/public
+  projection or closeout reports `body_visual_url_count=0`.

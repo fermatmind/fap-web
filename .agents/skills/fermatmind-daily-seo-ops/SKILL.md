@@ -245,3 +245,14 @@ No-go:
 
 - Do not treat missing analytics exports as zero.
 - Do not run collectors, mutate queues, or submit search.
+
+## Daily Package And Runtime Handoff Addendum
+
+- Stage 4 emits one importer-ready `FINAL_DERIVED_IMPORT_READY_PACKAGE`; do
+  not defer deterministic filename, field, metadata, or manifest normalization
+  to repeated Stage 5 repair packages.
+- Full-chain Stage 5 runs Platform Readiness Preflight before its first
+  production write.
+- An audited Baidu `provider_security_hold` is a safe provider terminal state,
+  not a successful submission. Never weaken TLS or send a token over HTTP.
+- A required body visual without preview/public projection is not GEO ready.

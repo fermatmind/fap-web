@@ -285,3 +285,50 @@ When the user asks for a GPT content-package prompt tomorrow, Codex should:
 4. Keep the output as a paste-ready GPT Mode C package prompt; do not generate the article body itself.
 5. If image requirements changed, also consult `fermatmind-seo-ops/assets/next_daily_image_bundle_template.md`.
 6. Do not substitute the lighter `fermatmind-seo-article-content-package` template unless the user explicitly requests a brief-only or article-draft-only artifact.
+
+## Daily Importer-Compatible Addendum
+
+This addendum is authoritative over earlier generic file-name examples. Daily
+zh-CN/en ZIPs must also contain:
+
+```text
+pages/zh-CN-<slug>.md
+pages/en-<slug>.md
+cms/CMS_IMPORT_DRAFT_zh-CN_<slug>.json
+cms/CMS_IMPORT_DRAFT_en_<slug>.json
+cms/CMS_FIELDS_zh-CN_<slug>.json
+cms/CMS_FIELDS_en_<slug>.json
+contracts/PUBLIC_CANONICAL_ROUTE_CONTRACT.json
+contracts/ROUTE_ALIAS_CONTRACT.json
+contracts/SOCIAL_IMAGE_METADATA_REQUIREMENTS.json
+contracts/PRIVATE_URL_GUARD.json
+codex/qa_checklist.md
+```
+
+Use one shared `translation_group_id` of at most 64 characters, the same slug,
+and locale-specific canonical paths. Project `seo_title` to `meta_title`,
+`canonical_url` to `canonical_path`, `category_suggestion` to `category_name`,
+and the selected CTA to `primary_cta.href` / `primary_cta.label`.
+`body_markdown_file` must point to the matching locale page. Validate metadata
+lengths before returning the ZIP; never silently truncate meaning.
+
+Initial Article, BreadcrumbList, and FAQPage eligibility is false. Draft,
+no-publish, no-index, no-sitemap, no-llms, schema, hreflang, search, and
+revalidation holds remain enabled.
+
+Each image entry must use:
+
+```json
+{
+  "dimensions_expected": {"width": 1600, "height": 900, "exact": false},
+  "provenance": {
+    "generated_by": "GPT image generation",
+    "competitor_asset": false,
+    "official_logo": false
+  }
+}
+```
+
+When `body_visual_required=true`, the manifest, CMS projections, and article
+markdown must reference the same visual at its declared `body_anchor` and
+`answer_block_id`. A manifest-only visual is not import-ready.

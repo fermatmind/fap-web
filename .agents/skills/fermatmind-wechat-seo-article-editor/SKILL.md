@@ -321,3 +321,12 @@ Decision:
 - After this skill returns `WECHAT_SEO_REWRITE_READY_FOR_MODE_C_QA`, use `fermatmind-daily-seo-ops` package intake or `fermatmind-seo-ops` CMS content package QA.
 - After this skill returns `WECHAT_SEO_PROMPT_READY_FOR_GPT_PACKAGE_OWNER`, send the prompt to GPT and wait for the package.
 - If this skill returns `REWRITE_REQUIRED_BEFORE_CMS`, do not proceed to CMS import or publish.
+
+## Daily Stage 4 Handoff Addendum
+
+- Stage 4 owns one deterministic importer-ready derived package and records
+  source/derived hashes and normalization details.
+- Stage 5 goals require Platform Readiness Preflight before production writes
+  and preserve audited provider-security holds without claiming submission.
+- Required body visuals are projected into markdown and CMS metadata at the
+  declared answer block; manifest-only visuals do not satisfy GEO readiness.
