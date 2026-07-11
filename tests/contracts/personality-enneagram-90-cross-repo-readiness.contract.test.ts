@@ -10,9 +10,22 @@ function readJson<T>(relPath: string): T {
   return JSON.parse(fs.readFileSync(path.join(ROOT, relPath), "utf8")) as T;
 }
 
+type ReadinessReport = {
+  artifact: string;
+  status: string;
+  scope: Record<string, unknown>;
+  checks: {
+    content_package: { evidence: Record<string, unknown> };
+    backend_import_contract: { evidence: Record<string, unknown> };
+    frontend_route_resolver: { evidence: Record<string, unknown> };
+    sitemap_candidate: { evidence: Record<string, unknown> };
+  };
+  go_no_go: Record<string, unknown>;
+};
+
 describe("ENNEAGRAM-90-CROSS-REPO-READINESS-01", () => {
   it("records a read-only cross-repo readiness pass without authorizing production side effects", () => {
-    const report = readJson<Record<string, any>>(REPORT_PATH);
+    const report = readJson<ReadinessReport>(REPORT_PATH);
 
     expect(report.artifact).toBe("ENNEAGRAM-90-CROSS-REPO-READINESS-01");
     expect(report.status).toBe("PASS_READONLY_LOCAL");

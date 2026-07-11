@@ -325,11 +325,15 @@
       },
       "focused_contract": {
         "status": "pass",
-        "evidence": "pnpm exec vitest run tests/contracts/personality-enneagram-90-cross-repo-readiness.contract.test.ts --reporter=dot passed 2 tests."
+        "evidence": "pnpm exec vitest run tests/contracts/personality-enneagram-90-cross-repo-readiness.contract.test.ts --reporter=dot passed 2 tests before and after the lint fix."
+      },
+      "lint": {
+        "status": "pass",
+        "evidence": "pnpm lint . initially reproduced the GitHub build failure on no-explicit-any in the new readiness contract; after the scoped fix, pnpm lint . passes with existing warnings only."
       },
       "typecheck": {
         "status": "pass",
-        "evidence": "pnpm typecheck passed; local Node warning noted because shell uses Node v20.20.0 while repository requires Node >=24 <25."
+        "evidence": "pnpm typecheck passed before and after the lint fix; local Node warning noted because shell uses Node v20.20.0 while repository requires Node >=24 <25."
       },
       "manifest_state": {
         "status": "pass",
@@ -380,6 +384,12 @@
         "from": "committed",
         "to": "pr_open",
         "note": "Opened PR #1692 for the locked ENNEAGRAM-90 cross-repo readiness scope."
+      },
+      {
+        "at": "2026-07-11T20:31:00+08:00",
+        "from": "pr_open",
+        "to": "ci_fix_in_scope",
+        "note": "GitHub build failed at pnpm lint . on no-explicit-any in the new readiness contract; reproduced locally, fixed within current scope, and reran focused contract, lint, and typecheck successfully."
       }
     ]
   },
