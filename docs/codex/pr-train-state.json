@@ -43896,7 +43896,7 @@
     ]
   },
   "MBTI-INDEX-24C": {
-    "status": "local_checks_passed",
+    "status": "pr_open_checks_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-index-24c-llms-personality-budget",
     "depends_on": [
@@ -43905,7 +43905,7 @@
     "train_scope": "mbti_llms_personality_authority_budget_stability",
     "title": "MBTI-INDEX-24C: stabilize llms personality authority enumeration",
     "commit_sha": "ecdb8da45152b0aa532fb3c7f2282f8e17e1ddd2",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1700",
     "checks": {
       "dependency": {
         "status": "passed",
@@ -43929,7 +43929,7 @@
     "failure_reason": null,
     "next_task": "MBTI-INDEX-24R",
     "created_at": "2026-07-12T04:13:51+08:00",
-    "updated_at": "2026-07-12T04:47:59+08:00",
+    "updated_at": "2026-07-12T04:54:00+08:00",
     "history": [
       {
         "at": "2026-07-12T04:13:51+08:00",
@@ -43940,6 +43940,11 @@
         "at": "2026-07-12T04:47:59+08:00",
         "status": "local_checks_passed",
         "note": "Focused llms authority contracts, Node 24 typecheck, all four contract shards, production API build, YAML/JSON parsing, diff check, and exact changed-file scope validation passed. The branch was rebased onto current origin/main before final verification."
+      },
+      {
+        "at": "2026-07-12T04:54:00+08:00",
+        "status": "pr_open_checks_pending",
+        "note": "Pushed the exact seven-path scope and opened PR #1700. Required GitHub checks are pending; no deploy, GSC action, CMS write, or promotion occurred."
       }
     ]
   },
