@@ -105,8 +105,8 @@
     "base": "main",
     "branch": "codex/enneagram-90-frontend-asset-contract-01",
     "depends_on": ["ENNEAGRAM-90-FRONTEND-ROUTE-RESOLVER-01"],
-    "status": "pr_open",
-    "commit_sha": "6bda014aff2cf80ed5d1fea747ca011b7c876261",
+    "status": "ready_to_merge",
+    "commit_sha": "6843e9c3bcbe27a75b5aabe42a0aa6dc188b3406",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1687",
     "failure_reason": null,
     "merged_at": null,
@@ -140,12 +140,16 @@
       "diff_checks": {
         "status": "pass",
         "evidence": "git diff --check completed without errors before staging."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1687 checks completed successfully for head 6843e9c3bcbe27a75b5aabe42a0aa6dc188b3406: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, and CodeQL."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -178,6 +182,12 @@
         "from": "committed",
         "to": "pr_open",
         "note": "Opened PR #1687 for the locked ENNEAGRAM-90 frontend asset contract scope."
+      },
+      {
+        "at": "2026-07-11T19:48:00+08:00",
+        "from": "pr_open",
+        "to": "ready_to_merge",
+        "note": "All GitHub required checks passed; GitHub reports the PR scope as the four allowed changed files."
       }
     ]
   },
