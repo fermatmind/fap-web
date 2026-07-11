@@ -43644,18 +43644,18 @@
     "branch": "codex/audit-prr2-web-01-deploy-recovery-lane",
     "title": "AUDIT-PRR2-WEB-01: make production deploy recovery explicit",
     "depends_on": [],
-    "status": "pr_open",
-    "commit_sha": "de0ba452fd84d84c90247747abef0debc09e9cf3",
+    "status": "merged",
+    "commit_sha": "12fe250fa2b7c7a06e2e94b6164d7b6af736e8ab",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1679",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The PRR2 /goal authorized WEB-01. The user later explicitly selected the solo-operator reviewer model and waived distinct-reviewer separation without authorizing any Environment mutation or deploy."},
       "dependency": {"status": "pass", "evidence": "No dependency is declared; work started from fap-web origin/main 232c4a2943bce24cc23b9bb4f417ab23b2639fa4."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-11T05:51:04Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {"at": "2026-07-11T05:30:00Z", "status": "in_progress", "summary": "Started after the user resolved the reviewer-separation sidecar with a solo-operator exception. No workflow dispatch, deploy, Environment, secret, or server action is in scope."}
       ,{"at": "2026-07-11T05:38:00Z", "status": "local_verified", "summary": "Node 24 focused workflow/guard contracts passed 54/54; actionlint v1.7.12, lint with existing warnings only, spacing, typecheck, YAML/JSON parse, diff check, and exact six-file scope validation passed."}
@@ -43664,5 +43664,31 @@
       ,{"at": "2026-07-11T05:48:00Z", "status": "ready_to_merge", "summary": "All six required GitHub checks passed on head 5f9e6808; PR #1679 is scope-clean, mergeable, non-draft, and review-unblocked."}
     ],
     "updated_at": "2026-07-11T05:48:00Z"
+  },
+  "AUDIT-PRR2-WEB-02": {
+    "id": "AUDIT-PRR2-WEB-02",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/audit-prr2-web-02-revalidation-hmac",
+    "title": "AUDIT-PRR2-WEB-02: protect revalidation with HMAC and replay controls",
+    "depends_on": ["AUDIT-PRR2-WEB-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "pass", "evidence": "The PRR2 /goal explicitly authorized WEB-02."},
+      "dependency": {"status": "pass", "evidence": "WEB-01 is merged at 12fe250fa2b7c7a06e2e94b6164d7b6af736e8ab."},
+      "local": {"status": "pass", "evidence": "Node 24 focused HMAC contracts 20/20, lint with baseline warnings only, spacing, typecheck, full four-shard contracts, Big Five 29/29, Enneagram 24/24, and 206-route production build passed."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-11T07:00:00Z", "status": "in_progress", "summary": "Started from current origin/main; no deploy, environment, Redis, CMS, SEO, or production mutation is in scope."},
+      {"at": "2026-07-11T07:16:00Z", "status": "local_verified", "summary": "Exact-body HMAC, timestamp tolerance, nonce replay, Redis fail-closed, rate limit, audit, smoke, allowlist, full contracts, freeze suites, lint/spacing/typecheck and production build passed. Backend static-token sender gap recorded as sidecar."}
+    ],
+    "updated_at": "2026-07-11T07:16:00Z"
   }
 }

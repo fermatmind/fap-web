@@ -2,6 +2,10 @@ import { NextRequest } from "next/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 const mocks = vi.hoisted(() => ({
+  authenticate: vi.fn(async (): Promise<
+    | { ok: true; nonceHash: string }
+    | { ok: false; status: 401 | 429 | 503; errorCode: string; message: string }
+  > => ({ ok: true, nonceHash: "test-nonce-hash" })),
   revalidatePath: vi.fn(),
 }));
 
@@ -9,11 +13,16 @@ vi.mock("next/cache", () => ({
   revalidatePath: mocks.revalidatePath,
 }));
 
+vi.mock("@/lib/security/contentReleaseRevalidationAuth", () => ({
+  authenticateContentReleaseRevalidation: mocks.authenticate,
+}));
+
 import { collectPathDecisions, POST } from "@/app/api/content-release/revalidate/route";
 
 describe("content release revalidate allowlist", () => {
   afterEach(() => {
     mocks.revalidatePath.mockClear();
+    mocks.authenticate.mockClear();
     delete process.env.CONTENT_RELEASE_REVALIDATE_TOKEN;
   });
 
@@ -247,7 +256,8 @@ describe("content release revalidate allowlist", () => {
     expect(decisions.rejected).toEqual([{ path: "", reason: "malformed_or_external_url" }]);
   });
 
-  it("requires the shared content release token", async () => {
+  it("requires valid content release authentication", async () => {
+    mocks.authenticate.mockResolvedValueOnce({ ok: false, status: 401, errorCode: "UNAUTHORIZED", message: "invalid revalidation signature" });
     process.env.CONTENT_RELEASE_REVALIDATE_TOKEN = "release-token";
 
     const response = await POST(
