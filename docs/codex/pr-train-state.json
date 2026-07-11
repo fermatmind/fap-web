@@ -43334,7 +43334,7 @@
     "merge_commit_sha": "0e2405cddd3291f9d88804616ad96616aecfff9f"
   },
   "MBTI-INDEX-24": {
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-index-24-release-indexability-gate",
     "depends_on": [
@@ -43351,7 +43351,8 @@
       "typecheck": "passed",
       "production_build": "passed with NEXT_PUBLIC_SITE_URL=https://fermatmind.com and NEXT_PUBLIC_API_URL=https://api.fermatmind.com",
       "yaml_json": "passed",
-      "diff_scope": "passed"
+      "diff_scope": "passed",
+      "github_required_checks": "passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL"
     },
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -43359,7 +43360,7 @@
     "failure_reason": null,
     "next_task": "MBTI-GSC-25",
     "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-11T03:51:00Z"
+    "updated_at": "2026-07-11T03:58:30Z"
   },
   "MBTI-GSC-25": {
     "status": "planned",

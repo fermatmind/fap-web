@@ -14280,7 +14280,7 @@ prs:
     mode: execute
     train_scope: mbti_release_indexability_gate
     risk_level: L1
-    status: github_checks_pending
+    status: ready_to_merge
     title: "MBTI-INDEX-24: release indexability gate"
     goal: "Re-run sitemap, llms, canonical, noindex, and schema gate after CMS import authorization; allow URL expansion only if authority and quality gates pass. Do not submit GSC."
     in_scope:
