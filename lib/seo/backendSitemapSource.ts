@@ -19,7 +19,8 @@ const BACKEND_SITEMAP_SOURCE_TIMEOUT_MS = 20_000;
 const CAREER_JOB_DETAIL_RE = /^\/(?:en|zh)\/career\/jobs\/[^/]+$/i;
 const CAREER_JOB_DETAIL_PARTS_RE = /^\/(en|zh)\/career\/jobs\/([^/]+)$/i;
 const BIG_FIVE_ZH_PUBLIC_ASSET_RE = /^\/zh\/personality\/big-five\/[^/?#]+$/i;
-const ENNEAGRAM_ZH_PUBLIC_ASSET_RE = /^\/zh\/personality\/enneagram(?:\/(?:type-[1-9]|centers\/(?:gut|heart|head)))?$/i;
+const ENNEAGRAM_PUBLIC_ASSET_RE =
+  /^\/(?:en|zh)\/personality\/enneagram(?:\/(?:type-[1-9]|centers\/(?:gut|heart|head)|wings\/(?:1w9|1w2|2w1|2w3|3w2|3w4|4w3|4w5|5w4|5w6|6w5|6w7|7w6|7w8|8w7|8w9|9w8|9w1)|type-[1-9]\/instincts\/(?:self-preservation|social|one-to-one)))?$/i;
 const MBTI_PERSONALITY_DETAIL_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-([at])$/i;
 const MBTI_PERSONALITY_AT_COMPARISON_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-a-vs-([a-z]{4})-t$/i;
 const MBTI_PERSONALITY_CROSS_TYPE_COMPARISON_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-vs-([a-z]{4})$/i;
@@ -36,7 +37,7 @@ const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
 
 let careerJobPathCache: string[] | null = null;
 let bigFiveZhPathCache: string[] | null = null;
-let enneagramZhPathCache: string[] | null = null;
+let enneagramPublicAssetPathCache: string[] | null = null;
 
 function normalizePath(path: string): string {
   const value = String(path || "").trim() || "/";
@@ -54,7 +55,7 @@ function extractPathFromCanonicalUrl(value: unknown): string {
   try {
     const url = new URL(rawValue);
     const hostname = url.hostname.toLowerCase().replace(/\.$/, "");
-    if (url.protocol !== "https:" || !BACKEND_SITEMAP_CANONICAL_HOSTS.has(hostname)) {
+    if (url.protocol !== "https:" || !BACKEND_SITEMAP_CANONICAL_HOSTS.has(hostname) || url.search || url.hash) {
       return "";
     }
 
@@ -112,11 +113,11 @@ function shouldKeepBigFiveZhPublicAssetPath(path: string): boolean {
   );
 }
 
-function shouldKeepEnneagramZhPublicAssetPath(path: string): boolean {
+function shouldKeepEnneagramPublicAssetPath(path: string): boolean {
   const normalized = normalizePath(path);
 
   return (
-    ENNEAGRAM_ZH_PUBLIC_ASSET_RE.test(normalized) &&
+    ENNEAGRAM_PUBLIC_ASSET_RE.test(normalized) &&
     shouldIncludeInSitemap(normalized, {
       indexEligible: true,
       indexState: "indexed",
@@ -242,18 +243,22 @@ export function extractBackendSitemapBigFiveZhPaths(payload: BackendSitemapSourc
   return [...paths].sort((left, right) => left.localeCompare(right));
 }
 
-export function extractBackendSitemapEnneagramZhPaths(payload: BackendSitemapSourcePayload): string[] {
+export function extractBackendSitemapEnneagramPublicAssetPaths(payload: BackendSitemapSourcePayload): string[] {
   const items = Array.isArray(payload.items) ? payload.items : [];
   const paths = new Set<string>();
 
   for (const item of items) {
     const path = extractPathFromCanonicalUrl(item?.loc);
-    if (shouldKeepEnneagramZhPublicAssetPath(path)) {
+    if (shouldKeepEnneagramPublicAssetPath(path)) {
       paths.add(normalizePath(path));
     }
   }
 
   return [...paths].sort((left, right) => left.localeCompare(right));
+}
+
+export function extractBackendSitemapEnneagramZhPaths(payload: BackendSitemapSourcePayload): string[] {
+  return extractBackendSitemapEnneagramPublicAssetPaths(payload).filter((path) => path.startsWith("/zh/"));
 }
 
 export function extractBackendSitemapMbtiPersonalityPaths(payload: BackendSitemapSourcePayload): string[] {
@@ -306,22 +311,34 @@ export async function listBackendSitemapBigFiveZhPaths(
   return filteredPaths;
 }
 
-export async function listBackendSitemapEnneagramZhPaths(
+export async function listBackendSitemapEnneagramPublicAssetPaths(
   options: BackendSitemapCareerJobPathOptions = {}
 ): Promise<string[]> {
   const shouldUseCache = options.limit === undefined && !options.signal;
-  if (shouldUseCache && enneagramZhPathCache) {
-    return enneagramZhPathCache;
+  if (shouldUseCache && enneagramPublicAssetPathCache) {
+    return enneagramPublicAssetPathCache;
   }
 
   const payload = await fetchBackendSitemapSource(options.signal);
-  const filteredPaths = limitCandidatePaths(extractBackendSitemapEnneagramZhPaths(payload), options.limit);
+  const filteredPaths = limitCandidatePaths(extractBackendSitemapEnneagramPublicAssetPaths(payload), options.limit);
 
   if (shouldUseCache) {
-    enneagramZhPathCache = filteredPaths;
+    enneagramPublicAssetPathCache = filteredPaths;
   }
 
   return filteredPaths;
+}
+
+export async function listBackendSitemapEnneagramZhPaths(
+  options: BackendSitemapCareerJobPathOptions = {}
+): Promise<string[]> {
+  if (!options.signal) {
+    const paths = await listBackendSitemapEnneagramPublicAssetPaths();
+    return limitCandidatePaths(paths.filter((path) => path.startsWith("/zh/")), options.limit);
+  }
+
+  const payload = await fetchBackendSitemapSource(options.signal);
+  return limitCandidatePaths(extractBackendSitemapEnneagramZhPaths(payload), options.limit);
 }
 
 export async function listBackendSitemapMbtiPersonalityPaths(
