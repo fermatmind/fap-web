@@ -44290,7 +44290,7 @@
     "title": "BIG5-ZH-LEGACY-EXACT-301-REPAIR-01: return exact 301 for ten Chinese Legacy aliases",
     "depends_on": ["BIG5-ZH-LEGACY-ROUTE-DEPRECATION-02", "BIG5-114-SEO-RUNTIME-RELEASE-01"],
     "status": "local_verified",
-    "commit_sha": null,
+    "commit_sha": "fb9c23275",
     "pr_url": null,
     "checks": {
       "authorization": {"status": "pass", "evidence": "The user explicitly authorized this exact fap-web repair and manifest/state registration; production deploy remains separately gated."},
@@ -44303,8 +44303,8 @@
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": [{"at": "2026-07-12T01:20:00+08:00", "status": "in_progress", "summary": "Started from fap-web origin/main a461ba76 in an isolated clean worktree. Scope is exact 301 routing for ten zh aliases plus focused contract and train metadata; no English route, CMS/backend authority, sitemap/llms, import, or deploy change is authorized."}, {"at": "2026-07-12T01:24:00+08:00", "status": "current_scope_check_repair", "summary": "The first full-contract run showed the new redirect spread displaced the repository-required first www canonical redirect and second /tests redirect. Reordered only the new exact-301 rules after the existing root test aliases; focused regression passed."}, {"at": "2026-07-12T01:27:00+08:00", "status": "local_verified", "summary": "Exact ten-route 301 manifest evidence, focused contracts 24/24, lint/spacing/typecheck, Node 24 production build, all four contract shards, Big Five 29/29, Enneagram 24/24, manifest/state parse, diff and exact four-path scope validation passed. No production deploy occurred."}],
-    "updated_at": "2026-07-12T01:27:00+08:00"
+    "history": [{"at": "2026-07-12T01:20:00+08:00", "status": "in_progress", "summary": "Started from fap-web origin/main a461ba76 in an isolated clean worktree. Scope is exact 301 routing for ten zh aliases plus focused contract and train metadata; no English route, CMS/backend authority, sitemap/llms, import, or deploy change is authorized."}, {"at": "2026-07-12T01:24:00+08:00", "status": "current_scope_check_repair", "summary": "The first full-contract run showed the new redirect spread displaced the repository-required first www canonical redirect and second /tests redirect. Reordered only the new exact-301 rules after the existing root test aliases; focused regression passed."}, {"at": "2026-07-12T01:27:00+08:00", "status": "local_verified", "summary": "Exact ten-route 301 manifest evidence, focused contracts 24/24, lint/spacing/typecheck, Node 24 production build, all four contract shards, Big Five 29/29, Enneagram 24/24, manifest/state parse, diff and exact four-path scope validation passed. No production deploy occurred."}, {"at": "2026-07-12T01:28:00+08:00", "status": "committed", "summary": "Committed the exact four-path scope at fb9c23275 using path-limited staging. No production deploy occurred."}],
+    "updated_at": "2026-07-12T01:28:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
