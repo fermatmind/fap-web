@@ -6,6 +6,7 @@ APP_DIR="${APP_DIR:-/opt/apps/fap-web}"
 APP_USER="${APP_USER:-ubuntu}"
 APP_HOST="${APP_HOST:-127.0.0.1}"
 APP_PORT="${APP_PORT:-3000}"
+CANDIDATE_APP_PORT="${CANDIDATE_APP_PORT:-3101}"
 APP_MANAGER="${APP_MANAGER:-pm2}"
 SYSTEMD_SERVICE="${SYSTEMD_SERVICE:-${APP_NAME}.service}"
 PUBLIC_BASE_URL="${PUBLIC_BASE_URL:-https://fermatmind.com}"
@@ -32,6 +33,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROLLING_RELOAD_SCRIPT="${ROLLING_RELOAD_SCRIPT:-${SCRIPT_DIR}/rolling_reload_pm2.sh}"
 SYNC_STANDALONE_ASSETS_SCRIPT="${SYNC_STANDALONE_ASSETS_SCRIPT:-${SCRIPT_DIR}/sync_standalone_assets.sh}"
 GENERATED_PUBLIC_ARTIFACTS="${GENERATED_PUBLIC_ARTIFACTS:-}"
+ANALYTICS_PUBLIC_PATHS="${ANALYTICS_PUBLIC_PATHS:-/zh /zh/personality/intj-a /zh/articles}"
+ANALYTICS_PRIVATE_PATHS="${ANALYTICS_PRIVATE_PATHS:-/zh/result/SYNTHETIC_DO_NOT_USE /zh/orders/lookup /zh/pay/wait /zh/payment/stripe/cancel}"
 
 log() {
   printf '[deploy_web_pm2] %s\n' "$*"
@@ -104,6 +107,119 @@ probe_headers() {
   fi
 
   printf '%s\n' "$headers" | head -n 20
+}
+
+require_analytics_build_config() {
+  local failed=0
+
+  if [[ "${NEXT_PUBLIC_ANALYTICS_ENABLED:-}" == "true" ]]; then
+    log "analytics_enabled=PASS"
+  else
+    log "analytics_enabled=FAIL"
+    failed=1
+  fi
+
+  if [[ "${NEXT_PUBLIC_GA_MEASUREMENT_ID:-}" =~ ^G-[A-Z0-9]{4,32}$ ]]; then
+    log "ga_measurement_id=PASS"
+  else
+    log "ga_measurement_id=FAIL"
+    failed=1
+  fi
+
+  if [[ "${NEXT_PUBLIC_BAIDU_TONGJI_ID:-}" =~ ^[a-f0-9]{16,64}$ ]]; then
+    log "baidu_tongji_id=PASS"
+  else
+    log "baidu_tongji_id=FAIL"
+    failed=1
+  fi
+
+  if [[ "$failed" != "0" ]]; then
+    log "analytics build configuration failed"
+    exit 1
+  fi
+}
+
+require_analytics_bootstrap_contract() {
+  local base_url="$1"
+  local phase="$2"
+  local path
+  local body_file
+  local status
+
+  for path in $ANALYTICS_PUBLIC_PATHS; do
+    body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-analytics-public.XXXXXX")"
+    status="$(curl -sSL --max-time 20 -o "$body_file" -w '%{http_code}' "${base_url%/}${path}")"
+    if [[ "$status" != "200" ]] || ! grep -q 'fm-analytics-bootstrap' "$body_file"; then
+      rm -f "$body_file"
+      log "analytics public smoke failed: phase=${phase} path=${path} status=${status}"
+      exit 1
+    fi
+    rm -f "$body_file"
+    log "analytics public smoke passed: phase=${phase} path=${path}"
+  done
+
+  for path in $ANALYTICS_PRIVATE_PATHS; do
+    body_file="$(mktemp "${TMPDIR:-/tmp}/fap-web-analytics-private.XXXXXX")"
+    status="$(curl -sSL --max-time 20 -o "$body_file" -w '%{http_code}' "${base_url%/}${path}")"
+    if [[ "$status" =~ ^5 ]] || grep -Eiq 'fm-analytics-bootstrap|data-analytics-bootstrap|googletagmanager|hm\.baidu' "$body_file"; then
+      rm -f "$body_file"
+      log "analytics private smoke failed: phase=${phase} path=${path} status=${status}"
+      exit 1
+    fi
+    rm -f "$body_file"
+    log "analytics private smoke passed: phase=${phase} path=${path} status=${status}"
+  done
+}
+
+require_candidate_analytics_smoke() {
+  local candidate_pid
+  local candidate_log
+  local candidate_base_url
+  local ready=0
+  local attempt
+
+  if ss -ltn | grep -Eq ":${CANDIDATE_APP_PORT}[[:space:]]"; then
+    log "candidate port is already in use: ${CANDIDATE_APP_PORT}"
+    exit 1
+  fi
+
+  candidate_log="$(mktemp "${TMPDIR:-/tmp}/fap-web-analytics-candidate.XXXXXX")"
+  candidate_base_url="http://${APP_HOST}:${CANDIDATE_APP_PORT}"
+  (
+    cd .next/standalone
+    exec env NODE_ENV=production HOSTNAME="$APP_HOST" PORT="$CANDIDATE_APP_PORT" "$EXPECTED_NODE_BIN" server.js
+  ) >"$candidate_log" 2>&1 &
+  candidate_pid=$!
+
+  cleanup_candidate() {
+    if kill -0 "$candidate_pid" >/dev/null 2>&1; then
+      kill "$candidate_pid" >/dev/null 2>&1 || true
+      wait "$candidate_pid" >/dev/null 2>&1 || true
+    fi
+    rm -f "$candidate_log"
+  }
+  trap cleanup_candidate RETURN EXIT
+
+  for attempt in $(seq 1 30); do
+    if curl -fsS --max-time 2 "${candidate_base_url}/zh" >/dev/null 2>&1; then
+      ready=1
+      break
+    fi
+    if ! kill -0 "$candidate_pid" >/dev/null 2>&1; then
+      break
+    fi
+    sleep 1
+  done
+
+  if [[ "$ready" != "1" ]]; then
+    log "candidate server failed to become ready"
+    sed -n '1,80p' "$candidate_log" >&2 || true
+    exit 1
+  fi
+
+  require_analytics_bootstrap_contract "$candidate_base_url" "candidate"
+  cleanup_candidate
+  trap - RETURN EXIT
 }
 
 require_sitemap_health() {
@@ -182,6 +298,7 @@ PATH_NODE_BIN="$(command -v node)"
 PATH_NODE_VERSION="$(require_node_major "shell node" "$PATH_NODE_BIN")"
 EXPECTED_NODE_VERSION="$(require_node_major "runtime node" "$EXPECTED_NODE_BIN")"
 print_runtime_summary
+require_analytics_build_config
 
 CURRENT_USER="$(id -un)"
 if [[ "$CURRENT_USER" != "$APP_USER" ]]; then
@@ -219,6 +336,7 @@ fi
 log "sync standalone static assets"
 bash "$SYNC_STANDALONE_ASSETS_SCRIPT"
 restore_generated_public_artifacts
+require_candidate_analytics_smoke
 
 if [[ "$APP_MANAGER" == "pm2" ]]; then
   if [[ ! -f ecosystem.config.cjs ]]; then
@@ -259,6 +377,7 @@ probe_headers "${PUBLIC_BASE_URL}/en" 1
 probe_headers "${PUBLIC_BASE_URL}/zh" 1
 probe_headers "${PUBLIC_BASE_URL}/en/pay/wait" 1
 probe_headers "${PUBLIC_BASE_URL}${CORE_PUBLIC_PATH}" 1
+require_analytics_bootstrap_contract "$PUBLIC_BASE_URL" "production"
 if [[ "$RUN_SITEMAP_HEALTH" == "1" ]]; then
   require_sitemap_health "$SITEMAP_URL"
 else

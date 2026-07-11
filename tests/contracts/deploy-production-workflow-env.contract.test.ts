@@ -19,6 +19,9 @@ describe("production deploy workflow environment contract", () => {
       "WEB_PUBLIC_BASE_URL",
       "WEB_NEXT_PUBLIC_API_URL",
       "WEB_NEXT_PUBLIC_SITE_URL",
+      "WEB_NEXT_PUBLIC_ANALYTICS_ENABLED",
+      "WEB_NEXT_PUBLIC_GA_MEASUREMENT_ID",
+      "WEB_NEXT_PUBLIC_BAIDU_TONGJI_ID",
       "WEB_PRODUCTION_CORE_PUBLIC_PATH",
       "WEB_PRODUCTION_RUN_SITEMAP_HEALTH",
     ]) {
@@ -27,17 +30,33 @@ describe("production deploy workflow environment contract", () => {
 
     expect(workflow).toContain("test -n \"$DEPLOY_HOST\"");
     expect(workflow).toContain("test -n \"$DEPLOY_USER\"");
+    expect(workflow).toContain("analytics_enabled=PASS");
+    expect(workflow).toContain("ga_measurement_id=PASS");
+    expect(workflow).toContain("baidu_tongji_id=PASS");
   });
 
-  it("keeps manual production deploys pinned to an exact verified main revision and fail-closed risk policy", () => {
+  it("keeps manual risky deploys SHA-bound, check-gated, and protected-environment gated", () => {
     expect(workflow).toContain("github.event_name == 'workflow_dispatch'");
     expect(workflow).toContain("process.env.GITHUB_EVENT_NAME === 'workflow_dispatch'");
     expect(workflow).toContain("Manual production deploy failed closed: deploy_sha is required.");
+    expect(workflow).toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<40-character deploy SHA>");
+    expect(workflow).toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:${deploySha}");
+    expect(workflow).toContain("manual_risk_approval must exactly match the SHA-bound approval text");
     expect(workflow).toContain("expected exactly one merged main PR for range commit");
     expect(workflow).toContain('test "$DEPLOY_SHA" = "$LATEST_MAIN_SHA"');
-    expect(workflow).not.toContain("manual_risk_approval");
+    for (const requiredCheck of [
+      "build",
+      "contracts",
+      "verify-big5-contract-freeze",
+      "verify-enneagram-contract-freeze",
+    ]) {
+      expect(workflow).toContain(`'${requiredCheck}'`);
+    }
     expect(workflow).toContain("riskyLabelPatterns");
     expect(workflow).toContain("riskyPathPatterns");
-    expect(workflow).toContain("Risky production revisions cannot be waived by workflow input.");
+    expect(workflow).toContain("Authorized manual risky production revision.");
+    expect(workflow).toContain("protected production GitHub Environment");
+    expect(workflow).toContain("fm-analytics-bootstrap");
+    expect(workflow).toContain("private analytics smoke failed");
   });
 });

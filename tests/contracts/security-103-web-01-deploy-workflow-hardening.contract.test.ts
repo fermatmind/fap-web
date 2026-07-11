@@ -77,20 +77,20 @@ describe("SECURITY-103-WEB-01 deploy workflow hardening", () => {
     expect(stagingWorkflow).not.toContain("git reset --hard '$GITHUB_SHA'");
   });
 
-  it("keeps risky production PR metadata fail-closed after verifying the exact main revision", () => {
+  it("keeps risky production PR metadata SHA-bound and environment-gated after verifying the exact main revision", () => {
     expect(productionWorkflow).toContain("listPullRequestsAssociatedWithCommit");
     expect(productionWorkflow).toContain("expected exactly one merged main PR");
     expect(productionWorkflow).toContain("Production auto-deploy policy passed for the complete verified main change range.");
     expect(productionWorkflow).toContain("Production auto-deploy policy failed closed.");
     expect(productionWorkflow).toContain("riskyLabelPatterns");
     expect(productionWorkflow).toContain("riskyPathPatterns");
-    expect(productionWorkflow).toContain(
-      "Risky production revisions cannot be waived by workflow input. Prepare a policy-compliant revision and use the protected production GitHub Environment approval gate.",
-    );
-    expect(productionWorkflow).not.toContain("manual_risk_approval");
-    expect(productionWorkflow).not.toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY");
-    expect(productionWorkflow).not.toContain("Continuing only through the production GitHub Environment approval gate.");
-    expect(productionWorkflow).not.toContain("detected risky PR metadata, but this is a manual workflow_dispatch run");
+    expect(productionWorkflow).toContain("manual_risk_approval:");
+    expect(productionWorkflow).toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:<40-character deploy SHA>");
+    expect(productionWorkflow).toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:${deploySha}");
+    expect(productionWorkflow).toContain("manual_risk_approval must exactly match the SHA-bound approval text");
+    expect(productionWorkflow).toContain("if (!isManualDispatch)");
+    expect(productionWorkflow).toContain("Risky production revisions require SHA-bound workflow_dispatch authorization");
+    expect(productionWorkflow).toContain("The deploy job remains gated by the protected production GitHub Environment.");
   });
 
   it("moves staging deploy target settings out of the workflow body", () => {

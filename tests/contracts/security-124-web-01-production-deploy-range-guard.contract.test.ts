@@ -49,11 +49,13 @@ describe("SECURITY-124-WEB-01 production deploy range guard", () => {
     expect(workflow).toContain("failed closed after a GitHub API error");
   });
 
-  it("preserves the input injection, predictable token, and protected environment boundaries", () => {
+  it("preserves input injection, SHA-bound authorization, and protected environment boundaries", () => {
     expect(workflow).toContain("context.payload.inputs?.deploy_sha");
     expect(workflow).not.toMatch(/\$\{\{\s*github\.event\.inputs\.deploy_sha\s*\}\}/);
-    expect(workflow).not.toContain("manual_risk_approval");
-    expect(workflow).not.toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY");
+    expect(workflow).toContain("MANUAL_RISK_APPROVAL: ${{ github.event.inputs.manual_risk_approval }}");
+    expect(workflow).toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:${deploySha}");
+    expect(workflow).toContain("process.env.MANUAL_RISK_APPROVAL !== expectedManualApproval");
+    expect(workflow).not.toContain("manual_risk_approval === 'true'");
     expect(workflow).toContain("environment:\n      name: production");
   });
 });
