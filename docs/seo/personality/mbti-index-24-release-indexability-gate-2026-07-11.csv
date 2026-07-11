@@ -1,0 +1,10 @@
+path,kind,cms28_result,api_indexability,page_robots,canonical,schema_present,sitemap_present,llms_present,llms_full_present,release_decision
+/zh/personality/istj-a,profile,pass,noindex,noindex,nofollow,noarchive,nocache,https://fermatmind.com/zh/personality/istj-a,true,false,false,false,hold_no_url_expansion
+/zh/personality/istp-a,profile,pass,noindex,noindex,nofollow,noarchive,nocache,https://fermatmind.com/zh/personality/istp-a,true,false,false,false,hold_no_url_expansion
+/zh/personality/isfp-a,profile,pass,noindex,noindex,nofollow,noarchive,nocache,https://fermatmind.com/zh/personality/isfp-a,true,false,false,false,hold_no_url_expansion
+/zh/personality/esfj-a,profile,pass,noindex,noindex,nofollow,noarchive,nocache,https://fermatmind.com/zh/personality/esfj-a,true,false,false,false,hold_no_url_expansion
+/zh/personality/intp-a-vs-intp-t,comparison,pass,held_for_mbti_index_24,noindex,nofollow,noarchive,nocache,https://fermatmind.com/zh/personality/intp-a-vs-intp-t,false,false,false,false,hold_no_url_expansion
+/zh/personality/intj-vs-intp,comparison,pass,held_for_mbti_index_24,noindex,nofollow,noarchive,nocache,https://fermatmind.com/zh/personality/intj-vs-intp,false,false,false,false,hold_no_url_expansion
+/zh/personality/entj-vs-intj,comparison,pass,held_for_mbti_index_24,noindex,nofollow,noarchive,nocache,https://fermatmind.com/zh/personality/entj-vs-intj,false,false,false,false,hold_no_url_expansion
+/zh/personality/infj-vs-infp,comparison,pass,held_for_mbti_index_24,noindex,nofollow,noarchive,nocache,https://fermatmind.com/zh/personality/infj-vs-infp,false,false,false,false,hold_no_url_expansion
+/zh/personality/istj-vs-isfj,comparison,pass,held_for_mbti_index_24,noindex,nofollow,noarchive,nocache,https://fermatmind.com/zh/personality/istj-vs-isfj,false,false,false,false,hold_no_url_expansion
