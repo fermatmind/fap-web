@@ -6,9 +6,9 @@
     "base": "main",
     "branch": "codex/career-detail-delivery-10k-01",
     "depends_on": ["CAREER-DETAIL-READ-MODEL-10K-01"],
-    "status": "focused_checks_passed",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "8ffae90b74c5a744a9aaeadfd088d61e4e37ae81",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -31,7 +31,8 @@
     "deploy_allowed": false,
     "transitions": [
       {"at": "2026-07-11T18:10:00+08:00", "from": "unregistered", "to": "in_progress", "note": "Started from clean latest fap-web origin/main in an isolated worktree after backend PR5 dependency was verified merged; no deployment or authority mutation was performed."},
-      {"at": "2026-07-11T18:20:00+08:00", "from": "in_progress", "to": "focused_checks_passed", "note": "Bounded detail HTML/API revalidation, shared metadata/body authority load, six-request cap, exact slug+locale tag invalidation, revocation-safe hard expiry, request parallelization, focused contracts, typecheck, production build, full four-shard contracts, and exact six-path scope validation passed."}
+      {"at": "2026-07-11T18:20:00+08:00", "from": "in_progress", "to": "focused_checks_passed", "note": "Bounded detail HTML/API revalidation, shared metadata/body authority load, six-request cap, exact slug+locale tag invalidation, revocation-safe hard expiry, request parallelization, focused contracts, typecheck, production build, full four-shard contracts, and exact six-path scope validation passed."},
+      {"at": "2026-07-11T18:25:00+08:00", "from": "focused_checks_passed", "to": "pr_open", "note": "Committed and pushed the exact six-path scope as 8ffae90b, then opened PR #1682; GitHub required checks are pending."}
     ]
   },
   "CAREER-DIRECTORY-ERROR-SEMANTICS-01": {
