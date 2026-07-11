@@ -43432,7 +43432,7 @@
     "merge_commit_sha": "8345a5c6545c2a2144aa7fa6fce3f6a3c1db79c0"
   },
   "MBTI-INDEX-24A": {
-    "status": "in_progress",
+    "status": "local_checks_passed",
     "repo": "fap-web",
     "branch": "codex/mbti-index-24a-render-comparison-jsonld",
     "depends_on": [
@@ -43440,7 +43440,7 @@
     ],
     "train_scope": "mbti_render_backend_authoritative_comparison_jsonld",
     "title": "MBTI-INDEX-24A: render backend-authoritative comparison JSON-LD",
-    "commit_sha": null,
+    "commit_sha": "03c45495",
     "pr_url": null,
     "checks": {
       "dependency": {
