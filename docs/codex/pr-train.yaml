@@ -203,6 +203,48 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend
 
+  - id: CAREER-DETAIL-DELIVERY-10K-01
+    repo: fap-web
+    depends_on: [CAREER-DETAIL-READ-MODEL-10K-01]
+    branch: codex/career-detail-delivery-10k-01
+    base: main
+    title: "CAREER-DETAIL-DELIVERY-10K-01 career detail delivery for 10k"
+    train_scope: career_10k_stability
+    status: in_progress
+    scope:
+      - Keep Career detail HTML and public API authority loads on bounded 300-second revalidation rather than per-request SSR.
+      - Share the backend detail+SEO authority load across metadata and page rendering and cap one render at six backend requests.
+      - Tag detail+SEO fetches by slug and locale and hard-expire the exact tag/path through the signed content-release endpoint.
+      - Preserve backend publication/indexability authority so held, noindex, private, or revoked entries cannot remain public through stale frontend cache.
+    allowed_paths:
+      - app/(localized)/[locale]/career/jobs/[slug]/page.tsx
+      - app/api/content-release/revalidate/route.ts
+      - lib/career/api/fetchCareerJobBundle.ts
+      - tests/contracts/career-detail-delivery-10k-01.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    do_not:
+      - Add frontend Career content fallback or change CMS/backend authority, public content, canonical, robots, JSON-LD, sitemap, or llms enumeration.
+      - Change backend detail projections, deploy, publish, import, mutate CMS/DB, or wait for staging deployment.
+      - Implement 10k chaos gates or controlled rollout work from PR7-PR8.
+    validation:
+      - pnpm exec vitest run tests/contracts/career-detail-delivery-10k-01.contract.test.ts tests/contracts/career-detail-cache-budget-repair-01.contract.test.ts tests/contracts/content-release-revalidate-allowlist.contract.test.ts tests/contracts/detail-ready-1046-frontend-metadata-revalidation-01.contract.test.tsx tests/contracts/career-job-seo-authority.contract.test.tsx
+      - pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    api_runtime_change: true
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+
   - id: PR-PRAC-01
     repo: fap-web
     repo_path: <workspace>/fap-web
