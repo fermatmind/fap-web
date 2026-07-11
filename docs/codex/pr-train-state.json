@@ -43672,8 +43672,8 @@
     "branch": "codex/audit-prr2-web-02-revalidation-hmac",
     "title": "AUDIT-PRR2-WEB-02: protect revalidation with HMAC and replay controls",
     "depends_on": ["AUDIT-PRR2-WEB-01"],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "8f79e6ed35c75ae95a3a7816583560ef2387ccfc",
     "pr_url": null,
     "checks": {
       "authorization": {"status": "pass", "evidence": "The PRR2 /goal explicitly authorized WEB-02."},
@@ -43688,7 +43688,8 @@
     "history": [
       {"at": "2026-07-11T07:00:00Z", "status": "in_progress", "summary": "Started from current origin/main; no deploy, environment, Redis, CMS, SEO, or production mutation is in scope."},
       {"at": "2026-07-11T07:16:00Z", "status": "local_verified", "summary": "Exact-body HMAC, timestamp tolerance, nonce replay, Redis fail-closed, rate limit, audit, smoke, allowlist, full contracts, freeze suites, lint/spacing/typecheck and production build passed. Backend static-token sender gap recorded as sidecar."}
+      ,{"at": "2026-07-11T07:18:00Z", "status": "committed", "summary": "Committed the exact thirteen-path WEB-02 scope at 8f79e6ed35c75ae95a3a7816583560ef2387ccfc on current origin/main."}
     ],
-    "updated_at": "2026-07-11T07:16:00Z"
+    "updated_at": "2026-07-11T07:18:00Z"
   }
 }
