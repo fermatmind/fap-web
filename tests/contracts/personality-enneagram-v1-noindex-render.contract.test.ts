@@ -142,6 +142,7 @@ describe("PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01 contract", () => {
     expect(resolveEnneagramPublicRouteEntry(["5w4"])).toBeNull();
     expect(resolveEnneagramPublicRouteEntry(["type-2", "self-preservation"])).toBeNull();
     expect(resolveEnneagramPublicRouteEntry(["type-2", "instincts", "sexual"])).toBeNull();
+    expect(resolveEnneagramPublicRouteEntry(["type-2", "instincts", "self-preservation", "extra", "segment"])).toBeNull();
     expect(resolveEnneagramPublicRouteEntry(["tritype-548"])).toBeNull();
 
     const paths = ENNEAGRAM_PUBLIC_ROUTE_ENTRIES.flatMap((entry) => [
@@ -194,7 +195,7 @@ describe("PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01 contract", () => {
     expect(asset?.methodBoundary?.notFor).toContain("clinical diagnosis");
   });
 
-  it("uses encoded Enneagram wing and subtype API lookups without adding local fallback content", async () => {
+  it("uses stable Enneagram wing and subtype API lookups without adding local fallback content", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn(async (input: RequestInfo | URL) => {
@@ -229,22 +230,34 @@ describe("PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01 contract", () => {
       "fetch",
       vi.fn(async (input: RequestInfo | URL) => {
         const url = String(input);
-        expect(url).toContain(
-          "/api/v0.5/personality-content-assets/enneagram/instinctual_subtype/type-2%2Fself-preservation?"
-        );
+        expect(url).toContain("/api/v0.5/personality-content-assets?");
+        expect(url).toContain("framework=enneagram");
+        expect(url).toContain("entity_type=instinctual_subtype");
+        expect(url).toContain("per_page=100");
         expect(url).toContain("locale=zh-CN");
 
         return jsonResponse({
           ok: true,
-          personality_public_content_asset_v1: sampleAsset({
-            entity_type: "instinctual_subtype",
-            code: "type-2/self-preservation",
-            entity_key: "type-2/self-preservation",
-            slug: "enneagram/type-2/self-preservation",
-            locale: "zh-CN",
-            canonical_path: "/zh/personality/enneagram/type-2/instincts/self-preservation",
-            canonical: { path: "/zh/personality/enneagram/type-2/instincts/self-preservation" },
-          }),
+          items: [
+            sampleAsset({
+              entity_type: "instinctual_subtype",
+              code: "type-2/social",
+              entity_key: "type-2/social",
+              slug: "enneagram/type-2/social",
+              locale: "zh-CN",
+              canonical_path: "/zh/personality/enneagram/type-2/instincts/social",
+              canonical: { path: "/zh/personality/enneagram/type-2/instincts/social" },
+            }),
+            sampleAsset({
+              entity_type: "instinctual_subtype",
+              code: "type-2/self-preservation",
+              entity_key: "type-2/self-preservation",
+              slug: "enneagram/type-2/self-preservation",
+              locale: "zh-CN",
+              canonical_path: "/zh/personality/enneagram/type-2/instincts/self-preservation",
+              canonical: { path: "/zh/personality/enneagram/type-2/instincts/self-preservation" },
+            }),
+          ],
         });
       })
     );
