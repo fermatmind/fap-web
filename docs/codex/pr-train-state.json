@@ -43672,9 +43672,9 @@
     "branch": "codex/audit-prr2-web-02-revalidation-hmac",
     "title": "AUDIT-PRR2-WEB-02: protect revalidation with HMAC and replay controls",
     "depends_on": ["AUDIT-PRR2-WEB-01"],
-    "status": "committed",
+    "status": "pr_open",
     "commit_sha": "8f79e6ed35c75ae95a3a7816583560ef2387ccfc",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1681",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The PRR2 /goal explicitly authorized WEB-02."},
       "dependency": {"status": "pass", "evidence": "WEB-01 is merged at 12fe250fa2b7c7a06e2e94b6164d7b6af736e8ab."},
@@ -43689,7 +43689,8 @@
       {"at": "2026-07-11T07:00:00Z", "status": "in_progress", "summary": "Started from current origin/main; no deploy, environment, Redis, CMS, SEO, or production mutation is in scope."},
       {"at": "2026-07-11T07:16:00Z", "status": "local_verified", "summary": "Exact-body HMAC, timestamp tolerance, nonce replay, Redis fail-closed, rate limit, audit, smoke, allowlist, full contracts, freeze suites, lint/spacing/typecheck and production build passed. Backend static-token sender gap recorded as sidecar."}
       ,{"at": "2026-07-11T07:18:00Z", "status": "committed", "summary": "Committed the exact thirteen-path WEB-02 scope at 8f79e6ed35c75ae95a3a7816583560ef2387ccfc on current origin/main."}
+      ,{"at": "2026-07-11T07:20:00Z", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1681; required GitHub checks are pending and no deploy or environment mutation occurred."}
     ],
-    "updated_at": "2026-07-11T07:18:00Z"
+    "updated_at": "2026-07-11T07:20:00Z"
   }
 }
