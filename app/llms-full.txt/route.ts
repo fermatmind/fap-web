@@ -12,7 +12,7 @@ import {
   getPersonalityProjectionDetailBySlugOrType,
 } from "@/lib/cms/personality";
 import { isPersonalityComparisonSlug } from "@/lib/mbti/personalityComparison";
-import { getTopicBySlug, listTopics } from "@/lib/cms/topics";
+import { getTopicBySlug, listDiscoverableTopicsWithLastKnownGood } from "@/lib/cms/topics";
 import {
   MENTAL_HEALTH_NON_MEDICAL_DISCLAIMER,
   isMentalHealthScreeningTest,
@@ -50,13 +50,11 @@ import {
   getOrStartLlmsFullBuild,
   writeLlmsFullResponseCache,
 } from "@/lib/seo/llmsFullResponseCache";
-import { TOPIC_LLMS_COMPATIBILITY_FALLBACKS } from "@/lib/seo/topicLlmsAuthority";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { Locale } from "@/lib/i18n/locales";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 
-const TOPIC_FALLBACKS = TOPIC_LLMS_COMPATIBILITY_FALLBACKS;
 const LLMS_FINAL_PATH_DENY_PATTERNS: RegExp[] = [
   /^\/zh$/i,
   /^\/tests(?:\/|$)/i,
@@ -834,36 +832,26 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
 }
 
 async function listTopicEntries(): Promise<LlmsFullEntry[]> {
-  try {
-    const [enTopics, zhTopics] = await Promise.all([
-      listTopics({ locale: "en", perPage: LLMS_ROUTE_LIMITS.topics }),
-      listTopics({ locale: "zh", perPage: LLMS_ROUTE_LIMITS.topics }),
-    ]);
-
-    return [
-      ...enTopics.items.map((item) => ({
-        locale: "en" as const,
-        path: `/en/topics/${item.slug}`,
+  const locales: LlmsLocale[] = ["en", "zh"];
+  const entries = await Promise.all(locales.map(async (locale) => {
+    try {
+      const result = await listDiscoverableTopicsWithLastKnownGood({
+        locale,
+        perPage: LLMS_ROUTE_LIMITS.topics,
+      });
+      return result.value.items.map((item) => ({
+        locale,
+        path: `/${locale}/topics/${item.slug}`,
         title: item.title,
         type: "topic",
         summary: summaryFromRecord(item),
-      })),
-      ...zhTopics.items.map((item) => ({
-        locale: "zh" as const,
-        path: `/zh/topics/${item.slug}`,
-        title: item.title,
-        type: "topic",
-        summary: summaryFromRecord(item),
-      })),
-    ].filter((entry) => shouldKeep(entry.path));
-  } catch {
-    // Fall back to the stable public topic set when the topics CMS is unavailable.
-  }
+      }));
+    } catch {
+      return [];
+    }
+  }));
 
-  return TOPIC_FALLBACKS.flatMap((topic) => [
-    { locale: "en" as const, path: `/en/topics/${topic.slug}`, title: topic.title, type: "topic" },
-    { locale: "zh" as const, path: `/zh/topics/${topic.slug}`, title: topic.title, type: "topic" },
-  ]).filter((entry) => shouldKeep(entry.path));
+  return entries.flat().filter((entry) => shouldKeep(entry.path));
 }
 
 async function enrichArticleEntry(entry: LlmsFullEntry, siteUrl: string): Promise<LlmsFullEntry> {

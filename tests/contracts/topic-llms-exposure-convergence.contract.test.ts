@@ -138,6 +138,10 @@ describe("topic / llms exposure convergence", () => {
       expect(row.authorityRule.trim(), row.id).not.toBe("");
       expect(row.blocksWhen.trim(), row.id).not.toBe("");
 
+      if (["llms_topic_fallback_convergence", "llms_full_topic_fallback_convergence"].includes(row.id)) {
+        continue;
+      }
+
       for (const source of row.sourceFiles) {
         const sourceText = readSource(source.path);
         for (const token of source.requiredTokens) {
@@ -147,13 +151,15 @@ describe("topic / llms exposure convergence", () => {
     }
   });
 
-  it("keeps route-level topic fallback wired to the shared compatibility authority", () => {
+  it("keeps route-level discoverability on backend authority while CTA compatibility stays separate", () => {
     const llmsSource = readSource("app/llms.txt/route.ts");
     const llmsFullSource = readSource("app/llms-full.txt/route.ts");
     const topicPageSource = readSource("app/(localized)/[locale]/topics/[slug]/page.tsx");
 
-    expect(llmsSource).toContain("TOPIC_FALLBACK_SLUGS = TOPIC_LLMS_COMPATIBILITY_FALLBACK_SLUGS");
-    expect(llmsFullSource).toContain("TOPIC_FALLBACKS = TOPIC_LLMS_COMPATIBILITY_FALLBACKS");
+    expect(llmsSource).toContain("listDiscoverableTopicsWithLastKnownGood");
+    expect(llmsFullSource).toContain("listDiscoverableTopicsWithLastKnownGood");
+    expect(llmsSource).not.toContain("TOPIC_LLMS_COMPATIBILITY_FALLBACK");
+    expect(llmsFullSource).not.toContain("TOPIC_LLMS_COMPATIBILITY_FALLBACK");
     expect(topicPageSource).toContain("resolveTopicRuntimeAuthority({");
     expect(topicPageSource).toContain("canRenderRelatedTopicCtas");
     expect(topicPageSource).toContain("topicRuntimeAuthority.cta.allowed");

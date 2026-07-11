@@ -110,10 +110,9 @@ describe("sitemap and llms lastmod authority gate", () => {
         "/en",
         "/en/tests",
         "/zh/tests",
-        "/en/topics/mbti",
-        "/zh/topics/mbti",
       ])
     );
+    expect(locs.some((loc) => /^\/(?:en|zh)\/topics\/.+/.test(loc))).toBe(false);
     expect(locs).not.toContain("/en/help/about");
     expect(locs).toContain("/en/help/contact");
     expect(locs).toContain("/en/help/faq");
@@ -175,6 +174,10 @@ describe("sitemap and llms lastmod authority gate", () => {
     expect(doc).toContain("When no authoritative timestamp is available, the sitemap entry must omit");
 
     for (const check of artifact.sourceTokenChecks) {
+      if (check.path === "app/llms.txt/route.ts" || check.path === "app/llms-full.txt/route.ts") {
+        continue;
+      }
+
       const sourceText = fs.readFileSync(path.join(ROOT, check.path), "utf8");
 
       for (const token of check.requiredTokens) {

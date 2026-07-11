@@ -23,8 +23,7 @@ describe("sitemap authority adapters", () => {
     expect(staticPaths).toContain("/en");
     expect(staticPaths).toContain("/en/tests");
     expect(staticPaths).toContain("/zh/tests");
-    expect(staticPaths).toContain("/en/topics/mbti");
-    expect(staticPaths).toContain("/zh/topics/mbti");
+    expect(staticPaths.some((path) => /^\/(?:en|zh)\/topics\/.+/.test(path))).toBe(false);
     expect(staticPaths).toContain("/zh/policies");
     expect(staticPaths).toContain("/en/help/contact");
     expect(staticPaths).toContain("/en/help/faq");
