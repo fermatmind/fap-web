@@ -44315,7 +44315,7 @@
     "title": "BIG5-114-LLMS-WORKER-CACHE-CONSISTENCY-REPAIR-01: repair Big Five llms worker cache consistency",
     "depends_on": ["BIG5-114-SEO-RUNTIME-RELEASE-01", "BIG5-ZH-LEGACY-EXACT-301-REPAIR-01"],
     "status": "committed",
-    "commit_sha": "68f26a47f0b23865f8029fec764a36f1784625a7",
+    "commit_sha": "68f26a4715404810b1090cd2147e29028ee6a8f9",
     "pr_url": null,
     "checks": {
       "authorization": {"status": "pass", "evidence": "User explicitly authorized this exact fap-web repair and manifest/state initialization; staging is allowed after merge, while production deploy still requires a new exact merge SHA authorization."},
@@ -44328,7 +44328,7 @@
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": [{"at": "2026-07-12T03:25:00+08:00", "status": "in_progress", "summary": "Started the explicitly authorized worker-cache consistency repair from exact origin/main 579bf294 in an isolated clean worktree. Scope is code/contracts/train metadata only; no workflow dispatch, deploy, cache purge, CMS/backend mutation, alias promotion, or search action is authorized in this PR."}, {"at": "2026-07-12T03:40:00+08:00", "status": "local_verified", "summary": "Incomplete Big Five cohorts are no longer process-cached, complete responses recover to the exact 114 canonical set, independent worker initialization is consistent, and llms-full rejects missing paths or Chinese aliases. All manifest local checks and exact six-path scope validation passed."}, {"at": "2026-07-12T03:42:00+08:00", "status": "committed", "summary": "Committed the exact six-path implementation and contract scope at 68f26a47f0b23865f8029fec764a36f1784625a7 using path-limited staging. No deploy or remote mutation beyond the forthcoming PR push occurred."}],
+    "history": [{"at": "2026-07-12T03:25:00+08:00", "status": "in_progress", "summary": "Started the explicitly authorized worker-cache consistency repair from exact origin/main 579bf294 in an isolated clean worktree. Scope is code/contracts/train metadata only; no workflow dispatch, deploy, cache purge, CMS/backend mutation, alias promotion, or search action is authorized in this PR."}, {"at": "2026-07-12T03:40:00+08:00", "status": "local_verified", "summary": "Incomplete Big Five cohorts are no longer process-cached, complete responses recover to the exact 114 canonical set, independent worker initialization is consistent, and llms-full rejects missing paths or Chinese aliases. All manifest local checks and exact six-path scope validation passed."}, {"at": "2026-07-12T03:42:00+08:00", "status": "committed", "summary": "Committed the exact six-path implementation and contract scope at 68f26a4715404810b1090cd2147e29028ee6a8f9 using path-limited staging. No deploy or remote mutation beyond the forthcoming PR push occurred."}],
     "updated_at": "2026-07-12T03:42:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
