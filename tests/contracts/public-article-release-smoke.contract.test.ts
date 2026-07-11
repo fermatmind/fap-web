@@ -13,8 +13,11 @@ const ARTICLE_HREFLANG_CLUSTER = {
   "zh-CN": ARTICLE_URL,
   "x-default": ARTICLE_EN_URL,
 };
+const BODY_VISUAL_URL = "https://assets.fermatmind.com/storage/media-library/body-visual.jpg";
 
-function articleHtml(overrides: { jsonLd?: string; hreflang?: string; canonical?: string } = {}): string {
+function articleHtml(
+  overrides: { jsonLd?: string; hreflang?: string; canonical?: string; body?: string; headExtra?: string } = {}
+): string {
   return `<!doctype html>
   <html>
     <head>
@@ -23,6 +26,7 @@ function articleHtml(overrides: { jsonLd?: string; hreflang?: string; canonical?
       <meta name="robots" content="index, follow" />
       <link rel="canonical" href="${overrides.canonical || ARTICLE_URL}" />
       ${overrides.hreflang || ""}
+      ${overrides.headExtra || ""}
       <script type="application/ld+json">
         ${
           overrides.jsonLd ||
@@ -33,7 +37,7 @@ function articleHtml(overrides: { jsonLd?: string; hreflang?: string; canonical?
         }
       </script>
     </head>
-    <body>ok</body>
+    <body>${overrides.body || "ok"}</body>
   </html>`;
 }
 
@@ -228,6 +232,9 @@ describe("public article release smoke verifier", () => {
         "--expect-jsonld=Article,BreadcrumbList",
         "--forbid-jsonld=FAQPage",
         `--expect-hreflang=en=${ARTICLE_EN_URL},zh-CN=${ARTICLE_URL},x-default=${ARTICLE_EN_URL}`,
+        `--expect-body-visual=${BODY_VISUAL_URL}`,
+        "--expect-body-anchor=execution-plan",
+        "--expect-answer-block=answer-block-execution-plan",
         "--retry=2",
         "--retry-delay-ms=1",
         "--json",
@@ -244,9 +251,153 @@ describe("public article release smoke verifier", () => {
       expectJsonLd: ["Article", "BreadcrumbList"],
       forbidJsonLd: ["FAQPage"],
       expectHreflang: ARTICLE_HREFLANG_CLUSTER,
+      expectBodyVisual: BODY_VISUAL_URL,
+      expectBodyAnchor: "execution-plan",
+      expectAnswerBlock: "answer-block-execution-plan",
       retry: 2,
       retryDelayMs: 1,
       json: true,
     });
+  });
+
+  it("passes required body visual parity only from the public article body", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        new Response(
+          articleHtml({
+            body: `<article id="execution-plan" data-testid="article-detail-content"><div id="answer-block-execution-plan"></div><img src="/_next/image?url=${encodeURIComponent(BODY_VISUAL_URL)}&w=1600&q=75" alt="Execution plan" /></article>`,
+          }),
+          { status: 200, headers: { "content-type": "text/html; charset=utf-8" } }
+        )
+      )
+    );
+
+    const result = await verifyPublicArticleRelease({
+      url: ARTICLE_URL,
+      expectBodyVisual: BODY_VISUAL_URL,
+      expectBodyAnchor: "execution-plan",
+      expectAnswerBlock: "answer-block-execution-plan",
+      retry: 1,
+      retryDelayMs: 1,
+    });
+
+    expect(result.ok).toBe(true);
+    expect(result).toMatchObject({
+      body_visual_required: true,
+      body_visual_url: BODY_VISUAL_URL,
+      body_visual_public_visible: true,
+      body_anchor_match: true,
+      answer_block_match: true,
+      alt_text_present: true,
+      body_visual_url_count: 1,
+    });
+    expect(result.attempts[0].checks.html.body_visual.ok).toBe(true);
+  });
+
+  it("rejects metadata-only visuals, wrong anchors, and missing alt text", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        new Response(
+          articleHtml({
+            headExtra: `<meta property="og:image" content="${BODY_VISUAL_URL}" /><script>window.bodyVisual='${BODY_VISUAL_URL}'</script>`,
+            body: `<article id="wrong-anchor" data-testid="article-detail-content"><div id="wrong-answer"></div><img src="${BODY_VISUAL_URL}" alt="" /></article>`,
+          }),
+          { status: 200, headers: { "content-type": "text/html; charset=utf-8" } }
+        )
+      )
+    );
+
+    const result = await verifyPublicArticleRelease({
+      url: ARTICLE_URL,
+      expectBodyVisual: BODY_VISUAL_URL,
+      expectBodyAnchor: "execution-plan",
+      expectAnswerBlock: "answer-block-execution-plan",
+      retry: 1,
+      retryDelayMs: 1,
+    });
+
+    expect(result.ok).toBe(false);
+    expect(result.issues.map((issue) => issue.code)).toEqual([
+      "body-visual-alt-missing",
+      "body-anchor-mismatch",
+      "answer-block-mismatch",
+    ]);
+  });
+
+  it("does not accept a body visual URL found only in head metadata or scripts", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        new Response(
+          articleHtml({
+            headExtra: `<meta property="og:image" content="${BODY_VISUAL_URL}" /><script>window.bodyVisual='${BODY_VISUAL_URL}'</script>`,
+            body: '<article id="execution-plan" data-testid="article-detail-content"><div id="answer-block-execution-plan"></div></article>',
+          }),
+          { status: 200, headers: { "content-type": "text/html; charset=utf-8" } }
+        )
+      )
+    );
+
+    const result = await verifyPublicArticleRelease({
+      url: ARTICLE_URL,
+      expectBodyVisual: BODY_VISUAL_URL,
+      expectBodyAnchor: "execution-plan",
+      expectAnswerBlock: "answer-block-execution-plan",
+      retry: 1,
+      retryDelayMs: 1,
+    });
+
+    expect(result.ok).toBe(false);
+    expect(result.issues.map((issue) => issue.code)).toEqual(["body-visual-not-public-visible"]);
+    expect(result.body_visual_url_count).toBe(0);
+  });
+
+  it("rejects a private or local expected body visual URL", async () => {
+    const unsafeUrl = "http://localhost:3000/private/body.png?token=secret";
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        new Response(
+          articleHtml({
+            body: `<article data-testid="article-detail-content"><img src="${unsafeUrl}" alt="Private" /></article>`,
+          }),
+          { status: 200, headers: { "content-type": "text/html; charset=utf-8" } }
+        )
+      )
+    );
+
+    const result = await verifyPublicArticleRelease({
+      url: ARTICLE_URL,
+      expectBodyVisual: unsafeUrl,
+      retry: 1,
+      retryDelayMs: 1,
+    });
+
+    expect(result.ok).toBe(false);
+    expect(result.issues.map((issue) => issue.code)).toContain("unsafe-body-visual-url");
+  });
+
+  it("supports explicitly forbidding the rendered body visual", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        new Response(
+          articleHtml({ body: '<article data-testid="article-detail-content"><p>No body visual.</p></article>' }),
+          { status: 200, headers: { "content-type": "text/html; charset=utf-8" } }
+        )
+      )
+    );
+
+    const result = await verifyPublicArticleRelease({
+      url: ARTICLE_URL,
+      forbidBodyVisual: true,
+      retry: 1,
+      retryDelayMs: 1,
+    });
+
+    expect(result.ok).toBe(true);
+    expect(result.body_visual_required).toBe(false);
   });
 });
