@@ -137,7 +137,9 @@ function normalizeEntityType(value: unknown): PersonalityPublicEntityType | null
     normalized === "facet_hub" ||
     normalized === "facet_detail" ||
     normalized === "center" ||
-    normalized === "core_type"
+    normalized === "core_type" ||
+    normalized === "wing" ||
+    normalized === "instinctual_subtype"
   ) {
     return normalized;
   }
@@ -355,9 +357,9 @@ export async function getEnneagramPublicContentAsset(
 ): Promise<PersonalityPublicContentAsset | null> {
   try {
     const response = await apiClient.get<PersonalityPublicContentAssetResponse>(
-      `/v0.5/personality-content-assets/enneagram/${entry.entityType}/${entry.code}?locale=${encodeURIComponent(
-        toApiLocale(locale)
-      )}&org_id=0`,
+      `/v0.5/personality-content-assets/enneagram/${entry.entityType}/${encodeURIComponent(
+        entry.code
+      )}?locale=${encodeURIComponent(toApiLocale(locale))}&org_id=0`,
       {
         ...PUBLIC_API_CACHE_OPTIONS,
         skipAuth: true,

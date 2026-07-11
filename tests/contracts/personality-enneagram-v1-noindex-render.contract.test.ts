@@ -125,24 +125,34 @@ afterEach(() => {
 });
 
 describe("PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01 contract", () => {
-  it("defines exactly 13 Enneagram V1 route candidates per locale and rejects wing and subtype detail routes", () => {
-    expect(ENNEAGRAM_PUBLIC_ROUTE_ENTRIES).toHaveLength(13);
+  it("defines Enneagram V1 route candidates per locale including wings and instinctual subtypes", () => {
+    expect(ENNEAGRAM_PUBLIC_ROUTE_ENTRIES).toHaveLength(58);
     expect(ENNEAGRAM_PUBLIC_ROUTE_ENTRIES.filter((entry) => entry.entityType === "center")).toHaveLength(3);
     expect(ENNEAGRAM_PUBLIC_ROUTE_ENTRIES.filter((entry) => entry.entityType === "core_type")).toHaveLength(9);
+    expect(ENNEAGRAM_PUBLIC_ROUTE_ENTRIES.filter((entry) => entry.entityType === "wing")).toHaveLength(18);
+    expect(ENNEAGRAM_PUBLIC_ROUTE_ENTRIES.filter((entry) => entry.entityType === "instinctual_subtype")).toHaveLength(27);
     expect(resolveEnneagramPublicRouteEntry([])?.code).toBe("enneagram");
     expect(resolveEnneagramPublicRouteEntry(["centers", "gut"])?.entityType).toBe("center");
     expect(resolveEnneagramPublicRouteEntry(["type-1"])?.entityType).toBe("core_type");
+    expect(resolveEnneagramPublicRouteEntry(["wings", "5w4"])).toMatchObject({ entityType: "wing", code: "5w4" });
+    expect(resolveEnneagramPublicRouteEntry(["type-2", "instincts", "self-preservation"])).toMatchObject({
+      entityType: "instinctual_subtype",
+      code: "type-2/self-preservation",
+    });
     expect(resolveEnneagramPublicRouteEntry(["5w4"])).toBeNull();
     expect(resolveEnneagramPublicRouteEntry(["type-2", "self-preservation"])).toBeNull();
+    expect(resolveEnneagramPublicRouteEntry(["type-2", "instincts", "sexual"])).toBeNull();
     expect(resolveEnneagramPublicRouteEntry(["tritype-548"])).toBeNull();
 
     const paths = ENNEAGRAM_PUBLIC_ROUTE_ENTRIES.flatMap((entry) => [
       buildEnneagramPublicContentPath("en", entry),
       buildEnneagramPublicContentPath("zh", entry),
     ]);
-    expect(paths).toHaveLength(26);
+    expect(paths).toHaveLength(116);
     expect(paths).toContain("/en/personality/enneagram/centers/gut");
     expect(paths).toContain("/zh/personality/enneagram/type-9");
+    expect(paths).toContain("/en/personality/enneagram/wings/5w4");
+    expect(paths).toContain("/zh/personality/enneagram/type-2/instincts/self-preservation");
     expect(paths).not.toContain("/en/personality/enneagram/5w4");
     expect(paths).not.toContain("/en/personality/enneagram/type-2/self-preservation");
   });
@@ -182,6 +192,76 @@ describe("PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01 contract", () => {
     });
     expect(asset?.sections[0]?.bodyMd).toBe("Backend supplied placeholder body.");
     expect(asset?.methodBoundary?.notFor).toContain("clinical diagnosis");
+  });
+
+  it("uses encoded Enneagram wing and subtype API lookups without adding local fallback content", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+        expect(url).toContain("/api/v0.5/personality-content-assets/enneagram/wing/5w4?");
+        expect(url).toContain("locale=en");
+
+        return jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: sampleAsset({
+            entity_type: "wing",
+            code: "5w4",
+            entity_key: "5w4",
+            slug: "enneagram/wings/5w4",
+            canonical_path: "/en/personality/enneagram/wings/5w4",
+            canonical: { path: "/en/personality/enneagram/wings/5w4" },
+          }),
+        });
+      })
+    );
+
+    await expect(
+      getEnneagramPublicContentAsset("en", {
+        entityType: "wing",
+        code: "5w4",
+        routeSlug: "wings/5w4",
+        pathSuffix: "/wings/5w4",
+      })
+    ).resolves.toMatchObject({ framework: "enneagram", entityType: "wing", code: "5w4" });
+
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async (input: RequestInfo | URL) => {
+        const url = String(input);
+        expect(url).toContain(
+          "/api/v0.5/personality-content-assets/enneagram/instinctual_subtype/type-2%2Fself-preservation?"
+        );
+        expect(url).toContain("locale=zh-CN");
+
+        return jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: sampleAsset({
+            entity_type: "instinctual_subtype",
+            code: "type-2/self-preservation",
+            entity_key: "type-2/self-preservation",
+            slug: "enneagram/type-2/self-preservation",
+            locale: "zh-CN",
+            canonical_path: "/zh/personality/enneagram/type-2/instincts/self-preservation",
+            canonical: { path: "/zh/personality/enneagram/type-2/instincts/self-preservation" },
+          }),
+        });
+      })
+    );
+
+    await expect(
+      getEnneagramPublicContentAsset("zh", {
+        entityType: "instinctual_subtype",
+        code: "type-2/self-preservation",
+        routeSlug: "type-2/instincts/self-preservation",
+        pathSuffix: "/type-2/instincts/self-preservation",
+      })
+    ).resolves.toMatchObject({
+      framework: "enneagram",
+      entityType: "instinctual_subtype",
+      code: "type-2/self-preservation",
+      locale: "zh-CN",
+    });
   });
 
   it("can lookup hub and core type assets while failing closed for draft wing stubs and API 404s", async () => {
