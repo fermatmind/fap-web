@@ -43413,5 +43413,108 @@
         "note": "All required GitHub checks passed; PR is CLEAN, MERGEABLE, and has no review decision block."
       }
     ]
+  },
+  "ENNEAGRAM-EN13-HUB-FAQPAGE-GATE-NORMALIZE-01": {
+    "id": "ENNEAGRAM-EN13-HUB-FAQPAGE-GATE-NORMALIZE-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/enneagram-en13-hub-faqpage-gate-normalize-01",
+    "title": "ENNEAGRAM-EN13-HUB-FAQPAGE-GATE-NORMALIZE-01: align hub FAQPage rendering",
+    "depends_on": [
+      "ENNEAGRAM-EN13-PUBLIC-ASSET-CONTRACT-NORMALIZE-01"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "9c060a87cd35fcd12ff77a4a17c5d79003872bfe",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1665",
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "User explicitly authorized this PR id, its manifest/state initialization, and the four-file hub route, focused contract, and train metadata scope; deployment, publish, cache warm, and CMS writes remain forbidden."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "fap-api PR #2890 is merged at a4d477eef16c024bec5804bb0240d940be210754 and the direct public-asset contract repair PR #2905 is merged at 6a61843fda845fe67f45781d2dbdc562a3cef55a; fap-api origin/main contains both merge commits."
+      },
+      "local": {
+        "status": "pass",
+        "passed": [
+          "focused Enneagram hub and noindex contracts: 2 files, 10 tests",
+          "pnpm lint with existing warnings only",
+          "pnpm lint:spacing",
+          "pnpm typecheck",
+          "production-API build: 206 routes",
+          "verify-big5-contract-freeze: 29 tests",
+          "verify-enneagram-contract-freeze: 24 tests",
+          "manifest/state parse",
+          "git diff --check",
+          "changed-file scope validation"
+        ],
+        "failed": []
+      },
+      "github": {
+        "status": "pass",
+        "passed": [
+          "build",
+          "contracts",
+          "verify-big5-contract-freeze",
+          "verify-enneagram-contract-freeze",
+          "CodeQL",
+          "analyze (javascript-typescript)"
+        ],
+        "failed": []
+      },
+      "scope": {
+        "status": "pass",
+        "evidence": "Current PR changes are limited to the four manifest-authorized files. The pre-existing untracked Enneagram handoff remains excluded, and six tracked artifacts rewritten by contract generators were restored exactly to HEAD."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {
+        "at": "2026-07-11T00:42:24Z",
+        "status": "planned",
+        "summary": "Initialized from explicit user authorization after the 13-page runtime smoke isolated a single missing FAQPage schema on the Enneagram hub."
+      },
+      {
+        "at": "2026-07-11T00:42:24Z",
+        "status": "in_progress",
+        "summary": "Started from latest fap-web origin/main with changes limited to the hub FAQPage gate, one focused contract, and manifest/state metadata; the pre-existing untracked handoff document remains excluded."
+      },
+      {
+        "at": "2026-07-11T00:57:30Z",
+        "status": "local_checks_failed",
+        "summary": "Stopped because required pnpm test:contract failed on two out-of-scope existing conditions. Focused tests, lint, spacing, typecheck, production build, both freeze suites, manifest/state parse, diff check, and scope validation passed; no PR or production action was attempted."
+      },
+      {
+        "at": "2026-07-11T01:14:00Z",
+        "status": "in_progress",
+        "summary": "Resumed after user-authorized contract-infrastructure PR #1663 merged as 5e2aecf369b7b6a17457c31b14430dd3ddee8441 with all required checks green; current branch fast-forwarded to that origin/main commit and will rerun full contracts in an isolated worktree without the unrelated ignored Big Five package."
+      },
+      {
+        "at": "2026-07-11T01:17:30Z",
+        "status": "local_verified",
+        "summary": "All manifest checks passed after dependency repair: focused contracts 10/10, lint, spacing, typecheck, 206-route production build, isolated full contracts 1035+998+995+967, Big Five freeze 29/29, Enneagram freeze 24/24, manifest/state parse, diff check, and exact four-file scope validation."
+      },
+      {
+        "at": "2026-07-11T01:19:00Z",
+        "status": "pr_open",
+        "summary": "Opened PR #1665 from the exact four-file scope after all local checks passed; required GitHub checks are pending and no deploy or production action is authorized."
+      },
+      {
+        "at": "2026-07-11T01:26:38Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1665 required GitHub checks are all green: build, full contracts, Big Five freeze, Enneagram freeze, CodeQL, and JavaScript/TypeScript analysis. Scope, changed files, PR body, mergeability, and squash auto-merge policy were revalidated."
+      }
+    ],
+    "updated_at": "2026-07-11T01:26:38Z"
   }
 }

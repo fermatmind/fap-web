@@ -126,7 +126,7 @@ export default async function EnneagramHubPage({
       {asset.schemaRuntimeEligible ? (
         <JsonLd id="enneagram-hub-breadcrumb-jsonld" data={buildBreadcrumbJsonLd(breadcrumbItems)} />
       ) : null}
-      {asset.schemaRuntimeEligible && visibleFaq.length > 0 ? (
+      {visibleFaq.length > 0 ? (
         <JsonLd id="enneagram-hub-faq-jsonld" data={buildFAQPageJsonLd(visibleFaq)} />
       ) : null}
       <div className="border-b border-[var(--fm-border)] bg-[var(--fm-surface)] px-5 py-4 md:px-8">

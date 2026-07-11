@@ -4331,7 +4331,7 @@ prs:
       - SEO-COMPETITOR-URL-01
     mode: execute
     risk_level: L1
-    status: pr_open
+    status: ready_to_merge
     title: "docs(seo): define SEO issue queue read model"
     goal: "Define the sanitized SEO issue queue read model for URL truth, sitemap/llms, GSC, Baidu, GA4, CMS release/draft, competitor inventory, and manual review signals, including source hierarchy, issue keys, field schema, issue types, severity, lifecycle, role boundaries, release integration, sample issues, risk boundaries, and deferred runtime work without changing runtime, backend, CMS schema, APIs, Filament resources, migrations, collectors, dashboard UI, content, sitemap/llms generation, search channels, env, deploy, or production behavior."
     in_scope:
@@ -23758,3 +23758,50 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: BIG5-ZH-FACET-HUB-CONTENT-REPAIR-01
+
+  - id: ENNEAGRAM-EN13-HUB-FAQPAGE-GATE-NORMALIZE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/enneagram-en13-hub-faqpage-gate-normalize-01
+    base: main
+    depends_on: [ENNEAGRAM-EN13-PUBLIC-ASSET-CONTRACT-NORMALIZE-01]
+    mode: execute
+    train_scope: enneagram_en13_hub_faqpage_gate_normalize
+    risk_level: low
+    status: pr_open
+    title: "ENNEAGRAM-EN13-HUB-FAQPAGE-GATE-NORMALIZE-01: align hub FAQPage rendering"
+    goal: "Render backend-authoritative visible Enneagram hub FAQ as FAQPage consistently with the 12 subpages while preserving noindex and all non-FAQ schema gates."
+    allowed_paths:
+      - app/(localized)/[locale]/personality/enneagram/page.tsx
+      - tests/contracts/enneagram-en13-hub-faqpage-gate-normalize.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS data or content changes
+      - publish, sitemap cache warm, llms, or search release
+      - production or staging deployment
+      - canonical, hreflang, robots, or indexability changes
+      - Enneagram subpage or Big Five schema changes
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/enneagram-en13-hub-faqpage-gate-normalize.contract.test.ts tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json")); puts "manifest/state ok"'
+      - git diff --check
+      - changed-file scope validation including untracked files with the pre-existing handoff document explicitly excluded from this PR
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    runtime_change: true
+    cms_authority_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: null
