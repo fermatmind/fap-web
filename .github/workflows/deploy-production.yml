@@ -95,7 +95,6 @@ jobs:
               const checkRuns = await github.paginate(
                 github.rest.checks.listForRef,
                 { owner, repo, ref: deploySha, per_page: 100 },
-                (response) => response.data.check_runs,
               );
               const failedRequiredChecks = requiredCheckNames.filter((name) =>
                 !checkRuns.some((run) => (
