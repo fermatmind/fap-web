@@ -307,3 +307,26 @@ only when the operator explicitly says not to preauthorize the full chain.
 - Stage 4 belongs in the SEO article/content window.
 - Stage 5+ belongs in the SEO agent window.
 - Do not mix content rewriting and production release execution in the same goal unless the user explicitly asks for a single-window emergency run.
+
+## Importer Compatibility And Single Derived Package Gate
+
+Stage 4 must run `importer_compatibility_qa`,
+`single_derived_package_rule`, `body_visual_projection_qa`, and
+`platform_readiness_requirement` planning. It then emits exactly one final
+directory and ZIP identified as `FINAL_DERIVED_IMPORT_READY_PACKAGE`.
+
+Record source/derived absolute paths and SHA-256 values, every deterministic
+normalization, importer dry-run readiness, and attestations that body, claims,
+CTA destinations, internal-link destinations, identity, media sources, and
+release state remain unchanged except for documented editorial QA repairs.
+
+When `body_visual_required=true`, source file, manifest, CMS metadata,
+markdown reference, `body_anchor`, and `answer_block_id` must agree. Otherwise
+return `BLOCKED_BODY_VISUAL_PROJECTION`.
+
+`seo-agent:compile-mode-c-package`, automatic checkpoint resume with
+`--resume-from-checkpoint`, automatic provider capability routing, and backend
+body-visual closeout enforcement are **Proposed capability - not yet
+implemented**. Until implemented, perform deterministic normalization during
+Stage 4, record its diff, and use existing dry-run commands. Never generate a
+Stage 5 goal that invokes a nonexistent command.

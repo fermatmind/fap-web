@@ -200,3 +200,30 @@ approval at each write gate:
 - `allow_indexnow_bounded_submission`
 - `allow_baidu_bounded_submission`
 - `allow_gsc_manual_request_indexing`
+
+## Daily Runtime Addendum
+
+Before any production write, run `Platform Readiness Preflight` and record
+backend/frontend production revisions, required command availability,
+Media/CMS importer readiness, sitemap/llms/llms-full baseline health,
+schema/hreflang gate availability, provider transport capability, and active
+deploy/runtime blockers. Missing deployed capability stops before CMS writes.
+
+Preflight provider transport before Baidu submission. Verified HTTPS may
+proceed through bounded dry-run/live submit. Without verifiable HTTPS, make no
+external request and record the existing audited `provider_security_hold` with
+`reason=transport_security_unavailable`, `intentional_hold=true`, and
+`submitted=false`. Never disable TLS verification, send a token over HTTP,
+expose a token, or report this hold as submitted.
+
+When `body_visual_required=true`, prove Media Library key/CDN/variants, CMS
+metadata backfill, preview and public-body visibility, matching
+`body_anchor`/`answer_block_id`, and closeout `body_visual_url_count >= 1`.
+Otherwise stop with `BLOCKED_BODY_VISUAL_PUBLIC_PARITY` and do not report GEO
+ready.
+
+Record package, media, draft, preview, publish, discoverability, SEO
+enhancement, URL Truth, provider, GSC, and closeout states as checkpoint
+evidence. Automatic `--resume-from-checkpoint` is **Proposed capability - not
+yet implemented**; resume manually from verified evidence and rerun idempotent
+dry-runs before the next write.
