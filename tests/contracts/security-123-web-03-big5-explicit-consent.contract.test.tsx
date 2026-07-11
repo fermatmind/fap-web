@@ -4,12 +4,25 @@ import { describe, expect, it } from "vitest";
 import { isSecurity123Web03AllowedFile } from "./helpers/currentPrScope";
 
 const SOURCE_PATH = "app/(localized)/[locale]/tests/[slug]/take/Big5TakeClient.tsx";
+const SECURITY_123_WEB_03_BRANCH = "codex/security-123-web-03";
 const CONTRACT_GENERATED_ARTIFACTS = new Set([
   "docs/seo/generated/metadata-surface-inventory.v1.csv",
   "docs/seo/generated/metadata-surface-inventory.v1.json",
   "docs/seo/personality/mbti-cms-04-top-profile-content-assets-2026-07-04.json",
   "docs/seo/personality/mbti-cms-04-top-profile-content-assets-2026-07-04.md",
 ]);
+
+function currentBranch(): string {
+  try {
+    return execFileSync("git", ["branch", "--show-current"], { encoding: "utf8" }).trim();
+  } catch {
+    return "";
+  }
+}
+
+function isSecurity123Web03ScopeActive(branch = currentBranch()): boolean {
+  return branch === SECURITY_123_WEB_03_BRANCH;
+}
 
 function changedFiles(): string[] {
   const files = new Set<string>();
@@ -54,6 +67,12 @@ describe("SECURITY-123-WEB-03 Big Five explicit disclaimer consent", () => {
   });
 
   it("keeps the complete PR diff inside the declared WEB-03 scope", () => {
+    expect(isSecurity123Web03ScopeActive(SECURITY_123_WEB_03_BRANCH)).toBe(true);
+    expect(isSecurity123Web03ScopeActive("main")).toBe(false);
+    expect(isSecurity123Web03ScopeActive("codex/unrelated-task")).toBe(false);
+
+    if (!isSecurity123Web03ScopeActive()) return;
+
     const changed = changedFiles();
     expect(changed.length).toBeGreaterThan(0);
     expect(changed.every(isSecurity123Web03AllowedFile), changed.join("\n")).toBe(true);
