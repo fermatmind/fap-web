@@ -1,7 +1,9 @@
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
+import os from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
+import { authoritativePackageFiles } from "../../scripts/seo/generate-big-five-public-profile-agent-pilot.mjs";
 import { isBigFivePublicProfileAgentPilot01AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
@@ -14,6 +16,10 @@ type CoverageRow = {
   locale: string;
   entity_type: string;
   slug: string;
+};
+
+type AuthorizedPackageRow = {
+  packagePath: string;
 };
 
 function readJson(relativePath: string) {
@@ -121,6 +127,53 @@ describe("BIG-FIVE-PUBLIC-PROFILE-AGENT-PILOT-01 contract", () => {
     expect(entityTypeCounts.OCEAN_32 || 0).toBe(0);
     expect([...logicalEntities].some((code) => /OCEAN_32/i.test(code))).toBe(false);
     expect(coverageRows.some((row) => /facets\/.+/.test(row.slug))).toBe(false);
+  });
+
+  it("uses only import-map-authorized packages and rejects an authorized facet", () => {
+    const sourceRoot = path.join(ROOT, "generated/public-profile-assets/big-five-v1-editorial-repair-01");
+    const tempRoot = fs.mkdtempSync(path.join(os.tmpdir(), "big-five-pilot-inputs-"));
+    const inputRoot = "input";
+    const tempInputRoot = path.join(tempRoot, inputRoot);
+
+    try {
+      fs.cpSync(sourceRoot, tempInputRoot, { recursive: true });
+      const extraFacetPath = path.join(tempInputRoot, "packages/en/achievement-striving.content-package.json");
+      const sourcePackagePath = path.join(tempInputRoot, "packages/en/openness.content-package.json");
+      const facetPackage = {
+        ...JSON.parse(fs.readFileSync(sourcePackagePath, "utf8")),
+        entity_type: "facet_detail",
+        code: "OCEAN_32_achievement_striving",
+      };
+      fs.writeFileSync(extraFacetPath, `${JSON.stringify(facetPackage, null, 2)}\n`);
+
+      const options = {
+        root: tempRoot,
+        inputRoot,
+        importMapPath: `${inputRoot}/handoff/backend-import-map.preview.json`,
+        runManifestPath: `${inputRoot}/run-manifest.json`,
+      };
+      const authorized = authoritativePackageFiles(options);
+      expect(authorized).toHaveLength(34);
+      expect(authorized.some((row: AuthorizedPackageRow) => row.packagePath.endsWith("achievement-striving.content-package.json"))).toBe(false);
+
+      const importMapAbsolute = path.join(tempInputRoot, "handoff/backend-import-map.preview.json");
+      const importMap = JSON.parse(fs.readFileSync(importMapAbsolute, "utf8"));
+      const opennessIndex = importMap.assets.findIndex((asset: { locale: string; code: string }) => (
+        asset.locale === "en" && asset.code === "openness"
+      ));
+      expect(opennessIndex).toBeGreaterThanOrEqual(0);
+      importMap.assets[opennessIndex] = {
+        ...importMap.assets[opennessIndex],
+        entity_type: "facet_detail",
+        code: "OCEAN_32_achievement_striving",
+        path: "packages/en/achievement-striving.content-package.json",
+      };
+      fs.writeFileSync(importMapAbsolute, `${JSON.stringify(importMap, null, 2)}\n`);
+
+      expect(() => authoritativePackageFiles(options)).toThrow(/Forbidden Big Five entity in import map/);
+    } finally {
+      fs.rmSync(tempRoot, { recursive: true, force: true });
+    }
   });
 
   it("keeps the artifact out of private, result, payment, account, sitemap, llms, publish and search surfaces", () => {

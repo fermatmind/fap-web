@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const ROOT = process.cwd();
 const GENERATED_DATE = process.env.GENERATED_DATE || "2026-06-24";
@@ -9,6 +10,8 @@ const SITE_ORIGIN = "https://fermatmind.com";
 const INPUT_ROOT = "generated/public-profile-assets/big-five-v1-editorial-repair-01";
 const PACKAGE_ROOT = `${INPUT_ROOT}/packages`;
 const QA_ROOT = `${INPUT_ROOT}/qa`;
+const IMPORT_MAP_PATH = `${INPUT_ROOT}/handoff/backend-import-map.preview.json`;
+const RUN_MANIFEST_PATH = `${INPUT_ROOT}/run-manifest.json`;
 const SCHEMA_PATH = ".agents/skills/public-profile-seo-asset-factory/schemas/public-profile-agent-recommendation.schema.json";
 const OUTPUT_JSON = `docs/seo/personality/big-five-public-profile-agent-pilot-${GENERATED_DATE}.json`;
 const OUTPUT_MD = `docs/seo/personality/big-five-public-profile-agent-pilot-${GENERATED_DATE}.md`;
@@ -37,17 +40,67 @@ function writeFile(relativePath, content) {
   fs.writeFileSync(absolute, content);
 }
 
-function packageFiles() {
-  const files = [];
-  for (const locale of ["en", "zh-CN"]) {
-    const dir = path.resolve(ROOT, PACKAGE_ROOT, locale);
-    for (const name of fs.readdirSync(dir).sort()) {
-      if (name.endsWith(".content-package.json")) {
-        files.push(path.join(PACKAGE_ROOT, locale, name));
-      }
-    }
+function isPathInside(parent, candidate) {
+  const relative = path.relative(parent, candidate);
+  return relative !== "" && !relative.startsWith(`..${path.sep}`) && relative !== ".." && !path.isAbsolute(relative);
+}
+
+export function authoritativePackageFiles({
+  root = ROOT,
+  inputRoot = INPUT_ROOT,
+  importMapPath = IMPORT_MAP_PATH,
+  runManifestPath = RUN_MANIFEST_PATH,
+} = {}) {
+  const readFromRoot = (relativePath) => JSON.parse(fs.readFileSync(path.resolve(root, relativePath), "utf8"));
+  const importMap = readFromRoot(importMapPath);
+  const runManifest = readFromRoot(runManifestPath);
+  const assets = Array.isArray(importMap.assets) ? importMap.assets : [];
+
+  if (importMap.package_count !== 34 || assets.length !== 34 || importMap.package_count !== assets.length) {
+    throw new Error("Big Five import map must authorize exactly 34 packages");
   }
-  return files;
+  if (runManifest.package_count !== 34 || runManifest.locales?.en !== 17 || runManifest.locales?.["zh-CN"] !== 17) {
+    throw new Error("Big Five run manifest must declare 34 packages with 17 per locale");
+  }
+
+  const packageRoot = path.resolve(root, inputRoot, "packages");
+  const seenPaths = new Set();
+  const rows = assets.map((asset) => {
+    if (!asset || typeof asset.path !== "string" || !asset.path.endsWith(".content-package.json")) {
+      throw new Error("Big Five import map contains an invalid package path");
+    }
+    if (asset.entity_type === "facet_detail" || /OCEAN_32/i.test(String(asset.code || ""))) {
+      throw new Error(`Forbidden Big Five entity in import map: ${asset.path}`);
+    }
+
+    const absolutePath = path.resolve(root, inputRoot, asset.path);
+    if (!isPathInside(packageRoot, absolutePath)) {
+      throw new Error(`Big Five package path escapes the authorized package root: ${asset.path}`);
+    }
+    if (seenPaths.has(absolutePath)) {
+      throw new Error(`Duplicate Big Five package path in import map: ${asset.path}`);
+    }
+    if (!fs.existsSync(absolutePath) || !fs.statSync(absolutePath).isFile()) {
+      throw new Error(`Missing Big Five package authorized by import map: ${asset.path}`);
+    }
+    seenPaths.add(absolutePath);
+
+    return {
+      asset,
+      packagePath: path.relative(root, absolutePath),
+    };
+  }).sort((left, right) => left.packagePath.localeCompare(right.packagePath));
+
+  const localeCounts = rows.reduce((counts, row) => {
+    counts[row.asset.locale] = (counts[row.asset.locale] || 0) + 1;
+    return counts;
+  }, {});
+  const logicalEntities = new Set(rows.map((row) => row.asset.code));
+  if (localeCounts.en !== 17 || localeCounts["zh-CN"] !== 17 || logicalEntities.size !== 17) {
+    throw new Error("Big Five import map must cover 17 logical entities in both en and zh-CN");
+  }
+
+  return rows;
 }
 
 function localePath(locale) {
@@ -128,7 +181,7 @@ function internalLinks(packageJson) {
     }));
 }
 
-function recommendationFromPackage(packagePath) {
+function recommendationFromPackage(packagePath, expectedAsset) {
   const packageJson = readJson(packagePath);
   const targetPath = packageJson.canonical?.path;
   if (!targetPath || !targetPath.startsWith(`/${localePath(packageJson.locale)}/personality/`)) {
@@ -139,6 +192,14 @@ function recommendationFromPackage(packagePath) {
   }
   if (packageJson.entity_type === "facet_detail" || /OCEAN_32/i.test(packageJson.code)) {
     throw new Error(`Forbidden Big Five entity in ${packagePath}`);
+  }
+  for (const key of ["locale", "code", "entity_type"]) {
+    if (packageJson[key] !== expectedAsset[key]) {
+      throw new Error(`Big Five package ${key} does not match import map: ${packagePath}`);
+    }
+  }
+  if (targetPath !== expectedAsset.canonical) {
+    throw new Error(`Big Five package canonical does not match import map: ${packagePath}`);
   }
 
   const recommendation = {
@@ -251,8 +312,8 @@ function validateRecommendationShape(row, schema) {
 
 function buildArtifact() {
   const schema = readJson(SCHEMA_PATH);
-  const files = packageFiles();
-  const generatedRows = files.map(recommendationFromPackage);
+  const files = authoritativePackageFiles();
+  const generatedRows = files.map(({ packagePath, asset }) => recommendationFromPackage(packagePath, asset));
   const recommendations = generatedRows.map((row) => row.recommendation);
   const coverageRows = generatedRows.map((row) => row.coverage);
   for (const row of recommendations) validateRecommendationShape(row, schema);
@@ -361,16 +422,18 @@ BIG-FIVE-PUBLIC-PROFILE-AGENT-QA-01
 `;
 }
 
-const artifact = buildArtifact();
-writeFile(OUTPUT_JSON, `${JSON.stringify(artifact, null, 2)}\n`);
-writeFile(OUTPUT_MD, markdown(artifact));
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  const artifact = buildArtifact();
+  writeFile(OUTPUT_JSON, `${JSON.stringify(artifact, null, 2)}\n`);
+  writeFile(OUTPUT_MD, markdown(artifact));
 
-console.log(JSON.stringify({
-  ok: true,
-  output_json: OUTPUT_JSON,
-  output_md: OUTPUT_MD,
-  recommendation_count: artifact.summary.recommendation_count,
-  logical_entity_count: artifact.summary.logical_entity_count,
-  locale_counts: artifact.summary.locale_counts,
-  entity_type_counts: artifact.summary.entity_type_counts,
-}, null, 2));
+  console.log(JSON.stringify({
+    ok: true,
+    output_json: OUTPUT_JSON,
+    output_md: OUTPUT_MD,
+    recommendation_count: artifact.summary.recommendation_count,
+    logical_entity_count: artifact.summary.logical_entity_count,
+    locale_counts: artifact.summary.locale_counts,
+    entity_type_counts: artifact.summary.entity_type_counts,
+  }, null, 2));
+}
