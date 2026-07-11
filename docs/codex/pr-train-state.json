@@ -43896,7 +43896,7 @@
     ]
   },
   "MBTI-INDEX-24C": {
-    "status": "pr_open_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-index-24c-llms-personality-budget",
     "depends_on": [
@@ -43921,7 +43921,8 @@
       "production_build": "passed with production site/API URLs",
       "yaml_json": "passed",
       "diff_check": "passed",
-      "scope_validation": "passed: exact seven-path allowlist"
+      "scope_validation": "passed: exact seven-path allowlist",
+      "github_required_checks": "passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL"
     },
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -43929,7 +43930,7 @@
     "failure_reason": null,
     "next_task": "MBTI-INDEX-24R",
     "created_at": "2026-07-12T04:13:51+08:00",
-    "updated_at": "2026-07-12T04:54:00+08:00",
+    "updated_at": "2026-07-12T05:01:00+08:00",
     "history": [
       {
         "at": "2026-07-12T04:13:51+08:00",
@@ -43945,6 +43946,11 @@
         "at": "2026-07-12T04:54:00+08:00",
         "status": "pr_open_checks_pending",
         "note": "Pushed the exact seven-path scope and opened PR #1700. Required GitHub checks are pending; no deploy, GSC action, CMS write, or promotion occurred."
+      },
+      {
+        "at": "2026-07-12T05:01:00+08:00",
+        "status": "ready_to_merge",
+        "note": "All required GitHub checks passed and PR #1700 remains scope-clean and mergeable."
       }
     ]
   },
