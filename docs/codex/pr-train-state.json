@@ -44517,8 +44517,8 @@
     "branch": "codex/perf-baseline-01",
     "title": "PERF-BASELINE-01: freeze production performance baseline",
     "depends_on": [],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "f6832b23c3467ee12f9c32e704186772e2322087",
     "pr_url": null,
     "checks": {
       "authorization": {
@@ -44554,9 +44554,14 @@
         "at": "2026-07-12T12:50:00+08:00",
         "status": "local_verified",
         "summary": "The baseline values were cross-checked against the read-only production audit. YAML/JSON parse, git diff check, and exact three-path scope validation passed; runtime commands are not applicable to this docs-only scope."
+      },
+      {
+        "at": "2026-07-12T12:53:00+08:00",
+        "status": "committed",
+        "summary": "Committed the exact three-path docs and train-metadata scope at f6832b23c3467ee12f9c32e704186772e2322087 using path-limited staging. No runtime or production action occurred."
       }
     ],
-    "updated_at": "2026-07-12T12:50:00+08:00"
+    "updated_at": "2026-07-12T12:53:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
