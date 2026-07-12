@@ -279,80 +279,87 @@ jobs:
             };
           }
 
-          const llms = await readFeed("/llms.txt");
-          const llmsFull = await readFeed("/llms-full.txt");
-          const target = feedPath === "/llms.txt" ? llms : llmsFull;
+          async function main() {
+            const llms = await readFeed("/llms.txt");
+            const llmsFull = await readFeed("/llms-full.txt");
+            const target = feedPath === "/llms.txt" ? llms : llmsFull;
 
-          const failures = [];
-          if (target.status !== 200) failures.push(`${feedPath} returned ${target.status}`);
-          if (target.enneagram_count !== expectedCount) {
-            failures.push(`${feedPath} Enneagram count ${target.enneagram_count} did not match expected ${expectedCount}`);
+            const failures = [];
+            if (target.status !== 200) failures.push(`${feedPath} returned ${target.status}`);
+            if (target.enneagram_count !== expectedCount) {
+              failures.push(`${feedPath} Enneagram count ${target.enneagram_count} did not match expected ${expectedCount}`);
+            }
+            for (const [key, label] of [
+              ["duplicate_count", "duplicate"],
+              ["malformed_count", "malformed"],
+              ["non_apex_count", "non-apex"],
+              ["forbidden_count", "forbidden"],
+            ]) {
+              if (target[key] !== 0) failures.push(`${feedPath} ${label} counter was ${target[key]}`);
+            }
+            if (feedPath === "/llms-full.txt" && target.headers.llms_full_mode !== expectedMode) {
+              failures.push(`/llms-full.txt mode ${target.headers.llms_full_mode || "(missing)"} did not match ${expectedMode}`);
+            }
+
+            const summary = {
+              checked_at: new Date().toISOString(),
+              expected_frontend_sha: process.env.EXPECTED_FRONTEND_SHA,
+              remote_head: remote.remote_head,
+              remote_revision: remote.remote_revision,
+              feed_path: feedPath,
+              expected_enneagram_count: expectedCount,
+              expected_llms_full_mode: expectedMode,
+              pm2: {
+                before: remote.pm2_before,
+                after: remote.pm2_after,
+              },
+              feeds: {
+                llms_txt: llms,
+                llms_full: llmsFull,
+              },
+              side_effects: {
+                deploy: 0,
+                git_pull: 0,
+                git_reset: 0,
+                cms: 0,
+                search_queue: 0,
+                indexnow: 0,
+                secrets_or_permissions_mutation: 0,
+              },
+              failures,
+              result: failures.length === 0 ? "PASS" : "FAIL",
+            };
+
+            fs.writeFileSync(path.join(outputDir, "llms-feed-cache-ops-summary.json"), `${JSON.stringify(summary, null, 2)}\n`);
+            fs.writeFileSync(path.join(outputDir, "llms-feed-cache-ops-summary.md"), [
+              "# LLMS Feed Cache Ops Summary",
+              "",
+              `- Result: ${summary.result}`,
+              `- Checked at: ${summary.checked_at}`,
+              `- Feed path: ${summary.feed_path}`,
+              `- Expected frontend SHA: ${summary.expected_frontend_sha}`,
+              `- Remote HEAD: ${summary.remote_head}`,
+              `- PM2 online after reload: ${summary.pm2.after.online}/${summary.pm2.after.count}`,
+              `- /llms.txt Enneagram: ${llms.enneagram_count}`,
+              `- /llms-full.txt Enneagram: ${llmsFull.enneagram_count}`,
+              `- /llms-full.txt mode: ${llmsFull.headers.llms_full_mode || "(missing)"}`,
+              `- Target duplicate/private/malformed/non-apex counters: ${target.duplicate_count}/${target.forbidden_count}/${target.malformed_count}/${target.non_apex_count}`,
+              `- Side effects: deploy=0, git_pull=0, git_reset=0, CMS=0, Search Queue=0, IndexNow=0, secrets/permissions mutation=0`,
+              "",
+              failures.length ? `Failures:\n${failures.map((item) => `- ${item}`).join("\n")}` : "No failures.",
+              "",
+            ].join("\n"));
+
+            if (failures.length > 0) {
+              console.error(failures.join("\n"));
+              process.exit(1);
+            }
           }
-          for (const [key, label] of [
-            ["duplicate_count", "duplicate"],
-            ["malformed_count", "malformed"],
-            ["non_apex_count", "non-apex"],
-            ["forbidden_count", "forbidden"],
-          ]) {
-            if (target[key] !== 0) failures.push(`${feedPath} ${label} counter was ${target[key]}`);
-          }
-          if (feedPath === "/llms-full.txt" && target.headers.llms_full_mode !== expectedMode) {
-            failures.push(`/llms-full.txt mode ${target.headers.llms_full_mode || "(missing)"} did not match ${expectedMode}`);
-          }
 
-          const summary = {
-            checked_at: new Date().toISOString(),
-            expected_frontend_sha: process.env.EXPECTED_FRONTEND_SHA,
-            remote_head: remote.remote_head,
-            remote_revision: remote.remote_revision,
-            feed_path: feedPath,
-            expected_enneagram_count: expectedCount,
-            expected_llms_full_mode: expectedMode,
-            pm2: {
-              before: remote.pm2_before,
-              after: remote.pm2_after,
-            },
-            feeds: {
-              llms_txt: llms,
-              llms_full: llmsFull,
-            },
-            side_effects: {
-              deploy: 0,
-              git_pull: 0,
-              git_reset: 0,
-              cms: 0,
-              search_queue: 0,
-              indexnow: 0,
-              secrets_or_permissions_mutation: 0,
-            },
-            failures,
-            result: failures.length === 0 ? "PASS" : "FAIL",
-          };
-
-          fs.writeFileSync(path.join(outputDir, "llms-feed-cache-ops-summary.json"), `${JSON.stringify(summary, null, 2)}\n`);
-          fs.writeFileSync(path.join(outputDir, "llms-feed-cache-ops-summary.md"), [
-            "# LLMS Feed Cache Ops Summary",
-            "",
-            `- Result: ${summary.result}`,
-            `- Checked at: ${summary.checked_at}`,
-            `- Feed path: ${summary.feed_path}`,
-            `- Expected frontend SHA: ${summary.expected_frontend_sha}`,
-            `- Remote HEAD: ${summary.remote_head}`,
-            `- PM2 online after reload: ${summary.pm2.after.online}/${summary.pm2.after.count}`,
-            `- /llms.txt Enneagram: ${llms.enneagram_count}`,
-            `- /llms-full.txt Enneagram: ${llmsFull.enneagram_count}`,
-            `- /llms-full.txt mode: ${llmsFull.headers.llms_full_mode || "(missing)"}`,
-            `- Target duplicate/private/malformed/non-apex counters: ${target.duplicate_count}/${target.forbidden_count}/${target.malformed_count}/${target.non_apex_count}`,
-            `- Side effects: deploy=0, git_pull=0, git_reset=0, CMS=0, Search Queue=0, IndexNow=0, secrets/permissions mutation=0`,
-            "",
-            failures.length ? `Failures:\n${failures.map((item) => `- ${item}`).join("\n")}` : "No failures.",
-            "",
-          ].join("\n"));
-
-          if (failures.length > 0) {
-            console.error(failures.join("\n"));
+          main().catch((error) => {
+            console.error(error);
             process.exit(1);
-          }
+          });
           NODE
 
       - name: Upload cache ops summary

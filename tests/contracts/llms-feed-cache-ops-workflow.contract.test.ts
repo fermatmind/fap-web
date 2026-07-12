@@ -103,6 +103,14 @@ describe("llms feed cache-only ops workflow", () => {
     }
   });
 
+  it("keeps the readback node heredoc compatible with GitHub runner Node 22", () => {
+    expect(workflow).toContain("const fs = require(\"node:fs\");");
+    expect(workflow).toContain("async function main() {");
+    expect(workflow).toContain("main().catch((error) => {");
+    expect(workflow).not.toContain('\n          const llms = await readFeed("/llms.txt");');
+    expect(workflow).not.toContain('\n          const llmsFull = await readFeed("/llms-full.txt");');
+  });
+
   it("uploads JSON and Markdown audit summaries", () => {
     expect(workflow).toContain("actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4");
     expect(workflow).toContain("llms-feed-cache-ops-summary.json");
