@@ -8,6 +8,8 @@ type FetchCareerFirstWaveNextStepLinksInput = {
   slug: string;
 };
 
+const CAREER_NEXT_STEP_FETCH_TIMEOUT_MS = 1200;
+
 function buildQuery(locale: Locale | string): string {
   const query = new URLSearchParams();
   query.set("locale", toApiLocale(locale));
@@ -28,6 +30,7 @@ export async function fetchCareerFirstWaveNextStepLinks(
       {
         locale: input.locale,
         skipAuth: true,
+        timeoutMs: CAREER_NEXT_STEP_FETCH_TIMEOUT_MS,
         ...PUBLIC_API_CACHE_OPTIONS,
       }
     );

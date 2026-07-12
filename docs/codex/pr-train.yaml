@@ -24702,3 +24702,37 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: CAREER-NEXTSTEP-01
+
+  - id: CAREER-NEXTSTEP-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/career-nextstep-02
+    base: main
+    title: "CAREER-NEXTSTEP-02: degrade non-critical career next-step requests"
+    depends_on: [CAREER-NEXTSTEP-01]
+    mode: execute
+    train_scope: career_next_step_frontend_degradation
+    status: user_authorized
+    goal: "Prevent the non-critical career next-step endpoint from delaying career detail rendering by applying a short request budget and gracefully omitting the rail on timeout or failure."
+    allowed_paths:
+      - lib/career/api/fetchCareerFirstWaveNextStepLinks.ts
+      - tests/contracts/career-next-step-links.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend cache behavior, public cache headers, career page caching, local editorial fallback, CMS or SEO authority, sitemap, llms, import, migration, warmup, staging wait, or production deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-next-step-links.contract.test.ts tests/contracts/career-job-backend-bundle.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: PUBLIC-API-CACHE-01
