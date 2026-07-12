@@ -44517,8 +44517,8 @@
     "branch": "codex/perf-baseline-01",
     "title": "PERF-BASELINE-01: freeze production performance baseline",
     "depends_on": [],
-    "status": "github_checks_rerun_pending",
-    "commit_sha": "33d8a2f9ab966b21554a812ac6efdce54c26ef8a",
+    "status": "ready_to_merge",
+    "commit_sha": "e86340b713adb015651372edcfef0a9b92e3782c",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1703",
     "checks": {
       "authorization": {
@@ -44534,14 +44534,14 @@
         "evidence": "YAML/JSON parse, audit evidence cross-check, git diff --check, and exact three-path scope validation passed. Runtime commands are not applicable to this docs-only PR."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "Previous contracts failures were inspected. CI budget repair #1704 and deterministic MBTI release-gate network isolation #1705 are merged into origin/main; PR #1703 is rebased onto both fixes and required checks must rerun on the new head."
+        "status": "pass",
+        "evidence": "PR #1703 final implementation head passed build, contracts in 4m39s, Big Five freeze, Enneagram freeze, CodeQL analysis, and CodeQL after rebasing onto merged CI fixes #1704 and #1705."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -44578,9 +44578,14 @@
         "at": "2026-07-12T13:24:59+08:00",
         "status": "github_checks_rerun_pending",
         "summary": "CI budget repair #1704 and deterministic MBTI release-gate network isolation #1705 are merged into origin/main. Rebasing PR #1703 onto both fixes removed the external blocker; required checks are pending on the new head."
+      },
+      {
+        "at": "2026-07-12T13:30:46+08:00",
+        "status": "ready_to_merge",
+        "summary": "All six GitHub checks passed after the CI repairs. GitHub reports CLEAN/MERGEABLE and the PR remains limited to the baseline document, authorized train metadata, and required sidecar records."
       }
     ],
-    "updated_at": "2026-07-12T13:24:59+08:00"
+    "updated_at": "2026-07-12T13:30:46+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
