@@ -890,6 +890,10 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
     enneagramEntriesPromise,
   ]);
 
+  if (enneagramEntries.length === 0) {
+    return uniqueEntriesByPath([...mbtiEntries, ...bigFiveZhEntries]);
+  }
+
   return uniqueEntriesByPath([...mbtiEntries, ...bigFiveZhEntries, ...enneagramEntries]);
 }
 
