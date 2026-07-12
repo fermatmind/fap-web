@@ -44642,9 +44642,9 @@
     "branch": "codex/global-js-01",
     "title": "GLOBAL-JS-01: split the global client shell",
     "depends_on": ["CAREER-CACHE-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "8df3f8a8",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1710",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The performance PR-train /goal explicitly authorized GLOBAL-JS-01 and manifest/state registration."},
       "dependency": {"status": "pass", "evidence": "CAREER-CACHE-01 merged in fap-web PR #1709 at f260dfaebb69a9265df5174b3f83622572dcb1fc."},
@@ -44659,8 +44659,8 @@
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": [{"at": "2026-07-12T15:40:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main. SiteChrome and static footer navigation move server-side; existing header, footer social, and CookieBanner behavior stay in explicit client islands. Lazy loading and QR priority remain deferred to GLOBAL-JS-02."}, {"at": "2026-07-12T15:50:00+08:00", "status": "local_verified", "summary": "Focused contracts, all four full contract shards, lint, spacing, typecheck, production build, diff checks, and exact 16-path scope validation passed. Test-generated SEO inventory noise was discarded; no content authority or deploy action is included."}],
-    "updated_at": "2026-07-12T15:50:00+08:00"
+    "history": [{"at": "2026-07-12T15:40:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main. SiteChrome and static footer navigation move server-side; existing header, footer social, and CookieBanner behavior stay in explicit client islands. Lazy loading and QR priority remain deferred to GLOBAL-JS-02."}, {"at": "2026-07-12T15:50:00+08:00", "status": "local_verified", "summary": "Focused contracts, all four full contract shards, lint, spacing, typecheck, production build, diff checks, and exact 16-path scope validation passed. Test-generated SEO inventory noise was discarded; no content authority or deploy action is included."}, {"at": "2026-07-12T15:54:00+08:00", "status": "pr_open", "summary": "Committed and pushed the exact 16-path scope and opened PR #1710. Required GitHub checks are pending; no staging wait or deploy action is included."}],
+    "updated_at": "2026-07-12T15:54:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
