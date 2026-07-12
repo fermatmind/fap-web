@@ -44517,9 +44517,9 @@
     "branch": "codex/enneagram-llms-full-frontend-enumeration-01",
     "title": "ENNEAGRAM-LLMS-FULL-FRONTEND-ENUMERATION-01: enumerate evidence-gated Enneagram assets in llms-full",
     "depends_on": ["ENNEAGRAM-LLMS-TXT-PRODUCTION-REVALIDATION-01"],
-    "status": "local_verified",
+    "status": "pr_open",
     "commit_sha": null,
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1719",
     "checks": {
       "authorization": {"status": "pass", "evidence": "User explicitly authorized this exact long-term fap-web repair PR with PR-train manifest/state tracking; deployment, CMS writes, eligibility writes, Search, IndexNow, and cache warm remain prohibited."},
       "dependency": {"status": "pass", "evidence": "ENNEAGRAM-LLMS-TXT-PRODUCTION-REVALIDATION-01 completed in fap-api PR #3022 with production readback showing llms.txt Enneagram 116/116 and llms-full Enneagram 0/116 before this frontend repair."},
@@ -44536,8 +44536,8 @@
     "cms_mutation": false,
     "publish_allowed": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-07-12T21:04:09+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main in an isolated worktree. Scope is only backend-public-API-authoritative Enneagram llms-full enumeration, evidence gate, focused contracts, and authorized train metadata; no CMS write, eligibility write, Search, IndexNow, cache warm, workflow dispatch, or deploy is authorized."}, {"at": "2026-07-12T21:15:00+08:00", "status": "local_verified", "summary": "Implemented backend-public-API-authoritative Enneagram llms-full enumeration with exact 116/evidence gates, LKG fail-closed behavior, complete-cache cohort validation, and focused contracts. Typecheck, production build, parse, diff, and exact eight-path scope validation passed; no deploy, CMS write, eligibility write, Search, IndexNow, or cache warm occurred."}, {"at": "2026-07-12T21:18:00+08:00", "status": "committed", "summary": "Committed the exact eight-path implementation scope at b91fc202ce5309465195870727cb6788a807c3bc using path-limited staging. A same-scope ledger correction commit records this immutable implementation SHA; no production action occurred."}],
-    "updated_at": "2026-07-12T21:15:00+08:00"
+    "history": [{"at": "2026-07-12T21:04:09+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main in an isolated worktree. Scope is only backend-public-API-authoritative Enneagram llms-full enumeration, evidence gate, focused contracts, and authorized train metadata; no CMS write, eligibility write, Search, IndexNow, cache warm, workflow dispatch, or deploy is authorized."}, {"at": "2026-07-12T21:15:00+08:00", "status": "local_verified", "summary": "Implemented backend-public-API-authoritative Enneagram llms-full enumeration with exact 116/evidence gates, LKG fail-closed behavior, complete-cache cohort validation, and focused contracts. Typecheck, production build, parse, diff, and exact eight-path scope validation passed; no deploy, CMS write, eligibility write, Search, IndexNow, or cache warm occurred."}, {"at": "2026-07-12T21:18:00+08:00", "status": "committed", "summary": "Committed the exact eight-path implementation scope at b91fc202ce5309465195870727cb6788a807c3bc using path-limited staging. A same-scope ledger correction commit records this immutable implementation SHA; no production action occurred."}, {"at": "2026-07-12T21:22:00+08:00", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1719. GitHub required checks are pending; no staging wait, deployment, CMS write, eligibility write, Search, IndexNow, or cache warm occurred."}],
+    "updated_at": "2026-07-12T21:22:00+08:00"
   },
   "PERF-BASELINE-01": {
     "id": "PERF-BASELINE-01",
