@@ -24716,7 +24716,7 @@ prs:
     depends_on: [ENNEAGRAM-LLMS-FULL-FRONTEND-ENUMERATION-01]
     mode: execute
     train_scope: fap_web_llms_feed_cache_ops
-    status: in_progress
+    status: merged
     goal: "Add a manual production-protected cache-only ops lane for /llms.txt and /llms-full.txt that verifies the exact deployed fap-web SHA, reloads only the existing Node1 PM2 app, and writes JSON/Markdown readback summaries without deploying, checking out code, mutating CMS, or triggering Search/IndexNow."
     allowed_paths:
       - .github/workflows/llms-feed-cache-ops.yml
