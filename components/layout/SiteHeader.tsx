@@ -1,6 +1,7 @@
 "use client";
 
 import { ChevronDown, Menu, Search, X } from "lucide-react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -18,6 +19,10 @@ import {
 import type { ProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
 import { shouldDisableLocaleSwitchLinks } from "@/lib/seo/seoHoldlistRoutes";
 import { cn } from "@/lib/utils";
+
+const SiteHeaderDropdownPanel = dynamic(
+  () => import("@/components/layout/SiteHeaderDropdownPanel")
+);
 
 function shouldHideNavItem(
   item: { key: HeaderNavKey; href: string; label: string },
@@ -317,25 +322,15 @@ export function SiteHeader({
                     </div>
 
                     {isOpen && items.length > 0 ? (
-                      <div
+                      <SiteHeaderDropdownPanel
                         id={menuId}
-                        role="menu"
-                        aria-labelledby={triggerId}
-                        className="fm-header-dropdown-panel"
-                      >
-                        {items.map((menuItem, menuItemIndex) => (
-                          <Link
-                            key={`${item.key}-${menuItem.href}-${menuItemIndex}`}
-                            href={withLocale(menuItem.href)}
-                            prefetch={false}
-                            role="menuitem"
-                            className="fm-header-dropdown-link"
-                            onClick={() => setActiveDropdown(null)}
-                          >
-                            {menuItem.label}
-                          </Link>
-                        ))}
-                      </div>
+                        triggerId={triggerId}
+                        items={items.map((menuItem) => ({
+                          ...menuItem,
+                          href: withLocale(menuItem.href),
+                        }))}
+                        onSelect={() => setActiveDropdown(null)}
+                      />
                     ) : null}
                   </div>
                 );

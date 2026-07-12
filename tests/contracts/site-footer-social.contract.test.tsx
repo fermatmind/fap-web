@@ -5,7 +5,7 @@ import { SiteFooter } from "@/components/layout/SiteFooter";
 import { FOOTER_SOCIAL_ITEMS } from "@/lib/ui/footerSocialIcons";
 
 describe("site footer social contract", () => {
-  it("keeps the QR panel open when activation follows focus", () => {
+  it("keeps the QR panel open when activation follows focus", async () => {
     render(
       <LocaleProvider locale="en">
         <SiteFooter locale="en" />
@@ -16,7 +16,7 @@ describe("site footer social contract", () => {
 
     fireEvent.focus(qrButton);
     expect(qrButton).toHaveAttribute("aria-expanded", "true");
-    expect(screen.getByAltText("WeChat QR code").closest(".fm-social-qr-panel")).toHaveAttribute(
+    expect((await screen.findByAltText("WeChat QR code")).closest(".fm-social-qr-panel")).toHaveAttribute(
       "aria-hidden",
       "false"
     );

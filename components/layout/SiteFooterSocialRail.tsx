@@ -1,14 +1,14 @@
 "use client";
 
-import Image from "next/image";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import type { Locale } from "@/lib/i18n/locales";
 import { FOOTER_SOCIAL_ITEMS } from "@/lib/ui/footerSocialIcons";
-import { cn } from "@/lib/utils";
+
+const SiteFooterQrPanel = dynamic(() => import("@/components/layout/SiteFooterQrPanel"));
 
 export function SiteFooterSocialRail({ locale }: { locale: Locale }) {
   const [activeSocialKey, setActiveSocialKey] = useState<string | null>(null);
-  const [qrFallbackState, setQrFallbackState] = useState<Record<string, boolean>>({});
 
   return (
     <div className="fm-social-rail border-t border-slate-300/70 pt-8">
@@ -38,26 +38,12 @@ export function SiteFooterSocialRail({ locale }: { locale: Locale }) {
                   <span className="fm-social-tooltip">{locale === "zh" ? item.labels.zh : item.labels.en}</span>
                 </button>
 
-                {item.qrImageSrc ? (
-                  <div
-                    className={cn("fm-social-qr-panel", activeSocialKey === item.key && "is-open")}
-                    aria-hidden={activeSocialKey === item.key ? "false" : "true"}
-                  >
-                    <Image
-                      src={qrFallbackState[item.key] && item.qrFallbackSrc ? item.qrFallbackSrc : item.qrImageSrc}
-                      alt={locale === "zh" ? "微信二维码" : "WeChat QR code"}
-                      width={258}
-                      height={258}
-                      unoptimized
-                      priority
-                      className="fm-social-qr-image"
-                      onError={() => {
-                        if (!item.qrFallbackSrc || qrFallbackState[item.key]) return;
-                        setQrFallbackState((current) => ({ ...current, [item.key]: true }));
-                      }}
-                    />
-                    <p className="fm-social-qr-label">{locale === "zh" ? "微信扫码关注" : "Scan in WeChat"}</p>
-                  </div>
+                {item.qrImageSrc && activeSocialKey === item.key ? (
+                  <SiteFooterQrPanel
+                    imageSrc={item.qrImageSrc}
+                    fallbackSrc={item.qrFallbackSrc}
+                    locale={locale}
+                  />
                 ) : null}
               </>
             ) : (

@@ -44663,6 +44663,34 @@
     "history": [{"at": "2026-07-12T15:40:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main. SiteChrome and static footer navigation move server-side; existing header, footer social, and CookieBanner behavior stay in explicit client islands. Lazy loading and QR priority remain deferred to GLOBAL-JS-02."}, {"at": "2026-07-12T15:50:00+08:00", "status": "local_verified", "summary": "Focused contracts, all four full contract shards, lint, spacing, typecheck, production build, diff checks, and exact 16-path scope validation passed. Test-generated SEO inventory noise was discarded; no content authority or deploy action is included."}, {"at": "2026-07-12T15:54:00+08:00", "status": "pr_open", "summary": "Committed and pushed the exact 16-path scope and opened PR #1710. Required GitHub checks are pending; no staging wait or deploy action is included."}, {"at": "2026-07-12T16:00:00+08:00", "status": "ready_to_merge", "summary": "All required GitHub checks passed and the exact 16-path scope remained mergeable with no review requirement."}],
     "updated_at": "2026-07-12T16:00:00+08:00"
   },
+  "GLOBAL-JS-02": {
+    "id": "GLOBAL-JS-02",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/global-js-02",
+    "title": "GLOBAL-JS-02: lazy-load global shell interactions",
+    "depends_on": ["GLOBAL-JS-01"],
+    "status": "ready_to_merge",
+    "commit_sha": "c717728c",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1711",
+    "checks": {
+      "authorization": {"status": "pass", "evidence": "The performance PR-train /goal explicitly authorized GLOBAL-JS-02 and manifest/state registration."},
+      "dependency": {"status": "pass", "evidence": "GLOBAL-JS-01 merged in fap-web PR #1710 at 0a1d4be614686ea3e40cf2353875301cbe43f357 and is contained in origin/main."},
+      "focused_contracts": {"status": "pass", "evidence": "Global interaction, shell, footer social, and locale contracts passed 13/13."},
+      "full_contracts": {"status": "pass", "evidence": "All four pnpm test:contract shards passed under Python 3.12. The first invocation selected an old system Python and failed only the unrelated career validator before the corrected environment rerun passed."},
+      "lint": {"status": "pass", "evidence": "pnpm lint passed with zero errors and 27 baseline warnings; pnpm lint:spacing passed."},
+      "typecheck": {"status": "pass", "evidence": "Node 24 pnpm typecheck passed."},
+      "build": {"status": "pass", "evidence": "Node 24 production build passed with 206 static pages generated."},
+      "github_required_checks": {"status": "pass", "evidence": "PR #1711 build, contracts, Big Five freeze, Enneagram freeze, and CodeQL checks passed."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [{"at": "2026-07-12T16:05:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after GLOBAL-JS-01 merge verification. Scope is interaction-triggered footer QR, desktop dropdown, and locale option chunks; no navigation behavior, content authority, staging, or deploy change is included."}, {"at": "2026-07-12T16:15:00+08:00", "status": "local_verified", "summary": "Focused contracts 13/13, all four full contract shards, lint, spacing, typecheck, production build, parse, diff, and exact 11-path scope validation passed. The initial full-suite invocation selected an obsolete system Python; rerunning unchanged code with the configured Python 3.12 passed, so no external validator file was touched."}, {"at": "2026-07-12T16:20:00+08:00", "status": "pr_open", "summary": "Committed and pushed the exact 11-path scope and opened PR #1711. Required checks are pending; no staging wait or deploy action is included."}, {"at": "2026-07-12T16:27:00+08:00", "status": "ready_to_merge", "summary": "All required GitHub checks passed and the exact 11-path scope remained mergeable with no review requirement."}],
+    "updated_at": "2026-07-12T16:27:00+08:00"
+  },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
     "repo": "fap-web",
