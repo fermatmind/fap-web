@@ -94,6 +94,21 @@ describe("career job index backend contract", () => {
     expect(payload.payload).not.toBeNull();
   });
 
+  it("uses tagged revalidation only for the unfiltered first directory page", async () => {
+    const fetchMock = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) =>
+      jsonResponse(careerDirectoryPayload([]))
+    );
+    vi.stubGlobal("fetch", fetchMock);
+
+    await fetchCareerDirectory({ locale: "en" });
+    await fetchCareerDirectory({ locale: "en", family: "healthcare" });
+
+    expect(fetchMock.mock.calls[0]?.[1]).toEqual(expect.objectContaining({
+      next: { revalidate: 300, tags: ["career-directory:en"] },
+    }));
+    expect(fetchMock.mock.calls[1]?.[1]).toEqual(expect.objectContaining({ cache: "no-store" }));
+  });
+
   it.each([408, 429, 500, 502, 503, 504])("treats backend status %s as unavailable instead of an empty directory", async (status) => {
     vi.spyOn(console, "error").mockImplementation(() => undefined);
     vi.stubGlobal("fetch", vi.fn(async () => jsonResponse({ error_code: `HTTP_${status}` }, status)));

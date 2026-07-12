@@ -14,7 +14,7 @@ import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
-export const dynamic = "force-dynamic";
+export const revalidate = 300;
 const CAREER_DIRECTORY_PAGE_SIZE = 50;
 
 function firstQueryValue(value: string | string[] | undefined): string {

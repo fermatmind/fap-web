@@ -1,6 +1,7 @@
 import { ApiError, apiClient } from "@/lib/api-client";
 import type { CareerDirectoryResponseRaw } from "@/lib/career/api/types";
 import { toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 
 type FetchCareerDirectoryInput = {
   locale: Locale | string;
@@ -23,6 +24,30 @@ export type CareerDirectoryFetchResult = {
     durationMs: number;
   };
 };
+
+const CAREER_DIRECTORY_REVALIDATE_SECONDS = 300;
+
+export function careerDirectoryCacheTag(locale: Locale | string): string {
+  return `career-directory:${toApiLocale(locale)}`;
+}
+
+function directoryCacheOptions(input: FetchCareerDirectoryInput) {
+  const hasQuery = String(input.query ?? "").trim().length > 0;
+  const hasFamily = String(input.family ?? "").trim().length > 0;
+  const page = normalizePositiveInteger(input.page, 1);
+
+  if (hasQuery || hasFamily || page > 1) {
+    return { cache: "no-store" as const };
+  }
+
+  return {
+    ...PUBLIC_API_CACHE_OPTIONS,
+    next: {
+      revalidate: CAREER_DIRECTORY_REVALIDATE_SECONDS,
+      tags: [careerDirectoryCacheTag(input.locale)],
+    },
+  };
+}
 
 function normalizePositiveInteger(value: number | undefined, fallback: number): number {
   if (typeof value !== "number" || !Number.isFinite(value)) {
@@ -60,7 +85,7 @@ export async function fetchCareerDirectory(input: FetchCareerDirectoryInput): Pr
     const payload = await apiClient.get<CareerDirectoryResponseRaw>(endpoint, {
       locale: input.locale,
       skipAuth: true,
-      cache: "no-store",
+      ...directoryCacheOptions(input),
     });
     const pagination = payload.pagination && typeof payload.pagination === "object" && !Array.isArray(payload.pagination)
       ? payload.pagination as Record<string, unknown>
