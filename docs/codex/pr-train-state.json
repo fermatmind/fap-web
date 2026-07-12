@@ -44722,9 +44722,9 @@
     "branch": "codex/article-fanout-01",
     "title": "ARTICLE-FANOUT-01: remove article label detail fanout",
     "depends_on": ["ARTICLE-CACHE-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "55c0368a346226bfbb73849486f4620e27a41ffc",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1714",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The performance PR-train /goal explicitly authorized ARTICLE-FANOUT-01 and manifest/state registration."},
       "dependency": {"status": "pass", "evidence": "ARTICLE-CACHE-01 merged in fap-web PR #1713 at c2d7ace861c3fc64bd781f3879477075d42d4721 before this item started."},
@@ -44736,8 +44736,8 @@
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": [{"at": "2026-07-12T18:50:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after ARTICLE-CACHE-01 merge verification. Scope removes per-link article detail hydration while preserving CMS-authored anchor text and existing safe bare-path labels; backend API, CMS mutation, and deploy are excluded."}, {"at": "2026-07-12T19:00:00+08:00", "status": "local_verified", "summary": "Focused contracts 24/24, lint, spacing, Node 24 typecheck, production build, YAML/JSON, diff, and exact four-path scope validation passed. Article rendering no longer scales API calls with internal-link count."}],
-    "updated_at": "2026-07-12T19:00:00+08:00"
+    "history": [{"at": "2026-07-12T18:50:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after ARTICLE-CACHE-01 merge verification. Scope removes per-link article detail hydration while preserving CMS-authored anchor text and existing safe bare-path labels; backend API, CMS mutation, and deploy are excluded."}, {"at": "2026-07-12T19:00:00+08:00", "status": "local_verified", "summary": "Focused contracts 24/24, lint, spacing, Node 24 typecheck, production build, YAML/JSON, diff, and exact four-path scope validation passed. Article rendering no longer scales API calls with internal-link count."}, {"at": "2026-07-12T19:03:00+08:00", "status": "pr_open", "summary": "Committed and pushed the exact four-path scope and opened PR #1714. Required GitHub checks are pending; no staging wait or deploy action is included."}],
+    "updated_at": "2026-07-12T19:03:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
