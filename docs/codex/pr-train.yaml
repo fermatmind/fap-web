@@ -24937,3 +24937,42 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: PERF-OPS-01
+
+  - id: PERF-OPS-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/perf-ops-01
+    base: main
+    title: "PERF-OPS-01: add long-term performance monitoring SOP"
+    depends_on: [ARTICLE-FANOUT-01]
+    mode: execute
+    train_scope: readonly_performance_operations
+    status: user_authorized
+    goal: "Add a low-frequency read-only public performance scanner, slow page/API top-N and cache-header evidence, regression budgets, and a durable release/weekly operations SOP."
+    allowed_paths:
+      - .github/workflows/public-performance-audit.yml
+      - scripts/performance/audit-public-performance.mjs
+      - scripts/performance/public-performance-targets.json
+      - docs/performance/performance-operations-sop.md
+      - tests/contracts/performance-operations.contract.test.ts
+      - package.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production warmup execution, cache purge, private route probes, CMS mutation, import, migration, staging wait, manual deploy, or production deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/performance-operations.contract.test.ts
+      - node --check scripts/performance/audit-public-performance.mjs
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    workflow_policy_change: true
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: null

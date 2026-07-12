@@ -44739,6 +44739,30 @@
     "history": [{"at": "2026-07-12T18:50:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after ARTICLE-CACHE-01 merge verification. Scope removes per-link article detail hydration while preserving CMS-authored anchor text and existing safe bare-path labels; backend API, CMS mutation, and deploy are excluded."}, {"at": "2026-07-12T19:00:00+08:00", "status": "local_verified", "summary": "Focused contracts 24/24, lint, spacing, Node 24 typecheck, production build, YAML/JSON, diff, and exact four-path scope validation passed. Article rendering no longer scales API calls with internal-link count."}, {"at": "2026-07-12T19:03:00+08:00", "status": "pr_open", "summary": "Committed and pushed the exact four-path scope and opened PR #1714. Required GitHub checks are pending; no staging wait or deploy action is included."}, {"at": "2026-07-12T19:12:00+08:00", "status": "ci_fix", "summary": "Inspected the failed contracts job and found one current-scope source assertion still expected the removed internalLinkLabels argument. Added that contract to the manifest scope, synchronized the assertion, and passed the focused 37-test set."}],
     "updated_at": "2026-07-12T19:20:00+08:00"
   },
+  "PERF-OPS-01": {
+    "id": "PERF-OPS-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/perf-ops-01",
+    "title": "PERF-OPS-01: add long-term performance monitoring SOP",
+    "depends_on": ["ARTICLE-FANOUT-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "pass", "evidence": "The performance PR-train /goal explicitly authorized PERF-OPS-01 and manifest/state registration."},
+      "dependency": {"status": "pass", "evidence": "ARTICLE-FANOUT-01 merged in fap-web PR #1714 at bbbdacf0e9001b8a7ae844c8dedbce01fd04b4d7 before this item started."},
+      "required_local_checks": {"status": "pass", "evidence": "Node 24 script syntax and focused operations contracts passed 2/2; lint passed with 27 existing warnings and no errors; spacing and typecheck passed; YAML/JSON, diff whitespace, and exact eight-path scope validation passed. A non-enforcing 8-target x 3-sample production read-only scan completed and generated page/API top-N plus cache evidence."},
+      "github_required_checks": {"status": "pending", "evidence": null}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [{"at": "2026-07-12T19:30:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after ARTICLE-FANOUT-01 merge verification. Scope is a low-frequency unauthenticated GET scanner, evidence artifact workflow, budgets, and SOP only; no warmup, private probe, write, or deploy action is authorized."}, {"at": "2026-07-12T19:45:00+08:00", "status": "local_verified", "summary": "Script syntax, focused contracts 2/2, lint, spacing, typecheck, parse, diff, and exact eight-path scope validation passed. A non-enforcing read-only production scan completed; three existing latency/timeout budget signals were observed but are not introduced by or blocking this operations tooling PR."}],
+    "updated_at": "2026-07-12T19:45:00+08:00"
+  },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
     "repo": "fap-web",
