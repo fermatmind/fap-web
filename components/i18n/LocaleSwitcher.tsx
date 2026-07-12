@@ -1,18 +1,13 @@
 "use client";
 
 import { ChevronDown } from "lucide-react";
-import Link from "next/link";
+import dynamic from "next/dynamic";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
-import { persistLocalePreferenceCookie } from "@/lib/i18n/clientLocalePreference";
-import { toggleLocalePath, type Locale } from "@/lib/i18n/locales";
 import { shouldDisableLocaleSwitchLinks } from "@/lib/seo/seoHoldlistRoutes";
 
-const languageOptions: Array<{ locale: Locale; code: string; label: string }> = [
-  { locale: "zh", code: "ZH", label: "中文" },
-  { locale: "en", code: "EN", label: "English" },
-];
+const LocaleSwitcherMenu = dynamic(() => import("@/components/i18n/LocaleSwitcherMenu"));
 
 export function LocaleSwitcher() {
   const pathname = usePathname() ?? "/";
@@ -20,7 +15,7 @@ export function LocaleSwitcher() {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const locale = useLocale();
-  const currentOption = languageOptions.find((option) => option.locale === locale) ?? languageOptions[0];
+  const currentCode = locale === "zh" ? "ZH" : "EN";
 
   useEffect(() => {
     if (!open) return;
@@ -69,50 +64,12 @@ export function LocaleSwitcher() {
         aria-controls="site-language-menu"
         onClick={() => setOpen((prev) => !prev)}
       >
-        <span>{currentOption.code}</span>
+        <span>{currentCode}</span>
         <ChevronDown className={open ? "h-3.5 w-3.5 rotate-180 transition" : "h-3.5 w-3.5 transition"} />
       </button>
 
       {open ? (
-        <div
-          id="site-language-menu"
-          role="menu"
-          aria-label={locale === "zh" ? "选择语言" : "Choose language"}
-          className="fm-header-dropdown-panel min-w-[10rem]"
-        >
-          {languageOptions.map((option) => {
-            const isCurrent = option.locale === locale;
-
-            if (isCurrent) {
-              return (
-                <span
-                  key={option.locale}
-                  role="menuitem"
-                  aria-current="true"
-                  className="fm-header-dropdown-link flex cursor-default items-center justify-between bg-[var(--fm-bg-soft)] text-[var(--fm-text-main)]"
-                >
-                  <span>{option.label}</span>
-                </span>
-              );
-            }
-
-            return (
-              <Link
-                key={option.locale}
-                href={toggleLocalePath(pathname, option.locale)}
-                prefetch={false}
-                role="menuitem"
-                className="fm-header-dropdown-link flex items-center justify-between"
-                onClick={() => {
-                  persistLocalePreferenceCookie(option.locale);
-                  setOpen(false);
-                }}
-              >
-                <span>{option.label}</span>
-              </Link>
-            );
-          })}
-        </div>
+        <LocaleSwitcherMenu locale={locale} pathname={pathname} onSelect={() => setOpen(false)} />
       ) : null}
     </div>
   );

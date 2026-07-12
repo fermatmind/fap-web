@@ -39,7 +39,7 @@ describe("SiteHeader locale link contract", () => {
     navigationState.pathname = "/zh/tests/enneagram-personality-test-nine-types/take";
   });
 
-  it("does not inject live query params into the SSR-rendered locale switch href", () => {
+  it("does not inject live query params into the SSR-rendered locale switch href", async () => {
     render(
       <LocaleProvider locale="zh">
         <SiteHeader />
@@ -48,7 +48,7 @@ describe("SiteHeader locale link contract", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "语言菜单" }));
 
-    const localeLinks = screen.getAllByRole("menuitem", { name: "English" });
+    const localeLinks = await screen.findAllByRole("menuitem", { name: "English" });
     expect(localeLinks.length).toBeGreaterThan(0);
     for (const link of localeLinks) {
       expect(link).toHaveAttribute("href", "/en/tests/enneagram-personality-test-nine-types/take");
@@ -116,7 +116,7 @@ describe("SiteHeader locale link contract", () => {
     expect(container.innerHTML).toContain("/zh/results/lookup");
   });
 
-  it("keeps the standalone desktop locale switcher SSR-safe when the current URL has query params", () => {
+  it("keeps the standalone desktop locale switcher SSR-safe when the current URL has query params", async () => {
     window.history.replaceState(null, "", "/zh/tests/enneagram-personality-test-nine-types/take?form=enneagram_forced_choice_144");
 
     render(
@@ -127,7 +127,7 @@ describe("SiteHeader locale link contract", () => {
 
     fireEvent.click(screen.getByRole("button", { name: "语言菜单" }));
 
-    const link = screen.getByRole("menuitem", { name: "English" });
+    const link = await screen.findByRole("menuitem", { name: "English" });
     expect(link).toHaveAttribute("href", "/en/tests/enneagram-personality-test-nine-types/take");
     expect(link.getAttribute("href")).not.toContain("form=");
   });

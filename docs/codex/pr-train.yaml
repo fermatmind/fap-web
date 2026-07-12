@@ -24819,3 +24819,46 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: GLOBAL-JS-02
+
+  - id: GLOBAL-JS-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/global-js-02
+    base: main
+    title: "GLOBAL-JS-02: lazy-load global shell interactions"
+    depends_on: [GLOBAL-JS-01]
+    mode: execute
+    train_scope: global_interaction_lazy_loading
+    status: user_authorized
+    goal: "Load footer QR imagery, desktop header dropdown content, and locale options only after interaction, and remove hidden QR priority loading."
+    allowed_paths:
+      - components/layout/SiteFooterSocialRail.tsx
+      - components/layout/SiteFooterQrPanel.tsx
+      - components/layout/SiteHeader.tsx
+      - components/layout/SiteHeaderDropdownPanel.tsx
+      - components/i18n/LocaleSwitcher.tsx
+      - components/i18n/LocaleSwitcherMenu.tsx
+      - tests/contracts/global-js-interaction-lazy.contract.test.ts
+      - tests/contracts/site-footer-social.contract.test.tsx
+      - tests/contracts/site-header-locale-link.contract.test.tsx
+      - tests/contracts/global-js-shell-boundary.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - header visual redesign, navigation or locale behavior changes, static shell ownership, content/SEO authority, CMS mutation, staging wait, or production deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/global-js-interaction-lazy.contract.test.ts tests/contracts/site-footer-social.contract.test.tsx tests/contracts/site-header-locale-link.contract.test.tsx tests/contracts/global-js-shell-boundary.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: PERSONALITY-CACHE-01
