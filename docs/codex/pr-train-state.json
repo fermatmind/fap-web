@@ -43961,7 +43961,7 @@
     ]
   },
   "MBTI-INDEX-24R": {
-    "status": "local_checks_passed",
+    "status": "pr_open_checks_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-index-24r-release-gate-revalidation",
     "depends_on": [
@@ -43970,7 +43970,7 @@
     "train_scope": "mbti_nine_url_release_gate_revalidation",
     "title": "MBTI-INDEX-24R: revalidate nine promoted MBTI URLs",
     "commit_sha": "39bfb84adbbcc365972eda4a1ba83d930810cb8e",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1701",
     "checks": {
       "dependency": {
         "status": "passed",
@@ -43991,7 +43991,7 @@
     "failure_reason": null,
     "next_task": "MBTI-GSC-25",
     "created_at": "2026-07-12T04:13:51+08:00",
-    "updated_at": "2026-07-12T10:18:00+08:00",
+    "updated_at": "2026-07-12T10:23:00+08:00",
     "history": [
       {
         "at": "2026-07-12T10:10:00+08:00",
@@ -44002,6 +44002,11 @@
         "at": "2026-07-12T10:18:00+08:00",
         "status": "local_checks_passed",
         "note": "Read-only network gate, focused contract, Node 24 typecheck, all contract shards, production API build, YAML/JSON parsing, diff check, and exact changed-file scope validation passed."
+      },
+      {
+        "at": "2026-07-12T10:23:00+08:00",
+        "status": "pr_open_checks_pending",
+        "note": "Opened PR #1701 with the exact seven-path scope. Required GitHub checks are pending; no GSC mutation, CMS write, promotion or deploy occurred in INDEX-24R."
       }
     ]
   },
