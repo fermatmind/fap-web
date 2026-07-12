@@ -24668,3 +24668,37 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: ENNEAGRAM-LLMS-TXT-RELEASE-01
+
+  - id: PERF-BASELINE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/perf-baseline-01
+    base: main
+    title: "PERF-BASELINE-01: freeze production performance baseline"
+    depends_on: []
+    mode: execute
+    train_scope: production_performance_baseline
+    status: user_authorized
+    goal: "Freeze the July 2026 production audit method, evidence boundary, baseline observations, performance budgets, and acceptance criteria without changing runtime behavior."
+    allowed_paths:
+      - docs/performance/production-performance-baseline-2026-07-12.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - runtime code, production configuration, CMS or backend mutation, SEO enumeration, sitemap, llms, private-flow probes, import, migration, cache purge, warmup execution, or deploy
+    required_local_checks:
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json"))'
+      - performance baseline evidence and boundary review
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    workflow_policy_change: true
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: CAREER-NEXTSTEP-01
