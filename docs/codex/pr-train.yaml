@@ -24636,7 +24636,7 @@ prs:
     depends_on: [ENNEAGRAM-LLMS-TXT-RELEASE-GATE-01]
     mode: execute
     train_scope: enneagram_llms_txt_frontend_enumeration
-    status: local_verified
+    status: committed
     goal: "Enumerate only the exact backend-gated 116 Enneagram public assets in llms.txt while preserving a complete 0-state hold, fail-closing partial or unsafe cohorts, and keeping llms-full at 0/116."
     allowed_paths:
       - app/llms.txt/route.ts
