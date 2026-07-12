@@ -142,11 +142,14 @@ function shouldKeepCareerAuthorityRoute(item: {
 type PersonalityPathResult = {
   paths: string[];
   mbtiAuthorityAvailable: boolean;
+  enneagramAuthorityAvailable: boolean;
 };
 
 function mergePersonalityPaths(mbtiPersonalityPaths: string[], bigFiveZhPaths: string[]): string[] {
   return dedupePaths([...mbtiPersonalityPaths, ...bigFiveZhPaths]);
 }
+
+const EXPECTED_ENNEAGRAM_LLMS_PATH_COUNT = 116;
 
 async function listPersonalityPaths(): Promise<PersonalityPathResult> {
   const mbtiAuthorityLastKnownGood = await readMbtiAuthorityLastKnownGood();
@@ -174,6 +177,7 @@ async function listPersonalityPaths(): Promise<PersonalityPathResult> {
       ...enneagramPaths,
     ]),
     mbtiAuthorityAvailable: mbtiPersonalityPaths.length > 0,
+    enneagramAuthorityAvailable: enneagramPaths.length === EXPECTED_ENNEAGRAM_LLMS_PATH_COUNT,
   };
 }
 
@@ -299,6 +303,8 @@ export async function GET() {
   ]);
 
   const personalityEntries = personalityResult.paths;
+  const personalityAuthorityAvailable =
+    personalityResult.mbtiAuthorityAvailable && personalityResult.enneagramAuthorityAvailable;
 
   const helpEntries = dedupePaths([
     ...enDiscoverableContentPages.filter((page) => page.kind === "help").map((page) => localizedContentPagePath(page, "en")),
@@ -396,7 +402,7 @@ export async function GET() {
   return new NextResponse(lines.join("\n"), {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": personalityResult.mbtiAuthorityAvailable
+      "Cache-Control": personalityAuthorityAvailable
         ? "public, s-maxage=3600, stale-while-revalidate=86400"
         : "private, no-store, max-age=0",
     },
