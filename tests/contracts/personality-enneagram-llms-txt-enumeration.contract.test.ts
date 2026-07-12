@@ -134,7 +134,9 @@ describe("ENNEAGRAM-LLMS-TXT-FRONTEND-ENUMERATION-01", () => {
     expect(llms).toContain("EXPECTED_ENNEAGRAM_LLMS_PATH_COUNT = 116");
     expect(llms).toContain("listBackendSitemapMbtiPersonalityPaths");
     expect(llms).toContain("listBackendSitemapBigFiveZhPaths");
+    expect(llmsFull).toContain("listEnneagramLlmsFullEntries");
+    expect(llmsFull).toContain("enneagramLlmsSource");
     expect(llmsFull).not.toContain("listEnneagramLlmsPaths");
-    expect(llmsFull).not.toContain("enneagramLlmsSource");
+    expect(llmsFull).not.toContain("listBackendSitemapEnneagram");
   });
 });

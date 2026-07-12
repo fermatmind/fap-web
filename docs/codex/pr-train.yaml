@@ -24669,6 +24669,44 @@ prs:
     deploy_allowed: false
     next_task: ENNEAGRAM-LLMS-TXT-RELEASE-01
 
+  - id: ENNEAGRAM-LLMS-FULL-FRONTEND-ENUMERATION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/enneagram-llms-full-frontend-enumeration-01
+    base: main
+    title: "ENNEAGRAM-LLMS-FULL-FRONTEND-ENUMERATION-01: enumerate evidence-gated Enneagram assets in llms-full"
+    depends_on: [ENNEAGRAM-LLMS-TXT-PRODUCTION-REVALIDATION-01]
+    mode: execute
+    train_scope: enneagram_llms_full_frontend_enumeration
+    status: in_progress
+    goal: "Enumerate only the exact backend-public-API-gated 116 Enneagram public content assets in llms-full.txt, requiring visible evidence fields and preserving fail-closed partial, unsafe, duplicate, or invalid cohorts."
+    allowed_paths:
+      - app/llms-full.txt/route.ts
+      - lib/cms/personality-public-content-assets.ts
+      - lib/seo/enneagramLlmsSource.ts
+      - tests/contracts/personality-enneagram-llms-txt-enumeration.contract.test.ts
+      - tests/contracts/personality-enneagram-llms-full-enumeration.contract.test.ts
+      - tests/contracts/llms-full-enrichment.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - llms.txt behavior changes, sitemap authority substitution, frontend editorial fallback, CMS/backend mutation, eligibility write, cache warm, Search action, IndexNow, workflow dispatch, staging or production deploy, permissions, or secrets
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/personality-enneagram-llms-txt-enumeration.contract.test.ts tests/contracts/personality-enneagram-llms-full-enumeration.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json"))'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: ENNEAGRAM-LLMS-FULL-RELEASE-01
+
   - id: PERF-BASELINE-01
     repo: fap-web
     repo_path: <workspace>/fap-web

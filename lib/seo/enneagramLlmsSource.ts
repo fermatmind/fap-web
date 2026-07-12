@@ -1,6 +1,8 @@
 import {
   listEnneagramLlmsCandidates,
+  listEnneagramLlmsFullCandidates,
   type EnneagramLlmsCandidate,
+  type EnneagramLlmsFullCandidate,
 } from "@/lib/cms/personality-public-content-assets";
 import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
@@ -20,6 +22,18 @@ const EXPECTED_ENTITY_COUNTS = new Map<string, number>([
 ]);
 
 let exactCohortLkg: string[] | null = null;
+let exactFullCohortLkg: EnneagramLlmsFullEntry[] | null = null;
+
+export type EnneagramLlmsFullEntry = {
+  locale: "en" | "zh";
+  path: string;
+  title: string;
+  type: "personality";
+  updatedAt: string | null;
+  summary: string;
+  faq: Array<{ question: string; answer: string }>;
+  disclaimer: string | null;
+};
 
 function identity(candidate: EnneagramLlmsCandidate): string {
   return `${candidate.locale}|${candidate.entityType}|${candidate.code}`;
@@ -94,6 +108,62 @@ function hasSafePublishedState(candidate: EnneagramLlmsCandidate): boolean {
   );
 }
 
+function cleanText(value: string, maxChars = 360): string {
+  const normalized = String(value || "").replace(/\s+/g, " ").trim();
+  if (normalized.length <= maxChars) {
+    return normalized;
+  }
+
+  return `${normalized.slice(0, maxChars - 3).trimEnd()}...`;
+}
+
+function hasVisibleFullEvidence(candidate: EnneagramLlmsFullCandidate): boolean {
+  const hasSummary = cleanText(candidate.summary, 120).length >= 24;
+  const hasFaq = candidate.faq.some((item) => cleanText(item.question, 120) && cleanText(item.answer, 160));
+  const hasBoundary = Boolean(
+    cleanText(candidate.methodBoundary?.summary ?? "", 160) || (candidate.methodBoundary?.notFor ?? []).some(Boolean)
+  );
+  const hasEvidenceNote = candidate.evidenceNotes.some((item) => cleanText(item.note, 160));
+  const hasVisibleSection = candidate.sections.some(
+    (section) => cleanText(section.title, 120) && cleanText(section.bodyMd || section.bodyHtml, 160)
+  );
+
+  return Boolean(cleanText(candidate.title, 120)) && hasSummary && hasFaq && (hasBoundary || hasEvidenceNote || hasVisibleSection);
+}
+
+function routeLocale(candidate: EnneagramLlmsFullCandidate): "en" | "zh" {
+  return candidate.locale === "zh-CN" ? "zh" : "en";
+}
+
+function fullSummary(candidate: EnneagramLlmsFullCandidate): string {
+  const parts = [
+    cleanText(candidate.summary, 220),
+    cleanText(candidate.methodBoundary?.summary ?? "", 120),
+    cleanText(candidate.evidenceNotes[0]?.note ?? "", 120),
+  ].filter(Boolean);
+
+  return cleanText(parts.join(" "), 360);
+}
+
+function toFullEntry(candidate: EnneagramLlmsFullCandidate): EnneagramLlmsFullEntry {
+  return {
+    locale: routeLocale(candidate),
+    path: candidate.canonicalPath,
+    title: cleanText(candidate.title, 140),
+    type: "personality",
+    updatedAt: candidate.updatedAt,
+    summary: fullSummary(candidate),
+    faq: candidate.faq
+      .map((item) => ({
+        question: cleanText(item.question, 160),
+        answer: cleanText(item.answer, 220),
+      }))
+      .filter((item) => item.question && item.answer)
+      .slice(0, 2),
+    disclaimer: cleanText(candidate.methodBoundary?.summary ?? "", 220) || null,
+  };
+}
+
 export function selectExactEnneagramLlmsPaths(candidates: EnneagramLlmsCandidate[]): string[] {
   if (!hasExactIdentityAndEntityCounts(candidates) || !candidates.every(hasSafePublishedState)) {
     return [];
@@ -108,6 +178,19 @@ export function selectExactEnneagramLlmsPaths(candidates: EnneagramLlmsCandidate
   }
 
   return candidates.map((candidate) => candidate.canonicalPath).sort((left, right) => left.localeCompare(right));
+}
+
+export function selectExactEnneagramLlmsFullEntries(candidates: EnneagramLlmsFullCandidate[]): EnneagramLlmsFullEntry[] {
+  if (
+    !hasExactIdentityAndEntityCounts(candidates) ||
+    !candidates.every((candidate) => hasSafePublishedState(candidate) && candidate.llmsEligible && hasVisibleFullEvidence(candidate))
+  ) {
+    return [];
+  }
+
+  return candidates
+    .map(toFullEntry)
+    .sort((left, right) => left.path.localeCompare(right.path));
 }
 
 export async function listEnneagramLlmsPaths(options: { signal?: AbortSignal } = {}): Promise<string[]> {
@@ -133,6 +216,30 @@ export async function listEnneagramLlmsPaths(options: { signal?: AbortSignal } =
   return [];
 }
 
+export async function listEnneagramLlmsFullEntries(options: { signal?: AbortSignal } = {}): Promise<EnneagramLlmsFullEntry[]> {
+  let candidates: EnneagramLlmsFullCandidate[];
+  try {
+    const [en, zh] = await Promise.all([
+      listEnneagramLlmsFullCandidates("en", options),
+      listEnneagramLlmsFullCandidates("zh", options),
+    ]);
+    candidates = [...en, ...zh];
+  } catch {
+    return exactFullCohortLkg ? exactFullCohortLkg.map((entry) => ({ ...entry, faq: [...entry.faq] })) : [];
+  }
+
+  const selected = selectExactEnneagramLlmsFullEntries(candidates);
+  if (selected.length === EXPECTED_TOTAL) {
+    exactFullCohortLkg = selected.map((entry) => ({ ...entry, faq: [...entry.faq] }));
+    return selected;
+  }
+
+  // A successful held, partial, invalid, or thin authority response revokes stale full-feed membership.
+  exactFullCohortLkg = null;
+  return [];
+}
+
 export function resetEnneagramLlmsSourceCacheForTests(): void {
   exactCohortLkg = null;
+  exactFullCohortLkg = null;
 }

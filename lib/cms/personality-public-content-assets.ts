@@ -118,6 +118,16 @@ export type EnneagramLlmsCandidate = {
   launchState: string;
 };
 
+export type EnneagramLlmsFullCandidate = EnneagramLlmsCandidate & {
+  title: string;
+  summary: string;
+  faq: PersonalityPublicContentFaqItem[];
+  methodBoundary: PersonalityPublicContentMethodBoundary | null;
+  evidenceNotes: PersonalityPublicContentEvidenceNote[];
+  sections: PersonalityPublicContentSection[];
+  updatedAt: string | null;
+};
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
 }
@@ -498,6 +508,79 @@ export async function listEnneagramLlmsCandidates(
       sitemapEligible: asBoolean(record.sitemap_eligible),
       llmsEligible: asBoolean(record.llms_eligible),
       launchState: asString(record.launch_state),
+    };
+  });
+}
+
+export async function listEnneagramLlmsFullCandidates(
+  locale: Locale,
+  options: { signal?: AbortSignal } = {}
+): Promise<EnneagramLlmsFullCandidate[]> {
+  const apiLocale = toApiLocale(locale);
+  const response = await apiClient.get<PersonalityPublicContentAssetIndexResponse>(
+    `/v0.5/personality-content-assets?locale=${encodeURIComponent(apiLocale)}&framework=enneagram&per_page=100&org_id=0`,
+    {
+      ...PUBLIC_API_CACHE_OPTIONS,
+      skipAuth: true,
+      locale,
+      signal: options.signal,
+    }
+  );
+
+  if (response?.ok !== true || !Array.isArray(response.items)) {
+    throw new ApiError({
+      status: 502,
+      errorCode: "ENNEAGRAM_LLMS_FULL_AUTHORITY_INVALID",
+      message: "Enneagram llms-full authority response is invalid.",
+    });
+  }
+
+  const total = Number(response.pagination?.total);
+  if (!Number.isInteger(total) || total !== response.items.length) {
+    throw new ApiError({
+      status: 502,
+      errorCode: "ENNEAGRAM_LLMS_FULL_AUTHORITY_COUNT_MISMATCH",
+      message: "Enneagram llms-full authority count does not match the returned cohort.",
+    });
+  }
+
+  return response.items.map((item) => {
+    const record = asRecord(item);
+    const entityType = normalizeEntityType(record.entity_type);
+    const canonical = asRecord(record.canonical);
+    const candidateLocale = asString(record.locale);
+
+    if (
+      asString(record.framework) !== "enneagram" ||
+      !entityType ||
+      !["hub", "center", "core_type", "wing", "instinctual_subtype"].includes(entityType) ||
+      candidateLocale !== apiLocale
+    ) {
+      throw new ApiError({
+        status: 502,
+        errorCode: "ENNEAGRAM_LLMS_FULL_AUTHORITY_IDENTITY_INVALID",
+        message: "Enneagram llms-full authority identity is invalid.",
+      });
+    }
+
+    return {
+      entityType: entityType as EnneagramPublicEntityType,
+      code: asString(record.code ?? record.entity_key),
+      locale: apiLocale,
+      canonicalPath: asString(record.canonical_path) || asString(canonical.path),
+      robots: normalizeRobots(record.robots),
+      isPublic: asBoolean(record.is_public),
+      indexEligible: asBoolean(record.index_eligible),
+      sitemapEligible: asBoolean(record.sitemap_eligible),
+      llmsEligible: asBoolean(record.llms_eligible),
+      launchState: asString(record.launch_state),
+      title: asString(record.title),
+      summary: asString(record.summary),
+      faq: normalizeFaq(record.faq),
+      methodBoundary: normalizeMethodBoundary(record.method_boundary),
+      evidenceNotes: normalizeEvidenceNotes(record.evidence_notes),
+      sections: normalizeSections(record.sections ?? record.content_sections),
+      updatedAt: asNullableString(record.updated_at),
     };
   });
 }
