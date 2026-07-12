@@ -26,6 +26,7 @@ import {
 } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
 import { listDailyGivingDiscoverabilityEntries } from "@/lib/foundation/dailyGivingSeo";
+import { listEnneagramLlmsFullEntries } from "@/lib/seo/enneagramLlmsSource";
 import {
   createConfiguredStagingLlmsResponse,
   isConfiguredStagingDiscoverability,
@@ -55,6 +56,10 @@ import {
   BIG_FIVE_PUBLIC_ROUTE_ENTRIES,
   BIG_FIVE_ZH_LEGACY_TO_V2_SLUG,
 } from "@/lib/personality/bigFivePublicRoutes";
+import {
+  buildEnneagramPublicContentPath,
+  ENNEAGRAM_PUBLIC_ROUTE_ENTRIES,
+} from "@/lib/personality/enneagramPublicRoutes";
 import type { AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import type { Locale } from "@/lib/i18n/locales";
 import type { LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
@@ -509,6 +514,8 @@ const MBTI64_PERSONALITY_VARIANT_CANONICAL_PATH_RE = /^\/(?:en|zh)\/personality\
 const MBTI64_PERSONALITY_COMPARISON_CANONICAL_PATH_RE = /^\/(?:en|zh)\/personality\/([a-z]{4})-a-vs-\1-t$/;
 const MBTI_PERSONALITY_AUTHORITY_CANONICAL_PATH_RE =
   /^\/(?:en|zh)\/personality\/(?:[a-z]{4}-[at]|[a-z]{4}-a-vs-[a-z]{4}-t|[a-z]{4}-vs-[a-z]{4})$/;
+const ENNEAGRAM_PUBLIC_CONTENT_CANONICAL_PATH_RE =
+  /^\/(?:en|zh)\/personality\/enneagram(?:\/(?:type-[1-9]|centers\/(?:gut|heart|head)|wings\/(?:1w9|1w2|2w1|2w3|3w2|3w4|4w3|4w5|5w4|5w6|6w5|6w7|7w6|7w8|8w7|8w9|9w8|9w1)|type-[1-9]\/instincts\/(?:self-preservation|social|one-to-one)))?$/i;
 const BIG_FIVE_PUBLIC_PATH_RE = /^\/(?:en|zh)\/personality\/big-five(?:\/[^/?#]+(?:\/[^/?#]+)?)?$/;
 const BIG_FIVE_EXPECTED_CANONICAL_PATHS = BIG_FIVE_PUBLIC_ROUTE_ENTRIES.flatMap((entry) => [
   `/en/personality/big-five${entry.pathSuffix}`,
@@ -622,6 +629,21 @@ function hasExactMbtiPersonalityAuthorityCohort(
   return actualUrls.size === expectedUrls.size && [...expectedUrls].every((url) => actualUrls.has(url));
 }
 
+function expectedEnneagramLlmsFullPaths(): string[] {
+  return (["en", "zh"] as const).flatMap((locale) =>
+    ENNEAGRAM_PUBLIC_ROUTE_ENTRIES.map((entry) => buildEnneagramPublicContentPath(locale, entry))
+  );
+}
+
+function hasExactEnneagramLlmsFullCohort(text: string, siteUrl: string): boolean {
+  const actualUrls = canonicalPathUrlSet(text, siteUrl, ENNEAGRAM_PUBLIC_CONTENT_CANONICAL_PATH_RE);
+  const expectedUrls = new Set(expectedEnneagramLlmsFullPaths().map((path) => toCanonical(siteUrl, path)));
+
+  return expectedUrls.size === 116
+    && actualUrls.size === expectedUrls.size
+    && [...expectedUrls].every((url) => actualUrls.has(url));
+}
+
 export function isCompleteLlmsFullText(
   text: string,
   siteUrl: string,
@@ -668,6 +690,10 @@ export function isCompleteLlmsFullText(
     expectedMbtiPersonalityPaths &&
     !hasExactMbtiPersonalityAuthorityCohort(text, siteUrl, expectedMbtiPersonalityPaths)
   ) {
+    return false;
+  }
+
+  if (!hasExactEnneagramLlmsFullCohort(text, siteUrl)) {
     return false;
   }
 
@@ -852,13 +878,15 @@ async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
         .filter((entry): entry is LlmsFullEntry => Boolean(entry))
     )
     .catch(() => []);
+  const enneagramEntriesPromise = listEnneagramLlmsFullEntries().catch(() => []);
 
-  const [mbtiEntries, bigFiveZhEntries] = await Promise.all([
+  const [mbtiEntries, bigFiveZhEntries, enneagramEntries] = await Promise.all([
     mbtiEntriesPromise,
     bigFiveZhEntriesPromise,
+    enneagramEntriesPromise,
   ]);
 
-  return uniqueEntriesByPath([...mbtiEntries, ...bigFiveZhEntries]);
+  return uniqueEntriesByPath([...mbtiEntries, ...bigFiveZhEntries, ...enneagramEntries]);
 }
 
 async function listTopicEntries(): Promise<LlmsFullEntry[]> {

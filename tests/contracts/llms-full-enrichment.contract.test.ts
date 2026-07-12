@@ -1,4 +1,8 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+import {
+  buildEnneagramPublicContentPath,
+  ENNEAGRAM_PUBLIC_ROUTE_ENTRIES,
+} from "@/lib/personality/enneagramPublicRoutes";
 
 function buildAnswerSurface({
   summary,
@@ -26,6 +30,21 @@ function buildLandingSurface(summary?: string) {
   return {
     summaryBlocks: summary ? [{ key: "landing-summary", title: "", body: summary, kind: null }] : [],
   };
+}
+
+function buildEnneagramLlmsFullEntries() {
+  return (["en", "zh"] as const).flatMap((locale) =>
+    ENNEAGRAM_PUBLIC_ROUTE_ENTRIES.map((entry) => ({
+      locale,
+      path: buildEnneagramPublicContentPath(locale, entry),
+      title: `${locale} ${entry.code}`,
+      type: "personality" as const,
+      updatedAt: "2026-07-12T00:00:00Z",
+      summary: "Backend supplied Enneagram evidence-gated summary.",
+      faq: [{ question: "Is this a diagnosis?", answer: "No. It is a bounded personality explainer." }],
+      disclaimer: "Use as a reflection aid, not a diagnostic instrument.",
+    }))
+  );
 }
 
 function mockLlmsFullDependencies({ includeSurfaces = true }: { includeSurfaces?: boolean } = {}) {
@@ -251,6 +270,9 @@ function mockLlmsFullDependencies({ includeSurfaces = true }: { includeSurfaces?
           ]
         : []
     ),
+  }));
+  vi.doMock("@/lib/seo/enneagramLlmsSource", () => ({
+    listEnneagramLlmsFullEntries: vi.fn(async () => buildEnneagramLlmsFullEntries()),
   }));
 }
 
