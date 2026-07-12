@@ -29,10 +29,11 @@ describe("MBTI-INDEX-24C llms personality authority budget", () => {
 
     expect(LLMS_ROUTE_PERSONALITY_TIMEOUT_MS).toBe(8_000);
     expect(LLMS_ROUTE_PERSONALITY_TIMEOUT_MS).toBeGreaterThan(LLMS_ROUTE_SOURCE_TIMEOUT_MS);
-    expect(route).toContain("async function listPersonalityPaths(signal?: AbortSignal)");
+    expect(route).toContain("async function listPersonalityPaths(): Promise<PersonalityPathResult>");
     expect(route).toContain("listBackendSitemapMbtiPersonalityPaths({ signal })");
     expect(route).toContain("listBackendSitemapBigFiveZhPaths({ signal })");
     expect(route).toContain("timeoutMs: LLMS_ROUTE_PERSONALITY_TIMEOUT_MS");
+    expect(route).not.toContain("withLlmsRouteBudget((signal) => listPersonalityPaths(signal)");
   });
 
   it("accepts the exact nine promoted backend paths without inventing local coverage", () => {

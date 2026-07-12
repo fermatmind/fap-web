@@ -47,14 +47,17 @@ describe("personality cleanup contract", () => {
     const source = read("app/llms.txt/route.ts");
     const personalityBlock = sliceBetween(
       source,
-      "async function listPersonalityPaths(signal?: AbortSignal)",
+      "async function listPersonalityPaths(): Promise<PersonalityPathResult>",
       "async function listTopicPaths()",
     );
 
     expect(personalityBlock).toContain("listBackendSitemapMbtiPersonalityPaths");
     expect(personalityBlock).toContain("listBackendSitemapBigFiveZhPaths");
     expect(personalityBlock).toContain("{ signal }");
-    expect(personalityBlock).toContain("return dedupePaths([...mbtiPersonalityPaths, ...bigFiveZhPaths]);");
+    expect(source).toContain("return dedupePaths([...mbtiPersonalityPaths, ...bigFiveZhPaths]);");
+    expect(personalityBlock).toContain("...mergePersonalityPaths(mbtiPersonalityPaths, bigFiveZhPaths)");
+    expect(personalityBlock).toContain("...enneagramPaths");
+    expect(personalityBlock).toContain("mbtiAuthorityAvailable: mbtiPersonalityPaths.length > 0");
     expect(personalityBlock).not.toContain("listPersonalityProfiles");
     expect(personalityBlock).not.toContain("publishedPersonalityVariantSlugs");
     expect(personalityBlock).not.toContain("listMbtiRecommendationTypes()");
