@@ -17,6 +17,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          fetch-depth: 2
 
       - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
@@ -27,6 +29,13 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm lint .
+
+      - name: Reject warnings in pull request JavaScript and TypeScript changes
+        if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          git diff --name-only --diff-filter=ACMR -z HEAD^1 HEAD -- '*.js' '*.jsx' '*.mjs' '*.cjs' '*.ts' '*.tsx' '*.mts' '*.cts' \
+            | xargs -0 --no-run-if-empty pnpm exec eslint --max-warnings=0 --
 
       - run: pnpm typecheck
 

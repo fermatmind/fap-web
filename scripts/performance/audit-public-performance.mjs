@@ -2,6 +2,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import process from "node:process";
 import { performance } from "node:perf_hooks";
+import { resolveApprovedPerformanceTarget } from "./public-performance-target-policy.mjs";
 
 const args = new Set(process.argv.slice(2));
 const valueAfter = (flag, fallback) => {
@@ -24,11 +25,12 @@ function publicCacheable(value) {
 }
 
 async function sample(target) {
+  const requestUrl = resolveApprovedPerformanceTarget(target);
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), config.timeout_ms);
   const started = performance.now();
   try {
-    const response = await fetch(target.url, {
+    const response = await fetch(requestUrl, {
       method: "GET",
       headers: { accept: target.kind === "api" ? "application/json" : "text/html", "user-agent": "FermatMind-ReadOnly-Performance-Audit/1.0" },
       redirect: "follow",

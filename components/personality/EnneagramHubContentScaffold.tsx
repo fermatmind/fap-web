@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, BookOpen, ShieldCheck, Heart, Brain, Zap, Compass, Briefcase, GraduationCap, GitBranch } from "lucide-react";
+import { ArrowRight, ShieldCheck, Heart, Brain, Zap, Compass, Briefcase, GraduationCap, GitBranch } from "lucide-react";
 import type { Locale } from "@/lib/i18n/locales";
 
 // ---------------------------------------------------------------------------

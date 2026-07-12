@@ -379,7 +379,13 @@ function buildV85PersonalitySectionShortcuts(
 
   return candidateLinks
     .filter((link) => sectionKeys.has(link.sectionKey))
-    .map(({ sectionKey: _sectionKey, ...link }) => ({ ...link, kind: "anchor" as const }));
+    .map((link) => ({
+      key: link.key,
+      label: link.label,
+      description: link.description,
+      href: link.href,
+      kind: "anchor" as const,
+    }));
 }
 
 const V85_DUPLICATE_PROJECTION_SECTION_KEYS = new Set([
@@ -1253,7 +1259,6 @@ function PersonalityComparisonPage({
   const title = comparisonSeoTitle(comparison);
   const heading = comparisonPageHeading(comparison);
   const description = comparisonSeoDescription(comparison);
-  const crossType = isCrossTypeComparison(comparison);
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
