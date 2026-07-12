@@ -84,12 +84,14 @@ jobs:
 
           mkdir -p "$ARTIFACT_DIR"
 
-          echo "run_date=$RUN_DATE" >> "$GITHUB_OUTPUT"
-          echo "framework=$FRAMEWORK" >> "$GITHUB_OUTPUT"
-          echo "artifact_dir=$ARTIFACT_DIR" >> "$GITHUB_OUTPUT"
-          echo "output_json=$ARTIFACT_DIR/personality-agent-auto-runner-${RUN_DATE}.json" >> "$GITHUB_OUTPUT"
-          echo "output_md=$ARTIFACT_DIR/personality-agent-auto-runner-${RUN_DATE}.md" >> "$GITHUB_OUTPUT"
-          echo "output_csv=$ARTIFACT_DIR/personality-agent-auto-runner-${RUN_DATE}.csv" >> "$GITHUB_OUTPUT"
+          {
+            echo "run_date=$RUN_DATE"
+            echo "framework=$FRAMEWORK"
+            echo "artifact_dir=$ARTIFACT_DIR"
+            echo "output_json=$ARTIFACT_DIR/personality-agent-auto-runner-${RUN_DATE}.json"
+            echo "output_md=$ARTIFACT_DIR/personality-agent-auto-runner-${RUN_DATE}.md"
+            echo "output_csv=$ARTIFACT_DIR/personality-agent-auto-runner-${RUN_DATE}.csv"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Run personality agent auto runner
         shell: bash
@@ -122,7 +124,7 @@ jobs:
           jq empty "${{ steps.paths.outputs.output_json }}"
 
       - name: Upload personality agent artifact
-        uses: actions/upload-artifact@99df26d4f13ea111d4ec1a7dddef6063f76b97e9 # v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: personality-agent-auto-runner-${{ steps.paths.outputs.run_date }}
           path: ${{ steps.paths.outputs.artifact_dir }}
