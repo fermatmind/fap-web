@@ -44699,7 +44699,7 @@
     "title": "ARTICLE-CACHE-01: cache published article detail and SEO",
     "depends_on": ["PERSONALITY-WARMUP-01"],
     "status": "pr_open",
-    "commit_sha": "0f0704871d298b3c9454849617935de909775aa4",
+    "commit_sha": "0f0704871064787a1c8f67088fab33be6205174a",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1713",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The performance PR-train /goal explicitly authorized ARTICLE-CACHE-01 and manifest/state registration."},
