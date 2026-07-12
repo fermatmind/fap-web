@@ -18,6 +18,7 @@ import {
 } from "@/lib/seo/backendSitemapSource";
 import { listBackendDiscoverabilityTestEntries } from "@/lib/seo/backendTestDiscoverabilitySource";
 import { listDailyGivingDiscoverabilityEntries } from "@/lib/foundation/dailyGivingSeo";
+import { listEnneagramLlmsPaths } from "@/lib/seo/enneagramLlmsSource";
 import {
   createConfiguredStagingLlmsResponse,
   isConfiguredStagingDiscoverability,
@@ -140,12 +141,18 @@ function shouldKeepCareerAuthorityRoute(item: {
 async function listPersonalityPaths(signal?: AbortSignal): Promise<string[]> {
   const mbtiPersonalityPathsPromise = listBackendSitemapMbtiPersonalityPaths({ signal }).catch(() => []);
   const bigFiveZhPathsPromise = listBackendSitemapBigFiveZhPaths({ signal }).catch(() => []);
-  const [mbtiPersonalityPaths, bigFiveZhPaths] = await Promise.all([
+  const enneagramPathsPromise = listEnneagramLlmsPaths({ signal });
+  const [mbtiPersonalityPaths, bigFiveZhPaths, enneagramPaths] = await Promise.all([
     mbtiPersonalityPathsPromise,
     bigFiveZhPathsPromise,
+    enneagramPathsPromise,
   ]);
 
-  return dedupePaths([...mbtiPersonalityPaths, ...bigFiveZhPaths]);
+  const existingPersonalityPaths = (() => {
+    return dedupePaths([...mbtiPersonalityPaths, ...bigFiveZhPaths]);
+  })();
+
+  return dedupePaths([...existingPersonalityPaths, ...enneagramPaths]);
 }
 
 async function listTopicPaths(): Promise<string[]> {

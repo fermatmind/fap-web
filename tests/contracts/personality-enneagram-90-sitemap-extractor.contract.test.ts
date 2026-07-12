@@ -58,7 +58,7 @@ describe("ENNEAGRAM-90-FRONTEND-SITEMAP-EXTRACTOR-01", () => {
     ]);
   });
 
-  it("preserves the legacy zh-only extractor alias while keeping llms closed for Enneagram public assets", () => {
+  it("preserves the sitemap extractor while requiring a distinct llms eligibility authority", () => {
     const paths = [
       "/en/personality/enneagram",
       "/zh/personality/enneagram",
@@ -77,7 +77,11 @@ describe("ENNEAGRAM-90-FRONTEND-SITEMAP-EXTRACTOR-01", () => {
       "/zh/personality/enneagram/wings/5w4",
     ]);
 
-    expect(read("app/llms.txt/route.ts")).not.toContain("listBackendSitemapEnneagram");
-    expect(read("app/llms-full.txt/route.ts")).not.toContain("listBackendSitemapEnneagram");
+    const llms = read("app/llms.txt/route.ts");
+    const llmsFull = read("app/llms-full.txt/route.ts");
+    expect(llms).toContain("listEnneagramLlmsPaths");
+    expect(llms).not.toContain("listBackendSitemapEnneagram");
+    expect(llmsFull).not.toContain("listBackendSitemapEnneagram");
+    expect(llmsFull).not.toContain("listEnneagramLlmsPaths");
   });
 });
