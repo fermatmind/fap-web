@@ -44698,9 +44698,9 @@
     "branch": "codex/article-cache-01",
     "title": "ARTICLE-CACHE-01: cache published article detail and SEO",
     "depends_on": ["PERSONALITY-WARMUP-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "0f0704871d298b3c9454849617935de909775aa4",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1713",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The performance PR-train /goal explicitly authorized ARTICLE-CACHE-01 and manifest/state registration."},
       "dependency": {"status": "pass", "evidence": "PERSONALITY-WARMUP-01 merged in fap-api PR #3018 at 0a78888dd6d4c11ecd4a3c7b74bd79824b816b51 before this item started."},
@@ -44712,8 +44712,8 @@
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": [{"at": "2026-07-12T18:15:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after PERSONALITY-WARMUP-01 merge verification. Scope is published article detail/SEO tagged revalidation and exact content-release invalidation only; fanout, CMS authority, warmup execution, and deploy are deferred."}, {"at": "2026-07-12T18:30:00+08:00", "status": "local_verified", "summary": "Focused contracts 28/28, lint, spacing, Node 24 typecheck, production build, all four full contract shards, YAML/JSON, diff, and exact seven-path scope validation passed. Test-generated SEO inventories were restored; no CMS mutation, warmup execution, staging wait, or deploy action occurred."}],
-    "updated_at": "2026-07-12T18:30:00+08:00"
+    "history": [{"at": "2026-07-12T18:15:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after PERSONALITY-WARMUP-01 merge verification. Scope is published article detail/SEO tagged revalidation and exact content-release invalidation only; fanout, CMS authority, warmup execution, and deploy are deferred."}, {"at": "2026-07-12T18:30:00+08:00", "status": "local_verified", "summary": "Focused contracts 28/28, lint, spacing, Node 24 typecheck, production build, all four full contract shards, YAML/JSON, diff, and exact seven-path scope validation passed. Test-generated SEO inventories were restored; no CMS mutation, warmup execution, staging wait, or deploy action occurred."}, {"at": "2026-07-12T18:35:00+08:00", "status": "pr_open", "summary": "Committed and pushed the exact seven-path scope and opened PR #1713. Required GitHub checks are pending; no staging wait or deploy action is included."}],
+    "updated_at": "2026-07-12T18:35:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
