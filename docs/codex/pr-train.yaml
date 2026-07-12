@@ -14654,7 +14654,7 @@ prs:
     mode: execute
     train_scope: mbti_nine_url_release_gate_revalidation
     risk_level: L1
-    status: in_progress
+    status: ready_to_merge
     title: "MBTI-INDEX-24R: revalidate nine promoted MBTI URLs"
     goal: "Read-only revalidate CMS/API content, canonical, robots, JSON-LD, FAQ parity, sitemap, llms and llms-full for the exact nine promoted URLs; allow GSC only on 9/9 success."
     in_scope:
