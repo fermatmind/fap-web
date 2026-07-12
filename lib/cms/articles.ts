@@ -2,11 +2,12 @@ import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { withLastKnownGood, type LastKnownGoodResult } from "@/lib/cms/last-known-good";
+import { articleDetailCacheTag, articleSeoCacheTag } from "@/lib/cms/articleCacheTags";
 import { cmsManagedMediaUrl } from "@/lib/cms/media";
 import { stripInternalCmsSlotMarkers } from "@/lib/cms/sanitizeCmsRichText";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
-import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
+import { PUBLIC_API_CACHE_OPTIONS, PUBLIC_API_REVALIDATE_SECONDS } from "@/lib/publicApiCache";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
@@ -16,7 +17,6 @@ const DEFAULT_ENUMERATION_PER_PAGE = 100;
 export const MAX_ARTICLE_LIST_PAGE = 100;
 export const MAX_ARTICLE_SLUG_LENGTH = 128;
 const ARTICLE_SLUG_PATTERN = /^[A-Za-z0-9][A-Za-z0-9_-]*$/;
-const UNBOUNDED_ARTICLE_DETAIL_FETCH_OPTIONS = { cache: "no-store" } as const;
 
 type CmsArticleApiTag = {
   id?: number;
@@ -1248,8 +1248,9 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
     return null;
   }
 
+  const apiLocale = toApiLocale(locale);
   const query = buildQuery({
-    locale: toApiLocale(locale),
+    locale: apiLocale,
     org_id: DEFAULT_ORG_ID,
   });
 
@@ -1258,7 +1259,10 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
       .get<CmsArticleApiResponse>(`/v0.5/articles/${encodeURIComponent(normalizedSlug)}${query}`, {
         locale,
         skipAuth: true,
-        ...UNBOUNDED_ARTICLE_DETAIL_FETCH_OPTIONS,
+        next: {
+          revalidate: PUBLIC_API_REVALIDATE_SECONDS,
+          tags: [articleDetailCacheTag(apiLocale, normalizedSlug)],
+        },
       })
       .then(stripArticleDetailResponseInternalSlotMarkers);
 
@@ -1305,8 +1309,9 @@ export async function getCmsArticleSeo(slug: string, locale: Locale | string): P
     return null;
   }
 
+  const apiLocale = toApiLocale(locale);
   const query = buildQuery({
-    locale: toApiLocale(locale),
+    locale: apiLocale,
     org_id: DEFAULT_ORG_ID,
   });
 
@@ -1316,7 +1321,10 @@ export async function getCmsArticleSeo(slug: string, locale: Locale | string): P
       {
         locale,
         skipAuth: true,
-        ...UNBOUNDED_ARTICLE_DETAIL_FETCH_OPTIONS,
+        next: {
+          revalidate: PUBLIC_API_REVALIDATE_SECONDS,
+          tags: [articleSeoCacheTag(apiLocale, normalizedSlug)],
+        },
       }
     );
 

@@ -24862,3 +24862,42 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: PERSONALITY-CACHE-01
+
+  - id: ARTICLE-CACHE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/article-cache-01
+    base: main
+    title: "ARTICLE-CACHE-01: cache published article detail and SEO"
+    depends_on: [PERSONALITY-WARMUP-01]
+    mode: execute
+    train_scope: article_detail_seo_tagged_revalidation
+    status: user_authorized
+    goal: "Cache published public article detail and SEO reads with independent tags, then invalidate those exact tags from the authorized content-release webhook."
+    allowed_paths:
+      - lib/cms/articleCacheTags.ts
+      - lib/cms/articles.ts
+      - app/api/content-release/revalidate/route.ts
+      - tests/contracts/articles-cleanup.contract.test.ts
+      - tests/contracts/content-release-revalidate-allowlist.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - article label fanout, article content or SEO authority changes, CMS mutation, production import, warmup execution, staging wait, or production deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/articles-cleanup.contract.test.ts tests/contracts/content-release-revalidate-allowlist.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: ARTICLE-FANOUT-01
