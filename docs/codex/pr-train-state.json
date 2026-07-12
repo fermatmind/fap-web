@@ -44517,7 +44517,7 @@
     "branch": "codex/perf-baseline-01",
     "title": "PERF-BASELINE-01: freeze production performance baseline",
     "depends_on": [],
-    "status": "pr_open",
+    "status": "github_required_checks_failed_external",
     "commit_sha": "f6832b23c3467ee12f9c32e704186772e2322087",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1703",
     "checks": {
@@ -44532,6 +44532,10 @@
       "required_local_checks": {
         "status": "pass",
         "evidence": "YAML/JSON parse, audit evidence cross-check, git diff --check, and exact three-path scope validation passed. Runtime commands are not applicable to this docs-only PR."
+      },
+      "github_required_checks": {
+        "status": "fail",
+        "evidence": "PR #1703 build, Big Five freeze, Enneagram freeze, and CodeQL passed. Required contracts was cancelled at the workflow's fixed five-minute job timeout twice; the first inspected attempt completed 177/177 test files and 922/922 tests before cancellation while writing generated diagnostics."
       }
     },
     "scope_validation": {
@@ -44540,7 +44544,7 @@
       "github_checks_green": false,
       "post_merge_revalidated": false
     },
-    "failure_reason": null,
+    "failure_reason": "Required GitHub contracts check is not green after inspection and one rerun. Both attempts reached the existing five-minute workflow timeout; this docs-only PR did not modify CI, contracts, runtime code, or test diagnostics. Train stopped under required-check policy.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -44564,9 +44568,14 @@
         "at": "2026-07-12T12:56:00+08:00",
         "status": "pr_open",
         "summary": "Pushed the scoped branch and opened PR #1703. Required GitHub checks are pending; no staging wait or production action is part of this PR."
+      },
+      {
+        "at": "2026-07-12T13:01:20+08:00",
+        "status": "github_required_checks_failed_external",
+        "summary": "Required contracts hit the existing five-minute CI timeout twice. Inspection showed 177 test files and 922 tests passed before the runner was cancelled while writing diagnostics. Other required checks passed, but contracts is not green, so merge and train progression are blocked."
       }
     ],
-    "updated_at": "2026-07-12T12:56:00+08:00"
+    "updated_at": "2026-07-12T13:01:20+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",

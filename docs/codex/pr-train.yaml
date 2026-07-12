@@ -24684,6 +24684,8 @@ prs:
       - docs/performance/production-performance-baseline-2026-07-12.md
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
     out_of_scope:
       - runtime code, production configuration, CMS or backend mutation, SEO enumeration, sitemap, llms, private-flow probes, import, migration, cache purge, warmup execution, or deploy
     required_local_checks:

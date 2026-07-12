@@ -251,6 +251,18 @@
 - detected at: 2026-07-10T19:28:00+08:00
 - disposition: recorded as non-blocking external debt.
 
+## GitHub Contracts Job Timeout During PERF-BASELINE-01
+
+- repo: fermatmind/fap-web
+- PR id / branch: PERF-BASELINE-01 / codex/perf-baseline-01
+- blocker type: external_required_check_workflow_timeout
+- evidence: PR #1703 required `contracts` reached the existing `.github/workflows/ci.yml` five-minute job timeout twice. Inspection of the first final log showed 177/177 test files and 922/922 tests passed before GitHub cancelled the job while `pnpm test:contract` wrote `generated/test-diagnostics/contract-shards.json`. Build, Big Five freeze, Enneagram freeze, and CodeQL passed.
+- why not current PR scope: PERF-BASELINE-01 changes only performance governance documentation and PR-train metadata. It does not modify CI workflows, contract tests, the contract runner, runtime code, or generated diagnostics. Raising or restructuring the CI timeout requires a separate CI reliability PR.
+- whether required checks are affected: yes; `contracts` is required and is not green, so PR #1703 cannot merge and the performance train cannot proceed.
+- recommended follow-up: open a separate scoped CI reliability PR that gives the full contract runner sufficient headroom or shards it below the job limit, then rerun PR #1703 required checks.
+- detected at: 2026-07-12T13:01:20+08:00
+- disposition: blocking external required-check debt; stop the train without merging or starting CAREER-NEXTSTEP-01.
+
 ## External Contract Runner Issues During SECURITY-123-WEB-09
 
 - repo: fermatmind/fap-web

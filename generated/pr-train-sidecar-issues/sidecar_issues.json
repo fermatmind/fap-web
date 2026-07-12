@@ -336,5 +336,18 @@
     "recommended_follow_up": "Use Node 24 or configure the local contract runner timeout consistently with CI; investigate unrelated checkout timing separately.",
     "detected_at": "2026-07-10T20:24:00+08:00",
     "disposition": "recorded_non_blocking_local_runtime_debt; GitHub contracts remains the merge gate"
+  },
+  {
+    "id": "external-github-contracts-timeout-perf-baseline-01",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "PERF-BASELINE-01",
+    "branch": "codex/perf-baseline-01",
+    "blocker_type": "external_required_check_workflow_timeout",
+    "evidence": "PR #1703 required contracts reached the existing .github/workflows/ci.yml five-minute job timeout twice. The inspected first final log showed 177/177 test files and 922/922 tests passed before GitHub cancelled pnpm test:contract while it wrote generated/test-diagnostics/contract-shards.json. Build, Big Five freeze, Enneagram freeze, and CodeQL passed.",
+    "why_not_current_pr_scope": "PERF-BASELINE-01 changes only performance governance documentation and PR-train metadata. It does not modify CI workflows, contract tests, the contract runner, runtime code, or generated diagnostics. Raising or restructuring the CI timeout requires a separate CI reliability PR.",
+    "required_checks_affected": true,
+    "recommended_follow_up": "Open a separate scoped CI reliability PR that gives the full contract runner sufficient headroom or shards it below the job limit, then rerun PR #1703 required checks.",
+    "detected_at": "2026-07-12T13:01:20+08:00",
+    "disposition": "blocking_external_required_check_debt; stop the train without merging or starting CAREER-NEXTSTEP-01"
   }
 ]
