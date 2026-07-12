@@ -38,8 +38,11 @@ describe("AUDIT-PRR2-WEB-01 production recovery lane", () => {
     })).allowed).toBe(false);
   });
 
-  it("requires latest main, successful checks, protected environment, and an explicit authorization mode", () => {
+  it("keeps automatic latest-main and manual main-ancestor checks alongside required checks", () => {
     expect(workflow).toContain("deploySha !== latestMainSha");
+    expect(workflow).toContain("mainMembership.data.status === 'identical'");
+    expect(workflow).toContain("mainMembership.data.status === 'ahead'");
+    expect(workflow).toContain("git merge-base --is-ancestor \"$DEPLOY_SHA\" origin/main");
     expect(workflow).toContain("run?.conclusion === 'success'");
     expect(workflow).toContain("environment:\n      name: production");
     expect(workflow).toContain("authorization_mode: ${{ steps.evaluate.outputs.authorization_mode }}");
