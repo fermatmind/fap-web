@@ -44670,9 +44670,9 @@
     "branch": "codex/global-js-02",
     "title": "GLOBAL-JS-02: lazy-load global shell interactions",
     "depends_on": ["GLOBAL-JS-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "c717728c",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1711",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The performance PR-train /goal explicitly authorized GLOBAL-JS-02 and manifest/state registration."},
       "dependency": {"status": "pass", "evidence": "GLOBAL-JS-01 merged in fap-web PR #1710 at 0a1d4be614686ea3e40cf2353875301cbe43f357 and is contained in origin/main."},
@@ -44687,8 +44687,8 @@
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": [{"at": "2026-07-12T16:05:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after GLOBAL-JS-01 merge verification. Scope is interaction-triggered footer QR, desktop dropdown, and locale option chunks; no navigation behavior, content authority, staging, or deploy change is included."}, {"at": "2026-07-12T16:15:00+08:00", "status": "local_verified", "summary": "Focused contracts 13/13, all four full contract shards, lint, spacing, typecheck, production build, parse, diff, and exact 11-path scope validation passed. The initial full-suite invocation selected an obsolete system Python; rerunning unchanged code with the configured Python 3.12 passed, so no external validator file was touched."}],
-    "updated_at": "2026-07-12T16:15:00+08:00"
+    "history": [{"at": "2026-07-12T16:05:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after GLOBAL-JS-01 merge verification. Scope is interaction-triggered footer QR, desktop dropdown, and locale option chunks; no navigation behavior, content authority, staging, or deploy change is included."}, {"at": "2026-07-12T16:15:00+08:00", "status": "local_verified", "summary": "Focused contracts 13/13, all four full contract shards, lint, spacing, typecheck, production build, parse, diff, and exact 11-path scope validation passed. The initial full-suite invocation selected an obsolete system Python; rerunning unchanged code with the configured Python 3.12 passed, so no external validator file was touched."}, {"at": "2026-07-12T16:20:00+08:00", "status": "pr_open", "summary": "Committed and pushed the exact 11-path scope and opened PR #1711. Required checks are pending; no staging wait or deploy action is included."}],
+    "updated_at": "2026-07-12T16:20:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
