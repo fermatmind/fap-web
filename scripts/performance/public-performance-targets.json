@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "samples": 3,
+  "timeout_ms": 15000,
+  "top_n": 5,
+  "targets": [
+    { "id": "home-zh", "kind": "page", "url": "https://fermatmind.com/", "budget_ms": 5000 },
+    { "id": "career-directory-en", "kind": "page", "url": "https://fermatmind.com/en/career/jobs", "budget_ms": 5000 },
+    { "id": "personality-intj-a-en", "kind": "page", "url": "https://fermatmind.com/en/personality/intj-a", "budget_ms": 5000 },
+    { "id": "article-en", "kind": "page", "url": "https://fermatmind.com/en/articles/big-five-personality-test-vs-mbti", "budget_ms": 5000 },
+    { "id": "career-directory-api", "kind": "api", "url": "https://api.fermatmind.com/api/v0.5/career/directory?locale=en&org_id=0&page=1&per_page=20", "budget_ms": 3000, "expect_public_cache": true },
+    { "id": "personality-intj-a-api", "kind": "api", "url": "https://api.fermatmind.com/api/v0.5/personality/intj-a?locale=en&org_id=0", "budget_ms": 3000, "expect_public_cache": true },
+    { "id": "article-detail-api", "kind": "api", "url": "https://api.fermatmind.com/api/v0.5/articles/big-five-personality-test-vs-mbti?locale=en&org_id=0", "budget_ms": 3000, "expect_public_cache": true },
+    { "id": "article-seo-api", "kind": "api", "url": "https://api.fermatmind.com/api/v0.5/articles/big-five-personality-test-vs-mbti/seo?locale=en&org_id=0", "budget_ms": 3000, "expect_public_cache": true }
+  ]
+}
