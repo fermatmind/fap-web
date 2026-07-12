@@ -1,0 +1,10 @@
+url,kind,inspection_status,last_crawl,declared_canonical,google_canonical,request_indexing_status,baseline_clicks,baseline_impressions,baseline_ctr,baseline_position,query_page_match
+https://fermatmind.com/zh/personality/istj-a,profile,indexed,2026-07-05 21:40:52,https://fermatmind.com/zh/personality/istj-a,https://fermatmind.com/zh/personality/istj-a,submitted,6,568,0.011,9.8,observed_page_row
+https://fermatmind.com/zh/personality/istp-a,profile,indexed,2026-07-09 14:09:43,https://fermatmind.com/zh/personality/istp-a,https://fermatmind.com/zh/personality/istp-a,submitted,2,346,0.006,9.2,observed_page_row
+https://fermatmind.com/zh/personality/isfp-a,profile,indexed,2026-07-07 21:25:17,https://fermatmind.com/zh/personality/isfp-a,https://fermatmind.com/zh/personality/isfp-a,submitted,1,183,0.005,8.7,observed_page_row
+https://fermatmind.com/zh/personality/esfj-a,profile,indexed,2026-06-28 14:52:14,https://fermatmind.com/zh/personality/esfj-a,https://fermatmind.com/zh/personality/esfj-a,submitted,0,66,0,12.4,observed_page_row
+https://fermatmind.com/zh/personality/intp-a-vs-intp-t,comparison,indexed,2026-06-22 07:22:06,https://fermatmind.com/zh/personality/intp-a-vs-intp-t,https://fermatmind.com/zh/personality/intp-a-vs-intp-t,submitted,4,246,0.016,7.2,observed_page_row
+https://fermatmind.com/zh/personality/intj-vs-intp,comparison,not_indexed_or_unknown_to_google,,,,submitted,0,0,,,no_page_row_in_baseline_window
+https://fermatmind.com/zh/personality/entj-vs-intj,comparison,not_currently_indexed,2026-07-04 13:42:28,https://fermatmind.com/zh/personality/entj-vs-intj,https://fermatmind.com/zh/personality/entj-vs-intj,submitted,0,0,,,no_page_row_in_baseline_window
+https://fermatmind.com/zh/personality/infj-vs-infp,comparison,not_indexed_or_unknown_to_google,,,,submitted,0,0,,,no_page_row_in_baseline_window
+https://fermatmind.com/zh/personality/istj-vs-isfj,comparison,indexed,2026-07-12 08:16:15,https://fermatmind.com/zh/personality/istj-vs-isfj,https://fermatmind.com/zh/personality/istj-vs-isfj,submitted,0,0,,,no_page_row_in_baseline_window

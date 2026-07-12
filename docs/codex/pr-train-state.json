@@ -43961,7 +43961,7 @@
     ]
   },
   "MBTI-INDEX-24R": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-index-24r-release-gate-revalidation",
     "depends_on": [
@@ -43969,7 +43969,7 @@
     ],
     "train_scope": "mbti_nine_url_release_gate_revalidation",
     "title": "MBTI-INDEX-24R: revalidate nine promoted MBTI URLs",
-    "commit_sha": "39bfb84adbbcc365972eda4a1ba83d930810cb8e",
+    "commit_sha": "7d3fb8e8a0d33249477ed314a3c7f96f2406f80c",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1701",
     "checks": {
       "dependency": {
@@ -43985,13 +43985,13 @@
       "diff_check": "passed",
       "scope_validation": "passed: exact manifest allowlist"
     },
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-12T03:33:26Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "next_task": "MBTI-GSC-25",
     "created_at": "2026-07-12T04:13:51+08:00",
-    "updated_at": "2026-07-12T11:15:34+08:00",
+    "updated_at": "2026-07-12T12:42:50+08:00",
     "history": [
       {
         "at": "2026-07-12T10:10:00+08:00",
@@ -44017,11 +44017,16 @@
         "at": "2026-07-12T11:15:34+08:00",
         "status": "ready_to_merge",
         "note": "CodeQL, analysis, build, contracts, Big Five freeze and Enneagram freeze checks all passed for corrective commit 8043094b. The first contracts job was cancelled after its test step succeeded; rerunning that failed job completed successfully without code changes. PR scope remains the exact seven-path manifest allowlist."
+      },
+      {
+        "at": "2026-07-12T12:42:50+08:00",
+        "status": "merged",
+        "note": "Reconciled from GitHub: PR #1701 squash-merged at 7d3fb8e8a0d33249477ed314a3c7f96f2406f80c on 2026-07-12T03:33:26Z; origin/main contains the merge commit, the remote task branch is absent, and local post-merge cleanup had completed before MBTI-GSC-25 started."
       }
     ]
   },
   "MBTI-GSC-25": {
-    "status": "planned",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-gsc-25-submit-monitoring-execution",
     "depends_on": [
@@ -44029,16 +44034,87 @@
     ],
     "train_scope": "mbti_gsc_submission_monitoring_execution",
     "title": "MBTI-GSC-25: GSC submission and monitoring execution",
-    "commit_sha": null,
-    "pr_url": null,
-    "checks": [],
+    "commit_sha": "41d203c4cd3d6900bc4f3eee8dcbf5ae17969cd8",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1728",
+    "checks": {
+      "dependency": {
+        "status": "passed",
+        "evidence": "MBTI-INDEX-24R is merged at 7d3fb8e8a0d33249477ed314a3c7f96f2406f80c and its production gate returned ALLOW_URL_EXPANSION with all eight metrics 9/9."
+      },
+      "gsc_property": {
+        "status": "passed",
+        "evidence": "Authenticated Google Search Console UI confirmed sc-domain:fermatmind.com."
+      },
+      "sitemap_submission": {
+        "status": "passed",
+        "evidence": "Existing https://fermatmind.com/sitemap.xml submission was successful, last read 2026-07-12 with 2674 discovered pages; it was not redundantly resubmitted."
+      },
+      "url_inspection": {
+        "status": "passed",
+        "evidence": "Inspection evidence captured for the exact nine-URL cohort."
+      },
+      "request_indexing": {
+        "status": "passed",
+        "evidence": "Search Console UI accepted Request Indexing for all 9 URLs; no quota or permission blocker occurred."
+      },
+      "gsc_baseline": {
+        "status": "passed",
+        "evidence": "28-day cohort baseline for 2026-06-12 through 2026-07-09: 13 clicks, 1409 impressions, 0.9% CTR and average position 9.2."
+      },
+      "full_contracts": {
+        "status": "passed",
+        "evidence": "All four contract shards passed: 722 files and 4131 tests. The external llms.txt blocker remained resolved; no GSC mutation was repeated."
+      },
+      "index24r_repeatability": "passed: two consecutive ALLOW_URL_EXPANSION runs at frontend SHA f89d27f484859eb9c6790b803dd99b3a15781ed6, all eight metrics 9/9, zero private URL leaks",
+      "focused_contract": "passed: MBTI-GSC-25 3/3",
+      "lint": "passed: pnpm lint . --max-warnings=0",
+      "typecheck": "passed with Node 24",
+      "production_build": "passed with production site/API URLs",
+      "csv_formula_guard": "passed: 4/4",
+      "yaml_json": "passed",
+      "diff_check": "passed",
+      "scope_validation": "passed: exact GSC-25 manifest allowlist",
+      "github_required_checks": "passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis and zero-new-code-scanning-alerts"
+    },
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "failure_reason": null,
     "next_task": null,
     "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-12T04:13:51+08:00"
+    "updated_at": "2026-07-13T02:31:00+08:00",
+    "history": [
+      {
+        "at": "2026-07-12T12:42:50+08:00",
+        "status": "in_progress",
+        "note": "Started after INDEX-24R reconciliation. The authenticated GSC domain property already showed a successful sitemap submission, all nine URLs were inspected, all nine Request Indexing actions were accepted, and the 28-day cohort baseline was captured. No CMS write, deployment, runtime mutation or Google Indexing API use occurred."
+      },
+      {
+        "at": "2026-07-12T12:55:00+08:00",
+        "status": "blocked_external_gate",
+        "note": "Stopped before commit and PR creation. The required full contract exposed a repeated production discoverability regression: INDEX-24R returned HOLD_NO_URL_EXPANSION with LLMS=0/9 while CMS/API, canonical, robots, JSON-LD, FAQ parity, sitemap and llms-full remained 9/9. A direct read-only fetch confirmed all nine cohort URLs are absent from llms.txt."
+      },
+      {
+        "at": "2026-07-13T02:00:00+08:00",
+        "status": "in_progress",
+        "note": "Resumed after frontend SHA f89d27f484859eb9c6790b803dd99b3a15781ed6 was deployed. Two consecutive read-only INDEX-24R runs returned ALLOW_URL_EXPANSION with CMS/API, canonical, robots, JSON-LD, FAQ parity, sitemap, llms and llms-full all 9/9 and zero private URL leaks. Existing sitemap, inspection, indexing-request and baseline evidence is preserved; no GSC action was repeated."
+      },
+      {
+        "at": "2026-07-13T02:16:00+08:00",
+        "status": "local_verified",
+        "note": "Generated PASS_MBTI_GSC_25_SUBMITTED_MONITORING_READY and passed the focused GSC-25 contract, repository-wide zero-warning lint, Node 24 typecheck, all four contract shards (4131 tests), production API build, CSV formula guard, YAML/JSON parsing, diff check and exact manifest scope validation. No GSC, CMS, deploy or runtime mutation occurred."
+      },
+      {
+        "at": "2026-07-13T02:22:00+08:00",
+        "status": "pr_open_checks_pending",
+        "note": "Committed the exact ten-file scope at 41d203c4cd3d6900bc4f3eee8dcbf5ae17969cd8, pushed the branch, and opened PR #1728. Required GitHub checks are pending; no external GSC action was repeated."
+      },
+      {
+        "at": "2026-07-13T02:31:00+08:00",
+        "status": "ready_to_merge",
+        "note": "PR #1728 passed build, contracts, Big Five freeze, Enneagram freeze, CodeQL analysis and the zero-new-code-scanning-alert gate. The exact manifest scope and completed GSC evidence were revalidated; no external action was repeated."
+      }
+    ]
   },
   "BIG5-ZH-LEGACY-ROUTE-DEPRECATION-02": {
     "id": "BIG5-ZH-LEGACY-ROUTE-DEPRECATION-02",

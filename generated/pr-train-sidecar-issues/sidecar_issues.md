@@ -286,3 +286,17 @@
 - recommended follow-up: make CMS-23 scope branch-aware and use Node24 or a consistent contract timeout locally; investigate the checkout timing test separately.
 - detected at: 2026-07-10T19:53:00+08:00
 - disposition: recorded as non-blocking external debt.
+
+## MBTI-GSC-25 Production llms.txt Cohort Regression
+
+- repo: fermatmind/fap-web
+- PR id / branch: MBTI-GSC-25 / codex/mbti-gsc-25-submit-monitoring-execution
+- blocker type: external production discoverability gate regression
+- evidence: the required full contract and a direct read-only recheck returned `HOLD_NO_URL_EXPANSION`; CMS/API, canonical, robots, JSON-LD, FAQ parity, sitemap and llms-full were 9/9, but llms.txt was 0/9. The fetched llms.txt response was 158594 bytes and contained none of the exact cohort URLs.
+- why not current PR scope: GSC-25 is restricted to submission evidence and monitoring artifacts. Repairing llms.txt runtime enumeration is explicitly out of scope.
+- whether required checks are affected: yes; the complete contract suite fails on the live INDEX-24R contract, so the current PR cannot be created or merged.
+- recommended follow-up: diagnose the production llms.txt personality authority fetch/cache path, restore stable 9/9 enumeration without fallback, deploy the scoped fix with exact-SHA authorization, rerun INDEX-24R twice, then resume GSC-25 local checks and create the monitoring automations.
+- detected at: 2026-07-12T12:55:00+08:00
+- disposition: resolved by deployed frontend SHA `f89d27f484859eb9c6790b803dd99b3a15781ed6` and two consecutive INDEX-24R runs with all metrics 9/9 and zero private URL leaks; GSC-25 local verification resumed without repeating external GSC actions.
+- resolved at: 2026-07-13T02:00:00+08:00
+- resolution evidence: read-only runs at 2026-07-12T17:55:39.381Z and 2026-07-12T17:57:33.613Z both returned `ALLOW_URL_EXPANSION`, including `LLMS=9/9` and `LLMS_FULL=9/9`.
