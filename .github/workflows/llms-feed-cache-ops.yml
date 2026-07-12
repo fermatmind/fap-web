@@ -1,0 +1,365 @@
+name: LLMS Feed Cache Ops
+
+on:
+  workflow_dispatch:
+    inputs:
+      expected_frontend_sha:
+        description: "Exact deployed fap-web Node1 SHA."
+        required: true
+        type: string
+      feed_path:
+        description: "Feed to re-read after cache-only PM2 reload."
+        required: true
+        type: choice
+        options:
+          - /llms.txt
+          - /llms-full.txt
+      operator_approval:
+        description: "APPROVE_FAP_WEB_LLMS_FEED_CACHE_OPS:<sha>:<feed_path>:<count>[:complete]"
+        required: true
+        type: string
+      expected_enneagram_count:
+        description: "Expected unique Enneagram canonical count in the selected feed."
+        required: true
+        type: string
+      expected_llms_full_mode:
+        description: "Required only for /llms-full.txt; must be complete."
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  llms-feed-cache-ops:
+    name: Cache-only revalidate llms feed
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: production
+    env:
+      EXPECTED_FRONTEND_SHA: ${{ github.event.inputs.expected_frontend_sha }}
+      FEED_PATH: ${{ github.event.inputs.feed_path }}
+      OPERATOR_APPROVAL: ${{ github.event.inputs.operator_approval }}
+      EXPECTED_ENNEAGRAM_COUNT: ${{ github.event.inputs.expected_enneagram_count }}
+      EXPECTED_LLMS_FULL_MODE: ${{ github.event.inputs.expected_llms_full_mode }}
+      DEPLOY_HOST: ${{ secrets.WEB_NODE1_DEPLOY_HOST || vars.WEB_NODE1_DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.WEB_NODE1_DEPLOY_USER || vars.WEB_NODE1_DEPLOY_USER }}
+      DEPLOY_PORT: ${{ secrets.WEB_NODE1_DEPLOY_PORT || vars.WEB_NODE1_DEPLOY_PORT }}
+      APP_DIR: ${{ secrets.WEB_NODE1_APP_DIR || vars.WEB_NODE1_APP_DIR }}
+      APP_NAME: ${{ secrets.WEB_NODE1_APP_NAME || vars.WEB_NODE1_APP_NAME }}
+      PUBLIC_BASE_URL: ${{ secrets.WEB_PUBLIC_BASE_URL || vars.WEB_PUBLIC_BASE_URL }}
+      SSH_RETRY_ATTEMPTS: "3"
+      SSH_RETRY_DELAY_SECONDS: "10"
+
+    steps:
+      - name: Validate dispatch inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          : "${DEPLOY_PORT:=22}"
+          : "${APP_DIR:=/opt/apps/fap-web}"
+          : "${APP_NAME:=fap-web}"
+          : "${PUBLIC_BASE_URL:=https://fermatmind.com}"
+
+          [[ "$EXPECTED_FRONTEND_SHA" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$EXPECTED_ENNEAGRAM_COUNT" =~ ^[0-9]+$ ]]
+          [[ "$APP_DIR" =~ ^/[A-Za-z0-9._/-]+$ ]]
+          [[ "$APP_NAME" =~ ^[A-Za-z0-9._-]+$ ]]
+          test -n "$DEPLOY_HOST"
+          test -n "$DEPLOY_USER"
+
+          case "$FEED_PATH" in
+            /llms.txt)
+              test -z "$EXPECTED_LLMS_FULL_MODE"
+              expected_approval="APPROVE_FAP_WEB_LLMS_FEED_CACHE_OPS:${EXPECTED_FRONTEND_SHA}:/llms.txt:${EXPECTED_ENNEAGRAM_COUNT}"
+              ;;
+            /llms-full.txt)
+              test "$EXPECTED_LLMS_FULL_MODE" = "complete"
+              expected_approval="APPROVE_FAP_WEB_LLMS_FEED_CACHE_OPS:${EXPECTED_FRONTEND_SHA}:/llms-full.txt:${EXPECTED_ENNEAGRAM_COUNT}:complete"
+              ;;
+            *)
+              echo "unsupported feed_path=${FEED_PATH}" >&2
+              exit 1
+              ;;
+          esac
+
+          if [ "$OPERATOR_APPROVAL" != "$expected_approval" ]; then
+            echo "operator approval does not match the SHA/path/count/mode-bound phrase" >&2
+            exit 1
+          fi
+
+          {
+            echo "DEPLOY_PORT=$DEPLOY_PORT"
+            echo "APP_DIR=$APP_DIR"
+            echo "APP_NAME=$APP_NAME"
+            echo "PUBLIC_BASE_URL=$PUBLIC_BASE_URL"
+          } >> "$GITHUB_ENV"
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Install pinned SSH known_hosts
+        shell: bash
+        env:
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          test -n "$SSH_KNOWN_HOSTS"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Reload existing PM2 app only
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/llms-feed-cache-ops"
+
+          ssh_retry() {
+            local attempt rc
+            for attempt in $(seq 1 "$SSH_RETRY_ATTEMPTS"); do
+              set +e
+              ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+                -p "$DEPLOY_PORT" "$@"
+              rc=$?
+              set -e
+              if [ "$rc" -eq 0 ]; then
+                return 0
+              fi
+              if [ "$attempt" -eq "$SSH_RETRY_ATTEMPTS" ]; then
+                return "$rc"
+              fi
+              echo "SSH cache-ops attempt $attempt failed; retrying in ${SSH_RETRY_DELAY_SECONDS}s" >&2
+              sleep "$SSH_RETRY_DELAY_SECONDS"
+            done
+          }
+
+          remote_summary="$(
+            ssh_retry "$DEPLOY_USER@$DEPLOY_HOST" \
+              "EXPECTED_FRONTEND_SHA='$EXPECTED_FRONTEND_SHA' APP_DIR='$APP_DIR' APP_NAME='$APP_NAME' bash -s" <<'REMOTE'
+          set -euo pipefail
+
+          test -d "$APP_DIR"
+          cd "$APP_DIR"
+
+          remote_head="$(git rev-parse HEAD 2>/dev/null || true)"
+          remote_revision=""
+          if [ -f REVISION ]; then
+            remote_revision="$(tr -d '[:space:]' < REVISION)"
+          fi
+
+          if [ "$remote_head" != "$EXPECTED_FRONTEND_SHA" ] && [ "$remote_revision" != "$EXPECTED_FRONTEND_SHA" ]; then
+            echo "remote revision does not match expected frontend SHA" >&2
+            exit 1
+          fi
+
+          pm2_before="$(
+            PM2_JLIST="$(pm2 jlist)" APP_NAME="$APP_NAME" node <<'NODE'
+          const rows = JSON.parse(process.env.PM2_JLIST || "[]");
+          const appName = process.env.APP_NAME;
+          const apps = rows.filter((item) => item && item.name === appName);
+          const count = apps.length;
+          const online = apps.filter((item) => item?.pm2_env?.status === "online").length;
+          if (count < 1 || online !== count) {
+            throw new Error(`PM2 app ${appName} is not fully online: count=${count} online=${online}`);
+          }
+          process.stdout.write(JSON.stringify({ app: appName, count, online }));
+          NODE
+          )"
+
+          pm2 reload "$APP_NAME" >/dev/null
+
+          pm2_after="$(
+            PM2_JLIST="$(pm2 jlist)" APP_NAME="$APP_NAME" node <<'NODE'
+          const rows = JSON.parse(process.env.PM2_JLIST || "[]");
+          const appName = process.env.APP_NAME;
+          const apps = rows.filter((item) => item && item.name === appName);
+          const count = apps.length;
+          const online = apps.filter((item) => item?.pm2_env?.status === "online").length;
+          if (count < 1 || online !== count) {
+            throw new Error(`PM2 app ${appName} did not return online: count=${count} online=${online}`);
+          }
+          process.stdout.write(JSON.stringify({ app: appName, count, online }));
+          NODE
+          )"
+
+          REMOTE_HEAD="$remote_head" REMOTE_REVISION="$remote_revision" PM2_BEFORE="$pm2_before" PM2_AFTER="$pm2_after" node <<'NODE'
+          const summary = {
+            remote_head: process.env.REMOTE_HEAD || "",
+            remote_revision: process.env.REMOTE_REVISION || "",
+            pm2_before: JSON.parse(process.env.PM2_BEFORE || "{}"),
+            pm2_after: JSON.parse(process.env.PM2_AFTER || "{}"),
+          };
+          process.stdout.write(JSON.stringify(summary));
+          NODE
+          REMOTE
+          )"
+
+          printf '%s\n' "$remote_summary" > "$RUNNER_TEMP/llms-feed-cache-ops/remote-summary.json"
+
+      - name: Read back production feeds
+        shell: bash
+        run: |
+          set -euo pipefail
+          node <<'NODE'
+          const fs = require("node:fs");
+          const path = require("node:path");
+
+          const outputDir = path.join(process.env.RUNNER_TEMP, "llms-feed-cache-ops");
+          const remote = JSON.parse(fs.readFileSync(path.join(outputDir, "remote-summary.json"), "utf8"));
+          const publicBase = String(process.env.PUBLIC_BASE_URL || "https://fermatmind.com").replace(/\/$/, "");
+          const feedPath = process.env.FEED_PATH;
+          const expectedCount = Number.parseInt(process.env.EXPECTED_ENNEAGRAM_COUNT || "", 10);
+          const expectedMode = process.env.EXPECTED_LLMS_FULL_MODE || "";
+          const forbiddenPattern = /(^|\/)(private|result|results|order|orders|payment|payments|token|internal|admin|preview)(\/|$)/i;
+          const enneagramUrlPattern = /https:\/\/fermatmind\.com\/(?:en|zh)\/personality\/enneagram[^\s<>)\]]*/g;
+
+          function normalizeRawUrl(raw) {
+            return raw.replace(/[.,;:!?]+$/g, "");
+          }
+
+          function classify(text) {
+            const rawMatches = [...text.matchAll(enneagramUrlPattern)].map((match) => normalizeRawUrl(match[0]));
+            const countsByUrl = new Map();
+            const malformed = [];
+            const nonApex = [];
+            const forbidden = [];
+
+            for (const raw of rawMatches) {
+              countsByUrl.set(raw, (countsByUrl.get(raw) || 0) + 1);
+              let parsed;
+              try {
+                parsed = new URL(raw);
+              } catch {
+                malformed.push(raw);
+                continue;
+              }
+              if (parsed.origin !== "https://fermatmind.com") {
+                nonApex.push(raw);
+              }
+              if (forbiddenPattern.test(parsed.pathname)) {
+                forbidden.push(raw);
+              }
+            }
+
+            const duplicate = [...countsByUrl.entries()]
+              .filter(([, count]) => count > 1)
+              .map(([url, count]) => ({ url, count }));
+
+            return {
+              enneagram_count: countsByUrl.size,
+              raw_match_count: rawMatches.length,
+              duplicate_count: duplicate.length,
+              malformed_count: malformed.length,
+              non_apex_count: nonApex.length,
+              forbidden_count: forbidden.length,
+            };
+          }
+
+          async function readFeed(route) {
+            const response = await fetch(`${publicBase}${route}`, {
+              cache: "no-store",
+              headers: { "cache-control": "no-cache" },
+            });
+            const text = await response.text();
+            const headers = {
+              cache_control: response.headers.get("cache-control") || "",
+              llms_full_mode: response.headers.get("x-fermatmind-llms-full-mode") || "",
+            };
+            return {
+              path: route,
+              status: response.status,
+              bytes: text.length,
+              headers,
+              ...classify(text),
+            };
+          }
+
+          const llms = await readFeed("/llms.txt");
+          const llmsFull = await readFeed("/llms-full.txt");
+          const target = feedPath === "/llms.txt" ? llms : llmsFull;
+
+          const failures = [];
+          if (target.status !== 200) failures.push(`${feedPath} returned ${target.status}`);
+          if (target.enneagram_count !== expectedCount) {
+            failures.push(`${feedPath} Enneagram count ${target.enneagram_count} did not match expected ${expectedCount}`);
+          }
+          for (const [key, label] of [
+            ["duplicate_count", "duplicate"],
+            ["malformed_count", "malformed"],
+            ["non_apex_count", "non-apex"],
+            ["forbidden_count", "forbidden"],
+          ]) {
+            if (target[key] !== 0) failures.push(`${feedPath} ${label} counter was ${target[key]}`);
+          }
+          if (feedPath === "/llms-full.txt" && target.headers.llms_full_mode !== expectedMode) {
+            failures.push(`/llms-full.txt mode ${target.headers.llms_full_mode || "(missing)"} did not match ${expectedMode}`);
+          }
+
+          const summary = {
+            checked_at: new Date().toISOString(),
+            expected_frontend_sha: process.env.EXPECTED_FRONTEND_SHA,
+            remote_head: remote.remote_head,
+            remote_revision: remote.remote_revision,
+            feed_path: feedPath,
+            expected_enneagram_count: expectedCount,
+            expected_llms_full_mode: expectedMode,
+            pm2: {
+              before: remote.pm2_before,
+              after: remote.pm2_after,
+            },
+            feeds: {
+              llms_txt: llms,
+              llms_full: llmsFull,
+            },
+            side_effects: {
+              deploy: 0,
+              git_pull: 0,
+              git_reset: 0,
+              cms: 0,
+              search_queue: 0,
+              indexnow: 0,
+              secrets_or_permissions_mutation: 0,
+            },
+            failures,
+            result: failures.length === 0 ? "PASS" : "FAIL",
+          };
+
+          fs.writeFileSync(path.join(outputDir, "llms-feed-cache-ops-summary.json"), `${JSON.stringify(summary, null, 2)}\n`);
+          fs.writeFileSync(path.join(outputDir, "llms-feed-cache-ops-summary.md"), [
+            "# LLMS Feed Cache Ops Summary",
+            "",
+            `- Result: ${summary.result}`,
+            `- Checked at: ${summary.checked_at}`,
+            `- Feed path: ${summary.feed_path}`,
+            `- Expected frontend SHA: ${summary.expected_frontend_sha}`,
+            `- Remote HEAD: ${summary.remote_head}`,
+            `- PM2 online after reload: ${summary.pm2.after.online}/${summary.pm2.after.count}`,
+            `- /llms.txt Enneagram: ${llms.enneagram_count}`,
+            `- /llms-full.txt Enneagram: ${llmsFull.enneagram_count}`,
+            `- /llms-full.txt mode: ${llmsFull.headers.llms_full_mode || "(missing)"}`,
+            `- Target duplicate/private/malformed/non-apex counters: ${target.duplicate_count}/${target.forbidden_count}/${target.malformed_count}/${target.non_apex_count}`,
+            `- Side effects: deploy=0, git_pull=0, git_reset=0, CMS=0, Search Queue=0, IndexNow=0, secrets/permissions mutation=0`,
+            "",
+            failures.length ? `Failures:\n${failures.map((item) => `- ${item}`).join("\n")}` : "No failures.",
+            "",
+          ].join("\n"));
+
+          if (failures.length > 0) {
+            console.error(failures.join("\n"));
+            process.exit(1);
+          }
+          NODE
+
+      - name: Upload cache ops summary
+        uses: actions/upload-artifact@99df26d4f13ea111d4ec1a7dddef6063f76b97e9 # v4
+        with:
+          name: llms-feed-cache-ops-summary
+          path: |
+            ${{ runner.temp }}/llms-feed-cache-ops/llms-feed-cache-ops-summary.json
+            ${{ runner.temp }}/llms-feed-cache-ops/llms-feed-cache-ops-summary.md
+          if-no-files-found: error
