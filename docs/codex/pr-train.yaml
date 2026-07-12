@@ -337,7 +337,7 @@ prs:
     base: main
     title: "CAREER-DIRECTORY-ERROR-SEMANTICS-01 career directory error semantics"
     train_scope: career_10k_stability
-    status: in_progress
+    status: local_verified
     scope:
       - Model Career directory responses as success, empty, stale, or unavailable without converting backend failures into zero counts.
       - Render a retryable unavailable state and an explicit last-known-good stale notice while preserving real filtered empty results.
@@ -14654,7 +14654,7 @@ prs:
     mode: execute
     train_scope: mbti_nine_url_release_gate_revalidation
     risk_level: L1
-    status: ready_to_merge
+    status: merged
     title: "MBTI-INDEX-24R: revalidate nine promoted MBTI URLs"
     goal: "Read-only revalidate CMS/API content, canonical, robots, JSON-LD, FAQ parity, sitemap, llms and llms-full for the exact nine promoted URLs; allow GSC only on 9/9 success."
     in_scope:
@@ -14696,7 +14696,7 @@ prs:
     mode: execute
     train_scope: mbti_gsc_submission_monitoring_execution
     risk_level: L1
-    status: planned
+    status: in_progress
     title: "MBTI-GSC-25: GSC submission and monitoring execution"
     goal: "Execute or prepare GSC sitemap submission, core URL inspection/indexing requests, and 7/14/28 day monitoring only after INDEX-24 explicitly allows URL expansion; stop for browser login or permission authorization."
     in_scope:

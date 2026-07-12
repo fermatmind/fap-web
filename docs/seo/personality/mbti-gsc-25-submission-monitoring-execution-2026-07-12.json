@@ -1,0 +1,314 @@
+{
+  "id": "MBTI-GSC-25",
+  "artifact": "MBTI-GSC-25-SUBMISSION-MONITORING-EXECUTION",
+  "generated_at": "2026-07-12T04:15:00.000Z",
+  "final_decision": "PASS_MBTI_GSC_25_SUBMITTED_MONITORING_READY",
+  "property": "sc-domain:fermatmind.com",
+  "source_artifacts": [
+    "docs/seo/personality/mbti-index-24r-release-gate-revalidation-2026-07-12.json",
+    "docs/seo/personality/mbti-gsc-25-live-evidence-2026-07-12.json"
+  ],
+  "summary": {
+    "cohort_url_count": 9,
+    "profile_url_count": 4,
+    "comparison_url_count": 5,
+    "sitemap_success_count": 1,
+    "sitemap_resubmission_count": 0,
+    "inspection_record_count": 9,
+    "indexed_at_inspection_count": 6,
+    "request_indexing_submitted_count": 9,
+    "request_indexing_remaining_count": 0,
+    "quota_or_permission_blocker_count": 0
+  },
+  "sitemap": {
+    "url": "https://fermatmind.com/sitemap.xml",
+    "status": "success",
+    "submitted_at": "2026-06-08",
+    "last_read_at": "2026-07-12",
+    "discovered_pages": 2674,
+    "resubmitted": false,
+    "reason": "existing_successful_submission_reused"
+  },
+  "baseline": {
+    "window": "28d",
+    "start_date": "2026-06-12",
+    "end_date": "2026-07-09",
+    "filter": "exact_nine_url_regex",
+    "clicks": 13,
+    "impressions": 1409,
+    "ctr": 0.009,
+    "average_position": 9.2,
+    "data_note": "Search Console warns that filtered chart totals and table results may be incomplete. Four newly promoted cross-type pages had no page row in this 28-day window."
+  },
+  "top_queries": [
+    {
+      "query": "istp-a",
+      "clicks": 1,
+      "impressions": 44
+    },
+    {
+      "query": "istj-a",
+      "clicks": 1,
+      "impressions": 28
+    },
+    {
+      "query": "istj-a人格",
+      "clicks": 1,
+      "impressions": 13
+    },
+    {
+      "query": "isfp-a",
+      "clicks": 1,
+      "impressions": 3
+    },
+    {
+      "query": "istj是什么人格",
+      "clicks": 0,
+      "impressions": 18
+    },
+    {
+      "query": "intp-t",
+      "clicks": 0,
+      "impressions": 17
+    },
+    {
+      "query": "istp a",
+      "clicks": 0,
+      "impressions": 14
+    },
+    {
+      "query": "istj",
+      "clicks": 0,
+      "impressions": 14
+    },
+    {
+      "query": "intp-a",
+      "clicks": 0,
+      "impressions": 10
+    },
+    {
+      "query": "istj a",
+      "clicks": 0,
+      "impressions": 8
+    }
+  ],
+  "post_submission_index24r_recheck": {
+    "checked_at": "2026-07-12T17:57:33.613Z",
+    "decision": "ALLOW_URL_EXPANSION",
+    "cms_api": "9/9",
+    "canonical": "9/9",
+    "robots": "9/9",
+    "jsonld": "9/9",
+    "faq_parity": "9/9",
+    "sitemap": "9/9",
+    "llms": "9/9",
+    "llms_full": "9/9",
+    "private_url_leaks": 0,
+    "direct_llms_cohort_match_count": 9,
+    "repeatability_runs": [
+      {
+        "checked_at": "2026-07-12T17:55:39.381Z",
+        "source_sha": "f89d27f484859eb9c6790b803dd99b3a15781ed6",
+        "decision": "ALLOW_URL_EXPANSION",
+        "cms_api": "9/9",
+        "canonical": "9/9",
+        "robots": "9/9",
+        "jsonld": "9/9",
+        "faq_parity": "9/9",
+        "sitemap": "9/9",
+        "llms": "9/9",
+        "llms_full": "9/9",
+        "private_url_leaks": 0
+      },
+      {
+        "checked_at": "2026-07-12T17:57:33.613Z",
+        "source_sha": "f89d27f484859eb9c6790b803dd99b3a15781ed6",
+        "decision": "ALLOW_URL_EXPANSION",
+        "cms_api": "9/9",
+        "canonical": "9/9",
+        "robots": "9/9",
+        "jsonld": "9/9",
+        "faq_parity": "9/9",
+        "sitemap": "9/9",
+        "llms": "9/9",
+        "llms_full": "9/9",
+        "private_url_leaks": 0
+      }
+    ],
+    "note": "Two consecutive read-only INDEX-24R runs returned ALLOW_URL_EXPANSION with all eight metrics at 9/9 and zero private URL leaks. No GSC action was repeated between runs."
+  },
+  "monitoring": {
+    "windows": [
+      {
+        "label": "7d",
+        "date": "2026-07-19"
+      },
+      {
+        "label": "14d",
+        "date": "2026-07-26"
+      },
+      {
+        "label": "28d",
+        "date": "2026-08-09"
+      }
+    ],
+    "metrics": [
+      "clicks",
+      "impressions",
+      "ctr",
+      "average_position",
+      "top_query",
+      "query_page_match",
+      "index_coverage"
+    ],
+    "cohort_rule": "Read the same nine URLs only. Any title, FAQ or answer-block adjustment requires a separate scoped content PR.",
+    "automation_state": "ready_to_schedule_after_pr_merge"
+  },
+  "records": [
+    {
+      "url": "https://fermatmind.com/zh/personality/istj-a",
+      "kind": "profile",
+      "inspection_status": "indexed",
+      "last_crawl": "2026-07-05 21:40:52",
+      "declared_canonical": "https://fermatmind.com/zh/personality/istj-a",
+      "google_canonical": "https://fermatmind.com/zh/personality/istj-a",
+      "request_indexing_status": "submitted",
+      "baseline_clicks": 6,
+      "baseline_impressions": 568,
+      "baseline_ctr": 0.011,
+      "baseline_position": 9.8,
+      "query_page_match": "observed_page_row",
+      "monitoring_action": "read_only_7_14_28_day_follow_up"
+    },
+    {
+      "url": "https://fermatmind.com/zh/personality/istp-a",
+      "kind": "profile",
+      "inspection_status": "indexed",
+      "last_crawl": "2026-07-09 14:09:43",
+      "declared_canonical": "https://fermatmind.com/zh/personality/istp-a",
+      "google_canonical": "https://fermatmind.com/zh/personality/istp-a",
+      "request_indexing_status": "submitted",
+      "baseline_clicks": 2,
+      "baseline_impressions": 346,
+      "baseline_ctr": 0.006,
+      "baseline_position": 9.2,
+      "query_page_match": "observed_page_row",
+      "monitoring_action": "read_only_7_14_28_day_follow_up"
+    },
+    {
+      "url": "https://fermatmind.com/zh/personality/isfp-a",
+      "kind": "profile",
+      "inspection_status": "indexed",
+      "last_crawl": "2026-07-07 21:25:17",
+      "declared_canonical": "https://fermatmind.com/zh/personality/isfp-a",
+      "google_canonical": "https://fermatmind.com/zh/personality/isfp-a",
+      "request_indexing_status": "submitted",
+      "baseline_clicks": 1,
+      "baseline_impressions": 183,
+      "baseline_ctr": 0.005,
+      "baseline_position": 8.7,
+      "query_page_match": "observed_page_row",
+      "monitoring_action": "read_only_7_14_28_day_follow_up"
+    },
+    {
+      "url": "https://fermatmind.com/zh/personality/esfj-a",
+      "kind": "profile",
+      "inspection_status": "indexed",
+      "last_crawl": "2026-06-28 14:52:14",
+      "declared_canonical": "https://fermatmind.com/zh/personality/esfj-a",
+      "google_canonical": "https://fermatmind.com/zh/personality/esfj-a",
+      "request_indexing_status": "submitted",
+      "baseline_clicks": 0,
+      "baseline_impressions": 66,
+      "baseline_ctr": 0,
+      "baseline_position": 12.4,
+      "query_page_match": "observed_page_row",
+      "monitoring_action": "read_only_7_14_28_day_follow_up"
+    },
+    {
+      "url": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+      "kind": "comparison",
+      "inspection_status": "indexed",
+      "last_crawl": "2026-06-22 07:22:06",
+      "declared_canonical": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+      "google_canonical": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+      "request_indexing_status": "submitted",
+      "baseline_clicks": 4,
+      "baseline_impressions": 246,
+      "baseline_ctr": 0.016,
+      "baseline_position": 7.2,
+      "query_page_match": "observed_page_row",
+      "monitoring_action": "read_only_7_14_28_day_follow_up"
+    },
+    {
+      "url": "https://fermatmind.com/zh/personality/intj-vs-intp",
+      "kind": "comparison",
+      "inspection_status": "not_indexed_or_unknown_to_google",
+      "last_crawl": null,
+      "declared_canonical": null,
+      "google_canonical": null,
+      "request_indexing_status": "submitted",
+      "baseline_clicks": 0,
+      "baseline_impressions": 0,
+      "baseline_ctr": null,
+      "baseline_position": null,
+      "query_page_match": "no_page_row_in_baseline_window",
+      "monitoring_action": "read_only_7_14_28_day_follow_up"
+    },
+    {
+      "url": "https://fermatmind.com/zh/personality/entj-vs-intj",
+      "kind": "comparison",
+      "inspection_status": "not_currently_indexed",
+      "last_crawl": "2026-07-04 13:42:28",
+      "declared_canonical": "https://fermatmind.com/zh/personality/entj-vs-intj",
+      "google_canonical": "https://fermatmind.com/zh/personality/entj-vs-intj",
+      "request_indexing_status": "submitted",
+      "baseline_clicks": 0,
+      "baseline_impressions": 0,
+      "baseline_ctr": null,
+      "baseline_position": null,
+      "query_page_match": "no_page_row_in_baseline_window",
+      "monitoring_action": "read_only_7_14_28_day_follow_up"
+    },
+    {
+      "url": "https://fermatmind.com/zh/personality/infj-vs-infp",
+      "kind": "comparison",
+      "inspection_status": "not_indexed_or_unknown_to_google",
+      "last_crawl": null,
+      "declared_canonical": null,
+      "google_canonical": null,
+      "request_indexing_status": "submitted",
+      "baseline_clicks": 0,
+      "baseline_impressions": 0,
+      "baseline_ctr": null,
+      "baseline_position": null,
+      "query_page_match": "no_page_row_in_baseline_window",
+      "monitoring_action": "read_only_7_14_28_day_follow_up"
+    },
+    {
+      "url": "https://fermatmind.com/zh/personality/istj-vs-isfj",
+      "kind": "comparison",
+      "inspection_status": "indexed",
+      "last_crawl": "2026-07-12 08:16:15",
+      "declared_canonical": "https://fermatmind.com/zh/personality/istj-vs-isfj",
+      "google_canonical": "https://fermatmind.com/zh/personality/istj-vs-isfj",
+      "request_indexing_status": "submitted",
+      "baseline_clicks": 0,
+      "baseline_impressions": 0,
+      "baseline_ctr": null,
+      "baseline_position": null,
+      "query_page_match": "no_page_row_in_baseline_window",
+      "monitoring_action": "read_only_7_14_28_day_follow_up"
+    }
+  ],
+  "safety_boundary": {
+    "authenticated_gsc_ui_used": true,
+    "sitemap_duplicate_submission_avoided": true,
+    "indexing_api_used": false,
+    "cms_write_attempted": false,
+    "deploy_attempted": false,
+    "sitemap_runtime_mutation_attempted": false,
+    "llms_runtime_mutation_attempted": false,
+    "account_or_credential_data_recorded": false
+  }
+}
