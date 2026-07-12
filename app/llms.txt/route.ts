@@ -138,21 +138,41 @@ function shouldKeepCareerAuthorityRoute(item: {
   });
 }
 
-async function listPersonalityPaths(signal?: AbortSignal): Promise<string[]> {
-  const mbtiPersonalityPathsPromise = listBackendSitemapMbtiPersonalityPaths({ signal }).catch(() => []);
-  const bigFiveZhPathsPromise = listBackendSitemapBigFiveZhPaths({ signal }).catch(() => []);
-  const enneagramPathsPromise = listEnneagramLlmsPaths({ signal });
+type PersonalityPathResult = {
+  paths: string[];
+  mbtiAuthorityAvailable: boolean;
+};
+
+function mergePersonalityPaths(mbtiPersonalityPaths: string[], bigFiveZhPaths: string[]): string[] {
+  return dedupePaths([...mbtiPersonalityPaths, ...bigFiveZhPaths]);
+}
+
+async function listPersonalityPaths(): Promise<PersonalityPathResult> {
   const [mbtiPersonalityPaths, bigFiveZhPaths, enneagramPaths] = await Promise.all([
-    mbtiPersonalityPathsPromise,
-    bigFiveZhPathsPromise,
-    enneagramPathsPromise,
+    withLlmsRouteBudget(
+      (signal) => listBackendSitemapMbtiPersonalityPaths({ signal }),
+      [],
+      { timeoutMs: LLMS_ROUTE_PERSONALITY_TIMEOUT_MS }
+    ),
+    withLlmsRouteBudget(
+      (signal) => listBackendSitemapBigFiveZhPaths({ signal }),
+      [],
+      { timeoutMs: LLMS_ROUTE_PERSONALITY_TIMEOUT_MS }
+    ),
+    withLlmsRouteBudget(
+      (signal) => listEnneagramLlmsPaths({ signal }),
+      [],
+      { timeoutMs: LLMS_ROUTE_PERSONALITY_TIMEOUT_MS }
+    ),
   ]);
 
-  const existingPersonalityPaths = (() => {
-    return dedupePaths([...mbtiPersonalityPaths, ...bigFiveZhPaths]);
-  })();
-
-  return dedupePaths([...existingPersonalityPaths, ...enneagramPaths]);
+  return {
+    paths: dedupePaths([
+      ...mergePersonalityPaths(mbtiPersonalityPaths, bigFiveZhPaths),
+      ...enneagramPaths,
+    ]),
+    mbtiAuthorityAvailable: mbtiPersonalityPaths.length > 0,
+  };
 }
 
 async function listTopicPaths(): Promise<string[]> {
@@ -183,7 +203,7 @@ export async function GET() {
     zhCareerGuides,
     enCareerRecommendations,
     zhCareerRecommendations,
-    personalityEntries,
+    personalityResult,
     topicEntries,
     enArticles,
     zhArticles,
@@ -222,9 +242,7 @@ export async function GET() {
         ),
       []
     ),
-    withLlmsRouteBudget((signal) => listPersonalityPaths(signal), [], {
-      timeoutMs: LLMS_ROUTE_PERSONALITY_TIMEOUT_MS,
-    }),
+    listPersonalityPaths(),
     withLlmsRouteBudget(() => listTopicPaths(), []),
     withLlmsRouteBudget(
       () =>
@@ -277,6 +295,8 @@ export async function GET() {
     withLlmsRouteBudget(() => listDailyGivingDiscoverabilityEntries("en"), []),
     withLlmsRouteBudget(() => listDailyGivingDiscoverabilityEntries("zh"), []),
   ]);
+
+  const personalityEntries = personalityResult.paths;
 
   const helpEntries = dedupePaths([
     ...enDiscoverableContentPages.filter((page) => page.kind === "help").map((page) => localizedContentPagePath(page, "en")),
@@ -374,7 +394,9 @@ export async function GET() {
   return new NextResponse(lines.join("\n"), {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=86400",
+      "Cache-Control": personalityResult.mbtiAuthorityAvailable
+        ? "public, s-maxage=3600, stale-while-revalidate=86400"
+        : "private, no-store, max-age=0",
     },
   });
 }
