@@ -44746,9 +44746,9 @@
     "branch": "codex/perf-ops-01",
     "title": "PERF-OPS-01: add long-term performance monitoring SOP",
     "depends_on": ["ARTICLE-FANOUT-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "ab525a6caf8b7b8e0e964c0bc3c8ce5220cedb5b",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1715",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The performance PR-train /goal explicitly authorized PERF-OPS-01 and manifest/state registration."},
       "dependency": {"status": "pass", "evidence": "ARTICLE-FANOUT-01 merged in fap-web PR #1714 at bbbdacf0e9001b8a7ae844c8dedbce01fd04b4d7 before this item started."},
@@ -44761,7 +44761,7 @@
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "history": [{"at": "2026-07-12T19:30:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after ARTICLE-FANOUT-01 merge verification. Scope is a low-frequency unauthenticated GET scanner, evidence artifact workflow, budgets, and SOP only; no warmup, private probe, write, or deploy action is authorized."}, {"at": "2026-07-12T19:45:00+08:00", "status": "local_verified", "summary": "Script syntax, focused contracts 2/2, lint, spacing, typecheck, parse, diff, and exact eight-path scope validation passed. A non-enforcing read-only production scan completed; three existing latency/timeout budget signals were observed but are not introduced by or blocking this operations tooling PR."}],
-    "updated_at": "2026-07-12T19:45:00+08:00"
+    "updated_at": "2026-07-12T19:50:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
