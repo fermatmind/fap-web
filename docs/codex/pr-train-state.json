@@ -44494,13 +44494,13 @@
     "title": "ENNEAGRAM-LLMS-TXT-FRONTEND-ENUMERATION-01: enumerate gated Enneagram assets in llms.txt",
     "depends_on": ["ENNEAGRAM-LLMS-TXT-RELEASE-GATE-01"],
     "status": "ready_to_merge",
-    "commit_sha": "a7301caf59bd581607b5e526486aeaff6013527f",
+    "commit_sha": "87a10fba0c5f82078d923218f0452551e7f693d3",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1702",
     "checks": {
       "authorization": {"status": "pass", "evidence": "User explicitly authorized this exact fap-web PR train item, allowed paths, manifest/state initialization, and later fap-api dependency linkage; deployment and production release remain separately gated."},
       "dependency": {"status": "pass", "evidence": "fap-api PR #3013 ENNEAGRAM-LLMS-TXT-RELEASE-GATE-01 is merged at 71a3145de0ea02ab214f412bc4e2fca6c8eeab39."},
       "required_local_checks": {"status": "pass", "evidence": "Focused Enneagram/llms compatibility contracts passed 16/16 after preserving the historical MBTI/Big Five return contract; lint passed with baseline warnings only, lint:spacing passed, typecheck passed, production build passed, full pnpm test:contract passed all four shards after a transient MBTI authority timeout cleared, Big Five freeze passed 29/29, Enneagram freeze passed 24/24, YAML/JSON parse and git diff --check passed."},
-      "github_checks": {"status": "pass", "evidence": "PR #1702 head c54a7ab8a722eb653e98c6b95d768c38232ff9fa passed build, contracts, Big Five freeze, Enneagram freeze, CodeQL analyze, and CodeQL aggregate checks; PR is CLEAN and MERGEABLE."}
+      "github_checks": {"status": "pass", "evidence": "After CI timeout repair PR #1704 merged at b42559237bd81c746a054deb892fe4e418f93b33, PR #1702 rebased head 1725193e4591f4c2f533cb8a0aa465426f9d2111 passed build, contracts (4m55s under the repaired 10-minute budget), Big Five freeze, Enneagram freeze, CodeQL analyze, and CodeQL aggregate checks; PR is CLEAN and MERGEABLE."}
     },
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "failure_reason": null,
@@ -44508,7 +44508,7 @@
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "history": [{"at": "2026-07-12T12:25:00+08:00", "status": "in_progress", "summary": "Started from exact clean fap-web origin/main 7d3fb8e8 in an isolated worktree. Scope is backend-public-API-gated Enneagram llms.txt enumeration, focused contracts, and authorized train metadata only; llms-full, CMS/backend eligibility, cache warm, Search, workflow dispatch, and deploy remain prohibited."}, {"at": "2026-07-12T12:37:00+08:00", "status": "local_check_failed_external", "summary": "Implemented exact 0-or-116 backend-API-gated Enneagram llms.txt enumeration and passed focused/compatibility contracts, typecheck, lint, spacing, production build, parse, and diff checks. The full contract command remained blocked solely by the unrelated networked MBTI-INDEX-24R production-authority test timing out in shard 2; direct read-only authority verification returned 9/9 and the isolated contract passed 3/3. Repo policy required stopping before commit or PR."}, {"at": "2026-07-12T12:43:00+08:00", "status": "local_verified", "summary": "A fresh read-only authority probe returned 9/9 and the manifest pnpm test:contract command then passed all four shards. Focused/compatibility contracts, lint, spacing, typecheck, production build, Big Five 29/29, Enneagram 24/24, parse, diff, and exact seven-path scope validation are green. No deploy, CMS write, cache warm, Search action, or llms release occurred."}, {"at": "2026-07-12T12:44:00+08:00", "status": "committed", "summary": "Committed the exact seven-path implementation at a7301caf59bd581607b5e526486aeaff6013527f using path-limited staging. No deployment or production release action occurred."}, {"at": "2026-07-12T12:46:00+08:00", "status": "pr_open", "summary": "Pushed the exact seven-path branch and opened PR #1702. Required GitHub checks are pending; no deployment or production release action occurred."}, {"at": "2026-07-12T12:52:00+08:00", "status": "ready_to_merge", "summary": "All six GitHub checks passed. PR #1702 is CLEAN and MERGEABLE; exact seven-path scope, changed files, title, body, and squash auto-merge policy were revalidated."}],
-    "updated_at": "2026-07-12T12:52:00+08:00"
+    "updated_at": "2026-07-12T13:31:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
