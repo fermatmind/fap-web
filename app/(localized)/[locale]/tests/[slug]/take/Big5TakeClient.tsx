@@ -373,7 +373,7 @@ export default function Big5TakeClient({
     return () => {
       active = false;
     };
-  }, [anonId, locale, trackGuestTokenFailure]);
+  }, [anonId, locale, testKpiMetadata, trackGuestTokenFailure]);
 
   const runWithAuthRetry = useCallback(
     async <T,>(
@@ -404,7 +404,7 @@ export default function Big5TakeClient({
           }
         },
       }),
-    [anonId, locale, trackGuestTokenFailure]
+    [anonId, locale, testKpiMetadata, trackGuestTokenFailure]
   );
 
   useEffect(() => {

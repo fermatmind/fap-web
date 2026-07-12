@@ -407,7 +407,7 @@ function adaptLegacyIntpPersonalityContent(
     secondaryCta2: localizeLabel(locale, "比较 INTP-A 与 INTP-T", "Compare INTP-A and INTP-T"),
   };
 
-  const toScene = (scene: IntpPersonalityRenderCopy["careerDirection"], role: SceneRole): RenderedSceneCopy => ({
+  const toScene = (scene: IntpPersonalityRenderCopy["careerDirection"]): RenderedSceneCopy => ({
     summary: scene.summary,
     bottleneck: "",
     advice: "",
@@ -428,9 +428,9 @@ function adaptLegacyIntpPersonalityContent(
     variant,
     common: {
       hero: commonHero,
-      careerDirection: toScene(legacy.careerDirection, "career"),
-      teamCollaboration: toScene(legacy.teamCollaboration, "team"),
-      growthPlanning: toScene(legacy.growthPlanning, "growth"),
+      careerDirection: toScene(legacy.careerDirection),
+      teamCollaboration: toScene(legacy.teamCollaboration),
+      growthPlanning: toScene(legacy.growthPlanning),
       ctaGroup: {
         primary: localizeMbtiFreeTestLabel(locale),
         secondary1: localizeLabel(locale, "查看 INTP 职业建议", "View INTP career recommendations"),
@@ -439,9 +439,9 @@ function adaptLegacyIntpPersonalityContent(
     },
     variantCopy: {
       hero: commonHero,
-      careerDirection: toScene(legacy.careerDirection, "career"),
-      teamCollaboration: toScene(legacy.teamCollaboration, "team"),
-      growthPlanning: toScene(legacy.growthPlanning, "growth"),
+      careerDirection: toScene(legacy.careerDirection),
+      teamCollaboration: toScene(legacy.teamCollaboration),
+      growthPlanning: toScene(legacy.growthPlanning),
       ctaGroup: {
         primary: localizeMbtiFreeTestLabel(locale),
         secondary1: localizeLabel(locale, `查看 INTP-${variant.toUpperCase()} 职业建议`, `View INTP-${variant.toUpperCase()} career recommendations`),

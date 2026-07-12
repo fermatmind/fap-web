@@ -63,6 +63,7 @@ export function IqImageGraphic({
   const alt = normalizedImage.alt ?? ariaLabel;
 
   return (
+    // eslint-disable-next-line @next/next/no-img-element -- CMS IQ assets can use authority-provided hosts that are not known at build time.
     <img
       src={normalizedImage.src}
       alt={alt}

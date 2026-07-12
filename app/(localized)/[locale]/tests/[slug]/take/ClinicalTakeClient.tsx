@@ -636,7 +636,7 @@ export default function ClinicalTakeClient({
         setStarting(false);
       }
     }
-  }, [authBlockError, consentRequiredMessage, isFlowActive, needsConsent, runWithAuthRetry, scaleCode, serverConsentVersion, setAttemptId, slug, staleDraftError, testKpiMetadata]);
+  }, [authBlockError, consentRequiredMessage, isFlowActive, locale, needsConsent, runWithAuthRetry, scaleCode, serverConsentVersion, setAttemptId, slug, staleDraftError, testKpiMetadata]);
 
   const ensureAttempt = useCallback(async (runId?: number) => {
     if (authBlockError || staleDraftError || recoveringAttemptRef.current) {
@@ -852,7 +852,7 @@ export default function ClinicalTakeClient({
     staleDraftError,
     startFreshAttempt,
     submitAttemptWithId,
-    testKpiMetadata.apiLocale,
+    testKpiMetadata,
   ]);
 
   const finalizeSuccessfulSubmit = useCallback(

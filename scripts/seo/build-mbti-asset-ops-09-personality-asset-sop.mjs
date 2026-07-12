@@ -38,7 +38,7 @@ function artifactPath(relativePath) {
   return relativePath;
 }
 
-function buildStateRows({ top10Profiles, comparison20, ops08, remaining58, remaining58Qa }) {
+function buildStateRows({ top10Profiles, comparison20, ops08, remaining58Qa }) {
   return [
     {
       state: "top10_profile_assets",

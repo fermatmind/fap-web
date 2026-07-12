@@ -30,6 +30,7 @@ describe("code scanning zero-new-alert gate", () => {
     const ci = read(".github/workflows/ci.yml");
     const codeql = read(".github/workflows/codeql.yml");
 
+    expect(ci).toContain("pnpm lint . --max-warnings=0");
     expect(ci).toContain("eslint --max-warnings=0");
     expect(ci).toContain("git diff --name-only --diff-filter=ACMR -z HEAD^1 HEAD");
     expect(codeql).toContain("needs: analyze");

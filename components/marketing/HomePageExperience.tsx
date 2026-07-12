@@ -239,6 +239,7 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
           <div className="mt-9 flex items-center justify-center gap-3 lg:justify-start">
             <div className="flex -space-x-3">
               {HOMEPAGE_HERO_ASSETS.users.map((src, index) => (
+                // eslint-disable-next-line @next/next/no-img-element -- Legacy external hero media is outside the product-owned Next image allowlist.
                 <img
                   key={src}
                   src={src}
@@ -281,6 +282,7 @@ function HomepageHeroV1({ locale, copy }: { locale: Locale; copy: HomePageConten
 
         <div className="relative mx-auto hidden w-full max-w-[34rem] lg:block">
           <div aria-hidden className="absolute inset-8 rounded-full bg-white/45 blur-3xl" />
+          {/* eslint-disable-next-line @next/next/no-img-element -- Legacy external hero media is outside the product-owned Next image allowlist. */}
           <img
             src={HOMEPAGE_HERO_ASSETS.brain}
             alt=""
@@ -817,7 +819,7 @@ function HomepageArticlesBanner({ locale, articles }: { locale: Locale; articles
         </div>
 
         <div className="mt-12 grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
-          {visibleArticles.map((article, index) => (
+          {visibleArticles.map((article) => (
             <article key={`${article.slug}-${article.locale}`} className="group">
               <Link href={withLocale(locale, `/articles/${article.slug}`)} prefetch={false} className="block">
                 <ArticleCoverVisual article={article} />

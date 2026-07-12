@@ -470,6 +470,7 @@ function EnneagramTakeInner({
     formMeta.questionMode,
     isFlowActive,
     locale,
+    resolvedFormCode,
     setAttemptMeta,
     slug,
     staleDraftError,

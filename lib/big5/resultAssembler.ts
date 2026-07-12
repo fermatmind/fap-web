@@ -468,10 +468,7 @@ function normalizeV2Items(value: unknown): string[] {
     .filter(Boolean);
 }
 
-function normalizeV2GenericBlock(
-  block: Big5ReportEngineV2Block,
-  sectionKey: Big5V1SectionKey
-): ReportBlock | null {
+function normalizeV2GenericBlock(block: Big5ReportEngineV2Block): ReportBlock | null {
   const copy = asRecord(block.resolved_copy);
   if (!copy) {
     return null;
@@ -571,7 +568,7 @@ function normalizeBig5ReportEngineV2Block(
 ): ReportBlock | null {
   const normalized = normalizeText(block.kind).toLowerCase() === "trait_atomic"
     ? normalizeV2TraitAtomicBlock(block, sectionKey, locale)
-    : normalizeV2GenericBlock(block, sectionKey);
+    : normalizeV2GenericBlock(block);
   if (!normalized) {
     return null;
   }

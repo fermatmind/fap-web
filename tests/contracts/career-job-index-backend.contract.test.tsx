@@ -95,9 +95,11 @@ describe("career job index backend contract", () => {
   });
 
   it("uses tagged revalidation only for the unfiltered first directory page", async () => {
-    const fetchMock = vi.fn(async (_input: RequestInfo | URL, _init?: RequestInit) =>
-      jsonResponse(careerDirectoryPayload([]))
-    );
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      void input;
+      void init;
+      return jsonResponse(careerDirectoryPayload([]));
+    });
     vi.stubGlobal("fetch", fetchMock);
 
     await fetchCareerDirectory({ locale: "en" });

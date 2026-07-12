@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 export const MBTI_TYPE_CONTENT_PACKS = {
   "ENFJ": {
     "typeCode": "ENFJ",

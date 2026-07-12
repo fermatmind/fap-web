@@ -69,7 +69,7 @@ function csvEscape(value) {
   return text;
 }
 
-function gscUiUrl(targetUrl) {
+function gscUiUrl() {
   const base = new URL("https://search.google.com/search-console/performance/search-analytics");
   base.searchParams.set("resource_id", "sc-domain:fermatmind.com");
   base.searchParams.set("time_granularity", "HOUR");
@@ -139,7 +139,7 @@ async function main() {
       query_evidence_status: "pending_export",
       allowed_next_action: "manual_csv_or_gsc_api_query_export_only",
       blocked_reason: "query_table_suppressed_or_unavailable",
-      gsc_ui_export_url: gscUiUrl(targetUrl),
+      gsc_ui_export_url: gscUiUrl(),
       gsc_ui_filter_instruction: `Open Performance > Queries, add Page filter equals ${targetUrl}, export rows with query/clicks/impressions/ctr/position.`,
       gsc_api_request_template: apiRequestTemplate(targetUrl),
       current_waitlist_row: waitlistRow,
