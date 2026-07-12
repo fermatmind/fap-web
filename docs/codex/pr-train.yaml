@@ -24901,3 +24901,38 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: ARTICLE-FANOUT-01
+
+  - id: ARTICLE-FANOUT-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/article-fanout-01
+    base: main
+    title: "ARTICLE-FANOUT-01: remove article label detail fanout"
+    depends_on: [ARTICLE-CACHE-01]
+    mode: execute
+    train_scope: article_internal_link_label_fanout
+    status: user_authorized
+    goal: "Stop article rendering from fetching up to 24 target article details for link labels; preserve CMS-authored anchor text and the existing safe bare-path label fallback."
+    allowed_paths:
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - tests/contracts/article-internal-link-anchor-text.contract.test.tsx
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - article cache policy, backend API changes, CMS content mutation, link editorial rewrites, SEO enumeration, staging wait, or production deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/article-internal-link-anchor-text.contract.test.tsx tests/contracts/articles-cleanup.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: PERF-OPS-01
