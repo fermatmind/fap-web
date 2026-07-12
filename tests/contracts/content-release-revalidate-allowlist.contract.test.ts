@@ -7,10 +7,12 @@ const mocks = vi.hoisted(() => ({
     | { ok: false; status: 401 | 429 | 503; errorCode: string; message: string }
   > => ({ ok: true, nonceHash: "test-nonce-hash" })),
   revalidatePath: vi.fn(),
+  revalidateTag: vi.fn(),
 }));
 
 vi.mock("next/cache", () => ({
   revalidatePath: mocks.revalidatePath,
+  revalidateTag: mocks.revalidateTag,
 }));
 
 vi.mock("@/lib/security/contentReleaseRevalidationAuth", () => ({
@@ -22,6 +24,7 @@ import { collectPathDecisions, POST } from "@/app/api/content-release/revalidate
 describe("content release revalidate allowlist", () => {
   afterEach(() => {
     mocks.revalidatePath.mockClear();
+    mocks.revalidateTag.mockClear();
     mocks.authenticate.mockClear();
     delete process.env.CONTENT_RELEASE_REVALIDATE_TOKEN;
   });
@@ -228,6 +231,20 @@ describe("content release revalidate allowlist", () => {
     expect(mocks.revalidatePath).toHaveBeenNthCalledWith(4, "/en/articles/big-five-personality-test-vs-mbti");
     expect(mocks.revalidatePath).toHaveBeenNthCalledWith(5, "/llms.txt");
     expect(mocks.revalidatePath).toHaveBeenNthCalledWith(6, "/llms-full.txt");
+    expect(payload.invalidated_tags).toEqual([
+      "article-detail:zh-CN:big-five-personality-test-vs-mbti",
+      "article-seo:zh-CN:big-five-personality-test-vs-mbti",
+    ]);
+    expect(mocks.revalidateTag).toHaveBeenNthCalledWith(
+      1,
+      "article-detail:zh-CN:big-five-personality-test-vs-mbti",
+      { expire: 0 }
+    );
+    expect(mocks.revalidateTag).toHaveBeenNthCalledWith(
+      2,
+      "article-seo:zh-CN:big-five-personality-test-vs-mbti",
+      { expire: 0 }
+    );
   });
 
   it("accepts apex and www article URLs for the same public frontend surface", () => {

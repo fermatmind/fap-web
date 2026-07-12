@@ -1,5 +1,6 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
+import { articleDetailCacheTag, articleSeoCacheTag } from "@/lib/cms/articleCacheTags";
 import { clearLlmsFullResponseCache } from "@/lib/seo/llmsFullResponseCache";
 import { authenticateContentReleaseRevalidation } from "@/lib/security/contentReleaseRevalidationAuth";
 
@@ -288,13 +289,23 @@ export async function POST(request: NextRequest) {
   }
 
   const contentType = String(payload?.content?.type ?? "").trim();
-  const careerSlug = normalizeSlug(payload?.content?.slug);
-  const careerLocale = normalizeLocaleToSegment(payload?.content?.locale) === "zh" ? "zh-CN" : "en";
+  const contentSlug = normalizeSlug(payload?.content?.slug);
+  const contentLocale = normalizeLocaleToSegment(payload?.content?.locale) === "zh" ? "zh-CN" : "en";
   const invalidatedTags: string[] = [];
-  if (CAREER_JOB_CONTENT_TYPES.has(contentType) && careerSlug) {
-    const tag = `career-detail:${careerLocale}:${careerSlug}`;
+  if (CAREER_JOB_CONTENT_TYPES.has(contentType) && contentSlug) {
+    const tag = `career-detail:${contentLocale}:${contentSlug}`;
     revalidateTag(tag, { expire: 0 });
     invalidatedTags.push(tag);
+  }
+  if (contentType === "article" && contentSlug) {
+    const tags = [
+      articleDetailCacheTag(contentLocale, contentSlug),
+      articleSeoCacheTag(contentLocale, contentSlug),
+    ];
+    for (const tag of tags) {
+      revalidateTag(tag, { expire: 0 });
+      invalidatedTags.push(tag);
+    }
   }
 
   if (accepted.includes("/llms-full.txt")) {

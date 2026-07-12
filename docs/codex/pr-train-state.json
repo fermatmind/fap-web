@@ -44691,6 +44691,30 @@
     "history": [{"at": "2026-07-12T16:05:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after GLOBAL-JS-01 merge verification. Scope is interaction-triggered footer QR, desktop dropdown, and locale option chunks; no navigation behavior, content authority, staging, or deploy change is included."}, {"at": "2026-07-12T16:15:00+08:00", "status": "local_verified", "summary": "Focused contracts 13/13, all four full contract shards, lint, spacing, typecheck, production build, parse, diff, and exact 11-path scope validation passed. The initial full-suite invocation selected an obsolete system Python; rerunning unchanged code with the configured Python 3.12 passed, so no external validator file was touched."}, {"at": "2026-07-12T16:20:00+08:00", "status": "pr_open", "summary": "Committed and pushed the exact 11-path scope and opened PR #1711. Required checks are pending; no staging wait or deploy action is included."}, {"at": "2026-07-12T16:27:00+08:00", "status": "ready_to_merge", "summary": "All required GitHub checks passed and the exact 11-path scope remained mergeable with no review requirement."}],
     "updated_at": "2026-07-12T16:27:00+08:00"
   },
+  "ARTICLE-CACHE-01": {
+    "id": "ARTICLE-CACHE-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/article-cache-01",
+    "title": "ARTICLE-CACHE-01: cache published article detail and SEO",
+    "depends_on": ["PERSONALITY-WARMUP-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "pass", "evidence": "The performance PR-train /goal explicitly authorized ARTICLE-CACHE-01 and manifest/state registration."},
+      "dependency": {"status": "pass", "evidence": "PERSONALITY-WARMUP-01 merged in fap-api PR #3018 at 0a78888dd6d4c11ecd4a3c7b74bd79824b816b51 before this item started."},
+      "required_local_checks": {"status": "pass", "evidence": "Focused article cache/revalidation contracts passed 28/28; lint passed with 27 existing warnings and no errors; spacing and Node 24 typecheck passed; Node 24 production build generated 206 pages; all four contract shards passed 717 files and 4091 tests; YAML/JSON, diff whitespace, and exact seven-path scope validation passed."},
+      "github_required_checks": {"status": "pending", "evidence": null}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [{"at": "2026-07-12T18:15:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after PERSONALITY-WARMUP-01 merge verification. Scope is published article detail/SEO tagged revalidation and exact content-release invalidation only; fanout, CMS authority, warmup execution, and deploy are deferred."}, {"at": "2026-07-12T18:30:00+08:00", "status": "local_verified", "summary": "Focused contracts 28/28, lint, spacing, Node 24 typecheck, production build, all four full contract shards, YAML/JSON, diff, and exact seven-path scope validation passed. Test-generated SEO inventories were restored; no CMS mutation, warmup execution, staging wait, or deploy action occurred."}],
+    "updated_at": "2026-07-12T18:30:00+08:00"
+  },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
     "repo": "fap-web",

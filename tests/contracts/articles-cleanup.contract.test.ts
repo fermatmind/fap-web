@@ -695,7 +695,7 @@ describe("articles cleanup contract", () => {
     expect(source).not.toContain("Number.parseInt(String(raw ?? \"1\"), 10)");
   });
 
-  it("does not put article detail or seo lookups into the shared Data Cache", async () => {
+  it("uses independently tagged revalidation for published article detail and seo", async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL, _init?: RequestInit) => {
       const url = String(input);
       if (url.includes("/seo?")) {
@@ -730,10 +730,12 @@ describe("articles cleanup contract", () => {
     });
 
     expect(fetchMock).toHaveBeenCalledTimes(2);
-    for (const call of fetchMock.mock.calls) {
-      expect(call[1]).toMatchObject({ cache: "no-store" });
-      expect(call[1]).not.toHaveProperty("next");
-    }
+    expect(fetchMock.mock.calls[0]?.[1]).toMatchObject({
+      next: { revalidate: 300, tags: ["article-detail:en:safe-article"] },
+    });
+    expect(fetchMock.mock.calls[1]?.[1]).toMatchObject({
+      next: { revalidate: 300, tags: ["article-seo:en:safe-article"] },
+    });
   });
 
   it("uses backend article placement fields for test-related article slots", async () => {
