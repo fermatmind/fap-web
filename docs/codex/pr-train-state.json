@@ -44517,9 +44517,9 @@
     "branch": "codex/perf-baseline-01",
     "title": "PERF-BASELINE-01: freeze production performance baseline",
     "depends_on": [],
-    "status": "committed",
+    "status": "pr_open",
     "commit_sha": "f6832b23c3467ee12f9c32e704186772e2322087",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1703",
     "checks": {
       "authorization": {
         "status": "pass",
@@ -44559,9 +44559,14 @@
         "at": "2026-07-12T12:53:00+08:00",
         "status": "committed",
         "summary": "Committed the exact three-path docs and train-metadata scope at f6832b23c3467ee12f9c32e704186772e2322087 using path-limited staging. No runtime or production action occurred."
+      },
+      {
+        "at": "2026-07-12T12:56:00+08:00",
+        "status": "pr_open",
+        "summary": "Pushed the scoped branch and opened PR #1703. Required GitHub checks are pending; no staging wait or production action is part of this PR."
       }
     ],
-    "updated_at": "2026-07-12T12:53:00+08:00"
+    "updated_at": "2026-07-12T12:56:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
