@@ -24678,7 +24678,7 @@ prs:
     depends_on: [ENNEAGRAM-LLMS-TXT-PRODUCTION-REVALIDATION-01]
     mode: execute
     train_scope: enneagram_llms_full_frontend_enumeration
-    status: in_progress
+    status: merged
     goal: "Enumerate only the exact backend-public-API-gated 116 Enneagram public content assets in llms-full.txt, requiring visible evidence fields and preserving fail-closed partial, unsafe, duplicate, or invalid cohorts."
     allowed_paths:
       - app/llms-full.txt/route.ts
@@ -24701,6 +24701,39 @@ prs:
     merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
     runtime_change: true
     workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: FAP-WEB-LLMS-FEED-CACHE-OPS-01
+
+  - id: FAP-WEB-LLMS-FEED-CACHE-OPS-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/fap-web-llms-feed-cache-ops-01
+    base: main
+    title: "FAP-WEB-LLMS-FEED-CACHE-OPS-01: add llms feed cache-only ops workflow"
+    depends_on: [ENNEAGRAM-LLMS-FULL-FRONTEND-ENUMERATION-01]
+    mode: execute
+    train_scope: fap_web_llms_feed_cache_ops
+    status: in_progress
+    goal: "Add a manual production-protected cache-only ops lane for /llms.txt and /llms-full.txt that verifies the exact deployed fap-web SHA, reloads only the existing Node1 PM2 app, and writes JSON/Markdown readback summaries without deploying, checking out code, mutating CMS, or triggering Search/IndexNow."
+    allowed_paths:
+      - .github/workflows/llms-feed-cache-ops.yml
+      - tests/contracts/llms-feed-cache-ops-workflow.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - deployment, git pull/reset/checkout/fetch on Node1, PM2 start/restart/delete/recreate fallback, CMS/backend mutation, llms eligibility mutation, Search Queue, IndexNow, sitemap/cache warm outside the selected feed, secrets or permissions mutation, and changing the HMAC content-release revalidation API
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/llms-feed-cache-ops-workflow.contract.test.ts
+      - pnpm typecheck
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json"))'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    workflow_policy_change: true
     production_write_execution: false
     cms_mutation: false
     publish_allowed: false
