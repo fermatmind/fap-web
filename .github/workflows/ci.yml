@@ -28,7 +28,7 @@ jobs:
 
       - run: pnpm install --frozen-lockfile
 
-      - run: pnpm lint .
+      - run: pnpm lint . --max-warnings=0
 
       - name: Reject warnings in pull request JavaScript and TypeScript changes
         if: github.event_name == 'pull_request'

@@ -654,7 +654,8 @@ describe("articles cleanup contract", () => {
 
   it("bounds article list page values before shared cache fetches", async () => {
     const oversizedPage = MAX_ARTICLE_LIST_PAGE + 1000;
-    const fetchMock = vi.fn(async (input: RequestInfo | URL, _init?: RequestInit) => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      void init;
       const url = String(input);
       expect(url).toContain("/api/v0.5/articles?");
       expect(url).toContain(`page=${MAX_ARTICLE_LIST_PAGE}`);
@@ -696,7 +697,8 @@ describe("articles cleanup contract", () => {
   });
 
   it("uses independently tagged revalidation for published article detail and seo", async () => {
-    const fetchMock = vi.fn(async (input: RequestInfo | URL, _init?: RequestInit) => {
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      void init;
       const url = String(input);
       if (url.includes("/seo?")) {
         return jsonResponse({

@@ -90,4 +90,5 @@ test("result page shows anticipation skeleton while loading", async ({ page }) =
   await expect(page.getByText("Matching evidence profile models...")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Your assessment result" })).toBeVisible();
   expect(reportAccessRequestCount).toBeGreaterThan(0);
+  expect(reportRequestCount).toBeGreaterThan(0);
 });

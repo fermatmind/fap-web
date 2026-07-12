@@ -28,7 +28,6 @@ function resolvePrimaryCtaLabel(locale: Locale, primaryCtaLabel?: string) {
 
 export function MbtiMobileChrome({
   locale,
-  retakeHref,
   primaryCtaLabel,
   primaryCtaHref,
   primaryCtaIsInternal = false,

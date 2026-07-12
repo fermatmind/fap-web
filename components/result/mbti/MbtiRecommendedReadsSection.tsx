@@ -314,8 +314,14 @@ export function MbtiRecommendedReadsSection({
       });
     }
   }, [
+    actionEffectWeights,
     actionFocusKey,
     actionPriorityKeysSummary,
+    adaptiveContractVersion,
+    adaptiveFingerprint,
+    adaptiveRewriteReason,
+    contentFeedbackWeights,
+    ctaEffectWeights,
     locale,
     orderedActionKeysSummary,
     orderedRecommendationKeysSummary,
@@ -340,6 +346,10 @@ export function MbtiRecommendedReadsSection({
     dominantInterestKeys,
     memoryRewriteKeys,
     memoryRewriteReason,
+    nextBestActionKey,
+    nextBestActionReason,
+    nextBestActionSection,
+    recommendationEffectWeights,
   ]);
 
   if (sortedReadEntries.length === 0) {
