@@ -14612,7 +14612,7 @@ prs:
     mode: execute
     train_scope: mbti_llms_personality_authority_budget_stability
     risk_level: L1
-    status: in_progress
+    status: merged
     title: "MBTI-INDEX-24C: stabilize llms personality authority enumeration"
     goal: "Give backend-authoritative MBTI personality enumeration a bounded dedicated budget and AbortSignal so promoted URLs reliably reach llms.txt without local fallback."
     in_scope:
@@ -14654,7 +14654,7 @@ prs:
     mode: execute
     train_scope: mbti_nine_url_release_gate_revalidation
     risk_level: L1
-    status: planned
+    status: in_progress
     title: "MBTI-INDEX-24R: revalidate nine promoted MBTI URLs"
     goal: "Read-only revalidate CMS/API content, canonical, robots, JSON-LD, FAQ parity, sitemap, llms and llms-full for the exact nine promoted URLs; allow GSC only on 9/9 success."
     in_scope:

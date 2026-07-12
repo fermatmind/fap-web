@@ -1,0 +1,10 @@
+path,kind,result,cms_api,canonical,robots,jsonld,faq_parity,sitemap,llms,llms_full,blockers
+/zh/personality/istj-a,profile,pass,true,https://fermatmind.com/zh/personality/istj-a,"index, follow",true,true,true,true,true,
+/zh/personality/istp-a,profile,pass,true,https://fermatmind.com/zh/personality/istp-a,"index, follow",true,true,true,true,true,
+/zh/personality/isfp-a,profile,pass,true,https://fermatmind.com/zh/personality/isfp-a,"index, follow",true,true,true,true,true,
+/zh/personality/esfj-a,profile,pass,true,https://fermatmind.com/zh/personality/esfj-a,"index, follow",true,true,true,true,true,
+/zh/personality/intp-a-vs-intp-t,comparison,pass,true,https://fermatmind.com/zh/personality/intp-a-vs-intp-t,"index, follow",true,true,true,true,true,
+/zh/personality/intj-vs-intp,comparison,pass,true,https://fermatmind.com/zh/personality/intj-vs-intp,"index, follow",true,true,true,true,true,
+/zh/personality/entj-vs-intj,comparison,pass,true,https://fermatmind.com/zh/personality/entj-vs-intj,"index, follow",true,true,true,true,true,
+/zh/personality/infj-vs-infp,comparison,pass,true,https://fermatmind.com/zh/personality/infj-vs-infp,"index, follow",true,true,true,true,true,
+/zh/personality/istj-vs-isfj,comparison,pass,true,https://fermatmind.com/zh/personality/istj-vs-isfj,"index, follow",true,true,true,true,true,

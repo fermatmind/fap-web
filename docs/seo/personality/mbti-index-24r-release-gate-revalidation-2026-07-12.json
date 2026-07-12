@@ -1,0 +1,315 @@
+{
+  "id": "MBTI-INDEX-24R",
+  "artifact": "MBTI-INDEX-24R-RELEASE-GATE-REVALIDATION",
+  "generated_at": "2026-07-12T02:13:48.543Z",
+  "evidence_scope": "read_only_production_network_revalidation",
+  "decision": "ALLOW_URL_EXPANSION",
+  "expansion_allowed": true,
+  "gsc_dependency_unblocked": true,
+  "metrics": {
+    "CMS_API": 9,
+    "CANONICAL": 9,
+    "ROBOTS": 9,
+    "JSONLD": 9,
+    "FAQ_PARITY": 9,
+    "SITEMAP": 9,
+    "LLMS": 9,
+    "LLMS_FULL": 9
+  },
+  "private_url_leak_count": 0,
+  "private_url_leaks": [],
+  "records": [
+    {
+      "path": "/zh/personality/istj-a",
+      "canonical": "https://fermatmind.com/zh/personality/istj-a",
+      "kind": "profile",
+      "api_url": "https://api.fermatmind.com/api/v0.5/personality/istj-a?locale=zh-CN",
+      "api_faq_count": 4,
+      "schema_faq_count": 4,
+      "structured_data_types": [
+        "AboutPage",
+        "Answer",
+        "BreadcrumbList",
+        "DefinedTerm",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "WebPage"
+      ],
+      "robots": "index, follow",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true
+      },
+      "result": "pass",
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/istp-a",
+      "canonical": "https://fermatmind.com/zh/personality/istp-a",
+      "kind": "profile",
+      "api_url": "https://api.fermatmind.com/api/v0.5/personality/istp-a?locale=zh-CN",
+      "api_faq_count": 4,
+      "schema_faq_count": 4,
+      "structured_data_types": [
+        "AboutPage",
+        "Answer",
+        "BreadcrumbList",
+        "DefinedTerm",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "WebPage"
+      ],
+      "robots": "index, follow",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true
+      },
+      "result": "pass",
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/isfp-a",
+      "canonical": "https://fermatmind.com/zh/personality/isfp-a",
+      "kind": "profile",
+      "api_url": "https://api.fermatmind.com/api/v0.5/personality/isfp-a?locale=zh-CN",
+      "api_faq_count": 4,
+      "schema_faq_count": 4,
+      "structured_data_types": [
+        "AboutPage",
+        "Answer",
+        "BreadcrumbList",
+        "DefinedTerm",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "WebPage"
+      ],
+      "robots": "index, follow",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true
+      },
+      "result": "pass",
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/esfj-a",
+      "canonical": "https://fermatmind.com/zh/personality/esfj-a",
+      "kind": "profile",
+      "api_url": "https://api.fermatmind.com/api/v0.5/personality/esfj-a?locale=zh-CN",
+      "api_faq_count": 4,
+      "schema_faq_count": 4,
+      "structured_data_types": [
+        "AboutPage",
+        "Answer",
+        "BreadcrumbList",
+        "DefinedTerm",
+        "FAQPage",
+        "ListItem",
+        "Question",
+        "WebPage"
+      ],
+      "robots": "index, follow",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true
+      },
+      "result": "pass",
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/intp-a-vs-intp-t",
+      "canonical": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
+      "kind": "comparison",
+      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/intp-a-vs-intp-t?locale=zh-CN",
+      "api_faq_count": 5,
+      "schema_faq_count": 5,
+      "structured_data_types": [
+        "Answer",
+        "BreadcrumbList",
+        "CollectionPage",
+        "FAQPage",
+        "ItemList",
+        "ListItem",
+        "Question"
+      ],
+      "robots": "index, follow",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true
+      },
+      "result": "pass",
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/intj-vs-intp",
+      "canonical": "https://fermatmind.com/zh/personality/intj-vs-intp",
+      "kind": "comparison",
+      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/intj-vs-intp?locale=zh-CN",
+      "api_faq_count": 5,
+      "schema_faq_count": 5,
+      "structured_data_types": [
+        "Answer",
+        "BreadcrumbList",
+        "CollectionPage",
+        "FAQPage",
+        "ItemList",
+        "ListItem",
+        "Question"
+      ],
+      "robots": "index, follow",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true
+      },
+      "result": "pass",
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/entj-vs-intj",
+      "canonical": "https://fermatmind.com/zh/personality/entj-vs-intj",
+      "kind": "comparison",
+      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/entj-vs-intj?locale=zh-CN",
+      "api_faq_count": 5,
+      "schema_faq_count": 5,
+      "structured_data_types": [
+        "Answer",
+        "BreadcrumbList",
+        "CollectionPage",
+        "FAQPage",
+        "ItemList",
+        "ListItem",
+        "Question"
+      ],
+      "robots": "index, follow",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true
+      },
+      "result": "pass",
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/infj-vs-infp",
+      "canonical": "https://fermatmind.com/zh/personality/infj-vs-infp",
+      "kind": "comparison",
+      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/infj-vs-infp?locale=zh-CN",
+      "api_faq_count": 5,
+      "schema_faq_count": 5,
+      "structured_data_types": [
+        "Answer",
+        "BreadcrumbList",
+        "CollectionPage",
+        "FAQPage",
+        "ItemList",
+        "ListItem",
+        "Question"
+      ],
+      "robots": "index, follow",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true
+      },
+      "result": "pass",
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/istj-vs-isfj",
+      "canonical": "https://fermatmind.com/zh/personality/istj-vs-isfj",
+      "kind": "comparison",
+      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/istj-vs-isfj?locale=zh-CN",
+      "api_faq_count": 5,
+      "schema_faq_count": 5,
+      "structured_data_types": [
+        "Answer",
+        "BreadcrumbList",
+        "CollectionPage",
+        "FAQPage",
+        "ItemList",
+        "ListItem",
+        "Question"
+      ],
+      "robots": "index, follow",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true
+      },
+      "result": "pass",
+      "blockers": []
+    }
+  ],
+  "safety_boundary": {
+    "read_only_network": true,
+    "cms_write_attempted": false,
+    "indexability_mutation_attempted": false,
+    "sitemap_runtime_mutation_attempted": false,
+    "llms_runtime_mutation_attempted": false,
+    "gsc_submission_attempted": false,
+    "production_deploy_attempted": false
+  }
+}
