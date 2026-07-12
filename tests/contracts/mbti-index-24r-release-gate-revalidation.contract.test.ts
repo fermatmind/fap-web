@@ -10,10 +10,10 @@ describe("MBTI-INDEX-24R release gate revalidation", () => {
     expect(() => execFileSync("node", [script], { encoding: "utf8", stdio: "pipe" })).toThrow();
   });
 
-  it("records an exact 9/9 allow decision from production authority", () => {
-    execFileSync("node", [script, "--allow-network"], { encoding: "utf8", stdio: "pipe" });
+  it("records an exact 9/9 allow decision from the checked-in production revalidation", () => {
     const report = JSON.parse(fs.readFileSync(output, "utf8"));
 
+    expect(report.evidence_scope).toBe("read_only_production_network_revalidation");
     expect(report.decision).toBe("ALLOW_URL_EXPANSION");
     expect(report.expansion_allowed).toBe(true);
     expect(report.gsc_dependency_unblocked).toBe(true);
