@@ -588,6 +588,10 @@ function shouldRequireCompleteBigFiveCohort(): boolean {
   return process.env.NODE_ENV !== "test" || process.env.FERMATMIND_LLMS_FULL_REQUIRE_BIG_FIVE_COHORT === "true";
 }
 
+function shouldRequireCompleteEnneagramCohort(): boolean {
+  return process.env.NODE_ENV !== "test" || process.env.FERMATMIND_LLMS_FULL_REQUIRE_ENNEAGRAM_COHORT === "true";
+}
+
 export function hasExactBigFiveCanonicalCohort(text: string, siteUrl: string): boolean {
   const actualUrls = canonicalPathUrlSet(text, siteUrl, BIG_FIVE_PUBLIC_PATH_RE);
   const expectedUrls = new Set(BIG_FIVE_EXPECTED_CANONICAL_PATHS.map((path) => toCanonical(siteUrl, path)));
@@ -693,7 +697,7 @@ export function isCompleteLlmsFullText(
     return false;
   }
 
-  if (!hasExactEnneagramLlmsFullCohort(text, siteUrl)) {
+  if (shouldRequireCompleteEnneagramCohort() && !hasExactEnneagramLlmsFullCohort(text, siteUrl)) {
     return false;
   }
 

@@ -155,11 +155,21 @@ describe("ENNEAGRAM-LLMS-FULL-FRONTEND-ENUMERATION-01", () => {
   });
 
   it("requires the exact 116 Enneagram cohort before caching llms-full as complete", () => {
+    const previous = process.env.FERMATMIND_LLMS_FULL_REQUIRE_ENNEAGRAM_COHORT;
+    process.env.FERMATMIND_LLMS_FULL_REQUIRE_ENNEAGRAM_COHORT = "true";
     const paths = exactFullCohort().map((candidate) => candidate.canonicalPath);
 
-    expect(isCompleteLlmsFullText(llmsFullTextFor(paths), SITE_URL)).toBe(true);
-    expect(isCompleteLlmsFullText(llmsFullTextFor(paths.slice(1)), SITE_URL)).toBe(false);
-    expect(isCompleteLlmsFullText(llmsFullTextFor([...paths.slice(1), "/en/results/private"]), SITE_URL)).toBe(false);
+    try {
+      expect(isCompleteLlmsFullText(llmsFullTextFor(paths), SITE_URL)).toBe(true);
+      expect(isCompleteLlmsFullText(llmsFullTextFor(paths.slice(1)), SITE_URL)).toBe(false);
+      expect(isCompleteLlmsFullText(llmsFullTextFor([...paths.slice(1), "/en/results/private"]), SITE_URL)).toBe(false);
+    } finally {
+      if (previous === undefined) {
+        delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_ENNEAGRAM_COHORT;
+      } else {
+        process.env.FERMATMIND_LLMS_FULL_REQUIRE_ENNEAGRAM_COHORT = previous;
+      }
+    }
   });
 
   it("wires llms-full to Enneagram public API authority without using sitemap or editorial fallback", () => {
