@@ -31,10 +31,22 @@ describe("SECURITY-124-WEB-01 production deploy range guard", () => {
     expect(workflow).toContain("comparison.data.behind_by !== 0");
     expect(workflow).toContain("is not an ancestor");
     expect(workflow).toContain("commits.at(-1)?.sha !== deploySha");
-    expect(workflow).toContain("run?.name === name");
-    expect(workflow).toContain("run?.status === 'completed'");
-    expect(workflow).toContain("run?.conclusion === 'success'");
+    expect(workflow).toContain("const requiredCheckPollIntervalMs = 15_000");
+    expect(workflow).toContain("const requiredCheckWaitTimeoutMs = 12 * 60 * 1_000");
+    expect(workflow).toContain("Number(run.id) > Number(current.id)");
+    expect(workflow).toContain("run.status !== 'completed'");
+    expect(workflow).toContain("run.conclusion !== 'success'");
+    expect(workflow).toContain("timed out waiting for required checks");
+    expect(workflow).toContain("const refreshedMainSha = refreshedMain.data.commit.sha");
+    expect(workflow).toContain("Skipping automatic production deploy because");
     expect(workflow).not.toContain("(response) => response.data.check_runs");
+  });
+
+  it("treats expected automatic policy denials as successful skips", () => {
+    expect(workflow).toContain("core.notice([");
+    expect(workflow).toContain("Production auto-deploy blocked by policy.");
+    expect(workflow).toContain("Risky production revisions require SHA-bound workflow_dispatch authorization");
+    expect(workflow).toContain("core.setOutput('auto_deploy_allowed', 'false')");
   });
 
   it("blocks a risky PR even when a later PR in the deployment range is benign", () => {

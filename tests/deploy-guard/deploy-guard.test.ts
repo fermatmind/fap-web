@@ -6,6 +6,7 @@ import {
   RISKY_PATH_PATTERNS,
   RISKY_LABEL_PATTERNS,
   DEPLOY_SHA_RE,
+  classifyRequiredChecks,
 } from "@/scripts/ci/deploy-guard";
 
 const VALID_SHA = "a".repeat(40);
@@ -232,6 +233,55 @@ describe("DEPLOY_SHA_RE", () => {
 
   it("rejects non-hex", () => {
     expect(DEPLOY_SHA_RE.test("g".repeat(40))).toBe(false);
+  });
+});
+
+describe("classifyRequiredChecks", () => {
+  const required = ["build", "contracts"] as const;
+
+  it("waits while required checks are missing or running", () => {
+    expect(classifyRequiredChecks(required, [])).toEqual({
+      state: "waiting",
+      pending: ["build", "contracts"],
+      failed: [],
+    });
+    expect(
+      classifyRequiredChecks(required, [
+        { id: 1, name: "build", status: "in_progress", conclusion: null },
+        { id: 2, name: "contracts", status: "queued", conclusion: null },
+      ]).state
+    ).toBe("waiting");
+  });
+
+  it("is ready only when every newest required run succeeds", () => {
+    expect(
+      classifyRequiredChecks(required, [
+        { id: 1, name: "build", status: "completed", conclusion: "success" },
+        { id: 2, name: "contracts", status: "completed", conclusion: "success" },
+      ])
+    ).toEqual({ state: "ready", pending: [], failed: [] });
+  });
+
+  it.each(["failure", "cancelled", "timed_out", "skipped", "action_required"])(
+    "fails closed for a %s conclusion",
+    (conclusion) => {
+      const result = classifyRequiredChecks(required, [
+        { id: 1, name: "build", status: "completed", conclusion },
+        { id: 2, name: "contracts", status: "completed", conclusion: "success" },
+      ]);
+      expect(result.state).toBe("failed");
+      expect(result.failed).toEqual([{ name: "build", conclusion }]);
+    }
+  );
+
+  it("uses a successful rerun instead of an older failed run", () => {
+    expect(
+      classifyRequiredChecks(required, [
+        { id: 1, name: "build", status: "completed", conclusion: "failure" },
+        { id: 3, name: "build", status: "completed", conclusion: "success" },
+        { id: 2, name: "contracts", status: "completed", conclusion: "success" },
+      ]).state
+    ).toBe("ready");
   });
 });
 

@@ -63,6 +63,51 @@ export const PRIVATE_ROUTE_PATTERNS: ReadonlyArray<RegExp> = [
 
 export const DEPLOY_SHA_RE = /^[0-9a-f]{40}$/;
 
+export interface RequiredCheckRun {
+  id: number;
+  name: string;
+  status: string;
+  conclusion: string | null;
+}
+
+export interface RequiredCheckState {
+  state: "ready" | "waiting" | "failed";
+  pending: string[];
+  failed: Array<{ name: string; conclusion: string }>;
+}
+
+/** Classify the newest run for every required check name. */
+export function classifyRequiredChecks(
+  requiredNames: readonly string[],
+  runs: readonly RequiredCheckRun[]
+): RequiredCheckState {
+  const newestByName = new Map<string, RequiredCheckRun>();
+  for (const run of runs) {
+    if (!requiredNames.includes(run.name)) continue;
+    const current = newestByName.get(run.name);
+    if (!current || run.id > current.id) newestByName.set(run.name, run);
+  }
+
+  const pending: string[] = [];
+  const failed: Array<{ name: string; conclusion: string }> = [];
+  for (const name of requiredNames) {
+    const run = newestByName.get(name);
+    if (!run || run.status !== "completed") {
+      pending.push(name);
+      continue;
+    }
+    if (run.conclusion !== "success") {
+      failed.push({ name, conclusion: run.conclusion || "missing" });
+    }
+  }
+
+  return {
+    state: failed.length > 0 ? "failed" : pending.length > 0 ? "waiting" : "ready",
+    pending,
+    failed,
+  };
+}
+
 /** Result of evaluating the deploy policy guard. */
 export interface GuardResult {
   /** Whether the deploy is allowed. */
