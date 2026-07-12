@@ -11,6 +11,7 @@ import type { Locale } from "@/lib/i18n/locales";
 import { listDiscoverableTopicsWithLastKnownGood } from "@/lib/cms/topics";
 import { isSharedDiscoverabilityDeniedPath } from "@/lib/seo/discoverabilityExposurePolicy";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
+import { readMbtiAuthorityLastKnownGood } from "@/lib/seo/backendSitemapMbtiAuthorityCache";
 import {
   listBackendSitemapBigFiveZhPaths,
   listBackendSitemapCareerJobPaths,
@@ -148,10 +149,11 @@ function mergePersonalityPaths(mbtiPersonalityPaths: string[], bigFiveZhPaths: s
 }
 
 async function listPersonalityPaths(): Promise<PersonalityPathResult> {
+  const mbtiAuthorityLastKnownGood = await readMbtiAuthorityLastKnownGood();
   const [mbtiPersonalityPaths, bigFiveZhPaths, enneagramPaths] = await Promise.all([
     withLlmsRouteBudget(
       (signal) => listBackendSitemapMbtiPersonalityPaths({ signal }),
-      [],
+      mbtiAuthorityLastKnownGood,
       { timeoutMs: LLMS_ROUTE_PERSONALITY_TIMEOUT_MS }
     ),
     withLlmsRouteBudget(
