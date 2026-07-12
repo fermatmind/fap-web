@@ -2,6 +2,10 @@ import { ApiError, apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { cmsManagedMediaUrl } from "@/lib/cms/media";
+import {
+  PERSONALITY_DETAIL_TIMEOUT_MS,
+  withPersonalityDetailRetry,
+} from "@/lib/cms/personalityReadStability";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import {
@@ -92,6 +96,7 @@ type CmsPersonalityDetailApiResponse = {
   mbti_public_projection_v1?: CmsPersonalityApiProjectionV1 | null;
   landing_surface_v1?: LandingSurfaceRaw | null;
   answer_surface_v1?: AnswerSurfaceRaw | null;
+  seo_surface_v1?: SeoSurfaceRaw | null;
 };
 
 type CmsPersonalitySeoApiResponse = {
@@ -543,6 +548,7 @@ export type PersonalityProjectionViewModel = {
   seoMeta: CmsPersonalitySeoMeta | null;
   landingSurface: LandingSurfaceViewModel | null;
   answerSurface: AnswerSurfaceViewModel | null;
+  seoSurface: SeoSurfaceViewModel | null;
 };
 
 export type PersonalityComparisonVariantViewModel = {
@@ -1385,6 +1391,7 @@ function buildProjectionViewModel(
     seoMeta: detailProfile.seoMeta,
     landingSurface: null,
     answerSurface: null,
+    seoSurface: null,
   };
 }
 
@@ -1616,7 +1623,7 @@ export function normalizePersonalitySeoPayload(
           }
         : profile
     ),
-    surface: seo?.surface ?? null,
+    surface: seo?.surface ?? ("projection" in profile ? profile.seoSurface : null),
   };
 }
 
@@ -1716,14 +1723,15 @@ async function getPersonalityDetailResponseBySlugOrType(
   });
 
   try {
-    return await apiClient.get<CmsPersonalityDetailApiResponse>(
+    return await withPersonalityDetailRetry(() => apiClient.get<CmsPersonalityDetailApiResponse>(
       `/v0.5/personality/${encodeURIComponent(normalizedSlug)}${query}`,
       {
         locale,
         skipAuth: true,
+        timeoutMs: PERSONALITY_DETAIL_TIMEOUT_MS,
         ...PUBLIC_API_CACHE_OPTIONS,
       }
-    );
+    ));
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
       return null;
@@ -1769,6 +1777,7 @@ export async function getPersonalityProjectionDetailBySlugOrType(
     ...buildProjectionViewModel(detailProfile, projection),
     landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
     answerSurface: normalizeAnswerSurface(response.answer_surface_v1 ?? null),
+    seoSurface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
   };
 }
 

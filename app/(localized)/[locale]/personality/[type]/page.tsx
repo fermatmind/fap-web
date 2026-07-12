@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
+import { cache } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
@@ -627,27 +628,31 @@ function buildFallbackPersonalityDetail(type: string, locale: Locale): Personali
     seoMeta: null,
     landingSurface: null,
     answerSurface: null,
+    seoSurface: null,
   };
 }
 
-async function loadPersonalityPublicDetail(
+const loadPersonalityPublicDetail = cache(async function loadPersonalityPublicDetail(
   type: string,
   locale: Locale
 ): Promise<{ detail: PersonalityProjectionViewModel | null; seo: Awaited<ReturnType<typeof getPersonalitySeoBySlugOrType>> | null }> {
-  try {
-    const [detail, seo] = await Promise.all([
-      getPersonalityProjectionDetailBySlugOrType(type, locale),
-      getPersonalitySeoBySlugOrType(type, locale),
-    ]);
+  const [detailResult, seoResult] = await Promise.allSettled([
+    getPersonalityProjectionDetailBySlugOrType(type, locale),
+    getPersonalitySeoBySlugOrType(type, locale),
+  ]);
 
-    return { detail, seo };
-  } catch {
+  if (detailResult.status === "rejected") {
     return {
       detail: buildFallbackPersonalityDetail(type, locale),
       seo: null,
     };
   }
-}
+
+  return {
+    detail: detailResult.value,
+    seo: seoResult.status === "fulfilled" ? seoResult.value : null,
+  };
+});
 
 async function loadPersonalityComparison(type: string, locale: Locale): Promise<PersonalityComparisonViewModel | null> {
   if (!isPersonalityComparisonSlug(type)) {
