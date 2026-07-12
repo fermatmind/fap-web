@@ -1,9 +1,23 @@
+import fs from "node:fs";
+import path from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { sanitizeCmsHtml } from "@/lib/cms/sanitizeCmsRichText";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 
 describe("article internal link anchor text", () => {
+  it("does not hydrate article labels through per-link detail requests", () => {
+    const source = fs.readFileSync(
+      path.join(process.cwd(), "app/(localized)/[locale]/articles/[slug]/page.tsx"),
+      "utf8"
+    );
+
+    expect(source).not.toContain("buildArticleInternalLinkLabels");
+    expect(source).not.toContain("slice(0, 24)");
+    expect(source).not.toContain("extractInternalPaths");
+    expect(source.match(/getCmsArticleWithLastKnownGood\(/g)).toHaveLength(2);
+  });
+
   it("renders bare Markdown internal paths as descriptive links", () => {
     const html = renderToStaticMarkup(
       <>
