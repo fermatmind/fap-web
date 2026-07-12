@@ -28,7 +28,7 @@ describe("private result print chrome contract", () => {
     expect(localizedLayout).toContain("useResultPrintSnapshotShell");
     expect(localizedLayout).toContain('data-pdf-snapshot-shell={useResultPrintSnapshotShell ? "true" : undefined}');
     expect(localizedLayout).toContain("{useResultPrintSnapshotShell ? (");
-    expect(localizedLayout).toContain("<SiteChrome productPriority={productPriority}>{children}</SiteChrome>");
+    expect(localizedLayout).toContain("<SiteChrome locale={resolvedLocale} productPriority={productPriority}>{children}</SiteChrome>");
     expect(localizedLayout).toContain("<CookieBanner />");
     expect(globals).toContain("@media print");
     expect(globals).toContain('body:has([data-private-result-print-root="true"]) [data-private-result-print-hidden="true"]');
@@ -80,10 +80,11 @@ describe("private result print chrome contract", () => {
 
   it("does not change global footer IA or social link rendering", () => {
     const siteFooter = read("components/layout/SiteFooter.tsx");
+    const socialRail = read("components/layout/SiteFooterSocialRail.tsx");
 
     expect(siteFooter).toContain("footerGroups.map");
-    expect(siteFooter).toContain("FOOTER_SOCIAL_ITEMS");
-    expect(siteFooter).toContain("fm-social-badge--footer");
     expect(siteFooter).toContain("href={withLocale(item.href)}");
+    expect(socialRail).toContain("FOOTER_SOCIAL_ITEMS");
+    expect(socialRail).toContain("fm-social-badge--footer");
   });
 });

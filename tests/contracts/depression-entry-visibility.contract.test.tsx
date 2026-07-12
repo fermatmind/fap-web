@@ -188,7 +188,7 @@ describe("depression entry visibility contract", () => {
   it("removes both depression-related entries from the rendered footer", () => {
     render(
       <LocaleProvider locale="en">
-        <SiteFooter />
+        <SiteFooter locale="en" />
       </LocaleProvider>
     );
 

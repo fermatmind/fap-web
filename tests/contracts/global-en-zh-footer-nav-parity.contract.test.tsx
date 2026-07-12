@@ -20,7 +20,7 @@ const KNOWN_MISSING_CONTENT_HELP_POLICY_PATHS = [
 function collectFooterHrefs(locale: "en" | "zh"): string[] {
   render(
     <LocaleProvider locale={locale}>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </LocaleProvider>
   );
 
@@ -34,7 +34,7 @@ describe("GLOBAL-EN-ZH-PARITY-FOOTER-NAV-PARITY-01", () => {
   it("renders the same footer group architecture for English and Chinese", () => {
     render(
       <LocaleProvider locale="en">
-        <SiteFooter />
+        <SiteFooter locale="en" />
       </LocaleProvider>
     );
 
@@ -51,7 +51,7 @@ describe("GLOBAL-EN-ZH-PARITY-FOOTER-NAV-PARITY-01", () => {
 
     render(
       <LocaleProvider locale="zh">
-        <SiteFooter />
+        <SiteFooter locale="zh" />
       </LocaleProvider>
     );
 

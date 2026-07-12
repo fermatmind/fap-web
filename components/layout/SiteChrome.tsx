@@ -1,15 +1,16 @@
-"use client";
-
 import { Suspense, type ReactNode } from "react";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import type { ProductPriorityEnvSnapshot } from "@/lib/rollout/scaleRollout";
+import type { Locale } from "@/lib/i18n/locales";
 
 export function SiteChrome({
   children,
+  locale,
   productPriority,
 }: {
   children: ReactNode;
+  locale: Locale;
   productPriority: ProductPriorityEnvSnapshot;
 }) {
   return (
@@ -18,7 +19,7 @@ export function SiteChrome({
         <SiteHeader productPriority={productPriority} />
       </Suspense>
       {children}
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </div>
   );
 }

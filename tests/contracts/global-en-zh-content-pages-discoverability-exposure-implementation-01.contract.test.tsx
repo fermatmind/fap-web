@@ -59,7 +59,7 @@ describe("Wave 1 English content page discoverability exposure implementation", 
   it("exposes the five approved English pages in footer navigation", () => {
     render(
       <LocaleProvider locale="en">
-        <SiteFooter />
+        <SiteFooter locale="en" />
       </LocaleProvider>
     );
 
