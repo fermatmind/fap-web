@@ -44547,15 +44547,16 @@
     "branch": "codex/fap-web-llms-feed-cache-ops-01",
     "title": "FAP-WEB-LLMS-FEED-CACHE-OPS-01: add llms feed cache-only ops workflow",
     "depends_on": ["ENNEAGRAM-LLMS-FULL-FRONTEND-ENUMERATION-01"],
-    "status": "pr_open",
+    "status": "ready_to_merge",
     "commit_sha": "af5ab889bb47f5688bbecce69c8145b10c7e516a",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1720",
     "checks": {
       "authorization": {"status": "pass", "evidence": "User explicitly authorized adding this independent fap-web repair/ops PR, allowed paths, fixed workflow inputs, and PR-train metadata. The PR itself must not run the workflow, deploy, mutate CMS/backend data, change eligibility, or trigger Search/IndexNow."},
       "dependency": {"status": "pass", "evidence": "ENNEAGRAM-LLMS-FULL-FRONTEND-ENUMERATION-01 is merged in PR #1719 at 11826dc0034ad111a0456f397a104a332c9b8b08 and is contained in origin/main."},
-      "required_local_checks": {"status": "pass", "evidence": "Node 24 focused workflow contract passed 6/6; pnpm typecheck passed; YAML/JSON parse for docs/codex and the new workflow passed; git diff --check passed; changed-file scope validation is limited to the four authorized paths."}
+      "required_local_checks": {"status": "pass", "evidence": "Node 24 focused workflow contract passed 6/6; pnpm typecheck passed; YAML/JSON parse for docs/codex and the new workflow passed; git diff --check passed; changed-file scope validation is limited to the four authorized paths."},
+      "github_checks": {"status": "pass", "evidence": "PR #1720 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts before the ready_to_merge ledger update."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -44566,8 +44567,8 @@
     "cms_mutation": false,
     "publish_allowed": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-07-12T14:23:21Z", "status": "in_progress", "summary": "Started from fap-web origin/main 11826dc0034ad111a0456f397a104a332c9b8b08 in an isolated worktree. Scope is only the manual cache-only llms feed ops workflow, focused workflow contract, and authorized train metadata; no workflow dispatch, PM2 reload, deployment, CMS write, eligibility write, Search Queue, IndexNow, or HMAC revalidation API change occurred."}, {"at": "2026-07-12T14:28:07Z", "status": "local_verified", "summary": "Implemented the manual production-protected cache-only feed ops workflow and focused contract. All manifest local checks passed within the exact four-path scope; no workflow dispatch, PM2 reload, deployment, CMS write, eligibility write, Search Queue, IndexNow, or HMAC revalidation API change occurred."}, {"at": "2026-07-12T14:29:00Z", "status": "committed", "summary": "Committed the exact four-path implementation as af5ab889bb47f5688bbecce69c8145b10c7e516a using path-limited staging. This follow-up ledger correction records the immutable implementation commit; no workflow dispatch or production action occurred."}, {"at": "2026-07-12T14:30:00Z", "status": "pr_open", "summary": "Pushed codex/fap-web-llms-feed-cache-ops-01 and opened PR #1720. GitHub checks are pending; no workflow dispatch, PM2 reload, deployment, CMS write, eligibility write, Search Queue, IndexNow, or HMAC revalidation API change occurred."}],
-    "updated_at": "2026-07-12T14:30:00Z"
+    "history": [{"at": "2026-07-12T14:23:21Z", "status": "in_progress", "summary": "Started from fap-web origin/main 11826dc0034ad111a0456f397a104a332c9b8b08 in an isolated worktree. Scope is only the manual cache-only llms feed ops workflow, focused workflow contract, and authorized train metadata; no workflow dispatch, PM2 reload, deployment, CMS write, eligibility write, Search Queue, IndexNow, or HMAC revalidation API change occurred."}, {"at": "2026-07-12T14:28:07Z", "status": "local_verified", "summary": "Implemented the manual production-protected cache-only feed ops workflow and focused contract. All manifest local checks passed within the exact four-path scope; no workflow dispatch, PM2 reload, deployment, CMS write, eligibility write, Search Queue, IndexNow, or HMAC revalidation API change occurred."}, {"at": "2026-07-12T14:29:00Z", "status": "committed", "summary": "Committed the exact four-path implementation as af5ab889bb47f5688bbecce69c8145b10c7e516a using path-limited staging. This follow-up ledger correction records the immutable implementation commit; no workflow dispatch or production action occurred."}, {"at": "2026-07-12T14:30:00Z", "status": "pr_open", "summary": "Pushed codex/fap-web-llms-feed-cache-ops-01 and opened PR #1720. GitHub checks are pending; no workflow dispatch, PM2 reload, deployment, CMS write, eligibility write, Search Queue, IndexNow, or HMAC revalidation API change occurred."}, {"at": "2026-07-12T14:38:00Z", "status": "ready_to_merge", "summary": "All required GitHub checks passed and PR #1720 remains limited to the four authorized paths. Ready for squash merge; the workflow has not been dispatched and no production action occurred."}],
+    "updated_at": "2026-07-12T14:38:00Z"
   },
   "PERF-BASELINE-01": {
     "id": "PERF-BASELINE-01",
