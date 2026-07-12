@@ -46,7 +46,7 @@ function footerHrefs(locale: "en" | "zh"): string[] {
   cleanup();
   render(
     <LocaleProvider locale={locale}>
-      <SiteFooter />
+      <SiteFooter locale={locale} />
     </LocaleProvider>
   );
 
@@ -73,7 +73,7 @@ describe("GLOBAL-EN-ZH-GLOBAL-UI-I18N-BATCH-08", () => {
 
     const englishFooter = render(
       <LocaleProvider locale="en">
-        <SiteFooter />
+        <SiteFooter locale="en" />
       </LocaleProvider>
     );
     expect(screen.getByTestId("site-footer-group-tests")).toHaveTextContent(en.footer.groupTitles.tests);
@@ -86,7 +86,7 @@ describe("GLOBAL-EN-ZH-GLOBAL-UI-I18N-BATCH-08", () => {
 
     render(
       <LocaleProvider locale="zh">
-        <SiteFooter />
+        <SiteFooter locale="zh" />
       </LocaleProvider>
     );
     expect(screen.getByTestId("site-footer-group-tests")).toHaveTextContent(zh.footer.groupTitles.tests);

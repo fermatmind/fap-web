@@ -7,7 +7,7 @@ describe("site footer routing contract", () => {
   it("keeps english footer structure aligned while exposing only authority-backed company links", () => {
     render(
       <LocaleProvider locale="en">
-        <SiteFooter />
+        <SiteFooter locale="en" />
       </LocaleProvider>
     );
 
@@ -31,7 +31,7 @@ describe("site footer routing contract", () => {
   it("keeps chinese footer structure aligned while suppressing known missing policy links", () => {
     render(
       <LocaleProvider locale="zh">
-        <SiteFooter />
+        <SiteFooter locale="zh" />
       </LocaleProvider>
     );
 

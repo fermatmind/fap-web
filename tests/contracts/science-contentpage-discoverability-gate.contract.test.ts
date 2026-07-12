@@ -181,7 +181,7 @@ describe("SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01", () => {
       zh: routes,
     });
 
-    render(React.createElement(TestLocaleProvider, { locale: "zh" }, React.createElement(SiteFooter)));
+    render(React.createElement(TestLocaleProvider, { locale: "zh" }, React.createElement(SiteFooter, { locale: "zh" })));
     expect(screen.getByRole("link", { name: "测评科学" })).toHaveAttribute("href", "/zh/science");
     expect(screen.getByRole("link", { name: "方法边界" })).toHaveAttribute("href", "/zh/method-boundaries");
     expect(screen.getByRole("link", { name: "题目设计说明" })).toHaveAttribute("href", "/zh/item-design-notes");
@@ -189,7 +189,7 @@ describe("SCIENCE-CONTENTPAGE-DISCOVERABILITY-GATE-01", () => {
     expect(screen.getByRole("link", { name: "数据说明" })).toHaveAttribute("href", "/zh/data-privacy");
     expect(screen.getByRole("link", { name: "常见误区" })).toHaveAttribute("href", "/zh/common-misconceptions");
 
-    render(React.createElement(TestLocaleProvider, { locale: "en" }, React.createElement(SiteFooter)));
+    render(React.createElement(TestLocaleProvider, { locale: "en" }, React.createElement(SiteFooter, { locale: "en" })));
     expect(screen.getByRole("link", { name: "Assessment science" })).toHaveAttribute("href", "/en/science");
     expect(screen.getByRole("link", { name: "Method boundaries" })).toHaveAttribute("href", "/en/method-boundaries");
     expect(screen.getByRole("link", { name: "Item design notes" })).toHaveAttribute("href", "/en/item-design-notes");

@@ -110,7 +110,7 @@ export default async function LocalizedRootLayout({
               children
             ) : (
               <>
-                <SiteChrome productPriority={productPriority}>{children}</SiteChrome>
+                <SiteChrome locale={resolvedLocale} productPriority={productPriority}>{children}</SiteChrome>
                 <CookieBanner />
               </>
             )}

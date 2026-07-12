@@ -24772,3 +24772,50 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: GLOBAL-JS-01
+
+  - id: GLOBAL-JS-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/global-js-01
+    base: main
+    title: "GLOBAL-JS-01: split the global client shell"
+    depends_on: [CAREER-CACHE-01]
+    mode: execute
+    train_scope: global_server_shell_islands
+    status: user_authorized
+    goal: "Move SiteChrome and static footer navigation to server components while preserving SiteHeader, footer social controls, and CookieBanner as explicit client islands."
+    allowed_paths:
+      - app/(root)/layout.tsx
+      - app/(localized)/[locale]/layout.tsx
+      - components/layout/SiteChrome.tsx
+      - components/layout/SiteFooter.tsx
+      - components/layout/SiteFooterSocialRail.tsx
+      - tests/contracts/global-js-shell-boundary.contract.test.ts
+      - tests/contracts/site-footer-social.contract.test.tsx
+      - tests/contracts/site-footer-routing.contract.test.tsx
+      - tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx
+      - tests/contracts/global-ui-i18n-batch-08.contract.test.tsx
+      - tests/contracts/result-private-print-chrome.contract.test.ts
+      - tests/contracts/global-en-zh-content-pages-discoverability-exposure-implementation-01.contract.test.tsx
+      - tests/contracts/depression-entry-visibility.contract.test.tsx
+      - tests/contracts/science-contentpage-discoverability-gate.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - lazy loading, QR priority changes, header interaction redesign, locale behavior changes, content/SEO authority, CMS mutation, warmup, staging wait, or production deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/global-js-shell-boundary.contract.test.ts tests/contracts/site-footer-social.contract.test.tsx tests/contracts/site-footer-routing.contract.test.tsx tests/contracts/global-en-zh-footer-nav-parity.contract.test.tsx tests/contracts/global-ui-i18n-batch-08.contract.test.tsx tests/contracts/result-private-print-chrome.contract.test.ts tests/contracts/global-en-zh-content-pages-discoverability-exposure-implementation-01.contract.test.tsx tests/contracts/depression-entry-visibility.contract.test.tsx
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: GLOBAL-JS-02

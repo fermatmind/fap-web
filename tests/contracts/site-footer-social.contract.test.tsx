@@ -8,7 +8,7 @@ describe("site footer social contract", () => {
   it("keeps the QR panel open when activation follows focus", () => {
     render(
       <LocaleProvider locale="en">
-        <SiteFooter />
+        <SiteFooter locale="en" />
       </LocaleProvider>
     );
 

@@ -71,7 +71,7 @@ export default function RootRouteLayout({ children }: { children: ReactNode }) {
         <AnalyticsScripts />
         <Providers>
           <LocaleProvider locale="zh">
-            <SiteChrome productPriority={productPriority}>{children}</SiteChrome>
+            <SiteChrome locale="zh" productPriority={productPriority}>{children}</SiteChrome>
             <CookieBanner />
           </LocaleProvider>
         </Providers>
