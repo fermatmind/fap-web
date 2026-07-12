@@ -43896,7 +43896,7 @@
     ]
   },
   "MBTI-INDEX-24C": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-index-24c-llms-personality-budget",
     "depends_on": [
@@ -43904,7 +43904,7 @@
     ],
     "train_scope": "mbti_llms_personality_authority_budget_stability",
     "title": "MBTI-INDEX-24C: stabilize llms personality authority enumeration",
-    "commit_sha": "ecdb8da45152b0aa532fb3c7f2282f8e17e1ddd2",
+    "commit_sha": "7417ffa1f42c0c58b395c56856c18c9ff589e669",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1700",
     "checks": {
       "dependency": {
@@ -43924,13 +43924,14 @@
       "scope_validation": "passed: exact seven-path allowlist",
       "github_required_checks": "passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL"
     },
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-11T21:11:25Z",
+    "merge_commit_sha": "7417ffa1f42c0c58b395c56856c18c9ff589e669",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "failure_reason": null,
     "next_task": "MBTI-INDEX-24R",
     "created_at": "2026-07-12T04:13:51+08:00",
-    "updated_at": "2026-07-12T05:01:00+08:00",
+    "updated_at": "2026-07-12T10:10:00+08:00",
     "history": [
       {
         "at": "2026-07-12T04:13:51+08:00",
@@ -43951,11 +43952,16 @@
         "at": "2026-07-12T05:01:00+08:00",
         "status": "ready_to_merge",
         "note": "All required GitHub checks passed and PR #1700 remains scope-clean and mergeable."
+      },
+      {
+        "at": "2026-07-12T10:10:00+08:00",
+        "status": "merged",
+        "note": "Reconciled from GitHub and production: PR #1700 squash-merged at 7417ffa1f42c0c58b395c56856c18c9ff589e669; origin/main contains the merge; task branches are absent; Node1 deploy workflow run 29175475935 succeeded at the exact SHA; sitemap, llms and llms-full enumerate the target cohort 9/9."
       }
     ]
   },
   "MBTI-INDEX-24R": {
-    "status": "planned",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-index-24r-release-gate-revalidation",
     "depends_on": [
@@ -43963,16 +43969,56 @@
     ],
     "train_scope": "mbti_nine_url_release_gate_revalidation",
     "title": "MBTI-INDEX-24R: revalidate nine promoted MBTI URLs",
-    "commit_sha": null,
-    "pr_url": null,
-    "checks": [],
+    "commit_sha": "39bfb84adbbcc365972eda4a1ba83d930810cb8e",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1701",
+    "checks": {
+      "dependency": {
+        "status": "passed",
+        "evidence": "MBTI-INDEX-24C is merged and deployed at 7417ffa1f42c0c58b395c56856c18c9ff589e669; production workflow run 29175475935 succeeded."
+      },
+      "network_gate_repeatability": "passed: two consecutive ALLOW_URL_EXPANSION runs, all metrics 9/9, zero private URL leaks",
+      "focused_contract": "passed: 1 file, 3 tests",
+      "typecheck": "passed with Node 24",
+      "full_contracts": "passed: all 4 shards",
+      "production_build": "passed with production site/API URLs",
+      "yaml_json": "passed",
+      "diff_check": "passed",
+      "scope_validation": "passed: exact manifest allowlist"
+    },
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "failure_reason": null,
     "next_task": "MBTI-GSC-25",
     "created_at": "2026-07-12T04:13:51+08:00",
-    "updated_at": "2026-07-12T04:13:51+08:00"
+    "updated_at": "2026-07-12T11:15:34+08:00",
+    "history": [
+      {
+        "at": "2026-07-12T10:10:00+08:00",
+        "status": "in_progress",
+        "note": "Started after exact-SHA frontend deployment. The read-only production gate returned ALLOW_URL_EXPANSION twice with CMS/API, canonical, robots, JSON-LD, FAQ parity, sitemap, llms and llms-full all 9/9 and zero private URL leaks. No GSC action occurred."
+      },
+      {
+        "at": "2026-07-12T10:18:00+08:00",
+        "status": "local_checks_passed",
+        "note": "Read-only network gate, focused contract, Node 24 typecheck, all contract shards, production API build, YAML/JSON parsing, diff check, and exact changed-file scope validation passed."
+      },
+      {
+        "at": "2026-07-12T10:23:00+08:00",
+        "status": "pr_open_checks_pending",
+        "note": "Opened PR #1701 with the exact seven-path scope. Required GitHub checks are pending; no GSC mutation, CMS write, promotion or deploy occurred in INDEX-24R."
+      },
+      {
+        "at": "2026-07-12T10:57:05+08:00",
+        "status": "pr_open_checks_pending",
+        "note": "Inspected the failed CodeQL check before editing: it reported one high-severity double-unescaping alert in normalizeText. Replaced sequential entity replacements with one fixed-map decoding pass, added a regression source contract, passed the focused 3-test contract, and repeated the read-only production gate twice with all metrics 9/9 and zero private URL leaks. Scope, YAML/JSON and diff checks passed; awaiting rerun of required GitHub checks."
+      },
+      {
+        "at": "2026-07-12T11:15:34+08:00",
+        "status": "ready_to_merge",
+        "note": "CodeQL, analysis, build, contracts, Big Five freeze and Enneagram freeze checks all passed for corrective commit 8043094b. The first contracts job was cancelled after its test step succeeded; rerunning that failed job completed successfully without code changes. PR scope remains the exact seven-path manifest allowlist."
+      }
+    ]
   },
   "MBTI-GSC-25": {
     "status": "planned",
