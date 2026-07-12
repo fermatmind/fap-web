@@ -104,7 +104,7 @@ describe("llms feed cache-only ops workflow", () => {
   });
 
   it("uploads JSON and Markdown audit summaries", () => {
-    expect(workflow).toContain("actions/upload-artifact@99df26d4f13ea111d4ec1a7dddef6063f76b97e9");
+    expect(workflow).toContain("actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4");
     expect(workflow).toContain("llms-feed-cache-ops-summary.json");
     expect(workflow).toContain("llms-feed-cache-ops-summary.md");
     expect(workflow).toContain("if-no-files-found: error");
