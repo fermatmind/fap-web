@@ -26,7 +26,7 @@ jobs:
   policy-guard:
     name: Production auto-deploy policy guard
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     if: >-
       ${{
         github.event_name == 'workflow_dispatch' ||
@@ -115,18 +115,78 @@ jobs:
                 'verify-big5-contract-freeze',
                 'verify-enneagram-contract-freeze',
               ];
-              const checkRuns = await github.paginate(
-                github.rest.checks.listForRef,
-                { owner, repo, ref: deploySha, per_page: 100 },
-              );
-              const failedRequiredChecks = requiredCheckNames.filter((name) =>
-                !checkRuns.some((run) => (
-                  run?.name === name && run?.status === 'completed' && run?.conclusion === 'success'
-                )),
-              );
-              if (failedRequiredChecks.length > 0) {
-                core.setFailed(
-                  `Production deploy failed closed: required checks are not successful: ${failedRequiredChecks.join(', ')}.`,
+              const requiredCheckPollIntervalMs = 15_000;
+              const requiredCheckWaitTimeoutMs = 12 * 60 * 1_000;
+              const requiredCheckDeadline = Date.now() + requiredCheckWaitTimeoutMs;
+              while (true) {
+                const checkRuns = await github.paginate(
+                  github.rest.checks.listForRef,
+                  { owner, repo, ref: deploySha, per_page: 100 },
+                );
+                const newestRequiredChecks = new Map();
+                for (const run of checkRuns) {
+                  if (!requiredCheckNames.includes(run?.name)) continue;
+                  const current = newestRequiredChecks.get(run.name);
+                  if (!current || Number(run.id) > Number(current.id)) {
+                    newestRequiredChecks.set(run.name, run);
+                  }
+                }
+
+                const pendingRequiredChecks = [];
+                const failedRequiredChecks = [];
+                for (const name of requiredCheckNames) {
+                  const run = newestRequiredChecks.get(name);
+                  if (!run || run.status !== 'completed') {
+                    pendingRequiredChecks.push(name);
+                  } else if (run.conclusion !== 'success') {
+                    failedRequiredChecks.push(`${name}:${run.conclusion || 'missing'}`);
+                  }
+                }
+
+                if (failedRequiredChecks.length > 0) {
+                  core.setFailed(
+                    `Production deploy failed closed: required checks failed: ${failedRequiredChecks.join(', ')}.`,
+                  );
+                  return;
+                }
+                if (pendingRequiredChecks.length === 0) break;
+                if (Date.now() >= requiredCheckDeadline) {
+                  core.setFailed(
+                    `Production deploy failed closed: timed out waiting for required checks: ${pendingRequiredChecks.join(', ')}.`,
+                  );
+                  return;
+                }
+
+                core.info(`Waiting for required checks: ${pendingRequiredChecks.join(', ')}.`);
+                await new Promise((resolve) => setTimeout(resolve, requiredCheckPollIntervalMs));
+              }
+
+              const refreshedMain = await github.rest.repos.getBranch({ owner, repo, branch: 'main' });
+              const refreshedMainSha = refreshedMain.data.commit.sha;
+              if (isManualDispatch) {
+                const refreshedMembership = await github.rest.repos.compareCommitsWithBasehead({
+                  owner,
+                  repo,
+                  basehead: `${deploySha}...${refreshedMainSha}`,
+                  per_page: 1,
+                });
+                const deployShaStillOnMain = (
+                  refreshedMembership.data.status === 'identical' ||
+                  (
+                    refreshedMembership.data.status === 'ahead' &&
+                    refreshedMembership.data.behind_by === 0
+                  )
+                );
+                if (!deployShaStillOnMain) {
+                  core.setFailed(
+                    `Manual production deploy failed closed: deploy SHA ${deploySha} is no longer contained in main ${refreshedMainSha}.`,
+                  );
+                  return;
+                }
+              } else if (deploySha !== refreshedMainSha) {
+                core.setOutput('auto_deploy_allowed', 'false');
+                core.notice(
+                  `Skipping automatic production deploy because ${deploySha} was superseded by main ${refreshedMainSha}.`,
                 );
                 return;
               }
@@ -269,8 +329,8 @@ jobs:
               if (riskyLabels.length > 0 || riskyFiles.length > 0) {
                 if (!isManualDispatch) {
                   core.setOutput('auto_deploy_allowed', 'false');
-                  core.setFailed([
-                    'Production auto-deploy policy failed closed.',
+                  core.notice([
+                    'Production auto-deploy blocked by policy.',
                     riskyLabels.length > 0 ? `Risk labels: ${riskyLabels.join(', ')}` : 'Risk labels: none',
                     riskyFiles.length > 0 ? `Risk files: ${riskyFiles.join(', ')}` : 'Risk files: none',
                     'Risky production revisions require SHA-bound workflow_dispatch authorization and protected production Environment approval.',

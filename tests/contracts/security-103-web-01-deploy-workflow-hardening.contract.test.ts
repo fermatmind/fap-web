@@ -91,7 +91,8 @@ describe("SECURITY-103-WEB-01 deploy workflow hardening", () => {
     expect(productionWorkflow).toContain("listPullRequestsAssociatedWithCommit");
     expect(productionWorkflow).toContain("expected exactly one merged main PR");
     expect(productionWorkflow).toContain("Production auto-deploy policy passed for the complete verified main change range.");
-    expect(productionWorkflow).toContain("Production auto-deploy policy failed closed.");
+    expect(productionWorkflow).toContain("Production auto-deploy blocked by policy.");
+    expect(productionWorkflow).toContain("core.notice([");
     expect(productionWorkflow).toContain("riskyLabelPatterns");
     expect(productionWorkflow).toContain("riskyPathPatterns");
     expect(productionWorkflow).toContain("manual_risk_approval:");
