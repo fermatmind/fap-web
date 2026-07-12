@@ -83,12 +83,17 @@ describe("llms feed cache-only ops workflow", () => {
     expect(workflow).toContain("/llms.txt");
     expect(workflow).toContain("/llms-full.txt");
     expect(workflow).toContain("enneagram_count");
-    expect(workflow).toContain("duplicate_count");
+    expect(workflow).toContain("unique_canonical_count");
+    expect(workflow).toContain("duplicate_raw_url_count");
+    expect(workflow).toContain("duplicate_raw_occurrence_total");
     expect(workflow).toContain("malformed_count");
     expect(workflow).toContain("non_apex_count");
     expect(workflow).toContain("forbidden_count");
     expect(workflow).toContain("x-fermatmind-llms-full-mode");
     expect(workflow).toContain("target.headers.llms_full_mode !== expectedMode");
+    expect(workflow).toContain('feedPath === "/llms.txt" && target.duplicate_raw_url_count !== 0');
+    expect(workflow).not.toContain('feedPath === "/llms-full.txt" && target.duplicate_raw_url_count !== 0');
+    expect(workflow).toContain("Target duplicate advisory/private/malformed/non-apex counters");
 
     for (const sideEffect of [
       "deploy: 0",
@@ -112,6 +117,7 @@ describe("llms feed cache-only ops workflow", () => {
   });
 
   it("uploads JSON and Markdown audit summaries", () => {
+    expect(workflow).toContain("if: always()");
     expect(workflow).toContain("actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4");
     expect(workflow).toContain("llms-feed-cache-ops-summary.json");
     expect(workflow).toContain("llms-feed-cache-ops-summary.md");

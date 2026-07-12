@@ -251,8 +251,11 @@ jobs:
               .map(([url, count]) => ({ url, count }));
 
             return {
+              unique_canonical_count: countsByUrl.size,
               enneagram_count: countsByUrl.size,
               raw_match_count: rawMatches.length,
+              duplicate_raw_url_count: duplicate.length,
+              duplicate_raw_occurrence_total: duplicate.reduce((total, item) => total + item.count - 1, 0),
               duplicate_count: duplicate.length,
               malformed_count: malformed.length,
               non_apex_count: nonApex.length,
@@ -290,12 +293,14 @@ jobs:
               failures.push(`${feedPath} Enneagram count ${target.enneagram_count} did not match expected ${expectedCount}`);
             }
             for (const [key, label] of [
-              ["duplicate_count", "duplicate"],
               ["malformed_count", "malformed"],
               ["non_apex_count", "non-apex"],
               ["forbidden_count", "forbidden"],
             ]) {
               if (target[key] !== 0) failures.push(`${feedPath} ${label} counter was ${target[key]}`);
+            }
+            if (feedPath === "/llms.txt" && target.duplicate_raw_url_count !== 0) {
+              failures.push(`${feedPath} duplicate counter was ${target.duplicate_raw_url_count}`);
             }
             if (feedPath === "/llms-full.txt" && target.headers.llms_full_mode !== expectedMode) {
               failures.push(`/llms-full.txt mode ${target.headers.llms_full_mode || "(missing)"} did not match ${expectedMode}`);
@@ -343,7 +348,7 @@ jobs:
               `- /llms.txt Enneagram: ${llms.enneagram_count}`,
               `- /llms-full.txt Enneagram: ${llmsFull.enneagram_count}`,
               `- /llms-full.txt mode: ${llmsFull.headers.llms_full_mode || "(missing)"}`,
-              `- Target duplicate/private/malformed/non-apex counters: ${target.duplicate_count}/${target.forbidden_count}/${target.malformed_count}/${target.non_apex_count}`,
+              `- Target duplicate advisory/private/malformed/non-apex counters: ${target.duplicate_raw_url_count}/${target.forbidden_count}/${target.malformed_count}/${target.non_apex_count}`,
               `- Side effects: deploy=0, git_pull=0, git_reset=0, CMS=0, Search Queue=0, IndexNow=0, secrets/permissions mutation=0`,
               "",
               failures.length ? `Failures:\n${failures.map((item) => `- ${item}`).join("\n")}` : "No failures.",
@@ -363,6 +368,7 @@ jobs:
           NODE
 
       - name: Upload cache ops summary
+        if: always()
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: llms-feed-cache-ops-summary
