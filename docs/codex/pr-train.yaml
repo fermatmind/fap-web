@@ -24736,3 +24736,39 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: PUBLIC-API-CACHE-01
+
+  - id: CAREER-CACHE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/career-cache-01
+    base: main
+    title: "CAREER-CACHE-01: cache public career directory and detail pages"
+    depends_on: [PUBLIC-API-CACHE-01]
+    mode: execute
+    train_scope: career_public_page_cache
+    status: user_authorized
+    goal: "Make the unfiltered public career directory cacheable with tagged revalidation while preserving no-store/noindex for search, filters, pagination, and private state; retain the existing tagged detail cache."
+    allowed_paths:
+      - app/(localized)/[locale]/career/jobs/page.tsx
+      - lib/career/api/fetchCareerDirectory.ts
+      - tests/contracts/public-api-cache.contract.test.ts
+      - tests/contracts/career-job-index-backend.contract.test.tsx
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend cache headers, content or SEO authority changes, search indexing, private state caching, other career surfaces, CMS mutation, warmup, import, staging wait, or production deploy
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/public-api-cache.contract.test.ts tests/contracts/career-job-index-backend.contract.test.tsx
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: GLOBAL-JS-01

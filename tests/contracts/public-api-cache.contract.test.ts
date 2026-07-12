@@ -75,11 +75,16 @@ describe("public api cache contract", () => {
     expect(source).not.toContain('cache: "no-store"');
   });
 
-  it("keeps the quarantined career jobs index out of the public cache fix", () => {
+  it("caches only the unfiltered first career directory page", () => {
     const source = read("app/(localized)/[locale]/career/jobs/page.tsx");
+    const fetchSource = read("lib/career/api/fetchCareerDirectory.ts");
 
-    expect(source).toContain('export const dynamic = "force-dynamic"');
-    expect(source).not.toContain("export const revalidate = 300");
+    expect(source).toContain("export const revalidate = 300");
+    expect(source).not.toContain('export const dynamic = "force-dynamic"');
+    expect(fetchSource).toContain("PUBLIC_API_CACHE_OPTIONS");
+    expect(fetchSource).toContain("careerDirectoryCacheTag");
+    expect(fetchSource).toContain('return { cache: "no-store" as const }');
+    expect(fetchSource).toContain("hasQuery || hasFamily || page > 1");
   });
 
   it("does not enumerate retired professions detail routes from CMS during build", () => {
