@@ -44026,7 +44026,7 @@
     ]
   },
   "MBTI-GSC-25": {
-    "status": "pr_open_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-gsc-25-submit-monitoring-execution",
     "depends_on": [
@@ -44074,7 +44074,7 @@
       "yaml_json": "passed",
       "diff_check": "passed",
       "scope_validation": "passed: exact GSC-25 manifest allowlist",
-      "github_required_checks": "pending"
+      "github_required_checks": "passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis and zero-new-code-scanning-alerts"
     },
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -44082,7 +44082,7 @@
     "failure_reason": null,
     "next_task": null,
     "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-13T02:22:00+08:00",
+    "updated_at": "2026-07-13T02:31:00+08:00",
     "history": [
       {
         "at": "2026-07-12T12:42:50+08:00",
@@ -44108,6 +44108,11 @@
         "at": "2026-07-13T02:22:00+08:00",
         "status": "pr_open_checks_pending",
         "note": "Committed the exact ten-file scope at 41d203c4cd3d6900bc4f3eee8dcbf5ae17969cd8, pushed the branch, and opened PR #1728. Required GitHub checks are pending; no external GSC action was repeated."
+      },
+      {
+        "at": "2026-07-13T02:31:00+08:00",
+        "status": "ready_to_merge",
+        "note": "PR #1728 passed build, contracts, Big Five freeze, Enneagram freeze, CodeQL analysis and the zero-new-code-scanning-alert gate. The exact manifest scope and completed GSC evidence were revalidated; no external action was repeated."
       }
     ]
   },
