@@ -44510,6 +44510,54 @@
     "history": [{"at": "2026-07-12T12:25:00+08:00", "status": "in_progress", "summary": "Started from exact clean fap-web origin/main 7d3fb8e8 in an isolated worktree. Scope is backend-public-API-gated Enneagram llms.txt enumeration, focused contracts, and authorized train metadata only; llms-full, CMS/backend eligibility, cache warm, Search, workflow dispatch, and deploy remain prohibited."}, {"at": "2026-07-12T12:37:00+08:00", "status": "local_check_failed_external", "summary": "Implemented exact 0-or-116 backend-API-gated Enneagram llms.txt enumeration and passed focused/compatibility contracts, typecheck, lint, spacing, production build, parse, and diff checks. The full contract command remained blocked solely by the unrelated networked MBTI-INDEX-24R production-authority test timing out in shard 2; direct read-only authority verification returned 9/9 and the isolated contract passed 3/3. Repo policy required stopping before commit or PR."}, {"at": "2026-07-12T12:43:00+08:00", "status": "local_verified", "summary": "A fresh read-only authority probe returned 9/9 and the manifest pnpm test:contract command then passed all four shards. Focused/compatibility contracts, lint, spacing, typecheck, production build, Big Five 29/29, Enneagram 24/24, parse, diff, and exact seven-path scope validation are green. No deploy, CMS write, cache warm, Search action, or llms release occurred."}, {"at": "2026-07-12T12:44:00+08:00", "status": "committed", "summary": "Committed the exact seven-path implementation at a7301caf59bd581607b5e526486aeaff6013527f using path-limited staging. No deployment or production release action occurred."}, {"at": "2026-07-12T12:46:00+08:00", "status": "pr_open", "summary": "Pushed the exact seven-path branch and opened PR #1702. Required GitHub checks are pending; no deployment or production release action occurred."}, {"at": "2026-07-12T12:52:00+08:00", "status": "ready_to_merge", "summary": "All six GitHub checks passed. PR #1702 is CLEAN and MERGEABLE; exact seven-path scope, changed files, title, body, and squash auto-merge policy were revalidated."}],
     "updated_at": "2026-07-12T13:31:00+08:00"
   },
+  "PERF-BASELINE-01": {
+    "id": "PERF-BASELINE-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/perf-baseline-01",
+    "title": "PERF-BASELINE-01: freeze production performance baseline",
+    "depends_on": [],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "The user explicitly authorized PERF-BASELINE-01 and manifest/state registration in the performance PR-train /goal."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PERF-BASELINE-01 has no dependencies and started from fap-web origin/main 7d3fb8e8a0d33249477ed314a3c7f96f2406f80c."
+      },
+      "required_local_checks": {
+        "status": "pass",
+        "evidence": "YAML/JSON parse, audit evidence cross-check, git diff --check, and exact three-path scope validation passed. Runtime commands are not applicable to this docs-only PR."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {
+        "at": "2026-07-12T12:48:04+08:00",
+        "status": "in_progress",
+        "summary": "Started the docs-only performance baseline from exact fap-web origin/main in an isolated clean worktree. Scope is one baseline document plus authorized train metadata; no runtime, CMS, production, SEO enumeration, import, warmup, or deploy change is authorized."
+      },
+      {
+        "at": "2026-07-12T12:50:00+08:00",
+        "status": "local_verified",
+        "summary": "The baseline values were cross-checked against the read-only production audit. YAML/JSON parse, git diff check, and exact three-path scope validation passed; runtime commands are not applicable to this docs-only scope."
+      }
+    ],
+    "updated_at": "2026-07-12T12:50:00+08:00"
+  },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
     "repo": "fap-web",
