@@ -262,6 +262,7 @@
 - recommended follow-up: open a separate scoped CI reliability PR that gives the full contract runner sufficient headroom or shards it below the job limit, then rerun PR #1703 required checks.
 - detected at: 2026-07-12T13:01:20+08:00
 - disposition: blocking external required-check debt; stop the train without merging or starting CAREER-NEXTSTEP-01.
+- resolution: CI budget repair #1704 and deterministic MBTI release-gate network isolation #1705 merged on 2026-07-12. PR #1703 was rebased onto both fixes; required checks must pass on the new head before merge.
 
 ## External Contract Runner Issues During SECURITY-123-WEB-09
 

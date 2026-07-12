@@ -348,6 +348,8 @@
     "required_checks_affected": true,
     "recommended_follow_up": "Open a separate scoped CI reliability PR that gives the full contract runner sufficient headroom or shards it below the job limit, then rerun PR #1703 required checks.",
     "detected_at": "2026-07-12T13:01:20+08:00",
-    "disposition": "blocking_external_required_check_debt; stop the train without merging or starting CAREER-NEXTSTEP-01"
+    "disposition": "resolved_by_merged_ci_repairs_1704_and_1705; PR 1703 rebased and required checks rerun pending",
+    "resolved_at": "2026-07-12T13:24:59+08:00",
+    "resolution_evidence": "fap-web PR #1704 raised the contract CI budget and PR #1705 removed the implicit production network revalidation from required contracts; both merge commits are contained in origin/main."
   }
 ]
