@@ -44618,21 +44618,22 @@
     "branch": "codex/career-cache-01",
     "title": "CAREER-CACHE-01: cache public career directory and detail pages",
     "depends_on": ["PUBLIC-API-CACHE-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "8665405cdc70b6e9b8c5671147f096edb2ea3dd7",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1709",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The performance PR-train /goal explicitly authorized CAREER-CACHE-01 and manifest/state registration."},
       "dependency": {"status": "pass", "evidence": "PUBLIC-API-CACHE-01 merged in fap-api PR #3015 at f0393acf8ef84d8c275f4640584d7d86d15f259b."},
-      "required_local_checks": {"status": "pass", "evidence": "Node 24 focused cache/directory contracts passed 26/26; lint passed with 25 existing warnings and no errors; spacing and typecheck passed; YAML/JSON, diff whitespace, and exact six-path scope validation passed."}
+      "required_local_checks": {"status": "pass", "evidence": "Node 24 focused cache/directory contracts passed 26/26; lint passed with 25 existing warnings and no errors; spacing and typecheck passed; YAML/JSON, diff whitespace, and exact six-path scope validation passed."},
+      "github_required_checks": {"status": "pending", "evidence": "PR #1709 is open and required GitHub checks are pending."}
     },
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": [{"at": "2026-07-12T15:20:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main in an isolated worktree. Scope is unfiltered directory revalidation/tagging plus filtered no-store regression coverage; detail cache behavior remains unchanged and protected."}, {"at": "2026-07-12T15:25:00+08:00", "status": "local_verified", "summary": "Node 24 focused contracts passed 26/26; lint passed with existing warnings only; spacing, typecheck, YAML/JSON, diff, and exact six-path scope validation passed. Search, filters, and pagination remain no-store/noindex."}],
-    "updated_at": "2026-07-12T15:25:00+08:00"
+    "history": [{"at": "2026-07-12T15:20:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main in an isolated worktree. Scope is unfiltered directory revalidation/tagging plus filtered no-store regression coverage; detail cache behavior remains unchanged and protected."}, {"at": "2026-07-12T15:25:00+08:00", "status": "local_verified", "summary": "Node 24 focused contracts passed 26/26; lint passed with existing warnings only; spacing, typecheck, YAML/JSON, diff, and exact six-path scope validation passed. Search, filters, and pagination remain no-store/noindex."}, {"at": "2026-07-12T15:28:00+08:00", "status": "pr_open", "summary": "Committed and pushed the exact six-path scope and opened PR #1709. Required checks are pending; no staging wait or deploy action is included."}],
+    "updated_at": "2026-07-12T15:28:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
