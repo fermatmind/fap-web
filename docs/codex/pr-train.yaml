@@ -337,7 +337,7 @@ prs:
     base: main
     title: "CAREER-DIRECTORY-ERROR-SEMANTICS-01 career directory error semantics"
     train_scope: career_10k_stability
-    status: local_verified
+    status: pr_open_checks_pending
     scope:
       - Model Career directory responses as success, empty, stale, or unavailable without converting backend failures into zero counts.
       - Render a retryable unavailable state and an explicit last-known-good stale notice while preserving real filtered empty results.

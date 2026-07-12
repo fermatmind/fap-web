@@ -44026,7 +44026,7 @@
     ]
   },
   "MBTI-GSC-25": {
-    "status": "local_verified",
+    "status": "pr_open_checks_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-gsc-25-submit-monitoring-execution",
     "depends_on": [
@@ -44034,8 +44034,8 @@
     ],
     "train_scope": "mbti_gsc_submission_monitoring_execution",
     "title": "MBTI-GSC-25: GSC submission and monitoring execution",
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "41d203c4cd3d6900bc4f3eee8dcbf5ae17969cd8",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1728",
     "checks": {
       "dependency": {
         "status": "passed",
@@ -44073,7 +44073,8 @@
       "csv_formula_guard": "passed: 4/4",
       "yaml_json": "passed",
       "diff_check": "passed",
-      "scope_validation": "passed: exact GSC-25 manifest allowlist"
+      "scope_validation": "passed: exact GSC-25 manifest allowlist",
+      "github_required_checks": "pending"
     },
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -44081,7 +44082,7 @@
     "failure_reason": null,
     "next_task": null,
     "created_at": "2026-07-05T18:20:00Z",
-    "updated_at": "2026-07-13T02:16:00+08:00",
+    "updated_at": "2026-07-13T02:22:00+08:00",
     "history": [
       {
         "at": "2026-07-12T12:42:50+08:00",
@@ -44102,6 +44103,11 @@
         "at": "2026-07-13T02:16:00+08:00",
         "status": "local_verified",
         "note": "Generated PASS_MBTI_GSC_25_SUBMITTED_MONITORING_READY and passed the focused GSC-25 contract, repository-wide zero-warning lint, Node 24 typecheck, all four contract shards (4131 tests), production API build, CSV formula guard, YAML/JSON parsing, diff check and exact manifest scope validation. No GSC, CMS, deploy or runtime mutation occurred."
+      },
+      {
+        "at": "2026-07-13T02:22:00+08:00",
+        "status": "pr_open_checks_pending",
+        "note": "Committed the exact ten-file scope at 41d203c4cd3d6900bc4f3eee8dcbf5ae17969cd8, pushed the branch, and opened PR #1728. Required GitHub checks are pending; no external GSC action was repeated."
       }
     ]
   },
