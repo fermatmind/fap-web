@@ -44587,6 +44587,30 @@
     ],
     "updated_at": "2026-07-12T13:30:46+08:00"
   },
+  "CAREER-NEXTSTEP-02": {
+    "id": "CAREER-NEXTSTEP-02",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/career-nextstep-02",
+    "title": "CAREER-NEXTSTEP-02: degrade non-critical career next-step requests",
+    "depends_on": ["CAREER-NEXTSTEP-01"],
+    "status": "ready_to_merge",
+    "commit_sha": "64fedbcf2f4091c5499a66310c943cf41ccb4ed5",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1707",
+    "checks": {
+      "authorization": {"status": "pass", "evidence": "The performance PR-train /goal explicitly authorized CAREER-NEXTSTEP-02 and manifest/state registration."},
+      "dependency": {"status": "pass", "evidence": "CAREER-NEXTSTEP-01 merged in fap-api PR #3014 at ba4cfbb04d44a9f3541a6a686f4daa0d0f232d4a before this frontend item started."},
+      "required_local_checks": {"status": "pass", "evidence": "Node 24 focused career contracts passed 15/15; lint passed with 25 existing warnings and no errors; spacing and typecheck passed; YAML/JSON, diff whitespace, and exact four-path scope validation passed."},
+      "github_required_checks": {"status": "pass", "evidence": "PR #1707 passed build, complete contracts, Big Five freeze, Enneagram freeze, CodeQL analysis, and CodeQL on head 64fedbcf2f4091c5499a66310c943cf41ccb4ed5."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [{"at": "2026-07-12T14:20:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main b1b4391c in an isolated worktree. Scope is a short non-critical next-step request budget, graceful null rail, focused contracts, and authorized train metadata only."}, {"at": "2026-07-12T14:25:00+08:00", "status": "local_verified", "summary": "Node 24 focused contracts passed 15/15; lint passed with existing warnings only; spacing, typecheck, YAML/JSON, diff, and exact four-path scope validation passed. No backend authority, CMS/SEO, warmup, or deploy action occurred."}, {"at": "2026-07-12T14:27:00+08:00", "status": "pr_open", "summary": "Committed the exact four-path scope, pushed codex/career-nextstep-02, and opened PR #1707. Required checks are pending; no staging wait or deploy action is included."}, {"at": "2026-07-12T14:34:00+08:00", "status": "ready_to_merge", "summary": "All required GitHub checks passed and the exact four-path scope remained clean and mergeable."}],
+    "updated_at": "2026-07-12T14:34:00+08:00"
+  },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
     "repo": "fap-web",

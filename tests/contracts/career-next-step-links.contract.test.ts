@@ -15,6 +15,7 @@ function jsonResponse(payload: unknown, status = 200): Response {
 }
 
 afterEach(() => {
+  vi.useRealTimers();
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
   vi.resetModules();
@@ -44,6 +45,23 @@ describe("career next-step links contract", () => {
     const payload = await fetchCareerFirstWaveNextStepLinks({ locale: "zh", slug: "software-developer" });
 
     expect(payload).not.toBeNull();
+  });
+
+  it("degrades to an empty rail when the non-critical endpoint exceeds its short budget", async () => {
+    vi.useFakeTimers();
+    vi.stubGlobal(
+      "fetch",
+      vi.fn((_input: RequestInfo | URL, init?: RequestInit) =>
+        new Promise<Response>((_resolve, reject) => {
+          init?.signal?.addEventListener("abort", () => reject(new DOMException("Aborted", "AbortError")), { once: true });
+        })
+      )
+    );
+
+    const pending = fetchCareerFirstWaveNextStepLinks({ locale: "en", slug: "software-developer" });
+    await vi.advanceTimersByTimeAsync(1200);
+
+    await expect(pending).resolves.toBeNull();
   });
 
   it("adapts backend B36 rows into a narrow inventory without leaking unsupported route kinds", () => {
