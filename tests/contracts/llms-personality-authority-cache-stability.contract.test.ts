@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { mkdtemp, rm, writeFile } from "node:fs/promises";
+import { mkdtemp, rm } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
@@ -108,18 +108,16 @@ describe("llms.txt personality authority cache stability", () => {
 
   it("rejects expired, malformed, or locally invented shared cache entries", async () => {
     const cache = await import("@/lib/seo/backendSitemapMbtiAuthorityCache");
-    await writeFile(cache.getMbtiAuthoritySharedCachePath(), `${JSON.stringify({
-      cachedAtMs: Date.now() - cache.MBTI_AUTHORITY_LKG_MAX_AGE_MS - 1,
-      paths: AUTHORITY_PATHS,
-      version: 1,
-    })}\n`);
+    const currentTime = Date.now();
+    vi.spyOn(Date, "now").mockReturnValue(currentTime - cache.MBTI_AUTHORITY_LKG_MAX_AGE_MS - 1);
+    await cache.writeMbtiAuthorityLastKnownGood(AUTHORITY_PATHS);
+    vi.mocked(Date.now).mockReturnValue(currentTime);
     await expect(cache.readMbtiAuthorityLastKnownGood()).resolves.toEqual([]);
 
-    await writeFile(cache.getMbtiAuthoritySharedCachePath(), `${JSON.stringify({
-      cachedAtMs: Date.now(),
-      paths: ["/zh/personality/intj", "/private/result/attempt"],
-      version: 1,
-    })}\n`);
+    await cache.writeMbtiAuthorityLastKnownGood([
+      "/zh/personality/intj",
+      "/private/result/attempt",
+    ]);
     cache.resetMbtiAuthorityInProcessCacheForTests();
 
     await expect(cache.readMbtiAuthorityLastKnownGood()).resolves.toEqual([]);
