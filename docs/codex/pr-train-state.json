@@ -43991,7 +43991,7 @@
     "failure_reason": null,
     "next_task": "MBTI-GSC-25",
     "created_at": "2026-07-12T04:13:51+08:00",
-    "updated_at": "2026-07-12T10:23:00+08:00",
+    "updated_at": "2026-07-12T10:57:05+08:00",
     "history": [
       {
         "at": "2026-07-12T10:10:00+08:00",
@@ -44007,6 +44007,11 @@
         "at": "2026-07-12T10:23:00+08:00",
         "status": "pr_open_checks_pending",
         "note": "Opened PR #1701 with the exact seven-path scope. Required GitHub checks are pending; no GSC mutation, CMS write, promotion or deploy occurred in INDEX-24R."
+      },
+      {
+        "at": "2026-07-12T10:57:05+08:00",
+        "status": "pr_open_checks_pending",
+        "note": "Inspected the failed CodeQL check before editing: it reported one high-severity double-unescaping alert in normalizeText. Replaced sequential entity replacements with one fixed-map decoding pass, added a regression source contract, passed the focused 3-test contract, and repeated the read-only production gate twice with all metrics 9/9 and zero private URL leaks. Scope, YAML/JSON and diff checks passed; awaiting rerun of required GitHub checks."
       }
     ]
   },

@@ -42,6 +42,9 @@ describe("MBTI-INDEX-24R release gate revalidation", () => {
     expect(source).toContain("PRIVATE_PATH_PATTERN");
     expect(source).toContain("SAFE_PUBLIC_ORDER_PATH_PATTERN");
     expect(source).toContain("MAX_READ_ATTEMPTS = 3");
+    expect(source).toContain("HTML_ENTITIES");
+    expect(source).toContain("HTML_ENTITIES[entity] ?? entity");
+    expect(source).not.toContain(".replace(/&amp;/g");
     expect(source).not.toMatch(/method:\s*["'](?:POST|PUT|PATCH|DELETE)["']/);
     expect(report.safety_boundary).toEqual(expect.objectContaining({
       read_only_network: true,

@@ -22,14 +22,20 @@ const COMPARISON_SLUGS = [
 const PRIVATE_PATH_PATTERN = /\/(?:result|attempt|report|orders?|payment|history|share)(?:\/|$|[?#])/i;
 const SAFE_PUBLIC_ORDER_PATH_PATTERN = /^\/(?:en|zh)\/personality\/big-five\/facets\/order\/?$/i;
 const MAX_READ_ATTEMPTS = 3;
+const HTML_ENTITIES = {
+  "&amp;": "&",
+  "&apos;": "'",
+  "&nbsp;": " ",
+  "&quot;": '"',
+  "&#34;": '"',
+  "&#39;": "'",
+  "&#160;": " ",
+};
 
 function normalizeText(value) {
   return String(value ?? "")
     .replace(/<[^>]+>/g, " ")
-    .replace(/&nbsp;|&#160;/g, " ")
-    .replace(/&amp;/g, "&")
-    .replace(/&quot;|&#34;/g, '"')
-    .replace(/&#39;|&apos;/g, "'")
+    .replace(/&(?:amp|apos|nbsp|quot|#34|#39|#160);/g, (entity) => HTML_ENTITIES[entity] ?? entity)
     .replace(/\s+/g, " ")
     .trim();
 }

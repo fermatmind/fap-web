@@ -1,7 +1,7 @@
 {
   "id": "MBTI-INDEX-24R",
   "artifact": "MBTI-INDEX-24R-RELEASE-GATE-REVALIDATION",
-  "generated_at": "2026-07-12T02:13:48.543Z",
+  "generated_at": "2026-07-12T02:53:25.731Z",
   "evidence_scope": "read_only_production_network_revalidation",
   "decision": "ALLOW_URL_EXPANSION",
   "expansion_allowed": true,
