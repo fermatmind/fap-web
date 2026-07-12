@@ -24626,3 +24626,45 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: BIG5-114-D1-D7-OBSERVATION-01
+
+  - id: ENNEAGRAM-LLMS-TXT-FRONTEND-ENUMERATION-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/enneagram-llms-txt-frontend-enumeration-01
+    base: main
+    title: "ENNEAGRAM-LLMS-TXT-FRONTEND-ENUMERATION-01: enumerate gated Enneagram assets in llms.txt"
+    depends_on: [ENNEAGRAM-LLMS-TXT-RELEASE-GATE-01]
+    mode: execute
+    train_scope: enneagram_llms_txt_frontend_enumeration
+    status: ready_to_merge
+    goal: "Enumerate only the exact backend-gated 116 Enneagram public assets in llms.txt while preserving a complete 0-state hold, fail-closing partial or unsafe cohorts, and keeping llms-full at 0/116."
+    allowed_paths:
+      - app/llms.txt/route.ts
+      - lib/cms/personality-public-content-assets.ts
+      - lib/seo/enneagramLlmsSource.ts
+      - tests/contracts/personality-enneagram-90-sitemap-extractor.contract.test.ts
+      - tests/contracts/personality-enneagram-llms-txt-enumeration.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - llms-full enumeration, sitemap authority substitution, frontend editorial fallback, CMS/backend mutation, eligibility write, cache warm, Search action, workflow dispatch, staging or production deploy, permissions, or secrets
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/personality-enneagram-llms-txt-enumeration.contract.test.ts tests/contracts/personality-enneagram-90-sitemap-extractor.contract.test.ts tests/contracts/llms-parity-contract.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - ruby -e 'require "yaml"; require "json"; YAML.load_file("docs/codex/pr-train.yaml"); JSON.parse(File.read("docs/codex/pr-train-state.json"))'
+      - git diff --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    next_task: ENNEAGRAM-LLMS-TXT-RELEASE-01
