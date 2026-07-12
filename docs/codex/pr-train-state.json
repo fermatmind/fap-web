@@ -40984,7 +40984,7 @@
       "PR-CAREER-KG-AGENT-02"
     ],
     "status": "merged",
-    "commit_sha": "c606760dd572546539528d7d70877196210163e1",
+    "commit_sha": "b91fc202ce5309465195870727cb6788a807c3bc",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1565",
     "merged_at": "2026-07-03T07:07:10Z",
     "remote_branch_deleted": true,
@@ -44536,7 +44536,7 @@
     "cms_mutation": false,
     "publish_allowed": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-07-12T21:04:09+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main in an isolated worktree. Scope is only backend-public-API-authoritative Enneagram llms-full enumeration, evidence gate, focused contracts, and authorized train metadata; no CMS write, eligibility write, Search, IndexNow, cache warm, workflow dispatch, or deploy is authorized."}, {"at": "2026-07-12T21:15:00+08:00", "status": "local_verified", "summary": "Implemented backend-public-API-authoritative Enneagram llms-full enumeration with exact 116/evidence gates, LKG fail-closed behavior, complete-cache cohort validation, and focused contracts. Typecheck, production build, parse, diff, and exact eight-path scope validation passed; no deploy, CMS write, eligibility write, Search, IndexNow, or cache warm occurred."}, {"at": "2026-07-12T21:18:00+08:00", "status": "committed", "summary": "Committed the exact eight-path scope at c606760dd572546539528d7d70877196210163e1 using path-limited staging. No production action occurred."}],
+    "history": [{"at": "2026-07-12T21:04:09+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main in an isolated worktree. Scope is only backend-public-API-authoritative Enneagram llms-full enumeration, evidence gate, focused contracts, and authorized train metadata; no CMS write, eligibility write, Search, IndexNow, cache warm, workflow dispatch, or deploy is authorized."}, {"at": "2026-07-12T21:15:00+08:00", "status": "local_verified", "summary": "Implemented backend-public-API-authoritative Enneagram llms-full enumeration with exact 116/evidence gates, LKG fail-closed behavior, complete-cache cohort validation, and focused contracts. Typecheck, production build, parse, diff, and exact eight-path scope validation passed; no deploy, CMS write, eligibility write, Search, IndexNow, or cache warm occurred."}, {"at": "2026-07-12T21:18:00+08:00", "status": "committed", "summary": "Committed the exact eight-path implementation scope at b91fc202ce5309465195870727cb6788a807c3bc using path-limited staging. A same-scope ledger correction commit records this immutable implementation SHA; no production action occurred."}],
     "updated_at": "2026-07-12T21:15:00+08:00"
   },
   "PERF-BASELINE-01": {
