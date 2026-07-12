@@ -15,9 +15,17 @@ describe("SECURITY-124-WEB-01 production deploy range guard", () => {
     expect(workflow).toContain("no previous successful production deployment baseline was found");
   });
 
-  it("requires latest main and an ancestor baseline before inspecting the complete range", () => {
+  it("keeps automatic deploys on latest main and permits only main-contained manual revisions", () => {
     expect(workflow).toContain("getBranch({ owner, repo, branch: 'main' })");
+    expect(workflow).toContain("if (isManualDispatch)");
+    expect(workflow).toContain("basehead: `${deploySha}...${latestMainSha}`");
+    expect(workflow).toContain("mainMembership.data.status === 'identical'");
+    expect(workflow).toContain("mainMembership.data.status === 'ahead'");
+    expect(workflow).toContain("mainMembership.data.behind_by === 0");
+    expect(workflow).toContain("deploy SHA ${deploySha} is not contained in main ${latestMainSha}");
     expect(workflow).toContain("deploySha !== latestMainSha");
+    expect(workflow).toContain("Production auto-deploy policy failed closed: deploy SHA ${deploySha} is not latest main ${latestMainSha}");
+    expect(workflow).toContain("git merge-base --is-ancestor \"$DEPLOY_SHA\" origin/main");
     expect(workflow).toContain("compareCommitsWithBasehead");
     expect(workflow).toContain("comparison.data.status !== 'ahead'");
     expect(workflow).toContain("comparison.data.behind_by !== 0");

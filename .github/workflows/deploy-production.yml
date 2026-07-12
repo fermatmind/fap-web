@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       deploy_sha:
-        description: "Exact latest main commit SHA to deploy."
+        description: "Exact merged main commit SHA to deploy. Manual dispatch may pin an older main ancestor."
         required: true
         type: string
       manual_risk_approval:
@@ -81,7 +81,28 @@ jobs:
             try {
               const main = await github.rest.repos.getBranch({ owner, repo, branch: 'main' });
               const latestMainSha = main.data.commit.sha;
-              if (deploySha !== latestMainSha) {
+              if (isManualDispatch) {
+                const mainMembership = await github.rest.repos.compareCommitsWithBasehead({
+                  owner,
+                  repo,
+                  basehead: `${deploySha}...${latestMainSha}`,
+                  per_page: 1,
+                });
+                const deployShaIsOnMain = (
+                  mainMembership.data.status === 'identical' ||
+                  (
+                    mainMembership.data.status === 'ahead' &&
+                    mainMembership.data.behind_by === 0
+                  )
+                );
+                if (!deployShaIsOnMain) {
+                  core.setFailed(
+                    `Manual production deploy failed closed: deploy SHA ${deploySha} is not contained in main ${latestMainSha}.`,
+                  );
+                  return;
+                }
+                core.info(`Manual deploy target ${deploySha} is contained in main ${latestMainSha}.`);
+              } else if (deploySha !== latestMainSha) {
                 core.setFailed(
                   `Production auto-deploy policy failed closed: deploy SHA ${deploySha} is not latest main ${latestMainSha}.`,
                 );
@@ -325,6 +346,7 @@ jobs:
         uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
         with:
           ref: ${{ needs.policy-guard.outputs.deploy_sha }}
+          fetch-depth: 0
 
       - name: Resolve production deploy settings
         shell: bash
@@ -393,15 +415,19 @@ jobs:
             echo "RUN_CONTENT_RELEASE_REVALIDATE_SMOKE=0"
           } >> "$GITHUB_ENV"
 
-      - name: Confirm approved revision is still latest main
+      - name: Confirm approved revision remains on main
         shell: bash
         run: |
           set -euo pipefail
-          git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main
+          git fetch --no-tags origin main:refs/remotes/origin/main
           LATEST_MAIN_SHA="$(git rev-parse origin/main)"
           echo "deploy_sha=$DEPLOY_SHA"
           echo "latest_main_sha=$LATEST_MAIN_SHA"
-          test "$DEPLOY_SHA" = "$LATEST_MAIN_SHA"
+          if [[ "$AUTHORIZATION_MODE" == "automatic_benign" ]]; then
+            test "$DEPLOY_SHA" = "$LATEST_MAIN_SHA"
+          else
+            git merge-base --is-ancestor "$DEPLOY_SHA" origin/main
+          fi
 
       - name: Set up SSH
         uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555

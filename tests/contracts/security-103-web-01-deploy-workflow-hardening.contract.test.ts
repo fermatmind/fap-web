@@ -47,30 +47,40 @@ describe("SECURITY-103-WEB-01 deploy workflow hardening", () => {
     expect(stagingWorkflow).not.toContain("webfactory/ssh-agent@v0.10.0");
   });
 
-  it("requires explicit exact main SHA input for manual deploy dispatches", () => {
-    const expectedInput = [
+  it("requires an explicit exact merged-main SHA input for manual production deploys", () => {
+    const productionInput = [
+      "deploy_sha:",
+      '        description: "Exact merged main commit SHA to deploy. Manual dispatch may pin an older main ancestor."',
+      "        required: true",
+      "        type: string",
+    ].join("\n");
+    const stagingInput = [
       "deploy_sha:",
       '        description: "Exact latest main commit SHA to deploy."',
       "        required: true",
       "        type: string",
     ].join("\n");
 
-    expect(productionWorkflow).toContain(expectedInput);
-    expect(stagingWorkflow).toContain(expectedInput);
+    expect(productionWorkflow).toContain(productionInput);
+    expect(stagingWorkflow).toContain(stagingInput);
     expect(productionWorkflow).toContain("Manual production deploy failed closed: deploy_sha is required.");
     expect(stagingWorkflow).toContain("Manual staging deploy failed closed: deploy_sha is required.");
     expect(productionWorkflow).not.toContain("process.env.DISPATCH_DEPLOY_SHA || process.env.GITHUB_SHA");
     expect(stagingWorkflow).not.toContain('DEPLOY_SHA="${DISPATCH_DEPLOY_SHA:-$GITHUB_SHA}"');
   });
 
-  it("fail-closes deploy revisions unless the SHA is 40-char lowercase hex and latest origin/main", () => {
+  it("fail-closes deploy revisions unless the SHA is lowercase hex and authorized on main", () => {
     for (const workflow of [productionWorkflow, stagingWorkflow]) {
       expect(workflow).toContain("^[0-9a-f]{40}$");
-      expect(workflow).toContain("git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main");
       expect(workflow).toContain("LATEST_MAIN_SHA");
     }
 
+    expect(productionWorkflow).toContain("git fetch --no-tags origin main:refs/remotes/origin/main");
+    expect(productionWorkflow).toContain('if [[ "$AUTHORIZATION_MODE" == "automatic_benign" ]]');
     expect(productionWorkflow).toContain("test \"$DEPLOY_SHA\" = \"$LATEST_MAIN_SHA\"");
+    expect(productionWorkflow).toContain('git merge-base --is-ancestor "$DEPLOY_SHA" origin/main');
+    expect(productionWorkflow).toContain("deploy SHA ${deploySha} is not contained in main ${latestMainSha}");
+    expect(stagingWorkflow).toContain("git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main");
     expect(stagingWorkflow).toContain("if [ \"$DEPLOY_SHA\" != \"$LATEST_MAIN_SHA\" ]; then");
     expect(stagingWorkflow).toContain("Manual staging deploy failed closed: deploy_sha must equal latest origin/main.");
     expect(stagingWorkflow).toContain("git reset --hard '$DEPLOY_SHA'");

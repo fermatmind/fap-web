@@ -43,7 +43,9 @@ describe("production deploy workflow environment contract", () => {
     expect(workflow).toContain("APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:${deploySha}");
     expect(workflow).toContain("manual_risk_approval must exactly match the SHA-bound approval text");
     expect(workflow).toContain("expected exactly one merged main PR for range commit");
+    expect(workflow).toContain('if [[ "$AUTHORIZATION_MODE" == "automatic_benign" ]]');
     expect(workflow).toContain('test "$DEPLOY_SHA" = "$LATEST_MAIN_SHA"');
+    expect(workflow).toContain('git merge-base --is-ancestor "$DEPLOY_SHA" origin/main');
     for (const requiredCheck of [
       "build",
       "contracts",
