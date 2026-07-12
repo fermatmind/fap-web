@@ -2,6 +2,11 @@ import { buildApiUrl } from "@/lib/api-base";
 import { normalizeCareerJobSlug } from "@/lib/career/slugSafety";
 import { shouldIncludeInSitemap } from "@/lib/seo/indexingPolicy";
 import {
+  clearMbtiAuthorityLastKnownGood,
+  readMbtiAuthorityLastKnownGood,
+  writeMbtiAuthorityLastKnownGood,
+} from "@/lib/seo/backendSitemapMbtiAuthorityCache";
+import {
   BIG_FIVE_PUBLIC_ROUTE_ENTRIES,
   BIG_FIVE_ZH_LEGACY_TO_V2_SLUG,
 } from "@/lib/personality/bigFivePublicRoutes";
@@ -377,6 +382,23 @@ export async function listBackendSitemapEnneagramZhPaths(
 export async function listBackendSitemapMbtiPersonalityPaths(
   options: BackendSitemapCareerJobPathOptions = {}
 ): Promise<string[]> {
-  const payload = await fetchBackendSitemapSource(options.signal);
-  return limitCandidatePaths(extractBackendSitemapMbtiPersonalityPaths(payload), options.limit);
+  try {
+    const payload = await fetchBackendSitemapSource(options.signal);
+    const canonicalPaths = extractBackendSitemapMbtiPersonalityPaths(payload);
+
+    if (canonicalPaths.length === 0) {
+      await clearMbtiAuthorityLastKnownGood();
+      return [];
+    }
+
+    await writeMbtiAuthorityLastKnownGood(canonicalPaths);
+    return limitCandidatePaths(canonicalPaths, options.limit);
+  } catch (error) {
+    const cachedPaths = await readMbtiAuthorityLastKnownGood();
+    if (cachedPaths.length > 0) {
+      return limitCandidatePaths(cachedPaths, options.limit);
+    }
+
+    throw error;
+  }
 }
