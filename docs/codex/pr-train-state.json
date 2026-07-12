@@ -44547,8 +44547,8 @@
     "branch": "codex/fap-web-llms-feed-cache-ops-01",
     "title": "FAP-WEB-LLMS-FEED-CACHE-OPS-01: add llms feed cache-only ops workflow",
     "depends_on": ["ENNEAGRAM-LLMS-FULL-FRONTEND-ENUMERATION-01"],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed",
+    "commit_sha": "af5ab889bb47f5688bbecce69c8145b10c7e516a",
     "pr_url": null,
     "checks": {
       "authorization": {"status": "pass", "evidence": "User explicitly authorized adding this independent fap-web repair/ops PR, allowed paths, fixed workflow inputs, and PR-train metadata. The PR itself must not run the workflow, deploy, mutate CMS/backend data, change eligibility, or trigger Search/IndexNow."},
@@ -44566,8 +44566,8 @@
     "cms_mutation": false,
     "publish_allowed": false,
     "deploy_allowed": false,
-    "history": [{"at": "2026-07-12T14:23:21Z", "status": "in_progress", "summary": "Started from fap-web origin/main 11826dc0034ad111a0456f397a104a332c9b8b08 in an isolated worktree. Scope is only the manual cache-only llms feed ops workflow, focused workflow contract, and authorized train metadata; no workflow dispatch, PM2 reload, deployment, CMS write, eligibility write, Search Queue, IndexNow, or HMAC revalidation API change occurred."}, {"at": "2026-07-12T14:28:07Z", "status": "local_verified", "summary": "Implemented the manual production-protected cache-only feed ops workflow and focused contract. All manifest local checks passed within the exact four-path scope; no workflow dispatch, PM2 reload, deployment, CMS write, eligibility write, Search Queue, IndexNow, or HMAC revalidation API change occurred."}],
-    "updated_at": "2026-07-12T14:28:07Z"
+    "history": [{"at": "2026-07-12T14:23:21Z", "status": "in_progress", "summary": "Started from fap-web origin/main 11826dc0034ad111a0456f397a104a332c9b8b08 in an isolated worktree. Scope is only the manual cache-only llms feed ops workflow, focused workflow contract, and authorized train metadata; no workflow dispatch, PM2 reload, deployment, CMS write, eligibility write, Search Queue, IndexNow, or HMAC revalidation API change occurred."}, {"at": "2026-07-12T14:28:07Z", "status": "local_verified", "summary": "Implemented the manual production-protected cache-only feed ops workflow and focused contract. All manifest local checks passed within the exact four-path scope; no workflow dispatch, PM2 reload, deployment, CMS write, eligibility write, Search Queue, IndexNow, or HMAC revalidation API change occurred."}, {"at": "2026-07-12T14:29:00Z", "status": "committed", "summary": "Committed the exact four-path implementation as af5ab889bb47f5688bbecce69c8145b10c7e516a using path-limited staging. This follow-up ledger correction records the immutable implementation commit; no workflow dispatch or production action occurred."}],
+    "updated_at": "2026-07-12T14:29:00Z"
   },
   "PERF-BASELINE-01": {
     "id": "PERF-BASELINE-01",
