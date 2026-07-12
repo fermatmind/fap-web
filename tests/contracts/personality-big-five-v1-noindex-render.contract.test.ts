@@ -647,7 +647,6 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
 
   it("anchors the renderer to API content without local editorial fallback or SoftwareApplication schema", () => {
     const routeSource = read("app/(localized)/[locale]/personality/big-five/page.tsx");
-    const dimSource = read("app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx");
     const rendererSource = read("components/personality/PublicContentAssetRenderer.tsx");
     const adapterSource = read("lib/cms/personality-public-content-assets.ts");
 

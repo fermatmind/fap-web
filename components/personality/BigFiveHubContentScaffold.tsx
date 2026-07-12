@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, BookOpen, CheckCircle2, ShieldCheck, Compass, Briefcase, GraduationCap, Heart } from "lucide-react";
+import { ArrowRight, BookOpen, ShieldCheck, Compass, Briefcase, GraduationCap, Heart } from "lucide-react";
 import type { Locale } from "@/lib/i18n/locales";
 import type { PersonalityPublicContentAsset } from "@/lib/cms/personality-public-content-assets";
 
@@ -334,7 +334,10 @@ export default function BigFiveHubContentScaffold({
   const isZh = locale === "zh";
 
   return (
-    <div className="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:px-8 lg:grid-cols-[minmax(0,1fr)_300px]">
+    <div
+      className="mx-auto grid max-w-6xl gap-10 px-5 py-12 md:px-8 lg:grid-cols-[minmax(0,1fr)_300px]"
+      data-authority-asset={asset ? `${asset.framework}:${asset.code}` : undefined}
+    >
       {/* ===== MAIN COLUMN ===== */}
       <div className="space-y-8">
         {/* Slot 1: Answer Block */}

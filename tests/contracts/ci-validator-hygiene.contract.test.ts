@@ -9,6 +9,7 @@ const ROOT = process.cwd();
 const CHECKOUT_SHA = "df4cb1c069e1874edd31b4311f1884172cec0e10";
 const SETUP_NODE_SHA = "48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e";
 const CODEQL_SHA = "1ad29ea4a422cce9a242a9fae469541dcd08addc";
+const GITHUB_SCRIPT_SHA = "ed597411d8f924073f98dfc5c65a23a2325f34cd";
 const liveUrlCheckModule = pathToFileURL(path.join(ROOT, "scripts/seo/lib/live-url-check.mjs")).href;
 
 function read(relPath: string): string {
@@ -84,10 +85,11 @@ describe("CI validator hygiene", () => {
         `actions/setup-node@${SETUP_NODE_SHA}`,
         `github/codeql-action/init@${CODEQL_SHA}`,
         `github/codeql-action/analyze@${CODEQL_SHA}`,
+        `actions/github-script@${GITHUB_SCRIPT_SHA}`,
       ])
     );
     for (const actionRef of actionUses) {
-      expect(actionRef).toMatch(/^(?:actions\/(?:checkout|setup-node)|github\/codeql-action\/(?:init|analyze))@[0-9a-f]{40}$/);
+      expect(actionRef).toMatch(/^(?:actions\/(?:checkout|setup-node|github-script)|github\/codeql-action\/(?:init|analyze))@[0-9a-f]{40}$/);
       expect(actionRef).not.toMatch(/@(main|master|latest|HEAD)$/);
     }
   });

@@ -37,3 +37,59 @@ jobs:
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@1ad29ea4a422cce9a242a9fae469541dcd08addc # v4
+
+  no-new-alerts:
+    name: no-new-code-scanning-alerts
+    if: github.event_name == 'pull_request'
+    needs: analyze
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Require zero open alerts on the pull request merge ref
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        with:
+          script: |
+            const ref = `refs/pull/${context.issue.number}/merge`;
+            const expectedSha = context.sha;
+            let analysisFound = false;
+
+            for (let attempt = 0; attempt < 12; attempt += 1) {
+              const analyses = await github.paginate(github.rest.codeScanning.listRecentAnalyses, {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref,
+                tool_name: 'CodeQL',
+                per_page: 100,
+              });
+              analysisFound = analyses.some((analysis) => analysis.commit_sha === expectedSha);
+              if (analysisFound) break;
+              await new Promise((resolve) => setTimeout(resolve, 5000));
+            }
+
+            if (!analysisFound) {
+              core.setFailed(`Code scanning analysis was not available for ${ref} at ${expectedSha}.`);
+              return;
+            }
+
+            await new Promise((resolve) => setTimeout(resolve, 5000));
+            const alerts = await github.paginate(github.rest.codeScanning.listAlertsForRepo, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              pr: context.issue.number,
+              per_page: 100,
+            });
+
+            if (alerts.length > 0) {
+              const summary = alerts.map((alert) => {
+                const location = alert.most_recent_instance?.location;
+                const path = location?.path || '<unknown>';
+                const line = location?.start_line || 0;
+                return `#${alert.number} ${alert.rule?.id || '<unknown-rule>'} ${path}:${line}`;
+              });
+              core.setFailed(`Pull request introduced open code scanning alerts:\n${summary.join('\n')}`);
+              return;
+            }
+
+            core.info(`No open code scanning alerts found for ${ref}.`);
