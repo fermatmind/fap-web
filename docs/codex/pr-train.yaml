@@ -24916,12 +24916,13 @@ prs:
     allowed_paths:
       - app/(localized)/[locale]/articles/[slug]/page.tsx
       - tests/contracts/article-internal-link-anchor-text.contract.test.tsx
+      - tests/contracts/cms-rich-content-sanitization.contract.test.tsx
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     out_of_scope:
       - article cache policy, backend API changes, CMS content mutation, link editorial rewrites, SEO enumeration, staging wait, or production deploy
     required_local_checks:
-      - pnpm exec vitest run tests/contracts/article-internal-link-anchor-text.contract.test.tsx tests/contracts/articles-cleanup.contract.test.ts
+      - pnpm exec vitest run tests/contracts/article-internal-link-anchor-text.contract.test.tsx tests/contracts/articles-cleanup.contract.test.ts tests/contracts/cms-rich-content-sanitization.contract.test.tsx
       - pnpm lint
       - pnpm lint:spacing
       - pnpm typecheck

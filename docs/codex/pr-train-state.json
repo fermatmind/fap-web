@@ -44728,7 +44728,7 @@
     "checks": {
       "authorization": {"status": "pass", "evidence": "The performance PR-train /goal explicitly authorized ARTICLE-FANOUT-01 and manifest/state registration."},
       "dependency": {"status": "pass", "evidence": "ARTICLE-CACHE-01 merged in fap-web PR #1713 at c2d7ace861c3fc64bd781f3879477075d42d4721 before this item started."},
-      "required_local_checks": {"status": "pass", "evidence": "Node 24 focused article label and article cleanup contracts passed 24/24; lint passed with 27 existing warnings and no errors; spacing and typecheck passed; production build generated 206 pages; YAML/JSON, diff whitespace, and exact four-path scope validation passed."},
+      "required_local_checks": {"status": "pass", "evidence": "Node 24 focused article label, article cleanup, and rich-content contracts passed 37/37 after synchronizing the current-scope source assertion; lint passed with 27 existing warnings and no errors; spacing and typecheck passed; production build generated 206 pages; YAML/JSON, diff whitespace, and exact five-path scope validation passed."},
       "github_required_checks": {"status": "pending", "evidence": null}
     },
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
@@ -44736,8 +44736,8 @@
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": [{"at": "2026-07-12T18:50:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after ARTICLE-CACHE-01 merge verification. Scope removes per-link article detail hydration while preserving CMS-authored anchor text and existing safe bare-path labels; backend API, CMS mutation, and deploy are excluded."}, {"at": "2026-07-12T19:00:00+08:00", "status": "local_verified", "summary": "Focused contracts 24/24, lint, spacing, Node 24 typecheck, production build, YAML/JSON, diff, and exact four-path scope validation passed. Article rendering no longer scales API calls with internal-link count."}, {"at": "2026-07-12T19:03:00+08:00", "status": "pr_open", "summary": "Committed and pushed the exact four-path scope and opened PR #1714. Required GitHub checks are pending; no staging wait or deploy action is included."}],
-    "updated_at": "2026-07-12T19:03:00+08:00"
+    "history": [{"at": "2026-07-12T18:50:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after ARTICLE-CACHE-01 merge verification. Scope removes per-link article detail hydration while preserving CMS-authored anchor text and existing safe bare-path labels; backend API, CMS mutation, and deploy are excluded."}, {"at": "2026-07-12T19:00:00+08:00", "status": "local_verified", "summary": "Focused contracts 24/24, lint, spacing, Node 24 typecheck, production build, YAML/JSON, diff, and exact four-path scope validation passed. Article rendering no longer scales API calls with internal-link count."}, {"at": "2026-07-12T19:03:00+08:00", "status": "pr_open", "summary": "Committed and pushed the exact four-path scope and opened PR #1714. Required GitHub checks are pending; no staging wait or deploy action is included."}, {"at": "2026-07-12T19:12:00+08:00", "status": "ci_fix", "summary": "Inspected the failed contracts job and found one current-scope source assertion still expected the removed internalLinkLabels argument. Added that contract to the manifest scope, synchronized the assertion, and passed the focused 37-test set."}],
+    "updated_at": "2026-07-12T19:12:00+08:00"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
