@@ -52,15 +52,17 @@ describe("llms.txt personality authority cache stability", () => {
     expect(personalityBlock).toContain("listBackendSitemapBigFiveZhPaths({ signal })");
     expect(personalityBlock).toContain("listEnneagramLlmsPaths({ signal })");
     expect(personalityBlock).toContain("mbtiAuthorityAvailable: mbtiPersonalityPaths.length > 0");
+    expect(personalityBlock).toContain("enneagramAuthorityAvailable: enneagramPaths.length === EXPECTED_ENNEAGRAM_LLMS_PATH_COUNT");
   });
 
-  it("does not cache a degraded response that omitted backend-authoritative MBTI URLs", () => {
+  it("does not cache a degraded response that omitted backend-authoritative MBTI or Enneagram URLs", () => {
     const route = fs.readFileSync(path.join(ROOT, "app/llms.txt/route.ts"), "utf8");
 
-    expect(route).toContain("personalityResult.mbtiAuthorityAvailable");
+    expect(route).toContain("personalityResult.mbtiAuthorityAvailable && personalityResult.enneagramAuthorityAvailable");
     expect(route).toContain('"public, s-maxage=3600, stale-while-revalidate=86400"');
     expect(route).toContain('"private, no-store, max-age=0"');
     expect(route).not.toMatch(/(?:istj-a|intj-vs-intp|entj-vs-intj)/);
+    expect(route).not.toMatch(/(?:1w9|self-preservation|one-to-one)/);
   });
 
   it("shares a verified backend cohort across module instances after a transient fetch failure", async () => {

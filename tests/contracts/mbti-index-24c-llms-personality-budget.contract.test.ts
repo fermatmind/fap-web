@@ -24,10 +24,10 @@ const TARGET_PATHS = [
 ];
 
 describe("MBTI-INDEX-24C llms personality authority budget", () => {
-  it("gives backend-authoritative personality enumeration a dedicated eight-second budget and signal", () => {
+  it("gives backend-authoritative personality enumeration a dedicated long budget and signal", () => {
     const route = fs.readFileSync(path.join(ROOT, "app/llms.txt/route.ts"), "utf8");
 
-    expect(LLMS_ROUTE_PERSONALITY_TIMEOUT_MS).toBe(8_000);
+    expect(LLMS_ROUTE_PERSONALITY_TIMEOUT_MS).toBe(60_000);
     expect(LLMS_ROUTE_PERSONALITY_TIMEOUT_MS).toBeGreaterThan(LLMS_ROUTE_SOURCE_TIMEOUT_MS);
     expect(route).toContain("async function listPersonalityPaths(): Promise<PersonalityPathResult>");
     expect(route).toContain("listBackendSitemapMbtiPersonalityPaths({ signal })");

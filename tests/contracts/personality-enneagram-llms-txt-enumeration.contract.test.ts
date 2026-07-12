@@ -131,6 +131,7 @@ describe("ENNEAGRAM-LLMS-TXT-FRONTEND-ENUMERATION-01", () => {
     expect(source).not.toContain("listBackendSitemapEnneagram");
     expect(source).not.toMatch(/fallback.*personality\/enneagram/i);
     expect(llms).toContain("listEnneagramLlmsPaths");
+    expect(llms).toContain("EXPECTED_ENNEAGRAM_LLMS_PATH_COUNT = 116");
     expect(llms).toContain("listBackendSitemapMbtiPersonalityPaths");
     expect(llms).toContain("listBackendSitemapBigFiveZhPaths");
     expect(llmsFull).not.toContain("listEnneagramLlmsPaths");
