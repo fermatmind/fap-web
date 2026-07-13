@@ -1,5 +1,18 @@
 [
   {
+    "id": "external-llms-full-degraded-mbti-full-audit-30",
+    "repo": "fap-web",
+    "pr_id": "MBTI-FULL-AUDIT-30",
+    "branch": "codex/mbti-full-audit-30-inventory-runtime-baseline",
+    "blocker_type": "external_llms_full_runtime_degraded",
+    "evidence": "Read-only production fetch at 2026-07-13T03:26:39Z returned llms-full.txt with Mode: degraded and an empty Personality section. The audit therefore records llms_full=false for the fixed 52-URL Chinese MBTI inventory while canonical, robots, sitemap, llms.txt, and JSON-LD remain observable.",
+    "why_not_current_pr_scope": "AUDIT-30 is restricted to read-only inventory evidence and must not alter llms runtime generation, caches, deployment, or backend authority.",
+    "required_checks_affected": false,
+    "merge_affected": false,
+    "recommended_follow_up": "Open a dedicated fap-web llms-full authority/cache runtime repair PR, then re-run MBTI-FULL-AUDIT-30 evidence before any MBTI-INDEX-43 release gate.",
+    "observed_at": "2026-07-13T03:26:39Z"
+  },
+  {
     "repo": "fap-web",
     "pr_id": "BIG5-RESULT-PAGE-RENDERER-HYGIENE-FOLLOWUP-01",
     "branch": "codex/big5-result-page-renderer-hygiene-followup-01",

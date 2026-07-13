@@ -44899,6 +44899,30 @@
     "history": [{"at": "2026-07-12T19:30:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after ARTICLE-FANOUT-01 merge verification. Scope is a low-frequency unauthenticated GET scanner, evidence artifact workflow, budgets, and SOP only; no warmup, private probe, write, or deploy action is authorized."}, {"at": "2026-07-12T19:45:00+08:00", "status": "local_verified", "summary": "Script syntax, focused contracts 2/2, lint, spacing, typecheck, parse, diff, and exact eight-path scope validation passed. A non-enforcing read-only production scan completed; three existing latency/timeout budget signals were observed but are not introduced by or blocking this operations tooling PR."}],
     "updated_at": "2026-07-12T20:00:00+08:00"
   },
+  "MBTI-FULL-AUDIT-30": {
+    "status": "local_verified",
+    "repo": "fap-web",
+    "branch": "codex/mbti-full-audit-30-inventory-runtime-baseline",
+    "depends_on": ["MBTI-GSC-25"],
+    "train_scope": "mbti_full_chinese_asset_inventory_runtime_baseline",
+    "title": "MBTI-FULL-AUDIT-30: audit complete Chinese MBTI asset estate",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing MBTI-FULL-AUDIT-30 and manifest/state registration."},
+      "dependency": {"status": "passed", "evidence": "GitHub reports MBTI-GSC-25 PR #1728 as merged at 25fbdb0e75435724f51c6b8492f981f8d2cb1e84, and origin/main contains that merge commit."}
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-13T03:00:00+08:00", "status": "planned", "summary": "Registered by explicit operator authorization for the fixed 52-URL Chinese MBTI inventory."},
+      {"at": "2026-07-13T03:05:00+08:00", "status": "in_progress", "summary": "Started in a clean isolated worktree from fap-web origin/main. The audit is read-only and does not mutate CMS, indexability, feeds, deploy state, or GSC."},
+      {"at": "2026-07-13T04:12:32Z", "status": "local_verified", "summary": "Read-only inventory generation, focused contract, zero-warning lint, typecheck, full contract suite, production build, YAML/JSON parsing, diff check, and changed-file scope validation passed. Runtime evidence records llms-full degradation and API latency as an external sidecar follow-up, not an audit implementation failure."}
+    ],
+    "updated_at": "2026-07-13T04:12:32Z"
+  },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
     "repo": "fap-web",
