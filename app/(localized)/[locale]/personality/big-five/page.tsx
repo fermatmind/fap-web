@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import {
   getBigFivePublicContentAsset,
   type PersonalityPublicContentAsset,
+  withBigFiveVisibleAuthorityJsonLd,
 } from "@/lib/cms/personality-public-content-assets";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import type { Locale } from "@/lib/i18n/locales";
@@ -90,7 +91,11 @@ export async function generateMetadata({
     canonicalCandidate: asset.canonicalPath,
     title: asset.seo.title,
     description: asset.seo.description,
-    imagePath: asset.media.imageUrl ?? undefined,
+    imagePath:
+      asset.authorityV2?.mediaAuthority.og?.url ??
+      asset.authorityV2?.mediaAuthority.hero?.url ??
+      asset.media.imageUrl ??
+      undefined,
     noindex: !shouldIndex,
     noindexFollow: robotsAllowsFollow(asset.robots),
     explicitIndexGate: {
@@ -141,19 +146,22 @@ export default async function BigFiveHubPage({
   ];
   const visibleFaq = asset.faq.filter((item) => item.question && item.answer);
   const pageJsonLd = asset.schemaRuntimeEligible
-    ? asset.entityType === "hub" || asset.entityType === "facet_hub"
-      ? buildCollectionPageJsonLd({
-          path: pathname,
-          title: asset.title,
-          description: asset.seo.description || asset.summary,
-          locale,
-        })
-      : buildWebPageJsonLd({
-          path: pathname,
-          title: asset.title,
-          description: asset.seo.description || asset.summary,
-          locale,
-        })
+    ? withBigFiveVisibleAuthorityJsonLd(
+        asset.entityType === "hub" || asset.entityType === "facet_hub"
+          ? buildCollectionPageJsonLd({
+              path: pathname,
+              title: asset.title,
+              description: asset.seo.description || asset.summary,
+              locale,
+            })
+          : buildWebPageJsonLd({
+              path: pathname,
+              title: asset.title,
+              description: asset.seo.description || asset.summary,
+              locale,
+            }),
+        asset
+      )
     : null;
 
   return (

@@ -61,6 +61,17 @@ function hasRenderableSectionBody(section: PersonalityPublicContentSection): boo
   return Boolean(section.bodyMd.trim() || section.bodyHtml.trim());
 }
 
+function formatAuthorityDate(value: string, locale: Locale): string {
+  return new Intl.DateTimeFormat(locale === "zh" ? "zh-CN" : "en", {
+    dateStyle: "medium",
+    timeZone: "UTC",
+  }).format(new Date(value));
+}
+
+function sourceTypeLabel(value: string): string {
+  return value.replaceAll("_", " ");
+}
+
 export function PublicContentAssetRenderer({
   asset,
   locale,
@@ -73,6 +84,22 @@ export function PublicContentAssetRenderer({
   const visibleFaq = asset.faq.filter((item) => item.question && item.answer);
   const visibleLinks = asset.internalLinks.filter((item) => item.label && item.href);
   const boundary = asset.methodBoundary;
+  const authority = asset.authorityV2;
+  const visibleEvidence = authority?.visibleEvidence.eligible ? authority.visibleEvidence : null;
+  const editorial = authority?.editorialAuthority;
+  const authorityHero = authority?.mediaAuthority.hero;
+  const heroImageUrl = authorityHero?.url ?? asset.media.imageUrl;
+  const heroImageAlt = authorityHero?.alt ?? asset.media.alt ?? asset.title;
+  const sourceTitles = new Map(
+    visibleEvidence?.sources.map((source) => [source.id, source.title]) ?? []
+  );
+  const hasEditorialAuthority = Boolean(
+    editorial?.author ||
+      editorial?.reviewer ||
+      editorial?.publishedAt ||
+      editorial?.updatedAt ||
+      editorial?.lastReviewedAt
+  );
 
   return (
     <main className="bg-[var(--fm-bg)] text-[var(--fm-text)]" data-testid={`${asset.framework}-public-content-page`}>
@@ -107,10 +134,10 @@ export function PublicContentAssetRenderer({
           </div>
 
           <aside className="rounded-2xl border border-[var(--fm-border)] bg-white p-5 shadow-[var(--fm-shadow-sm)]">
-            {asset.media.imageUrl ? (
+            {heroImageUrl ? (
               <Image
-                src={asset.media.imageUrl}
-                alt={asset.media.alt || asset.title}
+                src={heroImageUrl}
+                alt={heroImageAlt}
                 width={640}
                 height={420}
                 className="h-auto w-full rounded-xl object-cover"
@@ -147,6 +174,106 @@ export function PublicContentAssetRenderer({
             </section>
           ))}
 
+          {authority?.mediaAuthority.inline.some((media) => media.url) ? (
+            <section
+              className="grid gap-5 sm:grid-cols-2"
+              aria-label={locale === "zh" ? "内容配图" : "Content media"}
+              data-testid="authority-inline-media"
+            >
+              {authority.mediaAuthority.inline.map((media, index) =>
+                media.url ? (
+                  <figure
+                    key={`${media.mediaAssetId ?? media.url}-${index}`}
+                    className="m-0 overflow-hidden rounded-2xl border border-[var(--fm-border)] bg-white shadow-[var(--fm-shadow-sm)]"
+                  >
+                    <Image
+                      src={media.url}
+                      alt={media.alt}
+                      width={960}
+                      height={640}
+                      className="h-auto w-full object-cover"
+                    />
+                  </figure>
+                ) : null
+              )}
+            </section>
+          ) : null}
+
+          {visibleEvidence ? (
+            <section
+              id="sources"
+              className="scroll-mt-24 rounded-2xl border border-[var(--fm-border)] bg-white p-6 shadow-[var(--fm-shadow-sm)] md:p-8"
+              data-testid="visible-authority-evidence"
+            >
+              <h2 className="m-0 text-2xl font-semibold tracking-normal text-[var(--fm-text)]">
+                {locale === "zh" ? "来源与引用" : "Sources and citations"}
+              </h2>
+              <div className="mt-6 grid gap-5">
+                {visibleEvidence.sources.map((source) => (
+                  <article key={source.id} className="rounded-xl border border-[var(--fm-border)] p-5">
+                    <h3 className="m-0 text-base font-semibold tracking-normal text-[var(--fm-text)]">
+                      {source.publicUrl ? (
+                        <a
+                          href={source.publicUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="underline decoration-[var(--fm-border)] underline-offset-4 hover:text-[var(--fm-trust-blue)]"
+                        >
+                          {source.title}
+                        </a>
+                      ) : (
+                        source.title
+                      )}
+                    </h3>
+                    <p className="m-0 mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">
+                      {source.authorOrOrganization} · {source.year} · {sourceTypeLabel(source.sourceType)}
+                    </p>
+                    {source.doi ? (
+                      <p className="m-0 mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">DOI: {source.doi}</p>
+                    ) : null}
+                    {source.accessedAt ? (
+                      <p className="m-0 mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">
+                        {locale === "zh" ? "访问日期" : "Accessed"}: {formatAuthorityDate(source.accessedAt, locale)}
+                      </p>
+                    ) : null}
+                    {source.limitation ? (
+                      <p className="m-0 mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{source.limitation}</p>
+                    ) : null}
+                  </article>
+                ))}
+              </div>
+
+              {visibleEvidence.claimMapping.length > 0 ? (
+                <div className="mt-7">
+                  <h3 className="m-0 text-base font-semibold tracking-normal text-[var(--fm-text)]">
+                    {locale === "zh" ? "证据映射" : "Evidence mapping"}
+                  </h3>
+                  <ul className="mt-3 space-y-3 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
+                    {visibleEvidence.claimMapping.map((mapping) => (
+                      <li key={mapping.claimId}>
+                        <code>{mapping.claimId}</code>: {mapping.sourceIds.map((id) => sourceTitles.get(id) ?? id).join("; ")}
+                        {mapping.limitation ? ` — ${mapping.limitation}` : null}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+
+              {visibleEvidence.limitations.length > 0 ? (
+                <div className="mt-7 rounded-xl bg-[var(--fm-surface-muted)] p-5">
+                  <h3 className="m-0 text-base font-semibold tracking-normal text-[var(--fm-text)]">
+                    {locale === "zh" ? "证据边界" : "Evidence limitations"}
+                  </h3>
+                  <ul className="mt-3 space-y-2 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
+                    {visibleEvidence.limitations.map((limitation) => (
+                      <li key={limitation}>{limitation}</li>
+                    ))}
+                  </ul>
+                </div>
+              ) : null}
+            </section>
+          ) : null}
+
           {visibleFaq.length > 0 ? (
             <section id="faq" className="scroll-mt-24 rounded-2xl border border-[var(--fm-border)] bg-white p-6 shadow-[var(--fm-shadow-sm)] md:p-8">
               <h2 className="m-0 text-2xl font-semibold tracking-normal text-[var(--fm-text)]">
@@ -167,6 +294,63 @@ export function PublicContentAssetRenderer({
         </div>
 
         <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
+          {hasEditorialAuthority && editorial ? (
+            <section
+              className="rounded-2xl border border-[var(--fm-border)] bg-white p-5 shadow-[var(--fm-shadow-sm)]"
+              data-testid="editorial-authority"
+            >
+              <h2 className="m-0 text-base font-semibold tracking-normal text-[var(--fm-text)]">
+                {locale === "zh" ? "编辑信息" : "Editorial authority"}
+              </h2>
+              <dl className="m-0 mt-4 grid gap-4 text-sm leading-6">
+                {editorial.author ? (
+                  <div>
+                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "作者" : "Author"}</dt>
+                    <dd className="m-0 text-[var(--fm-text-muted)]">
+                      {editorial.author.name}
+                      {editorial.author.organization ? ` · ${editorial.author.organization}` : null}
+                      {editorial.author.role ? ` · ${editorial.author.role}` : null}
+                    </dd>
+                  </div>
+                ) : null}
+                {editorial.reviewer ? (
+                  <div>
+                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "审核者" : "Reviewer"}</dt>
+                    <dd className="m-0 text-[var(--fm-text-muted)]">
+                      {editorial.reviewer.name}
+                      {editorial.reviewer.organization ? ` · ${editorial.reviewer.organization}` : null}
+                      {editorial.reviewer.role ? ` · ${editorial.reviewer.role}` : null}
+                    </dd>
+                  </div>
+                ) : null}
+                {editorial.publishedAt ? (
+                  <div>
+                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "发布于" : "Published"}</dt>
+                    <dd className="m-0 text-[var(--fm-text-muted)]">
+                      <time dateTime={editorial.publishedAt}>{formatAuthorityDate(editorial.publishedAt, locale)}</time>
+                    </dd>
+                  </div>
+                ) : null}
+                {editorial.updatedAt ? (
+                  <div>
+                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "更新于" : "Updated"}</dt>
+                    <dd className="m-0 text-[var(--fm-text-muted)]">
+                      <time dateTime={editorial.updatedAt}>{formatAuthorityDate(editorial.updatedAt, locale)}</time>
+                    </dd>
+                  </div>
+                ) : null}
+                {editorial.lastReviewedAt ? (
+                  <div>
+                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "最近审核" : "Last reviewed"}</dt>
+                    <dd className="m-0 text-[var(--fm-text-muted)]">
+                      <time dateTime={editorial.lastReviewedAt}>{formatAuthorityDate(editorial.lastReviewedAt, locale)}</time>
+                    </dd>
+                  </div>
+                ) : null}
+              </dl>
+            </section>
+          ) : null}
+
           {boundary ? (
             <section className="rounded-2xl border border-[var(--fm-border)] bg-white p-5 shadow-[var(--fm-shadow-sm)]" data-testid="method-boundary">
               <div className="flex items-center gap-2 text-sm font-semibold text-[var(--fm-text)]">
