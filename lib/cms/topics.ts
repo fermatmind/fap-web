@@ -8,6 +8,7 @@ import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { withLastKnownGood, type LastKnownGoodResult } from "@/lib/cms/last-known-good";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
+import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
 
 const DEFAULT_ORG_ID = "0";
 const DEFAULT_PER_PAGE = 100;
@@ -658,7 +659,7 @@ export async function getTopicBySlug(
   });
 
   try {
-    const response = await apiClient.get<CmsTopicDetailApiResponse>(
+    const response = await apiClient.getPublic<CmsTopicDetailApiResponse>(
       `/v0.5/topics/${encodeURIComponent(normalizedSlug)}${query}`,
       {
         locale,
@@ -683,7 +684,7 @@ export async function getTopicBySlug(
 
     return topic.slug && topic.title ? topic : null;
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isAuthoritativePublicAbsence(error)) {
       return null;
     }
 
@@ -706,7 +707,7 @@ export async function getTopicSeoBySlug(
   });
 
   try {
-    const response = await apiClient.get<CmsTopicSeoApiResponse>(
+    const response = await apiClient.getPublic<CmsTopicSeoApiResponse>(
       `/v0.5/topics/${encodeURIComponent(normalizedSlug)}/seo${query}`,
       {
         locale,
@@ -742,7 +743,7 @@ export async function getTopicSeoBySlug(
       surface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
     };
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isAuthoritativePublicAbsence(error)) {
       return null;
     }
 

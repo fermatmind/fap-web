@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
 import { RelatedContent } from "@/components/content/RelatedContent";
@@ -15,6 +16,7 @@ import {
   normalizeCareerGuideSeoPayload,
   type CareerGuideDetailViewModel,
 } from "@/lib/cms/career-guides";
+import { loadPublicDetailBundle } from "@/lib/cms/publicDetailBundle";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
@@ -35,6 +37,15 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
 function buildCanonicalPath(slug: string, locale: Locale): string {
   return buildCareerGuideFrontendUrl(locale, slug);
 }
+
+const loadCareerGuidePublicDetailBundle = cache(
+  async function loadCareerGuidePublicDetailBundle(slug: string, locale: Locale) {
+    return loadPublicDetailBundle({
+      readDetail: () => getCareerGuideFromCmsBySlug(slug, locale),
+      readSeo: () => getCareerGuideSeoFromCmsBySlug(slug, locale),
+    });
+  }
+);
 
 function renderGuideBody(guide: CareerGuideDetailViewModel, locale: Locale) {
   const bodyMd = stripDuplicateFirstHeading(guide.bodyMd, guide.title);
@@ -78,10 +89,7 @@ function stripDuplicateFirstHeading(markdown: string, title: string): string {
 export async function generateMetadata({ params }: { params: Promise<{ locale: string; slug: string }> }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const [guide, seo] = await Promise.all([
-    getCareerGuideFromCmsBySlug(slug, locale),
-    getCareerGuideSeoFromCmsBySlug(slug, locale),
-  ]);
+  const { detail: guide, seo } = await loadCareerGuidePublicDetailBundle(slug, locale);
 
   if (!guide) {
     return { title: "Not Found", robots: { index: false, follow: false } };
@@ -146,10 +154,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function CareerGuideDetailPage({ params }: { params: Promise<{ locale: string; slug: string }> }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const [guide, seo] = await Promise.all([
-    getCareerGuideFromCmsBySlug(slug, locale),
-    getCareerGuideSeoFromCmsBySlug(slug, locale),
-  ]);
+  const { detail: guide, seo } = await loadCareerGuidePublicDetailBundle(slug, locale);
 
   if (!guide) {
     return notFound();

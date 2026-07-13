@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { AnswerSurfaceSection } from "@/components/content/AnswerSurfaceSection";
@@ -20,6 +21,7 @@ import {
   normalizeTopicSeoPayload,
 } from "@/lib/cms/topics";
 import { extractTopicFaqItems, renderTopicEntryGroups, renderTopicSections } from "@/lib/cms/topic-sections";
+import { loadPublicDetailBundle } from "@/lib/cms/publicDetailBundle";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { DEFAULT_MBTI_FORM_CODE } from "@/lib/mbti/forms";
@@ -47,6 +49,16 @@ function buildCanonicalPath(slug: string, locale: Locale): string {
   return buildTopicFrontendUrl(locale, slug);
 }
 
+const loadTopicPublicDetailBundle = cache(async function loadTopicPublicDetailBundle(
+  slug: string,
+  locale: Locale
+) {
+  return loadPublicDetailBundle({
+    readDetail: () => getTopicBySlug(slug, locale),
+    readSeo: () => getTopicSeoBySlug(slug, locale),
+  });
+});
+
 export async function generateMetadata({
   params,
 }: {
@@ -54,10 +66,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const [topic, seo] = await Promise.all([
-    getTopicBySlug(slug, locale),
-    getTopicSeoBySlug(slug, locale),
-  ]);
+  const { detail: topic, seo } = await loadTopicPublicDetailBundle(slug, locale);
 
   if (!topic) {
     return {
@@ -122,10 +131,7 @@ export default async function TopicDetailPage({
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const [topic, seo] = await Promise.all([
-    getTopicBySlug(slug, locale),
-    getTopicSeoBySlug(slug, locale),
-  ]);
+  const { detail: topic, seo } = await loadTopicPublicDetailBundle(slug, locale);
 
   if (!topic) {
     return notFound();
