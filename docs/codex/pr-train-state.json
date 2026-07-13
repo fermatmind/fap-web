@@ -44899,6 +44899,79 @@
     "history": [{"at": "2026-07-12T19:30:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after ARTICLE-FANOUT-01 merge verification. Scope is a low-frequency unauthenticated GET scanner, evidence artifact workflow, budgets, and SOP only; no warmup, private probe, write, or deploy action is authorized."}, {"at": "2026-07-12T19:45:00+08:00", "status": "local_verified", "summary": "Script syntax, focused contracts 2/2, lint, spacing, typecheck, parse, diff, and exact eight-path scope validation passed. A non-enforcing read-only production scan completed; three existing latency/timeout budget signals were observed but are not introduced by or blocking this operations tooling PR."}],
     "updated_at": "2026-07-12T20:00:00+08:00"
   },
+  "BIG5-AUTHORITY-V2-BENCHMARK-01": {
+    "status": "ready_to_merge",
+    "repo": "fap-web",
+    "branch": "codex/big5-authority-v2-benchmark-01",
+    "depends_on": [],
+    "train_scope": "big5_authority_v2_read_only_benchmark",
+    "title": "BIG5-AUTHORITY-V2-BENCHMARK-01: docs(seo): lock Big Five versus Truity benchmark",
+    "commit_sha": "7bd350a487a32c23312ac319ee837e086076b77b",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1744",
+    "checks": {
+      "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the exact 38-item Big Five Authority V2 train and owning-repository manifest/state registration."},
+      "dependency": {"status": "passed", "evidence": "BIG5-AUTHORITY-V2-BENCHMARK-01 has no dependency."},
+      "preflight": {"status": "passed", "evidence": "Created the isolated PR01 worktree from fap-web main after fetch and ff-only sync; HEAD equals origin/main at f6a517049d7f76d4b9b554c73747b2906a305fda. Existing dirty fap-web and fap-api task branches remain untouched."},
+      "artifact_validation": {"status": "passed", "evidence": "The read-only live capture and deterministic rebuild both reported PASS_BIG5_AUTHORITY_V2_BENCHMARK_LOCKED. JSON parsed, CSV contains one header plus exactly 127 canonical rows, and the inventory locks 114 personality, 9 article, 2 test, 2 topic, and 10 redirect-only zh alias records."},
+      "focused_contract": {"status": "passed", "evidence": "Node 24 Vitest focused contract passed 3/3 tests after using the existing dependency installation read-only from the isolated worktree."},
+      "manifest_state": {"status": "passed", "evidence": "Ruby parsed docs/codex/pr-train.yaml and python3 json.tool parsed the state and scorecard JSON artifacts."},
+      "diff_and_scope": {"status": "passed", "evidence": "git diff --check passed. Exact scope validation found eight changed files, all limited to PR01 benchmark artifacts/generator/contract and the authorized manifest/state paths."},
+      "github_required_checks": {"status": "passed", "evidence": "PR #1744 head 9a789c9d08f25948de4aef4fbcb68bcd95b34bfd passed build, complete contracts, Big Five freeze, Enneagram freeze, CodeQL analysis, CodeQL aggregate, and zero-new-code-scanning-alerts after the current-scope parser repair."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-13T16:17:38Z", "status": "planned", "summary": "Registered from the exact operator-supplied Big Five Authority V2 train. Scope is the read-only 127-canonical versus Truity benchmark plus ten zh legacy aliases and downstream ownership lock."},
+      {"at": "2026-07-13T16:17:38Z", "status": "in_progress", "summary": "Started from latest fap-web main in an isolated worktree. No runtime, CMS, indexability, deploy, import, search-provider, or private-data action is authorized."},
+      {"at": "2026-07-13T16:27:09Z", "status": "local_checks_passed", "summary": "Locked 127/127 HTTP-200 canonicals, ten exact 301 zh aliases, all 37 downstream ownership rows, and Truity structural evidence. Focused contract 3/3, JSON/CSV/YAML parsing, deterministic rebuild, diff, and exact eight-file scope validation passed."},
+      {"at": "2026-07-13T16:28:06Z", "status": "committed", "summary": "Committed the exact eight-file PR01 scope at 7bd350a487a32c23312ac319ee837e086076b77b after explicit path-limited staging and cached diff validation."},
+      {"at": "2026-07-13T16:29:08Z", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1744 with the exact manifest title and required what, why, validation, deferred, repository-rule, authority, production-action, and sidecar sections. Required GitHub checks are pending."},
+      {"at": "2026-07-13T16:37:54Z", "status": "ci_fix", "summary": "Inspected the failed CodeQL gate before editing. Repaired the two current-scope HTML parser findings, added bounded retry for a separately observed read-only sitemap 503, regenerated the snapshot, and passed Node 24 syntax, deterministic artifact build, focused contract 3/3, parse, count, and diff checks."},
+      {"at": "2026-07-13T16:42:56Z", "status": "ready_to_merge", "summary": "All seven required GitHub checks passed on repaired head 9a789c9d08f25948de4aef4fbcb68bcd95b34bfd. Revalidated exact eight-file scope, manifest title, PR body, no dependency, no review requirement, CLEAN merge state, and MERGEABLE status."}
+    ],
+    "updated_at": "2026-07-13T16:42:56Z"
+  },
+  "BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04": {
+    "status": "planned",
+    "repo": "fap-web",
+    "branch": "codex/big5-authority-v2-web-trust-renderer-04",
+    "depends_on": ["BIG5-AUTHORITY-V2-PUBLIC-CONTRACT-03"],
+    "train_scope": "big5_authority_v2_web_trust_renderer",
+    "title": "BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04: feat(personality): render Big Five source and reviewer authority",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-13T16:17:38Z", "status": "planned", "summary": "Registered as the fap-web consumer PR for the future backward-compatible backend V2 public authority contract. No implementation is included in PR01."}
+    ],
+    "updated_at": "2026-07-13T16:17:38Z"
+  },
+  "BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38": {
+    "status": "planned",
+    "repo": "fap-web",
+    "branch": "codex/big5-authority-v2-runtime-closeout-38",
+    "depends_on": ["BIG5-AUTHORITY-V2-RELEASE-GATE-37", "separately authorized production deploy if required", "separately authorized production import completed", "production readback evidence available"],
+    "train_scope": "big5_authority_v2_read_only_production_runtime_closeout",
+    "title": "BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38: docs(qa): close out Big Five V2 production runtime",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-13T16:17:38Z", "status": "planned", "summary": "Registered as a read-only production closeout gate. It cannot start until PR37 is merged and separately authorized production actions plus real readback evidence exist."}
+    ],
+    "updated_at": "2026-07-13T16:17:38Z"
+  },
   "MBTI-FULL-AUDIT-30": {
     "status": "merged",
     "repo": "fap-web",
