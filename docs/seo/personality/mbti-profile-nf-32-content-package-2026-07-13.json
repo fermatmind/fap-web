@@ -1,0 +1,1187 @@
+{
+  "artifact": "MBTI-PROFILE-NF-32-CONTENT-PACKAGE",
+  "generated_at": "2026-07-13T12:00:00.000Z",
+  "final_decision": "PASS_NON_PRODUCTION_NF_PROFILE_CONTENT_PACKAGE_READY_FOR_FULL_QA",
+  "source_audit": "docs/seo/personality/mbti-full-audit-30-inventory-runtime-baseline-2026-07-13.json",
+  "summary": {
+    "target_count": 8,
+    "group": "NF",
+    "profile_count": 8,
+    "sections_per_page": 9,
+    "faq_per_page": 6,
+    "internal_links_per_page": 5
+  },
+  "safety_boundary": {
+    "artifact_only": true,
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "frontend_editorial_fallback_added": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_mutation_attempted": false,
+    "production_deploy_attempted": false
+  },
+  "assets": [
+    {
+      "asset_id": "mbti-profile-nf-32:infj-a",
+      "path": "/zh/personality/infj-a",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "INFJ",
+      "variant": "A",
+      "archetype": "提倡者",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "INFJ-A 人格特点：意义建构、关系洞察和价值导向 | FermatMind",
+        "h1": "INFJ-A 人格特点",
+        "meta_description": "了解 INFJ-A 的意义建构、关系洞察和价值导向、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "INFJ-A 是 提倡者 型 INFJ 的 坚定型表达。它更常围绕意义建构、关系洞察和价值导向展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "INFJ-A 一句话定义",
+            "body": "INFJ-A 是 提倡者 型 INFJ 的 坚定型表达。它更常围绕意义建构、关系洞察和价值导向展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要在不确定中维持节奏时，需要理解长期人际模式、整合价值与方向、提供深度支持或把复杂处境讲清楚的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "只奖励即时表态、长期压缩独处消化时间，或把所有关系问题都简化成单一立场的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "INFJ 的安静整理常被误读为神秘或过度敏感。更健康的做法是说明自己已看到什么、还不确定什么，而不是替别人定义意义。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 INFJ 的关系",
+            "body": "基础 16 型的 INFJ 描述意义收束与关系理解；A/T 仅补充压力、反馈与自我确认的节奏，不是共情力或成熟度的排名。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "INFJ-A 与 INFJ-T 的差异",
+            "body": "A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在辅导、研究、内容策划或跨角色协作中，把直觉判断拆成观察、影响、假设和可验证的下一步。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系中先表达自己的期待和界限，再邀请对方说明真实感受，避免把体贴变成没有说出口的测试。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能过度替别人承担解释工作，或因失望退回沉默。先确认事实、责任和可协商边界，能减少内耗。先检查是否把自我确认变成忽略他人输入；保留一个能挑战当前判断的证据入口。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INFJ-A 是什么意思？",
+            "answer": "INFJ-A 指 INFJ 的 坚定型表达，关注的是意义建构、关系洞察和价值导向与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFJ-A 和 INFJ-T 最大差别是什么？",
+            "answer": "INFJ-A 的差异主要在面对质疑、压力和自我确认时的节奏。A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFJ-A 适合什么工作？",
+            "answer": "当任务需要在不确定中维持节奏时，需要理解长期人际模式、整合价值与方向、提供深度支持或把复杂处境讲清楚的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFJ-A 常被误解为什么？",
+            "answer": "INFJ 的安静整理常被误读为神秘或过度敏感。更健康的做法是说明自己已看到什么、还不确定什么，而不是替别人定义意义。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFJ-A 在关系中应注意什么？",
+            "answer": "关系中先表达自己的期待和界限，再邀请对方说明真实感受，避免把体贴变成没有说出口的测试。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。INFJ-A 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/infj-t",
+            "label": "INFJ-T",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-a-vs-infj-t",
+            "label": "INFJ-A 与 INFJ-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-vs-infp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nf-32:infj-t",
+      "path": "/zh/personality/infj-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "INFJ",
+      "variant": "T",
+      "archetype": "提倡者",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "INFJ-T 人格特点：意义建构、关系洞察和价值导向 | FermatMind",
+        "h1": "INFJ-T 人格特点",
+        "meta_description": "了解 INFJ-T 的意义建构、关系洞察和价值导向、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "INFJ-T 是 提倡者 型 INFJ 的 谨慎型表达。它更常围绕意义建构、关系洞察和价值导向展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "INFJ-T 一句话定义",
+            "body": "INFJ-T 是 提倡者 型 INFJ 的 谨慎型表达。它更常围绕意义建构、关系洞察和价值导向展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要细致复核和风险校准时，需要理解长期人际模式、整合价值与方向、提供深度支持或把复杂处境讲清楚的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "只奖励即时表态、长期压缩独处消化时间，或把所有关系问题都简化成单一立场的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "INFJ 的安静整理常被误读为神秘或过度敏感。更健康的做法是说明自己已看到什么、还不确定什么，而不是替别人定义意义。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 INFJ 的关系",
+            "body": "基础 16 型的 INFJ 描述意义收束与关系理解；A/T 仅补充压力、反馈与自我确认的节奏，不是共情力或成熟度的排名。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "INFJ-A 与 INFJ-T 的差异",
+            "body": "T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在辅导、研究、内容策划或跨角色协作中，把直觉判断拆成观察、影响、假设和可验证的下一步。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系中先表达自己的期待和界限，再邀请对方说明真实感受，避免把体贴变成没有说出口的测试。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能过度替别人承担解释工作，或因失望退回沉默。先确认事实、责任和可协商边界，能减少内耗。先检查是否把必要的复盘变成无限加码；设置明确的决策截止点和可逆的下一步。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INFJ-T 是什么意思？",
+            "answer": "INFJ-T 指 INFJ 的 谨慎型表达，关注的是意义建构、关系洞察和价值导向与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFJ-T 和 INFJ-A 最大差别是什么？",
+            "answer": "INFJ-T 的差异主要在面对质疑、压力和自我确认时的节奏。T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFJ-T 适合什么工作？",
+            "answer": "当任务需要细致复核和风险校准时，需要理解长期人际模式、整合价值与方向、提供深度支持或把复杂处境讲清楚的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFJ-T 常被误解为什么？",
+            "answer": "INFJ 的安静整理常被误读为神秘或过度敏感。更健康的做法是说明自己已看到什么、还不确定什么，而不是替别人定义意义。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFJ-T 在关系中应注意什么？",
+            "answer": "关系中先表达自己的期待和界限，再邀请对方说明真实感受，避免把体贴变成没有说出口的测试。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。INFJ-T 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/infj-a",
+            "label": "INFJ-A",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-a-vs-infj-t",
+            "label": "INFJ-A 与 INFJ-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-vs-infp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nf-32:infp-a",
+      "path": "/zh/personality/infp-a",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "INFP",
+      "variant": "A",
+      "archetype": "调停者",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "INFP-A 人格特点：内在价值、想象力和真实表达 | FermatMind",
+        "h1": "INFP-A 人格特点",
+        "meta_description": "了解 INFP-A 的内在价值、想象力和真实表达、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "INFP-A 是 调停者 型 INFP 的 坚定型表达。它更常围绕内在价值、想象力和真实表达展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "INFP-A 一句话定义",
+            "body": "INFP-A 是 调停者 型 INFP 的 坚定型表达。它更常围绕内在价值、想象力和真实表达展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要在不确定中维持节奏时，需要价值判断、叙事表达、创意探索、倾听支持或能让个人观点逐步成熟的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "持续要求压抑真实感受、只用短期排名决定价值，或不允许保留个人表达和迭代空间的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "INFP 的温和并不等于没有立场。成熟的表现是把在乎的事说成可理解的边界，而不是只在心里承受失望。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 INFP 的关系",
+            "body": "基础 16 型的 INFP 描述价值校准和可能性探索；A/T 仅补充面对评价、压力和自我复盘时的反应节奏。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "INFP-A 与 INFP-T 的差异",
+            "body": "A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在创作、研究或支持型工作中，把直觉和价值转成受众、场景、证据和可交付版本，避免理想只停在愿望。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里可先说出感受、需求和不可接受的界限；真诚不是要求别人自动猜到全部期待。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能反复回想伤害、延迟决定或退回想象。为一个价值选择设定最小行动和反馈时点，会比继续自责更有帮助。先检查是否把自我确认变成忽略他人输入；保留一个能挑战当前判断的证据入口。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INFP-A 是什么意思？",
+            "answer": "INFP-A 指 INFP 的 坚定型表达，关注的是内在价值、想象力和真实表达与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFP-A 和 INFP-T 最大差别是什么？",
+            "answer": "INFP-A 的差异主要在面对质疑、压力和自我确认时的节奏。A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFP-A 适合什么工作？",
+            "answer": "当任务需要在不确定中维持节奏时，需要价值判断、叙事表达、创意探索、倾听支持或能让个人观点逐步成熟的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFP-A 常被误解为什么？",
+            "answer": "INFP 的温和并不等于没有立场。成熟的表现是把在乎的事说成可理解的边界，而不是只在心里承受失望。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFP-A 在关系中应注意什么？",
+            "answer": "关系里可先说出感受、需求和不可接受的界限；真诚不是要求别人自动猜到全部期待。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。INFP-A 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/infp-t",
+            "label": "INFP-T",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infp-a-vs-infp-t",
+            "label": "INFP-A 与 INFP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-vs-infp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nf-32:infp-t",
+      "path": "/zh/personality/infp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "INFP",
+      "variant": "T",
+      "archetype": "调停者",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "INFP-T 人格特点：内在价值、想象力和真实表达 | FermatMind",
+        "h1": "INFP-T 人格特点",
+        "meta_description": "了解 INFP-T 的内在价值、想象力和真实表达、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "INFP-T 是 调停者 型 INFP 的 谨慎型表达。它更常围绕内在价值、想象力和真实表达展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "INFP-T 一句话定义",
+            "body": "INFP-T 是 调停者 型 INFP 的 谨慎型表达。它更常围绕内在价值、想象力和真实表达展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要细致复核和风险校准时，需要价值判断、叙事表达、创意探索、倾听支持或能让个人观点逐步成熟的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "持续要求压抑真实感受、只用短期排名决定价值，或不允许保留个人表达和迭代空间的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "INFP 的温和并不等于没有立场。成熟的表现是把在乎的事说成可理解的边界，而不是只在心里承受失望。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 INFP 的关系",
+            "body": "基础 16 型的 INFP 描述价值校准和可能性探索；A/T 仅补充面对评价、压力和自我复盘时的反应节奏。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "INFP-A 与 INFP-T 的差异",
+            "body": "T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在创作、研究或支持型工作中，把直觉和价值转成受众、场景、证据和可交付版本，避免理想只停在愿望。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里可先说出感受、需求和不可接受的界限；真诚不是要求别人自动猜到全部期待。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能反复回想伤害、延迟决定或退回想象。为一个价值选择设定最小行动和反馈时点，会比继续自责更有帮助。先检查是否把必要的复盘变成无限加码；设置明确的决策截止点和可逆的下一步。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INFP-T 是什么意思？",
+            "answer": "INFP-T 指 INFP 的 谨慎型表达，关注的是内在价值、想象力和真实表达与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFP-T 和 INFP-A 最大差别是什么？",
+            "answer": "INFP-T 的差异主要在面对质疑、压力和自我确认时的节奏。T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFP-T 适合什么工作？",
+            "answer": "当任务需要细致复核和风险校准时，需要价值判断、叙事表达、创意探索、倾听支持或能让个人观点逐步成熟的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFP-T 常被误解为什么？",
+            "answer": "INFP 的温和并不等于没有立场。成熟的表现是把在乎的事说成可理解的边界，而不是只在心里承受失望。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "INFP-T 在关系中应注意什么？",
+            "answer": "关系里可先说出感受、需求和不可接受的界限；真诚不是要求别人自动猜到全部期待。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。INFP-T 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/infp-a",
+            "label": "INFP-A",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infp-a-vs-infp-t",
+            "label": "INFP-A 与 INFP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-vs-infp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nf-32:enfj-a",
+      "path": "/zh/personality/enfj-a",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ENFJ",
+      "variant": "A",
+      "archetype": "主人公",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ENFJ-A 人格特点：人际带动、共同方向和支持行动 | FermatMind",
+        "h1": "ENFJ-A 人格特点",
+        "meta_description": "了解 ENFJ-A 的人际带动、共同方向和支持行动、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ENFJ-A 是 主人公 型 ENFJ 的 坚定型表达。它更常围绕人际带动、共同方向和支持行动展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ENFJ-A 一句话定义",
+            "body": "ENFJ-A 是 主人公 型 ENFJ 的 坚定型表达。它更常围绕人际带动、共同方向和支持行动展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要在不确定中维持节奏时，需要团队激励、跨角色协调、辅导反馈、社区建设或把不同人带向共同目标的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "把情感劳动当作默认责任、长期否定边界，或只要求个人竞争却不允许公开协调关系和资源的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ENFJ 的支持容易被误读为讨好。更成熟的支持会明确角色、同意和责任边界，而不是替别人承担决定。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ENFJ 的关系",
+            "body": "基础 16 型的 ENFJ 描述人际组织和方向感；A/T 仅描述在评价、压力和自我确认上的节奏，不衡量领导力。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ENFJ-A 与 ENFJ-T 的差异",
+            "body": "A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在团队调整或辅导中，先确认目标、角色、支持方式和复盘时间，让鼓励落实为对方能采取的行动。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里要区分关心、建议和替代决定；主动询问对方需要什么，也要让自己的疲惫和边界被看见。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能过度介入、把冲突等同于关系失败。回到事实、角色和可协商的请求，能让支持不失去界限。先检查是否把自我确认变成忽略他人输入；保留一个能挑战当前判断的证据入口。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ENFJ-A 是什么意思？",
+            "answer": "ENFJ-A 指 ENFJ 的 坚定型表达，关注的是人际带动、共同方向和支持行动与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFJ-A 和 ENFJ-T 最大差别是什么？",
+            "answer": "ENFJ-A 的差异主要在面对质疑、压力和自我确认时的节奏。A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFJ-A 适合什么工作？",
+            "answer": "当任务需要在不确定中维持节奏时，需要团队激励、跨角色协调、辅导反馈、社区建设或把不同人带向共同目标的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFJ-A 常被误解为什么？",
+            "answer": "ENFJ 的支持容易被误读为讨好。更成熟的支持会明确角色、同意和责任边界，而不是替别人承担决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFJ-A 在关系中应注意什么？",
+            "answer": "关系里要区分关心、建议和替代决定；主动询问对方需要什么，也要让自己的疲惫和边界被看见。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ENFJ-A 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/enfj-t",
+            "label": "ENFJ-T",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/enfj-a-vs-enfj-t",
+            "label": "ENFJ-A 与 ENFJ-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-vs-infp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nf-32:enfj-t",
+      "path": "/zh/personality/enfj-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ENFJ",
+      "variant": "T",
+      "archetype": "主人公",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ENFJ-T 人格特点：人际带动、共同方向和支持行动 | FermatMind",
+        "h1": "ENFJ-T 人格特点",
+        "meta_description": "了解 ENFJ-T 的人际带动、共同方向和支持行动、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ENFJ-T 是 主人公 型 ENFJ 的 谨慎型表达。它更常围绕人际带动、共同方向和支持行动展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ENFJ-T 一句话定义",
+            "body": "ENFJ-T 是 主人公 型 ENFJ 的 谨慎型表达。它更常围绕人际带动、共同方向和支持行动展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要细致复核和风险校准时，需要团队激励、跨角色协调、辅导反馈、社区建设或把不同人带向共同目标的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "把情感劳动当作默认责任、长期否定边界，或只要求个人竞争却不允许公开协调关系和资源的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ENFJ 的支持容易被误读为讨好。更成熟的支持会明确角色、同意和责任边界，而不是替别人承担决定。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ENFJ 的关系",
+            "body": "基础 16 型的 ENFJ 描述人际组织和方向感；A/T 仅描述在评价、压力和自我确认上的节奏，不衡量领导力。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ENFJ-A 与 ENFJ-T 的差异",
+            "body": "T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在团队调整或辅导中，先确认目标、角色、支持方式和复盘时间，让鼓励落实为对方能采取的行动。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里要区分关心、建议和替代决定；主动询问对方需要什么，也要让自己的疲惫和边界被看见。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能过度介入、把冲突等同于关系失败。回到事实、角色和可协商的请求，能让支持不失去界限。先检查是否把必要的复盘变成无限加码；设置明确的决策截止点和可逆的下一步。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ENFJ-T 是什么意思？",
+            "answer": "ENFJ-T 指 ENFJ 的 谨慎型表达，关注的是人际带动、共同方向和支持行动与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFJ-T 和 ENFJ-A 最大差别是什么？",
+            "answer": "ENFJ-T 的差异主要在面对质疑、压力和自我确认时的节奏。T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFJ-T 适合什么工作？",
+            "answer": "当任务需要细致复核和风险校准时，需要团队激励、跨角色协调、辅导反馈、社区建设或把不同人带向共同目标的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFJ-T 常被误解为什么？",
+            "answer": "ENFJ 的支持容易被误读为讨好。更成熟的支持会明确角色、同意和责任边界，而不是替别人承担决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFJ-T 在关系中应注意什么？",
+            "answer": "关系里要区分关心、建议和替代决定；主动询问对方需要什么，也要让自己的疲惫和边界被看见。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ENFJ-T 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/enfj-a",
+            "label": "ENFJ-A",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/enfj-a-vs-enfj-t",
+            "label": "ENFJ-A 与 ENFJ-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-vs-infp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nf-32:enfp-a",
+      "path": "/zh/personality/enfp-a",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ENFP",
+      "variant": "A",
+      "archetype": "竞选者",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ENFP-A 人格特点：可能性连接、价值驱动和创意动能 | FermatMind",
+        "h1": "ENFP-A 人格特点",
+        "meta_description": "了解 ENFP-A 的可能性连接、价值驱动和创意动能、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ENFP-A 是 竞选者 型 ENFP 的 坚定型表达。它更常围绕可能性连接、价值驱动和创意动能展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ENFP-A 一句话定义",
+            "body": "ENFP-A 是 竞选者 型 ENFP 的 坚定型表达。它更常围绕可能性连接、价值驱动和创意动能展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要在不确定中维持节奏时，需要创意发散、机会发现、社群连接、叙事表达和把新想法转成试验的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "完全禁止探索、只认可单一路径、长期以机械重复消耗热情，或不给优先级与交付支持的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ENFP 的热情和兴趣广泛容易被误读为不可靠。成熟表现是把真正重要的方向变成明确承诺、节奏和反馈。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ENFP 的关系",
+            "body": "基础 16 型的 ENFP 描述可能性探索与价值选择；A/T 只补充压力、反馈和自我复盘的差异，不代表创造力高低。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ENFP-A 与 ENFP-T 的差异",
+            "body": "A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在创意或社群工作中，先保留发散空间，再用影响、可行性和截止时间选择一个值得推进的版本。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里可把热情和承诺分开说明：既表达想法，也明确何时能回应、需要什么空间和怎样复盘误解。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能不断开启新选项或回避收尾。选定一个最有价值的下一步，并请可信的人协助校准优先级。先检查是否把自我确认变成忽略他人输入；保留一个能挑战当前判断的证据入口。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ENFP-A 是什么意思？",
+            "answer": "ENFP-A 指 ENFP 的 坚定型表达，关注的是可能性连接、价值驱动和创意动能与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFP-A 和 ENFP-T 最大差别是什么？",
+            "answer": "ENFP-A 的差异主要在面对质疑、压力和自我确认时的节奏。A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFP-A 适合什么工作？",
+            "answer": "当任务需要在不确定中维持节奏时，需要创意发散、机会发现、社群连接、叙事表达和把新想法转成试验的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFP-A 常被误解为什么？",
+            "answer": "ENFP 的热情和兴趣广泛容易被误读为不可靠。成熟表现是把真正重要的方向变成明确承诺、节奏和反馈。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFP-A 在关系中应注意什么？",
+            "answer": "关系里可把热情和承诺分开说明：既表达想法，也明确何时能回应、需要什么空间和怎样复盘误解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ENFP-A 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/enfp-t",
+            "label": "ENFP-T",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/enfp-a-vs-enfp-t",
+            "label": "ENFP-A 与 ENFP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-vs-infp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nf-32:enfp-t",
+      "path": "/zh/personality/enfp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ENFP",
+      "variant": "T",
+      "archetype": "竞选者",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ENFP-T 人格特点：可能性连接、价值驱动和创意动能 | FermatMind",
+        "h1": "ENFP-T 人格特点",
+        "meta_description": "了解 ENFP-T 的可能性连接、价值驱动和创意动能、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ENFP-T 是 竞选者 型 ENFP 的 谨慎型表达。它更常围绕可能性连接、价值驱动和创意动能展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ENFP-T 一句话定义",
+            "body": "ENFP-T 是 竞选者 型 ENFP 的 谨慎型表达。它更常围绕可能性连接、价值驱动和创意动能展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要细致复核和风险校准时，需要创意发散、机会发现、社群连接、叙事表达和把新想法转成试验的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "完全禁止探索、只认可单一路径、长期以机械重复消耗热情，或不给优先级与交付支持的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ENFP 的热情和兴趣广泛容易被误读为不可靠。成熟表现是把真正重要的方向变成明确承诺、节奏和反馈。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ENFP 的关系",
+            "body": "基础 16 型的 ENFP 描述可能性探索与价值选择；A/T 只补充压力、反馈和自我复盘的差异，不代表创造力高低。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ENFP-A 与 ENFP-T 的差异",
+            "body": "T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在创意或社群工作中，先保留发散空间，再用影响、可行性和截止时间选择一个值得推进的版本。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里可把热情和承诺分开说明：既表达想法，也明确何时能回应、需要什么空间和怎样复盘误解。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能不断开启新选项或回避收尾。选定一个最有价值的下一步，并请可信的人协助校准优先级。先检查是否把必要的复盘变成无限加码；设置明确的决策截止点和可逆的下一步。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ENFP-T 是什么意思？",
+            "answer": "ENFP-T 指 ENFP 的 谨慎型表达，关注的是可能性连接、价值驱动和创意动能与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFP-T 和 ENFP-A 最大差别是什么？",
+            "answer": "ENFP-T 的差异主要在面对质疑、压力和自我确认时的节奏。T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFP-T 适合什么工作？",
+            "answer": "当任务需要细致复核和风险校准时，需要创意发散、机会发现、社群连接、叙事表达和把新想法转成试验的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFP-T 常被误解为什么？",
+            "answer": "ENFP 的热情和兴趣广泛容易被误读为不可靠。成熟表现是把真正重要的方向变成明确承诺、节奏和反馈。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ENFP-T 在关系中应注意什么？",
+            "answer": "关系里可把热情和承诺分开说明：既表达想法，也明确何时能回应、需要什么空间和怎样复盘误解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ENFP-T 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/enfp-a",
+            "label": "ENFP-A",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/enfp-a-vs-enfp-t",
+            "label": "ENFP-A 与 ENFP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-vs-infp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    }
+  ],
+  "package_sha256": "65073cb19a9d72c947bdfc8a67477f99c24aebbd06ad1c00ea415b1f7f4344ed"
+}

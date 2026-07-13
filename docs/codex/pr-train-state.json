@@ -44927,14 +44927,41 @@
     "updated_at": "2026-07-13T04:38:01Z"
   },
   "MBTI-PROFILE-NT-31": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-profile-nt-31-content-package",
     "depends_on": ["MBTI-FULL-AUDIT-30"],
     "train_scope": "mbti_nt_profile_content_package",
     "title": "MBTI-PROFILE-NT-31: package NT Chinese profile content",
-    "commit_sha": "c351ffbdcfb1b494488d504ebd302dfea509cbe5",
+    "commit_sha": "9ace6d62986e6665cbcd2cd794bb71357ea129cb",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1731",
+    "checks": {
+      "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and manifest/state registration."},
+      "dependency": {"status": "passed", "evidence": "MBTI-FULL-AUDIT-30 PR #1730 is merged and its merge commit is contained in origin/main."}
+    },
+    "failure_reason": null,
+    "merged_at": "2026-07-13T05:42:48Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
+    "history": [
+      {"at": "2026-07-13T04:40:00Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train with fixed NT A/T profile scope."},
+      {"at": "2026-07-13T04:41:00Z", "status": "in_progress", "summary": "Started from the latest fap-web main after AUDIT-30 merge. This task builds only non-production CMS-review content artifacts and does not mutate CMS, runtime enumeration, deploy state, or GSC."},
+      {"at": "2026-07-13T05:20:00Z", "status": "local_verified", "summary": "NT package builder, focused contract, zero-warning lint, typecheck, full contract suite, production build, YAML/JSON parsing, diff check, and exact seven-file scope validation passed."},
+      {"at": "2026-07-13T05:22:00Z", "status": "pr_open", "summary": "Pushed c351ffbdcfb1b494488d504ebd302dfea509cbe5 and opened PR #1731. Required GitHub checks are pending; no CMS write, deploy, or GSC mutation occurred."},
+      {"at": "2026-07-13T05:28:00Z", "status": "ready_to_merge", "summary": "PR #1731 required checks passed: build, contracts, both freeze checks, CodeQL, and zero-new-Code-Scanning-alert gate. Pre-merge scope validation remains limited to the seven registered files."},
+      {"at": "2026-07-13T05:42:48Z", "status": "merged", "summary": "GitHub reports PR #1731 merged at 9ace6d62986e6665cbcd2cd794bb71357ea129cb; origin/main contains the merge commit and the local/remote task branch was cleaned."}
+    ],
+    "updated_at": "2026-07-13T05:42:48Z"
+  },
+  "MBTI-PROFILE-NF-32": {
+    "status": "local_verified",
+    "repo": "fap-web",
+    "branch": "codex/mbti-profile-nf-32-content-package",
+    "depends_on": ["MBTI-FULL-AUDIT-30"],
+    "train_scope": "mbti_nf_profile_content_package",
+    "title": "MBTI-PROFILE-NF-32: package NF Chinese profile content",
+    "commit_sha": null,
+    "pr_url": null,
     "checks": {
       "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and manifest/state registration."},
       "dependency": {"status": "passed", "evidence": "MBTI-FULL-AUDIT-30 PR #1730 is merged and its merge commit is contained in origin/main."}
@@ -44944,13 +44971,11 @@
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "history": [
-      {"at": "2026-07-13T04:40:00Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train with fixed NT A/T profile scope."},
-      {"at": "2026-07-13T04:41:00Z", "status": "in_progress", "summary": "Started from the latest fap-web main after AUDIT-30 merge. This task builds only non-production CMS-review content artifacts and does not mutate CMS, runtime enumeration, deploy state, or GSC."},
-      {"at": "2026-07-13T05:20:00Z", "status": "local_verified", "summary": "NT package builder, focused contract, zero-warning lint, typecheck, full contract suite, production build, YAML/JSON parsing, diff check, and exact seven-file scope validation passed."},
-      {"at": "2026-07-13T05:22:00Z", "status": "pr_open", "summary": "Pushed c351ffbdcfb1b494488d504ebd302dfea509cbe5 and opened PR #1731. Required GitHub checks are pending; no CMS write, deploy, or GSC mutation occurred."},
-      {"at": "2026-07-13T05:28:00Z", "status": "ready_to_merge", "summary": "PR #1731 required checks passed: build, contracts, both freeze checks, CodeQL, and zero-new-Code-Scanning-alert gate. Pre-merge scope validation remains limited to the seven registered files."}
+      {"at": "2026-07-13T05:45:00Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train with fixed NF A/T profile scope."},
+      {"at": "2026-07-13T05:46:00Z", "status": "in_progress", "summary": "Started from the latest fap-web main after NT-31 merge. This task produces only CMS-review content artifacts and does not mutate CMS, runtime, deploy state, or GSC."},
+      {"at": "2026-07-13T06:10:00Z", "status": "local_verified", "summary": "NF package builder, focused contract, zero-warning lint, typecheck, full contract suite, production build, YAML/JSON parsing, diff check, and exact seven-file scope validation passed."}
     ],
-    "updated_at": "2026-07-13T05:28:00Z"
+    "updated_at": "2026-07-13T06:10:00Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
