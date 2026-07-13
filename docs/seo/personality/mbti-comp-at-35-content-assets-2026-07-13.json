@@ -1,0 +1,2889 @@
+{
+  "artifact": "MBTI-COMP-AT-35-CONTENT-ASSETS",
+  "generated_at": "2026-07-13T12:00:00.000Z",
+  "final_decision": "PASS_NON_PRODUCTION_AT_COMPARISON_CONTENT_PACKAGE_READY_FOR_FULL_QA",
+  "source_audit": "docs/seo/personality/mbti-full-audit-30-inventory-runtime-baseline-2026-07-13.json",
+  "summary": {
+    "target_count": 16,
+    "at_comparison_count": 16,
+    "repair_count": 15,
+    "verify_only_count": 1,
+    "sections_per_repair_page": 9,
+    "faq_per_repair_page": 5,
+    "quick_judgment_rows_per_repair_page": 4,
+    "internal_links_per_repair_page": 5
+  },
+  "safety_boundary": {
+    "artifact_only": true,
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "frontend_editorial_fallback_added": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_mutation_attempted": false,
+    "production_deploy_attempted": false
+  },
+  "assets": [
+    {
+      "asset_id": "mbti-comp-at-35:intj-a-vs-intj-t",
+      "path": "/zh/personality/intj-a-vs-intj-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "INTJ-A",
+        "right": "INTJ-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "INTJ-A 和 INTJ-T 的区别",
+        "secondary": [
+          "INTJ-A",
+          "INTJ-T",
+          "INTJ A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses INTJ-specific focus (长期系统、独立判断和结构化推进), decision approach (先搭建判断框架，再安排验证与推进), and misread boundary (把稳定判断误作不需要外部反证) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "INTJ-A 和 INTJ-T 的区别：建筑师 A/T 对比 | FermatMind",
+        "h1": "INTJ-A 和 INTJ-T 的区别",
+        "meta_description": "对比 INTJ-A 与 INTJ-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "INTJ-A 与 INTJ-T 的最大区别，是在相同建筑师核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出长期系统、独立判断和结构化推进，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "INTJ-A 与 INTJ-T 的最大区别，是在相同建筑师核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出长期系统、独立判断和结构化推进，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：INTJ-A=更快回到自己的判断并保持行动节奏；INTJ-T=更频繁检查评价、风险与可改进处；压力反应：INTJ-A=INTJ 的长期系统、独立判断和结构化推进更容易先保持稳定推进；INTJ-T=INTJ 的长期系统、独立判断和结构化推进更容易先复盘遗漏与外部反馈；工作场景：INTJ-A=先搭建判断框架，再安排验证与推进，再用最小证据修正；INTJ-T=先搭建判断框架，再安排验证与推进，并先补足风险检查与反馈窗口；容易误判：INTJ-A=可能被误读为把稳定判断误作不需要外部反证；INTJ-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "INTJ 的长期系统、独立判断和结构化推进更容易先保持稳定推进",
+                "t": "INTJ 的长期系统、独立判断和结构化推进更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先搭建判断框架，再安排验证与推进，再用最小证据修正",
+                "t": "先搭建判断框架，再安排验证与推进，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把稳定判断误作不需要外部反证",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "INTJ-A 与 INTJ-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，INTJ-A 往往在先搭建判断框架，再安排验证与推进后较快进入执行与迭代；INTJ-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，INTJ-A 可能较快确认自己的理解并提出下一步；INTJ-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，INTJ-A 的优势是维持节奏，风险是过早把稳定感当成结论；INTJ-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 INTJ-A 写成更好、更强或必然更自信，也不要把 INTJ-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "INTJ-A 与 INTJ-T 都共享建筑师的长期系统、独立判断和结构化推进。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "INTJ 的长期系统、独立判断和结构化推进更容易先保持稳定推进",
+            "t": "INTJ 的长期系统、独立判断和结构化推进更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先搭建判断框架，再安排验证与推进，再用最小证据修正",
+            "t": "先搭建判断框架，再安排验证与推进，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把稳定判断误作不需要外部反证",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INTJ-A 和 INTJ-T 最大区别是什么？",
+            "answer": "INTJ-A 与 INTJ-T 共享同一基础类型和建筑师偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 INTJ-A 还是 INTJ-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "INTJ-A 一定比 INTJ-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/intj-a",
+            "label": "INTJ-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-t",
+            "label": "INTJ-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intp-a-vs-intp-t",
+            "label": "INTP A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:intp-a-vs-intp-t",
+      "path": "/zh/personality/intp-a-vs-intp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "INTP-A",
+        "right": "INTP-T"
+      },
+      "audit_status": "verify_only",
+      "change_mode": "verify_only",
+      "cms_update_fields": [],
+      "query_fit": {
+        "primary": "INTP-A 和 INTP-T 的区别",
+        "secondary": [
+          "INTP-A",
+          "INTP-T",
+          "INTP A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30"
+      ],
+      "duplicate_differentiation_note": "Existing complete cohort asset; validate only, with no content rewrite proposed.",
+      "verification_contract": {
+        "no_unjustified_rewrite": true,
+        "required_section_keys": [
+          "biggest_difference",
+          "quick_judgment_table",
+          "easy_misread",
+          "work_scenarios",
+          "relationship_scenarios",
+          "stress_scenarios",
+          "do_not_misjudge",
+          "common_ground",
+          "usage_boundary"
+        ],
+        "minimum_quick_judgment_rows": 4,
+        "minimum_faq_count": 5,
+        "minimum_internal_link_count": 5,
+        "expected_indexability": "indexable",
+        "required_action_if_failed": "needs_revision_only_for_failed_fields"
+      },
+      "cms_fields": null,
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:entj-a-vs-entj-t",
+      "path": "/zh/personality/entj-a-vs-entj-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "ENTJ-A",
+        "right": "ENTJ-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "ENTJ-A 和 ENTJ-T 的区别",
+        "secondary": [
+          "ENTJ-A",
+          "ENTJ-T",
+          "ENTJ A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses ENTJ-specific focus (目标拆解、组织推进和决策责任), decision approach (先明确目标与资源，再分配责任推进), and misread boundary (把直接推进误作无需听取现场信息) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "ENTJ-A 和 ENTJ-T 的区别：指挥官 A/T 对比 | FermatMind",
+        "h1": "ENTJ-A 和 ENTJ-T 的区别",
+        "meta_description": "对比 ENTJ-A 与 ENTJ-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "ENTJ-A 与 ENTJ-T 的最大区别，是在相同指挥官核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出目标拆解、组织推进和决策责任，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "ENTJ-A 与 ENTJ-T 的最大区别，是在相同指挥官核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出目标拆解、组织推进和决策责任，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：ENTJ-A=更快回到自己的判断并保持行动节奏；ENTJ-T=更频繁检查评价、风险与可改进处；压力反应：ENTJ-A=ENTJ 的目标拆解、组织推进和决策责任更容易先保持稳定推进；ENTJ-T=ENTJ 的目标拆解、组织推进和决策责任更容易先复盘遗漏与外部反馈；工作场景：ENTJ-A=先明确目标与资源，再分配责任推进，再用最小证据修正；ENTJ-T=先明确目标与资源，再分配责任推进，并先补足风险检查与反馈窗口；容易误判：ENTJ-A=可能被误读为把直接推进误作无需听取现场信息；ENTJ-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "ENTJ 的目标拆解、组织推进和决策责任更容易先保持稳定推进",
+                "t": "ENTJ 的目标拆解、组织推进和决策责任更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先明确目标与资源，再分配责任推进，再用最小证据修正",
+                "t": "先明确目标与资源，再分配责任推进，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把直接推进误作无需听取现场信息",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ENTJ-A 与 ENTJ-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，ENTJ-A 往往在先明确目标与资源，再分配责任推进后较快进入执行与迭代；ENTJ-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，ENTJ-A 可能较快确认自己的理解并提出下一步；ENTJ-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，ENTJ-A 的优势是维持节奏，风险是过早把稳定感当成结论；ENTJ-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 ENTJ-A 写成更好、更强或必然更自信，也不要把 ENTJ-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "ENTJ-A 与 ENTJ-T 都共享指挥官的目标拆解、组织推进和决策责任。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "ENTJ 的目标拆解、组织推进和决策责任更容易先保持稳定推进",
+            "t": "ENTJ 的目标拆解、组织推进和决策责任更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先明确目标与资源，再分配责任推进，再用最小证据修正",
+            "t": "先明确目标与资源，再分配责任推进，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把直接推进误作无需听取现场信息",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ENTJ-A 和 ENTJ-T 最大区别是什么？",
+            "answer": "ENTJ-A 与 ENTJ-T 共享同一基础类型和指挥官偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 ENTJ-A 还是 ENTJ-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "ENTJ-A 一定比 ENTJ-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/entj-a",
+            "label": "ENTJ-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entj-t",
+            "label": "ENTJ-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entp-a-vs-entp-t",
+            "label": "ENTP A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:entp-a-vs-entp-t",
+      "path": "/zh/personality/entp-a-vs-entp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "ENTP-A",
+        "right": "ENTP-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "ENTP-A 和 ENTP-T 的区别",
+        "secondary": [
+          "ENTP-A",
+          "ENTP-T",
+          "ENTP A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses ENTP-specific focus (机会试探、快速验证和观点碰撞), decision approach (先测试可能性与反例，再选择值得投入的方向), and misread boundary (把开放讨论误作不愿意收束) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "ENTP-A 和 ENTP-T 的区别：辩论家 A/T 对比 | FermatMind",
+        "h1": "ENTP-A 和 ENTP-T 的区别",
+        "meta_description": "对比 ENTP-A 与 ENTP-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "ENTP-A 与 ENTP-T 的最大区别，是在相同辩论家核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出机会试探、快速验证和观点碰撞，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "ENTP-A 与 ENTP-T 的最大区别，是在相同辩论家核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出机会试探、快速验证和观点碰撞，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：ENTP-A=更快回到自己的判断并保持行动节奏；ENTP-T=更频繁检查评价、风险与可改进处；压力反应：ENTP-A=ENTP 的机会试探、快速验证和观点碰撞更容易先保持稳定推进；ENTP-T=ENTP 的机会试探、快速验证和观点碰撞更容易先复盘遗漏与外部反馈；工作场景：ENTP-A=先测试可能性与反例，再选择值得投入的方向，再用最小证据修正；ENTP-T=先测试可能性与反例，再选择值得投入的方向，并先补足风险检查与反馈窗口；容易误判：ENTP-A=可能被误读为把开放讨论误作不愿意收束；ENTP-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "ENTP 的机会试探、快速验证和观点碰撞更容易先保持稳定推进",
+                "t": "ENTP 的机会试探、快速验证和观点碰撞更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先测试可能性与反例，再选择值得投入的方向，再用最小证据修正",
+                "t": "先测试可能性与反例，再选择值得投入的方向，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把开放讨论误作不愿意收束",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ENTP-A 与 ENTP-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，ENTP-A 往往在先测试可能性与反例，再选择值得投入的方向后较快进入执行与迭代；ENTP-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，ENTP-A 可能较快确认自己的理解并提出下一步；ENTP-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，ENTP-A 的优势是维持节奏，风险是过早把稳定感当成结论；ENTP-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 ENTP-A 写成更好、更强或必然更自信，也不要把 ENTP-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "ENTP-A 与 ENTP-T 都共享辩论家的机会试探、快速验证和观点碰撞。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "ENTP 的机会试探、快速验证和观点碰撞更容易先保持稳定推进",
+            "t": "ENTP 的机会试探、快速验证和观点碰撞更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先测试可能性与反例，再选择值得投入的方向，再用最小证据修正",
+            "t": "先测试可能性与反例，再选择值得投入的方向，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把开放讨论误作不愿意收束",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ENTP-A 和 ENTP-T 最大区别是什么？",
+            "answer": "ENTP-A 与 ENTP-T 共享同一基础类型和辩论家偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 ENTP-A 还是 ENTP-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "ENTP-A 一定比 ENTP-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/entp-a",
+            "label": "ENTP-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entp-t",
+            "label": "ENTP-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entj-a-vs-entj-t",
+            "label": "ENTJ A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:infj-a-vs-infj-t",
+      "path": "/zh/personality/infj-a-vs-infj-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "INFJ-A",
+        "right": "INFJ-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "INFJ-A 和 INFJ-T 的区别",
+        "secondary": [
+          "INFJ-A",
+          "INFJ-T",
+          "INFJ A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses INFJ-specific focus (意义洞察、长期关系和价值边界), decision approach (先理解关系与意义线索，再形成表达), and misread boundary (把安静整理误作神秘或过度敏感) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "INFJ-A 和 INFJ-T 的区别：提倡者 A/T 对比 | FermatMind",
+        "h1": "INFJ-A 和 INFJ-T 的区别",
+        "meta_description": "对比 INFJ-A 与 INFJ-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "INFJ-A 与 INFJ-T 的最大区别，是在相同提倡者核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出意义洞察、长期关系和价值边界，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "INFJ-A 与 INFJ-T 的最大区别，是在相同提倡者核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出意义洞察、长期关系和价值边界，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：INFJ-A=更快回到自己的判断并保持行动节奏；INFJ-T=更频繁检查评价、风险与可改进处；压力反应：INFJ-A=INFJ 的意义洞察、长期关系和价值边界更容易先保持稳定推进；INFJ-T=INFJ 的意义洞察、长期关系和价值边界更容易先复盘遗漏与外部反馈；工作场景：INFJ-A=先理解关系与意义线索，再形成表达，再用最小证据修正；INFJ-T=先理解关系与意义线索，再形成表达，并先补足风险检查与反馈窗口；容易误判：INFJ-A=可能被误读为把安静整理误作神秘或过度敏感；INFJ-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "INFJ 的意义洞察、长期关系和价值边界更容易先保持稳定推进",
+                "t": "INFJ 的意义洞察、长期关系和价值边界更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先理解关系与意义线索，再形成表达，再用最小证据修正",
+                "t": "先理解关系与意义线索，再形成表达，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把安静整理误作神秘或过度敏感",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "INFJ-A 与 INFJ-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，INFJ-A 往往在先理解关系与意义线索，再形成表达后较快进入执行与迭代；INFJ-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，INFJ-A 可能较快确认自己的理解并提出下一步；INFJ-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，INFJ-A 的优势是维持节奏，风险是过早把稳定感当成结论；INFJ-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 INFJ-A 写成更好、更强或必然更自信，也不要把 INFJ-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "INFJ-A 与 INFJ-T 都共享提倡者的意义洞察、长期关系和价值边界。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "INFJ 的意义洞察、长期关系和价值边界更容易先保持稳定推进",
+            "t": "INFJ 的意义洞察、长期关系和价值边界更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先理解关系与意义线索，再形成表达，再用最小证据修正",
+            "t": "先理解关系与意义线索，再形成表达，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把安静整理误作神秘或过度敏感",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INFJ-A 和 INFJ-T 最大区别是什么？",
+            "answer": "INFJ-A 与 INFJ-T 共享同一基础类型和提倡者偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 INFJ-A 还是 INFJ-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "INFJ-A 一定比 INFJ-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/infj-a",
+            "label": "INFJ-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-t",
+            "label": "INFJ-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infp-a-vs-infp-t",
+            "label": "INFP A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:infp-a-vs-infp-t",
+      "path": "/zh/personality/infp-a-vs-infp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "INFP-A",
+        "right": "INFP-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "INFP-A 和 INFP-T 的区别",
+        "secondary": [
+          "INFP-A",
+          "INFP-T",
+          "INFP A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses INFP-specific focus (价值感受、个人表达和内在一致性), decision approach (先确认是否符合内在价值，再寻找表达方式), and misread boundary (把温和表达误作没有立场) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "INFP-A 和 INFP-T 的区别：调停者 A/T 对比 | FermatMind",
+        "h1": "INFP-A 和 INFP-T 的区别",
+        "meta_description": "对比 INFP-A 与 INFP-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "INFP-A 与 INFP-T 的最大区别，是在相同调停者核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出价值感受、个人表达和内在一致性，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "INFP-A 与 INFP-T 的最大区别，是在相同调停者核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出价值感受、个人表达和内在一致性，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：INFP-A=更快回到自己的判断并保持行动节奏；INFP-T=更频繁检查评价、风险与可改进处；压力反应：INFP-A=INFP 的价值感受、个人表达和内在一致性更容易先保持稳定推进；INFP-T=INFP 的价值感受、个人表达和内在一致性更容易先复盘遗漏与外部反馈；工作场景：INFP-A=先确认是否符合内在价值，再寻找表达方式，再用最小证据修正；INFP-T=先确认是否符合内在价值，再寻找表达方式，并先补足风险检查与反馈窗口；容易误判：INFP-A=可能被误读为把温和表达误作没有立场；INFP-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "INFP 的价值感受、个人表达和内在一致性更容易先保持稳定推进",
+                "t": "INFP 的价值感受、个人表达和内在一致性更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先确认是否符合内在价值，再寻找表达方式，再用最小证据修正",
+                "t": "先确认是否符合内在价值，再寻找表达方式，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把温和表达误作没有立场",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "INFP-A 与 INFP-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，INFP-A 往往在先确认是否符合内在价值，再寻找表达方式后较快进入执行与迭代；INFP-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，INFP-A 可能较快确认自己的理解并提出下一步；INFP-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，INFP-A 的优势是维持节奏，风险是过早把稳定感当成结论；INFP-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 INFP-A 写成更好、更强或必然更自信，也不要把 INFP-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "INFP-A 与 INFP-T 都共享调停者的价值感受、个人表达和内在一致性。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "INFP 的价值感受、个人表达和内在一致性更容易先保持稳定推进",
+            "t": "INFP 的价值感受、个人表达和内在一致性更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先确认是否符合内在价值，再寻找表达方式，再用最小证据修正",
+            "t": "先确认是否符合内在价值，再寻找表达方式，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把温和表达误作没有立场",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INFP-A 和 INFP-T 最大区别是什么？",
+            "answer": "INFP-A 与 INFP-T 共享同一基础类型和调停者偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 INFP-A 还是 INFP-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "INFP-A 一定比 INFP-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/infp-a",
+            "label": "INFP-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infp-t",
+            "label": "INFP-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-a-vs-infj-t",
+            "label": "INFJ A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:enfj-a-vs-enfj-t",
+      "path": "/zh/personality/enfj-a-vs-enfj-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "ENFJ-A",
+        "right": "ENFJ-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "ENFJ-A 和 ENFJ-T 的区别",
+        "secondary": [
+          "ENFJ-A",
+          "ENFJ-T",
+          "ENFJ A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses ENFJ-specific focus (群体协调、价值鼓励和关系动员), decision approach (先理解共同需要，再组织支持与行动), and misread boundary (把支持他人误作必须替代他人决定) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "ENFJ-A 和 ENFJ-T 的区别：主人公 A/T 对比 | FermatMind",
+        "h1": "ENFJ-A 和 ENFJ-T 的区别",
+        "meta_description": "对比 ENFJ-A 与 ENFJ-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "ENFJ-A 与 ENFJ-T 的最大区别，是在相同主人公核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出群体协调、价值鼓励和关系动员，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "ENFJ-A 与 ENFJ-T 的最大区别，是在相同主人公核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出群体协调、价值鼓励和关系动员，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：ENFJ-A=更快回到自己的判断并保持行动节奏；ENFJ-T=更频繁检查评价、风险与可改进处；压力反应：ENFJ-A=ENFJ 的群体协调、价值鼓励和关系动员更容易先保持稳定推进；ENFJ-T=ENFJ 的群体协调、价值鼓励和关系动员更容易先复盘遗漏与外部反馈；工作场景：ENFJ-A=先理解共同需要，再组织支持与行动，再用最小证据修正；ENFJ-T=先理解共同需要，再组织支持与行动，并先补足风险检查与反馈窗口；容易误判：ENFJ-A=可能被误读为把支持他人误作必须替代他人决定；ENFJ-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "ENFJ 的群体协调、价值鼓励和关系动员更容易先保持稳定推进",
+                "t": "ENFJ 的群体协调、价值鼓励和关系动员更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先理解共同需要，再组织支持与行动，再用最小证据修正",
+                "t": "先理解共同需要，再组织支持与行动，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把支持他人误作必须替代他人决定",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ENFJ-A 与 ENFJ-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，ENFJ-A 往往在先理解共同需要，再组织支持与行动后较快进入执行与迭代；ENFJ-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，ENFJ-A 可能较快确认自己的理解并提出下一步；ENFJ-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，ENFJ-A 的优势是维持节奏，风险是过早把稳定感当成结论；ENFJ-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 ENFJ-A 写成更好、更强或必然更自信，也不要把 ENFJ-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "ENFJ-A 与 ENFJ-T 都共享主人公的群体协调、价值鼓励和关系动员。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "ENFJ 的群体协调、价值鼓励和关系动员更容易先保持稳定推进",
+            "t": "ENFJ 的群体协调、价值鼓励和关系动员更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先理解共同需要，再组织支持与行动，再用最小证据修正",
+            "t": "先理解共同需要，再组织支持与行动，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把支持他人误作必须替代他人决定",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ENFJ-A 和 ENFJ-T 最大区别是什么？",
+            "answer": "ENFJ-A 与 ENFJ-T 共享同一基础类型和主人公偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 ENFJ-A 还是 ENFJ-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "ENFJ-A 一定比 ENFJ-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/enfj-a",
+            "label": "ENFJ-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/enfj-t",
+            "label": "ENFJ-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/enfp-a-vs-enfp-t",
+            "label": "ENFP A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:enfp-a-vs-enfp-t",
+      "path": "/zh/personality/enfp-a-vs-enfp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "ENFP-A",
+        "right": "ENFP-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "ENFP-A 和 ENFP-T 的区别",
+        "secondary": [
+          "ENFP-A",
+          "ENFP-T",
+          "ENFP A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses ENFP-specific focus (可能性探索、表达连接和创意启动), decision approach (先发现可能性与连接，再决定如何试验), and misread boundary (把热情广泛误作无法兑现承诺) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "ENFP-A 和 ENFP-T 的区别：竞选者 A/T 对比 | FermatMind",
+        "h1": "ENFP-A 和 ENFP-T 的区别",
+        "meta_description": "对比 ENFP-A 与 ENFP-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "ENFP-A 与 ENFP-T 的最大区别，是在相同竞选者核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出可能性探索、表达连接和创意启动，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "ENFP-A 与 ENFP-T 的最大区别，是在相同竞选者核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出可能性探索、表达连接和创意启动，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：ENFP-A=更快回到自己的判断并保持行动节奏；ENFP-T=更频繁检查评价、风险与可改进处；压力反应：ENFP-A=ENFP 的可能性探索、表达连接和创意启动更容易先保持稳定推进；ENFP-T=ENFP 的可能性探索、表达连接和创意启动更容易先复盘遗漏与外部反馈；工作场景：ENFP-A=先发现可能性与连接，再决定如何试验，再用最小证据修正；ENFP-T=先发现可能性与连接，再决定如何试验，并先补足风险检查与反馈窗口；容易误判：ENFP-A=可能被误读为把热情广泛误作无法兑现承诺；ENFP-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "ENFP 的可能性探索、表达连接和创意启动更容易先保持稳定推进",
+                "t": "ENFP 的可能性探索、表达连接和创意启动更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先发现可能性与连接，再决定如何试验，再用最小证据修正",
+                "t": "先发现可能性与连接，再决定如何试验，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把热情广泛误作无法兑现承诺",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ENFP-A 与 ENFP-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，ENFP-A 往往在先发现可能性与连接，再决定如何试验后较快进入执行与迭代；ENFP-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，ENFP-A 可能较快确认自己的理解并提出下一步；ENFP-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，ENFP-A 的优势是维持节奏，风险是过早把稳定感当成结论；ENFP-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 ENFP-A 写成更好、更强或必然更自信，也不要把 ENFP-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "ENFP-A 与 ENFP-T 都共享竞选者的可能性探索、表达连接和创意启动。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "ENFP 的可能性探索、表达连接和创意启动更容易先保持稳定推进",
+            "t": "ENFP 的可能性探索、表达连接和创意启动更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先发现可能性与连接，再决定如何试验，再用最小证据修正",
+            "t": "先发现可能性与连接，再决定如何试验，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把热情广泛误作无法兑现承诺",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ENFP-A 和 ENFP-T 最大区别是什么？",
+            "answer": "ENFP-A 与 ENFP-T 共享同一基础类型和竞选者偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 ENFP-A 还是 ENFP-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "ENFP-A 一定比 ENFP-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/enfp-a",
+            "label": "ENFP-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/enfp-t",
+            "label": "ENFP-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/enfj-a-vs-enfj-t",
+            "label": "ENFJ A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:istj-a-vs-istj-t",
+      "path": "/zh/personality/istj-a-vs-istj-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "ISTJ-A",
+        "right": "ISTJ-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "ISTJ-A 和 ISTJ-T 的区别",
+        "secondary": [
+          "ISTJ-A",
+          "ISTJ-T",
+          "ISTJ A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses ISTJ-specific focus (事实核对、责任秩序和稳定执行), decision approach (先确认经验、标准与责任，再拆分步骤), and misread boundary (把谨慎执行误作缺乏弹性) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "ISTJ-A 和 ISTJ-T 的区别：物流师 A/T 对比 | FermatMind",
+        "h1": "ISTJ-A 和 ISTJ-T 的区别",
+        "meta_description": "对比 ISTJ-A 与 ISTJ-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "ISTJ-A 与 ISTJ-T 的最大区别，是在相同物流师核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出事实核对、责任秩序和稳定执行，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "ISTJ-A 与 ISTJ-T 的最大区别，是在相同物流师核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出事实核对、责任秩序和稳定执行，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：ISTJ-A=更快回到自己的判断并保持行动节奏；ISTJ-T=更频繁检查评价、风险与可改进处；压力反应：ISTJ-A=ISTJ 的事实核对、责任秩序和稳定执行更容易先保持稳定推进；ISTJ-T=ISTJ 的事实核对、责任秩序和稳定执行更容易先复盘遗漏与外部反馈；工作场景：ISTJ-A=先确认经验、标准与责任，再拆分步骤，再用最小证据修正；ISTJ-T=先确认经验、标准与责任，再拆分步骤，并先补足风险检查与反馈窗口；容易误判：ISTJ-A=可能被误读为把谨慎执行误作缺乏弹性；ISTJ-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "ISTJ 的事实核对、责任秩序和稳定执行更容易先保持稳定推进",
+                "t": "ISTJ 的事实核对、责任秩序和稳定执行更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先确认经验、标准与责任，再拆分步骤，再用最小证据修正",
+                "t": "先确认经验、标准与责任，再拆分步骤，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把谨慎执行误作缺乏弹性",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ISTJ-A 与 ISTJ-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，ISTJ-A 往往在先确认经验、标准与责任，再拆分步骤后较快进入执行与迭代；ISTJ-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，ISTJ-A 可能较快确认自己的理解并提出下一步；ISTJ-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，ISTJ-A 的优势是维持节奏，风险是过早把稳定感当成结论；ISTJ-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 ISTJ-A 写成更好、更强或必然更自信，也不要把 ISTJ-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "ISTJ-A 与 ISTJ-T 都共享物流师的事实核对、责任秩序和稳定执行。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "ISTJ 的事实核对、责任秩序和稳定执行更容易先保持稳定推进",
+            "t": "ISTJ 的事实核对、责任秩序和稳定执行更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先确认经验、标准与责任，再拆分步骤，再用最小证据修正",
+            "t": "先确认经验、标准与责任，再拆分步骤，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把谨慎执行误作缺乏弹性",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ISTJ-A 和 ISTJ-T 最大区别是什么？",
+            "answer": "ISTJ-A 与 ISTJ-T 共享同一基础类型和物流师偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 ISTJ-A 还是 ISTJ-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "ISTJ-A 一定比 ISTJ-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/istj-a",
+            "label": "ISTJ-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/istj-t",
+            "label": "ISTJ-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/isfj-a-vs-isfj-t",
+            "label": "ISFJ A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:isfj-a-vs-isfj-t",
+      "path": "/zh/personality/isfj-a-vs-isfj-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "ISFJ-A",
+        "right": "ISFJ-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "ISFJ-A 和 ISFJ-T 的区别",
+        "secondary": [
+          "ISFJ-A",
+          "ISFJ-T",
+          "ISFJ A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses ISFJ-specific focus (经验照顾、现实支持和可靠维护), decision approach (先看具体需要与承诺，再安排持续支持), and misread boundary (把体贴支持误作没有个人边界) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "ISFJ-A 和 ISFJ-T 的区别：守卫者 A/T 对比 | FermatMind",
+        "h1": "ISFJ-A 和 ISFJ-T 的区别",
+        "meta_description": "对比 ISFJ-A 与 ISFJ-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "ISFJ-A 与 ISFJ-T 的最大区别，是在相同守卫者核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出经验照顾、现实支持和可靠维护，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "ISFJ-A 与 ISFJ-T 的最大区别，是在相同守卫者核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出经验照顾、现实支持和可靠维护，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：ISFJ-A=更快回到自己的判断并保持行动节奏；ISFJ-T=更频繁检查评价、风险与可改进处；压力反应：ISFJ-A=ISFJ 的经验照顾、现实支持和可靠维护更容易先保持稳定推进；ISFJ-T=ISFJ 的经验照顾、现实支持和可靠维护更容易先复盘遗漏与外部反馈；工作场景：ISFJ-A=先看具体需要与承诺，再安排持续支持，再用最小证据修正；ISFJ-T=先看具体需要与承诺，再安排持续支持，并先补足风险检查与反馈窗口；容易误判：ISFJ-A=可能被误读为把体贴支持误作没有个人边界；ISFJ-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "ISFJ 的经验照顾、现实支持和可靠维护更容易先保持稳定推进",
+                "t": "ISFJ 的经验照顾、现实支持和可靠维护更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先看具体需要与承诺，再安排持续支持，再用最小证据修正",
+                "t": "先看具体需要与承诺，再安排持续支持，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把体贴支持误作没有个人边界",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ISFJ-A 与 ISFJ-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，ISFJ-A 往往在先看具体需要与承诺，再安排持续支持后较快进入执行与迭代；ISFJ-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，ISFJ-A 可能较快确认自己的理解并提出下一步；ISFJ-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，ISFJ-A 的优势是维持节奏，风险是过早把稳定感当成结论；ISFJ-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 ISFJ-A 写成更好、更强或必然更自信，也不要把 ISFJ-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "ISFJ-A 与 ISFJ-T 都共享守卫者的经验照顾、现实支持和可靠维护。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "ISFJ 的经验照顾、现实支持和可靠维护更容易先保持稳定推进",
+            "t": "ISFJ 的经验照顾、现实支持和可靠维护更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先看具体需要与承诺，再安排持续支持，再用最小证据修正",
+            "t": "先看具体需要与承诺，再安排持续支持，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把体贴支持误作没有个人边界",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ISFJ-A 和 ISFJ-T 最大区别是什么？",
+            "answer": "ISFJ-A 与 ISFJ-T 共享同一基础类型和守卫者偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 ISFJ-A 还是 ISFJ-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "ISFJ-A 一定比 ISFJ-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/isfj-a",
+            "label": "ISFJ-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/isfj-t",
+            "label": "ISFJ-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/istj-a-vs-istj-t",
+            "label": "ISTJ A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:estj-a-vs-estj-t",
+      "path": "/zh/personality/estj-a-vs-estj-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "ESTJ-A",
+        "right": "ESTJ-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "ESTJ-A 和 ESTJ-T 的区别",
+        "secondary": [
+          "ESTJ-A",
+          "ESTJ-T",
+          "ESTJ A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses ESTJ-specific focus (规则执行、资源调度和现场管理), decision approach (先明确标准、角色与时间，再组织推进), and misread boundary (把效率语言误作不在乎人的感受) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "ESTJ-A 和 ESTJ-T 的区别：总经理 A/T 对比 | FermatMind",
+        "h1": "ESTJ-A 和 ESTJ-T 的区别",
+        "meta_description": "对比 ESTJ-A 与 ESTJ-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "ESTJ-A 与 ESTJ-T 的最大区别，是在相同总经理核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出规则执行、资源调度和现场管理，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "ESTJ-A 与 ESTJ-T 的最大区别，是在相同总经理核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出规则执行、资源调度和现场管理，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：ESTJ-A=更快回到自己的判断并保持行动节奏；ESTJ-T=更频繁检查评价、风险与可改进处；压力反应：ESTJ-A=ESTJ 的规则执行、资源调度和现场管理更容易先保持稳定推进；ESTJ-T=ESTJ 的规则执行、资源调度和现场管理更容易先复盘遗漏与外部反馈；工作场景：ESTJ-A=先明确标准、角色与时间，再组织推进，再用最小证据修正；ESTJ-T=先明确标准、角色与时间，再组织推进，并先补足风险检查与反馈窗口；容易误判：ESTJ-A=可能被误读为把效率语言误作不在乎人的感受；ESTJ-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "ESTJ 的规则执行、资源调度和现场管理更容易先保持稳定推进",
+                "t": "ESTJ 的规则执行、资源调度和现场管理更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先明确标准、角色与时间，再组织推进，再用最小证据修正",
+                "t": "先明确标准、角色与时间，再组织推进，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把效率语言误作不在乎人的感受",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ESTJ-A 与 ESTJ-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，ESTJ-A 往往在先明确标准、角色与时间，再组织推进后较快进入执行与迭代；ESTJ-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，ESTJ-A 可能较快确认自己的理解并提出下一步；ESTJ-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，ESTJ-A 的优势是维持节奏，风险是过早把稳定感当成结论；ESTJ-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 ESTJ-A 写成更好、更强或必然更自信，也不要把 ESTJ-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "ESTJ-A 与 ESTJ-T 都共享总经理的规则执行、资源调度和现场管理。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "ESTJ 的规则执行、资源调度和现场管理更容易先保持稳定推进",
+            "t": "ESTJ 的规则执行、资源调度和现场管理更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先明确标准、角色与时间，再组织推进，再用最小证据修正",
+            "t": "先明确标准、角色与时间，再组织推进，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把效率语言误作不在乎人的感受",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ESTJ-A 和 ESTJ-T 最大区别是什么？",
+            "answer": "ESTJ-A 与 ESTJ-T 共享同一基础类型和总经理偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 ESTJ-A 还是 ESTJ-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "ESTJ-A 一定比 ESTJ-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/estj-a",
+            "label": "ESTJ-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/estj-t",
+            "label": "ESTJ-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/esfj-a-vs-esfj-t",
+            "label": "ESFJ A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:esfj-a-vs-esfj-t",
+      "path": "/zh/personality/esfj-a-vs-esfj-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "ESFJ-A",
+        "right": "ESFJ-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "ESFJ-A 和 ESFJ-T 的区别",
+        "secondary": [
+          "ESFJ-A",
+          "ESFJ-T",
+          "ESFJ A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses ESFJ-specific focus (关系照顾、共同标准和实际支持), decision approach (先看共同需要与协作安排，再落实支持), and misread boundary (把主动协调误作控制或讨好) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "ESFJ-A 和 ESFJ-T 的区别：执政官 A/T 对比 | FermatMind",
+        "h1": "ESFJ-A 和 ESFJ-T 的区别",
+        "meta_description": "对比 ESFJ-A 与 ESFJ-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "ESFJ-A 与 ESFJ-T 的最大区别，是在相同执政官核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出关系照顾、共同标准和实际支持，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "ESFJ-A 与 ESFJ-T 的最大区别，是在相同执政官核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出关系照顾、共同标准和实际支持，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：ESFJ-A=更快回到自己的判断并保持行动节奏；ESFJ-T=更频繁检查评价、风险与可改进处；压力反应：ESFJ-A=ESFJ 的关系照顾、共同标准和实际支持更容易先保持稳定推进；ESFJ-T=ESFJ 的关系照顾、共同标准和实际支持更容易先复盘遗漏与外部反馈；工作场景：ESFJ-A=先看共同需要与协作安排，再落实支持，再用最小证据修正；ESFJ-T=先看共同需要与协作安排，再落实支持，并先补足风险检查与反馈窗口；容易误判：ESFJ-A=可能被误读为把主动协调误作控制或讨好；ESFJ-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "ESFJ 的关系照顾、共同标准和实际支持更容易先保持稳定推进",
+                "t": "ESFJ 的关系照顾、共同标准和实际支持更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先看共同需要与协作安排，再落实支持，再用最小证据修正",
+                "t": "先看共同需要与协作安排，再落实支持，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把主动协调误作控制或讨好",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ESFJ-A 与 ESFJ-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，ESFJ-A 往往在先看共同需要与协作安排，再落实支持后较快进入执行与迭代；ESFJ-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，ESFJ-A 可能较快确认自己的理解并提出下一步；ESFJ-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，ESFJ-A 的优势是维持节奏，风险是过早把稳定感当成结论；ESFJ-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 ESFJ-A 写成更好、更强或必然更自信，也不要把 ESFJ-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "ESFJ-A 与 ESFJ-T 都共享执政官的关系照顾、共同标准和实际支持。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "ESFJ 的关系照顾、共同标准和实际支持更容易先保持稳定推进",
+            "t": "ESFJ 的关系照顾、共同标准和实际支持更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先看共同需要与协作安排，再落实支持，再用最小证据修正",
+            "t": "先看共同需要与协作安排，再落实支持，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把主动协调误作控制或讨好",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ESFJ-A 和 ESFJ-T 最大区别是什么？",
+            "answer": "ESFJ-A 与 ESFJ-T 共享同一基础类型和执政官偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 ESFJ-A 还是 ESFJ-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "ESFJ-A 一定比 ESFJ-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/esfj-a",
+            "label": "ESFJ-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/esfj-t",
+            "label": "ESFJ-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/estj-a-vs-estj-t",
+            "label": "ESTJ A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:istp-a-vs-istp-t",
+      "path": "/zh/personality/istp-a-vs-istp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "ISTP-A",
+        "right": "ISTP-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "ISTP-A 和 ISTP-T 的区别",
+        "secondary": [
+          "ISTP-A",
+          "ISTP-T",
+          "ISTP A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses ISTP-specific focus (动手试错、工具判断和现实排障), decision approach (先观察系统如何运作，再用小试验验证), and misread boundary (把独立处理误作不关心他人) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "ISTP-A 和 ISTP-T 的区别：鉴赏家 A/T 对比 | FermatMind",
+        "h1": "ISTP-A 和 ISTP-T 的区别",
+        "meta_description": "对比 ISTP-A 与 ISTP-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "ISTP-A 与 ISTP-T 的最大区别，是在相同鉴赏家核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出动手试错、工具判断和现实排障，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "ISTP-A 与 ISTP-T 的最大区别，是在相同鉴赏家核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出动手试错、工具判断和现实排障，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：ISTP-A=更快回到自己的判断并保持行动节奏；ISTP-T=更频繁检查评价、风险与可改进处；压力反应：ISTP-A=ISTP 的动手试错、工具判断和现实排障更容易先保持稳定推进；ISTP-T=ISTP 的动手试错、工具判断和现实排障更容易先复盘遗漏与外部反馈；工作场景：ISTP-A=先观察系统如何运作，再用小试验验证，再用最小证据修正；ISTP-T=先观察系统如何运作，再用小试验验证，并先补足风险检查与反馈窗口；容易误判：ISTP-A=可能被误读为把独立处理误作不关心他人；ISTP-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "ISTP 的动手试错、工具判断和现实排障更容易先保持稳定推进",
+                "t": "ISTP 的动手试错、工具判断和现实排障更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先观察系统如何运作，再用小试验验证，再用最小证据修正",
+                "t": "先观察系统如何运作，再用小试验验证，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把独立处理误作不关心他人",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ISTP-A 与 ISTP-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，ISTP-A 往往在先观察系统如何运作，再用小试验验证后较快进入执行与迭代；ISTP-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，ISTP-A 可能较快确认自己的理解并提出下一步；ISTP-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，ISTP-A 的优势是维持节奏，风险是过早把稳定感当成结论；ISTP-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 ISTP-A 写成更好、更强或必然更自信，也不要把 ISTP-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "ISTP-A 与 ISTP-T 都共享鉴赏家的动手试错、工具判断和现实排障。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "ISTP 的动手试错、工具判断和现实排障更容易先保持稳定推进",
+            "t": "ISTP 的动手试错、工具判断和现实排障更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先观察系统如何运作，再用小试验验证，再用最小证据修正",
+            "t": "先观察系统如何运作，再用小试验验证，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把独立处理误作不关心他人",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ISTP-A 和 ISTP-T 最大区别是什么？",
+            "answer": "ISTP-A 与 ISTP-T 共享同一基础类型和鉴赏家偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 ISTP-A 还是 ISTP-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "ISTP-A 一定比 ISTP-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/istp-a",
+            "label": "ISTP-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/istp-t",
+            "label": "ISTP-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/isfp-a-vs-isfp-t",
+            "label": "ISFP A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:isfp-a-vs-isfp-t",
+      "path": "/zh/personality/isfp-a-vs-isfp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "ISFP-A",
+        "right": "ISFP-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "ISFP-A 和 ISFP-T 的区别",
+        "secondary": [
+          "ISFP-A",
+          "ISFP-T",
+          "ISFP A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses ISFP-specific focus (体验审美、安静表达和现场选择), decision approach (先确认真实感受与实际体验，再作选择), and misread boundary (把低调随和误作没有方向) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "ISFP-A 和 ISFP-T 的区别：探险家 A/T 对比 | FermatMind",
+        "h1": "ISFP-A 和 ISFP-T 的区别",
+        "meta_description": "对比 ISFP-A 与 ISFP-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "ISFP-A 与 ISFP-T 的最大区别，是在相同探险家核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出体验审美、安静表达和现场选择，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "ISFP-A 与 ISFP-T 的最大区别，是在相同探险家核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出体验审美、安静表达和现场选择，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：ISFP-A=更快回到自己的判断并保持行动节奏；ISFP-T=更频繁检查评价、风险与可改进处；压力反应：ISFP-A=ISFP 的体验审美、安静表达和现场选择更容易先保持稳定推进；ISFP-T=ISFP 的体验审美、安静表达和现场选择更容易先复盘遗漏与外部反馈；工作场景：ISFP-A=先确认真实感受与实际体验，再作选择，再用最小证据修正；ISFP-T=先确认真实感受与实际体验，再作选择，并先补足风险检查与反馈窗口；容易误判：ISFP-A=可能被误读为把低调随和误作没有方向；ISFP-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "ISFP 的体验审美、安静表达和现场选择更容易先保持稳定推进",
+                "t": "ISFP 的体验审美、安静表达和现场选择更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先确认真实感受与实际体验，再作选择，再用最小证据修正",
+                "t": "先确认真实感受与实际体验，再作选择，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把低调随和误作没有方向",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ISFP-A 与 ISFP-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，ISFP-A 往往在先确认真实感受与实际体验，再作选择后较快进入执行与迭代；ISFP-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，ISFP-A 可能较快确认自己的理解并提出下一步；ISFP-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，ISFP-A 的优势是维持节奏，风险是过早把稳定感当成结论；ISFP-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 ISFP-A 写成更好、更强或必然更自信，也不要把 ISFP-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "ISFP-A 与 ISFP-T 都共享探险家的体验审美、安静表达和现场选择。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "ISFP 的体验审美、安静表达和现场选择更容易先保持稳定推进",
+            "t": "ISFP 的体验审美、安静表达和现场选择更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先确认真实感受与实际体验，再作选择，再用最小证据修正",
+            "t": "先确认真实感受与实际体验，再作选择，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把低调随和误作没有方向",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ISFP-A 和 ISFP-T 最大区别是什么？",
+            "answer": "ISFP-A 与 ISFP-T 共享同一基础类型和探险家偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 ISFP-A 还是 ISFP-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "ISFP-A 一定比 ISFP-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/isfp-a",
+            "label": "ISFP-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/isfp-t",
+            "label": "ISFP-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/istp-a-vs-istp-t",
+            "label": "ISTP A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:estp-a-vs-estp-t",
+      "path": "/zh/personality/estp-a-vs-estp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "ESTP-A",
+        "right": "ESTP-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "ESTP-A 和 ESTP-T 的区别",
+        "secondary": [
+          "ESTP-A",
+          "ESTP-T",
+          "ESTP A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses ESTP-specific focus (即时行动、现实机会和现场影响), decision approach (先利用可见信息试探机会，再快速调整), and misread boundary (把行动快误作忽略长期代价) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "ESTP-A 和 ESTP-T 的区别：企业家 A/T 对比 | FermatMind",
+        "h1": "ESTP-A 和 ESTP-T 的区别",
+        "meta_description": "对比 ESTP-A 与 ESTP-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "ESTP-A 与 ESTP-T 的最大区别，是在相同企业家核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出即时行动、现实机会和现场影响，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "ESTP-A 与 ESTP-T 的最大区别，是在相同企业家核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出即时行动、现实机会和现场影响，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：ESTP-A=更快回到自己的判断并保持行动节奏；ESTP-T=更频繁检查评价、风险与可改进处；压力反应：ESTP-A=ESTP 的即时行动、现实机会和现场影响更容易先保持稳定推进；ESTP-T=ESTP 的即时行动、现实机会和现场影响更容易先复盘遗漏与外部反馈；工作场景：ESTP-A=先利用可见信息试探机会，再快速调整，再用最小证据修正；ESTP-T=先利用可见信息试探机会，再快速调整，并先补足风险检查与反馈窗口；容易误判：ESTP-A=可能被误读为把行动快误作忽略长期代价；ESTP-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "ESTP 的即时行动、现实机会和现场影响更容易先保持稳定推进",
+                "t": "ESTP 的即时行动、现实机会和现场影响更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先利用可见信息试探机会，再快速调整，再用最小证据修正",
+                "t": "先利用可见信息试探机会，再快速调整，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把行动快误作忽略长期代价",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ESTP-A 与 ESTP-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，ESTP-A 往往在先利用可见信息试探机会，再快速调整后较快进入执行与迭代；ESTP-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，ESTP-A 可能较快确认自己的理解并提出下一步；ESTP-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，ESTP-A 的优势是维持节奏，风险是过早把稳定感当成结论；ESTP-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 ESTP-A 写成更好、更强或必然更自信，也不要把 ESTP-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "ESTP-A 与 ESTP-T 都共享企业家的即时行动、现实机会和现场影响。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "ESTP 的即时行动、现实机会和现场影响更容易先保持稳定推进",
+            "t": "ESTP 的即时行动、现实机会和现场影响更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先利用可见信息试探机会，再快速调整，再用最小证据修正",
+            "t": "先利用可见信息试探机会，再快速调整，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把行动快误作忽略长期代价",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ESTP-A 和 ESTP-T 最大区别是什么？",
+            "answer": "ESTP-A 与 ESTP-T 共享同一基础类型和企业家偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 ESTP-A 还是 ESTP-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "ESTP-A 一定比 ESTP-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/estp-a",
+            "label": "ESTP-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/estp-t",
+            "label": "ESTP-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/esfp-a-vs-esfp-t",
+            "label": "ESFP A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-comp-at-35:esfp-a-vs-esfp-t",
+      "path": "/zh/personality/esfp-a-vs-esfp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "at_comparison",
+      "comparison_pair": {
+        "left": "ESFP-A",
+        "right": "ESFP-T"
+      },
+      "audit_status": "needs_content_repair",
+      "change_mode": "repair",
+      "query_fit": {
+        "primary": "ESFP-A 和 ESFP-T 的区别",
+        "secondary": [
+          "ESFP-A",
+          "ESFP-T",
+          "ESFP A/T 区别"
+        ]
+      },
+      "source_refs": [
+        "MBTI-FULL-AUDIT-30",
+        "public_profile_seo_asset_factory",
+        "mbti64_remaining_58_v2"
+      ],
+      "duplicate_differentiation_note": "Uses ESFP-specific focus (当下互动、表达感染和体验带动), decision approach (先从真实互动与体验获得动力，再带动参与), and misread boundary (把外向热情误作缺少深度或承诺) rather than a generic A/T page body.",
+      "cms_fields": {
+        "title": "ESFP-A 和 ESFP-T 的区别：表演者 A/T 对比 | FermatMind",
+        "h1": "ESFP-A 和 ESFP-T 的区别",
+        "meta_description": "对比 ESFP-A 与 ESFP-T 的最大区别、快速判断表、容易误判、工作、关系、压力场景、共同点、使用边界和 FAQ。",
+        "direct_answer": "ESFP-A 与 ESFP-T 的最大区别，是在相同表演者核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出当下互动、表达感染和体验带动，不应用于诊断、招聘、能力排名或关系裁决。",
+        "sections": [
+          {
+            "key": "biggest_difference",
+            "title": "最大区别",
+            "body": "ESFP-A 与 ESFP-T 的最大区别，是在相同表演者核心偏好下处理反馈、压力与自我确认的节奏不同。A 型通常更快恢复判断并继续推进；T 型通常更愿意复盘风险、标准和外部反馈。两者都可能表现出当下互动、表达感染和体验带动，不应用于诊断、招聘、能力排名或关系裁决。"
+          },
+          {
+            "key": "quick_judgment_table",
+            "title": "快速判断表",
+            "body": "最大区别：ESFP-A=更快回到自己的判断并保持行动节奏；ESFP-T=更频繁检查评价、风险与可改进处；压力反应：ESFP-A=ESFP 的当下互动、表达感染和体验带动更容易先保持稳定推进；ESFP-T=ESFP 的当下互动、表达感染和体验带动更容易先复盘遗漏与外部反馈；工作场景：ESFP-A=先从真实互动与体验获得动力，再带动参与，再用最小证据修正；ESFP-T=先从真实互动与体验获得动力，再带动参与，并先补足风险检查与反馈窗口；容易误判：ESFP-A=可能被误读为把外向热情误作缺少深度或承诺；ESFP-T=可能被误读为犹豫或不够坚定",
+            "rows": [
+              {
+                "dimension": "最大区别",
+                "a": "更快回到自己的判断并保持行动节奏",
+                "t": "更频繁检查评价、风险与可改进处"
+              },
+              {
+                "dimension": "压力反应",
+                "a": "ESFP 的当下互动、表达感染和体验带动更容易先保持稳定推进",
+                "t": "ESFP 的当下互动、表达感染和体验带动更容易先复盘遗漏与外部反馈"
+              },
+              {
+                "dimension": "工作场景",
+                "a": "先从真实互动与体验获得动力，再带动参与，再用最小证据修正",
+                "t": "先从真实互动与体验获得动力，再带动参与，并先补足风险检查与反馈窗口"
+              },
+              {
+                "dimension": "容易误判",
+                "a": "可能被误读为把外向热情误作缺少深度或承诺",
+                "t": "可能被误读为犹豫或不够坚定"
+              }
+            ]
+          },
+          {
+            "key": "easy_misread",
+            "title": "为什么容易混淆",
+            "body": "ESFP-A 与 ESFP-T 的字母核心相同，日常行为也可能相似。只看一次自信、一次焦虑或一个标签会造成误判；更可靠的是观察反馈后如何复盘、压力下如何恢复，以及是否愿意根据证据调整。"
+          },
+          {
+            "key": "work_scenarios",
+            "title": "真实工作场景",
+            "body": "在工作中，ESFP-A 往往在先从真实互动与体验获得动力，再带动参与后较快进入执行与迭代；ESFP-T 往往会增加对标准、遗漏和风险的核对。两种方式都需要清楚的责任、证据和复盘节点，不能替代岗位技能判断。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "真实关系场景",
+            "body": "在关系中，ESFP-A 可能较快确认自己的理解并提出下一步；ESFP-T 可能更在意是否遗漏对方感受或误解。有效沟通不是选出更好的一方，而是说清期待、边界、事实和需要复盘的地方。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力场景差异",
+            "body": "压力下，ESFP-A 的优势是维持节奏，风险是过早把稳定感当成结论；ESFP-T 的优势是发现风险，风险是让复盘无限延长。两者都可用可逆下一步、反馈时间和休息边界恢复校准。"
+          },
+          {
+            "key": "do_not_misjudge",
+            "title": "不要如何误判",
+            "body": "不要把 ESFP-A 写成更好、更强或必然更自信，也不要把 ESFP-T 写成更弱或必然焦虑。A/T 只是观察语言；任何结论都应回到真实行为、情境、经验和反馈。"
+          },
+          {
+            "key": "common_ground",
+            "title": "共同点",
+            "body": "ESFP-A 与 ESFP-T 都共享表演者的当下互动、表达感染和体验带动。它们共同面对的不是谁更优，而是怎样把偏好转成更清楚的决定、协作和复盘。"
+          },
+          {
+            "key": "usage_boundary",
+            "title": "使用边界",
+            "body": "该对比仅用于自我理解、沟通与成长复盘，不构成医学诊断、招聘筛选、智力或能力证明、职业保证、伴侣匹配或未来预测。"
+          }
+        ],
+        "quick_judgment_table": [
+          {
+            "dimension": "最大区别",
+            "a": "更快回到自己的判断并保持行动节奏",
+            "t": "更频繁检查评价、风险与可改进处"
+          },
+          {
+            "dimension": "压力反应",
+            "a": "ESFP 的当下互动、表达感染和体验带动更容易先保持稳定推进",
+            "t": "ESFP 的当下互动、表达感染和体验带动更容易先复盘遗漏与外部反馈"
+          },
+          {
+            "dimension": "工作场景",
+            "a": "先从真实互动与体验获得动力，再带动参与，再用最小证据修正",
+            "t": "先从真实互动与体验获得动力，再带动参与，并先补足风险检查与反馈窗口"
+          },
+          {
+            "dimension": "容易误判",
+            "a": "可能被误读为把外向热情误作缺少深度或承诺",
+            "t": "可能被误读为犹豫或不够坚定"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ESFP-A 和 ESFP-T 最大区别是什么？",
+            "answer": "ESFP-A 与 ESFP-T 共享同一基础类型和表演者偏好；差异主要体现在面对评价、压力和自我确认时的节奏，不是能力或价值高低。"
+          },
+          {
+            "question": "怎么快速判断自己更像 ESFP-A 还是 ESFP-T？",
+            "answer": "回看最近的决定、反馈和压力场景：你是更快恢复判断后推进，还是更常追加复盘和风险检查。再结合长期行为与完整测试结果理解。"
+          },
+          {
+            "question": "ESFP-A 一定比 ESFP-T 更自信吗？",
+            "answer": "不一定。A/T 只能描述自我确认和反馈处理的倾向，不能替代对具体能力、成熟度、训练或环境支持的判断。"
+          },
+          {
+            "question": "这个 A/T 对比能决定职业或关系吗？",
+            "answer": "不能。职业与关系需要结合技能、兴趣、经验、现实约束、沟通和双方边界；页面只提供自我观察与沟通线索。"
+          },
+          {
+            "question": "这个页面可以用于诊断或招聘筛选吗？",
+            "answer": "不能。该内容不是医学诊断、招聘筛选、能力证明或关系裁决工具，也不应据此为自己或他人贴确定性标签。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/esfp-a",
+            "label": "ESFP-A",
+            "purpose": "left_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/esfp-t",
+            "label": "ESFP-T",
+            "purpose": "right_profile",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/estp-a-vs-estp-t",
+            "label": "ESTP A/T 对比",
+            "purpose": "related_at_comparison",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "purpose": "personality_hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "purpose": "test_loop",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    }
+  ],
+  "package_sha256": "eb5a75692bf5d5e01501691fd276b1482fd04e2b3f21783c9512072e56321b3e"
+}

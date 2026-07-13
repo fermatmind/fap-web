@@ -45009,14 +45009,41 @@
     "updated_at": "2026-07-13T07:34:14Z"
   },
   "MBTI-PROFILE-SP-34": {
-    "status": "in_progress",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-profile-sp-34-content-assets",
     "depends_on": ["MBTI-FULL-AUDIT-30"],
     "train_scope": "mbti_sp_profile_content_asset_repair_and_verification",
     "title": "MBTI-PROFILE-SP-34: repair and verify eight SP profile assets",
-    "commit_sha": "dda9b5d2e66c11e0d2198c37d039fddeebde9223",
+    "commit_sha": "de783944bdb3dc3b664b4cc661f18371e01057ce",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1734",
+    "checks": {
+      "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and manifest/state registration."},
+      "dependency": {"status": "passed", "evidence": "MBTI-FULL-AUDIT-30 PR #1730 is merged and its merge commit is contained in origin/main."}
+    },
+    "failure_reason": null,
+    "merged_at": "2026-07-13T08:11:14Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
+    "history": [
+      {"at": "2026-07-13T07:36:00Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train with fixed SP A/T profile scope; ISTP-A and ISFP-A are verify-only."},
+      {"at": "2026-07-13T07:37:00Z", "status": "in_progress", "summary": "Started from the latest fap-web main after SJ-33 merge. This task creates only non-production CMS-review artifacts and does not mutate CMS, runtime, deploy state, or GSC."},
+      {"at": "2026-07-13T07:47:00Z", "status": "local_verified", "summary": "SP builder and focused contract passed; zero-warning lint, typecheck, production build, YAML/JSON parsing, diff check, and exact seven-file scope validation passed. The complete contract runner reproduces only the existing external Career/Big Five llms authority regression recorded by SJ-33."},
+      {"at": "2026-07-13T07:50:00Z", "status": "pr_open", "summary": "Pushed dda9b5d2e66c11e0d2198c37d039fddeebde9223 and opened PR #1734. Required GitHub checks are pending; no CMS write, deploy, or GSC mutation occurred."},
+      {"at": "2026-07-13T07:56:00Z", "status": "ready_to_merge", "summary": "PR #1734 required checks passed: build, contracts, both freeze checks, CodeQL, and the zero-new-Code-Scanning-alert gate. The recorded external local Career/Big Five llms regression did not reproduce in GitHub required checks."},
+      {"at": "2026-07-13T08:11:14Z", "status": "merged", "summary": "GitHub reports PR #1734 merged at de783944bdb3dc3b664b4cc661f18371e01057ce; origin/main contains the merge commit and the local/remote task branch was cleaned."}
+    ],
+    "updated_at": "2026-07-13T08:11:14Z"
+  },
+  "MBTI-COMP-AT-35": {
+    "status": "in_progress",
+    "repo": "fap-web",
+    "branch": "codex/mbti-comp-at-35-content-assets",
+    "depends_on": ["MBTI-FULL-AUDIT-30"],
+    "train_scope": "mbti_at_comparison_content_asset_repair_and_verification",
+    "title": "MBTI-COMP-AT-35: repair sixteen A-T comparison content assets",
+    "commit_sha": "5a85078f176d0e08f07691f462053ebbd77e09c0",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1735",
     "checks": {
       "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and manifest/state registration."},
       "dependency": {"status": "passed", "evidence": "MBTI-FULL-AUDIT-30 PR #1730 is merged and its merge commit is contained in origin/main."}
@@ -45026,13 +45053,13 @@
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
     "history": [
-      {"at": "2026-07-13T07:36:00Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train with fixed SP A/T profile scope; ISTP-A and ISFP-A are verify-only."},
-      {"at": "2026-07-13T07:37:00Z", "status": "in_progress", "summary": "Started from the latest fap-web main after SJ-33 merge. This task creates only non-production CMS-review artifacts and does not mutate CMS, runtime, deploy state, or GSC."},
-      {"at": "2026-07-13T07:47:00Z", "status": "local_verified", "summary": "SP builder and focused contract passed; zero-warning lint, typecheck, production build, YAML/JSON parsing, diff check, and exact seven-file scope validation passed. The complete contract runner reproduces only the existing external Career/Big Five llms authority regression recorded by SJ-33."},
-      {"at": "2026-07-13T07:50:00Z", "status": "pr_open", "summary": "Pushed dda9b5d2e66c11e0d2198c37d039fddeebde9223 and opened PR #1734. Required GitHub checks are pending; no CMS write, deploy, or GSC mutation occurred."},
-      {"at": "2026-07-13T07:56:00Z", "status": "ready_to_merge", "summary": "PR #1734 required checks passed: build, contracts, both freeze checks, CodeQL, and the zero-new-Code-Scanning-alert gate. The recorded external local Career/Big Five llms regression did not reproduce in GitHub required checks."}
+      {"at": "2026-07-13T08:14:00Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train with exactly sixteen A/T comparison URLs; INTP-A vs INTP-T is verify-only."},
+      {"at": "2026-07-13T08:15:00Z", "status": "in_progress", "summary": "Started from the latest fap-web main after SP-34 merge. This task creates only non-production CMS-review artifacts and does not mutate CMS, runtime, deploy state, or GSC."},
+      {"at": "2026-07-13T08:28:00Z", "status": "local_verified", "summary": "A/T builder and focused contract passed; zero-warning lint, typecheck, production build, YAML/JSON parsing, diff check, and exact seven-file scope validation passed. The full contract runner reproduces only the existing external Career/Big Five llms authority regression and unrelated Career discoverability timeout."},
+      {"at": "2026-07-13T08:31:00Z", "status": "pr_open", "summary": "Pushed 5a85078f176d0e08f07691f462053ebbd77e09c0 and opened PR #1735. Required GitHub checks are pending; no CMS write, deploy, or GSC mutation occurred."},
+      {"at": "2026-07-13T08:37:00Z", "status": "ready_to_merge", "summary": "PR #1735 required checks passed: build, contracts, both freeze checks, CodeQL, and the zero-new-Code-Scanning-alert gate. The recorded external local Career/Big Five llms regression did not reproduce in GitHub required checks."}
     ],
-    "updated_at": "2026-07-13T07:56:00Z"
+    "updated_at": "2026-07-13T08:37:00Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
