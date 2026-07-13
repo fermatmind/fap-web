@@ -1,5 +1,15 @@
 # Personality SEO And Asset Operations
 
+## MBTI Recent Retrospective
+
+The July 2026 MBTI asset task line has moved beyond the dry-run state described below. The current cross-PR
+retrospective, production gate result, incident record, and repeatable scan procedure are indexed here:
+
+- `docs/seo/personality/retrospective/2026-07-13-mbti-asset-taskline/README.md`
+
+The retrospective records a promoted and GSC-submitted cohort of 9 URLs. It does **not** claim that every MBTI
+profile or comparison asset is complete or indexable.
+
 This directory stores read-only personality SEO, GEO, GSC, content-asset, and import-readiness artifacts.
 
 The current priority is the MBTI personality asset operations train. The train coordinates frontend rendering
