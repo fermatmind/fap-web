@@ -44900,7 +44900,7 @@
     "updated_at": "2026-07-12T20:00:00+08:00"
   },
   "MBTI-FULL-AUDIT-30": {
-    "status": "pr_open",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-full-audit-30-inventory-runtime-baseline",
     "depends_on": ["MBTI-GSC-25"],
@@ -44920,9 +44920,10 @@
       {"at": "2026-07-13T03:00:00+08:00", "status": "planned", "summary": "Registered by explicit operator authorization for the fixed 52-URL Chinese MBTI inventory."},
       {"at": "2026-07-13T03:05:00+08:00", "status": "in_progress", "summary": "Started in a clean isolated worktree from fap-web origin/main. The audit is read-only and does not mutate CMS, indexability, feeds, deploy state, or GSC."},
       {"at": "2026-07-13T04:12:32Z", "status": "local_verified", "summary": "Read-only inventory generation, focused contract, zero-warning lint, typecheck, full contract suite, production build, YAML/JSON parsing, diff check, and changed-file scope validation passed. Runtime evidence records llms-full degradation and API latency as an external sidecar follow-up, not an audit implementation failure."},
-      {"at": "2026-07-13T04:14:00Z", "status": "pr_open", "summary": "Pushed b9de6b352a862e2dffa290b91d7f8d5584abc225 and opened PR #1730. Required GitHub checks are pending; no deployment, CMS mutation, or GSC mutation occurred."}
+      {"at": "2026-07-13T04:14:00Z", "status": "pr_open", "summary": "Pushed b9de6b352a862e2dffa290b91d7f8d5584abc225 and opened PR #1730. Required GitHub checks are pending; no deployment, CMS mutation, or GSC mutation occurred."},
+      {"at": "2026-07-13T04:22:00Z", "status": "ready_to_merge", "summary": "PR #1730 required checks passed: build, contracts, both freeze checks, CodeQL, and zero-new-Code-Scanning-alert gate. Pre-merge scope revalidation passed after correcting one trailing whitespace in the scoped builder."}
     ],
-    "updated_at": "2026-07-13T04:14:00Z"
+    "updated_at": "2026-07-13T04:22:00Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",

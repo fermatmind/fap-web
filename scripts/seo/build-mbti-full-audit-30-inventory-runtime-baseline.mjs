@@ -347,7 +347,7 @@ function markdown(report) {
     `- Final decision: \`${report.final_decision}\``,
     `- Generated at: \`${report.generated_at}\``,
     `- Scope: ${report.scope.total_count} zh-CN public URLs (${report.scope.profile_count} Profile, ${report.scope.at_comparison_count} A/T comparison, ${report.scope.hot_cross_type_count} hot cross-type comparison).`,
-    `- Content repair: ${report.summary.needs_content_repair_count}`, 
+    `- Content repair: ${report.summary.needs_content_repair_count}`,
     `- Verify-only: ${report.summary.verify_only_count}`,
     `- Runtime repair attention: ${report.summary.runtime_repair_count}`,
     `- API reads above 10 seconds: ${report.summary.latency_over_10_seconds_count}`,
