@@ -45369,16 +45369,16 @@
     "title": "SAEP-PLANNED-PR-09 Consume article authority without fallback",
     "depends_on": ["SAEP-PLANNED-PR-08", "ARTICLE-FANOUT-01", "PUBLIC-STABILITY-WEB-06"],
     "depends_on_atomic_tasks": ["SAEP-ART-01"],
-    "status": "second_review_fix_pushed_checks_pending",
-    "commit_sha": "813049e8d46c3de9e06f9d860c21f88c3806a883",
+    "status": "ready_to_merge",
+    "commit_sha": "4faca03aad72ad1734e34d8d579d5fa6e29c53cc",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1745",
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The concrete SAEP continuous execution goal authorizes exact card SAEP-PRCARD-WEB-9ffab11c6415 and append-only SAEP-PLANNED-PR-09 metadata. Existing PR-PRAC namespace and items are preserved without rename or deletion."},
       "dependency": {"status": "pass", "evidence": "SAEP-PLANNED-PR-08 merged in fap-api PR #3032 at 5a5aadbc280bf60838f4480ddef1f727fa9119d8; ARTICLE-FANOUT-01 merged in fap-web PR #1714 at bbbdacf0e9001b8a7ae844c8dedbce01fd04b4d7; PUBLIC-STABILITY-WEB-06 merged in fap-web PR #1742 at a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc. Both fap-web merge commits are contained in origin/main."},
       "required_local_checks": {"status": "pass", "evidence": "For actionable P2 thread 3573230945, the four-file hreflang regression set passes 28/28, the Node 24 full pnpm test:contract run passes all four shards with 4201/4201 tests, and the Node 24 production build generates 206/206 static pages. Node 24 full lint, spacing, typecheck, JSON/YAML, diff, and exact three-path review-fix scope gates pass; the six known generated SEO/MBTI artifacts were restored."},
-      "github_required_checks": {"status": "second_review_fix_checks_pending", "evidence": "PR #1745 review-fix head ec67401e428d60e32c77929fbbf3cff152b84944 passed every required CI and CodeQL check with CLEAN merge state and first P2 thread 3572799870 resolved. The validated second P2 repair commit 813049e8d46c3de9e06f9d860c21f88c3806a883 and its ledger update have now been pushed; every required GitHub check must rerun on the final ledger-updated head before merge."}
+      "github_required_checks": {"status": "pass", "evidence": "PR #1745 head 4faca03aad72ad1734e34d8d579d5fa6e29c53cc passed build, contracts, both assessment freeze checks, CodeQL, JavaScript/TypeScript analysis, and the no-new-code-scanning-alert gate. Merge state is CLEAN, the exact nine-path PR scope is unchanged, and every review thread is resolved. The ledger-only ready-to-merge head must rerun these required checks before squash merge."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -45401,8 +45401,9 @@
       {"at": "2026-07-13T19:05:23Z", "status": "second_review_fix_build_pending_hardware_guard", "summary": "The current-locale self-alternate repair passes the 28/28 related regression set and the Node 24 full contract suite passes 4201/4201. Six known generated SEO/MBTI artifacts were restored, leaving the exact three-path review-fix diff. Production build is waiting because another fap-api PHPUnit suite entered the single heavy-validation slot before build startup."},
       {"at": "2026-07-13T19:52:23Z", "status": "second_review_fix_local_verified", "summary": "The second P2 repair now has complete local evidence: related regressions pass 28/28, Node 24 full contracts pass 4201/4201, production build generates 206/206 static pages, and Node 24 lint, spacing, typecheck, JSON/YAML, diff, and exact three-path scope gates pass."},
       {"at": "2026-07-13T19:53:06Z", "status": "second_review_fix_committed_pending_push", "summary": "Committed the validated current-locale self-alternate gate and regression as 813049e8d46c3de9e06f9d860c21f88c3806a883 after explicit three-path staging and cached diff validation. A ledger-only commit and push are pending before resolving P2 thread 3573230945."},
-      {"at": "2026-07-13T19:54:32Z", "status": "second_review_fix_pushed_checks_pending", "summary": "Pushed the second P2 repair and its first ledger update to PR #1745. This ledger transition records that all required GitHub checks must rerun on the final ledger-updated head before merge; review thread 3573230945 will be replied to and resolved after that head is pushed."}
+      {"at": "2026-07-13T19:54:32Z", "status": "second_review_fix_pushed_checks_pending", "summary": "Pushed the second P2 repair and its first ledger update to PR #1745. This ledger transition records that all required GitHub checks must rerun on the final ledger-updated head before merge; review thread 3573230945 will be replied to and resolved after that head is pushed."},
+      {"at": "2026-07-13T20:01:06Z", "status": "ready_to_merge", "summary": "PR #1745 head 4faca03aad72ad1734e34d8d579d5fa6e29c53cc passed every required CI and CodeQL gate with CLEAN merge state. The exact nine-path scope remains valid and all review threads, including both actionable P2 findings, are resolved. The ledger-only ready head must rerun required checks before squash merge."}
     ],
-    "updated_at": "2026-07-13T19:54:32Z"
+    "updated_at": "2026-07-13T20:01:06Z"
   }
 }
