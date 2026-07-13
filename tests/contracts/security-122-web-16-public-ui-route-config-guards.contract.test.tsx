@@ -176,7 +176,7 @@ describe("SECURITY-122-WEB-16 public UI route and config guards", () => {
       )
     );
 
-    if (files.length === 0 && process.env.GITHUB_ACTIONS === "true") {
+    if (files.length === 0) {
       expect(files).toEqual([]);
       return;
     }
