@@ -1,6 +1,6 @@
-import Link from "next/link";
 import { Container } from "@/components/layout/Container";
 import { SiteFooterSocialRail } from "@/components/layout/SiteFooterSocialRail";
+import { PublicNavigationLink } from "@/components/navigation/PublicNavigationPendingIndicator";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
 import { filterVisiblePublicTestEntries } from "@/lib/tests/publicTestEntryVisibility";
@@ -112,14 +112,14 @@ export function SiteFooter({ locale = "en" }: { locale?: Locale }) {
         {item.label}
       </a>
     ) : (
-      <Link
+      <PublicNavigationLink
         key={`${item.href}-${item.label}`}
         href={withLocale(item.href)}
         prefetch={false}
         className="block w-fit text-[0.98rem] font-medium leading-7 text-slate-950 transition-colors duration-150 hover:text-lime-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-500"
       >
         {item.label}
-      </Link>
+      </PublicNavigationLink>
     );
 
   return (
