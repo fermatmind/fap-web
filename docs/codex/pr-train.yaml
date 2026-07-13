@@ -25656,9 +25656,9 @@ prs:
       - lib/cms/personality-public-content-assets.ts
       - lib/cms/personalityPublicAssetLoader.ts
       - app/(localized)/[locale]/personality/big-five/page.tsx
-      - app/(localized)/[locale]/personality/big-five/[...segments]/page.tsx
+      - app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx
       - app/(localized)/[locale]/personality/enneagram/page.tsx
-      - app/(localized)/[locale]/personality/enneagram/[...segments]/page.tsx
+      - app/(localized)/[locale]/personality/enneagram/[...slug]/page.tsx
       - tests/contracts/personality-public-asset-read-stability.contract.test.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
