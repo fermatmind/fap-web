@@ -45369,8 +45369,8 @@
     "title": "SAEP-PLANNED-PR-09 Consume article authority without fallback",
     "depends_on": ["SAEP-PLANNED-PR-08", "ARTICLE-FANOUT-01", "PUBLIC-STABILITY-WEB-06"],
     "depends_on_atomic_tasks": ["SAEP-ART-01"],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed_pending_push",
+    "commit_sha": "c7a72dd7b13802a8a510a6c168fa9f218c1d9252",
     "pr_url": null,
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The concrete SAEP continuous execution goal authorizes exact card SAEP-PRCARD-WEB-9ffab11c6415 and append-only SAEP-PLANNED-PR-09 metadata. Existing PR-PRAC namespace and items are preserved without rename or deletion."},
@@ -45389,8 +45389,9 @@
       {"at": "2026-07-13T17:02:14Z", "status": "local_validation_heavy_pending", "summary": "Scoped repairs completed: manifest-focused contracts pass 23/23, additional article cleanup/runtime regressions pass 27/27, targeted and full lint, spacing, typecheck, metadata parsing, diff, and exact nine-path scope gates pass. Full contracts and build wait for another active ci_verify_mbti.sh validation to release the hardware guard."},
       {"at": "2026-07-13T17:06:06Z", "status": "full_contract_failed_repair_in_progress", "summary": "The first complete four-shard contract run failed eight compatibility assertions: four static source anchors and four legacy runtime mocks without an authority property. Production normalized payloads always include authority as a valid projection or null, so the same-scope repair will distinguish explicit production authority from property-absent legacy objects without editing out-of-scope contracts or weakening fail-closed runtime behavior."},
       {"at": "2026-07-13T17:16:10Z", "status": "full_contract_passed_build_pending_hardware_guard", "summary": "Repaired the scoped compatibility boundary without weakening production fail-closed behavior: the 10-file article regression set passes 90/90 and full contracts pass 4201/4201. Lint, spacing, typecheck, metadata parsing, diff, and exact nine-path scope checks pass; production build waits for an unrelated filtered backend PHPUnit run to finish."},
-      {"at": "2026-07-13T17:18:00Z", "status": "local_verified", "summary": "Completed all manifest local gates: focused contracts 23/23, expanded article regressions 90/90, full contracts 4201/4201, production build 206/206 static pages, targeted and full lint, spacing, typecheck, metadata parsing, diff, and exact nine-path scope validation all pass. Generated SEO/MBTI artifacts were restored and no backend, sitemap/llms, CMS write, publish, or deploy scope was introduced."}
+      {"at": "2026-07-13T17:18:00Z", "status": "local_verified", "summary": "Completed all manifest local gates: focused contracts 23/23, expanded article regressions 90/90, full contracts 4201/4201, production build 206/206 static pages, targeted and full lint, spacing, typecheck, metadata parsing, diff, and exact nine-path scope validation all pass. Generated SEO/MBTI artifacts were restored and no backend, sitemap/llms, CMS write, publish, or deploy scope was introduced."},
+      {"at": "2026-07-13T17:19:25Z", "status": "committed_pending_push", "summary": "Committed the exact nine-path Article SEO authority consumer scope as c7a72dd7b13802a8a510a6c168fa9f218c1d9252 after explicit staging, cached diff validation, and all required local checks. Push and PR creation are pending."}
     ],
-    "updated_at": "2026-07-13T17:18:00Z"
+    "updated_at": "2026-07-13T17:19:25Z"
   }
 }
