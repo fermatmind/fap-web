@@ -14989,6 +14989,53 @@ prs:
       auto_merge: true
     next_task: MBTI-FULL-QA-36
 
+  - id: MBTI-FULL-QA-36
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-full-qa-36-semantic-release-gate
+    base: main
+    depends_on:
+      - MBTI-PROFILE-NT-31
+      - MBTI-PROFILE-NF-32
+      - MBTI-PROFILE-SJ-33
+      - MBTI-PROFILE-SP-34
+      - MBTI-COMP-AT-35
+    mode: execute
+    train_scope: mbti_full_chinese_asset_semantic_duplicate_release_gate
+    risk_level: L1
+    status: in_progress
+    title: "MBTI-FULL-QA-36: validate all 52 Chinese MBTI assets"
+    goal: "Run one artifact-only semantic release gate for exactly 32 zh-CN MBTI profiles, sixteen A/T comparisons, and four approved hot cross-type comparisons. The gate must prove schema, safe public links, duplicate/claim boundaries, answerability, and CMS dry-run readiness without rewriting verify-only authority assets or changing runtime publication state."
+    in_scope:
+      - docs/seo/personality/mbti-full-qa-36-*
+      - scripts/seo/build-mbti-full-qa-36-*
+      - tests/contracts/mbti-full-qa-36-*
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS writes, dry-run import, production import, or database migration
+      - frontend runtime or editorial fallback content
+      - sitemap, llms, canonical, robots, JSON-LD, or indexability mutation
+      - English URLs or arbitrary comparison combinations
+      - GSC mutation, URL Inspection, indexing request, staging, or production deploy
+      - cross-type comparison body rewrites; failures require a separate repair scope
+    required_local_checks:
+      - node scripts/seo/build-mbti-full-qa-36-semantic-release-gate.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-full-qa-36-semantic-release-gate.contract.test.ts --reporter=dot
+      - corepack pnpm lint . --max-warnings=0
+      - corepack pnpm typecheck
+      - corepack pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-CMS-PROFILE-37
+
   - id: PR-CAREER-KG-00
     repo: fap-web
     repo_path: <workspace>/fap-web
