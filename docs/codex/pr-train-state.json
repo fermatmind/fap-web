@@ -44937,7 +44937,7 @@
     "updated_at": "2026-07-13T18:45:49Z"
   },
   "BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04": {
-    "status": "pr_open",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/big5-authority-v2-web-trust-renderer-04",
     "depends_on": ["BIG5-AUTHORITY-V2-PUBLIC-CONTRACT-03"],
@@ -44956,9 +44956,10 @@
       "full_contract": {"status": "passed", "evidence": "Node 24 corepack pnpm test:contract passed all 4 shards: 736 files and 4206 tests."},
       "production_url_build": {"status": "passed", "evidence": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com Node 24 corepack pnpm build passed, including 206-page static generation and postbuild standalone asset sync."},
       "manifest_state": {"status": "passed", "evidence": "Ruby YAML parse and python3 json.tool parse passed for the PR train manifest/state."},
-      "diff_and_scope": {"status": "passed", "evidence": "git diff --check passed. Exact changed-file validation found six files, all within PR04 manifest scope."}
+      "diff_and_scope": {"status": "passed", "evidence": "git diff --check passed. Exact changed-file validation found six files, all within PR04 manifest scope."},
+      "github_required_checks": {"status": "passed", "evidence": "PR #1746 head 701d46e7c01b807f5d3b0829613a1d3d795a476a passed build, complete contracts, Big Five freeze, Enneagram freeze, CodeQL analysis, CodeQL aggregate, and zero-new-code-scanning-alerts."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -44969,9 +44970,10 @@
       {"at": "2026-07-13T18:45:49Z", "status": "focused_checks_passed", "summary": "Implemented fail-closed V2 authority normalization, visible backend-supplied editorial/source/media/date rendering, and citation/date-only schema enrichment. Focused contract 6/6, typecheck, lint, spacing, and diff whitespace checks passed; full contract and production-URL build remain pending."},
       {"at": "2026-07-13T19:03:18Z", "status": "local_checks_passed", "summary": "All PR04 manifest checks passed under Node 24: focused contract 6/6, full contracts 736 files and 4206 tests, lint, spacing, typecheck, production API/Site URL build, YAML/JSON parse, diff whitespace, and exact six-file scope validation."},
       {"at": "2026-07-13T19:04:41Z", "status": "committed", "summary": "Committed the exact six-file PR04 implementation and ledger scope at 9196fa590c49402a54a1189ebcf376683abcfb19 after explicit path-limited staging and cached diff validation."},
-      {"at": "2026-07-13T19:05:53Z", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1746 with the exact manifest title and required what, why, validation, deferred, repository-rule, authority, production-action, and sidecar sections. Required GitHub checks are pending."}
+      {"at": "2026-07-13T19:05:53Z", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1746 with the exact manifest title and required what, why, validation, deferred, repository-rule, authority, production-action, and sidecar sections. Required GitHub checks are pending."},
+      {"at": "2026-07-13T19:50:19Z", "status": "ready_to_merge", "summary": "All seven required GitHub checks passed on head 701d46e7c01b807f5d3b0829613a1d3d795a476a. Revalidated exact six-file scope, manifest title, PR body, merged dependency, no review requirement, CLEAN merge state, and MERGEABLE status."}
     ],
-    "updated_at": "2026-07-13T19:05:53Z"
+    "updated_at": "2026-07-13T19:50:19Z"
   },
   "BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38": {
     "status": "planned",
