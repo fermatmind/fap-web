@@ -25803,6 +25803,7 @@ prs:
       - app/(localized)/[locale]/topics/[slug]/page.tsx
       - app/(localized)/[locale]/career/guides/[slug]/page.tsx
       - tests/contracts/topic-career-guide-read-bundle.contract.test.ts
+      - tests/contracts/career-guides-cms.contract.test.tsx
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
       - generated/pr-train-sidecar-issues/sidecar_issues.md

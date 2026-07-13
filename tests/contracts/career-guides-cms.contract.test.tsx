@@ -360,7 +360,7 @@ describe("career guides frontend boundary contract", () => {
     expect(detailSource).not.toContain("landingSurface.summaryBlocks");
   });
 
-  it("calls notFound when the cms detail lookup misses", async () => {
+  it("calls notFound without an SEO read when the cms detail lookup misses", async () => {
     const notFound = vi.fn(() => {
       throw new Error("not-found");
     });
@@ -391,7 +391,7 @@ describe("career guides frontend boundary contract", () => {
     ).rejects.toThrow("not-found");
 
     expect(getCareerGuideFromCmsBySlugMock).toHaveBeenCalledWith("missing-guide", "en");
-    expect(getCareerGuideSeoFromCmsBySlugMock).toHaveBeenCalledWith("missing-guide", "en");
+    expect(getCareerGuideSeoFromCmsBySlugMock).not.toHaveBeenCalled();
     expect(notFound).toHaveBeenCalled();
   });
 

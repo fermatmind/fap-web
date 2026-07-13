@@ -9,6 +9,7 @@ import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/lan
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
+import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
 
 const DEFAULT_ORG_ID = "0";
 const DEFAULT_LIST_PER_PAGE = 20;
@@ -703,7 +704,7 @@ export async function getCareerGuideFromCmsBySlug(
   });
 
   try {
-    const response = await apiClient.get<CmsCareerGuideDetailApiResponse>(
+    const response = await apiClient.getPublic<CmsCareerGuideDetailApiResponse>(
       `/v0.5/career-guides/${encodeURIComponent(normalizedSlug)}${query}`,
       {
         locale,
@@ -719,7 +720,7 @@ export async function getCareerGuideFromCmsBySlug(
 
     return null;
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isAuthoritativePublicAbsence(error)) {
       return null;
     }
 
@@ -742,7 +743,7 @@ export async function getCareerGuideSeoFromCmsBySlug(
   });
 
   try {
-    const response = await apiClient.get<CmsCareerGuideSeoApiResponse>(
+    const response = await apiClient.getPublic<CmsCareerGuideSeoApiResponse>(
       `/v0.5/career-guides/${encodeURIComponent(normalizedSlug)}/seo${query}`,
       {
         locale,
@@ -783,7 +784,7 @@ export async function getCareerGuideSeoFromCmsBySlug(
       surface: normalizeSeoSurface(response.seo_surface_v1 ?? null),
     };
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isAuthoritativePublicAbsence(error)) {
       return null;
     }
 
