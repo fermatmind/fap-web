@@ -45158,7 +45158,7 @@
     "updated_at": "2026-07-13T08:49:00Z"
   },
   "MBTI-FULL-QA-36": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-full-qa-36-semantic-release-gate",
     "depends_on": ["MBTI-PROFILE-NT-31", "MBTI-PROFILE-NF-32", "MBTI-PROFILE-SJ-33", "MBTI-PROFILE-SP-34", "MBTI-COMP-AT-35"],
@@ -45172,17 +45172,50 @@
       "local_validation": {"status": "passed", "evidence": "QA builder reports PASS_MBTI_FULL_QA_36_CMS_DRY_RUN_READY: 52/52 schema and private-boundary checks pass, with 43 repair records approved for CMS dry-run and 9 verify-only records passing. Focused QA contract, zero-warning lint, typecheck, full contract runner, production build, YAML/JSON parsing, diff check, and exact scope validation passed."}
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-13T09:55:40Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {"at": "2026-07-13T09:00:00Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train for exactly 52 public routes: 32 profiles, sixteen A/T comparisons, and four hot cross-type comparisons."},
       {"at": "2026-07-13T09:01:00Z", "status": "in_progress", "summary": "Started from the latest fap-web main after COMP-AT-35 merge. This task creates only QA artifacts and does not mutate CMS, runtime, deploy state, or GSC."},
       {"at": "2026-07-13T17:35:00Z", "status": "local_verified", "summary": "The release gate passed 52/52 schema and private-boundary checks with zero duplicate, unsupported, or deterministic-claim blockers. Forty-three repair records are approved for CMS dry-run and nine verify-only records pass. Focused and complete contracts, zero-warning lint, typecheck, production build, YAML/JSON parsing, diff check, and exact scope validation passed."},
       {"at": "2026-07-13T17:38:00Z", "status": "pr_open", "summary": "Committed 96fff88f2ff02e356cc62f401bc16a1f7775c7ab, pushed the exact seven-file QA scope, and opened PR #1736. Required GitHub checks are pending; no CMS write, deploy, runtime, or GSC action occurred."},
-      {"at": "2026-07-13T17:44:00Z", "status": "ready_to_merge", "summary": "PR #1736 required checks passed: build, contracts, Big Five freeze, Enneagram freeze, CodeQL, and zero-new-Code-Scanning-alerts. The QA scope remains exact and no external mutation was performed."}
+      {"at": "2026-07-13T17:44:00Z", "status": "ready_to_merge", "summary": "PR #1736 required checks passed: build, contracts, Big Five freeze, Enneagram freeze, CodeQL, and zero-new-Code-Scanning-alerts. The QA scope remains exact and no external mutation was performed."},
+      {"at": "2026-07-13T09:55:40Z", "status": "merged", "summary": "Reconciled during MBTI-CMS-APPROVAL-39: GitHub reports PR #1736 merged at 4d0be1e164348bfe41ea262b7a6baa6eaee7c1ff, origin/main contains that merge commit, and its local and remote task branches are absent."}
     ],
-    "updated_at": "2026-07-13T17:44:00Z"
+    "updated_at": "2026-07-13T09:55:40Z"
+  },
+  "MBTI-CMS-APPROVAL-39": {
+    "status": "ready_to_merge",
+    "repo": "fap-web",
+    "branch": "codex/mbti-cms-approval-39-exact-package",
+    "depends_on": ["MBTI-FULL-QA-36", "MBTI-CMS-PROFILE-37", "MBTI-CMS-COMP-38"],
+    "train_scope": "mbti_full_chinese_asset_exact_approval_package",
+    "title": "MBTI-CMS-APPROVAL-39: build exact 43-record repair approval package",
+    "commit_sha": "d55ef304fb097180b02efa980b69f1fbb9dc3767",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1761",
+    "checks": {
+      "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and manifest/state registration."},
+      "dependency": {"status": "passed", "evidence": "MBTI-FULL-QA-36 PR #1736 merged at 4d0be1e164348bfe41ea262b7a6baa6eaee7c1ff; fap-api MBTI-CMS-PROFILE-37 and MBTI-CMS-COMP-38 are merged into their authority repository main."},
+      "local_validation": {"status": "passed", "evidence": "After the isolated MBTI audit artifact atomic-write baseline repair merged at d47e3b6afceeec4e1e53ea8c6f4f5325679457b4, the approval-package builder, focused MBTI-CMS-APPROVAL-39 contract, full four-shard contract runner, zero-warning lint, typecheck, YAML/JSON parsing, diff check, and exact scope validation passed. The final package contains exactly 43 approved repair records and excludes nine verify-only records. No CMS write, runtime, deploy, indexability, sitemap, llms, or GSC action occurred."},
+      "github_required_checks": {"status": "passed", "evidence": "PR #1761 head f716851587fe95ea8aa4aa949d1a34974400da24 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and no-new-code-scanning-alerts."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-13T14:40:00Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train. Scope is a deterministic 43-record repair approval package only; nine verify-only records remain excluded."},
+      {"at": "2026-07-13T14:45:00Z", "status": "in_progress", "summary": "Started from latest fap-web main after verifying the merged QA and API dry-run dependencies. No CMS write, runtime change, indexability mutation, deploy, or GSC action is authorized."},
+      {"at": "2026-07-13T14:56:21Z", "status": "blocked_local_validation_external", "summary": "Focused MBTI-CMS-APPROVAL-39 verification passed, but the required full contract runner timed out only in unrelated workflow/career tests. Recorded in generated/pr-train-sidecar-issues; no PR was opened."},
+      {"at": "2026-07-13T16:07:23Z", "status": "blocked_local_validation_external", "summary": "Authorized full-contract retry completed. The package builder, focused contract, zero-warning lint, typecheck, YAML/JSON parsing, and diff check passed; the full suite failed in 19 unrelated Career, sitemap/llms, MBTI64, topics, and checkout tests. The three original external failures did not recur. Recorded updated evidence in the sidecar; no PR was opened."},
+      {"at": "2026-07-13T16:36:50Z", "status": "blocked_local_validation_external", "summary": "The next authorized complete-contract retry confirmed the three repaired timeout contracts pass in the full runner. The suite still has 23 unrelated failures: Career llms/sitemap, transition/explainability/feedback/recommendation, MBTI64 llms-full, shared sitemap/llms parity, topics, and checkout. No MBTI-CMS-APPROVAL-39 path failed; no PR was opened."},
+      {"at": "2026-07-13T23:15:53Z", "status": "local_verified", "summary": "After the isolated audit artifact atomic-write baseline repair merged, the exact 43-record approval-package builder, focused contract, full contract suite, zero-warning lint, typecheck, YAML/JSON validation, diff check, and exact scope validation passed. The nine verify-only records remain excluded; no CMS write, indexability, deploy, or GSC action occurred."},
+      {"at": "2026-07-13T23:23:27Z", "status": "pr_open", "summary": "Committed d55ef304fb097180b02efa980b69f1fbb9dc3767, pushed the exact nine-file approval-package scope, and opened PR #1761. Required GitHub checks are pending; no CMS write, runtime, indexability, deploy, or GSC action occurred."},
+      {"at": "2026-07-13T23:28:00Z", "status": "ready_to_merge", "summary": "PR #1761 required checks passed: build, contracts, Big Five freeze, Enneagram freeze, CodeQL, and zero-new-Code-Scanning-alerts. The exact nine-file scope remains clean and artifact-only."}
+    ],
+    "updated_at": "2026-07-13T23:28:00Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
