@@ -44900,13 +44900,13 @@
     "updated_at": "2026-07-12T20:00:00+08:00"
   },
   "BIG5-AUTHORITY-V2-BENCHMARK-01": {
-    "status": "local_checks_passed",
+    "status": "committed",
     "repo": "fap-web",
     "branch": "codex/big5-authority-v2-benchmark-01",
     "depends_on": [],
     "train_scope": "big5_authority_v2_read_only_benchmark",
     "title": "BIG5-AUTHORITY-V2-BENCHMARK-01: docs(seo): lock Big Five versus Truity benchmark",
-    "commit_sha": null,
+    "commit_sha": "7bd350a487a32c23312ac319ee837e086076b77b",
     "pr_url": null,
     "checks": {
       "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the exact 38-item Big Five Authority V2 train and owning-repository manifest/state registration."},
@@ -44925,9 +44925,10 @@
     "history": [
       {"at": "2026-07-13T16:17:38Z", "status": "planned", "summary": "Registered from the exact operator-supplied Big Five Authority V2 train. Scope is the read-only 127-canonical versus Truity benchmark plus ten zh legacy aliases and downstream ownership lock."},
       {"at": "2026-07-13T16:17:38Z", "status": "in_progress", "summary": "Started from latest fap-web main in an isolated worktree. No runtime, CMS, indexability, deploy, import, search-provider, or private-data action is authorized."},
-      {"at": "2026-07-13T16:27:09Z", "status": "local_checks_passed", "summary": "Locked 127/127 HTTP-200 canonicals, ten exact 301 zh aliases, all 37 downstream ownership rows, and Truity structural evidence. Focused contract 3/3, JSON/CSV/YAML parsing, deterministic rebuild, diff, and exact eight-file scope validation passed."}
+      {"at": "2026-07-13T16:27:09Z", "status": "local_checks_passed", "summary": "Locked 127/127 HTTP-200 canonicals, ten exact 301 zh aliases, all 37 downstream ownership rows, and Truity structural evidence. Focused contract 3/3, JSON/CSV/YAML parsing, deterministic rebuild, diff, and exact eight-file scope validation passed."},
+      {"at": "2026-07-13T16:28:06Z", "status": "committed", "summary": "Committed the exact eight-file PR01 scope at 7bd350a487a32c23312ac319ee837e086076b77b after explicit path-limited staging and cached diff validation."}
     ],
-    "updated_at": "2026-07-13T16:27:09Z"
+    "updated_at": "2026-07-13T16:28:06Z"
   },
   "BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04": {
     "status": "planned",
