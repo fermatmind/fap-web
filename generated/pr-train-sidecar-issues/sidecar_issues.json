@@ -379,5 +379,18 @@
     "disposition": "resolved_by_frontend_sha_f89d27f4_and_two_consecutive_index24r_9_of_9_runs; gsc25_local_verification_resumed",
     "resolved_at": "2026-07-13T02:00:00+08:00",
     "resolution_evidence": "Two consecutive read-only INDEX-24R runs at 2026-07-12T17:55:39.381Z and 2026-07-12T17:57:33.613Z returned ALLOW_URL_EXPANSION with all eight metrics at 9/9 and zero private URL leaks."
+  },
+  {
+    "id": "external-career-llms-contract-regression-mbti-profile-sj-33",
+    "repo": "fap-web",
+    "pr_id": "MBTI-PROFILE-SJ-33",
+    "branch": "codex/mbti-profile-sj-33-content-assets",
+    "blocker_type": "external_live_authority_contract_regression",
+    "evidence": "On 2026-07-13, the full contract runner failed only in tests/contracts/career-llms-alignment.contract.test.ts. A focused rerun reproduced a 15-second timeout for the llms.txt Career authority assertion and a separate llms-full.txt assertion where the live response had an empty Personality section and omitted the expected Big Five Openness URL.",
+    "why_not_current_pr_scope": "SJ-33 changes only a non-production SJ CMS-review content package, its generator, focused contract, and train metadata. It must not modify Career/Big Five authority enumeration, llms runtime behavior, caches, or public feeds.",
+    "required_checks_affected": false,
+    "merge_affected": false,
+    "recommended_follow_up": "Open a dedicated authority/cache runtime investigation for Career and Big Five llms/llms-full enumeration; do not change it in profile content-package PRs.",
+    "observed_at": "2026-07-13T07:03:53Z"
   }
 ]

@@ -312,3 +312,15 @@
 - disposition: resolved by deployed frontend SHA `f89d27f484859eb9c6790b803dd99b3a15781ed6` and two consecutive INDEX-24R runs with all metrics 9/9 and zero private URL leaks; GSC-25 local verification resumed without repeating external GSC actions.
 - resolved at: 2026-07-13T02:00:00+08:00
 - resolution evidence: read-only runs at 2026-07-12T17:55:39.381Z and 2026-07-12T17:57:33.613Z both returned `ALLOW_URL_EXPANSION`, including `LLMS=9/9` and `LLMS_FULL=9/9`.
+
+## MBTI-PROFILE-SJ-33 External Career LLMS Contract Regression
+
+- repo: fap-web
+- PR id / branch: MBTI-PROFILE-SJ-33 / codex/mbti-profile-sj-33-content-assets
+- blocker type: external_live_authority_contract_regression
+- evidence: On 2026-07-13, the full contract runner failed only in `tests/contracts/career-llms-alignment.contract.test.ts`. A focused rerun reproduced a 15-second timeout for the `llms.txt` Career authority assertion and a separate `llms-full.txt` assertion where the live response had an empty Personality section and omitted the expected Big Five Openness URL.
+- why not current PR scope: SJ-33 changes only a non-production SJ CMS-review content package, its generator, focused contract, and train metadata. It must not modify Career/Big Five authority enumeration, llms runtime behavior, caches, or public feeds.
+- whether required checks are affected: no; the PR's GitHub required checks run independently in CI. The SJ focused contract, lint, typecheck, YAML/JSON parsing, and diff check are passing locally.
+- whether merge is affected: no, unless the same failure reproduces in the required GitHub contracts check.
+- recommended follow-up: Open a dedicated authority/cache runtime investigation for Career and Big Five `llms`/`llms-full` enumeration; do not change it in profile content-package PRs.
+- observed at: 2026-07-13T07:03:53Z
