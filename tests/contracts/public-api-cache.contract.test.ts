@@ -9,7 +9,7 @@ function read(relPath: string): string {
 describe("public api cache contract", () => {
   it("keeps hot public lookup and cms fetches on a shared revalidate policy", () => {
     const files = [
-      "app/(localized)/[locale]/tests/[slug]/page.tsx",
+      "lib/content.ts",
       "app/(localized)/[locale]/tests/[slug]/take/page.tsx",
       "lib/career/api/fetchCareerRecommendationIndex.ts",
       "lib/career/api/fetchCareerRecommendationBundle.ts",

@@ -6,6 +6,14 @@ Runtime behavior changed: no.
 
 This document inventories frontend fallback authority surfaces that can affect public runtime truth, SEO/GEO truth, graph truth, recommendation truth, CTA truth, FAQ truth, or public claim boundaries. It does not remove fallback behavior or change rendering. It classifies current fallback authority so future expansion cannot silently turn frontend code into public truth.
 
+## Current Remediation Update
+
+`PUBLIC-STABILITY-WEB-09` removes the runtime `test_catalog_seed_fallback` and
+keeps the backend scale catalog and lookup as the only public catalog authority.
+The generated Phase 1A inventory remains the historical baseline; current
+contract coverage requires the old seed tokens to stay absent and the classified
+public-read/cache adapter tokens to stay present in `lib/content.ts`.
+
 ## Classification Taxonomy
 
 ```text

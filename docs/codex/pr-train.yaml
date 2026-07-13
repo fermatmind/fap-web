@@ -25896,6 +25896,14 @@ prs:
       - lib/content.ts
       - app/(localized)/[locale]/tests/[slug]/page.tsx
       - tests/contracts/public-test-catalog-read-stability.contract.test.ts
+      - tests/contracts/public-api-cache.contract.test.ts
+      - tests/contracts/fallback-owner-gates.contract.test.ts
+      - tests/contracts/frontend-fallback-authority-inventory.contract.test.ts
+      - tests/contracts/riasec-public-ia.contract.test.ts
+      - tests/contracts/public-claim-boundary-matrix.contract.test.ts
+      - docs/runtime/fallback-owner-gates.md
+      - docs/runtime/frontend-fallback-authority-inventory.md
+      - docs/claims/public-claim-boundary-matrix.md
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
       - generated/pr-train-sidecar-issues/sidecar_issues.md

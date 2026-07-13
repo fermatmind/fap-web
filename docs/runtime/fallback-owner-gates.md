@@ -10,6 +10,14 @@ This artifact adds governance, inventory, and contract gates only. It does not
 delete fallback, change page rendering, change metadata output, change JSON-LD
 output, change sitemap or llms output, or change recommendation runtime.
 
+## Current Remediation Update
+
+`PUBLIC-STABILITY-WEB-09` removes `test_catalog_seed_fallback` from runtime and
+makes the backend scale catalog and lookup the only public catalog authority.
+The generated Phase 1B artifact remains the historical inventory baseline; its
+contract now requires the recorded seed tokens to stay absent and the classified
+public-read/cache adapter tokens to stay present in `lib/content.ts`.
+
 ## Why This Exists
 
 Phase 1A made frontend fallback authority visible in

@@ -180,6 +180,28 @@ describe("public claim runtime boundary matrix", () => {
     const artifact = readArtifact();
 
     for (const row of artifact.rows) {
+      if (row.id === "riasec_interest_direction") {
+        const catalogSource = fs.readFileSync(path.join(ROOT, "lib/content.ts"), "utf8");
+        const iaContractSource = fs.readFileSync(
+          path.join(ROOT, "tests/contracts/riasec-public-ia.contract.test.ts"),
+          "utf8"
+        );
+
+        // PR-PRAC-04 is a frozen historical artifact. Its RIASEC row originally
+        // pointed at the removed frontend catalog seed. Current evidence is the
+        // backend catalog normalization boundary and its no-fallback contract.
+        expect(catalogSource).toContain("apiClient.getPublic");
+        expect(catalogSource).toContain("SCALE_CANONICAL_SLUG_MAP[scaleCode]");
+        expect(catalogSource).toContain("normalizeSupportedScaleCode");
+        expect(catalogSource).not.toContain("FALLBACK_PUBLIC_TEST_SEEDS");
+        expect(catalogSource).not.toContain("霍兰德职业兴趣测试（RIASEC）");
+        expect(iaContractSource).toContain(
+          "keeps backend RIASEC catalog rows normalized to the canonical scale slug"
+        );
+        expect(iaContractSource).toContain("SCALE_CANONICAL_SLUG_MAP[scaleCode]");
+        continue;
+      }
+
       for (const source of row.sourceFiles) {
         const absoluteSource = path.join(ROOT, source.path);
         expect(fs.existsSync(absoluteSource), `${row.id}: ${source.path}`).toBe(true);

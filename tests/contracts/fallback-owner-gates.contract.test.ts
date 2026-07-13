@@ -44,6 +44,9 @@ const REQUIRED_FALLBACK_IDS = [
   "homepage_forced_items",
 ] as const;
 
+const REMEDIATED_FALLBACK_IDS = new Set(["test_catalog_seed_fallback"]);
+const REMEDIATED_SOURCE_TOKENS = ["apiClient.getPublic", "isAuthoritativePublicAbsence"];
+
 type Status = (typeof STATUS_ENUM)[number];
 type Priority = (typeof PRIORITY_ENUM)[number];
 type FallbackClassification = (typeof FALLBACK_CLASSIFICATION_ENUM)[number];
@@ -252,6 +255,16 @@ describe("fallback owner gates", () => {
         expect(fs.existsSync(absoluteSource), `${row.id}: ${sourceFile.path}`).toBe(true);
         const sourceText = fs.readFileSync(absoluteSource, "utf8");
 
+        if (REMEDIATED_FALLBACK_IDS.has(row.id)) {
+          for (const removedToken of sourceFile.requiredTokens) {
+            expect(sourceText, `${row.id}: removed source token ${removedToken}`).not.toContain(removedToken);
+          }
+          for (const replacementToken of REMEDIATED_SOURCE_TOKENS) {
+            expect(sourceText, `${row.id}: missing replacement token ${replacementToken}`).toContain(replacementToken);
+          }
+          continue;
+        }
+
         for (const token of sourceFile.requiredTokens) {
           expect(sourceText, `${row.id}: ${sourceFile.path} missing ${token}`).toContain(token);
         }
@@ -267,6 +280,16 @@ describe("fallback owner gates", () => {
       const absoluteSource = path.join(ROOT, sourceGate.source);
       expect(fs.existsSync(absoluteSource), sourceGate.source).toBe(true);
       const sourceText = fs.readFileSync(absoluteSource, "utf8");
+
+      if (REMEDIATED_FALLBACK_IDS.has(sourceGate.coveredByFallbackId)) {
+        for (const removedToken of sourceGate.requiredTokens) {
+          expect(sourceText, `${sourceGate.source}: removed source token ${removedToken}`).not.toContain(removedToken);
+        }
+        for (const replacementToken of REMEDIATED_SOURCE_TOKENS) {
+          expect(sourceText, `${sourceGate.source}: missing replacement token ${replacementToken}`).toContain(replacementToken);
+        }
+        continue;
+      }
 
       for (const token of sourceGate.requiredTokens) {
         expect(sourceText, `${sourceGate.source} missing ${token}`).toContain(token);

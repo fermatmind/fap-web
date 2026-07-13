@@ -1,4 +1,5 @@
-import { buildApiUrl } from "@/lib/api-base";
+import { apiClient } from "@/lib/api-client";
+import type { LandingSurfaceRaw } from "@/lib/api/v0_3";
 import {
   SCALE_CANONICAL_SLUG_MAP,
   normalizeSupportedScaleCode,
@@ -6,6 +7,10 @@ import {
 } from "@/lib/assessmentSlugMap";
 import { DEFAULT_TEST_COVER_URL } from "@/lib/cms/media";
 import type { Locale } from "@/lib/i18n/locales";
+import {
+  isAuthoritativePublicAbsence,
+  PublicReadError,
+} from "@/lib/public-content/readError";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 
 export type RelatedContentItem = {
@@ -40,144 +45,29 @@ export type TestListItem = {
 
 export type Test = TestListItem;
 
-type FallbackTestSeed = {
-  slug: string;
-  scale_code: string;
-  title: { zh: string; en: string };
-  description: { zh: string; en: string };
-  questions_count: number;
-  time_minutes: number;
-  highlight_priority: number;
+export type TestLookup = {
+  seo_title?: string | null;
+  seo_description?: string | null;
+  og_image_url?: string | null;
+  is_indexable?: boolean;
+  pack_id?: string | null;
+  dir_version?: string | null;
+  content_package_version?: string | null;
+  manifest_hash?: string | null;
+  norms_version?: string | null;
+  quality_level?: string | null;
+  capabilities?: Record<string, unknown> | null;
+  commercial?: Record<string, unknown> | null;
+  price_tier?: string | null;
+  report_unlock_sku?: string | null;
+  upgrade_sku?: string | null;
+  upgrade_sku_anchor?: string | null;
+  offers?: unknown;
+  forms?: unknown[] | null;
+  content_i18n_json?: Record<string, unknown> | null;
+  report_summary_i18n_json?: Record<string, unknown> | null;
+  landing_surface_v1?: LandingSurfaceRaw | null;
 };
-
-const FALLBACK_PUBLIC_TEST_SEEDS: FallbackTestSeed[] = [
-  {
-    slug: SCALE_CANONICAL_SLUG_MAP.MBTI,
-    scale_code: "MBTI",
-    title: { zh: "MBTI 性格测试", en: "MBTI Personality Test" },
-    description: {
-      zh: "快速了解你的类型偏好与决策风格。",
-      en: "Quickly understand your type preferences and decision style.",
-    },
-    questions_count: 144,
-    time_minutes: 15,
-    highlight_priority: 100,
-  },
-  {
-    slug: SCALE_CANONICAL_SLUG_MAP.BIG5_OCEAN,
-    scale_code: "BIG5_OCEAN",
-    title: { zh: "Big Five 大五人格测试", en: "Big Five Personality Test" },
-    description: {
-      zh: "从五个维度看清你的稳定特质。",
-      en: "Read your stable traits across five dimensions.",
-    },
-    questions_count: 120,
-    time_minutes: 20,
-    highlight_priority: 90,
-  },
-  {
-    slug: SCALE_CANONICAL_SLUG_MAP.ENNEAGRAM,
-    scale_code: "ENNEAGRAM",
-    title: { zh: "九型人格测试", en: "Enneagram Test" },
-    description: {
-      zh: "从九种核心动机模式理解你的行为倾向、压力反应与成长线索。",
-      en: "Understand your behavior patterns, stress reactions, and growth cues through nine core motivation types.",
-    },
-    questions_count: 105,
-    time_minutes: 15,
-    highlight_priority: 85,
-  },
-  {
-    slug: SCALE_CANONICAL_SLUG_MAP.RIASEC,
-    scale_code: "RIASEC",
-    title: { zh: "霍兰德职业兴趣测试（RIASEC）", en: "Holland Career Interest Test (RIASEC)" },
-    description: {
-      zh: "从 RIASEC 六维兴趣结构看职业活动、环境与方向偏好。",
-      en: "Map career activity, environment, and direction preferences through the six RIASEC interest dimensions.",
-    },
-    questions_count: 60,
-    time_minutes: 8,
-    highlight_priority: 82,
-  },
-  {
-    slug: SCALE_CANONICAL_SLUG_MAP.EQ_60,
-    scale_code: "EQ_60",
-    title: { zh: "EQ 情商测试", en: "EQ Emotional Intelligence Test" },
-    description: {
-      zh: "了解你在情绪识别与协作沟通中的表现。",
-      en: "Understand how you handle emotion recognition and collaborative communication.",
-    },
-    questions_count: 60,
-    time_minutes: 10,
-    highlight_priority: 80,
-  },
-  {
-    slug: SCALE_CANONICAL_SLUG_MAP.IQ_RAVEN,
-    scale_code: "IQ_RAVEN",
-    title: { zh: "IQ 智商测试", en: "IQ Test" },
-    description: {
-      zh: "快速了解你的认知能力基线。",
-      en: "Get a quick baseline for cognitive ability.",
-    },
-    questions_count: 60,
-    time_minutes: 12,
-    highlight_priority: 70,
-  },
-  {
-    slug: SCALE_CANONICAL_SLUG_MAP.CLINICAL_COMBO_68,
-    scale_code: "CLINICAL_COMBO_68",
-    title: { zh: "抑郁焦虑综合检测", en: "Depression & Anxiety Assessment" },
-    description: {
-      zh: "查看近期抑郁与焦虑状态的结构化参考。",
-      en: "Review a structured reference for recent depression and anxiety state.",
-    },
-    questions_count: 68,
-    time_minutes: 12,
-    highlight_priority: 20,
-  },
-  {
-    slug: SCALE_CANONICAL_SLUG_MAP.SDS_20,
-    scale_code: "SDS_20",
-    title: { zh: "抑郁状态自测", en: "Depression Screening Test" },
-    description: {
-      zh: "快速查看近期情绪低落与兴趣下降信号。",
-      en: "Quickly review recent low mood and loss-of-interest signals.",
-    },
-    questions_count: 20,
-    time_minutes: 5,
-    highlight_priority: 10,
-  },
-];
-
-function buildFallbackPublicTests(locale: Locale): TestListItem[] {
-  return FALLBACK_PUBLIC_TEST_SEEDS.map((seed) => ({
-    title: seed.title[locale],
-    title_i18n: seed.title,
-    slug: seed.slug,
-    description: seed.description[locale],
-    cover_image: DEFAULT_TEST_COVER_URL,
-    questions_count: seed.questions_count,
-    time_minutes: seed.time_minutes,
-    scale_code: seed.scale_code,
-    highlight_priority: seed.highlight_priority,
-    is_public: true,
-    is_active: true,
-    is_indexable: true,
-  }));
-}
-
-function mergeWithFallbackTests(items: TestListItem[], locale: Locale): TestListItem[] {
-  const bySlug = new Map<string, TestListItem>();
-  for (const fallback of buildFallbackPublicTests(locale)) {
-    bySlug.set(fallback.slug, fallback);
-  }
-  for (const item of items) {
-    bySlug.set(item.slug, item);
-  }
-  return [...bySlug.values()].sort(
-    (a, b) => (b.highlight_priority ?? 0) - (a.highlight_priority ?? 0) || a.title.localeCompare(b.title)
-  );
-}
 
 function toRecord(value: unknown): Record<string, unknown> {
   return value && typeof value === "object" && !Array.isArray(value) ? (value as Record<string, unknown>) : {};
@@ -237,36 +127,41 @@ function normalizeCatalogItem(item: unknown): TestListItem | null {
 
 export async function getAllTests(locale: Locale = "en"): Promise<TestListItem[]> {
   const apiLocale = locale === "zh" ? "zh-CN" : "en";
-  let response: Response;
+  let payload: unknown;
   try {
-    response = await fetch(buildApiUrl(`/v0.3/scales/catalog?locale=${encodeURIComponent(apiLocale)}`), {
-      headers: {
-        Accept: "application/json",
-        "X-FAP-Locale": apiLocale,
-      },
-      ...PUBLIC_API_CACHE_OPTIONS,
-    });
-  } catch {
-    return mergeWithFallbackTests([], locale);
+    payload = await apiClient.getPublic<unknown>(
+      `/v0.3/scales/catalog?locale=${encodeURIComponent(apiLocale)}`,
+      {
+        locale: apiLocale,
+        skipAuth: true,
+        ...PUBLIC_API_CACHE_OPTIONS,
+      }
+    );
+  } catch (error) {
+    if (isAuthoritativePublicAbsence(error)) {
+      return [];
+    }
+
+    throw error;
   }
 
-  if (!response.ok) {
-    return mergeWithFallbackTests([], locale);
+  if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+    throw new PublicReadError({ kind: "contract", cause: payload });
+  }
+  const payloadNode = payload as Record<string, unknown>;
+  if (payloadNode.ok === false) {
+    return [];
+  }
+  if (!Array.isArray(payloadNode.items)) {
+    throw new PublicReadError({ kind: "contract", cause: payload });
   }
 
-  let payload: Record<string, unknown>;
-  try {
-    payload = (await response.json()) as Record<string, unknown>;
-  } catch {
-    return mergeWithFallbackTests([], locale);
-  }
-  const items = Array.isArray(payload.items) ? payload.items : [];
-
-  const normalizedItems = items
+  return payloadNode.items
     .map(normalizeCatalogItem)
-    .filter((item): item is TestListItem => item !== null);
-
-  return mergeWithFallbackTests(normalizedItems, locale);
+    .filter((item): item is TestListItem => item !== null)
+    .sort(
+      (a, b) => (b.highlight_priority ?? 0) - (a.highlight_priority ?? 0) || a.title.localeCompare(b.title)
+    );
 }
 
 export function resolveTestTitleByLocale(
@@ -291,4 +186,60 @@ export async function getTestBySlug(slug: string, locale: Locale = "en"): Promis
   const normalizedSlug = resolveCanonicalSlug(slug);
   const tests = await getAllTests(locale);
   return tests.find((test) => test.slug === normalizedSlug) ?? null;
+}
+
+export async function getTestLookup(slug: string, locale: Locale = "en"): Promise<TestLookup | null> {
+  const normalizedSlug = resolveCanonicalSlug(slug);
+  if (!normalizedSlug) {
+    return null;
+  }
+
+  try {
+    const payload = await apiClient.getPublic<Record<string, unknown>>(
+      `/v0.3/scales/lookup?slug=${encodeURIComponent(normalizedSlug)}&locale=${locale}`,
+      {
+        locale,
+        skipAuth: true,
+        ...PUBLIC_API_CACHE_OPTIONS,
+      }
+    );
+
+    if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+      throw new PublicReadError({ kind: "contract", cause: payload });
+    }
+    if (payload.ok === false) {
+      return null;
+    }
+
+    return {
+      seo_title: payload.seo_title as string | null | undefined,
+      seo_description: payload.seo_description as string | null | undefined,
+      og_image_url: payload.og_image_url as string | null | undefined,
+      is_indexable: typeof payload.is_indexable === "boolean" ? payload.is_indexable : undefined,
+      pack_id: (payload.pack_id as string | null | undefined) ?? null,
+      dir_version: (payload.dir_version as string | null | undefined) ?? null,
+      content_package_version: (payload.content_package_version as string | null | undefined) ?? null,
+      manifest_hash: (payload.manifest_hash as string | null | undefined) ?? null,
+      norms_version: (payload.norms_version as string | null | undefined) ?? null,
+      quality_level: (payload.quality_level as string | null | undefined) ?? null,
+      capabilities: (payload.capabilities as Record<string, unknown> | null | undefined) ?? null,
+      commercial: (payload.commercial as Record<string, unknown> | null | undefined) ?? null,
+      price_tier: (payload.price_tier as string | null | undefined) ?? null,
+      report_unlock_sku: (payload.report_unlock_sku as string | null | undefined) ?? null,
+      upgrade_sku: (payload.upgrade_sku as string | null | undefined) ?? null,
+      upgrade_sku_anchor: (payload.upgrade_sku_anchor as string | null | undefined) ?? null,
+      offers: payload.offers,
+      forms: Array.isArray(payload.forms) ? payload.forms : null,
+      content_i18n_json: (payload.content_i18n_json as Record<string, unknown> | null | undefined) ?? null,
+      report_summary_i18n_json:
+        (payload.report_summary_i18n_json as Record<string, unknown> | null | undefined) ?? null,
+      landing_surface_v1: (payload.landing_surface_v1 as LandingSurfaceRaw | null | undefined) ?? null,
+    };
+  } catch (error) {
+    if (isAuthoritativePublicAbsence(error)) {
+      return null;
+    }
+
+    throw error;
+  }
 }

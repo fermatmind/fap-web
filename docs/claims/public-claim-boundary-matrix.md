@@ -49,3 +49,7 @@ This artifact locks the public claim boundary for PRAC. It does not change publi
 ## No Runtime Change Statement
 
 This PR creates a governance matrix and contract test only. Existing runtime strings are not edited, generated discoverability output is not widened, and recommendation behavior is unchanged.
+
+## Current Evidence Remediation
+
+`PUBLIC-STABILITY-WEB-09` removed the frontend-authored public test catalog seed. The frozen PR-PRAC-04 JSON remains unchanged as historical evidence, while the current contract maps `riasec_interest_direction` to the backend catalog normalization boundary in `lib/content.ts` and requires the former RIASEC seed copy to stay absent from runtime source.

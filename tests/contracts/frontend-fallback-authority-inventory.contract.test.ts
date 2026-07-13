@@ -6,6 +6,8 @@ const ROOT = process.cwd();
 const ARTIFACT_PATH = path.join(ROOT, "docs/runtime/generated/frontend-fallback-authority-inventory.v1.json");
 const DOC_PATH = path.join(ROOT, "docs/runtime/frontend-fallback-authority-inventory.md");
 const TRAIN_STATE_PATH = path.join(ROOT, "docs/codex/pr-train-state.json");
+const REMEDIATED_FALLBACK_IDS = new Set(["test_catalog_seed_fallback"]);
+const REMEDIATED_SOURCE_TOKENS = ["apiClient.getPublic", "isAuthoritativePublicAbsence"];
 
 type FallbackClassification =
   | "safe_static"
@@ -139,6 +141,16 @@ describe("frontend fallback authority inventory", () => {
         const absoluteSource = path.join(ROOT, source);
         expect(fs.existsSync(absoluteSource), `${row.id}: ${source}`).toBe(true);
         const sourceText = fs.readFileSync(absoluteSource, "utf8");
+
+        if (REMEDIATED_FALLBACK_IDS.has(row.id)) {
+          for (const removedToken of row.requiredSourceTokens) {
+            expect(sourceText, `${row.id}: removed source token ${removedToken}`).not.toContain(removedToken);
+          }
+          for (const replacementToken of REMEDIATED_SOURCE_TOKENS) {
+            expect(sourceText, `${row.id}: missing replacement token ${replacementToken}`).toContain(replacementToken);
+          }
+          continue;
+        }
 
         for (const token of row.requiredSourceTokens) {
           expect(sourceText, `${row.id}: ${source} missing ${token}`).toContain(token);
