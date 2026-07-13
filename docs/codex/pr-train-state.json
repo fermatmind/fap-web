@@ -45115,7 +45115,7 @@
     "branch": "codex/public-stability-web-01",
     "title": "PUBLIC-STABILITY-WEB-01: add public navigation pending feedback",
     "depends_on": ["GLOBAL-JS-02"],
-    "status": "ready_to_merge",
+    "status": "merged",
     "commit_sha": "0eb4d54e28c04a315063a0a851f398252ba92191",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1737",
     "checks": {
@@ -45124,11 +45124,11 @@
       "required_local_checks": {"status": "pass", "evidence": "Focused pending plus existing SiteHeader integration Vitest 9/9, lint with two pre-existing generated warnings and zero errors, lint:spacing, typecheck, Node 24 production build with explicit public site/API URLs, YAML/JSON parsing, and git diff --check passed."},
       "github_required_checks": {"status": "pass", "evidence": "PR #1737 head 0eb4d54e28c04a315063a0a851f398252ba92191 passed build, contracts, both personality freeze checks, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-13T10:29:50Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -45141,9 +45141,10 @@
       {"at": "2026-07-13T10:09:05Z", "status": "pr_open", "summary": "Committed and pushed the exact eight-path scope at 224cf30f0be90e26204675ca1878bc8de17d172b and opened PR #1737; required GitHub checks are pending."},
       {"at": "2026-07-13T10:15:00Z", "status": "github_checks_failed_current_scope", "summary": "Inspected the failed contracts job: existing SiteHeader locale-link tests mocked usePathname but not the newly required useSearchParams, causing five render failures in the WEB-01 integration boundary."},
       {"at": "2026-07-13T10:18:31Z", "status": "local_reverified", "summary": "Removed the unnecessary search-param hook inside the WEB-01 component; pending plus existing SiteHeader contracts pass 9/9, and lint, spacing, typecheck, explicit-env build, parse, diff, and exact eight-path scope checks pass."},
-      {"at": "2026-07-13T10:24:16Z", "status": "ready_to_merge", "summary": "PR #1737 head 0eb4d54e28c04a315063a0a851f398252ba92191 passed all required and security checks; GitHub reports MERGEABLE with the exact eight allowed paths and no required review block."}
+      {"at": "2026-07-13T10:24:16Z", "status": "ready_to_merge", "summary": "PR #1737 head 0eb4d54e28c04a315063a0a851f398252ba92191 passed all required and security checks; GitHub reports MERGEABLE with the exact eight allowed paths and no required review block."},
+      {"at": "2026-07-13T10:29:50Z", "status": "merged", "summary": "PR #1737 squash merged at eabf9a40048a802c36a3e333d5381061ac71456d; origin/main containment, local main sync, clean worktree, and absent local/remote task branches passed post-merge revalidation."}
     ],
-    "updated_at": "2026-07-13T10:24:16Z"
+    "updated_at": "2026-07-13T10:29:50Z"
   },
   "PUBLIC-STABILITY-WEB-02": {
     "id": "PUBLIC-STABILITY-WEB-02",
@@ -45152,15 +45153,26 @@
     "branch": "codex/public-stability-web-02",
     "title": "PUBLIC-STABILITY-WEB-02: add public route loading and error boundaries",
     "depends_on": ["PUBLIC-STABILITY-WEB-01"],
-    "status": "user_authorized",
+    "status": "local_verified",
     "commit_sha": null,
     "pr_url": null,
-    "checks": {"manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal explicitly authorized this entry."}, "dependency": {"status": "pending", "evidence": null}, "required_local_checks": {"status": "pending", "evidence": null}, "github_required_checks": {"status": "pending", "evidence": null}},
-    "scope_validation": {"allowed_paths_only": false, "local_validation_passed": false, "github_checks_green": false, "post_merge_revalidated": false},
+    "checks": {"manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal explicitly authorized this entry."}, "dependency": {"status": "pass", "evidence": "PUBLIC-STABILITY-WEB-01 PR #1737 is MERGED at eabf9a40048a802c36a3e333d5381061ac71456d and origin/main contains the merge commit."}, "required_local_checks": {"status": "pass", "evidence": "Focused public boundary Vitest 3/3, lint with two pre-existing generated warnings and zero errors, lint:spacing, typecheck, explicit-env Node 24 production build, YAML/JSON parsing, and diff checks passed."}, "github_required_checks": {"status": "pending", "evidence": null}},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
-    "local_cleanup_executed": false
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {"at": "2026-07-13T10:32:59Z", "status": "in_progress", "summary": "Started from clean synced fap-web origin/main after WEB-01 post-merge revalidation; scope is shared public route loading/error/retry boundaries only."},
+      {"at": "2026-07-13T10:33:30Z", "status": "focused_test_failed_current_scope", "summary": "Initial focused run showed the loading status lacked an explicit accessible name; fixed only the shared WEB-02 loading shell by adding aria-label."},
+      {"at": "2026-07-13T10:35:30Z", "status": "local_verified", "summary": "Focused contract 3/3, lint, spacing, typecheck, explicit-env build, parse, diff, and exact 18-path scope validation passed; boundaries contain no editorial fallback or authority change."}
+    ],
+    "updated_at": "2026-07-13T10:35:30Z"
   },
   "PUBLIC-STABILITY-WEB-03": {
     "id": "PUBLIC-STABILITY-WEB-03",
