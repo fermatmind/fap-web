@@ -378,6 +378,7 @@ export function PublicContentAssetRenderer({
                   <Link
                     key={`${item.href}-${item.label}`}
                     href={item.href}
+                    prefetch={false}
                     className="group flex items-center justify-between rounded-xl border border-[var(--fm-border)] px-4 py-3 text-sm font-medium text-[var(--fm-text)] transition hover:border-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue)]"
                   >
                     <span>{item.label}</span>

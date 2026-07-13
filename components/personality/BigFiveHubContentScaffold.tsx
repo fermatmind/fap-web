@@ -231,6 +231,7 @@ function DimensionCard({
       </div>
       <Link
         href={href}
+        prefetch={false}
         className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-[var(--fm-trust-blue)] transition group-hover:underline"
       >
         {locale === "zh" ? "查看维度页" : "View Dimension Page"}
@@ -428,6 +429,7 @@ export default function BigFiveHubContentScaffold({
                     <td className="px-4 py-3">
                       <Link
                         href={`/${locale}/personality/big-five/${dim.slug}`}
+                        prefetch={false}
                         className="text-sm font-medium text-[var(--fm-trust-blue)] hover:underline"
                       >
                         {isZh ? "查看" : "View"}
@@ -458,6 +460,7 @@ export default function BigFiveHubContentScaffold({
                   </div>
                   <Link
                     href={`/${locale}/personality/big-five/${dim.slug}`}
+                    prefetch={false}
                     className="text-sm font-medium text-[var(--fm-trust-blue)]"
                   >
                     {isZh ? "查看" : "View"} →
@@ -671,6 +674,7 @@ export default function BigFiveHubContentScaffold({
                 <span className="text-sm text-[var(--fm-text)]">{item.q}</span>
                 <Link
                   href={`/${locale}/personality/big-five/${item.dim}`}
+                  prefetch={false}
                   className="ml-4 shrink-0 text-sm font-medium text-[var(--fm-trust-blue)] hover:underline"
                 >
                   {item.label} <ArrowRight className="inline h-3 w-3" />
@@ -889,6 +893,7 @@ export default function BigFiveHubContentScaffold({
               <Link
                 key={href}
                 href={href}
+                prefetch={false}
                 className={`group flex items-center justify-between rounded-xl border px-4 py-3 text-sm font-medium transition ${
                   pending
                     ? "border-dashed border-amber-300 bg-amber-50/30 text-amber-700 hover:border-amber-400"
