@@ -14730,6 +14730,145 @@ prs:
       auto_merge: true
     next_task: null
 
+  - id: BIG5-AUTHORITY-V2-BENCHMARK-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-authority-v2-benchmark-01
+    base: main
+    depends_on: []
+    mode: execute
+    train_scope: big5_authority_v2_read_only_benchmark
+    risk_level: L2
+    status: in_progress
+    title: "BIG5-AUTHORITY-V2-BENCHMARK-01: docs(seo): lock Big Five versus Truity benchmark"
+    goal: "Freeze a read-only, page-by-page benchmark for the current 127 Big Five sitemap canonicals and ten zh legacy redirect aliases against Truity's current public Big Five content architecture, and lock exact downstream page-family ownership without changing runtime, CMS content, or indexability."
+    in_scope:
+      - docs/seo/personality/big5-authority-v2-benchmark-01-*
+      - scripts/seo/build-big5-authority-v2-benchmark-01-*
+      - tests/contracts/big5-authority-v2-benchmark-01-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - frontend runtime or renderer changes
+      - backend or CMS content changes
+      - sitemap, llms, canonical, robots, JSON-LD, or indexability mutation
+      - production deploy, CMS import, search submission, or GSC mutation
+      - BIG5-AUTHORITY-V2-INTEGRITY-GATE-02 implementation
+    required_local_checks:
+      - node scripts/seo/build-big5-authority-v2-benchmark-01-scorecard.mjs --allow-network
+      - node scripts/seo/build-big5-authority-v2-benchmark-01-scorecard.mjs
+      - corepack pnpm exec vitest run tests/contracts/big5-authority-v2-benchmark-01-scorecard.contract.test.ts --reporter=dot
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - python3 -m json.tool docs/seo/personality/big5-authority-v2-benchmark-01-scorecard-2026-07-14.json >/dev/null
+      - git diff --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    production_write_execution: false
+    production_deploy_allowed: false
+    cms_mutation_allowed: false
+    indexability_mutation_allowed: false
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: BIG5-AUTHORITY-V2-INTEGRITY-GATE-02
+
+  - id: BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-authority-v2-web-trust-renderer-04
+    base: main
+    depends_on:
+      - BIG5-AUTHORITY-V2-PUBLIC-CONTRACT-03
+    mode: execute
+    train_scope: big5_authority_v2_web_trust_renderer
+    risk_level: L2
+    status: planned
+    title: "BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04: feat(personality): render Big Five source and reviewer authority"
+    goal: "Consume the backward-compatible backend Big Five V2 public contract and visibly render only backend-authorized source, author, reviewer, date, media, and method-boundary facts with safe URL normalization and fail-closed schema behavior."
+    in_scope:
+      - app/(localized)/[locale]/personality/big-five/**
+      - components/personality/BigFiveHubContentScaffold.tsx
+      - components/personality/PublicContentAssetRenderer.tsx
+      - lib/cms/personality-public-content-assets.ts
+      - tests/contracts/big5-authority-v2-web-trust-renderer-04-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - frontend editorial copy or source-ledger fallback
+      - backend or CMS changes
+      - indexability, sitemap, llms, canonical, or robots mutation
+      - inferred author, reviewer, rating, medical, or expert schema
+      - production deploy or CMS write
+    required_local_checks:
+      - focused Big Five V2 renderer contract tests
+      - corepack pnpm lint
+      - corepack pnpm lint:spacing
+      - corepack pnpm typecheck
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com corepack pnpm build
+      - corepack pnpm test:contract
+      - git diff --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    production_write_execution: false
+    production_deploy_allowed: false
+    cms_mutation_allowed: false
+    indexability_mutation_allowed: false
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: BIG5-AUTHORITY-V2-SOURCE-LEDGER-05
+
+  - id: BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-authority-v2-runtime-closeout-38
+    base: main
+    depends_on:
+      - BIG5-AUTHORITY-V2-RELEASE-GATE-37
+      - separately authorized production deploy if required
+      - separately authorized production import completed
+      - production readback evidence available
+    mode: execute
+    train_scope: big5_authority_v2_read_only_production_runtime_closeout
+    risk_level: L1
+    status: planned
+    title: "BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38: docs(qa): close out Big Five V2 production runtime"
+    goal: "Perform read-only production verification of the authorized and imported Big Five V2 runtime, recording PASS, FAIL, or UNKNOWN for visible content, metadata, schema, media, links, feeds, redirects, private boundaries, and exact asset counts without mutating production."
+    in_scope:
+      - docs/seo/personality/big5-authority-v2-runtime-closeout-38-*
+      - scripts/seo/build-big5-authority-v2-runtime-closeout-38-*
+      - tests/contracts/big5-authority-v2-runtime-closeout-38-*
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - production deploy, rollback, CMS write, import, or database migration
+      - sitemap, llms, canonical, robots, schema, or indexability mutation
+      - runtime defect repair outside this closeout scope
+      - search submission or GSC mutation
+    required_local_checks:
+      - read-only live URL, HTML, metadata, schema, redirect, sitemap, and llms checks
+      - visual QA evidence
+      - focused runtime closeout contract
+      - artifact parse
+      - git diff --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    production_write_execution: false
+    production_deploy_allowed: false
+    cms_mutation_allowed: false
+    indexability_mutation_allowed: false
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: null
+
   - id: MBTI-FULL-AUDIT-30
     repo: fap-web
     repo_path: <workspace>/fap-web
