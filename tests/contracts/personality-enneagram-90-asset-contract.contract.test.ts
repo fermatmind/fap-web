@@ -253,7 +253,7 @@ describe("ENNEAGRAM-90-FRONTEND-ASSET-CONTRACT-01", () => {
         routeSlug: "wings/5w4",
         pathSuffix: "/wings/5w4",
       })
-    ).resolves.toBeNull();
+    ).rejects.toMatchObject({ kind: "contract", authoritativeAbsence: false });
   });
 
   it("keeps the existing Big Five public asset contract unchanged", async () => {

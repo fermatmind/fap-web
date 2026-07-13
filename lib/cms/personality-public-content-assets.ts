@@ -3,6 +3,7 @@ import { cmsManagedMediaUrl } from "@/lib/cms/media";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { normalizeInternalHref, normalizeMediaAssetUrl } from "@/lib/url/safeContentUrls";
 import { toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { PublicReadError, toPublicReadError } from "@/lib/public-content/readError";
 import {
   buildBigFivePublicContentPath,
   type BigFivePublicEntityType,
@@ -671,12 +672,49 @@ function normalizeAsset(
   };
 }
 
+function publicContentContractError(cause?: unknown): PublicReadError {
+  return new PublicReadError({
+    kind: "contract",
+    cause,
+  });
+}
+
+function normalizeSingleAsset(
+  raw: unknown,
+  expected: PersonalityPublicRouteEntry,
+  locale: Locale,
+  expectedFramework: PersonalityPublicFramework
+): PersonalityPublicContentAsset | null {
+  const record = asRecord(raw);
+  const launchState = asString(record.launch_state);
+
+  if (record.is_public === false || (launchState !== "" && !isReadableLaunchState(launchState))) {
+    return null;
+  }
+
+  const asset = normalizeAsset(raw, expected, locale, expectedFramework);
+  if (!asset) {
+    throw publicContentContractError();
+  }
+
+  return asset;
+}
+
+function handlePublicAssetReadError(error: unknown): null {
+  const publicReadError = toPublicReadError(error);
+  if (publicReadError.authoritativeAbsence) {
+    return null;
+  }
+
+  throw publicReadError;
+}
+
 export async function getBigFivePublicContentAsset(
   locale: Locale,
   entry: BigFivePublicRouteEntry
 ): Promise<PersonalityPublicContentAsset | null> {
   try {
-    const response = await apiClient.get<PersonalityPublicContentAssetResponse>(
+    const response = await apiClient.getPublic<PersonalityPublicContentAssetResponse>(
       `/v0.5/personality-content-assets/big_five/${entry.entityType}/${entry.code}?locale=${encodeURIComponent(
         toApiLocale(locale)
       )}&org_id=0`,
@@ -689,10 +727,10 @@ export async function getBigFivePublicContentAsset(
     );
 
     if (response?.ok !== true) {
-      return null;
+      throw publicContentContractError();
     }
 
-    const asset = normalizeAsset(
+    const asset = normalizeSingleAsset(
       response.personality_public_content_asset_v1 ?? response.asset,
       entry,
       locale,
@@ -707,11 +745,7 @@ export async function getBigFivePublicContentAsset(
       authorityV2: normalizeAuthorityV2(response.personality_public_content_asset_v2, asset),
     };
   } catch (error) {
-    if (error instanceof ApiError && (error.status === 404 || error.status === 422)) {
-      return null;
-    }
-
-    return null;
+    return handlePublicAssetReadError(error);
   }
 }
 
@@ -721,7 +755,7 @@ export async function getEnneagramPublicContentAsset(
 ): Promise<PersonalityPublicContentAsset | null> {
   if (entry.entityType === "instinctual_subtype") {
     try {
-      const response = await apiClient.get<PersonalityPublicContentAssetIndexResponse>(
+      const response = await apiClient.getPublic<PersonalityPublicContentAssetIndexResponse>(
         `/v0.5/personality-content-assets?locale=${encodeURIComponent(toApiLocale(locale))}&framework=enneagram&entity_type=${
           entry.entityType
         }&per_page=100&org_id=0`,
@@ -732,8 +766,8 @@ export async function getEnneagramPublicContentAsset(
         }
       );
 
-      if (response?.ok !== true) {
-        return null;
+      if (response?.ok !== true || !Array.isArray(response.items)) {
+        throw publicContentContractError();
       }
 
       const normalized = (response.items ?? [])
@@ -742,16 +776,12 @@ export async function getEnneagramPublicContentAsset(
 
       return normalized ?? null;
     } catch (error) {
-      if (error instanceof ApiError && (error.status === 404 || error.status === 422)) {
-        return null;
-      }
-
-      return null;
+      return handlePublicAssetReadError(error);
     }
   }
 
   try {
-    const response = await apiClient.get<PersonalityPublicContentAssetResponse>(
+    const response = await apiClient.getPublic<PersonalityPublicContentAssetResponse>(
       `/v0.5/personality-content-assets/enneagram/${entry.entityType}/${encodeURIComponent(
         entry.code
       )}?locale=${encodeURIComponent(toApiLocale(locale))}&org_id=0`,
@@ -763,16 +793,17 @@ export async function getEnneagramPublicContentAsset(
     );
 
     if (response?.ok !== true) {
-      return null;
+      throw publicContentContractError();
     }
 
-    return normalizeAsset(response.personality_public_content_asset_v1 ?? response.asset, entry, locale, "enneagram");
+    return normalizeSingleAsset(
+      response.personality_public_content_asset_v1 ?? response.asset,
+      entry,
+      locale,
+      "enneagram"
+    );
   } catch (error) {
-    if (error instanceof ApiError && (error.status === 404 || error.status === 422)) {
-      return null;
-    }
-
-    return null;
+    return handlePublicAssetReadError(error);
   }
 }
 

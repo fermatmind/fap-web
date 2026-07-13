@@ -25656,10 +25656,12 @@ prs:
       - lib/cms/personality-public-content-assets.ts
       - lib/cms/personalityPublicAssetLoader.ts
       - app/(localized)/[locale]/personality/big-five/page.tsx
-      - app/(localized)/[locale]/personality/big-five/[...segments]/page.tsx
+      - app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx
       - app/(localized)/[locale]/personality/enneagram/page.tsx
-      - app/(localized)/[locale]/personality/enneagram/[...segments]/page.tsx
+      - app/(localized)/[locale]/personality/enneagram/[...slug]/page.tsx
       - tests/contracts/personality-public-asset-read-stability.contract.test.ts
+      - tests/contracts/personality-enneagram-90-asset-contract.contract.test.ts
+      - tests/contracts/security-123-web-07-personality-asset-cache.contract.test.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
       - generated/pr-train-sidecar-issues/sidecar_issues.md
@@ -25667,7 +25669,7 @@ prs:
     out_of_scope:
       - Backend cache or payload changes, editorial fallback, route expansion, sitemap/llms changes, CMS mutation, publish, warm, purge, or deploy.
     required_local_checks:
-      - pnpm exec vitest run tests/contracts/personality-public-asset-read-stability.contract.test.ts tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts
+      - pnpm exec vitest run tests/contracts/personality-public-asset-read-stability.contract.test.ts tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts tests/contracts/personality-enneagram-90-asset-contract.contract.test.ts tests/contracts/security-123-web-07-personality-asset-cache.contract.test.ts
       - pnpm lint
       - pnpm lint:spacing
       - pnpm typecheck

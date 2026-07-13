@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { PublicContentAssetRenderer } from "@/components/personality/PublicContentAssetRenderer";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { getEnneagramPublicContentAsset } from "@/lib/cms/personality-public-content-assets";
+import { getEnneagramPublicContentAsset } from "@/lib/cms/personalityPublicAssetLoader";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import type { Locale } from "@/lib/i18n/locales";
 import {
