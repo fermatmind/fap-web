@@ -4,6 +4,8 @@ import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
 
 const DEFAULT_ORG_ID = "0";
+export const MAX_SUPPORT_SLUG_LENGTH = 128;
+const SUPPORT_SLUG_PATTERN = /^[A-Za-z0-9][A-Za-z0-9_-]*$/;
 
 export type SupportArticle = {
   id: number;
@@ -120,6 +122,15 @@ function normalizeText(value: unknown): string {
   return String(value ?? "").trim();
 }
 
+function normalizeSupportSlug(value: unknown): string | null {
+  const slug = normalizeText(value);
+  if (!slug || slug.length > MAX_SUPPORT_SLUG_LENGTH || !SUPPORT_SLUG_PATTERN.test(slug)) {
+    return null;
+  }
+
+  return slug;
+}
+
 function normalizeDate(value: unknown): string | null {
   const normalized = normalizeText(value);
   return normalized || null;
@@ -225,7 +236,7 @@ export async function listSupportArticles(locale: Locale | string): Promise<Supp
 }
 
 export async function getSupportArticle(slug: string, locale: Locale | string): Promise<SupportArticle | null> {
-  const normalizedSlug = normalizeText(slug);
+  const normalizedSlug = normalizeSupportSlug(slug);
   if (!normalizedSlug) {
     return null;
   }
@@ -271,7 +282,7 @@ export async function listInterpretationGuides(locale: Locale | string): Promise
 }
 
 export async function getInterpretationGuide(slug: string, locale: Locale | string): Promise<InterpretationGuide | null> {
-  const normalizedSlug = normalizeText(slug);
+  const normalizedSlug = normalizeSupportSlug(slug);
   if (!normalizedSlug) {
     return null;
   }
