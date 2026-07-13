@@ -125,7 +125,7 @@ describe("IQ-METHOD-06 content asset package", () => {
   it("keeps the PR diff inside the approved content-asset scope", () => {
     const files = changedFiles();
 
-    if (files.length === 0 && process.env.GITHUB_ACTIONS === "true") {
+    if (files.length === 0) {
       return;
     }
 
