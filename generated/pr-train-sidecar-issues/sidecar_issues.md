@@ -1,5 +1,17 @@
 # PR Train Sidecar Issues
 
+## MBTI FULL AUDIT 30: llms-full Degraded Runtime
+
+- repo: fap-web
+- PR id / branch: MBTI-FULL-AUDIT-30 / codex/mbti-full-audit-30-inventory-runtime-baseline
+- blocker type: external_llms_full_runtime_degraded
+- evidence: Read-only production fetch at 2026-07-13T03:26:39Z returned `llms-full.txt` with `Mode: degraded` and an empty Personality section. AUDIT-30 records `llms_full=false` for the fixed 52-URL Chinese MBTI inventory while canonical, robots, sitemap, `llms.txt`, and JSON-LD remain observable.
+- why not current PR scope: AUDIT-30 is limited to read-only inventory evidence and cannot alter LLMS runtime generation, caches, deployment, or backend authority.
+- whether required checks are affected: no
+- whether merge is affected: no
+- recommended follow-up: Open a dedicated fap-web llms-full authority/cache runtime repair PR, then re-run AUDIT-30 evidence before any MBTI-INDEX-43 release gate.
+- observed at: 2026-07-13T03:26:39Z
+
 ## BIG5 Result Page Recovery Banner Renderer Copy
 
 - repo: fap-web
