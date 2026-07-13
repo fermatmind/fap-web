@@ -44954,7 +44954,7 @@
     "updated_at": "2026-07-13T05:42:48Z"
   },
   "MBTI-PROFILE-NF-32": {
-    "status": "pr_open",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-profile-nf-32-content-package",
     "depends_on": ["MBTI-FULL-AUDIT-30"],
@@ -44974,9 +44974,10 @@
       {"at": "2026-07-13T05:45:00Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train with fixed NF A/T profile scope."},
       {"at": "2026-07-13T05:46:00Z", "status": "in_progress", "summary": "Started from the latest fap-web main after NT-31 merge. This task produces only CMS-review content artifacts and does not mutate CMS, runtime, deploy state, or GSC."},
       {"at": "2026-07-13T06:10:00Z", "status": "local_verified", "summary": "NF package builder, focused contract, zero-warning lint, typecheck, full contract suite, production build, YAML/JSON parsing, diff check, and exact seven-file scope validation passed."},
-      {"at": "2026-07-13T06:12:00Z", "status": "pr_open", "summary": "Pushed 1ad79d746bdf661f710f72ed7a5ba0aec08804ba and opened PR #1732. Required GitHub checks are pending; no CMS write, deploy, or GSC mutation occurred."}
+      {"at": "2026-07-13T06:12:00Z", "status": "pr_open", "summary": "Pushed 1ad79d746bdf661f710f72ed7a5ba0aec08804ba and opened PR #1732. Required GitHub checks are pending; no CMS write, deploy, or GSC mutation occurred."},
+      {"at": "2026-07-13T06:18:00Z", "status": "ready_to_merge", "summary": "PR #1732 required checks passed: build, contracts, both freeze checks, CodeQL, and zero-new-Code-Scanning-alert gate. Pre-merge scope validation remains limited to the seven registered files."}
     ],
-    "updated_at": "2026-07-13T06:12:00Z"
+    "updated_at": "2026-07-13T06:18:00Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
