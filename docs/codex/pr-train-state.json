@@ -45369,8 +45369,8 @@
     "title": "SAEP-PLANNED-PR-09 Consume article authority without fallback",
     "depends_on": ["SAEP-PLANNED-PR-08", "ARTICLE-FANOUT-01", "PUBLIC-STABILITY-WEB-06"],
     "depends_on_atomic_tasks": ["SAEP-ART-01"],
-    "status": "ready_to_merge",
-    "commit_sha": "c7a72dd7b13802a8a510a6c168fa9f218c1d9252",
+    "status": "review_fix_committed_pending_push",
+    "commit_sha": "129a022b47e7b074dcc42f27cc81afd0fae3fc2e",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1745",
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The concrete SAEP continuous execution goal authorizes exact card SAEP-PRCARD-WEB-9ffab11c6415 and append-only SAEP-PLANNED-PR-09 metadata. Existing PR-PRAC namespace and items are preserved without rename or deletion."},
@@ -45395,8 +45395,9 @@
       {"at": "2026-07-13T17:29:56Z", "status": "ready_to_merge", "summary": "PR #1745 head 11e256842c641fb5883b18b6ad49ddca04cf725d passed every required CI and CodeQL check, merge state is CLEAN, exact nine-path scope remains valid, and review threads are empty. The ledger-only ready-to-merge head must rerun required checks before squash merge."},
       {"at": "2026-07-13T17:36:23Z", "status": "review_fix_in_progress", "summary": "Ledger-ready head c9f415474f67aaeaa3386eb1c7797d7b650f84c8 passed all required CI and CodeQL checks, then automated review opened actionable P2 thread 3572799870. The comment correctly identifies that a projection containing only the current locale can enable hreflang and homepage x-default; the same-scope repair requires an actual different-locale sibling URL and adds regression coverage."},
       {"at": "2026-07-13T17:55:18Z", "status": "review_fix_build_pending_hardware_guard", "summary": "The P2 repair now validates currentLocale as en/zh-CN and requires a real different-locale sibling URL before hreflang output. Related regressions pass 28/28, full contracts pass 4201/4201, and lint, spacing, typecheck, JSON, and diff gates pass. Build waits because another full fap-api composer test started immediately after contracts completed."},
-      {"at": "2026-07-13T18:29:35Z", "status": "review_fix_local_verified", "summary": "Completed the P2 review repair after respecting three consecutive external heavy-validation guard occupancies: related regressions pass 28/28, full contracts pass 4201/4201, production build generates 206/206 static pages, and lint, spacing, typecheck, JSON, diff, and allowed-path scope gates all pass."}
+      {"at": "2026-07-13T18:29:35Z", "status": "review_fix_local_verified", "summary": "Completed the P2 review repair after respecting three consecutive external heavy-validation guard occupancies: related regressions pass 28/28, full contracts pass 4201/4201, production build generates 206/206 static pages, and lint, spacing, typecheck, JSON, diff, and allowed-path scope gates all pass."},
+      {"at": "2026-07-13T18:30:48Z", "status": "review_fix_committed_pending_push", "summary": "Committed the validated P2 hreflang sibling-gate repair as 129a022b47e7b074dcc42f27cc81afd0fae3fc2e after explicit four-path staging and cached diff validation. A ledger-only commit and push are pending before resolving the review thread."}
     ],
-    "updated_at": "2026-07-13T18:29:35Z"
+    "updated_at": "2026-07-13T18:30:48Z"
   }
 }
