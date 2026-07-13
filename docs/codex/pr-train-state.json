@@ -45184,9 +45184,9 @@
     "branch": "codex/public-stability-web-03",
     "title": "PUBLIC-STABILITY-WEB-03: define public content read error semantics",
     "depends_on": [],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "1d882d6d71bd7e277127ef34d30834c617271bdb",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1739",
     "checks": {"manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal explicitly authorized this entry."}, "dependency": {"status": "pass", "evidence": "This item has no manifest dependencies and was started in the operator's fixed order after WEB-02 post-merge revalidation."}, "required_local_checks": {"status": "pass", "evidence": "Focused public read error Vitest 10/10, lint with two pre-existing generated warnings and zero errors, lint:spacing, typecheck, YAML/JSON parsing, and diff checks passed."}, "github_required_checks": {"status": "pending", "evidence": null}},
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
     "failure_reason": null,
@@ -45201,9 +45201,10 @@
     "history": [
       {"at": "2026-07-13T10:51:22Z", "status": "in_progress", "summary": "Started from clean synced fap-web origin/main after WEB-02 post-merge revalidation; scope is the typed public read error contract and opt-in API client entry only."},
       {"at": "2026-07-13T10:52:30Z", "status": "typecheck_failed_current_scope", "summary": "Initial typecheck found the new error-like conditional inferred Error | ApiErrorLike; fixed only the new classifier with an explicit ApiErrorLike annotation."},
-      {"at": "2026-07-13T10:53:56Z", "status": "local_verified", "summary": "Focused contract 10/10, lint, spacing, typecheck, parse, diff, and exact four-path scope validation passed; no adapter migration, content fallback, private API, CMS, SEO, or production operation changed."}
+      {"at": "2026-07-13T10:53:56Z", "status": "local_verified", "summary": "Focused contract 10/10, lint, spacing, typecheck, parse, diff, and exact four-path scope validation passed; no adapter migration, content fallback, private API, CMS, SEO, or production operation changed."},
+      {"at": "2026-07-13T10:54:53Z", "status": "pr_open", "summary": "Committed and pushed the exact four-path scope at 1d882d6d71bd7e277127ef34d30834c617271bdb and opened PR #1739; required GitHub checks are pending."}
     ],
-    "updated_at": "2026-07-13T10:53:56Z"
+    "updated_at": "2026-07-13T10:54:53Z"
   },
   "PUBLIC-STABILITY-WEB-04": {
     "id": "PUBLIC-STABILITY-WEB-04",
