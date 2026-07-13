@@ -230,8 +230,9 @@ describe("CI validator hygiene", () => {
     const agents = read("AGENTS.md");
 
     expect(agents).toContain(
-      "If the requested PR id is missing from `docs/codex/pr-train.yaml`, stop and report the gap"
+      "Under a concrete execution goal, a missing requested PR id is handled by adding the exact goal-supplied manifest/state entry under the standing authorization"
     );
+    expect(agents).toContain("Outside an execution goal, stop and report a missing PR-train item");
     expect(agents).toContain("Never invent a PR id or scope");
     expect(agents).toContain("already present in the manifest");
     expect(agents).toContain("explicitly provided by the user");

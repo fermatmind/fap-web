@@ -7,7 +7,7 @@
 - Stop immediately if changed files drift outside the declared scope and `stop_if_changed_files_outside_scope` is true.
 
 ## Goal execution standing authorization
-- FermatMind is normally operated by one developer and execution goals often run unattended overnight. Unless the goal explicitly requests interactive checkpoints, treat every concrete end-to-end execution goal as unattended mode: make safe, reversible, in-scope decisions with best judgment, record them in the PR/ledger, and continue without waiting for acknowledgements.
+- FermatMind is a solo-developed project. At all times, treat every concrete end-to-end execution goal as continuous execution mode: make safe, reversible, in-scope decisions with best judgment, record them in the PR/ledger, and continue without waiting for acknowledgements. This repository-wide working rule does not depend on time of day or unattended execution.
 - A concrete `/goal` or equivalent instruction that asks Codex to execute or finish an identified implementation scope end to end is standing authorization for the complete normal PR lifecycle for that scope. Codex must not pause to ask again before creating or switching the scoped branch, editing, running checks, staging explicit paths, committing, pushing, opening the PR, polling checks, applying same-scope CI/review fixes, merging when repository policy permits, syncing `main`, or cleaning up the task branch.
 - When that execution goal names a PR-train item, scan/PR card, task id, title, or otherwise unambiguously identifies the scope, it also authorizes creation or update of the exact required `docs/codex/pr-train.yaml` and `docs/codex/pr-train-state.json` entries. A second manifest/state or PR authorization prompt is prohibited.
 - Declared dependency PRs that are already part of the goal or manifest may be completed in dependency order under the same standing authorization. Do not start the dependent PR until its dependency is merged.
@@ -153,7 +153,7 @@
 - Failed GitHub checks still block merge progression unless the current PR's `merge_policy` does not require GitHub checks.
 - Failed GitHub checks do not have to block starting the next manifest PR when the current PR passed all local manifest checks, the manifest allows local verification, and the user explicitly instructs Codex to override the remote-check stop.
 - Do not improvise around failures.
-- In unattended goal mode, exhaust safe in-scope diagnosis, retry, same-PR repair, declared dependency completion, and isolated baseline-repair alternatives before stopping. Prefer a clean, evidence-backed hold only after those paths are exhausted.
+- Under an active execution goal, exhaust safe in-scope diagnosis, retry, same-PR repair, declared dependency completion, and isolated baseline-repair alternatives before stopping. Prefer a clean, evidence-backed hold only after those paths are exhausted.
 - Under an active execution goal, Codex must diagnose and fix that same PR's failing checks automatically when the repair stays within scope. Failed required checks still block merge, but they do not require a new user prompt before diagnosis or a scoped retry.
 - Preflight failures, merge blocks, review requirements, ambiguous repository state, and required-check failures stop the goal only when they cannot be resolved within the standing authorization and declared scope. A recorded user override is still required to disregard a non-required remote check; required checks may never be overridden.
 
