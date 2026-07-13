@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { createRequire } from "node:module";
-import { describe, expect, it } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 const ROOT = process.cwd();
 const requireFromRoot = createRequire(path.join(ROOT, "package.json"));
@@ -21,8 +21,14 @@ function sliceBetween(source: string, start: string, end: string): string {
   return source.slice(startIndex, endIndex);
 }
 
+afterEach(() => {
+  delete requireFromRoot.cache[requireFromRoot.resolve("./next-sitemap.config.js")];
+  vi.unstubAllGlobals();
+});
+
 describe("career guides cleanup contract", () => {
   it("frontend next-sitemap keeps guide landing and detail authority available", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify({ items: [], pagination: { last_page: 1 } }))));
     const config = requireFromRoot("./next-sitemap.config.js");
     const source = read("next-sitemap.config.js");
 

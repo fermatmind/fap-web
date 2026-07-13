@@ -16,6 +16,26 @@ function jsonResponse(payload: unknown, status = 200): Response {
   });
 }
 
+function mockLlmsRouteSupportingReads() {
+  vi.doMock("@/lib/seo/backendSitemapMbtiAuthorityCache", () => ({
+    readMbtiAuthorityLastKnownGood: vi.fn(async () => []),
+  }));
+  vi.doMock("@/lib/seo/enneagramLlmsSource", () => ({
+    listEnneagramLlmsPaths: vi.fn(async () => []),
+    listEnneagramLlmsFullEntries: vi.fn(async () => []),
+  }));
+  vi.doMock("@/lib/foundation/dailyGivingSeo", () => ({
+    listDailyGivingDiscoverabilityEntries: vi.fn(async () => []),
+  }));
+  vi.doMock("@/lib/seo/llmsFullResponseCache", () => ({
+    getCachedLlmsFullText: vi.fn(async () => null),
+    getOrStartLlmsFullBuild: vi.fn(async (_siteUrl: string, build: (siteUrl: string) => Promise<string | null>) =>
+      build("https://fermatmind.com")
+    ),
+    writeLlmsFullResponseCache: vi.fn(async () => ({ cached: false, cachePath: "" })),
+  }));
+}
+
 afterEach(() => {
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
@@ -154,6 +174,7 @@ describe("career llms alignment contract", () => {
   });
 
   it("llms.txt reflects current live Career authority routes and excludes query search urls", async () => {
+    mockLlmsRouteSupportingReads();
     vi.doMock("@/lib/seo/backendSitemapSource", () => ({
       listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => []),
       listBackendSitemapBigFiveZhPaths: vi.fn(async () => [
@@ -263,6 +284,7 @@ describe("career llms alignment contract", () => {
   });
 
   it("llms-full.txt reflects backend-owned Career detail routes and excludes query search urls", async () => {
+    mockLlmsRouteSupportingReads();
     vi.doMock("@/lib/seo/backendSitemapSource", () => ({
       listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => []),
       listBackendSitemapBigFiveZhPaths: vi.fn(async () => [

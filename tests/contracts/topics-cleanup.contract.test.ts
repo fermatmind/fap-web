@@ -13,6 +13,8 @@ function read(relPath: string): string {
 
 describe("topics cleanup contract", () => {
   afterEach(() => {
+    delete requireFromRoot.cache[requireFromRoot.resolve("./next-sitemap.config.js")];
+    vi.unstubAllGlobals();
     vi.unstubAllEnvs();
   });
 
@@ -41,6 +43,7 @@ describe("topics cleanup contract", () => {
   });
 
   it("does not invent topic detail routes in the frontend sitemap adapter", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify({ items: [], pagination: { last_page: 1 } }))));
     const config = requireFromRoot("./next-sitemap.config.js");
     const additionalPaths = await config.additionalPaths();
     const excluded = Array.isArray(config.exclude) ? config.exclude : [];

@@ -381,6 +381,7 @@ describe("sitemap indexability contract", () => {
   });
 
   it("frontend sitemap config excludes retired and private route families", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => jsonResponse({ items: [], pagination: { last_page: 1 } })));
     const config = loadSitemapConfig();
     const policy = requireFromRoot("./lib/seo/indexingPolicy.cjs");
     const additionalPaths = await config.additionalPaths();
@@ -405,6 +406,7 @@ describe("sitemap indexability contract", () => {
   });
 
   it("frontend sitemap config excludes known redirect, 404, ops, and private final paths", async () => {
+    vi.stubGlobal("fetch", vi.fn(async () => jsonResponse({ items: [], pagination: { last_page: 1 } })));
     const config = loadSitemapConfig();
     const additionalPaths = await config.additionalPaths();
     const locs = additionalPaths.map((entry: { loc?: string }) => String(entry?.loc ?? ""));
