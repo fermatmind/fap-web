@@ -303,7 +303,7 @@
     "base": "main",
     "branch": "codex/enneagram-90-cross-repo-readiness-01",
     "depends_on": ["ENNEAGRAM-90-FRONTEND-SITEMAP-EXTRACTOR-01"],
-    "status": "ready_to_merge",
+    "status": "review_fix_local_verified",
     "commit_sha": "96e447156830dfbd4938bd1c9446e65d74e50ba9",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1692",
     "failure_reason": null,
@@ -45375,10 +45375,10 @@
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The concrete SAEP continuous execution goal authorizes exact card SAEP-PRCARD-WEB-9ffab11c6415 and append-only SAEP-PLANNED-PR-09 metadata. Existing PR-PRAC namespace and items are preserved without rename or deletion."},
       "dependency": {"status": "pass", "evidence": "SAEP-PLANNED-PR-08 merged in fap-api PR #3032 at 5a5aadbc280bf60838f4480ddef1f727fa9119d8; ARTICLE-FANOUT-01 merged in fap-web PR #1714 at bbbdacf0e9001b8a7ae844c8dedbce01fd04b4d7; PUBLIC-STABILITY-WEB-06 merged in fap-web PR #1742 at a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc. Both fap-web merge commits are contained in origin/main."},
-      "required_local_checks": {"status": "pass", "evidence": "Manifest-focused contracts pass 23/23; the expanded 10-file article regression set passes 90/90; full pnpm test:contract passes all four shards with 4201/4201 tests; targeted ESLint, full pnpm lint, pnpm lint:spacing, pnpm typecheck, and production build pass with 206/206 static pages. JSON/YAML parsing, git diff checks, and exact nine-path scope validation pass, and generated SEO/MBTI artifacts were restored before final scope validation."},
-      "github_required_checks": {"status": "pass", "evidence": "PR #1745 head 11e256842c641fb5883b18b6ad49ddca04cf725d passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze/aggregate, and no-new-code-scanning-alerts. Merge state is CLEAN, exact nine-path scope remains valid, and review threads are empty."}
+      "required_local_checks": {"status": "pass", "evidence": "For actionable P2 thread 3572799870, the four-file hreflang regression set passes 28/28, full pnpm test:contract passes all four shards with 4201/4201 tests, and production build passes with 206/206 static pages. Targeted and full lint, spacing, typecheck, JSON parsing, diff, and exact allowed-path scope checks pass. Generated SEO/MBTI artifacts were restored before final scope validation."},
+      "github_required_checks": {"status": "review_fix_in_progress", "evidence": "PR #1745 ledger-ready head c9f415474f67aaeaa3386eb1c7797d7b650f84c8 passed every required CI and CodeQL check with CLEAN merge state, but automated review opened actionable P2 thread 3572799870: a current-locale-only projection could still enable hreflang and homepage x-default. The scoped gate/test repair is in progress."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -45392,8 +45392,11 @@
       {"at": "2026-07-13T17:18:00Z", "status": "local_verified", "summary": "Completed all manifest local gates: focused contracts 23/23, expanded article regressions 90/90, full contracts 4201/4201, production build 206/206 static pages, targeted and full lint, spacing, typecheck, metadata parsing, diff, and exact nine-path scope validation all pass. Generated SEO/MBTI artifacts were restored and no backend, sitemap/llms, CMS write, publish, or deploy scope was introduced."},
       {"at": "2026-07-13T17:19:25Z", "status": "committed_pending_push", "summary": "Committed the exact nine-path Article SEO authority consumer scope as c7a72dd7b13802a8a510a6c168fa9f218c1d9252 after explicit staging, cached diff validation, and all required local checks. Push and PR creation are pending."},
       {"at": "2026-07-13T17:23:08Z", "status": "pr_open_checks_pending", "summary": "Pushed the scoped branch and opened PR #1745 with the exact manifest title and required what/why/validation/deferred/rule-impact body. GitHub reports nine changed files; build, contracts, both assessment freeze checks, and CodeQL analysis are in progress on initial PR head 397a46aa2f564e8c1681b7c669fd2322b4f6b3f9."},
-      {"at": "2026-07-13T17:29:56Z", "status": "ready_to_merge", "summary": "PR #1745 head 11e256842c641fb5883b18b6ad49ddca04cf725d passed every required CI and CodeQL check, merge state is CLEAN, exact nine-path scope remains valid, and review threads are empty. The ledger-only ready-to-merge head must rerun required checks before squash merge."}
+      {"at": "2026-07-13T17:29:56Z", "status": "ready_to_merge", "summary": "PR #1745 head 11e256842c641fb5883b18b6ad49ddca04cf725d passed every required CI and CodeQL check, merge state is CLEAN, exact nine-path scope remains valid, and review threads are empty. The ledger-only ready-to-merge head must rerun required checks before squash merge."},
+      {"at": "2026-07-13T17:36:23Z", "status": "review_fix_in_progress", "summary": "Ledger-ready head c9f415474f67aaeaa3386eb1c7797d7b650f84c8 passed all required CI and CodeQL checks, then automated review opened actionable P2 thread 3572799870. The comment correctly identifies that a projection containing only the current locale can enable hreflang and homepage x-default; the same-scope repair requires an actual different-locale sibling URL and adds regression coverage."},
+      {"at": "2026-07-13T17:55:18Z", "status": "review_fix_build_pending_hardware_guard", "summary": "The P2 repair now validates currentLocale as en/zh-CN and requires a real different-locale sibling URL before hreflang output. Related regressions pass 28/28, full contracts pass 4201/4201, and lint, spacing, typecheck, JSON, and diff gates pass. Build waits because another full fap-api composer test started immediately after contracts completed."},
+      {"at": "2026-07-13T18:29:35Z", "status": "review_fix_local_verified", "summary": "Completed the P2 review repair after respecting three consecutive external heavy-validation guard occupancies: related regressions pass 28/28, full contracts pass 4201/4201, production build generates 206/206 static pages, and lint, spacing, typecheck, JSON, diff, and allowed-path scope gates all pass."}
     ],
-    "updated_at": "2026-07-13T17:29:56Z"
+    "updated_at": "2026-07-13T18:29:35Z"
   }
 }

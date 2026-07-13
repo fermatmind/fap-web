@@ -210,7 +210,7 @@ export type CmsArticleSeoAuthorityProjection = {
   publishedRevisionBacked: boolean;
   alternateEligibility: {
     basis: "published_indexable_locale_siblings";
-    currentLocale: string | null;
+    currentLocale: "en" | "zh-CN" | null;
     eligibleLocales: Array<"en" | "zh-CN">;
     alternates: {
       en: string | null;
@@ -873,6 +873,10 @@ function normalizeArticleSeoAuthorityProjection(
   const publishedRevisionBacked = projection.published_revision_backed === true;
   const alternateEligibility = readRecordValue(projection, "alternate_eligibility");
   const alternateBasis = readRecordValue(alternateEligibility, "basis");
+  const currentLocaleValue = normalizeIsoValue(readRecordValue(alternateEligibility, "current_locale"));
+  const currentLocale = currentLocaleValue === "en" || currentLocaleValue === "zh-CN"
+    ? currentLocaleValue
+    : null;
   const eligibleLocalesValue = readRecordValue(alternateEligibility, "eligible_locales");
   const eligibleLocaleSet = new Set(
     Array.isArray(eligibleLocalesValue)
@@ -929,7 +933,7 @@ function normalizeArticleSeoAuthorityProjection(
     publishedRevisionBacked,
     alternateEligibility: {
       basis: "published_indexable_locale_siblings",
-      currentLocale: normalizeIsoValue(readRecordValue(alternateEligibility, "current_locale")),
+      currentLocale,
       eligibleLocales,
       alternates,
     },
