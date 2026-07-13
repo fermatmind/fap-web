@@ -25851,6 +25851,7 @@ prs:
       - lib/career/api/fetchCareerRecommendationIndex.ts
       - lib/career/api/fetchCareerRecommendationBundle.ts
       - tests/contracts/career-public-read-stability.contract.test.ts
+      - tests/contracts/career-recommendation-public.contract.test.tsx
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
       - generated/pr-train-sidecar-issues/sidecar_issues.md

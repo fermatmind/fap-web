@@ -98,15 +98,20 @@ describe("career recommendation public contract", () => {
     expect(payload).not.toBeNull();
   });
 
-  it("returns null on detail API failure instead of synthesizing recommendation truth", async () => {
+  it("preserves transient detail API failure instead of synthesizing recommendation truth", async () => {
     vi.stubGlobal(
       "fetch",
       vi.fn(async () => jsonResponse({ message: "upstream failure" }, 500))
     );
 
-    const detail = await fetchCareerRecommendationBundle({ locale: "zh", type: "intj-a" });
-
-    expect(detail).toBeNull();
+    await expect(
+      fetchCareerRecommendationBundle({ locale: "zh", type: "intj-a" })
+    ).rejects.toMatchObject({
+      name: "PublicReadError",
+      kind: "transient",
+      retryable: true,
+      authoritativeAbsence: false,
+    });
   });
 
   it("adapts backend recommendation bundle and keeps explicit claim, trust, warning, and provenance sections", () => {
