@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import {
   type ComponentProps,
   type MouseEvent as ReactMouseEvent,
@@ -61,8 +61,7 @@ export function PublicNavigationPendingIndicator({
   locale: Locale;
 }) {
   const pathname = usePathname() ?? "/";
-  const searchParams = useSearchParams();
-  const currentRouteKey = `${pathname}?${searchParams.toString()}`;
+  const currentRouteKey = pathname;
   const [pendingOriginRouteKey, setPendingOriginRouteKey] = useState<string | null>(null);
 
   useEffect(() => {

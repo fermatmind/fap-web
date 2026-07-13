@@ -45093,7 +45093,7 @@
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal explicitly authorized all 11 fap-web manifest/state entries."},
       "dependency": {"status": "pass", "evidence": "GLOBAL-JS-02 PR #1711 is MERGED at 351c5a3a101977753e59e942062f414401d19b8a and origin/main contains the merge commit."},
-      "required_local_checks": {"status": "pass", "evidence": "Focused Vitest 3/3, lint with two pre-existing generated warnings and zero errors, lint:spacing, typecheck, Node 24 production build with explicit public site/API URLs, YAML/JSON parsing, and git diff --check passed."},
+      "required_local_checks": {"status": "pass", "evidence": "Focused pending plus existing SiteHeader integration Vitest 9/9, lint with two pre-existing generated warnings and zero errors, lint:spacing, typecheck, Node 24 production build with explicit public site/API URLs, YAML/JSON parsing, and git diff --check passed."},
       "github_required_checks": {"status": "pending", "evidence": null}
     },
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
@@ -45110,9 +45110,11 @@
       {"at": "2026-07-13T09:59:16Z", "status": "user_authorized", "summary": "Registered from the operator's fixed 19-PR full-site public stability /goal."},
       {"at": "2026-07-13T09:59:16Z", "status": "in_progress", "summary": "Started from clean fap-web origin/main after verifying GLOBAL-JS-02 merge and containment; scope is shared public navigation pending feedback only."},
       {"at": "2026-07-13T10:07:50Z", "status": "local_verified", "summary": "Public navigation pending contract 3/3, lint, spacing, typecheck, explicit-env production build, YAML/JSON parsing, diff checks, and exact eight-path scope validation passed; no private flow, CMS, SEO, production write, warm, purge, or deploy changed."},
-      {"at": "2026-07-13T10:09:05Z", "status": "pr_open", "summary": "Committed and pushed the exact eight-path scope at 224cf30f0be90e26204675ca1878bc8de17d172b and opened PR #1737; required GitHub checks are pending."}
+      {"at": "2026-07-13T10:09:05Z", "status": "pr_open", "summary": "Committed and pushed the exact eight-path scope at 224cf30f0be90e26204675ca1878bc8de17d172b and opened PR #1737; required GitHub checks are pending."},
+      {"at": "2026-07-13T10:15:00Z", "status": "github_checks_failed_current_scope", "summary": "Inspected the failed contracts job: existing SiteHeader locale-link tests mocked usePathname but not the newly required useSearchParams, causing five render failures in the WEB-01 integration boundary."},
+      {"at": "2026-07-13T10:18:31Z", "status": "local_reverified", "summary": "Removed the unnecessary search-param hook inside the WEB-01 component; pending plus existing SiteHeader contracts pass 9/9, and lint, spacing, typecheck, explicit-env build, parse, diff, and exact eight-path scope checks pass."}
     ],
-    "updated_at": "2026-07-13T10:09:05Z"
+    "updated_at": "2026-07-13T10:18:31Z"
   },
   "PUBLIC-STABILITY-WEB-02": {
     "id": "PUBLIC-STABILITY-WEB-02",
