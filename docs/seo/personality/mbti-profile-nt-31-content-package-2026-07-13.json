@@ -1,0 +1,1187 @@
+{
+  "artifact": "MBTI-PROFILE-NT-31-CONTENT-PACKAGE",
+  "generated_at": "2026-07-13T12:00:00.000Z",
+  "final_decision": "PASS_NON_PRODUCTION_NT_PROFILE_CONTENT_PACKAGE_READY_FOR_FULL_QA",
+  "source_audit": "docs/seo/personality/mbti-full-audit-30-inventory-runtime-baseline-2026-07-13.json",
+  "summary": {
+    "target_count": 8,
+    "group": "NT",
+    "profile_count": 8,
+    "sections_per_page": 9,
+    "faq_per_page": 6,
+    "internal_links_per_page": 5
+  },
+  "safety_boundary": {
+    "artifact_only": true,
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "frontend_editorial_fallback_added": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_mutation_attempted": false,
+    "production_deploy_attempted": false
+  },
+  "assets": [
+    {
+      "asset_id": "mbti-profile-nt-31:intj-a",
+      "path": "/zh/personality/intj-a",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "INTJ",
+      "variant": "A",
+      "archetype": "建筑师",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "INTJ-A 人格特点：战略规划、独立标准和长期系统 | FermatMind",
+        "h1": "INTJ-A 人格特点",
+        "meta_description": "了解 INTJ-A 的战略规划、独立标准和长期系统、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "INTJ-A 是 建筑师 型 INTJ 的 坚定型表达。它更常围绕战略规划、独立标准和长期系统展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "INTJ-A 一句话定义",
+            "body": "INTJ-A 是 建筑师 型 INTJ 的 坚定型表达。它更常围绕战略规划、独立标准和长期系统展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要在不确定中维持节奏时，需要独立分析、长期规划、架构取舍、复杂问题拆解和把模糊目标转成决策标准的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "持续以即时社交反馈决定方向、没有边界的临时救火，或只能执行却不允许解释原则和长期后果的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "INTJ 容易因先在内部形成判断而被误读为疏离。成熟的表现是把推理、限制和期待说出来，而不是让别人猜结论。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 INTJ 的关系",
+            "body": "基础 16 型的 INTJ 描述方向收束与结构化执行；A/T 只补充压力、反馈和自我确认的节奏，不会改变 INTJ 的核心偏好，也不是能力等级。"
+          },
+          {
+            "key": "at_difference",
+            "title": "INTJ-A 与 INTJ-T 的差异",
+            "body": "A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在战略复盘、技术架构或长期项目里，先写清目标、约束、反证和决策截止点；这样可以把个人判断转成团队可复核的路径。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系中先说明自己是在整理想法还是需要空间，再表达标准与关心，避免把沉默变成对方必须解读的信号。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能过早关闭讨论，或躲进复杂规划里延迟沟通。先区分事实、假设和偏好，再邀请关键反证，有助于恢复弹性。先检查是否把自我确认变成忽略他人输入；保留一个能挑战当前判断的证据入口。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INTJ-A 是什么意思？",
+            "answer": "INTJ-A 指 INTJ 的 坚定型表达，关注的是战略规划、独立标准和长期系统与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。"
+          },
+          {
+            "question": "INTJ-A 和 INTJ-T 最大差别是什么？",
+            "answer": "INTJ-A 的差异主要在面对质疑、压力和自我确认时的节奏。A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。两者都应结合具体情境、经验和反馈理解。"
+          },
+          {
+            "question": "INTJ-A 适合什么工作？",
+            "answer": "当任务需要在不确定中维持节奏时，需要独立分析、长期规划、架构取舍、复杂问题拆解和把模糊目标转成决策标准的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。"
+          },
+          {
+            "question": "INTJ-A 常被误解为什么？",
+            "answer": "INTJ 容易因先在内部形成判断而被误读为疏离。成熟的表现是把推理、限制和期待说出来，而不是让别人猜结论。"
+          },
+          {
+            "question": "INTJ-A 在关系中应注意什么？",
+            "answer": "关系中先说明自己是在整理想法还是需要空间，再表达标准与关心，避免把沉默变成对方必须解读的信号。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。INTJ-A 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/intj-t",
+            "label": "INTJ-T",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-a-vs-intj-t",
+            "label": "INTJ-A 与 INTJ-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-vs-intp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nt-31:intj-t",
+      "path": "/zh/personality/intj-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "INTJ",
+      "variant": "T",
+      "archetype": "建筑师",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "INTJ-T 人格特点：战略规划、独立标准和长期系统 | FermatMind",
+        "h1": "INTJ-T 人格特点",
+        "meta_description": "了解 INTJ-T 的战略规划、独立标准和长期系统、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "INTJ-T 是 建筑师 型 INTJ 的 谨慎型表达。它更常围绕战略规划、独立标准和长期系统展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "INTJ-T 一句话定义",
+            "body": "INTJ-T 是 建筑师 型 INTJ 的 谨慎型表达。它更常围绕战略规划、独立标准和长期系统展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要细致复核和风险校准时，需要独立分析、长期规划、架构取舍、复杂问题拆解和把模糊目标转成决策标准的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "持续以即时社交反馈决定方向、没有边界的临时救火，或只能执行却不允许解释原则和长期后果的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "INTJ 容易因先在内部形成判断而被误读为疏离。成熟的表现是把推理、限制和期待说出来，而不是让别人猜结论。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 INTJ 的关系",
+            "body": "基础 16 型的 INTJ 描述方向收束与结构化执行；A/T 只补充压力、反馈和自我确认的节奏，不会改变 INTJ 的核心偏好，也不是能力等级。"
+          },
+          {
+            "key": "at_difference",
+            "title": "INTJ-A 与 INTJ-T 的差异",
+            "body": "T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在战略复盘、技术架构或长期项目里，先写清目标、约束、反证和决策截止点；这样可以把个人判断转成团队可复核的路径。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系中先说明自己是在整理想法还是需要空间，再表达标准与关心，避免把沉默变成对方必须解读的信号。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能过早关闭讨论，或躲进复杂规划里延迟沟通。先区分事实、假设和偏好，再邀请关键反证，有助于恢复弹性。先检查是否把必要的复盘变成无限加码；设置明确的决策截止点和可逆的下一步。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INTJ-T 是什么意思？",
+            "answer": "INTJ-T 指 INTJ 的 谨慎型表达，关注的是战略规划、独立标准和长期系统与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。"
+          },
+          {
+            "question": "INTJ-T 和 INTJ-A 最大差别是什么？",
+            "answer": "INTJ-T 的差异主要在面对质疑、压力和自我确认时的节奏。T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。两者都应结合具体情境、经验和反馈理解。"
+          },
+          {
+            "question": "INTJ-T 适合什么工作？",
+            "answer": "当任务需要细致复核和风险校准时，需要独立分析、长期规划、架构取舍、复杂问题拆解和把模糊目标转成决策标准的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。"
+          },
+          {
+            "question": "INTJ-T 常被误解为什么？",
+            "answer": "INTJ 容易因先在内部形成判断而被误读为疏离。成熟的表现是把推理、限制和期待说出来，而不是让别人猜结论。"
+          },
+          {
+            "question": "INTJ-T 在关系中应注意什么？",
+            "answer": "关系中先说明自己是在整理想法还是需要空间，再表达标准与关心，避免把沉默变成对方必须解读的信号。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。INTJ-T 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/intj-a",
+            "label": "INTJ-A",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-a-vs-intj-t",
+            "label": "INTJ-A 与 INTJ-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-vs-intp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nt-31:intp-a",
+      "path": "/zh/personality/intp-a",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "INTP",
+      "variant": "A",
+      "archetype": "逻辑学家",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "INTP-A 人格特点：分析建模、可能性探索和独立解题 | FermatMind",
+        "h1": "INTP-A 人格特点",
+        "meta_description": "了解 INTP-A 的分析建模、可能性探索和独立解题、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "INTP-A 是 逻辑学家 型 INTP 的 坚定型表达。它更常围绕分析建模、可能性探索和独立解题展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "INTP-A 一句话定义",
+            "body": "INTP-A 是 逻辑学家 型 INTP 的 坚定型表达。它更常围绕分析建模、可能性探索和独立解题展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要在不确定中维持节奏时，研究分析、技术诊断、原型验证、系统设计和允许通过假设、证据与迭代解决复杂问题的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "只靠头衔或情绪快速定论、不能提出反例、长期以表面忙碌代替问题定义的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "INTP 的追问常被误读为抬杠或不关心结果。有效协作是说明自己在验证哪个假设，并为讨论设定可交付的下一步。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 INTP 的关系",
+            "body": "基础 16 型的 INTP 强调逻辑建模和可能性探索；A/T 仅描述面对质疑、反馈和不确定性时的校准节奏，不能用于衡量聪明程度。"
+          },
+          {
+            "key": "at_difference",
+            "title": "INTP-A 与 INTP-T 的差异",
+            "body": "A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在研究、产品原型或排障中，把问题写成定义、假设、反证、实验和结论，避免模型只停留在脑中。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里可先确认对方需要倾听、建议还是共同分析；把解释转成可感受到的回应，比补更多逻辑更有效。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能无限补充信息、推迟公开版本，或把情感议题完全技术化。先设定足够好的证据阈值，再选择一个可逆行动。先检查是否把自我确认变成忽略他人输入；保留一个能挑战当前判断的证据入口。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INTP-A 是什么意思？",
+            "answer": "INTP-A 指 INTP 的 坚定型表达，关注的是分析建模、可能性探索和独立解题与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。"
+          },
+          {
+            "question": "INTP-A 和 INTP-T 最大差别是什么？",
+            "answer": "INTP-A 的差异主要在面对质疑、压力和自我确认时的节奏。A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。两者都应结合具体情境、经验和反馈理解。"
+          },
+          {
+            "question": "INTP-A 适合什么工作？",
+            "answer": "当任务需要在不确定中维持节奏时，研究分析、技术诊断、原型验证、系统设计和允许通过假设、证据与迭代解决复杂问题的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。"
+          },
+          {
+            "question": "INTP-A 常被误解为什么？",
+            "answer": "INTP 的追问常被误读为抬杠或不关心结果。有效协作是说明自己在验证哪个假设，并为讨论设定可交付的下一步。"
+          },
+          {
+            "question": "INTP-A 在关系中应注意什么？",
+            "answer": "关系里可先确认对方需要倾听、建议还是共同分析；把解释转成可感受到的回应，比补更多逻辑更有效。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。INTP-A 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/intp-t",
+            "label": "INTP-T",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intp-a-vs-intp-t",
+            "label": "INTP-A 与 INTP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-vs-intp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nt-31:intp-t",
+      "path": "/zh/personality/intp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "INTP",
+      "variant": "T",
+      "archetype": "逻辑学家",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "INTP-T 人格特点：分析建模、可能性探索和独立解题 | FermatMind",
+        "h1": "INTP-T 人格特点",
+        "meta_description": "了解 INTP-T 的分析建模、可能性探索和独立解题、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "INTP-T 是 逻辑学家 型 INTP 的 谨慎型表达。它更常围绕分析建模、可能性探索和独立解题展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "INTP-T 一句话定义",
+            "body": "INTP-T 是 逻辑学家 型 INTP 的 谨慎型表达。它更常围绕分析建模、可能性探索和独立解题展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要细致复核和风险校准时，研究分析、技术诊断、原型验证、系统设计和允许通过假设、证据与迭代解决复杂问题的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "只靠头衔或情绪快速定论、不能提出反例、长期以表面忙碌代替问题定义的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "INTP 的追问常被误读为抬杠或不关心结果。有效协作是说明自己在验证哪个假设，并为讨论设定可交付的下一步。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 INTP 的关系",
+            "body": "基础 16 型的 INTP 强调逻辑建模和可能性探索；A/T 仅描述面对质疑、反馈和不确定性时的校准节奏，不能用于衡量聪明程度。"
+          },
+          {
+            "key": "at_difference",
+            "title": "INTP-A 与 INTP-T 的差异",
+            "body": "T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在研究、产品原型或排障中，把问题写成定义、假设、反证、实验和结论，避免模型只停留在脑中。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里可先确认对方需要倾听、建议还是共同分析；把解释转成可感受到的回应，比补更多逻辑更有效。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能无限补充信息、推迟公开版本，或把情感议题完全技术化。先设定足够好的证据阈值，再选择一个可逆行动。先检查是否把必要的复盘变成无限加码；设置明确的决策截止点和可逆的下一步。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "INTP-T 是什么意思？",
+            "answer": "INTP-T 指 INTP 的 谨慎型表达，关注的是分析建模、可能性探索和独立解题与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。"
+          },
+          {
+            "question": "INTP-T 和 INTP-A 最大差别是什么？",
+            "answer": "INTP-T 的差异主要在面对质疑、压力和自我确认时的节奏。T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。两者都应结合具体情境、经验和反馈理解。"
+          },
+          {
+            "question": "INTP-T 适合什么工作？",
+            "answer": "当任务需要细致复核和风险校准时，研究分析、技术诊断、原型验证、系统设计和允许通过假设、证据与迭代解决复杂问题的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。"
+          },
+          {
+            "question": "INTP-T 常被误解为什么？",
+            "answer": "INTP 的追问常被误读为抬杠或不关心结果。有效协作是说明自己在验证哪个假设，并为讨论设定可交付的下一步。"
+          },
+          {
+            "question": "INTP-T 在关系中应注意什么？",
+            "answer": "关系里可先确认对方需要倾听、建议还是共同分析；把解释转成可感受到的回应，比补更多逻辑更有效。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。INTP-T 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/intp-a",
+            "label": "INTP-A",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intp-a-vs-intp-t",
+            "label": "INTP-A 与 INTP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-vs-intp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nt-31:entj-a",
+      "path": "/zh/personality/entj-a",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ENTJ",
+      "variant": "A",
+      "archetype": "指挥官",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ENTJ-A 人格特点：资源组织、目标推进和运营节奏 | FermatMind",
+        "h1": "ENTJ-A 人格特点",
+        "meta_description": "了解 ENTJ-A 的资源组织、目标推进和运营节奏、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ENTJ-A 是 指挥官 型 ENTJ 的 坚定型表达。它更常围绕资源组织、目标推进和运营节奏展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ENTJ-A 一句话定义",
+            "body": "ENTJ-A 是 指挥官 型 ENTJ 的 坚定型表达。它更常围绕资源组织、目标推进和运营节奏展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要在不确定中维持节奏时，需要明确优先级、跨团队协调、责任拆分、决策推进和把复杂事项转成可执行节奏的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "职责始终模糊、任何决定都不能验证、只允许私下猜测而不允许公开讨论风险和资源的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ENTJ 的直接推进容易被误读为不在乎人。成熟的表现是同时说明目标、取舍和不同角色的影响，而不是只给指令。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ENTJ 的关系",
+            "body": "基础 16 型的 ENTJ 描述外部组织与方向推进；A/T 只补充面对反馈、压力和自我确认的差异，不代表领导力或职业价值高低。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ENTJ-A 与 ENTJ-T 的差异",
+            "body": "A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在项目受阻时，先区分目标、责任、资源和阻塞原因；用公开节奏让团队看到为什么现在推进、何时复盘，而不是只加压。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系中先问对方希望被支持的方式，再提出方案；把效率与同意、边界放在同一张桌面上。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能把推进速度当成唯一答案，忽略理解成本或长期副作用。暂停确认关键假设和反对意见，能避免把错误方向推得更快。先检查是否把自我确认变成忽略他人输入；保留一个能挑战当前判断的证据入口。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ENTJ-A 是什么意思？",
+            "answer": "ENTJ-A 指 ENTJ 的 坚定型表达，关注的是资源组织、目标推进和运营节奏与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。"
+          },
+          {
+            "question": "ENTJ-A 和 ENTJ-T 最大差别是什么？",
+            "answer": "ENTJ-A 的差异主要在面对质疑、压力和自我确认时的节奏。A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。两者都应结合具体情境、经验和反馈理解。"
+          },
+          {
+            "question": "ENTJ-A 适合什么工作？",
+            "answer": "当任务需要在不确定中维持节奏时，需要明确优先级、跨团队协调、责任拆分、决策推进和把复杂事项转成可执行节奏的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。"
+          },
+          {
+            "question": "ENTJ-A 常被误解为什么？",
+            "answer": "ENTJ 的直接推进容易被误读为不在乎人。成熟的表现是同时说明目标、取舍和不同角色的影响，而不是只给指令。"
+          },
+          {
+            "question": "ENTJ-A 在关系中应注意什么？",
+            "answer": "关系中先问对方希望被支持的方式，再提出方案；把效率与同意、边界放在同一张桌面上。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ENTJ-A 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/entj-t",
+            "label": "ENTJ-T",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entj-a-vs-entj-t",
+            "label": "ENTJ-A 与 ENTJ-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entj-vs-intj",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nt-31:entj-t",
+      "path": "/zh/personality/entj-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ENTJ",
+      "variant": "T",
+      "archetype": "指挥官",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ENTJ-T 人格特点：资源组织、目标推进和运营节奏 | FermatMind",
+        "h1": "ENTJ-T 人格特点",
+        "meta_description": "了解 ENTJ-T 的资源组织、目标推进和运营节奏、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ENTJ-T 是 指挥官 型 ENTJ 的 谨慎型表达。它更常围绕资源组织、目标推进和运营节奏展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ENTJ-T 一句话定义",
+            "body": "ENTJ-T 是 指挥官 型 ENTJ 的 谨慎型表达。它更常围绕资源组织、目标推进和运营节奏展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要细致复核和风险校准时，需要明确优先级、跨团队协调、责任拆分、决策推进和把复杂事项转成可执行节奏的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "职责始终模糊、任何决定都不能验证、只允许私下猜测而不允许公开讨论风险和资源的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ENTJ 的直接推进容易被误读为不在乎人。成熟的表现是同时说明目标、取舍和不同角色的影响，而不是只给指令。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ENTJ 的关系",
+            "body": "基础 16 型的 ENTJ 描述外部组织与方向推进；A/T 只补充面对反馈、压力和自我确认的差异，不代表领导力或职业价值高低。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ENTJ-A 与 ENTJ-T 的差异",
+            "body": "T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在项目受阻时，先区分目标、责任、资源和阻塞原因；用公开节奏让团队看到为什么现在推进、何时复盘，而不是只加压。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系中先问对方希望被支持的方式，再提出方案；把效率与同意、边界放在同一张桌面上。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能把推进速度当成唯一答案，忽略理解成本或长期副作用。暂停确认关键假设和反对意见，能避免把错误方向推得更快。先检查是否把必要的复盘变成无限加码；设置明确的决策截止点和可逆的下一步。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ENTJ-T 是什么意思？",
+            "answer": "ENTJ-T 指 ENTJ 的 谨慎型表达，关注的是资源组织、目标推进和运营节奏与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。"
+          },
+          {
+            "question": "ENTJ-T 和 ENTJ-A 最大差别是什么？",
+            "answer": "ENTJ-T 的差异主要在面对质疑、压力和自我确认时的节奏。T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。两者都应结合具体情境、经验和反馈理解。"
+          },
+          {
+            "question": "ENTJ-T 适合什么工作？",
+            "answer": "当任务需要细致复核和风险校准时，需要明确优先级、跨团队协调、责任拆分、决策推进和把复杂事项转成可执行节奏的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。"
+          },
+          {
+            "question": "ENTJ-T 常被误解为什么？",
+            "answer": "ENTJ 的直接推进容易被误读为不在乎人。成熟的表现是同时说明目标、取舍和不同角色的影响，而不是只给指令。"
+          },
+          {
+            "question": "ENTJ-T 在关系中应注意什么？",
+            "answer": "关系中先问对方希望被支持的方式，再提出方案；把效率与同意、边界放在同一张桌面上。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ENTJ-T 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/entj-a",
+            "label": "ENTJ-A",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entj-a-vs-entj-t",
+            "label": "ENTJ-A 与 ENTJ-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entj-vs-intj",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nt-31:entp-a",
+      "path": "/zh/personality/entp-a",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ENTP",
+      "variant": "A",
+      "archetype": "辩论家",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ENTP-A 人格特点：可能性探索、观点碰撞和快速实验 | FermatMind",
+        "h1": "ENTP-A 人格特点",
+        "meta_description": "了解 ENTP-A 的可能性探索、观点碰撞和快速实验、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ENTP-A 是 辩论家 型 ENTP 的 坚定型表达。它更常围绕可能性探索、观点碰撞和快速实验展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ENTP-A 一句话定义",
+            "body": "ENTP-A 是 辩论家 型 ENTP 的 坚定型表达。它更常围绕可能性探索、观点碰撞和快速实验展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要在不确定中维持节奏时，早期问题定义、产品实验、创意策略、跨领域探索和允许快速迭代、公开讨论假设的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "不允许质疑既有做法、所有讨论必须立即形成确定答案，或长期没有试验空间但又要求持续创新的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ENTP 提出反方观点不等于真的相信它。有效沟通是说明自己在测试可能性，并在讨论结束时明确哪些结论需要落地。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ENTP 的关系",
+            "body": "基础 16 型的 ENTP 描述可能性探索和逻辑检验；A/T 补充的是压力和反馈的处理节奏，不能推导一个人的可靠性、能力或关系质量。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ENTP-A 与 ENTP-T 的差异",
+            "body": "A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在创意或策略会议中，把发散阶段和收敛阶段分开：先允许反例，再明确选择标准、负责人和实验截止时间。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里先确认辩论对对方是有趣还是消耗；表达好奇时也要给出情感确认，避免把亲密关系变成持续反驳赛。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能不断追逐新选项，或用玩笑绕开真实冲突。选择一个最有价值的假设做小实验，并同步不会继续做什么。先检查是否把自我确认变成忽略他人输入；保留一个能挑战当前判断的证据入口。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ENTP-A 是什么意思？",
+            "answer": "ENTP-A 指 ENTP 的 坚定型表达，关注的是可能性探索、观点碰撞和快速实验与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。"
+          },
+          {
+            "question": "ENTP-A 和 ENTP-T 最大差别是什么？",
+            "answer": "ENTP-A 的差异主要在面对质疑、压力和自我确认时的节奏。A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。两者都应结合具体情境、经验和反馈理解。"
+          },
+          {
+            "question": "ENTP-A 适合什么工作？",
+            "answer": "当任务需要在不确定中维持节奏时，早期问题定义、产品实验、创意策略、跨领域探索和允许快速迭代、公开讨论假设的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。"
+          },
+          {
+            "question": "ENTP-A 常被误解为什么？",
+            "answer": "ENTP 提出反方观点不等于真的相信它。有效沟通是说明自己在测试可能性，并在讨论结束时明确哪些结论需要落地。"
+          },
+          {
+            "question": "ENTP-A 在关系中应注意什么？",
+            "answer": "关系里先确认辩论对对方是有趣还是消耗；表达好奇时也要给出情感确认，避免把亲密关系变成持续反驳赛。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ENTP-A 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/entp-t",
+            "label": "ENTP-T",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entp-a-vs-entp-t",
+            "label": "ENTP-A 与 ENTP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entj-vs-intj",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    },
+    {
+      "asset_id": "mbti-profile-nt-31:entp-t",
+      "path": "/zh/personality/entp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ENTP",
+      "variant": "T",
+      "archetype": "辩论家",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ENTP-T 人格特点：可能性探索、观点碰撞和快速实验 | FermatMind",
+        "h1": "ENTP-T 人格特点",
+        "meta_description": "了解 ENTP-T 的可能性探索、观点碰撞和快速实验、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ENTP-T 是 辩论家 型 ENTP 的 谨慎型表达。它更常围绕可能性探索、观点碰撞和快速实验展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ENTP-T 一句话定义",
+            "body": "ENTP-T 是 辩论家 型 ENTP 的 谨慎型表达。它更常围绕可能性探索、观点碰撞和快速实验展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要细致复核和风险校准时，早期问题定义、产品实验、创意策略、跨领域探索和允许快速迭代、公开讨论假设的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "不允许质疑既有做法、所有讨论必须立即形成确定答案，或长期没有试验空间但又要求持续创新的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ENTP 提出反方观点不等于真的相信它。有效沟通是说明自己在测试可能性，并在讨论结束时明确哪些结论需要落地。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ENTP 的关系",
+            "body": "基础 16 型的 ENTP 描述可能性探索和逻辑检验；A/T 补充的是压力和反馈的处理节奏，不能推导一个人的可靠性、能力或关系质量。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ENTP-A 与 ENTP-T 的差异",
+            "body": "T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在创意或策略会议中，把发散阶段和收敛阶段分开：先允许反例，再明确选择标准、负责人和实验截止时间。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里先确认辩论对对方是有趣还是消耗；表达好奇时也要给出情感确认，避免把亲密关系变成持续反驳赛。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能不断追逐新选项，或用玩笑绕开真实冲突。选择一个最有价值的假设做小实验，并同步不会继续做什么。先检查是否把必要的复盘变成无限加码；设置明确的决策截止点和可逆的下一步。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ENTP-T 是什么意思？",
+            "answer": "ENTP-T 指 ENTP 的 谨慎型表达，关注的是可能性探索、观点碰撞和快速实验与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。"
+          },
+          {
+            "question": "ENTP-T 和 ENTP-A 最大差别是什么？",
+            "answer": "ENTP-T 的差异主要在面对质疑、压力和自我确认时的节奏。T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。两者都应结合具体情境、经验和反馈理解。"
+          },
+          {
+            "question": "ENTP-T 适合什么工作？",
+            "answer": "当任务需要细致复核和风险校准时，早期问题定义、产品实验、创意策略、跨领域探索和允许快速迭代、公开讨论假设的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。"
+          },
+          {
+            "question": "ENTP-T 常被误解为什么？",
+            "answer": "ENTP 提出反方观点不等于真的相信它。有效沟通是说明自己在测试可能性，并在讨论结束时明确哪些结论需要落地。"
+          },
+          {
+            "question": "ENTP-T 在关系中应注意什么？",
+            "answer": "关系里先确认辩论对对方是有趣还是消耗；表达好奇时也要给出情感确认，避免把亲密关系变成持续反驳赛。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ENTP-T 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/entp-a",
+            "label": "ENTP-A",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entp-a-vs-entp-t",
+            "label": "ENTP-A 与 ENTP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entj-vs-intj",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      }
+    }
+  ],
+  "package_sha256": "fb7f38ac3af06753a7a6141429f2ccb13d12b57fbbb1a703665342d93abdba11"
+}

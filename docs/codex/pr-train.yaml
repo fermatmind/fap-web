@@ -14774,6 +14774,48 @@ prs:
       auto_merge: true
     next_task: MBTI-PROFILE-NT-31
 
+  - id: MBTI-PROFILE-NT-31
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-profile-nt-31-content-package
+    base: main
+    depends_on:
+      - MBTI-FULL-AUDIT-30
+    mode: execute
+    train_scope: mbti_nt_profile_content_package
+    risk_level: L1
+    status: in_progress
+    title: "MBTI-PROFILE-NT-31: package NT Chinese profile content"
+    goal: "Build a non-production, backend/CMS-reviewable content package for exactly eight zh-CN NT profile URLs: INTJ, INTP, ENTJ and ENTP A/T variants. Each asset must include direct answer, fit boundaries, common misreads, base-16 and A/T distinctions, work/relationship/stress scenarios, FAQ and safe public internal links."
+    in_scope:
+      - docs/seo/personality/mbti-profile-nt-31-*
+      - scripts/seo/build-mbti-profile-nt-31-*
+      - tests/contracts/mbti-profile-nt-31-*
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS writes, dry-run import, production import, or database migration
+      - frontend runtime or editorial fallback content
+      - sitemap, llms, canonical, robots, JSON-LD, or indexability mutation
+      - English URLs, comparison content packages, or arbitrary type combinations
+      - GSC mutation, URL Inspection, indexing request, staging, or production deploy
+    required_local_checks:
+      - node scripts/seo/build-mbti-profile-nt-31-content-package.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-profile-nt-31-content-package.contract.test.ts --reporter=dot
+      - corepack pnpm lint . --max-warnings=0
+      - corepack pnpm typecheck
+      - corepack pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-PROFILE-NF-32
+
   - id: PR-CAREER-KG-00
     repo: fap-web
     repo_path: <workspace>/fap-web
