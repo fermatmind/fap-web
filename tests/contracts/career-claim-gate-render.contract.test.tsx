@@ -9,14 +9,29 @@ afterEach(() => {
   vi.unmock("next/navigation");
 });
 
+function mockCareerJobSupportingReads() {
+  vi.stubGlobal("fetch", vi.fn(() => {
+    throw new Error("career claim-gate contract must not call a live API");
+  }));
+  vi.doMock("@/lib/career/api/fetchCareerSalaryAssetPreview", () => ({
+    fetchCareerSalaryAssetPreview: vi.fn(async () => null),
+  }));
+  vi.doMock("@/lib/career/api/fetchCareerAiImpactAssetPreview", () => ({
+    fetchCareerAiImpactAssetPreview: vi.fn(async () => null),
+  }));
+  vi.doMock("@/lib/career/api/fetchCareerRuntimeConfig", () => ({
+    fetchCareerRuntimeConfig: vi.fn(async () => null),
+  }));
+}
+
 describe("career claim gate render contract", () => {
   it("blocks salary, outlook, fit, and answer surfaces when explicit claim permissions are missing", async () => {
+    mockCareerJobSupportingReads();
     vi.doMock("next/link", () => ({
-      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
-        <a href={href} {...props}>
-          {children}
-        </a>
-      ),
+      default: ({ href, children, prefetch: _prefetch, ...props }: { href: string; children: ReactNode; prefetch?: boolean }) => {
+        void _prefetch;
+        return <a href={href} {...props}>{children}</a>;
+      },
     }));
     vi.doMock("next/navigation", async () => {
       const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
@@ -162,12 +177,12 @@ describe("career claim gate render contract", () => {
   });
 
   it("keeps salary visible but suppresses outlook when the strong-claim gate stays closed", async () => {
+    mockCareerJobSupportingReads();
     vi.doMock("next/link", () => ({
-      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
-        <a href={href} {...props}>
-          {children}
-        </a>
-      ),
+      default: ({ href, children, prefetch: _prefetch, ...props }: { href: string; children: ReactNode; prefetch?: boolean }) => {
+        void _prefetch;
+        return <a href={href} {...props}>{children}</a>;
+      },
     }));
     vi.doMock("next/navigation", async () => {
       const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
@@ -249,12 +264,12 @@ describe("career claim gate render contract", () => {
   });
 
   it("lets runtime-published backend SEO authority index while local claim gates still hide gated content", async () => {
+    mockCareerJobSupportingReads();
     vi.doMock("next/link", () => ({
-      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
-        <a href={href} {...props}>
-          {children}
-        </a>
-      ),
+      default: ({ href, children, prefetch: _prefetch, ...props }: { href: string; children: ReactNode; prefetch?: boolean }) => {
+        void _prefetch;
+        return <a href={href} {...props}>{children}</a>;
+      },
     }));
     vi.doMock("next/navigation", async () => {
       const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
@@ -339,12 +354,12 @@ describe("career claim gate render contract", () => {
   });
 
   it("renders DOCX job content and structured data after trust and claim gates pass", async () => {
+    mockCareerJobSupportingReads();
     vi.doMock("next/link", () => ({
-      default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
-        <a href={href} {...props}>
-          {children}
-        </a>
-      ),
+      default: ({ href, children, prefetch: _prefetch, ...props }: { href: string; children: ReactNode; prefetch?: boolean }) => {
+        void _prefetch;
+        return <a href={href} {...props}>{children}</a>;
+      },
     }));
     vi.doMock("next/navigation", async () => {
       const actual = await vi.importActual<typeof import("next/navigation")>("next/navigation");
