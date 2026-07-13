@@ -27,7 +27,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const guide = await getInterpretationGuide(slug, locale).catch(() => null);
+  const guide = await getInterpretationGuide(slug, locale);
 
   if (!guide) {
     return {
@@ -56,7 +56,7 @@ export default async function InterpretationGuidePage({
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const guide = await getInterpretationGuide(slug, locale).catch(() => null);
+  const guide = await getInterpretationGuide(slug, locale);
 
   if (!guide) {
     notFound();

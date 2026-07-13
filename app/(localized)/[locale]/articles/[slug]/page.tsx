@@ -150,11 +150,9 @@ export async function generateMetadata({
   const locale = resolveLocale(localeParam);
   const [article, seo] = await Promise.all([
     getCmsArticleWithLastKnownGood(slug, locale)
-      .then((result) => result.value)
-      .catch(() => null),
+      .then((result) => result.value),
     getCmsArticleSeoWithLastKnownGood(slug, locale)
-      .then((result) => result.value)
-      .catch(() => null),
+      .then((result) => result.value),
   ]);
 
   if (!article) {
@@ -250,11 +248,9 @@ export default async function ArticleDetailPage({
   const dict = await getDict(locale);
   const [article, seo] = await Promise.all([
     getCmsArticleWithLastKnownGood(slug, locale)
-      .then((result) => result.value)
-      .catch(() => null),
+      .then((result) => result.value),
     getCmsArticleSeoWithLastKnownGood(slug, locale)
-      .then((result) => result.value)
-      .catch(() => null),
+      .then((result) => result.value),
   ]);
 
   if (!article) {

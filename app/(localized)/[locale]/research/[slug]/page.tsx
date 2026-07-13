@@ -31,7 +31,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const report = await getResearchReport(slug, locale).catch(() => null);
+  const report = await getResearchReport(slug, locale);
 
   if (!report) {
     return {
@@ -68,7 +68,7 @@ export default async function ResearchReportDetailPage({
 }) {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const report = await getResearchReport(slug, locale).catch(() => null);
+  const report = await getResearchReport(slug, locale);
 
   if (!report) {
     notFound();
