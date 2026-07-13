@@ -95,6 +95,25 @@ describe("editorial public read stability", () => {
     expect(source).toContain("notFound()");
   });
 
+  it("lets authoritative article absence win before either article SEO read", () => {
+    const source = read("app/(localized)/[locale]/articles/[slug]/page.tsx");
+    const metadataSource = source.slice(
+      source.indexOf("export async function generateMetadata"),
+      source.indexOf("export default async function ArticleDetailPage"),
+    );
+    const pageSource = source.slice(source.indexOf("export default async function ArticleDetailPage"));
+
+    for (const section of [metadataSource, pageSource]) {
+      const articleRead = section.indexOf("getCmsArticleWithLastKnownGood(slug, locale)");
+      const absenceBranch = section.indexOf("if (!article)");
+      const seoRead = section.indexOf("getCmsArticleSeoWithLastKnownGood(slug, locale)");
+
+      expect(articleRead).toBeGreaterThanOrEqual(0);
+      expect(absenceBranch).toBeGreaterThan(articleRead);
+      expect(seoRead).toBeGreaterThan(absenceBranch);
+    }
+  });
+
   it.each([
     "lib/cms/articles.ts",
     "lib/research/reports.ts",
