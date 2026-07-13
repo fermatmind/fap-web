@@ -40,13 +40,13 @@ describe("riasec public IA contract", () => {
     }
   });
 
-  it("keeps riasec in the catalog fallback seed under the canonical scale slug", () => {
+  it("keeps backend RIASEC catalog rows normalized to the canonical scale slug", () => {
     const source = read("lib/content.ts");
 
-    expect(source).toContain("SCALE_CANONICAL_SLUG_MAP.RIASEC");
-    expect(source).toContain('scale_code: "RIASEC"');
-    expect(source).toContain("霍兰德职业兴趣测试（RIASEC）");
-    expect(source).toContain("questions_count: 60");
+    expect(source).toContain("SCALE_CANONICAL_SLUG_MAP[scaleCode]");
+    expect(source).toContain("normalizeSupportedScaleCode");
+    expect(source).not.toContain("FALLBACK_PUBLIC_TEST_SEEDS");
+    expect(source).not.toContain("霍兰德职业兴趣测试（RIASEC）");
   });
 
   it("adds backend-history and shared share affordances for canonical riasec results", () => {
