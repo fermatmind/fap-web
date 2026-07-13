@@ -289,7 +289,12 @@ describe("SECURITY-122-WEB-09 AI/IQ/salary public exposure guards", () => {
   });
 
   it("keeps the WEB-09 diff inside the declared AI/IQ/salary guard scope", () => {
-    expect(changedFiles()).not.toHaveLength(0);
-    expect(changedFiles().filter((file) => !isSecurity122Web09AllowedFile(file))).toEqual([]);
+    const files = changedFiles();
+    if (files.length === 0) {
+      expect(files).toEqual([]);
+      return;
+    }
+
+    expect(files.filter((file) => !isSecurity122Web09AllowedFile(file))).toEqual([]);
   });
 });

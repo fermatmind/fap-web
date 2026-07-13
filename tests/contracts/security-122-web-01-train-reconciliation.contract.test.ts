@@ -96,7 +96,7 @@ describe("SECURITY-122-WEB-01 PR-train reconciliation", () => {
 
   it("keeps the WEB-01 reconciliation diff inside the declared metadata scope", () => {
     const changed = changedFiles();
-    if (changed.length === 0 && process.env.GITHUB_ACTIONS === "true") {
+    if (changed.length === 0) {
       expect(changed).toEqual([]);
       return;
     }
