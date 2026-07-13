@@ -132,6 +132,21 @@ function mockCareerDatasetDirectory() {
   }));
 }
 
+function mockCareerRecommendationSupportingReads() {
+  vi.stubGlobal("fetch", vi.fn(() => {
+    throw new Error("recommendation attribution contract must not call a live API");
+  }));
+  vi.doMock("@/lib/career/api/fetchCareerRecommendationExplainability", () => ({
+    fetchCareerRecommendationExplainability: vi.fn(async () => null),
+  }));
+  vi.doMock("@/lib/career/api/fetchCareerFirstWaveRecommendationCompanionLinks", () => ({
+    fetchCareerFirstWaveRecommendationCompanionLinks: vi.fn(async () => null),
+  }));
+  vi.doMock("@/lib/career/api/fetchCareerRuntimeConfig", () => ({
+    fetchCareerRuntimeConfig: vi.fn(async () => null),
+  }));
+}
+
 const ROOT = process.cwd();
 
 function read(relPath: string): string {
@@ -606,6 +621,28 @@ describe("career attribution page wiring contract", () => {
         ],
       })),
     }));
+    vi.doMock("@/lib/career/api/fetchCareerDirectory", () => ({
+      fetchCareerDirectory: vi.fn(async () => ({
+        state: "success",
+        error: null,
+        payload: {
+          public_truth: {
+            public_detail_indexable_count: 1,
+            directory_member_count: 1,
+          },
+          pagination: {
+            page: 1,
+            per_page: 50,
+            total: 1,
+            total_pages: 1,
+            has_next_page: false,
+            has_previous_page: false,
+          },
+          facets: { families: [] },
+          items: [],
+        },
+      })),
+    }));
     mockCareerDatasetDirectory();
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
@@ -823,6 +860,7 @@ describe("career attribution page wiring contract", () => {
     }));
 
     const { pageViewEvents, trackedLinks } = installCareerTrackingMocks();
+    mockCareerRecommendationSupportingReads();
 
     vi.doMock("@/lib/i18n/getDict", () => ({
       resolveLocale: vi.fn(() => "en"),

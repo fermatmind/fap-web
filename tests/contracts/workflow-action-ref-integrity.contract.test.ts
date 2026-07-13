@@ -3,13 +3,22 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 describe("workflow action reference integrity", () => {
-  it("keeps every workflow action on the blessed lock and resolves pinned refs", () => {
-    const output = execFileSync(process.execPath, ["scripts/verify-github-action-refs.mjs", "--resolve"], {
+  it("keeps every workflow action on the blessed lock without a public-network dependency", () => {
+    const output = execFileSync(process.execPath, ["scripts/verify-github-action-refs.mjs"], {
       encoding: "utf8",
-      timeout: 90000,
+      timeout: 10000,
     });
 
-    expect(output).toContain("remote refs resolved");
+    expect(output).toContain("GitHub workflow action reference integrity check passed");
+    expect(output).not.toContain("remote refs resolved");
+  });
+
+  it("runs remote tag resolution only from the scheduled maintenance audit", () => {
+    const workflow = readFileSync(".github/workflows/action-ref-remote-audit.yml", "utf8");
+
+    expect(workflow).toContain("schedule:");
+    expect(workflow).toContain("workflow_dispatch:");
+    expect(workflow).toContain("node scripts/verify-github-action-refs.mjs --resolve");
   });
 
   it("locks artifact upload to the current resolvable v4 SHA instead of the invalid historical SHA", () => {
