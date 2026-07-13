@@ -34,8 +34,23 @@ function mockLlmsDependencies() {
     isConfiguredStagingSiteUrl: vi.fn(() => false),
   }));
   vi.doMock("@/lib/seo/backendSitemapSource", () => ({
-      listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
+    listBackendSitemapMbtiPersonalityPaths: vi.fn(async () => []),
+    listBackendSitemapBigFiveZhPaths: vi.fn(async () => []),
     listBackendSitemapCareerJobPaths,
+  }));
+  vi.doMock("@/lib/seo/backendSitemapMbtiAuthorityCache", () => ({
+    readMbtiAuthorityLastKnownGood: vi.fn(async () => []),
+  }));
+  vi.doMock("@/lib/seo/enneagramLlmsSource", () => ({
+    listEnneagramLlmsPaths: vi.fn(async () => []),
+    listEnneagramLlmsFullEntries: vi.fn(async () => []),
+  }));
+  vi.doMock("@/lib/seo/llmsFullResponseCache", () => ({
+    getCachedLlmsFullText: vi.fn(async () => null),
+    getOrStartLlmsFullBuild: vi.fn(async (_siteUrl: string, build: (siteUrl: string) => Promise<string | null>) =>
+      build(SITE_URL)
+    ),
+    writeLlmsFullResponseCache: vi.fn(async () => ({ cached: false, cachePath: "" })),
   }));
   vi.doMock("@/lib/career/api/fetchCareerRecommendationIndex", () => ({
     fetchCareerRecommendationIndex: vi.fn(async () => ({ items: [] })),
