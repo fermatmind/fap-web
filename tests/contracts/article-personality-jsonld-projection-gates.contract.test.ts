@@ -311,6 +311,20 @@ describe("Article / Personality JSON-LD and projection gates", () => {
         },
       },
     });
+    const missingCurrentLocaleAlternateHreflangGate = resolveArticleHreflangGate({
+      noindex: false,
+      article: { slug: "schema-authority", seoMeta: null },
+      projectedAuthority: {
+        ...projectedAuthority,
+        alternateEligibility: {
+          ...projectedAuthority.alternateEligibility,
+          alternates: {
+            en: null,
+            "zh-CN": "https://fermatmind.com/zh/articles/schema-authority",
+          },
+        },
+      },
+    });
 
     expect(projectedGate).toMatchObject({
       source: "backend_authority_projection",
@@ -333,6 +347,10 @@ describe("Article / Personality JSON-LD and projection gates", () => {
       canRenderHreflang: false,
     });
     expect(currentLocaleOnlyHreflangGate).toMatchObject({
+      source: "backend_authority_projection",
+      canRenderHreflang: false,
+    });
+    expect(missingCurrentLocaleAlternateHreflangGate).toMatchObject({
       source: "backend_authority_projection",
       canRenderHreflang: false,
     });

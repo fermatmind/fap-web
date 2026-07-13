@@ -320,6 +320,8 @@ export function resolveArticleHreflangGate(input: {
   if (Object.prototype.hasOwnProperty.call(input, "projectedAuthority")) {
     const projectedAuthority = input.projectedAuthority;
     const currentLocale = projectedAuthority?.alternateEligibility.currentLocale ?? null;
+    const hasCurrentLocaleAlternate = currentLocale !== null
+      && Boolean(projectedAuthority?.alternateEligibility.alternates[currentLocale]);
     const hasEligibleLocaleSibling = currentLocale !== null
       && projectedAuthority?.alternateEligibility.eligibleLocales.some(
         (locale) => locale !== currentLocale
@@ -327,6 +329,7 @@ export function resolveArticleHreflangGate(input: {
       );
     const canRenderHreflang = Boolean(
       projectedAuthority?.publishedRevisionBacked
+      && hasCurrentLocaleAlternate
       && hasEligibleLocaleSibling,
     );
     return articleHreflangGate(
