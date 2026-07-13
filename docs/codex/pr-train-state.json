@@ -45369,8 +45369,8 @@
     "title": "SAEP-PLANNED-PR-09 Consume article authority without fallback",
     "depends_on": ["SAEP-PLANNED-PR-08", "ARTICLE-FANOUT-01", "PUBLIC-STABILITY-WEB-06"],
     "depends_on_atomic_tasks": ["SAEP-ART-01"],
-    "status": "second_review_fix_local_verified",
-    "commit_sha": "129a022b47e7b074dcc42f27cc81afd0fae3fc2e",
+    "status": "second_review_fix_committed_pending_push",
+    "commit_sha": "813049e8d46c3de9e06f9d860c21f88c3806a883",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1745",
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The concrete SAEP continuous execution goal authorizes exact card SAEP-PRCARD-WEB-9ffab11c6415 and append-only SAEP-PLANNED-PR-09 metadata. Existing PR-PRAC namespace and items are preserved without rename or deletion."},
@@ -45399,8 +45399,9 @@
       {"at": "2026-07-13T18:30:48Z", "status": "review_fix_committed_pending_push", "summary": "Committed the validated P2 hreflang sibling-gate repair as 129a022b47e7b074dcc42f27cc81afd0fae3fc2e after explicit four-path staging and cached diff validation. A ledger-only commit and push are pending before resolving the review thread."},
       {"at": "2026-07-13T18:39:47Z", "status": "second_review_fix_in_progress", "summary": "Review-fix head ec67401e428d60e32c77929fbbf3cff152b84944 passed all required CI and CodeQL checks with CLEAN merge state and the first P2 resolved, then automated review opened actionable P2 thread 3573230945. The finding correctly requires both a current-locale self alternate and a different-locale sibling before hreflang output; the same-scope gate and regression repair is in progress."},
       {"at": "2026-07-13T19:05:23Z", "status": "second_review_fix_build_pending_hardware_guard", "summary": "The current-locale self-alternate repair passes the 28/28 related regression set and the Node 24 full contract suite passes 4201/4201. Six known generated SEO/MBTI artifacts were restored, leaving the exact three-path review-fix diff. Production build is waiting because another fap-api PHPUnit suite entered the single heavy-validation slot before build startup."},
-      {"at": "2026-07-13T19:52:23Z", "status": "second_review_fix_local_verified", "summary": "The second P2 repair now has complete local evidence: related regressions pass 28/28, Node 24 full contracts pass 4201/4201, production build generates 206/206 static pages, and Node 24 lint, spacing, typecheck, JSON/YAML, diff, and exact three-path scope gates pass."}
+      {"at": "2026-07-13T19:52:23Z", "status": "second_review_fix_local_verified", "summary": "The second P2 repair now has complete local evidence: related regressions pass 28/28, Node 24 full contracts pass 4201/4201, production build generates 206/206 static pages, and Node 24 lint, spacing, typecheck, JSON/YAML, diff, and exact three-path scope gates pass."},
+      {"at": "2026-07-13T19:53:06Z", "status": "second_review_fix_committed_pending_push", "summary": "Committed the validated current-locale self-alternate gate and regression as 813049e8d46c3de9e06f9d860c21f88c3806a883 after explicit three-path staging and cached diff validation. A ledger-only commit and push are pending before resolving P2 thread 3573230945."}
     ],
-    "updated_at": "2026-07-13T19:52:23Z"
+    "updated_at": "2026-07-13T19:53:06Z"
   }
 }
