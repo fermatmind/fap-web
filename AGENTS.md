@@ -6,6 +6,17 @@
 - Never “fix future PRs” inside the current PR.
 - Stop immediately if changed files drift outside the declared scope and `stop_if_changed_files_outside_scope` is true.
 
+## Goal execution standing authorization
+- FermatMind is normally operated by one developer and execution goals often run unattended overnight. Unless the goal explicitly requests interactive checkpoints, treat every concrete end-to-end execution goal as unattended mode: make safe, reversible, in-scope decisions with best judgment, record them in the PR/ledger, and continue without waiting for acknowledgements.
+- A concrete `/goal` or equivalent instruction that asks Codex to execute or finish an identified implementation scope end to end is standing authorization for the complete normal PR lifecycle for that scope. Codex must not pause to ask again before creating or switching the scoped branch, editing, running checks, staging explicit paths, committing, pushing, opening the PR, polling checks, applying same-scope CI/review fixes, merging when repository policy permits, syncing `main`, or cleaning up the task branch.
+- When that execution goal names a PR-train item, scan/PR card, task id, title, or otherwise unambiguously identifies the scope, it also authorizes creation or update of the exact required `docs/codex/pr-train.yaml` and `docs/codex/pr-train-state.json` entries. A second manifest/state or PR authorization prompt is prohibited.
+- Declared dependency PRs that are already part of the goal or manifest may be completed in dependency order under the same standing authorization. Do not start the dependent PR until its dependency is merged.
+- If a required check is blocked by a defect already present on `main` and clearly outside the current PR scope, Codex may create, validate, push, open, monitor, and merge a separate minimal ad-hoc baseline-repair PR, then resume the original goal. Keep the repair isolated, prove that the failure predates the current branch, and do not mix the repair into the goal PR. Do not ask for another PR authorization.
+- Required checks, reviews, branch protection, and merge policies remain mandatory. Standing authorization permits diagnosis and scoped fixes; it never permits merging with failed required checks.
+- Do not mark or report a goal as blocked merely because it needs a missing manifest/state entry, an already-declared dependency, a same-scope CI/review fix, a wait/poll cycle, or an isolated pre-existing baseline repair PR. Resolve those autonomously under this section.
+- Stop for user direction only when the scope or authority owner is materially ambiguous, user-owned changes overlap and cannot be isolated, a production/CMS/database write or other separately controlled action is required, an external review/permission cannot be satisfied, or the necessary repair cannot be isolated and validated safely. Do not treat ordinary branch/commit/push/PR/merge actions as blockers.
+- This section overrides narrower rules below that say to request explicit user authorization for ordinary PR lifecycle, same-scope retry/fix, missing manifest/state initialization, directly blocking ledger reconciliation, or an isolated baseline-repair PR. It does not override an explicitly planning-only/read-only goal or controlled production-publish confirmation requirements.
+
 ## Branch discipline
 - Always start from the latest `main`.
 - Always pull with `git pull --ff-only origin main` before creating a PR branch.
@@ -23,11 +34,11 @@
 
 ## Dependency discipline
 - A PR may start only when all `depends_on` items are already merged into `main`.
-- If a dependency is not merged, mark the current item `blocked_dependency` in `docs/codex/pr-train-state.json` and stop.
+- If a dependency is not merged, do not start the dependent PR. Under an active execution goal, complete or wait for the declared dependency under the standing authorization, then continue automatically. Mark `blocked_dependency` and stop only when the dependency cannot be completed safely or requires external authority.
 
 ## Manifest discipline
-- If the requested PR id is missing from `docs/codex/pr-train.yaml`, stop and report the gap unless the user explicitly asks to update the train manifest.
-- If the user explicitly asks to proceed with that PR, Codex may add the missing manifest/state entry first, then continue under the same scope discipline.
+- Under a concrete execution goal, a missing requested PR id is handled by adding the exact goal-supplied manifest/state entry under the standing authorization, then continuing under the same scope discipline.
+- Outside an execution goal, stop and report a missing PR-train item unless the user asks to update the train manifest.
 - Never invent a PR id or scope that is not either:
   - already present in the manifest, or
   - explicitly provided by the user.
@@ -37,10 +48,10 @@
   - proposed scope and files likely touched
   - required local checks
   - dependency assumptions
-  - exact manifest/state entries that would need user authorization before implementation
-  - a follow-up execution prompt that explicitly asks for manifest/state authorization
+  - exact manifest/state entries that would be required before implementation
+  - a follow-up execution prompt that names the exact item and scope; issuing that execution prompt supplies standing authorization
 - Scan/planning-only tasks must not modify `docs/codex/pr-train.yaml` or `docs/codex/pr-train-state.json` unless the user explicitly authorizes manifest/state updates in that same turn.
-- If the user provides a concrete `/goal` or equivalent execution request with an explicit PR id, title, and scope, Codex may treat those as user-provided manifest details. If the id is missing from the manifest, Codex may add the manifest/state entry before implementation only when the user also explicitly authorizes updating both files.
+- If the user provides a concrete `/goal` or equivalent execution request with an explicit PR id, title, and scope, treat those as user-provided manifest details and add missing manifest/state entries without a second authorization prompt.
 
 ## Verification discipline
 - Run all local checks listed in the PR manifest before push.
@@ -62,7 +73,7 @@
   - validation commands
   - intentionally deferred items
 - If a PR for the current task is already open and checks are pending, do not start a different PR unless the manifest permits local-verify-only progression and the user explicitly overrides pending remote checks.
-- Codex may continue working only on that same PR when the user explicitly asks for a scoped follow-up, review fix, or CI fix.
+- Under an active execution goal, continue automatically on that same PR for scoped follow-up, review fixes, and CI fixes until the PR is green or a genuine stop condition from the standing-authorization section is reached.
 
 ## Ad-hoc PR discipline
 - Not every PR needs a PR-train id.
@@ -116,7 +127,7 @@
   - remote_branch_deleted
   - local_cleanup_executed
 - If the merge has not happened yet, use `merged_at: null`, `remote_branch_deleted: false`, and `local_cleanup_executed: false`, plus a clear pending closeout status. Do not pre-fill final merge facts.
-- Never continue after a failed local check unless the manifest explicitly allows retry.
+- Never advance to the next PR after a failed local check unless the manifest permits it. Under an active execution goal, diagnose, fix, and rerun the current scoped check without a new user prompt, and record each retry in the ledger.
 - For remote GitHub check failures that are explicitly user-overridden, record the status as `github_checks_failed_user_overridden`, keep the failed GitHub check details, and set `failure_reason` to include the override instruction and date.
 
 ## Ledger reconciliation discipline
@@ -129,11 +140,11 @@
 - Reconciliation is bookkeeping, not a retry of the failed PR.
 - If reconciliation touches only PR train metadata needed to unblock the current train item, it may be included with the current PR and called out in the PR body.
 - If stale post-merge ledger state does not block the next requested task, do not open a standalone reconciliation PR. Leave the previous item as pending closeout and include the verified merge/cleanup facts in the final response.
-- If stale post-merge ledger state blocks dependency resolution, prefer reconciling it inside the next same-repository PR that already modifies `docs/codex`. If no natural PR exists, request explicit user authorization before creating one ledger-only ad-hoc PR; do not create a new `*-RECONCILE-*` PR-train item unless the user explicitly asks to track reconciliation as a train item.
+- If stale post-merge ledger state blocks dependency resolution, prefer reconciling it inside the next same-repository PR that already modifies `docs/codex`. Under an active execution goal, if no natural PR exists, create one minimal ledger-only ad-hoc PR under the standing authorization; do not create a new `*-RECONCILE-*` PR-train item unless the goal explicitly tracks reconciliation as a train item.
 - Cross-repository ledger reconciliation must be done in the repository that owns that ledger.
 
 ## Failure policy
-- Stop immediately on:
+- Do not merge the current PR or advance to an unrelated next PR while any of the following remains unresolved:
   - preflight failure
   - failed local checks
   - merge block
@@ -142,9 +153,9 @@
 - Failed GitHub checks still block merge progression unless the current PR's `merge_policy` does not require GitHub checks.
 - Failed GitHub checks do not have to block starting the next manifest PR when the current PR passed all local manifest checks, the manifest allows local verification, and the user explicitly instructs Codex to override the remote-check stop.
 - Do not improvise around failures.
-- Prefer stopping cleanly over partial progress.
-- Codex may continue only if the user explicitly asks to diagnose or fix that same PR's failing checks.
-- The previous line applies to preflight failures, local check failures, merge blocks, review requirement blocks, ambiguous repository state, and GitHub failures required by `merge_policy`; it does not forbid a recorded user override for non-required remote GitHub failures.
+- In unattended goal mode, exhaust safe in-scope diagnosis, retry, same-PR repair, declared dependency completion, and isolated baseline-repair alternatives before stopping. Prefer a clean, evidence-backed hold only after those paths are exhausted.
+- Under an active execution goal, Codex must diagnose and fix that same PR's failing checks automatically when the repair stays within scope. Failed required checks still block merge, but they do not require a new user prompt before diagnosis or a scoped retry.
+- Preflight failures, merge blocks, review requirements, ambiguous repository state, and required-check failures stop the goal only when they cannot be resolved within the standing authorization and declared scope. A recorded user override is still required to disregard a non-required remote check; required checks may never be overridden.
 
 ## Local vs cloud execution
 - If operating in a cloud-only environment, remote branch deletion is allowed, but local cleanup must be reported as not executed.
