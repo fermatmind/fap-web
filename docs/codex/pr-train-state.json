@@ -45087,9 +45087,9 @@
     "branch": "codex/public-stability-web-01",
     "title": "PUBLIC-STABILITY-WEB-01: add public navigation pending feedback",
     "depends_on": ["GLOBAL-JS-02"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "224cf30f0be90e26204675ca1878bc8de17d172b",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1737",
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal explicitly authorized all 11 fap-web manifest/state entries."},
       "dependency": {"status": "pass", "evidence": "GLOBAL-JS-02 PR #1711 is MERGED at 351c5a3a101977753e59e942062f414401d19b8a and origin/main contains the merge commit."},
@@ -45109,9 +45109,10 @@
     "history": [
       {"at": "2026-07-13T09:59:16Z", "status": "user_authorized", "summary": "Registered from the operator's fixed 19-PR full-site public stability /goal."},
       {"at": "2026-07-13T09:59:16Z", "status": "in_progress", "summary": "Started from clean fap-web origin/main after verifying GLOBAL-JS-02 merge and containment; scope is shared public navigation pending feedback only."},
-      {"at": "2026-07-13T10:07:50Z", "status": "local_verified", "summary": "Public navigation pending contract 3/3, lint, spacing, typecheck, explicit-env production build, YAML/JSON parsing, diff checks, and exact eight-path scope validation passed; no private flow, CMS, SEO, production write, warm, purge, or deploy changed."}
+      {"at": "2026-07-13T10:07:50Z", "status": "local_verified", "summary": "Public navigation pending contract 3/3, lint, spacing, typecheck, explicit-env production build, YAML/JSON parsing, diff checks, and exact eight-path scope validation passed; no private flow, CMS, SEO, production write, warm, purge, or deploy changed."},
+      {"at": "2026-07-13T10:09:05Z", "status": "pr_open", "summary": "Committed and pushed the exact eight-path scope at 224cf30f0be90e26204675ca1878bc8de17d172b and opened PR #1737; required GitHub checks are pending."}
     ],
-    "updated_at": "2026-07-13T10:07:50Z"
+    "updated_at": "2026-07-13T10:09:05Z"
   },
   "PUBLIC-STABILITY-WEB-02": {
     "id": "PUBLIC-STABILITY-WEB-02",
