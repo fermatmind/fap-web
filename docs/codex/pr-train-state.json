@@ -45310,17 +45310,17 @@
     "branch": "codex/public-stability-web-04",
     "title": "PUBLIC-STABILITY-WEB-04: harden Big Five and Enneagram public reads",
     "depends_on": ["PUBLIC-STABILITY-WEB-02", "PUBLIC-STABILITY-WEB-03"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "4a1e41357554424d49571a1669b04fa249a2ca93",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1749",
     "checks": {"manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal explicitly authorized this entry."}, "dependency": {"status": "pass", "evidence": "PUBLIC-STABILITY-WEB-02 PR #1738 merged at 47373184ee4cf24a4b0eb7e65661084435dce7ed and PUBLIC-STABILITY-WEB-03 PR #1739 merged at 021287d0dd3f3795c5573f5f77b1f6d50bc4fc4d; origin/main contains both merge commits."}, "required_local_checks": {"status": "pass", "evidence": "Node 24 focused personality read stability plus existing Big Five/Enneagram contracts pass 36/36; lint, spacing, typecheck, explicit public site/API production build with 206/206 static pages, YAML/JSON parsing, diff checks, and exact allowed-path scope validation pass. No full frontend editorial fallback, backend change, CMS mutation, publish, warm, purge, or deploy was performed."}, "github_required_checks": {"status": "pending", "evidence": null}},
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": [{"at": "2026-07-13T20:34:34Z", "status": "in_progress", "summary": "Started from synced origin/main in an isolated worktree after verifying WEB-02 and WEB-03 merge containment. The operator's dirty MBTI worktree remains untouched. Scope is typed Big Five/Enneagram read semantics plus request-level metadata/page dedupe only; no backend cache, content fallback, SEO enumeration, CMS mutation, publish, warm, purge, or deploy is authorized."}, {"at": "2026-07-13T20:38:00Z", "status": "typecheck_retry_pending", "summary": "Initial typecheck found that the personality adapter's later llms list guards still construct ApiError after the first read-semantics edit removed its import. Restored only the required type import; no llms behavior or future PR scope changed."}, {"at": "2026-07-13T20:39:44Z", "status": "local_verified", "summary": "Focused personality contracts pass 36/36 after preserving retryable and contract errors while keeping 404/explicit unpublished responses authoritative. Lint, spacing, typecheck, Node 24 production build, parse, diff, and allowed-path scope checks pass; request cache uses primitive route keys across metadata and page rendering."}],
-    "updated_at": "2026-07-13T20:39:44Z"
+    "history": [{"at": "2026-07-13T20:34:34Z", "status": "in_progress", "summary": "Started from synced origin/main in an isolated worktree after verifying WEB-02 and WEB-03 merge containment. The operator's dirty MBTI worktree remains untouched. Scope is typed Big Five/Enneagram read semantics plus request-level metadata/page dedupe only; no backend cache, content fallback, SEO enumeration, CMS mutation, publish, warm, purge, or deploy is authorized."}, {"at": "2026-07-13T20:38:00Z", "status": "typecheck_retry_pending", "summary": "Initial typecheck found that the personality adapter's later llms list guards still construct ApiError after the first read-semantics edit removed its import. Restored only the required type import; no llms behavior or future PR scope changed."}, {"at": "2026-07-13T20:39:44Z", "status": "local_verified", "summary": "Focused personality contracts pass 36/36 after preserving retryable and contract errors while keeping 404/explicit unpublished responses authoritative. Lint, spacing, typecheck, Node 24 production build, parse, diff, and allowed-path scope checks pass; request cache uses primitive route keys across metadata and page rendering."}, {"at": "2026-07-13T20:41:54Z", "status": "github_checks_pending", "summary": "Committed and pushed the exact nine-path WEB-04 scope at 4a1e41357554424d49571a1669b04fa249a2ca93 and opened PR #1749. Required GitHub checks are pending; no CMS, production, cache, publish, or deploy action occurred."}],
+    "updated_at": "2026-07-13T20:41:54Z"
   },
   "PUBLIC-STABILITY-WEB-05": {
     "id": "PUBLIC-STABILITY-WEB-05",
