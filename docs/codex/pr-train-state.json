@@ -45153,9 +45153,9 @@
     "branch": "codex/public-stability-web-02",
     "title": "PUBLIC-STABILITY-WEB-02: add public route loading and error boundaries",
     "depends_on": ["PUBLIC-STABILITY-WEB-01"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "pr_open",
+    "commit_sha": "c64f6b2816f1c21c3aea419cc0c94f96d4cdd882",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1738",
     "checks": {"manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal explicitly authorized this entry."}, "dependency": {"status": "pass", "evidence": "PUBLIC-STABILITY-WEB-01 PR #1737 is MERGED at eabf9a40048a802c36a3e333d5381061ac71456d and origin/main contains the merge commit."}, "required_local_checks": {"status": "pass", "evidence": "Focused public boundary Vitest 3/3, lint with two pre-existing generated warnings and zero errors, lint:spacing, typecheck, explicit-env Node 24 production build, YAML/JSON parsing, and diff checks passed."}, "github_required_checks": {"status": "pending", "evidence": null}},
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
     "failure_reason": null,
@@ -45170,9 +45170,10 @@
     "history": [
       {"at": "2026-07-13T10:32:59Z", "status": "in_progress", "summary": "Started from clean synced fap-web origin/main after WEB-01 post-merge revalidation; scope is shared public route loading/error/retry boundaries only."},
       {"at": "2026-07-13T10:33:30Z", "status": "focused_test_failed_current_scope", "summary": "Initial focused run showed the loading status lacked an explicit accessible name; fixed only the shared WEB-02 loading shell by adding aria-label."},
-      {"at": "2026-07-13T10:35:30Z", "status": "local_verified", "summary": "Focused contract 3/3, lint, spacing, typecheck, explicit-env build, parse, diff, and exact 18-path scope validation passed; boundaries contain no editorial fallback or authority change."}
+      {"at": "2026-07-13T10:35:30Z", "status": "local_verified", "summary": "Focused contract 3/3, lint, spacing, typecheck, explicit-env build, parse, diff, and exact 18-path scope validation passed; boundaries contain no editorial fallback or authority change."},
+      {"at": "2026-07-13T10:36:27Z", "status": "pr_open", "summary": "Committed and pushed the exact 18-path scope at c64f6b2816f1c21c3aea419cc0c94f96d4cdd882 and opened PR #1738; required GitHub checks are pending."}
     ],
-    "updated_at": "2026-07-13T10:35:30Z"
+    "updated_at": "2026-07-13T10:36:27Z"
   },
   "PUBLIC-STABILITY-WEB-03": {
     "id": "PUBLIC-STABILITY-WEB-03",
