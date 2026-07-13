@@ -26,8 +26,17 @@ describe("solo developer PR flow rules", () => {
     expect(skill).toContain("complete GitHub required checks");
   });
 
-  it("does not create automatic standalone ledger closeout PRs", () => {
+  it("treats standing authorization as an always-on solo-development rule", () => {
+    expect(agents).toContain("FermatMind is a solo-developed project. At all times");
+    expect(agents).toContain("does not depend on time of day or unattended execution");
+    expect(agents).toContain("A second manifest/state or PR authorization prompt is prohibited");
+    expect(agents).not.toContain("execution goals often run unattended overnight");
+    expect(agents).not.toContain("Unless the goal explicitly requests interactive checkpoints");
+  });
+
+  it("keeps ledger reconciliation scoped without requesting repeat authorization", () => {
     expect(agents).toContain("do not open a standalone reconciliation PR");
-    expect(agents).toContain("request explicit user authorization before creating one ledger-only ad-hoc PR");
+    expect(agents).toContain("create one minimal ledger-only ad-hoc PR under the standing authorization");
+    expect(agents).not.toContain("request explicit user authorization before creating one ledger-only ad-hoc PR");
   });
 });
