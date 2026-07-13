@@ -108,11 +108,11 @@ function readJson(relativePath) {
 function decodeHtml(value) {
   return String(value ?? "")
     .replace(/&nbsp;/gi, " ")
-    .replace(/&amp;/gi, "&")
     .replace(/&quot;/gi, '"')
     .replace(/&#39;|&apos;/gi, "'")
     .replace(/&lt;/gi, "<")
-    .replace(/&gt;/gi, ">");
+    .replace(/&gt;/gi, ">")
+    .replace(/&amp;/gi, "&");
 }
 
 function extractAttribute(tag, name) {
@@ -137,15 +137,33 @@ function extractCanonical(html) {
   return "";
 }
 
+function removeElementBlocks(html, tagNames) {
+  let output = html;
+  for (const tagName of tagNames) {
+    let searchFrom = 0;
+    while (searchFrom < output.length) {
+      const lower = output.toLowerCase();
+      const start = lower.indexOf(`<${tagName}`, searchFrom);
+      if (start < 0) break;
+      const openEnd = lower.indexOf(">", start + tagName.length + 1);
+      if (openEnd < 0) break;
+      const closeStart = lower.indexOf(`</${tagName}`, openEnd + 1);
+      if (closeStart < 0) {
+        searchFrom = openEnd + 1;
+        continue;
+      }
+      const closeEnd = lower.indexOf(">", closeStart + tagName.length + 2);
+      if (closeEnd < 0) break;
+      output = `${output.slice(0, start)} ${output.slice(closeEnd + 1)}`;
+      searchFrom = start + 1;
+    }
+  }
+  return output;
+}
+
 function stripHtml(html) {
-  return decodeHtml(
-    html
-      .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
-      .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
-      .replace(/<noscript\b[\s\S]*?<\/noscript>/gi, " ")
-      .replace(/<svg\b[\s\S]*?<\/svg>/gi, " ")
-      .replace(/<[^>]+>/g, " ")
-  ).replace(/\s+/g, " ").trim();
+  const withoutNonVisibleBlocks = removeElementBlocks(html, ["script", "style", "noscript", "svg"]);
+  return decodeHtml(withoutNonVisibleBlocks.replace(/<[^>]+>/g, " ")).replace(/\s+/g, " ").trim();
 }
 
 function visibleMainHtml(html) {
@@ -251,6 +269,11 @@ async function fetchWithRetry(url, options = {}) {
         headers: { "User-Agent": "FermatMind-Big5-Authority-V2-Benchmark/1.0", Accept: options.accept ?? "text/html,application/xhtml+xml" },
         signal: AbortSignal.timeout(options.timeoutMs ?? 30_000),
       });
+      if ((response.status === 429 || response.status >= 500) && attempt < 3) {
+        await response.arrayBuffer();
+        await new Promise((resolve) => setTimeout(resolve, attempt * 1_000));
+        continue;
+      }
       const body = options.method === "HEAD" ? "" : await response.text();
       return {
         status: response.status,

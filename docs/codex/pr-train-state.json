@@ -44900,7 +44900,7 @@
     "updated_at": "2026-07-12T20:00:00+08:00"
   },
   "BIG5-AUTHORITY-V2-BENCHMARK-01": {
-    "status": "pr_open",
+    "status": "ci_fix",
     "repo": "fap-web",
     "branch": "codex/big5-authority-v2-benchmark-01",
     "depends_on": [],
@@ -44915,10 +44915,11 @@
       "artifact_validation": {"status": "passed", "evidence": "The read-only live capture and deterministic rebuild both reported PASS_BIG5_AUTHORITY_V2_BENCHMARK_LOCKED. JSON parsed, CSV contains one header plus exactly 127 canonical rows, and the inventory locks 114 personality, 9 article, 2 test, 2 topic, and 10 redirect-only zh alias records."},
       "focused_contract": {"status": "passed", "evidence": "Node 24 Vitest focused contract passed 3/3 tests after using the existing dependency installation read-only from the isolated worktree."},
       "manifest_state": {"status": "passed", "evidence": "Ruby parsed docs/codex/pr-train.yaml and python3 json.tool parsed the state and scorecard JSON artifacts."},
-      "diff_and_scope": {"status": "passed", "evidence": "git diff --check passed. Exact scope validation found eight changed files, all limited to PR01 benchmark artifacts/generator/contract and the authorized manifest/state paths."}
+      "diff_and_scope": {"status": "passed", "evidence": "git diff --check passed. Exact scope validation found eight changed files, all limited to PR01 benchmark artifacts/generator/contract and the authorized manifest/state paths."},
+      "github_required_checks": {"status": "retrying_current_scope_fix", "evidence": "Initial PR #1744 build and both contract-freeze checks passed. CodeQL analysis completed but the zero-new-alert gate reported js/double-escaping and js/bad-tag-filter in the new benchmark generator. The current-scope repair decodes ampersands last, replaces regex tag-block removal with bounded index scanning, and adds bounded 429/5xx retries after an observed sitemap 503. Node 24 deterministic generation and focused contract 3/3 pass after repair."}
     },
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
-    "failure_reason": null,
+    "failure_reason": "Initial CodeQL zero-new-alert gate reported two current-scope parser findings. Repair is implemented and locally verified; required checks must rerun green before merge.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -44927,9 +44928,10 @@
       {"at": "2026-07-13T16:17:38Z", "status": "in_progress", "summary": "Started from latest fap-web main in an isolated worktree. No runtime, CMS, indexability, deploy, import, search-provider, or private-data action is authorized."},
       {"at": "2026-07-13T16:27:09Z", "status": "local_checks_passed", "summary": "Locked 127/127 HTTP-200 canonicals, ten exact 301 zh aliases, all 37 downstream ownership rows, and Truity structural evidence. Focused contract 3/3, JSON/CSV/YAML parsing, deterministic rebuild, diff, and exact eight-file scope validation passed."},
       {"at": "2026-07-13T16:28:06Z", "status": "committed", "summary": "Committed the exact eight-file PR01 scope at 7bd350a487a32c23312ac319ee837e086076b77b after explicit path-limited staging and cached diff validation."},
-      {"at": "2026-07-13T16:29:08Z", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1744 with the exact manifest title and required what, why, validation, deferred, repository-rule, authority, production-action, and sidecar sections. Required GitHub checks are pending."}
+      {"at": "2026-07-13T16:29:08Z", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1744 with the exact manifest title and required what, why, validation, deferred, repository-rule, authority, production-action, and sidecar sections. Required GitHub checks are pending."},
+      {"at": "2026-07-13T16:37:54Z", "status": "ci_fix", "summary": "Inspected the failed CodeQL gate before editing. Repaired the two current-scope HTML parser findings, added bounded retry for a separately observed read-only sitemap 503, regenerated the snapshot, and passed Node 24 syntax, deterministic artifact build, focused contract 3/3, parse, count, and diff checks."}
     ],
-    "updated_at": "2026-07-13T16:29:08Z"
+    "updated_at": "2026-07-13T16:37:54Z"
   },
   "BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04": {
     "status": "planned",

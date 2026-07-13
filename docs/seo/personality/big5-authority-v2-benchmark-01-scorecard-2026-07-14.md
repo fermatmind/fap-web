@@ -1,7 +1,7 @@
 # BIG5-AUTHORITY-V2-BENCHMARK-01 — FermatMind versus Truity
 
 - Decision: `PASS_BIG5_AUTHORITY_V2_BENCHMARK_LOCKED`
-- Evidence captured: `2026-07-13T16:25:54.347Z`
+- Evidence captured: `2026-07-13T16:37:31.713Z`
 - Canonical inventory: 127 = 114 personality + 9 articles + 2 tests + 2 topics.
 - Redirect-only inventory: 10 zh legacy aliases, excluded from the canonical total.
 - Boundary: read-only benchmark; no CMS write, runtime change, indexability change, deploy, or search submission.
@@ -22,10 +22,10 @@ The artifact JSON locks all 37 downstream PR02–38 ownership rows. Cross-cuttin
 
 ## Current observed integrity signals
 
-- HTTP 200 canonicals: 127/127.
-- Duplicate brand titles: 17 pages.
+- HTTP 200 canonicals: 111/127.
+- Duplicate brand titles: 14 pages.
 - Visible internal operational terms: 6 pages.
-- Pages linking to the five named guide targets: 30; PR02 must resolve and validate final targets before repair.
+- Pages linking to the five named guide targets: 21; PR02 must resolve and validate final targets before repair.
 - Pages with private-path links: 0.
 - Pages with visible reviewer signals: 1; visible source/external-evidence signals: 32.
 
@@ -117,23 +117,23 @@ Scores are planning signals from 0–3 per dimension (conversion 0–2). They do
 | /en/personality/big-five/facets/straightforwardness | facet_detail | BIG5-AUTHORITY-V2-FACETS-AGREEABLENESS-18 | 14 | visible_evidence, author_reviewer_dates, media_og |
 | /en/personality/big-five/facets/tender-mindedness | facet_detail | BIG5-AUTHORITY-V2-FACETS-AGREEABLENESS-18 | 14 | visible_evidence, author_reviewer_dates, media_og |
 | /en/personality/big-five/facets/trust | facet_detail | BIG5-AUTHORITY-V2-FACETS-AGREEABLENESS-18 | 14 | visible_evidence, author_reviewer_dates, media_og |
-| /en/personality/big-five/facets/values | facet_detail | BIG5-AUTHORITY-V2-FACETS-OPENNESS-15 | 14 | visible_evidence, author_reviewer_dates, media_og |
-| /en/personality/big-five/facets/vulnerability | facet_detail | BIG5-AUTHORITY-V2-FACETS-NEUROTICISM-19 | 14 | visible_evidence, author_reviewer_dates, media_og |
-| /en/personality/big-five/facets/warmth | facet_detail | BIG5-AUTHORITY-V2-FACETS-EXTRAVERSION-17 | 14 | visible_evidence, author_reviewer_dates, media_og |
-| /en/personality/big-five/high-agreeableness | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-AGREEABLENESS-13 | 13 | content_depth, visible_evidence, author_reviewer_dates, media_og, dead_guide_targets_require_pr02_validation |
-| /en/personality/big-five/high-conscientiousness | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-CONSCIENTIOUSNESS-11 | 13 | content_depth, visible_evidence, author_reviewer_dates, media_og, dead_guide_targets_require_pr02_validation |
-| /en/personality/big-five/high-extraversion | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-EXTRAVERSION-12 | 13 | content_depth, visible_evidence, author_reviewer_dates, media_og, dead_guide_targets_require_pr02_validation |
-| /en/personality/big-five/high-neuroticism | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-NEUROTICISM-14 | 13 | content_depth, visible_evidence, author_reviewer_dates, media_og, dead_guide_targets_require_pr02_validation |
-| /en/personality/big-five/high-openness | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-OPENNESS-10 | 13 | content_depth, visible_evidence, author_reviewer_dates, media_og, dead_guide_targets_require_pr02_validation |
-| /en/personality/big-five/low-agreeableness | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-AGREEABLENESS-13 | 13 | content_depth, visible_evidence, author_reviewer_dates, media_og, dead_guide_targets_require_pr02_validation |
-| /en/personality/big-five/low-conscientiousness | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-CONSCIENTIOUSNESS-11 | 13 | content_depth, visible_evidence, author_reviewer_dates, media_og, dead_guide_targets_require_pr02_validation |
-| /en/personality/big-five/low-extraversion | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-EXTRAVERSION-12 | 13 | content_depth, visible_evidence, author_reviewer_dates, media_og, dead_guide_targets_require_pr02_validation |
-| /en/personality/big-five/low-openness | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-OPENNESS-10 | 13 | content_depth, visible_evidence, author_reviewer_dates, media_og, dead_guide_targets_require_pr02_validation |
-| /en/personality/big-five/neuroticism | domain | BIG5-AUTHORITY-V2-DOMAINS-08 | 13 | visible_evidence, author_reviewer_dates, media_og |
-| /en/personality/big-five/neuroticism-high | range_v2 | BIG5-AUTHORITY-V2-RANGE-NEUROTICISM-14 | 16 | visible_evidence, author_reviewer_dates, media_og, duplicate_brand_title |
-| /en/personality/big-five/neuroticism-low | range_v2 | BIG5-AUTHORITY-V2-RANGE-NEUROTICISM-14 | 13 | content_depth, visible_evidence, author_reviewer_dates, media_og, duplicate_brand_title |
-| /en/personality/big-five/neuroticism-mid | range_v2 | BIG5-AUTHORITY-V2-RANGE-NEUROTICISM-14 | 13 | content_depth, visible_evidence, author_reviewer_dates, media_og, duplicate_brand_title |
-| /en/personality/big-five/openness | domain | BIG5-AUTHORITY-V2-DOMAINS-08 | 14 | visible_evidence, author_reviewer_dates, media_og |
+| /en/personality/big-five/facets/values | facet_detail | BIG5-AUTHORITY-V2-FACETS-OPENNESS-15 | 13 | visible_evidence, author_reviewer_dates, media_og, seo_geo_completeness |
+| /en/personality/big-five/facets/vulnerability | facet_detail | BIG5-AUTHORITY-V2-FACETS-NEUROTICISM-19 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/facets/warmth | facet_detail | BIG5-AUTHORITY-V2-FACETS-EXTRAVERSION-17 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/high-agreeableness | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-AGREEABLENESS-13 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/high-conscientiousness | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-CONSCIENTIOUSNESS-11 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/high-extraversion | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-EXTRAVERSION-12 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/high-neuroticism | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-NEUROTICISM-14 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/high-openness | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-OPENNESS-10 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/low-agreeableness | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-AGREEABLENESS-13 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/low-conscientiousness | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-CONSCIENTIOUSNESS-11 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/low-extraversion | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-EXTRAVERSION-12 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/low-openness | legacy_en_canonical | BIG5-AUTHORITY-V2-RANGE-OPENNESS-10 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/neuroticism | domain | BIG5-AUTHORITY-V2-DOMAINS-08 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/neuroticism-high | range_v2 | BIG5-AUTHORITY-V2-RANGE-NEUROTICISM-14 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/neuroticism-low | range_v2 | BIG5-AUTHORITY-V2-RANGE-NEUROTICISM-14 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/neuroticism-mid | range_v2 | BIG5-AUTHORITY-V2-RANGE-NEUROTICISM-14 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
+| /en/personality/big-five/openness | domain | BIG5-AUTHORITY-V2-DOMAINS-08 | 6 | content_depth, visible_evidence, author_reviewer_dates, internal_linking, seo_geo_completeness |
 | /en/personality/big-five/openness-high | range_v2 | BIG5-AUTHORITY-V2-RANGE-OPENNESS-10 | 15 | visible_evidence, author_reviewer_dates, media_og, duplicate_brand_title |
 | /en/personality/big-five/openness-low | range_v2 | BIG5-AUTHORITY-V2-RANGE-OPENNESS-10 | 13 | content_depth, visible_evidence, author_reviewer_dates, media_og, duplicate_brand_title |
 | /en/personality/big-five/openness-mid | range_v2 | BIG5-AUTHORITY-V2-RANGE-OPENNESS-10 | 13 | content_depth, visible_evidence, author_reviewer_dates, media_og, duplicate_brand_title |
