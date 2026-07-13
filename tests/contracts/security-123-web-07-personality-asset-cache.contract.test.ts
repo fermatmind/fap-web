@@ -19,12 +19,14 @@ describe("SECURITY-123-WEB-07 personality asset cache policy", () => {
     const fetchMock = vi.fn(async () => new Response(JSON.stringify({ ok: false }), { status: 200 }));
     vi.stubGlobal("fetch", fetchMock);
 
-    await getBigFivePublicContentAsset("en", {
-      entityType: "domain",
-      code: "openness",
-      routeSlug: "openness",
-      pathSuffix: "/openness",
-    });
+    await expect(
+      getBigFivePublicContentAsset("en", {
+        entityType: "domain",
+        code: "openness",
+        routeSlug: "openness",
+        pathSuffix: "/openness",
+      })
+    ).rejects.toMatchObject({ kind: "contract", authoritativeAbsence: false });
 
     expect(fetchMock).toHaveBeenCalledTimes(1);
     const calls = fetchMock.mock.calls as unknown as Array<[string, RequestInit | undefined]>;
