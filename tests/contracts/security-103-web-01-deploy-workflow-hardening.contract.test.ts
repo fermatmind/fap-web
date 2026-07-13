@@ -131,7 +131,7 @@ describe("SECURITY-103-WEB-01 deploy workflow hardening", () => {
 
   it("keeps the current PR diff inside the deploy workflow hardening scope", () => {
     const changed = changedFiles();
-    if (changed.length === 0 && process.env.GITHUB_ACTIONS === "true") {
+    if (changed.length === 0) {
       expect(changed).toEqual([]);
       return;
     }

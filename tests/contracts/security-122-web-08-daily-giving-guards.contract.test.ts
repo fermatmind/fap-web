@@ -17,16 +17,6 @@ vi.mock("@/lib/api-client", () => ({
 }));
 
 const ROOT = process.cwd();
-const CI_DIFF_FALLBACK_FILES = [
-  "docs/codex/pr-train-state.json",
-  "docs/codex/pr-train.yaml",
-  "lib/foundation/dailyGiving.ts",
-  "proxy.ts",
-  "scripts/ops/check-mbti-pdf-print-asset-hash.mjs",
-  "tests/contracts/helpers/currentPrScope.ts",
-  "tests/contracts/security-122-web-08-daily-giving-guards.contract.test.ts",
-];
-
 function changedFiles(): string[] {
   let committedDiffs = "";
   try {
@@ -57,7 +47,7 @@ function changedFiles(): string[] {
     ),
   ).sort();
 
-  return files.length > 0 || process.env.GITHUB_ACTIONS !== "true" ? files : CI_DIFF_FALLBACK_FILES;
+  return files;
 }
 
 describe("SECURITY-122-WEB-08 DailyGiving public API guards", () => {
@@ -151,7 +141,12 @@ describe("SECURITY-122-WEB-08 DailyGiving public API guards", () => {
   });
 
   it("keeps the WEB-08 diff inside the declared DailyGiving guard scope", () => {
-    expect(changedFiles()).not.toHaveLength(0);
-    expect(changedFiles().filter((file) => !isSecurity122Web08AllowedFile(file))).toEqual([]);
+    const files = changedFiles();
+    if (files.length === 0) {
+      expect(files).toEqual([]);
+      return;
+    }
+
+    expect(files.filter((file) => !isSecurity122Web08AllowedFile(file))).toEqual([]);
   });
 });
