@@ -25,13 +25,15 @@ import {
   getCmsLandingSurfaceWithLastKnownGood,
   type CmsLandingSurface,
 } from "@/lib/cms/landing-surfaces";
-import { getAllTests, getTestBySlug, resolveTestTitleByLocale } from "@/lib/content";
+import {
+  getAllTests,
+  getTestBySlug,
+  getTestLookup,
+  resolveTestTitleByLocale,
+} from "@/lib/content";
 import { resolveCardSpec } from "@/lib/design/card-resolver";
 import { getDictSync, resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
-import { buildApiUrl } from "@/lib/api-base";
-import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
-import type { LandingSurfaceRaw } from "@/lib/api/v0_3";
 import {
   buildBig5TakeHref,
   DEFAULT_BIG5_FORM_CODE,
@@ -110,30 +112,6 @@ import {
 } from "@/lib/seo/testDetailAuthority";
 import { getIqSeoRampAuthorityForLocale } from "@/lib/seo/iqSeoRampAuthority";
 import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
-
-type LookupResponse = {
-  seo_title?: string | null;
-  seo_description?: string | null;
-  og_image_url?: string | null;
-  is_indexable?: boolean;
-  pack_id?: string | null;
-  dir_version?: string | null;
-  content_package_version?: string | null;
-  manifest_hash?: string | null;
-  norms_version?: string | null;
-  quality_level?: string | null;
-  capabilities?: Record<string, unknown> | null;
-  commercial?: Record<string, unknown> | null;
-  price_tier?: string | null;
-  report_unlock_sku?: string | null;
-  upgrade_sku?: string | null;
-  upgrade_sku_anchor?: string | null;
-  offers?: unknown;
-  forms?: unknown[] | null;
-  content_i18n_json?: Record<string, unknown> | null;
-  report_summary_i18n_json?: Record<string, unknown> | null;
-  landing_surface_v1?: LandingSurfaceRaw | null;
-};
 
 type TestDetailCmsLandingSurfacePayload = {
   seo_title?: string | null;
@@ -285,52 +263,6 @@ function isSoftwareApplicationSchemaScaleEligible({
     "ENNEAGRAM",
     "RIASEC",
   ].includes(normalizedScaleCode);
-}
-
-async function fetchLookup(slug: string, locale: "en" | "zh"): Promise<LookupResponse | null> {
-  try {
-    const response = await fetch(
-      buildApiUrl(`/v0.3/scales/lookup?slug=${encodeURIComponent(slug)}&locale=${locale}`),
-      {
-        headers: {
-          Accept: "application/json",
-          "X-FAP-Locale": locale === "zh" ? "zh-CN" : "en",
-        },
-        ...PUBLIC_API_CACHE_OPTIONS,
-      }
-    );
-
-    if (!response.ok) return null;
-    const payload = (await response.json()) as Record<string, unknown>;
-    if (payload.ok === false) return null;
-
-    return {
-      seo_title: payload.seo_title as string | null | undefined,
-      seo_description: payload.seo_description as string | null | undefined,
-      og_image_url: payload.og_image_url as string | null | undefined,
-      is_indexable: typeof payload.is_indexable === "boolean" ? payload.is_indexable : undefined,
-      pack_id: (payload.pack_id as string | null | undefined) ?? null,
-      dir_version: (payload.dir_version as string | null | undefined) ?? null,
-      content_package_version: (payload.content_package_version as string | null | undefined) ?? null,
-      manifest_hash: (payload.manifest_hash as string | null | undefined) ?? null,
-      norms_version: (payload.norms_version as string | null | undefined) ?? null,
-      quality_level: (payload.quality_level as string | null | undefined) ?? null,
-      capabilities: (payload.capabilities as Record<string, unknown> | null | undefined) ?? null,
-      commercial: (payload.commercial as Record<string, unknown> | null | undefined) ?? null,
-      price_tier: (payload.price_tier as string | null | undefined) ?? null,
-      report_unlock_sku: (payload.report_unlock_sku as string | null | undefined) ?? null,
-      upgrade_sku: (payload.upgrade_sku as string | null | undefined) ?? null,
-      upgrade_sku_anchor: (payload.upgrade_sku_anchor as string | null | undefined) ?? null,
-      offers: payload.offers,
-      forms: Array.isArray(payload.forms) ? payload.forms : null,
-      content_i18n_json: (payload.content_i18n_json as Record<string, unknown> | null | undefined) ?? null,
-      report_summary_i18n_json:
-        (payload.report_summary_i18n_json as Record<string, unknown> | null | undefined) ?? null,
-      landing_surface_v1: (payload.landing_surface_v1 as LandingSurfaceRaw | null | undefined) ?? null,
-    };
-  } catch {
-    return null;
-  }
 }
 
 async function getTestDetailCmsLandingSurface(
@@ -887,9 +819,15 @@ export async function generateMetadata({
   }
 
   const [lookup, cmsLandingSurface] = await Promise.all([
-    fetchLookup(slug, locale),
+    getTestLookup(slug, locale),
     getTestDetailCmsLandingSurface(slug, locale),
   ]);
+  if (!lookup) {
+    return {
+      title: "Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
   const alternates = alternatesForSlug(test.slug);
   const canonical = localizedPath(`/tests/${test.slug}`, locale);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
@@ -977,9 +915,10 @@ export default async function TestLandingPage({
 
   const dict = getDictSync(locale);
   const [lookup, cmsLandingSurface] = await Promise.all([
-    fetchLookup(slug, locale),
+    getTestLookup(slug, locale),
     getTestDetailCmsLandingSurface(slug, locale),
   ]);
+  if (!lookup) return notFound();
   const cmsLandingSurfaceContent = resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface);
   const landingSurface = normalizeLandingSurface(lookup?.landing_surface_v1 ?? null);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);

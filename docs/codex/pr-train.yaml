@@ -25896,6 +25896,7 @@ prs:
       - lib/content.ts
       - app/(localized)/[locale]/tests/[slug]/page.tsx
       - tests/contracts/public-test-catalog-read-stability.contract.test.ts
+      - tests/contracts/public-api-cache.contract.test.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
       - generated/pr-train-sidecar-issues/sidecar_issues.md
