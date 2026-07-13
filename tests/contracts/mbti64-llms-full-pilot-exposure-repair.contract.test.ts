@@ -205,11 +205,21 @@ function mockLlmsFullMbti64Dependencies(options: {
   vi.doMock("@/lib/seo/backendTestDiscoverabilitySource", () => ({
     listBackendDiscoverabilityTestEntries: vi.fn(async () => []),
   }));
+  vi.doMock("@/lib/seo/enneagramLlmsSource", () => ({
+    listEnneagramLlmsFullEntries: vi.fn(async () => []),
+  }));
+  vi.doMock("@/lib/seo/llmsFullResponseCache", () => ({
+    getCachedLlmsFullText: vi.fn(async () => null),
+    getOrStartLlmsFullBuild: vi.fn(async (_siteUrl: string, build: (siteUrl: string) => Promise<string | null>) =>
+      build(SITE_URL)
+    ),
+    writeLlmsFullResponseCache: vi.fn(async () => ({ cached: false, cachePath: "" })),
+  }));
   vi.doMock("@/lib/cms/content-pages", () => ({
     listDiscoverableContentPagesWithLastKnownGood: vi.fn(async () => ({ value: [] })),
   }));
   vi.doMock("@/lib/cms/topics", () => ({
-    listTopics: vi.fn(async () => ({ items: [] })),
+    listDiscoverableTopicsWithLastKnownGood: vi.fn(async () => ({ value: { items: [] } })),
     getTopicBySlug: vi.fn(async () => null),
   }));
   vi.doMock("@/lib/foundation/dailyGivingSeo", () => ({
