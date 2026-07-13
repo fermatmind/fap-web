@@ -14902,6 +14902,50 @@ prs:
       auto_merge: true
     next_task: MBTI-PROFILE-SP-34
 
+  - id: MBTI-PROFILE-SP-34
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-profile-sp-34-content-assets
+    base: main
+    depends_on:
+      - MBTI-FULL-AUDIT-30
+    mode: execute
+    train_scope: mbti_sp_profile_content_asset_repair_and_verification
+    risk_level: L1
+    status: in_progress
+    title: "MBTI-PROFILE-SP-34: repair and verify eight SP profile assets"
+    goal: "Build a non-production, backend/CMS-reviewable package for exactly eight zh-CN SP profiles: ISTP, ISFP, ESTP and ESFP A/T variants. Repair only the six audit blockers; ISTP-A and ISFP-A are verify-only and must not receive an unjustified CMS rewrite."
+    in_scope:
+      - docs/seo/personality/mbti-profile-sp-34-*
+      - scripts/seo/build-mbti-profile-sp-34-*
+      - tests/contracts/mbti-profile-sp-34-*
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - CMS writes, dry-run import, production import, or database migration
+      - frontend runtime or editorial fallback content
+      - sitemap, llms, canonical, robots, JSON-LD, or indexability mutation
+      - English URLs, comparison content packages, or arbitrary type combinations
+      - GSC mutation, URL Inspection, indexing request, staging, or production deploy
+    required_local_checks:
+      - node scripts/seo/build-mbti-profile-sp-34-content-package.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-profile-sp-34-content-package.contract.test.ts --reporter=dot
+      - corepack pnpm lint . --max-warnings=0
+      - corepack pnpm typecheck
+      - corepack pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-COMP-AT-35
+
   - id: PR-CAREER-KG-00
     repo: fap-web
     repo_path: <workspace>/fap-web

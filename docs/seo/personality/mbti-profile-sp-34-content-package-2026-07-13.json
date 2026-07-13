@@ -1,0 +1,1069 @@
+{
+  "artifact": "MBTI-PROFILE-SP-34-CONTENT-PACKAGE",
+  "generated_at": "2026-07-13T12:00:00.000Z",
+  "final_decision": "PASS_NON_PRODUCTION_SP_PROFILE_CONTENT_PACKAGE_READY_FOR_FULL_QA",
+  "source_audit": "docs/seo/personality/mbti-full-audit-30-inventory-runtime-baseline-2026-07-13.json",
+  "summary": {
+    "target_count": 8,
+    "group": "SP",
+    "profile_count": 8,
+    "repair_count": 6,
+    "verify_only_count": 2,
+    "sections_per_repair_page": 9,
+    "faq_per_repair_page": 6,
+    "internal_links_per_repair_page": 5
+  },
+  "safety_boundary": {
+    "artifact_only": true,
+    "cms_write_attempted": false,
+    "production_import_attempted": false,
+    "frontend_runtime_change_attempted": false,
+    "frontend_editorial_fallback_added": false,
+    "sitemap_llms_mutation_attempted": false,
+    "gsc_mutation_attempted": false,
+    "production_deploy_attempted": false
+  },
+  "assets": [
+    {
+      "asset_id": "mbti-profile-sp-34:istp-a",
+      "path": "/zh/personality/istp-a",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ISTP",
+      "variant": "A",
+      "archetype": "鉴赏家",
+      "audit_status": "verify_only",
+      "gsc_evidence_status": "captured_existing_cohort",
+      "cms_fields": null,
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      },
+      "change_mode": "verify_only",
+      "verification_contract": {
+        "no_unjustified_rewrite": true,
+        "required_section_keys": [
+          "definition",
+          "suitable_for",
+          "not_suitable_for",
+          "common_misread",
+          "base16_difference",
+          "at_difference",
+          "career_scenarios",
+          "relationship_scenarios",
+          "stress_scenarios"
+        ],
+        "minimum_faq_count": 6,
+        "minimum_internal_link_count": 5,
+        "expected_indexability": "indexable",
+        "required_action_if_failed": "needs_revision_only_for_failed_fields"
+      },
+      "cms_update_fields": []
+    },
+    {
+      "asset_id": "mbti-profile-sp-34:istp-t",
+      "path": "/zh/personality/istp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ISTP",
+      "variant": "T",
+      "archetype": "鉴赏家",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ISTP-T 人格特点：问题拆解、即时观察和动手验证 | FermatMind",
+        "h1": "ISTP-T 人格特点",
+        "meta_description": "了解 ISTP-T 的问题拆解、即时观察和动手验证、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ISTP-T 是 鉴赏家 型 ISTP 的 谨慎型表达。它更常围绕问题拆解、即时观察和动手验证展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ISTP-T 一句话定义",
+            "body": "ISTP-T 是 鉴赏家 型 ISTP 的 谨慎型表达。它更常围绕问题拆解、即时观察和动手验证展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要细致复核和风险校准时，需要故障排查、工具使用、现场应变、技术试验或把复杂问题拆成可验证步骤的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "长期只讨论抽象立场却不允许试验、过度微观管理操作细节，或把快速观察误作必须立即承诺的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ISTP 的独立处理和简洁表达容易被误读为不关心。成熟表现是说明自己正在验证什么、何时会回应，以及需要哪些实际信息。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ISTP 的关系",
+            "body": "基础 16 型的 ISTP 描述逻辑拆解与现场观察；A/T 仅补充在压力、评价和自我复盘中的节奏，不代表技术能力或情感成熟度。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ISTP-A 与 ISTP-T 的差异",
+            "body": "T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在技术、产品、维修或问题解决任务中，先明确安全边界、测试条件和可回退方案，再用小实验验证假设。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里可把需要独处、处理问题的方式和回复节奏说清楚；实际帮助应配合明确沟通，避免让沉默替代说明。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能过度独自处理、推迟表达或把情绪问题当成纯技术问题。先区分事实、感受和可请求的支持，再决定下一步。先检查是否把必要的复盘变成无限加码；设置明确的决策截止点和可逆的下一步。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ISTP-T 是什么意思？",
+            "answer": "ISTP-T 指 ISTP 的 谨慎型表达，关注的是问题拆解、即时观察和动手验证与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ISTP-T 和 ISTP-A 最大差别是什么？",
+            "answer": "ISTP-T 的差异主要在面对质疑、压力和自我确认时的节奏。T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ISTP-T 适合什么工作？",
+            "answer": "当任务需要细致复核和风险校准时，需要故障排查、工具使用、现场应变、技术试验或把复杂问题拆成可验证步骤的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ISTP-T 常被误解为什么？",
+            "answer": "ISTP 的独立处理和简洁表达容易被误读为不关心。成熟表现是说明自己正在验证什么、何时会回应，以及需要哪些实际信息。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ISTP-T 在关系中应注意什么？",
+            "answer": "关系里可把需要独处、处理问题的方式和回复节奏说清楚；实际帮助应配合明确沟通，避免让沉默替代说明。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ISTP-T 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/istp-a",
+            "label": "ISTP-A",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/istp-a-vs-istp-t",
+            "label": "ISTP-A 与 ISTP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/intj-vs-intp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      },
+      "change_mode": "repair",
+      "cms_update_fields": [
+        "title",
+        "h1",
+        "meta_description",
+        "direct_answer",
+        "sections",
+        "faq",
+        "internal_links"
+      ]
+    },
+    {
+      "asset_id": "mbti-profile-sp-34:isfp-a",
+      "path": "/zh/personality/isfp-a",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ISFP",
+      "variant": "A",
+      "archetype": "探险家",
+      "audit_status": "verify_only",
+      "gsc_evidence_status": "captured_existing_cohort",
+      "cms_fields": null,
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      },
+      "change_mode": "verify_only",
+      "verification_contract": {
+        "no_unjustified_rewrite": true,
+        "required_section_keys": [
+          "definition",
+          "suitable_for",
+          "not_suitable_for",
+          "common_misread",
+          "base16_difference",
+          "at_difference",
+          "career_scenarios",
+          "relationship_scenarios",
+          "stress_scenarios"
+        ],
+        "minimum_faq_count": 6,
+        "minimum_internal_link_count": 5,
+        "expected_indexability": "indexable",
+        "required_action_if_failed": "needs_revision_only_for_failed_fields"
+      },
+      "cms_update_fields": []
+    },
+    {
+      "asset_id": "mbti-profile-sp-34:isfp-t",
+      "path": "/zh/personality/isfp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ISFP",
+      "variant": "T",
+      "archetype": "探险家",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ISFP-T 人格特点：真实感受、当下体验和审美表达 | FermatMind",
+        "h1": "ISFP-T 人格特点",
+        "meta_description": "了解 ISFP-T 的真实感受、当下体验和审美表达、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ISFP-T 是 探险家 型 ISFP 的 谨慎型表达。它更常围绕真实感受、当下体验和审美表达展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ISFP-T 一句话定义",
+            "body": "ISFP-T 是 探险家 型 ISFP 的 谨慎型表达。它更常围绕真实感受、当下体验和审美表达展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要细致复核和风险校准时，需要审美判断、体验设计、细致照顾、创作实践或在具体情境中感知他人需要的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "长期否定个人价值与感受、以统一标准压缩表达，或要求在信息不足时作出不可逆承诺的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ISFP 的低调和随和容易被误读为没有方向。成熟表现是把在乎的事转成可说明的选择、界限和行动，而不是只在压力后退出。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ISFP 的关系",
+            "body": "基础 16 型的 ISFP 描述价值感受与具体体验；A/T 只补充反馈、压力和自我确认的节奏，不衡量艺术感、善意或能力。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ISFP-A 与 ISFP-T 的差异",
+            "body": "T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在设计、服务、创作或支持型工作中，把直觉体验转成受众、限制、样例和反馈，既保留真实感也形成可交付成果。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系中可直接说明喜欢什么、哪里不舒服和希望怎样被支持；温和表达边界比回避冲突更能保护真实连接。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能回避高压表达、沉浸在即时体验或延迟处理问题。选择一个可逆的小行动，并找可信的人讨论实际影响。先检查是否把必要的复盘变成无限加码；设置明确的决策截止点和可逆的下一步。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ISFP-T 是什么意思？",
+            "answer": "ISFP-T 指 ISFP 的 谨慎型表达，关注的是真实感受、当下体验和审美表达与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ISFP-T 和 ISFP-A 最大差别是什么？",
+            "answer": "ISFP-T 的差异主要在面对质疑、压力和自我确认时的节奏。T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ISFP-T 适合什么工作？",
+            "answer": "当任务需要细致复核和风险校准时，需要审美判断、体验设计、细致照顾、创作实践或在具体情境中感知他人需要的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ISFP-T 常被误解为什么？",
+            "answer": "ISFP 的低调和随和容易被误读为没有方向。成熟表现是把在乎的事转成可说明的选择、界限和行动，而不是只在压力后退出。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ISFP-T 在关系中应注意什么？",
+            "answer": "关系中可直接说明喜欢什么、哪里不舒服和希望怎样被支持；温和表达边界比回避冲突更能保护真实连接。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ISFP-T 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/isfp-a",
+            "label": "ISFP-A",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/isfp-a-vs-isfp-t",
+            "label": "ISFP-A 与 ISFP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-vs-infp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      },
+      "change_mode": "repair",
+      "cms_update_fields": [
+        "title",
+        "h1",
+        "meta_description",
+        "direct_answer",
+        "sections",
+        "faq",
+        "internal_links"
+      ]
+    },
+    {
+      "asset_id": "mbti-profile-sp-34:estp-a",
+      "path": "/zh/personality/estp-a",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ESTP",
+      "variant": "A",
+      "archetype": "企业家",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ESTP-A 人格特点：现场行动、机会判断和快速协商 | FermatMind",
+        "h1": "ESTP-A 人格特点",
+        "meta_description": "了解 ESTP-A 的现场行动、机会判断和快速协商、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ESTP-A 是 企业家 型 ESTP 的 坚定型表达。它更常围绕现场行动、机会判断和快速协商展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ESTP-A 一句话定义",
+            "body": "ESTP-A 是 企业家 型 ESTP 的 坚定型表达。它更常围绕现场行动、机会判断和快速协商展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要在不确定中维持节奏时，需要现场协商、机会识别、销售沟通、快速迭代或在变化中做出可调整决定的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "完全没有行动空间、长期只允许纸面推演，或把风险、权限和后果交代不清却要求立即拍板的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ESTP 的行动快和表达直接容易被误读为只追求刺激。成熟表现是把机会判断与风险边界、承诺和后续复盘放在一起。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ESTP 的关系",
+            "body": "基础 16 型的 ESTP 描述现场行动与机会判断；A/T 仅补充面对质疑、压力和自我调节时的节奏，不代表勇气或商业能力。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ESTP-A 与 ESTP-T 的差异",
+            "body": "A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在业务、谈判、项目试点或现场运营中，用小范围试验验证机会，同时明确权限、止损条件和交接责任。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里可把直率和尊重并行：表达想法后留出对方回应时间，并说明哪些承诺是当下意向、哪些是确定安排。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能加快行动、忽略长期影响或把冲突当作即时胜负。先暂停确认代价、同意和可回退空间，再继续推进。先检查是否把自我确认变成忽略他人输入；保留一个能挑战当前判断的证据入口。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ESTP-A 是什么意思？",
+            "answer": "ESTP-A 指 ESTP 的 坚定型表达，关注的是现场行动、机会判断和快速协商与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESTP-A 和 ESTP-T 最大差别是什么？",
+            "answer": "ESTP-A 的差异主要在面对质疑、压力和自我确认时的节奏。A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESTP-A 适合什么工作？",
+            "answer": "当任务需要在不确定中维持节奏时，需要现场协商、机会识别、销售沟通、快速迭代或在变化中做出可调整决定的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESTP-A 常被误解为什么？",
+            "answer": "ESTP 的行动快和表达直接容易被误读为只追求刺激。成熟表现是把机会判断与风险边界、承诺和后续复盘放在一起。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESTP-A 在关系中应注意什么？",
+            "answer": "关系里可把直率和尊重并行：表达想法后留出对方回应时间，并说明哪些承诺是当下意向、哪些是确定安排。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ESTP-A 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/estp-t",
+            "label": "ESTP-T",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/estp-a-vs-estp-t",
+            "label": "ESTP-A 与 ESTP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entj-vs-intj",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      },
+      "change_mode": "repair",
+      "cms_update_fields": [
+        "title",
+        "h1",
+        "meta_description",
+        "direct_answer",
+        "sections",
+        "faq",
+        "internal_links"
+      ]
+    },
+    {
+      "asset_id": "mbti-profile-sp-34:estp-t",
+      "path": "/zh/personality/estp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ESTP",
+      "variant": "T",
+      "archetype": "企业家",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ESTP-T 人格特点：现场行动、机会判断和快速协商 | FermatMind",
+        "h1": "ESTP-T 人格特点",
+        "meta_description": "了解 ESTP-T 的现场行动、机会判断和快速协商、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ESTP-T 是 企业家 型 ESTP 的 谨慎型表达。它更常围绕现场行动、机会判断和快速协商展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ESTP-T 一句话定义",
+            "body": "ESTP-T 是 企业家 型 ESTP 的 谨慎型表达。它更常围绕现场行动、机会判断和快速协商展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要细致复核和风险校准时，需要现场协商、机会识别、销售沟通、快速迭代或在变化中做出可调整决定的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "完全没有行动空间、长期只允许纸面推演，或把风险、权限和后果交代不清却要求立即拍板的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ESTP 的行动快和表达直接容易被误读为只追求刺激。成熟表现是把机会判断与风险边界、承诺和后续复盘放在一起。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ESTP 的关系",
+            "body": "基础 16 型的 ESTP 描述现场行动与机会判断；A/T 仅补充面对质疑、压力和自我调节时的节奏，不代表勇气或商业能力。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ESTP-A 与 ESTP-T 的差异",
+            "body": "T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在业务、谈判、项目试点或现场运营中，用小范围试验验证机会，同时明确权限、止损条件和交接责任。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里可把直率和尊重并行：表达想法后留出对方回应时间，并说明哪些承诺是当下意向、哪些是确定安排。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能加快行动、忽略长期影响或把冲突当作即时胜负。先暂停确认代价、同意和可回退空间，再继续推进。先检查是否把必要的复盘变成无限加码；设置明确的决策截止点和可逆的下一步。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ESTP-T 是什么意思？",
+            "answer": "ESTP-T 指 ESTP 的 谨慎型表达，关注的是现场行动、机会判断和快速协商与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESTP-T 和 ESTP-A 最大差别是什么？",
+            "answer": "ESTP-T 的差异主要在面对质疑、压力和自我确认时的节奏。T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESTP-T 适合什么工作？",
+            "answer": "当任务需要细致复核和风险校准时，需要现场协商、机会识别、销售沟通、快速迭代或在变化中做出可调整决定的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESTP-T 常被误解为什么？",
+            "answer": "ESTP 的行动快和表达直接容易被误读为只追求刺激。成熟表现是把机会判断与风险边界、承诺和后续复盘放在一起。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESTP-T 在关系中应注意什么？",
+            "answer": "关系里可把直率和尊重并行：表达想法后留出对方回应时间，并说明哪些承诺是当下意向、哪些是确定安排。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ESTP-T 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/estp-a",
+            "label": "ESTP-A",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/estp-a-vs-estp-t",
+            "label": "ESTP-A 与 ESTP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/entj-vs-intj",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      },
+      "change_mode": "repair",
+      "cms_update_fields": [
+        "title",
+        "h1",
+        "meta_description",
+        "direct_answer",
+        "sections",
+        "faq",
+        "internal_links"
+      ]
+    },
+    {
+      "asset_id": "mbti-profile-sp-34:esfp-a",
+      "path": "/zh/personality/esfp-a",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ESFP",
+      "variant": "A",
+      "archetype": "表演者",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ESFP-A 人格特点：体验连接、热情表达和实际带动 | FermatMind",
+        "h1": "ESFP-A 人格特点",
+        "meta_description": "了解 ESFP-A 的体验连接、热情表达和实际带动、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ESFP-A 是 表演者 型 ESFP 的 坚定型表达。它更常围绕体验连接、热情表达和实际带动展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ESFP-A 一句话定义",
+            "body": "ESFP-A 是 表演者 型 ESFP 的 坚定型表达。它更常围绕体验连接、热情表达和实际带动展开；在反馈与压力下，更容易在反馈后恢复判断，并用可行版本继续推进。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要在不确定中维持节奏时，需要客户体验、活动组织、服务沟通、创意呈现或把团队能量转为具体参与的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "长期隔离人际反馈、把情绪表达一概视为问题，或要求在没有体验和信息时独自完成高度抽象决策的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ESFP 的外向热情容易被误读为缺少深度。成熟表现是把热情落实为可靠承诺，也在需要时为长期后果留出考虑时间。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ESFP 的关系",
+            "body": "基础 16 型的 ESFP 描述体验连接和实际表达；A/T 只补充对评价、压力和自我确认的反应节奏，不代表社交价值或表演能力。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ESFP-A 与 ESFP-T 的差异",
+            "body": "A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在服务、体验、销售或创意协作中，把现场洞察记录为受众需求、可执行动作和复盘指标，让热情形成连续改进。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里可以直接表达喜欢、期待和担忧，同时尊重对方的恢复节奏与边界；持续的回应比即时热情更能建立信任。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能依赖即时刺激、回避不舒服的对话或过度迎合气氛。为重要问题安排一个安静复盘点，并把感受转成具体请求。先检查是否把自我确认变成忽略他人输入；保留一个能挑战当前判断的证据入口。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ESFP-A 是什么意思？",
+            "answer": "ESFP-A 指 ESFP 的 坚定型表达，关注的是体验连接、热情表达和实际带动与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESFP-A 和 ESFP-T 最大差别是什么？",
+            "answer": "ESFP-A 的差异主要在面对质疑、压力和自我确认时的节奏。A 型常更快回到自己的判断与下一步。优势是减少反复内耗；风险是把一次稳定感误当作证据充分，因此仍要保留反证和外部反馈入口。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESFP-A 适合什么工作？",
+            "answer": "当任务需要在不确定中维持节奏时，需要客户体验、活动组织、服务沟通、创意呈现或把团队能量转为具体参与的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESFP-A 常被误解为什么？",
+            "answer": "ESFP 的外向热情容易被误读为缺少深度。成熟表现是把热情落实为可靠承诺，也在需要时为长期后果留出考虑时间。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESFP-A 在关系中应注意什么？",
+            "answer": "关系里可以直接表达喜欢、期待和担忧，同时尊重对方的恢复节奏与边界；持续的回应比即时热情更能建立信任。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ESFP-A 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/esfp-t",
+            "label": "ESFP-T",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/esfp-a-vs-esfp-t",
+            "label": "ESFP-A 与 ESFP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-vs-infp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      },
+      "change_mode": "repair",
+      "cms_update_fields": [
+        "title",
+        "h1",
+        "meta_description",
+        "direct_answer",
+        "sections",
+        "faq",
+        "internal_links"
+      ]
+    },
+    {
+      "asset_id": "mbti-profile-sp-34:esfp-t",
+      "path": "/zh/personality/esfp-t",
+      "locale": "zh",
+      "framework": "mbti64",
+      "page_type": "profile",
+      "mbti_type": "ESFP",
+      "variant": "T",
+      "archetype": "表演者",
+      "audit_status": "needs_content_repair",
+      "gsc_evidence_status": "external_evidence_pending",
+      "cms_fields": {
+        "title": "ESFP-T 人格特点：体验连接、热情表达和实际带动 | FermatMind",
+        "h1": "ESFP-T 人格特点",
+        "meta_description": "了解 ESFP-T 的体验连接、热情表达和实际带动、适合与不适合的场景、A/T 差异、职业、关系、压力应对、常见误解与 FAQ。内容仅用于自我理解和成长复盘。",
+        "direct_answer": "ESFP-T 是 表演者 型 ESFP 的 谨慎型表达。它更常围绕体验连接、热情表达和实际带动展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。",
+        "sections": [
+          {
+            "key": "definition",
+            "title": "ESFP-T 一句话定义",
+            "body": "ESFP-T 是 表演者 型 ESFP 的 谨慎型表达。它更常围绕体验连接、热情表达和实际带动展开；在反馈与压力下，更容易在反馈和压力下追加复盘、修正与风险检查。这是一种用于自我观察、沟通和成长复盘的偏好语言，不用于诊断、招聘筛选或替代具体选择。"
+          },
+          {
+            "key": "suitable_for",
+            "title": "更容易发挥作用的场景",
+            "body": "当任务需要细致复核和风险校准时，需要客户体验、活动组织、服务沟通、创意呈现或把团队能量转为具体参与的场景。适配来自任务结构、真实技能和协作条件的交集，不是类型自动决定的结果。"
+          },
+          {
+            "key": "not_suitable_for",
+            "title": "不应只靠类型硬套的场景",
+            "body": "长期隔离人际反馈、把情绪表达一概视为问题，或要求在没有体验和信息时独自完成高度抽象决策的环境。遇到这类限制时，应先看任务边界、资源和支持系统，而不是把困难归因于人格标签。"
+          },
+          {
+            "key": "common_misread",
+            "title": "常见误解",
+            "body": "ESFP 的外向热情容易被误读为缺少深度。成熟表现是把热情落实为可靠承诺，也在需要时为长期后果留出考虑时间。更可靠的判断是观察持续行为、具体情境和对反馈的回应。"
+          },
+          {
+            "key": "base16_difference",
+            "title": "与基础 ESFP 的关系",
+            "body": "基础 16 型的 ESFP 描述体验连接和实际表达；A/T 只补充对评价、压力和自我确认的反应节奏，不代表社交价值或表演能力。应结合长期行为、情境与反馈理解。"
+          },
+          {
+            "key": "at_difference",
+            "title": "ESFP-A 与 ESFP-T 的差异",
+            "body": "T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。重点是观察实际反应，而不是给自己或他人贴高低标签。"
+          },
+          {
+            "key": "career_scenarios",
+            "title": "职业与工作场景",
+            "body": "在服务、体验、销售或创意协作中，把现场洞察记录为受众需求、可执行动作和复盘指标，让热情形成连续改进。职业决策还应同时检查能力证据、兴趣、训练机会和实际工作环境。"
+          },
+          {
+            "key": "relationship_scenarios",
+            "title": "关系与沟通场景",
+            "body": "关系里可以直接表达喜欢、期待和担忧，同时尊重对方的恢复节奏与边界；持续的回应比即时热情更能建立信任。类型语言只能帮助说明偏好，不能替代对具体关系、同意和边界的尊重。"
+          },
+          {
+            "key": "stress_scenarios",
+            "title": "压力下的观察与调整",
+            "body": "压力下可能依赖即时刺激、回避不舒服的对话或过度迎合气氛。为重要问题安排一个安静复盘点，并把感受转成具体请求。先检查是否把必要的复盘变成无限加码；设置明确的决策截止点和可逆的下一步。必要时把观察写成可讨论的事实、影响和下一步。"
+          }
+        ],
+        "faq": [
+          {
+            "question": "ESFP-T 是什么意思？",
+            "answer": "ESFP-T 指 ESFP 的 谨慎型表达，关注的是体验连接、热情表达和实际带动与反馈、压力下的自我调节节奏，而不是固定身份或能力结论。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESFP-T 和 ESFP-A 最大差别是什么？",
+            "answer": "ESFP-T 的差异主要在面对质疑、压力和自我确认时的节奏。T 型常更主动地重新检查标准、漏洞和外部评价。优势是提高校准质量；风险是让复盘拖延行动，因此需要设定足够好的证据阈值。两者都应结合具体情境、经验和反馈理解。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESFP-T 适合什么工作？",
+            "answer": "当任务需要细致复核和风险校准时，需要客户体验、活动组织、服务沟通、创意呈现或把团队能量转为具体参与的场景。但职业选择还取决于技能、兴趣、训练、机会和团队环境，不能只根据人格类型决定。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESFP-T 常被误解为什么？",
+            "answer": "ESFP 的外向热情容易被误读为缺少深度。成熟表现是把热情落实为可靠承诺，也在需要时为长期后果留出考虑时间。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "ESFP-T 在关系中应注意什么？",
+            "answer": "关系里可以直接表达喜欢、期待和担忧，同时尊重对方的恢复节奏与边界；持续的回应比即时热情更能建立信任。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          },
+          {
+            "question": "A/T 能用于诊断、招聘或判断能力吗？",
+            "answer": "不能。ESFP-T 页面只把 A/T 作为压力、反馈和自我调节的观察语言，不构成临床诊断、招聘筛选、智力判断或关系预测。具体表现仍应结合长期行为、情境与真实反馈理解。"
+          }
+        ],
+        "internal_links": [
+          {
+            "href": "/zh/personality/esfp-a",
+            "label": "ESFP-A",
+            "reason": "同一基础类型的另一种 A/T 表达",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/esfp-a-vs-esfp-t",
+            "label": "ESFP-A 与 ESFP-T 对比",
+            "reason": "进入同类型 A/T 对比页",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality",
+            "label": "MBTI 人格",
+            "reason": "返回 32 人格 hub",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/tests/mbti-personality-test-16-personality-types",
+            "label": "免费 MBTI 测试",
+            "reason": "进入公开 MBTI 测试入口",
+            "safe_public_route": true
+          },
+          {
+            "href": "/zh/personality/infj-vs-infp",
+            "label": "相关人格对比",
+            "reason": "查看相邻搜索意图的热门跨类型对比",
+            "safe_public_route": true
+          }
+        ]
+      },
+      "source_ledger": [
+        "MBTI-FULL-AUDIT-30",
+        "mbti64_remaining_58_v2",
+        "public_profile_seo_asset_factory"
+      ],
+      "claim_boundary": {
+        "medical_diagnostic_claim": false,
+        "hiring_screen_claim": false,
+        "official_mbti_affiliation_claim": false,
+        "deterministic_career_claim": false,
+        "relationship_prediction_claim": false,
+        "frontend_editorial_fallback": false
+      },
+      "handoff_policy": {
+        "artifact_only": true,
+        "cms_write_attempted": false,
+        "production_import_attempted": false,
+        "frontend_runtime_change_attempted": false,
+        "sitemap_llms_mutation_attempted": false,
+        "gsc_mutation_attempted": false,
+        "production_deploy_attempted": false
+      },
+      "change_mode": "repair",
+      "cms_update_fields": [
+        "title",
+        "h1",
+        "meta_description",
+        "direct_answer",
+        "sections",
+        "faq",
+        "internal_links"
+      ]
+    }
+  ],
+  "package_sha256": "5d1fc500906d0bfa5f4f855eb51dc9139d0ee8e06cbe5c5dac141caceeb7d27c"
+}
