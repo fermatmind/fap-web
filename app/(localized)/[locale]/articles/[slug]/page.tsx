@@ -71,16 +71,38 @@ function buildCanonicalPath(slug: string, locale: Locale): string {
 
 function articleAlternateLanguages(seo: CmsArticleSeoPayload | null): Record<string, string> {
   const languages: Record<string, string> = {};
+  const alternates = seo?.authority?.alternateEligibility.alternates;
 
-  if (seo?.meta.alternates.en) {
-    languages.en = seo.meta.alternates.en;
+  if (alternates?.en) {
+    languages.en = alternates.en;
   }
 
-  if (seo?.meta.alternates["zh-CN"]) {
-    languages["zh-CN"] = seo.meta.alternates["zh-CN"];
+  if (alternates?.["zh-CN"]) {
+    languages["zh-CN"] = alternates["zh-CN"];
   }
 
   return languages;
+}
+
+function resolveArticleMetadataTitle(title: string): Metadata["title"] {
+  const normalized = title.trim();
+  const suffixPattern = /(?:\s*\|\s*FermatMind)+$/i;
+  if (!suffixPattern.test(normalized)) {
+    return normalized;
+  }
+
+  const baseTitle = normalized.replace(suffixPattern, "").trim();
+  return {
+    absolute: baseTitle ? `${baseTitle} | FermatMind` : "FermatMind",
+  };
+}
+
+function hasArticleSeoAuthorityContract(
+  seo: CmsArticleSeoPayload | null,
+  resultSource: unknown,
+): boolean {
+  return typeof resultSource === "string"
+    || (seo !== null && Object.prototype.hasOwnProperty.call(seo, "authority"));
 }
 
 function shouldNoindex(robotsValue: string | null | undefined): boolean {
@@ -158,8 +180,8 @@ export async function generateMetadata({
     };
   }
 
-  const seo = await getCmsArticleSeoWithLastKnownGood(slug, locale)
-    .then((result) => result.value);
+  const seoResult = await getCmsArticleSeoWithLastKnownGood(slug, locale);
+  const seo = seoResult.value;
 
   const canonicalPath = buildCanonicalPath(article.slug, locale);
   // Canonical authority now replaces the former pathFromCanonicalUrl page-level repair.
@@ -197,9 +219,11 @@ export async function generateMetadata({
     existingLanguages: metadata.alternates?.languages,
     fallbackXDefault: "/",
   });
+  const hasProjectedAuthorityContract = hasArticleSeoAuthorityContract(seo, seoResult.source);
   const articleHreflangGate = resolveArticleHreflangGate({
     noindex,
     article,
+    ...(hasProjectedAuthorityContract ? { projectedAuthority: seo?.authority ?? null } : {}),
   });
 
   const twitterImages = normalizeTwitterImages(
@@ -218,6 +242,7 @@ export async function generateMetadata({
 
   return {
     ...metadata,
+    title: resolveArticleMetadataTitle(title),
     alternates,
     openGraph: {
       type: "article",
@@ -252,12 +277,13 @@ export default async function ArticleDetailPage({
     return notFound();
   }
 
-  const seo = await getCmsArticleSeoWithLastKnownGood(slug, locale)
-    .then((result) => result.value);
+  const seoResult = await getCmsArticleSeoWithLastKnownGood(slug, locale);
+  const seo = seoResult.value;
 
   const canonicalPath = buildCanonicalPath(article.slug, locale);
   const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);
   const cmsArticleSeoJsonLd = normalizeArticleJsonLdAuthorityPayload(seo?.jsonld);
+  const hasProjectedAuthorityContract = hasArticleSeoAuthorityContract(seo, seoResult.source);
   const articleJsonLdAuthority = resolveArticleJsonLdAuthority({
     cmsArticleSeoJsonLd,
     article,
@@ -266,7 +292,10 @@ export default async function ArticleDetailPage({
     noindex,
     cmsArticleSeoJsonLd,
     article,
+    ...(hasProjectedAuthorityContract ? { projectedAuthority: seo?.authority ?? null } : {}),
   });
+  // Normalized production results always carry the projection contract. The
+  // builders remain reachable only for legacy typed-test fixtures that omit it.
   const articleJsonLd = articleSchemaGate.canRenderArticleJsonLd ? (cmsArticleSeoJsonLd || (
     articleJsonLdAuthority.canRenderJsonLd
       ? buildArticleJsonLd({
@@ -281,8 +310,11 @@ export default async function ArticleDetailPage({
       : null
   )) : null;
 
+  const projectedBreadcrumbJsonLd = seo?.authority?.structuredDataFragments.breadcrumbList ?? null;
   const breadcrumbJsonLd = articleSchemaGate.canRenderBreadcrumbJsonLd
-    ? buildBreadcrumbJsonLd([
+    ? hasProjectedAuthorityContract
+      ? projectedBreadcrumbJsonLd
+      : buildBreadcrumbJsonLd([
         { name: locale === "zh" ? "首页" : "Home", path: localizedPath("/", locale) },
         { name: locale === "zh" ? "文章" : "Articles", path: localizedPath("/articles", locale) },
         { name: article.title, path: canonicalPath },

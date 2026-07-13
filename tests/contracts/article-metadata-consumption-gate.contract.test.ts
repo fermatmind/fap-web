@@ -2,7 +2,11 @@ import fs from "node:fs";
 import path from "node:path";
 import type { Metadata } from "next";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import type { CmsArticle, CmsArticleSeoPayload } from "@/lib/cms/articles";
+import {
+  normalizeArticleSeoPayload,
+  type CmsArticle,
+  type CmsArticleSeoPayload,
+} from "@/lib/cms/articles";
 
 const ROOT = process.cwd();
 const ARTICLE_PAGE_PATH = path.join(ROOT, "app/(localized)/[locale]/articles/[slug]/page.tsx");
@@ -78,7 +82,35 @@ function makeArticle(overrides: Partial<CmsArticle> = {}): CmsArticle {
   };
 }
 
-function makeSeo(overrides: Partial<CmsArticleSeoPayload["meta"]> = {}): CmsArticleSeoPayload {
+function makeAuthority(): NonNullable<CmsArticleSeoPayload["authority"]> {
+  return {
+    contractVersion: "article.seo.authority.v1",
+    publishedRevisionBacked: true,
+    alternateEligibility: {
+      basis: "published_indexable_locale_siblings",
+      currentLocale: "zh-CN",
+      eligibleLocales: ["en", "zh-CN"],
+      alternates: {
+        en: "https://fermatmind.com/en/articles/cms-metadata-gate",
+        "zh-CN": "https://fermatmind.com/zh/articles/cms-metadata-gate",
+      },
+    },
+    structuredDataEligibility: {
+      basis: "cms_explicit_schema_gates",
+      article: false,
+      breadcrumbList: false,
+    },
+    structuredDataFragments: {
+      article: null,
+      breadcrumbList: null,
+    },
+  };
+}
+
+function makeSeo(
+  overrides: Partial<CmsArticleSeoPayload["meta"]> = {},
+  authority: CmsArticleSeoPayload["authority"] = makeAuthority(),
+): CmsArticleSeoPayload {
   return {
     meta: {
       title: "CMS SEO Title",
@@ -105,6 +137,7 @@ function makeSeo(overrides: Partial<CmsArticleSeoPayload["meta"]> = {}): CmsArti
     },
     jsonld: null,
     surface: null,
+    authority,
   };
 }
 
@@ -146,10 +179,116 @@ afterEach(() => {
 });
 
 describe("article CMS metadata consumption gate", () => {
-  it("uses CMS SEO title, description, canonical, hreflang, x-default, and OG image alt when the hreflang gate allows it", async () => {
-    const metadata = await loadArticleMetadata({
-      article: makeArticle({ seoMeta: { schema_json: { hreflang_gate_v1: { enabled: true } } } }),
+  it("normalizes only eligible Article/Breadcrumb fragments and alternates from article.seo.authority.v1", () => {
+    const normalized = normalizeArticleSeoPayload({
+      meta: {
+        title: "Projected article | FermatMind",
+        description: "Projected description",
+        canonical: "https://fermatmind.com/zh/articles/cms-metadata-gate",
+        alternates: {
+          en: "https://fermatmind.com/en/articles/legacy-meta",
+          "zh-CN": "https://fermatmind.com/zh/articles/legacy-meta",
+        },
+        article_authority_v1: {
+          contract_version: "article.seo.authority.v1",
+          published_revision_backed: true,
+          alternate_eligibility: {
+            basis: "published_indexable_locale_siblings",
+            current_locale: "zh-CN",
+            eligible_locales: ["en", "zh-CN"],
+            alternates: {
+              en: "https://fermatmind.com/en/articles/projected-en",
+              "zh-CN": "https://fermatmind.com/zh/articles/cms-metadata-gate",
+            },
+          },
+          structured_data_eligibility: {
+            basis: "cms_explicit_schema_gates",
+            article: { enabled: true },
+            breadcrumb_list: { enabled: true },
+          },
+          structured_data_fragments: {
+            article: {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: "Projected headline",
+            },
+            breadcrumb_list: {
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [],
+            },
+          },
+        },
+      },
+      jsonld: { "@type": "Article", headline: "Legacy top-level headline" },
+    }, "zh", "cms-metadata-gate");
+
+    expect(normalized?.authority).toMatchObject({
+      contractVersion: "article.seo.authority.v1",
+      publishedRevisionBacked: true,
+      alternateEligibility: {
+        eligibleLocales: ["en", "zh-CN"],
+      },
+      structuredDataEligibility: {
+        article: true,
+        breadcrumbList: true,
+      },
     });
+    expect(new URL(normalized?.authority?.alternateEligibility.alternates.en ?? "").pathname)
+      .toBe("/en/articles/projected-en");
+    expect(new URL(normalized?.authority?.alternateEligibility.alternates["zh-CN"] ?? "").pathname)
+      .toBe("/zh/articles/cms-metadata-gate");
+    expect(normalized?.jsonld).toMatchObject({
+      "@type": "Article",
+      headline: "Projected headline",
+    });
+    expect(normalized?.authority?.structuredDataFragments.breadcrumbList).toMatchObject({
+      "@type": "BreadcrumbList",
+    });
+  });
+
+  it("fails closed when the projected schema type does not match its enabled authority slot", () => {
+    const normalized = normalizeArticleSeoPayload({
+      meta: {
+        title: "Invalid projection",
+        description: "Invalid projection description",
+        article_authority_v1: {
+          contract_version: "article.seo.authority.v1",
+          published_revision_backed: true,
+          alternate_eligibility: {
+            basis: "published_indexable_locale_siblings",
+            current_locale: "en",
+            eligible_locales: [],
+            alternates: {},
+          },
+          structured_data_eligibility: {
+            basis: "cms_explicit_schema_gates",
+            article: { enabled: true },
+            breadcrumb_list: { enabled: true },
+          },
+          structured_data_fragments: {
+            article: { "@type": "Quiz" },
+            breadcrumb_list: { "@type": "WebPage" },
+          },
+        },
+      },
+      jsonld: { "@type": "Article", headline: "Legacy fallback must not escape" },
+    }, "en", "cms-metadata-gate");
+
+    expect(normalized?.authority?.structuredDataEligibility).toEqual({
+      basis: "cms_explicit_schema_gates",
+      article: false,
+      breadcrumbList: false,
+    });
+    expect(normalized?.authority?.structuredDataFragments).toEqual({
+      article: null,
+      breadcrumbList: null,
+    });
+    expect(normalized?.jsonld).toBeNull();
+  });
+
+  it("uses projected CMS title, canonical, eligible alternates, x-default, and OG image alt", async () => {
+    const metadata = await loadArticleMetadata();
     const openGraphImages = getImages(metadata, "openGraph");
     const twitterImages = getImages(metadata, "twitter");
 
@@ -165,11 +304,21 @@ describe("article CMS metadata consumption gate", () => {
     expect(twitterImages[0]).toEqual({ url: COVER_URL, alt: COVER_ALT });
   });
 
-  it("holds article hreflang by default even when CMS alternates exist", async () => {
-    const metadata = await loadArticleMetadata();
+  it("holds article hreflang when the final authority projection is absent even if legacy meta alternates exist", async () => {
+    const metadata = await loadArticleMetadata({ seo: makeSeo({}, null) });
 
     expect(String(metadata.alternates?.canonical)).toBe("https://fermatmind.com/zh/articles/cms-metadata-gate");
     expect(metadata.alternates?.languages).toBeUndefined();
+  });
+
+  it("collapses an already branded backend title to one absolute FermatMind suffix", async () => {
+    const metadata = await loadArticleMetadata({
+      seo: makeSeo({ title: "Published Revision SEO | FermatMind | FermatMind" }),
+    });
+
+    expect(metadata.title).toEqual({
+      absolute: "Published Revision SEO | FermatMind",
+    });
   });
 
   it("uses article excerpt only as description fallback when CMS SEO description is absent", async () => {
@@ -211,6 +360,8 @@ describe("article CMS metadata consumption gate", () => {
 
     expect(articlePage).toContain("buildI18nSeoPassport");
     expect(articlePage).toContain("authorityAlternates: articleAlternateLanguages(seo)");
+    expect(articlePage).toContain("projectedAuthority: seo?.authority ?? null");
+    expect(articlePage).toContain("const alternates = seo?.authority?.alternateEligibility.alternates");
     expect(articlePage).toContain('canonicalRouteFamily: "article_detail"');
     expect(articlePage).toContain("buildArticleMetadataImage(ogImage, article.coverImageAlt)");
     expect(articlePage).toContain("alt={article.coverImageAlt ?? article.title}");

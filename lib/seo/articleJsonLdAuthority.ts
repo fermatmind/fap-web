@@ -1,39 +1,30 @@
 export const ARTICLE_AUTHOR_NAME = "Fermat Institute";
 
-const ARTICLE_PUBLISHER = {
-  "@type": "Organization",
-  name: "FermatMind",
-  url: "https://fermatmind.com",
-} as const;
-
-function hasStructuredName(value: unknown): boolean {
-  if (typeof value === "string") {
-    return value.trim().length > 0;
-  }
-
-  if (!value || typeof value !== "object" || Array.isArray(value)) {
-    return false;
-  }
-
-  const record = value as Record<string, unknown>;
-  return typeof record.name === "string" && record.name.trim().length > 0;
+function hasRootSchemaType(record: Record<string, unknown>, expectedType: string): boolean {
+  const type = record["@type"];
+  return type === expectedType || (Array.isArray(type) && type.includes(expectedType));
 }
 
-export function normalizeArticleJsonLdAuthorityPayload(data: unknown): unknown | null {
+function normalizeProjectedStructuredDataFragment(data: unknown, expectedType: string): unknown | null {
   if (!data || typeof data !== "object" || Array.isArray(data)) {
     return null;
   }
 
   const record = data as Record<string, unknown>;
+  if (!hasRootSchemaType(record, expectedType)) {
+    return null;
+  }
+
   const structuredData = { ...record };
   delete structuredData.enabled;
 
-  return {
-    ...structuredData,
-    author: {
-      "@type": "Organization",
-      name: ARTICLE_AUTHOR_NAME,
-    },
-    publisher: hasStructuredName(record.publisher) ? record.publisher : ARTICLE_PUBLISHER,
-  };
+  return structuredData;
+}
+
+export function normalizeArticleJsonLdAuthorityPayload(data: unknown): unknown | null {
+  return normalizeProjectedStructuredDataFragment(data, "Article");
+}
+
+export function normalizeArticleBreadcrumbJsonLdAuthorityPayload(data: unknown): unknown | null {
+  return normalizeProjectedStructuredDataFragment(data, "BreadcrumbList");
 }

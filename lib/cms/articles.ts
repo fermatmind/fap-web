@@ -9,6 +9,10 @@ import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { PUBLIC_API_CACHE_OPTIONS, PUBLIC_API_REVALIDATE_SECONDS } from "@/lib/publicApiCache";
 import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
+import {
+  normalizeArticleBreadcrumbJsonLdAuthorityPayload,
+  normalizeArticleJsonLdAuthorityPayload,
+} from "@/lib/seo/articleJsonLdAuthority";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
@@ -112,6 +116,7 @@ type CmsArticleSeoApiResponse = {
       image?: string | null;
     };
     robots?: string;
+    article_authority_v1?: unknown;
   };
   jsonld?: unknown;
   seo_surface_v1?: SeoSurfaceRaw | null;
@@ -200,6 +205,29 @@ export type CmsArticle = {
   answerSurface: AnswerSurfaceViewModel | null;
 };
 
+export type CmsArticleSeoAuthorityProjection = {
+  contractVersion: "article.seo.authority.v1";
+  publishedRevisionBacked: boolean;
+  alternateEligibility: {
+    basis: "published_indexable_locale_siblings";
+    currentLocale: "en" | "zh-CN" | null;
+    eligibleLocales: Array<"en" | "zh-CN">;
+    alternates: {
+      en: string | null;
+      "zh-CN": string | null;
+    };
+  };
+  structuredDataEligibility: {
+    basis: "cms_explicit_schema_gates";
+    article: boolean;
+    breadcrumbList: boolean;
+  };
+  structuredDataFragments: {
+    article: unknown | null;
+    breadcrumbList: unknown | null;
+  };
+};
+
 export type CmsArticleSeoPayload = {
   meta: {
     title: string;
@@ -225,6 +253,7 @@ export type CmsArticleSeoPayload = {
   };
   jsonld: unknown;
   surface: SeoSurfaceViewModel | null;
+  authority?: CmsArticleSeoAuthorityProjection | null;
 };
 
 export type CmsArticleLlmsEntry = {
@@ -826,6 +855,100 @@ function normalizeBackendArticleAlternate(value: unknown): string | null {
   }
 }
 
+function normalizeArticleSeoAuthorityProjection(
+  value: unknown,
+  sourceCanonical: string | null | undefined,
+  canonicalPath: string,
+  slug: string,
+): CmsArticleSeoAuthorityProjection | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+
+  const projection = value as Record<string, unknown>;
+  if (projection.contract_version !== "article.seo.authority.v1") {
+    return null;
+  }
+
+  const publishedRevisionBacked = projection.published_revision_backed === true;
+  const alternateEligibility = readRecordValue(projection, "alternate_eligibility");
+  const alternateBasis = readRecordValue(alternateEligibility, "basis");
+  const currentLocaleValue = normalizeIsoValue(readRecordValue(alternateEligibility, "current_locale"));
+  const currentLocale = currentLocaleValue === "en" || currentLocaleValue === "zh-CN"
+    ? currentLocaleValue
+    : null;
+  const eligibleLocalesValue = readRecordValue(alternateEligibility, "eligible_locales");
+  const eligibleLocaleSet = new Set(
+    Array.isArray(eligibleLocalesValue)
+      ? eligibleLocalesValue.filter((locale): locale is "en" | "zh-CN" => locale === "en" || locale === "zh-CN")
+      : [],
+  );
+  const projectedAlternates = readRecordValue(alternateEligibility, "alternates");
+  const alternates = {
+    en: publishedRevisionBacked
+      && alternateBasis === "published_indexable_locale_siblings"
+      && eligibleLocaleSet.has("en")
+      ? normalizeBackendArticleAlternate(readRecordValue(projectedAlternates, "en"))
+      : null,
+    "zh-CN": publishedRevisionBacked
+      && alternateBasis === "published_indexable_locale_siblings"
+      && eligibleLocaleSet.has("zh-CN")
+      ? normalizeBackendArticleAlternate(readRecordValue(projectedAlternates, "zh-CN"))
+      : null,
+  };
+  const eligibleLocales = (["en", "zh-CN"] as const).filter((locale) => Boolean(alternates[locale]));
+
+  const structuredDataEligibility = readRecordValue(projection, "structured_data_eligibility");
+  const structuredDataBasis = readRecordValue(structuredDataEligibility, "basis");
+  const fragments = readRecordValue(projection, "structured_data_fragments");
+  const articleEnabled = publishedRevisionBacked
+    && structuredDataBasis === "cms_explicit_schema_gates"
+    && readRecordValue(readRecordValue(structuredDataEligibility, "article"), "enabled") === true;
+  const breadcrumbEnabled = publishedRevisionBacked
+    && structuredDataBasis === "cms_explicit_schema_gates"
+    && readRecordValue(readRecordValue(structuredDataEligibility, "breadcrumb_list"), "enabled") === true;
+  const article = articleEnabled
+    ? normalizeArticleJsonLdAuthorityPayload(
+      normalizeArticleJsonLd(
+        readRecordValue(fragments, "article"),
+        sourceCanonical,
+        canonicalPath,
+        slug,
+      ),
+    )
+    : null;
+  const breadcrumbList = breadcrumbEnabled
+    ? normalizeArticleBreadcrumbJsonLdAuthorityPayload(
+      normalizeArticleJsonLd(
+        readRecordValue(fragments, "breadcrumb_list"),
+        sourceCanonical,
+        canonicalPath,
+        slug,
+      ),
+    )
+    : null;
+
+  return {
+    contractVersion: "article.seo.authority.v1",
+    publishedRevisionBacked,
+    alternateEligibility: {
+      basis: "published_indexable_locale_siblings",
+      currentLocale,
+      eligibleLocales,
+      alternates,
+    },
+    structuredDataEligibility: {
+      basis: "cms_explicit_schema_gates",
+      article: article !== null,
+      breadcrumbList: breadcrumbList !== null,
+    },
+    structuredDataFragments: {
+      article,
+      breadcrumbList,
+    },
+  };
+}
+
 export function normalizeArticleSlug(value: string): string {
   const normalized = String(value ?? "").trim();
   if (!normalized || normalized.length > MAX_ARTICLE_SLUG_LENGTH || !ARTICLE_SLUG_PATTERN.test(normalized)) {
@@ -861,6 +984,12 @@ export function normalizeArticleSeoPayload(
 
   const normalizedSlug = normalizeArticleSlug(slug);
   const canonicalPath = buildArticleFrontendUrl(locale, normalizedSlug);
+  const authority = normalizeArticleSeoAuthorityProjection(
+    seo.meta?.article_authority_v1,
+    seo.meta?.canonical,
+    canonicalPath,
+    normalizedSlug,
+  );
 
   return {
     meta: {
@@ -885,8 +1014,11 @@ export function normalizeArticleSeoPayload(
       },
       robots: fallbackText(seo.meta?.robots, "index,follow"),
     },
-    jsonld: normalizeArticleJsonLd(seo.jsonld ?? null, seo.meta?.canonical, canonicalPath, normalizedSlug),
+    jsonld: authority
+      ? authority.structuredDataFragments.article
+      : normalizeArticleJsonLd(seo.jsonld ?? null, seo.meta?.canonical, canonicalPath, normalizedSlug),
     surface: normalizeSeoSurface(seo.seo_surface_v1 ?? null),
+    authority,
   };
 }
 

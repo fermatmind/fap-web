@@ -303,7 +303,7 @@
     "base": "main",
     "branch": "codex/enneagram-90-cross-repo-readiness-01",
     "depends_on": ["ENNEAGRAM-90-FRONTEND-SITEMAP-EXTRACTOR-01"],
-    "status": "ready_to_merge",
+    "status": "review_fix_local_verified",
     "commit_sha": "96e447156830dfbd4938bd1c9446e65d74e50ba9",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1692",
     "failure_reason": null,
@@ -45344,15 +45344,15 @@
     "branch": "codex/public-stability-web-06",
     "title": "PUBLIC-STABILITY-WEB-06: preserve editorial transient read errors",
     "depends_on": ["PUBLIC-STABILITY-WEB-02", "PUBLIC-STABILITY-WEB-03", "ARTICLE-CACHE-01"],
-    "status": "ready_to_merge",
-    "commit_sha": "c5910e883d742c88e4cf334096e46b5449480004",
+    "status": "merged_reconciled_post_merge_cleanup_complete",
+    "commit_sha": "451ff497daa77fedf00a8e107c50c45613f75799",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1742",
     "checks": {"manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal and the SAEP PR09 declared dependency authorize this entry."}, "dependency": {"status": "pass", "evidence": "ARTICLE-CACHE-01 PR #1713 merged at c2d7ace861c3fc64bd781f3879477075d42d4721, PUBLIC-STABILITY-WEB-02 PR #1738 merged at 47373184ee4cf24a4b0eb7e65661084435dce7ed, and PUBLIC-STABILITY-WEB-03 PR #1739 merged at 021287d0dd3f3795c5573f5f77b1f6d50bc4fc4d; origin/main contains all three merge commits."}, "required_local_checks": {"status": "pass", "evidence": "After actionable P2 review comment 3572163658, article detail and metadata confirm authoritative article absence before either SEO read. Node 24 manifest-focused contracts pass 47/47, the expanded focused/regression set passes 55/55, full pnpm test:contract passes all four shards with 4196/4196 tests, pnpm lint, pnpm lint:spacing, pnpm typecheck, production build (206/206 static pages), YAML/JSON parsing, git diff checks, and exact nine-path scope validation pass. Six unrelated test-generated SEO/MBTI artifacts were restored before scope validation."}, "github_required_checks": {"status": "pass", "evidence": "PR #1742 head c5910e883d742c88e4cf334096e46b5449480004 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze/aggregate, and no-new-code-scanning-alerts; merge state is CLEAN and both actionable P2 review threads are resolved."}},
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-13T16:40:50Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {"at": "2026-07-13T15:16:28Z", "status": "in_progress", "summary": "Started from clean origin/main in an isolated worktree after verifying all three dependencies merged. The operator primary worktree remains untouched at dirty fingerprint d665882727aac2b4c21f2be20974de899ad374a4960fdeee01f3f94c45dc8ae5. Scope preserves typed transient errors for article, research, and support detail reads; no local editorial fallback, CMS mutation, publish, warm, purge, or deploy is authorized."},
       {"at": "2026-07-13T15:23:38Z", "status": "local_validation_retry_pending", "summary": "Recorded a pre-compilation Turbopack environment failure caused by an out-of-root node_modules symlink in the isolated worktree. Replaced only that ignored symlink with a frozen offline pnpm dependency tree; tracked files remained unchanged. The exact production build retry is waiting for the repository single-heavy-validation guard to clear."},
@@ -45365,9 +45365,10 @@
       {"at": "2026-07-13T16:05:08Z", "status": "second_review_fix_heavy_validation_pending", "summary": "Addressed actionable P2 review comment 3572163658 by making authoritative article absence win before either SEO read in metadata and page rendering. The 55-test focused/regression set, targeted ESLint, and typecheck pass; full contract and build wait for another active full contract suite to clear the hardware guard."},
       {"at": "2026-07-13T16:27:18Z", "status": "second_review_fix_local_verified", "summary": "Completed the final second-review validation after the hardware guard cleared: manifest-focused contracts pass 47/47, expanded focused/regression contracts pass 55/55, full contracts pass 4196/4196, production build generates 206/206 static pages, and lint, spacing, typecheck, YAML/JSON, diff, and exact nine-path scope gates pass."},
       {"at": "2026-07-13T16:28:05Z", "status": "second_review_fix_committed", "summary": "Committed the scoped article-before-SEO review repair as b5e02d1f313a2bec18e747d9216644fa51139256 after explicit three-path staging and cached diff validation; required GitHub checks must rerun on the pushed ledger-updated head."},
-      {"at": "2026-07-13T16:33:22Z", "status": "ready_to_merge", "summary": "PR #1742 head c5910e883d742c88e4cf334096e46b5449480004 passed every required CI and CodeQL check, merge state is CLEAN, exact nine-path scope remains valid, and both actionable P2 review threads are resolved. The ledger-only ready-to-merge head must rerun required checks before squash merge."}
+      {"at": "2026-07-13T16:33:22Z", "status": "ready_to_merge", "summary": "PR #1742 head c5910e883d742c88e4cf334096e46b5449480004 passed every required CI and CodeQL check, merge state is CLEAN, exact nine-path scope remains valid, and both actionable P2 review threads are resolved. The ledger-only ready-to-merge head must rerun required checks before squash merge."},
+      {"at": "2026-07-13T16:52:44Z", "status": "merged_reconciled_post_merge_cleanup_complete", "summary": "Verified GitHub PR #1742 MERGED at a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc, origin/main containment, final required checks, resolved review threads, absent local/remote task branches, clean synced main, and post-merge focused contracts 47/47."}
     ],
-    "updated_at": "2026-07-13T16:33:22Z"
+    "updated_at": "2026-07-13T16:52:44Z"
   },
   "PUBLIC-STABILITY-WEB-07": {
     "id": "PUBLIC-STABILITY-WEB-07",
@@ -45453,5 +45454,51 @@
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false
+  },
+  "SAEP-PLANNED-PR-09": {
+    "id": "SAEP-PLANNED-PR-09",
+    "existing_pr_card_id": "SAEP-PRCARD-WEB-9ffab11c6415",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/saep-planned-pr-09-article-authority-consumer",
+    "title": "SAEP-PLANNED-PR-09 Consume article authority without fallback",
+    "depends_on": ["SAEP-PLANNED-PR-08", "ARTICLE-FANOUT-01", "PUBLIC-STABILITY-WEB-06"],
+    "depends_on_atomic_tasks": ["SAEP-ART-01"],
+    "status": "ready_to_merge",
+    "commit_sha": "4faca03aad72ad1734e34d8d579d5fa6e29c53cc",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1745",
+    "checks": {
+      "manifest_registration": {"status": "pass", "evidence": "The concrete SAEP continuous execution goal authorizes exact card SAEP-PRCARD-WEB-9ffab11c6415 and append-only SAEP-PLANNED-PR-09 metadata. Existing PR-PRAC namespace and items are preserved without rename or deletion."},
+      "dependency": {"status": "pass", "evidence": "SAEP-PLANNED-PR-08 merged in fap-api PR #3032 at 5a5aadbc280bf60838f4480ddef1f727fa9119d8; ARTICLE-FANOUT-01 merged in fap-web PR #1714 at bbbdacf0e9001b8a7ae844c8dedbce01fd04b4d7; PUBLIC-STABILITY-WEB-06 merged in fap-web PR #1742 at a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc. Both fap-web merge commits are contained in origin/main."},
+      "required_local_checks": {"status": "pass", "evidence": "For actionable P2 thread 3573230945, the four-file hreflang regression set passes 28/28, the Node 24 full pnpm test:contract run passes all four shards with 4201/4201 tests, and the Node 24 production build generates 206/206 static pages. Node 24 full lint, spacing, typecheck, JSON/YAML, diff, and exact three-path review-fix scope gates pass; the six known generated SEO/MBTI artifacts were restored."},
+      "github_required_checks": {"status": "pass", "evidence": "PR #1745 head 4faca03aad72ad1734e34d8d579d5fa6e29c53cc passed build, contracts, both assessment freeze checks, CodeQL, JavaScript/TypeScript analysis, and the no-new-code-scanning-alert gate. Merge state is CLEAN, the exact nine-path PR scope is unchanged, and every review thread is resolved. The ledger-only ready-to-merge head must rerun these required checks before squash merge."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-13T16:52:44Z", "status": "in_progress", "summary": "Started from clean latest origin/main in an isolated worktree after independently verifying all three dependency PRs merged and reconciling WEB06 closeout. The append-only namespace design preserves PR-PRAC metadata while registering the explicit user-supplied SAEP ID. Scope is limited to seven consumer/test paths plus canonical manifest/state; backend/CMS remains authority and no sitemap/llms, CMS write, publish, production mutation, or deploy is authorized."},
+      {"at": "2026-07-13T16:58:48Z", "status": "local_check_failed_repair_in_progress", "summary": "The first three-file focused run passed 21/23. The two failures identify a test-host-specific alternate expectation and a real fail-closed gap where missing projected authority could still allow FAQ via a legacy generic schema gate. Both are being repaired within the declared scope before any push."},
+      {"at": "2026-07-13T17:02:14Z", "status": "local_validation_heavy_pending", "summary": "Scoped repairs completed: manifest-focused contracts pass 23/23, additional article cleanup/runtime regressions pass 27/27, targeted and full lint, spacing, typecheck, metadata parsing, diff, and exact nine-path scope gates pass. Full contracts and build wait for another active ci_verify_mbti.sh validation to release the hardware guard."},
+      {"at": "2026-07-13T17:06:06Z", "status": "full_contract_failed_repair_in_progress", "summary": "The first complete four-shard contract run failed eight compatibility assertions: four static source anchors and four legacy runtime mocks without an authority property. Production normalized payloads always include authority as a valid projection or null, so the same-scope repair will distinguish explicit production authority from property-absent legacy objects without editing out-of-scope contracts or weakening fail-closed runtime behavior."},
+      {"at": "2026-07-13T17:16:10Z", "status": "full_contract_passed_build_pending_hardware_guard", "summary": "Repaired the scoped compatibility boundary without weakening production fail-closed behavior: the 10-file article regression set passes 90/90 and full contracts pass 4201/4201. Lint, spacing, typecheck, metadata parsing, diff, and exact nine-path scope checks pass; production build waits for an unrelated filtered backend PHPUnit run to finish."},
+      {"at": "2026-07-13T17:18:00Z", "status": "local_verified", "summary": "Completed all manifest local gates: focused contracts 23/23, expanded article regressions 90/90, full contracts 4201/4201, production build 206/206 static pages, targeted and full lint, spacing, typecheck, metadata parsing, diff, and exact nine-path scope validation all pass. Generated SEO/MBTI artifacts were restored and no backend, sitemap/llms, CMS write, publish, or deploy scope was introduced."},
+      {"at": "2026-07-13T17:19:25Z", "status": "committed_pending_push", "summary": "Committed the exact nine-path Article SEO authority consumer scope as c7a72dd7b13802a8a510a6c168fa9f218c1d9252 after explicit staging, cached diff validation, and all required local checks. Push and PR creation are pending."},
+      {"at": "2026-07-13T17:23:08Z", "status": "pr_open_checks_pending", "summary": "Pushed the scoped branch and opened PR #1745 with the exact manifest title and required what/why/validation/deferred/rule-impact body. GitHub reports nine changed files; build, contracts, both assessment freeze checks, and CodeQL analysis are in progress on initial PR head 397a46aa2f564e8c1681b7c669fd2322b4f6b3f9."},
+      {"at": "2026-07-13T17:29:56Z", "status": "ready_to_merge", "summary": "PR #1745 head 11e256842c641fb5883b18b6ad49ddca04cf725d passed every required CI and CodeQL check, merge state is CLEAN, exact nine-path scope remains valid, and review threads are empty. The ledger-only ready-to-merge head must rerun required checks before squash merge."},
+      {"at": "2026-07-13T17:36:23Z", "status": "review_fix_in_progress", "summary": "Ledger-ready head c9f415474f67aaeaa3386eb1c7797d7b650f84c8 passed all required CI and CodeQL checks, then automated review opened actionable P2 thread 3572799870. The comment correctly identifies that a projection containing only the current locale can enable hreflang and homepage x-default; the same-scope repair requires an actual different-locale sibling URL and adds regression coverage."},
+      {"at": "2026-07-13T17:55:18Z", "status": "review_fix_build_pending_hardware_guard", "summary": "The P2 repair now validates currentLocale as en/zh-CN and requires a real different-locale sibling URL before hreflang output. Related regressions pass 28/28, full contracts pass 4201/4201, and lint, spacing, typecheck, JSON, and diff gates pass. Build waits because another full fap-api composer test started immediately after contracts completed."},
+      {"at": "2026-07-13T18:29:35Z", "status": "review_fix_local_verified", "summary": "Completed the P2 review repair after respecting three consecutive external heavy-validation guard occupancies: related regressions pass 28/28, full contracts pass 4201/4201, production build generates 206/206 static pages, and lint, spacing, typecheck, JSON, diff, and allowed-path scope gates all pass."},
+      {"at": "2026-07-13T18:30:48Z", "status": "review_fix_committed_pending_push", "summary": "Committed the validated P2 hreflang sibling-gate repair as 129a022b47e7b074dcc42f27cc81afd0fae3fc2e after explicit four-path staging and cached diff validation. A ledger-only commit and push are pending before resolving the review thread."},
+      {"at": "2026-07-13T18:39:47Z", "status": "second_review_fix_in_progress", "summary": "Review-fix head ec67401e428d60e32c77929fbbf3cff152b84944 passed all required CI and CodeQL checks with CLEAN merge state and the first P2 resolved, then automated review opened actionable P2 thread 3573230945. The finding correctly requires both a current-locale self alternate and a different-locale sibling before hreflang output; the same-scope gate and regression repair is in progress."},
+      {"at": "2026-07-13T19:05:23Z", "status": "second_review_fix_build_pending_hardware_guard", "summary": "The current-locale self-alternate repair passes the 28/28 related regression set and the Node 24 full contract suite passes 4201/4201. Six known generated SEO/MBTI artifacts were restored, leaving the exact three-path review-fix diff. Production build is waiting because another fap-api PHPUnit suite entered the single heavy-validation slot before build startup."},
+      {"at": "2026-07-13T19:52:23Z", "status": "second_review_fix_local_verified", "summary": "The second P2 repair now has complete local evidence: related regressions pass 28/28, Node 24 full contracts pass 4201/4201, production build generates 206/206 static pages, and Node 24 lint, spacing, typecheck, JSON/YAML, diff, and exact three-path scope gates pass."},
+      {"at": "2026-07-13T19:53:06Z", "status": "second_review_fix_committed_pending_push", "summary": "Committed the validated current-locale self-alternate gate and regression as 813049e8d46c3de9e06f9d860c21f88c3806a883 after explicit three-path staging and cached diff validation. A ledger-only commit and push are pending before resolving P2 thread 3573230945."},
+      {"at": "2026-07-13T19:54:32Z", "status": "second_review_fix_pushed_checks_pending", "summary": "Pushed the second P2 repair and its first ledger update to PR #1745. This ledger transition records that all required GitHub checks must rerun on the final ledger-updated head before merge; review thread 3573230945 will be replied to and resolved after that head is pushed."},
+      {"at": "2026-07-13T20:01:06Z", "status": "ready_to_merge", "summary": "PR #1745 head 4faca03aad72ad1734e34d8d579d5fa6e29c53cc passed every required CI and CodeQL gate with CLEAN merge state. The exact nine-path scope remains valid and all review threads, including both actionable P2 findings, are resolved. The ledger-only ready head must rerun required checks before squash merge."}
+    ],
+    "updated_at": "2026-07-13T20:01:06Z"
   }
 }

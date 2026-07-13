@@ -26012,3 +26012,52 @@ prs:
     content_authority: CMS/backend
     repository_rule_impact: existing_authority_rules_preserved
     next_task: null
+
+  - id: SAEP-PLANNED-PR-09
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/saep-planned-pr-09-article-authority-consumer
+    base: main
+    title: "SAEP-PLANNED-PR-09 Consume article authority without fallback"
+    depends_on: [SAEP-PLANNED-PR-08, ARTICLE-FANOUT-01, PUBLIC-STABILITY-WEB-06]
+    depends_on_atomic_tasks: [SAEP-ART-01]
+    mode: execute
+    train_scope: saep_first_scan_article_authority_consumer
+    status: user_authorized
+    goal: "Consume the backend Article SEO authority projection for alternates, Article/Breadcrumb JSON-LD, and single-suffix title composition without frontend editorial fallback."
+    manifest_namespace_integration: append_only_user_supplied_id_preserves_pr_prac_namespace
+    allowed_paths:
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - lib/cms/articles.ts
+      - lib/seo/articleJsonLdAuthority.ts
+      - lib/seo/articlePersonalityAuthority.ts
+      - tests/contracts/article-metadata-consumption-gate.contract.test.ts
+      - tests/contracts/article-jsonld-fallback-authority.contract.test.ts
+      - tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Backend implementation, local article/content assets, CMS/database writes, sitemap/llms output, publish, import, production mutation, or deploy.
+      - Hub/topic entry, query-owner authority, related articles, and production runtime/CMS-row readback.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/article-metadata-consumption-gate.contract.test.ts tests/contracts/article-jsonld-fallback-authority.contract.test.ts tests/contracts/article-personality-jsonld-projection-gates.contract.test.ts --reporter=dot
+      - pnpm exec eslint app/(localized)/[locale]/articles/[slug]/page.tsx lib/cms/articles.ts lib/seo/articleJsonLdAuthority.ts lib/seo/articlePersonalityAuthority.ts
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: false }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: frontend_consumes_final_backend_article_seo_authority
+    next_task: null
