@@ -101,7 +101,14 @@ export async function fetchCareerJobBundle(
   }
 
   try {
-    const bundlePromise = apiClient.getPublic<CareerJobBundleResponseRaw>(
+    const seoAuthorityPromise =
+      input.includeSeoAuthority === true
+        ? fetchCareerJobSeoAuthority({ ...input, normalizedSlug }).then(
+            (value) => ({ status: "fulfilled" as const, value }),
+            (reason: unknown) => ({ status: "rejected" as const, reason })
+          )
+        : null;
+    const bundle = await apiClient.getPublic<CareerJobBundleResponseRaw>(
       `/v0.5/career/jobs/${encodeURIComponent(normalizedSlug)}${buildQuery(input.locale)}`,
       {
         locale: input.locale,
@@ -111,24 +118,16 @@ export async function fetchCareerJobBundle(
         ...detailCacheOptions(input.locale, normalizedSlug),
       }
     );
-    if (input.includeSeoAuthority !== true) {
-      return await bundlePromise;
+    if (!seoAuthorityPromise) {
+      return bundle;
     }
 
-    const [bundleResult, seoAuthorityResult] = await Promise.allSettled([
-      bundlePromise,
-      fetchCareerJobSeoAuthority({ ...input, normalizedSlug }),
-    ]);
-
-    if (bundleResult.status === "rejected") {
-      throw bundleResult.reason;
-    }
-
+    const seoAuthorityResult = await seoAuthorityPromise;
     if (seoAuthorityResult.status === "rejected") {
       throw seoAuthorityResult.reason;
     }
 
-    return attachSeoAuthorityToBundle(bundleResult.value, seoAuthorityResult.value);
+    return attachSeoAuthorityToBundle(bundle, seoAuthorityResult.value);
   } catch (error) {
     if (isAuthoritativePublicAbsence(error)) {
       return null;
