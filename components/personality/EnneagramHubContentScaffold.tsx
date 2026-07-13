@@ -257,6 +257,7 @@ export default function EnneagramHubContentScaffold({
                 </div>
                 <Link
                   href={`/${locale}/personality/enneagram/type-${t.n}`}
+                  prefetch={false}
                   className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-[var(--fm-trust-blue)] transition group-hover:underline"
                 >
                   {isZh ? "查看详情" : "View Details"}
@@ -433,6 +434,7 @@ export default function EnneagramHubContentScaffold({
                 </div>
                 <Link
                   href={`/${locale}/personality/enneagram/type-${item.n}`}
+                  prefetch={false}
                   className="ml-4 shrink-0 text-sm font-medium text-[var(--fm-trust-blue)] hover:underline"
                 >
                   {isZh ? "查看" : "View"} →
@@ -524,6 +526,7 @@ export default function EnneagramHubContentScaffold({
               <Link
                 key={href}
                 href={href}
+                prefetch={false}
                 className="group flex items-center justify-between rounded-xl border border-[var(--fm-border)] px-4 py-3 text-sm font-medium text-[var(--fm-text)] transition hover:border-[var(--fm-trust-blue)] hover:text-[var(--fm-trust-blue)]"
               >
                 <span>{label}</span>
