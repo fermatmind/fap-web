@@ -45249,8 +45249,8 @@
     "branch": "codex/public-stability-web-06",
     "title": "PUBLIC-STABILITY-WEB-06: preserve editorial transient read errors",
     "depends_on": ["PUBLIC-STABILITY-WEB-02", "PUBLIC-STABILITY-WEB-03", "ARTICLE-CACHE-01"],
-    "status": "local_verified",
-    "commit_sha": null,
+    "status": "committed_local_verified",
+    "commit_sha": "18415d8191e6935515a7a65171fcebf29b58dce6",
     "pr_url": null,
     "checks": {"manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal and the SAEP PR09 declared dependency authorize this entry."}, "dependency": {"status": "pass", "evidence": "ARTICLE-CACHE-01 PR #1713 merged at c2d7ace861c3fc64bd781f3879477075d42d4721, PUBLIC-STABILITY-WEB-02 PR #1738 merged at 47373184ee4cf24a4b0eb7e65661084435dce7ed, and PUBLIC-STABILITY-WEB-03 PR #1739 merged at 021287d0dd3f3795c5573f5f77b1f6d50bc4fc4d; origin/main contains all three merge commits."}, "required_local_checks": {"status": "pass", "evidence": "Node 24 focused and regression contracts pass 48/48; full pnpm test:contract passes all four shards with 4189 tests; pnpm lint, pnpm lint:spacing, pnpm typecheck, final production build (206 static pages), YAML/JSON parsing, git diff checks, and exact 9-path scope validation pass. The initial out-of-root dependency symlink build failure and two list/LKG compatibility failures were recorded, repaired in scope, and passed on exact rerun."}, "github_required_checks": {"status": "pending", "evidence": null}},
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
@@ -45262,9 +45262,10 @@
       {"at": "2026-07-13T15:16:28Z", "status": "in_progress", "summary": "Started from clean origin/main in an isolated worktree after verifying all three dependencies merged. The operator primary worktree remains untouched at dirty fingerprint d665882727aac2b4c21f2be20974de899ad374a4960fdeee01f3f94c45dc8ae5. Scope preserves typed transient errors for article, research, and support detail reads; no local editorial fallback, CMS mutation, publish, warm, purge, or deploy is authorized."},
       {"at": "2026-07-13T15:23:38Z", "status": "local_validation_retry_pending", "summary": "Recorded a pre-compilation Turbopack environment failure caused by an out-of-root node_modules symlink in the isolated worktree. Replaced only that ignored symlink with a frozen offline pnpm dependency tree; tracked files remained unchanged. The exact production build retry is waiting for the repository single-heavy-validation guard to clear."},
       {"at": "2026-07-13T15:30:56Z", "status": "local_check_failed_repair_in_progress", "summary": "Full pnpm test:contract failed two same-root article list/LKG compatibility assertions: raw fetch error messages were wrapped by getPublic. Restored only the list request to apiClient.get while retaining authoritative-absence classification and typed getPublic detail reads. Four focused plus regression files pass 48/48; exact full contract and production build reruns remain required before push."},
-      {"at": "2026-07-13T15:36:45Z", "status": "local_verified", "summary": "Final code passes the 48-test focused/regression set, full four-shard pnpm test:contract with 4189 tests, and production build with 206 static pages. Test-generated SEO/MBTI artifacts were restored to branch baseline by the scope guard; the intended diff remains exactly nine allowed paths."}
+      {"at": "2026-07-13T15:36:45Z", "status": "local_verified", "summary": "Final code passes the 48-test focused/regression set, full four-shard pnpm test:contract with 4189 tests, and production build with 206 static pages. Test-generated SEO/MBTI artifacts were restored to branch baseline by the scope guard; the intended diff remains exactly nine allowed paths."},
+      {"at": "2026-07-13T15:40:28Z", "status": "committed_local_verified", "summary": "Committed the exact nine-path implementation as 18415d8191e6935515a7a65171fcebf29b58dce6 after explicit path-limited staging and cached diff validation."}
     ],
-    "updated_at": "2026-07-13T15:36:45Z"
+    "updated_at": "2026-07-13T15:40:28Z"
   },
   "PUBLIC-STABILITY-WEB-07": {
     "id": "PUBLIC-STABILITY-WEB-07",
