@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { PublicNavigationLink } from "@/components/navigation/PublicNavigationPendingIndicator";
 
 export default function SiteHeaderDropdownPanel({
   id,
@@ -16,7 +16,7 @@ export default function SiteHeaderDropdownPanel({
   return (
     <div id={id} role="menu" aria-labelledby={triggerId} className="fm-header-dropdown-panel">
       {items.map((item, index) => (
-        <Link
+        <PublicNavigationLink
           key={`${item.href}-${index}`}
           href={item.href}
           prefetch={false}
@@ -25,7 +25,7 @@ export default function SiteHeaderDropdownPanel({
           onClick={onSelect}
         >
           {item.label}
-        </Link>
+        </PublicNavigationLink>
       ))}
     </div>
   );

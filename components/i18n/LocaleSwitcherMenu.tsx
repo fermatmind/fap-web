@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { PublicNavigationLink } from "@/components/navigation/PublicNavigationPendingIndicator";
 import { persistLocalePreferenceCookie } from "@/lib/i18n/clientLocalePreference";
 import { toggleLocalePath, type Locale } from "@/lib/i18n/locales";
 
@@ -40,7 +40,7 @@ export default function LocaleSwitcherMenu({
         }
 
         return (
-          <Link
+          <PublicNavigationLink
             key={option.locale}
             href={toggleLocalePath(pathname, option.locale)}
             prefetch={false}
@@ -52,7 +52,7 @@ export default function LocaleSwitcherMenu({
             }}
           >
             <span>{option.label}</span>
-          </Link>
+          </PublicNavigationLink>
         );
       })}
     </div>

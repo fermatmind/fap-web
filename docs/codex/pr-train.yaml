@@ -25353,3 +25353,523 @@ prs:
     publish_allowed: false
     deploy_allowed: false
     next_task: null
+
+  - id: PUBLIC-STABILITY-WEB-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/public-stability-web-01
+    base: main
+    title: "PUBLIC-STABILITY-WEB-01: add public navigation pending feedback"
+    depends_on: [GLOBAL-JS-02]
+    mode: execute
+    train_scope: public_navigation_pending_feedback
+    status: user_authorized
+    goal: "Show immediate, accessible pending feedback for public Header, Footer, locale-switcher, and shared client navigation."
+    allowed_paths:
+      - components/navigation/PublicNavigationPendingIndicator.tsx
+      - components/layout/SiteHeader.tsx
+      - components/layout/SiteHeaderDropdownPanel.tsx
+      - components/layout/SiteFooter.tsx
+      - components/i18n/LocaleSwitcherMenu.tsx
+      - tests/contracts/public-navigation-pending.contract.test.tsx
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Page data fetching, error semantics, prefetch tuning, private result/order/payment flows, CMS writes, publish, warm, purge, or deploy.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/public-navigation-pending.contract.test.tsx
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_authority_rules_preserved
+    next_task: PUBLIC-STABILITY-WEB-02
+
+  - id: PUBLIC-STABILITY-WEB-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/public-stability-web-02
+    base: main
+    title: "PUBLIC-STABILITY-WEB-02: add public route loading and error boundaries"
+    depends_on: [PUBLIC-STABILITY-WEB-01]
+    mode: execute
+    train_scope: public_route_loading_error_boundaries
+    status: user_authorized
+    goal: "Add minimal loading and recoverable error shells to public content route families without adding editorial fallback."
+    allowed_paths:
+      - components/states/PublicContentLoading.tsx
+      - components/states/PublicContentError.tsx
+      - app/(localized)/[locale]/personality/loading.tsx
+      - app/(localized)/[locale]/personality/error.tsx
+      - app/(localized)/[locale]/articles/loading.tsx
+      - app/(localized)/[locale]/articles/error.tsx
+      - app/(localized)/[locale]/topics/loading.tsx
+      - app/(localized)/[locale]/topics/error.tsx
+      - app/(localized)/[locale]/career/loading.tsx
+      - app/(localized)/[locale]/career/error.tsx
+      - app/(localized)/[locale]/tests/loading.tsx
+      - app/(localized)/[locale]/tests/error.tsx
+      - app/(localized)/[locale]/support/loading.tsx
+      - app/(localized)/[locale]/support/error.tsx
+      - app/(localized)/[locale]/research/loading.tsx
+      - app/(localized)/[locale]/research/error.tsx
+      - tests/contracts/public-content-boundaries.contract.test.tsx
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Adapter semantics, content fallback, private data logging, API/cache changes, CMS writes, publish, warm, purge, or deploy.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/public-content-boundaries.contract.test.tsx
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_authority_rules_preserved
+    next_task: PUBLIC-STABILITY-WEB-03
+
+  - id: PUBLIC-STABILITY-WEB-03
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/public-stability-web-03
+    base: main
+    title: "PUBLIC-STABILITY-WEB-03: define public content read error semantics"
+    depends_on: []
+    mode: execute
+    train_scope: public_content_read_error_contract
+    status: user_authorized
+    goal: "Define typed not-found, unpublished, forbidden, timeout, rate-limit, transient, network, and contract-error semantics for public CMS/API reads."
+    allowed_paths:
+      - lib/public-content/readError.ts
+      - lib/api-client.ts
+      - tests/contracts/public-content-read-error.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Route-family migrations, retry UI, cache behavior, content fallback, private APIs, CMS writes, publish, warm, purge, or deploy.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/public-content-read-error.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_authority_rules_preserved
+    next_task: PUBLIC-STABILITY-API-01
+
+  - id: PUBLIC-STABILITY-WEB-04
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/public-stability-web-04
+    base: main
+    title: "PUBLIC-STABILITY-WEB-04: harden Big Five and Enneagram public reads"
+    depends_on: [PUBLIC-STABILITY-WEB-02, PUBLIC-STABILITY-WEB-03]
+    mode: execute
+    train_scope: personality_asset_read_semantics_and_dedupe
+    status: user_authorized
+    goal: "Preserve transient personality-asset failures as recoverable errors, reserve notFound for authoritative absence, and dedupe metadata/page reads within one render."
+    allowed_paths:
+      - lib/cms/personality-public-content-assets.ts
+      - lib/cms/personalityPublicAssetLoader.ts
+      - app/(localized)/[locale]/personality/big-five/page.tsx
+      - app/(localized)/[locale]/personality/big-five/[...segments]/page.tsx
+      - app/(localized)/[locale]/personality/enneagram/page.tsx
+      - app/(localized)/[locale]/personality/enneagram/[...segments]/page.tsx
+      - tests/contracts/personality-public-asset-read-stability.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Backend cache or payload changes, editorial fallback, route expansion, sitemap/llms changes, CMS mutation, publish, warm, purge, or deploy.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/personality-public-asset-read-stability.contract.test.ts tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_authority_rules_preserved
+    next_task: PUBLIC-STABILITY-WEB-05
+
+  - id: PUBLIC-STABILITY-WEB-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/public-stability-web-05
+    base: main
+    title: "PUBLIC-STABILITY-WEB-05: budget personality public link prefetch"
+    depends_on: [PUBLIC-STABILITY-WEB-04]
+    mode: execute
+    train_scope: personality_public_prefetch_budget
+    status: user_authorized
+    goal: "Retain prefetch for primary personality actions while disabling automatic prefetch for long-tail link grids that amplify RSC work."
+    allowed_paths:
+      - components/personality/BigFiveHubContentScaffold.tsx
+      - components/personality/EnneagramHubContentScaffold.tsx
+      - components/personality/PublicContentAssetRenderer.tsx
+      - tests/contracts/personality-public-prefetch-budget.contract.test.tsx
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Adapter semantics, API/cache changes, removal of pending UI, content edits, CMS mutation, publish, warm, purge, or deploy.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/personality-public-prefetch-budget.contract.test.tsx
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_authority_rules_preserved
+    next_task: PUBLIC-STABILITY-WEB-06
+
+  - id: PUBLIC-STABILITY-WEB-06
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/public-stability-web-06
+    base: main
+    title: "PUBLIC-STABILITY-WEB-06: preserve editorial transient read errors"
+    depends_on: [PUBLIC-STABILITY-WEB-02, PUBLIC-STABILITY-WEB-03, ARTICLE-CACHE-01]
+    mode: execute
+    train_scope: article_research_support_error_semantics
+    status: user_authorized
+    goal: "Stop article, research, and support transient failures from becoming notFound while preserving authoritative 404 and unpublished behavior."
+    allowed_paths:
+      - lib/cms/articles.ts
+      - lib/research/reports.ts
+      - lib/cms/supportTrust.ts
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - app/(localized)/[locale]/research/[slug]/page.tsx
+      - app/(localized)/[locale]/support/articles/[slug]/page.tsx
+      - app/(localized)/[locale]/support/guides/[slug]/page.tsx
+      - tests/contracts/editorial-public-read-stability.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Article content/cache authority changes, backend APIs, local editorial fallback, CMS mutation, publish, warm, purge, or deploy.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/editorial-public-read-stability.contract.test.ts tests/contracts/articles-cleanup.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_authority_rules_preserved
+    next_task: PUBLIC-STABILITY-WEB-07
+
+  - id: PUBLIC-STABILITY-WEB-07
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/public-stability-web-07
+    base: main
+    title: "PUBLIC-STABILITY-WEB-07: bundle topic and career guide public reads"
+    depends_on: [PUBLIC-STABILITY-WEB-02, PUBLIC-STABILITY-WEB-03]
+    mode: execute
+    train_scope: topic_career_guide_detail_seo_bundle
+    status: user_authorized
+    goal: "Share topic and career-guide detail/SEO reads between metadata and page rendering and preserve transient errors."
+    allowed_paths:
+      - lib/cms/topics.ts
+      - lib/cms/career-guides.ts
+      - lib/cms/publicDetailBundle.ts
+      - app/(localized)/[locale]/topics/[slug]/page.tsx
+      - app/(localized)/[locale]/career/guides/[slug]/page.tsx
+      - tests/contracts/topic-career-guide-read-bundle.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Backend cache architecture, content or SEO changes, sitemap/llms, CMS mutation, publish, warm, purge, or deploy.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/topic-career-guide-read-bundle.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_authority_rules_preserved
+    next_task: PUBLIC-STABILITY-WEB-08
+
+  - id: PUBLIC-STABILITY-WEB-08
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/public-stability-web-08
+    base: main
+    title: "PUBLIC-STABILITY-WEB-08: preserve career public read errors"
+    depends_on: [PUBLIC-STABILITY-WEB-02, PUBLIC-STABILITY-WEB-03, CAREER-CACHE-01]
+    mode: execute
+    train_scope: career_public_adapter_error_semantics
+    status: user_authorized
+    goal: "Stop career job, family, recommendation-index, and public recommendation adapters from collapsing transient failures into absence."
+    allowed_paths:
+      - lib/career/api/fetchCareerJobBundle.ts
+      - lib/career/api/fetchCareerJobIndex.ts
+      - lib/career/api/fetchCareerFamilyHub.ts
+      - lib/career/api/fetchCareerRecommendationIndex.ts
+      - lib/career/api/fetchCareerRecommendationBundle.ts
+      - tests/contracts/career-public-read-stability.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Private recommendation results, scoring, career content, backend contracts, CMS mutation, publish, warm, purge, or deploy.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-public-read-stability.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_authority_rules_preserved
+    next_task: PUBLIC-STABILITY-WEB-09
+
+  - id: PUBLIC-STABILITY-WEB-09
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/public-stability-web-09
+    base: main
+    title: "PUBLIC-STABILITY-WEB-09: harden public test catalog and lookup reads"
+    depends_on: [PUBLIC-STABILITY-WEB-02, PUBLIC-STABILITY-WEB-03]
+    mode: execute
+    train_scope: public_test_catalog_lookup_semantics
+    status: user_authorized
+    goal: "Use CMS/public API authority for public test catalog and slug lookup while distinguishing absence from transient failure."
+    allowed_paths:
+      - lib/content.ts
+      - app/(localized)/[locale]/tests/[slug]/page.tsx
+      - tests/contracts/public-test-catalog-read-stability.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Test questions, scoring, take/submit/result flows, new local catalog content, CMS mutation, publish, warm, purge, or deploy.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/public-test-catalog-read-stability.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: enforces_backend_catalog_authority
+    next_task: PUBLIC-STABILITY-API-02
+
+  - id: PUBLIC-STABILITY-WEB-10
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/public-stability-web-10
+    base: main
+    title: "PUBLIC-STABILITY-WEB-10: consume bounded MBTI backend resilience"
+    depends_on: [PUBLIC-STABILITY-API-02, PUBLIC-STABILITY-WEB-02, PUBLIC-STABILITY-WEB-03]
+    mode: execute
+    train_scope: mbti_backend_lkg_cutover
+    status: user_authorized
+    goal: "Consume backend current/stale MBTI authority, bound frontend waiting, and remove runtime reliance on frontend-generated public editorial fallback."
+    allowed_paths:
+      - lib/cms/personalityReadStability.ts
+      - lib/cms/personality.ts
+      - app/(localized)/[locale]/personality/[type]/page.tsx
+      - tests/contracts/mbti-public-read-stability.contract.test.ts
+      - tests/contracts/personality-public-content-authority.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - MBTI scoring/result/private flows, CMS content changes, SEO enumeration, backend code, CMS mutation, publish, warm, purge, or deploy.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/mbti-public-read-stability.contract.test.ts tests/contracts/personality-public-content-authority.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: removes_frontend_runtime_editorial_fallback
+    next_task: PUBLIC-STABILITY-WEB-11
+
+  - id: PUBLIC-STABILITY-WEB-11
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/public-stability-web-11
+    base: main
+    title: "PUBLIC-STABILITY-WEB-11: consume career industry directory read model"
+    depends_on: [PUBLIC-STABILITY-API-05, PUBLIC-STABILITY-WEB-02, PUBLIC-STABILITY-WEB-03]
+    mode: execute
+    train_scope: career_industry_directory_consumer
+    status: user_authorized
+    goal: "Replace the career industries page three-way multi-megabyte fanout with one backend-authoritative aggregate read."
+    allowed_paths:
+      - lib/career/api/fetchCareerIndustryDirectory.ts
+      - lib/career/adapters/adaptCareerIndustryDirectory.ts
+      - app/(localized)/[locale]/career/industries/page.tsx
+      - tests/contracts/career-industry-directory.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Career content, search/recommendation logic, backend implementation, private data, CMS mutation, publish, warm, purge, or deploy.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-industry-directory.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_authority_rules_preserved
+    next_task: null

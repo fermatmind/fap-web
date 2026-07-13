@@ -4,11 +4,15 @@ import { ChevronDown, Menu, Search, X } from "lucide-react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { buttonVariants } from "@/components/ui/button";
 import { Container } from "@/components/layout/Container";
+import {
+  PublicNavigationLink,
+  PublicNavigationPendingIndicator,
+} from "@/components/navigation/PublicNavigationPendingIndicator";
 import { getDictSync } from "@/lib/i18n/getDict";
 import { persistLocalePreferenceCookie } from "@/lib/i18n/clientLocalePreference";
 import { localizedPath, toggleLocalePath } from "@/lib/i18n/locales";
@@ -230,12 +234,15 @@ export function SiteHeader({
       data-site-header="true"
       className="sticky top-0 z-50 border-b border-[var(--fm-border-soft)] bg-white text-[var(--fm-text-main)]"
     >
+      <Suspense fallback={null}>
+        <PublicNavigationPendingIndicator locale={locale} />
+      </Suspense>
       <Container
         className="max-w-[1320px] px-6 py-2.5 md:px-10 xl:px-12"
       >
         <div className="flex items-center justify-between gap-3">
           <div className={cn("min-w-0 shrink-0", isHomeRoute && "lg:justify-self-start")}>
-            <Link
+            <PublicNavigationLink
               href={withLocale("/")}
               className={cn(
                 "font-serif font-semibold tracking-tight text-[var(--fm-text-main)]",
@@ -245,7 +252,7 @@ export function SiteHeader({
               )}
             >
               {dict.header.brand}
-            </Link>
+            </PublicNavigationLink>
           </div>
 
           <button
@@ -285,7 +292,7 @@ export function SiteHeader({
                     }}
                   >
                     <div className="flex items-center gap-0.5">
-                      <Link
+                      <PublicNavigationLink
                         href={withLocale(item.href)}
                         prefetch={false}
                         className="fm-site-header-link"
@@ -293,7 +300,7 @@ export function SiteHeader({
                         onClick={() => setActiveDropdown(null)}
                       >
                         {item.label}
-                      </Link>
+                      </PublicNavigationLink>
                       <button
                         id={triggerId}
                         type="button"
@@ -338,7 +345,7 @@ export function SiteHeader({
             </nav>
 
             <div className="flex shrink-0 items-center gap-2">
-              <Link
+              <PublicNavigationLink
                 href={withLocale("/tests?q=")}
                 prefetch={false}
                 className="inline-flex h-11 min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-full border border-[var(--fm-border-subtle)] bg-white text-[var(--fm-text-main)] transition hover:bg-[var(--fm-lime-soft)]"
@@ -346,7 +353,7 @@ export function SiteHeader({
                 title={dict.header.search}
               >
                 <Search className="h-4 w-4" />
-              </Link>
+              </PublicNavigationLink>
               <LocaleSwitcher />
 
               {hidePrivateLookupHeaderCta ? null : (
@@ -379,9 +386,9 @@ export function SiteHeader({
             className="absolute right-0 top-0 flex h-[100dvh] w-[clamp(280px,82vw,360px)] flex-col border-l border-[var(--fm-border-subtle)] bg-[var(--fm-bg-page)] shadow-[-24px_0_56px_rgba(21,20,15,0.18)]"
           >
             <div className="flex items-center justify-between border-b border-[var(--fm-border-soft)] px-4 py-4">
-              <Link href={withLocale("/")} prefetch={false} onClick={handleMobileLinkClick} className="font-serif text-xl font-semibold text-[#15140f]">
+              <PublicNavigationLink href={withLocale("/")} prefetch={false} onClick={handleMobileLinkClick} className="font-serif text-xl font-semibold text-[#15140f]">
                 {dict.header.brand}
-              </Link>
+              </PublicNavigationLink>
               <button
                 type="button"
                 aria-label={dict.header.closeMenu}
@@ -395,14 +402,14 @@ export function SiteHeader({
             <div className="min-h-0 flex-1 overflow-y-auto px-4 py-3">
               <nav className="space-y-1">
                 {!isHomeRoute ? (
-                  <Link
+                  <PublicNavigationLink
                     href={withLocale("/")}
                     prefetch={false}
                     onClick={handleMobileLinkClick}
                     className="flex min-h-[44px] items-center rounded-lg px-3 py-2 text-sm font-semibold text-[#15140f] transition hover:bg-[var(--fm-bg-soft)]"
                   >
                     {dict.header.home}
-                  </Link>
+                  </PublicNavigationLink>
                 ) : null}
 
                 {visibleNavItems.map((item) => {
@@ -412,7 +419,7 @@ export function SiteHeader({
                   return (
                     <div key={`mobile-group-${item.key}`} className="rounded-lg border border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)]">
                       <div className="flex min-h-[44px] items-stretch">
-                        <Link
+                        <PublicNavigationLink
                           href={withLocale(item.href)}
                           prefetch={false}
                           onClick={handleMobileLinkClick}
@@ -420,7 +427,7 @@ export function SiteHeader({
                           className="flex flex-1 items-center rounded-l-lg px-3 py-2 text-sm font-semibold text-[#15140f] transition hover:bg-[var(--fm-bg-soft)]"
                         >
                           {item.label}
-                        </Link>
+                        </PublicNavigationLink>
                         <button
                           type="button"
                           aria-label={`${item.label} menu`}
@@ -436,7 +443,7 @@ export function SiteHeader({
                       {isExpanded ? (
                         <div id={`mobile-submenu-${item.key}`} role="menu" className="space-y-1 border-t border-[var(--fm-border-soft)] px-2 pb-2 pt-2">
                           {menuItems.map((menuItem, menuItemIndex) => (
-                            <Link
+                            <PublicNavigationLink
                               key={`mobile-submenu-link-${item.key}-${menuItem.href}-${menuItemIndex}`}
                               href={withLocale(menuItem.href)}
                               prefetch={false}
@@ -445,7 +452,7 @@ export function SiteHeader({
                               className="block rounded-md px-3 py-2 text-sm text-[#2a2620] transition hover:bg-[var(--fm-bg-soft)] hover:text-[#15140f]"
                             >
                               {menuItem.label}
-                            </Link>
+                            </PublicNavigationLink>
                           ))}
                         </div>
                       ) : null}
@@ -453,7 +460,7 @@ export function SiteHeader({
                   );
                 })}
 
-                <Link
+                <PublicNavigationLink
                   href={withLocale("/tests?q=")}
                   prefetch={false}
                   onClick={handleMobileLinkClick}
@@ -461,10 +468,10 @@ export function SiteHeader({
                 >
                   <Search className="h-4 w-4" />
                   <span>{dict.header.search}</span>
-                </Link>
+                </PublicNavigationLink>
 
                 {disableLocaleSwitchLinks ? null : (
-                  <Link
+                  <PublicNavigationLink
                     href={localeHref}
                     prefetch={false}
                     onClick={() => {
@@ -474,7 +481,7 @@ export function SiteHeader({
                     className="flex min-h-[44px] items-center rounded-lg border border-[var(--fm-border-soft)] bg-[var(--fm-bg-page)] px-3 py-2 text-sm font-semibold text-[#15140f] transition hover:bg-[var(--fm-bg-soft)]"
                   >
                     {localeLabel}
-                  </Link>
+                  </PublicNavigationLink>
                 )}
               </nav>
             </div>
