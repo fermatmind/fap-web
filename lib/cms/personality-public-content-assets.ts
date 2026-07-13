@@ -1,4 +1,5 @@
 import { ApiError, apiClient } from "@/lib/api-client";
+import { cmsManagedMediaUrl } from "@/lib/cms/media";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { normalizeInternalHref, normalizeMediaAssetUrl } from "@/lib/url/safeContentUrls";
 import { toApiLocale, type Locale } from "@/lib/i18n/locales";
@@ -52,6 +53,62 @@ export type PersonalityPublicContentEvidenceNote = {
   note: string;
 };
 
+export type PersonalityPublicContentAuthorityActor = {
+  name: string;
+  organization: string | null;
+  role: string | null;
+};
+
+export type PersonalityPublicContentAuthoritySource = {
+  id: string;
+  title: string;
+  authorOrOrganization: string;
+  year: number;
+  sourceType: string;
+  doi: string | null;
+  publicUrl: string | null;
+  accessedAt: string | null;
+  claimIds: string[];
+  limitation: string | null;
+};
+
+export type PersonalityPublicContentAuthorityClaimMapping = {
+  claimId: string;
+  sourceIds: string[];
+  limitation: string | null;
+};
+
+export type PersonalityPublicContentAuthorityMedia = {
+  mediaAssetId: number | null;
+  url: string | null;
+  alt: string;
+};
+
+export type PersonalityPublicContentAuthorityV2 = {
+  contractVersion: "personality_public_asset.v2";
+  compatibleV1ContractVersion: "personality_public_asset.v1";
+  visibleEvidence: {
+    sources: PersonalityPublicContentAuthoritySource[];
+    claimMapping: PersonalityPublicContentAuthorityClaimMapping[];
+    limitations: string[];
+    eligible: boolean;
+  };
+  editorialAuthority: {
+    author: PersonalityPublicContentAuthorityActor | null;
+    reviewer: PersonalityPublicContentAuthorityActor | null;
+    reviewState: string;
+    lastReviewedAt: string | null;
+    publishedAt: string | null;
+    updatedAt: string | null;
+  };
+  mediaAuthority: {
+    hero: PersonalityPublicContentAuthorityMedia | null;
+    inline: PersonalityPublicContentAuthorityMedia[];
+    og: PersonalityPublicContentAuthorityMedia | null;
+  };
+  schemaEligible: boolean;
+};
+
 export type PersonalityPublicContentAsset = {
   framework: PersonalityPublicFramework;
   entityType: PersonalityPublicEntityType;
@@ -76,6 +133,7 @@ export type PersonalityPublicContentAsset = {
   schemaRuntimeEligible: boolean;
   methodBoundary: PersonalityPublicContentMethodBoundary | null;
   evidenceNotes: PersonalityPublicContentEvidenceNote[];
+  authorityV2?: PersonalityPublicContentAuthorityV2 | null;
   internalLinks: PersonalityPublicContentInternalLink[];
   sections: PersonalityPublicContentSection[];
   isPublic: boolean;
@@ -92,6 +150,7 @@ type PersonalityPublicContentAssetResponse = {
   ok?: boolean;
   asset?: unknown;
   personality_public_content_asset_v1?: unknown;
+  personality_public_content_asset_v2?: unknown;
 };
 
 type PersonalityPublicContentAssetIndexResponse = {
@@ -143,6 +202,11 @@ function asNullableString(value: unknown): string | null {
 
 function asBoolean(value: unknown): boolean {
   return value === true;
+}
+
+function asPositiveInteger(value: unknown): number | null {
+  const normalized = typeof value === "number" ? value : Number(value);
+  return Number.isInteger(normalized) && normalized > 0 ? normalized : null;
 }
 
 function asRecord(value: unknown): Record<string, unknown> {
@@ -282,6 +346,258 @@ function normalizeEvidenceNotes(value: unknown): PersonalityPublicContentEvidenc
     .filter((item): item is PersonalityPublicContentEvidenceNote => item !== null);
 }
 
+const AUTHORITY_SOURCE_TYPES = new Set([
+  "peer_reviewed_research",
+  "official_documentation",
+  "professional_standard",
+  "book",
+  "dataset",
+  "other_public_source",
+]);
+const AUTHORITY_ID_PATTERN = /^[a-z0-9][a-z0-9_.-]{0,127}$/i;
+const DOI_PATTERN = /^10\.\d{4,9}\/[\-._;()/:a-z0-9]+$/i;
+const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}(?:T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?(?:Z|[+-]\d{2}:\d{2}))?$/;
+const PUBLIC_HOST_PATTERN = /^(?=.{1,253}$)(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z](?:[a-z0-9-]{0,61}[a-z0-9])?$/i;
+
+function normalizeStringList(value: unknown, pattern?: RegExp): string[] {
+  return Array.from(
+    new Set(
+      asArray(value)
+        .map(asString)
+        .filter((item) => Boolean(item) && (!pattern || pattern.test(item)))
+    )
+  );
+}
+
+function normalizeIsoDateTime(value: unknown): string | null {
+  const normalized = asString(value);
+  if (!normalized || !ISO_DATE_PATTERN.test(normalized)) {
+    return null;
+  }
+
+  const timestamp = Date.parse(normalized);
+  return Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : null;
+}
+
+function normalizePublicHttpsUrl(value: unknown): string | null {
+  const normalized = asString(value);
+  if (!normalized || /[<>\\\u0000-\u001f\u007f-\u009f]/.test(normalized)) {
+    return null;
+  }
+
+  try {
+    const url = new URL(normalized);
+    const host = url.hostname.toLowerCase().replace(/\.$/, "");
+    if (
+      url.protocol !== "https:" ||
+      url.username ||
+      url.password ||
+      url.port ||
+      !PUBLIC_HOST_PATTERN.test(host) ||
+      host === "localhost" ||
+      host.endsWith(".localhost") ||
+      host.endsWith(".local") ||
+      host.endsWith(".internal") ||
+      host.endsWith(".test")
+    ) {
+      return null;
+    }
+
+    return url.toString();
+  } catch {
+    return null;
+  }
+}
+
+function normalizeAuthorityActor(value: unknown): PersonalityPublicContentAuthorityActor | null {
+  const record = asRecord(value);
+  const name = asString(record.name);
+  if (!name) {
+    return null;
+  }
+
+  return {
+    name,
+    organization: asNullableString(record.organization),
+    role: asNullableString(record.role),
+  };
+}
+
+function normalizeAuthorityMedia(value: unknown): PersonalityPublicContentAuthorityMedia | null {
+  const record = asRecord(value);
+  const mediaAssetId = asPositiveInteger(record.media_asset_id ?? record.mediaAssetId);
+  const url = cmsManagedMediaUrl(asNullableString(record.url));
+  const alt = asString(record.alt);
+  if ((!mediaAssetId && !url) || !alt) {
+    return null;
+  }
+
+  return { mediaAssetId, url, alt };
+}
+
+function normalizeAuthoritySources(value: unknown): PersonalityPublicContentAuthoritySource[] {
+  const sources: PersonalityPublicContentAuthoritySource[] = [];
+  const seen = new Set<string>();
+  const maxYear = new Date().getUTCFullYear();
+
+  for (const item of asArray(value)) {
+    const record = asRecord(item);
+    const id = asString(record.id);
+    const title = asString(record.title);
+    const authorOrOrganization = asString(record.author_or_organization ?? record.authorOrOrganization);
+    const sourceType = asString(record.source_type ?? record.sourceType);
+    const year = Number(record.year);
+    if (
+      !AUTHORITY_ID_PATTERN.test(id) ||
+      seen.has(id) ||
+      !title ||
+      !authorOrOrganization ||
+      !AUTHORITY_SOURCE_TYPES.has(sourceType) ||
+      !Number.isInteger(year) ||
+      year < 1800 ||
+      year > maxYear
+    ) {
+      continue;
+    }
+
+    const doiCandidate = asNullableString(record.doi);
+    seen.add(id);
+    sources.push({
+      id,
+      title,
+      authorOrOrganization,
+      year,
+      sourceType,
+      doi: doiCandidate && DOI_PATTERN.test(doiCandidate) ? doiCandidate : null,
+      publicUrl: normalizePublicHttpsUrl(record.public_url ?? record.publicUrl),
+      accessedAt: normalizeIsoDateTime(record.accessed_at ?? record.accessedAt),
+      claimIds: normalizeStringList(record.claim_ids ?? record.claimIds, AUTHORITY_ID_PATTERN),
+      limitation: asNullableString(record.limitation),
+    });
+  }
+
+  return sources;
+}
+
+function normalizeAuthorityClaimMapping(
+  value: unknown,
+  sourceIds: Set<string>
+): PersonalityPublicContentAuthorityClaimMapping[] {
+  return asArray(value)
+    .map((item): PersonalityPublicContentAuthorityClaimMapping | null => {
+      const record = asRecord(item);
+      const claimId = asString(record.claim_id ?? record.claimId);
+      const resolvedSourceIds = normalizeStringList(
+        record.source_ids ?? record.sourceIds,
+        AUTHORITY_ID_PATTERN
+      ).filter((sourceId) => sourceIds.has(sourceId));
+      if (!AUTHORITY_ID_PATTERN.test(claimId) || resolvedSourceIds.length === 0) {
+        return null;
+      }
+
+      return {
+        claimId,
+        sourceIds: resolvedSourceIds,
+        limitation: asNullableString(record.limitation),
+      };
+    })
+    .filter((item): item is PersonalityPublicContentAuthorityClaimMapping => item !== null);
+}
+
+function normalizeAuthorityV2(
+  raw: unknown,
+  asset: PersonalityPublicContentAsset
+): PersonalityPublicContentAuthorityV2 | null {
+  const record = asRecord(raw);
+  if (
+    asString(record.contract_version ?? record.contractVersion) !== "personality_public_asset.v2" ||
+    asString(record.compatible_v1_contract_version ?? record.compatibleV1ContractVersion) !==
+      "personality_public_asset.v1" ||
+    asString(record.framework) !== "big_five" ||
+    normalizeEntityType(record.entity_type ?? record.entityType) !== asset.entityType ||
+    asString(record.code ?? record.entity_key) !== asset.code ||
+    asString(record.locale) !== asset.locale
+  ) {
+    return null;
+  }
+
+  const visibleEvidence = asRecord(record.visible_evidence ?? record.visibleEvidence);
+  const sources = normalizeAuthoritySources(visibleEvidence.sources);
+  const claimMapping = normalizeAuthorityClaimMapping(
+    visibleEvidence.claim_mapping ?? visibleEvidence.claimMapping,
+    new Set(sources.map((source) => source.id))
+  );
+  const visibleEvidenceEligible =
+    asBoolean(visibleEvidence.eligible) && sources.length > 0 && claimMapping.length > 0;
+  const editorialAuthority = asRecord(record.editorial_authority ?? record.editorialAuthority);
+  const mediaAuthority = asRecord(record.media_authority ?? record.mediaAuthority);
+
+  return {
+    contractVersion: "personality_public_asset.v2",
+    compatibleV1ContractVersion: "personality_public_asset.v1",
+    visibleEvidence: {
+      sources,
+      claimMapping,
+      limitations: normalizeStringList(visibleEvidence.limitations),
+      eligible: visibleEvidenceEligible,
+    },
+    editorialAuthority: {
+      author: normalizeAuthorityActor(editorialAuthority.author),
+      reviewer: normalizeAuthorityActor(editorialAuthority.reviewer),
+      reviewState: asString(editorialAuthority.review_state ?? editorialAuthority.reviewState),
+      lastReviewedAt: normalizeIsoDateTime(
+        editorialAuthority.last_reviewed_at ?? editorialAuthority.lastReviewedAt
+      ),
+      publishedAt: normalizeIsoDateTime(editorialAuthority.published_at ?? editorialAuthority.publishedAt),
+      updatedAt: normalizeIsoDateTime(editorialAuthority.updated_at ?? editorialAuthority.updatedAt),
+    },
+    mediaAuthority: {
+      hero: normalizeAuthorityMedia(mediaAuthority.hero),
+      inline: asArray(mediaAuthority.inline)
+        .map(normalizeAuthorityMedia)
+        .filter((item): item is PersonalityPublicContentAuthorityMedia => item !== null),
+      og: normalizeAuthorityMedia(mediaAuthority.og),
+    },
+    schemaEligible:
+      asBoolean(record.schema_eligible ?? record.schemaEligible) &&
+      visibleEvidenceEligible &&
+      asset.schemaRuntimeEligible,
+  };
+}
+
+export function withBigFiveVisibleAuthorityJsonLd(
+  schema: unknown,
+  asset: PersonalityPublicContentAsset
+): unknown {
+  const authority = asset.authorityV2;
+  if (
+    !isRecord(schema) ||
+    asset.framework !== "big_five" ||
+    !asset.schemaRuntimeEligible ||
+    !authority?.schemaEligible ||
+    !authority.visibleEvidence.eligible
+  ) {
+    return schema;
+  }
+
+  const mappedSourceIds = new Set(
+    authority.visibleEvidence.claimMapping.flatMap((mapping) => mapping.sourceIds)
+  );
+  const citations = authority.visibleEvidence.sources
+    .filter((source) => mappedSourceIds.has(source.id))
+    .map((source) => source.publicUrl ?? source.title);
+  return {
+    ...schema,
+    ...(citations.length > 0 ? { citation: citations } : {}),
+    ...(authority.editorialAuthority.publishedAt
+      ? { datePublished: authority.editorialAuthority.publishedAt }
+      : {}),
+    ...(authority.editorialAuthority.updatedAt
+      ? { dateModified: authority.editorialAuthority.updatedAt }
+      : {}),
+  };
+}
+
 function buildExpectedPath(locale: Locale, framework: PersonalityPublicFramework, expected: PersonalityPublicRouteEntry): string {
   return framework === "big_five"
     ? buildBigFivePublicContentPath(locale, expected as BigFivePublicRouteEntry)
@@ -341,6 +657,7 @@ function normalizeAsset(
     schemaRuntimeEligible: asBoolean(record.schema_runtime_eligible ?? record.schemaRuntimeEligible),
     methodBoundary: normalizeMethodBoundary(record.method_boundary),
     evidenceNotes: normalizeEvidenceNotes(record.evidence_notes),
+    authorityV2: null,
     internalLinks: normalizeInternalLinks(record.internal_links),
     sections: normalizeSections(record.sections ?? record.content_sections),
     isPublic,
@@ -375,7 +692,20 @@ export async function getBigFivePublicContentAsset(
       return null;
     }
 
-    return normalizeAsset(response.personality_public_content_asset_v1 ?? response.asset, entry, locale, "big_five");
+    const asset = normalizeAsset(
+      response.personality_public_content_asset_v1 ?? response.asset,
+      entry,
+      locale,
+      "big_five"
+    );
+    if (!asset) {
+      return null;
+    }
+
+    return {
+      ...asset,
+      authorityV2: normalizeAuthorityV2(response.personality_public_content_asset_v2, asset),
+    };
   } catch (error) {
     if (error instanceof ApiError && (error.status === 404 || error.status === 422)) {
       return null;
