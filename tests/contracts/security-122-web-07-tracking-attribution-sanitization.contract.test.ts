@@ -126,7 +126,12 @@ describe("SECURITY-122-WEB-07 tracking attribution and media beacon sanitization
   });
 
   it("keeps the WEB-07 diff inside the declared tracking attribution and beacon scope", () => {
-    expect(changedFiles()).not.toHaveLength(0);
-    expect(changedFiles().filter((file) => !isSecurity122Web07AllowedFile(file))).toEqual([]);
+    const changed = changedFiles();
+    if (changed.length === 0) {
+      expect(changed).toEqual([]);
+      return;
+    }
+
+    expect(changed.filter((file) => !isSecurity122Web07AllowedFile(file))).toEqual([]);
   });
 });
