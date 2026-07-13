@@ -45249,15 +45249,15 @@
     "branch": "codex/public-stability-web-06",
     "title": "PUBLIC-STABILITY-WEB-06: preserve editorial transient read errors",
     "depends_on": ["PUBLIC-STABILITY-WEB-02", "PUBLIC-STABILITY-WEB-03", "ARTICLE-CACHE-01"],
-    "status": "ready_to_merge",
-    "commit_sha": "c5910e883d742c88e4cf334096e46b5449480004",
+    "status": "merged_reconciled_post_merge_cleanup_complete",
+    "commit_sha": "451ff497daa77fedf00a8e107c50c45613f75799",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1742",
     "checks": {"manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal and the SAEP PR09 declared dependency authorize this entry."}, "dependency": {"status": "pass", "evidence": "ARTICLE-CACHE-01 PR #1713 merged at c2d7ace861c3fc64bd781f3879477075d42d4721, PUBLIC-STABILITY-WEB-02 PR #1738 merged at 47373184ee4cf24a4b0eb7e65661084435dce7ed, and PUBLIC-STABILITY-WEB-03 PR #1739 merged at 021287d0dd3f3795c5573f5f77b1f6d50bc4fc4d; origin/main contains all three merge commits."}, "required_local_checks": {"status": "pass", "evidence": "After actionable P2 review comment 3572163658, article detail and metadata confirm authoritative article absence before either SEO read. Node 24 manifest-focused contracts pass 47/47, the expanded focused/regression set passes 55/55, full pnpm test:contract passes all four shards with 4196/4196 tests, pnpm lint, pnpm lint:spacing, pnpm typecheck, production build (206/206 static pages), YAML/JSON parsing, git diff checks, and exact nine-path scope validation pass. Six unrelated test-generated SEO/MBTI artifacts were restored before scope validation."}, "github_required_checks": {"status": "pass", "evidence": "PR #1742 head c5910e883d742c88e4cf334096e46b5449480004 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze/aggregate, and no-new-code-scanning-alerts; merge state is CLEAN and both actionable P2 review threads are resolved."}},
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-13T16:40:50Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {"at": "2026-07-13T15:16:28Z", "status": "in_progress", "summary": "Started from clean origin/main in an isolated worktree after verifying all three dependencies merged. The operator primary worktree remains untouched at dirty fingerprint d665882727aac2b4c21f2be20974de899ad374a4960fdeee01f3f94c45dc8ae5. Scope preserves typed transient errors for article, research, and support detail reads; no local editorial fallback, CMS mutation, publish, warm, purge, or deploy is authorized."},
       {"at": "2026-07-13T15:23:38Z", "status": "local_validation_retry_pending", "summary": "Recorded a pre-compilation Turbopack environment failure caused by an out-of-root node_modules symlink in the isolated worktree. Replaced only that ignored symlink with a frozen offline pnpm dependency tree; tracked files remained unchanged. The exact production build retry is waiting for the repository single-heavy-validation guard to clear."},
@@ -45270,9 +45270,10 @@
       {"at": "2026-07-13T16:05:08Z", "status": "second_review_fix_heavy_validation_pending", "summary": "Addressed actionable P2 review comment 3572163658 by making authoritative article absence win before either SEO read in metadata and page rendering. The 55-test focused/regression set, targeted ESLint, and typecheck pass; full contract and build wait for another active full contract suite to clear the hardware guard."},
       {"at": "2026-07-13T16:27:18Z", "status": "second_review_fix_local_verified", "summary": "Completed the final second-review validation after the hardware guard cleared: manifest-focused contracts pass 47/47, expanded focused/regression contracts pass 55/55, full contracts pass 4196/4196, production build generates 206/206 static pages, and lint, spacing, typecheck, YAML/JSON, diff, and exact nine-path scope gates pass."},
       {"at": "2026-07-13T16:28:05Z", "status": "second_review_fix_committed", "summary": "Committed the scoped article-before-SEO review repair as b5e02d1f313a2bec18e747d9216644fa51139256 after explicit three-path staging and cached diff validation; required GitHub checks must rerun on the pushed ledger-updated head."},
-      {"at": "2026-07-13T16:33:22Z", "status": "ready_to_merge", "summary": "PR #1742 head c5910e883d742c88e4cf334096e46b5449480004 passed every required CI and CodeQL check, merge state is CLEAN, exact nine-path scope remains valid, and both actionable P2 review threads are resolved. The ledger-only ready-to-merge head must rerun required checks before squash merge."}
+      {"at": "2026-07-13T16:33:22Z", "status": "ready_to_merge", "summary": "PR #1742 head c5910e883d742c88e4cf334096e46b5449480004 passed every required CI and CodeQL check, merge state is CLEAN, exact nine-path scope remains valid, and both actionable P2 review threads are resolved. The ledger-only ready-to-merge head must rerun required checks before squash merge."},
+      {"at": "2026-07-13T16:52:44Z", "status": "merged_reconciled_post_merge_cleanup_complete", "summary": "Verified GitHub PR #1742 MERGED at a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc, origin/main containment, final required checks, resolved review threads, absent local/remote task branches, clean synced main, and post-merge focused contracts 47/47."}
     ],
-    "updated_at": "2026-07-13T16:33:22Z"
+    "updated_at": "2026-07-13T16:52:44Z"
   },
   "PUBLIC-STABILITY-WEB-07": {
     "id": "PUBLIC-STABILITY-WEB-07",
@@ -45358,5 +45359,38 @@
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false
+  },
+  "SAEP-PLANNED-PR-09": {
+    "id": "SAEP-PLANNED-PR-09",
+    "existing_pr_card_id": "SAEP-PRCARD-WEB-9ffab11c6415",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/saep-planned-pr-09-article-authority-consumer",
+    "title": "SAEP-PLANNED-PR-09 Consume article authority without fallback",
+    "depends_on": ["SAEP-PLANNED-PR-08", "ARTICLE-FANOUT-01", "PUBLIC-STABILITY-WEB-06"],
+    "depends_on_atomic_tasks": ["SAEP-ART-01"],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {"status": "pass", "evidence": "The concrete SAEP continuous execution goal authorizes exact card SAEP-PRCARD-WEB-9ffab11c6415 and append-only SAEP-PLANNED-PR-09 metadata. Existing PR-PRAC namespace and items are preserved without rename or deletion."},
+      "dependency": {"status": "pass", "evidence": "SAEP-PLANNED-PR-08 merged in fap-api PR #3032 at 5a5aadbc280bf60838f4480ddef1f727fa9119d8; ARTICLE-FANOUT-01 merged in fap-web PR #1714 at bbbdacf0e9001b8a7ae844c8dedbce01fd04b4d7; PUBLIC-STABILITY-WEB-06 merged in fap-web PR #1742 at a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc. Both fap-web merge commits are contained in origin/main."},
+      "required_local_checks": {"status": "pass", "evidence": "Manifest-focused contracts pass 23/23; the expanded 10-file article regression set passes 90/90; full pnpm test:contract passes all four shards with 4201/4201 tests; targeted ESLint, full pnpm lint, pnpm lint:spacing, pnpm typecheck, and production build pass with 206/206 static pages. JSON/YAML parsing, git diff checks, and exact nine-path scope validation pass, and generated SEO/MBTI artifacts were restored before final scope validation."},
+      "github_required_checks": {"status": "pending", "evidence": null}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-13T16:52:44Z", "status": "in_progress", "summary": "Started from clean latest origin/main in an isolated worktree after independently verifying all three dependency PRs merged and reconciling WEB06 closeout. The append-only namespace design preserves PR-PRAC metadata while registering the explicit user-supplied SAEP ID. Scope is limited to seven consumer/test paths plus canonical manifest/state; backend/CMS remains authority and no sitemap/llms, CMS write, publish, production mutation, or deploy is authorized."},
+      {"at": "2026-07-13T16:58:48Z", "status": "local_check_failed_repair_in_progress", "summary": "The first three-file focused run passed 21/23. The two failures identify a test-host-specific alternate expectation and a real fail-closed gap where missing projected authority could still allow FAQ via a legacy generic schema gate. Both are being repaired within the declared scope before any push."},
+      {"at": "2026-07-13T17:02:14Z", "status": "local_validation_heavy_pending", "summary": "Scoped repairs completed: manifest-focused contracts pass 23/23, additional article cleanup/runtime regressions pass 27/27, targeted and full lint, spacing, typecheck, metadata parsing, diff, and exact nine-path scope gates pass. Full contracts and build wait for another active ci_verify_mbti.sh validation to release the hardware guard."},
+      {"at": "2026-07-13T17:06:06Z", "status": "full_contract_failed_repair_in_progress", "summary": "The first complete four-shard contract run failed eight compatibility assertions: four static source anchors and four legacy runtime mocks without an authority property. Production normalized payloads always include authority as a valid projection or null, so the same-scope repair will distinguish explicit production authority from property-absent legacy objects without editing out-of-scope contracts or weakening fail-closed runtime behavior."},
+      {"at": "2026-07-13T17:16:10Z", "status": "full_contract_passed_build_pending_hardware_guard", "summary": "Repaired the scoped compatibility boundary without weakening production fail-closed behavior: the 10-file article regression set passes 90/90 and full contracts pass 4201/4201. Lint, spacing, typecheck, metadata parsing, diff, and exact nine-path scope checks pass; production build waits for an unrelated filtered backend PHPUnit run to finish."},
+      {"at": "2026-07-13T17:18:00Z", "status": "local_verified", "summary": "Completed all manifest local gates: focused contracts 23/23, expanded article regressions 90/90, full contracts 4201/4201, production build 206/206 static pages, targeted and full lint, spacing, typecheck, metadata parsing, diff, and exact nine-path scope validation all pass. Generated SEO/MBTI artifacts were restored and no backend, sitemap/llms, CMS write, publish, or deploy scope was introduced."}
+    ],
+    "updated_at": "2026-07-13T17:18:00Z"
   }
 }

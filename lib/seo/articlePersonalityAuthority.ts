@@ -1,4 +1,4 @@
-import type { CmsArticle } from "@/lib/cms/articles";
+import type { CmsArticle, CmsArticleSeoAuthorityProjection } from "@/lib/cms/articles";
 import type { PersonalityProjectionViewModel } from "@/lib/cms/personality";
 
 export type ArticleJsonLdAuthoritySource =
@@ -29,6 +29,7 @@ export type ArticleJsonLdAuthorityGate = {
 
 export type ArticleSchemaGateSource =
   | "noindex_hold"
+  | "backend_authority_projection"
   | "explicit_cms_schema_gate"
   | "legacy_schema_compatibility_allowlist"
   | "schema_hold_default";
@@ -43,6 +44,7 @@ export type ArticleSchemaGate = {
 
 export type ArticleHreflangGateSource =
   | "noindex_hold"
+  | "backend_authority_projection"
   | "explicit_cms_hreflang_gate"
   | "legacy_hreflang_compatibility_allowlist"
   | "hreflang_hold_default";
@@ -254,9 +256,32 @@ export function resolveArticleSchemaGate(input: {
   noindex: boolean;
   cmsArticleSeoJsonLd: unknown | null;
   article: Pick<CmsArticle, "slug" | "seoMeta">;
+  projectedAuthority?: CmsArticleSeoAuthorityProjection | null;
 }): ArticleSchemaGate {
   if (input.noindex) {
     return articleSchemaGate("noindex_hold", false, "Noindex articles must not emit Article/Breadcrumb/FAQ JSON-LD.");
+  }
+
+  if (Object.prototype.hasOwnProperty.call(input, "projectedAuthority")) {
+    const projectedAuthority = input.projectedAuthority;
+    const explicitSchemaGate = readArticleSchemaGate(input.article.seoMeta);
+    return articleSchemaGate(
+      "backend_authority_projection",
+      {
+        article: Boolean(
+          projectedAuthority?.structuredDataEligibility.article
+          && projectedAuthority.structuredDataFragments.article,
+        ),
+        breadcrumb: Boolean(
+          projectedAuthority?.structuredDataEligibility.breadcrumbList
+          && projectedAuthority.structuredDataFragments.breadcrumbList,
+        ),
+        faq: Boolean(projectedAuthority)
+          && explicitSchemaGate.hasExplicitSchemaGate
+          && explicitSchemaGate.allowances.faq,
+      },
+      "Backend Article SEO authority controls Article/Breadcrumb output; visible FAQ schema remains separately explicit and fail-closed.",
+    );
   }
 
   const explicitSchemaGate = readArticleSchemaGate(input.article.seoMeta);
@@ -286,9 +311,25 @@ export function resolveArticleSchemaGate(input: {
 export function resolveArticleHreflangGate(input: {
   noindex: boolean;
   article: Pick<CmsArticle, "slug" | "seoMeta">;
+  projectedAuthority?: CmsArticleSeoAuthorityProjection | null;
 }): ArticleHreflangGate {
   if (input.noindex) {
     return articleHreflangGate("noindex_hold", false, "Noindex articles must not emit hreflang or x-default alternates.");
+  }
+
+  if (Object.prototype.hasOwnProperty.call(input, "projectedAuthority")) {
+    const projectedAuthority = input.projectedAuthority;
+    const canRenderHreflang = Boolean(
+      projectedAuthority?.publishedRevisionBacked
+      && projectedAuthority.alternateEligibility.eligibleLocales.length > 0,
+    );
+    return articleHreflangGate(
+      "backend_authority_projection",
+      canRenderHreflang,
+      canRenderHreflang
+        ? "Backend Article SEO authority exposes published, indexable locale siblings."
+        : "Backend Article SEO authority exposes no eligible locale siblings.",
+    );
   }
 
   if (readHreflangGateValue(input.article.seoMeta)) {

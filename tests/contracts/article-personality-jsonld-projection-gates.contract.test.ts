@@ -8,6 +8,7 @@ import {
   resolvePersonalityFallbackProjectionGate,
 } from "@/lib/seo/articlePersonalityAuthority";
 import { normalizeArticleJsonLdAuthorityPayload } from "@/lib/seo/articleJsonLdAuthority";
+import type { CmsArticleSeoAuthorityProjection } from "@/lib/cms/articles";
 
 const ROOT = process.cwd();
 const ARTIFACT_PATH = path.join(ROOT, "docs/seo/generated/article-personality-jsonld-projection-gates.v1.json");
@@ -244,7 +245,81 @@ describe("Article / Personality JSON-LD and projection gates", () => {
     });
   });
 
-  it("fills missing publisher on API-backed Article JSON-LD without enabling FAQ schema", () => {
+  it("lets the final backend projection override legacy Article/Breadcrumb gates and fail closed when absent", () => {
+    const projectedAuthority: CmsArticleSeoAuthorityProjection = {
+      contractVersion: "article.seo.authority.v1",
+      publishedRevisionBacked: true,
+      alternateEligibility: {
+        basis: "published_indexable_locale_siblings",
+        currentLocale: "en",
+        eligibleLocales: ["en"],
+        alternates: {
+          en: "https://fermatmind.com/en/articles/schema-authority",
+          "zh-CN": null,
+        },
+      },
+      structuredDataEligibility: {
+        basis: "cms_explicit_schema_gates",
+        article: true,
+        breadcrumbList: true,
+      },
+      structuredDataFragments: {
+        article: { "@type": "Article", headline: "Backend headline" },
+        breadcrumbList: { "@type": "BreadcrumbList", itemListElement: [] },
+      },
+    };
+    const projectedGate = resolveArticleSchemaGate({
+      noindex: false,
+      cmsArticleSeoJsonLd: projectedAuthority.structuredDataFragments.article,
+      article: { slug: "schema-authority", seoMeta: null },
+      projectedAuthority,
+    });
+    const missingProjectionGate = resolveArticleSchemaGate({
+      noindex: false,
+      cmsArticleSeoJsonLd: { "@type": "Article" },
+      article: {
+        slug: "what-is-riasec-holland-code-career-interest-test",
+        seoMeta: { schema_json: { schema_gate_v1: { enabled: true } } },
+      },
+      projectedAuthority: null,
+    });
+    const projectedHreflangGate = resolveArticleHreflangGate({
+      noindex: false,
+      article: { slug: "schema-authority", seoMeta: null },
+      projectedAuthority,
+    });
+    const missingProjectionHreflangGate = resolveArticleHreflangGate({
+      noindex: false,
+      article: {
+        slug: "what-is-riasec-holland-code-career-interest-test",
+        seoMeta: { schema_json: { hreflang_gate_v1: { enabled: true } } },
+      },
+      projectedAuthority: null,
+    });
+
+    expect(projectedGate).toMatchObject({
+      source: "backend_authority_projection",
+      canRenderArticleJsonLd: true,
+      canRenderBreadcrumbJsonLd: true,
+      canRenderFAQPageJsonLd: false,
+    });
+    expect(missingProjectionGate).toMatchObject({
+      source: "backend_authority_projection",
+      canRenderArticleJsonLd: false,
+      canRenderBreadcrumbJsonLd: false,
+      canRenderFAQPageJsonLd: false,
+    });
+    expect(projectedHreflangGate).toMatchObject({
+      source: "backend_authority_projection",
+      canRenderHreflang: true,
+    });
+    expect(missingProjectionHreflangGate).toMatchObject({
+      source: "backend_authority_projection",
+      canRenderHreflang: false,
+    });
+  });
+
+  it("preserves backend Article authorship without inventing publisher authority or FAQ schema", () => {
     const normalized = normalizeArticleJsonLdAuthorityPayload({
       "@context": "https://schema.org",
       "@type": "Article",
@@ -257,14 +332,10 @@ describe("Article / Personality JSON-LD and projection gates", () => {
     }) as Record<string, unknown>;
 
     expect(normalized.author).toMatchObject({
-      "@type": "Organization",
-      name: "Fermat Institute",
+      "@type": "Person",
+      name: "Backend Author",
     });
-    expect(normalized.publisher).toMatchObject({
-      "@type": "Organization",
-      name: "FermatMind",
-      url: "https://fermatmind.com",
-    });
+    expect(normalized).not.toHaveProperty("publisher");
     expect(JSON.stringify(normalized)).not.toContain("FAQPage");
   });
 

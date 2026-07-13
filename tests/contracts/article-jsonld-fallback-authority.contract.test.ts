@@ -80,18 +80,14 @@ describe("Article JSON-LD fallback authority contract", () => {
     });
   });
 
-  it("anchors the current fallback source without accepting it as final authority", () => {
+  it("closes the article runtime fallback against the final backend authority projection", () => {
     const fixture = readFixture();
+    const articlePage = readSource("app/(localized)/[locale]/articles/[slug]/page.tsx");
+    const articleAdapter = readSource("lib/cms/articles.ts");
 
     for (const fallback of fixture.trackedFallbacks) {
-      const source = readSource(fallback.source);
-
-      for (const token of fallback.requiredTokens) {
-        expect(source, `${fallback.id} missing ${token}`).toContain(token);
-      }
-
       for (const token of fallback.forbiddenTokens) {
-        expect(source, `${fallback.id} must not contain ${token}`).not.toContain(token);
+        expect(articlePage, `${fallback.id} must not contain ${token}`).not.toContain(token);
       }
 
       expect(fallback.temporaryAllowance).toContain("Compatibility");
@@ -99,6 +95,11 @@ describe("Article JSON-LD fallback authority contract", () => {
         expect.arrayContaining(["article_geo_expansion", "large_article_seo_rollout"])
       );
     }
+
+    expect(articleAdapter).toContain('projection.contract_version !== "article.seo.authority.v1"');
+    expect(articleAdapter).toContain("structuredDataFragments.article");
+    expect(articlePage).toContain("projectedAuthority: seo?.authority ?? null");
+    expect(articlePage).toContain("seo?.authority?.structuredDataFragments.breadcrumbList ?? null");
   });
 
   it("keeps non-Article support detail pages out of the Article JSON-LD fallback gate", () => {
@@ -117,7 +118,7 @@ describe("Article JSON-LD fallback authority contract", () => {
     }
   });
 
-  it("documents the migration blocker without changing runtime output", () => {
+  it("preserves the historical migration evidence without widening discoverability", () => {
     const fixture = readFixture();
     const doc = fs.readFileSync(DOC_PATH, "utf8");
 
@@ -126,11 +127,9 @@ describe("Article JSON-LD fallback authority contract", () => {
     expect(doc).toContain("migration_required");
     expect(doc).toContain("Topic Graph");
     expect(fixture.futureFailGate.blocksMergeWhenEnabled).toBe(true);
-    expect(fixture.requirements).toEqual(
-      expect.arrayContaining([
-        expect.stringContaining("visible article title"),
-        expect.stringContaining("Frontend fallback must remain tracked"),
-      ])
-    );
+    expect(fixture.requirements).toEqual(expect.arrayContaining([
+      expect.stringContaining("visible article title"),
+      expect.stringContaining("Frontend fallback must remain tracked"),
+    ]));
   });
 });
