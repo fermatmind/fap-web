@@ -59,4 +59,12 @@ describe("MBTI-FULL-AUDIT-30 inventory and runtime baseline", () => {
     });
     expect(evidence.private_url_leaks).toEqual([]);
   });
+
+  it("publishes the shared baseline artifact atomically for parallel package builders", () => {
+    const source = fs.readFileSync(script, "utf8");
+
+    expect(source).toContain("const temporaryPath = `${absolutePath}.${process.pid}.tmp`");
+    expect(source).toContain("fs.renameSync(temporaryPath, absolutePath)");
+    expect(source).not.toContain("fs.writeFileSync(absolutePath, value);");
+  });
 });

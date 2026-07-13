@@ -34,7 +34,9 @@ function readJson(relativePath) {
 function write(relativePath, value) {
   const absolutePath = path.join(ROOT, relativePath);
   fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
-  fs.writeFileSync(absolutePath, value);
+  const temporaryPath = `${absolutePath}.${process.pid}.tmp`;
+  fs.writeFileSync(temporaryPath, value);
+  fs.renameSync(temporaryPath, absolutePath);
 }
 
 function assert(condition, message) {
