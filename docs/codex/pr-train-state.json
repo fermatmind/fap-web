@@ -45329,17 +45329,17 @@
     "branch": "codex/public-stability-web-05",
     "title": "PUBLIC-STABILITY-WEB-05: budget personality public link prefetch",
     "depends_on": ["PUBLIC-STABILITY-WEB-04"],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "081eb4262fe54381760fe35f37194530ad1d8f6c",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1752",
     "checks": {"manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal explicitly authorized this entry."}, "dependency": {"status": "pass", "evidence": "PUBLIC-STABILITY-WEB-04 PR #1749 is MERGED at b135c22affa9ef5b46bc8d4945a497d2f4ff3a48; origin/main contains the merge commit and local/remote task branch cleanup completed."}, "required_local_checks": {"status": "pass", "evidence": "On latest origin/main with canonical Node 24 and pnpm 10: focused personality prefetch budget Vitest passes 4/4; lint, spacing, typecheck, explicit public site/API production build with 206/206 static pages, YAML/JSON parsing, diff checks, and exact five-path allowlist validation pass."}, "github_required_checks": {"status": "pending", "evidence": null}},
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
-    "history": [{"at": "2026-07-13T21:09:03Z", "status": "in_progress", "summary": "Started from clean synced origin/main after WEB-04 post-merge revalidation. Scope is personality public link prefetch budgeting only: long-tail grids opt out while primary actions retain default prefetch. No adapter, content, CMS, publish, cache, or deploy change is authorized."}, {"at": "2026-07-13T21:15:17Z", "status": "local_verified", "summary": "After rebasing onto the latest origin/main, focused prefetch budget contracts pass 4/4; lint, spacing, typecheck, explicit production build, parse, diff, and exact five-path scope validation pass. Primary personality actions retain default prefetch while repeated long-tail grids opt out."}],
-    "updated_at": "2026-07-13T21:15:17Z"
+    "history": [{"at": "2026-07-13T21:09:03Z", "status": "in_progress", "summary": "Started from clean synced origin/main after WEB-04 post-merge revalidation. Scope is personality public link prefetch budgeting only: long-tail grids opt out while primary actions retain default prefetch. No adapter, content, CMS, publish, cache, or deploy change is authorized."}, {"at": "2026-07-13T21:15:17Z", "status": "local_verified", "summary": "After rebasing onto the latest origin/main, focused prefetch budget contracts pass 4/4; lint, spacing, typecheck, explicit production build, parse, diff, and exact five-path scope validation pass. Primary personality actions retain default prefetch while repeated long-tail grids opt out."}, {"at": "2026-07-13T21:17:23Z", "status": "github_checks_pending", "summary": "Committed and pushed the exact five-path WEB-05 scope at 081eb4262fe54381760fe35f37194530ad1d8f6c and opened PR #1752. Required GitHub checks are pending; no CMS, production, publish, warm, purge, migration, or deploy action occurred."}],
+    "updated_at": "2026-07-13T21:17:23Z"
   },
   "PUBLIC-STABILITY-WEB-06": {
     "id": "PUBLIC-STABILITY-WEB-06",
