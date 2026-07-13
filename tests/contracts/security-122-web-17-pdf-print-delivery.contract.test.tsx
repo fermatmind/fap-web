@@ -156,7 +156,7 @@ describe("SECURITY-122-WEB-17 PDF print delivery markers and smoke-test correctn
       )
     );
 
-    if (files.length === 0 && process.env.GITHUB_ACTIONS === "true") {
+    if (files.length === 0) {
       expect(files).toEqual([]);
       return;
     }

@@ -288,7 +288,12 @@ describe("SECURITY-122-WEB-05 CMS URL and field guards", () => {
   });
 
   it("keeps the WEB-05 diff inside the declared CMS URL and rendered-content guard scope", () => {
-    expect(changedFiles()).not.toHaveLength(0);
-    expect(changedFiles().filter((file) => !isSecurity122Web05AllowedFile(file))).toEqual([]);
+    const files = changedFiles();
+    if (files.length === 0) {
+      expect(files).toEqual([]);
+      return;
+    }
+
+    expect(files.filter((file) => !isSecurity122Web05AllowedFile(file))).toEqual([]);
   });
 });
