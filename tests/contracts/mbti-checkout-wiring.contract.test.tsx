@@ -32,6 +32,7 @@ const hoisted = vi.hoisted(() => ({
   captureError: vi.fn(),
   trackEvent: vi.fn(),
   trackObservableFunnelEvent: vi.fn(),
+  recoverAlipayReturnContext: vi.fn(),
   routerReplace: vi.fn(),
 }));
 
@@ -58,6 +59,7 @@ vi.mock("@/lib/api/v0_3", async () => {
     ...actual,
     createAttemptShare: hoisted.createAttemptShare,
     createCheckoutOrOrder: hoisted.createCheckoutOrOrder,
+    recoverAlipayReturnContext: hoisted.recoverAlipayReturnContext,
   };
 });
 
@@ -976,6 +978,8 @@ describe("MBTI checkout wiring contract", () => {
   });
 
   it("routes native Alipay out_trade_no returns back into wait flow", async () => {
+    hoisted.recoverAlipayReturnContext.mockRejectedValueOnce(new Error("Recovery lookup unavailable"));
+
     render(
       <OrderReturnFallbackClient
         locale="en"
