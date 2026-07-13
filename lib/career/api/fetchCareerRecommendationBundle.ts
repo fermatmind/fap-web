@@ -1,7 +1,8 @@
-import { ApiError, apiClient } from "@/lib/api-client";
+import { apiClient } from "@/lib/api-client";
 import type { CareerRecommendationBundleResponseRaw } from "@/lib/career/api/types";
 import { toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
+import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
 
 type FetchCareerRecommendationBundleInput = {
   locale: Locale | string;
@@ -23,7 +24,7 @@ export async function fetchCareerRecommendationBundle(
   }
 
   try {
-    return await apiClient.get<CareerRecommendationBundleResponseRaw>(
+    return await apiClient.getPublic<CareerRecommendationBundleResponseRaw>(
       `/v0.5/career/recommendations/mbti/${encodeURIComponent(normalizedType)}${buildQuery(input.locale)}`,
       {
         locale: input.locale,
@@ -32,10 +33,10 @@ export async function fetchCareerRecommendationBundle(
       }
     );
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isAuthoritativePublicAbsence(error)) {
       return null;
     }
 
-    return null;
+    throw error;
   }
 }

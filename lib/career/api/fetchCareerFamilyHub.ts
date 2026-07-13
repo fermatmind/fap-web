@@ -1,7 +1,8 @@
-import { ApiError, apiClient } from "@/lib/api-client";
+import { apiClient } from "@/lib/api-client";
 import type { CareerFamilyHubResponseRaw } from "@/lib/career/api/types";
 import { toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
+import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
 
 type FetchCareerFamilyHubInput = {
   locale: Locale | string;
@@ -23,7 +24,7 @@ export async function fetchCareerFamilyHub(
   }
 
   try {
-    return await apiClient.get<CareerFamilyHubResponseRaw>(
+    return await apiClient.getPublic<CareerFamilyHubResponseRaw>(
       `/v0.5/career/family/${encodeURIComponent(normalizedSlug)}${buildQuery(input.locale)}`,
       {
         locale: input.locale,
@@ -32,10 +33,10 @@ export async function fetchCareerFamilyHub(
       }
     );
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isAuthoritativePublicAbsence(error)) {
       return null;
     }
 
-    return null;
+    throw error;
   }
 }
