@@ -148,14 +148,8 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
-  const [article, seo] = await Promise.all([
-    getCmsArticleWithLastKnownGood(slug, locale)
-      .then((result) => result.value)
-      .catch(() => null),
-    getCmsArticleSeoWithLastKnownGood(slug, locale)
-      .then((result) => result.value)
-      .catch(() => null),
-  ]);
+  const article = await getCmsArticleWithLastKnownGood(slug, locale)
+    .then((result) => result.value);
 
   if (!article) {
     return {
@@ -163,6 +157,9 @@ export async function generateMetadata({
       robots: { index: false, follow: false },
     };
   }
+
+  const seo = await getCmsArticleSeoWithLastKnownGood(slug, locale)
+    .then((result) => result.value);
 
   const canonicalPath = buildCanonicalPath(article.slug, locale);
   // Canonical authority now replaces the former pathFromCanonicalUrl page-level repair.
@@ -248,18 +245,15 @@ export default async function ArticleDetailPage({
   const { locale: localeParam, slug } = await params;
   const locale = resolveLocale(localeParam);
   const dict = await getDict(locale);
-  const [article, seo] = await Promise.all([
-    getCmsArticleWithLastKnownGood(slug, locale)
-      .then((result) => result.value)
-      .catch(() => null),
-    getCmsArticleSeoWithLastKnownGood(slug, locale)
-      .then((result) => result.value)
-      .catch(() => null),
-  ]);
+  const article = await getCmsArticleWithLastKnownGood(slug, locale)
+    .then((result) => result.value);
 
   if (!article) {
     return notFound();
   }
+
+  const seo = await getCmsArticleSeoWithLastKnownGood(slug, locale)
+    .then((result) => result.value);
 
   const canonicalPath = buildCanonicalPath(article.slug, locale);
   const noindex = !article.isIndexable || shouldNoindex(seo?.meta.robots);

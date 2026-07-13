@@ -1,4 +1,4 @@
-import { ApiError, apiClient } from "@/lib/api-client";
+import { apiClient } from "@/lib/api-client";
 import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/api/v0_3";
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { withLastKnownGood, type LastKnownGoodResult } from "@/lib/cms/last-known-good";
@@ -8,6 +8,7 @@ import { stripInternalCmsSlotMarkers } from "@/lib/cms/sanitizeCmsRichText";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { PUBLIC_API_CACHE_OPTIONS, PUBLIC_API_REVALIDATE_SECONDS } from "@/lib/publicApiCache";
+import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
 import { normalizeSeoSurface, type SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
 import { canonicalUrl } from "@/lib/site";
 
@@ -1058,7 +1059,7 @@ export async function getCmsArticles(params: GetCmsArticlesParams): Promise<GetC
       landingSurface: normalizeLandingSurface(response.landing_surface_v1 ?? null),
     };
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404 && allowLocalFallback) {
+    if (allowLocalFallback && isAuthoritativePublicAbsence(error)) {
       return {
         items: [],
         pagination: {
@@ -1256,7 +1257,7 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
 
   try {
     const response = await apiClient
-      .get<CmsArticleApiResponse>(`/v0.5/articles/${encodeURIComponent(normalizedSlug)}${query}`, {
+      .getPublic<CmsArticleApiResponse>(`/v0.5/articles/${encodeURIComponent(normalizedSlug)}${query}`, {
         locale,
         skipAuth: true,
         next: {
@@ -1279,7 +1280,7 @@ export async function getCmsArticle(slug: string, locale: Locale | string): Prom
     article.answerSurface = normalizeAnswerSurface(response.answer_surface_v1 ?? null);
     return article.slug && article.title ? article : null;
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isAuthoritativePublicAbsence(error)) {
       return null;
     }
 
@@ -1316,7 +1317,7 @@ export async function getCmsArticleSeo(slug: string, locale: Locale | string): P
   });
 
   try {
-    const response = await apiClient.get<CmsArticleSeoApiResponse>(
+    const response = await apiClient.getPublic<CmsArticleSeoApiResponse>(
       `/v0.5/articles/${encodeURIComponent(normalizedSlug)}/seo${query}`,
       {
         locale,
@@ -1330,7 +1331,7 @@ export async function getCmsArticleSeo(slug: string, locale: Locale | string): P
 
     return normalizeArticleSeoPayload(response, locale, normalizedSlug);
   } catch (error) {
-    if (error instanceof ApiError && error.status === 404) {
+    if (isAuthoritativePublicAbsence(error)) {
       return null;
     }
 

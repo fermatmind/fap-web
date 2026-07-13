@@ -44858,8 +44858,8 @@
     "branch": "codex/article-fanout-01",
     "title": "ARTICLE-FANOUT-01: remove article label detail fanout",
     "depends_on": ["ARTICLE-CACHE-01"],
-    "status": "ready_to_merge",
-    "commit_sha": "55c0368a346226bfbb73849486f4620e27a41ffc",
+    "status": "merged_reconciled_post_merge_cleanup_complete",
+    "commit_sha": "c62e235a36c2ebdf76c5a971bb91dc0c2a5c0a72",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1714",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The performance PR-train /goal explicitly authorized ARTICLE-FANOUT-01 and manifest/state registration."},
@@ -44867,13 +44867,13 @@
       "required_local_checks": {"status": "pass", "evidence": "Node 24 focused article label, article cleanup, and rich-content contracts passed 37/37 after synchronizing the current-scope source assertion; lint passed with 27 existing warnings and no errors; spacing and typecheck passed; production build generated 206 pages; YAML/JSON, diff whitespace, and exact five-path scope validation passed."},
       "github_required_checks": {"status": "pass", "evidence": "PR #1714 passed build, complete contracts, Big Five freeze, Enneagram freeze, CodeQL analysis, and CodeQL after the current-scope contract fix on head b584ced8."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
-    "history": [{"at": "2026-07-12T18:50:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after ARTICLE-CACHE-01 merge verification. Scope removes per-link article detail hydration while preserving CMS-authored anchor text and existing safe bare-path labels; backend API, CMS mutation, and deploy are excluded."}, {"at": "2026-07-12T19:00:00+08:00", "status": "local_verified", "summary": "Focused contracts 24/24, lint, spacing, Node 24 typecheck, production build, YAML/JSON, diff, and exact four-path scope validation passed. Article rendering no longer scales API calls with internal-link count."}, {"at": "2026-07-12T19:03:00+08:00", "status": "pr_open", "summary": "Committed and pushed the exact four-path scope and opened PR #1714. Required GitHub checks are pending; no staging wait or deploy action is included."}, {"at": "2026-07-12T19:12:00+08:00", "status": "ci_fix", "summary": "Inspected the failed contracts job and found one current-scope source assertion still expected the removed internalLinkLabels argument. Added that contract to the manifest scope, synchronized the assertion, and passed the focused 37-test set."}],
-    "updated_at": "2026-07-12T19:20:00+08:00"
+    "merged_at": "2026-07-12T09:58:03Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
+    "history": [{"at": "2026-07-12T18:50:00+08:00", "status": "in_progress", "summary": "Started from clean fap-web origin/main after ARTICLE-CACHE-01 merge verification. Scope removes per-link article detail hydration while preserving CMS-authored anchor text and existing safe bare-path labels; backend API, CMS mutation, and deploy are excluded."}, {"at": "2026-07-12T19:00:00+08:00", "status": "local_verified", "summary": "Focused contracts 24/24, lint, spacing, Node 24 typecheck, production build, YAML/JSON, diff, and exact four-path scope validation passed. Article rendering no longer scales API calls with internal-link count."}, {"at": "2026-07-12T19:03:00+08:00", "status": "pr_open", "summary": "Committed and pushed the exact four-path scope and opened PR #1714. Required GitHub checks are pending; no staging wait or deploy action is included."}, {"at": "2026-07-12T19:12:00+08:00", "status": "ci_fix", "summary": "Inspected the failed contracts job and found one current-scope source assertion still expected the removed internalLinkLabels argument. Added that contract to the manifest scope, synchronized the assertion, and passed the focused 37-test set."}, {"at": "2026-07-13T15:16:28Z", "status": "merged_reconciled_post_merge_cleanup_complete", "summary": "GitHub PR #1714 is MERGED at bbbdacf0e9001b8a7ae844c8dedbce01fd04b4d7, origin/main contains the merge commit, and the local/remote task branches and task worktree are absent."}],
+    "updated_at": "2026-07-13T15:16:28Z"
   },
   "PERF-OPS-01": {
     "id": "PERF-OPS-01",
@@ -45184,15 +45184,15 @@
     "branch": "codex/public-stability-web-03",
     "title": "PUBLIC-STABILITY-WEB-03: define public content read error semantics",
     "depends_on": [],
-    "status": "ready_to_merge",
-    "commit_sha": "399eeae6ff80ef73be37d140f1135088a501bb70",
+    "status": "merged_reconciled_post_merge_cleanup_complete",
+    "commit_sha": "f9dd7337afc12a6a670975fe23647c8ee875e038",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1739",
     "checks": {"manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal explicitly authorized this entry."}, "dependency": {"status": "pass", "evidence": "This item has no manifest dependencies and was started in the operator's fixed order after WEB-02 post-merge revalidation."}, "required_local_checks": {"status": "pass", "evidence": "Focused public read error Vitest 10/10, lint with two pre-existing generated warnings and zero errors, lint:spacing, typecheck, YAML/JSON parsing, and diff checks passed."}, "github_required_checks": {"status": "pass", "evidence": "PR #1739 head 399eeae6ff80ef73be37d140f1135088a501bb70 passed build, contracts, both personality freeze checks, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts."}},
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-13T11:06:43Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -45203,9 +45203,10 @@
       {"at": "2026-07-13T10:52:30Z", "status": "typecheck_failed_current_scope", "summary": "Initial typecheck found the new error-like conditional inferred Error | ApiErrorLike; fixed only the new classifier with an explicit ApiErrorLike annotation."},
       {"at": "2026-07-13T10:53:56Z", "status": "local_verified", "summary": "Focused contract 10/10, lint, spacing, typecheck, parse, diff, and exact four-path scope validation passed; no adapter migration, content fallback, private API, CMS, SEO, or production operation changed."},
       {"at": "2026-07-13T10:54:53Z", "status": "pr_open", "summary": "Committed and pushed the exact four-path scope at 1d882d6d71bd7e277127ef34d30834c617271bdb and opened PR #1739; required GitHub checks are pending."},
-      {"at": "2026-07-13T11:00:43Z", "status": "ready_to_merge", "summary": "PR #1739 head 399eeae6ff80ef73be37d140f1135088a501bb70 passed all required and security checks; GitHub reports MERGEABLE with the exact four allowed paths and no required review block."}
+      {"at": "2026-07-13T11:00:43Z", "status": "ready_to_merge", "summary": "PR #1739 head 399eeae6ff80ef73be37d140f1135088a501bb70 passed all required and security checks; GitHub reports MERGEABLE with the exact four allowed paths and no required review block."},
+      {"at": "2026-07-13T15:16:28Z", "status": "merged_reconciled_post_merge_cleanup_complete", "summary": "GitHub PR #1739 is MERGED at 021287d0dd3f3795c5573f5f77b1f6d50bc4fc4d, origin/main contains the merge commit, and the local/remote task branches and task worktree are absent."}
     ],
-    "updated_at": "2026-07-13T11:00:43Z"
+    "updated_at": "2026-07-13T15:16:28Z"
   },
   "PUBLIC-STABILITY-WEB-04": {
     "id": "PUBLIC-STABILITY-WEB-04",
@@ -45248,15 +45249,30 @@
     "branch": "codex/public-stability-web-06",
     "title": "PUBLIC-STABILITY-WEB-06: preserve editorial transient read errors",
     "depends_on": ["PUBLIC-STABILITY-WEB-02", "PUBLIC-STABILITY-WEB-03", "ARTICLE-CACHE-01"],
-    "status": "user_authorized",
-    "commit_sha": null,
-    "pr_url": null,
-    "checks": {"manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal explicitly authorized this entry."}, "dependency": {"status": "pending", "evidence": null}, "required_local_checks": {"status": "pending", "evidence": null}, "github_required_checks": {"status": "pending", "evidence": null}},
-    "scope_validation": {"allowed_paths_only": false, "local_validation_passed": false, "github_checks_green": false, "post_merge_revalidated": false},
+    "status": "ready_to_merge",
+    "commit_sha": "c5910e883d742c88e4cf334096e46b5449480004",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1742",
+    "checks": {"manifest_registration": {"status": "pass", "evidence": "The full-site public stability /goal and the SAEP PR09 declared dependency authorize this entry."}, "dependency": {"status": "pass", "evidence": "ARTICLE-CACHE-01 PR #1713 merged at c2d7ace861c3fc64bd781f3879477075d42d4721, PUBLIC-STABILITY-WEB-02 PR #1738 merged at 47373184ee4cf24a4b0eb7e65661084435dce7ed, and PUBLIC-STABILITY-WEB-03 PR #1739 merged at 021287d0dd3f3795c5573f5f77b1f6d50bc4fc4d; origin/main contains all three merge commits."}, "required_local_checks": {"status": "pass", "evidence": "After actionable P2 review comment 3572163658, article detail and metadata confirm authoritative article absence before either SEO read. Node 24 manifest-focused contracts pass 47/47, the expanded focused/regression set passes 55/55, full pnpm test:contract passes all four shards with 4196/4196 tests, pnpm lint, pnpm lint:spacing, pnpm typecheck, production build (206/206 static pages), YAML/JSON parsing, git diff checks, and exact nine-path scope validation pass. Six unrelated test-generated SEO/MBTI artifacts were restored before scope validation."}, "github_required_checks": {"status": "pass", "evidence": "PR #1742 head c5910e883d742c88e4cf334096e46b5449480004 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze/aggregate, and no-new-code-scanning-alerts; merge state is CLEAN and both actionable P2 review threads are resolved."}},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
-    "local_cleanup_executed": false
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-13T15:16:28Z", "status": "in_progress", "summary": "Started from clean origin/main in an isolated worktree after verifying all three dependencies merged. The operator primary worktree remains untouched at dirty fingerprint d665882727aac2b4c21f2be20974de899ad374a4960fdeee01f3f94c45dc8ae5. Scope preserves typed transient errors for article, research, and support detail reads; no local editorial fallback, CMS mutation, publish, warm, purge, or deploy is authorized."},
+      {"at": "2026-07-13T15:23:38Z", "status": "local_validation_retry_pending", "summary": "Recorded a pre-compilation Turbopack environment failure caused by an out-of-root node_modules symlink in the isolated worktree. Replaced only that ignored symlink with a frozen offline pnpm dependency tree; tracked files remained unchanged. The exact production build retry is waiting for the repository single-heavy-validation guard to clear."},
+      {"at": "2026-07-13T15:30:56Z", "status": "local_check_failed_repair_in_progress", "summary": "Full pnpm test:contract failed two same-root article list/LKG compatibility assertions: raw fetch error messages were wrapped by getPublic. Restored only the list request to apiClient.get while retaining authoritative-absence classification and typed getPublic detail reads. Four focused plus regression files pass 48/48; exact full contract and production build reruns remain required before push."},
+      {"at": "2026-07-13T15:36:45Z", "status": "local_verified", "summary": "Final code passes the 48-test focused/regression set, full four-shard pnpm test:contract with 4189 tests, and production build with 206 static pages. Test-generated SEO/MBTI artifacts were restored to branch baseline by the scope guard; the intended diff remains exactly nine allowed paths."},
+      {"at": "2026-07-13T15:40:28Z", "status": "committed_local_verified", "summary": "Committed the exact nine-path implementation as 18415d8191e6935515a7a65171fcebf29b58dce6 after explicit path-limited staging and cached diff validation."},
+      {"at": "2026-07-13T15:42:50Z", "status": "pr_open_checks_pending", "summary": "Pushed the scoped branch and opened the single ready PR #1742 with the exact manifest title; required GitHub checks are pending on the ledger-updated head."},
+      {"at": "2026-07-13T15:56:00Z", "status": "review_fix_local_verified", "summary": "Addressed actionable P2 review comment 3572049994 by rejecting malformed and overlong support/guide slugs locally without an API read, while preserving typed contract errors for valid-slug backend 422 responses. The final 54-test focused/regression set, full 4195-test contract suite, production build, lint, spacing, typecheck, and scope gates pass."},
+      {"at": "2026-07-13T15:57:18Z", "status": "review_fix_committed", "summary": "Committed the scoped review repair as 555d9d12496939b4b45fe24befc474f6af633fbb after explicit three-path staging and cached diff validation; required GitHub checks will rerun on the pushed ledger-updated head."},
+      {"at": "2026-07-13T16:05:08Z", "status": "second_review_fix_heavy_validation_pending", "summary": "Addressed actionable P2 review comment 3572163658 by making authoritative article absence win before either SEO read in metadata and page rendering. The 55-test focused/regression set, targeted ESLint, and typecheck pass; full contract and build wait for another active full contract suite to clear the hardware guard."},
+      {"at": "2026-07-13T16:27:18Z", "status": "second_review_fix_local_verified", "summary": "Completed the final second-review validation after the hardware guard cleared: manifest-focused contracts pass 47/47, expanded focused/regression contracts pass 55/55, full contracts pass 4196/4196, production build generates 206/206 static pages, and lint, spacing, typecheck, YAML/JSON, diff, and exact nine-path scope gates pass."},
+      {"at": "2026-07-13T16:28:05Z", "status": "second_review_fix_committed", "summary": "Committed the scoped article-before-SEO review repair as b5e02d1f313a2bec18e747d9216644fa51139256 after explicit three-path staging and cached diff validation; required GitHub checks must rerun on the pushed ledger-updated head."},
+      {"at": "2026-07-13T16:33:22Z", "status": "ready_to_merge", "summary": "PR #1742 head c5910e883d742c88e4cf334096e46b5449480004 passed every required CI and CodeQL check, merge state is CLEAN, exact nine-path scope remains valid, and both actionable P2 review threads are resolved. The ledger-only ready-to-merge head must rerun required checks before squash merge."}
+    ],
+    "updated_at": "2026-07-13T16:33:22Z"
   },
   "PUBLIC-STABILITY-WEB-07": {
     "id": "PUBLIC-STABILITY-WEB-07",

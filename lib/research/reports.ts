@@ -1,5 +1,6 @@
-import { ApiError, apiClient } from "@/lib/api-client";
+import { apiClient } from "@/lib/api-client";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
 
 export const RESEARCH_REPORT_PAGE_ENTITY_TYPE = "research_report" as const;
 export const MAX_RESEARCH_REPORT_SLUG_LENGTH = 128;
@@ -197,7 +198,7 @@ export async function getResearchReport(slug: string, locale: Locale | string): 
   });
 
   try {
-    const response = await apiClient.get<ResearchReportApiResponse>(
+    const response = await apiClient.getPublic<ResearchReportApiResponse>(
       `/v0.5/research/${encodeURIComponent(normalizedSlug)}?${query.toString()}`,
       {
         locale: normalizedLocale,
@@ -208,7 +209,7 @@ export async function getResearchReport(slug: string, locale: Locale | string): 
 
     return normalizeResearchReport(response.report, normalizedSlug);
   } catch (error) {
-    if (error instanceof ApiError && (error.status === 404 || error.status === 422)) {
+    if (isAuthoritativePublicAbsence(error)) {
       return null;
     }
     throw error;

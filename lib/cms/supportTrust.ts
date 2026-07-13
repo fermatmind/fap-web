@@ -1,8 +1,11 @@
-import { ApiError, apiClient } from "@/lib/api-client";
+import { apiClient } from "@/lib/api-client";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
+import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
 
 const DEFAULT_ORG_ID = "0";
+export const MAX_SUPPORT_SLUG_LENGTH = 128;
+const SUPPORT_SLUG_PATTERN = /^[A-Za-z0-9][A-Za-z0-9_-]*$/;
 
 export type SupportArticle = {
   id: number;
@@ -119,6 +122,15 @@ function normalizeText(value: unknown): string {
   return String(value ?? "").trim();
 }
 
+function normalizeSupportSlug(value: unknown): string | null {
+  const slug = normalizeText(value);
+  if (!slug || slug.length > MAX_SUPPORT_SLUG_LENGTH || !SUPPORT_SLUG_PATTERN.test(slug)) {
+    return null;
+  }
+
+  return slug;
+}
+
 function normalizeDate(value: unknown): string | null {
   const normalized = normalizeText(value);
   return normalized || null;
@@ -205,7 +217,7 @@ export function buildInterpretationGuidePath(slug: string, locale: Locale): stri
 
 export async function listSupportArticles(locale: Locale | string): Promise<SupportArticle[]> {
   try {
-    const response = await apiClient.get<SupportArticlesResponse>(`/v0.5/support/articles${buildQuery(locale)}`, {
+    const response = await apiClient.getPublic<SupportArticlesResponse>(`/v0.5/support/articles${buildQuery(locale)}`, {
       locale,
       skipAuth: true,
       ...PUBLIC_API_CACHE_OPTIONS,
@@ -215,7 +227,7 @@ export async function listSupportArticles(locale: Locale | string): Promise<Supp
       ? response.items.map(normalizeSupportArticle).filter((item): item is SupportArticle => item !== null)
       : [];
   } catch (error) {
-    if (error instanceof ApiError && [404, 422].includes(error.status)) {
+    if (isAuthoritativePublicAbsence(error)) {
       return [];
     }
 
@@ -224,13 +236,13 @@ export async function listSupportArticles(locale: Locale | string): Promise<Supp
 }
 
 export async function getSupportArticle(slug: string, locale: Locale | string): Promise<SupportArticle | null> {
-  const normalizedSlug = normalizeText(slug);
+  const normalizedSlug = normalizeSupportSlug(slug);
   if (!normalizedSlug) {
     return null;
   }
 
   try {
-    const response = await apiClient.get<SupportArticlesResponse>(
+    const response = await apiClient.getPublic<SupportArticlesResponse>(
       `/v0.5/support/articles/${encodeURIComponent(normalizedSlug)}${buildQuery(locale)}`,
       {
         locale,
@@ -241,7 +253,7 @@ export async function getSupportArticle(slug: string, locale: Locale | string): 
 
     return normalizeSupportArticle(response.article);
   } catch (error) {
-    if (error instanceof ApiError && [404, 422].includes(error.status)) {
+    if (isAuthoritativePublicAbsence(error)) {
       return null;
     }
 
@@ -251,7 +263,7 @@ export async function getSupportArticle(slug: string, locale: Locale | string): 
 
 export async function listInterpretationGuides(locale: Locale | string): Promise<InterpretationGuide[]> {
   try {
-    const response = await apiClient.get<InterpretationGuidesResponse>(`/v0.5/support/guides${buildQuery(locale)}`, {
+    const response = await apiClient.getPublic<InterpretationGuidesResponse>(`/v0.5/support/guides${buildQuery(locale)}`, {
       locale,
       skipAuth: true,
       ...PUBLIC_API_CACHE_OPTIONS,
@@ -261,7 +273,7 @@ export async function listInterpretationGuides(locale: Locale | string): Promise
       ? response.items.map(normalizeInterpretationGuide).filter((item): item is InterpretationGuide => item !== null)
       : [];
   } catch (error) {
-    if (error instanceof ApiError && [404, 422].includes(error.status)) {
+    if (isAuthoritativePublicAbsence(error)) {
       return [];
     }
 
@@ -270,13 +282,13 @@ export async function listInterpretationGuides(locale: Locale | string): Promise
 }
 
 export async function getInterpretationGuide(slug: string, locale: Locale | string): Promise<InterpretationGuide | null> {
-  const normalizedSlug = normalizeText(slug);
+  const normalizedSlug = normalizeSupportSlug(slug);
   if (!normalizedSlug) {
     return null;
   }
 
   try {
-    const response = await apiClient.get<InterpretationGuidesResponse>(
+    const response = await apiClient.getPublic<InterpretationGuidesResponse>(
       `/v0.5/support/guides/${encodeURIComponent(normalizedSlug)}${buildQuery(locale)}`,
       {
         locale,
@@ -287,7 +299,7 @@ export async function getInterpretationGuide(slug: string, locale: Locale | stri
 
     return normalizeInterpretationGuide(response.guide);
   } catch (error) {
-    if (error instanceof ApiError && [404, 422].includes(error.status)) {
+    if (isAuthoritativePublicAbsence(error)) {
       return null;
     }
 
