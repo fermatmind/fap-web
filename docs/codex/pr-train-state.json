@@ -45056,9 +45056,10 @@
       {"at": "2026-07-13T08:14:00Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train with exactly sixteen A/T comparison URLs; INTP-A vs INTP-T is verify-only."},
       {"at": "2026-07-13T08:15:00Z", "status": "in_progress", "summary": "Started from the latest fap-web main after SP-34 merge. This task creates only non-production CMS-review artifacts and does not mutate CMS, runtime, deploy state, or GSC."},
       {"at": "2026-07-13T08:28:00Z", "status": "local_verified", "summary": "A/T builder and focused contract passed; zero-warning lint, typecheck, production build, YAML/JSON parsing, diff check, and exact seven-file scope validation passed. The full contract runner reproduces only the existing external Career/Big Five llms authority regression and unrelated Career discoverability timeout."},
-      {"at": "2026-07-13T08:31:00Z", "status": "pr_open", "summary": "Pushed 5a85078f176d0e08f07691f462053ebbd77e09c0 and opened PR #1735. Required GitHub checks are pending; no CMS write, deploy, or GSC mutation occurred."}
+      {"at": "2026-07-13T08:31:00Z", "status": "pr_open", "summary": "Pushed 5a85078f176d0e08f07691f462053ebbd77e09c0 and opened PR #1735. Required GitHub checks are pending; no CMS write, deploy, or GSC mutation occurred."},
+      {"at": "2026-07-13T08:37:00Z", "status": "ready_to_merge", "summary": "PR #1735 required checks passed: build, contracts, both freeze checks, CodeQL, and the zero-new-Code-Scanning-alert gate. The recorded external local Career/Big Five llms regression did not reproduce in GitHub required checks."}
     ],
-    "updated_at": "2026-07-13T08:31:00Z"
+    "updated_at": "2026-07-13T08:37:00Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
