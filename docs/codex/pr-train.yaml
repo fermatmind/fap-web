@@ -15175,6 +15175,52 @@ prs:
       auto_merge: true
     next_task: MBTI-CMS-PROFILE-37
 
+  - id: MBTI-CMS-APPROVAL-39
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-cms-approval-39-exact-package
+    base: main
+    depends_on:
+      - MBTI-FULL-QA-36
+      - MBTI-CMS-PROFILE-37
+      - MBTI-CMS-COMP-38
+    mode: execute
+    train_scope: mbti_full_chinese_asset_exact_approval_package
+    risk_level: L1
+    status: in_progress
+    title: "MBTI-CMS-APPROVAL-39: build exact 43-record repair approval package"
+    goal: "Create one artifact-only, CMS-reviewable exact approval package for the forty-three QA-approved Chinese MBTI repair records: twenty-eight profiles and fifteen A/T comparisons. Keep the nine verify-only records excluded, lock field mappings, expected states, hashes, readback, rollback, and manual approval, without importing or publishing content."
+    in_scope:
+      - docs/seo/personality/mbti-cms-approval-39-*
+      - scripts/seo/build-mbti-cms-approval-39-*
+      - tests/contracts/mbti-cms-approval-39-*
+      - generated/pr-train-sidecar-issues/*
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - CMS writes, dry-run import execution, production import, or database migration
+      - frontend runtime or editorial fallback content
+      - sitemap, llms, canonical, robots, JSON-LD, or indexability mutation
+      - GSC mutation, URL Inspection, indexing request, staging, or production deploy
+      - CONTENT-15 verify-only authority rewrites
+      - MBTI-CMS-IMPORT-40 implementation
+    required_local_checks:
+      - node scripts/seo/build-mbti-cms-approval-39-exact-package.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-cms-approval-39-exact-package.contract.test.ts --reporter=dot
+      - corepack pnpm lint . --max-warnings=0
+      - corepack pnpm typecheck
+      - corepack pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-CMS-IMPORT-40
+
   - id: PR-CAREER-KG-00
     repo: fap-web
     repo_path: <workspace>/fap-web
