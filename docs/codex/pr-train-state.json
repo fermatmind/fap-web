@@ -44937,14 +44937,14 @@
     "updated_at": "2026-07-13T18:45:49Z"
   },
   "BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04": {
-    "status": "committed",
+    "status": "pr_open",
     "repo": "fap-web",
     "branch": "codex/big5-authority-v2-web-trust-renderer-04",
     "depends_on": ["BIG5-AUTHORITY-V2-PUBLIC-CONTRACT-03"],
     "train_scope": "big5_authority_v2_web_trust_renderer",
     "title": "BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04: feat(personality): render Big Five source and reviewer authority",
     "commit_sha": "9196fa590c49402a54a1189ebcf376683abcfb19",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1746",
     "checks": {
       "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the exact 38-item Big Five Authority V2 train and normal PR lifecycle for this scope."},
       "dependency": {"status": "passed", "evidence": "BIG5-AUTHORITY-V2-PUBLIC-CONTRACT-03 merged in fap-api PR #3035 at 4f6cba01bdfdc414686111c03e4c40e0567ee909 before PR04 started."},
@@ -44968,9 +44968,10 @@
       {"at": "2026-07-13T18:38:06Z", "status": "in_progress", "summary": "Started in an isolated worktree from latest clean fap-web main after verifying PR03 merged. Scope is frontend read/render/schema consumption only; no CMS, indexability, deploy, import, search-provider, or production write action is authorized."},
       {"at": "2026-07-13T18:45:49Z", "status": "focused_checks_passed", "summary": "Implemented fail-closed V2 authority normalization, visible backend-supplied editorial/source/media/date rendering, and citation/date-only schema enrichment. Focused contract 6/6, typecheck, lint, spacing, and diff whitespace checks passed; full contract and production-URL build remain pending."},
       {"at": "2026-07-13T19:03:18Z", "status": "local_checks_passed", "summary": "All PR04 manifest checks passed under Node 24: focused contract 6/6, full contracts 736 files and 4206 tests, lint, spacing, typecheck, production API/Site URL build, YAML/JSON parse, diff whitespace, and exact six-file scope validation."},
-      {"at": "2026-07-13T19:04:41Z", "status": "committed", "summary": "Committed the exact six-file PR04 implementation and ledger scope at 9196fa590c49402a54a1189ebcf376683abcfb19 after explicit path-limited staging and cached diff validation."}
+      {"at": "2026-07-13T19:04:41Z", "status": "committed", "summary": "Committed the exact six-file PR04 implementation and ledger scope at 9196fa590c49402a54a1189ebcf376683abcfb19 after explicit path-limited staging and cached diff validation."},
+      {"at": "2026-07-13T19:05:53Z", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1746 with the exact manifest title and required what, why, validation, deferred, repository-rule, authority, production-action, and sidecar sections. Required GitHub checks are pending."}
     ],
-    "updated_at": "2026-07-13T19:04:41Z"
+    "updated_at": "2026-07-13T19:05:53Z"
   },
   "BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38": {
     "status": "planned",
