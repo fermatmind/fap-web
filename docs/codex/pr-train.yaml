@@ -15221,6 +15221,49 @@ prs:
       auto_merge: true
     next_task: MBTI-CMS-IMPORT-40
 
+  - id: MBTI-VERIFY-41
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-verify-41-full-readback
+    base: main
+    depends_on:
+      - MBTI-CMS-IMPORT-40
+    mode: execute
+    train_scope: mbti_full_chinese_cms_api_read_only_readback
+    risk_level: L1
+    status: in_progress
+    title: "MBTI-VERIFY-41: verify all 52 MBTI CMS and API records"
+    goal: "Read back exactly 43 imported CMS draft revisions and all 52 zh-CN MBTI public API targets, prove exact fingerprints, required content fields, safe internal links, source references, verify-only preservation, and frontend authority boundaries without treating draft import as public promotion or mutating production state."
+    in_scope:
+      - docs/seo/personality/mbti-verify-41-*
+      - scripts/seo/build-mbti-verify-41-*
+      - tests/contracts/mbti-verify-41-*
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/*
+    out_of_scope:
+      - CMS writes, production import, public promotion, or database mutation
+      - frontend runtime or editorial fallback content
+      - sitemap, llms, canonical, robots, JSON-LD, or indexability mutation
+      - GSC mutation, URL Inspection, indexing request, staging, or production deploy
+      - rewriting the nine verify-only authority records
+    required_local_checks:
+      - node scripts/seo/build-mbti-verify-41-full-readback.mjs --allow-network
+      - corepack pnpm exec vitest run tests/contracts/mbti-verify-41-full-readback.contract.test.ts --reporter=dot
+      - corepack pnpm lint . --max-warnings=0
+      - corepack pnpm typecheck
+      - corepack pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: MBTI-PERF-42
+
   - id: PR-CAREER-KG-00
     repo: fap-web
     repo_path: <workspace>/fap-web

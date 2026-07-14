@@ -45186,13 +45186,13 @@
     "updated_at": "2026-07-13T09:55:40Z"
   },
   "MBTI-CMS-APPROVAL-39": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-cms-approval-39-exact-package",
     "depends_on": ["MBTI-FULL-QA-36", "MBTI-CMS-PROFILE-37", "MBTI-CMS-COMP-38"],
     "train_scope": "mbti_full_chinese_asset_exact_approval_package",
     "title": "MBTI-CMS-APPROVAL-39: build exact 43-record repair approval package",
-    "commit_sha": "d55ef304fb097180b02efa980b69f1fbb9dc3767",
+    "commit_sha": "fb443982a286d68f877ebd71d4ea255fab9bb67a",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1761",
     "checks": {
       "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and manifest/state registration."},
@@ -45200,11 +45200,11 @@
       "local_validation": {"status": "passed", "evidence": "After the isolated MBTI audit artifact atomic-write baseline repair merged at d47e3b6afceeec4e1e53ea8c6f4f5325679457b4, the approval-package builder, focused MBTI-CMS-APPROVAL-39 contract, full four-shard contract runner, zero-warning lint, typecheck, YAML/JSON parsing, diff check, and exact scope validation passed. The final package contains exactly 43 approved repair records and excludes nine verify-only records. No CMS write, runtime, deploy, indexability, sitemap, llms, or GSC action occurred."},
       "github_required_checks": {"status": "passed", "evidence": "PR #1761 head f716851587fe95ea8aa4aa949d1a34974400da24 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, and no-new-code-scanning-alerts."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-13T23:39:09Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {"at": "2026-07-13T14:40:00Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train. Scope is a deterministic 43-record repair approval package only; nine verify-only records remain excluded."},
       {"at": "2026-07-13T14:45:00Z", "status": "in_progress", "summary": "Started from latest fap-web main after verifying the merged QA and API dry-run dependencies. No CMS write, runtime change, indexability mutation, deploy, or GSC action is authorized."},
@@ -45213,9 +45213,38 @@
       {"at": "2026-07-13T16:36:50Z", "status": "blocked_local_validation_external", "summary": "The next authorized complete-contract retry confirmed the three repaired timeout contracts pass in the full runner. The suite still has 23 unrelated failures: Career llms/sitemap, transition/explainability/feedback/recommendation, MBTI64 llms-full, shared sitemap/llms parity, topics, and checkout. No MBTI-CMS-APPROVAL-39 path failed; no PR was opened."},
       {"at": "2026-07-13T23:15:53Z", "status": "local_verified", "summary": "After the isolated audit artifact atomic-write baseline repair merged, the exact 43-record approval-package builder, focused contract, full contract suite, zero-warning lint, typecheck, YAML/JSON validation, diff check, and exact scope validation passed. The nine verify-only records remain excluded; no CMS write, indexability, deploy, or GSC action occurred."},
       {"at": "2026-07-13T23:23:27Z", "status": "pr_open", "summary": "Committed d55ef304fb097180b02efa980b69f1fbb9dc3767, pushed the exact nine-file approval-package scope, and opened PR #1761. Required GitHub checks are pending; no CMS write, runtime, indexability, deploy, or GSC action occurred."},
-      {"at": "2026-07-13T23:28:00Z", "status": "ready_to_merge", "summary": "PR #1761 required checks passed: build, contracts, Big Five freeze, Enneagram freeze, CodeQL, and zero-new-Code-Scanning-alerts. The exact nine-file scope remains clean and artifact-only."}
+      {"at": "2026-07-13T23:28:00Z", "status": "ready_to_merge", "summary": "PR #1761 required checks passed: build, contracts, Big Five freeze, Enneagram freeze, CodeQL, and zero-new-Code-Scanning-alerts. The exact nine-file scope remains clean and artifact-only."},
+      {"at": "2026-07-14T12:09:27Z", "status": "merged", "summary": "Reconciled during MBTI-VERIFY-41: GitHub reports PR #1761 merged at fb443982a286d68f877ebd71d4ea255fab9bb67a, origin/main contains the merge commit, and the task branch is absent locally and remotely."}
     ],
-    "updated_at": "2026-07-13T23:28:00Z"
+    "updated_at": "2026-07-14T12:09:27Z"
+  },
+  "MBTI-VERIFY-41": {
+    "status": "local_verified",
+    "repo": "fap-web",
+    "branch": "codex/mbti-verify-41-full-readback",
+    "depends_on": ["MBTI-CMS-IMPORT-40"],
+    "train_scope": "mbti_full_chinese_cms_api_read_only_readback",
+    "title": "MBTI-VERIFY-41: verify all 52 MBTI CMS and API records",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and manifest/state registration."},
+      "dependency": {"status": "passed", "evidence": "MBTI-CMS-IMPORT-40 is merged and the exact 43-record draft import is present in production CMS revision storage under deployed backend SHA ddb7d0b05806ee29ea83dc2e437a3b1c28d92933."},
+      "read_only_prevalidation": {"status": "passed", "evidence": "Production read-only CMS revision scan found exactly 43 draft revisions with matching safety flags; the public API scan returned all 52 targets. The builder reports PASS_MBTI_VERIFY_41_FULL_READBACK with zero failed records."},
+      "required_local_checks": {"status": "passed", "evidence": "The network builder passed CMS_DRAFT=43/43 and PUBLIC_API=52/52 with FAILED=0; focused Vitest passed 4/4; zero-warning lint, typecheck, all four contract shards, the production API build, YAML/JSON parsing, CSV artifact validation, and git diff --check passed."},
+      "changed_file_scope": {"status": "passed", "evidence": "All nine changed files match the manifest allowlist: mbti-verify-41 docs, builder, focused contract, and the two PR-train metadata files."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-14T12:09:27Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train for read-only validation of exactly 43 imported draft repairs and all 52 public API targets."},
+      {"at": "2026-07-14T12:09:27Z", "status": "in_progress", "summary": "Production CMS draft readback passed 43/43 and public API readback passed 52/52. The 43 repairs remain draft-only and the nine verify-only records remain outside the import batch; no production mutation occurred."},
+      {"at": "2026-07-14T12:34:00Z", "status": "local_verified", "summary": "All manifest checks passed: exact production readback 43/43 and 52/52, focused contract 4/4, zero-warning lint, typecheck, four complete contract shards, production build, YAML/JSON and diff checks, and exact nine-file scope validation. This task remains read-only and does not promote drafts or mutate discoverability."}
+    ],
+    "updated_at": "2026-07-14T12:34:00Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
