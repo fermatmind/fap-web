@@ -44,8 +44,14 @@ const REQUIRED_FALLBACK_IDS = [
   "homepage_forced_items",
 ] as const;
 
-const REMEDIATED_FALLBACK_IDS = new Set(["test_catalog_seed_fallback"]);
-const REMEDIATED_SOURCE_TOKENS = ["apiClient.getPublic", "isAuthoritativePublicAbsence"];
+const REMEDIATED_FALLBACK_REPLACEMENTS: Record<string, string[]> = {
+  test_catalog_seed_fallback: ["apiClient.getPublic", "isAuthoritativePublicAbsence"],
+  personality_fallback_projection: [
+    "getPersonalityProjectionDetailBySlugOrType",
+    "throw detailResult.reason",
+    "return notFound()",
+  ],
+};
 
 type Status = (typeof STATUS_ENUM)[number];
 type Priority = (typeof PRIORITY_ENUM)[number];
@@ -255,11 +261,12 @@ describe("fallback owner gates", () => {
         expect(fs.existsSync(absoluteSource), `${row.id}: ${sourceFile.path}`).toBe(true);
         const sourceText = fs.readFileSync(absoluteSource, "utf8");
 
-        if (REMEDIATED_FALLBACK_IDS.has(row.id)) {
+        const replacementTokens = REMEDIATED_FALLBACK_REPLACEMENTS[row.id];
+        if (replacementTokens) {
           for (const removedToken of sourceFile.requiredTokens) {
             expect(sourceText, `${row.id}: removed source token ${removedToken}`).not.toContain(removedToken);
           }
-          for (const replacementToken of REMEDIATED_SOURCE_TOKENS) {
+          for (const replacementToken of replacementTokens) {
             expect(sourceText, `${row.id}: missing replacement token ${replacementToken}`).toContain(replacementToken);
           }
           continue;
@@ -281,11 +288,12 @@ describe("fallback owner gates", () => {
       expect(fs.existsSync(absoluteSource), sourceGate.source).toBe(true);
       const sourceText = fs.readFileSync(absoluteSource, "utf8");
 
-      if (REMEDIATED_FALLBACK_IDS.has(sourceGate.coveredByFallbackId)) {
+      const replacementTokens = REMEDIATED_FALLBACK_REPLACEMENTS[sourceGate.coveredByFallbackId];
+      if (replacementTokens) {
         for (const removedToken of sourceGate.requiredTokens) {
           expect(sourceText, `${sourceGate.source}: removed source token ${removedToken}`).not.toContain(removedToken);
         }
-        for (const replacementToken of REMEDIATED_SOURCE_TOKENS) {
+        for (const replacementToken of replacementTokens) {
           expect(sourceText, `${sourceGate.source}: missing replacement token ${replacementToken}`).toContain(replacementToken);
         }
         continue;

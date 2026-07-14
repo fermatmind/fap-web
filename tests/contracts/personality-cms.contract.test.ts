@@ -927,8 +927,9 @@ describe("personality cms adapter contract", () => {
     expect(source).toContain("const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);");
     expect(source).toContain("const canonical = canonicalUrl(canonicalPath);");
     expect(source).toContain("url: canonical,");
-    expect(source).toContain('robots: "noindex,nofollow"');
-    expect(source).toContain("isIndexable: false");
+    expect(source).toContain("throw detailResult.reason");
+    expect(source).not.toContain("buildFallbackProjection");
+    expect(source).not.toContain("frontend_gateway_fallback");
     expect(source).toContain("const fallbackProjectionGate = resolvePersonalityFallbackProjectionGate(detail);");
     expect(source).toContain("fallbackProjectionGate.canRenderPublicSchema ? <JsonLd");
   });

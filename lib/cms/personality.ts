@@ -3,8 +3,7 @@ import type { AnswerSurfaceRaw, LandingSurfaceRaw, SeoSurfaceRaw } from "@/lib/a
 import { normalizeAnswerSurface, type AnswerSurfaceViewModel } from "@/lib/answer/answerSurface";
 import { cmsManagedMediaUrl } from "@/lib/cms/media";
 import {
-  PERSONALITY_DETAIL_TIMEOUT_MS,
-  withPersonalityDetailRetry,
+  PERSONALITY_PUBLIC_READ_TIMEOUT_MS,
 } from "@/lib/cms/personalityReadStability";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
@@ -1723,15 +1722,15 @@ async function getPersonalityDetailResponseBySlugOrType(
   });
 
   try {
-    return await withPersonalityDetailRetry(() => apiClient.get<CmsPersonalityDetailApiResponse>(
+    return await apiClient.get<CmsPersonalityDetailApiResponse>(
       `/v0.5/personality/${encodeURIComponent(normalizedSlug)}${query}`,
       {
         locale,
         skipAuth: true,
-        timeoutMs: PERSONALITY_DETAIL_TIMEOUT_MS,
+        timeoutMs: PERSONALITY_PUBLIC_READ_TIMEOUT_MS,
         ...PUBLIC_API_CACHE_OPTIONS,
       }
-    ));
+    );
   } catch (error) {
     if (error instanceof ApiError && error.status === 404) {
       return null;
@@ -1802,6 +1801,7 @@ export async function getPersonalitySeoBySlugOrType(
       {
         locale,
         skipAuth: true,
+        timeoutMs: PERSONALITY_PUBLIC_READ_TIMEOUT_MS,
         ...PUBLIC_API_CACHE_OPTIONS,
       }
     );

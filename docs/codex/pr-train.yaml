@@ -25995,7 +25995,13 @@ prs:
       - lib/cms/personality.ts
       - app/(localized)/[locale]/personality/[type]/page.tsx
       - tests/contracts/mbti-public-read-stability.contract.test.ts
+      - tests/contracts/mbti-profile-authority-read-stability.contract.test.ts
       - tests/contracts/personality-public-content-authority.contract.test.ts
+      - tests/contracts/personality-cms.contract.test.ts
+      - tests/contracts/frontend-fallback-authority-inventory.contract.test.ts
+      - tests/contracts/fallback-owner-gates.contract.test.ts
+      - docs/runtime/frontend-fallback-authority-inventory.md
+      - docs/runtime/fallback-owner-gates.md
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
       - generated/pr-train-sidecar-issues/sidecar_issues.md
