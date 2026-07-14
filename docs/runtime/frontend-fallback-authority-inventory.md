@@ -14,6 +14,14 @@ The generated Phase 1A inventory remains the historical baseline; current
 contract coverage requires the old seed tokens to stay absent and the classified
 public-read/cache adapter tokens to stay present in `lib/content.ts`.
 
+`PUBLIC-STABILITY-WEB-10` removes the runtime
+`personality_fallback_projection`. The page now accepts only the backend/CMS
+personality detail projection (including backend-selected current or LKG data),
+throws transient failures to the public route error boundary, and keeps
+authoritative absence on the not-found path. The generated Phase 1A inventory
+remains historical; current contracts require the recorded fallback tokens to
+stay absent.
+
 ## Classification Taxonomy
 
 ```text

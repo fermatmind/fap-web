@@ -18,6 +18,13 @@ The generated Phase 1B artifact remains the historical inventory baseline; its
 contract now requires the recorded seed tokens to stay absent and the classified
 public-read/cache adapter tokens to stay present in `lib/content.ts`.
 
+`PUBLIC-STABILITY-WEB-10` completes the runtime remediation for
+`personality_fallback_projection`. Backend/CMS personality detail remains the
+content authority, the backend selects current versus LKG data, transient reads
+reach the shared public error boundary, and authoritative absence remains
+not-found. The generated Phase 1B artifact stays as the historical owner-gate
+baseline; its contract now prevents the old fallback tokens from returning.
+
 ## Why This Exists
 
 Phase 1A made frontend fallback authority visible in

@@ -53,7 +53,6 @@ import { canonicalUrl } from "@/lib/site";
 
 export const dynamic = "force-static";
 export const revalidate = 300;
-const PUBLIC_PERSONALITY_VARIANT_RE = /^[ie][ns][ft][jp]-[at]$/i;
 
 type PersonalityIntentLink = {
   key: string;
@@ -535,107 +534,8 @@ function redirectLegacyBaseRouteIfNeeded(type: string, locale: Locale): void {
   permanentRedirect(buildPersonalityFrontendUrl(locale, buildDefaultPublicPersonalitySlug(type)));
 }
 
-function normalizePublicPersonalityVariantSlug(value: string): string | null {
-  const normalized = String(value ?? "").trim().toLowerCase();
-  return PUBLIC_PERSONALITY_VARIANT_RE.test(normalized) ? normalized : null;
-}
-
 function formatMbtiTestCtaLabel(locale: Locale): string {
   return locale === "zh" ? "MBTI免费测试" : "Free MBTI test";
-}
-
-function buildFallbackProjection(type: string, locale: Locale): PersonalityProjection {
-  const displayType = type.toUpperCase();
-  const summary =
-    locale === "zh"
-      ? `${displayType} 人格内容暂时不可用。你仍然可以从这里返回 A/T 人格入口，或重新做一次 MBTI 测试确认自己的类型。`
-      : `${displayType} content is temporarily unavailable. You can still return to the A/T variant browser or retake the MBTI test to confirm your type.`;
-
-  return {
-    runtimeTypeCode: displayType,
-    canonicalTypeCode: displayType.slice(0, 4),
-    displayType,
-    variantCode: displayType.endsWith("-T") ? "T" : "A",
-    profile: {
-      typeName: displayType,
-      nickname: null,
-      rarity: null,
-      keywords: [],
-      heroSummary: summary,
-    },
-    summaryCard: {
-      title: displayType,
-      subtitle: locale === "zh" ? "人格类型内容" : "Personality type content",
-      summary,
-      tagline: locale === "zh" ? "继续浏览人格内容" : "Continue browsing personality content",
-      publicTags: [],
-    },
-    dimensions: [],
-    sections: [],
-    seo: {
-      title: null,
-      description: summary,
-      ogTitle: null,
-      ogDescription: summary,
-      ogImageUrl: null,
-      twitterTitle: null,
-      twitterDescription: summary,
-      twitterImageUrl: null,
-      canonicalUrl: null,
-      robots: "noindex,nofollow",
-      jsonld: null,
-    },
-    offerSet: null,
-    meta: {
-      authoritySource: "frontend_gateway_fallback",
-      routeMode: "fallback",
-      publicRouteType: "personality_detail",
-      schemaVersion: "mbti.public_projection.v1",
-      authorityMeta: null,
-    },
-  };
-}
-
-function buildFallbackPersonalityDetail(type: string, locale: Locale): PersonalityProjectionViewModel | null {
-  const routeSlug = normalizePublicPersonalityVariantSlug(type);
-  if (!routeSlug) {
-    return null;
-  }
-
-  const displayType = routeSlug.toUpperCase();
-  const title = locale === "zh" ? `${displayType} 人格类型` : `${displayType} personality type`;
-  const subtitle = locale === "zh" ? "人格类型内容" : "Personality type content";
-  const summary =
-    locale === "zh"
-      ? `${displayType} 的详细内容暂时不可用。你可以先返回 A/T 人格入口，或重新做一次 MBTI 测试确认自己的类型。`
-      : `${displayType} detail content is temporarily unavailable. You can return to the A/T variant browser or retake the MBTI test to confirm your type.`;
-
-  return {
-    slug: routeSlug,
-    routeSlug,
-    locale,
-    isIndexable: false,
-    heroKicker: locale === "zh" ? "人格类型" : "Personality type",
-    heroQuote: null,
-    heroImageUrl: null,
-    canonicalTypeCode: displayType.slice(0, 4),
-    displayType,
-    typeName: displayType,
-    nickname: null,
-    rarity: null,
-    keywords: [],
-    heroSummary: summary,
-    title,
-    subtitle,
-    summary,
-    projection: buildFallbackProjection(routeSlug, locale),
-    faqSections: [],
-    supplementalSections: [],
-    seoMeta: null,
-    landingSurface: null,
-    answerSurface: null,
-    seoSurface: null,
-  };
 }
 
 const loadPersonalityPublicDetail = cache(async function loadPersonalityPublicDetail(
@@ -648,10 +548,7 @@ const loadPersonalityPublicDetail = cache(async function loadPersonalityPublicDe
   ]);
 
   if (detailResult.status === "rejected") {
-    return {
-      detail: buildFallbackPersonalityDetail(type, locale),
-      seo: null,
-    };
+    throw detailResult.reason;
   }
 
   return {
