@@ -44976,7 +44976,7 @@
     "updated_at": "2026-07-13T19:50:19Z"
   },
   "BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38": {
-    "status": "pr_open",
+    "status": "ci_fix_in_progress",
     "repo": "fap-web",
     "branch": "codex/big5-authority-v2-runtime-closeout-38",
     "depends_on": ["BIG5-AUTHORITY-V2-RELEASE-GATE-37", "separately authorized production deploy if required", "separately authorized production import completed", "production readback evidence available"],
@@ -44993,7 +44993,8 @@
       "artifact_parse_and_rebuild": {"status": "passed", "evidence": "Offline report rebuild reproduced exact 231/106/125/229 counts and fail-closed decision; both JSON artifacts, state JSON, and train YAML parsed successfully."},
       "lint": {"status": "passed", "evidence": "Focused ESLint passed for the runtime-closeout builder and contract."},
       "diff_and_scope": {"status": "passed", "evidence": "git diff --check passed. Exact changed-file validation found 12 files, all within PR38 manifest scope."},
-      "github_required_checks": {"status": "pending", "evidence": "PR #1765 opened; required GitHub checks are pending."}
+      "github_required_checks": {"status": "retry_pending", "evidence": "First PR #1765 run passed build, both freeze suites, and CodeQL analysis; the zero-alert gate reported five new alerts in the one-time network collector. The same-scope fix removes all network and HTML parsing code and keeps a deterministic committed-evidence builder; contracts remained pending when the repair was prepared."},
+      "github_codeql": {"status": "retry_pending", "evidence": "Initial zero-alert gate reported js/double-escaping, js/bad-tag-filter, two js/incomplete-url-substring-sanitization alerts, and js/file-access-to-http. The repair deletes the flagged live collector rather than suppressing or dismissing alerts."}
     },
     "failure_reason": "PR38 fail-closed closeout records 334 public-runtime field failures across all 231 package assets plus two visual samples. The production draft-isolation boundary itself passed with zero critical exposure or private-feed leaks and all 10 legacy redirects passed; runtime repair is outside PR38 scope.",
     "merged_at": null,
@@ -45003,9 +45004,10 @@
       {"at": "2026-07-13T16:17:38Z", "status": "planned", "summary": "Registered as a read-only production closeout gate. It cannot start until PR37 is merged and separately authorized production actions plus real readback evidence exist."},
       {"at": "2026-07-14T23:01:01Z", "status": "in_progress", "summary": "Started PR38 from latest clean fap-web main after PR37 merge, exact production write authorization, collision-safe import, and independent readback. The scan proved all 104 withheld routes remain noindex and absent from sitemap/LLMS, recorded their HTTP 200 soft-404 semantics, verified all 10 legacy aliases return exact 301, and recorded 334 field failures plus visual defects without attempting repair."},
       {"at": "2026-07-14T23:07:00Z", "status": "local_checks_passed", "summary": "All PR38 manifest checks passed: read-only production scan, exact 301 checks, five visual samples, focused contract 5/5 under Node 24, focused lint, deterministic offline artifact rebuild, JSON/YAML parse, whitespace check, and exact 12-file scope validation. Runtime findings remain intentionally recorded without repair."},
-      {"at": "2026-07-14T23:08:43Z", "status": "pr_open", "summary": "Committed the exact 12-file PR38 scope at e90c136e6b561e011894053b9917ea1eb02ec2e2, pushed the scoped branch, and opened PR #1765 with the fail-closed production findings, validation, deferred repairs, and repository-rule impact. Required GitHub checks are pending."}
+      {"at": "2026-07-14T23:08:43Z", "status": "pr_open", "summary": "Committed the exact 12-file PR38 scope at e90c136e6b561e011894053b9917ea1eb02ec2e2, pushed the scoped branch, and opened PR #1765 with the fail-closed production findings, validation, deferred repairs, and repository-rule impact. Required GitHub checks are pending."},
+      {"at": "2026-07-14T23:16:56Z", "status": "ci_fix_in_progress", "summary": "Diagnosed the failed CodeQL aggregate and zero-alert gate: five alerts originated only in the one-time live collector. Removed all network access, local-package-to-HTTP flow, custom HTML filtering, entity decoding, and URL substring checks from the committed builder; retained the immutable live evidence and deterministic offline report. Focused lint, contract 5/5, artifact rebuild, and diff check passed after the repair."}
     ],
-    "updated_at": "2026-07-14T23:08:43Z"
+    "updated_at": "2026-07-14T23:16:56Z"
   },
   "MBTI-FULL-AUDIT-30": {
     "status": "merged",

@@ -127,7 +127,7 @@ describe("BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38", () => {
     }
   });
 
-  it("rebuilds only committed artifacts by default and keeps the closeout read-only", () => {
+  it("rebuilds only committed evidence and contains no production network client", () => {
     const stdout = execFileSync("node", [script], { encoding: "utf8" });
     const evidence = JSON.parse(fs.readFileSync(evidencePath, "utf8"));
     const source = fs.readFileSync(script, "utf8");
@@ -135,8 +135,9 @@ describe("BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38", () => {
     expect(stdout).toContain("FAIL_CLOSED_PUBLIC_RUNTIME_FINDINGS_RECORDED");
     expect(stdout).toContain("ASSETS=231/231");
     expect(stdout).toContain("CRITICAL_DRAFT_BOUNDARY_FAILURES=0");
-    expect(source).toContain('const ALLOW_NETWORK = process.argv.includes("--allow-network")');
-    expect(source).toContain("if (ALLOW_NETWORK)");
+    expect(source).toContain("const evidence = readJson(LIVE_EVIDENCE_PATH)");
+    expect(source).not.toContain("--allow-network");
+    expect(source).not.toContain("fetch(");
     expect(evidence.safety_boundary).toEqual({
       read_only_scan: true,
       production_write_attempted_by_closeout: false,
