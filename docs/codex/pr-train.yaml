@@ -26048,6 +26048,7 @@ prs:
       - lib/career/adapters/adaptCareerIndustryDirectory.ts
       - app/(localized)/[locale]/career/industries/page.tsx
       - tests/contracts/career-industry-directory.contract.test.ts
+      - tests/contracts/career-growth-owned-discovery-links.contract.test.tsx
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
       - generated/pr-train-sidecar-issues/sidecar_issues.md

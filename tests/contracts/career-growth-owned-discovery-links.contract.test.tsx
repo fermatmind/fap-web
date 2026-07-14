@@ -33,6 +33,43 @@ function installCareerIndustryMocks() {
     };
   });
 
+  vi.doMock("@/lib/career/api/fetchCareerIndustryDirectory", () => ({
+    fetchCareerIndustryDirectory: vi.fn(async () => ({
+      authority_version: "career.industry_directory.v1",
+      bundle_kind: "career_industry_directory",
+      bundle_version: "career.industry_directory.v1",
+      locale: "en",
+      public_detail_indexable_count: 2,
+      industry_count: 1,
+      industries: [
+        {
+          slug: "computer-and-information-technology",
+          title: "Computer and Information Technology",
+          title_en: "Computer and Information Technology",
+          title_zh: "计算机与信息技术",
+          count: 2,
+          public_detail_count: 2,
+          indexable_count: 2,
+          canonical_path: "/en/career/industries/computer-and-information-technology",
+          discovery_jobs: [
+            {
+              slug: "data-engineers",
+              title: "Data Engineers",
+              title_en: "Data Engineers",
+              canonical_path: "/en/career/jobs/data-engineers",
+            },
+            {
+              slug: "data-scientists",
+              title: "Data Scientists",
+              title_en: "Data Scientists",
+              canonical_path: "/en/career/jobs/data-scientists",
+            },
+          ],
+        },
+      ],
+    })),
+  }));
+
   vi.doMock("@/lib/career/api/fetchCareerDatasetHub", () => ({
     fetchCareerDatasetHub: vi.fn(async () => ({
       contract_kind: "career_public_dataset_hub",
