@@ -14836,7 +14836,7 @@ prs:
     mode: execute
     train_scope: big5_authority_v2_read_only_production_runtime_closeout
     risk_level: L1
-    status: ci_fix_in_progress
+    status: ready_to_merge
     title: "BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38: docs(qa): close out Big Five V2 production runtime"
     goal: "Perform read-only production verification of the authorized and imported Big Five V2 runtime, recording PASS, FAIL, or UNKNOWN for visible content, metadata, schema, media, links, feeds, redirects, private boundaries, and exact asset counts without mutating production."
     in_scope:
