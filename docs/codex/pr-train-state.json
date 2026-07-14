@@ -45219,7 +45219,7 @@
     "updated_at": "2026-07-14T12:09:27Z"
   },
   "MBTI-VERIFY-41": {
-    "status": "pr_open",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-verify-41-full-readback",
     "depends_on": ["MBTI-CMS-IMPORT-40"],
@@ -45232,9 +45232,10 @@
       "dependency": {"status": "passed", "evidence": "MBTI-CMS-IMPORT-40 is merged and the exact 43-record draft import is present in production CMS revision storage under deployed backend SHA ddb7d0b05806ee29ea83dc2e437a3b1c28d92933."},
       "read_only_prevalidation": {"status": "passed", "evidence": "Production read-only CMS revision scan found exactly 43 draft revisions with matching safety flags; the public API scan returned all 52 targets. The builder reports PASS_MBTI_VERIFY_41_FULL_READBACK with zero failed records."},
       "required_local_checks": {"status": "passed", "evidence": "The network builder passed CMS_DRAFT=43/43 and PUBLIC_API=52/52 with FAILED=0; focused Vitest passed 4/4; zero-warning lint, typecheck, all four contract shards, the production API build, YAML/JSON parsing, CSV artifact validation, and git diff --check passed."},
-      "changed_file_scope": {"status": "passed", "evidence": "All nine changed files match the manifest allowlist: mbti-verify-41 docs, builder, focused contract, and the two PR-train metadata files."}
+      "changed_file_scope": {"status": "passed", "evidence": "All nine changed files match the manifest allowlist: mbti-verify-41 docs, builder, focused contract, and the two PR-train metadata files."},
+      "github_required_checks": {"status": "passed", "evidence": "PR #1764 head 3ea831b256e451eb73db605c0d45432d8d48072f passed build, contracts, Big Five freeze, Enneagram freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -45243,9 +45244,10 @@
       {"at": "2026-07-14T12:09:27Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train for read-only validation of exactly 43 imported draft repairs and all 52 public API targets."},
       {"at": "2026-07-14T12:09:27Z", "status": "in_progress", "summary": "Production CMS draft readback passed 43/43 and public API readback passed 52/52. The 43 repairs remain draft-only and the nine verify-only records remain outside the import batch; no production mutation occurred."},
       {"at": "2026-07-14T12:34:00Z", "status": "local_verified", "summary": "All manifest checks passed: exact production readback 43/43 and 52/52, focused contract 4/4, zero-warning lint, typecheck, four complete contract shards, production build, YAML/JSON and diff checks, and exact nine-file scope validation. This task remains read-only and does not promote drafts or mutate discoverability."},
-      {"at": "2026-07-14T12:38:00Z", "status": "pr_open", "summary": "Committed the exact nine-file scope, pushed codex/mbti-verify-41-full-readback, and opened PR #1764. Required GitHub checks are pending; no production, CMS, discoverability, or GSC mutation occurred."}
+      {"at": "2026-07-14T12:38:00Z", "status": "pr_open", "summary": "Committed the exact nine-file scope, pushed codex/mbti-verify-41-full-readback, and opened PR #1764. Required GitHub checks are pending; no production, CMS, discoverability, or GSC mutation occurred."},
+      {"at": "2026-07-14T12:44:00Z", "status": "ready_to_merge", "summary": "PR #1764 passed build, contracts, both personality freeze checks, CodeQL, and the zero-new-alert gate. The exact nine-file scope was revalidated and remains read-only."}
     ],
-    "updated_at": "2026-07-14T12:38:00Z"
+    "updated_at": "2026-07-14T12:44:00Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
