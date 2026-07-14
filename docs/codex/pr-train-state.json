@@ -45219,14 +45219,14 @@
     "updated_at": "2026-07-14T12:09:27Z"
   },
   "MBTI-VERIFY-41": {
-    "status": "local_verified",
+    "status": "pr_open",
     "repo": "fap-web",
     "branch": "codex/mbti-verify-41-full-readback",
     "depends_on": ["MBTI-CMS-IMPORT-40"],
     "train_scope": "mbti_full_chinese_cms_api_read_only_readback",
     "title": "MBTI-VERIFY-41: verify all 52 MBTI CMS and API records",
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "b089d9877fe23c8485f79d2df688f268f023b08c",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1764",
     "checks": {
       "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and manifest/state registration."},
       "dependency": {"status": "passed", "evidence": "MBTI-CMS-IMPORT-40 is merged and the exact 43-record draft import is present in production CMS revision storage under deployed backend SHA ddb7d0b05806ee29ea83dc2e437a3b1c28d92933."},
@@ -45242,9 +45242,10 @@
     "history": [
       {"at": "2026-07-14T12:09:27Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train for read-only validation of exactly 43 imported draft repairs and all 52 public API targets."},
       {"at": "2026-07-14T12:09:27Z", "status": "in_progress", "summary": "Production CMS draft readback passed 43/43 and public API readback passed 52/52. The 43 repairs remain draft-only and the nine verify-only records remain outside the import batch; no production mutation occurred."},
-      {"at": "2026-07-14T12:34:00Z", "status": "local_verified", "summary": "All manifest checks passed: exact production readback 43/43 and 52/52, focused contract 4/4, zero-warning lint, typecheck, four complete contract shards, production build, YAML/JSON and diff checks, and exact nine-file scope validation. This task remains read-only and does not promote drafts or mutate discoverability."}
+      {"at": "2026-07-14T12:34:00Z", "status": "local_verified", "summary": "All manifest checks passed: exact production readback 43/43 and 52/52, focused contract 4/4, zero-warning lint, typecheck, four complete contract shards, production build, YAML/JSON and diff checks, and exact nine-file scope validation. This task remains read-only and does not promote drafts or mutate discoverability."},
+      {"at": "2026-07-14T12:38:00Z", "status": "pr_open", "summary": "Committed the exact nine-file scope, pushed codex/mbti-verify-41-full-readback, and opened PR #1764. Required GitHub checks are pending; no production, CMS, discoverability, or GSC mutation occurred."}
     ],
-    "updated_at": "2026-07-14T12:34:00Z"
+    "updated_at": "2026-07-14T12:38:00Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
