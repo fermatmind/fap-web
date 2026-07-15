@@ -45683,8 +45683,8 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-api PR #3100 is MERGED at a2e545ec70073d97793dcd1ba3e174f6b7ff0112; fap-api origin/main contains the merge commit and predecessor cleanup plus post-merge focused revalidation completed."
     },
-    "status": "ready_to_merge",
-    "commit_sha": "9dca60b27fc364c73e6e705d091f48c372548399",
+    "status": "review_fixes_validated_checks_pending",
+    "commit_sha": "076c2ae86861582d7ae7a7966f8a816183f5e7f5",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1770",
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The explicit serial /goal supplied the exact PR03 and PR21 ids, repos, branches, titles, dependencies, and scopes."},
@@ -45694,10 +45694,10 @@
       "yaml_json": {"status": "pass", "evidence": "PR-train YAML, state JSON, and all Enneagram public-personality packet JSON files parsed successfully."},
       "diff_check": {"status": "pass", "evidence": "git diff --check passed before staging."},
       "exact_scope": {"status": "pass", "evidence": "29 changed or untracked paths are inside the PR03 allowlist; no app, components, lib, public, or scripts runtime path changed."},
-      "github": {"status": "pass", "evidence": "Head d6b03a3e5bcc5ea631695fecb3968feb91203d40 passed all seven required and security checks: build, contracts, both contract-freeze gates, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts."},
-      "review": {"status": "pass", "evidence": "All seven actionable review threads are resolved. The final P2 repair uses the approved non-delegation path: Authority V2 populates asset_selection directly from the backend-authoritative 58-identity registry and does not route through the stale legacy V1 selector."}
+      "github": {"status": "pending_review_fix_rerun", "evidence": "Ready ledger head 3839228f2eddda3838766b5eeae544137f193345 passed all seven required and security checks. Final-head rerun is pending after the portable YAML alias-validation repair in 076c2ae86861582d7ae7a7966f8a816183f5e7f5."},
+      "review": {"status": "fix_validated_pending_push", "evidence": "Seven earlier threads remain resolved. The newest P2 is addressed with YAML.safe_load(File.read(...), aliases: true), which enables anchors on Ruby 3.4/Psych while remaining compatible with the local Ruby 2.6/Psych 3.1 runtime. Both PR03 and registered PR21 commands are covered by the focused contract."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -45722,9 +45722,10 @@
       {"at": "2026-07-15T04:34:31Z", "status": "review_fixes_validated_checks_pending", "summary": "Addressed the two new P2 findings without touching the out-of-scope runner schema or cross-repository manifests: Authority V2 now locks the 58 existing identities through schema-supported asset_selection, and the handoff requires owning fap-api registration before identifying the next backend task. Focused 7-file contracts pass 56 tests, two touched tests pass ESLint, packet JSON parses, and diff check passes. Implementation head 8f5fdcbd40f03e94b70fb0cbe40516e9f950cb98 is recorded; final checks and thread resolution remain pending."},
       {"at": "2026-07-15T04:40:04Z", "status": "github_checks_green_review_pending", "summary": "Head 1562e131e5c62e153bc7f830c8d999025b71bedf passed all seven required and security checks, but one new P2 review thread arrived before merge, so merge remained held."},
       {"at": "2026-07-15T04:41:19Z", "status": "review_fixes_validated_checks_pending", "summary": "Addressed the newest P2 without changing the out-of-allowlist legacy asset-selection runbook: current Enneagram Authority V2 explicitly populates required asset_selection from the backend-authoritative 58-identity registry and forbids delegation to the stale V1 selector. Focused 7-file contracts pass 56 tests, focused ESLint passes, and diff check passes. Implementation head 9dca60b27fc364c73e6e705d091f48c372548399 is recorded; final checks and thread resolution remain pending."},
-      {"at": "2026-07-15T04:47:45Z", "status": "ready_to_merge", "summary": "Final review-fix head d6b03a3e5bcc5ea631695fecb3968feb91203d40 passed all seven required and security checks. Exact scope remains 29 allowed paths with zero runtime paths, and all seven actionable review threads are resolved. This ledger-only ready head must rerun required checks before squash merge."}
+      {"at": "2026-07-15T04:47:45Z", "status": "ready_to_merge", "summary": "Final review-fix head d6b03a3e5bcc5ea631695fecb3968feb91203d40 passed all seven required and security checks. Exact scope remains 29 allowed paths with zero runtime paths, and all seven actionable review threads are resolved. This ledger-only ready head must rerun required checks before squash merge."},
+      {"at": "2026-07-15T04:55:55Z", "status": "review_fixes_validated_checks_pending", "summary": "Ready ledger head 3839228f2eddda3838766b5eeae544137f193345 passed all seven checks, but a new P2 identified Ruby 3.4/Psych alias handling in the registered PR03 and PR21 YAML validation commands. Replaced both with the cross-version YAML.safe_load(File.read(...), aliases: true) form and added a focused regression. Local Ruby 2.6/Psych 3.1 parsing passes, Node 24 focused contracts pass 7 files / 57 tests, ESLint and diff checks pass, and implementation head 076c2ae86861582d7ae7a7966f8a816183f5e7f5 is recorded. Final-head checks and thread resolution remain pending."}
     ],
-    "updated_at": "2026-07-15T04:47:45Z"
+    "updated_at": "2026-07-15T04:55:55Z"
   },
   "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21": {
     "id": "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21",
