@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import crypto from "node:crypto";
 import fs from "node:fs";
-import path from "node:path";
 import { JSDOM } from "jsdom";
 import { csvEscape } from "./artifactSafety.mjs";
 
@@ -13,17 +12,14 @@ if (!ALLOW_NETWORK || RUN === null) {
   process.exit(2);
 }
 
-const ROOT = process.cwd();
-const DATE = "2026-07-14";
 const SITE_ORIGIN = "https://fermatmind.com";
 const API_ORIGIN = "https://api.fermatmind.com/api/v0.5/personality";
-const OUTPUT_BASE = `docs/seo/personality/mbti-index-43-full-52-release-gate-${DATE}`;
 const ARTIFACT_PATHS = Object.freeze({
-  run1: path.resolve(ROOT, `${OUTPUT_BASE}-run-1.json`),
-  run2: path.resolve(ROOT, `${OUTPUT_BASE}-run-2.json`),
-  reportJson: path.resolve(ROOT, `${OUTPUT_BASE}.json`),
-  reportMarkdown: path.resolve(ROOT, `${OUTPUT_BASE}.md`),
-  reportCsv: path.resolve(ROOT, `${OUTPUT_BASE}.csv`),
+  run1: new URL("../../docs/seo/personality/mbti-index-43-full-52-release-gate-2026-07-14-run-1.json", import.meta.url),
+  run2: new URL("../../docs/seo/personality/mbti-index-43-full-52-release-gate-2026-07-14-run-2.json", import.meta.url),
+  reportJson: new URL("../../docs/seo/personality/mbti-index-43-full-52-release-gate-2026-07-14.json", import.meta.url),
+  reportMarkdown: new URL("../../docs/seo/personality/mbti-index-43-full-52-release-gate-2026-07-14.md", import.meta.url),
+  reportCsv: new URL("../../docs/seo/personality/mbti-index-43-full-52-release-gate-2026-07-14.csv", import.meta.url),
 });
 const MAX_ATTEMPTS = 3;
 const MAX_CONCURRENCY = 4;

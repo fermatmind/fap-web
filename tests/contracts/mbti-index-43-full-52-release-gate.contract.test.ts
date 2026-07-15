@@ -52,11 +52,13 @@ describe("MBTI-INDEX-43 full 52 URL release gate", () => {
     expect(source).toContain("visiblePageText");
     expect(source).toContain('import { JSDOM } from "jsdom"');
     expect(source).toContain("const ARTIFACT_PATHS = Object.freeze");
+    expect(source).toContain('new URL("../../docs/seo/personality/mbti-index-43-');
     expect(source).toContain('runArgument === "--run=1"');
     expect(source).toContain("fs.writeFileSync(ARTIFACT_PATHS.run1");
     expect(source).toContain("fs.writeFileSync(ARTIFACT_PATHS.reportJson");
     expect(source).not.toContain(".replace(/<script\\b");
     expect(source).not.toContain("path.join(ROOT, relativePath)");
+    expect(source).not.toContain("process.cwd()");
     expect(source).not.toContain("function writeArtifact");
     expect(source).toContain("PRIVATE_PATH_PATTERN");
     expect(source).toContain("API_TIMEOUTS");
