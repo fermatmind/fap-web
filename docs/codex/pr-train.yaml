@@ -15420,6 +15420,60 @@ prs:
     repository_rule_impact: existing_authority_rules_preserved
     next_task: MBTI-GSC-44
 
+  - id: MBTI-GSC-44
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-gsc-44-full-cohort-monitoring
+    base: main
+    depends_on:
+      - MBTI-INDEX-43
+    mode: execute
+    train_scope: mbti_full_52_url_gsc_baseline_and_read_only_monitoring
+    risk_level: L1
+    status: in_progress
+    title: "MBTI-GSC-44: monitor complete 52-URL MBTI cohort"
+    goal: "Capture an evidence-bounded 28-day GSC baseline and 7/14/28-day read-only monitoring ledger for the exact INDEX-43 cohort of 32 profiles, sixteen A/T comparisons, and four approved hot cross-type comparisons without repeating prior submissions or performing any GSC mutation."
+    in_scope:
+      - docs/seo/personality/mbti-gsc-44-*
+      - scripts/seo/build-mbti-gsc-44-*
+      - tests/contracts/mbti-gsc-44-*
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/*
+    out_of_scope:
+      - sitemap submission, URL Inspection, Request Indexing, Google Indexing API, or any search submission
+      - CMS writes, content mutation, public promotion, database mutation, or production import
+      - frontend runtime, sitemap, llms, canonical, robots, JSON-LD, or indexability mutation
+      - staging, production deploy, cache mutation, process control, or server changes
+      - private result, attempt, report, order, payment, history, share recovery, or English URLs
+      - imputing query-level metrics as page-level evidence or fabricating missing GSC rows
+    required_local_checks:
+      - node scripts/seo/build-mbti-gsc-44-full-cohort-monitoring.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-gsc-44-full-cohort-monitoring.contract.test.ts --reporter=dot
+      - corepack pnpm lint . --max-warnings=0
+      - corepack pnpm typecheck
+      - corepack pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - changed-file scope validation
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    runtime_change: false
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    gsc_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_authority_rules_preserved
+    next_task: null
+
   - id: PR-CAREER-KG-00
     repo: fap-web
     repo_path: <workspace>/fap-web

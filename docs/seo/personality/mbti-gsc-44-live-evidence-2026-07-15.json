@@ -1,0 +1,64 @@
+{
+  "captured_at": "2026-07-15T12:35:58Z",
+  "property": "sc-domain:fermatmind.com",
+  "source": "authenticated_google_search_console_ui_read_only",
+  "window": {
+    "label": "28d",
+    "start_date": "2026-06-16",
+    "end_date": "2026-07-13"
+  },
+  "cohort_filter": {
+    "dimension": "page",
+    "operator": "custom_regex",
+    "inventory_source": "docs/seo/personality/mbti-full-audit-30-inventory-runtime-baseline-2026-07-13.json",
+    "expected_url_count": 52
+  },
+  "aggregate": {
+    "clicks": 32,
+    "impressions": 3106,
+    "ctr": 0.01,
+    "average_position": 9.1,
+    "query_row_count": 106
+  },
+  "top_queries": [
+    {"query": "intp-a", "clicks": 3, "impressions": 69, "ctr": 0.043, "average_position": 8.1, "matched_slug": "intp-a"},
+    {"query": "intp a", "clicks": 2, "impressions": 29, "ctr": 0.069, "average_position": 10.0, "matched_slug": "intp-a"},
+    {"query": "istp-a", "clicks": 1, "impressions": 46, "ctr": 0.022, "average_position": 10.0, "matched_slug": "istp-a"},
+    {"query": "istj-a", "clicks": 1, "impressions": 28, "ctr": 0.036, "average_position": 8.3, "matched_slug": "istj-a"},
+    {"query": "intp-t", "clicks": 0, "impressions": 27, "ctr": 0.0, "average_position": 6.5, "matched_slug": "intp-t"},
+    {"query": "estp\u56e2\u961f\u5408\u4f5c\u4f18\u52bf", "clicks": 0, "impressions": 24, "ctr": 0.0, "average_position": 3.5, "matched_slug": null},
+    {"query": "istj\u662f\u4ec0\u4e48\u4eba\u683c", "clicks": 0, "impressions": 18, "ctr": 0.0, "average_position": 10.9, "matched_slug": null},
+    {"query": "istj-a\u4eba\u683c", "clicks": 1, "impressions": 13, "ctr": 0.077, "average_position": 8.2, "matched_slug": "istj-a"},
+    {"query": "istp a", "clicks": 0, "impressions": 12, "ctr": 0.0, "average_position": 11.3, "matched_slug": "istp-a"},
+    {"query": "esfp-a", "clicks": 0, "impressions": 7, "ctr": 0.0, "average_position": 5.4, "matched_slug": "esfp-a"},
+    {"query": "istj a", "clicks": 0, "impressions": 7, "ctr": 0.0, "average_position": 8.0, "matched_slug": "istj-a"},
+    {"query": "enfj-t", "clicks": 0, "impressions": 7, "ctr": 0.0, "average_position": 10.0, "matched_slug": "enfj-t"},
+    {"query": "intp t", "clicks": 0, "impressions": 6, "ctr": 0.0, "average_position": 3.3, "matched_slug": "intp-t"},
+    {"query": "enfj-a", "clicks": 0, "impressions": 6, "ctr": 0.0, "average_position": 11.2, "matched_slug": "enfj-a"},
+    {"query": "isfp-a", "clicks": 1, "impressions": 5, "ctr": 0.2, "average_position": 3.0, "matched_slug": "isfp-a"},
+    {"query": "intp-a\u4eba\u683c", "clicks": 1, "impressions": 5, "ctr": 0.2, "average_position": 7.8, "matched_slug": "intp-a"},
+    {"query": "intp-a \u4eba\u683c", "clicks": 1, "impressions": 4, "ctr": 0.25, "average_position": 6.3, "matched_slug": "intp-a"},
+    {"query": "intp \u4eba\u683c", "clicks": 1, "impressions": 2, "ctr": 0.5, "average_position": 12.0, "matched_slug": null},
+    {"query": "intp\u548cintj\u7684\u533a\u522b", "clicks": 0, "impressions": 1, "ctr": 0.0, "average_position": 1.0, "matched_slug": "intj-vs-intp"},
+    {"query": "intj\u548centj\u7684\u533a\u522b", "clicks": 0, "impressions": 1, "ctr": 0.0, "average_position": 6.0, "matched_slug": "entj-vs-intj"},
+    {"query": "infp\u548cinfj\u7684\u533a\u522b", "clicks": 0, "impressions": 1, "ctr": 0.0, "average_position": 7.0, "matched_slug": "infj-vs-infp"},
+    {"query": "enfj-t vs enfj-a", "clicks": 0, "impressions": 1, "ctr": 0.0, "average_position": 8.0, "matched_slug": "enfj-a-vs-enfj-t"},
+    {"query": "intp-t vs intp-a", "clicks": 0, "impressions": 1, "ctr": 0.0, "average_position": 10.0, "matched_slug": "intp-a-vs-intp-t"}
+  ],
+  "page_rows": [],
+  "page_row_capture_status": "pending_page_scoped_export",
+  "historical_submission_evidence": {
+    "source": "docs/seo/personality/mbti-gsc-25-live-evidence-2026-07-12.json",
+    "submitted_url_count": 9,
+    "must_not_repeat_successful_requests": true
+  },
+  "external_action_boundary": {
+    "sitemap_submitted": false,
+    "url_inspection_executed": false,
+    "request_indexing_executed": false,
+    "indexing_api_used": false,
+    "cms_or_runtime_mutation": false,
+    "deploy_executed": false,
+    "account_or_credential_data_recorded": false
+  }
+}
