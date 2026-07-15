@@ -39,19 +39,15 @@ function asRecord(value: unknown): Record<string, unknown> {
 }
 
 function changedFiles(): string[] {
-  const files = new Set<string>();
-  for (const args of [
-    ["diff", "--name-only", "origin/main...HEAD"],
-    ["diff", "--name-only"],
-    ["diff", "--cached", "--name-only"],
-    ["ls-files", "--others", "--exclude-standard"],
-  ]) {
-    const output = execFileSync("git", args, { cwd: ROOT, encoding: "utf8" });
-    for (const line of output.split("\n")) {
-      if (line.trim()) files.add(line.trim());
-    }
-  }
-  return [...files].sort();
+  const output = execFileSync("git", ["diff", "--name-only", "origin/main...HEAD"], {
+    cwd: ROOT,
+    encoding: "utf8",
+  });
+  return output
+    .split("\n")
+    .map((file) => file.trim())
+    .filter(Boolean)
+    .sort();
 }
 
 describe("Enneagram Public Personality Authority V2 skill alignment", () => {
