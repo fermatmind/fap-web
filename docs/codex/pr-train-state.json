@@ -45683,7 +45683,7 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-api PR #3100 is MERGED at a2e545ec70073d97793dcd1ba3e174f6b7ff0112; fap-api origin/main contains the merge commit and predecessor cleanup plus post-merge focused revalidation completed."
     },
-    "status": "review_fixes_validated_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "330e898386e9235f546580d58bd8031518cba617",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1770",
     "checks": {
@@ -45694,10 +45694,10 @@
       "yaml_json": {"status": "pass", "evidence": "PR-train YAML, state JSON, and all Enneagram public-personality packet JSON files parsed successfully."},
       "diff_check": {"status": "pass", "evidence": "git diff --check passed before staging."},
       "exact_scope": {"status": "pass", "evidence": "29 changed or untracked paths are inside the PR03 allowlist; no app, components, lib, public, or scripts runtime path changed."},
-      "github": {"status": "pending_review_fix_rerun", "evidence": "Head b395d2e9366adca50ed9c6f19328d64f03d2d910 passed all seven required and security checks after the three contract-consistency repairs. Final-head rerun is pending after the CMS dry-run V2 ledger-gate repair in 330e898386e9235f546580d58bd8031518cba617."},
-      "review": {"status": "fix_validated_pending_push", "evidence": "Eleven earlier threads remain resolved. The newest P2 is addressed by requiring reviewed_authority_v2_source_ledger_with_bilingual_claim_maps for the CMS dry-run lane and explicitly rejecting the generic legacy ledger token. Node 24 focused contracts pass 7 files / 58 tests, ESLint, JSON, and diff checks pass."}
+      "github": {"status": "pass", "evidence": "Head 4626064643a4297bc91671b8eea89472717621fe passed all seven required and security checks after the CMS dry-run V2 ledger-gate repair."},
+      "review": {"status": "pass", "evidence": "All twelve actionable review threads are resolved. The CMS dry-run lane requires reviewed_authority_v2_source_ledger_with_bilingual_claim_maps and explicitly rejects the generic legacy ledger token."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -45726,9 +45726,10 @@
       {"at": "2026-07-15T04:55:55Z", "status": "review_fixes_validated_checks_pending", "summary": "Ready ledger head 3839228f2eddda3838766b5eeae544137f193345 passed all seven checks, but a new P2 identified Ruby 3.4/Psych alias handling in the registered PR03 and PR21 YAML validation commands. Replaced both with the cross-version YAML.safe_load(File.read(...), aliases: true) form and added a focused regression. Local Ruby 2.6/Psych 3.1 parsing passes, Node 24 focused contracts pass 7 files / 57 tests, ESLint and diff checks pass, and implementation head 076c2ae86861582d7ae7a7966f8a816183f5e7f5 is recorded. Final-head checks and thread resolution remain pending."},
       {"at": "2026-07-15T05:01:38Z", "status": "ready_to_merge", "summary": "Head 2fb833b32cb02e38aa307c11843e9d8a9ade8b53 passed all seven required and security checks after the portable YAML repair. PR #1770 remains CLEAN and MERGEABLE, exact scope remains 29 allowed paths with zero runtime paths, and all eight actionable review threads are resolved. This ledger-only ready head must rerun required checks before squash merge."},
       {"at": "2026-07-15T05:10:07Z", "status": "review_fixes_validated_checks_pending", "summary": "Ready ledger head 798d41af661b5307260b92311d4f48e5d2b92279 passed all seven checks, but three new P2 findings identified source-vocabulary, V2 ledger-key, and Big Five-only package-schema inconsistencies. Added the backend integrity-gate class to packet/common vocabularies with exhaustive consumed-source coverage, moved the readiness candidate to authority_v2_source_ledger, and routed the governance-only Enneagram run through schema-supported audit mode while reserving isolated draft packages for later owning-backend work. Node 24 focused contracts pass 7 files / 58 tests, ESLint, JSON/YAML, diff, and the unchanged 29-path zero-runtime scope pass. Implementation head 38dba0dbece2ebb3c001baef78247c7cf403a92b is recorded; final checks and thread resolution remain pending."},
-      {"at": "2026-07-15T05:17:04Z", "status": "review_fixes_validated_checks_pending", "summary": "Head b395d2e9366adca50ed9c6f19328d64f03d2d910 passed all seven checks, but one new P2 found the CMS dry-run lane still accepted the generic reviewed ledger token. Replaced it with reviewed_authority_v2_source_ledger_with_bilingual_claim_maps and added a regression that rejects reviewed_public_personality_source_ledger. Node 24 focused contracts pass 7 files / 58 tests, ESLint, JSON, and diff checks pass. Implementation head 330e898386e9235f546580d58bd8031518cba617 is recorded; final checks and thread resolution remain pending."}
+      {"at": "2026-07-15T05:17:04Z", "status": "review_fixes_validated_checks_pending", "summary": "Head b395d2e9366adca50ed9c6f19328d64f03d2d910 passed all seven checks, but one new P2 found the CMS dry-run lane still accepted the generic reviewed ledger token. Replaced it with reviewed_authority_v2_source_ledger_with_bilingual_claim_maps and added a regression that rejects reviewed_public_personality_source_ledger. Node 24 focused contracts pass 7 files / 58 tests, ESLint, JSON, and diff checks pass. Implementation head 330e898386e9235f546580d58bd8031518cba617 is recorded; final checks and thread resolution remain pending."},
+      {"at": "2026-07-15T05:23:09Z", "status": "ready_to_merge", "summary": "Head 4626064643a4297bc91671b8eea89472717621fe passed all seven required and security checks after the CMS dry-run V2 ledger-gate repair. PR #1770 remains CLEAN and MERGEABLE, exact scope remains 29 allowed paths with zero runtime paths, and all twelve actionable review threads are resolved. This ledger-only ready head must rerun required checks before squash merge."}
     ],
-    "updated_at": "2026-07-15T05:17:04Z"
+    "updated_at": "2026-07-15T05:23:09Z"
   },
   "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21": {
     "id": "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21",
