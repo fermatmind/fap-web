@@ -12,7 +12,7 @@ const SCOPE_HELPER_PATH = "tests/contracts/helpers/currentPrScope.ts";
 const REQUIRED_FAMILIES = [
   "enneagram_public_hub_framework",
   "enneagram_nine_core_type_profiles",
-  "enneagram_centers_or_triads_conditional",
+  "enneagram_centers",
   "enneagram_type_comparison_internal_links",
   "enneagram_vs_big_five_reflection",
   "enneagram_vs_mbti_reflection",
@@ -118,19 +118,34 @@ describe("Enneagram Public Personality candidate cluster packet", () => {
     }
   });
 
-  it("keeps centers or triads conditional and blocks wings, instincts, subtypes, and 54 wing x instinct pages", () => {
+  it("locks the current 58-identity estate and blocks only forbidden expansions", () => {
     const packet = readJson(PACKET_PATH);
     const candidates = asRecordArray(packet.candidate_clusters);
-    const centers = candidates.find((candidate) => candidate.cluster_family === "enneagram_centers_or_triads_conditional");
+    const centers = candidates.find((candidate) => candidate.cluster_family === "enneagram_centers");
+    const estate = asRecord(packet.authority_v2_estate);
 
-    expect(centers?.cms_dry_run_suitability).toBe("hold_until_taxonomy_authority");
-    expect(String(centers?.backend_authority_requirement)).toContain("backend_taxonomy_authority_required");
-    expect(asStringArray(packet.blocked_first_scope)).toEqual([
-      "wing_pages",
-      "instinct_pages",
-      "subtype_pages",
-      "54_wing_x_instinct_pages",
+    expect(centers?.cms_dry_run_suitability).toBe("hold_until_source_ledger_and_human_review");
+    expect(String(centers?.backend_authority_requirement)).toContain("backend_authority_v2_identity_and_claim_map_required");
+    expect(estate.identity_count).toBe(58);
+    expect(estate.page_count).toBe(116);
+    expect(estate.locales).toEqual(["en", "zh-CN"]);
+    expect(estate.unreviewed_state).toBe("pending_manual_review");
+    expect(estate.model_review_is_human_review).toBe(false);
+    expect(asStringArray(packet.forbidden_expansions)).toEqual([
+      "54_wing_x_instinct_matrix",
+      "tritype",
+      "new_public_urls",
     ]);
+  });
+
+  it("keeps source-ledger readiness on the Authority V2 evidence key", () => {
+    const packet = readJson(PACKET_PATH);
+    const candidates = asRecordArray(packet.candidate_clusters);
+    const readiness = candidates.find((candidate) => candidate.candidate_id === "enneagram-source-ledger-readiness-01");
+
+    expect(asStringArray(readiness?.source_evidence_required)).toContain("authority_v2_source_ledger");
+    expect(asStringArray(readiness?.source_evidence_required)).not.toContain("public_personality_source_ledger");
+    expect(readiness?.backend_authority_requirement).toBe("authority_v2_source_ledger_required");
   });
 
   it("blocks publishable body, CMS payload, final metadata, generated pages, private result copy, and deterministic type claims", () => {
@@ -169,7 +184,8 @@ describe("Enneagram Public Personality candidate cluster packet", () => {
 
     expect(report).toContain("Verdict: `PLANNING_ONLY`");
     expect(report).toContain("8 planning candidates");
-    expect(report).toContain("Wing, instinct, subtype, and 54 wing x instinct pages are explicitly blocked");
+    expect(report).toContain("58 identities and 116 bilingual pages");
+    expect(report).toContain("Model/agent QA does not count as human review");
     expect(report).toContain("CMS write");
     expect(report).toContain("deterministic type assignment included: false");
   });

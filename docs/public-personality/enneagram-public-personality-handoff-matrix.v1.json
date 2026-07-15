@@ -9,7 +9,7 @@
   "canonical_test_slug": "enneagram-personality-test-nine-types",
   "readiness_summary": {
     "aggregate_handoff": "READY_FOR_NEXT_PLANNING_HANDOFF_WITH_RUNTIME_HOLDS",
-    "public_personality_source_authority": "MAPPED_PARTIAL",
+    "public_personality_source_authority": "MAPPED_AUTHORITY_V2_ESTATE_LEDGER_PENDING",
     "claim_privacy_safety_gate": "READY_TO_BLOCK_UNSAFE_PUBLIC_PERSONALITY_OUTPUTS",
     "candidate_cluster_planning": "PLANNING_ONLY",
     "runtime_mutation": "BLOCKED",
@@ -50,8 +50,8 @@
   ],
   "handoff_matrix": [
     {
-      "lane": "public_hub_and_nine_core_type_planning",
-      "status": "READY_FOR_NEXT_PLANNING_HANDOFF",
+      "lane": "authority_v2_116_page_estate",
+      "status": "GOVERNANCE_ALIGNED_PENDING_LEDGER_AND_HUMAN_REVIEW",
       "allowed_inputs": [
         "common_handoff_contract",
         "source_authority_packet",
@@ -67,7 +67,10 @@
         "GPT55_review",
         "Safety_Gate_review",
         "SEO_GEO_review",
-        "backend_public_source_ledger_before_public_copy"
+        "authority_v2_source_ledger_pr07",
+        "independent_bilingual_drafting",
+        "pending_manual_review",
+        "working_revision_isolation"
       ],
       "hard_holds": [
         "no_publishable_body",
@@ -77,47 +80,45 @@
       ]
     },
     {
-      "lane": "centers_or_triads_conditional_planning",
-      "status": "HOLD_PENDING_BACKEND_TAXONOMY_AUTHORITY",
+      "lane": "bilingual_drafting_and_review_truth",
+      "status": "REQUIRED",
       "allowed_inputs": [
         "source_authority_packet",
         "claim_safety_packet"
       ],
       "allowed_outputs": [
-        "conditional_research_question",
-        "backend_authority_requirement"
+        "locale_specific_draft_plan",
+        "review_truth_report"
       ],
       "required_gates": [
-        "backend_taxonomy_authority",
-        "public_personality_source_ledger",
-        "Safety_Gate_review"
+        "shared_claim_map",
+        "independent_en_and_zh_cn_drafts",
+        "named_human_review"
       ],
       "hard_holds": [
-        "no_center_page_generation",
-        "no_triad_page_generation",
-        "no_unreviewed_taxonomy_copy"
+        "no_raw_translation_authority",
+        "no_model_review_as_human_review",
+        "pending_manual_review_until_named_human"
       ]
     },
     {
-      "lane": "wing_instinct_subtype_and_54_page_scope",
-      "status": "BLOCKED_FROM_FIRST_SCOPE",
+      "lane": "forbidden_expansion_scope",
+      "status": "BLOCKED",
       "allowed_inputs": [
         "source_authority_packet",
         "candidate_cluster_packet"
       ],
       "allowed_outputs": [
-        "blocked_scope_note"
+        "blocked_expansion_report"
       ],
       "required_gates": [
-        "separate_source_authority_scan",
-        "separate_manifest_authorization",
-        "separate_claim_safety_review"
+        "framework_no_go_gate",
+        "url_registry_gate"
       ],
       "hard_holds": [
-        "no_wing_pages",
-        "no_instinct_pages",
-        "no_subtype_pages",
-        "no_54_wing_x_instinct_pages"
+        "no_54_wing_x_instinct_matrix",
+        "no_tritype",
+        "no_new_public_urls"
       ]
     },
     {
@@ -156,7 +157,7 @@
       ],
       "required_gates": [
         "explicit_manifest_state_authorization",
-        "reviewed_public_personality_source_ledger",
+        "reviewed_authority_v2_source_ledger_with_bilingual_claim_maps",
         "Safety_Gate_review",
         "SEO_GEO_review"
       ],
@@ -254,11 +255,21 @@
     "success_prediction",
     "private_report_text_rewrite"
   ],
-  "blocked_first_scope": [
-    "wing_pages",
-    "instinct_pages",
-    "subtype_pages",
-    "54_wing_x_instinct_pages"
+  "authority_v2_estate": {
+    "identity_count": 58,
+    "page_count": 116,
+    "locales": ["en", "zh-CN"],
+    "counts_per_locale": {"hub": 1, "center": 3, "core_type": 9, "wing": 18, "instinctual_subtype": 27},
+    "independent_bilingual_drafting": true,
+    "source_ledger_state": "required_pending_pr07",
+    "unreviewed_state": "pending_manual_review",
+    "model_review_is_human_review": false,
+    "working_revision_isolated": true
+  },
+  "forbidden_expansions": [
+    "54_wing_x_instinct_matrix",
+    "tritype",
+    "new_public_urls"
   ],
   "hard_holds": [
     "cms",
@@ -306,14 +317,15 @@
     "deterministic_type_assignment_included": false
   },
   "next_handoff": {
-    "recommended_next_task": "ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-LEDGER-READINESS-SCAN-01",
-    "handoff_status": "read_only_scan_allowed",
+    "recommended_next_action": "register_goal_supplied_backend_public_contract_in_owning_fap_api_manifest_and_state",
+    "handoff_status": "pending_pr03_merge_and_owning_repository_registration",
     "must_remain_read_only_until_authorized": true,
     "required_inputs_before_execution": [
-      "backend_public_personality_source_ledger_plan",
-      "backend_taxonomy_authority_for_centers_or_triads",
+      "merged_pr03_skill_alignment",
+      "merged_pr02_integrity_gate",
+      "owning_fap_api_manifest_and_state_entry",
       "claim_privacy_safety_gate_review",
-      "explicit_manifest_state_authorization_if_promoted_to_PR_train"
+      "authority_v2_source_ledger_remains_pr07_scope"
     ],
     "blocked_until_separate_approval": [
       "cms_write",

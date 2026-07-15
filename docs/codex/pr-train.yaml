@@ -26272,3 +26272,103 @@ prs:
     content_authority: CMS/backend
     repository_rule_impact: frontend_consumes_final_backend_article_seo_authority
     next_task: null
+
+  - id: ENNEAGRAM-PUBLIC-AUTHORITY-V2-SKILL-ALIGNMENT-03
+    repo: fap-web
+    base: main
+    branch: codex/enneagram-public-authority-v2-skill-alignment-03
+    title: "ENNEAGRAM-PUBLIC-AUTHORITY-V2-SKILL-ALIGNMENT-03: align public-profile workflow to the 116-page Enneagram estate"
+    depends_on: [ENNEAGRAM-PUBLIC-AUTHORITY-V2-INTEGRITY-GATE-02]
+    dependency_repositories:
+      ENNEAGRAM-PUBLIC-AUTHORITY-V2-INTEGRITY-GATE-02: fap-api
+    status: in_progress
+    scope:
+      - Replace obsolete 13-page/placeholder cohort and wings/subtypes-later rules with the current 58-identity, 116-page estate.
+      - Require independent bilingual drafting, V2 source-ledger claim maps, pending_manual_review truth, model-review/human-review separation, and isolated working revisions.
+      - Align existing Enneagram public-personality handoff packets and contracts without changing runtime or creating public pages.
+    allowed_paths:
+      - .agents/skills/public-profile-seo-asset-factory/SKILL.md
+      - .agents/skills/public-profile-seo-asset-factory/agents/enneagram-public-personality-agent.md
+      - .agents/skills/public-profile-seo-asset-factory/framework-rules/enneagram.md
+      - .agents/skills/public-profile-seo-asset-factory/runbooks/enneagram-v1-placeholder-upgrade.md
+      - .agents/skills/public-profile-seo-asset-factory/orchestration/personality-agent-matrix.md
+      - .agents/skills/public-profile-seo-asset-factory/quality-gates/**
+      - docs/public-personality/enneagram-*
+      - tests/contracts/enneagram-public-personality-*.contract.test.ts
+      - tests/contracts/enneagram-public-profile-agent-*.contract.test.ts
+      - tests/contracts/personality-public-profile-agent-*.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Modify frontend runtime, public routes, backend code, CMS data, source-ledger content, revisions, publish/indexability, sitemap/llms, search, production, or deploy state.
+      - Generate the forbidden 54 wing x instinct matrix, Tritype, new URLs, public body copy, or human-review claims.
+    validation:
+      - pnpm exec vitest run tests/contracts/enneagram-public-profile-agent-authority-v2-alignment.contract.test.ts tests/contracts/enneagram-public-personality-candidate-cluster-packet.contract.test.ts tests/contracts/enneagram-public-personality-claim-safety-packet.contract.test.ts tests/contracts/enneagram-public-personality-handoff-common-contract.contract.test.ts tests/contracts/enneagram-public-personality-handoff-matrix.contract.test.ts tests/contracts/enneagram-public-personality-source-authority-packet.contract.test.ts tests/contracts/personality-public-profile-agent-split-01.contract.test.ts --reporter=dot
+      - pnpm exec eslint tests/contracts/enneagram-public-profile-agent-authority-v2-alignment.contract.test.ts tests/contracts/enneagram-public-personality-candidate-cluster-packet.contract.test.ts tests/contracts/enneagram-public-personality-claim-safety-packet.contract.test.ts tests/contracts/enneagram-public-personality-handoff-common-contract.contract.test.ts tests/contracts/enneagram-public-personality-handoff-matrix.contract.test.ts tests/contracts/enneagram-public-personality-source-authority-packet.contract.test.ts tests/contracts/personality-public-profile-agent-split-01.contract.test.ts
+      - ruby -e "require 'yaml'; YAML.safe_load(File.read('docs/codex/pr-train.yaml'), aliases: true); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - for file in docs/public-personality/enneagram-public-personality-*.v1.json; do python3 -m json.tool "$file" >/dev/null || exit 1; done
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    api_runtime_change: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: aligns_skill_governance_to_existing_backend_authoritative_estate
+
+  - id: ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21
+    repo: fap-web
+    base: main
+    branch: codex/enneagram-public-authority-v2-frontend-consumer-21
+    title: "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21: render Enneagram Authority V2 visible evidence and eligible schema"
+    depends_on: [ENNEAGRAM-PUBLIC-AUTHORITY-V2-LINK-GRAPH-20]
+    dependency_repositories:
+      ENNEAGRAM-PUBLIC-AUTHORITY-V2-LINK-GRAPH-20: fap-api
+    status: pending_dependency
+    scope:
+      - Consume backend Enneagram Authority V2 with V1 compatibility across all 116 existing routes.
+      - Render visible evidence, limitations, editorial state, approved media, and only visible eligible schema without frontend editorial fallback or new URLs.
+    allowed_paths:
+      - app/(localized)/[locale]/personality/enneagram/page.tsx
+      - app/(localized)/[locale]/personality/enneagram/[...slug]/page.tsx
+      - components/personality/PublicContentAssetRenderer.tsx
+      - lib/cms/personality-public-content-assets.ts
+      - lib/personality/enneagramPublicRoutes.ts
+      - tests/contracts/personality-enneagram-authority-v2.contract.test.ts
+      - tests/contracts/enneagram-asset-backed-renderer.contract.test.tsx
+      - tests/contracts/personality-enneagram-90-asset-contract.contract.test.ts
+      - tests/contracts/personality-enneagram-90-sitemap-extractor.contract.test.ts
+      - tests/contracts/personality-enneagram-llms-txt-enumeration.contract.test.ts
+      - tests/contracts/personality-enneagram-llms-full-enumeration.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Add local editorial copy, working revision data, hidden FAQ/schema, canonical/hreflang invention, URL expansion, backend/CMS mutation, publish, search, production, or deploy action.
+    validation:
+      - pnpm exec vitest run tests/contracts/personality-enneagram-authority-v2.contract.test.ts tests/contracts/enneagram-asset-backed-renderer.contract.test.tsx tests/contracts/personality-enneagram-90-asset-contract.contract.test.ts tests/contracts/personality-enneagram-90-sitemap-extractor.contract.test.ts tests/contracts/personality-enneagram-llms-txt-enumeration.contract.test.ts tests/contracts/personality-enneagram-llms-full-enumeration.contract.test.ts --reporter=dot
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.safe_load(File.read('docs/codex/pr-train.yaml'), aliases: true); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    api_runtime_change: true
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: frontend_consumes_backend_authority_without_editorial_fallback

@@ -68,17 +68,17 @@ describe("Enneagram Public Personality handoff matrix", () => {
     expect(dependencies.map((dependency) => dependency.status)).toEqual(["MERGED", "MERGED", "MERGED", "MERGED"]);
   });
 
-  it("separates planning-ready, hold, and blocked lanes", () => {
+  it("separates the current estate, workflow truth, and forbidden expansions", () => {
     const matrix = readJson(MATRIX_PATH);
     const rows = asRecordArray(matrix.handoff_matrix);
     const statusByLane = new Map(rows.map((row) => [String(row.lane), String(row.status)]));
 
     expect(rows.length).toBe(8);
-    expect(statusByLane.get("public_hub_and_nine_core_type_planning")).toBe("READY_FOR_NEXT_PLANNING_HANDOFF");
-    expect(statusByLane.get("centers_or_triads_conditional_planning")).toBe(
-      "HOLD_PENDING_BACKEND_TAXONOMY_AUTHORITY"
+    expect(statusByLane.get("authority_v2_116_page_estate")).toBe(
+      "GOVERNANCE_ALIGNED_PENDING_LEDGER_AND_HUMAN_REVIEW"
     );
-    expect(statusByLane.get("wing_instinct_subtype_and_54_page_scope")).toBe("BLOCKED_FROM_FIRST_SCOPE");
+    expect(statusByLane.get("bilingual_drafting_and_review_truth")).toBe("REQUIRED");
+    expect(statusByLane.get("forbidden_expansion_scope")).toBe("BLOCKED");
     expect(statusByLane.get("claim_privacy_safety_gate")).toBe("READY_TO_BLOCK_UNSAFE_OUTPUTS");
     expect(statusByLane.get("cms_dry_run_publish_and_search")).toBe("HOLD_PENDING_SEPARATE_AUTHORIZATION");
     expect(statusByLane.get("runtime_deploy_provider_and_backend_mutation")).toBe("BLOCKED");
@@ -110,6 +110,10 @@ describe("Enneagram Public Personality handoff matrix", () => {
     const privateData = rows.find((row) => row.lane === "private_or_raw_result_data");
 
     expect(cms?.status).toBe("HOLD_PENDING_SEPARATE_AUTHORIZATION");
+    expect(asStringArray(cms?.required_gates)).toContain(
+      "reviewed_authority_v2_source_ledger_with_bilingual_claim_maps"
+    );
+    expect(asStringArray(cms?.required_gates)).not.toContain("reviewed_public_personality_source_ledger");
     expect(asStringArray(cms?.hard_holds)).toEqual(
       expect.arrayContaining(["no_cms_write", "no_publish", "no_sitemap_mutation", "no_llms_mutation", "no_search_submission"])
     );
@@ -123,30 +127,40 @@ describe("Enneagram Public Personality handoff matrix", () => {
     );
   });
 
-  it("keeps first scope blocked for wings, instincts, subtypes, and 54 wing x instinct pages", () => {
+  it("locks the 116-page estate and blocks the matrix, Tritype, and new URLs", () => {
     const matrix = readJson(MATRIX_PATH);
+    const estate = asRecord(matrix.authority_v2_estate);
 
-    expect(asStringArray(matrix.blocked_first_scope)).toEqual([
-      "wing_pages",
-      "instinct_pages",
-      "subtype_pages",
-      "54_wing_x_instinct_pages",
+    expect(estate.identity_count).toBe(58);
+    expect(estate.page_count).toBe(116);
+    expect(estate.independent_bilingual_drafting).toBe(true);
+    expect(estate.unreviewed_state).toBe("pending_manual_review");
+    expect(estate.model_review_is_human_review).toBe(false);
+    expect(estate.working_revision_isolated).toBe(true);
+    expect(asStringArray(matrix.forbidden_expansions)).toEqual([
+      "54_wing_x_instinct_matrix",
+      "tritype",
+      "new_public_urls",
     ]);
   });
 
-  it("defines the next handoff as read-only source ledger readiness planning", () => {
+  it("requires owning-repository registration before the next backend handoff", () => {
     const matrix = readJson(MATRIX_PATH);
     const handoff = asRecord(matrix.next_handoff);
 
-    expect(handoff.recommended_next_task).toBe("ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-LEDGER-READINESS-SCAN-01");
-    expect(handoff.handoff_status).toBe("read_only_scan_allowed");
+    expect(handoff.recommended_next_task).toBeUndefined();
+    expect(handoff.recommended_next_action).toBe(
+      "register_goal_supplied_backend_public_contract_in_owning_fap_api_manifest_and_state",
+    );
+    expect(handoff.handoff_status).toBe("pending_pr03_merge_and_owning_repository_registration");
     expect(handoff.must_remain_read_only_until_authorized).toBe(true);
     expect(asStringArray(handoff.required_inputs_before_execution)).toEqual(
       expect.arrayContaining([
-        "backend_public_personality_source_ledger_plan",
-        "backend_taxonomy_authority_for_centers_or_triads",
+        "merged_pr03_skill_alignment",
+        "merged_pr02_integrity_gate",
+        "owning_fap_api_manifest_and_state_entry",
         "claim_privacy_safety_gate_review",
-        "explicit_manifest_state_authorization_if_promoted_to_PR_train",
+        "authority_v2_source_ledger_remains_pr07_scope",
       ])
     );
     expect(asStringArray(handoff.blocked_until_separate_approval)).toEqual(
@@ -189,10 +203,10 @@ describe("Enneagram Public Personality handoff matrix", () => {
     const report = readText(REPORT_PATH);
 
     expect(report).toContain("Verdict: `READY_FOR_NEXT_PLANNING_HANDOFF_WITH_RUNTIME_HOLDS`");
-    expect(report).toContain("Public hub and nine core type planning: `READY_FOR_NEXT_PLANNING_HANDOFF`");
-    expect(report).toContain("Wing, instinct, subtype, and 54 wing x instinct scope: `BLOCKED_FROM_FIRST_SCOPE`");
+    expect(report).toContain("Current 58-identity / 116-page estate: `GOVERNANCE_ALIGNED_PENDING_LEDGER_AND_HUMAN_REVIEW`");
+    expect(report).toContain("Review truth: `pending_manual_review`; model/agent QA is not human review");
     expect(report).toContain("Runtime, deploy, provider, backend import, and source ledger write: `BLOCKED`");
-    expect(report).toContain("Recommended next planning task: `ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-LEDGER-READINESS-SCAN-01`");
+    expect(report).toContain("Recommended next action after PR03 merge: register the goal-supplied backend public-contract item in its owning fap-api manifest and state");
     expect(report).toContain("deterministic type assignment included: false");
   });
 

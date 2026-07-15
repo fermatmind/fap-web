@@ -13,18 +13,25 @@ Mode: docs/contracts only. This is a common handoff contract from the Enneagram 
 - Gate agent: `claim_privacy_safety_gate`
 - Observer: `seo_geo_control`
 - Observer: `analytics_gsc_opportunity`
-- Scan verdict: `ENNEAGRAM_PUBLIC_PERSONALITY_HANDOFF_SCAN_PARTIAL`
-- Public Personality Content Agent state: `partial_profile_agent`
+- Scan verdict: `ENNEAGRAM_AUTHORITY_V2_116_PAGE_GOVERNANCE_ALIGNED`
+- Public Personality Content Agent state: `authority_v2_governance_aligned`
 
-## First Public Personality Scope
+## Current Authority V2 Estate
 
-The first public personality planning scope is limited to:
+The existing backend-authoritative public estate is locked to:
 
-- `hub`
-- `3_centers_or_triads_if_source_authority_supports`
-- `9_core_types`
+- 1 hub, 3 centers, 9 core types, 18 wings, and 27 instinctual subtypes per locale;
+- 58 identities across `en` and `zh-CN`;
+- 116 public-page targets total.
 
-This train must not expand into 54 wing x instinct pages, subtype pages, tritype pages, generated pages, CMS packages, private-result-driven pages, or publishable body copy.
+This contract creates 0 pages and 0 routes. It must not expand into the separate 54 wing × instinct matrix, Tritype, generated pages, CMS writes, private-result-driven pages, or publishable body copy.
+
+## Authority V2 Workflow Truth
+
+- `en` and `zh-CN` are independently drafted from the same approved claim map.
+- Every claim requires a V2 source-ledger reference; missing PR07 evidence fails closed.
+- Model/agent QA is not human review. Assets remain `pending_manual_review` until a named human review record exists.
+- Drafts live only in isolated working revisions. Published primary fingerprints and public revision pointers remain unchanged until a separate promotion gate.
 
 ## Allowed Inputs
 
@@ -146,7 +153,7 @@ Forbidden phrase family:
 
 ## Source Classification
 
-Allowed source classes are limited to backend-owned public content assets, backend public share summaries, result-page readiness handoffs, Runtime QA handoffs, Analytics handoffs, Safety Gate artifacts, and fap-web consumer contracts that prove boundaries but do not become content authority. Missing public personality source ledger evidence must be classified as `public_personality_source_ledger_missing`. Private, unreviewed, raw, hidden, or frontend fallback material must be classified as `blocked_private_or_unreviewed_source` or `frontend_consumer_contract_not_authority`.
+Allowed source classes are limited to backend-owned public content assets, backend Authority V2 integrity gates, the Authority V2 source ledger and claim maps, backend public share summaries, result-page readiness handoffs, Runtime QA handoffs, Analytics handoffs, Safety Gate artifacts, and fap-web consumer contracts that prove boundaries but do not become content authority. Until PR07 supplies the V2 ledger, classify the dependency as `authority_v2_source_ledger_pending_pr07` and fail closed. Private, unreviewed, raw, hidden, or frontend fallback material remains `blocked_private_or_unreviewed_source` or `frontend_consumer_contract_not_authority`.
 
 ## HOLD Actions
 

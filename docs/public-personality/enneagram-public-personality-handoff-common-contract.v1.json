@@ -10,13 +10,37 @@
     "seo_geo_control",
     "analytics_gsc_opportunity"
   ],
-  "scan_verdict": "ENNEAGRAM_PUBLIC_PERSONALITY_HANDOFF_SCAN_PARTIAL",
-  "public_personality_content_agent_state": "partial_profile_agent",
+  "scan_verdict": "ENNEAGRAM_AUTHORITY_V2_116_PAGE_GOVERNANCE_ALIGNED",
+  "public_personality_content_agent_state": "authority_v2_governance_aligned",
+  "authority_v2_estate": {
+    "identity_count": 58,
+    "page_count": 116,
+    "locales": ["en", "zh-CN"],
+    "counts_per_locale": {
+      "hub": 1,
+      "center": 3,
+      "core_type": 9,
+      "wing": 18,
+      "instinctual_subtype": 27
+    },
+    "new_urls_allowed": false
+  },
   "first_public_personality_scope": [
     "hub",
-    "3_centers_or_triads_if_source_authority_supports",
-    "9_core_types"
+    "center",
+    "core_type",
+    "wing",
+    "instinctual_subtype"
   ],
+  "authority_v2_workflow_truth": {
+    "independent_bilingual_drafting": true,
+    "source_ledger_state": "required_pending_pr07",
+    "unreviewed_state": "pending_manual_review",
+    "model_review_is_human_review": false,
+    "working_revision_isolated": true,
+    "published_primary_mutation_allowed": false,
+    "public_revision_pointer_mutation_allowed": false
+  },
   "allowed_input_classes": [
     "public_enneagram_framework_summary",
     "public_type_names_and_labels",
@@ -123,12 +147,13 @@
   ],
   "source_classification_vocabulary": [
     "backend_authority_public_content_asset",
+    "backend_authority_integrity_gate",
     "backend_authority_public_share_summary",
     "result_page_readiness_handoff",
     "runtime_qa_handoff",
     "analytics_handoff",
     "claim_safety_gate_artifact",
-    "public_personality_source_ledger_missing",
+    "authority_v2_source_ledger_pending_pr07",
     "blocked_private_or_unreviewed_source",
     "frontend_consumer_contract_not_authority"
   ],

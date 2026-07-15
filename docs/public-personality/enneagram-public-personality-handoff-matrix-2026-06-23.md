@@ -15,9 +15,11 @@ This matrix aggregates the Enneagram public personality common contract, source 
 
 ## Matrix Summary
 
-- Public hub and nine core type planning: `READY_FOR_NEXT_PLANNING_HANDOFF`
-- Centers or triads: `HOLD_PENDING_BACKEND_TAXONOMY_AUTHORITY`
-- Wing, instinct, subtype, and 54 wing x instinct scope: `BLOCKED_FROM_FIRST_SCOPE`
+- Current 58-identity / 116-page estate: `GOVERNANCE_ALIGNED_PENDING_LEDGER_AND_HUMAN_REVIEW`
+- Independent bilingual drafting: `REQUIRED`
+- Review truth: `pending_manual_review`; model/agent QA is not human review
+- Working revision isolation: `REQUIRED`
+- 54 wing × instinct matrix, Tritype, and new URLs: `BLOCKED`
 - Claim / privacy / safety gate: `READY_TO_BLOCK_UNSAFE_OUTPUTS`
 - CMS dry run, publish, sitemap, llms, and search submission: `HOLD_PENDING_SEPARATE_AUTHORIZATION`
 - Runtime, deploy, provider, backend import, and source ledger write: `BLOCKED`
@@ -33,9 +35,9 @@ This matrix aggregates the Enneagram public personality common contract, source 
 
 ## Next Handoff
 
-Recommended next planning task: `ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-LEDGER-READINESS-SCAN-01`
+Recommended next action after PR03 merge: register the goal-supplied backend public-contract item in its owning fap-api manifest and state, then verify dependencies. Do not execute or point consumers to an unregistered task id.
 
-The next step is read-only source ledger readiness planning. It must remain read-only until a later explicit manifest/state authorization promotes a bounded PR-train item.
+The next registered backend public-contract item may expose visible-evidence contract fields only after dependency verification. Source-ledger creation remains a later separately registered scope; content, CMS, runtime, publish, and production actions remain held.
 
 Negative guarantees:
 

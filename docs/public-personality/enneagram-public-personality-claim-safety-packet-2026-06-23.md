@@ -20,10 +20,10 @@ Source authority dependency: `ENNEAGRAM-PUBLIC-PERSONALITY-SOURCE-AUTHORITY-PACK
 
 ## Public Personality Scope Assertions
 
-- Hub planning: allowed after source and claim review.
-- Nine core type planning: allowed after source and claim review.
-- Centers or triads: conditional on backend source authority.
-- Wings, instincts, subtypes, and 54 wing x instinct pages: blocked from the first scope.
+- Current estate: 58 identities / 116 bilingual pages across hub, centers, core types, wings, and instinctual subtypes.
+- Every locale draft requires V2 source-ledger evidence and remains `pending_manual_review` until named human review.
+- Model or agent review must never be represented as human review.
+- The separate 54 wing × instinct matrix, Tritype, and new URL generation are blocked.
 - Private result profile rewrites and attempt-based profiles: blocked.
 
 ## Allowed Claim Classes

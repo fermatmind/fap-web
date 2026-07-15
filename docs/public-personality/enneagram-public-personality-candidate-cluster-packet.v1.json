@@ -22,7 +22,7 @@
   "cluster_families": [
     "enneagram_public_hub_framework",
     "enneagram_nine_core_type_profiles",
-    "enneagram_centers_or_triads_conditional",
+    "enneagram_centers",
     "enneagram_type_comparison_internal_links",
     "enneagram_vs_big_five_reflection",
     "enneagram_vs_mbti_reflection",
@@ -71,19 +71,19 @@
       "HOLD_actions": ["cms_write", "publish", "generated_page", "private_result_text"]
     },
     {
-      "candidate_id": "enneagram-centers-triads-conditional-01",
-      "cluster_family": "enneagram_centers_or_triads_conditional",
-      "target_intent": "Plan centers or triads only if backend source authority confirms the taxonomy.",
+      "candidate_id": "enneagram-centers-authority-v2-01",
+      "cluster_family": "enneagram_centers",
+      "target_intent": "Plan the three current center identities in both locales from backend authority and the V2 claim map.",
       "locale": "en",
-      "page_type": "conditional_taxonomy_candidate",
-      "source_evidence_required": ["centers_or_triads_source_authority", "source_authority_packet", "claim_safety_packet"],
-      "backend_authority_requirement": "backend_taxonomy_authority_required_before_candidate_promotion",
+      "page_type": "current_estate_candidate",
+      "source_evidence_required": ["authority_v2_source_ledger", "source_authority_packet", "claim_safety_packet"],
+      "backend_authority_requirement": "backend_authority_v2_identity_and_claim_map_required",
       "review_ledger_requirement": "required_before_any_public_copy",
-      "cms_dry_run_suitability": "hold_until_taxonomy_authority",
+      "cms_dry_run_suitability": "hold_until_source_ledger_and_human_review",
       "risk_level": "medium_high",
-      "allowed_claim_style": "taxonomy_context_if_authority_supports",
+      "allowed_claim_style": "reviewed_center_taxonomy_context",
       "forbidden_claim_style": "unreviewed_center_or_triad_page_generation",
-      "examples_only_statement": "Centers or triads remain conditional research candidates until backend authority exists.",
+      "examples_only_statement": "Center candidates remain non-public planning output until source-ledger and human-review gates pass.",
       "internal_link_candidates": ["/en/tests/enneagram-personality-test-nine-types"],
       "GPT55_review_required": true,
       "Safety_Gate_review_required": true,
@@ -173,16 +173,16 @@
     {
       "candidate_id": "enneagram-source-ledger-readiness-01",
       "cluster_family": "source_ledger_and_review_readiness_candidates",
-      "target_intent": "Plan the missing public personality source ledger and blocked wing, instinct, subtype, and 54 wing x instinct scope before CMS dry run.",
+      "target_intent": "Plan V2 source-ledger, independent bilingual drafting, pending_manual_review, and isolated-revision readiness for all 58 identities and 116 pages.",
       "locale": "en",
       "page_type": "readiness_candidate",
-      "source_evidence_required": ["public_personality_source_ledger", "backend_public_projection_service", "claim_safety_packet"],
-      "backend_authority_requirement": "public_personality_source_ledger_required",
+      "source_evidence_required": ["authority_v2_source_ledger", "backend_public_projection_service", "claim_safety_packet"],
+      "backend_authority_requirement": "authority_v2_source_ledger_required",
       "review_ledger_requirement": "required",
-      "cms_dry_run_suitability": "blocked_until_source_ledger_exists",
+      "cms_dry_run_suitability": "blocked_until_pr07_source_ledger_and_human_review",
       "risk_level": "high",
       "allowed_claim_style": "readiness_checklist",
-      "forbidden_claim_style": "generated_public_copy_cms_payload_or_wing_instinct_page_generation",
+      "forbidden_claim_style": "generated_public_copy_cms_payload_new_url_or_model_as_human_review",
       "examples_only_statement": "Readiness candidates identify missing evidence and do not produce public page copy.",
       "internal_link_candidates": ["/en/tests/enneagram-personality-test-nine-types"],
       "GPT55_review_required": true,
@@ -191,11 +191,21 @@
       "HOLD_actions": ["source_ledger_write", "candidate_generation", "cms_write", "publish", "generated_page", "backend_import"]
     }
   ],
-  "blocked_first_scope": [
-    "wing_pages",
-    "instinct_pages",
-    "subtype_pages",
-    "54_wing_x_instinct_pages"
+  "authority_v2_estate": {
+    "identity_count": 58,
+    "page_count": 116,
+    "locales": ["en", "zh-CN"],
+    "counts_per_locale": {"hub": 1, "center": 3, "core_type": 9, "wing": 18, "instinctual_subtype": 27},
+    "independent_bilingual_drafting": true,
+    "source_ledger_state": "required_pending_pr07",
+    "unreviewed_state": "pending_manual_review",
+    "model_review_is_human_review": false,
+    "working_revision_isolated": true
+  },
+  "forbidden_expansions": [
+    "54_wing_x_instinct_matrix",
+    "tritype",
+    "new_public_urls"
   ],
   "forbidden_payload_classes": [
     "publishable_article_body",
