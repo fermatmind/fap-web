@@ -2,7 +2,7 @@
 
 ## Mode
 
-Use schema-supported mode `content_package_generation`. Lock the existing 58 identity codes and routes through `asset_selection`; the 2 independent locales yield 116 page targets.
+Use schema-supported mode `content_package_generation`. Populate the required run-manifest `asset_selection` directly from the backend-authoritative 58-identity registry; the 2 independent locales yield 116 page targets. Do not delegate Authority V2 selection to the legacy V1 selector in `orchestration/asset-selection.md`.
 
 ## Current Estate
 
