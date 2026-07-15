@@ -392,5 +392,20 @@
     "merge_affected": false,
     "recommended_follow_up": "Open a dedicated authority/cache runtime investigation for Career and Big Five llms/llms-full enumeration; do not change it in profile content-package PRs.",
     "observed_at": "2026-07-13T07:03:53Z"
+  },
+  {
+    "id": "external-cms-public-promotion-mbti-index-43",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "MBTI-INDEX-43",
+    "branch": "codex/mbti-index-43-full-52-release-gate",
+    "blocker_type": "separately_controlled_cms_public_promotion_and_readmodel_state",
+    "evidence": "The first complete read-only 52-URL run returned HOLD_MBTI_52_INCOMPLETE: CMS_API=24/52, HTTP_200=52/52, CANONICAL=52/52, ROBOTS=32/52, JSONLD=32/52, FAQ_PARITY=20/52, SITEMAP=52/52, LLMS=52/52, LLMS_FULL=52/52, API_TIMEOUTS=0, and PRIVATE_URL_LEAKS=0. Exactly 28 Profile APIs expose zero public FAQ blocks because their approved repair records remain draft-only; 20 Profile HTML responses remain fail-closed noindex shells.",
+    "why_not_current_pr_scope": "INDEX-43 is a read-only release gate and cannot promote CMS drafts, mutate public revisions or indexability, clear production caches, change runtime code, deploy, or submit GSC.",
+    "required_checks_affected": true,
+    "recommended_follow_up": "Resolved: retain this entry as historical evidence and use the post-promotion INDEX-43 run artifacts as the release decision authority.",
+    "detected_at": "2026-07-14T16:17:52Z",
+    "resolved_at": "2026-07-15T09:07:10Z",
+    "resolution_evidence": "The exact 43-record production promotion completed on pinned backend SHA 65a1d3b78da70511306ebd2867a157494e4e217f using the authorized source, promotion and authorization hashes. No GSC mutation occurred. After frontend SWR convergence, two consecutive read-only INDEX-43 runs passed all nine 52/52 gates with API_TIMEOUTS=0, PRIVATE_URL_LEAKS=0 and identical evidence signatures.",
+    "disposition": "resolved_external_authority_promotion_verified_read_only"
   }
 ]

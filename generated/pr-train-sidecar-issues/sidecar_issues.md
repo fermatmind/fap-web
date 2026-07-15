@@ -324,3 +324,17 @@
 - whether merge is affected: no, unless the same failure reproduces in the required GitHub contracts check.
 - recommended follow-up: Open a dedicated authority/cache runtime investigation for Career and Big Five `llms`/`llms-full` enumeration; do not change it in profile content-package PRs.
 - observed at: 2026-07-13T07:03:53Z
+
+## MBTI-INDEX-43 Draft Authority Promotion Blocker
+
+- repo: fermatmind/fap-web
+- PR id / branch: MBTI-INDEX-43 / codex/mbti-index-43-full-52-release-gate
+- blocker type: separately controlled CMS public promotion and public readmodel state
+- evidence: The first complete read-only 52-URL run returned `HOLD_MBTI_52_INCOMPLETE`: CMS/API authority 24/52, HTTP 200 52/52, canonical 52/52, robots 32/52, JSON-LD 32/52, FAQ parity 20/52, sitemap 52/52, llms 52/52, llms-full 52/52, API timeouts 0, and private URL leaks 0. Exactly 28 Profile APIs expose zero public FAQ blocks. Their approved repair records remain CMS draft revisions because MBTI-CMS-IMPORT-40 authorization explicitly prohibited public promotion. Twenty Profile HTML responses also remain fail-closed noindex shells.
+- why not current PR scope: INDEX-43 is a read-only release gate. It cannot promote CMS drafts, mutate public revisions or indexability, clear production caches, change runtime code, deploy, or submit GSC.
+- whether required checks are affected: yes; the manifest requires two complete identical 52/52 production runs, so local verification cannot pass and no INDEX-43 PR may be opened or merged.
+- recommended follow-up: resolved; retain this entry as historical evidence and use the post-promotion INDEX-43 run artifacts as the release decision authority.
+- detected at: 2026-07-14T16:17:52Z
+- resolved at: 2026-07-15T09:07:10Z
+- resolution evidence: the exact 43-record promotion completed on pinned backend SHA `65a1d3b78da70511306ebd2867a157494e4e217f` with the authorized source, promotion and authorization hashes and without GSC mutation. After frontend SWR convergence, two consecutive read-only INDEX-43 runs passed every 52/52 gate with zero API timeouts, zero private URL leaks and identical evidence signatures.
+- disposition: resolved external authority promotion; INDEX-43 repository validation may continue.

@@ -1,0 +1,960 @@
+{
+  "id": "MBTI-INDEX-43",
+  "artifact": "MBTI-INDEX-43-FULL-52-RELEASE-GATE-RUN-2",
+  "generated_at": "2026-07-15T11:12:54.858Z",
+  "run": 2,
+  "evidence_scope": "read_only_production_network_revalidation",
+  "run_decision": "PASS_MBTI_52_RUN",
+  "evidence_signature": "156883261df0b28c08fb4d6d17648ab70c73f12d40009452bf00eb51bec6cd81",
+  "metrics": {
+    "CMS_API": 52,
+    "HTTP_200": 52,
+    "CANONICAL": 52,
+    "ROBOTS": 52,
+    "JSONLD": 52,
+    "FAQ_PARITY": 52,
+    "SITEMAP": 52,
+    "LLMS": 52,
+    "LLMS_FULL": 52,
+    "API_TIMEOUTS": 0
+  },
+  "private_url_leak_count": 0,
+  "records": [
+    {
+      "path": "/zh/personality/intj-a",
+      "kind": "profile",
+      "group": "NT",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/intj-t",
+      "kind": "profile",
+      "group": "NT",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/intp-a",
+      "kind": "profile",
+      "group": "NT",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/intp-t",
+      "kind": "profile",
+      "group": "NT",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/entj-a",
+      "kind": "profile",
+      "group": "NT",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/entj-t",
+      "kind": "profile",
+      "group": "NT",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/entp-a",
+      "kind": "profile",
+      "group": "NT",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/entp-t",
+      "kind": "profile",
+      "group": "NT",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/infj-a",
+      "kind": "profile",
+      "group": "NF",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/infj-t",
+      "kind": "profile",
+      "group": "NF",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/infp-a",
+      "kind": "profile",
+      "group": "NF",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/infp-t",
+      "kind": "profile",
+      "group": "NF",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/enfj-a",
+      "kind": "profile",
+      "group": "NF",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/enfj-t",
+      "kind": "profile",
+      "group": "NF",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/enfp-a",
+      "kind": "profile",
+      "group": "NF",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/enfp-t",
+      "kind": "profile",
+      "group": "NF",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/istj-a",
+      "kind": "profile",
+      "group": "SJ",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/istj-t",
+      "kind": "profile",
+      "group": "SJ",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/isfj-a",
+      "kind": "profile",
+      "group": "SJ",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/isfj-t",
+      "kind": "profile",
+      "group": "SJ",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/estj-a",
+      "kind": "profile",
+      "group": "SJ",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/estj-t",
+      "kind": "profile",
+      "group": "SJ",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/esfj-a",
+      "kind": "profile",
+      "group": "SJ",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/esfj-t",
+      "kind": "profile",
+      "group": "SJ",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/istp-a",
+      "kind": "profile",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/istp-t",
+      "kind": "profile",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/isfp-a",
+      "kind": "profile",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/isfp-t",
+      "kind": "profile",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/estp-a",
+      "kind": "profile",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/estp-t",
+      "kind": "profile",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/esfp-a",
+      "kind": "profile",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/esfp-t",
+      "kind": "profile",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/intj-a-vs-intj-t",
+      "kind": "at_comparison",
+      "group": "NT",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/intp-a-vs-intp-t",
+      "kind": "at_comparison",
+      "group": "NT",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/entj-a-vs-entj-t",
+      "kind": "at_comparison",
+      "group": "NT",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/entp-a-vs-entp-t",
+      "kind": "at_comparison",
+      "group": "NT",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/infj-a-vs-infj-t",
+      "kind": "at_comparison",
+      "group": "NF",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/infp-a-vs-infp-t",
+      "kind": "at_comparison",
+      "group": "NF",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/enfj-a-vs-enfj-t",
+      "kind": "at_comparison",
+      "group": "NF",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/enfp-a-vs-enfp-t",
+      "kind": "at_comparison",
+      "group": "NF",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/istj-a-vs-istj-t",
+      "kind": "at_comparison",
+      "group": "SJ",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/isfj-a-vs-isfj-t",
+      "kind": "at_comparison",
+      "group": "SJ",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/estj-a-vs-estj-t",
+      "kind": "at_comparison",
+      "group": "SJ",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/esfj-a-vs-esfj-t",
+      "kind": "at_comparison",
+      "group": "SJ",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/istp-a-vs-istp-t",
+      "kind": "at_comparison",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/isfp-a-vs-isfp-t",
+      "kind": "at_comparison",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/estp-a-vs-estp-t",
+      "kind": "at_comparison",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/esfp-a-vs-esfp-t",
+      "kind": "at_comparison",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/intj-vs-intp",
+      "kind": "cross_type_comparison",
+      "group": "hot_cross_type",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/entj-vs-intj",
+      "kind": "cross_type_comparison",
+      "group": "hot_cross_type",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/infj-vs-infp",
+      "kind": "cross_type_comparison",
+      "group": "hot_cross_type",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
+      "path": "/zh/personality/istj-vs-isfj",
+      "kind": "cross_type_comparison",
+      "group": "hot_cross_type",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    }
+  ]
+}
