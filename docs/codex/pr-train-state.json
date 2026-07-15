@@ -45054,7 +45054,7 @@
     "depends_on": ["BIG5-AUTHORITY-V2-SOFT404-39"],
     "train_scope": "big5_authority_v2_topic_loading_runtime_repair",
     "title": "BIG5-AUTHORITY-V2-TOPIC-RUNTIME-40: fix(content): resolve Big Five topic loading runtime",
-    "commit_sha": null,
+    "commit_sha": "0891546a975cbdbef71dd944fb24a16db00e99c7",
     "pr_url": null,
     "checks": {
       "authorization": {"status": "passed", "evidence": "The operator supplied a concrete continuous-execution /goal authorizing the exact PR40 branch, title, scope, validation, PR lifecycle, merge, sync, and cleanup."},
@@ -45074,9 +45074,10 @@
       {"at": "2026-07-15T01:18:42Z", "status": "branch_created", "summary": "Created codex/big5-authority-v2-topic-runtime-40 from clean latest origin/main at 3e1e97d25a1e2369ad498d7ca193ca0b1b267e5c after verifying PR39 merge, sync, cleanup, and PR40 branch/PR absence."},
       {"at": "2026-07-15T01:22:18Z", "status": "in_progress", "summary": "Reproduced the production defect without mutation: valid published backend payloads are hidden behind the persistent RSC loading shell because force-static ISR cached HTML carries an old nonce while proxy enforcement generates a fresh request nonce. Scope is limited to making the Topic detail request-rendered and adding focused runtime contracts; no CSP weakening, CMS copy, backend, feed, schema, or PR46 authority work is allowed."},
       {"at": "2026-07-15T01:29:28Z", "status": "local_checks_running", "summary": "Implemented request-rendered Topic HTML with the official connection() boundary while retaining revalidate=300 backend data caching. Focused runtime/CMS/bundle tests passed 26/26, lint/spacing/typecheck passed, and the first full suite passed 749/750 files plus 4305/4306 tests. The only failure was the stale shared-cache assertion requiring Topic force-static; updated that same-scope contract to distinguish per-request nonce HTML from cached backend data and restored all generated test side effects exactly."},
-      {"at": "2026-07-15T01:38:41Z", "status": "local_checks_passed", "summary": "The focused regression rerun passed 34/34 and the complete contract rerun passed 749 files / 4307 tests. Production-configured build passed with Topic detail request-rendered. Built-runtime Playwright verified en and zh pages exit the streaming fallback and render backend-authoritative titles, with matching CSP header/body nonces on every request and no script-blocking console errors."}
+      {"at": "2026-07-15T01:38:41Z", "status": "local_checks_passed", "summary": "The focused regression rerun passed 34/34 and the complete contract rerun passed 749 files / 4307 tests. Production-configured build passed with Topic detail request-rendered. Built-runtime Playwright verified en and zh pages exit the streaming fallback and render backend-authoritative titles, with matching CSP header/body nonces on every request and no script-blocking console errors."},
+      {"at": "2026-07-15T01:41:00Z", "status": "committed", "summary": "Committed the exact five-file PR40 scope as 0891546a975cbdbef71dd944fb24a16db00e99c7 after YAML/JSON parsing, diff check, and exact changed-file scope validation passed."}
     ],
-    "updated_at": "2026-07-15T01:38:41Z"
+    "updated_at": "2026-07-15T01:41:00Z"
   },
   "MBTI-FULL-AUDIT-30": {
     "status": "merged",
