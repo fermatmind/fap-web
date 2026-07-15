@@ -15377,7 +15377,7 @@ prs:
     mode: execute
     train_scope: mbti_full_52_url_read_only_index_release_gate
     risk_level: L1
-    status: local_verified
+    status: ready_to_merge
     title: "MBTI-INDEX-43: revalidate all 52 Chinese MBTI URLs"
     goal: "Run two identical read-only production release-gate passes across exactly 32 profiles, sixteen A/T comparisons, and four approved hot cross-type comparisons before allowing the complete cohort to proceed to GSC monitoring."
     in_scope:
