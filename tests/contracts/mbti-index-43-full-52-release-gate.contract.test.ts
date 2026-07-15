@@ -60,6 +60,9 @@ describe("MBTI-INDEX-43 full 52 URL release gate", () => {
     expect(source).not.toContain("path.join(ROOT, relativePath)");
     expect(source).not.toContain("process.cwd()");
     expect(source).not.toContain("function writeArtifact");
+    expect(source).toMatch(/Network response\s+\/\/ strings are validated in memory/);
+    expect(source).toContain("records: evidence.records");
+    expect(source).not.toContain("private_url_leaks: privateUrlLeaks");
     expect(source).toContain("PRIVATE_PATH_PATTERN");
     expect(source).toContain("API_TIMEOUTS");
     expect(source).not.toMatch(/method:\s*["'](?:POST|PUT|PATCH|DELETE)["']/);

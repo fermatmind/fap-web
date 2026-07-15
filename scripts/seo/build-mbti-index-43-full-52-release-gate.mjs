@@ -205,19 +205,33 @@ function jsonLdValid(kind, structured) {
     .every((type) => structured.types.includes(type));
 }
 
-function stableEvidence(records, metrics, privateUrlLeaks) {
+const CHECK_KEYS = Object.freeze([
+  "cms_api",
+  "http_200",
+  "canonical",
+  "robots",
+  "jsonld",
+  "faq_parity",
+  "sitemap",
+  "llms",
+  "llms_full",
+  "api_no_timeout",
+]);
+
+function stableEvidence(targetList, records, metrics, privateUrlLeakCount) {
   return {
     metrics,
-    private_url_leaks: [...privateUrlLeaks].sort(),
-    records: records.map((record) => ({
-      path: record.path,
-      kind: record.kind,
-      checks: record.checks,
-      blockers: record.blockers,
-      api_faq_count: record.api_faq_count ?? 0,
-      schema_faq_count: record.schema_faq_count ?? 0,
-      structured_data_types: record.structured_data_types ?? [],
-    })),
+    private_url_leak_count: privateUrlLeakCount,
+    records: targetList.map((target, index) => {
+      const checks = Object.fromEntries(CHECK_KEYS.map((key) => [key, records[index]?.checks?.[key] === true]));
+      return {
+        path: `/zh/personality/${target.slug}`,
+        kind: target.kind,
+        group: target.group,
+        checks,
+        blockers: CHECK_KEYS.filter((key) => !checks[key]),
+      };
+    }),
   };
 }
 
@@ -342,7 +356,9 @@ const metrics = {
 const runPassed = Object.entries(metrics).every(([key, value]) => (
   key === "API_TIMEOUTS" ? value === 0 : value === 52
 )) && privateUrlLeaks.length === 0;
-const evidence = stableEvidence(records, metrics, privateUrlLeaks);
+// Persist only the static inventory and boolean gate outcomes. Network response
+// strings are validated in memory and never written to repository artifacts.
+const evidence = stableEvidence(targetList, records, metrics, privateUrlLeaks.length);
 const evidenceSignature = sha256(evidence);
 const runReport = {
   id: "MBTI-INDEX-43",
@@ -354,8 +370,7 @@ const runReport = {
   evidence_signature: evidenceSignature,
   metrics,
   private_url_leak_count: privateUrlLeaks.length,
-  private_url_leaks: privateUrlLeaks,
-  records,
+  records: evidence.records,
 };
 if (RUN === 1) {
   fs.writeFileSync(ARTIFACT_PATHS.run1, `${JSON.stringify(runReport, null, 2)}\n`);
@@ -401,7 +416,7 @@ const finalReport = {
   } : null,
   metrics,
   private_url_leak_count: privateUrlLeaks.length,
-  records,
+  records: evidence.records,
   safety_boundary: {
     read_only_network: true,
     cms_write_attempted: false,
@@ -429,18 +444,20 @@ const markdown = [
   "",
   "| Path | Kind | Result | Blockers | Latency ms |",
   "| --- | --- | --- | --- | ---: |",
-  ...records.map((record) => `| ${record.path} | ${record.kind} | ${record.blockers.length ? "hold" : "pass"} | ${record.blockers.join(", ") || "none"} | ${record.latency_ms} |`),
+  ...evidence.records.map((record) => `| ${record.path} | ${record.kind} | ${record.blockers.length ? "hold" : "pass"} | ${record.blockers.join(", ") || "none"} | not persisted |`),
   "",
 ].join("\n");
 const csvHeaders = ["path", "kind", "group", "result", "cms_api", "http_200", "canonical", "robots", "jsonld", "faq_parity", "sitemap", "llms", "llms_full", "api_no_timeout", "latency_ms", "blockers"];
 const csv = [
   csvHeaders.map(csvEscape).join(","),
-  ...records.map((record) => csvHeaders.map((header) => csvEscape(
+  ...evidence.records.map((record) => csvHeaders.map((header) => csvEscape(
     header === "result"
       ? (record.blockers.length ? "hold" : "pass")
       : header === "blockers"
         ? record.blockers.join("|")
-        : (record[header] ?? record.checks[header] ?? ""),
+        : header === "latency_ms"
+          ? "not_persisted"
+          : (record[header] ?? record.checks[header] ?? ""),
   )).join(",")),
 ].join("\n") + "\n";
 

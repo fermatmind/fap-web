@@ -1,11 +1,11 @@
 {
   "id": "MBTI-INDEX-43",
   "artifact": "MBTI-INDEX-43-FULL-52-RELEASE-GATE-RUN-2",
-  "generated_at": "2026-07-15T10:52:13.070Z",
+  "generated_at": "2026-07-15T11:12:54.858Z",
   "run": 2,
   "evidence_scope": "read_only_production_network_revalidation",
   "run_decision": "PASS_MBTI_52_RUN",
-  "evidence_signature": "92ad0beddbd1307c0e9f9bb0d8adf040e77fc648f6f8279f86d8e4ab5d6ef9b6",
+  "evidence_signature": "156883261df0b28c08fb4d6d17648ab70c73f12d40009452bf00eb51bec6cd81",
   "metrics": {
     "CMS_API": 52,
     "HTTP_200": 52,
@@ -19,29 +19,11 @@
     "API_TIMEOUTS": 0
   },
   "private_url_leak_count": 0,
-  "private_url_leaks": [],
   "records": [
     {
-      "group": "NT",
-      "kind": "profile",
-      "slug": "intj-a",
       "path": "/zh/personality/intj-a",
-      "canonical": "https://fermatmind.com/zh/personality/intj-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/intj-a?locale=zh-CN",
-      "latency_ms": 4691,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NT",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -57,26 +39,9 @@
       "blockers": []
     },
     {
-      "group": "NT",
-      "kind": "profile",
-      "slug": "intj-t",
       "path": "/zh/personality/intj-t",
-      "canonical": "https://fermatmind.com/zh/personality/intj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/intj-t?locale=zh-CN",
-      "latency_ms": 3997,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NT",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -92,26 +57,9 @@
       "blockers": []
     },
     {
-      "group": "NT",
-      "kind": "profile",
-      "slug": "intp-a",
       "path": "/zh/personality/intp-a",
-      "canonical": "https://fermatmind.com/zh/personality/intp-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/intp-a?locale=zh-CN",
-      "latency_ms": 4070,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NT",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -127,26 +75,9 @@
       "blockers": []
     },
     {
-      "group": "NT",
-      "kind": "profile",
-      "slug": "intp-t",
       "path": "/zh/personality/intp-t",
-      "canonical": "https://fermatmind.com/zh/personality/intp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/intp-t?locale=zh-CN",
-      "latency_ms": 4136,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NT",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -162,26 +93,9 @@
       "blockers": []
     },
     {
-      "group": "NT",
-      "kind": "profile",
-      "slug": "entj-a",
       "path": "/zh/personality/entj-a",
-      "canonical": "https://fermatmind.com/zh/personality/entj-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/entj-a?locale=zh-CN",
-      "latency_ms": 3900,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NT",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -197,26 +111,9 @@
       "blockers": []
     },
     {
-      "group": "NT",
-      "kind": "profile",
-      "slug": "entj-t",
       "path": "/zh/personality/entj-t",
-      "canonical": "https://fermatmind.com/zh/personality/entj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/entj-t?locale=zh-CN",
-      "latency_ms": 4318,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NT",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -232,26 +129,9 @@
       "blockers": []
     },
     {
-      "group": "NT",
-      "kind": "profile",
-      "slug": "entp-a",
       "path": "/zh/personality/entp-a",
-      "canonical": "https://fermatmind.com/zh/personality/entp-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/entp-a?locale=zh-CN",
-      "latency_ms": 5250,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NT",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -267,26 +147,9 @@
       "blockers": []
     },
     {
-      "group": "NT",
-      "kind": "profile",
-      "slug": "entp-t",
       "path": "/zh/personality/entp-t",
-      "canonical": "https://fermatmind.com/zh/personality/entp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/entp-t?locale=zh-CN",
-      "latency_ms": 5780,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NT",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -302,26 +165,9 @@
       "blockers": []
     },
     {
-      "group": "NF",
-      "kind": "profile",
-      "slug": "infj-a",
       "path": "/zh/personality/infj-a",
-      "canonical": "https://fermatmind.com/zh/personality/infj-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/infj-a?locale=zh-CN",
-      "latency_ms": 5547,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NF",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -337,26 +183,9 @@
       "blockers": []
     },
     {
-      "group": "NF",
-      "kind": "profile",
-      "slug": "infj-t",
       "path": "/zh/personality/infj-t",
-      "canonical": "https://fermatmind.com/zh/personality/infj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/infj-t?locale=zh-CN",
-      "latency_ms": 5543,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NF",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -372,26 +201,9 @@
       "blockers": []
     },
     {
-      "group": "NF",
-      "kind": "profile",
-      "slug": "infp-a",
       "path": "/zh/personality/infp-a",
-      "canonical": "https://fermatmind.com/zh/personality/infp-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/infp-a?locale=zh-CN",
-      "latency_ms": 3198,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NF",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -407,26 +219,9 @@
       "blockers": []
     },
     {
-      "group": "NF",
-      "kind": "profile",
-      "slug": "infp-t",
       "path": "/zh/personality/infp-t",
-      "canonical": "https://fermatmind.com/zh/personality/infp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/infp-t?locale=zh-CN",
-      "latency_ms": 7650,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NF",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -442,26 +237,9 @@
       "blockers": []
     },
     {
-      "group": "NF",
-      "kind": "profile",
-      "slug": "enfj-a",
       "path": "/zh/personality/enfj-a",
-      "canonical": "https://fermatmind.com/zh/personality/enfj-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/enfj-a?locale=zh-CN",
-      "latency_ms": 5003,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NF",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -477,26 +255,9 @@
       "blockers": []
     },
     {
-      "group": "NF",
-      "kind": "profile",
-      "slug": "enfj-t",
       "path": "/zh/personality/enfj-t",
-      "canonical": "https://fermatmind.com/zh/personality/enfj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/enfj-t?locale=zh-CN",
-      "latency_ms": 4785,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NF",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -512,26 +273,9 @@
       "blockers": []
     },
     {
-      "group": "NF",
-      "kind": "profile",
-      "slug": "enfp-a",
       "path": "/zh/personality/enfp-a",
-      "canonical": "https://fermatmind.com/zh/personality/enfp-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/enfp-a?locale=zh-CN",
-      "latency_ms": 4241,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NF",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -547,26 +291,9 @@
       "blockers": []
     },
     {
-      "group": "NF",
-      "kind": "profile",
-      "slug": "enfp-t",
       "path": "/zh/personality/enfp-t",
-      "canonical": "https://fermatmind.com/zh/personality/enfp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/enfp-t?locale=zh-CN",
-      "latency_ms": 4594,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "NF",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -582,26 +309,9 @@
       "blockers": []
     },
     {
-      "group": "SJ",
-      "kind": "profile",
-      "slug": "istj-a",
       "path": "/zh/personality/istj-a",
-      "canonical": "https://fermatmind.com/zh/personality/istj-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/istj-a?locale=zh-CN",
-      "latency_ms": 5111,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SJ",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -617,26 +327,9 @@
       "blockers": []
     },
     {
-      "group": "SJ",
-      "kind": "profile",
-      "slug": "istj-t",
       "path": "/zh/personality/istj-t",
-      "canonical": "https://fermatmind.com/zh/personality/istj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/istj-t?locale=zh-CN",
-      "latency_ms": 5201,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SJ",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -652,26 +345,9 @@
       "blockers": []
     },
     {
-      "group": "SJ",
-      "kind": "profile",
-      "slug": "isfj-a",
       "path": "/zh/personality/isfj-a",
-      "canonical": "https://fermatmind.com/zh/personality/isfj-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/isfj-a?locale=zh-CN",
-      "latency_ms": 6229,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SJ",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -687,26 +363,9 @@
       "blockers": []
     },
     {
-      "group": "SJ",
-      "kind": "profile",
-      "slug": "isfj-t",
       "path": "/zh/personality/isfj-t",
-      "canonical": "https://fermatmind.com/zh/personality/isfj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/isfj-t?locale=zh-CN",
-      "latency_ms": 5682,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SJ",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -722,26 +381,9 @@
       "blockers": []
     },
     {
-      "group": "SJ",
-      "kind": "profile",
-      "slug": "estj-a",
       "path": "/zh/personality/estj-a",
-      "canonical": "https://fermatmind.com/zh/personality/estj-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/estj-a?locale=zh-CN",
-      "latency_ms": 6651,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SJ",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -757,26 +399,9 @@
       "blockers": []
     },
     {
-      "group": "SJ",
-      "kind": "profile",
-      "slug": "estj-t",
       "path": "/zh/personality/estj-t",
-      "canonical": "https://fermatmind.com/zh/personality/estj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/estj-t?locale=zh-CN",
-      "latency_ms": 7422,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SJ",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -792,26 +417,9 @@
       "blockers": []
     },
     {
-      "group": "SJ",
-      "kind": "profile",
-      "slug": "esfj-a",
       "path": "/zh/personality/esfj-a",
-      "canonical": "https://fermatmind.com/zh/personality/esfj-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/esfj-a?locale=zh-CN",
-      "latency_ms": 7720,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SJ",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -827,26 +435,9 @@
       "blockers": []
     },
     {
-      "group": "SJ",
-      "kind": "profile",
-      "slug": "esfj-t",
       "path": "/zh/personality/esfj-t",
-      "canonical": "https://fermatmind.com/zh/personality/esfj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/esfj-t?locale=zh-CN",
-      "latency_ms": 9616,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SJ",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -862,26 +453,9 @@
       "blockers": []
     },
     {
-      "group": "SP",
-      "kind": "profile",
-      "slug": "istp-a",
       "path": "/zh/personality/istp-a",
-      "canonical": "https://fermatmind.com/zh/personality/istp-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/istp-a?locale=zh-CN",
-      "latency_ms": 6760,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SP",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -897,26 +471,9 @@
       "blockers": []
     },
     {
-      "group": "SP",
-      "kind": "profile",
-      "slug": "istp-t",
       "path": "/zh/personality/istp-t",
-      "canonical": "https://fermatmind.com/zh/personality/istp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/istp-t?locale=zh-CN",
-      "latency_ms": 5924,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SP",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -932,26 +489,9 @@
       "blockers": []
     },
     {
-      "group": "SP",
-      "kind": "profile",
-      "slug": "isfp-a",
       "path": "/zh/personality/isfp-a",
-      "canonical": "https://fermatmind.com/zh/personality/isfp-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/isfp-a?locale=zh-CN",
-      "latency_ms": 4999,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SP",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -967,26 +507,9 @@
       "blockers": []
     },
     {
-      "group": "SP",
-      "kind": "profile",
-      "slug": "isfp-t",
       "path": "/zh/personality/isfp-t",
-      "canonical": "https://fermatmind.com/zh/personality/isfp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/isfp-t?locale=zh-CN",
-      "latency_ms": 6741,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SP",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1002,26 +525,9 @@
       "blockers": []
     },
     {
-      "group": "SP",
-      "kind": "profile",
-      "slug": "estp-a",
       "path": "/zh/personality/estp-a",
-      "canonical": "https://fermatmind.com/zh/personality/estp-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/estp-a?locale=zh-CN",
-      "latency_ms": 6071,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SP",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1037,26 +543,9 @@
       "blockers": []
     },
     {
-      "group": "SP",
-      "kind": "profile",
-      "slug": "estp-t",
       "path": "/zh/personality/estp-t",
-      "canonical": "https://fermatmind.com/zh/personality/estp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/estp-t?locale=zh-CN",
-      "latency_ms": 6115,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SP",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1072,61 +561,27 @@
       "blockers": []
     },
     {
-      "group": "SP",
-      "kind": "profile",
-      "slug": "esfp-a",
       "path": "/zh/personality/esfp-a",
-      "canonical": "https://fermatmind.com/zh/personality/esfp-a",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/esfp-a?locale=zh-CN",
-      "latency_ms": 6729,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
-      "checks": {
-        "cms_api": true,
-        "http_200": true,
-        "canonical": true,
-        "robots": true,
-        "jsonld": true,
-        "faq_parity": true,
-        "sitemap": true,
-        "llms": true,
-        "llms_full": true,
-        "api_no_timeout": true
-      },
-      "blockers": []
-    },
-    {
-      "group": "SP",
       "kind": "profile",
-      "slug": "esfp-t",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
       "path": "/zh/personality/esfp-t",
-      "canonical": "https://fermatmind.com/zh/personality/esfp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/esfp-t?locale=zh-CN",
-      "latency_ms": 2626,
-      "api_faq_count": 4,
-      "schema_faq_count": 4,
-      "structured_data_types": [
-        "AboutPage",
-        "Answer",
-        "BreadcrumbList",
-        "DefinedTerm",
-        "FAQPage",
-        "ListItem",
-        "Question",
-        "WebPage"
-      ],
-      "robots": "index, follow",
+      "kind": "profile",
+      "group": "SP",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1142,25 +597,9 @@
       "blockers": []
     },
     {
-      "group": "NT",
-      "kind": "at_comparison",
-      "slug": "intj-a-vs-intj-t",
       "path": "/zh/personality/intj-a-vs-intj-t",
-      "canonical": "https://fermatmind.com/zh/personality/intj-a-vs-intj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/intj-a-vs-intj-t?locale=zh-CN",
-      "latency_ms": 16848,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "at_comparison",
+      "group": "NT",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1176,25 +615,9 @@
       "blockers": []
     },
     {
-      "group": "NT",
-      "kind": "at_comparison",
-      "slug": "intp-a-vs-intp-t",
       "path": "/zh/personality/intp-a-vs-intp-t",
-      "canonical": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/intp-a-vs-intp-t?locale=zh-CN",
-      "latency_ms": 16782,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "at_comparison",
+      "group": "NT",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1210,59 +633,27 @@
       "blockers": []
     },
     {
-      "group": "NT",
-      "kind": "at_comparison",
-      "slug": "entj-a-vs-entj-t",
       "path": "/zh/personality/entj-a-vs-entj-t",
-      "canonical": "https://fermatmind.com/zh/personality/entj-a-vs-entj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/entj-a-vs-entj-t?locale=zh-CN",
-      "latency_ms": 16316,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
-      "checks": {
-        "cms_api": true,
-        "http_200": true,
-        "canonical": true,
-        "robots": true,
-        "jsonld": true,
-        "faq_parity": true,
-        "sitemap": true,
-        "llms": true,
-        "llms_full": true,
-        "api_no_timeout": true
-      },
-      "blockers": []
-    },
-    {
+      "kind": "at_comparison",
       "group": "NT",
-      "kind": "at_comparison",
-      "slug": "entp-a-vs-entp-t",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
       "path": "/zh/personality/entp-a-vs-entp-t",
-      "canonical": "https://fermatmind.com/zh/personality/entp-a-vs-entp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/entp-a-vs-entp-t?locale=zh-CN",
-      "latency_ms": 15142,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "at_comparison",
+      "group": "NT",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1278,25 +669,9 @@
       "blockers": []
     },
     {
-      "group": "NF",
-      "kind": "at_comparison",
-      "slug": "infj-a-vs-infj-t",
       "path": "/zh/personality/infj-a-vs-infj-t",
-      "canonical": "https://fermatmind.com/zh/personality/infj-a-vs-infj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/infj-a-vs-infj-t?locale=zh-CN",
-      "latency_ms": 1660,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "at_comparison",
+      "group": "NF",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1312,25 +687,9 @@
       "blockers": []
     },
     {
-      "group": "NF",
-      "kind": "at_comparison",
-      "slug": "infp-a-vs-infp-t",
       "path": "/zh/personality/infp-a-vs-infp-t",
-      "canonical": "https://fermatmind.com/zh/personality/infp-a-vs-infp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/infp-a-vs-infp-t?locale=zh-CN",
-      "latency_ms": 1366,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "at_comparison",
+      "group": "NF",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1346,59 +705,27 @@
       "blockers": []
     },
     {
-      "group": "NF",
-      "kind": "at_comparison",
-      "slug": "enfj-a-vs-enfj-t",
       "path": "/zh/personality/enfj-a-vs-enfj-t",
-      "canonical": "https://fermatmind.com/zh/personality/enfj-a-vs-enfj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/enfj-a-vs-enfj-t?locale=zh-CN",
-      "latency_ms": 1166,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
-      "checks": {
-        "cms_api": true,
-        "http_200": true,
-        "canonical": true,
-        "robots": true,
-        "jsonld": true,
-        "faq_parity": true,
-        "sitemap": true,
-        "llms": true,
-        "llms_full": true,
-        "api_no_timeout": true
-      },
-      "blockers": []
-    },
-    {
+      "kind": "at_comparison",
       "group": "NF",
-      "kind": "at_comparison",
-      "slug": "enfp-a-vs-enfp-t",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
       "path": "/zh/personality/enfp-a-vs-enfp-t",
-      "canonical": "https://fermatmind.com/zh/personality/enfp-a-vs-enfp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/enfp-a-vs-enfp-t?locale=zh-CN",
-      "latency_ms": 1184,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "at_comparison",
+      "group": "NF",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1414,25 +741,9 @@
       "blockers": []
     },
     {
-      "group": "SJ",
-      "kind": "at_comparison",
-      "slug": "istj-a-vs-istj-t",
       "path": "/zh/personality/istj-a-vs-istj-t",
-      "canonical": "https://fermatmind.com/zh/personality/istj-a-vs-istj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/istj-a-vs-istj-t?locale=zh-CN",
-      "latency_ms": 874,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "at_comparison",
+      "group": "SJ",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1448,25 +759,9 @@
       "blockers": []
     },
     {
-      "group": "SJ",
-      "kind": "at_comparison",
-      "slug": "isfj-a-vs-isfj-t",
       "path": "/zh/personality/isfj-a-vs-isfj-t",
-      "canonical": "https://fermatmind.com/zh/personality/isfj-a-vs-isfj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/isfj-a-vs-isfj-t?locale=zh-CN",
-      "latency_ms": 1093,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "at_comparison",
+      "group": "SJ",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1482,59 +777,27 @@
       "blockers": []
     },
     {
-      "group": "SJ",
-      "kind": "at_comparison",
-      "slug": "estj-a-vs-estj-t",
       "path": "/zh/personality/estj-a-vs-estj-t",
-      "canonical": "https://fermatmind.com/zh/personality/estj-a-vs-estj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/estj-a-vs-estj-t?locale=zh-CN",
-      "latency_ms": 1056,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
-      "checks": {
-        "cms_api": true,
-        "http_200": true,
-        "canonical": true,
-        "robots": true,
-        "jsonld": true,
-        "faq_parity": true,
-        "sitemap": true,
-        "llms": true,
-        "llms_full": true,
-        "api_no_timeout": true
-      },
-      "blockers": []
-    },
-    {
+      "kind": "at_comparison",
       "group": "SJ",
-      "kind": "at_comparison",
-      "slug": "esfj-a-vs-esfj-t",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
       "path": "/zh/personality/esfj-a-vs-esfj-t",
-      "canonical": "https://fermatmind.com/zh/personality/esfj-a-vs-esfj-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/esfj-a-vs-esfj-t?locale=zh-CN",
-      "latency_ms": 1025,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "at_comparison",
+      "group": "SJ",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1550,25 +813,9 @@
       "blockers": []
     },
     {
-      "group": "SP",
-      "kind": "at_comparison",
-      "slug": "istp-a-vs-istp-t",
       "path": "/zh/personality/istp-a-vs-istp-t",
-      "canonical": "https://fermatmind.com/zh/personality/istp-a-vs-istp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/istp-a-vs-istp-t?locale=zh-CN",
-      "latency_ms": 954,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "at_comparison",
+      "group": "SP",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1584,25 +831,9 @@
       "blockers": []
     },
     {
-      "group": "SP",
-      "kind": "at_comparison",
-      "slug": "isfp-a-vs-isfp-t",
       "path": "/zh/personality/isfp-a-vs-isfp-t",
-      "canonical": "https://fermatmind.com/zh/personality/isfp-a-vs-isfp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/isfp-a-vs-isfp-t?locale=zh-CN",
-      "latency_ms": 909,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "at_comparison",
+      "group": "SP",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1618,59 +849,27 @@
       "blockers": []
     },
     {
-      "group": "SP",
-      "kind": "at_comparison",
-      "slug": "estp-a-vs-estp-t",
       "path": "/zh/personality/estp-a-vs-estp-t",
-      "canonical": "https://fermatmind.com/zh/personality/estp-a-vs-estp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/estp-a-vs-estp-t?locale=zh-CN",
-      "latency_ms": 793,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
-      "checks": {
-        "cms_api": true,
-        "http_200": true,
-        "canonical": true,
-        "robots": true,
-        "jsonld": true,
-        "faq_parity": true,
-        "sitemap": true,
-        "llms": true,
-        "llms_full": true,
-        "api_no_timeout": true
-      },
-      "blockers": []
-    },
-    {
-      "group": "SP",
       "kind": "at_comparison",
-      "slug": "esfp-a-vs-esfp-t",
+      "group": "SP",
+      "checks": {
+        "cms_api": true,
+        "http_200": true,
+        "canonical": true,
+        "robots": true,
+        "jsonld": true,
+        "faq_parity": true,
+        "sitemap": true,
+        "llms": true,
+        "llms_full": true,
+        "api_no_timeout": true
+      },
+      "blockers": []
+    },
+    {
       "path": "/zh/personality/esfp-a-vs-esfp-t",
-      "canonical": "https://fermatmind.com/zh/personality/esfp-a-vs-esfp-t",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/esfp-a-vs-esfp-t?locale=zh-CN",
-      "latency_ms": 913,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "at_comparison",
+      "group": "SP",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1686,25 +885,9 @@
       "blockers": []
     },
     {
-      "group": "hot_cross_type",
-      "kind": "cross_type_comparison",
-      "slug": "intj-vs-intp",
       "path": "/zh/personality/intj-vs-intp",
-      "canonical": "https://fermatmind.com/zh/personality/intj-vs-intp",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/intj-vs-intp?locale=zh-CN",
-      "latency_ms": 294,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "cross_type_comparison",
+      "group": "hot_cross_type",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1720,25 +903,9 @@
       "blockers": []
     },
     {
-      "group": "hot_cross_type",
-      "kind": "cross_type_comparison",
-      "slug": "entj-vs-intj",
       "path": "/zh/personality/entj-vs-intj",
-      "canonical": "https://fermatmind.com/zh/personality/entj-vs-intj",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/entj-vs-intj?locale=zh-CN",
-      "latency_ms": 234,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "cross_type_comparison",
+      "group": "hot_cross_type",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1754,25 +921,9 @@
       "blockers": []
     },
     {
-      "group": "hot_cross_type",
-      "kind": "cross_type_comparison",
-      "slug": "infj-vs-infp",
       "path": "/zh/personality/infj-vs-infp",
-      "canonical": "https://fermatmind.com/zh/personality/infj-vs-infp",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/infj-vs-infp?locale=zh-CN",
-      "latency_ms": 255,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "cross_type_comparison",
+      "group": "hot_cross_type",
       "checks": {
         "cms_api": true,
         "http_200": true,
@@ -1788,25 +939,9 @@
       "blockers": []
     },
     {
-      "group": "hot_cross_type",
-      "kind": "cross_type_comparison",
-      "slug": "istj-vs-isfj",
       "path": "/zh/personality/istj-vs-isfj",
-      "canonical": "https://fermatmind.com/zh/personality/istj-vs-isfj",
-      "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/istj-vs-isfj?locale=zh-CN",
-      "latency_ms": 226,
-      "api_faq_count": 5,
-      "schema_faq_count": 5,
-      "structured_data_types": [
-        "Answer",
-        "BreadcrumbList",
-        "CollectionPage",
-        "FAQPage",
-        "ItemList",
-        "ListItem",
-        "Question"
-      ],
-      "robots": "index, follow",
+      "kind": "cross_type_comparison",
+      "group": "hot_cross_type",
       "checks": {
         "cms_api": true,
         "http_200": true,
