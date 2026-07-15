@@ -45048,13 +45048,13 @@
     "updated_at": "2026-07-15T01:17:49Z"
   },
   "BIG5-AUTHORITY-V2-TOPIC-RUNTIME-40": {
-    "status": "github_checks_retrying",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/big5-authority-v2-topic-runtime-40",
     "depends_on": ["BIG5-AUTHORITY-V2-SOFT404-39"],
     "train_scope": "big5_authority_v2_topic_loading_runtime_repair",
     "title": "BIG5-AUTHORITY-V2-TOPIC-RUNTIME-40: fix(content): resolve Big Five topic loading runtime",
-    "commit_sha": "915d111743c09e9edb13381583a48d68ada93dbc",
+    "commit_sha": "845ffb9167d4543dc7221d44a8cb7e223697f2da",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1768",
     "checks": {
       "authorization": {"status": "passed", "evidence": "The operator supplied a concrete continuous-execution /goal authorizing the exact PR40 branch, title, scope, validation, PR lifecycle, merge, sync, and cleanup."},
@@ -45062,10 +45062,10 @@
       "preflight": {"status": "passed", "evidence": "Started from clean synchronized origin/main at 3e1e97d25a1e2369ad498d7ca193ca0b1b267e5c after confirming no local/remote PR40 branch or existing PR, then created codex/big5-authority-v2-topic-runtime-40."},
       "runtime_evidence": {"status": "passed", "evidence": "Read-only production checks found both en and zh-CN Big Five Topic detail and SEO APIs return 200 published payloads with two sections, while the web route is force-static/ISR under per-request enforced nonce CSP. Browser reproduction remained on the loading skeleton with 49 CSP console errors. Response inspection proved the CSP header nonce differs from the cached HTML script nonce; official Next.js 16 guidance requires nonce-CSP pages to render dynamically."},
       "required_local_checks": {"status": "passed", "evidence": "Focused Topic runtime/CMS/bundle/cache regressions passed 34/34; lint passed with zero errors and two unrelated generated-file warnings; lint:spacing, typecheck, the complete four-shard contract suite (749 files / 4307 tests), and the production-configured build passed. The build classifies /[locale]/topics/[slug] as dynamic while retaining 300-second backend data caching. Built-runtime Playwright checks proved both en and zh pages leave the streaming fallback (loading=0) and render backend titles; two requests per locale each had matching CSP header/body nonces and distinct request nonces. The sole console diagnostic is the pre-existing non-blocking report-only upgrade-insecure-requests warning."},
-      "github_required_checks": {"status": "retrying", "evidence": "On head 90788385a1baa03c451b4b61f68e48c0970767b1, both freeze checks and CodeQL passed; build compiled and typechecked PR40 successfully but failed while collecting unrelated /[locale]/tests/[slug] data because the public tests catalog request timed out after 15 seconds with retryable 408. The same PR is being retried by a ledger-only push; no runtime repair is justified."}
+      "github_required_checks": {"status": "passed", "evidence": "All seven checks passed on retry head 845ffb9167d4543dc7221d44a8cb7e223697f2da: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL, analyze (javascript-typescript), and no-new-code-scanning-alerts. GitHub reports MERGEABLE with no review requirement."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
-    "failure_reason": "First GitHub build attempt failed on an external retryable 408 while collecting unrelated /[locale]/tests/[slug] static params; same-PR retry pending after recording the evidence.",
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -45077,9 +45077,10 @@
       {"at": "2026-07-15T01:38:41Z", "status": "local_checks_passed", "summary": "The focused regression rerun passed 34/34 and the complete contract rerun passed 749 files / 4307 tests. Production-configured build passed with Topic detail request-rendered. Built-runtime Playwright verified en and zh pages exit the streaming fallback and render backend-authoritative titles, with matching CSP header/body nonces on every request and no script-blocking console errors."},
       {"at": "2026-07-15T01:39:54Z", "status": "committed", "summary": "Committed the exact five-file PR40 scope as 0891546a19bf406a5f1b714986f4a6b5a826f13c after YAML/JSON parsing, diff check, and exact changed-file scope validation passed."},
       {"at": "2026-07-15T01:40:40Z", "status": "pr_open", "summary": "Pushed the PR40 branch and opened PR #1768 with the exact manifest title and required what/why/validation/deferred/rule-impact sections. No production deploy or CMS mutation occurred; GitHub checks are pending on 915d111743c09e9edb13381583a48d68ada93dbc."},
-      {"at": "2026-07-15T01:45:00Z", "status": "github_checks_retrying", "summary": "The first GitHub build compiled and typechecked PR40, then failed outside this scope because /[locale]/tests/[slug] static param collection hit a retryable public-content timeout (408) after 15 seconds. Freeze checks and CodeQL passed. Recorded the transient evidence and triggered a same-PR retry without changing Topic runtime code."}
+      {"at": "2026-07-15T01:45:00Z", "status": "github_checks_retrying", "summary": "The first GitHub build compiled and typechecked PR40, then failed outside this scope because /[locale]/tests/[slug] static param collection hit a retryable public-content timeout (408) after 15 seconds. Freeze checks and CodeQL passed. Recorded the transient evidence and triggered a same-PR retry without changing Topic runtime code."},
+      {"at": "2026-07-15T01:50:43Z", "status": "ready_to_merge", "summary": "All seven GitHub checks passed on retry head 845ffb9167d4543dc7221d44a8cb7e223697f2da. GitHub reports MERGEABLE, no review requirement, the exact manifest title, and the exact five allowed changed files. Recorded ready-to-merge before the policy-compliant squash merge."}
     ],
-    "updated_at": "2026-07-15T01:45:00Z"
+    "updated_at": "2026-07-15T01:50:43Z"
   },
   "MBTI-FULL-AUDIT-30": {
     "status": "merged",
