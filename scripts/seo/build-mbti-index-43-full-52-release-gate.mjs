@@ -2,11 +2,13 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { JSDOM } from "jsdom";
 import { csvEscape } from "./artifactSafety.mjs";
 
 const ALLOW_NETWORK = process.argv.includes("--allow-network");
-const RUN = Number(process.argv.find((argument) => argument.startsWith("--run="))?.split("=")[1]);
-if (!ALLOW_NETWORK || ![1, 2].includes(RUN)) {
+const runArgument = process.argv.find((argument) => argument.startsWith("--run="));
+const RUN = runArgument === "--run=1" ? 1 : runArgument === "--run=2" ? 2 : null;
+if (!ALLOW_NETWORK || RUN === null) {
   console.error("HOLD_MBTI_52_INCOMPLETE: pass --allow-network and --run=1 or --run=2");
   process.exit(2);
 }
@@ -16,21 +18,18 @@ const DATE = "2026-07-14";
 const SITE_ORIGIN = "https://fermatmind.com";
 const API_ORIGIN = "https://api.fermatmind.com/api/v0.5/personality";
 const OUTPUT_BASE = `docs/seo/personality/mbti-index-43-full-52-release-gate-${DATE}`;
-const RUN_BASE = `${OUTPUT_BASE}-run-${RUN}`;
+const ARTIFACT_PATHS = Object.freeze({
+  run1: path.resolve(ROOT, `${OUTPUT_BASE}-run-1.json`),
+  run2: path.resolve(ROOT, `${OUTPUT_BASE}-run-2.json`),
+  reportJson: path.resolve(ROOT, `${OUTPUT_BASE}.json`),
+  reportMarkdown: path.resolve(ROOT, `${OUTPUT_BASE}.md`),
+  reportCsv: path.resolve(ROOT, `${OUTPUT_BASE}.csv`),
+});
 const MAX_ATTEMPTS = 3;
 const MAX_CONCURRENCY = 4;
 const REQUEST_TIMEOUT_MS = 30_000;
 const PRIVATE_PATH_PATTERN = /\/(?:result|attempt|report|orders?|payment|history|share)(?:\/|$|[?#])/i;
 const SAFE_PUBLIC_ORDER_PATH_PATTERN = /^\/(?:en|zh)\/personality\/big-five\/facets\/order\/?$/i;
-const HTML_ENTITIES = {
-  "&amp;": "&",
-  "&apos;": "'",
-  "&nbsp;": " ",
-  "&quot;": "\"",
-  "&#34;": "\"",
-  "&#39;": "'",
-  "&#160;": " ",
-};
 const GROUPS = {
   NT: ["intj", "intp", "entj", "entp"],
   NF: ["infj", "infp", "enfj", "enfp"],
@@ -57,18 +56,15 @@ function targets() {
 }
 
 function normalizeText(value) {
-  return String(value ?? "")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&(?:amp|apos|nbsp|quot|#34|#39|#160);/g, (entity) => HTML_ENTITIES[entity] ?? entity)
+  const fragment = JSDOM.fragment(String(value ?? ""));
+  fragment.querySelectorAll("script, style, noscript").forEach((node) => node.remove());
+  return String(fragment.textContent ?? "")
     .replace(/\s+/g, " ")
     .trim();
 }
 
 function visiblePageText(html) {
-  return normalizeText(String(html)
-    .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
-    .replace(/<noscript\b[\s\S]*?<\/noscript>/gi, " "));
+  return normalizeText(html);
 }
 
 function isTimeout(error) {
@@ -233,8 +229,9 @@ function sha256(value) {
   return crypto.createHash("sha256").update(JSON.stringify(value)).digest("hex");
 }
 
-function write(relativePath, value) {
-  const absolutePath = path.join(ROOT, relativePath);
+function writeArtifact(artifact, value) {
+  const absolutePath = ARTIFACT_PATHS[artifact];
+  if (!absolutePath) throw new Error(`Unsupported INDEX-43 artifact: ${artifact}`);
   fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
   const temporaryPath = `${absolutePath}.${process.pid}.tmp`;
   fs.writeFileSync(temporaryPath, value);
@@ -373,11 +370,11 @@ const runReport = {
   private_url_leaks: privateUrlLeaks,
   records,
 };
-write(`${RUN_BASE}.json`, `${JSON.stringify(runReport, null, 2)}\n`);
+writeArtifact(RUN === 1 ? "run1" : "run2", `${JSON.stringify(runReport, null, 2)}\n`);
 
 let previousRun = null;
 if (RUN === 2) {
-  const previousPath = path.join(ROOT, `${OUTPUT_BASE}-run-1.json`);
+  const previousPath = ARTIFACT_PATHS.run1;
   if (fs.existsSync(previousPath)) previousRun = JSON.parse(fs.readFileSync(previousPath, "utf8"));
 }
 const consecutivePass = Boolean(
@@ -456,9 +453,9 @@ const csv = [
   )).join(",")),
 ].join("\n") + "\n";
 
-write(`${OUTPUT_BASE}.json`, `${JSON.stringify(finalReport, null, 2)}\n`);
-write(`${OUTPUT_BASE}.md`, markdown);
-write(`${OUTPUT_BASE}.csv`, csv);
+writeArtifact("reportJson", `${JSON.stringify(finalReport, null, 2)}\n`);
+writeArtifact("reportMarkdown", markdown);
+writeArtifact("reportCsv", csv);
 
 console.log(finalDecision);
 metricLines.forEach((line) => console.log(line));

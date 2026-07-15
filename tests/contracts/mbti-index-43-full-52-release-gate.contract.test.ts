@@ -50,6 +50,11 @@ describe("MBTI-INDEX-43 full 52 URL release gate", () => {
     expect(source).toContain('kind === "profile"');
     expect(source).toContain('"CollectionPage", "ItemList", "BreadcrumbList", "FAQPage"');
     expect(source).toContain("visiblePageText");
+    expect(source).toContain('import { JSDOM } from "jsdom"');
+    expect(source).toContain("const ARTIFACT_PATHS = Object.freeze");
+    expect(source).toContain('runArgument === "--run=1"');
+    expect(source).not.toContain(".replace(/<script\\b");
+    expect(source).not.toContain("path.join(ROOT, relativePath)");
     expect(source).toContain("PRIVATE_PATH_PATTERN");
     expect(source).toContain("API_TIMEOUTS");
     expect(source).not.toMatch(/method:\s*["'](?:POST|PUT|PATCH|DELETE)["']/);

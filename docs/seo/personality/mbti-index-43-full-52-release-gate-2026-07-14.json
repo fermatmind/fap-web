@@ -1,7 +1,7 @@
 {
   "id": "MBTI-INDEX-43",
   "artifact": "MBTI-INDEX-43-FULL-52-RELEASE-GATE",
-  "generated_at": "2026-07-15T09:07:10.642Z",
+  "generated_at": "2026-07-15T09:53:25.513Z",
   "final_decision": "ALLOW_MBTI_52_COMPLETE",
   "gsc_dependency_unblocked": true,
   "required_consecutive_runs": 2,
@@ -59,7 +59,7 @@
       "path": "/zh/personality/intj-a",
       "canonical": "https://fermatmind.com/zh/personality/intj-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/intj-a?locale=zh-CN",
-      "latency_ms": 4908,
+      "latency_ms": 7757,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -94,7 +94,7 @@
       "path": "/zh/personality/intj-t",
       "canonical": "https://fermatmind.com/zh/personality/intj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/intj-t?locale=zh-CN",
-      "latency_ms": 3881,
+      "latency_ms": 5056,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -129,7 +129,7 @@
       "path": "/zh/personality/intp-a",
       "canonical": "https://fermatmind.com/zh/personality/intp-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/intp-a?locale=zh-CN",
-      "latency_ms": 3912,
+      "latency_ms": 6373,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -164,7 +164,7 @@
       "path": "/zh/personality/intp-t",
       "canonical": "https://fermatmind.com/zh/personality/intp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/intp-t?locale=zh-CN",
-      "latency_ms": 5806,
+      "latency_ms": 10252,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -199,7 +199,7 @@
       "path": "/zh/personality/entj-a",
       "canonical": "https://fermatmind.com/zh/personality/entj-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/entj-a?locale=zh-CN",
-      "latency_ms": 5880,
+      "latency_ms": 7023,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -234,7 +234,7 @@
       "path": "/zh/personality/entj-t",
       "canonical": "https://fermatmind.com/zh/personality/entj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/entj-t?locale=zh-CN",
-      "latency_ms": 4290,
+      "latency_ms": 6021,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -269,7 +269,7 @@
       "path": "/zh/personality/entp-a",
       "canonical": "https://fermatmind.com/zh/personality/entp-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/entp-a?locale=zh-CN",
-      "latency_ms": 4790,
+      "latency_ms": 4547,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -304,7 +304,7 @@
       "path": "/zh/personality/entp-t",
       "canonical": "https://fermatmind.com/zh/personality/entp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/entp-t?locale=zh-CN",
-      "latency_ms": 3970,
+      "latency_ms": 3874,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -339,7 +339,7 @@
       "path": "/zh/personality/infj-a",
       "canonical": "https://fermatmind.com/zh/personality/infj-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/infj-a?locale=zh-CN",
-      "latency_ms": 4953,
+      "latency_ms": 4196,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -374,7 +374,7 @@
       "path": "/zh/personality/infj-t",
       "canonical": "https://fermatmind.com/zh/personality/infj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/infj-t?locale=zh-CN",
-      "latency_ms": 6130,
+      "latency_ms": 4725,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -409,7 +409,7 @@
       "path": "/zh/personality/infp-a",
       "canonical": "https://fermatmind.com/zh/personality/infp-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/infp-a?locale=zh-CN",
-      "latency_ms": 3082,
+      "latency_ms": 4994,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -444,7 +444,7 @@
       "path": "/zh/personality/infp-t",
       "canonical": "https://fermatmind.com/zh/personality/infp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/infp-t?locale=zh-CN",
-      "latency_ms": 5996,
+      "latency_ms": 7592,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -479,7 +479,7 @@
       "path": "/zh/personality/enfj-a",
       "canonical": "https://fermatmind.com/zh/personality/enfj-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/enfj-a?locale=zh-CN",
-      "latency_ms": 4354,
+      "latency_ms": 2743,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -514,7 +514,7 @@
       "path": "/zh/personality/enfj-t",
       "canonical": "https://fermatmind.com/zh/personality/enfj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/enfj-t?locale=zh-CN",
-      "latency_ms": 4797,
+      "latency_ms": 4584,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -549,7 +549,7 @@
       "path": "/zh/personality/enfp-a",
       "canonical": "https://fermatmind.com/zh/personality/enfp-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/enfp-a?locale=zh-CN",
-      "latency_ms": 5090,
+      "latency_ms": 6188,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -584,7 +584,7 @@
       "path": "/zh/personality/enfp-t",
       "canonical": "https://fermatmind.com/zh/personality/enfp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/enfp-t?locale=zh-CN",
-      "latency_ms": 8103,
+      "latency_ms": 4512,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -619,7 +619,7 @@
       "path": "/zh/personality/istj-a",
       "canonical": "https://fermatmind.com/zh/personality/istj-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/istj-a?locale=zh-CN",
-      "latency_ms": 6867,
+      "latency_ms": 4189,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -654,7 +654,7 @@
       "path": "/zh/personality/istj-t",
       "canonical": "https://fermatmind.com/zh/personality/istj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/istj-t?locale=zh-CN",
-      "latency_ms": 3053,
+      "latency_ms": 7705,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -689,7 +689,7 @@
       "path": "/zh/personality/isfj-a",
       "canonical": "https://fermatmind.com/zh/personality/isfj-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/isfj-a?locale=zh-CN",
-      "latency_ms": 5006,
+      "latency_ms": 6839,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -724,7 +724,7 @@
       "path": "/zh/personality/isfj-t",
       "canonical": "https://fermatmind.com/zh/personality/isfj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/isfj-t?locale=zh-CN",
-      "latency_ms": 6499,
+      "latency_ms": 5765,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -759,7 +759,7 @@
       "path": "/zh/personality/estj-a",
       "canonical": "https://fermatmind.com/zh/personality/estj-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/estj-a?locale=zh-CN",
-      "latency_ms": 7173,
+      "latency_ms": 5101,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -794,7 +794,7 @@
       "path": "/zh/personality/estj-t",
       "canonical": "https://fermatmind.com/zh/personality/estj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/estj-t?locale=zh-CN",
-      "latency_ms": 6711,
+      "latency_ms": 7214,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -829,7 +829,7 @@
       "path": "/zh/personality/esfj-a",
       "canonical": "https://fermatmind.com/zh/personality/esfj-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/esfj-a?locale=zh-CN",
-      "latency_ms": 8240,
+      "latency_ms": 6735,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -864,7 +864,7 @@
       "path": "/zh/personality/esfj-t",
       "canonical": "https://fermatmind.com/zh/personality/esfj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/esfj-t?locale=zh-CN",
-      "latency_ms": 8879,
+      "latency_ms": 8399,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -899,7 +899,7 @@
       "path": "/zh/personality/istp-a",
       "canonical": "https://fermatmind.com/zh/personality/istp-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/istp-a?locale=zh-CN",
-      "latency_ms": 6189,
+      "latency_ms": 4416,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -934,7 +934,7 @@
       "path": "/zh/personality/istp-t",
       "canonical": "https://fermatmind.com/zh/personality/istp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/istp-t?locale=zh-CN",
-      "latency_ms": 6142,
+      "latency_ms": 7811,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -969,7 +969,7 @@
       "path": "/zh/personality/isfp-a",
       "canonical": "https://fermatmind.com/zh/personality/isfp-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/isfp-a?locale=zh-CN",
-      "latency_ms": 6811,
+      "latency_ms": 5119,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -1004,7 +1004,7 @@
       "path": "/zh/personality/isfp-t",
       "canonical": "https://fermatmind.com/zh/personality/isfp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/isfp-t?locale=zh-CN",
-      "latency_ms": 7889,
+      "latency_ms": 6829,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -1039,7 +1039,7 @@
       "path": "/zh/personality/estp-a",
       "canonical": "https://fermatmind.com/zh/personality/estp-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/estp-a?locale=zh-CN",
-      "latency_ms": 5151,
+      "latency_ms": 6648,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -1074,7 +1074,7 @@
       "path": "/zh/personality/estp-t",
       "canonical": "https://fermatmind.com/zh/personality/estp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/estp-t?locale=zh-CN",
-      "latency_ms": 4878,
+      "latency_ms": 5578,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -1109,7 +1109,7 @@
       "path": "/zh/personality/esfp-a",
       "canonical": "https://fermatmind.com/zh/personality/esfp-a",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/esfp-a?locale=zh-CN",
-      "latency_ms": 6469,
+      "latency_ms": 5937,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -1144,7 +1144,7 @@
       "path": "/zh/personality/esfp-t",
       "canonical": "https://fermatmind.com/zh/personality/esfp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/esfp-t?locale=zh-CN",
-      "latency_ms": 5390,
+      "latency_ms": 4856,
       "api_faq_count": 4,
       "schema_faq_count": 4,
       "structured_data_types": [
@@ -1179,7 +1179,7 @@
       "path": "/zh/personality/intj-a-vs-intj-t",
       "canonical": "https://fermatmind.com/zh/personality/intj-a-vs-intj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/intj-a-vs-intj-t?locale=zh-CN",
-      "latency_ms": 1769,
+      "latency_ms": 1262,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1213,7 +1213,7 @@
       "path": "/zh/personality/intp-a-vs-intp-t",
       "canonical": "https://fermatmind.com/zh/personality/intp-a-vs-intp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/intp-a-vs-intp-t?locale=zh-CN",
-      "latency_ms": 857,
+      "latency_ms": 1392,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1247,7 +1247,7 @@
       "path": "/zh/personality/entj-a-vs-entj-t",
       "canonical": "https://fermatmind.com/zh/personality/entj-a-vs-entj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/entj-a-vs-entj-t?locale=zh-CN",
-      "latency_ms": 1118,
+      "latency_ms": 1085,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1281,7 +1281,7 @@
       "path": "/zh/personality/entp-a-vs-entp-t",
       "canonical": "https://fermatmind.com/zh/personality/entp-a-vs-entp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/entp-a-vs-entp-t?locale=zh-CN",
-      "latency_ms": 1212,
+      "latency_ms": 1004,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1315,7 +1315,7 @@
       "path": "/zh/personality/infj-a-vs-infj-t",
       "canonical": "https://fermatmind.com/zh/personality/infj-a-vs-infj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/infj-a-vs-infj-t?locale=zh-CN",
-      "latency_ms": 939,
+      "latency_ms": 750,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1349,7 +1349,7 @@
       "path": "/zh/personality/infp-a-vs-infp-t",
       "canonical": "https://fermatmind.com/zh/personality/infp-a-vs-infp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/infp-a-vs-infp-t?locale=zh-CN",
-      "latency_ms": 965,
+      "latency_ms": 720,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1383,7 +1383,7 @@
       "path": "/zh/personality/enfj-a-vs-enfj-t",
       "canonical": "https://fermatmind.com/zh/personality/enfj-a-vs-enfj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/enfj-a-vs-enfj-t?locale=zh-CN",
-      "latency_ms": 935,
+      "latency_ms": 702,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1417,7 +1417,7 @@
       "path": "/zh/personality/enfp-a-vs-enfp-t",
       "canonical": "https://fermatmind.com/zh/personality/enfp-a-vs-enfp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/enfp-a-vs-enfp-t?locale=zh-CN",
-      "latency_ms": 814,
+      "latency_ms": 636,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1451,7 +1451,7 @@
       "path": "/zh/personality/istj-a-vs-istj-t",
       "canonical": "https://fermatmind.com/zh/personality/istj-a-vs-istj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/istj-a-vs-istj-t?locale=zh-CN",
-      "latency_ms": 770,
+      "latency_ms": 656,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1485,7 +1485,7 @@
       "path": "/zh/personality/isfj-a-vs-isfj-t",
       "canonical": "https://fermatmind.com/zh/personality/isfj-a-vs-isfj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/isfj-a-vs-isfj-t?locale=zh-CN",
-      "latency_ms": 830,
+      "latency_ms": 646,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1519,7 +1519,7 @@
       "path": "/zh/personality/estj-a-vs-estj-t",
       "canonical": "https://fermatmind.com/zh/personality/estj-a-vs-estj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/estj-a-vs-estj-t?locale=zh-CN",
-      "latency_ms": 993,
+      "latency_ms": 694,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1553,7 +1553,7 @@
       "path": "/zh/personality/esfj-a-vs-esfj-t",
       "canonical": "https://fermatmind.com/zh/personality/esfj-a-vs-esfj-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/esfj-a-vs-esfj-t?locale=zh-CN",
-      "latency_ms": 969,
+      "latency_ms": 648,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1587,7 +1587,7 @@
       "path": "/zh/personality/istp-a-vs-istp-t",
       "canonical": "https://fermatmind.com/zh/personality/istp-a-vs-istp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/istp-a-vs-istp-t?locale=zh-CN",
-      "latency_ms": 891,
+      "latency_ms": 650,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1621,7 +1621,7 @@
       "path": "/zh/personality/isfp-a-vs-isfp-t",
       "canonical": "https://fermatmind.com/zh/personality/isfp-a-vs-isfp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/isfp-a-vs-isfp-t?locale=zh-CN",
-      "latency_ms": 923,
+      "latency_ms": 840,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1655,7 +1655,7 @@
       "path": "/zh/personality/estp-a-vs-estp-t",
       "canonical": "https://fermatmind.com/zh/personality/estp-a-vs-estp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/estp-a-vs-estp-t?locale=zh-CN",
-      "latency_ms": 1092,
+      "latency_ms": 689,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1689,7 +1689,7 @@
       "path": "/zh/personality/esfp-a-vs-esfp-t",
       "canonical": "https://fermatmind.com/zh/personality/esfp-a-vs-esfp-t",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/esfp-a-vs-esfp-t?locale=zh-CN",
-      "latency_ms": 1123,
+      "latency_ms": 691,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1723,7 +1723,7 @@
       "path": "/zh/personality/intj-vs-intp",
       "canonical": "https://fermatmind.com/zh/personality/intj-vs-intp",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/intj-vs-intp?locale=zh-CN",
-      "latency_ms": 558,
+      "latency_ms": 274,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1757,7 +1757,7 @@
       "path": "/zh/personality/entj-vs-intj",
       "canonical": "https://fermatmind.com/zh/personality/entj-vs-intj",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/entj-vs-intj?locale=zh-CN",
-      "latency_ms": 531,
+      "latency_ms": 199,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1791,7 +1791,7 @@
       "path": "/zh/personality/infj-vs-infp",
       "canonical": "https://fermatmind.com/zh/personality/infj-vs-infp",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/infj-vs-infp?locale=zh-CN",
-      "latency_ms": 390,
+      "latency_ms": 208,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [
@@ -1825,7 +1825,7 @@
       "path": "/zh/personality/istj-vs-isfj",
       "canonical": "https://fermatmind.com/zh/personality/istj-vs-isfj",
       "api_url": "https://api.fermatmind.com/api/v0.5/personality/comparisons/istj-vs-isfj?locale=zh-CN",
-      "latency_ms": 434,
+      "latency_ms": 220,
       "api_faq_count": 5,
       "schema_faq_count": 5,
       "structured_data_types": [

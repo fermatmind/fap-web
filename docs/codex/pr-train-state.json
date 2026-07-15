@@ -45339,7 +45339,7 @@
     "updated_at": "2026-07-14T12:51:29Z"
   },
   "MBTI-INDEX-43": {
-    "status": "github_checks_pending",
+    "status": "github_checks_retry_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-index-43-full-52-release-gate",
     "depends_on": ["MBTI-PERF-42"],
@@ -45350,7 +45350,7 @@
     "checks": {
       "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and exact manifest/state registration."},
       "dependency": {"status": "passed", "evidence": "MBTI-PERF-42 merged in fap-api PR #3085 and exact backend SHA 5ea0eb27769b4fba6b33f5a35f1d32cb3276273a was deployed as mbti-perf-42-profile-read-stability-5ea0eb27-20260714. Post-deploy readback returned 32/32 profile detail and SEO endpoints twice with HTTP 200 and no request at or above ten seconds."},
-      "required_local_checks": {"status": "passed", "evidence": "After the separately authorized exact-package production promotion on backend SHA 65a1d3b78da70511306ebd2867a157494e4e217f, two consecutive read-only production runs passed with CMS_API, HTTP_200, CANONICAL, ROBOTS, JSONLD, FAQ_PARITY, SITEMAP, LLMS, and LLMS_FULL all 52/52, API_TIMEOUTS=0, PRIVATE_URL_LEAKS=0, and identical evidence signatures. Focused INDEX-43 contracts passed 3/3; zero-warning lint, typecheck, all four complete contract shards, the explicit production API build with 206/206 static pages, YAML/JSON parsing, and git diff --check passed."},
+      "required_local_checks": {"status": "passed", "evidence": "After the scoped CodeQL repair, two consecutive read-only production runs again passed with CMS_API, HTTP_200, CANONICAL, ROBOTS, JSONLD, FAQ_PARITY, SITEMAP, LLMS, and LLMS_FULL all 52/52, API_TIMEOUTS=0, PRIVATE_URL_LEAKS=0, and identical evidence signatures. Focused INDEX-43 contracts passed 3/3; zero-warning lint, typecheck, all four complete contract shards, the explicit production API build with 206/206 static pages, YAML/JSON parsing, CSV formula-injection validation, git diff --check, and exact allowlist scope validation passed."},
       "changed_file_scope": {"status": "passed", "evidence": "All changed and untracked files match the MBTI-INDEX-43 manifest allowlist: index-43 evidence docs, builder, focused contract, PR-train manifest/state, and the shared sidecar issue reports."},
       "github_required_checks": {"status": "pending", "evidence": null}
     },
@@ -45366,9 +45366,11 @@
       {"at": "2026-07-15T09:07:10Z", "status": "in_progress", "summary": "The operator-authorized 43-record indexability promotion completed on pinned backend SHA 65a1d3b78da70511306ebd2867a157494e4e217f without GSC mutation. After the 300-second frontend SWR cache converged, two consecutive read-only production runs returned complete 52/52 authority, HTML, canonical, robots, JSON-LD, FAQ parity, sitemap, llms and llms-full results with zero API timeouts, zero private URL leaks and identical evidence signatures. Repository validation is now running."},
       {"at": "2026-07-15T09:24:15Z", "status": "local_verified", "summary": "All INDEX-43 manifest checks passed: two consecutive production gates returned complete 52/52 with identical signatures; focused contracts passed 3/3; zero-warning lint, typecheck, four complete contract shards, explicit production build with 206/206 static pages, YAML/JSON parsing, diff checks, and exact allowlist scope validation passed. No CMS, discoverability, deploy, or GSC mutation was performed by this PR."},
       {"at": "2026-07-15T09:29:00Z", "status": "committed_pending_push", "summary": "Committed the exact eleven-path INDEX-43 evidence, builder, contract, ledger, and resolved-sidecar scope at d9283326 after explicit path-limited staging and cached diff validation."},
-      {"at": "2026-07-15T09:33:22Z", "status": "github_checks_pending", "summary": "Pushed codex/mbti-index-43-full-52-release-gate and opened PR #1771 from head 244b4965. Required GitHub and security checks are pending; no deploy, CMS, discoverability, or GSC mutation occurred."}
+      {"at": "2026-07-15T09:33:22Z", "status": "github_checks_pending", "summary": "Pushed codex/mbti-index-43-full-52-release-gate and opened PR #1771 from head 244b4965. Required GitHub and security checks are pending; no deploy, CMS, discoverability, or GSC mutation occurred."},
+      {"at": "2026-07-15T09:47:15Z", "status": "github_checks_retry_pending", "summary": "Inspected CodeQL run 29405028337 before editing. Alerts #174 and #175 are current-scope findings in the INDEX-43 builder: regex-based script-tag filtering and a CLI-derived artifact path. The scoped repair replaces HTML regex filtering with JSDOM text extraction and constrains writes to five predeclared artifact paths selected by an exact run flag; no alert suppression or runtime behavior change is used."},
+      {"at": "2026-07-15T10:07:47Z", "status": "review_fix_local_verified", "summary": "The scoped CodeQL repair is fully revalidated: JSDOM replaces regex HTML stripping, output writes are restricted to five fixed artifact paths, and run selection accepts only exact flags. Two consecutive production gates remained complete 52/52 with zero API timeouts and private URL leaks; focused contracts, zero-warning lint, typecheck, all four contract shards, the 206/206 production build, data parsing, CSV safety, diff checks, and exact scope validation passed."}
     ],
-    "updated_at": "2026-07-15T09:33:22Z"
+    "updated_at": "2026-07-15T10:07:47Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
