@@ -74,7 +74,7 @@ Runner inputs are target URL, framework, current CMS/API or live surface, optimi
 
 - `mbti.existing_asset_enhancement`: audit or improve existing CMS-backed 64 A/T pages and comparison pages. Do not regenerate the estate.
 - `big_five.content_package_generation`: create schema-valid packages for 5-10-30 dimensional assets. Do not create official 32 OCEAN SEO pages.
-- `enneagram.authority_v2_116_estate`: prepare isolated draft-revision packages for the existing hub, center, core-type, wing, and instinctual-subtype identities. Do not create new URLs, the 54 wing × instinct matrix, or Tritype.
+- `enneagram.content_package_generation` with the `authority_v2_116_estate` target scope: prepare isolated draft-revision packages for the existing hub, center, core-type, wing, and instinctual-subtype identities. Do not create new URLs, the 54 wing × instinct matrix, or Tritype.
 
 Every Enneagram Authority V2 run must lock all of these workflow truths:
 

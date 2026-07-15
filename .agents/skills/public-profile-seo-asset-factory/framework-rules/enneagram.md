@@ -2,7 +2,7 @@
 
 ## Mode
 
-Use `authority_v2_116_estate`.
+Use schema-supported mode `content_package_generation` with target scope `authority_v2_116_estate`.
 
 ## Current Estate
 

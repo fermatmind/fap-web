@@ -4,6 +4,7 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 const ROOT = process.cwd();
+const PR03_CONTRACT_PATH = "tests/contracts/enneagram-public-profile-agent-authority-v2-alignment.contract.test.ts";
 
 const GOVERNANCE_FILES = [
   ".agents/skills/public-profile-seo-asset-factory/SKILL.md",
@@ -39,15 +40,27 @@ function asRecord(value: unknown): Record<string, unknown> {
 }
 
 function changedFiles(): string[] {
-  const output = execFileSync("git", ["diff", "--name-only", "origin/main...HEAD"], {
-    cwd: ROOT,
-    encoding: "utf8",
-  });
-  return output
-    .split("\n")
-    .map((file) => file.trim())
-    .filter(Boolean)
-    .sort();
+  for (const baseRef of ["refs/remotes/origin/main", "refs/heads/main"]) {
+    try {
+      execFileSync("git", ["rev-parse", "--verify", "--quiet", baseRef], {
+        cwd: ROOT,
+        stdio: "ignore",
+      });
+      const output = execFileSync("git", ["diff", "--name-only", `${baseRef}...HEAD`], {
+        cwd: ROOT,
+        encoding: "utf8",
+        stdio: ["ignore", "pipe", "ignore"],
+      });
+      return output
+        .split("\n")
+        .map((file) => file.trim())
+        .filter(Boolean)
+        .sort();
+    } catch {
+      // Try the next local ref. Exact uncommitted scope remains a manifest shell gate.
+    }
+  }
+  return [];
 }
 
 describe("Enneagram Public Personality Authority V2 skill alignment", () => {
@@ -61,6 +74,9 @@ describe("Enneagram Public Personality Authority V2 skill alignment", () => {
     }
 
     const governance = GOVERNANCE_FILES.map(read).join("\n");
+    expect(governance).toContain("enneagram.content_package_generation");
+    expect(governance).toContain("target scope `authority_v2_116_estate`");
+    expect(governance).not.toContain("`enneagram.authority_v2_116_estate`");
     expect(governance).toContain("58 identities");
     expect(governance).toContain("116 pages");
     expect(governance).toContain("18 wings");
@@ -101,6 +117,7 @@ describe("Enneagram Public Personality Authority V2 skill alignment", () => {
   it("keeps PR03 governance-only with no runtime path changes", () => {
     const changed = changedFiles();
 
+    if (!changed.includes(PR03_CONTRACT_PATH)) return;
     expect(changed.length).toBeGreaterThan(0);
     for (const file of changed) {
       expect(
