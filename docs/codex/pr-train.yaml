@@ -14836,7 +14836,7 @@ prs:
     mode: execute
     train_scope: big5_authority_v2_read_only_production_runtime_closeout
     risk_level: L1
-    status: ready_to_merge
+    status: merged
     title: "BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38: docs(qa): close out Big Five V2 production runtime"
     goal: "Perform read-only production verification of the authorized and imported Big Five V2 runtime, recording PASS, FAIL, or UNKNOWN for visible content, metadata, schema, media, links, feeds, redirects, private boundaries, and exact asset counts without mutating production."
     in_scope:
@@ -14867,7 +14867,62 @@ prs:
       github_checks_required: true
       squash: true
       auto_merge: true
-    next_task: null
+    next_task: BIG5-AUTHORITY-V2-SOFT404-39
+
+  - id: BIG5-AUTHORITY-V2-SOFT404-39
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-authority-v2-soft404-39
+    base: main
+    depends_on:
+      - BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38
+    mode: execute
+    train_scope: big5_authority_v2_withheld_route_soft404_repair
+    risk_level: L1
+    status: ready_to_merge
+    title: "BIG5-AUTHORITY-V2-SOFT404-39: fix(seo): return fail-closed status for withheld Big Five drafts"
+    goal: "Make the 100 withheld Article routes and four withheld Big Five technical-trust routes return a real fail-closed non-200 response while preserving published controls, noindex, feed exclusion, and backend/CMS authority."
+    in_scope:
+      - proxy.ts
+      - app/(localized)/[locale]/articles/[slug]/page.tsx
+      - app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx
+      - scripts/ops/check-mbti-pdf-print-asset-hash.mjs
+      - tests/contracts/big5-authority-v2-soft404-39.contract.test.ts
+      - tests/contracts/proxy-boundary.contract.test.ts
+      - tests/contracts/scale-rollout.contract.test.ts
+      - tests/contracts/security-122-web-08-daily-giving-guards.contract.test.ts
+      - tests/contracts/security-122-web-16-public-ui-route-config-guards.contract.test.tsx
+      - tests/contracts/staging-discoverability-containment.contract.test.ts
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - backend package, CMS content, slug, canonical, sitemap, llms, or indexability mutation
+      - Topic runtime, media, visible dates, reviewer, source, or structured-data repair
+      - frontend editorial fallback or hard-coded withheld Article slug authority
+      - production deploy, CMS write, import, migration, media upload, promotion, or public release
+    required_local_checks:
+      - corepack pnpm exec vitest run tests/contracts/big5-authority-v2-soft404-39.contract.test.ts --reporter=dot
+      - node scripts/ops/check-mbti-pdf-print-asset-hash.mjs --check
+      - corepack pnpm lint
+      - corepack pnpm lint:spacing
+      - corepack pnpm typecheck
+      - corepack pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    production_write_execution: false
+    production_deploy_allowed: false
+    cms_mutation_allowed: false
+    indexability_mutation_allowed: false
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: BIG5-AUTHORITY-V2-TOPIC-RUNTIME-40
 
   - id: MBTI-FULL-AUDIT-30
     repo: fap-web

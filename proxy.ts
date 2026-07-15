@@ -1,13 +1,15 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
+import { buildApiUrl } from "@/lib/api-base";
 import { buildDefaultPublicPersonalitySlug } from "@/lib/cms/personality";
 import {
   LOCALE_COOKIE_NAME,
   resolveCountryCodeFromHeaders,
   resolvePreferredLocale,
 } from "@/lib/i18n/localeNegotiation";
-import { localizedPath, stripLocalePrefix } from "@/lib/i18n/locales";
+import { localizedPath, stripLocalePrefix, toApiLocale } from "@/lib/i18n/locales";
 import { isLegacyPath, resolveLegacyPathMode } from "@/lib/legacyCompatibility";
+import { resolveBigFivePublicRouteEntry } from "@/lib/personality/bigFivePublicRoutes";
 import { shouldNoindex } from "@/lib/seo/indexingPolicy";
 import {
   PRIVATE_ANALYTICS_SUPPRESSION_HEADER,
@@ -39,6 +41,9 @@ const ANON_ID_PATTERN = /^[A-Za-z0-9_-]{8,128}$/;
 const FORCE_GONE_PATTERNS = [/^\/professions(\/|$)/i];
 const LOCALE_REDIRECT_PREFIXES = ["articles", "career", "topics", "personality"] as const;
 const MBTI_TYPE_RE = /^[ie][ns][ft][jp]$/i;
+const ARTICLE_DETAIL_PATH_RE = /^\/(en|zh)\/articles\/([^/]+)\/?$/i;
+const BIG_FIVE_DETAIL_PATH_RE = /^\/(en|zh)\/personality\/big-five\/(.+?)\/?$/i;
+const PUBLIC_ABSENCE_PROBE_TIMEOUT_MS = 3000;
 const DAILY_GIVING_PUBLIC_API_PATH_RE = /^\/api\/v0\.5\/foundation\/giving-records(?:\/|$)/i;
 const DAILY_GIVING_PUBLIC_API_ALLOWED_METHODS = ["GET", "HEAD"] as const;
 
@@ -64,6 +69,85 @@ function createGoneResponse() {
   });
   response.headers.set("X-Robots-Tag", NOINDEX_VALUE);
   return response;
+}
+
+function createPublicAbsenceResponse(status: 404 | 410) {
+  const response = new NextResponse(status === 410 ? "Gone" : "Not Found", {
+    status,
+    headers: {
+      "Cache-Control": "no-store",
+      "Content-Type": "text/plain; charset=utf-8",
+    },
+  });
+  response.headers.set("X-Robots-Tag", NOINDEX_VALUE);
+  return response;
+}
+
+function isPublicReadMethod(method: string): boolean {
+  return method === "GET" || method === "HEAD";
+}
+
+function resolveArticleAuthorityProbe(pathname: string): { locale: "en" | "zh"; slug: string } | null {
+  const match = pathname.match(ARTICLE_DETAIL_PATH_RE);
+  if (!match) {
+    return null;
+  }
+
+  try {
+    const slug = decodeURIComponent(match[2] ?? "").trim();
+    return slug ? { locale: match[1]?.toLowerCase() === "zh" ? "zh" : "en", slug } : null;
+  } catch {
+    return null;
+  }
+}
+
+function isUnknownBigFivePublicRoute(pathname: string): boolean {
+  const match = pathname.match(BIG_FIVE_DETAIL_PATH_RE);
+  if (!match) {
+    return false;
+  }
+
+  try {
+    const slugSegments = String(match[2] ?? "")
+      .split("/")
+      .map((segment) => decodeURIComponent(segment));
+    return resolveBigFivePublicRouteEntry(slugSegments) === null;
+  } catch {
+    return true;
+  }
+}
+
+async function probeArticlePublicAbsence(
+  probe: { locale: "en" | "zh"; slug: string },
+): Promise<NextResponse | null> {
+  const query = new URLSearchParams({
+    locale: toApiLocale(probe.locale),
+    org_id: "0",
+  });
+
+  try {
+    const response = await fetch(
+      buildApiUrl(`/v0.5/articles/${encodeURIComponent(probe.slug)}?${query.toString()}`),
+      {
+        method: "HEAD",
+        headers: {
+          Accept: "application/json",
+          "X-FAP-Locale": toApiLocale(probe.locale),
+        },
+        cache: "no-store",
+        redirect: "manual",
+        signal: AbortSignal.timeout(PUBLIC_ABSENCE_PROBE_TIMEOUT_MS),
+      },
+    );
+
+    return response.status === 404 || response.status === 410
+      ? createPublicAbsenceResponse(response.status)
+      : null;
+  } catch {
+    // A transient probe failure is not authoritative absence. Let the route's
+    // classified public read reach its existing error boundary instead.
+    return null;
+  }
 }
 
 function createMethodNotAllowedResponse(allowedMethods: readonly string[]) {
@@ -157,7 +241,7 @@ function isResultPageSnapshotPrintRequest(pathname: string, surface: string | nu
   return /^\/result\/[^/]+\/print\/?$/i.test(strippedPath);
 }
 
-export function proxy(request: NextRequest) {
+function runProxy(request: NextRequest, checkPrestreamAuthority: boolean): NextResponse | Promise<NextResponse> {
   const pathname = request.nextUrl.pathname;
   const strippedPath = stripLocalePrefix(pathname);
   const isStagingHost = isStagingRequestHost(request.headers.get("host") ?? request.nextUrl.host);
@@ -226,6 +310,19 @@ export function proxy(request: NextRequest) {
     return isStagingHost ? withStagingNoindexHeader(response) : response;
   }
 
+  if (checkPrestreamAuthority && isPublicReadMethod(request.method)) {
+    if (isUnknownBigFivePublicRoute(pathname)) {
+      return createPublicAbsenceResponse(404);
+    }
+
+    const articleProbe = resolveArticleAuthorityProbe(pathname);
+    if (articleProbe) {
+      return probeArticlePublicAbsence(articleProbe).then(
+        (absenceResponse) => absenceResponse ?? runProxy(request, false),
+      );
+    }
+  }
+
   const requestHeaders = new Headers(request.headers);
   const cspNonce = createCspNonce();
   requestHeaders.set("x-nonce", cspNonce);
@@ -287,6 +384,10 @@ export function proxy(request: NextRequest) {
   }
 
   return response;
+}
+
+export function proxy(request: NextRequest): NextResponse | Promise<NextResponse> {
+  return runProxy(request, true);
 }
 
 export const config = {

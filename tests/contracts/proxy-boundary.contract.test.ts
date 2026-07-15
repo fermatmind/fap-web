@@ -3,12 +3,20 @@ import fs from "node:fs";
 import path from "node:path";
 import { NextRequest } from "next/server";
 import * as testing from "next/experimental/testing/server";
-import { config, proxy } from "@/proxy";
+import { config, proxy as proxyHandler } from "@/proxy";
 
 const ROOT = process.cwd();
 
 function readSource(relPath: string): string {
   return fs.readFileSync(path.join(ROOT, relPath), "utf8");
+}
+
+function proxy(request: NextRequest) {
+  const response = proxyHandler(request);
+  if (response instanceof Promise) {
+    throw new Error("Expected this proxy regression path to stay synchronous.");
+  }
+  return response;
 }
 
 afterEach(() => {
@@ -190,8 +198,8 @@ describe("proxy boundary contract", () => {
     expect(response.headers.get("x-middleware-request-x-anon-id")).not.toBe("caller-controlled-id");
   });
 
-  it("keeps ordinary page routes sanitized when callers supply anon-id headers", () => {
-    const response = proxy(
+  it("keeps ordinary page routes sanitized when callers supply anon-id headers", async () => {
+    const response = await proxyHandler(
       new NextRequest("https://example.com/en/articles/career-fit", {
         headers: {
           "x-anon-id": "caller-controlled-id",

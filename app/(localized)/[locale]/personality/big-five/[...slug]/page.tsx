@@ -14,7 +14,6 @@ import {
   buildBigFivePublicContentPath,
   resolveBigFiveLegacyRedirectPath,
   resolveBigFivePublicRouteEntry,
-  type BigFivePublicRouteEntry,
 } from "@/lib/personality/bigFivePublicRoutes";
 import { buildBreadcrumbJsonLd, buildCollectionPageJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -28,25 +27,6 @@ type DimensionPageParams = {
 
 function localizedBigFiveLabel(locale: Locale): string {
   return locale === "zh" ? "大五人格" : "Big Five";
-}
-
-function buildFallbackMetadata(locale: Locale, entry: BigFivePublicRouteEntry | null): Metadata {
-  const fallbackPath = entry ? buildBigFivePublicContentPath(locale, entry) : `/${locale}/personality/big-five`;
-  const alternateEntry = entry ?? { entityType: "hub" as const, code: "big-five", routeSlug: "", pathSuffix: "" };
-
-  return buildPageMetadata({
-    locale,
-    pathname: fallbackPath,
-    title: localizedBigFiveLabel(locale),
-    description: localizedBigFiveLabel(locale),
-    noindex: true,
-    noindexFollow: true,
-    alternatesByLocale: {
-      en: buildBigFivePublicContentPath("en", alternateEntry),
-      zh: buildBigFivePublicContentPath("zh", alternateEntry),
-      xDefault: buildBigFivePublicContentPath("en", alternateEntry),
-    },
-  });
 }
 
 function robotsAllowsFollow(robots: string): boolean {
@@ -77,12 +57,12 @@ export async function generateMetadata({
 
   const entry = resolveBigFivePublicRouteEntry(slug);
   if (!entry) {
-    return buildFallbackMetadata(locale, null);
+    notFound();
   }
 
   const asset = await getBigFivePublicContentAsset(locale, entry);
   if (!asset) {
-    return buildFallbackMetadata(locale, entry);
+    notFound();
   }
 
   const pathname = buildBigFivePublicContentPath(locale, entry);

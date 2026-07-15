@@ -44976,13 +44976,13 @@
     "updated_at": "2026-07-13T19:50:19Z"
   },
   "BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/big5-authority-v2-runtime-closeout-38",
     "depends_on": ["BIG5-AUTHORITY-V2-RELEASE-GATE-37", "separately authorized production deploy if required", "separately authorized production import completed", "production readback evidence available"],
     "train_scope": "big5_authority_v2_read_only_production_runtime_closeout",
     "title": "BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38: docs(qa): close out Big Five V2 production runtime",
-    "commit_sha": "fc791f02fcd14b34963bd15fd800d8e64b9afe26",
+    "commit_sha": "0e59f710c45f0e8512412b8ab5c753cb33285856",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1765",
     "checks": {
       "production_import": {"status": "passed", "evidence": "Authorized collision-safe production import committed 106 new fail-closed primary records and 229 working/draft revisions, preserved 125 existing published primaries, and reported zero public content overwrite/release/indexability/sitemap/LLMS/media/cache/search changes."},
@@ -44996,19 +44996,55 @@
       "github_required_checks": {"status": "passed", "evidence": "PR #1765 head fc791f02fcd14b34963bd15fd800d8e64b9afe26 passed build, complete contracts, Big Five freeze, Enneagram freeze, CodeQL analysis, CodeQL aggregate, and zero-new-code-scanning-alerts."},
       "github_codeql": {"status": "passed", "evidence": "The same-scope repair deleted the five-alert live collector without suppressions. CodeQL analysis, aggregate, and zero-new-code-scanning-alerts all passed on fc791f02fcd14b34963bd15fd800d8e64b9afe26."}
     },
-    "failure_reason": "PR38 fail-closed closeout records 334 public-runtime field failures across all 231 package assets plus two visual samples. The production draft-isolation boundary itself passed with zero critical exposure or private-feed leaks and all 10 legacy redirects passed; runtime repair is outside PR38 scope.",
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "failure_reason": null,
+    "merged_at": "2026-07-14T23:27:35Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {"at": "2026-07-13T16:17:38Z", "status": "planned", "summary": "Registered as a read-only production closeout gate. It cannot start until PR37 is merged and separately authorized production actions plus real readback evidence exist."},
       {"at": "2026-07-14T23:01:01Z", "status": "in_progress", "summary": "Started PR38 from latest clean fap-web main after PR37 merge, exact production write authorization, collision-safe import, and independent readback. The scan proved all 104 withheld routes remain noindex and absent from sitemap/LLMS, recorded their HTTP 200 soft-404 semantics, verified all 10 legacy aliases return exact 301, and recorded 334 field failures plus visual defects without attempting repair."},
       {"at": "2026-07-14T23:07:00Z", "status": "local_checks_passed", "summary": "All PR38 manifest checks passed: read-only production scan, exact 301 checks, five visual samples, focused contract 5/5 under Node 24, focused lint, deterministic offline artifact rebuild, JSON/YAML parse, whitespace check, and exact 12-file scope validation. Runtime findings remain intentionally recorded without repair."},
       {"at": "2026-07-14T23:08:43Z", "status": "pr_open", "summary": "Committed the exact 12-file PR38 scope at e90c136e6b561e011894053b9917ea1eb02ec2e2, pushed the scoped branch, and opened PR #1765 with the fail-closed production findings, validation, deferred repairs, and repository-rule impact. Required GitHub checks are pending."},
       {"at": "2026-07-14T23:16:56Z", "status": "ci_fix_in_progress", "summary": "Diagnosed the failed CodeQL aggregate and zero-alert gate: five alerts originated only in the one-time live collector. Removed all network access, local-package-to-HTTP flow, custom HTML filtering, entity decoding, and URL substring checks from the committed builder; retained the immutable live evidence and deterministic offline report. Focused lint, contract 5/5, artifact rebuild, and diff check passed after the repair."},
-      {"at": "2026-07-14T23:21:14Z", "status": "ready_to_merge", "summary": "All seven required GitHub checks passed on repaired head fc791f02fcd14b34963bd15fd800d8e64b9afe26. Revalidated CLEAN and MERGEABLE state, exact PR title, no review requirement, and the fail-closed findings-only scope. Ready for policy-compliant squash merge."}
+      {"at": "2026-07-14T23:21:14Z", "status": "ready_to_merge", "summary": "All seven required GitHub checks passed on repaired head fc791f02fcd14b34963bd15fd800d8e64b9afe26. Revalidated CLEAN and MERGEABLE state, exact PR title, no review requirement, and the fail-closed findings-only scope. Ready for policy-compliant squash merge."},
+      {"at": "2026-07-15T00:43:53Z", "status": "merged", "summary": "Reconciled from GitHub before PR39: PR #1765 merged at 2026-07-14T23:27:35Z as 0e59f710c45f0e8512412b8ab5c753cb33285856; origin/main contains the merge commit, and neither the local nor remote PR38 task branch remains."}
     ],
-    "updated_at": "2026-07-14T23:21:14Z"
+    "updated_at": "2026-07-15T00:43:53Z"
+  },
+  "BIG5-AUTHORITY-V2-SOFT404-39": {
+    "status": "ready_to_merge",
+    "repo": "fap-web",
+    "branch": "codex/big5-authority-v2-soft404-39",
+    "depends_on": ["BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38"],
+    "train_scope": "big5_authority_v2_withheld_route_soft404_repair",
+    "title": "BIG5-AUTHORITY-V2-SOFT404-39: fix(seo): return fail-closed status for withheld Big Five drafts",
+    "commit_sha": "4e2748be30197ec0dcfbce35fa357ff82415d262",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1767",
+    "checks": {
+      "authorization": {"status": "passed", "evidence": "The operator supplied a concrete continuous-execution /goal authorizing the exact PR39 branch, title, scope, validation, PR lifecycle, merge, sync, and cleanup."},
+      "dependency": {"status": "passed", "evidence": "GitHub reports BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38 PR #1765 merged at 2026-07-14T23:27:35Z as 0e59f710c45f0e8512412b8ab5c753cb33285856, and fap-web origin/main contains that merge commit."},
+      "preflight": {"status": "passed", "evidence": "Fetched origin with prune, verified the primary fap-web worktree was clean on detached HEAD, synchronized the separate main worktree to 5a768c956e08164f87bba8b0b61fc638fc44218f, confirmed no local or remote PR39 branch or PR existed, and created the scoped branch from origin/main."},
+      "runtime_evidence": {"status": "passed", "evidence": "PR38 evidence contains exactly 104 withheld HTTP-200 soft-404 routes: 100 CMS Article routes and four Big Five technical-trust routes. Read-only public API checks confirmed a withheld Article HEAD returns authoritative 404 while the published Big Five Article control returns 200."},
+      "required_local_checks": {"status": "passed", "evidence": "Under canonical Node 24.14.0 and repository pnpm 10.28.1: focused PR39 plus proxy regressions passed 47/47; the synchronized MBTI PDF input hash check passed; lint passed with zero errors and two unrelated generated-file warnings; spacing, typecheck, complete four-shard contracts (748 files / 4300 tests), and production build (206 static pages) passed. Local built-runtime smoke returned 404 for one withheld Article and one withheld technical-trust route, and 200 for the published Article control. YAML/JSON parse and diff whitespace checks passed."},
+      "github_required_checks": {"status": "passed", "evidence": "On head ae968fee19947ee8c750c24f3252d1f62c6f1254, all seven checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL aggregate, and no-new-code-scanning-alerts."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-15T00:38:22Z", "status": "precheck", "summary": "Read the operator /goal, fap-web AGENTS.md, PR-train and SEO/GEO authority skills, claim guards, PR38 runtime evidence, current route/adapters, and official Next.js 16 streaming status semantics. No user-owned changes overlap the scope."},
+      {"at": "2026-07-15T00:39:38Z", "status": "branch_created", "summary": "Created codex/big5-authority-v2-soft404-39 from clean latest origin/main at 5a768c956e08164f87bba8b0b61fc638fc44218f after verifying PR38 merged and the target branch did not exist locally or remotely."},
+      {"at": "2026-07-15T00:43:53Z", "status": "implementing", "summary": "Registered the exact manifest/state scope. Implementation is limited to pre-stream authoritative absence handling for Article and Big Five technical-trust routes, metadata fail-closed boundaries, focused tests, and train bookkeeping; no CMS, content, feed, deploy, migration, media, or production write is authorized."},
+      {"at": "2026-07-15T00:52:07Z", "status": "local_checks_running", "summary": "Implemented backend-authoritative Article HEAD absence probing, unknown Big Five route rejection, and metadata not-found boundaries. After correcting one test-only unsupported matcher, canonical Node 24 focused regressions passed 47/47; lint, spacing, typecheck, YAML/JSON parse, and diff whitespace checks passed. The bundled pnpm 11 helper was not used after it attempted a policy-blocked install; repository pnpm 10.28.1 matches packageManager and runs under Node 24."},
+      {"at": "2026-07-15T00:57:00Z", "status": "contract_hash_sync_in_progress", "summary": "The complete four-shard runner finished with only the existing MBTI PDF snapshot hash guard failing because proxy.ts is an explicit 99-file print-impact input. A clean latest-main worktree passed the old expected hash exactly, proving the drift is caused only by PR39. Added the single deterministic hash script path to scope and synchronized the expected hash without modifying MBTI PDF behavior."},
+      {"at": "2026-07-15T01:03:27Z", "status": "local_checks_passed", "summary": "All PR39 manifest checks passed under Node 24 and pnpm 10.28.1: focused regressions 47/47, deterministic hash, lint, spacing, typecheck, complete contracts 748 files / 4300 tests, production build, YAML/JSON parse, diff whitespace, and exact allowed-path scope validation. Built-runtime smoke proved HTTP 404 for withheld Article and technical-trust samples and HTTP 200 for the published control. No production write or deploy occurred."},
+      {"at": "2026-07-15T01:04:30Z", "status": "committed", "summary": "Explicitly staged the exact 12 allowed PR39 files, passed cached diff whitespace validation, and committed the scoped implementation as 4e2748be30197ec0dcfbce35fa357ff82415d262."},
+      {"at": "2026-07-15T01:05:31Z", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1767 with the exact manifest title and required change, rationale, validation, deferred-item, repository-rule-impact, production-action, and sidecar sections. Required GitHub checks are running."},
+      {"at": "2026-07-15T01:11:07Z", "status": "ready_to_merge", "summary": "All seven GitHub checks passed on ae968fee19947ee8c750c24f3252d1f62c6f1254. GitHub reports MERGEABLE, no review requirement or reviews, exact manifest title, and the exact 12 allowed changed files. Recorded ready-to-merge before the policy-compliant squash merge."}
+    ],
+    "updated_at": "2026-07-15T01:11:07Z"
   },
   "MBTI-FULL-AUDIT-30": {
     "status": "merged",

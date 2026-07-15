@@ -174,10 +174,7 @@ export async function generateMetadata({
     .then((result) => result.value);
 
   if (!article) {
-    return {
-      title: "Post Not Found",
-      robots: { index: false, follow: false },
-    };
+    notFound();
   }
 
   const seoResult = await getCmsArticleSeoWithLastKnownGood(slug, locale);

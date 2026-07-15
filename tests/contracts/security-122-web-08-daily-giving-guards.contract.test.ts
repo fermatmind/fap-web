@@ -7,7 +7,7 @@ import {
   fetchDailyGivingRecords,
   formatDailyGivingAmount,
 } from "@/lib/foundation/dailyGiving";
-import { proxy } from "@/proxy";
+import { proxy as proxyHandler } from "@/proxy";
 import { isSecurity122Web08AllowedFile } from "./helpers/currentPrScope";
 
 vi.mock("@/lib/api-client", () => ({
@@ -17,6 +17,14 @@ vi.mock("@/lib/api-client", () => ({
 }));
 
 const ROOT = process.cwd();
+
+function proxy(request: NextRequest) {
+  const response = proxyHandler(request);
+  if (response instanceof Promise) {
+    throw new Error("Expected DailyGiving proxy guards to stay synchronous.");
+  }
+  return response;
+}
 function changedFiles(): string[] {
   let committedDiffs = "";
   try {
