@@ -411,7 +411,11 @@ function buildNextSteps(answerSurface: AnswerSurfaceViewModel | null | undefined
   return steps;
 }
 
-function sanitizeNextStep(siteUrl: string, value: string): string {
+function sanitizeNextStep(
+  siteUrl: string,
+  value: string,
+  allowedCitationPaths: ReadonlySet<string>
+): string {
   const text = cleanText(value, 240);
   if (!text) {
     return "";
@@ -425,7 +429,7 @@ function sanitizeNextStep(siteUrl: string, value: string): string {
   let sanitized = text;
   for (const url of urls) {
     const safeUrl = safeCanonicalUrlFromHref(siteUrl, url);
-    if (!safeUrl) {
+    if (!safeUrl || !allowedCitationPaths.has(normalizePath(new URL(safeUrl).pathname))) {
       return "";
     }
     sanitized = sanitized.replace(url, safeUrl);
@@ -434,7 +438,11 @@ function sanitizeNextStep(siteUrl: string, value: string): string {
   return sanitized;
 }
 
-function formatEntry(entry: LlmsFullEntry, siteUrl: string): string[] {
+function formatEntry(
+  entry: LlmsFullEntry,
+  siteUrl: string,
+  allowedCitationPaths: ReadonlySet<string>
+): string[] {
   const canonicalUrl = safeCanonicalUrlFromHref(siteUrl, entry.url ?? entry.path);
   if (!canonicalUrl) {
     return [];
@@ -451,7 +459,7 @@ function formatEntry(entry: LlmsFullEntry, siteUrl: string): string[] {
   const disclaimer = cleanText(entry.disclaimer);
   const faq = (entry.faq ?? []).filter((item) => item.question && item.answer).slice(0, MAX_FAQ_ITEMS);
   const nextSteps = (entry.nextSteps ?? [])
-    .map((step) => sanitizeNextStep(siteUrl, step))
+    .map((step) => sanitizeNextStep(siteUrl, step, allowedCitationPaths))
     .filter(Boolean)
     .slice(0, MAX_NEXT_STEPS);
 
@@ -483,6 +491,10 @@ function formatEntry(entry: LlmsFullEntry, siteUrl: string): string[] {
   }
 
   return lines;
+}
+
+function buildAllowedCitationPaths(entries: readonly { path: string }[]): Set<string> {
+  return new Set(entries.map((entry) => normalizePath(entry.path)));
 }
 
 function canonicalEntrypointEntries(siteUrl: string): LlmsFullEntry[] {
@@ -622,6 +634,62 @@ function llmsFullEntryMbtiAuthorityUrlSet(text: string, siteUrl: string): Set<st
   }));
 }
 
+function llmsFullEntryUrlSet(text: string, siteUrl: string): Set<string> {
+  let siteOrigin: string;
+  try {
+    siteOrigin = new URL(siteUrl).origin;
+  } catch {
+    return new Set();
+  }
+
+  const entryUrls = [...text.matchAll(/^- URL:\s+(https?:\/\/[^\s]+)\s*$/gm)].map((match) => match[1]);
+  return new Set(entryUrls.flatMap((url) => {
+    try {
+      const parsed = new URL(url);
+      return parsed.origin === siteOrigin && !parsed.search && !parsed.hash
+        ? [toCanonical(siteOrigin, normalizePath(parsed.pathname))]
+        : [];
+    } catch {
+      return [];
+    }
+  }));
+}
+
+function hasClosedLlmsFullCitationSet(text: string, siteUrl: string): boolean {
+  let siteOrigin: string;
+  try {
+    siteOrigin = new URL(siteUrl).origin;
+  } catch {
+    return false;
+  }
+
+  const allowedUrls = llmsFullEntryUrlSet(text, siteOrigin);
+  allowedUrls.add(toCanonical(siteOrigin, "/"));
+  allowedUrls.add(toCanonical(siteOrigin, "/sitemap.xml"));
+
+  const ownedUrlCandidates = text.match(/https?:\/\/[^\s<>'"`]+/g) ?? [];
+  for (const candidate of ownedUrlCandidates) {
+    try {
+      const parsed = new URL(candidate.replace(/[),.;]+$/, ""));
+      if (parsed.origin !== siteOrigin) {
+        continue;
+      }
+      if (parsed.search || parsed.hash) {
+        return false;
+      }
+
+      const canonicalUrl = toCanonical(siteOrigin, normalizePath(parsed.pathname));
+      if (!allowedUrls.has(canonicalUrl)) {
+        return false;
+      }
+    } catch {
+      return false;
+    }
+  }
+
+  return true;
+}
+
 function hasExactMbtiPersonalityAuthorityCohort(
   text: string,
   siteUrl: string,
@@ -664,6 +732,10 @@ export function isCompleteLlmsFullText(
   }
 
   if (/(staging\.fermatmind\.com|\/(?:take|result|share|orders?|pay|payment)(?:\/|$))/i.test(text)) {
+    return false;
+  }
+
+  if (!hasClosedLlmsFullCitationSet(text, siteUrl)) {
     return false;
   }
 
@@ -771,6 +843,13 @@ export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string
     .map((path) => buildCareerJobEntry(path))
     .filter((entry): entry is LlmsFullEntry => Boolean(entry))
     .filter((entry) => shouldKeep(entry.path));
+  const canonicalEntrypoints = canonicalEntrypointEntries(siteUrl);
+  const allowedCitationPaths = buildAllowedCitationPaths([
+    ...canonicalEntrypoints,
+    ...personalityEntries,
+    ...tests,
+    ...careers,
+  ]);
 
   return [
     "# FermatMind llms-full.txt",
@@ -785,16 +864,16 @@ export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string
     "- This bounded response is served when the full cached artifact is unavailable or still refreshing.",
     "",
     "## Canonical Entrypoints",
-    ...canonicalEntrypointEntries(siteUrl).flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...canonicalEntrypoints.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Personality",
-    ...personalityEntries.flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...personalityEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Tests",
-    ...tests.flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...tests.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Career",
-    ...careers.flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...careers.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Sitemap",
     `- ${toCanonical(siteUrl, "/sitemap.xml")}`,
@@ -1230,6 +1309,22 @@ export async function buildLlmsFullText(siteUrl: string): Promise<string> {
     }))
     .filter((entry) => shouldKeep(entry.path));
 
+  const canonicalEntrypoints = canonicalEntrypointEntries(siteUrl);
+  const limitedTopicEntries = limitLlmsRouteEntries(topicEntries, LLMS_ROUTE_LIMITS.topics);
+  const limitedArticleEntries = limitLlmsRouteEntries(articles, LLMS_FULL_ARTICLE_ENTRY_LIMIT);
+  const limitedGuideEntries = limitLlmsRouteEntries(guideEntries, LLMS_ROUTE_LIMITS.careerGuides);
+  const allowedCitationPaths = buildAllowedCitationPaths([
+    ...canonicalEntrypoints,
+    ...personalityEntries,
+    ...limitedTopicEntries,
+    ...helpEntries,
+    ...contentPageEntries,
+    ...dailyGivingEntries,
+    ...tests,
+    ...limitedArticleEntries,
+    ...careers,
+  ]);
+
   const [enrichedPersonalityEntries, enrichedTopicEntries, enrichedArticles, enrichedGuideEntries] = await Promise.all([
     mapWithConcurrency(
       personalityEntries,
@@ -1237,17 +1332,17 @@ export async function buildLlmsFullText(siteUrl: string): Promise<string> {
       (entry) => withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
     ),
     mapWithConcurrency(
-      limitLlmsRouteEntries(topicEntries, LLMS_ROUTE_LIMITS.topics),
+      limitedTopicEntries,
       ENRICHMENT_CONCURRENCY,
       (entry) => withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
     ),
     mapWithConcurrency(
-      limitLlmsRouteEntries(articles, LLMS_FULL_ARTICLE_ENTRY_LIMIT),
+      limitedArticleEntries,
       ENRICHMENT_CONCURRENCY,
       (entry) => withLlmsRouteBudget(() => enrichArticleEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
     ),
     mapWithConcurrency(
-      limitLlmsRouteEntries(guideEntries, LLMS_ROUTE_LIMITS.careerGuides),
+      limitedGuideEntries,
       ENRICHMENT_CONCURRENCY,
       (entry) => withLlmsRouteBudget(() => enrichCareerGuideEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
     ),
@@ -1267,31 +1362,31 @@ export async function buildLlmsFullText(siteUrl: string): Promise<string> {
     "- Exclude noindex and private user-flow paths.",
     "",
     "## Canonical Entrypoints",
-    ...canonicalEntrypointEntries(siteUrl).flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...canonicalEntrypoints.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Personality",
-    ...enrichedPersonalityEntries.flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...enrichedPersonalityEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Topics",
-    ...enrichedTopicEntries.flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...enrichedTopicEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Help",
-    ...helpEntries.flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...helpEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Content Pages",
-    ...contentPageEntries.flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...contentPageEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Foundation Daily Giving",
-    ...dailyGivingEntries.flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...dailyGivingEntries.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Tests",
-    ...tests.flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...tests.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Articles",
-    ...enrichedArticles.flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...enrichedArticles.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Career",
-    ...enrichedCareers.flatMap((entry) => formatEntry(entry, siteUrl)),
+    ...enrichedCareers.flatMap((entry) => formatEntry(entry, siteUrl, allowedCitationPaths)),
     "",
     "## Sitemap",
     `- ${toCanonical(siteUrl, "/sitemap.xml")}`,
