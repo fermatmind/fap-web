@@ -45012,21 +45012,21 @@
     "updated_at": "2026-07-15T00:43:53Z"
   },
   "BIG5-AUTHORITY-V2-SOFT404-39": {
-    "status": "committed",
+    "status": "pr_open",
     "repo": "fap-web",
     "branch": "codex/big5-authority-v2-soft404-39",
     "depends_on": ["BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38"],
     "train_scope": "big5_authority_v2_withheld_route_soft404_repair",
     "title": "BIG5-AUTHORITY-V2-SOFT404-39: fix(seo): return fail-closed status for withheld Big Five drafts",
     "commit_sha": "4e2748be30197ec0dcfbce35fa357ff82415d262",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1767",
     "checks": {
       "authorization": {"status": "passed", "evidence": "The operator supplied a concrete continuous-execution /goal authorizing the exact PR39 branch, title, scope, validation, PR lifecycle, merge, sync, and cleanup."},
       "dependency": {"status": "passed", "evidence": "GitHub reports BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38 PR #1765 merged at 2026-07-14T23:27:35Z as 0e59f710c45f0e8512412b8ab5c753cb33285856, and fap-web origin/main contains that merge commit."},
       "preflight": {"status": "passed", "evidence": "Fetched origin with prune, verified the primary fap-web worktree was clean on detached HEAD, synchronized the separate main worktree to 5a768c956e08164f87bba8b0b61fc638fc44218f, confirmed no local or remote PR39 branch or PR existed, and created the scoped branch from origin/main."},
       "runtime_evidence": {"status": "passed", "evidence": "PR38 evidence contains exactly 104 withheld HTTP-200 soft-404 routes: 100 CMS Article routes and four Big Five technical-trust routes. Read-only public API checks confirmed a withheld Article HEAD returns authoritative 404 while the published Big Five Article control returns 200."},
       "required_local_checks": {"status": "passed", "evidence": "Under canonical Node 24.14.0 and repository pnpm 10.28.1: focused PR39 plus proxy regressions passed 47/47; the synchronized MBTI PDF input hash check passed; lint passed with zero errors and two unrelated generated-file warnings; spacing, typecheck, complete four-shard contracts (748 files / 4300 tests), and production build (206 static pages) passed. Local built-runtime smoke returned 404 for one withheld Article and one withheld technical-trust route, and 200 for the published Article control. YAML/JSON parse and diff whitespace checks passed."},
-      "github_required_checks": {"status": "pending", "evidence": "PR has not been created."}
+      "github_required_checks": {"status": "pending", "evidence": "PR #1767 is open with build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, and CodeQL queued or running."}
     },
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
     "failure_reason": null,
@@ -45040,9 +45040,10 @@
       {"at": "2026-07-15T00:52:07Z", "status": "local_checks_running", "summary": "Implemented backend-authoritative Article HEAD absence probing, unknown Big Five route rejection, and metadata not-found boundaries. After correcting one test-only unsupported matcher, canonical Node 24 focused regressions passed 47/47; lint, spacing, typecheck, YAML/JSON parse, and diff whitespace checks passed. The bundled pnpm 11 helper was not used after it attempted a policy-blocked install; repository pnpm 10.28.1 matches packageManager and runs under Node 24."},
       {"at": "2026-07-15T00:57:00Z", "status": "contract_hash_sync_in_progress", "summary": "The complete four-shard runner finished with only the existing MBTI PDF snapshot hash guard failing because proxy.ts is an explicit 99-file print-impact input. A clean latest-main worktree passed the old expected hash exactly, proving the drift is caused only by PR39. Added the single deterministic hash script path to scope and synchronized the expected hash without modifying MBTI PDF behavior."},
       {"at": "2026-07-15T01:03:27Z", "status": "local_checks_passed", "summary": "All PR39 manifest checks passed under Node 24 and pnpm 10.28.1: focused regressions 47/47, deterministic hash, lint, spacing, typecheck, complete contracts 748 files / 4300 tests, production build, YAML/JSON parse, diff whitespace, and exact allowed-path scope validation. Built-runtime smoke proved HTTP 404 for withheld Article and technical-trust samples and HTTP 200 for the published control. No production write or deploy occurred."},
-      {"at": "2026-07-15T01:04:30Z", "status": "committed", "summary": "Explicitly staged the exact 12 allowed PR39 files, passed cached diff whitespace validation, and committed the scoped implementation as 4e2748be30197ec0dcfbce35fa357ff82415d262."}
+      {"at": "2026-07-15T01:04:30Z", "status": "committed", "summary": "Explicitly staged the exact 12 allowed PR39 files, passed cached diff whitespace validation, and committed the scoped implementation as 4e2748be30197ec0dcfbce35fa357ff82415d262."},
+      {"at": "2026-07-15T01:05:31Z", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1767 with the exact manifest title and required change, rationale, validation, deferred-item, repository-rule-impact, production-action, and sidecar sections. Required GitHub checks are running."}
     ],
-    "updated_at": "2026-07-15T01:04:30Z"
+    "updated_at": "2026-07-15T01:05:31Z"
   },
   "MBTI-FULL-AUDIT-30": {
     "status": "merged",
