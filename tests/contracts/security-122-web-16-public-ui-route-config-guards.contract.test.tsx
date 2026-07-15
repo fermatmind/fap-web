@@ -5,13 +5,21 @@ import { render, screen } from "@testing-library/react";
 import { NextRequest } from "next/server";
 import * as testing from "next/experimental/testing/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { config, proxy } from "@/proxy";
+import { config, proxy as proxyHandler } from "@/proxy";
 import { getSiteUrlOrThrow } from "@/lib/site";
 import { renderPersonalitySections } from "@/lib/cms/personality-sections";
 import type { CmsPersonalitySection } from "@/lib/cms/personality";
 import { isSecurity122Web16AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
+
+function proxy(request: NextRequest) {
+  const response = proxyHandler(request);
+  if (response instanceof Promise) {
+    throw new Error("Expected public UI route-config proxy paths to stay synchronous.");
+  }
+  return response;
+}
 
 function read(relPath: string): string {
   return readFileSync(path.join(ROOT, relPath), "utf8");

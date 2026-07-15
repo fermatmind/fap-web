@@ -4,13 +4,21 @@ import path from "node:path";
 import { NextRequest } from "next/server";
 import { describe, expect, it } from "vitest";
 import { createScaleRolloutEnvSnapshot, resolveScaleRollout } from "@/lib/rollout/scaleRollout";
-import { proxy } from "@/proxy";
+import { proxy as proxyHandler } from "@/proxy";
 import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const ROOT = process.cwd();
 
 function readSource(file: string): string {
   return fs.readFileSync(path.join(ROOT, file), "utf8");
+}
+
+function proxy(request: NextRequest) {
+  const response = proxyHandler(request);
+  if (response instanceof Promise) {
+    throw new Error("Expected rollout proxy paths to stay synchronous.");
+  }
+  return response;
 }
 
 function currentChangedFiles(): string[] {

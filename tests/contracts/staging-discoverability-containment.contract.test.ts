@@ -6,12 +6,20 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 import { GET as llmsFullRoute } from "@/app/llms-full.txt/route";
 import { GET as llmsRoute } from "@/app/llms.txt/route";
 import { buildPageMetadata } from "@/lib/seo/metadata";
-import { proxy } from "@/proxy";
+import { proxy as proxyHandler } from "@/proxy";
 
 const ROOT = process.cwd();
 const STAGING_HOST = "staging.fermatmind.com";
 const STAGING_URL = `https://${STAGING_HOST}`;
 const NOINDEX = "noindex, nofollow, noarchive";
+
+function proxy(request: NextRequest) {
+  const response = proxyHandler(request);
+  if (response instanceof Promise) {
+    throw new Error("Expected staging discoverability proxy paths to stay synchronous.");
+  }
+  return response;
+}
 
 function read(relPath: string): string {
   return fs.readFileSync(path.join(ROOT, relPath), "utf8");
