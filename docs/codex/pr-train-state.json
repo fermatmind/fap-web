@@ -45339,14 +45339,14 @@
     "updated_at": "2026-07-14T12:51:29Z"
   },
   "MBTI-INDEX-43": {
-    "status": "committed_pending_push",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-index-43-full-52-release-gate",
     "depends_on": ["MBTI-PERF-42"],
     "train_scope": "mbti_full_52_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-43: revalidate all 52 Chinese MBTI URLs",
-    "commit_sha": "d9283326",
-    "pr_url": null,
+    "commit_sha": "244b4965",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1771",
     "checks": {
       "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and exact manifest/state registration."},
       "dependency": {"status": "passed", "evidence": "MBTI-PERF-42 merged in fap-api PR #3085 and exact backend SHA 5ea0eb27769b4fba6b33f5a35f1d32cb3276273a was deployed as mbti-perf-42-profile-read-stability-5ea0eb27-20260714. Post-deploy readback returned 32/32 profile detail and SEO endpoints twice with HTTP 200 and no request at or above ten seconds."},
@@ -45365,9 +45365,10 @@
       {"at": "2026-07-14T16:17:52Z", "status": "blocked_external_authority_promotion", "summary": "Run 1 completed without API timeout and returned HOLD: CMS_API=24/52, HTTP_200=52/52, CANONICAL=52/52, ROBOTS=32/52, JSONLD=32/52, FAQ_PARITY=20/52, and all three public feeds=52/52. Twenty-eight profile repair records still expose no public FAQ because CMS-IMPORT-40 was authorized as draft import only; twenty profile HTML responses are fail-closed noindex shells. A second run and GSC-44 are prohibited until an exact production public-promotion task is separately authorized and verified."},
       {"at": "2026-07-15T09:07:10Z", "status": "in_progress", "summary": "The operator-authorized 43-record indexability promotion completed on pinned backend SHA 65a1d3b78da70511306ebd2867a157494e4e217f without GSC mutation. After the 300-second frontend SWR cache converged, two consecutive read-only production runs returned complete 52/52 authority, HTML, canonical, robots, JSON-LD, FAQ parity, sitemap, llms and llms-full results with zero API timeouts, zero private URL leaks and identical evidence signatures. Repository validation is now running."},
       {"at": "2026-07-15T09:24:15Z", "status": "local_verified", "summary": "All INDEX-43 manifest checks passed: two consecutive production gates returned complete 52/52 with identical signatures; focused contracts passed 3/3; zero-warning lint, typecheck, four complete contract shards, explicit production build with 206/206 static pages, YAML/JSON parsing, diff checks, and exact allowlist scope validation passed. No CMS, discoverability, deploy, or GSC mutation was performed by this PR."},
-      {"at": "2026-07-15T09:29:00Z", "status": "committed_pending_push", "summary": "Committed the exact eleven-path INDEX-43 evidence, builder, contract, ledger, and resolved-sidecar scope at d9283326 after explicit path-limited staging and cached diff validation."}
+      {"at": "2026-07-15T09:29:00Z", "status": "committed_pending_push", "summary": "Committed the exact eleven-path INDEX-43 evidence, builder, contract, ledger, and resolved-sidecar scope at d9283326 after explicit path-limited staging and cached diff validation."},
+      {"at": "2026-07-15T09:33:22Z", "status": "github_checks_pending", "summary": "Pushed codex/mbti-index-43-full-52-release-gate and opened PR #1771 from head 244b4965. Required GitHub and security checks are pending; no deploy, CMS, discoverability, or GSC mutation occurred."}
     ],
-    "updated_at": "2026-07-15T09:29:00Z"
+    "updated_at": "2026-07-15T09:33:22Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
