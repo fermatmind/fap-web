@@ -116,6 +116,22 @@ describe("Enneagram Public Personality Authority V2 skill alignment", () => {
     expect(currentAuthorityText).toContain("Tritype");
   });
 
+  it("keeps the registered PR03 and PR21 YAML checks portable across Psych versions", () => {
+    const manifest = read("docs/codex/pr-train.yaml");
+    for (const id of [
+      "ENNEAGRAM-PUBLIC-AUTHORITY-V2-SKILL-ALIGNMENT-03",
+      "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21",
+    ]) {
+      const marker = `  - id: ${id}`;
+      const start = manifest.indexOf(marker);
+      const next = manifest.indexOf("\n  - id: ", start + marker.length);
+      const entry = manifest.slice(start, next === -1 ? undefined : next);
+
+      expect(start, id).toBeGreaterThanOrEqual(0);
+      expect(entry, id).toContain("YAML.safe_load(File.read('docs/codex/pr-train.yaml'), aliases: true)");
+    }
+  });
+
   it("keeps PR03 governance-only with no runtime path changes", () => {
     const changed = changedFiles();
 
