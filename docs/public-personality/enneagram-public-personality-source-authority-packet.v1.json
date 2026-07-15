@@ -15,9 +15,17 @@
   "canonical_test_slug": "enneagram-personality-test-nine-types",
   "first_public_personality_scope": [
     "hub",
-    "3_centers_or_triads_if_source_authority_supports",
-    "9_core_types"
+    "center",
+    "core_type",
+    "wing",
+    "instinctual_subtype"
   ],
+  "authority_v2_estate": {
+    "identity_count": 58,
+    "page_count": 116,
+    "locales": ["en", "zh-CN"],
+    "counts_per_locale": {"hub": 1, "center": 3, "core_type": 9, "wing": 18, "instinctual_subtype": 27}
+  },
   "source_repositories": {
     "primary_repo": "fap-web",
     "secondary_repo": "fap-api",
@@ -71,7 +79,21 @@
       "path": "backend/content_assets/enneagram/result_page/source_ledger/source_ledger.json",
       "classification": "backend_authority_public_content_asset",
       "observed_status": "backend_result_page_source_ledger_exists",
-      "public_personality_source_ledger_state": "missing"
+      "public_personality_source_ledger_state": "result_page_ledger_not_authority_v2_public_personality_ledger"
+    },
+    {
+      "id": "authority_v2_production_scorecard",
+      "repo": "fap-api",
+      "path": "backend/docs/seo/personality/enneagram-authority-v2/enneagram-public-authority-v2-benchmark-01/production-scorecard.json",
+      "classification": "backend_authority_public_content_asset",
+      "observed_status": "58_identities_116_pages_read_only_frozen"
+    },
+    {
+      "id": "authority_v2_integrity_gate",
+      "repo": "fap-api",
+      "path": "backend/app/Services/Enneagram/AuthorityV2/EnneagramPublicAuthorityV2IntegrityGate.php",
+      "classification": "backend_authority_integrity_gate",
+      "observed_status": "merged_zero_write_gate"
     },
     {
       "id": "backend_public_projection_service",
@@ -111,9 +133,13 @@
     "private_result_text_is_content_authority": false,
     "unreviewed_candidate_payload_is_content_authority": false,
     "public_personality_source_ledger_required_before_generation": true,
-    "first_scope_may_plan_hub_and_9_core_types": true,
-    "centers_or_triads_require_source_authority_confirmation": true,
-    "wing_or_instinct_pages_may_be_promoted": false
+    "current_estate_identity_count": 58,
+    "current_estate_page_count": 116,
+    "all_five_entity_types_are_current_estate": true,
+    "authority_v2_source_ledger_required_before_generation": true,
+    "model_review_is_human_review": false,
+    "working_revision_isolation_required": true,
+    "new_urls_may_be_created": false
   },
   "allowed_source_classes": [
     "backend_authority_public_content_asset",
@@ -125,7 +151,7 @@
     "frontend_consumer_contract_not_authority"
   ],
   "blocked_source_classes": [
-    "public_personality_source_ledger_missing",
+    "authority_v2_source_ledger_pending_pr07",
     "blocked_private_or_unreviewed_source",
     "raw_private_result_payload",
     "private_report_text",
@@ -137,24 +163,24 @@
   ],
   "missing_or_blocked_authority": [
     {
-      "gap": "public_personality_source_ledger",
-      "status": "missing",
-      "required_follow_up": "create reviewed public personality source ledger before content generation or CMS dry run"
+      "gap": "authority_v2_source_ledger",
+      "status": "required_pending_pr07",
+      "required_follow_up": "PR07 must provide bilingual page claim maps before content generation or CMS dry run"
     },
     {
-      "gap": "centers_or_triads_source_authority",
-      "status": "conditional",
-      "required_follow_up": "confirm backend-authoritative public taxonomy before center or triad page planning"
+      "gap": "human_review",
+      "status": "pending_manual_review",
+      "required_follow_up": "record a named human review separately from model or agent QA"
     },
     {
-      "gap": "wing_and_instinct_public_page_authority",
-      "status": "blocked",
-      "required_follow_up": "do not promote wing, instinct, subtype, or 54 wing x instinct pages in first scope"
+      "gap": "working_revision_isolation",
+      "status": "required",
+      "required_follow_up": "preserve published primary fingerprints and public revision pointers until a separate promotion gate"
     },
     {
       "gap": "cms_generation_package",
-      "status": "missing",
-      "required_follow_up": "separate cms dry-run readiness scan after source, claim, and candidate packets merge"
+      "status": "pending_later_train_scope",
+      "required_follow_up": "wait for source-ledger, editorial, and human-review gates"
     }
   ],
   "hold_actions": [

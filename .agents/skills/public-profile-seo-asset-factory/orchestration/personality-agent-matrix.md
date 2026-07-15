@@ -8,7 +8,7 @@
 | Content | MBTI64 Public Personality Agent | Existing 64 A/T variant and 32 A-vs-T comparison asset improvement | Rebuilding MBTI estate or result pages |
 | Content | MBTI Hot Cross-Type Comparison Agent | High-opportunity cross-type comparisons such as INTJ/INTP, ENTJ/INTJ, INFJ/INFP, and ISTJ/ISFJ | Creating net-new URL sets, importing CMS data, or changing frontend runtime |
 | Content | Big Five Public Personality Agent | 5 domains, 10 poles, 30 facets | Official 32 OCEAN types |
-| Content | Enneagram Public Personality Agent | Hub, 3 centers, 9 core types | 54 combinations or Tritype |
+| Content | Enneagram Public Personality Agent | Existing 58 identities / 116 bilingual pages: hub, centers, core types, wings, instinctual subtypes | New URLs, 54 wing × instinct matrix, Tritype, publish/promotion |
 | QA | SEO Projection QA Agent | SERP, metadata, sitemap, llms, URL Truth, Search Queue readiness | Search provider submission |
 | QA | Editorial Claim QA Agent | Trademark, method, duplicate, private-result boundaries | Publishing |
 | Release | Release Guard Agent | Dry-run/write/publish/search separation | Content authoring |
@@ -20,6 +20,7 @@
 - fap-api remains content and import authority.
 - fap-web remains rendering, SEO surface, and release gate consumer.
 - Public agents may reference private result taxonomy only as structure; they must not copy private result language.
+- Enneagram work requires independent `en` / `zh-CN` drafting, V2 source-ledger traceability, `pending_manual_review`, and isolated working revisions. Model QA never equals human review.
 - Search and index surfaces require separate gates after content and runtime smoke pass.
 
 ## Expansion Readiness

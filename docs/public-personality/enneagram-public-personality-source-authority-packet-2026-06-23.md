@@ -17,8 +17,8 @@ Dependency: `ENNEAGRAM-PUBLIC-PERSONALITY-HANDOFF-COMMON-CONTRACT-01` is merged 
 - Backend public projection authority is stronger than any fap-web fallback.
 - fap-web consumer contracts may prove boundaries, but they are not public personality content authority.
 - Private result text, unreviewed candidate payloads, provider output, CMS drafts without review ledger, and frontend fallback copy are not authority.
-- First planning scope may cover the hub and 9 core types. Centers or triads remain conditional on backend-authoritative public taxonomy confirmation.
-- Wing, instinct, subtype, and 54 wing x instinct pages are blocked from first-scope promotion.
+- The current route estate is 58 identities / 116 pages: hub, centers, core types, wings, and instinctual subtypes in both locales.
+- The 54 wing × instinct matrix and Tritype remain outside the estate and forbidden; they are distinct from the 27 current subtype identities.
 
 ## fap-web Evidence
 
@@ -49,7 +49,11 @@ Read-only fap-api evidence consumed by reference:
 
 - `backend/content_assets/enneagram/result_page/source_ledger/source_ledger.json`
   - Backend result-page source ledger exists.
-  - Public Personality source ledger state is still `missing`; this blocks content generation and CMS dry-run promotion.
+  - It is not the Authority V2 public-personality ledger. PR07 must supply page-level bilingual claim maps before drafting or CMS dry-run handoff.
+- `backend/docs/seo/personality/enneagram-authority-v2/enneagram-public-authority-v2-benchmark-01/production-scorecard.json`
+  - PR01 freezes the read-only 58-identity / 116-page route estate.
+- `backend/app/Services/Enneagram/AuthorityV2/EnneagramPublicAuthorityV2IntegrityGate.php`
+  - PR02 validates taxonomy, route, canonical, hreflang, private boundary, and review truth with zero writes.
 - `backend/app/Services/Enneagram/EnneagramPublicProjectionService.php`
   - Classification: `backend_authority_public_content_asset`
   - Consumption rule: `reviewed_public_projection_only`
@@ -59,12 +63,12 @@ Read-only fap-api evidence consumed by reference:
 - `backend/tests/Feature/V0_3/EnneagramShareSummaryContractTest.php`
   - Public share summary is public-summary scoped only.
 
-## Missing Or Blocked Authority
+## Required Pending Authority
 
-- `public_personality_source_ledger`: missing. A reviewed public personality source ledger is required before content generation or CMS dry run.
-- `centers_or_triads_source_authority`: conditional. Backend-authoritative public taxonomy must be confirmed before center or triad page planning.
-- `wing_and_instinct_public_page_authority`: blocked. Do not promote wing, instinct, subtype, or 54 wing x instinct pages in first scope.
-- `cms_generation_package`: missing. CMS dry-run readiness requires a later scoped scan after source, claim, and candidate packets merge.
+- `authority_v2_source_ledger`: `required_pending_pr07`. Every page and claim must map to it before drafting or CMS dry run.
+- `human_review`: `pending_manual_review`. Model/agent QA cannot satisfy this field.
+- `working_revision_isolation`: required. Drafts must not change published primary fingerprints or public revision pointers.
+- `cms_generation_package`: pending later train scope after ledger, editorial, and review gates pass.
 
 ## HOLD Actions
 

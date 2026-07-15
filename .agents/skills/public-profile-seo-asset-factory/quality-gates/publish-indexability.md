@@ -11,5 +11,6 @@ Publication requires all of:
 - Canonical and hreflang pass.
 - Duplicate/cannibalization audit passes.
 - Live route smoke passes.
+- The approved public revision pointer references a named human-reviewed revision; a working revision or model-only review is ineligible.
 
 No L1/L2/L3 run may modify sitemap, llms, public generated sitemap, or indexability flags.

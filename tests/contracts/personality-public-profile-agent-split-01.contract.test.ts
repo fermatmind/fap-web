@@ -72,7 +72,8 @@ describe("PERSONALITY-PUBLIC-PROFILE-AGENT-SPLIT-01", () => {
     expect(matrix).toContain("64 A/T variant");
     expect(matrix).toContain("32 A-vs-T comparison");
     expect(matrix).toContain("Official 32 OCEAN types");
-    expect(matrix).toContain("54 combinations or Tritype");
+    expect(matrix).toContain("Existing 58 identities / 116 bilingual pages");
+    expect(matrix).toContain("54 wing × instinct matrix");
   });
 
   it("keeps each framework agent inside its approved public profile boundary", () => {
@@ -89,10 +90,10 @@ describe("PERSONALITY-PUBLIC-PROFILE-AGENT-SPLIT-01", () => {
     expect(bigFive).toContain("Do not create official Big Five 32 personality types");
     expect(bigFive).toContain("Do not create 32 OCEAN SEO pages");
 
-    expect(enneagram).toContain("Hub.");
-    expect(enneagram).toContain("3 centers.");
-    expect(enneagram).toContain("9 core types.");
-    expect(enneagram).toContain("Do not create 54 wing x instinct SEO pages");
+    expect(enneagram).toContain("58 identities per locale");
+    expect(enneagram).toContain("116 existing public-page targets");
+    expect(enneagram).toContain("pending_manual_review");
+    expect(enneagram).toContain("Do not create the 54 wing × instinct matrix");
 
     expect(guard).toContain("Search Queue dry-run cannot imply enqueue");
     expect(guard).toContain("Approve cannot imply live submit");

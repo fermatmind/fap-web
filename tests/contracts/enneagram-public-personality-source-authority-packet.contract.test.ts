@@ -74,7 +74,13 @@ describe("Enneagram Public Personality source authority packet", () => {
       "backend/app/Services/Enneagram/EnneagramPublicProjectionService.php"
     );
     expect(sources.find((source) => source.id === "backend_source_ledger")?.public_personality_source_ledger_state).toBe(
-      "missing"
+      "result_page_ledger_not_authority_v2_public_personality_ledger"
+    );
+    expect(sources.find((source) => source.id === "authority_v2_production_scorecard")?.observed_status).toBe(
+      "58_identities_116_pages_read_only_frozen"
+    );
+    expect(sources.find((source) => source.id === "authority_v2_integrity_gate")?.observed_status).toBe(
+      "merged_zero_write_gate"
     );
   });
 
@@ -105,9 +111,13 @@ describe("Enneagram Public Personality source authority packet", () => {
     expect(assertions.private_result_text_is_content_authority).toBe(false);
     expect(assertions.unreviewed_candidate_payload_is_content_authority).toBe(false);
     expect(assertions.public_personality_source_ledger_required_before_generation).toBe(true);
-    expect(assertions.first_scope_may_plan_hub_and_9_core_types).toBe(true);
-    expect(assertions.centers_or_triads_require_source_authority_confirmation).toBe(true);
-    expect(assertions.wing_or_instinct_pages_may_be_promoted).toBe(false);
+    expect(assertions.current_estate_identity_count).toBe(58);
+    expect(assertions.current_estate_page_count).toBe(116);
+    expect(assertions.all_five_entity_types_are_current_estate).toBe(true);
+    expect(assertions.authority_v2_source_ledger_required_before_generation).toBe(true);
+    expect(assertions.model_review_is_human_review).toBe(false);
+    expect(assertions.working_revision_isolation_required).toBe(true);
+    expect(assertions.new_urls_may_be_created).toBe(false);
   });
 
   it("records missing authority gaps required before public content generation or CMS dry run", () => {
@@ -115,13 +125,13 @@ describe("Enneagram Public Personality source authority packet", () => {
     const gaps = asRecordArray(packet.missing_or_blocked_authority);
 
     expect(gaps.map((gap) => gap.gap)).toEqual([
-      "public_personality_source_ledger",
-      "centers_or_triads_source_authority",
-      "wing_and_instinct_public_page_authority",
+      "authority_v2_source_ledger",
+      "human_review",
+      "working_revision_isolation",
       "cms_generation_package",
     ]);
-    expect(gaps.find((gap) => gap.gap === "public_personality_source_ledger")?.status).toBe("missing");
-    expect(gaps.find((gap) => gap.gap === "wing_and_instinct_public_page_authority")?.status).toBe("blocked");
+    expect(gaps.find((gap) => gap.gap === "authority_v2_source_ledger")?.status).toBe("required_pending_pr07");
+    expect(gaps.find((gap) => gap.gap === "human_review")?.status).toBe("pending_manual_review");
   });
 
   it("preserves CMS, runtime, search, private data, provider, generated page, and fap-api mutation holds", () => {
@@ -159,8 +169,9 @@ describe("Enneagram Public Personality source authority packet", () => {
     expect(report).toContain("Verdict: `MAPPED_PARTIAL`");
     expect(report).toContain("fap-api is a read-only evidence source only");
     expect(report).toContain("`reviewed_public_safe_sources_only`");
-    expect(report).toContain("Public Personality source ledger state is still `missing`");
-    expect(report).toContain("Wing, instinct, subtype, and 54 wing x instinct pages are blocked");
+    expect(report).toContain("58 identities / 116 pages");
+    expect(report).toContain("PR07 must supply page-level bilingual claim maps");
+    expect(report).toContain("Model/agent QA cannot satisfy this field");
     expect(report).toContain("fap-api mutation: none");
   });
 

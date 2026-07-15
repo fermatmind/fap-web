@@ -100,8 +100,8 @@ describe("Enneagram Public Personality handoff common contract", () => {
     expect(contract.receiving_agent).toBe("public_personality_content");
     expect(contract.gate_agent).toBe("claim_privacy_safety_gate");
     expect(asStringArray(contract.observer_agents)).toEqual(["seo_geo_control", "analytics_gsc_opportunity"]);
-    expect(contract.scan_verdict).toBe("ENNEAGRAM_PUBLIC_PERSONALITY_HANDOFF_SCAN_PARTIAL");
-    expect(contract.public_personality_content_agent_state).toBe("partial_profile_agent");
+    expect(contract.scan_verdict).toBe("ENNEAGRAM_AUTHORITY_V2_116_PAGE_GOVERNANCE_ALIGNED");
+    expect(contract.public_personality_content_agent_state).toBe("authority_v2_governance_aligned");
   });
 
   it("allows only public-safe Enneagram handoff input classes", () => {
@@ -195,7 +195,7 @@ describe("Enneagram Public Personality handoff common contract", () => {
         "runtime_qa_handoff",
         "analytics_handoff",
         "claim_safety_gate_artifact",
-        "public_personality_source_ledger_missing",
+        "authority_v2_source_ledger_pending_pr07",
         "blocked_private_or_unreviewed_source",
         "frontend_consumer_contract_not_authority",
       ])
@@ -204,6 +204,30 @@ describe("Enneagram Public Personality handoff common contract", () => {
     expect(asStringArray(claimBoundary.allowed)).toContain("non_diagnostic_note");
     expect(asStringArray(claimBoundary.forbidden)).toContain("final_fixed_type_certainty");
     expect(asStringArray(claimBoundary.forbidden)).toContain("relationship_guarantee");
+  });
+
+  it("locks Authority V2 estate, review truth, and working revision isolation", () => {
+    const contract = readJson(CONTRACT_PATH);
+    const estate = asRecord(contract.authority_v2_estate);
+    const workflow = asRecord(contract.authority_v2_workflow_truth);
+
+    expect(estate.identity_count).toBe(58);
+    expect(estate.page_count).toBe(116);
+    expect(estate.locales).toEqual(["en", "zh-CN"]);
+    expect(asStringArray(contract.first_public_personality_scope)).toEqual([
+      "hub",
+      "center",
+      "core_type",
+      "wing",
+      "instinctual_subtype",
+    ]);
+    expect(workflow.independent_bilingual_drafting).toBe(true);
+    expect(workflow.source_ledger_state).toBe("required_pending_pr07");
+    expect(workflow.unreviewed_state).toBe("pending_manual_review");
+    expect(workflow.model_review_is_human_review).toBe(false);
+    expect(workflow.working_revision_isolated).toBe(true);
+    expect(workflow.published_primary_mutation_allowed).toBe(false);
+    expect(workflow.public_revision_pointer_mutation_allowed).toBe(false);
   });
 
   it("preserves hard HOLD actions and negative guarantees", () => {
@@ -245,8 +269,9 @@ describe("Enneagram Public Personality handoff common contract", () => {
     expect(report).toContain("Verdict: `READY_FOR_POLICY_HANDOFF`");
     expect(report).toContain("Producing agent: `enneagram_result_page`");
     expect(report).toContain("Receiving agent: `public_personality_content`");
-    expect(report).toContain("Public Personality Content Agent state: `partial_profile_agent`");
-    expect(report).toContain("54 wing x instinct pages");
+    expect(report).toContain("Public Personality Content Agent state: `authority_v2_governance_aligned`");
+    expect(report).toContain("58 identities across `en` and `zh-CN`");
+    expect(report).toContain("Model/agent QA is not human review");
     expect(report).toContain("Negative guarantees");
     expect(report).toContain("raw private result accessed: none");
   });

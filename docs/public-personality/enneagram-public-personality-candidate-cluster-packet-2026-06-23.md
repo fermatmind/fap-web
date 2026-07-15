@@ -12,7 +12,7 @@ Dependencies: source authority packet PR #1391 and claim safety packet PR #1394 
 
 - `enneagram_public_hub_framework`
 - `enneagram_nine_core_type_profiles`
-- `enneagram_centers_or_triads_conditional`
+- `enneagram_centers`
 - `enneagram_type_comparison_internal_links`
 - `enneagram_vs_big_five_reflection`
 - `enneagram_vs_mbti_reflection`
@@ -21,9 +21,11 @@ Dependencies: source authority packet PR #1391 and claim safety packet PR #1394 
 
 ## Candidate Summary
 
-The machine packet defines 8 planning candidates across the 8 required families. Hub and nine core type candidates may be planned after source and claim review, but they remain candidates only. Centers or triads are conditional on backend source authority. Wing, instinct, subtype, and 54 wing x instinct pages are explicitly blocked from the first scope.
+The machine packet defines 8 planning candidates across the 8 required families. The current governance target is the full backend-authoritative estate: 58 identities and 116 bilingual pages across hub, centers, core types, wings, and instinctual subtypes. These remain planning candidates only until V2 source-ledger, independent bilingual drafting, `pending_manual_review`, and isolated-revision gates pass.
 
-High-risk candidates such as missing source ledger readiness, public share navigation, and nine core type profile packages require backend authority, review ledger, GPT55 review, Safety Gate review, and SEO/GEO review before CMS dry run or public copy.
+High-risk candidates such as V2 source-ledger readiness and public-share navigation require backend authority, a named human review ledger, Safety Gate review, and SEO/GEO review before CMS dry run or public copy. Model/agent QA does not count as human review.
+
+The 54 wing × instinct matrix and Tritype remain forbidden expansions; the matrix is not the current set of 27 instinctual-subtype identities.
 
 Comparison candidates may clarify method boundaries between Enneagram, Big Five, and MBTI, but they must not claim one test is more accurate, define a real personality, certify an identity, or produce final type certainty.
 

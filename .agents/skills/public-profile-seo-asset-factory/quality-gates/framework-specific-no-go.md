@@ -16,9 +16,9 @@
 
 ## Enneagram
 
-- Start with 3 centers and 9 core types.
-- 18 wings are later.
-- 27 instinctual subtypes are later.
-- Do not create 54 wing x instinct pages.
+- Lock the current estate to 58 identities and 116 pages: 1 hub, 3 centers, 9 core types, 18 wings, and 27 instinctual subtypes in each of 2 locales.
+- Do not create new URLs.
+- Do not create the 54 wing × instinct matrix; it is distinct from the 27 current subtype identities.
 - Do not create Tritype.
 - Do not frame Enneagram as clinical diagnosis or hiring basis.
+- Do not treat model/agent QA as human review or bypass `pending_manual_review`.

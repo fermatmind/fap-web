@@ -21,6 +21,12 @@
   "gate_agent": "claim_privacy_safety_gate",
   "scale_code": "ENNEAGRAM",
   "canonical_test_slug": "enneagram-personality-test-nine-types",
+  "authority_v2_estate": {
+    "identity_count": 58,
+    "page_count": 116,
+    "locales": ["en", "zh-CN"],
+    "counts_per_locale": {"hub": 1, "center": 3, "core_type": 9, "wing": 18, "instinctual_subtype": 27}
+  },
   "consumed_sources": [
     {
       "id": "enneagram_safety_gate_consumption_packet",
@@ -54,10 +60,20 @@
     }
   ],
   "public_personality_scope_assertions": {
-    "hub": "allowed_to_plan_after_source_and_claim_review",
-    "nine_core_types": "allowed_to_plan_after_source_and_claim_review",
-    "centers_or_triads": "conditional_on_backend_source_authority",
-    "wings_instincts_subtypes": "blocked_from_first_scope",
+    "hub": "current_estate_pending_required_gates",
+    "centers": "current_estate_pending_required_gates",
+    "core_types": "current_estate_pending_required_gates",
+    "wings": "current_estate_pending_required_gates",
+    "instinctual_subtypes": "current_estate_pending_required_gates",
+    "authority_v2_identity_count": 58,
+    "authority_v2_page_count": 116,
+    "independent_bilingual_drafting_required": true,
+    "unreviewed_state": "pending_manual_review",
+    "model_review_is_human_review": false,
+    "working_revision_isolation_required": true,
+    "new_urls_allowed": false,
+    "wing_instinct_matrix_54": "blocked",
+    "tritype": "blocked",
     "private_result_profile_rewrites": "blocked",
     "attempt_based_profiles": "blocked"
   },

@@ -32,7 +32,7 @@ This skill is not a page generator, not a direct publisher, and not a result-pag
 - Result pages, private reports, scoring, PDF generation, payment, entitlement, or report-engine work.
 - Direct frontend editorial fallback content.
 - Direct sitemap/llms/indexability publication without explicit gate approval.
-- Big Five official 32 type generation, Enneagram 54 wing x instinct, or Tritype content.
+- Big Five official 32 type generation, Enneagram 54 wing x instinct matrix content, or Tritype content. The forbidden 54-page matrix is distinct from the current 27 instinctual-subtype identities rendered bilingually.
 
 ## Required Preflight
 
@@ -47,7 +47,7 @@ This skill is not a page generator, not a direct publisher, and not a result-pag
 
 - MBTI: existing indexable estate enhancement only.
 - Big Five: content package generation for 5 domains, 10 poles, and 30 facets.
-- Enneagram: placeholder upgrade for 3 centers and 9 core types first; 18 wings and 27 instinctual subtypes later.
+- Enneagram Authority V2: govern the complete current estate of 58 identities × 2 locales = 116 pages: 1 hub, 3 centers, 9 core types, 18 wings, and 27 instinctual subtypes per locale.
 
 ## Public Profile Agent Matrix
 
@@ -57,7 +57,7 @@ The public profile factory is split into framework-specific agents plus shared Q
 - MBTI64 Public Personality Agent: audits and improves the existing 64 A/T variant pages and A-vs-T comparison pages.
 - MBTI Hot Cross-Type Comparison Agent: prioritizes and packages high-opportunity cross-type comparison assets, such as INTJ/INTP, ENTJ/INTJ, INFJ/INFP, and ISTJ/ISFJ, without creating frontend fallback copy.
 - Big Five Public Personality Agent: produces or QA-checks 5-domain, 10-pole, and 30-facet dimensional content packages.
-- Enneagram Public Personality Agent: upgrades hub, 3 centers, and 9 core types before wings or instinctual subtypes.
+- Enneagram Public Personality Agent: governs the complete 116-page bilingual estate without creating new URLs or treating the forbidden 54 wing × instinct matrix as the current 27-subtype estate.
 - SEO Projection QA Agent: checks search-intent, title/description, internal-link, llms, sitemap, and Search Queue readiness artifacts.
 - Editorial Claim QA Agent: checks trademark, method-boundary, duplicate-risk, private-result-boundary, and deterministic-claim rules.
 - Release Guard Agent: separates draft/package, backend import, frontend render, publish/indexability, sitemap/llms, and search-release gates.
@@ -74,7 +74,15 @@ Runner inputs are target URL, framework, current CMS/API or live surface, optimi
 
 - `mbti.existing_asset_enhancement`: audit or improve existing CMS-backed 64 A/T pages and comparison pages. Do not regenerate the estate.
 - `big_five.content_package_generation`: create schema-valid packages for 5-10-30 dimensional assets. Do not create official 32 OCEAN SEO pages.
-- `enneagram.placeholder_upgrade`: upgrade V1 placeholder assets for hub, centers, and core types. Do not create 54 combination pages or Tritype.
+- `enneagram.authority_v2_116_estate`: prepare isolated draft-revision packages for the existing hub, center, core-type, wing, and instinctual-subtype identities. Do not create new URLs, the 54 wing × instinct matrix, or Tritype.
+
+Every Enneagram Authority V2 run must lock all of these workflow truths:
+
+- Coverage is 58 identities and 116 locale pages; a smaller cohort is an explicit batch slice, never the estate definition.
+- `en` and `zh-CN` are drafted independently from the same claim map and reviewed separately; one locale is not raw translation authority for the other.
+- Every factual or method claim maps to the V2 source ledger. Missing evidence fails closed.
+- Model or agent QA may propose edits, but it never satisfies human review. Drafts stay `pending_manual_review` until a named human review record exists.
+- Draft work targets isolated working revisions. It must not mutate the published primary fingerprint or public revision pointer; promotion and rollback belong to separately authorized backend gates.
 
 ## MBTI Asset Pipeline
 
@@ -171,7 +179,7 @@ fap-api is the schema/import/API/content authority. fap-web consumes public API 
 
 ## Failure Modes
 
-Stop when source evidence is missing, schemas fail, bilingual parity fails, private result leakage is detected, framework no-go rules are violated, indexability changes appear in a noindex scope, or model output cannot be traced to a ledger.
+Stop when source evidence is missing, schemas fail, bilingual coverage or independent drafting fails, any asset lacks `pending_manual_review` truth, model QA is represented as human review, working-revision isolation fails, private result leakage is detected, framework no-go rules are violated, indexability changes appear in a noindex scope, or model output cannot be traced to the V2 source ledger.
 
 For batch readiness, Codex auto-repair must not hide generator failure. GO for a batch only if raw or repaired generator output has zero critical contract violations and final Codex packages pass all QA gates.
 

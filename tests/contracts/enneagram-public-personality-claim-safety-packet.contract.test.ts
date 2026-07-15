@@ -75,14 +75,21 @@ describe("Enneagram Public Personality claim safety packet", () => {
     );
   });
 
-  it("keeps first public personality scope bounded by source and claim review", () => {
+  it("locks the complete current estate behind source, review, and revision gates", () => {
     const packet = readJson(PACKET_PATH);
     const scope = asRecord(packet.public_personality_scope_assertions);
 
-    expect(scope.hub).toBe("allowed_to_plan_after_source_and_claim_review");
-    expect(scope.nine_core_types).toBe("allowed_to_plan_after_source_and_claim_review");
-    expect(scope.centers_or_triads).toBe("conditional_on_backend_source_authority");
-    expect(scope.wings_instincts_subtypes).toBe("blocked_from_first_scope");
+    for (const entity of ["hub", "centers", "core_types", "wings", "instinctual_subtypes"]) {
+      expect(scope[entity]).toBe("current_estate_pending_required_gates");
+    }
+    expect(scope.authority_v2_identity_count).toBe(58);
+    expect(scope.authority_v2_page_count).toBe(116);
+    expect(scope.independent_bilingual_drafting_required).toBe(true);
+    expect(scope.unreviewed_state).toBe("pending_manual_review");
+    expect(scope.model_review_is_human_review).toBe(false);
+    expect(scope.working_revision_isolation_required).toBe(true);
+    expect(scope.wing_instinct_matrix_54).toBe("blocked");
+    expect(scope.tritype).toBe("blocked");
     expect(scope.private_result_profile_rewrites).toBe("blocked");
     expect(scope.attempt_based_profiles).toBe("blocked");
   });
@@ -221,7 +228,8 @@ describe("Enneagram Public Personality claim safety packet", () => {
 
     expect(report).toContain("Verdict: `READY_TO_BLOCK_UNSAFE_PUBLIC_PERSONALITY_OUTPUTS`");
     expect(report).toContain("Source authority dependency");
-    expect(report).toContain("Wings, instincts, subtypes, and 54 wing x instinct pages: blocked");
+    expect(report).toContain("58 identities / 116 bilingual pages");
+    expect(report).toContain("Model or agent review must never be represented as human review");
     expect(report).toContain("Safety Gate can block unsafe public personality outputs");
     expect(report).toContain("`blocked_output_type`");
     expect(report).toContain("fap-api mutation: none");
