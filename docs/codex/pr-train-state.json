@@ -45307,7 +45307,7 @@
     "updated_at": "2026-07-14T12:09:27Z"
   },
   "MBTI-VERIFY-41": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-verify-41-full-readback",
     "depends_on": ["MBTI-CMS-IMPORT-40"],
@@ -45323,19 +45323,50 @@
       "changed_file_scope": {"status": "passed", "evidence": "All nine changed files match the manifest allowlist: mbti-verify-41 docs, builder, focused contract, and the two PR-train metadata files."},
       "github_required_checks": {"status": "passed", "evidence": "PR #1764 head 3ea831b256e451eb73db605c0d45432d8d48072f passed build, contracts, Big Five freeze, Enneagram freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-14T12:51:29Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {"at": "2026-07-14T12:09:27Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train for read-only validation of exactly 43 imported draft repairs and all 52 public API targets."},
       {"at": "2026-07-14T12:09:27Z", "status": "in_progress", "summary": "Production CMS draft readback passed 43/43 and public API readback passed 52/52. The 43 repairs remain draft-only and the nine verify-only records remain outside the import batch; no production mutation occurred."},
       {"at": "2026-07-14T12:34:00Z", "status": "local_verified", "summary": "All manifest checks passed: exact production readback 43/43 and 52/52, focused contract 4/4, zero-warning lint, typecheck, four complete contract shards, production build, YAML/JSON and diff checks, and exact nine-file scope validation. This task remains read-only and does not promote drafts or mutate discoverability."},
       {"at": "2026-07-14T12:38:00Z", "status": "pr_open", "summary": "Committed the exact nine-file scope, pushed codex/mbti-verify-41-full-readback, and opened PR #1764. Required GitHub checks are pending; no production, CMS, discoverability, or GSC mutation occurred."},
-      {"at": "2026-07-14T12:44:00Z", "status": "ready_to_merge", "summary": "PR #1764 passed build, contracts, both personality freeze checks, CodeQL, and the zero-new-alert gate. The exact nine-file scope was revalidated and remains read-only."}
+      {"at": "2026-07-14T12:44:00Z", "status": "ready_to_merge", "summary": "PR #1764 passed build, contracts, both personality freeze checks, CodeQL, and the zero-new-alert gate. The exact nine-file scope was revalidated and remains read-only."},
+      {"at": "2026-07-14T12:51:29Z", "status": "merged", "summary": "Reconciled during MBTI-INDEX-43: GitHub reports PR #1764 merged at 2d4ca8fa1c33892013fe11750b25fe3be38b8da3, origin/main contains the merge commit, and its local and remote task branches are absent."}
     ],
-    "updated_at": "2026-07-14T12:44:00Z"
+    "updated_at": "2026-07-14T12:51:29Z"
+  },
+  "MBTI-INDEX-43": {
+    "status": "local_verified",
+    "repo": "fap-web",
+    "branch": "codex/mbti-index-43-full-52-release-gate",
+    "depends_on": ["MBTI-PERF-42"],
+    "train_scope": "mbti_full_52_url_read_only_index_release_gate",
+    "title": "MBTI-INDEX-43: revalidate all 52 Chinese MBTI URLs",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and exact manifest/state registration."},
+      "dependency": {"status": "passed", "evidence": "MBTI-PERF-42 merged in fap-api PR #3085 and exact backend SHA 5ea0eb27769b4fba6b33f5a35f1d32cb3276273a was deployed as mbti-perf-42-profile-read-stability-5ea0eb27-20260714. Post-deploy readback returned 32/32 profile detail and SEO endpoints twice with HTTP 200 and no request at or above ten seconds."},
+      "required_local_checks": {"status": "passed", "evidence": "After the separately authorized exact-package production promotion on backend SHA 65a1d3b78da70511306ebd2867a157494e4e217f, two consecutive read-only production runs passed with CMS_API, HTTP_200, CANONICAL, ROBOTS, JSONLD, FAQ_PARITY, SITEMAP, LLMS, and LLMS_FULL all 52/52, API_TIMEOUTS=0, PRIVATE_URL_LEAKS=0, and identical evidence signatures. Focused INDEX-43 contracts passed 3/3; zero-warning lint, typecheck, all four complete contract shards, the explicit production API build with 206/206 static pages, YAML/JSON parsing, and git diff --check passed."},
+      "changed_file_scope": {"status": "passed", "evidence": "All changed and untracked files match the MBTI-INDEX-43 manifest allowlist: index-43 evidence docs, builder, focused contract, PR-train manifest/state, and the shared sidecar issue reports."},
+      "github_required_checks": {"status": "pending", "evidence": null}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-14T14:45:00Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train for exactly 52 zh-CN public routes: 32 profiles, sixteen A/T comparisons, and four approved hot cross-type comparisons."},
+      {"at": "2026-07-14T14:45:00Z", "status": "in_progress", "summary": "Started from clean latest fap-web origin/main after PERF-42 exact-SHA deployment and stable readback. This task performs two read-only production release-gate passes and cannot mutate CMS, discoverability, deploy state, or GSC."},
+      {"at": "2026-07-14T16:17:52Z", "status": "blocked_external_authority_promotion", "summary": "Run 1 completed without API timeout and returned HOLD: CMS_API=24/52, HTTP_200=52/52, CANONICAL=52/52, ROBOTS=32/52, JSONLD=32/52, FAQ_PARITY=20/52, and all three public feeds=52/52. Twenty-eight profile repair records still expose no public FAQ because CMS-IMPORT-40 was authorized as draft import only; twenty profile HTML responses are fail-closed noindex shells. A second run and GSC-44 are prohibited until an exact production public-promotion task is separately authorized and verified."},
+      {"at": "2026-07-15T09:07:10Z", "status": "in_progress", "summary": "The operator-authorized 43-record indexability promotion completed on pinned backend SHA 65a1d3b78da70511306ebd2867a157494e4e217f without GSC mutation. After the 300-second frontend SWR cache converged, two consecutive read-only production runs returned complete 52/52 authority, HTML, canonical, robots, JSON-LD, FAQ parity, sitemap, llms and llms-full results with zero API timeouts, zero private URL leaks and identical evidence signatures. Repository validation is now running."},
+      {"at": "2026-07-15T09:24:15Z", "status": "local_verified", "summary": "All INDEX-43 manifest checks passed: two consecutive production gates returned complete 52/52 with identical signatures; focused contracts passed 3/3; zero-warning lint, typecheck, four complete contract shards, explicit production build with 206/206 static pages, YAML/JSON parsing, diff checks, and exact allowlist scope validation passed. No CMS, discoverability, deploy, or GSC mutation was performed by this PR."}
+    ],
+    "updated_at": "2026-07-15T09:24:15Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
