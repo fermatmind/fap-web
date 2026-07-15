@@ -229,15 +229,6 @@ function sha256(value) {
   return crypto.createHash("sha256").update(JSON.stringify(value)).digest("hex");
 }
 
-function writeArtifact(artifact, value) {
-  const absolutePath = ARTIFACT_PATHS[artifact];
-  if (!absolutePath) throw new Error(`Unsupported INDEX-43 artifact: ${artifact}`);
-  fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
-  const temporaryPath = `${absolutePath}.${process.pid}.tmp`;
-  fs.writeFileSync(temporaryPath, value);
-  fs.renameSync(temporaryPath, absolutePath);
-}
-
 const targetList = targets();
 if (targetList.length !== 52 || new Set(targetList.map(({ slug }) => slug)).size !== 52) {
   throw new Error("The INDEX-43 inventory must contain exactly 52 unique slugs");
@@ -370,7 +361,11 @@ const runReport = {
   private_url_leaks: privateUrlLeaks,
   records,
 };
-writeArtifact(RUN === 1 ? "run1" : "run2", `${JSON.stringify(runReport, null, 2)}\n`);
+if (RUN === 1) {
+  fs.writeFileSync(ARTIFACT_PATHS.run1, `${JSON.stringify(runReport, null, 2)}\n`);
+} else {
+  fs.writeFileSync(ARTIFACT_PATHS.run2, `${JSON.stringify(runReport, null, 2)}\n`);
+}
 
 let previousRun = null;
 if (RUN === 2) {
@@ -453,9 +448,9 @@ const csv = [
   )).join(",")),
 ].join("\n") + "\n";
 
-writeArtifact("reportJson", `${JSON.stringify(finalReport, null, 2)}\n`);
-writeArtifact("reportMarkdown", markdown);
-writeArtifact("reportCsv", csv);
+fs.writeFileSync(ARTIFACT_PATHS.reportJson, `${JSON.stringify(finalReport, null, 2)}\n`);
+fs.writeFileSync(ARTIFACT_PATHS.reportMarkdown, markdown);
+fs.writeFileSync(ARTIFACT_PATHS.reportCsv, csv);
 
 console.log(finalDecision);
 metricLines.forEach((line) => console.log(line));
