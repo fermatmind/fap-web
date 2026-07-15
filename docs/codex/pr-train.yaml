@@ -14879,7 +14879,7 @@ prs:
     mode: execute
     train_scope: big5_authority_v2_withheld_route_soft404_repair
     risk_level: L1
-    status: local_checks_passed
+    status: committed
     title: "BIG5-AUTHORITY-V2-SOFT404-39: fix(seo): return fail-closed status for withheld Big Five drafts"
     goal: "Make the 100 withheld Article routes and four withheld Big Five technical-trust routes return a real fail-closed non-200 response while preserving published controls, noindex, feed exclusion, and backend/CMS authority."
     in_scope:
