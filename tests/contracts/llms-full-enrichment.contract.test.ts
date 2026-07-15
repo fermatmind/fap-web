@@ -60,6 +60,8 @@ function mockLlmsFullDependencies({ includeSurfaces = true }: { includeSurfaces?
           { title: "Take the MBTI test", href: "/en/tests/mbti-personality-test-16-personality-types" },
           { title: "Read the MBTI topic", href: "/en/topics/mbti" },
           { title: "Open support", href: "/en/support" },
+          { title: "Held personality surface", href: "/zh/personality/esfj-t" },
+          { title: "Legacy Big Five alias", href: "/en/tests/big-five-personality-test" },
           { title: "Forbidden take flow", href: "/en/tests/mbti-personality-test-16-personality-types/take" },
         ],
       })
@@ -285,7 +287,7 @@ describe("llms-full enrichment contract", () => {
   it("renders bounded summaries, FAQ, next steps, and safety notes from existing surfaces", async () => {
     mockLlmsFullDependencies({ includeSurfaces: true });
 
-    const { GET } = await import("@/app/llms-full.txt/route");
+    const { GET, isCompleteLlmsFullText } = await import("@/app/llms-full.txt/route");
     const response = await GET();
     const text = await response.text();
 
@@ -300,6 +302,10 @@ describe("llms-full enrichment contract", () => {
     expect(text).toContain("Take the MBTI test: https://fermatmind.com/en/tests/mbti-personality-test-16-personality-types");
     expect(text).toContain("Read the MBTI topic: https://fermatmind.com/en/topics/mbti");
     expect(text).toContain("Open support: https://fermatmind.com/en/support");
+    expect(text).not.toContain("Held personality surface");
+    expect(text).not.toContain("https://fermatmind.com/zh/personality/esfj-t");
+    expect(text).not.toContain("Legacy Big Five alias");
+    expect(text).not.toMatch(/https:\/\/fermatmind\.com\/en\/tests\/big-five-personality-test(?:\s|$)/);
     expect(text).not.toContain("Forbidden take flow");
     expect(text).toContain("Personality answer summary from CMS.");
     expect(text).toContain("Topic answer summary from CMS.");
@@ -320,6 +326,13 @@ describe("llms-full enrichment contract", () => {
     expect(text).not.toContain("/pay");
     expect(text).not.toContain("/payment");
     expect(text).not.toContain("/history");
+    expect(isCompleteLlmsFullText(text, "https://fermatmind.com")).toBe(true);
+    expect(
+      isCompleteLlmsFullText(
+        `${text}\n  - Held personality surface: https://fermatmind.com/zh/personality/esfj-t`,
+        "https://fermatmind.com"
+      )
+    ).toBe(false);
   });
 
   it("does not invent summaries when no source surface or list summary exists", async () => {
