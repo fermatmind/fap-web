@@ -190,6 +190,7 @@ describe("Enneagram Public Personality handoff common contract", () => {
     expect(asStringArray(contract.source_classification_vocabulary)).toEqual(
       expect.arrayContaining([
         "backend_authority_public_content_asset",
+        "backend_authority_integrity_gate",
         "backend_authority_public_share_summary",
         "result_page_readiness_handoff",
         "runtime_qa_handoff",

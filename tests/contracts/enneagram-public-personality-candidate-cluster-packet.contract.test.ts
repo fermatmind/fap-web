@@ -138,6 +138,16 @@ describe("Enneagram Public Personality candidate cluster packet", () => {
     ]);
   });
 
+  it("keeps source-ledger readiness on the Authority V2 evidence key", () => {
+    const packet = readJson(PACKET_PATH);
+    const candidates = asRecordArray(packet.candidate_clusters);
+    const readiness = candidates.find((candidate) => candidate.candidate_id === "enneagram-source-ledger-readiness-01");
+
+    expect(asStringArray(readiness?.source_evidence_required)).toContain("authority_v2_source_ledger");
+    expect(asStringArray(readiness?.source_evidence_required)).not.toContain("public_personality_source_ledger");
+    expect(readiness?.backend_authority_requirement).toBe("authority_v2_source_ledger_required");
+  });
+
   it("blocks publishable body, CMS payload, final metadata, generated pages, private result copy, and deterministic type claims", () => {
     const packet = readJson(PACKET_PATH);
     const guarantees = asRecord(packet.negative_guarantees);

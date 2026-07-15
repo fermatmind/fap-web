@@ -53,6 +53,8 @@ Read-only fap-api evidence consumed by reference:
 - `backend/docs/seo/personality/enneagram-authority-v2/enneagram-public-authority-v2-benchmark-01/production-scorecard.json`
   - PR01 freezes the read-only 58-identity / 116-page route estate.
 - `backend/app/Services/Enneagram/AuthorityV2/EnneagramPublicAuthorityV2IntegrityGate.php`
+  - PR02 supplies a merged zero-write backend integrity gate classified as `backend_authority_integrity_gate`; this class is explicitly allowed by the common handoff vocabulary.
+- `backend/app/Services/Enneagram/AuthorityV2/EnneagramPublicAuthorityV2IntegrityGate.php`
   - PR02 validates taxonomy, route, canonical, hreflang, private boundary, and review truth with zero writes.
 - `backend/app/Services/Enneagram/EnneagramPublicProjectionService.php`
   - Classification: `backend_authority_public_content_asset`

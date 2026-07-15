@@ -153,7 +153,7 @@ Forbidden phrase family:
 
 ## Source Classification
 
-Allowed source classes are limited to backend-owned public content assets, the Authority V2 source ledger and claim maps, backend public share summaries, result-page readiness handoffs, Runtime QA handoffs, Analytics handoffs, Safety Gate artifacts, and fap-web consumer contracts that prove boundaries but do not become content authority. Until PR07 supplies the V2 ledger, classify the dependency as `authority_v2_source_ledger_pending_pr07` and fail closed. Private, unreviewed, raw, hidden, or frontend fallback material remains `blocked_private_or_unreviewed_source` or `frontend_consumer_contract_not_authority`.
+Allowed source classes are limited to backend-owned public content assets, backend Authority V2 integrity gates, the Authority V2 source ledger and claim maps, backend public share summaries, result-page readiness handoffs, Runtime QA handoffs, Analytics handoffs, Safety Gate artifacts, and fap-web consumer contracts that prove boundaries but do not become content authority. Until PR07 supplies the V2 ledger, classify the dependency as `authority_v2_source_ledger_pending_pr07` and fail closed. Private, unreviewed, raw, hidden, or frontend fallback material remains `blocked_private_or_unreviewed_source` or `frontend_consumer_contract_not_authority`.
 
 ## HOLD Actions
 

@@ -57,6 +57,7 @@ describe("Enneagram Public Personality source authority packet", () => {
     const packet = readJson(PACKET_PATH);
     const repos = asRecord(packet.source_repositories);
     const sources = asRecordArray(packet.consumed_sources);
+    const allowedSourceClasses = asStringArray(packet.allowed_source_classes);
     const sourceIds = sources.map((source) => source.id);
 
     expect(repos.fap_api_access_mode).toBe("read_only_evidence_source_only");
@@ -82,6 +83,10 @@ describe("Enneagram Public Personality source authority packet", () => {
     expect(sources.find((source) => source.id === "authority_v2_integrity_gate")?.observed_status).toBe(
       "merged_zero_write_gate"
     );
+    expect(allowedSourceClasses).toContain("backend_authority_integrity_gate");
+    for (const source of sources) {
+      expect(allowedSourceClasses, String(source.id)).toContain(source.classification);
+    }
   });
 
   it("maps fap-web handoff packets without promoting consumer contracts to authority", () => {

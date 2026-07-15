@@ -74,7 +74,9 @@ describe("Enneagram Public Personality Authority V2 skill alignment", () => {
     }
 
     const governance = GOVERNANCE_FILES.map(read).join("\n");
-    expect(governance).toContain("enneagram.content_package_generation");
+    expect(governance).toContain("enneagram.audit");
+    expect(governance).not.toContain("enneagram.content_package_generation");
+    expect(governance).toContain("Big Five canonical-only");
     expect(governance).toContain("backend-authoritative 58-identity registry");
     expect(governance).toContain("Do not delegate Enneagram Authority V2 selection to `orchestration/asset-selection.md`");
     expect(governance).not.toContain("target scope `authority_v2_116_estate`");

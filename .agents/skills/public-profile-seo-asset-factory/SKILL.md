@@ -74,7 +74,7 @@ Runner inputs are target URL, framework, current CMS/API or live surface, optimi
 
 - `mbti.existing_asset_enhancement`: audit or improve existing CMS-backed 64 A/T pages and comparison pages. Do not regenerate the estate.
 - `big_five.content_package_generation`: create schema-valid packages for 5-10-30 dimensional assets. Do not create official 32 OCEAN SEO pages.
-- `enneagram.content_package_generation`: populate the required run-manifest `asset_selection` directly from the backend-authoritative 58-identity registry; the 2 independent locales yield 116 page targets. Do not delegate Enneagram Authority V2 selection to `orchestration/asset-selection.md`, whose legacy V1 selector cannot define the current estate. Prepare isolated draft-revision packages only. Do not create new URLs, the 54 wing × instinct matrix, or Tritype.
+- `enneagram.audit`: use the schema-supported audit mode and populate the required run-manifest `asset_selection` directly from the backend-authoritative 58-identity registry; the 2 independent locales yield 116 page targets. Do not delegate Enneagram Authority V2 selection to `orchestration/asset-selection.md`, whose legacy V1 selector cannot define the current estate. This governance run produces readiness recommendations only: the current public-profile content-package schema is Big Five canonical-only, so do not send Enneagram routes through it. Isolated draft-revision packages belong to later owning-backend content tasks after the source-ledger and editorial gates. Do not create new URLs, the 54 wing × instinct matrix, or Tritype.
 
 Every Enneagram Authority V2 run must lock all of these workflow truths:
 
