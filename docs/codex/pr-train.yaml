@@ -626,7 +626,7 @@ prs:
     base: main
     depends_on: [IQ-FE-1]
     mode: execute
-    status: local_checks_passed
+    status: github_checks_pending
     title: "feat(iq): add question SVG renderer and option grid contracts"
     artifacts:
       - components/quiz/iq/**
