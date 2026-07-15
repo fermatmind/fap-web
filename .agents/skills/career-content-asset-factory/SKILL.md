@@ -21,7 +21,7 @@ Canonical post-asset chain:
 - Block factories own their block-specific evidence, trust rules, synthesis, asset generation, and quality gates.
 - The SEO/GEO agent owns sitemap, `llms.txt`, canonical, noindex, JSON-LD, rich-result, and search-release decisions. This orchestrator may quarantine candidate search projections but must not release them.
 - Personality/test-result agents own MBTI, Big Five, Enneagram, RIASEC, and result interpretation assets. This skill may record their state and bridge readiness but must not rewrite their psychometric authority.
-- Career-personality bridge assets connect career blocks to tests and public profiles. They require explicit bridge gates and must not infer diagnoses, outcomes, or guaranteed matches.
+- Career-personality bridge assets connect career blocks to tests and public profiles. They require explicit bridge gates, may consume only backend-published public projections, and must not infer diagnoses, outcomes, or guaranteed matches.
 - Page assembly consumes PASS block assets only. It must not create new occupational facts or frontend fallback content.
 - Release guards own production import, deployment, exact-SHA approval, rollback readiness, and post-import live QA.
 
@@ -39,6 +39,8 @@ Canonical post-asset chain:
 - Candidate search, SEO, schema, or GEO projection fields must not be embedded in reader assets. Keep them in separate candidate files and require a separate SEO/runtime release gate.
 - If a block remains `BLOCKED` after the configured repair loops, stop and produce a repair prompt; do not continue downstream.
 - Production import requires explicit human approval naming the exact artifact SHA. This skill may prepare readiness artifacts but must not imply deployment or import permission.
+- Production draft import, primary-record existence, route HTTP 200, or a populated working-revision pointer does not prove public readiness. For revision-managed personality inputs, bridge readiness requires a published public projection and must never select a working/draft revision.
+- A draft-only import does not authorize content promotion, public release, indexability, sitemap, LLMS, media, cache, or search actions. Each separately controlled surface keeps its own gate.
 - No frontend fallback content can become content authority. Empty backend/API responses must fail closed or render bounded empty states.
 - Page assembly must not invent missing facts.
 - No self-declared PASS: a block can only PASS through its audited gate outputs and frozen SHA artifacts.
@@ -98,6 +100,17 @@ Expected files:
 - `next_goal_recommendation.md`
 
 Validate them with the schemas under `schemas/` before using them to advance a goal.
+
+For personality bridge gate artifacts, record one of these explicit verdicts:
+
+- `candidate_only`
+- `draft_imported_not_public`
+- `published_projection_ready`
+- `blocked_authority_or_revision_mismatch`
+
+Only `published_projection_ready` may be consumed by a public Career reader.
+Do not infer this verdict from `asset_pass`, `production_import_status`, or file
+existence alone.
 
 ## Scripts
 

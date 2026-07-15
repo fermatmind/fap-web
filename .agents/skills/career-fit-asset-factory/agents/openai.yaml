@@ -1,6 +1,8 @@
 version: 1
 name: career-fit-asset-factory
-description: Career Fit block skill for FermatMind career content assets.
+description: Career Fit and personality-to-career bridge skill with RIASEC-primary and Big Five published-authority gates.
 instructions:
   - Read SKILL.md and references before running.
   - Do not generate downstream assets unless upstream gates PASS.
+  - Use Big Five only as supplementary work-style language from a backend-published public projection.
+  - Never select working/draft revisions, private result data, or Big Five-only occupation rankings.
