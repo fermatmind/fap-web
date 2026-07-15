@@ -45683,8 +45683,8 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-api PR #3100 is MERGED at a2e545ec70073d97793dcd1ba3e174f6b7ff0112; fap-api origin/main contains the merge commit and predecessor cleanup plus post-merge focused revalidation completed."
     },
-    "status": "ready_to_merge",
-    "commit_sha": "f43833a3723b0699f7aa17f9aedc8020e241df37",
+    "status": "review_fixes_validated_checks_pending",
+    "commit_sha": "8f5fdcbd40f03e94b70fb0cbe40516e9f950cb98",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1770",
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The explicit serial /goal supplied the exact PR03 and PR21 ids, repos, branches, titles, dependencies, and scopes."},
@@ -45694,10 +45694,10 @@
       "yaml_json": {"status": "pass", "evidence": "PR-train YAML, state JSON, and all Enneagram public-personality packet JSON files parsed successfully."},
       "diff_check": {"status": "pass", "evidence": "git diff --check passed before staging."},
       "exact_scope": {"status": "pass", "evidence": "29 changed or untracked paths are inside the PR03 allowlist; no app, components, lib, public, or scripts runtime path changed."},
-      "github": {"status": "pass", "evidence": "Head 8935c46698b61670aabf6a213d76d91159adb737 passed build, complete contracts, both freeze suites, CodeQL analysis, and no-new-code scanning. The first build attempt hit an unrelated retryable CMS/public API 408 while collecting /[locale]/tests/[slug]; the failed-job rerun passed build and a11y without code changes."},
-      "review": {"status": "pass", "evidence": "All four review threads are replied to and resolved. Three active P2 findings were fixed: PR03-only activation, missing-origin/main safety, and schema-supported content_package_generation target scoping. The outdated commit_sha finding is addressed by recording implementation head f43833a3723b0699f7aa17f9aedc8020e241df37."}
+      "github": {"status": "pending_review_fix_rerun", "evidence": "Ready-ledger head 845135635b49ccf2c7e705ceceee2665a9bc7af3 passed all seven GitHub checks. Final-head rerun is pending after the additional schema-valid handoff fixes in 8f5fdcbd40f03e94b70fb0cbe40516e9f950cb98."},
+      "review": {"status": "fixes_validated_pending_push", "evidence": "The four earlier threads remain resolved. Two new active P2 findings are addressed without scope expansion: use schema-supported asset_selection rather than an undeclared target_scope property, and require owning fap-api manifest/state registration before identifying the next backend task. Focused contracts, ESLint, packet JSON, and diff checks pass."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -45717,9 +45717,11 @@
       {"at": "2026-07-15T04:16:09Z", "status": "github_checks_green_review_pending", "summary": "Head 8a8cd6bc980c7cf2205223da8ac20c7025eb9557 passed all seven GitHub checks, including the complete four-shard contracts suite that reproduced and verified the test-isolation repair."},
       {"at": "2026-07-15T04:17:59Z", "status": "review_fixes_validated_checks_pending", "summary": "Addressed three active P2 review findings without scope expansion: the permanent scope assertion now activates only when PR03's contract is in the committed diff; missing origin/main uses local main or skips safely; and Enneagram uses schema-supported content_package_generation with authority_v2_116_estate as target scope. Focused 7-file contracts pass 56 tests, focused ESLint passes, and implementation head f43833a3723b0699f7aa17f9aedc8020e241df37 is recorded. Final-head GitHub rerun and thread resolution remain pending."},
       {"at": "2026-07-15T04:21:08Z", "status": "github_build_retry_pending", "summary": "Final review-fix head completed lint, typecheck, contracts, both freeze suites, and CodeQL, but the build job hit an unrelated retryable CMS/public API 408 while collecting /[locale]/tests/[slug]. The prior code head had passed the same build, no runtime path changed, and logs showed no PR03 code failure, so the failed build job was retried without a code change."},
-      {"at": "2026-07-15T04:27:13Z", "status": "ready_to_merge", "summary": "Head 8935c46698b61670aabf6a213d76d91159adb737 is CLEAN and MERGEABLE with all seven GitHub checks green after the transient build retry. Exact scope remains 29 allowed paths with zero runtime paths, and all four review threads are resolved. This ledger-only ready head must rerun required checks before squash merge."}
+      {"at": "2026-07-15T04:27:13Z", "status": "ready_to_merge", "summary": "Head 8935c46698b61670aabf6a213d76d91159adb737 is CLEAN and MERGEABLE with all seven GitHub checks green after the transient build retry. Exact scope remains 29 allowed paths with zero runtime paths, and all four review threads are resolved. This ledger-only ready head must rerun required checks before squash merge."},
+      {"at": "2026-07-15T04:32:50Z", "status": "ready_to_merge", "summary": "Ledger-only head 845135635b49ccf2c7e705ceceee2665a9bc7af3 passed all seven required and security checks with CLEAN merge state, but two new P2 review threads arrived before merge, so readiness was revoked pending same-scope repair."},
+      {"at": "2026-07-15T04:34:31Z", "status": "review_fixes_validated_checks_pending", "summary": "Addressed the two new P2 findings without touching the out-of-scope runner schema or cross-repository manifests: Authority V2 now locks the 58 existing identities through schema-supported asset_selection, and the handoff requires owning fap-api registration before identifying the next backend task. Focused 7-file contracts pass 56 tests, two touched tests pass ESLint, packet JSON parses, and diff check passes. Implementation head 8f5fdcbd40f03e94b70fb0cbe40516e9f950cb98 is recorded; final checks and thread resolution remain pending."}
     ],
-    "updated_at": "2026-07-15T04:27:13Z"
+    "updated_at": "2026-07-15T04:34:31Z"
   },
   "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21": {
     "id": "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21",
