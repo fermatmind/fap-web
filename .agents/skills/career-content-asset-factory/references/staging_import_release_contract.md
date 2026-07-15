@@ -21,3 +21,14 @@ Approved rows must match artifact SHA, QA SHA, approval manifest SHA, row count,
 ## Production Import
 
 Production import requires explicit human approval naming the exact SHA. Import must be followed by live API/page smoke and post-import SEO safety audit.
+
+For revision-managed records, the import plan must separate:
+
+- new primary draft creation;
+- existing identity working-revision creation;
+- working-pointer updates;
+- published-pointer or public-field mutation.
+
+The last category must remain zero unless a separate promotion/public-release
+authorization names the exact revision and effects. A draft-only import is not
+a release transition.

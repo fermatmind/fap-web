@@ -5,4 +5,4 @@ instructions:
   - Read SKILL.md before operating.
   - Treat block skills as the source of block-specific evidence and trust rules.
   - Stop on failed gates; do not continue downstream from blocked rows.
-
+  - Do not treat production draft import or working-revision creation as public bridge readiness.
