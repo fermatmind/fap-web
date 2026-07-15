@@ -45684,7 +45684,7 @@
       "evidence": "fap-api PR #3100 is MERGED at a2e545ec70073d97793dcd1ba3e174f6b7ff0112; fap-api origin/main contains the merge commit and predecessor cleanup plus post-merge focused revalidation completed."
     },
     "status": "review_fixes_validated_checks_pending",
-    "commit_sha": "8f5fdcbd40f03e94b70fb0cbe40516e9f950cb98",
+    "commit_sha": "9dca60b27fc364c73e6e705d091f48c372548399",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1770",
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The explicit serial /goal supplied the exact PR03 and PR21 ids, repos, branches, titles, dependencies, and scopes."},
@@ -45694,8 +45694,8 @@
       "yaml_json": {"status": "pass", "evidence": "PR-train YAML, state JSON, and all Enneagram public-personality packet JSON files parsed successfully."},
       "diff_check": {"status": "pass", "evidence": "git diff --check passed before staging."},
       "exact_scope": {"status": "pass", "evidence": "29 changed or untracked paths are inside the PR03 allowlist; no app, components, lib, public, or scripts runtime path changed."},
-      "github": {"status": "pending_review_fix_rerun", "evidence": "Ready-ledger head 845135635b49ccf2c7e705ceceee2665a9bc7af3 passed all seven GitHub checks. Final-head rerun is pending after the additional schema-valid handoff fixes in 8f5fdcbd40f03e94b70fb0cbe40516e9f950cb98."},
-      "review": {"status": "fixes_validated_pending_push", "evidence": "The four earlier threads remain resolved. Two new active P2 findings are addressed without scope expansion: use schema-supported asset_selection rather than an undeclared target_scope property, and require owning fap-api manifest/state registration before identifying the next backend task. Focused contracts, ESLint, packet JSON, and diff checks pass."}
+      "github": {"status": "pending_review_fix_rerun", "evidence": "Head 1562e131e5c62e153bc7f830c8d999025b71bedf passed all seven GitHub checks. Final-head rerun is pending after the additional legacy-selector bypass in 9dca60b27fc364c73e6e705d091f48c372548399."},
+      "review": {"status": "fixes_validated_pending_push", "evidence": "Six earlier threads remain resolved. The newest P2 is addressed without editing the out-of-allowlist asset-selection runbook: Enneagram Authority V2 must populate required asset_selection directly from the backend-authoritative 58-identity registry and must not delegate to the stale legacy V1 selector. Focused contracts, ESLint, and diff checks pass."}
     },
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
     "failure_reason": null,
@@ -45719,9 +45719,11 @@
       {"at": "2026-07-15T04:21:08Z", "status": "github_build_retry_pending", "summary": "Final review-fix head completed lint, typecheck, contracts, both freeze suites, and CodeQL, but the build job hit an unrelated retryable CMS/public API 408 while collecting /[locale]/tests/[slug]. The prior code head had passed the same build, no runtime path changed, and logs showed no PR03 code failure, so the failed build job was retried without a code change."},
       {"at": "2026-07-15T04:27:13Z", "status": "ready_to_merge", "summary": "Head 8935c46698b61670aabf6a213d76d91159adb737 is CLEAN and MERGEABLE with all seven GitHub checks green after the transient build retry. Exact scope remains 29 allowed paths with zero runtime paths, and all four review threads are resolved. This ledger-only ready head must rerun required checks before squash merge."},
       {"at": "2026-07-15T04:32:50Z", "status": "ready_to_merge", "summary": "Ledger-only head 845135635b49ccf2c7e705ceceee2665a9bc7af3 passed all seven required and security checks with CLEAN merge state, but two new P2 review threads arrived before merge, so readiness was revoked pending same-scope repair."},
-      {"at": "2026-07-15T04:34:31Z", "status": "review_fixes_validated_checks_pending", "summary": "Addressed the two new P2 findings without touching the out-of-scope runner schema or cross-repository manifests: Authority V2 now locks the 58 existing identities through schema-supported asset_selection, and the handoff requires owning fap-api registration before identifying the next backend task. Focused 7-file contracts pass 56 tests, two touched tests pass ESLint, packet JSON parses, and diff check passes. Implementation head 8f5fdcbd40f03e94b70fb0cbe40516e9f950cb98 is recorded; final checks and thread resolution remain pending."}
+      {"at": "2026-07-15T04:34:31Z", "status": "review_fixes_validated_checks_pending", "summary": "Addressed the two new P2 findings without touching the out-of-scope runner schema or cross-repository manifests: Authority V2 now locks the 58 existing identities through schema-supported asset_selection, and the handoff requires owning fap-api registration before identifying the next backend task. Focused 7-file contracts pass 56 tests, two touched tests pass ESLint, packet JSON parses, and diff check passes. Implementation head 8f5fdcbd40f03e94b70fb0cbe40516e9f950cb98 is recorded; final checks and thread resolution remain pending."},
+      {"at": "2026-07-15T04:40:04Z", "status": "github_checks_green_review_pending", "summary": "Head 1562e131e5c62e153bc7f830c8d999025b71bedf passed all seven required and security checks, but one new P2 review thread arrived before merge, so merge remained held."},
+      {"at": "2026-07-15T04:41:19Z", "status": "review_fixes_validated_checks_pending", "summary": "Addressed the newest P2 without changing the out-of-allowlist legacy asset-selection runbook: current Enneagram Authority V2 explicitly populates required asset_selection from the backend-authoritative 58-identity registry and forbids delegation to the stale V1 selector. Focused 7-file contracts pass 56 tests, focused ESLint passes, and diff check passes. Implementation head 9dca60b27fc364c73e6e705d091f48c372548399 is recorded; final checks and thread resolution remain pending."}
     ],
-    "updated_at": "2026-07-15T04:34:31Z"
+    "updated_at": "2026-07-15T04:41:19Z"
   },
   "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21": {
     "id": "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21",
