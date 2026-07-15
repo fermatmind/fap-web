@@ -110,6 +110,10 @@ describe("Enneagram Public Personality handoff matrix", () => {
     const privateData = rows.find((row) => row.lane === "private_or_raw_result_data");
 
     expect(cms?.status).toBe("HOLD_PENDING_SEPARATE_AUTHORIZATION");
+    expect(asStringArray(cms?.required_gates)).toContain(
+      "reviewed_authority_v2_source_ledger_with_bilingual_claim_maps"
+    );
+    expect(asStringArray(cms?.required_gates)).not.toContain("reviewed_public_personality_source_ledger");
     expect(asStringArray(cms?.hard_holds)).toEqual(
       expect.arrayContaining(["no_cms_write", "no_publish", "no_sitemap_mutation", "no_llms_mutation", "no_search_submission"])
     );

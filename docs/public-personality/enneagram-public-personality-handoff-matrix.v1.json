@@ -157,7 +157,7 @@
       ],
       "required_gates": [
         "explicit_manifest_state_authorization",
-        "reviewed_public_personality_source_ledger",
+        "reviewed_authority_v2_source_ledger_with_bilingual_claim_maps",
         "Safety_Gate_review",
         "SEO_GEO_review"
       ],
