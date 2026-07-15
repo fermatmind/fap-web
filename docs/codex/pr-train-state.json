@@ -45683,8 +45683,8 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-api PR #3100 is MERGED at a2e545ec70073d97793dcd1ba3e174f6b7ff0112; fap-api origin/main contains the merge commit and predecessor cleanup plus post-merge focused revalidation completed."
     },
-    "status": "github_checks_failed_repair_validated",
-    "commit_sha": "b67369f0b6fda6d6e817dca8fb8155e433c1dcaa",
+    "status": "review_fixes_validated_checks_pending",
+    "commit_sha": "f43833a3723b0699f7aa17f9aedc8020e241df37",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1770",
     "checks": {
       "manifest_registration": {"status": "pass", "evidence": "The explicit serial /goal supplied the exact PR03 and PR21 ids, repos, branches, titles, dependencies, and scopes."},
@@ -45694,10 +45694,11 @@
       "yaml_json": {"status": "pass", "evidence": "PR-train YAML, state JSON, and all Enneagram public-personality packet JSON files parsed successfully."},
       "diff_check": {"status": "pass", "evidence": "git diff --check passed before staging."},
       "exact_scope": {"status": "pass", "evidence": "29 changed or untracked paths are inside the PR03 allowlist; no app, components, lib, public, or scripts runtime path changed."},
-      "github": {"status": "failed_repair_validated", "evidence": "On head 6bd89b347820d9071f5cfe3f4ced6a347dd438c0, build, both freeze suites, CodeQL analysis, and no-new-code scanning passed. Contracts had one failure: the new PR03 scope test read a temporary MBTI JSON written by another contract in the same shard. The repair restricts the contract assertion to committed origin/main...HEAD PR diff; the 7 focused files pass 56 tests and focused ESLint passes after repair. A local 187-file shard retry was intentionally not started because the process guard found another ci_verify_mbti.sh/PHPUnit validation running."}
+      "github": {"status": "pending_review_fix_rerun", "evidence": "Head 8a8cd6bc980c7cf2205223da8ac20c7025eb9557 passed build, contracts, both freeze suites, CodeQL analysis, and no-new-code scanning. Final-head rerun is pending after actionable review fixes in f43833a3723b0699f7aa17f9aedc8020e241df37."},
+      "review": {"status": "fixes_validated_pending_push", "evidence": "Addressed three active P2 findings: gate the permanent scope contract to PR03 diffs, handle missing origin/main with a local-main fallback or safe skip, and use schema-supported content_package_generation with authority_v2_116_estate as target scope. The outdated commit_sha finding is addressed by recording implementation head f43833a3723b0699f7aa17f9aedc8020e241df37."}
     },
     "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
-    "failure_reason": "GitHub contracts failed on head 6bd89b347820d9071f5cfe3f4ced6a347dd438c0 because the new scope contract included transient worktree mutations created by other tests in the same shard. Same-scope repair validated locally; final GitHub rerun pending.",
+    "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -45712,9 +45713,11 @@
       {"at": "2026-07-15T04:01:28Z", "status": "local_checks_passed", "summary": "Aligned current governance and handoff packets to the 58-identity / 116-page Authority V2 estate, independent bilingual drafting, V2 source-ledger dependency, pending_manual_review truth, model/human review separation, and isolated working revisions. Focused contracts passed 7 files / 56 tests; focused ESLint, YAML/JSON parsing, diff check, and exact 29-path scope validation passed with zero runtime paths."},
       {"at": "2026-07-15T04:02:07Z", "status": "local_checks_passed", "summary": "Created the scoped implementation commit b67369f0b6fda6d6e817dca8fb8155e433c1dcaa after all manifest local gates passed; preparing the ledger-only follow-up before push."},
       {"at": "2026-07-15T04:02:59Z", "status": "github_checks_pending", "summary": "Pushed the scoped branch and opened PR #1770. Required build, contracts, Big Five freeze, Enneagram freeze, and CodeQL checks are queued or in progress; merge remains blocked until the final head is green and review threads are resolved."},
-      {"at": "2026-07-15T04:10:46Z", "status": "github_checks_failed_repair_validated", "summary": "GitHub contracts reported one PR03 failure while every other required and security check passed. The scope contract incorrectly included temporary worktree mutations from other tests in its shard and misclassified an unrelated MBTI JSON. Repaired the assertion to inspect only committed origin/main...HEAD PR diff; the focused 7-file suite passes 56 tests and focused ESLint passes. Did not start a local 187-file shard because another ci_verify_mbti.sh/PHPUnit validation is active on the 8-core/16-GB host."}
+      {"at": "2026-07-15T04:10:46Z", "status": "github_checks_failed_repair_validated", "summary": "GitHub contracts reported one PR03 failure while every other required and security check passed. The scope contract incorrectly included temporary worktree mutations from other tests in its shard and misclassified an unrelated MBTI JSON. Repaired the assertion to inspect only committed origin/main...HEAD PR diff; the focused 7-file suite passes 56 tests and focused ESLint passes. Did not start a local 187-file shard because another ci_verify_mbti.sh/PHPUnit validation is active on the 8-core/16-GB host."},
+      {"at": "2026-07-15T04:16:09Z", "status": "github_checks_green_review_pending", "summary": "Head 8a8cd6bc980c7cf2205223da8ac20c7025eb9557 passed all seven GitHub checks, including the complete four-shard contracts suite that reproduced and verified the test-isolation repair."},
+      {"at": "2026-07-15T04:17:59Z", "status": "review_fixes_validated_checks_pending", "summary": "Addressed three active P2 review findings without scope expansion: the permanent scope assertion now activates only when PR03's contract is in the committed diff; missing origin/main uses local main or skips safely; and Enneagram uses schema-supported content_package_generation with authority_v2_116_estate as target scope. Focused 7-file contracts pass 56 tests, focused ESLint passes, and implementation head f43833a3723b0699f7aa17f9aedc8020e241df37 is recorded. Final-head GitHub rerun and thread resolution remain pending."}
     ],
-    "updated_at": "2026-07-15T04:10:46Z"
+    "updated_at": "2026-07-15T04:17:59Z"
   },
   "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21": {
     "id": "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21",
