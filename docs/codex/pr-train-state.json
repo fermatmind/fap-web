@@ -45378,7 +45378,7 @@
     "updated_at": "2026-07-15T12:35:58Z"
   },
   "MBTI-GSC-44": {
-    "status": "pr_open",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-gsc-44-full-cohort-monitoring",
     "depends_on": ["MBTI-INDEX-43"],
@@ -45390,9 +45390,10 @@
       "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and exact manifest/state registration."},
       "dependency": {"status": "passed", "evidence": "MBTI-INDEX-43 PR #1771 merged at ada42917d3a3a36bc5ceb262332dcea8b73d2ec5, origin/main contains the merge commit, and its final artifact reports ALLOW_MBTI_52_COMPLETE with two complete 52/52 read-only runs and zero private URL leaks."},
       "gsc_read_only_baseline": {"status": "passed", "evidence": "Authenticated GSC domain-property read-only evidence for the exact 52-URL regex cohort reports 32 clicks, 3,106 impressions, 1.0% CTR, average position 9.1, and 106 query rows for 2026-06-16 through 2026-07-13. Missing page-scoped rows remain explicitly pending and query metrics are not imputed to pages."},
-      "required_local_checks": {"status": "passed", "evidence": "Artifact builder and focused contract passed; full-repository lint completed with zero warnings; typecheck passed; all four complete contract shards passed; Node 24 production API build passed; YAML/JSON parsing, CSV formula-injection guard, git diff --check, and exact eight-path scope validation passed."}
+      "required_local_checks": {"status": "passed", "evidence": "Artifact builder and focused contract passed; full-repository lint completed with zero warnings; typecheck passed; all four complete contract shards passed; Node 24 production API build passed; YAML/JSON parsing, CSV formula-injection guard, git diff --check, and exact eight-path scope validation passed."},
+      "github_required_checks": {"status": "passed", "evidence": "PR #1772 head 39f7d67b passed build, contracts, both personality freeze checks, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -45401,9 +45402,10 @@
       {"at": "2026-07-15T12:35:58Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train for a read-only 28-day GSC baseline and 7/14/28-day monitoring ledger across the exact INDEX-43 cohort of 52 zh-CN URLs."},
       {"at": "2026-07-15T12:35:58Z", "status": "in_progress", "summary": "Captured the exact 52-URL cohort aggregate and query evidence from the authenticated GSC domain property without sitemap submission, URL Inspection, Request Indexing, Indexing API, CMS/runtime mutation, deploy, or credential capture. Page-scoped rows not present in the retained browser evidence are kept pending rather than inferred."},
       {"at": "2026-07-15T13:04:02Z", "status": "local_verified", "summary": "Generated the read-only 52-URL baseline and 7/14/28-day monitoring ledger. Builder, focused contract, zero-warning lint, typecheck, all four full contract shards, Node 24 production build, YAML/JSON parsing, CSV formula guard, diff check, and exact eight-path scope validation passed; no GSC or production mutation occurred."},
-      {"at": "2026-07-15T13:08:19Z", "status": "pr_open", "summary": "Committed and pushed the exact eight-path GSC-44 scope at b00dc8a5c1fce8889381c8b75e2ec72e490ff271 and opened PR #1772. Required GitHub checks are pending; no GSC, CMS, runtime, deploy, or indexability mutation occurred."}
+      {"at": "2026-07-15T13:08:19Z", "status": "pr_open", "summary": "Committed and pushed the exact eight-path GSC-44 scope at b00dc8a5c1fce8889381c8b75e2ec72e490ff271 and opened PR #1772. Required GitHub checks are pending; no GSC, CMS, runtime, deploy, or indexability mutation occurred."},
+      {"at": "2026-07-15T13:17:27Z", "status": "ready_to_merge", "summary": "PR #1772 head 39f7d67b passed build, contracts, both personality freeze checks, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts. Exact changed-file scope remains limited to the eight GSC-44 allowlisted paths."}
     ],
-    "updated_at": "2026-07-15T13:08:19Z"
+    "updated_at": "2026-07-15T13:17:27Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
