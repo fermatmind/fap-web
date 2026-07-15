@@ -55,16 +55,25 @@ describe("public api cache contract", () => {
     }
   });
 
-  it("forces static rendering for public SEO detail pages that otherwise default to private dynamic headers", () => {
+  it("forces static rendering only for public SEO detail pages that do not require per-request nonce HTML", () => {
     const publicSeoDetailRoutes = [
       "app/(localized)/[locale]/personality/[type]/page.tsx",
-      "app/(localized)/[locale]/topics/[slug]/page.tsx",
       "app/(localized)/[locale]/career/guides/[slug]/page.tsx",
     ];
 
     for (const file of publicSeoDetailRoutes) {
       expect(read(file)).toContain('export const dynamic = "force-static"');
     }
+  });
+
+  it("renders Topic detail HTML per request for nonce CSP while retaining the shared data-cache window", () => {
+    const source = read("app/(localized)/[locale]/topics/[slug]/page.tsx");
+
+    expect(source).toContain('import { connection } from "next/server"');
+    expect(source).toContain("await connection()");
+    expect(source).toContain("export const revalidate = 300");
+    expect(source).not.toContain('export const dynamic = "force-static"');
+    expect(source).not.toContain('export const dynamic = "force-dynamic"');
   });
 
   it("keeps career job detail public-cacheable while allowing SSR query attribution", () => {

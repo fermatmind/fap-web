@@ -45012,7 +45012,7 @@
     "updated_at": "2026-07-15T00:43:53Z"
   },
   "BIG5-AUTHORITY-V2-SOFT404-39": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/big5-authority-v2-soft404-39",
     "depends_on": ["BIG5-AUTHORITY-V2-RUNTIME-CLOSEOUT-38"],
@@ -45026,13 +45026,13 @@
       "preflight": {"status": "passed", "evidence": "Fetched origin with prune, verified the primary fap-web worktree was clean on detached HEAD, synchronized the separate main worktree to 5a768c956e08164f87bba8b0b61fc638fc44218f, confirmed no local or remote PR39 branch or PR existed, and created the scoped branch from origin/main."},
       "runtime_evidence": {"status": "passed", "evidence": "PR38 evidence contains exactly 104 withheld HTTP-200 soft-404 routes: 100 CMS Article routes and four Big Five technical-trust routes. Read-only public API checks confirmed a withheld Article HEAD returns authoritative 404 while the published Big Five Article control returns 200."},
       "required_local_checks": {"status": "passed", "evidence": "Under canonical Node 24.14.0 and repository pnpm 10.28.1: focused PR39 plus proxy regressions passed 47/47; the synchronized MBTI PDF input hash check passed; lint passed with zero errors and two unrelated generated-file warnings; spacing, typecheck, complete four-shard contracts (748 files / 4300 tests), and production build (206 static pages) passed. Local built-runtime smoke returned 404 for one withheld Article and one withheld technical-trust route, and 200 for the published Article control. YAML/JSON parse and diff whitespace checks passed."},
-      "github_required_checks": {"status": "passed", "evidence": "On head ae968fee19947ee8c750c24f3252d1f62c6f1254, all seven checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL aggregate, and no-new-code-scanning-alerts."}
+      "github_required_checks": {"status": "passed", "evidence": "On final head bf810a95a16ebaa6224252e4bff811781d255f04, all seven checks passed: build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL aggregate, and no-new-code-scanning-alerts."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-15T01:16:42Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {"at": "2026-07-15T00:38:22Z", "status": "precheck", "summary": "Read the operator /goal, fap-web AGENTS.md, PR-train and SEO/GEO authority skills, claim guards, PR38 runtime evidence, current route/adapters, and official Next.js 16 streaming status semantics. No user-owned changes overlap the scope."},
       {"at": "2026-07-15T00:39:38Z", "status": "branch_created", "summary": "Created codex/big5-authority-v2-soft404-39 from clean latest origin/main at 5a768c956e08164f87bba8b0b61fc638fc44218f after verifying PR38 merged and the target branch did not exist locally or remotely."},
@@ -45042,9 +45042,41 @@
       {"at": "2026-07-15T01:03:27Z", "status": "local_checks_passed", "summary": "All PR39 manifest checks passed under Node 24 and pnpm 10.28.1: focused regressions 47/47, deterministic hash, lint, spacing, typecheck, complete contracts 748 files / 4300 tests, production build, YAML/JSON parse, diff whitespace, and exact allowed-path scope validation. Built-runtime smoke proved HTTP 404 for withheld Article and technical-trust samples and HTTP 200 for the published control. No production write or deploy occurred."},
       {"at": "2026-07-15T01:04:30Z", "status": "committed", "summary": "Explicitly staged the exact 12 allowed PR39 files, passed cached diff whitespace validation, and committed the scoped implementation as 4e2748be30197ec0dcfbce35fa357ff82415d262."},
       {"at": "2026-07-15T01:05:31Z", "status": "pr_open", "summary": "Pushed the scoped branch and opened PR #1767 with the exact manifest title and required change, rationale, validation, deferred-item, repository-rule-impact, production-action, and sidecar sections. Required GitHub checks are running."},
-      {"at": "2026-07-15T01:11:07Z", "status": "ready_to_merge", "summary": "All seven GitHub checks passed on ae968fee19947ee8c750c24f3252d1f62c6f1254. GitHub reports MERGEABLE, no review requirement or reviews, exact manifest title, and the exact 12 allowed changed files. Recorded ready-to-merge before the policy-compliant squash merge."}
+      {"at": "2026-07-15T01:11:07Z", "status": "ready_to_merge", "summary": "All seven GitHub checks passed on ae968fee19947ee8c750c24f3252d1f62c6f1254. GitHub reports MERGEABLE, no review requirement or reviews, exact manifest title, and the exact 12 allowed changed files. Recorded ready-to-merge before the policy-compliant squash merge."},
+      {"at": "2026-07-15T01:17:49Z", "status": "merged", "summary": "Reconciled before PR40: PR #1767 squash-merged at 2026-07-15T01:16:42Z as 3e1e97d25a1e2369ad498d7ca193ca0b1b267e5c after all seven checks passed on final head bf810a95a16ebaa6224252e4bff811781d255f04. origin/main and the local main worktree are synchronized, the remote and local task branches are deleted, and post-merge focused contract 5/5 plus deterministic hash verification passed."}
     ],
-    "updated_at": "2026-07-15T01:11:07Z"
+    "updated_at": "2026-07-15T01:17:49Z"
+  },
+  "BIG5-AUTHORITY-V2-TOPIC-RUNTIME-40": {
+    "status": "local_checks_passed",
+    "repo": "fap-web",
+    "branch": "codex/big5-authority-v2-topic-runtime-40",
+    "depends_on": ["BIG5-AUTHORITY-V2-SOFT404-39"],
+    "train_scope": "big5_authority_v2_topic_loading_runtime_repair",
+    "title": "BIG5-AUTHORITY-V2-TOPIC-RUNTIME-40: fix(content): resolve Big Five topic loading runtime",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "passed", "evidence": "The operator supplied a concrete continuous-execution /goal authorizing the exact PR40 branch, title, scope, validation, PR lifecycle, merge, sync, and cleanup."},
+      "dependency": {"status": "passed", "evidence": "GitHub reports PR39 PR #1767 merged at 2026-07-15T01:16:42Z as 3e1e97d25a1e2369ad498d7ca193ca0b1b267e5c, fap-web origin/main contains it, and branch cleanup plus post-merge checks passed."},
+      "preflight": {"status": "passed", "evidence": "Started from clean synchronized origin/main at 3e1e97d25a1e2369ad498d7ca193ca0b1b267e5c after confirming no local/remote PR40 branch or existing PR, then created codex/big5-authority-v2-topic-runtime-40."},
+      "runtime_evidence": {"status": "passed", "evidence": "Read-only production checks found both en and zh-CN Big Five Topic detail and SEO APIs return 200 published payloads with two sections, while the web route is force-static/ISR under per-request enforced nonce CSP. Browser reproduction remained on the loading skeleton with 49 CSP console errors. Response inspection proved the CSP header nonce differs from the cached HTML script nonce; official Next.js 16 guidance requires nonce-CSP pages to render dynamically."},
+      "required_local_checks": {"status": "passed", "evidence": "Focused Topic runtime/CMS/bundle/cache regressions passed 34/34; lint passed with zero errors and two unrelated generated-file warnings; lint:spacing, typecheck, the complete four-shard contract suite (749 files / 4307 tests), and the production-configured build passed. The build classifies /[locale]/topics/[slug] as dynamic while retaining 300-second backend data caching. Built-runtime Playwright checks proved both en and zh pages leave the streaming fallback (loading=0) and render backend titles; two requests per locale each had matching CSP header/body nonces and distinct request nonces. The sole console diagnostic is the pre-existing non-blocking report-only upgrade-insecure-requests warning."},
+      "github_required_checks": {"status": "pending", "evidence": "PR has not been created."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-15T01:18:18Z", "status": "precheck", "summary": "Read the exact PR40 /goal scope, fap-web AGENTS.md, PR-train, CMS rich-content, contract-test, and Playwright skill rules, Topic page/adapter/bundle/loading/error implementations, and official Next.js nonce CSP guidance. No user-owned changes overlap the scope."},
+      {"at": "2026-07-15T01:18:42Z", "status": "branch_created", "summary": "Created codex/big5-authority-v2-topic-runtime-40 from clean latest origin/main at 3e1e97d25a1e2369ad498d7ca193ca0b1b267e5c after verifying PR39 merge, sync, cleanup, and PR40 branch/PR absence."},
+      {"at": "2026-07-15T01:22:18Z", "status": "in_progress", "summary": "Reproduced the production defect without mutation: valid published backend payloads are hidden behind the persistent RSC loading shell because force-static ISR cached HTML carries an old nonce while proxy enforcement generates a fresh request nonce. Scope is limited to making the Topic detail request-rendered and adding focused runtime contracts; no CSP weakening, CMS copy, backend, feed, schema, or PR46 authority work is allowed."},
+      {"at": "2026-07-15T01:29:28Z", "status": "local_checks_running", "summary": "Implemented request-rendered Topic HTML with the official connection() boundary while retaining revalidate=300 backend data caching. Focused runtime/CMS/bundle tests passed 26/26, lint/spacing/typecheck passed, and the first full suite passed 749/750 files plus 4305/4306 tests. The only failure was the stale shared-cache assertion requiring Topic force-static; updated that same-scope contract to distinguish per-request nonce HTML from cached backend data and restored all generated test side effects exactly."},
+      {"at": "2026-07-15T01:38:41Z", "status": "local_checks_passed", "summary": "The focused regression rerun passed 34/34 and the complete contract rerun passed 749 files / 4307 tests. Production-configured build passed with Topic detail request-rendered. Built-runtime Playwright verified en and zh pages exit the streaming fallback and render backend-authoritative titles, with matching CSP header/body nonces on every request and no script-blocking console errors."}
+    ],
+    "updated_at": "2026-07-15T01:38:41Z"
   },
   "MBTI-FULL-AUDIT-30": {
     "status": "merged",

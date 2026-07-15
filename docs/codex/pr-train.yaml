@@ -14879,7 +14879,7 @@ prs:
     mode: execute
     train_scope: big5_authority_v2_withheld_route_soft404_repair
     risk_level: L1
-    status: ready_to_merge
+    status: merged
     title: "BIG5-AUTHORITY-V2-SOFT404-39: fix(seo): return fail-closed status for withheld Big Five drafts"
     goal: "Make the 100 withheld Article routes and four withheld Big Five technical-trust routes return a real fail-closed non-200 response while preserving published controls, noindex, feed exclusion, and backend/CMS authority."
     in_scope:
@@ -14923,6 +14923,54 @@ prs:
       squash: true
       auto_merge: true
     next_task: BIG5-AUTHORITY-V2-TOPIC-RUNTIME-40
+
+  - id: BIG5-AUTHORITY-V2-TOPIC-RUNTIME-40
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-authority-v2-topic-runtime-40
+    base: main
+    depends_on:
+      - BIG5-AUTHORITY-V2-SOFT404-39
+    mode: execute
+    train_scope: big5_authority_v2_topic_loading_runtime_repair
+    risk_level: L1
+    status: local_checks_passed
+    title: "BIG5-AUTHORITY-V2-TOPIC-RUNTIME-40: fix(content): resolve Big Five topic loading runtime"
+    goal: "Make published zh/en Big Five Topic pages exit the RSC loading skeleton and render backend-authoritative content with matching per-request CSP nonces, while preserving fail-closed absent/error behavior and frontend content-authority boundaries."
+    in_scope:
+      - app/(localized)/[locale]/topics/[slug]/page.tsx
+      - tests/contracts/big5-authority-v2-topic-runtime-40.contract.test.tsx
+      - tests/contracts/public-api-cache.contract.test.ts
+      - generated/pr-train-sidecar-issues/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Topic CMS copy, CTA, backend API, publication state, slug, canonical, sitemap, llms, or schema mutation
+      - Big Five Topic editorial authority, media, visible date, reviewer, source, or PR46 authority repair
+      - global CSP policy weakening, unsafe-inline, unsafe-eval, or CDN configuration changes
+      - frontend editorial fallback, production deploy, CMS write, import, migration, media upload, promotion, or public release
+    required_local_checks:
+      - corepack pnpm exec vitest run tests/contracts/big5-authority-v2-topic-runtime-40.contract.test.tsx tests/contracts/topics-cms.contract.test.tsx tests/contracts/topic-career-guide-read-bundle.contract.test.ts --reporter=dot
+      - corepack pnpm lint
+      - corepack pnpm lint:spacing
+      - corepack pnpm typecheck
+      - corepack pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com NEXT_PUBLIC_SITE_URL=https://fermatmind.com corepack pnpm build
+      - focused Playwright built-runtime smoke for /en/topics/big-five and /zh/topics/big-five
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - exact changed-file scope validation
+    stop_if_changed_files_outside_scope: true
+    production_write_execution: false
+    production_deploy_allowed: false
+    cms_mutation_allowed: false
+    indexability_mutation_allowed: false
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    next_task: BIG5-AUTHORITY-V2-MEDIA-AUTHORITY-41
 
   - id: MBTI-FULL-AUDIT-30
     repo: fap-web
