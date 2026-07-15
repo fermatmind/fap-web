@@ -35,9 +35,9 @@ This matrix aggregates the Enneagram public personality common contract, source 
 
 ## Next Handoff
 
-Recommended next train task after PR03 merge: `ENNEAGRAM-PUBLIC-AUTHORITY-V2-PUBLIC-CONTRACT-04`
+Recommended next action after PR03 merge: register the goal-supplied backend public-contract item in its owning fap-api manifest and state, then verify dependencies. Do not execute or point consumers to an unregistered task id.
 
-PR04 may expose visible-evidence contract fields only after dependency verification. Source-ledger creation remains PR07 scope; content, CMS, runtime, publish, and production actions remain held.
+The next registered backend public-contract item may expose visible-evidence contract fields only after dependency verification. Source-ledger creation remains a later separately registered scope; content, CMS, runtime, publish, and production actions remain held.
 
 Negative guarantees:
 

@@ -317,12 +317,13 @@
     "deterministic_type_assignment_included": false
   },
   "next_handoff": {
-    "recommended_next_task": "ENNEAGRAM-PUBLIC-AUTHORITY-V2-PUBLIC-CONTRACT-04",
-    "handoff_status": "pending_pr03_merge_then_dependency_verification",
+    "recommended_next_action": "register_goal_supplied_backend_public_contract_in_owning_fap_api_manifest_and_state",
+    "handoff_status": "pending_pr03_merge_and_owning_repository_registration",
     "must_remain_read_only_until_authorized": true,
     "required_inputs_before_execution": [
       "merged_pr03_skill_alignment",
       "merged_pr02_integrity_gate",
+      "owning_fap_api_manifest_and_state_entry",
       "claim_privacy_safety_gate_review",
       "authority_v2_source_ledger_remains_pr07_scope"
     ],

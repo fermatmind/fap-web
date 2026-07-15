@@ -75,7 +75,8 @@ describe("Enneagram Public Personality Authority V2 skill alignment", () => {
 
     const governance = GOVERNANCE_FILES.map(read).join("\n");
     expect(governance).toContain("enneagram.content_package_generation");
-    expect(governance).toContain("target scope `authority_v2_116_estate`");
+    expect(governance).toContain("schema-supported `asset_selection`");
+    expect(governance).not.toContain("target scope `authority_v2_116_estate`");
     expect(governance).not.toContain("`enneagram.authority_v2_116_estate`");
     expect(governance).toContain("58 identities");
     expect(governance).toContain("116 pages");

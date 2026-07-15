@@ -140,17 +140,21 @@ describe("Enneagram Public Personality handoff matrix", () => {
     ]);
   });
 
-  it("defines PR04 as the next dependency-gated train handoff", () => {
+  it("requires owning-repository registration before the next backend handoff", () => {
     const matrix = readJson(MATRIX_PATH);
     const handoff = asRecord(matrix.next_handoff);
 
-    expect(handoff.recommended_next_task).toBe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-PUBLIC-CONTRACT-04");
-    expect(handoff.handoff_status).toBe("pending_pr03_merge_then_dependency_verification");
+    expect(handoff.recommended_next_task).toBeUndefined();
+    expect(handoff.recommended_next_action).toBe(
+      "register_goal_supplied_backend_public_contract_in_owning_fap_api_manifest_and_state",
+    );
+    expect(handoff.handoff_status).toBe("pending_pr03_merge_and_owning_repository_registration");
     expect(handoff.must_remain_read_only_until_authorized).toBe(true);
     expect(asStringArray(handoff.required_inputs_before_execution)).toEqual(
       expect.arrayContaining([
         "merged_pr03_skill_alignment",
         "merged_pr02_integrity_gate",
+        "owning_fap_api_manifest_and_state_entry",
         "claim_privacy_safety_gate_review",
         "authority_v2_source_ledger_remains_pr07_scope",
       ])
@@ -198,7 +202,7 @@ describe("Enneagram Public Personality handoff matrix", () => {
     expect(report).toContain("Current 58-identity / 116-page estate: `GOVERNANCE_ALIGNED_PENDING_LEDGER_AND_HUMAN_REVIEW`");
     expect(report).toContain("Review truth: `pending_manual_review`; model/agent QA is not human review");
     expect(report).toContain("Runtime, deploy, provider, backend import, and source ledger write: `BLOCKED`");
-    expect(report).toContain("Recommended next train task after PR03 merge: `ENNEAGRAM-PUBLIC-AUTHORITY-V2-PUBLIC-CONTRACT-04`");
+    expect(report).toContain("Recommended next action after PR03 merge: register the goal-supplied backend public-contract item in its owning fap-api manifest and state");
     expect(report).toContain("deterministic type assignment included: false");
   });
 

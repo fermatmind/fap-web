@@ -2,7 +2,7 @@
 
 ## Mode
 
-Use schema-supported mode `content_package_generation` with target scope `authority_v2_116_estate`.
+Use schema-supported mode `content_package_generation`. Lock the existing 58 identity codes and routes through `asset_selection`; the 2 independent locales yield 116 page targets.
 
 ## Current Estate
 
