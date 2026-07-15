@@ -45683,7 +45683,7 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-api PR #3100 is MERGED at a2e545ec70073d97793dcd1ba3e174f6b7ff0112; fap-api origin/main contains the merge commit and predecessor cleanup plus post-merge focused revalidation completed."
     },
-    "status": "review_fixes_validated_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "9dca60b27fc364c73e6e705d091f48c372548399",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1770",
     "checks": {
@@ -45694,10 +45694,10 @@
       "yaml_json": {"status": "pass", "evidence": "PR-train YAML, state JSON, and all Enneagram public-personality packet JSON files parsed successfully."},
       "diff_check": {"status": "pass", "evidence": "git diff --check passed before staging."},
       "exact_scope": {"status": "pass", "evidence": "29 changed or untracked paths are inside the PR03 allowlist; no app, components, lib, public, or scripts runtime path changed."},
-      "github": {"status": "pending_review_fix_rerun", "evidence": "Head 1562e131e5c62e153bc7f830c8d999025b71bedf passed all seven GitHub checks. Final-head rerun is pending after the additional legacy-selector bypass in 9dca60b27fc364c73e6e705d091f48c372548399."},
-      "review": {"status": "fixes_validated_pending_push", "evidence": "Six earlier threads remain resolved. The newest P2 is addressed without editing the out-of-allowlist asset-selection runbook: Enneagram Authority V2 must populate required asset_selection directly from the backend-authoritative 58-identity registry and must not delegate to the stale legacy V1 selector. Focused contracts, ESLint, and diff checks pass."}
+      "github": {"status": "pass", "evidence": "Head d6b03a3e5bcc5ea631695fecb3968feb91203d40 passed all seven required and security checks: build, contracts, both contract-freeze gates, CodeQL analysis, CodeQL summary, and no-new-code-scanning-alerts."},
+      "review": {"status": "pass", "evidence": "All seven actionable review threads are resolved. The final P2 repair uses the approved non-delegation path: Authority V2 populates asset_selection directly from the backend-authoritative 58-identity registry and does not route through the stale legacy V1 selector."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": false, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -45721,9 +45721,10 @@
       {"at": "2026-07-15T04:32:50Z", "status": "ready_to_merge", "summary": "Ledger-only head 845135635b49ccf2c7e705ceceee2665a9bc7af3 passed all seven required and security checks with CLEAN merge state, but two new P2 review threads arrived before merge, so readiness was revoked pending same-scope repair."},
       {"at": "2026-07-15T04:34:31Z", "status": "review_fixes_validated_checks_pending", "summary": "Addressed the two new P2 findings without touching the out-of-scope runner schema or cross-repository manifests: Authority V2 now locks the 58 existing identities through schema-supported asset_selection, and the handoff requires owning fap-api registration before identifying the next backend task. Focused 7-file contracts pass 56 tests, two touched tests pass ESLint, packet JSON parses, and diff check passes. Implementation head 8f5fdcbd40f03e94b70fb0cbe40516e9f950cb98 is recorded; final checks and thread resolution remain pending."},
       {"at": "2026-07-15T04:40:04Z", "status": "github_checks_green_review_pending", "summary": "Head 1562e131e5c62e153bc7f830c8d999025b71bedf passed all seven required and security checks, but one new P2 review thread arrived before merge, so merge remained held."},
-      {"at": "2026-07-15T04:41:19Z", "status": "review_fixes_validated_checks_pending", "summary": "Addressed the newest P2 without changing the out-of-allowlist legacy asset-selection runbook: current Enneagram Authority V2 explicitly populates required asset_selection from the backend-authoritative 58-identity registry and forbids delegation to the stale V1 selector. Focused 7-file contracts pass 56 tests, focused ESLint passes, and diff check passes. Implementation head 9dca60b27fc364c73e6e705d091f48c372548399 is recorded; final checks and thread resolution remain pending."}
+      {"at": "2026-07-15T04:41:19Z", "status": "review_fixes_validated_checks_pending", "summary": "Addressed the newest P2 without changing the out-of-allowlist legacy asset-selection runbook: current Enneagram Authority V2 explicitly populates required asset_selection from the backend-authoritative 58-identity registry and forbids delegation to the stale V1 selector. Focused 7-file contracts pass 56 tests, focused ESLint passes, and diff check passes. Implementation head 9dca60b27fc364c73e6e705d091f48c372548399 is recorded; final checks and thread resolution remain pending."},
+      {"at": "2026-07-15T04:47:45Z", "status": "ready_to_merge", "summary": "Final review-fix head d6b03a3e5bcc5ea631695fecb3968feb91203d40 passed all seven required and security checks. Exact scope remains 29 allowed paths with zero runtime paths, and all seven actionable review threads are resolved. This ledger-only ready head must rerun required checks before squash merge."}
     ],
-    "updated_at": "2026-07-15T04:41:19Z"
+    "updated_at": "2026-07-15T04:47:45Z"
   },
   "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21": {
     "id": "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21",
