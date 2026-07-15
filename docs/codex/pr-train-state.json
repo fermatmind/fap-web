@@ -45339,13 +45339,13 @@
     "updated_at": "2026-07-14T12:51:29Z"
   },
   "MBTI-INDEX-43": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-index-43-full-52-release-gate",
     "depends_on": ["MBTI-PERF-42"],
     "train_scope": "mbti_full_52_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-43: revalidate all 52 Chinese MBTI URLs",
-    "commit_sha": "f24bdceb",
+    "commit_sha": "ada42917d3a3a36bc5ceb262332dcea8b73d2ec5",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1771",
     "checks": {
       "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and exact manifest/state registration."},
@@ -45354,11 +45354,11 @@
       "changed_file_scope": {"status": "passed", "evidence": "All changed and untracked files match the MBTI-INDEX-43 manifest allowlist: index-43 evidence docs, builder, focused contract, PR-train manifest/state, and the shared sidecar issue reports."},
       "github_required_checks": {"status": "passed", "evidence": "PR #1771 head f24bdceb passed build, contracts, both personality freeze checks, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts after the persisted evidence was restricted to the static inventory and boolean gate outcomes."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-15T11:38:46Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "history": [
       {"at": "2026-07-14T14:45:00Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train for exactly 52 zh-CN public routes: 32 profiles, sixteen A/T comparisons, and four approved hot cross-type comparisons."},
       {"at": "2026-07-14T14:45:00Z", "status": "in_progress", "summary": "Started from clean latest fap-web origin/main after PERF-42 exact-SHA deployment and stable readback. This task performs two read-only production release-gate passes and cannot mutate CMS, discoverability, deploy state, or GSC."},
@@ -45372,9 +45372,40 @@
       {"at": "2026-07-15T10:29:58Z", "status": "github_checks_retry_pending", "summary": "Inspected failed zero-new-alert job 87326869424 before the second repair. CodeQL still tracked the exact run flag through a dynamic artifact key into the generic filesystem writer at alert #175. Removed the generic writer and now write each report only through its directly referenced predeclared absolute path. Focused contracts pass 3/3, touched-file lint and typecheck pass, and two further consecutive production gates remain complete 52/52 with zero API timeouts and private URL leaks. A concurrent fap-api full verification is running, so the repository concurrency guard prohibits launching a redundant second full suite; the complete web contracts and 206/206 build already passed immediately before this path-only refinement."},
       {"at": "2026-07-15T10:53:18Z", "status": "github_checks_retry_pending", "summary": "Inspected failed zero-new-alert job 87330737019 before the third repair. Alerts #176, #177 and #178 showed process.cwd still tainted all otherwise fixed output paths. Removed cwd and path resolution entirely: all five artifact destinations are now static module-relative URL constants. Focused contracts pass 3/3, touched-file lint is zero-warning, and two further consecutive production gates remain complete 52/52 with zero API timeouts and private URL leaks. The separate fap-api full verification remains active, so no competing heavy local suite was started."},
       {"at": "2026-07-15T11:16:29Z", "status": "github_checks_retry_pending", "summary": "Inspected failed zero-new-alert job 87334469370 before the fourth repair. Alerts #176, #177 and #178 remained open because the artifact payload still persisted HTTP-derived robots, API/error text, schema types, FAQ metadata, and feed URLs even after destinations became static. The builder now validates all response content only in memory and persists only the fixed 52-URL inventory plus boolean gate outcomes and counts. Focused contracts and zero-warning touched-file lint pass, and two consecutive production gates again returned complete 52/52 with API_TIMEOUTS=0 and PRIVATE_URL_LEAKS=0. No alert suppression or security-query bypass was added."},
-      {"at": "2026-07-15T11:25:39Z", "status": "ready_to_merge", "summary": "PR #1771 head f24bdceb passed build, contracts, both personality freeze checks, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts. Exact changed-file scope remains within the INDEX-43 allowlist and the latest two production read-only gates remain complete 52/52 with zero timeouts and private URL leaks."}
+      {"at": "2026-07-15T11:25:39Z", "status": "ready_to_merge", "summary": "PR #1771 head f24bdceb passed build, contracts, both personality freeze checks, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts. Exact changed-file scope remains within the INDEX-43 allowlist and the latest two production read-only gates remain complete 52/52 with zero timeouts and private URL leaks."},
+      {"at": "2026-07-15T11:38:46Z", "status": "merged", "summary": "Reconciled during MBTI-GSC-44: GitHub reports PR #1771 merged at ada42917d3a3a36bc5ceb262332dcea8b73d2ec5, origin/main contains the merge commit, and the task branch is absent locally and remotely."}
     ],
-    "updated_at": "2026-07-15T11:25:39Z"
+    "updated_at": "2026-07-15T12:35:58Z"
+  },
+  "MBTI-GSC-44": {
+    "status": "ready_to_merge",
+    "repo": "fap-web",
+    "branch": "codex/mbti-gsc-44-full-cohort-monitoring",
+    "depends_on": ["MBTI-INDEX-43"],
+    "train_scope": "mbti_full_52_url_gsc_baseline_and_read_only_monitoring",
+    "title": "MBTI-GSC-44: monitor complete 52-URL MBTI cohort",
+    "commit_sha": "b00dc8a5c1fce8889381c8b75e2ec72e490ff271",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1772",
+    "checks": {
+      "authorization": {"status": "passed", "evidence": "The operator supplied a concrete /goal authorizing the full MBTI 30-44 train and exact manifest/state registration."},
+      "dependency": {"status": "passed", "evidence": "MBTI-INDEX-43 PR #1771 merged at ada42917d3a3a36bc5ceb262332dcea8b73d2ec5, origin/main contains the merge commit, and its final artifact reports ALLOW_MBTI_52_COMPLETE with two complete 52/52 read-only runs and zero private URL leaks."},
+      "gsc_read_only_baseline": {"status": "passed", "evidence": "Authenticated GSC domain-property read-only evidence for the exact 52-URL regex cohort reports 32 clicks, 3,106 impressions, 1.0% CTR, average position 9.1, and 106 query rows for 2026-06-16 through 2026-07-13. Missing page-scoped rows remain explicitly pending and query metrics are not imputed to pages."},
+      "required_local_checks": {"status": "passed", "evidence": "Artifact builder and focused contract passed; full-repository lint completed with zero warnings; typecheck passed; all four complete contract shards passed; Node 24 production API build passed; YAML/JSON parsing, CSV formula-injection guard, git diff --check, and exact eight-path scope validation passed."},
+      "github_required_checks": {"status": "passed", "evidence": "PR #1772 head 39f7d67b passed build, contracts, both personality freeze checks, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "history": [
+      {"at": "2026-07-15T12:35:58Z", "status": "planned", "summary": "Registered from the authorized full Chinese MBTI asset train for a read-only 28-day GSC baseline and 7/14/28-day monitoring ledger across the exact INDEX-43 cohort of 52 zh-CN URLs."},
+      {"at": "2026-07-15T12:35:58Z", "status": "in_progress", "summary": "Captured the exact 52-URL cohort aggregate and query evidence from the authenticated GSC domain property without sitemap submission, URL Inspection, Request Indexing, Indexing API, CMS/runtime mutation, deploy, or credential capture. Page-scoped rows not present in the retained browser evidence are kept pending rather than inferred."},
+      {"at": "2026-07-15T13:04:02Z", "status": "local_verified", "summary": "Generated the read-only 52-URL baseline and 7/14/28-day monitoring ledger. Builder, focused contract, zero-warning lint, typecheck, all four full contract shards, Node 24 production build, YAML/JSON parsing, CSV formula guard, diff check, and exact eight-path scope validation passed; no GSC or production mutation occurred."},
+      {"at": "2026-07-15T13:08:19Z", "status": "pr_open", "summary": "Committed and pushed the exact eight-path GSC-44 scope at b00dc8a5c1fce8889381c8b75e2ec72e490ff271 and opened PR #1772. Required GitHub checks are pending; no GSC, CMS, runtime, deploy, or indexability mutation occurred."},
+      {"at": "2026-07-15T13:17:27Z", "status": "ready_to_merge", "summary": "PR #1772 head 39f7d67b passed build, contracts, both personality freeze checks, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts. Exact changed-file scope remains limited to the eight GSC-44 allowlisted paths."}
+    ],
+    "updated_at": "2026-07-15T13:17:27Z"
   },
   "AUDIT-PRR2-WEB-05": {
     "id": "AUDIT-PRR2-WEB-05",
