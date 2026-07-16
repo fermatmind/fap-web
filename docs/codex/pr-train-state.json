@@ -45873,9 +45873,9 @@
     "branch": "codex/enneagram-public-authority-v2-cache-revalidation-web-22d",
     "title": "ENNEAGRAM-PUBLIC-AUTHORITY-V2-CACHE-REVALIDATION-WEB-22D: allow exact Enneagram public revalidation paths",
     "depends_on": ["ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21"],
-    "status": "ready_to_push",
+    "status": "github_checks_pending",
     "commit_sha": "2dde1d347dcd538722062958a618634e09e2a703",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1777",
     "checks": {
       "dependency": {"status": "pass", "evidence": "PR #1775 is MERGED at d92bd5caf2b7d69cf7724ae78d4731c137dd92e1; origin/main containment, local and remote branch absence, and focused route-registry revalidation are verified."},
       "focused_contracts": {"status": "pass", "evidence": "Node 24 focused allowlist, HMAC, and Enneagram route-registry suite passes 3 files / 17 tests, including accepted=116 and rejected=0 for the exact route set."},
@@ -45901,8 +45901,9 @@
       {"at": "2026-07-16T12:45:38Z", "status": "pending_dependency", "summary": "Registered from the explicit serial execution goal with SHA, PR, merge, and production facts null/false; do not start until frontend consumer PR21 is reconciled as merged and cleaned."},
       {"at": "2026-07-16T12:45:38Z", "status": "in_progress", "summary": "Reconciled PR21, started from exact latest main d92bd5caf2b7d69cf7724ae78d4731c137dd92e1, and implemented only the exact registry-derived 116-path signed revalidation allowlist plus rejection contracts. No renderer, metadata, content, media, fallback, CMS, deploy, or production action is in scope."},
       {"at": "2026-07-16T12:54:47Z", "status": "local_validation_passed", "summary": "The exact 116-path registry-derived allowlist and fail-closed negative matrix pass focused 3-file/17-test validation, full 753-file/4337-test contracts, lint, spacing, typecheck, 206/206 production build, metadata parsing, diff, and exact four-path scope checks on Node 24.14.0. No production cache request or deploy was executed."},
-      {"at": "2026-07-16T12:55:56Z", "status": "ready_to_push", "summary": "Bound commit_sha to the exact locally validated four-path implementation commit 2dde1d347dcd538722062958a618634e09e2a703; only this ledger/status binding follows the complete validation cycle."}
+      {"at": "2026-07-16T12:55:56Z", "status": "ready_to_push", "summary": "Bound commit_sha to the exact locally validated four-path implementation commit 2dde1d347dcd538722062958a618634e09e2a703; only this ledger/status binding follows the complete validation cycle."},
+      {"at": "2026-07-16T12:57:23Z", "status": "github_checks_pending", "summary": "Pushed the exact four-path branch and opened PR #1777 with the required what, why, validation, deferred, and repository-rule-impact sections. GitHub required/security checks and actionable review feedback must pass before merge."}
     ],
-    "updated_at": "2026-07-16T12:55:56Z"
+    "updated_at": "2026-07-16T12:57:23Z"
   }
 }
