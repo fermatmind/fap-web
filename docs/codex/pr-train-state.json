@@ -45872,9 +45872,9 @@
     "branch": "codex/analytics-runtime-restore-01",
     "title": "ANALYTICS-RUNTIME-RESTORE-01: fix(analytics): restore CSP-safe collection",
     "depends_on": [],
-    "status": "committed_pending_push",
+    "status": "github_checks_pending",
     "commit_sha": "c9df90d5ac8a89a3045a5c1056d956911c4f29c8",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1776",
     "checks": {
       "manifest_registration": {
         "status": "pass",
@@ -45932,8 +45932,13 @@
         "at": "2026-07-16T12:51:10Z",
         "status": "committed_pending_push",
         "summary": "Committed the exact validated 16-path PR1 implementation as c9df90d5ac8a89a3045a5c1056d956911c4f29c8 after explicit staging and cached diff validation; this ledger-only transition follows before push."
+      },
+      {
+        "at": "2026-07-16T12:52:47Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact PR1 branch and opened PR #1776 with the manifest title and required what/why/validation/deferred/rule-impact/deploy/privacy sections. Required GitHub checks must pass on the final ledger-updated head before merge; no deploy was triggered."
       }
     ],
-    "updated_at": "2026-07-16T12:51:10Z"
+    "updated_at": "2026-07-16T12:52:47Z"
   }
 }
