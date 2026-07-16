@@ -832,7 +832,10 @@ export async function getEnneagramPublicContentAsset(
         return null;
       }
 
-      if (asString(asRecord(rawMatch).contract_version) !== "personality_public_asset.v1") {
+      const rawContractVersion = asString(
+        asRecord(rawMatch).contract_version ?? asRecord(rawMatch).contractVersion
+      );
+      if (rawContractVersion && rawContractVersion !== "personality_public_asset.v1") {
         return normalized;
       }
 
@@ -858,7 +861,7 @@ export async function getEnneagramPublicContentAsset(
           "enneagram"
         );
         if (!detailAsset) {
-          return null;
+          return normalized;
         }
 
         return {

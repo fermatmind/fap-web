@@ -246,6 +246,7 @@ describe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21", () => {
       pathSuffix: "/type-2/instincts/self-preservation",
     };
     const subtypeV1 = v1Asset({
+      contract_version: undefined,
       entity_type: "instinctual_subtype",
       code: subtypeEntry.code,
       entity_key: subtypeEntry.code,
