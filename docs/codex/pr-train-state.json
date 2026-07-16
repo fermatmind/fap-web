@@ -45872,8 +45872,8 @@
     "branch": "codex/analytics-runtime-restore-01",
     "title": "ANALYTICS-RUNTIME-RESTORE-01: fix(analytics): restore CSP-safe collection",
     "depends_on": [],
-    "status": "github_checks_pending",
-    "commit_sha": "c9df90d5ac8a89a3045a5c1056d956911c4f29c8",
+    "status": "ready_to_merge",
+    "commit_sha": "fa5d5c17f269687bc75b1432ec13bd0a4a88c6c8",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1776",
     "checks": {
       "manifest_registration": {
@@ -45899,12 +45899,15 @@
       "build": {"status": "pass", "evidence": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed on Node 24.14.0 and generated 206/206 static pages; nonce-reading layouts remain request-rendered."},
       "metadata_and_scope": {"status": "pass", "evidence": "Manifest and deploy workflow YAML, state/package JSON, git diff --check, and exact 16-path allowlist validation passed. Secret/identifier review found only explicit synthetic fixture/test identifiers and no credential, private key, real analytics ID, token, or private URL."},
       "local_validation": {"status": "pass", "evidence": "All PR1 manifest local gates passed; no deployment, CMS, database, secret, or external telemetry write occurred."},
-      "github_required_checks": {"status": "pending", "evidence": null}
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1776 head fa5d5c17f269687bc75b1432ec13bd0a4a88c6c8 passed contracts, both assessment freeze checks, CodeQL analysis, CodeQL aggregate, and zero-new-alerts. The first build attempt hit an unrelated retryable 408 while collecting /[locale]/tests/[slug]; failed-job-only retry attempt 2 passed without a code change."
+      }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -45937,8 +45940,13 @@
         "at": "2026-07-16T12:52:47Z",
         "status": "github_checks_pending",
         "summary": "Pushed the exact PR1 branch and opened PR #1776 with the manifest title and required what/why/validation/deferred/rule-impact/deploy/privacy sections. Required GitHub checks must pass on the final ledger-updated head before merge; no deploy was triggered."
+      },
+      {
+        "at": "2026-07-16T13:02:44Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1776 head fa5d5c17f269687bc75b1432ec13bd0a4a88c6c8 is CLEAN and MERGEABLE with exact 16-path scope, no reviews or review threads, and all required/security checks green after a no-code retry cleared the unrelated public API 408 build failure. This ready ledger head must rerun checks before squash merge."
       }
     ],
-    "updated_at": "2026-07-16T12:52:47Z"
+    "updated_at": "2026-07-16T13:02:44Z"
   }
 }
