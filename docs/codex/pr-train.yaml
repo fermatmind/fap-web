@@ -26528,7 +26528,7 @@ prs:
     branch: codex/analytics-runtime-restore-01
     title: "ANALYTICS-RUNTIME-RESTORE-01: fix(analytics): restore CSP-safe collection"
     depends_on: []
-    status: in_progress
+    status: merged_and_cleaned
     risk: L1_runtime_security
     scope:
       - Propagate the per-request CSP nonce from proxy request headers through both layout trees into the analytics bootstrap and dynamically-created provider scripts.
@@ -26583,3 +26583,52 @@ prs:
     deploy_allowed: false
     content_authority: unchanged_backend_authority
     repository_rule_impact: none_runtime_security_and_observability_only
+
+  - id: ANALYTICS-RUNTIME-MONITOR-02
+    repo: fap-web
+    base: main
+    branch: codex/analytics-runtime-monitor-02
+    title: "ANALYTICS-RUNTIME-MONITOR-02: feat(analytics): monitor browser collection health"
+    depends_on: [ANALYTICS-RUNTIME-RESTORE-01]
+    status: in_progress
+    risk: L1_observability
+    scope:
+      - Reuse the PR1 write-aborting browser probe from a dedicated fixed-target production monitor scheduled every 15 minutes and available through input-free workflow dispatch.
+      - Resolve the latest successful production deployment through GitHub's read-only Deployments API and keep workflow repository SHA distinct from the verified deployed SHA.
+      - Emit a sanitized versioned JSON artifact, Step Summary, native workflow failure signal, and healthy/degraded/unhealthy/unknown status without secrets, external alerts, or telemetry writes.
+    allowed_paths:
+      - .github/workflows/analytics-runtime-monitor.yml
+      - scripts/analytics/monitor-runtime.mjs
+      - tests/contracts/analytics-runtime-monitor.contract.test.ts
+      - docs/analytics/tracking-activation-runbook.md
+      - package.json
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/**
+    do_not:
+      - Modify analytics runtime, consent, CSP, proxy, pageview behavior, PR1 probe core, deploy workflow triggers, backend/Ops, GA/Baidu Data APIs, or production data.
+      - Accept an arbitrary production target, write secrets or deployment state, emit provider identifiers or sensitive URLs, create issues, or call Slack, email, or webhooks.
+    validation:
+      - pnpm exec vitest run tests/contracts/analytics-runtime-monitor.contract.test.ts tests/contracts/production-analytics-deploy.contract.test.ts
+      - local fixture execution proving success/failure JSON, exit codes, telemetry-write abortion, and redaction
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - >-
+        ruby -e "require 'yaml'; YAML.safe_load(File.read('.github/workflows/analytics-runtime-monitor.yml'), aliases: true); YAML.safe_load(File.read('docs/codex/pr-train.yaml'), aliases: true); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    api_runtime_change: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: unchanged_backend_authority
+    repository_rule_impact: none_observability_workflow_only
