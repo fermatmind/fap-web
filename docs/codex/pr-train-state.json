@@ -46013,9 +46013,9 @@
     "branch": "codex/analytics-runtime-monitor-02",
     "title": "ANALYTICS-RUNTIME-MONITOR-02: feat(analytics): monitor browser collection health",
     "depends_on": ["ANALYTICS-RUNTIME-RESTORE-01"],
-    "status": "committed_pending_push",
+    "status": "github_checks_pending",
     "commit_sha": "6f21f0696a6ad6ea577116ed46ef442b63fc5778",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1778",
     "checks": {
       "manifest_registration": {
         "status": "pass",
@@ -46059,7 +46059,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR not opened yet."
+        "evidence": "PR #1778 opened from the exact seven-path branch; required GitHub checks and review feedback are pending."
       }
     },
     "scope_validation": {
@@ -46093,8 +46093,13 @@
         "at": "2026-07-16T13:44:00Z",
         "status": "committed_pending_push",
         "summary": "Committed the exact validated seven-path PR2 implementation as 6f21f0696a6ad6ea577116ed46ef442b63fc5778 after explicit staging and cached diff validation; only this ledger binding follows before push."
+      },
+      {
+        "at": "2026-07-16T13:45:00Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact PR2 branch and opened PR #1778 with required what, why, validation, deferred, repository-rule-impact, production, and privacy sections. Required/security checks and actionable review feedback must pass before merge; no schedule or deploy was triggered."
       }
     ],
-    "updated_at": "2026-07-16T13:44:00Z"
+    "updated_at": "2026-07-16T13:45:00Z"
   }
 }
