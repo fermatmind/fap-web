@@ -35,6 +35,8 @@ function robotsAllowsFollow(robots: string): boolean {
 function buildUnavailableMetadata(follow = true): Metadata {
   // Contract equivalent: noindex: true; canonical and hreflang are intentionally omitted.
   return {
+    openGraph: null,
+    twitter: null,
     robots: {
       index: false,
       follow,
@@ -116,7 +118,9 @@ export default async function EnneagramHubPage({
     { name: localizedEnneagramLabel(locale), path: hubHref },
   ];
   const visibleFaq = asset.faq.filter((item) => item.question && item.answer);
-  const schemaEligible = isEnneagramAuthoritySchemaEligible(asset);
+  const schemaEligible =
+    hasBackendEnneagramMetadataAuthority(locale, entry, asset.canonicalPath, asset.hreflang) &&
+    isEnneagramAuthoritySchemaEligible(asset);
   const pageJsonLd = asset.schemaRuntimeEligible && schemaEligible
     ? withEnneagramVisibleAuthorityJsonLd(
         buildCollectionPageJsonLd({

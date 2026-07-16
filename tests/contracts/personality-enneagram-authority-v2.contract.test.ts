@@ -344,6 +344,39 @@ describe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21", () => {
     ).toBe(false);
   });
 
+  it("does not invent a missing backend canonical or emit schema from incomplete metadata authority", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: v1Asset({
+            canonical_path: undefined,
+            canonical: {},
+          }),
+          personality_public_content_asset_v2: v2Authority(),
+        })
+      )
+    );
+
+    const asset = await getEnneagramPublicContentAsset("en", CORE_ENTRY);
+
+    expect(asset?.canonicalPath).toBe("");
+    expect(
+      hasBackendEnneagramMetadataAuthority("en", CORE_ENTRY, asset?.canonicalPath ?? "", asset!.hreflang)
+    ).toBe(false);
+
+    for (const route of [
+      "app/(localized)/[locale]/personality/enneagram/page.tsx",
+      "app/(localized)/[locale]/personality/enneagram/[...slug]/page.tsx",
+    ]) {
+      const source = fs.readFileSync(path.join(ROOT, route), "utf8");
+      const schemaGate = source.slice(source.indexOf("const schemaEligible"), source.indexOf("const pageJsonLd"));
+      expect(schemaGate).toContain("hasBackendEnneagramMetadataAuthority");
+      expect(schemaGate).toContain("isEnneagramAuthoritySchemaEligible");
+    }
+  });
+
   it("keeps an authoritative empty API response as a noindex shell without invented alternates", async () => {
     vi.stubGlobal(
       "fetch",
@@ -355,8 +388,8 @@ describe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21", () => {
     });
 
     expect(metadata.alternates).toBeUndefined();
-    expect(metadata.openGraph).toBeUndefined();
-    expect(metadata.twitter).toBeUndefined();
+    expect(metadata.openGraph).toBeNull();
+    expect(metadata.twitter).toBeNull();
     expect(metadata.robots).toMatchObject({
       index: false,
       follow: true,
@@ -376,6 +409,8 @@ describe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21", () => {
       expect(source).toContain("visibleFaq.length > 0");
       expect(source).toContain("schemaEligible");
       expect(source).toContain("buildUnavailableMetadata");
+      expect(source).toContain("openGraph: null");
+      expect(source).toContain("twitter: null");
       expect(source).toContain("notFound()");
       expect(source).not.toContain("buildFallbackMetadata");
       expect(source).not.toContain("alternatePath");

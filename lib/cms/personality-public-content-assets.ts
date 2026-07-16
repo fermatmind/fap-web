@@ -671,6 +671,7 @@ function normalizeAsset(
   const framework = asString(record.framework);
   const launchState = asString(record.launch_state);
   const isPublic = asBoolean(record.is_public);
+  const backendCanonicalPath = asString(record.canonical_path) || asString(canonical.path);
 
   if (
     framework !== expectedFramework ||
@@ -696,7 +697,9 @@ function normalizeAsset(
       description: asString(seo.description) || asString(record.summary),
     },
     robots: normalizeRobots(record.robots),
-    canonicalPath: asString(record.canonical_path) || asString(canonical.path) || buildExpectedPath(locale, expectedFramework, expected),
+    canonicalPath:
+      backendCanonicalPath ||
+      (expectedFramework === "big_five" ? buildExpectedPath(locale, expectedFramework, expected) : ""),
     hreflang: {
       en: asNullableString(hreflang.en),
       "zh-CN": asNullableString(hreflang["zh-CN"] ?? hreflang.zh),
