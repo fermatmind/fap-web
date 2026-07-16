@@ -46013,8 +46013,8 @@
     "branch": "codex/analytics-runtime-monitor-02",
     "title": "ANALYTICS-RUNTIME-MONITOR-02: feat(analytics): monitor browser collection health",
     "depends_on": ["ANALYTICS-RUNTIME-RESTORE-01"],
-    "status": "local_checks_passed",
-    "commit_sha": null,
+    "status": "committed_pending_push",
+    "commit_sha": "6f21f0696a6ad6ea577116ed46ef442b63fc5778",
     "pr_url": null,
     "checks": {
       "manifest_registration": {
@@ -46088,8 +46088,13 @@
         "at": "2026-07-16T13:43:00Z",
         "status": "local_checks_passed",
         "summary": "Completed PR2 implementation and all local gates: real fixture monitor success/failure paths, focused 3 files / 11 tests, actionlint, lint, spacing, typecheck, full contracts 755 files / 4348 tests, production-parameter build 206/206, YAML/JSON, diff, secret review, protected-path invariance, and exact seven-path scope validation. No schedule, deploy, production probe, or telemetry write was triggered."
+      },
+      {
+        "at": "2026-07-16T13:44:00Z",
+        "status": "committed_pending_push",
+        "summary": "Committed the exact validated seven-path PR2 implementation as 6f21f0696a6ad6ea577116ed46ef442b63fc5778 after explicit staging and cached diff validation; only this ledger binding follows before push."
       }
     ],
-    "updated_at": "2026-07-16T13:43:00Z"
+    "updated_at": "2026-07-16T13:44:00Z"
   }
 }
