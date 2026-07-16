@@ -45915,8 +45915,8 @@
     "branch": "codex/analytics-runtime-restore-01",
     "title": "ANALYTICS-RUNTIME-RESTORE-01: fix(analytics): restore CSP-safe collection",
     "depends_on": [],
-    "status": "ready_to_merge",
-    "commit_sha": "696937ecefe77cbed0c364607eafae559dbba384",
+    "status": "merged_and_cleaned",
+    "commit_sha": "76544947aad444124cad0662c1851913d9a240da",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1776",
     "checks": {
       "manifest_registration": {
@@ -45944,7 +45944,7 @@
       "local_validation": {"status": "pass", "evidence": "All PR1 manifest local gates passed; no deployment, CMS, database, secret, or external telemetry write occurred."},
       "github_required_checks": {
         "status": "pass",
-        "evidence": "PR #1776 head 0ef1b36499b26d039f3f40616235eb99e6509181 passed build, contracts, both assessment freeze checks, CodeQL analysis, CodeQL aggregate, and zero-new-alerts. The first build attempt on the preceding head hit an unrelated retryable 408 while collecting /[locale]/tests/[slug]; failed-job-only retry attempt 2 passed without a code change. The final review-repair ledger head must rerun required checks before squash merge."
+        "evidence": "PR #1776 final head a1dbfd29ba9358433288c64a7aea67cac99af2ae passed build, contracts, both assessment freeze checks, CodeQL analysis, CodeQL aggregate, and zero-new-alerts after absorbing the latest main. The valid P2 thread was fixed, replied to, and resolved before squash merge."
       },
       "review_fix": {
         "status": "pass",
@@ -45955,12 +45955,12 @@
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-16T13:26:17Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -45997,8 +45997,139 @@
         "at": "2026-07-16T13:16:00Z",
         "status": "ready_to_merge",
         "summary": "A valid P2 review found that a child canonical pageview could claim the dedupe key before Providers captured fresh attribution. Moved attribution capture into trackLandingPageView before dedupe, added a direct-send regression, and reran every manifest local gate successfully. The final ledger head must pass required GitHub checks and the review thread must be resolved before squash merge."
+      },
+      {
+        "at": "2026-07-16T13:27:21Z",
+        "status": "merged_and_cleaned",
+        "summary": "PR #1776 squash-merged as 76544947aad444124cad0662c1851913d9a240da after final head a1dbfd29 passed all seven required/security checks with exact 16-path scope and the P2 thread resolved. origin/main contains the merge; remote/local task branches and the dedicated worktree were removed; post-merge analytics contracts passed 5 files / 31 tests."
       }
     ],
-    "updated_at": "2026-07-16T13:16:00Z"
+    "updated_at": "2026-07-16T13:27:21Z"
+  },
+  "ANALYTICS-RUNTIME-MONITOR-02": {
+    "id": "ANALYTICS-RUNTIME-MONITOR-02",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/analytics-runtime-monitor-02",
+    "title": "ANALYTICS-RUNTIME-MONITOR-02: feat(analytics): monitor browser collection health",
+    "depends_on": ["ANALYTICS-RUNTIME-RESTORE-01"],
+    "status": "ready_to_merge",
+    "commit_sha": "6f21f0696a6ad6ea577116ed46ef442b63fc5778",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1778",
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The explicit analytics observability /goal supplied this exact PR2 id, title, branch, dependency, scope, allowlist, validation, and end-to-end authorization."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "ANALYTICS-RUNTIME-RESTORE-01 PR #1776 is MERGED as 76544947aad444124cad0662c1851913d9a240da; fap-web origin/main contains it and local/remote cleanup plus post-merge validation completed before PR2 started."
+      },
+      "github_deployment_preflight": {
+        "status": "pass",
+        "evidence": "The read-only GitHub Deployments API returned production deployment records and a latest deployment with a success status; the implementation still fails closed to unknown when no trustworthy record is available."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "Node 24 manifest-focused monitor/deploy suite passed 2 files / 8 tests and the extended monitor/deploy-environment/action-ref suite passed 3 files / 10 tests after all four review repairs. The monitor contract executed the real PR1 Playwright fixture for verified-success and unknown-failure paths, asserted exit codes, telemetry-write abortion, 90-day-bounded deployment pagination, exact web-deploy workflow provenance, approved-SHA artifact provenance, retention, and redaction. An empty PLAYWRIGHT_BROWSERS_PATH simulation passed the three structural/security cases and explicitly skipped only the two real-browser integrations; the workflow contract requires its production Chromium install step."
+      },
+      "workflow_validation": {
+        "status": "pass",
+        "evidence": "actionlint and Ruby YAML parsing passed for the monitor and existing deploy workflow. The monitor has fixed production target, 15-minute schedule, input-free manual dispatch, 10-minute timeout, concurrency guard, contents/deployments/actions read-only permissions, pinned actions, newest-first 100-item deployment pagination bounded by the 90-day evidence window, exact deploy-production workflow-path filtering, approved deploy SHA recovery from the immutable runtime-smoke artifact name, main-ancestry validation, always-run summary/artifact steps, and no issue or external alert writes. The existing deploy trigger and behavior are unchanged; only the approved-SHA smoke artifact retention increases from 14 to 90 days."
+      },
+      "lint_typecheck": {
+        "status": "pass",
+        "evidence": "pnpm lint, pnpm lint:spacing, scoped ESLint, and pnpm typecheck passed on Node 24.14.0 with pnpm 10.28.1."
+      },
+      "contract_suite": {
+        "status": "pass",
+        "evidence": "Node 24 pnpm test:contract passed all four shards after the final bounded-pagination repair: 755 files / 4348 tests, including both real-browser monitor cases, the exact deploy workflow path guard, the 90-day provenance retention guard, and deployment pagination assertions. Seven tracked SEO/MBTI generator side effects were restored to HEAD and excluded from scope."
+      },
+      "build": {
+        "status": "pass",
+        "evidence": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed and generated 206/206 static pages."
+      },
+      "metadata_and_scope": {
+        "status": "pass",
+        "evidence": "Workflow/manifest YAML, ledger JSON, actionlint, git diff --check, secret scan, and exact eight-path validation including untracked files passed. The eighth path is the user-allowlisted PR1 deploy probe adapter workflow, changed only to retain its approved-SHA artifact for 90 days. PR1 probe core, analytics runtime/consent/CSP/proxy, deploy workflow triggers and behavior, provider APIs, backend/Ops, and content authority remain unchanged."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "All PR2 manifest local gates passed. No workflow dispatch, scheduled run, deployment, production browser probe, external telemetry write, secret mutation, backend mutation, CMS mutation, or production data mutation occurred."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "Head 2fedc79d passed build after a no-code retry cleared an unrelated public API 408, plus contracts, both freeze suites, CodeQL analysis, CodeQL result, and no-new-code-scanning-alerts with GitHub CLEAN/MERGEABLE. A fourth P2 then identified that more than 30 unrelated production deployments could page out the latest web deploy. The bounded-pagination repair is locally green and its new final head must rerun all required checks before merge."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-16T13:28:00Z",
+        "status": "in_progress",
+        "summary": "Verified PR1 merged/cleaned dependency facts, synced latest fap-web main, created the exact PR2 branch in a dedicated clean worktree, confirmed no matching branch or PR existed, and started only the fixed-target scheduled monitor, deployment provenance, sanitized artifact, contract, and runbook scope. No deploy or production probe was triggered."
+      },
+      {
+        "at": "2026-07-16T13:43:00Z",
+        "status": "local_checks_passed",
+        "summary": "Completed PR2 implementation and all local gates: real fixture monitor success/failure paths, focused 3 files / 11 tests, actionlint, lint, spacing, typecheck, full contracts 755 files / 4348 tests, production-parameter build 206/206, YAML/JSON, diff, secret review, protected-path invariance, and exact seven-path scope validation. No schedule, deploy, production probe, or telemetry write was triggered."
+      },
+      {
+        "at": "2026-07-16T13:44:00Z",
+        "status": "committed_pending_push",
+        "summary": "Committed the exact validated seven-path PR2 implementation as 6f21f0696a6ad6ea577116ed46ef442b63fc5778 after explicit staging and cached diff validation; only this ledger binding follows before push."
+      },
+      {
+        "at": "2026-07-16T13:45:00Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact PR2 branch and opened PR #1778 with required what, why, validation, deferred, repository-rule-impact, production, and privacy sections. Required/security checks and actionable review feedback must pass before merge; no schedule or deploy was triggered."
+      },
+      {
+        "at": "2026-07-16T13:53:00Z",
+        "status": "github_checks_failed_repairing",
+        "summary": "Final-head GitHub build, both freeze suites, and CodeQL checks passed; contracts run 29503598555 failed only the two real-browser monitor cases because the generic CI job lacks a Playwright Chromium binary. Reproduced by pointing PLAYWRIGHT_BROWSERS_PATH at an empty directory. Applying an allowlisted contract-only environment gate while statically preserving the production workflow Chromium install requirement; no PR1 probe or CI workflow change."
+      },
+      {
+        "at": "2026-07-16T14:03:49Z",
+        "status": "local_repair_passed_pending_push",
+        "summary": "Completed the same-scope CI and P2 review repair. Real-browser focused checks passed 3 files / 11 tests; no-browser simulation passed 3 structural cases with 2 explicit browser skips; full contracts passed 755 files / 4348 tests; lint, spacing, typecheck, actionlint, YAML/JSON, and generated-side-effect cleanup passed. Production SHA provenance now reads the deploy policy's immutable runtime-smoke artifact name and validates main ancestry, so manual rollback deploys cannot be mislabeled from environment deployment.sha."
+      },
+      {
+        "at": "2026-07-16T14:10:56Z",
+        "status": "ready_to_merge",
+        "summary": "Final implementation head 6e54dc81 passed all seven required/security checks. GitHub reported CLEAN/MERGEABLE, the exact seven allowed paths were unchanged, the worktree was clean, and the only P2 thread was fixed and resolved. Recording ready_to_merge before the ledger-only final head reruns required checks."
+      },
+      {
+        "at": "2026-07-16T14:25:52Z",
+        "status": "ready_to_merge",
+        "summary": "Ready-to-merge head 64c3a36d passed all seven required/security checks, then a second P2 correctly identified that 14-day deploy smoke artifact retention could cause recurring unknown alerts during normal no-deploy periods. Increased only that existing approved-SHA artifact retention to 90 days, added a contract guard and runbook note, expanded the explicit allowlist to the deploy probe adapter, and passed focused 3 files / 11 tests, both workflow actionlint/YAML checks, typecheck, and full contracts 755 files / 4348 tests. The exact eight-path final head must rerun required checks before merge."
+      },
+      {
+        "at": "2026-07-16T14:39:40Z",
+        "status": "ready_to_merge",
+        "summary": "Head 084504b2 passed all seven required/security checks, then a third P2 correctly identified that another workflow using the production environment could shadow the latest successful web deployment. The monitor now resolves each successful deployment status to its Actions run, accepts only .github/workflows/deploy-production.yml, and fails closed when that selected web deploy lacks trustworthy artifact provenance. Focused 3 files / 11 tests, actionlint/YAML, scoped lint, typecheck, and full contracts 755 files / 4348 tests passed; the exact eight-path final head must rerun required checks before merge."
+      },
+      {
+        "at": "2026-07-16T15:01:20Z",
+        "status": "ready_to_merge",
+        "summary": "Head 2fedc79d passed all seven required/security checks after a no-code retry cleared an unrelated public API 408, then a fourth P2 correctly identified that the 30-item deployment page could omit a valid web deploy. Replaced the single-page lookup with 100-item pagination that stops on the first deploy-production run or at the 90-day evidence cutoff. The manifest-focused suite passed 2 files / 8 tests, extended workflow coverage passed 3 files / 10 tests, no-browser simulation passed 3 structural cases with 2 explicit browser skips, actionlint/YAML, lint, spacing, typecheck, and full contracts 755 files / 4348 tests passed. The exact eight-path final head must rerun required checks before merge."
+      }
+    ],
+    "updated_at": "2026-07-16T15:01:20Z"
   }
 }

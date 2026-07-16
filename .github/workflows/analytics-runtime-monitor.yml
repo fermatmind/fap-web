@@ -1,0 +1,175 @@
+name: Analytics runtime monitor
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+  deployments: read
+
+concurrency:
+  group: analytics-runtime-monitor-production
+  cancel-in-progress: false
+
+jobs:
+  runtime-monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      ANALYTICS_RUNTIME_MONITOR_TARGET: https://fermatmind.com
+
+    steps:
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
+        with:
+          node-version: 24
+
+      - name: Install write-aborting browser probe
+        shell: bash
+        run: |
+          set -euo pipefail
+          corepack enable
+          pnpm install --frozen-lockfile
+          pnpm exec playwright install --with-deps chromium
+
+      - name: Resolve latest successful production deployment
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const fs = require('node:fs');
+            const path = require('node:path');
+            const { owner, repo } = context.repo;
+            const queriedAt = new Date().toISOString();
+            const metadata = {
+              schema_version: '1.0',
+              deployment_id: null,
+              environment: 'production',
+              queried_at: queriedAt,
+              production_deployment_sha: 'unknown',
+              sha_source: 'github_deployment_artifact',
+              sha_status: 'unknown',
+              sha_reason: 'no_successful_production_deployment',
+            };
+            try {
+              const provenanceRetentionCutoff = Date.now() - (90 * 24 * 60 * 60 * 1000);
+              const deploymentPages = github.paginate.iterator(
+                github.rest.repos.listDeployments,
+                { owner, repo, environment: 'production', per_page: 100 },
+              );
+              let latestSuccessfulDeployment = null;
+              deploymentScan: for await (const response of deploymentPages) {
+                for (const deployment of response.data) {
+                  const createdAt = Date.parse(String(deployment.created_at || ''));
+                  if (!Number.isFinite(createdAt) || createdAt < provenanceRetentionCutoff) {
+                    metadata.sha_reason = 'production_deployment_provenance_retention_window_exhausted';
+                    break deploymentScan;
+                  }
+                  if (deployment.environment !== 'production') continue;
+                  const { data: statuses } = await github.rest.repos.listDeploymentStatuses({
+                    owner,
+                    repo,
+                    deployment_id: deployment.id,
+                    per_page: 100,
+                  });
+                  const successStatus = statuses.find((status) => status.state === 'success');
+                  if (!successStatus) continue;
+                  const logUrl = successStatus.log_url || successStatus.target_url || '';
+                  const runId = String(logUrl).match(/\/actions\/runs\/(\d+)(?:\/|$)/)?.[1];
+                  if (!runId) continue;
+                  const { data: workflowRun } = await github.rest.actions.getWorkflowRun({
+                    owner,
+                    repo,
+                    run_id: Number(runId),
+                  });
+                  const workflowPath = String(workflowRun.path || '').split('@')[0];
+                  if (workflowPath !== '.github/workflows/deploy-production.yml') continue;
+                  latestSuccessfulDeployment = { deployment, runId };
+                  break deploymentScan;
+                }
+              }
+
+              if (latestSuccessfulDeployment) {
+                metadata.deployment_id = latestSuccessfulDeployment.deployment.id;
+                const { data: artifactPage } = await github.rest.actions.listWorkflowRunArtifacts({
+                  owner,
+                  repo,
+                  run_id: Number(latestSuccessfulDeployment.runId),
+                  per_page: 100,
+                });
+                const approvedShas = [
+                  ...new Set(artifactPage.artifacts
+                    .filter((artifact) => !artifact.expired)
+                    .map((artifact) => artifact.name.match(/^analytics-runtime-smoke-([0-9a-f]{40})$/)?.[1])
+                    .filter(Boolean)),
+                ];
+                if (approvedShas.length !== 1) {
+                  metadata.sha_reason = 'successful_deployment_approved_sha_artifact_unavailable';
+                } else {
+                  const approvedSha = approvedShas[0];
+                  const comparison = await github.rest.repos.compareCommitsWithBasehead({
+                    owner,
+                    repo,
+                    basehead: `${approvedSha}...main`,
+                  });
+                  if (!['ahead', 'identical'].includes(comparison.data.status)) {
+                    metadata.sha_reason = 'successful_deployment_approved_sha_not_on_main';
+                  } else {
+                    metadata.production_deployment_sha = approvedSha;
+                    metadata.sha_status = 'verified';
+                    metadata.sha_reason = null;
+                  }
+                }
+              }
+            } catch {
+              metadata.sha_reason = 'production_deployment_provenance_lookup_failed';
+              core.warning('Production deployment provenance lookup failed; monitor will report unknown provenance.');
+            }
+            const metadataPath = path.join(process.env.RUNNER_TEMP, 'analytics-runtime-monitor', 'deployment.json');
+            fs.mkdirSync(path.dirname(metadataPath), { recursive: true });
+            fs.writeFileSync(metadataPath, `${JSON.stringify(metadata, null, 2)}\n`, 'utf8');
+            core.notice(`Production deployment lookup status=${metadata.sha_status}`);
+
+      - name: Probe fixed production analytics runtime
+        shell: bash
+        run: |
+          set -euo pipefail
+          report_dir="$RUNNER_TEMP/analytics-runtime-monitor"
+          pnpm analytics:runtime-monitor -- \
+            --deployment-metadata "$report_dir/deployment.json" \
+            --output "$report_dir/report.json"
+
+      - name: Write sanitized monitor summary
+        if: always()
+        shell: bash
+        run: |
+          report_path="$RUNNER_TEMP/analytics-runtime-monitor/report.json"
+          if [[ ! -f "$report_path" ]]; then
+            printf '## Analytics runtime monitor\n\nReport unavailable; inspect the failed workflow step.\n' >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+          node - "$report_path" <<'NODE' >> "$GITHUB_STEP_SUMMARY"
+          const fs = require('node:fs');
+          const report = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'));
+          console.log('## Analytics runtime monitor');
+          console.log('');
+          console.log(`- Health: ${report.health_status}`);
+          console.log(`- Target host: ${report.target_host}`);
+          console.log(`- Production SHA status: ${report.sha_status}`);
+          console.log(`- Deployment environment: ${report.production_deployment_environment}`);
+          console.log(`- CSP blocking errors: ${report.csp_blocking_error_count}`);
+          console.log(`- Private route suppression: ${report.private_route_suppression}`);
+          NODE
+
+      - name: Upload sanitized analytics runtime monitor report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: analytics-runtime-monitor-${{ github.run_id }}
+          path: ${{ runner.temp }}/analytics-runtime-monitor/report.json
+          if-no-files-found: warn
+          retention-days: 30

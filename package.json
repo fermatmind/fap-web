@@ -17,6 +17,7 @@
     "cms:content-release:smoke": "bash scripts/content_release_revalidate_smoke.sh",
     "dev": "next dev",
     "analytics:runtime-smoke": "node scripts/analytics/runtime-smoke.mjs",
+    "analytics:runtime-monitor": "node scripts/analytics/monitor-runtime.mjs",
     "build": "next build",
     "start": "next start",
     "deploy:pm2": "bash scripts/deploy_web_pm2.sh",

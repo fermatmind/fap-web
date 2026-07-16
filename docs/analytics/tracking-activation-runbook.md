@@ -111,6 +111,26 @@ The JSON result must report `health_status: "healthy"`, matching header/bootstra
 
 The production deploy workflow invokes this same probe only after a separately authorized exact-SHA production deployment. Its presence is not deployment authorization and this runbook must not be used to trigger `workflow_dispatch`.
 
+### Scheduled production monitor
+
+`.github/workflows/analytics-runtime-monitor.yml` runs the same write-aborting browser probe every 15 minutes and supports manual workflow dispatch without URL inputs. Its target is fixed to `https://fermatmind.com`; the loopback-only fixture override exists only for local contract validation.
+
+Before probing, the workflow paginates production environment deployments newest-first, skips successful runs whose workflow path is not `.github/workflows/deploy-production.yml`, and selects the newest successful web deploy. The bounded scan stops as soon as that deploy is found or deployment age exceeds the same 90-day provenance retention window; it does not scan indefinitely. It then reads that run's immutable `analytics-runtime-smoke-<approved-sha>` artifact name to recover the SHA actually approved by the deploy policy. The deploy workflow retains this provenance artifact for 90 days so normal no-deploy periods do not turn a healthy runtime into a recurring unknown alert. This covers manual recovery deploys where the environment deployment ref can differ from `deploy_sha`, while preventing unrelated production-scoped jobs from shadowing or paging out the latest web deploy. The monitor keeps the workflow checkout SHA and deployed production SHA as separate fields. If the web deployment, workflow run, unexpired approved-SHA artifact, or main-ancestry check is unavailable, `production_deployment_sha` remains `unknown`, `sha_reason` explains why, the final health is `unknown`, and the job fails closed. It never substitutes the scheduled workflow's `github.sha` or the unverified environment deployment ref for the deployed SHA. GitHub documents deployments and deployment statuses in the [Deployments REST API](https://docs.github.com/en/rest/deployments/deployments), workflow runs and artifacts in the [Actions REST API](https://docs.github.com/en/rest/actions), and scheduled/manual triggers, permissions, timeouts, and concurrency in [workflow syntax](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax).
+
+The JSON artifact and Step Summary expose only normalized health/provenance fields. Health is `healthy`, `degraded`, `unhealthy`, or `unknown`; any non-healthy result fails the job so GitHub's native workflow-failure notification is the first-stage alert. No issue, Slack, email, webhook, new secret, deployment, or provider Data API call is created by this monitor. The artifact excludes measurement IDs, Baidu site IDs, tokens, cookies, sensitive query values, request bodies, and HTML dumps.
+
+Local wrapper validation reuses the PR1 fixture:
+
+```bash
+node scripts/analytics/runtime-smoke-fixture.mjs --port 4173
+pnpm analytics:runtime-monitor -- \
+  --fixture-base-url http://127.0.0.1:4173 \
+  --deployment-metadata /tmp/analytics-production-deployment.json \
+  --output /tmp/analytics-runtime-monitor.json
+```
+
+The fixture deployment metadata must be synthetic. Do not run the scheduled workflow as part of PR validation and do not wait for its first post-merge cadence.
+
 1. In Chrome Network, confirm `https://www.googletagmanager.com/gtag/js` loads on public production routes after analytics consent.
 2. In Chrome Network, confirm `https://hm.baidu.com/hm.js?<id>` loads on public production routes after analytics consent when Baidu Tongji is configured.
 3. In GA4 Realtime or DebugView, confirm funnel events appear.
