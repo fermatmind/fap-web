@@ -45823,7 +45823,7 @@
       "evidence": "fap-api PR #3134 is MERGED at 8401e1c62d19007abbe89abe597352cfae5ec0a4; fap-api origin/main contains the merge commit, the task branch was deleted, and the post-merge link-graph suite passed 8 tests / 9619 assertions."
     },
     "status": "ready_to_push",
-    "commit_sha": null,
+    "commit_sha": "fbef8c589c8c5c0b8b2a8dec067842c23bbe7295",
     "pr_url": null,
     "checks": {
       "dependency": {"status": "pass", "evidence": "Cross-repository GitHub MERGED state and fap-api origin/main containment verified for PR20 merge SHA 8401e1c62d19007abbe89abe597352cfae5ec0a4."},
@@ -45849,8 +45849,9 @@
     "history": [
       {"at": "2026-07-15T03:55:34Z", "status": "pending_dependency", "summary": "Registered from the explicit serial /goal; do not start until fap-api PR20 is MERGED and its merge SHA is contained in fap-api origin/main."},
       {"at": "2026-07-16T07:00:59Z", "status": "in_progress", "summary": "Verified fap-api PR20 merged at 8401e1c62d19007abbe89abe597352cfae5ec0a4 and is contained in origin/main, then started PR21 from latest fap-web main. Implementing only the backend-authoritative V2 overlay consumer, visible evidence/editorial/media rendering, eligible schema gates, and existing 116-route coverage without new URLs or frontend editorial fallback."},
-      {"at": "2026-07-16T07:21:18Z", "status": "ready_to_push", "summary": "Skeptical frontend audit passed: exact 58-identity / 116-route estate retained, V1 compatibility preserved, malformed or ineligible V2 closes schema, visible eligible evidence/editorial/media are backend-supplied, working revision is discarded, missing metadata authority emits a noindex shell without invented canonical/hreflang, and no sitemap/llms URL set changed. Full contracts passed 753 files / 4331 tests; production-parameter build, focused Enneagram and Big Five regressions, lint, spacing, typecheck, YAML/JSON, diff, and exact 8-path scope validation passed."}
+      {"at": "2026-07-16T07:21:18Z", "status": "ready_to_push", "summary": "Skeptical frontend audit passed: exact 58-identity / 116-route estate retained, V1 compatibility preserved, malformed or ineligible V2 closes schema, visible eligible evidence/editorial/media are backend-supplied, working revision is discarded, missing metadata authority emits a noindex shell without invented canonical/hreflang, and no sitemap/llms URL set changed. Full contracts passed 753 files / 4331 tests; production-parameter build, focused Enneagram and Big Five regressions, lint, spacing, typecheck, YAML/JSON, diff, and exact 8-path scope validation passed."},
+      {"at": "2026-07-16T07:22:39Z", "status": "ready_to_push", "summary": "Recorded validated implementation commit fbef8c589c8c5c0b8b2a8dec067842c23bbe7295; ledger-only commit follows before push."}
     ],
-    "updated_at": "2026-07-16T07:21:18Z"
+    "updated_at": "2026-07-16T07:22:39Z"
   }
 }
