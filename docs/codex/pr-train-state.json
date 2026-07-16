@@ -45815,18 +45815,29 @@
     "title": "ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21: render Enneagram Authority V2 visible evidence and eligible schema",
     "depends_on": ["ENNEAGRAM-PUBLIC-AUTHORITY-V2-LINK-GRAPH-20"],
     "dependency_repository": "fap-api",
-    "dependency_pr_url": null,
-    "dependency_merge_sha": null,
+    "dependency_pr_url": "https://github.com/fermatmind/fap-api/pull/3134",
+    "dependency_merge_sha": "8401e1c62d19007abbe89abe597352cfae5ec0a4",
     "dependency_verification": {
-      "github_merged": false,
-      "dependency_origin_main_contains_merge": false,
-      "evidence_required": "Verify the fap-api PR20 is MERGED and fap-api origin/main contains its merge SHA before PR21 starts."
+      "github_merged": true,
+      "dependency_origin_main_contains_merge": true,
+      "evidence": "fap-api PR #3134 is MERGED at 8401e1c62d19007abbe89abe597352cfae5ec0a4; fap-api origin/main contains the merge commit, the task branch was deleted, and the post-merge link-graph suite passed 8 tests / 9619 assertions."
     },
-    "status": "pending_dependency",
-    "commit_sha": null,
-    "pr_url": null,
-    "checks": {"dependency": {"status": "pending", "evidence": "Waiting for ENNEAGRAM-PUBLIC-AUTHORITY-V2-LINK-GRAPH-20 in fap-api."}},
-    "scope_validation": {"allowed_paths_only": false, "local_validation_passed": false, "github_checks_green": false, "post_merge_revalidated": false},
+    "status": "ready_to_merge",
+    "commit_sha": "f98122338739ddb96d8cde24c8482106998cd194",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1775",
+    "checks": {
+      "dependency": {"status": "pass", "evidence": "Cross-repository GitHub MERGED state and fap-api origin/main containment verified for PR20 merge SHA 8401e1c62d19007abbe89abe597352cfae5ec0a4."},
+      "focused_contracts": {"status": "pass", "evidence": "Node 24 manifest-focused suite passed 6 files / 32 tests; Enneagram V2 plus Big Five renderer regression passed 2 files / 16 tests."},
+      "lint": {"status": "pass", "evidence": "pnpm lint passed on the final working tree."},
+      "lint_spacing": {"status": "pass", "evidence": "pnpm lint:spacing passed with 121 known occurrences and 79 locked signatures."},
+      "typecheck": {"status": "pass", "evidence": "pnpm typecheck passed on Node 24.14.0."},
+      "contract_suite": {"status": "pass", "evidence": "pnpm test:contract passed all 4 shards: 753 files / 4331 tests."},
+      "build": {"status": "pass", "evidence": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed on Node 24.14.0 after replacing the worktree-external node_modules symlink with an isolated lockfile-backed install."},
+      "yaml_json_diff": {"status": "pass", "evidence": "Portable YAML safe_load, Python JSON parse, and git diff --check passed."},
+      "review_fix": {"status": "pass", "evidence": "Cleared inherited Open Graph/Twitter metadata, fail-closed Enneagram canonical/schema authority, required an eligible V2 overlay before schema, upgraded eligible unmarked/camelCase V1 subtype matches through exact-code V2 detail, propagated retryable/malformed detail failures, and preserved explicit legacy noindex V1 reads plus authoritative-absence fallback. Final compatibility-focused suite passed 7 files / 45 tests; Node 24 typecheck, scoped ESLint, and diff check passed."},
+      "github_build_retry": {"status": "pass", "evidence": "Build attempts 1 and 2 on d0178d65 timed out with retryable PublicReadError 408 while collecting unrelated /[locale]/tests/[slug] public API data. Later heads 69bede8a and f9812233 both passed build plus all six other required/security checks without an out-of-scope repair."}
+    },
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false, "evidence": "Exact 8-path change set: two Enneagram routes, shared renderer, public asset adapter, route authority helper, one focused contract, and two PR-train ledger files. No sitemap/llms route-set file, local editorial content, backend/CMS, publish, search, production, or deploy mutation. GitHub reports CLEAN/MERGEABLE with all seven required/security checks green and all four actionable P2 review threads resolved on head f9812233."},
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -45838,8 +45849,20 @@
     "publish_allowed": false,
     "deploy_allowed": false,
     "history": [
-      {"at": "2026-07-15T03:55:34Z", "status": "pending_dependency", "summary": "Registered from the explicit serial /goal; do not start until fap-api PR20 is MERGED and its merge SHA is contained in fap-api origin/main."}
+      {"at": "2026-07-15T03:55:34Z", "status": "pending_dependency", "summary": "Registered from the explicit serial /goal; do not start until fap-api PR20 is MERGED and its merge SHA is contained in fap-api origin/main."},
+      {"at": "2026-07-16T07:00:59Z", "status": "in_progress", "summary": "Verified fap-api PR20 merged at 8401e1c62d19007abbe89abe597352cfae5ec0a4 and is contained in origin/main, then started PR21 from latest fap-web main. Implementing only the backend-authoritative V2 overlay consumer, visible evidence/editorial/media rendering, eligible schema gates, and existing 116-route coverage without new URLs or frontend editorial fallback."},
+      {"at": "2026-07-16T07:21:18Z", "status": "ready_to_push", "summary": "Skeptical frontend audit passed: exact 58-identity / 116-route estate retained, V1 compatibility preserved, malformed or ineligible V2 closes schema, visible eligible evidence/editorial/media are backend-supplied, working revision is discarded, missing metadata authority emits a noindex shell without invented canonical/hreflang, and no sitemap/llms URL set changed. Full contracts passed 753 files / 4331 tests; production-parameter build, focused Enneagram and Big Five regressions, lint, spacing, typecheck, YAML/JSON, diff, and exact 8-path scope validation passed."},
+      {"at": "2026-07-16T07:22:39Z", "status": "ready_to_push", "summary": "Recorded validated implementation commit fbef8c589c8c5c0b8b2a8dec067842c23bbe7295; ledger-only commit follows before push."},
+      {"at": "2026-07-16T07:23:49Z", "status": "github_checks_pending", "summary": "Pushed the exact validated branch and opened PR #1775. Waiting for all required and security checks plus actionable review feedback before merge."},
+      {"at": "2026-07-16T07:31:40Z", "status": "review_fixes_validated_checks_pending", "summary": "All seven required and security checks passed on head 70d3c9ebc1d8ab29a7b052018ae29ea9ffe2667f. Addressed the single P2 by explicitly clearing inherited Open Graph/Twitter metadata on unavailable shells. Also retained and validated an in-scope concurrent hardening that prevents Enneagram canonical invention and schema emission when backend metadata authority is incomplete while preserving Big Five V1 fallback. Focused 3-file contracts passed 21 tests, typecheck and scoped ESLint passed, and final-head checks must rerun."},
+      {"at": "2026-07-16T07:33:28Z", "status": "review_fixes_validated_checks_pending", "summary": "Recorded concurrently committed and pushed implementation head ae3c9fa3957278d13721c54abb0101dba17c44b9. Final manifest-focused contracts passed 6 files / 33 tests; only the ledger remains uncommitted and final-head GitHub checks must pass."},
+      {"at": "2026-07-16T07:42:34Z", "status": "review_fixes_validated_checks_pending", "summary": "Addressed the second P2: V1-only assets remain renderable but cannot emit V2-gated schema without both schemaEligible and visibleEvidence.eligible. Final focused suite passed 7 files / 40 tests, typecheck and scoped ESLint passed, and implementation head bb8834e5f89633b427c06f5b6256cb0d5dbf4fed is recorded. Also recorded two retryable 408 build failures on unrelated /[locale]/tests/[slug] public data collection; the next head must rerun all required checks."},
+      {"at": "2026-07-16T07:48:48Z", "status": "ready_to_merge", "summary": "Head 69bede8ac6d1718c29124f927244a30bc85f0cce passed build, contracts, both personality freeze checks, and all CodeQL/security gates after the two unrelated API-timeout build attempts. PR #1775 was MERGEABLE and the first two P2 threads were resolved."},
+      {"at": "2026-07-16T07:50:09Z", "status": "review_fixes_validated_checks_pending", "summary": "A third P2 showed that subtype index items without the snake_case V1 contract marker skipped the exact-code V2 detail overlay. Updated the adapter to fetch detail for missing or camelCase V1 markers and to preserve the normalized V1 page when detail is incomplete. Compatibility-focused contracts passed 7 files / 43 tests, typecheck and scoped ESLint passed, and implementation head 61d7eb6d819c5b8f2cec2b51a2784fc6a08837f8 is recorded. Final-head checks and review resolution remain pending."},
+      {"at": "2026-07-16T07:57:17Z", "status": "ready_to_merge", "summary": "Head 9d9e0edfc764e1ac772232b8d402654da8b0982a passed all seven required and security checks; PR #1775 was CLEAN and MERGEABLE with the first three P2 threads resolved."},
+      {"at": "2026-07-16T08:00:39Z", "status": "review_fixes_validated_checks_pending", "summary": "A fourth P2 showed the subtype detail catch swallowed retryable and malformed V2 reads. Restricted fallback to authoritative absence, propagated retryable/contract failures, and gated markerless detail upgrades to index/schema-eligible Authority candidates so explicit legacy noindex V1 fixtures retain stable single-read behavior. Compatibility-focused contracts passed 7 files / 45 tests, typecheck and scoped ESLint passed, and implementation head a1e34cb35aa43bf15cf6e99e0b982681ab606065 is recorded. Final-head checks and review resolution remain pending."},
+      {"at": "2026-07-16T08:07:08Z", "status": "ready_to_merge", "summary": "Head f98122338739ddb96d8cde24c8482106998cd194 passed build, contracts, both personality freeze checks, and all CodeQL/security gates after all four P2 repairs. PR #1775 is CLEAN/MERGEABLE, exact scope remains eight allowlisted files, and all actionable review threads are resolved. This ledger-only ready head must rerun required checks before squash merge."}
     ],
-    "updated_at": "2026-07-15T03:55:34Z"
+    "updated_at": "2026-07-16T08:07:08Z"
   }
 }

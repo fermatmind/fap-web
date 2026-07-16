@@ -510,14 +510,22 @@ function normalizeAuthorityV2(
   asset: PersonalityPublicContentAsset
 ): PersonalityPublicContentAuthorityV2 | null {
   const record = asRecord(raw);
+  const declaredFramework = asString(record.framework);
+  const declaredEntityType = normalizeEntityType(record.entity_type ?? record.entityType);
+  const declaredCode = asString(record.code ?? record.entity_key);
+  const declaredLocale = asString(record.locale);
+  const hasDeclaredFramework = Object.hasOwn(record, "framework");
+  const hasDeclaredEntityType = Object.hasOwn(record, "entity_type") || Object.hasOwn(record, "entityType");
+  const hasDeclaredCode = Object.hasOwn(record, "code") || Object.hasOwn(record, "entity_key");
+  const hasDeclaredLocale = Object.hasOwn(record, "locale");
   if (
     asString(record.contract_version ?? record.contractVersion) !== "personality_public_asset.v2" ||
     asString(record.compatible_v1_contract_version ?? record.compatibleV1ContractVersion) !==
       "personality_public_asset.v1" ||
-    asString(record.framework) !== "big_five" ||
-    normalizeEntityType(record.entity_type ?? record.entityType) !== asset.entityType ||
-    asString(record.code ?? record.entity_key) !== asset.code ||
-    asString(record.locale) !== asset.locale
+    (hasDeclaredFramework && declaredFramework !== asset.framework) ||
+    (hasDeclaredEntityType && declaredEntityType !== asset.entityType) ||
+    (hasDeclaredCode && declaredCode !== asset.code) ||
+    (hasDeclaredLocale && declaredLocale !== asset.locale)
   ) {
     return null;
   }
@@ -566,14 +574,50 @@ function normalizeAuthorityV2(
   };
 }
 
+function normalizeAuthorityV2Sibling(
+  response: PersonalityPublicContentAssetResponse,
+  asset: PersonalityPublicContentAsset
+): PersonalityPublicContentAuthorityV2 | null | undefined {
+  return Object.hasOwn(response, "personality_public_content_asset_v2")
+    ? normalizeAuthorityV2(response.personality_public_content_asset_v2, asset)
+    : undefined;
+}
+
 export function withBigFiveVisibleAuthorityJsonLd(
   schema: unknown,
   asset: PersonalityPublicContentAsset
 ): unknown {
+  return withVisibleAuthorityJsonLd(schema, asset, "big_five");
+}
+
+export function isEnneagramAuthoritySchemaEligible(asset: PersonalityPublicContentAsset): boolean {
+  if (asset.framework !== "enneagram" || !asset.schemaRuntimeEligible) {
+    return false;
+  }
+
+  return Boolean(asset.authorityV2?.schemaEligible && asset.authorityV2.visibleEvidence.eligible);
+}
+
+export function withEnneagramVisibleAuthorityJsonLd(
+  schema: unknown,
+  asset: PersonalityPublicContentAsset
+): unknown {
+  if (!isEnneagramAuthoritySchemaEligible(asset)) {
+    return schema;
+  }
+
+  return withVisibleAuthorityJsonLd(schema, asset, "enneagram");
+}
+
+function withVisibleAuthorityJsonLd(
+  schema: unknown,
+  asset: PersonalityPublicContentAsset,
+  expectedFramework: PersonalityPublicFramework
+): unknown {
   const authority = asset.authorityV2;
   if (
     !isRecord(schema) ||
-    asset.framework !== "big_five" ||
+    asset.framework !== expectedFramework ||
     !asset.schemaRuntimeEligible ||
     !authority?.schemaEligible ||
     !authority.visibleEvidence.eligible
@@ -622,6 +666,7 @@ function normalizeAsset(
   const framework = asString(record.framework);
   const launchState = asString(record.launch_state);
   const isPublic = asBoolean(record.is_public);
+  const backendCanonicalPath = asString(record.canonical_path) || asString(canonical.path);
 
   if (
     framework !== expectedFramework ||
@@ -647,7 +692,9 @@ function normalizeAsset(
       description: asString(seo.description) || asString(record.summary),
     },
     robots: normalizeRobots(record.robots),
-    canonicalPath: asString(record.canonical_path) || asString(canonical.path) || buildExpectedPath(locale, expectedFramework, expected),
+    canonicalPath:
+      backendCanonicalPath ||
+      (expectedFramework === "big_five" ? buildExpectedPath(locale, expectedFramework, expected) : ""),
     hreflang: {
       en: asNullableString(hreflang.en),
       "zh-CN": asNullableString(hreflang["zh-CN"] ?? hreflang.zh),
@@ -742,7 +789,7 @@ export async function getBigFivePublicContentAsset(
 
     return {
       ...asset,
-      authorityV2: normalizeAuthorityV2(response.personality_public_content_asset_v2, asset),
+      authorityV2: normalizeAuthorityV2Sibling(response, asset),
     };
   } catch (error) {
     return handlePublicAssetReadError(error);
@@ -770,11 +817,68 @@ export async function getEnneagramPublicContentAsset(
         throw publicContentContractError();
       }
 
-      const normalized = (response.items ?? [])
-        .map((item) => normalizeAsset(item, entry, locale, "enneagram"))
-        .find((asset): asset is PersonalityPublicContentAsset => asset !== null);
+      let normalized: PersonalityPublicContentAsset | null = null;
+      let rawMatch: unknown = null;
+      for (const item of response.items) {
+        const candidate = normalizeAsset(item, entry, locale, "enneagram");
+        if (candidate) {
+          normalized = candidate;
+          rawMatch = item;
+          break;
+        }
+      }
 
-      return normalized ?? null;
+      if (!normalized) {
+        return null;
+      }
+
+      const rawContractVersion = asString(
+        asRecord(rawMatch).contract_version ?? asRecord(rawMatch).contractVersion
+      );
+      const shouldRequestAuthorityDetail =
+        rawContractVersion === "personality_public_asset.v1" ||
+        (!rawContractVersion && (normalized.indexEligible || normalized.schemaRuntimeEligible));
+      if (!shouldRequestAuthorityDetail) {
+        return normalized;
+      }
+
+      try {
+        const detailResponse = await apiClient.getPublic<PersonalityPublicContentAssetResponse>(
+          `/v0.5/personality-content-assets?locale=${encodeURIComponent(
+            toApiLocale(locale)
+          )}&framework=enneagram&entity_type=${entry.entityType}&code=${encodeURIComponent(entry.code)}&org_id=0`,
+          {
+            ...PUBLIC_API_CACHE_OPTIONS,
+            skipAuth: true,
+            locale,
+          }
+        );
+        if (detailResponse?.ok !== true) {
+          throw publicContentContractError();
+        }
+
+        const detailAsset = normalizeSingleAsset(
+          detailResponse.personality_public_content_asset_v1 ?? detailResponse.asset,
+          entry,
+          locale,
+          "enneagram"
+        );
+        if (!detailAsset) {
+          return normalized;
+        }
+
+        return {
+          ...detailAsset,
+          authorityV2: normalizeAuthorityV2Sibling(detailResponse, detailAsset),
+        };
+      } catch (error) {
+        const detailReadError = toPublicReadError(error);
+        if (detailReadError.authoritativeAbsence) {
+          return normalized;
+        }
+
+        throw detailReadError;
+      }
     } catch (error) {
       return handlePublicAssetReadError(error);
     }
@@ -796,12 +900,20 @@ export async function getEnneagramPublicContentAsset(
       throw publicContentContractError();
     }
 
-    return normalizeSingleAsset(
+    const asset = normalizeSingleAsset(
       response.personality_public_content_asset_v1 ?? response.asset,
       entry,
       locale,
       "enneagram"
     );
+    if (!asset) {
+      return null;
+    }
+
+    return {
+      ...asset,
+      authorityV2: normalizeAuthorityV2Sibling(response, asset),
+    };
   } catch (error) {
     return handlePublicAssetReadError(error);
   }

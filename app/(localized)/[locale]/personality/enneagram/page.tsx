@@ -3,13 +3,17 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { PublicContentAssetRenderer } from "@/components/personality/PublicContentAssetRenderer";
 import { JsonLd } from "@/components/seo/JsonLd";
+import {
+  isEnneagramAuthoritySchemaEligible,
+  withEnneagramVisibleAuthorityJsonLd,
+} from "@/lib/cms/personality-public-content-assets";
 import { getEnneagramPublicContentAsset } from "@/lib/cms/personalityPublicAssetLoader";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import type { Locale } from "@/lib/i18n/locales";
 import {
   buildEnneagramPublicContentPath,
+  hasBackendEnneagramMetadataAuthority,
   resolveEnneagramPublicRouteEntry,
-  type EnneagramPublicRouteEntry,
 } from "@/lib/personality/enneagramPublicRoutes";
 import { buildBreadcrumbJsonLd, buildCollectionPageJsonLd, buildFAQPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -28,23 +32,19 @@ function robotsAllowsFollow(robots: string): boolean {
   return !robots.toLowerCase().split(",").map((part) => part.trim()).includes("nofollow");
 }
 
-function buildFallbackMetadata(locale: Locale, entry: EnneagramPublicRouteEntry | null): Metadata {
-  const fallbackPath = entry ? buildEnneagramPublicContentPath(locale, entry) : `/${locale}/personality/enneagram`;
-  const alternateEntry = entry ?? { entityType: "hub" as const, code: "enneagram", routeSlug: "", pathSuffix: "" };
-
-  return buildPageMetadata({
-    locale,
-    pathname: fallbackPath,
-    title: localizedEnneagramLabel(locale),
-    description: localizedEnneagramLabel(locale),
-    noindex: true,
-    noindexFollow: true,
-    alternatesByLocale: {
-      en: buildEnneagramPublicContentPath("en", alternateEntry),
-      zh: buildEnneagramPublicContentPath("zh", alternateEntry),
-      xDefault: buildEnneagramPublicContentPath("en", alternateEntry),
+function buildUnavailableMetadata(follow = true): Metadata {
+  // Contract equivalent: noindex: true; canonical and hreflang are intentionally omitted.
+  return {
+    openGraph: null,
+    twitter: null,
+    robots: {
+      index: false,
+      follow,
+      nocache: true,
+      noarchive: true,
+      googleBot: { index: false, follow, nocache: true, noarchive: true },
     },
-  });
+  };
 }
 
 export async function generateMetadata({
@@ -56,12 +56,15 @@ export async function generateMetadata({
   const locale = resolveLocale(localeParam);
   const entry = resolveEnneagramPublicRouteEntry(undefined);
   if (!entry) {
-    return buildFallbackMetadata(locale, null);
+    return buildUnavailableMetadata();
   }
 
   const asset = await getEnneagramPublicContentAsset(locale, entry);
   if (!asset) {
-    return buildFallbackMetadata(locale, entry);
+    return buildUnavailableMetadata();
+  }
+  if (!hasBackendEnneagramMetadataAuthority(locale, entry, asset.canonicalPath, asset.hreflang)) {
+    return buildUnavailableMetadata(robotsAllowsFollow(asset.robots));
   }
 
   const pathname = buildEnneagramPublicContentPath(locale, entry);
@@ -71,7 +74,11 @@ export async function generateMetadata({
     canonicalCandidate: asset.canonicalPath,
     title: asset.seo.title,
     description: asset.seo.description,
-    imagePath: asset.media.imageUrl ?? undefined,
+    imagePath:
+      asset.authorityV2?.mediaAuthority.og?.url ??
+      asset.authorityV2?.mediaAuthority.hero?.url ??
+      asset.media.imageUrl ??
+      undefined,
     noindex: !asset.indexEligible || asset.robots.includes("noindex"),
     noindexFollow: robotsAllowsFollow(asset.robots),
     explicitIndexGate: {
@@ -79,9 +86,9 @@ export async function generateMetadata({
       indexState: asset.robots.includes("noindex") ? "noindex" : null,
     },
     alternatesByLocale: {
-      en: asset.hreflang.en ?? buildEnneagramPublicContentPath("en", entry),
-      zh: asset.hreflang["zh-CN"] ?? buildEnneagramPublicContentPath("zh", entry),
-      xDefault: asset.hreflang.en ?? buildEnneagramPublicContentPath("en", entry),
+      en: asset.hreflang.en!,
+      zh: asset.hreflang["zh-CN"]!,
+      xDefault: asset.hreflang.en!,
     },
   });
 }
@@ -111,23 +118,33 @@ export default async function EnneagramHubPage({
     { name: localizedEnneagramLabel(locale), path: hubHref },
   ];
   const visibleFaq = asset.faq.filter((item) => item.question && item.answer);
-  const pageJsonLd = asset.schemaRuntimeEligible
-    ? buildCollectionPageJsonLd({
-        path: pathname,
-        title: asset.title,
-        description: asset.seo.description || asset.summary,
-        locale,
-      })
+  const schemaEligible =
+    hasBackendEnneagramMetadataAuthority(locale, entry, asset.canonicalPath, asset.hreflang) &&
+    isEnneagramAuthoritySchemaEligible(asset);
+  const pageJsonLd = asset.schemaRuntimeEligible && schemaEligible
+    ? withEnneagramVisibleAuthorityJsonLd(
+        buildCollectionPageJsonLd({
+          path: pathname,
+          title: asset.title,
+          description: asset.seo.description || asset.summary,
+          locale,
+        }),
+        asset
+      )
     : null;
 
   return (
     <>
       {pageJsonLd ? <JsonLd id="enneagram-hub-page-jsonld" data={pageJsonLd} /> : null}
       {asset.schemaRuntimeEligible ? (
-        <JsonLd id="enneagram-hub-breadcrumb-jsonld" data={buildBreadcrumbJsonLd(breadcrumbItems)} />
+        schemaEligible ? (
+          <JsonLd id="enneagram-hub-breadcrumb-jsonld" data={buildBreadcrumbJsonLd(breadcrumbItems)} />
+        ) : null
       ) : null}
       {visibleFaq.length > 0 ? (
-        <JsonLd id="enneagram-hub-faq-jsonld" data={buildFAQPageJsonLd(visibleFaq)} />
+        schemaEligible ? (
+          <JsonLd id="enneagram-hub-faq-jsonld" data={buildFAQPageJsonLd(visibleFaq)} />
+        ) : null
       ) : null}
       <div className="border-b border-[var(--fm-border)] bg-[var(--fm-surface)] px-5 py-4 md:px-8">
         <div className="mx-auto max-w-6xl">

@@ -26437,7 +26437,7 @@ prs:
     depends_on: [ENNEAGRAM-PUBLIC-AUTHORITY-V2-LINK-GRAPH-20]
     dependency_repositories:
       ENNEAGRAM-PUBLIC-AUTHORITY-V2-LINK-GRAPH-20: fap-api
-    status: pending_dependency
+    status: ready_to_merge
     scope:
       - Consume backend Enneagram Authority V2 with V1 compatibility across all 116 existing routes.
       - Render visible evidence, limitations, editorial state, approved media, and only visible eligible schema without frontend editorial fallback or new URLs.

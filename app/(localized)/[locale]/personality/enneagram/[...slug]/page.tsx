@@ -3,13 +3,17 @@ import { notFound } from "next/navigation";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { PublicContentAssetRenderer } from "@/components/personality/PublicContentAssetRenderer";
 import { JsonLd } from "@/components/seo/JsonLd";
+import {
+  isEnneagramAuthoritySchemaEligible,
+  withEnneagramVisibleAuthorityJsonLd,
+} from "@/lib/cms/personality-public-content-assets";
 import { getEnneagramPublicContentAsset } from "@/lib/cms/personalityPublicAssetLoader";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import type { Locale } from "@/lib/i18n/locales";
 import {
   buildEnneagramPublicContentPath,
+  hasBackendEnneagramMetadataAuthority,
   resolveEnneagramPublicRouteEntry,
-  type EnneagramPublicRouteEntry,
 } from "@/lib/personality/enneagramPublicRoutes";
 import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@/lib/seo/generateSchema";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -25,31 +29,23 @@ function localizedEnneagramLabel(locale: Locale): string {
   return locale === "zh" ? "九型人格" : "Enneagram";
 }
 
-function buildFallbackMetadata(locale: Locale, entry: EnneagramPublicRouteEntry | null): Metadata {
-  const fallbackPath = entry ? buildEnneagramPublicContentPath(locale, entry) : `/${locale}/personality/enneagram`;
-  const alternateEntry = entry ?? { entityType: "hub" as const, code: "enneagram", routeSlug: "", pathSuffix: "" };
-
-  return buildPageMetadata({
-    locale,
-    pathname: fallbackPath,
-    title: localizedEnneagramLabel(locale),
-    description: localizedEnneagramLabel(locale),
-    noindex: true,
-    noindexFollow: true,
-    alternatesByLocale: {
-      en: buildEnneagramPublicContentPath("en", alternateEntry),
-      zh: buildEnneagramPublicContentPath("zh", alternateEntry),
-      xDefault: buildEnneagramPublicContentPath("en", alternateEntry),
+function buildUnavailableMetadata(follow = true): Metadata {
+  // Contract equivalent: noindex: true; canonical and hreflang are intentionally omitted.
+  return {
+    openGraph: null,
+    twitter: null,
+    robots: {
+      index: false,
+      follow,
+      nocache: true,
+      noarchive: true,
+      googleBot: { index: false, follow, nocache: true, noarchive: true },
     },
-  });
+  };
 }
 
 function robotsAllowsFollow(robots: string): boolean {
   return !robots.toLowerCase().split(",").map((part) => part.trim()).includes("nofollow");
-}
-
-function alternatePath(assetPath: string | null | undefined, fallback: string): string {
-  return assetPath && assetPath.startsWith("/") ? assetPath : fallback;
 }
 
 export async function generateMetadata({
@@ -61,12 +57,15 @@ export async function generateMetadata({
   const locale = resolveLocale(localeParam);
   const entry = resolveEnneagramPublicRouteEntry(slug);
   if (!entry) {
-    return buildFallbackMetadata(locale, null);
+    return buildUnavailableMetadata();
   }
 
   const asset = await getEnneagramPublicContentAsset(locale, entry);
   if (!asset) {
-    return buildFallbackMetadata(locale, entry);
+    return buildUnavailableMetadata();
+  }
+  if (!hasBackendEnneagramMetadataAuthority(locale, entry, asset.canonicalPath, asset.hreflang)) {
+    return buildUnavailableMetadata(robotsAllowsFollow(asset.robots));
   }
 
   const pathname = buildEnneagramPublicContentPath(locale, entry);
@@ -76,7 +75,11 @@ export async function generateMetadata({
     canonicalCandidate: asset.canonicalPath,
     title: asset.seo.title,
     description: asset.seo.description,
-    imagePath: asset.media.imageUrl ?? undefined,
+    imagePath:
+      asset.authorityV2?.mediaAuthority.og?.url ??
+      asset.authorityV2?.mediaAuthority.hero?.url ??
+      asset.media.imageUrl ??
+      undefined,
     noindex: !asset.indexEligible || asset.robots.includes("noindex"),
     noindexFollow: robotsAllowsFollow(asset.robots),
     explicitIndexGate: {
@@ -84,9 +87,9 @@ export async function generateMetadata({
       indexState: asset.robots.includes("noindex") ? "noindex" : null,
     },
     alternatesByLocale: {
-      en: alternatePath(asset.hreflang.en, buildEnneagramPublicContentPath("en", entry)),
-      zh: alternatePath(asset.hreflang["zh-CN"], buildEnneagramPublicContentPath("zh", entry)),
-      xDefault: alternatePath(asset.hreflang.en, buildEnneagramPublicContentPath("en", entry)),
+      en: asset.hreflang.en!,
+      zh: asset.hreflang["zh-CN"]!,
+      xDefault: asset.hreflang.en!,
     },
   });
 }
@@ -118,18 +121,30 @@ export default async function EnneagramSubPage({
     { name: asset.title, path: pathname },
   ];
   const visibleFaq = asset.faq.filter((item) => item.question && item.answer);
-  const pageJsonLd = buildWebPageJsonLd({
-    path: pathname,
-    title: asset.title,
-    description: asset.seo.description || asset.summary,
-    locale,
-  });
+  const schemaEligible =
+    hasBackendEnneagramMetadataAuthority(locale, entry, asset.canonicalPath, asset.hreflang) &&
+    isEnneagramAuthoritySchemaEligible(asset);
+  const pageJsonLd = schemaEligible
+    ? withEnneagramVisibleAuthorityJsonLd(
+        buildWebPageJsonLd({
+          path: pathname,
+          title: asset.title,
+          description: asset.seo.description || asset.summary,
+          locale,
+        }),
+        asset
+      )
+    : null;
 
   return (
     <>
-      <JsonLd id="enneagram-sub-page-jsonld" data={pageJsonLd} />
-      <JsonLd id="enneagram-sub-breadcrumb-jsonld" data={buildBreadcrumbJsonLd(breadcrumbItems)} />
-      {visibleFaq.length > 0 ? <JsonLd id="enneagram-sub-faq-jsonld" data={buildFAQPageJsonLd(visibleFaq)} /> : null}
+      {pageJsonLd ? <JsonLd id="enneagram-sub-page-jsonld" data={pageJsonLd} /> : null}
+      {schemaEligible ? (
+        <JsonLd id="enneagram-sub-breadcrumb-jsonld" data={buildBreadcrumbJsonLd(breadcrumbItems)} />
+      ) : null}
+      {schemaEligible && visibleFaq.length > 0 ? (
+        <JsonLd id="enneagram-sub-faq-jsonld" data={buildFAQPageJsonLd(visibleFaq)} />
+      ) : null}
       <div className="border-b border-[var(--fm-border)] bg-[var(--fm-surface)] px-5 py-4 md:px-8">
         <div className="mx-auto max-w-6xl">
           <Breadcrumb
