@@ -26598,6 +26598,7 @@ prs:
       - Emit a sanitized versioned JSON artifact, Step Summary, native workflow failure signal, and healthy/degraded/unhealthy/unknown status without secrets, external alerts, or telemetry writes.
     allowed_paths:
       - .github/workflows/analytics-runtime-monitor.yml
+      - .github/workflows/deploy-production.yml
       - scripts/analytics/monitor-runtime.mjs
       - tests/contracts/analytics-runtime-monitor.contract.test.ts
       - docs/analytics/tracking-activation-runbook.md

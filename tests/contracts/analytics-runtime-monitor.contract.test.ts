@@ -7,6 +7,7 @@ import { chromium } from "@playwright/test";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 const workflow = readFileSync(".github/workflows/analytics-runtime-monitor.yml", "utf8");
+const deployWorkflow = readFileSync(".github/workflows/deploy-production.yml", "utf8");
 const monitor = readFileSync("scripts/analytics/monitor-runtime.mjs", "utf8");
 const packageJson = JSON.parse(readFileSync("package.json", "utf8")) as {
   scripts?: Record<string, string>;
@@ -112,6 +113,9 @@ describe("analytics runtime monitor contract", () => {
     expect(workflow).toContain("github.rest.actions.listWorkflowRunArtifacts");
     expect(workflow).toContain("/^analytics-runtime-smoke-([0-9a-f]{40})$/");
     expect(workflow).toContain("github.rest.repos.compareCommitsWithBasehead");
+    expect(deployWorkflow).toContain("name: analytics-runtime-smoke-${{ needs.policy-guard.outputs.deploy_sha }}");
+    expect(deployWorkflow).toContain("retention-days: 90");
+    expect(deployWorkflow).not.toContain("retention-days: 14");
     expect(workflow).toContain("sha_source: 'github_deployment_artifact'");
     expect(workflow).toContain("production_deployment_provenance_lookup_failed");
     expect(workflow).not.toContain("production_deployment_sha = sha");

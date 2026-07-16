@@ -637,4 +637,4 @@ jobs:
           name: analytics-runtime-smoke-${{ needs.policy-guard.outputs.deploy_sha }}
           path: ${{ runner.temp }}/analytics-runtime-smoke/report.json
           if-no-files-found: warn
-          retention-days: 14
+          retention-days: 90

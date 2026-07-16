@@ -46031,11 +46031,11 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "Node 24 focused monitor, production deploy guard, and workflow action-ref integrity suite passed 3 files / 11 tests after the CI repair. The monitor contract executed the real PR1 Playwright fixture for verified-success and unknown-failure paths, asserted exit codes, telemetry-write abortion, approved-SHA artifact provenance, and redaction. An empty PLAYWRIGHT_BROWSERS_PATH simulation passed the three structural/security cases and explicitly skipped only the two real-browser integrations; the workflow contract requires its production Chromium install step."
+        "evidence": "Node 24 focused monitor, production deploy guard, and workflow action-ref integrity suite passed 3 files / 11 tests after both review repairs. The monitor contract executed the real PR1 Playwright fixture for verified-success and unknown-failure paths, asserted exit codes, telemetry-write abortion, approved-SHA artifact provenance, 90-day deploy evidence retention, and redaction. An empty PLAYWRIGHT_BROWSERS_PATH simulation passed the three structural/security cases and explicitly skipped only the two real-browser integrations; the workflow contract requires its production Chromium install step."
       },
       "workflow_validation": {
         "status": "pass",
-        "evidence": "actionlint and Ruby YAML parsing passed. The workflow has fixed production target, 15-minute schedule, input-free manual dispatch, 10-minute timeout, concurrency guard, contents/deployments/actions read-only permissions, pinned actions, latest-successful-deployment lookup, approved deploy SHA recovery from the immutable runtime-smoke artifact name, main-ancestry validation, always-run summary/artifact steps, and no issue or external alert writes."
+        "evidence": "actionlint and Ruby YAML parsing passed for the monitor and existing deploy workflow. The monitor has fixed production target, 15-minute schedule, input-free manual dispatch, 10-minute timeout, concurrency guard, contents/deployments/actions read-only permissions, pinned actions, latest-successful-deployment lookup, approved deploy SHA recovery from the immutable runtime-smoke artifact name, main-ancestry validation, always-run summary/artifact steps, and no issue or external alert writes. The existing deploy trigger and behavior are unchanged; only the approved-SHA smoke artifact retention increases from 14 to 90 days."
       },
       "lint_typecheck": {
         "status": "pass",
@@ -46043,7 +46043,7 @@
       },
       "contract_suite": {
         "status": "pass",
-        "evidence": "Node 24 pnpm test:contract passed all four shards after the repair: 755 files / 4348 tests, including both real-browser monitor cases. Seven tracked SEO/MBTI generator side effects were restored to HEAD and excluded from scope."
+        "evidence": "Node 24 pnpm test:contract passed all four shards after the final retention repair: 755 files / 4348 tests, including both real-browser monitor cases and the 90-day provenance retention guard. Seven tracked SEO/MBTI generator side effects were restored to HEAD and excluded from scope."
       },
       "build": {
         "status": "pass",
@@ -46051,7 +46051,7 @@
       },
       "metadata_and_scope": {
         "status": "pass",
-        "evidence": "Workflow/manifest YAML, ledger JSON, actionlint, git diff --check, secret scan, and exact seven-path validation including untracked files passed. PR1 probe core, analytics runtime/consent/CSP/proxy, deploy workflow triggers, provider APIs, backend/Ops, and content authority remain unchanged."
+        "evidence": "Workflow/manifest YAML, ledger JSON, actionlint, git diff --check, secret scan, and exact eight-path validation including untracked files passed. The eighth path is the user-allowlisted PR1 deploy probe adapter workflow, changed only to retain its approved-SHA artifact for 90 days. PR1 probe core, analytics runtime/consent/CSP/proxy, deploy workflow triggers and behavior, provider APIs, backend/Ops, and content authority remain unchanged."
       },
       "local_validation": {
         "status": "pass",
@@ -46059,7 +46059,7 @@
       },
       "github_required_checks": {
         "status": "pass",
-        "evidence": "Final implementation head 6e54dc81 passed build, contracts, both freeze suites, CodeQL analysis, CodeQL result, and no-new-code-scanning-alerts. GitHub reported CLEAN/MERGEABLE with exact seven-path scope; the only P2 review thread was fixed, replied to, and resolved. This ledger-only ready-to-merge head must rerun the same required checks before merge."
+        "evidence": "Ready-to-merge head 64c3a36d passed build, contracts, both freeze suites, CodeQL analysis, CodeQL result, and no-new-code-scanning-alerts. GitHub reported CLEAN/MERGEABLE. A second P2 then identified the 14-day provenance retention gap; the allowlisted 90-day repair is locally green and its new final head must rerun all required checks before merge."
       }
     },
     "scope_validation": {
@@ -46113,8 +46113,13 @@
         "at": "2026-07-16T14:10:56Z",
         "status": "ready_to_merge",
         "summary": "Final implementation head 6e54dc81 passed all seven required/security checks. GitHub reported CLEAN/MERGEABLE, the exact seven allowed paths were unchanged, the worktree was clean, and the only P2 thread was fixed and resolved. Recording ready_to_merge before the ledger-only final head reruns required checks."
+      },
+      {
+        "at": "2026-07-16T14:25:52Z",
+        "status": "ready_to_merge",
+        "summary": "Ready-to-merge head 64c3a36d passed all seven required/security checks, then a second P2 correctly identified that 14-day deploy smoke artifact retention could cause recurring unknown alerts during normal no-deploy periods. Increased only that existing approved-SHA artifact retention to 90 days, added a contract guard and runbook note, expanded the explicit allowlist to the deploy probe adapter, and passed focused 3 files / 11 tests, both workflow actionlint/YAML checks, typecheck, and full contracts 755 files / 4348 tests. The exact eight-path final head must rerun required checks before merge."
       }
     ],
-    "updated_at": "2026-07-16T14:10:56Z"
+    "updated_at": "2026-07-16T14:25:52Z"
   }
 }
