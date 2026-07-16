@@ -851,7 +851,7 @@ export async function getEnneagramPublicContentAsset(
           }
         );
         if (detailResponse?.ok !== true) {
-          return normalized;
+          throw publicContentContractError();
         }
 
         const detailAsset = normalizeSingleAsset(
@@ -868,8 +868,13 @@ export async function getEnneagramPublicContentAsset(
           ...detailAsset,
           authorityV2: normalizeAuthorityV2Sibling(detailResponse, detailAsset),
         };
-      } catch {
-        return normalized;
+      } catch (error) {
+        const detailReadError = toPublicReadError(error);
+        if (detailReadError.authoritativeAbsence) {
+          return normalized;
+        }
+
+        throw detailReadError;
       }
     } catch (error) {
       return handlePublicAssetReadError(error);

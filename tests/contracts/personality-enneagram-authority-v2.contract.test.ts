@@ -290,6 +290,65 @@ describe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21", () => {
     expect(asset?.authorityV2?.visibleEvidence.eligible).toBe(true);
   });
 
+  it.each([
+    {
+      label: "retryable timeout",
+      detail: () =>
+        Promise.reject(
+          Object.assign(new Error("Request timed out."), {
+            status: 408,
+            errorCode: "REQUEST_TIMEOUT",
+          })
+        ),
+      expectedKind: "timeout",
+    },
+    {
+      label: "malformed response",
+      detail: () => Promise.resolve(jsonResponse({ ok: false })),
+      expectedKind: "contract",
+    },
+  ])("propagates $label from the subtype V2 detail read", async ({ detail, expectedKind }) => {
+    const subtypeEntry = {
+      entityType: "instinctual_subtype" as const,
+      code: "type-2/self-preservation",
+      routeSlug: "type-2/instincts/self-preservation",
+      pathSuffix: "/type-2/instincts/self-preservation",
+    };
+    const subtypeV1 = v1Asset({
+      contract_version: undefined,
+      entity_type: subtypeEntry.entityType,
+      code: subtypeEntry.code,
+      entity_key: subtypeEntry.code,
+      canonical_path: "/en/personality/enneagram/type-2/instincts/self-preservation",
+      canonical: { path: "/en/personality/enneagram/type-2/instincts/self-preservation" },
+      hreflang: {
+        en: "/en/personality/enneagram/type-2/instincts/self-preservation",
+        "zh-CN": "/zh/personality/enneagram/type-2/instincts/self-preservation",
+      },
+    });
+    let requestCount = 0;
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () => {
+        requestCount += 1;
+        if (requestCount === 1) {
+          return jsonResponse({
+            ok: true,
+            items: [subtypeV1],
+            pagination: { current_page: 1, per_page: 100, total: 1, last_page: 1 },
+          });
+        }
+
+        return detail();
+      })
+    );
+
+    await expect(getEnneagramPublicContentAsset("en", subtypeEntry)).rejects.toMatchObject({
+      kind: expectedKind,
+      authoritativeAbsence: false,
+    });
+  });
+
   it("renders only normalized visible evidence, limitations, editorial state, and approved media", async () => {
     const asset = await fetchCore();
     expect(asset).not.toBeNull();
