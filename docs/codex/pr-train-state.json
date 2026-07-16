@@ -45873,7 +45873,7 @@
     "title": "ANALYTICS-RUNTIME-RESTORE-01: fix(analytics): restore CSP-safe collection",
     "depends_on": [],
     "status": "ready_to_merge",
-    "commit_sha": "fa5d5c17f269687bc75b1432ec13bd0a4a88c6c8",
+    "commit_sha": "696937ecefe77cbed0c364607eafae559dbba384",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1776",
     "checks": {
       "manifest_registration": {
@@ -45886,7 +45886,7 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "Node 24 focused analytics, CSP, consent, deploy, runtime-smoke, SEO conversion dedupe, and Providers regressions passed 7 files / 37 tests."
+        "evidence": "Node 24 focused analytics, CSP, consent, deploy, runtime-smoke, SEO conversion dedupe, and Providers regressions passed before push; after the review repair, the manifest-focused suite passed 5 files / 31 tests and the directly affected analytics/SEO/Providers suite passed 4 files / 26 tests."
       },
       "runtime_smoke": {
         "status": "pass",
@@ -45901,7 +45901,11 @@
       "local_validation": {"status": "pass", "evidence": "All PR1 manifest local gates passed; no deployment, CMS, database, secret, or external telemetry write occurred."},
       "github_required_checks": {
         "status": "pass",
-        "evidence": "PR #1776 head fa5d5c17f269687bc75b1432ec13bd0a4a88c6c8 passed contracts, both assessment freeze checks, CodeQL analysis, CodeQL aggregate, and zero-new-alerts. The first build attempt hit an unrelated retryable 408 while collecting /[locale]/tests/[slug]; failed-job-only retry attempt 2 passed without a code change."
+        "evidence": "PR #1776 head 0ef1b36499b26d039f3f40616235eb99e6509181 passed build, contracts, both assessment freeze checks, CodeQL analysis, CodeQL aggregate, and zero-new-alerts. The first build attempt on the preceding head hit an unrelated retryable 408 while collecting /[locale]/tests/[slug]; failed-job-only retry attempt 2 passed without a code change. The final review-repair ledger head must rerun required checks before squash merge."
+      },
+      "review_fix": {
+        "status": "pass",
+        "evidence": "Resolved the valid P2 attribution ordering finding by capturing the current landing attribution inside trackLandingPageView before its session dedupe check. Node 24 focused tests, lint, spacing, typecheck, full contracts (754 files / 4340 tests), production-parameter build (206/206 pages), healthy write-aborting runtime smoke, YAML/JSON parsing, diff checks, and exact allowlist validation all passed after the repair."
       }
     },
     "scope_validation": {
@@ -45945,8 +45949,13 @@
         "at": "2026-07-16T13:02:44Z",
         "status": "ready_to_merge",
         "summary": "PR #1776 head fa5d5c17f269687bc75b1432ec13bd0a4a88c6c8 is CLEAN and MERGEABLE with exact 16-path scope, no reviews or review threads, and all required/security checks green after a no-code retry cleared the unrelated public API 408 build failure. This ready ledger head must rerun checks before squash merge."
+      },
+      {
+        "at": "2026-07-16T13:16:00Z",
+        "status": "ready_to_merge",
+        "summary": "A valid P2 review found that a child canonical pageview could claim the dedupe key before Providers captured fresh attribution. Moved attribution capture into trackLandingPageView before dedupe, added a direct-send regression, and reran every manifest local gate successfully. The final ledger head must pass required GitHub checks and the review thread must be resolved before squash merge."
       }
     ],
-    "updated_at": "2026-07-16T13:02:44Z"
+    "updated_at": "2026-07-16T13:16:00Z"
   }
 }
