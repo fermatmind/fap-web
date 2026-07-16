@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import {
   AnalyticsScripts,
@@ -176,6 +176,44 @@ describe("analytics scripts contract", () => {
     expect(script).toContain('var scriptNonce = document.currentScript?.nonce || "";');
     expect(script).toContain("if (scriptNonce) script.nonce = scriptNonce;");
     expect(script.indexOf("script.nonce = scriptNonce")).toBeLessThan(script.indexOf("document.head.appendChild(script)"));
+  });
+
+  it("captures landing attribution before a direct canonical page view claims the session dedupe key", async () => {
+    window.localStorage.setItem(
+      "fm_consent_v1",
+      JSON.stringify({ analytics: "granted", updatedAt: "2026-07-16T00:00:00.000Z" })
+    );
+    window.history.pushState({}, "", "/zh/articles/analytics-runtime?utm_source=google");
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    vi.stubGlobal("fetch", fetchMock);
+    vi.stubEnv("NEXT_PUBLIC_ANALYTICS_ENABLED", "true");
+    vi.resetModules();
+    vi.doMock("@/lib/tracking/internalTraffic", () => ({
+      shouldAllowBrowserAnalyticsRuntime: () => ({ allowed: true, reason: "allowed" }),
+    }));
+
+    try {
+      const { initAnalytics, trackLandingPageView } = await import("@/lib/analytics");
+      trackLandingPageView({ locale: "zh" });
+      initAnalytics();
+
+      await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+      const body = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body ?? "{}")) as {
+        payload?: Record<string, unknown>;
+      };
+      expect(body.payload).toMatchObject({
+        utm_source: "google",
+        source_url: "/zh/articles/analytics-runtime?utm_source=google",
+      });
+    } finally {
+      window.localStorage.clear();
+      window.sessionStorage.clear();
+      window.history.pushState({}, "", "/");
+      vi.unstubAllEnvs();
+      vi.unstubAllGlobals();
+      vi.doUnmock("@/lib/tracking/internalTraffic");
+      vi.resetModules();
+    }
   });
 
   it("does not render the SSR bootstrap when analytics is disabled or IDs are missing", () => {

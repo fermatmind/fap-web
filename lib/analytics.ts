@@ -41,11 +41,6 @@ export function clearAnalyticsQueue(): void {
 export function initAnalytics(): void {
   if (!isBrowser()) return;
   if (ANALYTICS_ENABLED && shouldAllowBrowserAnalyticsRuntime({ analyticsEnabled: ANALYTICS_ENABLED }).allowed && hasAnalyticsConsent()) {
-    captureAttributionFromLocation({
-      pathname: window.location.pathname,
-      search: window.location.search,
-      referrer: document.referrer,
-    });
     trackLandingPageView();
   }
   if (!ANALYTICS_ENABLED) {
@@ -155,6 +150,12 @@ export function trackLandingPageView(properties: AnalyticsProperties = {}): void
 
   const currentPath = currentBrowserPath();
   if (shouldHardStopPublicAnalyticsForUrl(currentPath)) return;
+
+  captureAttributionFromLocation({
+    pathname: window.location.pathname,
+    search: window.location.search,
+    referrer: document.referrer,
+  });
 
   const dedupeKey = `${LANDING_PV_STORAGE_PREFIX}${currentPath}`;
   try {
