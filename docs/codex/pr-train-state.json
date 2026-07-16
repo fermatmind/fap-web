@@ -45873,8 +45873,8 @@
     "branch": "codex/enneagram-public-authority-v2-cache-revalidation-web-22d",
     "title": "ENNEAGRAM-PUBLIC-AUTHORITY-V2-CACHE-REVALIDATION-WEB-22D: allow exact Enneagram public revalidation paths",
     "depends_on": ["ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21"],
-    "status": "local_validation_passed",
-    "commit_sha": null,
+    "status": "ready_to_push",
+    "commit_sha": "2dde1d347dcd538722062958a618634e09e2a703",
     "pr_url": null,
     "checks": {
       "dependency": {"status": "pass", "evidence": "PR #1775 is MERGED at d92bd5caf2b7d69cf7724ae78d4731c137dd92e1; origin/main containment, local and remote branch absence, and focused route-registry revalidation are verified."},
@@ -45900,8 +45900,9 @@
     "history": [
       {"at": "2026-07-16T12:45:38Z", "status": "pending_dependency", "summary": "Registered from the explicit serial execution goal with SHA, PR, merge, and production facts null/false; do not start until frontend consumer PR21 is reconciled as merged and cleaned."},
       {"at": "2026-07-16T12:45:38Z", "status": "in_progress", "summary": "Reconciled PR21, started from exact latest main d92bd5caf2b7d69cf7724ae78d4731c137dd92e1, and implemented only the exact registry-derived 116-path signed revalidation allowlist plus rejection contracts. No renderer, metadata, content, media, fallback, CMS, deploy, or production action is in scope."},
-      {"at": "2026-07-16T12:54:47Z", "status": "local_validation_passed", "summary": "The exact 116-path registry-derived allowlist and fail-closed negative matrix pass focused 3-file/17-test validation, full 753-file/4337-test contracts, lint, spacing, typecheck, 206/206 production build, metadata parsing, diff, and exact four-path scope checks on Node 24.14.0. No production cache request or deploy was executed."}
+      {"at": "2026-07-16T12:54:47Z", "status": "local_validation_passed", "summary": "The exact 116-path registry-derived allowlist and fail-closed negative matrix pass focused 3-file/17-test validation, full 753-file/4337-test contracts, lint, spacing, typecheck, 206/206 production build, metadata parsing, diff, and exact four-path scope checks on Node 24.14.0. No production cache request or deploy was executed."},
+      {"at": "2026-07-16T12:55:56Z", "status": "ready_to_push", "summary": "Bound commit_sha to the exact locally validated four-path implementation commit 2dde1d347dcd538722062958a618634e09e2a703; only this ledger/status binding follows the complete validation cycle."}
     ],
-    "updated_at": "2026-07-16T12:54:47Z"
+    "updated_at": "2026-07-16T12:55:56Z"
   }
 }

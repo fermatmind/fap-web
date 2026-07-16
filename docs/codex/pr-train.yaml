@@ -26486,7 +26486,7 @@ prs:
     branch: codex/enneagram-public-authority-v2-cache-revalidation-web-22d
     title: "ENNEAGRAM-PUBLIC-AUTHORITY-V2-CACHE-REVALIDATION-WEB-22D: allow exact Enneagram public revalidation paths"
     depends_on: [ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21]
-    status: local_validation_passed
+    status: ready_to_push
     scope:
       - Derive the exact 58 x 2 Enneagram public revalidation path set from ENNEAGRAM_PUBLIC_ROUTE_ENTRIES and accept those paths through the existing signed endpoint.
       - Preserve fail-closed rejection for nonexistent Enneagram identities, arbitrary deep personality paths, private/API/take paths, traversal, and external URLs.
