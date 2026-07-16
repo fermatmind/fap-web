@@ -221,6 +221,23 @@ describe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21", () => {
     expect(isEnneagramAuthoritySchemaEligible(asset!)).toBe(false);
   });
 
+  it("keeps a V1-only page renderable while withholding V2-gated schema", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: v1Asset(),
+        })
+      )
+    );
+
+    const asset = await getEnneagramPublicContentAsset("en", CORE_ENTRY);
+
+    expect(asset).toMatchObject({ title: "Enneagram Type 5", authorityV2: undefined });
+    expect(isEnneagramAuthoritySchemaEligible(asset!)).toBe(false);
+  });
+
   it("upgrades subtype index compatibility with the backend exact-code V2 detail overlay", async () => {
     const subtypeEntry = {
       entityType: "instinctual_subtype" as const,

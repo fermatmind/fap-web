@@ -595,12 +595,7 @@ export function isEnneagramAuthoritySchemaEligible(asset: PersonalityPublicConte
     return false;
   }
 
-  const authority = asset.authorityV2;
-  if (authority === undefined) {
-    return true;
-  }
-
-  return Boolean(authority?.schemaEligible && authority.visibleEvidence.eligible);
+  return Boolean(asset.authorityV2?.schemaEligible && asset.authorityV2.visibleEvidence.eligible);
 }
 
 export function withEnneagramVisibleAuthorityJsonLd(
