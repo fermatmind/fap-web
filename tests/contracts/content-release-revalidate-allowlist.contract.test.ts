@@ -1,5 +1,9 @@
 import { NextRequest } from "next/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import {
+  buildEnneagramPublicContentPath,
+  ENNEAGRAM_PUBLIC_ROUTE_ENTRIES,
+} from "@/lib/personality/enneagramPublicRoutes";
 
 const mocks = vi.hoisted(() => ({
   authenticate: vi.fn(async (): Promise<
@@ -117,6 +121,89 @@ describe("content release revalidate allowlist", () => {
     ]);
     expect(decisions.rejected).toEqual([
       { path: "/zh/personality/big-five/facets/imagination", reason: "not_allowlisted" },
+    ]);
+  });
+
+  it("accepts exactly the 58 x 2 Enneagram public routes", async () => {
+    const paths = ENNEAGRAM_PUBLIC_ROUTE_ENTRIES.flatMap((entry) => [
+      buildEnneagramPublicContentPath("en", entry),
+      buildEnneagramPublicContentPath("zh", entry),
+    ]);
+
+    expect(paths).toHaveLength(116);
+    expect(new Set(paths).size).toBe(116);
+
+    const decisions = collectPathDecisions(
+      {
+        content: { type: "personality_public_content_asset", locale: "en" },
+        cache_signal: { paths },
+      },
+      "https://fermatmind.com"
+    );
+
+    expect(decisions.accepted).toEqual(paths);
+    expect(decisions.rejected).toEqual([]);
+
+    const response = await POST(
+      new NextRequest("https://fermatmind.com/api/content-release/revalidate", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          content: { type: "personality_public_content_asset", locale: "en" },
+          cache_signal: { paths },
+        }),
+      })
+    );
+    const payload = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(payload.revalidated_paths).toEqual(paths);
+    expect(payload.rejected_paths).toEqual([]);
+    expect(mocks.revalidatePath).toHaveBeenCalledTimes(116);
+  });
+
+  it("rejects nonexistent and arbitrary Enneagram paths plus private path classes", () => {
+    const decisions = collectPathDecisions(
+      {
+        content: { type: "personality_public_content_asset", locale: "en" },
+        cache_signal: {
+          paths: [
+            "/en/personality/enneagram/wings/1w3",
+            "/zh/personality/enneagram/centers/body",
+            "/en/personality/enneagram/type-10",
+            "/zh/personality/enneagram/type-4/instincts/intimate",
+            "/en/personality/enneagram/type-4/instincts/social/extra",
+            "/en/personality/enneagram/arbitrary/deep/path",
+            "/en/personality/enneagram/../orders",
+            "/api/personality/enneagram",
+            "/results/private-report",
+            "/orders/order-1",
+            "/payment/checkout",
+            "/share/private-token",
+            "/en/tests/enneagram-personality-test/take",
+          ],
+          urls: ["https://evil.example/en/personality/enneagram/type-1"],
+        },
+      },
+      "https://fermatmind.com"
+    );
+
+    expect(decisions.accepted).toEqual([]);
+    expect(decisions.rejected.map((item) => item.reason)).toEqual([
+      "not_allowlisted",
+      "not_allowlisted",
+      "not_allowlisted",
+      "not_allowlisted",
+      "not_allowlisted",
+      "not_allowlisted",
+      "path_traversal",
+      "private_or_api_path",
+      "private_or_api_path",
+      "private_or_api_path",
+      "private_or_api_path",
+      "private_or_api_path",
+      "private_or_api_path",
+      "malformed_or_external_url",
     ]);
   });
 
