@@ -56,35 +56,41 @@ jobs:
               sha_reason: 'no_successful_production_deployment',
             };
             try {
-              const { data: deployments } = await github.rest.repos.listDeployments({
-                owner,
-                repo,
-                environment: 'production',
-                per_page: 30,
-              });
+              const provenanceRetentionCutoff = Date.now() - (90 * 24 * 60 * 60 * 1000);
+              const deploymentPages = github.paginate.iterator(
+                github.rest.repos.listDeployments,
+                { owner, repo, environment: 'production', per_page: 100 },
+              );
               let latestSuccessfulDeployment = null;
-              for (const deployment of deployments) {
-                if (deployment.environment !== 'production') continue;
-                const { data: statuses } = await github.rest.repos.listDeploymentStatuses({
-                  owner,
-                  repo,
-                  deployment_id: deployment.id,
-                  per_page: 100,
-                });
-                const successStatus = statuses.find((status) => status.state === 'success');
-                if (!successStatus) continue;
-                const logUrl = successStatus.log_url || successStatus.target_url || '';
-                const runId = String(logUrl).match(/\/actions\/runs\/(\d+)(?:\/|$)/)?.[1];
-                if (!runId) continue;
-                const { data: workflowRun } = await github.rest.actions.getWorkflowRun({
-                  owner,
-                  repo,
-                  run_id: Number(runId),
-                });
-                const workflowPath = String(workflowRun.path || '').split('@')[0];
-                if (workflowPath !== '.github/workflows/deploy-production.yml') continue;
-                latestSuccessfulDeployment = { deployment, runId };
-                break;
+              deploymentScan: for await (const response of deploymentPages) {
+                for (const deployment of response.data) {
+                  const createdAt = Date.parse(String(deployment.created_at || ''));
+                  if (!Number.isFinite(createdAt) || createdAt < provenanceRetentionCutoff) {
+                    metadata.sha_reason = 'production_deployment_provenance_retention_window_exhausted';
+                    break deploymentScan;
+                  }
+                  if (deployment.environment !== 'production') continue;
+                  const { data: statuses } = await github.rest.repos.listDeploymentStatuses({
+                    owner,
+                    repo,
+                    deployment_id: deployment.id,
+                    per_page: 100,
+                  });
+                  const successStatus = statuses.find((status) => status.state === 'success');
+                  if (!successStatus) continue;
+                  const logUrl = successStatus.log_url || successStatus.target_url || '';
+                  const runId = String(logUrl).match(/\/actions\/runs\/(\d+)(?:\/|$)/)?.[1];
+                  if (!runId) continue;
+                  const { data: workflowRun } = await github.rest.actions.getWorkflowRun({
+                    owner,
+                    repo,
+                    run_id: Number(runId),
+                  });
+                  const workflowPath = String(workflowRun.path || '').split('@')[0];
+                  if (workflowPath !== '.github/workflows/deploy-production.yml') continue;
+                  latestSuccessfulDeployment = { deployment, runId };
+                  break deploymentScan;
+                }
               }
 
               if (latestSuccessfulDeployment) {

@@ -108,6 +108,11 @@ describe("analytics runtime monitor contract", () => {
 
   it("resolves the approved production SHA without trusting the environment deployment ref", () => {
     expect(workflow).toContain("github.rest.repos.listDeployments");
+    expect(workflow).toContain("github.paginate.iterator(");
+    expect(workflow).toContain("per_page: 100");
+    expect(workflow).toContain("90 * 24 * 60 * 60 * 1000");
+    expect(workflow).toContain("production_deployment_provenance_retention_window_exhausted");
+    expect(workflow).not.toContain("per_page: 30");
     expect(workflow).toContain("github.rest.repos.listDeploymentStatuses");
     expect(workflow).toContain("status.state === 'success'");
     expect(workflow).toContain("github.rest.actions.getWorkflowRun");
