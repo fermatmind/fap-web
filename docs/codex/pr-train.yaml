@@ -14934,7 +14934,7 @@ prs:
     mode: execute
     train_scope: big5_authority_v2_topic_loading_runtime_repair
     risk_level: L1
-    status: local_checks_passed
+    status: merged
     title: "BIG5-AUTHORITY-V2-TOPIC-RUNTIME-40: fix(content): resolve Big Five topic loading runtime"
     goal: "Make published zh/en Big Five Topic pages exit the RSC loading skeleton and render backend-authoritative content with matching per-request CSP nonces, while preserving fail-closed absent/error behavior and frontend content-authority boundaries."
     in_scope:
