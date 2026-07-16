@@ -80,6 +80,23 @@ export function buildEnneagramPublicContentPath(locale: Locale, entry: Enneagram
   return `/${locale}/personality/enneagram${entry.pathSuffix}`;
 }
 
+export function hasBackendEnneagramMetadataAuthority(
+  locale: Locale,
+  entry: EnneagramPublicRouteEntry,
+  canonicalPath: string,
+  hreflang: { en: string | null; "zh-CN": string | null }
+): boolean {
+  const expectedCurrent = buildEnneagramPublicContentPath(locale, entry);
+  const expectedEn = buildEnneagramPublicContentPath("en", entry);
+  const expectedZh = buildEnneagramPublicContentPath("zh", entry);
+
+  return (
+    canonicalPath === expectedCurrent &&
+    hreflang.en === expectedEn &&
+    hreflang["zh-CN"] === expectedZh
+  );
+}
+
 export function resolveEnneagramPublicRouteEntry(slugSegments: readonly string[] | undefined): EnneagramPublicRouteEntry | null {
   const segments = (slugSegments ?? []).map((segment) => segment.trim().toLowerCase()).filter(Boolean);
   const routeSlug = segments.join("/");

@@ -82,6 +82,7 @@ export function PublicContentAssetRenderer({
   const boundary = asset.methodBoundary;
   const authority = asset.authorityV2;
   const visibleEvidence = authority?.visibleEvidence.eligible ? authority.visibleEvidence : null;
+  const authorityLimitations = authority?.visibleEvidence.limitations ?? [];
   const editorial = authority?.editorialAuthority;
   const authorityHero = authority?.mediaAuthority.hero;
   const heroImageUrl = authorityHero?.url ?? asset.media.imageUrl;
@@ -90,6 +91,7 @@ export function PublicContentAssetRenderer({
     visibleEvidence?.sources.map((source) => [source.id, source.title]) ?? []
   );
   const hasEditorialAuthority = Boolean(
+    (asset.framework === "enneagram" && editorial?.reviewState) ||
     editorial?.author ||
       editorial?.reviewer ||
       editorial?.publishedAt ||
@@ -195,7 +197,7 @@ export function PublicContentAssetRenderer({
             </section>
           ) : null}
 
-          {visibleEvidence ? (
+          {visibleEvidence || authorityLimitations.length > 0 ? (
             <section
               id="sources"
               className="scroll-mt-24 rounded-2xl border border-[var(--fm-border)] bg-white p-6 shadow-[var(--fm-shadow-sm)] md:p-8"
@@ -204,42 +206,44 @@ export function PublicContentAssetRenderer({
               <h2 className="m-0 text-2xl font-semibold tracking-normal text-[var(--fm-text)]">
                 {locale === "zh" ? "来源与引用" : "Sources and citations"}
               </h2>
-              <div className="mt-6 grid gap-5">
-                {visibleEvidence.sources.map((source) => (
-                  <article key={source.id} className="rounded-xl border border-[var(--fm-border)] p-5">
-                    <h3 className="m-0 text-base font-semibold tracking-normal text-[var(--fm-text)]">
-                      {source.publicUrl ? (
-                        <a
-                          href={source.publicUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="underline decoration-[var(--fm-border)] underline-offset-4 hover:text-[var(--fm-trust-blue)]"
-                        >
-                          {source.title}
-                        </a>
-                      ) : (
-                        source.title
-                      )}
-                    </h3>
-                    <p className="m-0 mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">
-                      {source.authorOrOrganization} · {source.year} · {sourceTypeLabel(source.sourceType)}
-                    </p>
-                    {source.doi ? (
-                      <p className="m-0 mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">DOI: {source.doi}</p>
-                    ) : null}
-                    {source.accessedAt ? (
+              {visibleEvidence ? (
+                <div className="mt-6 grid gap-5">
+                  {visibleEvidence.sources.map((source) => (
+                    <article key={source.id} className="rounded-xl border border-[var(--fm-border)] p-5">
+                      <h3 className="m-0 text-base font-semibold tracking-normal text-[var(--fm-text)]">
+                        {source.publicUrl ? (
+                          <a
+                            href={source.publicUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline decoration-[var(--fm-border)] underline-offset-4 hover:text-[var(--fm-trust-blue)]"
+                          >
+                            {source.title}
+                          </a>
+                        ) : (
+                          source.title
+                        )}
+                      </h3>
                       <p className="m-0 mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">
-                        {locale === "zh" ? "访问日期" : "Accessed"}: {formatAuthorityDate(source.accessedAt, locale)}
+                        {source.authorOrOrganization} · {source.year} · {sourceTypeLabel(source.sourceType)}
                       </p>
-                    ) : null}
-                    {source.limitation ? (
-                      <p className="m-0 mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{source.limitation}</p>
-                    ) : null}
-                  </article>
-                ))}
-              </div>
+                      {source.doi ? (
+                        <p className="m-0 mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">DOI: {source.doi}</p>
+                      ) : null}
+                      {source.accessedAt ? (
+                        <p className="m-0 mt-2 text-sm leading-6 text-[var(--fm-text-muted)]">
+                          {locale === "zh" ? "访问日期" : "Accessed"}: {formatAuthorityDate(source.accessedAt, locale)}
+                        </p>
+                      ) : null}
+                      {source.limitation ? (
+                        <p className="m-0 mt-3 text-sm leading-6 text-[var(--fm-text-muted)]">{source.limitation}</p>
+                      ) : null}
+                    </article>
+                  ))}
+                </div>
+              ) : null}
 
-              {visibleEvidence.claimMapping.length > 0 ? (
+              {visibleEvidence && visibleEvidence.claimMapping.length > 0 ? (
                 <div className="mt-7">
                   <h3 className="m-0 text-base font-semibold tracking-normal text-[var(--fm-text)]">
                     {locale === "zh" ? "证据映射" : "Evidence mapping"}
@@ -255,13 +259,13 @@ export function PublicContentAssetRenderer({
                 </div>
               ) : null}
 
-              {visibleEvidence.limitations.length > 0 ? (
+              {authorityLimitations.length > 0 ? (
                 <div className="mt-7 rounded-xl bg-[var(--fm-surface-muted)] p-5">
                   <h3 className="m-0 text-base font-semibold tracking-normal text-[var(--fm-text)]">
                     {locale === "zh" ? "证据边界" : "Evidence limitations"}
                   </h3>
                   <ul className="mt-3 space-y-2 pl-5 text-sm leading-6 text-[var(--fm-text-muted)]">
-                    {visibleEvidence.limitations.map((limitation) => (
+                    {authorityLimitations.map((limitation) => (
                       <li key={limitation}>{limitation}</li>
                     ))}
                   </ul>
@@ -299,6 +303,12 @@ export function PublicContentAssetRenderer({
                 {locale === "zh" ? "编辑信息" : "Editorial authority"}
               </h2>
               <dl className="m-0 mt-4 grid gap-4 text-sm leading-6">
+                {asset.framework === "enneagram" && editorial.reviewState ? (
+                  <div>
+                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "审核状态" : "Review state"}</dt>
+                    <dd className="m-0 text-[var(--fm-text-muted)]">{editorial.reviewState}</dd>
+                  </div>
+                ) : null}
                 {editorial.author ? (
                   <div>
                     <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "作者" : "Author"}</dt>
