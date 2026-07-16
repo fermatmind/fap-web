@@ -110,6 +110,8 @@ describe("analytics runtime monitor contract", () => {
     expect(workflow).toContain("github.rest.repos.listDeployments");
     expect(workflow).toContain("github.rest.repos.listDeploymentStatuses");
     expect(workflow).toContain("status.state === 'success'");
+    expect(workflow).toContain("github.rest.actions.getWorkflowRun");
+    expect(workflow).toContain("workflowPath !== '.github/workflows/deploy-production.yml'");
     expect(workflow).toContain("github.rest.actions.listWorkflowRunArtifacts");
     expect(workflow).toContain("/^analytics-runtime-smoke-([0-9a-f]{40})$/");
     expect(workflow).toContain("github.rest.repos.compareCommitsWithBasehead");

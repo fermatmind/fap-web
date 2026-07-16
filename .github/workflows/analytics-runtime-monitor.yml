@@ -73,47 +73,49 @@ jobs:
                 });
                 const successStatus = statuses.find((status) => status.state === 'success');
                 if (!successStatus) continue;
-                latestSuccessfulDeployment = { deployment, successStatus };
+                const logUrl = successStatus.log_url || successStatus.target_url || '';
+                const runId = String(logUrl).match(/\/actions\/runs\/(\d+)(?:\/|$)/)?.[1];
+                if (!runId) continue;
+                const { data: workflowRun } = await github.rest.actions.getWorkflowRun({
+                  owner,
+                  repo,
+                  run_id: Number(runId),
+                });
+                const workflowPath = String(workflowRun.path || '').split('@')[0];
+                if (workflowPath !== '.github/workflows/deploy-production.yml') continue;
+                latestSuccessfulDeployment = { deployment, runId };
                 break;
               }
 
               if (latestSuccessfulDeployment) {
                 metadata.deployment_id = latestSuccessfulDeployment.deployment.id;
-                const logUrl = latestSuccessfulDeployment.successStatus.log_url
-                  || latestSuccessfulDeployment.successStatus.target_url
-                  || '';
-                const runId = String(logUrl).match(/\/actions\/runs\/(\d+)(?:\/|$)/)?.[1];
-                if (!runId) {
-                  metadata.sha_reason = 'successful_deployment_workflow_run_unknown';
+                const { data: artifactPage } = await github.rest.actions.listWorkflowRunArtifacts({
+                  owner,
+                  repo,
+                  run_id: Number(latestSuccessfulDeployment.runId),
+                  per_page: 100,
+                });
+                const approvedShas = [
+                  ...new Set(artifactPage.artifacts
+                    .filter((artifact) => !artifact.expired)
+                    .map((artifact) => artifact.name.match(/^analytics-runtime-smoke-([0-9a-f]{40})$/)?.[1])
+                    .filter(Boolean)),
+                ];
+                if (approvedShas.length !== 1) {
+                  metadata.sha_reason = 'successful_deployment_approved_sha_artifact_unavailable';
                 } else {
-                  const { data: artifactPage } = await github.rest.actions.listWorkflowRunArtifacts({
+                  const approvedSha = approvedShas[0];
+                  const comparison = await github.rest.repos.compareCommitsWithBasehead({
                     owner,
                     repo,
-                    run_id: Number(runId),
-                    per_page: 100,
+                    basehead: `${approvedSha}...main`,
                   });
-                  const approvedShas = [
-                    ...new Set(artifactPage.artifacts
-                      .filter((artifact) => !artifact.expired)
-                      .map((artifact) => artifact.name.match(/^analytics-runtime-smoke-([0-9a-f]{40})$/)?.[1])
-                      .filter(Boolean)),
-                  ];
-                  if (approvedShas.length !== 1) {
-                    metadata.sha_reason = 'successful_deployment_approved_sha_artifact_unavailable';
+                  if (!['ahead', 'identical'].includes(comparison.data.status)) {
+                    metadata.sha_reason = 'successful_deployment_approved_sha_not_on_main';
                   } else {
-                    const approvedSha = approvedShas[0];
-                    const comparison = await github.rest.repos.compareCommitsWithBasehead({
-                      owner,
-                      repo,
-                      basehead: `${approvedSha}...main`,
-                    });
-                    if (!['ahead', 'identical'].includes(comparison.data.status)) {
-                      metadata.sha_reason = 'successful_deployment_approved_sha_not_on_main';
-                    } else {
-                      metadata.production_deployment_sha = approvedSha;
-                      metadata.sha_status = 'verified';
-                      metadata.sha_reason = null;
-                    }
+                    metadata.production_deployment_sha = approvedSha;
+                    metadata.sha_status = 'verified';
+                    metadata.sha_reason = null;
                   }
                 }
               }

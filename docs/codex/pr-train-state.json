@@ -46031,11 +46031,11 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "Node 24 focused monitor, production deploy guard, and workflow action-ref integrity suite passed 3 files / 11 tests after both review repairs. The monitor contract executed the real PR1 Playwright fixture for verified-success and unknown-failure paths, asserted exit codes, telemetry-write abortion, approved-SHA artifact provenance, 90-day deploy evidence retention, and redaction. An empty PLAYWRIGHT_BROWSERS_PATH simulation passed the three structural/security cases and explicitly skipped only the two real-browser integrations; the workflow contract requires its production Chromium install step."
+        "evidence": "Node 24 focused monitor, production deploy guard, and workflow action-ref integrity suite passed 3 files / 11 tests after all three review repairs. The monitor contract executed the real PR1 Playwright fixture for verified-success and unknown-failure paths, asserted exit codes, telemetry-write abortion, exact web-deploy workflow provenance, approved-SHA artifact provenance, 90-day deploy evidence retention, and redaction. An empty PLAYWRIGHT_BROWSERS_PATH simulation passed the three structural/security cases and explicitly skipped only the two real-browser integrations; the workflow contract requires its production Chromium install step."
       },
       "workflow_validation": {
         "status": "pass",
-        "evidence": "actionlint and Ruby YAML parsing passed for the monitor and existing deploy workflow. The monitor has fixed production target, 15-minute schedule, input-free manual dispatch, 10-minute timeout, concurrency guard, contents/deployments/actions read-only permissions, pinned actions, latest-successful-deployment lookup, approved deploy SHA recovery from the immutable runtime-smoke artifact name, main-ancestry validation, always-run summary/artifact steps, and no issue or external alert writes. The existing deploy trigger and behavior are unchanged; only the approved-SHA smoke artifact retention increases from 14 to 90 days."
+        "evidence": "actionlint and Ruby YAML parsing passed for the monitor and existing deploy workflow. The monitor has fixed production target, 15-minute schedule, input-free manual dispatch, 10-minute timeout, concurrency guard, contents/deployments/actions read-only permissions, pinned actions, production deployment lookup filtered to the exact deploy-production workflow path, approved deploy SHA recovery from the immutable runtime-smoke artifact name, main-ancestry validation, always-run summary/artifact steps, and no issue or external alert writes. The existing deploy trigger and behavior are unchanged; only the approved-SHA smoke artifact retention increases from 14 to 90 days."
       },
       "lint_typecheck": {
         "status": "pass",
@@ -46043,7 +46043,7 @@
       },
       "contract_suite": {
         "status": "pass",
-        "evidence": "Node 24 pnpm test:contract passed all four shards after the final retention repair: 755 files / 4348 tests, including both real-browser monitor cases and the 90-day provenance retention guard. Seven tracked SEO/MBTI generator side effects were restored to HEAD and excluded from scope."
+        "evidence": "Node 24 pnpm test:contract passed all four shards after the final web-deploy provenance repair: 755 files / 4348 tests, including both real-browser monitor cases, the exact deploy workflow path guard, and the 90-day provenance retention guard. Seven tracked SEO/MBTI generator side effects were restored to HEAD and excluded from scope."
       },
       "build": {
         "status": "pass",
@@ -46058,14 +46058,14 @@
         "evidence": "All PR2 manifest local gates passed. No workflow dispatch, scheduled run, deployment, production browser probe, external telemetry write, secret mutation, backend mutation, CMS mutation, or production data mutation occurred."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "Ready-to-merge head 64c3a36d passed build, contracts, both freeze suites, CodeQL analysis, CodeQL result, and no-new-code-scanning-alerts. GitHub reported CLEAN/MERGEABLE. A second P2 then identified the 14-day provenance retention gap; the allowlisted 90-day repair is locally green and its new final head must rerun all required checks before merge."
+        "status": "pending",
+        "evidence": "Head 084504b2 passed build, contracts, both freeze suites, CodeQL analysis, CodeQL result, and no-new-code-scanning-alerts with GitHub CLEAN/MERGEABLE. A third P2 then identified that unrelated production-environment workflows could shadow the latest web deploy. The exact-workflow-path repair is locally green and its new final head must rerun all required checks before merge."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -46118,8 +46118,13 @@
         "at": "2026-07-16T14:25:52Z",
         "status": "ready_to_merge",
         "summary": "Ready-to-merge head 64c3a36d passed all seven required/security checks, then a second P2 correctly identified that 14-day deploy smoke artifact retention could cause recurring unknown alerts during normal no-deploy periods. Increased only that existing approved-SHA artifact retention to 90 days, added a contract guard and runbook note, expanded the explicit allowlist to the deploy probe adapter, and passed focused 3 files / 11 tests, both workflow actionlint/YAML checks, typecheck, and full contracts 755 files / 4348 tests. The exact eight-path final head must rerun required checks before merge."
+      },
+      {
+        "at": "2026-07-16T14:39:40Z",
+        "status": "ready_to_merge",
+        "summary": "Head 084504b2 passed all seven required/security checks, then a third P2 correctly identified that another workflow using the production environment could shadow the latest successful web deployment. The monitor now resolves each successful deployment status to its Actions run, accepts only .github/workflows/deploy-production.yml, and fails closed when that selected web deploy lacks trustworthy artifact provenance. Focused 3 files / 11 tests, actionlint/YAML, scoped lint, typecheck, and full contracts 755 files / 4348 tests passed; the exact eight-path final head must rerun required checks before merge."
       }
     ],
-    "updated_at": "2026-07-16T14:25:52Z"
+    "updated_at": "2026-07-16T14:39:40Z"
   }
 }
