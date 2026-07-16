@@ -41,10 +41,6 @@ function frameworkCta(asset: PersonalityPublicContentAsset, locale: Locale): { h
   };
 }
 
-function placeholderLabel(asset: PersonalityPublicContentAsset): string {
-  return asset.framework === "enneagram" ? "9T" : "OCEAN";
-}
-
 function SectionBody({ section, locale }: { section: PersonalityPublicContentSection; locale: Locale }) {
   if (section.bodyHtml.trim()) {
     return <SanitizedCmsHtml className="fm-content-page-prose" html={section.bodyHtml} locale={locale} />;
@@ -104,7 +100,11 @@ export function PublicContentAssetRenderer({
   return (
     <main className="bg-[var(--fm-bg)] text-[var(--fm-text)]" data-testid={`${asset.framework}-public-content-page`}>
       <section className="border-b border-[var(--fm-border)] bg-[var(--fm-surface)]">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 md:px-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center lg:py-18">
+        <div
+          className={`mx-auto max-w-6xl gap-10 px-5 py-14 md:px-8 lg:py-18 ${
+            heroImageUrl ? "grid lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center" : "block"
+          }`}
+        >
           <div className="space-y-7">
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--fm-border)] bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--fm-text-muted)]">
               <BookOpen className="h-3.5 w-3.5" aria-hidden="true" />
@@ -133,8 +133,11 @@ export function PublicContentAssetRenderer({
             </div>
           </div>
 
-          <aside className="rounded-2xl border border-[var(--fm-border)] bg-white p-5 shadow-[var(--fm-shadow-sm)]">
-            {heroImageUrl ? (
+          {heroImageUrl ? (
+            <aside
+              className="rounded-2xl border border-[var(--fm-border)] bg-white p-5 shadow-[var(--fm-shadow-sm)]"
+              data-testid="public-content-hero-media"
+            >
               <Image
                 src={heroImageUrl}
                 alt={heroImageAlt}
@@ -142,15 +145,8 @@ export function PublicContentAssetRenderer({
                 height={420}
                 className="h-auto w-full rounded-xl object-cover"
               />
-            ) : (
-              <div className="grid aspect-[4/3] place-items-center rounded-xl bg-[var(--fm-surface-muted)] text-center">
-                <div>
-                  <p className="m-0 text-5xl font-semibold text-[var(--fm-trust-blue)]">{placeholderLabel(asset)}</p>
-                  <p className="m-0 mt-3 text-sm font-medium text-[var(--fm-text-muted)]">{asset.code}</p>
-                </div>
-              </div>
-            )}
-          </aside>
+            </aside>
+          ) : null}
         </div>
       </section>
 

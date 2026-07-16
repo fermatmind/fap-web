@@ -182,4 +182,12 @@ describe("Big Five hub CMS Markdown link rendering", () => {
     expect(screen.queryByText("bodyMd missing")).not.toBeInTheDocument();
     expect(screen.queryByText("bodyHtml missing")).not.toBeInTheDocument();
   });
+
+  it("omits the hero media area when the backend provides no approved image", () => {
+    render(<PublicContentAssetRenderer locale="zh" asset={asset()} />);
+
+    expect(screen.queryByTestId("public-content-hero-media")).not.toBeInTheDocument();
+    expect(screen.queryByText("OCEAN")).not.toBeInTheDocument();
+    expect(screen.queryByText("big-five")).not.toBeInTheDocument();
+  });
 });
