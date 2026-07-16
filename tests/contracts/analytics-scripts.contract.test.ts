@@ -1,6 +1,5 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import {
   AnalyticsScripts,
@@ -28,7 +27,7 @@ describe("analytics scripts contract", () => {
     return value.split(needle).length - 1;
   }
 
-  function renderAnalyticsScripts(env: Record<string, string | undefined>) {
+  function renderAnalyticsScripts(env: Record<string, string | undefined>, nonce?: string) {
     process.env = {
       ...originalEnv,
       NEXT_PUBLIC_ANALYTICS_ENABLED: env.NEXT_PUBLIC_ANALYTICS_ENABLED,
@@ -38,7 +37,7 @@ describe("analytics scripts contract", () => {
     };
 
     try {
-      return renderToStaticMarkup(createElement(AnalyticsScripts));
+      return renderToStaticMarkup(AnalyticsScripts({ nonce }));
     } finally {
       process.env = originalEnv;
     }
@@ -158,6 +157,25 @@ describe("analytics scripts contract", () => {
     expect(html).not.toContain("hm.baidu.com");
     expect(html).not.toContain("_hmt");
     expect(html).not.toContain("window.gtag");
+  });
+
+  it("propagates the request nonce from the bootstrap into dynamically-created provider scripts", () => {
+    const nonce = "request-nonce-1234567890";
+    const html = renderAnalyticsScripts({
+      NEXT_PUBLIC_ANALYTICS_ENABLED: "true",
+      NEXT_PUBLIC_GA_MEASUREMENT_ID: "G-TEST1234",
+      NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: "",
+      NEXT_PUBLIC_BAIDU_TONGJI_ID: "0123456789abcdef",
+    }, nonce);
+    const script = buildTestBootstrapScript({
+      gaMeasurementId: "G-TEST1234",
+      baiduTongjiId: "0123456789abcdef",
+    });
+
+    expect(html).toContain(`nonce="${nonce}"`);
+    expect(script).toContain('var scriptNonce = document.currentScript?.nonce || "";');
+    expect(script).toContain("if (scriptNonce) script.nonce = scriptNonce;");
+    expect(script.indexOf("script.nonce = scriptNonce")).toBeLessThan(script.indexOf("document.head.appendChild(script)"));
   });
 
   it("does not render the SSR bootstrap when analytics is disabled or IDs are missing", () => {
@@ -394,10 +412,13 @@ describe("analytics scripts contract", () => {
     const localizedLayout = readFileSync("app/(localized)/[locale]/layout.tsx", "utf8");
 
     expect(rootLayout).toContain('from "@/components/analytics/AnalyticsScripts"');
-    expect(rootLayout).toContain("<AnalyticsScripts />");
+    expect(rootLayout).toContain('import { headers } from "next/headers"');
+    expect(rootLayout).toContain('const nonce = (await headers()).get("x-nonce") ?? undefined;');
+    expect(rootLayout).toContain("<AnalyticsScripts nonce={nonce} />");
     expect(localizedLayout).toContain('from "@/components/analytics/AnalyticsScripts"');
     expect(localizedLayout).toContain('PRIVATE_ANALYTICS_SUPPRESSION_HEADER');
-    expect(localizedLayout).toContain('suppressServerBootstrap={suppressAnalyticsBootstrap}');
+    expect(localizedLayout).toContain('const nonce = requestHeaders.get("x-nonce") ?? undefined;');
+    expect(localizedLayout).toContain('nonce={nonce} suppressServerBootstrap={suppressAnalyticsBootstrap}');
   });
 
   it("maps funnel events to GA4 key-event taxonomy names", () => {

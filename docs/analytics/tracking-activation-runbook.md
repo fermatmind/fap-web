@@ -16,6 +16,10 @@ UTM channel governance lives in [UTM Channel Governance](./utm-channel-governanc
 - Baidu Tongji event tracking may keep the existing `_hmt.push(["_trackEvent", ...])` bridge for event analysis, debug, and legacy event taxonomy. Current Baidu Tongji dashboard setup no longer supports promising new `_trackEvent` category/action conversion goals; new event conversions are limited to public element selection or manual element ID setup.
 - Private/noindex routes suppress third-party browser analytics scripts after ANALYTICS-SEO-P0-10. Baidu Tongji automatic pageview collection must not see raw order, result, share, payment, transaction, or token-bearing URLs.
 - Private/noindex routes suppress the server-rendered analytics bootstrap after ANALYTICS-SEO-P0-12. These pages should not contain `fm-analytics-bootstrap`, `data-analytics-bootstrap`, Baidu Tongji, GA, or Google Ads bootstrap tokens in SSR HTML.
+- Public analytics scripts use the proxy-generated per-request CSP nonce. Both layout trees read `x-nonce`, the inline `fm-analytics-bootstrap` captures its own nonce synchronously, and every dynamically-created GA/Baidu script inherits that same nonce before insertion. Do not cache nonce-bearing HTML across requests.
+- A first consent grant reuses `initAnalytics()` and the existing session-scoped landing-pageview dedupe. Missing or denied consent emits no canonical landing pageview; repeated granted events do not duplicate the same path pageview.
+
+Next.js requires a fresh nonce and dynamic rendering for each request and documents reading the proxy-provided nonce through `headers()`: [Next.js CSP guide](https://nextjs.org/docs/app/guides/content-security-policy). The runtime smoke uses Playwright browser-context request routing and aborts telemetry writes before they reach GA, Baidu, or `/api/track`: [Playwright network guide](https://playwright.dev/docs/network).
 
 ## Production Environment
 
@@ -93,6 +97,19 @@ Google Ads purchase conversion payload:
 `create_order` and `payment_confirmed` must never dispatch Google Ads purchase conversion. `pay_success` may remain in older product paths, but it is normalized to `purchase_success` before dispatch. Email and other PII fields are filtered before GA4, Google Ads, Baidu Tongji, `/api/track`, URL query payloads, and public HTML.
 
 ## Verification
+
+Run the reusable local fixture smoke without producing analytics data:
+
+```bash
+node scripts/analytics/runtime-smoke-fixture.mjs --port 4173
+pnpm analytics:runtime-smoke -- --base-url http://127.0.0.1:4173 --output /tmp/analytics-runtime-smoke.json
+```
+
+For a production-mode local build whose analytics allowlist uses a synthetic hostname, add `--resolve-to 127.0.0.1` and pass that hostname in `--base-url`. The resolver option accepts only an IPv4 address or `::1`; the scheduled/production path does not use host remapping.
+
+The JSON result must report `health_status: "healthy"`, matching header/bootstrap/dynamic nonces, distinct nonces for two HTML requests, all three loader/write attempts, zero CSP script-blocking errors, and private-route suppression. Provider and `/api/track` requests are aborted by the browser probe; the report contains no measurement/site IDs, request bodies, cookies, sensitive query values, or HTML dumps.
+
+The production deploy workflow invokes this same probe only after a separately authorized exact-SHA production deployment. Its presence is not deployment authorization and this runbook must not be used to trigger `workflow_dispatch`.
 
 1. In Chrome Network, confirm `https://www.googletagmanager.com/gtag/js` loads on public production routes after analytics consent.
 2. In Chrome Network, confirm `https://hm.baidu.com/hm.js?<id>` loads on public production routes after analytics consent when Baidu Tongji is configured.

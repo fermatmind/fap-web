@@ -92,6 +92,7 @@ export default async function LocalizedRootLayout({
     notFound();
   }
   const requestHeaders = await headers();
+  const nonce = requestHeaders.get("x-nonce") ?? undefined;
   const suppressAnalyticsBootstrap = requestHeaders.get(PRIVATE_ANALYTICS_SUPPRESSION_HEADER) === "true";
   const useResultPrintSnapshotShell = requestHeaders.get(RESULT_PAGE_SNAPSHOT_SHELL_HEADER) === "true";
   const resolvedLocale: Locale = locale;
@@ -103,7 +104,7 @@ export default async function LocalizedRootLayout({
         className={`${fmSans.variable} ${fmSerif.variable} ${fmMono.variable} antialiased`}
         data-pdf-snapshot-shell={useResultPrintSnapshotShell ? "true" : undefined}
       >
-        <AnalyticsScripts suppressServerBootstrap={suppressAnalyticsBootstrap} />
+        <AnalyticsScripts nonce={nonce} suppressServerBootstrap={suppressAnalyticsBootstrap} />
         <Providers>
           <LocaleProvider locale={resolvedLocale}>
             {useResultPrintSnapshotShell ? (

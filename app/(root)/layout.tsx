@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { headers } from "next/headers";
 import type { ReactNode } from "react";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { AnalyticsScripts } from "@/components/analytics/AnalyticsScripts";
@@ -62,13 +63,14 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootRouteLayout({ children }: { children: ReactNode }) {
+export default async function RootRouteLayout({ children }: { children: ReactNode }) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
   const productPriority = createProductPriorityEnvSnapshot();
 
   return (
     <html lang="zh">
       <body className={`${fmSans.variable} ${fmSerif.variable} ${fmMono.variable} antialiased`}>
-        <AnalyticsScripts />
+        <AnalyticsScripts nonce={nonce} />
         <Providers>
           <LocaleProvider locale="zh">
             <SiteChrome locale="zh" productPriority={productPriority}>{children}</SiteChrome>

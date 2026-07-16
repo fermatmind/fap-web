@@ -148,7 +148,7 @@ function buildRuntimeSeoConversionPayload(
   });
 }
 
-export function trackLandingPageView(): void {
+export function trackLandingPageView(properties: AnalyticsProperties = {}): void {
   if (!ANALYTICS_ENABLED || !isBrowser()) return;
   if (!shouldAllowBrowserAnalyticsRuntime({ analyticsEnabled: ANALYTICS_ENABLED }).allowed) return;
   if (!hasAnalyticsConsent()) return;
@@ -165,8 +165,9 @@ export function trackLandingPageView(): void {
   }
 
   trackEvent(TRACKING_EVENTS.LANDING_PV, {
+    ...properties,
     url: currentPath,
-    page_type: inferPageType(currentPath, {}),
+    page_type: inferPageType(currentPath, properties),
   });
 }
 

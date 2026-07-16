@@ -45864,5 +45864,71 @@
       {"at": "2026-07-16T08:07:08Z", "status": "ready_to_merge", "summary": "Head f98122338739ddb96d8cde24c8482106998cd194 passed build, contracts, both personality freeze checks, and all CodeQL/security gates after all four P2 repairs. PR #1775 is CLEAN/MERGEABLE, exact scope remains eight allowlisted files, and all actionable review threads are resolved. This ledger-only ready head must rerun required checks before squash merge."}
     ],
     "updated_at": "2026-07-16T08:07:08Z"
+  },
+  "ANALYTICS-RUNTIME-RESTORE-01": {
+    "id": "ANALYTICS-RUNTIME-RESTORE-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/analytics-runtime-restore-01",
+    "title": "ANALYTICS-RUNTIME-RESTORE-01: fix(analytics): restore CSP-safe collection",
+    "depends_on": [],
+    "status": "local_checks_passed",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The explicit analytics observability /goal supplied this exact id, title, branch, scope, dependency, validation, and end-to-end PR authorization."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "PR1 has no dependency and started from clean fap-web origin/main d92bd5caf2b7d69cf7724ae78d4731c137dd92e1."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "Node 24 focused analytics, CSP, consent, deploy, runtime-smoke, SEO conversion dedupe, and Providers regressions passed 7 files / 37 tests."
+      },
+      "runtime_smoke": {
+        "status": "pass",
+        "evidence": "The local Playwright fixture probe returned healthy with response/bootstrap/dynamic nonce agreement, distinct nonces across two HTML requests, GA/Baidu/first-party attempts intercepted and aborted, zero CSP script blocking errors, and private-route suppression."
+      },
+      "lint": {"status": "pass", "evidence": "pnpm lint passed on Node 24.14.0 with pnpm 10.28.1."},
+      "lint_spacing": {"status": "pass", "evidence": "pnpm lint:spacing passed with 121 known occurrences and 79 locked signatures."},
+      "typecheck": {"status": "pass", "evidence": "pnpm typecheck passed after the focused test render call was made type-safe."},
+      "contract_suite": {"status": "pass", "evidence": "pnpm test:contract passed all four shards: 754 files / 4340 tests. Seven generated SEO/MBTI test side effects were restored to HEAD and excluded from scope."},
+      "build": {"status": "pass", "evidence": "NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed on Node 24.14.0 and generated 206/206 static pages; nonce-reading layouts remain request-rendered."},
+      "metadata_and_scope": {"status": "pass", "evidence": "Manifest and deploy workflow YAML, state/package JSON, git diff --check, and exact 16-path allowlist validation passed. Secret/identifier review found only explicit synthetic fixture/test identifiers and no credential, private key, real analytics ID, token, or private URL."},
+      "local_validation": {"status": "pass", "evidence": "All PR1 manifest local gates passed; no deployment, CMS, database, secret, or external telemetry write occurred."},
+      "github_required_checks": {"status": "pending", "evidence": null}
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": true,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-16T12:30:47Z",
+        "status": "in_progress",
+        "summary": "Synced the clean main worktree to origin/main, created the exact scoped branch in a new dedicated worktree, verified no matching local/remote branch or PR exists, and started only the nonce, first-consent pageview, contract, and one-shot write-aborting browser smoke scope."
+      },
+      {
+        "at": "2026-07-16T12:48:44Z",
+        "status": "local_checks_passed",
+        "summary": "Completed PR1 implementation and all local gates: focused 7 files / 37 tests, healthy write-aborting Playwright fixture smoke, lint, spacing, typecheck, full contracts 754 files / 4340 tests, production-parameter build 206/206 pages, YAML/JSON, diff, secret review, and exact 16-path scope validation. No deployment or external telemetry write occurred."
+      }
+    ],
+    "updated_at": "2026-07-16T12:48:44Z"
   }
 }
