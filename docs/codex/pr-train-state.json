@@ -46013,7 +46013,7 @@
     "branch": "codex/analytics-runtime-monitor-02",
     "title": "ANALYTICS-RUNTIME-MONITOR-02: feat(analytics): monitor browser collection health",
     "depends_on": ["ANALYTICS-RUNTIME-RESTORE-01"],
-    "status": "github_checks_pending",
+    "status": "local_repair_passed_pending_push",
     "commit_sha": "6f21f0696a6ad6ea577116ed46ef442b63fc5778",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1778",
     "checks": {
@@ -46031,11 +46031,11 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "Node 24 focused monitor, production deploy guard, and workflow action-ref integrity suite passed 3 files / 11 tests. The monitor contract executed the real PR1 Playwright fixture for verified-success and unknown-failure paths, asserted exit codes, telemetry-write abortion, provenance fields, and identifier/token/cookie/private-URL/markup redaction."
+        "evidence": "Node 24 focused monitor, production deploy guard, and workflow action-ref integrity suite passed 3 files / 11 tests after the CI repair. The monitor contract executed the real PR1 Playwright fixture for verified-success and unknown-failure paths, asserted exit codes, telemetry-write abortion, approved-SHA artifact provenance, and redaction. An empty PLAYWRIGHT_BROWSERS_PATH simulation passed the three structural/security cases and explicitly skipped only the two real-browser integrations; the workflow contract requires its production Chromium install step."
       },
       "workflow_validation": {
         "status": "pass",
-        "evidence": "actionlint and Ruby YAML parsing passed. The workflow has fixed production target, 15-minute schedule, input-free manual dispatch, 10-minute timeout, concurrency guard, contents/deployments read-only permissions, pinned actions, successful deployment lookup, always-run summary/artifact steps, and no issue or external alert writes."
+        "evidence": "actionlint and Ruby YAML parsing passed. The workflow has fixed production target, 15-minute schedule, input-free manual dispatch, 10-minute timeout, concurrency guard, contents/deployments/actions read-only permissions, pinned actions, latest-successful-deployment lookup, approved deploy SHA recovery from the immutable runtime-smoke artifact name, main-ancestry validation, always-run summary/artifact steps, and no issue or external alert writes."
       },
       "lint_typecheck": {
         "status": "pass",
@@ -46043,7 +46043,7 @@
       },
       "contract_suite": {
         "status": "pass",
-        "evidence": "pnpm test:contract passed all four shards: 755 files / 4348 tests. Seven tracked SEO/MBTI generator side effects were restored to HEAD and excluded from scope."
+        "evidence": "Node 24 pnpm test:contract passed all four shards after the repair: 755 files / 4348 tests, including both real-browser monitor cases. Seven tracked SEO/MBTI generator side effects were restored to HEAD and excluded from scope."
       },
       "build": {
         "status": "pass",
@@ -46058,8 +46058,8 @@
         "evidence": "All PR2 manifest local gates passed. No workflow dispatch, scheduled run, deployment, production browser probe, external telemetry write, secret mutation, backend mutation, CMS mutation, or production data mutation occurred."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1778 opened from the exact seven-path branch; required GitHub checks and review feedback are pending."
+        "status": "retry_pending",
+        "evidence": "Run 29503598555 passed build, both freeze suites, CodeQL analysis, and no-new-code-scanning-alerts but failed contracts because generic CI has no Playwright Chromium binary. The allowlisted repair is locally green and also fixes the review finding by no longer trusting environment deployment.sha for manual recovery deploys. A new final-head required-check run is pending after push."
       }
     },
     "scope_validation": {
@@ -46098,8 +46098,18 @@
         "at": "2026-07-16T13:45:00Z",
         "status": "github_checks_pending",
         "summary": "Pushed the exact PR2 branch and opened PR #1778 with required what, why, validation, deferred, repository-rule-impact, production, and privacy sections. Required/security checks and actionable review feedback must pass before merge; no schedule or deploy was triggered."
+      },
+      {
+        "at": "2026-07-16T13:53:00Z",
+        "status": "github_checks_failed_repairing",
+        "summary": "Final-head GitHub build, both freeze suites, and CodeQL checks passed; contracts run 29503598555 failed only the two real-browser monitor cases because the generic CI job lacks a Playwright Chromium binary. Reproduced by pointing PLAYWRIGHT_BROWSERS_PATH at an empty directory. Applying an allowlisted contract-only environment gate while statically preserving the production workflow Chromium install requirement; no PR1 probe or CI workflow change."
+      },
+      {
+        "at": "2026-07-16T14:03:49Z",
+        "status": "local_repair_passed_pending_push",
+        "summary": "Completed the same-scope CI and P2 review repair. Real-browser focused checks passed 3 files / 11 tests; no-browser simulation passed 3 structural cases with 2 explicit browser skips; full contracts passed 755 files / 4348 tests; lint, spacing, typecheck, actionlint, YAML/JSON, and generated-side-effect cleanup passed. Production SHA provenance now reads the deploy policy's immutable runtime-smoke artifact name and validates main ancestry, so manual rollback deploys cannot be mislabeled from environment deployment.sha."
       }
     ],
-    "updated_at": "2026-07-16T13:45:00Z"
+    "updated_at": "2026-07-16T14:03:49Z"
   }
 }

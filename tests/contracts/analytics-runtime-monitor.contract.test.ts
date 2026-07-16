@@ -1,8 +1,9 @@
 import { spawn, spawnSync } from "node:child_process";
 import { createServer } from "node:net";
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
+import { chromium } from "@playwright/test";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 
 const workflow = readFileSync(".github/workflows/analytics-runtime-monitor.yml", "utf8");
@@ -15,6 +16,16 @@ const productionSha = "b".repeat(40);
 const tempDirectory = mkdtempSync(path.join(tmpdir(), "analytics-runtime-monitor-"));
 let fixture: ReturnType<typeof spawn> | undefined;
 let fixtureOrigin = "";
+
+function hasInstalledChromium(): boolean {
+  try {
+    return existsSync(chromium.executablePath());
+  } catch {
+    return false;
+  }
+}
+
+const browserIntegrationAvailable = hasInstalledChromium();
 
 async function reservePort(): Promise<number> {
   return new Promise((resolve, reject) => {
@@ -32,6 +43,7 @@ async function reservePort(): Promise<number> {
 }
 
 async function startFixture(): Promise<void> {
+  if (!browserIntegrationAvailable) return;
   const port = await reservePort();
   fixtureOrigin = `http://127.0.0.1:${port}`;
   fixture = spawn(process.execPath, ["scripts/analytics/runtime-smoke-fixture.mjs", "--port", String(port)], {
@@ -82,21 +94,28 @@ describe("analytics runtime monitor contract", () => {
     expect(workflow).toContain('cron: "*/15 * * * *"');
     expect(workflow).toContain("workflow_dispatch:");
     expect(workflow).not.toContain("inputs:");
+    expect(workflow).toContain("actions: read");
     expect(workflow).toContain("contents: read");
     expect(workflow).toContain("deployments: read");
     expect(workflow).not.toContain("issues: write");
     expect(workflow).toContain("timeout-minutes: 10");
     expect(workflow).toContain("group: analytics-runtime-monitor-production");
     expect(workflow).toContain("ANALYTICS_RUNTIME_MONITOR_TARGET: https://fermatmind.com");
+    expect(workflow).toContain("pnpm exec playwright install --with-deps chromium");
     expect(workflow).not.toContain("${{ inputs.");
   });
 
-  it("queries a real successful production deployment instead of relabeling the workflow SHA", () => {
+  it("resolves the approved production SHA without trusting the environment deployment ref", () => {
     expect(workflow).toContain("github.rest.repos.listDeployments");
     expect(workflow).toContain("github.rest.repos.listDeploymentStatuses");
     expect(workflow).toContain("status.state === 'success'");
-    expect(workflow).toContain("sha_source: 'github_deployments_api'");
-    expect(workflow).toContain("production_deployment_lookup_failed");
+    expect(workflow).toContain("github.rest.actions.listWorkflowRunArtifacts");
+    expect(workflow).toContain("/^analytics-runtime-smoke-([0-9a-f]{40})$/");
+    expect(workflow).toContain("github.rest.repos.compareCommitsWithBasehead");
+    expect(workflow).toContain("sha_source: 'github_deployment_artifact'");
+    expect(workflow).toContain("production_deployment_provenance_lookup_failed");
+    expect(workflow).not.toContain("production_deployment_sha = sha");
+    expect(workflow).not.toContain("production_deployment_sha = deployment.sha");
     expect(workflow).not.toContain("production_deployment_sha: context.sha");
     expect(workflow).not.toContain("production_deployment_sha: '${{ github.sha }}'");
   });
@@ -112,14 +131,14 @@ describe("analytics runtime monitor contract", () => {
     expect(packageJson.scripts?.["analytics:runtime-monitor"]).toBe("node scripts/analytics/monitor-runtime.mjs");
   });
 
-  it("returns healthy with verified deployment provenance while preserving probe assertions", () => {
+  it.skipIf(!browserIntegrationAvailable)("returns healthy with verified deployment provenance while preserving probe assertions", () => {
     const { result, report } = runMonitor("healthy", {
       schema_version: "1.0",
       deployment_id: 123456,
       environment: "production",
       queried_at: "2026-07-16T00:00:00.000Z",
       production_deployment_sha: productionSha,
-      sha_source: "github_deployments_api",
+      sha_source: "github_deployment_artifact",
       sha_status: "verified",
       sha_reason: null,
     });
@@ -132,7 +151,7 @@ describe("analytics runtime monitor contract", () => {
       production_deployment_sha: productionSha,
       production_deployment_id: 123456,
       production_deployment_environment: "production",
-      sha_source: "github_deployments_api",
+      sha_source: "github_deployment_artifact",
       sha_status: "verified",
       csp_nonce_present: true,
       bootstrap_header_nonce_match: true,
@@ -147,7 +166,7 @@ describe("analytics runtime monitor contract", () => {
     });
   });
 
-  it("fails closed with unknown provenance and redacts identifiers, tokens, and query values", () => {
+  it.skipIf(!browserIntegrationAvailable)("fails closed with unknown provenance and redacts identifiers, tokens, and query values", () => {
     const { result, report, serialized } = runMonitor("unknown", {
       schema_version: "1.0",
       deployment_id: null,

@@ -9,7 +9,7 @@ import { fileURLToPath } from "node:url";
 const SCHEMA_VERSION = "1.0";
 const PRODUCTION_BASE_URL = "https://fermatmind.com";
 const PRODUCTION_ENVIRONMENT = "production";
-const DEPLOYMENT_SHA_SOURCE = "github_deployments_api";
+const DEPLOYMENT_SHA_SOURCE = "github_deployment_artifact";
 const SHA_PATTERN = /^[0-9a-f]{40}$/;
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const RUNTIME_SMOKE_SCRIPT = path.join(SCRIPT_DIR, "runtime-smoke.mjs");

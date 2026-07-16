@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
   deployments: read
 
@@ -50,7 +51,7 @@ jobs:
               environment: 'production',
               queried_at: queriedAt,
               production_deployment_sha: 'unknown',
-              sha_source: 'github_deployments_api',
+              sha_source: 'github_deployment_artifact',
               sha_status: 'unknown',
               sha_reason: 'no_successful_production_deployment',
             };
@@ -61,25 +62,64 @@ jobs:
                 environment: 'production',
                 per_page: 30,
               });
+              let latestSuccessfulDeployment = null;
               for (const deployment of deployments) {
-                const sha = String(deployment.sha || '').toLowerCase();
-                if (deployment.environment !== 'production' || !/^[0-9a-f]{40}$/.test(sha)) continue;
+                if (deployment.environment !== 'production') continue;
                 const { data: statuses } = await github.rest.repos.listDeploymentStatuses({
                   owner,
                   repo,
                   deployment_id: deployment.id,
                   per_page: 100,
                 });
-                if (!statuses.some((status) => status.state === 'success')) continue;
-                metadata.deployment_id = deployment.id;
-                metadata.production_deployment_sha = sha;
-                metadata.sha_status = 'verified';
-                metadata.sha_reason = null;
+                const successStatus = statuses.find((status) => status.state === 'success');
+                if (!successStatus) continue;
+                latestSuccessfulDeployment = { deployment, successStatus };
                 break;
               }
+
+              if (latestSuccessfulDeployment) {
+                metadata.deployment_id = latestSuccessfulDeployment.deployment.id;
+                const logUrl = latestSuccessfulDeployment.successStatus.log_url
+                  || latestSuccessfulDeployment.successStatus.target_url
+                  || '';
+                const runId = String(logUrl).match(/\/actions\/runs\/(\d+)(?:\/|$)/)?.[1];
+                if (!runId) {
+                  metadata.sha_reason = 'successful_deployment_workflow_run_unknown';
+                } else {
+                  const { data: artifactPage } = await github.rest.actions.listWorkflowRunArtifacts({
+                    owner,
+                    repo,
+                    run_id: Number(runId),
+                    per_page: 100,
+                  });
+                  const approvedShas = [
+                    ...new Set(artifactPage.artifacts
+                      .filter((artifact) => !artifact.expired)
+                      .map((artifact) => artifact.name.match(/^analytics-runtime-smoke-([0-9a-f]{40})$/)?.[1])
+                      .filter(Boolean)),
+                  ];
+                  if (approvedShas.length !== 1) {
+                    metadata.sha_reason = 'successful_deployment_approved_sha_artifact_unavailable';
+                  } else {
+                    const approvedSha = approvedShas[0];
+                    const comparison = await github.rest.repos.compareCommitsWithBasehead({
+                      owner,
+                      repo,
+                      basehead: `${approvedSha}...main`,
+                    });
+                    if (!['ahead', 'identical'].includes(comparison.data.status)) {
+                      metadata.sha_reason = 'successful_deployment_approved_sha_not_on_main';
+                    } else {
+                      metadata.production_deployment_sha = approvedSha;
+                      metadata.sha_status = 'verified';
+                      metadata.sha_reason = null;
+                    }
+                  }
+                }
+              }
             } catch {
-              metadata.sha_reason = 'production_deployment_lookup_failed';
-              core.warning('Production deployment lookup failed; monitor will report unknown provenance.');
+              metadata.sha_reason = 'production_deployment_provenance_lookup_failed';
+              core.warning('Production deployment provenance lookup failed; monitor will report unknown provenance.');
             }
             const metadataPath = path.join(process.env.RUNNER_TEMP, 'analytics-runtime-monitor', 'deployment.json');
             fs.mkdirSync(path.dirname(metadataPath), { recursive: true });
