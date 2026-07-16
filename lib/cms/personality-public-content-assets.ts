@@ -835,7 +835,10 @@ export async function getEnneagramPublicContentAsset(
       const rawContractVersion = asString(
         asRecord(rawMatch).contract_version ?? asRecord(rawMatch).contractVersion
       );
-      if (rawContractVersion && rawContractVersion !== "personality_public_asset.v1") {
+      const shouldRequestAuthorityDetail =
+        rawContractVersion === "personality_public_asset.v1" ||
+        (!rawContractVersion && (normalized.indexEligible || normalized.schemaRuntimeEligible));
+      if (!shouldRequestAuthorityDetail) {
         return normalized;
       }
 
