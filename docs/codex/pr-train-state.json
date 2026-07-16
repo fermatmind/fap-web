@@ -46013,7 +46013,7 @@
     "branch": "codex/analytics-runtime-monitor-02",
     "title": "ANALYTICS-RUNTIME-MONITOR-02: feat(analytics): monitor browser collection health",
     "depends_on": ["ANALYTICS-RUNTIME-RESTORE-01"],
-    "status": "local_repair_passed_pending_push",
+    "status": "ready_to_merge",
     "commit_sha": "6f21f0696a6ad6ea577116ed46ef442b63fc5778",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1778",
     "checks": {
@@ -46058,14 +46058,14 @@
         "evidence": "All PR2 manifest local gates passed. No workflow dispatch, scheduled run, deployment, production browser probe, external telemetry write, secret mutation, backend mutation, CMS mutation, or production data mutation occurred."
       },
       "github_required_checks": {
-        "status": "retry_pending",
-        "evidence": "Run 29503598555 passed build, both freeze suites, CodeQL analysis, and no-new-code-scanning-alerts but failed contracts because generic CI has no Playwright Chromium binary. The allowlisted repair is locally green and also fixes the review finding by no longer trusting environment deployment.sha for manual recovery deploys. A new final-head required-check run is pending after push."
+        "status": "pass",
+        "evidence": "Final implementation head 6e54dc81 passed build, contracts, both freeze suites, CodeQL analysis, CodeQL result, and no-new-code-scanning-alerts. GitHub reported CLEAN/MERGEABLE with exact seven-path scope; the only P2 review thread was fixed, replied to, and resolved. This ledger-only ready-to-merge head must rerun the same required checks before merge."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -46108,8 +46108,13 @@
         "at": "2026-07-16T14:03:49Z",
         "status": "local_repair_passed_pending_push",
         "summary": "Completed the same-scope CI and P2 review repair. Real-browser focused checks passed 3 files / 11 tests; no-browser simulation passed 3 structural cases with 2 explicit browser skips; full contracts passed 755 files / 4348 tests; lint, spacing, typecheck, actionlint, YAML/JSON, and generated-side-effect cleanup passed. Production SHA provenance now reads the deploy policy's immutable runtime-smoke artifact name and validates main ancestry, so manual rollback deploys cannot be mislabeled from environment deployment.sha."
+      },
+      {
+        "at": "2026-07-16T14:10:56Z",
+        "status": "ready_to_merge",
+        "summary": "Final implementation head 6e54dc81 passed all seven required/security checks. GitHub reported CLEAN/MERGEABLE, the exact seven allowed paths were unchanged, the worktree was clean, and the only P2 thread was fixed and resolved. Recording ready_to_merge before the ledger-only final head reruns required checks."
       }
     ],
-    "updated_at": "2026-07-16T14:03:49Z"
+    "updated_at": "2026-07-16T14:10:56Z"
   }
 }

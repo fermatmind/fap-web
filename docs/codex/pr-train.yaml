@@ -26590,7 +26590,7 @@ prs:
     branch: codex/analytics-runtime-monitor-02
     title: "ANALYTICS-RUNTIME-MONITOR-02: feat(analytics): monitor browser collection health"
     depends_on: [ANALYTICS-RUNTIME-RESTORE-01]
-    status: in_progress
+    status: ready_to_merge
     risk: L1_observability
     scope:
       - Reuse the PR1 write-aborting browser probe from a dedicated fixed-target production monitor scheduled every 15 minutes and available through input-free workflow dispatch.
