@@ -41,11 +41,6 @@ export function clearAnalyticsQueue(): void {
 export function initAnalytics(): void {
   if (!isBrowser()) return;
   if (ANALYTICS_ENABLED && shouldAllowBrowserAnalyticsRuntime({ analyticsEnabled: ANALYTICS_ENABLED }).allowed && hasAnalyticsConsent()) {
-    captureAttributionFromLocation({
-      pathname: window.location.pathname,
-      search: window.location.search,
-      referrer: document.referrer,
-    });
     trackLandingPageView();
   }
   if (!ANALYTICS_ENABLED) {
@@ -148,13 +143,19 @@ function buildRuntimeSeoConversionPayload(
   });
 }
 
-export function trackLandingPageView(): void {
+export function trackLandingPageView(properties: AnalyticsProperties = {}): void {
   if (!ANALYTICS_ENABLED || !isBrowser()) return;
   if (!shouldAllowBrowserAnalyticsRuntime({ analyticsEnabled: ANALYTICS_ENABLED }).allowed) return;
   if (!hasAnalyticsConsent()) return;
 
   const currentPath = currentBrowserPath();
   if (shouldHardStopPublicAnalyticsForUrl(currentPath)) return;
+
+  captureAttributionFromLocation({
+    pathname: window.location.pathname,
+    search: window.location.search,
+    referrer: document.referrer,
+  });
 
   const dedupeKey = `${LANDING_PV_STORAGE_PREFIX}${currentPath}`;
   try {
@@ -165,8 +166,9 @@ export function trackLandingPageView(): void {
   }
 
   trackEvent(TRACKING_EVENTS.LANDING_PV, {
+    ...properties,
     url: currentPath,
-    page_type: inferPageType(currentPath, {}),
+    page_type: inferPageType(currentPath, properties),
   });
 }
 

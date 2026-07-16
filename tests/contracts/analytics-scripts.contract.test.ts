@@ -1,6 +1,5 @@
 import { readFileSync } from "node:fs";
-import { describe, expect, it } from "vitest";
-import { createElement } from "react";
+import { describe, expect, it, vi } from "vitest";
 import { renderToStaticMarkup } from "react-dom/server";
 import {
   AnalyticsScripts,
@@ -28,7 +27,7 @@ describe("analytics scripts contract", () => {
     return value.split(needle).length - 1;
   }
 
-  function renderAnalyticsScripts(env: Record<string, string | undefined>) {
+  function renderAnalyticsScripts(env: Record<string, string | undefined>, nonce?: string) {
     process.env = {
       ...originalEnv,
       NEXT_PUBLIC_ANALYTICS_ENABLED: env.NEXT_PUBLIC_ANALYTICS_ENABLED,
@@ -38,7 +37,7 @@ describe("analytics scripts contract", () => {
     };
 
     try {
-      return renderToStaticMarkup(createElement(AnalyticsScripts));
+      return renderToStaticMarkup(AnalyticsScripts({ nonce }));
     } finally {
       process.env = originalEnv;
     }
@@ -158,6 +157,63 @@ describe("analytics scripts contract", () => {
     expect(html).not.toContain("hm.baidu.com");
     expect(html).not.toContain("_hmt");
     expect(html).not.toContain("window.gtag");
+  });
+
+  it("propagates the request nonce from the bootstrap into dynamically-created provider scripts", () => {
+    const nonce = "request-nonce-1234567890";
+    const html = renderAnalyticsScripts({
+      NEXT_PUBLIC_ANALYTICS_ENABLED: "true",
+      NEXT_PUBLIC_GA_MEASUREMENT_ID: "G-TEST1234",
+      NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: "",
+      NEXT_PUBLIC_BAIDU_TONGJI_ID: "0123456789abcdef",
+    }, nonce);
+    const script = buildTestBootstrapScript({
+      gaMeasurementId: "G-TEST1234",
+      baiduTongjiId: "0123456789abcdef",
+    });
+
+    expect(html).toContain(`nonce="${nonce}"`);
+    expect(script).toContain('var scriptNonce = document.currentScript?.nonce || "";');
+    expect(script).toContain("if (scriptNonce) script.nonce = scriptNonce;");
+    expect(script.indexOf("script.nonce = scriptNonce")).toBeLessThan(script.indexOf("document.head.appendChild(script)"));
+  });
+
+  it("captures landing attribution before a direct canonical page view claims the session dedupe key", async () => {
+    window.localStorage.setItem(
+      "fm_consent_v1",
+      JSON.stringify({ analytics: "granted", updatedAt: "2026-07-16T00:00:00.000Z" })
+    );
+    window.history.pushState({}, "", "/zh/articles/analytics-runtime?utm_source=google");
+    const fetchMock = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true })));
+    vi.stubGlobal("fetch", fetchMock);
+    vi.stubEnv("NEXT_PUBLIC_ANALYTICS_ENABLED", "true");
+    vi.resetModules();
+    vi.doMock("@/lib/tracking/internalTraffic", () => ({
+      shouldAllowBrowserAnalyticsRuntime: () => ({ allowed: true, reason: "allowed" }),
+    }));
+
+    try {
+      const { initAnalytics, trackLandingPageView } = await import("@/lib/analytics");
+      trackLandingPageView({ locale: "zh" });
+      initAnalytics();
+
+      await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1));
+      const body = JSON.parse(String(fetchMock.mock.calls[0]?.[1]?.body ?? "{}")) as {
+        payload?: Record<string, unknown>;
+      };
+      expect(body.payload).toMatchObject({
+        utm_source: "google",
+        source_url: "/zh/articles/analytics-runtime?utm_source=google",
+      });
+    } finally {
+      window.localStorage.clear();
+      window.sessionStorage.clear();
+      window.history.pushState({}, "", "/");
+      vi.unstubAllEnvs();
+      vi.unstubAllGlobals();
+      vi.doUnmock("@/lib/tracking/internalTraffic");
+      vi.resetModules();
+    }
   });
 
   it("does not render the SSR bootstrap when analytics is disabled or IDs are missing", () => {
@@ -394,10 +450,13 @@ describe("analytics scripts contract", () => {
     const localizedLayout = readFileSync("app/(localized)/[locale]/layout.tsx", "utf8");
 
     expect(rootLayout).toContain('from "@/components/analytics/AnalyticsScripts"');
-    expect(rootLayout).toContain("<AnalyticsScripts />");
+    expect(rootLayout).toContain('import { headers } from "next/headers"');
+    expect(rootLayout).toContain('const nonce = (await headers()).get("x-nonce") ?? undefined;');
+    expect(rootLayout).toContain("<AnalyticsScripts nonce={nonce} />");
     expect(localizedLayout).toContain('from "@/components/analytics/AnalyticsScripts"');
     expect(localizedLayout).toContain('PRIVATE_ANALYTICS_SUPPRESSION_HEADER');
-    expect(localizedLayout).toContain('suppressServerBootstrap={suppressAnalyticsBootstrap}');
+    expect(localizedLayout).toContain('const nonce = requestHeaders.get("x-nonce") ?? undefined;');
+    expect(localizedLayout).toContain('nonce={nonce} suppressServerBootstrap={suppressAnalyticsBootstrap}');
   });
 
   it("maps funnel events to GA4 key-event taxonomy names", () => {

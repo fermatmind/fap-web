@@ -2,8 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { trackEvent, type AnalyticsProperties } from "@/lib/analytics";
+import { trackEvent, trackLandingPageView, type AnalyticsProperties } from "@/lib/analytics";
 import { hasAnalyticsConsent } from "@/lib/consent/store";
+
+const CANONICAL_LANDING_PAGE_VIEW_EVENTS = new Set(["landing_pv", "view_landing", "landing_view"]);
 
 export function useAnalyticsPageView(
   eventName: string,
@@ -22,12 +24,17 @@ export function useAnalyticsPageView(
   useEffect(() => {
     if (!enabled || !eventName) return;
 
-    const pageViewKey = `${eventName}:${trackingKey ?? pathname}`;
+    const canonicalLandingPageView = CANONICAL_LANDING_PAGE_VIEW_EVENTS.has(eventName);
+    const pageViewKey = `${canonicalLandingPageView ? "landing_pv" : eventName}:${trackingKey ?? pathname}`;
     const trackPageViewOnce = () => {
       if (!hasAnalyticsConsent()) return;
       if (trackedKeysRef.current.has(pageViewKey)) return;
       trackedKeysRef.current.add(pageViewKey);
-      trackEvent(eventName, propertiesRef.current);
+      if (canonicalLandingPageView) {
+        trackLandingPageView(propertiesRef.current);
+      } else {
+        trackEvent(eventName, propertiesRef.current);
+      }
     };
 
     const handleConsentUpdated = (event: Event) => {

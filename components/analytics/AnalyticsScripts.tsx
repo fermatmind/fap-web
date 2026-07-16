@@ -13,6 +13,7 @@ type AnalyticsScriptConfig = {
 };
 
 export type AnalyticsScriptsProps = {
+  nonce?: string;
   suppressServerBootstrap?: boolean;
 };
 
@@ -93,6 +94,7 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
   var blockedRouteSegments = ${blockedRouteSegments};
   var sensitiveQueryKeys = ${sensitiveQueryKeys};
   var consentKey = "fm_consent_v1";
+  var scriptNonce = document.currentScript?.nonce || "";
   var loaded = false;
 
   function hasAnalyticsConsent() {
@@ -175,6 +177,7 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
     script.id = id;
     script.async = true;
     script.src = src;
+    if (scriptNonce) script.nonce = scriptNonce;
     document.head.appendChild(script);
   }
 
@@ -218,6 +221,7 @@ export function buildAnalyticsBootstrapScript(config: AnalyticsScriptConfig): st
 }
 
 export function AnalyticsScripts({
+  nonce,
   suppressServerBootstrap = false,
 }: AnalyticsScriptsProps = {}) {
   const config = getAnalyticsScriptConfig();
@@ -233,6 +237,7 @@ export function AnalyticsScripts({
     <script
       id="fm-analytics-bootstrap"
       data-analytics-bootstrap="true"
+      nonce={nonce}
       suppressHydrationWarning
       dangerouslySetInnerHTML={{ __html: buildAnalyticsBootstrapScript(config) }}
     />
