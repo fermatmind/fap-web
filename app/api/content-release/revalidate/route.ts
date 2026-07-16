@@ -1,6 +1,10 @@
 import { revalidatePath, revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import { articleDetailCacheTag, articleSeoCacheTag } from "@/lib/cms/articleCacheTags";
+import {
+  buildEnneagramPublicContentPath,
+  ENNEAGRAM_PUBLIC_ROUTE_ENTRIES,
+} from "@/lib/personality/enneagramPublicRoutes";
 import { clearLlmsFullResponseCache } from "@/lib/seo/llmsFullResponseCache";
 import { authenticateContentReleaseRevalidation } from "@/lib/security/contentReleaseRevalidationAuth";
 
@@ -34,6 +38,12 @@ const PERSONALITY_CONTENT_TYPES = new Set([
   "mbti64_personality_profile_comparison",
 ]);
 const CAREER_JOB_CONTENT_TYPES = new Set(["career_job", "career_job_detail"]);
+const ENNEAGRAM_PUBLIC_REVALIDATION_PATHS = new Set(
+  ENNEAGRAM_PUBLIC_ROUTE_ENTRIES.flatMap((entry) => [
+    buildEnneagramPublicContentPath("en", entry),
+    buildEnneagramPublicContentPath("zh", entry),
+  ])
+);
 
 function normalizeLocaleToSegment(locale: string | null | undefined): "en" | "zh" {
   return String(locale ?? "").toLowerCase().startsWith("zh") ? "zh" : "en";
@@ -119,6 +129,10 @@ function isAllowedPublicPath(path: string): boolean {
   }
 
   if (path === "/llms.txt" || path === "/llms-full.txt") {
+    return true;
+  }
+
+  if (ENNEAGRAM_PUBLIC_REVALIDATION_PATHS.has(path)) {
     return true;
   }
 
