@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BookOpen, ShieldCheck } from "lucide-react";
 import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
@@ -43,11 +42,11 @@ function frameworkCta(asset: PersonalityPublicContentAsset, locale: Locale): { h
 
 function SectionBody({ section, locale }: { section: PersonalityPublicContentSection; locale: Locale }) {
   if (section.bodyHtml.trim()) {
-    return <SanitizedCmsHtml className="fm-content-page-prose" html={section.bodyHtml} locale={locale} />;
+    return <SanitizedCmsHtml allowImages={false} className="fm-content-page-prose" html={section.bodyHtml} locale={locale} />;
   }
 
   if (section.bodyMd.trim()) {
-    return <div className="fm-content-page-prose">{renderSimpleMarkdown(section.bodyMd, { locale, minimumHeadingLevel: 3 })}</div>;
+    return <div className="fm-content-page-prose">{renderSimpleMarkdown(section.bodyMd, { allowImages: false, locale, minimumHeadingLevel: 3 })}</div>;
   }
 
   return null;
@@ -84,9 +83,6 @@ export function PublicContentAssetRenderer({
   const visibleEvidence = authority?.visibleEvidence.eligible ? authority.visibleEvidence : null;
   const authorityLimitations = authority?.visibleEvidence.limitations ?? [];
   const editorial = authority?.editorialAuthority;
-  const authorityHero = authority?.mediaAuthority.hero;
-  const heroImageUrl = authorityHero?.url ?? asset.media.imageUrl;
-  const heroImageAlt = authorityHero?.alt ?? asset.media.alt ?? asset.title;
   const sourceTitles = new Map(
     visibleEvidence?.sources.map((source) => [source.id, source.title]) ?? []
   );
@@ -102,11 +98,7 @@ export function PublicContentAssetRenderer({
   return (
     <main className="bg-[var(--fm-bg)] text-[var(--fm-text)]" data-testid={`${asset.framework}-public-content-page`}>
       <section className="border-b border-[var(--fm-border)] bg-[var(--fm-surface)]">
-        <div
-          className={`mx-auto max-w-6xl gap-10 px-5 py-14 md:px-8 lg:py-18 ${
-            heroImageUrl ? "grid lg:grid-cols-[minmax(0,1fr)_320px] lg:items-center" : "block"
-          }`}
-        >
+        <div className="mx-auto max-w-6xl px-5 py-14 md:px-8 lg:py-18">
           <div className="space-y-7">
             <div className="inline-flex items-center gap-2 rounded-full border border-[var(--fm-border)] bg-white px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--fm-text-muted)]">
               <BookOpen className="h-3.5 w-3.5" aria-hidden="true" />
@@ -135,20 +127,6 @@ export function PublicContentAssetRenderer({
             </div>
           </div>
 
-          {heroImageUrl ? (
-            <aside
-              className="rounded-2xl border border-[var(--fm-border)] bg-white p-5 shadow-[var(--fm-shadow-sm)]"
-              data-testid="public-content-hero-media"
-            >
-              <Image
-                src={heroImageUrl}
-                alt={heroImageAlt}
-                width={640}
-                height={420}
-                className="h-auto w-full rounded-xl object-cover"
-              />
-            </aside>
-          ) : null}
         </div>
       </section>
 
@@ -171,31 +149,6 @@ export function PublicContentAssetRenderer({
               </div>
             </section>
           ))}
-
-          {authority?.mediaAuthority.inline.some((media) => media.url) ? (
-            <section
-              className="grid gap-5 sm:grid-cols-2"
-              aria-label={locale === "zh" ? "内容配图" : "Content media"}
-              data-testid="authority-inline-media"
-            >
-              {authority.mediaAuthority.inline.map((media, index) =>
-                media.url ? (
-                  <figure
-                    key={`${media.mediaAssetId ?? media.url}-${index}`}
-                    className="m-0 overflow-hidden rounded-2xl border border-[var(--fm-border)] bg-white shadow-[var(--fm-shadow-sm)]"
-                  >
-                    <Image
-                      src={media.url}
-                      alt={media.alt}
-                      width={960}
-                      height={640}
-                      className="h-auto w-full object-cover"
-                    />
-                  </figure>
-                ) : null
-              )}
-            </section>
-          ) : null}
 
           {visibleEvidence || authorityLimitations.length > 0 ? (
             <section

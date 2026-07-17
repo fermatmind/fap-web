@@ -173,6 +173,7 @@
 - Help, policy, company, brand, careers, about, charter, foundation, privacy, terms, refund, support, and similar static-content pages must be managed through backend `content_pages`.
 - Career guides, career jobs, career recommendations, personality profiles, topic pages, and their SEO/FAQ/sections must be managed through backend CMS/public APIs.
 - Mutable images used by editorial, marketing, social, article, landing page, and SEO surfaces must be uploaded to Media Library and referenced by CMS metadata or generated variants.
+- Big Five and Enneagram `PersonalityPublicContentAsset` pages are permanently text-only: the frontend must ignore legacy hero/inline/OG media fields, must not render section Markdown/HTML images, and must not invent image fallbacks. This exception does not apply to MBTI, tests, results, articles, topics, landing surfaces, or global Media Library assets.
 - Frontend may keep product code only: rendering components, interaction flows, scoring logic, payment/order flows, API adapters, icons, fonts, fixed brand assets, and non-operational game/product assets.
 - Do not introduce new MDX/content JSON/static public image assets for publishable content unless the change is explicitly a backend baseline importer fixture.
 - Do not add frontend fallback content for CMS-backed surfaces. Empty CMS responses should render an empty/error state, not local editorial copy.

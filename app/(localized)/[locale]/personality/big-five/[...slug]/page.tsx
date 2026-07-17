@@ -73,11 +73,6 @@ export async function generateMetadata({
     canonicalCandidate: asset.canonicalPath,
     title: asset.seo.title,
     description: asset.seo.description,
-    imagePath:
-      asset.authorityV2?.mediaAuthority.og?.url ??
-      asset.authorityV2?.mediaAuthority.hero?.url ??
-      asset.media.imageUrl ??
-      undefined,
     noindex: !shouldIndex,
     noindexFollow: robotsAllowsFollow(asset.robots),
     explicitIndexGate: {

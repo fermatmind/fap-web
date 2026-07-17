@@ -18,7 +18,6 @@ function asset(overrides: Partial<PersonalityPublicContentAsset> = {}): Personal
     canonicalPath: "/zh/personality/big-five",
     hreflang: { en: "/en/personality/big-five", "zh-CN": "/zh/personality/big-five" },
     faq: [],
-    media: { status: null, imageUrl: null, alt: null },
     schemaType: null,
     schemaRuntimeEligible: false,
     methodBoundary: null,

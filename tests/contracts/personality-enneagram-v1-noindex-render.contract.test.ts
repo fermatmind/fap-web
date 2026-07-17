@@ -385,6 +385,8 @@ describe("PERSONALITY-ENNEAGRAM-V1-NOINDEX-RENDER-01 contract", () => {
       en: "http://localhost:3000/en/personality/enneagram/centers/gut",
       "zh-CN": "http://localhost:3000/zh/personality/enneagram/centers/gut",
     });
+    expect(metadata.openGraph?.images).toBeUndefined();
+    expect(metadata.twitter?.images).toBeUndefined();
     expect(metadata.robots).toMatchObject({
       index: false,
       follow: true,

@@ -23,11 +23,6 @@ function asset(overrides: Partial<PersonalityPublicContentAsset> = {}): Personal
       "zh-CN": "/zh/personality/big-five",
     },
     faq: [],
-    media: {
-      status: "placeholder",
-      imageUrl: null,
-      alt: null,
-    },
     schemaType: null,
     schemaRuntimeEligible: false,
     methodBoundary: null,
