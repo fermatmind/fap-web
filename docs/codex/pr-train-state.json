@@ -45874,7 +45874,7 @@
     "title": "ENNEAGRAM-PUBLIC-AUTHORITY-V2-CACHE-REVALIDATION-WEB-22D: allow exact Enneagram public revalidation paths",
     "depends_on": ["ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21"],
     "status": "merged_and_cleaned",
-    "commit_sha": "97ceecb259e17386c26f8231fe0598fccb4b1fa3",
+    "commit_sha": "f6bc60ba70066ca04130cc5e55d950191d25742e",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1777",
     "checks": {
       "dependency": {"status": "pass", "evidence": "PR #1775 is MERGED at d92bd5caf2b7d69cf7724ae78d4731c137dd92e1; origin/main containment, local and remote branch absence, and focused route-registry revalidation are verified."},
