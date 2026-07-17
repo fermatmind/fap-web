@@ -45873,8 +45873,8 @@
     "branch": "codex/enneagram-public-authority-v2-cache-revalidation-web-22d",
     "title": "ENNEAGRAM-PUBLIC-AUTHORITY-V2-CACHE-REVALIDATION-WEB-22D: allow exact Enneagram public revalidation paths",
     "depends_on": ["ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21"],
-    "status": "ready_to_merge",
-    "commit_sha": "250bf5a093a4f32d8b9356f842777aecaa35e84c",
+    "status": "merged_and_cleaned",
+    "commit_sha": "f6bc60ba70066ca04130cc5e55d950191d25742e",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1777",
     "checks": {
       "dependency": {"status": "pass", "evidence": "PR #1775 is MERGED at d92bd5caf2b7d69cf7724ae78d4731c137dd92e1; origin/main containment, local and remote branch absence, and focused route-registry revalidation are verified."},
@@ -45885,13 +45885,15 @@
       "contract_suite": {"status": "pass", "evidence": "pnpm test:contract passed all four shards: 753 files / 4337 tests. Seven tracked artifact rewrites produced by historical contract generators were mechanically reverted to the clean pre-test state."},
       "build": {"status": "pass", "evidence": "Production-parameter Next.js build compiled, typechecked, and generated 206/206 static pages successfully."},
       "metadata_and_scope": {"status": "pass", "evidence": "Portable YAML and JSON parsing, git diff --check, and exact four-path scope validation pass; no renderer, metadata surface, content, media, fallback, sitemap/llms, CMS, deploy, or production file changed."},
-      "github_required_checks": {"status": "pass", "evidence": "Head 250bf5a093a4f32d8b9356f842777aecaa35e84c passed build, contracts, both personality freeze checks, CodeQL analysis/aggregate, and no-new-code-scanning-alerts. PR is CLEAN/MERGEABLE with no review threads."}
+      "github_required_checks": {"status": "pass", "evidence": "Final head 97ceecb259e17386c26f8231fe0598fccb4b1fa3 passed build, contracts, both personality freeze checks, CodeQL analysis/aggregate, and no-new-code-scanning-alerts before squash merge."},
+      "post_merge": {"status": "pass", "evidence": "PR #1777 is MERGED at f6bc60ba70066ca04130cc5e55d950191d25742e; origin/main contains the merge, local main equals origin/main, both task branches are absent, and the worktree is clean."},
+      "readiness_prerequisite": {"status": "pass", "evidence": "Read-only deployed-revision prerequisite PR #1781 is MERGED at 979e56b6cfdb396259856886a8a49435f621c145 from exact head 15edd927e0b184a1742029b580af7acd22b656b6; all required/security checks passed, origin/main contains the merge, and local/remote task branches are absent. No deployment or production write was executed by this reconciliation."}
     },
-    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": false},
+    "scope_validation": {"allowed_paths_only": true, "local_validation_passed": true, "github_checks_green": true, "post_merge_revalidated": true},
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-16T13:09:18Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -45904,9 +45906,11 @@
       {"at": "2026-07-16T12:54:47Z", "status": "local_validation_passed", "summary": "The exact 116-path registry-derived allowlist and fail-closed negative matrix pass focused 3-file/17-test validation, full 753-file/4337-test contracts, lint, spacing, typecheck, 206/206 production build, metadata parsing, diff, and exact four-path scope checks on Node 24.14.0. No production cache request or deploy was executed."},
       {"at": "2026-07-16T12:55:56Z", "status": "ready_to_push", "summary": "Bound commit_sha to the exact locally validated four-path implementation commit 2dde1d347dcd538722062958a618634e09e2a703; only this ledger/status binding follows the complete validation cycle."},
       {"at": "2026-07-16T12:57:23Z", "status": "github_checks_pending", "summary": "Pushed the exact four-path branch and opened PR #1777 with the required what, why, validation, deferred, and repository-rule-impact sections. GitHub required/security checks and actionable review feedback must pass before merge."},
-      {"at": "2026-07-16T13:03:12Z", "status": "ready_to_merge", "summary": "Exact head 250bf5a093a4f32d8b9356f842777aecaa35e84c passed all seven required/security checks, PR is CLEAN/MERGEABLE, exact scope remains four paths, and review threads are empty. Bind commit_sha to this head and require one final ledger-only check cycle before squash merge."}
+      {"at": "2026-07-16T13:03:12Z", "status": "ready_to_merge", "summary": "Exact head 250bf5a093a4f32d8b9356f842777aecaa35e84c passed all seven required/security checks, PR is CLEAN/MERGEABLE, exact scope remains four paths, and review threads are empty. Bind commit_sha to this head and require one final ledger-only check cycle before squash merge."},
+      {"at": "2026-07-17T13:43:13Z", "status": "merged_and_cleaned", "summary": "Reconciled PR #1777 as MERGED at f6bc60ba70066ca04130cc5e55d950191d25742e from final head 97ceecb259e17386c26f8231fe0598fccb4b1fa3; origin/main containment, main parity, clean worktree, and local/remote branch cleanup are verified."},
+      {"at": "2026-07-17T13:43:13Z", "status": "readiness_prerequisite_reconciled", "summary": "Recorded deployed-revision endpoint PR #1781 as MERGED at 979e56b6cfdb396259856886a8a49435f621c145 with all checks green and both task branches absent. This is ledger-only readiness bookkeeping; deployment, PR23, CMS, database, cache, media, and production writes remain zero."}
     ],
-    "updated_at": "2026-07-16T13:03:12Z"
+    "updated_at": "2026-07-17T13:43:13Z"
   },
   "ANALYTICS-RUNTIME-RESTORE-01": {
     "id": "ANALYTICS-RUNTIME-RESTORE-01",
