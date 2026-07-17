@@ -12,6 +12,7 @@ WorkingDirectory=/opt/apps/fap-web/.next/standalone
 Environment=NODE_ENV=production
 Environment=HOSTNAME=127.0.0.1
 Environment=PORT=3000
+Environment=FERMATMIND_DEPLOYED_REVISION_FILE=/opt/apps/fap-web/REVISION
 ExecStart=/usr/bin/node /opt/apps/fap-web/.next/standalone/server.js --hostname 127.0.0.1 --port 3000
 Restart=on-failure
 RestartSec=3

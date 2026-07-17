@@ -9,6 +9,7 @@ Type=simple
 WorkingDirectory=/opt/apps/fap-web/.next/standalone
 Environment=NODE_ENV=production
 Environment=PORT=3000
+Environment=FERMATMIND_DEPLOYED_REVISION_FILE=/opt/apps/fap-web/REVISION
 # /usr/bin/node must resolve to Node 24.x before using this fallback/reference unit.
 ExecStart=/usr/bin/node /opt/apps/fap-web/.next/standalone/server.js --hostname 127.0.0.1 --port 3000
 Restart=on-failure
