@@ -1,7 +1,6 @@
 import { ApiError, apiClient } from "@/lib/api-client";
-import { cmsManagedMediaUrl } from "@/lib/cms/media";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
-import { normalizeInternalHref, normalizeMediaAssetUrl } from "@/lib/url/safeContentUrls";
+import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 import { toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { PublicReadError, toPublicReadError } from "@/lib/public-content/readError";
 import {
@@ -36,12 +35,6 @@ export type PersonalityPublicContentInternalLink = {
   href: string;
   relationship: string | null;
   targetCode: string | null;
-};
-
-export type PersonalityPublicContentMedia = {
-  status: string | null;
-  imageUrl: string | null;
-  alt: string | null;
 };
 
 export type PersonalityPublicContentMethodBoundary = {
@@ -79,12 +72,6 @@ export type PersonalityPublicContentAuthorityClaimMapping = {
   limitation: string | null;
 };
 
-export type PersonalityPublicContentAuthorityMedia = {
-  mediaAssetId: number | null;
-  url: string | null;
-  alt: string;
-};
-
 export type PersonalityPublicContentAuthorityV2 = {
   contractVersion: "personality_public_asset.v2";
   compatibleV1ContractVersion: "personality_public_asset.v1";
@@ -101,11 +88,6 @@ export type PersonalityPublicContentAuthorityV2 = {
     lastReviewedAt: string | null;
     publishedAt: string | null;
     updatedAt: string | null;
-  };
-  mediaAuthority: {
-    hero: PersonalityPublicContentAuthorityMedia | null;
-    inline: PersonalityPublicContentAuthorityMedia[];
-    og: PersonalityPublicContentAuthorityMedia | null;
   };
   schemaEligible: boolean;
 };
@@ -129,7 +111,6 @@ export type PersonalityPublicContentAsset = {
     "zh-CN": string | null;
   };
   faq: PersonalityPublicContentFaqItem[];
-  media: PersonalityPublicContentMedia;
   schemaType: string | null;
   schemaRuntimeEligible: boolean;
   methodBoundary: PersonalityPublicContentMethodBoundary | null;
@@ -203,11 +184,6 @@ function asNullableString(value: unknown): string | null {
 
 function asBoolean(value: unknown): boolean {
   return value === true;
-}
-
-function asPositiveInteger(value: unknown): number | null {
-  const normalized = typeof value === "number" ? value : Number(value);
-  return Number.isInteger(normalized) && normalized > 0 ? normalized : null;
 }
 
 function asRecord(value: unknown): Record<string, unknown> {
@@ -303,19 +279,6 @@ function normalizeInternalLinks(value: unknown): PersonalityPublicContentInterna
       };
     })
     .filter((item): item is PersonalityPublicContentInternalLink => item !== null);
-}
-
-function normalizeMedia(value: unknown): PersonalityPublicContentMedia {
-  const record = asRecord(value);
-  const imageUrl = normalizeMediaAssetUrl(
-    record.url ?? record.image_url ?? record.imageUrl ?? record.hero_image_url ?? record.heroImageUrl
-  );
-
-  return {
-    status: asNullableString(record.status),
-    imageUrl,
-    alt: asNullableString(record.alt),
-  };
 }
 
 function normalizeMethodBoundary(value: unknown): PersonalityPublicContentMethodBoundary | null {
@@ -424,18 +387,6 @@ function normalizeAuthorityActor(value: unknown): PersonalityPublicContentAuthor
   };
 }
 
-function normalizeAuthorityMedia(value: unknown): PersonalityPublicContentAuthorityMedia | null {
-  const record = asRecord(value);
-  const mediaAssetId = asPositiveInteger(record.media_asset_id ?? record.mediaAssetId);
-  const url = cmsManagedMediaUrl(asNullableString(record.url));
-  const alt = asString(record.alt);
-  if ((!mediaAssetId && !url) || !alt) {
-    return null;
-  }
-
-  return { mediaAssetId, url, alt };
-}
-
 function normalizeAuthoritySources(value: unknown): PersonalityPublicContentAuthoritySource[] {
   const sources: PersonalityPublicContentAuthoritySource[] = [];
   const seen = new Set<string>();
@@ -539,8 +490,6 @@ function normalizeAuthorityV2(
   const visibleEvidenceEligible =
     asBoolean(visibleEvidence.eligible) && sources.length > 0 && claimMapping.length > 0;
   const editorialAuthority = asRecord(record.editorial_authority ?? record.editorialAuthority);
-  const mediaAuthority = asRecord(record.media_authority ?? record.mediaAuthority);
-
   return {
     contractVersion: "personality_public_asset.v2",
     compatibleV1ContractVersion: "personality_public_asset.v1",
@@ -559,13 +508,6 @@ function normalizeAuthorityV2(
       ),
       publishedAt: normalizeIsoDateTime(editorialAuthority.published_at ?? editorialAuthority.publishedAt),
       updatedAt: normalizeIsoDateTime(editorialAuthority.updated_at ?? editorialAuthority.updatedAt),
-    },
-    mediaAuthority: {
-      hero: normalizeAuthorityMedia(mediaAuthority.hero),
-      inline: asArray(mediaAuthority.inline)
-        .map(normalizeAuthorityMedia)
-        .filter((item): item is PersonalityPublicContentAuthorityMedia => item !== null),
-      og: normalizeAuthorityMedia(mediaAuthority.og),
     },
     schemaEligible:
       asBoolean(record.schema_eligible ?? record.schemaEligible) &&
@@ -700,7 +642,6 @@ function normalizeAsset(
       "zh-CN": asNullableString(hreflang["zh-CN"] ?? hreflang.zh),
     },
     faq: normalizeFaq(record.faq),
-    media: normalizeMedia(record.media),
     schemaType: asNullableString(schema["@type"] ?? schema.type),
     schemaRuntimeEligible: asBoolean(record.schema_runtime_eligible ?? record.schemaRuntimeEligible),
     methodBoundary: normalizeMethodBoundary(record.method_boundary),

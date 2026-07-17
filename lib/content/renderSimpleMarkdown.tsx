@@ -6,6 +6,7 @@ import type { Locale } from "@/lib/i18n/locales";
 
 type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 type MarkdownRenderOptions = {
+  allowImages?: boolean;
   minimumHeadingLevel?: HeadingLevel;
   internalLinkLabels?: InternalLinkLabelMap;
   locale?: Locale;
@@ -455,6 +456,10 @@ export function renderSimpleMarkdown(markdown: string, options: MarkdownRenderOp
           </p>
         );
       case "image": {
+        if (options.allowImages === false) {
+          return null;
+        }
+
         const src = sanitizeCmsUrl(block.src);
         if (!src) {
           return null;

@@ -577,6 +577,8 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
       en: "http://localhost:3000/en/personality/big-five/openness",
       "zh-CN": "http://localhost:3000/zh/personality/big-five/openness",
     });
+    expect(metadata.openGraph?.images).toBeUndefined();
+    expect(metadata.twitter?.images).toBeUndefined();
     expect(metadata.robots).toMatchObject({
       index: false,
       follow: true,

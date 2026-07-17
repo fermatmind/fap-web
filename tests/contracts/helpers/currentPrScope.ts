@@ -3530,6 +3530,27 @@ const PERSONALITY_HUB_MEDIA_RENDER_VERIFY_01_ALLOWED_FILES = new Set([
   "tests/contracts/personality-type-browse.contract.test.tsx",
 ]);
 
+const PERSONALITY_PUBLIC_CONTENT_REMOVE_MEDIA_WEB_ALLOWED_FILES = new Set([
+  "AGENTS.md",
+  "app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx",
+  "app/(localized)/[locale]/personality/big-five/page.tsx",
+  "app/(localized)/[locale]/personality/enneagram/[...slug]/page.tsx",
+  "app/(localized)/[locale]/personality/enneagram/page.tsx",
+  "components/content/SanitizedCmsHtml.tsx",
+  "components/personality/PublicContentAssetRenderer.tsx",
+  "lib/cms/personality-public-content-assets.ts",
+  "lib/cms/sanitizeCmsRichText.ts",
+  "lib/content/renderSimpleMarkdown.tsx",
+  "tests/contracts/big-five-hub-cms-markdown-link.contract.test.tsx",
+  "tests/contracts/big-five-public-render-guard.contract.test.tsx",
+  "tests/contracts/big5-authority-v2-web-trust-renderer-04-contract.contract.test.tsx",
+  "tests/contracts/cms-rich-content-sanitization.contract.test.tsx",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts",
+  "tests/contracts/personality-enneagram-authority-v2.contract.test.ts",
+  "tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts",
+]);
+
 const PERSONALITY_DETAIL_FAQ_SEO_01_ALLOWED_FILES = new Set([
   "app/(localized)/[locale]/personality/[type]/page.tsx",
   "docs/codex/pr-train-state.json",
@@ -5720,6 +5741,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/personality-hub-media-render-verify-01") {
     return PERSONALITY_HUB_MEDIA_RENDER_VERIFY_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/personality-public-content-remove-media-web") {
+    return PERSONALITY_PUBLIC_CONTENT_REMOVE_MEDIA_WEB_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/personality-detail-faq-seo-01") {

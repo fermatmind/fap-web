@@ -100,6 +100,35 @@ describe("CMS rich content sanitization contract", () => {
     expectNoExecutableCmsHtml(careerGuideHtml);
   });
 
+  it("supports a personality-only text mode without changing article image rendering", () => {
+    const defaultHtml = renderToStaticMarkup(
+      <SanitizedCmsHtml html='<p>Article copy</p><img src="/media/article.png" alt="Article visual">' />
+    );
+    const textOnlyHtml = renderToStaticMarkup(
+      <SanitizedCmsHtml
+        allowImages={false}
+        html='<p>Personality copy</p><img src="/media/personality.png" alt="Personality visual">'
+      />
+    );
+    const defaultMarkdown = renderToStaticMarkup(
+      <div>{renderSimpleMarkdown("Article copy\n\n![Article visual](/media/article.png)")}</div>
+    );
+    const textOnlyMarkdown = renderToStaticMarkup(
+      <div>
+        {renderSimpleMarkdown("Personality copy\n\n![Personality visual](/media/personality.png)", {
+          allowImages: false,
+        })}
+      </div>
+    );
+
+    expect(defaultHtml).toContain('src="/media/article.png"');
+    expect(defaultMarkdown).toContain('src="/media/article.png"');
+    expect(textOnlyHtml).toContain("Personality copy");
+    expect(textOnlyMarkdown).toContain("Personality copy");
+    expect(textOnlyHtml).not.toContain("<img");
+    expect(textOnlyMarkdown).not.toContain("<img");
+  });
+
   it("keeps article body rendering below the page-level h1", () => {
     const htmlBody = renderToStaticMarkup(
       <SanitizedCmsHtml className="article-body" html="<h1>CMS title</h1><h2>Section</h2>" minimumHeadingLevel={2} />

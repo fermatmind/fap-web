@@ -92,6 +92,7 @@ const LOCALIZABLE_INTERNAL_HREF_RE =
   /^\/(?!en(?:\/|$|[?#]))(?!zh(?:\/|$|[?#]))(?:(?:articles|tests|career|personality|topics|help|support|business)(?:\/|$|[?#])|(?:science|method-boundaries|reliability-validity|item-design-notes|common-misconceptions|data-privacy)(?:$|[/?#]))/;
 
 export type CmsHtmlSanitizeOptions = {
+  allowImages?: boolean;
   minimumHeadingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   internalLinkLabels?: InternalLinkLabelMap;
   locale?: Locale;
@@ -483,6 +484,10 @@ function sanitizeTag(rawTag: string, dropStack: string[], options: CmsHtmlSaniti
   }
 
   if (!ALLOWED_TAGS.has(tagName)) {
+    return "";
+  }
+
+  if (tagName === "img" && options.allowImages === false) {
     return "";
   }
 

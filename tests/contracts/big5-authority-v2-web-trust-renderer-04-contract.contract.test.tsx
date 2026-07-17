@@ -61,7 +61,14 @@ function v1Asset() {
       {
         key: "overview",
         title: "Overview",
-        body_md: "Backend supplied body.",
+        body_md:
+          "Backend supplied body.\n\n![Legacy Markdown image](https://assets.fermatmind.com/personality/big-five/section.webp)",
+      },
+      {
+        key: "html-overview",
+        title: "HTML overview",
+        body_html:
+          '<p>Backend supplied HTML body.</p><img src="https://assets.fermatmind.com/personality/big-five/section-html.webp" alt="Legacy HTML image">',
       },
     ],
     is_public: true,
@@ -196,13 +203,10 @@ describe("BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04 contract", () => {
         author: { name: "FermatMind Editorial Team" },
         reviewer: { name: "Named Reviewer" },
       },
-      mediaAuthority: {
-        hero: { mediaAssetId: 101 },
-        inline: [{ mediaAssetId: 102 }],
-        og: { mediaAssetId: 103 },
-      },
       schemaEligible: true,
     });
+    expect(asset).not.toHaveProperty("media");
+    expect(asset?.authorityV2).not.toHaveProperty("mediaAuthority");
   });
 
   it("discards a mismatched V2 sibling while preserving the valid V1 page asset", async () => {
@@ -213,7 +217,7 @@ describe("BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04 contract", () => {
     expect(asset?.authorityV2).toBeNull();
   });
 
-  it("renders only backend-supplied people, dates, source evidence, media, and method boundaries", async () => {
+  it("renders backend authority and text while ignoring all legacy personality media", async () => {
     const asset = await fetchAsset();
     expect(asset).not.toBeNull();
 
@@ -230,8 +234,11 @@ describe("BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04 contract", () => {
       "noopener noreferrer"
     );
     expect(screen.queryByRole("link", { name: "Unsafe URL guard fixture" })).not.toBeInTheDocument();
-    expect(screen.getByAltText("Five neutral markers representing the Big Five dimensions.")).toBeInTheDocument();
-    expect(screen.getByAltText("Big Five evidence overview.")).toBeInTheDocument();
+    expect(screen.getByText("Backend supplied body.")).toBeInTheDocument();
+    expect(screen.getByText("Backend supplied HTML body.")).toBeInTheDocument();
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("public-content-hero-media")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("authority-inline-media")).not.toBeInTheDocument();
     expect(screen.getByTestId("method-boundary")).toHaveTextContent("not diagnostic");
   });
 
@@ -293,6 +300,9 @@ describe("BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04 contract", () => {
       expect(source).not.toContain('"@type": "Person"');
       expect(source).not.toContain('"@type": "Review"');
       expect(source).not.toContain("AggregateRating");
+      expect(source).not.toContain("imagePath:");
+      expect(source).not.toContain("mediaAuthority");
+      expect(source).not.toContain("asset.media");
     }
   });
 });

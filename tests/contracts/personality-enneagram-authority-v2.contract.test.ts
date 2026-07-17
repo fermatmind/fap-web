@@ -74,7 +74,14 @@ function v1Asset(overrides: Record<string, unknown> = {}) {
       {
         key: "overview",
         title: "Backend overview",
-        body_md: "Backend supplied public body.",
+        body_md:
+          "Backend supplied public body.\n\n![Legacy Markdown image](https://assets.fermatmind.com/personality/enneagram/section.webp)",
+      },
+      {
+        key: "html-overview",
+        title: "Backend HTML overview",
+        body_html:
+          '<p>Backend supplied HTML body.</p><img src="https://assets.fermatmind.com/personality/enneagram/section-html.webp" alt="Legacy HTML image">',
       },
     ],
     is_public: true,
@@ -203,13 +210,10 @@ describe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21", () => {
         author: { name: "Backend Editorial Team" },
         reviewer: { name: "Named Backend Reviewer" },
       },
-      mediaAuthority: {
-        hero: { mediaAssetId: 501 },
-        inline: [{ mediaAssetId: 502 }],
-        og: { mediaAssetId: 503 },
-      },
       schemaEligible: true,
     });
+    expect(asset).not.toHaveProperty("media");
+    expect(asset?.authorityV2).not.toHaveProperty("mediaAuthority");
     expect(JSON.stringify(asset)).not.toContain("WORKING_REVISION_MUST_NEVER_RENDER");
   });
 
@@ -349,7 +353,7 @@ describe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21", () => {
     });
   });
 
-  it("renders only normalized visible evidence, limitations, editorial state, and approved media", async () => {
+  it("renders normalized authority and text while ignoring all legacy personality media", async () => {
     const asset = await fetchCore();
     expect(asset).not.toBeNull();
 
@@ -363,8 +367,11 @@ describe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21", () => {
     );
     expect(screen.getByTestId("editorial-authority")).toHaveTextContent("approved");
     expect(screen.getByTestId("editorial-authority")).toHaveTextContent("Named Backend Reviewer");
-    expect(screen.getByAltText("Backend approved Type 5 hero")).toBeInTheDocument();
-    expect(screen.getByAltText("Backend approved Type 5 evidence visual")).toBeInTheDocument();
+    expect(screen.getByText("Backend supplied public body.")).toBeInTheDocument();
+    expect(screen.getByText("Backend supplied HTML body.")).toBeInTheDocument();
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("public-content-hero-media")).not.toBeInTheDocument();
+    expect(screen.queryByTestId("authority-inline-media")).not.toBeInTheDocument();
     expect(document.body.textContent ?? "").not.toContain("WORKING_REVISION_MUST_NEVER_RENDER");
   });
 
@@ -492,6 +499,9 @@ describe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21", () => {
       expect(source).not.toContain("buildFallbackMetadata");
       expect(source).not.toContain("alternatePath");
       expect(source).not.toContain("working_revision");
+      expect(source).not.toContain("imagePath:");
+      expect(source).not.toContain("mediaAuthority");
+      expect(source).not.toContain("asset.media");
     }
   });
 });
