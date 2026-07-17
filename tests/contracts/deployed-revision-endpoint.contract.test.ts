@@ -5,7 +5,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import {
   buildDeployedRevisionResponse,
   readDeployedRevision,
-} from "@/app/api/deployment/revision/route";
+} from "@/app/revision/route";
 
 const REVISION = "0123456789abcdef0123456789abcdef01234567";
 const tempDirectories: string[] = [];
@@ -70,6 +70,7 @@ describe("same-origin deployed revision endpoint", () => {
 
   it("atomically publishes one live marker after either runtime manager succeeds and smokes both origins", () => {
     const deployScript = fs.readFileSync("scripts/deploy_web_pm2.sh", "utf8");
+    const nginxConfig = fs.readFileSync("deploy/nginx/fap-web.conf", "utf8");
     const systemdUnit = fs.readFileSync("deploy/systemd/fap-web.service", "utf8");
     const documentedSystemdUnit = fs.readFileSync("docs/deploy/systemd-fap-web.service", "utf8");
     const runtimeChecks = deployScript.indexOf('log "runtime checks"');
@@ -81,6 +82,9 @@ describe("same-origin deployed revision endpoint", () => {
     );
 
     expect(deployScript).toContain('DEPLOYED_REVISION="$(git rev-parse HEAD)"');
+    expect(deployScript).toContain('REVISION_PATH="${REVISION_PATH:-/revision}"');
+    expect(deployScript).not.toContain("/api/deployment/revision");
+    expect(nginxConfig).toContain("location /api/");
     expect(liveMarkerWrite).toBeGreaterThan(runtimeChecks);
     expect(localRevisionSmoke).toBeGreaterThan(liveMarkerWrite);
     expect(deployScript).not.toContain(
