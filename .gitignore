@@ -38,6 +38,7 @@ next-env.d.ts
 
 # local deploy artifacts
 fap-web-latest.tar.gz
+/REVISION
 test-results/
 .playwright-cli/
 .playwright-mcp/

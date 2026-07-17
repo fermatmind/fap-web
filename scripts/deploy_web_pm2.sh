@@ -13,6 +13,7 @@ PUBLIC_BASE_URL="${PUBLIC_BASE_URL:-https://fermatmind.com}"
 CORE_PUBLIC_PATH="${CORE_PUBLIC_PATH:-/zh/tests/clinical-depression-anxiety-assessment-professional-edition/take}"
 SITEMAP_PATH="${SITEMAP_PATH:-/sitemap.xml}"
 SITEMAP_URL="${SITEMAP_URL:-${PUBLIC_BASE_URL%/}${SITEMAP_PATH}}"
+REVISION_PATH="${REVISION_PATH:-/api/deployment/revision}"
 SITEMAP_CURL_TIMEOUT_SEC="${SITEMAP_CURL_TIMEOUT_SEC:-20}"
 RUN_SITEMAP_HEALTH="${RUN_SITEMAP_HEALTH:-1}"
 GIT_BRANCH="${GIT_BRANCH:-main}"
@@ -109,6 +110,60 @@ probe_headers() {
   fi
 
   printf '%s\n' "$headers" | head -n 20
+}
+
+write_deployed_revision() {
+  local revision="$1"
+  local target="$2"
+  local temporary
+
+  if [[ ! "$revision" =~ ^[0-9a-f]{40}$ ]]; then
+    log "refusing to write invalid deployed revision"
+    return 1
+  fi
+  if [[ ! -d "$(dirname "$target")" ]]; then
+    log "deployed revision target directory is missing: $(dirname "$target")"
+    return 1
+  fi
+
+  temporary="$(mktemp "${target}.tmp.XXXXXX")"
+  if ! printf '%s\n' "$revision" > "$temporary" \
+    || ! chmod 0444 "$temporary" \
+    || ! mv -f "$temporary" "$target"; then
+    rm -f "$temporary"
+    log "failed to persist deployed revision: ${target}"
+    return 1
+  fi
+}
+
+require_deployed_revision_endpoint() {
+  local url="$1"
+  local expected_revision="$2"
+  local payload
+
+  if ! payload="$(curl -fsS --max-time 20 "$url")"; then
+    log "deployed revision endpoint request failed: ${url}"
+    return 1
+  fi
+  if ! REVISION_PAYLOAD="$payload" EXPECTED_REVISION="$expected_revision" node <<'NODE'
+const payload = JSON.parse(process.env.REVISION_PAYLOAD || "null");
+const expected = process.env.EXPECTED_REVISION || "";
+if (
+  !payload ||
+  typeof payload !== "object" ||
+  Array.isArray(payload) ||
+  Object.keys(payload).join(",") !== "revision" ||
+  payload.revision !== expected
+) {
+  process.exit(1);
+}
+NODE
+  then
+    log "deployed revision endpoint mismatch: ${url}"
+    return 1
+  fi
+
+  log "deployed revision endpoint passed: ${url}"
 }
 
 require_analytics_build_config() {
@@ -344,7 +399,17 @@ if [[ -n "$DEPLOY_SHA" ]]; then
 else
   git reset --hard "origin/${GIT_BRANCH}"
 fi
-log "current commit: $(git rev-parse --short HEAD)"
+DEPLOYED_REVISION="$(git rev-parse HEAD)"
+if [[ ! "$DEPLOYED_REVISION" =~ ^[0-9a-f]{40}$ ]]; then
+  log "current deployed revision is invalid"
+  exit 1
+fi
+if [[ -n "$DEPLOY_SHA" && "$DEPLOYED_REVISION" != "$DEPLOY_SHA" ]]; then
+  log "current deployed revision does not match DEPLOY_SHA"
+  exit 1
+fi
+write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/REVISION"
+log "current commit: ${DEPLOYED_REVISION:0:12}"
 
 log "install/build"
 rm -rf .next
@@ -358,6 +423,7 @@ fi
 
 log "sync standalone static assets"
 bash "$SYNC_STANDALONE_ASSETS_SCRIPT"
+write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/.next/standalone/REVISION"
 restore_generated_public_artifacts
 write_systemd_analytics_runtime_env
 require_candidate_analytics_smoke
@@ -395,12 +461,14 @@ ss -ltnp | grep ":${APP_PORT}"
 log "probe local endpoints"
 probe_headers "http://${APP_HOST}:${APP_PORT}/en"
 probe_headers "http://${APP_HOST}:${APP_PORT}/zh"
+require_deployed_revision_endpoint "http://${APP_HOST}:${APP_PORT}${REVISION_PATH}" "$DEPLOYED_REVISION"
 
 log "probe public endpoints"
 probe_headers "${PUBLIC_BASE_URL}/en" 1
 probe_headers "${PUBLIC_BASE_URL}/zh" 1
 probe_headers "${PUBLIC_BASE_URL}/en/pay/wait" 1
 probe_headers "${PUBLIC_BASE_URL}${CORE_PUBLIC_PATH}" 1
+require_deployed_revision_endpoint "${PUBLIC_BASE_URL%/}${REVISION_PATH}" "$DEPLOYED_REVISION"
 require_analytics_bootstrap_contract "$PUBLIC_BASE_URL" "production"
 if [[ "$RUN_SITEMAP_HEALTH" == "1" ]]; then
   require_sitemap_health "$SITEMAP_URL"
