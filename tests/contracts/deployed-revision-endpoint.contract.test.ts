@@ -58,8 +58,20 @@ describe("same-origin deployed revision endpoint", () => {
     expect(response.headers.get("X-Robots-Tag")).toBe("noindex, nofollow, noarchive");
   });
 
-  it("atomically publishes the same revision for PM2 and standalone systemd runtimes and smokes both origins", () => {
+  it("reads an explicit absolute live marker for a standalone runtime and rejects relative configuration", () => {
+    const runtimeDirectory = tempDirectory();
+    const markerDirectory = tempDirectory();
+    const markerPath = path.join(markerDirectory, "REVISION");
+    fs.writeFileSync(markerPath, `${REVISION}\n`, { mode: 0o444 });
+
+    expect(readDeployedRevision(runtimeDirectory, markerPath)).toBe(REVISION);
+    expect(readDeployedRevision(runtimeDirectory, "relative/REVISION")).toBeNull();
+  });
+
+  it("atomically publishes one live marker after either runtime manager succeeds and smokes both origins", () => {
     const deployScript = fs.readFileSync("scripts/deploy_web_pm2.sh", "utf8");
+    const systemdUnit = fs.readFileSync("deploy/systemd/fap-web.service", "utf8");
+    const documentedSystemdUnit = fs.readFileSync("docs/deploy/systemd-fap-web.service", "utf8");
     const runtimeChecks = deployScript.indexOf('log "runtime checks"');
     const liveMarkerWrite = deployScript.indexOf(
       'write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/REVISION"',
@@ -71,8 +83,14 @@ describe("same-origin deployed revision endpoint", () => {
     expect(deployScript).toContain('DEPLOYED_REVISION="$(git rev-parse HEAD)"');
     expect(liveMarkerWrite).toBeGreaterThan(runtimeChecks);
     expect(localRevisionSmoke).toBeGreaterThan(liveMarkerWrite);
-    expect(deployScript).toContain(
+    expect(deployScript).not.toContain(
       'write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/.next/standalone/REVISION"',
+    );
+    expect(systemdUnit).toContain(
+      "Environment=FERMATMIND_DEPLOYED_REVISION_FILE=/opt/apps/fap-web/REVISION",
+    );
+    expect(documentedSystemdUnit).toContain(
+      "Environment=FERMATMIND_DEPLOYED_REVISION_FILE=/opt/apps/fap-web/REVISION",
     );
     expect(deployScript).toContain('temporary="$(mktemp "${target}.tmp.XXXXXX")"');
     expect(deployScript).toContain('chmod 0444 "$temporary"');

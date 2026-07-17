@@ -14,9 +14,21 @@ const RESPONSE_HEADERS = {
   "X-Robots-Tag": "noindex, nofollow, noarchive",
 } as const;
 
-export function readDeployedRevision(cwd = process.cwd()): string | null {
+export function readDeployedRevision(
+  cwd = process.cwd(),
+  configuredRevisionFile = process.env.FERMATMIND_DEPLOYED_REVISION_FILE?.trim(),
+): string | null {
   try {
-    const revision = readFileSync(path.join(cwd, "REVISION"), "utf8").trim();
+    const revisionFile = configuredRevisionFile
+      ? path.isAbsolute(configuredRevisionFile)
+        ? configuredRevisionFile
+        : null
+      : path.join(cwd, "REVISION");
+    if (!revisionFile) {
+      return null;
+    }
+
+    const revision = readFileSync(revisionFile, "utf8").trim();
     return EXACT_GIT_REVISION.test(revision) ? revision : null;
   } catch {
     return null;

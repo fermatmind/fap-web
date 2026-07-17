@@ -422,7 +422,6 @@ fi
 
 log "sync standalone static assets"
 bash "$SYNC_STANDALONE_ASSETS_SCRIPT"
-write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/.next/standalone/REVISION"
 restore_generated_public_artifacts
 write_systemd_analytics_runtime_env
 require_candidate_analytics_smoke
