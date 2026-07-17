@@ -408,7 +408,6 @@ if [[ -n "$DEPLOY_SHA" && "$DEPLOYED_REVISION" != "$DEPLOY_SHA" ]]; then
   log "current deployed revision does not match DEPLOY_SHA"
   exit 1
 fi
-write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/REVISION"
 log "current commit: ${DEPLOYED_REVISION:0:12}"
 
 log "install/build"
@@ -457,6 +456,7 @@ else
 fi
 ss -ltnp | grep ":${APP_PORT}" >/dev/null
 ss -ltnp | grep ":${APP_PORT}"
+write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/REVISION"
 
 log "probe local endpoints"
 probe_headers "http://${APP_HOST}:${APP_PORT}/en"

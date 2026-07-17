@@ -60,9 +60,17 @@ describe("same-origin deployed revision endpoint", () => {
 
   it("atomically publishes the same revision for PM2 and standalone systemd runtimes and smokes both origins", () => {
     const deployScript = fs.readFileSync("scripts/deploy_web_pm2.sh", "utf8");
+    const runtimeChecks = deployScript.indexOf('log "runtime checks"');
+    const liveMarkerWrite = deployScript.indexOf(
+      'write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/REVISION"',
+    );
+    const localRevisionSmoke = deployScript.indexOf(
+      'require_deployed_revision_endpoint "http://${APP_HOST}:${APP_PORT}${REVISION_PATH}" "$DEPLOYED_REVISION"',
+    );
 
     expect(deployScript).toContain('DEPLOYED_REVISION="$(git rev-parse HEAD)"');
-    expect(deployScript).toContain('write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/REVISION"');
+    expect(liveMarkerWrite).toBeGreaterThan(runtimeChecks);
+    expect(localRevisionSmoke).toBeGreaterThan(liveMarkerWrite);
     expect(deployScript).toContain(
       'write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/.next/standalone/REVISION"',
     );
