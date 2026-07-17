@@ -255,8 +255,8 @@ function normalizeSections(value: unknown): PersonalityPublicContentSection[] {
     .map((item): PersonalityPublicContentSection | null => {
       const record = asRecord(item);
       const key = asString(record.key);
-      const title = asString(record.title);
-      const bodyMd = asString(record.body_md ?? record.bodyMd);
+      const title = asString(record.title ?? record.heading);
+      const bodyMd = asString(record.body_md ?? record.bodyMd ?? record.body);
       const bodyHtml = asString(record.body_html ?? record.bodyHtml);
 
       if (!key || (!title && !bodyMd && !bodyHtml)) {

@@ -2,7 +2,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { render, screen } from "@testing-library/react";
+import { createElement } from "react";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { PublicContentAssetRenderer } from "@/components/personality/PublicContentAssetRenderer";
 import { getBigFivePublicContentAsset } from "@/lib/cms/personality-public-content-assets";
 import {
   BIG_FIVE_PUBLIC_ROUTE_ENTRIES,
@@ -300,6 +302,109 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     expect(asset?.sections[0]?.bodyMd).toBe("Backend supplied body.");
     expect(asset?.methodBoundary?.notFor).toContain("clinical diagnosis");
     expect(asset?.schemaRuntimeEligible).toBe(false);
+  });
+
+  it("normalizes and renders all 14 production-shaped Hub sections", async () => {
+    const productionSections = Array.from({ length: 14 }, (_, index) => ({
+      key: `production-section-${index + 1}`,
+      kind: index === 0 ? "direct_answer" : "editorial",
+      heading: `生产标题 ${index + 1}`,
+      body: `生产正文 ${index + 1}`,
+    }));
+
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: sampleAsset({
+            entity_type: "hub",
+            code: "big-five",
+            entity_key: "big-five",
+            slug: "big-five",
+            locale: "zh-CN",
+            title: "大五人格",
+            canonical_path: "/zh/personality/big-five",
+            canonical: { path: "/zh/personality/big-five" },
+            sections: productionSections,
+          }),
+        })
+      )
+    );
+
+    const asset = await getBigFivePublicContentAsset("zh", {
+      entityType: "hub",
+      code: "big-five",
+      routeSlug: "big-five",
+      pathSuffix: "",
+    });
+
+    expect(asset?.sections).toHaveLength(14);
+    expect(asset?.sections[0]).toMatchObject({
+      key: "production-section-1",
+      title: "生产标题 1",
+      bodyMd: "生产正文 1",
+    });
+
+    render(createElement(PublicContentAssetRenderer, { locale: "zh", asset: asset! }));
+
+    expect(screen.getAllByTestId("public-content-section")).toHaveLength(14);
+    expect(screen.getByRole("heading", { name: "生产标题 1" })).toBeInTheDocument();
+    expect(screen.getByText("生产正文 14")).toBeInTheDocument();
+  });
+
+  it("prefers canonical section fields and rejects non-scalar body aliases", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn(async () =>
+        jsonResponse({
+          ok: true,
+          personality_public_content_asset_v1: sampleAsset({
+            sections: [
+              {
+                key: "canonical",
+                title: "Canonical title",
+                heading: "Alias title",
+                body_md: "Canonical body",
+                bodyMd: "Camel body",
+                body: "Alias body",
+                body_html: "<p>Canonical HTML</p>",
+                bodyHtml: "<p>Camel HTML</p>",
+              },
+              { key: "camel", title: "Camel title", bodyMd: "Camel body", body: "Alias body" },
+              { key: "production-alias", heading: "Alias title", body: 42 },
+              { key: "array-body", heading: "Array body", body: ["must", "not", "render"] },
+              { key: "object-body", heading: "Object body", body: { text: "must not render" } },
+            ],
+          }),
+        })
+      )
+    );
+
+    const asset = await getBigFivePublicContentAsset("en", {
+      entityType: "domain",
+      code: "openness",
+      routeSlug: "openness",
+      pathSuffix: "/openness",
+    });
+
+    expect(asset?.sections).toEqual([
+      {
+        key: "canonical",
+        title: "Canonical title",
+        bodyMd: "Canonical body",
+        bodyHtml: "<p>Canonical HTML</p>",
+      },
+      { key: "camel", title: "Camel title", bodyMd: "Camel body", bodyHtml: "" },
+      { key: "production-alias", title: "Alias title", bodyMd: "42", bodyHtml: "" },
+      { key: "array-body", title: "Array body", bodyMd: "", bodyHtml: "" },
+      { key: "object-body", title: "Object body", bodyMd: "", bodyHtml: "" },
+    ]);
+
+    render(createElement(PublicContentAssetRenderer, { locale: "en", asset: asset! }));
+    expect(screen.getAllByTestId("public-content-section")).toHaveLength(3);
+    expect(screen.queryByRole("heading", { name: "Array body" })).not.toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "Object body" })).not.toBeInTheDocument();
   });
 
   it("accepts backend-published Big Five assets for SEO readback without weakening noindex fallback", async () => {
