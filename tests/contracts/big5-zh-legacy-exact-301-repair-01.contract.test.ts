@@ -1,7 +1,7 @@
 import path from "node:path";
 import { pathToFileURL } from "node:url";
 import { describe, expect, it } from "vitest";
-import { BIG_FIVE_ZH_LEGACY_TO_V2_SLUG } from "@/lib/personality/bigFivePublicRoutes";
+import { BIG_FIVE_LEGACY_TO_CANONICAL_SLUG } from "@/lib/personality/bigFivePublicRoutes";
 
 type RedirectRule = {
   source: string;
@@ -19,30 +19,22 @@ async function loadRedirects(): Promise<RedirectRule[]> {
   return nextConfig.redirects();
 }
 
-describe("BIG5-ZH-LEGACY-EXACT-301-REPAIR-01 contract", () => {
-  it("maps exactly the ten backend-authorized Chinese aliases to their V2 canonicals with HTTP 301", async () => {
+describe("BIG5 LEGACY EXACT 301 contract", () => {
+  it.each(["zh", "en"] as const)("maps exactly the ten backend-authorized %s aliases with HTTP 301", async (locale) => {
     const redirects = await loadRedirects();
-    const bigFiveZhRedirects = redirects.filter((rule) =>
-      rule.source.startsWith("/zh/personality/big-five/")
+    const localeRedirects = redirects.filter((rule) =>
+      rule.source.startsWith(`/${locale}/personality/big-five/`)
     );
-    const expectedRedirects = Object.entries(BIG_FIVE_ZH_LEGACY_TO_V2_SLUG).map(
+    const expectedRedirects = Object.entries(BIG_FIVE_LEGACY_TO_CANONICAL_SLUG).map(
       ([legacySlug, canonicalSlug]) => ({
-        source: `/zh/personality/big-five/${legacySlug}`,
-        destination: `/zh/personality/big-five/${canonicalSlug}`,
+        source: `/${locale}/personality/big-five/${legacySlug}`,
+        destination: `/${locale}/personality/big-five/${canonicalSlug}`,
         statusCode: 301,
       })
     );
 
-    expect(bigFiveZhRedirects).toEqual(expectedRedirects);
-    expect(bigFiveZhRedirects).toHaveLength(10);
-    expect(bigFiveZhRedirects.every((rule) => rule.permanent === undefined)).toBe(true);
-  });
-
-  it("does not add or change any English Big Five Legacy redirect", async () => {
-    const redirects = await loadRedirects();
-
-    expect(
-      redirects.filter((rule) => rule.source.startsWith("/en/personality/big-five/"))
-    ).toEqual([]);
+    expect(localeRedirects).toEqual(expectedRedirects);
+    expect(localeRedirects).toHaveLength(10);
+    expect(localeRedirects.every((rule) => rule.permanent === undefined)).toBe(true);
   });
 });
