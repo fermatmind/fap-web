@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocale } from "@/components/i18n/LocaleContext";
 import { Container } from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
@@ -10,10 +10,13 @@ export type PublicContentErrorProps = {
   error: Error & { digest?: string };
   reset: () => void;
   surface: string;
+  retryAction?: () => void;
 };
 
-export function PublicContentError({ error, reset, surface }: PublicContentErrorProps) {
+export function PublicContentError({ error, reset, retryAction, surface }: PublicContentErrorProps) {
   const locale = useLocale();
+  const retryStartedRef = useRef(false);
+  const [isRetrying, setIsRetrying] = useState(false);
 
   useEffect(() => {
     captureError(error, {
@@ -29,12 +32,27 @@ export function PublicContentError({ error, reset, surface }: PublicContentError
         title: "暂时无法加载此页面",
         body: "内容服务暂时没有完成响应。你可以重试当前页面。",
         retry: "重试",
+        retrying: "正在重试…",
       }
     : {
         title: "This page is temporarily unavailable",
         body: "The content service did not complete this request. You can retry this page.",
         retry: "Retry",
+        retrying: "Retrying…",
       };
+
+  const retry = () => {
+    if (!retryAction) {
+      reset();
+      return;
+    }
+
+    if (retryStartedRef.current) return;
+
+    retryStartedRef.current = true;
+    setIsRetrying(true);
+    retryAction();
+  };
 
   return (
     <Container as="main" className="min-h-[52vh] py-[var(--fm-section-y)]">
@@ -47,8 +65,8 @@ export function PublicContentError({ error, reset, surface }: PublicContentError
         <p className="mb-[var(--fm-gap-lg)] mt-[var(--fm-gap-sm)] text-sm leading-6 text-[var(--fm-text-muted)]">
           {copy.body}
         </p>
-        <Button type="button" onClick={reset}>
-          {copy.retry}
+        <Button type="button" onClick={retry} disabled={isRetrying} aria-busy={isRetrying}>
+          {isRetrying ? copy.retrying : copy.retry}
         </Button>
       </div>
     </Container>
