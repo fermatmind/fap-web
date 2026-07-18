@@ -46348,7 +46348,7 @@
       "evidence": "fap-web PR #1786 is MERGED at c915cd6c095a265efe7a00fa8d5d4186d0545cc2; origin/main contains the merge commit, local main is synced, and the PR6 task worktree plus local/remote branches were cleaned before this branch started."
     },
     "status": "github_checks_pending",
-    "commit_sha": "f776fd3836e1d374ef70b2181e1a2fbfe94a5d6d",
+    "commit_sha": "c41ad08b6002fe72ce101ccea898f89ef6f469ef",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1787",
     "checks": {
       "manifest_registration": {
@@ -46408,8 +46408,13 @@
         "at": "2026-07-18T18:55:59Z",
         "status": "github_checks_pending",
         "summary": "Pushed the exact five-path branch and opened fap-web PR #1787; GitHub required checks and review are pending."
+      },
+      {
+        "at": "2026-07-18T18:59:20Z",
+        "status": "review_fix_validated_checks_pending",
+        "summary": "A valid P2 review requested that commit_sha identify the branch revision containing the PR URL and check state rather than the earlier implementation commit. Bound commit_sha to reviewed branch head c41ad08b6002fe72ce101ccea898f89ef6f469ef; this ledger-only follow-up must pass final-head checks before merge."
       }
     ],
-    "updated_at": "2026-07-18T18:55:59Z"
+    "updated_at": "2026-07-18T18:59:20Z"
   }
 }
