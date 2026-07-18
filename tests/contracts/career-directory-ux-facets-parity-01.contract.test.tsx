@@ -93,8 +93,8 @@ function installPageMocks(options: DirectoryMockOptions = {}) {
   const fetchCareerDirectory = vi.fn(async () => directoryPayload(options));
 
   vi.doMock("next/link", () => ({
-    default: ({ href, children, ...props }: { href: string; children: ReactNode }) => (
-      <a href={href} {...props}>
+    default: ({ href, prefetch, children, ...props }: { href: string; prefetch?: boolean; children: ReactNode }) => (
+      <a href={href} data-prefetch={String(prefetch)} {...props}>
         {children}
       </a>
     ),

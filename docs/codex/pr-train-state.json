@@ -46248,5 +46248,89 @@
       }
     ],
     "updated_at": "2026-07-18T18:00:01Z"
+  },
+  "CAREER-JOBS-PREFETCH-BUDGET-01": {
+    "id": "CAREER-JOBS-PREFETCH-BUDGET-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/career-jobs-prefetch-budget-01",
+    "title": "CAREER-JOBS-PREFETCH-BUDGET-01: bound Career directory automatic RSC prefetch",
+    "depends_on": [
+      "CAREER-JOBS-ERROR-RECOVERY-01"
+    ],
+    "dependency_verification": {
+      "github_merged": true,
+      "dependency_origin_main_contains_merge": true,
+      "evidence": "fap-web PR #1784 is MERGED at daa2c6e2e55994f0131606eaf12889ed074d893e; origin/main contains the merge commit and PR5 local/remote cleanup plus post-merge revalidation completed before this branch started."
+    },
+    "status": "ready_to_merge",
+    "commit_sha": "241e9bf5818f77a8f5aca7e75dc8094488518561",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1786",
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The explicit seven-PR /goal supplied this exact PR id, title, branch, dependency, scope, browser evidence, validation, and continuous lifecycle authorization."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "CAREER-JOBS-ERROR-RECOVERY-01 PR #1784 is merged, present on origin/main, synced locally, and fully cleaned."
+      },
+      "browser_baseline": {
+        "status": "pass",
+        "evidence": "Read-only Playwright CLI navigation to https://fermatmind.com/zh/career/jobs recorded 66 automatic _rsc requests with no user interaction, including 58 duplicated high-cardinality Career detail, row-family, and family-facet targets."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Focused contracts passed 2 files / 5 tests; lint, spacing lint, typecheck, the full contract suite (758 files / 4361 tests), and production build (206/206 static pages) passed. Read-only Playwright evidence measured automatic RSC requests at 66 baseline versus 4 candidate (-93.9%) and high-cardinality Career targets at 58 versus 0 (-100%); ordinary click navigation reached the expected localized detail route and title. YAML/JSON parsing, diff checks, and exact changed-file scope validation passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1786 head 2e5d6aebe24125849b54f8412ba30373119f48e8 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL result, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE; no review threads are open."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-18T18:12:49Z",
+        "status": "in_progress",
+        "summary": "Verified PR5 merged/contained/cleaned, synced latest fap-web origin/main daa2c6e2e55994f0131606eaf12889ed074d893e, created the exact dedicated branch/worktree, and started only high-cardinality Career directory prefetch control plus focused contracts and read-only browser evidence. The online no-interaction baseline recorded 66 automatic _rsc requests, 58 of them duplicated Career detail, row-family, or family-facet targets. No error, icon, adapter, backend, CMS, SEO, content, or deploy work is included."
+      },
+      {
+        "at": "2026-07-18T18:22:04Z",
+        "status": "local_checks_passed",
+        "summary": "Disabled automatic prefetch on all 12 Career jobs directory Link declarations without changing backend-owned hrefs, locale, query, pagination, readiness, or content. Focused contracts passed 2 files / 5 tests; lint, spacing lint, typecheck, full contracts (758 files / 4361 tests), and production build (206/206 static pages) passed. Read-only Playwright measured total automatic RSC requests at 66 to 4 (-93.9%) and high-cardinality targets at 58 to 0 (-100%); a normal click still reached the correct localized job detail. Exact scope and repository metadata parsing passed."
+      },
+      {
+        "at": "2026-07-18T18:23:45Z",
+        "status": "local_checks_passed",
+        "summary": "Bound the validated implementation and evidence to commit 241e9bf5818f77a8f5aca7e75dc8094488518561 before push."
+      },
+      {
+        "at": "2026-07-18T18:24:42Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the scoped branch and opened fap-web PR #1786; GitHub required checks and review are pending."
+      },
+      {
+        "at": "2026-07-18T18:30:46Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1786 head 2e5d6aebe24125849b54f8412ba30373119f48e8 passed all required CI and CodeQL checks, GitHub reports CLEAN/MERGEABLE, all seven changed paths remain inside the manifest scope, and no review threads are open."
+      }
+    ],
+    "updated_at": "2026-07-18T18:30:46Z"
   }
 }

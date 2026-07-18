@@ -26687,3 +26687,51 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend
     repository_rule_impact: existing_backend_authority_and_frontend_no_fallback_rules_preserved
+
+  - id: CAREER-JOBS-PREFETCH-BUDGET-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/career-jobs-prefetch-budget-01
+    base: main
+    title: "CAREER-JOBS-PREFETCH-BUDGET-01: bound Career directory automatic RSC prefetch"
+    depends_on: [CAREER-JOBS-ERROR-RECOVERY-01]
+    mode: execute
+    train_scope: career_jobs_prefetch_budget
+    status: ready_to_merge
+    goal: "Disable automatic prefetch for high-cardinality Career directory links while preserving backend-owned href, locale, filters, pagination, and click navigation."
+    allowed_paths:
+      - app/(localized)/[locale]/career/jobs/page.tsx
+      - components/career/CareerOccupationDirectory.tsx
+      - tests/contracts/career-jobs-prefetch-budget.contract.test.tsx
+      - tests/contracts/career-directory-ux-facets-parity-01.contract.test.tsx
+      - docs/performance/career-jobs-prefetch-budget-01.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Error recovery, simple-icons or footer changes, Career API adapters, backend/CMS changes, directory content/order/filter/pagination/readiness authority, SEO runtime, sitemap, llms, canonical, content writes, deploy, or production mutation.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-jobs-prefetch-budget.contract.test.tsx tests/contracts/career-directory-ux-facets-parity-01.contract.test.tsx
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - read-only Playwright request-count comparison for /zh/career/jobs with no user interaction
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_backend_authority_and_frontend_no_fallback_rules_preserved
