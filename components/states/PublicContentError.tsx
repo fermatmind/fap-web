@@ -42,11 +42,16 @@ export function PublicContentError({ error, reset, retryAction, surface }: Publi
       };
 
   const retry = () => {
+    if (!retryAction) {
+      reset();
+      return;
+    }
+
     if (retryStartedRef.current) return;
 
     retryStartedRef.current = true;
     setIsRetrying(true);
-    (retryAction ?? reset)();
+    retryAction();
   };
 
   return (

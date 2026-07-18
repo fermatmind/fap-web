@@ -26670,7 +26670,7 @@ prs:
       - pnpm lint:spacing
       - pnpm typecheck
       - pnpm test:contract
-      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - git diff --check

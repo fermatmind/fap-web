@@ -47,8 +47,11 @@ describe("public content route boundaries", () => {
       surface: "topics",
       digest: "digest-1",
     }));
-    fireEvent.click(screen.getByRole("button", { name: "Retry" }));
-    expect(reset).toHaveBeenCalledOnce();
+    const retryButton = screen.getByRole("button", { name: "Retry" });
+    fireEvent.click(retryButton);
+    fireEvent.click(retryButton);
+    expect(reset).toHaveBeenCalledTimes(2);
+    expect(retryButton).toBeEnabled();
   });
 
   it("locks a Career detail retry while its real route reload is in progress", () => {
