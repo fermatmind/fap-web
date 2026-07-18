@@ -46154,8 +46154,8 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-api PRs #3163, #3164, #3166, and #3176 are merged; origin/main contains final dependency merge 21552d19a6fc76053de43ac87bf1ba3e6db5192c and post-merge cleanup was verified before this branch started."
     },
-    "status": "review_fixes_validated_checks_pending",
-    "commit_sha": "b87508d7f23bdf13c6f81c7d13218e83dec30936",
+    "status": "ready_to_merge",
+    "commit_sha": "90bb8024d95183b5e2be4d102a92aba8ad2ac972",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1784",
     "checks": {
       "manifest_registration": {
@@ -46192,17 +46192,17 @@
       },
       "review_fix": {
         "status": "pass",
-        "evidence": "Addressed both valid P2 findings: the retry lock now applies only to the Career hard-reload action so generic reset retries remain repeatable, and the manifest records the complete passing production build command. Focused 2 files / 22 tests, lint, spacing, typecheck, full contracts 756 files / 4356 tests, production build 206/206 pages, YAML/JSON, diff, and exact repair scope all passed."
+        "evidence": "Addressed all three valid P2 findings: the retry lock now applies only to the Career hard-reload action so generic reset retries remain repeatable, the manifest records the complete passing production build command, and this ready ledger binds commit_sha to the review-fix implementation head 90bb8024d95183b5e2be4d102a92aba8ad2ac972. Focused 2 files / 22 tests, lint, spacing, typecheck, full contracts 756 files / 4356 tests, production build 206/206 pages, YAML/JSON, diff, and exact repair scope all passed."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "The pre-review head passed all seven required/security checks. The review-fix head must rerun them before merge."
+        "status": "pass",
+        "evidence": "Review-fix implementation head 90bb8024d95183b5e2be4d102a92aba8ad2ac972 passed build, contracts, both assessment freeze checks, CodeQL analysis, CodeQL aggregate, and zero-new-alerts. The final ledger-only head must rerun the same checks before merge."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -46240,8 +46240,13 @@
         "at": "2026-07-18T17:53:49Z",
         "status": "review_fixes_validated_checks_pending",
         "summary": "All seven checks passed on head 9b2f0ce566540b4b182080ed0c4905daa37e12fb, then two valid P2 reviews identified a permanent generic-reset lock and a known-failing API-only manifest build command. Limited locking to the Career hard-reload action, proved default reset remains repeatable, and recorded the complete production build environment. Focused 2-file / 22-test validation, lint, spacing, typecheck, full contracts 756 files / 4356 tests, build 206/206 pages, YAML/JSON, diff, and exact repair scope passed after waiting for the host concurrency guard to clear. Final-head checks and thread resolution remain pending."
+      },
+      {
+        "at": "2026-07-18T18:00:01Z",
+        "status": "ready_to_merge",
+        "summary": "Review-fix head 90bb8024d95183b5e2be4d102a92aba8ad2ac972 is CLEAN/MERGEABLE with exact five-path scope, both original P2 threads resolved, and all seven required/security checks green. A final valid P2 requested that commit_sha bind to this verified review-fix head; this ready ledger does so. The resulting ledger-only final head must pass all checks and the last thread must be resolved before squash merge."
       }
     ],
-    "updated_at": "2026-07-18T17:53:49Z"
+    "updated_at": "2026-07-18T18:00:01Z"
   }
 }
