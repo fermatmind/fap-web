@@ -46154,8 +46154,8 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-api PRs #3163, #3164, #3166, and #3176 are merged; origin/main contains final dependency merge 21552d19a6fc76053de43ac87bf1ba3e6db5192c and post-merge cleanup was verified before this branch started."
     },
-    "status": "local_checks_passed",
-    "commit_sha": null,
+    "status": "committed_pending_push",
+    "commit_sha": "b87508d7f23bdf13c6f81c7d13218e83dec30936",
     "pr_url": null,
     "checks": {
       "manifest_registration": {
@@ -46221,8 +46221,13 @@
         "at": "2026-07-18T17:37:39Z",
         "status": "local_checks_passed",
         "summary": "Implemented a deterministic Career route reload, localized retry-in-progress state, and a one-attempt lock while preserving generic error reset behavior. Focused 2-file / 22-test validation, lint, spacing, typecheck, full contracts 756 files / 4356 tests, production-parameter build 206/206 pages, YAML/JSON parsing, diff check, and exact five-path scope validation passed. The first literal API-only build exposed the existing required SITE_URL preflight and the complete production command passed; no production action was triggered."
+      },
+      {
+        "at": "2026-07-18T17:38:31Z",
+        "status": "committed_pending_push",
+        "summary": "Committed the exact validated five-path PR5 implementation as b87508d7f23bdf13c6f81c7d13218e83dec30936 after explicit path staging and cached diff validation; this ledger-only binding commit follows before push."
       }
     ],
-    "updated_at": "2026-07-18T17:37:39Z"
+    "updated_at": "2026-07-18T17:38:31Z"
   }
 }
