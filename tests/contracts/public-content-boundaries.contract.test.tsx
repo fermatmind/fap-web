@@ -51,6 +51,40 @@ describe("public content route boundaries", () => {
     expect(reset).toHaveBeenCalledOnce();
   });
 
+  it("locks a Career detail retry while its real route reload is in progress", () => {
+    const reset = vi.fn();
+    const retryAction = vi.fn();
+    const error = new Error("temporary");
+
+    render(
+      <LocaleProvider locale="en">
+        <PublicContentError
+          error={error}
+          reset={reset}
+          retryAction={retryAction}
+          surface="career"
+        />
+      </LocaleProvider>
+    );
+
+    const retryButton = screen.getByRole("button", { name: "Retry" });
+    fireEvent.click(retryButton);
+    fireEvent.click(retryButton);
+
+    expect(retryAction).toHaveBeenCalledOnce();
+    expect(reset).not.toHaveBeenCalled();
+    expect(screen.getByRole("button", { name: "Retrying…" })).toBeDisabled();
+    expect(screen.getByRole("button", { name: "Retrying…" })).toHaveAttribute("aria-busy", "true");
+  });
+
+  it("makes Career errors start a new route request without frontend content fallback", () => {
+    const source = read("app/(localized)/[locale]/career/error.tsx");
+
+    expect(source).toContain("window.location.reload()");
+    expect(source).toContain('surface="career" retryAction={reloadCareerRoute}');
+    expect(source).not.toContain("fallback");
+  });
+
   it("wires every declared public content family to shared loading and error shells", () => {
     for (const family of families) {
       const root = `app/(localized)/[locale]/${family}`;
@@ -59,7 +93,11 @@ describe("public content route boundaries", () => {
 
       expect(loading).toContain("<PublicContentLoading />");
       expect(error).toContain('"use client"');
-      expect(error).toContain(`<PublicContentError {...props} surface="${family}" />`);
+      if (family === "career") {
+        expect(error).toContain('<PublicContentError {...props} surface="career" retryAction={reloadCareerRoute} />');
+      } else {
+        expect(error).toContain(`<PublicContentError {...props} surface="${family}" />`);
+      }
     }
   });
 });

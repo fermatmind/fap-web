@@ -26633,3 +26633,57 @@ prs:
     deploy_allowed: false
     content_authority: unchanged_backend_authority
     repository_rule_impact: none_observability_workflow_only
+
+  - id: CAREER-JOBS-ERROR-RECOVERY-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/career-jobs-error-recovery-01
+    base: main
+    title: "CAREER-JOBS-ERROR-RECOVERY-01: make Career detail retry perform a real request"
+    depends_on:
+      - CAREER-DETAIL-COLD-MISS-DEGRADE-01
+      - CAREER-DETAIL-CACHE-COVERAGE-01
+      - CAREER-DETAIL-ATOMIC-EXPOSURE-01
+      - CAREER-DETAIL-DEPLOY-SLO-REPAIR-01
+    dependency_repository: fap-api
+    mode: execute
+    train_scope: career_jobs_error_recovery
+    status: in_progress
+    goal: "Make Career detail transient-error retry start a real request, retain authoritative 404 behavior, and prevent concurrent retries without adding frontend career content."
+    allowed_paths:
+      - app/(localized)/[locale]/career/error.tsx
+      - app/(localized)/[locale]/career/jobs/[slug]/page.tsx
+      - components/states/PublicContentError.tsx
+      - lib/career/api/fetchCareerJobBundle.ts
+      - tests/contracts/public-content-boundaries.contract.test.tsx
+      - tests/contracts/career-public-read-stability.contract.test.ts
+      - tests/contracts/career-job-backend-bundle.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Career prefetch changes, global icon bundling, frontend editorial fallback, backend/CMS changes, content writes, SEO runtime, sitemap, llms, canonical, noindex, JSON-LD, migrations, warmup, deploy, or production execution.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/public-content-boundaries.contract.test.tsx tests/contracts/career-public-read-stability.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_backend_authority_and_frontend_no_fallback_rules_preserved

@@ -46135,5 +46135,94 @@
       }
     ],
     "updated_at": "2026-07-16T15:01:20Z"
+  },
+  "CAREER-JOBS-ERROR-RECOVERY-01": {
+    "id": "CAREER-JOBS-ERROR-RECOVERY-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/career-jobs-error-recovery-01",
+    "title": "CAREER-JOBS-ERROR-RECOVERY-01: make Career detail retry perform a real request",
+    "depends_on": [
+      "CAREER-DETAIL-COLD-MISS-DEGRADE-01",
+      "CAREER-DETAIL-CACHE-COVERAGE-01",
+      "CAREER-DETAIL-ATOMIC-EXPOSURE-01",
+      "CAREER-DETAIL-DEPLOY-SLO-REPAIR-01"
+    ],
+    "dependency_repository": "fap-api",
+    "dependency_verification": {
+      "github_merged": true,
+      "dependency_origin_main_contains_merge": true,
+      "evidence": "fap-api PRs #3163, #3164, #3166, and #3176 are merged; origin/main contains final dependency merge 21552d19a6fc76053de43ac87bf1ba3e6db5192c and post-merge cleanup was verified before this branch started."
+    },
+    "status": "local_checks_passed",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The explicit seven-PR /goal supplied this exact PR id, title, branch, dependencies, scope, validation, and continuous lifecycle authorization."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "All four fap-api Career detail stability dependencies are merged and the final merge is present on fap-api origin/main."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "Node 24.14.0 focused Career error-boundary and public-read stability suite passed 2 files / 22 tests, covering authoritative absence, transient errors, real-request retry, retry locking, localized state, and no frontend fallback."
+      },
+      "lint_typecheck": {
+        "status": "pass",
+        "evidence": "pnpm lint, pnpm lint:spacing, and pnpm typecheck passed on Node 24.14.0 with pnpm 10.28.1."
+      },
+      "contract_suite": {
+        "status": "pass",
+        "evidence": "pnpm test:contract passed all four shards: 756 files / 4356 tests. Seven known generated SEO/MBTI test side effects were restored to HEAD and excluded from scope."
+      },
+      "build": {
+        "status": "pass",
+        "evidence": "The literal API-only build command reached compilation/typecheck then correctly failed the main-branch production URL guard because NEXT_PUBLIC_SITE_URL was absent. Re-running with NEXT_PUBLIC_SITE_URL=https://fermatmind.com and NEXT_PUBLIC_API_URL=https://api.fermatmind.com passed and generated 206/206 static pages."
+      },
+      "metadata_and_scope": {
+        "status": "pass",
+        "evidence": "PR-train YAML and state JSON parse, git diff --check, and exact five-path scope validation including worktree status all passed. No page, adapter, prefetch, icon, SEO, CMS, backend, or deploy path changed."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "All PR5 local gates passed; no deployment, CMS/database mutation, content write, warmup, or production execution occurred."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR has not been opened."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-18T17:30:15Z",
+        "status": "in_progress",
+        "summary": "Verified all four fap-api dependencies merged and cleaned, synced latest fap-web origin/main 18de71034ae10380101534932792c071bb6e432e, created the exact dedicated branch/worktree, and started only Career detail real-request retry, retry locking, localized transient state, and focused contracts. Existing authoritative absence remains 404 and no frontend content fallback, prefetch, icon, SEO, CMS, or deploy work is included."
+      },
+      {
+        "at": "2026-07-18T17:37:39Z",
+        "status": "local_checks_passed",
+        "summary": "Implemented a deterministic Career route reload, localized retry-in-progress state, and a one-attempt lock while preserving generic error reset behavior. Focused 2-file / 22-test validation, lint, spacing, typecheck, full contracts 756 files / 4356 tests, production-parameter build 206/206 pages, YAML/JSON parsing, diff check, and exact five-path scope validation passed. The first literal API-only build exposed the existing required SITE_URL preflight and the complete production command passed; no production action was triggered."
+      }
+    ],
+    "updated_at": "2026-07-18T17:37:39Z"
   }
 }
