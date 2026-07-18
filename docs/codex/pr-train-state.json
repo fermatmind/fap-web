@@ -46264,7 +46264,7 @@
       "evidence": "fap-web PR #1784 is MERGED at daa2c6e2e55994f0131606eaf12889ed074d893e; origin/main contains the merge commit and PR5 local/remote cleanup plus post-merge revalidation completed before this branch started."
     },
     "status": "local_checks_passed",
-    "commit_sha": null,
+    "commit_sha": "241e9bf5818f77a8f5aca7e75dc8094488518561",
     "pr_url": null,
     "checks": {
       "manifest_registration": {
@@ -46314,8 +46314,13 @@
         "at": "2026-07-18T18:22:04Z",
         "status": "local_checks_passed",
         "summary": "Disabled automatic prefetch on all 12 Career jobs directory Link declarations without changing backend-owned hrefs, locale, query, pagination, readiness, or content. Focused contracts passed 2 files / 5 tests; lint, spacing lint, typecheck, full contracts (758 files / 4361 tests), and production build (206/206 static pages) passed. Read-only Playwright measured total automatic RSC requests at 66 to 4 (-93.9%) and high-cardinality targets at 58 to 0 (-100%); a normal click still reached the correct localized job detail. Exact scope and repository metadata parsing passed."
+      },
+      {
+        "at": "2026-07-18T18:23:45Z",
+        "status": "local_checks_passed",
+        "summary": "Bound the validated implementation and evidence to commit 241e9bf5818f77a8f5aca7e75dc8094488518561 before push."
       }
     ],
-    "updated_at": "2026-07-18T18:22:04Z"
+    "updated_at": "2026-07-18T18:23:45Z"
   }
 }
