@@ -26697,7 +26697,7 @@ prs:
     depends_on: [CAREER-JOBS-ERROR-RECOVERY-01]
     mode: execute
     train_scope: career_jobs_prefetch_budget
-    status: local_checks_passed
+    status: github_checks_pending
     goal: "Disable automatic prefetch for high-cardinality Career directory links while preserving backend-owned href, locale, filters, pagination, and click navigation."
     allowed_paths:
       - app/(localized)/[locale]/career/jobs/page.tsx
