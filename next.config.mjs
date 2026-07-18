@@ -124,10 +124,10 @@ const gscLegacyRedirects = [
   },
 ];
 
-// These ten zh routes are redirect-only aliases in backend authority. Use an
+// These ten routes are redirect-only aliases in both locale authorities. Use an
 // explicit 301 (not Next's `permanent: true` 308) so their historical SEO
-// signal converges on the frozen V2 canonical target in one hop.
-const bigFiveZhLegacyExact301Redirects = [
+// signal converges on the backend-locked canonical target in one hop.
+const bigFiveLegacyExact301Redirects = [
   ["high-openness", "openness-high"],
   ["low-openness", "openness-low"],
   ["high-conscientiousness", "conscientiousness-high"],
@@ -138,11 +138,13 @@ const bigFiveZhLegacyExact301Redirects = [
   ["low-agreeableness", "agreeableness-low"],
   ["high-neuroticism", "neuroticism-high"],
   ["emotional-stability", "neuroticism-low"],
-].map(([legacySlug, canonicalSlug]) => ({
-  source: `/zh/personality/big-five/${legacySlug}`,
-  destination: `/zh/personality/big-five/${canonicalSlug}`,
-  statusCode: 301,
-}));
+].flatMap(([legacySlug, canonicalSlug]) =>
+  ["zh", "en"].map((locale) => ({
+    source: `/${locale}/personality/big-five/${legacySlug}`,
+    destination: `/${locale}/personality/big-five/${canonicalSlug}`,
+    statusCode: 301,
+  }))
+);
 
 const nextConfig = {
   output: "standalone",
@@ -280,7 +282,7 @@ const nextConfig = {
         destination: "/en/tests/:path*",
         permanent: true,
       },
-      ...bigFiveZhLegacyExact301Redirects,
+      ...bigFiveLegacyExact301Redirects,
       {
         source: "/privacy",
         destination: "/zh/privacy",

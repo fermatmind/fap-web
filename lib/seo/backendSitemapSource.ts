@@ -6,10 +6,7 @@ import {
   readMbtiAuthorityLastKnownGood,
   writeMbtiAuthorityLastKnownGood,
 } from "@/lib/seo/backendSitemapMbtiAuthorityCache";
-import {
-  BIG_FIVE_PUBLIC_ROUTE_ENTRIES,
-  BIG_FIVE_ZH_LEGACY_TO_V2_SLUG,
-} from "@/lib/personality/bigFivePublicRoutes";
+import { BIG_FIVE_PUBLIC_ROUTE_ENTRIES } from "@/lib/personality/bigFivePublicRoutes";
 
 type BackendSitemapSourceItem = {
   loc?: unknown;
@@ -111,14 +108,9 @@ function shouldKeepCareerJobDetailPath(path: string): boolean {
 }
 
 const BIG_FIVE_CANONICAL_ROUTE_SLUGS = new Set(BIG_FIVE_PUBLIC_ROUTE_ENTRIES.map((entry) => entry.routeSlug));
-const BIG_FIVE_ZH_REDIRECT_ONLY_SLUGS = new Set(Object.keys(BIG_FIVE_ZH_LEGACY_TO_V2_SLUG));
 const BIG_FIVE_EXPECTED_CANONICAL_PATHS = new Set(BIG_FIVE_PUBLIC_ROUTE_ENTRIES.flatMap((entry) => [
   `/en/personality/big-five${entry.pathSuffix}`,
-  ...(
-    BIG_FIVE_ZH_REDIRECT_ONLY_SLUGS.has(entry.routeSlug)
-      ? []
-      : [`/zh/personality/big-five${entry.pathSuffix}`]
-  ),
+  `/zh/personality/big-five${entry.pathSuffix}`,
 ]));
 
 function shouldKeepBigFivePublicAssetPath(path: string): boolean {
@@ -130,7 +122,6 @@ function shouldKeepBigFivePublicAssetPath(path: string): boolean {
   return (
     (locale === "en" || locale === "zh") &&
     BIG_FIVE_CANONICAL_ROUTE_SLUGS.has(routeSlug) &&
-    !(locale === "zh" && BIG_FIVE_ZH_REDIRECT_ONLY_SLUGS.has(routeSlug)) &&
     shouldIncludeInSitemap(normalized, {
       indexEligible: true,
       indexState: "indexed",
@@ -272,7 +263,7 @@ export function isCompleteBackendSitemapBigFiveCohort(paths: readonly string[]):
   const actual = new Set(paths.map((path) => normalizePath(path)));
 
   return actual.size === BIG_FIVE_EXPECTED_CANONICAL_PATHS.size
-    && BIG_FIVE_EXPECTED_CANONICAL_PATHS.size === 114
+    && BIG_FIVE_EXPECTED_CANONICAL_PATHS.size === 104
     && [...BIG_FIVE_EXPECTED_CANONICAL_PATHS].every((path) => actual.has(path));
 }
 
@@ -337,7 +328,7 @@ export async function listBackendSitemapBigFiveZhPaths(
   const payload = await fetchBackendSitemapSource(options.signal);
   const canonicalPaths = extractBackendSitemapBigFiveZhPaths(payload);
   if (!isCompleteBackendSitemapBigFiveCohort(canonicalPaths)) {
-    throw new Error(`Incomplete Big Five sitemap authority cohort: expected 114 canonical paths, received ${canonicalPaths.length}.`);
+    throw new Error(`Incomplete Big Five sitemap authority cohort: expected 104 canonical paths, received ${canonicalPaths.length}.`);
   }
 
   const filteredPaths = limitCandidatePaths(canonicalPaths, options.limit);

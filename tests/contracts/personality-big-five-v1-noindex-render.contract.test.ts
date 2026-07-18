@@ -8,7 +8,7 @@ import { PublicContentAssetRenderer } from "@/components/personality/PublicConte
 import { getBigFivePublicContentAsset } from "@/lib/cms/personality-public-content-assets";
 import {
   BIG_FIVE_PUBLIC_ROUTE_ENTRIES,
-  BIG_FIVE_ZH_LEGACY_TO_V2_SLUG,
+  BIG_FIVE_LEGACY_TO_CANONICAL_SLUG,
   buildBigFivePublicContentPath,
   resolveBigFiveLegacyRedirectPath,
   resolveBigFivePublicRouteEntry,
@@ -144,7 +144,7 @@ afterEach(() => {
 });
 
 describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
-  it("permanently redirects exactly ten Chinese Legacy routes before CMS lookup and leaves English unchanged", async () => {
+  it("redirects exactly ten legacy routes per locale before CMS lookup", async () => {
     const expectedMappings = [
       ["high-openness", "openness-high"],
       ["low-openness", "openness-low"],
@@ -158,12 +158,14 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
       ["emotional-stability", "neuroticism-low"],
     ] as const;
 
-    expect(Object.entries(BIG_FIVE_ZH_LEGACY_TO_V2_SLUG)).toEqual(expectedMappings);
+    expect(Object.entries(BIG_FIVE_LEGACY_TO_CANONICAL_SLUG)).toEqual(expectedMappings);
     for (const [legacySlug, v2Slug] of expectedMappings) {
       expect(resolveBigFiveLegacyRedirectPath("zh", [legacySlug])).toBe(
         `/zh/personality/big-five/${v2Slug}`
       );
-      expect(resolveBigFiveLegacyRedirectPath("en", [legacySlug])).toBeNull();
+      expect(resolveBigFiveLegacyRedirectPath("en", [legacySlug])).toBe(
+        `/en/personality/big-five/${v2Slug}`
+      );
     }
     expect(resolveBigFiveLegacyRedirectPath("zh", ["openness-high"])).toBeNull();
     expect(resolveBigFiveLegacyRedirectPath("zh", ["facets", "imagination"])).toBeNull();
@@ -188,32 +190,15 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
     ).rejects.toThrow("NEXT_REDIRECT:/zh/personality/big-five/neuroticism-low");
     expect(navigationMocks.permanentRedirect).toHaveBeenCalledWith("/zh/personality/big-five/neuroticism-low");
     expect(fetchMock).not.toHaveBeenCalled();
-  });
 
-  it("continues to resolve English Legacy routes through backend CMS authority", async () => {
-    vi.stubGlobal(
-      "fetch",
-      vi.fn(async () =>
-        jsonResponse({
-          ok: true,
-          personality_public_content_asset_v1: sampleAsset({
-            entity_type: "polarity",
-            code: "high-openness",
-            entity_key: "high-openness",
-            slug: "big-five/high-openness",
-            canonical_path: "/en/personality/big-five/high-openness",
-            canonical: { path: "/en/personality/big-five/high-openness" },
-          }),
-        })
-      )
-    );
-    const route = await import("@/app/(localized)/[locale]/personality/big-five/[...slug]/page");
-    const metadata = await route.generateMetadata({
-      params: Promise.resolve({ locale: "en", slug: ["high-openness"] }),
-    });
-
-    expect(navigationMocks.permanentRedirect).not.toHaveBeenCalled();
-    expect(metadata.alternates?.canonical).toBe("http://localhost:3000/en/personality/big-five/high-openness");
+    navigationMocks.permanentRedirect.mockClear();
+    await expect(
+      route.generateMetadata({
+        params: Promise.resolve({ locale: "en", slug: ["high-openness"] }),
+      })
+    ).rejects.toThrow("NEXT_REDIRECT:/en/personality/big-five/openness-high");
+    expect(navigationMocks.permanentRedirect).toHaveBeenCalledWith("/en/personality/big-five/openness-high");
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
   it("defines Big Five CMS-backed public route candidates per locale and rejects nested detail routes", () => {
@@ -235,12 +220,14 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
       "neuroticism-low",
     ];
 
-    expect(BIG_FIVE_PUBLIC_ROUTE_ENTRIES).toHaveLength(62);
+    expect(BIG_FIVE_PUBLIC_ROUTE_ENTRIES).toHaveLength(52);
     expect(BIG_FIVE_PUBLIC_ROUTE_ENTRIES.filter((entry) => entry.entityType === "facet_hub")).toHaveLength(1);
     expect(BIG_FIVE_PUBLIC_ROUTE_ENTRIES.filter((entry) => entry.entityType === "facet_detail")).toHaveLength(30);
     expect(resolveBigFivePublicRouteEntry([])?.code).toBe("big-five");
     expect(resolveBigFivePublicRouteEntry(["openness"])?.entityType).toBe("domain");
     expect(resolveBigFivePublicRouteEntry(["facets"])?.entityType).toBe("facet_hub");
+    expect(resolveBigFivePublicRouteEntry(["high-openness"])).toBeNull();
+    expect(resolveBigFivePublicRouteEntry(["emotional-stability"])).toBeNull();
     expect(resolveBigFivePublicRouteEntry(["openness", "high"])).toBeNull();
     expect(resolveBigFivePublicRouteEntry(["facets", "imagination"])?.code).toBe("imagination");
     expect(resolveBigFivePublicRouteEntry(["facets", "imagination"])?.entityType).toBe("facet_detail");
@@ -258,12 +245,14 @@ describe("PERSONALITY-BIG5-V1-NOINDEX-RENDER-01 contract", () => {
       buildBigFivePublicContentPath("en", entry),
       buildBigFivePublicContentPath("zh", entry),
     ]);
-    expect(paths).toHaveLength(124);
+    expect(paths).toHaveLength(104);
     expect(paths).toContain("/en/personality/big-five/facets");
     expect(paths).toContain("/zh/personality/big-five/openness-high");
     expect(paths).toContain("/zh/personality/big-five/neuroticism-low");
     expect(paths).toContain("/en/personality/big-five/facets/imagination");
     expect(paths).toContain("/zh/personality/big-five/facets/values");
+    expect(paths).not.toContain("/en/personality/big-five/high-openness");
+    expect(paths).not.toContain("/zh/personality/big-five/high-openness");
   });
 
   it("uses the stable framework + locale + entity_type + code API lookup and preserves noindex flags", async () => {

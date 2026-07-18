@@ -52,10 +52,7 @@ import {
   writeLlmsFullResponseCache,
 } from "@/lib/seo/llmsFullResponseCache";
 import { getSiteUrlOrThrow } from "@/lib/site";
-import {
-  BIG_FIVE_PUBLIC_ROUTE_ENTRIES,
-  BIG_FIVE_ZH_LEGACY_TO_V2_SLUG,
-} from "@/lib/personality/bigFivePublicRoutes";
+import { BIG_FIVE_PUBLIC_ROUTE_ENTRIES } from "@/lib/personality/bigFivePublicRoutes";
 import {
   buildEnneagramPublicContentPath,
   ENNEAGRAM_PUBLIC_ROUTE_ENTRIES,
@@ -95,7 +92,7 @@ const LLMS_FULL_RESPONSE_TIMEOUT = Symbol("llms-full-response-timeout");
 const LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT = 1046 * 2;
 const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2;
 const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2;
-const LLMS_FULL_BIG_FIVE_CANONICAL_ENTRY_LIMIT = 114;
+const LLMS_FULL_BIG_FIVE_CANONICAL_ENTRY_LIMIT = 104;
 const LLMS_FULL_REQUIRED_PERSONALITY_PILOT_PATHS = [
   "/en/personality/intj-a-vs-intj-t",
   "/zh/personality/istj-a",
@@ -531,11 +528,7 @@ const ENNEAGRAM_PUBLIC_CONTENT_CANONICAL_PATH_RE =
 const BIG_FIVE_PUBLIC_PATH_RE = /^\/(?:en|zh)\/personality\/big-five(?:\/[^/?#]+(?:\/[^/?#]+)?)?$/;
 const BIG_FIVE_EXPECTED_CANONICAL_PATHS = BIG_FIVE_PUBLIC_ROUTE_ENTRIES.flatMap((entry) => [
   `/en/personality/big-five${entry.pathSuffix}`,
-  ...(
-    Object.hasOwn(BIG_FIVE_ZH_LEGACY_TO_V2_SLUG, entry.routeSlug)
-      ? []
-      : [`/zh/personality/big-five${entry.pathSuffix}`]
-  ),
+  `/zh/personality/big-five${entry.pathSuffix}`,
 ]);
 
 function canonicalCareerJobUrlSet(text: string, siteUrl: string): Set<string> {
@@ -608,7 +601,7 @@ export function hasExactBigFiveCanonicalCohort(text: string, siteUrl: string): b
   const actualUrls = canonicalPathUrlSet(text, siteUrl, BIG_FIVE_PUBLIC_PATH_RE);
   const expectedUrls = new Set(BIG_FIVE_EXPECTED_CANONICAL_PATHS.map((path) => toCanonical(siteUrl, path)));
 
-  return expectedUrls.size === 114
+  return expectedUrls.size === 104
     && actualUrls.size === expectedUrls.size
     && [...expectedUrls].every((url) => actualUrls.has(url));
 }

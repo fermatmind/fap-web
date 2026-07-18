@@ -12,7 +12,7 @@ export type BigFivePublicRouteEntry = {
 const BIG_FIVE_TRAIT_CODES = ["openness", "conscientiousness", "extraversion", "agreeableness", "neuroticism"] as const;
 const BIG_FIVE_RANGE_CODES = ["high", "mid", "low"] as const;
 
-export const BIG_FIVE_ZH_LEGACY_TO_V2_SLUG = {
+export const BIG_FIVE_LEGACY_TO_CANONICAL_SLUG = {
   "high-openness": "openness-high",
   "low-openness": "openness-low",
   "high-conscientiousness": "conscientiousness-high",
@@ -46,26 +46,6 @@ export const BIG_FIVE_PUBLIC_ROUTE_ENTRIES: readonly BigFivePublicRouteEntry[] =
   { entityType: "domain", code: "agreeableness", routeSlug: "agreeableness", pathSuffix: "/agreeableness" },
   { entityType: "domain", code: "neuroticism", routeSlug: "neuroticism", pathSuffix: "/neuroticism" },
   ...BIG_FIVE_V2_RANGE_ROUTE_ENTRIES,
-  { entityType: "polarity", code: "high-openness", routeSlug: "high-openness", pathSuffix: "/high-openness" },
-  { entityType: "polarity", code: "low-openness", routeSlug: "low-openness", pathSuffix: "/low-openness" },
-  {
-    entityType: "polarity",
-    code: "high-conscientiousness",
-    routeSlug: "high-conscientiousness",
-    pathSuffix: "/high-conscientiousness",
-  },
-  {
-    entityType: "polarity",
-    code: "low-conscientiousness",
-    routeSlug: "low-conscientiousness",
-    pathSuffix: "/low-conscientiousness",
-  },
-  { entityType: "polarity", code: "high-extraversion", routeSlug: "high-extraversion", pathSuffix: "/high-extraversion" },
-  { entityType: "polarity", code: "low-extraversion", routeSlug: "low-extraversion", pathSuffix: "/low-extraversion" },
-  { entityType: "polarity", code: "high-agreeableness", routeSlug: "high-agreeableness", pathSuffix: "/high-agreeableness" },
-  { entityType: "polarity", code: "low-agreeableness", routeSlug: "low-agreeableness", pathSuffix: "/low-agreeableness" },
-  { entityType: "polarity", code: "high-neuroticism", routeSlug: "high-neuroticism", pathSuffix: "/high-neuroticism" },
-  { entityType: "polarity", code: "emotional-stability", routeSlug: "emotional-stability", pathSuffix: "/emotional-stability" },
   { entityType: "facet_hub", code: "facets", routeSlug: "facets", pathSuffix: "/facets" },
   // 30 facet detail routes
   { entityType: "facet_detail", code: "imagination", routeSlug: "facets/imagination", pathSuffix: "/facets/imagination" },
@@ -108,19 +88,15 @@ export function resolveBigFiveLegacyRedirectPath(
   locale: Locale,
   slugSegments: readonly string[] | undefined
 ): string | null {
-  if (locale !== "zh") {
-    return null;
-  }
-
   const segments = (slugSegments ?? []).map((segment) => segment.trim().toLowerCase()).filter(Boolean);
   if (segments.length !== 1) {
     return null;
   }
 
-  const legacySlug = segments[0] as keyof typeof BIG_FIVE_ZH_LEGACY_TO_V2_SLUG;
-  const v2Slug = BIG_FIVE_ZH_LEGACY_TO_V2_SLUG[legacySlug];
+  const legacySlug = segments[0] as keyof typeof BIG_FIVE_LEGACY_TO_CANONICAL_SLUG;
+  const canonicalSlug = BIG_FIVE_LEGACY_TO_CANONICAL_SLUG[legacySlug];
 
-  return v2Slug ? `/zh/personality/big-five/${v2Slug}` : null;
+  return canonicalSlug ? `/${locale}/personality/big-five/${canonicalSlug}` : null;
 }
 
 export function resolveBigFivePublicRouteEntry(slugSegments: readonly string[] | undefined): BigFivePublicRouteEntry | null {
