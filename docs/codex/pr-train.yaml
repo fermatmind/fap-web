@@ -26745,7 +26745,7 @@ prs:
     depends_on: [CAREER-JOBS-PREFETCH-BUDGET-01]
     mode: execute
     train_scope: global_footer_icon_bundle
-    status: local_checks_passed
+    status: github_checks_pending
     goal: "Replace the footer simple-icons namespace lookup with explicit named icon imports while preserving all footer items, paths, links, labels, tracking, and interactions."
     allowed_paths:
       - lib/ui/footerSocialIcons.ts
