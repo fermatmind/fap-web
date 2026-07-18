@@ -46154,9 +46154,9 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-api PRs #3163, #3164, #3166, and #3176 are merged; origin/main contains final dependency merge 21552d19a6fc76053de43ac87bf1ba3e6db5192c and post-merge cleanup was verified before this branch started."
     },
-    "status": "committed_pending_push",
+    "status": "github_checks_pending",
     "commit_sha": "b87508d7f23bdf13c6f81c7d13218e83dec30936",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1784",
     "checks": {
       "manifest_registration": {
         "status": "pass",
@@ -46192,7 +46192,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR has not been opened."
+        "evidence": "PR #1784 is open and required/security checks are queued or in progress."
       }
     },
     "scope_validation": {
@@ -46226,8 +46226,13 @@
         "at": "2026-07-18T17:38:31Z",
         "status": "committed_pending_push",
         "summary": "Committed the exact validated five-path PR5 implementation as b87508d7f23bdf13c6f81c7d13218e83dec30936 after explicit path staging and cached diff validation; this ledger-only binding commit follows before push."
+      },
+      {
+        "at": "2026-07-18T17:39:27Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact PR5 branch and opened PR #1784 with the required what, why, validation, deferred, and repository-rule-impact sections. Required GitHub checks and actionable review feedback must pass before squash merge; no staging wait or deployment is part of this train."
       }
     ],
-    "updated_at": "2026-07-18T17:38:31Z"
+    "updated_at": "2026-07-18T17:39:27Z"
   }
 }
