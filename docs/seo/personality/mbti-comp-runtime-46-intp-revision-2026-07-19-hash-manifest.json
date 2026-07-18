@@ -1,0 +1,10 @@
+{
+  "id": "MBTI-COMP-RUNTIME-46-INTP-REVISION-HASH-MANIFEST",
+  "generated_at": "2026-07-19T14:00:00.000Z",
+  "package_id": "mbti-comp-runtime-46-intp-revision-2026-07-19-r1",
+  "source_package_sha256": "5fcf54132504ef85978a5424e428fb56763ffbaa7c60f50b94b9c91fc3e85dc8",
+  "authorization_payload_sha256": "7a84cda503b6f328f0659ee5bd41c85f51c1eca44ac9aa7cfa721d59ab6197e2",
+  "exact_payload_sha256": "10b306f2dbac4f9a801a7718ec5584d84f56f6de601ada0f8f677bcb163f960e",
+  "target_path": "/zh/personality/intp-a-vs-intp-t",
+  "record_count": 1
+}
