@@ -30,7 +30,7 @@ export function CareerOccupationDirectory({
       >
         <span>{emptyLabel}</span>
         {emptyActionHref && emptyActionLabel ? (
-          <Link href={emptyActionHref} className="font-semibold text-orange-600 underline-offset-4 hover:underline">
+          <Link href={emptyActionHref} prefetch={false} className="font-semibold text-orange-600 underline-offset-4 hover:underline">
             {emptyActionLabel}
           </Link>
         ) : null}
@@ -66,6 +66,7 @@ export function CareerOccupationDirectory({
                 {detailReady ? (
                   <Link
                     href={jobHref}
+                    prefetch={false}
                     className="text-base font-semibold text-slate-950 underline-offset-4 hover:text-orange-600 hover:underline"
                     data-testid="career-occupation-detail-link"
                   >
@@ -82,7 +83,11 @@ export function CareerOccupationDirectory({
                 <span className="mb-1 block text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400 md:hidden">
                   {locale === "zh" ? "行业" : "Industry"}
                 </span>
-                <Link href={familyHref} className="break-words text-sm font-medium text-slate-600 underline-offset-4 hover:text-orange-600 hover:underline">
+                <Link
+                  href={familyHref}
+                  prefetch={false}
+                  className="break-words text-sm font-medium text-slate-600 underline-offset-4 hover:text-orange-600 hover:underline"
+                >
                   {familyTitle}
                 </Link>
               </div>
@@ -93,6 +98,7 @@ export function CareerOccupationDirectory({
                 {detailReady ? (
                   <Link
                     href={jobHref}
+                    prefetch={false}
                     className="inline-flex max-w-full rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700 underline-offset-4 hover:bg-emerald-100 hover:underline"
                   >
                     {locale === "zh" ? "可看详情" : "Detail ready"}

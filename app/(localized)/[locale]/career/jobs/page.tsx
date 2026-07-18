@@ -147,7 +147,11 @@ export default async function CareerJobsPage({
             <p className="mt-3 text-sm text-slate-600">
               {locale === "zh" ? "这不是空职业库，请稍后重试。" : "This is not an empty directory. Please try again shortly."}
             </p>
-            <Link href={buildJobsQueryPath(jobsPath, { query: submittedQuery, family: selectedFamily, page })} className={buttonVariants({ className: "mt-6" })}>
+            <Link
+              href={buildJobsQueryPath(jobsPath, { query: submittedQuery, family: selectedFamily, page })}
+              prefetch={false}
+              className={buttonVariants({ className: "mt-6" })}
+            >
               {locale === "zh" ? "重试" : "Retry"}
             </Link>
           </section>
@@ -203,7 +207,7 @@ export default async function CareerJobsPage({
                   {locale === "zh" ? "搜索" : "Search"}
                 </button>
                 {submittedQuery || selectedFamily ? (
-                  <Link href={jobsPath} className={buttonVariants({ variant: "outline" })}>
+                  <Link href={jobsPath} prefetch={false} className={buttonVariants({ variant: "outline" })}>
                     {locale === "zh" ? "清除" : "Clear"}
                   </Link>
                 ) : null}
@@ -225,7 +229,7 @@ export default async function CareerJobsPage({
                   {submittedQuery && selectedFamilyTitle ? <span> · </span> : null}
                   {selectedFamilyTitle ? <span className="font-semibold">{selectedFamilyTitle}</span> : null}
                 </p>
-                <Link href={jobsPath} className="text-sm font-semibold underline-offset-4 hover:underline">
+                <Link href={jobsPath} prefetch={false} className="text-sm font-semibold underline-offset-4 hover:underline">
                   {locale === "zh" ? "清除筛选" : "Clear filters"}
                 </Link>
               </div>
@@ -237,7 +241,11 @@ export default async function CareerJobsPage({
                   {selectedFamilyTitle ?? (locale === "zh" ? "全部职业" : "All occupations")}
                 </h2>
               </div>
-              <Link href={industriesPath} className="text-sm font-semibold text-orange-600 underline-offset-4 hover:underline">
+              <Link
+                href={industriesPath}
+                prefetch={false}
+                className="text-sm font-semibold text-orange-600 underline-offset-4 hover:underline"
+              >
                 {locale === "zh" ? "按行业浏览" : "Browse by industry"}
               </Link>
             </div>
@@ -250,6 +258,7 @@ export default async function CareerJobsPage({
               >
                 <Link
                   href={buildJobsQueryPath(jobsPath, { query: submittedQuery })}
+                  prefetch={false}
                   className={[
                     "rounded-full border px-3 py-1.5 text-xs font-semibold",
                     selectedFamily ? "border-slate-200 bg-white text-slate-500" : "border-emerald-200 bg-emerald-50 text-emerald-700",
@@ -261,6 +270,7 @@ export default async function CareerJobsPage({
                   <Link
                     key={family.slug}
                     href={buildJobsQueryPath(jobsPath, { query: submittedQuery, family: family.slug })}
+                    prefetch={false}
                     className={[
                       "rounded-full border px-3 py-1.5 text-xs font-semibold",
                       normalizeFamilySlug(selectedFamily) === normalizeFamilySlug(family.slug)
@@ -289,7 +299,12 @@ export default async function CareerJobsPage({
                 data-testid="career-directory-pagination"
               >
                 {directory.pagination.hasPreviousPage ? (
-                  <Link href={previousPageHref} className={buttonVariants({ variant: "outline" })} data-testid="career-directory-prev-page">
+                  <Link
+                    href={previousPageHref}
+                    prefetch={false}
+                    className={buttonVariants({ variant: "outline" })}
+                    data-testid="career-directory-prev-page"
+                  >
                     {locale === "zh" ? "上一页" : "Previous"}
                   </Link>
                 ) : (
@@ -308,6 +323,7 @@ export default async function CareerJobsPage({
                 {directory.pagination.hasNextPage ? (
                   <Link
                     href={nextPageHref}
+                    prefetch={false}
                     className={`${buttonVariants({ variant: "outline" })} justify-self-end`}
                     data-testid="career-directory-next-page"
                   >
