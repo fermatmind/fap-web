@@ -26735,3 +26735,50 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend
     repository_rule_impact: existing_backend_authority_and_frontend_no_fallback_rules_preserved
+
+  - id: GLOBAL-FOOTER-ICON-BUNDLE-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/global-footer-icon-bundle-01
+    base: main
+    title: "GLOBAL-FOOTER-ICON-BUNDLE-01: remove the simple-icons namespace bundle from the global shell"
+    depends_on: [CAREER-JOBS-PREFETCH-BUDGET-01]
+    mode: execute
+    train_scope: global_footer_icon_bundle
+    status: local_checks_passed
+    goal: "Replace the footer simple-icons namespace lookup with explicit named icon imports while preserving all footer items, paths, links, labels, tracking, and interactions."
+    allowed_paths:
+      - lib/ui/footerSocialIcons.ts
+      - tests/contracts/global-footer-icon-bundle.contract.test.ts
+      - docs/performance/global-footer-icon-bundle-01.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Footer redesign or link, copy, QR, tracking, locale, interaction changes; Career surfaces; API adapters; backend/CMS; content authority; SEO runtime; adjacent global performance work; deploy; or production mutation.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/global-footer-icon-bundle.contract.test.ts tests/contracts/site-footer-social.contract.test.tsx
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - raw and gzip comparison of the simple-icons-associated production client chunk before and after the change
+      - verification that localized page client-reference manifests no longer reference the full simple-icons namespace chunk
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_backend_authority_and_frontend_no_fallback_rules_preserved

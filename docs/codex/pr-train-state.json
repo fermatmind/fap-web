@@ -46332,5 +46332,74 @@
       }
     ],
     "updated_at": "2026-07-18T18:30:46Z"
+  },
+  "GLOBAL-FOOTER-ICON-BUNDLE-01": {
+    "id": "GLOBAL-FOOTER-ICON-BUNDLE-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/global-footer-icon-bundle-01",
+    "title": "GLOBAL-FOOTER-ICON-BUNDLE-01: remove the simple-icons namespace bundle from the global shell",
+    "depends_on": [
+      "CAREER-JOBS-PREFETCH-BUDGET-01"
+    ],
+    "dependency_verification": {
+      "github_merged": true,
+      "dependency_origin_main_contains_merge": true,
+      "evidence": "fap-web PR #1786 is MERGED at c915cd6c095a265efe7a00fa8d5d4186d0545cc2; origin/main contains the merge commit, local main is synced, and the PR6 task worktree plus local/remote branches were cleaned before this branch started."
+    },
+    "status": "local_checks_passed",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The explicit seven-PR /goal supplied this exact PR id, title, branch, dependency, footer-icon-only scope, bundle evidence, validation, and continuous lifecycle authorization."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "CAREER-JOBS-PREFETCH-BUDGET-01 PR #1786 is merged, contained by origin/main, synced locally, and fully cleaned."
+      },
+      "bundle_baseline": {
+        "status": "pass",
+        "evidence": "The unmodified production build generated .next/static/chunks/a14bb80685f4c3bc.js at 5,247,799 raw bytes and 2,140,750 gzip-9 bytes (SHA-256 1082feb98a35a53d0cbf0b42e7f72b96ecbee2cc2bd53c0f6429215045e15970). It contains the runtime missing-export guard and simple-icons namespace symbols, and is referenced by localized Career jobs plus the wider localized client-reference manifests."
+      },
+      "local_validation": {
+        "status": "pass",
+        "evidence": "Focused footer contracts passed 2 files / 4 tests; lint, spacing lint, typecheck, full contracts (759 files / 4363 tests), and production build (206/206 static pages) passed. The associated global footer chunk fell from 5,247,799 to 39,453 raw bytes (-99.25%) and 2,140,750 to 14,419 gzip-9 bytes (-99.33%). The full namespace guard and unrelated package-tail symbols are absent from every static client chunk; localized client-reference manifests still include the small explicit-icon footer chunk. YAML/JSON parsing, diff checks, and exact changed-file scope validation passed."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR has not been opened."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-18T18:41:04Z",
+        "status": "in_progress",
+        "summary": "Verified PR6 merged/contained/synced/cleaned, created the exact dedicated branch and clean worktree from c915cd6c095a265efe7a00fa8d5d4186d0545cc2, and started only footer icon import bundling. The unmodified production build passed 206/206 pages and measured the namespace-associated global client chunk at 5,247,799 raw / 2,140,750 gzip-9 bytes; no footer links, content, QR, tracking, Career, backend, SEO, or deploy behavior is in scope."
+      },
+      {
+        "at": "2026-07-18T18:54:16Z",
+        "status": "local_checks_passed",
+        "summary": "Replaced the namespace lookup with exactly 10 explicit simple-icons imports for the unchanged 11 footer items. Focused contracts passed 2 files / 4 tests; lint, spacing, typecheck, full contracts (759 files / 4363 tests), and production build (206/206 pages) passed after respecting the host concurrency guard. The localized global footer chunk fell 99.25% raw and 99.33% gzip, the full namespace is absent, and exact five-path scope plus repository metadata validation passed."
+      }
+    ],
+    "updated_at": "2026-07-18T18:54:16Z"
   }
 }
