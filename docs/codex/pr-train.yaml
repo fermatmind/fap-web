@@ -26880,7 +26880,7 @@ prs:
     depends_on: [PUBLIC-STABILITY-WEB-06, GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01]
     mode: execute
     train_scope: llms_content_page_partial_lkg
-    status: ready_to_merge
+    status: merged
     goal: "Require complete content-page authority snapshots for llms.txt, preserve only complete valid LKG on transient failure, honor authoritative revocation, and prevent public caching when either locale authority cohort is unavailable."
     allowed_paths:
       - lib/cms/content-pages.ts
@@ -26901,6 +26901,51 @@ prs:
       - pnpm typecheck
       - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_backend_authority_and_frontend_no_fallback_rules_preserved
+
+  - id: SAEP-PLANNED-PR-05
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/saep-planned-pr-05-career-hub-links
+    base: main
+    title: "SAEP-PLANNED-PR-05 Strengthen Career Hub crawlable links"
+    depends_on: [SAEP-PROPOSED-WEB-LLMS-CONTENT-PAGE-PARTIAL-LKG-01, SAEP-CAR-01, SAEP-LINK-03, SAEP-SCAN-693164e8d028]
+    mode: execute
+    train_scope: career_hub_family_crawlable_links
+    status: ready_to_merge
+    goal: "Render locale-correct canonical Career Family Hub anchors from backend directory facets while preserving existing Career Jobs filters and pagination."
+    allowed_paths:
+      - app/(localized)/[locale]/career/jobs/page.tsx
+      - tests/contracts/career-hub-crawlable-links.contract.test.tsx
+      - tests/contracts/career-jobs-prefetch-budget.contract.test.tsx
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Backend or Career API changes, local career content or fallback, sitemap, llms, canonical, robots, noindex, JSON-LD, source/provenance, other Career UI, production writes, cache mutation, publish, or deploy.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/career-hub-crawlable-links.contract.test.tsx tests/contracts/career-family-hub.contract.test.tsx tests/contracts/career-1046-frontend-discovery-ux-01.contract.test.tsx tests/contracts/career-directory-ux-facets-parity-01.contract.test.tsx tests/contracts/career-jobs-prefetch-budget.contract.test.tsx
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
       - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - git diff --check

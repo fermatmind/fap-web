@@ -79,7 +79,7 @@ describe("CAREER-JOBS-PREFETCH-BUDGET-01", () => {
     const pageLinks = linkOpeningTags(pageSource);
     const directoryLinks = linkOpeningTags(directorySource);
 
-    expect(pageLinks).toHaveLength(8);
+    expect(pageLinks).toHaveLength(9);
     expect(directoryLinks).toHaveLength(4);
 
     for (const link of [...pageLinks, ...directoryLinks]) {

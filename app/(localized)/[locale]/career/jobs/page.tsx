@@ -1,21 +1,35 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { CareerOccupationDirectory } from "@/components/career/CareerOccupationDirectory";
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
-import { adaptCareerDirectory } from "@/lib/career/adapters/adaptCareerDirectory";
+import { apiClient } from "@/lib/api-client";
+import {
+  adaptCareerDirectory,
+  type CareerDirectoryFamilyFacetAdapter,
+} from "@/lib/career/adapters/adaptCareerDirectory";
+import { adaptCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/adapters/adaptCareerFirstWaveDiscoverabilityManifest";
+import type { CareerFirstWaveDiscoverabilityManifestResponseRaw } from "@/lib/career/api/types";
 import {
   formatCareerFamilyTitle,
   normalizeFamilySlug,
 } from "@/lib/career/datasetDirectory";
 import { fetchCareerDirectory } from "@/lib/career/api/fetchCareerDirectory";
+import { isCareerFamilyHubDiscoverableByManifest } from "@/lib/career/launchPolicy";
+import {
+  buildCareerFamilyFrontendUrl,
+  normalizeCareerBundleCanonicalPath,
+} from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
+import { localizedPath, toApiLocale } from "@/lib/i18n/locales";
+import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const revalidate = 300;
 const CAREER_DIRECTORY_PAGE_SIZE = 50;
+const CAREER_FAMILY_HUB_NAV_TIMEOUT_MS = 1_500;
 
 function firstQueryValue(value: string | string[] | undefined): string {
   return Array.isArray(value) ? String(value[0] ?? "") : String(value ?? "");
@@ -55,6 +69,85 @@ function buildJobsQueryPath(
 
   const queryString = query.toString();
   return queryString ? `${basePath}?${queryString}` : basePath;
+}
+
+async function fetchDiscoverabilityManifestForOptionalNav(locale: "en" | "zh") {
+  try {
+    const query = new URLSearchParams({ locale: toApiLocale(locale) });
+
+    return await apiClient.get<CareerFirstWaveDiscoverabilityManifestResponseRaw>(
+      `/v0.5/career/first-wave/discoverability-manifest?${query.toString()}`,
+      {
+        locale,
+        skipAuth: true,
+        timeoutMs: CAREER_FAMILY_HUB_NAV_TIMEOUT_MS,
+        ...PUBLIC_API_CACHE_OPTIONS,
+      }
+    );
+  } catch {
+    return null;
+  }
+}
+
+async function CareerFamilyHubLinks({
+  locale,
+  families,
+}: {
+  locale: "en" | "zh";
+  families: CareerDirectoryFamilyFacetAdapter[];
+}) {
+  if (families.length === 0) {
+    return null;
+  }
+
+  const discoverabilityPayload = await fetchDiscoverabilityManifestForOptionalNav(locale);
+  const discoverabilityManifest = adaptCareerFirstWaveDiscoverabilityManifest({
+    payload: discoverabilityPayload,
+  });
+  const discoverableFamilyHubs = families.flatMap((family) => {
+    if (!isCareerFamilyHubDiscoverableByManifest(discoverabilityManifest, family.slug)) {
+      return [];
+    }
+
+    const fallbackPath = buildCareerFamilyFrontendUrl(locale, family.slug);
+    const manifestRoute = discoverabilityManifest?.familyHubBySlug[normalizeFamilySlug(family.slug)];
+
+    return [
+      {
+        family,
+        href: normalizeCareerBundleCanonicalPath(
+          locale,
+          manifestRoute?.canonicalPath,
+          fallbackPath
+        ),
+      },
+    ];
+  });
+
+  if (discoverableFamilyHubs.length === 0) {
+    return null;
+  }
+
+  return (
+    <nav
+      className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3"
+      aria-label={locale === "zh" ? "职业家族入口" : "Career family hubs"}
+      data-testid="career-directory-family-hubs"
+    >
+      {discoverableFamilyHubs.map(({ family, href }) => (
+        <Link
+          key={family.slug}
+          href={href}
+          prefetch={false}
+          className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:border-orange-200 hover:text-orange-600"
+          data-testid="career-directory-family-hub-link"
+        >
+          <span>{family.title}</span>
+          <span aria-hidden="true">→</span>
+        </Link>
+      ))}
+    </nav>
+  );
 }
 
 export async function generateMetadata({
@@ -105,15 +198,16 @@ export default async function CareerJobsPage({
   const page = normalizePageParam(resolvedSearchParams.page);
   const jobsPath = localizedPath("/career/jobs", locale);
   const industriesPath = localizedPath("/career/industries", locale);
+  const directoryPayload = await fetchCareerDirectory({
+    locale,
+    page,
+    perPage: CAREER_DIRECTORY_PAGE_SIZE,
+    family: selectedFamily || null,
+    query: submittedQuery || null,
+  });
   const directory = adaptCareerDirectory({
     locale,
-    payload: await fetchCareerDirectory({
-      locale,
-      page,
-      perPage: CAREER_DIRECTORY_PAGE_SIZE,
-      family: selectedFamily || null,
-      query: submittedQuery || null,
-    }),
+    payload: directoryPayload,
   });
   const visibleMembers = directory.members;
   const families = directory.facets.families;
@@ -251,37 +345,43 @@ export default async function CareerJobsPage({
             </div>
 
             {families.length > 0 ? (
-              <nav
-                className="flex flex-wrap gap-2"
-                aria-label={locale === "zh" ? "职业行业筛选" : "Occupation family filters"}
-                data-testid="career-directory-family-facets"
-              >
-                <Link
-                  href={buildJobsQueryPath(jobsPath, { query: submittedQuery })}
-                  prefetch={false}
-                  className={[
-                    "rounded-full border px-3 py-1.5 text-xs font-semibold",
-                    selectedFamily ? "border-slate-200 bg-white text-slate-500" : "border-emerald-200 bg-emerald-50 text-emerald-700",
-                  ].join(" ")}
+              <div className="space-y-3">
+                <nav
+                  className="flex flex-wrap gap-2"
+                  aria-label={locale === "zh" ? "职业行业筛选" : "Occupation family filters"}
+                  data-testid="career-directory-family-facets"
                 >
-                  {locale === "zh" ? "全部" : "All"}
-                </Link>
-                {families.map((family) => (
                   <Link
-                    key={family.slug}
-                    href={buildJobsQueryPath(jobsPath, { query: submittedQuery, family: family.slug })}
+                    href={buildJobsQueryPath(jobsPath, { query: submittedQuery })}
                     prefetch={false}
                     className={[
                       "rounded-full border px-3 py-1.5 text-xs font-semibold",
-                      normalizeFamilySlug(selectedFamily) === normalizeFamilySlug(family.slug)
-                        ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-                        : "border-slate-200 bg-white text-slate-500",
+                      selectedFamily ? "border-slate-200 bg-white text-slate-500" : "border-emerald-200 bg-emerald-50 text-emerald-700",
                     ].join(" ")}
                   >
-                    {family.title} ({family.count})
+                    {locale === "zh" ? "全部" : "All"}
                   </Link>
-                ))}
-              </nav>
+                  {families.map((family) => (
+                    <Link
+                      key={family.slug}
+                      href={buildJobsQueryPath(jobsPath, { query: submittedQuery, family: family.slug })}
+                      prefetch={false}
+                      className={[
+                        "rounded-full border px-3 py-1.5 text-xs font-semibold",
+                        normalizeFamilySlug(selectedFamily) === normalizeFamilySlug(family.slug)
+                          ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                          : "border-slate-200 bg-white text-slate-500",
+                      ].join(" ")}
+                    >
+                      {family.title} ({family.count})
+                    </Link>
+                  ))}
+                </nav>
+
+                <Suspense fallback={null}>
+                  <CareerFamilyHubLinks locale={locale} families={families} />
+                </Suspense>
+              </div>
             ) : null}
 
             <CareerOccupationDirectory

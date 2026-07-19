@@ -46575,8 +46575,8 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-web PR #922 is MERGED as de67e5c5e8fec0fa87146e5954984ff3d817be8d and PR #1742 is MERGED as a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc; both merge commits are contained by origin/main. This branch started from origin/main 747bd0df4ff7b632fbb271dc5fcf62329118b2bf after serial PR7 closeout."
     },
-    "status": "ready_to_merge",
-    "commit_sha": "cb25c67acbf16e604a7fce7de4507f8a4c4474e4",
+    "status": "merged",
+    "commit_sha": "e49a8c887d5d1e86b815ec02c38e3e444a56dbfc",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1789",
     "checks": {
       "manifest_registration": {
@@ -46597,23 +46597,23 @@
       },
       "github_required_checks": {
         "status": "pass",
-        "evidence": "All seven checks passed on exact runtime head df69073be896ca10878f804741ff8bb5f1e43799: build, contracts, Big Five freeze, Enneagram freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts. This ready-state ledger-only commit must pass its own final exact-head cycle before merge."
+        "evidence": "All seven checks passed on final exact head d4388cf029ad8130b671c9e6c192d9c979f10d11: build, contracts, Big Five freeze, Enneagram freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts."
       },
       "codex_review": {
         "status": "pass",
-        "evidence": "Codex reviewed exact runtime head df69073be896ca10878f804741ff8bb5f1e43799 after both P2 repairs and reported no major issues. Both historical review threads are resolved. This ready-state ledger-only commit must receive the final exact-head review before merge."
+        "evidence": "Codex reviewed final exact head d4388cf029ad8130b671c9e6c192d9c979f10d11 after both P2 repairs and reported no major issues; both historical review threads are resolved."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-19T03:56:22Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -46665,8 +46665,134 @@
         "at": "2026-07-19T03:50:02Z",
         "status": "ready_to_merge",
         "summary": "Exact runtime head df69073be896ca10878f804741ff8bb5f1e43799 passed all seven GitHub checks. Codex reviewed that exact head after both P2 repairs and reported no major issues; both review threads are resolved and GitHub merge state is CLEAN/MERGEABLE. Recorded ready_to_merge before squash merge; this ledger-only final head must itself pass checks and review, after which no further pre-merge ledger mutation is needed."
+      },
+      {
+        "at": "2026-07-19T03:56:22Z",
+        "status": "merged",
+        "summary": "PR #1789 final head d4388cf029ad8130b671c9e6c192d9c979f10d11 passed all seven GitHub checks and exact-head Codex review with no major issues, then merged by squash as e49a8c887d5d1e86b815ec02c38e3e444a56dbfc. The merged tree matches the reviewed head; origin/main contains the merge; remote/local task branches and the isolated worktree were cleaned; post-merge focused revalidation passed 2 files / 14 tests."
       }
     ],
-    "updated_at": "2026-07-19T03:50:02Z"
+    "updated_at": "2026-07-19T03:56:22Z"
+  },
+  "SAEP-PLANNED-PR-05": {
+    "id": "SAEP-PLANNED-PR-05",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/saep-planned-pr-05-career-hub-links",
+    "title": "SAEP-PLANNED-PR-05 Strengthen Career Hub crawlable links",
+    "depends_on": [
+      "SAEP-PROPOSED-WEB-LLMS-CONTENT-PAGE-PARTIAL-LKG-01",
+      "SAEP-CAR-01",
+      "SAEP-LINK-03",
+      "SAEP-SCAN-693164e8d028"
+    ],
+    "dependency_verification": {
+      "github_merged": true,
+      "dependency_origin_main_contains_merge": true,
+      "evidence": "PR #1789 merged as e49a8c887d5d1e86b815ec02c38e3e444a56dbfc and is contained by fap-web origin/main. The accepted SAEP-SCAN-693164e8d028 record was read-only revalidated. Existing backend-authoritative Career directory facets, Family Hub endpoint/adapter/route, and Family Hub visible-child anchors provide the SAEP-CAR-01 and SAEP-LINK-03 authority surfaces needed for this consumer-only final hop."
+    },
+    "status": "ready_to_merge",
+    "commit_sha": "bdd2344cab05eb0048b8552325c6878c349f14b7",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1790",
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The continuous execution goal explicitly authorized SAEP-PLANNED-PR-05, its exact branch/title/card/scan dependencies, manifest/state registration, validation floor, and complete PR lifecycle."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "The serial #1789 dependency is merged, synced, cleaned, and post-merge revalidated; the blocking scan is accepted; current source exposes backend-authoritative directory facets and Family Hub child navigation without requiring backend, CMS, or production mutation."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "After all three exact-head P2 repairs, Node 24 focused contracts pass 5 files / 20 tests, covering EN/ZH canonical Family Hub anchors from backend facets, fail-closed missing authority, excluded-manifest families remaining filterable but not crawlable, non-blocking streamed core-directory rendering while optional manifest authority is pending, a source-aborted 1.5-second optional lookup budget, existing filtering/pagination and prefetch budgets, Family Hub rendering, and 1,046-directory discovery behavior."
+      },
+      "required_local_checks": {
+        "status": "pass",
+        "evidence": "After all three exact-head P2 repairs, Node 24 validation passed: focused contracts 5 files / 20 tests; lint; spacing; typecheck; full contracts 762 files / 4387 tests; production-parameter build with 206/206 generated pages; YAML/JSON parsing; git diff --check; and exact changed-file scope validation (5 changed paths, 7 allowed paths, no outside-scope paths). The first build attempt omitted required NEXT_PUBLIC_SITE_URL and correctly failed the existing production URL gate; every CI-parameter rerun passed. Test/build-generated unrelated files were restored exactly to HEAD."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "All seven GitHub checks passed on exact head 56a9a631b77a6bf2af9cc4c5ca2f1a244a25d158: build, contracts, both contract freezes, CodeQL analysis, CodeQL result, and no-new-code-scanning-alerts. This ready-to-merge ledger commit must receive its own final exact-head cycle before merge."
+      },
+      "codex_review": {
+        "status": "pass",
+        "evidence": "Codex review explicitly reported no major issues on exact head 56a9a631b77a6bf2af9cc4c5ca2f1a244a25d158. All three prior P2 threads are resolved and no unresolved review thread remains. This ready-to-merge ledger commit must receive its own final exact-head review before merge."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-19T04:02:49Z",
+        "status": "in_progress",
+        "summary": "After #1789 merged, synced, cleaned, and passed post-merge revalidation, read the exact PR card and accepted blocking-scan evidence. Current source proves the named scope is not superseded: /career/jobs exposes backend family facets only as query filters while the Family Hub already exposes backend visible-child detail anchors. Started the exact isolated branch from origin/main e49a8c887d5d1e86b815ec02c38e3e444a56dbfc, added only canonical Family Hub anchors derived from those facets, preserved filters/pagination, and added fail-closed EN/ZH contracts. No production, CMS, database, search, cache, media, publish, or deploy mutation was executed."
+      },
+      {
+        "at": "2026-07-19T04:15:41Z",
+        "status": "ready_for_pr",
+        "summary": "All required local gates pass: focused contracts 5 files / 18 tests; lint; spacing; typecheck; full contracts 762 files / 4385 tests; production-parameter build 206/206; YAML/JSON parsing; diff check; and exact five-path scope validation. The first full run exposed one same-scope prefetch Link declaration count; the contract now expects 9 declarations and still proves every Link sets prefetch={false}. Generated unrelated artifacts were restored to HEAD."
+      },
+      {
+        "at": "2026-07-19T04:16:53Z",
+        "status": "local_checks_passed",
+        "summary": "Explicitly staged the exact five allowed changed paths, validated the cached diff and scope, and committed the locally verified implementation as 8bfdd5ea2f6f20f81052f88754a681a0deaa9b62. commit_sha is intentionally bound to that implementation commit; the following commits are ledger-only."
+      },
+      {
+        "at": "2026-07-19T04:18:11Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact branch and opened fap-web PR #1790 with the required what, why, validation, security/privacy, repository-rule impact, deferred, and no-production-execution sections. This ledger-only binding commit follows; final exact-head GitHub checks and Codex review remain mandatory."
+      },
+      {
+        "at": "2026-07-19T04:30:35Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on exact head 0a43c7d87685fc301173352a291ad752a1c90fd9. Codex review found one valid P2: facet presence did not prove backend discoverability approval. The page now concurrently consumes the existing first-wave discoverability manifest and renders canonical family-hub anchors only for manifest-discoverable facets; excluded families remain available as query filters, and missing manifest authority fails closed. Node 24 focused contracts pass 5 files / 19 tests; lint, spacing, typecheck, full contracts 762 files / 4386 tests, and production build 206/206 pass."
+      },
+      {
+        "at": "2026-07-19T04:32:19Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the locally validated P2 repair as 8ed6f5696b941a302d9d0fb074f32bd278098574 and rebound commit_sha to that implementation head. This following ledger-only commit records the binding; a fresh exact-head GitHub check cycle and Codex review remain mandatory."
+      },
+      {
+        "at": "2026-07-19T04:48:21Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on cb38fdea7b4d1111d824ef913ef7ff77a03aef45, then exact-head Codex review found a second valid P2: the optional discoverability manifest could delay the core directory. The manifest-backed Family Hub nav now streams behind a null Suspense fallback with an independent 1.5-second fail-closed budget, while /career/jobs awaits only its core directory authority. Node 24 focused contracts pass 5 files / 20 tests, including a pending-manifest first-chunk assertion; lint, spacing, typecheck, full contracts 762 files / 4387 tests, and production build 206/206 pass. The initial build without NEXT_PUBLIC_SITE_URL was a configuration-only gate failure and the CI-parameter rerun passed."
+      },
+      {
+        "at": "2026-07-19T04:49:14Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the locally validated second P2 repair as 269d6c0b2802e1cef82eef117a83e30ace1936ad and rebound commit_sha to that implementation head. This following ledger-only commit records the binding; a fresh exact-head GitHub check cycle and Codex review remain mandatory."
+      },
+      {
+        "at": "2026-07-19T05:03:02Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on ea718064a19649366eb7b234670bd48928c3aadd, then exact-head Codex review found a third valid P2: Promise.race did not cancel the underlying 15-second manifest request. Without changing any out-of-scope helper or API contract, the allowed Jobs page now calls the same backend public endpoint/cache policy through apiClient with timeoutMs: 1500, which aborts the request at the source. The streaming contract asserts the exact endpoint and abort budget. Node 24 focused contracts pass 5 files / 20 tests; lint, spacing, typecheck, full contracts 762 files / 4387 tests, and production build 206/206 pass."
+      },
+      {
+        "at": "2026-07-19T05:03:50Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the locally validated third P2 repair as bdd2344cab05eb0048b8552325c6878c349f14b7 and rebound commit_sha to that implementation head. This following ledger-only commit records the binding; a fresh exact-head GitHub check cycle and Codex review remain mandatory."
+      },
+      {
+        "at": "2026-07-19T05:11:11Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head 56a9a631b77a6bf2af9cc4c5ca2f1a244a25d158 passed all seven GitHub checks and Codex review reported no major issues; all three prior P2 threads are resolved and unresolved-thread count is zero. Scope remains the exact five allowed changed paths. This ledger-only ready-to-merge commit follows and must independently pass the final exact-head checks and review before squash merge."
+      }
+    ],
+    "updated_at": "2026-07-19T05:11:11Z"
   }
 }
