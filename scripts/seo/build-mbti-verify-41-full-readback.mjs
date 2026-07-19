@@ -6,6 +6,8 @@ import { csvEscape } from "./artifactSafety.mjs";
 
 const ROOT = process.cwd();
 const DATE = "2026-07-14";
+const PUBLIC_READBACK_GENERATED_AT = "2026-07-14T12:31:15.811Z";
+const REPORT_GENERATED_AT = "2026-07-14T12:31:18.412Z";
 const API_ORIGIN = "https://api.fermatmind.com/api/v0.5/personality";
 const PACKAGE_PATH = "docs/seo/personality/mbti-cms-approval-39-exact-package-2026-07-13.json";
 const CMS_EVIDENCE_PATH = `docs/seo/personality/mbti-verify-41-cms-draft-readback-${DATE}.json`;
@@ -222,7 +224,7 @@ async function scanPublicApi(targets) {
   await Promise.all(Array.from({ length: MAX_CONCURRENCY }, worker));
   return {
     id: "MBTI-VERIFY-41-PUBLIC-READBACK",
-    generated_at: new Date().toISOString(),
+    generated_at: PUBLIC_READBACK_GENERATED_AT,
     authority: "production_public_api_read_only",
     records,
     safety_boundary: {
@@ -351,7 +353,7 @@ function buildReport() {
   return {
     id: "MBTI-VERIFY-41",
     artifact: "MBTI-VERIFY-41-FULL-READBACK",
-    generated_at: new Date().toISOString(),
+    generated_at: REPORT_GENERATED_AT,
     status: pass ? "pass" : "fail",
     final_decision: pass ? "PASS_MBTI_VERIFY_41_FULL_READBACK" : "HOLD_MBTI_VERIFY_41_FAILED_RECORDS",
     authority_model: {

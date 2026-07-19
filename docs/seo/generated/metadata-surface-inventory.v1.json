@@ -8,25 +8,25 @@
     "scanner": "scripts/seo/generate-metadata-surface-inventory.mjs"
   },
   "summary": {
-    "totalSurfaces": 83,
+    "totalSurfaces": 85,
     "byClassification": {
       "private_noindex": 23,
       "product_code_only": 18,
       "safe_static": 12,
       "migration_required": 2,
-      "cms_backed": 21,
+      "cms_backed": 23,
       "backend_owned": 5,
       "watchlist": 2
     },
     "byOwnership": {
       "private_noindex": 23,
       "product_code_only": 20,
-      "cms_backed": 35,
+      "cms_backed": 37,
       "backend_owned": 5
     },
     "byRouteFamily": {
       "private_flow": 22,
-      "other": 17,
+      "other": 19,
       "static_content_page": 10,
       "article_detail": 2,
       "articles_hub": 1,
@@ -55,7 +55,7 @@
     "migrationRequiredSurfaces": 2,
     "watchlistSurfaces": 2,
     "privateNoindexSurfaces": 23,
-    "frontendJsonLdFallbackSurfaces": 23
+    "frontendJsonLdFallbackSurfaces": 25
   },
   "rows": [
     {
@@ -914,8 +914,8 @@
       "reason": "Route consumes backend seo.surface.v1 or equivalent backend SEO bundle."
     },
     {
-      "file": "app/(localized)/[locale]/personality/big-five/[[...slug]]/page.tsx",
-      "routePattern": "/personality/big-five/:[...slug]",
+      "file": "app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx",
+      "routePattern": "/personality/big-five/:...slug",
       "routeFamily": "other",
       "exportKind": "generateMetadata",
       "usesBuildPageMetadata": true,
@@ -929,8 +929,38 @@
       "reason": "Route metadata is derived from CMS/public API data."
     },
     {
-      "file": "app/(localized)/[locale]/personality/enneagram/[[...slug]]/page.tsx",
-      "routePattern": "/personality/enneagram/:[...slug]",
+      "file": "app/(localized)/[locale]/personality/big-five/page.tsx",
+      "routePattern": "/personality/big-five",
+      "routeFamily": "other",
+      "exportKind": "generateMetadata",
+      "usesBuildPageMetadata": true,
+      "usesSeoSurface": false,
+      "rendersJsonLd": true,
+      "hasFrontendJsonLdBuilderFallback": true,
+      "noindexSignal": true,
+      "ownership": "cms_backed",
+      "classification": "cms_backed",
+      "risk": "P2",
+      "reason": "Route metadata is derived from CMS/public API data."
+    },
+    {
+      "file": "app/(localized)/[locale]/personality/enneagram/[...slug]/page.tsx",
+      "routePattern": "/personality/enneagram/:...slug",
+      "routeFamily": "other",
+      "exportKind": "generateMetadata",
+      "usesBuildPageMetadata": true,
+      "usesSeoSurface": false,
+      "rendersJsonLd": true,
+      "hasFrontendJsonLdBuilderFallback": true,
+      "noindexSignal": true,
+      "ownership": "cms_backed",
+      "classification": "cms_backed",
+      "risk": "P2",
+      "reason": "Route metadata is derived from CMS/public API data."
+    },
+    {
+      "file": "app/(localized)/[locale]/personality/enneagram/page.tsx",
+      "routePattern": "/personality/enneagram",
       "routeFamily": "other",
       "exportKind": "generateMetadata",
       "usesBuildPageMetadata": true,

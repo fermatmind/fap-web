@@ -33,7 +33,7 @@ Generated at: 2026-07-04T12:00:00.000Z
 
 ## Discoverability Gate
 
-- Current llms authority: CMS public personality APIs
+- Current llms authority: backend sitemap-source authority
 - Current sitemap detail policy: accepted only from backend sitemap-source authority when canonical/indexability gates are ready
 - Do not widen sitemap or llms URL sets until CMS/backend import dry-run, public/indexable API flags, and exact route-source evidence are ready.
 

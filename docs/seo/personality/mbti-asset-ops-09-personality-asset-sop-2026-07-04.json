@@ -178,7 +178,7 @@
   ],
   "indexability_and_discoverability_gate": {
     "current_sitemap_detail_policy": "accepted only from backend sitemap-source authority when canonical/indexability gates are ready",
-    "current_llms_authority": "CMS public personality APIs",
+    "current_llms_authority": "backend sitemap-source authority",
     "release_gates_before_url_expansion": [
       "CMS/backend import dry-run succeeds for target personality profiles or comparison pages.",
       "CMS public API marks each target route public and indexable.",

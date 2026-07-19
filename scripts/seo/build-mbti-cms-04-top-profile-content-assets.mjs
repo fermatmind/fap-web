@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 const ROOT = process.cwd();
+const GENERATED_AT = "2026-07-04T06:08:17.376Z";
 const OUT_JSON = "docs/seo/personality/mbti-cms-04-top-profile-content-assets-2026-07-04.json";
 const OUT_MD = "docs/seo/personality/mbti-cms-04-top-profile-content-assets-2026-07-04.md";
 const OUT_CSV = "docs/seo/personality/mbti-cms-04-top-profile-content-assets-2026-07-04.csv";
@@ -294,7 +295,7 @@ function packageProfile(profile) {
 const assets = profiles.map(packageProfile);
 const report = {
   artifact: "MBTI-CMS-04-TOP-PROFILE-CONTENT-ASSETS",
-  generated_at: new Date().toISOString(),
+  generated_at: GENERATED_AT,
   status: "ready_for_cms_review_no_production_write",
   final_decision: "PASS_NON_PRODUCTION_CONTENT_ASSET_PACKAGE_READY_FOR_CMS_REVIEW",
   input_artifacts: sourceArtifacts,
