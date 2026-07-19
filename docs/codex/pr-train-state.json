@@ -46575,7 +46575,7 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-web PR #922 is MERGED as de67e5c5e8fec0fa87146e5954984ff3d817be8d and PR #1742 is MERGED as a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc; both merge commits are contained by origin/main. This branch started from origin/main 747bd0df4ff7b632fbb271dc5fcf62329118b2bf after serial PR7 closeout."
     },
-    "status": "review_fix_local_pass",
+    "status": "ready_to_merge",
     "commit_sha": "cb25c67acbf16e604a7fce7de4507f8a4c4474e4",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1789",
     "checks": {
@@ -46596,18 +46596,18 @@
         "evidence": "After both exact-head P2 repairs, Node 24 validation passed: focused contracts 2 files / 14 tests; lint; spacing; typecheck; full contracts 761 files / 4382 tests using the compatible bundled Python 3.12; production-parameter build with 206/206 generated pages; YAML and JSON parsing; git diff --check; and exact changed-file scope validation (6 changed paths, 9 allowed paths, no outside-scope paths). One intermediate full run hit an unrelated analytics-runtime-monitor timing failure; that file immediately passed 5/5 alone and the next complete unchanged-code run passed all 4382 tests."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "All seven checks passed on reviewed head 0ea7e157a7515f26c58f20c698d419dbccd757d4. A second valid P2 repair is now locally verified and must pass a new exact-head GitHub cycle after push."
+        "status": "pass",
+        "evidence": "All seven checks passed on exact runtime head df69073be896ca10878f804741ff8bb5f1e43799: build, contracts, Big Five freeze, Enneagram freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts. This ready-state ledger-only commit must pass its own final exact-head cycle before merge."
       },
       "codex_review": {
-        "status": "valid_finding_fixed_locally_pending_exact_head",
-        "evidence": "Codex reviewed head 0ea7e157a7515f26c58f20c698d419dbccd757d4 and found one valid P2: a stale per-page noindex LKG could be skipped as merely transient, allowing an older indexable collection LKG to resurrect the slug. The repair carries known stale non-indexable state into collection exclusions and adds the cross-layer regression; new exact-head review remains required."
+        "status": "pass",
+        "evidence": "Codex reviewed exact runtime head df69073be896ca10878f804741ff8bb5f1e43799 after both P2 repairs and reported no major issues. Both historical review threads are resolved. This ready-state ledger-only commit must receive the final exact-head review before merge."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -46660,8 +46660,13 @@
         "at": "2026-07-19T03:43:31Z",
         "status": "review_fix_local_pass",
         "summary": "Committed the stale per-page noindex precedence repair as cb25c67acbf16e604a7fce7de4507f8a4c4474e4 and bound commit_sha to that implementation commit. This ledger-only binding commit follows it; final exact-head checks and review remain pending after push."
+      },
+      {
+        "at": "2026-07-19T03:50:02Z",
+        "status": "ready_to_merge",
+        "summary": "Exact runtime head df69073be896ca10878f804741ff8bb5f1e43799 passed all seven GitHub checks. Codex reviewed that exact head after both P2 repairs and reported no major issues; both review threads are resolved and GitHub merge state is CLEAN/MERGEABLE. Recorded ready_to_merge before squash merge; this ledger-only final head must itself pass checks and review, after which no further pre-merge ledger mutation is needed."
       }
     ],
-    "updated_at": "2026-07-19T03:43:31Z"
+    "updated_at": "2026-07-19T03:50:02Z"
   }
 }
