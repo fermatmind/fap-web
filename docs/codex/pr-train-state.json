@@ -46458,11 +46458,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "All seven GitHub checks passed on reviewed repair head fdeccff064274e768953d1fd47e3622259624164. A ledger-only exact-head binding update remains to push, so checks must rerun once more before merge."
+        "evidence": "All seven GitHub checks passed on ledger-binding head d0929fac6ea4abe21741ba49bdf37bcfcd8fe084. A same-scope Career nested-contract forwarding fix is locally green and must receive final exact-head checks before merge."
       },
       "codex_review": {
         "status": "addressed_pending_exact_head_review",
-        "evidence": "Codex reviewed repair head fdeccff064274e768953d1fd47e3622259624164, confirmed the overflow-date repair path, and raised one valid ledger P2 because commit_sha still referenced the pre-repair implementation commit. The ledger now binds to reviewed repair head fdeccff064274e768953d1fd47e3622259624164; final ledger-only head review remains pending."
+        "evidence": "Codex reviewed exact head d0929fac6ea4abe21741ba49bdf37bcfcd8fe084 and raised one valid Career P2: job and recommendation bundle reconstruction wrapped the full trust manifest instead of forwarding an existing nested public_review contract. Both adapters now prefer the nested three-field object and retain top-level compatibility; final exact-head review remains pending."
       }
     },
     "scope_validation": {
@@ -46516,8 +46516,13 @@
         "at": "2026-07-19T01:40:20Z",
         "status": "ledger_binding_fix_pending",
         "summary": "All seven GitHub checks passed on repair head fdeccff064274e768953d1fd47e3622259624164. The second exact-head Codex review raised one valid ledger-only P2: commit_sha still referenced the pre-repair implementation. Updated commit_sha to the reviewed repair head and prepared one final ledger-only exact-head validation cycle."
+      },
+      {
+        "at": "2026-07-19T01:51:25Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on ledger-binding head d0929fac6ea4abe21741ba49bdf37bcfcd8fe084. The third exact-head Codex review raised one valid Career adapter P2: nested trust_manifest.public_review was being obscured during job/recommendation manifest reconstruction. Both adapters now forward the nested normalized contract when present and fall back to top-level fields only for compatibility. Added job and recommendation regression assertions; Node 24 focused contracts pass 12 files / 103 tests, with lint, spacing, typecheck, JSON parsing, and diff checks green."
       }
     ],
-    "updated_at": "2026-07-19T01:40:20Z"
+    "updated_at": "2026-07-19T01:51:25Z"
   }
 }
