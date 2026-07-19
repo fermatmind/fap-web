@@ -46896,8 +46896,8 @@
       },
       "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture, provenance, page-schema, and dedicated scope contract passes 13/13 tests. It covers exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, wrong canonical, truncated body, row-cells-without-section-body, hidden-script-only body, missing page FAQ JSON-LD, and disallowed changed-file fail-closed cases; plus deterministic derivation of all 16 runtime section fingerprints from Approval39/Runtime46. The exact CI-failure reproduction set passes 4 files / 25 tests after isolating the Gate helper from legacy scope helpers."},
       "required_local_checks": {"status": "pass_with_production_readback_hold", "evidence": "Canonical Node 24 validation passes the exact CI reproduction set (4 files / 25 tests), ESLint, typecheck, diff check, and full contracts (764 files / 4407 tests). A non-canonical Node 20 run timed out in two unrelated career files; both pass in under one second on required Node 24 and in GitHub CI. Separately, the strengthened read-only production readback remains fail-closed at 0/16 and 640 precise visible-DOM/FAQ failures because production still serves the nonce-mismatched runtime. The isolated CSP repair merged as PR #1795 at exact main SHA 062a7130e5dcff8a08b55489b430c1338431b1b0; its automatic workflow skipped deployment and requires SHA-bound manual authorization."},
-      "github_required_checks": {"status": "pending_after_scoped_repair", "evidence": "Head 8890fab2 passed build, both personality freezes, CodeQL analysis/result, and the no-new-alert gate. Full contracts exposed three legacy scope-helper assertions because the first scope-fallthrough repair reused the historical shared helper. A dedicated Gate47 helper repairs that collision while preserving exact fail-closed membership; local reproduction passes 4 files / 25 tests. A new exact-head GitHub cycle is required after push."},
-      "codex_review": {"status": "pending", "evidence": "Codex reviewed fb4adc6e and identified three valid P2s: scope fallthrough, row-body omission, and missing page FAQ JSON-LD validation. The row-body and page FAQ repairs remain intact. The scope repair now uses the reviewer's dedicated-helper alternative so Gate47 rejects out-of-scope paths without changing legacy helper semantics. Final exact-head review is pending after push."}
+      "github_required_checks": {"status": "pass_on_implementation_head_pending_ledger_only_head", "evidence": "Exact implementation-plus-binding head 33fe5406776abb78ca162f120d62921feb7be41e passed all seven required checks: build, contracts, both personality freezes, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reported CLEAN. This transition-recording ledger-only commit requires its own check cycle after push."},
+      "codex_review": {"status": "external_quota_blocked", "evidence": "All five prior actionable P2 threads are repaired and resolved, with zero unresolved review threads. A fresh exact-head review was explicitly requested on 33fe5406776abb78ca162f120d62921feb7be41e, but the Codex connector refused it because the account has reached its code-review usage limit. This is an external review-capacity hold, not a code finding or failed required check."}
     },
     "scope_validation": {
       "allowed_paths_only": true,
@@ -46975,8 +46975,13 @@
         "at": "2026-07-19T09:22:00Z",
         "status": "github_checks_pending",
         "summary": "Committed the locally validated dedicated Gate47 scope-helper repair as 6d7343ba469730e937752f1f8df043352c8da892 and rebound commit_sha to that implementation commit. This following ledger-only commit records the binding before push; exact-head GitHub checks and Codex review remain mandatory."
+      },
+      {
+        "at": "2026-07-19T09:28:00Z",
+        "status": "production_deploy_authorization_pending",
+        "summary": "Exact head 33fe5406776abb78ca162f120d62921feb7be41e passed all seven GitHub checks and reports CLEAN. All five prior actionable Codex P2 threads remain resolved with zero unresolved threads. A newly requested exact-head review was refused only because the external Codex code-review quota is exhausted. origin/main remains exactly 062a7130e5dcff8a08b55489b430c1338431b1b0, so the existing SHA-bound production deploy authorization request remains exact and current; no deploy or production mutation was executed."
       }
     ],
-    "updated_at": "2026-07-19T09:22:00Z"
+    "updated_at": "2026-07-19T09:28:00Z"
   }
 }
