@@ -46691,8 +46691,8 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "PR #1789 merged as e49a8c887d5d1e86b815ec02c38e3e444a56dbfc and is contained by fap-web origin/main. The accepted SAEP-SCAN-693164e8d028 record was read-only revalidated. Existing backend-authoritative Career directory facets, Family Hub endpoint/adapter/route, and Family Hub visible-child anchors provide the SAEP-CAR-01 and SAEP-LINK-03 authority surfaces needed for this consumer-only final hop."
     },
-    "status": "review_fix_local_pass",
-    "commit_sha": "8bfdd5ea2f6f20f81052f88754a681a0deaa9b62",
+    "status": "github_checks_pending",
+    "commit_sha": "8ed6f5696b941a302d9d0fb074f32bd278098574",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1790",
     "checks": {
       "manifest_registration": {
@@ -46761,8 +46761,13 @@
         "at": "2026-07-19T04:30:35Z",
         "status": "review_fix_local_pass",
         "summary": "All seven GitHub checks passed on exact head 0a43c7d87685fc301173352a291ad752a1c90fd9. Codex review found one valid P2: facet presence did not prove backend discoverability approval. The page now concurrently consumes the existing first-wave discoverability manifest and renders canonical family-hub anchors only for manifest-discoverable facets; excluded families remain available as query filters, and missing manifest authority fails closed. Node 24 focused contracts pass 5 files / 19 tests; lint, spacing, typecheck, full contracts 762 files / 4386 tests, and production build 206/206 pass."
+      },
+      {
+        "at": "2026-07-19T04:32:19Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the locally validated P2 repair as 8ed6f5696b941a302d9d0fb074f32bd278098574 and rebound commit_sha to that implementation head. This following ledger-only commit records the binding; a fresh exact-head GitHub check cycle and Codex review remain mandatory."
       }
     ],
-    "updated_at": "2026-07-19T04:30:35Z"
+    "updated_at": "2026-07-19T04:32:19Z"
   }
 }
