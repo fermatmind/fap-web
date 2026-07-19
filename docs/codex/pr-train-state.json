@@ -46436,9 +46436,9 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-api PR #3185 is MERGED as e5edc5cc7e0537abc3580d16786a7635415e7f05; fap-api origin/main contains that merge, the PR6 branch/worktree was cleaned, and this fap-web task started from origin/main 478d3431589c752e5d7c88baab405e3e5cc80b9e without waiting for staging deploy."
     },
-    "status": "ready_for_pr",
+    "status": "github_checks_pending",
     "commit_sha": "eec8a1eba37be3d6544299704a6233df3c593fb3",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1788",
     "checks": {
       "manifest_registration": {
         "status": "pass",
@@ -46458,7 +46458,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR not opened yet."
+        "evidence": "PR #1788 is open; build, contracts, Big Five freeze, Enneagram freeze, and CodeQL are in progress on the current ledger-binding head."
       }
     },
     "scope_validation": {
@@ -46497,8 +46497,13 @@
         "at": "2026-07-19T01:22:59Z",
         "status": "ready_for_pr",
         "summary": "Committed the scoped implementation and locally verified evidence as eec8a1eba37be3d6544299704a6233df3c593fb3 after explicit 44-path staging, cached diff validation, and exact staged-scope validation."
+      },
+      {
+        "at": "2026-07-19T01:24:04Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the scoped branch and opened PR #1788 with the exact manifest title and required body sections. GitHub build, contracts, Big Five freeze, Enneagram freeze, and CodeQL checks started; no production execution occurred."
       }
     ],
-    "updated_at": "2026-07-19T01:22:59Z"
+    "updated_at": "2026-07-19T01:24:04Z"
   }
 }

@@ -26793,7 +26793,7 @@ prs:
     dependency_repository: fap-api
     mode: execute
     train_scope: normalized_public_review_frontend_consumer
-    status: ready_for_pr
+    status: github_checks_pending
     goal: "Consume the backend-normalized identity-redacted public review contract across Article, Personality, Career, Research, and Support surfaces, showing completion only for approved state."
     allowed_paths:
       - app/(localized)/[locale]/articles/[slug]/page.tsx
