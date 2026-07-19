@@ -14,6 +14,7 @@ Read-only Stage 131 evidence observed the resulting production sequence as `0/7 
 - A partial subset is never written to the collection LKG.
 - Complete collection snapshots use a versioned LKG key, so a partial subset written by the former implementation cannot be reused after this repair.
 - If a terminal exclusion conflicts with membership in an older LKG during a mixed transient failure, the conflicting collection LKG is cleared and the request fails closed. This prevents an authoritatively private/noindex/absent page from being resurrected.
+- A transient per-page read also carries forward any known non-indexable stale page state as an exclusion before collection fallback, so a newer per-page noindex decision cannot be obscured by an older indexable collection LKG.
 - A complete authoritative empty collection is accepted as fresh revocation state, but it is not eligible to make `llms.txt` publicly cacheable.
 - `llms.txt` now requires non-empty content-page authority results for both `en` and `zh`, in addition to the existing personality authority gates, before returning the public shared-cache policy. A locale timeout, transient failure without LKG, or empty cohort returns `private, no-store, max-age=0`.
 

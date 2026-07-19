@@ -143,6 +143,27 @@ describe("llms content-page partial collection LKG", () => {
     );
   });
 
+  it("does not resurrect collection membership when a stale per-page LKG records noindex", async () => {
+    const authority = mockContentPageAuthority();
+    const contentPages = await import("@/lib/cms/content-pages");
+    const lkg = await import("@/lib/cms/last-known-good");
+    lkg.clearLastKnownGoodForTests();
+
+    const seeded = await contentPages.listDiscoverableContentPagesWithLastKnownGood("en");
+    expect(seeded.value.map((page) => page.slug)).toContain("brand");
+
+    authority.overrides.set("brand", { isIndexable: false });
+    const noindexPage = await contentPages.getContentPageWithLastKnownGood("brand", "en");
+    expect(noindexPage.source).toBe("fresh");
+    expect(noindexPage.value?.isIndexable).toBe(false);
+
+    authority.transientSlugs.add("brand");
+    await expect(contentPages.listDiscoverableContentPagesWithLastKnownGood("en")).rejects.toThrow(
+      "transient failure for brand"
+    );
+    expect(lkg.readLastKnownGoodForTests(COLLECTION_KEY)).toBeNull();
+  });
+
   it("stores a complete authoritative noindex refresh without the revoked page", async () => {
     const authority = mockContentPageAuthority();
     const contentPages = await import("@/lib/cms/content-pages");

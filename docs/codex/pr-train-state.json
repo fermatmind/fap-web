@@ -46589,19 +46589,19 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "After the exact-head P2 repair, Node 24 focused contracts pass 2 files / 13 tests, covering complete snapshot LKG recovery, no-LKG fail closed, rejection of partial snapshots stored under the legacy collection key, mixed noindex/transient revocation, complete noindex refresh, and source/runtime enforcement of the two-locale llms.txt cache gate."
+        "evidence": "After both exact-head P2 repairs, Node 24 focused contracts pass 2 files / 14 tests, covering complete snapshot LKG recovery, no-LKG fail closed, rejection of partial snapshots stored under the legacy collection key, mixed noindex/transient revocation, stale per-page noindex precedence over an older collection LKG, complete noindex refresh, and source/runtime enforcement of the two-locale llms.txt cache gate."
       },
       "required_local_checks": {
         "status": "pass",
-        "evidence": "After the exact-head P2 repair, Node 24 validation passed: focused contracts 2 files / 13 tests; lint; spacing; typecheck; full contracts 761 files / 4365 tests using the compatible bundled Python 3.12; production-parameter build with 206/206 generated pages; YAML and JSON parsing; git diff --check; and exact changed-file scope validation (6 changed paths, 9 allowed paths, no outside-scope paths). The earlier first full-contract attempt used the system Python and failed only two Career KG validator tests because that older interpreter cannot parse Path | None; both complete bundled-Python runs passed."
+        "evidence": "After both exact-head P2 repairs, Node 24 validation passed: focused contracts 2 files / 14 tests; lint; spacing; typecheck; full contracts 761 files / 4382 tests using the compatible bundled Python 3.12; production-parameter build with 206/206 generated pages; YAML and JSON parsing; git diff --check; and exact changed-file scope validation (6 changed paths, 9 allowed paths, no outside-scope paths). One intermediate full run hit an unrelated analytics-runtime-monitor timing failure; that file immediately passed 5/5 alone and the next complete unchanged-code run passed all 4382 tests."
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "All seven checks passed on reviewed head c048162860908c12ebd1e592b5e0c2d9dc7f0b92. A valid P2 repair is now locally verified and must pass a new exact-head GitHub cycle after push."
+        "evidence": "All seven checks passed on reviewed head 0ea7e157a7515f26c58f20c698d419dbccd757d4. A second valid P2 repair is now locally verified and must pass a new exact-head GitHub cycle after push."
       },
       "codex_review": {
         "status": "valid_finding_fixed_locally_pending_exact_head",
-        "evidence": "Codex reviewed head c048162860908c12ebd1e592b5e0c2d9dc7f0b92 and found one valid P2: a partial collection snapshot written by the old implementation could still be reused under the unchanged LKG key. The repair versions the complete-snapshot key and adds a legacy-partial rejection regression; new exact-head review remains required."
+        "evidence": "Codex reviewed head 0ea7e157a7515f26c58f20c698d419dbccd757d4 and found one valid P2: a stale per-page noindex LKG could be skipped as merely transient, allowing an older indexable collection LKG to resurrect the slug. The repair carries known stale non-indexable state into collection exclusions and adds the cross-layer regression; new exact-head review remains required."
       }
     },
     "scope_validation": {
@@ -46650,8 +46650,13 @@
         "at": "2026-07-19T03:27:56Z",
         "status": "review_fix_local_pass",
         "summary": "Committed the locally verified legacy-partial LKG retirement as 4d7a25a088ff515982070162e7e9b4ec399c15a7 and bound commit_sha to that implementation commit. This ledger-only binding commit follows it; exact-head checks and review remain pending after push."
+      },
+      {
+        "at": "2026-07-19T03:42:44Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on exact head 0ea7e157a7515f26c58f20c698d419dbccd757d4. The second exact-head Codex review found one valid P2: stale per-page noindex state was not carried into collection exclusions before an older collection LKG fallback. Added that precedence guard and a direct cross-layer regression. Node 24 focused contracts pass 2 files / 14 tests; lint, spacing, typecheck, full contracts 761 files / 4382 tests, and production build 206/206 pass. One unrelated analytics monitor timing failure passed immediately alone and on the next complete run."
       }
     ],
-    "updated_at": "2026-07-19T03:27:56Z"
+    "updated_at": "2026-07-19T03:42:44Z"
   }
 }

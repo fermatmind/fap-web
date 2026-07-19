@@ -491,6 +491,9 @@ export async function listDiscoverableContentPagesWithLastKnownGood(
 
     const { slug, result: pageResult } = result.value;
     if (pageResult.source === "last-known-good") {
+      if (!isPublicIndexableContentPage(pageResult.value) || (kind && pageResult.value.kind !== kind)) {
+        authoritativeExcludedSlugs.add(slug);
+      }
       transientError ??= pageResult.error ?? new Error(`Content-page authority request failed for ${slug}.`);
       continue;
     }
