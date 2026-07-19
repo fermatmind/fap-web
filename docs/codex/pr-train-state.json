@@ -46802,8 +46802,8 @@
     "branch": "codex/big5-en52-104-discoverability-convergence-13",
     "title": "BIG5-EN52-104-DISCOVERABILITY-CONVERGENCE-13: converge Big Five runtime to 104 canonicals",
     "depends_on": ["BIG5-EN52-CONTROLLED-PUBLISHER-12"],
-    "status": "ready_for_pr",
-    "commit_sha": null,
+    "status": "github_checks_pending",
+    "commit_sha": "ad97a0a89de353bb55654e3dd379de6ef91c28cb",
     "pr_url": null,
     "checks": {
       "authorization": {
@@ -46848,8 +46848,13 @@
         "at": "2026-07-19T07:00:01Z",
         "status": "ready_for_pr",
         "summary": "Strict sitemap authority validation now rejects 103, 105, and alias-bearing Big Five cohorts before canonical extraction or cache writes, while exact 104 recovers and remains worker-consistent. Misleading 114/ZH-only contracts were renamed to 104 bilingual semantics. Canonical Node 24 focused, static, full-contract, freeze, production-build, metadata-parse, diff, and exact scope gates passed; the only local lint exception is an ignored pre-existing Playwright trace directory recorded in sidecar."
+      },
+      {
+        "at": "2026-07-19T07:01:08Z",
+        "status": "local_checks_passed",
+        "summary": "Explicitly staged the exact nine changed paths and committed the locally verified implementation as ad97a0a89de353bb55654e3dd379de6ef91c28cb. commit_sha is bound to that implementation commit; this following ledger-only commit records the binding before push."
       }
     ],
-    "updated_at": "2026-07-19T07:00:01Z"
+    "updated_at": "2026-07-19T07:01:08Z"
   }
 }
