@@ -46883,7 +46883,7 @@
     "title": "MBTI-COMP-GATE-47: add exact A/T runtime completeness gate",
     "depends_on": ["MBTI-COMP-RUNTIME-46"],
     "status": "production_deploy_authorization_pending",
-    "commit_sha": "6d7343ba7bf9b8525b77dd692a7eceac09ef3ead",
+    "commit_sha": "6d7343ba469730e937752f1f8df043352c8da892",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1794",
     "checks": {
       "authorization": {
@@ -46974,7 +46974,7 @@
       {
         "at": "2026-07-19T09:22:00Z",
         "status": "github_checks_pending",
-        "summary": "Committed the locally validated dedicated Gate47 scope-helper repair as 6d7343ba7bf9b8525b77dd692a7eceac09ef3ead and rebound commit_sha to that implementation commit. This following ledger-only commit records the binding before push; exact-head GitHub checks and Codex review remain mandatory."
+        "summary": "Committed the locally validated dedicated Gate47 scope-helper repair as 6d7343ba469730e937752f1f8df043352c8da892 and rebound commit_sha to that implementation commit. This following ledger-only commit records the binding before push; exact-head GitHub checks and Codex review remain mandatory."
       }
     ],
     "updated_at": "2026-07-19T09:22:00Z"
