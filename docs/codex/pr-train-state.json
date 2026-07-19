@@ -46437,7 +46437,7 @@
       "evidence": "fap-api PR #3185 is MERGED as e5edc5cc7e0537abc3580d16786a7635415e7f05; fap-api origin/main contains that merge, the PR6 branch/worktree was cleaned, and this fap-web task started from origin/main 478d3431589c752e5d7c88baab405e3e5cc80b9e without waiting for staging deploy."
     },
     "status": "github_checks_pending",
-    "commit_sha": "eec8a1eba37be3d6544299704a6233df3c593fb3",
+    "commit_sha": "fdeccff064274e768953d1fd47e3622259624164",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1788",
     "checks": {
       "manifest_registration": {
@@ -46458,11 +46458,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "All seven GitHub checks passed on reviewed head 509ed4b447b20040ad17319c0874c400ee3a6cff. A same-scope Codex review fix is ready to push, so exact-head checks must rerun before merge."
+        "evidence": "All seven GitHub checks passed on reviewed repair head fdeccff064274e768953d1fd47e3622259624164. A ledger-only exact-head binding update remains to push, so checks must rerun once more before merge."
       },
       "codex_review": {
         "status": "addressed_pending_exact_head_review",
-        "evidence": "Codex reviewed exact head 509ed4b447b20040ad17319c0874c400ee3a6cff and raised one valid P2: JavaScript Date.parse accepts overflowed calendar dates. The adapter now compares parsed UTC components to the input and the regression suite includes 2026-02-31 fail-closed coverage."
+        "evidence": "Codex reviewed repair head fdeccff064274e768953d1fd47e3622259624164, confirmed the overflow-date repair path, and raised one valid ledger P2 because commit_sha still referenced the pre-repair implementation commit. The ledger now binds to reviewed repair head fdeccff064274e768953d1fd47e3622259624164; final ledger-only head review remains pending."
       }
     },
     "scope_validation": {
@@ -46511,8 +46511,13 @@
         "at": "2026-07-19T01:33:59Z",
         "status": "review_fix_local_pass",
         "summary": "All seven GitHub checks passed on exact head 509ed4b447b20040ad17319c0874c400ee3a6cff. Codex review then identified one valid P2 overflow-date fail-closed gap. Added strict UTC component round-trip validation and a 2026-02-31 regression case. Node 24 focused contracts pass 12 files / 103 tests; lint, spacing, typecheck, JSON parsing, and diff checks pass. Exact-head GitHub checks and Codex review will rerun after push."
+      },
+      {
+        "at": "2026-07-19T01:40:20Z",
+        "status": "ledger_binding_fix_pending",
+        "summary": "All seven GitHub checks passed on repair head fdeccff064274e768953d1fd47e3622259624164. The second exact-head Codex review raised one valid ledger-only P2: commit_sha still referenced the pre-repair implementation. Updated commit_sha to the reviewed repair head and prepared one final ledger-only exact-head validation cycle."
       }
     ],
-    "updated_at": "2026-07-19T01:33:59Z"
+    "updated_at": "2026-07-19T01:40:20Z"
   }
 }
