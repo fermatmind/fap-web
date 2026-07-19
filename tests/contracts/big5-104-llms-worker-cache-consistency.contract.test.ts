@@ -34,24 +34,34 @@ afterEach(() => {
   delete process.env.FERMATMIND_LLMS_FULL_REQUIRE_BIG_FIVE_COHORT;
 });
 
-describe("BIG5-114-LLMS-WORKER-CACHE-CONSISTENCY-REPAIR-01", () => {
-  it("does not cache an empty or incomplete cohort and recovers on the next complete backend response", async () => {
+describe("BIG5-EN52-104 sitemap and llms cache consistency", () => {
+  it("does not cache 103, 105, or alias-bearing cohorts and recovers on the next exact backend response", async () => {
     expect(canonicalPaths).toHaveLength(104);
+    const extraPath = "/en/personality/big-five/not-a-canonical";
+    const aliasPath = "/en/personality/big-five/high-openness";
     const fetchMock = vi.fn()
       .mockResolvedValueOnce(sitemapResponse(canonicalPaths.slice(0, 103)))
+      .mockResolvedValueOnce(sitemapResponse([...canonicalPaths, extraPath]))
+      .mockResolvedValueOnce(sitemapResponse([...canonicalPaths, aliasPath]))
       .mockResolvedValueOnce(sitemapResponse(canonicalPaths));
     vi.stubGlobal("fetch", fetchMock);
     vi.resetModules();
-    const { listBackendSitemapBigFiveZhPaths } = await import("@/lib/seo/backendSitemapSource");
+    const { listBackendSitemapBigFiveCanonicalPaths } = await import("@/lib/seo/backendSitemapSource");
 
-    await expect(listBackendSitemapBigFiveZhPaths()).rejects.toThrow(
+    await expect(listBackendSitemapBigFiveCanonicalPaths()).rejects.toThrow(
       "Incomplete Big Five sitemap authority cohort: expected 104 canonical paths, received 103."
     );
-    await expect(listBackendSitemapBigFiveZhPaths()).resolves.toHaveLength(104);
-    await expect(listBackendSitemapBigFiveZhPaths()).resolves.toEqual(
+    await expect(listBackendSitemapBigFiveCanonicalPaths()).rejects.toThrow(
+      "Incomplete Big Five sitemap authority cohort: expected 104 canonical paths, received 105."
+    );
+    await expect(listBackendSitemapBigFiveCanonicalPaths()).rejects.toThrow(
+      "Incomplete Big Five sitemap authority cohort: expected 104 canonical paths, received 105."
+    );
+    await expect(listBackendSitemapBigFiveCanonicalPaths()).resolves.toHaveLength(104);
+    await expect(listBackendSitemapBigFiveCanonicalPaths()).resolves.toEqual(
       [...canonicalPaths].sort((left, right) => left.localeCompare(right))
     );
-    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(fetchMock).toHaveBeenCalledTimes(4);
   });
 
   it("keeps independently initialized workers on the same exact 104-path authority cohort", async () => {
@@ -62,11 +72,11 @@ describe("BIG5-114-LLMS-WORKER-CACHE-CONSISTENCY-REPAIR-01", () => {
 
     vi.resetModules();
     const workerOne = await import("@/lib/seo/backendSitemapSource");
-    await expect(workerOne.listBackendSitemapBigFiveZhPaths()).resolves.toHaveLength(104);
+    await expect(workerOne.listBackendSitemapBigFiveCanonicalPaths()).resolves.toHaveLength(104);
 
     vi.resetModules();
     const workerTwo = await import("@/lib/seo/backendSitemapSource");
-    await expect(workerTwo.listBackendSitemapBigFiveZhPaths()).resolves.toEqual(
+    await expect(workerTwo.listBackendSitemapBigFiveCanonicalPaths()).resolves.toEqual(
       [...canonicalPaths].sort((left, right) => left.localeCompare(right))
     );
     expect(fetchMock).toHaveBeenCalledTimes(2);

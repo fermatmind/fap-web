@@ -46794,5 +46794,62 @@
       }
     ],
     "updated_at": "2026-07-19T05:11:11Z"
+  },
+  "BIG5-EN52-104-DISCOVERABILITY-CONVERGENCE-13": {
+    "id": "BIG5-EN52-104-DISCOVERABILITY-CONVERGENCE-13",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/big5-en52-104-discoverability-convergence-13",
+    "title": "BIG5-EN52-104-DISCOVERABILITY-CONVERGENCE-13: converge Big Five runtime to 104 canonicals",
+    "depends_on": ["BIG5-EN52-CONTROLLED-PUBLISHER-12"],
+    "status": "ready_for_pr",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "The four-PR continuous execution goal explicitly authorized this exact ID, title, branch, dependency, scope, manifest/state registration, and complete ordinary PR lifecycle."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "fap-api PR #3204 merged as 6ed2ca4591c764099e58cd2acc7ba2971263170e; fap-api origin/main containment was verified without deploying or executing the controlled publisher."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "Canonical Node 24 focused Big Five convergence, worker-cache, redirect, and renderer contracts passed 4 files / 31 tests. They prove the 1/5/15/1/30 route-family inventory, exact 104 canonical paths, ten exact 301 aliases per locale, 103/105/alias fail-closed behavior without cache poisoning, independent worker consistency, and alias resolution before backend reads."
+      },
+      "required_local_checks": {
+        "status": "pass_with_external_sidecar",
+        "evidence": "Canonical Node 24 spacing and typecheck passed; full contracts passed 763 files / 4393 tests; Big Five freeze passed 29/29; Enneagram freeze passed 24/24; the production site/API build generated 206/206 pages; YAML/JSON and diff checks passed. Exact pnpm lint was polluted only by pre-existing ignored .playwright-cli trace resources; the same ESLint configuration excluding only that local directory completed with 0 errors and two known tracked generated-file warnings. The external local artifact is recorded in sidecar and cannot exist in clean GitHub checkout."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-19T06:48:16Z",
+        "status": "in_progress",
+        "summary": "Started from fap-web origin/main 1d522d3b62a3df31e8473dc0e9aef39cb6dbf3e3 after verifying the backend dependency merge. Baseline has one untouched user-owned .workbuddy path. Scope is exact 104-canonical and bilingual redirect/discoverability convergence only; no deploy, publish, CMS/database/search/cache mutation, alias purge, or frontend editorial fallback is authorized."
+      },
+      {
+        "at": "2026-07-19T07:00:01Z",
+        "status": "ready_for_pr",
+        "summary": "Strict sitemap authority validation now rejects 103, 105, and alias-bearing Big Five cohorts before canonical extraction or cache writes, while exact 104 recovers and remains worker-consistent. Misleading 114/ZH-only contracts were renamed to 104 bilingual semantics. Canonical Node 24 focused, static, full-contract, freeze, production-build, metadata-parse, diff, and exact scope gates passed; the only local lint exception is an ignored pre-existing Playwright trace directory recorded in sidecar."
+      }
+    ],
+    "updated_at": "2026-07-19T07:00:01Z"
   }
 }

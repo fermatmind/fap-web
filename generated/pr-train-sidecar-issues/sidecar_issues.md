@@ -338,3 +338,14 @@
 - resolved at: 2026-07-15T09:07:10Z
 - resolution evidence: the exact 43-record promotion completed on pinned backend SHA `65a1d3b78da70511306ebd2867a157494e4e217f` with the authorized source, promotion and authorization hashes and without GSC mutation. After frontend SWR convergence, two consecutive read-only INDEX-43 runs passed every 52/52 gate with zero API timeouts, zero private URL leaks and identical evidence signatures.
 - disposition: resolved external authority promotion; INDEX-43 repository validation may continue.
+
+## BIG5-EN52-104 Local Playwright Trace Lint Pollution
+
+- repo: fermatmind/fap-web
+- PR id / branch: BIG5-EN52-104-DISCOVERABILITY-CONVERGENCE-13 / codex/big5-en52-104-discoverability-convergence-13
+- blocker type: external ignored local artifact lint pollution
+- evidence: canonical Node 24 `pnpm lint` traversed pre-existing ignored `.playwright-cli/traces/resources/*.js` files and reported 1505 diagnostics, including 2 errors. Re-running the same ESLint configuration with only `.playwright-cli/**` excluded completed with 0 errors and the two known tracked generated-file warnings.
+- why not current PR scope: the Playwright trace directory is local ignored browser evidence, was not created by this PR, and must not be moved, deleted, modified, ignored, or committed as part of Big Five discoverability convergence.
+- whether required checks are affected: no; GitHub required checks use a clean checkout without the ignored local trace directory.
+- recommended follow-up: clean or globally ignore the local trace directory only in a separately authorized workspace-maintenance task if desired; do not change repository lint policy in this PR.
+- observed at: 2026-07-19T06:53:00Z

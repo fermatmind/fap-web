@@ -407,5 +407,17 @@
     "resolved_at": "2026-07-15T09:07:10Z",
     "resolution_evidence": "The exact 43-record production promotion completed on pinned backend SHA 65a1d3b78da70511306ebd2867a157494e4e217f using the authorized source, promotion and authorization hashes. No GSC mutation occurred. After frontend SWR convergence, two consecutive read-only INDEX-43 runs passed all nine 52/52 gates with API_TIMEOUTS=0, PRIVATE_URL_LEAKS=0 and identical evidence signatures.",
     "disposition": "resolved_external_authority_promotion_verified_read_only"
+  },
+  {
+    "id": "external-local-playwright-trace-lint-pollution-big5-en52-104",
+    "repo": "fermatmind/fap-web",
+    "pr_id": "BIG5-EN52-104-DISCOVERABILITY-CONVERGENCE-13",
+    "branch": "codex/big5-en52-104-discoverability-convergence-13",
+    "blocker_type": "external_ignored_local_artifact_lint_pollution",
+    "evidence": "Canonical Node 24 pnpm lint traversed pre-existing ignored .playwright-cli/traces/resources JavaScript and reported 1505 diagnostics, including 2 errors. The same ESLint configuration with only .playwright-cli/** excluded completed with 0 errors and two known tracked generated-file warnings.",
+    "why_not_current_pr_scope": "The ignored Playwright trace directory is local browser evidence not created by this PR and must not be moved, deleted, modified, ignored, or committed in the Big Five discoverability scope.",
+    "required_checks_affected": false,
+    "recommended_follow_up": "Clean or globally ignore the local trace directory only in a separately authorized workspace-maintenance task; do not change repository lint policy in this PR.",
+    "observed_at": "2026-07-19T06:53:00Z"
   }
 ]

@@ -26962,3 +26962,60 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend
     repository_rule_impact: existing_backend_authority_and_frontend_no_fallback_rules_preserved
+
+  - id: BIG5-EN52-104-DISCOVERABILITY-CONVERGENCE-13
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/big5-en52-104-discoverability-convergence-13
+    base: main
+    title: "BIG5-EN52-104-DISCOVERABILITY-CONVERGENCE-13: converge Big Five runtime to 104 canonicals"
+    depends_on: [BIG5-EN52-CONTROLLED-PUBLISHER-12]
+    mode: execute
+    train_scope: big5_en52_104_discoverability_convergence
+    status: in_progress
+    goal: "Converge Big Five runtime and discoverability to exactly 52 en plus 52 zh canonical paths while keeping all ten historical identities redirect-only in both locales."
+    allowed_paths:
+      - lib/personality/bigFivePublicRoutes.ts
+      - lib/seo/backendSitemapSource.ts
+      - app/llms.txt/route.ts
+      - app/llms-full.txt/route.ts
+      - app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx
+      - next.config.mjs
+      - tests/contracts/big5-104-seo-runtime-convergence.contract.test.ts
+      - tests/contracts/big5-104-llms-worker-cache-consistency.contract.test.ts
+      - tests/contracts/big5-104-legacy-alias-redirects.contract.test.ts
+      - tests/contracts/big5-114-seo-runtime-release-01.contract.test.ts
+      - tests/contracts/big5-114-llms-worker-cache-consistency-repair-01.contract.test.ts
+      - tests/contracts/big5-zh-legacy-exact-301-repair-01.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Backend or CMS mutation, production data changes, frontend editorial fallback, search submission, cache mutation, workflow changes, deploy, publish, or alias purge execution.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/big5-104-seo-runtime-convergence.contract.test.ts tests/contracts/big5-104-llms-worker-cache-consistency.contract.test.ts tests/contracts/big5-104-legacy-alias-redirects.contract.test.ts tests/contracts/personality-big-five-v1-noindex-render.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: backend_authority_and_frontend_no_fallback_rules_preserved
