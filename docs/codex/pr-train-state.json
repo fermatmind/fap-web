@@ -46691,7 +46691,7 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "PR #1789 merged as e49a8c887d5d1e86b815ec02c38e3e444a56dbfc and is contained by fap-web origin/main. The accepted SAEP-SCAN-693164e8d028 record was read-only revalidated. Existing backend-authoritative Career directory facets, Family Hub endpoint/adapter/route, and Family Hub visible-child anchors provide the SAEP-CAR-01 and SAEP-LINK-03 authority surfaces needed for this consumer-only final hop."
     },
-    "status": "github_checks_pending",
+    "status": "review_fix_local_pass",
     "commit_sha": "8bfdd5ea2f6f20f81052f88754a681a0deaa9b62",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1790",
     "checks": {
@@ -46705,19 +46705,19 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "Node 24 focused contracts pass 5 files / 18 tests, covering EN/ZH canonical Family Hub anchors from backend facets, no invented anchors when facets are empty, existing filtering/pagination and prefetch budgets, Family Hub rendering, and 1,046-directory discovery behavior."
+        "evidence": "After the exact-head P2 repair, Node 24 focused contracts pass 5 files / 19 tests, covering EN/ZH canonical Family Hub anchors from backend facets, fail-closed missing authority, excluded-manifest families remaining filterable but not crawlable, existing filtering/pagination and prefetch budgets, Family Hub rendering, and 1,046-directory discovery behavior."
       },
       "required_local_checks": {
         "status": "pass",
-        "evidence": "Node 24 validation passed: focused contracts 5 files / 18 tests; lint; spacing; typecheck; full contracts 762 files / 4385 tests; production-parameter build with 206/206 generated pages; YAML/JSON parsing; git diff --check; and exact changed-file scope validation (5 changed paths, 7 allowed paths, no outside-scope paths). The first full-contract run identified only the same-scope Career prefetch declaration count, which was updated from 8 to 9 while retaining prefetch={false}; the complete rerun passed. Test-generated unrelated files were restored exactly to HEAD."
+        "evidence": "After the exact-head P2 repair, Node 24 validation passed: focused contracts 5 files / 19 tests; lint; spacing; typecheck; full contracts 762 files / 4386 tests; production-parameter build with 206/206 generated pages; YAML/JSON parsing; git diff --check; and exact changed-file scope validation (5 changed paths, 7 allowed paths, no outside-scope paths). Test-generated unrelated files were restored exactly to HEAD."
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": null
+        "evidence": "All seven GitHub checks passed on prior exact head 0a43c7d87685fc301173352a291ad752a1c90fd9. A new exact-head cycle is required after the review fix."
       },
       "codex_review": {
         "status": "pending",
-        "evidence": null
+        "evidence": "Codex review of exact head 0a43c7d87685fc301173352a291ad752a1c90fd9 identified one valid P2: directory facet presence alone did not prove Family Hub discoverability. The fix now intersects facets with the backend first-wave discoverability manifest and fails closed when authority is missing; a new exact-head review is required."
       }
     },
     "scope_validation": {
@@ -46756,8 +46756,13 @@
         "at": "2026-07-19T04:18:11Z",
         "status": "github_checks_pending",
         "summary": "Pushed the exact branch and opened fap-web PR #1790 with the required what, why, validation, security/privacy, repository-rule impact, deferred, and no-production-execution sections. This ledger-only binding commit follows; final exact-head GitHub checks and Codex review remain mandatory."
+      },
+      {
+        "at": "2026-07-19T04:30:35Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on exact head 0a43c7d87685fc301173352a291ad752a1c90fd9. Codex review found one valid P2: facet presence did not prove backend discoverability approval. The page now concurrently consumes the existing first-wave discoverability manifest and renders canonical family-hub anchors only for manifest-discoverable facets; excluded families remain available as query filters, and missing manifest authority fails closed. Node 24 focused contracts pass 5 files / 19 tests; lint, spacing, typecheck, full contracts 762 files / 4386 tests, and production build 206/206 pass."
       }
     ],
-    "updated_at": "2026-07-19T04:18:11Z"
+    "updated_at": "2026-07-19T04:30:35Z"
   }
 }

@@ -29,7 +29,10 @@ function installBaseMocks(locale: "en" | "zh") {
   }));
 }
 
-function installDirectoryAuthority(families: unknown[]) {
+function installDirectoryAuthority(
+  families: Array<{ slug?: string; title_en?: string; title_zh?: string; count?: number }>,
+  discoverableSlugs = families.map((family) => String(family.slug ?? "")).filter(Boolean)
+) {
   vi.doMock("@/lib/career/api/fetchCareerDirectory", () => ({
     fetchCareerDirectory: vi.fn(async () => ({
       authority_version: "career.directory_authority.v1",
@@ -60,6 +63,24 @@ function installDirectoryAuthority(families: unknown[]) {
           detail_ready: true,
         },
       ],
+    })),
+  }));
+
+  vi.doMock("@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest", () => ({
+    fetchCareerFirstWaveDiscoverabilityManifest: vi.fn(async () => ({
+      manifest_kind: "career_first_wave_discoverability_manifest",
+      manifest_version: "career.first_wave.discoverability.v1",
+      scope: "public_career_routes",
+      routes: families.map((family) => ({
+        route_kind: "career_family_hub",
+        canonical_path: `/career/family/${family.slug}`,
+        canonical_slug: family.slug,
+        discoverability_state: discoverableSlugs.includes(String(family.slug ?? ""))
+          ? "discoverable"
+          : "excluded",
+        title_en: family.title_en,
+        visible_children_count: family.count,
+      })),
     })),
   }));
 }
@@ -127,5 +148,32 @@ describe("SAEP-PLANNED-PR-05 Career Hub crawlable links", () => {
     expect(html).not.toContain('data-testid="career-directory-family-hubs"');
     expect(html).not.toContain('data-testid="career-directory-family-hub-link"');
     expect(html).not.toContain("/en/career/family/");
+  });
+
+  it("keeps an excluded family available as a filter without exposing its hub as a crawlable anchor", async () => {
+    installBaseMocks("en");
+    installDirectoryAuthority(
+      [
+        {
+          slug: "computer-and-information-technology",
+          title_en: "Computer and information technology",
+          title_zh: "计算机与信息技术",
+          count: 91,
+        },
+        {
+          slug: "ambiguous-family",
+          title_en: "Ambiguous family",
+          title_zh: "待确认家族",
+          count: 10,
+        },
+      ],
+      ["computer-and-information-technology"]
+    );
+
+    const html = await renderJobsPage("en");
+
+    expect(html).toContain('href="/en/career/family/computer-and-information-technology"');
+    expect(html).not.toContain('href="/en/career/family/ambiguous-family"');
+    expect(html).toContain('href="/en/career/jobs?family=ambiguous-family"');
   });
 });

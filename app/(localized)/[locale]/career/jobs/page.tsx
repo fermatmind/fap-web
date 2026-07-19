@@ -5,11 +5,14 @@ import { CareerOccupationDirectory } from "@/components/career/CareerOccupationD
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
 import { adaptCareerDirectory } from "@/lib/career/adapters/adaptCareerDirectory";
+import { adaptCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/adapters/adaptCareerFirstWaveDiscoverabilityManifest";
 import {
   formatCareerFamilyTitle,
   normalizeFamilySlug,
 } from "@/lib/career/datasetDirectory";
 import { fetchCareerDirectory } from "@/lib/career/api/fetchCareerDirectory";
+import { fetchCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest";
+import { isCareerFamilyHubDiscoverableByManifest } from "@/lib/career/launchPolicy";
 import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
@@ -106,18 +109,28 @@ export default async function CareerJobsPage({
   const page = normalizePageParam(resolvedSearchParams.page);
   const jobsPath = localizedPath("/career/jobs", locale);
   const industriesPath = localizedPath("/career/industries", locale);
-  const directory = adaptCareerDirectory({
-    locale,
-    payload: await fetchCareerDirectory({
+  const [directoryPayload, discoverabilityPayload] = await Promise.all([
+    fetchCareerDirectory({
       locale,
       page,
       perPage: CAREER_DIRECTORY_PAGE_SIZE,
       family: selectedFamily || null,
       query: submittedQuery || null,
     }),
+    fetchCareerFirstWaveDiscoverabilityManifest({ locale }),
+  ]);
+  const directory = adaptCareerDirectory({
+    locale,
+    payload: directoryPayload,
+  });
+  const discoverabilityManifest = adaptCareerFirstWaveDiscoverabilityManifest({
+    payload: discoverabilityPayload,
   });
   const visibleMembers = directory.members;
   const families = directory.facets.families;
+  const discoverableFamilyHubs = families.filter((family) =>
+    isCareerFamilyHubDiscoverableByManifest(discoverabilityManifest, family.slug)
+  );
   const selectedFamilyTitle =
     selectedFamily
       ? families.find((family) => normalizeFamilySlug(family.slug) === normalizeFamilySlug(selectedFamily))?.title ??
@@ -285,24 +298,26 @@ export default async function CareerJobsPage({
                   ))}
                 </nav>
 
-                <nav
-                  className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3"
-                  aria-label={locale === "zh" ? "职业家族入口" : "Career family hubs"}
-                  data-testid="career-directory-family-hubs"
-                >
-                  {families.map((family) => (
-                    <Link
-                      key={family.slug}
-                      href={buildCareerFamilyFrontendUrl(locale, family.slug)}
-                      prefetch={false}
-                      className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:border-orange-200 hover:text-orange-600"
-                      data-testid="career-directory-family-hub-link"
-                    >
-                      <span>{family.title}</span>
-                      <span aria-hidden="true">→</span>
-                    </Link>
-                  ))}
-                </nav>
+                {discoverableFamilyHubs.length > 0 ? (
+                  <nav
+                    className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3"
+                    aria-label={locale === "zh" ? "职业家族入口" : "Career family hubs"}
+                    data-testid="career-directory-family-hubs"
+                  >
+                    {discoverableFamilyHubs.map((family) => (
+                      <Link
+                        key={family.slug}
+                        href={buildCareerFamilyFrontendUrl(locale, family.slug)}
+                        prefetch={false}
+                        className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:border-orange-200 hover:text-orange-600"
+                        data-testid="career-directory-family-hub-link"
+                      >
+                        <span>{family.title}</span>
+                        <span aria-hidden="true">→</span>
+                      </Link>
+                    ))}
+                  </nav>
+                ) : null}
               </div>
             ) : null}
 
