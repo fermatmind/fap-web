@@ -46882,8 +46882,8 @@
     "branch": "codex/mbti-comp-gate-47",
     "title": "MBTI-COMP-GATE-47: add exact A/T runtime completeness gate",
     "depends_on": ["MBTI-COMP-RUNTIME-46"],
-    "status": "baseline_repair_pending",
-    "commit_sha": "1226008f38685ca2a1818b52c2c26669d61d9335",
+    "status": "production_deploy_authorization_pending",
+    "commit_sha": "264b336ac16b52b56939a527388e862a452e78f8",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1794",
     "checks": {
       "authorization": {
@@ -46895,9 +46895,9 @@
         "evidence": "MBTI-COMP-RUNTIME-46 production code deploy, exact single-record INTP revision, rollback-safe write, 16/16 API/page readback, and fap-api operation report PR #3206 are complete."
       },
       "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture and provenance contract passes 10/10 tests, including exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, wrong canonical, truncated visible body, and body-only-in-hidden-script fail-closed cases; and deterministic derivation of all 16 runtime section fingerprints from the exact Approval39/Runtime46 review packages. The follow-up scope/Python environment regression set passes 5 files / 24 tests."},
-      "required_local_checks": {"status": "fail_closed", "evidence": "After exact-head Codex review removed the 24-character and hidden-script false positives, the read-only production readback correctly reports 0/16 and 464 precise visible-DOM failures. API payloads remain exact, but the public pages retain their comparison content only inside hidden Next streaming containers because the enforced CSP response nonce differs from the cached HTML nonce. A separate minimal pre-existing baseline repair is required before Gate 47 can return PASS."},
-      "github_required_checks": {"status": "pending", "evidence": "Initial exact-head build failed in typecheck because the focused fixture calls omitted the newly required provenance arguments. The same-scope fixture repair now passes local typecheck, focused 8/8, ESLint, and diff checks; a new exact-head run is pending after push."},
-      "codex_review": {"status": "pending", "evidence": null}
+      "required_local_checks": {"status": "fail_closed", "evidence": "After exact-head Codex review removed the 24-character and hidden-script false positives, the read-only production readback correctly reports 0/16 and 464 precise visible-DOM failures. The isolated two-file CSP nonce baseline repair passed focused 14/14, full 763 files / 4394 tests, typecheck, 206/206 build, local exact nonce parity, all seven GitHub checks, and merged as PR #1795 at main SHA 062a7130e5dcff8a08b55489b430c1338431b1b0. Production still serves the prior nonce-mismatched runtime because the automatic deploy policy skipped deployment and requires SHA-bound manual authorization."},
+      "github_required_checks": {"status": "pending", "evidence": "The prior Gate head ec5b2a46 passed all seven GitHub checks. The branch is now rebased onto baseline repair merge 062a7130 and will require a fresh exact-head run after the authorization-pending ledger update is pushed."},
+      "codex_review": {"status": "pending", "evidence": "Codex reviewed prior exact Gate head ec5b2a46 with zero remaining unresolved threads. A fresh review is required after the rebased head is pushed."}
     },
     "scope_validation": {
       "allowed_paths_only": true,
@@ -46950,8 +46950,13 @@
         "at": "2026-07-19T08:33:00Z",
         "status": "baseline_repair_pending",
         "summary": "Exact-head Codex review identified two valid P2 false positives: only the first 24 body characters were checked and hidden script text counted as visible. The Gate now removes non-visible nodes and requires complete visible body/table-cell text; focused tests pass 10/10. The corrected production readback fails closed at 0/16 because a pre-existing CSP/cache nonce mismatch blocks Next scripts and leaves comparison content hidden. Gate 47 is held while a separate minimal baseline repair is completed."
+      },
+      {
+        "at": "2026-07-19T08:58:00Z",
+        "status": "production_deploy_authorization_pending",
+        "summary": "The isolated personality CSP nonce repair PR #1795 merged as 062a7130e5dcff8a08b55489b430c1338431b1b0 after full local and GitHub validation. Its automatic production workflow policy guard completed safely but skipped the deploy because the conservative verified range contains controlled-risk files. origin/main remains exactly 062a7130, production still returns mismatched header/HTML nonces, and the repository workflow requires exact SHA-bound manual authorization before readback can resume. Gate 47 was rebased onto this merge without touching the user-owned .workbuddy file."
       }
     ],
-    "updated_at": "2026-07-19T08:33:00Z"
+    "updated_at": "2026-07-19T08:58:00Z"
   }
 }
