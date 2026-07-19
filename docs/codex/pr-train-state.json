@@ -46437,7 +46437,7 @@
       "evidence": "fap-api PR #3185 is MERGED as e5edc5cc7e0537abc3580d16786a7635415e7f05; fap-api origin/main contains that merge, the PR6 branch/worktree was cleaned, and this fap-web task started from origin/main 478d3431589c752e5d7c88baab405e3e5cc80b9e without waiting for staging deploy."
     },
     "status": "ready_to_merge",
-    "commit_sha": "06bce85f64855e8e9bec0ae47831c0618bc0db3f",
+    "commit_sha": "b7e332aef4980254903420993868afc34cd2b54f",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1788",
     "checks": {
       "manifest_registration": {
@@ -46536,8 +46536,13 @@
         "at": "2026-07-19T02:21:45Z",
         "status": "review_fix_local_pass",
         "summary": "All seven GitHub checks passed on ready-to-merge head 0b4a6b9be82c66479e3c934e192036f120bd5403. Exact-head Codex review identified two valid P2 gaps: three Career regression paths were missing from allowed_paths, and isCareerTrustManifest unsafely accepted a raw legacy reviewer shape. Added the three paths, changed the guard to require publicReview plus legacyReview, and updated the canonical contract to reject raw trust until normalization. Node 24 focused contracts pass 13 files / 107 tests; lint, spacing, typecheck, YAML/JSON parsing, diff, and full-PR exact scope pass (47 changed paths / 49 allowed, none outside)."
+      },
+      {
+        "at": "2026-07-19T02:22:31Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the normalized Career guard and exact allowlist repair as b7e332aef4980254903420993868afc34cd2b54f and bound commit_sha to that implementation commit. The following commit is ledger-only; final exact-head GitHub checks and Codex review remain mandatory."
       }
     ],
-    "updated_at": "2026-07-19T02:21:45Z"
+    "updated_at": "2026-07-19T02:22:31Z"
   }
 }
