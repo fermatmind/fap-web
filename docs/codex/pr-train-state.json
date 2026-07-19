@@ -46691,8 +46691,8 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "PR #1789 merged as e49a8c887d5d1e86b815ec02c38e3e444a56dbfc and is contained by fap-web origin/main. The accepted SAEP-SCAN-693164e8d028 record was read-only revalidated. Existing backend-authoritative Career directory facets, Family Hub endpoint/adapter/route, and Family Hub visible-child anchors provide the SAEP-CAR-01 and SAEP-LINK-03 authority surfaces needed for this consumer-only final hop."
     },
-    "status": "ready_for_pr",
-    "commit_sha": null,
+    "status": "local_checks_passed",
+    "commit_sha": "8bfdd5eaff51556473ce767308ed5a17db6987b3",
     "pr_url": null,
     "checks": {
       "manifest_registration": {
@@ -46746,8 +46746,13 @@
         "at": "2026-07-19T04:15:41Z",
         "status": "ready_for_pr",
         "summary": "All required local gates pass: focused contracts 5 files / 18 tests; lint; spacing; typecheck; full contracts 762 files / 4385 tests; production-parameter build 206/206; YAML/JSON parsing; diff check; and exact five-path scope validation. The first full run exposed one same-scope prefetch Link declaration count; the contract now expects 9 declarations and still proves every Link sets prefetch={false}. Generated unrelated artifacts were restored to HEAD."
+      },
+      {
+        "at": "2026-07-19T04:16:53Z",
+        "status": "local_checks_passed",
+        "summary": "Explicitly staged the exact five allowed changed paths, validated the cached diff and scope, and committed the locally verified implementation as 8bfdd5eaff51556473ce767308ed5a17db6987b3. commit_sha is intentionally bound to that implementation commit; this ledger-only binding commit follows it."
       }
     ],
-    "updated_at": "2026-07-19T04:15:41Z"
+    "updated_at": "2026-07-19T04:16:53Z"
   }
 }
