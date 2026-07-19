@@ -46802,7 +46802,7 @@
     "branch": "codex/big5-en52-104-discoverability-convergence-13",
     "title": "BIG5-EN52-104-DISCOVERABILITY-CONVERGENCE-13: converge Big Five runtime to 104 canonicals",
     "depends_on": ["BIG5-EN52-CONTROLLED-PUBLISHER-12"],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "ad97a0a89de353bb55654e3dd379de6ef91c28cb",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1792",
     "checks": {
@@ -46821,12 +46821,20 @@
       "required_local_checks": {
         "status": "pass_with_external_sidecar",
         "evidence": "Canonical Node 24 spacing and typecheck passed; full contracts passed 763 files / 4393 tests; Big Five freeze passed 29/29; Enneagram freeze passed 24/24; the production site/API build generated 206/206 pages; YAML/JSON and diff checks passed. Exact pnpm lint was polluted only by pre-existing ignored .playwright-cli trace resources; the same ESLint configuration excluding only that local directory completed with 0 errors and two known tracked generated-file warnings. The external local artifact is recorded in sidecar and cannot exist in clean GitHub checkout."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "Exact head 2e5cc40211e8b8905f338598a5c63859c622c09d passed build, contracts, both personality freeze checks, CodeQL analysis and aggregate, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE."
+      },
+      "codex_review": {
+        "status": "pass_after_repair",
+        "evidence": "Codex reviewed prior head 42d9cbe0 and found one actionable P2: the pending-check ledger transition lacked pr_url. Current head 2e5cc402 records PR #1792 and the exact history transition; the finding was replied to and resolved, leaving zero unresolved review threads."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -46858,8 +46866,13 @@
         "at": "2026-07-19T07:02:08Z",
         "status": "github_checks_pending",
         "summary": "Pushed the exact branch and opened fap-web PR #1792 with what, why, validation, security/privacy, repository-rule impact, deferred items, and no-production-execution sections. Required GitHub checks and exact-head Codex review are pending; no staging wait or deploy action is included."
+      },
+      {
+        "at": "2026-07-19T07:12:16Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head 2e5cc402 passed all seven GitHub checks. The sole P2 reviewed on prior head 42d9cbe0 was already repaired by recording PR #1792 and its pending-check transition; the thread was replied to and resolved, leaving zero unresolved review threads. GitHub reports CLEAN and MERGEABLE. This ledger-only ready-to-merge commit must receive its own final exact-head checks before squash merge."
       }
     ],
-    "updated_at": "2026-07-19T07:02:08Z"
+    "updated_at": "2026-07-19T07:12:16Z"
   }
 }
