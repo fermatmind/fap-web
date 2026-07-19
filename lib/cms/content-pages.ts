@@ -470,7 +470,9 @@ export async function listDiscoverableContentPagesWithLastKnownGood(
 ): Promise<LastKnownGoodResult<ContentPage[]>> {
   const normalizedLocale = normalizeLocale(locale);
   const kindKey = kind ?? "all";
-  const collectionKey = `content-pages:discoverable-detail:${normalizedLocale}:${kindKey}`;
+  // Version the key so snapshots written by the former subset-accepting
+  // implementation can never be mistaken for complete collection authority.
+  const collectionKey = `content-pages:discoverable-detail-complete-v2:${normalizedLocale}:${kindKey}`;
   const settledPages = await Promise.allSettled(
     DISCOVERABLE_CONTENT_PAGE_KEYS.map(async (slug) => ({
       slug,

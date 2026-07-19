@@ -12,6 +12,7 @@ Read-only Stage 131 evidence observed the resulting production sequence as `0/7 
 - HTTP `404`/`422`, private, and noindex results are terminal exclusions. Network and other request failures are transient.
 - A transiently incomplete refresh reuses only a non-empty, complete, public/indexable collection LKG. Without one, the collection fails closed.
 - A partial subset is never written to the collection LKG.
+- Complete collection snapshots use a versioned LKG key, so a partial subset written by the former implementation cannot be reused after this repair.
 - If a terminal exclusion conflicts with membership in an older LKG during a mixed transient failure, the conflicting collection LKG is cleared and the request fails closed. This prevents an authoritatively private/noindex/absent page from being resurrected.
 - A complete authoritative empty collection is accepted as fresh revocation state, but it is not eligible to make `llms.txt` publicly cacheable.
 - `llms.txt` now requires non-empty content-page authority results for both `en` and `zh`, in addition to the existing personality authority gates, before returning the public shared-cache policy. A locale timeout, transient failure without LKG, or empty cohort returns `private, no-store, max-age=0`.

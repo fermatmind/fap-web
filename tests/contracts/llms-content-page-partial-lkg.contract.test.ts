@@ -3,7 +3,8 @@ import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 const ROOT = process.cwd();
-const COLLECTION_KEY = "content-pages:discoverable-detail:en:all";
+const LEGACY_COLLECTION_KEY = "content-pages:discoverable-detail:en:all";
+const COLLECTION_KEY = "content-pages:discoverable-detail-complete-v2:en:all";
 
 type ContentPageOverride = {
   isPublic?: boolean;
@@ -99,6 +100,24 @@ describe("llms content-page partial collection LKG", () => {
     await expect(contentPages.listDiscoverableContentPagesWithLastKnownGood("en")).rejects.toThrow(
       "transient failure for science"
     );
+    expect(lkg.readLastKnownGoodForTests(COLLECTION_KEY)).toBeNull();
+  });
+
+  it("does not reuse a partial snapshot written under the legacy collection key", async () => {
+    const authority = mockContentPageAuthority();
+    const lkg = await import("@/lib/cms/last-known-good");
+    lkg.clearLastKnownGoodForTests();
+    await lkg.withLastKnownGood({
+      key: LEGACY_COLLECTION_KEY,
+      load: async () => [contentPageRecord("about")],
+    });
+    authority.transientSlugs.add("science");
+    const contentPages = await import("@/lib/cms/content-pages");
+
+    await expect(contentPages.listDiscoverableContentPagesWithLastKnownGood("en")).rejects.toThrow(
+      "transient failure for science"
+    );
+    expect(lkg.readLastKnownGoodForTests(LEGACY_COLLECTION_KEY)?.value).toHaveLength(1);
     expect(lkg.readLastKnownGoodForTests(COLLECTION_KEY)).toBeNull();
   });
 

@@ -46575,7 +46575,7 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-web PR #922 is MERGED as de67e5c5e8fec0fa87146e5954984ff3d817be8d and PR #1742 is MERGED as a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc; both merge commits are contained by origin/main. This branch started from origin/main 747bd0df4ff7b632fbb271dc5fcf62329118b2bf after serial PR7 closeout."
     },
-    "status": "github_checks_pending",
+    "status": "review_fix_local_pass",
     "commit_sha": "778449bd0deddfbd2720df16b20bff84a1c2c534",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1789",
     "checks": {
@@ -46589,19 +46589,19 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "Node 24 focused contracts pass 2 files / 12 tests, covering complete snapshot LKG recovery, no-LKG fail closed, mixed noindex/transient revocation, complete noindex refresh, and source/runtime enforcement of the two-locale llms.txt cache gate."
+        "evidence": "After the exact-head P2 repair, Node 24 focused contracts pass 2 files / 13 tests, covering complete snapshot LKG recovery, no-LKG fail closed, rejection of partial snapshots stored under the legacy collection key, mixed noindex/transient revocation, complete noindex refresh, and source/runtime enforcement of the two-locale llms.txt cache gate."
       },
       "required_local_checks": {
         "status": "pass",
-        "evidence": "Node 24 validation passed: focused contracts 2 files / 12 tests; lint; spacing; typecheck; full contracts 761 files / 4364 tests using the compatible bundled Python 3.12; production-parameter build with 206/206 generated pages; YAML and JSON parsing; git diff --check; and exact changed-file scope validation (6 changed paths, 9 allowed paths, no outside-scope paths). The first full-contract attempt used the system Python and failed only two Career KG validator tests because that older interpreter cannot parse Path | None; the complete unchanged-code rerun passed."
+        "evidence": "After the exact-head P2 repair, Node 24 validation passed: focused contracts 2 files / 13 tests; lint; spacing; typecheck; full contracts 761 files / 4365 tests using the compatible bundled Python 3.12; production-parameter build with 206/206 generated pages; YAML and JSON parsing; git diff --check; and exact changed-file scope validation (6 changed paths, 9 allowed paths, no outside-scope paths). The earlier first full-contract attempt used the system Python and failed only two Career KG validator tests because that older interpreter cannot parse Path | None; both complete bundled-Python runs passed."
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR #1789 is open from the exact scoped branch; build, contracts, Big Five freeze, Enneagram freeze, and CodeQL started on head c68bdb9a83a06cb4c214e202b2219230ed206a96."
+        "evidence": "All seven checks passed on reviewed head c048162860908c12ebd1e592b5e0c2d9dc7f0b92. A valid P2 repair is now locally verified and must pass a new exact-head GitHub cycle after push."
       },
       "codex_review": {
-        "status": "pending",
-        "evidence": "Exact-head review will run after the PR is opened and required checks start."
+        "status": "valid_finding_fixed_locally_pending_exact_head",
+        "evidence": "Codex reviewed head c048162860908c12ebd1e592b5e0c2d9dc7f0b92 and found one valid P2: a partial collection snapshot written by the old implementation could still be reused under the unchanged LKG key. The repair versions the complete-snapshot key and adds a legacy-partial rejection regression; new exact-head review remains required."
       }
     },
     "scope_validation": {
@@ -46640,8 +46640,13 @@
         "at": "2026-07-19T03:15:01Z",
         "status": "github_checks_pending",
         "summary": "Pushed the exact scoped branch and opened fap-web PR #1789 with the manifest title and required what/why/validation/deferred/rule-impact sections. Required GitHub checks started on head c68bdb9a83a06cb4c214e202b2219230ed206a96; exact-head Codex review is still pending."
+      },
+      {
+        "at": "2026-07-19T03:27:11Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on exact head c048162860908c12ebd1e592b5e0c2d9dc7f0b92. Codex review then identified one valid P2: legacy subset-accepting code could have already written a partial snapshot under the old collection key. Versioned the complete-snapshot LKG key so legacy partial values are never reused and added a migration regression. Node 24 focused contracts pass 2 files / 13 tests; lint, spacing, typecheck, full contracts 761 files / 4365 tests, and production build 206/206 all pass."
       }
     ],
-    "updated_at": "2026-07-19T03:15:01Z"
+    "updated_at": "2026-07-19T03:27:11Z"
   }
 }
