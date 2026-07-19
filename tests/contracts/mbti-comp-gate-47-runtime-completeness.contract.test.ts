@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import fixture from "../fixtures/mbti-comp-gate-47/runtime-completeness.json";
-import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
+import { isCurrentMbtiCompGate47AllowedFile } from "./helpers/currentPrScope";
 
 const modulePromise = import("../../scripts/seo/mbti-comp-gate-47-runtime-completeness.mjs");
 
@@ -98,8 +98,8 @@ describe("MBTI-COMP-GATE-47 runtime completeness", () => {
   });
 
   it("rejects files outside the exact Gate 47 branch scope", () => {
-    expect(isCurrentRiasecPack12AllowedFile("scripts/seo/mbti-comp-gate-47-runtime-completeness.mjs")).toBe(true);
-    expect(isCurrentRiasecPack12AllowedFile("app/unrelated-runtime.tsx")).toBe(false);
+    expect(isCurrentMbtiCompGate47AllowedFile("scripts/seo/mbti-comp-gate-47-runtime-completeness.mjs")).toBe(true);
+    expect(isCurrentMbtiCompGate47AllowedFile("app/unrelated-runtime.tsx")).toBe(false);
   });
 
   it("derives every runtime section fingerprint from its exact approved review package", async () => {

@@ -46894,14 +46894,14 @@
         "status": "pass",
         "evidence": "MBTI-COMP-RUNTIME-46 production code deploy, exact single-record INTP revision, rollback-safe write, 16/16 API/page readback, and fap-api operation report PR #3206 are complete."
       },
-      "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture, provenance, page-schema, and scope contract passes 13/13 tests. It covers exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, wrong canonical, truncated body, row-cells-without-section-body, hidden-script-only body, missing page FAQ JSON-LD, and disallowed changed-file fail-closed cases; plus deterministic derivation of all 16 runtime section fingerprints from Approval39/Runtime46."},
-      "required_local_checks": {"status": "fail_closed", "evidence": "The strengthened read-only production readback reports 0/16 and 640 precise visible-DOM/FAQ failures while production remains on the nonce-mismatched runtime. The isolated two-file CSP nonce baseline repair passed focused 14/14, full 763 files / 4394 tests, typecheck, 206/206 build, local exact nonce parity, all seven GitHub checks, and merged as PR #1795 at main SHA 062a7130e5dcff8a08b55489b430c1338431b1b0. Its automatic production workflow safely skipped deployment and requires SHA-bound manual authorization."},
-      "github_required_checks": {"status": "pending", "evidence": "Rebased Gate head fb4adc6e passed all seven GitHub checks. Three same-scope exact-head Codex P2 repairs now require one final exact-head GitHub run after push."},
-      "codex_review": {"status": "pending", "evidence": "Codex reviewed fb4adc6e and identified three valid P2s: scope fallthrough, row-body omission, and missing page FAQ JSON-LD validation. All three are repaired locally with focused 13/13 coverage; final exact-head review is pending after push."}
+      "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture, provenance, page-schema, and dedicated scope contract passes 13/13 tests. It covers exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, wrong canonical, truncated body, row-cells-without-section-body, hidden-script-only body, missing page FAQ JSON-LD, and disallowed changed-file fail-closed cases; plus deterministic derivation of all 16 runtime section fingerprints from Approval39/Runtime46. The exact CI-failure reproduction set passes 4 files / 25 tests after isolating the Gate helper from legacy scope helpers."},
+      "required_local_checks": {"status": "pass_with_production_readback_hold", "evidence": "Canonical Node 24 validation passes the exact CI reproduction set (4 files / 25 tests), ESLint, typecheck, diff check, and full contracts (764 files / 4407 tests). A non-canonical Node 20 run timed out in two unrelated career files; both pass in under one second on required Node 24 and in GitHub CI. Separately, the strengthened read-only production readback remains fail-closed at 0/16 and 640 precise visible-DOM/FAQ failures because production still serves the nonce-mismatched runtime. The isolated CSP repair merged as PR #1795 at exact main SHA 062a7130e5dcff8a08b55489b430c1338431b1b0; its automatic workflow skipped deployment and requires SHA-bound manual authorization."},
+      "github_required_checks": {"status": "pending_after_scoped_repair", "evidence": "Head 8890fab2 passed build, both personality freezes, CodeQL analysis/result, and the no-new-alert gate. Full contracts exposed three legacy scope-helper assertions because the first scope-fallthrough repair reused the historical shared helper. A dedicated Gate47 helper repairs that collision while preserving exact fail-closed membership; local reproduction passes 4 files / 25 tests. A new exact-head GitHub cycle is required after push."},
+      "codex_review": {"status": "pending", "evidence": "Codex reviewed fb4adc6e and identified three valid P2s: scope fallthrough, row-body omission, and missing page FAQ JSON-LD validation. The row-body and page FAQ repairs remain intact. The scope repair now uses the reviewer's dedicated-helper alternative so Gate47 rejects out-of-scope paths without changing legacy helper semantics. Final exact-head review is pending after push."}
     },
     "scope_validation": {
       "allowed_paths_only": true,
-      "local_validation_passed": false,
+      "local_validation_passed": true,
       "github_checks_green": false,
       "post_merge_revalidated": false
     },
@@ -46960,8 +46960,18 @@
         "at": "2026-07-19T09:08:00Z",
         "status": "production_deploy_authorization_pending",
         "summary": "Rebased head fb4adc6e passed all seven GitHub checks, then exact-head Codex review found three additional valid fail-closed gaps. Gate 47 now rejects out-of-scope paths without fallthrough, requires both row-backed section bodies and every row cell to be visible, and compares page FAQ JSON-LD plus visible FAQ text to the API. Focused tests pass 13/13 and typecheck passes. Refreshed production evidence remains FAIL_CLOSED 0/16 because exact SHA 062a7130 has not been deployed; no production action was triggered."
+      },
+      {
+        "at": "2026-07-19T09:15:00Z",
+        "status": "github_checks_pending_after_scoped_repair",
+        "summary": "Exact head 8890fab2 passed build, freezes, and all CodeQL gates, but full contracts found three legacy tests rejected by the Gate branch's early return in the historical shared scope helper. The Gate now uses a dedicated exact-membership helper, preserving fail-closed out-of-scope behavior without changing legacy helper semantics. The CI reproduction set passes 4 files / 25 tests; ESLint, typecheck, and diff check pass. Production remains untouched and FAIL_CLOSED pending exact SHA-bound deploy authorization."
+      },
+      {
+        "at": "2026-07-19T09:21:00Z",
+        "status": "local_checks_passed",
+        "summary": "Canonical Node 24 and repository pnpm 10 full contracts pass 764 files / 4407 tests after the dedicated Gate47 scope-helper repair. The exact CI reproduction set passes 4 files / 25 tests; ESLint, typecheck, JSON parse, and diff check pass. The earlier Node 20-only career timeouts are absent under the required runtime and in GitHub CI. A fresh exact-head GitHub check and Codex review cycle remains required; production is unchanged and still held for exact SHA-bound authorization."
       }
     ],
-    "updated_at": "2026-07-19T09:08:00Z"
+    "updated_at": "2026-07-19T09:21:00Z"
   }
 }
