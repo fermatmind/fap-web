@@ -46692,7 +46692,7 @@
       "evidence": "PR #1789 merged as e49a8c887d5d1e86b815ec02c38e3e444a56dbfc and is contained by fap-web origin/main. The accepted SAEP-SCAN-693164e8d028 record was read-only revalidated. Existing backend-authoritative Career directory facets, Family Hub endpoint/adapter/route, and Family Hub visible-child anchors provide the SAEP-CAR-01 and SAEP-LINK-03 authority surfaces needed for this consumer-only final hop."
     },
     "status": "local_checks_passed",
-    "commit_sha": "8bfdd5eaff51556473ce767308ed5a17db6987b3",
+    "commit_sha": "8bfdd5ea2f6f20f81052f88754a681a0deaa9b62",
     "pr_url": null,
     "checks": {
       "manifest_registration": {
@@ -46750,7 +46750,7 @@
       {
         "at": "2026-07-19T04:16:53Z",
         "status": "local_checks_passed",
-        "summary": "Explicitly staged the exact five allowed changed paths, validated the cached diff and scope, and committed the locally verified implementation as 8bfdd5eaff51556473ce767308ed5a17db6987b3. commit_sha is intentionally bound to that implementation commit; this ledger-only binding commit follows it."
+        "summary": "Explicitly staged the exact five allowed changed paths, validated the cached diff and scope, and committed the locally verified implementation as 8bfdd5ea2f6f20f81052f88754a681a0deaa9b62. commit_sha is intentionally bound to that implementation commit; the following commits are ledger-only."
       }
     ],
     "updated_at": "2026-07-19T04:16:53Z"
