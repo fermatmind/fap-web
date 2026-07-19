@@ -46691,7 +46691,7 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "PR #1789 merged as e49a8c887d5d1e86b815ec02c38e3e444a56dbfc and is contained by fap-web origin/main. The accepted SAEP-SCAN-693164e8d028 record was read-only revalidated. Existing backend-authoritative Career directory facets, Family Hub endpoint/adapter/route, and Family Hub visible-child anchors provide the SAEP-CAR-01 and SAEP-LINK-03 authority surfaces needed for this consumer-only final hop."
     },
-    "status": "github_checks_pending",
+    "status": "review_fix_local_pass",
     "commit_sha": "8ed6f5696b941a302d9d0fb074f32bd278098574",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1790",
     "checks": {
@@ -46705,19 +46705,19 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "After the exact-head P2 repair, Node 24 focused contracts pass 5 files / 19 tests, covering EN/ZH canonical Family Hub anchors from backend facets, fail-closed missing authority, excluded-manifest families remaining filterable but not crawlable, existing filtering/pagination and prefetch budgets, Family Hub rendering, and 1,046-directory discovery behavior."
+        "evidence": "After both exact-head P2 repairs, Node 24 focused contracts pass 5 files / 20 tests, covering EN/ZH canonical Family Hub anchors from backend facets, fail-closed missing authority, excluded-manifest families remaining filterable but not crawlable, non-blocking streamed core-directory rendering while optional manifest authority is pending, existing filtering/pagination and prefetch budgets, Family Hub rendering, and 1,046-directory discovery behavior."
       },
       "required_local_checks": {
         "status": "pass",
-        "evidence": "After the exact-head P2 repair, Node 24 validation passed: focused contracts 5 files / 19 tests; lint; spacing; typecheck; full contracts 762 files / 4386 tests; production-parameter build with 206/206 generated pages; YAML/JSON parsing; git diff --check; and exact changed-file scope validation (5 changed paths, 7 allowed paths, no outside-scope paths). Test-generated unrelated files were restored exactly to HEAD."
+        "evidence": "After both exact-head P2 repairs, Node 24 validation passed: focused contracts 5 files / 20 tests; lint; spacing; typecheck; full contracts 762 files / 4387 tests; production-parameter build with 206/206 generated pages; YAML/JSON parsing; git diff --check; and exact changed-file scope validation (5 changed paths, 7 allowed paths, no outside-scope paths). The first build attempt omitted required NEXT_PUBLIC_SITE_URL and correctly failed the existing production URL gate; rerunning with the CI production site/API parameters passed. Test/build-generated unrelated files were restored exactly to HEAD."
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "All seven GitHub checks passed on prior exact head 0a43c7d87685fc301173352a291ad752a1c90fd9. A new exact-head cycle is required after the review fix."
+        "evidence": "All seven GitHub checks passed on prior exact head cb38fdea7b4d1111d824ef913ef7ff77a03aef45. A new exact-head cycle is required after the second review fix."
       },
       "codex_review": {
         "status": "pending",
-        "evidence": "Codex review of exact head 0a43c7d87685fc301173352a291ad752a1c90fd9 identified one valid P2: directory facet presence alone did not prove Family Hub discoverability. The fix now intersects facets with the backend first-wave discoverability manifest and fails closed when authority is missing; a new exact-head review is required."
+        "evidence": "Codex review of exact head cb38fdea7b4d1111d824ef913ef7ff77a03aef45 identified a second valid P2: awaiting the optional manifest beside the core directory could delay the full page during a manifest outage. The optional authority lookup now renders in its own Suspense stream, fails closed after a 1.5-second local budget, and cannot delay the core directory response; a new exact-head review is required."
       }
     },
     "scope_validation": {
@@ -46766,8 +46766,13 @@
         "at": "2026-07-19T04:32:19Z",
         "status": "github_checks_pending",
         "summary": "Committed the locally validated P2 repair as 8ed6f5696b941a302d9d0fb074f32bd278098574 and rebound commit_sha to that implementation head. This following ledger-only commit records the binding; a fresh exact-head GitHub check cycle and Codex review remain mandatory."
+      },
+      {
+        "at": "2026-07-19T04:48:21Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on cb38fdea7b4d1111d824ef913ef7ff77a03aef45, then exact-head Codex review found a second valid P2: the optional discoverability manifest could delay the core directory. The manifest-backed Family Hub nav now streams behind a null Suspense fallback with an independent 1.5-second fail-closed budget, while /career/jobs awaits only its core directory authority. Node 24 focused contracts pass 5 files / 20 tests, including a pending-manifest first-chunk assertion; lint, spacing, typecheck, full contracts 762 files / 4387 tests, and production build 206/206 pass. The initial build without NEXT_PUBLIC_SITE_URL was a configuration-only gate failure and the CI-parameter rerun passed."
       }
     ],
-    "updated_at": "2026-07-19T04:32:19Z"
+    "updated_at": "2026-07-19T04:48:21Z"
   }
 }

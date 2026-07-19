@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Suspense } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { CareerOccupationDirectory } from "@/components/career/CareerOccupationDirectory";
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
-import { adaptCareerDirectory } from "@/lib/career/adapters/adaptCareerDirectory";
+import {
+  adaptCareerDirectory,
+  type CareerDirectoryFamilyFacetAdapter,
+} from "@/lib/career/adapters/adaptCareerDirectory";
 import { adaptCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/adapters/adaptCareerFirstWaveDiscoverabilityManifest";
 import {
   formatCareerFamilyTitle,
@@ -20,6 +24,7 @@ import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const revalidate = 300;
 const CAREER_DIRECTORY_PAGE_SIZE = 50;
+const CAREER_FAMILY_HUB_NAV_TIMEOUT_MS = 1_500;
 
 function firstQueryValue(value: string | string[] | undefined): string {
   return Array.isArray(value) ? String(value[0] ?? "") : String(value ?? "");
@@ -59,6 +64,69 @@ function buildJobsQueryPath(
 
   const queryString = query.toString();
   return queryString ? `${basePath}?${queryString}` : basePath;
+}
+
+async function fetchDiscoverabilityManifestForOptionalNav(locale: "en" | "zh") {
+  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+  const timeout = new Promise<null>((resolve) => {
+    timeoutId = setTimeout(() => resolve(null), CAREER_FAMILY_HUB_NAV_TIMEOUT_MS);
+  });
+
+  try {
+    return await Promise.race([
+      fetchCareerFirstWaveDiscoverabilityManifest({ locale }),
+      timeout,
+    ]);
+  } finally {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+  }
+}
+
+async function CareerFamilyHubLinks({
+  locale,
+  families,
+}: {
+  locale: "en" | "zh";
+  families: CareerDirectoryFamilyFacetAdapter[];
+}) {
+  if (families.length === 0) {
+    return null;
+  }
+
+  const discoverabilityPayload = await fetchDiscoverabilityManifestForOptionalNav(locale);
+  const discoverabilityManifest = adaptCareerFirstWaveDiscoverabilityManifest({
+    payload: discoverabilityPayload,
+  });
+  const discoverableFamilyHubs = families.filter((family) =>
+    isCareerFamilyHubDiscoverableByManifest(discoverabilityManifest, family.slug)
+  );
+
+  if (discoverableFamilyHubs.length === 0) {
+    return null;
+  }
+
+  return (
+    <nav
+      className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3"
+      aria-label={locale === "zh" ? "职业家族入口" : "Career family hubs"}
+      data-testid="career-directory-family-hubs"
+    >
+      {discoverableFamilyHubs.map((family) => (
+        <Link
+          key={family.slug}
+          href={buildCareerFamilyFrontendUrl(locale, family.slug)}
+          prefetch={false}
+          className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:border-orange-200 hover:text-orange-600"
+          data-testid="career-directory-family-hub-link"
+        >
+          <span>{family.title}</span>
+          <span aria-hidden="true">→</span>
+        </Link>
+      ))}
+    </nav>
+  );
 }
 
 export async function generateMetadata({
@@ -109,28 +177,19 @@ export default async function CareerJobsPage({
   const page = normalizePageParam(resolvedSearchParams.page);
   const jobsPath = localizedPath("/career/jobs", locale);
   const industriesPath = localizedPath("/career/industries", locale);
-  const [directoryPayload, discoverabilityPayload] = await Promise.all([
-    fetchCareerDirectory({
-      locale,
-      page,
-      perPage: CAREER_DIRECTORY_PAGE_SIZE,
-      family: selectedFamily || null,
-      query: submittedQuery || null,
-    }),
-    fetchCareerFirstWaveDiscoverabilityManifest({ locale }),
-  ]);
+  const directoryPayload = await fetchCareerDirectory({
+    locale,
+    page,
+    perPage: CAREER_DIRECTORY_PAGE_SIZE,
+    family: selectedFamily || null,
+    query: submittedQuery || null,
+  });
   const directory = adaptCareerDirectory({
     locale,
     payload: directoryPayload,
   });
-  const discoverabilityManifest = adaptCareerFirstWaveDiscoverabilityManifest({
-    payload: discoverabilityPayload,
-  });
   const visibleMembers = directory.members;
   const families = directory.facets.families;
-  const discoverableFamilyHubs = families.filter((family) =>
-    isCareerFamilyHubDiscoverableByManifest(discoverabilityManifest, family.slug)
-  );
   const selectedFamilyTitle =
     selectedFamily
       ? families.find((family) => normalizeFamilySlug(family.slug) === normalizeFamilySlug(selectedFamily))?.title ??
@@ -298,26 +357,9 @@ export default async function CareerJobsPage({
                   ))}
                 </nav>
 
-                {discoverableFamilyHubs.length > 0 ? (
-                  <nav
-                    className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3"
-                    aria-label={locale === "zh" ? "职业家族入口" : "Career family hubs"}
-                    data-testid="career-directory-family-hubs"
-                  >
-                    {discoverableFamilyHubs.map((family) => (
-                      <Link
-                        key={family.slug}
-                        href={buildCareerFamilyFrontendUrl(locale, family.slug)}
-                        prefetch={false}
-                        className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:border-orange-200 hover:text-orange-600"
-                        data-testid="career-directory-family-hub-link"
-                      >
-                        <span>{family.title}</span>
-                        <span aria-hidden="true">→</span>
-                      </Link>
-                    ))}
-                  </nav>
-                ) : null}
+                <Suspense fallback={null}>
+                  <CareerFamilyHubLinks locale={locale} families={families} />
+                </Suspense>
               </div>
             ) : null}
 

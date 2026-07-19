@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { renderToStaticMarkup } from "react-dom/server";
+import { renderToReadableStream } from "react-dom/server";
 import { afterEach, describe, expect, it, vi } from "vitest";
 
 function installBaseMocks(locale: "en" | "zh") {
@@ -92,7 +92,10 @@ async function renderJobsPage(locale: "en" | "zh") {
     searchParams: Promise.resolve({}),
   });
 
-  return renderToStaticMarkup(page as ReactNode);
+  const stream = await renderToReadableStream(page as ReactNode);
+  await stream.allReady;
+
+  return new Response(stream).text();
 }
 
 afterEach(() => {
@@ -175,5 +178,44 @@ describe("SAEP-PLANNED-PR-05 Career Hub crawlable links", () => {
     expect(html).toContain('href="/en/career/family/computer-and-information-technology"');
     expect(html).not.toContain('href="/en/career/family/ambiguous-family"');
     expect(html).toContain('href="/en/career/jobs?family=ambiguous-family"');
+  });
+
+  it("keeps the core directory render independent from the optional hub manifest", async () => {
+    installBaseMocks("en");
+    installDirectoryAuthority([
+      {
+        slug: "computer-and-information-technology",
+        title_en: "Computer and information technology",
+        title_zh: "计算机与信息技术",
+        count: 101,
+      },
+    ]);
+    const deferredManifest: { resolve?: (value: null) => void } = {};
+    vi.doMock("@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest", () => ({
+      fetchCareerFirstWaveDiscoverabilityManifest: vi.fn(
+        () => new Promise<null>((resolve) => {
+          deferredManifest.resolve = resolve;
+        })
+      ),
+    }));
+
+    const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
+    const page = await CareerJobsPage({
+      params: Promise.resolve({ locale: "en" }),
+      searchParams: Promise.resolve({}),
+    });
+    const stream = await renderToReadableStream(page as ReactNode);
+    const reader = stream.getReader();
+    const firstChunk = await reader.read();
+    const html = new TextDecoder().decode(firstChunk.value);
+
+    expect(html).toContain('data-testid="career-library-workspace"');
+    expect(html).not.toContain('data-testid="career-directory-family-hub-link"');
+    expect(deferredManifest.resolve).toBeTypeOf("function");
+    deferredManifest.resolve?.(null);
+
+    while (!(await reader.read()).done) {
+      // Drain the completed stream so the server render exits without an abort.
+    }
   });
 });
