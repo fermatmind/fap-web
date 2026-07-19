@@ -31,7 +31,8 @@ function installBaseMocks(locale: "en" | "zh") {
 
 function installDirectoryAuthority(
   families: Array<{ slug?: string; title_en?: string; title_zh?: string; count?: number }>,
-  discoverableSlugs = families.map((family) => String(family.slug ?? "")).filter(Boolean)
+  discoverableSlugs = families.map((family) => String(family.slug ?? "")).filter(Boolean),
+  canonicalPaths: Record<string, string> = {}
 ) {
   vi.doMock("@/lib/career/api/fetchCareerDirectory", () => ({
     fetchCareerDirectory: vi.fn(async () => ({
@@ -74,7 +75,8 @@ function installDirectoryAuthority(
         scope: "public_career_routes",
         routes: families.map((family) => ({
           route_kind: "career_family_hub",
-          canonical_path: `/career/family/${family.slug}`,
+          canonical_path:
+            canonicalPaths[String(family.slug ?? "")] ?? `/career/family/${family.slug}`,
           canonical_slug: family.slug,
           discoverability_state: discoverableSlugs.includes(String(family.slug ?? ""))
             ? "discoverable"
@@ -180,6 +182,35 @@ describe("SAEP-PLANNED-PR-05 Career Hub crawlable links", () => {
     expect(html).toContain('href="/en/career/family/computer-and-information-technology"');
     expect(html).not.toContain('href="/en/career/family/ambiguous-family"');
     expect(html).toContain('href="/en/career/jobs?family=ambiguous-family"');
+  });
+
+  it("uses the backend manifest canonical path instead of rebuilding it from the directory facet slug", async () => {
+    installBaseMocks("en");
+    installDirectoryAuthority(
+      [
+        {
+          slug: "computer-and-information-technology",
+          title_en: "Computer and information technology",
+          title_zh: "计算机与信息技术",
+          count: 101,
+        },
+      ],
+      ["computer-and-information-technology"],
+      {
+        "computer-and-information-technology":
+          "/career/family/backend-canonical-technology",
+      }
+    );
+
+    const html = await renderJobsPage("en");
+
+    expect(html).toContain('href="/en/career/family/backend-canonical-technology"');
+    expect(html).not.toContain(
+      'href="/en/career/family/computer-and-information-technology"'
+    );
+    expect(html).toContain(
+      'href="/en/career/jobs?family=computer-and-information-technology"'
+    );
   });
 
   it("keeps the core directory render independent from the optional hub manifest", async () => {

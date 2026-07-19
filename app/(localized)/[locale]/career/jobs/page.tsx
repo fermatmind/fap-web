@@ -18,7 +18,10 @@ import {
 } from "@/lib/career/datasetDirectory";
 import { fetchCareerDirectory } from "@/lib/career/api/fetchCareerDirectory";
 import { isCareerFamilyHubDiscoverableByManifest } from "@/lib/career/launchPolicy";
-import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
+import {
+  buildCareerFamilyFrontendUrl,
+  normalizeCareerBundleCanonicalPath,
+} from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath, toApiLocale } from "@/lib/i18n/locales";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
@@ -101,9 +104,25 @@ async function CareerFamilyHubLinks({
   const discoverabilityManifest = adaptCareerFirstWaveDiscoverabilityManifest({
     payload: discoverabilityPayload,
   });
-  const discoverableFamilyHubs = families.filter((family) =>
-    isCareerFamilyHubDiscoverableByManifest(discoverabilityManifest, family.slug)
-  );
+  const discoverableFamilyHubs = families.flatMap((family) => {
+    if (!isCareerFamilyHubDiscoverableByManifest(discoverabilityManifest, family.slug)) {
+      return [];
+    }
+
+    const fallbackPath = buildCareerFamilyFrontendUrl(locale, family.slug);
+    const manifestRoute = discoverabilityManifest?.familyHubBySlug[normalizeFamilySlug(family.slug)];
+
+    return [
+      {
+        family,
+        href: normalizeCareerBundleCanonicalPath(
+          locale,
+          manifestRoute?.canonicalPath,
+          fallbackPath
+        ),
+      },
+    ];
+  });
 
   if (discoverableFamilyHubs.length === 0) {
     return null;
@@ -115,10 +134,10 @@ async function CareerFamilyHubLinks({
       aria-label={locale === "zh" ? "职业家族入口" : "Career family hubs"}
       data-testid="career-directory-family-hubs"
     >
-      {discoverableFamilyHubs.map((family) => (
+      {discoverableFamilyHubs.map(({ family, href }) => (
         <Link
           key={family.slug}
-          href={buildCareerFamilyFrontendUrl(locale, family.slug)}
+          href={href}
           prefetch={false}
           className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:border-orange-200 hover:text-orange-600"
           data-testid="career-directory-family-hub-link"
