@@ -46437,7 +46437,7 @@
       "evidence": "fap-api PR #3185 is MERGED as e5edc5cc7e0537abc3580d16786a7635415e7f05; fap-api origin/main contains that merge, the PR6 branch/worktree was cleaned, and this fap-web task started from origin/main 478d3431589c752e5d7c88baab405e3e5cc80b9e without waiting for staging deploy."
     },
     "status": "github_checks_pending",
-    "commit_sha": "fdeccff064274e768953d1fd47e3622259624164",
+    "commit_sha": "06bce85f64855e8e9bec0ae47831c0618bc0db3f",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1788",
     "checks": {
       "manifest_registration": {
@@ -46521,8 +46521,13 @@
         "at": "2026-07-19T01:51:25Z",
         "status": "review_fix_local_pass",
         "summary": "All seven GitHub checks passed on ledger-binding head d0929fac6ea4abe21741ba49bdf37bcfcd8fe084. The third exact-head Codex review raised one valid Career adapter P2: nested trust_manifest.public_review was being obscured during job/recommendation manifest reconstruction. Both adapters now forward the nested normalized contract when present and fall back to top-level fields only for compatibility. Added job and recommendation regression assertions; Node 24 focused contracts pass 12 files / 103 tests, with lint, spacing, typecheck, JSON parsing, and diff checks green."
+      },
+      {
+        "at": "2026-07-19T01:51:55Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the nested Career public-review repair as 06bce85f64855e8e9bec0ae47831c0618bc0db3f and bound commit_sha to that implementation commit. The following commit is ledger-only; final exact-head GitHub checks and Codex review remain mandatory."
       }
     ],
-    "updated_at": "2026-07-19T01:51:25Z"
+    "updated_at": "2026-07-19T01:51:55Z"
   }
 }
