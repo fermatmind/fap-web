@@ -26927,7 +26927,7 @@ prs:
     depends_on: [SAEP-PROPOSED-WEB-LLMS-CONTENT-PAGE-PARTIAL-LKG-01, SAEP-CAR-01, SAEP-LINK-03, SAEP-SCAN-693164e8d028]
     mode: execute
     train_scope: career_hub_family_crawlable_links
-    status: review_fix_local_pass
+    status: github_checks_pending
     goal: "Render locale-correct canonical Career Family Hub anchors from backend directory facets while preserving existing Career Jobs filters and pagination."
     allowed_paths:
       - app/(localized)/[locale]/career/jobs/page.tsx

@@ -46691,8 +46691,8 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "PR #1789 merged as e49a8c887d5d1e86b815ec02c38e3e444a56dbfc and is contained by fap-web origin/main. The accepted SAEP-SCAN-693164e8d028 record was read-only revalidated. Existing backend-authoritative Career directory facets, Family Hub endpoint/adapter/route, and Family Hub visible-child anchors provide the SAEP-CAR-01 and SAEP-LINK-03 authority surfaces needed for this consumer-only final hop."
     },
-    "status": "review_fix_local_pass",
-    "commit_sha": "269d6c0b2802e1cef82eef117a83e30ace1936ad",
+    "status": "github_checks_pending",
+    "commit_sha": "bdd2344cab05eb0048b8552325c6878c349f14b7",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1790",
     "checks": {
       "manifest_registration": {
@@ -46781,8 +46781,13 @@
         "at": "2026-07-19T05:03:02Z",
         "status": "review_fix_local_pass",
         "summary": "All seven GitHub checks passed on ea718064a19649366eb7b234670bd48928c3aadd, then exact-head Codex review found a third valid P2: Promise.race did not cancel the underlying 15-second manifest request. Without changing any out-of-scope helper or API contract, the allowed Jobs page now calls the same backend public endpoint/cache policy through apiClient with timeoutMs: 1500, which aborts the request at the source. The streaming contract asserts the exact endpoint and abort budget. Node 24 focused contracts pass 5 files / 20 tests; lint, spacing, typecheck, full contracts 762 files / 4387 tests, and production build 206/206 pass."
+      },
+      {
+        "at": "2026-07-19T05:03:50Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the locally validated third P2 repair as bdd2344cab05eb0048b8552325c6878c349f14b7 and rebound commit_sha to that implementation head. This following ledger-only commit records the binding; a fresh exact-head GitHub check cycle and Codex review remain mandatory."
       }
     ],
-    "updated_at": "2026-07-19T05:03:02Z"
+    "updated_at": "2026-07-19T05:03:50Z"
   }
 }
