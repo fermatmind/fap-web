@@ -26880,7 +26880,7 @@ prs:
     depends_on: [PUBLIC-STABILITY-WEB-06, GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01]
     mode: execute
     train_scope: llms_content_page_partial_lkg
-    status: ready_for_pr
+    status: github_checks_pending
     goal: "Require complete content-page authority snapshots for llms.txt, preserve only complete valid LKG on transient failure, honor authoritative revocation, and prevent public caching when either locale authority cohort is unavailable."
     allowed_paths:
       - lib/cms/content-pages.ts
