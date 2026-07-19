@@ -46436,7 +46436,7 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-api PR #3185 is MERGED as e5edc5cc7e0537abc3580d16786a7635415e7f05; fap-api origin/main contains that merge, the PR6 branch/worktree was cleaned, and this fap-web task started from origin/main 478d3431589c752e5d7c88baab405e3e5cc80b9e without waiting for staging deploy."
     },
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "b7e332aef4980254903420993868afc34cd2b54f",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1788",
     "checks": {
@@ -46457,18 +46457,18 @@
         "evidence": "Node 24 validation passed: latest focused contracts 13 files / 107 tests; lint; spacing; typecheck; full contracts 760 files / 4373 tests; production-parameter build with 206/206 generated pages; YAML and JSON parsing; git diff --check; and full-PR exact changed-file scope validation (47 changed paths, 49 allowed paths, no outside-scope paths)."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "All seven GitHub checks passed on ready-to-merge head 0b4a6b9be82c66479e3c934e192036f120bd5403. Two valid exact-head Codex review fixes are locally green and must receive a final check run before merge."
+        "status": "pass",
+        "evidence": "All required GitHub checks passed on exact head 9300666aa85bd2e5e6bed89f2339a7d4998f4a15. The first build attempt failed only on a retryable public API REQUEST_TIMEOUT during static params collection; an unchanged-head failed-job rerun passed build, lint, typecheck, and a11y, while contracts, both freezes, and CodeQL remained green."
       },
       "codex_review": {
-        "status": "addressed_pending_exact_head_review",
-        "evidence": "Codex reviewed exact head 0b4a6b9be82c66479e3c934e192036f120bd5403 and raised two valid P2 findings: three same-scope regression paths were absent from allowed_paths, and isCareerTrustManifest accepted raw legacy reviewer shapes while narrowing to a normalized type. The allowlist now covers all 47 changed paths, and the guard rejects raw legacy trust until normalization."
+        "status": "pass",
+        "evidence": "Codex reviewed exact head 9300666aa85bd2e5e6bed89f2339a7d4998f4a15 after all scoped fixes and reported no major issues; all seven historical review threads are resolved."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -46546,8 +46546,13 @@
         "at": "2026-07-19T02:30:00Z",
         "status": "github_checks_pending",
         "summary": "All seven GitHub checks passed on exact head a1b5ea66e522d2fc8ebcfe0c49d9502050f83089. Exact-head Codex review found two ledger status inconsistencies caused by a prior unscoped mechanical status replacement: PR7 incorrectly remained ready_to_merge while its checks were pending, and unrelated CAREER-DETAIL-DELIVERY-10K-01 was changed away from its existing ready_to_merge state. Restored the unrelated entry exactly and kept PR7 pending until the next exact-head checks/review complete."
+      },
+      {
+        "at": "2026-07-19T02:39:40Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head 9300666aa85bd2e5e6bed89f2339a7d4998f4a15 passed contracts, both freeze suites, CodeQL, and an unchanged-head build retry after the first build hit a retryable public API REQUEST_TIMEOUT during static params collection. The rerun passed build, lint, typecheck, and a11y. Codex reviewed the exact head and reported no major issues; all threads are resolved and merge state is clean. Recorded ready_to_merge before squash merge."
       }
     ],
-    "updated_at": "2026-07-19T02:30:00Z"
+    "updated_at": "2026-07-19T02:39:40Z"
   }
 }
