@@ -46576,7 +46576,7 @@
       "evidence": "fap-web PR #922 is MERGED as de67e5c5e8fec0fa87146e5954984ff3d817be8d and PR #1742 is MERGED as a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc; both merge commits are contained by origin/main. This branch started from origin/main 747bd0df4ff7b632fbb271dc5fcf62329118b2bf after serial PR7 closeout."
     },
     "status": "review_fix_local_pass",
-    "commit_sha": "778449bd0deddfbd2720df16b20bff84a1c2c534",
+    "commit_sha": "4d7a25a088ff515982070162e7e9b4ec399c15a7",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1789",
     "checks": {
       "manifest_registration": {
@@ -46645,8 +46645,13 @@
         "at": "2026-07-19T03:27:11Z",
         "status": "review_fix_local_pass",
         "summary": "All seven GitHub checks passed on exact head c048162860908c12ebd1e592b5e0c2d9dc7f0b92. Codex review then identified one valid P2: legacy subset-accepting code could have already written a partial snapshot under the old collection key. Versioned the complete-snapshot LKG key so legacy partial values are never reused and added a migration regression. Node 24 focused contracts pass 2 files / 13 tests; lint, spacing, typecheck, full contracts 761 files / 4365 tests, and production build 206/206 all pass."
+      },
+      {
+        "at": "2026-07-19T03:27:56Z",
+        "status": "review_fix_local_pass",
+        "summary": "Committed the locally verified legacy-partial LKG retirement as 4d7a25a088ff515982070162e7e9b4ec399c15a7 and bound commit_sha to that implementation commit. This ledger-only binding commit follows it; exact-head checks and review remain pending after push."
       }
     ],
-    "updated_at": "2026-07-19T03:27:11Z"
+    "updated_at": "2026-07-19T03:27:56Z"
   }
 }
