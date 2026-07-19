@@ -46575,8 +46575,8 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-web PR #922 is MERGED as de67e5c5e8fec0fa87146e5954984ff3d817be8d and PR #1742 is MERGED as a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc; both merge commits are contained by origin/main. This branch started from origin/main 747bd0df4ff7b632fbb271dc5fcf62329118b2bf after serial PR7 closeout."
     },
-    "status": "ready_to_merge",
-    "commit_sha": "cb25c67acbf16e604a7fce7de4507f8a4c4474e4",
+    "status": "merged",
+    "commit_sha": "e49a8c887d5d1e86b815ec02c38e3e444a56dbfc",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1789",
     "checks": {
       "manifest_registration": {
@@ -46597,23 +46597,23 @@
       },
       "github_required_checks": {
         "status": "pass",
-        "evidence": "All seven checks passed on exact runtime head df69073be896ca10878f804741ff8bb5f1e43799: build, contracts, Big Five freeze, Enneagram freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts. This ready-state ledger-only commit must pass its own final exact-head cycle before merge."
+        "evidence": "All seven checks passed on final exact head d4388cf029ad8130b671c9e6c192d9c979f10d11: build, contracts, Big Five freeze, Enneagram freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts."
       },
       "codex_review": {
         "status": "pass",
-        "evidence": "Codex reviewed exact runtime head df69073be896ca10878f804741ff8bb5f1e43799 after both P2 repairs and reported no major issues. Both historical review threads are resolved. This ready-state ledger-only commit must receive the final exact-head review before merge."
+        "evidence": "Codex reviewed final exact head d4388cf029ad8130b671c9e6c192d9c979f10d11 after both P2 repairs and reported no major issues; both historical review threads are resolved."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-19T03:56:22Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -46665,8 +46665,89 @@
         "at": "2026-07-19T03:50:02Z",
         "status": "ready_to_merge",
         "summary": "Exact runtime head df69073be896ca10878f804741ff8bb5f1e43799 passed all seven GitHub checks. Codex reviewed that exact head after both P2 repairs and reported no major issues; both review threads are resolved and GitHub merge state is CLEAN/MERGEABLE. Recorded ready_to_merge before squash merge; this ledger-only final head must itself pass checks and review, after which no further pre-merge ledger mutation is needed."
+      },
+      {
+        "at": "2026-07-19T03:56:22Z",
+        "status": "merged",
+        "summary": "PR #1789 final head d4388cf029ad8130b671c9e6c192d9c979f10d11 passed all seven GitHub checks and exact-head Codex review with no major issues, then merged by squash as e49a8c887d5d1e86b815ec02c38e3e444a56dbfc. The merged tree matches the reviewed head; origin/main contains the merge; remote/local task branches and the isolated worktree were cleaned; post-merge focused revalidation passed 2 files / 14 tests."
       }
     ],
-    "updated_at": "2026-07-19T03:50:02Z"
+    "updated_at": "2026-07-19T03:56:22Z"
+  },
+  "SAEP-PLANNED-PR-05": {
+    "id": "SAEP-PLANNED-PR-05",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/saep-planned-pr-05-career-hub-links",
+    "title": "SAEP-PLANNED-PR-05 Strengthen Career Hub crawlable links",
+    "depends_on": [
+      "SAEP-PROPOSED-WEB-LLMS-CONTENT-PAGE-PARTIAL-LKG-01",
+      "SAEP-CAR-01",
+      "SAEP-LINK-03",
+      "SAEP-SCAN-693164e8d028"
+    ],
+    "dependency_verification": {
+      "github_merged": true,
+      "dependency_origin_main_contains_merge": true,
+      "evidence": "PR #1789 merged as e49a8c887d5d1e86b815ec02c38e3e444a56dbfc and is contained by fap-web origin/main. The accepted SAEP-SCAN-693164e8d028 record was read-only revalidated. Existing backend-authoritative Career directory facets, Family Hub endpoint/adapter/route, and Family Hub visible-child anchors provide the SAEP-CAR-01 and SAEP-LINK-03 authority surfaces needed for this consumer-only final hop."
+    },
+    "status": "ready_for_pr",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The continuous execution goal explicitly authorized SAEP-PLANNED-PR-05, its exact branch/title/card/scan dependencies, manifest/state registration, validation floor, and complete PR lifecycle."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "The serial #1789 dependency is merged, synced, cleaned, and post-merge revalidated; the blocking scan is accepted; current source exposes backend-authoritative directory facets and Family Hub child navigation without requiring backend, CMS, or production mutation."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "Node 24 focused contracts pass 5 files / 18 tests, covering EN/ZH canonical Family Hub anchors from backend facets, no invented anchors when facets are empty, existing filtering/pagination and prefetch budgets, Family Hub rendering, and 1,046-directory discovery behavior."
+      },
+      "required_local_checks": {
+        "status": "pass",
+        "evidence": "Node 24 validation passed: focused contracts 5 files / 18 tests; lint; spacing; typecheck; full contracts 762 files / 4385 tests; production-parameter build with 206/206 generated pages; YAML/JSON parsing; git diff --check; and exact changed-file scope validation (5 changed paths, 7 allowed paths, no outside-scope paths). The first full-contract run identified only the same-scope Career prefetch declaration count, which was updated from 8 to 9 while retaining prefetch={false}; the complete rerun passed. Test-generated unrelated files were restored exactly to HEAD."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": null
+      },
+      "codex_review": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-19T04:02:49Z",
+        "status": "in_progress",
+        "summary": "After #1789 merged, synced, cleaned, and passed post-merge revalidation, read the exact PR card and accepted blocking-scan evidence. Current source proves the named scope is not superseded: /career/jobs exposes backend family facets only as query filters while the Family Hub already exposes backend visible-child detail anchors. Started the exact isolated branch from origin/main e49a8c887d5d1e86b815ec02c38e3e444a56dbfc, added only canonical Family Hub anchors derived from those facets, preserved filters/pagination, and added fail-closed EN/ZH contracts. No production, CMS, database, search, cache, media, publish, or deploy mutation was executed."
+      },
+      {
+        "at": "2026-07-19T04:15:41Z",
+        "status": "ready_for_pr",
+        "summary": "All required local gates pass: focused contracts 5 files / 18 tests; lint; spacing; typecheck; full contracts 762 files / 4385 tests; production-parameter build 206/206; YAML/JSON parsing; diff check; and exact five-path scope validation. The first full run exposed one same-scope prefetch Link declaration count; the contract now expects 9 declarations and still proves every Link sets prefetch={false}. Generated unrelated artifacts were restored to HEAD."
+      }
+    ],
+    "updated_at": "2026-07-19T04:15:41Z"
   }
 }

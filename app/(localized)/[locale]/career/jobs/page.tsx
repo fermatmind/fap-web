@@ -10,6 +10,7 @@ import {
   normalizeFamilySlug,
 } from "@/lib/career/datasetDirectory";
 import { fetchCareerDirectory } from "@/lib/career/api/fetchCareerDirectory";
+import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
 import { localizedPath } from "@/lib/i18n/locales";
 import { buildPageMetadata } from "@/lib/seo/metadata";
@@ -251,37 +252,58 @@ export default async function CareerJobsPage({
             </div>
 
             {families.length > 0 ? (
-              <nav
-                className="flex flex-wrap gap-2"
-                aria-label={locale === "zh" ? "职业行业筛选" : "Occupation family filters"}
-                data-testid="career-directory-family-facets"
-              >
-                <Link
-                  href={buildJobsQueryPath(jobsPath, { query: submittedQuery })}
-                  prefetch={false}
-                  className={[
-                    "rounded-full border px-3 py-1.5 text-xs font-semibold",
-                    selectedFamily ? "border-slate-200 bg-white text-slate-500" : "border-emerald-200 bg-emerald-50 text-emerald-700",
-                  ].join(" ")}
+              <div className="space-y-3">
+                <nav
+                  className="flex flex-wrap gap-2"
+                  aria-label={locale === "zh" ? "职业行业筛选" : "Occupation family filters"}
+                  data-testid="career-directory-family-facets"
                 >
-                  {locale === "zh" ? "全部" : "All"}
-                </Link>
-                {families.map((family) => (
                   <Link
-                    key={family.slug}
-                    href={buildJobsQueryPath(jobsPath, { query: submittedQuery, family: family.slug })}
+                    href={buildJobsQueryPath(jobsPath, { query: submittedQuery })}
                     prefetch={false}
                     className={[
                       "rounded-full border px-3 py-1.5 text-xs font-semibold",
-                      normalizeFamilySlug(selectedFamily) === normalizeFamilySlug(family.slug)
-                        ? "border-emerald-200 bg-emerald-50 text-emerald-700"
-                        : "border-slate-200 bg-white text-slate-500",
+                      selectedFamily ? "border-slate-200 bg-white text-slate-500" : "border-emerald-200 bg-emerald-50 text-emerald-700",
                     ].join(" ")}
                   >
-                    {family.title} ({family.count})
+                    {locale === "zh" ? "全部" : "All"}
                   </Link>
-                ))}
-              </nav>
+                  {families.map((family) => (
+                    <Link
+                      key={family.slug}
+                      href={buildJobsQueryPath(jobsPath, { query: submittedQuery, family: family.slug })}
+                      prefetch={false}
+                      className={[
+                        "rounded-full border px-3 py-1.5 text-xs font-semibold",
+                        normalizeFamilySlug(selectedFamily) === normalizeFamilySlug(family.slug)
+                          ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                          : "border-slate-200 bg-white text-slate-500",
+                      ].join(" ")}
+                    >
+                      {family.title} ({family.count})
+                    </Link>
+                  ))}
+                </nav>
+
+                <nav
+                  className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3"
+                  aria-label={locale === "zh" ? "职业家族入口" : "Career family hubs"}
+                  data-testid="career-directory-family-hubs"
+                >
+                  {families.map((family) => (
+                    <Link
+                      key={family.slug}
+                      href={buildCareerFamilyFrontendUrl(locale, family.slug)}
+                      prefetch={false}
+                      className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-semibold text-slate-700 hover:border-orange-200 hover:text-orange-600"
+                      data-testid="career-directory-family-hub-link"
+                    >
+                      <span>{family.title}</span>
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  ))}
+                </nav>
+              </div>
             ) : null}
 
             <CareerOccupationDirectory
