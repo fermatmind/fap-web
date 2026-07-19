@@ -37,7 +37,7 @@ describe("MBTI-COMP-GATE-47 runtime completeness", () => {
   it("passes an exact backend-authoritative record", async () => {
     const { sha256, validateRuntimeRecord } = await modulePromise;
     const record = buildRecord();
-    const result = validateRuntimeRecord({ slug: fixture.slug, expectedSectionsSha256: sha256(record.sections), apiStatus: 200, payload: record.payload, pageStatus: 200, pageHtml: record.pageHtml });
+    const result = validateRuntimeRecord({ slug: fixture.slug, expectedSectionsSha256: sha256(record.sections), approvedPayloadSha256: "a".repeat(64), reviewSource: "fixture-approved-package", apiStatus: 200, payload: record.payload, pageStatus: 200, pageHtml: record.pageHtml });
     expect(result.passed).toBe(true);
     expect(result.failures).toEqual([]);
   });
@@ -53,6 +53,8 @@ describe("MBTI-COMP-GATE-47 runtime completeness", () => {
     const result = validateRuntimeRecord({
       slug: fixture.slug,
       expectedSectionsSha256: mutation === "wrong_fingerprint" ? "0".repeat(64) : expectedSha,
+      approvedPayloadSha256: "a".repeat(64),
+      reviewSource: "fixture-approved-package",
       apiStatus: 200,
       payload: record.payload,
       pageStatus: 200,

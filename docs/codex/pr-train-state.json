@@ -46896,7 +46896,7 @@
       },
       "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture and provenance contract passes 8/8 tests, including exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, and wrong canonical fail-closed cases; and deterministic derivation of all 16 runtime section fingerprints from the exact Approval39/Runtime46 review packages. The follow-up scope/Python environment regression set passes 5 files / 24 tests."},
       "required_local_checks": {"status": "pass", "evidence": "Node 24 production readback passed exact 16/16 API and page targets with zero failures and recorded each approved payload SHA beside its derived runtime section SHA. Full contracts passed all four shards: 764 files / 4400 tests. Spacing, typecheck, Big Five freeze 29/29, Enneagram freeze 24/24, production-parameter build with 206/206 generated pages, YAML/JSON parse, zero-warning scoped ESLint excluding only user-owned ignored local artifacts, and git diff checks passed."},
-      "github_required_checks": {"status": "pending", "evidence": null},
+      "github_required_checks": {"status": "pending", "evidence": "Initial exact-head build failed in typecheck because the focused fixture calls omitted the newly required provenance arguments. The same-scope fixture repair now passes local typecheck, focused 8/8, ESLint, and diff checks; a new exact-head run is pending after push."},
       "codex_review": {"status": "pending", "evidence": null}
     },
     "scope_validation": {
@@ -46940,8 +46940,13 @@
         "at": "2026-07-19T08:18:00Z",
         "status": "github_checks_pending",
         "summary": "Pushed the exact scoped branch and opened fap-web PR #1794 with what, why, full validation, lint-environment disclosure, repository-rule impact, and deferred items. Required GitHub checks and exact-head Codex review are pending."
+      },
+      {
+        "at": "2026-07-19T08:21:00Z",
+        "status": "github_checks_failed_repairing",
+        "summary": "Initial GitHub build failed at typecheck: the two focused fixture invocations did not pass the newly required approvedPayloadSha256 and reviewSource arguments. Added those exact fixture provenance inputs within Gate 47 scope; local typecheck, focused 8/8, ESLint, and diff checks pass. The repair will trigger a fresh exact-head required-check run."
       }
     ],
-    "updated_at": "2026-07-19T08:18:00Z"
+    "updated_at": "2026-07-19T08:21:00Z"
   }
 }
