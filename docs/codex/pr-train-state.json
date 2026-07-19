@@ -46691,8 +46691,8 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "PR #1789 merged as e49a8c887d5d1e86b815ec02c38e3e444a56dbfc and is contained by fap-web origin/main. The accepted SAEP-SCAN-693164e8d028 record was read-only revalidated. Existing backend-authoritative Career directory facets, Family Hub endpoint/adapter/route, and Family Hub visible-child anchors provide the SAEP-CAR-01 and SAEP-LINK-03 authority surfaces needed for this consumer-only final hop."
     },
-    "status": "review_fix_local_pass",
-    "commit_sha": "8ed6f5696b941a302d9d0fb074f32bd278098574",
+    "status": "github_checks_pending",
+    "commit_sha": "269d6c0b2802e1cef82eef117a83e30ace1936ad",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1790",
     "checks": {
       "manifest_registration": {
@@ -46771,8 +46771,13 @@
         "at": "2026-07-19T04:48:21Z",
         "status": "review_fix_local_pass",
         "summary": "All seven GitHub checks passed on cb38fdea7b4d1111d824ef913ef7ff77a03aef45, then exact-head Codex review found a second valid P2: the optional discoverability manifest could delay the core directory. The manifest-backed Family Hub nav now streams behind a null Suspense fallback with an independent 1.5-second fail-closed budget, while /career/jobs awaits only its core directory authority. Node 24 focused contracts pass 5 files / 20 tests, including a pending-manifest first-chunk assertion; lint, spacing, typecheck, full contracts 762 files / 4387 tests, and production build 206/206 pass. The initial build without NEXT_PUBLIC_SITE_URL was a configuration-only gate failure and the CI-parameter rerun passed."
+      },
+      {
+        "at": "2026-07-19T04:49:14Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the locally validated second P2 repair as 269d6c0b2802e1cef82eef117a83e30ace1936ad and rebound commit_sha to that implementation head. This following ledger-only commit records the binding; a fresh exact-head GitHub check cycle and Codex review remain mandatory."
       }
     ],
-    "updated_at": "2026-07-19T04:48:21Z"
+    "updated_at": "2026-07-19T04:49:14Z"
   }
 }
