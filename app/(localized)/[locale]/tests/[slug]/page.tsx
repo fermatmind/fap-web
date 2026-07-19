@@ -97,6 +97,7 @@ import {
 } from "@/lib/rollout/scaleRollout";
 import { findLandingCta, normalizeLandingSurface } from "@/lib/landing/landingSurface";
 import { getFreeTestStartLabel } from "@/lib/tests/freeTestLabels";
+import { isRetryablePublicReadError } from "@/lib/public-content/readError";
 import {
   buildBreadcrumbJsonLd,
   buildFAQPageJsonLd,
@@ -797,8 +798,16 @@ function IqBankLandingChooser({
 }
 
 export async function generateStaticParams() {
-  const tests = await getAllTests("en");
-  return tests.flatMap((test) => [{ locale: "en", slug: test.slug }, { locale: "zh", slug: test.slug }]);
+  try {
+    const tests = await getAllTests("en");
+    return tests.flatMap((test) => [{ locale: "en", slug: test.slug }, { locale: "zh", slug: test.slug }]);
+  } catch (error) {
+    if (isRetryablePublicReadError(error)) {
+      return [];
+    }
+
+    throw error;
+  }
 }
 
 export async function generateMetadata({
