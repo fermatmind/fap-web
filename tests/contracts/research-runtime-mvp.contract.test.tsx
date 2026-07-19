@@ -33,10 +33,9 @@ function sampleReport(overrides: Partial<ResearchReport> = {}): ResearchReport {
     sampleDisclaimer: "Backend supplied sample disclaimer.",
     claimBoundary: "Backend supplied claim boundary.",
     authorName: "CMS Author",
-    reviewerName: "CMS Reviewer",
+    publicReview: { reviewState: "approved", lastReviewedAt: "2026-05-18T00:00:00.000Z", reviewer: null },
     references: ["Backend supplied reference"],
     downloadableAssetPlaceholder: "Backend supplied downloadable asset placeholder.",
-    lastReviewedAt: "2026-05-18",
     publishedAt: "2026-05-18T00:00:00Z",
     seoTitle: "Backend SEO Title",
     seoDescription: "Backend SEO description.",
@@ -75,6 +74,8 @@ describe("Research runtime MVP contract", () => {
           claim_boundary: "Backend supplied claim boundary.",
           author_name: "CMS Author",
           reviewer_name: "CMS Reviewer",
+          review_state: "approved",
+          reviewer: null,
           references: ["Backend supplied reference"],
           downloadable_asset_placeholder: "Backend supplied downloadable asset placeholder.",
           last_reviewed_at: "2026-05-18",
@@ -98,6 +99,11 @@ describe("Research runtime MVP contract", () => {
       methodology: "Backend supplied methodology.",
       sampleDisclaimer: "Backend supplied sample disclaimer.",
       claimBoundary: "Backend supplied claim boundary.",
+      publicReview: {
+        reviewState: "unknown",
+        lastReviewedAt: null,
+        reviewer: null,
+      },
     });
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });

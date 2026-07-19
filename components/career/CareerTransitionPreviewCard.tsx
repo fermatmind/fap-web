@@ -228,7 +228,7 @@ export function CareerTransitionPreviewCard({
         <div data-testid="career-transition-preview-footer">
           <TrustStrip
             locale={locale}
-            reviewerStatus={preview.trustSummary.reviewerStatus}
+            publicReview={preview.trustSummary.publicReview}
             indexState={preview.seoContract.indexState}
             reasonCodes={preview.trustSummary.reasonCodes}
             compact

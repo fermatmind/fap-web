@@ -98,6 +98,7 @@ export default async function InterpretationGuidePage({
         bodyHtml={guide.bodyHtml}
         publishedAt={guide.publishedAt}
         updatedAt={guide.updatedAt}
+        publicReview={guide.publicReview}
         backHref={locale === "zh" ? "/zh/support" : "/en/support"}
         backLabel={copy.backLabel}
         relatedLinks={relatedLinks}

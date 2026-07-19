@@ -548,7 +548,7 @@ function buildRecommendationProtocolBundle(
       },
       audit: {
         created_by: authoritySource,
-        reviewed_by: trustManifest?.reviewer.reviewer_id ?? null,
+        reviewed_by: null,
         created_at: null,
         last_substantive_update_at: trustManifest?.last_substantive_update_at ?? null,
         schema_hash: null,

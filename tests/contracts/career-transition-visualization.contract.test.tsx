@@ -30,17 +30,17 @@ vi.mock("@/components/analytics/TrackedCareerLink", () => ({
 vi.mock("@/components/career/TrustStrip", () => ({
   TrustStrip: ({
     testId,
-    reviewerStatus,
+    publicReview,
     indexState,
     reasonCodes,
   }: {
     testId: string;
-    reviewerStatus: string | null;
+    publicReview?: { reviewState: string } | null;
     indexState: string | null;
     reasonCodes: string[];
   }) => (
     <div data-testid={testId}>
-      {`reviewer_status:${reviewerStatus ?? "none"} index_state:${indexState ?? "none"} reason_codes:${reasonCodes.join(",")}`}
+      {`${publicReview?.reviewState === "approved" ? "Human review completed" : "review pending"} index_state:${indexState ?? "none"} reason_codes:${reasonCodes.join(",")}`}
     </div>
   ),
 }));
@@ -80,6 +80,7 @@ function makeTransitionPath(pathType: string): CareerTransitionPreviewAdapter {
     trustSummary: {
       allowTransitionRecommendation: true,
       reviewerStatus: "approved",
+      publicReview: { reviewState: "approved", lastReviewedAt: null, reviewer: null },
       reasonCodes: ["publish_ready"],
     },
     seoContract: {
@@ -149,7 +150,8 @@ describe("career transition visualization contract", () => {
     expect(html).toContain("higher_training_required");
     expect(html).toContain("Mobility");
     expect(html).toContain("Confidence");
-    expect(html).toContain("reviewer_status:approved");
+    expect(html).toContain("Human review completed");
+    expect(html).not.toContain("reviewer_status");
   });
 
   it("keeps safe fallback rendering for unsupported path_type and missing optional fields", () => {

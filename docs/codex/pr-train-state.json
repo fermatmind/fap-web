@@ -46421,5 +46421,79 @@
       }
     ],
     "updated_at": "2026-07-18T19:06:54Z"
+  },
+  "SOLO-OWNER-REVIEW-WEB-07": {
+    "id": "SOLO-OWNER-REVIEW-WEB-07",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/solo-owner-review-web-07",
+    "title": "SOLO-OWNER-REVIEW-WEB-07: consume the normalized public review contract",
+    "depends_on": [
+      "SOLO-OWNER-PUBLIC-REVIEW-CONTRACT-06"
+    ],
+    "dependency_verification": {
+      "github_merged": true,
+      "dependency_origin_main_contains_merge": true,
+      "evidence": "fap-api PR #3185 is MERGED as e5edc5cc7e0537abc3580d16786a7635415e7f05; fap-api origin/main contains that merge, the PR6 branch/worktree was cleaned, and this fap-web task started from origin/main 478d3431589c752e5d7c88baab405e3e5cc80b9e without waiting for staging deploy."
+    },
+    "status": "ready_for_pr",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The explicit continuous seven-PR goal supplied this exact PR id, title, branch, dependency, five-consumer scope, validation floor, and complete PR lifecycle authorization."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "SOLO-OWNER-PUBLIC-REVIEW-CONTRACT-06 is merged and contained by fap-api origin/main; no staging deployment dependency applies."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "The normalized review regression set passes 12 files / 102 tests on Node 24, covering exact fail-closed normalization and Article, Personality, Career, Research, Support consumers."
+      },
+      "required_local_checks": {
+        "status": "pass",
+        "evidence": "Node 24 validation passed: focused contracts 12 files / 102 tests; lint; spacing; typecheck; full contracts 760 files / 4373 tests; production-parameter build with 206/206 generated pages; YAML and JSON parsing; git diff --check; and exact changed-file scope validation (44 changed paths, 46 allowed paths, no outside-scope paths)."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR not opened yet."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-19T01:08:14Z",
+        "status": "in_progress",
+        "summary": "Verified PR6 merged/contained/synced/cleaned, created the exact isolated fap-web branch from origin/main 478d3431589c752e5d7c88baab405e3e5cc80b9e, and implemented only the normalized identity-redacted public review consumer. The shared adapter requires the exact three-field backend contract and fails missing, malformed, legacy, or identity-bearing payloads closed; approved-only display is wired across Article, Personality, Career, Research, and Support without changing content or SEO authority. Focused contracts pass 12 files / 102 tests and Node 24 typecheck passes; full local gates remain pending."
+      },
+      {
+        "at": "2026-07-19T01:20:39Z",
+        "status": "local_check_repaired",
+        "summary": "The first full-contract pass exposed two same-scope compatibility assumptions (an obsolete reviewer_status completion assertion and a Career canonical guard fixture) plus an incompatible system Python for the KG validator. Updated only the scoped contracts/guard, reran the three affected files successfully (3 files / 11 tests), and reran the full suite with the bundled compatible Python. The first production build then failed because Turbopack rejected an external node_modules symlink; replaced only that ignored local dependency link with a frozen offline install and reran the build successfully. Build-generated tracked diagnostics were restored to their clean pre-build state."
+      },
+      {
+        "at": "2026-07-19T01:20:39Z",
+        "status": "ready_for_pr",
+        "summary": "All required local gates pass on Node 24: focused contracts 12 files / 102 tests; lint; spacing; typecheck; full contracts 760 files / 4373 tests; production-parameter build with 206/206 generated pages; YAML/JSON parsing; git diff --check; and exact scope validation with 44 changed paths contained in the 46-path allowlist. No production, database, CMS, publish, deploy, content-authority, metadata, sitemap, or llms write was executed."
+      }
+    ],
+    "updated_at": "2026-07-19T01:20:39Z"
   }
 }

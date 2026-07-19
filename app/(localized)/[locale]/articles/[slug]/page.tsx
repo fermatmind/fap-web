@@ -7,6 +7,7 @@ import { AttributedCmsLinkHydrator } from "@/components/content/AttributedCmsLin
 import { AttributedSanitizedCmsHtml } from "@/components/content/AttributedSanitizedCmsHtml";
 import { RelatedContent } from "@/components/content/RelatedContent";
 import { Container } from "@/components/layout/Container";
+import { PublicReviewStatus } from "@/components/public-content/PublicReviewStatus";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -400,11 +401,7 @@ export default async function ArticleDetailPage({
                 {locale === "zh" ? `阅读时间：${article.readingMinutes} 分钟` : `${article.readingMinutes} min read`}
               </p>
             ) : null}
-            {article.reviewerName ? (
-              <p className="m-0">
-                {locale === "zh" ? "审核" : "Reviewed by"}: {article.reviewerName}
-              </p>
-            ) : null}
+            <PublicReviewStatus review={article.publicReview} locale={locale} testId="article-public-review" />
           </div>
         </div>
       </header>

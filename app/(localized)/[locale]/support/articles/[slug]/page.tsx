@@ -98,6 +98,7 @@ export default async function SupportArticlePage({
         bodyHtml={article.bodyHtml}
         publishedAt={article.publishedAt}
         updatedAt={article.updatedAt}
+        publicReview={article.publicReview}
         primaryCtaLabel={article.primaryCtaLabel}
         primaryCtaUrl={article.primaryCtaUrl}
         backHref={locale === "zh" ? "/zh/support" : "/en/support"}

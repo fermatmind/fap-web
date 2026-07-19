@@ -78,6 +78,7 @@ function v1Asset() {
     launch_state: "published",
     review_state: "approved",
     last_reviewed_at: "2026-07-13T10:00:00Z",
+    reviewer: null,
     updated_at: "2026-07-13T09:00:00Z",
   };
 }
@@ -127,11 +128,7 @@ function v2Authority(overrides: Record<string, unknown> = {}) {
         organization: "FermatMind",
         role: "Author",
       },
-      reviewer: {
-        name: "Named Reviewer",
-        organization: "Independent Review",
-        role: "Reviewer",
-      },
+      reviewer: null,
       review_state: "approved",
       published_at: "2026-07-12T08:00:00Z",
       updated_at: "2026-07-13T09:00:00Z",
@@ -201,7 +198,11 @@ describe("BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04 contract", () => {
       },
       editorialAuthority: {
         author: { name: "FermatMind Editorial Team" },
-        reviewer: { name: "Named Reviewer" },
+        publicReview: {
+          reviewState: "approved",
+          lastReviewedAt: "2026-07-13T10:00:00.000Z",
+          reviewer: null,
+        },
       },
       schemaEligible: true,
     });
@@ -224,7 +225,8 @@ describe("BIG5-AUTHORITY-V2-WEB-TRUST-RENDERER-04 contract", () => {
     render(<PublicContentAssetRenderer asset={asset!} locale="en" />);
 
     expect(screen.getByTestId("editorial-authority")).toHaveTextContent("FermatMind Editorial Team");
-    expect(screen.getByTestId("editorial-authority")).toHaveTextContent("Named Reviewer");
+    expect(screen.getByTestId("editorial-authority")).toHaveTextContent("Human review completed");
+    expect(screen.getByTestId("editorial-authority")).not.toHaveTextContent("Named Reviewer");
     expect(screen.getByTestId("editorial-authority")).toHaveTextContent("Jul 12, 2026");
     expect(screen.getByTestId("editorial-authority")).toHaveTextContent("Jul 13, 2026");
     expect(screen.getByTestId("visible-authority-evidence")).toHaveTextContent("The Big Five Inventory-2");

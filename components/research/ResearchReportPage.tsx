@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { PublicReviewStatus } from "@/components/public-content/PublicReviewStatus";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import type { Locale } from "@/lib/i18n/locales";
 import type { ResearchReport } from "@/lib/research/reports";
@@ -49,10 +50,7 @@ export function ResearchReportPage({ report, locale }: ResearchReportPageProps) 
         </p>
         <div className="flex flex-wrap gap-3 text-sm text-[var(--fm-text-muted)]">
           {report.authorName ? <span>{copy(locale, "Author", "作者")}: {report.authorName}</span> : null}
-          {report.reviewerName ? <span>{copy(locale, "Reviewer", "审阅")}: {report.reviewerName}</span> : null}
-          {report.lastReviewedAt ? (
-            <span>{copy(locale, "Last reviewed", "最近审阅")}: {report.lastReviewedAt}</span>
-          ) : null}
+          <PublicReviewStatus review={report.publicReview} locale={locale} testId="research-public-review" />
         </div>
       </header>
 

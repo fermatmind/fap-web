@@ -48,7 +48,7 @@ function makeArticle(overrides: Partial<CmsArticle> = {}): CmsArticle {
     contentMd: "Article body",
     contentHtml: "",
     authorName: "Fermat Institute",
-    reviewerName: null,
+  publicReview: { reviewState: "unknown", lastReviewedAt: null, reviewer: null },
     readingMinutes: 4,
     coverImageUrl: COVER_URL,
     coverImageAlt: COVER_ALT,

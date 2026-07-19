@@ -9,6 +9,7 @@ import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/
 import { normalizeLandingSurface, type LandingSurfaceViewModel } from "@/lib/landing/landingSurface";
 import { PUBLIC_API_CACHE_OPTIONS, PUBLIC_API_REVALIDATE_SECONDS } from "@/lib/publicApiCache";
 import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
+import { normalizePublicReview, type PublicReview } from "@/lib/public-content/publicReview";
 import {
   normalizeArticleBreadcrumbJsonLdAuthorityPayload,
   normalizeArticleJsonLdAuthorityPayload,
@@ -44,7 +45,9 @@ type CmsArticleApiRecord = {
   content_md?: string | null;
   content_html?: string | null;
   author_name?: string | null;
-  reviewer_name?: string | null;
+  review_state?: unknown;
+  last_reviewed_at?: unknown;
+  reviewer?: unknown;
   reading_minutes?: number | string | null;
   cover_image_url?: string | null;
   cover_image_alt?: string | null;
@@ -174,7 +177,7 @@ export type CmsArticle = {
   contentMd: string;
   contentHtml: string;
   authorName: string | null;
-  reviewerName: string | null;
+  publicReview: PublicReview;
   readingMinutes: number | null;
   coverImageUrl: string | null;
   coverImageAlt: string | null;
@@ -1086,7 +1089,7 @@ function normalizeArticle(article: CmsArticleApiRecord): CmsArticle {
     contentMd,
     contentHtml,
     authorName: normalizeIsoValue(article.author_name) ?? normalizeNamedEntity(readRecordValue(article, "author", "byline")),
-    reviewerName: normalizeIsoValue(article.reviewer_name) ?? normalizeNamedEntity(readRecordValue(article, "reviewer", "reviewed_by")),
+    publicReview: normalizePublicReview(article),
     readingMinutes,
     coverImageUrl,
     coverImageAlt:

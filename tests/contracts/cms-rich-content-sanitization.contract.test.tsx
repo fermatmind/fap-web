@@ -199,6 +199,7 @@ describe("CMS rich content sanitization contract", () => {
         bodyHtml={CMS_RICH_HTML}
         publishedAt={null}
         updatedAt={null}
+        publicReview={{ reviewState: "unknown", lastReviewedAt: null, reviewer: null }}
         backHref="/en/support"
         backLabel="Back"
         testId="support-article"

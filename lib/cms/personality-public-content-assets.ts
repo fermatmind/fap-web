@@ -3,6 +3,7 @@ import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { normalizeInternalHref } from "@/lib/url/safeContentUrls";
 import { toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { PublicReadError, toPublicReadError } from "@/lib/public-content/readError";
+import { normalizePublicReview, type PublicReview } from "@/lib/public-content/publicReview";
 import {
   buildBigFivePublicContentPath,
   type BigFivePublicEntityType,
@@ -83,7 +84,7 @@ export type PersonalityPublicContentAuthorityV2 = {
   };
   editorialAuthority: {
     author: PersonalityPublicContentAuthorityActor | null;
-    reviewer: PersonalityPublicContentAuthorityActor | null;
+    publicReview: PublicReview;
     reviewState: string;
     lastReviewedAt: string | null;
     publishedAt: string | null;
@@ -123,6 +124,7 @@ export type PersonalityPublicContentAsset = {
   sitemapEligible: boolean;
   llmsEligible: boolean;
   launchState: string;
+  publicReview: PublicReview;
   reviewState: string;
   lastReviewedAt: string | null;
   updatedAt: string | null;
@@ -490,6 +492,7 @@ function normalizeAuthorityV2(
   const visibleEvidenceEligible =
     asBoolean(visibleEvidence.eligible) && sources.length > 0 && claimMapping.length > 0;
   const editorialAuthority = asRecord(record.editorial_authority ?? record.editorialAuthority);
+  const publicReview = normalizePublicReview(editorialAuthority);
   return {
     contractVersion: "personality_public_asset.v2",
     compatibleV1ContractVersion: "personality_public_asset.v1",
@@ -501,11 +504,9 @@ function normalizeAuthorityV2(
     },
     editorialAuthority: {
       author: normalizeAuthorityActor(editorialAuthority.author),
-      reviewer: normalizeAuthorityActor(editorialAuthority.reviewer),
-      reviewState: asString(editorialAuthority.review_state ?? editorialAuthority.reviewState),
-      lastReviewedAt: normalizeIsoDateTime(
-        editorialAuthority.last_reviewed_at ?? editorialAuthority.lastReviewedAt
-      ),
+      publicReview,
+      reviewState: publicReview.reviewState,
+      lastReviewedAt: publicReview.lastReviewedAt,
       publishedAt: normalizeIsoDateTime(editorialAuthority.published_at ?? editorialAuthority.publishedAt),
       updatedAt: normalizeIsoDateTime(editorialAuthority.updated_at ?? editorialAuthority.updatedAt),
     },
@@ -598,6 +599,7 @@ function normalizeAsset(
   expectedFramework: PersonalityPublicFramework
 ): PersonalityPublicContentAsset | null {
   const record = asRecord(raw);
+  const publicReview = normalizePublicReview(record);
   const entityType = normalizeEntityType(record.entity_type);
   const apiLocale = toApiLocale(locale);
   const seo = asRecord(record.seo);
@@ -654,8 +656,9 @@ function normalizeAsset(
     sitemapEligible: asBoolean(record.sitemap_eligible),
     llmsEligible: asBoolean(record.llms_eligible),
     launchState,
-    reviewState: asString(record.review_state),
-    lastReviewedAt: asNullableString(record.last_reviewed_at),
+    publicReview,
+    reviewState: publicReview.reviewState,
+    lastReviewedAt: publicReview.lastReviewedAt,
     updatedAt: asNullableString(record.updated_at),
   };
 }

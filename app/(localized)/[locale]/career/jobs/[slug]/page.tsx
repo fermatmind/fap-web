@@ -122,9 +122,9 @@ function hasPublishedIndexAuthority(job: CareerJobBundleAdapter): boolean {
 
 function hasLocalCareerIndexTrust(job: CareerJobBundleAdapter): boolean {
   const trustReviewed =
-    job.trustManifest?.reviewer.reviewed === true ||
-    job.trustManifest?.reviewer.reviewer_status === "reviewed" ||
-    job.trustManifest?.reviewer.reviewer_status === "approved";
+    job.trustManifest?.legacyReview.reviewed === true ||
+    job.trustManifest?.legacyReview.reviewerStatus === "reviewed" ||
+    job.trustManifest?.legacyReview.reviewerStatus === "approved";
 
   return (
     job.renderState.canRenderAnswerSurface ||
@@ -1153,7 +1153,7 @@ export default async function CareerJobDetailPage({
           <EvidenceDrawer title={locale === "zh" ? "查看数据来源" : "View data source"} testId="career-job-v1-data-source-drawer" evidenceBlock="evidence_facts">
             <TrustStrip
               locale={locale}
-              reviewerStatus={job.trustManifest?.reviewer.reviewer_status}
+              publicReview={job.trustManifest?.publicReview}
               indexState={job.seoContract.indexState}
               reasonCodes={job.claimPermissions.reason_codes}
               contentVersion={job.provenanceMeta.contentVersion}

@@ -763,7 +763,7 @@ function buildCareerJobProtocolBundle(raw: CmsCareerJobApiRecord, locale: Locale
       },
       audit: {
         created_by: authoritySource || null,
-        reviewed_by: trustManifest?.reviewer.reviewer_id ?? null,
+        reviewed_by: null,
         created_at: null,
         last_substantive_update_at: trustManifest?.last_substantive_update_at ?? null,
         schema_hash: null,

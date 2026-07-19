@@ -45,6 +45,9 @@ describe("career transition preview fetch and adapter contract", () => {
           trust_summary: {
             allow_transition_recommendation: true,
             reviewer_status: "approved",
+            review_state: "approved",
+            last_reviewed_at: null,
+            reviewer: null,
             reason_codes: ["publish_ready"],
           },
           seo_contract: {
@@ -101,6 +104,9 @@ describe("career transition preview fetch and adapter contract", () => {
         trust_summary: {
           allow_transition_recommendation: true,
           reviewer_status: "approved",
+          review_state: "approved",
+          last_reviewed_at: null,
+          reviewer: null,
           reason_codes: ["publish_ready"],
         },
         seo_contract: {
@@ -148,6 +154,7 @@ describe("career transition preview fetch and adapter contract", () => {
       trustSummary: {
         allowTransitionRecommendation: true,
         reviewerStatus: "approved",
+        publicReview: { reviewState: "approved", lastReviewedAt: null, reviewer: null },
         reasonCodes: ["publish_ready"],
       },
       seoContract: expect.objectContaining({
