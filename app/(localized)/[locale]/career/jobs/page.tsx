@@ -5,21 +5,23 @@ import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { CareerOccupationDirectory } from "@/components/career/CareerOccupationDirectory";
 import { Container } from "@/components/layout/Container";
 import { buttonVariants } from "@/components/ui/button";
+import { apiClient } from "@/lib/api-client";
 import {
   adaptCareerDirectory,
   type CareerDirectoryFamilyFacetAdapter,
 } from "@/lib/career/adapters/adaptCareerDirectory";
 import { adaptCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/adapters/adaptCareerFirstWaveDiscoverabilityManifest";
+import type { CareerFirstWaveDiscoverabilityManifestResponseRaw } from "@/lib/career/api/types";
 import {
   formatCareerFamilyTitle,
   normalizeFamilySlug,
 } from "@/lib/career/datasetDirectory";
 import { fetchCareerDirectory } from "@/lib/career/api/fetchCareerDirectory";
-import { fetchCareerFirstWaveDiscoverabilityManifest } from "@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest";
 import { isCareerFamilyHubDiscoverableByManifest } from "@/lib/career/launchPolicy";
 import { buildCareerFamilyFrontendUrl } from "@/lib/career/urls";
 import { resolveLocale } from "@/lib/i18n/getDict";
-import { localizedPath } from "@/lib/i18n/locales";
+import { localizedPath, toApiLocale } from "@/lib/i18n/locales";
+import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { buildPageMetadata } from "@/lib/seo/metadata";
 
 export const revalidate = 300;
@@ -67,20 +69,20 @@ function buildJobsQueryPath(
 }
 
 async function fetchDiscoverabilityManifestForOptionalNav(locale: "en" | "zh") {
-  let timeoutId: ReturnType<typeof setTimeout> | null = null;
-  const timeout = new Promise<null>((resolve) => {
-    timeoutId = setTimeout(() => resolve(null), CAREER_FAMILY_HUB_NAV_TIMEOUT_MS);
-  });
-
   try {
-    return await Promise.race([
-      fetchCareerFirstWaveDiscoverabilityManifest({ locale }),
-      timeout,
-    ]);
-  } finally {
-    if (timeoutId) {
-      clearTimeout(timeoutId);
-    }
+    const query = new URLSearchParams({ locale: toApiLocale(locale) });
+
+    return await apiClient.get<CareerFirstWaveDiscoverabilityManifestResponseRaw>(
+      `/v0.5/career/first-wave/discoverability-manifest?${query.toString()}`,
+      {
+        locale,
+        skipAuth: true,
+        timeoutMs: CAREER_FAMILY_HUB_NAV_TIMEOUT_MS,
+        ...PUBLIC_API_CACHE_OPTIONS,
+      }
+    );
+  } catch {
+    return null;
   }
 }
 

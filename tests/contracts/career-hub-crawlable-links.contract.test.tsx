@@ -66,22 +66,24 @@ function installDirectoryAuthority(
     })),
   }));
 
-  vi.doMock("@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest", () => ({
-    fetchCareerFirstWaveDiscoverabilityManifest: vi.fn(async () => ({
-      manifest_kind: "career_first_wave_discoverability_manifest",
-      manifest_version: "career.first_wave.discoverability.v1",
-      scope: "public_career_routes",
-      routes: families.map((family) => ({
-        route_kind: "career_family_hub",
-        canonical_path: `/career/family/${family.slug}`,
-        canonical_slug: family.slug,
-        discoverability_state: discoverableSlugs.includes(String(family.slug ?? ""))
-          ? "discoverable"
-          : "excluded",
-        title_en: family.title_en,
-        visible_children_count: family.count,
+  vi.doMock("@/lib/api-client", () => ({
+    apiClient: {
+      get: vi.fn(async () => ({
+        manifest_kind: "career_first_wave_discoverability_manifest",
+        manifest_version: "career.first_wave.discoverability.v1",
+        scope: "public_career_routes",
+        routes: families.map((family) => ({
+          route_kind: "career_family_hub",
+          canonical_path: `/career/family/${family.slug}`,
+          canonical_slug: family.slug,
+          discoverability_state: discoverableSlugs.includes(String(family.slug ?? ""))
+            ? "discoverable"
+            : "excluded",
+          title_en: family.title_en,
+          visible_children_count: family.count,
+        })),
       })),
-    })),
+    },
   }));
 }
 
@@ -191,12 +193,15 @@ describe("SAEP-PLANNED-PR-05 Career Hub crawlable links", () => {
       },
     ]);
     const deferredManifest: { resolve?: (value: null) => void } = {};
-    vi.doMock("@/lib/career/api/fetchCareerFirstWaveDiscoverabilityManifest", () => ({
-      fetchCareerFirstWaveDiscoverabilityManifest: vi.fn(
-        () => new Promise<null>((resolve) => {
-          deferredManifest.resolve = resolve;
-        })
-      ),
+    const optionalManifestGet = vi.fn(
+      () => new Promise<null>((resolve) => {
+        deferredManifest.resolve = resolve;
+      })
+    );
+    vi.doMock("@/lib/api-client", () => ({
+      apiClient: {
+        get: optionalManifestGet,
+      },
     }));
 
     const { default: CareerJobsPage } = await import("@/app/(localized)/[locale]/career/jobs/page");
@@ -211,6 +216,10 @@ describe("SAEP-PLANNED-PR-05 Career Hub crawlable links", () => {
 
     expect(html).toContain('data-testid="career-library-workspace"');
     expect(html).not.toContain('data-testid="career-directory-family-hub-link"');
+    expect(optionalManifestGet).toHaveBeenCalledWith(
+      "/v0.5/career/first-wave/discoverability-manifest?locale=en",
+      expect.objectContaining({ timeoutMs: 1_500 })
+    );
     expect(deferredManifest.resolve).toBeTypeOf("function");
     deferredManifest.resolve?.(null);
 

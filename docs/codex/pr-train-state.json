@@ -46691,7 +46691,7 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "PR #1789 merged as e49a8c887d5d1e86b815ec02c38e3e444a56dbfc and is contained by fap-web origin/main. The accepted SAEP-SCAN-693164e8d028 record was read-only revalidated. Existing backend-authoritative Career directory facets, Family Hub endpoint/adapter/route, and Family Hub visible-child anchors provide the SAEP-CAR-01 and SAEP-LINK-03 authority surfaces needed for this consumer-only final hop."
     },
-    "status": "github_checks_pending",
+    "status": "review_fix_local_pass",
     "commit_sha": "269d6c0b2802e1cef82eef117a83e30ace1936ad",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1790",
     "checks": {
@@ -46709,15 +46709,15 @@
       },
       "required_local_checks": {
         "status": "pass",
-        "evidence": "After both exact-head P2 repairs, Node 24 validation passed: focused contracts 5 files / 20 tests; lint; spacing; typecheck; full contracts 762 files / 4387 tests; production-parameter build with 206/206 generated pages; YAML/JSON parsing; git diff --check; and exact changed-file scope validation (5 changed paths, 7 allowed paths, no outside-scope paths). The first build attempt omitted required NEXT_PUBLIC_SITE_URL and correctly failed the existing production URL gate; rerunning with the CI production site/API parameters passed. Test/build-generated unrelated files were restored exactly to HEAD."
+        "evidence": "After all three exact-head P2 repairs, Node 24 validation passed: focused contracts 5 files / 20 tests; lint; spacing; typecheck; full contracts 762 files / 4387 tests; production-parameter build with 206/206 generated pages; YAML/JSON parsing; git diff --check; and exact changed-file scope validation (5 changed paths, 7 allowed paths, no outside-scope paths). The first build attempt omitted required NEXT_PUBLIC_SITE_URL and correctly failed the existing production URL gate; every CI-parameter rerun passed. Test/build-generated unrelated files were restored exactly to HEAD."
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "All seven GitHub checks passed on prior exact head cb38fdea7b4d1111d824ef913ef7ff77a03aef45. A new exact-head cycle is required after the second review fix."
+        "evidence": "All seven GitHub checks passed on prior exact head ea718064a19649366eb7b234670bd48928c3aadd. A new exact-head cycle is required after the third review fix."
       },
       "codex_review": {
         "status": "pending",
-        "evidence": "Codex review of exact head cb38fdea7b4d1111d824ef913ef7ff77a03aef45 identified a second valid P2: awaiting the optional manifest beside the core directory could delay the full page during a manifest outage. The optional authority lookup now renders in its own Suspense stream, fails closed after a 1.5-second local budget, and cannot delay the core directory response; a new exact-head review is required."
+        "evidence": "Codex review of exact head ea718064a19649366eb7b234670bd48928c3aadd identified a third valid P2: Promise.race returned after 1.5 seconds without aborting the API client's 15-second request. The allowed page now invokes the same public endpoint and cache policy through apiClient with timeoutMs: 1500, so the underlying request is aborted within the optional-nav budget without changing the API contract or authority; a new exact-head review is required."
       }
     },
     "scope_validation": {
@@ -46776,8 +46776,13 @@
         "at": "2026-07-19T04:49:14Z",
         "status": "github_checks_pending",
         "summary": "Committed the locally validated second P2 repair as 269d6c0b2802e1cef82eef117a83e30ace1936ad and rebound commit_sha to that implementation head. This following ledger-only commit records the binding; a fresh exact-head GitHub check cycle and Codex review remain mandatory."
+      },
+      {
+        "at": "2026-07-19T05:03:02Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on ea718064a19649366eb7b234670bd48928c3aadd, then exact-head Codex review found a third valid P2: Promise.race did not cancel the underlying 15-second manifest request. Without changing any out-of-scope helper or API contract, the allowed Jobs page now calls the same backend public endpoint/cache policy through apiClient with timeoutMs: 1500, which aborts the request at the source. The streaming contract asserts the exact endpoint and abort budget. Node 24 focused contracts pass 5 files / 20 tests; lint, spacing, typecheck, full contracts 762 files / 4387 tests, and production build 206/206 pass."
       }
     ],
-    "updated_at": "2026-07-19T04:49:14Z"
+    "updated_at": "2026-07-19T05:03:02Z"
   }
 }
