@@ -46882,9 +46882,9 @@
     "branch": "codex/mbti-comp-gate-47",
     "title": "MBTI-COMP-GATE-47: add exact A/T runtime completeness gate",
     "depends_on": ["MBTI-COMP-RUNTIME-46"],
-    "status": "local_checks_passed",
+    "status": "github_checks_pending",
     "commit_sha": "1226008f38685ca2a1818b52c2c26669d61d9335",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1794",
     "checks": {
       "authorization": {
         "status": "pass",
@@ -46935,8 +46935,13 @@
         "at": "2026-07-19T08:16:00Z",
         "status": "local_checks_passed",
         "summary": "Explicitly staged the exact nine allowed paths and committed the locally verified Gate 47 implementation as 1226008f38685ca2a1818b52c2c26669d61d9335. This following ledger-only commit binds the implementation SHA before push; the user-owned .workbuddy file remains untracked and excluded."
+      },
+      {
+        "at": "2026-07-19T08:18:00Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact scoped branch and opened fap-web PR #1794 with what, why, full validation, lint-environment disclosure, repository-rule impact, and deferred items. Required GitHub checks and exact-head Codex review are pending."
       }
     ],
-    "updated_at": "2026-07-19T08:16:00Z"
+    "updated_at": "2026-07-19T08:18:00Z"
   }
 }
