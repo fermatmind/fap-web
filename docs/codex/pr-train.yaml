@@ -26870,3 +26870,50 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend
     repository_rule_impact: existing_backend_authority_and_frontend_no_fallback_rules_preserved
+
+  - id: SAEP-PROPOSED-WEB-LLMS-CONTENT-PAGE-PARTIAL-LKG-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/saep-web-llms-content-page-partial-lkg-01
+    base: main
+    title: "SAEP-PROPOSED-WEB-LLMS-CONTENT-PAGE-PARTIAL-LKG-01: fix(seo): reject partial content-page authority snapshots in llms.txt"
+    depends_on: [PUBLIC-STABILITY-WEB-06, GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01]
+    mode: execute
+    train_scope: llms_content_page_partial_lkg
+    status: ready_to_merge
+    goal: "Require complete content-page authority snapshots for llms.txt, preserve only complete valid LKG on transient failure, honor authoritative revocation, and prevent public caching when either locale authority cohort is unavailable."
+    allowed_paths:
+      - lib/cms/content-pages.ts
+      - app/llms.txt/route.ts
+      - tests/contracts/security-122-web-06-sitemap-llms-lkg-fail-closed.contract.test.ts
+      - tests/contracts/llms-content-page-partial-lkg.contract.test.ts
+      - docs/seo/llms-content-page-partial-lkg-2026-07.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - CMS/backend content changes, frontend editorial fallback, sitemap or llms-full behavior, metadata, canonical, hreflang, JSON-LD, private result/order/attempt surfaces, production writes, cache mutation, publish, or deploy.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/security-122-web-06-sitemap-llms-lkg-fail-closed.contract.test.ts tests/contracts/llms-content-page-partial-lkg.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - pnpm test:contract
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend
+    repository_rule_impact: existing_backend_authority_and_frontend_no_fallback_rules_preserved

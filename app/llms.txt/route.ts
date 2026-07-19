@@ -64,6 +64,16 @@ const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
   "computer-occupations-all-other",
 ]);
 
+type ContentPageAuthorityResult = {
+  pages: ContentPage[];
+  authorityAvailable: boolean;
+};
+
+const UNAVAILABLE_CONTENT_PAGE_AUTHORITY: ContentPageAuthorityResult = {
+  pages: [],
+  authorityAvailable: false,
+};
+
 function toCanonical(siteUrl: string, path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
   return `${siteUrl}${normalized}`;
@@ -279,18 +289,20 @@ export async function GET() {
     ),
     withLlmsRouteBudget(
       () =>
-        listDiscoverableContentPagesWithLastKnownGood("en").then((result) =>
-          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
-        ),
-      [],
+        listDiscoverableContentPagesWithLastKnownGood("en").then((result) => {
+          const pages = limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages);
+          return { pages, authorityAvailable: pages.length > 0 };
+        }),
+      UNAVAILABLE_CONTENT_PAGE_AUTHORITY,
       { timeoutMs: LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS }
     ),
     withLlmsRouteBudget(
       () =>
-        listDiscoverableContentPagesWithLastKnownGood("zh").then((result) =>
-          limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
-        ),
-      [],
+        listDiscoverableContentPagesWithLastKnownGood("zh").then((result) => {
+          const pages = limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages);
+          return { pages, authorityAvailable: pages.length > 0 };
+        }),
+      UNAVAILABLE_CONTENT_PAGE_AUTHORITY,
       { timeoutMs: LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS }
     ),
     withLlmsRouteBudget(
@@ -305,15 +317,21 @@ export async function GET() {
   const personalityEntries = personalityResult.paths;
   const personalityAuthorityAvailable =
     personalityResult.mbtiAuthorityAvailable && personalityResult.enneagramAuthorityAvailable;
+  const contentPageAuthorityAvailable =
+    enDiscoverableContentPages.authorityAvailable && zhDiscoverableContentPages.authorityAvailable;
 
   const helpEntries = dedupePaths([
-    ...enDiscoverableContentPages.filter((page) => page.kind === "help").map((page) => localizedContentPagePath(page, "en")),
-    ...zhDiscoverableContentPages.filter((page) => page.kind === "help").map((page) => localizedContentPagePath(page, "zh")),
+    ...enDiscoverableContentPages.pages
+      .filter((page) => page.kind === "help")
+      .map((page) => localizedContentPagePath(page, "en")),
+    ...zhDiscoverableContentPages.pages
+      .filter((page) => page.kind === "help")
+      .map((page) => localizedContentPagePath(page, "zh")),
   ]);
   const contentPageEntries = dedupePaths(
     [
-      ...enDiscoverableContentPages.map((page) => ({ page, locale: "en" as const })),
-      ...zhDiscoverableContentPages.map((page) => ({ page, locale: "zh" as const })),
+      ...enDiscoverableContentPages.pages.map((page) => ({ page, locale: "en" as const })),
+      ...zhDiscoverableContentPages.pages.map((page) => ({ page, locale: "zh" as const })),
     ]
       .filter(({ page }) => page.kind !== "help" && page.isPublic && page.isIndexable)
       .map(({ page, locale }) => localizedContentPagePath(page, locale))
@@ -402,7 +420,7 @@ export async function GET() {
   return new NextResponse(lines.join("\n"), {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
-      "Cache-Control": personalityAuthorityAvailable
+      "Cache-Control": personalityAuthorityAvailable && contentPageAuthorityAvailable
         ? "public, s-maxage=3600, stale-while-revalidate=86400"
         : "private, no-store, max-age=0",
     },
