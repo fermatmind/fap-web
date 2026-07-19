@@ -46436,8 +46436,8 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-api PR #3185 is MERGED as e5edc5cc7e0537abc3580d16786a7635415e7f05; fap-api origin/main contains that merge, the PR6 branch/worktree was cleaned, and this fap-web task started from origin/main 478d3431589c752e5d7c88baab405e3e5cc80b9e without waiting for staging deploy."
     },
-    "status": "ready_to_merge",
-    "commit_sha": "b7e332aef4980254903420993868afc34cd2b54f",
+    "status": "merged",
+    "commit_sha": "747bd0df4ff7b632fbb271dc5fcf62329118b2bf",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1788",
     "checks": {
       "manifest_registration": {
@@ -46469,12 +46469,12 @@
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-19T02:46:48Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -46551,8 +46551,87 @@
         "at": "2026-07-19T02:39:40Z",
         "status": "ready_to_merge",
         "summary": "Exact head 9300666aa85bd2e5e6bed89f2339a7d4998f4a15 passed contracts, both freeze suites, CodeQL, and an unchanged-head build retry after the first build hit a retryable public API REQUEST_TIMEOUT during static params collection. The rerun passed build, lint, typecheck, and a11y. Codex reviewed the exact head and reported no major issues; all threads are resolved and merge state is clean. Recorded ready_to_merge before squash merge."
+      },
+      {
+        "at": "2026-07-19T02:46:48Z",
+        "status": "merged",
+        "summary": "PR #1788 merged by squash as 747bd0df4ff7b632fbb271dc5fcf62329118b2bf from final reviewed head bd0debbdeab4ece35344779c377b33abdf9967ea. origin/main contains the merge, the merged tree matches the reviewed head, the remote branch and isolated local worktree/branch were cleaned, and post-merge focused revalidation passed 13 files / 107 tests."
       }
     ],
-    "updated_at": "2026-07-19T02:39:40Z"
+    "updated_at": "2026-07-19T02:46:48Z"
+  },
+  "SAEP-PROPOSED-WEB-LLMS-CONTENT-PAGE-PARTIAL-LKG-01": {
+    "id": "SAEP-PROPOSED-WEB-LLMS-CONTENT-PAGE-PARTIAL-LKG-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/saep-web-llms-content-page-partial-lkg-01",
+    "title": "SAEP-PROPOSED-WEB-LLMS-CONTENT-PAGE-PARTIAL-LKG-01: fix(seo): reject partial content-page authority snapshots in llms.txt",
+    "depends_on": [
+      "PUBLIC-STABILITY-WEB-06",
+      "GLOBAL-EN-ZH-CONTENT-PAGES-LLMS-EXPOSURE-REPAIR-01"
+    ],
+    "dependency_verification": {
+      "github_merged": true,
+      "dependency_origin_main_contains_merge": true,
+      "evidence": "fap-web PR #922 is MERGED as de67e5c5e8fec0fa87146e5954984ff3d817be8d and PR #1742 is MERGED as a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc; both merge commits are contained by origin/main. This branch started from origin/main 747bd0df4ff7b632fbb271dc5fcf62329118b2bf after serial PR7 closeout."
+    },
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The continuous execution goal explicitly authorized the exact Stage 131 blueprint id, title, branch, dependency, allowed paths, validation floor, and full PR lifecycle; the historical planning-only flag is superseded by that current user authorization."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "Both declared dependency PRs are merged and contained by fap-web origin/main."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "Node 24 focused contracts pass 2 files / 12 tests, covering complete snapshot LKG recovery, no-LKG fail closed, mixed noindex/transient revocation, complete noindex refresh, and source/runtime enforcement of the two-locale llms.txt cache gate."
+      },
+      "required_local_checks": {
+        "status": "pass",
+        "evidence": "Node 24 validation passed: focused contracts 2 files / 12 tests; lint; spacing; typecheck; full contracts 761 files / 4364 tests using the compatible bundled Python 3.12; production-parameter build with 206/206 generated pages; YAML and JSON parsing; git diff --check; and exact changed-file scope validation (6 changed paths, 9 allowed paths, no outside-scope paths). The first full-contract attempt used the system Python and failed only two Career KG validator tests because that older interpreter cannot parse Path | None; the complete unchanged-code rerun passed."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR has not been opened."
+      },
+      "codex_review": {
+        "status": "pending",
+        "evidence": "Exact-head review will run after the PR is opened and required checks start."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-19T02:59:02Z",
+        "status": "in_progress",
+        "summary": "After PR7 merged, synced, and cleaned, verified both declared dependencies on GitHub and origin/main, created the exact isolated branch from origin/main 747bd0df4ff7b632fbb271dc5fcf62329118b2bf, and implemented only the Stage 131 content-page collection completeness and llms.txt cache-control scope. No production, CMS, database, search, cache, media, publish, or deploy mutation was executed. Focused Node 24 contracts pass 2 files / 12 tests."
+      },
+      {
+        "at": "2026-07-19T03:12:16Z",
+        "status": "ready_for_pr",
+        "summary": "All required local gates pass on Node 24: focused contracts 2 files / 12 tests; lint; spacing; typecheck; full contracts 761 files / 4364 tests; production-parameter build with 206/206 generated pages; YAML/JSON parsing; diff check; and exact six-path scope validation. The first full-contract attempt exposed only the known system-Python incompatibility in two Career KG validator tests; rerunning the complete suite with bundled Python 3.12 passed. Test-generated unrelated files were restored exactly to HEAD."
+      }
+    ],
+    "updated_at": "2026-07-19T03:12:16Z"
   }
 }

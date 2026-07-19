@@ -379,6 +379,10 @@ function arePublicIndexableContentPages(pages: ContentPage[]): boolean {
   return pages.length > 0 && pages.every(isPublicIndexableContentPage);
 }
 
+function isCompleteDiscoverableContentPageSnapshot(pages: ContentPage[]): boolean {
+  return pages.every(isPublicIndexableContentPage);
+}
+
 export function listContentPageSlugs(): ContentPageSlug[] {
   return [...CONTENT_PAGE_SLUGS];
 }
@@ -466,29 +470,83 @@ export async function listDiscoverableContentPagesWithLastKnownGood(
 ): Promise<LastKnownGoodResult<ContentPage[]>> {
   const normalizedLocale = normalizeLocale(locale);
   const kindKey = kind ?? "all";
+  const collectionKey = `content-pages:discoverable-detail:${normalizedLocale}:${kindKey}`;
+  const settledPages = await Promise.allSettled(
+    DISCOVERABLE_CONTENT_PAGE_KEYS.map(async (slug) => ({
+      slug,
+      result: await getContentPageWithLastKnownGood(slug, normalizedLocale),
+    }))
+  );
+  const authoritativeExcludedSlugs = new Set<string>();
+  const pages: ContentPage[] = [];
+  let transientError: unknown = null;
 
-  return withLastKnownGood({
-    key: `content-pages:discoverable-detail:${normalizedLocale}:${kindKey}`,
+  for (const result of settledPages) {
+    if (result.status === "rejected") {
+      transientError ??= result.reason ?? new Error("Content-page authority request failed.");
+      continue;
+    }
+
+    const { slug, result: pageResult } = result.value;
+    if (pageResult.source === "last-known-good") {
+      transientError ??= pageResult.error ?? new Error(`Content-page authority request failed for ${slug}.`);
+      continue;
+    }
+
+    const page = pageResult.value;
+    if (page && page.slug !== slug) {
+      transientError ??= new Error(`Content-page authority returned a mismatched slug for ${slug}.`);
+      continue;
+    }
+
+    if (!isPublicIndexableContentPage(page) || (kind && page.kind !== kind)) {
+      authoritativeExcludedSlugs.add(slug);
+      continue;
+    }
+
+    pages.push(page);
+  }
+
+  if (!transientError) {
+    return withLastKnownGood({
+      key: collectionKey,
+      load: async () => pages,
+      // The loader reached a terminal public/private/noindex result for every
+      // expected key, so an empty array is a complete authoritative snapshot.
+      isUsable: isCompleteDiscoverableContentPageSnapshot,
+      // An empty collection must not make a later transient response cacheable.
+      isStaleUsable: arePublicIndexableContentPages,
+      clearStaleOnUnusable: true,
+    });
+  }
+
+  const staleResult = await withLastKnownGood<ContentPage[]>({
+    key: collectionKey,
     load: async () => {
-      const pages = await Promise.all(
-        DISCOVERABLE_CONTENT_PAGE_KEYS.map(async (slug) => {
-          try {
-            return (await getContentPageWithLastKnownGood(slug, normalizedLocale)).value;
-          } catch {
-            return null;
-          }
-        })
-      );
-
-      return pages
-        .filter((page): page is ContentPage => Boolean(page))
-        .filter((page) => page.isPublic && page.isIndexable)
-        .filter((page) => !kind || page.kind === kind);
+      throw transientError;
     },
-    isUsable: arePublicIndexableContentPages,
+    isUsable: isCompleteDiscoverableContentPageSnapshot,
     isStaleUsable: arePublicIndexableContentPages,
     clearStaleOnUnusable: true,
   });
+
+  const revokesStaleMembership = staleResult.value.some((page) =>
+    authoritativeExcludedSlugs.has(page.slug)
+  );
+  if (!revokesStaleMembership) {
+    return staleResult;
+  }
+
+  // A terminal private/noindex/absent result outranks an older public snapshot.
+  // Clear the conflicting collection and fail closed instead of returning a
+  // filtered partial cohort that could itself look complete or be cached.
+  await withLastKnownGood<ContentPage[]>({
+    key: collectionKey,
+    load: async () => [],
+    isUsable: () => false,
+    clearStaleOnUnusable: true,
+  });
+  throw transientError;
 }
 
 export async function listApprovedEnglishContentPagesWithLastKnownGood(): Promise<
