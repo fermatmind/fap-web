@@ -46575,8 +46575,8 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-web PR #922 is MERGED as de67e5c5e8fec0fa87146e5954984ff3d817be8d and PR #1742 is MERGED as a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc; both merge commits are contained by origin/main. This branch started from origin/main 747bd0df4ff7b632fbb271dc5fcf62329118b2bf after serial PR7 closeout."
     },
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "local_checks_passed",
+    "commit_sha": "778449bd0deddfbd2720df16b20bff84a1c2c534",
     "pr_url": null,
     "checks": {
       "manifest_registration": {
@@ -46630,8 +46630,13 @@
         "at": "2026-07-19T03:12:16Z",
         "status": "ready_for_pr",
         "summary": "All required local gates pass on Node 24: focused contracts 2 files / 12 tests; lint; spacing; typecheck; full contracts 761 files / 4364 tests; production-parameter build with 206/206 generated pages; YAML/JSON parsing; diff check; and exact six-path scope validation. The first full-contract attempt exposed only the known system-Python incompatibility in two Career KG validator tests; rerunning the complete suite with bundled Python 3.12 passed. Test-generated unrelated files were restored exactly to HEAD."
+      },
+      {
+        "at": "2026-07-19T03:13:54Z",
+        "status": "local_checks_passed",
+        "summary": "Explicitly staged the exact six allowed changed paths, validated the cached diff and scope, and committed the locally verified implementation as 778449bd0deddfbd2720df16b20bff84a1c2c534. commit_sha is intentionally the implementation commit; this ledger-binding commit follows it."
       }
     ],
-    "updated_at": "2026-07-19T03:12:16Z"
+    "updated_at": "2026-07-19T03:13:54Z"
   }
 }
