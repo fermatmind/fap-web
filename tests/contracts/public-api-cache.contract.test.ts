@@ -57,13 +57,22 @@ describe("public api cache contract", () => {
 
   it("forces static rendering only for public SEO detail pages that do not require per-request nonce HTML", () => {
     const publicSeoDetailRoutes = [
-      "app/(localized)/[locale]/personality/[type]/page.tsx",
       "app/(localized)/[locale]/career/guides/[slug]/page.tsx",
     ];
 
     for (const file of publicSeoDetailRoutes) {
       expect(read(file)).toContain('export const dynamic = "force-static"');
     }
+  });
+
+  it("renders personality detail and comparison HTML per request so the CSP nonce matches the document", () => {
+    const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
+
+    expect(source).toContain('import { connection } from "next/server"');
+    expect(source.match(/await connection\(\);/g)).toHaveLength(2);
+    expect(source).toContain("export const revalidate = 300");
+    expect(source).not.toContain('export const dynamic = "force-static"');
+    expect(source).not.toContain('export const dynamic = "force-dynamic"');
   });
 
   it("renders Topic detail HTML per request for nonce CSP while retaining the shared data-cache window", () => {

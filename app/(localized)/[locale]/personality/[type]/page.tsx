@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
+import { connection } from "next/server";
 import { cache } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { TrackedEntryCtaLink } from "@/components/analytics/TrackedEntryCtaLink";
@@ -51,7 +52,6 @@ import { buildBreadcrumbJsonLd, buildFAQPageJsonLd, buildWebPageJsonLd } from "@
 import { buildPageMetadata, normalizeTwitterImages, resolveTwitterCard } from "@/lib/seo/metadata";
 import { canonicalUrl } from "@/lib/site";
 
-export const dynamic = "force-static";
 export const revalidate = 300;
 
 type PersonalityIntentLink = {
@@ -1317,6 +1317,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; type: string }>;
 }): Promise<Metadata> {
+  await connection();
   const { locale: localeParam, type } = await params;
   const locale = resolveLocale(localeParam);
 
@@ -1440,6 +1441,7 @@ export default async function PersonalityDetailPage({
 }: {
   params: Promise<{ locale: string; type: string }>;
 }) {
+  await connection();
   const { locale: localeParam, type } = await params;
   const locale = resolveLocale(localeParam);
 
