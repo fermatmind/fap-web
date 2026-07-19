@@ -46804,7 +46804,7 @@
     "depends_on": ["BIG5-EN52-CONTROLLED-PUBLISHER-12"],
     "status": "github_checks_pending",
     "commit_sha": "ad97a0a89de353bb55654e3dd379de6ef91c28cb",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1792",
     "checks": {
       "authorization": {
         "status": "pass",
@@ -46853,8 +46853,13 @@
         "at": "2026-07-19T07:01:08Z",
         "status": "local_checks_passed",
         "summary": "Explicitly staged the exact nine changed paths and committed the locally verified implementation as ad97a0a89de353bb55654e3dd379de6ef91c28cb. commit_sha is bound to that implementation commit; this following ledger-only commit records the binding before push."
+      },
+      {
+        "at": "2026-07-19T07:02:08Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact branch and opened fap-web PR #1792 with what, why, validation, security/privacy, repository-rule impact, deferred items, and no-production-execution sections. Required GitHub checks and exact-head Codex review are pending; no staging wait or deploy action is included."
       }
     ],
-    "updated_at": "2026-07-19T07:01:08Z"
+    "updated_at": "2026-07-19T07:02:08Z"
   }
 }
