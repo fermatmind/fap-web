@@ -46437,7 +46437,7 @@
       "evidence": "fap-api PR #3185 is MERGED as e5edc5cc7e0537abc3580d16786a7635415e7f05; fap-api origin/main contains that merge, the PR6 branch/worktree was cleaned, and this fap-web task started from origin/main 478d3431589c752e5d7c88baab405e3e5cc80b9e without waiting for staging deploy."
     },
     "status": "ready_for_pr",
-    "commit_sha": null,
+    "commit_sha": "eec8a1eba37be3d6544299704a6233df3c593fb3",
     "pr_url": null,
     "checks": {
       "manifest_registration": {
@@ -46492,8 +46492,13 @@
         "at": "2026-07-19T01:20:39Z",
         "status": "ready_for_pr",
         "summary": "All required local gates pass on Node 24: focused contracts 12 files / 102 tests; lint; spacing; typecheck; full contracts 760 files / 4373 tests; production-parameter build with 206/206 generated pages; YAML/JSON parsing; git diff --check; and exact scope validation with 44 changed paths contained in the 46-path allowlist. No production, database, CMS, publish, deploy, content-authority, metadata, sitemap, or llms write was executed."
+      },
+      {
+        "at": "2026-07-19T01:22:59Z",
+        "status": "ready_for_pr",
+        "summary": "Committed the scoped implementation and locally verified evidence as eec8a1eba37be3d6544299704a6233df3c593fb3 after explicit 44-path staging, cached diff validation, and exact staged-scope validation."
       }
     ],
-    "updated_at": "2026-07-19T01:20:39Z"
+    "updated_at": "2026-07-19T01:22:59Z"
   }
 }
