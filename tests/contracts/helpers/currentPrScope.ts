@@ -1470,6 +1470,26 @@ const BIG5_114_LLMS_WORKER_CACHE_CONSISTENCY_REPAIR_01_ALLOWED_FILES = new Set([
   "tests/contracts/helpers/currentPrScope.ts",
 ]);
 
+const BIG5_EN52_104_DISCOVERABILITY_CONVERGENCE_13_ALLOWED_FILES = new Set([
+  "app/(localized)/[locale]/personality/big-five/[...slug]/page.tsx",
+  "app/llms-full.txt/route.ts",
+  "app/llms.txt/route.ts",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "generated/pr-train-sidecar-issues/sidecar_issues.json",
+  "generated/pr-train-sidecar-issues/sidecar_issues.md",
+  "lib/personality/bigFivePublicRoutes.ts",
+  "lib/seo/backendSitemapSource.ts",
+  "next.config.mjs",
+  "tests/contracts/big5-104-legacy-alias-redirects.contract.test.ts",
+  "tests/contracts/big5-104-llms-worker-cache-consistency.contract.test.ts",
+  "tests/contracts/big5-104-seo-runtime-convergence.contract.test.ts",
+  "tests/contracts/big5-114-llms-worker-cache-consistency-repair-01.contract.test.ts",
+  "tests/contracts/big5-114-seo-runtime-release-01.contract.test.ts",
+  "tests/contracts/big5-zh-legacy-exact-301-repair-01.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 const BIG5_SITEMAP_PRIVATE_PATH_GATE_PRECISION_REPAIR_01_ALLOWED_FILES = new Set([
   "docs/codex/pr-train-state.json",
   "docs/codex/pr-train.yaml",
@@ -5157,6 +5177,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 
   if (CURRENT_BRANCH === "codex/big5-114-llms-worker-cache-consistency-repair-01") {
     return BIG5_114_LLMS_WORKER_CACHE_CONSISTENCY_REPAIR_01_ALLOWED_FILES.has(file);
+  }
+
+  if (CURRENT_BRANCH === "codex/big5-en52-104-discoverability-convergence-13") {
+    return BIG5_EN52_104_DISCOVERABILITY_CONVERGENCE_13_ALLOWED_FILES.has(file);
   }
 
   if (CURRENT_BRANCH === "codex/big5-sitemap-private-path-gate-precision-repair-01") {

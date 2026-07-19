@@ -245,7 +245,7 @@ export function extractBackendSitemapCareerJobPaths(payload: BackendSitemapSourc
   return [...paths].sort((left, right) => left.localeCompare(right));
 }
 
-export function extractBackendSitemapBigFiveZhPaths(payload: BackendSitemapSourcePayload): string[] {
+export function extractBackendSitemapBigFiveCanonicalPaths(payload: BackendSitemapSourcePayload): string[] {
   const items = Array.isArray(payload.items) ? payload.items : [];
   const paths = new Set<string>();
 
@@ -258,6 +258,23 @@ export function extractBackendSitemapBigFiveZhPaths(payload: BackendSitemapSourc
 
   return [...paths].sort((left, right) => left.localeCompare(right));
 }
+
+function extractBackendSitemapBigFiveAuthorityCohort(payload: BackendSitemapSourcePayload): string[] {
+  const items = Array.isArray(payload.items) ? payload.items : [];
+  const paths = new Set<string>();
+
+  for (const item of items) {
+    const path = extractPathFromCanonicalUrl(item?.loc);
+    if (BIG_FIVE_PUBLIC_ASSET_RE.test(normalizePath(path))) {
+      paths.add(normalizePath(path));
+    }
+  }
+
+  return [...paths].sort((left, right) => left.localeCompare(right));
+}
+
+/** @deprecated Use extractBackendSitemapBigFiveCanonicalPaths for the bilingual canonical cohort. */
+export const extractBackendSitemapBigFiveZhPaths = extractBackendSitemapBigFiveCanonicalPaths;
 
 export function isCompleteBackendSitemapBigFiveCohort(paths: readonly string[]): boolean {
   const actual = new Set(paths.map((path) => normalizePath(path)));
@@ -317,7 +334,7 @@ export async function listBackendSitemapCareerJobPaths(
   return filteredPaths;
 }
 
-export async function listBackendSitemapBigFiveZhPaths(
+export async function listBackendSitemapBigFiveCanonicalPaths(
   options: BackendSitemapCareerJobPathOptions = {}
 ): Promise<string[]> {
   const shouldUseCache = options.limit === undefined && !options.signal;
@@ -326,10 +343,12 @@ export async function listBackendSitemapBigFiveZhPaths(
   }
 
   const payload = await fetchBackendSitemapSource(options.signal);
-  const canonicalPaths = extractBackendSitemapBigFiveZhPaths(payload);
-  if (!isCompleteBackendSitemapBigFiveCohort(canonicalPaths)) {
-    throw new Error(`Incomplete Big Five sitemap authority cohort: expected 104 canonical paths, received ${canonicalPaths.length}.`);
+  const authorityCohort = extractBackendSitemapBigFiveAuthorityCohort(payload);
+  if (!isCompleteBackendSitemapBigFiveCohort(authorityCohort)) {
+    throw new Error(`Incomplete Big Five sitemap authority cohort: expected 104 canonical paths, received ${authorityCohort.length}.`);
   }
+
+  const canonicalPaths = extractBackendSitemapBigFiveCanonicalPaths(payload);
 
   const filteredPaths = limitCandidatePaths(canonicalPaths, options.limit);
 
@@ -339,6 +358,9 @@ export async function listBackendSitemapBigFiveZhPaths(
 
   return filteredPaths;
 }
+
+/** @deprecated Use listBackendSitemapBigFiveCanonicalPaths for the bilingual canonical cohort. */
+export const listBackendSitemapBigFiveZhPaths = listBackendSitemapBigFiveCanonicalPaths;
 
 export async function listBackendSitemapEnneagramPublicAssetPaths(
   options: BackendSitemapCareerJobPathOptions = {}
