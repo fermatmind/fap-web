@@ -46691,9 +46691,9 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "PR #1789 merged as e49a8c887d5d1e86b815ec02c38e3e444a56dbfc and is contained by fap-web origin/main. The accepted SAEP-SCAN-693164e8d028 record was read-only revalidated. Existing backend-authoritative Career directory facets, Family Hub endpoint/adapter/route, and Family Hub visible-child anchors provide the SAEP-CAR-01 and SAEP-LINK-03 authority surfaces needed for this consumer-only final hop."
     },
-    "status": "local_checks_passed",
+    "status": "github_checks_pending",
     "commit_sha": "8bfdd5ea2f6f20f81052f88754a681a0deaa9b62",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1790",
     "checks": {
       "manifest_registration": {
         "status": "pass",
@@ -46751,8 +46751,13 @@
         "at": "2026-07-19T04:16:53Z",
         "status": "local_checks_passed",
         "summary": "Explicitly staged the exact five allowed changed paths, validated the cached diff and scope, and committed the locally verified implementation as 8bfdd5ea2f6f20f81052f88754a681a0deaa9b62. commit_sha is intentionally bound to that implementation commit; the following commits are ledger-only."
+      },
+      {
+        "at": "2026-07-19T04:18:11Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact branch and opened fap-web PR #1790 with the required what, why, validation, security/privacy, repository-rule impact, deferred, and no-production-execution sections. This ledger-only binding commit follows; final exact-head GitHub checks and Codex review remain mandatory."
       }
     ],
-    "updated_at": "2026-07-19T04:16:53Z"
+    "updated_at": "2026-07-19T04:18:11Z"
   }
 }
