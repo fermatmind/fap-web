@@ -46576,7 +46576,7 @@
       "evidence": "fap-web PR #922 is MERGED as de67e5c5e8fec0fa87146e5954984ff3d817be8d and PR #1742 is MERGED as a1fa4c1a8067ef5e3da4e286f881ba1b1198d8cc; both merge commits are contained by origin/main. This branch started from origin/main 747bd0df4ff7b632fbb271dc5fcf62329118b2bf after serial PR7 closeout."
     },
     "status": "review_fix_local_pass",
-    "commit_sha": "4d7a25a088ff515982070162e7e9b4ec399c15a7",
+    "commit_sha": "cb25c67acbf16e604a7fce7de4507f8a4c4474e4",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1789",
     "checks": {
       "manifest_registration": {
@@ -46655,8 +46655,13 @@
         "at": "2026-07-19T03:42:44Z",
         "status": "review_fix_local_pass",
         "summary": "All seven GitHub checks passed on exact head 0ea7e157a7515f26c58f20c698d419dbccd757d4. The second exact-head Codex review found one valid P2: stale per-page noindex state was not carried into collection exclusions before an older collection LKG fallback. Added that precedence guard and a direct cross-layer regression. Node 24 focused contracts pass 2 files / 14 tests; lint, spacing, typecheck, full contracts 761 files / 4382 tests, and production build 206/206 pass. One unrelated analytics monitor timing failure passed immediately alone and on the next complete run."
+      },
+      {
+        "at": "2026-07-19T03:43:31Z",
+        "status": "review_fix_local_pass",
+        "summary": "Committed the stale per-page noindex precedence repair as cb25c67acbf16e604a7fce7de4507f8a4c4474e4 and bound commit_sha to that implementation commit. This ledger-only binding commit follows it; final exact-head checks and review remain pending after push."
       }
     ],
-    "updated_at": "2026-07-19T03:42:44Z"
+    "updated_at": "2026-07-19T03:43:31Z"
   }
 }
