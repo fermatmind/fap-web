@@ -60,6 +60,16 @@ function textOf(value) {
   return "";
 }
 
+function normalizedVisibleText(value) {
+  return String(value ?? "").replace(/\s+/g, " ").trim();
+}
+
+export function visibleTextFromHtml(pageHtml) {
+  const document = new JSDOM(pageHtml).window.document;
+  document.querySelectorAll('script, style, template, noscript, [hidden], [aria-hidden="true"], input[type="hidden"]').forEach((node) => node.remove());
+  return normalizedVisibleText(document.body?.textContent);
+}
+
 function faqFromJsonLd(jsonld) {
   if (!jsonld || typeof jsonld !== "object") return [];
   if (jsonld["@type"] === "FAQPage") return Array.isArray(jsonld.mainEntity) ? jsonld.mainEntity : [];
@@ -134,12 +144,21 @@ export function validateRuntimeRecord({ slug, expectedSectionsSha256, approvedPa
     const pageRobots = document.querySelector('meta[name="robots"]')?.getAttribute("content") ?? null;
     if (pageCanonical !== expectedCanonical) fail("canonical.page", expectedCanonical, pageCanonical);
     if (pageRobots !== "index, follow") fail("robots.page", "index, follow", pageRobots);
-    const visibleText = document.body?.textContent?.replace(/\s+/g, " ").trim() ?? "";
+    const visibleText = visibleTextFromHtml(pageHtml);
     for (const section of sections ?? []) {
       const title = textOf(section?.title);
-      const body = textOf(section?.body);
-      if (title && !visibleText.includes(title)) fail(`page.visible_section.${section?.key ?? section?.id}.title`, title, "missing");
-      if (body && !visibleText.includes(body.slice(0, 24))) fail(`page.visible_section.${section?.key ?? section?.id}.body`, `${body.slice(0, 24)}…`, "missing");
+      const sectionKey = section?.key ?? section?.id;
+      if (title && !visibleText.includes(normalizedVisibleText(title))) fail(`page.visible_section.${sectionKey}.title`, title, "missing from visible DOM");
+      const rows = Array.isArray(section?.rows) ? section.rows : [];
+      const expectedBodies = rows.length > 0
+        ? rows.flatMap((row) => Object.entries(row).map(([field, value]) => ({ field: `rows.${field}`, value: textOf(value) })))
+        : (Array.isArray(section?.body) ? section.body : [section?.body]).map((value, index) => ({ field: `body.${index}`, value: textOf(value) }));
+      for (const expectedBody of expectedBodies) {
+        const expectedText = normalizedVisibleText(expectedBody.value);
+        if (expectedText && !visibleText.includes(expectedText)) {
+          fail(`page.visible_section.${sectionKey}.${expectedBody.field}`, expectedText, "missing or incomplete in visible DOM");
+        }
+      }
     }
   } else {
     fail("page.html", "nonempty public HTML", typeof pageHtml);

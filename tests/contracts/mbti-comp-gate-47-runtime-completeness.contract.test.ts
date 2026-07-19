@@ -50,6 +50,14 @@ describe("MBTI-COMP-GATE-47 runtime completeness", () => {
     if (mutation === "wrong_key") record.payload.comparison_public_projection_v1.sections[2].key = "unexpected_key";
     if (mutation === "short_body") record.payload.comparison_public_projection_v1.sections[3].body = ["太短"];
     if (mutation === "wrong_canonical") record.payload.comparison_public_projection_v1.canonical_url = "https://fermatmind.com/zh/personality/wrong";
+    if (mutation === "visible_body_truncated") {
+      const body = record.payload.comparison_public_projection_v1.sections[0].body[0];
+      record.pageHtml = record.pageHtml.replace(body, body.slice(0, 24));
+    }
+    if (mutation === "body_only_in_hidden_script") {
+      const hiddenBodies = record.sections.map((section) => `${section.title} ${section.body[0]}`).join(" ");
+      record.pageHtml = record.pageHtml.replace(/<body>[\s\S]*<\/body>/, `<body><script type="application/json">${hiddenBodies}</script><div hidden>${hiddenBodies}</div></body>`);
+    }
     const result = validateRuntimeRecord({
       slug: fixture.slug,
       expectedSectionsSha256: mutation === "wrong_fingerprint" ? "0".repeat(64) : expectedSha,

@@ -46882,7 +46882,7 @@
     "branch": "codex/mbti-comp-gate-47",
     "title": "MBTI-COMP-GATE-47: add exact A/T runtime completeness gate",
     "depends_on": ["MBTI-COMP-RUNTIME-46"],
-    "status": "github_checks_pending",
+    "status": "baseline_repair_pending",
     "commit_sha": "1226008f38685ca2a1818b52c2c26669d61d9335",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1794",
     "checks": {
@@ -46894,18 +46894,18 @@
         "status": "pass",
         "evidence": "MBTI-COMP-RUNTIME-46 production code deploy, exact single-record INTP revision, rollback-safe write, 16/16 API/page readback, and fap-api operation report PR #3206 are complete."
       },
-      "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture and provenance contract passes 8/8 tests, including exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, and wrong canonical fail-closed cases; and deterministic derivation of all 16 runtime section fingerprints from the exact Approval39/Runtime46 review packages. The follow-up scope/Python environment regression set passes 5 files / 24 tests."},
-      "required_local_checks": {"status": "pass", "evidence": "Node 24 production readback passed exact 16/16 API and page targets with zero failures and recorded each approved payload SHA beside its derived runtime section SHA. Full contracts passed all four shards: 764 files / 4400 tests. Spacing, typecheck, Big Five freeze 29/29, Enneagram freeze 24/24, production-parameter build with 206/206 generated pages, YAML/JSON parse, zero-warning scoped ESLint excluding only user-owned ignored local artifacts, and git diff checks passed."},
+      "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture and provenance contract passes 10/10 tests, including exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, wrong canonical, truncated visible body, and body-only-in-hidden-script fail-closed cases; and deterministic derivation of all 16 runtime section fingerprints from the exact Approval39/Runtime46 review packages. The follow-up scope/Python environment regression set passes 5 files / 24 tests."},
+      "required_local_checks": {"status": "fail_closed", "evidence": "After exact-head Codex review removed the 24-character and hidden-script false positives, the read-only production readback correctly reports 0/16 and 464 precise visible-DOM failures. API payloads remain exact, but the public pages retain their comparison content only inside hidden Next streaming containers because the enforced CSP response nonce differs from the cached HTML nonce. A separate minimal pre-existing baseline repair is required before Gate 47 can return PASS."},
       "github_required_checks": {"status": "pending", "evidence": "Initial exact-head build failed in typecheck because the focused fixture calls omitted the newly required provenance arguments. The same-scope fixture repair now passes local typecheck, focused 8/8, ESLint, and diff checks; a new exact-head run is pending after push."},
       "codex_review": {"status": "pending", "evidence": null}
     },
     "scope_validation": {
       "allowed_paths_only": true,
-      "local_validation_passed": true,
+      "local_validation_passed": false,
       "github_checks_green": false,
       "post_merge_revalidated": false
     },
-    "failure_reason": null,
+    "failure_reason": "Fail-closed public page readback: production CSP header nonce and cached HTML nonce differ, so Next scripts are blocked and all 16 comparison pages remain in a hidden/loading state. Gate 47 must not merge or advance until an isolated baseline repair is deployed and the exact 16-target readback passes.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -46945,8 +46945,13 @@
         "at": "2026-07-19T08:21:00Z",
         "status": "github_checks_failed_repairing",
         "summary": "Initial GitHub build failed at typecheck: the two focused fixture invocations did not pass the newly required approvedPayloadSha256 and reviewSource arguments. Added those exact fixture provenance inputs within Gate 47 scope; local typecheck, focused 8/8, ESLint, and diff checks pass. The repair will trigger a fresh exact-head required-check run."
+      },
+      {
+        "at": "2026-07-19T08:33:00Z",
+        "status": "baseline_repair_pending",
+        "summary": "Exact-head Codex review identified two valid P2 false positives: only the first 24 body characters were checked and hidden script text counted as visible. The Gate now removes non-visible nodes and requires complete visible body/table-cell text; focused tests pass 10/10. The corrected production readback fails closed at 0/16 because a pre-existing CSP/cache nonce mismatch blocks Next scripts and leaves comparison content hidden. Gate 47 is held while a separate minimal baseline repair is completed."
       }
     ],
-    "updated_at": "2026-07-19T08:21:00Z"
+    "updated_at": "2026-07-19T08:33:00Z"
   }
 }
