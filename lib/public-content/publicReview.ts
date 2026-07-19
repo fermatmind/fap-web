@@ -9,7 +9,8 @@ export type PublicReview = {
 };
 
 const PUBLIC_REVIEW_STATE_SET = new Set<string>(PUBLIC_REVIEW_STATES);
-const UTC_TIMESTAMP_PATTERN = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,6})?Z$/;
+const UTC_TIMESTAMP_PATTERN =
+  /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(?:\.\d{1,6})?Z$/;
 
 export function unknownPublicReview(): PublicReview {
   return {
@@ -28,12 +29,34 @@ function normalizeUtcTimestamp(value: unknown): string | null | undefined {
     return null;
   }
 
-  if (typeof value !== "string" || !UTC_TIMESTAMP_PATTERN.test(value)) {
+  if (typeof value !== "string") {
+    return undefined;
+  }
+
+  const match = UTC_TIMESTAMP_PATTERN.exec(value);
+  if (!match) {
     return undefined;
   }
 
   const timestamp = Date.parse(value);
-  return Number.isFinite(timestamp) ? new Date(timestamp).toISOString() : undefined;
+  if (!Number.isFinite(timestamp)) {
+    return undefined;
+  }
+
+  const parsed = new Date(timestamp);
+  const expectedUtcParts = match.slice(1, 7).map(Number);
+  const parsedUtcParts = [
+    parsed.getUTCFullYear(),
+    parsed.getUTCMonth() + 1,
+    parsed.getUTCDate(),
+    parsed.getUTCHours(),
+    parsed.getUTCMinutes(),
+    parsed.getUTCSeconds(),
+  ];
+
+  return parsedUtcParts.every((part, index) => part === expectedUtcParts[index])
+    ? parsed.toISOString()
+    : undefined;
 }
 
 export function normalizePublicReview(value: unknown): PublicReview {

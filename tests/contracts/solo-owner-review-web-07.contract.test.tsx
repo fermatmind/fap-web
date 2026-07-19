@@ -42,6 +42,7 @@ describe("SOLO-OWNER-REVIEW-WEB-07 public review contract", () => {
     ["private reviewer identity", { review_state: "approved", last_reviewed_at: null, reviewer: { name: "Private" } }],
     ["legacy state", { review_state: "reviewed", last_reviewed_at: null, reviewer: null }],
     ["malformed timestamp", { review_state: "approved", last_reviewed_at: "2026-07-18", reviewer: null }],
+    ["overflowed timestamp", { review_state: "approved", last_reviewed_at: "2026-02-31T12:00:00Z", reviewer: null }],
   ])("fails %s closed", (_label, payload) => {
     expect(normalizePublicReview(payload)).toEqual({
       reviewState: "unknown",

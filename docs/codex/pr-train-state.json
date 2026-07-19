@@ -46450,7 +46450,7 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "The normalized review regression set passes 12 files / 102 tests on Node 24, covering exact fail-closed normalization and Article, Personality, Career, Research, Support consumers."
+        "evidence": "After the scoped Codex review repair, the normalized review regression set passes 12 files / 103 tests on Node 24, covering strict overflow-date rejection plus exact fail-closed normalization and Article, Personality, Career, Research, Support consumers."
       },
       "required_local_checks": {
         "status": "pass",
@@ -46458,7 +46458,11 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR #1788 is open; build, contracts, Big Five freeze, Enneagram freeze, and CodeQL are in progress on the current ledger-binding head."
+        "evidence": "All seven GitHub checks passed on reviewed head 509ed4b447b20040ad17319c0874c400ee3a6cff. A same-scope Codex review fix is ready to push, so exact-head checks must rerun before merge."
+      },
+      "codex_review": {
+        "status": "addressed_pending_exact_head_review",
+        "evidence": "Codex reviewed exact head 509ed4b447b20040ad17319c0874c400ee3a6cff and raised one valid P2: JavaScript Date.parse accepts overflowed calendar dates. The adapter now compares parsed UTC components to the input and the regression suite includes 2026-02-31 fail-closed coverage."
       }
     },
     "scope_validation": {
@@ -46502,8 +46506,13 @@
         "at": "2026-07-19T01:24:04Z",
         "status": "github_checks_pending",
         "summary": "Pushed the scoped branch and opened PR #1788 with the exact manifest title and required body sections. GitHub build, contracts, Big Five freeze, Enneagram freeze, and CodeQL checks started; no production execution occurred."
+      },
+      {
+        "at": "2026-07-19T01:33:59Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on exact head 509ed4b447b20040ad17319c0874c400ee3a6cff. Codex review then identified one valid P2 overflow-date fail-closed gap. Added strict UTC component round-trip validation and a 2026-02-31 regression case. Node 24 focused contracts pass 12 files / 103 tests; lint, spacing, typecheck, JSON parsing, and diff checks pass. Exact-head GitHub checks and Codex review will rerun after push."
       }
     ],
-    "updated_at": "2026-07-19T01:24:04Z"
+    "updated_at": "2026-07-19T01:33:59Z"
   }
 }
