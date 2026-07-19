@@ -46874,5 +46874,64 @@
       }
     ],
     "updated_at": "2026-07-19T07:12:16Z"
+  },
+  "MBTI-COMP-GATE-47": {
+    "id": "MBTI-COMP-GATE-47",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-comp-gate-47",
+    "title": "MBTI-COMP-GATE-47: add exact A/T runtime completeness gate",
+    "depends_on": ["MBTI-COMP-RUNTIME-46"],
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "The continuous MBTI comparison train goal explicitly authorizes Gate 47, its exact branch and dependency, manifest/state registration, validation, and complete ordinary PR lifecycle."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "MBTI-COMP-RUNTIME-46 production code deploy, exact single-record INTP revision, rollback-safe write, 16/16 API/page readback, and fap-api operation report PR #3206 are complete."
+      },
+      "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture and provenance contract passes 8/8 tests, including exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, and wrong canonical fail-closed cases; and deterministic derivation of all 16 runtime section fingerprints from the exact Approval39/Runtime46 review packages. The follow-up scope/Python environment regression set passes 5 files / 24 tests."},
+      "required_local_checks": {"status": "pass", "evidence": "Node 24 production readback passed exact 16/16 API and page targets with zero failures and recorded each approved payload SHA beside its derived runtime section SHA. Full contracts passed all four shards: 764 files / 4400 tests. Spacing, typecheck, Big Five freeze 29/29, Enneagram freeze 24/24, production-parameter build with 206/206 generated pages, YAML/JSON parse, zero-warning scoped ESLint excluding only user-owned ignored local artifacts, and git diff checks passed."},
+      "github_required_checks": {"status": "pending", "evidence": null},
+      "codex_review": {"status": "pending", "evidence": null}
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-19T07:25:31Z",
+        "status": "in_progress",
+        "summary": "Started from exact fap-web origin/main 5becd8b7374240fabd58803276e73d26f361b0af after verifying the cross-repository Runtime 46 dependency. The new versioned Gate 47 preserves historical INDEX-43 evidence, prohibits comparison_blocks substitution and local runtime content fallback, and performs read-only exact-16 public API/page validation only. The unrelated user-owned .workbuddy path remains untouched and untracked."
+      },
+      {
+        "at": "2026-07-19T08:07:46Z",
+        "status": "ready_for_pr",
+        "summary": "The exact-16 backend-authoritative runtime gate passes 16/16 with exact nine-section order and approved fingerprints, FAQ/JSON-LD parity, API/page canonical and robots parity, and visible body readback. An isolated pre-existing generator determinism defect was repaired and merged in fap-web PR #1793 before rebasing this branch onto origin/main daaba5eceed5a419d4dbb32a683b616891644589. All local Gate 47 manifest checks now pass; the unrelated user-owned .workbuddy path remains untouched and excluded from scope."
+      },
+      {
+        "at": "2026-07-19T08:14:30Z",
+        "status": "ready_for_pr",
+        "summary": "Strengthened the review-fingerprint proof before commit: every locked runtime section SHA is now deterministically derived from its exact approved import payload (15 Approval39 records plus the Runtime46 INTP revision), and the public readback report records both hashes and the review source per slug. Focused provenance tests pass 8/8 and the refreshed read-only production readback remains exact 16/16."
+      }
+    ],
+    "updated_at": "2026-07-19T08:14:30Z"
   }
 }

@@ -1,0 +1,6 @@
+{
+  "slug": "intj-a-vs-intj-t",
+  "authoritySource": "fixture_backend_authority",
+  "sectionKeys": ["biggest_difference", "quick_judgment_table", "easy_misread", "work_scenarios", "relationship_scenarios", "stress_scenarios", "do_not_misjudge", "common_ground", "usage_boundary"],
+  "failureMutations": ["sections_empty_blocks_nonempty", "wrong_key", "short_body", "wrong_fingerprint", "wrong_canonical"]
+}
