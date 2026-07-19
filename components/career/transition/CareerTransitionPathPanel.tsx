@@ -348,7 +348,7 @@ export function CareerTransitionPathPanel({
       <section data-testid="career-transition-path-trust-summary">
         <TrustStrip
           locale={locale}
-          reviewerStatus={transitionPath.trustSummary.reviewerStatus}
+          publicReview={transitionPath.trustSummary.publicReview}
           indexState={transitionPath.seoContract.indexState}
           reasonCodes={transitionPath.trustSummary.reasonCodes}
           compact

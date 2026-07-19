@@ -1,6 +1,7 @@
 import { getCmsLandingSurfaceWithLastKnownGood, type CmsPageBlock } from "@/lib/cms/landing-surfaces";
 import type { CmsArticle, CmsArticleCategory, CmsArticleImageVariants, CmsArticleTag } from "@/lib/cms/articles";
 import { toApiLocale, type Locale } from "@/lib/i18n/locales";
+import { unknownPublicReview } from "@/lib/public-content/publicReview";
 
 const HOMEPAGE_RECOMMENDED_ARTICLE_BLOCK_KEYS = new Set([
   "recommended_articles",
@@ -230,7 +231,7 @@ function normalizeRecommendedArticle(value: unknown, locale: Locale): CmsArticle
     contentMd: "",
     contentHtml: "",
     authorName: null,
-    reviewerName: null,
+    publicReview: unknownPublicReview(),
     readingMinutes: normalizePositiveInteger(record.reading_minutes),
     coverImageUrl,
     coverImageAlt,

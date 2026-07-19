@@ -44,6 +44,7 @@ describe("career transition emphasis contract", () => {
             trustSummary: {
               allowTransitionRecommendation: true,
               reviewerStatus: "approved",
+              publicReview: { reviewState: "approved", lastReviewedAt: null, reviewer: null },
               reasonCodes: [],
             },
             whyThisPath: "Adjacent skill overlap and market transferability.",

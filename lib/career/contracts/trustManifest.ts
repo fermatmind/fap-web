@@ -1,3 +1,5 @@
+import { normalizePublicReview, type PublicReview } from "@/lib/public-content/publicReview";
+
 export type CareerTrustSourceTraceItem = {
   ref: string;
   source: string;
@@ -24,10 +26,10 @@ export type CareerTrustManifest = {
     derivation_policy: string | null;
     notes: string[];
   };
-  reviewer: {
+  publicReview: PublicReview;
+  legacyReview: {
     reviewed: boolean;
-    reviewer_id: string | null;
-    reviewer_status: string | null;
+    reviewerStatus: string | null;
   };
   ai_assistance: {
     used: boolean;
@@ -91,8 +93,10 @@ export function normalizeCareerTrustManifest(value: unknown): CareerTrustManifes
   const localeContext = isRecord(value.locale_context) ? value.locale_context : {};
   const methodology = isRecord(value.methodology) ? value.methodology : {};
   const reviewer = isRecord(value.reviewer) ? value.reviewer : {};
+  const legacyReviewerStatus = normalizeString(reviewer.reviewer_status ?? value.reviewer_status);
   const aiAssistance = isRecord(value.ai_assistance) ? value.ai_assistance : {};
   const quality = isRecord(value.quality) ? value.quality : {};
+  const publicReview = normalizePublicReview(isRecord(value.public_review) ? value.public_review : value);
 
   return {
     manifest_version: normalizeString(value.manifest_version) ?? "trust_manifest.v1",
@@ -113,10 +117,13 @@ export function normalizeCareerTrustManifest(value: unknown): CareerTrustManifes
       derivation_policy: normalizeString(methodology.derivation_policy),
       notes: normalizeStringArray(methodology.notes),
     },
-    reviewer: {
-      reviewed: normalizeBoolean(reviewer.reviewed),
-      reviewer_id: normalizeString(reviewer.reviewer_id),
-      reviewer_status: normalizeString(reviewer.reviewer_status),
+    publicReview,
+    legacyReview: {
+      reviewed:
+        normalizeBoolean(reviewer.reviewed) ||
+        legacyReviewerStatus === "reviewed" ||
+        legacyReviewerStatus === "approved",
+      reviewerStatus: legacyReviewerStatus,
     },
     ai_assistance: {
       used: normalizeBoolean(aiAssistance.used),
@@ -149,7 +156,8 @@ export function isCareerTrustManifest(value: unknown): value is CareerTrustManif
     isRecord(value.locale_context) &&
     Array.isArray(value.source_trace) &&
     isRecord(value.methodology) &&
-    isRecord(value.reviewer) &&
+    isRecord(value.publicReview) &&
+    isRecord(value.legacyReview) &&
     isRecord(value.ai_assistance) &&
     isRecord(value.quality)
   );

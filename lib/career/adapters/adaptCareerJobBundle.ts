@@ -286,9 +286,9 @@ function buildTrustManifest(raw: Record<string, unknown>, slug: string): CareerT
     locale_context: trustRaw.locale_context ?? {},
     source_trace: trustRaw.source_trace ?? [],
     methodology: trustRaw.methodology ?? {},
+    public_review: isRecord(trustRaw.public_review) ? trustRaw.public_review : trustRaw,
     reviewer: {
       reviewed: trustRaw.reviewed ?? reviewed,
-      reviewer_id: trustRaw.reviewer_id ?? null,
       reviewer_status: reviewerStatus,
     },
     ai_assistance: trustRaw.ai_assistance ?? {

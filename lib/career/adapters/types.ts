@@ -6,6 +6,7 @@ import type {
   CareerRecommendationRenderState,
 } from "@/lib/career/protocolReadiness";
 import type { SeoSurfaceViewModel } from "@/lib/seo/seoSurface";
+import type { PublicReview } from "@/lib/public-content/publicReview";
 
 export type CareerSeoContractAdapter = {
   canonicalPath: string | null;
@@ -449,6 +450,7 @@ export type CareerTransitionPreviewAdapter = {
   trustSummary: {
     allowTransitionRecommendation: boolean;
     reviewerStatus: string | null;
+    publicReview: PublicReview;
     reasonCodes: string[];
   };
   whyThisPath?: string | null;

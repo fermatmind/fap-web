@@ -91,6 +91,7 @@ function v1Asset(overrides: Record<string, unknown> = {}) {
     launch_state: "published",
     review_state: "approved",
     last_reviewed_at: "2026-07-14T10:00:00Z",
+    reviewer: null,
     updated_at: "2026-07-14T09:00:00Z",
     ...overrides,
   };
@@ -126,7 +127,7 @@ function v2Authority(overrides: Record<string, unknown> = {}) {
     },
     editorial_authority: {
       author: { name: "Backend Editorial Team", organization: "FermatMind", role: "Author" },
-      reviewer: { name: "Named Backend Reviewer", organization: "Independent Review", role: "Reviewer" },
+      reviewer: null,
       review_state: "approved",
       published_at: "2026-07-13T08:00:00Z",
       updated_at: "2026-07-14T09:00:00Z",
@@ -208,7 +209,11 @@ describe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21", () => {
       editorialAuthority: {
         reviewState: "approved",
         author: { name: "Backend Editorial Team" },
-        reviewer: { name: "Named Backend Reviewer" },
+        publicReview: {
+          reviewState: "approved",
+          lastReviewedAt: "2026-07-14T10:00:00.000Z",
+          reviewer: null,
+        },
       },
       schemaEligible: true,
     });
@@ -365,8 +370,8 @@ describe("ENNEAGRAM-PUBLIC-AUTHORITY-V2-FRONTEND-CONSUMER-21", () => {
     expect(screen.getByTestId("visible-authority-evidence")).toHaveTextContent(
       "Evidence does not establish a fixed identity or future result."
     );
-    expect(screen.getByTestId("editorial-authority")).toHaveTextContent("approved");
-    expect(screen.getByTestId("editorial-authority")).toHaveTextContent("Named Backend Reviewer");
+    expect(screen.getByTestId("editorial-authority")).toHaveTextContent("Human review completed");
+    expect(screen.getByTestId("editorial-authority")).not.toHaveTextContent("Named Backend Reviewer");
     expect(screen.getByText("Backend supplied public body.")).toBeInTheDocument();
     expect(screen.getByText("Backend supplied HTML body.")).toBeInTheDocument();
     expect(screen.queryByRole("img")).not.toBeInTheDocument();

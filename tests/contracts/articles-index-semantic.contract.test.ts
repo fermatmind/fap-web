@@ -12,7 +12,7 @@ const articleFixture: CmsArticle = {
   contentMd: "",
   contentHtml: "",
   authorName: null,
-  reviewerName: null,
+  publicReview: { reviewState: "unknown", lastReviewedAt: null, reviewer: null },
   readingMinutes: 4,
   coverImageUrl: null,
   coverImageAlt: null,

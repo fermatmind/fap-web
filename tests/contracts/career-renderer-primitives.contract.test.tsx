@@ -28,7 +28,7 @@ describe("career shared renderer primitives", () => {
     render(
       <TrustStrip
         locale="en"
-        reviewerStatus="reviewed"
+        publicReview={{ reviewState: "approved", lastReviewedAt: null, reviewer: null }}
         indexState="indexable"
         reasonCodes={["publish_ready"]}
         compact
@@ -36,7 +36,7 @@ describe("career shared renderer primitives", () => {
       />
     );
 
-    expect(screen.getByTestId("trust-strip")).toHaveTextContent("reviewer_status: reviewed");
+    expect(screen.getByTestId("trust-strip")).toHaveTextContent("Human review completed");
     expect(screen.getByTestId("trust-strip")).toHaveTextContent("index_state: indexable");
     expect(screen.getByTestId("trust-strip")).toHaveTextContent("reason_codes: publish_ready");
   });

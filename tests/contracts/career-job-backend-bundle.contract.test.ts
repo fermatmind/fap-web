@@ -112,6 +112,11 @@ describe("career job backend bundle contract", () => {
         },
         trust_manifest: {
           reviewer_status: "reviewed",
+          public_review: {
+            review_state: "approved",
+            last_reviewed_at: "2026-07-18T12:00:00.000000Z",
+            reviewer: null,
+          },
           content_version: "v1.2",
           data_version: "2026-04",
           logic_version: "logic.v1",
@@ -188,6 +193,11 @@ describe("career job backend bundle contract", () => {
     expect(detail?.claimPermissions.allow_salary_comparison).toBe(false);
     expect(detail?.seoContract.canonicalPath).toBe("/career/jobs/software-developer");
     expect(detail?.provenanceMeta.compilerVersion).toBe("v2.1");
+    expect(detail?.trustManifest?.publicReview).toEqual({
+      reviewState: "approved",
+      lastReviewedAt: "2026-07-18T12:00:00.000Z",
+      reviewer: null,
+    });
     expect(detail?.structuredData.occupation).toEqual({
       "@context": "https://schema.org",
       "@type": "Occupation",

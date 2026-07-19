@@ -34,6 +34,7 @@ function asset(overrides: Partial<PersonalityPublicContentAsset> = {}): Personal
     sitemapEligible: false,
     llmsEligible: false,
     launchState: "content_ready",
+    publicReview: { reviewState: "unknown", lastReviewedAt: null, reviewer: null },
     reviewState: "content_reviewed",
     lastReviewedAt: null,
     updatedAt: null,

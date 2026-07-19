@@ -9,6 +9,7 @@ import type {
   CareerTransitionPreviewDeltaEntryAdapter,
 } from "@/lib/career/adapters/types";
 import { buildCareerJobFrontendUrl, normalizeCareerBundleCanonicalPath } from "@/lib/career/urls";
+import { normalizePublicReview } from "@/lib/public-content/publicReview";
 
 type AdaptCareerTransitionPreviewInput = {
   locale: "en" | "zh";
@@ -214,6 +215,7 @@ export function adaptCareerTransitionPreview(
     trustSummary: {
       allowTransitionRecommendation,
       reviewerStatus: normalizeString(trustSummary.reviewer_status),
+      publicReview: normalizePublicReview(trustSummary),
       reasonCodes: normalizeStringArray(trustSummary.reason_codes),
     },
     ...(whyThisPath ? { whyThisPath } : {}),

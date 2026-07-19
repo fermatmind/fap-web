@@ -46421,5 +46421,138 @@
       }
     ],
     "updated_at": "2026-07-18T19:06:54Z"
+  },
+  "SOLO-OWNER-REVIEW-WEB-07": {
+    "id": "SOLO-OWNER-REVIEW-WEB-07",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/solo-owner-review-web-07",
+    "title": "SOLO-OWNER-REVIEW-WEB-07: consume the normalized public review contract",
+    "depends_on": [
+      "SOLO-OWNER-PUBLIC-REVIEW-CONTRACT-06"
+    ],
+    "dependency_verification": {
+      "github_merged": true,
+      "dependency_origin_main_contains_merge": true,
+      "evidence": "fap-api PR #3185 is MERGED as e5edc5cc7e0537abc3580d16786a7635415e7f05; fap-api origin/main contains that merge, the PR6 branch/worktree was cleaned, and this fap-web task started from origin/main 478d3431589c752e5d7c88baab405e3e5cc80b9e without waiting for staging deploy."
+    },
+    "status": "ready_to_merge",
+    "commit_sha": "b7e332aef4980254903420993868afc34cd2b54f",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1788",
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The explicit continuous seven-PR goal supplied this exact PR id, title, branch, dependency, five-consumer scope, validation floor, and complete PR lifecycle authorization."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "SOLO-OWNER-PUBLIC-REVIEW-CONTRACT-06 is merged and contained by fap-api origin/main; no staging deployment dependency applies."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "After the scoped Codex review repairs, the normalized review regression set passes 13 files / 107 tests on Node 24, covering strict overflow-date rejection, normalized Career guard behavior, nested Career public-review forwarding, and Article, Personality, Career, Research, Support consumers."
+      },
+      "required_local_checks": {
+        "status": "pass",
+        "evidence": "Node 24 validation passed: latest focused contracts 13 files / 107 tests; lint; spacing; typecheck; full contracts 760 files / 4373 tests; production-parameter build with 206/206 generated pages; YAML and JSON parsing; git diff --check; and full-PR exact changed-file scope validation (47 changed paths, 49 allowed paths, no outside-scope paths)."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "All required GitHub checks passed on exact head 9300666aa85bd2e5e6bed89f2339a7d4998f4a15. The first build attempt failed only on a retryable public API REQUEST_TIMEOUT during static params collection; an unchanged-head failed-job rerun passed build, lint, typecheck, and a11y, while contracts, both freezes, and CodeQL remained green."
+      },
+      "codex_review": {
+        "status": "pass",
+        "evidence": "Codex reviewed exact head 9300666aa85bd2e5e6bed89f2339a7d4998f4a15 after all scoped fixes and reported no major issues; all seven historical review threads are resolved."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-19T01:08:14Z",
+        "status": "in_progress",
+        "summary": "Verified PR6 merged/contained/synced/cleaned, created the exact isolated fap-web branch from origin/main 478d3431589c752e5d7c88baab405e3e5cc80b9e, and implemented only the normalized identity-redacted public review consumer. The shared adapter requires the exact three-field backend contract and fails missing, malformed, legacy, or identity-bearing payloads closed; approved-only display is wired across Article, Personality, Career, Research, and Support without changing content or SEO authority. Focused contracts pass 12 files / 102 tests and Node 24 typecheck passes; full local gates remain pending."
+      },
+      {
+        "at": "2026-07-19T01:20:39Z",
+        "status": "local_check_repaired",
+        "summary": "The first full-contract pass exposed two same-scope compatibility assumptions (an obsolete reviewer_status completion assertion and a Career canonical guard fixture) plus an incompatible system Python for the KG validator. Updated only the scoped contracts/guard, reran the three affected files successfully (3 files / 11 tests), and reran the full suite with the bundled compatible Python. The first production build then failed because Turbopack rejected an external node_modules symlink; replaced only that ignored local dependency link with a frozen offline install and reran the build successfully. Build-generated tracked diagnostics were restored to their clean pre-build state."
+      },
+      {
+        "at": "2026-07-19T01:20:39Z",
+        "status": "ready_for_pr",
+        "summary": "All required local gates pass on Node 24: focused contracts 12 files / 102 tests; lint; spacing; typecheck; full contracts 760 files / 4373 tests; production-parameter build with 206/206 generated pages; YAML/JSON parsing; git diff --check; and exact scope validation with 44 changed paths contained in the 46-path allowlist. No production, database, CMS, publish, deploy, content-authority, metadata, sitemap, or llms write was executed."
+      },
+      {
+        "at": "2026-07-19T01:22:59Z",
+        "status": "ready_for_pr",
+        "summary": "Committed the scoped implementation and locally verified evidence as eec8a1eba37be3d6544299704a6233df3c593fb3 after explicit 44-path staging, cached diff validation, and exact staged-scope validation."
+      },
+      {
+        "at": "2026-07-19T01:24:04Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the scoped branch and opened PR #1788 with the exact manifest title and required body sections. GitHub build, contracts, Big Five freeze, Enneagram freeze, and CodeQL checks started; no production execution occurred."
+      },
+      {
+        "at": "2026-07-19T01:33:59Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on exact head 509ed4b447b20040ad17319c0874c400ee3a6cff. Codex review then identified one valid P2 overflow-date fail-closed gap. Added strict UTC component round-trip validation and a 2026-02-31 regression case. Node 24 focused contracts pass 12 files / 103 tests; lint, spacing, typecheck, JSON parsing, and diff checks pass. Exact-head GitHub checks and Codex review will rerun after push."
+      },
+      {
+        "at": "2026-07-19T01:40:20Z",
+        "status": "ledger_binding_fix_pending",
+        "summary": "All seven GitHub checks passed on repair head fdeccff064274e768953d1fd47e3622259624164. The second exact-head Codex review raised one valid ledger-only P2: commit_sha still referenced the pre-repair implementation. Updated commit_sha to the reviewed repair head and prepared one final ledger-only exact-head validation cycle."
+      },
+      {
+        "at": "2026-07-19T01:51:25Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on ledger-binding head d0929fac6ea4abe21741ba49bdf37bcfcd8fe084. The third exact-head Codex review raised one valid Career adapter P2: nested trust_manifest.public_review was being obscured during job/recommendation manifest reconstruction. Both adapters now forward the nested normalized contract when present and fall back to top-level fields only for compatibility. Added job and recommendation regression assertions; Node 24 focused contracts pass 12 files / 103 tests, with lint, spacing, typecheck, JSON parsing, and diff checks green."
+      },
+      {
+        "at": "2026-07-19T01:51:55Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the nested Career public-review repair as 06bce85f64855e8e9bec0ae47831c0618bc0db3f and bound commit_sha to that implementation commit. The following commit is ledger-only; final exact-head GitHub checks and Codex review remain mandatory."
+      },
+      {
+        "at": "2026-07-19T02:03:13Z",
+        "status": "ready_to_merge",
+        "summary": "All seven GitHub checks passed on exact head 3b31560f0a776bcd1a16fa3c7d0a0c693b2b7176. Codex reviewed that exact head after the overflow-date, ledger-binding, and nested Career contract repairs and reported no major issues; all review threads are resolved/outdated and GitHub merge state is clean. Recorded ready_to_merge before squash merge."
+      },
+      {
+        "at": "2026-07-19T02:21:45Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on ready-to-merge head 0b4a6b9be82c66479e3c934e192036f120bd5403. Exact-head Codex review identified two valid P2 gaps: three Career regression paths were missing from allowed_paths, and isCareerTrustManifest unsafely accepted a raw legacy reviewer shape. Added the three paths, changed the guard to require publicReview plus legacyReview, and updated the canonical contract to reject raw trust until normalization. Node 24 focused contracts pass 13 files / 107 tests; lint, spacing, typecheck, YAML/JSON parsing, diff, and full-PR exact scope pass (47 changed paths / 49 allowed, none outside)."
+      },
+      {
+        "at": "2026-07-19T02:22:31Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the normalized Career guard and exact allowlist repair as b7e332aef4980254903420993868afc34cd2b54f and bound commit_sha to that implementation commit. The following commit is ledger-only; final exact-head GitHub checks and Codex review remain mandatory."
+      },
+      {
+        "at": "2026-07-19T02:30:00Z",
+        "status": "github_checks_pending",
+        "summary": "All seven GitHub checks passed on exact head a1b5ea66e522d2fc8ebcfe0c49d9502050f83089. Exact-head Codex review found two ledger status inconsistencies caused by a prior unscoped mechanical status replacement: PR7 incorrectly remained ready_to_merge while its checks were pending, and unrelated CAREER-DETAIL-DELIVERY-10K-01 was changed away from its existing ready_to_merge state. Restored the unrelated entry exactly and kept PR7 pending until the next exact-head checks/review complete."
+      },
+      {
+        "at": "2026-07-19T02:39:40Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head 9300666aa85bd2e5e6bed89f2339a7d4998f4a15 passed contracts, both freeze suites, CodeQL, and an unchanged-head build retry after the first build hit a retryable public API REQUEST_TIMEOUT during static params collection. The rerun passed build, lint, typecheck, and a11y. Codex reviewed the exact head and reported no major issues; all threads are resolved and merge state is clean. Recorded ready_to_merge before squash merge."
+      }
+    ],
+    "updated_at": "2026-07-19T02:39:40Z"
   }
 }

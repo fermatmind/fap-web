@@ -106,7 +106,7 @@ function makeArticle(answerSurface: AnswerSurfaceViewModel | null = answerSurfac
     contentMd: "## Full guide\n\nThis is the full article body.",
     contentHtml: "",
     authorName: null,
-    reviewerName: null,
+  publicReview: { reviewState: "unknown", lastReviewedAt: null, reviewer: null },
     readingMinutes: 5,
     coverImageUrl: null,
     coverImageAlt: null,

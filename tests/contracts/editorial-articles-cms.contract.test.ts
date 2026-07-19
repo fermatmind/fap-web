@@ -54,6 +54,9 @@ describe("editorial article CMS contract", () => {
           content_md: "## 执行摘要\n人格与 AI 信任存在稳定关系。",
           author_name: "Fermat Institute",
           reviewer_name: "FermatMind Research",
+          review_state: "approved",
+          last_reviewed_at: "2026-07-18T12:00:00.000000Z",
+          reviewer: null,
           reading_minutes: 6,
           cover_image_url: coverUrl,
           cover_image_alt: "抽象的人格画像、算法节点与控制边界构成的冷静编辑部封面",
@@ -96,7 +99,12 @@ describe("editorial article CMS contract", () => {
     expect(article?.coverImageHeight).toBe(675);
     expect(article?.coverImageVariants.hero?.url).toBe(coverUrl);
     expect(article?.authorName).toBe("Fermat Institute");
-    expect(article?.reviewerName).toBe("FermatMind Research");
+    expect(article?.publicReview).toEqual({
+      reviewState: "approved",
+      lastReviewedAt: "2026-07-18T12:00:00.000Z",
+      reviewer: null,
+    });
+    expect(article).not.toHaveProperty("reviewerName");
     expect(article?.readingMinutes).toBe(6);
     expect(article?.isIndexable).toBe(true);
     expect(article?.sitemapEligible).toBe(false);

@@ -1,6 +1,10 @@
+import { PublicReviewStatus } from "@/components/public-content/PublicReviewStatus";
+import type { PublicReview } from "@/lib/public-content/publicReview";
+
 type TrustStripProps = {
   locale: "en" | "zh";
   reviewerStatus?: string | null;
+  publicReview?: PublicReview | null;
   indexState?: string | null;
   reasonCodes?: string[];
   contentVersion?: string | null;
@@ -52,17 +56,16 @@ function buildTrustItems(props: TrustStripProps): TrustItem[] {
 
 export function TrustStrip({
   locale,
-  reviewerStatus,
+  publicReview,
   indexState,
   reasonCodes = [],
   compact = false,
   testId,
   ...meta
 }: TrustStripProps) {
-  const normalizedReviewerStatus = normalizeValue(reviewerStatus) ?? "unknown";
   const normalizedIndexState = normalizeValue(indexState) ?? "unknown";
   const normalizedReasonCodes = [...new Set(reasonCodes.map((code) => String(code ?? "").trim()).filter(Boolean))];
-  const trustItems = buildTrustItems({ locale, reviewerStatus, indexState, reasonCodes, compact, testId, ...meta });
+  const trustItems = buildTrustItems({ locale, publicReview, indexState, reasonCodes, compact, testId, ...meta });
 
   return (
     <div
@@ -70,9 +73,7 @@ export function TrustStrip({
       data-testid={testId}
     >
       <div className="flex flex-wrap gap-2">
-        <span className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-1 font-mono text-xs text-[var(--fm-text)]">
-          reviewer_status: {normalizedReviewerStatus}
-        </span>
+        <PublicReviewStatus review={publicReview} locale={locale} testId={testId ? `${testId}-public-review` : undefined} />
         <span className="rounded-full border border-[var(--fm-border)] bg-[var(--fm-surface)] px-3 py-1 font-mono text-xs text-[var(--fm-text)]">
           index_state: {normalizedIndexState}
         </span>

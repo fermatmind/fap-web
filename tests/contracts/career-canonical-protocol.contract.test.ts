@@ -6,6 +6,7 @@ import {
   isCareerClaimPermissions,
   isCareerScoreResult,
   isCareerTrustManifest,
+  normalizeCareerTrustManifest,
 } from "@/lib/career/contracts";
 
 const ROOT = process.cwd();
@@ -20,14 +21,15 @@ function read(relPath: string): string {
 }
 
 describe("career canonical protocol contract", () => {
-  it("exports runtime guards that accept the frozen fixture shapes", () => {
+  it("exports runtime guards that accept normalized canonical shapes and reject raw legacy trust", () => {
     const asset = readJson("tests/fixtures/career/career-asset-master.fixture.json");
     const trustManifest = readJson("tests/fixtures/career/trust-manifest.fixture.json");
     const claimPermissions = readJson("tests/fixtures/career/claim-permissions.fixture.json");
     const scoreResult = readJson("tests/fixtures/career/score-result.fixture.json");
 
     expect(isCareerAssetMaster(asset)).toBe(true);
-    expect(isCareerTrustManifest(trustManifest)).toBe(true);
+    expect(isCareerTrustManifest(trustManifest)).toBe(false);
+    expect(isCareerTrustManifest(normalizeCareerTrustManifest(trustManifest))).toBe(true);
     expect(isCareerClaimPermissions(claimPermissions)).toBe(true);
     expect(isCareerScoreResult(scoreResult)).toBe(true);
   });

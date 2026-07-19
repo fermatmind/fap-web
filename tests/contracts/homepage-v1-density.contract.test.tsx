@@ -238,7 +238,7 @@ describe("homepage v1 density contract", () => {
         contentMd: "",
         contentHtml: "",
         authorName: "Fermat Institute",
-        reviewerName: null,
+        publicReview: { reviewState: "unknown", lastReviewedAt: null, reviewer: null },
         readingMinutes: 3,
         coverImageUrl: "https://assets.fermatmind.com/storage/media-library/holland-career-interest-test-riasec-card.jpg",
         coverImageAlt: "抽象职业罗盘与六个方向节点",

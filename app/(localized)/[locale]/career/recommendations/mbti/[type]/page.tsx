@@ -646,7 +646,7 @@ export default async function CareerMbtiRecommendationPage({
             <WarningBanner locale={locale} warnings={detail.warnings} copyVariant={runtimeConfig.experiments.warningCopy.enabled ? runtimeConfig.experiments.warningCopy.variant : "control"} testId="career-recommendation-warning-banner" />
             <TrustStrip
               locale={locale}
-              reviewerStatus={detail.trustManifest?.reviewer.reviewer_status}
+              publicReview={detail.trustManifest?.publicReview}
               indexState={detail.seoContract.indexState}
               reasonCodes={detail.claimPermissions.reason_codes}
               contentVersion={detail.provenanceMeta.contentVersion}

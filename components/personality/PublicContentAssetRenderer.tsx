@@ -1,10 +1,12 @@
 import Link from "next/link";
 import { ArrowRight, BookOpen, ShieldCheck } from "lucide-react";
 import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
+import { PublicReviewStatus } from "@/components/public-content/PublicReviewStatus";
 import { buttonVariants } from "@/components/ui/button";
 import { renderSimpleMarkdown } from "@/lib/content/renderSimpleMarkdown";
 import type { PersonalityPublicContentAsset, PersonalityPublicContentSection } from "@/lib/cms/personality-public-content-assets";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import { isHumanReviewCompleted } from "@/lib/public-content/publicReview";
 
 function entityLabel(asset: PersonalityPublicContentAsset, locale: Locale): string {
   if (asset.entityType === "hub") {
@@ -83,16 +85,15 @@ export function PublicContentAssetRenderer({
   const visibleEvidence = authority?.visibleEvidence.eligible ? authority.visibleEvidence : null;
   const authorityLimitations = authority?.visibleEvidence.limitations ?? [];
   const editorial = authority?.editorialAuthority;
+  const publicReview = editorial?.publicReview ?? asset.publicReview;
   const sourceTitles = new Map(
     visibleEvidence?.sources.map((source) => [source.id, source.title]) ?? []
   );
   const hasEditorialAuthority = Boolean(
-    (asset.framework === "enneagram" && editorial?.reviewState) ||
+    isHumanReviewCompleted(publicReview) ||
     editorial?.author ||
-      editorial?.reviewer ||
       editorial?.publishedAt ||
-      editorial?.updatedAt ||
-      editorial?.lastReviewedAt
+      editorial?.updatedAt
   );
 
   return (
@@ -247,7 +248,7 @@ export function PublicContentAssetRenderer({
         </div>
 
         <aside className="space-y-6 lg:sticky lg:top-24 lg:self-start">
-          {hasEditorialAuthority && editorial ? (
+          {hasEditorialAuthority ? (
             <section
               className="rounded-2xl border border-[var(--fm-border)] bg-white p-5 shadow-[var(--fm-shadow-sm)]"
               data-testid="editorial-authority"
@@ -256,13 +257,12 @@ export function PublicContentAssetRenderer({
                 {locale === "zh" ? "编辑信息" : "Editorial authority"}
               </h2>
               <dl className="m-0 mt-4 grid gap-4 text-sm leading-6">
-                {asset.framework === "enneagram" && editorial.reviewState ? (
-                  <div>
-                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "审核状态" : "Review state"}</dt>
-                    <dd className="m-0 text-[var(--fm-text-muted)]">{editorial.reviewState}</dd>
+                {isHumanReviewCompleted(publicReview) ? (
+                  <div className="text-[var(--fm-text-muted)]">
+                    <PublicReviewStatus review={publicReview} locale={locale} testId="personality-public-review" />
                   </div>
                 ) : null}
-                {editorial.author ? (
+                {editorial?.author ? (
                   <div>
                     <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "作者" : "Author"}</dt>
                     <dd className="m-0 text-[var(--fm-text-muted)]">
@@ -272,17 +272,7 @@ export function PublicContentAssetRenderer({
                     </dd>
                   </div>
                 ) : null}
-                {editorial.reviewer ? (
-                  <div>
-                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "审核者" : "Reviewer"}</dt>
-                    <dd className="m-0 text-[var(--fm-text-muted)]">
-                      {editorial.reviewer.name}
-                      {editorial.reviewer.organization ? ` · ${editorial.reviewer.organization}` : null}
-                      {editorial.reviewer.role ? ` · ${editorial.reviewer.role}` : null}
-                    </dd>
-                  </div>
-                ) : null}
-                {editorial.publishedAt ? (
+                {editorial?.publishedAt ? (
                   <div>
                     <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "发布于" : "Published"}</dt>
                     <dd className="m-0 text-[var(--fm-text-muted)]">
@@ -290,19 +280,11 @@ export function PublicContentAssetRenderer({
                     </dd>
                   </div>
                 ) : null}
-                {editorial.updatedAt ? (
+                {editorial?.updatedAt ? (
                   <div>
                     <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "更新于" : "Updated"}</dt>
                     <dd className="m-0 text-[var(--fm-text-muted)]">
                       <time dateTime={editorial.updatedAt}>{formatAuthorityDate(editorial.updatedAt, locale)}</time>
-                    </dd>
-                  </div>
-                ) : null}
-                {editorial.lastReviewedAt ? (
-                  <div>
-                    <dt className="font-semibold text-[var(--fm-text)]">{locale === "zh" ? "最近审核" : "Last reviewed"}</dt>
-                    <dd className="m-0 text-[var(--fm-text-muted)]">
-                      <time dateTime={editorial.lastReviewedAt}>{formatAuthorityDate(editorial.lastReviewedAt, locale)}</time>
                     </dd>
                   </div>
                 ) : null}

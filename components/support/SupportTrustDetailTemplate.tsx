@@ -3,8 +3,10 @@ import type { ReactNode } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
 import { SanitizedCmsHtml } from "@/components/content/SanitizedCmsHtml";
 import { Container } from "@/components/layout/Container";
+import { PublicReviewStatus } from "@/components/public-content/PublicReviewStatus";
 import { renderCmsInlineMarkdown } from "@/lib/content/markdownInline";
 import { localizedPath, type Locale } from "@/lib/i18n/locales";
+import type { PublicReview } from "@/lib/public-content/publicReview";
 import { cn } from "@/lib/utils";
 
 type MarkdownBlock =
@@ -192,6 +194,7 @@ export function SupportTrustDetailTemplate({
   bodyHtml,
   publishedAt,
   updatedAt,
+  publicReview,
   primaryCtaLabel,
   primaryCtaUrl,
   backHref,
@@ -207,6 +210,7 @@ export function SupportTrustDetailTemplate({
   bodyHtml: string;
   publishedAt: string | null;
   updatedAt: string | null;
+  publicReview: PublicReview;
   primaryCtaLabel?: string | null;
   primaryCtaUrl?: string | null;
   backHref: string;
@@ -242,6 +246,7 @@ export function SupportTrustDetailTemplate({
               <div className="flex flex-wrap gap-3 text-sm text-[var(--fm-text-subtle)]">
                 {publishedLabel ? <span>{locale === "zh" ? `发布时间 ${publishedLabel}` : `Published ${publishedLabel}`}</span> : null}
                 {updatedLabel ? <span>{locale === "zh" ? `更新于 ${updatedLabel}` : `Updated ${updatedLabel}`}</span> : null}
+                <PublicReviewStatus review={publicReview} locale={locale} testId="support-public-review" />
               </div>
               <div className="flex flex-wrap gap-3">
                 <Link

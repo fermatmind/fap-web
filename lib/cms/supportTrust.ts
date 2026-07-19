@@ -2,6 +2,7 @@ import { apiClient } from "@/lib/api-client";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { PUBLIC_API_CACHE_OPTIONS } from "@/lib/publicApiCache";
 import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
+import { normalizePublicReview, type PublicReview } from "@/lib/public-content/publicReview";
 
 const DEFAULT_ORG_ID = "0";
 export const MAX_SUPPORT_SLUG_LENGTH = 128;
@@ -18,6 +19,7 @@ export type SupportArticle = {
   supportIntent: string;
   locale: Locale;
   status: string;
+  publicReview: PublicReview;
   reviewState: string;
   primaryCtaLabel: string | null;
   primaryCtaUrl: string | null;
@@ -42,6 +44,7 @@ export type InterpretationGuide = {
   audience: string;
   locale: Locale;
   status: string;
+  publicReview: PublicReview;
   reviewState: string;
   relatedGuideIds: number[];
   relatedMethodologyPageIds: number[];
@@ -64,6 +67,8 @@ type SupportArticleApiRecord = {
   locale?: string | null;
   status?: string | null;
   review_state?: string | null;
+  last_reviewed_at?: unknown;
+  reviewer?: unknown;
   primary_cta_label?: string | null;
   primary_cta_url?: string | null;
   related_support_article_ids?: unknown;
@@ -88,6 +93,8 @@ type InterpretationGuideApiRecord = {
   locale?: string | null;
   status?: string | null;
   review_state?: string | null;
+  last_reviewed_at?: unknown;
+  reviewer?: unknown;
   related_guide_ids?: unknown;
   related_methodology_page_ids?: unknown;
   published_at?: string | null;
@@ -153,6 +160,8 @@ function normalizeSupportArticle(record: SupportArticleApiRecord | null | undefi
     return null;
   }
 
+  const publicReview = normalizePublicReview(record);
+
   return {
     id: Number(record?.id ?? 0) || 0,
     slug,
@@ -164,7 +173,8 @@ function normalizeSupportArticle(record: SupportArticleApiRecord | null | undefi
     supportIntent: normalizeText(record?.support_intent),
     locale: normalizeLocale(record?.locale),
     status: normalizeText(record?.status),
-    reviewState: normalizeText(record?.review_state),
+    publicReview,
+    reviewState: publicReview.reviewState,
     primaryCtaLabel: normalizeText(record?.primary_cta_label) || null,
     primaryCtaUrl: normalizeText(record?.primary_cta_url) || null,
     relatedSupportArticleIds: normalizeIds(record?.related_support_article_ids),
@@ -184,6 +194,8 @@ function normalizeInterpretationGuide(record: InterpretationGuideApiRecord | nul
     return null;
   }
 
+  const publicReview = normalizePublicReview(record);
+
   return {
     id: Number(record?.id ?? 0) || 0,
     slug,
@@ -196,7 +208,8 @@ function normalizeInterpretationGuide(record: InterpretationGuideApiRecord | nul
     audience: normalizeText(record?.audience),
     locale: normalizeLocale(record?.locale),
     status: normalizeText(record?.status),
-    reviewState: normalizeText(record?.review_state),
+    publicReview,
+    reviewState: publicReview.reviewState,
     relatedGuideIds: normalizeIds(record?.related_guide_ids),
     relatedMethodologyPageIds: normalizeIds(record?.related_methodology_page_ids),
     publishedAt: normalizeDate(record?.published_at),

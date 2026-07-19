@@ -144,6 +144,11 @@ describe("career recommendation public contract", () => {
         },
         trust_manifest: {
           reviewer_status: "reviewed",
+          public_review: {
+            review_state: "approved",
+            last_reviewed_at: "2026-07-18T12:00:00.000000Z",
+            reviewer: null,
+          },
           logic_version: "v1.2",
           content_version: "content.v1",
           data_version: "data.v1",
@@ -187,6 +192,11 @@ describe("career recommendation public contract", () => {
     expect(detail?.warnings.amberFlags).toContain("ai_role_shift_risk");
     expect(detail?.claimPermissions.allow_transition_recommendation).toBe(true);
     expect(detail?.trustManifest?.logic_version).toBe("v1.2");
+    expect(detail?.trustManifest?.publicReview).toEqual({
+      reviewState: "approved",
+      lastReviewedAt: "2026-07-18T12:00:00.000Z",
+      reviewer: null,
+    });
     expect(detail?.seoContract.canonicalPath).toBe("/career/recommendations/mbti/intj-a");
     expect(detail?.provenanceMeta.compileRunId).toBe("run_789");
     expect(detail?.careerDataStatus).toBe("available");

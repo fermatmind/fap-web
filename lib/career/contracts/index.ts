@@ -49,7 +49,7 @@ export function isCareerTrustManifestReady(value: CareerTrustManifest | null | u
     value.quality.reviewed === true &&
     value.quality.stale !== true &&
     blockedReasons.length === 0 &&
-    value.reviewer.reviewed === true
+    value.legacyReview.reviewed === true
   );
 }
 

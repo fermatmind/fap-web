@@ -29,6 +29,7 @@ function asset(overrides: Partial<PersonalityPublicContentAsset> = {}): Personal
     sitemapEligible: true,
     llmsEligible: true,
     launchState: "published",
+    publicReview: { reviewState: "unknown", lastReviewedAt: null, reviewer: null },
     reviewState: "seo_discoverability_released",
     lastReviewedAt: null,
     updatedAt: null,

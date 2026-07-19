@@ -1,6 +1,7 @@
 import { apiClient } from "@/lib/api-client";
 import { localizedPath, normalizeLocale, toApiLocale, type Locale } from "@/lib/i18n/locales";
 import { isAuthoritativePublicAbsence } from "@/lib/public-content/readError";
+import { normalizePublicReview, type PublicReview } from "@/lib/public-content/publicReview";
 
 export const RESEARCH_REPORT_PAGE_ENTITY_TYPE = "research_report" as const;
 export const MAX_RESEARCH_REPORT_SLUG_LENGTH = 128;
@@ -20,7 +21,8 @@ type ResearchReportApiRecord = {
   sample_disclaimer?: unknown;
   claim_boundary?: unknown;
   author_name?: unknown;
-  reviewer_name?: unknown;
+  review_state?: unknown;
+  reviewer?: unknown;
   references?: unknown;
   downloadable_asset_placeholder?: unknown;
   last_reviewed_at?: unknown;
@@ -54,10 +56,9 @@ export type ResearchReport = {
   sampleDisclaimer: string;
   claimBoundary: string;
   authorName: string | null;
-  reviewerName: string | null;
+  publicReview: PublicReview;
   references: string[];
   downloadableAssetPlaceholder: string | null;
-  lastReviewedAt: string | null;
   publishedAt: string | null;
   seoTitle: string | null;
   seoDescription: string | null;
@@ -172,10 +173,9 @@ function normalizeResearchReport(
     sampleDisclaimer,
     claimBoundary,
     authorName: asNullableString(record.author_name),
-    reviewerName: asNullableString(record.reviewer_name),
+    publicReview: normalizePublicReview(record),
     references: normalizeReferences(record.references),
     downloadableAssetPlaceholder: asNullableString(record.downloadable_asset_placeholder),
-    lastReviewedAt: asNullableString(record.last_reviewed_at),
     publishedAt: asNullableString(record.published_at),
     seoTitle: asNullableString(record.seo_title),
     seoDescription: asNullableString(record.seo_description),
