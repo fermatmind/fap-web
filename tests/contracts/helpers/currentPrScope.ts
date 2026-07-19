@@ -4427,8 +4427,8 @@ function isCurrentCareerSkillsEntry1046CompletionStateAllowedFile(file: string):
 }
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
-  if (CURRENT_BRANCH === "codex/mbti-comp-gate-47" && MBTI_COMP_GATE_47_ALLOWED_FILES.has(file)) {
-    return true;
+  if (CURRENT_BRANCH === "codex/mbti-comp-gate-47") {
+    return MBTI_COMP_GATE_47_ALLOWED_FILES.has(file);
   }
 
   if (isBigFivePublicProfileAgentPilot01AllowedFile(file)) {

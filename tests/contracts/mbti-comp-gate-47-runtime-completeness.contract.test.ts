@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 import fixture from "../fixtures/mbti-comp-gate-47/runtime-completeness.json";
+import { isCurrentRiasecPack12AllowedFile } from "./helpers/currentPrScope";
 
 const modulePromise = import("../../scripts/seo/mbti-comp-gate-47-runtime-completeness.mjs");
 
@@ -10,6 +11,7 @@ function buildRecord() {
     key,
     title: `完整标题 ${key}`,
     body: [`这是经过人工审批并由后端公开投影返回的完整正文，用于证明段落不是空值、短占位符或 comparison blocks 的替代内容。${key}`],
+    ...(key === "quick_judgment_table" ? { rows: [{ dimension: "判断维度", a: "A 型完整单元格", t: "T 型完整单元格" }] } : {}),
   }));
   const faq = Array.from({ length: 5 }, (_, index) => ({
     question: `问题 ${index + 1}`,
@@ -28,8 +30,11 @@ function buildRecord() {
     seo_meta: { robots: "index,follow" },
     jsonld: { "@type": "CollectionPage", hasPart: { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) } },
   };
-  const visible = sections.map((section) => `${section.title} ${section.body[0]}`).join(" ");
-  const pageHtml = `<!doctype html><html><head><link rel="canonical" href="${canonical}"><meta name="robots" content="index, follow"></head><body>${visible}</body></html>`;
+  const visible = [
+    ...sections.map((section) => `${section.title} ${section.body[0]} ${(section.rows ?? []).flatMap((row) => Object.values(row)).join(" ")}`),
+    ...faq.map((item) => `${item.question} ${item.answer}`),
+  ].join(" ");
+  const pageHtml = `<!doctype html><html><head><link rel="canonical" href="${canonical}"><meta name="robots" content="index, follow"></head><body>${visible}<script type="application/ld+json">${JSON.stringify(payload.jsonld)}</script></body></html>`;
   return { sections, payload, pageHtml };
 }
 
@@ -54,10 +59,15 @@ describe("MBTI-COMP-GATE-47 runtime completeness", () => {
       const body = record.payload.comparison_public_projection_v1.sections[0].body[0];
       record.pageHtml = record.pageHtml.replace(body, body.slice(0, 24));
     }
+    if (mutation === "row_cells_without_section_body") {
+      const body = record.payload.comparison_public_projection_v1.sections[1].body[0];
+      record.pageHtml = record.pageHtml.replace(body, "");
+    }
     if (mutation === "body_only_in_hidden_script") {
       const hiddenBodies = record.sections.map((section) => `${section.title} ${section.body[0]}`).join(" ");
       record.pageHtml = record.pageHtml.replace(/<body>[\s\S]*<\/body>/, `<body><script type="application/json">${hiddenBodies}</script><div hidden>${hiddenBodies}</div></body>`);
     }
+    if (mutation === "page_faq_jsonld_missing") record.pageHtml = record.pageHtml.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, "");
     const result = validateRuntimeRecord({
       slug: fixture.slug,
       expectedSectionsSha256: mutation === "wrong_fingerprint" ? "0".repeat(64) : expectedSha,
@@ -71,6 +81,8 @@ describe("MBTI-COMP-GATE-47 runtime completeness", () => {
     expect(result.passed).toBe(false);
     expect(result.failures.length).toBeGreaterThan(0);
     expect(result.failures.every((failure: Record<string, unknown>) => failure.slug === fixture.slug && failure.field && failure.expected !== undefined && failure.actual !== undefined && failure.authority_source === fixture.authoritySource)).toBe(true);
+    if (mutation === "row_cells_without_section_body") expect(result.failures.some((failure: Record<string, unknown>) => String(failure.field).endsWith("quick_judgment_table.body.0"))).toBe(true);
+    if (mutation === "page_faq_jsonld_missing") expect(result.failures.some((failure: Record<string, unknown>) => failure.field === "page.jsonld.faq.length")).toBe(true);
   });
 
   it("locks the exact 16-target cohort and nine section order", async () => {
@@ -83,6 +95,11 @@ describe("MBTI-COMP-GATE-47 runtime completeness", () => {
       "istp-a-vs-istp-t", "isfp-a-vs-isfp-t", "estp-a-vs-estp-t", "esfp-a-vs-esfp-t",
     ]);
     expect(SECTION_KEYS).toEqual(fixture.sectionKeys);
+  });
+
+  it("rejects files outside the exact Gate 47 branch scope", () => {
+    expect(isCurrentRiasecPack12AllowedFile("scripts/seo/mbti-comp-gate-47-runtime-completeness.mjs")).toBe(true);
+    expect(isCurrentRiasecPack12AllowedFile("app/unrelated-runtime.tsx")).toBe(false);
   });
 
   it("derives every runtime section fingerprint from its exact approved review package", async () => {

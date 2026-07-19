@@ -82,6 +82,18 @@ function faqFromJsonLd(jsonld) {
   return [];
 }
 
+function pageFaqFromJsonLd(document) {
+  for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+    try {
+      const faq = faqFromJsonLd(JSON.parse(script.textContent ?? ""));
+      if (faq.length > 0) return faq;
+    } catch {
+      // Malformed page JSON-LD is treated as an absent FAQ contract below.
+    }
+  }
+  return [];
+}
+
 export function validateRuntimeRecord({ slug, expectedSectionsSha256, approvedPayloadSha256, reviewSource, apiStatus, payload, pageStatus, pageHtml }) {
   const projection = payload?.comparison_public_projection_v1;
   const authoritySource = projection?.overlay_source?.source ?? "missing_backend_projection";
@@ -144,21 +156,35 @@ export function validateRuntimeRecord({ slug, expectedSectionsSha256, approvedPa
     const pageRobots = document.querySelector('meta[name="robots"]')?.getAttribute("content") ?? null;
     if (pageCanonical !== expectedCanonical) fail("canonical.page", expectedCanonical, pageCanonical);
     if (pageRobots !== "index, follow") fail("robots.page", "index, follow", pageRobots);
+    const pageJsonLdFaq = pageFaqFromJsonLd(document);
+    if (pageJsonLdFaq.length !== 5) fail("page.jsonld.faq.length", 5, pageJsonLdFaq.length);
+    else if (Array.isArray(faq)) {
+      const apiFaqText = faq.map((item) => [textOf(item?.question), textOf(item?.answer)]);
+      const pageFaqText = pageJsonLdFaq.map((item) => [textOf(item?.name), textOf(item?.acceptedAnswer?.text)]);
+      if (JSON.stringify(pageFaqText) !== JSON.stringify(apiFaqText)) fail("page.jsonld.faq.parity", apiFaqText, pageFaqText);
+    }
     const visibleText = visibleTextFromHtml(pageHtml);
     for (const section of sections ?? []) {
       const title = textOf(section?.title);
       const sectionKey = section?.key ?? section?.id;
       if (title && !visibleText.includes(normalizedVisibleText(title))) fail(`page.visible_section.${sectionKey}.title`, title, "missing from visible DOM");
       const rows = Array.isArray(section?.rows) ? section.rows : [];
-      const expectedBodies = rows.length > 0
-        ? rows.flatMap((row) => Object.entries(row).map(([field, value]) => ({ field: `rows.${field}`, value: textOf(value) })))
-        : (Array.isArray(section?.body) ? section.body : [section?.body]).map((value, index) => ({ field: `body.${index}`, value: textOf(value) }));
+      const expectedBodies = [
+        ...(Array.isArray(section?.body) ? section.body : [section?.body]).map((value, index) => ({ field: `body.${index}`, value: textOf(value) })),
+        ...rows.flatMap((row, rowIndex) => Object.entries(row).map(([field, value]) => ({ field: `rows.${rowIndex}.${field}`, value: textOf(value) }))),
+      ];
       for (const expectedBody of expectedBodies) {
         const expectedText = normalizedVisibleText(expectedBody.value);
         if (expectedText && !visibleText.includes(expectedText)) {
           fail(`page.visible_section.${sectionKey}.${expectedBody.field}`, expectedText, "missing or incomplete in visible DOM");
         }
       }
+    }
+    for (const [index, item] of (faq ?? []).entries()) {
+      const question = normalizedVisibleText(textOf(item?.question));
+      const answer = normalizedVisibleText(textOf(item?.answer));
+      if (question && !visibleText.includes(question)) fail(`page.visible_faq.${index}.question`, question, "missing from visible DOM");
+      if (answer && !visibleText.includes(answer)) fail(`page.visible_faq.${index}.answer`, answer, "missing or incomplete in visible DOM");
     }
   } else {
     fail("page.html", "nonempty public HTML", typeof pageHtml);
