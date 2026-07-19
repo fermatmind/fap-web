@@ -46436,7 +46436,7 @@
       "dependency_origin_main_contains_merge": true,
       "evidence": "fap-api PR #3185 is MERGED as e5edc5cc7e0537abc3580d16786a7635415e7f05; fap-api origin/main contains that merge, the PR6 branch/worktree was cleaned, and this fap-web task started from origin/main 478d3431589c752e5d7c88baab405e3e5cc80b9e without waiting for staging deploy."
     },
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "06bce85f64855e8e9bec0ae47831c0618bc0db3f",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1788",
     "checks": {
@@ -46457,18 +46457,18 @@
         "evidence": "Node 24 validation passed: focused contracts 12 files / 102 tests; lint; spacing; typecheck; full contracts 760 files / 4373 tests; production-parameter build with 206/206 generated pages; YAML and JSON parsing; git diff --check; and exact changed-file scope validation (44 changed paths, 46 allowed paths, no outside-scope paths)."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "All seven GitHub checks passed on ledger-binding head d0929fac6ea4abe21741ba49bdf37bcfcd8fe084. A same-scope Career nested-contract forwarding fix is locally green and must receive final exact-head checks before merge."
+        "status": "pass",
+        "evidence": "All seven GitHub checks passed on exact head 3b31560f0a776bcd1a16fa3c7d0a0c693b2b7176: build, contracts, Big Five freeze, Enneagram freeze, CodeQL analysis, CodeQL aggregate, and no-new-code-scanning-alerts."
       },
       "codex_review": {
-        "status": "addressed_pending_exact_head_review",
-        "evidence": "Codex reviewed exact head d0929fac6ea4abe21741ba49bdf37bcfcd8fe084 and raised one valid Career P2: job and recommendation bundle reconstruction wrapped the full trust manifest instead of forwarding an existing nested public_review contract. Both adapters now prefer the nested three-field object and retain top-level compatibility; final exact-head review remains pending."
+        "status": "pass",
+        "evidence": "Codex reviewed exact head 3b31560f0a776bcd1a16fa3c7d0a0c693b2b7176 after all three scoped repairs and reported no major issues; all historical threads are resolved and outdated."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -46526,8 +46526,13 @@
         "at": "2026-07-19T01:51:55Z",
         "status": "github_checks_pending",
         "summary": "Committed the nested Career public-review repair as 06bce85f64855e8e9bec0ae47831c0618bc0db3f and bound commit_sha to that implementation commit. The following commit is ledger-only; final exact-head GitHub checks and Codex review remain mandatory."
+      },
+      {
+        "at": "2026-07-19T02:03:13Z",
+        "status": "ready_to_merge",
+        "summary": "All seven GitHub checks passed on exact head 3b31560f0a776bcd1a16fa3c7d0a0c693b2b7176. Codex reviewed that exact head after the overflow-date, ledger-binding, and nested Career contract repairs and reported no major issues; all review threads are resolved/outdated and GitHub merge state is clean. Recorded ready_to_merge before squash merge."
       }
     ],
-    "updated_at": "2026-07-19T01:51:55Z"
+    "updated_at": "2026-07-19T02:03:13Z"
   }
 }
