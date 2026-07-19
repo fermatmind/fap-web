@@ -156,7 +156,8 @@ export function isCareerTrustManifest(value: unknown): value is CareerTrustManif
     isRecord(value.locale_context) &&
     Array.isArray(value.source_trace) &&
     isRecord(value.methodology) &&
-    ((isRecord(value.publicReview) && isRecord(value.legacyReview)) || isRecord(value.reviewer)) &&
+    isRecord(value.publicReview) &&
+    isRecord(value.legacyReview) &&
     isRecord(value.ai_assistance) &&
     isRecord(value.quality)
   );

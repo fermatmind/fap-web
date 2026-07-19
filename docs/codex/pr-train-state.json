@@ -410,7 +410,7 @@
     "base": "main",
     "branch": "codex/career-detail-delivery-10k-01",
     "depends_on": ["CAREER-DETAIL-READ-MODEL-10K-01"],
-    "status": "ready_to_merge",
+    "status": "github_checks_pending",
     "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
@@ -46450,25 +46450,25 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "After the scoped Codex review repair, the normalized review regression set passes 12 files / 103 tests on Node 24, covering strict overflow-date rejection plus exact fail-closed normalization and Article, Personality, Career, Research, Support consumers."
+        "evidence": "After the scoped Codex review repairs, the normalized review regression set passes 13 files / 107 tests on Node 24, covering strict overflow-date rejection, normalized Career guard behavior, nested Career public-review forwarding, and Article, Personality, Career, Research, Support consumers."
       },
       "required_local_checks": {
         "status": "pass",
         "evidence": "Node 24 validation passed: focused contracts 12 files / 102 tests; lint; spacing; typecheck; full contracts 760 files / 4373 tests; production-parameter build with 206/206 generated pages; YAML and JSON parsing; git diff --check; and exact changed-file scope validation (44 changed paths, 46 allowed paths, no outside-scope paths)."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "All seven GitHub checks passed on exact head 3b31560f0a776bcd1a16fa3c7d0a0c693b2b7176: build, contracts, Big Five freeze, Enneagram freeze, CodeQL analysis, CodeQL aggregate, and no-new-code-scanning-alerts."
+        "status": "pending",
+        "evidence": "All seven GitHub checks passed on ready-to-merge head 0b4a6b9be82c66479e3c934e192036f120bd5403. Two valid exact-head Codex review fixes are locally green and must receive a final check run before merge."
       },
       "codex_review": {
-        "status": "pass",
-        "evidence": "Codex reviewed exact head 3b31560f0a776bcd1a16fa3c7d0a0c693b2b7176 after all three scoped repairs and reported no major issues; all historical threads are resolved and outdated."
+        "status": "addressed_pending_exact_head_review",
+        "evidence": "Codex reviewed exact head 0b4a6b9be82c66479e3c934e192036f120bd5403 and raised two valid P2 findings: three same-scope regression paths were absent from allowed_paths, and isCareerTrustManifest accepted raw legacy reviewer shapes while narrowing to a normalized type. The allowlist now covers all 47 changed paths, and the guard rejects raw legacy trust until normalization."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -46531,8 +46531,13 @@
         "at": "2026-07-19T02:03:13Z",
         "status": "ready_to_merge",
         "summary": "All seven GitHub checks passed on exact head 3b31560f0a776bcd1a16fa3c7d0a0c693b2b7176. Codex reviewed that exact head after the overflow-date, ledger-binding, and nested Career contract repairs and reported no major issues; all review threads are resolved/outdated and GitHub merge state is clean. Recorded ready_to_merge before squash merge."
+      },
+      {
+        "at": "2026-07-19T02:21:45Z",
+        "status": "review_fix_local_pass",
+        "summary": "All seven GitHub checks passed on ready-to-merge head 0b4a6b9be82c66479e3c934e192036f120bd5403. Exact-head Codex review identified two valid P2 gaps: three Career regression paths were missing from allowed_paths, and isCareerTrustManifest unsafely accepted a raw legacy reviewer shape. Added the three paths, changed the guard to require publicReview plus legacyReview, and updated the canonical contract to reject raw trust until normalization. Node 24 focused contracts pass 13 files / 107 tests; lint, spacing, typecheck, YAML/JSON parsing, diff, and full-PR exact scope pass (47 changed paths / 49 allowed, none outside)."
       }
     ],
-    "updated_at": "2026-07-19T02:03:13Z"
+    "updated_at": "2026-07-19T02:21:45Z"
   }
 }

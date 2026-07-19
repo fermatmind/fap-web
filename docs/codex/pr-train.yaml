@@ -26793,7 +26793,7 @@ prs:
     dependency_repository: fap-api
     mode: execute
     train_scope: normalized_public_review_frontend_consumer
-    status: ready_to_merge
+    status: github_checks_pending
     goal: "Consume the backend-normalized identity-redacted public review contract across Article, Personality, Career, Research, and Support surfaces, showing completion only for approved state."
     allowed_paths:
       - app/(localized)/[locale]/articles/[slug]/page.tsx
@@ -26828,7 +26828,10 @@ prs:
       - tests/contracts/big-five-hub-cms-markdown-link.contract.test.tsx
       - tests/contracts/big-five-public-render-guard.contract.test.tsx
       - tests/contracts/big5-authority-v2-web-trust-renderer-04-contract.contract.test.tsx
+      - tests/contracts/career-canonical-protocol.contract.test.ts
+      - tests/contracts/career-job-backend-bundle.contract.test.ts
       - tests/contracts/career-renderer-primitives.contract.test.tsx
+      - tests/contracts/career-recommendation-public.contract.test.tsx
       - tests/contracts/career-transition-emphasis.contract.test.tsx
       - tests/contracts/career-transition-preview.contract.test.tsx
       - tests/contracts/career-transition-visualization.contract.test.tsx
