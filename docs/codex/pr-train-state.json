@@ -46882,8 +46882,8 @@
     "branch": "codex/mbti-comp-gate-47",
     "title": "MBTI-COMP-GATE-47: add exact A/T runtime completeness gate",
     "depends_on": ["MBTI-COMP-RUNTIME-46"],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "local_checks_passed",
+    "commit_sha": "1226008f38685ca2a1818b52c2c26669d61d9335",
     "pr_url": null,
     "checks": {
       "authorization": {
@@ -46930,8 +46930,13 @@
         "at": "2026-07-19T08:14:30Z",
         "status": "ready_for_pr",
         "summary": "Strengthened the review-fingerprint proof before commit: every locked runtime section SHA is now deterministically derived from its exact approved import payload (15 Approval39 records plus the Runtime46 INTP revision), and the public readback report records both hashes and the review source per slug. Focused provenance tests pass 8/8 and the refreshed read-only production readback remains exact 16/16."
+      },
+      {
+        "at": "2026-07-19T08:16:00Z",
+        "status": "local_checks_passed",
+        "summary": "Explicitly staged the exact nine allowed paths and committed the locally verified Gate 47 implementation as 1226008f38685ca2a1818b52c2c26669d61d9335. This following ledger-only commit binds the implementation SHA before push; the user-owned .workbuddy file remains untracked and excluded."
       }
     ],
-    "updated_at": "2026-07-19T08:14:30Z"
+    "updated_at": "2026-07-19T08:16:00Z"
   }
 }
