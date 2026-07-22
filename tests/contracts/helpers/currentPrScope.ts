@@ -6056,7 +6056,7 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
 }
 
 export function isCurrentMbtiCompGate47AllowedFile(file: string): boolean {
-  return CURRENT_BRANCH !== "codex/mbti-comp-gate-47" || MBTI_COMP_GATE_47_ALLOWED_FILES.has(file);
+  return MBTI_COMP_GATE_47_ALLOWED_FILES.has(file);
 }
 
 export function isCurrentMbtiContractSidecarFixAllowedFile(file: string): boolean {
