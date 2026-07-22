@@ -47059,11 +47059,11 @@
       },
       "github_required_checks": {
         "status": "pending_after_review_repair",
-        "evidence": "Prior exact heads passed required checks. A Gate 47 baseline contract defect introduced on main was isolated and repaired in merged PR #1800 (5a5aed4ddc2ccd87f1c93355c82349c42dcd19d4); the current review-repair head still requires fresh checks."
+        "evidence": "Exact head 79549632434af86edd14951c1c9f7aa50b56257b passed all seven required checks after the generator repairs. The current report-only review repair still requires fresh exact-head checks."
       },
       "codex_review": {
         "status": "repair_locally_passed",
-        "evidence": "Codex reported five P2 findings across two exact-head reviews: successful sample enrichment was not fed back, sitemap fallback locs were not canonical-owned filtered, dataset-wide index state could substitute for missing locale evidence, failed HTML reads could still supply indexability, and sampled enrichment reduced the original jobs-index outage gap. All five are repaired locally with focused v1/v2 compatibility contracts passing 2 files / 14 tests; final exact-head review and the two newest thread resolutions remain pending."
+        "evidence": "Codex reported six P2 findings across three exact-head reviews. The five generator findings are repaired, and the report now accurately states that both acupuncturists and computer-network-architects recovered bilingual sampled SEO/HTML evidence while retaining their separate Tier B and Tier D gates. Focused v1/v2 compatibility contracts pass 2 files / 14 tests; the newest thread resolution and final exact-head review remain pending."
       },
       "baseline_repair": {
         "status": "pass",
@@ -47116,9 +47116,14 @@
         "at": "2026-07-22T17:58:51Z",
         "status": "local_checks_passed",
         "summary": "A fresh exact-head Codex review added two P2 findings. The generator now requires a successful rendered-HTML read before sampled detail evidence can affect indexability, and it keeps the original 1046/1046 legacy jobs-index gaps separate from 4 EN / 4 ZH sampled detail+HTML coverage. The result remains 1 Tier B / 1045 Tier D / 0 Tier A with NO_GO. Canonical Node 24 regeneration, v1/v2 contracts 14/14, typecheck, focused ESLint, JSON/YAML, diff, and six-path scope checks pass."
+      },
+      {
+        "at": "2026-07-22T18:07:23Z",
+        "status": "local_checks_passed",
+        "summary": "The latest exact-head review found one report-summary mismatch: two sampled careers recovered bilingual SEO/HTML evidence, not one. The report now names both and preserves their distinct Tier B/Tier D gate reasons. Focused v1/v2 contracts pass 14/14, JSON parsing and git diff checks pass, and no runtime or authority surface changed."
       }
     ],
-    "updated_at": "2026-07-22T17:58:51Z"
+    "updated_at": "2026-07-22T18:07:23Z"
   }
 
 }

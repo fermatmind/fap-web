@@ -73,7 +73,7 @@ Current dataset publish-track distribution:
 | `runtime_publish_projection` | 706 |
 | Missing/unknown | 3 |
 
-Only `acupuncturists` recovered bilingual per-locale SEO evidence in the final run, and its reviewer status is `pilot_display_asset`, so it remains a Tier B watchlist entry rather than a promotion candidate. The other 1045 rows fail closed to Tier D when either locale lacks usable SEO evidence, rendered HTML says `noindex`, reviewer evidence is insufficient, or the dataset explicitly holds the member. Dataset-wide public index state is recorded as inventory context but is not used as proof that both localized pages are indexable.
+Both `acupuncturists` and `computer-network-architects` recovered bilingual per-locale SEO and rendered-HTML evidence in the final run. `acupuncturists` remains a Tier B watchlist entry because its reviewer status is `pilot_display_asset`; `computer-network-architects` remains Tier D because its dataset publish track is missing in addition to the same reviewer gate. The other 1044 rows fail closed to Tier D when either locale lacks usable SEO evidence, rendered HTML says `noindex`, reviewer evidence is insufficient, or the dataset explicitly holds the member. Dataset-wide public index state is recorded as inventory context but is not used as proof that both localized pages are indexable.
 
 ## Focused Sample Evidence
 
