@@ -43,4 +43,4 @@ All configured filenames must be basenames, and the backup root must be outside 
 
 The release remains blocked if the exact SHA or config-set SHA drifts, syntax validation fails, more than one public HTTPS vhost remains, HTML is share-cacheable, consecutive public HTML responses reuse a nonce, `/revision` redirects or disagrees with the authorized SHA, or a Next static asset is not publicly immutable. No automatic rollback, manual SSH edit, PM2 restart, CMS write, backend mutation, or PR23 execution is authorized by this repository change.
 
-Repository rule impact: this adds a versioned infrastructure boundary and protected workflow for the existing frontend runtime. It does not change content authority, route enumeration, rendering, media, analytics identifiers, or deployment authorization policy.
+Repository rule impact: `AGENTS.md` now records the versioned ingress authority, nonce-bearing HTML no-cache invariant, exact-SHA workflow requirement, and ban on unversioned manual server edits. This does not change content authority, route enumeration, rendering, media, analytics identifiers, or deployment authorization policy.

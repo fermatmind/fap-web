@@ -12,6 +12,7 @@ const imageTest = readFileSync("scripts/ops/test-web-public-ingress-openresty.sh
 const workflow = readFileSync(".github/workflows/web-public-ingress.yml", "utf8");
 const configWorkflow = readFileSync(".github/workflows/web-public-ingress-config.yml", "utf8");
 const probe = readFileSync("scripts/ops/probe-web-public-ingress.mjs", "utf8");
+const repositoryRules = readFileSync("AGENTS.md", "utf8");
 const temporaryDirectories: string[] = [];
 
 function validate(candidate: string) {
@@ -46,6 +47,9 @@ describe("versioned public ingress cache boundary", () => {
 
   it("keeps live backups outside the include root and requires exact drift hashes", () => {
     expect(control).toContain('[[ "$OPENRESTY_BACKUP_DIR" != "$OPENRESTY_CONFIG_ROOT"/* ]]');
+    expect(control).toContain('[[ "$OPENRESTY_BACKUP_DIR" != "$OPENRESTY_CONFIG_ROOT" ]]');
+    expect(control).toContain('while [[ "$OPENRESTY_CONFIG_ROOT" == */ ]]');
+    expect(control).toContain('while [[ "$OPENRESTY_BACKUP_DIR" == */ ]]');
     expect(control).toContain("live_backup_count");
     expect(control).toContain('[[ "$current_live_backups" == "0" ]]');
     expect(control).toContain('[[ "$current_set_sha" == "$EXPECTED_CONFIG_SET_SHA256" ]]');
@@ -58,6 +62,18 @@ describe("versioned public ingress cache boundary", () => {
     expect(imageTest).toContain("openresty -t -c /tmp/nginx.conf");
     expect(configWorkflow).toContain("Test with the production OpenResty image digest");
     expect(configWorkflow).toContain("bash scripts/ops/test-web-public-ingress-openresty.sh");
+    expect(control).toContain("image inspect --format '{{range .RepoDigests}}{{println .}}{{end}}'");
+    expect(control).toContain('grep -Fqx "$EXPECTED_IMAGE_REPO_DIGEST"');
+  });
+
+  it("preserves HSTS in every location that defines response headers", () => {
+    expect(config.match(/add_header Strict-Transport-Security/g)).toHaveLength(5);
+  });
+
+  it("records the ingress authority in repository rules", () => {
+    expect(repositoryRules).toContain("## Production ingress boundary");
+    expect(repositoryRules).toContain("nonce-bearing HTML");
+    expect(repositoryRules).toContain("Web Public Ingress Control");
   });
 
   it("requires separate exact apply and rollback authorization", () => {

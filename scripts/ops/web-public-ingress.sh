@@ -2,7 +2,7 @@
 set -euo pipefail
 
 MODE="${1:-}"
-EXPECTED_IMAGE_ID="sha256:ee8c5117c291c7384a381c32068e1d9a50adc8bf392f9157c42d14bedbbe018b"
+EXPECTED_IMAGE_REPO_DIGEST="1panel/openresty@sha256:ee8c5117c291c7384a381c32068e1d9a50adc8bf392f9157c42d14bedbbe018b"
 
 fail() {
   printf 'web-public-ingress: %s\n' "$*" >&2
@@ -20,6 +20,10 @@ done
 
 [[ "$MODE" =~ ^(preflight|apply|rollback)$ ]] || fail "mode must be preflight, apply or rollback"
 [[ "$OPENRESTY_CONFIG_ROOT" == /* && "$OPENRESTY_BACKUP_DIR" == /* ]] || fail "config and backup roots must be absolute"
+while [[ "$OPENRESTY_CONFIG_ROOT" == */ ]]; do OPENRESTY_CONFIG_ROOT="${OPENRESTY_CONFIG_ROOT%/}"; done
+while [[ "$OPENRESTY_BACKUP_DIR" == */ ]]; do OPENRESTY_BACKUP_DIR="${OPENRESTY_BACKUP_DIR%/}"; done
+[[ -n "$OPENRESTY_CONFIG_ROOT" && -n "$OPENRESTY_BACKUP_DIR" ]] || fail "filesystem root cannot be a managed config or backup root"
+[[ "$OPENRESTY_BACKUP_DIR" != "$OPENRESTY_CONFIG_ROOT" ]] || fail "backup directory must differ from the live include root"
 [[ "$OPENRESTY_BACKUP_DIR" != "$OPENRESTY_CONFIG_ROOT"/* ]] || fail "backup directory must be outside the live include root"
 [[ "$OPENRESTY_PRIMARY_FILE" =~ ^[A-Za-z0-9._-]+$ ]] || fail "primary file must be a basename"
 
@@ -39,7 +43,8 @@ fi
 container_id="$("${DOCKER[@]}" ps --filter "name=^/${OPENRESTY_CONTAINER}$" --format '{{.ID}}')"
 [[ -n "$container_id" && "$container_id" != *$'\n'* ]] || fail "expected exactly one configured OpenResty container"
 image_id="$("${DOCKER[@]}" inspect --format '{{.Image}}' "$container_id")"
-[[ "$image_id" == "$EXPECTED_IMAGE_ID" ]] || fail "OpenResty image drift"
+image_repo_digests="$("${DOCKER[@]}" image inspect --format '{{range .RepoDigests}}{{println .}}{{end}}' "$image_id")"
+grep -Fqx "$EXPECTED_IMAGE_REPO_DIGEST" <<< "$image_repo_digests" || fail "OpenResty image drift"
 
 container_exec() {
   "${DOCKER[@]}" exec "$container_id" "$@"

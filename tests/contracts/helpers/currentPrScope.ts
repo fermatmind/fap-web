@@ -4114,6 +4114,7 @@ const SIX_RESULT_PAGE_AGENT_READONLY_ROUTE_API_PDF_SHARE_REVIEW_01_ALLOWED_FILES
 ]);
 
 const FAP_WEB_PUBLIC_NONCE_CACHE_BOUNDARY_01_ALLOWED_FILES = new Set([
+  "AGENTS.md",
   ".github/workflows/web-public-ingress-config.yml",
   ".github/workflows/web-public-ingress.yml",
   "deploy/openresty/fap-web-public.conf",
