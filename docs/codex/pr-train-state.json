@@ -46882,7 +46882,7 @@
     "branch": "codex/mbti-comp-gate-47",
     "title": "MBTI-COMP-GATE-47: add exact A/T runtime completeness gate",
     "depends_on": ["MBTI-COMP-RUNTIME-46"],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "cd7765c5e53d1c09cc41bbd15b78317ff7719757",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1794",
     "checks": {
@@ -46896,13 +46896,13 @@
       },
       "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture, provenance, page-schema, and dedicated scope contract passes 13/13 tests. It covers exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, wrong canonical, truncated body, row-cells-without-section-body, hidden-script-only body, missing page FAQ JSON-LD, and disallowed changed-file fail-closed cases; plus deterministic derivation of all 16 runtime section fingerprints from Approval39/Runtime46. The exact CI-failure reproduction set passes 4 files / 25 tests after isolating the Gate helper from legacy scope helpers."},
       "required_local_checks": {"status": "pass", "evidence": "The production API recovered and strict pnpm check:cms-api passed before dispatch. The authorized workflow deployed exact main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7; checkout, ancestry verification, production deployment, revision verification, and public-surface smoke all passed. Public /revision returns the exact SHA. Independent target-page analytics/CSP readback confirms a present nonce, header/bootstrap/dynamic-script parity, unique nonces across responses, provider-loader attempts, zero CSP blocking errors, and private-route suppression. The exact Gate builder then passed 16/16 with zero failures, and the focused Gate contract passes 13/13. The workflow's final analytics probe timed out navigating the public homepage, and a target-page rerun completed all CSP assertions but did not observe a first-party /api/track attempt; that analytics residual is recorded separately from the exact Gate 47 runtime-completeness decision."},
-      "github_required_checks": {"status": "pending", "evidence": "The prior Gate head passed all seven required checks. The production-pass report is committed as cd7765c5e53d1c09cc41bbd15b78317ff7719757 and the following ledger-only binding commit must receive a fresh exact-head required-check result before merge."},
+      "github_required_checks": {"status": "pass", "evidence": "Exact Gate head 888bb7f9867c64b255cf5ee002fedac587e8712a passed all seven required checks: build, contracts, both personality freezes, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reports CLEAN merge state. This final ready-to-merge ledger commit must itself receive the same required-check set before squash merge; no further pre-merge ledger mutation is needed after it passes."},
       "codex_review": {"status": "external_quota_blocked", "evidence": "All five prior actionable P2 threads are repaired and resolved, with zero unresolved review threads. A fresh exact-head review was explicitly requested on 33fe5406776abb78ca162f120d62921feb7be41e, but the Codex connector refused it because the account has reached its code-review usage limit. This is an external review-capacity hold, not a code finding or failed required check."}
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -47000,8 +47000,13 @@
         "at": "2026-07-22T17:02:08Z",
         "status": "github_checks_pending",
         "summary": "The production API recovered and strict CMS/API preflight passed. The exact authorized production workflow run 29939112644 deployed and verified main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7; deployment and public smoke succeeded, while only the postdeploy analytics browser probe failed on a 30-second public-homepage navigation timeout. Independent target-page readback proves nonce parity, per-response nonce isolation, provider loaders, zero CSP blocking errors, and private-route suppression; /api/track was not observed and remains an analytics residual outside the comparison completeness contract. After transient API/SSR cold-read failures were warmed by read-only requests, the exact backend-authoritative Gate passed 16/16 with zero failures. Report commit cd7765c5e53d1c09cc41bbd15b78317ff7719757 is locally validated and awaits fresh exact-head GitHub checks. No duplicate deployment, rollback, CMS/DB write, publication/indexability mutation, sitemap/llms action, or search submission occurred."
+      },
+      {
+        "at": "2026-07-22T17:07:47Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head 888bb7f9867c64b255cf5ee002fedac587e8712a passed all seven required GitHub checks and reports CLEAN merge state. Gate 47 remains exact 16/16 with zero runtime failures, and the report commit is bound as cd7765c5e53d1c09cc41bbd15b78317ff7719757. This following ledger-only final head must pass the same checks, after which squash merge may proceed without another pre-merge ledger mutation."
       }
     ],
-    "updated_at": "2026-07-22T17:02:08Z"
+    "updated_at": "2026-07-22T17:07:47Z"
   }
 }
