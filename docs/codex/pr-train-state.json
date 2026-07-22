@@ -47016,8 +47016,8 @@
     "branch": "codex/fap-web-public-nonce-cache-boundary-01",
     "title": "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01: version and gate the production HTML cache boundary",
     "depends_on": [],
-    "status": "github_checks_pending",
-    "commit_sha": "8adcc9188af087ff24a3b7b3cd13ad9acdf1c964",
+    "status": "ready_to_merge",
+    "commit_sha": "d3a98948eb1d8e6a92f8d493c9f1186bbd91b1d6",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1797",
     "checks": {
       "authorization": {
@@ -47033,18 +47033,18 @@
         "evidence": "After baseline repair PR #1799 merged as 46b8310f1835e779702608df70c299d4e4b9faf7, PR1 rebased onto that exact origin/main. Focused ingress contracts 9/9, candidate validator, bash -n, ShellCheck, actionlint, exact production-image OpenResty syntax, lint, spacing, typecheck, all four contract shards, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206 pass. YAML/JSON, git diff checks, and exact 13-file allowlist pass."
       },
       "github_required_checks": {
-        "status": "pending_after_rebase",
-        "evidence": "Exact head 7919a04dab479431363468c111eef31d0d96dd7a passed all eight checks, but two additional review findings and the rebase onto newer main require a fresh exact-head cycle."
+        "status": "pass",
+        "evidence": "Exact head d3a98948eb1d8e6a92f8d493c9f1186bbd91b1d6 passed build, contracts, both personality freezes, CodeQL analyze/no-new-alerts, and the dedicated pinned-image web-public-ingress-config check."
       },
       "codex_review": {
-        "status": "repaired_pending_exact_head_review",
-        "evidence": "All eight earlier CodeQL/review findings are repaired. The final two fixes bind rollback approval to the current live config-set SHA and trigger config CI for control-script-only changes. A fresh exact-head check and review cycle remains required."
+        "status": "pass",
+        "evidence": "All eight CodeQL/review findings were repaired, replied to and resolved. Exact head d3a98948 has no unresolved review threads and is mergeable under repository policy."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -47092,9 +47092,14 @@
         "at": "2026-07-22T17:39:38Z",
         "status": "github_checks_pending",
         "summary": "Baseline repair PR #1799 merged and was cleaned. PR1 rebased onto exact origin/main 46b8310f and its focused, full-contract, freeze, pinned-image syntax, lint, typecheck, build, YAML/JSON and exact-scope validations all passed. No production action ran; the branch is ready for a fresh exact-head GitHub cycle."
+      },
+      {
+        "at": "2026-07-22T17:45:08Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head d3a98948 passed all eight GitHub checks including the dedicated ingress config gate. All review threads are resolved, the 13-file scope remains exact, and GitHub reports the PR mergeable. Production apply/deploy remain disabled and were not executed."
       }
     ],
-    "updated_at": "2026-07-22T17:39:38Z"
+    "updated_at": "2026-07-22T17:45:08Z"
   },
   "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02": {
     "id": "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02",
