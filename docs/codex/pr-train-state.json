@@ -47152,4 +47152,126 @@
     ],
     "updated_at": "2026-07-22T17:16:00Z"
   }
+,
+  "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01": {
+    "id": "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01",
+    "repo": "fap-web",
+    "title": "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01 re-audit 1046 career search entries",
+    "base": "main",
+    "branch": "codex/career-search-entry-quality-reaudit-01",
+    "depends_on": [],
+    "status": "ready_to_merge",
+    "commit_sha": "65f81e7618edfde682f109a915a21c7b96cab720",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1798",
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "checks": {
+      "planning_scan": {
+        "status": "pass",
+        "evidence": "2026-07-23 read-only GSC, sitemap, runtime API, repository, and quality-tier scan."
+      },
+      "authorization": {
+        "status": "pass",
+        "evidence": "The user explicitly authorized the exact CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01 manifest/state entry and full scoped PR lifecycle."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "The exact proposed manifest entry has no dependencies; the branch started from fap-web origin/main dd25c48a6e756fa7abd71c14f111922049ff7bd7."
+      },
+      "scope": {
+        "status": "pass",
+        "evidence": "Exact allowlist validation passed for the generator, quality report, generated artifact, one focused re-audit contract, and manifest/state. No runtime, CMS, sitemap membership, Search Channel, deploy, or production mutation occurred."
+      },
+      "generator": {
+        "status": "pass",
+        "evidence": "Canonical Node 24 ran node scripts/seo/generate-career-quality-tiering.mjs successfully. Dataset and both directory authorities returned 1046; sitemap contained 2092 localized career details; current tiers sum to 1046 and the decision is NO_GO."
+      },
+      "focused_contract": {
+        "status": "pass",
+        "evidence": "Canonical Node 24 and pnpm 10.28.1 passed tests/contracts/career-search-entry-quality-reaudit-01.contract.test.ts: 1 file / 7 tests. The frozen v1 compatibility contract also passed; combined run was 2 files / 12 tests."
+      },
+      "typecheck": {
+        "status": "pass",
+        "evidence": "Canonical Node 24 pnpm typecheck passed."
+      },
+      "metadata_and_diff": {
+        "status": "pass",
+        "evidence": "Generator syntax, JSON artifact/state parse, YAML manifest parse, exact allowed-path scope validation, and git diff --check passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "Exact reviewed head 65f81e7618edfde682f109a915a21c7b96cab720 passed build, contracts, CodeQL analyze/aggregate, no-new-code-scanning-alerts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. This ledger-only ready-to-merge commit must receive the same final checks before squash merge."
+      },
+      "codex_review": {
+        "status": "pass_after_repair",
+        "evidence": "Codex reported seven P2 findings across four exact-head reviews: five generator evidence defects, one report-summary mismatch, and one stale ledger SHA. All are repaired; the final reviewed content head is 65f81e7618edfde682f109a915a21c7b96cab720, all prior threads are resolved, and this ledger-only commit binds that reviewed head before merge."
+      },
+      "baseline_repair": {
+        "status": "pass",
+        "evidence": "The post-main-merge contracts failure was isolated to Gate 47 returning true for every non-Gate branch path. Minimal one-line PR #1800 passed all required checks and merged as 5a5aed4ddc2ccd87f1c93355c82349c42dcd19d4 before this branch resynced main."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-22T16:43:23Z",
+        "status": "in_progress",
+        "summary": "Started from latest fap-web origin/main in an isolated worktree. The original user-owned .workbuddy file remains untouched. Registered the exact proposed manifest scope and began a read-only 1046 career search-entry quality re-audit."
+      },
+      {
+        "at": "2026-07-22T17:05:23Z",
+        "status": "local_checks_passed",
+        "summary": "Refreshed the versioned 1046-career quality evidence with dataset/directory authority, optional jobs-index failure isolation, and a conservative 115 Tier B / 706 Tier C / 225 Tier D NO_GO result. Canonical Node 24 generator, focused and legacy compatibility contracts, typecheck, metadata parse, diff, and exact scope checks passed. No runtime, CMS, sitemap membership, Search Channel, deploy, publish, or production state changed."
+      },
+      {
+        "at": "2026-07-22T17:06:50Z",
+        "status": "local_checks_passed",
+        "summary": "Explicitly staged the exact six allowed paths and committed the locally verified implementation as 99701d401760943d968976d1bf1d03e5efa724b1. commit_sha is bound to that implementation commit; this following ledger-only commit records the binding before push."
+      },
+      {
+        "at": "2026-07-22T17:07:52Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact branch and opened fap-web PR #1798 with what, why, validation, repository-rule impact, deferred items, and no-production-execution sections. Required GitHub checks and exact-head Codex review are pending."
+      },
+      {
+        "at": "2026-07-22T17:12:49Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head 414b5dcd60826b2a8e7806355870e742c1c6a90d passed all required CI and security checks. GitHub reports CLEAN and MERGEABLE, with no review requirement, review, comment, inline comment, or unresolved thread. This ledger-only ready-to-merge commit must receive its own final exact-head checks before squash merge."
+      },
+      {
+        "at": "2026-07-22T17:48:53Z",
+        "status": "local_checks_passed",
+        "summary": "After main advanced, PR #1798 resynced main. A pre-existing Gate 47 scope-helper baseline defect blocked full contracts and was isolated, fixed, fully checked, and merged in ad-hoc PR #1800. Three Codex P2 findings were then repaired within the original six-path scope: sampled detail evidence feeds final rows, fallback sitemap locs match canonical owned-host filtering, and per-locale SEO/HTML evidence now fails closed. The refreshed result is 1 Tier B / 1045 Tier D / 0 Tier A with NO_GO; canonical Node 24 generator, v1/v2 contracts 14/14, typecheck, focused ESLint, metadata, diff, and exact scope checks pass."
+      },
+      {
+        "at": "2026-07-22T17:58:51Z",
+        "status": "local_checks_passed",
+        "summary": "A fresh exact-head Codex review added two P2 findings. The generator now requires a successful rendered-HTML read before sampled detail evidence can affect indexability, and it keeps the original 1046/1046 legacy jobs-index gaps separate from 4 EN / 4 ZH sampled detail+HTML coverage. The result remains 1 Tier B / 1045 Tier D / 0 Tier A with NO_GO. Canonical Node 24 regeneration, v1/v2 contracts 14/14, typecheck, focused ESLint, JSON/YAML, diff, and six-path scope checks pass."
+      },
+      {
+        "at": "2026-07-22T18:07:23Z",
+        "status": "local_checks_passed",
+        "summary": "The latest exact-head review found one report-summary mismatch: two sampled careers recovered bilingual SEO/HTML evidence, not one. The report now names both and preserves their distinct Tier B/Tier D gate reasons. Focused v1/v2 contracts pass 14/14, JSON parsing and git diff checks pass, and no runtime or authority surface changed."
+      },
+      {
+        "at": "2026-07-22T18:14:08Z",
+        "status": "ready_to_merge",
+        "summary": "Reviewed head 65f81e7618edfde682f109a915a21c7b96cab720 passed all seven required checks and the final Codex content review. The seventh P2 identified the stale ledger commit_sha; this ledger-only closeout binds commit_sha to that exact reviewed head and must pass its own final required checks before squash merge."
+      }
+    ],
+    "updated_at": "2026-07-22T18:14:08Z"
+  }
+
 }
