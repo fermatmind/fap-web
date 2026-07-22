@@ -9,8 +9,18 @@ const REPORT_PATH = "docs/seo/career-quality-tiering-01.md";
 type ReauditRow = {
   slug: string;
   dataset_publish_track: string;
+  reviewer_status: string;
+  indexable_bilingual: boolean;
   tier: string;
   risk_codes: string[];
+};
+
+type DetailSample = {
+  slug: string;
+  locale: "en" | "zh";
+  detail_api_status: number | null;
+  detail_enrichment_available: boolean;
+  reviewer_status_detail: string;
 };
 
 type ReauditArtifact = {
@@ -58,6 +68,7 @@ type ReauditArtifact = {
   career_api_samples: {
     stable_detail_enrichment: Array<{ slug: string; locale: string; ok: boolean }>;
   };
+  sample_results: DetailSample[];
   sitemap_check: {
     observation_source: string;
     live_sitemap_status: number | null;
@@ -131,9 +142,49 @@ describe("CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01", () => {
     expect(Object.values(reaudit.tier_counts).reduce((sum, count) => sum + count, 0)).toBe(1046);
     expect(reaudit.risk_categories.dataset_publish_track.runtime_publish_projection).toBeGreaterThan(0);
     expect(reaudit.risk_categories.dataset_publish_track.hold).toBeGreaterThan(0);
-    expect(reaudit.tier_counts.tier_c_internal_auxiliary_thin_shell_risk).toBeGreaterThan(0);
+    expect(
+      reaudit.rows
+        .filter((row) => row.dataset_publish_track === "runtime_publish_projection")
+        .every((row) => row.tier !== "tier_a_controlled_search_entry_candidate")
+    ).toBe(true);
     expect(reaudit.tier_counts.tier_d_hold_not_search_entry).toBeGreaterThan(0);
     expect(reaudit.go_no_go.career_pseo_amplification).toBe("NO_GO");
+  });
+
+  it("fails closed when either locale lacks SEO evidence or rendered HTML says noindex", () => {
+    const heldForLocaleEvidence = reaudit.rows.filter((row) =>
+      row.risk_codes.some((risk) =>
+        [
+          "locale_seo_evidence_en_missing",
+          "locale_seo_evidence_zh_missing",
+          "locale_html_noindex_en",
+          "locale_html_noindex_zh",
+        ].includes(risk)
+      )
+    );
+
+    expect(heldForLocaleEvidence.length).toBeGreaterThan(0);
+    expect(
+      heldForLocaleEvidence.every(
+        (row) => !row.indexable_bilingual && row.tier === "tier_d_hold_not_search_entry"
+      )
+    ).toBe(true);
+  });
+
+  it("feeds successful sampled detail enrichment back into the final locale rows", () => {
+    const generator = readText("scripts/seo/generate-career-quality-tiering.mjs");
+    expect(generator).toContain("target.set(sample.slug, sample._detail_enrichment_item)");
+
+    for (const sample of reaudit.sample_results.filter((result) => result.detail_enrichment_available)) {
+      const row = reaudit.rows.find((candidate) => candidate.slug === sample.slug);
+      expect(row).toBeDefined();
+      expect(row?.risk_codes).not.toContain(
+        sample.locale === "zh" ? "career_index_zh_item_missing" : "career_index_en_item_missing"
+      );
+      if (sample.reviewer_status_detail !== "unavailable_from_current_directory_authority") {
+        expect(row?.reviewer_status).not.toBe("unavailable_from_current_directory_authority");
+      }
+    }
   });
 
   it("samples stable details without granting search, CMS, runtime, publish, or deploy authority", () => {
@@ -171,6 +222,11 @@ describe("CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01", () => {
       expect(reaudit.sitemap_check.backend_sitemap_source_status).toBe(200);
       expect(reaudit.sitemap_check.backend_sitemap_source_ok).toBe(true);
     }
+
+    const generator = readText("scripts/seo/generate-career-quality-tiering.mjs");
+    expect(generator).toContain("OWNED_SITEMAP_HOSTS");
+    expect(generator).toContain('url.protocol !== "https:"');
+    expect(generator).toContain("url.search || url.hash");
   });
 
   it("documents the re-audit as evidence only with no runtime or sitemap-membership change", () => {

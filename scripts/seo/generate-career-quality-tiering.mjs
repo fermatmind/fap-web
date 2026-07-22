@@ -10,6 +10,7 @@ const DEFAULT_SITE_URL = "https://fermatmind.com";
 const DEFAULT_API_ORIGIN = "https://api.fermatmind.com";
 const DEFAULT_OUTPUT = "docs/seo/generated/career-quality-tiering-01.v1.json";
 const DEFAULT_TIMEOUT_MS = 60_000;
+const OWNED_SITEMAP_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
 const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
   "software-developers",
   "digital-forensics-analysts",
@@ -68,6 +69,24 @@ function normalizePathname(value) {
   const normalized = String(value || "/").replace(/\/{2,}/g, "/");
   if (normalized === "/") return "/";
   return normalized.replace(/\/+$/, "") || "/";
+}
+
+function normalizeOwnedSitemapLoc(value, siteUrl) {
+  const raw = readString(value);
+  if (!raw) return "";
+
+  try {
+    const url = raw.startsWith("/") ? new URL(raw, siteUrl) : new URL(raw);
+    const hostname = url.hostname.toLowerCase().replace(/\.$/, "");
+    if (url.protocol !== "https:" || !OWNED_SITEMAP_HOSTS.has(hostname) || url.search || url.hash) {
+      return "";
+    }
+
+    const pathname = normalizePathname(url.pathname);
+    return pathname === "/" ? siteUrl : `${siteUrl}${pathname}`;
+  } catch {
+    return "";
+  }
 }
 
 function normalizeSlug(value) {
@@ -238,11 +257,22 @@ function datasetContentVersion(member) {
   return "dataset_authority_only";
 }
 
-function detailToIndexItem(detail) {
+function detailToIndexItem(detail, htmlRobotsPolicy = "", seoSurfaceEvidence = {}) {
   const record = unwrapPayload(detail);
   const trustManifest = readRecord(record.trust_manifest);
   const claimPermissions = readRecord(record.claim_permissions);
-  const seoContract = readRecord(record.seo_contract);
+  const detailSeoContract = readRecord(record.seo_contract);
+  const seoSurface = readRecord(seoSurfaceEvidence);
+  const seoContract = Object.keys(detailSeoContract).length > 0
+    ? detailSeoContract
+    : Object.keys(seoSurface).length > 0
+      ? {
+          index_eligible: isIndexableState(seoSurface.indexability_state)
+            && !hasPolicyToken(seoSurface.robots_policy, "noindex"),
+          index_state: readString(seoSurface.indexability_state),
+          robots_policy: readString(seoSurface.robots_policy),
+        }
+      : {};
   const identity = readRecord(record.identity);
   const titles = readRecord(record.titles);
 
@@ -261,6 +291,7 @@ function detailToIndexItem(detail) {
     },
     score_summary: readRecord(record.score_summary),
     seo_contract: seoContract,
+    html_robots_policy: readString(htmlRobotsPolicy),
   };
 }
 
@@ -313,32 +344,46 @@ function buildRow(slug, enItem, zhItem, datasetMember, sitemapPaths) {
   const dataset = readRecord(datasetMember);
   const enSeo = readRecord(enItem?.seo_contract);
   const zhSeo = readRecord(zhItem?.seo_contract);
-  const trust = readRecord(enItem?.trust_summary);
-  const contentVersion = readString(trust.content_version) || datasetContentVersion(dataset);
-  const reviewerStatus = readString(trust.reviewer_status) || "unavailable_from_current_directory_authority";
+  const enTrust = readRecord(enItem?.trust_summary);
+  const zhTrust = readRecord(zhItem?.trust_summary);
+  const contentVersion = readString(enTrust.content_version)
+    || readString(zhTrust.content_version)
+    || datasetContentVersion(dataset);
+  const reviewerStatus = readString(enTrust.reviewer_status)
+    || readString(zhTrust.reviewer_status)
+    || "unavailable_from_current_directory_authority";
   const publishTrack = readString(dataset.publish_track) || "unknown";
   const releaseCohort = readString(dataset.release_cohort) || "unknown";
   const publicIndexState = readString(dataset.public_index_state);
-  const datasetIndexable = dataset.included_in_public_dataset === true && isIndexableState(publicIndexState);
   const enPath = localeCareerPath("en", slug);
   const zhPath = localeCareerPath("zh", slug);
+  const enHtmlRobots = readString(enItem?.html_robots_policy);
+  const zhHtmlRobots = readString(zhItem?.html_robots_policy);
   const enIndexable = Object.keys(enSeo).length > 0
-    ? enSeo.index_eligible === true && isIndexableState(enSeo.index_state) && !hasPolicyToken(enSeo.robots_policy, "noindex")
-    : datasetIndexable;
+    && enSeo.index_eligible === true
+    && isIndexableState(enSeo.index_state)
+    && !hasPolicyToken(enSeo.robots_policy, "noindex")
+    && !hasPolicyToken(enHtmlRobots, "noindex");
   const zhIndexable = Object.keys(zhSeo).length > 0
-    ? zhSeo.index_eligible === true && isIndexableState(zhSeo.index_state) && !hasPolicyToken(zhSeo.robots_policy, "noindex")
-    : datasetIndexable;
+    && zhSeo.index_eligible === true
+    && isIndexableState(zhSeo.index_state)
+    && !hasPolicyToken(zhSeo.robots_policy, "noindex")
+    && !hasPolicyToken(zhHtmlRobots, "noindex");
   const inSitemapEn = sitemapPaths.has(enPath);
   const inSitemapZh = sitemapPaths.has(zhPath);
-  const allowStrongClaim = trust.allow_strong_claim === true;
-  const allowSalaryComparison = trust.allow_salary_comparison === true;
-  const allowAiStrategy = trust.allow_ai_strategy === true;
+  const allowStrongClaim = enTrust.allow_strong_claim === true || zhTrust.allow_strong_claim === true;
+  const allowSalaryComparison = enTrust.allow_salary_comparison === true || zhTrust.allow_salary_comparison === true;
+  const allowAiStrategy = enTrust.allow_ai_strategy === true || zhTrust.allow_ai_strategy === true;
   const translationStatus = titleTranslationStatus(enItem, zhItem, dataset);
   const riskCodes = [];
 
   if (EXCLUDED_CAREER_JOB_DETAIL_SLUGS.has(slug)) riskCodes.push("excluded_slug_hold");
   if (!enItem) riskCodes.push("career_index_en_item_missing");
   if (!zhItem) riskCodes.push("career_index_zh_item_missing");
+  if (Object.keys(enSeo).length === 0) riskCodes.push("locale_seo_evidence_en_missing");
+  if (Object.keys(zhSeo).length === 0) riskCodes.push("locale_seo_evidence_zh_missing");
+  if (hasPolicyToken(enHtmlRobots, "noindex")) riskCodes.push("locale_html_noindex_en");
+  if (hasPolicyToken(zhHtmlRobots, "noindex")) riskCodes.push("locale_html_noindex_zh");
   if (!enIndexable || !zhIndexable) riskCodes.push("not_bilingually_indexable");
   if (!inSitemapEn || !inSitemapZh) riskCodes.push("not_bilingually_in_sitemap");
   if (reviewerStatus !== "approved") riskCodes.push(`reviewer_not_final:${reviewerStatus}`);
@@ -399,6 +444,8 @@ function buildRow(slug, enItem, zhItem, datasetMember, sitemapPaths) {
     sitemap_bilingual: inSitemapEn && inSitemapZh,
     robots_policy_en: readString(enSeo.robots_policy),
     robots_policy_zh: readString(zhSeo.robots_policy),
+    html_robots_policy_en: enHtmlRobots,
+    html_robots_policy_zh: zhHtmlRobots,
     allow_strong_claim: allowStrongClaim,
     allow_salary_comparison: allowSalaryComparison,
     allow_ai_strategy: allowAiStrategy,
@@ -516,7 +563,13 @@ async function evaluateDetailSample({ slug, locale, row, siteUrl, apiOrigin, tim
     riskCodes.push("sample_strong_claim_without_final_review");
   }
 
+  const detailEnrichmentItem = detailStatus.ok
+    ? detailToIndexItem(detailStatus.payload, extractRobots(html) || "", seoSurface)
+    : null;
+
   return {
+    _detail_enrichment_item: detailEnrichmentItem,
+    detail_enrichment_available: Boolean(detailEnrichmentItem),
     slug,
     locale,
     row_tier: row.tier,
@@ -709,7 +762,9 @@ async function main() {
       args.timeoutMs
     );
     const authorityItems = readArray(readRecord(sitemapAuthorityStatus.payload).items);
-    locs = authorityItems.map((item) => readString(readRecord(item).loc)).filter(Boolean);
+    locs = authorityItems
+      .map((item) => normalizeOwnedSitemapLoc(readRecord(item).loc, args.siteUrl))
+      .filter(Boolean);
     sitemapObservationSource = "backend_sitemap_source_fallback";
   }
   if (locs.length === 0) {
@@ -767,14 +822,14 @@ async function main() {
   for (const [slug, item] of stableEn.items) enBySlug.set(slug, item);
   for (const [slug, item] of stableZh.items) zhBySlug.set(slug, item);
 
-  const rows = allSlugs.map((slug) =>
+  const provisionalRows = allSlugs.map((slug) =>
     buildRow(slug, enBySlug.get(slug), zhBySlug.get(slug), datasetBySlug.get(slug), sitemapPaths)
   );
-  const sampleRows = buildSampleRows(rows, args.samplePerGroup);
-  const detailSamples = [];
+  const sampleRows = buildSampleRows(provisionalRows, args.samplePerGroup);
+  const rawDetailSamples = [];
 
   for (const row of sampleRows) {
-    detailSamples.push(
+    rawDetailSamples.push(
       ...(await Promise.all(
         ["en", "zh"].map((locale) =>
           evaluateDetailSample({
@@ -789,6 +844,27 @@ async function main() {
       ))
     );
   }
+
+  for (const sample of rawDetailSamples) {
+    if (!sample._detail_enrichment_item) continue;
+    const target = sample.locale === "zh" ? zhBySlug : enBySlug;
+    target.set(sample.slug, sample._detail_enrichment_item);
+  }
+
+  const rows = allSlugs.map((slug) =>
+    buildRow(slug, enBySlug.get(slug), zhBySlug.get(slug), datasetBySlug.get(slug), sitemapPaths)
+  );
+  const rowBySlug = new Map(rows.map((row) => [row.slug, row]));
+  const detailSamples = rawDetailSamples.map((sample) => {
+    const artifactSample = { ...sample };
+    delete artifactSample._detail_enrichment_item;
+    const row = rowBySlug.get(artifactSample.slug);
+    return {
+      ...artifactSample,
+      row_tier: row?.tier || artifactSample.row_tier,
+      content_version_index: row?.content_version || artifactSample.content_version_index,
+    };
+  });
 
   const hubChecks = await Promise.all(
     ["en", "zh"].map((locale) =>

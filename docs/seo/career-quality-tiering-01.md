@@ -24,7 +24,7 @@ The current re-audit no longer treats the legacy career jobs index as the 1046 i
 | `https://fermatmind.com/sitemap.xml` | Public URL truth | Successful artifact run observed 200 and 2612 URLs |
 | `/api/v0.5/seo/sitemap-source` | Backend sitemap authority fallback when public XML is unavailable | Generator fallback only; not needed by the successful artifact run |
 | `/api/v0.5/career/jobs?locale={en\|zh-CN}&org_id=0` | Optional reviewer/content enrichment only | Both locales returned 504; zero rows used |
-| `/api/v0.5/career/jobs/{slug}?locale={en\|zh-CN}` | Bounded detail enrichment/sample evidence | Stable-detail batch returned 504 for all 10 observations; mixed sample detail reads remained available |
+| `/api/v0.5/career/jobs/{slug}?locale={en\|zh-CN}` | Bounded detail enrichment/sample evidence | Stable-detail batch returned no usable rows in the final run; six successful later samples were fed back into final rows |
 
 The separation matters: an unavailable optional enrichment endpoint does not erase the backend-authoritative 1046-member inventory, but it also cannot supply the reviewer evidence required to promote entries.
 
@@ -41,6 +41,8 @@ The separation matters: an unavailable optional enrichment endpoint does not era
 | Career detail sitemap slugs | 1046 |
 | Optional jobs-index EN rows | 0 (504) |
 | Optional jobs-index ZH rows | 0 (504) |
+| EN rows with bounded detail enrichment | 3 |
+| ZH rows with bounded detail enrichment | 3 |
 | `/en/career/jobs` or `/zh/career/jobs` in sitemap | No |
 | Excluded slugs in dataset/sitemap | No |
 
@@ -53,10 +55,10 @@ The v1 top-level values remain a historical baseline so the existing frozen cont
 | Tier | Frozen v1 (2026-06-04) | Current v2 re-audit |
 | --- | ---: | ---: |
 | Tier A — controlled search-entry candidate | 6 | 0 |
-| Tier B — content watchlist | 238 | 115 |
+| Tier B — content watchlist | 238 | 1 |
 | Tier C — claim-review cohort | 335 | 0 |
-| Tier C — runtime/thin-shell risk | 467 | 706 |
-| Tier D — hold/not a search entry | 0 | 225 |
+| Tier C — runtime/thin-shell risk | 467 | 0 |
+| Tier D — hold/not a search entry | 0 | 1045 |
 | Total | 1046 | 1046 |
 
 Current dataset publish-track distribution:
@@ -69,16 +71,16 @@ Current dataset publish-track distribution:
 | `runtime_publish_projection` | 706 |
 | Missing/unknown | 3 |
 
-The five `stable` members are held in Tier B rather than promoted to Tier A because the current run could not recover final reviewer evidence. The 222 explicit holds plus 3 unknown-track members form Tier D. The 706 runtime projections remain Tier C thin-shell risk.
+Only `acupuncturists` recovered bilingual per-locale SEO evidence in the final run, and its reviewer status is `pilot_display_asset`, so it remains a Tier B watchlist entry rather than a promotion candidate. The other 1045 rows fail closed to Tier D when either locale lacks usable SEO evidence, rendered HTML says `noindex`, reviewer evidence is insufficient, or the dataset explicitly holds the member. Dataset-wide public index state is recorded as inventory context but is not used as proof that both localized pages are indexable.
 
 ## Focused Sample Evidence
 
-The v2 run sampled one row per current content-version group in both locales (10 observations):
+The v2 run sampled one row per provisional content-version group in both locales (10 observations):
 
-- Seven samples had adequate visible content, one was partial, and two were thin/shell.
-- Four samples lacked FAQ evidence in rendered HTML; none lacked Breadcrumb evidence in the final run.
-- The bounded stable-detail enrichment batch returned 504 for all five stable slugs in both locales.
-- Some ordinary detail/SEO sample endpoints returned 200, but this does not replace complete reviewer evidence for the 1046 cohort.
+- Five samples had adequate visible content and five were thin/shell.
+- Two samples lacked FAQ evidence in rendered HTML; one lacked Breadcrumb evidence.
+- The bounded stable-detail batch returned no usable entries, while six successful later detail samples were fed back into the final row inputs before tiering.
+- Locale HTML `noindex` overrides dataset-wide index context; missing per-locale SEO evidence also fails closed.
 - No strong-claim, salary-comparison, or AI-strategy permission was inferred from missing evidence.
 
 ## Decision

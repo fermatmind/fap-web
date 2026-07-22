@@ -47017,7 +47017,7 @@
     "base": "main",
     "branch": "codex/career-search-entry-quality-reaudit-01",
     "depends_on": [],
-    "status": "ready_to_merge",
+    "status": "local_checks_passed",
     "commit_sha": "99701d401760943d968976d1bf1d03e5efa724b1",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1798",
     "failure_reason": null,
@@ -47058,18 +47058,22 @@
         "evidence": "Generator syntax, JSON artifact/state parse, YAML manifest parse, exact allowed-path scope validation, and git diff --check passed."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "Exact head 414b5dcd60826b2a8e7806355870e742c1c6a90d passed build, contracts, both personality freeze checks, CodeQL analysis and aggregate, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE."
+        "status": "pending_after_review_repair",
+        "evidence": "Prior exact heads passed required checks. A Gate 47 baseline contract defect introduced on main was isolated and repaired in merged PR #1800 (5a5aed4ddc2ccd87f1c93355c82349c42dcd19d4); the current review-repair head still requires fresh checks."
       },
       "codex_review": {
-        "status": "pass_no_findings",
-        "evidence": "PR #1798 has no review requirement, review decision, review, comment, inline comment, or unresolved thread; GitHub reports CLEAN and MERGEABLE."
+        "status": "repair_locally_passed",
+        "evidence": "Codex reported three P2 findings: successful sample enrichment was not fed back, sitemap fallback locs were not canonical-owned filtered, and dataset-wide index state could substitute for missing locale evidence. All three are repaired locally with focused v1/v2 compatibility contracts passing 2 files / 14 tests; exact-head review and thread resolution remain pending."
+      },
+      "baseline_repair": {
+        "status": "pass",
+        "evidence": "The post-main-merge contracts failure was isolated to Gate 47 returning true for every non-Gate branch path. Minimal one-line PR #1800 passed all required checks and merged as 5a5aed4ddc2ccd87f1c93355c82349c42dcd19d4 before this branch resynced main."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -47102,9 +47106,14 @@
         "at": "2026-07-22T17:12:49Z",
         "status": "ready_to_merge",
         "summary": "Exact head 414b5dcd60826b2a8e7806355870e742c1c6a90d passed all required CI and security checks. GitHub reports CLEAN and MERGEABLE, with no review requirement, review, comment, inline comment, or unresolved thread. This ledger-only ready-to-merge commit must receive its own final exact-head checks before squash merge."
+      },
+      {
+        "at": "2026-07-22T17:48:53Z",
+        "status": "local_checks_passed",
+        "summary": "After main advanced, PR #1798 resynced main. A pre-existing Gate 47 scope-helper baseline defect blocked full contracts and was isolated, fixed, fully checked, and merged in ad-hoc PR #1800. Three Codex P2 findings were then repaired within the original six-path scope: sampled detail evidence feeds final rows, fallback sitemap locs match canonical owned-host filtering, and per-locale SEO/HTML evidence now fails closed. The refreshed result is 1 Tier B / 1045 Tier D / 0 Tier A with NO_GO; canonical Node 24 generator, v1/v2 contracts 14/14, typecheck, focused ESLint, metadata, diff, and exact scope checks pass."
       }
     ],
-    "updated_at": "2026-07-22T17:12:49Z"
+    "updated_at": "2026-07-22T17:48:53Z"
   }
 
 }
