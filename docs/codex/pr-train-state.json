@@ -47017,7 +47017,7 @@
     "title": "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01: version and gate the production HTML cache boundary",
     "depends_on": [],
     "status": "ready_to_merge",
-    "commit_sha": "d3a98948eb1d8e6a92f8d493c9f1186bbd91b1d6",
+    "commit_sha": "8ecb9845d8cb62e084f35093850d6e64c75015bf",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1797",
     "checks": {
       "authorization": {
@@ -47033,18 +47033,18 @@
         "evidence": "After the final three P2 repairs, focused ingress contracts 10/10, candidate validator, bash -n, ShellCheck, actionlint, exact production-image OpenResty syntax, lint, spacing, typecheck, all four contract shards, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206 pass. YAML/JSON, git diff checks, and exact 13-file allowlist pass."
       },
       "github_required_checks": {
-        "status": "pending_after_review_repair",
-        "evidence": "Exact head 4a89af5734c3d7cfe973a9307c6f947d9d888bc5 passed all eight checks, but the three same-scope review repairs require a new exact-head cycle."
+        "status": "pass",
+        "evidence": "Exact repaired head 8ecb9845d8cb62e084f35093850d6e64c75015bf passed build, contracts, both personality freezes, CodeQL analyze/no-new-alerts, and the dedicated pinned-image web-public-ingress-config check."
       },
       "codex_review": {
-        "status": "repaired_pending_exact_head_review",
-        "evidence": "Three final P2 findings are repaired locally: IPv6 TLS listeners are counted, port 443 requires ssl in both runtime and validator, and apply restores the complete original managed set on any live mutation error. Fresh exact-head review remains required."
+        "status": "pass",
+        "evidence": "All review findings are repaired, replied to and resolved. Exact repaired head 8ecb9845 has zero unresolved review threads and GitHub reports it mergeable."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -47102,9 +47102,14 @@
         "at": "2026-07-22T18:02:02Z",
         "status": "github_checks_pending",
         "summary": "Merge was stopped when exact review found three additional P2 gaps. The same-scope repair now counts IPv4/IPv6 TLS listeners, rejects plain port 443, completes backups before live mutation, and restores the original managed set on mutation failure. All required local validations passed again; no production action ran."
+      },
+      {
+        "at": "2026-07-22T18:07:13Z",
+        "status": "ready_to_merge",
+        "summary": "Exact repaired head 8ecb9845 passed all eight GitHub checks. All review threads are resolved, GitHub reports the PR clean and mergeable, and no production apply or deploy occurred."
       }
     ],
-    "updated_at": "2026-07-22T18:02:02Z"
+    "updated_at": "2026-07-22T18:07:13Z"
   },
   "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02": {
     "id": "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02",
