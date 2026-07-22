@@ -46882,30 +46882,30 @@
     "branch": "codex/mbti-comp-gate-47",
     "title": "MBTI-COMP-GATE-47: add exact A/T runtime completeness gate",
     "depends_on": ["MBTI-COMP-RUNTIME-46"],
-    "status": "production_deploy_authorization_pending",
-    "commit_sha": "c86812cb8d8c8330cfae90804550cd9aa1fe6bbd",
+    "status": "production_deploy_readiness_blocked",
+    "commit_sha": "8af223ac38fdce7916773e3eaf72831296dc9bbb",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1794",
     "checks": {
       "authorization": {
         "status": "pass",
-        "evidence": "The continuous MBTI comparison train goal explicitly authorizes Gate 47, its exact branch and dependency, manifest/state registration, validation, and complete ordinary PR lifecycle."
+        "evidence": "The continuous MBTI comparison train goal authorizes Gate 47 and the operator explicitly approved the existing SHA-bound manual production workflow for exact merged main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7 with manual_risk_approval APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:dd25c48a6e756fa7abd71c14f111922049ff7bd7 and acknowledged verified range 2d4ca8fa1c33892013fe11750b25fe3be38b8da3...dd25c48a6e756fa7abd71c14f111922049ff7bd7."
       },
       "dependency": {
         "status": "pass",
         "evidence": "MBTI-COMP-RUNTIME-46 production code deploy, exact single-record INTP revision, rollback-safe write, 16/16 API/page readback, and fap-api operation report PR #3206 are complete."
       },
       "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture, provenance, page-schema, and dedicated scope contract passes 13/13 tests. It covers exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, wrong canonical, truncated body, row-cells-without-section-body, hidden-script-only body, missing page FAQ JSON-LD, and disallowed changed-file fail-closed cases; plus deterministic derivation of all 16 runtime section fingerprints from Approval39/Runtime46. The exact CI-failure reproduction set passes 4 files / 25 tests after isolating the Gate helper from legacy scope helpers."},
-      "required_local_checks": {"status": "pass_with_production_readback_hold", "evidence": "Canonical Node 24 Gate validation remains complete. The isolated SSR-visible-body repair passed 15/15 focused contracts, scoped ESLint, typecheck, a production-configured build, diff check, and a local production-server readback proving distinct nonces plus exact comparison body text in the visible DOM. PR #1796 merged as exact main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7 after all seven GitHub checks passed. Production still runs the prior revision, so the checked-in Gate evidence correctly remains FAIL_CLOSED 0/16 pending exact-SHA deployment."},
-      "github_required_checks": {"status": "pending_after_rebase", "evidence": "Gate 47 was rebased onto merged SSR repair SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7. Build, CodeQL, both freezes, and no-new-alerts passed on rebased head c86812cb8d8c8330cfae90804550cd9aa1fe6bbd; contracts remain in progress. This ledger-only transition will require a fresh exact-head check cycle after push."},
+      "required_local_checks": {"status": "blocked_cms_api_unreachable", "evidence": "Canonical Node 24 Gate validation and the isolated SSR repair validation remain complete. Immediately before the authorized deploy, strict pnpm check:cms-api failed twice because the production API returned no first byte for the required bilingual article list. Three additional 25-second article requests and public comparison, bilingual article, landing-surface, and scale-lookup probes all timed out without a response. The frontend workflow was not dispatched because backend/CMS readiness is a hard deployment gate."},
+      "github_required_checks": {"status": "pass", "evidence": "Exact Gate head 8af223ac38fdce7916773e3eaf72831296dc9bbb passed all seven checks: build, contracts, both personality freezes, CodeQL analysis/result, and no-new-code-scanning-alerts. Exact main deploy target dd25c48a6e756fa7abd71c14f111922049ff7bd7 also has successful main CI, CodeQL, and staging deployment runs."},
       "codex_review": {"status": "external_quota_blocked", "evidence": "All five prior actionable P2 threads are repaired and resolved, with zero unresolved review threads. A fresh exact-head review was explicitly requested on 33fe5406776abb78ca162f120d62921feb7be41e, but the Codex connector refused it because the account has reached its code-review usage limit. This is an external review-capacity hold, not a code finding or failed required check."}
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
-    "failure_reason": "The isolated SSR-visible-body baseline repair is merged and fully validated as exact main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7, but production still runs the prior revision. The automatic production policy guard safely blocked deployment and reported the conservative verified range 2d4ca8fa1c33892013fe11750b25fe3be38b8da3...dd25c48a6e756fa7abd71c14f111922049ff7bd7. Gate 47 must remain fail closed until the operator provides exact SHA-bound manual recovery authorization, the protected production Environment is approved, and the exact 16-target public readback passes.",
+    "failure_reason": "Exact SHA-bound production authorization is present and all frontend SHA/CI/security/workflow checks pass, but strict CMS/API readiness is currently red: multiple public production API families connect but return no response before 15-25 second timeouts. The deploy workflow has not been dispatched. Gate 47 must remain fail closed until the production API is responsive, pnpm check:cms-api passes without weakening strict mode, and the authorized deployment plus exact 16-target readback complete.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -46990,8 +46990,13 @@
         "at": "2026-07-22T16:13:41Z",
         "status": "production_deploy_authorization_pending",
         "summary": "Isolated baseline repair PR #1796 removed the personality loading boundary that hid dynamic comparison content in RSC payloads. It passed focused contracts, ESLint, typecheck, production build, local production SSR/nonce probes, and all seven GitHub checks, then squash-merged as exact main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7. Main CI, CodeQL, and staging deploy all passed. The automatic production workflow performed only its policy guard and safely skipped deployment, reporting verified range 2d4ca8fa1c33892013fe11750b25fe3be38b8da3...dd25c48a6e756fa7abd71c14f111922049ff7bd7. Exact SHA-bound manual authorization and protected Environment approval are now required; no new production deploy or content/publication/search mutation was performed."
+      },
+      {
+        "at": "2026-07-22T16:29:01Z",
+        "status": "production_deploy_readiness_blocked",
+        "summary": "The operator supplied exact SHA-bound production authorization for dd25c48a6e756fa7abd71c14f111922049ff7bd7 and the acknowledged conservative range. Exact main ancestry, merged PR #1796, main CI/CodeQL/staging, Gate 47 7/7 checks, workflow input contract, duplicate-run guard, and zero open Critical/High/Medium code-scanning alerts all pass. Deployment was not dispatched because strict CMS/API readiness failed twice and every follow-up public API family probe timed out without receiving a response. No strict-mode bypass, SSH action, production workflow dispatch, CMS/DB write, or publication/search mutation occurred."
       }
     ],
-    "updated_at": "2026-07-22T16:13:41Z"
+    "updated_at": "2026-07-22T16:29:01Z"
   }
 }
