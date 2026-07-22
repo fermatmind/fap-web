@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -euo pipefail
+set -Eeuo pipefail
 
 MODE="${1:-}"
 EXPECTED_IMAGE_REPO_DIGEST="1panel/openresty@sha256:ee8c5117c291c7384a381c32068e1d9a50adc8bf392f9157c42d14bedbbe018b"
@@ -77,7 +77,7 @@ matching_https_vhosts() {
       }
       in_server {
         original = $0
-        if (original ~ /listen[[:space:]]+443([[:space:];]|[^;]*ssl)/) https = 1
+        if (original ~ /listen[[:space:]]+([^;[:space:]]*:)?443([^;]*[[:space:]])ssl([[:space:];])/) https = 1
         if (original ~ /server_name[[:space:]]+([^;]*[[:space:]])?(www\.)?fermatmind\.com([[:space:];])/) host = 1
         opens = gsub(/\{/, "{", original)
         closes = gsub(/\}/, "}", original)
@@ -149,32 +149,56 @@ EOF
   backup_release_dir="$OPENRESTY_BACKUP_DIR/$RELEASE_ID"
   container_exec mkdir -p "$backup_release_dir"
   restore_originals() {
-    container_exec rm -f "$OPENRESTY_CONFIG_ROOT/$OPENRESTY_PRIMARY_FILE"
+    local restore_status=0
     for managed_file in "${managed_files[@]}"; do
+      container_exec rm -f "$OPENRESTY_CONFIG_ROOT/$managed_file" || restore_status=1
       if container_exec test -f "$backup_release_dir/$managed_file"; then
-        container_exec cp -p "$backup_release_dir/$managed_file" "$OPENRESTY_CONFIG_ROOT/$managed_file"
+        container_exec cp -p "$backup_release_dir/$managed_file" "$OPENRESTY_CONFIG_ROOT/$managed_file" || restore_status=1
       fi
     done
+    return "$restore_status"
   }
+  restore_required=false
+  # shellcheck disable=SC2329 # invoked indirectly by the ERR trap
+  restore_on_apply_error() {
+    local exit_status="$?"
+    trap - ERR
+    if [[ "$restore_required" == "true" ]]; then
+      restore_originals || printf 'web-public-ingress: failed to fully restore original files after apply error\n' >&2
+    fi
+    exit "$exit_status"
+  }
+  trap restore_on_apply_error ERR
+
+  # Finish the complete backup set before mutating any live include file.
   for file in "${managed_files[@]}"; do
     if container_exec test -f "$OPENRESTY_CONFIG_ROOT/$file"; then
       container_exec cp -p "$OPENRESTY_CONFIG_ROOT/$file" "$backup_release_dir/$file"
-      container_exec rm "$OPENRESTY_CONFIG_ROOT/$file"
     fi
+  done
+  restore_required=true
+  for file in "${managed_files[@]}"; do
+    container_exec rm -f "$OPENRESTY_CONFIG_ROOT/$file"
   done
   container_exec cp "$remote_candidate" "$OPENRESTY_CONFIG_ROOT/$OPENRESTY_PRIMARY_FILE"
   container_exec chmod 0444 "$OPENRESTY_CONFIG_ROOT/$OPENRESTY_PRIMARY_FILE"
 
   if ! container_exec openresty -t; then
-    restore_originals
+    trap - ERR
+    restore_originals || fail "live syntax test failed and original files could not be fully restored"
+    restore_required=false
     fail "live syntax test failed before reload; original files restored"
   fi
 
   if [[ "$(matching_https_vhosts)" != "1" ]]; then
-    restore_originals
+    trap - ERR
+    restore_originals || fail "HTTPS vhost convergence failed and original files could not be fully restored"
+    restore_required=false
     fail "candidate did not converge to one HTTPS web vhost; original files restored"
   fi
   container_exec openresty -s reload
+  restore_required=false
+  trap - ERR
   printf 'mode=apply\n'
   printf 'applied_config_sha256=%s\n' "$candidate_sha"
   printf 'backup_set_sha256=%s\n' "$current_set_sha"

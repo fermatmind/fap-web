@@ -44,7 +44,13 @@ async function main() {
   const configPath = parseArgs(process.argv.slice(2));
   const source = stripComments(await readFile(configPath, "utf8"));
   const servers = extractBlocks(source, "server");
-  const httpsServers = servers.filter(({ body }) => /\blisten\s+443(?:\s|;|[^;]*\bssl\b)/.test(body));
+  const httpsServers = servers.filter(({ body }) => (
+    [...body.matchAll(/\blisten\s+([^;]+);/g)].some(([, value]) => {
+      const tokens = value.trim().split(/\s+/);
+      const endpoint = tokens[0] || "";
+      return /^(?:(?:[^:\s]+|\[[^\]]+\]):)?443$/.test(endpoint) && tokens.includes("ssl");
+    })
+  ));
   const publicHttpsServers = httpsServers.filter(({ body }) => (
     /\bserver_name\s+[^;]*\bfermatmind\.com\b[^;]*;/.test(body)
   ));

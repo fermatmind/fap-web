@@ -410,7 +410,7 @@
     "base": "main",
     "branch": "codex/career-detail-delivery-10k-01",
     "depends_on": ["CAREER-DETAIL-READ-MODEL-10K-01"],
-    "status": "ready_to_merge",
+    "status": "github_checks_pending",
     "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
@@ -47030,21 +47030,21 @@
       },
       "required_local_checks": {
         "status": "pass",
-        "evidence": "After baseline repair PR #1799 merged as 46b8310f1835e779702608df70c299d4e4b9faf7, PR1 rebased onto that exact origin/main. Focused ingress contracts 9/9, candidate validator, bash -n, ShellCheck, actionlint, exact production-image OpenResty syntax, lint, spacing, typecheck, all four contract shards, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206 pass. YAML/JSON, git diff checks, and exact 13-file allowlist pass."
+        "evidence": "After the final three P2 repairs, focused ingress contracts 10/10, candidate validator, bash -n, ShellCheck, actionlint, exact production-image OpenResty syntax, lint, spacing, typecheck, all four contract shards, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206 pass. YAML/JSON, git diff checks, and exact 13-file allowlist pass."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "Exact head d3a98948eb1d8e6a92f8d493c9f1186bbd91b1d6 passed build, contracts, both personality freezes, CodeQL analyze/no-new-alerts, and the dedicated pinned-image web-public-ingress-config check."
+        "status": "pending_after_review_repair",
+        "evidence": "Exact head 4a89af5734c3d7cfe973a9307c6f947d9d888bc5 passed all eight checks, but the three same-scope review repairs require a new exact-head cycle."
       },
       "codex_review": {
-        "status": "pass",
-        "evidence": "All eight CodeQL/review findings were repaired, replied to and resolved. Exact head d3a98948 has no unresolved review threads and is mergeable under repository policy."
+        "status": "repaired_pending_exact_head_review",
+        "evidence": "Three final P2 findings are repaired locally: IPv6 TLS listeners are counted, port 443 requires ssl in both runtime and validator, and apply restores the complete original managed set on any live mutation error. Fresh exact-head review remains required."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -47097,9 +47097,14 @@
         "at": "2026-07-22T17:45:08Z",
         "status": "ready_to_merge",
         "summary": "Exact head d3a98948 passed all eight GitHub checks including the dedicated ingress config gate. All review threads are resolved, the 13-file scope remains exact, and GitHub reports the PR mergeable. Production apply/deploy remain disabled and were not executed."
+      },
+      {
+        "at": "2026-07-22T18:02:02Z",
+        "status": "github_checks_pending",
+        "summary": "Merge was stopped when exact review found three additional P2 gaps. The same-scope repair now counts IPv4/IPv6 TLS listeners, rejects plain port 443, completes backups before live mutation, and restores the original managed set on mutation failure. All required local validations passed again; no production action ran."
       }
     ],
-    "updated_at": "2026-07-22T17:45:08Z"
+    "updated_at": "2026-07-22T18:02:02Z"
   },
   "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02": {
     "id": "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02",

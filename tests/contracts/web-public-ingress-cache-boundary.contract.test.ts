@@ -41,8 +41,14 @@ describe("versioned public ingress cache boundary", () => {
 
   it("fails closed on duplicate vhosts, HTML cache, or forced shared-cache headers", () => {
     expect(validate(`${config}\n${config}`).status).not.toBe(0);
+    expect(validate(config.replace("listen 443 ssl;", "listen 443;")).status).not.toBe(0);
     expect(validate(config.replace("proxy_cache off;", "proxy_cache fermatmind_public;")).status).not.toBe(0);
     expect(validate(config.replace("add_header X-Proxy-Cache BYPASS always;", 'add_header Cache-Control "public, s-maxage=60" always;')).status).not.toBe(0);
+  });
+
+  it("recognizes IPv4 and IPv6 TLS listeners without treating plain port 443 as HTTPS", () => {
+    expect(validate(config.replace("listen 443 ssl;", "listen [::]:443 ssl;")).status).toBe(0);
+    expect(control).toContain("([^;[:space:]]*:)?443([^;]*[[:space:]])ssl([[:space:];])");
   });
 
   it("keeps live backups outside the include root and requires exact drift hashes", () => {
@@ -54,6 +60,9 @@ describe("versioned public ingress cache boundary", () => {
     expect(control).toContain('[[ "$current_live_backups" == "0" ]]');
     expect(control).toContain('[[ "$current_set_sha" == "$EXPECTED_CONFIG_SET_SHA256" ]]');
     expect(control).toContain('[[ "$(matching_https_vhosts)" != "1" ]]');
+    expect(control).toContain("trap restore_on_apply_error ERR");
+    expect(control).toContain("restore_required=true");
+    expect(control).toContain("Finish the complete backup set before mutating any live include file.");
     expect(control).not.toContain("openresty -s reload ||");
   });
 
