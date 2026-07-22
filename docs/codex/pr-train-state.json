@@ -46882,8 +46882,8 @@
     "branch": "codex/mbti-comp-gate-47",
     "title": "MBTI-COMP-GATE-47: add exact A/T runtime completeness gate",
     "depends_on": ["MBTI-COMP-RUNTIME-46"],
-    "status": "baseline_repair_required",
-    "commit_sha": "3a25164ffc42bd8b3c1217a8175a87c987123b63",
+    "status": "production_deploy_authorization_pending",
+    "commit_sha": "c86812cb8d8c8330cfae90804550cd9aa1fe6bbd",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1794",
     "checks": {
       "authorization": {
@@ -46895,17 +46895,17 @@
         "evidence": "MBTI-COMP-RUNTIME-46 production code deploy, exact single-record INTP revision, rollback-safe write, 16/16 API/page readback, and fap-api operation report PR #3206 are complete."
       },
       "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture, provenance, page-schema, and dedicated scope contract passes 13/13 tests. It covers exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, wrong canonical, truncated body, row-cells-without-section-body, hidden-script-only body, missing page FAQ JSON-LD, and disallowed changed-file fail-closed cases; plus deterministic derivation of all 16 runtime section fingerprints from Approval39/Runtime46. The exact CI-failure reproduction set passes 4 files / 25 tests after isolating the Gate helper from legacy scope helpers."},
-      "required_local_checks": {"status": "fail_closed_production_readback", "evidence": "Canonical Node 24 validation passes the exact CI reproduction set (4 files / 25 tests), ESLint, typecheck, diff check, and full contracts (764 files / 4407 tests). The authorized exact-SHA production deploy completed checkout, PM2 deployment, revision verification, and public-surface smoke successfully. The refreshed exact Gate readback remains FAIL_CLOSED at 0/16 with 640 visible-DOM failures: backend-authoritative comparison content is present only in RSC script payloads while the initial visible DOM contains the personality loading shell."},
-      "github_required_checks": {"status": "pass", "evidence": "Exact Gate head 3a25164ffc42bd8b3c1217a8175a87c987123b63 passed all seven required checks and GitHub reports CLEAN. Gate merge remains independently blocked by the fail-closed production readback."},
+      "required_local_checks": {"status": "pass_with_production_readback_hold", "evidence": "Canonical Node 24 Gate validation remains complete. The isolated SSR-visible-body repair passed 15/15 focused contracts, scoped ESLint, typecheck, a production-configured build, diff check, and a local production-server readback proving distinct nonces plus exact comparison body text in the visible DOM. PR #1796 merged as exact main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7 after all seven GitHub checks passed. Production still runs the prior revision, so the checked-in Gate evidence correctly remains FAIL_CLOSED 0/16 pending exact-SHA deployment."},
+      "github_required_checks": {"status": "pending_after_rebase", "evidence": "Gate 47 was rebased onto merged SSR repair SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7. Build, CodeQL, both freezes, and no-new-alerts passed on rebased head c86812cb8d8c8330cfae90804550cd9aa1fe6bbd; contracts remain in progress. This ledger-only transition will require a fresh exact-head check cycle after push."},
       "codex_review": {"status": "external_quota_blocked", "evidence": "All five prior actionable P2 threads are repaired and resolved, with zero unresolved review threads. A fresh exact-head review was explicitly requested on 33fe5406776abb78ca162f120d62921feb7be41e, but the Codex connector refused it because the account has reached its code-review usage limit. This is an external review-capacity hold, not a code finding or failed required check."}
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
-    "failure_reason": "The authorized exact-SHA production deploy repaired per-response CSP header/HTML nonce parity and current independent probes show unique nonces with no-store responses. Gate 47 still fails closed at 0/16 because connection()-driven dynamic rendering is streamed behind app/(localized)/[locale]/personality/loading.tsx: the initial visible DOM contains only the loading shell and the authoritative comparison body exists only in RSC script payloads. An isolated frontend baseline repair must make the exact body server-visible without weakening CSP or the Gate, then receive its own production authorization and readback.",
+    "failure_reason": "The isolated SSR-visible-body baseline repair is merged and fully validated as exact main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7, but production still runs the prior revision. The automatic production policy guard safely blocked deployment and reported the conservative verified range 2d4ca8fa1c33892013fe11750b25fe3be38b8da3...dd25c48a6e756fa7abd71c14f111922049ff7bd7. Gate 47 must remain fail closed until the operator provides exact SHA-bound manual recovery authorization, the protected production Environment is approved, and the exact 16-target public readback passes.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -46985,8 +46985,13 @@
         "at": "2026-07-22T15:53:53Z",
         "status": "baseline_repair_required",
         "summary": "The operator-authorized SHA-bound manual recovery deployed exact main SHA 062a7130e5dcff8a08b55489b430c1338431b1b0. Checkout, production PM2 deploy, revision verification, and public-surface smoke passed. The postdeploy analytics probe confirmed header/bootstrap/dynamic-script nonce parity and zero CSP blocking errors, but the overall workflow failed on a transient independent-response nonce-reuse observation and an absent first-party analytics attempt. Fresh independent probes now return unique nonces and private no-store responses. Exact Gate readback nevertheless remains FAIL_CLOSED 0/16 (640 failures): authoritative body text is only in RSC script payloads and the initial visible DOM is the personality loading shell. A separate minimal SSR-visible-body baseline repair is required; no duplicate deploy, rollback, CMS/DB write, or publication/indexability/search action was performed."
+      },
+      {
+        "at": "2026-07-22T16:13:41Z",
+        "status": "production_deploy_authorization_pending",
+        "summary": "Isolated baseline repair PR #1796 removed the personality loading boundary that hid dynamic comparison content in RSC payloads. It passed focused contracts, ESLint, typecheck, production build, local production SSR/nonce probes, and all seven GitHub checks, then squash-merged as exact main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7. Main CI, CodeQL, and staging deploy all passed. The automatic production workflow performed only its policy guard and safely skipped deployment, reporting verified range 2d4ca8fa1c33892013fe11750b25fe3be38b8da3...dd25c48a6e756fa7abd71c14f111922049ff7bd7. Exact SHA-bound manual authorization and protected Environment approval are now required; no new production deploy or content/publication/search mutation was performed."
       }
     ],
-    "updated_at": "2026-07-22T15:53:53Z"
+    "updated_at": "2026-07-22T16:13:41Z"
   }
 }
