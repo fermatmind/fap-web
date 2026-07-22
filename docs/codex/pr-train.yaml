@@ -18956,6 +18956,28 @@ prs:
       squash: true
       auto_merge: false
     next_task: "After merge, request explicit manifest/state authorization before starting any proposed thin-content, schema, internal-link, or hub sitemap-policy follow-up."
+  - id: CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01
+    repo: fap-web
+    depends_on: []
+    branch: codex/career-search-entry-quality-reaudit-01
+    base: main
+    title: "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01 re-audit 1046 career search entries"
+    train_scope: seo_daily_impressions_10k
+    status: planned
+    scope:
+      - Refresh the live 1046 career quality tiering artifact without runtime or CMS changes.
+    allowed_paths:
+      - scripts/seo/generate-career-quality-tiering.mjs
+      - docs/seo/career-quality-tiering-01.md
+      - docs/seo/generated/career-quality-tiering-01.v1.json
+      - tests/contracts/career-search-entry-quality-reaudit-01.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    validation:
+      - node scripts/seo/generate-career-quality-tiering.mjs
+      - pnpm exec vitest run tests/contracts/career-search-entry-quality-reaudit-01.contract.test.ts
+      - git diff --check
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
   - id: HELP-CONTENT-INVENTORY-01
     repo: fap-web
     branch: codex/help-content-inventory-01

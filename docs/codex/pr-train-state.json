@@ -46874,5 +46874,78 @@
       }
     ],
     "updated_at": "2026-07-19T07:12:16Z"
+  },
+  "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01": {
+    "id": "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01",
+    "repo": "fap-web",
+    "title": "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01 re-audit 1046 career search entries",
+    "base": "main",
+    "branch": "codex/career-search-entry-quality-reaudit-01",
+    "depends_on": [],
+    "status": "local_checks_passed",
+    "commit_sha": null,
+    "pr_url": null,
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "checks": {
+      "planning_scan": {
+        "status": "pass",
+        "evidence": "2026-07-23 read-only GSC, sitemap, runtime API, repository, and quality-tier scan."
+      },
+      "authorization": {
+        "status": "pass",
+        "evidence": "The user explicitly authorized the exact CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01 manifest/state entry and full scoped PR lifecycle."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "The exact proposed manifest entry has no dependencies; the branch started from fap-web origin/main dd25c48a6e756fa7abd71c14f111922049ff7bd7."
+      },
+      "scope": {
+        "status": "pass",
+        "evidence": "Exact allowlist validation passed for the generator, quality report, generated artifact, one focused re-audit contract, and manifest/state. No runtime, CMS, sitemap membership, Search Channel, deploy, or production mutation occurred."
+      },
+      "generator": {
+        "status": "pass",
+        "evidence": "Canonical Node 24 ran node scripts/seo/generate-career-quality-tiering.mjs successfully. Dataset and both directory authorities returned 1046; sitemap contained 2092 localized career details; current tiers sum to 1046 and the decision is NO_GO."
+      },
+      "focused_contract": {
+        "status": "pass",
+        "evidence": "Canonical Node 24 and pnpm 10.28.1 passed tests/contracts/career-search-entry-quality-reaudit-01.contract.test.ts: 1 file / 7 tests. The frozen v1 compatibility contract also passed; combined run was 2 files / 12 tests."
+      },
+      "typecheck": {
+        "status": "pass",
+        "evidence": "Canonical Node 24 pnpm typecheck passed."
+      },
+      "metadata_and_diff": {
+        "status": "pass",
+        "evidence": "Generator syntax, JSON artifact/state parse, YAML manifest parse, exact allowed-path scope validation, and git diff --check passed."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-22T16:43:23Z",
+        "status": "in_progress",
+        "summary": "Started from latest fap-web origin/main in an isolated worktree. The original user-owned .workbuddy file remains untouched. Registered the exact proposed manifest scope and began a read-only 1046 career search-entry quality re-audit."
+      },
+      {
+        "at": "2026-07-22T17:05:23Z",
+        "status": "local_checks_passed",
+        "summary": "Refreshed the versioned 1046-career quality evidence with dataset/directory authority, optional jobs-index failure isolation, and a conservative 115 Tier B / 706 Tier C / 225 Tier D NO_GO result. Canonical Node 24 generator, focused and legacy compatibility contracts, typecheck, metadata parse, diff, and exact scope checks passed. No runtime, CMS, sitemap membership, Search Channel, deploy, publish, or production state changed."
+      }
+    ],
+    "updated_at": "2026-07-22T17:05:23Z"
   }
 }
