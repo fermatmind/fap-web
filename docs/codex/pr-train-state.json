@@ -46875,6 +46875,141 @@
     ],
     "updated_at": "2026-07-19T07:12:16Z"
   },
+  "MBTI-COMP-GATE-47": {
+    "id": "MBTI-COMP-GATE-47",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-comp-gate-47",
+    "title": "MBTI-COMP-GATE-47: add exact A/T runtime completeness gate",
+    "depends_on": ["MBTI-COMP-RUNTIME-46"],
+    "status": "ready_to_merge",
+    "commit_sha": "cd7765c5e53d1c09cc41bbd15b78317ff7719757",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1794",
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "The continuous MBTI comparison train goal authorizes Gate 47 and the operator explicitly approved the existing SHA-bound manual production workflow for exact merged main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7 with manual_risk_approval APPROVE_RISKY_FAP_WEB_PRODUCTION_DEPLOY:dd25c48a6e756fa7abd71c14f111922049ff7bd7 and acknowledged verified range 2d4ca8fa1c33892013fe11750b25fe3be38b8da3...dd25c48a6e756fa7abd71c14f111922049ff7bd7."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "MBTI-COMP-RUNTIME-46 production code deploy, exact single-record INTP revision, rollback-safe write, 16/16 API/page readback, and fap-api operation report PR #3206 are complete."
+      },
+      "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture, provenance, page-schema, and dedicated scope contract passes 13/13 tests. It covers exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, wrong canonical, truncated body, row-cells-without-section-body, hidden-script-only body, missing page FAQ JSON-LD, and disallowed changed-file fail-closed cases; plus deterministic derivation of all 16 runtime section fingerprints from Approval39/Runtime46. The exact CI-failure reproduction set passes 4 files / 25 tests after isolating the Gate helper from legacy scope helpers."},
+      "required_local_checks": {"status": "pass", "evidence": "The production API recovered and strict pnpm check:cms-api passed before dispatch. The authorized workflow deployed exact main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7; checkout, ancestry verification, production deployment, revision verification, and public-surface smoke all passed. Public /revision returns the exact SHA. Independent target-page analytics/CSP readback confirms a present nonce, header/bootstrap/dynamic-script parity, unique nonces across responses, provider-loader attempts, zero CSP blocking errors, and private-route suppression. The exact Gate builder then passed 16/16 with zero failures, and the focused Gate contract passes 13/13. The workflow's final analytics probe timed out navigating the public homepage, and a target-page rerun completed all CSP assertions but did not observe a first-party /api/track attempt; that analytics residual is recorded separately from the exact Gate 47 runtime-completeness decision."},
+      "github_required_checks": {"status": "pass", "evidence": "Exact Gate head 888bb7f9867c64b255cf5ee002fedac587e8712a passed all seven required checks: build, contracts, both personality freezes, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reports CLEAN merge state. This final ready-to-merge ledger commit must itself receive the same required-check set before squash merge; no further pre-merge ledger mutation is needed after it passes."},
+      "codex_review": {"status": "external_quota_blocked", "evidence": "All five prior actionable P2 threads are repaired and resolved, with zero unresolved review threads. A fresh exact-head review was explicitly requested on 33fe5406776abb78ca162f120d62921feb7be41e, but the Codex connector refused it because the account has reached its code-review usage limit. This is an external review-capacity hold, not a code finding or failed required check."}
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-19T07:25:31Z",
+        "status": "in_progress",
+        "summary": "Started from exact fap-web origin/main 5becd8b7374240fabd58803276e73d26f361b0af after verifying the cross-repository Runtime 46 dependency. The new versioned Gate 47 preserves historical INDEX-43 evidence, prohibits comparison_blocks substitution and local runtime content fallback, and performs read-only exact-16 public API/page validation only. The unrelated user-owned .workbuddy path remains untouched and untracked."
+      },
+      {
+        "at": "2026-07-19T08:07:46Z",
+        "status": "ready_for_pr",
+        "summary": "The exact-16 backend-authoritative runtime gate passes 16/16 with exact nine-section order and approved fingerprints, FAQ/JSON-LD parity, API/page canonical and robots parity, and visible body readback. An isolated pre-existing generator determinism defect was repaired and merged in fap-web PR #1793 before rebasing this branch onto origin/main daaba5eceed5a419d4dbb32a683b616891644589. All local Gate 47 manifest checks now pass; the unrelated user-owned .workbuddy path remains untouched and excluded from scope."
+      },
+      {
+        "at": "2026-07-19T08:14:30Z",
+        "status": "ready_for_pr",
+        "summary": "Strengthened the review-fingerprint proof before commit: every locked runtime section SHA is now deterministically derived from its exact approved import payload (15 Approval39 records plus the Runtime46 INTP revision), and the public readback report records both hashes and the review source per slug. Focused provenance tests pass 8/8 and the refreshed read-only production readback remains exact 16/16."
+      },
+      {
+        "at": "2026-07-19T08:16:00Z",
+        "status": "local_checks_passed",
+        "summary": "Explicitly staged the exact nine allowed paths and committed the locally verified Gate 47 implementation as 1226008f38685ca2a1818b52c2c26669d61d9335. This following ledger-only commit binds the implementation SHA before push; the user-owned .workbuddy file remains untracked and excluded."
+      },
+      {
+        "at": "2026-07-19T08:18:00Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact scoped branch and opened fap-web PR #1794 with what, why, full validation, lint-environment disclosure, repository-rule impact, and deferred items. Required GitHub checks and exact-head Codex review are pending."
+      },
+      {
+        "at": "2026-07-19T08:21:00Z",
+        "status": "github_checks_failed_repairing",
+        "summary": "Initial GitHub build failed at typecheck: the two focused fixture invocations did not pass the newly required approvedPayloadSha256 and reviewSource arguments. Added those exact fixture provenance inputs within Gate 47 scope; local typecheck, focused 8/8, ESLint, and diff checks pass. The repair will trigger a fresh exact-head required-check run."
+      },
+      {
+        "at": "2026-07-19T08:33:00Z",
+        "status": "baseline_repair_pending",
+        "summary": "Exact-head Codex review identified two valid P2 false positives: only the first 24 body characters were checked and hidden script text counted as visible. The Gate now removes non-visible nodes and requires complete visible body/table-cell text; focused tests pass 10/10. The corrected production readback fails closed at 0/16 because a pre-existing CSP/cache nonce mismatch blocks Next scripts and leaves comparison content hidden. Gate 47 is held while a separate minimal baseline repair is completed."
+      },
+      {
+        "at": "2026-07-19T08:58:00Z",
+        "status": "production_deploy_authorization_pending",
+        "summary": "The isolated personality CSP nonce repair PR #1795 merged as 062a7130e5dcff8a08b55489b430c1338431b1b0 after full local and GitHub validation. Its automatic production workflow policy guard completed safely but skipped the deploy because the conservative verified range contains controlled-risk files. origin/main remains exactly 062a7130, production still returns mismatched header/HTML nonces, and the repository workflow requires exact SHA-bound manual authorization before readback can resume. Gate 47 was rebased onto this merge without touching the user-owned .workbuddy file."
+      },
+      {
+        "at": "2026-07-19T09:08:00Z",
+        "status": "production_deploy_authorization_pending",
+        "summary": "Rebased head fb4adc6e passed all seven GitHub checks, then exact-head Codex review found three additional valid fail-closed gaps. Gate 47 now rejects out-of-scope paths without fallthrough, requires both row-backed section bodies and every row cell to be visible, and compares page FAQ JSON-LD plus visible FAQ text to the API. Focused tests pass 13/13 and typecheck passes. Refreshed production evidence remains FAIL_CLOSED 0/16 because exact SHA 062a7130 has not been deployed; no production action was triggered."
+      },
+      {
+        "at": "2026-07-19T09:15:00Z",
+        "status": "github_checks_pending_after_scoped_repair",
+        "summary": "Exact head 8890fab2 passed build, freezes, and all CodeQL gates, but full contracts found three legacy tests rejected by the Gate branch's early return in the historical shared scope helper. The Gate now uses a dedicated exact-membership helper, preserving fail-closed out-of-scope behavior without changing legacy helper semantics. The CI reproduction set passes 4 files / 25 tests; ESLint, typecheck, and diff check pass. Production remains untouched and FAIL_CLOSED pending exact SHA-bound deploy authorization."
+      },
+      {
+        "at": "2026-07-19T09:21:00Z",
+        "status": "local_checks_passed",
+        "summary": "Canonical Node 24 and repository pnpm 10 full contracts pass 764 files / 4407 tests after the dedicated Gate47 scope-helper repair. The exact CI reproduction set passes 4 files / 25 tests; ESLint, typecheck, JSON parse, and diff check pass. The earlier Node 20-only career timeouts are absent under the required runtime and in GitHub CI. A fresh exact-head GitHub check and Codex review cycle remains required; production is unchanged and still held for exact SHA-bound authorization."
+      },
+      {
+        "at": "2026-07-19T09:22:00Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the locally validated dedicated Gate47 scope-helper repair as 6d7343ba469730e937752f1f8df043352c8da892 and rebound commit_sha to that implementation commit. This following ledger-only commit records the binding before push; exact-head GitHub checks and Codex review remain mandatory."
+      },
+      {
+        "at": "2026-07-19T09:28:00Z",
+        "status": "production_deploy_authorization_pending",
+        "summary": "Exact head 33fe5406776abb78ca162f120d62921feb7be41e passed all seven GitHub checks and reports CLEAN. All five prior actionable Codex P2 threads remain resolved with zero unresolved threads. A newly requested exact-head review was refused only because the external Codex code-review quota is exhausted. origin/main remains exactly 062a7130e5dcff8a08b55489b430c1338431b1b0, so the existing SHA-bound production deploy authorization request remains exact and current; no deploy or production mutation was executed."
+      },
+      {
+        "at": "2026-07-22T15:53:53Z",
+        "status": "baseline_repair_required",
+        "summary": "The operator-authorized SHA-bound manual recovery deployed exact main SHA 062a7130e5dcff8a08b55489b430c1338431b1b0. Checkout, production PM2 deploy, revision verification, and public-surface smoke passed. The postdeploy analytics probe confirmed header/bootstrap/dynamic-script nonce parity and zero CSP blocking errors, but the overall workflow failed on a transient independent-response nonce-reuse observation and an absent first-party analytics attempt. Fresh independent probes now return unique nonces and private no-store responses. Exact Gate readback nevertheless remains FAIL_CLOSED 0/16 (640 failures): authoritative body text is only in RSC script payloads and the initial visible DOM is the personality loading shell. A separate minimal SSR-visible-body baseline repair is required; no duplicate deploy, rollback, CMS/DB write, or publication/indexability/search action was performed."
+      },
+      {
+        "at": "2026-07-22T16:13:41Z",
+        "status": "production_deploy_authorization_pending",
+        "summary": "Isolated baseline repair PR #1796 removed the personality loading boundary that hid dynamic comparison content in RSC payloads. It passed focused contracts, ESLint, typecheck, production build, local production SSR/nonce probes, and all seven GitHub checks, then squash-merged as exact main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7. Main CI, CodeQL, and staging deploy all passed. The automatic production workflow performed only its policy guard and safely skipped deployment, reporting verified range 2d4ca8fa1c33892013fe11750b25fe3be38b8da3...dd25c48a6e756fa7abd71c14f111922049ff7bd7. Exact SHA-bound manual authorization and protected Environment approval are now required; no new production deploy or content/publication/search mutation was performed."
+      },
+      {
+        "at": "2026-07-22T16:29:01Z",
+        "status": "production_deploy_readiness_blocked",
+        "summary": "The operator supplied exact SHA-bound production authorization for dd25c48a6e756fa7abd71c14f111922049ff7bd7 and the acknowledged conservative range. Exact main ancestry, merged PR #1796, main CI/CodeQL/staging, Gate 47 7/7 checks, workflow input contract, duplicate-run guard, and zero open Critical/High/Medium code-scanning alerts all pass. Deployment was not dispatched because strict CMS/API readiness failed twice and every follow-up public API family probe timed out without receiving a response. No strict-mode bypass, SSH action, production workflow dispatch, CMS/DB write, or publication/search mutation occurred."
+      },
+      {
+        "at": "2026-07-22T17:02:08Z",
+        "status": "github_checks_pending",
+        "summary": "The production API recovered and strict CMS/API preflight passed. The exact authorized production workflow run 29939112644 deployed and verified main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7; deployment and public smoke succeeded, while only the postdeploy analytics browser probe failed on a 30-second public-homepage navigation timeout. Independent target-page readback proves nonce parity, per-response nonce isolation, provider loaders, zero CSP blocking errors, and private-route suppression; /api/track was not observed and remains an analytics residual outside the comparison completeness contract. After transient API/SSR cold-read failures were warmed by read-only requests, the exact backend-authoritative Gate passed 16/16 with zero failures. Report commit cd7765c5e53d1c09cc41bbd15b78317ff7719757 is locally validated and awaits fresh exact-head GitHub checks. No duplicate deployment, rollback, CMS/DB write, publication/indexability mutation, sitemap/llms action, or search submission occurred."
+      },
+      {
+        "at": "2026-07-22T17:07:47Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head 888bb7f9867c64b255cf5ee002fedac587e8712a passed all seven required GitHub checks and reports CLEAN merge state. Gate 47 remains exact 16/16 with zero runtime failures, and the report commit is bound as cd7765c5e53d1c09cc41bbd15b78317ff7719757. This following ledger-only final head must pass the same checks, after which squash merge may proceed without another pre-merge ledger mutation."
+      }
+    ],
+    "updated_at": "2026-07-22T17:07:47Z"
+  }
+,
   "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01": {
     "id": "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01",
     "repo": "fap-web",
@@ -46971,4 +47106,5 @@
     ],
     "updated_at": "2026-07-22T17:12:49Z"
   }
+
 }

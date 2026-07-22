@@ -4407,6 +4407,18 @@ export function isCurrentQuizPackPerformanceHotfixAllowedFile(file: string): boo
   return CURRENT_BRANCH === "codex/quiz-pack-performance-hotfix" && isQuizPackPerformanceHotfixAllowedFile(file);
 }
 
+const MBTI_COMP_GATE_47_ALLOWED_FILES = new Set([
+  "scripts/seo/mbti-comp-gate-47-runtime-completeness.mjs",
+  "scripts/seo/build-mbti-comp-gate-47-runtime-completeness.mjs",
+  "docs/seo/personality/mbti-comp-gate-47-runtime-completeness-2026-07-19.json",
+  "docs/seo/personality/mbti-comp-gate-47-runtime-completeness-2026-07-19.md",
+  "tests/fixtures/mbti-comp-gate-47/runtime-completeness.json",
+  "tests/contracts/mbti-comp-gate-47-runtime-completeness.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "docs/codex/pr-train.yaml",
+  "docs/codex/pr-train-state.json",
+]);
+
 function isCurrentCareerSkillsEntry1046CompletionStateAllowedFile(file: string): boolean {
   return (
     CURRENT_BRANCH === "codex/career-skills-entry-1046-completion-state" &&
@@ -6041,6 +6053,10 @@ export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
   }
 
   return CURRENT_BRANCH === "codex/riasec-full-content-pack-12" && RIASEC_PACK12_ALLOWED_FILES.has(file);
+}
+
+export function isCurrentMbtiCompGate47AllowedFile(file: string): boolean {
+  return CURRENT_BRANCH !== "codex/mbti-comp-gate-47" || MBTI_COMP_GATE_47_ALLOWED_FILES.has(file);
 }
 
 export function isCurrentMbtiContractSidecarFixAllowedFile(file: string): boolean {
