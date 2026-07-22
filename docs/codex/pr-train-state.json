@@ -46882,9 +46882,9 @@
     "base": "main",
     "branch": "codex/career-search-entry-quality-reaudit-01",
     "depends_on": [],
-    "status": "local_checks_passed",
+    "status": "github_checks_pending",
     "commit_sha": "99701d401760943d968976d1bf1d03e5efa724b1",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1798",
     "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
@@ -46921,6 +46921,14 @@
       "metadata_and_diff": {
         "status": "pass",
         "evidence": "Generator syntax, JSON artifact/state parse, YAML manifest parse, exact allowed-path scope validation, and git diff --check passed."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR #1798 is open; exact-head required checks are pending."
+      },
+      "codex_review": {
+        "status": "pending",
+        "evidence": "PR #1798 exact-head review is pending."
       }
     },
     "scope_validation": {
@@ -46949,8 +46957,13 @@
         "at": "2026-07-22T17:06:50Z",
         "status": "local_checks_passed",
         "summary": "Explicitly staged the exact six allowed paths and committed the locally verified implementation as 99701d401760943d968976d1bf1d03e5efa724b1. commit_sha is bound to that implementation commit; this following ledger-only commit records the binding before push."
+      },
+      {
+        "at": "2026-07-22T17:07:52Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact branch and opened fap-web PR #1798 with what, why, validation, repository-rule impact, deferred items, and no-production-execution sections. Required GitHub checks and exact-head Codex review are pending."
       }
     ],
-    "updated_at": "2026-07-22T17:06:50Z"
+    "updated_at": "2026-07-22T17:07:52Z"
   }
 }
