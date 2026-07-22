@@ -47016,8 +47016,8 @@
     "branch": "codex/fap-web-public-nonce-cache-boundary-01",
     "title": "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01: version and gate the production HTML cache boundary",
     "depends_on": [],
-    "status": "baseline_repair_pending",
-    "commit_sha": null,
+    "status": "github_checks_pending",
+    "commit_sha": "8adcc9188af087ff24a3b7b3cd13ad9acdf1c964",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1797",
     "checks": {
       "authorization": {
@@ -47029,16 +47029,16 @@
         "evidence": "This item has no PR dependency. After main advanced, the branch was rebased onto exact origin/main 3cab146bb6dc03516d4a15b23e8319ba04c9f4b2 while preserving the merged MBTI-COMP-GATE-47 ledger facts."
       },
       "required_local_checks": {
-        "status": "baseline_repair_pending",
-        "evidence": "Post-rebase focused ingress checks, candidate validation, bash -n, ShellCheck, actionlint, exact production-image OpenResty syntax, lint, spacing and typecheck pass. Full contracts pass three shards, but shard 3 reproduces a newly merged main defect: isCurrentMbtiCompGate47AllowedFile returns true for an unrelated path on every non-Gate branch, contradicting its own exact-scope contract. A separate one-file baseline repair is required before PR1 can resume."
+        "status": "pass",
+        "evidence": "After baseline repair PR #1799 merged as 46b8310f1835e779702608df70c299d4e4b9faf7, PR1 rebased onto that exact origin/main. Focused ingress contracts 9/9, candidate validator, bash -n, ShellCheck, actionlint, exact production-image OpenResty syntax, lint, spacing, typecheck, all four contract shards, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206 pass. YAML/JSON, git diff checks, and exact 13-file allowlist pass."
       },
       "github_required_checks": {
         "status": "pending_after_rebase",
         "evidence": "Exact head 7919a04dab479431363468c111eef31d0d96dd7a passed all eight checks, but two additional review findings and the rebase onto newer main require a fresh exact-head cycle."
       },
       "codex_review": {
-        "status": "repairing",
-        "evidence": "Six earlier CodeQL/review threads were repaired, replied to and resolved. Two new exact-head P2 findings require binding rollback approval to the current live config SHA and triggering config CI for control-script-only changes."
+        "status": "repaired_pending_exact_head_review",
+        "evidence": "All eight earlier CodeQL/review findings are repaired. The final two fixes bind rollback approval to the current live config-set SHA and trigger config CI for control-script-only changes. A fresh exact-head check and review cycle remains required."
       }
     },
     "scope_validation": {
@@ -47087,9 +47087,14 @@
         "at": "2026-07-22T17:23:30Z",
         "status": "baseline_repair_pending",
         "summary": "Post-rebase full contracts exposed one pre-existing latest-main regression in the newly merged Gate 47 scope helper: non-Gate branches accept app/unrelated-runtime.tsx despite the exact-membership test requiring false. PR1 did not introduce or own that helper. A separate minimal one-file baseline repair will merge first, then PR1 will rebase and rerun its full validation."
+      },
+      {
+        "at": "2026-07-22T17:39:38Z",
+        "status": "github_checks_pending",
+        "summary": "Baseline repair PR #1799 merged and was cleaned. PR1 rebased onto exact origin/main 46b8310f and its focused, full-contract, freeze, pinned-image syntax, lint, typecheck, build, YAML/JSON and exact-scope validations all passed. No production action ran; the branch is ready for a fresh exact-head GitHub cycle."
       }
     ],
-    "updated_at": "2026-07-22T17:23:30Z"
+    "updated_at": "2026-07-22T17:39:38Z"
   },
   "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02": {
     "id": "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02",
