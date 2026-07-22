@@ -47021,8 +47021,8 @@
     "branch": "codex/mbti-cross-approval-48",
     "title": "MBTI-CROSS-APPROVAL-48: approve exact three cross-type comparison assets",
     "depends_on": ["MBTI-COMP-GATE-47"],
-    "status": "ready_for_pr",
-    "commit_sha": null,
+    "status": "local_checks_passed",
+    "commit_sha": "9c03f8b19e2f1382619d4ed9d802278f9236a7a6",
     "pr_url": null,
     "checks": {
       "authorization": {"status": "pass", "evidence": "The continuous MBTI comparison train goal explicitly authorizes generation of approval assets, hashes, and rollback/readback contracts for exactly enfp-vs-entp, estj-vs-entj, and isfp-vs-infp. It does not authorize production publish, CMS/DB writes, or indexability/search changes."},
@@ -47059,8 +47059,13 @@
         "at": "2026-07-22T17:44:56Z",
         "status": "ready_for_pr",
         "summary": "Generated the exact three-record pending-review package with package SHA-256 1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6 and passed all local manifest gates. The first full-contract run exposed one historical Gate 47 changed-file helper failure reproducible on main; independent main repairs PR #1799 and PR #1800 corrected the fail-closed helper and allowlist baseline. This branch fast-forwarded to exact origin/main 5a5aed4ddc2ccd87f1c93355c82349c42dcd19d4 and the retry passed 765 files / 4415 tests. The package remains pending operator editorial approval, and content publication plus indexability remain separately blocked stages. No production or authority-layer mutation occurred; the user-owned .workbuddy path remains untouched and excluded."
+      },
+      {
+        "at": "2026-07-22T17:45:58Z",
+        "status": "local_checks_passed",
+        "summary": "Explicitly staged the exact ten manifest-allowed paths and committed the locally verified approval assets as 9c03f8b19e2f1382619d4ed9d802278f9236a7a6. This following ledger-only commit binds that implementation SHA before push; the user-owned .workbuddy file remains untracked and excluded."
       }
     ],
-    "updated_at": "2026-07-22T17:44:56Z"
+    "updated_at": "2026-07-22T17:45:58Z"
   }
 }
