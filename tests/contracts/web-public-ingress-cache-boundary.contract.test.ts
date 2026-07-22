@@ -74,8 +74,11 @@ describe("versioned public ingress cache boundary", () => {
     expect(probe).toContain("independent_response_nonces");
     expect(probe).toContain("non_shared_html");
     expect(probe).toContain("static_asset_immutable_cache");
+    expect(probe).toContain("html_private_no_store");
+    expect(probe).toContain("html_proxy_cache_hit");
     expect(probe).toContain('redirect: "manual"');
     expect(probe).toContain("revision endpoint did not return direct 200");
+    expect(probe).not.toContain("writeFile");
     expect(probe).not.toContain("nonce,");
   });
 

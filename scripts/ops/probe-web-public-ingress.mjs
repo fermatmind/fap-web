@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 
 import { createHash } from "node:crypto";
-import { mkdir, writeFile } from "node:fs/promises";
-import path from "node:path";
 import process from "node:process";
 
 function parseArgs(argv) {
-  const result = { baseUrl: "", expectedRevision: "", output: "", enforce: false };
+  const result = { baseUrl: "", expectedRevision: "", enforce: false };
   for (let index = 0; index < argv.length; index += 1) {
     const argument = argv[index];
     const value = argv[index + 1];
@@ -15,9 +13,6 @@ function parseArgs(argv) {
       index += 1;
     } else if (argument === "--expected-revision" && value) {
       result.expectedRevision = value;
-      index += 1;
-    } else if (argument === "--output" && value) {
-      result.output = value;
       index += 1;
     } else if (argument === "--enforce") {
       result.enforce = true;
@@ -33,7 +28,7 @@ function parseArgs(argv) {
   if (result.expectedRevision && !/^[0-9a-f]{40}$/.test(result.expectedRevision)) {
     throw new Error("--expected-revision must be a 40-character lowercase SHA");
   }
-  return { ...result, baseUrl: target.origin, output: result.output ? path.resolve(result.output) : "" };
+  return { ...result, baseUrl: target.origin };
 }
 
 function nonceFromCsp(policy) {
@@ -108,10 +103,12 @@ async function main() {
   }
 
   const revisionResponse = await read(`${args.baseUrl}/revision`, { redirect: "manual" });
-  let revision = "unknown";
+  let revision;
   try {
     const payload = await revisionResponse.json();
-    revision = typeof payload?.revision === "string" ? payload.revision : "unknown";
+    revision = typeof payload?.revision === "string" && /^[0-9a-f]{40}$/.test(payload.revision)
+      ? payload.revision
+      : "unknown";
   } catch {
     revision = "unknown";
   }
@@ -132,8 +129,8 @@ async function main() {
     expected_revision: args.expectedRevision || "not_asserted",
     observed_revision: revision,
     html_statuses: [first.status, second.status],
-    html_cache_control: first.cache_control,
-    html_proxy_cache: first.proxy_cache || "absent",
+    html_private_no_store: cacheControl.includes("private") && cacheControl.includes("no-store"),
+    html_proxy_cache_hit: proxyCache === "hit",
     non_shared_html: nonSharedHtml,
     nonce_present: first.nonce_present && second.nonce_present,
     independent_response_nonces: independentNonces,
@@ -144,10 +141,6 @@ async function main() {
     failures,
   };
 
-  if (args.output) {
-    await mkdir(path.dirname(args.output), { recursive: true });
-    await writeFile(args.output, `${JSON.stringify(report, null, 2)}\n`, "utf8");
-  }
   process.stdout.write(`${JSON.stringify(report)}\n`);
   if (args.enforce && failures.length > 0) process.exitCode = 1;
 }

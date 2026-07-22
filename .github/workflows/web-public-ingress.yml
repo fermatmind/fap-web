@@ -164,7 +164,7 @@ jobs:
           printf '%s\n' "$remote_summary" | tee "$RUNNER_TEMP/web-public-ingress/remote-preflight.txt"
           node scripts/ops/probe-web-public-ingress.mjs \
             --base-url "$PUBLIC_BASE_URL" \
-            --output "$RUNNER_TEMP/web-public-ingress/public-baseline.json"
+            | tee "$RUNNER_TEMP/web-public-ingress/public-baseline.json"
           current_sha="$(printf '%s\n' "$remote_summary" | awk -F= '$1=="current_config_set_sha256"{print $2}')"
           test -n "$current_sha"
           printf 'APPROVE_FAP_WEB_PUBLIC_INGRESS:%s:%s:%s\n' \
@@ -192,8 +192,8 @@ jobs:
             < scripts/ops/web-public-ingress.sh
           node scripts/ops/probe-web-public-ingress.mjs \
             --base-url "$PUBLIC_BASE_URL" \
-            --output "$RUNNER_TEMP/web-public-ingress-post-apply.json" \
-            --enforce
+            --enforce \
+            | tee "$RUNNER_TEMP/web-public-ingress-post-apply.json"
 
       - name: Restore an exactly authorized ingress backup
         if: inputs.mode == 'rollback'
@@ -205,7 +205,7 @@ jobs:
             < scripts/ops/web-public-ingress.sh
           node scripts/ops/probe-web-public-ingress.mjs \
             --base-url "$PUBLIC_BASE_URL" \
-            --output "$RUNNER_TEMP/web-public-ingress-post-rollback.json"
+            | tee "$RUNNER_TEMP/web-public-ingress-post-rollback.json"
 
       - name: Upload sanitized ingress evidence
         if: always()
