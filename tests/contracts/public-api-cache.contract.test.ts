@@ -67,12 +67,14 @@ describe("public api cache contract", () => {
 
   it("renders personality detail and comparison HTML per request so the CSP nonce matches the document", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
+    const loadingBoundary = path.join(process.cwd(), "app/(localized)/[locale]/personality/loading.tsx");
 
     expect(source).toContain('import { connection } from "next/server"');
     expect(source.match(/await connection\(\);/g)).toHaveLength(2);
     expect(source).toContain("export const revalidate = 300");
     expect(source).not.toContain('export const dynamic = "force-static"');
     expect(source).not.toContain('export const dynamic = "force-dynamic"');
+    expect(fs.existsSync(loadingBoundary)).toBe(false);
   });
 
   it("renders Topic detail HTML per request for nonce CSP while retaining the shared data-cache window", () => {

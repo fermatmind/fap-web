@@ -13,7 +13,7 @@ vi.mock("@/lib/observability/sentry", () => ({ captureError }));
 const read = (relativePath: string) =>
   fs.readFileSync(path.join(process.cwd(), relativePath), "utf8");
 
-const families = ["personality", "articles", "topics", "career", "tests", "support", "research"] as const;
+const families = ["articles", "topics", "career", "tests", "support", "research"] as const;
 
 describe("public content route boundaries", () => {
   beforeEach(() => {
@@ -102,5 +102,14 @@ describe("public content route boundaries", () => {
         expect(error).toContain(`<PublicContentError {...props} surface="${family}" />`);
       }
     }
+  });
+
+  it("keeps personality errors bounded without a route loading shell that hides server-rendered comparison content", () => {
+    const root = "app/(localized)/[locale]/personality";
+    const error = read(`${root}/error.tsx`);
+
+    expect(fs.existsSync(path.join(process.cwd(), root, "loading.tsx"))).toBe(false);
+    expect(error).toContain('"use client"');
+    expect(error).toContain('<PublicContentError {...props} surface="personality" />');
   });
 });
