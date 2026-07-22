@@ -46883,7 +46883,7 @@
     "branch": "codex/career-search-entry-quality-reaudit-01",
     "depends_on": [],
     "status": "local_checks_passed",
-    "commit_sha": null,
+    "commit_sha": "99701d401760943d968976d1bf1d03e5efa724b1",
     "pr_url": null,
     "failure_reason": null,
     "merged_at": null,
@@ -46944,8 +46944,13 @@
         "at": "2026-07-22T17:05:23Z",
         "status": "local_checks_passed",
         "summary": "Refreshed the versioned 1046-career quality evidence with dataset/directory authority, optional jobs-index failure isolation, and a conservative 115 Tier B / 706 Tier C / 225 Tier D NO_GO result. Canonical Node 24 generator, focused and legacy compatibility contracts, typecheck, metadata parse, diff, and exact scope checks passed. No runtime, CMS, sitemap membership, Search Channel, deploy, publish, or production state changed."
+      },
+      {
+        "at": "2026-07-22T17:06:50Z",
+        "status": "local_checks_passed",
+        "summary": "Explicitly staged the exact six allowed paths and committed the locally verified implementation as 99701d401760943d968976d1bf1d03e5efa724b1. commit_sha is bound to that implementation commit; this following ledger-only commit records the binding before push."
       }
     ],
-    "updated_at": "2026-07-22T17:05:23Z"
+    "updated_at": "2026-07-22T17:06:50Z"
   }
 }
