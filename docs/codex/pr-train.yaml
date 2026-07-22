@@ -27029,7 +27029,7 @@ prs:
     depends_on: [MBTI-COMP-RUNTIME-46]
     mode: execute
     train_scope: mbti_comparison_at_runtime_completeness_gate
-    status: in_progress
+    status: merged
     goal: "Fail closed unless all exact 16 Chinese A/T comparisons expose the approved backend-authoritative nine-section runtime projection and pass API/page canonical, robots, FAQ, and visible-body readback."
     allowed_paths:
       - scripts/seo/mbti-comp-gate-47-runtime-completeness.mjs
@@ -27072,3 +27072,57 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend public API
     repository_rule_impact: existing_backend_authority_and_frontend_no_fallback_rules_preserved
+
+  - id: MBTI-CROSS-APPROVAL-48
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-cross-approval-48
+    base: main
+    title: "MBTI-CROSS-APPROVAL-48: approve exact three cross-type comparison assets"
+    depends_on: [MBTI-COMP-GATE-47]
+    mode: execute
+    train_scope: mbti_cross_type_exact_three_approval_assets
+    status: in_progress
+    goal: "Generate a deterministic approval package, exact hashes, and rollback/readback contracts for only enfp-vs-entp, estj-vs-entj, and isfp-vs-infp while keeping content publication and indexability as separately authorized production stages."
+    allowed_paths:
+      - scripts/seo/build-mbti-cross-approval-48-package.mjs
+      - docs/seo/personality/mbti-cross-approval-48-source-enfp-vs-entp-2026-07-02.json
+      - docs/seo/personality/mbti-cross-approval-48-source-estj-vs-entj-2026-07-02.json
+      - docs/seo/personality/mbti-cross-approval-48-source-isfp-vs-infp-2026-07-02.json
+      - docs/seo/personality/mbti-cross-approval-48-package-2026-07-23.json
+      - docs/seo/personality/mbti-cross-approval-48-hash-manifest-2026-07-23.json
+      - docs/seo/personality/mbti-cross-approval-48-rollback-readback-2026-07-23.md
+      - tests/contracts/mbti-cross-approval-48-package.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Any fourth comparison record or any A/T comparison change.
+      - MBTI-CROSS-PUBLISHER-49 publisher implementation or MBTI-CROSS-AUTHORITY-50 read-model implementation.
+      - Frontend runtime content fallback or use of approval assets as runtime authority.
+      - Production deploy, CMS/DB/content write, publication/indexability mutation, sitemap/llms mutation, or search submission.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/mbti-cross-approval-48-package.contract.test.ts
+      - node scripts/seo/build-mbti-cross-approval-48-package.mjs
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: backend draft source snapshot for approval only; CMS/DB/public API remains runtime authority
+    repository_rule_impact: existing_backend_authority_frontend_no_fallback_and_two_stage_publication_rules_preserved

@@ -46882,7 +46882,7 @@
     "branch": "codex/mbti-comp-gate-47",
     "title": "MBTI-COMP-GATE-47: add exact A/T runtime completeness gate",
     "depends_on": ["MBTI-COMP-RUNTIME-46"],
-    "status": "ready_to_merge",
+    "status": "merged",
     "commit_sha": "cd7765c5e53d1c09cc41bbd15b78317ff7719757",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1794",
     "checks": {
@@ -46896,19 +46896,19 @@
       },
       "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture, provenance, page-schema, and dedicated scope contract passes 13/13 tests. It covers exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, wrong canonical, truncated body, row-cells-without-section-body, hidden-script-only body, missing page FAQ JSON-LD, and disallowed changed-file fail-closed cases; plus deterministic derivation of all 16 runtime section fingerprints from Approval39/Runtime46. The exact CI-failure reproduction set passes 4 files / 25 tests after isolating the Gate helper from legacy scope helpers."},
       "required_local_checks": {"status": "pass", "evidence": "The production API recovered and strict pnpm check:cms-api passed before dispatch. The authorized workflow deployed exact main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7; checkout, ancestry verification, production deployment, revision verification, and public-surface smoke all passed. Public /revision returns the exact SHA. Independent target-page analytics/CSP readback confirms a present nonce, header/bootstrap/dynamic-script parity, unique nonces across responses, provider-loader attempts, zero CSP blocking errors, and private-route suppression. The exact Gate builder then passed 16/16 with zero failures, and the focused Gate contract passes 13/13. The workflow's final analytics probe timed out navigating the public homepage, and a target-page rerun completed all CSP assertions but did not observe a first-party /api/track attempt; that analytics residual is recorded separately from the exact Gate 47 runtime-completeness decision."},
-      "github_required_checks": {"status": "pass", "evidence": "Exact Gate head 888bb7f9867c64b255cf5ee002fedac587e8712a passed all seven required checks: build, contracts, both personality freezes, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reports CLEAN merge state. This final ready-to-merge ledger commit must itself receive the same required-check set before squash merge; no further pre-merge ledger mutation is needed after it passes."},
+      "github_required_checks": {"status": "pass", "evidence": "Final Gate head 2600986f0f15d5d53bdb54089e22afe669768852 passed all seven required checks: build, contracts, both personality freezes, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reported CLEAN/MERGEABLE before squash merge."},
       "codex_review": {"status": "external_quota_blocked", "evidence": "All five prior actionable P2 threads are repaired and resolved, with zero unresolved review threads. A fresh exact-head review was explicitly requested on 33fe5406776abb78ca162f120d62921feb7be41e, but the Codex connector refused it because the account has reached its code-review usage limit. This is an external review-capacity hold, not a code finding or failed required check."}
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-22T17:14:09Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -47005,8 +47005,62 @@
         "at": "2026-07-22T17:07:47Z",
         "status": "ready_to_merge",
         "summary": "Exact head 888bb7f9867c64b255cf5ee002fedac587e8712a passed all seven required GitHub checks and reports CLEAN merge state. Gate 47 remains exact 16/16 with zero runtime failures, and the report commit is bound as cd7765c5e53d1c09cc41bbd15b78317ff7719757. This following ledger-only final head must pass the same checks, after which squash merge may proceed without another pre-merge ledger mutation."
+      },
+      {
+        "at": "2026-07-22T17:14:09Z",
+        "status": "merged",
+        "summary": "GitHub reports fap-web PR #1794 MERGED with squash merge SHA 3cab146bb6dc03516d4a15b23e8319ba04c9f4b2 after final head 2600986f0f15d5d53bdb54089e22afe669768852 passed all seven required checks. origin/main contains the merge, the remote and local task branches are deleted, the existing clean main worktree was fast-forwarded to origin/main, and post-merge report validation remains exact 16/16 with zero failures."
       }
     ],
-    "updated_at": "2026-07-22T17:07:47Z"
+    "updated_at": "2026-07-22T17:14:09Z"
+  },
+  "MBTI-CROSS-APPROVAL-48": {
+    "id": "MBTI-CROSS-APPROVAL-48",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/mbti-cross-approval-48",
+    "title": "MBTI-CROSS-APPROVAL-48: approve exact three cross-type comparison assets",
+    "depends_on": ["MBTI-COMP-GATE-47"],
+    "status": "ready_for_pr",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "pass", "evidence": "The continuous MBTI comparison train goal explicitly authorizes generation of approval assets, hashes, and rollback/readback contracts for exactly enfp-vs-entp, estj-vs-entj, and isfp-vs-infp. It does not authorize production publish, CMS/DB writes, or indexability/search changes."},
+      "dependency": {"status": "pass", "evidence": "MBTI-COMP-GATE-47 merged as fap-web PR #1794 with merge SHA 3cab146bb6dc03516d4a15b23e8319ba04c9f4b2 after exact 16/16 production readback and seven green required checks; local main and origin/main were synchronized and the task branch was cleaned."},
+      "source_provenance": {"status": "pass", "evidence": "The exact three source records are snapshots of fap-api commit 1f78f9b2ed53d22c800c5560f12d381d17754bf3 package mbti-cross-type-comparison-content-assets-draft-20260702. Approval 48 binds actual raw hashes 725c9f4764040604e08d6b1a78939c5cdd5a4d642208eded6ebfafee0f99e147, 3a7febb8c31848938c63e3a76375d6b2d2b48665b6bf3cf2afdd53d0cf39fe75, and 3c25e03b72812921964b9efcb0391af96793c4081f54a02bbf0c33f08e591ac5, while retaining the stale source_manifest.json declarations as explicit drift evidence and failing closed on further tampering."},
+      "focused_contracts": {"status": "pass", "evidence": "The deterministic generator and focused contract pass 7/7. They enforce the exact three-slug set, actual source hashes, ordered eight-section and eight-FAQ payloads, SEO/canonical and initial noindex state, source/package tamper rejection, atomic rollback/readback requirements, separate content/indexability authorizations, and absence of credentials or executable production authority. Exact pending-review package SHA-256: 1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6."},
+      "required_local_checks": {"status": "pass", "evidence": "Generator, focused 7/7, lint:spacing, typecheck, YAML/JSON parse, diff check, exact scope validation, Big Five freeze 29/29, Enneagram freeze 24/24, full contracts 765 files / 4415 tests, and the production-config build under canonical Node 24.14.0 all pass. Scoped ESLint and `pnpm exec eslint . --ignore-pattern .playwright-cli` pass with zero errors; the literal `pnpm lint` command alone sees two errors inside an ignored, untracked, pre-existing .playwright-cli trace artifact, which is outside git scope and remains untouched."},
+      "github_required_checks": {"status": "pending", "evidence": null},
+      "operator_editorial_approval": {"status": "pending", "evidence": "The source records declare review_status=draft, publish_status=draft, and indexability_status=pending_review. The execution goal authorizes packaging but does not itself fabricate an operator editorial approval decision."}
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-22T17:20:00Z",
+        "status": "in_progress",
+        "summary": "Started from exact origin/main 3cab146bb6dc03516d4a15b23e8319ba04c9f4b2 after Gate 47 merge, synchronization, cleanup, and post-merge revalidation. Scope is limited to the three named cross-type records and deterministic approval/hash/rollback/readback evidence. Read-only source preflight found all three backend draft assets and confirmed current production public API/page responses remain draft, noindex, and non-indexable. The source manifest hashes are stale relative to the committed source files, so the approval contract will explicitly bind actual snapshots and record the drift rather than trust the obsolete hashes. No production, CMS/DB, publication, sitemap/llms, or search mutation was attempted; the unrelated user-owned .workbuddy file remains untouched and untracked."
+      },
+      {
+        "at": "2026-07-22T17:44:56Z",
+        "status": "ready_for_pr",
+        "summary": "Generated the exact three-record pending-review package with package SHA-256 1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6 and passed all local manifest gates. The first full-contract run exposed one historical Gate 47 changed-file helper failure reproducible on main; independent main repairs PR #1799 and PR #1800 corrected the fail-closed helper and allowlist baseline. This branch fast-forwarded to exact origin/main 5a5aed4ddc2ccd87f1c93355c82349c42dcd19d4 and the retry passed 765 files / 4415 tests. The package remains pending operator editorial approval, and content publication plus indexability remain separately blocked stages. No production or authority-layer mutation occurred; the user-owned .workbuddy path remains untouched and excluded."
+      }
+    ],
+    "updated_at": "2026-07-22T17:44:56Z"
   }
 }
