@@ -6,6 +6,7 @@ on:
       - deploy/openresty/fap-web-public.conf
       - scripts/ops/test-web-public-ingress-openresty.sh
       - scripts/ops/validate-web-public-ingress-config.mjs
+      - scripts/ops/web-public-ingress.sh
       - .github/workflows/web-public-ingress-config.yml
       - .github/workflows/web-public-ingress.yml
   push:
@@ -14,6 +15,7 @@ on:
       - deploy/openresty/fap-web-public.conf
       - scripts/ops/test-web-public-ingress-openresty.sh
       - scripts/ops/validate-web-public-ingress-config.mjs
+      - scripts/ops/web-public-ingress.sh
       - .github/workflows/web-public-ingress-config.yml
       - .github/workflows/web-public-ingress.yml
 

@@ -47008,5 +47008,128 @@
       }
     ],
     "updated_at": "2026-07-22T17:07:47Z"
+  },
+  "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01": {
+    "id": "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/fap-web-public-nonce-cache-boundary-01",
+    "title": "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01: version and gate the production HTML cache boundary",
+    "depends_on": [],
+    "status": "baseline_repair_pending",
+    "commit_sha": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1797",
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "The user explicitly authorized this exact PR id, title, branch, scope, manifest/state registration, and complete ordinary PR lifecycle. Production apply and deployment remain separately exact-SHA gated."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "This item has no PR dependency. After main advanced, the branch was rebased onto exact origin/main 3cab146bb6dc03516d4a15b23e8319ba04c9f4b2 while preserving the merged MBTI-COMP-GATE-47 ledger facts."
+      },
+      "required_local_checks": {
+        "status": "baseline_repair_pending",
+        "evidence": "Post-rebase focused ingress checks, candidate validation, bash -n, ShellCheck, actionlint, exact production-image OpenResty syntax, lint, spacing and typecheck pass. Full contracts pass three shards, but shard 3 reproduces a newly merged main defect: isCurrentMbtiCompGate47AllowedFile returns true for an unrelated path on every non-Gate branch, contradicting its own exact-scope contract. A separate one-file baseline repair is required before PR1 can resume."
+      },
+      "github_required_checks": {
+        "status": "pending_after_rebase",
+        "evidence": "Exact head 7919a04dab479431363468c111eef31d0d96dd7a passed all eight checks, but two additional review findings and the rebase onto newer main require a fresh exact-head cycle."
+      },
+      "codex_review": {
+        "status": "repairing",
+        "evidence": "Six earlier CodeQL/review threads were repaired, replied to and resolved. Two new exact-head P2 findings require binding rollback approval to the current live config SHA and triggering config CI for control-script-only changes."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-22T16:34:30Z",
+        "status": "in_progress",
+        "summary": "Started in an isolated worktree from exact origin/main. Scope is versioned OpenResty candidate, fail-closed exact-SHA workflow, sanitized public probe, tests and runbook only. The active user worktree remains untouched; no server write, reload, deploy, CMS/backend mutation, telemetry write, or PR23 execution is authorized."
+      },
+      {
+        "at": "2026-07-22T16:52:30Z",
+        "status": "local_checks_passed",
+        "summary": "Implemented the static-only cache candidate and protected control workflow. After repairing a scope-helper compatibility regression, focused and full local checks, personality freezes, production build, fixed-image syntax and exact scope gates passed."
+      },
+      {
+        "at": "2026-07-22T17:00:30Z",
+        "status": "github_checks_pending",
+        "summary": "Inspected and repaired two PR-introduced CodeQL alerts by validating the revision SHA, emitting only sanitized fields, and moving artifact writing to the workflow tee."
+      },
+      {
+        "at": "2026-07-22T17:09:00Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired four exact-review findings: RepoDigests validation, normalized/equal-root backup rejection, location-level HSTS preservation, and repository-rule registration. Focused checks passed and all review threads were resolved."
+      },
+      {
+        "at": "2026-07-22T17:16:00Z",
+        "status": "github_checks_pending",
+        "summary": "Exact head 7919a04d passed all eight checks, then exact review found two valid P2 gaps and main advanced to merged MBTI-COMP-GATE-47. The branch was rebased onto exact origin/main 3cab146b with both repositories' ledger facts preserved. Rollback approval is now live-config-SHA-bound and config CI includes control-script-only changes. Focused revalidation and a fresh exact-head cycle remain mandatory; production stayed untouched."
+      },
+      {
+        "at": "2026-07-22T17:23:30Z",
+        "status": "baseline_repair_pending",
+        "summary": "Post-rebase full contracts exposed one pre-existing latest-main regression in the newly merged Gate 47 scope helper: non-Gate branches accept app/unrelated-runtime.tsx despite the exact-membership test requiring false. PR1 did not introduce or own that helper. A separate minimal one-file baseline repair will merge first, then PR1 will rebase and rerun its full validation."
+      }
+    ],
+    "updated_at": "2026-07-22T17:23:30Z"
+  },
+  "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02": {
+    "id": "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/fap-web-analytics-runtime-smoke-repair-02",
+    "title": "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02: restore browser pageview collection and deterministic smoke",
+    "depends_on": ["FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01"],
+    "status": "pending_dependency",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "pass", "evidence": "The user explicitly authorized this exact dependent PR scope and complete ordinary lifecycle after PR1 merge and cleanup."},
+      "dependency": {"status": "pending", "evidence": "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01 must merge, sync, clean up and pass post-merge revalidation first."},
+      "required_local_checks": {"status": "pending", "evidence": null},
+      "github_required_checks": {"status": "pending", "evidence": null}
+    },
+    "scope_validation": {
+      "allowed_paths_only": null,
+      "local_validation_passed": null,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-22T16:34:30Z",
+        "status": "pending_dependency",
+        "summary": "Registered the exact dependent analytics runtime/smoke scope. Implementation cannot start until PR1 is merged, synchronized, cleaned and post-merge revalidated."
+      }
+    ],
+    "updated_at": "2026-07-22T17:16:00Z"
   }
 }

@@ -132,7 +132,7 @@ jobs:
               [[ "$CURRENT_CONFIG_SET_SHA256" =~ ^[0-9a-f]{64}$ ]]
               [[ "$BACKUP_CONFIG_SET_SHA256" =~ ^[0-9a-f]{64}$ ]]
               [[ "$ROLLBACK_RELEASE_ID" =~ ^[0-9]+-[0-9a-f]{40}$ ]]
-              test "$EXACT_APPROVAL" = "APPROVE_FAP_WEB_PUBLIC_INGRESS_ROLLBACK:${DEPLOY_SHA}:${ROLLBACK_RELEASE_ID}:${BACKUP_CONFIG_SET_SHA256}"
+              test "$EXACT_APPROVAL" = "APPROVE_FAP_WEB_PUBLIC_INGRESS_ROLLBACK:${DEPLOY_SHA}:${ROLLBACK_RELEASE_ID}:${BACKUP_CONFIG_SET_SHA256}:${CURRENT_CONFIG_SET_SHA256}"
               ;;
           esac
 

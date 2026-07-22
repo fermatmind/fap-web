@@ -37,7 +37,7 @@ All configured filenames must be basenames, and the backup root must be outside 
 5. Deploy the same exact `main` SHA through the existing production workflow only after its separate risky-deploy authorization. Do not use SSH to deploy or restart the application.
 6. If rollback is later authorized, use the exact apply release id and backup-set SHA with:
 
-   `APPROVE_FAP_WEB_PUBLIC_INGRESS_ROLLBACK:<main-sha>:<release-id>:<backup-config-set-sha256>`
+   `APPROVE_FAP_WEB_PUBLIC_INGRESS_ROLLBACK:<main-sha>:<release-id>:<backup-config-set-sha256>:<current-config-set-sha256>`
 
 ## Acceptance boundary
 

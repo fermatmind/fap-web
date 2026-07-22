@@ -26522,6 +26522,116 @@ prs:
     content_authority: CMS/backend
     repository_rule_impact: existing_backend_authority_and_frontend_no_fallback_rules_preserved
 
+  - id: FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/fap-web-public-nonce-cache-boundary-01
+    base: main
+    title: "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01: version and gate the production HTML cache boundary"
+    depends_on: []
+    mode: execute
+    train_scope: public_nonce_cache_boundary
+    status: in_progress
+    goal: "Version the Node1 OpenResty public-web vhost and add exact-SHA, fail-closed preflight/apply/rollback controls so nonce-bearing HTML can never be share-cached."
+    allowed_paths:
+      - AGENTS.md
+      - .github/workflows/web-public-ingress-config.yml
+      - .github/workflows/web-public-ingress.yml
+      - deploy/openresty/fap-web-public.conf
+      - docs/codex/pr-train-state.json
+      - docs/codex/pr-train.yaml
+      - docs/ops/deploy/web-public-ingress-control.md
+      - scripts/ops/probe-web-public-ingress.mjs
+      - scripts/ops/test-web-public-ingress-openresty.sh
+      - scripts/ops/validate-web-public-ingress-config.mjs
+      - scripts/ops/web-public-ingress.sh
+      - tests/contracts/helpers/currentPrScope.ts
+      - tests/contracts/web-public-ingress-cache-boundary.contract.test.ts
+    out_of_scope:
+      - Production ingress apply or rollback, frontend application deployment, SSH server edits, PM2 restart, analytics runtime changes, CMS/backend/content/media/SEO mutation, or PR23 execution.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/web-public-ingress-cache-boundary.contract.test.ts
+      - node scripts/ops/validate-web-public-ingress-config.mjs --config deploy/openresty/fap-web-public.conf
+      - bash -n scripts/ops/web-public-ingress.sh scripts/ops/test-web-public-ingress-openresty.sh
+      - shellcheck scripts/ops/web-public-ingress.sh scripts/ops/test-web-public-ingress-openresty.sh
+      - actionlint .github/workflows/web-public-ingress-config.yml .github/workflows/web-public-ingress.yml
+      - bash scripts/ops/test-web-public-ingress-openresty.sh
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    workflow_policy_change: true
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: unchanged_backend_authority
+    repository_rule_impact: versioned_fail_closed_public_ingress_boundary_added_without_execution
+
+  - id: FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/fap-web-analytics-runtime-smoke-repair-02
+    base: main
+    title: "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02: restore browser pageview collection and deterministic smoke"
+    depends_on: [FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01]
+    mode: execute
+    train_scope: analytics_runtime_smoke_repair
+    status: pending_dependency
+    goal: "Use build-time-safe analytics environment constants and make production smoke exercise real consent-driven pageview attempts while aborting every telemetry request."
+    allowed_paths:
+      - components/legal/CookieBanner.tsx
+      - docs/analytics/tracking-activation-runbook.md
+      - docs/codex/pr-train-state.json
+      - docs/codex/pr-train.yaml
+      - lib/tracking/internalTraffic.ts
+      - scripts/analytics/runtime-smoke-fixture.mjs
+      - scripts/analytics/runtime-smoke.mjs
+      - tests/contracts/analytics-consent-page-view.contract.test.tsx
+      - tests/contracts/analytics-runtime-smoke.contract.test.ts
+      - tests/contracts/analytics-scripts.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+    out_of_scope:
+      - Analytics identifiers, telemetry writes, production deploy, ingress apply, CMS/backend/content/SEO enumeration/private-route policy changes, or PR23 execution.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/analytics-scripts.contract.test.ts tests/contracts/analytics-consent-page-view.contract.test.tsx tests/contracts/analytics-runtime-smoke.contract.test.ts
+      - pnpm analytics:runtime-smoke -- --base-url <local-production-standalone-runtime> --output <temporary-json>
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: unchanged_backend_authority
+    repository_rule_impact: analytics_runtime_detection_and_read_only_smoke_only
+
   - id: ANALYTICS-RUNTIME-RESTORE-01
     repo: fap-web
     base: main

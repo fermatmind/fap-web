@@ -62,6 +62,7 @@ describe("versioned public ingress cache boundary", () => {
     expect(imageTest).toContain("openresty -t -c /tmp/nginx.conf");
     expect(configWorkflow).toContain("Test with the production OpenResty image digest");
     expect(configWorkflow).toContain("bash scripts/ops/test-web-public-ingress-openresty.sh");
+    expect(configWorkflow.match(/scripts\/ops\/web-public-ingress\.sh/g)).toHaveLength(3);
     expect(control).toContain("image inspect --format '{{range .RepoDigests}}{{println .}}{{end}}'");
     expect(control).toContain('grep -Fqx "$EXPECTED_IMAGE_REPO_DIGEST"');
   });
@@ -79,7 +80,7 @@ describe("versioned public ingress cache boundary", () => {
   it("requires separate exact apply and rollback authorization", () => {
     expect(workflow).toContain("environment:\n      name: production");
     expect(workflow).toContain("APPROVE_FAP_WEB_PUBLIC_INGRESS:${DEPLOY_SHA}:${candidate_sha}:${CURRENT_CONFIG_SET_SHA256}");
-    expect(workflow).toContain("APPROVE_FAP_WEB_PUBLIC_INGRESS_ROLLBACK:${DEPLOY_SHA}:${ROLLBACK_RELEASE_ID}:${BACKUP_CONFIG_SET_SHA256}");
+    expect(workflow).toContain("APPROVE_FAP_WEB_PUBLIC_INGRESS_ROLLBACK:${DEPLOY_SHA}:${ROLLBACK_RELEASE_ID}:${BACKUP_CONFIG_SET_SHA256}:${CURRENT_CONFIG_SET_SHA256}");
     expect(workflow).toContain("Run read-only ingress preflight");
     expect(workflow).not.toContain("--expected-revision");
     expect(workflow).not.toContain("pull_request:");
