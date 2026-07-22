@@ -4113,6 +4113,35 @@ const SIX_RESULT_PAGE_AGENT_READONLY_ROUTE_API_PDF_SHARE_REVIEW_01_ALLOWED_FILES
   "tests/contracts/six-result-page-agent-readonly-route-api-pdf-share-review.contract.test.ts",
 ]);
 
+const FAP_WEB_PUBLIC_NONCE_CACHE_BOUNDARY_01_ALLOWED_FILES = new Set([
+  ".github/workflows/web-public-ingress-config.yml",
+  ".github/workflows/web-public-ingress.yml",
+  "deploy/openresty/fap-web-public.conf",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "docs/ops/deploy/web-public-ingress-control.md",
+  "scripts/ops/probe-web-public-ingress.mjs",
+  "scripts/ops/test-web-public-ingress-openresty.sh",
+  "scripts/ops/validate-web-public-ingress-config.mjs",
+  "scripts/ops/web-public-ingress.sh",
+  "tests/contracts/helpers/currentPrScope.ts",
+  "tests/contracts/web-public-ingress-cache-boundary.contract.test.ts",
+]);
+
+const FAP_WEB_ANALYTICS_RUNTIME_SMOKE_REPAIR_02_ALLOWED_FILES = new Set([
+  "components/legal/CookieBanner.tsx",
+  "docs/analytics/tracking-activation-runbook.md",
+  "docs/codex/pr-train-state.json",
+  "docs/codex/pr-train.yaml",
+  "lib/tracking/internalTraffic.ts",
+  "scripts/analytics/runtime-smoke-fixture.mjs",
+  "scripts/analytics/runtime-smoke.mjs",
+  "tests/contracts/analytics-consent-page-view.contract.test.tsx",
+  "tests/contracts/analytics-runtime-smoke.contract.test.ts",
+  "tests/contracts/analytics-scripts.contract.test.ts",
+  "tests/contracts/helpers/currentPrScope.ts",
+]);
+
 function isFrontendUiPolishBatch02ScopeActive(): boolean {
   if (CURRENT_BRANCH === "codex/frontend-ui-polish-batch-02") {
     return true;
@@ -4427,6 +4456,20 @@ function isCurrentCareerSkillsEntry1046CompletionStateAllowedFile(file: string):
 }
 
 export function isCurrentRiasecPack12AllowedFile(file: string): boolean {
+  if (
+    CURRENT_BRANCH === "codex/fap-web-public-nonce-cache-boundary-01" &&
+    FAP_WEB_PUBLIC_NONCE_CACHE_BOUNDARY_01_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
+  if (
+    CURRENT_BRANCH === "codex/fap-web-analytics-runtime-smoke-repair-02" &&
+    FAP_WEB_ANALYTICS_RUNTIME_SMOKE_REPAIR_02_ALLOWED_FILES.has(file)
+  ) {
+    return true;
+  }
+
   if (isBigFivePublicProfileAgentPilot01AllowedFile(file)) {
     return true;
   }

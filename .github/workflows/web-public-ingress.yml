@@ -1,0 +1,217 @@
+name: Web Public Ingress Control
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Read-only preflight, exact-SHA apply, or separately authorized rollback."
+        required: true
+        type: choice
+        options: [preflight, apply, rollback]
+      deploy_sha:
+        description: "Exact latest main SHA containing the versioned ingress configuration."
+        required: true
+        type: string
+      candidate_config_sha256:
+        description: "Required for apply; exact deploy/openresty/fap-web-public.conf SHA-256."
+        required: false
+        type: string
+      current_config_set_sha256:
+        description: "Required for apply/rollback; exact read-only preflight config-set SHA-256."
+        required: false
+        type: string
+      rollback_release_id:
+        description: "Required only for rollback; backup release id emitted by apply."
+        required: false
+        type: string
+      backup_config_set_sha256:
+        description: "Required only for rollback; exact backup config-set SHA-256."
+        required: false
+        type: string
+      exact_approval:
+        description: "SHA-bound apply or rollback approval phrase; blank for preflight."
+        required: false
+        type: string
+
+permissions:
+  checks: read
+  contents: read
+
+concurrency:
+  group: web-public-ingress-production
+  cancel-in-progress: false
+
+jobs:
+  control:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: production
+    env:
+      MODE: ${{ inputs.mode }}
+      DEPLOY_SHA: ${{ inputs.deploy_sha }}
+      CANDIDATE_CONFIG_SHA256: ${{ inputs.candidate_config_sha256 }}
+      CURRENT_CONFIG_SET_SHA256: ${{ inputs.current_config_set_sha256 }}
+      ROLLBACK_RELEASE_ID: ${{ inputs.rollback_release_id }}
+      BACKUP_CONFIG_SET_SHA256: ${{ inputs.backup_config_set_sha256 }}
+      EXACT_APPROVAL: ${{ inputs.exact_approval }}
+      DEPLOY_HOST: ${{ secrets.WEB_NODE1_DEPLOY_HOST || vars.WEB_NODE1_DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.WEB_NODE1_DEPLOY_USER || vars.WEB_NODE1_DEPLOY_USER }}
+      DEPLOY_PORT: ${{ secrets.WEB_NODE1_DEPLOY_PORT || vars.WEB_NODE1_DEPLOY_PORT }}
+      PUBLIC_BASE_URL: ${{ secrets.WEB_PUBLIC_BASE_URL || vars.WEB_PUBLIC_BASE_URL }}
+      OPENRESTY_CONTAINER: ${{ secrets.WEB_NODE1_OPENRESTY_CONTAINER || vars.WEB_NODE1_OPENRESTY_CONTAINER }}
+      OPENRESTY_CONFIG_ROOT: ${{ secrets.WEB_NODE1_OPENRESTY_CONFIG_ROOT || vars.WEB_NODE1_OPENRESTY_CONFIG_ROOT }}
+      OPENRESTY_MANAGED_FILES: ${{ secrets.WEB_NODE1_OPENRESTY_MANAGED_FILES || vars.WEB_NODE1_OPENRESTY_MANAGED_FILES }}
+      OPENRESTY_PRIMARY_FILE: ${{ secrets.WEB_NODE1_OPENRESTY_PRIMARY_FILE || vars.WEB_NODE1_OPENRESTY_PRIMARY_FILE }}
+      OPENRESTY_BACKUP_DIR: ${{ secrets.WEB_NODE1_OPENRESTY_BACKUP_DIR || vars.WEB_NODE1_OPENRESTY_BACKUP_DIR }}
+
+    steps:
+      - name: Checkout exact candidate revision
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          ref: ${{ inputs.deploy_sha }}
+          fetch-depth: 0
+
+      - name: Verify exact latest-main SHA and required checks
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        env:
+          INPUT_DEPLOY_SHA: ${{ inputs.deploy_sha }}
+        with:
+          script: |
+            const deploySha = process.env.INPUT_DEPLOY_SHA || '';
+            if (!/^[0-9a-f]{40}$/.test(deploySha)) {
+              core.setFailed('deploy_sha must be a 40-character lowercase SHA.');
+              return;
+            }
+            const { owner, repo } = context.repo;
+            const main = await github.rest.repos.getBranch({ owner, repo, branch: 'main' });
+            if (main.data.commit.sha !== deploySha) {
+              core.setFailed('Ingress control requires the exact latest main SHA.');
+              return;
+            }
+            const required = ['build', 'contracts', 'verify-big5-contract-freeze', 'verify-enneagram-contract-freeze'];
+            const runs = await github.paginate(github.rest.checks.listForRef, {
+              owner, repo, ref: deploySha, per_page: 100,
+            });
+            for (const name of required) {
+              const run = runs.filter((item) => item.name === name).sort((a, b) => Number(b.id) - Number(a.id))[0];
+              if (!run || run.status !== 'completed' || run.conclusion !== 'success') {
+                core.setFailed(`Required check is not green: ${name}.`);
+                return;
+              }
+            }
+
+      - name: Validate mode, hashes, approval and environment
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$DEPLOY_HOST"
+          test -n "$DEPLOY_USER"
+          : "${DEPLOY_PORT:=22}"
+          test -n "$PUBLIC_BASE_URL"
+          [[ "$OPENRESTY_CONTAINER" =~ ^[A-Za-z0-9._-]+$ ]]
+          [[ "$OPENRESTY_CONFIG_ROOT" =~ ^/[A-Za-z0-9._/-]+$ ]]
+          [[ "$OPENRESTY_BACKUP_DIR" =~ ^/[A-Za-z0-9._/-]+$ ]]
+          [[ "$OPENRESTY_PRIMARY_FILE" =~ ^[A-Za-z0-9._-]+$ ]]
+          [[ "$OPENRESTY_MANAGED_FILES" =~ ^[A-Za-z0-9._,-]+$ ]]
+          node scripts/ops/validate-web-public-ingress-config.mjs \
+            --config deploy/openresty/fap-web-public.conf
+          candidate_sha="$(sha256sum deploy/openresty/fap-web-public.conf | awk '{print $1}')"
+          echo "CANDIDATE_SHA=$candidate_sha" >> "$GITHUB_ENV"
+          echo "DEPLOY_PORT=$DEPLOY_PORT" >> "$GITHUB_ENV"
+          case "$MODE" in
+            preflight)
+              test -z "$EXACT_APPROVAL"
+              ;;
+            apply)
+              test "$CANDIDATE_CONFIG_SHA256" = "$candidate_sha"
+              [[ "$CURRENT_CONFIG_SET_SHA256" =~ ^[0-9a-f]{64}$ ]]
+              test "$EXACT_APPROVAL" = "APPROVE_FAP_WEB_PUBLIC_INGRESS:${DEPLOY_SHA}:${candidate_sha}:${CURRENT_CONFIG_SET_SHA256}"
+              ;;
+            rollback)
+              [[ "$CURRENT_CONFIG_SET_SHA256" =~ ^[0-9a-f]{64}$ ]]
+              [[ "$BACKUP_CONFIG_SET_SHA256" =~ ^[0-9a-f]{64}$ ]]
+              [[ "$ROLLBACK_RELEASE_ID" =~ ^[0-9]+-[0-9a-f]{40}$ ]]
+              test "$EXACT_APPROVAL" = "APPROVE_FAP_WEB_PUBLIC_INGRESS_ROLLBACK:${DEPLOY_SHA}:${ROLLBACK_RELEASE_ID}:${BACKUP_CONFIG_SET_SHA256}"
+              ;;
+          esac
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Install pinned SSH known_hosts
+        env:
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -n "$SSH_KNOWN_HOSTS"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Run read-only ingress preflight
+        if: inputs.mode == 'preflight'
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p "$RUNNER_TEMP/web-public-ingress"
+          remote_summary="$(ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "OPENRESTY_CONTAINER='$OPENRESTY_CONTAINER' OPENRESTY_CONFIG_ROOT='$OPENRESTY_CONFIG_ROOT' OPENRESTY_MANAGED_FILES='$OPENRESTY_MANAGED_FILES' OPENRESTY_PRIMARY_FILE='$OPENRESTY_PRIMARY_FILE' OPENRESTY_BACKUP_DIR='$OPENRESTY_BACKUP_DIR' bash -s -- preflight" \
+            < scripts/ops/web-public-ingress.sh)"
+          printf '%s\n' "$remote_summary" | tee "$RUNNER_TEMP/web-public-ingress/remote-preflight.txt"
+          node scripts/ops/probe-web-public-ingress.mjs \
+            --base-url "$PUBLIC_BASE_URL" \
+            --output "$RUNNER_TEMP/web-public-ingress/public-baseline.json"
+          current_sha="$(printf '%s\n' "$remote_summary" | awk -F= '$1=="current_config_set_sha256"{print $2}')"
+          test -n "$current_sha"
+          printf 'APPROVE_FAP_WEB_PUBLIC_INGRESS:%s:%s:%s\n' \
+            "$DEPLOY_SHA" "$CANDIDATE_SHA" "$current_sha" \
+            > "$RUNNER_TEMP/web-public-ingress/required-apply-approval.txt"
+
+      - name: Stage exact ingress candidate on Node1
+        if: inputs.mode == 'apply'
+        shell: bash
+        run: |
+          set -euo pipefail
+          remote_candidate="/tmp/fap-web-public-ingress-${GITHUB_RUN_ID}-${DEPLOY_SHA}.conf"
+          scp -o BatchMode=yes -o StrictHostKeyChecking=yes -P "$DEPLOY_PORT" \
+            deploy/openresty/fap-web-public.conf "$DEPLOY_USER@$DEPLOY_HOST:$remote_candidate"
+          echo "REMOTE_CANDIDATE=$remote_candidate" >> "$GITHUB_ENV"
+
+      - name: Apply exact ingress candidate
+        if: inputs.mode == 'apply'
+        shell: bash
+        run: |
+          set -euo pipefail
+          release_id="${GITHUB_RUN_ID}-${DEPLOY_SHA}"
+          ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "OPENRESTY_CONTAINER='$OPENRESTY_CONTAINER' OPENRESTY_CONFIG_ROOT='$OPENRESTY_CONFIG_ROOT' OPENRESTY_MANAGED_FILES='$OPENRESTY_MANAGED_FILES' OPENRESTY_PRIMARY_FILE='$OPENRESTY_PRIMARY_FILE' OPENRESTY_BACKUP_DIR='$OPENRESTY_BACKUP_DIR' EXPECTED_CONFIG_SET_SHA256='$CURRENT_CONFIG_SET_SHA256' CANDIDATE_CONFIG='$REMOTE_CANDIDATE' EXPECTED_CANDIDATE_SHA256='$CANDIDATE_SHA' RELEASE_ID='$release_id' bash -s -- apply" \
+            < scripts/ops/web-public-ingress.sh
+          node scripts/ops/probe-web-public-ingress.mjs \
+            --base-url "$PUBLIC_BASE_URL" \
+            --output "$RUNNER_TEMP/web-public-ingress-post-apply.json" \
+            --enforce
+
+      - name: Restore an exactly authorized ingress backup
+        if: inputs.mode == 'rollback'
+        shell: bash
+        run: |
+          set -euo pipefail
+          ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "OPENRESTY_CONTAINER='$OPENRESTY_CONTAINER' OPENRESTY_CONFIG_ROOT='$OPENRESTY_CONFIG_ROOT' OPENRESTY_MANAGED_FILES='$OPENRESTY_MANAGED_FILES' OPENRESTY_PRIMARY_FILE='$OPENRESTY_PRIMARY_FILE' OPENRESTY_BACKUP_DIR='$OPENRESTY_BACKUP_DIR' EXPECTED_CONFIG_SET_SHA256='$CURRENT_CONFIG_SET_SHA256' ROLLBACK_RELEASE_ID='$ROLLBACK_RELEASE_ID' EXPECTED_BACKUP_SET_SHA256='$BACKUP_CONFIG_SET_SHA256' bash -s -- rollback" \
+            < scripts/ops/web-public-ingress.sh
+          node scripts/ops/probe-web-public-ingress.mjs \
+            --base-url "$PUBLIC_BASE_URL" \
+            --output "$RUNNER_TEMP/web-public-ingress-post-rollback.json"
+
+      - name: Upload sanitized ingress evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: web-public-ingress-${{ inputs.mode }}-${{ inputs.deploy_sha }}
+          path: ${{ runner.temp }}/web-public-ingress*
+          if-no-files-found: ignore
+          retention-days: 30
