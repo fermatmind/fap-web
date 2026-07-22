@@ -410,7 +410,7 @@
     "base": "main",
     "branch": "codex/career-detail-delivery-10k-01",
     "depends_on": ["CAREER-DETAIL-READ-MODEL-10K-01"],
-    "status": "ready_to_merge",
+    "status": "github_checks_pending",
     "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
@@ -47008,5 +47008,148 @@
       }
     ],
     "updated_at": "2026-07-22T17:07:47Z"
+  },
+  "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01": {
+    "id": "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/fap-web-public-nonce-cache-boundary-01",
+    "title": "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01: version and gate the production HTML cache boundary",
+    "depends_on": [],
+    "status": "ready_to_merge",
+    "commit_sha": "8ecb9845d8cb62e084f35093850d6e64c75015bf",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1797",
+    "checks": {
+      "authorization": {
+        "status": "pass",
+        "evidence": "The user explicitly authorized this exact PR id, title, branch, scope, manifest/state registration, and complete ordinary PR lifecycle. Production apply and deployment remain separately exact-SHA gated."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "This item has no PR dependency. After main advanced, the branch was rebased onto exact origin/main 3cab146bb6dc03516d4a15b23e8319ba04c9f4b2 while preserving the merged MBTI-COMP-GATE-47 ledger facts."
+      },
+      "required_local_checks": {
+        "status": "pass",
+        "evidence": "After the final three P2 repairs, focused ingress contracts 10/10, candidate validator, bash -n, ShellCheck, actionlint, exact production-image OpenResty syntax, lint, spacing, typecheck, all four contract shards, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206 pass. YAML/JSON, git diff checks, and exact 13-file allowlist pass."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "Exact repaired head 8ecb9845d8cb62e084f35093850d6e64c75015bf passed build, contracts, both personality freezes, CodeQL analyze/no-new-alerts, and the dedicated pinned-image web-public-ingress-config check."
+      },
+      "codex_review": {
+        "status": "pass",
+        "evidence": "All review findings are repaired, replied to and resolved. Exact repaired head 8ecb9845 has zero unresolved review threads and GitHub reports it mergeable."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-22T16:34:30Z",
+        "status": "in_progress",
+        "summary": "Started in an isolated worktree from exact origin/main. Scope is versioned OpenResty candidate, fail-closed exact-SHA workflow, sanitized public probe, tests and runbook only. The active user worktree remains untouched; no server write, reload, deploy, CMS/backend mutation, telemetry write, or PR23 execution is authorized."
+      },
+      {
+        "at": "2026-07-22T16:52:30Z",
+        "status": "local_checks_passed",
+        "summary": "Implemented the static-only cache candidate and protected control workflow. After repairing a scope-helper compatibility regression, focused and full local checks, personality freezes, production build, fixed-image syntax and exact scope gates passed."
+      },
+      {
+        "at": "2026-07-22T17:00:30Z",
+        "status": "github_checks_pending",
+        "summary": "Inspected and repaired two PR-introduced CodeQL alerts by validating the revision SHA, emitting only sanitized fields, and moving artifact writing to the workflow tee."
+      },
+      {
+        "at": "2026-07-22T17:09:00Z",
+        "status": "github_checks_pending",
+        "summary": "Repaired four exact-review findings: RepoDigests validation, normalized/equal-root backup rejection, location-level HSTS preservation, and repository-rule registration. Focused checks passed and all review threads were resolved."
+      },
+      {
+        "at": "2026-07-22T17:16:00Z",
+        "status": "github_checks_pending",
+        "summary": "Exact head 7919a04d passed all eight checks, then exact review found two valid P2 gaps and main advanced to merged MBTI-COMP-GATE-47. The branch was rebased onto exact origin/main 3cab146b with both repositories' ledger facts preserved. Rollback approval is now live-config-SHA-bound and config CI includes control-script-only changes. Focused revalidation and a fresh exact-head cycle remain mandatory; production stayed untouched."
+      },
+      {
+        "at": "2026-07-22T17:23:30Z",
+        "status": "baseline_repair_pending",
+        "summary": "Post-rebase full contracts exposed one pre-existing latest-main regression in the newly merged Gate 47 scope helper: non-Gate branches accept app/unrelated-runtime.tsx despite the exact-membership test requiring false. PR1 did not introduce or own that helper. A separate minimal one-file baseline repair will merge first, then PR1 will rebase and rerun its full validation."
+      },
+      {
+        "at": "2026-07-22T17:39:38Z",
+        "status": "github_checks_pending",
+        "summary": "Baseline repair PR #1799 merged and was cleaned. PR1 rebased onto exact origin/main 46b8310f and its focused, full-contract, freeze, pinned-image syntax, lint, typecheck, build, YAML/JSON and exact-scope validations all passed. No production action ran; the branch is ready for a fresh exact-head GitHub cycle."
+      },
+      {
+        "at": "2026-07-22T17:45:08Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head d3a98948 passed all eight GitHub checks including the dedicated ingress config gate. All review threads are resolved, the 13-file scope remains exact, and GitHub reports the PR mergeable. Production apply/deploy remain disabled and were not executed."
+      },
+      {
+        "at": "2026-07-22T18:02:02Z",
+        "status": "github_checks_pending",
+        "summary": "Merge was stopped when exact review found three additional P2 gaps. The same-scope repair now counts IPv4/IPv6 TLS listeners, rejects plain port 443, completes backups before live mutation, and restores the original managed set on mutation failure. All required local validations passed again; no production action ran."
+      },
+      {
+        "at": "2026-07-22T18:07:13Z",
+        "status": "ready_to_merge",
+        "summary": "Exact repaired head 8ecb9845 passed all eight GitHub checks. All review threads are resolved, GitHub reports the PR clean and mergeable, and no production apply or deploy occurred."
+      }
+    ],
+    "updated_at": "2026-07-22T18:07:13Z"
+  },
+  "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02": {
+    "id": "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/fap-web-analytics-runtime-smoke-repair-02",
+    "title": "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02: restore browser pageview collection and deterministic smoke",
+    "depends_on": ["FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01"],
+    "status": "pending_dependency",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {"status": "pass", "evidence": "The user explicitly authorized this exact dependent PR scope and complete ordinary lifecycle after PR1 merge and cleanup."},
+      "dependency": {"status": "pending", "evidence": "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01 must merge, sync, clean up and pass post-merge revalidation first."},
+      "required_local_checks": {"status": "pending", "evidence": null},
+      "github_required_checks": {"status": "pending", "evidence": null}
+    },
+    "scope_validation": {
+      "allowed_paths_only": null,
+      "local_validation_passed": null,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "api_runtime_change": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-22T16:34:30Z",
+        "status": "pending_dependency",
+        "summary": "Registered the exact dependent analytics runtime/smoke scope. Implementation cannot start until PR1 is merged, synchronized, cleaned and post-merge revalidated."
+      }
+    ],
+    "updated_at": "2026-07-22T17:16:00Z"
   }
 }
