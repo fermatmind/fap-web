@@ -47021,9 +47021,9 @@
     "branch": "codex/mbti-cross-approval-48",
     "title": "MBTI-CROSS-APPROVAL-48: approve exact three cross-type comparison assets",
     "depends_on": ["MBTI-COMP-GATE-47"],
-    "status": "local_checks_passed",
+    "status": "github_checks_pending",
     "commit_sha": "9c03f8b19e2f1382619d4ed9d802278f9236a7a6",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The continuous MBTI comparison train goal explicitly authorizes generation of approval assets, hashes, and rollback/readback contracts for exactly enfp-vs-entp, estj-vs-entj, and isfp-vs-infp. It does not authorize production publish, CMS/DB writes, or indexability/search changes."},
       "dependency": {"status": "pass", "evidence": "MBTI-COMP-GATE-47 merged as fap-web PR #1794 with merge SHA 3cab146bb6dc03516d4a15b23e8319ba04c9f4b2 after exact 16/16 production readback and seven green required checks; local main and origin/main were synchronized and the task branch was cleaned."},
@@ -47064,8 +47064,13 @@
         "at": "2026-07-22T17:45:58Z",
         "status": "local_checks_passed",
         "summary": "Explicitly staged the exact ten manifest-allowed paths and committed the locally verified approval assets as 9c03f8b19e2f1382619d4ed9d802278f9236a7a6. This following ledger-only commit binds that implementation SHA before push; the user-owned .workbuddy file remains untracked and excluded."
+      },
+      {
+        "at": "2026-07-22T17:46:55Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact branch and opened fap-web PR #1801 with what changed, why, validation, lint-environment disclosure, repository-rule impact, deferred stages, and no-production-action boundary. Required GitHub checks are pending; operator editorial approval remains pending for the exact package hash."
       }
     ],
-    "updated_at": "2026-07-22T17:45:58Z"
+    "updated_at": "2026-07-22T17:46:55Z"
   }
 }
