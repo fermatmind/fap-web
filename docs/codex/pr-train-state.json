@@ -47017,8 +47017,8 @@
     "base": "main",
     "branch": "codex/career-search-entry-quality-reaudit-01",
     "depends_on": [],
-    "status": "local_checks_passed",
-    "commit_sha": "99701d401760943d968976d1bf1d03e5efa724b1",
+    "status": "ready_to_merge",
+    "commit_sha": "65f81e7618edfde682f109a915a21c7b96cab720",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1798",
     "failure_reason": null,
     "merged_at": null,
@@ -47058,12 +47058,12 @@
         "evidence": "Generator syntax, JSON artifact/state parse, YAML manifest parse, exact allowed-path scope validation, and git diff --check passed."
       },
       "github_required_checks": {
-        "status": "pending_after_review_repair",
-        "evidence": "Exact head 79549632434af86edd14951c1c9f7aa50b56257b passed all seven required checks after the generator repairs. The current report-only review repair still requires fresh exact-head checks."
+        "status": "pass",
+        "evidence": "Exact reviewed head 65f81e7618edfde682f109a915a21c7b96cab720 passed build, contracts, CodeQL analyze/aggregate, no-new-code-scanning-alerts, verify-big5-contract-freeze, and verify-enneagram-contract-freeze. This ledger-only ready-to-merge commit must receive the same final checks before squash merge."
       },
       "codex_review": {
-        "status": "repair_locally_passed",
-        "evidence": "Codex reported six P2 findings across three exact-head reviews. The five generator findings are repaired, and the report now accurately states that both acupuncturists and computer-network-architects recovered bilingual sampled SEO/HTML evidence while retaining their separate Tier B and Tier D gates. Focused v1/v2 compatibility contracts pass 2 files / 14 tests; the newest thread resolution and final exact-head review remain pending."
+        "status": "pass_after_repair",
+        "evidence": "Codex reported seven P2 findings across four exact-head reviews: five generator evidence defects, one report-summary mismatch, and one stale ledger SHA. All are repaired; the final reviewed content head is 65f81e7618edfde682f109a915a21c7b96cab720, all prior threads are resolved, and this ledger-only commit binds that reviewed head before merge."
       },
       "baseline_repair": {
         "status": "pass",
@@ -47073,7 +47073,7 @@
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -47121,9 +47121,14 @@
         "at": "2026-07-22T18:07:23Z",
         "status": "local_checks_passed",
         "summary": "The latest exact-head review found one report-summary mismatch: two sampled careers recovered bilingual SEO/HTML evidence, not one. The report now names both and preserves their distinct Tier B/Tier D gate reasons. Focused v1/v2 contracts pass 14/14, JSON parsing and git diff checks pass, and no runtime or authority surface changed."
+      },
+      {
+        "at": "2026-07-22T18:14:08Z",
+        "status": "ready_to_merge",
+        "summary": "Reviewed head 65f81e7618edfde682f109a915a21c7b96cab720 passed all seven required checks and the final Codex content review. The seventh P2 identified the stale ledger commit_sha; this ledger-only closeout binds commit_sha to that exact reviewed head and must pass its own final required checks before squash merge."
       }
     ],
-    "updated_at": "2026-07-22T18:07:23Z"
+    "updated_at": "2026-07-22T18:14:08Z"
   }
 
 }
