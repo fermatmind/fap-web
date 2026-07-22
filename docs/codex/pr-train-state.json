@@ -46882,8 +46882,8 @@
     "branch": "codex/mbti-comp-gate-47",
     "title": "MBTI-COMP-GATE-47: add exact A/T runtime completeness gate",
     "depends_on": ["MBTI-COMP-RUNTIME-46"],
-    "status": "production_deploy_readiness_blocked",
-    "commit_sha": "8af223ac38fdce7916773e3eaf72831296dc9bbb",
+    "status": "github_checks_pending",
+    "commit_sha": "cd7765c5e53d1c09cc41bbd15b78317ff7719757",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1794",
     "checks": {
       "authorization": {
@@ -46895,17 +46895,17 @@
         "evidence": "MBTI-COMP-RUNTIME-46 production code deploy, exact single-record INTP revision, rollback-safe write, 16/16 API/page readback, and fap-api operation report PR #3206 are complete."
       },
       "focused_contracts": {"status": "pass", "evidence": "The Gate 47 fixture, provenance, page-schema, and dedicated scope contract passes 13/13 tests. It covers exact pass; sections-empty/blocks-nonempty, wrong key, short body, wrong fingerprint, wrong canonical, truncated body, row-cells-without-section-body, hidden-script-only body, missing page FAQ JSON-LD, and disallowed changed-file fail-closed cases; plus deterministic derivation of all 16 runtime section fingerprints from Approval39/Runtime46. The exact CI-failure reproduction set passes 4 files / 25 tests after isolating the Gate helper from legacy scope helpers."},
-      "required_local_checks": {"status": "blocked_cms_api_unreachable", "evidence": "Canonical Node 24 Gate validation and the isolated SSR repair validation remain complete. Immediately before the authorized deploy, strict pnpm check:cms-api failed twice because the production API returned no first byte for the required bilingual article list. Three additional 25-second article requests and public comparison, bilingual article, landing-surface, and scale-lookup probes all timed out without a response. The frontend workflow was not dispatched because backend/CMS readiness is a hard deployment gate."},
-      "github_required_checks": {"status": "pass", "evidence": "Exact Gate head 8af223ac38fdce7916773e3eaf72831296dc9bbb passed all seven checks: build, contracts, both personality freezes, CodeQL analysis/result, and no-new-code-scanning-alerts. Exact main deploy target dd25c48a6e756fa7abd71c14f111922049ff7bd7 also has successful main CI, CodeQL, and staging deployment runs."},
+      "required_local_checks": {"status": "pass", "evidence": "The production API recovered and strict pnpm check:cms-api passed before dispatch. The authorized workflow deployed exact main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7; checkout, ancestry verification, production deployment, revision verification, and public-surface smoke all passed. Public /revision returns the exact SHA. Independent target-page analytics/CSP readback confirms a present nonce, header/bootstrap/dynamic-script parity, unique nonces across responses, provider-loader attempts, zero CSP blocking errors, and private-route suppression. The exact Gate builder then passed 16/16 with zero failures, and the focused Gate contract passes 13/13. The workflow's final analytics probe timed out navigating the public homepage, and a target-page rerun completed all CSP assertions but did not observe a first-party /api/track attempt; that analytics residual is recorded separately from the exact Gate 47 runtime-completeness decision."},
+      "github_required_checks": {"status": "pending", "evidence": "The prior Gate head passed all seven required checks. The production-pass report is committed as cd7765c5e53d1c09cc41bbd15b78317ff7719757 and the following ledger-only binding commit must receive a fresh exact-head required-check result before merge."},
       "codex_review": {"status": "external_quota_blocked", "evidence": "All five prior actionable P2 threads are repaired and resolved, with zero unresolved review threads. A fresh exact-head review was explicitly requested on 33fe5406776abb78ca162f120d62921feb7be41e, but the Codex connector refused it because the account has reached its code-review usage limit. This is an external review-capacity hold, not a code finding or failed required check."}
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
-    "failure_reason": "Exact SHA-bound production authorization is present and all frontend SHA/CI/security/workflow checks pass, but strict CMS/API readiness is currently red: multiple public production API families connect but return no response before 15-25 second timeouts. The deploy workflow has not been dispatched. Gate 47 must remain fail closed until the production API is responsive, pnpm check:cms-api passes without weakening strict mode, and the authorized deployment plus exact 16-target readback complete.",
+    "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -46995,8 +46995,13 @@
         "at": "2026-07-22T16:29:01Z",
         "status": "production_deploy_readiness_blocked",
         "summary": "The operator supplied exact SHA-bound production authorization for dd25c48a6e756fa7abd71c14f111922049ff7bd7 and the acknowledged conservative range. Exact main ancestry, merged PR #1796, main CI/CodeQL/staging, Gate 47 7/7 checks, workflow input contract, duplicate-run guard, and zero open Critical/High/Medium code-scanning alerts all pass. Deployment was not dispatched because strict CMS/API readiness failed twice and every follow-up public API family probe timed out without receiving a response. No strict-mode bypass, SSH action, production workflow dispatch, CMS/DB write, or publication/search mutation occurred."
+      },
+      {
+        "at": "2026-07-22T17:02:08Z",
+        "status": "github_checks_pending",
+        "summary": "The production API recovered and strict CMS/API preflight passed. The exact authorized production workflow run 29939112644 deployed and verified main SHA dd25c48a6e756fa7abd71c14f111922049ff7bd7; deployment and public smoke succeeded, while only the postdeploy analytics browser probe failed on a 30-second public-homepage navigation timeout. Independent target-page readback proves nonce parity, per-response nonce isolation, provider loaders, zero CSP blocking errors, and private-route suppression; /api/track was not observed and remains an analytics residual outside the comparison completeness contract. After transient API/SSR cold-read failures were warmed by read-only requests, the exact backend-authoritative Gate passed 16/16 with zero failures. Report commit cd7765c5e53d1c09cc41bbd15b78317ff7719757 is locally validated and awaits fresh exact-head GitHub checks. No duplicate deployment, rollback, CMS/DB write, publication/indexability mutation, sitemap/llms action, or search submission occurred."
       }
     ],
-    "updated_at": "2026-07-22T16:29:01Z"
+    "updated_at": "2026-07-22T17:02:08Z"
   }
 }
