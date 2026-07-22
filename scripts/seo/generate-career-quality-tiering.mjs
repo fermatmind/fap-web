@@ -257,7 +257,12 @@ function datasetContentVersion(member) {
   return "dataset_authority_only";
 }
 
-function detailToIndexItem(detail, htmlRobotsPolicy = "", seoSurfaceEvidence = {}) {
+function detailToIndexItem(
+  detail,
+  htmlRobotsPolicy = "",
+  seoSurfaceEvidence = {},
+  htmlEvidenceAvailable = false
+) {
   const record = unwrapPayload(detail);
   const trustManifest = readRecord(record.trust_manifest);
   const claimPermissions = readRecord(record.claim_permissions);
@@ -292,6 +297,7 @@ function detailToIndexItem(detail, htmlRobotsPolicy = "", seoSurfaceEvidence = {
     score_summary: readRecord(record.score_summary),
     seo_contract: seoContract,
     html_robots_policy: readString(htmlRobotsPolicy),
+    html_evidence_available: htmlEvidenceAvailable === true,
   };
 }
 
@@ -340,7 +346,15 @@ function titleTranslationStatus(enItem, zhItem, datasetMember) {
   return "index_title_localized";
 }
 
-function buildRow(slug, enItem, zhItem, datasetMember, sitemapPaths) {
+function buildRow(
+  slug,
+  enItem,
+  zhItem,
+  datasetMember,
+  sitemapPaths,
+  legacyEnItemPresent,
+  legacyZhItemPresent
+) {
   const dataset = readRecord(datasetMember);
   const enSeo = readRecord(enItem?.seo_contract);
   const zhSeo = readRecord(zhItem?.seo_contract);
@@ -359,12 +373,16 @@ function buildRow(slug, enItem, zhItem, datasetMember, sitemapPaths) {
   const zhPath = localeCareerPath("zh", slug);
   const enHtmlRobots = readString(enItem?.html_robots_policy);
   const zhHtmlRobots = readString(zhItem?.html_robots_policy);
+  const enHtmlEvidenceAvailable = enItem?.html_evidence_available === true;
+  const zhHtmlEvidenceAvailable = zhItem?.html_evidence_available === true;
   const enIndexable = Object.keys(enSeo).length > 0
+    && enHtmlEvidenceAvailable
     && enSeo.index_eligible === true
     && isIndexableState(enSeo.index_state)
     && !hasPolicyToken(enSeo.robots_policy, "noindex")
     && !hasPolicyToken(enHtmlRobots, "noindex");
   const zhIndexable = Object.keys(zhSeo).length > 0
+    && zhHtmlEvidenceAvailable
     && zhSeo.index_eligible === true
     && isIndexableState(zhSeo.index_state)
     && !hasPolicyToken(zhSeo.robots_policy, "noindex")
@@ -378,10 +396,14 @@ function buildRow(slug, enItem, zhItem, datasetMember, sitemapPaths) {
   const riskCodes = [];
 
   if (EXCLUDED_CAREER_JOB_DETAIL_SLUGS.has(slug)) riskCodes.push("excluded_slug_hold");
-  if (!enItem) riskCodes.push("career_index_en_item_missing");
-  if (!zhItem) riskCodes.push("career_index_zh_item_missing");
+  if (!legacyEnItemPresent) riskCodes.push("career_index_en_item_missing");
+  if (!legacyZhItemPresent) riskCodes.push("career_index_zh_item_missing");
+  if (!enItem) riskCodes.push("locale_enrichment_en_missing");
+  if (!zhItem) riskCodes.push("locale_enrichment_zh_missing");
   if (Object.keys(enSeo).length === 0) riskCodes.push("locale_seo_evidence_en_missing");
   if (Object.keys(zhSeo).length === 0) riskCodes.push("locale_seo_evidence_zh_missing");
+  if (!enHtmlEvidenceAvailable) riskCodes.push("locale_html_evidence_en_missing");
+  if (!zhHtmlEvidenceAvailable) riskCodes.push("locale_html_evidence_zh_missing");
   if (hasPolicyToken(enHtmlRobots, "noindex")) riskCodes.push("locale_html_noindex_en");
   if (hasPolicyToken(zhHtmlRobots, "noindex")) riskCodes.push("locale_html_noindex_zh");
   if (!enIndexable || !zhIndexable) riskCodes.push("not_bilingually_indexable");
@@ -563,8 +585,8 @@ async function evaluateDetailSample({ slug, locale, row, siteUrl, apiOrigin, tim
     riskCodes.push("sample_strong_claim_without_final_review");
   }
 
-  const detailEnrichmentItem = detailStatus.ok
-    ? detailToIndexItem(detailStatus.payload, extractRobots(html) || "", seoSurface)
+  const detailEnrichmentItem = detailStatus.ok && htmlStatus.ok
+    ? detailToIndexItem(detailStatus.payload, extractRobots(html) || "", seoSurface, true)
     : null;
 
   return {
@@ -813,8 +835,10 @@ async function main() {
 
   const enItems = readArray(enIndexPayload.items);
   const zhItems = readArray(zhIndexPayload.items);
-  const enBySlug = indexItemBySlug(enItems);
-  const zhBySlug = indexItemBySlug(zhItems);
+  const legacyEnBySlug = indexItemBySlug(enItems);
+  const legacyZhBySlug = indexItemBySlug(zhItems);
+  const enBySlug = new Map(legacyEnBySlug);
+  const zhBySlug = new Map(legacyZhBySlug);
   const [stableEn, stableZh] = await Promise.all([
     fetchStableDetailItems({ members: datasetMembers, locale: "en", apiOrigin: args.apiOrigin, timeoutMs: args.timeoutMs }),
     fetchStableDetailItems({ members: datasetMembers, locale: "zh", apiOrigin: args.apiOrigin, timeoutMs: args.timeoutMs }),
@@ -823,7 +847,15 @@ async function main() {
   for (const [slug, item] of stableZh.items) zhBySlug.set(slug, item);
 
   const provisionalRows = allSlugs.map((slug) =>
-    buildRow(slug, enBySlug.get(slug), zhBySlug.get(slug), datasetBySlug.get(slug), sitemapPaths)
+    buildRow(
+      slug,
+      enBySlug.get(slug),
+      zhBySlug.get(slug),
+      datasetBySlug.get(slug),
+      sitemapPaths,
+      legacyEnBySlug.has(slug),
+      legacyZhBySlug.has(slug)
+    )
   );
   const sampleRows = buildSampleRows(provisionalRows, args.samplePerGroup);
   const rawDetailSamples = [];
@@ -852,7 +884,15 @@ async function main() {
   }
 
   const rows = allSlugs.map((slug) =>
-    buildRow(slug, enBySlug.get(slug), zhBySlug.get(slug), datasetBySlug.get(slug), sitemapPaths)
+    buildRow(
+      slug,
+      enBySlug.get(slug),
+      zhBySlug.get(slug),
+      datasetBySlug.get(slug),
+      sitemapPaths,
+      legacyEnBySlug.has(slug),
+      legacyZhBySlug.has(slug)
+    )
   );
   const rowBySlug = new Map(rows.map((row) => [row.slug, row]));
   const detailSamples = rawDetailSamples.map((sample) => {
@@ -946,10 +986,18 @@ async function main() {
       career_index_zh_count: zhItems.length,
       stable_detail_enrichment_count: stableEn.items.size,
       stable_detail_zh_enrichment_count: stableZh.items.size,
+      sampled_detail_enrichment_en_count: new Set(
+        detailSamples.filter((sample) => sample.locale === "en" && sample.detail_enrichment_available).map((sample) => sample.slug)
+      ).size,
+      sampled_detail_enrichment_zh_count: new Set(
+        detailSamples.filter((sample) => sample.locale === "zh" && sample.detail_enrichment_available).map((sample) => sample.slug)
+      ).size,
+      final_locale_enrichment_en_count: allSlugs.filter((slug) => enBySlug.has(slug)).length,
+      final_locale_enrichment_zh_count: allSlugs.filter((slug) => zhBySlug.has(slug)).length,
       unique_career_slugs: allSlugs.length,
       optional_index_enrichment_gap: {
-        en_missing: allSlugs.filter((slug) => !enBySlug.has(slug)).length,
-        zh_missing: allSlugs.filter((slug) => !zhBySlug.has(slug)).length,
+        en_missing: allSlugs.filter((slug) => !legacyEnBySlug.has(slug)).length,
+        zh_missing: allSlugs.filter((slug) => !legacyZhBySlug.has(slug)).length,
       },
       sitemap_total_locs: locs.length,
       sitemap_career_detail_urls: careerDetailUrls.length,

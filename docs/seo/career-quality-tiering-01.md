@@ -24,7 +24,7 @@ The current re-audit no longer treats the legacy career jobs index as the 1046 i
 | `https://fermatmind.com/sitemap.xml` | Public URL truth | Successful artifact run observed 200 and 2612 URLs |
 | `/api/v0.5/seo/sitemap-source` | Backend sitemap authority fallback when public XML is unavailable | Generator fallback only; not needed by the successful artifact run |
 | `/api/v0.5/career/jobs?locale={en\|zh-CN}&org_id=0` | Optional reviewer/content enrichment only | Both locales returned 504; zero rows used |
-| `/api/v0.5/career/jobs/{slug}?locale={en\|zh-CN}` | Bounded detail enrichment/sample evidence | Stable-detail batch returned no usable rows in the final run; six successful later samples were fed back into final rows |
+| `/api/v0.5/career/jobs/{slug}?locale={en\|zh-CN}` | Bounded detail enrichment/sample evidence | Stable-detail batch returned no usable rows in the final run; eight later detail+HTML samples were fed back into final rows |
 
 The separation matters: an unavailable optional enrichment endpoint does not erase the backend-authoritative 1046-member inventory, but it also cannot supply the reviewer evidence required to promote entries.
 
@@ -41,8 +41,10 @@ The separation matters: an unavailable optional enrichment endpoint does not era
 | Career detail sitemap slugs | 1046 |
 | Optional jobs-index EN rows | 0 (504) |
 | Optional jobs-index ZH rows | 0 (504) |
-| EN rows with bounded detail enrichment | 3 |
-| ZH rows with bounded detail enrichment | 3 |
+| Original optional-index EN gap | 1046 |
+| Original optional-index ZH gap | 1046 |
+| EN rows with bounded detail+HTML enrichment | 4 |
+| ZH rows with bounded detail+HTML enrichment | 4 |
 | `/en/career/jobs` or `/zh/career/jobs` in sitemap | No |
 | Excluded slugs in dataset/sitemap | No |
 
@@ -77,10 +79,12 @@ Only `acupuncturists` recovered bilingual per-locale SEO evidence in the final r
 
 The v2 run sampled one row per provisional content-version group in both locales (10 observations):
 
-- Five samples had adequate visible content and five were thin/shell.
-- Two samples lacked FAQ evidence in rendered HTML; one lacked Breadcrumb evidence.
-- The bounded stable-detail batch returned no usable entries, while six successful later detail samples were fed back into the final row inputs before tiering.
+- Five samples had adequate visible content, one was partial, and four were thin/shell.
+- Two samples lacked FAQ evidence in rendered HTML; none lacked Breadcrumb evidence.
+- The bounded stable-detail batch returned no usable entries, while eight successful later detail+HTML samples were fed back into the final row inputs before tiering.
 - Locale HTML `noindex` overrides dataset-wide index context; missing per-locale SEO evidence also fails closed.
+
+The 1046/1046 optional-index gaps remain computed from the original legacy jobs-index responses. Bounded detail+HTML sample coverage is reported separately and never reduces those outage counts.
 - No strong-claim, salary-comparison, or AI-strategy permission was inferred from missing evidence.
 
 ## Decision

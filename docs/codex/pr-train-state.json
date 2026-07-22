@@ -47063,7 +47063,7 @@
       },
       "codex_review": {
         "status": "repair_locally_passed",
-        "evidence": "Codex reported three P2 findings: successful sample enrichment was not fed back, sitemap fallback locs were not canonical-owned filtered, and dataset-wide index state could substitute for missing locale evidence. All three are repaired locally with focused v1/v2 compatibility contracts passing 2 files / 14 tests; exact-head review and thread resolution remain pending."
+        "evidence": "Codex reported five P2 findings across two exact-head reviews: successful sample enrichment was not fed back, sitemap fallback locs were not canonical-owned filtered, dataset-wide index state could substitute for missing locale evidence, failed HTML reads could still supply indexability, and sampled enrichment reduced the original jobs-index outage gap. All five are repaired locally with focused v1/v2 compatibility contracts passing 2 files / 14 tests; final exact-head review and the two newest thread resolutions remain pending."
       },
       "baseline_repair": {
         "status": "pass",
@@ -47111,9 +47111,14 @@
         "at": "2026-07-22T17:48:53Z",
         "status": "local_checks_passed",
         "summary": "After main advanced, PR #1798 resynced main. A pre-existing Gate 47 scope-helper baseline defect blocked full contracts and was isolated, fixed, fully checked, and merged in ad-hoc PR #1800. Three Codex P2 findings were then repaired within the original six-path scope: sampled detail evidence feeds final rows, fallback sitemap locs match canonical owned-host filtering, and per-locale SEO/HTML evidence now fails closed. The refreshed result is 1 Tier B / 1045 Tier D / 0 Tier A with NO_GO; canonical Node 24 generator, v1/v2 contracts 14/14, typecheck, focused ESLint, metadata, diff, and exact scope checks pass."
+      },
+      {
+        "at": "2026-07-22T17:58:51Z",
+        "status": "local_checks_passed",
+        "summary": "A fresh exact-head Codex review added two P2 findings. The generator now requires a successful rendered-HTML read before sampled detail evidence can affect indexability, and it keeps the original 1046/1046 legacy jobs-index gaps separate from 4 EN / 4 ZH sampled detail+HTML coverage. The result remains 1 Tier B / 1045 Tier D / 0 Tier A with NO_GO. Canonical Node 24 regeneration, v1/v2 contracts 14/14, typecheck, focused ESLint, JSON/YAML, diff, and six-path scope checks pass."
       }
     ],
-    "updated_at": "2026-07-22T17:48:53Z"
+    "updated_at": "2026-07-22T17:58:51Z"
   }
 
 }

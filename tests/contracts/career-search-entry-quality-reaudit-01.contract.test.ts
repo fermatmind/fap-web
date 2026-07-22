@@ -52,6 +52,10 @@ type ReauditArtifact = {
     career_index_zh_count: number;
     stable_detail_enrichment_count: number;
     stable_detail_zh_enrichment_count: number;
+    sampled_detail_enrichment_en_count: number;
+    sampled_detail_enrichment_zh_count: number;
+    final_locale_enrichment_en_count: number;
+    final_locale_enrichment_zh_count: number;
     unique_career_slugs: number;
     sitemap_career_detail_urls: number;
     sitemap_unique_career_slugs: number;
@@ -134,8 +138,20 @@ describe("CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01", () => {
     expect(reaudit.inventory_summary.career_index_zh_count).toBeLessThan(1046);
     expect(reaudit.inventory_summary.optional_index_enrichment_gap.en_missing).toBeGreaterThan(0);
     expect(reaudit.inventory_summary.optional_index_enrichment_gap.zh_missing).toBeGreaterThan(0);
+    expect(reaudit.inventory_summary.optional_index_enrichment_gap.en_missing).toBe(
+      1046 - reaudit.inventory_summary.career_index_en_count
+    );
+    expect(reaudit.inventory_summary.optional_index_enrichment_gap.zh_missing).toBe(
+      1046 - reaudit.inventory_summary.career_index_zh_count
+    );
     expect(reaudit.risk_categories.authority_gap.career_index_en_item_missing).toBeGreaterThan(0);
     expect(reaudit.risk_categories.authority_gap.career_index_zh_item_missing).toBeGreaterThan(0);
+    expect(reaudit.risk_categories.authority_gap.career_index_en_item_missing).toBe(
+      reaudit.inventory_summary.optional_index_enrichment_gap.en_missing
+    );
+    expect(reaudit.risk_categories.authority_gap.career_index_zh_item_missing).toBe(
+      reaudit.inventory_summary.optional_index_enrichment_gap.zh_missing
+    );
   });
 
   it("keeps broad runtime and hold cohorts out of bulk search amplification", () => {
@@ -157,6 +173,8 @@ describe("CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01", () => {
         [
           "locale_seo_evidence_en_missing",
           "locale_seo_evidence_zh_missing",
+          "locale_html_evidence_en_missing",
+          "locale_html_evidence_zh_missing",
           "locale_html_noindex_en",
           "locale_html_noindex_zh",
         ].includes(risk)
@@ -179,12 +197,27 @@ describe("CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01", () => {
       const row = reaudit.rows.find((candidate) => candidate.slug === sample.slug);
       expect(row).toBeDefined();
       expect(row?.risk_codes).not.toContain(
-        sample.locale === "zh" ? "career_index_zh_item_missing" : "career_index_en_item_missing"
+        sample.locale === "zh" ? "locale_enrichment_zh_missing" : "locale_enrichment_en_missing"
       );
       if (sample.reviewer_status_detail !== "unavailable_from_current_directory_authority") {
         expect(row?.reviewer_status).not.toBe("unavailable_from_current_directory_authority");
       }
     }
+
+    expect(reaudit.inventory_summary.sampled_detail_enrichment_en_count).toBe(
+      new Set(
+        reaudit.sample_results
+          .filter((sample) => sample.locale === "en" && sample.detail_enrichment_available)
+          .map((sample) => sample.slug)
+      ).size
+    );
+    expect(reaudit.inventory_summary.sampled_detail_enrichment_zh_count).toBe(
+      new Set(
+        reaudit.sample_results
+          .filter((sample) => sample.locale === "zh" && sample.detail_enrichment_available)
+          .map((sample) => sample.slug)
+      ).size
+    );
   });
 
   it("samples stable details without granting search, CMS, runtime, publish, or deploy authority", () => {
