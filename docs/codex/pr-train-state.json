@@ -47021,7 +47021,7 @@
     "branch": "codex/mbti-cross-approval-48",
     "title": "MBTI-CROSS-APPROVAL-48: approve exact three cross-type comparison assets",
     "depends_on": ["MBTI-COMP-GATE-47"],
-    "status": "github_checks_pending",
+    "status": "operator_editorial_approval_pending",
     "commit_sha": "9c03f8b19e2f1382619d4ed9d802278f9236a7a6",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
@@ -47030,13 +47030,13 @@
       "source_provenance": {"status": "pass", "evidence": "The exact three source records are snapshots of fap-api commit 1f78f9b2ed53d22c800c5560f12d381d17754bf3 package mbti-cross-type-comparison-content-assets-draft-20260702. Approval 48 binds actual raw hashes 725c9f4764040604e08d6b1a78939c5cdd5a4d642208eded6ebfafee0f99e147, 3a7febb8c31848938c63e3a76375d6b2d2b48665b6bf3cf2afdd53d0cf39fe75, and 3c25e03b72812921964b9efcb0391af96793c4081f54a02bbf0c33f08e591ac5, while retaining the stale source_manifest.json declarations as explicit drift evidence and failing closed on further tampering."},
       "focused_contracts": {"status": "pass", "evidence": "The deterministic generator and focused contract pass 7/7. They enforce the exact three-slug set, actual source hashes, ordered eight-section and eight-FAQ payloads, SEO/canonical and initial noindex state, source/package tamper rejection, atomic rollback/readback requirements, separate content/indexability authorizations, and absence of credentials or executable production authority. Exact pending-review package SHA-256: 1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6."},
       "required_local_checks": {"status": "pass", "evidence": "Generator, focused 7/7, lint:spacing, typecheck, YAML/JSON parse, diff check, exact scope validation, Big Five freeze 29/29, Enneagram freeze 24/24, full contracts 765 files / 4415 tests, and the production-config build under canonical Node 24.14.0 all pass. Scoped ESLint and `pnpm exec eslint . --ignore-pattern .playwright-cli` pass with zero errors; the literal `pnpm lint` command alone sees two errors inside an ignored, untracked, pre-existing .playwright-cli trace artifact, which is outside git scope and remains untouched."},
-      "github_required_checks": {"status": "pending", "evidence": null},
+      "github_required_checks": {"status": "pass", "evidence": "Exact PR head ca6c04285c99aeca4822ef62df80ae758a5a1a14 passed all seven required checks: build, contracts, both personality freezes, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE. The automated Codex review of the implementation/binding head left no actionable inline findings."},
       "operator_editorial_approval": {"status": "pending", "evidence": "The source records declare review_status=draft, publish_status=draft, and indexability_status=pending_review. The execution goal authorizes packaging but does not itself fabricate an operator editorial approval decision."}
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -47069,8 +47069,13 @@
         "at": "2026-07-22T17:46:55Z",
         "status": "github_checks_pending",
         "summary": "Pushed the exact branch and opened fap-web PR #1801 with what changed, why, validation, lint-environment disclosure, repository-rule impact, deferred stages, and no-production-action boundary. Required GitHub checks are pending; operator editorial approval remains pending for the exact package hash."
+      },
+      {
+        "at": "2026-07-22T17:52:49Z",
+        "status": "operator_editorial_approval_pending",
+        "summary": "Exact PR head ca6c04285c99aeca4822ef62df80ae758a5a1a14 passed all seven required GitHub checks and reports CLEAN/MERGEABLE. Automated Codex review left no actionable finding. This ledger-only head records the green evidence and must pass its own final checks. The PR remains open because package SHA-256 1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6 still requires an explicit operator editorial decision; no approval is inferred and PR49 must not start."
       }
     ],
-    "updated_at": "2026-07-22T17:46:55Z"
+    "updated_at": "2026-07-22T17:52:49Z"
   }
 }
