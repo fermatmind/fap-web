@@ -1,6 +1,6 @@
 {
   "id": "MBTI-COMP-GATE-47-RUNTIME-COMPLETENESS",
-  "generated_at": "2026-07-19T09:06:38.623Z",
+  "generated_at": "2026-07-22T15:52:17.956Z",
   "decision": "FAIL_CLOSED",
   "authority_contract": {
     "runtime_authority": "public API comparison_public_projection_v1 plus public page HTML",
