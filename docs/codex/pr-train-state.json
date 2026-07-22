@@ -46882,7 +46882,7 @@
     "base": "main",
     "branch": "codex/career-search-entry-quality-reaudit-01",
     "depends_on": [],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "99701d401760943d968976d1bf1d03e5efa724b1",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1798",
     "failure_reason": null,
@@ -46923,18 +46923,18 @@
         "evidence": "Generator syntax, JSON artifact/state parse, YAML manifest parse, exact allowed-path scope validation, and git diff --check passed."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1798 is open; exact-head required checks are pending."
+        "status": "pass",
+        "evidence": "Exact head 414b5dcd60826b2a8e7806355870e742c1c6a90d passed build, contracts, both personality freeze checks, CodeQL analysis and aggregate, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE."
       },
       "codex_review": {
-        "status": "pending",
-        "evidence": "PR #1798 exact-head review is pending."
+        "status": "pass_no_findings",
+        "evidence": "PR #1798 has no review requirement, review decision, review, comment, inline comment, or unresolved thread; GitHub reports CLEAN and MERGEABLE."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "production_write_execution": false,
@@ -46962,8 +46962,13 @@
         "at": "2026-07-22T17:07:52Z",
         "status": "github_checks_pending",
         "summary": "Pushed the exact branch and opened fap-web PR #1798 with what, why, validation, repository-rule impact, deferred items, and no-production-execution sections. Required GitHub checks and exact-head Codex review are pending."
+      },
+      {
+        "at": "2026-07-22T17:12:49Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head 414b5dcd60826b2a8e7806355870e742c1c6a90d passed all required CI and security checks. GitHub reports CLEAN and MERGEABLE, with no review requirement, review, comment, inline comment, or unresolved thread. This ledger-only ready-to-merge commit must receive its own final exact-head checks before squash merge."
       }
     ],
-    "updated_at": "2026-07-22T17:07:52Z"
+    "updated_at": "2026-07-22T17:12:49Z"
   }
 }
