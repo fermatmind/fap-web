@@ -27019,3 +27019,56 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend
     repository_rule_impact: backend_authority_and_frontend_no_fallback_rules_preserved
+
+  - id: MBTI-COMP-GATE-47
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-comp-gate-47
+    base: main
+    title: "MBTI-COMP-GATE-47: add exact A/T runtime completeness gate"
+    depends_on: [MBTI-COMP-RUNTIME-46]
+    mode: execute
+    train_scope: mbti_comparison_at_runtime_completeness_gate
+    status: in_progress
+    goal: "Fail closed unless all exact 16 Chinese A/T comparisons expose the approved backend-authoritative nine-section runtime projection and pass API/page canonical, robots, FAQ, and visible-body readback."
+    allowed_paths:
+      - scripts/seo/mbti-comp-gate-47-runtime-completeness.mjs
+      - scripts/seo/build-mbti-comp-gate-47-runtime-completeness.mjs
+      - docs/seo/personality/mbti-comp-gate-47-runtime-completeness-2026-07-19.json
+      - docs/seo/personality/mbti-comp-gate-47-runtime-completeness-2026-07-19.md
+      - tests/fixtures/mbti-comp-gate-47/runtime-completeness.json
+      - tests/contracts/mbti-comp-gate-47-runtime-completeness.contract.test.ts
+      - tests/contracts/helpers/currentPrScope.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Historical MBTI-INDEX-43 evidence or gate changes.
+      - Any frontend editorial content or local runtime content fallback.
+      - Backend, CMS, database, publication, indexability, sitemap, llms, search submission, deploy, publish, or production mutation.
+      - Cross-type comparison expansion or the later 55-target gate.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/mbti-comp-gate-47-runtime-completeness.contract.test.ts
+      - node scripts/seo/build-mbti-comp-gate-47-runtime-completeness.mjs --allow-network
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: false
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend public API
+    repository_rule_impact: existing_backend_authority_and_frontend_no_fallback_rules_preserved
