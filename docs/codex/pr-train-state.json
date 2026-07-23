@@ -50734,8 +50734,8 @@
     "depends_on": [
       "MBTI-COMP-GATE-47"
     ],
-    "status": "local_checks_passed",
-    "commit_sha": "9c03f8b19e2f1382619d4ed9d802278f9236a7a6",
+    "status": "github_checks_pending",
+    "commit_sha": "d6761b11690029f6e5ce69f4450f4c245f1f5e13",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
       "authorization": {
@@ -50813,8 +50813,13 @@
         "at": "2026-07-23T00:48:36Z",
         "status": "local_checks_passed",
         "summary": "The operator explicitly approved the exact pending package and three-record scope. PR #1801 was structurally merged with latest origin/main aad94bdb without losing concurrent ledger entries, then the approval statement was hash-bound and the final approved package regenerated as 3a86b9e73817635def8a2a2030f5cfe6102d80a64cca0703c4fc373e7aa73582. Full local validation passed on the synchronized tree. Editorial approval permits PR48 merge and PR49 implementation only; production content write and every publication/indexability/search action remain blocked."
+      },
+      {
+        "at": "2026-07-23T00:49:28Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the synchronized, locally verified editorial-approval implementation as d6761b11690029f6e5ce69f4450f4c245f1f5e13 and rebound commit_sha to that exact content head. This following ledger-only commit records the binding before push; fresh exact-head required checks remain mandatory."
       }
     ],
-    "updated_at": "2026-07-23T00:48:36Z"
+    "updated_at": "2026-07-23T00:49:28Z"
   }
 }
