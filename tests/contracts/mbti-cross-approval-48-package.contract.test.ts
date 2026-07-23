@@ -66,8 +66,12 @@ function sha256Json(value: unknown): string {
 }
 
 function generate(cwd = ROOT): { stdout: Record<string, unknown>; report: Report } {
-  const committedArtifacts = [PACKAGE, HASH_MANIFEST, CONTRACT]
-    .filter((artifact) => existsSync(path.join(cwd, artifact)))
+  const expectedArtifacts = [PACKAGE, HASH_MANIFEST, CONTRACT];
+  const missingArtifacts = expectedArtifacts.filter((artifact) => !existsSync(path.join(cwd, artifact)));
+  if (missingArtifacts.length > 0) {
+    throw new Error(`missing committed approval artifact(s): ${missingArtifacts.join(", ")}`);
+  }
+  const committedArtifacts = expectedArtifacts
     .map((artifact) => [artifact, readFileSync(path.join(cwd, artifact), "utf8")] as const);
   const stdout = JSON.parse(execFileSync("node", [SCRIPT], { cwd, encoding: "utf8" }));
   for (const [artifact, committedBytes] of committedArtifacts) {
@@ -176,6 +180,16 @@ describe("MBTI-CROSS-APPROVAL-48 exact approval package", () => {
     execFileSync("node", [SCRIPT], { cwd: sandbox, encoding: "utf8" });
     appendFileSync(path.join(sandbox, PACKAGE), "\n");
     expect(() => generate(sandbox)).toThrow(/committed artifact does not match deterministic generator output/);
+  });
+
+  it("fails before generation when any required approval artifact is absent", () => {
+    const sandbox = mkdtempSync(path.join(tmpdir(), "mbti-cross-approval-48-missing-artifact-"));
+    mkdirSync(path.join(sandbox, "scripts/seo"), { recursive: true });
+    mkdirSync(path.join(sandbox, "docs/seo/personality"), { recursive: true });
+    copyFileSync(path.join(ROOT, SCRIPT), path.join(sandbox, SCRIPT));
+    for (const source of SOURCES) copyFileSync(path.join(ROOT, source), path.join(sandbox, source));
+    expect(() => generate(sandbox)).toThrow(/missing committed approval artifact/);
+    expect(existsSync(path.join(sandbox, PACKAGE))).toBe(false);
   });
 
   it("requires atomic rollback and exact DB/CMS readback for every record", () => {

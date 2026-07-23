@@ -50775,7 +50775,7 @@
       "MBTI-COMP-GATE-47"
     ],
   "status": "github_checks_pending_reapproval",
-  "commit_sha": "6b257cd1d38cb18387961f9fcf32688ec33e826a",
+  "commit_sha": "ea0d922833d792d52d387ccd8a1b900ab9b6b858",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
       "authorization": {
@@ -50903,8 +50903,13 @@
       "at": "2026-07-23T02:37:00Z",
       "status": "github_checks_pending_reapproval",
       "summary": "Exact head 13adaad315fd14c79dc3411c771bd010ef632112 passed all seven required checks and Codex reported no major issues, but review found the PR48 manifest YAML parse command should explicitly enable aliases used by the train document. Replaced only that required check with YAML.safe_load(..., aliases: true); both legacy and alias-aware commands pass locally, and the new command is portable across Psych safe-load defaults. Package bytes and candidate hashes remain unchanged; fresh exact-head checks/review are required."
+    },
+    {
+      "at": "2026-07-23T03:23:30Z",
+      "status": "github_checks_pending_reapproval",
+      "summary": "Rebound commit_sha to exact checked head ea0d922833d792d52d387ccd8a1b900ab9b6b858, which passed all seven required checks after the alias-aware PR48 gate, unrelated-entry restoration, and reapproval auto-merge lock. Exact-head review then required the artifact guard to fail before generation when any package/hash/rollback file is absent. The contract now requires all three committed artifacts before invoking the generator and adds an explicit missing-artifact regression. The resulting child remains honestly pending fresh checks; package and candidate hashes are unchanged."
     }
   ],
-  "updated_at": "2026-07-23T02:37:00Z"
+  "updated_at": "2026-07-23T03:23:30Z"
 }
 }
