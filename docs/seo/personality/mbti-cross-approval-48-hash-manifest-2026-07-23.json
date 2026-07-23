@@ -1,0 +1,50 @@
+{
+  "schema_version": "mbti.cross_type_comparison.approval_hash_manifest.v1",
+  "id": "MBTI-CROSS-APPROVAL-48-HASH-MANIFEST",
+  "generated_at": "2026-07-23T01:20:00+08:00",
+  "record_count": 3,
+  "exact_slugs": [
+    "enfp-vs-entp",
+    "estj-vs-entj",
+    "isfp-vs-infp"
+  ],
+  "package_sha256": "604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae",
+  "operator_authorization_path": "docs/seo/personality/mbti-cross-approval-48-operator-authorization-r2-2026-07-23.json",
+  "operator_authorization_sha256": "be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670",
+  "operator_approval_statement_sha256": "f0a5fbae2b1d4fd680a83afd13aa6186ea178dbfe814a3af8accde863a59426a",
+  "operator_authorization_matches_current_package": true,
+  "current_operator_approval_status": "approved_exact_repaired_package_no_production_action_authorized",
+  "previous_operator_authorization_path": "docs/seo/personality/mbti-cross-approval-48-operator-authorization-2026-07-23.json",
+  "previous_operator_authorization_sha256": "9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b",
+  "previous_operator_approval_statement_sha256": "d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca",
+  "previously_approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
+  "previous_approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
+  "content_release_candidate_sha256": "0c680aeaa17fc3a022e7c78444628c8381d5584c4e4964dd4d801c79072193c6",
+  "indexability_release_template_sha256": "3f3aaf4da6ff6ad4c41ba705ffecc4b8c1ff060d5f76c70142fe4ce575314dfb",
+  "records": [
+    {
+      "slug": "enfp-vs-entp",
+      "source_raw_sha256": "725c9f4764040604e08d6b1a78939c5cdd5a4d642208eded6ebfafee0f99e147",
+      "content_sha256": "a7b14d279daa3d2ccaaffa9442b5254f8e6f75e1ea0d3bf7a5c08817b912af7e",
+      "sections_sha256": "bba4469493a1c197d40a8270e34ca46cac4c54b778639661e191373463d8675f",
+      "faq_sha256": "257150692f2307ee634ad3c3d124f0075fa5bbcc269ad293267830c041dfb88f",
+      "internal_links_sha256": "a7fa19d1afa2cab7c630c1e96ee3566685b95eb9d0057b422b85b420aaa4b31a"
+    },
+    {
+      "slug": "estj-vs-entj",
+      "source_raw_sha256": "3a7febb8c31848938c63e3a76375d6b2d2b48665b6bf3cf2afdd53d0cf39fe75",
+      "content_sha256": "b73514962b2d72be47c9004f2b5e5fb7572ea82f918c2a0f5a3374e15b2f36cc",
+      "sections_sha256": "21c168504e4f98e712503dfd43ce142245a1e3f27fcb28808eb164da1ad9b31c",
+      "faq_sha256": "ace1989124b561d5eaf6ecfa3e48e0298e9b8c6bd5d37d1f851608178a2e6f42",
+      "internal_links_sha256": "e6d92cb0d8378d23ce4390556e55cb36accec6149c059e83637778b4fcabf28e"
+    },
+    {
+      "slug": "isfp-vs-infp",
+      "source_raw_sha256": "3c25e03b72812921964b9efcb0391af96793c4081f54a02bbf0c33f08e591ac5",
+      "content_sha256": "41e62902dae206acc8735b19ff7e698fd51b5a609d2aeb34bb02556867399a65",
+      "sections_sha256": "d2823ef24eeb178686b8530eb71cb32642e56fbb44dc6e501c7b6049b462b225",
+      "faq_sha256": "291d743ad32f33bbcba2241e3cf26b95cc609b0241d59d8dfc5509782bc47603",
+      "internal_links_sha256": "7e38223c858f1d033d6b545361d221020204c25dc1ed0f07599861c5169b3ee0"
+    }
+  ]
+}
