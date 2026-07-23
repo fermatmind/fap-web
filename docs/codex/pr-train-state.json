@@ -50774,7 +50774,7 @@
     "depends_on": [
       "MBTI-COMP-GATE-47"
     ],
-  "status": "operator_editorial_reapproval_pending",
+  "status": "local_checks_passed_operator_approved",
   "commit_sha": "676c17d4858d639e5950626924e77f2888396329",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
@@ -50796,21 +50796,21 @@
       },
       "required_local_checks": {
         "status": "pass",
-      "evidence": "Fresh validation passes after the llms-full release/evidence-chain repair: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, production build 206/206, deterministic generation, structured-file, diff, and exact allowed-path scope checks. The user-owned .workbuddy path remains untouched and excluded."
+      "evidence": "All PR48 manifest gates pass after recording the exact repaired-package R2 approval: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, production build 206/206, deterministic generation, structured-file, diff, and exact allowed-path scope checks. Package SHA-256 remains byte-identical at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae. The user-owned .workbuddy path remains untouched and excluded."
       },
     "github_required_checks": {
-      "status": "pass",
-      "evidence": "Exact repaired content head 676c17d4858d639e5950626924e77f2888396329 passed all seven required checks and remained MERGEABLE. Codex reviewed that exact head: the llms-full release/readback and historical approval-statement evidence repairs had no further content or contract findings. Two duplicate P2 comments correctly required this ledger binding to reference the checked repaired head."
+      "status": "pending",
+      "evidence": "Exact repaired content head 676c17d4858d639e5950626924e77f2888396329 passed all seven required checks and review. The new matching R2 authorization envelope and approval-state transition require fresh exact-head checks."
       },
       "operator_editorial_approval": {
-        "status": "pending_reapproval",
-      "evidence": "The operator approved package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f, but exact-head reviews required explicit llms-full release and readback invariants plus correction of the earlier approval-statement evidence link. The resulting current package SHA-256 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae is not covered by the immutable prior authorization 9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b and needs a new exact editorial approval before merge or PR49."
+        "status": "pass",
+      "evidence": "The operator explicitly approved exact package SHA-256 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae for only enfp-vs-entp, estj-vs-entj, and isfp-vs-infp. Deterministic R2 authorization SHA-256 be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670 matches that package and permits PR48 merge plus PR49 implementation only. Production CMS/DB writes, publication/indexability changes, sitemap/llms changes, and search submission remain unauthorized."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-    "github_checks_green": true,
+    "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -50943,8 +50943,18 @@
       "at": "2026-07-23T04:57:38Z",
       "status": "operator_editorial_reapproval_pending",
       "summary": "Exact repaired content head 676c17d4858d639e5950626924e77f2888396329 passed all seven required checks, remained MERGEABLE, and completed Codex review. Two duplicate P2 comments correctly identified that commit_sha still pointed to an obsolete pre-repair head; this ledger-only closeout binds the state to the exact checked repaired content head. Package bytes remain unchanged at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae. Fresh exact operator editorial approval is the only remaining gate before PR48 merge and PR49 implementation."
+    },
+    {
+      "at": "2026-07-23T05:09:55Z",
+      "status": "operator_editorial_approval_recorded_local_checks_pending",
+      "summary": "The operator explicitly approved exact repaired package SHA-256 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae for exactly the three named slugs. The repaired package remains byte-immutable; a separate R2 envelope binds the exact statement and scope as authorization SHA-256 be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670 while retaining the prior f5a0 authorization as immutable history. It permits PR48 merge and PR49 implementation only; production CMS/DB, publication/indexability, sitemap/llms, and search actions remain false. Fresh local checks are pending."
+    },
+    {
+      "at": "2026-07-23T05:15:36Z",
+      "status": "local_checks_passed_operator_approved",
+      "summary": "All PR48 manifest gates pass after recording the exact repaired-package R2 approval: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206. The package remains byte-identical at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae and the matching R2 authorization remains be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670. No production or authority-layer mutation occurred."
     }
   ],
-  "updated_at": "2026-07-23T04:57:38Z"
+  "updated_at": "2026-07-23T05:15:36Z"
 }
 }

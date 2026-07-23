@@ -1,7 +1,11 @@
 # MBTI-CROSS-APPROVAL-48 rollback/readback contract
 
-- Status: pending operator editorial reapproval after explicit llms-full release/readback repair
+- Status: operator editorial approval recorded for the exact repaired package; no production action authorized
 - Current repaired package SHA-256: `604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae`
+- Current operator authorization SHA-256: `be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670`
+- Current operator approval statement SHA-256: `f0a5fbae2b1d4fd680a83afd13aa6186ea178dbfe814a3af8accde863a59426a`
+- Current authorization asset: `docs/seo/personality/mbti-cross-approval-48-operator-authorization-r2-2026-07-23.json`
+- Current authorization matches current package: yes
 - Previously approved repaired package SHA-256: `f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f`
 - Previous operator authorization SHA-256: `9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b`
 - Previous operator approval statement SHA-256: `d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca`
@@ -19,7 +23,7 @@
 
 ## Content revision phase
 
-The previous editorial authorization is retained as immutable history but does not match the current repaired package. A new exact editorial approval is required before PR 48 merge or PR 49 implementation. Editorial approval still will not authorize a production write. A future executor must also require a separate exact production package/authorization hash, capture each pre-write revision and payload hash, write only the exact three records atomically, keep all three noindex and outside sitemap/llms/llms-full, and roll back all three on any write or readback failure.
+The current editorial authorization matches the repaired package and permits PR 48 finalization plus PR 49 implementation only. It does not authorize a production write. A future executor must also require a separate exact production package/authorization hash, capture each pre-write revision and payload hash, write only the exact three records atomically, keep all three noindex and outside sitemap/llms/llms-full, and roll back all three on any write or readback failure.
 
 ## Readback
 

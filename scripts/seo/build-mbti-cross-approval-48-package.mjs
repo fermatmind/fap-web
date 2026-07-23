@@ -14,9 +14,14 @@ const CURRENT_REPAIRED_PACKAGE_SHA256 = "604851b56031d22d48036e87a5358bf85c9e132
 const REPAIRED_EDITORIAL_APPROVED_AT = "2026-07-23T11:42:53+08:00";
 const REPAIRED_EDITORIAL_APPROVAL_STATEMENT =
   "I explicitly approve MBTI-CROSS-APPROVAL-48 operator editorial approval for exact package SHA f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f covering only enfp-vs-entp, estj-vs-entj, and isfp-vs-infp. This approval permits finalizing and merging PR #1801 and proceeding to MBTI-CROSS-PUBLISHER-49; it does not authorize production CMS/DB writes, publication/indexability changes, sitemap/llms changes, or search submission.";
+const CURRENT_EDITORIAL_APPROVED_AT = "2026-07-23T13:06:59+08:00";
+const CURRENT_EDITORIAL_APPROVAL_STATEMENT =
+  "I explicitly approve MBTI-CROSS-APPROVAL-48 operator editorial approval for exact package SHA 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae covering only enfp-vs-entp, estj-vs-entj, and isfp-vs-infp. This approval permits finalizing and merging PR #1801 and proceeding to MBTI-CROSS-PUBLISHER-49; it does not authorize production CMS/DB writes, publication/indexability changes, sitemap/llms changes, or search submission.";
 const PACKAGE_PATH = "docs/seo/personality/mbti-cross-approval-48-package-2026-07-23.json";
 const HASH_PATH = "docs/seo/personality/mbti-cross-approval-48-hash-manifest-2026-07-23.json";
-const AUTHORIZATION_PATH = "docs/seo/personality/mbti-cross-approval-48-operator-authorization-2026-07-23.json";
+const PREVIOUS_AUTHORIZATION_PATH = "docs/seo/personality/mbti-cross-approval-48-operator-authorization-2026-07-23.json";
+const CURRENT_AUTHORIZATION_PATH = "docs/seo/personality/mbti-cross-approval-48-operator-authorization-r2-2026-07-23.json";
+const AUTHORIZATION_PATH = PREVIOUS_AUTHORIZATION_PATH;
 const CONTRACT_PATH = "docs/seo/personality/mbti-cross-approval-48-rollback-readback-2026-07-23.md";
 const SOURCE_PACKAGE = "mbti-cross-type-comparison-content-assets-draft-20260702";
 const SOURCE_COMMIT = "1f78f9b2ed53d22c800c5560f12d381d17754bf3";
@@ -332,7 +337,7 @@ async function build() {
   const packageSha256 = sha256Json(packageCore);
   assert(packageSha256 === CURRENT_REPAIRED_PACKAGE_SHA256, `Current repaired package SHA drift: ${packageSha256}`);
   const report = { ...packageCore, package_sha256: packageSha256 };
-  const operatorAuthorizationCore = {
+  const previousOperatorAuthorizationCore = {
     schema_version: "mbti.cross_type_comparison.operator_editorial_authorization.v1",
     id: "MBTI-CROSS-APPROVAL-48-OPERATOR-AUTHORIZATION",
     approved_at: REPAIRED_EDITORIAL_APPROVED_AT,
@@ -348,9 +353,30 @@ async function build() {
     sitemap_or_llms_change_authorized: false,
     search_submission_authorized: false,
   };
-  const operatorAuthorization = {
-    ...operatorAuthorizationCore,
-    authorization_sha256: sha256Json(operatorAuthorizationCore),
+  const previousOperatorAuthorization = {
+    ...previousOperatorAuthorizationCore,
+    authorization_sha256: sha256Json(previousOperatorAuthorizationCore),
+  };
+  const operatorAuthorization = previousOperatorAuthorization;
+  const currentOperatorAuthorizationCore = {
+    schema_version: "mbti.cross_type_comparison.operator_editorial_authorization.v1",
+    id: "MBTI-CROSS-APPROVAL-48-OPERATOR-AUTHORIZATION-R2",
+    approved_at: CURRENT_EDITORIAL_APPROVED_AT,
+    decision: "APPROVED_EXACT_THREE_EDITORIAL_CONTENT_NO_PRODUCTION_ACTION_AUTHORIZED",
+    approved_package_sha256: CURRENT_REPAIRED_PACKAGE_SHA256,
+    exact_slugs: records.map((record) => record.slug),
+    approval_statement: CURRENT_EDITORIAL_APPROVAL_STATEMENT,
+    approval_statement_sha256: sha256(CURRENT_EDITORIAL_APPROVAL_STATEMENT),
+    permits_pr_48_finalization_and_merge: true,
+    permits_pr_49_implementation: true,
+    production_content_write_authorized: false,
+    publication_or_indexability_change_authorized: false,
+    sitemap_or_llms_change_authorized: false,
+    search_submission_authorized: false,
+  };
+  const currentOperatorAuthorization = {
+    ...currentOperatorAuthorizationCore,
+    authorization_sha256: sha256Json(currentOperatorAuthorizationCore),
   };
   const hashManifest = {
     schema_version: "mbti.cross_type_comparison.approval_hash_manifest.v1",
@@ -359,11 +385,14 @@ async function build() {
     record_count: records.length,
     exact_slugs: records.map((record) => record.slug),
     package_sha256: packageSha256,
-    operator_authorization_path: AUTHORIZATION_PATH,
-    operator_authorization_sha256: operatorAuthorization.authorization_sha256,
-    operator_approval_statement_sha256: operatorAuthorization.approval_statement_sha256,
-    operator_authorization_matches_current_package: operatorAuthorization.approved_package_sha256 === packageSha256,
-    current_operator_approval_status: "pending_reapproval_after_llms_full_contract_repair",
+    operator_authorization_path: CURRENT_AUTHORIZATION_PATH,
+    operator_authorization_sha256: currentOperatorAuthorization.authorization_sha256,
+    operator_approval_statement_sha256: currentOperatorAuthorization.approval_statement_sha256,
+    operator_authorization_matches_current_package: currentOperatorAuthorization.approved_package_sha256 === packageSha256,
+    current_operator_approval_status: "approved_exact_repaired_package_no_production_action_authorized",
+    previous_operator_authorization_path: PREVIOUS_AUTHORIZATION_PATH,
+    previous_operator_authorization_sha256: previousOperatorAuthorization.authorization_sha256,
+    previous_operator_approval_statement_sha256: previousOperatorAuthorization.approval_statement_sha256,
     previously_approved_pending_package_sha256: APPROVED_PENDING_PACKAGE_SHA256,
     previous_approval_statement_sha256: report.editorial_approval.previous_approval_statement_sha256,
     content_release_candidate_sha256: report.content_release_candidate.payload_sha256,
@@ -379,17 +408,32 @@ async function build() {
   };
   const markdown = `# MBTI-CROSS-APPROVAL-48 rollback/readback contract\n\n- Status: pending operator editorial reapproval after explicit llms-full release/readback repair\n- Current repaired package SHA-256: \`${packageSha256}\`\n- Previously approved repaired package SHA-256: \`${PREVIOUSLY_APPROVED_REPAIRED_PACKAGE_SHA256}\`\n- Previous operator authorization SHA-256: \`${operatorAuthorization.authorization_sha256}\`\n- Previous operator approval statement SHA-256: \`${operatorAuthorization.approval_statement_sha256}\`\n- Previous authorization asset: \`${AUTHORIZATION_PATH}\`\n- Previous authorization matches current package: no\n- Previously approved pending package SHA-256: \`${APPROVED_PENDING_PACKAGE_SHA256}\`\n- Earlier approval statement SHA-256: \`${report.editorial_approval.previous_approval_statement_sha256}\`\n- Exact records: ${records.map((record) => record.slug).join(", ")}\n- Record count: 3\n- Content-release candidate SHA-256: \`${report.content_release_candidate.payload_sha256}\`\n- Indexability template SHA-256: \`${report.indexability_release_template.template_sha256}\`\n- Release/readback repair: the content-release payload requires \`keep_out_of_llms_full: true\`, and every content-phase record explicitly requires both \`llms_eligible: false\` and \`llms_full_eligible: false\` before any indexability release.\n- Runtime-shape repair: candidate payloads use the exact public projection keys required by the frontend adapter, including comparison_slug, public_route_type, type identity, and canonical_url; every section has a non-empty body array; internal links use label/href/reason; four-letter profile hrefs normalize to explicit canonical A-variant targets.\n- Source hash drift: all three current committed snapshots differ from the stale source-manifest declarations; the exact snapshot hashes remain the provenance inputs, while the candidate payload is a deterministic runtime-compatible projection.\n\n## Content revision phase\n\nThe previous editorial authorization is retained as immutable history but does not match the current repaired package. A new exact editorial approval is required before PR 48 merge or PR 49 implementation. Editorial approval still will not authorize a production write. A future executor must also require a separate exact production package/authorization hash, capture each pre-write revision and payload hash, write only the exact three records atomically, keep all three noindex and outside sitemap/llms/llms-full, and roll back all three on any write or readback failure.\n\n## Readback\n\nReadback must prove DB/CMS authority, exact content/section/FAQ/internal-link hashes, canonical parity, HTTP 200 API/page responses, visible complete body, robots \`noindex,follow\`, and explicit exclusion from both llms.txt and llms-full.txt. A local approval asset or frontend fallback cannot satisfy readback.\n\n## Indexability phase\n\nIndexability is a separate future authorization after successful content promotion/readback. It may change only robots/indexability/sitemap/llms eligibility for the exact three records and must not modify content or request search indexing.\n`;
 
+  const approvedMarkdown = markdown
+    .replace(
+      "- Status: pending operator editorial reapproval after explicit llms-full release/readback repair",
+      "- Status: operator editorial approval recorded for the exact repaired package; no production action authorized",
+    )
+    .replace(
+      `- Current repaired package SHA-256: \`${packageSha256}\``,
+      `- Current repaired package SHA-256: \`${packageSha256}\`\n- Current operator authorization SHA-256: \`${currentOperatorAuthorization.authorization_sha256}\`\n- Current operator approval statement SHA-256: \`${currentOperatorAuthorization.approval_statement_sha256}\`\n- Current authorization asset: \`${CURRENT_AUTHORIZATION_PATH}\`\n- Current authorization matches current package: yes`,
+    )
+    .replace(
+      "The previous editorial authorization is retained as immutable history but does not match the current repaired package. A new exact editorial approval is required before PR 48 merge or PR 49 implementation. Editorial approval still will not authorize a production write.",
+      "The current editorial authorization matches the repaired package and permits PR 48 finalization plus PR 49 implementation only. It does not authorize a production write.",
+    );
+
   for (const [relativePath, content] of [
     [PACKAGE_PATH, `${JSON.stringify(report, null, 2)}\n`],
     [HASH_PATH, `${JSON.stringify(hashManifest, null, 2)}\n`],
-    [AUTHORIZATION_PATH, `${JSON.stringify(operatorAuthorization, null, 2)}\n`],
-    [CONTRACT_PATH, markdown],
+    [PREVIOUS_AUTHORIZATION_PATH, `${JSON.stringify(previousOperatorAuthorization, null, 2)}\n`],
+    [CURRENT_AUTHORIZATION_PATH, `${JSON.stringify(currentOperatorAuthorization, null, 2)}\n`],
+    [CONTRACT_PATH, approvedMarkdown],
   ]) {
     const target = path.join(ROOT, relativePath);
     await mkdir(path.dirname(target), { recursive: true });
     await writeFile(target, content, "utf8");
   }
-  process.stdout.write(`${JSON.stringify({ ok: true, record_count: records.length, package_sha256: packageSha256, previous_operator_authorization_sha256: operatorAuthorization.authorization_sha256, approval_status: "pending_operator_editorial_reapproval" })}\n`);
+  process.stdout.write(`${JSON.stringify({ ok: true, record_count: records.length, package_sha256: packageSha256, operator_authorization_sha256: currentOperatorAuthorization.authorization_sha256, previous_operator_authorization_sha256: previousOperatorAuthorization.authorization_sha256, approval_status: "operator_editorial_approved_no_production_action_authorized" })}\n`);
 }
 
 await build();
