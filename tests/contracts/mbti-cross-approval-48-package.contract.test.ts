@@ -9,6 +9,7 @@ const ROOT = process.cwd();
 const SCRIPT = "scripts/seo/build-mbti-cross-approval-48-package.mjs";
 const PACKAGE = "docs/seo/personality/mbti-cross-approval-48-package-2026-07-23.json";
 const HASH_MANIFEST = "docs/seo/personality/mbti-cross-approval-48-hash-manifest-2026-07-23.json";
+const AUTHORIZATION = "docs/seo/personality/mbti-cross-approval-48-operator-authorization-2026-07-23.json";
 const CONTRACT = "docs/seo/personality/mbti-cross-approval-48-rollback-readback-2026-07-23.md";
 const SOURCES = [
   "docs/seo/personality/mbti-cross-approval-48-source-enfp-vs-entp-2026-07-02.json",
@@ -52,6 +53,22 @@ type Report = {
   package_sha256: string;
 };
 
+type OperatorAuthorization = {
+  schema_version: string;
+  decision: string;
+  approved_package_sha256: string;
+  exact_slugs: string[];
+  approval_statement: string;
+  approval_statement_sha256: string;
+  permits_pr_48_finalization_and_merge: boolean;
+  permits_pr_49_implementation: boolean;
+  production_content_write_authorized: boolean;
+  publication_or_indexability_change_authorized: boolean;
+  sitemap_or_llms_change_authorized: boolean;
+  search_submission_authorized: boolean;
+  authorization_sha256: string;
+};
+
 function stable(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(stable);
   if (value && typeof value === "object") {
@@ -65,8 +82,8 @@ function sha256Json(value: unknown): string {
   return createHash("sha256").update(JSON.stringify(stable(value))).digest("hex");
 }
 
-function generate(cwd = ROOT): { stdout: Record<string, unknown>; report: Report } {
-  const expectedArtifacts = [PACKAGE, HASH_MANIFEST, CONTRACT];
+function generate(cwd = ROOT): { stdout: Record<string, unknown>; report: Report; authorization: OperatorAuthorization } {
+  const expectedArtifacts = [PACKAGE, HASH_MANIFEST, AUTHORIZATION, CONTRACT];
   const missingArtifacts = expectedArtifacts.filter((artifact) => !existsSync(path.join(cwd, artifact)));
   if (missingArtifacts.length > 0) {
     throw new Error(`missing committed approval artifact(s): ${missingArtifacts.join(", ")}`);
@@ -81,23 +98,30 @@ function generate(cwd = ROOT): { stdout: Record<string, unknown>; report: Report
     }
   }
   const report = JSON.parse(readFileSync(path.join(cwd, PACKAGE), "utf8")) as Report;
-  return { stdout, report };
+  const authorization = JSON.parse(readFileSync(path.join(cwd, AUTHORIZATION), "utf8")) as OperatorAuthorization;
+  return { stdout, report, authorization };
 }
 
 describe("MBTI-CROSS-APPROVAL-48 exact approval package", () => {
-  it("builds only the exact three repaired records pending editorial reapproval deterministically", () => {
+  it("keeps the exact approved package immutable and builds its authorization deterministically", () => {
     const first = generate();
     const firstBytes = readFileSync(path.join(ROOT, PACKAGE), "utf8");
     const second = generate();
     const secondBytes = readFileSync(path.join(ROOT, PACKAGE), "utf8");
 
-    expect(first.stdout).toMatchObject({ ok: true, record_count: 3, approval_status: "pending_operator_editorial_reapproval" });
+    expect(first.stdout).toMatchObject({
+      ok: true,
+      record_count: 3,
+      package_sha256: "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f",
+      approval_status: "operator_editorial_approved",
+    });
     expect(first.report.schema_version).toBe("mbti.cross_type_comparison.approval.v1");
     expect(first.report.summary).toEqual({ record_count: 3, exact_slugs: SLUGS, source_hash_drift_count: 3, approved_count: 0, pending_count: 3 });
     expect(first.report.records.map((record) => record.slug)).toEqual(SLUGS);
     expect(new Set(first.report.records.map((record) => record.slug)).size).toBe(3);
     expect(firstBytes).toBe(secondBytes);
     expect(second.report.package_sha256).toBe(first.report.package_sha256);
+    expect(second.authorization.authorization_sha256).toBe(first.authorization.authorization_sha256);
   });
 
   it("locks schema, source provenance, content hashes, sections, FAQ, SEO, and initial noindex state", () => {
@@ -208,8 +232,8 @@ describe("MBTI-CROSS-APPROVAL-48 exact approval package", () => {
     expect(readFileSync(path.join(ROOT, CONTRACT), "utf8")).toContain("A local approval asset or frontend fallback cannot satisfy readback.");
   });
 
-  it("invalidates the prior approval after runtime-shape repair and keeps every release blocked", () => {
-    const { report } = generate();
+  it("records the repaired-package approval separately while keeping production releases blocked", () => {
+    const { report, authorization } = generate();
     expect(report.status).toBe("pending_operator_editorial_reapproval");
     expect(report.final_decision).toBe("PENDING_EXACT_THREE_EDITORIAL_REAPPROVAL_AFTER_RUNTIME_SHAPE_REPAIR_NO_PRODUCTION_ACTION_AUTHORIZED");
     expect(report.editorial_approval).toMatchObject({
@@ -229,14 +253,37 @@ describe("MBTI-CROSS-APPROVAL-48 exact approval package", () => {
     expect(report.records.every((record) => !record.manual_review.content_release_authorized && !record.manual_review.indexability_release_authorized)).toBe(true);
     expect(report.content_release_candidate.authorization_status).toContain("blocked_pending_editorial_reapproval_and_separate_production_content_write_authorization");
     expect(report.indexability_release_template.authorization_status).toContain("blocked_until_content_promotion_and_readback_pass");
+    expect(authorization).toMatchObject({
+      schema_version: "mbti.cross_type_comparison.operator_editorial_authorization.v1",
+      decision: "APPROVED_EXACT_THREE_EDITORIAL_CONTENT_NO_PRODUCTION_ACTION_AUTHORIZED",
+      approved_package_sha256: report.package_sha256,
+      exact_slugs: SLUGS,
+      permits_pr_48_finalization_and_merge: true,
+      permits_pr_49_implementation: true,
+      production_content_write_authorized: false,
+      publication_or_indexability_change_authorized: false,
+      sitemap_or_llms_change_authorized: false,
+      search_submission_authorized: false,
+    });
+    expect(authorization.approval_statement).toContain(`exact package SHA ${report.package_sha256}`);
+    expect(createHash("sha256").update(authorization.approval_statement).digest("hex")).toBe(authorization.approval_statement_sha256);
+    const { authorization_sha256: authorizationSha256, ...authorizationCore } = authorization;
+    expect(sha256Json(authorizationCore)).toBe(authorizationSha256);
   });
 
   it("writes a matching hash manifest and contains no credential or user-data fields", () => {
-    const { report } = generate();
+    const { report, authorization } = generate();
     const manifest = JSON.parse(readFileSync(path.join(ROOT, HASH_MANIFEST), "utf8"));
-    expect(manifest).toMatchObject({ record_count: 3, exact_slugs: SLUGS, package_sha256: report.package_sha256 });
+    expect(manifest).toMatchObject({
+      record_count: 3,
+      exact_slugs: SLUGS,
+      package_sha256: report.package_sha256,
+      operator_authorization_path: AUTHORIZATION,
+      operator_authorization_sha256: authorization.authorization_sha256,
+      operator_approval_statement_sha256: authorization.approval_statement_sha256,
+    });
     expect(manifest.records).toHaveLength(3);
-    const serialized = JSON.stringify(report).toLowerCase();
+    const serialized = JSON.stringify([report, authorization]).toLowerCase();
     expect(serialized).not.toMatch(/"(?:token|secret|password|authorization|api_key|email|user_id)"\s*:/);
     expect(report.safety_boundary).toMatchObject({
       artifact_only: true,

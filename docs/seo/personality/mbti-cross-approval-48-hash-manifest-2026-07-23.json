@@ -9,6 +9,9 @@
     "isfp-vs-infp"
   ],
   "package_sha256": "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f",
+  "operator_authorization_path": "docs/seo/personality/mbti-cross-approval-48-operator-authorization-2026-07-23.json",
+  "operator_authorization_sha256": "9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b",
+  "operator_approval_statement_sha256": "d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca",
   "previously_approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
   "previous_approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
   "content_release_candidate_sha256": "509dbf09cfdd22373e53b20285a77864bfefebce54579dbda25813e7fcc40ea1",

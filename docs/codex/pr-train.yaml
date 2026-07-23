@@ -27214,7 +27214,7 @@ prs:
     depends_on: [MBTI-COMP-GATE-47]
     mode: execute
     train_scope: mbti_cross_type_exact_three_approval_assets
-    status: github_checks_pending_reapproval
+    status: local_checks_passed_operator_approved
     goal: "Generate a deterministic approval package, exact hashes, and rollback/readback contracts for only enfp-vs-entp, estj-vs-entj, and isfp-vs-infp while keeping content publication and indexability as separately authorized production stages."
     allowed_paths:
       - scripts/seo/build-mbti-cross-approval-48-package.mjs
@@ -27223,6 +27223,7 @@ prs:
       - docs/seo/personality/mbti-cross-approval-48-source-isfp-vs-infp-2026-07-02.json
       - docs/seo/personality/mbti-cross-approval-48-package-2026-07-23.json
       - docs/seo/personality/mbti-cross-approval-48-hash-manifest-2026-07-23.json
+      - docs/seo/personality/mbti-cross-approval-48-operator-authorization-2026-07-23.json
       - docs/seo/personality/mbti-cross-approval-48-rollback-readback-2026-07-23.md
       - tests/contracts/mbti-cross-approval-48-package.contract.test.ts
       - docs/codex/pr-train.yaml
@@ -27249,7 +27250,7 @@ prs:
       - git diff --cached --check
       - exact changed-file scope validation including untracked files
     stop_if_changed_files_outside_scope: true
-    merge_policy: { github_checks_required: true, squash: true, auto_merge: false }
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
     runtime_change: false
     workflow_policy_change: false
     production_write_execution: false

@@ -1,0 +1,21 @@
+{
+  "schema_version": "mbti.cross_type_comparison.operator_editorial_authorization.v1",
+  "id": "MBTI-CROSS-APPROVAL-48-OPERATOR-AUTHORIZATION",
+  "approved_at": "2026-07-23T11:42:53+08:00",
+  "decision": "APPROVED_EXACT_THREE_EDITORIAL_CONTENT_NO_PRODUCTION_ACTION_AUTHORIZED",
+  "approved_package_sha256": "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f",
+  "exact_slugs": [
+    "enfp-vs-entp",
+    "estj-vs-entj",
+    "isfp-vs-infp"
+  ],
+  "approval_statement": "I explicitly approve MBTI-CROSS-APPROVAL-48 operator editorial approval for exact package SHA f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f covering only enfp-vs-entp, estj-vs-entj, and isfp-vs-infp. This approval permits finalizing and merging PR #1801 and proceeding to MBTI-CROSS-PUBLISHER-49; it does not authorize production CMS/DB writes, publication/indexability changes, sitemap/llms changes, or search submission.",
+  "approval_statement_sha256": "d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca",
+  "permits_pr_48_finalization_and_merge": true,
+  "permits_pr_49_implementation": true,
+  "production_content_write_authorized": false,
+  "publication_or_indexability_change_authorized": false,
+  "sitemap_or_llms_change_authorized": false,
+  "search_submission_authorized": false,
+  "authorization_sha256": "9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b"
+}
