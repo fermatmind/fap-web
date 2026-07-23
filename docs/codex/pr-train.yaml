@@ -194,7 +194,7 @@ prs:
     validation:
       - pnpm exec vitest run tests/contracts/personality-enneagram-v1-noindex-render.contract.test.ts -t "defines Enneagram V1 route candidates|uses encoded Enneagram wing and subtype" --reporter=dot
       - pnpm typecheck
-      - ruby -e "require 'yaml'; YAML.safe_load(File.read('docs/codex/pr-train.yaml'), aliases: true); puts 'yaml ok'"
+      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - git diff --check
       - git diff --cached --check
@@ -27242,7 +27242,7 @@ prs:
       - pnpm verify-big5-contract-freeze
       - pnpm verify-enneagram-contract-freeze
       - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
-      - ruby -e "require 'yaml'; YAML.load_file('docs/codex/pr-train.yaml'); puts 'yaml ok'"
+      - ruby -e "require 'yaml'; YAML.safe_load(File.read('docs/codex/pr-train.yaml'), aliases: true); puts 'yaml ok'"
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
       - git diff --check
       - git diff --cached --check
