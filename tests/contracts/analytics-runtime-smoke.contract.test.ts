@@ -22,6 +22,8 @@ describe("analytics runtime smoke contract", () => {
     expect(smoke).toContain('const DEFAULT_PUBLIC_PATH = "/"');
     expect(smoke).toContain('health_status: "unhealthy"');
     expect(smoke).toContain('getByTestId("cookie-banner-accept")');
+    expect(smoke).toContain("async function grantAnalyticsConsent");
+    expect(smoke).toContain("while (Date.now() < deadline)");
     expect(smoke).toContain("consent_action_completed");
     expect(smoke).toContain("landing_pageview_marker_present");
     expect(smoke).not.toContain("context.addInitScript");

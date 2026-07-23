@@ -47125,7 +47125,7 @@
     "title": "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02: restore browser pageview collection and deterministic smoke",
     "depends_on": ["FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01"],
     "status": "github_checks_pending",
-    "commit_sha": "ac9ea4acab09f1e235e0d00d94fd87d8c6162414",
+    "commit_sha": "e204d2e769653bbcbea45ab24080a624dc50797f",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1802",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The user explicitly authorized this exact dependent PR scope and complete ordinary lifecycle after PR1 merge and cleanup."},
@@ -47169,9 +47169,14 @@
         "at": "2026-07-23T00:59:14Z",
         "status": "github_checks_pending",
         "summary": "PR #1802 opened from locally validated head ac9ea4ac. Required GitHub checks and exact-scope review are pending; production deployment, ingress apply, telemetry writes and PR23 remain disabled."
+      },
+      {
+        "at": "2026-07-23T01:06:46Z",
+        "status": "github_checks_pending",
+        "summary": "Exact head e204d2e7 passed all seven GitHub checks. Review requested a deterministic hydration-safe consent click; the same-scope repair now retries the real banner click until granted consent is persisted, and focused contracts plus the write-aborting fixture smoke pass. The private route remains checked by analytics DOM and network deltas while CSP blocking counts intentionally remain scoped to the public analytics page."
       }
     ],
-    "updated_at": "2026-07-23T00:59:14Z"
+    "updated_at": "2026-07-23T01:06:46Z"
   }
 ,
   "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01": {

@@ -141,6 +141,23 @@ async function pollPageValue(page, reader, argument, failure, timeoutMs = 10_000
   throw new Error(failure);
 }
 
+async function grantAnalyticsConsent(page, consentButton, timeoutMs = 10_000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    await consentButton.click();
+    const granted = await page.evaluate((consentKey) => {
+      try {
+        return JSON.parse(window.localStorage.getItem(consentKey) || "{}").analytics === "granted";
+      } catch {
+        return false;
+      }
+    }, CONSENT_KEY);
+    if (granted) return;
+    await new Promise((resolve) => setTimeout(resolve, 50));
+  }
+  throw new Error("cookie banner did not persist granted consent");
+}
+
 function installTelemetryAbort(context, attempted, aborted) {
   return context.route("**/*", async (route) => {
     const request = route.request();
@@ -216,14 +233,7 @@ async function main() {
 
     const consentButton = firstPage.getByTestId("cookie-banner-accept");
     await consentButton.waitFor({ state: "visible", timeout: 10_000 });
-    await consentButton.click();
-    await pollPageValue(firstPage, (consentKey) => {
-      try {
-        return JSON.parse(window.localStorage.getItem(consentKey) || "{}").analytics === "granted";
-      } catch {
-        return false;
-      }
-    }, CONSENT_KEY, "cookie banner did not persist granted consent");
+    await grantAnalyticsConsent(firstPage, consentButton);
     report.consent_action_completed = true;
 
     await pollPageValue(firstPage, (prefix) => {
