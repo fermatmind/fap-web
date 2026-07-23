@@ -26553,7 +26553,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: public_nonce_cache_boundary
-    status: in_progress
+    status: merged_and_cleaned
     goal: "Version the Node1 OpenResty public-web vhost and add exact-SHA, fail-closed preflight/apply/rollback controls so nonce-bearing HTML can never be share-cached."
     allowed_paths:
       - AGENTS.md
@@ -26611,7 +26611,7 @@ prs:
     depends_on: [FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01]
     mode: execute
     train_scope: analytics_runtime_smoke_repair
-    status: pending_dependency
+    status: in_progress
     goal: "Use build-time-safe analytics environment constants and make production smoke exercise real consent-driven pageview attempts while aborting every telemetry request."
     allowed_paths:
       - components/legal/CookieBanner.tsx

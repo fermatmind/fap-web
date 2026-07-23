@@ -54,10 +54,21 @@ export function CookieBanner() {
     >
       <p className="m-0 text-sm text-slate-700">{dict.cookie.message}</p>
       <div className="mt-3 flex flex-wrap gap-2">
-        <Button type="button" size="sm" onClick={() => updateConsent("granted")}>
+        <Button
+          type="button"
+          size="sm"
+          data-testid="cookie-banner-accept"
+          onClick={() => updateConsent("granted")}
+        >
           {dict.cookie.accept}
         </Button>
-        <Button type="button" size="sm" variant="outline" onClick={() => updateConsent("denied")}>
+        <Button
+          type="button"
+          size="sm"
+          variant="outline"
+          data-testid="cookie-banner-decline"
+          onClick={() => updateConsent("denied")}
+        >
           {dict.cookie.decline}
         </Button>
       </div>

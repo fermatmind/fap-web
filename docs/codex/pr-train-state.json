@@ -47016,8 +47016,9 @@
     "branch": "codex/fap-web-public-nonce-cache-boundary-01",
     "title": "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01: version and gate the production HTML cache boundary",
     "depends_on": [],
-    "status": "ready_to_merge",
-    "commit_sha": "8ecb9845d8cb62e084f35093850d6e64c75015bf",
+    "status": "merged_and_cleaned",
+    "commit_sha": "8f000b82c41b2e6c53986c17fc56ec12816a1b50",
+    "merge_commit_sha": "0578167a52e8085bf865879c842b32c0b0e683bd",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1797",
     "checks": {
       "authorization": {
@@ -47045,12 +47046,12 @@
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-22T18:12:41Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -47107,9 +47108,14 @@
         "at": "2026-07-22T18:07:13Z",
         "status": "ready_to_merge",
         "summary": "Exact repaired head 8ecb9845 passed all eight GitHub checks. All review threads are resolved, GitHub reports the PR clean and mergeable, and no production apply or deploy occurred."
+      },
+      {
+        "at": "2026-07-22T18:12:41Z",
+        "status": "merged_and_cleaned",
+        "summary": "PR #1797 exact final head 8f000b82 passed all eight required checks and squash-merged as 0578167a52e8085bf865879c842b32c0b0e683bd. origin/main contains the merge, the task worktree and local branch were removed, the remote branch is absent, and post-merge cleanup passed without any ingress apply or frontend deployment."
       }
     ],
-    "updated_at": "2026-07-22T18:07:13Z"
+    "updated_at": "2026-07-22T18:20:13Z"
   },
   "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02": {
     "id": "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02",
@@ -47118,12 +47124,12 @@
     "branch": "codex/fap-web-analytics-runtime-smoke-repair-02",
     "title": "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02: restore browser pageview collection and deterministic smoke",
     "depends_on": ["FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01"],
-    "status": "pending_dependency",
+    "status": "in_progress",
     "commit_sha": null,
     "pr_url": null,
     "checks": {
       "authorization": {"status": "pass", "evidence": "The user explicitly authorized this exact dependent PR scope and complete ordinary lifecycle after PR1 merge and cleanup."},
-      "dependency": {"status": "pending", "evidence": "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01 must merge, sync, clean up and pass post-merge revalidation first."},
+      "dependency": {"status": "pass", "evidence": "PR #1797 exact final head 8f000b82 passed all required checks and merged as 0578167a52e8085bf865879c842b32c0b0e683bd. origin/main contains the merge and local/remote task branches and isolated worktree were cleaned."},
       "required_local_checks": {"status": "pending", "evidence": null},
       "github_required_checks": {"status": "pending", "evidence": null}
     },
@@ -47148,9 +47154,14 @@
         "at": "2026-07-22T16:34:30Z",
         "status": "pending_dependency",
         "summary": "Registered the exact dependent analytics runtime/smoke scope. Implementation cannot start until PR1 is merged, synchronized, cleaned and post-merge revalidated."
+      },
+      {
+        "at": "2026-07-22T18:20:13Z",
+        "status": "in_progress",
+        "summary": "PR1 dependency is merged and fully cleaned. PR2 started in an isolated worktree from exact origin/main 0578167a52e8085bf865879c842b32c0b0e683bd; the active user worktree remains untouched and production deploy, ingress apply, telemetry writes and PR23 remain prohibited."
       }
     ],
-    "updated_at": "2026-07-22T17:16:00Z"
+    "updated_at": "2026-07-22T18:20:13Z"
   }
 ,
   "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01": {

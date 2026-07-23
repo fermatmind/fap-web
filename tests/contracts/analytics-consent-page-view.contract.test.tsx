@@ -47,7 +47,7 @@ describe("analytics consent page view replay contract", () => {
     expect(hoisted.trackLandingPageView).not.toHaveBeenCalled();
     expect(hoisted.initAnalytics).toHaveBeenCalledTimes(1);
 
-    fireEvent.click(screen.getByRole("button", { name: "接受" }));
+    fireEvent.click(screen.getByTestId("cookie-banner-accept"));
 
     await waitFor(() => {
       expect(hoisted.trackLandingPageView).toHaveBeenCalledTimes(1);
@@ -71,7 +71,7 @@ describe("analytics consent page view replay contract", () => {
       </Providers>
     );
 
-    fireEvent.click(screen.getByRole("button", { name: "拒绝" }));
+    fireEvent.click(screen.getByTestId("cookie-banner-decline"));
 
     await waitFor(() => {
       expect(screen.queryByRole("button", { name: "拒绝" })).toBeNull();
