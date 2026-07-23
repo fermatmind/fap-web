@@ -50774,7 +50774,7 @@
     "depends_on": [
       "MBTI-COMP-GATE-47"
     ],
-    "status": "github_checks_pending_reapproval",
+  "status": "operator_editorial_reapproval_pending",
   "commit_sha": "2e5eb6e31935f95e2920c145e81cf6bba83b1ce3",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
@@ -50798,9 +50798,9 @@
         "status": "pass",
       "evidence": "After the final public-projection mapping repair, generator, focused Approval48/Gate47 20/20, repository ESLint excluding the ignored .playwright-cli trace with zero errors, lint:spacing, typecheck, Big Five freeze 29/29, Enneagram freeze 24/24, full contracts 767 files / 4435 tests, production-config build 190/190, structured-file checks, diff check, and exact scope validation pass under canonical Node 24.14.0. The user-owned .workbuddy path remains untouched and excluded."
       },
-      "github_required_checks": {
-        "status": "pending",
-      "evidence": "The preceding repaired head passed all seven required checks, but exact-head review found one remaining candidate projection-key P2. The projection mapping is now repaired and locally verified; fresh exact-head GitHub checks and review are required."
+    "github_required_checks": {
+      "status": "pass",
+      "evidence": "Exact repaired head fd13c8c922cea4d35646d007993e821cb6563be2 passed all seven required checks: build, contracts, both freezes, CodeQL analyze/result, and no-new-code-scanning-alerts. Codex reviewed that exact head and reported no major issues; all review threads are resolved. This ledger-only closeout head must pass its own final checks/review before reapproval is requested."
       },
       "operator_editorial_approval": {
         "status": "pending_reapproval",
@@ -50810,7 +50810,7 @@
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+    "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -50883,8 +50883,13 @@
       "at": "2026-07-23T01:37:28Z",
       "status": "github_checks_pending_reapproval",
       "summary": "Committed the fully verified public-projection repair as 2e5eb6e31935f95e2920c145e81cf6bba83b1ce3 and rebound commit_sha to that exact content head. This following ledger-only commit records the binding before push; fresh required checks and exact-head review remain mandatory."
+    },
+    {
+      "at": "2026-07-23T01:54:07Z",
+      "status": "operator_editorial_reapproval_pending",
+      "summary": "Exact repaired head fd13c8c922cea4d35646d007993e821cb6563be2 passed all seven required checks and remained CLEAN/MERGEABLE. Codex reviewed that exact commit and reported no major issues; every review thread is resolved. Final repaired package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f remains blocked pending new exact operator editorial approval. This ledger-only closeout head must pass its own final checks/review; no production or authority-layer mutation occurred."
     }
   ],
-  "updated_at": "2026-07-23T01:37:28Z"
+  "updated_at": "2026-07-23T01:54:07Z"
 }
 }
