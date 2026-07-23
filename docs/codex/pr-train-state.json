@@ -47124,9 +47124,9 @@
     "branch": "codex/fap-web-analytics-runtime-smoke-repair-02",
     "title": "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02: restore browser pageview collection and deterministic smoke",
     "depends_on": ["FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01"],
-    "status": "local_checks_passed",
-    "commit_sha": "87b661fd9c935472fb12030fdacdc1afd308d4c4",
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "ac9ea4acab09f1e235e0d00d94fd87d8c6162414",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1802",
     "checks": {
       "authorization": {"status": "pass", "evidence": "The user explicitly authorized this exact dependent PR scope and complete ordinary lifecycle after PR1 merge and cleanup."},
       "dependency": {"status": "pass", "evidence": "PR #1797 exact final head 8f000b82 passed all required checks and merged as 0578167a52e8085bf865879c842b32c0b0e683bd. origin/main contains the merge and local/remote task branches and isolated worktree were cleaned."},
@@ -47164,9 +47164,14 @@
         "at": "2026-07-23T00:57:59Z",
         "status": "local_checks_passed",
         "summary": "The branch was rebased without conflict onto exact origin/main aad94bdb. Browser runtime environment reads are build-inlineable, schema 1.1 smoke uses real consent and independent contexts, all telemetry is intercepted and aborted without body inspection, and the exact allowed-path scope passed focused, full, freeze, build and syntax validation. No production action or telemetry write occurred."
+      },
+      {
+        "at": "2026-07-23T00:59:14Z",
+        "status": "github_checks_pending",
+        "summary": "PR #1802 opened from locally validated head ac9ea4ac. Required GitHub checks and exact-scope review are pending; production deployment, ingress apply, telemetry writes and PR23 remain disabled."
       }
     ],
-    "updated_at": "2026-07-23T00:57:59Z"
+    "updated_at": "2026-07-23T00:59:14Z"
   }
 ,
   "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01": {
