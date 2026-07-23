@@ -109,7 +109,7 @@ jobs:
           set -euo pipefail
           test -n "$DEPLOY_HOST"
           test -n "$DEPLOY_USER"
-          : "${DEPLOY_PORT:=22}"
+          test -n "$DEPLOY_PORT"
           test -n "$PUBLIC_BASE_URL"
           [[ "$OPENRESTY_CONTAINER" =~ ^[A-Za-z0-9._-]+$ ]]
           [[ "$OPENRESTY_CONFIG_ROOT" =~ ^/[A-Za-z0-9._/-]+$ ]]

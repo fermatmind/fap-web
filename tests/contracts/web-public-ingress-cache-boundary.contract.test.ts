@@ -114,6 +114,8 @@ describe("versioned public ingress cache boundary", () => {
     }
     expect(workflow).not.toContain("vars.WEB_NODE1_");
     expect(workflow).not.toContain("vars.WEB_PUBLIC_BASE_URL");
+    expect(workflow).toContain('test -n "$DEPLOY_PORT"');
+    expect(workflow).not.toContain('${DEPLOY_PORT:=22}');
     expect(workflow).toContain("Never add an Actions-variable fallback.");
     expect(repositoryRules).toContain("must be production environment secrets only");
   });
