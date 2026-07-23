@@ -50309,7 +50309,7 @@
     "depends_on": [
       "MBTI-COMP-RUNTIME-46"
     ],
-    "status": "ready_to_merge",
+    "status": "merged",
     "commit_sha": "cd7765c5e53d1c09cc41bbd15b78317ff7719757",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1794",
     "checks": {
@@ -50331,7 +50331,7 @@
       },
       "github_required_checks": {
         "status": "pass",
-        "evidence": "Exact Gate head 888bb7f9867c64b255cf5ee002fedac587e8712a passed all seven required checks: build, contracts, both personality freezes, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reports CLEAN merge state. This final ready-to-merge ledger commit must itself receive the same required-check set before squash merge; no further pre-merge ledger mutation is needed after it passes."
+        "evidence": "Final Gate head 2600986f0f15d5d53bdb54089e22afe669768852 passed all seven required checks: build, contracts, both personality freezes, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reported CLEAN/MERGEABLE before squash merge."
       },
       "codex_review": {
         "status": "external_quota_blocked",
@@ -50342,12 +50342,12 @@
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-22T17:14:09Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -50444,9 +50444,14 @@
         "at": "2026-07-22T17:07:47Z",
         "status": "ready_to_merge",
         "summary": "Exact head 888bb7f9867c64b255cf5ee002fedac587e8712a passed all seven required GitHub checks and reports CLEAN merge state. Gate 47 remains exact 16/16 with zero runtime failures, and the report commit is bound as cd7765c5e53d1c09cc41bbd15b78317ff7719757. This following ledger-only final head must pass the same checks, after which squash merge may proceed without another pre-merge ledger mutation."
+      },
+      {
+        "at": "2026-07-22T17:14:09Z",
+        "status": "merged",
+        "summary": "GitHub reports fap-web PR #1794 MERGED with squash merge SHA 3cab146bb6dc03516d4a15b23e8319ba04c9f4b2 after final head 2600986f0f15d5d53bdb54089e22afe669768852 passed all seven required checks. origin/main contains the merge, the remote and local task branches are deleted, the existing clean main worktree was fast-forwarded to origin/main, and post-merge report validation remains exact 16/16 with zero failures."
       }
     ],
-    "updated_at": "2026-07-22T17:07:47Z"
+    "updated_at": "2026-07-22T17:14:09Z"
   },
   "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01": {
     "id": "FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01",
@@ -50828,8 +50833,13 @@
         "at": "2026-07-23T01:03:21Z",
         "status": "github_checks_pending_reapproval",
         "summary": "Committed the locally verified runtime-shape repair as 119bbc06bba2eb54ad648517e4b783b53d69e50f and rebound commit_sha to that exact repaired content head. This following ledger-only commit records the binding before push; fresh required checks and exact-head review must pass before requesting reapproval."
+      },
+      {
+        "at": "2026-07-23T01:19:01Z",
+        "status": "github_checks_pending_reapproval",
+        "summary": "The repaired head passed all seven required checks and the four prior review threads were resolved, then exact-head review found two metadata P2s. Restored the unrelated DISCOVERABILITY-STAGING-DEINDEX-FIX-01 lint command, applied the ignored-trace lint command only to Approval 48, and restored Gate 47's exact merged/cleanup state from its verified PR48 predecessor. The repaired package remains byte-stable at ac0c036f82d19aadd38cf1673338a2e40f7ca25eb1883959cabaa0acd935043c; focused Approval48/Gate47 contracts pass 20/20, exact lint has zero errors, and structured/diff checks pass. Fresh exact-head checks/review remain required before reapproval."
       }
     ],
-    "updated_at": "2026-07-23T01:04:40Z"
+    "updated_at": "2026-07-23T01:19:01Z"
   }
 }

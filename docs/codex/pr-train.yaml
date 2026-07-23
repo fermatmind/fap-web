@@ -9801,7 +9801,7 @@ prs:
       - staging as URL Truth
     required_local_checks:
       - pnpm exec vitest run tests/contracts/staging-discoverability-containment.contract.test.ts tests/contracts/robots.contract.test.ts tests/contracts/site-url.contract.test.ts tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/proxy-boundary.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/llms-parity-contract.contract.test.ts tests/contracts/career-llms-alignment.contract.test.ts
-      - pnpm exec eslint . --ignore-pattern .playwright-cli
+      - pnpm lint
       - pnpm build
       - python3 -m json.tool docs/seo/generated/discoverability-staging-deindex-fix-01.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
@@ -27235,7 +27235,7 @@ prs:
     required_local_checks:
       - pnpm exec vitest run tests/contracts/mbti-cross-approval-48-package.contract.test.ts
       - node scripts/seo/build-mbti-cross-approval-48-package.mjs
-      - pnpm lint
+      - pnpm exec eslint . --ignore-pattern .playwright-cli
       - pnpm lint:spacing
       - pnpm typecheck
       - pnpm test:contract
