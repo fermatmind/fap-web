@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { execFileSync } from "node:child_process";
-import { appendFileSync, copyFileSync, mkdirSync, mkdtempSync, readFileSync } from "node:fs";
+import { appendFileSync, copyFileSync, existsSync, mkdirSync, mkdtempSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
@@ -66,7 +66,16 @@ function sha256Json(value: unknown): string {
 }
 
 function generate(cwd = ROOT): { stdout: Record<string, unknown>; report: Report } {
+  const committedArtifacts = [PACKAGE, HASH_MANIFEST, CONTRACT]
+    .filter((artifact) => existsSync(path.join(cwd, artifact)))
+    .map((artifact) => [artifact, readFileSync(path.join(cwd, artifact), "utf8")] as const);
   const stdout = JSON.parse(execFileSync("node", [SCRIPT], { cwd, encoding: "utf8" }));
+  for (const [artifact, committedBytes] of committedArtifacts) {
+    const generatedBytes = readFileSync(path.join(cwd, artifact), "utf8");
+    if (generatedBytes !== committedBytes) {
+      throw new Error(`${artifact}: committed artifact does not match deterministic generator output`);
+    }
+  }
   const report = JSON.parse(readFileSync(path.join(cwd, PACKAGE), "utf8")) as Report;
   return { stdout, report };
 }
@@ -156,6 +165,17 @@ describe("MBTI-CROSS-APPROVAL-48 exact approval package", () => {
     const tampered = structuredClone(core);
     tampered.records[0].candidate_payload.title = "tampered";
     expect(sha256Json(tampered)).not.toBe(packageSha256);
+  });
+
+  it("fails when checked-in artifacts differ from deterministic generator output", () => {
+    const sandbox = mkdtempSync(path.join(tmpdir(), "mbti-cross-approval-48-artifact-"));
+    mkdirSync(path.join(sandbox, "scripts/seo"), { recursive: true });
+    mkdirSync(path.join(sandbox, "docs/seo/personality"), { recursive: true });
+    copyFileSync(path.join(ROOT, SCRIPT), path.join(sandbox, SCRIPT));
+    for (const source of SOURCES) copyFileSync(path.join(ROOT, source), path.join(sandbox, source));
+    execFileSync("node", [SCRIPT], { cwd: sandbox, encoding: "utf8" });
+    appendFileSync(path.join(sandbox, PACKAGE), "\n");
+    expect(() => generate(sandbox)).toThrow(/committed artifact does not match deterministic generator output/);
   });
 
   it("requires atomic rollback and exact DB/CMS readback for every record", () => {

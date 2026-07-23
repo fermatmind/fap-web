@@ -50774,8 +50774,8 @@
     "depends_on": [
       "MBTI-COMP-GATE-47"
     ],
-  "status": "operator_editorial_reapproval_pending",
-  "commit_sha": "8140a90ac349d4b36987c94876e3838f1ccefed6",
+  "status": "github_checks_pending_reapproval",
+  "commit_sha": "6b257cd1d38cb18387961f9fcf32688ec33e826a",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
       "authorization": {
@@ -50792,15 +50792,15 @@
       },
       "focused_contracts": {
         "status": "pass",
-      "evidence": "The deterministic generator and focused Approval48/Gate47 contracts pass 20/20 after repairing all exact-head runtime-shape findings. Candidate payloads now use the exact comparison_public_projection_v1 keys consumed by the frontend adapter, including comparison_slug, cross-type route identity, base type identity, canonical_url, section body arrays, and label/href/reason links with explicit canonical A-variant profile targets. The prior approval is retained as history but invalidated for promotion. Repaired pending-reapproval package SHA-256: f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f."
+      "evidence": "The deterministic generator and focused Approval48/Gate47 contracts pass 21/21 after repairing all exact-head runtime-shape and artifact-integrity findings. Candidate payloads use the exact comparison_public_projection_v1 keys consumed by the frontend adapter. The contract captures committed package/hash/markdown bytes before generator execution and proves that a tampered checked-in artifact fails. The prior approval is retained as history but invalidated for promotion. Repaired pending-reapproval package SHA-256: f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f."
       },
       "required_local_checks": {
         "status": "pass",
-      "evidence": "After the final public-projection mapping repair, generator, focused Approval48/Gate47 20/20, repository ESLint excluding the ignored .playwright-cli trace with zero errors, lint:spacing, typecheck, Big Five freeze 29/29, Enneagram freeze 24/24, full contracts 767 files / 4435 tests, production-config build 190/190, structured-file checks, diff check, and exact scope validation pass under canonical Node 24.14.0. The user-owned .workbuddy path remains untouched and excluded."
+      "evidence": "After the artifact-integrity repair, generator, focused Approval48/Gate47 21/21, repository ESLint excluding the ignored .playwright-cli trace with zero errors, lint:spacing, typecheck, Big Five freeze 29/29, Enneagram freeze 24/24, full contracts 767 files / 4436 tests, production-config build 190/190, structured-file checks, diff check, and exact scope validation pass under canonical Node 24.14.0. The user-owned .workbuddy path remains untouched and excluded."
       },
     "github_required_checks": {
-      "status": "pass",
-      "evidence": "Exact repaired head fd13c8c922cea4d35646d007993e821cb6563be2 passed all seven required checks: build, contracts, both freezes, CodeQL analyze/result, and no-new-code-scanning-alerts. Codex reviewed that exact head and reported no major issues; all review threads are resolved. This ledger-only closeout head must pass its own final checks/review before reapproval is requested."
+      "status": "pending",
+      "evidence": "Checked predecessor 6b257cd1d38cb18387961f9fcf32688ec33e826a passed all seven required checks and remained CLEAN/MERGEABLE. Exact-head review then found that committed artifacts were not compared before regeneration and that the final ledger mutation could not truthfully claim its own checks. The artifact guard and pending-state correction require fresh exact-head checks/review."
       },
       "operator_editorial_approval": {
         "status": "pending_reapproval",
@@ -50810,7 +50810,7 @@
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-    "github_checks_green": true,
+    "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -50893,8 +50893,13 @@
       "at": "2026-07-23T02:05:30Z",
       "status": "operator_editorial_reapproval_pending",
       "summary": "Ledger-only closeout head 8140a90ac349d4b36987c94876e3838f1ccefed6 passed all seven required checks, remained CLEAN/MERGEABLE, and received an exact-head Codex review. Rebound commit_sha to that checked closeout head so the operator and train tooling cannot validate against the earlier content-only commit. The resulting child commit records only this SHA binding and does not change package bytes, content candidates, scope, or authority boundaries."
+    },
+    {
+      "at": "2026-07-23T02:19:31Z",
+      "status": "github_checks_pending_reapproval",
+      "summary": "Checked head 6b257cd1d38cb18387961f9fcf32688ec33e826a passed all seven required checks, but exact-head review found two valid P2s. The contract now captures committed package/hash/markdown bytes before generator execution and fails if regeneration differs, closing the stale/tampered-artifact gap. The ledger binds commit_sha to the checked predecessor while honestly marking the child repair head pending, since a Git commit cannot contain its own final SHA. Package and candidate hashes remain byte-stable; fresh exact-head checks/review are required."
     }
   ],
-  "updated_at": "2026-07-23T02:05:30Z"
+  "updated_at": "2026-07-23T02:19:31Z"
 }
 }
