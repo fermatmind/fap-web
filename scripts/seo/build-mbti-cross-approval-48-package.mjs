@@ -100,8 +100,24 @@ function validateAsset(asset, source, raw) {
 }
 
 function normalizeAssetForRuntime(asset) {
+  const canonicalUrl = `https://fermatmind.com/zh/personality/${asset.slug}`;
   return {
-    ...asset,
+    comparison_contract_version: "mbti.cross_type_comparison.public.v1",
+    comparison_slug: asset.slug,
+    comparison_type: asset.comparison_type,
+    base_type_code: asset.left_type,
+    left_type: asset.left_type,
+    right_type: asset.right_type,
+    base_type_codes: [asset.left_type, asset.right_type],
+    scale_code: "MBTI",
+    locale: asset.locale,
+    public_route_type: "cross-type-comparison",
+    title: asset.title,
+    description: asset.seo_description,
+    seo_title: asset.seo_title,
+    seo_description: asset.seo_description,
+    summary: asset.summary,
+    canonical_url: canonicalUrl,
     sections: asset.sections.map(({ groups, items, ...section }) => {
       const body = Array.isArray(section.body)
         ? section.body
@@ -110,6 +126,7 @@ function normalizeAssetForRuntime(asset) {
           : items;
       return { ...section, body };
     }),
+    faq: asset.faq,
     internal_links: asset.internal_links.map((link) => {
       const baseProfileMatch = link.href.match(/^\/zh\/personality\/([a-z]{4})$/);
       const profileType = baseProfileMatch?.[1]?.toUpperCase();
@@ -119,6 +136,12 @@ function normalizeAssetForRuntime(asset) {
         reason: profileType ? `${link.link_intent}（canonical ${profileType}-A 公开画像）` : link.link_intent,
       };
     }),
+    claim_boundary: asset.claim_boundary,
+    source_notes: asset.source_notes,
+    review_status: asset.review_status,
+    publish_status: asset.publish_status,
+    indexability_status: asset.indexability_status,
+    is_indexable: false,
   };
 }
 
@@ -145,6 +168,10 @@ async function build() {
     const asset = JSON.parse(raw);
     validateAsset(asset, source, raw);
     const candidatePayload = normalizeAssetForRuntime(asset);
+    assert(candidatePayload.comparison_slug === source.slug, `${source.slug}: runtime comparison_slug normalization failed`);
+    assert(candidatePayload.public_route_type === "cross-type-comparison", `${source.slug}: runtime route type normalization failed`);
+    assert(candidatePayload.base_type_code === asset.left_type, `${source.slug}: runtime base type normalization failed`);
+    assert(candidatePayload.canonical_url === `https://fermatmind.com/zh/personality/${source.slug}`, `${source.slug}: runtime canonical normalization failed`);
     assert(candidatePayload.sections.every((section) => Array.isArray(section.body) && section.body.length > 0), `${source.slug}: runtime body normalization failed`);
     assert(candidatePayload.internal_links.every((link) => link.label && link.href && link.reason), `${source.slug}: runtime link normalization failed`);
     assert(candidatePayload.internal_links.every((link) => !/^\/zh\/personality\/[a-z]{4}$/.test(link.href)), `${source.slug}: legacy base profile link remains`);
@@ -254,7 +281,7 @@ async function build() {
       approved_at: EDITORIAL_APPROVED_AT,
       previously_approved_pending_package_sha256: APPROVED_PENDING_PACKAGE_SHA256,
       previous_approval_statement_sha256: sha256(EDITORIAL_APPROVAL_STATEMENT),
-      invalidation_reason: "Runtime adapter compatibility repairs normalize section body arrays, internal-link field names, and canonical profile hrefs; the repaired payload requires a new exact editorial approval.",
+      invalidation_reason: "Runtime adapter compatibility repairs map the source asset into the exact public projection keys, normalize section body arrays and internal-link fields, and use canonical profile hrefs; the repaired payload requires a new exact editorial approval.",
       exact_slugs: records.map((record) => record.slug),
       permits_pr_48_finalization_and_merge: false,
       permits_pr_49_implementation: false,
@@ -315,7 +342,7 @@ async function build() {
       internal_links_sha256: record.expected_content_contract.internal_links_sha256,
     })),
   };
-  const markdown = `# MBTI-CROSS-APPROVAL-48 rollback/readback contract\n\n- Status: pending operator editorial reapproval after runtime-shape repair\n- Previously approved pending package SHA-256: \`${APPROVED_PENDING_PACKAGE_SHA256}\`\n- Previous approval statement SHA-256: \`${report.editorial_approval.previous_approval_statement_sha256}\`\n- Repaired package SHA-256: \`${packageSha256}\`\n- Exact records: ${records.map((record) => record.slug).join(", ")}\n- Record count: 3\n- Content-release candidate SHA-256: \`${report.content_release_candidate.payload_sha256}\`\n- Indexability template SHA-256: \`${report.indexability_release_template.template_sha256}\`\n- Runtime-shape repair: every section now has a non-empty body array; internal links use label/href/reason; four-letter profile hrefs are normalized to explicit canonical A-variant targets.\n- Source hash drift: all three current committed snapshots differ from the stale source-manifest declarations; the exact snapshot hashes remain the provenance inputs, while the candidate payload is a deterministic runtime-compatible projection.\n\n## Content revision phase\n\nThe repaired package requires a new exact editorial approval, which still does not authorize a production write. A future executor must also require a separate exact production package/authorization hash, capture each pre-write revision and payload hash, write only the exact three records atomically, keep all three noindex and outside sitemap/llms, and roll back all three on any write or readback failure.\n\n## Readback\n\nReadback must prove DB/CMS authority, exact content/section/FAQ/internal-link hashes, canonical parity, HTTP 200 API/page responses, visible complete body, robots \`noindex,follow\`, and no sitemap/llms eligibility. A local approval asset or frontend fallback cannot satisfy readback.\n\n## Indexability phase\n\nIndexability is a separate future authorization after successful content promotion/readback. It may change only robots/indexability/sitemap/llms eligibility for the exact three records and must not modify content or request search indexing.\n`;
+  const markdown = `# MBTI-CROSS-APPROVAL-48 rollback/readback contract\n\n- Status: pending operator editorial reapproval after runtime-shape repair\n- Previously approved pending package SHA-256: \`${APPROVED_PENDING_PACKAGE_SHA256}\`\n- Previous approval statement SHA-256: \`${report.editorial_approval.previous_approval_statement_sha256}\`\n- Repaired package SHA-256: \`${packageSha256}\`\n- Exact records: ${records.map((record) => record.slug).join(", ")}\n- Record count: 3\n- Content-release candidate SHA-256: \`${report.content_release_candidate.payload_sha256}\`\n- Indexability template SHA-256: \`${report.indexability_release_template.template_sha256}\`\n- Runtime-shape repair: candidate payloads now use the exact public projection keys required by the frontend adapter, including comparison_slug, public_route_type, type identity, and canonical_url; every section has a non-empty body array; internal links use label/href/reason; four-letter profile hrefs normalize to explicit canonical A-variant targets.\n- Source hash drift: all three current committed snapshots differ from the stale source-manifest declarations; the exact snapshot hashes remain the provenance inputs, while the candidate payload is a deterministic runtime-compatible projection.\n\n## Content revision phase\n\nThe repaired package requires a new exact editorial approval, which still does not authorize a production write. A future executor must also require a separate exact production package/authorization hash, capture each pre-write revision and payload hash, write only the exact three records atomically, keep all three noindex and outside sitemap/llms, and roll back all three on any write or readback failure.\n\n## Readback\n\nReadback must prove DB/CMS authority, exact content/section/FAQ/internal-link hashes, canonical parity, HTTP 200 API/page responses, visible complete body, robots \`noindex,follow\`, and no sitemap/llms eligibility. A local approval asset or frontend fallback cannot satisfy readback.\n\n## Indexability phase\n\nIndexability is a separate future authorization after successful content promotion/readback. It may change only robots/indexability/sitemap/llms eligibility for the exact three records and must not modify content or request search indexing.\n`;
 
   for (const [relativePath, content] of [
     [PACKAGE_PATH, `${JSON.stringify(report, null, 2)}\n`],

@@ -20,7 +20,7 @@
     "approved_at": "2026-07-23T08:40:09+08:00",
     "previously_approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
     "previous_approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
-    "invalidation_reason": "Runtime adapter compatibility repairs normalize section body arrays, internal-link field names, and canonical profile hrefs; the repaired payload requires a new exact editorial approval.",
+    "invalidation_reason": "Runtime adapter compatibility repairs map the source asset into the exact public projection keys, normalize section body arrays and internal-link fields, and use canonical profile hrefs; the repaired payload requires a new exact editorial approval.",
     "exact_slugs": [
       "enfp-vs-entp",
       "estj-vs-entj",
@@ -57,17 +57,27 @@
         "stale_source_manifest_declared_sha256": "907c8d9a4b20246b9c206af96f67a5fbc00c728fab1543481cdac6b5540eb6c1",
         "declared_hash_matches_snapshot": false
       },
-      "content_sha256": "ebd1685767826c1c3ef0f5aa9a45f1b5db307ed30ec6450dceb5c964c9ed896d",
+      "content_sha256": "a7b14d279daa3d2ccaaffa9442b5254f8e6f75e1ea0d3bf7a5c08817b912af7e",
       "candidate_payload": {
-        "slug": "enfp-vs-entp",
+        "comparison_contract_version": "mbti.cross_type_comparison.public.v1",
+        "comparison_slug": "enfp-vs-entp",
         "comparison_type": "mbti_cross_type",
-        "locale": "zh-CN",
+        "base_type_code": "ENFP",
         "left_type": "ENFP",
         "right_type": "ENTP",
+        "base_type_codes": [
+          "ENFP",
+          "ENTP"
+        ],
+        "scale_code": "MBTI",
+        "locale": "zh-CN",
+        "public_route_type": "cross-type-comparison",
         "title": "ENFP 和 ENTP 的区别：可能性探索、价值判断与观点挑战",
+        "description": "对比 ENFP 与 ENTP 在创意探索、沟通方式、关系需求、工作节奏、压力反应和成长策略中的差异。",
         "seo_title": "ENFP 和 ENTP 区别：如何区分竞选者与辩论家人格",
         "seo_description": "对比 ENFP 与 ENTP 在创意探索、沟通方式、关系需求、工作节奏、压力反应和成长策略中的差异。",
         "summary": "ENFP 与 ENTP 都容易被新想法、新关系和新可能点燃，也都不喜欢被僵化规则过早限制。区别在于，ENFP 更常从人的动机、价值感和情绪连接判断一个方向是否值得投入；ENTP 更常从逻辑结构、机制漏洞和概念实验判断一个想法是否站得住。本文不把两者做高低排序，而是帮助用户在真实场景中区分：自己是在追问“这对人和意义有什么影响”，还是在追问“这个系统还能怎样被拆开、重组和验证”。",
+        "canonical_url": "https://fermatmind.com/zh/personality/enfp-vs-entp",
         "sections": [
           {
             "id": "quick_answer",
@@ -249,7 +259,8 @@
         },
         "review_status": "draft",
         "publish_status": "draft",
-        "indexability_status": "pending_review"
+        "indexability_status": "pending_review",
+        "is_indexable": false
       },
       "expected_content_contract": {
         "section_count": 8,
@@ -296,7 +307,7 @@
         "api_http_status": 200,
         "page_http_status": 200,
         "authority_must_be_db_or_cms": true,
-        "exact_content_sha256": "ebd1685767826c1c3ef0f5aa9a45f1b5db307ed30ec6450dceb5c964c9ed896d",
+        "exact_content_sha256": "a7b14d279daa3d2ccaaffa9442b5254f8e6f75e1ea0d3bf7a5c08817b912af7e",
         "exact_section_ids": [
           "quick_answer",
           "why_they_are_confused",
@@ -340,17 +351,27 @@
         "stale_source_manifest_declared_sha256": "35a91214cc6c3e472b52e813cd1bb7ba2c492f1b8c2e442b2411bf68ad0428a2",
         "declared_hash_matches_snapshot": false
       },
-      "content_sha256": "a5390ce04d77924ac3f4156001dd266995eb9ee956c4579c26b5d519bfe896a3",
+      "content_sha256": "b73514962b2d72be47c9004f2b5e5fb7572ea82f918c2a0f5a3374e15b2f36cc",
       "candidate_payload": {
-        "slug": "estj-vs-entj",
+        "comparison_contract_version": "mbti.cross_type_comparison.public.v1",
+        "comparison_slug": "estj-vs-entj",
         "comparison_type": "mbti_cross_type",
-        "locale": "zh-CN",
+        "base_type_code": "ESTJ",
         "left_type": "ESTJ",
         "right_type": "ENTJ",
+        "base_type_codes": [
+          "ESTJ",
+          "ENTJ"
+        ],
+        "scale_code": "MBTI",
+        "locale": "zh-CN",
+        "public_route_type": "cross-type-comparison",
         "title": "ESTJ 和 ENTJ 的区别：执行秩序、战略重构与组织推进",
+        "description": "对比 ESTJ 与 ENTJ 在管理方式、决策依据、组织推进、战略规划、压力反应和成长策略中的差异。",
         "seo_title": "ESTJ 和 ENTJ 区别：如何区分总经理型与指挥官型人格",
         "seo_description": "对比 ESTJ 与 ENTJ 在管理方式、决策依据、组织推进、战略规划、压力反应和成长策略中的差异。",
         "summary": "ESTJ 和 ENTJ 都常表现出明确目标、快速决策、重视效率和组织结果的倾向，因此很容易被混淆。差异不在于谁更像领导，也不在于谁更强势；更关键的是他们看待系统的入口不同。ESTJ 更常从既有规则、责任分工、流程稳定和当下执行质量出发，关注当前系统如何可靠运转；ENTJ 更常从长期目标、资源重组、战略胜率和结构升级出发，关注这个系统是否值得被重构。本文用于帮助用户复盘管理方式、协作摩擦、压力反应和成长策略，不用于判断能力、职位或职业结局。",
+        "canonical_url": "https://fermatmind.com/zh/personality/estj-vs-entj",
         "sections": [
           {
             "id": "quick_answer",
@@ -527,7 +548,8 @@
         },
         "review_status": "draft",
         "publish_status": "draft",
-        "indexability_status": "pending_review"
+        "indexability_status": "pending_review",
+        "is_indexable": false
       },
       "expected_content_contract": {
         "section_count": 8,
@@ -574,7 +596,7 @@
         "api_http_status": 200,
         "page_http_status": 200,
         "authority_must_be_db_or_cms": true,
-        "exact_content_sha256": "a5390ce04d77924ac3f4156001dd266995eb9ee956c4579c26b5d519bfe896a3",
+        "exact_content_sha256": "b73514962b2d72be47c9004f2b5e5fb7572ea82f918c2a0f5a3374e15b2f36cc",
         "exact_section_ids": [
           "quick_answer",
           "why_they_are_confused",
@@ -618,17 +640,27 @@
         "stale_source_manifest_declared_sha256": "0dc7d7852ad5c751aa9f03bb3c668590b0e8c71f418adff8b8276d8e7f0a8bea",
         "declared_hash_matches_snapshot": false
       },
-      "content_sha256": "63315241d67a97ce372f40b361d567da8f723b8dc4db814dc0de3e068809fb42",
+      "content_sha256": "41e62902dae206acc8735b19ff7e698fd51b5a609d2aeb34bb02556867399a65",
       "candidate_payload": {
-        "slug": "isfp-vs-infp",
+        "comparison_contract_version": "mbti.cross_type_comparison.public.v1",
+        "comparison_slug": "isfp-vs-infp",
         "comparison_type": "mbti_cross_type",
-        "locale": "zh-CN",
+        "base_type_code": "ISFP",
         "left_type": "ISFP",
         "right_type": "INFP",
+        "base_type_codes": [
+          "ISFP",
+          "INFP"
+        ],
+        "scale_code": "MBTI",
+        "locale": "zh-CN",
+        "public_route_type": "cross-type-comparison",
         "title": "ISFP 和 INFP 的区别：当下体验、内在意义与价值表达",
+        "description": "对比 ISFP 与 INFP 在价值表达、现实体验、想象世界、行动节奏、关系沟通和成长策略中的差异。",
         "seo_title": "ISFP 和 INFP 区别：如何区分探险家与调停者人格",
         "seo_description": "对比 ISFP 与 INFP 在价值表达、现实体验、想象世界、行动节奏、关系沟通和成长策略中的差异。",
         "summary": "ISFP 和 INFP 都重视真实、自主、个人价值和不被外界粗暴定义的生活方式，但两者进入世界的入口不同。ISFP 更依靠当下体验、感官真实、具体行动和审美选择来确认什么适合自己；INFP 更依靠内在意义、价值叙事、想象世界和长期理想来解释自己。本文用于帮助用户区分两者在行动节奏、情绪复盘、创造路径、关系表达和成长策略中的差异，不用于诊断、筛选或决定职业关系。",
+        "canonical_url": "https://fermatmind.com/zh/personality/isfp-vs-infp",
         "sections": [
           {
             "id": "quick_answer",
@@ -798,7 +830,8 @@
         },
         "review_status": "draft",
         "publish_status": "draft",
-        "indexability_status": "pending_review"
+        "indexability_status": "pending_review",
+        "is_indexable": false
       },
       "expected_content_contract": {
         "section_count": 8,
@@ -845,7 +878,7 @@
         "api_http_status": 200,
         "page_http_status": 200,
         "authority_must_be_db_or_cms": true,
-        "exact_content_sha256": "63315241d67a97ce372f40b361d567da8f723b8dc4db814dc0de3e068809fb42",
+        "exact_content_sha256": "41e62902dae206acc8735b19ff7e698fd51b5a609d2aeb34bb02556867399a65",
         "exact_section_ids": [
           "quick_answer",
           "why_they_are_confused",
@@ -887,15 +920,15 @@
       "records": [
         {
           "slug": "enfp-vs-entp",
-          "content_sha256": "ebd1685767826c1c3ef0f5aa9a45f1b5db307ed30ec6450dceb5c964c9ed896d"
+          "content_sha256": "a7b14d279daa3d2ccaaffa9442b5254f8e6f75e1ea0d3bf7a5c08817b912af7e"
         },
         {
           "slug": "estj-vs-entj",
-          "content_sha256": "a5390ce04d77924ac3f4156001dd266995eb9ee956c4579c26b5d519bfe896a3"
+          "content_sha256": "b73514962b2d72be47c9004f2b5e5fb7572ea82f918c2a0f5a3374e15b2f36cc"
         },
         {
           "slug": "isfp-vs-infp",
-          "content_sha256": "63315241d67a97ce372f40b361d567da8f723b8dc4db814dc0de3e068809fb42"
+          "content_sha256": "41e62902dae206acc8735b19ff7e698fd51b5a609d2aeb34bb02556867399a65"
         }
       ],
       "invariants": {
@@ -906,7 +939,7 @@
         "no_indexability_mutation": true
       }
     },
-    "payload_sha256": "a209644d1d5c00541e1b062cd5207a30e3a46d255097f9d3afd3ee089a43fe4d",
+    "payload_sha256": "509dbf09cfdd22373e53b20285a77864bfefebce54579dbda25813e7fcc40ea1",
     "authorization_status": "blocked_pending_editorial_reapproval_and_separate_production_content_write_authorization"
   },
   "indexability_release_template": {
@@ -952,5 +985,5 @@
     "search_submission_attempted": false,
     "credentials_or_user_data_included": false
   },
-  "package_sha256": "ac0c036f82d19aadd38cf1673338a2e40f7ca25eb1883959cabaa0acd935043c"
+  "package_sha256": "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f"
 }

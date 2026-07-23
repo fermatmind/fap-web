@@ -50792,19 +50792,19 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "The deterministic generator and focused contract pass 7/7 after repairing four exact-head P2 findings. Every candidate section now has a non-empty runtime body array, every internal link uses label/href/reason, base four-letter profile links normalize to explicit canonical A-variant targets, and the manifest lint command exactly matches the passing ignored-trace invocation. The prior approval is retained as history but invalidated for promotion. Repaired pending-reapproval package SHA-256: ac0c036f82d19aadd38cf1673338a2e40f7ca25eb1883959cabaa0acd935043c."
+      "evidence": "The deterministic generator and focused Approval48/Gate47 contracts pass 20/20 after repairing all exact-head runtime-shape findings. Candidate payloads now use the exact comparison_public_projection_v1 keys consumed by the frontend adapter, including comparison_slug, cross-type route identity, base type identity, canonical_url, section body arrays, and label/href/reason links with explicit canonical A-variant profile targets. The prior approval is retained as history but invalidated for promotion. Repaired pending-reapproval package SHA-256: f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f."
       },
       "required_local_checks": {
         "status": "pass",
-        "evidence": "After synchronizing origin/main and recording editorial approval, generator, focused 7/7, scoped ESLint, repository ESLint excluding the ignored .playwright-cli trace, lint:spacing, typecheck, YAML/JSON parse, diff check, exact scope validation, Big Five freeze 29/29, Enneagram freeze 24/24, full contracts 767 files / 4434 tests, and the production-config build 206/206 under canonical Node 24.14.0 all pass. The user-owned .workbuddy path remains untouched and excluded."
+      "evidence": "After the final public-projection mapping repair, generator, focused Approval48/Gate47 20/20, repository ESLint excluding the ignored .playwright-cli trace with zero errors, lint:spacing, typecheck, Big Five freeze 29/29, Enneagram freeze 24/24, full contracts 767 files / 4435 tests, production-config build 190/190, structured-file checks, diff check, and exact scope validation pass under canonical Node 24.14.0. The user-owned .workbuddy path remains untouched and excluded."
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "The prior approved-package head passed all seven required checks, but exact-head review found four valid P2 issues. Fresh exact-head checks and review are required for the repaired pending-reapproval package."
+      "evidence": "The preceding repaired head passed all seven required checks, but exact-head review found one remaining candidate projection-key P2. The projection mapping is now repaired and locally verified; fresh exact-head GitHub checks and review are required."
       },
       "operator_editorial_approval": {
         "status": "pending_reapproval",
-        "evidence": "The operator approved pending package SHA-256 1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6, but exact-head review required runtime-shape repairs that change the deterministic candidate payload and hashes. The repaired package SHA-256 ac0c036f82d19aadd38cf1673338a2e40f7ca25eb1883959cabaa0acd935043c therefore needs a new exact editorial approval before PR48 merge or PR49 implementation. No production authority is inferred."
+      "evidence": "The operator approved pending package SHA-256 1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6, but exact-head review required runtime-shape repairs that change the deterministic candidate payload and hashes. The final repaired package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f therefore needs a new exact editorial approval before PR48 merge or PR49 implementation. No production authority is inferred."
       }
     },
     "scope_validation": {
@@ -50869,12 +50869,17 @@
         "status": "github_checks_pending_reapproval",
         "summary": "Committed the locally verified runtime-shape repair as 119bbc06bba2eb54ad648517e4b783b53d69e50f and rebound commit_sha to that exact repaired content head. This following ledger-only commit records the binding before push; fresh required checks and exact-head review must pass before requesting reapproval."
       },
-      {
-        "at": "2026-07-23T01:19:01Z",
-        "status": "github_checks_pending_reapproval",
-        "summary": "The repaired head passed all seven required checks and the four prior review threads were resolved, then exact-head review found two metadata P2s. Restored the unrelated DISCOVERABILITY-STAGING-DEINDEX-FIX-01 lint command, applied the ignored-trace lint command only to Approval 48, and restored Gate 47's exact merged/cleanup state from its verified PR48 predecessor. The repaired package remains byte-stable at ac0c036f82d19aadd38cf1673338a2e40f7ca25eb1883959cabaa0acd935043c; focused Approval48/Gate47 contracts pass 20/20, exact lint has zero errors, and structured/diff checks pass. Fresh exact-head checks/review remain required before reapproval."
-      }
-    ],
-    "updated_at": "2026-07-23T01:19:01Z"
-  }
+    {
+      "at": "2026-07-23T01:19:01Z",
+      "status": "github_checks_pending_reapproval",
+      "summary": "The repaired head passed all seven required checks and the four prior review threads were resolved, then exact-head review found two metadata P2s. Restored the unrelated DISCOVERABILITY-STAGING-DEINDEX-FIX-01 lint command, applied the ignored-trace lint command only to Approval 48, and restored Gate 47's exact merged/cleanup state from its verified PR48 predecessor. The repaired package remains byte-stable at ac0c036f82d19aadd38cf1673338a2e40f7ca25eb1883959cabaa0acd935043c; focused Approval48/Gate47 contracts pass 20/20, exact lint has zero errors, and structured/diff checks pass. Fresh exact-head checks/review remain required before reapproval."
+    },
+    {
+      "at": "2026-07-23T01:36:50Z",
+      "status": "github_checks_pending_reapproval",
+      "summary": "After all seven checks passed on the synchronized head, exact-head review found one remaining P2: candidate_payload still used source slug rather than the comparison_slug required by the frontend public-projection adapter. The generator now explicitly maps every candidate into the runtime comparison_public_projection_v1 shape before hashing, with cross-type route/type identity, canonical, section body, FAQ, internal-link, claim, and locked noindex fields. Final repaired package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f is pending new exact editorial approval. Focused contracts pass 20/20, full contracts 767 files / 4435 tests, freezes 29/29 and 24/24, lint/spacing/typecheck, build 190/190, structured-file, diff, and scope gates pass. No production or authority-layer mutation occurred."
+    }
+  ],
+  "updated_at": "2026-07-23T01:36:50Z"
+}
 }

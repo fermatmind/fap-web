@@ -99,7 +99,33 @@ describe("MBTI-CROSS-APPROVAL-48 exact approval package", () => {
       expect(record.expected_content_contract.section_sha256).toMatch(/^[a-f0-9]{64}$/);
       expect(record.expected_content_contract.faq_sha256).toMatch(/^[a-f0-9]{64}$/);
       expect(record.expected_content_contract.internal_links_sha256).toMatch(/^[a-f0-9]{64}$/);
-      const candidate = record.candidate_payload as { sections: Array<{ body: string[] }>; internal_links: Array<{ label: string; href: string; reason: string }> };
+      const candidate = record.candidate_payload as {
+        comparison_contract_version: string;
+        comparison_slug: string;
+        comparison_type: string;
+        base_type_code: string;
+        left_type: string;
+        right_type: string;
+        base_type_codes: string[];
+        scale_code: string;
+        locale: string;
+        public_route_type: string;
+        canonical_url: string;
+        sections: Array<{ body: string[] }>;
+        internal_links: Array<{ label: string; href: string; reason: string }>;
+      };
+      expect(candidate).toMatchObject({
+        comparison_contract_version: "mbti.cross_type_comparison.public.v1",
+        comparison_slug: record.slug,
+        comparison_type: "mbti_cross_type",
+        base_type_code: candidate.left_type,
+        base_type_codes: [candidate.left_type, candidate.right_type],
+        scale_code: "MBTI",
+        locale: "zh-CN",
+        public_route_type: "cross-type-comparison",
+        canonical_url: `https://fermatmind.com/zh/personality/${record.slug}`,
+      });
+      expect(candidate).not.toHaveProperty("slug");
       expect(candidate.sections.every((section) => Array.isArray(section.body) && section.body.length > 0)).toBe(true);
       expect(candidate.internal_links).toHaveLength(7);
       expect(candidate.internal_links.every((link) => link.label && link.href && link.reason)).toBe(true);
