@@ -9801,7 +9801,7 @@ prs:
       - staging as URL Truth
     required_local_checks:
       - pnpm exec vitest run tests/contracts/staging-discoverability-containment.contract.test.ts tests/contracts/robots.contract.test.ts tests/contracts/site-url.contract.test.ts tests/contracts/sitemap-authority-adapters.contract.test.ts tests/contracts/sitemap-indexability.contract.test.ts tests/contracts/proxy-boundary.contract.test.ts tests/contracts/llms-full-enrichment.contract.test.ts tests/contracts/llms-parity-contract.contract.test.ts tests/contracts/career-llms-alignment.contract.test.ts
-      - pnpm lint
+      - pnpm exec eslint . --ignore-pattern .playwright-cli
       - pnpm build
       - python3 -m json.tool docs/seo/generated/discoverability-staging-deindex-fix-01.v1.json >/dev/null
       - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
@@ -27214,7 +27214,7 @@ prs:
     depends_on: [MBTI-COMP-GATE-47]
     mode: execute
     train_scope: mbti_cross_type_exact_three_approval_assets
-    status: github_checks_pending
+    status: github_checks_pending_reapproval
     goal: "Generate a deterministic approval package, exact hashes, and rollback/readback contracts for only enfp-vs-entp, estj-vs-entj, and isfp-vs-infp while keeping content publication and indexability as separately authorized production stages."
     allowed_paths:
       - scripts/seo/build-mbti-cross-approval-48-package.mjs

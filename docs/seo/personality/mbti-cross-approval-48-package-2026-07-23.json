@@ -2,8 +2,8 @@
   "schema_version": "mbti.cross_type_comparison.approval.v1",
   "id": "MBTI-CROSS-APPROVAL-48",
   "generated_at": "2026-07-23T01:20:00+08:00",
-  "status": "operator_editorial_approved",
-  "final_decision": "APPROVED_EXACT_THREE_EDITORIAL_CONTENT_NO_PRODUCTION_ACTION_AUTHORIZED",
+  "status": "pending_operator_editorial_reapproval",
+  "final_decision": "PENDING_EXACT_THREE_EDITORIAL_REAPPROVAL_AFTER_RUNTIME_SHAPE_REPAIR_NO_PRODUCTION_ACTION_AUTHORIZED",
   "summary": {
     "record_count": 3,
     "exact_slugs": [
@@ -12,21 +12,22 @@
       "isfp-vs-infp"
     ],
     "source_hash_drift_count": 3,
-    "approved_count": 3,
-    "pending_count": 0
+    "approved_count": 0,
+    "pending_count": 3
   },
   "editorial_approval": {
-    "decision": "approved",
+    "decision": "reapproval_required_after_runtime_shape_repair",
     "approved_at": "2026-07-23T08:40:09+08:00",
-    "approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
-    "approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
+    "previously_approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
+    "previous_approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
+    "invalidation_reason": "Runtime adapter compatibility repairs normalize section body arrays, internal-link field names, and canonical profile hrefs; the repaired payload requires a new exact editorial approval.",
     "exact_slugs": [
       "enfp-vs-entp",
       "estj-vs-entj",
       "isfp-vs-infp"
     ],
-    "permits_pr_48_finalization_and_merge": true,
-    "permits_pr_49_implementation": true,
+    "permits_pr_48_finalization_and_merge": false,
+    "permits_pr_49_implementation": false,
     "production_content_write_authorized": false,
     "publication_or_indexability_change_authorized": false,
     "sitemap_or_llms_change_authorized": false,
@@ -56,7 +57,7 @@
         "stale_source_manifest_declared_sha256": "907c8d9a4b20246b9c206af96f67a5fbc00c728fab1543481cdac6b5540eb6c1",
         "declared_hash_matches_snapshot": false
       },
-      "content_sha256": "55fa7dcac2341fe531bc245642a492bc0e46bc093923812748e4052f6229f86c",
+      "content_sha256": "ebd1685767826c1c3ef0f5aa9a45f1b5db307ed30ec6450dceb5c964c9ed896d",
       "candidate_payload": {
         "slug": "enfp-vs-entp",
         "comparison_type": "mbti_cross_type",
@@ -131,31 +132,21 @@
           {
             "id": "stress_and_growth",
             "title": "压力反应与成长建议",
-            "groups": [
-              {
-                "title": "给 ENFP 的建议",
-                "items": [
-                  "观察指标：当你同时开启很多可能性时，记录哪些只是灵感，哪些已经变成对他人的承诺。练习方式：每周把新想法分成“暂存、试验、承诺”三栏，避免把热情自动升级为责任。",
-                  "观察指标：当别人没有立即回应你的热情时，先区分对方是不同意、没理解、没能量，还是只需要时间。复盘问题：我现在是在确认真实反馈，还是在用想象填补沉默？",
-                  "练习方式：把价值感翻译成行动句。不要只说“我觉得这个项目应该更有温度”，而是说“我们可以先访谈三位用户，确认他们真正卡在哪里”。",
-                  "复盘问题：我最想保护的是人的感受、长期意义，还是我自己对自由和变化的需求？当这三者冲突时，我能不能说出当前优先级。"
-                ]
-              },
-              {
-                "title": "给 ENTP 的建议",
-                "items": [
-                  "观察指标：一次讨论后，别人是更清楚下一步，还是只是觉得被你挑战了。练习方式：每次反问前先说明目的——“我想测试这个假设，不是反对你本人”。",
-                  "练习方式：为每个新想法设定最小验证动作。不要只停留在概念上，而要明确下一步谁做、用什么标准判断、多久复盘。",
-                  "复盘问题：我现在继续挑战，是为了找到更好的机制，还是因为讨论本身让我兴奋？如果是后者，需要确认它是否仍然服务目标。",
-                  "观察指标：当别人提出情绪反馈时，你是否马上把它转成论点。成长方向不是放弃逻辑，而是先承认对方体验，再讨论机制。"
-                ]
-              }
+            "body": [
+              "给 ENFP 的建议：观察指标：当你同时开启很多可能性时，记录哪些只是灵感，哪些已经变成对他人的承诺。练习方式：每周把新想法分成“暂存、试验、承诺”三栏，避免把热情自动升级为责任。",
+              "给 ENFP 的建议：观察指标：当别人没有立即回应你的热情时，先区分对方是不同意、没理解、没能量，还是只需要时间。复盘问题：我现在是在确认真实反馈，还是在用想象填补沉默？",
+              "给 ENFP 的建议：练习方式：把价值感翻译成行动句。不要只说“我觉得这个项目应该更有温度”，而是说“我们可以先访谈三位用户，确认他们真正卡在哪里”。",
+              "给 ENFP 的建议：复盘问题：我最想保护的是人的感受、长期意义，还是我自己对自由和变化的需求？当这三者冲突时，我能不能说出当前优先级。",
+              "给 ENTP 的建议：观察指标：一次讨论后，别人是更清楚下一步，还是只是觉得被你挑战了。练习方式：每次反问前先说明目的——“我想测试这个假设，不是反对你本人”。",
+              "给 ENTP 的建议：练习方式：为每个新想法设定最小验证动作。不要只停留在概念上，而要明确下一步谁做、用什么标准判断、多久复盘。",
+              "给 ENTP 的建议：复盘问题：我现在继续挑战，是为了找到更好的机制，还是因为讨论本身让我兴奋？如果是后者，需要确认它是否仍然服务目标。",
+              "给 ENTP 的建议：观察指标：当别人提出情绪反馈时，你是否马上把它转成论点。成长方向不是放弃逻辑，而是先承认对方体验，再讨论机制。"
             ]
           },
           {
             "id": "misconceptions",
             "title": "常见误解",
-            "items": [
+            "body": [
               "误解一：ENFP 感性，ENTP 理性。更准确地说，ENFP 会把人的动机和价值纳入判断，ENTP 会优先测试逻辑和机制；两者都可以理性，也都可能被情绪影响。",
               "误解二：ENTP 就是爱吵架。许多 ENTP 的挑战是为了测试观点，而不是为了压倒别人。真正的问题在于他们是否说明了挑战目的，是否照顾了对方承受度。",
               "误解三：ENFP 没有逻辑。ENFP 不是不讲逻辑，而是更容易先问这件事对人、意义和关系有什么影响。成熟的 ENFP 会把价值感转化成清晰步骤。",
@@ -203,39 +194,39 @@
         ],
         "internal_links": [
           {
-            "href": "/zh/personality/enfp",
-            "anchor_text": "查看 ENFP 人格特点",
-            "link_intent": "左侧类型详情页"
+            "label": "查看 ENFP-A 人格特点",
+            "href": "/zh/personality/enfp-a",
+            "reason": "左侧类型详情页（canonical ENFP-A 公开画像）"
           },
           {
-            "href": "/zh/personality/entp",
-            "anchor_text": "查看 ENTP 人格特点",
-            "link_intent": "右侧类型详情页"
+            "label": "查看 ENTP-A 人格特点",
+            "href": "/zh/personality/entp-a",
+            "reason": "右侧类型详情页（canonical ENTP-A 公开画像）"
           },
           {
+            "label": "做免费 16 型人格测试",
             "href": "/zh/tests/mbti-personality-test-16-personality-types",
-            "anchor_text": "做免费 16 型人格测试",
-            "link_intent": "MBTI 测试页"
+            "reason": "MBTI 测试页"
           },
           {
+            "label": "用大五人格交叉验证特质维度",
             "href": "/zh/tests/big-five-personality-test-ocean-model",
-            "anchor_text": "用大五人格交叉验证特质维度",
-            "link_intent": "Big Five 交叉验证"
+            "reason": "Big Five 交叉验证"
           },
           {
+            "label": "用 RIASEC 检查职业兴趣方向",
             "href": "/zh/tests/holland-career-interest-test-riasec",
-            "anchor_text": "用 RIASEC 检查职业兴趣方向",
-            "link_intent": "RIASEC 职业兴趣"
+            "reason": "RIASEC 职业兴趣"
           },
           {
+            "label": "查看 ENFP-A 与 ENFP-T 的区别",
             "href": "/zh/personality/enfp-a-vs-enfp-t",
-            "anchor_text": "查看 ENFP-A 与 ENFP-T 的区别",
-            "link_intent": "ENFP A/T 对比"
+            "reason": "ENFP A/T 对比"
           },
           {
+            "label": "查看 ENTP-A 与 ENTP-T 的区别",
             "href": "/zh/personality/entp-a-vs-entp-t",
-            "anchor_text": "查看 ENTP-A 与 ENTP-T 的区别",
-            "link_intent": "ENTP A/T 对比"
+            "reason": "ENTP A/T 对比"
           }
         ],
         "claim_boundary": "本文不用于医学诊断、心理治疗、招聘筛选、关系判断或职业决定。ENFP 与 ENTP 的对比只用于自我理解和复盘：帮助用户观察自己如何探索可能性、处理反馈、表达观点、建立关系和推进创意。人格类型不是身份限制，也不能预测职业成功、收入、录取、晋升、伴侣结果或人生结局。更可靠的使用方式，是把类型结果与真实经历、能力证据、Big Five 特质、RIASEC 职业兴趣和长期反馈一起看。",
@@ -272,10 +263,11 @@
           "stress_and_growth",
           "misconceptions"
         ],
-        "section_sha256": "cb96e89b5c894fd95745cb6f7a868cf2d47be2e00c3df8c85797d49bebe9f24d",
+        "section_sha256": "bba4469493a1c197d40a8270e34ca46cac4c54b778639661e191373463d8675f",
         "faq_count": 8,
         "faq_sha256": "257150692f2307ee634ad3c3d124f0075fa5bbcc269ad293267830c041dfb88f",
-        "internal_link_count": 7
+        "internal_link_count": 7,
+        "internal_links_sha256": "a7fa19d1afa2cab7c630c1e96ee3566685b95eb9d0057b422b85b420aaa4b31a"
       },
       "expected_seo_contract": {
         "canonical_url": "https://fermatmind.com/zh/personality/enfp-vs-entp",
@@ -304,7 +296,7 @@
         "api_http_status": 200,
         "page_http_status": 200,
         "authority_must_be_db_or_cms": true,
-        "exact_content_sha256": "55fa7dcac2341fe531bc245642a492bc0e46bc093923812748e4052f6229f86c",
+        "exact_content_sha256": "ebd1685767826c1c3ef0f5aa9a45f1b5db307ed30ec6450dceb5c964c9ed896d",
         "exact_section_ids": [
           "quick_answer",
           "why_they_are_confused",
@@ -315,8 +307,9 @@
           "stress_and_growth",
           "misconceptions"
         ],
-        "exact_section_sha256": "cb96e89b5c894fd95745cb6f7a868cf2d47be2e00c3df8c85797d49bebe9f24d",
+        "exact_section_sha256": "bba4469493a1c197d40a8270e34ca46cac4c54b778639661e191373463d8675f",
         "exact_faq_sha256": "257150692f2307ee634ad3c3d124f0075fa5bbcc269ad293267830c041dfb88f",
+        "exact_internal_links_sha256": "a7fa19d1afa2cab7c630c1e96ee3566685b95eb9d0057b422b85b420aaa4b31a",
         "canonical_url": "https://fermatmind.com/zh/personality/enfp-vs-entp",
         "robots": "noindex,follow",
         "is_indexable": false,
@@ -325,9 +318,9 @@
       },
       "manual_review": {
         "source_review_status": "draft",
-        "operator_editorial_approval": "approved",
-        "approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
-        "approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
+        "operator_editorial_approval": "pending_reapproval_after_runtime_shape_repair",
+        "previously_approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
+        "previous_approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
         "content_release_authorized": false,
         "indexability_release_authorized": false
       }
@@ -347,7 +340,7 @@
         "stale_source_manifest_declared_sha256": "35a91214cc6c3e472b52e813cd1bb7ba2c492f1b8c2e442b2411bf68ad0428a2",
         "declared_hash_matches_snapshot": false
       },
-      "content_sha256": "014b93207273202988a34fd099363d06453b659cfbf6e6f9a83dca3f31682818",
+      "content_sha256": "a5390ce04d77924ac3f4156001dd266995eb9ee956c4579c26b5d519bfe896a3",
       "candidate_payload": {
         "slug": "estj-vs-entj",
         "comparison_type": "mbti_cross_type",
@@ -426,31 +419,21 @@
           {
             "id": "stress_and_growth",
             "title": "压力反应与成长建议",
-            "groups": [
-              {
-                "title": "给 ESTJ 的建议",
-                "items": [
-                  "把“规则被破坏”拆成具体问题：是标准没说清、资源不足、责任不明，还是对方态度确实有问题。观察指标是自己是否一压力大就开始重复强调纪律。",
-                  "练习在要求前说明目的。比如提出流程标准时，同时说明它保护的是质量、时间、公平还是风险控制。这样能让别人更容易理解你的秩序感，而不是只感到被管。",
-                  "给变化设置试运行窗口。不是每个新方案都要马上接纳，但可以规定一个小范围试点和复盘标准。复盘问题是：我反对的是变化本身，还是反对缺乏验证的变化。",
-                  "让责任被分担，而不是只靠自己补位。每次想亲自接手时，先问：这件事应该由我做，还是我需要把标准、步骤和验收方式教给别人。"
-                ]
-              },
-              {
-                "title": "给 ENTJ 的建议",
-                "items": [
-                  "把重构速度和他人理解速度分开管理。你可以比别人更早看见战略问题，但仍需要把判断路径说出来。观察指标是团队是否只是服从，而不是理解。",
-                  "在砍掉旧流程前，先确认它原本保护了什么。旧系统可能低效，但也可能承载了风险控制、经验记忆或关系信任。复盘问题是：我是在升级系统，还是低估了系统的隐性功能。",
-                  "给反馈留入口。不要只要求别人跟上目标，也要主动问：这个目标的哪一部分让你不确定，哪一部分需要更多信息。这样可以减少战略推进中的抵触。",
-                  "练习区分控制和负责。负责是明确目标、资源和边界；控制是把所有变量都收回自己手里。压力越大，越要检查自己是否正在把他人的判断空间压缩掉。"
-                ]
-              }
+            "body": [
+              "给 ESTJ 的建议：把“规则被破坏”拆成具体问题：是标准没说清、资源不足、责任不明，还是对方态度确实有问题。观察指标是自己是否一压力大就开始重复强调纪律。",
+              "给 ESTJ 的建议：练习在要求前说明目的。比如提出流程标准时，同时说明它保护的是质量、时间、公平还是风险控制。这样能让别人更容易理解你的秩序感，而不是只感到被管。",
+              "给 ESTJ 的建议：给变化设置试运行窗口。不是每个新方案都要马上接纳，但可以规定一个小范围试点和复盘标准。复盘问题是：我反对的是变化本身，还是反对缺乏验证的变化。",
+              "给 ESTJ 的建议：让责任被分担，而不是只靠自己补位。每次想亲自接手时，先问：这件事应该由我做，还是我需要把标准、步骤和验收方式教给别人。",
+              "给 ENTJ 的建议：把重构速度和他人理解速度分开管理。你可以比别人更早看见战略问题，但仍需要把判断路径说出来。观察指标是团队是否只是服从，而不是理解。",
+              "给 ENTJ 的建议：在砍掉旧流程前，先确认它原本保护了什么。旧系统可能低效，但也可能承载了风险控制、经验记忆或关系信任。复盘问题是：我是在升级系统，还是低估了系统的隐性功能。",
+              "给 ENTJ 的建议：给反馈留入口。不要只要求别人跟上目标，也要主动问：这个目标的哪一部分让你不确定，哪一部分需要更多信息。这样可以减少战略推进中的抵触。",
+              "给 ENTJ 的建议：练习区分控制和负责。负责是明确目标、资源和边界；控制是把所有变量都收回自己手里。压力越大，越要检查自己是否正在把他人的判断空间压缩掉。"
             ]
           },
           {
             "id": "misconceptions",
             "title": "常见误解",
-            "items": [
+            "body": [
               "误解一：ESTJ 比 ENTJ 更传统。更准确地说，ESTJ 更重视已验证的秩序，ENTJ 更重视系统是否能支持更大目标。传统不是 ESTJ 的本质，重构也不是 ENTJ 的全部。",
               "误解二：ENTJ 比 ESTJ 更适合领导。人格类型不能决定领导力。ESTJ 可能擅长稳定执行和责任管理，ENTJ 可能擅长战略重构和资源配置，但实际表现取决于能力、经验、场景和反馈。",
               "误解三：ESTJ 只会守规则。成熟的 ESTJ 并不是机械服从规则，而是理解规则如何保护结果、公平和稳定。他们也可以优化流程，只是通常需要看到明确证据。",
@@ -496,39 +479,39 @@
         ],
         "internal_links": [
           {
-            "href": "/zh/personality/estj",
-            "anchor_text": "查看 ESTJ 人格特点",
-            "link_intent": "左侧类型详情页"
+            "label": "查看 ESTJ-A 人格特点",
+            "href": "/zh/personality/estj-a",
+            "reason": "左侧类型详情页（canonical ESTJ-A 公开画像）"
           },
           {
-            "href": "/zh/personality/entj",
-            "anchor_text": "查看 ENTJ 人格特点",
-            "link_intent": "右侧类型详情页"
+            "label": "查看 ENTJ-A 人格特点",
+            "href": "/zh/personality/entj-a",
+            "reason": "右侧类型详情页（canonical ENTJ-A 公开画像）"
           },
           {
+            "label": "做免费 16 型人格测试",
             "href": "/zh/tests/mbti-personality-test-16-personality-types",
-            "anchor_text": "做免费 16 型人格测试",
-            "link_intent": "MBTI 测试页"
+            "reason": "MBTI 测试页"
           },
           {
+            "label": "用大五人格交叉验证特质维度",
             "href": "/zh/tests/big-five-personality-test-ocean-model",
-            "anchor_text": "用大五人格交叉验证特质维度",
-            "link_intent": "Big Five 交叉验证"
+            "reason": "Big Five 交叉验证"
           },
           {
+            "label": "用 RIASEC 检查职业兴趣方向",
             "href": "/zh/tests/holland-career-interest-test-riasec",
-            "anchor_text": "用 RIASEC 检查职业兴趣方向",
-            "link_intent": "RIASEC 职业兴趣"
+            "reason": "RIASEC 职业兴趣"
           },
           {
+            "label": "查看 ESTJ-A 与 ESTJ-T 的区别",
             "href": "/zh/personality/estj-a-vs-estj-t",
-            "anchor_text": "查看 ESTJ-A 与 ESTJ-T 的区别",
-            "link_intent": "ESTJ A/T 对比"
+            "reason": "ESTJ A/T 对比"
           },
           {
+            "label": "查看 ENTJ-A 与 ENTJ-T 的区别",
             "href": "/zh/personality/entj-a-vs-entj-t",
-            "anchor_text": "查看 ENTJ-A 与 ENTJ-T 的区别",
-            "link_intent": "ENTJ A/T 对比"
+            "reason": "ENTJ A/T 对比"
           }
         ],
         "claim_boundary": "本文不用于医学诊断、心理治疗、招聘筛选、领导力筛选、关系判断或职业决定。ESTJ 与 ENTJ 的对比只用于帮助用户理解行为倾向、压力反应、管理方式、决策依据和成长策略。人格类型是自我理解和复盘工具，不是身份限制，也不能证明能力、收入、晋升、职业成功或关系质量。具体建议需要结合真实经历、能力证据、工作环境、长期反馈和其他测评结果共同判断。",
@@ -558,10 +541,11 @@
           "stress_and_growth",
           "misconceptions"
         ],
-        "section_sha256": "aed48d9cd2f95d0d418b4c3987c730e7b66a467f20b66d52fc4df494e24ed279",
+        "section_sha256": "21c168504e4f98e712503dfd43ce142245a1e3f27fcb28808eb164da1ad9b31c",
         "faq_count": 8,
         "faq_sha256": "ace1989124b561d5eaf6ecfa3e48e0298e9b8c6bd5d37d1f851608178a2e6f42",
-        "internal_link_count": 7
+        "internal_link_count": 7,
+        "internal_links_sha256": "e6d92cb0d8378d23ce4390556e55cb36accec6149c059e83637778b4fcabf28e"
       },
       "expected_seo_contract": {
         "canonical_url": "https://fermatmind.com/zh/personality/estj-vs-entj",
@@ -590,7 +574,7 @@
         "api_http_status": 200,
         "page_http_status": 200,
         "authority_must_be_db_or_cms": true,
-        "exact_content_sha256": "014b93207273202988a34fd099363d06453b659cfbf6e6f9a83dca3f31682818",
+        "exact_content_sha256": "a5390ce04d77924ac3f4156001dd266995eb9ee956c4579c26b5d519bfe896a3",
         "exact_section_ids": [
           "quick_answer",
           "why_they_are_confused",
@@ -601,8 +585,9 @@
           "stress_and_growth",
           "misconceptions"
         ],
-        "exact_section_sha256": "aed48d9cd2f95d0d418b4c3987c730e7b66a467f20b66d52fc4df494e24ed279",
+        "exact_section_sha256": "21c168504e4f98e712503dfd43ce142245a1e3f27fcb28808eb164da1ad9b31c",
         "exact_faq_sha256": "ace1989124b561d5eaf6ecfa3e48e0298e9b8c6bd5d37d1f851608178a2e6f42",
+        "exact_internal_links_sha256": "e6d92cb0d8378d23ce4390556e55cb36accec6149c059e83637778b4fcabf28e",
         "canonical_url": "https://fermatmind.com/zh/personality/estj-vs-entj",
         "robots": "noindex,follow",
         "is_indexable": false,
@@ -611,9 +596,9 @@
       },
       "manual_review": {
         "source_review_status": "draft",
-        "operator_editorial_approval": "approved",
-        "approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
-        "approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
+        "operator_editorial_approval": "pending_reapproval_after_runtime_shape_repair",
+        "previously_approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
+        "previous_approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
         "content_release_authorized": false,
         "indexability_release_authorized": false
       }
@@ -633,7 +618,7 @@
         "stale_source_manifest_declared_sha256": "0dc7d7852ad5c751aa9f03bb3c668590b0e8c71f418adff8b8276d8e7f0a8bea",
         "declared_hash_matches_snapshot": false
       },
-      "content_sha256": "de2f0563108d143a223c6401e605b0485b8638c2985d797da8395718b20faa00",
+      "content_sha256": "63315241d67a97ce372f40b361d567da8f723b8dc4db814dc0de3e068809fb42",
       "candidate_payload": {
         "slug": "isfp-vs-infp",
         "comparison_type": "mbti_cross_type",
@@ -709,31 +694,21 @@
           {
             "id": "stress_and_growth",
             "title": "压力反应与成长建议",
-            "groups": [
-              {
-                "title": "给 ISFP 的建议",
-                "items": [
-                  "观察指标：当你感到不舒服时，先区分是环境刺激、他人控制、价值冲突，还是单纯疲惫。练习方式：把“我不想继续”写成一个具体原因，而不是只用撤退表达。复盘问题：我是在保护真实边界，还是因为不想解释而让误解继续扩大？",
-                  "观察指标：当你用行动照顾别人时，留意对方是否真的理解你的在意。练习方式：在行动之外补一句简短说明，例如“我这样做是因为我在意这件事”。复盘问题：我是否把所有关心都藏在行动里，导致别人无法接住？",
-                  "观察指标：当你选择一个创作或职业方向时，确认它是否只有当下舒服，还是也有长期承接。练习方式：给每个喜欢的方向写下三项现实条件：时间、技能、反馈来源。复盘问题：这个选择能不能支持我持续表达，而不是只满足一时自由感？",
-                  "观察指标：当别人评价你时，判断自己是否立刻收回表达。练习方式：把反馈分成事实、审美偏好和对方情绪。复盘问题：我是否把别人的偏好误认为自己的价值被否定？"
-                ]
-              },
-              {
-                "title": "给 INFP 的建议",
-                "items": [
-                  "观察指标：当你陷入意义复盘时，确认自己是否还在产生新信息。练习方式：给每次复盘设一个结束点，写下一个最小行动。复盘问题：我现在是在理解自己，还是在用理解拖延现实行动？",
-                  "观察指标：当你觉得不被理解时，先区分对方没有理解、对方不同意、还是你还没有说清。练习方式：把内心复杂感受压缩成三句话：我在意什么，我受影响在哪里，我希望下一步怎么做。复盘问题：我是否期待别人自动读懂我的内在世界？",
-                  "观察指标：当你开始一个理想项目时，看它是否有现实容器。练习方式：把一个大主题拆成一周内可完成的具体成果。复盘问题：我的理想是否已经有可以被别人看见的形状？",
-                  "观察指标：当价值受到挑战时，判断自己是否把不同意见理解成否定人格。练习方式：把“他不理解我”改写成“他不同意这个表达 / 这个方案 / 这个时间点”。复盘问题：我能否保护价值，同时允许现实讨论存在？"
-                ]
-              }
+            "body": [
+              "给 ISFP 的建议：观察指标：当你感到不舒服时，先区分是环境刺激、他人控制、价值冲突，还是单纯疲惫。练习方式：把“我不想继续”写成一个具体原因，而不是只用撤退表达。复盘问题：我是在保护真实边界，还是因为不想解释而让误解继续扩大？",
+              "给 ISFP 的建议：观察指标：当你用行动照顾别人时，留意对方是否真的理解你的在意。练习方式：在行动之外补一句简短说明，例如“我这样做是因为我在意这件事”。复盘问题：我是否把所有关心都藏在行动里，导致别人无法接住？",
+              "给 ISFP 的建议：观察指标：当你选择一个创作或职业方向时，确认它是否只有当下舒服，还是也有长期承接。练习方式：给每个喜欢的方向写下三项现实条件：时间、技能、反馈来源。复盘问题：这个选择能不能支持我持续表达，而不是只满足一时自由感？",
+              "给 ISFP 的建议：观察指标：当别人评价你时，判断自己是否立刻收回表达。练习方式：把反馈分成事实、审美偏好和对方情绪。复盘问题：我是否把别人的偏好误认为自己的价值被否定？",
+              "给 INFP 的建议：观察指标：当你陷入意义复盘时，确认自己是否还在产生新信息。练习方式：给每次复盘设一个结束点，写下一个最小行动。复盘问题：我现在是在理解自己，还是在用理解拖延现实行动？",
+              "给 INFP 的建议：观察指标：当你觉得不被理解时，先区分对方没有理解、对方不同意、还是你还没有说清。练习方式：把内心复杂感受压缩成三句话：我在意什么，我受影响在哪里，我希望下一步怎么做。复盘问题：我是否期待别人自动读懂我的内在世界？",
+              "给 INFP 的建议：观察指标：当你开始一个理想项目时，看它是否有现实容器。练习方式：把一个大主题拆成一周内可完成的具体成果。复盘问题：我的理想是否已经有可以被别人看见的形状？",
+              "给 INFP 的建议：观察指标：当价值受到挑战时，判断自己是否把不同意见理解成否定人格。练习方式：把“他不理解我”改写成“他不同意这个表达 / 这个方案 / 这个时间点”。复盘问题：我能否保护价值，同时允许现实讨论存在？"
             ]
           },
           {
             "id": "misconceptions",
             "title": "常见误解",
-            "items": [
+            "body": [
               "误解一：ISFP 就是艺术型，INFP 就是文学型。更准确的说法是，ISFP 更偏向用具体体验和审美行动确认真实，INFP 更偏向用内在意义和价值叙事确认真实。具体兴趣仍要看个人经验。",
               "误解二：ISFP 不思考。ISFP 也会有深层判断，只是他们常通过感受、行动和现实选择来表达，而不是先建立长篇理论。",
               "误解三：INFP 不行动。INFP 也可以很有行动力，只是他们通常需要先确认行动是否符合价值和意义，否则容易难以持续。",
@@ -779,39 +754,39 @@
         ],
         "internal_links": [
           {
-            "href": "/zh/personality/isfp",
-            "anchor_text": "查看 ISFP 人格特点",
-            "link_intent": "左侧类型详情页"
+            "label": "查看 ISFP-A 人格特点",
+            "href": "/zh/personality/isfp-a",
+            "reason": "左侧类型详情页（canonical ISFP-A 公开画像）"
           },
           {
-            "href": "/zh/personality/infp",
-            "anchor_text": "查看 INFP 人格特点",
-            "link_intent": "右侧类型详情页"
+            "label": "查看 INFP-A 人格特点",
+            "href": "/zh/personality/infp-a",
+            "reason": "右侧类型详情页（canonical INFP-A 公开画像）"
           },
           {
+            "label": "做免费 16 型人格测试",
             "href": "/zh/tests/mbti-personality-test-16-personality-types",
-            "anchor_text": "做免费 16 型人格测试",
-            "link_intent": "MBTI 测试页"
+            "reason": "MBTI 测试页"
           },
           {
+            "label": "用大五人格交叉验证特质维度",
             "href": "/zh/tests/big-five-personality-test-ocean-model",
-            "anchor_text": "用大五人格交叉验证特质维度",
-            "link_intent": "Big Five 交叉验证"
+            "reason": "Big Five 交叉验证"
           },
           {
+            "label": "用 RIASEC 检查职业兴趣方向",
             "href": "/zh/tests/holland-career-interest-test-riasec",
-            "anchor_text": "用 RIASEC 检查职业兴趣方向",
-            "link_intent": "RIASEC 职业兴趣"
+            "reason": "RIASEC 职业兴趣"
           },
           {
+            "label": "查看 ISFP-A 与 ISFP-T 的区别",
             "href": "/zh/personality/isfp-a-vs-isfp-t",
-            "anchor_text": "查看 ISFP-A 与 ISFP-T 的区别",
-            "link_intent": "ISFP A/T 对比"
+            "reason": "ISFP A/T 对比"
           },
           {
+            "label": "查看 INFP-A 与 INFP-T 的区别",
             "href": "/zh/personality/infp-a-vs-infp-t",
-            "anchor_text": "查看 INFP-A 与 INFP-T 的区别",
-            "link_intent": "INFP A/T 对比"
+            "reason": "INFP A/T 对比"
           }
         ],
         "claim_boundary": "本文不用于医学诊断、心理治疗、招聘筛选、关系判断或职业决定。ISFP 与 INFP 的对比只用于帮助用户理解行为倾向、价值表达、压力反应、沟通方式和成长策略。人格类型是自我理解工具，不是身份限制；任何重要选择都需要结合真实经历、能力证据、长期反馈、职业兴趣和现实环境。",
@@ -837,10 +812,11 @@
           "stress_and_growth",
           "misconceptions"
         ],
-        "section_sha256": "20f3ce96eae401d47240893b156872cc863a96273c9944d29f7b0cc25cc4c961",
+        "section_sha256": "d2823ef24eeb178686b8530eb71cb32642e56fbb44dc6e501c7b6049b462b225",
         "faq_count": 8,
         "faq_sha256": "291d743ad32f33bbcba2241e3cf26b95cc609b0241d59d8dfc5509782bc47603",
-        "internal_link_count": 7
+        "internal_link_count": 7,
+        "internal_links_sha256": "7e38223c858f1d033d6b545361d221020204c25dc1ed0f07599861c5169b3ee0"
       },
       "expected_seo_contract": {
         "canonical_url": "https://fermatmind.com/zh/personality/isfp-vs-infp",
@@ -869,7 +845,7 @@
         "api_http_status": 200,
         "page_http_status": 200,
         "authority_must_be_db_or_cms": true,
-        "exact_content_sha256": "de2f0563108d143a223c6401e605b0485b8638c2985d797da8395718b20faa00",
+        "exact_content_sha256": "63315241d67a97ce372f40b361d567da8f723b8dc4db814dc0de3e068809fb42",
         "exact_section_ids": [
           "quick_answer",
           "why_they_are_confused",
@@ -880,8 +856,9 @@
           "stress_and_growth",
           "misconceptions"
         ],
-        "exact_section_sha256": "20f3ce96eae401d47240893b156872cc863a96273c9944d29f7b0cc25cc4c961",
+        "exact_section_sha256": "d2823ef24eeb178686b8530eb71cb32642e56fbb44dc6e501c7b6049b462b225",
         "exact_faq_sha256": "291d743ad32f33bbcba2241e3cf26b95cc609b0241d59d8dfc5509782bc47603",
+        "exact_internal_links_sha256": "7e38223c858f1d033d6b545361d221020204c25dc1ed0f07599861c5169b3ee0",
         "canonical_url": "https://fermatmind.com/zh/personality/isfp-vs-infp",
         "robots": "noindex,follow",
         "is_indexable": false,
@@ -890,9 +867,9 @@
       },
       "manual_review": {
         "source_review_status": "draft",
-        "operator_editorial_approval": "approved",
-        "approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
-        "approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
+        "operator_editorial_approval": "pending_reapproval_after_runtime_shape_repair",
+        "previously_approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
+        "previous_approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
         "content_release_authorized": false,
         "indexability_release_authorized": false
       }
@@ -910,15 +887,15 @@
       "records": [
         {
           "slug": "enfp-vs-entp",
-          "content_sha256": "55fa7dcac2341fe531bc245642a492bc0e46bc093923812748e4052f6229f86c"
+          "content_sha256": "ebd1685767826c1c3ef0f5aa9a45f1b5db307ed30ec6450dceb5c964c9ed896d"
         },
         {
           "slug": "estj-vs-entj",
-          "content_sha256": "014b93207273202988a34fd099363d06453b659cfbf6e6f9a83dca3f31682818"
+          "content_sha256": "a5390ce04d77924ac3f4156001dd266995eb9ee956c4579c26b5d519bfe896a3"
         },
         {
           "slug": "isfp-vs-infp",
-          "content_sha256": "de2f0563108d143a223c6401e605b0485b8638c2985d797da8395718b20faa00"
+          "content_sha256": "63315241d67a97ce372f40b361d567da8f723b8dc4db814dc0de3e068809fb42"
         }
       ],
       "invariants": {
@@ -929,8 +906,8 @@
         "no_indexability_mutation": true
       }
     },
-    "payload_sha256": "adc7c06069efc38c9898a993ccfcbec38f29859d3a56b7400fc2bce0026d2886",
-    "authorization_status": "blocked_pending_separate_production_content_write_authorization"
+    "payload_sha256": "a209644d1d5c00541e1b062cd5207a30e3a46d255097f9d3afd3ee089a43fe4d",
+    "authorization_status": "blocked_pending_editorial_reapproval_and_separate_production_content_write_authorization"
   },
   "indexability_release_template": {
     "payload": {
@@ -975,5 +952,5 @@
     "search_submission_attempted": false,
     "credentials_or_user_data_included": false
   },
-  "package_sha256": "3a86b9e73817635def8a2a2030f5cfe6102d80a64cca0703c4fc373e7aa73582"
+  "package_sha256": "ac0c036f82d19aadd38cf1673338a2e40f7ca25eb1883959cabaa0acd935043c"
 }

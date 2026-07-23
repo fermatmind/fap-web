@@ -99,6 +99,29 @@ function validateAsset(asset, source, raw) {
   assert(asset.indexability_status === "pending_review", `${source.slug}: source indexability state must remain pending_review`);
 }
 
+function normalizeAssetForRuntime(asset) {
+  return {
+    ...asset,
+    sections: asset.sections.map(({ groups, items, ...section }) => {
+      const body = Array.isArray(section.body)
+        ? section.body
+        : Array.isArray(groups)
+          ? groups.flatMap((group) => group.items.map((item) => `${group.title}：${item}`))
+          : items;
+      return { ...section, body };
+    }),
+    internal_links: asset.internal_links.map((link) => {
+      const baseProfileMatch = link.href.match(/^\/zh\/personality\/([a-z]{4})$/);
+      const profileType = baseProfileMatch?.[1]?.toUpperCase();
+      return {
+        label: profileType ? link.anchor_text.replace(profileType, `${profileType}-A`) : link.anchor_text,
+        href: baseProfileMatch ? `${link.href}-a` : link.href,
+        reason: profileType ? `${link.link_intent}（canonical ${profileType}-A 公开画像）` : link.link_intent,
+      };
+    }),
+  };
+}
+
 function releasePayload(records) {
   return {
     schema_version: "mbti.cross_type_comparison.content_release_candidate.v1",
@@ -121,8 +144,12 @@ async function build() {
     const raw = await readFile(path.join(ROOT, source.snapshot), "utf8");
     const asset = JSON.parse(raw);
     validateAsset(asset, source, raw);
+    const candidatePayload = normalizeAssetForRuntime(asset);
+    assert(candidatePayload.sections.every((section) => Array.isArray(section.body) && section.body.length > 0), `${source.slug}: runtime body normalization failed`);
+    assert(candidatePayload.internal_links.every((link) => link.label && link.href && link.reason), `${source.slug}: runtime link normalization failed`);
+    assert(candidatePayload.internal_links.every((link) => !/^\/zh\/personality\/[a-z]{4}$/.test(link.href)), `${source.slug}: legacy base profile link remains`);
     const canonical = `https://fermatmind.com/zh/personality/${source.slug}`;
-    const contentSha256 = sha256Json(asset);
+    const contentSha256 = sha256Json(candidatePayload);
     records.push({
       approval_record_id: `mbti-cross-approval-48:${source.slug}`,
       slug: source.slug,
@@ -139,14 +166,15 @@ async function build() {
         declared_hash_matches_snapshot: false,
       },
       content_sha256: contentSha256,
-      candidate_payload: asset,
+      candidate_payload: candidatePayload,
       expected_content_contract: {
         section_count: SECTION_IDS.length,
         section_ids: SECTION_IDS,
-        section_sha256: sha256Json(asset.sections),
+        section_sha256: sha256Json(candidatePayload.sections),
         faq_count: 8,
         faq_sha256: sha256Json(asset.faq),
         internal_link_count: 7,
+        internal_links_sha256: sha256Json(candidatePayload.internal_links),
       },
       expected_seo_contract: {
         canonical_url: canonical,
@@ -177,8 +205,9 @@ async function build() {
         authority_must_be_db_or_cms: true,
         exact_content_sha256: contentSha256,
         exact_section_ids: SECTION_IDS,
-        exact_section_sha256: sha256Json(asset.sections),
+        exact_section_sha256: sha256Json(candidatePayload.sections),
         exact_faq_sha256: sha256Json(asset.faq),
+        exact_internal_links_sha256: sha256Json(candidatePayload.internal_links),
         canonical_url: canonical,
         robots: "noindex,follow",
         is_indexable: false,
@@ -187,9 +216,9 @@ async function build() {
       },
       manual_review: {
         source_review_status: asset.review_status,
-        operator_editorial_approval: "approved",
-        approved_pending_package_sha256: APPROVED_PENDING_PACKAGE_SHA256,
-        approval_statement_sha256: sha256(EDITORIAL_APPROVAL_STATEMENT),
+        operator_editorial_approval: "pending_reapproval_after_runtime_shape_repair",
+        previously_approved_pending_package_sha256: APPROVED_PENDING_PACKAGE_SHA256,
+        previous_approval_statement_sha256: sha256(EDITORIAL_APPROVAL_STATEMENT),
         content_release_authorized: false,
         indexability_release_authorized: false,
       },
@@ -211,23 +240,24 @@ async function build() {
     schema_version: "mbti.cross_type_comparison.approval.v1",
     id: "MBTI-CROSS-APPROVAL-48",
     generated_at: GENERATED_AT,
-    status: "operator_editorial_approved",
-    final_decision: "APPROVED_EXACT_THREE_EDITORIAL_CONTENT_NO_PRODUCTION_ACTION_AUTHORIZED",
+    status: "pending_operator_editorial_reapproval",
+    final_decision: "PENDING_EXACT_THREE_EDITORIAL_REAPPROVAL_AFTER_RUNTIME_SHAPE_REPAIR_NO_PRODUCTION_ACTION_AUTHORIZED",
     summary: {
       record_count: records.length,
       exact_slugs: records.map((record) => record.slug),
       source_hash_drift_count: records.filter((record) => !record.source.declared_hash_matches_snapshot).length,
-      approved_count: records.length,
-      pending_count: 0,
+      approved_count: 0,
+      pending_count: records.length,
     },
     editorial_approval: {
-      decision: "approved",
+      decision: "reapproval_required_after_runtime_shape_repair",
       approved_at: EDITORIAL_APPROVED_AT,
-      approved_pending_package_sha256: APPROVED_PENDING_PACKAGE_SHA256,
-      approval_statement_sha256: sha256(EDITORIAL_APPROVAL_STATEMENT),
+      previously_approved_pending_package_sha256: APPROVED_PENDING_PACKAGE_SHA256,
+      previous_approval_statement_sha256: sha256(EDITORIAL_APPROVAL_STATEMENT),
+      invalidation_reason: "Runtime adapter compatibility repairs normalize section body arrays, internal-link field names, and canonical profile hrefs; the repaired payload requires a new exact editorial approval.",
       exact_slugs: records.map((record) => record.slug),
-      permits_pr_48_finalization_and_merge: true,
-      permits_pr_49_implementation: true,
+      permits_pr_48_finalization_and_merge: false,
+      permits_pr_49_implementation: false,
       production_content_write_authorized: false,
       publication_or_indexability_change_authorized: false,
       sitemap_or_llms_change_authorized: false,
@@ -245,7 +275,7 @@ async function build() {
     content_release_candidate: {
       payload: contentCandidate,
       payload_sha256: sha256Json(contentCandidate),
-      authorization_status: "blocked_pending_separate_production_content_write_authorization",
+      authorization_status: "blocked_pending_editorial_reapproval_and_separate_production_content_write_authorization",
     },
     indexability_release_template: {
       payload: indexabilityTemplate,
@@ -272,8 +302,8 @@ async function build() {
     record_count: records.length,
     exact_slugs: records.map((record) => record.slug),
     package_sha256: packageSha256,
-    approved_pending_package_sha256: APPROVED_PENDING_PACKAGE_SHA256,
-    approval_statement_sha256: report.editorial_approval.approval_statement_sha256,
+    previously_approved_pending_package_sha256: APPROVED_PENDING_PACKAGE_SHA256,
+    previous_approval_statement_sha256: report.editorial_approval.previous_approval_statement_sha256,
     content_release_candidate_sha256: report.content_release_candidate.payload_sha256,
     indexability_release_template_sha256: report.indexability_release_template.template_sha256,
     records: records.map((record) => ({
@@ -282,9 +312,10 @@ async function build() {
       content_sha256: record.content_sha256,
       sections_sha256: record.expected_content_contract.section_sha256,
       faq_sha256: record.expected_content_contract.faq_sha256,
+      internal_links_sha256: record.expected_content_contract.internal_links_sha256,
     })),
   };
-  const markdown = `# MBTI-CROSS-APPROVAL-48 rollback/readback contract\n\n- Status: operator editorial approval recorded\n- Approved pending package SHA-256: \`${APPROVED_PENDING_PACKAGE_SHA256}\`\n- Approval statement SHA-256: \`${report.editorial_approval.approval_statement_sha256}\`\n- Exact records: ${records.map((record) => record.slug).join(", ")}\n- Record count: 3\n- Final approved package SHA-256: \`${packageSha256}\`\n- Content-release candidate SHA-256: \`${report.content_release_candidate.payload_sha256}\`\n- Indexability template SHA-256: \`${report.indexability_release_template.template_sha256}\`\n- Source hash drift: all three current committed snapshots differ from the stale source-manifest declarations; the exact snapshot hashes are authoritative for this approval artifact.\n\n## Content revision phase\n\nEditorial approval does not authorize a production write. A future executor must require a separate exact package/authorization hash, capture each pre-write revision and payload hash, write only the exact three records atomically, keep all three noindex and outside sitemap/llms, and roll back all three on any write or readback failure.\n\n## Readback\n\nReadback must prove DB/CMS authority, exact content/section/FAQ hashes, canonical parity, HTTP 200 API/page responses, visible complete body, robots \`noindex,follow\`, and no sitemap/llms eligibility. A local approval asset or frontend fallback cannot satisfy readback.\n\n## Indexability phase\n\nIndexability is a separate future authorization after successful content promotion/readback. It may change only robots/indexability/sitemap/llms eligibility for the exact three records and must not modify content or request search indexing.\n`;
+  const markdown = `# MBTI-CROSS-APPROVAL-48 rollback/readback contract\n\n- Status: pending operator editorial reapproval after runtime-shape repair\n- Previously approved pending package SHA-256: \`${APPROVED_PENDING_PACKAGE_SHA256}\`\n- Previous approval statement SHA-256: \`${report.editorial_approval.previous_approval_statement_sha256}\`\n- Repaired package SHA-256: \`${packageSha256}\`\n- Exact records: ${records.map((record) => record.slug).join(", ")}\n- Record count: 3\n- Content-release candidate SHA-256: \`${report.content_release_candidate.payload_sha256}\`\n- Indexability template SHA-256: \`${report.indexability_release_template.template_sha256}\`\n- Runtime-shape repair: every section now has a non-empty body array; internal links use label/href/reason; four-letter profile hrefs are normalized to explicit canonical A-variant targets.\n- Source hash drift: all three current committed snapshots differ from the stale source-manifest declarations; the exact snapshot hashes remain the provenance inputs, while the candidate payload is a deterministic runtime-compatible projection.\n\n## Content revision phase\n\nThe repaired package requires a new exact editorial approval, which still does not authorize a production write. A future executor must also require a separate exact production package/authorization hash, capture each pre-write revision and payload hash, write only the exact three records atomically, keep all three noindex and outside sitemap/llms, and roll back all three on any write or readback failure.\n\n## Readback\n\nReadback must prove DB/CMS authority, exact content/section/FAQ/internal-link hashes, canonical parity, HTTP 200 API/page responses, visible complete body, robots \`noindex,follow\`, and no sitemap/llms eligibility. A local approval asset or frontend fallback cannot satisfy readback.\n\n## Indexability phase\n\nIndexability is a separate future authorization after successful content promotion/readback. It may change only robots/indexability/sitemap/llms eligibility for the exact three records and must not modify content or request search indexing.\n`;
 
   for (const [relativePath, content] of [
     [PACKAGE_PATH, `${JSON.stringify(report, null, 2)}\n`],

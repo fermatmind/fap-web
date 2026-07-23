@@ -1,22 +1,23 @@
 # MBTI-CROSS-APPROVAL-48 rollback/readback contract
 
-- Status: operator editorial approval recorded
-- Approved pending package SHA-256: `1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6`
-- Approval statement SHA-256: `dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae`
+- Status: pending operator editorial reapproval after runtime-shape repair
+- Previously approved pending package SHA-256: `1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6`
+- Previous approval statement SHA-256: `dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae`
+- Repaired package SHA-256: `ac0c036f82d19aadd38cf1673338a2e40f7ca25eb1883959cabaa0acd935043c`
 - Exact records: enfp-vs-entp, estj-vs-entj, isfp-vs-infp
 - Record count: 3
-- Final approved package SHA-256: `3a86b9e73817635def8a2a2030f5cfe6102d80a64cca0703c4fc373e7aa73582`
-- Content-release candidate SHA-256: `adc7c06069efc38c9898a993ccfcbec38f29859d3a56b7400fc2bce0026d2886`
+- Content-release candidate SHA-256: `a209644d1d5c00541e1b062cd5207a30e3a46d255097f9d3afd3ee089a43fe4d`
 - Indexability template SHA-256: `3f3aaf4da6ff6ad4c41ba705ffecc4b8c1ff060d5f76c70142fe4ce575314dfb`
-- Source hash drift: all three current committed snapshots differ from the stale source-manifest declarations; the exact snapshot hashes are authoritative for this approval artifact.
+- Runtime-shape repair: every section now has a non-empty body array; internal links use label/href/reason; four-letter profile hrefs are normalized to explicit canonical A-variant targets.
+- Source hash drift: all three current committed snapshots differ from the stale source-manifest declarations; the exact snapshot hashes remain the provenance inputs, while the candidate payload is a deterministic runtime-compatible projection.
 
 ## Content revision phase
 
-Editorial approval does not authorize a production write. A future executor must require a separate exact package/authorization hash, capture each pre-write revision and payload hash, write only the exact three records atomically, keep all three noindex and outside sitemap/llms, and roll back all three on any write or readback failure.
+The repaired package requires a new exact editorial approval, which still does not authorize a production write. A future executor must also require a separate exact production package/authorization hash, capture each pre-write revision and payload hash, write only the exact three records atomically, keep all three noindex and outside sitemap/llms, and roll back all three on any write or readback failure.
 
 ## Readback
 
-Readback must prove DB/CMS authority, exact content/section/FAQ hashes, canonical parity, HTTP 200 API/page responses, visible complete body, robots `noindex,follow`, and no sitemap/llms eligibility. A local approval asset or frontend fallback cannot satisfy readback.
+Readback must prove DB/CMS authority, exact content/section/FAQ/internal-link hashes, canonical parity, HTTP 200 API/page responses, visible complete body, robots `noindex,follow`, and no sitemap/llms eligibility. A local approval asset or frontend fallback cannot satisfy readback.
 
 ## Indexability phase
 
