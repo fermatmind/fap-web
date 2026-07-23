@@ -26611,7 +26611,7 @@ prs:
     depends_on: [FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01]
     mode: execute
     train_scope: analytics_runtime_smoke_repair
-    status: github_checks_pending
+    status: ready_to_merge
     goal: "Use build-time-safe analytics environment constants and make production smoke exercise real consent-driven pageview attempts while aborting every telemetry request."
     allowed_paths:
       - components/legal/CookieBanner.tsx
