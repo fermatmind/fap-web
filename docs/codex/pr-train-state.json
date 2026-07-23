@@ -50775,7 +50775,7 @@
       "MBTI-COMP-GATE-47"
     ],
     "status": "github_checks_pending_reapproval",
-    "commit_sha": "119bbc06bba2eb54ad648517e4b783b53d69e50f",
+  "commit_sha": "2e5eb6e31935f95e2920c145e81cf6bba83b1ce3",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
       "authorization": {
@@ -50878,8 +50878,13 @@
       "at": "2026-07-23T01:36:50Z",
       "status": "github_checks_pending_reapproval",
       "summary": "After all seven checks passed on the synchronized head, exact-head review found one remaining P2: candidate_payload still used source slug rather than the comparison_slug required by the frontend public-projection adapter. The generator now explicitly maps every candidate into the runtime comparison_public_projection_v1 shape before hashing, with cross-type route/type identity, canonical, section body, FAQ, internal-link, claim, and locked noindex fields. Final repaired package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f is pending new exact editorial approval. Focused contracts pass 20/20, full contracts 767 files / 4435 tests, freezes 29/29 and 24/24, lint/spacing/typecheck, build 190/190, structured-file, diff, and scope gates pass. No production or authority-layer mutation occurred."
+    },
+    {
+      "at": "2026-07-23T01:37:28Z",
+      "status": "github_checks_pending_reapproval",
+      "summary": "Committed the fully verified public-projection repair as 2e5eb6e31935f95e2920c145e81cf6bba83b1ce3 and rebound commit_sha to that exact content head. This following ledger-only commit records the binding before push; fresh required checks and exact-head review remain mandatory."
     }
   ],
-  "updated_at": "2026-07-23T01:36:50Z"
+  "updated_at": "2026-07-23T01:37:28Z"
 }
 }
