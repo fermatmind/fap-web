@@ -216,4 +216,5 @@
 - `deploy/openresty/fap-web-public.conf` is the canonical public-web ingress configuration for the existing Node1 OpenResty runtime.
 - CSP nonce-bearing HTML and every other non-static route must bypass shared proxy caches and preserve the application `Cache-Control` response. Only explicitly allowlisted immutable/static resources may use public ingress caching.
 - Public ingress preflight, apply, and rollback must use the protected `Web Public Ingress Control` workflow with the exact latest `main` SHA and exact config/config-set or backup SHA authorization defined by the runbook.
+- Node1 connection values and OpenResty routing metadata used by that workflow must be production environment secrets only. Do not add an Actions-variable fallback or expose their raw values in logs or artifacts.
 - Never perform an unversioned SSH config edit, OpenResty reload, or automatic rollback. Production application deployment remains a separate exact-SHA-controlled workflow.

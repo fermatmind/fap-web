@@ -96,6 +96,30 @@ describe("versioned public ingress cache boundary", () => {
     expect(workflow).not.toContain("push:");
   });
 
+  it("keeps ingress routing metadata masked as production environment secrets", () => {
+    const secretBindings = [
+      "DEPLOY_HOST: ${{ secrets.WEB_NODE1_DEPLOY_HOST }}",
+      "DEPLOY_USER: ${{ secrets.WEB_NODE1_DEPLOY_USER }}",
+      "DEPLOY_PORT: ${{ secrets.WEB_NODE1_DEPLOY_PORT }}",
+      "PUBLIC_BASE_URL: ${{ secrets.WEB_PUBLIC_BASE_URL }}",
+      "OPENRESTY_CONTAINER: ${{ secrets.WEB_NODE1_OPENRESTY_CONTAINER }}",
+      "OPENRESTY_CONFIG_ROOT: ${{ secrets.WEB_NODE1_OPENRESTY_CONFIG_ROOT }}",
+      "OPENRESTY_MANAGED_FILES: ${{ secrets.WEB_NODE1_OPENRESTY_MANAGED_FILES }}",
+      "OPENRESTY_PRIMARY_FILE: ${{ secrets.WEB_NODE1_OPENRESTY_PRIMARY_FILE }}",
+      "OPENRESTY_BACKUP_DIR: ${{ secrets.WEB_NODE1_OPENRESTY_BACKUP_DIR }}",
+    ];
+
+    for (const binding of secretBindings) {
+      expect(workflow).toContain(binding);
+    }
+    expect(workflow).not.toContain("vars.WEB_NODE1_");
+    expect(workflow).not.toContain("vars.WEB_PUBLIC_BASE_URL");
+    expect(workflow).toContain('test -n "$DEPLOY_PORT"');
+    expect(workflow).not.toContain('${DEPLOY_PORT:=22}');
+    expect(workflow).toContain("Never add an Actions-variable fallback.");
+    expect(repositoryRules).toContain("must be production environment secrets only");
+  });
+
   it("probes nonce uniqueness, non-shared HTML, immutable static assets and direct revision", () => {
     expect(probe).toContain("independent_response_nonces");
     expect(probe).toContain("non_shared_html");

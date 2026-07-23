@@ -14,7 +14,7 @@ The canonical candidate is `deploy/openresty/fap-web-public.conf`. It keeps long
 - Backups are stored outside the active include root. Backup-like files inside the active root fail closed.
 - Apply never triggers rollback automatically. A rollback requires a separate SHA-bound approval.
 
-The production environment must provide the existing Node1 SSH credentials plus these non-secret variables or secrets:
+The production environment must provide the existing Node1 SSH credentials and all ingress routing metadata as environment secrets. Actions variables are intentionally unsupported because the runner can print unmasked variable values in step diagnostics. This secret-only boundary covers the existing `WEB_NODE1_DEPLOY_HOST`, `WEB_NODE1_DEPLOY_USER`, and `WEB_NODE1_DEPLOY_PORT` values plus:
 
 - `WEB_NODE1_OPENRESTY_CONTAINER`
 - `WEB_NODE1_OPENRESTY_CONFIG_ROOT`
@@ -23,7 +23,7 @@ The production environment must provide the existing Node1 SSH credentials plus 
 - `WEB_NODE1_OPENRESTY_BACKUP_DIR`
 - `WEB_PUBLIC_BASE_URL`
 
-All configured filenames must be basenames, and the backup root must be outside the live config root. Logs and artifacts contain only SHA-256 values, counts, boolean observations, response status, cache policy, and redacted failure text. They do not publish host addresses, certificate paths, upstream addresses, raw vhost configuration, SSH material, or approval secrets.
+All configured filenames must be basenames, and the backup root must be outside the live config root. Do not reintroduce a `vars.*` fallback for these values. Logs and artifacts contain only SHA-256 values, counts, boolean observations, response status, cache policy, and redacted failure text. They do not publish host addresses, account names, filesystem paths, container names, certificate paths, upstream addresses, raw vhost configuration, SSH material, or approval secrets.
 
 ## Controlled sequence
 
