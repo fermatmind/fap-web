@@ -50775,7 +50775,7 @@
       "MBTI-COMP-GATE-47"
     ],
   "status": "operator_editorial_reapproval_pending",
-  "commit_sha": "2e5eb6e31935f95e2920c145e81cf6bba83b1ce3",
+  "commit_sha": "8140a90ac349d4b36987c94876e3838f1ccefed6",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
       "authorization": {
@@ -50888,8 +50888,13 @@
       "at": "2026-07-23T01:54:07Z",
       "status": "operator_editorial_reapproval_pending",
       "summary": "Exact repaired head fd13c8c922cea4d35646d007993e821cb6563be2 passed all seven required checks and remained CLEAN/MERGEABLE. Codex reviewed that exact commit and reported no major issues; every review thread is resolved. Final repaired package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f remains blocked pending new exact operator editorial approval. This ledger-only closeout head must pass its own final checks/review; no production or authority-layer mutation occurred."
+    },
+    {
+      "at": "2026-07-23T02:05:30Z",
+      "status": "operator_editorial_reapproval_pending",
+      "summary": "Ledger-only closeout head 8140a90ac349d4b36987c94876e3838f1ccefed6 passed all seven required checks, remained CLEAN/MERGEABLE, and received an exact-head Codex review. Rebound commit_sha to that checked closeout head so the operator and train tooling cannot validate against the earlier content-only commit. The resulting child commit records only this SHA binding and does not change package bytes, content candidates, scope, or authority boundaries."
     }
   ],
-  "updated_at": "2026-07-23T01:54:07Z"
+  "updated_at": "2026-07-23T02:05:30Z"
 }
 }
