@@ -3,7 +3,7 @@
   "id": "MBTI-CROSS-APPROVAL-48",
   "generated_at": "2026-07-23T01:20:00+08:00",
   "status": "pending_operator_editorial_reapproval",
-  "final_decision": "PENDING_EXACT_THREE_EDITORIAL_REAPPROVAL_AFTER_RUNTIME_SHAPE_REPAIR_NO_PRODUCTION_ACTION_AUTHORIZED",
+  "final_decision": "PENDING_EXACT_THREE_EDITORIAL_REAPPROVAL_AFTER_READBACK_CONTRACT_REPAIR_NO_PRODUCTION_ACTION_AUTHORIZED",
   "summary": {
     "record_count": 3,
     "exact_slugs": [
@@ -16,11 +16,13 @@
     "pending_count": 3
   },
   "editorial_approval": {
-    "decision": "reapproval_required_after_runtime_shape_repair",
-    "approved_at": "2026-07-23T08:40:09+08:00",
+    "decision": "reapproval_required_after_llms_full_readback_contract_repair",
+    "previously_approved_repaired_package_sha256": "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f",
+    "previous_repaired_approval_statement_sha256": "d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca",
+    "previous_operator_authorization_sha256": "9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b",
     "previously_approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
     "previous_approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
-    "invalidation_reason": "Runtime adapter compatibility repairs map the source asset into the exact public projection keys, normalize section body arrays and internal-link fields, and use canonical profile hrefs; the repaired payload requires a new exact editorial approval.",
+    "invalidation_reason": "The content-phase readback contract now explicitly requires llms_full_eligible=false in addition to llms_eligible=false; this fail-closed repair changes the package hash and requires a new exact editorial approval.",
     "exact_slugs": [
       "enfp-vs-entp",
       "estj-vs-entj",
@@ -325,13 +327,14 @@
         "robots": "noindex,follow",
         "is_indexable": false,
         "sitemap_eligible": false,
-        "llms_eligible": false
+        "llms_eligible": false,
+        "llms_full_eligible": false
       },
       "manual_review": {
         "source_review_status": "draft",
-        "operator_editorial_approval": "pending_reapproval_after_runtime_shape_repair",
-        "previously_approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
-        "previous_approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
+        "operator_editorial_approval": "pending_reapproval_after_llms_full_readback_contract_repair",
+        "previously_approved_repaired_package_sha256": "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f",
+        "previous_repaired_approval_statement_sha256": "d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca",
         "content_release_authorized": false,
         "indexability_release_authorized": false
       }
@@ -614,13 +617,14 @@
         "robots": "noindex,follow",
         "is_indexable": false,
         "sitemap_eligible": false,
-        "llms_eligible": false
+        "llms_eligible": false,
+        "llms_full_eligible": false
       },
       "manual_review": {
         "source_review_status": "draft",
-        "operator_editorial_approval": "pending_reapproval_after_runtime_shape_repair",
-        "previously_approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
-        "previous_approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
+        "operator_editorial_approval": "pending_reapproval_after_llms_full_readback_contract_repair",
+        "previously_approved_repaired_package_sha256": "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f",
+        "previous_repaired_approval_statement_sha256": "d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca",
         "content_release_authorized": false,
         "indexability_release_authorized": false
       }
@@ -896,13 +900,14 @@
         "robots": "noindex,follow",
         "is_indexable": false,
         "sitemap_eligible": false,
-        "llms_eligible": false
+        "llms_eligible": false,
+        "llms_full_eligible": false
       },
       "manual_review": {
         "source_review_status": "draft",
-        "operator_editorial_approval": "pending_reapproval_after_runtime_shape_repair",
-        "previously_approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
-        "previous_approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
+        "operator_editorial_approval": "pending_reapproval_after_llms_full_readback_contract_repair",
+        "previously_approved_repaired_package_sha256": "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f",
+        "previous_repaired_approval_statement_sha256": "d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca",
         "content_release_authorized": false,
         "indexability_release_authorized": false
       }
@@ -985,5 +990,5 @@
     "search_submission_attempted": false,
     "credentials_or_user_data_included": false
   },
-  "package_sha256": "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f"
+  "package_sha256": "b967ffda14e373f88b6a925ad23e3b60303810a3d27f4156bb950952cc71125b"
 }
