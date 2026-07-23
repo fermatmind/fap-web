@@ -50774,8 +50774,8 @@
     "depends_on": [
       "MBTI-COMP-GATE-47"
     ],
-  "status": "local_checks_passed_operator_approved",
-  "commit_sha": "676c17d4858d639e5950626924e77f2888396329",
+  "status": "ready_to_merge",
+  "commit_sha": "87b543d3c0eadb3230527a1a29d307147ed41432",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
       "authorization": {
@@ -50799,8 +50799,8 @@
       "evidence": "All PR48 manifest gates pass after recording the exact repaired-package R2 approval: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, production build 206/206, deterministic generation, structured-file, diff, and exact allowed-path scope checks. Package SHA-256 remains byte-identical at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae. The user-owned .workbuddy path remains untouched and excluded."
       },
     "github_required_checks": {
-      "status": "pending",
-      "evidence": "Exact repaired content head 676c17d4858d639e5950626924e77f2888396329 passed all seven required checks and review. The new matching R2 authorization envelope and approval-state transition require fresh exact-head checks."
+      "status": "pass",
+      "evidence": "Exact R2 approval head 87b543d3c0eadb3230527a1a29d307147ed41432 passed all seven required checks and remained MERGEABLE. Codex review found only that commit_sha still referenced the pre-R2 head; this ledger-only closeout binds the state to the exact checked R2 approval head."
       },
       "operator_editorial_approval": {
         "status": "pass",
@@ -50810,7 +50810,7 @@
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-    "github_checks_green": false,
+    "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -50953,8 +50953,13 @@
       "at": "2026-07-23T05:15:36Z",
       "status": "local_checks_passed_operator_approved",
       "summary": "All PR48 manifest gates pass after recording the exact repaired-package R2 approval: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206. The package remains byte-identical at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae and the matching R2 authorization remains be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670. No production or authority-layer mutation occurred."
+    },
+    {
+      "at": "2026-07-23T05:27:50Z",
+      "status": "ready_to_merge",
+      "summary": "Exact R2 approval head 87b543d3c0eadb3230527a1a29d307147ed41432 passed all seven required checks and remained MERGEABLE. Codex review found one valid P2: commit_sha still referenced the pre-R2 head. This ledger-only closeout binds the approval state to the exact checked R2 head. Package SHA-256 remains 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae and authorization SHA-256 remains be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670; PR48 is ready to merge after this closeout head passes required checks."
     }
   ],
-  "updated_at": "2026-07-23T05:15:36Z"
+  "updated_at": "2026-07-23T05:27:50Z"
 }
 }
