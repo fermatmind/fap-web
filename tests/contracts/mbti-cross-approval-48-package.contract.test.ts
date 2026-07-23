@@ -47,7 +47,11 @@ type Report = {
   summary: { record_count: number; exact_slugs: string[]; source_hash_drift_count: number; approved_count: number; pending_count: number };
   editorial_approval: Record<string, unknown> & { decision: string; previously_approved_repaired_package_sha256: string; previous_repaired_approval_statement_sha256: string };
   records: ApprovalRecord[];
-  content_release_candidate: { payload_sha256: string; authorization_status: string };
+  content_release_candidate: {
+    payload: { invariants: { keep_out_of_llms: boolean; keep_out_of_llms_full: boolean } };
+    payload_sha256: string;
+    authorization_status: string;
+  };
   indexability_release_template: { template_sha256: string; authorization_status: string };
   safety_boundary: Record<string, boolean>;
   package_sha256: string;
@@ -241,9 +245,9 @@ describe("MBTI-CROSS-APPROVAL-48 exact approval package", () => {
   it("invalidates the previous repaired-package approval while keeping production releases blocked", () => {
     const { report, authorization } = generate();
     expect(report.status).toBe("pending_operator_editorial_reapproval");
-    expect(report.final_decision).toBe("PENDING_EXACT_THREE_EDITORIAL_REAPPROVAL_AFTER_READBACK_CONTRACT_REPAIR_NO_PRODUCTION_ACTION_AUTHORIZED");
+    expect(report.final_decision).toBe("PENDING_EXACT_THREE_EDITORIAL_REAPPROVAL_AFTER_LLMS_FULL_CONTRACT_REPAIR_NO_PRODUCTION_ACTION_AUTHORIZED");
     expect(report.editorial_approval).toMatchObject({
-      decision: "reapproval_required_after_llms_full_readback_contract_repair",
+      decision: "reapproval_required_after_llms_full_contract_repair",
       previously_approved_repaired_package_sha256: "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f",
       previous_operator_authorization_sha256: "9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b",
       permits_pr_48_finalization_and_merge: false,
@@ -254,11 +258,15 @@ describe("MBTI-CROSS-APPROVAL-48 exact approval package", () => {
       search_submission_authorized: false,
     });
     expect(report.editorial_approval.previous_repaired_approval_statement_sha256).toMatch(/^[a-f0-9]{64}$/);
-    expect(report.records.every((record) => record.manual_review.operator_editorial_approval === "pending_reapproval_after_llms_full_readback_contract_repair")).toBe(true);
+    expect(report.records.every((record) => record.manual_review.operator_editorial_approval === "pending_reapproval_after_llms_full_contract_repair")).toBe(true);
     expect(report.records.every((record) => record.manual_review.previously_approved_repaired_package_sha256 === report.editorial_approval.previously_approved_repaired_package_sha256)).toBe(true);
     expect(report.records.every((record) => record.manual_review.previous_repaired_approval_statement_sha256 === report.editorial_approval.previous_repaired_approval_statement_sha256)).toBe(true);
     expect(report.records.every((record) => !record.manual_review.content_release_authorized && !record.manual_review.indexability_release_authorized)).toBe(true);
     expect(report.content_release_candidate.authorization_status).toContain("blocked_pending_editorial_reapproval_and_separate_production_content_write_authorization");
+    expect(report.content_release_candidate.payload.invariants).toMatchObject({
+      keep_out_of_llms: true,
+      keep_out_of_llms_full: true,
+    });
     expect(report.indexability_release_template.authorization_status).toContain("blocked_until_content_promotion_and_readback_pass");
     expect(authorization).toMatchObject({
       schema_version: "mbti.cross_type_comparison.operator_editorial_authorization.v1",
@@ -290,8 +298,10 @@ describe("MBTI-CROSS-APPROVAL-48 exact approval package", () => {
       operator_authorization_sha256: authorization.authorization_sha256,
       operator_approval_statement_sha256: authorization.approval_statement_sha256,
       operator_authorization_matches_current_package: false,
-      current_operator_approval_status: "pending_reapproval_after_llms_full_readback_contract_repair",
+      current_operator_approval_status: "pending_reapproval_after_llms_full_contract_repair",
     });
+    expect(manifest.previous_approval_statement_sha256).toBe(report.editorial_approval.previous_approval_statement_sha256);
+    expect(manifest.previous_approval_statement_sha256).not.toBe(report.editorial_approval.previous_repaired_approval_statement_sha256);
     expect(manifest.records).toHaveLength(3);
     const serialized = JSON.stringify([report, authorization]).toLowerCase();
     expect(serialized).not.toMatch(/"(?:token|secret|password|authorization|api_key|email|user_id)"\s*:/);

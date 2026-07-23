@@ -8,15 +8,15 @@
     "estj-vs-entj",
     "isfp-vs-infp"
   ],
-  "package_sha256": "b967ffda14e373f88b6a925ad23e3b60303810a3d27f4156bb950952cc71125b",
+  "package_sha256": "604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae",
   "operator_authorization_path": "docs/seo/personality/mbti-cross-approval-48-operator-authorization-2026-07-23.json",
   "operator_authorization_sha256": "9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b",
   "operator_approval_statement_sha256": "d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca",
   "operator_authorization_matches_current_package": false,
-  "current_operator_approval_status": "pending_reapproval_after_llms_full_readback_contract_repair",
+  "current_operator_approval_status": "pending_reapproval_after_llms_full_contract_repair",
   "previously_approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
-  "previous_approval_statement_sha256": "d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca",
-  "content_release_candidate_sha256": "509dbf09cfdd22373e53b20285a77864bfefebce54579dbda25813e7fcc40ea1",
+  "previous_approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
+  "content_release_candidate_sha256": "0c680aeaa17fc3a022e7c78444628c8381d5584c4e4964dd4d801c79072193c6",
   "indexability_release_template_sha256": "3f3aaf4da6ff6ad4c41ba705ffecc4b8c1ff060d5f76c70142fe4ce575314dfb",
   "records": [
     {

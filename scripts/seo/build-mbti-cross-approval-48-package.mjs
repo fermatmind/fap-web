@@ -10,7 +10,7 @@ const APPROVED_PENDING_PACKAGE_SHA256 = "1c7e94b856725ee4aa4f5e50a07faf5fbba4820
 const EDITORIAL_APPROVAL_STATEMENT =
   "I explicitly approve MBTI-CROSS-APPROVAL-48 operator editorial approval for exact package SHA 1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6 covering only enfp-vs-entp, estj-vs-entj, and isfp-vs-infp. This approval permits finalizing and merging PR #1801 and proceeding to MBTI-CROSS-PUBLISHER-49; it does not authorize production CMS/DB writes, publication/indexability changes, sitemap/llms changes, or search submission.";
 const PREVIOUSLY_APPROVED_REPAIRED_PACKAGE_SHA256 = "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f";
-const CURRENT_REPAIRED_PACKAGE_SHA256 = "b967ffda14e373f88b6a925ad23e3b60303810a3d27f4156bb950952cc71125b";
+const CURRENT_REPAIRED_PACKAGE_SHA256 = "604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae";
 const REPAIRED_EDITORIAL_APPROVED_AT = "2026-07-23T11:42:53+08:00";
 const REPAIRED_EDITORIAL_APPROVAL_STATEMENT =
   "I explicitly approve MBTI-CROSS-APPROVAL-48 operator editorial approval for exact package SHA f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f covering only enfp-vs-entp, estj-vs-entj, and isfp-vs-infp. This approval permits finalizing and merging PR #1801 and proceeding to MBTI-CROSS-PUBLISHER-49; it does not authorize production CMS/DB writes, publication/indexability changes, sitemap/llms changes, or search submission.";
@@ -161,6 +161,7 @@ function releasePayload(records) {
       keep_noindex: true,
       keep_out_of_sitemap: true,
       keep_out_of_llms: true,
+      keep_out_of_llms_full: true,
       no_indexability_mutation: true,
     },
   };
@@ -249,7 +250,7 @@ async function build() {
       },
       manual_review: {
         source_review_status: asset.review_status,
-        operator_editorial_approval: "pending_reapproval_after_llms_full_readback_contract_repair",
+        operator_editorial_approval: "pending_reapproval_after_llms_full_contract_repair",
         previously_approved_repaired_package_sha256: PREVIOUSLY_APPROVED_REPAIRED_PACKAGE_SHA256,
         previous_repaired_approval_statement_sha256: sha256(REPAIRED_EDITORIAL_APPROVAL_STATEMENT),
         content_release_authorized: false,
@@ -274,7 +275,7 @@ async function build() {
     id: "MBTI-CROSS-APPROVAL-48",
     generated_at: GENERATED_AT,
     status: "pending_operator_editorial_reapproval",
-    final_decision: "PENDING_EXACT_THREE_EDITORIAL_REAPPROVAL_AFTER_READBACK_CONTRACT_REPAIR_NO_PRODUCTION_ACTION_AUTHORIZED",
+    final_decision: "PENDING_EXACT_THREE_EDITORIAL_REAPPROVAL_AFTER_LLMS_FULL_CONTRACT_REPAIR_NO_PRODUCTION_ACTION_AUTHORIZED",
     summary: {
       record_count: records.length,
       exact_slugs: records.map((record) => record.slug),
@@ -283,13 +284,13 @@ async function build() {
       pending_count: records.length,
     },
     editorial_approval: {
-      decision: "reapproval_required_after_llms_full_readback_contract_repair",
+      decision: "reapproval_required_after_llms_full_contract_repair",
       previously_approved_repaired_package_sha256: PREVIOUSLY_APPROVED_REPAIRED_PACKAGE_SHA256,
       previous_repaired_approval_statement_sha256: sha256(REPAIRED_EDITORIAL_APPROVAL_STATEMENT),
       previous_operator_authorization_sha256: "9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b",
       previously_approved_pending_package_sha256: APPROVED_PENDING_PACKAGE_SHA256,
       previous_approval_statement_sha256: sha256(EDITORIAL_APPROVAL_STATEMENT),
-      invalidation_reason: "The content-phase readback contract now explicitly requires llms_full_eligible=false in addition to llms_eligible=false; this fail-closed repair changes the package hash and requires a new exact editorial approval.",
+      invalidation_reason: "The content-release payload now requires keep_out_of_llms_full=true and content-phase readback explicitly requires llms_full_eligible=false in addition to llms_eligible=false; this fail-closed repair changes the package hash and requires a new exact editorial approval.",
       exact_slugs: records.map((record) => record.slug),
       permits_pr_48_finalization_and_merge: false,
       permits_pr_49_implementation: false,
@@ -329,7 +330,7 @@ async function build() {
     },
   };
   const packageSha256 = sha256Json(packageCore);
-  assert(packageSha256 === CURRENT_REPAIRED_PACKAGE_SHA256, "Current repaired package SHA drift");
+  assert(packageSha256 === CURRENT_REPAIRED_PACKAGE_SHA256, `Current repaired package SHA drift: ${packageSha256}`);
   const report = { ...packageCore, package_sha256: packageSha256 };
   const operatorAuthorizationCore = {
     schema_version: "mbti.cross_type_comparison.operator_editorial_authorization.v1",
@@ -362,9 +363,9 @@ async function build() {
     operator_authorization_sha256: operatorAuthorization.authorization_sha256,
     operator_approval_statement_sha256: operatorAuthorization.approval_statement_sha256,
     operator_authorization_matches_current_package: operatorAuthorization.approved_package_sha256 === packageSha256,
-    current_operator_approval_status: "pending_reapproval_after_llms_full_readback_contract_repair",
+    current_operator_approval_status: "pending_reapproval_after_llms_full_contract_repair",
     previously_approved_pending_package_sha256: APPROVED_PENDING_PACKAGE_SHA256,
-    previous_approval_statement_sha256: report.editorial_approval.previous_repaired_approval_statement_sha256,
+    previous_approval_statement_sha256: report.editorial_approval.previous_approval_statement_sha256,
     content_release_candidate_sha256: report.content_release_candidate.payload_sha256,
     indexability_release_template_sha256: report.indexability_release_template.template_sha256,
     records: records.map((record) => ({
@@ -376,7 +377,7 @@ async function build() {
       internal_links_sha256: record.expected_content_contract.internal_links_sha256,
     })),
   };
-  const markdown = `# MBTI-CROSS-APPROVAL-48 rollback/readback contract\n\n- Status: pending operator editorial reapproval after explicit llms-full readback repair\n- Current repaired package SHA-256: \`${packageSha256}\`\n- Previously approved repaired package SHA-256: \`${PREVIOUSLY_APPROVED_REPAIRED_PACKAGE_SHA256}\`\n- Previous operator authorization SHA-256: \`${operatorAuthorization.authorization_sha256}\`\n- Previous operator approval statement SHA-256: \`${operatorAuthorization.approval_statement_sha256}\`\n- Previous authorization asset: \`${AUTHORIZATION_PATH}\`\n- Previous authorization matches current package: no\n- Previously approved pending package SHA-256: \`${APPROVED_PENDING_PACKAGE_SHA256}\`\n- Earlier approval statement SHA-256: \`${report.editorial_approval.previous_approval_statement_sha256}\`\n- Exact records: ${records.map((record) => record.slug).join(", ")}\n- Record count: 3\n- Content-release candidate SHA-256: \`${report.content_release_candidate.payload_sha256}\`\n- Indexability template SHA-256: \`${report.indexability_release_template.template_sha256}\`\n- Readback repair: every content-phase record now explicitly requires both \`llms_eligible: false\` and \`llms_full_eligible: false\` before any indexability release.\n- Runtime-shape repair: candidate payloads use the exact public projection keys required by the frontend adapter, including comparison_slug, public_route_type, type identity, and canonical_url; every section has a non-empty body array; internal links use label/href/reason; four-letter profile hrefs normalize to explicit canonical A-variant targets.\n- Source hash drift: all three current committed snapshots differ from the stale source-manifest declarations; the exact snapshot hashes remain the provenance inputs, while the candidate payload is a deterministic runtime-compatible projection.\n\n## Content revision phase\n\nThe previous editorial authorization is retained as immutable history but does not match the current repaired package. A new exact editorial approval is required before PR 48 merge or PR 49 implementation. Editorial approval still will not authorize a production write. A future executor must also require a separate exact production package/authorization hash, capture each pre-write revision and payload hash, write only the exact three records atomically, keep all three noindex and outside sitemap/llms, and roll back all three on any write or readback failure.\n\n## Readback\n\nReadback must prove DB/CMS authority, exact content/section/FAQ/internal-link hashes, canonical parity, HTTP 200 API/page responses, visible complete body, robots \`noindex,follow\`, and explicit exclusion from both llms.txt and llms-full.txt. A local approval asset or frontend fallback cannot satisfy readback.\n\n## Indexability phase\n\nIndexability is a separate future authorization after successful content promotion/readback. It may change only robots/indexability/sitemap/llms eligibility for the exact three records and must not modify content or request search indexing.\n`;
+  const markdown = `# MBTI-CROSS-APPROVAL-48 rollback/readback contract\n\n- Status: pending operator editorial reapproval after explicit llms-full release/readback repair\n- Current repaired package SHA-256: \`${packageSha256}\`\n- Previously approved repaired package SHA-256: \`${PREVIOUSLY_APPROVED_REPAIRED_PACKAGE_SHA256}\`\n- Previous operator authorization SHA-256: \`${operatorAuthorization.authorization_sha256}\`\n- Previous operator approval statement SHA-256: \`${operatorAuthorization.approval_statement_sha256}\`\n- Previous authorization asset: \`${AUTHORIZATION_PATH}\`\n- Previous authorization matches current package: no\n- Previously approved pending package SHA-256: \`${APPROVED_PENDING_PACKAGE_SHA256}\`\n- Earlier approval statement SHA-256: \`${report.editorial_approval.previous_approval_statement_sha256}\`\n- Exact records: ${records.map((record) => record.slug).join(", ")}\n- Record count: 3\n- Content-release candidate SHA-256: \`${report.content_release_candidate.payload_sha256}\`\n- Indexability template SHA-256: \`${report.indexability_release_template.template_sha256}\`\n- Release/readback repair: the content-release payload requires \`keep_out_of_llms_full: true\`, and every content-phase record explicitly requires both \`llms_eligible: false\` and \`llms_full_eligible: false\` before any indexability release.\n- Runtime-shape repair: candidate payloads use the exact public projection keys required by the frontend adapter, including comparison_slug, public_route_type, type identity, and canonical_url; every section has a non-empty body array; internal links use label/href/reason; four-letter profile hrefs normalize to explicit canonical A-variant targets.\n- Source hash drift: all three current committed snapshots differ from the stale source-manifest declarations; the exact snapshot hashes remain the provenance inputs, while the candidate payload is a deterministic runtime-compatible projection.\n\n## Content revision phase\n\nThe previous editorial authorization is retained as immutable history but does not match the current repaired package. A new exact editorial approval is required before PR 48 merge or PR 49 implementation. Editorial approval still will not authorize a production write. A future executor must also require a separate exact production package/authorization hash, capture each pre-write revision and payload hash, write only the exact three records atomically, keep all three noindex and outside sitemap/llms/llms-full, and roll back all three on any write or readback failure.\n\n## Readback\n\nReadback must prove DB/CMS authority, exact content/section/FAQ/internal-link hashes, canonical parity, HTTP 200 API/page responses, visible complete body, robots \`noindex,follow\`, and explicit exclusion from both llms.txt and llms-full.txt. A local approval asset or frontend fallback cannot satisfy readback.\n\n## Indexability phase\n\nIndexability is a separate future authorization after successful content promotion/readback. It may change only robots/indexability/sitemap/llms eligibility for the exact three records and must not modify content or request search indexing.\n`;
 
   for (const [relativePath, content] of [
     [PACKAGE_PATH, `${JSON.stringify(report, null, 2)}\n`],

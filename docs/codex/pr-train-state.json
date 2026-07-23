@@ -50774,7 +50774,7 @@
     "depends_on": [
       "MBTI-COMP-GATE-47"
     ],
-  "status": "review_fix_local_pass_pending_reapproval",
+  "status": "second_review_fix_local_pass_pending_reapproval",
   "commit_sha": "ea0d922833d792d52d387ccd8a1b900ab9b6b858",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
@@ -50792,19 +50792,19 @@
       },
       "focused_contracts": {
         "status": "pass",
-      "evidence": "The deterministic generator and focused Approval48/Gate47 contracts pass 22/22 after repairing all exact-head runtime-shape, artifact-integrity, and llms-full readback findings. Candidate payloads use the exact comparison_public_projection_v1 keys consumed by the frontend adapter. The contract captures committed package/hash/markdown bytes before generator execution, proves that tampered or missing checked-in artifacts fail, and locks llms_full_eligible=false for every exact record. The prior approval is retained as immutable history but invalidated for the current package. Repaired pending-reapproval package SHA-256: b967ffda14e373f88b6a925ad23e3b60303810a3d27f4156bb950952cc71125b."
+      "evidence": "The deterministic generator and focused Approval48/Gate47 contracts cover the exact runtime shape, artifact integrity, llms-full release invariant, and llms-full readback invariant. Candidate payloads use the exact comparison_public_projection_v1 keys consumed by the frontend adapter. The contract captures committed package/hash/markdown bytes before generator execution, proves that tampered or missing checked-in artifacts fail, and binds the distinct approval statements to their correct historical package hashes. The prior approval is retained as immutable history but invalidated for the current package. Repaired pending-reapproval package SHA-256: 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae."
       },
       "required_local_checks": {
         "status": "pass",
-      "evidence": "Fresh validation passes after the llms-full readback repair: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, production build 206/206, deterministic generation, structured-file, diff, and exact allowed-path scope checks. The user-owned .workbuddy path remains untouched and excluded."
+      "evidence": "Fresh validation passes after the llms-full release/evidence-chain repair: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, production build 206/206, deterministic generation, structured-file, diff, and exact allowed-path scope checks. The user-owned .workbuddy path remains untouched and excluded."
       },
     "github_required_checks": {
       "status": "pending",
-      "evidence": "Checked predecessor 6b257cd1d38cb18387961f9fcf32688ec33e826a passed all seven required checks and remained CLEAN/MERGEABLE. Exact-head review then found that committed artifacts were not compared before regeneration and that the final ledger mutation could not truthfully claim its own checks. The artifact guard and pending-state correction require fresh exact-head checks/review."
+      "evidence": "Checked predecessor b724425fc06015eefa718485e8ed843053a4b513 passed all seven required checks and remained MERGEABLE. Exact-head review then found two valid P2 evidence-chain gaps. The scoped release-invariant and historical-statement-hash repairs require fresh exact-head checks and review."
       },
       "operator_editorial_approval": {
         "status": "pending_reapproval",
-      "evidence": "The operator approved package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f, but exact-head review required an explicit llms_full_eligible=false content-readback invariant. The resulting current package SHA-256 b967ffda14e373f88b6a925ad23e3b60303810a3d27f4156bb950952cc71125b is not covered by the immutable prior authorization 9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b and needs a new exact editorial approval before merge or PR49."
+      "evidence": "The operator approved package SHA-256 f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f, but exact-head reviews required explicit llms-full release and readback invariants plus correction of the earlier approval-statement evidence link. The resulting current package SHA-256 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae is not covered by the immutable prior authorization 9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b and needs a new exact editorial approval before merge or PR49."
       }
     },
     "scope_validation": {
@@ -50928,8 +50928,18 @@
       "at": "2026-07-23T04:16:47Z",
       "status": "review_fix_local_pass_pending_reapproval",
       "summary": "Fresh local validation passes on the exact llms-full readback repair: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206. Deterministic generation keeps the candidate content release SHA byte-stable at 509dbf09cfdd22373e53b20285a77864bfefebce54579dbda25813e7fcc40ea1 while producing current package SHA-256 b967ffda14e373f88b6a925ad23e3b60303810a3d27f4156bb950952cc71125b. The immutable f5a0d286 authorization does not match this repaired package; merge and PR49 remain blocked pending new exact editorial approval."
+    },
+    {
+      "at": "2026-07-23T04:29:22Z",
+      "status": "second_review_fix_local_checks_pending_reapproval",
+      "summary": "All seven required checks passed on b724425fc06015eefa718485e8ed843053a4b513, then exact-head Codex review found two valid P2 evidence-chain gaps. The content-release payload now requires keep_out_of_llms_full=true, matching the explicit readback exclusion, and the hash manifest now binds the original 1c7e94 approval statement hash rather than duplicating the later repaired-package statement hash. Record content hashes remain unchanged; the repaired content-release candidate SHA-256 is 0c680aeaa17fc3a022e7c78444628c8381d5584c4e4964dd4d801c79072193c6 and the current package SHA-256 is 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae. Fresh local checks and exact reapproval are required before merge or PR49."
+    },
+    {
+      "at": "2026-07-23T04:35:10Z",
+      "status": "second_review_fix_local_pass_pending_reapproval",
+      "summary": "Fresh local validation passes on the exact llms-full release/evidence-chain repair: focused Approval48/Gate47 22/22, lint with zero errors and two unrelated generated warnings, spacing, typecheck, full contracts 767 files / 4437 tests, Big Five freeze 29/29, Enneagram freeze 24/24, and production build 206/206. The package is deterministically locked at 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae; the immutable f5a0d286 authorization does not match it. Merge and PR49 remain blocked pending new exact editorial approval."
     }
   ],
-  "updated_at": "2026-07-23T04:16:47Z"
+  "updated_at": "2026-07-23T04:35:10Z"
 }
 }

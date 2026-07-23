@@ -3,7 +3,7 @@
   "id": "MBTI-CROSS-APPROVAL-48",
   "generated_at": "2026-07-23T01:20:00+08:00",
   "status": "pending_operator_editorial_reapproval",
-  "final_decision": "PENDING_EXACT_THREE_EDITORIAL_REAPPROVAL_AFTER_READBACK_CONTRACT_REPAIR_NO_PRODUCTION_ACTION_AUTHORIZED",
+  "final_decision": "PENDING_EXACT_THREE_EDITORIAL_REAPPROVAL_AFTER_LLMS_FULL_CONTRACT_REPAIR_NO_PRODUCTION_ACTION_AUTHORIZED",
   "summary": {
     "record_count": 3,
     "exact_slugs": [
@@ -16,13 +16,13 @@
     "pending_count": 3
   },
   "editorial_approval": {
-    "decision": "reapproval_required_after_llms_full_readback_contract_repair",
+    "decision": "reapproval_required_after_llms_full_contract_repair",
     "previously_approved_repaired_package_sha256": "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f",
     "previous_repaired_approval_statement_sha256": "d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca",
     "previous_operator_authorization_sha256": "9856cd386fcd22391f216f8f77a08ff4f8ccc25c164938928b72ec6c43ea891b",
     "previously_approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
     "previous_approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
-    "invalidation_reason": "The content-phase readback contract now explicitly requires llms_full_eligible=false in addition to llms_eligible=false; this fail-closed repair changes the package hash and requires a new exact editorial approval.",
+    "invalidation_reason": "The content-release payload now requires keep_out_of_llms_full=true and content-phase readback explicitly requires llms_full_eligible=false in addition to llms_eligible=false; this fail-closed repair changes the package hash and requires a new exact editorial approval.",
     "exact_slugs": [
       "enfp-vs-entp",
       "estj-vs-entj",
@@ -332,7 +332,7 @@
       },
       "manual_review": {
         "source_review_status": "draft",
-        "operator_editorial_approval": "pending_reapproval_after_llms_full_readback_contract_repair",
+        "operator_editorial_approval": "pending_reapproval_after_llms_full_contract_repair",
         "previously_approved_repaired_package_sha256": "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f",
         "previous_repaired_approval_statement_sha256": "d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca",
         "content_release_authorized": false,
@@ -622,7 +622,7 @@
       },
       "manual_review": {
         "source_review_status": "draft",
-        "operator_editorial_approval": "pending_reapproval_after_llms_full_readback_contract_repair",
+        "operator_editorial_approval": "pending_reapproval_after_llms_full_contract_repair",
         "previously_approved_repaired_package_sha256": "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f",
         "previous_repaired_approval_statement_sha256": "d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca",
         "content_release_authorized": false,
@@ -905,7 +905,7 @@
       },
       "manual_review": {
         "source_review_status": "draft",
-        "operator_editorial_approval": "pending_reapproval_after_llms_full_readback_contract_repair",
+        "operator_editorial_approval": "pending_reapproval_after_llms_full_contract_repair",
         "previously_approved_repaired_package_sha256": "f5a0d286168e0d6b14e376c7230915eb97e2506214a78b50190184764d6ba59f",
         "previous_repaired_approval_statement_sha256": "d5a4bab4141839a5d617c91c162ff03782667bbabf985ce0b5c07e190013bfca",
         "content_release_authorized": false,
@@ -941,10 +941,11 @@
         "keep_noindex": true,
         "keep_out_of_sitemap": true,
         "keep_out_of_llms": true,
+        "keep_out_of_llms_full": true,
         "no_indexability_mutation": true
       }
     },
-    "payload_sha256": "509dbf09cfdd22373e53b20285a77864bfefebce54579dbda25813e7fcc40ea1",
+    "payload_sha256": "0c680aeaa17fc3a022e7c78444628c8381d5584c4e4964dd4d801c79072193c6",
     "authorization_status": "blocked_pending_editorial_reapproval_and_separate_production_content_write_authorization"
   },
   "indexability_release_template": {
@@ -990,5 +991,5 @@
     "search_submission_attempted": false,
     "credentials_or_user_data_included": false
   },
-  "package_sha256": "b967ffda14e373f88b6a925ad23e3b60303810a3d27f4156bb950952cc71125b"
+  "package_sha256": "604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae"
 }
