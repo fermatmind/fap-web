@@ -55,15 +55,17 @@ jobs:
       ROLLBACK_RELEASE_ID: ${{ inputs.rollback_release_id }}
       BACKUP_CONFIG_SET_SHA256: ${{ inputs.backup_config_set_sha256 }}
       EXACT_APPROVAL: ${{ inputs.exact_approval }}
-      DEPLOY_HOST: ${{ secrets.WEB_NODE1_DEPLOY_HOST || vars.WEB_NODE1_DEPLOY_HOST }}
-      DEPLOY_USER: ${{ secrets.WEB_NODE1_DEPLOY_USER || vars.WEB_NODE1_DEPLOY_USER }}
-      DEPLOY_PORT: ${{ secrets.WEB_NODE1_DEPLOY_PORT || vars.WEB_NODE1_DEPLOY_PORT }}
-      PUBLIC_BASE_URL: ${{ secrets.WEB_PUBLIC_BASE_URL || vars.WEB_PUBLIC_BASE_URL }}
-      OPENRESTY_CONTAINER: ${{ secrets.WEB_NODE1_OPENRESTY_CONTAINER || vars.WEB_NODE1_OPENRESTY_CONTAINER }}
-      OPENRESTY_CONFIG_ROOT: ${{ secrets.WEB_NODE1_OPENRESTY_CONFIG_ROOT || vars.WEB_NODE1_OPENRESTY_CONFIG_ROOT }}
-      OPENRESTY_MANAGED_FILES: ${{ secrets.WEB_NODE1_OPENRESTY_MANAGED_FILES || vars.WEB_NODE1_OPENRESTY_MANAGED_FILES }}
-      OPENRESTY_PRIMARY_FILE: ${{ secrets.WEB_NODE1_OPENRESTY_PRIMARY_FILE || vars.WEB_NODE1_OPENRESTY_PRIMARY_FILE }}
-      OPENRESTY_BACKUP_DIR: ${{ secrets.WEB_NODE1_OPENRESTY_BACKUP_DIR || vars.WEB_NODE1_OPENRESTY_BACKUP_DIR }}
+      # Operational routing metadata is secret-only so the Actions runner masks it
+      # in step environment diagnostics. Never add an Actions-variable fallback.
+      DEPLOY_HOST: ${{ secrets.WEB_NODE1_DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.WEB_NODE1_DEPLOY_USER }}
+      DEPLOY_PORT: ${{ secrets.WEB_NODE1_DEPLOY_PORT }}
+      PUBLIC_BASE_URL: ${{ secrets.WEB_PUBLIC_BASE_URL }}
+      OPENRESTY_CONTAINER: ${{ secrets.WEB_NODE1_OPENRESTY_CONTAINER }}
+      OPENRESTY_CONFIG_ROOT: ${{ secrets.WEB_NODE1_OPENRESTY_CONFIG_ROOT }}
+      OPENRESTY_MANAGED_FILES: ${{ secrets.WEB_NODE1_OPENRESTY_MANAGED_FILES }}
+      OPENRESTY_PRIMARY_FILE: ${{ secrets.WEB_NODE1_OPENRESTY_PRIMARY_FILE }}
+      OPENRESTY_BACKUP_DIR: ${{ secrets.WEB_NODE1_OPENRESTY_BACKUP_DIR }}
 
     steps:
       - name: Checkout exact candidate revision
