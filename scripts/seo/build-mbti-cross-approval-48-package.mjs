@@ -6,6 +6,10 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const GENERATED_AT = "2026-07-23T01:20:00+08:00";
+const EDITORIAL_APPROVED_AT = "2026-07-23T08:40:09+08:00";
+const APPROVED_PENDING_PACKAGE_SHA256 = "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6";
+const EDITORIAL_APPROVAL_STATEMENT =
+  "I explicitly approve MBTI-CROSS-APPROVAL-48 operator editorial approval for exact package SHA 1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6 covering only enfp-vs-entp, estj-vs-entj, and isfp-vs-infp. This approval permits finalizing and merging PR #1801 and proceeding to MBTI-CROSS-PUBLISHER-49; it does not authorize production CMS/DB writes, publication/indexability changes, sitemap/llms changes, or search submission.";
 const PACKAGE_PATH = "docs/seo/personality/mbti-cross-approval-48-package-2026-07-23.json";
 const HASH_PATH = "docs/seo/personality/mbti-cross-approval-48-hash-manifest-2026-07-23.json";
 const CONTRACT_PATH = "docs/seo/personality/mbti-cross-approval-48-rollback-readback-2026-07-23.md";
@@ -183,7 +187,9 @@ async function build() {
       },
       manual_review: {
         source_review_status: asset.review_status,
-        operator_editorial_approval: "pending",
+        operator_editorial_approval: "approved",
+        approved_pending_package_sha256: APPROVED_PENDING_PACKAGE_SHA256,
+        approval_statement_sha256: sha256(EDITORIAL_APPROVAL_STATEMENT),
         content_release_authorized: false,
         indexability_release_authorized: false,
       },
@@ -205,14 +211,27 @@ async function build() {
     schema_version: "mbti.cross_type_comparison.approval.v1",
     id: "MBTI-CROSS-APPROVAL-48",
     generated_at: GENERATED_AT,
-    status: "pending_operator_editorial_approval",
-    final_decision: "PENDING_EXACT_THREE_EDITORIAL_APPROVAL_NO_PRODUCTION_ACTION_AUTHORIZED",
+    status: "operator_editorial_approved",
+    final_decision: "APPROVED_EXACT_THREE_EDITORIAL_CONTENT_NO_PRODUCTION_ACTION_AUTHORIZED",
     summary: {
       record_count: records.length,
       exact_slugs: records.map((record) => record.slug),
       source_hash_drift_count: records.filter((record) => !record.source.declared_hash_matches_snapshot).length,
-      approved_count: 0,
-      pending_count: records.length,
+      approved_count: records.length,
+      pending_count: 0,
+    },
+    editorial_approval: {
+      decision: "approved",
+      approved_at: EDITORIAL_APPROVED_AT,
+      approved_pending_package_sha256: APPROVED_PENDING_PACKAGE_SHA256,
+      approval_statement_sha256: sha256(EDITORIAL_APPROVAL_STATEMENT),
+      exact_slugs: records.map((record) => record.slug),
+      permits_pr_48_finalization_and_merge: true,
+      permits_pr_49_implementation: true,
+      production_content_write_authorized: false,
+      publication_or_indexability_change_authorized: false,
+      sitemap_or_llms_change_authorized: false,
+      search_submission_authorized: false,
     },
     source_package: {
       package_id: SOURCE_PACKAGE,
@@ -226,7 +245,7 @@ async function build() {
     content_release_candidate: {
       payload: contentCandidate,
       payload_sha256: sha256Json(contentCandidate),
-      authorization_status: "blocked_pending_separate_exact_operator_authorization",
+      authorization_status: "blocked_pending_separate_production_content_write_authorization",
     },
     indexability_release_template: {
       payload: indexabilityTemplate,
@@ -253,6 +272,8 @@ async function build() {
     record_count: records.length,
     exact_slugs: records.map((record) => record.slug),
     package_sha256: packageSha256,
+    approved_pending_package_sha256: APPROVED_PENDING_PACKAGE_SHA256,
+    approval_statement_sha256: report.editorial_approval.approval_statement_sha256,
     content_release_candidate_sha256: report.content_release_candidate.payload_sha256,
     indexability_release_template_sha256: report.indexability_release_template.template_sha256,
     records: records.map((record) => ({
@@ -263,7 +284,7 @@ async function build() {
       faq_sha256: record.expected_content_contract.faq_sha256,
     })),
   };
-  const markdown = `# MBTI-CROSS-APPROVAL-48 rollback/readback contract\n\n- Status: pending operator editorial approval\n- Exact records: ${records.map((record) => record.slug).join(", ")}\n- Record count: 3\n- Package SHA-256: \`${packageSha256}\`\n- Content-release candidate SHA-256: \`${report.content_release_candidate.payload_sha256}\`\n- Indexability template SHA-256: \`${report.indexability_release_template.template_sha256}\`\n- Source hash drift: all three current committed snapshots differ from the stale source-manifest declarations; the exact snapshot hashes are authoritative for this approval artifact.\n\n## Content revision phase\n\nA future executor must require a separate exact package/authorization hash, capture each pre-write revision and payload hash, write only the exact three records atomically, keep all three noindex and outside sitemap/llms, and roll back all three on any write or readback failure.\n\n## Readback\n\nReadback must prove DB/CMS authority, exact content/section/FAQ hashes, canonical parity, HTTP 200 API/page responses, visible complete body, robots \`noindex,follow\`, and no sitemap/llms eligibility. A local approval asset or frontend fallback cannot satisfy readback.\n\n## Indexability phase\n\nIndexability is a separate future authorization after successful content promotion/readback. It may change only robots/indexability/sitemap/llms eligibility for the exact three records and must not modify content or request search indexing.\n`;
+  const markdown = `# MBTI-CROSS-APPROVAL-48 rollback/readback contract\n\n- Status: operator editorial approval recorded\n- Approved pending package SHA-256: \`${APPROVED_PENDING_PACKAGE_SHA256}\`\n- Approval statement SHA-256: \`${report.editorial_approval.approval_statement_sha256}\`\n- Exact records: ${records.map((record) => record.slug).join(", ")}\n- Record count: 3\n- Final approved package SHA-256: \`${packageSha256}\`\n- Content-release candidate SHA-256: \`${report.content_release_candidate.payload_sha256}\`\n- Indexability template SHA-256: \`${report.indexability_release_template.template_sha256}\`\n- Source hash drift: all three current committed snapshots differ from the stale source-manifest declarations; the exact snapshot hashes are authoritative for this approval artifact.\n\n## Content revision phase\n\nEditorial approval does not authorize a production write. A future executor must require a separate exact package/authorization hash, capture each pre-write revision and payload hash, write only the exact three records atomically, keep all three noindex and outside sitemap/llms, and roll back all three on any write or readback failure.\n\n## Readback\n\nReadback must prove DB/CMS authority, exact content/section/FAQ hashes, canonical parity, HTTP 200 API/page responses, visible complete body, robots \`noindex,follow\`, and no sitemap/llms eligibility. A local approval asset or frontend fallback cannot satisfy readback.\n\n## Indexability phase\n\nIndexability is a separate future authorization after successful content promotion/readback. It may change only robots/indexability/sitemap/llms eligibility for the exact three records and must not modify content or request search indexing.\n`;
 
   for (const [relativePath, content] of [
     [PACKAGE_PATH, `${JSON.stringify(report, null, 2)}\n`],

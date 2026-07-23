@@ -2,8 +2,8 @@
   "schema_version": "mbti.cross_type_comparison.approval.v1",
   "id": "MBTI-CROSS-APPROVAL-48",
   "generated_at": "2026-07-23T01:20:00+08:00",
-  "status": "pending_operator_editorial_approval",
-  "final_decision": "PENDING_EXACT_THREE_EDITORIAL_APPROVAL_NO_PRODUCTION_ACTION_AUTHORIZED",
+  "status": "operator_editorial_approved",
+  "final_decision": "APPROVED_EXACT_THREE_EDITORIAL_CONTENT_NO_PRODUCTION_ACTION_AUTHORIZED",
   "summary": {
     "record_count": 3,
     "exact_slugs": [
@@ -12,8 +12,25 @@
       "isfp-vs-infp"
     ],
     "source_hash_drift_count": 3,
-    "approved_count": 0,
-    "pending_count": 3
+    "approved_count": 3,
+    "pending_count": 0
+  },
+  "editorial_approval": {
+    "decision": "approved",
+    "approved_at": "2026-07-23T08:40:09+08:00",
+    "approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
+    "approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
+    "exact_slugs": [
+      "enfp-vs-entp",
+      "estj-vs-entj",
+      "isfp-vs-infp"
+    ],
+    "permits_pr_48_finalization_and_merge": true,
+    "permits_pr_49_implementation": true,
+    "production_content_write_authorized": false,
+    "publication_or_indexability_change_authorized": false,
+    "sitemap_or_llms_change_authorized": false,
+    "search_submission_authorized": false
   },
   "source_package": {
     "package_id": "mbti-cross-type-comparison-content-assets-draft-20260702",
@@ -308,7 +325,9 @@
       },
       "manual_review": {
         "source_review_status": "draft",
-        "operator_editorial_approval": "pending",
+        "operator_editorial_approval": "approved",
+        "approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
+        "approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
         "content_release_authorized": false,
         "indexability_release_authorized": false
       }
@@ -592,7 +611,9 @@
       },
       "manual_review": {
         "source_review_status": "draft",
-        "operator_editorial_approval": "pending",
+        "operator_editorial_approval": "approved",
+        "approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
+        "approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
         "content_release_authorized": false,
         "indexability_release_authorized": false
       }
@@ -869,7 +890,9 @@
       },
       "manual_review": {
         "source_review_status": "draft",
-        "operator_editorial_approval": "pending",
+        "operator_editorial_approval": "approved",
+        "approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
+        "approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
         "content_release_authorized": false,
         "indexability_release_authorized": false
       }
@@ -907,7 +930,7 @@
       }
     },
     "payload_sha256": "adc7c06069efc38c9898a993ccfcbec38f29859d3a56b7400fc2bce0026d2886",
-    "authorization_status": "blocked_pending_separate_exact_operator_authorization"
+    "authorization_status": "blocked_pending_separate_production_content_write_authorization"
   },
   "indexability_release_template": {
     "payload": {
@@ -952,5 +975,5 @@
     "search_submission_attempted": false,
     "credentials_or_user_data_included": false
   },
-  "package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6"
+  "package_sha256": "3a86b9e73817635def8a2a2030f5cfe6102d80a64cca0703c4fc373e7aa73582"
 }

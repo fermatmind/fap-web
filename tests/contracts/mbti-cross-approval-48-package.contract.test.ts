@@ -35,7 +35,7 @@ type ApprovalRecord = {
   expected_seo_contract: { canonical_url: string; content_phase_robots: string; indexability_phase_robots: string };
   rollback_contract: Record<string, boolean>;
   content_phase_readback_contract: Record<string, unknown>;
-  manual_review: { operator_editorial_approval: string; content_release_authorized: boolean; indexability_release_authorized: boolean };
+  manual_review: { operator_editorial_approval: string; approved_pending_package_sha256: string; approval_statement_sha256: string; content_release_authorized: boolean; indexability_release_authorized: boolean };
   candidate_payload: Record<string, unknown>;
 };
 
@@ -44,6 +44,7 @@ type Report = {
   status: string;
   final_decision: string;
   summary: { record_count: number; exact_slugs: string[]; source_hash_drift_count: number; approved_count: number; pending_count: number };
+  editorial_approval: Record<string, unknown> & { decision: string; approved_pending_package_sha256: string; approval_statement_sha256: string };
   records: ApprovalRecord[];
   content_release_candidate: { payload_sha256: string; authorization_status: string };
   indexability_release_template: { template_sha256: string; authorization_status: string };
@@ -71,15 +72,15 @@ function generate(cwd = ROOT): { stdout: Record<string, unknown>; report: Report
 }
 
 describe("MBTI-CROSS-APPROVAL-48 exact approval package", () => {
-  it("builds only the exact three pending approval records deterministically", () => {
+  it("builds only the exact three editorially approved records deterministically", () => {
     const first = generate();
     const firstBytes = readFileSync(path.join(ROOT, PACKAGE), "utf8");
     const second = generate();
     const secondBytes = readFileSync(path.join(ROOT, PACKAGE), "utf8");
 
-    expect(first.stdout).toMatchObject({ ok: true, record_count: 3, approval_status: "pending_operator_editorial_approval" });
+    expect(first.stdout).toMatchObject({ ok: true, record_count: 3, approval_status: "operator_editorial_approved" });
     expect(first.report.schema_version).toBe("mbti.cross_type_comparison.approval.v1");
-    expect(first.report.summary).toEqual({ record_count: 3, exact_slugs: SLUGS, source_hash_drift_count: 3, approved_count: 0, pending_count: 3 });
+    expect(first.report.summary).toEqual({ record_count: 3, exact_slugs: SLUGS, source_hash_drift_count: 3, approved_count: 3, pending_count: 0 });
     expect(first.report.records.map((record) => record.slug)).toEqual(SLUGS);
     expect(new Set(first.report.records.map((record) => record.slug)).size).toBe(3);
     expect(firstBytes).toBe(secondBytes);
@@ -141,13 +142,24 @@ describe("MBTI-CROSS-APPROVAL-48 exact approval package", () => {
     expect(readFileSync(path.join(ROOT, CONTRACT), "utf8")).toContain("A local approval asset or frontend fallback cannot satisfy readback.");
   });
 
-  it("keeps editorial approval, content release, and indexability release pending and separate", () => {
+  it("records exact editorial approval while keeping content and indexability releases blocked", () => {
     const { report } = generate();
-    expect(report.status).toBe("pending_operator_editorial_approval");
-    expect(report.final_decision).toBe("PENDING_EXACT_THREE_EDITORIAL_APPROVAL_NO_PRODUCTION_ACTION_AUTHORIZED");
-    expect(report.records.every((record) => record.manual_review.operator_editorial_approval === "pending")).toBe(true);
+    expect(report.status).toBe("operator_editorial_approved");
+    expect(report.final_decision).toBe("APPROVED_EXACT_THREE_EDITORIAL_CONTENT_NO_PRODUCTION_ACTION_AUTHORIZED");
+    expect(report.editorial_approval).toMatchObject({
+      decision: "approved",
+      approved_pending_package_sha256: "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
+      production_content_write_authorized: false,
+      publication_or_indexability_change_authorized: false,
+      sitemap_or_llms_change_authorized: false,
+      search_submission_authorized: false,
+    });
+    expect(report.editorial_approval.approval_statement_sha256).toMatch(/^[a-f0-9]{64}$/);
+    expect(report.records.every((record) => record.manual_review.operator_editorial_approval === "approved")).toBe(true);
+    expect(report.records.every((record) => record.manual_review.approved_pending_package_sha256 === report.editorial_approval.approved_pending_package_sha256)).toBe(true);
+    expect(report.records.every((record) => record.manual_review.approval_statement_sha256 === report.editorial_approval.approval_statement_sha256)).toBe(true);
     expect(report.records.every((record) => !record.manual_review.content_release_authorized && !record.manual_review.indexability_release_authorized)).toBe(true);
-    expect(report.content_release_candidate.authorization_status).toContain("blocked_pending_separate_exact_operator_authorization");
+    expect(report.content_release_candidate.authorization_status).toContain("blocked_pending_separate_production_content_write_authorization");
     expect(report.indexability_release_template.authorization_status).toContain("blocked_until_content_promotion_and_readback_pass");
   });
 

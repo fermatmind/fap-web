@@ -50734,7 +50734,7 @@
     "depends_on": [
       "MBTI-COMP-GATE-47"
     ],
-    "status": "operator_editorial_approval_pending",
+    "status": "local_checks_passed",
     "commit_sha": "9c03f8b19e2f1382619d4ed9d802278f9236a7a6",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
@@ -50752,25 +50752,25 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "The deterministic generator and focused contract pass 7/7. They enforce the exact three-slug set, actual source hashes, ordered eight-section and eight-FAQ payloads, SEO/canonical and initial noindex state, source/package tamper rejection, atomic rollback/readback requirements, separate content/indexability authorizations, and absence of credentials or executable production authority. Exact pending-review package SHA-256: 1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6."
+        "evidence": "The deterministic generator and focused contract pass 7/7 after editorial approval. They bind the approved pending package SHA-256 1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6 and approval statement SHA-256 dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae, while enforcing the exact three records, content/schema hashes, rollback/readback boundaries, and separate blocked content/indexability releases. Final approved package SHA-256: 3a86b9e73817635def8a2a2030f5cfe6102d80a64cca0703c4fc373e7aa73582."
       },
       "required_local_checks": {
         "status": "pass",
-        "evidence": "Generator, focused 7/7, lint:spacing, typecheck, YAML/JSON parse, diff check, exact scope validation, Big Five freeze 29/29, Enneagram freeze 24/24, full contracts 765 files / 4415 tests, and the production-config build under canonical Node 24.14.0 all pass. Scoped ESLint and `pnpm exec eslint . --ignore-pattern .playwright-cli` pass with zero errors; the literal `pnpm lint` command alone sees two errors inside an ignored, untracked, pre-existing .playwright-cli trace artifact, which is outside git scope and remains untouched."
+        "evidence": "After synchronizing origin/main and recording editorial approval, generator, focused 7/7, scoped ESLint, repository ESLint excluding the ignored .playwright-cli trace, lint:spacing, typecheck, YAML/JSON parse, diff check, exact scope validation, Big Five freeze 29/29, Enneagram freeze 24/24, full contracts 767 files / 4434 tests, and the production-config build 206/206 under canonical Node 24.14.0 all pass. The user-owned .workbuddy path remains untouched and excluded."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "Exact PR head ca6c04285c99aeca4822ef62df80ae758a5a1a14 passed all seven required checks: build, contracts, both personality freezes, CodeQL analysis/result, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE. The automated Codex review of the implementation/binding head left no actionable inline findings."
+        "status": "pending",
+        "evidence": "The pre-approval head passed all seven required checks. Fresh exact-head checks are required after synchronizing origin/main and recording the approved package."
       },
       "operator_editorial_approval": {
-        "status": "pending",
-        "evidence": "The source records declare review_status=draft, publish_status=draft, and indexability_status=pending_review. The execution goal authorizes packaging but does not itself fabricate an operator editorial approval decision."
+        "status": "pass",
+        "evidence": "The operator explicitly approved exact pending package SHA-256 1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6 for only enfp-vs-entp, estj-vs-entj, and isfp-vs-infp, permitting PR #1801 finalization/merge and PR49 implementation. Approval statement SHA-256 is dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae. Production CMS/DB writes, publication/indexability, sitemap/llms, and search remain unauthorized."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -50808,8 +50808,13 @@
         "at": "2026-07-22T17:52:49Z",
         "status": "operator_editorial_approval_pending",
         "summary": "Exact PR head ca6c04285c99aeca4822ef62df80ae758a5a1a14 passed all seven required GitHub checks and reports CLEAN/MERGEABLE. Automated Codex review left no actionable finding. This ledger-only head records the green evidence and must pass its own final checks. The PR remains open because package SHA-256 1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6 still requires an explicit operator editorial decision; no approval is inferred and PR49 must not start."
+      },
+      {
+        "at": "2026-07-23T00:48:36Z",
+        "status": "local_checks_passed",
+        "summary": "The operator explicitly approved the exact pending package and three-record scope. PR #1801 was structurally merged with latest origin/main aad94bdb without losing concurrent ledger entries, then the approval statement was hash-bound and the final approved package regenerated as 3a86b9e73817635def8a2a2030f5cfe6102d80a64cca0703c4fc373e7aa73582. Full local validation passed on the synchronized tree. Editorial approval permits PR48 merge and PR49 implementation only; production content write and every publication/indexability/search action remain blocked."
       }
     ],
-    "updated_at": "2026-07-22T17:52:49Z"
+    "updated_at": "2026-07-23T00:48:36Z"
   }
 }

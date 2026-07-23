@@ -8,7 +8,9 @@
     "estj-vs-entj",
     "isfp-vs-infp"
   ],
-  "package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
+  "package_sha256": "3a86b9e73817635def8a2a2030f5cfe6102d80a64cca0703c4fc373e7aa73582",
+  "approved_pending_package_sha256": "1c7e94b856725ee4aa4f5e50a07faf5fbba482099e52d6fb09dd5a1401866fb6",
+  "approval_statement_sha256": "dce287b36b20b78a49dee9a257fb4616d3a118acf9db7e504b175162410198ae",
   "content_release_candidate_sha256": "adc7c06069efc38c9898a993ccfcbec38f29859d3a56b7400fc2bce0026d2886",
   "indexability_release_template_sha256": "3f3aaf4da6ff6ad4c41ba705ffecc4b8c1ff060d5f76c70142fe4ce575314dfb",
   "records": [
