@@ -47124,18 +47124,18 @@
     "branch": "codex/fap-web-analytics-runtime-smoke-repair-02",
     "title": "FAP-WEB-ANALYTICS-RUNTIME-SMOKE-REPAIR-02: restore browser pageview collection and deterministic smoke",
     "depends_on": ["FAP-WEB-PUBLIC-NONCE-CACHE-BOUNDARY-01"],
-    "status": "in_progress",
-    "commit_sha": null,
+    "status": "local_checks_passed",
+    "commit_sha": "87b661fd9c935472fb12030fdacdc1afd308d4c4",
     "pr_url": null,
     "checks": {
       "authorization": {"status": "pass", "evidence": "The user explicitly authorized this exact dependent PR scope and complete ordinary lifecycle after PR1 merge and cleanup."},
       "dependency": {"status": "pass", "evidence": "PR #1797 exact final head 8f000b82 passed all required checks and merged as 0578167a52e8085bf865879c842b32c0b0e683bd. origin/main contains the merge and local/remote task branches and isolated worktree were cleaned."},
-      "required_local_checks": {"status": "pending", "evidence": null},
+      "required_local_checks": {"status": "pass", "evidence": "On rebased exact origin/main aad94bdb, focused analytics contracts pass 24/24; the production-mode standalone smoke is healthy with real CookieBanner consent, landing marker, distinct independent-context nonces, GA/Baidu/first-party attempts, 3/3 network aborts, zero public CSP script errors and private-route suppression. Lint, spacing, typecheck, all four contract shards, Big Five freeze 29/29, Enneagram freeze 24/24, production build 206/206, YAML/JSON and diff checks pass."},
       "github_required_checks": {"status": "pending", "evidence": null}
     },
     "scope_validation": {
-      "allowed_paths_only": null,
-      "local_validation_passed": null,
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
       "github_checks_green": false,
       "post_merge_revalidated": false
     },
@@ -47146,7 +47146,7 @@
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
-    "api_runtime_change": false,
+    "api_runtime_change": true,
     "publish_allowed": false,
     "deploy_allowed": false,
     "history": [
@@ -47159,9 +47159,14 @@
         "at": "2026-07-22T18:20:13Z",
         "status": "in_progress",
         "summary": "PR1 dependency is merged and fully cleaned. PR2 started in an isolated worktree from exact origin/main 0578167a52e8085bf865879c842b32c0b0e683bd; the active user worktree remains untouched and production deploy, ingress apply, telemetry writes and PR23 remain prohibited."
+      },
+      {
+        "at": "2026-07-23T00:57:59Z",
+        "status": "local_checks_passed",
+        "summary": "The branch was rebased without conflict onto exact origin/main aad94bdb. Browser runtime environment reads are build-inlineable, schema 1.1 smoke uses real consent and independent contexts, all telemetry is intercepted and aborted without body inspection, and the exact allowed-path scope passed focused, full, freeze, build and syntax validation. No production action or telemetry write occurred."
       }
     ],
-    "updated_at": "2026-07-22T18:20:13Z"
+    "updated_at": "2026-07-23T00:57:59Z"
   }
 ,
   "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01": {
