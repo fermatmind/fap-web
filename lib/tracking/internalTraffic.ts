@@ -33,6 +33,10 @@ type AnalyticsRuntimeInput = {
 };
 
 const DEFAULT_ANALYTICS_ALLOWED_HOSTS = ["fermatmind.com", "www.fermatmind.com"] as const;
+const BUILD_TIME_ANALYTICS_ENV = process.env.NEXT_PUBLIC_ANALYTICS_ENV;
+const BUILD_TIME_VERCEL_ENV = process.env.NEXT_PUBLIC_VERCEL_ENV;
+const BUILD_TIME_NODE_ENV = process.env.NODE_ENV;
+const BUILD_TIME_ANALYTICS_ALLOWED_HOSTS = process.env.NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS;
 
 function normalizeToken(value: string | null | undefined): string {
   return typeof value === "string" ? value.trim().toLowerCase() : "";
@@ -67,9 +71,15 @@ export function isPollutingAnalyticsReferrer(referrer?: string | null): boolean 
   return isPollutingBrowserAnalyticsReferrer(referrer);
 }
 
-export function getAnalyticsDeploymentEnvironment(env: Partial<NodeJS.ProcessEnv> = process.env): string {
+export function getAnalyticsDeploymentEnvironment(env?: Partial<NodeJS.ProcessEnv>): string {
+  if (env) {
+    return normalizeDeploymentEnvironment(
+      env.NEXT_PUBLIC_ANALYTICS_ENV ?? env.NEXT_PUBLIC_VERCEL_ENV ?? env.VERCEL_ENV ?? env.NODE_ENV
+    );
+  }
+
   return normalizeDeploymentEnvironment(
-    env.NEXT_PUBLIC_ANALYTICS_ENV ?? env.NEXT_PUBLIC_VERCEL_ENV ?? env.VERCEL_ENV ?? env.NODE_ENV
+    BUILD_TIME_ANALYTICS_ENV ?? BUILD_TIME_VERCEL_ENV ?? BUILD_TIME_NODE_ENV
   );
 }
 
@@ -89,7 +99,7 @@ export function shouldAllowAnalyticsRuntime(input: AnalyticsRuntimeInput): Analy
 export function shouldAllowBrowserAnalyticsRuntime({
   analyticsEnabled = true,
   deploymentEnvironment = getAnalyticsDeploymentEnvironment(),
-  allowedHosts = process.env.NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS,
+  allowedHosts = BUILD_TIME_ANALYTICS_ALLOWED_HOSTS,
 }: {
   analyticsEnabled?: boolean;
   deploymentEnvironment?: string | null;

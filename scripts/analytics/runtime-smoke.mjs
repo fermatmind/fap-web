@@ -5,9 +5,11 @@ import path from "node:path";
 import process from "node:process";
 import { chromium } from "@playwright/test";
 
-const SCHEMA_VERSION = "1.0";
-const DEFAULT_PUBLIC_PATH = "/zh";
+const SCHEMA_VERSION = "1.1";
+const DEFAULT_PUBLIC_PATH = "/";
 const DEFAULT_PRIVATE_PATH = "/zh/result/SYNTHETIC_DO_NOT_USE";
+const CONSENT_KEY = "fm_consent_v1";
+const LANDING_PAGEVIEW_PREFIX = "fm_landing_pv_sent_v1:";
 
 function parseArgs(argv) {
   const parsed = {
@@ -74,7 +76,8 @@ function isSafeResolverAddress(value) {
 function redactFailure(value) {
   return String(value)
     .replace(/G-[A-Z0-9]{4,32}/gi, "[redacted-ga-id]")
-    .replace(/((?:id|token|key|secret|authorization)=)[^\s&]+/gi, "$1[redacted]")
+    .replace(/\b[a-f0-9]{16,32}\b/gi, "[redacted-provider-id]")
+    .replace(/((?:id|token|key|secret|authorization|cookie)=)[^\s&]+/gi, "$1[redacted]")
     .replace(/(https?:\/\/[^\s?'\"<>]+)\?[^\s'\"<>]*/gi, "$1?[redacted-query]")
     .slice(0, 500);
 }
@@ -92,19 +95,23 @@ function isCspScriptBlockingMessage(message) {
   );
 }
 
-function createReport(targetHost) {
+function createReport() {
   return {
     schema_version: SCHEMA_VERSION,
     checked_at: new Date().toISOString(),
-    target_host: targetHost,
     repository_sha: process.env.GITHUB_SHA || process.env.REPOSITORY_SHA || "unknown",
     csp_nonce_present: false,
     bootstrap_header_nonce_match: false,
     dynamic_script_nonce_match: false,
     independent_response_nonces: false,
+    consent_action_completed: false,
+    landing_pageview_marker_present: false,
     ga_loader_attempted: false,
     baidu_loader_attempted: false,
     first_party_track_attempted: false,
+    telemetry_attempt_count: 0,
+    telemetry_abort_count: 0,
+    all_telemetry_aborted: false,
     csp_blocking_error_count: 0,
     private_route_suppression: false,
     health_status: "unhealthy",
@@ -125,50 +132,79 @@ async function waitForTelemetryAttempts(attempted, timeoutMs = 10_000) {
   }
 }
 
+async function pollPageValue(page, reader, argument, failure, timeoutMs = 10_000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    if (await page.evaluate(reader, argument)) return;
+    await new Promise((resolve) => setTimeout(resolve, 50));
+  }
+  throw new Error(failure);
+}
+
+async function grantAnalyticsConsent(page, consentButton, timeoutMs = 10_000) {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    await consentButton.click();
+    const granted = await page.evaluate((consentKey) => {
+      try {
+        return JSON.parse(window.localStorage.getItem(consentKey) || "{}").analytics === "granted";
+      } catch {
+        return false;
+      }
+    }, CONSENT_KEY);
+    if (granted) return;
+    await new Promise((resolve) => setTimeout(resolve, 50));
+  }
+  throw new Error("cookie banner did not persist granted consent");
+}
+
+function installTelemetryAbort(context, attempted, aborted) {
+  return context.route("**/*", async (route) => {
+    const request = route.request();
+    const requestUrl = new URL(request.url());
+    let category = null;
+
+    if (requestUrl.hostname === "www.googletagmanager.com" && requestUrl.pathname === "/gtag/js") {
+      category = "ga";
+    } else if (requestUrl.hostname === "hm.baidu.com" && requestUrl.pathname === "/hm.js") {
+      category = "baidu";
+    } else if (request.method() !== "GET" && requestUrl.pathname === "/api/track") {
+      category = "track";
+    }
+
+    if (category) {
+      attempted[category] += 1;
+      aborted[category] += 1;
+      await route.abort("blockedbyclient");
+      return;
+    }
+
+    await route.continue();
+  });
+}
+
+function telemetryTotal(counts) {
+  return counts.ga + counts.baidu + counts.track;
+}
+
 async function main() {
   let args;
-  let report = createReport("unknown");
+  const report = createReport();
   let browser;
 
   try {
     args = parseArgs(process.argv.slice(2));
-    report = createReport(new URL(args.baseUrl).host);
     const resolverArgs = args.resolveTo
-      ? [`--host-resolver-rules=MAP ${new URL(args.baseUrl).hostname} ${args.resolveTo}`]
+      ? [
+          `--host-resolver-rules=MAP ${new URL(args.baseUrl).hostname} ${args.resolveTo}`,
+          "--no-proxy-server",
+          "--ignore-certificate-errors",
+        ]
       : [];
     browser = await chromium.launch({ headless: true, args: resolverArgs });
-    const context = await browser.newContext({ serviceWorkers: "block" });
     const attempted = { ga: 0, baidu: 0, track: 0 };
+    const aborted = { ga: 0, baidu: 0, track: 0 };
     const cspErrors = [];
-
-    await context.addInitScript(() => {
-      window.localStorage.setItem("fm_consent_v1", JSON.stringify({
-        analytics: "granted",
-        updatedAt: new Date().toISOString(),
-      }));
-    });
-
-    await context.route("**/*", async (route) => {
-      const request = route.request();
-      const requestUrl = new URL(request.url());
-      if (requestUrl.hostname === "www.googletagmanager.com" && requestUrl.pathname === "/gtag/js") {
-        attempted.ga += 1;
-        await route.abort("blockedbyclient");
-        return;
-      }
-      if (requestUrl.hostname === "hm.baidu.com" && requestUrl.pathname === "/hm.js") {
-        attempted.baidu += 1;
-        await route.abort("blockedbyclient");
-        return;
-      }
-      if (request.method() !== "GET" && requestUrl.pathname === "/api/track") {
-        attempted.track += 1;
-        await route.abort("blockedbyclient");
-        return;
-      }
-      await route.continue();
-    });
-
     const attachConsoleGuard = (page) => {
       page.on("console", (message) => {
         if (isCspScriptBlockingMessage(message.text())) {
@@ -178,7 +214,12 @@ async function main() {
     };
 
     const publicUrl = new URL(args.publicPath, args.baseUrl).toString();
-    const firstPage = await context.newPage();
+    const firstContext = await browser.newContext({
+      serviceWorkers: "block",
+      ignoreHTTPSErrors: Boolean(args.resolveTo),
+    });
+    await installTelemetryAbort(firstContext, attempted, aborted);
+    const firstPage = await firstContext.newPage();
     attachConsoleGuard(firstPage);
     const firstResponse = await firstPage.goto(publicUrl, { waitUntil: "domcontentloaded", timeout: 30_000 });
     if (!firstResponse) throw new Error("Public navigation did not return a response");
@@ -190,10 +231,19 @@ async function main() {
     const bootstrapNonce = await firstPage.locator("#fm-analytics-bootstrap").evaluate((element) => element.nonce || "");
     report.bootstrap_header_nonce_match = Boolean(firstNonce && bootstrapNonce === firstNonce);
 
-    await firstPage.waitForFunction(() => (
-      Boolean(document.querySelector("#fm-google-tag-script"))
-      && Boolean(document.querySelector("#fm-baidu-tongji-script"))
-    ), undefined, { timeout: 10_000 });
+    const consentButton = firstPage.getByTestId("cookie-banner-accept");
+    await consentButton.waitFor({ state: "visible", timeout: 10_000 });
+    await grantAnalyticsConsent(firstPage, consentButton);
+    report.consent_action_completed = true;
+
+    await pollPageValue(firstPage, (prefix) => {
+      const marker = `${prefix}${window.location.pathname}${window.location.search}`;
+      return window.sessionStorage.getItem(marker) === "1";
+    }, LANDING_PAGEVIEW_PREFIX, "landing pageview dedupe marker did not appear");
+    report.landing_pageview_marker_present = true;
+
+    await firstPage.locator("#fm-google-tag-script").waitFor({ state: "attached", timeout: 10_000 });
+    await firstPage.locator("#fm-baidu-tongji-script").waitFor({ state: "attached", timeout: 10_000 });
     const dynamicNonces = await firstPage.evaluate(() => ({
       ga: document.querySelector("#fm-google-tag-script")?.nonce || "",
       baidu: document.querySelector("#fm-baidu-tongji-script")?.nonce || "",
@@ -203,10 +253,14 @@ async function main() {
       && dynamicNonces.ga === firstNonce
       && dynamicNonces.baidu === firstNonce
     );
-
     await waitForTelemetryAttempts(attempted);
 
-    const secondPage = await context.newPage();
+    const secondContext = await browser.newContext({
+      serviceWorkers: "block",
+      ignoreHTTPSErrors: Boolean(args.resolveTo),
+    });
+    await installTelemetryAbort(secondContext, attempted, aborted);
+    const secondPage = await secondContext.newPage();
     attachConsoleGuard(secondPage);
     const secondResponse = await secondPage.goto(publicUrl, { waitUntil: "domcontentloaded", timeout: 30_000 });
     if (!secondResponse) throw new Error("Second public navigation did not return a response");
@@ -214,15 +268,18 @@ async function main() {
     const secondPolicy = secondHeaders["content-security-policy"] || secondHeaders["content-security-policy-report-only"] || "";
     const secondNonce = nonceFromCsp(secondPolicy);
     report.independent_response_nonces = Boolean(firstNonce && secondNonce && firstNonce !== secondNonce);
+    await secondContext.close();
 
-    await firstPage.close();
-    await secondPage.close();
     const attemptsBeforePrivate = { ...attempted };
-    const privatePage = await context.newPage();
-    attachConsoleGuard(privatePage);
+    const privateContext = await browser.newContext({
+      serviceWorkers: "block",
+      ignoreHTTPSErrors: Boolean(args.resolveTo),
+    });
+    await installTelemetryAbort(privateContext, attempted, aborted);
+    const privatePage = await privateContext.newPage();
     const privateUrl = new URL(args.privatePath, args.baseUrl).toString();
     await privatePage.goto(privateUrl, { waitUntil: "domcontentloaded", timeout: 30_000 });
-    await privatePage.waitForTimeout(250);
+    await new Promise((resolve) => setTimeout(resolve, 250));
     const privateElements = await privatePage.locator(
       "#fm-analytics-bootstrap, #fm-google-tag-script, #fm-baidu-tongji-script"
     ).count();
@@ -232,20 +289,31 @@ async function main() {
       && attempted.baidu === attemptsBeforePrivate.baidu
       && attempted.track === attemptsBeforePrivate.track
     );
+    await privateContext.close();
+    await firstContext.close();
 
     report.ga_loader_attempted = attempted.ga > 0;
     report.baidu_loader_attempted = attempted.baidu > 0;
     report.first_party_track_attempted = attempted.track > 0;
+    report.telemetry_attempt_count = telemetryTotal(attempted);
+    report.telemetry_abort_count = telemetryTotal(aborted);
+    report.all_telemetry_aborted = (
+      report.telemetry_attempt_count > 0
+      && report.telemetry_attempt_count === report.telemetry_abort_count
+    );
     report.csp_blocking_error_count = cspErrors.length;
 
     const assertions = [
       [report.csp_nonce_present, "response CSP nonce missing"],
       [report.bootstrap_header_nonce_match, "bootstrap/header nonce mismatch"],
       [report.dynamic_script_nonce_match, "dynamic provider script nonce mismatch"],
-      [report.independent_response_nonces, "independent HTML responses reused a nonce"],
+      [report.independent_response_nonces, "independent browser contexts reused a nonce"],
+      [report.consent_action_completed, "cookie banner consent action did not complete"],
+      [report.landing_pageview_marker_present, "landing pageview dedupe marker missing"],
       [report.ga_loader_attempted, "GA loader was not attempted"],
       [report.baidu_loader_attempted, "Baidu loader was not attempted"],
       [report.first_party_track_attempted, "first-party track write was not attempted"],
+      [report.all_telemetry_aborted, "one or more telemetry requests were not aborted"],
       [report.csp_blocking_error_count === 0, "script-src CSP blocking error observed"],
       [report.private_route_suppression, "private-route analytics suppression failed"],
     ];

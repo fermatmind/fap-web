@@ -19,27 +19,55 @@ function publicHtml(nonce) {
 <html lang="zh">
   <head><meta charset="utf-8"><title>Analytics runtime smoke fixture</title></head>
   <body>
+    <div data-cookie-banner="true">
+      <button type="button" data-testid="cookie-banner-accept">接受</button>
+    </div>
     <script id="fm-analytics-bootstrap" data-analytics-bootstrap="true" nonce="${nonce}">
       (function () {
-        var consent = JSON.parse(window.localStorage.getItem("fm_consent_v1") || "{}");
-        if (consent.analytics !== "granted") return;
         var scriptNonce = document.currentScript?.nonce || "";
-        function load(id, src) {
-          var script = document.createElement("script");
-          script.id = id;
-          script.async = true;
-          script.src = src;
-          script.nonce = scriptNonce;
-          document.head.appendChild(script);
+        function loadProviders(event) {
+          if (event?.detail?.analytics !== "granted") return;
+          function load(id, src) {
+            if (document.getElementById(id)) return;
+            var script = document.createElement("script");
+            script.id = id;
+            script.async = true;
+            script.src = src;
+            script.nonce = scriptNonce;
+            document.head.appendChild(script);
+          }
+          load("fm-google-tag-script", "https://www.googletagmanager.com/gtag/js?id=G-SYNTHETIC1");
+          load("fm-baidu-tongji-script", "https://hm.baidu.com/hm.js?0000000000000000");
         }
-        load("fm-google-tag-script", "https://www.googletagmanager.com/gtag/js?id=G-SYNTHETIC1");
-        load("fm-baidu-tongji-script", "https://hm.baidu.com/hm.js?0000000000000000");
-        fetch("/api/track", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ eventName: "landing_pv", path: "/zh" })
-        }).catch(function () {});
+        window.addEventListener("fm:analytics-consent-updated", loadProviders);
       })();
+    </script>
+    <script nonce="${nonce}">
+      (function () {
+        function trackLandingPageview(event) {
+          if (event?.detail?.analytics !== "granted") return;
+          var marker = "fm_landing_pv_sent_v1:" + window.location.pathname + window.location.search;
+          if (window.sessionStorage.getItem(marker) === "1") return;
+          window.sessionStorage.setItem(marker, "1");
+          fetch("/api/track", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ eventName: "landing_pv", path: window.location.pathname })
+          }).catch(function () {});
+        }
+        window.addEventListener("fm:analytics-consent-updated", trackLandingPageview);
+      })();
+    </script>
+    <script nonce="${nonce}">
+      document.querySelector('[data-testid="cookie-banner-accept"]').addEventListener("click", function () {
+        var detail = { analytics: "granted" };
+        window.localStorage.setItem("fm_consent_v1", JSON.stringify({
+          analytics: detail.analytics,
+          updatedAt: new Date().toISOString()
+        }));
+        document.querySelector('[data-cookie-banner="true"]').remove();
+        window.dispatchEvent(new CustomEvent("fm:analytics-consent-updated", { detail: detail }));
+      });
     </script>
   </body>
 </html>`;
@@ -57,7 +85,7 @@ const server = createServer((request, response) => {
   ].join("; ");
   response.setHeader("Content-Security-Policy", policy);
   response.setHeader("Content-Type", "text/html; charset=utf-8");
-  response.setHeader("Cache-Control", "no-store");
+  response.setHeader("Cache-Control", "private, no-store");
 
   if (request.url?.startsWith("/zh/result/")) {
     response.end("<!doctype html><html><body><main>Private synthetic fixture</main></body></html>");

@@ -15,6 +15,7 @@ import {
   shouldLoadBrowserAnalyticsScripts,
 } from "@/lib/tracking/browserAnalyticsSuppression";
 import {
+  getAnalyticsDeploymentEnvironment,
   isBlockedAnalyticsRoute,
   isPollutingAnalyticsReferrer,
   shouldAllowAnalyticsRuntime,
@@ -306,6 +307,22 @@ describe("analytics scripts contract", () => {
         search: "?orderNo=SYNTHETIC_DO_NOT_USE",
       })
     ).toMatchObject({ allowed: false, reason: "private_route" });
+  });
+
+  it("uses build-inlineable public environment reads while preserving explicit test injection", () => {
+    expect(getAnalyticsDeploymentEnvironment({ NEXT_PUBLIC_ANALYTICS_ENV: "production" })).toBe("production");
+    expect(getAnalyticsDeploymentEnvironment({ NEXT_PUBLIC_VERCEL_ENV: "production" })).toBe("production");
+    expect(getAnalyticsDeploymentEnvironment({ NODE_ENV: "production" })).toBe("production");
+    expect(getAnalyticsDeploymentEnvironment({})).toBe("unknown");
+
+    const source = readFileSync("lib/tracking/internalTraffic.ts", "utf8");
+    expect(source).toContain("const BUILD_TIME_ANALYTICS_ENV = process.env.NEXT_PUBLIC_ANALYTICS_ENV;");
+    expect(source).toContain("const BUILD_TIME_VERCEL_ENV = process.env.NEXT_PUBLIC_VERCEL_ENV;");
+    expect(source).toContain("const BUILD_TIME_NODE_ENV = process.env.NODE_ENV;");
+    expect(source).toContain(
+      "const BUILD_TIME_ANALYTICS_ALLOWED_HOSTS = process.env.NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS;"
+    );
+    expect(source).not.toContain("env: Partial<NodeJS.ProcessEnv> = process.env");
   });
 
   it("suppresses third-party browser analytics scripts on private route families with locale prefixes", () => {
