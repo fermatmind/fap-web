@@ -211,3 +211,9 @@
   - deprecated
 - Temporary migration fallback must include an owner, removal condition, and target removal PR/issue.
 - Rules must not lag behind architecture. If implementation and rules conflict, the PR is incomplete until the rules are updated or the conflict is explicitly resolved.
+
+## Production ingress boundary
+- `deploy/openresty/fap-web-public.conf` is the canonical public-web ingress configuration for the existing Node1 OpenResty runtime.
+- CSP nonce-bearing HTML and every other non-static route must bypass shared proxy caches and preserve the application `Cache-Control` response. Only explicitly allowlisted immutable/static resources may use public ingress caching.
+- Public ingress preflight, apply, and rollback must use the protected `Web Public Ingress Control` workflow with the exact latest `main` SHA and exact config/config-set or backup SHA authorization defined by the runbook.
+- Never perform an unversioned SSH config edit, OpenResty reload, or automatic rollback. Production application deployment remains a separate exact-SHA-controlled workflow.

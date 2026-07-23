@@ -3,12 +3,14 @@ import fs from "node:fs";
 import path from "node:path";
 import { extractJsonLdTypesFromHtml } from "./lib/jsonld-types.mjs";
 
-const TASK_ID = "CAREER-QUALITY-TIERING-01";
-const SCHEMA_VERSION = "1.0";
+const TASK_ID = "CAREER-SEARCH-ENTRY-QUALITY-REAUDIT-01";
+const LEGACY_TASK_ID = "CAREER-QUALITY-TIERING-01";
+const SCHEMA_VERSION = "2.0";
 const DEFAULT_SITE_URL = "https://fermatmind.com";
 const DEFAULT_API_ORIGIN = "https://api.fermatmind.com";
 const DEFAULT_OUTPUT = "docs/seo/generated/career-quality-tiering-01.v1.json";
-const DEFAULT_TIMEOUT_MS = 20_000;
+const DEFAULT_TIMEOUT_MS = 60_000;
+const OWNED_SITEMAP_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
 const EXCLUDED_CAREER_JOB_DETAIL_SLUGS = new Set([
   "software-developers",
   "digital-forensics-analysts",
@@ -20,7 +22,7 @@ function parseArgs(argv) {
     siteUrl: DEFAULT_SITE_URL,
     apiOrigin: DEFAULT_API_ORIGIN,
     output: DEFAULT_OUTPUT,
-    samplePerGroup: 3,
+    samplePerGroup: 1,
     timeoutMs: DEFAULT_TIMEOUT_MS,
     pretty: false,
   };
@@ -67,6 +69,24 @@ function normalizePathname(value) {
   const normalized = String(value || "/").replace(/\/{2,}/g, "/");
   if (normalized === "/") return "/";
   return normalized.replace(/\/+$/, "") || "/";
+}
+
+function normalizeOwnedSitemapLoc(value, siteUrl) {
+  const raw = readString(value);
+  if (!raw) return "";
+
+  try {
+    const url = raw.startsWith("/") ? new URL(raw, siteUrl) : new URL(raw);
+    const hostname = url.hostname.toLowerCase().replace(/\.$/, "");
+    if (url.protocol !== "https:" || !OWNED_SITEMAP_HOSTS.has(hostname) || url.search || url.hash) {
+      return "";
+    }
+
+    const pathname = normalizePathname(url.pathname);
+    return pathname === "/" ? siteUrl : `${siteUrl}${pathname}`;
+  } catch {
+    return "";
+  }
 }
 
 function normalizeSlug(value) {
@@ -219,9 +239,103 @@ function indexItemBySlug(items) {
   return map;
 }
 
-function titleTranslationStatus(enItem, zhItem) {
-  const enTitle = readString(readRecord(enItem?.titles).canonical_en);
-  const zhTitle = readString(readRecord(zhItem?.titles).canonical_zh || readRecord(enItem?.titles).canonical_zh);
+function datasetMemberBySlug(items) {
+  const map = new Map();
+  for (const item of readArray(items)) {
+    const slug = normalizeSlug(readRecord(item).canonical_slug);
+    if (slug) map.set(slug, item);
+  }
+  return map;
+}
+
+function datasetContentVersion(member) {
+  const publishTrack = readString(readRecord(member).publish_track);
+  if (publishTrack === "runtime_publish_projection") return "runtime_publish_projection";
+  if (publishTrack === "candidate") return "dataset_candidate_authority";
+  if (publishTrack === "hold") return "dataset_hold_authority";
+  if (publishTrack === "stable") return "dataset_stable_authority";
+  return "dataset_authority_only";
+}
+
+function detailToIndexItem(
+  detail,
+  htmlRobotsPolicy = "",
+  seoSurfaceEvidence = {},
+  htmlEvidenceAvailable = false
+) {
+  const record = unwrapPayload(detail);
+  const trustManifest = readRecord(record.trust_manifest);
+  const claimPermissions = readRecord(record.claim_permissions);
+  const detailSeoContract = readRecord(record.seo_contract);
+  const seoSurface = readRecord(seoSurfaceEvidence);
+  const seoContract = Object.keys(detailSeoContract).length > 0
+    ? detailSeoContract
+    : Object.keys(seoSurface).length > 0
+      ? {
+          index_eligible: isIndexableState(seoSurface.indexability_state)
+            && !hasPolicyToken(seoSurface.robots_policy, "noindex"),
+          index_state: readString(seoSurface.indexability_state),
+          robots_policy: readString(seoSurface.robots_policy),
+        }
+      : {};
+  const identity = readRecord(record.identity);
+  const titles = readRecord(record.titles);
+
+  if (!normalizeSlug(identity.canonical_slug) || Object.keys(seoContract).length === 0) {
+    return null;
+  }
+
+  return {
+    identity,
+    titles,
+    trust_summary: {
+      ...trustManifest,
+      allow_strong_claim: claimPermissions.allow_strong_claim === true,
+      allow_salary_comparison: claimPermissions.allow_salary_comparison === true,
+      allow_ai_strategy: claimPermissions.allow_ai_strategy === true,
+    },
+    score_summary: readRecord(record.score_summary),
+    seo_contract: seoContract,
+    html_robots_policy: readString(htmlRobotsPolicy),
+    html_evidence_available: htmlEvidenceAvailable === true,
+  };
+}
+
+async function fetchStableDetailItems({ members, locale, apiOrigin, timeoutMs }) {
+  const apiLocale = locale === "zh" ? "zh-CN" : "en";
+  const stableMembers = readArray(members).filter(
+    (member) => readString(readRecord(member).publish_track) === "stable"
+  );
+  const results = await Promise.all(
+    stableMembers.map(async (member) => {
+      const slug = normalizeSlug(readRecord(member).canonical_slug);
+      const status = await fetchJsonStatus(
+        apiUrl(apiOrigin, `/v0.5/career/jobs/${encodeURIComponent(slug)}?locale=${encodeURIComponent(apiLocale)}`),
+        timeoutMs
+      );
+      return { slug, status, item: status.ok ? detailToIndexItem(status.payload) : null };
+    })
+  );
+
+  return {
+    items: new Map(results.filter((result) => result.item).map((result) => [result.slug, result.item])),
+    observations: results.map((result) => ({
+      slug: result.slug,
+      locale,
+      status: result.status.status,
+      ok: Boolean(result.item),
+      elapsed_ms: result.status.elapsed_ms,
+      error: result.status.error,
+    })),
+  };
+}
+
+function titleTranslationStatus(enItem, zhItem, datasetMember) {
+  const dataset = readRecord(datasetMember);
+  const enTitle = readString(readRecord(enItem?.titles).canonical_en || dataset.canonical_title_en);
+  const zhTitle = readString(
+    readRecord(zhItem?.titles).canonical_zh || readRecord(enItem?.titles).canonical_zh || dataset.canonical_title_zh
+  );
   const zhSearchH1 = readString(readRecord(zhItem?.titles).search_h1_zh || readRecord(enItem?.titles).search_h1_zh);
   const zhMissing = !zhTitle;
   const zhEqualsEn = Boolean(zhTitle && enTitle && zhTitle.toLowerCase() === enTitle.toLowerCase());
@@ -232,28 +346,72 @@ function titleTranslationStatus(enItem, zhItem) {
   return "index_title_localized";
 }
 
-function buildRow(slug, enItem, zhItem, sitemapPaths) {
+function buildRow(
+  slug,
+  enItem,
+  zhItem,
+  datasetMember,
+  sitemapPaths,
+  legacyEnItemPresent,
+  legacyZhItemPresent
+) {
+  const dataset = readRecord(datasetMember);
   const enSeo = readRecord(enItem?.seo_contract);
   const zhSeo = readRecord(zhItem?.seo_contract);
-  const trust = readRecord(enItem?.trust_summary);
-  const contentVersion = readString(trust.content_version) || "unknown";
-  const reviewerStatus = readString(trust.reviewer_status) || "unknown";
+  const enTrust = readRecord(enItem?.trust_summary);
+  const zhTrust = readRecord(zhItem?.trust_summary);
+  const contentVersion = readString(enTrust.content_version)
+    || readString(zhTrust.content_version)
+    || datasetContentVersion(dataset);
+  const reviewerStatus = readString(enTrust.reviewer_status)
+    || readString(zhTrust.reviewer_status)
+    || "unavailable_from_current_directory_authority";
+  const publishTrack = readString(dataset.publish_track) || "unknown";
+  const releaseCohort = readString(dataset.release_cohort) || "unknown";
+  const publicIndexState = readString(dataset.public_index_state);
   const enPath = localeCareerPath("en", slug);
   const zhPath = localeCareerPath("zh", slug);
-  const enIndexable = enSeo.index_eligible === true && isIndexableState(enSeo.index_state) && !hasPolicyToken(enSeo.robots_policy, "noindex");
-  const zhIndexable = zhSeo.index_eligible === true && isIndexableState(zhSeo.index_state) && !hasPolicyToken(zhSeo.robots_policy, "noindex");
+  const enHtmlRobots = readString(enItem?.html_robots_policy);
+  const zhHtmlRobots = readString(zhItem?.html_robots_policy);
+  const enHtmlEvidenceAvailable = enItem?.html_evidence_available === true;
+  const zhHtmlEvidenceAvailable = zhItem?.html_evidence_available === true;
+  const enIndexable = Object.keys(enSeo).length > 0
+    && enHtmlEvidenceAvailable
+    && enSeo.index_eligible === true
+    && isIndexableState(enSeo.index_state)
+    && !hasPolicyToken(enSeo.robots_policy, "noindex")
+    && !hasPolicyToken(enHtmlRobots, "noindex");
+  const zhIndexable = Object.keys(zhSeo).length > 0
+    && zhHtmlEvidenceAvailable
+    && zhSeo.index_eligible === true
+    && isIndexableState(zhSeo.index_state)
+    && !hasPolicyToken(zhSeo.robots_policy, "noindex")
+    && !hasPolicyToken(zhHtmlRobots, "noindex");
   const inSitemapEn = sitemapPaths.has(enPath);
   const inSitemapZh = sitemapPaths.has(zhPath);
-  const allowStrongClaim = trust.allow_strong_claim === true;
-  const allowSalaryComparison = trust.allow_salary_comparison === true;
-  const allowAiStrategy = trust.allow_ai_strategy === true;
-  const translationStatus = titleTranslationStatus(enItem, zhItem);
+  const allowStrongClaim = enTrust.allow_strong_claim === true || zhTrust.allow_strong_claim === true;
+  const allowSalaryComparison = enTrust.allow_salary_comparison === true || zhTrust.allow_salary_comparison === true;
+  const allowAiStrategy = enTrust.allow_ai_strategy === true || zhTrust.allow_ai_strategy === true;
+  const translationStatus = titleTranslationStatus(enItem, zhItem, dataset);
   const riskCodes = [];
 
   if (EXCLUDED_CAREER_JOB_DETAIL_SLUGS.has(slug)) riskCodes.push("excluded_slug_hold");
+  if (!legacyEnItemPresent) riskCodes.push("career_index_en_item_missing");
+  if (!legacyZhItemPresent) riskCodes.push("career_index_zh_item_missing");
+  if (!enItem) riskCodes.push("locale_enrichment_en_missing");
+  if (!zhItem) riskCodes.push("locale_enrichment_zh_missing");
+  if (Object.keys(enSeo).length === 0) riskCodes.push("locale_seo_evidence_en_missing");
+  if (Object.keys(zhSeo).length === 0) riskCodes.push("locale_seo_evidence_zh_missing");
+  if (!enHtmlEvidenceAvailable) riskCodes.push("locale_html_evidence_en_missing");
+  if (!zhHtmlEvidenceAvailable) riskCodes.push("locale_html_evidence_zh_missing");
+  if (hasPolicyToken(enHtmlRobots, "noindex")) riskCodes.push("locale_html_noindex_en");
+  if (hasPolicyToken(zhHtmlRobots, "noindex")) riskCodes.push("locale_html_noindex_zh");
   if (!enIndexable || !zhIndexable) riskCodes.push("not_bilingually_indexable");
   if (!inSitemapEn || !inSitemapZh) riskCodes.push("not_bilingually_in_sitemap");
   if (reviewerStatus !== "approved") riskCodes.push(`reviewer_not_final:${reviewerStatus}`);
+  if (publishTrack === "hold") riskCodes.push("dataset_publish_track_hold");
+  if (publishTrack === "candidate") riskCodes.push("dataset_publish_track_candidate_review_required");
+  if (publishTrack === "unknown") riskCodes.push("dataset_publish_track_missing");
   if (translationStatus !== "index_title_localized") riskCodes.push(translationStatus);
   if (contentVersion === "docx_342_career_batch" && (allowStrongClaim || allowSalaryComparison)) {
     riskCodes.push("docx_baseline_strong_claim_review_required");
@@ -271,12 +429,20 @@ function buildRow(slug, enItem, zhItem, sitemapPaths) {
     riskCodes.push("career_fit_strong_claim_without_final_review");
   }
 
-  let tier = "tier_c_internal_auxiliary_or_hold";
-  if (EXCLUDED_CAREER_JOB_DETAIL_SLUGS.has(slug) || !enIndexable || !zhIndexable || !inSitemapEn || !inSitemapZh) {
+  let tier = "tier_d_hold_not_search_entry";
+  if (
+    EXCLUDED_CAREER_JOB_DETAIL_SLUGS.has(slug)
+    || !enIndexable
+    || !zhIndexable
+    || !inSitemapEn
+    || !inSitemapZh
+    || publishTrack === "hold"
+    || publishTrack === "unknown"
+  ) {
     tier = "tier_d_hold_not_search_entry";
   } else if (contentVersion === "career_first_wave.publish_seed.v1" && reviewerStatus === "approved") {
     tier = "tier_a_controlled_search_entry_candidate";
-  } else if (contentVersion === "display_asset_backed_v4_2") {
+  } else if (contentVersion === "display_asset_backed_v4_2" || publishTrack === "candidate" || publishTrack === "stable") {
     tier = "tier_b_content_watchlist_schema_sample_required";
   } else if (contentVersion === "docx_342_career_batch") {
     tier = "tier_c_internal_auxiliary_claim_review_required";
@@ -286,14 +452,22 @@ function buildRow(slug, enItem, zhItem, sitemapPaths) {
 
   return {
     slug,
-    title_en: readString(readRecord(enItem?.titles).canonical_en),
-    title_zh_index: readString(readRecord(zhItem?.titles).canonical_zh || readRecord(enItem?.titles).canonical_zh),
+    title_en: readString(readRecord(enItem?.titles).canonical_en || dataset.canonical_title_en),
+    title_zh_index: readString(
+      readRecord(zhItem?.titles).canonical_zh || readRecord(enItem?.titles).canonical_zh || dataset.canonical_title_zh
+    ),
+    dataset_publish_track: publishTrack,
+    dataset_release_cohort: releaseCohort,
+    dataset_public_index_state: publicIndexState,
+    dataset_strong_index_decision: readString(dataset.strong_index_decision),
     content_version: contentVersion,
     reviewer_status: reviewerStatus,
     indexable_bilingual: enIndexable && zhIndexable,
     sitemap_bilingual: inSitemapEn && inSitemapZh,
     robots_policy_en: readString(enSeo.robots_policy),
     robots_policy_zh: readString(zhSeo.robots_policy),
+    html_robots_policy_en: enHtmlRobots,
+    html_robots_policy_zh: zhHtmlRobots,
     allow_strong_claim: allowStrongClaim,
     allow_salary_comparison: allowSalaryComparison,
     allow_ai_strategy: allowAiStrategy,
@@ -411,7 +585,13 @@ async function evaluateDetailSample({ slug, locale, row, siteUrl, apiOrigin, tim
     riskCodes.push("sample_strong_claim_without_final_review");
   }
 
+  const detailEnrichmentItem = detailStatus.ok && htmlStatus.ok
+    ? detailToIndexItem(detailStatus.payload, extractRobots(html) || "", seoSurface, true)
+    : null;
+
   return {
+    _detail_enrichment_item: detailEnrichmentItem,
+    detail_enrichment_available: Boolean(detailEnrichmentItem),
     slug,
     locale,
     row_tier: row.tier,
@@ -499,6 +679,11 @@ async function evaluateHub({ locale, siteUrl, sitemapPaths, timeoutMs }) {
 
 function buildRiskCategories(rows, detailSamples) {
   return {
+    authority_gap: {
+      career_index_en_item_missing: rows.filter((row) => row.risk_codes.includes("career_index_en_item_missing")).length,
+      career_index_zh_item_missing: rows.filter((row) => row.risk_codes.includes("career_index_zh_item_missing")).length,
+    },
+    dataset_publish_track: countBy(rows, (row) => row.dataset_publish_track),
     translation: {
       zh_index_title_missing: rows.filter((row) => row.risk_codes.includes("zh_index_title_missing")).length,
       zh_index_title_equals_en: rows.filter((row) => row.risk_codes.includes("zh_index_title_equals_en")).length,
@@ -583,50 +768,143 @@ function buildNextPrs() {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const generatedAt = new Date().toISOString();
+  const outputPath = path.resolve(process.cwd(), args.output);
+  const historicalArtifact = JSON.parse(fs.readFileSync(outputPath, "utf8"));
+  if (historicalArtifact.task !== LEGACY_TASK_ID || historicalArtifact.schema_version !== "1.0") {
+    throw new Error("The frozen CAREER-QUALITY-TIERING-01 v1 baseline is missing or invalid.");
+  }
   const sitemapUrl = `${args.siteUrl}/sitemap.xml`;
   const sitemapStatus = await fetchTextStatus(sitemapUrl, args.timeoutMs, "application/xml,text/xml,text/plain");
-  if (!sitemapStatus.ok) {
-    throw new Error(`Failed to fetch sitemap: ${sitemapStatus.status || sitemapStatus.error}`);
+  let sitemapAuthorityStatus = null;
+  let sitemapObservationSource = "live_sitemap_xml";
+  let locs = sitemapStatus.ok ? readXmlLocs(sitemapStatus.text) : [];
+  if (locs.length === 0) {
+    sitemapAuthorityStatus = await fetchJsonStatus(
+      apiUrl(args.apiOrigin, "/v0.5/seo/sitemap-source"),
+      args.timeoutMs
+    );
+    const authorityItems = readArray(readRecord(sitemapAuthorityStatus.payload).items);
+    locs = authorityItems
+      .map((item) => normalizeOwnedSitemapLoc(readRecord(item).loc, args.siteUrl))
+      .filter(Boolean);
+    sitemapObservationSource = "backend_sitemap_source_fallback";
   }
-
-  const locs = readXmlLocs(sitemapStatus.text);
+  if (locs.length === 0) {
+    throw new Error(
+      `Failed to fetch sitemap authority: live=${sitemapStatus.status || sitemapStatus.error}, backend=${
+        sitemapAuthorityStatus?.status || sitemapAuthorityStatus?.error || "not_requested"
+      }`
+    );
+  }
   const sitemapPaths = new Set(locs.map((url) => normalizePathname(new URL(url).pathname)));
   const careerDetailUrls = locs.filter((url) => careerSlugFromUrl(url));
   const sitemapCareerSlugs = new Set(careerDetailUrls.map(careerSlugFromUrl));
-  const [enIndexStatus, zhIndexStatus, launchTierStatus, discoverabilityStatus] = await Promise.all([
+  const [
+    datasetStatus,
+    directoryEnStatus,
+    directoryZhStatus,
+    enIndexStatus,
+    zhIndexStatus,
+    launchTierStatus,
+    discoverabilityStatus,
+  ] = await Promise.all([
+    fetchJsonStatus(apiUrl(args.apiOrigin, "/v0.5/career/datasets/occupations"), args.timeoutMs),
+    fetchJsonStatus(apiUrl(args.apiOrigin, "/v0.5/career/directory?locale=en&per_page=1"), args.timeoutMs),
+    fetchJsonStatus(apiUrl(args.apiOrigin, "/v0.5/career/directory?locale=zh-CN&per_page=1"), args.timeoutMs),
     fetchJsonStatus(apiUrl(args.apiOrigin, "/v0.5/career/jobs?locale=en&org_id=0"), args.timeoutMs),
     fetchJsonStatus(apiUrl(args.apiOrigin, "/v0.5/career/jobs?locale=zh-CN&org_id=0"), args.timeoutMs),
     fetchJsonStatus(apiUrl(args.apiOrigin, "/v0.5/career/first-wave/launch-tier?locale=en&org_id=0"), args.timeoutMs),
     fetchJsonStatus(apiUrl(args.apiOrigin, "/v0.5/career/first-wave/discoverability-manifest?locale=en&org_id=0"), args.timeoutMs),
   ]);
 
-  if (!enIndexStatus.ok || !zhIndexStatus.ok) {
-    throw new Error("Career index API failed; cannot build 1046 inventory tiering.");
+  if (!datasetStatus.ok || !directoryEnStatus.ok || !directoryZhStatus.ok) {
+    throw new Error("Career dataset or directory authority failed; cannot build the 1046 re-audit inventory.");
   }
 
-  const enItems = readArray(enIndexStatus.payload.items);
-  const zhItems = readArray(zhIndexStatus.payload.items);
-  const enBySlug = indexItemBySlug(enItems);
-  const zhBySlug = indexItemBySlug(zhItems);
-  const allSlugs = [...new Set([...enBySlug.keys(), ...zhBySlug.keys()])].sort();
-  const rows = allSlugs.map((slug) => buildRow(slug, enBySlug.get(slug), zhBySlug.get(slug), sitemapPaths));
-  const sampleRows = buildSampleRows(rows, args.samplePerGroup);
-  const detailSamples = [];
+  const datasetPayload = readRecord(datasetStatus.payload);
+  const directoryEnPayload = readRecord(directoryEnStatus.payload);
+  const directoryZhPayload = readRecord(directoryZhStatus.payload);
+  const enIndexPayload = readRecord(enIndexStatus.payload);
+  const zhIndexPayload = readRecord(zhIndexStatus.payload);
+  const datasetMembers = readArray(datasetPayload.members);
+  const datasetBySlug = datasetMemberBySlug(datasetMembers);
+  const allSlugs = [...datasetBySlug.keys()].sort();
+  if (allSlugs.length !== 1046) {
+    throw new Error(`Career dataset authority returned ${allSlugs.length} slugs instead of the required 1046.`);
+  }
+
+  const enItems = readArray(enIndexPayload.items);
+  const zhItems = readArray(zhIndexPayload.items);
+  const legacyEnBySlug = indexItemBySlug(enItems);
+  const legacyZhBySlug = indexItemBySlug(zhItems);
+  const enBySlug = new Map(legacyEnBySlug);
+  const zhBySlug = new Map(legacyZhBySlug);
+  const [stableEn, stableZh] = await Promise.all([
+    fetchStableDetailItems({ members: datasetMembers, locale: "en", apiOrigin: args.apiOrigin, timeoutMs: args.timeoutMs }),
+    fetchStableDetailItems({ members: datasetMembers, locale: "zh", apiOrigin: args.apiOrigin, timeoutMs: args.timeoutMs }),
+  ]);
+  for (const [slug, item] of stableEn.items) enBySlug.set(slug, item);
+  for (const [slug, item] of stableZh.items) zhBySlug.set(slug, item);
+
+  const provisionalRows = allSlugs.map((slug) =>
+    buildRow(
+      slug,
+      enBySlug.get(slug),
+      zhBySlug.get(slug),
+      datasetBySlug.get(slug),
+      sitemapPaths,
+      legacyEnBySlug.has(slug),
+      legacyZhBySlug.has(slug)
+    )
+  );
+  const sampleRows = buildSampleRows(provisionalRows, args.samplePerGroup);
+  const rawDetailSamples = [];
 
   for (const row of sampleRows) {
-    for (const locale of ["en", "zh"]) {
-      detailSamples.push(
-        await evaluateDetailSample({
-          slug: row.slug,
-          locale,
-          row,
-          siteUrl: args.siteUrl,
-          apiOrigin: args.apiOrigin,
-          timeoutMs: args.timeoutMs,
-        })
-      );
-    }
+    rawDetailSamples.push(
+      ...(await Promise.all(
+        ["en", "zh"].map((locale) =>
+          evaluateDetailSample({
+            slug: row.slug,
+            locale,
+            row,
+            siteUrl: args.siteUrl,
+            apiOrigin: args.apiOrigin,
+            timeoutMs: args.timeoutMs,
+          })
+        )
+      ))
+    );
   }
+
+  for (const sample of rawDetailSamples) {
+    if (!sample._detail_enrichment_item) continue;
+    const target = sample.locale === "zh" ? zhBySlug : enBySlug;
+    target.set(sample.slug, sample._detail_enrichment_item);
+  }
+
+  const rows = allSlugs.map((slug) =>
+    buildRow(
+      slug,
+      enBySlug.get(slug),
+      zhBySlug.get(slug),
+      datasetBySlug.get(slug),
+      sitemapPaths,
+      legacyEnBySlug.has(slug),
+      legacyZhBySlug.has(slug)
+    )
+  );
+  const rowBySlug = new Map(rows.map((row) => [row.slug, row]));
+  const detailSamples = rawDetailSamples.map((sample) => {
+    const artifactSample = { ...sample };
+    delete artifactSample._detail_enrichment_item;
+    const row = rowBySlug.get(artifactSample.slug);
+    return {
+      ...artifactSample,
+      row_tier: row?.tier || artifactSample.row_tier,
+      content_version_index: row?.content_version || artifactSample.content_version_index,
+    };
+  });
 
   const hubChecks = await Promise.all(
     ["en", "zh"].map((locale) =>
@@ -639,7 +917,7 @@ async function main() {
     )
   );
 
-  const artifact = {
+  const currentReaudit = {
     schema_version: SCHEMA_VERSION,
     task: TASK_ID,
     generated_at: generatedAt,
@@ -648,7 +926,13 @@ async function main() {
       site_url: args.siteUrl,
       api_origin: args.apiOrigin,
       sitemap_url: sitemapUrl,
-      career_index_api: [
+      sitemap_authority_api: "/api/v0.5/seo/sitemap-source",
+      career_dataset_api: "/api/v0.5/career/datasets/occupations",
+      career_directory_api: [
+        "/api/v0.5/career/directory?locale=en&per_page=1",
+        "/api/v0.5/career/directory?locale=zh-CN&per_page=1",
+      ],
+      optional_legacy_career_index_enrichment_api: [
         "/api/v0.5/career/jobs?locale=en&org_id=0",
         "/api/v0.5/career/jobs?locale=zh-CN&org_id=0",
       ],
@@ -695,12 +979,25 @@ async function main() {
       },
     ],
     inventory_summary: {
+      career_dataset_member_count: datasetMembers.length,
+      career_directory_en_count: Number(readRecord(directoryEnPayload.pagination).total || 0),
+      career_directory_zh_count: Number(readRecord(directoryZhPayload.pagination).total || 0),
       career_index_en_count: enItems.length,
       career_index_zh_count: zhItems.length,
+      stable_detail_enrichment_count: stableEn.items.size,
+      stable_detail_zh_enrichment_count: stableZh.items.size,
+      sampled_detail_enrichment_en_count: new Set(
+        detailSamples.filter((sample) => sample.locale === "en" && sample.detail_enrichment_available).map((sample) => sample.slug)
+      ).size,
+      sampled_detail_enrichment_zh_count: new Set(
+        detailSamples.filter((sample) => sample.locale === "zh" && sample.detail_enrichment_available).map((sample) => sample.slug)
+      ).size,
+      final_locale_enrichment_en_count: allSlugs.filter((slug) => enBySlug.has(slug)).length,
+      final_locale_enrichment_zh_count: allSlugs.filter((slug) => zhBySlug.has(slug)).length,
       unique_career_slugs: allSlugs.length,
-      slug_parity: {
-        en_only: allSlugs.filter((slug) => !zhBySlug.has(slug)).length,
-        zh_only: allSlugs.filter((slug) => !enBySlug.has(slug)).length,
+      optional_index_enrichment_gap: {
+        en_missing: allSlugs.filter((slug) => !legacyEnBySlug.has(slug)).length,
+        zh_missing: allSlugs.filter((slug) => !legacyZhBySlug.has(slug)).length,
       },
       sitemap_total_locs: locs.length,
       sitemap_career_detail_urls: careerDetailUrls.length,
@@ -708,7 +1005,7 @@ async function main() {
       career_jobs_hub_in_sitemap: hubChecks.some((hub) => hub.in_sitemap),
       excluded_slug_safety: [...EXCLUDED_CAREER_JOB_DETAIL_SLUGS].map((slug) => ({
         slug,
-        in_index: enBySlug.has(slug) || zhBySlug.has(slug),
+        in_index: datasetBySlug.has(slug) || enBySlug.has(slug) || zhBySlug.has(slug),
         in_sitemap: sitemapCareerSlugs.has(slug),
       })),
     },
@@ -716,24 +1013,47 @@ async function main() {
     risk_categories: buildRiskCategories(rows, detailSamples),
     sitemap_check: {
       status: "observed",
+      observation_source: sitemapObservationSource,
+      live_sitemap_status: sitemapStatus.status,
+      live_sitemap_ok: sitemapStatus.ok,
+      backend_sitemap_source_status: sitemapAuthorityStatus?.status ?? null,
+      backend_sitemap_source_ok: sitemapAuthorityStatus?.ok ?? null,
       career_detail_url_count: careerDetailUrls.length,
       unique_slug_count: sitemapCareerSlugs.size,
-      bilingual_expected_url_count_from_index: allSlugs.length * 2,
+      bilingual_expected_url_count_from_dataset_authority: allSlugs.length * 2,
       career_jobs_hub_paths: hubChecks.map((hub) => ({ path: hub.path, in_sitemap: hub.in_sitemap })),
       excluded_slugs_absent: [...EXCLUDED_CAREER_JOB_DETAIL_SLUGS].every((slug) => !sitemapCareerSlugs.has(slug)),
     },
     career_api_samples: {
+      dataset_authority: {
+        status: datasetStatus.status,
+        item_count: datasetMembers.length,
+        contract_kind: readString(datasetPayload.contract_kind),
+        contract_version: readString(datasetPayload.contract_version),
+      },
+      directory_en: {
+        status: directoryEnStatus.status,
+        total: Number(readRecord(directoryEnPayload.pagination).total || 0),
+        authority_version: readString(directoryEnPayload.authority_version),
+      },
+      directory_zh: {
+        status: directoryZhStatus.status,
+        total: Number(readRecord(directoryZhPayload.pagination).total || 0),
+        authority_version: readString(directoryZhPayload.authority_version),
+      },
       index_en: {
         status: enIndexStatus.status,
+        ok: enIndexStatus.ok,
         item_count: enItems.length,
-        bundle_kind: readString(enIndexStatus.payload.bundle_kind),
-        bundle_version: readString(enIndexStatus.payload.bundle_version),
+        bundle_kind: readString(enIndexPayload.bundle_kind),
+        bundle_version: readString(enIndexPayload.bundle_version),
       },
       index_zh: {
         status: zhIndexStatus.status,
+        ok: zhIndexStatus.ok,
         item_count: zhItems.length,
-        bundle_kind: readString(zhIndexStatus.payload.bundle_kind),
-        bundle_version: readString(zhIndexStatus.payload.bundle_version),
+        bundle_kind: readString(zhIndexPayload.bundle_kind),
+        bundle_version: readString(zhIndexPayload.bundle_version),
       },
       launch_tier_endpoint: {
         status: launchTierStatus.status,
@@ -745,6 +1065,7 @@ async function main() {
         ok: discoverabilityStatus.ok,
         note: discoverabilityStatus.ok ? "available" : "not available during this read-only run; sitemap and index fields were used instead",
       },
+      stable_detail_enrichment: [...stableEn.observations, ...stableZh.observations],
     },
     hub_suitability: {
       decision: hubChecks.every((hub) => hub.suitability === "hub_sitemap_candidate")
@@ -761,25 +1082,32 @@ async function main() {
     next_prs: buildNextPrs(),
     go_no_go: {
       career_pseo_amplification: "NO_GO",
-      reason: "The 1046 inventory is indexable and sitemap-visible at detail level, but most rows are not final reviewer-approved and have thin-content, translation, or claim-gate risks. No bulk search submission or pSEO blast should occur.",
-      limited_controlled_search_entry: "CONDITIONAL_GO_FOR_TIER_A_CANARY_ONLY_AFTER_MANUAL_REVIEW",
+      reason: "The dataset and directory still expose 1046 public details and the sitemap exposes 2092 localized URLs, but current per-entry reviewer/content-version enrichment is incomplete and the runtime/hold cohorts remain too broad for search amplification.",
+      limited_controlled_search_entry: rows.some((row) => row.tier === "tier_a_controlled_search_entry_candidate")
+        ? "CONDITIONAL_GO_FOR_TIER_A_CANARY_ONLY_AFTER_MANUAL_REVIEW"
+        : "HOLD_UNTIL_REVIEWER_EVIDENCE_IS_AVAILABLE",
       search_submission_allowed_by_this_artifact: false,
       career_body_generation_allowed_by_this_artifact: false,
     },
     rows,
   };
 
-  const outputPath = path.resolve(process.cwd(), args.output);
+  const artifact = {
+    ...historicalArtifact,
+    reaudited_at: generatedAt,
+    reaudit: currentReaudit,
+  };
+
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, `${JSON.stringify(artifact, null, args.pretty ? 2 : 2)}\n`);
   console.log(`[${TASK_ID}] wrote ${args.output}`);
   console.log(
     JSON.stringify(
       {
-        unique_career_slugs: artifact.inventory_summary.unique_career_slugs,
-        sitemap_career_detail_urls: artifact.inventory_summary.sitemap_career_detail_urls,
-        tier_counts: artifact.tier_counts,
-        pseo: artifact.go_no_go.career_pseo_amplification,
+        unique_career_slugs: currentReaudit.inventory_summary.unique_career_slugs,
+        sitemap_career_detail_urls: currentReaudit.inventory_summary.sitemap_career_detail_urls,
+        tier_counts: currentReaudit.tier_counts,
+        pseo: currentReaudit.go_no_go.career_pseo_amplification,
       },
       null,
       2
