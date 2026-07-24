@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import Link from "next/link";
 import { notFound, permanentRedirect } from "next/navigation";
 import { DataGlyph } from "@/components/assessment-cards/DataGlyph";
@@ -163,11 +162,6 @@ function firstQueryValue(value: string | string[] | undefined): string {
     return value[0] ?? "";
   }
   return value ?? "";
-}
-
-async function readRolloutIdentitySeed(): Promise<string | null> {
-  const value = (await headers()).get("x-anon-id")?.trim();
-  return value || null;
 }
 
 function appendQuery(path: string, query: Record<string, string | string[] | undefined>): string {
@@ -948,7 +942,10 @@ export default async function TestLandingPage({
   const rollout = resolveScaleRollout({
     scaleCode: test.scale_code as SupportedScaleCode | undefined,
     capabilities: lookup?.capabilities,
-    identitySeed: await readRolloutIdentitySeed(),
+    // This route is statically generated. Request-scoped headers would force a
+    // dynamic render at serve time and make the prebuilt core entry fail.
+    // The take route performs the request-specific rollout check before use.
+    identitySeed: null,
     envSnapshot: createScaleRolloutEnvSnapshot(),
   });
   const hasFreeFullReportAuthority = hasFreeFullReportCommercialAuthority(lookup);

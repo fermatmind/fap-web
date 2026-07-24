@@ -50960,6 +50960,84 @@
       "summary": "Exact R2 approval head 87b543d3c0eadb3230527a1a29d307147ed41432 passed all seven required checks and remained MERGEABLE. Codex review found one valid P2: commit_sha still referenced the pre-R2 head. This ledger-only closeout binds the approval state to the exact checked R2 head. Package SHA-256 remains 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae and authorization SHA-256 remains be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670; PR48 is ready to merge after this closeout head passes required checks."
     }
   ],
-  "updated_at": "2026-07-23T05:27:50Z"
-}
+    "updated_at": "2026-07-23T05:27:50Z"
+  },
+  "SEO-CORE-TEST-DETAIL-500-INCIDENT-01": {
+    "id": "SEO-CORE-TEST-DETAIL-500-INCIDENT-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/seo-core-test-detail-500-incident-01",
+    "title": "SEO-CORE-TEST-DETAIL-500-INCIDENT-01 restore core test detail availability",
+    "depends_on": [],
+    "status": "ready_to_merge",
+    "commit_sha": "0f497dc410eb1cfe13c5bb3c7228f3fa2bbd3d60",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1804",
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "This is the root task and has no dependencies."
+      },
+      "incident_reproduction": {
+        "status": "pass",
+        "evidence": "Exact origin/main 5ae48bdda2ccd0e63bee9ca30de395ccd8ddd26b built successfully, but its production server returned HTTP 500 for the core MBTI detail route with DYNAMIC_SERVER_USAGE while direct backend catalog and lookup reads returned HTTP 200. The SSG route consumed request-scoped next/headers during its page-body rollout decision."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "Focused route, rollout, landing, and static-params contracts pass 36/36, including the exact twelve EN/ZH core URL matrix."
+      },
+      "required_local_checks": {
+        "status": "pass",
+        "evidence": "Focused route matrix and rollout contracts passed 36/36; pnpm lint, pnpm typecheck, full pnpm test:contract (768 files / 4453 tests), production build (206/206), YAML/JSON validation, exact changed-file scope validation, and git diff --check all passed. A local production server returned HTTP 200 with visible H1/body, self-canonical, index/follow robots, hreflang, and take CTA for all twelve EN/ZH URLs across three rounds (36/36)."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1804 exact head 0f497dc410eb1cfe13c5bb3c7228f3fa2bbd3d60 is MERGEABLE/CLEAN. Build, contracts, Big Five freeze, Enneagram freeze, CodeQL analysis, and no-new-code-scanning-alerts all passed."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-24T02:10:56Z",
+        "status": "in_progress",
+        "summary": "Started from exact fap-web origin/main 5ae48bdda2ccd0e63bee9ca30de395ccd8ddd26b in an isolated worktree. Direct backend catalog and lookup authority returned HTTP 200. The unmodified production build reproduced the shared HTTP 500 with DYNAMIC_SERVER_USAGE because the statically generated test detail page called request-scoped headers() for rollout identity. Removed that dynamic API from the static landing only, preserved request-specific rollout enforcement on the take route, and added the exact twelve-route metadata/SSR/CTA regression matrix. No CMS, publication, indexability, sitemap, llms, Search Channel, deploy, or production mutation occurred."
+      },
+      {
+        "at": "2026-07-24T02:19:02Z",
+        "status": "local_checks_passed",
+        "summary": "All Task 1 manifest checks passed: focused route/rollout/landing/static-params contracts 36/36, lint, typecheck, full contracts 768 files / 4453 tests, production build 206/206, YAML/JSON validation, scope validation, and diff checks. The built production server passed the exact twelve EN/ZH URL matrix for status, visible body, canonical, robots, hreflang, and CTA in three bounded rounds (36/36). No production or authority-layer mutation occurred."
+      },
+      {
+        "at": "2026-07-24T02:20:05Z",
+        "status": "implementation_committed",
+        "summary": "Committed the exact five-file Task 1 scope at 0ca18965691da9c0cae2efb2b9fdf5906cf8ad67 after all required local checks passed."
+      },
+      {
+        "at": "2026-07-24T02:21:05Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the scoped branch and opened mergeable PR #1804 at checked head 0c7deb4f42491f4ce48c415b63805e379b62774f. Required GitHub checks are pending."
+      },
+      {
+        "at": "2026-07-24T02:27:01Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1804 exact head 0f497dc410eb1cfe13c5bb3c7228f3fa2bbd3d60 is MERGEABLE/CLEAN with all seven reported CI and CodeQL checks successful. Scope remains the exact five authorized files; this ledger closeout records readiness before squash merge."
+      }
+    ],
+    "updated_at": "2026-07-24T02:27:01Z"
+  }
 }
