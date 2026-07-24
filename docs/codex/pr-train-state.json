@@ -51054,8 +51054,8 @@
     "depends_on": [
       "SEO-CORE-TEST-DETAIL-500-INCIDENT-01"
     ],
-    "status": "github_checks_pending",
-    "commit_sha": "9b8abcf96b4c25be2cc4dac0b7cca5b940afd64f",
+    "status": "ready_to_merge",
+    "commit_sha": "29edf67f643115300052a48eb60a0d1133ceac8c",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1805",
     "checks": {
       "dependency": {
@@ -51071,14 +51071,14 @@
         "evidence": "pnpm lint, pnpm lint:spacing, pnpm typecheck, full pnpm test:contract (768 files / 4449 tests), Node 24 production build (206/206), YAML/JSON validation, git diff --check, and exact six-file allowed-path validation passed."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": null
+        "status": "pass",
+        "evidence": "PR #1805 head 29edf67f643115300052a48eb60a0d1133ceac8c passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE with no actionable review."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51112,8 +51112,13 @@
         "at": "2026-07-24T05:42:38Z",
         "status": "github_checks_pending",
         "summary": "Pushed the exact scoped branch and opened PR #1805 from checked branch head 22423d80860c841efec9c106a88431da056cf42b. Required GitHub checks and review are pending."
+      },
+      {
+        "at": "2026-07-24T05:49:00Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1805 head 29edf67f643115300052a48eb60a0d1133ceac8c passed all required CI, both contract-freeze checks, CodeQL analysis, and the no-new-alert gate. GitHub reports CLEAN and MERGEABLE; the only automated comment is a Codex review usage-limit notice with no actionable feedback. Exact six-file scope revalidated."
       }
     ],
-    "updated_at": "2026-07-24T05:42:38Z"
+    "updated_at": "2026-07-24T05:49:00Z"
   }
 }
