@@ -50970,7 +50970,7 @@
     "title": "SEO-CORE-TEST-DETAIL-500-INCIDENT-01 restore core test detail availability",
     "depends_on": [],
     "status": "local_checks_passed",
-    "commit_sha": null,
+    "commit_sha": "0ca18965691da9c0cae2efb2b9fdf5906cf8ad67",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -51021,8 +51021,13 @@
         "at": "2026-07-24T02:19:02Z",
         "status": "local_checks_passed",
         "summary": "All Task 1 manifest checks passed: focused route/rollout/landing/static-params contracts 36/36, lint, typecheck, full contracts 768 files / 4453 tests, production build 206/206, YAML/JSON validation, scope validation, and diff checks. The built production server passed the exact twelve EN/ZH URL matrix for status, visible body, canonical, robots, hreflang, and CTA in three bounded rounds (36/36). No production or authority-layer mutation occurred."
+      },
+      {
+        "at": "2026-07-24T02:20:05Z",
+        "status": "implementation_committed",
+        "summary": "Committed the exact five-file Task 1 scope at 0ca18965691da9c0cae2efb2b9fdf5906cf8ad67 after all required local checks passed."
       }
     ],
-    "updated_at": "2026-07-24T02:19:02Z"
+    "updated_at": "2026-07-24T02:20:05Z"
   }
 }
