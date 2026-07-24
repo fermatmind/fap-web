@@ -27310,3 +27310,53 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend public API
     repository_rule_impact: existing_backend_authority_static_rendering_and_frontend_no_fallback_rules_preserved
+
+  - id: SEO-10K-SITEMAP-FAMILY-OBSERVABILITY-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/seo-10k-sitemap-family-observability-01
+    base: main
+    title: "SEO-10K-SITEMAP-FAMILY-OBSERVABILITY-01 add sitemap family observability"
+    depends_on:
+      - SEO-CORE-TEST-DETAIL-500-INCIDENT-01
+    mode: execute
+    train_scope: seo_10k_sitemap_family_observability
+    status: in_progress
+    goal: "Expose deterministic tests, articles, career, personality, and other child sitemaps while preserving the exact backend-authoritative root sitemap URL union."
+    allowed_paths:
+      - app/sitemap.xml/route.ts
+      - app/sitemaps/[family]/route.ts
+      - lib/seo/publicSitemap.ts
+      - tests/contracts/public-sitemap-route.contract.test.ts
+      - docs/seo/sitemap-family-observability.md
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Adding, removing, publishing, or reclassifying the indexability of any public URL.
+      - Frontend inference of CMS publication or indexability authority.
+      - llms, llms-full, robots, CMS, Search Channel, or search-engine submission changes.
+      - Production deploy or production mutation.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/public-sitemap-route.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - >-
+        ruby -e "require 'yaml'; YAML.safe_load(File.read('docs/codex/pr-train.yaml'), aliases: true); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend public sitemap-source API
+    repository_rule_impact: existing_backend_authority_frontend_no_fallback_and_indexability_rules_preserved

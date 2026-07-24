@@ -50969,8 +50969,8 @@
     "branch": "codex/seo-core-test-detail-500-incident-01",
     "title": "SEO-CORE-TEST-DETAIL-500-INCIDENT-01 restore core test detail availability",
     "depends_on": [],
-    "status": "ready_to_merge",
-    "commit_sha": "0f497dc410eb1cfe13c5bb3c7228f3fa2bbd3d60",
+    "status": "merged",
+    "commit_sha": "a36de3f04df7b0fb0efd25a1fec66a39d77fae54",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1804",
     "checks": {
       "dependency": {
@@ -50998,12 +50998,12 @@
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-24T02:27:23Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -51036,8 +51036,89 @@
         "at": "2026-07-24T02:27:01Z",
         "status": "ready_to_merge",
         "summary": "PR #1804 exact head 0f497dc410eb1cfe13c5bb3c7228f3fa2bbd3d60 is MERGEABLE/CLEAN with all seven reported CI and CodeQL checks successful. Scope remains the exact five authorized files; this ledger closeout records readiness before squash merge."
+      },
+      {
+        "at": "2026-07-24T05:29:26Z",
+        "status": "merged",
+        "summary": "Reconciled Task 1 from GitHub and origin/main before starting Task 5: PR #1804 is MERGED at squash commit a36de3f04df7b0fb0efd25a1fec66a39d77fae54, origin/main contains that commit, and both local and remote task branches were removed after post-merge verification."
       }
     ],
-    "updated_at": "2026-07-24T02:27:01Z"
+    "updated_at": "2026-07-24T05:29:26Z"
+  },
+  "SEO-10K-SITEMAP-FAMILY-OBSERVABILITY-01": {
+    "id": "SEO-10K-SITEMAP-FAMILY-OBSERVABILITY-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/seo-10k-sitemap-family-observability-01",
+    "title": "SEO-10K-SITEMAP-FAMILY-OBSERVABILITY-01 add sitemap family observability",
+    "depends_on": [
+      "SEO-CORE-TEST-DETAIL-500-INCIDENT-01"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "29edf67f643115300052a48eb60a0d1133ceac8c",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1805",
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "Task 1 PR #1804 is merged at a36de3f04df7b0fb0efd25a1fec66a39d77fae54 and origin/main contains the merge commit."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "public-sitemap route and affected articles-cleanup contracts pass 31/31. The sitemap contract alone passes 10/10, covering deterministic disjoint family partition, exact root union equality, private/held exclusion inherited from the root builder, all five child routes, unknown-family 404, and authority failure closeout."
+      },
+      "required_local_checks": {
+        "status": "pass",
+        "evidence": "pnpm lint, pnpm lint:spacing, pnpm typecheck, full pnpm test:contract (768 files / 4449 tests), Node 24 production build (206/206), YAML/JSON validation, git diff --check, and exact six-file allowed-path validation passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1805 head 29edf67f643115300052a48eb60a0d1133ceac8c passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE with no actionable review."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-24T05:29:26Z",
+        "status": "in_progress",
+        "summary": "Started Task 5 from exact fap-web origin/main a36de3f04df7b0fb0efd25a1fec66a39d77fae54 in an isolated worktree. Scope is limited to deterministic child sitemap observability over the unchanged backend-authoritative root URL set; no public URL, indexability, llms, CMS, Search Channel, submission, deploy, or production mutation is authorized."
+      },
+      {
+        "at": "2026-07-24T05:40:30Z",
+        "status": "local_checks_passed",
+        "summary": "Implemented five child sitemap endpoints over the unchanged backend-authoritative root entry builder. An initial full-contract run found the root route's direct-fetch architecture guard had been removed by a refactor; restored the root route byte-for-byte and kept only child routes on the shared responder. The affected contracts then passed 31/31, followed by the complete 768-file / 4449-test suite, lint, spacing, typecheck, production build 206/206, syntax, diff, and exact scope checks."
+      },
+      {
+        "at": "2026-07-24T05:41:30Z",
+        "status": "implementation_committed",
+        "summary": "Committed the exact six-file Task 5 implementation as 9b8abcf96b4c25be2cc4dac0b7cca5b940afd64f after all manifest checks and explicit path-limited staging passed."
+      },
+      {
+        "at": "2026-07-24T05:42:38Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact scoped branch and opened PR #1805 from checked branch head 22423d80860c841efec9c106a88431da056cf42b. Required GitHub checks and review are pending."
+      },
+      {
+        "at": "2026-07-24T05:49:00Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1805 head 29edf67f643115300052a48eb60a0d1133ceac8c passed all required CI, both contract-freeze checks, CodeQL analysis, and the no-new-alert gate. GitHub reports CLEAN and MERGEABLE; the only automated comment is a Codex review usage-limit notice with no actionable feedback. Exact six-file scope revalidated."
+      }
+    ],
+    "updated_at": "2026-07-24T05:49:00Z"
   }
 }
