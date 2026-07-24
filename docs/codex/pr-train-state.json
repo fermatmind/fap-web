@@ -51054,8 +51054,8 @@
     "depends_on": [
       "SEO-CORE-TEST-DETAIL-500-INCIDENT-01"
     ],
-    "status": "local_checks_passed",
-    "commit_sha": null,
+    "status": "implementation_committed",
+    "commit_sha": "9b8abcf96b4c25be2cc4dac0b7cca5b940afd64f",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -51102,8 +51102,13 @@
         "at": "2026-07-24T05:40:30Z",
         "status": "local_checks_passed",
         "summary": "Implemented five child sitemap endpoints over the unchanged backend-authoritative root entry builder. An initial full-contract run found the root route's direct-fetch architecture guard had been removed by a refactor; restored the root route byte-for-byte and kept only child routes on the shared responder. The affected contracts then passed 31/31, followed by the complete 768-file / 4449-test suite, lint, spacing, typecheck, production build 206/206, syntax, diff, and exact scope checks."
+      },
+      {
+        "at": "2026-07-24T05:41:30Z",
+        "status": "implementation_committed",
+        "summary": "Committed the exact six-file Task 5 implementation as 9b8abcf96b4c25be2cc4dac0b7cca5b940afd64f after all manifest checks and explicit path-limited staging passed."
       }
     ],
-    "updated_at": "2026-07-24T05:40:30Z"
+    "updated_at": "2026-07-24T05:41:30Z"
   }
 }
