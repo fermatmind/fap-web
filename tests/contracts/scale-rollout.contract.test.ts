@@ -95,17 +95,18 @@ describe("scale rollout identity bucketing contract", () => {
     expect(decision.paywallMode).toBe("free_only");
   });
 
-  it("passes the proxy-provided anonymous request identity into landing and take rollout gates", () => {
+  it("keeps the static landing free of request headers while the take gate uses the proxy identity", () => {
     const landingSource = readSource("app/(localized)/[locale]/tests/[slug]/page.tsx");
     const takeSource = readSource("app/(localized)/[locale]/tests/[slug]/take/page.tsx");
 
-    expect(landingSource).toContain("x-anon-id");
+    expect(landingSource).not.toContain('from "next/headers"');
+    expect(landingSource).not.toContain("x-anon-id");
+    expect(landingSource).toMatch(/resolveScaleRollout\(\{[\s\S]*?identitySeed: null,[\s\S]*?\}\)/);
     expect(takeSource).toContain("x-anon-id");
-    expect(landingSource).toMatch(/resolveScaleRollout\(\{[\s\S]*?identitySeed: await readRolloutIdentitySeed\(\),[\s\S]*?\}\)/);
     expect(takeSource).toMatch(/resolveScaleRollout\(\{[\s\S]*?identitySeed: await readRolloutIdentitySeed\(\),[\s\S]*?\}\)/);
   });
 
-  it("keeps landing and take percentage rollout buckets on the same proxy-owned seed", () => {
+  it("keeps request-specific percentage rollout enforcement on the take route", () => {
     const landingSeed = forwardedAnonSeed("/en/tests/mbti-personality-test-16-personality-types");
     const takeSeed = forwardedAnonSeed("/en/tests/mbti-personality-test-16-personality-types/take");
     const envSnapshot = createScaleRolloutEnvSnapshot({
@@ -116,9 +117,9 @@ describe("scale rollout identity bucketing contract", () => {
     expect(landingSeed).toBe("anon-b-seed");
     expect(takeSeed).toBe("anon-b-seed");
 
-    const landingDecision = resolveScaleRollout({
+    const staticLandingDecision = resolveScaleRollout({
       scaleCode: "MBTI",
-      identitySeed: landingSeed,
+      identitySeed: null,
       envSnapshot,
     });
     const takeDecision = resolveScaleRollout({
@@ -127,8 +128,10 @@ describe("scale rollout identity bucketing contract", () => {
       envSnapshot,
     });
 
-    expect(takeDecision.bucket).toBe(landingDecision.bucket);
-    expect(takeDecision.percentEnabled).toBe(landingDecision.percentEnabled);
+    expect(staticLandingDecision.bucket).toBe(26);
+    expect(takeDecision.bucket).toBe(90);
+    expect(takeDecision.percentEnabled).toBe(false);
+    expect(takeDecision.reasons).toContain("percent_filtered");
   });
 
   it("documents the PR-WEB-SEC-32 scope boundary", () => {
