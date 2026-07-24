@@ -51054,9 +51054,9 @@
     "depends_on": [
       "SEO-CORE-TEST-DETAIL-500-INCIDENT-01"
     ],
-    "status": "implementation_committed",
+    "status": "github_checks_pending",
     "commit_sha": "9b8abcf96b4c25be2cc4dac0b7cca5b940afd64f",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1805",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -51107,8 +51107,13 @@
         "at": "2026-07-24T05:41:30Z",
         "status": "implementation_committed",
         "summary": "Committed the exact six-file Task 5 implementation as 9b8abcf96b4c25be2cc4dac0b7cca5b940afd64f after all manifest checks and explicit path-limited staging passed."
+      },
+      {
+        "at": "2026-07-24T05:42:38Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact scoped branch and opened PR #1805 from checked branch head 22423d80860c841efec9c106a88431da056cf42b. Required GitHub checks and review are pending."
       }
     ],
-    "updated_at": "2026-07-24T05:41:30Z"
+    "updated_at": "2026-07-24T05:42:38Z"
   }
 }
