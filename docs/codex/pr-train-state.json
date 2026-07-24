@@ -50969,9 +50969,9 @@
     "branch": "codex/seo-core-test-detail-500-incident-01",
     "title": "SEO-CORE-TEST-DETAIL-500-INCIDENT-01 restore core test detail availability",
     "depends_on": [],
-    "status": "local_checks_passed",
-    "commit_sha": "0ca18965691da9c0cae2efb2b9fdf5906cf8ad67",
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "0c7deb4f42491f4ce48c415b63805e379b62774f",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1804",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -50991,7 +50991,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR has not been opened."
+        "evidence": "PR #1804 is open and mergeable; build, contracts, Big Five freeze, Enneagram freeze, and CodeQL checks are pending."
       }
     },
     "scope_validation": {
@@ -51026,8 +51026,13 @@
         "at": "2026-07-24T02:20:05Z",
         "status": "implementation_committed",
         "summary": "Committed the exact five-file Task 1 scope at 0ca18965691da9c0cae2efb2b9fdf5906cf8ad67 after all required local checks passed."
+      },
+      {
+        "at": "2026-07-24T02:21:05Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the scoped branch and opened mergeable PR #1804 at checked head 0c7deb4f42491f4ce48c415b63805e379b62774f. Required GitHub checks are pending."
       }
     ],
-    "updated_at": "2026-07-24T02:20:05Z"
+    "updated_at": "2026-07-24T02:21:05Z"
   }
 }
