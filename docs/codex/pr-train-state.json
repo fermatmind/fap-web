@@ -50969,8 +50969,8 @@
     "branch": "codex/seo-core-test-detail-500-incident-01",
     "title": "SEO-CORE-TEST-DETAIL-500-INCIDENT-01 restore core test detail availability",
     "depends_on": [],
-    "status": "github_checks_pending",
-    "commit_sha": "0c7deb4f42491f4ce48c415b63805e379b62774f",
+    "status": "ready_to_merge",
+    "commit_sha": "0f497dc410eb1cfe13c5bb3c7228f3fa2bbd3d60",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1804",
     "checks": {
       "dependency": {
@@ -50990,14 +50990,14 @@
         "evidence": "Focused route matrix and rollout contracts passed 36/36; pnpm lint, pnpm typecheck, full pnpm test:contract (768 files / 4453 tests), production build (206/206), YAML/JSON validation, exact changed-file scope validation, and git diff --check all passed. A local production server returned HTTP 200 with visible H1/body, self-canonical, index/follow robots, hreflang, and take CTA for all twelve EN/ZH URLs across three rounds (36/36)."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1804 is open and mergeable; build, contracts, Big Five freeze, Enneagram freeze, and CodeQL checks are pending."
+        "status": "pass",
+        "evidence": "PR #1804 exact head 0f497dc410eb1cfe13c5bb3c7228f3fa2bbd3d60 is MERGEABLE/CLEAN. Build, contracts, Big Five freeze, Enneagram freeze, CodeQL analysis, and no-new-code-scanning-alerts all passed."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51031,8 +51031,13 @@
         "at": "2026-07-24T02:21:05Z",
         "status": "github_checks_pending",
         "summary": "Pushed the scoped branch and opened mergeable PR #1804 at checked head 0c7deb4f42491f4ce48c415b63805e379b62774f. Required GitHub checks are pending."
+      },
+      {
+        "at": "2026-07-24T02:27:01Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1804 exact head 0f497dc410eb1cfe13c5bb3c7228f3fa2bbd3d60 is MERGEABLE/CLEAN with all seven reported CI and CodeQL checks successful. Scope remains the exact five authorized files; this ledger closeout records readiness before squash merge."
       }
     ],
-    "updated_at": "2026-07-24T02:21:05Z"
+    "updated_at": "2026-07-24T02:27:01Z"
   }
 }
