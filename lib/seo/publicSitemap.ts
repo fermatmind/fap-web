@@ -17,8 +17,22 @@ export type PublicSitemapEntry = {
   lastmod?: string;
 };
 
+export const PUBLIC_SITEMAP_FAMILIES = ["tests", "articles", "career", "personality", "other"] as const;
+export type PublicSitemapFamily = (typeof PUBLIC_SITEMAP_FAMILIES)[number];
+
 const BACKEND_SITEMAP_SOURCE_TIMEOUT_MS = 20_000;
 const OWNED_SITEMAP_HOSTS = new Set(["fermatmind.com", "www.fermatmind.com"]);
+const SUCCESS_CACHE_CONTROL = "public, max-age=300, s-maxage=600, stale-while-revalidate=86400";
+const FAILURE_CACHE_CONTROL = "public, max-age=60, s-maxage=60";
+const FAMILY_PATH_PATTERNS: ReadonlyArray<{
+  family: Exclude<PublicSitemapFamily, "other">;
+  pattern: RegExp;
+}> = [
+  { family: "tests", pattern: /^\/(?:en|zh)\/tests(?:\/|$)/i },
+  { family: "articles", pattern: /^\/(?:en|zh)\/articles(?:\/|$)/i },
+  { family: "career", pattern: /^\/(?:en|zh)\/career(?:\/|$)/i },
+  { family: "personality", pattern: /^\/(?:en|zh)\/personality(?:\/|$)/i },
+];
 
 function normalizeSiteUrl(siteUrl: string): string {
   return String(siteUrl || CANONICAL_SITE_URL).trim().replace(/\/+$/, "") || CANONICAL_SITE_URL;
@@ -123,6 +137,54 @@ export function buildPublicSitemapXml(entries: PublicSitemapEntry[]): string {
   ].join("\n");
 }
 
+export function classifyPublicSitemapEntry(entry: PublicSitemapEntry): PublicSitemapFamily {
+  const pathname = new URL(entry.loc).pathname;
+
+  for (const { family, pattern } of FAMILY_PATH_PATTERNS) {
+    if (pattern.test(pathname)) {
+      return family;
+    }
+  }
+
+  return "other";
+}
+
+export function buildPublicSitemapFamilyMap(
+  entries: PublicSitemapEntry[]
+): Record<PublicSitemapFamily, PublicSitemapEntry[]> {
+  const families: Record<PublicSitemapFamily, PublicSitemapEntry[]> = {
+    tests: [],
+    articles: [],
+    career: [],
+    personality: [],
+    other: [],
+  };
+  const seen = new Set<string>();
+
+  for (const entry of [...entries].sort((left, right) => left.loc.localeCompare(right.loc))) {
+    if (seen.has(entry.loc)) {
+      continue;
+    }
+
+    seen.add(entry.loc);
+    families[classifyPublicSitemapEntry(entry)].push(entry);
+  }
+
+  return families;
+}
+
+export function resolvePublicSitemapFamilySegment(value: string): PublicSitemapFamily | null {
+  const normalized = String(value || "").trim().toLowerCase();
+
+  for (const family of PUBLIC_SITEMAP_FAMILIES) {
+    if (normalized === `${family}.xml`) {
+      return family;
+    }
+  }
+
+  return null;
+}
+
 function createTimeoutSignal(parentSignal: AbortSignal | undefined): { signal: AbortSignal; cleanup: () => void } {
   const controller = new AbortController();
   const abortFromParent = () => controller.abort();
@@ -160,5 +222,34 @@ export async function fetchBackendPublicSitemapSource(signal?: AbortSignal): Pro
     return (await response.json()) as BackendPublicSitemapPayload;
   } finally {
     timeoutSignal.cleanup();
+  }
+}
+
+export async function buildPublicSitemapResponse(family?: PublicSitemapFamily): Promise<Response> {
+  try {
+    const payload = await fetchBackendPublicSitemapSource();
+    const rootEntries = buildPublicSitemapEntries(payload);
+
+    if (rootEntries.length === 0) {
+      throw new Error("empty_backend_sitemap_source");
+    }
+
+    const entries = family ? buildPublicSitemapFamilyMap(rootEntries)[family] : rootEntries;
+
+    return new Response(buildPublicSitemapXml(entries), {
+      status: 200,
+      headers: {
+        "Content-Type": "application/xml; charset=utf-8",
+        "Cache-Control": SUCCESS_CACHE_CONTROL,
+      },
+    });
+  } catch {
+    return new Response("Public sitemap source unavailable.\n", {
+      status: 503,
+      headers: {
+        "Content-Type": "text/plain; charset=utf-8",
+        "Cache-Control": FAILURE_CACHE_CONTROL,
+      },
+    });
   }
 }
