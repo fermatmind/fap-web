@@ -283,6 +283,12 @@ const nextConfig = {
         permanent: true,
       },
       ...bigFiveLegacyExact301Redirects,
+      // Redirect legacy /big-five/ paths (missing /personality/ prefix) to canonical /personality/big-five/
+      {
+        source: "/:locale(en|zh)/big-five/:path*",
+        destination: "/:locale/personality/big-five/:path*",
+        permanent: true,
+      },
       {
         source: "/privacy",
         destination: "/zh/privacy",
