@@ -1537,33 +1537,64 @@ export function normalizePersonalitySeoPayload(
     "projection" in profile
       ? runtimeTypeCodeToSlug(profile.projection.runtimeTypeCode) ?? profile.routeSlug
       : null;
+  const projectionSeo = "projection" in profile ? profile.projection.seo : null;
+  const seoHasProjectionRouteMismatch =
+    projectionRouteSlug !== null &&
+    hasPersonalityProjectionRouteMismatch(projectionRouteSlug, [
+      seo?.meta.canonical,
+      seo?.meta.alternates?.en,
+      seo?.meta.alternates?.["zh-CN"],
+      seo?.surface?.canonicalUrl,
+      seo?.surface?.canonicalPath,
+      seo?.surface?.alternates.en,
+      seo?.surface?.alternates["zh-CN"],
+    ]);
+  const acceptedSeo = seoHasProjectionRouteMismatch ? null : seo;
   const canonicalRouteSlug =
     projectionRouteSlug ??
-    extractPersonalitySlugFromPublicUrl(seo?.meta.canonical) ??
+    extractPersonalitySlugFromPublicUrl(acceptedSeo?.meta.canonical) ??
     buildDefaultPublicPersonalitySlug(compatibility.slug);
   const canonicalPath = buildPersonalityFrontendUrl(locale, canonicalRouteSlug);
   const normalizedCanonical = canonicalUrl(canonicalPath);
   const alternateEnSlug =
     projectionRouteSlug ??
-    extractPersonalitySlugFromPublicUrl(seo?.meta.alternates?.en) ??
+    extractPersonalitySlugFromPublicUrl(acceptedSeo?.meta.alternates?.en) ??
     canonicalRouteSlug;
   const alternateZhSlug =
     projectionRouteSlug ??
-    extractPersonalitySlugFromPublicUrl(seo?.meta.alternates?.["zh-CN"]) ??
+    extractPersonalitySlugFromPublicUrl(acceptedSeo?.meta.alternates?.["zh-CN"]) ??
     canonicalRouteSlug;
-  const title = fallbackText(seo?.meta.title, compatibility.seoMeta?.seoTitle, compatibility.title);
+  const title = fallbackText(
+    acceptedSeo?.meta.title,
+    projectionSeo?.title,
+    compatibility.seoMeta?.seoTitle,
+    compatibility.title
+  );
   const description = fallbackText(
-    seo?.meta.description,
+    acceptedSeo?.meta.description,
+    projectionSeo?.description,
     compatibility.seoMeta?.seoDescription,
     compatibility.excerpt,
     compatibility.subtitle
   );
   const robots = fallbackText(
-    seo?.meta.robots,
+    acceptedSeo?.meta.robots,
+    projectionSeo?.robots,
     compatibility.seoMeta?.robots,
     compatibility.isIndexable ? "index,follow" : "noindex,follow"
   );
-  const sourceSurface = seo?.surface ?? ("projection" in profile ? profile.seoSurface : null);
+  const detailSurface = "projection" in profile ? profile.seoSurface : null;
+  const detailSurfaceHasProjectionRouteMismatch =
+    projectionRouteSlug !== null &&
+    hasPersonalityProjectionRouteMismatch(projectionRouteSlug, [
+      detailSurface?.canonicalUrl,
+      detailSurface?.canonicalPath,
+      detailSurface?.alternates.en,
+      detailSurface?.alternates["zh-CN"],
+    ]);
+  const sourceSurface =
+    acceptedSeo?.surface ??
+    (detailSurfaceHasProjectionRouteMismatch ? null : detailSurface);
   const routeBoundSurface =
     projectionRouteSlug && sourceSurface
       ? {
@@ -1592,21 +1623,37 @@ export function normalizePersonalitySeoPayload(
         "zh-CN": canonicalUrl(buildPersonalityFrontendUrl("zh", alternateZhSlug)),
       },
       og: {
-        title: fallbackText(seo?.meta.og.title, compatibility.seoMeta?.ogTitle, title),
-        description: fallbackText(seo?.meta.og.description, compatibility.seoMeta?.ogDescription, description),
-        image: normalizeIsoValue(seo?.meta.og.image ?? compatibility.seoMeta?.ogImageUrl),
-        type: fallbackText(seo?.meta.og.type, "article"),
+        title: fallbackText(acceptedSeo?.meta.og.title, projectionSeo?.ogTitle, compatibility.seoMeta?.ogTitle, title),
+        description: fallbackText(
+          acceptedSeo?.meta.og.description,
+          projectionSeo?.ogDescription,
+          compatibility.seoMeta?.ogDescription,
+          description
+        ),
+        image: normalizeIsoValue(
+          acceptedSeo?.meta.og.image ??
+            projectionSeo?.ogImageUrl ??
+            compatibility.seoMeta?.ogImageUrl
+        ),
+        type: fallbackText(acceptedSeo?.meta.og.type, "article"),
       },
       twitter: {
-        card: fallbackText(seo?.meta.twitter.card, "summary_large_image"),
-        title: fallbackText(seo?.meta.twitter.title, compatibility.seoMeta?.twitterTitle, title),
+        card: fallbackText(acceptedSeo?.meta.twitter.card, "summary_large_image"),
+        title: fallbackText(
+          acceptedSeo?.meta.twitter.title,
+          projectionSeo?.twitterTitle,
+          compatibility.seoMeta?.twitterTitle,
+          title
+        ),
         description: fallbackText(
-          seo?.meta.twitter.description,
+          acceptedSeo?.meta.twitter.description,
+          projectionSeo?.twitterDescription,
           compatibility.seoMeta?.twitterDescription,
           description
         ),
         image: normalizeIsoValue(
-          seo?.meta.twitter.image ??
+          acceptedSeo?.meta.twitter.image ??
+            projectionSeo?.twitterImageUrl ??
             compatibility.seoMeta?.twitterImageUrl ??
             compatibility.seoMeta?.ogImageUrl
         ),
@@ -1614,8 +1661,8 @@ export function normalizePersonalitySeoPayload(
       robots,
     },
     jsonld: normalizePersonalityJsonLd(
-      seo?.jsonld ?? null,
-      seo?.meta.canonical,
+      acceptedSeo?.jsonld ?? projectionSeo?.jsonld ?? null,
+      acceptedSeo?.meta.canonical ?? projectionSeo?.canonicalUrl,
       canonicalPath,
       "projection" in profile
         ? {
@@ -1674,6 +1721,17 @@ function extractPersonalitySlugFromPublicUrl(value: string | null | undefined): 
   } catch {
     return null;
   }
+}
+
+function hasPersonalityProjectionRouteMismatch(
+  expectedSlug: string,
+  candidates: Array<string | null | undefined>
+): boolean {
+  return candidates.some((candidate) => {
+    const candidateSlug = extractPersonalitySlugFromPublicUrl(candidate);
+
+    return candidateSlug !== null && candidateSlug !== expectedSlug;
+  });
 }
 
 export async function listPersonalityProfiles(

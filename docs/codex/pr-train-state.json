@@ -51149,14 +51149,14 @@
         "evidence": "Node 24.14.0 after the scoped review repair: lint, lint:spacing, typecheck, all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1808 implementation head db7c813d2f330acbf3b09fdade031942df9048a3 passed build, contracts, both freeze suites, CodeQL analysis, no-new-code-scanning-alerts, and CodeQL. Exact-head Codex review found no major issues and unresolved threads are zero."
+        "status": "pending",
+        "evidence": "Final ledger head c1d6319916dfc40f74559bdf6e57910f7a0fcae4 passed all seven checks, but exact-head review found a current-scope stale SEO metadata issue. The scoped fix is in progress and must produce a new checked head."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51195,8 +51195,18 @@
         "at": "2026-07-26T02:54:46Z",
         "status": "ready_to_merge",
         "summary": "Implementation head db7c813d2f330acbf3b09fdade031942df9048a3 passed all seven GitHub checks, exact-head Codex review reported no major issues, the P2 thread is resolved, unresolved thread count is zero, and PR #1808 is mergeable. This ledger transition is the only remaining pre-merge change."
+      },
+      {
+        "at": "2026-07-26T03:04:33Z",
+        "status": "in_progress",
+        "summary": "Exact-head review on c1d6319916dfc40f74559bdf6e57910f7a0fcae4 found that route-only rebinding could retain stale variant title, description, robots, and surface fields. The current-scope fix rejects any SEO package whose route identity conflicts with the backend projection and falls back to the detail/base surface or projection SEO. Focused Vitest and the three relevant Playwright cases pass; full gates are rerunning."
+      },
+      {
+        "at": "2026-07-26T03:11:16Z",
+        "status": "in_progress",
+        "summary": "The second exact-head review repair passed Node 24.14.0 lint, spacing, typecheck, focused contracts (20 tests), relevant Playwright routes (3 tests), all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages). YAML/JSON parsing, git diff checks, and the exact eight-file PR scope also pass; a new GitHub-checked head is pending."
       }
     ],
-    "updated_at": "2026-07-26T02:54:46Z"
+    "updated_at": "2026-07-26T03:11:16Z"
   }
 }

@@ -539,6 +539,9 @@ describe("personality cms adapter contract", () => {
       {
         ...normalizedBaseSeo,
         surface: {
+          title: "INTJ-A stale variant surface",
+          description: "Stale variant surface description.",
+          robotsPolicy: "noindex,follow",
           canonicalUrl: "https://fermatmind.com/en/personality/intj-a",
           canonicalPath: "/en/personality/intj-a",
           alternates: {
@@ -551,10 +554,23 @@ describe("personality cms adapter contract", () => {
         } as unknown as NonNullable<typeof normalizedBaseSeo.surface>,
         meta: {
           ...normalizedBaseSeo.meta,
+          title: "INTJ-A stale variant title",
+          description: "Stale variant description.",
+          robots: "noindex,follow",
           canonical: "https://fermatmind.com/en/personality/intj-a",
           alternates: {
             en: "https://fermatmind.com/en/personality/intj-a",
             "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
+          },
+          og: {
+            ...normalizedBaseSeo.meta.og,
+            title: "INTJ-A stale variant OG title",
+            description: "Stale variant OG description.",
+          },
+          twitter: {
+            ...normalizedBaseSeo.meta.twitter,
+            title: "INTJ-A stale variant Twitter title",
+            description: "Stale variant Twitter description.",
           },
         },
         jsonld: {
@@ -566,14 +582,16 @@ describe("personality cms adapter contract", () => {
       detail!,
       "en"
     );
+    expect(normalizedStaleVariantSeo.meta.title).toBe("INTJ Personality Type");
+    expect(normalizedStaleVariantSeo.meta.description).toBe("Projection-backed seo description.");
+    expect(normalizedStaleVariantSeo.meta.robots).toBe("index,follow");
     expect(normalizedStaleVariantSeo.meta.canonical).toBe("http://localhost:3000/en/personality/intj");
     expect(normalizedStaleVariantSeo.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj");
     expect(normalizedStaleVariantSeo.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj");
-    expect(normalizedStaleVariantSeo.surface?.canonicalUrl).toBe("http://localhost:3000/en/personality/intj");
-    expect(normalizedStaleVariantSeo.surface?.canonicalPath).toBe("/en/personality/intj");
-    expect(normalizedStaleVariantSeo.surface?.alternates.en).toBe("http://localhost:3000/en/personality/intj");
-    expect(normalizedStaleVariantSeo.surface?.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj");
-    expect(normalizedStaleVariantSeo.surface?.og.url).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalizedStaleVariantSeo.meta.og.title).toBe("INTJ Personality Type");
+    expect(normalizedStaleVariantSeo.meta.twitter.title).toBe("INTJ Personality Type");
+    expect(normalizedStaleVariantSeo.surface).toBeNull();
+    expect(JSON.stringify(normalizedStaleVariantSeo)).not.toContain("INTJ-A stale variant");
     expect(
       (normalizedStaleVariantSeo.jsonld as Record<string, unknown>).mainEntityOfPage
     ).toBe("http://localhost:3000/en/personality/intj");
