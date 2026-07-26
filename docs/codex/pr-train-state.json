@@ -51128,8 +51128,8 @@
     "branch": "codex/saep-proposed-web-per02-mbti-base-type-runtime-owner-01",
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
-    "status": "in_progress",
-    "commit_sha": "0d5b79f86b3b3529de598c5bca47fd93d2b722a1",
+    "status": "ready_to_merge",
+    "commit_sha": "38b5ebe720bd16af6d652e83ea814f707798e149",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51149,14 +51149,14 @@
         "evidence": "Node 24.14.0 after the scoped review repair: lint, lint:spacing, typecheck, all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "Final ledger head c1d6319916dfc40f74559bdf6e57910f7a0fcae4 passed all seven checks, but exact-head review found a current-scope stale SEO metadata issue. The scoped fix is in progress and must produce a new checked head."
+        "status": "pass",
+        "evidence": "PR #1808 implementation head 38b5ebe720bd16af6d652e83ea814f707798e149 passed build, contracts, both freeze suites, CodeQL analysis, no-new-code-scanning-alerts, and CodeQL. Exact-head Codex review found no major issues, all four review threads are resolved, and the PR is mergeable."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51215,8 +51215,13 @@
         "at": "2026-07-26T03:27:47Z",
         "status": "in_progress",
         "summary": "The base-section authority repair passed focused contracts (20 tests), all three relevant public-route Playwright cases, lint, spacing, typecheck, all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages). The first Playwright attempt omitted NEXT_PUBLIC_API_URL and failed against absent localhost API; the correctly bound read-only public API rerun passed."
+      },
+      {
+        "at": "2026-07-26T03:34:11Z",
+        "status": "ready_to_merge",
+        "summary": "Implementation head 38b5ebe720bd16af6d652e83ea814f707798e149 passed all seven GitHub checks, exact-head Codex review found no major issues, unresolved review thread count is zero, exact eight-file scope is intact, origin/main remains the original locked base, and PR #1808 is mergeable. This ledger-only transition is the final pre-merge tail."
       }
     ],
-    "updated_at": "2026-07-26T03:27:47Z"
+    "updated_at": "2026-07-26T03:34:11Z"
   }
 }
