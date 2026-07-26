@@ -799,6 +799,44 @@ describe("personality cms adapter contract", () => {
       JSON.stringify(normalizedWithProjectionJsonLdCanonical.jsonld)
     ).not.toContain(projectionJsonLdCanonical);
 
+    const normalizedWithRouteValidLegacyJsonLd = normalizePersonalitySeoPayload(
+      {
+        ...normalizedBaseSeo,
+        jsonld: {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "@id": "https://fermatmind.com/en/personality/intj#profile",
+          url: "https://fermatmind.com/en/personality/intj",
+          mainEntityOfPage: "https://fermatmind.com/en/personality/intj",
+          name: "INTJ-A stale route-valid structured data",
+        },
+      },
+      {
+        ...detail!,
+        projection: {
+          ...detail!.projection,
+          seo: {
+            ...detail!.projection.seo,
+            jsonld: {
+              "@context": "https://schema.org",
+              "@type": "AboutPage",
+              "@id": "https://fermatmind.com/en/personality/intj#profile",
+              url: "https://fermatmind.com/en/personality/intj",
+              mainEntityOfPage: "https://fermatmind.com/en/personality/intj",
+              name: "INTJ projection structured data",
+            },
+          },
+        },
+      },
+      "en"
+    );
+    expect(normalizedWithRouteValidLegacyJsonLd.jsonld).toMatchObject({
+      name: "INTJ projection structured data",
+    });
+    expect(
+      JSON.stringify(normalizedWithRouteValidLegacyJsonLd.jsonld)
+    ).not.toContain("INTJ-A stale route-valid structured data");
+
     const routeValidIndexableDetailSurface = {
       ...staleVariantSeoPayload.surface,
       robotsPolicy: "index,follow",

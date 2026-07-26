@@ -1819,6 +1819,20 @@ export function normalizePersonalitySeoPayload(
           ...profile,
           seoMeta: jsonLdFallbackSeoMeta,
         };
+  const selectedJsonLd = isBaseTypeProjection
+    ? projectionJsonLd ?? acceptedSeoJsonLd
+    : acceptedSeoJsonLd ?? projectionJsonLd;
+  const selectedJsonLdCanonical = isBaseTypeProjection
+    ? projectionJsonLd
+      ? projectionSeo?.canonicalUrl
+      : acceptedSeoJsonLd
+        ? acceptedSeo?.meta.canonical
+        : null
+    : acceptedSeoJsonLd
+      ? acceptedSeo?.meta.canonical
+      : projectionJsonLd
+        ? projectionSeo?.canonicalUrl
+        : null;
 
   return {
     meta: {
@@ -1844,12 +1858,8 @@ export function normalizePersonalitySeoPayload(
       robots,
     },
     jsonld: normalizePersonalityJsonLd(
-      acceptedSeoJsonLd ?? projectionJsonLd,
-      acceptedSeoJsonLd
-        ? acceptedSeo?.meta.canonical
-        : projectionJsonLd
-          ? projectionSeo?.canonicalUrl
-          : null,
+      selectedJsonLd,
+      selectedJsonLdCanonical,
       canonicalPath,
       jsonLdFallbackProfile
     ),
