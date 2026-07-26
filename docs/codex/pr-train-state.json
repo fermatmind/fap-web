@@ -51134,7 +51134,7 @@
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
     "status": "in_progress",
-    "commit_sha": "d528d38fd6737121705c08f9d75f862d0547f98d",
+    "commit_sha": "3404070ac9de8fc951d6bce17b1f60ea22ed0455",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51151,11 +51151,11 @@
       },
       "required_local_checks": {
         "status": "pass",
-        "evidence": "Node 24.14.0 after the variant SEO precedence repair: lint, lint:spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. The focused Vitest pair passed 20 tests and all four relevant Playwright cases passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed. The first Playwright/build attempts omitted required clean-worktree public environment variables and failed only on localhost API connection / site URL guards; exact production-contract environment reruns passed."
+        "evidence": "Node 24.14.0 on latest-main implementation head 3404070ac9de8fc951d6bce17b1f60ea22ed0455: lint, lint:spacing, typecheck, all four contract shards (769 files / 4467 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. The focused Vitest pair passed 20 tests and all four relevant Playwright cases passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed."
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Head ac9386bfbbc580b8b1261cb70eac4eb821f703fa passed all seven GitHub checks, but exact-head review found two remaining base-authority fallbacks: absent JSON-LD could reuse stale wrapper SEO text, and a partial scene block could still be completed from frontend defaults. Implementation head d528d38fd6737121705c08f9d75f862d0547f98d builds fallback JSON-LD from route-ordered metadata and requires complete backend-authored base scene blocks. A new checked head is required."
+        "evidence": "Latest-main head 3de9e82494ff5bca5b7c03d229e6644545e57675 passed all seven GitHub checks, but exact-head review found two same-scope authority gaps: a route-valid wrapper surface could retain stale variant editorial metadata, and projection JSON-LD could be normalized against the unrelated SEO endpoint canonical. Implementation head 3404070ac9de8fc951d6bce17b1f60ea22ed0455 makes 16-type projection SEO authoritative across meta and retained surfaces and binds JSON-LD normalization to the selected payload's own canonical. A new checked head is required."
       }
     },
     "scope_validation": {
@@ -51315,9 +51315,14 @@
         "at": "2026-07-26T06:33:20Z",
         "status": "local_checks_passed",
         "summary": "Head ac9386bfbbc580b8b1261cb70eac4eb821f703fa passed all seven GitHub checks, but exact-head review found two final authority gaps: JSON-LD fallback could reuse stale variant wrapper SEO on a base canonical, and a partial base scene record could still trigger frontend completion copy. Implementation head d528d38fd6737121705c08f9d75f862d0547f98d now binds fallback structured-data title/description/canonical to the same route-ordered SEO decision and admits only complete backend-authored title/body/safe-href scene blocks for 16-type owners. Focused contracts passed 20/20, public-route Playwright passed 4/4, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed. Exact eight-file scope and diff checks pass; a new GitHub-checked head and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T06:55:32Z",
+        "status": "local_checks_passed",
+        "summary": "Merged non-overlapping origin/main 841280ab35945e2c1454f5ac18ea3ededdfab5b6, then exact head 3de9e82494ff5bca5b7c03d229e6644545e57675 passed all seven GitHub checks. Exact-head review found two same-scope authority gaps: a route-valid wrapper surface could retain stale A/T editorial metadata on a 16-type base owner, and projection JSON-LD could be normalized against the unrelated SEO-endpoint canonical. Implementation head 3404070ac9de8fc951d6bce17b1f60ea22ed0455 now makes base projection SEO authoritative across meta and retained surfaces and binds canonical replacement to whichever JSON-LD payload is selected. Focused contracts passed 20/20, public-route Playwright passed 4/4, lint, spacing, typecheck, all four contract shards (769 files / 4467 tests), both freeze suites, and the 206-page production build passed. Exact eight-file scope and diff checks pass; a new GitHub-checked head and exact-head review are pending."
       }
     ],
-    "updated_at": "2026-07-26T06:33:20Z"
+    "updated_at": "2026-07-26T06:55:32Z"
   },
   "CAREER-DIRECTORY-PAGINATION-FOLLOW-01": {
     "id": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01",
