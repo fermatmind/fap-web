@@ -1538,6 +1538,22 @@ export function normalizePersonalitySeoPayload(
       ? runtimeTypeCodeToSlug(profile.projection.runtimeTypeCode) ?? profile.routeSlug
       : null;
   const projectionSeo = "projection" in profile ? profile.projection.seo : null;
+  const isBaseTypeProjection =
+    "projection" in profile && profile.projection.meta.publicRouteType === "16-type";
+  const routeOrderedSeoText = (
+    projectionValue: string | null | undefined,
+    detailValue: string | null | undefined
+  ): string =>
+    isBaseTypeProjection
+      ? fallbackText(projectionValue, detailValue)
+      : fallbackText(detailValue, projectionValue);
+  const routeOrderedSeoValue = <T>(
+    projectionValue: T | null | undefined,
+    detailValue: T | null | undefined
+  ): T | null | undefined =>
+    isBaseTypeProjection
+      ? projectionValue ?? detailValue
+      : detailValue ?? projectionValue;
   const seoHasProjectionRouteMismatch =
     projectionRouteSlug !== null &&
     hasPersonalityProjectionRouteMismatch(projectionRouteSlug, [
@@ -1592,14 +1608,15 @@ export function normalizePersonalitySeoPayload(
     canonicalRouteSlug;
   const title = fallbackText(
     acceptedSeo?.meta.title,
-    projectionSeo?.title,
-    compatibility.seoMeta?.seoTitle,
+    routeOrderedSeoText(projectionSeo?.title, compatibility.seoMeta?.seoTitle),
     compatibility.title
   );
   const description = fallbackText(
     acceptedSeo?.meta.description,
-    projectionSeo?.description,
-    compatibility.seoMeta?.seoDescription,
+    routeOrderedSeoText(
+      projectionSeo?.description,
+      compatibility.seoMeta?.seoDescription
+    ),
     compatibility.excerpt,
     compatibility.subtitle
   );
@@ -1663,17 +1680,25 @@ export function normalizePersonalitySeoPayload(
         "zh-CN": canonicalUrl(buildPersonalityFrontendUrl("zh", alternateZhSlug)),
       },
       og: {
-        title: fallbackText(acceptedSeo?.meta.og.title, projectionSeo?.ogTitle, compatibility.seoMeta?.ogTitle, title),
+        title: fallbackText(
+          acceptedSeo?.meta.og.title,
+          routeOrderedSeoText(projectionSeo?.ogTitle, compatibility.seoMeta?.ogTitle),
+          title
+        ),
         description: fallbackText(
           acceptedSeo?.meta.og.description,
-          projectionSeo?.ogDescription,
-          compatibility.seoMeta?.ogDescription,
+          routeOrderedSeoText(
+            projectionSeo?.ogDescription,
+            compatibility.seoMeta?.ogDescription
+          ),
           description
         ),
         image: normalizeIsoValue(
           acceptedSeo?.meta.og.image ??
-            projectionSeo?.ogImageUrl ??
-            compatibility.seoMeta?.ogImageUrl
+            routeOrderedSeoValue(
+              projectionSeo?.ogImageUrl,
+              compatibility.seoMeta?.ogImageUrl
+            )
         ),
         type: fallbackText(acceptedSeo?.meta.og.type, "article"),
       },
@@ -1681,20 +1706,26 @@ export function normalizePersonalitySeoPayload(
         card: fallbackText(acceptedSeo?.meta.twitter.card, "summary_large_image"),
         title: fallbackText(
           acceptedSeo?.meta.twitter.title,
-          projectionSeo?.twitterTitle,
-          compatibility.seoMeta?.twitterTitle,
+          routeOrderedSeoText(
+            projectionSeo?.twitterTitle,
+            compatibility.seoMeta?.twitterTitle
+          ),
           title
         ),
         description: fallbackText(
           acceptedSeo?.meta.twitter.description,
-          projectionSeo?.twitterDescription,
-          compatibility.seoMeta?.twitterDescription,
+          routeOrderedSeoText(
+            projectionSeo?.twitterDescription,
+            compatibility.seoMeta?.twitterDescription
+          ),
           description
         ),
         image: normalizeIsoValue(
           acceptedSeo?.meta.twitter.image ??
-            projectionSeo?.twitterImageUrl ??
-            compatibility.seoMeta?.twitterImageUrl ??
+            routeOrderedSeoValue(
+              projectionSeo?.twitterImageUrl,
+              compatibility.seoMeta?.twitterImageUrl
+            ) ??
             compatibility.seoMeta?.ogImageUrl
         ),
       },

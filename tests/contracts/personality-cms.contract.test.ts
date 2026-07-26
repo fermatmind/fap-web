@@ -535,6 +535,69 @@ describe("personality cms adapter contract", () => {
       (normalizedBaseSeo.jsonld as Record<string, unknown>).mainEntityOfPage
     ).toBe("http://localhost:3000/en/personality/intj");
 
+    const normalizedVariantSeoWithoutSeoEndpoint = normalizePersonalitySeoPayload(
+      null,
+      {
+        ...detail!,
+        slug: "intj-a",
+        routeSlug: "intj-a",
+        displayType: "INTJ-A",
+        title: "INTJ-A - Architect",
+        summary: "Promoted variant summary.",
+        seoMeta: {
+          seoTitle: "Promoted INTJ-A detail title",
+          seoDescription: "Promoted INTJ-A detail description.",
+          canonicalUrl: "https://fermatmind.com/en/personality/intj-a",
+          ogTitle: "Promoted INTJ-A OG title",
+          ogDescription: "Promoted INTJ-A OG description.",
+          ogImageUrl: "https://assets.fermatmind.com/promoted-intj-a-og.png",
+          twitterTitle: "Promoted INTJ-A Twitter title",
+          twitterDescription: "Promoted INTJ-A Twitter description.",
+          twitterImageUrl: "https://assets.fermatmind.com/promoted-intj-a-twitter.png",
+          robots: "index,follow",
+          jsonldOverrides: null,
+        },
+        projection: {
+          ...detail!.projection,
+          runtimeTypeCode: "INTJ-A",
+          variantCode: "A",
+          seo: {
+            ...detail!.projection.seo,
+            title: "Stale projection INTJ-A title",
+            description: "Stale projection INTJ-A description.",
+            ogTitle: "Stale projection INTJ-A OG title",
+            ogDescription: "Stale projection INTJ-A OG description.",
+            ogImageUrl: "https://assets.fermatmind.com/stale-intj-a-og.png",
+            twitterTitle: "Stale projection INTJ-A Twitter title",
+            twitterDescription: "Stale projection INTJ-A Twitter description.",
+            twitterImageUrl: "https://assets.fermatmind.com/stale-intj-a-twitter.png",
+          },
+          meta: {
+            ...detail!.projection.meta,
+            routeMode: "variant",
+            publicRouteType: "32-type",
+          },
+        },
+      },
+      "en"
+    );
+    expect(normalizedVariantSeoWithoutSeoEndpoint.meta).toMatchObject({
+      title: "Promoted INTJ-A detail title",
+      description: "Promoted INTJ-A detail description.",
+      canonical: "http://localhost:3000/en/personality/intj-a",
+      og: {
+        title: "Promoted INTJ-A OG title",
+        description: "Promoted INTJ-A OG description.",
+        image: "https://assets.fermatmind.com/promoted-intj-a-og.png",
+      },
+      twitter: {
+        title: "Promoted INTJ-A Twitter title",
+        description: "Promoted INTJ-A Twitter description.",
+        image: "https://assets.fermatmind.com/promoted-intj-a-twitter.png",
+      },
+      robots: "index,follow",
+    });
+
     const staleVariantSeoPayload = {
       ...normalizedBaseSeo,
       surface: {
