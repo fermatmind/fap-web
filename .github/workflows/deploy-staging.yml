@@ -139,6 +139,7 @@ jobs:
             for attempt in $(seq 1 "$SSH_RETRY_ATTEMPTS"); do
               set +e
               ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+                -o ServerAliveInterval=30 -o ServerAliveCountMax=20 \
                 -p "$DEPLOY_PORT" "$@"
               rc=$?
               set -e
@@ -168,6 +169,7 @@ jobs:
             for attempt in $(seq 1 "$SSH_RETRY_ATTEMPTS"); do
               set +e
               ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+                -o ServerAliveInterval=30 -o ServerAliveCountMax=20 \
                 -p "$DEPLOY_PORT" "$@"
               rc=$?
               set -e
@@ -197,6 +199,7 @@ jobs:
             for attempt in $(seq 1 "$SSH_RETRY_ATTEMPTS"); do
               set +e
               ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+                -o ServerAliveInterval=30 -o ServerAliveCountMax=20 \
                 -p "$DEPLOY_PORT" "$@"
               rc=$?
               set -e
