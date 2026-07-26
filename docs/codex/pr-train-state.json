@@ -51133,8 +51133,8 @@
     "branch": "codex/saep-proposed-web-per02-mbti-base-type-runtime-owner-01",
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
-    "status": "in_progress",
-    "commit_sha": "3404070ac9de8fc951d6bce17b1f60ea22ed0455",
+    "status": "ready_to_merge",
+    "commit_sha": "d59be293fc56f77c053524b8f1b04aeec4499213",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51154,14 +51154,14 @@
         "evidence": "Node 24.14.0 on latest-main implementation head 3404070ac9de8fc951d6bce17b1f60ea22ed0455: lint, lint:spacing, typecheck, all four contract shards (769 files / 4467 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. The focused Vitest pair passed 20 tests and all four relevant Playwright cases passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "Latest-main head 3de9e82494ff5bca5b7c03d229e6644545e57675 passed all seven GitHub checks, but exact-head review found two same-scope authority gaps: a route-valid wrapper surface could retain stale variant editorial metadata, and projection JSON-LD could be normalized against the unrelated SEO endpoint canonical. Implementation head 3404070ac9de8fc951d6bce17b1f60ea22ed0455 makes 16-type projection SEO authoritative across meta and retained surfaces and binds JSON-LD normalization to the selected payload's own canonical. A new checked head is required."
+        "status": "pass",
+        "evidence": "PR #1808 latest-main exact head d59be293fc56f77c053524b8f1b04aeec4499213 passed all seven GitHub checks. Exact-head Codex review reported no major issues, all 16 review threads are resolved, GitHub reports CLEAN and MERGEABLE, and origin/main remains the locked 841280ab35945e2c1454f5ac18ea3ededdfab5b6 baseline."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51320,9 +51320,14 @@
         "at": "2026-07-26T06:55:32Z",
         "status": "local_checks_passed",
         "summary": "Merged non-overlapping origin/main 841280ab35945e2c1454f5ac18ea3ededdfab5b6, then exact head 3de9e82494ff5bca5b7c03d229e6644545e57675 passed all seven GitHub checks. Exact-head review found two same-scope authority gaps: a route-valid wrapper surface could retain stale A/T editorial metadata on a 16-type base owner, and projection JSON-LD could be normalized against the unrelated SEO-endpoint canonical. Implementation head 3404070ac9de8fc951d6bce17b1f60ea22ed0455 now makes base projection SEO authoritative across meta and retained surfaces and binds canonical replacement to whichever JSON-LD payload is selected. Focused contracts passed 20/20, public-route Playwright passed 4/4, lint, spacing, typecheck, all four contract shards (769 files / 4467 tests), both freeze suites, and the 206-page production build passed. Exact eight-file scope and diff checks pass; a new GitHub-checked head and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T07:03:31Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head d59be293fc56f77c053524b8f1b04aeec4499213 passed all seven GitHub checks and exact-head Codex review reported no major issues. All 16 review threads are resolved, the exact eight-file scope is intact, origin/main remains 841280ab35945e2c1454f5ac18ea3ededdfab5b6, and PR #1808 is CLEAN and MERGEABLE. This ledger-only transition is the final pre-merge tail."
       }
     ],
-    "updated_at": "2026-07-26T06:55:32Z"
+    "updated_at": "2026-07-26T07:03:31Z"
   },
   "CAREER-DIRECTORY-PAGINATION-FOLLOW-01": {
     "id": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01",
