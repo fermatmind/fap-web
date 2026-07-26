@@ -526,6 +526,14 @@ describe("personality cms adapter contract", () => {
     expect(detail?.answerSurface?.surfaceType).toBe("personality_public_detail");
     expect(detail?.answerSurface?.summaryBlocks[0]?.body).toBe("Answer contract summary.");
     expect(detail?.answerSurface?.faqBlocks[0]?.question).toBe("What defines INTJ?");
+
+    const normalizedBaseSeo = normalizePersonalitySeoPayload(null, detail!, "en");
+    expect(normalizedBaseSeo.meta.canonical).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalizedBaseSeo.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalizedBaseSeo.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj");
+    expect(
+      (normalizedBaseSeo.jsonld as Record<string, unknown>).mainEntityOfPage
+    ).toBe("http://localhost:3000/en/personality/intj");
   });
 
   it("personality routes consume landing surface instead of inventing local CTA truth", () => {
@@ -892,12 +900,15 @@ describe("personality cms adapter contract", () => {
     });
   });
 
-  it("personality detail page redirects legacy 4-letter routes while keeping cms seo wiring and faq schema hooks", () => {
+  it("personality detail page renders 4-letter base owners while keeping cms seo wiring and faq schema hooks", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
 
     expect(source).toContain("alternatesByLocale");
     expect(source).toContain("seoSurface: normalizedSeo.surface");
-    expect(source).toContain("redirectLegacyBaseRouteIfNeeded");
+    expect(source).not.toContain("redirectLegacyBaseRouteIfNeeded");
+    expect(source).not.toContain("buildDefaultPublicPersonalitySlug(type)");
+    expect(source).toContain('data-authority-source="mbti_public_projection_v1"');
+    expect(source).toContain("data-public-route-type={detail.projection.meta.publicRouteType ?? undefined}");
     expect(source).toContain("getPersonalityProjectionDetailBySlugOrType");
     expect(source).toContain('en: normalizedSeo.meta.alternates.en ?? buildPersonalityFrontendUrl("en", detail.routeSlug)');
     expect(source).toContain('zh: normalizedSeo.meta.alternates["zh-CN"] ?? buildPersonalityFrontendUrl("zh", detail.routeSlug)');

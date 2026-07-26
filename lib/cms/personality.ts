@@ -1535,8 +1535,9 @@ export function normalizePersonalitySeoPayload(
   const compatibility = toSeoCompatibilityInputFromDetail(profile);
   const canonicalRouteSlug =
     extractPersonalitySlugFromPublicUrl(seo?.meta.canonical) ??
-    ("projection" in profile ? runtimeTypeCodeToSlug(profile.projection.runtimeTypeCode) : null) ??
-    buildDefaultPublicPersonalitySlug(compatibility.slug);
+    ("projection" in profile
+      ? runtimeTypeCodeToSlug(profile.projection.runtimeTypeCode) ?? profile.routeSlug
+      : buildDefaultPublicPersonalitySlug(compatibility.slug));
   const canonicalPath = buildPersonalityFrontendUrl(locale, canonicalRouteSlug);
   const normalizedCanonical = canonicalUrl(canonicalPath);
   const alternateEnSlug = extractPersonalitySlugFromPublicUrl(seo?.meta.alternates?.en) ?? canonicalRouteSlug;

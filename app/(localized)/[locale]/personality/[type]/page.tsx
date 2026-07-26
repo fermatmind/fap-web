@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound, permanentRedirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import { connection } from "next/server";
 import { cache } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -15,11 +15,9 @@ import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import {
   getPersonalityComparisonBySlug,
   buildPersonalityFrontendUrl,
-  buildDefaultPublicPersonalitySlug,
   getPersonalityProjectionDetailBySlugOrType,
   getPersonalitySeoBySlugOrType,
   type CmsPersonalitySection,
-  isCanonicalPersonalityBaseSlug,
   normalizePersonalitySeoPayload,
   type PersonalityComparisonBlockViewModel,
   type PersonalityCrossTypeInternalLinkViewModel,
@@ -524,14 +522,6 @@ function buildCanonicalPath(slug: string, locale: Locale): string {
 
 function buildComparisonCanonicalPath(slug: string, locale: Locale): string {
   return buildPersonalityComparisonFrontendUrl(locale, slug);
-}
-
-function redirectLegacyBaseRouteIfNeeded(type: string, locale: Locale): void {
-  if (!isCanonicalPersonalityBaseSlug(type)) {
-    return;
-  }
-
-  permanentRedirect(buildPersonalityFrontendUrl(locale, buildDefaultPublicPersonalitySlug(type)));
 }
 
 function formatMbtiTestCtaLabel(locale: Locale): string {
@@ -1378,8 +1368,6 @@ export async function generateMetadata({
     }, effectiveMetadataTitle);
   }
 
-  redirectLegacyBaseRouteIfNeeded(type, locale);
-
   const { detail, seo } = await loadPersonalityPublicDetail(type, locale);
 
   if (!detail) {
@@ -1454,7 +1442,6 @@ export default async function PersonalityDetailPage({
     return <PersonalityComparisonPage comparison={comparison} locale={locale} />;
   }
 
-  redirectLegacyBaseRouteIfNeeded(type, locale);
   const { detail, seo } = await loadPersonalityPublicDetail(type, locale);
 
   if (!detail) {
@@ -1576,6 +1563,8 @@ export default async function PersonalityDetailPage({
   return (
     <main
       className="mx-auto w-full max-w-[86rem] px-[var(--fm-container-gutter)] space-y-8 py-8 sm:py-10"
+      data-authority-source="mbti_public_projection_v1"
+      data-public-route-type={detail.projection.meta.publicRouteType ?? undefined}
       data-domain-id="self_understanding"
       data-domain-role="primary"
       data-domain-envelope-state="metadata_only"

@@ -51120,5 +51120,68 @@
       }
     ],
     "updated_at": "2026-07-24T05:49:00Z"
+  },
+  "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01": {
+    "id": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/saep-proposed-web-per02-mbti-base-type-runtime-owner-01",
+    "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
+    "depends_on": [],
+    "status": "in_progress",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The active PER-02 execution goal explicitly authorizes this exact train ID, scope, and complete ordinary PR lifecycle."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "This is the first PER-02 base-owner PR and has no product PR dependency."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "Node 24.14.0: pnpm exec vitest run tests/contracts/personality-cms.contract.test.ts --reporter=dot passed 1 file / 16 tests."
+      },
+      "required_local_checks": {
+        "status": "pass",
+        "evidence": "Node 24.14.0: lint, lint:spacing, typecheck, all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. YAML/JSON parsing, git diff checks, and exact seven-file scope validation also passed."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR has not been opened."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-26T02:05:39Z",
+        "status": "in_progress",
+        "summary": "Started from exact fap-web origin/main 9f36bdd15ae83eb02911edd96aab3afaea262f10 in an isolated clean worktree. Scope is limited to removing the four-letter base-to-A redirect, preserving the backend base projection as runtime authority, correcting base fallback canonical identity, and updating direct contracts. Sitemap, llms, backend/CMS, Search, deploy, production readback, variants, comparisons, and the user-owned active worktree remain untouched."
+      },
+      {
+        "at": "2026-07-26T02:25:10Z",
+        "status": "local_checks_passed",
+        "summary": "All manifest local checks passed with Node 24.14.0. Exact scope contains only the seven declared runtime, adapter, contract, E2E, and train-ledger files; no sitemap, llms, backend/CMS, Search, deployment, or production state changed."
+      }
+    ],
+    "updated_at": "2026-07-26T02:25:10Z"
   }
 }
