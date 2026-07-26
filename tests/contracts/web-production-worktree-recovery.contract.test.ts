@@ -36,6 +36,15 @@ describe("web production worktree recovery", () => {
     );
     expect(workflow).toContain("group: fap-web-production-mutation");
     expect(deployWorkflow).toContain("group: fap-web-production-mutation");
+    for (const setting of [
+      "WEB_NODE1_DEPLOY_HOST",
+      "WEB_NODE1_DEPLOY_USER",
+      "WEB_NODE1_DEPLOY_PORT",
+    ]) {
+      expect(workflow).toContain(setting);
+      expect(deployWorkflow).toContain(setting);
+    }
+    expect(workflow).not.toMatch(/WEB_NODE1_(?:HOST|USER|SSH_PORT)\b/);
     expect(workflow).toContain("environment:\n      name: production");
     expect(workflow).toContain("if [[ \"$MODE\" == \"preflight\" ]]");
     expect(workflow).not.toContain("git reset --hard");
