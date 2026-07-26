@@ -1603,6 +1603,19 @@ export function normalizePersonalitySeoPayload(
     projectionRouteSlug && sourceSurface
       ? {
           ...sourceSurface,
+          robotsPolicy: routeMismatchNoindexRobots ?? sourceSurface.robotsPolicy,
+          robotsPolicyExplicit: routeMismatchNoindexRobots
+            ? true
+            : sourceSurface.robotsPolicyExplicit,
+          indexabilityState: routeMismatchNoindexRobots
+            ? "noindex"
+            : sourceSurface.indexabilityState,
+          indexEligible: routeMismatchNoindexRobots
+            ? false
+            : sourceSurface.indexEligible,
+          indexState: routeMismatchNoindexRobots
+            ? "noindex"
+            : sourceSurface.indexState,
           canonicalUrl: normalizedCanonical,
           canonicalPath,
           alternates: {

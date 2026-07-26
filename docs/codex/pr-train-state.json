@@ -51129,7 +51129,7 @@
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
     "status": "in_progress",
-    "commit_sha": "f6f8a7a8208f9eff3afcd5c2605f6a7e9b193392",
+    "commit_sha": "1b49078fbdff70f586bae2b2763a717da69f9a87",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51150,7 +51150,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Final ledger head f6f8a7a8208f9eff3afcd5c2605f6a7e9b193392 passed all seven checks, but exact-head review found that rejecting a route-mismatched SEO package could discard a valid backend noindex gate. The fail-closed robots repair must produce a new checked head."
+        "evidence": "Head 1b49078fbdff70f586bae2b2763a717da69f9a87 passed all seven checks, but exact-head review found that a preserved mismatch noindex in meta could be overridden by a route-valid detail SEO surface. The surface-level fail-closed projection and latest-main merge must produce a new checked head."
       }
     },
     "scope_validation": {
@@ -51230,8 +51230,13 @@
         "at": "2026-07-26T03:46:35Z",
         "status": "in_progress",
         "summary": "The fail-closed robots repair passed focused contracts (20 tests), lint, spacing, typecheck, all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages). Exact scope, YAML/JSON parsing, and diff checks pass; a new GitHub-checked head is pending."
+      },
+      {
+        "at": "2026-07-26T03:55:42Z",
+        "status": "in_progress",
+        "summary": "Exact-head review on 1b49078fbdff70f586bae2b2763a717da69f9a87 found that a route-valid detail surface could override the preserved mismatch noindex. The repair projects noindex into retained surface robots and fail-closed indexability fields, with an explicit stale-SEO versus indexable-detail-surface regression. Concurrent PR #1809 advanced origin/main to d7b19bbc2fef4758f4298eda3f538a2179b3e490, so the branch must merge latest main and rerun all gates before push."
       }
     ],
-    "updated_at": "2026-07-26T03:46:35Z"
+    "updated_at": "2026-07-26T03:55:42Z"
   }
 }

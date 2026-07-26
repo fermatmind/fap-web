@@ -535,50 +535,51 @@ describe("personality cms adapter contract", () => {
       (normalizedBaseSeo.jsonld as Record<string, unknown>).mainEntityOfPage
     ).toBe("http://localhost:3000/en/personality/intj");
 
-    const normalizedStaleVariantSeo = normalizePersonalitySeoPayload(
-      {
-        ...normalizedBaseSeo,
-        surface: {
-          title: "INTJ-A stale variant surface",
-          description: "Stale variant surface description.",
-          robotsPolicy: "noindex,follow",
-          canonicalUrl: "https://fermatmind.com/en/personality/intj-a",
-          canonicalPath: "/en/personality/intj-a",
-          alternates: {
-            en: "https://fermatmind.com/en/personality/intj-a",
-            "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
-          },
-          og: {
-            url: "https://fermatmind.com/en/personality/intj-a",
-          },
-        } as unknown as NonNullable<typeof normalizedBaseSeo.surface>,
-        meta: {
-          ...normalizedBaseSeo.meta,
-          title: "INTJ-A stale variant title",
-          description: "Stale variant description.",
-          robots: "noindex,follow",
-          canonical: "https://fermatmind.com/en/personality/intj-a",
-          alternates: {
-            en: "https://fermatmind.com/en/personality/intj-a",
-            "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
-          },
-          og: {
-            ...normalizedBaseSeo.meta.og,
-            title: "INTJ-A stale variant OG title",
-            description: "Stale variant OG description.",
-          },
-          twitter: {
-            ...normalizedBaseSeo.meta.twitter,
-            title: "INTJ-A stale variant Twitter title",
-            description: "Stale variant Twitter description.",
-          },
+    const staleVariantSeoPayload = {
+      ...normalizedBaseSeo,
+      surface: {
+        title: "INTJ-A stale variant surface",
+        description: "Stale variant surface description.",
+        robotsPolicy: "noindex,follow",
+        canonicalUrl: "https://fermatmind.com/en/personality/intj-a",
+        canonicalPath: "/en/personality/intj-a",
+        alternates: {
+          en: "https://fermatmind.com/en/personality/intj-a",
+          "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
         },
-        jsonld: {
-          "@context": "https://schema.org",
-          "@type": "AboutPage",
-          mainEntityOfPage: "https://fermatmind.com/en/personality/intj-a",
+        og: {
+          url: "https://fermatmind.com/en/personality/intj-a",
+        },
+      } as unknown as NonNullable<typeof normalizedBaseSeo.surface>,
+      meta: {
+        ...normalizedBaseSeo.meta,
+        title: "INTJ-A stale variant title",
+        description: "Stale variant description.",
+        robots: "noindex,follow",
+        canonical: "https://fermatmind.com/en/personality/intj-a",
+        alternates: {
+          en: "https://fermatmind.com/en/personality/intj-a",
+          "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
+        },
+        og: {
+          ...normalizedBaseSeo.meta.og,
+          title: "INTJ-A stale variant OG title",
+          description: "Stale variant OG description.",
+        },
+        twitter: {
+          ...normalizedBaseSeo.meta.twitter,
+          title: "INTJ-A stale variant Twitter title",
+          description: "Stale variant Twitter description.",
         },
       },
+      jsonld: {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        mainEntityOfPage: "https://fermatmind.com/en/personality/intj-a",
+      },
+    };
+    const normalizedStaleVariantSeo = normalizePersonalitySeoPayload(
+      staleVariantSeoPayload,
       detail!,
       "en"
     );
@@ -595,6 +596,37 @@ describe("personality cms adapter contract", () => {
     expect(
       (normalizedStaleVariantSeo.jsonld as Record<string, unknown>).mainEntityOfPage
     ).toBe("http://localhost:3000/en/personality/intj");
+
+    const normalizedWithIndexableDetailSurface = normalizePersonalitySeoPayload(
+      staleVariantSeoPayload,
+      {
+        ...detail!,
+        seoSurface: {
+          ...staleVariantSeoPayload.surface,
+          robotsPolicy: "index,follow",
+          robotsPolicyExplicit: true,
+          indexabilityState: "indexable",
+          indexEligible: true,
+          indexState: "indexable",
+          canonicalUrl: "https://fermatmind.com/en/personality/intj",
+          canonicalPath: "/en/personality/intj",
+          alternates: {
+            en: "https://fermatmind.com/en/personality/intj",
+            "zh-CN": "https://fermatmind.com/zh/personality/intj",
+          },
+          og: {
+            ...staleVariantSeoPayload.surface.og,
+            url: "https://fermatmind.com/en/personality/intj",
+          },
+        },
+      },
+      "en"
+    );
+    expect(normalizedWithIndexableDetailSurface.surface?.robotsPolicy).toBe("noindex,follow");
+    expect(normalizedWithIndexableDetailSurface.surface?.robotsPolicyExplicit).toBe(true);
+    expect(normalizedWithIndexableDetailSurface.surface?.indexabilityState).toBe("noindex");
+    expect(normalizedWithIndexableDetailSurface.surface?.indexEligible).toBe(false);
+    expect(normalizedWithIndexableDetailSurface.surface?.indexState).toBe("noindex");
   });
 
   it("personality routes consume landing surface instead of inventing local CTA truth", () => {
