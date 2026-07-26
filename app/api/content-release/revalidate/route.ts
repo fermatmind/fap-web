@@ -100,6 +100,7 @@ function localizedPath(path: string, locale: "en" | "zh"): string {
     path === "/zh" ||
     path.startsWith("/en/") ||
     path.startsWith("/zh/") ||
+    path === "/sitemap.xml" ||
     path === "/llms.txt" ||
     path === "/llms-full.txt" ||
     path.startsWith("/api/") ||
@@ -128,7 +129,7 @@ function isAllowedPublicPath(path: string): boolean {
     return true;
   }
 
-  if (path === "/llms.txt" || path === "/llms-full.txt") {
+  if (path === "/sitemap.xml" || path === "/llms.txt" || path === "/llms-full.txt") {
     return true;
   }
 

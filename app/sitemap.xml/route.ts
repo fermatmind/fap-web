@@ -5,10 +5,8 @@ import {
 } from "@/lib/seo/publicSitemap";
 
 export const dynamic = "force-dynamic";
-export const revalidate = 300;
 
-const SUCCESS_CACHE_CONTROL = "public, max-age=300, s-maxage=600, stale-while-revalidate=86400";
-const FAILURE_CACHE_CONTROL = "public, max-age=60, s-maxage=60";
+const CACHE_CONTROL = "private, no-store, max-age=0, must-revalidate";
 
 export async function GET(): Promise<Response> {
   try {
@@ -23,7 +21,8 @@ export async function GET(): Promise<Response> {
       status: 200,
       headers: {
         "Content-Type": "application/xml; charset=utf-8",
-        "Cache-Control": SUCCESS_CACHE_CONTROL,
+        "Cache-Control": CACHE_CONTROL,
+        "CDN-Cache-Control": "no-store",
       },
     });
   } catch (error) {
@@ -32,7 +31,8 @@ export async function GET(): Promise<Response> {
       status: 503,
       headers: {
         "Content-Type": "text/plain; charset=utf-8",
-        "Cache-Control": FAILURE_CACHE_CONTROL,
+        "Cache-Control": CACHE_CONTROL,
+        "CDN-Cache-Control": "no-store",
       },
     });
   }

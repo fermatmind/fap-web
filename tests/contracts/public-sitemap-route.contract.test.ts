@@ -86,7 +86,8 @@ describe("public sitemap route", () => {
 
     expect(response.status).toBe(200);
     expect(response.headers.get("Content-Type")).toContain("application/xml");
-    expect(response.headers.get("Cache-Control")).toContain("stale-while-revalidate");
+    expect(response.headers.get("Cache-Control")).toBe("private, no-store, max-age=0, must-revalidate");
+    expect(response.headers.get("CDN-Cache-Control")).toBe("no-store");
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(xml).toContain(`<loc>${ARTICLE_URL}</loc>`);
     expect(xml).toContain(`<loc>${ARTICLE_EN_URL}</loc>`);
@@ -153,7 +154,8 @@ describe("public sitemap route", () => {
     const body = await response.text();
 
     expect(response.status).toBe(503);
-    expect(response.headers.get("Cache-Control")).toContain("max-age=60");
+    expect(response.headers.get("Cache-Control")).toBe("private, no-store, max-age=0, must-revalidate");
+    expect(response.headers.get("CDN-Cache-Control")).toBe("no-store");
     expect(body).toContain("Public sitemap source unavailable");
   });
 });
