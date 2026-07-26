@@ -51134,7 +51134,7 @@
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
     "status": "in_progress",
-    "commit_sha": "545151d62b909d686e577507e660ed8929575b3f",
+    "commit_sha": "ad126db76b417207273575d79d3f67ddfb400ae0",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51155,7 +51155,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Ledger-tail head 74d557217781e0b0d9a401459f58ba5f61f334c9 passed all seven GitHub checks, but exact-head review found that authoritative noindex from profile or projection state could still be overridden by a route-valid indexable SEO surface. Implementation head 545151d62b909d686e577507e660ed8929575b3f now projects the final authoritative noindex decision into every retained surface and requires a new checked head."
+        "evidence": "Head 35d136e985a9d3138e92c31f9b5ef9ef54cca3f5 passed all seven GitHub checks, but exact-head review found that an earlier route-valid index directive could still mask a later authoritative profile or projection noindex input. Implementation head ad126db76b417207273575d79d3f67ddfb400ae0 now resolves every authoritative robots input fail-closed before selecting any index directive and requires a new checked head."
       }
     },
     "scope_validation": {
@@ -51260,9 +51260,14 @@
         "at": "2026-07-26T04:34:59Z",
         "status": "in_progress",
         "summary": "Exact-head review on ledger-tail head 74d557217781e0b0d9a401459f58ba5f61f334c9 found one final same-scope P1: a route-valid surface could override noindex from profile publication state or projection SEO. Implementation head 545151d62b909d686e577507e660ed8929575b3f now derives the surface override from the final authoritative robots decision, preserving all backend noindex sources. The regression covers an otherwise route-valid indexable surface on an isIndexable=false profile. Focused contracts passed 20/20, relevant Playwright passed 3/3, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed; the new GitHub-checked head is pending."
+      },
+      {
+        "at": "2026-07-26T04:46:39Z",
+        "status": "in_progress",
+        "summary": "Head 35d136e985a9d3138e92c31f9b5ef9ef54cca3f5 passed all seven GitHub checks, but exact-head review found that ordered fallback could choose route-valid `index,follow` before seeing a later profile/projection noindex. Implementation head ad126db76b417207273575d79d3f67ddfb400ae0 first resolves noindex across every authoritative robots input, then falls back to an index directive only when none is restrictive. The regression now directly conflicts route-valid SEO `index,follow` with `isIndexable=false`. Focused contracts passed 20/20, relevant Playwright passed 3/3, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed; the new GitHub-checked head is pending."
       }
     ],
-    "updated_at": "2026-07-26T04:34:59Z"
+    "updated_at": "2026-07-26T04:46:39Z"
   },
   "CAREER-DIRECTORY-PAGINATION-FOLLOW-01": {
     "id": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01",
