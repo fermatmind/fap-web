@@ -27370,7 +27370,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: per02_mbti_base_type_runtime_owner
-    status: ready_to_merge
+    status: in_progress
     goal: "Render all 32 localized four-letter MBTI base URLs directly from backend public profile authority, remove the base-to-A redirect, and preserve variants, comparisons, sitemap, llms, CMS, and Search boundaries."
     allowed_paths:
       - app/(localized)/[locale]/personality/[type]/page.tsx

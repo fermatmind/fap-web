@@ -51133,8 +51133,8 @@
     "branch": "codex/saep-proposed-web-per02-mbti-base-type-runtime-owner-01",
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
-    "status": "ready_to_merge",
-    "commit_sha": "8d7e5351b137985dceee7b7cdb6863605d51ad5b",
+    "status": "in_progress",
+    "commit_sha": "4877a9b6a6c6e15bee041f8ffe87d74d0d049bcb",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51154,14 +51154,14 @@
         "evidence": "Node 24.14.0 after the final scoped review repair and latest-main merge: lint, lint:spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. The focused Vitest pair passed 20 tests and all three relevant Playwright cases passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "Exact implementation and ledger head d8dfef970fbb044e9f483e661c8354749f4a3283 passed build, contracts, both contract-freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. Exact-head Codex review reported no major issues, all 10 review threads are resolved, origin/main remains d7b19bbc2fef4758f4298eda3f538a2179b3e490, the exact eight-file scope is intact, and GitHub reports MERGEABLE."
+        "status": "pending",
+        "evidence": "Ledger-tail head 8656261a4904faafaa113d815d868e5f3301314c passed all seven GitHub checks, but exact-head review found two current-scope owner issues: base profiles could link into the legacy default-A Career route, and route-valid SEO metadata could retain stale variant JSON-LD identity. The scoped repairs suppress the Career CTA for 16-type base projections without independent backend base-career authority and reject mismatched structured-data route identities in favor of projection or fallback schema. A new checked head is required."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51275,9 +51275,19 @@
         "at": "2026-07-26T05:02:37Z",
         "status": "ready_to_merge",
         "summary": "Exact head d8dfef970fbb044e9f483e661c8354749f4a3283 passed all seven GitHub checks, exact-head Codex review found no major issues, all 10 review threads are resolved, origin/main remains d7b19bbc2fef4758f4298eda3f538a2179b3e490, the exact eight-file scope is intact, and PR #1808 is MERGEABLE. This task-local ledger transition is the final pre-merge tail."
+      },
+      {
+        "at": "2026-07-26T05:11:29Z",
+        "status": "in_progress",
+        "summary": "Ledger-tail head 8656261a4904faafaa113d815d868e5f3301314c passed all seven GitHub checks, but exact-head review found that base profiles still exposed a Career CTA whose four-letter target redirects to the A variant, and route-valid SEO metadata could carry stale variant JSON-LD. The current-scope repair suppresses that CTA on 16-type projections and validates JSON-LD route identity before accepting it. Focused and full gates must rerun on the repaired head."
+      },
+      {
+        "at": "2026-07-26T05:20:24Z",
+        "status": "local_checks_passed",
+        "summary": "Implementation head 4877a9b6a6c6e15bee041f8ffe87d74d0d049bcb removes both base-owner route leaks: 16-type pages suppress exact base Career links until independent backend base-career authority exists, and stale variant JSON-LD is rejected independently of route-valid SEO metadata. Focused contracts passed 20/20, public-route Playwright passed 3/3, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29), Enneagram freeze (24), and the 206-page production build all passed. Exact eight-file scope, YAML/JSON, and diff checks pass; GitHub checks and exact-head review are pending."
       }
     ],
-    "updated_at": "2026-07-26T05:02:37Z"
+    "updated_at": "2026-07-26T05:20:24Z"
   },
   "CAREER-DIRECTORY-PAGINATION-FOLLOW-01": {
     "id": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01",
