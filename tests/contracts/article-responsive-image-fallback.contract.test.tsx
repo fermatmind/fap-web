@@ -11,8 +11,8 @@ function getFallback(container: HTMLElement) {
   return container.querySelector('[data-cms-image-fallback="true"]');
 }
 
-function getRenderedBackground(container: HTMLElement) {
-  return container.querySelector('[data-cms-image-rendered="background"]') as HTMLElement | null;
+function getRenderedImage(container: HTMLElement) {
+  return container.querySelector('[data-cms-image-rendered="image"]') as HTMLImageElement | null;
 }
 
 function expectNoNativeImage(container: HTMLElement) {
@@ -49,28 +49,37 @@ describe("ArticleResponsiveImage", () => {
     expect(shell?.getAttribute("aria-hidden")).toBe("true");
     expect(shell?.getAttribute("data-cms-image-state")).toBe("fallback");
     expect(getFallback(container)).not.toBeNull();
-    expect(getRenderedBackground(container)).toBeNull();
+    expect(getRenderedImage(container)).toBeNull();
     expectNoNativeImage(container);
   });
 
-  it("uses a safe CMS media URL as a CSS background instead of rendering img or picture", () => {
+  it("uses a safe CMS media URL as an accessible native image without inline background styles", () => {
     const { container } = render(
       <ArticleResponsiveImage
         src="https://api.fermatmind.com/static/articles/covers/valid-cover.jpg"
         alt="Valid CMS article cover"
+        width={1200}
+        height={675}
         className="h-40"
+        priority
       />
     );
 
     const shell = getShell(container);
-    const renderedBackground = getRenderedBackground(container);
+    const renderedImage = getRenderedImage(container);
 
     expect(shell?.getAttribute("data-cms-image-state")).toBe("candidate");
+    expect(shell?.getAttribute("aria-hidden")).toBeNull();
     expect(getFallback(container)).toBeNull();
-    expect(renderedBackground).not.toBeNull();
-    expect(renderedBackground?.getAttribute("aria-hidden")).toBe("true");
-    expect(renderedBackground?.getAttribute("style")).toContain("valid-cover.jpg");
-    expectNoNativeImage(container);
+    expect(container.querySelector("picture")).not.toBeNull();
+    expect(renderedImage).not.toBeNull();
+    expect(renderedImage?.getAttribute("src")).toContain("valid-cover.jpg");
+    expect(renderedImage?.getAttribute("alt")).toBe("Valid CMS article cover");
+    expect(renderedImage?.getAttribute("width")).toBe("1200");
+    expect(renderedImage?.getAttribute("height")).toBe("675");
+    expect(renderedImage?.getAttribute("loading")).toBe("eager");
+    expect(renderedImage?.getAttribute("fetchpriority")).toBe("high");
+    expect(renderedImage?.getAttribute("style")).toBeNull();
   });
 
   it("prefers card variants over hero variants in article-card mode", () => {
@@ -108,8 +117,15 @@ describe("ArticleResponsiveImage", () => {
       />
     );
 
-    expect(getRenderedBackground(container)?.getAttribute("style")).toContain("card-cover.jpg");
-    expectNoNativeImage(container);
+    const renderedImage = getRenderedImage(container);
+    expect(renderedImage?.getAttribute("src")).toContain("card-cover.jpg");
+    expect(renderedImage?.getAttribute("srcset")).toContain("thumbnail-cover.jpg 320w");
+    expect(renderedImage?.getAttribute("srcset")).toContain("card-cover.jpg 800w");
+    expect(renderedImage?.getAttribute("srcset")).toContain("hero-cover.jpg 1200w");
+    expect(renderedImage?.getAttribute("sizes")).toContain("33vw");
+    expect(renderedImage?.getAttribute("width")).toBe("800");
+    expect(renderedImage?.getAttribute("height")).toBe("450");
+    expect(renderedImage?.getAttribute("loading")).toBe("lazy");
   });
 
   it("prefers hero variants over card variants in hero mode", () => {
@@ -142,8 +158,11 @@ describe("ArticleResponsiveImage", () => {
       />
     );
 
-    expect(getRenderedBackground(container)?.getAttribute("style")).toContain("hero-cover.jpg");
-    expectNoNativeImage(container);
+    const renderedImage = getRenderedImage(container);
+    expect(renderedImage?.getAttribute("src")).toContain("hero-cover.jpg");
+    expect(renderedImage?.getAttribute("sizes")).toBe("100vw");
+    expect(renderedImage?.getAttribute("width")).toBe("1200");
+    expect(renderedImage?.getAttribute("height")).toBe("675");
   });
 
   it("skips unsafe media URLs and keeps the stable fallback art", () => {
@@ -153,7 +172,7 @@ describe("ArticleResponsiveImage", () => {
 
     expect(getShell(container)?.getAttribute("data-cms-image-state")).toBe("fallback");
     expect(getFallback(container)).not.toBeNull();
-    expect(getRenderedBackground(container)).toBeNull();
+    expect(getRenderedImage(container)).toBeNull();
     expectNoNativeImage(container);
   });
 
@@ -186,8 +205,8 @@ describe("ArticleResponsiveImage", () => {
       />
     );
 
-    expect(getRenderedBackground(container)?.getAttribute("style")).toContain("source-cover.jpg");
+    expect(getRenderedImage(container)?.getAttribute("src")).toContain("source-cover.jpg");
     expect(getFallback(container)).toBeNull();
-    expectNoNativeImage(container);
+    expect(container.querySelector("picture")).not.toBeNull();
   });
 });

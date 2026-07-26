@@ -297,15 +297,15 @@ describe("homepage v1 density contract", () => {
       "/zh/articles/how-personality-shapes-attitude-toward-ai"
     );
     await waitFor(() => {
-      const renderedCovers = Array.from(document.querySelectorAll('[data-cms-image-rendered="background"]'));
+      const renderedCovers = Array.from(document.querySelectorAll<HTMLImageElement>('[data-cms-image-rendered="image"]'));
 
       expect(
         renderedCovers.some((cover) =>
-          cover.getAttribute("style")?.includes("holland-career-interest-test-riasec-card.jpg")
+          cover.getAttribute("src")?.includes("holland-career-interest-test-riasec-card.jpg")
         )
       ).toBe(true);
     });
-    expect(screen.queryByRole("img", { name: "抽象职业罗盘与六个方向节点" })).not.toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "抽象职业罗盘与六个方向节点" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /查看全部文章/ })).toHaveAttribute("href", "/zh/articles");
   });
 });

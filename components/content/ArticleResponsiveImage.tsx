@@ -1,4 +1,4 @@
-import type { CSSProperties, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import type { CmsArticleImageVariant, CmsArticleImageVariants } from "@/lib/cms/articles";
 import { cmsManagedMediaUrl } from "@/lib/cms/media";
@@ -63,6 +63,36 @@ function uniqueMediaUrls(values: Array<string | null | undefined>) {
   return urls;
 }
 
+function responsiveSrcSet(variants: CmsArticleImageVariants | null | undefined) {
+  if (!variants) {
+    return undefined;
+  }
+
+  const entries = [variants.thumbnail, variants.card, variants.hero]
+    .map((variant) => {
+      const url = mediaUrlFromVariant(variant);
+      const width = Number(variant?.width ?? 0);
+
+      return url && width > 0 ? { url, width } : null;
+    })
+    .filter((entry): entry is { url: string; width: number } => entry !== null)
+    .sort((left, right) => left.width - right.width);
+  const seenWidths = new Set<number>();
+  const srcSet = entries
+    .filter((entry) => {
+      if (seenWidths.has(entry.width)) {
+        return false;
+      }
+
+      seenWidths.add(entry.width);
+      return true;
+    })
+    .map((entry) => `${entry.url} ${entry.width}w`)
+    .join(", ");
+
+  return srcSet || undefined;
+}
+
 const fallbackVisualClassName =
   "absolute inset-0 bg-[radial-gradient(circle_at_18%_20%,rgba(8,99,116,0.24),transparent_30%),radial-gradient(circle_at_78%_72%,rgba(177,222,47,0.2),transparent_34%),linear-gradient(135deg,#eef7f4_0%,#f8fbfa_52%,#dcebe7_100%)]";
 
@@ -77,7 +107,7 @@ function ArticleImageShell({
 }) {
   return (
     <span
-      aria-hidden="true"
+      aria-hidden={showFallback ? "true" : undefined}
       data-cms-image-fallback={showFallback ? "true" : undefined}
       data-cms-image-state={showFallback ? "fallback" : "candidate"}
       className={cn("relative block overflow-hidden bg-[var(--fm-surface-muted)]", className)}
@@ -124,10 +154,14 @@ function ArticleImageShell({
 
 export function ArticleResponsiveImage({
   src,
+  alt,
+  width,
+  height,
   variants,
   mode = "card",
   className,
   imageClassName,
+  priority = false,
 }: ArticleResponsiveImageProps) {
   const hero = variants?.hero ?? null;
   const card = variants?.card ?? null;
@@ -156,22 +190,37 @@ export function ArticleResponsiveImage({
   }
 
   const activeSrc = imageCandidates[0];
-  const activeImageStyle: CSSProperties | undefined = activeSrc
-    ? { backgroundImage: `url(${JSON.stringify(activeSrc)})` }
-    : undefined;
+  const activeVariant = mode === "hero"
+    ? [hero, card, thumbnail].find((variant) => mediaUrlFromVariant(variant) === activeSrc)
+    : [card, hero, thumbnail].find((variant) => mediaUrlFromVariant(variant) === activeSrc);
+  const imageWidth = activeVariant?.width ?? width ?? undefined;
+  const imageHeight = activeVariant?.height ?? height ?? undefined;
+  const srcSet = responsiveSrcSet(variants);
+  const sizes = mode === "hero"
+    ? "100vw"
+    : "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw";
 
   return (
     <ArticleImageShell className={className} showFallback={false}>
       {activeSrc ? (
-        <span
-          aria-hidden="true"
-          data-cms-image-rendered="background"
-          style={activeImageStyle}
-          className={cn(
-            "relative z-10 block h-full w-full bg-cover bg-center bg-no-repeat transition-opacity duration-200",
-            imageClassName
-          )}
-        />
+        <picture className="relative z-10 block h-full w-full" data-cms-image-rendered="picture">
+          <img
+            src={activeSrc}
+            srcSet={srcSet}
+            sizes={srcSet ? sizes : undefined}
+            alt={alt}
+            width={imageWidth}
+            height={imageHeight}
+            loading={priority ? "eager" : "lazy"}
+            fetchPriority={priority ? "high" : "auto"}
+            decoding="async"
+            data-cms-image-rendered="image"
+            className={cn(
+              "block h-full w-full object-cover object-center transition-opacity duration-200",
+              imageClassName
+            )}
+          />
+        </picture>
       ) : null}
     </ArticleImageShell>
   );
