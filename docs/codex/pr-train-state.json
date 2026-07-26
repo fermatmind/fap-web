@@ -51128,8 +51128,8 @@
     "branch": "codex/saep-proposed-web-per02-mbti-base-type-runtime-owner-01",
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
-    "status": "github_checks_pending",
-    "commit_sha": "18648e81a34e576a6cb61888e8fa912009f8855f",
+    "status": "ready_to_merge",
+    "commit_sha": "db7c813d2f330acbf3b09fdade031942df9048a3",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51149,14 +51149,14 @@
         "evidence": "Node 24.14.0 after the scoped review repair: lint, lint:spacing, typecheck, all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1808 is open at implementation head 18648e81a34e576a6cb61888e8fa912009f8855f; required checks are running."
+        "status": "pass",
+        "evidence": "PR #1808 implementation head db7c813d2f330acbf3b09fdade031942df9048a3 passed build, contracts, both freeze suites, CodeQL analysis, no-new-code-scanning-alerts, and CodeQL. Exact-head Codex review found no major issues and unresolved threads are zero."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51190,8 +51190,13 @@
         "at": "2026-07-26T02:48:08Z",
         "status": "review_fix_validated",
         "summary": "Addressed the current-scope P2 by binding canonical, hreflang, JSON-LD, and SEO surface identity to the backend projection route. Added exact 16-type and base href assertions plus the directly affected authority-stability contract. Final local checks passed across the exact eight-file PR scope; GitHub checks must rerun on the new head."
+      },
+      {
+        "at": "2026-07-26T02:54:46Z",
+        "status": "ready_to_merge",
+        "summary": "Implementation head db7c813d2f330acbf3b09fdade031942df9048a3 passed all seven GitHub checks, exact-head Codex review reported no major issues, the P2 thread is resolved, unresolved thread count is zero, and PR #1808 is mergeable. This ledger transition is the only remaining pre-merge change."
       }
     ],
-    "updated_at": "2026-07-26T02:48:08Z"
+    "updated_at": "2026-07-26T02:54:46Z"
   }
 }
