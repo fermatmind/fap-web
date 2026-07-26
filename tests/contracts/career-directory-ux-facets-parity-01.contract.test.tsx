@@ -171,7 +171,7 @@ describe("CAREER-DIRECTORY-UX-FACETS-PARITY-01", () => {
     expect(String(metadata.alternates?.canonical ?? "")).toBe("https://fermatmind.com/en/career/jobs");
     expect(metadata.robots).toMatchObject({
       index: false,
-      follow: false,
+      follow: true,
     });
   });
 

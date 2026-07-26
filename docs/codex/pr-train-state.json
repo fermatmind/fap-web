@@ -51054,8 +51054,8 @@
     "depends_on": [
       "SEO-CORE-TEST-DETAIL-500-INCIDENT-01"
     ],
-    "status": "ready_to_merge",
-    "commit_sha": "29edf67f643115300052a48eb60a0d1133ceac8c",
+    "status": "merged",
+    "commit_sha": "34a20519e8bcd1fa74273cfe91b300d2b6cfc1fa",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1805",
     "checks": {
       "dependency": {
@@ -51079,12 +51079,12 @@
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-24T05:54:48Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -51117,8 +51117,90 @@
         "at": "2026-07-24T05:49:00Z",
         "status": "ready_to_merge",
         "summary": "PR #1805 head 29edf67f643115300052a48eb60a0d1133ceac8c passed all required CI, both contract-freeze checks, CodeQL analysis, and the no-new-alert gate. GitHub reports CLEAN and MERGEABLE; the only automated comment is a Codex review usage-limit notice with no actionable feedback. Exact six-file scope revalidated."
+      },
+      {
+        "at": "2026-07-26T03:16:59Z",
+        "status": "merged",
+        "summary": "Reconciled Task 5 while initializing the next natural fap-web train item: PR #1805 is MERGED at squash commit 34a20519e8bcd1fa74273cfe91b300d2b6cfc1fa, exact origin/main contains the merge commit, and both local and remote task branches are absent after cleanup."
       }
     ],
-    "updated_at": "2026-07-24T05:49:00Z"
+    "updated_at": "2026-07-26T03:16:59Z"
+  },
+  "CAREER-DIRECTORY-PAGINATION-FOLLOW-01": {
+    "id": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/career-directory-pagination-follow-01",
+    "title": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01 preserve crawlable directory links",
+    "depends_on": [
+      "SEO-CORE-TEST-DETAIL-500-INCIDENT-01",
+      "SEO-QUERY-OWNER-URL-TRUTH-01"
+    ],
+    "status": "ready_to_merge",
+    "commit_sha": "5e015e7bee9dc35f8c0f3dacc99eb45626a6854b",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1809",
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "Task 1 PR #1804 is merged at a36de3f04df7b0fb0efd25a1fec66a39d77fae54 in fap-web origin/main, and Task 6 PR #3280 is merged at bd5d317c76cc6f858bc0e2f3c853df2bef248d94 in fap-api origin/main."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "The final focused set currently passes 3 files / 13 tests on Node 24, covering EN/ZH search, filter, pagination, and combined metadata states; locale-root canonicalization; root index/follow preservation; query URL enumeration exclusion; and existing resolve-route isolation."
+      },
+      "required_local_checks": {
+        "status": "pass",
+        "evidence": "Node 24 focused contracts passed 3 files / 13 tests; lint, spacing, and typecheck passed; the complete contract retry passed 769 files / 4466 tests; and the production build completed 206/206 static pages against the configured public API. The first build attempt stopped before compilation because Turbopack rejects a node_modules symlink that points outside the worktree root; replacing only that ignored local dependency symlink with a clone-copy allowed the exact source to build successfully. YAML/JSON, diff checks, and exact 6/6 path scope validation passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1809 exact head 5e015e7bee9dc35f8c0f3dacc99eb45626a6854b passed build, contracts, both contract-freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE with no unresolved review threads."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-26T03:16:59Z",
+        "status": "in_progress",
+        "summary": "Started Task 10 from exact fap-web origin/main 9f36bdd15ae83eb02911edd96aab3afaea262f10 in an isolated worktree after both cross-repository dependencies were verified merged. Scope changes only Career directory metadata for pagination, filter, and search states from noindex,nofollow to noindex,follow while retaining locale-root canonicalization and the existing backend-authoritative directory surface. No sitemap, llms, query-owner, CMS, Search Channel, deploy, or production mutation is authorized or attempted."
+      },
+      {
+        "at": "2026-07-26T03:24:26Z",
+        "status": "local_check_failed_scope_fix_in_progress",
+        "summary": "The first complete contract run passed 767/768 files; the only failures were two expected follow:false assertions in the pre-existing Career query-canonical contract. Updated those exact assertions to Task 10's required follow:true behavior and added that file to the explicit manifest scope. The focused Node 24 set now passes 3 files / 13 tests. A full retry is pending because the concurrency guard detected another FermatMind full contract/build pipeline now running; it will not be duplicated or killed."
+      },
+      {
+        "at": "2026-07-26T03:35:24Z",
+        "status": "local_checks_passed",
+        "summary": "All Task 10 manifest checks pass on Node 24: focused contracts 3 files / 13 tests, lint, spacing, typecheck, complete contracts 769 files / 4466 tests, and production build 206/206. The first build attempt failed before compilation because Turbopack rejects a cross-worktree node_modules symlink; replacing only that ignored local dependency link with a clone-copy produced a clean successful retry with no source workaround. YAML/JSON, diff checks, and exact 6/6 path scope validation also pass. No sitemap, llms, query-owner, CMS, Search Channel, deploy, or production mutation occurred."
+      },
+      {
+        "at": "2026-07-26T03:36:55Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact six-path Task 10 scope at 5905ae435345eda30ef4da833d3067252cd0736a, pushed codex/career-directory-pagination-follow-01, and opened PR #1809. All local manifest checks passed before push; GitHub required checks and review are pending."
+      },
+      {
+        "at": "2026-07-26T03:43:31Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1809 exact head 5e015e7bee9dc35f8c0f3dacc99eb45626a6854b passed all seven reported GitHub checks. GitHub reports CLEAN and MERGEABLE, all review threads are resolved, dependencies remain merged, and the exact branch diff remains 6/6 authorized paths. Recording ready_to_merge before the final ledger-only head is rechecked."
+      }
+    ],
+    "updated_at": "2026-07-26T03:43:31Z"
   }
 }
