@@ -25,4 +25,9 @@ describe("staging deploy workflow analytics wiring", () => {
     expect(workflow.match(/if \[ "\$rc" -ne 255 \]; then/g)).toHaveLength(3);
     expect(workflow.match(/return "\$rc"/g)).toHaveLength(6);
   });
+
+  it("keeps long-running remote builds alive without weakening transport-only retries", () => {
+    expect(workflow.match(/ServerAliveInterval=30/g)).toHaveLength(3);
+    expect(workflow.match(/ServerAliveCountMax=20/g)).toHaveLength(3);
+  });
 });
