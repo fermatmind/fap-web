@@ -51136,9 +51136,9 @@
       "SEO-CORE-TEST-DETAIL-500-INCIDENT-01",
       "SEO-QUERY-OWNER-URL-TRUTH-01"
     ],
-    "status": "local_checks_passed",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "5905ae435345eda30ef4da833d3067252cd0736a",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1809",
     "checks": {
       "dependency": {
         "status": "pass",
@@ -51189,8 +51189,13 @@
         "at": "2026-07-26T03:35:24Z",
         "status": "local_checks_passed",
         "summary": "All Task 10 manifest checks pass on Node 24: focused contracts 3 files / 13 tests, lint, spacing, typecheck, complete contracts 769 files / 4466 tests, and production build 206/206. The first build attempt failed before compilation because Turbopack rejects a cross-worktree node_modules symlink; replacing only that ignored local dependency link with a clone-copy produced a clean successful retry with no source workaround. YAML/JSON, diff checks, and exact 6/6 path scope validation also pass. No sitemap, llms, query-owner, CMS, Search Channel, deploy, or production mutation occurred."
+      },
+      {
+        "at": "2026-07-26T03:36:55Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact six-path Task 10 scope at 5905ae435345eda30ef4da833d3067252cd0736a, pushed codex/career-directory-pagination-follow-01, and opened PR #1809. All local manifest checks passed before push; GitHub required checks and review are pending."
       }
     ],
-    "updated_at": "2026-07-26T03:35:24Z"
+    "updated_at": "2026-07-26T03:36:55Z"
   }
 }
