@@ -51128,8 +51128,8 @@
     "branch": "codex/saep-proposed-web-per02-mbti-base-type-runtime-owner-01",
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
-    "status": "ready_to_merge",
-    "commit_sha": "38b5ebe720bd16af6d652e83ea814f707798e149",
+    "status": "in_progress",
+    "commit_sha": "f6f8a7a8208f9eff3afcd5c2605f6a7e9b193392",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51149,14 +51149,14 @@
         "evidence": "Node 24.14.0 after the scoped review repair: lint, lint:spacing, typecheck, all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed."
       },
       "github_required_checks": {
-        "status": "pass",
-        "evidence": "PR #1808 implementation head 38b5ebe720bd16af6d652e83ea814f707798e149 passed build, contracts, both freeze suites, CodeQL analysis, no-new-code-scanning-alerts, and CodeQL. Exact-head Codex review found no major issues, all four review threads are resolved, and the PR is mergeable."
+        "status": "pending",
+        "evidence": "Final ledger head f6f8a7a8208f9eff3afcd5c2605f6a7e9b193392 passed all seven checks, but exact-head review found that rejecting a route-mismatched SEO package could discard a valid backend noindex gate. The fail-closed robots repair must produce a new checked head."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51220,8 +51220,18 @@
         "at": "2026-07-26T03:34:11Z",
         "status": "ready_to_merge",
         "summary": "Implementation head 38b5ebe720bd16af6d652e83ea814f707798e149 passed all seven GitHub checks, exact-head Codex review found no major issues, unresolved review thread count is zero, exact eight-file scope is intact, origin/main remains the original locked base, and PR #1808 is mergeable. This ledger-only transition is the final pre-merge tail."
+      },
+      {
+        "at": "2026-07-26T03:41:59Z",
+        "status": "in_progress",
+        "summary": "Exact-head review on f6f8a7a8208f9eff3afcd5c2605f6a7e9b193392 found that rejecting stale route/editorial SEO could also discard a valid backend noindex gate. The scoped repair preserves only fail-closed noindex directives from mismatched meta or surface robots while continuing to reject conflicting index, route, editorial, surface, and JSON-LD values."
+      },
+      {
+        "at": "2026-07-26T03:46:35Z",
+        "status": "in_progress",
+        "summary": "The fail-closed robots repair passed focused contracts (20 tests), lint, spacing, typecheck, all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages). Exact scope, YAML/JSON parsing, and diff checks pass; a new GitHub-checked head is pending."
       }
     ],
-    "updated_at": "2026-07-26T03:34:11Z"
+    "updated_at": "2026-07-26T03:46:35Z"
   }
 }

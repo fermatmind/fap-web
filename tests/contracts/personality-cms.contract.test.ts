@@ -584,7 +584,7 @@ describe("personality cms adapter contract", () => {
     );
     expect(normalizedStaleVariantSeo.meta.title).toBe("INTJ Personality Type");
     expect(normalizedStaleVariantSeo.meta.description).toBe("Projection-backed seo description.");
-    expect(normalizedStaleVariantSeo.meta.robots).toBe("index,follow");
+    expect(normalizedStaleVariantSeo.meta.robots).toBe("noindex,follow");
     expect(normalizedStaleVariantSeo.meta.canonical).toBe("http://localhost:3000/en/personality/intj");
     expect(normalizedStaleVariantSeo.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj");
     expect(normalizedStaleVariantSeo.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj");

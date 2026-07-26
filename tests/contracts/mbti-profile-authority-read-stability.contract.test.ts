@@ -27,6 +27,8 @@ describe("MBTI profile authority read stability", () => {
     expect(cmsSource).toContain("timeoutMs: PERSONALITY_PUBLIC_READ_TIMEOUT_MS");
     expect(cmsSource).toContain("seoSurface: normalizeSeoSurface(response.seo_surface_v1 ?? null)");
     expect(cmsSource).toContain("const seoHasProjectionRouteMismatch =");
+    expect(cmsSource).toContain("const routeMismatchNoindexRobots =");
+    expect(cmsSource).toContain("firstNoindexRobotsDirective(seo?.meta.robots, seo?.surface?.robotsPolicy)");
     expect(cmsSource).toContain("const acceptedSeo = seoHasProjectionRouteMismatch ? null : seo");
     expect(cmsSource).toContain("const sourceSurface =");
     expect(cmsSource).toContain("acceptedSeo?.surface ??");

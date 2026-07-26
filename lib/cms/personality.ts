@@ -1549,6 +1549,9 @@ export function normalizePersonalitySeoPayload(
       seo?.surface?.alternates.en,
       seo?.surface?.alternates["zh-CN"],
     ]);
+  const routeMismatchNoindexRobots = seoHasProjectionRouteMismatch
+    ? firstNoindexRobotsDirective(seo?.meta.robots, seo?.surface?.robotsPolicy)
+    : null;
   const acceptedSeo = seoHasProjectionRouteMismatch ? null : seo;
   const canonicalRouteSlug =
     projectionRouteSlug ??
@@ -1578,6 +1581,7 @@ export function normalizePersonalitySeoPayload(
     compatibility.subtitle
   );
   const robots = fallbackText(
+    routeMismatchNoindexRobots,
     acceptedSeo?.meta.robots,
     projectionSeo?.robots,
     compatibility.seoMeta?.robots,
@@ -1732,6 +1736,19 @@ function hasPersonalityProjectionRouteMismatch(
 
     return candidateSlug !== null && candidateSlug !== expectedSlug;
   });
+}
+
+function firstNoindexRobotsDirective(
+  ...values: Array<string | null | undefined>
+): string | null {
+  for (const value of values) {
+    const normalized = fallbackText(value);
+    if (/\bnoindex\b/i.test(normalized)) {
+      return normalized;
+    }
+  }
+
+  return null;
 }
 
 export async function listPersonalityProfiles(
