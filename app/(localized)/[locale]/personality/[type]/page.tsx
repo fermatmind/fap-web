@@ -1451,6 +1451,9 @@ export default async function PersonalityDetailPage({
   const normalizedSeo = normalizePersonalitySeoPayload(seo, detail, locale);
   const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);
   const fallbackProjectionGate = resolvePersonalityFallbackProjectionGate(detail);
+  const isBaseTypeProjection = detail.projection.meta.publicRouteType === "16-type";
+  const profileSupplementalSections = isBaseTypeProjection ? [] : detail.supplementalSections;
+  const profileFaqSections = isBaseTypeProjection ? [] : detail.faqSections;
   const answerSurfaceFaqItems = detail.answerSurface?.faqBlocks.length
     ? detail.answerSurface.faqBlocks
       .filter((item) => item.question && item.answer)
@@ -1460,8 +1463,8 @@ export default async function PersonalityDetailPage({
       }))
     : [];
   const projectionFaqItems = extractProjectionFaqItems(detail.projection.sections);
-  const supplementalFaqItems = extractPersonalityFaqItems(detail.supplementalSections);
-  const legacyFaqItems = extractPersonalityFaqItems([...detail.faqSections, ...detail.supplementalSections]);
+  const supplementalFaqItems = extractPersonalityFaqItems(profileSupplementalSections);
+  const legacyFaqItems = extractPersonalityFaqItems([...profileFaqSections, ...profileSupplementalSections]);
   const faqItems = answerSurfaceFaqItems.length
     ? answerSurfaceFaqItems
     : projectionFaqItems.length
@@ -1469,7 +1472,7 @@ export default async function PersonalityDetailPage({
       : supplementalFaqItems.length
         ? supplementalFaqItems
       : legacyFaqItems;
-  const quickAnswerBody = projectionQuickAnswerBody(detail.projection.sections) || cmsQuickAnswerBody(detail.supplementalSections);
+  const quickAnswerBody = projectionQuickAnswerBody(detail.projection.sections) || cmsQuickAnswerBody(profileSupplementalSections);
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: normalizedSeo.meta.title,
@@ -1481,7 +1484,7 @@ export default async function PersonalityDetailPage({
     { name: locale === "zh" ? "人格" : "Personality", path: localizedPath("/personality", locale) },
     { name: detail.displayType, path: canonicalPath },
   ]);
-  const { v85Sections: authoredV85Sections, legacySections } = partitionPersonalitySectionsForV85(detail.supplementalSections);
+  const { v85Sections: authoredV85Sections, legacySections } = partitionPersonalitySectionsForV85(profileSupplementalSections);
   const hasV85SectionAuthority = authoredV85Sections.length > 0;
   const v85Sections = authoredV85Sections.filter((section) => !V85_HIDDEN_READER_SECTION_KEYS.has(section.sectionKey));
   const filteredProjectionSections = filterProjectionSectionsForDetail(
@@ -1499,7 +1502,7 @@ export default async function PersonalityDetailPage({
   const renderedProjectionSections = renderProjectionSections(trailingProjectionSections, locale);
   const renderedV85Sections = renderPersonalitySections(v85Sections, locale);
   const renderedSupplementalSections = renderPersonalitySections(
-    [...legacySections.filter((section) => section.sectionKey !== "quick_answer"), ...detail.faqSections],
+    [...legacySections.filter((section) => section.sectionKey !== "quick_answer"), ...profileFaqSections],
     locale
   );
   const hasV85Sections = renderedV85Sections.length > 0;

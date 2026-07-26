@@ -23,6 +23,8 @@ test("english base personality path renders its backend-authoritative owner and 
   expect(html).toContain('data-public-route-type="16-type"');
   expect(html).toContain('"@type":"WebPage"');
   expect(html).toContain('"@type":"BreadcrumbList"');
+  expect(html).not.toContain("INTJ-A meaning: promoted quick answer from the CMS revision.");
+  expect(html).not.toContain("What does INTJ-A mean?");
 });
 
 test("chinese base personality path renders its backend-authoritative owner and hreflang cluster", async ({ request }) => {

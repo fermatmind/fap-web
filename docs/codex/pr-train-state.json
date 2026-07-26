@@ -51128,8 +51128,8 @@
     "branch": "codex/saep-proposed-web-per02-mbti-base-type-runtime-owner-01",
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
-    "status": "ready_to_merge",
-    "commit_sha": "db7c813d2f330acbf3b09fdade031942df9048a3",
+    "status": "in_progress",
+    "commit_sha": "0d5b79f86b3b3529de598c5bca47fd93d2b722a1",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51205,8 +51205,18 @@
         "at": "2026-07-26T03:11:16Z",
         "status": "in_progress",
         "summary": "The second exact-head review repair passed Node 24.14.0 lint, spacing, typecheck, focused contracts (20 tests), relevant Playwright routes (3 tests), all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages). YAML/JSON parsing, git diff checks, and the exact eight-file PR scope also pass; a new GitHub-checked head is pending."
+      },
+      {
+        "at": "2026-07-26T03:17:45Z",
+        "status": "in_progress",
+        "summary": "Exact-head review on 0d5b79f86b3b3529de598c5bca47fd93d2b722a1 found that base projections could still render variant-owned wrapper supplemental sections, and that the top-level ledger status remained stale. The scoped repair makes 16-type routes consume projection-owned body sections while preserving variant behavior, and restores an accurate in-progress ledger state."
+      },
+      {
+        "at": "2026-07-26T03:27:47Z",
+        "status": "in_progress",
+        "summary": "The base-section authority repair passed focused contracts (20 tests), all three relevant public-route Playwright cases, lint, spacing, typecheck, all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages). The first Playwright attempt omitted NEXT_PUBLIC_API_URL and failed against absent localhost API; the correctly bound read-only public API rerun passed."
       }
     ],
-    "updated_at": "2026-07-26T03:11:16Z"
+    "updated_at": "2026-07-26T03:27:47Z"
   }
 }
