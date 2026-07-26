@@ -420,7 +420,7 @@
     "depends_on": [
       "CAREER-DETAIL-READ-MODEL-10K-01"
     ],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
@@ -51565,14 +51565,14 @@
         "evidence": "All nine changed or untracked paths match the MBTI-INDEX-52 allowlist: two PR-train metadata files, five read-only evidence artifacts, one builder, and one focused contract."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": null
+        "status": "passed",
+        "evidence": "PR #1816 exact head d188e6d398dbe25cc9f361ce6103f5e0bb00a5a4 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51616,8 +51616,13 @@
         "at": "2026-07-26T15:31:54Z",
         "status": "github_checks_pending",
         "summary": "Committed the exact nine-path INDEX-52 scope at 6da071130975702ba4eeb2cf9cf68ed6a0f19d36, pushed codex/mbti-index-52, and opened PR #1816. All local manifest checks passed before push; GitHub required and security checks are pending."
+      },
+      {
+        "at": "2026-07-26T15:37:06Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1816 exact head d188e6d398dbe25cc9f361ce6103f5e0bb00a5a4 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE; exact changed-file scope remains nine authorized INDEX-52 paths."
       }
     ],
-    "updated_at": "2026-07-26T15:31:54Z"
+    "updated_at": "2026-07-26T15:37:06Z"
   }
 }
