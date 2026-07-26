@@ -96,7 +96,10 @@ function stripZhPersonalityTypeSuffix(value: string): string {
   return value.replace(/型$/u, "").trim();
 }
 
-function formatPersonalityDetailHeading(detail: PersonalityProjectionViewModel, locale: Locale): string {
+function formatPersonalityDetailHeading(
+  detail: PersonalityProjectionViewModel,
+  locale: Locale
+): string {
   const promotedName = publicNameFromJsonLd(detail.projection.seo.jsonld);
   if (promotedName) {
     return promotedName;
@@ -117,7 +120,10 @@ function formatPersonalityDetailHeading(detail: PersonalityProjectionViewModel, 
   return locale === "zh" ? `${displayType} 人格` : `${displayType} Personality`;
 }
 
-function formatPersonalityDetailImageAlt(detail: PersonalityProjectionViewModel, locale: Locale): string {
+function formatPersonalityDetailImageAlt(
+  detail: PersonalityProjectionViewModel,
+  locale: Locale
+): string {
   const heading = formatPersonalityDetailHeading(detail, locale);
   return locale === "zh" ? `${heading} 人格图像` : `${heading} personality illustration`;
 }
@@ -1503,17 +1509,27 @@ export default async function PersonalityDetailPage({
     return <PersonalityComparisonPage comparison={comparison} locale={locale} />;
   }
 
-  const { detail, seo } = await loadPersonalityPublicDetail(
+  const { detail: loadedDetail, seo } = await loadPersonalityPublicDetail(
     decodePersonalityRouteSegment(type),
     locale
   );
 
-  if (!detail) {
+  if (!loadedDetail) {
     return notFound();
   }
 
-  redirectNonCanonicalBaseRouteIfNeeded(type, locale, detail);
-  const normalizedSeo = normalizePersonalitySeoPayload(seo, detail, locale);
+  redirectNonCanonicalBaseRouteIfNeeded(type, locale, loadedDetail);
+  const normalizedSeo = normalizePersonalitySeoPayload(seo, loadedDetail, locale);
+  const detail: PersonalityProjectionViewModel = {
+    ...loadedDetail,
+    projection: {
+      ...loadedDetail.projection,
+      seo: {
+        ...loadedDetail.projection.seo,
+        jsonld: normalizedSeo.jsonld,
+      },
+    },
+  };
   const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);
   const fallbackProjectionGate = resolvePersonalityFallbackProjectionGate(detail);
   const isBaseTypeProjection = detail.projection.meta.publicRouteType === "16-type";
@@ -1588,7 +1604,21 @@ export default async function PersonalityDetailPage({
   const shouldRenderSceneEntry =
     !hasV85Sections &&
     (!isBaseTypeProjection || Boolean(answerSurface?.sceneSummaryBlocks.length));
-  const hasRenderableContent = renderedV85Sections.length > 0 || renderedProjectionSections.length > 0 || renderedSupplementalSections.length > 0;
+  const hasAnswerSurfaceContent = Boolean(
+    answerSurface &&
+      (
+        answerSurface.summaryBlocks.length > 0 ||
+        answerSurface.faqBlocks.length > 0 ||
+        answerSurface.compareBlocks.length > 0 ||
+        answerSurface.sceneSummaryBlocks.length > 0 ||
+        answerSurface.nextStepBlocks.length > 0
+      )
+  );
+  const hasRenderableContent =
+    renderedV85Sections.length > 0 ||
+    renderedProjectionSections.length > 0 ||
+    renderedSupplementalSections.length > 0 ||
+    hasAnswerSurfaceContent;
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -1947,13 +1977,15 @@ export default async function PersonalityDetailPage({
             <CardHeader>
               <CardTitle>{locale === "zh" ? "内容暂未同步" : "Content not yet available"}</CardTitle>
             </CardHeader>
-            <CardContent className="text-sm text-[var(--fm-text-muted)]">
-              <p className="m-0">
-                {locale === "zh"
-                  ? "当前语言下还没有可展示的正文内容，你可以先返回 A/T 人格入口，或通过 MBTI免费测试确认自己的类型。"
-                  : "No body content is available for this locale yet. You can return to the A/T variant browser or use the Free MBTI test to confirm your type."}
-              </p>
-            </CardContent>
+            {!isBaseTypeProjection ? (
+              <CardContent className="text-sm text-[var(--fm-text-muted)]">
+                <p className="m-0">
+                  {locale === "zh"
+                    ? "当前语言下还没有可展示的正文内容，你可以先返回 A/T 人格入口，或通过 MBTI免费测试确认自己的类型。"
+                    : "No body content is available for this locale yet. You can return to the A/T variant browser or use the Free MBTI test to confirm your type."}
+                </p>
+              </CardContent>
+            ) : null}
           </Card>
         )}
         {!hasRenderableContent ? (

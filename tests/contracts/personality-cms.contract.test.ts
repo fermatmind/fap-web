@@ -921,8 +921,27 @@ describe("personality cms adapter contract", () => {
     expect(detailSource).toContain(
       "!isBaseTypeProjection || Boolean(answerSurface?.sceneSummaryBlocks.length)"
     );
+    expect(detailSource).toContain("const hasAnswerSurfaceContent = Boolean(");
+    expect(detailSource).toContain("hasRenderableContent =");
+    expect(detailSource).toContain("hasAnswerSurfaceContent;");
     expect(detailSource).toContain("hasCompletePersonalitySceneAuthority(block)");
     expect(detailSource).toContain("{shouldRenderSceneEntry ? (");
+    expect(detailSource).toContain(
+      "const { detail: loadedDetail, seo } = await loadPersonalityPublicDetail("
+    );
+    expect(detailSource).toContain(
+      "jsonld: normalizedSeo.jsonld,"
+    );
+    expect(detailSource).toContain(
+      "const promotedName = publicNameFromJsonLd(detail.projection.seo.jsonld);"
+    );
+    expect(detailSource).toContain(
+      "formatPersonalityDetailHeading(detail, locale)"
+    );
+    expect(detailSource).toContain(
+      "formatPersonalityDetailImageAlt(detail, locale)"
+    );
+    expect(detailSource).toContain("{!isBaseTypeProjection ? (");
     expect(detailSource).toContain("detail.answerSurface");
     expect(detailSource).toContain("personality-detail-answer-surface");
   });
@@ -1309,7 +1328,9 @@ describe("personality cms adapter contract", () => {
     expect(source).toContain("comparisonQuickAnswerBody(comparison)");
     expect(source).toContain('data-testid="personality-comparison-quick-answer"');
     expect(source).toContain("comparisonPageHeading(comparison)");
-    expect(source).toContain("publicNameFromJsonLd(detail.projection.seo.jsonld)");
+    expect(source).toContain(
+      "publicNameFromJsonLd(detail.projection.seo.jsonld)"
+    );
     expect(source).toContain("partitionPersonalitySectionsForV85(profileSupplementalSections)");
     expect(source).toContain("const renderedV85Sections = renderPersonalitySections(v85Sections, locale);");
     expect(source).toContain('[...legacySections.filter((section) => section.sectionKey !== "quick_answer"), ...profileFaqSections]');
