@@ -1541,8 +1541,7 @@ export default async function PersonalityDetailPage({
           ...detail.answerSurface,
           sceneSummaryBlocks: detail.answerSurface.sceneSummaryBlocks.filter(
             (block) =>
-              !isExactBaseCareerRecommendationHref(block.href, locale, detail.routeSlug) &&
-              hasCompletePersonalitySceneAuthority(block)
+              !isExactBaseCareerRecommendationHref(block.href, locale, detail.routeSlug)
           ),
           nextStepBlocks: detail.answerSurface.nextStepBlocks.filter(
             (block) => !isExactBaseCareerRecommendationHref(block.href, locale, detail.routeSlug)
@@ -1601,9 +1600,12 @@ export default async function PersonalityDetailPage({
     locale
   );
   const hasV85Sections = renderedV85Sections.length > 0;
+  const baseSceneEntryBlocks = isBaseTypeProjection
+    ? answerSurface?.sceneSummaryBlocks.filter(hasCompletePersonalitySceneAuthority)
+    : answerSurface?.sceneSummaryBlocks;
   const shouldRenderSceneEntry =
     !hasV85Sections &&
-    (!isBaseTypeProjection || Boolean(answerSurface?.sceneSummaryBlocks.length));
+    (!isBaseTypeProjection || Boolean(baseSceneEntryBlocks?.length));
   const hasAnswerSurfaceContent = Boolean(
     answerSurface &&
       (
@@ -1949,7 +1951,7 @@ export default async function PersonalityDetailPage({
         <MbtiSceneEntrySection
           locale={locale}
           sourcePageType="personality_detail"
-          blocks={answerSurface?.sceneSummaryBlocks}
+          blocks={baseSceneEntryBlocks}
           testId="personality-detail-scene-entry"
         />
       ) : null}

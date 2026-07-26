@@ -957,12 +957,18 @@ describe("personality cms adapter contract", () => {
     expect(detailSource).toContain("personality-detail-scene-entry");
     expect(detailSource).toContain("const shouldRenderSceneEntry =");
     expect(detailSource).toContain(
-      "!isBaseTypeProjection || Boolean(answerSurface?.sceneSummaryBlocks.length)"
+      "const baseSceneEntryBlocks = isBaseTypeProjection"
+    );
+    expect(detailSource).toContain(
+      "answerSurface?.sceneSummaryBlocks.filter(hasCompletePersonalitySceneAuthority)"
+    );
+    expect(detailSource).toContain(
+      "!isBaseTypeProjection || Boolean(baseSceneEntryBlocks?.length)"
     );
     expect(detailSource).toContain("const hasAnswerSurfaceContent = Boolean(");
     expect(detailSource).toContain("hasRenderableContent =");
     expect(detailSource).toContain("hasAnswerSurfaceContent;");
-    expect(detailSource).toContain("hasCompletePersonalitySceneAuthority(block)");
+    expect(detailSource).toContain("blocks={baseSceneEntryBlocks}");
     expect(detailSource).toContain("{shouldRenderSceneEntry ? (");
     expect(detailSource).toContain(
       "const { detail: loadedDetail, seo } = await loadPersonalityPublicDetail("
