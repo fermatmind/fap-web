@@ -51134,7 +51134,7 @@
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
     "status": "in_progress",
-    "commit_sha": "7b56c62bd4eb5d01d01946f3f6b9fe89dbd4cc11",
+    "commit_sha": "d1dbccf85bcd9f15c0953528c881c0a7c5cb845a",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51151,11 +51151,11 @@
       },
       "required_local_checks": {
         "status": "pass",
-        "evidence": "Node 24.14.0 on implementation head 7b56c62bd4eb5d01d01946f3f6b9fe89dbd4cc11: lint, lint:spacing, typecheck, all four contract shards (769 files / 4467 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. The focused Vitest set passed 26 tests and all four relevant Playwright cases passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed."
+        "evidence": "Node 24.14.0 on implementation head d1dbccf85bcd9f15c0953528c881c0a7c5cb845a: lint, lint:spacing, typecheck, all four contract shards (769 files / 4467 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. The focused Vitest set passed 26 tests and all four relevant Playwright cases passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed."
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Implementation head 7b56c62bd4eb5d01d01946f3f6b9fe89dbd4cc11 addresses the two P2 findings from ledger-tail head cd30cba64dc2656e23eb8995f3860f9dc1dcdde1. Required GitHub checks and exact-head review must rerun after the ledger transition is pushed."
+        "evidence": "Implementation head d1dbccf85bcd9f15c0953528c881c0a7c5cb845a addresses the latest P2 from exact-head b3075cbe6b79c77c7dea706bcd0d9911f83bdc7a. Required GitHub checks and exact-head review must rerun after the ledger transition is pushed."
       }
     },
     "scope_validation": {
@@ -51330,9 +51330,14 @@
         "at": "2026-07-26T07:34:59Z",
         "status": "in_progress",
         "summary": "Ledger-tail head cd30cba64dc2656e23eb8995f3860f9dc1dcdde1 passed all seven checks, but exact-head review found two same-scope P2 authority gaps: H1/image alt could read stale raw projection JSON-LD, and an empty 16-type base profile could render frontend-authored A/T guidance. Implementation head 7b56c62bd4eb5d01d01946f3f6b9fe89dbd4cc11 projects normalized JSON-LD into the render detail and keeps base empty states minimal. Focused contracts passed 26/26, complete contracts passed 769 files / 4467 tests, relevant Playwright passed 4/4, lint, spacing, typecheck, both freeze suites, and the 206-page production build passed. GitHub checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T07:50:21Z",
+        "status": "in_progress",
+        "summary": "Exact head b3075cbe6b79c77c7dea706bcd0d9911f83bdc7a passed all seven checks, but exact-head review found a same-scope P2 partial-rollout case: route-valid legacy SEO JSON-LD with stale A/T editorial identity could outrank the 16-type projection JSON-LD. Implementation head d1dbccf85bcd9f15c0953528c881c0a7c5cb845a makes projection JSON-LD authoritative for base owners while preserving SEO-first precedence for variants. Focused contracts passed 26/26, complete contracts passed 769 files / 4467 tests, relevant Playwright passed 4/4, lint, spacing, typecheck, both freeze suites, and the 206-page production build passed. GitHub checks and exact-head review are pending."
       }
     ],
-    "updated_at": "2026-07-26T07:34:59Z"
+    "updated_at": "2026-07-26T07:50:21Z"
   },
   "CAREER-DIRECTORY-PAGINATION-FOLLOW-01": {
     "id": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01",
