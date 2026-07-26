@@ -29,7 +29,7 @@ function createDirtyFixture(): { repo: string; activeSha: string } {
 }
 
 describe("web production worktree recovery", () => {
-  it("keeps preflight read-only and apply bound to exact control, active, and residue SHAs", () => {
+  it("keeps inventory read-only and apply bound to exact control, active, and residue SHAs", () => {
     expect(workflow).toContain("test \"$(git rev-parse origin/main)\" = \"$EXPECTED_CONTROL_PLANE_SHA\"");
     expect(workflow).toContain(
       "APPROVE_FAP_WEB_PRODUCTION_WORKTREE_RECOVERY:${EXPECTED_CONTROL_PLANE_SHA}:${EXPECTED_ACTIVE_SHA}:${EXPECTED_RESIDUE_SET_SHA256}",
@@ -46,20 +46,20 @@ describe("web production worktree recovery", () => {
     }
     expect(workflow).not.toMatch(/WEB_NODE1_(?:HOST|USER|SSH_PORT)\b/);
     expect(workflow).toContain("environment:\n      name: production");
-    expect(workflow).toContain("if [[ \"$MODE\" == \"preflight\" ]]");
+    expect(workflow).toContain("if [[ \"$MODE\" == \"inventory\" ]]");
     expect(workflow).not.toContain("git reset --hard");
   });
 
-  it("allows exactly one known tracked path and preserves a verified backup before restore", () => {
-    expect(script).toContain("TARGET_PATH='app/(localized)/[locale]/tests/[slug]/page.tsx'");
-    expect(script).toContain('[[ "${#tracked_paths[@]}" -eq 1 ]]');
-    expect(script).toContain('[[ "${tracked_paths[0]}" == "$TARGET_PATH" ]]');
+  it("bounds a NUL-safe path inventory and preserves verified backups before restore", () => {
+    expect(script).toContain("git diff --name-only -z --diff-filter=ACDMRTUXB");
+    expect(script).toContain('[[ "$tracked_path_count" -le 20 ]]');
+    expect(script).toContain('[[ "$tracked_path" != ".."');
     expect(script).toContain('git diff --cached --quiet || fail "staged changes are not allowed"');
-    expect(script).toContain('cp -p "$TARGET_PATH" "$backup_dir/original-page.tsx"');
-    expect(script).toContain('git diff --binary -- "$TARGET_PATH" > "$backup_dir/worktree.patch"');
-    expect(script).toContain('[[ "$backup_file_sha256" == "$file_sha256" ]]');
+    expect(script).toContain('cp -p "$tracked_path" "$backup_file"');
+    expect(script).toContain('cp -p "$patch_file" "$backup_dir/worktree.patch"');
+    expect(script).toContain('backup_manifest_sha256="$(sha256_file "$backup_dir/residue-manifest.nul")"');
     expect(script).toContain('[[ "$backup_patch_sha256" == "$patch_sha256" ]]');
-    expect(script).toContain('git restore --worktree --source=HEAD -- "$TARGET_PATH"');
+    expect(script).toContain('git restore --worktree --source=HEAD -- "$tracked_path"');
   });
 
   it("does not deploy, restart processes, publish, or mutate content authority", () => {
@@ -76,28 +76,29 @@ describe("web production worktree recovery", () => {
     }
   });
 
-  it("preflights exact hashes, preserves a verified backup, and restores only the target", () => {
+  it("inventories exact hashes, preserves a verified backup, and restores the bounded set", () => {
     const { repo, activeSha } = createDirtyFixture();
     const env = { ...process.env, APP_DIR: repo, EXPECTED_ACTIVE_SHA: activeSha };
-    const receipt = JSON.parse(execFileSync("bash", [scriptPath, "preflight"], {
+    const receipt = JSON.parse(execFileSync("bash", [scriptPath, "inventory"], {
       env,
       encoding: "utf8",
     }));
 
     expect(receipt).toMatchObject({
-      mode: "preflight",
-      state: "dirty_exact_single_path",
+      mode: "inventory",
+      state: "dirty_bounded_inventory",
       active_sha: activeSha,
-      target_path: targetPath,
+      tracked_path_count: 1,
     });
-    expect(receipt.file_sha256).toMatch(/^[0-9a-f]{64}$/);
+    expect(Buffer.from(receipt.tracked_paths_base64, "base64").toString()).toBe(`${targetPath}\0`);
+    expect(receipt.path_set_sha256).toMatch(/^[0-9a-f]{64}$/);
     expect(receipt.patch_sha256).toMatch(/^[0-9a-f]{64}$/);
     expect(receipt.residue_set_sha256).toMatch(/^[0-9a-f]{64}$/);
 
     const applied = JSON.parse(execFileSync("bash", [scriptPath, "apply"], {
       env: {
         ...env,
-        EXPECTED_FILE_SHA256: receipt.file_sha256,
+        EXPECTED_PATH_SET_SHA256: receipt.path_set_sha256,
         EXPECTED_PATCH_SHA256: receipt.patch_sha256,
         EXPECTED_RESIDUE_SET_SHA256: receipt.residue_set_sha256,
         RELEASE_ID: "contract-fixture",
@@ -105,25 +106,54 @@ describe("web production worktree recovery", () => {
       encoding: "utf8",
     }));
 
-    expect(applied.state).toBe("cleaned_exact_single_path");
+    expect(applied.state).toBe("cleaned_exact_bounded_inventory");
     expect(readFileSync(join(repo, targetPath), "utf8")).toBe("committed\n");
-    expect(readFileSync(applied.backup_dir + "/original-page.tsx", "utf8")).toBe("production residue\n");
+    expect(readFileSync(join(applied.backup_dir, "original-files", targetPath), "utf8"))
+      .toBe("production residue\n");
     expect(git(repo, "status", "--short", "--untracked-files=no")).toBe("");
   });
 
-  it("fails closed when any second tracked path is dirty", () => {
-    const { repo, activeSha } = createDirtyFixture();
+  it("inventories and restores multiple tracked paths only when all hashes match", () => {
+    const { repo } = createDirtyFixture();
     writeFileSync(join(repo, "second.txt"), "committed\n");
     git(repo, "add", "second.txt");
     git(repo, "commit", "-m", "second fixture");
     writeFileSync(join(repo, "second.txt"), "also dirty\n");
     const currentSha = git(repo, "rev-parse", "HEAD");
+    const env = { ...process.env, APP_DIR: repo, EXPECTED_ACTIVE_SHA: currentSha };
+    const receipt = JSON.parse(execFileSync("bash", [scriptPath, "inventory"], {
+      env,
+      encoding: "utf8",
+    }));
 
-    expect(() => execFileSync("bash", [scriptPath, "preflight"], {
-      env: { ...process.env, APP_DIR: repo, EXPECTED_ACTIVE_SHA: currentSha },
+    expect(receipt.tracked_path_count).toBe(2);
+    expect(Buffer.from(receipt.tracked_paths_base64, "base64").toString().split("\0").filter(Boolean))
+      .toEqual([targetPath, "second.txt"].sort());
+
+    expect(() => execFileSync("bash", [scriptPath, "apply"], {
+      env: {
+        ...env,
+        EXPECTED_PATH_SET_SHA256: receipt.path_set_sha256,
+        EXPECTED_PATCH_SHA256: "0".repeat(64),
+        EXPECTED_RESIDUE_SET_SHA256: receipt.residue_set_sha256,
+        RELEASE_ID: "wrong-hash",
+      },
       encoding: "utf8",
       stdio: "pipe",
     })).toThrow();
-    expect(activeSha).not.toBe(currentSha);
+
+    execFileSync("bash", [scriptPath, "apply"], {
+      env: {
+        ...env,
+        EXPECTED_PATH_SET_SHA256: receipt.path_set_sha256,
+        EXPECTED_PATCH_SHA256: receipt.patch_sha256,
+        EXPECTED_RESIDUE_SET_SHA256: receipt.residue_set_sha256,
+        RELEASE_ID: "multi-path",
+      },
+      encoding: "utf8",
+    });
+    expect(readFileSync(join(repo, targetPath), "utf8")).toBe("committed\n");
+    expect(readFileSync(join(repo, "second.txt"), "utf8")).toBe("committed\n");
+    expect(git(repo, "status", "--short", "--untracked-files=no")).toBe("");
   });
 });
