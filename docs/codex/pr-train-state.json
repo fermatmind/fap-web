@@ -51134,7 +51134,7 @@
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
     "status": "in_progress",
-    "commit_sha": "da0c673a1b69947c6a751731e2bbb38663699a60",
+    "commit_sha": "4207759457d39affec0753c4edda02413e8a93ce",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51155,7 +51155,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Head 79fb49c75a0e01e3344f55d30a21f74f503906d1 passed all seven GitHub checks, but exact-head review found that a 32-type variant with a promoted detail OG image and no detail Twitter image could still select an older projection Twitter image. Implementation head da0c673a1b69947c6a751731e2bbb38663699a60 exhausts variant detail Twitter and OG fallbacks before consulting projection media. A new checked head is required."
+        "evidence": "Head 6b432d61a6bc607319973bf1861e628d2a0c0c51 passed all seven GitHub checks, but exact-head review found that filtering the only base Career scene block to an empty array could reactivate frontend-authored scene fallback copy. Implementation head 4207759457d39affec0753c4edda02413e8a93ce skips the scene component for an empty 16-type authority set while retaining existing variant fallback behavior. A new checked head is required."
       }
     },
     "scope_validation": {
@@ -51305,9 +51305,14 @@
         "at": "2026-07-26T06:05:50Z",
         "status": "local_checks_passed",
         "summary": "Head 79fb49c75a0e01e3344f55d30a21f74f503906d1 passed all seven GitHub checks, but exact-head review found one remaining partial-media case: a 32-type variant with promoted detail OG media and no detail Twitter media could select an older projection Twitter image. Implementation head da0c673a1b69947c6a751731e2bbb38663699a60 now exhausts detail Twitter and detail OG media before any projection media on variants, while retaining projection-first ordering for 16-type base owners. The direct partial-media regression and focused contracts passed 20/20; public-route Playwright passed 4/4, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed. Exact scope and diff checks pass; a new GitHub-checked head and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T06:19:37Z",
+        "status": "local_checks_passed",
+        "summary": "Head 6b432d61a6bc607319973bf1861e628d2a0c0c51 passed all seven GitHub checks, but exact-head review found that an empty 16-type scene authority set could reactivate frontend-authored fallback blocks after the base Career link was filtered. Implementation head 4207759457d39affec0753c4edda02413e8a93ce now skips the scene component when a base owner has no remaining backend scene blocks, while preserving existing 32-type variant behavior. Focused contracts passed 20/20, public-route Playwright passed 4/4, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed. Exact eight-file scope and diff checks pass; a new GitHub-checked head and exact-head review are pending."
       }
     ],
-    "updated_at": "2026-07-26T06:05:50Z"
+    "updated_at": "2026-07-26T06:19:37Z"
   },
   "CAREER-DIRECTORY-PAGINATION-FOLLOW-01": {
     "id": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01",
