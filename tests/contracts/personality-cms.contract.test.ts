@@ -799,6 +799,41 @@ describe("personality cms adapter contract", () => {
       JSON.stringify(normalizedWithProjectionJsonLdCanonical.jsonld)
     ).not.toContain(projectionJsonLdCanonical);
 
+    const normalizedCrossLocaleProjectionJsonLdWithoutCanonical =
+      normalizePersonalitySeoPayload(
+        normalizedBaseSeo,
+        {
+          ...detail!,
+          projection: {
+            ...detail!.projection,
+            seo: {
+              ...detail!.projection.seo,
+              canonicalUrl: null,
+              jsonld: {
+                "@context": "https://schema.org",
+                "@type": "AboutPage",
+                "@id": "https://fermatmind.com/en/personality/intj#profile",
+                url: "https://fermatmind.com/en/personality/intj",
+                mainEntityOfPage: {
+                  "@id": "https://fermatmind.com/en/personality/intj",
+                },
+                name: "INTJ projection structured data",
+              },
+            },
+          },
+        },
+        "zh"
+      );
+    expect(normalizedCrossLocaleProjectionJsonLdWithoutCanonical.jsonld).toMatchObject({
+      "@id": "http://localhost:3000/zh/personality/intj#profile",
+      url: "http://localhost:3000/zh/personality/intj",
+      mainEntityOfPage: "http://localhost:3000/zh/personality/intj",
+      name: "INTJ projection structured data",
+    });
+    expect(
+      JSON.stringify(normalizedCrossLocaleProjectionJsonLdWithoutCanonical.jsonld)
+    ).not.toContain("/en/personality/intj");
+
     const normalizedWithRouteValidLegacyJsonLd = normalizePersonalitySeoPayload(
       {
         ...normalizedBaseSeo,

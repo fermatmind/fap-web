@@ -1458,12 +1458,62 @@ function replaceCanonicalValue(
   return value;
 }
 
+function inferPersonalityJsonLdCanonical(jsonld: unknown): string | null {
+  const routeIdentityKeys = new Set(["@id", "url", "mainEntityOfPage"]);
+
+  const walk = (value: unknown, routeIdentity = false): string | null => {
+    if (Array.isArray(value)) {
+      for (const item of value) {
+        const candidate = walk(item, routeIdentity);
+        if (candidate) {
+          return candidate;
+        }
+      }
+
+      return null;
+    }
+
+    if (value && typeof value === "object") {
+      for (const [key, nested] of Object.entries(value)) {
+        const candidate = walk(nested, routeIdentity || routeIdentityKeys.has(key));
+        if (candidate) {
+          return candidate;
+        }
+      }
+
+      return null;
+    }
+
+    if (!routeIdentity || typeof value !== "string" || !extractPersonalitySlugFromPublicUrl(value)) {
+      return null;
+    }
+
+    const normalized = value.trim();
+
+    try {
+      if (/^https?:\/\//i.test(normalized)) {
+        const url = new URL(normalized);
+        return `${url.origin}${url.pathname}`;
+      }
+
+      const url = new URL(normalized, "http://localhost");
+      return url.pathname;
+    } catch {
+      return null;
+    }
+  };
+
+  return walk(jsonld);
+}
+
 export function normalizePersonalityJsonLd(
   jsonld: unknown,
   sourceCanonical: string | null | undefined,
   localizedCanonicalPath: string,
   profile: CmsPersonalityProfile
 ): unknown {
+  const effectiveSourceCanonical =
+    normalizeIsoValue(sourceCanonical) ?? inferPersonalityJsonLdCanonical(jsonld);
   const walk = (value: unknown): unknown => {
     if (Array.isArray(value)) {
       return value.map(walk);
@@ -1474,7 +1524,7 @@ export function normalizePersonalityJsonLd(
     }
 
     if (typeof value === "string") {
-      return replaceCanonicalValue(value, sourceCanonical, localizedCanonicalPath);
+      return replaceCanonicalValue(value, effectiveSourceCanonical, localizedCanonicalPath);
     }
 
     return value;
