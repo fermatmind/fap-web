@@ -62,9 +62,9 @@ jobs:
       EXPECTED_RESIDUE_SET_SHA256: ${{ inputs.expected_residue_set_sha256 }}
       RELEASE_ID: ${{ inputs.release_id }}
       EXACT_APPROVAL: ${{ inputs.exact_approval }}
-      DEPLOY_HOST: ${{ secrets.WEB_NODE1_HOST }}
-      DEPLOY_USER: ${{ secrets.WEB_NODE1_USER }}
-      DEPLOY_PORT: ${{ secrets.WEB_NODE1_SSH_PORT }}
+      DEPLOY_HOST: ${{ secrets.WEB_NODE1_DEPLOY_HOST || vars.WEB_NODE1_DEPLOY_HOST }}
+      DEPLOY_USER: ${{ secrets.WEB_NODE1_DEPLOY_USER || vars.WEB_NODE1_DEPLOY_USER }}
+      DEPLOY_PORT: ${{ secrets.WEB_NODE1_DEPLOY_PORT || vars.WEB_NODE1_DEPLOY_PORT }}
       APP_DIR: ${{ secrets.WEB_NODE1_APP_DIR || vars.WEB_NODE1_APP_DIR }}
 
     steps:
