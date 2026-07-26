@@ -508,6 +508,14 @@ function shouldNoindex(robotsValue: string | null | undefined): boolean {
     .includes("noindex");
 }
 
+function robotsAllowsFollow(robotsValue: string | null | undefined): boolean {
+  return !String(robotsValue ?? "")
+    .toLowerCase()
+    .split(",")
+    .map((part) => part.trim())
+    .includes("nofollow");
+}
+
 export function applyPersonalityMetadataTitleTemplateGuard(metadata: Metadata, sourceTitle: string): Metadata {
   const title = sourceTitle.replace(/\s+/g, " ").trim();
   if (!/\|\s*FermatMind\s*$/i.test(title)) {
@@ -1384,7 +1392,8 @@ export async function generateMetadata({
     const title = comparisonSeoTitle(comparison);
     const effectiveMetadataTitle = comparison.seoSurface?.title || title;
     const description = comparisonSeoDescription(comparison);
-    const noindex = !comparison.isIndexable || shouldNoindex(comparison.seoSurface?.robotsPolicy ?? comparison.seoMeta?.robots);
+    const robotsPolicy = comparison.seoSurface?.robotsPolicy ?? comparison.seoMeta?.robots;
+    const noindex = !comparison.isIndexable || shouldNoindex(robotsPolicy);
     const metadata = buildPageMetadata({
       locale,
       pathname: canonicalPath,
@@ -1393,6 +1402,7 @@ export async function generateMetadata({
       imagePath: comparison.seoSurface?.og.image ?? comparison.seoMeta?.ogImageUrl ?? undefined,
       seoSurface: comparison.seoSurface,
       noindex: !comparison.seoSurface ? noindex : undefined,
+      noindexFollow: robotsAllowsFollow(robotsPolicy),
       alternatesByLocale: {
         en: comparison.alternates.en ?? buildComparisonCanonicalPath(comparison.comparisonSlug, "en"),
         zh: comparison.alternates["zh-CN"] ?? buildComparisonCanonicalPath(comparison.comparisonSlug, "zh"),
