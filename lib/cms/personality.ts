@@ -1564,6 +1564,18 @@ export function normalizePersonalitySeoPayload(
     detailSurfaceHasProjectionRouteMismatch ? detailSurface?.robotsPolicy : null
   );
   const acceptedSeo = seoHasProjectionRouteMismatch ? null : seo;
+  const acceptedSeoJsonLd =
+    acceptedSeo &&
+    (!projectionRouteSlug ||
+      !hasPersonalityProjectionJsonLdRouteMismatch(projectionRouteSlug, acceptedSeo.jsonld))
+      ? acceptedSeo.jsonld
+      : null;
+  const projectionJsonLd =
+    projectionSeo &&
+    (!projectionRouteSlug ||
+      !hasPersonalityProjectionJsonLdRouteMismatch(projectionRouteSlug, projectionSeo.jsonld))
+      ? projectionSeo.jsonld
+      : null;
   const canonicalRouteSlug =
     projectionRouteSlug ??
     extractPersonalitySlugFromPublicUrl(acceptedSeo?.meta.canonical) ??
@@ -1689,7 +1701,7 @@ export function normalizePersonalitySeoPayload(
       robots,
     },
     jsonld: normalizePersonalityJsonLd(
-      acceptedSeo?.jsonld ?? projectionSeo?.jsonld ?? null,
+      acceptedSeoJsonLd ?? projectionJsonLd,
       acceptedSeo?.meta.canonical ?? projectionSeo?.canonicalUrl,
       canonicalPath,
       "projection" in profile
@@ -1760,6 +1772,35 @@ function hasPersonalityProjectionRouteMismatch(
 
     return candidateSlug !== null && candidateSlug !== expectedSlug;
   });
+}
+
+function hasPersonalityProjectionJsonLdRouteMismatch(
+  expectedSlug: string,
+  jsonld: unknown
+): boolean {
+  const routeIdentityKeys = new Set(["@id", "url", "mainEntityOfPage"]);
+
+  const walk = (value: unknown, routeIdentity = false): boolean => {
+    if (Array.isArray(value)) {
+      return value.some((item) => walk(item, routeIdentity));
+    }
+
+    if (value && typeof value === "object") {
+      return Object.entries(value).some(([key, nested]) =>
+        walk(nested, routeIdentity || routeIdentityKeys.has(key))
+      );
+    }
+
+    if (!routeIdentity || typeof value !== "string") {
+      return false;
+    }
+
+    const candidateSlug = extractPersonalitySlugFromPublicUrl(value);
+
+    return candidateSlug !== null && candidateSlug !== expectedSlug;
+  };
+
+  return walk(jsonld);
 }
 
 function firstNoindexRobotsDirective(

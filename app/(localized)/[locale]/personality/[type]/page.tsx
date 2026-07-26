@@ -928,6 +928,28 @@ function projectionQuickAnswerBody(sections: PersonalityProjection["sections"]):
   return body || null;
 }
 
+function isExactBaseCareerRecommendationHref(
+  href: string | null | undefined,
+  locale: Locale,
+  routeSlug: string
+): boolean {
+  if (!href) {
+    return false;
+  }
+
+  try {
+    const pathname = new URL(href, "https://fermatmind.com").pathname.replace(/\/+$/, "").toLowerCase();
+    const expectedPath = localizedPath(
+      `/career/recommendations/mbti/${routeSlug}`,
+      locale
+    ).replace(/\/+$/, "").toLowerCase();
+
+    return pathname === expectedPath;
+  } catch {
+    return false;
+  }
+}
+
 function cmsQuickAnswerBody(sections: CmsPersonalitySection[]): string | null {
   const section = sections.find((item) => item.sectionKey === "quick_answer" && item.isEnabled !== false);
   if (!section) {
@@ -1454,8 +1476,20 @@ export default async function PersonalityDetailPage({
   const isBaseTypeProjection = detail.projection.meta.publicRouteType === "16-type";
   const profileSupplementalSections = isBaseTypeProjection ? [] : detail.supplementalSections;
   const profileFaqSections = isBaseTypeProjection ? [] : detail.faqSections;
-  const answerSurfaceFaqItems = detail.answerSurface?.faqBlocks.length
-    ? detail.answerSurface.faqBlocks
+  const answerSurface =
+    isBaseTypeProjection && detail.answerSurface
+      ? {
+          ...detail.answerSurface,
+          sceneSummaryBlocks: detail.answerSurface.sceneSummaryBlocks.filter(
+            (block) => !isExactBaseCareerRecommendationHref(block.href, locale, detail.routeSlug)
+          ),
+          nextStepBlocks: detail.answerSurface.nextStepBlocks.filter(
+            (block) => !isExactBaseCareerRecommendationHref(block.href, locale, detail.routeSlug)
+          ),
+        }
+      : detail.answerSurface;
+  const answerSurfaceFaqItems = answerSurface?.faqBlocks.length
+    ? answerSurface.faqBlocks
       .filter((item) => item.question && item.answer)
       .map((item) => ({
         question: item.question,
@@ -1560,7 +1594,7 @@ export default async function PersonalityDetailPage({
   const variantComparisonLabel =
     locale === "zh" ? `${baseDisplayType}-A 与 ${baseDisplayType}-T 对比` : `${baseDisplayType}-A vs ${baseDisplayType}-T`;
   const dimensionSummary = buildPersonalityDimensionSummary(detail.projection, locale);
-  const careerDirectionHref = fallbackProjectionGate.canRenderCareerOrRecommendationClaims
+  const careerDirectionHref = !isBaseTypeProjection && fallbackProjectionGate.canRenderCareerOrRecommendationClaims
     ? localizedPath(`/career/recommendations/mbti/${detail.routeSlug}`, locale)
     : null;
   return (
@@ -1770,7 +1804,7 @@ export default async function PersonalityDetailPage({
             {renderedLeadingProjectionSections}
             {renderedV85Sections}
             <AnswerSurfaceSection
-              surface={detail.answerSurface}
+              surface={answerSurface}
               locale={locale}
               testId="personality-detail-v85-answer-surface"
               pageFamily="personality_detail"
@@ -1837,7 +1871,7 @@ export default async function PersonalityDetailPage({
         <MbtiSceneEntrySection
           locale={locale}
           sourcePageType="personality_detail"
-          blocks={detail.answerSurface?.sceneSummaryBlocks}
+          blocks={answerSurface?.sceneSummaryBlocks}
           testId="personality-detail-scene-entry"
         />
       ) : null}
@@ -1849,7 +1883,7 @@ export default async function PersonalityDetailPage({
             {renderedSupplementalSections}
             {!hasV85Sections ? (
               <AnswerSurfaceSection
-                surface={detail.answerSurface}
+                surface={answerSurface}
                 locale={locale}
                 testId="personality-detail-answer-surface"
                 pageFamily="personality_detail"
@@ -1876,7 +1910,7 @@ export default async function PersonalityDetailPage({
         )}
         {!hasRenderableContent ? (
           <AnswerSurfaceSection
-            surface={detail.answerSurface}
+            surface={answerSurface}
             locale={locale}
             testId="personality-detail-answer-surface"
             pageFamily="personality_detail"

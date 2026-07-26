@@ -597,6 +597,36 @@ describe("personality cms adapter contract", () => {
       (normalizedStaleVariantSeo.jsonld as Record<string, unknown>).mainEntityOfPage
     ).toBe("http://localhost:3000/en/personality/intj");
 
+    const normalizedWithRouteValidSeoAndStaleJsonLd = normalizePersonalitySeoPayload(
+      {
+        ...normalizedBaseSeo,
+        jsonld: {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "@id": "https://fermatmind.com/en/personality/intj-a#profile",
+          url: "https://fermatmind.com/en/personality/intj-a",
+          mainEntityOfPage: {
+            "@id": "https://fermatmind.com/en/personality/intj-a",
+          },
+          name: "INTJ-A stale structured data",
+        },
+      },
+      detail!,
+      "en"
+    );
+    expect(normalizedWithRouteValidSeoAndStaleJsonLd.meta.canonical).toBe(
+      "http://localhost:3000/en/personality/intj"
+    );
+    expect(
+      (normalizedWithRouteValidSeoAndStaleJsonLd.jsonld as Record<string, unknown>).mainEntityOfPage
+    ).toBe("http://localhost:3000/en/personality/intj");
+    expect(JSON.stringify(normalizedWithRouteValidSeoAndStaleJsonLd.jsonld)).not.toContain(
+      "/personality/intj-a"
+    );
+    expect(JSON.stringify(normalizedWithRouteValidSeoAndStaleJsonLd.jsonld)).not.toContain(
+      "INTJ-A stale structured data"
+    );
+
     const routeValidIndexableDetailSurface = {
       ...staleVariantSeoPayload.surface,
       robotsPolicy: "index,follow",
@@ -1068,8 +1098,11 @@ describe("personality cms adapter contract", () => {
     expect(source).toContain("detail.displayType");
     expect(source).toContain("extractPersonalityFaqItems");
     expect(source).toContain("extractProjectionFaqItems");
-    expect(source).toContain("detail.answerSurface?.faqBlocks.length");
+    expect(source).toContain("answerSurface?.faqBlocks.length");
     expect(source).toContain('const isBaseTypeProjection = detail.projection.meta.publicRouteType === "16-type";');
+    expect(source).toContain(
+      "const careerDirectionHref = !isBaseTypeProjection && fallbackProjectionGate.canRenderCareerOrRecommendationClaims"
+    );
     expect(source).toContain("const profileSupplementalSections = isBaseTypeProjection ? [] : detail.supplementalSections;");
     expect(source).toContain("const profileFaqSections = isBaseTypeProjection ? [] : detail.faqSections;");
     expect(source).toContain("const projectionFaqItems = extractProjectionFaqItems(detail.projection.sections);");
