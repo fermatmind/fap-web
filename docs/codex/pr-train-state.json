@@ -51531,5 +51531,88 @@
       }
     ],
     "updated_at": "2026-07-27T03:40:35Z"
+  },
+  "MBTI-INDEX-52": {
+    "status": "local_verified",
+    "repo": "fap-web",
+    "branch": "codex/mbti-index-52",
+    "depends_on": [
+      "MBTI-CROSS-PUBLISH-51"
+    ],
+    "train_scope": "mbti_full_55_url_read_only_index_release_gate",
+    "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {
+        "status": "passed",
+        "evidence": "The operator supplied a concrete /goal authorizing the strict MBTI 45-53 train and exact manifest/state registration."
+      },
+      "dependency": {
+        "status": "passed",
+        "evidence": "MBTI-CROSS-PUBLISH-51 is closed in fap-api: PR #3309 merged at 7c770c8741da48f666ea925c65dceb76f7a182a9 after the exact three cross-type records passed production content, indexability, sitemap, llms, llms-full, cache-closeout, and public readback gates without search submission."
+      },
+      "production_read_only_runs": {
+        "status": "passed",
+        "evidence": "Two independent, consecutive production read-only runs passed public API, backend authority, authority fingerprints, visible body, exact section completeness, FAQ, JSON-LD, canonical, robots/indexability, sitemap, llms, and llms-full at 55/55 with zero API timeouts and zero private URL leaks. Both runs have evidence signature eadcc75a5735e2df802d1a534b995a1259580bf10920a94705a392b9cc05b334 and preserve the exact 55-URL cohort."
+      },
+      "required_local_checks": {
+        "status": "passed",
+        "evidence": "On Node 24.14.0: focused INDEX-52 contracts passed 9/9, full-repository lint passed with zero warnings, typecheck passed, all four complete contract shards passed 772 files / 4,482 tests, and the explicit production API build compiled and generated 206/206 static pages. YAML/JSON parsing, CSV formula-injection validation, git diff --check, and exact nine-path scope validation passed."
+      },
+      "changed_file_scope": {
+        "status": "passed",
+        "evidence": "All nine changed or untracked paths match the MBTI-INDEX-52 allowlist: two PR-train metadata files, five read-only evidence artifacts, one builder, and one focused contract."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-26T14:47:55Z",
+        "status": "in_progress",
+        "summary": "Started from exact fap-web origin/main 5e3b2e874c942b3021e662428eb97b3893de0153 in an isolated clean worktree after MBTI-CROSS-PUBLISH-51 closeout. The scope creates a fail-closed two-run read-only production gate for the exact 55 zh-CN URLs and cannot mutate CMS, database, runtime, discoverability, deploy state, or search systems."
+      },
+      {
+        "at": "2026-07-26T14:47:55Z",
+        "status": "production_readback_retry_pending",
+        "summary": "Run 1 passed public API, backend authority, authority fingerprints, visible body, exact section completeness, FAQ, JSON-LD, canonical, robots/indexability, sitemap, llms, and llms-full at 55/55 with zero API timeouts and zero private URL leaks. Run 2 failed closed before target aggregation because llms-full returned an incomplete canonical set on all bounded retries; direct controls reproduced upstream HTTP/2 stream truncation. No warning conversion, assertion weakening, or production mutation occurred."
+      },
+      {
+        "at": "2026-07-26T14:52:32Z",
+        "status": "production_readback_passed",
+        "summary": "After fixing the three feed reads to explicit curl HTTP/1.1 GETs over three constant public URLs, without changing content or membership assertions, the final two independent runs passed all twelve gates at 55/55. The INTP A/T record is now required to expose the exact mbti-comp-runtime-46-intp-revision source while the other fifteen A/T records require the standard import source. Run 1 completed before run 2 started, both carry identical evidence signature eadcc75a5735e2df802d1a534b995a1259580bf10920a94705a392b9cc05b334, API timeouts and private URL leaks are zero, and the final decision is ALLOW_MBTI_55_COMPLETE. No production or search mutation occurred."
+      },
+      {
+        "at": "2026-07-26T14:59:27Z",
+        "status": "local_verified",
+        "summary": "All manifest checks pass on Node 24.14.0: focused INDEX-52 contracts 9/9, zero-warning full lint, typecheck, four complete contract shards totaling 772 files / 4,482 tests, and production API build with 206/206 static pages. YAML/JSON, CSV formula safety, diff checks, and exact nine-path scope validation pass. The first build attempt stopped before compilation because Turbopack rejects the isolated worktree's external node_modules symlink; replacing only that ignored dependency symlink with an APFS local copy allowed the unchanged source to build successfully."
+      },
+      {
+        "at": "2026-07-26T15:30:20Z",
+        "status": "final_source_local_verified",
+        "summary": "Revalidated after the final authority and feed-transport tightening: the exact production runs span 2026-07-26T15:11:47.623Z through 2026-07-26T15:18:33.904Z with identical evidence signature eadcc75a5735e2df802d1a534b995a1259580bf10920a94705a392b9cc05b334 and ALLOW_MBTI_55_COMPLETE. Focused contracts pass 9/9, Node 24 lint and typecheck pass, all four complete contract shards pass 772 files / 4,482 tests, and the production build completes 206/206 static pages."
+      }
+    ],
+    "updated_at": "2026-07-26T15:30:20Z"
   }
 }
