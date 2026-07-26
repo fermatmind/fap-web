@@ -51134,7 +51134,7 @@
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
     "status": "in_progress",
-    "commit_sha": "0e802aec7a36a7c2b7113531dece352fefd98d36",
+    "commit_sha": "9100df252b25e8b7982e1c9d9889dff23447dc7e",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51147,15 +51147,15 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "Node 24.14.0: the final focused Vitest pair passed 2 files / 20 tests. The three relevant Playwright cases passed for English base, Chinese base, and the four-letter runtime owner with exact 16-type, self-canonical, and base hreflang assertions."
+        "evidence": "Node 24.14.0: the final focused Vitest pair passed 2 files / 20 tests. The four relevant Playwright cases passed against the read-only public API for English base, Chinese base, the canonical four-letter runtime owner, and noncanonical uppercase/encoded-whitespace aliases."
       },
       "required_local_checks": {
         "status": "pass",
-        "evidence": "Node 24.14.0 after the final scoped review repair and latest-main merge: lint, lint:spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. The focused Vitest pair passed 20 tests and all three relevant Playwright cases passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed."
+        "evidence": "Node 24.14.0 after the variant SEO precedence repair: lint, lint:spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. The focused Vitest pair passed 20 tests and all four relevant Playwright cases passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed. The first Playwright/build attempts omitted required clean-worktree public environment variables and failed only on localhost API connection / site URL guards; exact production-contract environment reruns passed."
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Head 28b9627ddac945be4d9a0621e7e7ce2478baeb58 passed all seven GitHub checks, but exact-head review found that noncanonical base aliases such as uppercase or encoded-whitespace segments could return 200 with a different base canonical. The scoped repair restores a 308 only when a 16-type request segment differs from the backend route slug, targeting the independent four-letter base owner rather than the A variant. A new checked head is required."
+        "evidence": "Head 75b09060c1c749c965bb25f3f71447e624b40257 passed all seven GitHub checks, but exact-head review found that shared projection-first fallback could override newer promoted variant detail SEO when the optional /seo endpoint is unavailable. Implementation head 9100df252b25e8b7982e1c9d9889dff23447dc7e restricts projection-first fallback to 16-type base routes and restores detail-first title, description, OG, Twitter, and image fallback for 32-type variants. A new checked head is required."
       }
     },
     "scope_validation": {
@@ -51295,9 +51295,14 @@
         "at": "2026-07-26T05:34:31Z",
         "status": "local_checks_passed",
         "summary": "Implementation head 0e802aec7a36a7c2b7113531dece352fefd98d36 now decodes the route segment for backend lookup while preserving the original request identity for canonical comparison; uppercase and encoded-whitespace four-letter aliases return 308 to the independent lowercase base owner and never to the A variant. Focused contracts passed 20/20, public-route Playwright passed 4/4, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29), Enneagram freeze (24), and the 206-page production build all passed. Exact eight-file scope, YAML/JSON, and diff checks pass; GitHub checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T05:52:08Z",
+        "status": "local_checks_passed",
+        "summary": "Head 75b09060c1c749c965bb25f3f71447e624b40257 passed all seven GitHub checks, but exact-head review found a same-scope variant SEO regression: projection metadata could precede newer promoted detail metadata when the optional /seo endpoint was absent. Implementation head 9100df252b25e8b7982e1c9d9889dff23447dc7e now keeps projection-first fallback only for 16-type base owners and restores detail-first fallback for 32-type variant title, description, OG, Twitter, and images. Focused contracts passed 20/20, public-route Playwright passed 4/4 against the read-only public API, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29), Enneagram freeze (24), and the 206-page production build passed. Exact eight-file scope, YAML/JSON, and diff checks pass; a new GitHub-checked head and exact-head review are pending."
       }
     ],
-    "updated_at": "2026-07-26T05:34:31Z"
+    "updated_at": "2026-07-26T05:52:08Z"
   },
   "CAREER-DIRECTORY-PAGINATION-FOLLOW-01": {
     "id": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01",
