@@ -98,6 +98,34 @@ describe("content release revalidate allowlist", () => {
     ]);
   });
 
+  it("accepts and revalidates the canonical sitemap root without locale rewriting", async () => {
+    const body = JSON.stringify({
+      content: { type: "mbti-cross-comparison", locale: "zh-CN" },
+      cache_signal: { paths: ["/sitemap.xml"] },
+    });
+    const decisions = collectPathDecisions(JSON.parse(body), "https://fermatmind.com");
+
+    expect(decisions).toEqual({
+      accepted: ["/sitemap.xml"],
+      rejected: [],
+    });
+
+    const response = await POST(
+      new NextRequest("https://fermatmind.com/api/content-release/revalidate", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body,
+      })
+    );
+    const payload = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(payload.revalidated_paths).toEqual(["/sitemap.xml"]);
+    expect(payload.rejected_paths).toEqual([]);
+    expect(mocks.revalidatePath).toHaveBeenCalledTimes(1);
+    expect(mocks.revalidatePath).toHaveBeenCalledWith("/sitemap.xml");
+  });
+
   it("accepts Big Five public asset paths while rejecting deeper unpublished nested paths", () => {
     const decisions = collectPathDecisions(
       {
