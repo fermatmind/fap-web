@@ -535,6 +535,28 @@ describe("personality cms adapter contract", () => {
       (normalizedBaseSeo.jsonld as Record<string, unknown>).mainEntityOfPage
     ).toBe("http://localhost:3000/en/personality/intj");
 
+    const normalizedBaseSeoWithStaleWrapperJsonLdFallback =
+      normalizePersonalitySeoPayload(
+        null,
+        {
+          ...detail!,
+          seoMeta: {
+            ...detail!.seoMeta!,
+            seoTitle: "INTJ-A stale wrapper title",
+            seoDescription: "INTJ-A stale wrapper description.",
+          },
+        },
+        "en"
+      );
+    expect(normalizedBaseSeoWithStaleWrapperJsonLdFallback.jsonld).toMatchObject({
+      name: "INTJ Personality Type",
+      description: "Projection-backed seo description.",
+      mainEntityOfPage: "http://localhost:3000/en/personality/intj",
+    });
+    expect(
+      JSON.stringify(normalizedBaseSeoWithStaleWrapperJsonLdFallback.jsonld)
+    ).not.toContain("stale wrapper");
+
     const normalizedVariantSeoWithoutSeoEndpoint = normalizePersonalitySeoPayload(
       null,
       {
@@ -830,6 +852,7 @@ describe("personality cms adapter contract", () => {
     expect(detailSource).toContain(
       "!isBaseTypeProjection || Boolean(answerSurface?.sceneSummaryBlocks.length)"
     );
+    expect(detailSource).toContain("hasCompletePersonalitySceneAuthority(block)");
     expect(detailSource).toContain("{shouldRenderSceneEntry ? (");
     expect(detailSource).toContain("detail.answerSurface");
     expect(detailSource).toContain("personality-detail-answer-surface");

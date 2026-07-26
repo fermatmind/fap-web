@@ -1669,6 +1669,55 @@ export function normalizePersonalitySeoPayload(
           },
         }
       : sourceSurface;
+  const jsonLdFallbackSeoMeta: CmsPersonalitySeoMeta = {
+    seoTitle: title,
+    seoDescription: description,
+    canonicalUrl: normalizedCanonical,
+    ogTitle: compatibility.seoMeta?.ogTitle ?? null,
+    ogDescription: compatibility.seoMeta?.ogDescription ?? null,
+    ogImageUrl: compatibility.seoMeta?.ogImageUrl ?? null,
+    twitterTitle: compatibility.seoMeta?.twitterTitle ?? null,
+    twitterDescription: compatibility.seoMeta?.twitterDescription ?? null,
+    twitterImageUrl: compatibility.seoMeta?.twitterImageUrl ?? null,
+    robots: compatibility.seoMeta?.robots ?? null,
+    jsonldOverrides: compatibility.seoMeta?.jsonldOverrides ?? null,
+  };
+  const jsonLdFallbackProfile: CmsPersonalityProfile =
+    "projection" in profile
+      ? {
+          id: null,
+          variantId: null,
+          profileId: null,
+          orgId: 0,
+          scaleCode: DEFAULT_SCALE_CODE,
+          typeCode: profile.canonicalTypeCode,
+          baseTypeCode: profile.canonicalTypeCode,
+          runtimeTypeCode: profile.projection.runtimeTypeCode,
+          variantCode: profile.projection.variantCode,
+          displayType: profile.displayType,
+          publicRouteSlug: profile.routeSlug,
+          publicRouteType: profile.projection.meta.publicRouteType,
+          slug: profile.slug,
+          baseSlug: profile.slug,
+          locale: profile.locale,
+          title: compatibility.title,
+          subtitle: compatibility.subtitle,
+          excerpt: compatibility.excerpt,
+          status: "published",
+          isPublic: true,
+          isIndexable: compatibility.isIndexable,
+          publishedAt: null,
+          updatedAt: null,
+          seoMeta: jsonLdFallbackSeoMeta,
+          heroKicker: profile.heroKicker ?? profile.canonicalTypeCode,
+          heroQuote: profile.heroQuote ?? "",
+          heroImageUrl: profile.heroImageUrl,
+          sections: [],
+        }
+      : {
+          ...profile,
+          seoMeta: jsonLdFallbackSeoMeta,
+        };
 
   return {
     meta: {
@@ -1737,38 +1786,7 @@ export function normalizePersonalitySeoPayload(
       acceptedSeoJsonLd ?? projectionJsonLd,
       acceptedSeo?.meta.canonical ?? projectionSeo?.canonicalUrl,
       canonicalPath,
-      "projection" in profile
-        ? {
-            id: null,
-            variantId: null,
-            profileId: null,
-            orgId: 0,
-            scaleCode: DEFAULT_SCALE_CODE,
-            typeCode: profile.canonicalTypeCode,
-            baseTypeCode: profile.canonicalTypeCode,
-            runtimeTypeCode: profile.projection.runtimeTypeCode,
-            variantCode: profile.projection.variantCode,
-            displayType: profile.displayType,
-            publicRouteSlug: profile.routeSlug,
-            publicRouteType: profile.projection.meta.publicRouteType,
-            slug: profile.slug,
-            baseSlug: profile.slug,
-            locale: profile.locale,
-            title: compatibility.title,
-            subtitle: compatibility.subtitle,
-            excerpt: compatibility.excerpt,
-            status: "published",
-            isPublic: true,
-            isIndexable: compatibility.isIndexable,
-            publishedAt: null,
-            updatedAt: null,
-            seoMeta: compatibility.seoMeta,
-            heroKicker: profile.heroKicker ?? profile.canonicalTypeCode,
-            heroQuote: profile.heroQuote ?? "",
-            heroImageUrl: profile.heroImageUrl,
-            sections: [],
-          }
-        : profile
+      jsonLdFallbackProfile
     ),
     surface: routeBoundSurface,
   };

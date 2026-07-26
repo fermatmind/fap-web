@@ -973,6 +973,18 @@ function isExactBaseCareerRecommendationHref(
   }
 }
 
+function hasCompletePersonalitySceneAuthority(block: {
+  title: string;
+  body: string;
+  href: string | null;
+}): boolean {
+  return Boolean(
+    normalizeDisplayText(block.title) &&
+    normalizeDisplayText(block.body) &&
+    block.href
+  );
+}
+
 function cmsQuickAnswerBody(sections: CmsPersonalitySection[]): string | null {
   const section = sections.find((item) => item.sectionKey === "quick_answer" && item.isEnabled !== false);
   if (!section) {
@@ -1512,7 +1524,9 @@ export default async function PersonalityDetailPage({
       ? {
           ...detail.answerSurface,
           sceneSummaryBlocks: detail.answerSurface.sceneSummaryBlocks.filter(
-            (block) => !isExactBaseCareerRecommendationHref(block.href, locale, detail.routeSlug)
+            (block) =>
+              !isExactBaseCareerRecommendationHref(block.href, locale, detail.routeSlug) &&
+              hasCompletePersonalitySceneAuthority(block)
           ),
           nextStepBlocks: detail.answerSurface.nextStepBlocks.filter(
             (block) => !isExactBaseCareerRecommendationHref(block.href, locale, detail.routeSlug)
