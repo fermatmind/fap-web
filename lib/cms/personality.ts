@@ -1598,6 +1598,7 @@ export function normalizePersonalitySeoPayload(
     compatibility.seoMeta?.robots,
     compatibility.isIndexable ? "index,follow" : "noindex,follow"
   );
+  const authoritativeNoindexRobots = firstNoindexRobotsDirective(robots);
   const sourceSurface =
     acceptedSeo?.surface ??
     (detailSurfaceHasProjectionRouteMismatch ? null : detailSurface);
@@ -1605,17 +1606,17 @@ export function normalizePersonalitySeoPayload(
     projectionRouteSlug && sourceSurface
       ? {
           ...sourceSurface,
-          robotsPolicy: routeMismatchNoindexRobots ?? sourceSurface.robotsPolicy,
-          robotsPolicyExplicit: routeMismatchNoindexRobots
+          robotsPolicy: authoritativeNoindexRobots ?? sourceSurface.robotsPolicy,
+          robotsPolicyExplicit: authoritativeNoindexRobots
             ? true
             : sourceSurface.robotsPolicyExplicit,
-          indexabilityState: routeMismatchNoindexRobots
+          indexabilityState: authoritativeNoindexRobots
             ? "noindex"
             : sourceSurface.indexabilityState,
-          indexEligible: routeMismatchNoindexRobots
+          indexEligible: authoritativeNoindexRobots
             ? false
             : sourceSurface.indexEligible,
-          indexState: routeMismatchNoindexRobots
+          indexState: authoritativeNoindexRobots
             ? "noindex"
             : sourceSurface.indexState,
           canonicalUrl: normalizedCanonical,

@@ -597,28 +597,29 @@ describe("personality cms adapter contract", () => {
       (normalizedStaleVariantSeo.jsonld as Record<string, unknown>).mainEntityOfPage
     ).toBe("http://localhost:3000/en/personality/intj");
 
+    const routeValidIndexableDetailSurface = {
+      ...staleVariantSeoPayload.surface,
+      robotsPolicy: "index,follow",
+      robotsPolicyExplicit: true,
+      indexabilityState: "indexable",
+      indexEligible: true,
+      indexState: "indexable",
+      canonicalUrl: "https://fermatmind.com/en/personality/intj",
+      canonicalPath: "/en/personality/intj",
+      alternates: {
+        en: "https://fermatmind.com/en/personality/intj",
+        "zh-CN": "https://fermatmind.com/zh/personality/intj",
+      },
+      og: {
+        ...staleVariantSeoPayload.surface.og,
+        url: "https://fermatmind.com/en/personality/intj",
+      },
+    } as NonNullable<typeof normalizedBaseSeo.surface>;
     const normalizedWithIndexableDetailSurface = normalizePersonalitySeoPayload(
       staleVariantSeoPayload,
       {
         ...detail!,
-        seoSurface: {
-          ...staleVariantSeoPayload.surface,
-          robotsPolicy: "index,follow",
-          robotsPolicyExplicit: true,
-          indexabilityState: "indexable",
-          indexEligible: true,
-          indexState: "indexable",
-          canonicalUrl: "https://fermatmind.com/en/personality/intj",
-          canonicalPath: "/en/personality/intj",
-          alternates: {
-            en: "https://fermatmind.com/en/personality/intj",
-            "zh-CN": "https://fermatmind.com/zh/personality/intj",
-          },
-          og: {
-            ...staleVariantSeoPayload.surface.og,
-            url: "https://fermatmind.com/en/personality/intj",
-          },
-        },
+        seoSurface: routeValidIndexableDetailSurface,
       },
       "en"
     );
@@ -627,6 +628,24 @@ describe("personality cms adapter contract", () => {
     expect(normalizedWithIndexableDetailSurface.surface?.indexabilityState).toBe("noindex");
     expect(normalizedWithIndexableDetailSurface.surface?.indexEligible).toBe(false);
     expect(normalizedWithIndexableDetailSurface.surface?.indexState).toBe("noindex");
+
+    const normalizedWithNonIndexableProfile = normalizePersonalitySeoPayload(
+      null,
+      {
+        ...detail!,
+        isIndexable: false,
+        seoSurface: routeValidIndexableDetailSurface,
+      },
+      "en"
+    );
+    expect(normalizedWithNonIndexableProfile.meta.robots).toBe("noindex,follow");
+    expect(normalizedWithNonIndexableProfile.surface).toMatchObject({
+      robotsPolicy: "noindex,follow",
+      robotsPolicyExplicit: true,
+      indexabilityState: "noindex",
+      indexEligible: false,
+      indexState: "noindex",
+    });
 
     const normalizedWithMismatchedDetailNoindex = normalizePersonalitySeoPayload(
       null,
