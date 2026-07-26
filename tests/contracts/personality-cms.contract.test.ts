@@ -1090,6 +1090,8 @@ describe("personality cms adapter contract", () => {
     expect(source).toContain("seoSurface: normalizedSeo.surface");
     expect(source).not.toContain("redirectLegacyBaseRouteIfNeeded");
     expect(source).not.toContain("buildDefaultPublicPersonalitySlug(type)");
+    expect(source).toContain("redirectNonCanonicalBaseRouteIfNeeded(type, locale, detail)");
+    expect(source).toContain("permanentRedirect(buildPersonalityFrontendUrl(locale, detail.routeSlug))");
     expect(source).toContain('data-authority-source="mbti_public_projection_v1"');
     expect(source).toContain("data-public-route-type={detail.projection.meta.publicRouteType ?? undefined}");
     expect(source).toContain("getPersonalityProjectionDetailBySlugOrType");

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { connection } from "next/server";
 import { cache } from "react";
 import { Breadcrumb } from "@/components/breadcrumb/Breadcrumb";
@@ -522,6 +522,29 @@ function buildCanonicalPath(slug: string, locale: Locale): string {
 
 function buildComparisonCanonicalPath(slug: string, locale: Locale): string {
   return buildPersonalityComparisonFrontendUrl(locale, slug);
+}
+
+function decodePersonalityRouteSegment(value: string): string {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
+function redirectNonCanonicalBaseRouteIfNeeded(
+  requestedType: string,
+  locale: Locale,
+  detail: PersonalityProjectionViewModel
+): void {
+  if (
+    detail.projection.meta.publicRouteType !== "16-type" ||
+    requestedType === detail.routeSlug
+  ) {
+    return;
+  }
+
+  permanentRedirect(buildPersonalityFrontendUrl(locale, detail.routeSlug));
 }
 
 function formatMbtiTestCtaLabel(locale: Locale): string {
@@ -1390,12 +1413,16 @@ export async function generateMetadata({
     }, effectiveMetadataTitle);
   }
 
-  const { detail, seo } = await loadPersonalityPublicDetail(type, locale);
+  const { detail, seo } = await loadPersonalityPublicDetail(
+    decodePersonalityRouteSegment(type),
+    locale
+  );
 
   if (!detail) {
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
+  redirectNonCanonicalBaseRouteIfNeeded(type, locale, detail);
   const normalizedSeo = normalizePersonalitySeoPayload(seo, detail, locale);
   const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);
   const noindex = !detail.isIndexable || shouldNoindex(normalizedSeo.meta.robots);
@@ -1464,12 +1491,16 @@ export default async function PersonalityDetailPage({
     return <PersonalityComparisonPage comparison={comparison} locale={locale} />;
   }
 
-  const { detail, seo } = await loadPersonalityPublicDetail(type, locale);
+  const { detail, seo } = await loadPersonalityPublicDetail(
+    decodePersonalityRouteSegment(type),
+    locale
+  );
 
   if (!detail) {
     return notFound();
   }
 
+  redirectNonCanonicalBaseRouteIfNeeded(type, locale, detail);
   const normalizedSeo = normalizePersonalitySeoPayload(seo, detail, locale);
   const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);
   const fallbackProjectionGate = resolvePersonalityFallbackProjectionGate(detail);
