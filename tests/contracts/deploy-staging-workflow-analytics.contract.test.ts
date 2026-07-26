@@ -20,4 +20,9 @@ describe("staging deploy workflow analytics wiring", () => {
       expect(workflow).toContain(`${key}='$${key}'`);
     }
   });
+
+  it("retries only SSH transport failures, not remote deploy or verification failures", () => {
+    expect(workflow.match(/if \[ "\$rc" -ne 255 \]; then/g)).toHaveLength(3);
+    expect(workflow.match(/return "\$rc"/g)).toHaveLength(6);
+  });
 });

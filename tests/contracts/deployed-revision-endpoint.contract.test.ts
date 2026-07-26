@@ -90,6 +90,10 @@ describe("same-origin deployed revision endpoint", () => {
     expect(deployScript).not.toContain(
       'write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/.next/standalone/REVISION"',
     );
+    expect(deployScript).toContain(
+      "printf 'FERMATMIND_DEPLOYED_REVISION_FILE=%s\\n' \"${APP_DIR}/REVISION\"",
+    );
+    expect(deployScript).toContain("write_systemd_runtime_env");
     expect(systemdUnit).toContain(
       "Environment=FERMATMIND_DEPLOYED_REVISION_FILE=/opt/apps/fap-web/REVISION",
     );
