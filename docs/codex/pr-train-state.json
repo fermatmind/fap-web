@@ -51134,7 +51134,7 @@
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
     "status": "in_progress",
-    "commit_sha": "9100df252b25e8b7982e1c9d9889dff23447dc7e",
+    "commit_sha": "da0c673a1b69947c6a751731e2bbb38663699a60",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51155,7 +51155,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Head 75b09060c1c749c965bb25f3f71447e624b40257 passed all seven GitHub checks, but exact-head review found that shared projection-first fallback could override newer promoted variant detail SEO when the optional /seo endpoint is unavailable. Implementation head 9100df252b25e8b7982e1c9d9889dff23447dc7e restricts projection-first fallback to 16-type base routes and restores detail-first title, description, OG, Twitter, and image fallback for 32-type variants. A new checked head is required."
+        "evidence": "Head 79fb49c75a0e01e3344f55d30a21f74f503906d1 passed all seven GitHub checks, but exact-head review found that a 32-type variant with a promoted detail OG image and no detail Twitter image could still select an older projection Twitter image. Implementation head da0c673a1b69947c6a751731e2bbb38663699a60 exhausts variant detail Twitter and OG fallbacks before consulting projection media. A new checked head is required."
       }
     },
     "scope_validation": {
@@ -51300,9 +51300,14 @@
         "at": "2026-07-26T05:52:08Z",
         "status": "local_checks_passed",
         "summary": "Head 75b09060c1c749c965bb25f3f71447e624b40257 passed all seven GitHub checks, but exact-head review found a same-scope variant SEO regression: projection metadata could precede newer promoted detail metadata when the optional /seo endpoint was absent. Implementation head 9100df252b25e8b7982e1c9d9889dff23447dc7e now keeps projection-first fallback only for 16-type base owners and restores detail-first fallback for 32-type variant title, description, OG, Twitter, and images. Focused contracts passed 20/20, public-route Playwright passed 4/4 against the read-only public API, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29), Enneagram freeze (24), and the 206-page production build passed. Exact eight-file scope, YAML/JSON, and diff checks pass; a new GitHub-checked head and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T06:05:50Z",
+        "status": "local_checks_passed",
+        "summary": "Head 79fb49c75a0e01e3344f55d30a21f74f503906d1 passed all seven GitHub checks, but exact-head review found one remaining partial-media case: a 32-type variant with promoted detail OG media and no detail Twitter media could select an older projection Twitter image. Implementation head da0c673a1b69947c6a751731e2bbb38663699a60 now exhausts detail Twitter and detail OG media before any projection media on variants, while retaining projection-first ordering for 16-type base owners. The direct partial-media regression and focused contracts passed 20/20; public-route Playwright passed 4/4, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed. Exact scope and diff checks pass; a new GitHub-checked head and exact-head review are pending."
       }
     ],
-    "updated_at": "2026-07-26T05:52:08Z"
+    "updated_at": "2026-07-26T06:05:50Z"
   },
   "CAREER-DIRECTORY-PAGINATION-FOLLOW-01": {
     "id": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01",
