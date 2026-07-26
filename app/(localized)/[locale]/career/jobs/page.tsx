@@ -164,6 +164,7 @@ export async function generateMetadata({
   const family = normalizeSearchParam(resolvedSearchParams.family);
   const page = normalizePageParam(resolvedSearchParams.page);
   const pathname = locale === "zh" ? "/zh/career/jobs" : "/en/career/jobs";
+  const hasDirectoryState = submittedQuery.length > 0 || family.length > 0 || page > 1;
 
   return buildPageMetadata({
     locale,
@@ -174,7 +175,8 @@ export async function generateMetadata({
       locale === "zh"
         ? "浏览 FermatMind 职业数据库，按行业筛选职业，并进入已开放的职业详情页。"
         : "Browse the FermatMind occupation library, filter by industry, and open available role profiles.",
-    noindex: submittedQuery.length > 0 || family.length > 0 || page > 1,
+    noindex: hasDirectoryState,
+    noindexFollow: hasDirectoryState,
     alternatesByLocale: {
       en: "/en/career/jobs",
       zh: "/zh/career/jobs",
