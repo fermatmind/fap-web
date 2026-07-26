@@ -1,0 +1,149 @@
+name: Web Production Worktree Recovery
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Read-only preflight or exact-hash apply."
+        required: true
+        type: choice
+        options:
+          - preflight
+          - apply
+      expected_control_plane_sha:
+        description: "Exact latest main SHA containing this recovery control plane."
+        required: true
+        type: string
+      expected_active_sha:
+        description: "Exact production worktree HEAD observed before recovery."
+        required: true
+        type: string
+      expected_file_sha256:
+        description: "Apply only: exact target file SHA-256 from preflight."
+        required: false
+        type: string
+      expected_patch_sha256:
+        description: "Apply only: exact binary patch SHA-256 from preflight."
+        required: false
+        type: string
+      expected_residue_set_sha256:
+        description: "Apply only: exact bounded residue-set SHA-256 from preflight."
+        required: false
+        type: string
+      release_id:
+        description: "Apply only: immutable backup release id."
+        required: false
+        type: string
+      exact_approval:
+        description: "Apply only: SHA-bound operator approval token."
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fap-web-production-mutation
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    name: Inspect or recover bounded production worktree residue
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: production
+    env:
+      MODE: ${{ inputs.mode }}
+      EXPECTED_CONTROL_PLANE_SHA: ${{ inputs.expected_control_plane_sha }}
+      EXPECTED_ACTIVE_SHA: ${{ inputs.expected_active_sha }}
+      EXPECTED_FILE_SHA256: ${{ inputs.expected_file_sha256 }}
+      EXPECTED_PATCH_SHA256: ${{ inputs.expected_patch_sha256 }}
+      EXPECTED_RESIDUE_SET_SHA256: ${{ inputs.expected_residue_set_sha256 }}
+      RELEASE_ID: ${{ inputs.release_id }}
+      EXACT_APPROVAL: ${{ inputs.exact_approval }}
+      DEPLOY_HOST: ${{ secrets.WEB_NODE1_HOST }}
+      DEPLOY_USER: ${{ secrets.WEB_NODE1_USER }}
+      DEPLOY_PORT: ${{ secrets.WEB_NODE1_SSH_PORT }}
+      APP_DIR: ${{ secrets.WEB_NODE1_APP_DIR || vars.WEB_NODE1_APP_DIR }}
+
+    steps:
+      - name: Checkout exact control plane
+        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+        with:
+          ref: ${{ inputs.expected_control_plane_sha }}
+          fetch-depth: 0
+
+      - name: Validate immutable inputs
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$EXPECTED_CONTROL_PLANE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$EXPECTED_ACTIVE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          test "$(git rev-parse HEAD)" = "$EXPECTED_CONTROL_PLANE_SHA"
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          test "$(git rev-parse origin/main)" = "$EXPECTED_CONTROL_PLANE_SHA"
+          test -n "$DEPLOY_HOST"
+          test -n "$DEPLOY_USER"
+          : "${DEPLOY_PORT:=22}"
+          : "${APP_DIR:=/opt/apps/fap-web}"
+          [[ "$DEPLOY_PORT" =~ ^[0-9]+$ ]]
+          [[ "$APP_DIR" =~ ^/[A-Za-z0-9._/-]+$ ]]
+          echo "DEPLOY_PORT=$DEPLOY_PORT" >> "$GITHUB_ENV"
+          echo "APP_DIR=$APP_DIR" >> "$GITHUB_ENV"
+
+          if [[ "$MODE" == "preflight" ]]; then
+            test -z "$EXPECTED_FILE_SHA256"
+            test -z "$EXPECTED_PATCH_SHA256"
+            test -z "$EXPECTED_RESIDUE_SET_SHA256"
+            test -z "$RELEASE_ID"
+            test -z "$EXACT_APPROVAL"
+          else
+            [[ "$MODE" == "apply" ]]
+            [[ "$EXPECTED_FILE_SHA256" =~ ^[0-9a-f]{64}$ ]]
+            [[ "$EXPECTED_PATCH_SHA256" =~ ^[0-9a-f]{64}$ ]]
+            [[ "$EXPECTED_RESIDUE_SET_SHA256" =~ ^[0-9a-f]{64}$ ]]
+            [[ "$RELEASE_ID" =~ ^[A-Za-z0-9._-]+$ ]]
+            expected_approval="APPROVE_FAP_WEB_PRODUCTION_WORKTREE_RECOVERY:${EXPECTED_CONTROL_PLANE_SHA}:${EXPECTED_ACTIVE_SHA}:${EXPECTED_RESIDUE_SET_SHA256}"
+            test "$EXACT_APPROVAL" = "$expected_approval"
+          fi
+
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Install pinned SSH known_hosts
+        shell: bash
+        env:
+          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        run: |
+          set -euo pipefail
+          test -n "$SSH_KNOWN_HOSTS"
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KNOWN_HOSTS" > ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Run bounded recovery mode
+        shell: bash
+        run: |
+          set -euo pipefail
+          receipt="$RUNNER_TEMP/web-production-worktree-recovery.json"
+          remote_env="APP_DIR='$APP_DIR' EXPECTED_ACTIVE_SHA='$EXPECTED_ACTIVE_SHA'"
+          if [[ "$MODE" == "apply" ]]; then
+            remote_env+=" EXPECTED_FILE_SHA256='$EXPECTED_FILE_SHA256' EXPECTED_PATCH_SHA256='$EXPECTED_PATCH_SHA256'"
+            remote_env+=" EXPECTED_RESIDUE_SET_SHA256='$EXPECTED_RESIDUE_SET_SHA256' RELEASE_ID='$RELEASE_ID'"
+          fi
+          ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+            -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+            "$remote_env bash -s -- '$MODE'" \
+            < scripts/ops/web-production-worktree-recovery.sh | tee "$receipt"
+          test -s "$receipt"
+
+      - name: Upload immutable recovery receipt
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: web-production-worktree-recovery-${{ inputs.mode }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/web-production-worktree-recovery.json
+          if-no-files-found: error
+          retention-days: 30

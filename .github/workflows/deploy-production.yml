@@ -22,6 +22,10 @@ permissions:
   deployments: read
   pull-requests: read
 
+concurrency:
+  group: fap-web-production-mutation
+  cancel-in-progress: false
+
 jobs:
   policy-guard:
     name: Production auto-deploy policy guard
