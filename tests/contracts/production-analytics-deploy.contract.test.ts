@@ -41,17 +41,18 @@ describe("production analytics deploy contract", () => {
   });
 
   it("persists validated analytics settings for the systemd standalone runtime", () => {
-    expect(deployScript).toContain("write_systemd_analytics_runtime_env");
+    expect(deployScript).toContain("write_systemd_runtime_env");
     expect(deployScript).toContain(
       'runtime_env="${APP_DIR}/.next/standalone/.env.production.local"',
     );
+    expect(deployScript).toContain("FERMATMIND_DEPLOYED_REVISION_FILE=%s");
     expect(deployScript).toContain("NEXT_PUBLIC_ANALYTICS_ENABLED=%s");
     expect(deployScript).toContain("NEXT_PUBLIC_GA_MEASUREMENT_ID=%s");
     expect(deployScript).toContain("NEXT_PUBLIC_BAIDU_TONGJI_ID=%s");
     expect(deployScript).toContain('chmod 600 "$runtime_env"');
 
     const writeRuntimeEnvIndex = deployScript.lastIndexOf(
-      "write_systemd_analytics_runtime_env",
+      "write_systemd_runtime_env",
     );
     const candidateIndex = deployScript.lastIndexOf("require_candidate_analytics_smoke");
     expect(writeRuntimeEnvIndex).toBeGreaterThan(-1);
