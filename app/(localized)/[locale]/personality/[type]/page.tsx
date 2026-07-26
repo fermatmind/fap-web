@@ -1571,6 +1571,9 @@ export default async function PersonalityDetailPage({
     locale
   );
   const hasV85Sections = renderedV85Sections.length > 0;
+  const shouldRenderSceneEntry =
+    !hasV85Sections &&
+    (!isBaseTypeProjection || Boolean(answerSurface?.sceneSummaryBlocks.length));
   const hasRenderableContent = renderedV85Sections.length > 0 || renderedProjectionSections.length > 0 || renderedSupplementalSections.length > 0;
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
@@ -1898,7 +1901,7 @@ export default async function PersonalityDetailPage({
         </div>
       ) : null}
 
-      {!hasV85Sections ? (
+      {shouldRenderSceneEntry ? (
         <MbtiSceneEntrySection
           locale={locale}
           sourcePageType="personality_detail"

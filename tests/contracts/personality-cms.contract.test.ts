@@ -826,6 +826,11 @@ describe("personality cms adapter contract", () => {
     expect(indexSource).not.toContain("ScenarioIntelligenceMatrix");
     expect(detailSource).not.toContain("personality-detail-landing-summary");
     expect(detailSource).toContain("personality-detail-scene-entry");
+    expect(detailSource).toContain("const shouldRenderSceneEntry =");
+    expect(detailSource).toContain(
+      "!isBaseTypeProjection || Boolean(answerSurface?.sceneSummaryBlocks.length)"
+    );
+    expect(detailSource).toContain("{shouldRenderSceneEntry ? (");
     expect(detailSource).toContain("detail.answerSurface");
     expect(detailSource).toContain("personality-detail-answer-surface");
   });
