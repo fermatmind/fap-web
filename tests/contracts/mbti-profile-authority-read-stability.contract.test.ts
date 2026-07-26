@@ -26,7 +26,9 @@ describe("MBTI profile authority read stability", () => {
   it("uses backend detail SEO authority without a frontend editorial fallback", () => {
     expect(cmsSource).toContain("timeoutMs: PERSONALITY_PUBLIC_READ_TIMEOUT_MS");
     expect(cmsSource).toContain("seoSurface: normalizeSeoSurface(response.seo_surface_v1 ?? null)");
-    expect(cmsSource).toContain('surface: seo?.surface ?? ("projection" in profile ? profile.seoSurface : null)');
+    expect(cmsSource).toContain('const sourceSurface = seo?.surface ?? ("projection" in profile ? profile.seoSurface : null)');
+    expect(cmsSource).toContain("const routeBoundSurface =");
+    expect(cmsSource).toContain("surface: routeBoundSurface");
     expect(pageSource).not.toContain("buildFallbackPersonalityDetail");
     expect(pageSource).not.toContain("buildFallbackProjection");
     expect(pageSource).not.toContain("frontend_gateway_fallback");

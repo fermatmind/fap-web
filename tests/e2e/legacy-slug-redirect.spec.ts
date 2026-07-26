@@ -41,6 +41,7 @@ test("4-letter personality detail is the independent backend-authoritative base 
   await page.goto("/en/personality/intj");
   await expect(page).toHaveURL(/\/en\/personality\/intj$/);
   await expect(page.locator("main")).toHaveAttribute("data-authority-source", "mbti_public_projection_v1");
+  await expect(page.locator("main")).toHaveAttribute("data-public-route-type", "16-type");
 });
 
 test("legacy slug redirect: /types/[code] points straight to the default public variant", async ({ page, request }) => {

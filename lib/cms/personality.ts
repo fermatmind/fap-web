@@ -1533,15 +1533,24 @@ export function normalizePersonalitySeoPayload(
   locale: Locale | string
 ): CmsPersonalitySeoPayload {
   const compatibility = toSeoCompatibilityInputFromDetail(profile);
-  const canonicalRouteSlug =
-    extractPersonalitySlugFromPublicUrl(seo?.meta.canonical) ??
-    ("projection" in profile
+  const projectionRouteSlug =
+    "projection" in profile
       ? runtimeTypeCodeToSlug(profile.projection.runtimeTypeCode) ?? profile.routeSlug
-      : buildDefaultPublicPersonalitySlug(compatibility.slug));
+      : null;
+  const canonicalRouteSlug =
+    projectionRouteSlug ??
+    extractPersonalitySlugFromPublicUrl(seo?.meta.canonical) ??
+    buildDefaultPublicPersonalitySlug(compatibility.slug);
   const canonicalPath = buildPersonalityFrontendUrl(locale, canonicalRouteSlug);
   const normalizedCanonical = canonicalUrl(canonicalPath);
-  const alternateEnSlug = extractPersonalitySlugFromPublicUrl(seo?.meta.alternates?.en) ?? canonicalRouteSlug;
-  const alternateZhSlug = extractPersonalitySlugFromPublicUrl(seo?.meta.alternates?.["zh-CN"]) ?? canonicalRouteSlug;
+  const alternateEnSlug =
+    projectionRouteSlug ??
+    extractPersonalitySlugFromPublicUrl(seo?.meta.alternates?.en) ??
+    canonicalRouteSlug;
+  const alternateZhSlug =
+    projectionRouteSlug ??
+    extractPersonalitySlugFromPublicUrl(seo?.meta.alternates?.["zh-CN"]) ??
+    canonicalRouteSlug;
   const title = fallbackText(seo?.meta.title, compatibility.seoMeta?.seoTitle, compatibility.title);
   const description = fallbackText(
     seo?.meta.description,
@@ -1554,6 +1563,24 @@ export function normalizePersonalitySeoPayload(
     compatibility.seoMeta?.robots,
     compatibility.isIndexable ? "index,follow" : "noindex,follow"
   );
+  const sourceSurface = seo?.surface ?? ("projection" in profile ? profile.seoSurface : null);
+  const routeBoundSurface =
+    projectionRouteSlug && sourceSurface
+      ? {
+          ...sourceSurface,
+          canonicalUrl: normalizedCanonical,
+          canonicalPath,
+          alternates: {
+            ...sourceSurface.alternates,
+            en: canonicalUrl(buildPersonalityFrontendUrl("en", projectionRouteSlug)),
+            "zh-CN": canonicalUrl(buildPersonalityFrontendUrl("zh", projectionRouteSlug)),
+          },
+          og: {
+            ...sourceSurface.og,
+            url: normalizedCanonical,
+          },
+        }
+      : sourceSurface;
 
   return {
     meta: {
@@ -1623,7 +1650,7 @@ export function normalizePersonalitySeoPayload(
           }
         : profile
     ),
-    surface: seo?.surface ?? ("projection" in profile ? profile.seoSurface : null),
+    surface: routeBoundSurface,
   };
 }
 

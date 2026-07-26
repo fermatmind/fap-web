@@ -27376,6 +27376,7 @@ prs:
       - app/(localized)/[locale]/personality/[type]/page.tsx
       - lib/cms/personality.ts
       - tests/contracts/personality-cms.contract.test.ts
+      - tests/contracts/mbti-profile-authority-read-stability.contract.test.ts
       - tests/e2e/seo-hreflang.spec.ts
       - tests/e2e/legacy-slug-redirect.spec.ts
       - docs/codex/pr-train.yaml

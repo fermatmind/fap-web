@@ -534,6 +534,49 @@ describe("personality cms adapter contract", () => {
     expect(
       (normalizedBaseSeo.jsonld as Record<string, unknown>).mainEntityOfPage
     ).toBe("http://localhost:3000/en/personality/intj");
+
+    const normalizedStaleVariantSeo = normalizePersonalitySeoPayload(
+      {
+        ...normalizedBaseSeo,
+        surface: {
+          canonicalUrl: "https://fermatmind.com/en/personality/intj-a",
+          canonicalPath: "/en/personality/intj-a",
+          alternates: {
+            en: "https://fermatmind.com/en/personality/intj-a",
+            "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
+          },
+          og: {
+            url: "https://fermatmind.com/en/personality/intj-a",
+          },
+        } as unknown as NonNullable<typeof normalizedBaseSeo.surface>,
+        meta: {
+          ...normalizedBaseSeo.meta,
+          canonical: "https://fermatmind.com/en/personality/intj-a",
+          alternates: {
+            en: "https://fermatmind.com/en/personality/intj-a",
+            "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
+          },
+        },
+        jsonld: {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          mainEntityOfPage: "https://fermatmind.com/en/personality/intj-a",
+        },
+      },
+      detail!,
+      "en"
+    );
+    expect(normalizedStaleVariantSeo.meta.canonical).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalizedStaleVariantSeo.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalizedStaleVariantSeo.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj");
+    expect(normalizedStaleVariantSeo.surface?.canonicalUrl).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalizedStaleVariantSeo.surface?.canonicalPath).toBe("/en/personality/intj");
+    expect(normalizedStaleVariantSeo.surface?.alternates.en).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalizedStaleVariantSeo.surface?.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj");
+    expect(normalizedStaleVariantSeo.surface?.og.url).toBe("http://localhost:3000/en/personality/intj");
+    expect(
+      (normalizedStaleVariantSeo.jsonld as Record<string, unknown>).mainEntityOfPage
+    ).toBe("http://localhost:3000/en/personality/intj");
   });
 
   it("personality routes consume landing surface instead of inventing local CTA truth", () => {

@@ -51142,11 +51142,11 @@
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "Node 24.14.0: pnpm exec vitest run tests/contracts/personality-cms.contract.test.ts --reporter=dot passed 1 file / 16 tests."
+        "evidence": "Node 24.14.0: the final focused Vitest pair passed 2 files / 20 tests. The three relevant Playwright cases passed for English base, Chinese base, and the four-letter runtime owner with exact 16-type, self-canonical, and base hreflang assertions."
       },
       "required_local_checks": {
         "status": "pass",
-        "evidence": "Node 24.14.0: lint, lint:spacing, typecheck, all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. YAML/JSON parsing, git diff checks, and exact seven-file scope validation also passed."
+        "evidence": "Node 24.14.0 after the scoped review repair: lint, lint:spacing, typecheck, all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed."
       },
       "github_required_checks": {
         "status": "pending",
@@ -51179,14 +51179,19 @@
       {
         "at": "2026-07-26T02:25:10Z",
         "status": "local_checks_passed",
-        "summary": "All manifest local checks passed with Node 24.14.0. Exact scope contains only the seven declared runtime, adapter, contract, E2E, and train-ledger files; no sitemap, llms, backend/CMS, Search, deployment, or production state changed."
+        "summary": "All initial manifest local checks passed with Node 24.14.0. The initial exact scope contained seven declared runtime, adapter, contract, E2E, and train-ledger files; no sitemap, llms, backend/CMS, Search, deployment, or production state changed."
       },
       {
         "at": "2026-07-26T02:26:32Z",
         "status": "github_checks_pending",
         "summary": "Pushed implementation commit 18648e81a34e576a6cb61888e8fa912009f8855f and opened PR #1808 against exact base 9f36bdd15ae83eb02911edd96aab3afaea262f10. The PR is mergeable and required checks are running."
+      },
+      {
+        "at": "2026-07-26T02:48:08Z",
+        "status": "review_fix_validated",
+        "summary": "Addressed the current-scope P2 by binding canonical, hreflang, JSON-LD, and SEO surface identity to the backend projection route. Added exact 16-type and base href assertions plus the directly affected authority-stability contract. Final local checks passed across the exact eight-file PR scope; GitHub checks must rerun on the new head."
       }
     ],
-    "updated_at": "2026-07-26T02:26:32Z"
+    "updated_at": "2026-07-26T02:48:08Z"
   }
 }
