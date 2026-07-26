@@ -1540,20 +1540,6 @@ export function normalizePersonalitySeoPayload(
   const projectionSeo = "projection" in profile ? profile.projection.seo : null;
   const isBaseTypeProjection =
     "projection" in profile && profile.projection.meta.publicRouteType === "16-type";
-  const routeOrderedSeoText = (
-    projectionValue: string | null | undefined,
-    detailValue: string | null | undefined
-  ): string =>
-    isBaseTypeProjection
-      ? fallbackText(projectionValue, detailValue)
-      : fallbackText(detailValue, projectionValue);
-  const routeOrderedSeoValue = <T>(
-    projectionValue: T | null | undefined,
-    detailValue: T | null | undefined
-  ): T | null | undefined =>
-    isBaseTypeProjection
-      ? projectionValue ?? detailValue
-      : detailValue ?? projectionValue;
   const seoHasProjectionRouteMismatch =
     projectionRouteSlug !== null &&
     hasPersonalityProjectionRouteMismatch(projectionRouteSlug, [
@@ -1606,20 +1592,34 @@ export function normalizePersonalitySeoPayload(
     projectionRouteSlug ??
     extractPersonalitySlugFromPublicUrl(acceptedSeo?.meta.alternates?.["zh-CN"]) ??
     canonicalRouteSlug;
-  const title = fallbackText(
-    acceptedSeo?.meta.title,
-    routeOrderedSeoText(projectionSeo?.title, compatibility.seoMeta?.seoTitle),
-    compatibility.title
-  );
-  const description = fallbackText(
-    acceptedSeo?.meta.description,
-    routeOrderedSeoText(
-      projectionSeo?.description,
-      compatibility.seoMeta?.seoDescription
-    ),
-    compatibility.excerpt,
-    compatibility.subtitle
-  );
+  const title = isBaseTypeProjection
+    ? fallbackText(
+        projectionSeo?.title,
+        acceptedSeo?.meta.title,
+        compatibility.seoMeta?.seoTitle,
+        compatibility.title
+      )
+    : fallbackText(
+        acceptedSeo?.meta.title,
+        compatibility.seoMeta?.seoTitle,
+        projectionSeo?.title,
+        compatibility.title
+      );
+  const description = isBaseTypeProjection
+    ? fallbackText(
+        projectionSeo?.description,
+        acceptedSeo?.meta.description,
+        compatibility.seoMeta?.seoDescription,
+        compatibility.excerpt,
+        compatibility.subtitle
+      )
+    : fallbackText(
+        acceptedSeo?.meta.description,
+        compatibility.seoMeta?.seoDescription,
+        projectionSeo?.description,
+        compatibility.excerpt,
+        compatibility.subtitle
+      );
   const authoritativeNoindexRobots = firstNoindexRobotsDirective(
     routeMismatchNoindexRobots,
     acceptedSeo?.meta.robots,
@@ -1635,6 +1635,88 @@ export function normalizePersonalitySeoPayload(
     projectionSeo?.robots,
     compatibility.seoMeta?.robots,
     compatibility.isIndexable ? "index,follow" : "noindex,follow"
+  );
+  const ogTitle = isBaseTypeProjection
+    ? fallbackText(
+        projectionSeo?.ogTitle,
+        projectionSeo?.title,
+        acceptedSeo?.meta.og.title,
+        acceptedSeo?.meta.title,
+        compatibility.seoMeta?.ogTitle,
+        title
+      )
+    : fallbackText(
+        acceptedSeo?.meta.og.title,
+        compatibility.seoMeta?.ogTitle,
+        projectionSeo?.ogTitle,
+        title
+      );
+  const ogDescription = isBaseTypeProjection
+    ? fallbackText(
+        projectionSeo?.ogDescription,
+        projectionSeo?.description,
+        acceptedSeo?.meta.og.description,
+        acceptedSeo?.meta.description,
+        compatibility.seoMeta?.ogDescription,
+        description
+      )
+    : fallbackText(
+        acceptedSeo?.meta.og.description,
+        compatibility.seoMeta?.ogDescription,
+        projectionSeo?.ogDescription,
+        description
+      );
+  const ogImage = normalizeIsoValue(
+    isBaseTypeProjection
+      ? projectionSeo?.ogImageUrl ??
+          acceptedSeo?.meta.og.image ??
+          compatibility.seoMeta?.ogImageUrl
+      : acceptedSeo?.meta.og.image ??
+          compatibility.seoMeta?.ogImageUrl ??
+          projectionSeo?.ogImageUrl
+  );
+  const twitterTitle = isBaseTypeProjection
+    ? fallbackText(
+        projectionSeo?.twitterTitle,
+        projectionSeo?.title,
+        acceptedSeo?.meta.twitter.title,
+        acceptedSeo?.meta.title,
+        compatibility.seoMeta?.twitterTitle,
+        title
+      )
+    : fallbackText(
+        acceptedSeo?.meta.twitter.title,
+        compatibility.seoMeta?.twitterTitle,
+        projectionSeo?.twitterTitle,
+        title
+      );
+  const twitterDescription = isBaseTypeProjection
+    ? fallbackText(
+        projectionSeo?.twitterDescription,
+        projectionSeo?.description,
+        acceptedSeo?.meta.twitter.description,
+        acceptedSeo?.meta.description,
+        compatibility.seoMeta?.twitterDescription,
+        description
+      )
+    : fallbackText(
+        acceptedSeo?.meta.twitter.description,
+        compatibility.seoMeta?.twitterDescription,
+        projectionSeo?.twitterDescription,
+        description
+      );
+  const twitterImage = normalizeIsoValue(
+    isBaseTypeProjection
+      ? projectionSeo?.twitterImageUrl ??
+          projectionSeo?.ogImageUrl ??
+          acceptedSeo?.meta.twitter.image ??
+          acceptedSeo?.meta.og.image ??
+          compatibility.seoMeta?.twitterImageUrl ??
+          compatibility.seoMeta?.ogImageUrl
+      : acceptedSeo?.meta.twitter.image ??
+          compatibility.seoMeta?.twitterImageUrl ??
+          compatibility.seoMeta?.ogImageUrl ??
+          projectionSeo?.twitterImageUrl
   );
   const sourceSurface =
     acceptedSeo?.surface ??
@@ -1656,6 +1738,8 @@ export function normalizePersonalitySeoPayload(
           indexState: authoritativeNoindexRobots
             ? "noindex"
             : sourceSurface.indexState,
+          title: isBaseTypeProjection ? title : sourceSurface.title,
+          description: isBaseTypeProjection ? description : sourceSurface.description,
           canonicalUrl: normalizedCanonical,
           canonicalPath,
           alternates: {
@@ -1665,7 +1749,24 @@ export function normalizePersonalitySeoPayload(
           },
           og: {
             ...sourceSurface.og,
+            title: isBaseTypeProjection ? ogTitle : sourceSurface.og.title,
+            description: isBaseTypeProjection
+              ? ogDescription
+              : sourceSurface.og.description,
+            image: isBaseTypeProjection ? ogImage : sourceSurface.og.image,
             url: normalizedCanonical,
+          },
+          twitter: {
+            ...sourceSurface.twitter,
+            title: isBaseTypeProjection
+              ? twitterTitle
+              : sourceSurface.twitter.title,
+            description: isBaseTypeProjection
+              ? twitterDescription
+              : sourceSurface.twitter.description,
+            image: isBaseTypeProjection
+              ? twitterImage
+              : sourceSurface.twitter.image,
           },
         }
       : sourceSurface;
@@ -1729,62 +1830,26 @@ export function normalizePersonalitySeoPayload(
         "zh-CN": canonicalUrl(buildPersonalityFrontendUrl("zh", alternateZhSlug)),
       },
       og: {
-        title: fallbackText(
-          acceptedSeo?.meta.og.title,
-          routeOrderedSeoText(projectionSeo?.ogTitle, compatibility.seoMeta?.ogTitle),
-          title
-        ),
-        description: fallbackText(
-          acceptedSeo?.meta.og.description,
-          routeOrderedSeoText(
-            projectionSeo?.ogDescription,
-            compatibility.seoMeta?.ogDescription
-          ),
-          description
-        ),
-        image: normalizeIsoValue(
-          acceptedSeo?.meta.og.image ??
-            routeOrderedSeoValue(
-              projectionSeo?.ogImageUrl,
-              compatibility.seoMeta?.ogImageUrl
-            )
-        ),
+        title: ogTitle,
+        description: ogDescription,
+        image: ogImage,
         type: fallbackText(acceptedSeo?.meta.og.type, "article"),
       },
       twitter: {
         card: fallbackText(acceptedSeo?.meta.twitter.card, "summary_large_image"),
-        title: fallbackText(
-          acceptedSeo?.meta.twitter.title,
-          routeOrderedSeoText(
-            projectionSeo?.twitterTitle,
-            compatibility.seoMeta?.twitterTitle
-          ),
-          title
-        ),
-        description: fallbackText(
-          acceptedSeo?.meta.twitter.description,
-          routeOrderedSeoText(
-            projectionSeo?.twitterDescription,
-            compatibility.seoMeta?.twitterDescription
-          ),
-          description
-        ),
-        image: normalizeIsoValue(
-          acceptedSeo?.meta.twitter.image ??
-            (isBaseTypeProjection
-              ? projectionSeo?.twitterImageUrl ??
-                compatibility.seoMeta?.twitterImageUrl ??
-                compatibility.seoMeta?.ogImageUrl
-              : compatibility.seoMeta?.twitterImageUrl ??
-                compatibility.seoMeta?.ogImageUrl ??
-                projectionSeo?.twitterImageUrl)
-        ),
+        title: twitterTitle,
+        description: twitterDescription,
+        image: twitterImage,
       },
       robots,
     },
     jsonld: normalizePersonalityJsonLd(
       acceptedSeoJsonLd ?? projectionJsonLd,
-      acceptedSeo?.meta.canonical ?? projectionSeo?.canonicalUrl,
+      acceptedSeoJsonLd
+        ? acceptedSeo?.meta.canonical
+        : projectionJsonLd
+          ? projectionSeo?.canonicalUrl
+          : null,
       canonicalPath,
       jsonLdFallbackProfile
     ),

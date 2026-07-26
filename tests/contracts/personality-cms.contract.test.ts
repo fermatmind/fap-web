@@ -666,7 +666,17 @@ describe("personality cms adapter contract", () => {
           "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
         },
         og: {
+          title: "INTJ-A stale variant surface OG title",
+          description: "Stale variant surface OG description.",
+          image: "https://assets.fermatmind.com/stale-intj-a-surface-og.png",
+          type: "article",
           url: "https://fermatmind.com/en/personality/intj-a",
+        },
+        twitter: {
+          card: "summary_large_image",
+          title: "INTJ-A stale variant surface Twitter title",
+          description: "Stale variant surface Twitter description.",
+          image: "https://assets.fermatmind.com/stale-intj-a-surface-twitter.png",
         },
       } as unknown as NonNullable<typeof normalizedBaseSeo.surface>,
       meta: {
@@ -745,6 +755,50 @@ describe("personality cms adapter contract", () => {
       "INTJ-A stale structured data"
     );
 
+    const projectionJsonLdCanonical =
+      "https://projection-authority.example/en/personality/intj";
+    const normalizedWithProjectionJsonLdCanonical =
+      normalizePersonalitySeoPayload(
+        {
+          ...normalizedBaseSeo,
+          jsonld: {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "@id": "https://fermatmind.com/en/personality/intj-a#profile",
+            url: "https://fermatmind.com/en/personality/intj-a",
+            mainEntityOfPage: "https://fermatmind.com/en/personality/intj-a",
+          },
+        },
+        {
+          ...detail!,
+          projection: {
+            ...detail!.projection,
+            seo: {
+              ...detail!.projection.seo,
+              canonicalUrl: projectionJsonLdCanonical,
+              jsonld: {
+                "@context": "https://schema.org",
+                "@type": "AboutPage",
+                "@id": `${projectionJsonLdCanonical}#profile`,
+                url: projectionJsonLdCanonical,
+                mainEntityOfPage: projectionJsonLdCanonical,
+                name: "INTJ projection structured data",
+              },
+            },
+          },
+        },
+        "en"
+      );
+    expect(normalizedWithProjectionJsonLdCanonical.jsonld).toMatchObject({
+      "@id": "http://localhost:3000/en/personality/intj#profile",
+      url: "http://localhost:3000/en/personality/intj",
+      mainEntityOfPage: "http://localhost:3000/en/personality/intj",
+      name: "INTJ projection structured data",
+    });
+    expect(
+      JSON.stringify(normalizedWithProjectionJsonLdCanonical.jsonld)
+    ).not.toContain(projectionJsonLdCanonical);
+
     const routeValidIndexableDetailSurface = {
       ...staleVariantSeoPayload.surface,
       robotsPolicy: "index,follow",
@@ -776,6 +830,21 @@ describe("personality cms adapter contract", () => {
     expect(normalizedWithIndexableDetailSurface.surface?.indexabilityState).toBe("noindex");
     expect(normalizedWithIndexableDetailSurface.surface?.indexEligible).toBe(false);
     expect(normalizedWithIndexableDetailSurface.surface?.indexState).toBe("noindex");
+    expect(normalizedWithIndexableDetailSurface.surface).toMatchObject({
+      title: "INTJ Personality Type",
+      description: "Projection-backed seo description.",
+      og: {
+        title: "INTJ Personality Type",
+        description: "Projection-backed seo description.",
+      },
+      twitter: {
+        title: "INTJ Personality Type",
+        description: "Projection-backed seo description.",
+      },
+    });
+    expect(JSON.stringify(normalizedWithIndexableDetailSurface.surface)).not.toContain(
+      "INTJ-A stale variant surface"
+    );
 
     const normalizedWithNonIndexableProfile = normalizePersonalitySeoPayload(
       normalizedBaseSeo,
