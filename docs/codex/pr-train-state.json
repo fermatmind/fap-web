@@ -51134,7 +51134,7 @@
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
     "status": "in_progress",
-    "commit_sha": "ad126db76b417207273575d79d3f67ddfb400ae0",
+    "commit_sha": "8d7e5351b137985dceee7b7cdb6863605d51ad5b",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51155,7 +51155,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Head 35d136e985a9d3138e92c31f9b5ef9ef54cca3f5 passed all seven GitHub checks, but exact-head review found that an earlier route-valid index directive could still mask a later authoritative profile or projection noindex input. Implementation head ad126db76b417207273575d79d3f67ddfb400ae0 now resolves every authoritative robots input fail-closed before selecting any index directive and requires a new checked head."
+        "evidence": "Head db299bd217fb288485323f7417bd64625c3838b6 passed all seven GitHub checks, but exact-head review found that a route-valid detail surface noindex could be masked by a concurrent route-valid SEO surface index directive during a dual-read rollover. Implementation head 8d7e5351b137985dceee7b7cdb6863605d51ad5b now includes both accepted SEO and detail surface robots in the fail-closed aggregation and requires a new checked head."
       }
     },
     "scope_validation": {
@@ -51265,9 +51265,14 @@
         "at": "2026-07-26T04:46:39Z",
         "status": "in_progress",
         "summary": "Head 35d136e985a9d3138e92c31f9b5ef9ef54cca3f5 passed all seven GitHub checks, but exact-head review found that ordered fallback could choose route-valid `index,follow` before seeing a later profile/projection noindex. Implementation head ad126db76b417207273575d79d3f67ddfb400ae0 first resolves noindex across every authoritative robots input, then falls back to an index directive only when none is restrictive. The regression now directly conflicts route-valid SEO `index,follow` with `isIndexable=false`. Focused contracts passed 20/20, relevant Playwright passed 3/3, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed; the new GitHub-checked head is pending."
+      },
+      {
+        "at": "2026-07-26T04:56:09Z",
+        "status": "in_progress",
+        "summary": "Head db299bd217fb288485323f7417bd64625c3838b6 passed all seven GitHub checks, but exact-head review found a final dual-read rollover case: route-valid SEO surface `index,follow` could mask route-valid detail-surface `noindex`. Implementation head 8d7e5351b137985dceee7b7cdb6863605d51ad5b now aggregates restrictive robots from both accepted SEO and detail surfaces before selecting either source surface. The direct conflict regression proves the noindex detail authority wins. Focused contracts passed 20/20, relevant Playwright passed 3/3, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed; the new GitHub-checked head is pending."
       }
     ],
-    "updated_at": "2026-07-26T04:46:39Z"
+    "updated_at": "2026-07-26T04:56:09Z"
   },
   "CAREER-DIRECTORY-PAGINATION-FOLLOW-01": {
     "id": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01",
