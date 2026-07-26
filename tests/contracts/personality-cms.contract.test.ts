@@ -598,6 +598,39 @@ describe("personality cms adapter contract", () => {
       robots: "index,follow",
     });
 
+    const normalizedVariantSeoWithDetailOgOnly = normalizePersonalitySeoPayload(
+      null,
+      {
+        ...detail!,
+        slug: "intj-a",
+        routeSlug: "intj-a",
+        displayType: "INTJ-A",
+        seoMeta: {
+          ...detail!.seoMeta!,
+          ogImageUrl: "https://assets.fermatmind.com/promoted-intj-a-og.png",
+          twitterImageUrl: null,
+        },
+        projection: {
+          ...detail!.projection,
+          runtimeTypeCode: "INTJ-A",
+          variantCode: "A",
+          seo: {
+            ...detail!.projection.seo,
+            twitterImageUrl: "https://assets.fermatmind.com/stale-intj-a-twitter.png",
+          },
+          meta: {
+            ...detail!.projection.meta,
+            routeMode: "variant",
+            publicRouteType: "32-type",
+          },
+        },
+      },
+      "en"
+    );
+    expect(normalizedVariantSeoWithDetailOgOnly.meta.twitter.image).toBe(
+      "https://assets.fermatmind.com/promoted-intj-a-og.png"
+    );
+
     const staleVariantSeoPayload = {
       ...normalizedBaseSeo,
       surface: {

@@ -1722,11 +1722,13 @@ export function normalizePersonalitySeoPayload(
         ),
         image: normalizeIsoValue(
           acceptedSeo?.meta.twitter.image ??
-            routeOrderedSeoValue(
-              projectionSeo?.twitterImageUrl,
-              compatibility.seoMeta?.twitterImageUrl
-            ) ??
-            compatibility.seoMeta?.ogImageUrl
+            (isBaseTypeProjection
+              ? projectionSeo?.twitterImageUrl ??
+                compatibility.seoMeta?.twitterImageUrl ??
+                compatibility.seoMeta?.ogImageUrl
+              : compatibility.seoMeta?.twitterImageUrl ??
+                compatibility.seoMeta?.ogImageUrl ??
+                projectionSeo?.twitterImageUrl)
         ),
       },
       robots,
