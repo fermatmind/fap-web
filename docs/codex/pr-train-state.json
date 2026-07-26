@@ -51133,8 +51133,8 @@
     "branch": "codex/saep-proposed-web-per02-mbti-base-type-runtime-owner-01",
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
-    "status": "in_progress",
-    "commit_sha": "f9098fdad2c8669dc387ca20235c7256f43ea9fa",
+    "status": "ready_to_merge",
+    "commit_sha": "9ca82ad007944d319af48e0c5ff4f957b0e4f609",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51154,14 +51154,14 @@
         "evidence": "Node 24.14.0 after the final scoped review repair and latest-main merge: lint, lint:spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. The focused Vitest pair passed 20 tests and all three relevant Playwright cases passed. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "Head 7a4ac7ae31fadc322a6e0abde8bde5e805da50e2 passed all seven checks, but exact-head review found that noindex from a rejected route-mismatched detail surface was not preserved when the separate SEO payload did not supply it. Implementation head f9098fdad2c8669dc387ca20235c7256f43ea9fa closes that fail-closed source and requires a new checked head."
+        "status": "pass",
+        "evidence": "Exact implementation head 9ca82ad007944d319af48e0c5ff4f957b0e4f609 passed all seven GitHub checks: build, contracts, both contract-freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. Exact-head Codex review found no major issues, all review threads are resolved, and GitHub reports CLEAN and MERGEABLE."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51250,9 +51250,14 @@
         "at": "2026-07-26T04:17:12Z",
         "status": "in_progress",
         "summary": "Head 7a4ac7ae31fadc322a6e0abde8bde5e805da50e2 passed all seven GitHub checks, but exact-head review found one final same-scope P1: a rejected route-mismatched detail SEO surface could carry the only noindex directive. Implementation head f9098fdad2c8669dc387ca20235c7256f43ea9fa now preserves fail-closed noindex from every rejected SEO or detail-surface source before selecting a route-valid surface. Focused contracts passed 20/20, relevant Playwright passed 3/3, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed; the new GitHub-checked head is pending."
+      },
+      {
+        "at": "2026-07-26T04:23:39Z",
+        "status": "ready_to_merge",
+        "summary": "Exact implementation head 9ca82ad007944d319af48e0c5ff4f957b0e4f609 passed all seven GitHub checks, exact-head Codex review found no major issues, all seven review threads are resolved, origin/main remains d7b19bbc2fef4758f4298eda3f538a2179b3e490, the exact eight-file scope is intact, and PR #1808 is CLEAN and MERGEABLE. This task-local ledger transition is the final pre-merge tail."
       }
     ],
-    "updated_at": "2026-07-26T04:17:12Z"
+    "updated_at": "2026-07-26T04:23:39Z"
   },
   "CAREER-DIRECTORY-PAGINATION-FOLLOW-01": {
     "id": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01",
