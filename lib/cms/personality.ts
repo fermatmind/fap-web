@@ -1594,6 +1594,8 @@ export function normalizePersonalitySeoPayload(
   const authoritativeNoindexRobots = firstNoindexRobotsDirective(
     routeMismatchNoindexRobots,
     acceptedSeo?.meta.robots,
+    acceptedSeo?.surface?.robotsPolicy,
+    detailSurface?.robotsPolicy,
     projectionSeo?.robots,
     compatibility.seoMeta?.robots,
     compatibility.isIndexable ? null : "noindex,follow"

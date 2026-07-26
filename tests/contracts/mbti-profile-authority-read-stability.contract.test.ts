@@ -34,6 +34,8 @@ describe("MBTI profile authority read stability", () => {
     expect(cmsSource).toContain("acceptedSeo?.surface ??");
     expect(cmsSource).toContain("const routeBoundSurface =");
     expect(cmsSource).toContain("const authoritativeNoindexRobots = firstNoindexRobotsDirective(");
+    expect(cmsSource).toContain("acceptedSeo?.surface?.robotsPolicy");
+    expect(cmsSource).toContain("detailSurface?.robotsPolicy");
     expect(cmsSource).toContain('compatibility.isIndexable ? null : "noindex,follow"');
     expect(cmsSource).toContain("robotsPolicy: authoritativeNoindexRobots ?? sourceSurface.robotsPolicy");
     expect(cmsSource).toContain("indexEligible: authoritativeNoindexRobots");

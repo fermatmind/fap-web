@@ -647,6 +647,36 @@ describe("personality cms adapter contract", () => {
       indexState: "noindex",
     });
 
+    const normalizedWithConflictingDetailNoindex = normalizePersonalitySeoPayload(
+      {
+        ...normalizedBaseSeo,
+        meta: {
+          ...normalizedBaseSeo.meta,
+          robots: "index,follow",
+        },
+        surface: routeValidIndexableDetailSurface,
+      },
+      {
+        ...detail!,
+        seoSurface: {
+          ...routeValidIndexableDetailSurface,
+          robotsPolicy: "noindex,follow",
+          indexabilityState: "noindex",
+          indexEligible: false,
+          indexState: "noindex",
+        },
+      },
+      "en"
+    );
+    expect(normalizedWithConflictingDetailNoindex.meta.robots).toBe("noindex,follow");
+    expect(normalizedWithConflictingDetailNoindex.surface).toMatchObject({
+      robotsPolicy: "noindex,follow",
+      robotsPolicyExplicit: true,
+      indexabilityState: "noindex",
+      indexEligible: false,
+      indexState: "noindex",
+    });
+
     const normalizedWithMismatchedDetailNoindex = normalizePersonalitySeoPayload(
       null,
       {
