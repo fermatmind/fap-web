@@ -376,7 +376,7 @@ prs:
     base: main
     title: "CAREER-DETAIL-DELIVERY-10K-01 career detail delivery for 10k"
     train_scope: career_10k_stability
-    status: in_progress
+    status: ready_to_merge
     scope:
       - Keep Career detail HTML and public API authority loads on bounded 300-second revalidation rather than per-request SSR.
       - Share the backend detail+SEO authority load across metadata and page rendering and cap one render at six backend requests.
