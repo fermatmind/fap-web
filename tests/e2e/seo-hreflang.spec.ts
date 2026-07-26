@@ -1,39 +1,46 @@
 import { expect, test } from "@playwright/test";
 
-test("english legacy personality path redirects to the canonical variant and the variant page outputs a hreflang cluster", async ({ request }) => {
-  const redirectResponse = await request.get("/en/personality/intj", { maxRedirects: 0 });
-  expect(redirectResponse.status()).toBe(308);
-  expect(redirectResponse.headers().location).toContain("/en/personality/intj-a");
+function linkHrefPath(html: string, rel: string, hrefLang?: string): string | null {
+  const tag = (html.match(/<link\b[^>]*>/g) ?? []).find(
+    (candidate) =>
+      candidate.includes(`rel="${rel}"`) &&
+      (!hrefLang || candidate.includes(`hrefLang="${hrefLang}"`))
+  );
+  const href = tag?.match(/\bhref="([^"]+)"/)?.[1];
 
-  const response = await request.get("/en/personality/intj-a");
+  return href ? new URL(href).pathname : null;
+}
+
+test("english base personality path renders its backend-authoritative owner and hreflang cluster", async ({ request }) => {
+  const response = await request.get("/en/personality/intj", { maxRedirects: 0 });
   expect(response.status()).toBe(200);
   const html = await response.text();
 
-  expect(html).toContain('rel="canonical"');
-  expect(html).toContain("/en/personality/intj-a");
-  expect(html).toContain('hrefLang="zh-CN"');
-  expect(html).toContain("/zh/personality/intj-a");
+  expect(linkHrefPath(html, "canonical")).toBe("/en/personality/intj");
+  expect(linkHrefPath(html, "alternate", "zh-CN")).toBe("/zh/personality/intj");
   expect(html).toContain('hrefLang="x-default"');
+  expect(html).toContain('data-authority-source="mbti_public_projection_v1"');
+  expect(html).toContain('data-public-route-type="16-type"');
   expect(html).toContain('"@type":"WebPage"');
   expect(html).toContain('"@type":"BreadcrumbList"');
+  expect(html).not.toContain("INTJ-A meaning: promoted quick answer from the CMS revision.");
+  expect(html).not.toContain("What does INTJ-A mean?");
+  expect(html).not.toContain('href="/en/career/recommendations/mbti/intj"');
 });
 
-test("chinese legacy personality path redirects to the canonical variant and the variant page outputs a hreflang cluster", async ({ request }) => {
-  const redirectResponse = await request.get("/zh/personality/intj", { maxRedirects: 0 });
-  expect(redirectResponse.status()).toBe(308);
-  expect(redirectResponse.headers().location).toContain("/zh/personality/intj-a");
-
-  const response = await request.get("/zh/personality/intj-a");
+test("chinese base personality path renders its backend-authoritative owner and hreflang cluster", async ({ request }) => {
+  const response = await request.get("/zh/personality/intj", { maxRedirects: 0 });
   expect(response.status()).toBe(200);
   const html = await response.text();
 
-  expect(html).toContain('rel="canonical"');
-  expect(html).toContain("/zh/personality/intj-a");
-  expect(html).toContain('hrefLang="en"');
-  expect(html).toContain("/en/personality/intj-a");
+  expect(linkHrefPath(html, "canonical")).toBe("/zh/personality/intj");
+  expect(linkHrefPath(html, "alternate", "en")).toBe("/en/personality/intj");
   expect(html).toContain('hrefLang="x-default"');
+  expect(html).toContain('data-authority-source="mbti_public_projection_v1"');
+  expect(html).toContain('data-public-route-type="16-type"');
   expect(html).toContain('"@type":"WebPage"');
   expect(html).toContain('"@type":"BreadcrumbList"');
+  expect(html).not.toContain('href="/zh/career/recommendations/mbti/intj"');
 });
 
 test("private workflow pages still emit noindex robot headers", async ({ request }) => {

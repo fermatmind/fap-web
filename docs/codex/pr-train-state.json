@@ -51126,6 +51126,234 @@
     ],
     "updated_at": "2026-07-26T03:16:59Z"
   },
+  "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01": {
+    "id": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/saep-proposed-web-per02-mbti-base-type-runtime-owner-01",
+    "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
+    "depends_on": [],
+    "status": "ready_to_merge",
+    "commit_sha": "aa01384a702d224b79c7d45fb328cd8dc0c6fbd4",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The active PER-02 execution goal explicitly authorizes this exact train ID, scope, and complete ordinary PR lifecycle."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "This is the first PER-02 base-owner PR and has no product PR dependency."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "Node 24.14.0: the final focused Vitest set passed 4 files / 26 tests. The four relevant Playwright cases passed against the read-only public API for English base, Chinese base, the canonical four-letter runtime owner, and noncanonical uppercase/encoded-whitespace aliases."
+      },
+      "required_local_checks": {
+        "status": "pass",
+        "evidence": "Node 24.14.0 on implementation head 0a5d989557bf1349f41cc2b08b22c326902d55c3: lint, lint:spacing, typecheck, all four contract shards (769 files / 4468 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages) passed. The focused adapter/stability set passed 20 tests and all four relevant Playwright cases passed against the read-only public API. YAML/JSON parsing, git diff checks, and exact eight-file PR scope validation also passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "Exact head aa01384a702d224b79c7d45fb328cd8dc0c6fbd4 passed all seven required GitHub checks. Codex exact-head review reported no major issues, all 25 review threads are resolved, and PR #1808 is CLEAN and MERGEABLE."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-26T02:05:39Z",
+        "status": "in_progress",
+        "summary": "Started from exact fap-web origin/main 9f36bdd15ae83eb02911edd96aab3afaea262f10 in an isolated clean worktree. Scope is limited to removing the four-letter base-to-A redirect, preserving the backend base projection as runtime authority, correcting base fallback canonical identity, and updating direct contracts. Sitemap, llms, backend/CMS, Search, deploy, production readback, variants, comparisons, and the user-owned active worktree remain untouched."
+      },
+      {
+        "at": "2026-07-26T02:25:10Z",
+        "status": "local_checks_passed",
+        "summary": "All initial manifest local checks passed with Node 24.14.0. The initial exact scope contained seven declared runtime, adapter, contract, E2E, and train-ledger files; no sitemap, llms, backend/CMS, Search, deployment, or production state changed."
+      },
+      {
+        "at": "2026-07-26T02:26:32Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed implementation commit 18648e81a34e576a6cb61888e8fa912009f8855f and opened PR #1808 against exact base 9f36bdd15ae83eb02911edd96aab3afaea262f10. The PR is mergeable and required checks are running."
+      },
+      {
+        "at": "2026-07-26T02:48:08Z",
+        "status": "review_fix_validated",
+        "summary": "Addressed the current-scope P2 by binding canonical, hreflang, JSON-LD, and SEO surface identity to the backend projection route. Added exact 16-type and base href assertions plus the directly affected authority-stability contract. Final local checks passed across the exact eight-file PR scope; GitHub checks must rerun on the new head."
+      },
+      {
+        "at": "2026-07-26T02:54:46Z",
+        "status": "ready_to_merge",
+        "summary": "Implementation head db7c813d2f330acbf3b09fdade031942df9048a3 passed all seven GitHub checks, exact-head Codex review reported no major issues, the P2 thread is resolved, unresolved thread count is zero, and PR #1808 is mergeable. This ledger transition is the only remaining pre-merge change."
+      },
+      {
+        "at": "2026-07-26T03:04:33Z",
+        "status": "in_progress",
+        "summary": "Exact-head review on c1d6319916dfc40f74559bdf6e57910f7a0fcae4 found that route-only rebinding could retain stale variant title, description, robots, and surface fields. The current-scope fix rejects any SEO package whose route identity conflicts with the backend projection and falls back to the detail/base surface or projection SEO. Focused Vitest and the three relevant Playwright cases pass; full gates are rerunning."
+      },
+      {
+        "at": "2026-07-26T03:11:16Z",
+        "status": "in_progress",
+        "summary": "The second exact-head review repair passed Node 24.14.0 lint, spacing, typecheck, focused contracts (20 tests), relevant Playwright routes (3 tests), all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages). YAML/JSON parsing, git diff checks, and the exact eight-file PR scope also pass; a new GitHub-checked head is pending."
+      },
+      {
+        "at": "2026-07-26T03:17:45Z",
+        "status": "in_progress",
+        "summary": "Exact-head review on 0d5b79f86b3b3529de598c5bca47fd93d2b722a1 found that base projections could still render variant-owned wrapper supplemental sections, and that the top-level ledger status remained stale. The scoped repair makes 16-type routes consume projection-owned body sections while preserving variant behavior, and restores an accurate in-progress ledger state."
+      },
+      {
+        "at": "2026-07-26T03:27:47Z",
+        "status": "in_progress",
+        "summary": "The base-section authority repair passed focused contracts (20 tests), all three relevant public-route Playwright cases, lint, spacing, typecheck, all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages). The first Playwright attempt omitted NEXT_PUBLIC_API_URL and failed against absent localhost API; the correctly bound read-only public API rerun passed."
+      },
+      {
+        "at": "2026-07-26T03:34:11Z",
+        "status": "ready_to_merge",
+        "summary": "Implementation head 38b5ebe720bd16af6d652e83ea814f707798e149 passed all seven GitHub checks, exact-head Codex review found no major issues, unresolved review thread count is zero, exact eight-file scope is intact, origin/main remains the original locked base, and PR #1808 is mergeable. This ledger-only transition is the final pre-merge tail."
+      },
+      {
+        "at": "2026-07-26T03:41:59Z",
+        "status": "in_progress",
+        "summary": "Exact-head review on f6f8a7a8208f9eff3afcd5c2605f6a7e9b193392 found that rejecting stale route/editorial SEO could also discard a valid backend noindex gate. The scoped repair preserves only fail-closed noindex directives from mismatched meta or surface robots while continuing to reject conflicting index, route, editorial, surface, and JSON-LD values."
+      },
+      {
+        "at": "2026-07-26T03:46:35Z",
+        "status": "in_progress",
+        "summary": "The fail-closed robots repair passed focused contracts (20 tests), lint, spacing, typecheck, all four contract shards (768 files / 4460 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages). Exact scope, YAML/JSON parsing, and diff checks pass; a new GitHub-checked head is pending."
+      },
+      {
+        "at": "2026-07-26T03:55:42Z",
+        "status": "in_progress",
+        "summary": "Exact-head review on 1b49078fbdff70f586bae2b2763a717da69f9a87 found that a route-valid detail surface could override the preserved mismatch noindex. The repair projects noindex into retained surface robots and fail-closed indexability fields, with an explicit stale-SEO versus indexable-detail-surface regression. Concurrent PR #1809 advanced origin/main to d7b19bbc2fef4758f4298eda3f538a2179b3e490, so the branch must merge latest main and rerun all gates before push."
+      },
+      {
+        "at": "2026-07-26T04:04:24Z",
+        "status": "in_progress",
+        "summary": "Merged latest origin/main d7b19bbc2fef4758f4298eda3f538a2179b3e490 without product-scope expansion, preserving both independent PR-train entries while resolving only their append conflicts. The final noindex-surface repair and merged-main source passed focused contracts (20 tests), all three relevant Playwright cases, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29 tests), Enneagram freeze (24 tests), and production build (206 static pages). Exact scope remains the eight authorized paths; GitHub checks and exact-head review are pending on the new pushed head."
+      },
+      {
+        "at": "2026-07-26T04:17:12Z",
+        "status": "in_progress",
+        "summary": "Head 7a4ac7ae31fadc322a6e0abde8bde5e805da50e2 passed all seven GitHub checks, but exact-head review found one final same-scope P1: a rejected route-mismatched detail SEO surface could carry the only noindex directive. Implementation head f9098fdad2c8669dc387ca20235c7256f43ea9fa now preserves fail-closed noindex from every rejected SEO or detail-surface source before selecting a route-valid surface. Focused contracts passed 20/20, relevant Playwright passed 3/3, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed; the new GitHub-checked head is pending."
+      },
+      {
+        "at": "2026-07-26T04:23:39Z",
+        "status": "ready_to_merge",
+        "summary": "Exact implementation head 9ca82ad007944d319af48e0c5ff4f957b0e4f609 passed all seven GitHub checks, exact-head Codex review found no major issues, all seven review threads are resolved, origin/main remains d7b19bbc2fef4758f4298eda3f538a2179b3e490, the exact eight-file scope is intact, and PR #1808 is CLEAN and MERGEABLE. This task-local ledger transition is the final pre-merge tail."
+      },
+      {
+        "at": "2026-07-26T04:34:59Z",
+        "status": "in_progress",
+        "summary": "Exact-head review on ledger-tail head 74d557217781e0b0d9a401459f58ba5f61f334c9 found one final same-scope P1: a route-valid surface could override noindex from profile publication state or projection SEO. Implementation head 545151d62b909d686e577507e660ed8929575b3f now derives the surface override from the final authoritative robots decision, preserving all backend noindex sources. The regression covers an otherwise route-valid indexable surface on an isIndexable=false profile. Focused contracts passed 20/20, relevant Playwright passed 3/3, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed; the new GitHub-checked head is pending."
+      },
+      {
+        "at": "2026-07-26T04:46:39Z",
+        "status": "in_progress",
+        "summary": "Head 35d136e985a9d3138e92c31f9b5ef9ef54cca3f5 passed all seven GitHub checks, but exact-head review found that ordered fallback could choose route-valid `index,follow` before seeing a later profile/projection noindex. Implementation head ad126db76b417207273575d79d3f67ddfb400ae0 first resolves noindex across every authoritative robots input, then falls back to an index directive only when none is restrictive. The regression now directly conflicts route-valid SEO `index,follow` with `isIndexable=false`. Focused contracts passed 20/20, relevant Playwright passed 3/3, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed; the new GitHub-checked head is pending."
+      },
+      {
+        "at": "2026-07-26T04:56:09Z",
+        "status": "in_progress",
+        "summary": "Head db299bd217fb288485323f7417bd64625c3838b6 passed all seven GitHub checks, but exact-head review found a final dual-read rollover case: route-valid SEO surface `index,follow` could mask route-valid detail-surface `noindex`. Implementation head 8d7e5351b137985dceee7b7cdb6863605d51ad5b now aggregates restrictive robots from both accepted SEO and detail surfaces before selecting either source surface. The direct conflict regression proves the noindex detail authority wins. Focused contracts passed 20/20, relevant Playwright passed 3/3, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed; the new GitHub-checked head is pending."
+      },
+      {
+        "at": "2026-07-26T05:02:37Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head d8dfef970fbb044e9f483e661c8354749f4a3283 passed all seven GitHub checks, exact-head Codex review found no major issues, all 10 review threads are resolved, origin/main remains d7b19bbc2fef4758f4298eda3f538a2179b3e490, the exact eight-file scope is intact, and PR #1808 is MERGEABLE. This task-local ledger transition is the final pre-merge tail."
+      },
+      {
+        "at": "2026-07-26T05:11:29Z",
+        "status": "in_progress",
+        "summary": "Ledger-tail head 8656261a4904faafaa113d815d868e5f3301314c passed all seven GitHub checks, but exact-head review found that base profiles still exposed a Career CTA whose four-letter target redirects to the A variant, and route-valid SEO metadata could carry stale variant JSON-LD. The current-scope repair suppresses that CTA on 16-type projections and validates JSON-LD route identity before accepting it. Focused and full gates must rerun on the repaired head."
+      },
+      {
+        "at": "2026-07-26T05:20:24Z",
+        "status": "local_checks_passed",
+        "summary": "Implementation head 4877a9b6a6c6e15bee041f8ffe87d74d0d049bcb removes both base-owner route leaks: 16-type pages suppress exact base Career links until independent backend base-career authority exists, and stale variant JSON-LD is rejected independently of route-valid SEO metadata. Focused contracts passed 20/20, public-route Playwright passed 3/3, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29), Enneagram freeze (24), and the 206-page production build all passed. Exact eight-file scope, YAML/JSON, and diff checks pass; GitHub checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T05:27:50Z",
+        "status": "in_progress",
+        "summary": "Head 28b9627ddac945be4d9a0621e7e7ce2478baeb58 passed all seven GitHub checks, but exact-head review found a final canonical alias gap: uppercase or encoded-whitespace four-letter base requests could return 200 while advertising the normalized base canonical. The scoped repair restores a permanent redirect only for noncanonical 16-type request segments and binds the target to the backend four-letter route slug, never the legacy A variant. Focused and full gates must rerun."
+      },
+      {
+        "at": "2026-07-26T05:34:31Z",
+        "status": "local_checks_passed",
+        "summary": "Implementation head 0e802aec7a36a7c2b7113531dece352fefd98d36 now decodes the route segment for backend lookup while preserving the original request identity for canonical comparison; uppercase and encoded-whitespace four-letter aliases return 308 to the independent lowercase base owner and never to the A variant. Focused contracts passed 20/20, public-route Playwright passed 4/4, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29), Enneagram freeze (24), and the 206-page production build all passed. Exact eight-file scope, YAML/JSON, and diff checks pass; GitHub checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T05:52:08Z",
+        "status": "local_checks_passed",
+        "summary": "Head 75b09060c1c749c965bb25f3f71447e624b40257 passed all seven GitHub checks, but exact-head review found a same-scope variant SEO regression: projection metadata could precede newer promoted detail metadata when the optional /seo endpoint was absent. Implementation head 9100df252b25e8b7982e1c9d9889dff23447dc7e now keeps projection-first fallback only for 16-type base owners and restores detail-first fallback for 32-type variant title, description, OG, Twitter, and images. Focused contracts passed 20/20, public-route Playwright passed 4/4 against the read-only public API, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29), Enneagram freeze (24), and the 206-page production build passed. Exact eight-file scope, YAML/JSON, and diff checks pass; a new GitHub-checked head and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T06:05:50Z",
+        "status": "local_checks_passed",
+        "summary": "Head 79fb49c75a0e01e3344f55d30a21f74f503906d1 passed all seven GitHub checks, but exact-head review found one remaining partial-media case: a 32-type variant with promoted detail OG media and no detail Twitter media could select an older projection Twitter image. Implementation head da0c673a1b69947c6a751731e2bbb38663699a60 now exhausts detail Twitter and detail OG media before any projection media on variants, while retaining projection-first ordering for 16-type base owners. The direct partial-media regression and focused contracts passed 20/20; public-route Playwright passed 4/4, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed. Exact scope and diff checks pass; a new GitHub-checked head and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T06:19:37Z",
+        "status": "local_checks_passed",
+        "summary": "Head 6b432d61a6bc607319973bf1861e628d2a0c0c51 passed all seven GitHub checks, but exact-head review found that an empty 16-type scene authority set could reactivate frontend-authored fallback blocks after the base Career link was filtered. Implementation head 4207759457d39affec0753c4edda02413e8a93ce now skips the scene component when a base owner has no remaining backend scene blocks, while preserving existing 32-type variant behavior. Focused contracts passed 20/20, public-route Playwright passed 4/4, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed. Exact eight-file scope and diff checks pass; a new GitHub-checked head and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T06:33:20Z",
+        "status": "local_checks_passed",
+        "summary": "Head ac9386bfbbc580b8b1261cb70eac4eb821f703fa passed all seven GitHub checks, but exact-head review found two final authority gaps: JSON-LD fallback could reuse stale variant wrapper SEO on a base canonical, and a partial base scene record could still trigger frontend completion copy. Implementation head d528d38fd6737121705c08f9d75f862d0547f98d now binds fallback structured-data title/description/canonical to the same route-ordered SEO decision and admits only complete backend-authored title/body/safe-href scene blocks for 16-type owners. Focused contracts passed 20/20, public-route Playwright passed 4/4, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), both freeze suites, and the 206-page production build passed. Exact eight-file scope and diff checks pass; a new GitHub-checked head and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T06:55:32Z",
+        "status": "local_checks_passed",
+        "summary": "Merged non-overlapping origin/main 841280ab35945e2c1454f5ac18ea3ededdfab5b6, then exact head 3de9e82494ff5bca5b7c03d229e6644545e57675 passed all seven GitHub checks. Exact-head review found two same-scope authority gaps: a route-valid wrapper surface could retain stale A/T editorial metadata on a 16-type base owner, and projection JSON-LD could be normalized against the unrelated SEO-endpoint canonical. Implementation head 3404070ac9de8fc951d6bce17b1f60ea22ed0455 now makes base projection SEO authoritative across meta and retained surfaces and binds canonical replacement to whichever JSON-LD payload is selected. Focused contracts passed 20/20, public-route Playwright passed 4/4, lint, spacing, typecheck, all four contract shards (769 files / 4467 tests), both freeze suites, and the 206-page production build passed. Exact eight-file scope and diff checks pass; a new GitHub-checked head and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T07:03:31Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head d59be293fc56f77c053524b8f1b04aeec4499213 passed all seven GitHub checks and exact-head Codex review reported no major issues. All 16 review threads are resolved, the exact eight-file scope is intact, origin/main remains 841280ab35945e2c1454f5ac18ea3ededdfab5b6, and PR #1808 is CLEAN and MERGEABLE. This ledger-only transition is the final pre-merge tail."
+      },
+      {
+        "at": "2026-07-26T07:34:59Z",
+        "status": "in_progress",
+        "summary": "Ledger-tail head cd30cba64dc2656e23eb8995f3860f9dc1dcdde1 passed all seven checks, but exact-head review found two same-scope P2 authority gaps: H1/image alt could read stale raw projection JSON-LD, and an empty 16-type base profile could render frontend-authored A/T guidance. Implementation head 7b56c62bd4eb5d01d01946f3f6b9fe89dbd4cc11 projects normalized JSON-LD into the render detail and keeps base empty states minimal. Focused contracts passed 26/26, complete contracts passed 769 files / 4467 tests, relevant Playwright passed 4/4, lint, spacing, typecheck, both freeze suites, and the 206-page production build passed. GitHub checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T07:50:21Z",
+        "status": "in_progress",
+        "summary": "Exact head b3075cbe6b79c77c7dea706bcd0d9911f83bdc7a passed all seven checks, but exact-head review found a same-scope P2 partial-rollout case: route-valid legacy SEO JSON-LD with stale A/T editorial identity could outrank the 16-type projection JSON-LD. Implementation head d1dbccf85bcd9f15c0953528c881c0a7c5cb845a makes projection JSON-LD authoritative for base owners while preserving SEO-first precedence for variants. Focused contracts passed 26/26, complete contracts passed 769 files / 4467 tests, relevant Playwright passed 4/4, lint, spacing, typecheck, both freeze suites, and the 206-page production build passed. GitHub checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T08:02:53Z",
+        "status": "in_progress",
+        "summary": "Exact head e2f4ac81eaeef7c73fd06ab430ebbb4cbe1fd21e passed all seven checks, but exact-head review found a same-scope P2: filtering base scene summaries through the scene-entry completeness gate also removed backend-authored linkless summaries from the shared answer surface. Implementation head 6939ed284f7ef1e18efbd08edbda7beaa787673e now preserves safe linkless backend summaries for the shared surface while applying the stricter completeness gate only to the scene-entry component. Focused contracts passed 26/26, complete contracts passed 769 files / 4467 tests, relevant Playwright passed 4/4 against the read-only public API, lint, spacing, typecheck, both freeze suites, and the 206-page production build passed. GitHub checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T08:16:33Z",
+        "status": "in_progress",
+        "summary": "Exact head 1e327980273d48e6d28b934777893ad5d86d3972 passed all seven checks, but exact-head review found a same-scope P2: projection JSON-LD without canonical_url could retain a different locale in @id/url while mainEntityOfPage moved to the requested base route. Implementation head 0a5d989557bf1349f41cc2b08b22c326902d55c3 derives a missing source canonical only from personality route-identity fields and normalizes the full selected JSON-LD identity to the current locale. The direct cross-locale regression, focused adapter/stability tests (20), complete contracts (769 files / 4468 tests), four relevant Playwright cases, lint, spacing, typecheck, both freeze suites, and the 206-page production build passed. GitHub checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T08:23:17Z",
+        "status": "ready_to_merge",
+        "summary": "Exact head aa01384a702d224b79c7d45fb328cd8dc0c6fbd4 passed all seven GitHub checks, Codex exact-head review reported no major issues, all 25 review threads are resolved, origin/main remains the locked 841280ab35945e2c1454f5ac18ea3ededdfab5b6 baseline, the exact eight-file scope is intact, and PR #1808 is CLEAN and MERGEABLE. This ledger-only transition is the final pre-merge tail."
+      }
+    ],
+    "updated_at": "2026-07-26T08:23:17Z"
+  },
   "CAREER-DIRECTORY-PAGINATION-FOLLOW-01": {
     "id": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01",
     "repo": "fap-web",

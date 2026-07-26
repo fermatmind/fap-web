@@ -376,7 +376,7 @@ prs:
     base: main
     title: "CAREER-DETAIL-DELIVERY-10K-01 career detail delivery for 10k"
     train_scope: career_10k_stability
-    status: in_progress
+    status: ready_to_merge
     scope:
       - Keep Career detail HTML and public API authority loads on bounded 300-second revalidation rather than per-request SSR.
       - Share the backend detail+SEO authority load across metadata and page rendering and cap one render at six backend requests.
@@ -27360,6 +27360,60 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend public sitemap-source API
     repository_rule_impact: existing_backend_authority_frontend_no_fallback_and_indexability_rules_preserved
+
+  - id: SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/saep-proposed-web-per02-mbti-base-type-runtime-owner-01
+    base: main
+    title: "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles"
+    depends_on: []
+    mode: execute
+    train_scope: per02_mbti_base_type_runtime_owner
+    status: in_progress
+    goal: "Render all 32 localized four-letter MBTI base URLs directly from backend public profile authority, remove the base-to-A redirect, and preserve variants, comparisons, sitemap, llms, CMS, and Search boundaries."
+    allowed_paths:
+      - app/(localized)/[locale]/personality/[type]/page.tsx
+      - lib/cms/personality.ts
+      - tests/contracts/personality-cms.contract.test.ts
+      - tests/contracts/mbti-profile-authority-read-stability.contract.test.ts
+      - tests/e2e/seo-hreflang.spec.ts
+      - tests/e2e/legacy-slug-redirect.spec.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/sidecar_issues.md
+      - generated/pr-train-sidecar-issues/sidecar_issues.json
+    out_of_scope:
+      - Frontend-authored personality content or CMS/public API fallback copy.
+      - Sitemap, llms, llms-full, public enumeration, backend, CMS, database, publication, indexability, or Search changes.
+      - Variant, comparison, /types compatibility, career recommendation, or test route authority changes.
+      - Production deploy, cache mutation, production readback, or checkpoint acceptance.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/personality-cms.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - >-
+        ruby -e "require 'yaml'; YAML.safe_load(File.read('docs/codex/pr-train.yaml'), aliases: true); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend public API
+    repository_rule_impact: backend_authority_and_frontend_no_editorial_fallback_rules_preserved
 
   - id: CAREER-DIRECTORY-PAGINATION-FOLLOW-01
     repo: fap-web

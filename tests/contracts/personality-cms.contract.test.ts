@@ -526,6 +526,457 @@ describe("personality cms adapter contract", () => {
     expect(detail?.answerSurface?.surfaceType).toBe("personality_public_detail");
     expect(detail?.answerSurface?.summaryBlocks[0]?.body).toBe("Answer contract summary.");
     expect(detail?.answerSurface?.faqBlocks[0]?.question).toBe("What defines INTJ?");
+
+    const normalizedBaseSeo = normalizePersonalitySeoPayload(null, detail!, "en");
+    expect(normalizedBaseSeo.meta.canonical).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalizedBaseSeo.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalizedBaseSeo.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj");
+    expect(
+      (normalizedBaseSeo.jsonld as Record<string, unknown>).mainEntityOfPage
+    ).toBe("http://localhost:3000/en/personality/intj");
+
+    const normalizedBaseSeoWithStaleWrapperJsonLdFallback =
+      normalizePersonalitySeoPayload(
+        null,
+        {
+          ...detail!,
+          seoMeta: {
+            ...detail!.seoMeta!,
+            seoTitle: "INTJ-A stale wrapper title",
+            seoDescription: "INTJ-A stale wrapper description.",
+          },
+        },
+        "en"
+      );
+    expect(normalizedBaseSeoWithStaleWrapperJsonLdFallback.jsonld).toMatchObject({
+      name: "INTJ Personality Type",
+      description: "Projection-backed seo description.",
+      mainEntityOfPage: "http://localhost:3000/en/personality/intj",
+    });
+    expect(
+      JSON.stringify(normalizedBaseSeoWithStaleWrapperJsonLdFallback.jsonld)
+    ).not.toContain("stale wrapper");
+
+    const normalizedVariantSeoWithoutSeoEndpoint = normalizePersonalitySeoPayload(
+      null,
+      {
+        ...detail!,
+        slug: "intj-a",
+        routeSlug: "intj-a",
+        displayType: "INTJ-A",
+        title: "INTJ-A - Architect",
+        summary: "Promoted variant summary.",
+        seoMeta: {
+          seoTitle: "Promoted INTJ-A detail title",
+          seoDescription: "Promoted INTJ-A detail description.",
+          canonicalUrl: "https://fermatmind.com/en/personality/intj-a",
+          ogTitle: "Promoted INTJ-A OG title",
+          ogDescription: "Promoted INTJ-A OG description.",
+          ogImageUrl: "https://assets.fermatmind.com/promoted-intj-a-og.png",
+          twitterTitle: "Promoted INTJ-A Twitter title",
+          twitterDescription: "Promoted INTJ-A Twitter description.",
+          twitterImageUrl: "https://assets.fermatmind.com/promoted-intj-a-twitter.png",
+          robots: "index,follow",
+          jsonldOverrides: null,
+        },
+        projection: {
+          ...detail!.projection,
+          runtimeTypeCode: "INTJ-A",
+          variantCode: "A",
+          seo: {
+            ...detail!.projection.seo,
+            title: "Stale projection INTJ-A title",
+            description: "Stale projection INTJ-A description.",
+            ogTitle: "Stale projection INTJ-A OG title",
+            ogDescription: "Stale projection INTJ-A OG description.",
+            ogImageUrl: "https://assets.fermatmind.com/stale-intj-a-og.png",
+            twitterTitle: "Stale projection INTJ-A Twitter title",
+            twitterDescription: "Stale projection INTJ-A Twitter description.",
+            twitterImageUrl: "https://assets.fermatmind.com/stale-intj-a-twitter.png",
+          },
+          meta: {
+            ...detail!.projection.meta,
+            routeMode: "variant",
+            publicRouteType: "32-type",
+          },
+        },
+      },
+      "en"
+    );
+    expect(normalizedVariantSeoWithoutSeoEndpoint.meta).toMatchObject({
+      title: "Promoted INTJ-A detail title",
+      description: "Promoted INTJ-A detail description.",
+      canonical: "http://localhost:3000/en/personality/intj-a",
+      og: {
+        title: "Promoted INTJ-A OG title",
+        description: "Promoted INTJ-A OG description.",
+        image: "https://assets.fermatmind.com/promoted-intj-a-og.png",
+      },
+      twitter: {
+        title: "Promoted INTJ-A Twitter title",
+        description: "Promoted INTJ-A Twitter description.",
+        image: "https://assets.fermatmind.com/promoted-intj-a-twitter.png",
+      },
+      robots: "index,follow",
+    });
+
+    const normalizedVariantSeoWithDetailOgOnly = normalizePersonalitySeoPayload(
+      null,
+      {
+        ...detail!,
+        slug: "intj-a",
+        routeSlug: "intj-a",
+        displayType: "INTJ-A",
+        seoMeta: {
+          ...detail!.seoMeta!,
+          ogImageUrl: "https://assets.fermatmind.com/promoted-intj-a-og.png",
+          twitterImageUrl: null,
+        },
+        projection: {
+          ...detail!.projection,
+          runtimeTypeCode: "INTJ-A",
+          variantCode: "A",
+          seo: {
+            ...detail!.projection.seo,
+            twitterImageUrl: "https://assets.fermatmind.com/stale-intj-a-twitter.png",
+          },
+          meta: {
+            ...detail!.projection.meta,
+            routeMode: "variant",
+            publicRouteType: "32-type",
+          },
+        },
+      },
+      "en"
+    );
+    expect(normalizedVariantSeoWithDetailOgOnly.meta.twitter.image).toBe(
+      "https://assets.fermatmind.com/promoted-intj-a-og.png"
+    );
+
+    const staleVariantSeoPayload = {
+      ...normalizedBaseSeo,
+      surface: {
+        title: "INTJ-A stale variant surface",
+        description: "Stale variant surface description.",
+        robotsPolicy: "noindex,follow",
+        canonicalUrl: "https://fermatmind.com/en/personality/intj-a",
+        canonicalPath: "/en/personality/intj-a",
+        alternates: {
+          en: "https://fermatmind.com/en/personality/intj-a",
+          "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
+        },
+        og: {
+          title: "INTJ-A stale variant surface OG title",
+          description: "Stale variant surface OG description.",
+          image: "https://assets.fermatmind.com/stale-intj-a-surface-og.png",
+          type: "article",
+          url: "https://fermatmind.com/en/personality/intj-a",
+        },
+        twitter: {
+          card: "summary_large_image",
+          title: "INTJ-A stale variant surface Twitter title",
+          description: "Stale variant surface Twitter description.",
+          image: "https://assets.fermatmind.com/stale-intj-a-surface-twitter.png",
+        },
+      } as unknown as NonNullable<typeof normalizedBaseSeo.surface>,
+      meta: {
+        ...normalizedBaseSeo.meta,
+        title: "INTJ-A stale variant title",
+        description: "Stale variant description.",
+        robots: "noindex,follow",
+        canonical: "https://fermatmind.com/en/personality/intj-a",
+        alternates: {
+          en: "https://fermatmind.com/en/personality/intj-a",
+          "zh-CN": "https://fermatmind.com/zh/personality/intj-a",
+        },
+        og: {
+          ...normalizedBaseSeo.meta.og,
+          title: "INTJ-A stale variant OG title",
+          description: "Stale variant OG description.",
+        },
+        twitter: {
+          ...normalizedBaseSeo.meta.twitter,
+          title: "INTJ-A stale variant Twitter title",
+          description: "Stale variant Twitter description.",
+        },
+      },
+      jsonld: {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        mainEntityOfPage: "https://fermatmind.com/en/personality/intj-a",
+      },
+    };
+    const normalizedStaleVariantSeo = normalizePersonalitySeoPayload(
+      staleVariantSeoPayload,
+      detail!,
+      "en"
+    );
+    expect(normalizedStaleVariantSeo.meta.title).toBe("INTJ Personality Type");
+    expect(normalizedStaleVariantSeo.meta.description).toBe("Projection-backed seo description.");
+    expect(normalizedStaleVariantSeo.meta.robots).toBe("noindex,follow");
+    expect(normalizedStaleVariantSeo.meta.canonical).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalizedStaleVariantSeo.meta.alternates.en).toBe("http://localhost:3000/en/personality/intj");
+    expect(normalizedStaleVariantSeo.meta.alternates["zh-CN"]).toBe("http://localhost:3000/zh/personality/intj");
+    expect(normalizedStaleVariantSeo.meta.og.title).toBe("INTJ Personality Type");
+    expect(normalizedStaleVariantSeo.meta.twitter.title).toBe("INTJ Personality Type");
+    expect(normalizedStaleVariantSeo.surface).toBeNull();
+    expect(JSON.stringify(normalizedStaleVariantSeo)).not.toContain("INTJ-A stale variant");
+    expect(
+      (normalizedStaleVariantSeo.jsonld as Record<string, unknown>).mainEntityOfPage
+    ).toBe("http://localhost:3000/en/personality/intj");
+
+    const normalizedWithRouteValidSeoAndStaleJsonLd = normalizePersonalitySeoPayload(
+      {
+        ...normalizedBaseSeo,
+        jsonld: {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "@id": "https://fermatmind.com/en/personality/intj-a#profile",
+          url: "https://fermatmind.com/en/personality/intj-a",
+          mainEntityOfPage: {
+            "@id": "https://fermatmind.com/en/personality/intj-a",
+          },
+          name: "INTJ-A stale structured data",
+        },
+      },
+      detail!,
+      "en"
+    );
+    expect(normalizedWithRouteValidSeoAndStaleJsonLd.meta.canonical).toBe(
+      "http://localhost:3000/en/personality/intj"
+    );
+    expect(
+      (normalizedWithRouteValidSeoAndStaleJsonLd.jsonld as Record<string, unknown>).mainEntityOfPage
+    ).toBe("http://localhost:3000/en/personality/intj");
+    expect(JSON.stringify(normalizedWithRouteValidSeoAndStaleJsonLd.jsonld)).not.toContain(
+      "/personality/intj-a"
+    );
+    expect(JSON.stringify(normalizedWithRouteValidSeoAndStaleJsonLd.jsonld)).not.toContain(
+      "INTJ-A stale structured data"
+    );
+
+    const projectionJsonLdCanonical =
+      "https://projection-authority.example/en/personality/intj";
+    const normalizedWithProjectionJsonLdCanonical =
+      normalizePersonalitySeoPayload(
+        {
+          ...normalizedBaseSeo,
+          jsonld: {
+            "@context": "https://schema.org",
+            "@type": "AboutPage",
+            "@id": "https://fermatmind.com/en/personality/intj-a#profile",
+            url: "https://fermatmind.com/en/personality/intj-a",
+            mainEntityOfPage: "https://fermatmind.com/en/personality/intj-a",
+          },
+        },
+        {
+          ...detail!,
+          projection: {
+            ...detail!.projection,
+            seo: {
+              ...detail!.projection.seo,
+              canonicalUrl: projectionJsonLdCanonical,
+              jsonld: {
+                "@context": "https://schema.org",
+                "@type": "AboutPage",
+                "@id": `${projectionJsonLdCanonical}#profile`,
+                url: projectionJsonLdCanonical,
+                mainEntityOfPage: projectionJsonLdCanonical,
+                name: "INTJ projection structured data",
+              },
+            },
+          },
+        },
+        "en"
+      );
+    expect(normalizedWithProjectionJsonLdCanonical.jsonld).toMatchObject({
+      "@id": "http://localhost:3000/en/personality/intj#profile",
+      url: "http://localhost:3000/en/personality/intj",
+      mainEntityOfPage: "http://localhost:3000/en/personality/intj",
+      name: "INTJ projection structured data",
+    });
+    expect(
+      JSON.stringify(normalizedWithProjectionJsonLdCanonical.jsonld)
+    ).not.toContain(projectionJsonLdCanonical);
+
+    const normalizedCrossLocaleProjectionJsonLdWithoutCanonical =
+      normalizePersonalitySeoPayload(
+        normalizedBaseSeo,
+        {
+          ...detail!,
+          projection: {
+            ...detail!.projection,
+            seo: {
+              ...detail!.projection.seo,
+              canonicalUrl: null,
+              jsonld: {
+                "@context": "https://schema.org",
+                "@type": "AboutPage",
+                "@id": "https://fermatmind.com/en/personality/intj#profile",
+                url: "https://fermatmind.com/en/personality/intj",
+                mainEntityOfPage: {
+                  "@id": "https://fermatmind.com/en/personality/intj",
+                },
+                name: "INTJ projection structured data",
+              },
+            },
+          },
+        },
+        "zh"
+      );
+    expect(normalizedCrossLocaleProjectionJsonLdWithoutCanonical.jsonld).toMatchObject({
+      "@id": "http://localhost:3000/zh/personality/intj#profile",
+      url: "http://localhost:3000/zh/personality/intj",
+      mainEntityOfPage: "http://localhost:3000/zh/personality/intj",
+      name: "INTJ projection structured data",
+    });
+    expect(
+      JSON.stringify(normalizedCrossLocaleProjectionJsonLdWithoutCanonical.jsonld)
+    ).not.toContain("/en/personality/intj");
+
+    const normalizedWithRouteValidLegacyJsonLd = normalizePersonalitySeoPayload(
+      {
+        ...normalizedBaseSeo,
+        jsonld: {
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "@id": "https://fermatmind.com/en/personality/intj#profile",
+          url: "https://fermatmind.com/en/personality/intj",
+          mainEntityOfPage: "https://fermatmind.com/en/personality/intj",
+          name: "INTJ-A stale route-valid structured data",
+        },
+      },
+      {
+        ...detail!,
+        projection: {
+          ...detail!.projection,
+          seo: {
+            ...detail!.projection.seo,
+            jsonld: {
+              "@context": "https://schema.org",
+              "@type": "AboutPage",
+              "@id": "https://fermatmind.com/en/personality/intj#profile",
+              url: "https://fermatmind.com/en/personality/intj",
+              mainEntityOfPage: "https://fermatmind.com/en/personality/intj",
+              name: "INTJ projection structured data",
+            },
+          },
+        },
+      },
+      "en"
+    );
+    expect(normalizedWithRouteValidLegacyJsonLd.jsonld).toMatchObject({
+      name: "INTJ projection structured data",
+    });
+    expect(
+      JSON.stringify(normalizedWithRouteValidLegacyJsonLd.jsonld)
+    ).not.toContain("INTJ-A stale route-valid structured data");
+
+    const routeValidIndexableDetailSurface = {
+      ...staleVariantSeoPayload.surface,
+      robotsPolicy: "index,follow",
+      robotsPolicyExplicit: true,
+      indexabilityState: "indexable",
+      indexEligible: true,
+      indexState: "indexable",
+      canonicalUrl: "https://fermatmind.com/en/personality/intj",
+      canonicalPath: "/en/personality/intj",
+      alternates: {
+        en: "https://fermatmind.com/en/personality/intj",
+        "zh-CN": "https://fermatmind.com/zh/personality/intj",
+      },
+      og: {
+        ...staleVariantSeoPayload.surface.og,
+        url: "https://fermatmind.com/en/personality/intj",
+      },
+    } as NonNullable<typeof normalizedBaseSeo.surface>;
+    const normalizedWithIndexableDetailSurface = normalizePersonalitySeoPayload(
+      staleVariantSeoPayload,
+      {
+        ...detail!,
+        seoSurface: routeValidIndexableDetailSurface,
+      },
+      "en"
+    );
+    expect(normalizedWithIndexableDetailSurface.surface?.robotsPolicy).toBe("noindex,follow");
+    expect(normalizedWithIndexableDetailSurface.surface?.robotsPolicyExplicit).toBe(true);
+    expect(normalizedWithIndexableDetailSurface.surface?.indexabilityState).toBe("noindex");
+    expect(normalizedWithIndexableDetailSurface.surface?.indexEligible).toBe(false);
+    expect(normalizedWithIndexableDetailSurface.surface?.indexState).toBe("noindex");
+    expect(normalizedWithIndexableDetailSurface.surface).toMatchObject({
+      title: "INTJ Personality Type",
+      description: "Projection-backed seo description.",
+      og: {
+        title: "INTJ Personality Type",
+        description: "Projection-backed seo description.",
+      },
+      twitter: {
+        title: "INTJ Personality Type",
+        description: "Projection-backed seo description.",
+      },
+    });
+    expect(JSON.stringify(normalizedWithIndexableDetailSurface.surface)).not.toContain(
+      "INTJ-A stale variant surface"
+    );
+
+    const normalizedWithNonIndexableProfile = normalizePersonalitySeoPayload(
+      normalizedBaseSeo,
+      {
+        ...detail!,
+        isIndexable: false,
+        seoSurface: routeValidIndexableDetailSurface,
+      },
+      "en"
+    );
+    expect(normalizedWithNonIndexableProfile.meta.robots).toBe("noindex,follow");
+    expect(normalizedWithNonIndexableProfile.surface).toMatchObject({
+      robotsPolicy: "noindex,follow",
+      robotsPolicyExplicit: true,
+      indexabilityState: "noindex",
+      indexEligible: false,
+      indexState: "noindex",
+    });
+
+    const normalizedWithConflictingDetailNoindex = normalizePersonalitySeoPayload(
+      {
+        ...normalizedBaseSeo,
+        meta: {
+          ...normalizedBaseSeo.meta,
+          robots: "index,follow",
+        },
+        surface: routeValidIndexableDetailSurface,
+      },
+      {
+        ...detail!,
+        seoSurface: {
+          ...routeValidIndexableDetailSurface,
+          robotsPolicy: "noindex,follow",
+          indexabilityState: "noindex",
+          indexEligible: false,
+          indexState: "noindex",
+        },
+      },
+      "en"
+    );
+    expect(normalizedWithConflictingDetailNoindex.meta.robots).toBe("noindex,follow");
+    expect(normalizedWithConflictingDetailNoindex.surface).toMatchObject({
+      robotsPolicy: "noindex,follow",
+      robotsPolicyExplicit: true,
+      indexabilityState: "noindex",
+      indexEligible: false,
+      indexState: "noindex",
+    });
+
+    const normalizedWithMismatchedDetailNoindex = normalizePersonalitySeoPayload(
+      null,
+      {
+        ...detail!,
+        seoSurface: staleVariantSeoPayload.surface,
+      },
+      "en"
+    );
+    expect(normalizedWithMismatchedDetailNoindex.meta.robots).toBe("noindex,follow");
+    expect(normalizedWithMismatchedDetailNoindex.surface).toBeNull();
   });
 
   it("personality routes consume landing surface instead of inventing local CTA truth", () => {
@@ -539,6 +990,37 @@ describe("personality cms adapter contract", () => {
     expect(indexSource).not.toContain("ScenarioIntelligenceMatrix");
     expect(detailSource).not.toContain("personality-detail-landing-summary");
     expect(detailSource).toContain("personality-detail-scene-entry");
+    expect(detailSource).toContain("const shouldRenderSceneEntry =");
+    expect(detailSource).toContain(
+      "const baseSceneEntryBlocks = isBaseTypeProjection"
+    );
+    expect(detailSource).toContain(
+      "answerSurface?.sceneSummaryBlocks.filter(hasCompletePersonalitySceneAuthority)"
+    );
+    expect(detailSource).toContain(
+      "!isBaseTypeProjection || Boolean(baseSceneEntryBlocks?.length)"
+    );
+    expect(detailSource).toContain("const hasAnswerSurfaceContent = Boolean(");
+    expect(detailSource).toContain("hasRenderableContent =");
+    expect(detailSource).toContain("hasAnswerSurfaceContent;");
+    expect(detailSource).toContain("blocks={baseSceneEntryBlocks}");
+    expect(detailSource).toContain("{shouldRenderSceneEntry ? (");
+    expect(detailSource).toContain(
+      "const { detail: loadedDetail, seo } = await loadPersonalityPublicDetail("
+    );
+    expect(detailSource).toContain(
+      "jsonld: normalizedSeo.jsonld,"
+    );
+    expect(detailSource).toContain(
+      "const promotedName = publicNameFromJsonLd(detail.projection.seo.jsonld);"
+    );
+    expect(detailSource).toContain(
+      "formatPersonalityDetailHeading(detail, locale)"
+    );
+    expect(detailSource).toContain(
+      "formatPersonalityDetailImageAlt(detail, locale)"
+    );
+    expect(detailSource).toContain("{!isBaseTypeProjection ? (");
     expect(detailSource).toContain("detail.answerSurface");
     expect(detailSource).toContain("personality-detail-answer-surface");
   });
@@ -892,32 +1374,45 @@ describe("personality cms adapter contract", () => {
     });
   });
 
-  it("personality detail page redirects legacy 4-letter routes while keeping cms seo wiring and faq schema hooks", () => {
+  it("personality detail page renders 4-letter base owners while keeping cms seo wiring and faq schema hooks", () => {
     const source = read("app/(localized)/[locale]/personality/[type]/page.tsx");
 
     expect(source).toContain("alternatesByLocale");
     expect(source).toContain("seoSurface: normalizedSeo.surface");
-    expect(source).toContain("redirectLegacyBaseRouteIfNeeded");
+    expect(source).not.toContain("redirectLegacyBaseRouteIfNeeded");
+    expect(source).not.toContain("buildDefaultPublicPersonalitySlug(type)");
+    expect(source).toContain("redirectNonCanonicalBaseRouteIfNeeded(type, locale, detail)");
+    expect(source).toContain("permanentRedirect(buildPersonalityFrontendUrl(locale, detail.routeSlug))");
+    expect(source).toContain('data-authority-source="mbti_public_projection_v1"');
+    expect(source).toContain("data-public-route-type={detail.projection.meta.publicRouteType ?? undefined}");
     expect(source).toContain("getPersonalityProjectionDetailBySlugOrType");
     expect(source).toContain('en: normalizedSeo.meta.alternates.en ?? buildPersonalityFrontendUrl("en", detail.routeSlug)');
     expect(source).toContain('zh: normalizedSeo.meta.alternates["zh-CN"] ?? buildPersonalityFrontendUrl("zh", detail.routeSlug)');
     expect(source).toContain("detail.displayType");
     expect(source).toContain("extractPersonalityFaqItems");
     expect(source).toContain("extractProjectionFaqItems");
-    expect(source).toContain("detail.answerSurface?.faqBlocks.length");
+    expect(source).toContain("answerSurface?.faqBlocks.length");
+    expect(source).toContain('const isBaseTypeProjection = detail.projection.meta.publicRouteType === "16-type";');
+    expect(source).toContain(
+      "const careerDirectionHref = !isBaseTypeProjection && fallbackProjectionGate.canRenderCareerOrRecommendationClaims"
+    );
+    expect(source).toContain("const profileSupplementalSections = isBaseTypeProjection ? [] : detail.supplementalSections;");
+    expect(source).toContain("const profileFaqSections = isBaseTypeProjection ? [] : detail.faqSections;");
     expect(source).toContain("const projectionFaqItems = extractProjectionFaqItems(detail.projection.sections);");
-    expect(source).toContain("const supplementalFaqItems = extractPersonalityFaqItems(detail.supplementalSections);");
-    expect(source).toContain("const legacyFaqItems = extractPersonalityFaqItems([...detail.faqSections, ...detail.supplementalSections]);");
+    expect(source).toContain("const supplementalFaqItems = extractPersonalityFaqItems(profileSupplementalSections);");
+    expect(source).toContain("const legacyFaqItems = extractPersonalityFaqItems([...profileFaqSections, ...profileSupplementalSections]);");
     expect(source).toContain("projectionFaqItems.length");
     expect(source).toContain("supplementalFaqItems.length");
-    expect(source).toContain("cmsQuickAnswerBody(detail.supplementalSections)");
+    expect(source).toContain("cmsQuickAnswerBody(profileSupplementalSections)");
     expect(source).toContain("comparisonQuickAnswerBody(comparison)");
     expect(source).toContain('data-testid="personality-comparison-quick-answer"');
     expect(source).toContain("comparisonPageHeading(comparison)");
-    expect(source).toContain("publicNameFromJsonLd(detail.projection.seo.jsonld)");
-    expect(source).toContain("partitionPersonalitySectionsForV85(detail.supplementalSections)");
+    expect(source).toContain(
+      "publicNameFromJsonLd(detail.projection.seo.jsonld)"
+    );
+    expect(source).toContain("partitionPersonalitySectionsForV85(profileSupplementalSections)");
     expect(source).toContain("const renderedV85Sections = renderPersonalitySections(v85Sections, locale);");
-    expect(source).toContain('[...legacySections.filter((section) => section.sectionKey !== "quick_answer"), ...detail.faqSections]');
+    expect(source).toContain('[...legacySections.filter((section) => section.sectionKey !== "quick_answer"), ...profileFaqSections]');
     expect(source).toContain('data-testid="personality-detail-v85-primary-sections"');
     expect(source).toContain('testId="personality-detail-v85-answer-surface"');
     expect(source).toContain("AnswerSurfaceSection");

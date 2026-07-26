@@ -15,11 +15,9 @@ import { AnalyticsPageViewTracker } from "@/hooks/useAnalytics";
 import {
   getPersonalityComparisonBySlug,
   buildPersonalityFrontendUrl,
-  buildDefaultPublicPersonalitySlug,
   getPersonalityProjectionDetailBySlugOrType,
   getPersonalitySeoBySlugOrType,
   type CmsPersonalitySection,
-  isCanonicalPersonalityBaseSlug,
   normalizePersonalitySeoPayload,
   type PersonalityComparisonBlockViewModel,
   type PersonalityCrossTypeInternalLinkViewModel,
@@ -98,7 +96,10 @@ function stripZhPersonalityTypeSuffix(value: string): string {
   return value.replace(/型$/u, "").trim();
 }
 
-function formatPersonalityDetailHeading(detail: PersonalityProjectionViewModel, locale: Locale): string {
+function formatPersonalityDetailHeading(
+  detail: PersonalityProjectionViewModel,
+  locale: Locale
+): string {
   const promotedName = publicNameFromJsonLd(detail.projection.seo.jsonld);
   if (promotedName) {
     return promotedName;
@@ -119,7 +120,10 @@ function formatPersonalityDetailHeading(detail: PersonalityProjectionViewModel, 
   return locale === "zh" ? `${displayType} 人格` : `${displayType} Personality`;
 }
 
-function formatPersonalityDetailImageAlt(detail: PersonalityProjectionViewModel, locale: Locale): string {
+function formatPersonalityDetailImageAlt(
+  detail: PersonalityProjectionViewModel,
+  locale: Locale
+): string {
   const heading = formatPersonalityDetailHeading(detail, locale);
   return locale === "zh" ? `${heading} 人格图像` : `${heading} personality illustration`;
 }
@@ -526,12 +530,27 @@ function buildComparisonCanonicalPath(slug: string, locale: Locale): string {
   return buildPersonalityComparisonFrontendUrl(locale, slug);
 }
 
-function redirectLegacyBaseRouteIfNeeded(type: string, locale: Locale): void {
-  if (!isCanonicalPersonalityBaseSlug(type)) {
+function decodePersonalityRouteSegment(value: string): string {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
+function redirectNonCanonicalBaseRouteIfNeeded(
+  requestedType: string,
+  locale: Locale,
+  detail: PersonalityProjectionViewModel
+): void {
+  if (
+    detail.projection.meta.publicRouteType !== "16-type" ||
+    requestedType === detail.routeSlug
+  ) {
     return;
   }
 
-  permanentRedirect(buildPersonalityFrontendUrl(locale, buildDefaultPublicPersonalitySlug(type)));
+  permanentRedirect(buildPersonalityFrontendUrl(locale, detail.routeSlug));
 }
 
 function formatMbtiTestCtaLabel(locale: Locale): string {
@@ -936,6 +955,40 @@ function projectionQuickAnswerBody(sections: PersonalityProjection["sections"]):
     || normalizeQuickAnswerText(payload?.answer);
 
   return body || null;
+}
+
+function isExactBaseCareerRecommendationHref(
+  href: string | null | undefined,
+  locale: Locale,
+  routeSlug: string
+): boolean {
+  if (!href) {
+    return false;
+  }
+
+  try {
+    const pathname = new URL(href, "https://fermatmind.com").pathname.replace(/\/+$/, "").toLowerCase();
+    const expectedPath = localizedPath(
+      `/career/recommendations/mbti/${routeSlug}`,
+      locale
+    ).replace(/\/+$/, "").toLowerCase();
+
+    return pathname === expectedPath;
+  } catch {
+    return false;
+  }
+}
+
+function hasCompletePersonalitySceneAuthority(block: {
+  title: string;
+  body: string;
+  href: string | null;
+}): boolean {
+  return Boolean(
+    normalizeDisplayText(block.title) &&
+    normalizeDisplayText(block.body) &&
+    block.href
+  );
 }
 
 function cmsQuickAnswerBody(sections: CmsPersonalitySection[]): string | null {
@@ -1378,14 +1431,16 @@ export async function generateMetadata({
     }, effectiveMetadataTitle);
   }
 
-  redirectLegacyBaseRouteIfNeeded(type, locale);
-
-  const { detail, seo } = await loadPersonalityPublicDetail(type, locale);
+  const { detail, seo } = await loadPersonalityPublicDetail(
+    decodePersonalityRouteSegment(type),
+    locale
+  );
 
   if (!detail) {
     return { title: "Not Found", robots: { index: false, follow: false } };
   }
 
+  redirectNonCanonicalBaseRouteIfNeeded(type, locale, detail);
   const normalizedSeo = normalizePersonalitySeoPayload(seo, detail, locale);
   const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);
   const noindex = !detail.isIndexable || shouldNoindex(normalizedSeo.meta.robots);
@@ -1454,18 +1509,47 @@ export default async function PersonalityDetailPage({
     return <PersonalityComparisonPage comparison={comparison} locale={locale} />;
   }
 
-  redirectLegacyBaseRouteIfNeeded(type, locale);
-  const { detail, seo } = await loadPersonalityPublicDetail(type, locale);
+  const { detail: loadedDetail, seo } = await loadPersonalityPublicDetail(
+    decodePersonalityRouteSegment(type),
+    locale
+  );
 
-  if (!detail) {
+  if (!loadedDetail) {
     return notFound();
   }
 
-  const normalizedSeo = normalizePersonalitySeoPayload(seo, detail, locale);
+  redirectNonCanonicalBaseRouteIfNeeded(type, locale, loadedDetail);
+  const normalizedSeo = normalizePersonalitySeoPayload(seo, loadedDetail, locale);
+  const detail: PersonalityProjectionViewModel = {
+    ...loadedDetail,
+    projection: {
+      ...loadedDetail.projection,
+      seo: {
+        ...loadedDetail.projection.seo,
+        jsonld: normalizedSeo.jsonld,
+      },
+    },
+  };
   const canonicalPath = buildCanonicalPath(detail.routeSlug, locale);
   const fallbackProjectionGate = resolvePersonalityFallbackProjectionGate(detail);
-  const answerSurfaceFaqItems = detail.answerSurface?.faqBlocks.length
-    ? detail.answerSurface.faqBlocks
+  const isBaseTypeProjection = detail.projection.meta.publicRouteType === "16-type";
+  const profileSupplementalSections = isBaseTypeProjection ? [] : detail.supplementalSections;
+  const profileFaqSections = isBaseTypeProjection ? [] : detail.faqSections;
+  const answerSurface =
+    isBaseTypeProjection && detail.answerSurface
+      ? {
+          ...detail.answerSurface,
+          sceneSummaryBlocks: detail.answerSurface.sceneSummaryBlocks.filter(
+            (block) =>
+              !isExactBaseCareerRecommendationHref(block.href, locale, detail.routeSlug)
+          ),
+          nextStepBlocks: detail.answerSurface.nextStepBlocks.filter(
+            (block) => !isExactBaseCareerRecommendationHref(block.href, locale, detail.routeSlug)
+          ),
+        }
+      : detail.answerSurface;
+  const answerSurfaceFaqItems = answerSurface?.faqBlocks.length
+    ? answerSurface.faqBlocks
       .filter((item) => item.question && item.answer)
       .map((item) => ({
         question: item.question,
@@ -1473,8 +1557,8 @@ export default async function PersonalityDetailPage({
       }))
     : [];
   const projectionFaqItems = extractProjectionFaqItems(detail.projection.sections);
-  const supplementalFaqItems = extractPersonalityFaqItems(detail.supplementalSections);
-  const legacyFaqItems = extractPersonalityFaqItems([...detail.faqSections, ...detail.supplementalSections]);
+  const supplementalFaqItems = extractPersonalityFaqItems(profileSupplementalSections);
+  const legacyFaqItems = extractPersonalityFaqItems([...profileFaqSections, ...profileSupplementalSections]);
   const faqItems = answerSurfaceFaqItems.length
     ? answerSurfaceFaqItems
     : projectionFaqItems.length
@@ -1482,7 +1566,7 @@ export default async function PersonalityDetailPage({
       : supplementalFaqItems.length
         ? supplementalFaqItems
       : legacyFaqItems;
-  const quickAnswerBody = projectionQuickAnswerBody(detail.projection.sections) || cmsQuickAnswerBody(detail.supplementalSections);
+  const quickAnswerBody = projectionQuickAnswerBody(detail.projection.sections) || cmsQuickAnswerBody(profileSupplementalSections);
   const webPageJsonLd = buildWebPageJsonLd({
     path: canonicalPath,
     title: normalizedSeo.meta.title,
@@ -1494,7 +1578,7 @@ export default async function PersonalityDetailPage({
     { name: locale === "zh" ? "人格" : "Personality", path: localizedPath("/personality", locale) },
     { name: detail.displayType, path: canonicalPath },
   ]);
-  const { v85Sections: authoredV85Sections, legacySections } = partitionPersonalitySectionsForV85(detail.supplementalSections);
+  const { v85Sections: authoredV85Sections, legacySections } = partitionPersonalitySectionsForV85(profileSupplementalSections);
   const hasV85SectionAuthority = authoredV85Sections.length > 0;
   const v85Sections = authoredV85Sections.filter((section) => !V85_HIDDEN_READER_SECTION_KEYS.has(section.sectionKey));
   const filteredProjectionSections = filterProjectionSectionsForDetail(
@@ -1512,11 +1596,31 @@ export default async function PersonalityDetailPage({
   const renderedProjectionSections = renderProjectionSections(trailingProjectionSections, locale);
   const renderedV85Sections = renderPersonalitySections(v85Sections, locale);
   const renderedSupplementalSections = renderPersonalitySections(
-    [...legacySections.filter((section) => section.sectionKey !== "quick_answer"), ...detail.faqSections],
+    [...legacySections.filter((section) => section.sectionKey !== "quick_answer"), ...profileFaqSections],
     locale
   );
   const hasV85Sections = renderedV85Sections.length > 0;
-  const hasRenderableContent = renderedV85Sections.length > 0 || renderedProjectionSections.length > 0 || renderedSupplementalSections.length > 0;
+  const baseSceneEntryBlocks = isBaseTypeProjection
+    ? answerSurface?.sceneSummaryBlocks.filter(hasCompletePersonalitySceneAuthority)
+    : answerSurface?.sceneSummaryBlocks;
+  const shouldRenderSceneEntry =
+    !hasV85Sections &&
+    (!isBaseTypeProjection || Boolean(baseSceneEntryBlocks?.length));
+  const hasAnswerSurfaceContent = Boolean(
+    answerSurface &&
+      (
+        answerSurface.summaryBlocks.length > 0 ||
+        answerSurface.faqBlocks.length > 0 ||
+        answerSurface.compareBlocks.length > 0 ||
+        answerSurface.sceneSummaryBlocks.length > 0 ||
+        answerSurface.nextStepBlocks.length > 0
+      )
+  );
+  const hasRenderableContent =
+    renderedV85Sections.length > 0 ||
+    renderedProjectionSections.length > 0 ||
+    renderedSupplementalSections.length > 0 ||
+    hasAnswerSurfaceContent;
   const mbtiEntryViewTrackingProps = buildMbtiEntryTrackingPayload({
     locale,
     formCode: DEFAULT_MBTI_FORM_CODE,
@@ -1570,12 +1674,14 @@ export default async function PersonalityDetailPage({
   const variantComparisonLabel =
     locale === "zh" ? `${baseDisplayType}-A 与 ${baseDisplayType}-T 对比` : `${baseDisplayType}-A vs ${baseDisplayType}-T`;
   const dimensionSummary = buildPersonalityDimensionSummary(detail.projection, locale);
-  const careerDirectionHref = fallbackProjectionGate.canRenderCareerOrRecommendationClaims
+  const careerDirectionHref = !isBaseTypeProjection && fallbackProjectionGate.canRenderCareerOrRecommendationClaims
     ? localizedPath(`/career/recommendations/mbti/${detail.routeSlug}`, locale)
     : null;
   return (
     <main
       className="mx-auto w-full max-w-[86rem] px-[var(--fm-container-gutter)] space-y-8 py-8 sm:py-10"
+      data-authority-source="mbti_public_projection_v1"
+      data-public-route-type={detail.projection.meta.publicRouteType ?? undefined}
       data-domain-id="self_understanding"
       data-domain-role="primary"
       data-domain-envelope-state="metadata_only"
@@ -1778,7 +1884,7 @@ export default async function PersonalityDetailPage({
             {renderedLeadingProjectionSections}
             {renderedV85Sections}
             <AnswerSurfaceSection
-              surface={detail.answerSurface}
+              surface={answerSurface}
               locale={locale}
               testId="personality-detail-v85-answer-surface"
               pageFamily="personality_detail"
@@ -1841,11 +1947,11 @@ export default async function PersonalityDetailPage({
         </div>
       ) : null}
 
-      {!hasV85Sections ? (
+      {shouldRenderSceneEntry ? (
         <MbtiSceneEntrySection
           locale={locale}
           sourcePageType="personality_detail"
-          blocks={detail.answerSurface?.sceneSummaryBlocks}
+          blocks={baseSceneEntryBlocks}
           testId="personality-detail-scene-entry"
         />
       ) : null}
@@ -1857,7 +1963,7 @@ export default async function PersonalityDetailPage({
             {renderedSupplementalSections}
             {!hasV85Sections ? (
               <AnswerSurfaceSection
-                surface={detail.answerSurface}
+                surface={answerSurface}
                 locale={locale}
                 testId="personality-detail-answer-surface"
                 pageFamily="personality_detail"
@@ -1873,18 +1979,20 @@ export default async function PersonalityDetailPage({
             <CardHeader>
               <CardTitle>{locale === "zh" ? "内容暂未同步" : "Content not yet available"}</CardTitle>
             </CardHeader>
-            <CardContent className="text-sm text-[var(--fm-text-muted)]">
-              <p className="m-0">
-                {locale === "zh"
-                  ? "当前语言下还没有可展示的正文内容，你可以先返回 A/T 人格入口，或通过 MBTI免费测试确认自己的类型。"
-                  : "No body content is available for this locale yet. You can return to the A/T variant browser or use the Free MBTI test to confirm your type."}
-              </p>
-            </CardContent>
+            {!isBaseTypeProjection ? (
+              <CardContent className="text-sm text-[var(--fm-text-muted)]">
+                <p className="m-0">
+                  {locale === "zh"
+                    ? "当前语言下还没有可展示的正文内容，你可以先返回 A/T 人格入口，或通过 MBTI免费测试确认自己的类型。"
+                    : "No body content is available for this locale yet. You can return to the A/T variant browser or use the Free MBTI test to confirm your type."}
+                </p>
+              </CardContent>
+            ) : null}
           </Card>
         )}
         {!hasRenderableContent ? (
           <AnswerSurfaceSection
-            surface={detail.answerSurface}
+            surface={answerSurface}
             locale={locale}
             testId="personality-detail-answer-surface"
             pageFamily="personality_detail"

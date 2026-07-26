@@ -26,7 +26,20 @@ describe("MBTI profile authority read stability", () => {
   it("uses backend detail SEO authority without a frontend editorial fallback", () => {
     expect(cmsSource).toContain("timeoutMs: PERSONALITY_PUBLIC_READ_TIMEOUT_MS");
     expect(cmsSource).toContain("seoSurface: normalizeSeoSurface(response.seo_surface_v1 ?? null)");
-    expect(cmsSource).toContain('surface: seo?.surface ?? ("projection" in profile ? profile.seoSurface : null)');
+    expect(cmsSource).toContain("const seoHasProjectionRouteMismatch =");
+    expect(cmsSource).toContain("const routeMismatchNoindexRobots =");
+    expect(cmsSource).toContain("detailSurfaceHasProjectionRouteMismatch ? detailSurface?.robotsPolicy : null");
+    expect(cmsSource).toContain("const acceptedSeo = seoHasProjectionRouteMismatch ? null : seo");
+    expect(cmsSource).toContain("const sourceSurface =");
+    expect(cmsSource).toContain("acceptedSeo?.surface ??");
+    expect(cmsSource).toContain("const routeBoundSurface =");
+    expect(cmsSource).toContain("const authoritativeNoindexRobots = firstNoindexRobotsDirective(");
+    expect(cmsSource).toContain("acceptedSeo?.surface?.robotsPolicy");
+    expect(cmsSource).toContain("detailSurface?.robotsPolicy");
+    expect(cmsSource).toContain('compatibility.isIndexable ? null : "noindex,follow"');
+    expect(cmsSource).toContain("robotsPolicy: authoritativeNoindexRobots ?? sourceSurface.robotsPolicy");
+    expect(cmsSource).toContain("indexEligible: authoritativeNoindexRobots");
+    expect(cmsSource).toContain("surface: routeBoundSurface");
     expect(pageSource).not.toContain("buildFallbackPersonalityDetail");
     expect(pageSource).not.toContain("buildFallbackProjection");
     expect(pageSource).not.toContain("frontend_gateway_fallback");

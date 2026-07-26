@@ -1458,12 +1458,62 @@ function replaceCanonicalValue(
   return value;
 }
 
+function inferPersonalityJsonLdCanonical(jsonld: unknown): string | null {
+  const routeIdentityKeys = new Set(["@id", "url", "mainEntityOfPage"]);
+
+  const walk = (value: unknown, routeIdentity = false): string | null => {
+    if (Array.isArray(value)) {
+      for (const item of value) {
+        const candidate = walk(item, routeIdentity);
+        if (candidate) {
+          return candidate;
+        }
+      }
+
+      return null;
+    }
+
+    if (value && typeof value === "object") {
+      for (const [key, nested] of Object.entries(value)) {
+        const candidate = walk(nested, routeIdentity || routeIdentityKeys.has(key));
+        if (candidate) {
+          return candidate;
+        }
+      }
+
+      return null;
+    }
+
+    if (!routeIdentity || typeof value !== "string" || !extractPersonalitySlugFromPublicUrl(value)) {
+      return null;
+    }
+
+    const normalized = value.trim();
+
+    try {
+      if (/^https?:\/\//i.test(normalized)) {
+        const url = new URL(normalized);
+        return `${url.origin}${url.pathname}`;
+      }
+
+      const url = new URL(normalized, "http://localhost");
+      return url.pathname;
+    } catch {
+      return null;
+    }
+  };
+
+  return walk(jsonld);
+}
+
 export function normalizePersonalityJsonLd(
   jsonld: unknown,
   sourceCanonical: string | null | undefined,
   localizedCanonicalPath: string,
   profile: CmsPersonalityProfile
 ): unknown {
+  const effectiveSourceCanonical =
+    normalizeIsoValue(sourceCanonical) ?? inferPersonalityJsonLdCanonical(jsonld);
   const walk = (value: unknown): unknown => {
     if (Array.isArray(value)) {
       return value.map(walk);
@@ -1474,7 +1524,7 @@ export function normalizePersonalityJsonLd(
     }
 
     if (typeof value === "string") {
-      return replaceCanonicalValue(value, sourceCanonical, localizedCanonicalPath);
+      return replaceCanonicalValue(value, effectiveSourceCanonical, localizedCanonicalPath);
     }
 
     return value;
@@ -1533,26 +1583,306 @@ export function normalizePersonalitySeoPayload(
   locale: Locale | string
 ): CmsPersonalitySeoPayload {
   const compatibility = toSeoCompatibilityInputFromDetail(profile);
+  const projectionRouteSlug =
+    "projection" in profile
+      ? runtimeTypeCodeToSlug(profile.projection.runtimeTypeCode) ?? profile.routeSlug
+      : null;
+  const projectionSeo = "projection" in profile ? profile.projection.seo : null;
+  const isBaseTypeProjection =
+    "projection" in profile && profile.projection.meta.publicRouteType === "16-type";
+  const seoHasProjectionRouteMismatch =
+    projectionRouteSlug !== null &&
+    hasPersonalityProjectionRouteMismatch(projectionRouteSlug, [
+      seo?.meta.canonical,
+      seo?.meta.alternates?.en,
+      seo?.meta.alternates?.["zh-CN"],
+      seo?.surface?.canonicalUrl,
+      seo?.surface?.canonicalPath,
+      seo?.surface?.alternates.en,
+      seo?.surface?.alternates["zh-CN"],
+    ]);
+  const detailSurface = "projection" in profile ? profile.seoSurface : null;
+  const detailSurfaceHasProjectionRouteMismatch =
+    projectionRouteSlug !== null &&
+    hasPersonalityProjectionRouteMismatch(projectionRouteSlug, [
+      detailSurface?.canonicalUrl,
+      detailSurface?.canonicalPath,
+      detailSurface?.alternates.en,
+      detailSurface?.alternates["zh-CN"],
+    ]);
+  const routeMismatchNoindexRobots = firstNoindexRobotsDirective(
+    seoHasProjectionRouteMismatch ? seo?.meta.robots : null,
+    seoHasProjectionRouteMismatch ? seo?.surface?.robotsPolicy : null,
+    detailSurfaceHasProjectionRouteMismatch ? detailSurface?.robotsPolicy : null
+  );
+  const acceptedSeo = seoHasProjectionRouteMismatch ? null : seo;
+  const acceptedSeoJsonLd =
+    acceptedSeo &&
+    (!projectionRouteSlug ||
+      !hasPersonalityProjectionJsonLdRouteMismatch(projectionRouteSlug, acceptedSeo.jsonld))
+      ? acceptedSeo.jsonld
+      : null;
+  const projectionJsonLd =
+    projectionSeo &&
+    (!projectionRouteSlug ||
+      !hasPersonalityProjectionJsonLdRouteMismatch(projectionRouteSlug, projectionSeo.jsonld))
+      ? projectionSeo.jsonld
+      : null;
   const canonicalRouteSlug =
-    extractPersonalitySlugFromPublicUrl(seo?.meta.canonical) ??
-    ("projection" in profile ? runtimeTypeCodeToSlug(profile.projection.runtimeTypeCode) : null) ??
+    projectionRouteSlug ??
+    extractPersonalitySlugFromPublicUrl(acceptedSeo?.meta.canonical) ??
     buildDefaultPublicPersonalitySlug(compatibility.slug);
   const canonicalPath = buildPersonalityFrontendUrl(locale, canonicalRouteSlug);
   const normalizedCanonical = canonicalUrl(canonicalPath);
-  const alternateEnSlug = extractPersonalitySlugFromPublicUrl(seo?.meta.alternates?.en) ?? canonicalRouteSlug;
-  const alternateZhSlug = extractPersonalitySlugFromPublicUrl(seo?.meta.alternates?.["zh-CN"]) ?? canonicalRouteSlug;
-  const title = fallbackText(seo?.meta.title, compatibility.seoMeta?.seoTitle, compatibility.title);
-  const description = fallbackText(
-    seo?.meta.description,
-    compatibility.seoMeta?.seoDescription,
-    compatibility.excerpt,
-    compatibility.subtitle
+  const alternateEnSlug =
+    projectionRouteSlug ??
+    extractPersonalitySlugFromPublicUrl(acceptedSeo?.meta.alternates?.en) ??
+    canonicalRouteSlug;
+  const alternateZhSlug =
+    projectionRouteSlug ??
+    extractPersonalitySlugFromPublicUrl(acceptedSeo?.meta.alternates?.["zh-CN"]) ??
+    canonicalRouteSlug;
+  const title = isBaseTypeProjection
+    ? fallbackText(
+        projectionSeo?.title,
+        acceptedSeo?.meta.title,
+        compatibility.seoMeta?.seoTitle,
+        compatibility.title
+      )
+    : fallbackText(
+        acceptedSeo?.meta.title,
+        compatibility.seoMeta?.seoTitle,
+        projectionSeo?.title,
+        compatibility.title
+      );
+  const description = isBaseTypeProjection
+    ? fallbackText(
+        projectionSeo?.description,
+        acceptedSeo?.meta.description,
+        compatibility.seoMeta?.seoDescription,
+        compatibility.excerpt,
+        compatibility.subtitle
+      )
+    : fallbackText(
+        acceptedSeo?.meta.description,
+        compatibility.seoMeta?.seoDescription,
+        projectionSeo?.description,
+        compatibility.excerpt,
+        compatibility.subtitle
+      );
+  const authoritativeNoindexRobots = firstNoindexRobotsDirective(
+    routeMismatchNoindexRobots,
+    acceptedSeo?.meta.robots,
+    acceptedSeo?.surface?.robotsPolicy,
+    detailSurface?.robotsPolicy,
+    projectionSeo?.robots,
+    compatibility.seoMeta?.robots,
+    compatibility.isIndexable ? null : "noindex,follow"
   );
   const robots = fallbackText(
-    seo?.meta.robots,
+    authoritativeNoindexRobots,
+    acceptedSeo?.meta.robots,
+    projectionSeo?.robots,
     compatibility.seoMeta?.robots,
     compatibility.isIndexable ? "index,follow" : "noindex,follow"
   );
+  const ogTitle = isBaseTypeProjection
+    ? fallbackText(
+        projectionSeo?.ogTitle,
+        projectionSeo?.title,
+        acceptedSeo?.meta.og.title,
+        acceptedSeo?.meta.title,
+        compatibility.seoMeta?.ogTitle,
+        title
+      )
+    : fallbackText(
+        acceptedSeo?.meta.og.title,
+        compatibility.seoMeta?.ogTitle,
+        projectionSeo?.ogTitle,
+        title
+      );
+  const ogDescription = isBaseTypeProjection
+    ? fallbackText(
+        projectionSeo?.ogDescription,
+        projectionSeo?.description,
+        acceptedSeo?.meta.og.description,
+        acceptedSeo?.meta.description,
+        compatibility.seoMeta?.ogDescription,
+        description
+      )
+    : fallbackText(
+        acceptedSeo?.meta.og.description,
+        compatibility.seoMeta?.ogDescription,
+        projectionSeo?.ogDescription,
+        description
+      );
+  const ogImage = normalizeIsoValue(
+    isBaseTypeProjection
+      ? projectionSeo?.ogImageUrl ??
+          acceptedSeo?.meta.og.image ??
+          compatibility.seoMeta?.ogImageUrl
+      : acceptedSeo?.meta.og.image ??
+          compatibility.seoMeta?.ogImageUrl ??
+          projectionSeo?.ogImageUrl
+  );
+  const twitterTitle = isBaseTypeProjection
+    ? fallbackText(
+        projectionSeo?.twitterTitle,
+        projectionSeo?.title,
+        acceptedSeo?.meta.twitter.title,
+        acceptedSeo?.meta.title,
+        compatibility.seoMeta?.twitterTitle,
+        title
+      )
+    : fallbackText(
+        acceptedSeo?.meta.twitter.title,
+        compatibility.seoMeta?.twitterTitle,
+        projectionSeo?.twitterTitle,
+        title
+      );
+  const twitterDescription = isBaseTypeProjection
+    ? fallbackText(
+        projectionSeo?.twitterDescription,
+        projectionSeo?.description,
+        acceptedSeo?.meta.twitter.description,
+        acceptedSeo?.meta.description,
+        compatibility.seoMeta?.twitterDescription,
+        description
+      )
+    : fallbackText(
+        acceptedSeo?.meta.twitter.description,
+        compatibility.seoMeta?.twitterDescription,
+        projectionSeo?.twitterDescription,
+        description
+      );
+  const twitterImage = normalizeIsoValue(
+    isBaseTypeProjection
+      ? projectionSeo?.twitterImageUrl ??
+          projectionSeo?.ogImageUrl ??
+          acceptedSeo?.meta.twitter.image ??
+          acceptedSeo?.meta.og.image ??
+          compatibility.seoMeta?.twitterImageUrl ??
+          compatibility.seoMeta?.ogImageUrl
+      : acceptedSeo?.meta.twitter.image ??
+          compatibility.seoMeta?.twitterImageUrl ??
+          compatibility.seoMeta?.ogImageUrl ??
+          projectionSeo?.twitterImageUrl
+  );
+  const sourceSurface =
+    acceptedSeo?.surface ??
+    (detailSurfaceHasProjectionRouteMismatch ? null : detailSurface);
+  const routeBoundSurface =
+    projectionRouteSlug && sourceSurface
+      ? {
+          ...sourceSurface,
+          robotsPolicy: authoritativeNoindexRobots ?? sourceSurface.robotsPolicy,
+          robotsPolicyExplicit: authoritativeNoindexRobots
+            ? true
+            : sourceSurface.robotsPolicyExplicit,
+          indexabilityState: authoritativeNoindexRobots
+            ? "noindex"
+            : sourceSurface.indexabilityState,
+          indexEligible: authoritativeNoindexRobots
+            ? false
+            : sourceSurface.indexEligible,
+          indexState: authoritativeNoindexRobots
+            ? "noindex"
+            : sourceSurface.indexState,
+          title: isBaseTypeProjection ? title : sourceSurface.title,
+          description: isBaseTypeProjection ? description : sourceSurface.description,
+          canonicalUrl: normalizedCanonical,
+          canonicalPath,
+          alternates: {
+            ...sourceSurface.alternates,
+            en: canonicalUrl(buildPersonalityFrontendUrl("en", projectionRouteSlug)),
+            "zh-CN": canonicalUrl(buildPersonalityFrontendUrl("zh", projectionRouteSlug)),
+          },
+          og: {
+            ...sourceSurface.og,
+            title: isBaseTypeProjection ? ogTitle : sourceSurface.og.title,
+            description: isBaseTypeProjection
+              ? ogDescription
+              : sourceSurface.og.description,
+            image: isBaseTypeProjection ? ogImage : sourceSurface.og.image,
+            url: normalizedCanonical,
+          },
+          twitter: {
+            ...sourceSurface.twitter,
+            title: isBaseTypeProjection
+              ? twitterTitle
+              : sourceSurface.twitter.title,
+            description: isBaseTypeProjection
+              ? twitterDescription
+              : sourceSurface.twitter.description,
+            image: isBaseTypeProjection
+              ? twitterImage
+              : sourceSurface.twitter.image,
+          },
+        }
+      : sourceSurface;
+  const jsonLdFallbackSeoMeta: CmsPersonalitySeoMeta = {
+    seoTitle: title,
+    seoDescription: description,
+    canonicalUrl: normalizedCanonical,
+    ogTitle: compatibility.seoMeta?.ogTitle ?? null,
+    ogDescription: compatibility.seoMeta?.ogDescription ?? null,
+    ogImageUrl: compatibility.seoMeta?.ogImageUrl ?? null,
+    twitterTitle: compatibility.seoMeta?.twitterTitle ?? null,
+    twitterDescription: compatibility.seoMeta?.twitterDescription ?? null,
+    twitterImageUrl: compatibility.seoMeta?.twitterImageUrl ?? null,
+    robots: compatibility.seoMeta?.robots ?? null,
+    jsonldOverrides: compatibility.seoMeta?.jsonldOverrides ?? null,
+  };
+  const jsonLdFallbackProfile: CmsPersonalityProfile =
+    "projection" in profile
+      ? {
+          id: null,
+          variantId: null,
+          profileId: null,
+          orgId: 0,
+          scaleCode: DEFAULT_SCALE_CODE,
+          typeCode: profile.canonicalTypeCode,
+          baseTypeCode: profile.canonicalTypeCode,
+          runtimeTypeCode: profile.projection.runtimeTypeCode,
+          variantCode: profile.projection.variantCode,
+          displayType: profile.displayType,
+          publicRouteSlug: profile.routeSlug,
+          publicRouteType: profile.projection.meta.publicRouteType,
+          slug: profile.slug,
+          baseSlug: profile.slug,
+          locale: profile.locale,
+          title: compatibility.title,
+          subtitle: compatibility.subtitle,
+          excerpt: compatibility.excerpt,
+          status: "published",
+          isPublic: true,
+          isIndexable: compatibility.isIndexable,
+          publishedAt: null,
+          updatedAt: null,
+          seoMeta: jsonLdFallbackSeoMeta,
+          heroKicker: profile.heroKicker ?? profile.canonicalTypeCode,
+          heroQuote: profile.heroQuote ?? "",
+          heroImageUrl: profile.heroImageUrl,
+          sections: [],
+        }
+      : {
+          ...profile,
+          seoMeta: jsonLdFallbackSeoMeta,
+        };
+  const selectedJsonLd = isBaseTypeProjection
+    ? projectionJsonLd ?? acceptedSeoJsonLd
+    : acceptedSeoJsonLd ?? projectionJsonLd;
+  const selectedJsonLdCanonical = isBaseTypeProjection
+    ? projectionJsonLd
+      ? projectionSeo?.canonicalUrl
+      : acceptedSeoJsonLd
+        ? acceptedSeo?.meta.canonical
+        : null
+    : acceptedSeoJsonLd
+      ? acceptedSeo?.meta.canonical
+      : projectionJsonLd
+        ? projectionSeo?.canonicalUrl
+        : null;
 
   return {
     meta: {
@@ -1564,65 +1894,26 @@ export function normalizePersonalitySeoPayload(
         "zh-CN": canonicalUrl(buildPersonalityFrontendUrl("zh", alternateZhSlug)),
       },
       og: {
-        title: fallbackText(seo?.meta.og.title, compatibility.seoMeta?.ogTitle, title),
-        description: fallbackText(seo?.meta.og.description, compatibility.seoMeta?.ogDescription, description),
-        image: normalizeIsoValue(seo?.meta.og.image ?? compatibility.seoMeta?.ogImageUrl),
-        type: fallbackText(seo?.meta.og.type, "article"),
+        title: ogTitle,
+        description: ogDescription,
+        image: ogImage,
+        type: fallbackText(acceptedSeo?.meta.og.type, "article"),
       },
       twitter: {
-        card: fallbackText(seo?.meta.twitter.card, "summary_large_image"),
-        title: fallbackText(seo?.meta.twitter.title, compatibility.seoMeta?.twitterTitle, title),
-        description: fallbackText(
-          seo?.meta.twitter.description,
-          compatibility.seoMeta?.twitterDescription,
-          description
-        ),
-        image: normalizeIsoValue(
-          seo?.meta.twitter.image ??
-            compatibility.seoMeta?.twitterImageUrl ??
-            compatibility.seoMeta?.ogImageUrl
-        ),
+        card: fallbackText(acceptedSeo?.meta.twitter.card, "summary_large_image"),
+        title: twitterTitle,
+        description: twitterDescription,
+        image: twitterImage,
       },
       robots,
     },
     jsonld: normalizePersonalityJsonLd(
-      seo?.jsonld ?? null,
-      seo?.meta.canonical,
+      selectedJsonLd,
+      selectedJsonLdCanonical,
       canonicalPath,
-      "projection" in profile
-        ? {
-            id: null,
-            variantId: null,
-            profileId: null,
-            orgId: 0,
-            scaleCode: DEFAULT_SCALE_CODE,
-            typeCode: profile.canonicalTypeCode,
-            baseTypeCode: profile.canonicalTypeCode,
-            runtimeTypeCode: profile.projection.runtimeTypeCode,
-            variantCode: profile.projection.variantCode,
-            displayType: profile.displayType,
-            publicRouteSlug: profile.routeSlug,
-            publicRouteType: profile.projection.meta.publicRouteType,
-            slug: profile.slug,
-            baseSlug: profile.slug,
-            locale: profile.locale,
-            title: compatibility.title,
-            subtitle: compatibility.subtitle,
-            excerpt: compatibility.excerpt,
-            status: "published",
-            isPublic: true,
-            isIndexable: compatibility.isIndexable,
-            publishedAt: null,
-            updatedAt: null,
-            seoMeta: compatibility.seoMeta,
-            heroKicker: profile.heroKicker ?? profile.canonicalTypeCode,
-            heroQuote: profile.heroQuote ?? "",
-            heroImageUrl: profile.heroImageUrl,
-            sections: [],
-          }
-        : profile
+      jsonLdFallbackProfile
     ),
-    surface: seo?.surface ?? ("projection" in profile ? profile.seoSurface : null),
+    surface: routeBoundSurface,
   };
 }
 
@@ -1646,6 +1937,59 @@ function extractPersonalitySlugFromPublicUrl(value: string | null | undefined): 
   } catch {
     return null;
   }
+}
+
+function hasPersonalityProjectionRouteMismatch(
+  expectedSlug: string,
+  candidates: Array<string | null | undefined>
+): boolean {
+  return candidates.some((candidate) => {
+    const candidateSlug = extractPersonalitySlugFromPublicUrl(candidate);
+
+    return candidateSlug !== null && candidateSlug !== expectedSlug;
+  });
+}
+
+function hasPersonalityProjectionJsonLdRouteMismatch(
+  expectedSlug: string,
+  jsonld: unknown
+): boolean {
+  const routeIdentityKeys = new Set(["@id", "url", "mainEntityOfPage"]);
+
+  const walk = (value: unknown, routeIdentity = false): boolean => {
+    if (Array.isArray(value)) {
+      return value.some((item) => walk(item, routeIdentity));
+    }
+
+    if (value && typeof value === "object") {
+      return Object.entries(value).some(([key, nested]) =>
+        walk(nested, routeIdentity || routeIdentityKeys.has(key))
+      );
+    }
+
+    if (!routeIdentity || typeof value !== "string") {
+      return false;
+    }
+
+    const candidateSlug = extractPersonalitySlugFromPublicUrl(value);
+
+    return candidateSlug !== null && candidateSlug !== expectedSlug;
+  };
+
+  return walk(jsonld);
+}
+
+function firstNoindexRobotsDirective(
+  ...values: Array<string | null | undefined>
+): string | null {
+  for (const value of values) {
+    const normalized = fallbackText(value);
+    if (/\bnoindex\b/i.test(normalized)) {
+      return normalized;
+    }
+  }
+
+  return null;
 }
 
 export async function listPersonalityProfiles(

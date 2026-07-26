@@ -33,13 +33,25 @@ test("legacy slug redirect: /tests alias detail is single-hop 308", async ({ pag
   await expect(page).toHaveURL(/\/en\/tests\/mbti-personality-test-16-personality-types$/);
 });
 
-test("legacy slug redirect: 4-letter personality detail is a single-hop 308 to the default public variant", async ({ page, request }) => {
+test("4-letter personality detail is the independent backend-authoritative base owner", async ({ page, request }) => {
   const response = await request.get("/en/personality/intj", { maxRedirects: 0 });
-  expect(response.status()).toBe(308);
-  expect(response.headers().location).toContain("/en/personality/intj-a");
+  expect(response.status()).toBe(200);
+  expect(response.headers().location).toBeUndefined();
 
   await page.goto("/en/personality/intj");
-  await expect(page).toHaveURL(/\/en\/personality\/intj-a$/);
+  await expect(page).toHaveURL(/\/en\/personality\/intj$/);
+  await expect(page.locator("main")).toHaveAttribute("data-authority-source", "mbti_public_projection_v1");
+  await expect(page.locator("main")).toHaveAttribute("data-public-route-type", "16-type");
+});
+
+test("noncanonical 4-letter personality aliases redirect to the independent base owner", async ({ request }) => {
+  for (const alias of ["/en/personality/INTJ", "/en/personality/%20INTJ%20"]) {
+    const response = await request.get(alias, { maxRedirects: 0 });
+
+    expect(response.status(), alias).toBe(308);
+    expect(response.headers().location).toContain("/en/personality/intj");
+    expect(response.headers().location).not.toContain("/en/personality/intj-a");
+  }
 });
 
 test("legacy slug redirect: /types/[code] points straight to the default public variant", async ({ page, request }) => {
