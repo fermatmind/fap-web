@@ -141,6 +141,18 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
           canonical_url: "https://fermatmind.com/zh/personality/intj-vs-intp",
           sections: [
             {
+              id: "quick_judgment_table",
+              title: "快速判断表",
+              body: [],
+              rows: [
+                {
+                  dimension: "问题入口",
+                  INTJ: "先问长期方向和关键路径",
+                  INTP: "先问概念是否自洽",
+                },
+              ],
+            },
+            {
               id: "quick_answer",
               title: "快速结论：INTJ 和 INTP 最大区别是什么",
               body: ["INTJ 更偏战略收敛，INTP 更偏模型探索。"],
@@ -176,11 +188,18 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     expect(comparison?.rightType).toBe("INTP");
     expect(comparison?.variants).toBeNull();
     expect(comparison?.isIndexable).toBe(false);
-    expect(comparison?.crossTypeSections[0]).toMatchObject({
+    expect(comparison?.crossTypeSections.find((section) => section.id === "quick_answer")).toMatchObject({
       id: "quick_answer",
       title: "快速结论：INTJ 和 INTP 最大区别是什么",
       body: ["INTJ 更偏战略收敛，INTP 更偏模型探索。"],
     });
+    expect(comparison?.crossTypeSections.find((section) => section.id === "quick_judgment_table")?.rows).toEqual([
+      {
+        dimension: "问题入口",
+        INTJ: "先问长期方向和关键路径",
+        INTP: "先问概念是否自洽",
+      },
+    ]);
     expect(comparison?.crossTypeFaq[0]?.question).toBe("INTJ 和 INTP 最大区别是什么？");
     expect(comparison?.crossTypeInternalLinks[0]?.href).toBe("/zh/personality/intj");
     expect(comparison?.claimBoundary).toBe("这是人格线索对比，不是诊断或职业结论。");
@@ -350,6 +369,9 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     expect(pageSource).not.toContain("personality-comparison-breadcrumb-");
     expect(pageSource).not.toContain("personality-comparison-faq-");
     expect(pageSource).toContain("buildComparisonQuickJudgmentRows(comparison)");
+    expect(pageSource).toContain("section.rows");
+    expect(pageSource).toContain("row[leftKey]");
+    expect(pageSource).toContain("row[rightKey]");
     expect(pageSource).toContain("buildVisibleComparisonFaqItems(comparison)");
     expect(pageSource).toContain("comparison.answerSurface?.nextStepBlocks");
     expect(pageSource).toContain("hideSummaryBlocks");
@@ -364,6 +386,7 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     expect(adapterSource).toContain("comparison_public_projection_v1");
     expect(adapterSource).toContain('"mbti_cross_type"');
     expect(adapterSource).toContain("crossTypeSections");
+    expect(adapterSource).toContain("rows: Array<Record<string, string>>");
     expect(adapterSource).toContain("normalizeAnswerSurface(response.answer_surface_v1");
 
     expect(sitemapSource).toContain("buildPersonalityComparisonPathsFromAuthority");

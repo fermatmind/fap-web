@@ -711,6 +711,23 @@ function comparisonTemplateText(...parts: Array<string | null | undefined>): str
 
 function buildComparisonQuickJudgmentRows(comparison: PersonalityComparisonViewModel): ComparisonTemplateRow[] {
   if (isCrossTypeComparison(comparison)) {
+    const leftKey = comparison.leftType?.toUpperCase() ?? "";
+    const rightKey = comparison.rightType?.toUpperCase() ?? "";
+    const structuredRows = comparison.crossTypeSections.flatMap((section) =>
+      section.rows
+        .map((row, index) => ({
+          key: `cross-${section.id}-row-${index}`,
+          cue: comparisonTemplateText(row.dimension, row.cue, row.label),
+          left: comparisonTemplateText(row[leftKey], row.left, row.a),
+          right: comparisonTemplateText(row[rightKey], row.right, row.t),
+        }))
+        .filter((row) => row.cue && (row.left || row.right))
+    );
+
+    if (structuredRows.length > 0) {
+      return structuredRows;
+    }
+
     return comparison.crossTypeSections.map((section) => ({
       key: `cross-${section.id}`,
       cue: section.title,

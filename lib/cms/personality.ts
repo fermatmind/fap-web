@@ -155,6 +155,7 @@ type CmsPersonalityCrossTypeSectionApiRecord = {
   id?: string | null;
   title?: string | null;
   body?: unknown;
+  rows?: unknown;
 };
 
 type CmsPersonalityCrossTypeFaqApiRecord = {
@@ -583,6 +584,7 @@ export type PersonalityCrossTypeSectionViewModel = {
   id: string;
   title: string;
   body: string[];
+  rows: Array<Record<string, string>>;
 };
 
 export type PersonalityCrossTypeFaqViewModel = {
@@ -1003,12 +1005,29 @@ function normalizeCrossTypeSection(section: CmsPersonalityCrossTypeSectionApiRec
   const id = fallbackText(section.id).toLowerCase();
   const title = fallbackText(section.title, section.id);
   const body = normalizeStringArray(section.body);
+  const rows = Array.isArray(section.rows)
+    ? section.rows
+        .map((row) => {
+          if (!row || typeof row !== "object" || Array.isArray(row)) {
+            return null;
+          }
 
-  if (!id || !title || body.length === 0) {
+          const normalized = Object.fromEntries(
+            Object.entries(row)
+              .map(([key, value]) => [key, fallbackText(typeof value === "string" ? value : "")])
+              .filter(([, value]) => value)
+          );
+
+          return Object.keys(normalized).length > 0 ? normalized : null;
+        })
+        .filter((row): row is Record<string, string> => row !== null)
+    : [];
+
+  if (!id || !title || (body.length === 0 && rows.length === 0)) {
     return null;
   }
 
-  return { id, title, body };
+  return { id, title, body, rows };
 }
 
 function normalizeCrossTypeFaq(item: CmsPersonalityCrossTypeFaqApiRecord): PersonalityCrossTypeFaqViewModel | null {
