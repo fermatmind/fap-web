@@ -51134,7 +51134,7 @@
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
     "status": "in_progress",
-    "commit_sha": "4877a9b6a6c6e15bee041f8ffe87d74d0d049bcb",
+    "commit_sha": "0e802aec7a36a7c2b7113531dece352fefd98d36",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
@@ -51155,7 +51155,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Ledger-tail head 8656261a4904faafaa113d815d868e5f3301314c passed all seven GitHub checks, but exact-head review found two current-scope owner issues: base profiles could link into the legacy default-A Career route, and route-valid SEO metadata could retain stale variant JSON-LD identity. The scoped repairs suppress the Career CTA for 16-type base projections without independent backend base-career authority and reject mismatched structured-data route identities in favor of projection or fallback schema. A new checked head is required."
+        "evidence": "Head 28b9627ddac945be4d9a0621e7e7ce2478baeb58 passed all seven GitHub checks, but exact-head review found that noncanonical base aliases such as uppercase or encoded-whitespace segments could return 200 with a different base canonical. The scoped repair restores a 308 only when a 16-type request segment differs from the backend route slug, targeting the independent four-letter base owner rather than the A variant. A new checked head is required."
       }
     },
     "scope_validation": {
@@ -51285,9 +51285,19 @@
         "at": "2026-07-26T05:20:24Z",
         "status": "local_checks_passed",
         "summary": "Implementation head 4877a9b6a6c6e15bee041f8ffe87d74d0d049bcb removes both base-owner route leaks: 16-type pages suppress exact base Career links until independent backend base-career authority exists, and stale variant JSON-LD is rejected independently of route-valid SEO metadata. Focused contracts passed 20/20, public-route Playwright passed 3/3, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29), Enneagram freeze (24), and the 206-page production build all passed. Exact eight-file scope, YAML/JSON, and diff checks pass; GitHub checks and exact-head review are pending."
+      },
+      {
+        "at": "2026-07-26T05:27:50Z",
+        "status": "in_progress",
+        "summary": "Head 28b9627ddac945be4d9a0621e7e7ce2478baeb58 passed all seven GitHub checks, but exact-head review found a final canonical alias gap: uppercase or encoded-whitespace four-letter base requests could return 200 while advertising the normalized base canonical. The scoped repair restores a permanent redirect only for noncanonical 16-type request segments and binds the target to the backend four-letter route slug, never the legacy A variant. Focused and full gates must rerun."
+      },
+      {
+        "at": "2026-07-26T05:34:31Z",
+        "status": "local_checks_passed",
+        "summary": "Implementation head 0e802aec7a36a7c2b7113531dece352fefd98d36 now decodes the route segment for backend lookup while preserving the original request identity for canonical comparison; uppercase and encoded-whitespace four-letter aliases return 308 to the independent lowercase base owner and never to the A variant. Focused contracts passed 20/20, public-route Playwright passed 4/4, lint, spacing, typecheck, all four contract shards (769 files / 4466 tests), Big Five freeze (29), Enneagram freeze (24), and the 206-page production build all passed. Exact eight-file scope, YAML/JSON, and diff checks pass; GitHub checks and exact-head review are pending."
       }
     ],
-    "updated_at": "2026-07-26T05:20:24Z"
+    "updated_at": "2026-07-26T05:34:31Z"
   },
   "CAREER-DIRECTORY-PAGINATION-FOLLOW-01": {
     "id": "CAREER-DIRECTORY-PAGINATION-FOLLOW-01",
