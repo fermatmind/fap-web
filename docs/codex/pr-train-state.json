@@ -51533,7 +51533,7 @@
     "updated_at": "2026-07-27T03:40:35Z"
   },
   "MBTI-INDEX-52": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-index-52",
     "depends_on": [
@@ -51541,8 +51541,8 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "6da071130975702ba4eeb2cf9cf68ed6a0f19d36",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
         "status": "passed",
@@ -51611,8 +51611,13 @@
         "at": "2026-07-26T15:30:20Z",
         "status": "final_source_local_verified",
         "summary": "Revalidated after the final authority and feed-transport tightening: the exact production runs span 2026-07-26T15:11:47.623Z through 2026-07-26T15:18:33.904Z with identical evidence signature eadcc75a5735e2df802d1a534b995a1259580bf10920a94705a392b9cc05b334 and ALLOW_MBTI_55_COMPLETE. Focused contracts pass 9/9, Node 24 lint and typecheck pass, all four complete contract shards pass 772 files / 4,482 tests, and the production build completes 206/206 static pages."
+      },
+      {
+        "at": "2026-07-26T15:31:54Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact nine-path INDEX-52 scope at 6da071130975702ba4eeb2cf9cf68ed6a0f19d36, pushed codex/mbti-index-52, and opened PR #1816. All local manifest checks passed before push; GitHub required and security checks are pending."
       }
     ],
-    "updated_at": "2026-07-26T15:30:20Z"
+    "updated_at": "2026-07-26T15:31:54Z"
   }
 }
