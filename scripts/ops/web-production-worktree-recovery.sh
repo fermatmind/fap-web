@@ -35,9 +35,27 @@ trap 'rm -rf "$scratch_dir"' EXIT
 paths_file="$scratch_dir/tracked-paths.nul"
 patch_file="$scratch_dir/worktree.patch"
 residue_manifest="$scratch_dir/residue-manifest.nul"
+index_flags_file="$scratch_dir/index-flags.nul"
+temporary_index="$scratch_dir/index"
 
-git diff --name-only -z --diff-filter=ACDMRTUXB > "$paths_file"
-git diff --binary > "$patch_file"
+real_index="$(git rev-parse --git-path index)"
+[[ -f "$real_index" ]] || fail "git index is unavailable"
+cp -p "$real_index" "$temporary_index"
+git ls-files -v -z > "$index_flags_file"
+
+while IFS= read -r -d '' index_record; do
+  index_flag="${index_record:0:1}"
+  index_path="${index_record:2}"
+  case "$index_flag" in
+    [a-z]|S)
+      GIT_INDEX_FILE="$temporary_index" \
+        git update-index --no-assume-unchanged --no-skip-worktree -- "$index_path"
+      ;;
+  esac
+done < "$index_flags_file"
+
+GIT_INDEX_FILE="$temporary_index" git diff --name-only -z --diff-filter=ACDMRTUXB > "$paths_file"
+GIT_INDEX_FILE="$temporary_index" git diff --binary > "$patch_file"
 
 tracked_path_count=0
 while IFS= read -r -d '' tracked_path; do
@@ -56,7 +74,11 @@ while IFS= read -r -d '' tracked_path; do
     file_sha256="0000000000000000000000000000000000000000000000000000000000000000"
     file_state="deleted"
   fi
-  printf '%s\0%s\0%s\0' "$tracked_path" "$file_state" "$file_sha256" >> "$residue_manifest"
+  index_record="$(git ls-files -v -- "$tracked_path")"
+  [[ -n "$index_record" ]] || fail "tracked dirty path is absent from index"
+  index_flag="${index_record:0:1}"
+  printf '%s\0%s\0%s\0%s\0' \
+    "$tracked_path" "$file_state" "$file_sha256" "$index_flag" >> "$residue_manifest"
 done < "$paths_file"
 
 [[ "$tracked_path_count" -gt 0 ]] || fail "no tracked dirty paths"
@@ -139,6 +161,7 @@ backup_patch_sha256="$(sha256_file "$backup_dir/worktree.patch")"
 [[ "$backup_patch_sha256" == "$patch_sha256" ]] || fail "backup patch verification failed"
 
 while IFS= read -r -d '' tracked_path; do
+  git update-index --no-assume-unchanged --no-skip-worktree -- "$tracked_path"
   git restore --worktree --source=HEAD -- "$tracked_path"
 done < "$paths_file"
 git diff --quiet || fail "tracked worktree remains dirty after restore"

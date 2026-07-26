@@ -24,6 +24,7 @@ function createDirtyFixture(): { repo: string; activeSha: string } {
   git(repo, "add", targetPath);
   git(repo, "commit", "-m", "fixture");
   const activeSha = git(repo, "rev-parse", "HEAD");
+  git(repo, "update-index", "--assume-unchanged", targetPath);
   writeFileSync(join(repo, targetPath), "production residue\n");
   return { repo, activeSha };
 }
@@ -52,6 +53,9 @@ describe("web production worktree recovery", () => {
 
   it("bounds a NUL-safe path inventory and preserves verified backups before restore", () => {
     expect(script).toContain("git diff --name-only -z --diff-filter=ACDMRTUXB");
+    expect(script).toContain('cp -p "$real_index" "$temporary_index"');
+    expect(script).toContain('GIT_INDEX_FILE="$temporary_index"');
+    expect(script).toContain("git update-index --no-assume-unchanged --no-skip-worktree");
     expect(script).toContain('[[ "$tracked_path_count" -le 20 ]]');
     expect(script).toContain('[[ "$tracked_path" != ".."');
     expect(script).toContain('git diff --cached --quiet || fail "staged changes are not allowed"');
@@ -111,6 +115,7 @@ describe("web production worktree recovery", () => {
     expect(readFileSync(join(applied.backup_dir, "original-files", targetPath), "utf8"))
       .toBe("production residue\n");
     expect(git(repo, "status", "--short", "--untracked-files=no")).toBe("");
+    expect(git(repo, "ls-files", "-v", "--", targetPath).startsWith("H ")).toBe(true);
   });
 
   it("inventories and restores multiple tracked paths only when all hashes match", () => {
