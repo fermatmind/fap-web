@@ -1549,9 +1549,20 @@ export function normalizePersonalitySeoPayload(
       seo?.surface?.alternates.en,
       seo?.surface?.alternates["zh-CN"],
     ]);
-  const routeMismatchNoindexRobots = seoHasProjectionRouteMismatch
-    ? firstNoindexRobotsDirective(seo?.meta.robots, seo?.surface?.robotsPolicy)
-    : null;
+  const detailSurface = "projection" in profile ? profile.seoSurface : null;
+  const detailSurfaceHasProjectionRouteMismatch =
+    projectionRouteSlug !== null &&
+    hasPersonalityProjectionRouteMismatch(projectionRouteSlug, [
+      detailSurface?.canonicalUrl,
+      detailSurface?.canonicalPath,
+      detailSurface?.alternates.en,
+      detailSurface?.alternates["zh-CN"],
+    ]);
+  const routeMismatchNoindexRobots = firstNoindexRobotsDirective(
+    seoHasProjectionRouteMismatch ? seo?.meta.robots : null,
+    seoHasProjectionRouteMismatch ? seo?.surface?.robotsPolicy : null,
+    detailSurfaceHasProjectionRouteMismatch ? detailSurface?.robotsPolicy : null
+  );
   const acceptedSeo = seoHasProjectionRouteMismatch ? null : seo;
   const canonicalRouteSlug =
     projectionRouteSlug ??
@@ -1587,15 +1598,6 @@ export function normalizePersonalitySeoPayload(
     compatibility.seoMeta?.robots,
     compatibility.isIndexable ? "index,follow" : "noindex,follow"
   );
-  const detailSurface = "projection" in profile ? profile.seoSurface : null;
-  const detailSurfaceHasProjectionRouteMismatch =
-    projectionRouteSlug !== null &&
-    hasPersonalityProjectionRouteMismatch(projectionRouteSlug, [
-      detailSurface?.canonicalUrl,
-      detailSurface?.canonicalPath,
-      detailSurface?.alternates.en,
-      detailSurface?.alternates["zh-CN"],
-    ]);
   const sourceSurface =
     acceptedSeo?.surface ??
     (detailSurfaceHasProjectionRouteMismatch ? null : detailSurface);

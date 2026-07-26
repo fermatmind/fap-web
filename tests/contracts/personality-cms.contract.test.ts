@@ -627,6 +627,17 @@ describe("personality cms adapter contract", () => {
     expect(normalizedWithIndexableDetailSurface.surface?.indexabilityState).toBe("noindex");
     expect(normalizedWithIndexableDetailSurface.surface?.indexEligible).toBe(false);
     expect(normalizedWithIndexableDetailSurface.surface?.indexState).toBe("noindex");
+
+    const normalizedWithMismatchedDetailNoindex = normalizePersonalitySeoPayload(
+      null,
+      {
+        ...detail!,
+        seoSurface: staleVariantSeoPayload.surface,
+      },
+      "en"
+    );
+    expect(normalizedWithMismatchedDetailNoindex.meta.robots).toBe("noindex,follow");
+    expect(normalizedWithMismatchedDetailNoindex.surface).toBeNull();
   });
 
   it("personality routes consume landing surface instead of inventing local CTA truth", () => {
