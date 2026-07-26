@@ -1591,14 +1591,20 @@ export function normalizePersonalitySeoPayload(
     compatibility.excerpt,
     compatibility.subtitle
   );
-  const robots = fallbackText(
+  const authoritativeNoindexRobots = firstNoindexRobotsDirective(
     routeMismatchNoindexRobots,
+    acceptedSeo?.meta.robots,
+    projectionSeo?.robots,
+    compatibility.seoMeta?.robots,
+    compatibility.isIndexable ? null : "noindex,follow"
+  );
+  const robots = fallbackText(
+    authoritativeNoindexRobots,
     acceptedSeo?.meta.robots,
     projectionSeo?.robots,
     compatibility.seoMeta?.robots,
     compatibility.isIndexable ? "index,follow" : "noindex,follow"
   );
-  const authoritativeNoindexRobots = firstNoindexRobotsDirective(robots);
   const sourceSurface =
     acceptedSeo?.surface ??
     (detailSurfaceHasProjectionRouteMismatch ? null : detailSurface);

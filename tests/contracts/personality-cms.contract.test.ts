@@ -630,7 +630,7 @@ describe("personality cms adapter contract", () => {
     expect(normalizedWithIndexableDetailSurface.surface?.indexState).toBe("noindex");
 
     const normalizedWithNonIndexableProfile = normalizePersonalitySeoPayload(
-      null,
+      normalizedBaseSeo,
       {
         ...detail!,
         isIndexable: false,
