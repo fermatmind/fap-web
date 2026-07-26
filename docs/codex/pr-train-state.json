@@ -51128,9 +51128,9 @@
     "branch": "codex/saep-proposed-web-per02-mbti-base-type-runtime-owner-01",
     "title": "SAEP-PROPOSED-WEB-PER02-MBTI-BASE-TYPE-RUNTIME-OWNER-01: render backend-authoritative MBTI base profiles",
     "depends_on": [],
-    "status": "in_progress",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "18648e81a34e576a6cb61888e8fa912009f8855f",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1808",
     "checks": {
       "manifest_registration": {
         "status": "pass",
@@ -51150,7 +51150,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "PR has not been opened."
+        "evidence": "PR #1808 is open at implementation head 18648e81a34e576a6cb61888e8fa912009f8855f; required checks are running."
       }
     },
     "scope_validation": {
@@ -51180,8 +51180,13 @@
         "at": "2026-07-26T02:25:10Z",
         "status": "local_checks_passed",
         "summary": "All manifest local checks passed with Node 24.14.0. Exact scope contains only the seven declared runtime, adapter, contract, E2E, and train-ledger files; no sitemap, llms, backend/CMS, Search, deployment, or production state changed."
+      },
+      {
+        "at": "2026-07-26T02:26:32Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed implementation commit 18648e81a34e576a6cb61888e8fa912009f8855f and opened PR #1808 against exact base 9f36bdd15ae83eb02911edd96aab3afaea262f10. The PR is mergeable and required checks are running."
       }
     ],
-    "updated_at": "2026-07-26T02:25:10Z"
+    "updated_at": "2026-07-26T02:26:32Z"
   }
 }
