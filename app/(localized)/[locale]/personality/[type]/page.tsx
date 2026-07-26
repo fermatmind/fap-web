@@ -1252,6 +1252,11 @@ function PersonalityComparisonPage({
   const comparisonFaqItems = buildVisibleComparisonFaqItems(comparison);
   const secondaryAnswerSurface = buildComparisonSecondaryAnswerSurface(comparison);
   const nextStepBlocks = comparison.answerSurface?.nextStepBlocks ?? [];
+  const nextReadingSections = isCrossTypeComparison(comparison)
+    ? comparison.crossTypeSections.filter(
+        (section) => section.id === "next_reading" && section.body.length > 0
+      )
+    : [];
   const readerLinks = buildComparisonReaderLinks(comparison, locale, Boolean(quickAnswerBody), {
     hasQuickJudgment: quickJudgmentRows.length > 0,
     hasMisreadRisks: misreadCards.length > 0,
@@ -1377,6 +1382,27 @@ function PersonalityComparisonPage({
           {/* Contract marker: comparison pages must not use frontend editorial fallback content. */}
 
           <ComparisonVisibleFaqSection items={comparisonFaqItems} locale={locale} />
+
+          {nextReadingSections.map((section) => (
+            <section
+              key={`cross-${section.id}`}
+              className="rounded-[1.25rem] border border-[rgba(16,24,40,0.10)] bg-white p-5 shadow-[0_12px_35px_rgba(15,23,42,0.05)]"
+              data-testid="personality-cross-type-next-reading"
+              data-authority-source="comparison_public_projection_v1"
+            >
+              <h2 className="m-0 text-xl font-semibold text-[var(--fm-text)]">{section.title}</h2>
+              <div className="mt-3 space-y-3">
+                {section.body.map((paragraph, index) => (
+                  <p
+                    key={`${section.id}-${index}`}
+                    className="m-0 text-sm leading-7 text-[var(--fm-text-muted)]"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </section>
+          ))}
 
           <CrossTypeInternalLinks links={comparison.crossTypeInternalLinks} locale={locale} />
         </section>

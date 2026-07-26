@@ -162,6 +162,11 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
               title: "工作方式差异",
               body: ["INTJ 更重视路径推进，INTP 更重视前提检验。"],
             },
+            {
+              id: "next_reading",
+              title: "下一步阅读",
+              body: ["继续查看 INTJ、INTP 的单独页面、A/T 页面和 MBTI 测试页。"],
+            },
           ],
           faq: [{ question: "INTJ 和 INTP 最大区别是什么？", answer: "一个偏收敛，一个偏探索。" }],
           internal_links: [{ label: "INTJ 人格", href: "/zh/personality/intj", reason: "继续查看 INTJ 画像" }],
@@ -200,6 +205,10 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
         INTP: "先问概念是否自洽",
       },
     ]);
+    expect(comparison?.crossTypeSections.find((section) => section.id === "next_reading")).toMatchObject({
+      title: "下一步阅读",
+      body: ["继续查看 INTJ、INTP 的单独页面、A/T 页面和 MBTI 测试页。"],
+    });
     expect(comparison?.crossTypeFaq[0]?.question).toBe("INTJ 和 INTP 最大区别是什么？");
     expect(comparison?.crossTypeInternalLinks[0]?.href).toBe("/zh/personality/intj");
     expect(comparison?.claimBoundary).toBe("这是人格线索对比，不是诊断或职业结论。");
@@ -373,6 +382,9 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     expect(pageSource).toContain("row[leftKey]");
     expect(pageSource).toContain("row[rightKey]");
     expect(pageSource).toContain("buildVisibleComparisonFaqItems(comparison)");
+    expect(pageSource).toContain('section.id === "next_reading"');
+    expect(pageSource).toContain('data-testid="personality-cross-type-next-reading"');
+    expect(pageSource).toContain("section.body.map((paragraph, index)");
     expect(pageSource).toContain("comparison.answerSurface?.nextStepBlocks");
     expect(pageSource).toContain("hideSummaryBlocks");
     expect(pageSource).toContain("buildComparisonSecondaryAnswerSurface(comparison)");
