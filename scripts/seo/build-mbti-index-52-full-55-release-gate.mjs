@@ -729,9 +729,9 @@ function runContractProbe(name) {
   }
   if (name === "answer-surface-placeholder-collections") {
     const surface = {
-      summary_blocks: [{}],
+      summary_blocks: [{ title: "只有标题的摘要" }],
       faq_blocks: [{ question: "问题", answer: "回答" }],
-      compare_blocks: [{}],
+      compare_blocks: [{ title: "只有标题的对比" }],
       next_step_blocks: [{ title: "下一步", body: "行动建议" }],
     };
     if (requiredAnswerSurfaceCollectionsPresent(surface, "comparison")) {
@@ -1715,6 +1715,12 @@ function requiredAnswerSurfaceCollectionsPresent(surface, kind) {
           || normalizeText(block?.body)
           || normalizePublicHref(block?.href),
         );
+      }
+      if (kind === "comparison" && key === "summary_blocks") {
+        return Boolean(normalizeText(block?.body));
+      }
+      if (kind === "comparison" && key === "compare_blocks") {
+        return Boolean(normalizeText(block?.title) && normalizeText(block?.body));
       }
       return Boolean(normalizeText(block?.title) || normalizeText(block?.body));
     });
