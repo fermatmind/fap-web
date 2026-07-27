@@ -57,6 +57,12 @@ describe("PARITY-06 llms-full complete artifact stability", () => {
       const incomplete = minimalLlmsFullText(REQUIRED_TRUST_PATHS.filter((path) => path !== missingPath));
       expect(isCompleteLlmsFullText(incomplete, SITE_URL)).toBe(false);
     }
+
+    const prefixImpostor = minimalLlmsFullText([
+      ...REQUIRED_TRUST_PATHS.filter((path) => path !== "/en/science"),
+      "/en/science-v2",
+    ]);
+    expect(isCompleteLlmsFullText(prefixImpostor, SITE_URL)).toBe(false);
   });
 
   it("does not replace the shared artifact with a partial Trust cohort", async () => {

@@ -710,6 +710,14 @@ function hasClosedLlmsFullCitationSet(text: string, siteUrl: string): boolean {
   return true;
 }
 
+function hasRequiredTrustContentPageCohort(text: string, siteUrl: string): boolean {
+  const entryUrls = llmsFullEntryUrlSet(text, siteUrl);
+
+  return LLMS_FULL_REQUIRED_TRUST_CONTENT_PAGE_PATHS.every((path) =>
+    entryUrls.has(toCanonical(siteUrl, path))
+  );
+}
+
 function hasExactMbtiPersonalityAuthorityCohort(
   text: string,
   siteUrl: string,
@@ -761,7 +769,7 @@ export function isCompleteLlmsFullText(
 
   if (
     shouldRequireCompleteTrustContentPageCohort()
-    && !LLMS_FULL_REQUIRED_TRUST_CONTENT_PAGE_PATHS.every((path) => text.includes(`${siteUrl}${path}`))
+    && !hasRequiredTrustContentPageCohort(text, siteUrl)
   ) {
     return false;
   }

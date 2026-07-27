@@ -51466,9 +51466,9 @@
         "status": "pending",
         "evidence": null
       },
-      "codex_review": {
-        "status": "pending",
-        "evidence": null
+    "codex_review": {
+      "status": "repair_local_checks_passed",
+      "evidence": "Exact-head review found that substring matching could let a prefix route such as /en/science-v2 satisfy the required /en/science gate. The same-scope repair parses canonical - URL: entries and requires exact set membership, with a negative prefix-impostor contract. Focused and complete contracts, lint, spacing, typecheck, both freeze suites, and the Node 24 production build pass; a new exact-head review is required after push."
       }
     },
     "scope_validation": {
@@ -51504,12 +51504,22 @@
         "status": "committed",
         "summary": "Explicitly staged the exact five authorized paths, passed cached diff and scope validation, and committed the locally verified implementation as 3aca734f7f5895716314245988db86019c8c7a7d. This following ledger-only commit binds that implementation SHA before push."
       },
-      {
-        "at": "2026-07-27T03:17:35Z",
-        "status": "github_checks_pending",
-        "summary": "Pushed the exact branch and opened PR #1821 with the manifest title and required what, why, validation, deferred-items, and repository-rule-impact sections. GitHub required checks and exact-head review are pending; no deployment or production cache warm occurred."
-      }
-    ],
-    "updated_at": "2026-07-27T03:17:35Z"
-  }
+    {
+      "at": "2026-07-27T03:17:35Z",
+      "status": "github_checks_pending",
+      "summary": "Pushed the exact branch and opened PR #1821 with the manifest title and required what, why, validation, deferred-items, and repository-rule-impact sections. GitHub required checks and exact-head review are pending; no deployment or production cache warm occurred."
+    },
+    {
+      "at": "2026-07-27T03:31:43Z",
+      "status": "review_fix_in_progress",
+      "summary": "Exact-head review identified a same-scope prefix-collision weakness in the seven-route Trust completeness gate. Replaced substring matching with canonical parsed entry-set membership and added a /en/science-v2 negative contract. Focused checks, lint, spacing, typecheck, and the complete 772-file / 4479-test contract suite pass; freeze and build revalidation remain guarded behind another running FermatMind heavy validation process."
+    },
+    {
+      "at": "2026-07-27T03:34:45Z",
+      "status": "review_fix_local_checks_passed",
+      "summary": "After the concurrent heavy validation ended, the exact-route review repair passed Big Five freeze 29/29, Enneagram freeze 24/24, and the Node 24 production build 206/206. YAML/JSON parsing, diff checks, and the exact five-file aggregate PR scope also pass. The repair is ready for explicit staging and push to a new exact head."
+    }
+  ],
+  "updated_at": "2026-07-27T03:34:45Z"
+}
 }
