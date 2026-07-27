@@ -154,6 +154,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("normalizePublicHref(anchor?.href) === href");
     expect(source).toContain("runtimeComparisonSections(payload)");
     expect(source).toContain("profileSeoAuthorityPresent");
+    expect(source).toContain("pageFacts?.title === normalizeText(meta?.title)");
+    expect(source).toContain('link[rel~="alternate"][hreflang]');
     expect(source).toContain("/seo?locale=zh-CN&org_id=0&scale_code=MBTI");
     expect(source).toContain("writeFinalValidationHold(runStartedAt);");
     expect(source.indexOf("writeFinalValidationHold(runStartedAt);"))

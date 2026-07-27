@@ -413,8 +413,21 @@ function documentFacts(html) {
     href: node.getAttribute("href") ?? "",
     text: normalizeText(node.textContent),
   }));
+  const alternates = Object.fromEntries(
+    [...document.querySelectorAll('link[rel~="alternate"][hreflang]')]
+      .map((node) => [
+        node.getAttribute("hreflang") ?? "",
+        node.getAttribute("href") ?? "",
+      ])
+      .filter(([locale, href]) => locale && href),
+  );
   return {
+    title: normalizeText(document.title),
+    description: normalizeText(
+      document.querySelector('meta[name="description"]')?.getAttribute("content"),
+    ),
     canonical: document.querySelector('link[rel~="canonical"]')?.getAttribute("href") ?? "",
+    alternates,
     robots: (document.querySelector('meta[name="robots"]')?.getAttribute("content") ?? "").toLowerCase(),
     visibleText: normalizeText(visibleBody?.textContent ?? ""),
     visibleAnchors,
@@ -758,7 +771,7 @@ function profileReaderVisibleSections(payload) {
   return [...leadingSections, ...v85Sections];
 }
 
-function profileSeoAuthorityPresent(seoPayload, canonical) {
+function profileSeoAuthorityPresent(seoPayload, canonical, pageFacts) {
   if (!seoPayload || typeof seoPayload !== "object") return false;
   const meta = seoPayload?.meta ?? {};
   const robots = normalizeText(meta?.robots).toLowerCase();
@@ -778,10 +791,15 @@ function profileSeoAuthorityPresent(seoPayload, canonical) {
     && aboutPageNodes.length > 0
     && aboutPageNodes.every(({ id, url }) => (
       url === canonical || id === canonical || id === `${canonical}#webpage`
-    ));
+    ))
+    && pageFacts?.title === normalizeText(meta?.title)
+    && pageFacts?.description === normalizeText(meta?.description)
+    && pageFacts?.canonical === meta?.canonical
+    && pageFacts?.alternates?.["zh-CN"] === meta?.alternates?.["zh-CN"]
+    && pageFacts?.alternates?.en === meta?.alternates?.en;
 }
 
-function authorityFacts(payload, target, canonical, seoPayload = null) {
+function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts = null) {
   const sections = apiSections(payload, target.kind);
   if (target.kind === "profile") {
     const profile = payload?.profile ?? {};
@@ -825,13 +843,13 @@ function authorityFacts(payload, target, canonical, seoPayload = null) {
       && nonemptyString(projection?._meta?.schema_version)
       && Array.isArray(projection.sections)
       && projection.sections.length > 0
-      && profileSeoAuthorityPresent(seoPayload, canonical);
+      && profileSeoAuthorityPresent(seoPayload, canonical, pageFacts);
     return {
       present: profile.status === "published"
         && profile.is_public === true
         && profile.is_indexable === true
         && payload?.seo_meta?.canonical_url === canonical
-        && profileSeoAuthorityPresent(seoPayload, canonical),
+        && profileSeoAuthorityPresent(seoPayload, canonical, pageFacts),
       revisionPresent,
       sourceRevisionSha256: sha256(revision),
       authorityFingerprintSha256: sha256(authority),
@@ -1118,7 +1136,7 @@ async function worker() {
       const structured = structuredFacts(facts.jsonld);
       const faq = apiFaq(payload, target.kind);
       const schemaFaq = new Map(structured.faq.map((row) => [row.question, row.answer]));
-      const authority = authorityFacts(payload, target, canonical, seoPayload);
+      const authority = authorityFacts(payload, target, canonical, seoPayload, facts);
       const sectionCount = apiSections(payload, target.kind).length;
       const checks = {
         public_api: payload?.ok === true,
