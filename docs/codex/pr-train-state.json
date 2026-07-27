@@ -51438,9 +51438,9 @@
     "branch": "codex/saep-proposed-web-parity06-llms-full-complete-artifact-stability-01",
     "title": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-COMPLETE-ARTIFACT-STABILITY-01: restore complete Trust ContentPage enumeration in llms-full artifacts",
     "depends_on": [],
-    "status": "local_checks_passed",
+    "status": "github_checks_pending",
     "commit_sha": "3aca734f7f5895716314245988db86019c8c7a7d",
-    "pr_url": null,
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1821",
     "checks": {
       "manifest_registration": {
         "status": "pass",
@@ -51503,8 +51503,13 @@
         "at": "2026-07-27T03:16:37Z",
         "status": "committed",
         "summary": "Explicitly staged the exact five authorized paths, passed cached diff and scope validation, and committed the locally verified implementation as 3aca734f7f5895716314245988db86019c8c7a7d. This following ledger-only commit binds that implementation SHA before push."
+      },
+      {
+        "at": "2026-07-27T03:17:35Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed the exact branch and opened PR #1821 with the manifest title and required what, why, validation, deferred-items, and repository-rule-impact sections. GitHub required checks and exact-head review are pending; no deployment or production cache warm occurred."
       }
     ],
-    "updated_at": "2026-07-27T03:16:37Z"
+    "updated_at": "2026-07-27T03:17:35Z"
   }
 }
