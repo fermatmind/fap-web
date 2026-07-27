@@ -1437,6 +1437,11 @@ export async function generateMetadata({
     const description = comparisonSeoDescription(comparison);
     const robotsPolicy = comparison.seoSurface?.robotsPolicy ?? comparison.seoMeta?.robots;
     const noindex = !comparison.isIndexable || shouldNoindex(robotsPolicy);
+    const authoritativeLanguageAlternates = {
+      ...(comparison.alternates.en ? { en: comparison.alternates.en } : {}),
+      ...(comparison.alternates["zh-CN"] ? { "zh-CN": comparison.alternates["zh-CN"] } : {}),
+      "x-default": canonicalUrl("/"),
+    };
     const metadata = buildPageMetadata({
       locale,
       pathname: canonicalPath,
@@ -1446,9 +1451,10 @@ export async function generateMetadata({
       seoSurface: comparison.seoSurface,
       noindex: !comparison.seoSurface ? noindex : undefined,
       noindexFollow: robotsAllowsFollow(robotsPolicy),
+      omitLanguageAlternates: true,
       alternatesByLocale: {
-        en: comparison.alternates.en ?? buildComparisonCanonicalPath(comparison.comparisonSlug, "en"),
-        zh: comparison.alternates["zh-CN"] ?? buildComparisonCanonicalPath(comparison.comparisonSlug, "zh"),
+        en: comparison.alternates.en ?? canonicalPath,
+        zh: comparison.alternates["zh-CN"] ?? canonicalPath,
         xDefault: "/",
       },
     });
@@ -1466,6 +1472,7 @@ export async function generateMetadata({
       alternates: {
         ...metadata.alternates,
         canonical,
+        languages: authoritativeLanguageAlternates,
       },
       openGraph: {
         type: "article",

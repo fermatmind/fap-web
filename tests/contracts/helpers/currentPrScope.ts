@@ -6495,6 +6495,14 @@ export function isSeoCmsDraftPackageContract01AllowedFile(file: string): boolean
 }
 
 export function isPersonalityComparisonV1FromAssetsAllowedFile(file: string): boolean {
+  if (CURRENT_BRANCH === "codex/mbti-index52-english-alternate-hold") {
+    return new Set([
+      "app/(localized)/[locale]/personality/[type]/page.tsx",
+      "tests/contracts/helpers/currentPrScope.ts",
+      "tests/contracts/personality-comparison-pages.contract.test.tsx",
+    ]).has(file);
+  }
+
   if (CURRENT_BRANCH === "codex/mbti-index-52-next-reading-repair") {
     return new Set([
       "app/(localized)/[locale]/personality/[type]/page.tsx",
