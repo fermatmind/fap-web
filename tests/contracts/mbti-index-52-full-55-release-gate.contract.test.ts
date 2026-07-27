@@ -21,7 +21,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     })).toThrow();
   });
 
-  it.each(["section", "fingerprint", "membership"])("rejects %s evidence failure", (probe) => {
+  it.each(["section", "fingerprint", "revision", "membership"])("rejects %s evidence failure", (probe) => {
     expect(() => execFileSync("node", [script, `--contract-probe=${probe}`], {
       encoding: "utf8",
       stdio: "pipe",
@@ -97,6 +97,16 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain('? "mbti-comp-runtime-46-intp-revision"');
     expect(source).toContain(': "mbti_cms_import_40_at_comparison_draft_v1"');
     expect(source).toContain("visibleBodyComplete");
+    expect(source).toContain("profileSectionVisible");
+    expect(source).toContain("profileReaderVisibleSections");
+    expect(source).toContain("PROFILE_V85_VISIBLE_SECTION_KEYS");
+    expect(source).toContain("PROFILE_LEADING_PROJECTION_SECTION_KEYS");
+    expect(source).toContain("comparisonSectionVisible");
+    expect(source).toContain("sections.length > 0 && sections.every");
+    expect(source).not.toContain("visibleText.length >= 1_500");
+    expect(source).toContain("authority.revisionPresent === true");
+    expect(source).toContain("RELEASED_CROSS_SOURCE_SHA256");
+    expect(source).toContain("'script, style, template, noscript, [hidden], [aria-hidden=\"true\"], input[type=\"hidden\"]'");
     expect(source).toContain("authorityFingerprintSha256");
     expect(source).toContain("sourceRevisionSha256");
     expect(source).toContain("const ARTIFACT_PATHS = Object.freeze");

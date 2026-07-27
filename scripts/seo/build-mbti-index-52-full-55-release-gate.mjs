@@ -46,6 +46,11 @@ const RELEASED_CROSS_TYPE = Object.freeze([
   "estj-vs-entj",
   "isfp-vs-infp",
 ]);
+const RELEASED_CROSS_SOURCE_SHA256 = Object.freeze({
+  "enfp-vs-entp": "a7b14d279daa3d2ccaaffa9442b5254f8e6f75e1ea0d3bf7a5c08817b912af7e",
+  "estj-vs-entj": "b73514962b2d72be47c9004f2b5e5fb7572ea82f918c2a0f5a3374e15b2f36cc",
+  "isfp-vs-infp": "41e62902dae206acc8735b19ff7e698fd51b5a609d2aeb34bb02556867399a65",
+});
 const EXPECTED_CROSS_SECTION_COUNT = Object.freeze({
   "intj-vs-intp": 6,
   "entj-vs-intj": 6,
@@ -61,6 +66,24 @@ const PROFILE_SECTION_COUNT_OVERRIDES = Object.freeze({
   "istp-a": 34,
   "isfp-a": 34,
 });
+const PROFILE_V85_VISIBLE_SECTION_KEYS = Object.freeze([
+  "v8_5_thirty_second_overview",
+  "v8_5_strengths_watchouts",
+  "v8_5_module_01_core_reading",
+  "v8_5_module_02_judgment_style",
+  "v8_5_module_03_agency_boundary",
+  "v8_5_module_04_standards_drive",
+  "v8_5_module_05_learning_revision",
+  "v8_5_module_06_stress_blindspot",
+  "v8_5_module_07_social_feedback",
+  "v8_5_module_08_career_workflow",
+  "v8_5_module_09_relationships",
+  "v8_5_module_10_faq_boundary",
+]);
+const PROFILE_LEADING_PROJECTION_SECTION_KEYS = Object.freeze([
+  "letters_intro",
+  "trait_overview",
+]);
 const CHECK_KEYS = Object.freeze([
   "public_api",
   "authority",
@@ -142,6 +165,7 @@ function runContractProbe(name) {
     };
     if (name === "section") record.checks.section_completeness = false;
     else if (name === "fingerprint") record.authority_fingerprint_sha256 = "";
+    else if (name === "revision") record.checks.authority_fingerprint = false;
     else if (name === "membership") record.checks.llms_full = false;
     else throw new Error("Unknown MBTI-INDEX-52 contract probe");
     validateRecordEvidence(record);
@@ -261,10 +285,14 @@ function documentFacts(html) {
       return { __invalid_jsonld: true };
     }
   });
+  const visibleBody = document.body?.cloneNode(true);
+  visibleBody?.querySelectorAll(
+    'script, style, template, noscript, [hidden], [aria-hidden="true"], input[type="hidden"]',
+  ).forEach((node) => node.remove());
   return {
     canonical: document.querySelector('link[rel~="canonical"]')?.getAttribute("href") ?? "",
     robots: (document.querySelector('meta[name="robots"]')?.getAttribute("content") ?? "").toLowerCase(),
-    visibleText: normalizeText(document.body?.textContent ?? ""),
+    visibleText: normalizeText(visibleBody?.textContent ?? ""),
     jsonld,
   };
 }
@@ -312,6 +340,70 @@ function apiSections(payload, kind) {
   return Array.isArray(rows) ? rows : [];
 }
 
+function nonemptyString(value) {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+function validSha256(value) {
+  return typeof value === "string" && /^[0-9a-f]{64}$/.test(value);
+}
+
+function collectTextLeaves(value, results = []) {
+  if (typeof value === "string") {
+    const normalized = normalizeText(value)
+      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+      .replace(/[*_~`#>|]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (normalized) results.push(normalized);
+  } else if (Array.isArray(value)) {
+    value.forEach((item) => collectTextLeaves(item, results));
+  } else if (value && typeof value === "object") {
+    Object.values(value).forEach((item) => collectTextLeaves(item, results));
+  }
+  return results;
+}
+
+function profileSectionVisible(section, visibleText) {
+  const contentCandidates = collectTextLeaves({
+    body_md: section?.body_md,
+    body_html: section?.body_html,
+    payload: section?.payload_json ?? section?.payload,
+  }).filter((value) => value.length >= 8 && !/^https?:\/\//i.test(value));
+  const fallbackTitle = normalizeText(section?.title);
+  const sectionKey = section?.section_key ?? section?.key;
+  const candidates = contentCandidates.length ? contentCandidates : [fallbackTitle];
+  return nonemptyString(sectionKey)
+    && candidates.some((value) => {
+      const needle = value.slice(0, 120).trim();
+      return needle.length >= 2 && visibleText.includes(needle);
+    });
+}
+
+function comparisonSectionVisible(section, visibleText) {
+  const title = normalizeText(section?.title);
+  if (title.length < 2 || !visibleText.includes(title)) return false;
+  const expectedValues = [
+    ...(Array.isArray(section?.body) ? section.body : [section?.body]),
+    ...(Array.isArray(section?.rows) ? section.rows.flatMap((row) => Object.values(row ?? {})) : []),
+  ].flatMap((value) => collectTextLeaves(value));
+  return expectedValues.length > 0 && expectedValues.every((value) => visibleText.includes(value));
+}
+
+function profileReaderVisibleSections(payload) {
+  const rawSections = Array.isArray(payload?.sections) ? payload.sections : [];
+  const projectionSections = Array.isArray(payload?.mbti_public_projection_v1?.sections)
+    ? payload.mbti_public_projection_v1.sections
+    : [];
+  const v85Sections = rawSections.filter((section) => (
+    PROFILE_V85_VISIBLE_SECTION_KEYS.includes(section?.section_key)
+  ));
+  const leadingSections = projectionSections.filter((section) => (
+    PROFILE_LEADING_PROJECTION_SECTION_KEYS.includes(section?.key)
+  ));
+  return [...leadingSections, ...v85Sections];
+}
+
 function authorityFacts(payload, target, canonical) {
   const sections = apiSections(payload, target.kind);
   if (target.kind === "profile") {
@@ -335,11 +427,18 @@ function authorityFacts(payload, target, canonical) {
       canonical: payload?.seo_meta?.canonical_url,
       robots: payload?.seo_meta?.robots,
     };
+    const revisionPresent = Number.isInteger(profile.id)
+      && profile.id > 0
+      && profile.slug === target.slug.split("-")[0]
+      && nonemptyString(profile.schema_version)
+      && nonemptyString(profile.published_at)
+      && nonemptyString(profile.updated_at);
     return {
       present: profile.status === "published"
         && profile.is_public === true
         && profile.is_indexable === true
         && payload?.seo_meta?.canonical_url === canonical,
+      revisionPresent,
       sourceRevisionSha256: sha256(revision),
       authorityFingerprintSha256: sha256(authority),
     };
@@ -347,19 +446,27 @@ function authorityFacts(payload, target, canonical) {
 
   const comparison = payload?.comparison ?? {};
   if (target.kind === "at_comparison") {
+    const expectedOverlaySource = target.slug === "intp-a-vs-intp-t"
+      ? "mbti-comp-runtime-46-intp-revision"
+      : "mbti_cms_import_40_at_comparison_draft_v1";
+    const expectedBaseType = target.slug.slice(0, 4).toUpperCase();
     const revision = {
       contract: comparison.comparison_contract_version,
       overlay_source: comparison.overlay_source,
       source_refs: comparison.source_refs,
     };
+    const revisionPresent = comparison.comparison_contract_version === "mbti.at_comparison.v1.mbti64_overlay"
+      && comparison.overlay_source?.source === expectedOverlaySource
+      && nonemptyString(comparison.overlay_source?.snapshot_key)
+      && comparison.overlay_source?.base_type_code === expectedBaseType
+      && Array.isArray(comparison.source_refs)
+      && comparison.source_refs.length > 0
+      && comparison.source_refs.includes(comparison.overlay_source.snapshot_key);
     return {
       present: comparison.comparison_contract_version === "mbti.at_comparison.v1.mbti64_overlay"
-        && comparison.overlay_source?.source === (
-          target.slug === "intp-a-vs-intp-t"
-            ? "mbti-comp-runtime-46-intp-revision"
-            : "mbti_cms_import_40_at_comparison_draft_v1"
-        )
+        && comparison.overlay_source?.source === expectedOverlaySource
         && comparison.canonical_url === canonical,
+      revisionPresent,
       sourceRevisionSha256: sha256(revision),
       authorityFingerprintSha256: sha256({
         comparison_slug: comparison.comparison_slug,
@@ -372,6 +479,13 @@ function authorityFacts(payload, target, canonical) {
     };
   }
 
+  const approvedSourceSha256 = RELEASED_CROSS_SOURCE_SHA256[target.slug];
+  const revisionPresent = validSha256(comparison.source_sha256)
+    && (!approvedSourceSha256 || comparison.source_sha256 === approvedSourceSha256)
+    && nonemptyString(comparison.indexability_status)
+    && comparison.publish_status === "published"
+    && Array.isArray(comparison.source_refs)
+    && comparison.source_refs.length > 0;
   return {
     present: comparison.authority_source === "database"
       && comparison.publish_status === "published"
@@ -381,10 +495,12 @@ function authorityFacts(payload, target, canonical) {
       && comparison.sitemap_eligible === true
       && comparison.llms_eligible === true
       && comparison.canonical_url === canonical,
+    revisionPresent,
     sourceRevisionSha256: sha256({
       source_sha256: comparison.source_sha256,
       indexability_status: comparison.indexability_status,
       publish_status: comparison.publish_status,
+      source_refs: comparison.source_refs,
     }),
     authorityFingerprintSha256: sha256({
       source_sha256: comparison.source_sha256,
@@ -410,12 +526,18 @@ function jsonLdValid(kind, structured) {
 }
 
 function visibleBodyComplete(payload, target, visibleText) {
-  if (target.kind === "profile") return visibleText.length >= 5_000;
   const sections = apiSections(payload, target.kind);
-  return visibleText.length >= 1_500 && sections.every((section) => {
-    const title = normalizeText(section?.title);
-    return title.length >= 2 && visibleText.includes(title);
-  });
+  if (target.kind === "profile") {
+    const readerVisibleSections = profileReaderVisibleSections(payload);
+    const expectedReaderVisibleCount = PROFILE_LEADING_PROJECTION_SECTION_KEYS.length
+      + PROFILE_V85_VISIBLE_SECTION_KEYS.length;
+    return visibleText.length >= 5_000
+      && readerVisibleSections.length === expectedReaderVisibleCount
+      && readerVisibleSections.every((section) => profileSectionVisible(section, visibleText));
+  }
+  return sections.length > 0 && sections.every((section) => (
+    comparisonSectionVisible(section, visibleText)
+  ));
 }
 
 function feedUrls(body) {
@@ -476,7 +598,8 @@ async function worker() {
         public_api: payload?.ok === true,
         authority: authority.present,
         authority_fingerprint: /^[0-9a-f]{64}$/.test(authority.authorityFingerprintSha256)
-          && /^[0-9a-f]{64}$/.test(authority.sourceRevisionSha256),
+          && /^[0-9a-f]{64}$/.test(authority.sourceRevisionSha256)
+          && authority.revisionPresent === true,
         visible_body: visibleBodyComplete(payload, target, facts.visibleText),
         section_completeness: sectionCount === target.expectedSectionCount,
         faq: faq.length > 0 && faq.every((row) => (

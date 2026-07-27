@@ -420,7 +420,7 @@
     "depends_on": [
       "CAREER-DETAIL-READ-MODEL-10K-01"
     ],
-    "status": "ready_to_merge",
+    "status": "github_checks_pending",
     "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
@@ -51533,7 +51533,7 @@
     "updated_at": "2026-07-27T03:40:35Z"
   },
   "MBTI-INDEX-52": {
-    "status": "github_checks_pending",
+    "status": "local_checks_passed",
     "repo": "fap-web",
     "branch": "codex/mbti-index-52",
     "depends_on": [
@@ -51554,25 +51554,25 @@
       },
       "production_read_only_runs": {
         "status": "passed",
-        "evidence": "Two independent, consecutive production read-only runs passed public API, backend authority, authority fingerprints, visible body, exact section completeness, FAQ, JSON-LD, canonical, robots/indexability, sitemap, llms, and llms-full at 55/55 with zero API timeouts and zero private URL leaks. Both runs have evidence signature eadcc75a5735e2df802d1a534b995a1259580bf10920a94705a392b9cc05b334 and preserve the exact 55-URL cohort."
+        "evidence": "After exact fap-web production deploy run 30228413313 activated cc568495b81d0624a3e04392b583f525126cb200, two independent, consecutive production read-only runs passed public API, backend authority, authority fingerprints, visible body, exact section completeness, FAQ, JSON-LD, canonical, robots/indexability, sitemap, llms, and llms-full at 55/55 with zero API timeouts and zero private URL leaks. Both runs have evidence signature 3ad6e76f1d4660213d8e0d73c20974a383983c910e8387dce7198448bd8af7f5 and preserve the exact 55-URL cohort."
       },
       "required_local_checks": {
         "status": "passed",
-        "evidence": "On Node 24.14.0: focused INDEX-52 contracts passed 9/9, full-repository lint passed with zero warnings, typecheck passed, all four complete contract shards passed 772 files / 4,482 tests, and the explicit production API build compiled and generated 206/206 static pages. YAML/JSON parsing, CSV formula-injection validation, git diff --check, and exact nine-path scope validation passed."
+        "evidence": "On Node 24.14.0: focused INDEX-52 contracts passed 10/10, full-repository lint passed with zero warnings, typecheck passed, all four complete contract shards passed 772 files / 4,485 tests, and the explicit production API build compiled and generated 206/206 static pages. YAML/JSON parsing, CSV formula-injection validation, git diff --check, and exact eight-path scope validation passed."
       },
       "changed_file_scope": {
         "status": "passed",
-        "evidence": "All nine changed or untracked paths match the MBTI-INDEX-52 allowlist: two PR-train metadata files, five read-only evidence artifacts, one builder, and one focused contract."
+        "evidence": "All eight changed paths match the MBTI-INDEX-52 allowlist: two PR-train metadata files, four read-only evidence artifacts, one builder, and one focused contract."
       },
       "github_required_checks": {
-        "status": "passed",
-        "evidence": "PR #1816 exact head d188e6d398dbe25cc9f361ce6103f5e0bb00a5a4 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE."
+        "status": "retry_pending",
+        "evidence": "PR #1816 heads d188e6d398dbe25cc9f361ce6103f5e0bb00a5a4 and 7f5b8f286d7c1a3a62ec326bb4fd7101cb2cd940 passed all required and security checks. Six review threads then identified four current-scope gate weaknesses and two ledger status mismatches; a scoped review fix and fresh checks are required before merge."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51617,12 +51617,22 @@
         "status": "github_checks_pending",
         "summary": "Committed the exact nine-path INDEX-52 scope at 6da071130975702ba4eeb2cf9cf68ed6a0f19d36, pushed codex/mbti-index-52, and opened PR #1816. All local manifest checks passed before push; GitHub required and security checks are pending."
       },
-      {
-        "at": "2026-07-26T15:37:06Z",
-        "status": "ready_to_merge",
-        "summary": "PR #1816 exact head d188e6d398dbe25cc9f361ce6103f5e0bb00a5a4 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE; exact changed-file scope remains nine authorized INDEX-52 paths."
-      }
-    ],
-    "updated_at": "2026-07-26T15:37:06Z"
-  }
+    {
+      "at": "2026-07-26T15:37:06Z",
+      "status": "ready_to_merge",
+      "summary": "PR #1816 exact head d188e6d398dbe25cc9f361ce6103f5e0bb00a5a4 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE; exact changed-file scope remains nine authorized INDEX-52 paths."
+    },
+    {
+      "at": "2026-07-27T01:07:53Z",
+      "status": "production_readback_passed",
+      "summary": "The exact authorized fap-web production deploy run 30228413313 activated merged main SHA cc568495b81d0624a3e04392b583f525126cb200 and public /revision confirmed that SHA. Independent readback proved all authoritative cross-comparison section titles, bodies, structured rows, revision markers, and next_reading values visible. Strict run 1 spanned 2026-07-27T01:02:03.343Z through 2026-07-27T01:04:46.788Z; strict run 2 spanned 2026-07-27T01:04:56.634Z through 2026-07-27T01:07:53.401Z. Both passed all twelve gates at 55/55 with identical evidence signature 3ad6e76f1d4660213d8e0d73c20974a383983c910e8387dce7198448bd8af7f5, zero API timeouts, zero private URL leaks, and final decision ALLOW_MBTI_55_COMPLETE. No CMS, database, publication, indexability, sitemap, llms, or search mutation occurred."
+    },
+    {
+      "at": "2026-07-27T01:14:39Z",
+      "status": "local_checks_passed",
+      "summary": "Rebased the INDEX-52 review fixes onto exact origin/main cc568495b81d0624a3e04392b583f525126cb200 and addressed all six review findings inside the authorized scope. On Node 24.14.0, focused INDEX-52 contracts pass 10/10, full lint passes with zero warnings, typecheck passes, four complete contract shards pass 772 files / 4,485 tests, and the production API build completes 206/206 static pages. YAML/JSON parsing, CSV formula safety, git diff --check, and exact eight-path scope validation pass. Fresh GitHub required and security checks remain pending until the review-fix commit is pushed."
+    }
+  ],
+  "updated_at": "2026-07-27T01:14:39Z"
+}
 }
