@@ -420,7 +420,7 @@
     "depends_on": [
       "CAREER-DETAIL-READ-MODEL-10K-01"
     ],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
@@ -51565,14 +51565,14 @@
         "evidence": "After rebase, the complete PR remains exactly nine allowed INDEX-52 paths: two PR-train metadata files, five read-only evidence artifacts, one builder, and one focused contract. Latest-main PARITY-06 runtime and ledger files are inherited from the base and absent from the PR diff; unrelated IQ and Career statuses match origin/main."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "Implementation and evidence head 61c93ec4f6bf38c6f4dae269e6e2c979c5860956 is locally complete. This ledger tail records the production readback and local-check transition; PR #1816 must rerun every required and security check on the new exact head before merge."
+        "status": "passed",
+        "evidence": "PR #1816 exact head a03b31007fa6bb4342f3a74129ca4e2033f8ac27 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE; exact-head Codex review found no major issues and zero review threads remain unresolved."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51761,8 +51761,13 @@
         "at": "2026-07-27T16:38:23Z",
         "status": "github_checks_pending",
         "summary": "Resolved all four exact-head review findings without weakening the release gate: new locks persist and verify PID plus process-start identity, profile/comparison HTML must expose exactly one authoritative description, an explicit backend llms_full_eligible false remains held, and sitemap/llms/llms-full membership is parsed only from actual loc/list/URL declarations while all cited URLs remain covered by private-leak scanning. Final production read-only session 61d3c10c-0ca3-4acf-8afd-e52f90dd182e passed two consecutive runs at all twelve 55/55 gates with validator SHA 0348856f249da7e6d0cfe4a1c3c2cc7369c61f7f6abcc119935df79f1e824334, identical signature 331e65e69a906eefbea047fe44fd8fbd9b29d62efd3be8828d184d3bdc08c4bd, zero timeouts, and zero private leaks. Focused contracts pass 48/48, full lint and typecheck pass, all 773 contract files / 4,528 tests pass, production build completes 206/206, and exact scope/parsing/diff checks pass. Implementation/evidence head is 61c93ec4f6bf38c6f4dae269e6e2c979c5860956; fresh GitHub required/security checks and exact-head review remain required."
+      },
+      {
+        "at": "2026-07-27T16:45:16Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1816 exact head a03b31007fa6bb4342f3a74129ca4e2033f8ac27 passed all seven required/security checks. GitHub reports CLEAN and MERGEABLE, exact-head Codex review found no major issues, all four prior findings are resolved, and zero review threads remain open. This final ledger-only ready-to-merge head must retain required checks before squash merge."
       }
     ],
-    "updated_at": "2026-07-27T16:38:23Z"
+    "updated_at": "2026-07-27T16:45:16Z"
   }
 }
