@@ -420,7 +420,7 @@
     "depends_on": [
       "CAREER-DETAIL-READ-MODEL-10K-01"
     ],
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
@@ -51531,5 +51531,243 @@
       }
     ],
     "updated_at": "2026-07-27T03:40:35Z"
+  },
+  "MBTI-INDEX-52": {
+    "status": "github_checks_pending",
+    "repo": "fap-web",
+    "branch": "codex/mbti-index-52",
+    "depends_on": [
+      "MBTI-CROSS-PUBLISH-51"
+    ],
+    "train_scope": "mbti_full_55_url_read_only_index_release_gate",
+    "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
+    "commit_sha": "61c93ec4f6bf38c6f4dae269e6e2c979c5860956",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
+    "checks": {
+      "authorization": {
+        "status": "passed",
+        "evidence": "The operator supplied a concrete /goal authorizing the strict MBTI 45-53 train and exact manifest/state registration."
+      },
+      "dependency": {
+        "status": "passed",
+        "evidence": "MBTI-CROSS-PUBLISH-51 is closed in fap-api: PR #3309 merged at 7c770c8741da48f666ea925c65dceb76f7a182a9 after the exact three cross-type records passed production content, indexability, sitemap, llms, llms-full, cache-closeout, and public readback gates without search submission."
+      },
+      "production_read_only_runs": {
+        "status": "passed",
+        "evidence": "After exact frontend e6369b6525d80fb735fa09c7cc341762051d554f and backend 9d2877a7e519f768fd741398e76777620770fb71 became active, final validation session 61d3c10c-0ca3-4acf-8afd-e52f90dd182e completed two independent production read-only runs. Both passed public API, backend authority, authority fingerprints, visible body, exact section completeness, FAQ, JSON-LD, canonical, robots/indexability, sitemap, llms, and llms-full at 55/55 with zero API timeouts and zero private URL leaks. The runs share validator SHA 0348856f249da7e6d0cfe4a1c3c2cc7369c61f7f6abcc119935df79f1e824334 and evidence signature 331e65e69a906eefbea047fe44fd8fbd9b29d62efd3be8828d184d3bdc08c4bd; final decision is ALLOW_MBTI_55_COMPLETE."
+      },
+      "required_local_checks": {
+        "status": "passed",
+        "evidence": "On Node 24.14.0, the final focused INDEX-52 contract passes 48/48, full lint passes with zero warnings, typecheck passes, all four contract shards pass 773/773 files and 4,528 tests, and the production build completes 206/206 static pages with standalone assets synced. Both manifest-required production read-only runs pass 55/55. YAML/JSON parsing, git diff --check, and the exact nine-path aggregate scope validation also pass. One initial build invocation lacked the manifest-required site URL and stopped at robots page-data collection; the exact manifest command with production absolute site/API URLs passed."
+      },
+      "changed_file_scope": {
+        "status": "passed",
+        "evidence": "After rebase, the complete PR remains exactly nine allowed INDEX-52 paths: two PR-train metadata files, five read-only evidence artifacts, one builder, and one focused contract. Latest-main PARITY-06 runtime and ledger files are inherited from the base and absent from the PR diff; unrelated IQ and Career statuses match origin/main."
+      },
+      "github_required_checks": {
+        "status": "passed",
+        "evidence": "PR #1816 exact head a03b31007fa6bb4342f3a74129ca4e2033f8ac27 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analyze, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE; exact-head Codex review found no major issues and zero review threads remain unresolved."
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": true,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-26T14:47:55Z",
+        "status": "in_progress",
+        "summary": "Started from exact fap-web origin/main 5e3b2e874c942b3021e662428eb97b3893de0153 in an isolated clean worktree after MBTI-CROSS-PUBLISH-51 closeout. The scope creates a fail-closed two-run read-only production gate for the exact 55 zh-CN URLs and cannot mutate CMS, database, runtime, discoverability, deploy state, or search systems."
+      },
+      {
+        "at": "2026-07-26T14:47:55Z",
+        "status": "production_readback_retry_pending",
+        "summary": "Run 1 passed public API, backend authority, authority fingerprints, visible body, exact section completeness, FAQ, JSON-LD, canonical, robots/indexability, sitemap, llms, and llms-full at 55/55 with zero API timeouts and zero private URL leaks. Run 2 failed closed before target aggregation because llms-full returned an incomplete canonical set on all bounded retries; direct controls reproduced upstream HTTP/2 stream truncation. No warning conversion, assertion weakening, or production mutation occurred."
+      },
+      {
+        "at": "2026-07-26T14:52:32Z",
+        "status": "production_readback_passed",
+        "summary": "After fixing the three feed reads to explicit curl HTTP/1.1 GETs over three constant public URLs, without changing content or membership assertions, the final two independent runs passed all twelve gates at 55/55. The INTP A/T record is now required to expose the exact mbti-comp-runtime-46-intp-revision source while the other fifteen A/T records require the standard import source. Run 1 completed before run 2 started, both carry identical evidence signature eadcc75a5735e2df802d1a534b995a1259580bf10920a94705a392b9cc05b334, API timeouts and private URL leaks are zero, and the final decision is ALLOW_MBTI_55_COMPLETE. No production or search mutation occurred."
+      },
+      {
+        "at": "2026-07-26T14:59:27Z",
+        "status": "local_verified",
+        "summary": "All manifest checks pass on Node 24.14.0: focused INDEX-52 contracts 9/9, zero-warning full lint, typecheck, four complete contract shards totaling 772 files / 4,482 tests, and production API build with 206/206 static pages. YAML/JSON, CSV formula safety, diff checks, and exact nine-path scope validation pass. The first build attempt stopped before compilation because Turbopack rejects the isolated worktree's external node_modules symlink; replacing only that ignored dependency symlink with an APFS local copy allowed the unchanged source to build successfully."
+      },
+      {
+        "at": "2026-07-26T15:30:20Z",
+        "status": "final_source_local_verified",
+        "summary": "Revalidated after the final authority and feed-transport tightening: the exact production runs span 2026-07-26T15:11:47.623Z through 2026-07-26T15:18:33.904Z with identical evidence signature eadcc75a5735e2df802d1a534b995a1259580bf10920a94705a392b9cc05b334 and ALLOW_MBTI_55_COMPLETE. Focused contracts pass 9/9, Node 24 lint and typecheck pass, all four complete contract shards pass 772 files / 4,482 tests, and the production build completes 206/206 static pages."
+      },
+      {
+        "at": "2026-07-26T15:31:54Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact nine-path INDEX-52 scope at 6da071130975702ba4eeb2cf9cf68ed6a0f19d36, pushed codex/mbti-index-52, and opened PR #1816. All local manifest checks passed before push; GitHub required and security checks are pending."
+      },
+    {
+      "at": "2026-07-26T15:37:06Z",
+      "status": "ready_to_merge",
+      "summary": "PR #1816 exact head d188e6d398dbe25cc9f361ce6103f5e0bb00a5a4 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE; exact changed-file scope remains nine authorized INDEX-52 paths."
+    },
+    {
+      "at": "2026-07-27T01:07:53Z",
+      "status": "production_readback_passed",
+      "summary": "The exact authorized fap-web production deploy run 30228413313 activated merged main SHA cc568495b81d0624a3e04392b583f525126cb200 and public /revision confirmed that SHA. Independent readback proved all authoritative cross-comparison section titles, bodies, structured rows, revision markers, and next_reading values visible. Strict run 1 spanned 2026-07-27T01:02:03.343Z through 2026-07-27T01:04:46.788Z; strict run 2 spanned 2026-07-27T01:04:56.634Z through 2026-07-27T01:07:53.401Z. Both passed all twelve gates at 55/55 with identical evidence signature 3ad6e76f1d4660213d8e0d73c20974a383983c910e8387dce7198448bd8af7f5, zero API timeouts, zero private URL leaks, and final decision ALLOW_MBTI_55_COMPLETE. No CMS, database, publication, indexability, sitemap, llms, or search mutation occurred."
+    },
+    {
+      "at": "2026-07-27T01:14:39Z",
+      "status": "local_checks_passed",
+      "summary": "Rebased the INDEX-52 review fixes onto exact origin/main cc568495b81d0624a3e04392b583f525126cb200 and addressed all six review findings inside the authorized scope. On Node 24.14.0, focused INDEX-52 contracts pass 10/10, full lint passes with zero warnings, typecheck passes, four complete contract shards pass 772 files / 4,485 tests, and the production API build completes 206/206 static pages. YAML/JSON parsing, CSV formula safety, git diff --check, and exact eight-path scope validation pass. Fresh GitHub required and security checks remain pending until the review-fix commit is pushed."
+    },
+    {
+      "at": "2026-07-27T01:22:17Z",
+      "status": "ready_to_merge",
+      "summary": "PR #1816 exact review-fix head 182ddb65fb3248f008cffc46b904d01246312cd1 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports MERGEABLE and the exact changed-file scope remains eight authorized INDEX-52 paths. A final ledger-only ready-to-merge commit will rerun and must retain the required and security checks before merge."
+    },
+    {
+      "at": "2026-07-27T03:16:59Z",
+      "status": "local_checks_passed",
+      "summary": "Addressed all six new current review findings without weakening the gate: the builder now fingerprints and validates the runtime-selected profile/comparison projections, checks every complete reader-visible profile content block with renderer-equivalent normalization, merges answer-surface FAQ exactly like runtime, recognizes plural private result routes, binds JSON-LD page and breadcrumb identity to each canonical, and uses serial production readback to avoid load-induced false failures. Final run 1 spanned 2026-07-27T03:04:04.954Z through 2026-07-27T03:08:13.015Z and run 2 spanned 2026-07-27T03:08:20.820Z through 2026-07-27T03:10:08.019Z; both passed all twelve metrics at 55/55 with signature d68e381e066266834a1dbe1f058e0250647801ba27a401ca5067d4df12e2cf08, zero timeouts, and zero private leaks. On Node 24.14.0, focused contracts pass 10/10, zero-warning full lint and typecheck pass, four full contract shards pass 772 files / 4,485 tests, and the production API build completes 206/206 static pages. YAML/JSON, diff, CSV safety, and exact scope checks pass; fresh GitHub checks remain pending."
+    },
+    {
+      "at": "2026-07-27T03:23:55Z",
+      "status": "ready_to_merge",
+      "summary": "PR #1816 exact review-hardened head a4551d807702e4e0bbe820df6b845b3b780b67d5 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. The final ledger-only ready-to-merge head must retain all required and security checks before merge."
+    },
+    {
+      "at": "2026-07-27T04:04:14Z",
+      "status": "local_checks_passed",
+      "summary": "Addressed the six latest review findings inside the authorized INDEX-52 scope: the gate now reuses the shared discoverability deny predicate, fingerprints the complete runtime-selected comparison projection including A/T variants and blocks, verifies every runtime-rendered answer-surface block, and binds two passes to a one-use validation session consumed before run-2 network access. Restored two unrelated train statuses exactly to origin/main. One intermediate session correctly failed closed at 54/55 after an intj-a read error and could not be reused. Fresh session fa6d80a2-c1e5-4953-9c15-7e06200f4218 then passed both runs at 55/55 with identical evidence/source/authority signatures, zero timeouts, and zero private leaks. Node 24.14.0 focused contracts, zero-warning lint, typecheck, all 772 files / 4,485 contract tests, production build 206/206, parsers, diff, and scope checks pass; fresh GitHub checks remain pending."
+    },
+    {
+      "at": "2026-07-27T04:11:57Z",
+      "status": "local_checks_passed",
+      "summary": "Rebased the complete INDEX-52 branch onto latest origin/main after PR #1821 added the PARITY-06 llms-full stability boundary. Conflict resolution preserved both independent train entries and restored unrelated IQ/Career states exactly to main. The aggregate PR diff remains nine authorized INDEX-52 paths. On Node 24.14.0, focused contracts pass 10/10, zero-warning lint and typecheck pass, complete contracts pass 773 files / 4,489 tests including the new PARITY-06 contract, and production build completes 206/206 with standalone assets synced. Fresh GitHub checks remain pending on the rebased head."
+    },
+      {
+        "at": "2026-07-27T04:32:26Z",
+        "status": "production_readback_blocked",
+        "summary": "GitHub CodeQL found js/file-system-race alert #182 in the run-2 consume path. Commit 5e1fe6008406ad45c87c73a6f1b948e110269714 removes the exists/read/write path race by using one r+ descriptor with truncate, positional write, fsync, and finally-close; focused contracts and scoped ESLint pass. A repaired-code run 1 passed 55/55, and run 2 consumed it before failing closed when public llms-full repeatedly returned an incomplete set; a direct read then exposed only 18 unique URLs. Latest main c5992be40cd4ee302230cdd3c01ffce148e942da contains the merged PARITY-06 runtime repair, but production remains cc568495b81d0624a3e04392b583f525126cb200. Exact-SHA production deploy authority is now required before current-code consecutive readback can be regenerated."
+      },
+      {
+        "at": "2026-07-27T06:15:05Z",
+        "status": "production_readback_blocked",
+        "summary": "Implementation head ae3ea8c1a8b7667c4f8faa836f3c96dd0c4d4b20 hardens the 55-URL gate against false positives across canonical redirect status, exact feed URLs, explicit org_id=0/MBTI API context, visible DOM, complete profile hero and comparison projection fields, all runtime SEO/robots inputs, response-header directives, conflict-free JSON-LD identity, internal links, answer surfaces, enabled runtime sections, explicit failed preflight artifacts, one-use validation sessions, a single unchanged deployed /revision, and one exact validator source SHA. Focused contracts pass 25/25, fifteen behavior probes and scoped ESLint pass. Read-only production evidence remains held because c5992be40cd4ee302230cdd3c01ffce148e942da is not deployed and backend-authoritative comparison records still have projection gaps that require a separately bounded repair package/dry-run before any exact production write authorization; final ledger-head GitHub checks are pending."
+      },
+      {
+        "at": "2026-07-27T06:54:30Z",
+        "status": "production_readback_blocked",
+        "summary": "Implementation head 0c48b80c8e8ade15f2d7d4923e5ee4b4a4cb7ca1 resolves the exact-head review findings without changing the production hold: checked-in evidence contracts now accept either a coherent fail-closed HOLD or a complete two-pass ALLOW outcome, and profile title/description authority follows the runtime surface-first SEO precedence. Focused INDEX-52 contracts pass 26/26 with sixteen behavior probes, scoped ESLint and git diff --check pass. The preceding exact PR head 4fd3bf8b19060062a406ed64eb2f7c2ba9d0abf4 passed all seven required/security checks; the final ledger head must re-run them."
+      },
+      {
+        "at": "2026-07-27T07:10:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 896318fe1f93c4529803559232356a6f3b59ae54 passed all seven required/security checks and received exact-head review; 52 previously fixed threads were resolved. Implementation head be3c241a2da2863faecc7b9208eb3363614b54f3 addresses the three new P2 findings by making run-2 success conditional on the full consecutive-sequence predicate, serializing run-1 consumption with an exclusive atomic lock, and recording the manifest-required production pair as blocked rather than passed. Focused contracts pass 27/27 with seventeen behavior probes. Read-only production inventory confirms frontend c5992be40cd4ee302230cdd3c01ffce148e942da is active, leaving only the exact backend-authority repair boundary."
+      },
+      {
+        "at": "2026-07-27T07:19:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head b613af1eccb9c337b76158f4d63a3131e9d113b8 passed all seven required/security checks and received exact-head review. Implementation head f4ca775c18144073048de782914f252b41956bc3 addresses all three findings: every enabled runtime-promoted profile supplemental section is now selected for complete DOM visibility validation, every populated comparison robots authority source must be indexable, and the exclusive run-2 lock remains held until process exit after shared artifacts close. Focused contracts pass 28/28 with eighteen behavior probes, scoped ESLint and git diff --check pass."
+      },
+      {
+        "at": "2026-07-27T07:34:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 980c46daa84464104e3fe8347fab8fa4deae5489 passed all seven required/security checks and received exact-head review. Implementation head 5d31f093b797cf96dfd47be707011a5e35ebec16 addresses both findings by validating every runtime-rendered structured payload row, FAQ, boundary, internal-link label/summary/destination, and by matching comparison quick-answer visibility to the runtime-selected first summary body. Focused contracts pass 29/29 with nineteen behavior probes, scoped ESLint and git diff --check pass; a read-only production intj-a visible-only diagnostic passes."
+      },
+      {
+        "at": "2026-07-27T07:52:17Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 1ff9b6ebee1e5661ec7241b659e37be6d9c4448f passed all seven required/security checks and received exact-head review. Implementation head f4263f6b940e4cfe38b799c18df08257e19995d2 closes all three P2 findings: X-Robots-Tag nofollow now fails indexability, enabled top-level FAQ items must be visibly rendered, and the exclusive run-2 lock is released on SIGINT/SIGTERM/SIGHUP or safely reclaimed after a dead PID or expired corrupt owner using inode/device identity checks. Focused contracts pass 29/29 with nineteen behavior probes, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T08:01:18Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 97dc1fc2244dbf8e5c5caeb933b947265e953dd8 passed all seven required/security checks and received exact-head review. Implementation head da1d2a9b7b15e67bb2197de9b82f292868a9b0d3 closes both remaining P2 findings: run 1 and run 2 now share the same exclusive stale-owner-safe session lock, and SIGINT/SIGTERM/SIGHUP persist terminal fail-closed evidence before releasing that lock. Focused contracts pass 29/29 with nineteen behavior probes, scoped ESLint and git diff --check pass."
+      },
+      {
+        "at": "2026-07-27T08:21:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 0bf97d0a0cf6c88efc7d503ddbbb8a43ee3257e8 passed all seven required/security checks and received exact-head review. Implementation head 48186b1477fe2ddaebfce3ff8816cd8d2b397682 closes all four findings: every backend profile robots source now requires index,follow; runtime profile section titles are visible evidence; every ordered BreadcrumbList must terminate at the canonical; and feed curl reads are asynchronous, abortable children so signal cleanup can persist terminal evidence and release the session lock promptly. Focused contracts pass 30/30 with twenty behavior probes, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T08:42:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head bac1a4f9ff0b7db5d581654c8e43d97040f36bf0 passed all seven required/security checks and received exact-head review. Implementation head 1e592eb7bd748a29ad9acc8d5f04292453fa246f closes all three findings: FAQ q/a aliases now match the runtime normalizer, linkless answer blocks require text but no anchor, and stale-lock reclamation uses one atomic hard-link claim so only the claimant can unlink the verified inode. Focused contracts pass 30/30, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T08:48:19Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head e81933b1e9ab7b7a05743ff52f18bdc7708791d5 passed all seven required/security checks and received exact-head review. Implementation head b4f701cf7fc92792fe55b3b6ccf2bece97c9f0fe closes both findings: all populated AboutPage identity fields must independently match the canonical, and stale-lock reclamation now uses an exclusive PID/inode-guarded claim file whose abandoned or expired corrupt owner can be recovered without unlinking a replacement inode. Focused contracts pass 31/31, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T08:55:42Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 54baf4366b9813f352c7bcb71bc5aa6f23c50806 passed all seven required/security checks and received exact-head review. Implementation head 3c993e6519e74e65418f1b90cf04d40a329effcf closes both findings: every mandatory answer-surface collection must contain a runtime-renderable authored entry, and rendered HTML must expose exactly one canonical link matching the target. Focused contracts pass 33/33, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T09:38:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 387416b9ab483fbe88fd5d813ab169e7641c9c9f passed all seven required/security checks and received exact-head review. Implementation head 7086d1849bf8abaaf2a71921d7e8662de92ed26d closes all three findings: every robots meta directive must independently allow index/follow, rendered hreflang must contain exactly one matching link per expected locale with no extras, and FAQ schema rejects duplicate questions instead of allowing a Map overwrite to hide conflicting answers. Focused contracts pass 36/36, scoped ESLint, Node syntax, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T09:48:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head fb80849cac30c681d4601e0e49f9e4c0882b57a6 passed all seven required/security checks and received exact-head review. Implementation head b52bf199085a9391d8e1a397ebbc1af082caf4dc closes both findings: FAQ schema rows must exactly equal the authoritative API/visible set with no unmatched extras, and every collected JSON-LD page identity must match the target canonical even when its type is not required for that route kind. Focused contracts pass 38/38, scoped ESLint, Node syntax, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T11:24:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head d34cc1f4e3e16f5edd4fcc5f4a7a79d65d603eba passed all seven required/security checks and received exact-head review. Implementation head ad08a1d0d39e0024d135b716bf7efe29af146dcb closes the P1 finding by matching the runtime metadata contract: each route must expose exactly one zh-CN alternate, one en alternate, and one x-default root alternate. Focused contracts remain 38/38; scoped ESLint, Node syntax, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T11:41:15Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head ca1cdab9be69456fb4dffbd5cca55537931670b5 passed all seven required/security checks and received exact-head review. Implementation head 74966e81935e2ac2924606ac49bb408721a2c22f closes both P2/P3 findings: the validator revision fingerprint now binds the imported discoverability exposure policy bytes, and this ledger freshness marker advances with the transition. Focused contracts remain 38/38; scoped ESLint, Node syntax, JSON validation, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T11:50:06Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head d467b5578705c68bd4ea8c3c8e294928d41ecc85 passed all seven required/security checks and received exact-head review. Implementation head 00f1f497ee5bc003bc08620bc7a67a42cabb3245 closes both P2 findings: checked-in ALLOW evidence must match the current combined validator/policy SHA and independently recomputed equal two-run signatures, while the authoritative ledger commit/check fields now bind that implementation. Focused contracts remain 38/38; scoped ESLint, Node syntax, JSON validation, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T11:56:43Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 7e572d3504689ced1681c322c76b8b8c08fc63ee passed all seven required/security checks and received exact-head review. Implementation head 6b074f198dc57e4ecc7e0ba08b6ed005fee3df17 closes the P1 finding by requiring runtime-renderable body content in comparison summary blocks and renderer-complete title/body pairs in comparison cards. Focused contracts remain 38/38; scoped ESLint, Node syntax, JSON validation, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T12:03:13Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head c587d5cd10738262ebb067d8e7a0a31b33b93563 passed all seven required/security checks and received exact-head review. Implementation head ec6a9815446a24a1d5f26b9f79d6c22dce728416 closes the P1 finding by applying comparison answer renderability rules to the real at_comparison and cross_type_comparison kinds, with the fail-closed probe using a real production kind. Focused contracts remain 38/38; scoped ESLint, Node syntax, JSON validation, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T15:31:17Z",
+        "status": "github_checks_pending",
+        "summary": "Exact production frontend e6369b6525d80fb735fa09c7cc341762051d554f and backend 9d2877a7e519f768fd741398e76777620770fb71 now expose the approved backend-authoritative projection and English-alternate hold. Validation session d89458ff-3a8d-46b6-9ba6-d2a462b40505 passed two independent runs at all twelve 55/55 gates with identical signature dc284d3e4dc247a6fecb0c7b521d00042338c2231a607bf0936000f2bd956fe9, zero timeouts, and zero private leaks. The validator cross-checks A/T publication/indexability through the exact public list, follows backend comparison alternates without inventing English authority, normalizes equivalent root URLs while rejecting query drift, and accepts canonical AboutPage mainEntityOfPage identity. Node 24.14.0 focused contracts pass 44/44, full lint and typecheck pass, all 773 contract files pass, production build completes 206/206, and exact nine-path scope validation passes. Implementation/evidence head is 644e2850a477b4b5ba4ca8283c328b764872186d; final ledger-head GitHub checks remain required."
+      },
+      {
+        "at": "2026-07-27T16:38:23Z",
+        "status": "github_checks_pending",
+        "summary": "Resolved all four exact-head review findings without weakening the release gate: new locks persist and verify PID plus process-start identity, profile/comparison HTML must expose exactly one authoritative description, an explicit backend llms_full_eligible false remains held, and sitemap/llms/llms-full membership is parsed only from actual loc/list/URL declarations while all cited URLs remain covered by private-leak scanning. Final production read-only session 61d3c10c-0ca3-4acf-8afd-e52f90dd182e passed two consecutive runs at all twelve 55/55 gates with validator SHA 0348856f249da7e6d0cfe4a1c3c2cc7369c61f7f6abcc119935df79f1e824334, identical signature 331e65e69a906eefbea047fe44fd8fbd9b29d62efd3be8828d184d3bdc08c4bd, zero timeouts, and zero private leaks. Focused contracts pass 48/48, full lint and typecheck pass, all 773 contract files / 4,528 tests pass, production build completes 206/206, and exact scope/parsing/diff checks pass. Implementation/evidence head is 61c93ec4f6bf38c6f4dae269e6e2c979c5860956; fresh GitHub required/security checks and exact-head review remain required."
+      },
+      {
+        "at": "2026-07-27T16:45:16Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1816 exact head a03b31007fa6bb4342f3a74129ca4e2033f8ac27 passed all seven required/security checks. GitHub reports CLEAN and MERGEABLE, exact-head Codex review found no major issues, all four prior findings are resolved, and zero review threads remain open. This final ledger-only ready-to-merge head must retain required checks before squash merge."
+      }
+    ],
+    "updated_at": "2026-07-27T16:45:16Z"
   }
 }
