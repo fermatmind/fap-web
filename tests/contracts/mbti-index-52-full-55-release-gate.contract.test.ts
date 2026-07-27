@@ -233,6 +233,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain('process.once("SIGTERM"');
     expect(source).toContain('process.once("SIGHUP"');
     expect(source).toContain("reclaimStaleRunTwoLock()");
+    expect(source).toContain("fs.linkSync(ARTIFACT_PATHS.runTwoLock, ARTIFACT_PATHS.runTwoReclaim)");
+    expect(source).toContain("sameFileIdentity(identity, reclaimIdentity)");
     expect(source).toContain("processIsAlive(ownerPid)");
     expect(source).toContain("sameFileIdentity(identity, currentIdentity)");
     expect(source).toContain("if (RUN !== null)");

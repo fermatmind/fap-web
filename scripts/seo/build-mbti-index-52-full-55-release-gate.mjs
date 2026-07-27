@@ -36,6 +36,7 @@ const ARTIFACT_PATHS = Object.freeze({
   reportMarkdown: new URL("../../docs/seo/personality/mbti-index-52-full-55-release-gate-2026-07-26.md", import.meta.url),
   reportCsv: new URL("../../docs/seo/personality/mbti-index-52-full-55-release-gate-2026-07-26.csv", import.meta.url),
   runTwoLock: new URL("../../docs/seo/personality/.mbti-index-52-full-55-release-gate-run-2.lock", import.meta.url),
+  runTwoReclaim: new URL("../../docs/seo/personality/.mbti-index-52-full-55-release-gate-run-2.lock.reclaim", import.meta.url),
 });
 const MAX_ATTEMPTS = 3;
 const MAX_CONCURRENCY = 1;
@@ -347,13 +348,19 @@ function runContractProbe(name) {
           { title: "First summary", body: "First summary body." },
           { title: "Second summary", body: "Second summary body." },
         ],
-        faq_blocks: [{ question: "Question?", answer: "Answer." }],
+        faq_blocks: [{ q: "Aliased question?", a: "Aliased answer." }],
         compare_blocks: [{ title: "Comparison", body: "Comparison body." }],
-        next_step_blocks: [{
-          title: "Next step",
-          body: "Next step body.",
-          href: "/zh/tests/mbti-personality-test-16-personality-types",
-        }],
+        next_step_blocks: [
+          {
+            title: "Next step",
+            body: "Next step body.",
+            href: "/zh/tests/mbti-personality-test-16-personality-types",
+          },
+          {
+            title: "Linkless reflection",
+            body: "Pause and note the contrast.",
+          },
+        ],
       },
     };
     const visibleText = [
@@ -362,6 +369,8 @@ function runContractProbe(name) {
       "Comparison body.",
       "Next step",
       "Next step body.",
+      "Linkless reflection",
+      "Pause and note the contrast.",
     ].join(" ");
     const visibleAnchors = [{
       text: "Next step",
@@ -369,6 +378,14 @@ function runContractProbe(name) {
     }];
     if (!answerSurfaceVisible(payload, "at_comparison", visibleText, visibleAnchors)) {
       throw new Error("Runtime-selected comparison summary unexpectedly failed");
+    }
+    const aliasedFaq = apiFaq(payload, "profile");
+    if (
+      aliasedFaq.length !== 1
+      || aliasedFaq[0]?.question !== "Aliased question?"
+      || aliasedFaq[0]?.answer !== "Aliased answer."
+    ) {
+      throw new Error("Runtime-supported FAQ aliases were not preserved");
     }
     if (answerSurfaceVisible(
       payload,
@@ -1007,8 +1024,8 @@ function runtimeSectionFaq(payload, kind) {
         ? sectionPayload?.faq
         : (sectionKey === "faq" ? sectionPayload?.items : []);
       return (Array.isArray(rows) ? rows : []).map((row) => ({
-        question: normalizeText(row?.question),
-        answer: normalizeText(row?.answer),
+        question: normalizeText(row?.question ?? row?.q),
+        answer: normalizeText(row?.answer ?? row?.a),
       }));
     })
     .filter((row) => row.question && row.answer);
@@ -1026,8 +1043,8 @@ function apiFaq(payload, kind) {
   ];
   const deduped = new Map();
   rows.map((row) => ({
-      question: normalizeText(row?.question),
-      answer: normalizeText(row?.answer),
+      question: normalizeText(row?.question ?? row?.q),
+      answer: normalizeText(row?.answer ?? row?.a),
     }))
     .filter((row) => row.question && row.answer)
     .forEach((row) => {
@@ -1140,8 +1157,8 @@ function runtimeLinksVisible(linkEvidence, visibleText, visibleAnchors) {
 
 function faqCandidates(items) {
   return (Array.isArray(items) ? items : []).flatMap((item) => [
-    normalizeText(item?.question),
-    normalizeText(item?.answer),
+    normalizeText(item?.question ?? item?.q),
+    normalizeText(item?.answer ?? item?.a),
   ]).filter(Boolean);
 }
 
@@ -1502,8 +1519,10 @@ function answerSurfaceLinksVisible(surface, visibleAnchors) {
     ...(Array.isArray(surface?.next_step_blocks) ? surface.next_step_blocks : []),
   ];
   return linkedBlocks.every((block) => {
-    const href = normalizePublicHref(block?.href);
-    const label = normalizeText(block?.title) || normalizeText(block?.href);
+    const rawHref = normalizeText(block?.href);
+    if (!rawHref) return true;
+    const href = normalizePublicHref(rawHref);
+    const label = normalizeText(block?.title) || rawHref;
     return Boolean(href)
       && Boolean(label)
       && visibleAnchors.some((anchor) => (
@@ -2087,7 +2106,17 @@ function processIsAlive(pid) {
 }
 function reclaimStaleRunTwoLock() {
   let descriptor = null;
+  let ownsReclaimLink = false;
   try {
+    try {
+      fs.linkSync(ARTIFACT_PATHS.runTwoLock, ARTIFACT_PATHS.runTwoReclaim);
+      ownsReclaimLink = true;
+    } catch (error) {
+      if (error && typeof error === "object" && ["EEXIST", "ENOENT"].includes(error.code)) {
+        return error.code === "ENOENT";
+      }
+      throw error;
+    }
     descriptor = fs.openSync(ARTIFACT_PATHS.runTwoLock, "r");
     const contents = fs.readFileSync(descriptor, "utf8").trim();
     const identity = fs.fstatSync(descriptor);
@@ -2101,7 +2130,13 @@ function reclaimStaleRunTwoLock() {
       return false;
     }
     const currentIdentity = fs.lstatSync(ARTIFACT_PATHS.runTwoLock);
-    if (!sameFileIdentity(identity, currentIdentity)) return false;
+    const reclaimIdentity = fs.lstatSync(ARTIFACT_PATHS.runTwoReclaim);
+    if (
+      !sameFileIdentity(identity, currentIdentity)
+      || !sameFileIdentity(identity, reclaimIdentity)
+    ) {
+      return false;
+    }
     fs.unlinkSync(ARTIFACT_PATHS.runTwoLock);
     return true;
   } catch (error) {
@@ -2109,6 +2144,13 @@ function reclaimStaleRunTwoLock() {
     throw error;
   } finally {
     if (descriptor !== null) fs.closeSync(descriptor);
+    if (ownsReclaimLink) {
+      try {
+        fs.unlinkSync(ARTIFACT_PATHS.runTwoReclaim);
+      } catch (error) {
+        if (!(error && typeof error === "object" && error.code === "ENOENT")) throw error;
+      }
+    }
   }
 }
 function releaseRunTwoLock() {
