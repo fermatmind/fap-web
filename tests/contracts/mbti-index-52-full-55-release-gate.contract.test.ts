@@ -37,9 +37,10 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     "jsonld-node-identity",
     "jsonld-conflicting-identity",
     "projection-visibility",
-    "answer-surface-all-summaries",
+    "comparison-summary-runtime-selection",
     "profile-reader-section-membership",
     "profile-promoted-sections",
+    "structured-section-payload",
     "robots-header-indexability",
     "css-hidden-visibility",
     "frontend-revision-sequence",
@@ -145,7 +146,10 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("comparisonSectionVisible");
     expect(source).toContain("answerSurfaceVisible");
     expect(source).toContain("answerSurfaceBlockCandidates");
-    expect(source).toContain("summaryBlocks.map((block) => answerSurfaceBlockCandidates(block))");
+    expect(source).toContain("selectedSummaryBody");
+    expect(source).toContain("comparisonSectionEvidence");
+    expect(source).toContain("readerExperienceCandidates");
+    expect(source).toContain("runtimeLinksVisible");
     expect(source).toContain("requiredAnswerSurfaceCollectionsPresent");
     expect(source).toContain("answerSurfaceLinksVisible");
     expect(source).toContain("normalizePublicHref(anchor?.href) === href");

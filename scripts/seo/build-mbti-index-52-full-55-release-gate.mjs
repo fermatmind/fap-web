@@ -321,7 +321,7 @@ function runContractProbe(name) {
     }
     return;
   }
-  if (name === "answer-surface-all-summaries") {
+  if (name === "comparison-summary-runtime-selection") {
     const payload = {
       answer_surface_v1: {
         summary_blocks: [
@@ -338,9 +338,7 @@ function runContractProbe(name) {
       },
     };
     const visibleText = [
-      "First summary",
       "First summary body.",
-      "Second summary",
       "Comparison",
       "Comparison body.",
       "Next step",
@@ -350,8 +348,16 @@ function runContractProbe(name) {
       text: "Next step",
       href: "/zh/tests/mbti-personality-test-16-personality-types",
     }];
-    if (answerSurfaceVisible(payload, "at_comparison", visibleText, visibleAnchors)) {
-      throw new Error("Incomplete comparison summary set unexpectedly passed");
+    if (!answerSurfaceVisible(payload, "at_comparison", visibleText, visibleAnchors)) {
+      throw new Error("Runtime-selected comparison summary unexpectedly failed");
+    }
+    if (answerSurfaceVisible(
+      payload,
+      "at_comparison",
+      visibleText.replace("First summary body.", ""),
+      visibleAnchors,
+    )) {
+      throw new Error("Missing runtime-selected comparison summary unexpectedly passed");
     }
     return;
   }
@@ -393,6 +399,53 @@ function runContractProbe(name) {
       || !profileReaderSectionMembershipValid(sections)
     ) {
       throw new Error("Runtime promoted profile section selection drifted");
+    }
+    return;
+  }
+  if (name === "structured-section-payload") {
+    const section = {
+      section_key: "mbti64_comparison_a_vs_t",
+      payload_json: {
+        content: {
+          core_difference: {
+            title: "核心差异",
+            rows: [{
+              dimension: "决策节奏",
+              a_variant: "更快收束",
+              t_variant: "继续校验",
+            }],
+          },
+        },
+        faq: [{ question: "应该如何使用？", answer: "用于复盘，不用于筛选。" }],
+        internal_links: [{
+          title: "阅读 INTJ-A",
+          summary: "查看完整人格页",
+          href: "/zh/personality/intj-a",
+        }],
+        raw_row: { method_boundary: "这是自我反思工具，不是诊断。" },
+      },
+    };
+    const visibleText = [
+      "核心差异",
+      "决策节奏",
+      "更快收束",
+      "继续校验",
+      "应该如何使用？",
+      "用于复盘，不用于筛选。",
+      "阅读 INTJ-A",
+      "查看完整人格页",
+      "这是自我反思工具，不是诊断。",
+    ].join(" ");
+    const anchors = [{ text: "阅读 INTJ-A 查看完整人格页", href: "/zh/personality/intj-a" }];
+    if (!profileSectionVisible(section, visibleText, anchors)) {
+      throw new Error("Complete structured comparison section unexpectedly failed");
+    }
+    if (profileSectionVisible(
+      section,
+      visibleText,
+      [{ ...anchors[0], href: "/zh/personality/intj-t" }],
+    )) {
+      throw new Error("Misdirected structured section link unexpectedly passed");
     }
     return;
   }
@@ -965,30 +1018,254 @@ function normalizeComparableText(value) {
   return normalizeText(value).replace(/([。！？.!?：；，,])\s+/g, "$1");
 }
 
-function profileSectionVisible(section, visibleText) {
+function contentBodyCandidate(value) {
+  if (typeof value === "string") return normalizeText(value);
+  if (!value || typeof value !== "object" || Array.isArray(value)) return "";
+  return normalizeText(value?.body ?? value?.summary ?? value?.text ?? value?.answer);
+}
+
+function runtimeLinkEvidence(items) {
+  return (Array.isArray(items) ? items : []).flatMap((item) => {
+    if (!item || typeof item !== "object" || item?.safe_public_route === false) return [];
+    const label = normalizeText(item?.title ?? item?.label ?? item?.anchor_text);
+    if (!label) return [];
+    const summary = normalizeText(item?.summary ?? item?.body ?? item?.reason);
+    const explicitHref = normalizeText(item?.href ?? item?.path);
+    const slug = normalizeText(item?.slug);
+    const href = explicitHref
+      ? normalizePublicHref(explicitHref)
+      : (slug ? normalizePublicHref(`/zh/personality/${slug}`) : "");
+    if (
+      explicitHref
+      && (
+        !href
+        || new URL(href).origin !== SITE_ORIGIN
+        || !/^\/(?:zh|en)\/personality\//.test(new URL(href).pathname)
+      )
+    ) {
+      return [];
+    }
+    return [{ label, summary, href }];
+  });
+}
+
+function runtimeLinksVisible(linkEvidence, visibleText, visibleAnchors) {
+  return linkEvidence.every(({ label, summary, href }) => (
+    visibleCandidates([label, ...(summary ? [summary] : [])], visibleText)
+    && (
+      !href
+      || visibleAnchors.some((anchor) => (
+        normalizePublicHref(anchor?.href) === href
+        && normalizeComparableText(anchor?.text).includes(normalizeComparableText(label))
+      ))
+    )
+  ));
+}
+
+function faqCandidates(items) {
+  return (Array.isArray(items) ? items : []).flatMap((item) => [
+    normalizeText(item?.question),
+    normalizeText(item?.answer),
+  ]).filter(Boolean);
+}
+
+function boundaryCandidates(payload) {
+  const rawRow = payload?.raw_row ?? {};
+  const structuredMetadata = payload?.structured_metadata ?? {};
+  return [
+    normalizeText(rawRow?.method_boundary ?? structuredMetadata?.method_boundary),
+    normalizeText(rawRow?.trademark_boundary ?? structuredMetadata?.trademark_boundary),
+  ].filter(Boolean);
+}
+
+function recommendationPayload(payload) {
+  const rawRow = payload?.raw_row ?? {};
+  return payload?.recommendation
+    ?? rawRow?.recommendations
+    ?? payload?.raw_row
+    ?? payload?.raw
+    ?? payload;
+}
+
+function readerExperienceCandidates(payload) {
+  const recommendation = recommendationPayload(payload) ?? {};
+  const readerExperience = recommendation?.reader_experience ?? {};
+  const geoSummary = recommendation?.geo_summary ?? {};
+  const aiSearchAnswer = readerExperience?.ai_search_answer
+    ?? geoSummary?.ai_search_answer_block
+    ?? {};
+  const recordCards = [
+    aiSearchAnswer,
+    readerExperience?.at_difference_scenarios,
+    readerExperience?.work_decision_card,
+    readerExperience?.relationship_communication_card,
+    readerExperience?.pressure_growth_card,
+  ];
+  const titledCards = [
+    ...(Array.isArray(readerExperience?.strengths) ? readerExperience.strengths : []),
+    ...(Array.isArray(readerExperience?.watch_outs) ? readerExperience.watch_outs : []),
+  ];
+  const modules = Array.isArray(recommendation?.modules) ? recommendation.modules : [];
+  return [
+    ...(Array.isArray(readerExperience?.thirty_second_overview)
+      ? readerExperience.thirty_second_overview.map(normalizeText)
+      : []),
+    ...recordCards.flatMap((card) => (
+      card && typeof card === "object"
+        ? Object.values(card).map(contentBodyCandidate)
+        : []
+    )),
+    ...titledCards.flatMap((card) => [
+      normalizeText(card?.title),
+      normalizeText(card?.detail ?? card?.body ?? card?.summary),
+    ]),
+    ...modules.flatMap((module) => [
+      normalizeText(module?.title),
+      normalizeText(module?.insight),
+      ...(Array.isArray(module?.paragraphs) ? module.paragraphs.map(normalizeText) : []),
+    ]),
+    ...faqCandidates(recommendation?.faq),
+  ].filter(Boolean);
+}
+
+function sourceLedgerCandidates(payload) {
+  const rows = [
+    ...(Array.isArray(payload?.raw_row?.source_ledger) ? payload.raw_row.source_ledger : []),
+    ...(Array.isArray(payload?.structured_metadata?.source_ledger)
+      ? payload.structured_metadata.source_ledger
+      : []),
+  ];
+  return rows.flatMap((row) => {
+    const source = normalizeText(row?.source);
+    const title = normalizeText(row?.title);
+    const id = normalizeText(row?.id);
+    const haystack = `${id} ${source} ${title}`.toLowerCase();
+    let visibleSource = source || title;
+    if (haystack.includes("mccrae") || haystack.includes("costa") || haystack.includes("five-factor")) {
+      visibleSource = "McCrae & Costa";
+    } else if (haystack.includes("pittenger") || haystack.includes("cautionary comments")) {
+      visibleSource = "Pittenger";
+    } else if (haystack.includes("holland") || haystack.includes("vocational choices")) {
+      visibleSource = "Holland";
+    } else if (haystack.includes("fermatmind") || haystack.includes("content contract")) {
+      visibleSource = "费马测试内容边界";
+    }
+    return [visibleSource, normalizeText(row?.year)];
+  }).filter(Boolean);
+}
+
+function comparisonSectionEvidence(section) {
+  const payload = section?.payload_json ?? {};
+  const content = payload?.content && typeof payload.content === "object"
+    ? payload.content
+    : {};
+  const candidates = Object.values(content).flatMap((value) => {
+    const record = value && typeof value === "object" && !Array.isArray(value) ? value : {};
+    const rows = Array.isArray(record?.rows) ? record.rows : [];
+    const title = normalizeText(record?.h2 ?? record?.title);
+    const rowCandidates = rows.flatMap((row) => [
+      normalizeText(row?.dimension),
+      normalizeText(row?.a_variant ?? row?.assertive ?? row?.a),
+      normalizeText(row?.t_variant ?? row?.turbulent ?? row?.t),
+    ]).filter(Boolean);
+    const body = contentBodyCandidate(value);
+    if (rowCandidates.length === 0 && !body) return [];
+    return [
+      ...(title ? [title] : []),
+      ...rowCandidates,
+      ...(rowCandidates.length === 0 && body ? [body] : []),
+    ];
+  });
+  const structuredCandidates = [
+    ...candidates,
+    ...faqCandidates(payload?.faq),
+    ...boundaryCandidates(payload),
+  ].filter(Boolean);
+  const links = runtimeLinkEvidence(payload?.internal_links);
+  const hasStructuredContent = structuredCandidates.length > 0 || links.length > 0;
+  return {
+    candidates: hasStructuredContent
+      ? structuredCandidates
+      : markdownContentBlocks(section?.body_md),
+    links,
+  };
+}
+
+function profileSectionEvidence(section) {
   const sectionKey = section?.section_key ?? section?.key;
   const payload = section?.payload_json ?? section?.payload ?? {};
-  let candidates;
   if (sectionKey === "letters_intro") {
-    candidates = (Array.isArray(payload?.letters) ? payload.letters : []).flatMap((item) => [
-      normalizeText(item?.letter),
-      normalizeText(item?.title).replace(/\s*[（(][A-Z-]+[）)]\s*$/, ""),
-      normalizeText(item?.description),
-    ]).filter(Boolean);
-  } else if (sectionKey === "trait_overview") {
-    candidates = (Array.isArray(payload?.dimensions) ? payload.dimensions : []).flatMap((item) => [
-      normalizeText(item?.summary),
-      normalizeText(item?.description),
-    ]).filter(Boolean);
-  } else {
-    candidates = markdownContentBlocks(section?.body_md);
-    if (sectionKey === "v8_5_module_10_faq_boundary" && /FAQ|常见问题/.test(candidates[0] ?? "")) {
-      candidates = candidates.slice(1);
-    }
-    if (candidates.length === 0 && nonemptyString(section?.body_html)) {
-      candidates = [normalizeText(section.body_html)];
-    }
+    return {
+      candidates: (Array.isArray(payload?.letters) ? payload.letters : []).flatMap((item) => [
+        normalizeText(item?.letter),
+        normalizeText(item?.title).replace(/\s*[（(][A-Z-]+[）)]\s*$/, ""),
+        normalizeText(item?.description),
+      ]).filter(Boolean),
+      links: [],
+    };
   }
+  if (sectionKey === "trait_overview") {
+    return {
+      candidates: (Array.isArray(payload?.dimensions) ? payload.dimensions : []).flatMap((item) => [
+        normalizeText(item?.summary),
+        normalizeText(item?.description),
+      ]).filter(Boolean),
+      links: [],
+    };
+  }
+  if (sectionKey === "mbti64_comparison_a_vs_t") {
+    return comparisonSectionEvidence(section);
+  }
+  if (sectionKey === "related_content") {
+    return {
+      candidates: [],
+      links: runtimeLinkEvidence([
+        ...(Array.isArray(payload?.items) ? payload.items : []),
+        ...(Array.isArray(payload?.links) ? payload.links : []),
+      ]),
+    };
+  }
+  if (sectionKey === "mbti64_promotion_metadata") {
+    return {
+      candidates: [
+        ...boundaryCandidates(payload),
+        ...sourceLedgerCandidates(payload),
+      ],
+      links: [],
+    };
+  }
+  const raw = payload?.raw ?? {};
+  const selectedBody = nonemptyString(section?.body_md)
+    ? section.body_md
+    : (nonemptyString(payload?.body) ? payload.body : raw?.body);
+  let bodyCandidates = markdownContentBlocks(selectedBody);
+  if (sectionKey === "v8_5_module_10_faq_boundary" && /FAQ|常见问题/.test(bodyCandidates[0] ?? "")) {
+    bodyCandidates = bodyCandidates.slice(1);
+  }
+  const rawListCandidates = [
+    raw?.items,
+    raw?.strengths,
+    raw?.blind_spots,
+    raw?.watchouts,
+    raw?.best_fit_environments,
+    raw?.communication_tips,
+  ].flatMap((items) => (Array.isArray(items) ? items.map(normalizeText) : []));
+  const recommendation = recommendationPayload(payload) ?? {};
+  const links = runtimeLinkEvidence(recommendation?.internal_links);
+  const candidates = [
+    ...bodyCandidates,
+    ...rawListCandidates,
+    ...readerExperienceCandidates(payload),
+  ].filter(Boolean);
+  if (candidates.length === 0 && nonemptyString(section?.body_html)) {
+    candidates.push(normalizeText(section.body_html));
+  }
+  return { candidates, links };
+}
+
+function profileSectionVisible(section, visibleText, visibleAnchors = []) {
+  const sectionKey = section?.section_key ?? section?.key;
+  const { candidates, links } = profileSectionEvidence(section);
   const comparableVisibleText = normalizeComparableText(visibleText);
   const missingCandidates = candidates.filter((value) => (
     !comparableVisibleText.includes(normalizeComparableText(value))
@@ -1003,8 +1280,9 @@ function profileSectionVisible(section, visibleText) {
     }));
   }
   return nonemptyString(sectionKey)
-    && candidates.length > 0
-    && missingCandidates.length === 0;
+    && (candidates.length > 0 || links.length > 0)
+    && missingCandidates.length === 0
+    && runtimeLinksVisible(links, visibleText, visibleAnchors);
 }
 
 function comparisonSectionVisible(section, visibleText) {
@@ -1171,12 +1449,15 @@ function answerSurfaceVisible(payload, kind, visibleText, visibleAnchors = []) {
     ].map((block) => answerSurfaceBlockCandidates(block));
   } else {
     const summaryBlocks = Array.isArray(surface.summary_blocks) ? surface.summary_blocks : [];
+    const selectedSummaryBody = summaryBlocks
+      .map((block) => normalizeText(block?.body))
+      .find(Boolean);
     const comparisonCards = [
       ...(Array.isArray(surface.compare_blocks) ? surface.compare_blocks : []),
       ...(Array.isArray(surface.scene_summary_blocks) ? surface.scene_summary_blocks : []),
     ].filter((block) => normalizeText(block?.title) && normalizeText(block?.body));
     candidates = [
-      ...summaryBlocks.map((block) => answerSurfaceBlockCandidates(block)),
+      ...(selectedSummaryBody ? [[selectedSummaryBody]] : []),
       ...comparisonCards.map((block) => answerSurfaceBlockCandidates(block)),
       ...(Array.isArray(surface.next_step_blocks) ? surface.next_step_blocks : [])
         .map((block) => answerSurfaceBlockCandidates(block)),
@@ -1496,9 +1777,12 @@ function visibleBodyComplete(payload, target, visibleText, visibleAnchors = []) 
   if (target.kind === "profile") {
     const readerVisibleSections = profileReaderVisibleSections(payload);
     const expectedReaderVisibleCount = PROFILE_LEADING_PROJECTION_SECTION_KEYS.length
-      + PROFILE_V85_VISIBLE_SECTION_KEYS.length;
+      + PROFILE_V85_VISIBLE_SECTION_KEYS.length
+      + Math.max(0, readerVisibleSections.length
+        - PROFILE_LEADING_PROJECTION_SECTION_KEYS.length
+        - PROFILE_V85_VISIBLE_SECTION_KEYS.length);
     const failedSectionKeys = readerVisibleSections
-      .filter((section) => !profileSectionVisible(section, visibleText))
+      .filter((section) => !profileSectionVisible(section, visibleText, visibleAnchors))
       .map((section) => section?.section_key ?? section?.key ?? "unknown");
     const complete = visibleText.length >= 5_000
       && profileReaderSectionMembershipValid(readerVisibleSections)
@@ -1525,7 +1809,7 @@ function visibleBodyComplete(payload, target, visibleText, visibleAnchors = []) 
   return sections.length > 0
     && sections.every((section) => comparisonSectionVisible(section, visibleText))
     && requiredRuntimeSectionsPresent
-    && runtimeSections.every((section) => profileSectionVisible(section, visibleText))
+    && runtimeSections.every((section) => profileSectionVisible(section, visibleText, visibleAnchors))
     && comparisonProjectionVisible(payload, target, visibleText, visibleAnchors)
     && answerSurfaceVisible(payload, target.kind, visibleText, visibleAnchors);
 }
