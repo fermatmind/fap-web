@@ -756,9 +756,41 @@ function answerSurfaceBlockCandidates(block, { includeTitle = true, includeBody 
   ];
 }
 
-function answerSurfaceVisible(payload, kind, visibleText) {
+function requiredAnswerSurfaceCollectionsPresent(surface, kind) {
+  const requiredCollections = kind === "profile"
+    ? ["summary_blocks", "faq_blocks", "compare_blocks", "scene_summary_blocks", "next_step_blocks"]
+    : ["summary_blocks", "faq_blocks", "compare_blocks", "next_step_blocks"];
+  return requiredCollections.every((key) => (
+    Array.isArray(surface?.[key]) && surface[key].length > 0
+  ));
+}
+
+function answerSurfaceLinksVisible(surface, visibleAnchors) {
+  const linkedBlocks = [
+    ...(Array.isArray(surface?.scene_summary_blocks) ? surface.scene_summary_blocks : []),
+    ...(Array.isArray(surface?.next_step_blocks) ? surface.next_step_blocks : []),
+  ];
+  return linkedBlocks.every((block) => {
+    const href = normalizePublicHref(block?.href);
+    const label = normalizeText(block?.title) || normalizeText(block?.href);
+    return Boolean(href)
+      && Boolean(label)
+      && visibleAnchors.some((anchor) => (
+        normalizePublicHref(anchor?.href) === href
+        && normalizeComparableText(anchor?.text).includes(normalizeComparableText(label))
+      ));
+  });
+}
+
+function answerSurfaceVisible(payload, kind, visibleText, visibleAnchors = []) {
   const surface = payload?.answer_surface_v1;
-  if (!surface || typeof surface !== "object") return true;
+  if (
+    !surface
+    || typeof surface !== "object"
+    || !requiredAnswerSurfaceCollectionsPresent(surface, kind)
+  ) {
+    return false;
+  }
 
   let candidates = [];
   if (kind === "profile") {
@@ -790,7 +822,7 @@ function answerSurfaceVisible(payload, kind, visibleText) {
     && blockCandidates.every((value) => (
       comparableVisibleText.includes(normalizeComparableText(value))
     ))
-  ));
+  )) && answerSurfaceLinksVisible(surface, visibleAnchors);
 }
 
 function profileReaderVisibleSections(payload) {
@@ -1052,7 +1084,7 @@ function visibleBodyComplete(payload, target, visibleText, visibleAnchors = []) 
     const complete = visibleText.length >= 5_000
       && readerVisibleSections.length === expectedReaderVisibleCount
       && failedSectionKeys.length === 0
-      && answerSurfaceVisible(payload, target.kind, visibleText);
+      && answerSurfaceVisible(payload, target.kind, visibleText, visibleAnchors);
     if (!complete && DIAGNOSE_VISIBLE_BODY) {
       console.error(JSON.stringify({
         slug: target.slug,
@@ -1075,7 +1107,7 @@ function visibleBodyComplete(payload, target, visibleText, visibleAnchors = []) 
     && requiredRuntimeSectionsPresent
     && runtimeSections.every((section) => profileSectionVisible(section, visibleText))
     && comparisonProjectionVisible(payload, target, visibleText, visibleAnchors)
-    && answerSurfaceVisible(payload, target.kind, visibleText);
+    && answerSurfaceVisible(payload, target.kind, visibleText, visibleAnchors);
 }
 
 function feedUrls(body) {

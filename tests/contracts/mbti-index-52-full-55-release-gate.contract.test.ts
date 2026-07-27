@@ -101,6 +101,9 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("comparisonSectionVisible");
     expect(source).toContain("answerSurfaceVisible");
     expect(source).toContain("answerSurfaceBlockCandidates");
+    expect(source).toContain("requiredAnswerSurfaceCollectionsPresent");
+    expect(source).toContain("answerSurfaceLinksVisible");
+    expect(source).toContain("normalizePublicHref(anchor?.href) === href");
     expect(source).toMatch(/sections\.length > 0\s+&& sections\.every/);
     expect(source).not.toContain("visibleText.length >= 1_500");
     expect(source).toContain("authority.revisionPresent === true");
