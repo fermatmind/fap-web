@@ -360,8 +360,11 @@ async function fetchBody(url, parseBody, timeoutMs = REQUEST_TIMEOUT_MS, extraHe
   throw lastError;
 }
 
-async function fetchText(url, timeoutMs) {
-  return fetchBody(url, (response) => response.text(), timeoutMs);
+async function fetchPage(url) {
+  return fetchBody(url, async (response) => ({
+    html: await response.text(),
+    xRobotsTag: normalizeText(response.headers.get("x-robots-tag")).toLowerCase(),
+  }));
 }
 
 async function fetchJson(url) {
@@ -409,7 +412,7 @@ async function fetchFeed(name) {
   throw lastError;
 }
 
-function documentFacts(html) {
+function documentFacts(html, xRobotsTag = "") {
   const dom = new JSDOM(html);
   const document = dom.window.document;
   const jsonld = [...document.querySelectorAll('script[type="application/ld+json"]')].map((node) => {
@@ -443,6 +446,7 @@ function documentFacts(html) {
     canonical: document.querySelector('link[rel~="canonical"]')?.getAttribute("href") ?? "",
     alternates,
     robots: (document.querySelector('meta[name="robots"]')?.getAttribute("content") ?? "").toLowerCase(),
+    xRobotsTag,
     visibleText: normalizeText(visibleBody?.textContent ?? ""),
     visibleAnchors,
     jsonld,
@@ -997,6 +1001,8 @@ function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts
     return {
       present: comparison.comparison_contract_version === "mbti.at_comparison.v1.mbti64_overlay"
         && comparison.overlay_source?.source === expectedOverlaySource
+        && comparison.is_public === true
+        && comparison.is_indexable === true
         && comparison.canonical_url === canonical
         && comparisonIdentityPresent(comparison, target)
         && comparisonRenderedMetadataPresent(payload, pageFacts, canonical),
@@ -1194,10 +1200,16 @@ if (DIAGNOSE_VISIBLE_ONLY) {
     profileResults.push(...await Promise.all(batch.map(async (target) => {
       const canonical = `${SITE_ORIGIN}/zh/personality/${target.slug}`;
       const apiUrl = `${API_ORIGIN}/${target.slug}?locale=zh-CN`;
-      const [payload, html] = await Promise.all([fetchJson(apiUrl), fetchText(canonical)]);
+      const [payload, page] = await Promise.all([fetchJson(apiUrl), fetchPage(canonical)]);
+      const facts = documentFacts(page.html, page.xRobotsTag);
       return {
         slug: target.slug,
-        visible_body: visibleBodyComplete(payload, target, documentFacts(html).visibleText),
+        visible_body: visibleBodyComplete(
+          payload,
+          target,
+          facts.visibleText,
+          facts.visibleAnchors,
+        ),
       };
     })));
   }
@@ -1263,12 +1275,12 @@ async function worker() {
       const seoUrl = target.kind === "profile"
         ? `${API_ORIGIN}/${target.slug}/seo?locale=zh-CN&org_id=0&scale_code=MBTI`
         : null;
-      const [payload, html, seoPayload] = await Promise.all([
+      const [payload, page, seoPayload] = await Promise.all([
         fetchJson(apiUrl),
-        fetchText(canonical),
+        fetchPage(canonical),
         seoUrl ? fetchJson(seoUrl) : Promise.resolve(null),
       ]);
-      const facts = documentFacts(html);
+      const facts = documentFacts(page.html, page.xRobotsTag);
       const structured = structuredFacts(facts.jsonld);
       const faq = apiFaq(payload, target.kind);
       const schemaFaq = new Map(structured.faq.map((row) => [row.question, row.answer]));
@@ -1296,7 +1308,8 @@ async function worker() {
         canonical: facts.canonical === canonical,
         robots_indexability: /(?:^|[\s,])index(?:[\s,]|$)/.test(facts.robots)
           && /(?:^|[\s,])follow(?:[\s,]|$)/.test(facts.robots)
-          && !facts.robots.includes("noindex"),
+          && !facts.robots.includes("noindex")
+          && !/(?:^|[\s,])noindex(?:[\s,]|$)/.test(facts.xRobotsTag),
         sitemap: feedSets["sitemap.xml"].has(canonical),
         llms: feedSets["llms.txt"].has(canonical),
         llms_full: feedSets["llms-full.txt"].has(canonical),

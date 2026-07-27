@@ -75,6 +75,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
 
     expect(source).toContain('comparison.authority_source === "database"');
     expect(source).toContain('comparison.comparison_contract_version === "mbti.at_comparison.v1.mbti64_overlay"');
+    expect(source).toContain("comparison.is_indexable === true");
     expect(source).toContain("PROFILE_SECTION_COUNT_OVERRIDES");
     expect(source).toContain("?? 35");
     expect(source).toContain("expectedSectionCount: 9");
@@ -92,6 +93,10 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("markdownContentBlocks");
     expect(source).toContain("normalizeComparableText");
     expect(source).toContain("--diagnose-visible-only");
+    expect(source).toContain("fetchPage(canonical)");
+    expect(source).toContain("facts.visibleAnchors");
+    expect(source).toContain('response.headers.get("x-robots-tag")');
+    expect(source).toContain("facts.xRobotsTag");
     expect(source).toContain("sectionKey === \"letters_intro\"");
     expect(source).toContain("sectionKey === \"trait_overview\"");
     expect(source).toContain("sectionKey === \"v8_5_module_10_faq_boundary\"");
