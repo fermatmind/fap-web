@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "00f1f497ee5bc003bc08620bc7a67a42cabb3245",
+    "commit_sha": "6b074f198dc57e4ecc7e0ba08b6ed005fee3df17",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51566,7 +51566,7 @@
       },
       "github_required_checks": {
         "status": "passed_implementation_head_ledger_recheck_pending",
-        "evidence": "PR #1816 exact head d467b5578705c68bd4ea8c3c8e294928d41ecc85 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified checked-in ALLOW evidence and ledger binding gaps. Exact implementation head 00f1f497ee5bc003bc08620bc7a67a42cabb3245 closes the evidence gap by requiring the current combined validator/policy SHA and recomputed matching two-run signatures whenever the checked-in decision is ALLOW. This ledger tail binds that implementation SHA; final-head checks remain required. INDEX-52 remains production_readback_blocked regardless."
+        "evidence": "PR #1816 exact head 7e572d3504689ced1681c322c76b8b8c08fc63ee passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified a title-only answer-block false positive. Exact implementation head 6b074f198dc57e4ecc7e0ba08b6ed005fee3df17 closes it by requiring comparison summaries to contain runtime-selected body text and compare blocks to contain both renderer-required title and body. This ledger tail binds that implementation SHA; final-head checks remain required. INDEX-52 remains production_readback_blocked regardless."
       }
     },
     "scope_validation": {
@@ -51741,8 +51741,13 @@
         "at": "2026-07-27T11:50:06Z",
         "status": "production_readback_blocked",
         "summary": "Exact head d467b5578705c68bd4ea8c3c8e294928d41ecc85 passed all seven required/security checks and received exact-head review. Implementation head 00f1f497ee5bc003bc08620bc7a67a42cabb3245 closes both P2 findings: checked-in ALLOW evidence must match the current combined validator/policy SHA and independently recomputed equal two-run signatures, while the authoritative ledger commit/check fields now bind that implementation. Focused contracts remain 38/38; scoped ESLint, Node syntax, JSON validation, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T11:56:43Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 7e572d3504689ced1681c322c76b8b8c08fc63ee passed all seven required/security checks and received exact-head review. Implementation head 6b074f198dc57e4ecc7e0ba08b6ed005fee3df17 closes the P1 finding by requiring runtime-renderable body content in comparison summary blocks and renderer-complete title/body pairs in comparison cards. Focused contracts remain 38/38; scoped ESLint, Node syntax, JSON validation, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
       }
     ],
-    "updated_at": "2026-07-27T11:50:06Z"
+    "updated_at": "2026-07-27T11:56:43Z"
   }
 }
