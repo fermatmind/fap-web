@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "0c48b80c8e8ade15f2d7d4923e5ee4b4a4cb7ca1",
+    "commit_sha": "be3c241a2da2863faecc7b9208eb3363614b54f3",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51553,12 +51553,12 @@
         "evidence": "MBTI-CROSS-PUBLISH-51 is closed in fap-api: PR #3309 merged at 7c770c8741da48f666ea925c65dceb76f7a182a9 after the exact three cross-type records passed production content, indexability, sitemap, llms, llms-full, cache-closeout, and public readback gates without search submission."
       },
       "production_read_only_runs": {
-        "status": "blocked_exact_runtime_and_backend_authority",
-        "evidence": "Current-code consecutive production evidence is not accepted. Production /revision remains cc568495b81d0624a3e04392b583f525126cb200 while merged main c5992be40cd4ee302230cdd3c01ffce148e942da contains the PARITY-06 llms-full complete-artifact stability repair and requires separate exact-SHA deploy authorization. Independent read-only API inspection also found backend-authoritative comparison projection gaps that a frontend deploy cannot repair: all sampled/current A/T responses expose empty top-level runtime sections and lack an authoritative claim boundary, the exact three newly released cross comparisons expose empty internal_links, no answer_surface_v1, and no English alternate, and the four original cross comparisons still expose the legacy internal-link field shape that the runtime does not render. A separately bounded backend repair package/dry-run and later exact production-write authorization are required before the two fresh 55/55 runs."
+        "status": "blocked_backend_authority",
+        "evidence": "Current-code consecutive production evidence is not accepted. Read-only /revision now confirms production c5992be40cd4ee302230cdd3c01ffce148e942da, so the frontend runtime boundary is present. A complete bounded read-only inventory still finds backend-authoritative projection gaps: all 16 A/T responses expose zero top-level runtime sections and no authoritative claim boundary; the exact three newly released cross comparisons expose zero internal_links, no answer_surface_v1, and no English alternate; and the four original cross comparisons expose five legacy {href, anchor_text, link_intent} links that the runtime adapter does not render, plus no answer_surface_v1 or English alternate. A separately bounded backend repair package/dry-run and later exact production-write authorization are required before the two fresh 55/55 runs."
       },
       "required_local_checks": {
-        "status": "passed",
-        "evidence": "The earlier full manifest suite passed on Node 24.14.0 after rebasing onto main with PARITY-06: full lint, typecheck, all four complete contract shards (773 files / 4,489 tests), and the explicit production API build (206/206 pages). Incremental review hardening through implementation head 0c48b80c8e8ade15f2d7d4923e5ee4b4a4cb7ca1 passes the focused INDEX-52 contract at 26/26, sixteen behavior probes, scoped zero-warning ESLint, and git diff --check."
+        "status": "blocked_production_readback",
+        "evidence": "The non-network implementation checks pass: the earlier full Node 24.14.0 manifest suite passed full lint, typecheck, all four complete contract shards (773 files / 4,489 tests), and the explicit production API build (206/206 pages); implementation head be3c241a2da2863faecc7b9208eb3363614b54f3 passes the focused INDEX-52 contract at 27/27, seventeen behavior probes, scoped zero-warning ESLint, and git diff --check. The manifest-required production run pair remains incomplete because the current backend authority fails closed, so the overall required check group is blocked rather than passed."
       },
       "changed_file_scope": {
         "status": "passed",
@@ -51566,16 +51566,16 @@
       },
       "github_required_checks": {
         "status": "passed_implementation_head_ledger_recheck_pending",
-        "evidence": "PR #1816 exact ledger head 4fd3bf8b19060062a406ed64eb2f7c2ba9d0abf4, containing implementation head ae3ea8c1a8b7667c4f8faa836f3c96dd0c4d4b20, passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. Exact implementation head 0c48b80c8e8ade15f2d7d4923e5ee4b4a4cb7ca1 additionally accepts both coherent HOLD and successful two-pass evidence artifacts and validates profile metadata with the runtime surface-first precedence; the final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
+        "evidence": "PR #1816 exact ledger head 896318fe1f93c4529803559232356a6f3b59ae54, containing implementation head 0c48b80c8e8ade15f2d7d4923e5ee4b4a4cb7ca1, passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. Exact implementation head be3c241a2da2863faecc7b9208eb3363614b54f3 additionally writes non-consecutive run 2 as HOLD and serializes run-1 consumption with an atomic exclusive lock; the final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
-      "local_validation_passed": true,
+      "local_validation_passed": false,
       "github_checks_green": false,
       "post_merge_revalidated": false
     },
-    "failure_reason": "Current-code consecutive production readback is held on two independent boundaries: production still runs cc568495b81d0624a3e04392b583f525126cb200 and requires exact authorization to deploy merged PARITY-06 SHA c5992be40cd4ee302230cdd3c01ffce148e942da; backend-authoritative comparison projections also lack required runtime sections/claim boundary for A/T and required internal links, answer surface, and English alternate coverage for cross comparisons. The latter requires a separately authorized bounded repair package/dry-run and later exact production content-write approval.",
+    "failure_reason": "Production now runs required frontend SHA c5992be40cd4ee302230cdd3c01ffce148e942da, but current backend-authoritative comparison projections still fail the release contract: all 16 A/T records lack top-level runtime sections and claim boundary; the three released cross records lack required internal links, answer surface, and English alternate; and the four original cross records retain non-renderable legacy links and lack answer surface and English alternate. A separately authorized bounded backend repair package/dry-run and later exact production content-write approval are required.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -51671,8 +51671,13 @@
         "at": "2026-07-27T06:54:30Z",
         "status": "production_readback_blocked",
         "summary": "Implementation head 0c48b80c8e8ade15f2d7d4923e5ee4b4a4cb7ca1 resolves the exact-head review findings without changing the production hold: checked-in evidence contracts now accept either a coherent fail-closed HOLD or a complete two-pass ALLOW outcome, and profile title/description authority follows the runtime surface-first SEO precedence. Focused INDEX-52 contracts pass 26/26 with sixteen behavior probes, scoped ESLint and git diff --check pass. The preceding exact PR head 4fd3bf8b19060062a406ed64eb2f7c2ba9d0abf4 passed all seven required/security checks; the final ledger head must re-run them."
+      },
+      {
+        "at": "2026-07-27T07:10:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 896318fe1f93c4529803559232356a6f3b59ae54 passed all seven required/security checks and received exact-head review; 52 previously fixed threads were resolved. Implementation head be3c241a2da2863faecc7b9208eb3363614b54f3 addresses the three new P2 findings by making run-2 success conditional on the full consecutive-sequence predicate, serializing run-1 consumption with an exclusive atomic lock, and recording the manifest-required production pair as blocked rather than passed. Focused contracts pass 27/27 with seventeen behavior probes. Read-only production inventory confirms frontend c5992be40cd4ee302230cdd3c01ffce148e942da is active, leaving only the exact backend-authority repair boundary."
       }
     ],
-    "updated_at": "2026-07-27T06:54:30Z"
+    "updated_at": "2026-07-27T07:10:00Z"
 }
 }
