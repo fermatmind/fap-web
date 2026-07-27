@@ -641,7 +641,7 @@ prs:
     base: main
     depends_on: [IQ-FE-2]
     mode: execute
-    status: local_checks_passed
+    status: in_progress
     title: "feat(iq): add take page shell and attempt lifecycle"
     artifacts:
       - app/(localized)/[locale]/tests/[slug]/take/page.tsx
@@ -27528,7 +27528,7 @@ prs:
     mode: execute
     train_scope: mbti_full_55_url_read_only_index_release_gate
     risk_level: L1
-    status: in_progress
+    status: local_checks_passed
     title: "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs"
     goal: "Run two identical, consecutive, read-only production release-gate passes across exactly 32 profiles, sixteen A/T comparisons, and seven approved cross-type comparisons before allowing the complete cohort to proceed to GSC monitoring."
     in_scope:

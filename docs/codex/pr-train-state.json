@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "07c0bdb1e48bef7d05b30a5efe8b94049b488f13",
+    "commit_sha": "c6e0147337c869f1e642d8648e61b074a7d6eda9",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51558,15 +51558,15 @@
       },
       "required_local_checks": {
         "status": "passed",
-        "evidence": "On Node 24.14.0 after the latest review fixes: focused INDEX-52 contracts passed 10/10, full-repository lint passed with zero warnings, typecheck passed, all four complete contract shards passed 772 files / 4,485 tests, and the explicit production API build compiled, passed TypeScript, generated 206/206 static pages, and synced standalone assets. YAML/JSON parsing, git diff --check, and exact eight-path current / nine-path complete-PR scope validation passed."
+        "evidence": "On Node 24.14.0 after rebasing onto the latest main with PARITY-06: focused INDEX-52 contracts passed 10/10, full-repository lint passed with zero warnings, typecheck passed, all four complete contract shards passed 773 files / 4,489 tests, and the explicit production API build compiled, passed TypeScript, generated 206/206 static pages, and synced standalone assets. YAML/JSON parsing, git diff --check, and exact nine-path aggregate PR scope validation passed."
       },
       "changed_file_scope": {
         "status": "passed",
-        "evidence": "The current review fix modifies eight allowed INDEX-52 paths: two PR-train metadata files, four read-only evidence artifacts, one builder, and one focused contract. The complete PR remains exactly nine allowed paths because the original Markdown report is unchanged by this review-fix round."
+        "evidence": "After rebase, the complete PR remains exactly nine allowed INDEX-52 paths: two PR-train metadata files, five read-only evidence artifacts, one builder, and one focused contract. Latest-main PARITY-06 runtime and ledger files are inherited from the base and absent from the PR diff; unrelated IQ and Career statuses match origin/main."
       },
       "github_required_checks": {
         "status": "retry_pending",
-        "evidence": "PR #1816 exact ledger head 07c0bdb1e48bef7d05b30a5efe8b94049b488f13 passed all required and security checks, then six new current review threads identified shared private-flow policy, complete A/T projection fingerprinting, answer-surface visibility, validation-session sequencing, and two metadata scope issues. Fresh local and GitHub checks are required after the scoped fixes."
+        "evidence": "PR #1816 exact pre-rebase ledger head 07c0bdb1e48bef7d05b30a5efe8b94049b488f13 passed all required and security checks, then six new current review threads identified shared private-flow policy, complete A/T projection fingerprinting, answer-surface visibility, validation-session sequencing, and two metadata scope issues. Those fixes and latest-main rebase pass locally at c6e0147337c869f1e642d8648e61b074a7d6eda9; fresh GitHub checks are required after push."
       }
     },
     "scope_validation": {
@@ -51651,8 +51651,13 @@
       "at": "2026-07-27T04:04:14Z",
       "status": "local_checks_passed",
       "summary": "Addressed the six latest review findings inside the authorized INDEX-52 scope: the gate now reuses the shared discoverability deny predicate, fingerprints the complete runtime-selected comparison projection including A/T variants and blocks, verifies every runtime-rendered answer-surface block, and binds two passes to a one-use validation session consumed before run-2 network access. Restored two unrelated train statuses exactly to origin/main. One intermediate session correctly failed closed at 54/55 after an intj-a read error and could not be reused. Fresh session fa6d80a2-c1e5-4953-9c15-7e06200f4218 then passed both runs at 55/55 with identical evidence/source/authority signatures, zero timeouts, and zero private leaks. Node 24.14.0 focused contracts, zero-warning lint, typecheck, all 772 files / 4,485 contract tests, production build 206/206, parsers, diff, and scope checks pass; fresh GitHub checks remain pending."
+    },
+    {
+      "at": "2026-07-27T04:11:57Z",
+      "status": "local_checks_passed",
+      "summary": "Rebased the complete INDEX-52 branch onto latest origin/main after PR #1821 added the PARITY-06 llms-full stability boundary. Conflict resolution preserved both independent train entries and restored unrelated IQ/Career states exactly to main. The aggregate PR diff remains nine authorized INDEX-52 paths. On Node 24.14.0, focused contracts pass 10/10, zero-warning lint and typecheck pass, complete contracts pass 773 files / 4,489 tests including the new PARITY-06 contract, and production build completes 206/206 with standalone assets synced. Fresh GitHub checks remain pending on the rebased head."
     }
   ],
-  "updated_at": "2026-07-27T04:04:14Z"
+  "updated_at": "2026-07-27T04:11:57Z"
 }
 }
