@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "1c55b8b43d48fd1354f7cc401d9ce416946e7361",
+    "commit_sha": "ae3ea8c1a8b7667c4f8faa836f3c96dd0c4d4b20",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51558,7 +51558,7 @@
       },
       "required_local_checks": {
         "status": "passed",
-        "evidence": "The earlier full manifest suite passed on Node 24.14.0 after rebasing onto main with PARITY-06: full lint, typecheck, all four complete contract shards (773 files / 4,489 tests), and the explicit production API build (206/206 pages). Incremental review hardening through implementation head 1c55b8b43d48fd1354f7cc401d9ce416946e7361 passes the focused INDEX-52 contract at 24/24, fourteen behavior probes, scoped zero-warning ESLint, and git diff --check."
+        "evidence": "The earlier full manifest suite passed on Node 24.14.0 after rebasing onto main with PARITY-06: full lint, typecheck, all four complete contract shards (773 files / 4,489 tests), and the explicit production API build (206/206 pages). Incremental review hardening through implementation head ae3ea8c1a8b7667c4f8faa836f3c96dd0c4d4b20 passes the focused INDEX-52 contract at 25/25, fifteen behavior probes, scoped zero-warning ESLint, and git diff --check."
       },
       "changed_file_scope": {
         "status": "passed",
@@ -51566,7 +51566,7 @@
       },
       "github_required_checks": {
         "status": "passed_implementation_head_ledger_recheck_pending",
-        "evidence": "PR #1816 exact ledger head 27486e5804ee040e7a30af65a95f9d8dd50218c4, containing implementation head 26e30366b5d71501d8616f213ef6db7ca94fb1f8, passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. Exact implementation head 1c55b8b43d48fd1354f7cc401d9ce416946e7361 additionally binds both runs to one validator source SHA; the final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
+        "evidence": "PR #1816 exact ledger head 35d7479dadd08a80a8b1aebe0a41904cea37fa2e, containing implementation head 1c55b8b43d48fd1354f7cc401d9ce416946e7361, passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. Exact implementation head ae3ea8c1a8b7667c4f8faa836f3c96dd0c4d4b20 additionally finalizes failed preflight artifacts, binds API reads to org_id=0/MBTI, and rejects conflicting JSON-LD identity fields; the final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
       }
     },
     "scope_validation": {
@@ -51665,9 +51665,9 @@
       {
         "at": "2026-07-27T06:15:05Z",
         "status": "production_readback_blocked",
-        "summary": "Implementation head 1c55b8b43d48fd1354f7cc401d9ce416946e7361 hardens the 55-URL gate against false positives across canonical redirect status, exact feed URLs, visible DOM, complete profile hero and comparison projection fields, all runtime SEO/robots inputs, response-header directives, JSON-LD identity, internal links, answer surfaces, enabled runtime sections, one-use validation sessions, a single unchanged deployed /revision, and one exact validator source SHA. Focused contracts pass 24/24, fourteen behavior probes and scoped ESLint pass. Read-only production evidence remains held because c5992be40cd4ee302230cdd3c01ffce148e942da is not deployed and backend-authoritative comparison records still have projection gaps that require a separately bounded repair package/dry-run before any exact production write authorization; final ledger-head GitHub checks are pending."
+        "summary": "Implementation head ae3ea8c1a8b7667c4f8faa836f3c96dd0c4d4b20 hardens the 55-URL gate against false positives across canonical redirect status, exact feed URLs, explicit org_id=0/MBTI API context, visible DOM, complete profile hero and comparison projection fields, all runtime SEO/robots inputs, response-header directives, conflict-free JSON-LD identity, internal links, answer surfaces, enabled runtime sections, explicit failed preflight artifacts, one-use validation sessions, a single unchanged deployed /revision, and one exact validator source SHA. Focused contracts pass 25/25, fifteen behavior probes and scoped ESLint pass. Read-only production evidence remains held because c5992be40cd4ee302230cdd3c01ffce148e942da is not deployed and backend-authoritative comparison records still have projection gaps that require a separately bounded repair package/dry-run before any exact production write authorization; final ledger-head GitHub checks are pending."
       }
     ],
-    "updated_at": "2026-07-27T06:30:08Z"
+    "updated_at": "2026-07-27T06:44:34Z"
 }
 }
