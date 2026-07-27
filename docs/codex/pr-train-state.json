@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "644e2850a477b4b5ba4ca8283c328b764872186d",
+    "commit_sha": "61c93ec4f6bf38c6f4dae269e6e2c979c5860956",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51554,11 +51554,11 @@
       },
       "production_read_only_runs": {
         "status": "passed",
-        "evidence": "After exact frontend e6369b6525d80fb735fa09c7cc341762051d554f and backend 9d2877a7e519f768fd741398e76777620770fb71 became active, validation session d89458ff-3a8d-46b6-9ba6-d2a462b40505 completed two independent production read-only runs. Both passed public API, backend authority, authority fingerprints, visible body, exact section completeness, FAQ, JSON-LD, canonical, robots/indexability, sitemap, llms, and llms-full at 55/55 with zero API timeouts and zero private URL leaks. The runs share validator SHA 86c5f94be775064dab96fad6e39df372225699575840ced2d5c884015700cf78 and evidence signature dc284d3e4dc247a6fecb0c7b521d00042338c2231a607bf0936000f2bd956fe9; final decision is ALLOW_MBTI_55_COMPLETE."
+        "evidence": "After exact frontend e6369b6525d80fb735fa09c7cc341762051d554f and backend 9d2877a7e519f768fd741398e76777620770fb71 became active, final validation session 61d3c10c-0ca3-4acf-8afd-e52f90dd182e completed two independent production read-only runs. Both passed public API, backend authority, authority fingerprints, visible body, exact section completeness, FAQ, JSON-LD, canonical, robots/indexability, sitemap, llms, and llms-full at 55/55 with zero API timeouts and zero private URL leaks. The runs share validator SHA 0348856f249da7e6d0cfe4a1c3c2cc7369c61f7f6abcc119935df79f1e824334 and evidence signature 331e65e69a906eefbea047fe44fd8fbd9b29d62efd3be8828d184d3bdc08c4bd; final decision is ALLOW_MBTI_55_COMPLETE."
       },
       "required_local_checks": {
         "status": "passed",
-        "evidence": "On Node 24.14.0, the final focused INDEX-52 contract passes 44/44, full lint passes with zero warnings, typecheck passes, all four contract shards pass 773/773 files, and the production build completes 206/206 static pages with standalone assets synced. Both manifest-required production read-only runs pass 55/55. YAML/JSON parsing, git diff --check, and the exact nine-path aggregate scope validation also pass."
+        "evidence": "On Node 24.14.0, the final focused INDEX-52 contract passes 48/48, full lint passes with zero warnings, typecheck passes, all four contract shards pass 773/773 files and 4,528 tests, and the production build completes 206/206 static pages with standalone assets synced. Both manifest-required production read-only runs pass 55/55. YAML/JSON parsing, git diff --check, and the exact nine-path aggregate scope validation also pass. One initial build invocation lacked the manifest-required site URL and stopped at robots page-data collection; the exact manifest command with production absolute site/API URLs passed."
       },
       "changed_file_scope": {
         "status": "passed",
@@ -51566,7 +51566,7 @@
       },
       "github_required_checks": {
         "status": "pending",
-        "evidence": "Implementation and evidence head 644e2850a477b4b5ba4ca8283c328b764872186d is locally complete. This ledger tail records the production readback and local-check transition; PR #1816 must rerun every required and security check on the new exact head before merge."
+        "evidence": "Implementation and evidence head 61c93ec4f6bf38c6f4dae269e6e2c979c5860956 is locally complete. This ledger tail records the production readback and local-check transition; PR #1816 must rerun every required and security check on the new exact head before merge."
       }
     },
     "scope_validation": {
@@ -51756,8 +51756,13 @@
         "at": "2026-07-27T15:31:17Z",
         "status": "github_checks_pending",
         "summary": "Exact production frontend e6369b6525d80fb735fa09c7cc341762051d554f and backend 9d2877a7e519f768fd741398e76777620770fb71 now expose the approved backend-authoritative projection and English-alternate hold. Validation session d89458ff-3a8d-46b6-9ba6-d2a462b40505 passed two independent runs at all twelve 55/55 gates with identical signature dc284d3e4dc247a6fecb0c7b521d00042338c2231a607bf0936000f2bd956fe9, zero timeouts, and zero private leaks. The validator cross-checks A/T publication/indexability through the exact public list, follows backend comparison alternates without inventing English authority, normalizes equivalent root URLs while rejecting query drift, and accepts canonical AboutPage mainEntityOfPage identity. Node 24.14.0 focused contracts pass 44/44, full lint and typecheck pass, all 773 contract files pass, production build completes 206/206, and exact nine-path scope validation passes. Implementation/evidence head is 644e2850a477b4b5ba4ca8283c328b764872186d; final ledger-head GitHub checks remain required."
+      },
+      {
+        "at": "2026-07-27T16:38:23Z",
+        "status": "github_checks_pending",
+        "summary": "Resolved all four exact-head review findings without weakening the release gate: new locks persist and verify PID plus process-start identity, profile/comparison HTML must expose exactly one authoritative description, an explicit backend llms_full_eligible false remains held, and sitemap/llms/llms-full membership is parsed only from actual loc/list/URL declarations while all cited URLs remain covered by private-leak scanning. Final production read-only session 61d3c10c-0ca3-4acf-8afd-e52f90dd182e passed two consecutive runs at all twelve 55/55 gates with validator SHA 0348856f249da7e6d0cfe4a1c3c2cc7369c61f7f6abcc119935df79f1e824334, identical signature 331e65e69a906eefbea047fe44fd8fbd9b29d62efd3be8828d184d3bdc08c4bd, zero timeouts, and zero private leaks. Focused contracts pass 48/48, full lint and typecheck pass, all 773 contract files / 4,528 tests pass, production build completes 206/206, and exact scope/parsing/diff checks pass. Implementation/evidence head is 61c93ec4f6bf38c6f4dae269e6e2c979c5860956; fresh GitHub required/security checks and exact-head review remain required."
       }
     ],
-    "updated_at": "2026-07-27T15:31:17Z"
+    "updated_at": "2026-07-27T16:38:23Z"
   }
 }
