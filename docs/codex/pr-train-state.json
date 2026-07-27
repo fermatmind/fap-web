@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "5d31f093b797cf96dfd47be707011a5e35ebec16",
+    "commit_sha": "f4263f6b940e4cfe38b799c18df08257e19995d2",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51558,7 +51558,7 @@
       },
       "required_local_checks": {
         "status": "blocked_production_readback",
-        "evidence": "The non-network implementation checks pass: the earlier full Node 24.14.0 manifest suite passed full lint, typecheck, all four complete contract shards (773 files / 4,489 tests), and the explicit production API build (206/206 pages); implementation head 5d31f093b797cf96dfd47be707011a5e35ebec16 passes the focused INDEX-52 contract at 29/29, nineteen behavior probes, scoped zero-warning ESLint, and git diff --check. A read-only production intj-a visible-only diagnostic also passes the exact promoted, related-content, metadata, V8.5, hero, and answer-surface DOM rules. The manifest-required production run pair remains incomplete because the current backend authority fails closed, so the overall required check group is blocked rather than passed."
+        "evidence": "The non-network implementation checks pass: the earlier full Node 24.14.0 manifest suite passed full lint, typecheck, all four complete contract shards (773 files / 4,489 tests), and the explicit production API build (206/206 pages); implementation head f4263f6b940e4cfe38b799c18df08257e19995d2 passes the focused INDEX-52 contract at 29/29 with all nineteen behavior probes, scoped zero-warning ESLint, and git diff --check. It additionally rejects nofollow response headers, validates the rendered top-level FAQ section, and safely releases or reclaims the exclusive run-2 lock after signals or dead-owner crashes. A read-only production intj-a visible-only diagnostic also passes the exact promoted, related-content, metadata, V8.5, hero, and answer-surface DOM rules. The manifest-required production run pair remains incomplete because the current backend authority fails closed, so the overall required check group is blocked rather than passed."
       },
       "changed_file_scope": {
         "status": "passed",
@@ -51566,7 +51566,7 @@
       },
       "github_required_checks": {
         "status": "passed_implementation_head_ledger_recheck_pending",
-        "evidence": "PR #1816 exact ledger head 980c46daa84464104e3fe8347fab8fa4deae5489, containing implementation head f4ca775c18144073048de782914f252b41956bc3, passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. Exact implementation head 5d31f093b797cf96dfd47be707011a5e35ebec16 additionally validates runtime-rendered structured section rows, FAQ, boundaries, internal-link labels/summaries/destinations, and uses the same first-summary-body selection as the comparison runtime; the final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
+        "evidence": "PR #1816 exact head 1ff9b6ebee1e5661ec7241b659e37be6d9c4448f passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified three P2 gaps. Exact implementation head f4263f6b940e4cfe38b799c18df08257e19995d2 closes them by rejecting nofollow response headers, including top-level FAQ in reader-visible evidence, and adding signal cleanup plus dead-owner/corrupt-lock recovery with file-identity protection. The final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
       }
     },
     "scope_validation": {
@@ -51686,8 +51686,13 @@
         "at": "2026-07-27T07:34:00Z",
         "status": "production_readback_blocked",
         "summary": "Exact head 980c46daa84464104e3fe8347fab8fa4deae5489 passed all seven required/security checks and received exact-head review. Implementation head 5d31f093b797cf96dfd47be707011a5e35ebec16 addresses both findings by validating every runtime-rendered structured payload row, FAQ, boundary, internal-link label/summary/destination, and by matching comparison quick-answer visibility to the runtime-selected first summary body. Focused contracts pass 29/29 with nineteen behavior probes, scoped ESLint and git diff --check pass; a read-only production intj-a visible-only diagnostic passes."
+      },
+      {
+        "at": "2026-07-27T07:52:17Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 1ff9b6ebee1e5661ec7241b659e37be6d9c4448f passed all seven required/security checks and received exact-head review. Implementation head f4263f6b940e4cfe38b799c18df08257e19995d2 closes all three P2 findings: X-Robots-Tag nofollow now fails indexability, enabled top-level FAQ items must be visibly rendered, and the exclusive run-2 lock is released on SIGINT/SIGTERM/SIGHUP or safely reclaimed after a dead PID or expired corrupt owner using inode/device identity checks. Focused contracts pass 29/29 with nineteen behavior probes, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
       }
     ],
-    "updated_at": "2026-07-27T07:34:00Z"
+    "updated_at": "2026-07-27T07:52:17Z"
 }
 }
