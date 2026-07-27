@@ -119,8 +119,12 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("comparisonVariantVisible");
     expect(source).toContain("comparisonBlockVisible");
     expect(source).toContain("comparisonInternalLinksVisible");
+    expect(source).toContain("RELEASED_CROSS_TYPE.includes(target.slug) ? 7 : 5");
+    expect(source).toContain("links.length === expectedLinkCount");
     expect(source).toContain("normalizePublicHref(anchor?.href) === href");
     expect(source).toContain("runtimeComparisonSections(payload)");
+    expect(source).toContain("requiredRuntimeSectionsPresent");
+    expect(source).toContain('=== "mbti64_comparison_a_vs_t"');
     expect(source).toContain("runtimeSectionFaq(payload, kind)");
     expect(source).toContain('sectionKey === "mbti64_comparison_a_vs_t"');
     expect(source).toContain("seo_meta: payload?.seo_meta");

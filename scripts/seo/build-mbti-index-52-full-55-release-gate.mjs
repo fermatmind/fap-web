@@ -227,33 +227,40 @@ function runContractProbe(name) {
       "INTJ-T Architect Turbulent Architect Rechecks the plan longer. Rare reflective adaptive",
       "Core difference Moves once the plan is sound. Keeps testing the plan.",
     ].join(" ");
-    if (!comparisonProjectionVisible(payload, "at_comparison", completeVisibleText)) {
+    if (!comparisonProjectionVisible(
+      payload,
+      { kind: "at_comparison", slug: "intj-a-vs-intj-t" },
+      completeVisibleText,
+    )) {
       throw new Error("Complete comparison projection unexpectedly failed");
     }
     if (comparisonProjectionVisible(
       payload,
-      "at_comparison",
+      { kind: "at_comparison", slug: "intj-a-vs-intj-t" },
       completeVisibleText.replace("Keeps testing the plan.", ""),
     )) {
       throw new Error("Missing comparison projection content unexpectedly passed");
     }
+    const crossTypeLinks = Array.from({ length: 7 }, (_, index) => ({
+      label: `Comparison link ${index + 1}`,
+      href: `/zh/personality/cross-link-${index + 1}`,
+      reason: `Check related contrast ${index + 1}.`,
+    }));
     const crossTypePayload = {
       comparison_public_projection_v1: {
-        internal_links: [{
-          label: "Compare INTJ and INTP",
-          href: "/zh/personality/intj-vs-intp",
-          reason: "Check a nearby thinking-style contrast.",
-        }],
+        internal_links: crossTypeLinks,
       },
     };
-    const crossTypeVisibleText = "Compare INTJ and INTP Check a nearby thinking-style contrast.";
-    const crossTypeAnchors = [{
-      href: "/zh/personality/intj-vs-intp",
-      text: crossTypeVisibleText,
-    }];
+    const crossTypeVisibleText = crossTypeLinks
+      .flatMap((link) => [link.label, link.reason])
+      .join(" ");
+    const crossTypeAnchors = crossTypeLinks.map((link) => ({
+      href: link.href,
+      text: `${link.label} ${link.reason}`,
+    }));
     if (!comparisonProjectionVisible(
       crossTypePayload,
-      "cross_type_comparison",
+      { kind: "cross_type_comparison", slug: "enfp-vs-entp" },
       crossTypeVisibleText,
       crossTypeAnchors,
     )) {
@@ -261,9 +268,12 @@ function runContractProbe(name) {
     }
     if (comparisonProjectionVisible(
       crossTypePayload,
-      "cross_type_comparison",
+      { kind: "cross_type_comparison", slug: "enfp-vs-entp" },
       crossTypeVisibleText,
-      [{ ...crossTypeAnchors[0], href: "/zh/personality/enfp-vs-entp" }],
+      [
+        { ...crossTypeAnchors[0], href: "/zh/personality/enfp-vs-entp" },
+        ...crossTypeAnchors.slice(1),
+      ],
     )) {
       throw new Error("Misdirected cross-type internal link unexpectedly passed");
     }
@@ -690,9 +700,10 @@ function normalizePublicHref(value) {
   }
 }
 
-function comparisonInternalLinksVisible(projection, visibleText, visibleAnchors) {
+function comparisonInternalLinksVisible(projection, target, visibleText, visibleAnchors) {
   const links = Array.isArray(projection?.internal_links) ? projection.internal_links : [];
-  return links.every((link) => {
+  const expectedLinkCount = RELEASED_CROSS_TYPE.includes(target.slug) ? 7 : 5;
+  return links.length === expectedLinkCount && links.every((link) => {
     const label = normalizeText(link?.label);
     const reason = normalizeText(link?.reason);
     const href = normalizePublicHref(link?.href);
@@ -708,12 +719,12 @@ function comparisonInternalLinksVisible(projection, visibleText, visibleAnchors)
   });
 }
 
-function comparisonProjectionVisible(payload, kind, visibleText, visibleAnchors = []) {
+function comparisonProjectionVisible(payload, target, visibleText, visibleAnchors = []) {
   const projection = comparisonProjection(payload);
-  if (kind === "cross_type_comparison") {
-    return comparisonInternalLinksVisible(projection, visibleText, visibleAnchors);
+  if (target.kind === "cross_type_comparison") {
+    return comparisonInternalLinksVisible(projection, target, visibleText, visibleAnchors);
   }
-  if (kind !== "at_comparison") return true;
+  if (target.kind !== "at_comparison") return true;
   const variants = projection?.variants;
   const blocks = Array.isArray(projection?.comparison_blocks)
     ? projection.comparison_blocks
@@ -1043,10 +1054,16 @@ function visibleBodyComplete(payload, target, visibleText, visibleAnchors = []) 
     return complete;
   }
   const runtimeSections = runtimeComparisonSections(payload);
+  const requiredRuntimeSectionsPresent = target.kind !== "at_comparison"
+    || runtimeSections.some((section) => (
+      (section?.section_key ?? section?.key) === "mbti64_comparison_a_vs_t"
+      && section?.is_enabled !== false
+    ));
   return sections.length > 0
     && sections.every((section) => comparisonSectionVisible(section, visibleText))
+    && requiredRuntimeSectionsPresent
     && runtimeSections.every((section) => profileSectionVisible(section, visibleText))
-    && comparisonProjectionVisible(payload, target.kind, visibleText, visibleAnchors)
+    && comparisonProjectionVisible(payload, target, visibleText, visibleAnchors)
     && answerSurfaceVisible(payload, target.kind, visibleText);
 }
 
