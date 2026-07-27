@@ -43,62 +43,30 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     },
   );
 
-  it("records two independent complete production runs before unblocking GSC", () => {
+  it("keeps GSC held after a consumed run 1 and failed run 2", () => {
     const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
     const runOne = JSON.parse(fs.readFileSync(runOnePath, "utf8"));
     const runTwo = JSON.parse(fs.readFileSync(runTwoPath, "utf8"));
 
-    expect(report.final_decision).toBe("ALLOW_MBTI_55_COMPLETE");
-    expect(report.gsc_dependency_unblocked).toBe(true);
-    expect(report.completed_consecutive_runs).toBe(2);
+    expect(report.final_decision).toBe("HOLD_MBTI_55_INCOMPLETE");
+    expect(report.gsc_dependency_unblocked).toBe(false);
+    expect(report.completed_consecutive_runs).toBe(0);
     expect(report.target_count).toBe(55);
     expect(report.exact_new_targets).toEqual(exactNewTargets);
     expect(runOne.run_decision).toBe("PASS_MBTI_55_RUN");
-    expect(runTwo.run_decision).toBe("PASS_MBTI_55_RUN");
+    expect(runTwo.run_decision).toBe("HOLD_MBTI_55_INCOMPLETE");
     expect(runOne.started_at < runOne.completed_at).toBe(true);
     expect(runOne.completed_at < runTwo.started_at).toBe(true);
-    expect(runTwo.started_at < runTwo.completed_at).toBe(true);
-    expect(runOne.evidence_signature).toBe(runTwo.evidence_signature);
     expect(runOne.sequence_state).toBe("consumed");
-    expect(runTwo.sequence_state).toBe("completed");
+    expect(runTwo.sequence_state).toBe("failed");
     expect(runOne.consumed_by_run_2_at).toBe(runTwo.started_at);
     expect(runOne.validation_session_id).toMatch(/^[0-9a-f-]{36}$/);
     expect(runTwo.validation_session_id).toBe(runOne.validation_session_id);
     expect(report.validation_session_id).toBe(runOne.validation_session_id);
-    expect(runOne.source_revision_set_sha256).toBe(runTwo.source_revision_set_sha256);
-    expect(runOne.authority_fingerprint_set_sha256).toBe(runTwo.authority_fingerprint_set_sha256);
-    expect(report.records).toHaveLength(55);
-    expect(new Set(report.records.map((record: { path: string }) => record.path)).size).toBe(55);
-    expect(report.records.filter((record: { kind: string }) => record.kind === "profile")).toHaveLength(32);
-    expect(report.records.filter((record: { kind: string }) => record.kind === "at_comparison")).toHaveLength(16);
-    expect(report.records.filter((record: { kind: string }) => record.kind === "cross_type_comparison")).toHaveLength(7);
-    expect(report.records.filter((record: { group: string }) => record.group === "released_cross_type")
-      .map((record: { path: string }) => record.path.split("/").at(-1))).toEqual(exactNewTargets);
-    expect(report.records.every((record: {
-      authority_fingerprint_sha256: string;
-      source_revision_sha256: string;
-      blockers: string[];
-    }) => (
-      /^[0-9a-f]{64}$/.test(record.authority_fingerprint_sha256)
-      && /^[0-9a-f]{64}$/.test(record.source_revision_sha256)
-      && record.blockers.length === 0
-    ))).toBe(true);
-    expect(report.metrics).toEqual({
-      PUBLIC_API: 55,
-      AUTHORITY: 55,
-      AUTHORITY_FINGERPRINT: 55,
-      VISIBLE_BODY: 55,
-      SECTION_COMPLETENESS: 55,
-      FAQ: 55,
-      JSONLD: 55,
-      CANONICAL: 55,
-      ROBOTS_INDEXABILITY: 55,
-      SITEMAP: 55,
-      LLMS: 55,
-      LLMS_FULL: 55,
-      API_TIMEOUTS: 0,
-    });
-    expect(report.private_url_leak_count).toBe(0);
+    expect(report.failure_reason).toBe("run_1_consumed_and_run_2_failed_on_incomplete_llms_full");
+    expect(runTwo.failure_reason).toContain("llms-full");
+    expect(report.records).toEqual([]);
+    expect(runTwo.records).toEqual([]);
   });
 
   it("preserves backend authority and the read-only search hold", () => {
@@ -153,6 +121,11 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("comparisonInternalLinksVisible");
     expect(source).toContain("normalizePublicHref(anchor?.href) === href");
     expect(source).toContain("runtimeComparisonSections(payload)");
+    expect(source).toContain("runtimeSectionFaq(payload, kind)");
+    expect(source).toContain('sectionKey === "mbti64_comparison_a_vs_t"');
+    expect(source).toContain("seo_meta: payload?.seo_meta");
+    expect(source).toContain("seo_surface: payload?.seo_surface_v1");
+    expect(source).toContain("jsonld: payload?.jsonld");
     expect(source).toContain("profileSeoAuthorityPresent");
     expect(source).toContain("pageFacts?.title === normalizeText(meta?.title)");
     expect(source).toContain('link[rel~="alternate"][hreflang]');

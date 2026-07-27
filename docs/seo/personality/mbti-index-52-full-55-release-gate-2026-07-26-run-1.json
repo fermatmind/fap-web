@@ -2,10 +2,10 @@
   "id": "MBTI-INDEX-52",
   "artifact": "MBTI-INDEX-52-FULL-55-RELEASE-GATE-RUN-1",
   "run": 1,
-  "validation_session_id": "fa6d80a2-c1e5-4953-9c15-7e06200f4218",
+  "validation_session_id": "943bd8d6-900c-45af-b508-ba5dc92fb02c",
   "sequence_state": "consumed",
-  "started_at": "2026-07-27T03:43:08.097Z",
-  "completed_at": "2026-07-27T03:49:48.502Z",
+  "started_at": "2026-07-27T04:21:38.757Z",
+  "completed_at": "2026-07-27T04:27:48.293Z",
   "target_count": 55,
   "evidence_scope": "read_only_production_network_revalidation",
   "run_decision": "PASS_MBTI_55_RUN",
@@ -1350,5 +1350,5 @@
       "blockers": []
     }
   ],
-  "consumed_by_run_2_at": "2026-07-27T03:49:51.932Z"
+  "consumed_by_run_2_at": "2026-07-27T04:27:51.779Z"
 }

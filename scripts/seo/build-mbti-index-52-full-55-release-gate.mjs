@@ -486,6 +486,24 @@ function comparisonProjection(payload) {
   return payload?.comparison_public_projection_v1 ?? payload?.comparison ?? {};
 }
 
+function runtimeSectionFaq(payload, kind) {
+  if (kind !== "at_comparison") return [];
+  return runtimeComparisonSections(payload)
+    .filter((section) => section?.is_enabled !== false)
+    .flatMap((section) => {
+      const sectionKey = section?.section_key ?? section?.key;
+      const sectionPayload = section?.payload_json ?? section?.payload ?? {};
+      const rows = sectionKey === "mbti64_comparison_a_vs_t"
+        ? sectionPayload?.faq
+        : (sectionKey === "faq" ? sectionPayload?.items : []);
+      return (Array.isArray(rows) ? rows : []).map((row) => ({
+        question: normalizeText(row?.question),
+        answer: normalizeText(row?.answer),
+      }));
+    })
+    .filter((row) => row.question && row.answer);
+}
+
 function apiFaq(payload, kind) {
   const primaryRows = kind === "profile"
     ? []
@@ -493,6 +511,7 @@ function apiFaq(payload, kind) {
   const answerSurfaceRows = payload?.answer_surface_v1?.faq_blocks;
   const rows = [
     ...(Array.isArray(primaryRows) ? primaryRows : []),
+    ...runtimeSectionFaq(payload, kind),
     ...(Array.isArray(answerSurfaceRows) ? answerSurfaceRows : []),
   ];
   const deduped = new Map();
@@ -884,6 +903,9 @@ function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts
         projection: comparison,
         sections: runtimeComparisonSections(payload),
         answer_surface: payload?.answer_surface_v1,
+        seo_meta: payload?.seo_meta,
+        seo_surface: payload?.seo_surface_v1,
+        jsonld: payload?.jsonld,
       }),
     };
   }
@@ -915,6 +937,9 @@ function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts
       projection: comparison,
       sections: runtimeComparisonSections(payload),
       answer_surface: payload?.answer_surface_v1,
+      seo_meta: payload?.seo_meta,
+      seo_surface: payload?.seo_surface_v1,
+      jsonld: payload?.jsonld,
     }),
   };
 }
