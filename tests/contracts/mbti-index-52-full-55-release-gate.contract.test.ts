@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
 import { createRequire } from "node:module";
@@ -12,6 +13,31 @@ const reportPath = "docs/seo/personality/mbti-index-52-full-55-release-gate-2026
 const runOnePath = "docs/seo/personality/mbti-index-52-full-55-release-gate-2026-07-26-run-1.json";
 const runTwoPath = "docs/seo/personality/mbti-index-52-full-55-release-gate-2026-07-26-run-2.json";
 const exactNewTargets = ["enfp-vs-entp", "estj-vs-entj", "isfp-vs-infp"];
+const policyPath = "lib/seo/discoverabilityExposurePolicy.cjs";
+
+function currentValidatorSourceSha256() {
+  return crypto
+    .createHash("sha256")
+    .update("mbti-index-52-validator-bundle-v1\0")
+    .update(fs.readFileSync(script))
+    .update("\0discoverability-exposure-policy\0")
+    .update(fs.readFileSync(policyPath))
+    .digest("hex");
+}
+
+function evidenceSignature(run: Record<string, unknown>, validatorSourceSha256: string) {
+  return crypto
+    .createHash("sha256")
+    .update(JSON.stringify({
+      target_count: 55,
+      metrics: run.metrics,
+      private_url_leak_count: run.private_url_leak_count,
+      frontend_revision: run.frontend_revision,
+      validator_source_sha256: validatorSourceSha256,
+      records: run.records,
+    }))
+    .digest("hex");
+}
 
 describe("MBTI-INDEX-52 full 55 URL release gate", () => {
   it("requires explicit read-only network and independent run flags", () => {
@@ -89,12 +115,22 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(report.validation_session_id).toBe(runOne.validation_session_id);
 
     if (report.final_decision === "ALLOW_MBTI_55_COMPLETE") {
+      const validatorSourceSha256 = currentValidatorSourceSha256();
       expect(report.gsc_dependency_unblocked).toBe(true);
       expect(report.completed_consecutive_runs).toBe(2);
       expect(runTwo.run_decision).toBe("PASS_MBTI_55_RUN");
       expect(runTwo.sequence_state).toBe("completed");
       expect(runTwo.records).toHaveLength(55);
       expect(report.records).toHaveLength(55);
+      expect(runOne.validator_source_sha256).toBe(validatorSourceSha256);
+      expect(runTwo.validator_source_sha256).toBe(validatorSourceSha256);
+      expect(report.run_1.validator_source_sha256).toBe(validatorSourceSha256);
+      expect(report.run_2.validator_source_sha256).toBe(validatorSourceSha256);
+      expect(runOne.evidence_signature).toBe(evidenceSignature(runOne, validatorSourceSha256));
+      expect(runTwo.evidence_signature).toBe(evidenceSignature(runTwo, validatorSourceSha256));
+      expect(runTwo.evidence_signature).toBe(runOne.evidence_signature);
+      expect(report.run_1.evidence_signature).toBe(runOne.evidence_signature);
+      expect(report.run_2.evidence_signature).toBe(runTwo.evidence_signature);
     } else {
       expect(report.final_decision).toBe("HOLD_MBTI_55_INCOMPLETE");
       expect(report.gsc_dependency_unblocked).toBe(false);
