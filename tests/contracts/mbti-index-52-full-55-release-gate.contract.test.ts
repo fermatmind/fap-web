@@ -50,6 +50,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     "profile-hero-completeness",
     "feed-exact-url-membership",
     "validator-revision-sequence",
+    "run2-sequence-decision",
   ])(
     "enforces %s runtime evidence",
     (probe) => {
@@ -209,6 +210,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(isSharedDiscoverabilityDeniedPath("/zh/personality/big-five/facets/order")).toBe(false);
     expect(source).toContain('sequence_state: "consumed"');
     expect(source).toContain('fs.openSync(ARTIFACT_PATHS.run1, "r+")');
+    expect(source).toContain('fs.openSync(ARTIFACT_PATHS.runTwoLock, "wx", 0o600)');
+    expect(source).toContain("fs.unlinkSync(ARTIFACT_PATHS.runTwoLock)");
     expect(source).toContain("fs.ftruncateSync(runOneDescriptor, 0)");
     expect(source).toContain("fs.writeSync(runOneDescriptor, consumedRun, 0");
     expect(source).not.toContain("fs.existsSync(ARTIFACT_PATHS.run1)");
@@ -219,6 +222,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("previousRun?.frontend_revision === revisionAtStart");
     expect(source).toContain("VALIDATOR_SOURCE_SHA256");
     expect(source).toContain("sameValidatorRevisionAcrossSequence(previousRun, VALIDATOR_SOURCE_SHA256)");
+    expect(source).toContain("validationRunPassed(RUN, aggregatePassed, consecutivePass)");
     expect(source).toContain('"script"');
     expect(source).toContain('"template"');
     expect(source).toContain('"[hidden]"');

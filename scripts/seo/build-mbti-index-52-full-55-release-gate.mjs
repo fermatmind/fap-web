@@ -33,6 +33,7 @@ const ARTIFACT_PATHS = Object.freeze({
   reportJson: new URL("../../docs/seo/personality/mbti-index-52-full-55-release-gate-2026-07-26.json", import.meta.url),
   reportMarkdown: new URL("../../docs/seo/personality/mbti-index-52-full-55-release-gate-2026-07-26.md", import.meta.url),
   reportCsv: new URL("../../docs/seo/personality/mbti-index-52-full-55-release-gate-2026-07-26.csv", import.meta.url),
+  runTwoLock: new URL("../../docs/seo/personality/.mbti-index-52-full-55-release-gate-run-2.lock", import.meta.url),
 });
 const MAX_ATTEMPTS = 3;
 const MAX_CONCURRENCY = 1;
@@ -501,6 +502,15 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "run2-sequence-decision") {
+    if (validationRunPassed(2, true, false)) {
+      throw new Error("Non-consecutive run 2 unexpectedly passed");
+    }
+    if (!validationRunPassed(2, true, true)) {
+      throw new Error("Consecutive run 2 unexpectedly failed");
+    }
+    return;
+  }
   const inventory = targets();
   if (name === "duplicate") inventory[54] = { ...inventory[53] };
   else if (name === "missing") inventory.pop();
@@ -747,6 +757,10 @@ function sameFrontendRevisionAcrossSequence(previousRun, revisionAtStart, revisi
 function sameValidatorRevisionAcrossSequence(previousRun, validatorSourceSha256) {
   return /^[0-9a-f]{64}$/.test(validatorSourceSha256)
     && previousRun?.validator_source_sha256 === validatorSourceSha256;
+}
+
+function validationRunPassed(run, aggregatePassed, consecutivePass) {
+  return run === 1 ? aggregatePassed : aggregatePassed && consecutivePass;
 }
 
 function walkJson(value, visit) {
@@ -1623,7 +1637,12 @@ let previousRun = null;
 let validationSessionId = RUN === 1 ? crypto.randomUUID() : null;
 if (RUN === 2) {
   let runOneDescriptor = null;
+  let runTwoLockDescriptor = null;
+  let consumptionError = null;
   try {
+    runTwoLockDescriptor = fs.openSync(ARTIFACT_PATHS.runTwoLock, "wx", 0o600);
+    fs.writeSync(runTwoLockDescriptor, `${process.pid}\n`, null, "utf8");
+    fs.fsyncSync(runTwoLockDescriptor);
     runOneDescriptor = fs.openSync(ARTIFACT_PATHS.run1, "r+");
     previousRun = JSON.parse(fs.readFileSync(runOneDescriptor, "utf8"));
     validationSessionId = nonemptyString(previousRun?.validation_session_id)
@@ -1638,9 +1657,23 @@ if (RUN === 2) {
     fs.writeSync(runOneDescriptor, consumedRun, 0, "utf8");
     fs.fsyncSync(runOneDescriptor);
   } catch (error) {
-    if (!(error && typeof error === "object" && error.code === "ENOENT")) throw error;
+    if (!(error && typeof error === "object" && error.code === "ENOENT")) {
+      consumptionError = error;
+    }
   } finally {
     if (runOneDescriptor !== null) fs.closeSync(runOneDescriptor);
+    if (runTwoLockDescriptor !== null) {
+      try {
+        fs.unlinkSync(ARTIFACT_PATHS.runTwoLock);
+      } finally {
+        fs.closeSync(runTwoLockDescriptor);
+      }
+    }
+  }
+  if (consumptionError) {
+    writePreflightValidationFailure(runStartedAt, validationSessionId, consumptionError);
+    console.error("HOLD_MBTI_55_INCOMPLETE: run 2 validation session is already claimed");
+    process.exit(1);
   }
 }
 writeRunValidationHold(runStartedAt, validationSessionId);
@@ -1779,31 +1812,6 @@ const evidenceSignature = sha256({
   records: evidenceRecords,
 });
 const runCompletedAt = new Date().toISOString();
-const runReport = {
-  id: "MBTI-INDEX-52",
-  artifact: `MBTI-INDEX-52-FULL-55-RELEASE-GATE-RUN-${RUN}`,
-  run: RUN,
-  validation_session_id: validationSessionId,
-  sequence_state: RUN === 1
-    ? (aggregatePassed ? "awaiting_run_2" : "failed")
-    : (aggregatePassed ? "completed" : "failed"),
-  started_at: runStartedAt,
-  completed_at: runCompletedAt,
-  target_count: 55,
-  evidence_scope: "read_only_production_network_revalidation",
-  run_decision: aggregatePassed ? "PASS_MBTI_55_RUN" : "HOLD_MBTI_55_INCOMPLETE",
-  evidence_signature: evidenceSignature,
-  frontend_revision: frontendRevisionAtStart,
-  frontend_revision_stable_within_run: frontendRevisionStable,
-  validator_source_sha256: VALIDATOR_SOURCE_SHA256,
-  source_revision_set_sha256: sha256(evidenceRecords.map((record) => record.source_revision_sha256)),
-  authority_fingerprint_set_sha256: sha256(evidenceRecords.map((record) => record.authority_fingerprint_sha256)),
-  metrics,
-  private_url_leak_count: privateUrlLeaks.length,
-  records: evidenceRecords,
-};
-fs.writeFileSync(RUN === 1 ? ARTIFACT_PATHS.run1 : ARTIFACT_PATHS.run2, `${JSON.stringify(runReport, null, 2)}\n`);
-
 const consecutivePass = Boolean(
   RUN === 2
   && aggregatePassed
@@ -1821,6 +1829,32 @@ const consecutivePass = Boolean(
   && previousRun?.evidence_signature === evidenceSignature
   && previousRun?.completed_at < runStartedAt,
 );
+const runPassed = validationRunPassed(RUN, aggregatePassed, consecutivePass);
+const runReport = {
+  id: "MBTI-INDEX-52",
+  artifact: `MBTI-INDEX-52-FULL-55-RELEASE-GATE-RUN-${RUN}`,
+  run: RUN,
+  validation_session_id: validationSessionId,
+  sequence_state: RUN === 1
+    ? (aggregatePassed ? "awaiting_run_2" : "failed")
+    : (runPassed ? "completed" : "failed"),
+  started_at: runStartedAt,
+  completed_at: runCompletedAt,
+  target_count: 55,
+  evidence_scope: "read_only_production_network_revalidation",
+  run_decision: runPassed ? "PASS_MBTI_55_RUN" : "HOLD_MBTI_55_INCOMPLETE",
+  evidence_signature: evidenceSignature,
+  frontend_revision: frontendRevisionAtStart,
+  frontend_revision_stable_within_run: frontendRevisionStable,
+  validator_source_sha256: VALIDATOR_SOURCE_SHA256,
+  source_revision_set_sha256: sha256(evidenceRecords.map((record) => record.source_revision_sha256)),
+  authority_fingerprint_set_sha256: sha256(evidenceRecords.map((record) => record.authority_fingerprint_sha256)),
+  metrics,
+  private_url_leak_count: privateUrlLeaks.length,
+  records: evidenceRecords,
+};
+fs.writeFileSync(RUN === 1 ? ARTIFACT_PATHS.run1 : ARTIFACT_PATHS.run2, `${JSON.stringify(runReport, null, 2)}\n`);
+
 const finalDecision = consecutivePass
   ? "ALLOW_MBTI_55_COMPLETE"
   : (RUN === 1 && aggregatePassed ? "PASS_MBTI_55_RUN_PENDING_SECOND" : "HOLD_MBTI_55_INCOMPLETE");
@@ -1831,7 +1865,7 @@ const finalReport = {
   final_decision: finalDecision,
   gsc_dependency_unblocked: consecutivePass,
   required_consecutive_runs: 2,
-  completed_consecutive_runs: consecutivePass ? 2 : (aggregatePassed ? 1 : 0),
+  completed_consecutive_runs: consecutivePass ? 2 : (RUN === 1 && aggregatePassed ? 1 : 0),
   validation_session_id: validationSessionId,
   target_count: 55,
   exact_new_targets: RELEASED_CROSS_TYPE,
