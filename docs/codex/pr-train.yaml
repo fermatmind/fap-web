@@ -27528,7 +27528,7 @@ prs:
     mode: execute
     train_scope: mbti_full_55_url_read_only_index_release_gate
     risk_level: L1
-    status: ready_to_merge
+    status: merged
     title: "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs"
     goal: "Run two identical, consecutive, read-only production release-gate passes across exactly 32 profiles, sixteen A/T comparisons, and seven approved cross-type comparisons before allowing the complete cohort to proceed to GSC monitoring."
     in_scope:
@@ -27574,3 +27574,60 @@ prs:
     content_authority: CMS/backend public APIs
     repository_rule_impact: existing_backend_authority_frontend_no_fallback_and_discoverability_rules_preserved
     next_task: MBTI-GSC-53
+
+  - id: MBTI-GSC-53
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/mbti-gsc-53
+    base: main
+    depends_on:
+      - MBTI-INDEX-52
+    mode: execute
+    train_scope: mbti_full_55_url_gsc_read_only_monitoring_windows
+    risk_level: L1
+    status: in_progress
+    title: "MBTI-GSC-53: monitor complete 55-URL MBTI cohort"
+    goal: "Extend the read-only GSC monitoring ledger to the exact INDEX-52 cohort of 32 profiles, sixteen A/T comparisons, and seven approved cross-type comparisons, with release-bound 7/14/28-day observation windows and no search mutation."
+    in_scope:
+      - docs/seo/personality/mbti-gsc-53-*
+      - scripts/seo/build-mbti-gsc-53-*
+      - tests/contracts/mbti-gsc-53-*
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+      - generated/pr-train-sidecar-issues/*
+    out_of_scope:
+      - sitemap submission, URL Inspection write, Request Indexing, Google Indexing API, or any search submission
+      - CMS writes, content mutation, public promotion, database mutation, or production import
+      - frontend runtime, sitemap, llms, canonical, robots, JSON-LD, or indexability mutation
+      - staging, production deploy, cache mutation, process control, or server changes
+      - English URLs, private result URLs, or expansion beyond the exact 55-URL cohort
+      - fabricated historical observations, future-window completion, credential output, or private property tokens
+    required_local_checks:
+      - node scripts/seo/build-mbti-gsc-53-full-cohort-monitoring.mjs
+      - corepack pnpm exec vitest run tests/contracts/mbti-gsc-53-full-cohort-monitoring.contract.test.ts --reporter=dot
+      - corepack pnpm lint . --max-warnings=0
+      - corepack pnpm typecheck
+      - corepack pnpm test:contract
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com corepack pnpm build
+      - ruby -e "require 'yaml'; YAML.safe_load(File.read('docs/codex/pr-train.yaml'), aliases: true); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    runtime_change: false
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    gsc_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    url_submission: false
+    deploy_allowed: false
+    content_authority: CMS/backend public APIs
+    repository_rule_impact: existing_backend_authority_frontend_no_fallback_and_search_read_only_rules_preserved
+    next_task: null

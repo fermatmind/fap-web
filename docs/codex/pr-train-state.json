@@ -51533,7 +51533,7 @@
     "updated_at": "2026-07-27T03:40:35Z"
   },
   "MBTI-INDEX-52": {
-    "status": "github_checks_pending",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-index-52",
     "depends_on": [
@@ -51573,12 +51573,12 @@
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+      "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+    "merged_at": "2026-07-27T16:51:43Z",
+    "remote_branch_deleted": true,
+    "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -51766,8 +51766,78 @@
         "at": "2026-07-27T16:45:16Z",
         "status": "ready_to_merge",
         "summary": "PR #1816 exact head a03b31007fa6bb4342f3a74129ca4e2033f8ac27 passed all seven required/security checks. GitHub reports CLEAN and MERGEABLE, exact-head Codex review found no major issues, all four prior findings are resolved, and zero review threads remain open. This final ledger-only ready-to-merge head must retain required checks before squash merge."
+      },
+      {
+        "at": "2026-07-27T16:55:06Z",
+        "status": "merged",
+        "summary": "PR #1816 exact ledger head 4469874cd3ec8b2bfdad9dd1a8d0f6474d21f570 retained all seven required/security checks and was squash-merged as 0239753b3df65f920a1ea0b9fc50401def893b95 at 2026-07-27T16:51:43Z. GitHub deleted the remote task branch; local main was fast-forwarded to origin/main, the local task branch was removed, and post-merge focused contracts passed 48/48 with YAML/JSON validation."
       }
     ],
-    "updated_at": "2026-07-27T16:45:16Z"
+    "updated_at": "2026-07-27T16:55:06Z"
+  },
+  "MBTI-GSC-53": {
+    "status": "in_progress",
+    "repo": "fap-web",
+    "branch": "codex/mbti-gsc-53",
+    "depends_on": [
+      "MBTI-INDEX-52"
+    ],
+    "train_scope": "mbti_full_55_url_gsc_read_only_monitoring_windows",
+    "title": "MBTI-GSC-53: monitor complete 55-URL MBTI cohort",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {
+        "status": "passed",
+        "evidence": "The operator supplied the concrete end-to-end /goal with the exact MBTI-GSC-53 id, title, repository, dependency, and read-only monitoring scope."
+      },
+      "dependency": {
+        "status": "passed",
+        "evidence": "MBTI-INDEX-52 PR #1816 merged as 0239753b3df65f920a1ea0b9fc50401def893b95 after two exact 55/55 production read-only runs; post-merge focused revalidation passed."
+      },
+      "required_local_checks": {
+        "status": "passed",
+        "evidence": "Generator passed with 55/55 URLs, 3/3 exact additions, 165/165 future windows not_due, zero GSC reads, and zero search mutations; focused Vitest passed 5/5; full ESLint, TypeScript typecheck, 774-file/4533-test contract suite, and production-environment Next.js build with 206/206 static pages all passed; YAML and JSON parsers plus git diff --check passed."
+      },
+      "changed_file_scope": {
+        "status": "passed",
+        "evidence": "Exact changed-file inventory contains only seven allowed paths: the train manifest and state ledger, three MBTI-GSC-53 monitoring artifacts, one bounded generator, and one focused contract test."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "gsc_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-27T16:55:06Z",
+        "status": "in_progress",
+        "summary": "Started from exact merged fap-web main 0239753b3df65f920a1ea0b9fc50401def893b95. The task is limited to an exact 55-URL monitoring ledger with actual CROSS-PUBLISH-51 and INDEX-52 completion timestamps, calculated 7/14/28-day windows, honest not_due/pending states, and explicit zero-mutation controls."
+      },
+      {
+        "at": "2026-07-27T17:07:11Z",
+        "status": "local_verified",
+        "summary": "All manifest local checks passed: deterministic generator 55/55 with 165/165 windows honestly not_due and zero GSC/search actions; focused contract 5/5; full lint and typecheck; full contract suite 774 files/4533 tests; production-environment build 206/206 static pages; YAML/JSON parsing, diff check, and exact seven-path scope validation."
+      }
+    ],
+    "updated_at": "2026-07-27T17:07:11Z"
   }
 }
