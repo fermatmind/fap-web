@@ -420,7 +420,7 @@
     "depends_on": [
       "CAREER-DETAIL-READ-MODEL-10K-01"
     ],
-    "status": "github_checks_pending",
+  "status": "ready_to_merge",
     "commit_sha": "41c16df8fc586ab7da9bd02668552ab37171381d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1682",
     "failure_reason": null,
@@ -51462,19 +51462,19 @@
         "status": "pass",
         "evidence": "Node 24.14.0 validation passed: scoped ESLint, full lint, spacing, typecheck, complete contracts 772 files / 4479 tests, Big Five freeze 29/29, Enneagram freeze 24/24, production build 206/206, YAML/JSON parsing, git diff checks, and exact five-file scope validation."
       },
-      "github_required_checks": {
-        "status": "pending",
-        "evidence": null
-      },
+    "github_required_checks": {
+      "status": "pass",
+      "evidence": "PR #1821 exact head 05079528fa40b19c8a4f27112ca523c186560f1c passed all seven required checks: build, contracts, both contract-freeze jobs, CodeQL analysis, no-new-code-scanning-alerts, and CodeQL."
+    },
     "codex_review": {
-      "status": "pending_exact_head",
-      "evidence": "Exact-head review found that substring matching could let a prefix route such as /en/science-v2 satisfy the required /en/science gate. Commit 4a8cedac79e363df1a02cebfefb30e566aee5dd0 parses canonical - URL: entries and requires exact set membership, with a negative prefix-impostor contract. Local revalidation passes; a new exact-head review is required after push."
+      "status": "pass",
+      "evidence": "The original P2 thread is resolved. Codex reviewed exact head 05079528fa40b19c8a4f27112ca523c186560f1c after the repair and reported no major issues; unresolved review thread count is zero."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+    "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51523,8 +51523,13 @@
       "at": "2026-07-27T03:35:11Z",
       "status": "github_checks_pending",
       "summary": "Committed the exact canonical Trust-route membership repair as 4a8cedac79e363df1a02cebfefb30e566aee5dd0 after complete local revalidation. This ledger-only tail binds the new implementation SHA before push; GitHub checks and exact-head review must run again."
+    },
+    {
+      "at": "2026-07-27T03:40:35Z",
+      "status": "ready_to_merge",
+      "summary": "PR #1821 exact head 05079528fa40b19c8a4f27112ca523c186560f1c passed all seven required checks, exact-head Codex review reported no major issues, the sole P2 thread is resolved, aggregate scope remains the exact five authorized files, and GitHub reports CLEAN/MERGEABLE. This ledger-only tail records the required pre-merge state and must itself pass final-head checks before squash merge."
     }
   ],
-  "updated_at": "2026-07-27T03:35:11Z"
+  "updated_at": "2026-07-27T03:40:35Z"
 }
 }
