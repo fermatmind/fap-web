@@ -27585,7 +27585,7 @@ prs:
     mode: execute
     train_scope: mbti_full_55_url_gsc_read_only_monitoring_windows
     risk_level: L1
-    status: github_checks_pending
+    status: ready_to_merge
     title: "MBTI-GSC-53: monitor complete 55-URL MBTI cohort"
     goal: "Extend the read-only GSC monitoring ledger to the exact INDEX-52 cohort of 32 profiles, sixteen A/T comparisons, and seven approved cross-type comparisons, with release-bound 7/14/28-day observation windows and no search mutation."
     in_scope:

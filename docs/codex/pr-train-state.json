@@ -51776,7 +51776,7 @@
     "updated_at": "2026-07-27T16:55:06Z"
   },
   "MBTI-GSC-53": {
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-gsc-53",
     "depends_on": [
@@ -51804,14 +51804,14 @@
         "evidence": "Exact changed-file inventory contains only seven allowed paths: the train manifest and state ledger, three MBTI-GSC-53 monitoring artifacts, one bounded generator, and one focused contract test."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": null
+        "status": "passed",
+        "evidence": "PR #1823 exact reviewed head 1357538c1d037fc3c174fbd40a0359ccfd4dfeb0 passed build, contracts, both contract-freeze checks, CodeQL analysis, CodeQL aggregate, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE; exact-head Codex review found no major issues."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51851,8 +51851,13 @@
         "at": "2026-07-27T17:18:26Z",
         "status": "github_checks_pending",
         "summary": "Pushed both reviewed fixes as exact implementation head ed04389823a93ab475eabb9e00d7a4bbdcc31b7d; exact-head GitHub checks and a fresh Codex review remain required before merge."
+      },
+      {
+        "at": "2026-07-27T17:25:41Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1823 exact reviewed head 1357538c1d037fc3c174fbd40a0359ccfd4dfeb0 passed all seven required/security checks. GitHub reports CLEAN and MERGEABLE; Codex found no major issues on the exact head, and both earlier findings are resolved. The final ledger-only head must retain required checks before squash merge."
       }
     ],
-    "updated_at": "2026-07-27T17:18:26Z"
+    "updated_at": "2026-07-27T17:25:41Z"
   }
 }
