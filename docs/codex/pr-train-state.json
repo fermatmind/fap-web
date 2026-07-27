@@ -50774,8 +50774,8 @@
     "depends_on": [
       "MBTI-COMP-GATE-47"
     ],
-  "status": "ready_to_merge",
-  "commit_sha": "87b543d3c0eadb3230527a1a29d307147ed41432",
+  "status": "merged",
+  "commit_sha": "5ae48bdda2ccd0e63bee9ca30de395ccd8ddd26b",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1801",
     "checks": {
       "authorization": {
@@ -50800,7 +50800,7 @@
       },
     "github_required_checks": {
       "status": "pass",
-      "evidence": "Exact R2 approval head 87b543d3c0eadb3230527a1a29d307147ed41432 passed all seven required checks and remained MERGEABLE. Codex review found only that commit_sha still referenced the pre-R2 head; this ledger-only closeout binds the state to the exact checked R2 approval head."
+      "evidence": "Exact R2 approval head 87b543d3c0eadb3230527a1a29d307147ed41432 passed all seven required checks and remained MERGEABLE. Codex review found only that commit_sha still referenced the pre-R2 head. Post-merge reconciliation verified PR #1801 squash-merged as 5ae48bdda2ccd0e63bee9ca30de395ccd8ddd26b and that merge remains contained by origin/main."
       },
       "operator_editorial_approval": {
         "status": "pass",
@@ -50811,12 +50811,12 @@
       "allowed_paths_only": true,
       "local_validation_passed": true,
     "github_checks_green": true,
-      "post_merge_revalidated": false
+    "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+  "merged_at": "2026-07-23T05:34:27Z",
+  "remote_branch_deleted": true,
+  "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -50958,9 +50958,14 @@
       "at": "2026-07-23T05:27:50Z",
       "status": "ready_to_merge",
       "summary": "Exact R2 approval head 87b543d3c0eadb3230527a1a29d307147ed41432 passed all seven required checks and remained MERGEABLE. Codex review found one valid P2: commit_sha still referenced the pre-R2 head. This ledger-only closeout binds the approval state to the exact checked R2 head. Package SHA-256 remains 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae and authorization SHA-256 remains be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670; PR48 is ready to merge after this closeout head passes required checks."
+    },
+    {
+      "at": "2026-07-27T18:17:43Z",
+      "status": "merged",
+      "summary": "Post-merge reconciliation verified GitHub PR #1801 is MERGED at 2026-07-23T05:34:27Z as 5ae48bdda2ccd0e63bee9ca30de395ccd8ddd26b, that the merge is contained by current fap-web origin/main, and that codex/mbti-cross-approval-48 is absent locally and remotely. Exact package SHA-256 604851b56031d22d48036e87a5358bf85c9e13268655dbe36d2ab798b3f58dae and authorization SHA-256 be4f17484334074cf2c90d57898ab80b6074093b2510a4b7b4b0432a164b4670 remain unchanged; this source-control reconciliation performs no production or search mutation."
     }
   ],
-    "updated_at": "2026-07-23T05:27:50Z"
+  "updated_at": "2026-07-27T18:17:43Z"
   },
   "SEO-CORE-TEST-DETAIL-500-INCIDENT-01": {
     "id": "SEO-CORE-TEST-DETAIL-500-INCIDENT-01",
@@ -51776,7 +51781,7 @@
     "updated_at": "2026-07-27T16:55:06Z"
   },
   "MBTI-GSC-53": {
-    "status": "ready_to_merge",
+    "status": "merged",
     "repo": "fap-web",
     "branch": "codex/mbti-gsc-53",
     "depends_on": [
@@ -51784,7 +51789,7 @@
     ],
     "train_scope": "mbti_full_55_url_gsc_read_only_monitoring_windows",
     "title": "MBTI-GSC-53: monitor complete 55-URL MBTI cohort",
-    "commit_sha": "ed04389823a93ab475eabb9e00d7a4bbdcc31b7d",
+  "commit_sha": "4d81f495ea9120d6e9ef32094efb568e925f2e0a",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1823",
     "checks": {
       "authorization": {
@@ -51805,19 +51810,19 @@
       },
       "github_required_checks": {
         "status": "passed",
-        "evidence": "PR #1823 exact reviewed head 1357538c1d037fc3c174fbd40a0359ccfd4dfeb0 passed build, contracts, both contract-freeze checks, CodeQL analysis, CodeQL aggregate, and no-new-code-scanning-alerts. GitHub reports CLEAN and MERGEABLE; exact-head Codex review found no major issues."
+      "evidence": "PR #1823 exact reviewed head 1357538c1d037fc3c174fbd40a0359ccfd4dfeb0 passed build, contracts, both contract-freeze checks, CodeQL analysis, CodeQL aggregate, and no-new-code-scanning-alerts. Exact-head Codex review found no major issues. Post-merge reconciliation verified PR #1823 squash-merged as 4d81f495ea9120d6e9ef32094efb568e925f2e0a and that merge remains contained by origin/main."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
       "github_checks_green": true,
-      "post_merge_revalidated": false
+    "post_merge_revalidated": true
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+  "merged_at": "2026-07-27T17:32:01Z",
+  "remote_branch_deleted": true,
+  "local_cleanup_executed": true,
     "production_write_execution": false,
     "database_mutation": false,
     "cms_mutation": false,
@@ -51852,12 +51857,17 @@
         "status": "github_checks_pending",
         "summary": "Pushed both reviewed fixes as exact implementation head ed04389823a93ab475eabb9e00d7a4bbdcc31b7d; exact-head GitHub checks and a fresh Codex review remain required before merge."
       },
-      {
-        "at": "2026-07-27T17:25:41Z",
-        "status": "ready_to_merge",
-        "summary": "PR #1823 exact reviewed head 1357538c1d037fc3c174fbd40a0359ccfd4dfeb0 passed all seven required/security checks. GitHub reports CLEAN and MERGEABLE; Codex found no major issues on the exact head, and both earlier findings are resolved. The final ledger-only head must retain required checks before squash merge."
-      }
-    ],
-    "updated_at": "2026-07-27T17:25:41Z"
+    {
+      "at": "2026-07-27T17:25:41Z",
+      "status": "ready_to_merge",
+      "summary": "PR #1823 exact reviewed head 1357538c1d037fc3c174fbd40a0359ccfd4dfeb0 passed all seven required/security checks. GitHub reports CLEAN and MERGEABLE; Codex found no major issues on the exact head, and both earlier findings are resolved. The final ledger-only head must retain required checks before squash merge."
+    },
+    {
+      "at": "2026-07-27T18:17:43Z",
+      "status": "merged",
+      "summary": "Post-merge reconciliation verified GitHub PR #1823 is MERGED at 2026-07-27T17:32:01Z as 4d81f495ea9120d6e9ef32094efb568e925f2e0a, that the merge is contained by current fap-web origin/main, and that codex/mbti-gsc-53 is absent locally and remotely. The 55-URL 7/14/28-day observations remain read-only and not due; this reconciliation performs zero GSC reads, URL Inspection writes, sitemap submissions, request indexing, or search mutations."
+    }
+  ],
+  "updated_at": "2026-07-27T18:17:43Z"
   }
 }
