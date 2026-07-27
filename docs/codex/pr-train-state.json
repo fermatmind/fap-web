@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "3c993e6519e74e65418f1b90cf04d40a329effcf",
+    "commit_sha": "7086d1849bf8abaaf2a71921d7e8662de92ed26d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51566,7 +51566,7 @@
       },
       "github_required_checks": {
         "status": "passed_implementation_head_ledger_recheck_pending",
-        "evidence": "PR #1816 exact head 54baf4366b9813f352c7bcb71bc5aa6f23c50806 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified one P1 and one P2 gap. Exact implementation head 3c993e6519e74e65418f1b90cf04d40a329effcf closes them by requiring a runtime-renderable entry in every mandatory answer-surface collection and exactly one canonical link equal to the expected canonical. The final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
+        "evidence": "PR #1816 exact head 387416b9ab483fbe88fd5d813ab169e7641c9c9f passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified three P2 evidence-conflict gaps. Exact implementation head 7086d1849bf8abaaf2a71921d7e8662de92ed26d closes them by rejecting conflicting duplicate robots meta tags, duplicate/conflicting hreflang alternates, and duplicate/conflicting FAQ schema questions. The final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
       }
     },
     "scope_validation": {
@@ -51716,6 +51716,11 @@
         "at": "2026-07-27T08:55:42Z",
         "status": "production_readback_blocked",
         "summary": "Exact head 54baf4366b9813f352c7bcb71bc5aa6f23c50806 passed all seven required/security checks and received exact-head review. Implementation head 3c993e6519e74e65418f1b90cf04d40a329effcf closes both findings: every mandatory answer-surface collection must contain a runtime-renderable authored entry, and rendered HTML must expose exactly one canonical link matching the target. Focused contracts pass 33/33, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T09:38:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 387416b9ab483fbe88fd5d813ab169e7641c9c9f passed all seven required/security checks and received exact-head review. Implementation head 7086d1849bf8abaaf2a71921d7e8662de92ed26d closes all three findings: every robots meta directive must independently allow index/follow, rendered hreflang must contain exactly one matching link per expected locale with no extras, and FAQ schema rejects duplicate questions instead of allowing a Map overwrite to hide conflicting answers. Focused contracts pass 36/36, scoped ESLint, Node syntax, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
       }
     ],
     "updated_at": "2026-07-27T08:55:42Z"
