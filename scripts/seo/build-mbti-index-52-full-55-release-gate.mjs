@@ -662,7 +662,10 @@ function runContractProbe(name) {
       title: "Surface metadata title",
       description: "Surface metadata description",
       canonical,
-      alternates: seoPayload.meta.alternates,
+      alternates: {
+        ...seoPayload.meta.alternates,
+        "x-default": `${SITE_ORIGIN}/`,
+      },
       robots: "index,follow",
     };
     if (!profileSeoAuthorityPresent(seoPayload, {}, canonical, pageFacts)) {
@@ -706,7 +709,10 @@ function runContractProbe(name) {
       title: "Profile title",
       description: "Profile description",
       canonical,
-      alternates: seoPayload.meta.alternates,
+      alternates: {
+        ...seoPayload.meta.alternates,
+        "x-default": `${SITE_ORIGIN}/`,
+      },
       robots: "index,follow",
     };
     if (profileSeoAuthorityPresent(seoPayload, {}, canonical, pageFacts)) {
@@ -747,11 +753,13 @@ function runContractProbe(name) {
         <link rel="alternate" hreflang="zh-CN" href="${canonical}">
         <link rel="alternate" hreflang="zh-CN" href="${SITE_ORIGIN}/zh/personality/intp-a">
         <link rel="alternate" hreflang="en" href="${englishCanonical}">
+        <link rel="alternate" hreflang="x-default" href="${SITE_ORIGIN}/">
       </head><body></body></html>
     `);
     if (exactAlternateLinksPresent(facts, {
       "zh-CN": canonical,
       en: englishCanonical,
+      "x-default": `${SITE_ORIGIN}/`,
     })) {
       throw new Error("Conflicting hreflang links unexpectedly passed");
     }
@@ -1858,6 +1866,7 @@ function profileSeoAuthorityPresent(seoPayload, detailPayload, canonical, pageFa
     && exactAlternateLinksPresent(pageFacts, {
       "zh-CN": meta?.alternates?.["zh-CN"],
       en: meta?.alternates?.en,
+      "x-default": `${SITE_ORIGIN}/`,
     });
 }
 
@@ -1912,6 +1921,7 @@ function comparisonRenderedMetadataPresent(payload, pageFacts, canonical) {
     && exactAlternateLinksPresent(pageFacts, {
       "zh-CN": canonical,
       en: expectedEnglishCanonical,
+      "x-default": `${SITE_ORIGIN}/`,
     })
     && comparisonRobotsAuthorityPresent(payload, pageFacts);
 }
