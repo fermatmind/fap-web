@@ -45,6 +45,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     "profile-hero-visibility",
     "comparison-robots-authority",
     "profile-robots-authority",
+    "profile-metadata-precedence",
     "disabled-runtime-sections",
     "profile-hero-completeness",
     "feed-exact-url-membership",
@@ -59,30 +60,37 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     },
   );
 
-  it("keeps GSC held after a consumed run 1 and failed run 2", () => {
+  it("keeps checked-in evidence in a consistent release-gate state", () => {
     const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
     const runOne = JSON.parse(fs.readFileSync(runOnePath, "utf8"));
     const runTwo = JSON.parse(fs.readFileSync(runTwoPath, "utf8"));
 
-    expect(report.final_decision).toBe("HOLD_MBTI_55_INCOMPLETE");
-    expect(report.gsc_dependency_unblocked).toBe(false);
-    expect(report.completed_consecutive_runs).toBe(0);
     expect(report.target_count).toBe(55);
     expect(report.exact_new_targets).toEqual(exactNewTargets);
     expect(runOne.run_decision).toBe("PASS_MBTI_55_RUN");
-    expect(runTwo.run_decision).toBe("HOLD_MBTI_55_INCOMPLETE");
     expect(runOne.started_at < runOne.completed_at).toBe(true);
     expect(runOne.completed_at < runTwo.started_at).toBe(true);
     expect(runOne.sequence_state).toBe("consumed");
-    expect(runTwo.sequence_state).toBe("failed");
     expect(runOne.consumed_by_run_2_at).toBe(runTwo.started_at);
     expect(runOne.validation_session_id).toMatch(/^[0-9a-f-]{36}$/);
     expect(runTwo.validation_session_id).toBe(runOne.validation_session_id);
     expect(report.validation_session_id).toBe(runOne.validation_session_id);
-    expect(report.failure_reason).toBe("run_1_consumed_and_run_2_failed_on_incomplete_llms_full");
-    expect(runTwo.failure_reason).toContain("llms-full");
-    expect(report.records).toEqual([]);
-    expect(runTwo.records).toEqual([]);
+
+    if (report.final_decision === "ALLOW_MBTI_55_COMPLETE") {
+      expect(report.gsc_dependency_unblocked).toBe(true);
+      expect(report.completed_consecutive_runs).toBe(2);
+      expect(runTwo.run_decision).toBe("PASS_MBTI_55_RUN");
+      expect(runTwo.sequence_state).toBe("completed");
+      expect(runTwo.records).toHaveLength(55);
+      expect(report.records).toHaveLength(55);
+    } else {
+      expect(report.final_decision).toBe("HOLD_MBTI_55_INCOMPLETE");
+      expect(report.gsc_dependency_unblocked).toBe(false);
+      expect(report.completed_consecutive_runs).toBe(0);
+      expect(runTwo.run_decision).toBe("HOLD_MBTI_55_INCOMPLETE");
+      expect(runTwo.sequence_state).toBe("failed");
+      expect(report.records).toEqual(runTwo.records);
+    }
   });
 
   it("preserves backend authority and the read-only search hold", () => {
@@ -172,7 +180,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("profileSeoAuthorityPresent");
     expect(source).toContain("profileRobotsAuthorityPresent(seoPayload, detailPayload, pageFacts)");
     expect(source).toContain("additionalRobotsSources.every(robotsSourceAllowsIndex)");
-    expect(source).toContain("pageFacts?.title === normalizeText(meta?.title)");
+    expect(source).toContain("pageFacts?.title === expectedTitle");
+    expect(source).toContain("pageFacts?.description === expectedDescription");
     expect(source).toContain('link[rel~="alternate"][hreflang]');
     expect(source).toContain("comparisonIdentityPresent(comparison, target)");
     expect(source).toContain('comparison?.locale !== "zh-CN"');

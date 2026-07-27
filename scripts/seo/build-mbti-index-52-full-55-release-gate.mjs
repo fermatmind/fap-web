@@ -419,6 +419,50 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "profile-metadata-precedence") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/intj-a`;
+    const seoPayload = {
+      meta: {
+        title: "Legacy metadata title",
+        description: "Legacy metadata description",
+        canonical,
+        alternates: {
+          "zh-CN": canonical,
+          en: canonical.replace("/zh/", "/en/"),
+        },
+        robots: "index,follow",
+      },
+      surface: {
+        title: "Surface metadata title",
+        description: "Surface metadata description",
+        robots_policy: "index,follow",
+      },
+      jsonld: {
+        "@type": "AboutPage",
+        "@id": `${canonical}#webpage`,
+        url: canonical,
+      },
+    };
+    const pageFacts = {
+      title: "Surface metadata title",
+      description: "Surface metadata description",
+      canonical,
+      alternates: seoPayload.meta.alternates,
+      robots: "index,follow",
+    };
+    if (!profileSeoAuthorityPresent(seoPayload, {}, canonical, pageFacts)) {
+      throw new Error("Runtime surface-first profile metadata unexpectedly failed");
+    }
+    if (profileSeoAuthorityPresent(
+      seoPayload,
+      {},
+      canonical,
+      { ...pageFacts, title: seoPayload.meta.title },
+    )) {
+      throw new Error("Superseded profile metadata title unexpectedly passed");
+    }
+    return;
+  }
   if (name === "disabled-runtime-sections") {
     const sections = runtimeComparisonSections({
       sections: [
@@ -1131,12 +1175,15 @@ function profileHeroVisible(projection, visibleText) {
 function profileSeoAuthorityPresent(seoPayload, detailPayload, canonical, pageFacts) {
   if (!seoPayload || typeof seoPayload !== "object") return false;
   const meta = seoPayload?.meta ?? {};
+  const surface = seoPayload?.surface ?? {};
+  const expectedTitle = normalizeText(surface?.title) || normalizeText(meta?.title);
+  const expectedDescription = normalizeText(surface?.description) || normalizeText(meta?.description);
   const seoStructured = structuredFacts([seoPayload?.jsonld]);
   const aboutPageNodes = seoStructured.pageIdentities.filter(({ types }) => (
     types.includes("AboutPage")
   ));
-  return nonemptyString(meta?.title)
-    && nonemptyString(meta?.description)
+  return nonemptyString(expectedTitle)
+    && nonemptyString(expectedDescription)
     && meta?.canonical === canonical
     && meta?.alternates?.["zh-CN"] === canonical
     && meta?.alternates?.en === canonical.replace("/zh/", "/en/")
@@ -1146,8 +1193,8 @@ function profileSeoAuthorityPresent(seoPayload, detailPayload, canonical, pageFa
     && aboutPageNodes.every(({ id, url }) => (
       url === canonical || id === canonical || id === `${canonical}#webpage`
     ))
-    && pageFacts?.title === normalizeText(meta?.title)
-    && pageFacts?.description === normalizeText(meta?.description)
+    && pageFacts?.title === expectedTitle
+    && pageFacts?.description === expectedDescription
     && pageFacts?.canonical === meta?.canonical
     && pageFacts?.alternates?.["zh-CN"] === meta?.alternates?.["zh-CN"]
     && pageFacts?.alternates?.en === meta?.alternates?.en;
