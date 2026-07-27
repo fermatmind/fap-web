@@ -150,6 +150,14 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("comparisonProjectionVisible");
     expect(source).toContain("comparisonVariantVisible");
     expect(source).toContain("comparisonBlockVisible");
+    expect(source).toContain("comparisonInternalLinksVisible");
+    expect(source).toContain("normalizePublicHref(anchor?.href) === href");
+    expect(source).toContain("runtimeComparisonSections(payload)");
+    expect(source).toContain("profileSeoAuthorityPresent");
+    expect(source).toContain("/seo?locale=zh-CN&org_id=0&scale_code=MBTI");
+    expect(source).toContain("writeFinalValidationHold(runStartedAt);");
+    expect(source.indexOf("writeFinalValidationHold(runStartedAt);"))
+      .toBeLessThan(source.indexOf("const feedNames ="));
     expect(source).toContain("isSharedDiscoverabilityDeniedPath");
     expect(source).not.toContain("PRIVATE_PATH_PATTERN");
     expect(isSharedDiscoverabilityDeniedPath("/zh/results/lookup")).toBe(true);

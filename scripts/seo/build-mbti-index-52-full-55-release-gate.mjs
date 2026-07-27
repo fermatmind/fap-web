@@ -106,6 +106,19 @@ const CHECK_KEYS = Object.freeze([
   "llms_full",
   "api_no_timeout",
 ]);
+const SAFETY_BOUNDARY = Object.freeze({
+  read_only_network: true,
+  cms_write_attempted: false,
+  database_write_attempted: false,
+  publication_mutation_attempted: false,
+  indexability_mutation_attempted: false,
+  sitemap_llms_mutation_attempted: false,
+  sitemap_submission_attempted: false,
+  gsc_mutation_attempted: false,
+  search_submission_attempted: false,
+  production_deploy_attempted: false,
+  frontend_editorial_fallback_added: false,
+});
 
 function targets() {
   const profiles = Object.entries(GROUPS).flatMap(([group, types]) => types.flatMap((type) => (
@@ -223,6 +236,36 @@ function runContractProbe(name) {
       completeVisibleText.replace("Keeps testing the plan.", ""),
     )) {
       throw new Error("Missing comparison projection content unexpectedly passed");
+    }
+    const crossTypePayload = {
+      comparison_public_projection_v1: {
+        internal_links: [{
+          label: "Compare INTJ and INTP",
+          href: "/zh/personality/intj-vs-intp",
+          reason: "Check a nearby thinking-style contrast.",
+        }],
+      },
+    };
+    const crossTypeVisibleText = "Compare INTJ and INTP Check a nearby thinking-style contrast.";
+    const crossTypeAnchors = [{
+      href: "/zh/personality/intj-vs-intp",
+      text: crossTypeVisibleText,
+    }];
+    if (!comparisonProjectionVisible(
+      crossTypePayload,
+      "cross_type_comparison",
+      crossTypeVisibleText,
+      crossTypeAnchors,
+    )) {
+      throw new Error("Complete cross-type internal link unexpectedly failed");
+    }
+    if (comparisonProjectionVisible(
+      crossTypePayload,
+      "cross_type_comparison",
+      crossTypeVisibleText,
+      [{ ...crossTypeAnchors[0], href: "/zh/personality/enfp-vs-entp" }],
+    )) {
+      throw new Error("Misdirected cross-type internal link unexpectedly passed");
     }
     return;
   }
@@ -366,10 +409,15 @@ function documentFacts(html) {
   visibleBody?.querySelectorAll(
     'script, style, template, noscript, [hidden], [aria-hidden="true"], input[type="hidden"]',
   ).forEach((node) => node.remove());
+  const visibleAnchors = [...(visibleBody?.querySelectorAll("a[href]") ?? [])].map((node) => ({
+    href: node.getAttribute("href") ?? "",
+    text: normalizeText(node.textContent),
+  }));
   return {
     canonical: document.querySelector('link[rel~="canonical"]')?.getAttribute("href") ?? "",
     robots: (document.querySelector('meta[name="robots"]')?.getAttribute("content") ?? "").toLowerCase(),
     visibleText: normalizeText(visibleBody?.textContent ?? ""),
+    visibleAnchors,
     jsonld,
   };
 }
@@ -449,6 +497,10 @@ function apiFaq(payload, kind) {
 function apiSections(payload, kind) {
   const rows = kind === "profile" ? payload?.sections : comparisonProjection(payload)?.sections;
   return Array.isArray(rows) ? rows : [];
+}
+
+function runtimeComparisonSections(payload) {
+  return Array.isArray(payload?.sections) ? payload.sections : [];
 }
 
 function nonemptyString(value) {
@@ -598,9 +650,38 @@ function comparisonBlockVisible(block, visibleText) {
     && visibleCandidates(candidates, visibleText);
 }
 
-function comparisonProjectionVisible(payload, kind, visibleText) {
-  if (kind !== "at_comparison") return true;
+function normalizePublicHref(value) {
+  try {
+    return new URL(String(value ?? ""), SITE_ORIGIN).href;
+  } catch {
+    return "";
+  }
+}
+
+function comparisonInternalLinksVisible(projection, visibleText, visibleAnchors) {
+  const links = Array.isArray(projection?.internal_links) ? projection.internal_links : [];
+  return links.every((link) => {
+    const label = normalizeText(link?.label);
+    const reason = normalizeText(link?.reason);
+    const href = normalizePublicHref(link?.href);
+    const matchingAnchor = visibleAnchors.find((anchor) => (
+      normalizePublicHref(anchor?.href) === href
+      && normalizeComparableText(anchor?.text).includes(normalizeComparableText(label))
+      && (!reason || normalizeComparableText(anchor?.text).includes(normalizeComparableText(reason)))
+    ));
+    return Boolean(label)
+      && Boolean(href)
+      && visibleCandidates([label, ...(reason ? [reason] : [])], visibleText)
+      && Boolean(matchingAnchor);
+  });
+}
+
+function comparisonProjectionVisible(payload, kind, visibleText, visibleAnchors = []) {
   const projection = comparisonProjection(payload);
+  if (kind === "cross_type_comparison") {
+    return comparisonInternalLinksVisible(projection, visibleText, visibleAnchors);
+  }
+  if (kind !== "at_comparison") return true;
   const variants = projection?.variants;
   const blocks = Array.isArray(projection?.comparison_blocks)
     ? projection.comparison_blocks
@@ -677,7 +758,30 @@ function profileReaderVisibleSections(payload) {
   return [...leadingSections, ...v85Sections];
 }
 
-function authorityFacts(payload, target, canonical) {
+function profileSeoAuthorityPresent(seoPayload, canonical) {
+  if (!seoPayload || typeof seoPayload !== "object") return false;
+  const meta = seoPayload?.meta ?? {};
+  const robots = normalizeText(meta?.robots).toLowerCase();
+  const seoStructured = structuredFacts([seoPayload?.jsonld]);
+  const aboutPageNodes = seoStructured.pageIdentities.filter(({ types }) => (
+    types.includes("AboutPage")
+  ));
+  return nonemptyString(meta?.title)
+    && nonemptyString(meta?.description)
+    && meta?.canonical === canonical
+    && meta?.alternates?.["zh-CN"] === canonical
+    && meta?.alternates?.en === canonical.replace("/zh/", "/en/")
+    && /(?:^|[\s,])index(?:[\s,]|$)/.test(robots)
+    && /(?:^|[\s,])follow(?:[\s,]|$)/.test(robots)
+    && !robots.includes("noindex")
+    && !seoStructured.invalid
+    && aboutPageNodes.length > 0
+    && aboutPageNodes.every(({ id, url }) => (
+      url === canonical || id === canonical || id === `${canonical}#webpage`
+    ));
+}
+
+function authorityFacts(payload, target, canonical, seoPayload = null) {
   const sections = apiSections(payload, target.kind);
   if (target.kind === "profile") {
     const profile = payload?.profile ?? {};
@@ -705,6 +809,7 @@ function authorityFacts(payload, target, canonical) {
       faq: payload?.answer_surface_v1?.faq_blocks,
       canonical: payload?.seo_meta?.canonical_url,
       robots: payload?.seo_meta?.robots,
+      seo_endpoint: seoPayload,
     };
     const revisionPresent = Number.isInteger(profile.id)
       && profile.id > 0
@@ -719,12 +824,14 @@ function authorityFacts(payload, target, canonical) {
       && projection?._meta?.authority_source === "personality_cms_v2"
       && nonemptyString(projection?._meta?.schema_version)
       && Array.isArray(projection.sections)
-      && projection.sections.length > 0;
+      && projection.sections.length > 0
+      && profileSeoAuthorityPresent(seoPayload, canonical);
     return {
       present: profile.status === "published"
         && profile.is_public === true
         && profile.is_indexable === true
-        && payload?.seo_meta?.canonical_url === canonical,
+        && payload?.seo_meta?.canonical_url === canonical
+        && profileSeoAuthorityPresent(seoPayload, canonical),
       revisionPresent,
       sourceRevisionSha256: sha256(revision),
       authorityFingerprintSha256: sha256(authority),
@@ -757,6 +864,7 @@ function authorityFacts(payload, target, canonical) {
       sourceRevisionSha256: sha256(revision),
       authorityFingerprintSha256: sha256({
         projection: comparison,
+        sections: runtimeComparisonSections(payload),
         answer_surface: payload?.answer_surface_v1,
       }),
     };
@@ -787,6 +895,7 @@ function authorityFacts(payload, target, canonical) {
     }),
     authorityFingerprintSha256: sha256({
       projection: comparison,
+      sections: runtimeComparisonSections(payload),
       answer_surface: payload?.answer_surface_v1,
     }),
   };
@@ -815,7 +924,7 @@ function jsonLdValid(kind, structured, canonical) {
     .every((type) => structured.types.includes(type));
 }
 
-function visibleBodyComplete(payload, target, visibleText) {
+function visibleBodyComplete(payload, target, visibleText, visibleAnchors = []) {
   const sections = apiSections(payload, target.kind);
   if (target.kind === "profile") {
     const readerVisibleSections = profileReaderVisibleSections(payload);
@@ -839,14 +948,70 @@ function visibleBodyComplete(payload, target, visibleText) {
     }
     return complete;
   }
+  const runtimeSections = runtimeComparisonSections(payload);
   return sections.length > 0
     && sections.every((section) => comparisonSectionVisible(section, visibleText))
-    && comparisonProjectionVisible(payload, target.kind, visibleText)
+    && runtimeSections.every((section) => profileSectionVisible(section, visibleText))
+    && comparisonProjectionVisible(payload, target.kind, visibleText, visibleAnchors)
     && answerSurfaceVisible(payload, target.kind, visibleText);
 }
 
 function feedUrls(body) {
   return new Set(body.match(/https:\/\/fermatmind\.com\/[a-z0-9/_-]+/gi) ?? []);
+}
+
+function writeFinalValidationHold(startedAt, sessionId = null) {
+  const holdReport = {
+    id: "MBTI-INDEX-52",
+    artifact: "MBTI-INDEX-52-FULL-55-RELEASE-GATE",
+    generated_at: startedAt,
+    final_decision: "HOLD_MBTI_55_INCOMPLETE",
+    gsc_dependency_unblocked: false,
+    required_consecutive_runs: 2,
+    completed_consecutive_runs: 0,
+    validation_session_id: sessionId,
+    target_count: 55,
+    exact_new_targets: RELEASED_CROSS_TYPE,
+    failure_reason: "validation_in_progress",
+    records: [],
+    safety_boundary: SAFETY_BOUNDARY,
+  };
+  fs.writeFileSync(ARTIFACT_PATHS.reportJson, `${JSON.stringify(holdReport, null, 2)}\n`);
+  fs.writeFileSync(
+    ARTIFACT_PATHS.reportMarkdown,
+    [
+      "# MBTI-INDEX-52 Full 55 URL Release Gate",
+      "",
+      "- Final decision: `HOLD_MBTI_55_INCOMPLETE`",
+      "- Consecutive runs complete: `0/2`",
+      "- Failure reason: `validation_in_progress`",
+      "",
+      "The previous ALLOW evidence is invalid while the current read-only validation is in progress.",
+      "",
+    ].join("\n"),
+  );
+  fs.writeFileSync(ARTIFACT_PATHS.reportCsv, "path,kind,result,blockers\n");
+}
+
+function writeRunValidationHold(startedAt, sessionId) {
+  const holdRun = {
+    id: "MBTI-INDEX-52",
+    artifact: `MBTI-INDEX-52-FULL-55-RELEASE-GATE-RUN-${RUN}`,
+    run: RUN,
+    validation_session_id: sessionId,
+    sequence_state: "in_progress",
+    started_at: startedAt,
+    completed_at: null,
+    target_count: 55,
+    evidence_scope: "read_only_production_network_revalidation",
+    run_decision: "HOLD_MBTI_55_INCOMPLETE",
+    failure_reason: "validation_in_progress",
+    records: [],
+  };
+  fs.writeFileSync(
+    RUN === 1 ? ARTIFACT_PATHS.run1 : ARTIFACT_PATHS.run2,
+    `${JSON.stringify(holdRun, null, 2)}\n`,
+  );
 }
 
 function stableRecord(target, record) {
@@ -891,6 +1056,7 @@ if (DIAGNOSE_VISIBLE_ONLY) {
   process.exit(failed.length === 0 ? 0 : 1);
 }
 const runStartedAt = new Date().toISOString();
+writeFinalValidationHold(runStartedAt);
 let previousRun = null;
 let validationSessionId = RUN === 1 ? crypto.randomUUID() : null;
 if (RUN === 2) {
@@ -915,6 +1081,8 @@ if (RUN === 2) {
     if (runOneDescriptor !== null) fs.closeSync(runOneDescriptor);
   }
 }
+writeRunValidationHold(runStartedAt, validationSessionId);
+writeFinalValidationHold(runStartedAt, validationSessionId);
 
 const feedNames = ["sitemap.xml", "llms.txt", "llms-full.txt"];
 const feedEntries = [];
@@ -938,12 +1106,19 @@ async function worker() {
       ? `${API_ORIGIN}/${target.slug}?locale=zh-CN`
       : `${API_ORIGIN}/comparisons/${target.slug}?locale=zh-CN`;
     try {
-      const [payload, html] = await Promise.all([fetchJson(apiUrl), fetchText(canonical)]);
+      const seoUrl = target.kind === "profile"
+        ? `${API_ORIGIN}/${target.slug}/seo?locale=zh-CN&org_id=0&scale_code=MBTI`
+        : null;
+      const [payload, html, seoPayload] = await Promise.all([
+        fetchJson(apiUrl),
+        fetchText(canonical),
+        seoUrl ? fetchJson(seoUrl) : Promise.resolve(null),
+      ]);
       const facts = documentFacts(html);
       const structured = structuredFacts(facts.jsonld);
       const faq = apiFaq(payload, target.kind);
       const schemaFaq = new Map(structured.faq.map((row) => [row.question, row.answer]));
-      const authority = authorityFacts(payload, target, canonical);
+      const authority = authorityFacts(payload, target, canonical, seoPayload);
       const sectionCount = apiSections(payload, target.kind).length;
       const checks = {
         public_api: payload?.ok === true,
@@ -951,7 +1126,12 @@ async function worker() {
         authority_fingerprint: /^[0-9a-f]{64}$/.test(authority.authorityFingerprintSha256)
           && /^[0-9a-f]{64}$/.test(authority.sourceRevisionSha256)
           && authority.revisionPresent === true,
-        visible_body: visibleBodyComplete(payload, target, facts.visibleText),
+        visible_body: visibleBodyComplete(
+          payload,
+          target,
+          facts.visibleText,
+          facts.visibleAnchors,
+        ),
         section_completeness: sectionCount === target.expectedSectionCount,
         faq: faq.length > 0 && faq.every((row) => (
           schemaFaq.get(row.question) === row.answer
@@ -1096,19 +1276,7 @@ const finalReport = {
   metrics,
   private_url_leak_count: privateUrlLeaks.length,
   records: evidenceRecords,
-  safety_boundary: {
-    read_only_network: true,
-    cms_write_attempted: false,
-    database_write_attempted: false,
-    publication_mutation_attempted: false,
-    indexability_mutation_attempted: false,
-    sitemap_llms_mutation_attempted: false,
-    sitemap_submission_attempted: false,
-    gsc_mutation_attempted: false,
-    search_submission_attempted: false,
-    production_deploy_attempted: false,
-    frontend_editorial_fallback_added: false,
-  },
+  safety_boundary: SAFETY_BOUNDARY,
 };
 
 const metricLines = Object.entries(metrics).map(([key, value]) => (
