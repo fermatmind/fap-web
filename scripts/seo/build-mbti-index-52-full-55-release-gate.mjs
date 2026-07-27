@@ -191,6 +191,7 @@ function runContractProbe(name) {
   if (name === "projection-visibility") {
     const payload = {
       comparison_public_projection_v1: {
+        claim_boundary: "Use this comparison for reflection, not diagnosis or selection.",
         variants: {
           a: {
             runtime_type_code: "INTJ-A",
@@ -223,6 +224,7 @@ function runContractProbe(name) {
       },
     };
     const completeVisibleText = [
+      "Use this comparison for reflection, not diagnosis or selection.",
       "INTJ-A Architect Assertive Architect Trusts the plan sooner. Rare decisive steady",
       "INTJ-T Architect Turbulent Architect Rechecks the plan longer. Rare reflective adaptive",
       "Core difference Moves once the plan is sound. Keeps testing the plan.",
@@ -248,11 +250,13 @@ function runContractProbe(name) {
     }));
     const crossTypePayload = {
       comparison_public_projection_v1: {
+        claim_boundary: "Use this comparison for reflection, not diagnosis or selection.",
         internal_links: crossTypeLinks,
       },
     };
     const crossTypeVisibleText = crossTypeLinks
       .flatMap((link) => [link.label, link.reason])
+      .concat("Use this comparison for reflection, not diagnosis or selection.")
       .join(" ");
     const crossTypeAnchors = crossTypeLinks.map((link) => ({
       href: link.href,
@@ -721,6 +725,8 @@ function comparisonInternalLinksVisible(projection, target, visibleText, visible
 
 function comparisonProjectionVisible(payload, target, visibleText, visibleAnchors = []) {
   const projection = comparisonProjection(payload);
+  const claimBoundary = normalizeText(projection?.claim_boundary);
+  if (!claimBoundary || !visibleCandidates([claimBoundary], visibleText)) return false;
   if (target.kind === "cross_type_comparison") {
     return comparisonInternalLinksVisible(projection, target, visibleText, visibleAnchors);
   }
@@ -858,7 +864,7 @@ function comparisonIdentityPresent(comparison, target) {
     && comparison.base_type_codes[1] === rightType;
 }
 
-function comparisonRenderedMetadataPresent(payload, pageFacts) {
+function comparisonRenderedMetadataPresent(payload, pageFacts, canonical) {
   const comparison = comparisonProjection(payload);
   const title = normalizeText(payload?.seo_surface_v1?.title)
     || normalizeText(comparison?.title)
@@ -870,10 +876,15 @@ function comparisonRenderedMetadataPresent(payload, pageFacts) {
     || normalizeText(comparison?.summary)
     || normalizeText(payload?.seo_meta?.seo_description);
   const documentTitle = /FermatMind$/i.test(title) ? title : `${title} | FermatMind`;
+  const expectedEnglishCanonical = canonical.replace("/zh/", "/en/");
   return Boolean(title)
     && Boolean(description)
     && pageFacts?.title === documentTitle
-    && pageFacts?.description === description;
+    && pageFacts?.description === description
+    && comparison?.alternates?.["zh-CN"] === canonical
+    && comparison?.alternates?.en === expectedEnglishCanonical
+    && pageFacts?.alternates?.["zh-CN"] === canonical
+    && pageFacts?.alternates?.en === expectedEnglishCanonical;
 }
 
 function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts = null) {
@@ -956,7 +967,7 @@ function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts
         && comparison.overlay_source?.source === expectedOverlaySource
         && comparison.canonical_url === canonical
         && comparisonIdentityPresent(comparison, target)
-        && comparisonRenderedMetadataPresent(payload, pageFacts),
+        && comparisonRenderedMetadataPresent(payload, pageFacts, canonical),
       revisionPresent,
       sourceRevisionSha256: sha256(revision),
       authorityFingerprintSha256: sha256({
@@ -987,7 +998,7 @@ function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts
       && comparison.llms_eligible === true
       && comparison.canonical_url === canonical
       && comparisonIdentityPresent(comparison, target)
-      && comparisonRenderedMetadataPresent(payload, pageFacts),
+      && comparisonRenderedMetadataPresent(payload, pageFacts, canonical),
     revisionPresent,
     sourceRevisionSha256: sha256({
       source_sha256: comparison.source_sha256,

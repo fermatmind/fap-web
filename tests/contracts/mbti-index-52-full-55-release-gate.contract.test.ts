@@ -137,9 +137,13 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain('comparison?.locale !== "zh-CN"');
     expect(source).toContain("comparison?.variants?.a?.runtime_type_code === `${baseType}-A`");
     expect(source).toContain("comparison?.left_type === leftType");
-    expect(source).toContain("comparisonRenderedMetadataPresent(payload, pageFacts)");
+    expect(source).toContain("comparisonRenderedMetadataPresent(payload, pageFacts, canonical)");
     expect(source).toContain("pageFacts?.title === documentTitle");
     expect(source).toContain("pageFacts?.description === description");
+    expect(source).toContain('comparison?.alternates?.["zh-CN"] === canonical');
+    expect(source).toContain("comparison?.alternates?.en === expectedEnglishCanonical");
+    expect(source).toContain("const claimBoundary = normalizeText(projection?.claim_boundary)");
+    expect(source).toContain("visibleCandidates([claimBoundary], visibleText)");
     expect(source).toContain("/seo?locale=zh-CN&org_id=0&scale_code=MBTI");
     expect(source).toContain("writeFinalValidationHold(runStartedAt);");
     expect(source.indexOf("writeFinalValidationHold(runStartedAt);"))
