@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "b52bf199085a9391d8e1a397ebbc1af082caf4dc",
+    "commit_sha": "ad08a1d0d39e0024d135b716bf7efe29af146dcb",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51566,7 +51566,7 @@
       },
       "github_required_checks": {
         "status": "passed_implementation_head_ledger_recheck_pending",
-        "evidence": "PR #1816 exact head fb80849cac30c681d4601e0e49f9e4c0882b57a6 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified two additional P2 schema exactness gaps. Exact implementation head b52bf199085a9391d8e1a397ebbc1af082caf4dc closes them by requiring exact FAQ schema set equality and canonical identity for every JSON-LD page node. The final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
+        "evidence": "PR #1816 exact head d34cc1f4e3e16f5edd4fcc5f4a7a79d65d603eba passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified one P1 x-default mismatch. Exact implementation head ad08a1d0d39e0024d135b716bf7efe29af146dcb closes it by requiring the runtime-emitted x-default root alternate alongside exact zh-CN and en hreflang links. The final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
       }
     },
     "scope_validation": {
@@ -51726,6 +51726,11 @@
         "at": "2026-07-27T09:48:00Z",
         "status": "production_readback_blocked",
         "summary": "Exact head fb80849cac30c681d4601e0e49f9e4c0882b57a6 passed all seven required/security checks and received exact-head review. Implementation head b52bf199085a9391d8e1a397ebbc1af082caf4dc closes both findings: FAQ schema rows must exactly equal the authoritative API/visible set with no unmatched extras, and every collected JSON-LD page identity must match the target canonical even when its type is not required for that route kind. Focused contracts pass 38/38, scoped ESLint, Node syntax, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T11:24:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head d34cc1f4e3e16f5edd4fcc5f4a7a79d65d603eba passed all seven required/security checks and received exact-head review. Implementation head ad08a1d0d39e0024d135b716bf7efe29af146dcb closes the P1 finding by matching the runtime metadata contract: each route must expose exactly one zh-CN alternate, one en alternate, and one x-default root alternate. Focused contracts remain 38/38; scoped ESLint, Node syntax, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
       }
     ],
     "updated_at": "2026-07-27T08:55:42Z"
