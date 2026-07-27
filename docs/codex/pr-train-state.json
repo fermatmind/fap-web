@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "da1d2a9b7b15e67bb2197de9b82f292868a9b0d3",
+    "commit_sha": "48186b1477fe2ddaebfce3ff8816cd8d2b397682",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51696,8 +51696,13 @@
         "at": "2026-07-27T08:01:18Z",
         "status": "production_readback_blocked",
         "summary": "Exact head 97dc1fc2244dbf8e5c5caeb933b947265e953dd8 passed all seven required/security checks and received exact-head review. Implementation head da1d2a9b7b15e67bb2197de9b82f292868a9b0d3 closes both remaining P2 findings: run 1 and run 2 now share the same exclusive stale-owner-safe session lock, and SIGINT/SIGTERM/SIGHUP persist terminal fail-closed evidence before releasing that lock. Focused contracts pass 29/29 with nineteen behavior probes, scoped ESLint and git diff --check pass."
+      },
+      {
+        "at": "2026-07-27T08:21:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 0bf97d0a0cf6c88efc7d503ddbbb8a43ee3257e8 passed all seven required/security checks and received exact-head review. Implementation head 48186b1477fe2ddaebfce3ff8816cd8d2b397682 closes all four findings: every backend profile robots source now requires index,follow; runtime profile section titles are visible evidence; every ordered BreadcrumbList must terminate at the canonical; and feed curl reads are asynchronous, abortable children so signal cleanup can persist terminal evidence and release the session lock promptly. Focused contracts pass 30/30 with twenty behavior probes, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
       }
     ],
-    "updated_at": "2026-07-27T08:01:18Z"
+    "updated_at": "2026-07-27T08:21:00Z"
 }
 }
