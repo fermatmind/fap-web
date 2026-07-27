@@ -2014,6 +2014,7 @@ if (DIAGNOSE_VISIBLE_ONLY) {
 }
 const runStartedAt = new Date().toISOString();
 const RUN_TWO_CORRUPT_LOCK_GRACE_MS = 60_000;
+let validationSessionId = RUN === 1 ? crypto.randomUUID() : null;
 let runTwoLockDescriptor = null;
 let runTwoLockIdentity = null;
 function sameFileIdentity(left, right) {
@@ -2069,9 +2070,14 @@ function releaseRunTwoLock() {
     runTwoLockIdentity = null;
   }
 }
-function terminateRunTwo(signal, exitCode) {
+function terminateValidationRun(signal, exitCode) {
+  writePreflightValidationFailure(
+    runStartedAt,
+    validationSessionId,
+    new Error(`validation_interrupted:${signal}`),
+  );
   releaseRunTwoLock();
-  console.error(`HOLD_MBTI_55_INCOMPLETE: run 2 interrupted by ${signal}`);
+  console.error(`HOLD_MBTI_55_INCOMPLETE: validation run interrupted by ${signal}`);
   process.exit(exitCode);
 }
 function acquireRunTwoLock() {
@@ -2089,16 +2095,16 @@ function acquireRunTwoLock() {
     }
   }
 }
-if (RUN === 2) {
+if (RUN !== null) {
   try {
     acquireRunTwoLock();
     process.once("exit", releaseRunTwoLock);
-    process.once("SIGINT", () => terminateRunTwo("SIGINT", 130));
-    process.once("SIGTERM", () => terminateRunTwo("SIGTERM", 143));
-    process.once("SIGHUP", () => terminateRunTwo("SIGHUP", 129));
+    process.once("SIGINT", () => terminateValidationRun("SIGINT", 130));
+    process.once("SIGTERM", () => terminateValidationRun("SIGTERM", 143));
+    process.once("SIGHUP", () => terminateValidationRun("SIGHUP", 129));
   } catch (error) {
     if (error && typeof error === "object" && error.code === "EEXIST") {
-      console.error("HOLD_MBTI_55_INCOMPLETE: another run 2 owns the validation session");
+      console.error("HOLD_MBTI_55_INCOMPLETE: another validation run owns the session lock");
       process.exit(1);
     }
     throw error;
@@ -2106,7 +2112,6 @@ if (RUN === 2) {
 }
 writeFinalValidationHold(runStartedAt);
 let previousRun = null;
-let validationSessionId = RUN === 1 ? crypto.randomUUID() : null;
 if (RUN === 2) {
   let runOneDescriptor = null;
   let consumptionError = null;

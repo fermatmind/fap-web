@@ -229,6 +229,9 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("reclaimStaleRunTwoLock()");
     expect(source).toContain("processIsAlive(ownerPid)");
     expect(source).toContain("sameFileIdentity(identity, currentIdentity)");
+    expect(source).toContain("if (RUN !== null)");
+    expect(source).toContain("terminateValidationRun");
+    expect(source).toContain("validation_interrupted:");
     expect(source).toContain("fs.ftruncateSync(runOneDescriptor, 0)");
     expect(source).toContain("fs.writeSync(runOneDescriptor, consumedRun, 0");
     expect(source).not.toContain("fs.existsSync(ARTIFACT_PATHS.run1)");
