@@ -88,12 +88,16 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     "disabled-runtime-sections",
     "profile-hero-completeness",
     "feed-exact-url-membership",
+    "feed-entry-declaration-membership",
     "validator-revision-sequence",
     "run2-sequence-decision",
     "hreflang-root-equivalence",
     "comparison-english-alternate-hold",
     "at-comparison-list-authority",
     "profile-seo-main-entity-identity",
+    "description-conflict",
+    "lock-owner-process-identity",
+    "cross-llms-full-hold",
   ])(
     "enforces %s runtime evidence",
     (probe) => {
@@ -158,7 +162,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("?? 35");
     expect(source).toContain("expectedSectionCount: 9");
     expect(source).toContain("const EXPECTED_CROSS_SECTION_COUNT");
-    expect(source).toContain("feedUrls(body).size < 55");
+    expect(source).toContain("feedEntryUrls(name, body).size < 55");
     expect(source).toContain("new URL(presentationTrimmed).href");
     expect(source).toContain("const FEED_URLS = Object.freeze");
     expect(source).toContain("const PUBLIC_CONTEXT_QUERY");
@@ -247,7 +251,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("signal: FEED_ABORT_CONTROLLER.signal");
     expect(source).not.toContain("execFileSync(\"curl\"");
     expect(source).toContain("pageFacts?.title === expectedTitle");
-    expect(source).toContain("pageFacts?.description === expectedDescription");
+    expect(source).toContain("exactDescriptionPresent(pageFacts, expectedDescription)");
     expect(source).toContain('link[rel~="alternate"][hreflang]');
     expect(source).toContain("comparisonIdentityPresent(comparison, target)");
     expect(source).toContain('comparison?.locale !== "zh-CN"');
@@ -257,13 +261,19 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("comparisonRobotsAuthorityPresent(payload, pageFacts)");
     expect(source).toContain("robotsPolicies.every");
     expect(source).toContain("pageFacts?.title === documentTitle");
-    expect(source).toContain("pageFacts?.description === description");
+    expect(source).toContain("exactDescriptionPresent(pageFacts, description)");
     expect(source).toContain('alternates["zh-CN"] !== canonical');
     expect(source).toContain("comparisonExpectedAlternates(comparison, canonical)");
     expect(source).toContain('nonemptyString(alternates.en)');
     expect(source).toContain("atComparisonListAuthorityPresent(comparisonListItem, target, canonical)");
     expect(source).toContain("seoPayload?.seo_surface_v1?.robots_policy");
     expect(source).toContain("node.mainEntityOfPage");
+    expect(source).toContain("comparison?.llms_full_eligible !== false");
+    expect(source).toContain("exactDescriptionPresent(pageFacts, expectedDescription)");
+    expect(source).toContain("lockOwnerMatchesObservedProcess");
+    expect(source).toContain("feedEntryUrls(name, body)");
+    expect(source).toContain("allFeedUrls(body)");
+    expect(source).toContain("Unable to observe validator process start identity");
     expect(source).toContain("const claimBoundary = normalizeText(projection?.claim_boundary)");
     expect(source).toContain("visibleCandidates([claimBoundary], visibleText)");
     expect(source).toContain("/seo?locale=zh-CN&org_id=0&scale_code=MBTI");
@@ -290,7 +300,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain('fs.openSync(ARTIFACT_PATHS.runTwoReclaim, "wx", 0o600)');
     expect(source).toContain("sameFileIdentity(reclaimIdentity, currentIdentity)");
     expect(source).toContain("corruptClaimExpired");
-    expect(source).toContain("processIsAlive(ownerPid)");
+    expect(source).toContain("lockOwnerIsActive(owner)");
     expect(source).toContain("sameFileIdentity(identity, currentIdentity)");
     expect(source).toContain("if (RUN !== null)");
     expect(source).toContain("terminateValidationRun");

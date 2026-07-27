@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import crypto from "node:crypto";
-import { execFile } from "node:child_process";
+import { execFile, execFileSync } from "node:child_process";
 import { createRequire } from "node:module";
 import fs from "node:fs";
 import { promisify } from "node:util";
@@ -868,9 +868,28 @@ function runContractProbe(name) {
   }
   if (name === "feed-exact-url-membership") {
     const canonical = `${SITE_ORIGIN}/zh/personality/intj-a`;
-    const urls = feedUrls(`${canonical}?preview=1`);
+    const urls = feedEntryUrls("llms.txt", `- ${canonical}?preview=1`);
     if (urls.has(canonical)) {
       throw new Error("Query-bearing feed URL unexpectedly satisfied canonical membership");
+    }
+    return;
+  }
+  if (name === "feed-entry-declaration-membership") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/intj-a`;
+    const other = `${SITE_ORIGIN}/zh/personality/intj-t`;
+    const llmsFullBody = [
+      `### [zh] Other | ${other}`,
+      `- URL: ${other}`,
+      `- Summary: Compare with ${canonical}`,
+    ].join("\n");
+    if (feedEntryUrls("llms-full.txt", llmsFullBody).has(canonical)) {
+      throw new Error("Cited llms-full URL unexpectedly satisfied entry membership");
+    }
+    if (!allFeedUrls(llmsFullBody).has(canonical)) {
+      throw new Error("Cited llms-full URL unexpectedly escaped leak inventory");
+    }
+    if (!feedEntryUrls("sitemap.xml", `<url><loc>${canonical}</loc></url>`).has(canonical)) {
+      throw new Error("Sitemap loc entry unexpectedly failed membership");
     }
     return;
   }
@@ -1021,6 +1040,45 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "description-conflict") {
+    if (!exactDescriptionPresent({
+      descriptions: ["Authoritative description"],
+    }, "Authoritative description")) {
+      throw new Error("Single authoritative description unexpectedly failed");
+    }
+    if (exactDescriptionPresent({
+      descriptions: ["Authoritative description", "Stale description"],
+    }, "Authoritative description")) {
+      throw new Error("Conflicting description unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "lock-owner-process-identity") {
+    const owner = { pid: 1234, process_start_token: "start-a" };
+    if (!lockOwnerMatchesObservedProcess(owner, 1234, "start-a")) {
+      throw new Error("Matching lock process identity unexpectedly failed");
+    }
+    if (lockOwnerMatchesObservedProcess(owner, 1234, "start-b")) {
+      throw new Error("Reused lock PID unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "cross-llms-full-hold") {
+    const released = {
+      sitemap_eligible: true,
+      llms_eligible: true,
+    };
+    if (!crossDiscoverabilityAuthorityPresent(released)) {
+      throw new Error("Legacy released cross discoverability authority unexpectedly failed");
+    }
+    if (crossDiscoverabilityAuthorityPresent({
+      ...released,
+      llms_full_eligible: false,
+    })) {
+      throw new Error("Explicit backend llms-full hold unexpectedly passed");
+    }
+    return;
+  }
   const inventory = targets();
   if (name === "duplicate") inventory[54] = { ...inventory[53] };
   else if (name === "missing") inventory.pop();
@@ -1155,7 +1213,7 @@ async function fetchFeed(name) {
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
     try {
       const body = await fetchFeedOnce(name);
-      if (feedUrls(body).size < 55) {
+      if (feedEntryUrls(name, body).size < 55) {
         throw new Error(`${name} returned an incomplete canonical URL set`);
       }
       return body;
@@ -1214,13 +1272,14 @@ function documentFacts(html, xRobotsTag = "") {
   );
   const canonicalLinks = [...document.querySelectorAll('link[rel~="canonical"]')]
     .map((node) => node.getAttribute("href") ?? "");
+  const descriptions = [...document.querySelectorAll('meta[name="description"]')]
+    .map((node) => normalizeText(node.getAttribute("content")));
   const robotsDirectives = [...document.querySelectorAll('meta[name="robots"]')]
     .map((node) => (node.getAttribute("content") ?? "").toLowerCase());
   return {
     title: normalizeText(document.title),
-    description: normalizeText(
-      document.querySelector('meta[name="description"]')?.getAttribute("content"),
-    ),
+    description: descriptions[0] ?? "",
+    descriptions,
     canonical: canonicalLinks[0] ?? "",
     canonicalLinks,
     alternates,
@@ -1249,6 +1308,13 @@ function exactAlternateLinksPresent(facts, expectedAlternates) {
         link.locale === locale && equivalentAbsoluteUrl(link.href, href)
       )).length === 1
     ));
+}
+
+function exactDescriptionPresent(facts, expectedDescription) {
+  const descriptions = Array.isArray(facts?.descriptions)
+    ? facts.descriptions
+    : [facts?.description ?? ""];
+  return descriptions.length === 1 && descriptions[0] === expectedDescription;
 }
 
 function equivalentAbsoluteUrl(left, right) {
@@ -2089,7 +2155,7 @@ function profileSeoAuthorityPresent(seoPayload, detailPayload, canonical, pageFa
       && Boolean(id || url || mainEntityOfPage)
     ))
     && pageFacts?.title === expectedTitle
-    && pageFacts?.description === expectedDescription
+    && exactDescriptionPresent(pageFacts, expectedDescription)
     && pageFacts?.canonical === meta?.canonical
     && exactAlternateLinksPresent(pageFacts, {
       "zh-CN": meta?.alternates?.["zh-CN"],
@@ -2144,7 +2210,7 @@ function comparisonRenderedMetadataPresent(payload, pageFacts, canonical) {
     && Boolean(description)
     && expectedAlternates !== null
     && pageFacts?.title === documentTitle
-    && pageFacts?.description === description
+    && exactDescriptionPresent(pageFacts, description)
     && exactAlternateLinksPresent(pageFacts, expectedAlternates)
     && comparisonRobotsAuthorityPresent(payload, pageFacts);
 }
@@ -2182,6 +2248,12 @@ function atComparisonListAuthorityPresent(item, target, canonical) {
     && item?.is_public === true
     && item?.is_indexable === true
     && item?.status === "published";
+}
+
+function crossDiscoverabilityAuthorityPresent(comparison) {
+  return comparison?.sitemap_eligible === true
+    && comparison?.llms_eligible === true
+    && comparison?.llms_full_eligible !== false;
 }
 
 function authorityFacts(
@@ -2300,8 +2372,7 @@ function authorityFacts(
       && comparison.review_status === "approved"
       && comparison.is_public === true
       && comparison.is_indexable === true
-      && comparison.sitemap_eligible === true
-      && comparison.llms_eligible === true
+      && crossDiscoverabilityAuthorityPresent(comparison)
       && comparison.canonical_url === canonical
       && comparisonIdentityPresent(comparison, target)
       && comparisonRenderedMetadataPresent(payload, pageFacts, canonical),
@@ -2413,16 +2484,35 @@ function visibleBodyComplete(payload, target, visibleText, visibleAnchors = []) 
     && answerSurfaceVisible(payload, target.kind, visibleText, visibleAnchors);
 }
 
-function feedUrls(body) {
+function normalizedFeedUrl(token) {
+  const presentationTrimmed = token.trim().replace(/[.,;:!]+$/u, "");
+  try {
+    return new URL(presentationTrimmed).href;
+  } catch {
+    return presentationTrimmed;
+  }
+}
+
+function allFeedUrls(body) {
   const tokens = body.match(/https:\/\/fermatmind\.com\/[^\s<>"'`)\]}]+/gi) ?? [];
-  return new Set(tokens.map((token) => {
-    const presentationTrimmed = token.replace(/[.,;:!]+$/u, "");
-    try {
-      return new URL(presentationTrimmed).href;
-    } catch {
-      return presentationTrimmed;
-    }
-  }));
+  return new Set(tokens.map(normalizedFeedUrl));
+}
+
+function feedEntryUrls(name, body) {
+  let tokens;
+  if (name === "sitemap.xml") {
+    tokens = [...body.matchAll(/<loc>\s*(https:\/\/fermatmind\.com\/[^<\s]+)\s*<\/loc>/gi)]
+      .map((match) => match[1]);
+  } else if (name === "llms.txt") {
+    tokens = [...body.matchAll(/^\s*-\s+(https:\/\/fermatmind\.com\/\S+)\s*$/gim)]
+      .map((match) => match[1]);
+  } else if (name === "llms-full.txt") {
+    tokens = [...body.matchAll(/^\s*-\s+URL:\s+(https:\/\/fermatmind\.com\/\S+)\s*$/gim)]
+      .map((match) => match[1]);
+  } else {
+    throw new Error(`Unsupported feed: ${name}`);
+  }
+  return new Set(tokens.map(normalizedFeedUrl));
 }
 
 function writeFinalValidationHold(startedAt, sessionId = null) {
@@ -2596,6 +2686,60 @@ function processIsAlive(pid) {
     return error && typeof error === "object" && error.code !== "ESRCH";
   }
 }
+function processStartToken(pid) {
+  if (!Number.isSafeInteger(pid) || pid <= 0) return null;
+  try {
+    const token = execFileSync("ps", ["-o", "lstart=", "-p", String(pid)], {
+      encoding: "utf8",
+      timeout: 5_000,
+      maxBuffer: 4_096,
+    }).trim();
+    return token || null;
+  } catch {
+    return null;
+  }
+}
+function lockOwnerPayload() {
+  const processStartIdentity = processStartToken(process.pid);
+  if (!nonemptyString(processStartIdentity)) {
+    throw new Error("Unable to observe validator process start identity");
+  }
+  return {
+    pid: process.pid,
+    process_start_token: processStartIdentity,
+  };
+}
+function parseLockOwner(contents) {
+  try {
+    const owner = JSON.parse(contents);
+    return {
+      pid: Number(owner?.pid),
+      process_start_token: nonemptyString(owner?.process_start_token)
+        ? owner.process_start_token
+        : null,
+    };
+  } catch {
+    return /^\d+$/.test(contents)
+      ? { pid: Number(contents), process_start_token: null }
+      : null;
+  }
+}
+function lockOwnerMatchesObservedProcess(owner, observedPid, observedStartToken) {
+  return owner?.pid === observedPid
+    && nonemptyString(owner?.process_start_token)
+    && owner.process_start_token === observedStartToken;
+}
+function lockOwnerIsActive(owner) {
+  if (owner === null || !processIsAlive(owner.pid)) return false;
+  if (!nonemptyString(owner.process_start_token)) return true;
+  const observedStartToken = processStartToken(owner.pid);
+  return observedStartToken === null
+    || lockOwnerMatchesObservedProcess(owner, owner.pid, observedStartToken);
+}
+function writeLockOwner(descriptor) {
+  fs.writeSync(descriptor, `${JSON.stringify(lockOwnerPayload())}\n`, null, "utf8");
+  fs.fsyncSync(descriptor);
+}
 function reclaimStaleRunTwoLock() {
   let descriptor = null;
   let reclaimDescriptor = null;
@@ -2604,8 +2748,7 @@ function reclaimStaleRunTwoLock() {
     for (let attempt = 0; attempt < 2; attempt += 1) {
       try {
         reclaimDescriptor = fs.openSync(ARTIFACT_PATHS.runTwoReclaim, "wx", 0o600);
-        fs.writeSync(reclaimDescriptor, `${process.pid}\n`, null, "utf8");
-        fs.fsyncSync(reclaimDescriptor);
+        writeLockOwner(reclaimDescriptor);
         reclaimIdentity = fs.fstatSync(reclaimDescriptor);
         break;
       } catch (error) {
@@ -2615,12 +2758,12 @@ function reclaimStaleRunTwoLock() {
           staleDescriptor = fs.openSync(ARTIFACT_PATHS.runTwoReclaim, "r");
           const contents = fs.readFileSync(staleDescriptor, "utf8").trim();
           const identity = fs.fstatSync(staleDescriptor);
-          const ownerPid = /^\d+$/.test(contents) ? Number(contents) : null;
-          const corruptClaimExpired = ownerPid === null
+          const owner = parseLockOwner(contents);
+          const corruptClaimExpired = owner === null
             && Date.now() - identity.mtimeMs >= RUN_TWO_CORRUPT_LOCK_GRACE_MS;
           if (
-            (ownerPid !== null && processIsAlive(ownerPid))
-            || (ownerPid === null && !corruptClaimExpired)
+            lockOwnerIsActive(owner)
+            || (owner === null && !corruptClaimExpired)
           ) {
             return false;
           }
@@ -2640,12 +2783,12 @@ function reclaimStaleRunTwoLock() {
     descriptor = fs.openSync(ARTIFACT_PATHS.runTwoLock, "r");
     const contents = fs.readFileSync(descriptor, "utf8").trim();
     const identity = fs.fstatSync(descriptor);
-    const ownerPid = /^\d+$/.test(contents) ? Number(contents) : null;
-    const corruptLockExpired = ownerPid === null
+    const owner = parseLockOwner(contents);
+    const corruptLockExpired = owner === null
       && Date.now() - identity.mtimeMs >= RUN_TWO_CORRUPT_LOCK_GRACE_MS;
     if (
-      (ownerPid !== null && processIsAlive(ownerPid))
-      || (ownerPid === null && !corruptLockExpired)
+      lockOwnerIsActive(owner)
+      || (owner === null && !corruptLockExpired)
     ) {
       return false;
     }
@@ -2705,8 +2848,7 @@ function acquireRunTwoLock() {
   for (let attempt = 0; attempt < 2; attempt += 1) {
     try {
       runTwoLockDescriptor = fs.openSync(ARTIFACT_PATHS.runTwoLock, "wx", 0o600);
-      fs.writeSync(runTwoLockDescriptor, `${process.pid}\n`, null, "utf8");
-      fs.fsyncSync(runTwoLockDescriptor);
+      writeLockOwner(runTwoLockDescriptor);
       runTwoLockIdentity = fs.fstatSync(runTwoLockDescriptor);
       return;
     } catch (error) {
@@ -2796,8 +2938,10 @@ try {
   console.error("HOLD_MBTI_55_INCOMPLETE: production preflight failed");
   process.exit(1);
 }
-const feedSets = Object.fromEntries(Object.entries(feeds).map(([name, body]) => [name, feedUrls(body)]));
-const privateUrlLeaks = [...new Set(Object.values(feedSets).flatMap((urls) => [...urls]))]
+const feedSets = Object.fromEntries(
+  Object.entries(feeds).map(([name, body]) => [name, feedEntryUrls(name, body)]),
+);
+const privateUrlLeaks = [...new Set(Object.values(feeds).flatMap((body) => [...allFeedUrls(body)]))]
   .filter((url) => isSharedDiscoverabilityDeniedPath(new URL(url).pathname));
 
 const records = new Array(targetList.length);
