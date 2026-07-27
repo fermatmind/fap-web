@@ -646,6 +646,42 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "profile-seo-conflicting-identity") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/intj-a`;
+    const seoPayload = {
+      meta: {
+        title: "Profile title",
+        description: "Profile description",
+        canonical,
+        alternates: {
+          "zh-CN": canonical,
+          en: canonical.replace("/zh/", "/en/"),
+        },
+        robots: "index,follow",
+      },
+      surface: {
+        title: "Profile title",
+        description: "Profile description",
+        robots_policy: "index,follow",
+      },
+      jsonld: {
+        "@type": "AboutPage",
+        "@id": `${canonical}#webpage`,
+        url: `${SITE_ORIGIN}/zh/personality/intp-a`,
+      },
+    };
+    const pageFacts = {
+      title: "Profile title",
+      description: "Profile description",
+      canonical,
+      alternates: seoPayload.meta.alternates,
+      robots: "index,follow",
+    };
+    if (profileSeoAuthorityPresent(seoPayload, {}, canonical, pageFacts)) {
+      throw new Error("Conflicting profile SEO endpoint identity unexpectedly passed");
+    }
+    return;
+  }
   if (name === "disabled-runtime-sections") {
     const sections = runtimeComparisonSections({
       sections: [
@@ -1655,7 +1691,9 @@ function profileSeoAuthorityPresent(seoPayload, detailPayload, canonical, pageFa
     && !seoStructured.invalid
     && aboutPageNodes.length > 0
     && aboutPageNodes.every(({ id, url }) => (
-      url === canonical || id === canonical || id === `${canonical}#webpage`
+      (!id || id === canonical || id === `${canonical}#webpage`)
+      && (!url || url === canonical)
+      && Boolean(id || url)
     ))
     && pageFacts?.title === expectedTitle
     && pageFacts?.description === expectedDescription
@@ -2106,17 +2144,45 @@ function processIsAlive(pid) {
 }
 function reclaimStaleRunTwoLock() {
   let descriptor = null;
-  let ownsReclaimLink = false;
+  let reclaimDescriptor = null;
+  let reclaimIdentity = null;
   try {
-    try {
-      fs.linkSync(ARTIFACT_PATHS.runTwoLock, ARTIFACT_PATHS.runTwoReclaim);
-      ownsReclaimLink = true;
-    } catch (error) {
-      if (error && typeof error === "object" && ["EEXIST", "ENOENT"].includes(error.code)) {
-        return error.code === "ENOENT";
+    for (let attempt = 0; attempt < 2; attempt += 1) {
+      try {
+        reclaimDescriptor = fs.openSync(ARTIFACT_PATHS.runTwoReclaim, "wx", 0o600);
+        fs.writeSync(reclaimDescriptor, `${process.pid}\n`, null, "utf8");
+        fs.fsyncSync(reclaimDescriptor);
+        reclaimIdentity = fs.fstatSync(reclaimDescriptor);
+        break;
+      } catch (error) {
+        if (!(error && typeof error === "object" && error.code === "EEXIST")) throw error;
+        let staleDescriptor = null;
+        try {
+          staleDescriptor = fs.openSync(ARTIFACT_PATHS.runTwoReclaim, "r");
+          const contents = fs.readFileSync(staleDescriptor, "utf8").trim();
+          const identity = fs.fstatSync(staleDescriptor);
+          const ownerPid = /^\d+$/.test(contents) ? Number(contents) : null;
+          const corruptClaimExpired = ownerPid === null
+            && Date.now() - identity.mtimeMs >= RUN_TWO_CORRUPT_LOCK_GRACE_MS;
+          if (
+            (ownerPid !== null && processIsAlive(ownerPid))
+            || (ownerPid === null && !corruptClaimExpired)
+          ) {
+            return false;
+          }
+          const currentIdentity = fs.lstatSync(ARTIFACT_PATHS.runTwoReclaim);
+          if (!sameFileIdentity(identity, currentIdentity)) return false;
+          fs.unlinkSync(ARTIFACT_PATHS.runTwoReclaim);
+        } catch (claimError) {
+          if (!(claimError && typeof claimError === "object" && claimError.code === "ENOENT")) {
+            throw claimError;
+          }
+        } finally {
+          if (staleDescriptor !== null) fs.closeSync(staleDescriptor);
+        }
       }
-      throw error;
     }
+    if (reclaimDescriptor === null) return false;
     descriptor = fs.openSync(ARTIFACT_PATHS.runTwoLock, "r");
     const contents = fs.readFileSync(descriptor, "utf8").trim();
     const identity = fs.fstatSync(descriptor);
@@ -2130,10 +2196,8 @@ function reclaimStaleRunTwoLock() {
       return false;
     }
     const currentIdentity = fs.lstatSync(ARTIFACT_PATHS.runTwoLock);
-    const reclaimIdentity = fs.lstatSync(ARTIFACT_PATHS.runTwoReclaim);
     if (
       !sameFileIdentity(identity, currentIdentity)
-      || !sameFileIdentity(identity, reclaimIdentity)
     ) {
       return false;
     }
@@ -2144,9 +2208,13 @@ function reclaimStaleRunTwoLock() {
     throw error;
   } finally {
     if (descriptor !== null) fs.closeSync(descriptor);
-    if (ownsReclaimLink) {
+    if (reclaimDescriptor !== null) fs.closeSync(reclaimDescriptor);
+    if (reclaimIdentity !== null) {
       try {
-        fs.unlinkSync(ARTIFACT_PATHS.runTwoReclaim);
+        const currentIdentity = fs.lstatSync(ARTIFACT_PATHS.runTwoReclaim);
+        if (sameFileIdentity(reclaimIdentity, currentIdentity)) {
+          fs.unlinkSync(ARTIFACT_PATHS.runTwoReclaim);
+        }
       } catch (error) {
         if (!(error && typeof error === "object" && error.code === "ENOENT")) throw error;
       }
