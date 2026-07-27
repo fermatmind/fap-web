@@ -159,6 +159,73 @@ function validateRecordEvidence(record) {
 }
 
 function runContractProbe(name) {
+  if (name === "jsonld-node-identity") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/intj-a`;
+    const structured = {
+      invalid: false,
+      types: ["AboutPage", "BreadcrumbList", "FAQPage", "WebPage"],
+      pageIdentities: [
+        { types: ["AboutPage"], id: "", url: `${SITE_ORIGIN}/zh/personality/intp-a` },
+        { types: ["WebPage"], id: `${canonical}#webpage`, url: canonical },
+      ],
+      breadcrumbTargets: [canonical],
+    };
+    if (jsonLdValid("profile", structured, canonical)) {
+      throw new Error("Stale required JSON-LD page node unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "projection-visibility") {
+    const payload = {
+      comparison_public_projection_v1: {
+        variants: {
+          a: {
+            runtime_type_code: "INTJ-A",
+            display_type: "INTJ-A",
+            type_name: "Architect",
+            nickname: "Assertive Architect",
+            rarity: "Rare",
+            keywords: ["decisive", "steady"],
+            summary_card: { summary: "Trusts the plan sooner." },
+          },
+          t: {
+            runtime_type_code: "INTJ-T",
+            display_type: "INTJ-T",
+            type_name: "Architect",
+            nickname: "Turbulent Architect",
+            rarity: "Rare",
+            keywords: ["reflective", "adaptive"],
+            hero_summary: "Rechecks the plan longer.",
+          },
+        },
+        comparison_blocks: [{
+          key: "core_difference",
+          title: "Core difference",
+          variants: {
+            a: "Moves once the plan is sound.",
+            t: "Keeps testing the plan.",
+          },
+          body_md: "",
+        }],
+      },
+    };
+    const completeVisibleText = [
+      "INTJ-A Architect Assertive Architect Trusts the plan sooner. Rare decisive steady",
+      "INTJ-T Architect Turbulent Architect Rechecks the plan longer. Rare reflective adaptive",
+      "Core difference Moves once the plan is sound. Keeps testing the plan.",
+    ].join(" ");
+    if (!comparisonProjectionVisible(payload, "at_comparison", completeVisibleText)) {
+      throw new Error("Complete comparison projection unexpectedly failed");
+    }
+    if (comparisonProjectionVisible(
+      payload,
+      "at_comparison",
+      completeVisibleText.replace("Keeps testing the plan.", ""),
+    )) {
+      throw new Error("Missing comparison projection content unexpectedly passed");
+    }
+    return;
+  }
   const inventory = targets();
   if (name === "duplicate") inventory[54] = { ...inventory[53] };
   else if (name === "missing") inventory.pop();
@@ -182,7 +249,10 @@ function runContractProbe(name) {
   throw new Error("Invalid inventory probe unexpectedly passed");
 }
 
-if (CONTRACT_PROBE) runContractProbe(CONTRACT_PROBE);
+if (CONTRACT_PROBE) {
+  runContractProbe(CONTRACT_PROBE);
+  process.exit(0);
+}
 if (!ALLOW_NETWORK || RUN === null) {
   console.error("HOLD_MBTI_55_INCOMPLETE: pass --allow-network and --run=1 or --run=2");
   process.exit(2);
@@ -480,6 +550,67 @@ function comparisonSectionVisible(section, visibleText) {
   return expectedValues.length > 0 && expectedValues.every((value) => visibleText.includes(value));
 }
 
+function visibleCandidates(candidates, visibleText) {
+  const comparableVisibleText = normalizeComparableText(visibleText);
+  return candidates.length > 0 && candidates.every((candidate) => (
+    comparableVisibleText.includes(normalizeComparableText(candidate))
+  ));
+}
+
+function comparisonVariantVisible(variant, visibleText) {
+  if (!variant || typeof variant !== "object") return false;
+  const summary = normalizeText(variant?.summary_card?.summary)
+    || normalizeText(variant?.hero_summary)
+    || normalizeText(variant?.seo?.description);
+  const candidates = [
+    normalizeText(variant?.runtime_type_code),
+    normalizeText(variant?.type_name) || normalizeText(variant?.display_type),
+    normalizeText(variant?.nickname),
+    summary,
+    normalizeText(variant?.rarity),
+    ...(Array.isArray(variant?.keywords) ? variant.keywords.slice(0, 3).map(normalizeText) : []),
+  ].filter(Boolean);
+  return candidates.length >= 2 && visibleCandidates(candidates, visibleText);
+}
+
+function comparisonBlockVisible(block, visibleText) {
+  if (!block || typeof block !== "object") return false;
+  const key = normalizeText(block?.key);
+  const title = normalizeText(block?.title) || key;
+  const assertive = normalizeText(block?.variants?.a);
+  const turbulent = normalizeText(block?.variants?.t);
+  const body = normalizeText(block?.body_md);
+  const candidates = [
+    title,
+    assertive || body,
+    turbulent,
+  ].filter(Boolean);
+  const templateKeywords = [
+    "misread", "confus", "mistake", "risk", "watchout", "误", "混淆", "误判", "风险",
+    "scenario", "work", "career", "relationship", "communication", "social", "love",
+    "stress", "pressure", "场景", "工作", "职业", "关系", "沟通", "压力",
+  ];
+  if (body && templateKeywords.some((keyword) => `${key} ${title}`.toLowerCase().includes(keyword))) {
+    candidates.push(body);
+  }
+  return Boolean(key)
+    && candidates.length >= 2
+    && visibleCandidates(candidates, visibleText);
+}
+
+function comparisonProjectionVisible(payload, kind, visibleText) {
+  if (kind !== "at_comparison") return true;
+  const projection = comparisonProjection(payload);
+  const variants = projection?.variants;
+  const blocks = Array.isArray(projection?.comparison_blocks)
+    ? projection.comparison_blocks
+    : [];
+  return comparisonVariantVisible(variants?.a, visibleText)
+    && comparisonVariantVisible(variants?.t, visibleText)
+    && blocks.length > 0
+    && blocks.every((block) => comparisonBlockVisible(block, visibleText));
+}
+
 function answerSurfaceBlockCandidates(block, { includeTitle = true, includeBody = true } = {}) {
   const title = normalizeText(block?.title);
   const body = normalizeText(block?.body);
@@ -663,15 +794,22 @@ function authorityFacts(payload, target, canonical) {
 
 function jsonLdValid(kind, structured, canonical) {
   if (structured.invalid) return false;
-  const pageIdentityMatches = structured.pageIdentities.some(({ id, url }) => (
+  const identityMatchesCanonical = ({ id, url }) => (
     url === canonical || id === canonical || id === `${canonical}#webpage`
-  ));
+  );
+  const requiredPageTypes = kind === "profile"
+    ? ["AboutPage", "WebPage"]
+    : ["CollectionPage"];
+  const requiredPageNodesMatch = requiredPageTypes.every((requiredType) => {
+    const nodes = structured.pageIdentities.filter(({ types }) => types.includes(requiredType));
+    return nodes.length > 0 && nodes.every(identityMatchesCanonical);
+  });
   const breadcrumbMatches = structured.breadcrumbTargets.includes(canonical);
-  if (!pageIdentityMatches || !breadcrumbMatches) return false;
+  if (!requiredPageNodesMatch || !breadcrumbMatches) return false;
   if (kind === "profile") {
     return structured.types.includes("FAQPage")
       && structured.types.includes("BreadcrumbList")
-      && structured.types.some((type) => ["AboutPage", "WebPage"].includes(type));
+      && requiredPageTypes.every((type) => structured.types.includes(type));
   }
   return ["CollectionPage", "ItemList", "BreadcrumbList", "FAQPage"]
     .every((type) => structured.types.includes(type));
@@ -703,6 +841,7 @@ function visibleBodyComplete(payload, target, visibleText) {
   }
   return sections.length > 0
     && sections.every((section) => comparisonSectionVisible(section, visibleText))
+    && comparisonProjectionVisible(payload, target.kind, visibleText)
     && answerSurfaceVisible(payload, target.kind, visibleText);
 }
 

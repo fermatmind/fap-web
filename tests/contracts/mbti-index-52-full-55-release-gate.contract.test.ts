@@ -33,6 +33,16 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     })).toThrow();
   });
 
+  it.each(["jsonld-node-identity", "projection-visibility"])(
+    "enforces %s runtime evidence",
+    (probe) => {
+      expect(() => execFileSync("node", [script, `--contract-probe=${probe}`], {
+        encoding: "utf8",
+        stdio: "pipe",
+      })).not.toThrow();
+    },
+  );
+
   it("records two independent complete production runs before unblocking GSC", () => {
     const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
     const runOne = JSON.parse(fs.readFileSync(runOnePath, "utf8"));
@@ -134,8 +144,12 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("projection.runtime_type_code === expectedRuntimeTypeCode");
     expect(source).toContain("projection?._meta?.authority_source === \"personality_cms_v2\"");
     expect(source).toContain("answer_surface: payload?.answer_surface_v1");
-    expect(source).toContain("structured.pageIdentities.some");
+    expect(source).toContain("requiredPageNodesMatch");
+    expect(source).toContain("nodes.every(identityMatchesCanonical)");
     expect(source).toContain("structured.breadcrumbTargets.includes(canonical)");
+    expect(source).toContain("comparisonProjectionVisible");
+    expect(source).toContain("comparisonVariantVisible");
+    expect(source).toContain("comparisonBlockVisible");
     expect(source).toContain("isSharedDiscoverabilityDeniedPath");
     expect(source).not.toContain("PRIVATE_PATH_PATTERN");
     expect(isSharedDiscoverabilityDeniedPath("/zh/results/lookup")).toBe(true);
