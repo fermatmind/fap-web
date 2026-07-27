@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "7086d1849bf8abaaf2a71921d7e8662de92ed26d",
+    "commit_sha": "b52bf199085a9391d8e1a397ebbc1af082caf4dc",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51566,7 +51566,7 @@
       },
       "github_required_checks": {
         "status": "passed_implementation_head_ledger_recheck_pending",
-        "evidence": "PR #1816 exact head 387416b9ab483fbe88fd5d813ab169e7641c9c9f passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified three P2 evidence-conflict gaps. Exact implementation head 7086d1849bf8abaaf2a71921d7e8662de92ed26d closes them by rejecting conflicting duplicate robots meta tags, duplicate/conflicting hreflang alternates, and duplicate/conflicting FAQ schema questions. The final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
+        "evidence": "PR #1816 exact head fb80849cac30c681d4601e0e49f9e4c0882b57a6 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified two additional P2 schema exactness gaps. Exact implementation head b52bf199085a9391d8e1a397ebbc1af082caf4dc closes them by requiring exact FAQ schema set equality and canonical identity for every JSON-LD page node. The final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
       }
     },
     "scope_validation": {
@@ -51721,6 +51721,11 @@
         "at": "2026-07-27T09:38:00Z",
         "status": "production_readback_blocked",
         "summary": "Exact head 387416b9ab483fbe88fd5d813ab169e7641c9c9f passed all seven required/security checks and received exact-head review. Implementation head 7086d1849bf8abaaf2a71921d7e8662de92ed26d closes all three findings: every robots meta directive must independently allow index/follow, rendered hreflang must contain exactly one matching link per expected locale with no extras, and FAQ schema rejects duplicate questions instead of allowing a Map overwrite to hide conflicting answers. Focused contracts pass 36/36, scoped ESLint, Node syntax, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T09:48:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head fb80849cac30c681d4601e0e49f9e4c0882b57a6 passed all seven required/security checks and received exact-head review. Implementation head b52bf199085a9391d8e1a397ebbc1af082caf4dc closes both findings: FAQ schema rows must exactly equal the authoritative API/visible set with no unmatched extras, and every collected JSON-LD page identity must match the target canonical even when its type is not required for that route kind. Focused contracts pass 38/38, scoped ESLint, Node syntax, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
       }
     ],
     "updated_at": "2026-07-27T08:55:42Z"
