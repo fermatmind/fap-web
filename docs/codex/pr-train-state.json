@@ -51439,7 +51439,7 @@
     "title": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-COMPLETE-ARTIFACT-STABILITY-01: restore complete Trust ContentPage enumeration in llms-full artifacts",
     "depends_on": [],
     "status": "local_checks_passed",
-    "commit_sha": null,
+    "commit_sha": "3aca734f7f5895716314245988db86019c8c7a7d",
     "pr_url": null,
     "checks": {
       "manifest_registration": {
@@ -51498,8 +51498,13 @@
         "at": "2026-07-27T03:15:17Z",
         "status": "local_checks_passed",
         "summary": "Implemented the fixed runtime/artifact ContentPage budget profiles and production seven-route Trust cache gate. The first complete contract run exposed one current-scope source-string compatibility failure in the existing llms fanout contract; the route now retains an explicit runtime 5-second budget object while selecting the separate 60-second artifact budget. Focused and complete retries pass, including 772 contract files / 4479 tests, both freeze suites, lint, spacing, typecheck, the 206-page production build, syntax checks, and exact five-file scope validation."
+      },
+      {
+        "at": "2026-07-27T03:16:37Z",
+        "status": "committed",
+        "summary": "Explicitly staged the exact five authorized paths, passed cached diff and scope validation, and committed the locally verified implementation as 3aca734f7f5895716314245988db86019c8c7a7d. This following ledger-only commit binds that implementation SHA before push."
       }
     ],
-    "updated_at": "2026-07-27T03:15:17Z"
+    "updated_at": "2026-07-27T03:16:37Z"
   }
 }
