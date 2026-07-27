@@ -246,6 +246,26 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "jsonld-unexpected-page-identity") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/intj-vs-intp`;
+    const structured = {
+      invalid: false,
+      types: ["CollectionPage", "ItemList", "BreadcrumbList", "FAQPage", "WebPage"],
+      pageIdentities: [
+        { types: ["CollectionPage"], id: canonical, url: canonical },
+        {
+          types: ["WebPage"],
+          id: `${SITE_ORIGIN}/zh/personality/entj-vs-intj#webpage`,
+          url: `${SITE_ORIGIN}/zh/personality/entj-vs-intj`,
+        },
+      ],
+      breadcrumbTrails: [[canonical]],
+    };
+    if (jsonLdValid("cross_type_comparison", structured, canonical)) {
+      throw new Error("Unexpected conflicting JSON-LD page identity unexpectedly passed");
+    }
+    return;
+  }
   if (name === "projection-visibility") {
     const payload = {
       comparison_public_projection_v1: {
@@ -748,6 +768,17 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "faq-schema-unmatched") {
+    const expected = [{ question: "如何使用？", answer: "用于自我反思。" }];
+    const schemaRows = [
+      ...expected,
+      { question: "隐藏问题？", answer: "不应出现在 schema 中。" },
+    ];
+    if (faqSchemaMatches(expected, schemaRows)) {
+      throw new Error("Unmatched FAQ schema row unexpectedly passed");
+    }
+    return;
+  }
   if (name === "disabled-runtime-sections") {
     const sections = runtimeComparisonSections({
       sections: [
@@ -1148,7 +1179,7 @@ function faqSchemaMatches(expectedRows, schemaRows) {
     rowsByQuestion.set(row.question, matches);
   });
   if ([...rowsByQuestion.values()].some((answers) => answers.length !== 1)) return false;
-  return expectedRows.every((row) => (
+  return rowsByQuestion.size === expectedRows.length && expectedRows.every((row) => (
     rowsByQuestion.get(row.question)?.[0] === row.answer
   ));
 }
@@ -2033,11 +2064,13 @@ function jsonLdValid(kind, structured, canonical) {
     const nodes = structured.pageIdentities.filter(({ types }) => types.includes(requiredType));
     return nodes.length > 0 && nodes.every(identityMatchesCanonical);
   });
+  const allPageNodesMatch = structured.pageIdentities.length > 0
+    && structured.pageIdentities.every(identityMatchesCanonical);
   const breadcrumbMatches = structured.breadcrumbTrails.length > 0
     && structured.breadcrumbTrails.every((trail) => (
       trail.length > 0 && trail.at(-1) === canonical
     ));
-  if (!requiredPageNodesMatch || !breadcrumbMatches) return false;
+  if (!requiredPageNodesMatch || !allPageNodesMatch || !breadcrumbMatches) return false;
   if (kind === "profile") {
     return structured.types.includes("FAQPage")
       && structured.types.includes("BreadcrumbList")
