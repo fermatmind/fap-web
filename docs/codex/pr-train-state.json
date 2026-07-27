@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "6b074f198dc57e4ecc7e0ba08b6ed005fee3df17",
+    "commit_sha": "ec6a9815446a24a1d5f26b9f79d6c22dce728416",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51566,7 +51566,7 @@
       },
       "github_required_checks": {
         "status": "passed_implementation_head_ledger_recheck_pending",
-        "evidence": "PR #1816 exact head 7e572d3504689ced1681c322c76b8b8c08fc63ee passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified a title-only answer-block false positive. Exact implementation head 6b074f198dc57e4ecc7e0ba08b6ed005fee3df17 closes it by requiring comparison summaries to contain runtime-selected body text and compare blocks to contain both renderer-required title and body. This ledger tail binds that implementation SHA; final-head checks remain required. INDEX-52 remains production_readback_blocked regardless."
+        "evidence": "PR #1816 exact head c587d5cd10738262ebb067d8e7a0a31b33b93563 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review found the renderability predicate was keyed to a test-only kind. Exact implementation head ec6a9815446a24a1d5f26b9f79d6c22dce728416 applies the renderer-aligned summary/card rules to both real production kinds by treating every non-profile answer surface as a comparison. This ledger tail binds that implementation SHA; final-head checks remain required. INDEX-52 remains production_readback_blocked regardless."
       }
     },
     "scope_validation": {
@@ -51746,8 +51746,13 @@
         "at": "2026-07-27T11:56:43Z",
         "status": "production_readback_blocked",
         "summary": "Exact head 7e572d3504689ced1681c322c76b8b8c08fc63ee passed all seven required/security checks and received exact-head review. Implementation head 6b074f198dc57e4ecc7e0ba08b6ed005fee3df17 closes the P1 finding by requiring runtime-renderable body content in comparison summary blocks and renderer-complete title/body pairs in comparison cards. Focused contracts remain 38/38; scoped ESLint, Node syntax, JSON validation, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T12:03:13Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head c587d5cd10738262ebb067d8e7a0a31b33b93563 passed all seven required/security checks and received exact-head review. Implementation head ec6a9815446a24a1d5f26b9f79d6c22dce728416 closes the P1 finding by applying comparison answer renderability rules to the real at_comparison and cross_type_comparison kinds, with the fail-closed probe using a real production kind. Focused contracts remain 38/38; scoped ESLint, Node syntax, JSON validation, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
       }
     ],
-    "updated_at": "2026-07-27T11:56:43Z"
+    "updated_at": "2026-07-27T12:03:13Z"
   }
 }
