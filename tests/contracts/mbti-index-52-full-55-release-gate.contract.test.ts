@@ -43,6 +43,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     "frontend-revision-sequence",
     "profile-hero-visibility",
     "comparison-robots-authority",
+    "profile-robots-authority",
+    "disabled-runtime-sections",
   ])(
     "enforces %s runtime evidence",
     (probe) => {
@@ -148,6 +150,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("links.length === expectedLinkCount");
     expect(source).toContain("normalizePublicHref(anchor?.href) === href");
     expect(source).toContain("runtimeComparisonSections(payload)");
+    expect(source).toContain("payload.sections.filter((section) => section?.is_enabled !== false)");
     expect(source).toContain("requiredRuntimeSectionsPresent");
     expect(source).toContain('=== "mbti64_comparison_a_vs_t"');
     expect(source).toContain("runtimeSectionFaq(payload, kind)");
@@ -156,6 +159,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("seo_surface: payload?.seo_surface_v1");
     expect(source).toContain("jsonld: payload?.jsonld");
     expect(source).toContain("profileSeoAuthorityPresent");
+    expect(source).toContain("profileRobotsAuthorityPresent(seoPayload, detailPayload, pageFacts)");
+    expect(source).toContain("additionalRobotsSources.every(robotsSourceAllowsIndex)");
     expect(source).toContain("pageFacts?.title === normalizeText(meta?.title)");
     expect(source).toContain('link[rel~="alternate"][hreflang]');
     expect(source).toContain("comparisonIdentityPresent(comparison, target)");

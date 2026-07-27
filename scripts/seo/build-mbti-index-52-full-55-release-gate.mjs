@@ -380,6 +380,32 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "profile-robots-authority") {
+    const seoPayload = {
+      meta: { robots: "index,follow" },
+      surface: { robots_policy: "noindex,follow" },
+    };
+    if (profileRobotsAuthorityPresent(
+      seoPayload,
+      { seo_surface_v1: { robots_policy: "index,follow" } },
+      { robots: "index,follow" },
+    )) {
+      throw new Error("Backend profile noindex policy unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "disabled-runtime-sections") {
+    const sections = runtimeComparisonSections({
+      sections: [
+        { section_key: "enabled", is_enabled: true },
+        { section_key: "disabled", is_enabled: false },
+      ],
+    });
+    if (sections.length !== 1 || sections[0]?.section_key !== "enabled") {
+      throw new Error("Disabled runtime comparison section was not filtered");
+    }
+    return;
+  }
   const inventory = targets();
   if (name === "duplicate") inventory[54] = { ...inventory[53] };
   else if (name === "missing") inventory.pop();
@@ -581,12 +607,30 @@ function robotsIndexable(facts) {
     && !/(?:^|[\s,])(?:noindex|none)(?:[\s,]|$)/.test(facts.xRobotsTag);
 }
 
+function robotsSourceAllowsIndex(value) {
+  const robots = normalizeText(value).toLowerCase();
+  return !/(?:^|[\s,])(?:noindex|none)(?:[\s,]|$)/.test(robots);
+}
+
 function comparisonRobotsAuthorityPresent(payload, pageFacts) {
   const robotsPolicy = normalizeText(
     payload?.seo_surface_v1?.robots_policy ?? payload?.seo_meta?.robots,
   ).toLowerCase();
   return Boolean(robotsPolicy)
     && robotsIndexable({ robots: robotsPolicy, xRobotsTag: "" })
+    && robotsIndexable({ robots: pageFacts?.robots ?? "", xRobotsTag: "" });
+}
+
+function profileRobotsAuthorityPresent(seoPayload, detailPayload, pageFacts) {
+  const metaRobots = normalizeText(seoPayload?.meta?.robots).toLowerCase();
+  const additionalRobotsSources = [
+    seoPayload?.surface?.robots_policy ?? seoPayload?.surface?.robotsPolicy,
+    detailPayload?.seo_surface_v1?.robots_policy,
+    detailPayload?.mbti_public_projection_v1?.seo?.robots,
+    detailPayload?.seo_meta?.robots,
+  ].filter((value) => nonemptyString(value));
+  return robotsIndexable({ robots: metaRobots, xRobotsTag: "" })
+    && additionalRobotsSources.every(robotsSourceAllowsIndex)
     && robotsIndexable({ robots: pageFacts?.robots ?? "", xRobotsTag: "" });
 }
 
@@ -696,7 +740,9 @@ function apiSections(payload, kind) {
 }
 
 function runtimeComparisonSections(payload) {
-  return Array.isArray(payload?.sections) ? payload.sections : [];
+  return Array.isArray(payload?.sections)
+    ? payload.sections.filter((section) => section?.is_enabled !== false)
+    : [];
 }
 
 function nonemptyString(value) {
@@ -1013,10 +1059,9 @@ function profileHeroVisible(projection, visibleText) {
   ));
 }
 
-function profileSeoAuthorityPresent(seoPayload, canonical, pageFacts) {
+function profileSeoAuthorityPresent(seoPayload, detailPayload, canonical, pageFacts) {
   if (!seoPayload || typeof seoPayload !== "object") return false;
   const meta = seoPayload?.meta ?? {};
-  const robots = normalizeText(meta?.robots).toLowerCase();
   const seoStructured = structuredFacts([seoPayload?.jsonld]);
   const aboutPageNodes = seoStructured.pageIdentities.filter(({ types }) => (
     types.includes("AboutPage")
@@ -1026,9 +1071,7 @@ function profileSeoAuthorityPresent(seoPayload, canonical, pageFacts) {
     && meta?.canonical === canonical
     && meta?.alternates?.["zh-CN"] === canonical
     && meta?.alternates?.en === canonical.replace("/zh/", "/en/")
-    && /(?:^|[\s,])index(?:[\s,]|$)/.test(robots)
-    && /(?:^|[\s,])follow(?:[\s,]|$)/.test(robots)
-    && !robots.includes("noindex")
+    && profileRobotsAuthorityPresent(seoPayload, detailPayload, pageFacts)
     && !seoStructured.invalid
     && aboutPageNodes.length > 0
     && aboutPageNodes.every(({ id, url }) => (
@@ -1138,13 +1181,13 @@ function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts
       && nonemptyString(projection?._meta?.schema_version)
       && Array.isArray(projection.sections)
       && projection.sections.length > 0
-      && profileSeoAuthorityPresent(seoPayload, canonical, pageFacts);
+      && profileSeoAuthorityPresent(seoPayload, payload, canonical, pageFacts);
     return {
       present: profile.status === "published"
         && profile.is_public === true
         && profile.is_indexable === true
         && payload?.seo_meta?.canonical_url === canonical
-        && profileSeoAuthorityPresent(seoPayload, canonical, pageFacts),
+        && profileSeoAuthorityPresent(seoPayload, payload, canonical, pageFacts),
       revisionPresent,
       sourceRevisionSha256: sha256(revision),
       authorityFingerprintSha256: sha256(authority),
