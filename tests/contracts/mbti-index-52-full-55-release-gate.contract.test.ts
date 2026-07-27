@@ -1,7 +1,12 @@
 import { execFileSync } from "node:child_process";
 import fs from "node:fs";
+import { createRequire } from "node:module";
 import { describe, expect, it } from "vitest";
 
+const require = createRequire(import.meta.url);
+const { isSharedDiscoverabilityDeniedPath } = require(
+  "../../lib/seo/discoverabilityExposurePolicy.cjs",
+);
 const script = "scripts/seo/build-mbti-index-52-full-55-release-gate.mjs";
 const reportPath = "docs/seo/personality/mbti-index-52-full-55-release-gate-2026-07-26.json";
 const runOnePath = "docs/seo/personality/mbti-index-52-full-55-release-gate-2026-07-26-run-1.json";
@@ -44,6 +49,12 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(runOne.completed_at < runTwo.started_at).toBe(true);
     expect(runTwo.started_at < runTwo.completed_at).toBe(true);
     expect(runOne.evidence_signature).toBe(runTwo.evidence_signature);
+    expect(runOne.sequence_state).toBe("consumed");
+    expect(runTwo.sequence_state).toBe("completed");
+    expect(runOne.consumed_by_run_2_at).toBe(runTwo.started_at);
+    expect(runOne.validation_session_id).toMatch(/^[0-9a-f-]{36}$/);
+    expect(runTwo.validation_session_id).toBe(runOne.validation_session_id);
+    expect(report.validation_session_id).toBe(runOne.validation_session_id);
     expect(runOne.source_revision_set_sha256).toBe(runTwo.source_revision_set_sha256);
     expect(runOne.authority_fingerprint_set_sha256).toBe(runTwo.authority_fingerprint_set_sha256);
     expect(report.records).toHaveLength(55);
@@ -110,11 +121,14 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("PROFILE_V85_VISIBLE_SECTION_KEYS");
     expect(source).toContain("PROFILE_LEADING_PROJECTION_SECTION_KEYS");
     expect(source).toContain("comparisonSectionVisible");
-    expect(source).toContain("sections.length > 0 && sections.every");
+    expect(source).toContain("answerSurfaceVisible");
+    expect(source).toContain("answerSurfaceBlockCandidates");
+    expect(source).toMatch(/sections\.length > 0\s+&& sections\.every/);
     expect(source).not.toContain("visibleText.length >= 1_500");
     expect(source).toContain("authority.revisionPresent === true");
     expect(source).toContain("RELEASED_CROSS_SOURCE_SHA256");
     expect(source).toContain("comparison_public_projection_v1 ?? payload?.comparison");
+    expect(source).toContain("projection: comparison");
     expect(source).toContain("projection.canonical_type_code === expectedTypeCode");
     expect(source).toContain("projection.variant_code === expectedVariantCode");
     expect(source).toContain("projection.runtime_type_code === expectedRuntimeTypeCode");
@@ -122,7 +136,15 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("answer_surface: payload?.answer_surface_v1");
     expect(source).toContain("structured.pageIdentities.some");
     expect(source).toContain("structured.breadcrumbTargets.includes(canonical)");
-    expect(source).toContain("results?");
+    expect(source).toContain("isSharedDiscoverabilityDeniedPath");
+    expect(source).not.toContain("PRIVATE_PATH_PATTERN");
+    expect(isSharedDiscoverabilityDeniedPath("/zh/results/lookup")).toBe(true);
+    expect(isSharedDiscoverabilityDeniedPath("/zh/pay/wait")).toBe(true);
+    expect(isSharedDiscoverabilityDeniedPath("/zh/tests/mbti-personality-test-16-personality-types/take")).toBe(true);
+    expect(isSharedDiscoverabilityDeniedPath("/zh/personality/big-five/facets/order")).toBe(false);
+    expect(source).toContain('sequence_state: "consumed"');
+    expect(source).toContain('previousRun?.sequence_state === "awaiting_run_2"');
+    expect(source).toContain("previousRun?.validation_session_id === validationSessionId");
     expect(source).toContain("'script, style, template, noscript, [hidden], [aria-hidden=\"true\"], input[type=\"hidden\"]'");
     expect(source).toContain("authorityFingerprintSha256");
     expect(source).toContain("sourceRevisionSha256");

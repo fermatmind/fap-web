@@ -1,10 +1,15 @@
 #!/usr/bin/env node
 import crypto from "node:crypto";
 import { execFileSync } from "node:child_process";
+import { createRequire } from "node:module";
 import fs from "node:fs";
 import { JSDOM } from "jsdom";
 import { csvEscape } from "./artifactSafety.mjs";
 
+const require = createRequire(import.meta.url);
+const { isSharedDiscoverabilityDeniedPath } = require(
+  "../../lib/seo/discoverabilityExposurePolicy.cjs",
+);
 const SITE_ORIGIN = "https://fermatmind.com";
 const API_ORIGIN = "https://api.fermatmind.com/api/v0.5/personality";
 const FEED_URLS = Object.freeze({
@@ -31,8 +36,6 @@ const ARTIFACT_PATHS = Object.freeze({
 const MAX_ATTEMPTS = 3;
 const MAX_CONCURRENCY = 1;
 const REQUEST_TIMEOUT_MS = 45_000;
-const PRIVATE_PATH_PATTERN = /\/(?:results?|attempts?|reports?|orders?|payments?|history|shares?)(?:\/|$|[?#])/i;
-const SAFE_PUBLIC_ORDER_PATH_PATTERN = /^\/(?:en|zh)\/personality\/big-five\/facets\/order\/?$/i;
 const GROUPS = Object.freeze({
   NT: ["intj", "intp", "entj", "entp"],
   NF: ["infj", "infp", "enfj", "enfp"],
@@ -477,6 +480,58 @@ function comparisonSectionVisible(section, visibleText) {
   return expectedValues.length > 0 && expectedValues.every((value) => visibleText.includes(value));
 }
 
+function answerSurfaceBlockCandidates(block, { includeTitle = true, includeBody = true } = {}) {
+  const title = normalizeText(block?.title);
+  const body = normalizeText(block?.body);
+  const href = normalizeText(block?.href);
+  const linkLabel = title || (
+    href.includes("/tests/mbti-personality-test-16-personality-types")
+      ? "MBTI免费测试"
+      : href
+  );
+  return [
+    ...(includeTitle && linkLabel ? [linkLabel] : []),
+    ...(includeBody && body ? [body] : []),
+  ];
+}
+
+function answerSurfaceVisible(payload, kind, visibleText) {
+  const surface = payload?.answer_surface_v1;
+  if (!surface || typeof surface !== "object") return true;
+
+  let candidates = [];
+  if (kind === "profile") {
+    candidates = [
+      ...(Array.isArray(surface.summary_blocks) ? surface.summary_blocks : []),
+      ...(Array.isArray(surface.compare_blocks) ? surface.compare_blocks : []),
+      ...(Array.isArray(surface.scene_summary_blocks) ? surface.scene_summary_blocks : []),
+      ...(Array.isArray(surface.next_step_blocks) ? surface.next_step_blocks : []),
+    ].map((block) => answerSurfaceBlockCandidates(block));
+  } else {
+    const summaryBody = (Array.isArray(surface.summary_blocks) ? surface.summary_blocks : [])
+      .map((block) => normalizeText(block?.body))
+      .find(Boolean);
+    const comparisonCards = [
+      ...(Array.isArray(surface.compare_blocks) ? surface.compare_blocks : []),
+      ...(Array.isArray(surface.scene_summary_blocks) ? surface.scene_summary_blocks : []),
+    ].filter((block) => normalizeText(block?.title) && normalizeText(block?.body));
+    candidates = [
+      ...(summaryBody ? [[summaryBody]] : []),
+      ...comparisonCards.map((block) => answerSurfaceBlockCandidates(block)),
+      ...(Array.isArray(surface.next_step_blocks) ? surface.next_step_blocks : [])
+        .map((block) => answerSurfaceBlockCandidates(block)),
+    ];
+  }
+
+  const comparableVisibleText = normalizeComparableText(visibleText);
+  return candidates.every((blockCandidates) => (
+    blockCandidates.length > 0
+    && blockCandidates.every((value) => (
+      comparableVisibleText.includes(normalizeComparableText(value))
+    ))
+  ));
+}
+
 function profileReaderVisibleSections(payload) {
   const rawSections = Array.isArray(payload?.sections) ? payload.sections : [];
   const projectionSections = Array.isArray(payload?.mbti_public_projection_v1?.sections)
@@ -570,13 +625,8 @@ function authorityFacts(payload, target, canonical) {
       revisionPresent,
       sourceRevisionSha256: sha256(revision),
       authorityFingerprintSha256: sha256({
-        comparison_slug: comparison.comparison_slug,
-        title: comparison.title,
-        description: comparison.description,
-        sections,
-        faq: comparison.faq,
+        projection: comparison,
         answer_surface: payload?.answer_surface_v1,
-        canonical_url: comparison.canonical_url,
       }),
     };
   }
@@ -605,14 +655,8 @@ function authorityFacts(payload, target, canonical) {
       source_refs: comparison.source_refs,
     }),
     authorityFingerprintSha256: sha256({
-      source_sha256: comparison.source_sha256,
-      title: comparison.title,
-      description: comparison.description,
-      summary: comparison.summary,
-      sections,
-      faq: comparison.faq,
+      projection: comparison,
       answer_surface: payload?.answer_surface_v1,
-      canonical_url: comparison.canonical_url,
     }),
   };
 }
@@ -644,7 +688,8 @@ function visibleBodyComplete(payload, target, visibleText) {
       .map((section) => section?.section_key ?? section?.key ?? "unknown");
     const complete = visibleText.length >= 5_000
       && readerVisibleSections.length === expectedReaderVisibleCount
-      && failedSectionKeys.length === 0;
+      && failedSectionKeys.length === 0
+      && answerSurfaceVisible(payload, target.kind, visibleText);
     if (!complete && DIAGNOSE_VISIBLE_BODY) {
       console.error(JSON.stringify({
         slug: target.slug,
@@ -656,9 +701,9 @@ function visibleBodyComplete(payload, target, visibleText) {
     }
     return complete;
   }
-  return sections.length > 0 && sections.every((section) => (
-    comparisonSectionVisible(section, visibleText)
-  ));
+  return sections.length > 0
+    && sections.every((section) => comparisonSectionVisible(section, visibleText))
+    && answerSurfaceVisible(payload, target.kind, visibleText);
 }
 
 function feedUrls(body) {
@@ -707,6 +752,19 @@ if (DIAGNOSE_VISIBLE_ONLY) {
   process.exit(failed.length === 0 ? 0 : 1);
 }
 const runStartedAt = new Date().toISOString();
+let previousRun = null;
+let validationSessionId = RUN === 1 ? crypto.randomUUID() : null;
+if (RUN === 2 && fs.existsSync(ARTIFACT_PATHS.run1)) {
+  previousRun = JSON.parse(fs.readFileSync(ARTIFACT_PATHS.run1, "utf8"));
+  validationSessionId = nonemptyString(previousRun?.validation_session_id)
+    ? previousRun.validation_session_id
+    : null;
+  fs.writeFileSync(ARTIFACT_PATHS.run1, `${JSON.stringify({
+    ...previousRun,
+    sequence_state: "consumed",
+    consumed_by_run_2_at: runStartedAt,
+  }, null, 2)}\n`);
+}
 
 const feedNames = ["sitemap.xml", "llms.txt", "llms-full.txt"];
 const feedEntries = [];
@@ -716,10 +774,7 @@ for (const name of feedNames) {
 const feeds = Object.fromEntries(feedEntries);
 const feedSets = Object.fromEntries(Object.entries(feeds).map(([name, body]) => [name, feedUrls(body)]));
 const privateUrlLeaks = [...new Set(Object.values(feedSets).flatMap((urls) => [...urls]))]
-  .filter((url) => {
-    const pathname = new URL(url).pathname;
-    return PRIVATE_PATH_PATTERN.test(pathname) && !SAFE_PUBLIC_ORDER_PATH_PATTERN.test(pathname);
-  });
+  .filter((url) => isSharedDiscoverabilityDeniedPath(new URL(url).pathname));
 
 const records = new Array(targetList.length);
 let cursor = 0;
@@ -816,6 +871,10 @@ const runReport = {
   id: "MBTI-INDEX-52",
   artifact: `MBTI-INDEX-52-FULL-55-RELEASE-GATE-RUN-${RUN}`,
   run: RUN,
+  validation_session_id: validationSessionId,
+  sequence_state: RUN === 1
+    ? "awaiting_run_2"
+    : (aggregatePassed ? "completed" : "failed"),
   started_at: runStartedAt,
   completed_at: runCompletedAt,
   target_count: 55,
@@ -830,14 +889,13 @@ const runReport = {
 };
 fs.writeFileSync(RUN === 1 ? ARTIFACT_PATHS.run1 : ARTIFACT_PATHS.run2, `${JSON.stringify(runReport, null, 2)}\n`);
 
-let previousRun = null;
-if (RUN === 2 && fs.existsSync(ARTIFACT_PATHS.run1)) {
-  previousRun = JSON.parse(fs.readFileSync(ARTIFACT_PATHS.run1, "utf8"));
-}
 const consecutivePass = Boolean(
   RUN === 2
   && aggregatePassed
   && previousRun?.run_decision === "PASS_MBTI_55_RUN"
+  && previousRun?.sequence_state === "awaiting_run_2"
+  && nonemptyString(validationSessionId)
+  && previousRun?.validation_session_id === validationSessionId
   && previousRun?.target_count === 55
   && previousRun?.evidence_signature === evidenceSignature
   && previousRun?.completed_at < runStartedAt,
@@ -853,9 +911,11 @@ const finalReport = {
   gsc_dependency_unblocked: consecutivePass,
   required_consecutive_runs: 2,
   completed_consecutive_runs: consecutivePass ? 2 : (aggregatePassed ? 1 : 0),
+  validation_session_id: validationSessionId,
   target_count: 55,
   exact_new_targets: RELEASED_CROSS_TYPE,
   run_1: previousRun ? {
+    validation_session_id: previousRun.validation_session_id,
     started_at: previousRun.started_at,
     completed_at: previousRun.completed_at,
     decision: previousRun.run_decision,
@@ -864,6 +924,7 @@ const finalReport = {
     authority_fingerprint_set_sha256: previousRun.authority_fingerprint_set_sha256,
     metrics: previousRun.metrics,
   } : (RUN === 1 ? {
+    validation_session_id: validationSessionId,
     started_at: runStartedAt,
     completed_at: runCompletedAt,
     decision: runReport.run_decision,
@@ -873,6 +934,7 @@ const finalReport = {
     metrics,
   } : null),
   run_2: RUN === 2 ? {
+    validation_session_id: validationSessionId,
     started_at: runStartedAt,
     completed_at: runCompletedAt,
     decision: runReport.run_decision,
