@@ -51776,7 +51776,7 @@
     "updated_at": "2026-07-27T16:55:06Z"
   },
   "MBTI-GSC-53": {
-    "status": "in_progress",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-gsc-53",
     "depends_on": [
@@ -51784,8 +51784,8 @@
     ],
     "train_scope": "mbti_full_55_url_gsc_read_only_monitoring_windows",
     "title": "MBTI-GSC-53: monitor complete 55-URL MBTI cohort",
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "922400448d6b16b6f30e9d14912ce0af11a35827",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1823",
     "checks": {
       "authorization": {
         "status": "passed",
@@ -51836,8 +51836,13 @@
         "at": "2026-07-27T17:07:11Z",
         "status": "local_verified",
         "summary": "All manifest local checks passed: deterministic generator 55/55 with 165/165 windows honestly not_due and zero GSC/search actions; focused contract 5/5; full lint and typecheck; full contract suite 774 files/4533 tests; production-environment build 206/206 static pages; YAML/JSON parsing, diff check, and exact seven-path scope validation."
+      },
+      {
+        "at": "2026-07-27T17:08:21Z",
+        "status": "github_checks_pending",
+        "summary": "Opened PR #1823 at exact implementation head 922400448d6b16b6f30e9d14912ce0af11a35827. GitHub reports the PR mergeable; required CI and security checks are queued or running."
       }
     ],
-    "updated_at": "2026-07-27T17:07:11Z"
+    "updated_at": "2026-07-27T17:08:21Z"
   }
 }
