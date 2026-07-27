@@ -127,7 +127,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("facts.visibleAnchors");
     expect(source).toContain('response.headers.get("x-robots-tag")');
     expect(source).toContain("facts.xRobotsTag");
-    expect(source).toContain("(?:noindex|none)");
+    expect(source).toContain("(?:noindex|nofollow|none)");
     expect(source).toContain('[class~="hidden"]');
     expect(source).toContain('[class~="invisible"]');
     expect(source).toContain('[class~="sr-only"]');
@@ -138,6 +138,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("profileReaderSectionMembershipValid(readerVisibleSections)");
     expect(source).toContain("MBTI64_PROMOTED_DETAIL_SECTION_KEYS");
     expect(source).toContain('sectionKey === "related_content"');
+    expect(source).toContain('sectionKey === "faq"');
+    expect(source).toContain("faqCandidates(payload?.items)");
     expect(source).toContain("profileHeroVisible(payload?.mbti_public_projection_v1, visibleText)");
     expect(source).toContain("requiredScalars.some((value) => !value)");
     expect(source).toContain("keywords.length === 0");
@@ -221,6 +223,12 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain('fs.openSync(ARTIFACT_PATHS.runTwoLock, "wx", 0o600)');
     expect(source).toContain("fs.unlinkSync(ARTIFACT_PATHS.runTwoLock)");
     expect(source).toContain('process.once("exit", releaseRunTwoLock)');
+    expect(source).toContain('process.once("SIGINT"');
+    expect(source).toContain('process.once("SIGTERM"');
+    expect(source).toContain('process.once("SIGHUP"');
+    expect(source).toContain("reclaimStaleRunTwoLock()");
+    expect(source).toContain("processIsAlive(ownerPid)");
+    expect(source).toContain("sameFileIdentity(identity, currentIdentity)");
     expect(source).toContain("fs.ftruncateSync(runOneDescriptor, 0)");
     expect(source).toContain("fs.writeSync(runOneDescriptor, consumedRun, 0");
     expect(source).not.toContain("fs.existsSync(ARTIFACT_PATHS.run1)");

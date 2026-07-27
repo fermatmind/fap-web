@@ -375,6 +375,16 @@ function runContractProbe(name) {
     return;
   }
   if (name === "profile-promoted-sections") {
+    const faqSection = {
+      section_key: "faq",
+      is_enabled: true,
+      payload_json: {
+        items: [{
+          question: "How should this profile be used?",
+          answer: "Use it for reflection, not diagnosis or selection.",
+        }],
+      },
+    };
     const sections = profileReaderVisibleSections({
       sections: [
         ...PROFILE_V85_VISIBLE_SECTION_KEYS.map((section_key) => ({
@@ -382,6 +392,7 @@ function runContractProbe(name) {
           is_enabled: true,
         })),
         { section_key: "related_content", is_enabled: true },
+        faqSection,
         { section_key: "meaning", is_enabled: true },
         { section_key: "careers_work_style", is_enabled: false },
         { section_key: "quick_answer", is_enabled: true },
@@ -393,12 +404,23 @@ function runContractProbe(name) {
     const keys = sections.map((section) => section?.key ?? section?.section_key);
     if (
       !keys.includes("related_content")
+      || !keys.includes("faq")
       || !keys.includes("meaning")
       || keys.includes("careers_work_style")
       || keys.includes("quick_answer")
       || !profileReaderSectionMembershipValid(sections)
     ) {
       throw new Error("Runtime promoted profile section selection drifted");
+    }
+    const faqVisibleText = "How should this profile be used? Use it for reflection, not diagnosis or selection.";
+    if (!profileSectionVisible(faqSection, faqVisibleText)) {
+      throw new Error("Complete runtime profile FAQ unexpectedly failed");
+    }
+    if (profileSectionVisible(
+      faqSection,
+      faqVisibleText.replace("Use it for reflection, not diagnosis or selection.", ""),
+    )) {
+      throw new Error("Incomplete runtime profile FAQ unexpectedly passed");
     }
     return;
   }
@@ -452,6 +474,9 @@ function runContractProbe(name) {
   if (name === "robots-header-indexability") {
     if (robotsIndexable({ robots: "index,follow", xRobotsTag: "none" })) {
       throw new Error("X-Robots-Tag none unexpectedly passed");
+    }
+    if (robotsIndexable({ robots: "index,follow", xRobotsTag: "nofollow" })) {
+      throw new Error("X-Robots-Tag nofollow unexpectedly passed");
     }
     return;
   }
@@ -817,7 +842,7 @@ function robotsIndexable(facts) {
   return /(?:^|[\s,])index(?:[\s,]|$)/.test(facts.robots)
     && /(?:^|[\s,])follow(?:[\s,]|$)/.test(facts.robots)
     && !facts.robots.includes("noindex")
-    && !/(?:^|[\s,])(?:noindex|none)(?:[\s,]|$)/.test(facts.xRobotsTag);
+    && !/(?:^|[\s,])(?:noindex|nofollow|none)(?:[\s,]|$)/.test(facts.xRobotsTag);
 }
 
 function robotsSourceAllowsIndex(value) {
@@ -1225,6 +1250,12 @@ function profileSectionEvidence(section) {
       ]),
     };
   }
+  if (sectionKey === "faq") {
+    return {
+      candidates: faqCandidates(payload?.items),
+      links: [],
+    };
+  }
   if (sectionKey === "mbti64_promotion_metadata") {
     return {
       candidates: [
@@ -1493,6 +1524,7 @@ function profileReaderVisibleSections(payload) {
       && sectionKey !== "quick_answer"
       && (
         sectionKey === "related_content"
+        || sectionKey === "faq"
         || MBTI64_PROMOTED_DETAIL_SECTION_KEYS.has(sectionKey)
       );
   });
@@ -1981,22 +2013,89 @@ if (DIAGNOSE_VISIBLE_ONLY) {
   process.exit(failed.length === 0 ? 0 : 1);
 }
 const runStartedAt = new Date().toISOString();
+const RUN_TWO_CORRUPT_LOCK_GRACE_MS = 60_000;
 let runTwoLockDescriptor = null;
+let runTwoLockIdentity = null;
+function sameFileIdentity(left, right) {
+  return left?.dev === right?.dev && left?.ino === right?.ino;
+}
+function processIsAlive(pid) {
+  if (!Number.isSafeInteger(pid) || pid <= 0) return false;
+  try {
+    process.kill(pid, 0);
+    return true;
+  } catch (error) {
+    return error && typeof error === "object" && error.code !== "ESRCH";
+  }
+}
+function reclaimStaleRunTwoLock() {
+  let descriptor = null;
+  try {
+    descriptor = fs.openSync(ARTIFACT_PATHS.runTwoLock, "r");
+    const contents = fs.readFileSync(descriptor, "utf8").trim();
+    const identity = fs.fstatSync(descriptor);
+    const ownerPid = /^\d+$/.test(contents) ? Number(contents) : null;
+    const corruptLockExpired = ownerPid === null
+      && Date.now() - identity.mtimeMs >= RUN_TWO_CORRUPT_LOCK_GRACE_MS;
+    if (
+      (ownerPid !== null && processIsAlive(ownerPid))
+      || (ownerPid === null && !corruptLockExpired)
+    ) {
+      return false;
+    }
+    const currentIdentity = fs.lstatSync(ARTIFACT_PATHS.runTwoLock);
+    if (!sameFileIdentity(identity, currentIdentity)) return false;
+    fs.unlinkSync(ARTIFACT_PATHS.runTwoLock);
+    return true;
+  } catch (error) {
+    if (error && typeof error === "object" && error.code === "ENOENT") return true;
+    throw error;
+  } finally {
+    if (descriptor !== null) fs.closeSync(descriptor);
+  }
+}
 function releaseRunTwoLock() {
   if (runTwoLockDescriptor === null) return;
   try {
-    fs.unlinkSync(ARTIFACT_PATHS.runTwoLock);
+    const currentIdentity = fs.lstatSync(ARTIFACT_PATHS.runTwoLock);
+    if (sameFileIdentity(runTwoLockIdentity, currentIdentity)) {
+      fs.unlinkSync(ARTIFACT_PATHS.runTwoLock);
+    }
+  } catch (error) {
+    if (!(error && typeof error === "object" && error.code === "ENOENT")) throw error;
   } finally {
     fs.closeSync(runTwoLockDescriptor);
     runTwoLockDescriptor = null;
+    runTwoLockIdentity = null;
+  }
+}
+function terminateRunTwo(signal, exitCode) {
+  releaseRunTwoLock();
+  console.error(`HOLD_MBTI_55_INCOMPLETE: run 2 interrupted by ${signal}`);
+  process.exit(exitCode);
+}
+function acquireRunTwoLock() {
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      runTwoLockDescriptor = fs.openSync(ARTIFACT_PATHS.runTwoLock, "wx", 0o600);
+      fs.writeSync(runTwoLockDescriptor, `${process.pid}\n`, null, "utf8");
+      fs.fsyncSync(runTwoLockDescriptor);
+      runTwoLockIdentity = fs.fstatSync(runTwoLockDescriptor);
+      return;
+    } catch (error) {
+      if (!(error && typeof error === "object" && error.code === "EEXIST")) throw error;
+      if (attempt === 0 && reclaimStaleRunTwoLock()) continue;
+      throw error;
+    }
   }
 }
 if (RUN === 2) {
   try {
-    runTwoLockDescriptor = fs.openSync(ARTIFACT_PATHS.runTwoLock, "wx", 0o600);
-    fs.writeSync(runTwoLockDescriptor, `${process.pid}\n`, null, "utf8");
-    fs.fsyncSync(runTwoLockDescriptor);
+    acquireRunTwoLock();
     process.once("exit", releaseRunTwoLock);
+    process.once("SIGINT", () => terminateRunTwo("SIGINT", 130));
+    process.once("SIGTERM", () => terminateRunTwo("SIGTERM", 143));
+    process.once("SIGHUP", () => terminateRunTwo("SIGHUP", 129));
   } catch (error) {
     if (error && typeof error === "object" && error.code === "EEXIST") {
       console.error("HOLD_MBTI_55_INCOMPLETE: another run 2 owns the validation session");
