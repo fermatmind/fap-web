@@ -27466,3 +27466,54 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend Career directory and public discoverability APIs
     repository_rule_impact: existing_backend_authority_frontend_no_fallback_and_discoverability_rules_preserved
+
+  - id: SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-COMPLETE-ARTIFACT-STABILITY-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/saep-proposed-web-parity06-llms-full-complete-artifact-stability-01
+    base: main
+    title: "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-COMPLETE-ARTIFACT-STABILITY-01: restore complete Trust ContentPage enumeration in llms-full artifacts"
+    depends_on: []
+    mode: execute
+    train_scope: parity06_llms_full_complete_artifact_stability
+    status: in_progress
+    goal: "Give operator-generated llms-full artifacts a bounded complete-authority budget and require the approved seven-route Trust ContentPage cohort before replacing the shared artifact, while preserving the public runtime latency boundary."
+    allowed_paths:
+      - app/llms-full.txt/route.ts
+      - scripts/seo/generate-llms-full.mjs
+      - tests/contracts/parity06-llms-full-complete-artifact-stability.contract.test.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - Backend/CMS content, authority, schema, publication, indexability, or public API changes.
+      - Sitemap or llms.txt membership changes, frontend editorial fallback, or new Trust content.
+      - Production deploy, shared artifact cache warm, PM2 action, CMS/DB/Search write, publish, or Checkpoint 118.
+    required_local_checks:
+      - pnpm exec vitest run tests/contracts/parity06-llms-full-complete-artifact-stability.contract.test.ts
+      - pnpm eslint app/llms-full.txt/route.ts scripts/seo/generate-llms-full.mjs tests/contracts/parity06-llms-full-complete-artifact-stability.contract.test.ts
+      - pnpm lint
+      - pnpm lint:spacing
+      - pnpm typecheck
+      - pnpm test:contract
+      - pnpm verify-big5-contract-freeze
+      - pnpm verify-enneagram-contract-freeze
+      - NEXT_PUBLIC_SITE_URL=https://fermatmind.com NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build
+      - >-
+        ruby -e "require 'yaml'; YAML.safe_load(File.read('docs/codex/pr-train.yaml'), aliases: true); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including untracked files
+    stop_if_changed_files_outside_scope: true
+    merge_policy: { github_checks_required: true, squash: true, auto_merge: true }
+    runtime_change: true
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    cache_warm_allowed: false
+    search_channel_action: false
+    publish_allowed: false
+    deploy_allowed: false
+    content_authority: CMS/backend public ContentPage API
+    repository_rule_impact: existing_backend_authority_no_editorial_fallback_and_fail_closed_discoverability_rules_preserved
