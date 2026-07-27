@@ -51731,8 +51731,13 @@
         "at": "2026-07-27T11:24:00Z",
         "status": "production_readback_blocked",
         "summary": "Exact head d34cc1f4e3e16f5edd4fcc5f4a7a79d65d603eba passed all seven required/security checks and received exact-head review. Implementation head ad08a1d0d39e0024d135b716bf7efe29af146dcb closes the P1 finding by matching the runtime metadata contract: each route must expose exactly one zh-CN alternate, one en alternate, and one x-default root alternate. Focused contracts remain 38/38; scoped ESLint, Node syntax, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T11:41:15Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head ca1cdab9be69456fb4dffbd5cca55537931670b5 passed all seven required/security checks and received exact-head review. Implementation head 74966e81935e2ac2924606ac49bb408721a2c22f closes both P2/P3 findings: the validator revision fingerprint now binds the imported discoverability exposure policy bytes, and this ledger freshness marker advances with the transition. Focused contracts remain 38/38; scoped ESLint, Node syntax, JSON validation, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
       }
     ],
-    "updated_at": "2026-07-27T08:55:42Z"
-}
+    "updated_at": "2026-07-27T11:41:15Z"
+  }
 }
