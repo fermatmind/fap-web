@@ -62,11 +62,13 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
   it.each([
     "jsonld-node-identity",
     "jsonld-conflicting-identity",
+    "jsonld-empty-optional-identity",
     "jsonld-breadcrumb-terminal",
     "jsonld-unexpected-page-identity",
     "projection-visibility",
     "comparison-summary-runtime-selection",
     "profile-reader-section-membership",
+    "profile-reader-internal-title",
     "profile-promoted-sections",
     "structured-section-payload",
     "robots-header-indexability",

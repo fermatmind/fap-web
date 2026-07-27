@@ -237,6 +237,22 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "jsonld-empty-optional-identity") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/intj-a`;
+    const structured = {
+      invalid: false,
+      types: ["AboutPage", "BreadcrumbList", "FAQPage", "WebPage"],
+      pageIdentities: [
+        { types: ["AboutPage"], id: "", url: "" },
+        { types: ["WebPage"], id: `${canonical}#webpage`, url: canonical },
+      ],
+      breadcrumbTrails: [[canonical]],
+    };
+    if (!jsonLdValid("profile", structured, canonical)) {
+      throw new Error("Identity-less optional page node unexpectedly failed");
+    }
+    return;
+  }
   if (name === "jsonld-breadcrumb-terminal") {
     const canonical = `${SITE_ORIGIN}/zh/personality/intj-a`;
     const structured = {
@@ -437,6 +453,20 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "profile-reader-internal-title") {
+    const section = {
+      section_key: "v8_5_thirty_second_overview",
+      title: "Internal CMS operational title",
+      body_md: "Reader-Visible Localized Body.",
+    };
+    if (!profileSectionVisible(section, "reader-visible localized body.")) {
+      throw new Error("Localized reader body unexpectedly required the internal CMS title");
+    }
+    if (profileSectionVisible(section, "Different visible body.")) {
+      throw new Error("Missing localized reader body unexpectedly passed");
+    }
+    return;
+  }
   if (name === "profile-promoted-sections") {
     const faqSection = {
       section_key: "faq",
@@ -536,10 +566,10 @@ function runContractProbe(name) {
     }
     if (profileSectionVisible(
       section,
-      visibleText.replace("A/T 对比正文", ""),
+      visibleText.replace("核心差异", ""),
       anchors,
     )) {
-      throw new Error("Missing runtime profile section heading unexpectedly passed");
+      throw new Error("Missing reader-visible structured content heading unexpectedly passed");
     }
     return;
   }
@@ -595,6 +625,26 @@ function runContractProbe(name) {
     const incompleteVisibleText = "INTJ-A 建筑师人格 先建立可靠结构，再稳定推进。 稀有度：较少见 战略 独立";
     if (profileHeroVisible(projection, incompleteVisibleText)) {
       throw new Error("Incomplete profile hero unexpectedly passed");
+    }
+    const localizedHeroText = [
+      "INTJ-A",
+      "先建立可靠结构，再稳定推进。",
+      "较少见",
+      "战略",
+      "独立",
+      "坚定",
+    ].join(" ");
+    if (!profileHeroVisible(
+      {
+        ...projection,
+        profile: {
+          ...projection.profile,
+          type_name: "Internal non-reader archetype",
+        },
+      },
+      localizedHeroText,
+    )) {
+      throw new Error("Complete localized profile hero unexpectedly required the internal archetype");
     }
     return;
   }
@@ -1298,7 +1348,9 @@ function markdownContentBlocks(value) {
 }
 
 function normalizeComparableText(value) {
-  return normalizeText(value).replace(/([。！？.!?：；，,])\s+/g, "$1");
+  return normalizeText(value)
+    .toLocaleLowerCase("en-US")
+    .replace(/([。！？.!?：；，,])\s+/g, "$1");
 }
 
 function contentBodyCandidate(value) {
@@ -1422,18 +1474,29 @@ function sourceLedgerCandidates(payload) {
     const source = normalizeText(row?.source);
     const title = normalizeText(row?.title);
     const id = normalizeText(row?.id);
+    const note = normalizeText(row?.limitation ?? row?.claim)
+      || "用于说明本页解释边界。";
     const haystack = `${id} ${source} ${title}`.toLowerCase();
-    let visibleSource = source || title;
+    let visibleSource = title || "来源说明";
+    let includeRawNote = true;
     if (haystack.includes("mccrae") || haystack.includes("costa") || haystack.includes("five-factor")) {
       visibleSource = "McCrae & Costa";
+      includeRawNote = false;
     } else if (haystack.includes("pittenger") || haystack.includes("cautionary comments")) {
       visibleSource = "Pittenger";
+      includeRawNote = false;
     } else if (haystack.includes("holland") || haystack.includes("vocational choices")) {
       visibleSource = "Holland";
+      includeRawNote = false;
     } else if (haystack.includes("fermatmind") || haystack.includes("content contract")) {
       visibleSource = "费马测试内容边界";
+      includeRawNote = false;
     }
-    return [visibleSource, normalizeText(row?.year)];
+    return [
+      visibleSource,
+      ...(!includeRawNote ? [normalizeText(row?.year)] : []),
+      ...(includeRawNote ? [note] : []),
+    ];
   }).filter(Boolean);
 }
 
@@ -1555,8 +1618,7 @@ function profileSectionEvidence(section) {
 function profileSectionVisible(section, visibleText, visibleAnchors = []) {
   const sectionKey = section?.section_key ?? section?.key;
   const { candidates, links } = profileSectionEvidence(section);
-  const title = normalizeText(section?.title);
-  const requiredCandidates = title ? [title, ...candidates] : candidates;
+  const requiredCandidates = candidates;
   const comparableVisibleText = normalizeComparableText(visibleText);
   const missingCandidates = requiredCandidates.filter((value) => (
     !comparableVisibleText.includes(normalizeComparableText(value))
@@ -1832,7 +1894,6 @@ function profileHeroVisible(projection, visibleText) {
   const profile = projection?.profile ?? {};
   const requiredScalars = [
     normalizeText(projection?.display_type),
-    normalizeText(profile?.type_name).replace(/型$/u, ""),
     normalizeText(profile?.hero_summary),
     normalizeText(profile?.rarity),
   ];
@@ -1845,9 +1906,15 @@ function profileHeroVisible(projection, visibleText) {
     ...keywords,
   ];
   const comparableVisibleText = normalizeComparableText(visibleText);
-  return candidates.length > 0 && candidates.every((candidate) => (
-    comparableVisibleText.includes(normalizeComparableText(candidate))
+  const missingCandidates = candidates.filter((candidate) => (
+    !comparableVisibleText.includes(normalizeComparableText(candidate))
   ));
+  if (missingCandidates.length > 0 && DIAGNOSE_VISIBLE_BODY) {
+    console.error(JSON.stringify({
+      hero_missing_candidates: missingCandidates,
+    }));
+  }
+  return candidates.length > 0 && missingCandidates.length === 0;
 }
 
 function profileSeoAuthorityPresent(seoPayload, detailPayload, canonical, pageFacts) {
@@ -2076,10 +2143,13 @@ function jsonLdValid(kind, structured, canonical) {
   const identityMatchesCanonical = ({ id, url }) => {
     const idPresent = nonemptyString(id);
     const urlPresent = nonemptyString(url);
-    return (idPresent || urlPresent)
-      && (!idPresent || id === canonical || id === `${canonical}#webpage`)
+    return (!idPresent || id === canonical || id === `${canonical}#webpage`)
       && (!urlPresent || url === canonical);
   };
+  const canonicalIdentityPresent = structured.pageIdentities.some(({ id, url }) => (
+    (nonemptyString(id) || nonemptyString(url))
+    && identityMatchesCanonical({ id, url })
+  ));
   const requiredPageTypes = kind === "profile"
     ? ["AboutPage", "WebPage"]
     : ["CollectionPage"];
@@ -2093,7 +2163,12 @@ function jsonLdValid(kind, structured, canonical) {
     && structured.breadcrumbTrails.every((trail) => (
       trail.length > 0 && trail.at(-1) === canonical
     ));
-  if (!requiredPageNodesMatch || !allPageNodesMatch || !breadcrumbMatches) return false;
+  if (
+    !requiredPageNodesMatch
+    || !allPageNodesMatch
+    || !canonicalIdentityPresent
+    || !breadcrumbMatches
+  ) return false;
   if (kind === "profile") {
     return structured.types.includes("FAQPage")
       && structured.types.includes("BreadcrumbList")
@@ -2127,6 +2202,14 @@ function visibleBodyComplete(payload, target, visibleText, visibleAnchors = []) 
         reader_visible_section_count: readerVisibleSections.length,
         expected_reader_visible_section_count: expectedReaderVisibleCount,
         failed_section_keys: failedSectionKeys,
+        reader_section_membership_valid: profileReaderSectionMembershipValid(readerVisibleSections),
+        hero_visible: profileHeroVisible(payload?.mbti_public_projection_v1, visibleText),
+        answer_surface_visible: answerSurfaceVisible(
+          payload,
+          target.kind,
+          visibleText,
+          visibleAnchors,
+        ),
       }));
     }
     return complete;
