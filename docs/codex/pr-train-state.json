@@ -51533,7 +51533,7 @@
     "updated_at": "2026-07-27T03:40:35Z"
   },
   "MBTI-INDEX-52": {
-    "status": "local_checks_passed",
+    "status": "production_readback_blocked",
     "repo": "fap-web",
     "branch": "codex/mbti-index-52",
     "depends_on": [
@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "c6e0147337c869f1e642d8648e61b074a7d6eda9",
+    "commit_sha": "5e1fe6008406ad45c87c73a6f1b948e110269714",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51553,8 +51553,8 @@
         "evidence": "MBTI-CROSS-PUBLISH-51 is closed in fap-api: PR #3309 merged at 7c770c8741da48f666ea925c65dceb76f7a182a9 after the exact three cross-type records passed production content, indexability, sitemap, llms, llms-full, cache-closeout, and public readback gates without search submission."
       },
       "production_read_only_runs": {
-        "status": "passed",
-        "evidence": "After exact fap-web production deploy run 30228413313 activated cc568495b81d0624a3e04392b583f525126cb200, validation session fa6d80a2-c1e5-4953-9c15-7e06200f4218 ran two independent consecutive production read-only passes from 2026-07-27T03:43:08.097Z through 2026-07-27T03:57:10.551Z. Run 2 consumed run 1 before network access, preventing reuse after any intervening failure. Both passed public API, complete runtime-selected backend projections, every reader-visible profile/comparison/answer-surface block, FAQ, target-bound JSON-LD, canonical, robots/indexability, shared private-flow policy, sitemap, llms, and llms-full at 55/55 with zero API timeouts and zero private URL leaks. Both carry evidence signature bda4d9aaeb6cf387c5b80c0ca3b65a91559fc2cef8959eb8cfa3b2b9e94b9b83, source set a6788e81f89b34f12c5412c84b4c9e410c420303c01464638ef5fb395bec45a0, and authority set 1d972f58f12cf99f20fe71504438b7cae308ffbb0144598f942b56100e365635."
+        "status": "retry_pending_exact_runtime",
+        "evidence": "The prior validation session fa6d80a2-c1e5-4953-9c15-7e06200f4218 passed both production read-only runs at 55/55, but CodeQL required a file-descriptor consumption repair in the local evidence writer. The repaired implementation then correctly consumed a new run-1 session before run 2, which failed closed because public llms-full repeatedly exposed an incomplete 18-URL set. Latest main c5992be40cd4ee302230cdd3c01ffce148e942da contains the merged PARITY-06 llms-full complete-artifact stability repair, while production /revision remains cc568495b81d0624a3e04392b583f525126cb200. Current-code consecutive production evidence must be regenerated after that exact runtime boundary is deployed; no old or mismatched session is accepted."
       },
       "required_local_checks": {
         "status": "passed",
@@ -51565,8 +51565,8 @@
         "evidence": "After rebase, the complete PR remains exactly nine allowed INDEX-52 paths: two PR-train metadata files, five read-only evidence artifacts, one builder, and one focused contract. Latest-main PARITY-06 runtime and ledger files are inherited from the base and absent from the PR diff; unrelated IQ and Career statuses match origin/main."
       },
       "github_required_checks": {
-        "status": "retry_pending",
-        "evidence": "PR #1816 exact pre-rebase ledger head 07c0bdb1e48bef7d05b30a5efe8b94049b488f13 passed all required and security checks, then six new current review threads identified shared private-flow policy, complete A/T projection fingerprinting, answer-surface visibility, validation-session sequencing, and two metadata scope issues. Those fixes and latest-main rebase pass locally at c6e0147337c869f1e642d8648e61b074a7d6eda9; fresh GitHub checks are required after push."
+        "status": "security_fix_pending",
+        "evidence": "PR #1816 rebased head 444859be65350901f6d2fed811743b4b9e13e277 passed build, contracts, both freeze checks, and CodeQL analysis, but the security gate found js/file-system-race alert #182 in run-1 session consumption. Exact implementation commit 5e1fe6008406ad45c87c73a6f1b948e110269714 now reads, truncates, writes, and fsyncs through one r+ descriptor without existsSync; focused contracts and scoped zero-warning ESLint pass. Fresh GitHub checks are required after push."
       }
     },
     "scope_validation": {
@@ -51575,7 +51575,7 @@
       "github_checks_green": false,
       "post_merge_revalidated": false
     },
-    "failure_reason": null,
+    "failure_reason": "Current-code consecutive production readback is held because production cc568495b81d0624a3e04392b583f525126cb200 still serves an unstable llms-full cohort (observed 238 then 18 unique URLs). The merged PARITY-06 runtime repair is exact main SHA c5992be40cd4ee302230cdd3c01ffce148e942da and requires separate exact-SHA production deploy authorization.",
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -51656,8 +51656,13 @@
       "at": "2026-07-27T04:11:57Z",
       "status": "local_checks_passed",
       "summary": "Rebased the complete INDEX-52 branch onto latest origin/main after PR #1821 added the PARITY-06 llms-full stability boundary. Conflict resolution preserved both independent train entries and restored unrelated IQ/Career states exactly to main. The aggregate PR diff remains nine authorized INDEX-52 paths. On Node 24.14.0, focused contracts pass 10/10, zero-warning lint and typecheck pass, complete contracts pass 773 files / 4,489 tests including the new PARITY-06 contract, and production build completes 206/206 with standalone assets synced. Fresh GitHub checks remain pending on the rebased head."
+    },
+    {
+      "at": "2026-07-27T04:32:26Z",
+      "status": "production_readback_blocked",
+      "summary": "GitHub CodeQL found js/file-system-race alert #182 in the run-2 consume path. Commit 5e1fe6008406ad45c87c73a6f1b948e110269714 removes the exists/read/write path race by using one r+ descriptor with truncate, positional write, fsync, and finally-close; focused contracts and scoped ESLint pass. A repaired-code run 1 passed 55/55, and run 2 consumed it before failing closed when public llms-full repeatedly returned an incomplete set; a direct read then exposed only 18 unique URLs. Latest main c5992be40cd4ee302230cdd3c01ffce148e942da contains the merged PARITY-06 runtime repair, but production remains cc568495b81d0624a3e04392b583f525126cb200. Exact-SHA production deploy authority is now required before current-code consecutive readback can be regenerated."
     }
   ],
-  "updated_at": "2026-07-27T04:11:57Z"
+  "updated_at": "2026-07-27T04:32:26Z"
 }
 }
