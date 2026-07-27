@@ -51533,7 +51533,7 @@
     "updated_at": "2026-07-27T03:40:35Z"
   },
   "MBTI-INDEX-52": {
-    "status": "local_checks_passed",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/mbti-index-52",
     "depends_on": [
@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "6da071130975702ba4eeb2cf9cf68ed6a0f19d36",
+    "commit_sha": "182ddb65fb3248f008cffc46b904d01246312cd1",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51565,14 +51565,14 @@
         "evidence": "All eight changed paths match the MBTI-INDEX-52 allowlist: two PR-train metadata files, four read-only evidence artifacts, one builder, and one focused contract."
       },
       "github_required_checks": {
-        "status": "retry_pending",
-        "evidence": "PR #1816 heads d188e6d398dbe25cc9f361ce6103f5e0bb00a5a4 and 7f5b8f286d7c1a3a62ec326bb4fd7101cb2cd940 passed all required and security checks. Six review threads then identified four current-scope gate weaknesses and two ledger status mismatches; a scoped review fix and fresh checks are required before merge."
+        "status": "passed",
+        "evidence": "PR #1816 exact review-fix head 182ddb65fb3248f008cffc46b904d01246312cd1 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports MERGEABLE; the final ledger-only ready-to-merge head must retain those required checks before merge."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": false,
+      "github_checks_green": true,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51631,8 +51631,13 @@
       "at": "2026-07-27T01:14:39Z",
       "status": "local_checks_passed",
       "summary": "Rebased the INDEX-52 review fixes onto exact origin/main cc568495b81d0624a3e04392b583f525126cb200 and addressed all six review findings inside the authorized scope. On Node 24.14.0, focused INDEX-52 contracts pass 10/10, full lint passes with zero warnings, typecheck passes, four complete contract shards pass 772 files / 4,485 tests, and the production API build completes 206/206 static pages. YAML/JSON parsing, CSV formula safety, git diff --check, and exact eight-path scope validation pass. Fresh GitHub required and security checks remain pending until the review-fix commit is pushed."
+    },
+    {
+      "at": "2026-07-27T01:22:17Z",
+      "status": "ready_to_merge",
+      "summary": "PR #1816 exact review-fix head 182ddb65fb3248f008cffc46b904d01246312cd1 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports MERGEABLE and the exact changed-file scope remains eight authorized INDEX-52 paths. A final ledger-only ready-to-merge commit will rerun and must retain the required and security checks before merge."
     }
   ],
-  "updated_at": "2026-07-27T01:14:39Z"
+  "updated_at": "2026-07-27T01:22:17Z"
 }
 }
