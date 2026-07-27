@@ -818,6 +818,53 @@ function profileSeoAuthorityPresent(seoPayload, canonical, pageFacts) {
     && pageFacts?.alternates?.en === meta?.alternates?.en;
 }
 
+function comparisonIdentityPresent(comparison, target) {
+  if (
+    comparison?.comparison_slug !== target.slug
+    || comparison?.locale !== "zh-CN"
+  ) {
+    return false;
+  }
+  if (target.kind === "at_comparison") {
+    const baseType = target.slug.slice(0, 4).toUpperCase();
+    return comparison?.base_type_code === baseType
+      && comparison?.variants?.a?.base_type_code === baseType
+      && comparison?.variants?.a?.runtime_type_code === `${baseType}-A`
+      && comparison?.variants?.a?.variant_code === "A"
+      && comparison?.variants?.a?.public_route_slug === `${baseType.toLowerCase()}-a`
+      && comparison?.variants?.t?.base_type_code === baseType
+      && comparison?.variants?.t?.runtime_type_code === `${baseType}-T`
+      && comparison?.variants?.t?.variant_code === "T"
+      && comparison?.variants?.t?.public_route_slug === `${baseType.toLowerCase()}-t`;
+  }
+  const [leftType, rightType] = target.slug.split("-vs-").map((value) => value.toUpperCase());
+  return comparison?.comparison_type === "mbti_cross_type"
+    && comparison?.left_type === leftType
+    && comparison?.right_type === rightType
+    && Array.isArray(comparison?.base_type_codes)
+    && comparison.base_type_codes.length === 2
+    && comparison.base_type_codes[0] === leftType
+    && comparison.base_type_codes[1] === rightType;
+}
+
+function comparisonRenderedMetadataPresent(payload, pageFacts) {
+  const comparison = comparisonProjection(payload);
+  const title = normalizeText(payload?.seo_surface_v1?.title)
+    || normalizeText(comparison?.title)
+    || normalizeText(comparison?.seo_title)
+    || normalizeText(payload?.seo_meta?.seo_title);
+  const description = normalizeText(payload?.seo_surface_v1?.description)
+    || normalizeText(comparison?.description)
+    || normalizeText(comparison?.seo_description)
+    || normalizeText(comparison?.summary)
+    || normalizeText(payload?.seo_meta?.seo_description);
+  const documentTitle = /FermatMind$/i.test(title) ? title : `${title} | FermatMind`;
+  return Boolean(title)
+    && Boolean(description)
+    && pageFacts?.title === documentTitle
+    && pageFacts?.description === description;
+}
+
 function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts = null) {
   const sections = apiSections(payload, target.kind);
   if (target.kind === "profile") {
@@ -896,7 +943,9 @@ function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts
     return {
       present: comparison.comparison_contract_version === "mbti.at_comparison.v1.mbti64_overlay"
         && comparison.overlay_source?.source === expectedOverlaySource
-        && comparison.canonical_url === canonical,
+        && comparison.canonical_url === canonical
+        && comparisonIdentityPresent(comparison, target)
+        && comparisonRenderedMetadataPresent(payload, pageFacts),
       revisionPresent,
       sourceRevisionSha256: sha256(revision),
       authorityFingerprintSha256: sha256({
@@ -925,7 +974,9 @@ function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts
       && comparison.is_indexable === true
       && comparison.sitemap_eligible === true
       && comparison.llms_eligible === true
-      && comparison.canonical_url === canonical,
+      && comparison.canonical_url === canonical
+      && comparisonIdentityPresent(comparison, target)
+      && comparisonRenderedMetadataPresent(payload, pageFacts),
     revisionPresent,
     sourceRevisionSha256: sha256({
       source_sha256: comparison.source_sha256,
