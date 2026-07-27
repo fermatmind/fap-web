@@ -33,7 +33,13 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     })).toThrow();
   });
 
-  it.each(["jsonld-node-identity", "projection-visibility"])(
+  it.each([
+    "jsonld-node-identity",
+    "projection-visibility",
+    "answer-surface-all-summaries",
+    "profile-reader-section-membership",
+    "robots-header-indexability",
+  ])(
     "enforces %s runtime evidence",
     (probe) => {
       expect(() => execFileSync("node", [script, `--contract-probe=${probe}`], {
@@ -97,15 +103,18 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("facts.visibleAnchors");
     expect(source).toContain('response.headers.get("x-robots-tag")');
     expect(source).toContain("facts.xRobotsTag");
+    expect(source).toContain("(?:noindex|none)");
     expect(source).toContain("sectionKey === \"letters_intro\"");
     expect(source).toContain("sectionKey === \"trait_overview\"");
     expect(source).toContain("sectionKey === \"v8_5_module_10_faq_boundary\"");
     expect(source).toContain("profileReaderVisibleSections");
+    expect(source).toContain("profileReaderSectionMembershipValid(readerVisibleSections)");
     expect(source).toContain("PROFILE_V85_VISIBLE_SECTION_KEYS");
     expect(source).toContain("PROFILE_LEADING_PROJECTION_SECTION_KEYS");
     expect(source).toContain("comparisonSectionVisible");
     expect(source).toContain("answerSurfaceVisible");
     expect(source).toContain("answerSurfaceBlockCandidates");
+    expect(source).toContain("summaryBlocks.map((block) => answerSurfaceBlockCandidates(block))");
     expect(source).toContain("requiredAnswerSurfaceCollectionsPresent");
     expect(source).toContain("answerSurfaceLinksVisible");
     expect(source).toContain("normalizePublicHref(anchor?.href) === href");

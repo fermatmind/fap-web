@@ -283,6 +283,59 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "answer-surface-all-summaries") {
+    const payload = {
+      answer_surface_v1: {
+        summary_blocks: [
+          { title: "First summary", body: "First summary body." },
+          { title: "Second summary", body: "Second summary body." },
+        ],
+        faq_blocks: [{ question: "Question?", answer: "Answer." }],
+        compare_blocks: [{ title: "Comparison", body: "Comparison body." }],
+        next_step_blocks: [{
+          title: "Next step",
+          body: "Next step body.",
+          href: "/zh/tests/mbti-personality-test-16-personality-types",
+        }],
+      },
+    };
+    const visibleText = [
+      "First summary",
+      "First summary body.",
+      "Second summary",
+      "Comparison",
+      "Comparison body.",
+      "Next step",
+      "Next step body.",
+    ].join(" ");
+    const visibleAnchors = [{
+      text: "Next step",
+      href: "/zh/tests/mbti-personality-test-16-personality-types",
+    }];
+    if (answerSurfaceVisible(payload, "at_comparison", visibleText, visibleAnchors)) {
+      throw new Error("Incomplete comparison summary set unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "profile-reader-section-membership") {
+    const sections = [
+      ...PROFILE_LEADING_PROJECTION_SECTION_KEYS.map((key) => ({ key })),
+      ...PROFILE_V85_VISIBLE_SECTION_KEYS.map((section_key) => ({ section_key })),
+    ];
+    sections[sections.length - 1] = {
+      section_key: PROFILE_V85_VISIBLE_SECTION_KEYS[0],
+    };
+    if (profileReaderSectionMembershipValid(sections)) {
+      throw new Error("Duplicate profile reader section key unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "robots-header-indexability") {
+    if (robotsIndexable({ robots: "index,follow", xRobotsTag: "none" })) {
+      throw new Error("X-Robots-Tag none unexpectedly passed");
+    }
+    return;
+  }
   const inventory = targets();
   if (name === "duplicate") inventory[54] = { ...inventory[53] };
   else if (name === "missing") inventory.pop();
@@ -451,6 +504,13 @@ function documentFacts(html, xRobotsTag = "") {
     visibleAnchors,
     jsonld,
   };
+}
+
+function robotsIndexable(facts) {
+  return /(?:^|[\s,])index(?:[\s,]|$)/.test(facts.robots)
+    && /(?:^|[\s,])follow(?:[\s,]|$)/.test(facts.robots)
+    && !facts.robots.includes("noindex")
+    && !/(?:^|[\s,])(?:noindex|none)(?:[\s,]|$)/.test(facts.xRobotsTag);
 }
 
 function walkJson(value, visit) {
@@ -805,15 +865,13 @@ function answerSurfaceVisible(payload, kind, visibleText, visibleAnchors = []) {
       ...(Array.isArray(surface.next_step_blocks) ? surface.next_step_blocks : []),
     ].map((block) => answerSurfaceBlockCandidates(block));
   } else {
-    const summaryBody = (Array.isArray(surface.summary_blocks) ? surface.summary_blocks : [])
-      .map((block) => normalizeText(block?.body))
-      .find(Boolean);
+    const summaryBlocks = Array.isArray(surface.summary_blocks) ? surface.summary_blocks : [];
     const comparisonCards = [
       ...(Array.isArray(surface.compare_blocks) ? surface.compare_blocks : []),
       ...(Array.isArray(surface.scene_summary_blocks) ? surface.scene_summary_blocks : []),
     ].filter((block) => normalizeText(block?.title) && normalizeText(block?.body));
     candidates = [
-      ...(summaryBody ? [[summaryBody]] : []),
+      ...summaryBlocks.map((block) => answerSurfaceBlockCandidates(block)),
       ...comparisonCards.map((block) => answerSurfaceBlockCandidates(block)),
       ...(Array.isArray(surface.next_step_blocks) ? surface.next_step_blocks : [])
         .map((block) => answerSurfaceBlockCandidates(block)),
@@ -841,6 +899,17 @@ function profileReaderVisibleSections(payload) {
     PROFILE_LEADING_PROJECTION_SECTION_KEYS.includes(section?.key)
   ));
   return [...leadingSections, ...v85Sections];
+}
+
+function profileReaderSectionMembershipValid(sections) {
+  const expectedKeys = [
+    ...PROFILE_LEADING_PROJECTION_SECTION_KEYS,
+    ...PROFILE_V85_VISIBLE_SECTION_KEYS,
+  ];
+  const actualKeys = sections.map((section) => section?.key ?? section?.section_key);
+  return actualKeys.length === expectedKeys.length
+    && new Set(actualKeys).size === expectedKeys.length
+    && expectedKeys.every((key) => actualKeys.includes(key));
 }
 
 function profileSeoAuthorityPresent(seoPayload, canonical, pageFacts) {
@@ -1088,7 +1157,7 @@ function visibleBodyComplete(payload, target, visibleText, visibleAnchors = []) 
       .filter((section) => !profileSectionVisible(section, visibleText))
       .map((section) => section?.section_key ?? section?.key ?? "unknown");
     const complete = visibleText.length >= 5_000
-      && readerVisibleSections.length === expectedReaderVisibleCount
+      && profileReaderSectionMembershipValid(readerVisibleSections)
       && failedSectionKeys.length === 0
       && answerSurfaceVisible(payload, target.kind, visibleText, visibleAnchors);
     if (!complete && DIAGNOSE_VISIBLE_BODY) {
@@ -1306,10 +1375,7 @@ async function worker() {
         )),
         jsonld: jsonLdValid(target.kind, structured, canonical),
         canonical: facts.canonical === canonical,
-        robots_indexability: /(?:^|[\s,])index(?:[\s,]|$)/.test(facts.robots)
-          && /(?:^|[\s,])follow(?:[\s,]|$)/.test(facts.robots)
-          && !facts.robots.includes("noindex")
-          && !/(?:^|[\s,])noindex(?:[\s,]|$)/.test(facts.xRobotsTag),
+        robots_indexability: robotsIndexable(facts),
         sitemap: feedSets["sitemap.xml"].has(canonical),
         llms: feedSets["llms.txt"].has(canonical),
         llms_full: feedSets["llms-full.txt"].has(canonical),
