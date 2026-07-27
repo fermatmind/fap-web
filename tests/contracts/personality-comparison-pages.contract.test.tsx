@@ -215,6 +215,19 @@ describe("PERSONALITY-COMPARISON-PAGES-01", () => {
     expect(comparison?.sourceRefs).toContain("mbti.cross_type_comparison.authority.v1");
   });
 
+  it("keeps English comparison hreflang held until the backend returns English authority", () => {
+    const pageSource = read("app/(localized)/[locale]/personality/[type]/page.tsx");
+
+    expect(pageSource).toContain("const authoritativeLanguageAlternates");
+    expect(pageSource).toContain("comparison.alternates.en ? { en: comparison.alternates.en } : {}");
+    expect(pageSource).toContain('comparison.alternates["zh-CN"]');
+    expect(pageSource).toContain("omitLanguageAlternates: true");
+    expect(pageSource).toContain("languages: authoritativeLanguageAlternates");
+    expect(pageSource).not.toContain(
+      'comparison.alternates.en ?? buildComparisonCanonicalPath(comparison.comparisonSlug, "en")'
+    );
+  });
+
   it("consumes the backend comparison API and preserves SEO, JSON-LD, and answer surfaces", async () => {
     const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
       const url = String(input);
