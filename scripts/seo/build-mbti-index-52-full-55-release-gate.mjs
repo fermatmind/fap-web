@@ -525,6 +525,18 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "robots-meta-conflict") {
+    const facts = documentFacts(`
+      <html><head>
+        <meta name="robots" content="index,follow">
+        <meta name="robots" content="noindex,follow">
+      </head><body></body></html>
+    `);
+    if (robotsIndexable(facts)) {
+      throw new Error("Conflicting robots meta tags unexpectedly passed");
+    }
+    return;
+  }
   if (name === "css-hidden-visibility") {
     const facts = documentFacts(`
       <html><body>
@@ -704,6 +716,35 @@ function runContractProbe(name) {
     `);
     if (canonicalLinkValid(facts, canonical)) {
       throw new Error("Conflicting canonical links unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "hreflang-conflict") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/intj-a`;
+    const englishCanonical = canonical.replace("/zh/", "/en/");
+    const facts = documentFacts(`
+      <html><head>
+        <link rel="alternate" hreflang="zh-CN" href="${canonical}">
+        <link rel="alternate" hreflang="zh-CN" href="${SITE_ORIGIN}/zh/personality/intp-a">
+        <link rel="alternate" hreflang="en" href="${englishCanonical}">
+      </head><body></body></html>
+    `);
+    if (exactAlternateLinksPresent(facts, {
+      "zh-CN": canonical,
+      en: englishCanonical,
+    })) {
+      throw new Error("Conflicting hreflang links unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "faq-schema-conflict") {
+    const expected = [{ question: "如何使用？", answer: "用于自我反思。" }];
+    const schemaRows = [
+      ...expected,
+      { question: "如何使用？", answer: "用于人员筛选。" },
+    ];
+    if (faqSchemaMatches(expected, schemaRows)) {
+      throw new Error("Conflicting FAQ schema rows unexpectedly passed");
     }
     return;
   }
@@ -935,16 +976,20 @@ function documentFacts(html, xRobotsTag = "") {
     href: node.getAttribute("href") ?? "",
     text: normalizeText(node.textContent),
   }));
+  const alternateLinks = [...document.querySelectorAll('link[rel~="alternate"][hreflang]')]
+    .map((node) => ({
+      locale: node.getAttribute("hreflang") ?? "",
+      href: node.getAttribute("href") ?? "",
+    }));
   const alternates = Object.fromEntries(
-    [...document.querySelectorAll('link[rel~="alternate"][hreflang]')]
-      .map((node) => [
-        node.getAttribute("hreflang") ?? "",
-        node.getAttribute("href") ?? "",
-      ])
-      .filter(([locale, href]) => locale && href),
+    alternateLinks
+      .filter(({ locale, href }) => locale && href)
+      .map(({ locale, href }) => [locale, href]),
   );
   const canonicalLinks = [...document.querySelectorAll('link[rel~="canonical"]')]
     .map((node) => node.getAttribute("href") ?? "");
+  const robotsDirectives = [...document.querySelectorAll('meta[name="robots"]')]
+    .map((node) => (node.getAttribute("content") ?? "").toLowerCase());
   return {
     title: normalizeText(document.title),
     description: normalizeText(
@@ -953,7 +998,9 @@ function documentFacts(html, xRobotsTag = "") {
     canonical: canonicalLinks[0] ?? "",
     canonicalLinks,
     alternates,
-    robots: (document.querySelector('meta[name="robots"]')?.getAttribute("content") ?? "").toLowerCase(),
+    alternateLinks,
+    robots: robotsDirectives[0] ?? "",
+    robotsDirectives,
     xRobotsTag,
     visibleText: normalizeText(visibleBody?.textContent ?? ""),
     visibleAnchors,
@@ -965,10 +1012,23 @@ function canonicalLinkValid(facts, canonical) {
   return facts?.canonicalLinks?.length === 1 && facts.canonicalLinks[0] === canonical;
 }
 
+function exactAlternateLinksPresent(facts, expectedAlternates) {
+  const links = Array.isArray(facts?.alternateLinks)
+    ? facts.alternateLinks
+    : Object.entries(facts?.alternates ?? {}).map(([locale, href]) => ({ locale, href }));
+  const expected = Object.entries(expectedAlternates);
+  return links.length === expected.length
+    && expected.every(([locale, href]) => (
+      links.filter((link) => link.locale === locale && link.href === href).length === 1
+    ));
+}
+
 function robotsIndexable(facts) {
-  return /(?:^|[\s,])index(?:[\s,]|$)/.test(facts.robots)
-    && /(?:^|[\s,])follow(?:[\s,]|$)/.test(facts.robots)
-    && !facts.robots.includes("noindex")
+  const directives = Array.isArray(facts?.robotsDirectives)
+    ? facts.robotsDirectives
+    : [facts?.robots ?? ""];
+  return directives.length > 0
+    && directives.every(robotsSourceAllowsIndex)
     && !/(?:^|[\s,])(?:noindex|nofollow|none)(?:[\s,]|$)/.test(facts.xRobotsTag);
 }
 
@@ -1075,6 +1135,22 @@ function structuredFacts(blocks) {
     breadcrumbTrails,
     invalid,
   };
+}
+
+function faqSchemaMatches(expectedRows, schemaRows) {
+  if (!Array.isArray(expectedRows) || expectedRows.length === 0 || !Array.isArray(schemaRows)) {
+    return false;
+  }
+  const rowsByQuestion = new Map();
+  schemaRows.forEach((row) => {
+    const matches = rowsByQuestion.get(row.question) ?? [];
+    matches.push(row.answer);
+    rowsByQuestion.set(row.question, matches);
+  });
+  if ([...rowsByQuestion.values()].some((answers) => answers.length !== 1)) return false;
+  return expectedRows.every((row) => (
+    rowsByQuestion.get(row.question)?.[0] === row.answer
+  ));
 }
 
 function comparisonProjection(payload) {
@@ -1748,8 +1824,10 @@ function profileSeoAuthorityPresent(seoPayload, detailPayload, canonical, pageFa
     && pageFacts?.title === expectedTitle
     && pageFacts?.description === expectedDescription
     && pageFacts?.canonical === meta?.canonical
-    && pageFacts?.alternates?.["zh-CN"] === meta?.alternates?.["zh-CN"]
-    && pageFacts?.alternates?.en === meta?.alternates?.en;
+    && exactAlternateLinksPresent(pageFacts, {
+      "zh-CN": meta?.alternates?.["zh-CN"],
+      en: meta?.alternates?.en,
+    });
 }
 
 function comparisonIdentityPresent(comparison, target) {
@@ -1800,8 +1878,10 @@ function comparisonRenderedMetadataPresent(payload, pageFacts, canonical) {
     && pageFacts?.description === description
     && comparison?.alternates?.["zh-CN"] === canonical
     && comparison?.alternates?.en === expectedEnglishCanonical
-    && pageFacts?.alternates?.["zh-CN"] === canonical
-    && pageFacts?.alternates?.en === expectedEnglishCanonical
+    && exactAlternateLinksPresent(pageFacts, {
+      "zh-CN": canonical,
+      en: expectedEnglishCanonical,
+    })
     && comparisonRobotsAuthorityPresent(payload, pageFacts);
 }
 
@@ -2402,7 +2482,6 @@ async function worker() {
       const facts = documentFacts(page.html, page.xRobotsTag);
       const structured = structuredFacts(facts.jsonld);
       const faq = apiFaq(payload, target.kind);
-      const schemaFaq = new Map(structured.faq.map((row) => [row.question, row.answer]));
       const authority = authorityFacts(payload, target, canonical, seoPayload, facts);
       const sectionCount = apiSections(payload, target.kind).length;
       const checks = {
@@ -2418,9 +2497,8 @@ async function worker() {
           facts.visibleAnchors,
         ),
         section_completeness: sectionCount === target.expectedSectionCount,
-        faq: faq.length > 0 && faq.every((row) => (
-          schemaFaq.get(row.question) === row.answer
-          && facts.visibleText.includes(row.question)
+        faq: faqSchemaMatches(faq, structured.faq) && faq.every((row) => (
+          facts.visibleText.includes(row.question)
           && facts.visibleText.includes(row.answer)
         )),
         jsonld: jsonLdValid(target.kind, structured, canonical),
