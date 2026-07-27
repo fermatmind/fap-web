@@ -258,6 +258,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("sameFrontendRevisionAcrossSequence(");
     expect(source).toContain("previousRun?.frontend_revision === revisionAtStart");
     expect(source).toContain("VALIDATOR_SOURCE_SHA256");
+    expect(source).toContain("fs.readFileSync(DISCOVERABILITY_POLICY_SOURCE_URL)");
     expect(source).toContain("sameValidatorRevisionAcrossSequence(previousRun, VALIDATOR_SOURCE_SHA256)");
     expect(source).toContain("validationRunPassed(RUN, aggregatePassed, consecutivePass)");
     expect(source).toContain('"script"');

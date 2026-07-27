@@ -9,6 +9,10 @@ import { csvEscape } from "./artifactSafety.mjs";
 
 const require = createRequire(import.meta.url);
 const execFileAsync = promisify(execFile);
+const DISCOVERABILITY_POLICY_SOURCE_URL = new URL(
+  "../../lib/seo/discoverabilityExposurePolicy.cjs",
+  import.meta.url,
+);
 const { isSharedDiscoverabilityDeniedPath } = require(
   "../../lib/seo/discoverabilityExposurePolicy.cjs",
 );
@@ -44,7 +48,10 @@ const REQUEST_TIMEOUT_MS = 45_000;
 const FEED_ABORT_CONTROLLER = new AbortController();
 const VALIDATOR_SOURCE_SHA256 = crypto
   .createHash("sha256")
+  .update("mbti-index-52-validator-bundle-v1\0")
   .update(fs.readFileSync(new URL(import.meta.url)))
+  .update("\0discoverability-exposure-policy\0")
+  .update(fs.readFileSync(DISCOVERABILITY_POLICY_SOURCE_URL))
   .digest("hex");
 const GROUPS = Object.freeze({
   NT: ["intj", "intp", "entj", "entp"],
