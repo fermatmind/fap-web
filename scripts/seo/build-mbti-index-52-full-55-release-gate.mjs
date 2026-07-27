@@ -734,7 +734,7 @@ function runContractProbe(name) {
       compare_blocks: [{ title: "只有标题的对比" }],
       next_step_blocks: [{ title: "下一步", body: "行动建议" }],
     };
-    if (requiredAnswerSurfaceCollectionsPresent(surface, "comparison")) {
+    if (requiredAnswerSurfaceCollectionsPresent(surface, "at_comparison")) {
       throw new Error("Placeholder answer-surface collections unexpectedly passed");
     }
     return;
@@ -1716,10 +1716,10 @@ function requiredAnswerSurfaceCollectionsPresent(surface, kind) {
           || normalizePublicHref(block?.href),
         );
       }
-      if (kind === "comparison" && key === "summary_blocks") {
+      if (kind !== "profile" && key === "summary_blocks") {
         return Boolean(normalizeText(block?.body));
       }
-      if (kind === "comparison" && key === "compare_blocks") {
+      if (kind !== "profile" && key === "compare_blocks") {
         return Boolean(normalizeText(block?.title) && normalizeText(block?.body));
       }
       return Boolean(normalizeText(block?.title) || normalizeText(block?.body));
