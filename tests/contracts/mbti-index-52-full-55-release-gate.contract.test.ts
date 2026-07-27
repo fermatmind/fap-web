@@ -35,6 +35,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
 
   it.each([
     "jsonld-node-identity",
+    "jsonld-conflicting-identity",
     "projection-visibility",
     "answer-surface-all-summaries",
     "profile-reader-section-membership",
@@ -98,6 +99,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("feedUrls(body).size < 55");
     expect(source).toContain("new URL(presentationTrimmed).href");
     expect(source).toContain("const FEED_URLS = Object.freeze");
+    expect(source).toContain("const PUBLIC_CONTEXT_QUERY");
     expect(source).toContain('"--http1.1"');
     expect(source).toContain('target.slug === "intp-a-vs-intp-t"');
     expect(source).toContain('? "mbti-comp-runtime-46-intp-revision"');
@@ -148,6 +150,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("answer_surface: payload?.answer_surface_v1");
     expect(source).toContain("requiredPageNodesMatch");
     expect(source).toContain("nodes.every(identityMatchesCanonical)");
+    expect(source).toContain("(!idPresent || id === canonical || id === `${canonical}#webpage`)");
+    expect(source).toContain("(!urlPresent || url === canonical)");
     expect(source).toContain("structured.breadcrumbTargets.includes(canonical)");
     expect(source).toContain("comparisonProjectionVisible");
     expect(source).toContain("comparisonVariantVisible");
@@ -184,8 +188,10 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("visibleCandidates([claimBoundary], visibleText)");
     expect(source).toContain("/seo?locale=zh-CN&org_id=0&scale_code=MBTI");
     expect(source).toContain("writeFinalValidationHold(runStartedAt);");
+    expect(source).toContain("writePreflightValidationFailure(runStartedAt, validationSessionId, error)");
+    expect(source).toContain('sequence_state: "failed"');
     expect(source.indexOf("writeFinalValidationHold(runStartedAt);"))
-      .toBeLessThan(source.indexOf("const feedNames ="));
+      .toBeLessThan(source.indexOf("frontendRevisionAtStart = await fetchFrontendRevision()"));
     expect(source).toContain("isSharedDiscoverabilityDeniedPath");
     expect(source).not.toContain("PRIVATE_PATH_PATTERN");
     expect(isSharedDiscoverabilityDeniedPath("/zh/results/lookup")).toBe(true);

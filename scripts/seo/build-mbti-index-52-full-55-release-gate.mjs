@@ -12,6 +12,7 @@ const { isSharedDiscoverabilityDeniedPath } = require(
 );
 const SITE_ORIGIN = "https://fermatmind.com";
 const API_ORIGIN = "https://api.fermatmind.com/api/v0.5/personality";
+const PUBLIC_CONTEXT_QUERY = "locale=zh-CN&org_id=0&scale_code=MBTI";
 const FEED_URLS = Object.freeze({
   "sitemap.xml": "https://fermatmind.com/sitemap.xml",
   "llms.txt": "https://fermatmind.com/llms.txt",
@@ -189,6 +190,26 @@ function runContractProbe(name) {
     };
     if (jsonLdValid("profile", structured, canonical)) {
       throw new Error("Stale required JSON-LD page node unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "jsonld-conflicting-identity") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/intj-a`;
+    const structured = {
+      invalid: false,
+      types: ["AboutPage", "BreadcrumbList", "FAQPage", "WebPage"],
+      pageIdentities: [
+        {
+          types: ["AboutPage"],
+          id: canonical,
+          url: `${SITE_ORIGIN}/zh/personality/intp-a`,
+        },
+        { types: ["WebPage"], id: `${canonical}#webpage`, url: canonical },
+      ],
+      breadcrumbTargets: [canonical],
+    };
+    if (jsonLdValid("profile", structured, canonical)) {
+      throw new Error("Conflicting required JSON-LD identity unexpectedly passed");
     }
     return;
   }
@@ -1319,9 +1340,13 @@ function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts
 
 function jsonLdValid(kind, structured, canonical) {
   if (structured.invalid) return false;
-  const identityMatchesCanonical = ({ id, url }) => (
-    url === canonical || id === canonical || id === `${canonical}#webpage`
-  );
+  const identityMatchesCanonical = ({ id, url }) => {
+    const idPresent = nonemptyString(id);
+    const urlPresent = nonemptyString(url);
+    return (idPresent || urlPresent)
+      && (!idPresent || id === canonical || id === `${canonical}#webpage`)
+      && (!urlPresent || url === canonical);
+  };
   const requiredPageTypes = kind === "profile"
     ? ["AboutPage", "WebPage"]
     : ["CollectionPage"];
@@ -1445,6 +1470,59 @@ function writeRunValidationHold(startedAt, sessionId) {
   );
 }
 
+function writePreflightValidationFailure(startedAt, sessionId, error) {
+  const completedAt = new Date().toISOString();
+  const message = error instanceof Error ? error.message : String(error);
+  const failureReason = `preflight_failed:${normalizeText(message).slice(0, 240)}`;
+  const runReport = {
+    id: "MBTI-INDEX-52",
+    artifact: `MBTI-INDEX-52-FULL-55-RELEASE-GATE-RUN-${RUN}`,
+    run: RUN,
+    validation_session_id: sessionId,
+    sequence_state: "failed",
+    started_at: startedAt,
+    completed_at: completedAt,
+    target_count: 55,
+    evidence_scope: "read_only_production_network_revalidation",
+    run_decision: "HOLD_MBTI_55_INCOMPLETE",
+    failure_reason: failureReason,
+    validator_source_sha256: VALIDATOR_SOURCE_SHA256,
+    records: [],
+  };
+  const finalReport = {
+    id: "MBTI-INDEX-52",
+    artifact: "MBTI-INDEX-52-FULL-55-RELEASE-GATE",
+    generated_at: completedAt,
+    final_decision: "HOLD_MBTI_55_INCOMPLETE",
+    gsc_dependency_unblocked: false,
+    required_consecutive_runs: 2,
+    completed_consecutive_runs: 0,
+    validation_session_id: sessionId,
+    target_count: 55,
+    exact_new_targets: RELEASED_CROSS_TYPE,
+    failure_reason: failureReason,
+    records: [],
+    safety_boundary: SAFETY_BOUNDARY,
+  };
+  fs.writeFileSync(
+    RUN === 1 ? ARTIFACT_PATHS.run1 : ARTIFACT_PATHS.run2,
+    `${JSON.stringify(runReport, null, 2)}\n`,
+  );
+  fs.writeFileSync(ARTIFACT_PATHS.reportJson, `${JSON.stringify(finalReport, null, 2)}\n`);
+  fs.writeFileSync(
+    ARTIFACT_PATHS.reportMarkdown,
+    [
+      "# MBTI-INDEX-52 Full 55 URL Release Gate",
+      "",
+      "- Final decision: `HOLD_MBTI_55_INCOMPLETE`",
+      "- Consecutive runs complete: `0/2`",
+      `- Failure reason: \`${failureReason}\``,
+      "",
+    ].join("\n"),
+  );
+  fs.writeFileSync(ARTIFACT_PATHS.reportCsv, "path,kind,result,blockers\n");
+}
+
 function stableRecord(target, record) {
   const checks = Object.fromEntries(CHECK_KEYS.map((key) => [key, record?.checks?.[key] === true]));
   return {
@@ -1470,7 +1548,7 @@ if (DIAGNOSE_VISIBLE_ONLY) {
     const batch = profileTargets.slice(offset, offset + MAX_CONCURRENCY);
     profileResults.push(...await Promise.all(batch.map(async (target) => {
       const canonical = `${SITE_ORIGIN}/zh/personality/${target.slug}`;
-      const apiUrl = `${API_ORIGIN}/${target.slug}?locale=zh-CN`;
+      const apiUrl = `${API_ORIGIN}/${target.slug}?${PUBLIC_CONTEXT_QUERY}`;
       const [payload, page] = await Promise.all([fetchJson(apiUrl), fetchPage(canonical)]);
       const facts = documentFacts(page.html, page.xRobotsTag);
       return {
@@ -1520,14 +1598,20 @@ if (RUN === 2) {
 }
 writeRunValidationHold(runStartedAt, validationSessionId);
 writeFinalValidationHold(runStartedAt, validationSessionId);
-const frontendRevisionAtStart = await fetchFrontendRevision();
-
-const feedNames = ["sitemap.xml", "llms.txt", "llms-full.txt"];
-const feedEntries = [];
-for (const name of feedNames) {
-  feedEntries.push([name, await fetchFeed(name)]);
+let frontendRevisionAtStart;
+let feeds;
+try {
+  frontendRevisionAtStart = await fetchFrontendRevision();
+  const feedEntries = [];
+  for (const name of ["sitemap.xml", "llms.txt", "llms-full.txt"]) {
+    feedEntries.push([name, await fetchFeed(name)]);
+  }
+  feeds = Object.fromEntries(feedEntries);
+} catch (error) {
+  writePreflightValidationFailure(runStartedAt, validationSessionId, error);
+  console.error("HOLD_MBTI_55_INCOMPLETE: production preflight failed");
+  process.exit(1);
 }
-const feeds = Object.fromEntries(feedEntries);
 const feedSets = Object.fromEntries(Object.entries(feeds).map(([name, body]) => [name, feedUrls(body)]));
 const privateUrlLeaks = [...new Set(Object.values(feedSets).flatMap((urls) => [...urls]))]
   .filter((url) => isSharedDiscoverabilityDeniedPath(new URL(url).pathname));
@@ -1541,8 +1625,8 @@ async function worker() {
     const target = targetList[index];
     const canonical = `${SITE_ORIGIN}/zh/personality/${target.slug}`;
     const apiUrl = target.kind === "profile"
-      ? `${API_ORIGIN}/${target.slug}?locale=zh-CN`
-      : `${API_ORIGIN}/comparisons/${target.slug}?locale=zh-CN`;
+      ? `${API_ORIGIN}/${target.slug}?${PUBLIC_CONTEXT_QUERY}`
+      : `${API_ORIGIN}/comparisons/${target.slug}?${PUBLIC_CONTEXT_QUERY}`;
     try {
       const seoUrl = target.kind === "profile"
         ? `${API_ORIGIN}/${target.slug}/seo?locale=zh-CN&org_id=0&scale_code=MBTI`
@@ -1612,7 +1696,14 @@ async function worker() {
   }
 }
 await Promise.all(Array.from({ length: MAX_CONCURRENCY }, () => worker()));
-const frontendRevisionAtEnd = await fetchFrontendRevision();
+let frontendRevisionAtEnd;
+try {
+  frontendRevisionAtEnd = await fetchFrontendRevision();
+} catch (error) {
+  writePreflightValidationFailure(runStartedAt, validationSessionId, error);
+  console.error("HOLD_MBTI_55_INCOMPLETE: production revision closeout failed");
+  process.exit(1);
+}
 const frontendRevisionStable = sameFrontendRevisionAcrossSequence(
   null,
   frontendRevisionAtStart,
