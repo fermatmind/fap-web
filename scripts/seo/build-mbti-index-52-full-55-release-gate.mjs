@@ -13,6 +13,10 @@ const FEED_URLS = Object.freeze({
   "llms-full.txt": "https://fermatmind.com/llms-full.txt",
 });
 const ALLOW_NETWORK = process.argv.includes("--allow-network");
+const DIAGNOSE_VISIBLE_ONLY = process.argv.includes("--diagnose-visible-only");
+const diagnoseSlug = process.argv.find((argument) => argument.startsWith("--diagnose-slug="))
+  ?.split("=")[1] ?? null;
+const DIAGNOSE_VISIBLE_BODY = process.env.MBTI_INDEX_DIAGNOSE_VISIBLE_BODY === "1";
 const runArgument = process.argv.find((argument) => argument.startsWith("--run="));
 const RUN = runArgument === "--run=1" ? 1 : runArgument === "--run=2" ? 2 : null;
 const CONTRACT_PROBE = process.argv.find((argument) => argument.startsWith("--contract-probe="))
@@ -25,9 +29,9 @@ const ARTIFACT_PATHS = Object.freeze({
   reportCsv: new URL("../../docs/seo/personality/mbti-index-52-full-55-release-gate-2026-07-26.csv", import.meta.url),
 });
 const MAX_ATTEMPTS = 3;
-const MAX_CONCURRENCY = 4;
+const MAX_CONCURRENCY = 1;
 const REQUEST_TIMEOUT_MS = 45_000;
-const PRIVATE_PATH_PATTERN = /\/(?:result|attempt|report|orders?|payment|history|share)(?:\/|$|[?#])/i;
+const PRIVATE_PATH_PATTERN = /\/(?:results?|attempts?|reports?|orders?|payments?|history|shares?)(?:\/|$|[?#])/i;
 const SAFE_PUBLIC_ORDER_PATH_PATTERN = /^\/(?:en|zh)\/personality\/big-five\/facets\/order\/?$/i;
 const GROUPS = Object.freeze({
   NT: ["intj", "intp", "entj", "entp"],
@@ -309,34 +313,68 @@ function walkJson(value, visit) {
 function structuredFacts(blocks) {
   const types = new Set();
   const faq = [];
+  const pageIdentities = [];
+  const breadcrumbTargets = [];
   let invalid = false;
   blocks.forEach((block) => walkJson(block, (node) => {
     if (node.__invalid_jsonld) invalid = true;
     const nodeTypes = Array.isArray(node["@type"]) ? node["@type"] : [node["@type"]];
     nodeTypes.filter(Boolean).forEach((type) => types.add(String(type)));
+    if (nodeTypes.some((type) => ["AboutPage", "WebPage", "CollectionPage"].includes(type))) {
+      pageIdentities.push({
+        types: nodeTypes,
+        id: normalizeText(node["@id"]),
+        url: normalizeText(node.url),
+      });
+    }
+    if (nodeTypes.includes("BreadcrumbList") && Array.isArray(node.itemListElement)) {
+      node.itemListElement.forEach((item) => {
+        const target = normalizeText(item?.item ?? item?.url);
+        if (target) breadcrumbTargets.push(target);
+      });
+    }
     if (node["@type"] !== "FAQPage" || !Array.isArray(node.mainEntity)) return;
     node.mainEntity.forEach((question) => faq.push({
       question: normalizeText(question?.name),
       answer: normalizeText(question?.acceptedAnswer?.text),
     }));
   }));
-  return { types: [...types].sort(), faq, invalid };
+  return {
+    types: [...types].sort(),
+    faq,
+    pageIdentities,
+    breadcrumbTargets,
+    invalid,
+  };
+}
+
+function comparisonProjection(payload) {
+  return payload?.comparison_public_projection_v1 ?? payload?.comparison ?? {};
 }
 
 function apiFaq(payload, kind) {
-  const rows = kind === "profile"
-    ? payload?.answer_surface_v1?.faq_blocks
-    : payload?.comparison?.faq;
-  return Array.isArray(rows)
-    ? rows.map((row) => ({
+  const primaryRows = kind === "profile"
+    ? []
+    : comparisonProjection(payload)?.faq;
+  const answerSurfaceRows = payload?.answer_surface_v1?.faq_blocks;
+  const rows = [
+    ...(Array.isArray(primaryRows) ? primaryRows : []),
+    ...(Array.isArray(answerSurfaceRows) ? answerSurfaceRows : []),
+  ];
+  const deduped = new Map();
+  rows.map((row) => ({
       question: normalizeText(row?.question),
       answer: normalizeText(row?.answer),
-    })).filter((row) => row.question && row.answer)
-    : [];
+    }))
+    .filter((row) => row.question && row.answer)
+    .forEach((row) => {
+      if (!deduped.has(row.question)) deduped.set(row.question, row);
+    });
+  return [...deduped.values()];
 }
 
 function apiSections(payload, kind) {
-  const rows = kind === "profile" ? payload?.sections : payload?.comparison?.sections;
+  const rows = kind === "profile" ? payload?.sections : comparisonProjection(payload)?.sections;
   return Array.isArray(rows) ? rows : [];
 }
 
@@ -350,11 +388,7 @@ function validSha256(value) {
 
 function collectTextLeaves(value, results = []) {
   if (typeof value === "string") {
-    const normalized = normalizeText(value)
-      .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
-      .replace(/[*_~`#>|]+/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
+    const normalized = normalizeMarkdownText(value);
     if (normalized) results.push(normalized);
   } else if (Array.isArray(value)) {
     value.forEach((item) => collectTextLeaves(item, results));
@@ -364,20 +398,73 @@ function collectTextLeaves(value, results = []) {
   return results;
 }
 
+function normalizeMarkdownText(value) {
+  return normalizeText(value)
+    .replace(/!\[([^\]]*)\]\([^)]+\)/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/^(?:[-+*]|\d+[.)])\s+/g, "")
+    .replace(/[*_~`]+/g, "")
+    .replace(/[#>|]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function markdownContentBlocks(value) {
+  return String(value ?? "")
+    .split(/\n+/)
+    .map((block) => normalizeMarkdownText(block))
+    .map((block) => {
+      if (/^Strengths$/i.test(block)) return "优势";
+      if (/^Watch-outs$/i.test(block)) return "注意风险";
+      return block;
+    })
+    .filter((block) => block.length >= 2);
+}
+
+function normalizeComparableText(value) {
+  return normalizeText(value).replace(/([。！？.!?：；，,])\s+/g, "$1");
+}
+
 function profileSectionVisible(section, visibleText) {
-  const contentCandidates = collectTextLeaves({
-    body_md: section?.body_md,
-    body_html: section?.body_html,
-    payload: section?.payload_json ?? section?.payload,
-  }).filter((value) => value.length >= 8 && !/^https?:\/\//i.test(value));
-  const fallbackTitle = normalizeText(section?.title);
   const sectionKey = section?.section_key ?? section?.key;
-  const candidates = contentCandidates.length ? contentCandidates : [fallbackTitle];
+  const payload = section?.payload_json ?? section?.payload ?? {};
+  let candidates;
+  if (sectionKey === "letters_intro") {
+    candidates = (Array.isArray(payload?.letters) ? payload.letters : []).flatMap((item) => [
+      normalizeText(item?.letter),
+      normalizeText(item?.title).replace(/\s*[（(][A-Z-]+[）)]\s*$/, ""),
+      normalizeText(item?.description),
+    ]).filter(Boolean);
+  } else if (sectionKey === "trait_overview") {
+    candidates = (Array.isArray(payload?.dimensions) ? payload.dimensions : []).flatMap((item) => [
+      normalizeText(item?.summary),
+      normalizeText(item?.description),
+    ]).filter(Boolean);
+  } else {
+    candidates = markdownContentBlocks(section?.body_md);
+    if (sectionKey === "v8_5_module_10_faq_boundary" && /FAQ|常见问题/.test(candidates[0] ?? "")) {
+      candidates = candidates.slice(1);
+    }
+    if (candidates.length === 0 && nonemptyString(section?.body_html)) {
+      candidates = [normalizeText(section.body_html)];
+    }
+  }
+  const comparableVisibleText = normalizeComparableText(visibleText);
+  const missingCandidates = candidates.filter((value) => (
+    !comparableVisibleText.includes(normalizeComparableText(value))
+  ));
+  if (missingCandidates.length > 0 && DIAGNOSE_VISIBLE_BODY) {
+    console.error(JSON.stringify({
+      section_key: sectionKey,
+      candidate_count: candidates.length,
+      missing_candidate_count: missingCandidates.length,
+      missing_candidate_lengths: missingCandidates.map((value) => value.length),
+      missing_candidate_prefixes: missingCandidates.map((value) => value.slice(0, 40)),
+    }));
+  }
   return nonemptyString(sectionKey)
-    && candidates.some((value) => {
-      const needle = value.slice(0, 120).trim();
-      return needle.length >= 2 && visibleText.includes(needle);
-    });
+    && candidates.length > 0
+    && missingCandidates.length === 0;
 }
 
 function comparisonSectionVisible(section, visibleText) {
@@ -408,6 +495,10 @@ function authorityFacts(payload, target, canonical) {
   const sections = apiSections(payload, target.kind);
   if (target.kind === "profile") {
     const profile = payload?.profile ?? {};
+    const projection = payload?.mbti_public_projection_v1 ?? {};
+    const expectedTypeCode = target.slug.slice(0, 4).toUpperCase();
+    const expectedVariantCode = target.slug.slice(-1).toUpperCase();
+    const expectedRuntimeTypeCode = target.slug.toUpperCase();
     const revision = {
       id: profile.id,
       slug: profile.slug,
@@ -423,6 +514,8 @@ function authorityFacts(payload, target, canonical) {
         is_indexable: profile.is_indexable,
       },
       sections,
+      projection,
+      answer_surface: payload?.answer_surface_v1,
       faq: payload?.answer_surface_v1?.faq_blocks,
       canonical: payload?.seo_meta?.canonical_url,
       robots: payload?.seo_meta?.robots,
@@ -432,7 +525,15 @@ function authorityFacts(payload, target, canonical) {
       && profile.slug === target.slug.split("-")[0]
       && nonemptyString(profile.schema_version)
       && nonemptyString(profile.published_at)
-      && nonemptyString(profile.updated_at);
+      && nonemptyString(profile.updated_at)
+      && projection.canonical_type_code === expectedTypeCode
+      && projection.variant_code === expectedVariantCode
+      && projection.runtime_type_code === expectedRuntimeTypeCode
+      && projection.display_type === expectedRuntimeTypeCode
+      && projection?._meta?.authority_source === "personality_cms_v2"
+      && nonemptyString(projection?._meta?.schema_version)
+      && Array.isArray(projection.sections)
+      && projection.sections.length > 0;
     return {
       present: profile.status === "published"
         && profile.is_public === true
@@ -444,7 +545,7 @@ function authorityFacts(payload, target, canonical) {
     };
   }
 
-  const comparison = payload?.comparison ?? {};
+  const comparison = comparisonProjection(payload);
   if (target.kind === "at_comparison") {
     const expectedOverlaySource = target.slug === "intp-a-vs-intp-t"
       ? "mbti-comp-runtime-46-intp-revision"
@@ -474,6 +575,7 @@ function authorityFacts(payload, target, canonical) {
         description: comparison.description,
         sections,
         faq: comparison.faq,
+        answer_surface: payload?.answer_surface_v1,
         canonical_url: comparison.canonical_url,
       }),
     };
@@ -509,13 +611,19 @@ function authorityFacts(payload, target, canonical) {
       summary: comparison.summary,
       sections,
       faq: comparison.faq,
+      answer_surface: payload?.answer_surface_v1,
       canonical_url: comparison.canonical_url,
     }),
   };
 }
 
-function jsonLdValid(kind, structured) {
+function jsonLdValid(kind, structured, canonical) {
   if (structured.invalid) return false;
+  const pageIdentityMatches = structured.pageIdentities.some(({ id, url }) => (
+    url === canonical || id === canonical || id === `${canonical}#webpage`
+  ));
+  const breadcrumbMatches = structured.breadcrumbTargets.includes(canonical);
+  if (!pageIdentityMatches || !breadcrumbMatches) return false;
   if (kind === "profile") {
     return structured.types.includes("FAQPage")
       && structured.types.includes("BreadcrumbList")
@@ -531,9 +639,22 @@ function visibleBodyComplete(payload, target, visibleText) {
     const readerVisibleSections = profileReaderVisibleSections(payload);
     const expectedReaderVisibleCount = PROFILE_LEADING_PROJECTION_SECTION_KEYS.length
       + PROFILE_V85_VISIBLE_SECTION_KEYS.length;
-    return visibleText.length >= 5_000
+    const failedSectionKeys = readerVisibleSections
+      .filter((section) => !profileSectionVisible(section, visibleText))
+      .map((section) => section?.section_key ?? section?.key ?? "unknown");
+    const complete = visibleText.length >= 5_000
       && readerVisibleSections.length === expectedReaderVisibleCount
-      && readerVisibleSections.every((section) => profileSectionVisible(section, visibleText));
+      && failedSectionKeys.length === 0;
+    if (!complete && DIAGNOSE_VISIBLE_BODY) {
+      console.error(JSON.stringify({
+        slug: target.slug,
+        visible_text_length: visibleText.length,
+        reader_visible_section_count: readerVisibleSections.length,
+        expected_reader_visible_section_count: expectedReaderVisibleCount,
+        failed_section_keys: failedSectionKeys,
+      }));
+    }
+    return complete;
   }
   return sections.length > 0 && sections.every((section) => (
     comparisonSectionVisible(section, visibleText)
@@ -560,6 +681,31 @@ function stableRecord(target, record) {
 
 const targetList = targets();
 validateInventory(targetList);
+if (DIAGNOSE_VISIBLE_ONLY) {
+  const profileTargets = targetList.filter((target) => (
+    target.kind === "profile" && (!diagnoseSlug || target.slug === diagnoseSlug)
+  ));
+  const profileResults = [];
+  for (let offset = 0; offset < profileTargets.length; offset += MAX_CONCURRENCY) {
+    const batch = profileTargets.slice(offset, offset + MAX_CONCURRENCY);
+    profileResults.push(...await Promise.all(batch.map(async (target) => {
+      const canonical = `${SITE_ORIGIN}/zh/personality/${target.slug}`;
+      const apiUrl = `${API_ORIGIN}/${target.slug}?locale=zh-CN`;
+      const [payload, html] = await Promise.all([fetchJson(apiUrl), fetchText(canonical)]);
+      return {
+        slug: target.slug,
+        visible_body: visibleBodyComplete(payload, target, documentFacts(html).visibleText),
+      };
+    })));
+  }
+  const failed = profileResults.filter((record) => !record.visible_body);
+  console.log(JSON.stringify({
+    checked_profile_count: profileResults.length,
+    passed_profile_count: profileResults.length - failed.length,
+    failed_profile_slugs: failed.map((record) => record.slug),
+  }));
+  process.exit(failed.length === 0 ? 0 : 1);
+}
 const runStartedAt = new Date().toISOString();
 
 const feedNames = ["sitemap.xml", "llms.txt", "llms-full.txt"];
@@ -607,7 +753,7 @@ async function worker() {
           && facts.visibleText.includes(row.question)
           && facts.visibleText.includes(row.answer)
         )),
-        jsonld: jsonLdValid(target.kind, structured),
+        jsonld: jsonLdValid(target.kind, structured, canonical),
         canonical: facts.canonical === canonical,
         robots_indexability: /(?:^|[\s,])index(?:[\s,]|$)/.test(facts.robots)
           && /(?:^|[\s,])follow(?:[\s,]|$)/.test(facts.robots)

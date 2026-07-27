@@ -38643,7 +38643,7 @@
     "depends_on": [
       "MBTI-PDF-RESULT-SNAPSHOT-SMOKE-QUALITY-GATE"
     ],
-    "status": "ready_to_merge",
+    "status": "local_checks_passed",
     "commit_sha": "265ac8ad9114a83409545eef670be38ee28a1d9b",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1506",
     "merged_at": null,
@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "182ddb65fb3248f008cffc46b904d01246312cd1",
+    "commit_sha": "0230d033a00621c648c824995e6ac69f63ed1fd3",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51554,7 +51554,7 @@
       },
       "production_read_only_runs": {
         "status": "passed",
-        "evidence": "After exact fap-web production deploy run 30228413313 activated cc568495b81d0624a3e04392b583f525126cb200, two independent, consecutive production read-only runs passed public API, backend authority, authority fingerprints, visible body, exact section completeness, FAQ, JSON-LD, canonical, robots/indexability, sitemap, llms, and llms-full at 55/55 with zero API timeouts and zero private URL leaks. Both runs have evidence signature 3ad6e76f1d4660213d8e0d73c20974a383983c910e8387dce7198448bd8af7f5 and preserve the exact 55-URL cohort."
+        "evidence": "After exact fap-web production deploy run 30228413313 activated cc568495b81d0624a3e04392b583f525126cb200, the final review-hardened gate ran two independent consecutive production read-only passes from 2026-07-27T03:04:04.954Z through 2026-07-27T03:10:08.019Z. Both passed public API, runtime-selected backend projections, validated revision authority fingerprints, every reader-visible profile block, every comparison title/body/row, merged answer-surface FAQ, target-bound JSON-LD identity, canonical, robots/indexability, sitemap, llms, and llms-full at 55/55 with zero API timeouts and zero private URL leaks. Both runs have evidence signature d68e381e066266834a1dbe1f058e0250647801ba27a401ca5067d4df12e2cf08 and preserve the exact 55-URL cohort."
       },
       "required_local_checks": {
         "status": "passed",
@@ -51562,17 +51562,17 @@
       },
       "changed_file_scope": {
         "status": "passed",
-        "evidence": "All eight changed paths match the MBTI-INDEX-52 allowlist: two PR-train metadata files, four read-only evidence artifacts, one builder, and one focused contract."
+        "evidence": "The current review fix modifies eight allowed INDEX-52 paths: two PR-train metadata files, four read-only evidence artifacts, one builder, and one focused contract. The complete PR remains exactly nine allowed paths because the original Markdown report is unchanged by this review-fix round."
       },
       "github_required_checks": {
-        "status": "passed",
-        "evidence": "PR #1816 exact review-fix head 182ddb65fb3248f008cffc46b904d01246312cd1 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports MERGEABLE; the final ledger-only ready-to-merge head must retain those required checks before merge."
+        "status": "retry_pending",
+        "evidence": "PR #1816 exact head 0230d033a00621c648c824995e6ac69f63ed1fd3 passed all required and security checks, then six new current review threads identified projection, full profile-block visibility, plural private-route, answer-surface FAQ, and JSON-LD identity gaps. Those fixes and fresh evidence pass locally; a new pushed head and fresh GitHub required/security checks are required before merge."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
-      "github_checks_green": true,
+      "github_checks_green": false,
       "post_merge_revalidated": false
     },
     "failure_reason": null,
@@ -51636,8 +51636,13 @@
       "at": "2026-07-27T01:22:17Z",
       "status": "ready_to_merge",
       "summary": "PR #1816 exact review-fix head 182ddb65fb3248f008cffc46b904d01246312cd1 passed build, contracts, verify-big5-contract-freeze, verify-enneagram-contract-freeze, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. GitHub reports MERGEABLE and the exact changed-file scope remains eight authorized INDEX-52 paths. A final ledger-only ready-to-merge commit will rerun and must retain the required and security checks before merge."
+    },
+    {
+      "at": "2026-07-27T03:16:59Z",
+      "status": "local_checks_passed",
+      "summary": "Addressed all six new current review findings without weakening the gate: the builder now fingerprints and validates the runtime-selected profile/comparison projections, checks every complete reader-visible profile content block with renderer-equivalent normalization, merges answer-surface FAQ exactly like runtime, recognizes plural private result routes, binds JSON-LD page and breadcrumb identity to each canonical, and uses serial production readback to avoid load-induced false failures. Final run 1 spanned 2026-07-27T03:04:04.954Z through 2026-07-27T03:08:13.015Z and run 2 spanned 2026-07-27T03:08:20.820Z through 2026-07-27T03:10:08.019Z; both passed all twelve metrics at 55/55 with signature d68e381e066266834a1dbe1f058e0250647801ba27a401ca5067d4df12e2cf08, zero timeouts, and zero private leaks. On Node 24.14.0, focused contracts pass 10/10, zero-warning full lint and typecheck pass, four full contract shards pass 772 files / 4,485 tests, and the production API build completes 206/206 static pages. YAML/JSON, diff, CSV safety, and exact scope checks pass; fresh GitHub checks remain pending."
     }
   ],
-  "updated_at": "2026-07-27T01:22:17Z"
+  "updated_at": "2026-07-27T03:16:59Z"
 }
 }
