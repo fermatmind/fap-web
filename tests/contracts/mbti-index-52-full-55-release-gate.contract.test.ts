@@ -39,6 +39,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     "projection-visibility",
     "answer-surface-all-summaries",
     "profile-reader-section-membership",
+    "profile-promoted-sections",
     "robots-header-indexability",
     "css-hidden-visibility",
     "frontend-revision-sequence",
@@ -134,6 +135,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("sectionKey === \"v8_5_module_10_faq_boundary\"");
     expect(source).toContain("profileReaderVisibleSections");
     expect(source).toContain("profileReaderSectionMembershipValid(readerVisibleSections)");
+    expect(source).toContain("MBTI64_PROMOTED_DETAIL_SECTION_KEYS");
+    expect(source).toContain('sectionKey === "related_content"');
     expect(source).toContain("profileHeroVisible(payload?.mbti_public_projection_v1, visibleText)");
     expect(source).toContain("requiredScalars.some((value) => !value)");
     expect(source).toContain("keywords.length === 0");
@@ -190,6 +193,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("comparison?.left_type === leftType");
     expect(source).toContain("comparisonRenderedMetadataPresent(payload, pageFacts, canonical)");
     expect(source).toContain("comparisonRobotsAuthorityPresent(payload, pageFacts)");
+    expect(source).toContain("robotsPolicies.every");
     expect(source).toContain("pageFacts?.title === documentTitle");
     expect(source).toContain("pageFacts?.description === description");
     expect(source).toContain('comparison?.alternates?.["zh-CN"] === canonical');
@@ -212,6 +216,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain('fs.openSync(ARTIFACT_PATHS.run1, "r+")');
     expect(source).toContain('fs.openSync(ARTIFACT_PATHS.runTwoLock, "wx", 0o600)');
     expect(source).toContain("fs.unlinkSync(ARTIFACT_PATHS.runTwoLock)");
+    expect(source).toContain('process.once("exit", releaseRunTwoLock)');
     expect(source).toContain("fs.ftruncateSync(runOneDescriptor, 0)");
     expect(source).toContain("fs.writeSync(runOneDescriptor, consumedRun, 0");
     expect(source).not.toContain("fs.existsSync(ARTIFACT_PATHS.run1)");

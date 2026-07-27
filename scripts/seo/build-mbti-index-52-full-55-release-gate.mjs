@@ -97,6 +97,18 @@ const PROFILE_LEADING_PROJECTION_SECTION_KEYS = Object.freeze([
   "letters_intro",
   "trait_overview",
 ]);
+const MBTI64_PROMOTED_DETAIL_SECTION_KEYS = new Set([
+  "quick_answer",
+  "meaning",
+  "a_t_difference",
+  "core_traits",
+  "strengths_blind_spots",
+  "careers_work_style",
+  "relationships_communication",
+  "common_misreads",
+  "similar_types",
+  "mbti64_promotion_metadata",
+]);
 const CHECK_KEYS = Object.freeze([
   "public_api",
   "authority",
@@ -356,6 +368,34 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "profile-promoted-sections") {
+    const sections = profileReaderVisibleSections({
+      sections: [
+        ...PROFILE_V85_VISIBLE_SECTION_KEYS.map((section_key) => ({
+          section_key,
+          is_enabled: true,
+        })),
+        { section_key: "related_content", is_enabled: true },
+        { section_key: "meaning", is_enabled: true },
+        { section_key: "careers_work_style", is_enabled: false },
+        { section_key: "quick_answer", is_enabled: true },
+      ],
+      mbti_public_projection_v1: {
+        sections: PROFILE_LEADING_PROJECTION_SECTION_KEYS.map((key) => ({ key })),
+      },
+    });
+    const keys = sections.map((section) => section?.key ?? section?.section_key);
+    if (
+      !keys.includes("related_content")
+      || !keys.includes("meaning")
+      || keys.includes("careers_work_style")
+      || keys.includes("quick_answer")
+      || !profileReaderSectionMembershipValid(sections)
+    ) {
+      throw new Error("Runtime promoted profile section selection drifted");
+    }
+    return;
+  }
   if (name === "robots-header-indexability") {
     if (robotsIndexable({ robots: "index,follow", xRobotsTag: "none" })) {
       throw new Error("X-Robots-Tag none unexpectedly passed");
@@ -403,6 +443,15 @@ function runContractProbe(name) {
     };
     if (comparisonRobotsAuthorityPresent(payload, { robots: "index,follow" })) {
       throw new Error("Backend noindex comparison policy unexpectedly passed");
+    }
+    if (comparisonRobotsAuthorityPresent(
+      {
+        seo_surface_v1: { robots_policy: "index,follow" },
+        seo_meta: { robots: "noindex,follow" },
+      },
+      { robots: "index,follow" },
+    )) {
+      throw new Error("Conflicting backend comparison robots policy unexpectedly passed");
     }
     return;
   }
@@ -724,11 +773,15 @@ function robotsSourceAllowsIndex(value) {
 }
 
 function comparisonRobotsAuthorityPresent(payload, pageFacts) {
-  const robotsPolicy = normalizeText(
-    payload?.seo_surface_v1?.robots_policy ?? payload?.seo_meta?.robots,
-  ).toLowerCase();
-  return Boolean(robotsPolicy)
-    && robotsIndexable({ robots: robotsPolicy, xRobotsTag: "" })
+  const robotsPolicies = [
+    payload?.seo_surface_v1?.robots_policy,
+    payload?.seo_meta?.robots,
+  ].filter((value) => nonemptyString(value));
+  return robotsPolicies.length > 0
+    && robotsPolicies.every((robotsPolicy) => robotsIndexable({
+      robots: normalizeText(robotsPolicy).toLowerCase(),
+      xRobotsTag: "",
+    }))
     && robotsIndexable({ robots: pageFacts?.robots ?? "", xRobotsTag: "" });
 }
 
@@ -1145,12 +1198,24 @@ function profileReaderVisibleSections(payload) {
     ? payload.mbti_public_projection_v1.sections
     : [];
   const v85Sections = rawSections.filter((section) => (
+    section?.is_enabled !== false
+    &&
     PROFILE_V85_VISIBLE_SECTION_KEYS.includes(section?.section_key)
   ));
   const leadingSections = projectionSections.filter((section) => (
     PROFILE_LEADING_PROJECTION_SECTION_KEYS.includes(section?.key)
   ));
-  return [...leadingSections, ...v85Sections];
+  const supplementalSections = rawSections.filter((section) => {
+    const sectionKey = section?.section_key;
+    return section?.is_enabled !== false
+      && !sectionKey?.startsWith("v8_5_")
+      && sectionKey !== "quick_answer"
+      && (
+        sectionKey === "related_content"
+        || MBTI64_PROMOTED_DETAIL_SECTION_KEYS.has(sectionKey)
+      );
+  });
+  return [...leadingSections, ...v85Sections, ...supplementalSections];
 }
 
 function profileReaderSectionMembershipValid(sections) {
@@ -1159,8 +1224,8 @@ function profileReaderSectionMembershipValid(sections) {
     ...PROFILE_V85_VISIBLE_SECTION_KEYS,
   ];
   const actualKeys = sections.map((section) => section?.key ?? section?.section_key);
-  return actualKeys.length === expectedKeys.length
-    && new Set(actualKeys).size === expectedKeys.length
+  return actualKeys.length >= expectedKeys.length
+    && new Set(actualKeys).size === actualKeys.length
     && expectedKeys.every((key) => actualKeys.includes(key));
 }
 
@@ -1632,17 +1697,37 @@ if (DIAGNOSE_VISIBLE_ONLY) {
   process.exit(failed.length === 0 ? 0 : 1);
 }
 const runStartedAt = new Date().toISOString();
+let runTwoLockDescriptor = null;
+function releaseRunTwoLock() {
+  if (runTwoLockDescriptor === null) return;
+  try {
+    fs.unlinkSync(ARTIFACT_PATHS.runTwoLock);
+  } finally {
+    fs.closeSync(runTwoLockDescriptor);
+    runTwoLockDescriptor = null;
+  }
+}
+if (RUN === 2) {
+  try {
+    runTwoLockDescriptor = fs.openSync(ARTIFACT_PATHS.runTwoLock, "wx", 0o600);
+    fs.writeSync(runTwoLockDescriptor, `${process.pid}\n`, null, "utf8");
+    fs.fsyncSync(runTwoLockDescriptor);
+    process.once("exit", releaseRunTwoLock);
+  } catch (error) {
+    if (error && typeof error === "object" && error.code === "EEXIST") {
+      console.error("HOLD_MBTI_55_INCOMPLETE: another run 2 owns the validation session");
+      process.exit(1);
+    }
+    throw error;
+  }
+}
 writeFinalValidationHold(runStartedAt);
 let previousRun = null;
 let validationSessionId = RUN === 1 ? crypto.randomUUID() : null;
 if (RUN === 2) {
   let runOneDescriptor = null;
-  let runTwoLockDescriptor = null;
   let consumptionError = null;
   try {
-    runTwoLockDescriptor = fs.openSync(ARTIFACT_PATHS.runTwoLock, "wx", 0o600);
-    fs.writeSync(runTwoLockDescriptor, `${process.pid}\n`, null, "utf8");
-    fs.fsyncSync(runTwoLockDescriptor);
     runOneDescriptor = fs.openSync(ARTIFACT_PATHS.run1, "r+");
     previousRun = JSON.parse(fs.readFileSync(runOneDescriptor, "utf8"));
     validationSessionId = nonemptyString(previousRun?.validation_session_id)
@@ -1662,13 +1747,6 @@ if (RUN === 2) {
     }
   } finally {
     if (runOneDescriptor !== null) fs.closeSync(runOneDescriptor);
-    if (runTwoLockDescriptor !== null) {
-      try {
-        fs.unlinkSync(ARTIFACT_PATHS.runTwoLock);
-      } finally {
-        fs.closeSync(runTwoLockDescriptor);
-      }
-    }
   }
   if (consumptionError) {
     writePreflightValidationFailure(runStartedAt, validationSessionId, consumptionError);
