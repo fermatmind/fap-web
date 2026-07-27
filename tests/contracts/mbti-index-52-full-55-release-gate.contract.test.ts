@@ -90,6 +90,10 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     "feed-exact-url-membership",
     "validator-revision-sequence",
     "run2-sequence-decision",
+    "hreflang-root-equivalence",
+    "comparison-english-alternate-hold",
+    "at-comparison-list-authority",
+    "profile-seo-main-entity-identity",
   ])(
     "enforces %s runtime evidence",
     (probe) => {
@@ -149,7 +153,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
 
     expect(source).toContain('comparison.authority_source === "database"');
     expect(source).toContain('comparison.comparison_contract_version === "mbti.at_comparison.v1.mbti64_overlay"');
-    expect(source).toContain("comparison.is_indexable === true");
+    expect(source).toContain("item?.is_indexable === true");
     expect(source).toContain("PROFILE_SECTION_COUNT_OVERRIDES");
     expect(source).toContain("?? 35");
     expect(source).toContain("expectedSectionCount: 9");
@@ -254,8 +258,12 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("robotsPolicies.every");
     expect(source).toContain("pageFacts?.title === documentTitle");
     expect(source).toContain("pageFacts?.description === description");
-    expect(source).toContain('comparison?.alternates?.["zh-CN"] === canonical');
-    expect(source).toContain("comparison?.alternates?.en === expectedEnglishCanonical");
+    expect(source).toContain('alternates["zh-CN"] !== canonical');
+    expect(source).toContain("comparisonExpectedAlternates(comparison, canonical)");
+    expect(source).toContain('nonemptyString(alternates.en)');
+    expect(source).toContain("atComparisonListAuthorityPresent(comparisonListItem, target, canonical)");
+    expect(source).toContain("seoPayload?.seo_surface_v1?.robots_policy");
+    expect(source).toContain("node.mainEntityOfPage");
     expect(source).toContain("const claimBoundary = normalizeText(projection?.claim_boundary)");
     expect(source).toContain("visibleCandidates([claimBoundary], visibleText)");
     expect(source).toContain("/seo?locale=zh-CN&org_id=0&scale_code=MBTI");

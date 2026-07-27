@@ -19,6 +19,7 @@ const { isSharedDiscoverabilityDeniedPath } = require(
 const SITE_ORIGIN = "https://fermatmind.com";
 const API_ORIGIN = "https://api.fermatmind.com/api/v0.5/personality";
 const PUBLIC_CONTEXT_QUERY = "locale=zh-CN&org_id=0&scale_code=MBTI";
+const COMPARISON_LIST_URL = `${API_ORIGIN}/comparisons?${PUBLIC_CONTEXT_QUERY}`;
 const FEED_URLS = Object.freeze({
   "sitemap.xml": "https://fermatmind.com/sitemap.xml",
   "llms.txt": "https://fermatmind.com/llms.txt",
@@ -891,6 +892,135 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "hreflang-root-equivalence") {
+    if (!exactAlternateLinksPresent({
+      alternateLinks: [
+        { locale: "zh-CN", href: `${SITE_ORIGIN}/zh/personality/intj-a` },
+        { locale: "x-default", href: SITE_ORIGIN },
+      ],
+    }, {
+      "zh-CN": `${SITE_ORIGIN}/zh/personality/intj-a`,
+      "x-default": `${SITE_ORIGIN}/`,
+    })) {
+      throw new Error("Equivalent root hreflang URLs unexpectedly failed");
+    }
+    if (exactAlternateLinksPresent({
+      alternateLinks: [
+        { locale: "zh-CN", href: `${SITE_ORIGIN}/zh/personality/intj-a?preview=1` },
+        { locale: "x-default", href: SITE_ORIGIN },
+      ],
+    }, {
+      "zh-CN": `${SITE_ORIGIN}/zh/personality/intj-a`,
+      "x-default": SITE_ORIGIN,
+    })) {
+      throw new Error("Query-bearing hreflang unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "comparison-english-alternate-hold") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/intj-vs-intp`;
+    const expected = comparisonExpectedAlternates({
+      alternates: { "zh-CN": canonical },
+    }, canonical);
+    if (!expected || Object.hasOwn(expected, "en")) {
+      throw new Error("Backend-authoritative English alternate hold was not preserved");
+    }
+    if (!exactAlternateLinksPresent({
+      alternateLinks: [
+        { locale: "zh-CN", href: canonical },
+        { locale: "x-default", href: SITE_ORIGIN },
+      ],
+    }, expected)) {
+      throw new Error("Held English alternate set unexpectedly failed");
+    }
+    if (exactAlternateLinksPresent({
+      alternateLinks: [
+        { locale: "en", href: canonical.replace("/zh/", "/en/") },
+        { locale: "zh-CN", href: canonical },
+        { locale: "x-default", href: SITE_ORIGIN },
+      ],
+    }, expected)) {
+      throw new Error("Frontend-invented English alternate unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "at-comparison-list-authority") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/intj-a-vs-intj-t`;
+    const target = { kind: "at_comparison", slug: "intj-a-vs-intj-t" };
+    const item = {
+      slug: target.slug,
+      comparison_type: "mbti_at_comparison",
+      base_type_code: "INTJ",
+      locale: "zh-CN",
+      public_route_type: "at-comparison",
+      public_url: canonical,
+      canonical_url: canonical,
+      is_public: true,
+      is_indexable: true,
+      status: "published",
+    };
+    if (!atComparisonListAuthorityPresent(item, target, canonical)) {
+      throw new Error("Valid A/T comparison list authority unexpectedly failed");
+    }
+    if (atComparisonListAuthorityPresent({ ...item, is_indexable: false }, target, canonical)) {
+      throw new Error("Held A/T comparison list authority unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "profile-seo-main-entity-identity") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/istj-a`;
+    const seoPayload = {
+      meta: {
+        title: "ISTJ-A profile",
+        description: "ISTJ-A profile description",
+        canonical,
+        alternates: {
+          en: canonical.replace("/zh/", "/en/"),
+          "zh-CN": canonical,
+        },
+        robots: "index,follow",
+      },
+      seo_surface_v1: {
+        title: "ISTJ-A profile",
+        description: "ISTJ-A profile description",
+        robots_policy: "index,follow",
+      },
+      jsonld: {
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        mainEntityOfPage: canonical,
+      },
+    };
+    const detailPayload = {
+      mbti_public_projection_v1: { seo: { robots: "index,follow" } },
+    };
+    const pageFacts = {
+      title: "ISTJ-A profile",
+      description: "ISTJ-A profile description",
+      canonical,
+      robots: "index,follow",
+      robotsDirectives: ["index,follow"],
+      xRobotsTag: "",
+      alternateLinks: [
+        { locale: "en", href: canonical.replace("/zh/", "/en/") },
+        { locale: "zh-CN", href: canonical },
+        { locale: "x-default", href: SITE_ORIGIN },
+      ],
+    };
+    if (!profileSeoAuthorityPresent(seoPayload, detailPayload, canonical, pageFacts)) {
+      throw new Error("Canonical mainEntityOfPage authority unexpectedly failed");
+    }
+    if (profileSeoAuthorityPresent({
+      ...seoPayload,
+      jsonld: {
+        ...seoPayload.jsonld,
+        mainEntityOfPage: `${SITE_ORIGIN}/zh/personality/istj-t`,
+      },
+    }, detailPayload, canonical, pageFacts)) {
+      throw new Error("Conflicting mainEntityOfPage authority unexpectedly passed");
+    }
+    return;
+  }
   const inventory = targets();
   if (name === "duplicate") inventory[54] = { ...inventory[53] };
   else if (name === "missing") inventory.pop();
@@ -1115,8 +1245,18 @@ function exactAlternateLinksPresent(facts, expectedAlternates) {
   const expected = Object.entries(expectedAlternates);
   return links.length === expected.length
     && expected.every(([locale, href]) => (
-      links.filter((link) => link.locale === locale && link.href === href).length === 1
+      links.filter((link) => (
+        link.locale === locale && equivalentAbsoluteUrl(link.href, href)
+      )).length === 1
     ));
+}
+
+function equivalentAbsoluteUrl(left, right) {
+  try {
+    return new URL(left).href === new URL(right).href;
+  } catch {
+    return false;
+  }
 }
 
 function robotsIndexable(facts) {
@@ -1151,7 +1291,9 @@ function comparisonRobotsAuthorityPresent(payload, pageFacts) {
 function profileRobotsAuthorityPresent(seoPayload, detailPayload, pageFacts) {
   const metaRobots = normalizeText(seoPayload?.meta?.robots).toLowerCase();
   const additionalRobotsSources = [
-    seoPayload?.surface?.robots_policy ?? seoPayload?.surface?.robotsPolicy,
+    seoPayload?.seo_surface_v1?.robots_policy
+      ?? seoPayload?.surface?.robots_policy
+      ?? seoPayload?.surface?.robotsPolicy,
     detailPayload?.seo_surface_v1?.robots_policy,
     detailPayload?.mbti_public_projection_v1?.seo?.robots,
     detailPayload?.seo_meta?.robots,
@@ -1203,6 +1345,11 @@ function structuredFacts(blocks) {
         types: nodeTypes,
         id: normalizeText(node["@id"]),
         url: normalizeText(node.url),
+        mainEntityOfPage: normalizeText(
+          typeof node.mainEntityOfPage === "string"
+            ? node.mainEntityOfPage
+            : (node.mainEntityOfPage?.["@id"] ?? node.mainEntityOfPage?.url),
+        ),
       });
     }
     if (nodeTypes.includes("BreadcrumbList") && Array.isArray(node.itemListElement)) {
@@ -1920,7 +2067,7 @@ function profileHeroVisible(projection, visibleText) {
 function profileSeoAuthorityPresent(seoPayload, detailPayload, canonical, pageFacts) {
   if (!seoPayload || typeof seoPayload !== "object") return false;
   const meta = seoPayload?.meta ?? {};
-  const surface = seoPayload?.surface ?? {};
+  const surface = seoPayload?.seo_surface_v1 ?? seoPayload?.surface ?? {};
   const expectedTitle = normalizeText(surface?.title) || normalizeText(meta?.title);
   const expectedDescription = normalizeText(surface?.description) || normalizeText(meta?.description);
   const seoStructured = structuredFacts([seoPayload?.jsonld]);
@@ -1935,10 +2082,11 @@ function profileSeoAuthorityPresent(seoPayload, detailPayload, canonical, pageFa
     && profileRobotsAuthorityPresent(seoPayload, detailPayload, pageFacts)
     && !seoStructured.invalid
     && aboutPageNodes.length > 0
-    && aboutPageNodes.every(({ id, url }) => (
+    && aboutPageNodes.every(({ id, url, mainEntityOfPage }) => (
       (!id || id === canonical || id === `${canonical}#webpage`)
       && (!url || url === canonical)
-      && Boolean(id || url)
+      && (!mainEntityOfPage || mainEntityOfPage === canonical)
+      && Boolean(id || url || mainEntityOfPage)
     ))
     && pageFacts?.title === expectedTitle
     && pageFacts?.description === expectedDescription
@@ -1991,22 +2139,59 @@ function comparisonRenderedMetadataPresent(payload, pageFacts, canonical) {
     || normalizeText(comparison?.summary)
     || normalizeText(payload?.seo_meta?.seo_description);
   const documentTitle = /FermatMind$/i.test(title) ? title : `${title} | FermatMind`;
-  const expectedEnglishCanonical = canonical.replace("/zh/", "/en/");
+  const expectedAlternates = comparisonExpectedAlternates(comparison, canonical);
   return Boolean(title)
     && Boolean(description)
+    && expectedAlternates !== null
     && pageFacts?.title === documentTitle
     && pageFacts?.description === description
-    && comparison?.alternates?.["zh-CN"] === canonical
-    && comparison?.alternates?.en === expectedEnglishCanonical
-    && exactAlternateLinksPresent(pageFacts, {
-      "zh-CN": canonical,
-      en: expectedEnglishCanonical,
-      "x-default": `${SITE_ORIGIN}/`,
-    })
+    && exactAlternateLinksPresent(pageFacts, expectedAlternates)
     && comparisonRobotsAuthorityPresent(payload, pageFacts);
 }
 
-function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts = null) {
+function comparisonExpectedAlternates(comparison, canonical) {
+  const alternates = comparison?.alternates;
+  if (!alternates || typeof alternates !== "object" || Array.isArray(alternates)) return null;
+  const entries = Object.entries(alternates)
+    .filter(([, href]) => nonemptyString(href));
+  if (
+    entries.some(([locale]) => !["en", "zh-CN"].includes(locale))
+    || alternates["zh-CN"] !== canonical
+    || (
+      nonemptyString(alternates.en)
+      && alternates.en !== canonical.replace("/zh/", "/en/")
+    )
+  ) {
+    return null;
+  }
+  return {
+    ...Object.fromEntries(entries),
+    "x-default": SITE_ORIGIN,
+  };
+}
+
+function atComparisonListAuthorityPresent(item, target, canonical) {
+  const expectedBaseType = target.slug.slice(0, 4).toUpperCase();
+  return item?.slug === target.slug
+    && item?.comparison_type === "mbti_at_comparison"
+    && item?.base_type_code === expectedBaseType
+    && item?.locale === "zh-CN"
+    && item?.public_route_type === "at-comparison"
+    && item?.public_url === canonical
+    && item?.canonical_url === canonical
+    && item?.is_public === true
+    && item?.is_indexable === true
+    && item?.status === "published";
+}
+
+function authorityFacts(
+  payload,
+  target,
+  canonical,
+  seoPayload = null,
+  pageFacts = null,
+  comparisonListItem = null,
+) {
   const sections = apiSections(payload, target.kind);
   if (target.kind === "profile") {
     const profile = payload?.profile ?? {};
@@ -2084,14 +2269,14 @@ function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts
     return {
       present: comparison.comparison_contract_version === "mbti.at_comparison.v1.mbti64_overlay"
         && comparison.overlay_source?.source === expectedOverlaySource
-        && comparison.is_public === true
-        && comparison.is_indexable === true
+        && atComparisonListAuthorityPresent(comparisonListItem, target, canonical)
         && comparison.canonical_url === canonical
         && comparisonIdentityPresent(comparison, target)
         && comparisonRenderedMetadataPresent(payload, pageFacts, canonical),
       revisionPresent,
       sourceRevisionSha256: sha256(revision),
       authorityFingerprintSha256: sha256({
+        list_authority: comparisonListItem,
         projection: comparison,
         sections: runtimeComparisonSections(payload),
         answer_surface: payload?.answer_surface_v1,
@@ -2582,8 +2767,25 @@ writeRunValidationHold(runStartedAt, validationSessionId);
 writeFinalValidationHold(runStartedAt, validationSessionId);
 let frontendRevisionAtStart;
 let feeds;
+let comparisonListItemsBySlug;
 try {
   frontendRevisionAtStart = await fetchFrontendRevision();
+  const comparisonListPayload = await fetchJson(COMPARISON_LIST_URL);
+  const atComparisonItems = comparisonListPayload?.at_comparisons;
+  const expectedAtSlugs = targetList
+    .filter(({ kind }) => kind === "at_comparison")
+    .map(({ slug }) => slug);
+  if (
+    !Array.isArray(atComparisonItems)
+    || atComparisonItems.length !== expectedAtSlugs.length
+    || new Set(atComparisonItems.map(({ slug }) => slug)).size !== expectedAtSlugs.length
+    || expectedAtSlugs.some((slug) => !atComparisonItems.some((item) => item?.slug === slug))
+  ) {
+    throw new Error("Production comparison list authority does not contain the exact 16 A/T targets");
+  }
+  comparisonListItemsBySlug = Object.fromEntries(
+    atComparisonItems.map((item) => [item.slug, item]),
+  );
   const feedEntries = [];
   for (const name of ["sitemap.xml", "llms.txt", "llms-full.txt"]) {
     feedEntries.push([name, await fetchFeed(name)]);
@@ -2621,7 +2823,14 @@ async function worker() {
       const facts = documentFacts(page.html, page.xRobotsTag);
       const structured = structuredFacts(facts.jsonld);
       const faq = apiFaq(payload, target.kind);
-      const authority = authorityFacts(payload, target, canonical, seoPayload, facts);
+      const authority = authorityFacts(
+        payload,
+        target,
+        canonical,
+        seoPayload,
+        facts,
+        comparisonListItemsBySlug[target.slug] ?? null,
+      );
       const sectionCount = apiSections(payload, target.kind).length;
       const checks = {
         public_api: payload?.ok === true,
