@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "b4f701cf7fc92792fe55b3b6ccf2bece97c9f0fe",
+    "commit_sha": "3c993e6519e74e65418f1b90cf04d40a329effcf",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51566,7 +51566,7 @@
       },
       "github_required_checks": {
         "status": "passed_implementation_head_ledger_recheck_pending",
-        "evidence": "PR #1816 exact head e81933b1e9ab7b7a05743ff52f18bdc7708791d5 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified two remaining P2 gaps. Exact implementation head b4f701cf7fc92792fe55b3b6ccf2bece97c9f0fe closes them by requiring every populated AboutPage identity field to agree with the canonical and by serializing stale-lock recovery with an independently stale-recoverable PID/inode-guarded claim file. The final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
+        "evidence": "PR #1816 exact head 54baf4366b9813f352c7bcb71bc5aa6f23c50806 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified one P1 and one P2 gap. Exact implementation head 3c993e6519e74e65418f1b90cf04d40a329effcf closes them by requiring a runtime-renderable entry in every mandatory answer-surface collection and exactly one canonical link equal to the expected canonical. The final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
       }
     },
     "scope_validation": {
@@ -51711,8 +51711,13 @@
         "at": "2026-07-27T08:48:19Z",
         "status": "production_readback_blocked",
         "summary": "Exact head e81933b1e9ab7b7a05743ff52f18bdc7708791d5 passed all seven required/security checks and received exact-head review. Implementation head b4f701cf7fc92792fe55b3b6ccf2bece97c9f0fe closes both findings: all populated AboutPage identity fields must independently match the canonical, and stale-lock reclamation now uses an exclusive PID/inode-guarded claim file whose abandoned or expired corrupt owner can be recovered without unlinking a replacement inode. Focused contracts pass 31/31, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T08:55:42Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head 54baf4366b9813f352c7bcb71bc5aa6f23c50806 passed all seven required/security checks and received exact-head review. Implementation head 3c993e6519e74e65418f1b90cf04d40a329effcf closes both findings: every mandatory answer-surface collection must contain a runtime-renderable authored entry, and rendered HTML must expose exactly one canonical link matching the target. Focused contracts pass 33/33, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
       }
     ],
-    "updated_at": "2026-07-27T08:48:19Z"
+    "updated_at": "2026-07-27T08:55:42Z"
 }
 }
