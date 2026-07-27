@@ -45,6 +45,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     "comparison-robots-authority",
     "profile-robots-authority",
     "disabled-runtime-sections",
+    "profile-hero-completeness",
+    "feed-exact-url-membership",
   ])(
     "enforces %s runtime evidence",
     (probe) => {
@@ -93,6 +95,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("expectedSectionCount: 9");
     expect(source).toContain("const EXPECTED_CROSS_SECTION_COUNT");
     expect(source).toContain("feedUrls(body).size < 55");
+    expect(source).toContain("new URL(presentationTrimmed).href");
     expect(source).toContain("const FEED_URLS = Object.freeze");
     expect(source).toContain('"--http1.1"');
     expect(source).toContain('target.slug === "intp-a-vs-intp-t"');
@@ -106,6 +109,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("normalizeComparableText");
     expect(source).toContain("--diagnose-visible-only");
     expect(source).toContain("fetchPage(canonical)");
+    expect(source).toContain('REQUEST_TIMEOUT_MS, {}, "manual"');
     expect(source).toContain("facts.visibleAnchors");
     expect(source).toContain('response.headers.get("x-robots-tag")');
     expect(source).toContain("facts.xRobotsTag");
@@ -119,6 +123,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("profileReaderVisibleSections");
     expect(source).toContain("profileReaderSectionMembershipValid(readerVisibleSections)");
     expect(source).toContain("profileHeroVisible(payload?.mbti_public_projection_v1, visibleText)");
+    expect(source).toContain("requiredScalars.some((value) => !value)");
+    expect(source).toContain("keywords.length === 0");
     expect(source).toContain("PROFILE_V85_VISIBLE_SECTION_KEYS");
     expect(source).toContain("PROFILE_LEADING_PROJECTION_SECTION_KEYS");
     expect(source).toContain("comparisonSectionVisible");

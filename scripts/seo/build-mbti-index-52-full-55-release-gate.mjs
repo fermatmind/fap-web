@@ -406,6 +406,23 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "profile-hero-completeness") {
+    if (profileHeroVisible(
+      { display_type: "INTJ-A", profile: { type_name: "", keywords: [] } },
+      "INTJ-A",
+    )) {
+      throw new Error("Incomplete profile hero authority unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "feed-exact-url-membership") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/intj-a`;
+    const urls = feedUrls(`${canonical}?preview=1`);
+    if (urls.has(canonical)) {
+      throw new Error("Query-bearing feed URL unexpectedly satisfied canonical membership");
+    }
+    return;
+  }
   const inventory = targets();
   if (name === "duplicate") inventory[54] = { ...inventory[53] };
   else if (name === "missing") inventory.pop();
@@ -454,12 +471,18 @@ function isTimeout(error) {
   return ["AbortError", "TimeoutError"].includes(name) || /timed?\s*out|timeout/i.test(message);
 }
 
-async function fetchBody(url, parseBody, timeoutMs = REQUEST_TIMEOUT_MS, extraHeaders = {}) {
+async function fetchBody(
+  url,
+  parseBody,
+  timeoutMs = REQUEST_TIMEOUT_MS,
+  extraHeaders = {},
+  redirectMode = "follow",
+) {
   let lastError;
   for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt += 1) {
     try {
       const response = await fetch(url, {
-        redirect: "follow",
+        redirect: redirectMode,
         signal: AbortSignal.timeout(timeoutMs),
         headers: {
           "accept-encoding": "identity",
@@ -487,7 +510,7 @@ async function fetchPage(url) {
   return fetchBody(url, async (response) => ({
     html: await response.text(),
     xRobotsTag: normalizeText(response.headers.get("x-robots-tag")).toLowerCase(),
-  }));
+  }), REQUEST_TIMEOUT_MS, {}, "manual");
 }
 
 async function fetchJson(url) {
@@ -1046,13 +1069,20 @@ function profileReaderSectionMembershipValid(sections) {
 
 function profileHeroVisible(projection, visibleText) {
   const profile = projection?.profile ?? {};
-  const candidates = [
+  const requiredScalars = [
     normalizeText(projection?.display_type),
     normalizeText(profile?.type_name).replace(/型$/u, ""),
     normalizeText(profile?.hero_summary),
     normalizeText(profile?.rarity),
-    ...(Array.isArray(profile?.keywords) ? profile.keywords.slice(0, 5).map(normalizeText) : []),
-  ].filter(Boolean);
+  ];
+  const keywords = Array.isArray(profile?.keywords)
+    ? profile.keywords.slice(0, 5).map(normalizeText).filter(Boolean)
+    : [];
+  if (requiredScalars.some((value) => !value) || keywords.length === 0) return false;
+  const candidates = [
+    ...requiredScalars,
+    ...keywords,
+  ];
   const comparableVisibleText = normalizeComparableText(visibleText);
   return candidates.length > 0 && candidates.every((candidate) => (
     comparableVisibleText.includes(normalizeComparableText(candidate))
@@ -1332,7 +1362,15 @@ function visibleBodyComplete(payload, target, visibleText, visibleAnchors = []) 
 }
 
 function feedUrls(body) {
-  return new Set(body.match(/https:\/\/fermatmind\.com\/[a-z0-9/_-]+/gi) ?? []);
+  const tokens = body.match(/https:\/\/fermatmind\.com\/[^\s<>"'`)\]}]+/gi) ?? [];
+  return new Set(tokens.map((token) => {
+    const presentationTrimmed = token.replace(/[.,;:!]+$/u, "");
+    try {
+      return new URL(presentationTrimmed).href;
+    } catch {
+      return presentationTrimmed;
+    }
+  }));
 }
 
 function writeFinalValidationHold(startedAt, sessionId = null) {
