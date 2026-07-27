@@ -39,6 +39,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     "answer-surface-all-summaries",
     "profile-reader-section-membership",
     "robots-header-indexability",
+    "css-hidden-visibility",
+    "frontend-revision-sequence",
   ])(
     "enforces %s runtime evidence",
     (probe) => {
@@ -104,6 +106,9 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain('response.headers.get("x-robots-tag")');
     expect(source).toContain("facts.xRobotsTag");
     expect(source).toContain("(?:noindex|none)");
+    expect(source).toContain('[class~="hidden"]');
+    expect(source).toContain('[class~="invisible"]');
+    expect(source).toContain('[class~="sr-only"]');
     expect(source).toContain("sectionKey === \"letters_intro\"");
     expect(source).toContain("sectionKey === \"trait_overview\"");
     expect(source).toContain("sectionKey === \"v8_5_module_10_faq_boundary\"");
@@ -178,7 +183,14 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).not.toContain("fs.existsSync(ARTIFACT_PATHS.run1)");
     expect(source).toContain('previousRun?.sequence_state === "awaiting_run_2"');
     expect(source).toContain("previousRun?.validation_session_id === validationSessionId");
-    expect(source).toContain("'script, style, template, noscript, [hidden], [aria-hidden=\"true\"], input[type=\"hidden\"]'");
+    expect(source).toContain("fetchFrontendRevision()");
+    expect(source).toContain("sameFrontendRevisionAcrossSequence(");
+    expect(source).toContain("previousRun?.frontend_revision === revisionAtStart");
+    expect(source).toContain('"script"');
+    expect(source).toContain('"template"');
+    expect(source).toContain('"[hidden]"');
+    expect(source).toContain('\'[aria-hidden="true"]\'');
+    expect(source).toContain('\'input[type="hidden"]\'');
     expect(source).toContain("authorityFingerprintSha256");
     expect(source).toContain("sourceRevisionSha256");
     expect(source).toContain("const ARTIFACT_PATHS = Object.freeze");

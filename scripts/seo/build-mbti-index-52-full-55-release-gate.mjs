@@ -336,6 +336,24 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "css-hidden-visibility") {
+    const facts = documentFacts(`
+      <html><body>
+        <main><p>Visible reader content</p><div class="hidden">Hidden authority content</div></main>
+      </body></html>
+    `);
+    if (facts.visibleText.includes("Hidden authority content")) {
+      throw new Error("CSS-hidden content unexpectedly counted as visible");
+    }
+    return;
+  }
+  if (name === "frontend-revision-sequence") {
+    const revision = "a".repeat(40);
+    if (sameFrontendRevisionAcrossSequence({ frontend_revision: "b".repeat(40) }, revision, revision)) {
+      throw new Error("Mixed frontend revisions unexpectedly passed");
+    }
+    return;
+  }
   const inventory = targets();
   if (name === "duplicate") inventory[54] = { ...inventory[53] };
   else if (name === "missing") inventory.pop();
@@ -427,6 +445,15 @@ async function fetchJson(url) {
   });
 }
 
+async function fetchFrontendRevision() {
+  const payload = await fetchJson(`${SITE_ORIGIN}/revision`);
+  const revision = normalizeText(payload?.revision);
+  if (!/^[0-9a-f]{40}$/.test(revision)) {
+    throw new Error("Production frontend revision is absent or malformed");
+  }
+  return revision;
+}
+
 function fetchFeedOnce(name) {
   const url = FEED_URLS[name];
   if (!url) throw new Error(`Unsupported feed: ${name}`);
@@ -477,7 +504,22 @@ function documentFacts(html, xRobotsTag = "") {
   });
   const visibleBody = document.body?.cloneNode(true);
   visibleBody?.querySelectorAll(
-    'script, style, template, noscript, [hidden], [aria-hidden="true"], input[type="hidden"]',
+    [
+      "script",
+      "style",
+      "template",
+      "noscript",
+      "[hidden]",
+      '[aria-hidden="true"]',
+      'input[type="hidden"]',
+      '[class~="hidden"]',
+      '[class~="invisible"]',
+      '[class~="sr-only"]',
+      '[style*="display: none"]',
+      '[style*="display:none"]',
+      '[style*="visibility: hidden"]',
+      '[style*="visibility:hidden"]',
+    ].join(", "),
   ).forEach((node) => node.remove());
   const visibleAnchors = [...(visibleBody?.querySelectorAll("a[href]") ?? [])].map((node) => ({
     href: node.getAttribute("href") ?? "",
@@ -511,6 +553,15 @@ function robotsIndexable(facts) {
     && /(?:^|[\s,])follow(?:[\s,]|$)/.test(facts.robots)
     && !facts.robots.includes("noindex")
     && !/(?:^|[\s,])(?:noindex|none)(?:[\s,]|$)/.test(facts.xRobotsTag);
+}
+
+function sameFrontendRevisionAcrossSequence(previousRun, revisionAtStart, revisionAtEnd) {
+  return /^[0-9a-f]{40}$/.test(revisionAtStart)
+    && revisionAtStart === revisionAtEnd
+    && (
+      previousRun === null
+      || previousRun?.frontend_revision === revisionAtStart
+    );
 }
 
 function walkJson(value, visit) {
@@ -1318,6 +1369,7 @@ if (RUN === 2) {
 }
 writeRunValidationHold(runStartedAt, validationSessionId);
 writeFinalValidationHold(runStartedAt, validationSessionId);
+const frontendRevisionAtStart = await fetchFrontendRevision();
 
 const feedNames = ["sitemap.xml", "llms.txt", "llms-full.txt"];
 const feedEntries = [];
@@ -1409,6 +1461,12 @@ async function worker() {
   }
 }
 await Promise.all(Array.from({ length: MAX_CONCURRENCY }, () => worker()));
+const frontendRevisionAtEnd = await fetchFrontendRevision();
+const frontendRevisionStable = sameFrontendRevisionAcrossSequence(
+  null,
+  frontendRevisionAtStart,
+  frontendRevisionAtEnd,
+);
 
 const evidenceRecords = targetList.map((target, index) => stableRecord(target, records[index]));
 const metrics = Object.fromEntries(CHECK_KEYS.map((key) => [
@@ -1419,7 +1477,7 @@ metrics.API_TIMEOUTS = 55 - metrics.API_NO_TIMEOUT;
 delete metrics.API_NO_TIMEOUT;
 const aggregatePassed = Object.entries(metrics).every(([key, value]) => (
   key === "API_TIMEOUTS" ? value === 0 : value === 55
-)) && privateUrlLeaks.length === 0;
+)) && privateUrlLeaks.length === 0 && frontendRevisionStable;
 evidenceRecords.forEach((record) => {
   if (aggregatePassed) validateRecordEvidence(record);
 });
@@ -1427,6 +1485,7 @@ const evidenceSignature = sha256({
   target_count: 55,
   metrics,
   private_url_leak_count: privateUrlLeaks.length,
+  frontend_revision: frontendRevisionAtStart,
   records: evidenceRecords,
 });
 const runCompletedAt = new Date().toISOString();
@@ -1436,7 +1495,7 @@ const runReport = {
   run: RUN,
   validation_session_id: validationSessionId,
   sequence_state: RUN === 1
-    ? "awaiting_run_2"
+    ? (aggregatePassed ? "awaiting_run_2" : "failed")
     : (aggregatePassed ? "completed" : "failed"),
   started_at: runStartedAt,
   completed_at: runCompletedAt,
@@ -1444,6 +1503,8 @@ const runReport = {
   evidence_scope: "read_only_production_network_revalidation",
   run_decision: aggregatePassed ? "PASS_MBTI_55_RUN" : "HOLD_MBTI_55_INCOMPLETE",
   evidence_signature: evidenceSignature,
+  frontend_revision: frontendRevisionAtStart,
+  frontend_revision_stable_within_run: frontendRevisionStable,
   source_revision_set_sha256: sha256(evidenceRecords.map((record) => record.source_revision_sha256)),
   authority_fingerprint_set_sha256: sha256(evidenceRecords.map((record) => record.authority_fingerprint_sha256)),
   metrics,
@@ -1460,6 +1521,11 @@ const consecutivePass = Boolean(
   && nonemptyString(validationSessionId)
   && previousRun?.validation_session_id === validationSessionId
   && previousRun?.target_count === 55
+  && sameFrontendRevisionAcrossSequence(
+    previousRun,
+    frontendRevisionAtStart,
+    frontendRevisionAtEnd,
+  )
   && previousRun?.evidence_signature === evidenceSignature
   && previousRun?.completed_at < runStartedAt,
 );
@@ -1477,12 +1543,14 @@ const finalReport = {
   validation_session_id: validationSessionId,
   target_count: 55,
   exact_new_targets: RELEASED_CROSS_TYPE,
+  frontend_revision: frontendRevisionAtStart,
   run_1: previousRun ? {
     validation_session_id: previousRun.validation_session_id,
     started_at: previousRun.started_at,
     completed_at: previousRun.completed_at,
     decision: previousRun.run_decision,
     evidence_signature: previousRun.evidence_signature,
+    frontend_revision: previousRun.frontend_revision,
     source_revision_set_sha256: previousRun.source_revision_set_sha256,
     authority_fingerprint_set_sha256: previousRun.authority_fingerprint_set_sha256,
     metrics: previousRun.metrics,
@@ -1492,6 +1560,7 @@ const finalReport = {
     completed_at: runCompletedAt,
     decision: runReport.run_decision,
     evidence_signature: evidenceSignature,
+    frontend_revision: frontendRevisionAtStart,
     source_revision_set_sha256: runReport.source_revision_set_sha256,
     authority_fingerprint_set_sha256: runReport.authority_fingerprint_set_sha256,
     metrics,
@@ -1502,6 +1571,7 @@ const finalReport = {
     completed_at: runCompletedAt,
     decision: runReport.run_decision,
     evidence_signature: evidenceSignature,
+    frontend_revision: frontendRevisionAtStart,
     source_revision_set_sha256: runReport.source_revision_set_sha256,
     authority_fingerprint_set_sha256: runReport.authority_fingerprint_set_sha256,
     metrics,
