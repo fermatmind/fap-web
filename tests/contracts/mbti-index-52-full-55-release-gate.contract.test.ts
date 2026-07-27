@@ -143,6 +143,10 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(isSharedDiscoverabilityDeniedPath("/zh/tests/mbti-personality-test-16-personality-types/take")).toBe(true);
     expect(isSharedDiscoverabilityDeniedPath("/zh/personality/big-five/facets/order")).toBe(false);
     expect(source).toContain('sequence_state: "consumed"');
+    expect(source).toContain('fs.openSync(ARTIFACT_PATHS.run1, "r+")');
+    expect(source).toContain("fs.ftruncateSync(runOneDescriptor, 0)");
+    expect(source).toContain("fs.writeSync(runOneDescriptor, consumedRun, 0");
+    expect(source).not.toContain("fs.existsSync(ARTIFACT_PATHS.run1)");
     expect(source).toContain('previousRun?.sequence_state === "awaiting_run_2"');
     expect(source).toContain("previousRun?.validation_session_id === validationSessionId");
     expect(source).toContain("'script, style, template, noscript, [hidden], [aria-hidden=\"true\"], input[type=\"hidden\"]'");

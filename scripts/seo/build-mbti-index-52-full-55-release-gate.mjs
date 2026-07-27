@@ -754,16 +754,27 @@ if (DIAGNOSE_VISIBLE_ONLY) {
 const runStartedAt = new Date().toISOString();
 let previousRun = null;
 let validationSessionId = RUN === 1 ? crypto.randomUUID() : null;
-if (RUN === 2 && fs.existsSync(ARTIFACT_PATHS.run1)) {
-  previousRun = JSON.parse(fs.readFileSync(ARTIFACT_PATHS.run1, "utf8"));
-  validationSessionId = nonemptyString(previousRun?.validation_session_id)
-    ? previousRun.validation_session_id
-    : null;
-  fs.writeFileSync(ARTIFACT_PATHS.run1, `${JSON.stringify({
-    ...previousRun,
-    sequence_state: "consumed",
-    consumed_by_run_2_at: runStartedAt,
-  }, null, 2)}\n`);
+if (RUN === 2) {
+  let runOneDescriptor = null;
+  try {
+    runOneDescriptor = fs.openSync(ARTIFACT_PATHS.run1, "r+");
+    previousRun = JSON.parse(fs.readFileSync(runOneDescriptor, "utf8"));
+    validationSessionId = nonemptyString(previousRun?.validation_session_id)
+      ? previousRun.validation_session_id
+      : null;
+    const consumedRun = `${JSON.stringify({
+      ...previousRun,
+      sequence_state: "consumed",
+      consumed_by_run_2_at: runStartedAt,
+    }, null, 2)}\n`;
+    fs.ftruncateSync(runOneDescriptor, 0);
+    fs.writeSync(runOneDescriptor, consumedRun, 0, "utf8");
+    fs.fsyncSync(runOneDescriptor);
+  } catch (error) {
+    if (!(error && typeof error === "object" && error.code === "ENOENT")) throw error;
+  } finally {
+    if (runOneDescriptor !== null) fs.closeSync(runOneDescriptor);
+  }
 }
 
 const feedNames = ["sitemap.xml", "llms.txt", "llms-full.txt"];
