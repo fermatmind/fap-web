@@ -51797,7 +51797,7 @@
       },
       "required_local_checks": {
         "status": "passed",
-        "evidence": "Generator passed with 55/55 URLs, 3/3 exact additions, 165/165 future windows not_due, zero GSC reads, and zero search mutations; focused Vitest passed 5/5; full ESLint, TypeScript typecheck, 774-file/4533-test contract suite, and production-environment Next.js build with 206/206 static pages all passed; YAML and JSON parsers plus git diff --check passed."
+        "evidence": "Generator passed with 55/55 URLs, 3/3 exact additions, 165/165 future windows not_due, zero GSC reads, and zero search mutations; focused Vitest passed 6/6; full ESLint, TypeScript typecheck, 774-file/4534-test contract suite, and production-environment Next.js build with 206/206 static pages all passed; YAML and JSON parsers plus git diff --check passed."
       },
       "changed_file_scope": {
         "status": "passed",
@@ -51841,8 +51841,13 @@
         "at": "2026-07-27T17:08:21Z",
         "status": "github_checks_pending",
         "summary": "Opened PR #1823 at exact implementation head 922400448d6b16b6f30e9d14912ce0af11a35827. GitHub reports the PR mergeable; required CI and security checks are queued or running."
+      },
+      {
+        "at": "2026-07-27T17:18:26Z",
+        "status": "review_fixes_local_verified",
+        "summary": "Resolved both exact-head Codex findings: restored the unrelated IQ-FE-3 manifest status while applying github_checks_pending only to MBTI-GSC-53, and derived the Markdown window summary from computed observation counts. Added a focused regression probe; generator and focused tests passed 6/6, full lint/typecheck passed, and the full contract suite passed 774 files/4534 tests."
       }
     ],
-    "updated_at": "2026-07-27T17:08:21Z"
+    "updated_at": "2026-07-27T17:18:26Z"
   }
 }

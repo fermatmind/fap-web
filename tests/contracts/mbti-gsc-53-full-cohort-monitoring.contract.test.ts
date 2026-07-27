@@ -80,6 +80,11 @@ describe("MBTI-GSC-53 full cohort read-only monitoring", () => {
     expect(stdout).toContain("PASS_OBSERVATION_STATUS_PROBE");
   });
 
+  it("derives the Markdown summary from the computed observation states", () => {
+    const stdout = execFileSync("node", [script, "--contract-probe=observation-summary"], { encoding: "utf8" });
+    expect(stdout).toContain("PASS_OBSERVATION_SUMMARY_PROBE");
+  });
+
   it("cannot mutate GSC, search, CMS, feeds, indexability, or deployment state", () => {
     const source = fs.readFileSync(script, "utf8");
     const report = JSON.parse(fs.readFileSync(output, "utf8"));

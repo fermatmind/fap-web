@@ -84,6 +84,15 @@ function runContractProbe(name) {
     console.log("PASS_OBSERVATION_STATUS_PROBE");
     return;
   }
+  if (name === "observation-summary") {
+    assert(
+      observationSummary({ not_due: 110, pending: 55, observed: 0 })
+        === "Window states at the captured time: 110 not_due, 55 pending, 0 observed. No GSC evidence is imputed; observed states require bounded read-only evidence.",
+      "Observation summary must reflect computed status counts",
+    );
+    console.log("PASS_OBSERVATION_SUMMARY_PROBE");
+    return;
+  }
   throw new Error(`Unsupported contract probe: ${name}`);
 }
 
@@ -237,7 +246,7 @@ function markdown(report) {
       `- ${window.label}: \`${window.due_at}\` — ${report.records[0].windows[window.label].observation_status}`
     )),
     "",
-    "All three windows are in the future at the captured time. No observation is marked complete and no GSC read is imputed.",
+    observationSummary(report.summary.observation_status_counts),
     "",
     "## 55-URL Ledger",
     "",
@@ -250,6 +259,10 @@ function markdown(report) {
     "This artifact performs no Request Indexing, URL Inspection write, sitemap submission, Indexing API call, CMS/database/publication/indexability mutation, deploy, or other search mutation. Search Console observations do not guarantee indexing, traffic, citation, or ranking.",
     "",
   ].join("\n");
+}
+
+function observationSummary(counts) {
+  return `Window states at the captured time: ${counts.not_due} not_due, ${counts.pending} pending, ${counts.observed} observed. No GSC evidence is imputed; observed states require bounded read-only evidence.`;
 }
 
 function csv(report) {

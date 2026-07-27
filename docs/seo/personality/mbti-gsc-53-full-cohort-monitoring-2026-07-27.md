@@ -12,7 +12,7 @@
 - day_14: `2026-08-10T16:51:43.000Z` — not_due
 - day_28: `2026-08-24T16:51:43.000Z` — not_due
 
-All three windows are in the future at the captured time. No observation is marked complete and no GSC read is imputed.
+Window states at the captured time: 165 not_due, 0 pending, 0 observed. No GSC evidence is imputed; observed states require bounded read-only evidence.
 
 ## 55-URL Ledger
 
