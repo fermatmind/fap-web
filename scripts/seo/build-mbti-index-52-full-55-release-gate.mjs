@@ -354,6 +354,32 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "profile-hero-visibility") {
+    const projection = {
+      display_type: "INTJ-A",
+      profile: {
+        type_name: "建筑师型",
+        hero_summary: "先建立可靠结构，再稳定推进。",
+        rarity: "较少见",
+        keywords: ["战略", "独立", "坚定"],
+      },
+    };
+    const incompleteVisibleText = "INTJ-A 建筑师人格 先建立可靠结构，再稳定推进。 稀有度：较少见 战略 独立";
+    if (profileHeroVisible(projection, incompleteVisibleText)) {
+      throw new Error("Incomplete profile hero unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "comparison-robots-authority") {
+    const payload = {
+      seo_surface_v1: { robots_policy: "noindex,follow" },
+      seo_meta: { robots: "index,follow" },
+    };
+    if (comparisonRobotsAuthorityPresent(payload, { robots: "index,follow" })) {
+      throw new Error("Backend noindex comparison policy unexpectedly passed");
+    }
+    return;
+  }
   const inventory = targets();
   if (name === "duplicate") inventory[54] = { ...inventory[53] };
   else if (name === "missing") inventory.pop();
@@ -553,6 +579,15 @@ function robotsIndexable(facts) {
     && /(?:^|[\s,])follow(?:[\s,]|$)/.test(facts.robots)
     && !facts.robots.includes("noindex")
     && !/(?:^|[\s,])(?:noindex|none)(?:[\s,]|$)/.test(facts.xRobotsTag);
+}
+
+function comparisonRobotsAuthorityPresent(payload, pageFacts) {
+  const robotsPolicy = normalizeText(
+    payload?.seo_surface_v1?.robots_policy ?? payload?.seo_meta?.robots,
+  ).toLowerCase();
+  return Boolean(robotsPolicy)
+    && robotsIndexable({ robots: robotsPolicy, xRobotsTag: "" })
+    && robotsIndexable({ robots: pageFacts?.robots ?? "", xRobotsTag: "" });
 }
 
 function sameFrontendRevisionAcrossSequence(previousRun, revisionAtStart, revisionAtEnd) {
@@ -963,6 +998,21 @@ function profileReaderSectionMembershipValid(sections) {
     && expectedKeys.every((key) => actualKeys.includes(key));
 }
 
+function profileHeroVisible(projection, visibleText) {
+  const profile = projection?.profile ?? {};
+  const candidates = [
+    normalizeText(projection?.display_type),
+    normalizeText(profile?.type_name).replace(/型$/u, ""),
+    normalizeText(profile?.hero_summary),
+    normalizeText(profile?.rarity),
+    ...(Array.isArray(profile?.keywords) ? profile.keywords.slice(0, 5).map(normalizeText) : []),
+  ].filter(Boolean);
+  const comparableVisibleText = normalizeComparableText(visibleText);
+  return candidates.length > 0 && candidates.every((candidate) => (
+    comparableVisibleText.includes(normalizeComparableText(candidate))
+  ));
+}
+
 function profileSeoAuthorityPresent(seoPayload, canonical, pageFacts) {
   if (!seoPayload || typeof seoPayload !== "object") return false;
   const meta = seoPayload?.meta ?? {};
@@ -1040,7 +1090,8 @@ function comparisonRenderedMetadataPresent(payload, pageFacts, canonical) {
     && comparison?.alternates?.["zh-CN"] === canonical
     && comparison?.alternates?.en === expectedEnglishCanonical
     && pageFacts?.alternates?.["zh-CN"] === canonical
-    && pageFacts?.alternates?.en === expectedEnglishCanonical;
+    && pageFacts?.alternates?.en === expectedEnglishCanonical
+    && comparisonRobotsAuthorityPresent(payload, pageFacts);
 }
 
 function authorityFacts(payload, target, canonical, seoPayload = null, pageFacts = null) {
@@ -1210,6 +1261,7 @@ function visibleBodyComplete(payload, target, visibleText, visibleAnchors = []) 
     const complete = visibleText.length >= 5_000
       && profileReaderSectionMembershipValid(readerVisibleSections)
       && failedSectionKeys.length === 0
+      && profileHeroVisible(payload?.mbti_public_projection_v1, visibleText)
       && answerSurfaceVisible(payload, target.kind, visibleText, visibleAnchors);
     if (!complete && DIAGNOSE_VISIBLE_BODY) {
       console.error(JSON.stringify({

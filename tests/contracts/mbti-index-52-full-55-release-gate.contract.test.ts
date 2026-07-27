@@ -41,6 +41,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     "robots-header-indexability",
     "css-hidden-visibility",
     "frontend-revision-sequence",
+    "profile-hero-visibility",
+    "comparison-robots-authority",
   ])(
     "enforces %s runtime evidence",
     (probe) => {
@@ -114,6 +116,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("sectionKey === \"v8_5_module_10_faq_boundary\"");
     expect(source).toContain("profileReaderVisibleSections");
     expect(source).toContain("profileReaderSectionMembershipValid(readerVisibleSections)");
+    expect(source).toContain("profileHeroVisible(payload?.mbti_public_projection_v1, visibleText)");
     expect(source).toContain("PROFILE_V85_VISIBLE_SECTION_KEYS");
     expect(source).toContain("PROFILE_LEADING_PROJECTION_SECTION_KEYS");
     expect(source).toContain("comparisonSectionVisible");
@@ -160,6 +163,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("comparison?.variants?.a?.runtime_type_code === `${baseType}-A`");
     expect(source).toContain("comparison?.left_type === leftType");
     expect(source).toContain("comparisonRenderedMetadataPresent(payload, pageFacts, canonical)");
+    expect(source).toContain("comparisonRobotsAuthorityPresent(payload, pageFacts)");
     expect(source).toContain("pageFacts?.title === documentTitle");
     expect(source).toContain("pageFacts?.description === description");
     expect(source).toContain('comparison?.alternates?.["zh-CN"] === canonical');
