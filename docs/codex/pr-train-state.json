@@ -51533,7 +51533,7 @@
     "updated_at": "2026-07-27T03:40:35Z"
   },
   "MBTI-INDEX-52": {
-    "status": "production_readback_blocked",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/mbti-index-52",
     "depends_on": [
@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "ec6a9815446a24a1d5f26b9f79d6c22dce728416",
+    "commit_sha": "644e2850a477b4b5ba4ca8283c328b764872186d",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51553,29 +51553,29 @@
         "evidence": "MBTI-CROSS-PUBLISH-51 is closed in fap-api: PR #3309 merged at 7c770c8741da48f666ea925c65dceb76f7a182a9 after the exact three cross-type records passed production content, indexability, sitemap, llms, llms-full, cache-closeout, and public readback gates without search submission."
       },
       "production_read_only_runs": {
-        "status": "blocked_backend_authority",
-        "evidence": "Current-code consecutive production evidence is not accepted. Read-only /revision now confirms production c5992be40cd4ee302230cdd3c01ffce148e942da, so the frontend runtime boundary is present. A complete bounded read-only inventory still finds backend-authoritative projection gaps: all 16 A/T responses expose zero top-level runtime sections and no authoritative claim boundary; the exact three newly released cross comparisons expose zero internal_links, no answer_surface_v1, and no English alternate; and the four original cross comparisons expose five legacy {href, anchor_text, link_intent} links that the runtime adapter does not render, plus no answer_surface_v1 or English alternate. A separately bounded backend repair package/dry-run and later exact production-write authorization are required before the two fresh 55/55 runs."
+        "status": "passed",
+        "evidence": "After exact frontend e6369b6525d80fb735fa09c7cc341762051d554f and backend 9d2877a7e519f768fd741398e76777620770fb71 became active, validation session d89458ff-3a8d-46b6-9ba6-d2a462b40505 completed two independent production read-only runs. Both passed public API, backend authority, authority fingerprints, visible body, exact section completeness, FAQ, JSON-LD, canonical, robots/indexability, sitemap, llms, and llms-full at 55/55 with zero API timeouts and zero private URL leaks. The runs share validator SHA 86c5f94be775064dab96fad6e39df372225699575840ced2d5c884015700cf78 and evidence signature dc284d3e4dc247a6fecb0c7b521d00042338c2231a607bf0936000f2bd956fe9; final decision is ALLOW_MBTI_55_COMPLETE."
       },
       "required_local_checks": {
-        "status": "blocked_production_readback",
-        "evidence": "The non-network implementation checks pass: the earlier full Node 24.14.0 manifest suite passed full lint, typecheck, all four complete contract shards (773 files / 4,489 tests), and the explicit production API build (206/206 pages); implementation head da1d2a9b7b15e67bb2197de9b82f292868a9b0d3 passes the focused INDEX-52 contract at 29/29 with all nineteen behavior probes, scoped zero-warning ESLint, and git diff --check. It rejects nofollow response headers, validates the rendered top-level FAQ section, serializes both validation run modes under one stale-owner-safe lock, and persists fail-closed terminal evidence before signal exit. A read-only production intj-a visible-only diagnostic also passes the exact promoted, related-content, metadata, V8.5, hero, and answer-surface DOM rules. The manifest-required production run pair remains incomplete because the current backend authority fails closed, so the overall required check group is blocked rather than passed."
+        "status": "passed",
+        "evidence": "On Node 24.14.0, the final focused INDEX-52 contract passes 44/44, full lint passes with zero warnings, typecheck passes, all four contract shards pass 773/773 files, and the production build completes 206/206 static pages with standalone assets synced. Both manifest-required production read-only runs pass 55/55. YAML/JSON parsing, git diff --check, and the exact nine-path aggregate scope validation also pass."
       },
       "changed_file_scope": {
         "status": "passed",
         "evidence": "After rebase, the complete PR remains exactly nine allowed INDEX-52 paths: two PR-train metadata files, five read-only evidence artifacts, one builder, and one focused contract. Latest-main PARITY-06 runtime and ledger files are inherited from the base and absent from the PR diff; unrelated IQ and Career statuses match origin/main."
       },
       "github_required_checks": {
-        "status": "passed_implementation_head_ledger_recheck_pending",
-        "evidence": "PR #1816 exact head c587d5cd10738262ebb067d8e7a0a31b33b93563 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review found the renderability predicate was keyed to a test-only kind. Exact implementation head ec6a9815446a24a1d5f26b9f79d6c22dce728416 applies the renderer-aligned summary/card rules to both real production kinds by treating every non-profile answer surface as a comparison. This ledger tail binds that implementation SHA; final-head checks remain required. INDEX-52 remains production_readback_blocked regardless."
+        "status": "pending",
+        "evidence": "Implementation and evidence head 644e2850a477b4b5ba4ca8283c328b764872186d is locally complete. This ledger tail records the production readback and local-check transition; PR #1816 must rerun every required and security check on the new exact head before merge."
       }
     },
     "scope_validation": {
       "allowed_paths_only": true,
-      "local_validation_passed": false,
+      "local_validation_passed": true,
       "github_checks_green": false,
       "post_merge_revalidated": false
     },
-    "failure_reason": "Production now runs required frontend SHA c5992be40cd4ee302230cdd3c01ffce148e942da, but current backend-authoritative comparison projections still fail the release contract: all 16 A/T records lack top-level runtime sections and claim boundary; the three released cross records lack required internal links, answer surface, and English alternate; and the four original cross records retain non-renderable legacy links and lack answer surface and English alternate. A separately authorized bounded backend repair package/dry-run and later exact production content-write approval are required.",
+    "failure_reason": null,
     "merged_at": null,
     "remote_branch_deleted": false,
     "local_cleanup_executed": false,
@@ -51751,8 +51751,13 @@
         "at": "2026-07-27T12:03:13Z",
         "status": "production_readback_blocked",
         "summary": "Exact head c587d5cd10738262ebb067d8e7a0a31b33b93563 passed all seven required/security checks and received exact-head review. Implementation head ec6a9815446a24a1d5f26b9f79d6c22dce728416 closes the P1 finding by applying comparison answer renderability rules to the real at_comparison and cross_type_comparison kinds, with the fail-closed probe using a real production kind. Focused contracts remain 38/38; scoped ESLint, Node syntax, JSON validation, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T15:31:17Z",
+        "status": "github_checks_pending",
+        "summary": "Exact production frontend e6369b6525d80fb735fa09c7cc341762051d554f and backend 9d2877a7e519f768fd741398e76777620770fb71 now expose the approved backend-authoritative projection and English-alternate hold. Validation session d89458ff-3a8d-46b6-9ba6-d2a462b40505 passed two independent runs at all twelve 55/55 gates with identical signature dc284d3e4dc247a6fecb0c7b521d00042338c2231a607bf0936000f2bd956fe9, zero timeouts, and zero private leaks. The validator cross-checks A/T publication/indexability through the exact public list, follows backend comparison alternates without inventing English authority, normalizes equivalent root URLs while rejecting query drift, and accepts canonical AboutPage mainEntityOfPage identity. Node 24.14.0 focused contracts pass 44/44, full lint and typecheck pass, all 773 contract files pass, production build completes 206/206, and exact nine-path scope validation passes. Implementation/evidence head is 644e2850a477b4b5ba4ca8283c328b764872186d; final ledger-head GitHub checks remain required."
       }
     ],
-    "updated_at": "2026-07-27T12:03:13Z"
+    "updated_at": "2026-07-27T15:31:17Z"
   }
 }

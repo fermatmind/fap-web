@@ -27528,7 +27528,7 @@ prs:
     mode: execute
     train_scope: mbti_full_55_url_read_only_index_release_gate
     risk_level: L1
-    status: production_readback_blocked
+    status: github_checks_pending
     title: "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs"
     goal: "Run two identical, consecutive, read-only production release-gate passes across exactly 32 profiles, sixteen A/T comparisons, and seven approved cross-type comparisons before allowing the complete cohort to proceed to GSC monitoring."
     in_scope:
