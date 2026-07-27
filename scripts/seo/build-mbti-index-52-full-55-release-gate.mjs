@@ -36,6 +36,10 @@ const ARTIFACT_PATHS = Object.freeze({
 const MAX_ATTEMPTS = 3;
 const MAX_CONCURRENCY = 1;
 const REQUEST_TIMEOUT_MS = 45_000;
+const VALIDATOR_SOURCE_SHA256 = crypto
+  .createHash("sha256")
+  .update(fs.readFileSync(new URL(import.meta.url)))
+  .digest("hex");
 const GROUPS = Object.freeze({
   NT: ["intj", "intp", "entj", "entp"],
   NF: ["infj", "infp", "enfj", "enfp"],
@@ -423,6 +427,15 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "validator-revision-sequence") {
+    if (sameValidatorRevisionAcrossSequence(
+      { validator_source_sha256: "a".repeat(64) },
+      "b".repeat(64),
+    )) {
+      throw new Error("Mixed validator revisions unexpectedly passed");
+    }
+    return;
+  }
   const inventory = targets();
   if (name === "duplicate") inventory[54] = { ...inventory[53] };
   else if (name === "missing") inventory.pop();
@@ -664,6 +677,11 @@ function sameFrontendRevisionAcrossSequence(previousRun, revisionAtStart, revisi
       previousRun === null
       || previousRun?.frontend_revision === revisionAtStart
     );
+}
+
+function sameValidatorRevisionAcrossSequence(previousRun, validatorSourceSha256) {
+  return /^[0-9a-f]{64}$/.test(validatorSourceSha256)
+    && previousRun?.validator_source_sha256 === validatorSourceSha256;
 }
 
 function walkJson(value, visit) {
@@ -1619,6 +1637,7 @@ const evidenceSignature = sha256({
   metrics,
   private_url_leak_count: privateUrlLeaks.length,
   frontend_revision: frontendRevisionAtStart,
+  validator_source_sha256: VALIDATOR_SOURCE_SHA256,
   records: evidenceRecords,
 });
 const runCompletedAt = new Date().toISOString();
@@ -1638,6 +1657,7 @@ const runReport = {
   evidence_signature: evidenceSignature,
   frontend_revision: frontendRevisionAtStart,
   frontend_revision_stable_within_run: frontendRevisionStable,
+  validator_source_sha256: VALIDATOR_SOURCE_SHA256,
   source_revision_set_sha256: sha256(evidenceRecords.map((record) => record.source_revision_sha256)),
   authority_fingerprint_set_sha256: sha256(evidenceRecords.map((record) => record.authority_fingerprint_sha256)),
   metrics,
@@ -1659,6 +1679,7 @@ const consecutivePass = Boolean(
     frontendRevisionAtStart,
     frontendRevisionAtEnd,
   )
+  && sameValidatorRevisionAcrossSequence(previousRun, VALIDATOR_SOURCE_SHA256)
   && previousRun?.evidence_signature === evidenceSignature
   && previousRun?.completed_at < runStartedAt,
 );
@@ -1684,6 +1705,7 @@ const finalReport = {
     decision: previousRun.run_decision,
     evidence_signature: previousRun.evidence_signature,
     frontend_revision: previousRun.frontend_revision,
+    validator_source_sha256: previousRun.validator_source_sha256,
     source_revision_set_sha256: previousRun.source_revision_set_sha256,
     authority_fingerprint_set_sha256: previousRun.authority_fingerprint_set_sha256,
     metrics: previousRun.metrics,
@@ -1694,6 +1716,7 @@ const finalReport = {
     decision: runReport.run_decision,
     evidence_signature: evidenceSignature,
     frontend_revision: frontendRevisionAtStart,
+    validator_source_sha256: VALIDATOR_SOURCE_SHA256,
     source_revision_set_sha256: runReport.source_revision_set_sha256,
     authority_fingerprint_set_sha256: runReport.authority_fingerprint_set_sha256,
     metrics,
@@ -1705,6 +1728,7 @@ const finalReport = {
     decision: runReport.run_decision,
     evidence_signature: evidenceSignature,
     frontend_revision: frontendRevisionAtStart,
+    validator_source_sha256: VALIDATOR_SOURCE_SHA256,
     source_revision_set_sha256: runReport.source_revision_set_sha256,
     authority_fingerprint_set_sha256: runReport.authority_fingerprint_set_sha256,
     metrics,

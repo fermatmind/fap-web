@@ -47,6 +47,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     "disabled-runtime-sections",
     "profile-hero-completeness",
     "feed-exact-url-membership",
+    "validator-revision-sequence",
   ])(
     "enforces %s runtime evidence",
     (probe) => {
@@ -201,6 +202,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("fetchFrontendRevision()");
     expect(source).toContain("sameFrontendRevisionAcrossSequence(");
     expect(source).toContain("previousRun?.frontend_revision === revisionAtStart");
+    expect(source).toContain("VALIDATOR_SOURCE_SHA256");
+    expect(source).toContain("sameValidatorRevisionAcrossSequence(previousRun, VALIDATOR_SOURCE_SHA256)");
     expect(source).toContain('"script"');
     expect(source).toContain('"template"');
     expect(source).toContain('"[hidden]"');
