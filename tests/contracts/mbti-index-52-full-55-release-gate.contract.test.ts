@@ -50,6 +50,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     "profile-robots-authority",
     "profile-metadata-precedence",
     "profile-seo-conflicting-identity",
+    "answer-surface-placeholder-collections",
+    "canonical-link-conflict",
     "disabled-runtime-sections",
     "profile-hero-completeness",
     "feed-exact-url-membership",

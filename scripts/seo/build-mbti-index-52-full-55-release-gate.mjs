@@ -682,6 +682,31 @@ function runContractProbe(name) {
     }
     return;
   }
+  if (name === "answer-surface-placeholder-collections") {
+    const surface = {
+      summary_blocks: [{}],
+      faq_blocks: [{ question: "问题", answer: "回答" }],
+      compare_blocks: [{}],
+      next_step_blocks: [{ title: "下一步", body: "行动建议" }],
+    };
+    if (requiredAnswerSurfaceCollectionsPresent(surface, "comparison")) {
+      throw new Error("Placeholder answer-surface collections unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "canonical-link-conflict") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/intj-a`;
+    const facts = documentFacts(`
+      <html><head>
+        <link rel="canonical" href="${canonical}">
+        <link rel="canonical" href="${SITE_ORIGIN}/zh/personality/intp-a">
+      </head><body></body></html>
+    `);
+    if (canonicalLinkValid(facts, canonical)) {
+      throw new Error("Conflicting canonical links unexpectedly passed");
+    }
+    return;
+  }
   if (name === "disabled-runtime-sections") {
     const sections = runtimeComparisonSections({
       sections: [
@@ -918,12 +943,15 @@ function documentFacts(html, xRobotsTag = "") {
       ])
       .filter(([locale, href]) => locale && href),
   );
+  const canonicalLinks = [...document.querySelectorAll('link[rel~="canonical"]')]
+    .map((node) => node.getAttribute("href") ?? "");
   return {
     title: normalizeText(document.title),
     description: normalizeText(
       document.querySelector('meta[name="description"]')?.getAttribute("content"),
     ),
-    canonical: document.querySelector('link[rel~="canonical"]')?.getAttribute("href") ?? "",
+    canonical: canonicalLinks[0] ?? "",
+    canonicalLinks,
     alternates,
     robots: (document.querySelector('meta[name="robots"]')?.getAttribute("content") ?? "").toLowerCase(),
     xRobotsTag,
@@ -931,6 +959,10 @@ function documentFacts(html, xRobotsTag = "") {
     visibleAnchors,
     jsonld,
   };
+}
+
+function canonicalLinkValid(facts, canonical) {
+  return facts?.canonicalLinks?.length === 1 && facts.canonicalLinks[0] === canonical;
 }
 
 function robotsIndexable(facts) {
@@ -1544,9 +1576,27 @@ function requiredAnswerSurfaceCollectionsPresent(surface, kind) {
   const requiredCollections = kind === "profile"
     ? ["summary_blocks", "faq_blocks", "compare_blocks", "scene_summary_blocks", "next_step_blocks"]
     : ["summary_blocks", "faq_blocks", "compare_blocks", "next_step_blocks"];
-  return requiredCollections.every((key) => (
-    Array.isArray(surface?.[key]) && surface[key].length > 0
-  ));
+  return requiredCollections.every((key) => {
+    const blocks = surface?.[key];
+    if (!Array.isArray(blocks)) return false;
+    return blocks.some((block) => {
+      if (!block || typeof block !== "object" || Array.isArray(block)) return false;
+      if (key === "faq_blocks") {
+        return Boolean(
+          normalizeText(block?.question ?? block?.q)
+          && normalizeText(block?.answer ?? block?.a),
+        );
+      }
+      if (key === "next_step_blocks") {
+        return Boolean(
+          normalizeText(block?.title)
+          || normalizeText(block?.body)
+          || normalizePublicHref(block?.href),
+        );
+      }
+      return Boolean(normalizeText(block?.title) || normalizeText(block?.body));
+    });
+  });
 }
 
 function answerSurfaceLinksVisible(surface, visibleAnchors) {
@@ -2374,7 +2424,7 @@ async function worker() {
           && facts.visibleText.includes(row.answer)
         )),
         jsonld: jsonLdValid(target.kind, structured, canonical),
-        canonical: facts.canonical === canonical,
+        canonical: canonicalLinkValid(facts, canonical),
         robots_indexability: robotsIndexable(facts),
         sitemap: feedSets["sitemap.xml"].has(canonical),
         llms: feedSets["llms.txt"].has(canonical),
