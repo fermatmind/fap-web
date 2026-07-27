@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "ad08a1d0d39e0024d135b716bf7efe29af146dcb",
+    "commit_sha": "00f1f497ee5bc003bc08620bc7a67a42cabb3245",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51566,7 +51566,7 @@
       },
       "github_required_checks": {
         "status": "passed_implementation_head_ledger_recheck_pending",
-        "evidence": "PR #1816 exact head d34cc1f4e3e16f5edd4fcc5f4a7a79d65d603eba passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified one P1 x-default mismatch. Exact implementation head ad08a1d0d39e0024d135b716bf7efe29af146dcb closes it by requiring the runtime-emitted x-default root alternate alongside exact zh-CN and en hreflang links. The final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
+        "evidence": "PR #1816 exact head d467b5578705c68bd4ea8c3c8e294928d41ecc85 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified checked-in ALLOW evidence and ledger binding gaps. Exact implementation head 00f1f497ee5bc003bc08620bc7a67a42cabb3245 closes the evidence gap by requiring the current combined validator/policy SHA and recomputed matching two-run signatures whenever the checked-in decision is ALLOW. This ledger tail binds that implementation SHA; final-head checks remain required. INDEX-52 remains production_readback_blocked regardless."
       }
     },
     "scope_validation": {
@@ -51736,8 +51736,13 @@
         "at": "2026-07-27T11:41:15Z",
         "status": "production_readback_blocked",
         "summary": "Exact head ca1cdab9be69456fb4dffbd5cca55537931670b5 passed all seven required/security checks and received exact-head review. Implementation head 74966e81935e2ac2924606ac49bb408721a2c22f closes both P2/P3 findings: the validator revision fingerprint now binds the imported discoverability exposure policy bytes, and this ledger freshness marker advances with the transition. Focused contracts remain 38/38; scoped ESLint, Node syntax, JSON validation, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T11:50:06Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head d467b5578705c68bd4ea8c3c8e294928d41ecc85 passed all seven required/security checks and received exact-head review. Implementation head 00f1f497ee5bc003bc08620bc7a67a42cabb3245 closes both P2 findings: checked-in ALLOW evidence must match the current combined validator/policy SHA and independently recomputed equal two-run signatures, while the authoritative ledger commit/check fields now bind that implementation. Focused contracts remain 38/38; scoped ESLint, Node syntax, JSON validation, and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
       }
     ],
-    "updated_at": "2026-07-27T11:41:15Z"
+    "updated_at": "2026-07-27T11:50:06Z"
   }
 }
