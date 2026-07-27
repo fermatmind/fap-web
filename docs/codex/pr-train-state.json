@@ -51430,5 +51430,76 @@
       }
     ],
     "updated_at": "2026-07-26T03:43:31Z"
+  },
+  "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-COMPLETE-ARTIFACT-STABILITY-01": {
+    "id": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-COMPLETE-ARTIFACT-STABILITY-01",
+    "repo": "fap-web",
+    "base": "main",
+    "branch": "codex/saep-proposed-web-parity06-llms-full-complete-artifact-stability-01",
+    "title": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-COMPLETE-ARTIFACT-STABILITY-01: restore complete Trust ContentPage enumeration in llms-full artifacts",
+    "depends_on": [],
+    "status": "local_checks_passed",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "manifest_registration": {
+        "status": "pass",
+        "evidence": "The user explicitly authorized this exact PR-train ID, branch, title, five-file scope, validation floor, and complete ordinary PR lifecycle."
+      },
+      "dependency": {
+        "status": "pass",
+        "evidence": "The item has no product PR dependency and started from locally locked origin/main cc568495b81d0624a3e04392b583f525126cb200."
+      },
+      "production_failure_evidence": {
+        "status": "pass",
+        "evidence": "The exact-authorized production warm failed closed with all seven approved Trust URLs missing, and the existing shared artifact hash remained unchanged; source inspection confirms complete ContentPage LKG and atomic shared-cache behavior already exist."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "Node 24.14.0 focused validation passed: the new PARITY-06 contract and directly affected llms route fanout contract passed 2 files / 8 tests; the broader llms artifact/LKG set passed 3 files / 15 tests."
+      },
+      "required_local_checks": {
+        "status": "pass",
+        "evidence": "Node 24.14.0 validation passed: scoped ESLint, full lint, spacing, typecheck, complete contracts 772 files / 4479 tests, Big Five freeze 29/29, Enneagram freeze 24/24, production build 206/206, YAML/JSON parsing, git diff checks, and exact five-file scope validation."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": null
+      },
+      "codex_review": {
+        "status": "pending",
+        "evidence": null
+      }
+    },
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "cache_warm_allowed": false,
+    "search_channel_action": false,
+    "publish_allowed": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-27T03:01:15Z",
+        "status": "in_progress",
+        "summary": "Started from locally locked fap-web origin/main cc568495b81d0624a3e04392b583f525126cb200 in an isolated clean worktree while the activity worktree retained unrelated user WIP. Scope is limited to an operator-only artifact build profile, seven-route Trust cache completeness gate, one focused contract, and authorized train metadata. No deploy, production cache warm, CMS/DB/Search write, publish, or Checkpoint 118 is authorized."
+      },
+      {
+        "at": "2026-07-27T03:15:17Z",
+        "status": "local_checks_passed",
+        "summary": "Implemented the fixed runtime/artifact ContentPage budget profiles and production seven-route Trust cache gate. The first complete contract run exposed one current-scope source-string compatibility failure in the existing llms fanout contract; the route now retains an explicit runtime 5-second budget object while selecting the separate 60-second artifact budget. Focused and complete retries pass, including 772 contract files / 4479 tests, both freeze suites, lint, spacing, typecheck, the 206-page production build, syntax checks, and exact five-file scope validation."
+      }
+    ],
+    "updated_at": "2026-07-27T03:15:17Z"
   }
 }

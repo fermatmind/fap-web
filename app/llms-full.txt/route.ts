@@ -89,6 +89,7 @@ const ENRICHMENT_CONCURRENCY = 4;
 const LLMS_FULL_CACHE_FRESH_MS = 60 * 60 * 1000;
 const LLMS_FULL_CACHE_STALE_MS = 24 * 60 * 60 * 1000;
 const LLMS_FULL_RESPONSE_TIMEOUT = Symbol("llms-full-response-timeout");
+const LLMS_FULL_ARTIFACT_CONTENT_PAGE_TIMEOUT_MS = 60_000;
 const LLMS_FULL_EXPECTED_CAREER_JOB_URL_COUNT = 1046 * 2;
 const LLMS_FULL_PERSONALITY_DETAIL_URL_COUNT = 32 * 2;
 const LLMS_FULL_PERSONALITY_COMPARISON_URL_COUNT = 16 * 2;
@@ -144,6 +145,27 @@ const LLMS_FULL_EXCLUDED_CAREER_JOB_SLUGS = [
   "digital-forensics-analysts",
   "computer-occupations-all-other",
 ] as const;
+const LLMS_FULL_REQUIRED_TRUST_CONTENT_PAGE_PATHS = [
+  "/en/science",
+  "/en/method-boundaries",
+  "/zh/method-boundaries",
+  "/en/item-design-notes",
+  "/en/reliability-validity",
+  "/en/data-privacy",
+  "/en/common-misconceptions",
+] as const;
+
+export type LlmsFullBuildProfile = "runtime" | "artifact";
+
+type LlmsFullBuildOptions = {
+  buildProfile?: LlmsFullBuildProfile;
+};
+
+export function llmsFullContentPageTimeoutMs(buildProfile: LlmsFullBuildProfile = "runtime"): number {
+  return buildProfile === "artifact"
+    ? LLMS_FULL_ARTIFACT_CONTENT_PAGE_TIMEOUT_MS
+    : LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS;
+}
 
 function shouldRequireCompleteCareerJobCohort(): boolean {
   return process.env.NODE_ENV !== "test" || process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT === "true";
@@ -159,6 +181,11 @@ function shouldRequireCompleteTestCohort(): boolean {
 
 function shouldRequireIqLlmsFullCohort(): boolean {
   return process.env.FERMATMIND_LLMS_FULL_REQUIRE_IQ_COHORT === "true";
+}
+
+function shouldRequireCompleteTrustContentPageCohort(): boolean {
+  return process.env.NODE_ENV !== "test"
+    || process.env.FERMATMIND_LLMS_FULL_REQUIRE_TRUST_CONTENT_PAGE_COHORT === "true";
 }
 
 type LlmsFullResponseMode = "complete" | "degraded";
@@ -733,6 +760,13 @@ export function isCompleteLlmsFullText(
   }
 
   if (
+    shouldRequireCompleteTrustContentPageCohort()
+    && !LLMS_FULL_REQUIRED_TRUST_CONTENT_PAGE_PATHS.every((path) => text.includes(`${siteUrl}${path}`))
+  ) {
+    return false;
+  }
+
+  if (
     shouldRequireCompleteTestCohort() &&
     !LLMS_FULL_REQUIRED_CORE_ASSESSMENT_TEST_PATHS.every((path) => text.includes(`${siteUrl}${path}`))
   ) {
@@ -1068,7 +1102,13 @@ async function enrichCareerGuideEntry(entry: LlmsFullEntry, siteUrl: string): Pr
   };
 }
 
-export async function buildLlmsFullText(siteUrl: string): Promise<string> {
+export async function buildLlmsFullText(
+  siteUrl: string,
+  options: LlmsFullBuildOptions = {}
+): Promise<string> {
+  const contentPageBudget = options.buildProfile === "artifact"
+    ? { timeoutMs: LLMS_FULL_ARTIFACT_CONTENT_PAGE_TIMEOUT_MS }
+    : { timeoutMs: LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS };
   const [
     enCareerGuides,
     zhCareerGuides,
@@ -1151,7 +1191,7 @@ export async function buildLlmsFullText(siteUrl: string): Promise<string> {
           limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
         ),
       [],
-      { timeoutMs: LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS }
+      contentPageBudget
     ),
     withLlmsRouteBudget(
       () =>
@@ -1159,7 +1199,7 @@ export async function buildLlmsFullText(siteUrl: string): Promise<string> {
           limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
         ),
       [],
-      { timeoutMs: LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS }
+      contentPageBudget
     ),
     withLlmsRouteBudget(
       (signal) => listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal }),
