@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "48186b1477fe2ddaebfce3ff8816cd8d2b397682",
+    "commit_sha": "1e592eb7bd748a29ad9acc8d5f04292453fa246f",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51701,8 +51701,13 @@
         "at": "2026-07-27T08:21:00Z",
         "status": "production_readback_blocked",
         "summary": "Exact head 0bf97d0a0cf6c88efc7d503ddbbb8a43ee3257e8 passed all seven required/security checks and received exact-head review. Implementation head 48186b1477fe2ddaebfce3ff8816cd8d2b397682 closes all four findings: every backend profile robots source now requires index,follow; runtime profile section titles are visible evidence; every ordered BreadcrumbList must terminate at the canonical; and feed curl reads are asynchronous, abortable children so signal cleanup can persist terminal evidence and release the session lock promptly. Focused contracts pass 30/30 with twenty behavior probes, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T08:42:00Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head bac1a4f9ff0b7db5d581654c8e43d97040f36bf0 passed all seven required/security checks and received exact-head review. Implementation head 1e592eb7bd748a29ad9acc8d5f04292453fa246f closes all three findings: FAQ q/a aliases now match the runtime normalizer, linkless answer blocks require text but no anchor, and stale-lock reclamation uses one atomic hard-link claim so only the claimant can unlink the verified inode. Focused contracts pass 30/30, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
       }
     ],
-    "updated_at": "2026-07-27T08:21:00Z"
+    "updated_at": "2026-07-27T08:42:00Z"
 }
 }
