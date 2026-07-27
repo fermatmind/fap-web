@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "8cc7171d711bb4a65b078b1b587b03e19e8c6d18",
+    "commit_sha": "26e30366b5d71501d8616f213ef6db7ca94fb1f8",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51558,7 +51558,7 @@
       },
       "required_local_checks": {
         "status": "passed",
-        "evidence": "The earlier full manifest suite passed on Node 24.14.0 after rebasing onto main with PARITY-06: full lint, typecheck, all four complete contract shards (773 files / 4,489 tests), and the explicit production API build (206/206 pages). Incremental review hardening through implementation head 8cc7171d711bb4a65b078b1b587b03e19e8c6d18 passes the focused INDEX-52 contract at 21/21, eleven behavior probes, scoped zero-warning ESLint, and git diff --check."
+        "evidence": "The earlier full manifest suite passed on Node 24.14.0 after rebasing onto main with PARITY-06: full lint, typecheck, all four complete contract shards (773 files / 4,489 tests), and the explicit production API build (206/206 pages). Incremental review hardening through implementation head 26e30366b5d71501d8616f213ef6db7ca94fb1f8 passes the focused INDEX-52 contract at 23/23, thirteen behavior probes, scoped zero-warning ESLint, and git diff --check."
       },
       "changed_file_scope": {
         "status": "passed",
@@ -51566,7 +51566,7 @@
       },
       "github_required_checks": {
         "status": "passed_implementation_head_ledger_recheck_pending",
-        "evidence": "PR #1816 exact implementation head 8cc7171d711bb4a65b078b1b587b03e19e8c6d18 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. The final ledger-only head must retain all seven checks; INDEX-52 remains production_readback_blocked regardless."
+        "evidence": "PR #1816 prior exact implementation head 8cc7171d711bb4a65b078b1b587b03e19e8c6d18 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts. Exact implementation head 26e30366b5d71501d8616f213ef6db7ca94fb1f8 adds the final canonical redirect, complete hero-authority, and exact feed-URL repairs; the final ledger head must pass all seven checks. INDEX-52 remains production_readback_blocked regardless."
       }
     },
     "scope_validation": {
@@ -51665,9 +51665,9 @@
       {
         "at": "2026-07-27T06:15:05Z",
         "status": "production_readback_blocked",
-        "summary": "Exact implementation head 8cc7171d711bb4a65b078b1b587b03e19e8c6d18 hardened the 55-URL gate against false positives across visible DOM, complete profile and comparison projection fields, all runtime SEO/robots inputs, response-header directives, JSON-LD identity, internal links, answer surfaces, enabled runtime sections, one-use validation sessions, and a single unchanged deployed /revision. Focused contracts pass 21/21, eleven behavior probes and scoped ESLint pass, and all seven GitHub checks are green. Read-only production evidence remains held because c5992be40cd4ee302230cdd3c01ffce148e942da is not deployed and backend-authoritative comparison records still have projection gaps that require a separately bounded repair package/dry-run before any exact production write authorization."
+        "summary": "Implementation head 26e30366b5d71501d8616f213ef6db7ca94fb1f8 hardens the 55-URL gate against false positives across canonical redirect status, exact feed URLs, visible DOM, complete profile hero and comparison projection fields, all runtime SEO/robots inputs, response-header directives, JSON-LD identity, internal links, answer surfaces, enabled runtime sections, one-use validation sessions, and a single unchanged deployed /revision. Focused contracts pass 23/23, thirteen behavior probes and scoped ESLint pass. Read-only production evidence remains held because c5992be40cd4ee302230cdd3c01ffce148e942da is not deployed and backend-authoritative comparison records still have projection gaps that require a separately bounded repair package/dry-run before any exact production write authorization; final ledger-head GitHub checks are pending."
       }
     ],
-    "updated_at": "2026-07-27T06:15:05Z"
+    "updated_at": "2026-07-27T06:21:51Z"
 }
 }
