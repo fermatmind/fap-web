@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 import crypto from "node:crypto";
-import { execFileSync } from "node:child_process";
+import { execFile } from "node:child_process";
 import { createRequire } from "node:module";
 import fs from "node:fs";
+import { promisify } from "node:util";
 import { JSDOM } from "jsdom";
 import { csvEscape } from "./artifactSafety.mjs";
 
 const require = createRequire(import.meta.url);
+const execFileAsync = promisify(execFile);
 const { isSharedDiscoverabilityDeniedPath } = require(
   "../../lib/seo/discoverabilityExposurePolicy.cjs",
 );
@@ -38,6 +40,7 @@ const ARTIFACT_PATHS = Object.freeze({
 const MAX_ATTEMPTS = 3;
 const MAX_CONCURRENCY = 1;
 const REQUEST_TIMEOUT_MS = 45_000;
+const FEED_ABORT_CONTROLLER = new AbortController();
 const VALIDATOR_SOURCE_SHA256 = crypto
   .createHash("sha256")
   .update(fs.readFileSync(new URL(import.meta.url)))
@@ -199,7 +202,7 @@ function runContractProbe(name) {
         { types: ["AboutPage"], id: "", url: `${SITE_ORIGIN}/zh/personality/intp-a` },
         { types: ["WebPage"], id: `${canonical}#webpage`, url: canonical },
       ],
-      breadcrumbTargets: [canonical],
+      breadcrumbTrails: [[canonical]],
     };
     if (jsonLdValid("profile", structured, canonical)) {
       throw new Error("Stale required JSON-LD page node unexpectedly passed");
@@ -219,10 +222,26 @@ function runContractProbe(name) {
         },
         { types: ["WebPage"], id: `${canonical}#webpage`, url: canonical },
       ],
-      breadcrumbTargets: [canonical],
+      breadcrumbTrails: [[canonical]],
     };
     if (jsonLdValid("profile", structured, canonical)) {
       throw new Error("Conflicting required JSON-LD identity unexpectedly passed");
+    }
+    return;
+  }
+  if (name === "jsonld-breadcrumb-terminal") {
+    const canonical = `${SITE_ORIGIN}/zh/personality/intj-a`;
+    const structured = {
+      invalid: false,
+      types: ["AboutPage", "BreadcrumbList", "FAQPage", "WebPage"],
+      pageIdentities: [
+        { types: ["AboutPage"], id: canonical, url: canonical },
+        { types: ["WebPage"], id: `${canonical}#webpage`, url: canonical },
+      ],
+      breadcrumbTrails: [[canonical, `${SITE_ORIGIN}/zh/personality/intp-a`]],
+    };
+    if (jsonLdValid("profile", structured, canonical)) {
+      throw new Error("Non-terminal canonical breadcrumb unexpectedly passed");
     }
     return;
   }
@@ -427,6 +446,7 @@ function runContractProbe(name) {
   if (name === "structured-section-payload") {
     const section = {
       section_key: "mbti64_comparison_a_vs_t",
+      title: "A/T 对比正文",
       payload_json: {
         content: {
           core_difference: {
@@ -448,6 +468,7 @@ function runContractProbe(name) {
       },
     };
     const visibleText = [
+      "A/T 对比正文",
       "核心差异",
       "决策节奏",
       "更快收束",
@@ -468,6 +489,13 @@ function runContractProbe(name) {
       [{ ...anchors[0], href: "/zh/personality/intj-t" }],
     )) {
       throw new Error("Misdirected structured section link unexpectedly passed");
+    }
+    if (profileSectionVisible(
+      section,
+      visibleText.replace("A/T 对比正文", ""),
+      anchors,
+    )) {
+      throw new Error("Missing runtime profile section heading unexpectedly passed");
     }
     return;
   }
@@ -544,6 +572,16 @@ function runContractProbe(name) {
       { robots: "index,follow" },
     )) {
       throw new Error("Backend profile noindex policy unexpectedly passed");
+    }
+    if (profileRobotsAuthorityPresent(
+      {
+        meta: { robots: "index,follow" },
+        surface: { robots_policy: "index,nofollow" },
+      },
+      { seo_surface_v1: { robots_policy: "index,follow" } },
+      { robots: "index,follow" },
+    )) {
+      throw new Error("Backend profile nofollow policy unexpectedly passed");
     }
     return;
   }
@@ -744,10 +782,10 @@ async function fetchFrontendRevision() {
   return revision;
 }
 
-function fetchFeedOnce(name) {
+async function fetchFeedOnce(name) {
   const url = FEED_URLS[name];
   if (!url) throw new Error(`Unsupported feed: ${name}`);
-  return execFileSync("curl", [
+  const { stdout } = await execFileAsync("curl", [
     "--http1.1",
     "--fail",
     "--silent",
@@ -760,7 +798,11 @@ function fetchFeedOnce(name) {
   ], {
     encoding: "utf8",
     maxBuffer: 10_000_000,
+    signal: FEED_ABORT_CONTROLLER.signal,
+    timeout: 125_000,
+    killSignal: "SIGTERM",
   });
+  return stdout;
 }
 
 async function fetchFeed(name) {
@@ -847,7 +889,9 @@ function robotsIndexable(facts) {
 
 function robotsSourceAllowsIndex(value) {
   const robots = normalizeText(value).toLowerCase();
-  return !/(?:^|[\s,])(?:noindex|none)(?:[\s,]|$)/.test(robots);
+  return /(?:^|[\s,])index(?:[\s,]|$)/.test(robots)
+    && /(?:^|[\s,])follow(?:[\s,]|$)/.test(robots)
+    && !/(?:^|[\s,])(?:noindex|nofollow|none)(?:[\s,]|$)/.test(robots);
 }
 
 function comparisonRobotsAuthorityPresent(payload, pageFacts) {
@@ -907,7 +951,7 @@ function structuredFacts(blocks) {
   const types = new Set();
   const faq = [];
   const pageIdentities = [];
-  const breadcrumbTargets = [];
+  const breadcrumbTrails = [];
   let invalid = false;
   blocks.forEach((block) => walkJson(block, (node) => {
     if (node.__invalid_jsonld) invalid = true;
@@ -921,10 +965,17 @@ function structuredFacts(blocks) {
       });
     }
     if (nodeTypes.includes("BreadcrumbList") && Array.isArray(node.itemListElement)) {
-      node.itemListElement.forEach((item) => {
-        const target = normalizeText(item?.item ?? item?.url);
-        if (target) breadcrumbTargets.push(target);
-      });
+      const trail = node.itemListElement
+        .map((item) => {
+          const target = item?.item;
+          return normalizeText(
+            typeof target === "string"
+              ? target
+              : (target?.["@id"] ?? target?.url ?? item?.url),
+          );
+        })
+        .filter(Boolean);
+      breadcrumbTrails.push(trail);
     }
     if (node["@type"] !== "FAQPage" || !Array.isArray(node.mainEntity)) return;
     node.mainEntity.forEach((question) => faq.push({
@@ -936,7 +987,7 @@ function structuredFacts(blocks) {
     types: [...types].sort(),
     faq,
     pageIdentities,
-    breadcrumbTargets,
+    breadcrumbTrails,
     invalid,
   };
 }
@@ -1297,21 +1348,23 @@ function profileSectionEvidence(section) {
 function profileSectionVisible(section, visibleText, visibleAnchors = []) {
   const sectionKey = section?.section_key ?? section?.key;
   const { candidates, links } = profileSectionEvidence(section);
+  const title = normalizeText(section?.title);
+  const requiredCandidates = title ? [title, ...candidates] : candidates;
   const comparableVisibleText = normalizeComparableText(visibleText);
-  const missingCandidates = candidates.filter((value) => (
+  const missingCandidates = requiredCandidates.filter((value) => (
     !comparableVisibleText.includes(normalizeComparableText(value))
   ));
   if (missingCandidates.length > 0 && DIAGNOSE_VISIBLE_BODY) {
     console.error(JSON.stringify({
       section_key: sectionKey,
-      candidate_count: candidates.length,
+      candidate_count: requiredCandidates.length,
       missing_candidate_count: missingCandidates.length,
       missing_candidate_lengths: missingCandidates.map((value) => value.length),
       missing_candidate_prefixes: missingCandidates.map((value) => value.slice(0, 40)),
     }));
   }
   return nonemptyString(sectionKey)
-    && (candidates.length > 0 || links.length > 0)
+    && (requiredCandidates.length > 0 || links.length > 0)
     && missingCandidates.length === 0
     && runtimeLinksVisible(links, visibleText, visibleAnchors);
 }
@@ -1793,7 +1846,10 @@ function jsonLdValid(kind, structured, canonical) {
     const nodes = structured.pageIdentities.filter(({ types }) => types.includes(requiredType));
     return nodes.length > 0 && nodes.every(identityMatchesCanonical);
   });
-  const breadcrumbMatches = structured.breadcrumbTargets.includes(canonical);
+  const breadcrumbMatches = structured.breadcrumbTrails.length > 0
+    && structured.breadcrumbTrails.every((trail) => (
+      trail.length > 0 && trail.at(-1) === canonical
+    ));
   if (!requiredPageNodesMatch || !breadcrumbMatches) return false;
   if (kind === "profile") {
     return structured.types.includes("FAQPage")
@@ -2071,6 +2127,7 @@ function releaseRunTwoLock() {
   }
 }
 function terminateValidationRun(signal, exitCode) {
+  FEED_ABORT_CONTROLLER.abort(new Error(`validation_interrupted:${signal}`));
   writePreflightValidationFailure(
     runStartedAt,
     validationSessionId,

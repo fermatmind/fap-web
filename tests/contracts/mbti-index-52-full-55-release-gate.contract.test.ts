@@ -36,6 +36,7 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
   it.each([
     "jsonld-node-identity",
     "jsonld-conflicting-identity",
+    "jsonld-breadcrumb-terminal",
     "projection-visibility",
     "comparison-summary-runtime-selection",
     "profile-reader-section-membership",
@@ -170,7 +171,8 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("nodes.every(identityMatchesCanonical)");
     expect(source).toContain("(!idPresent || id === canonical || id === `${canonical}#webpage`)");
     expect(source).toContain("(!urlPresent || url === canonical)");
-    expect(source).toContain("structured.breadcrumbTargets.includes(canonical)");
+    expect(source).toContain("structured.breadcrumbTrails.every");
+    expect(source).toContain("trail.at(-1) === canonical");
     expect(source).toContain("comparisonProjectionVisible");
     expect(source).toContain("comparisonVariantVisible");
     expect(source).toContain("comparisonBlockVisible");
@@ -190,6 +192,10 @@ describe("MBTI-INDEX-52 full 55 URL release gate", () => {
     expect(source).toContain("profileSeoAuthorityPresent");
     expect(source).toContain("profileRobotsAuthorityPresent(seoPayload, detailPayload, pageFacts)");
     expect(source).toContain("additionalRobotsSources.every(robotsSourceAllowsIndex)");
+    expect(source).toContain("(?:noindex|nofollow|none)");
+    expect(source).toContain("const execFileAsync = promisify(execFile)");
+    expect(source).toContain("signal: FEED_ABORT_CONTROLLER.signal");
+    expect(source).not.toContain("execFileSync(\"curl\"");
     expect(source).toContain("pageFacts?.title === expectedTitle");
     expect(source).toContain("pageFacts?.description === expectedDescription");
     expect(source).toContain('link[rel~="alternate"][hreflang]');
