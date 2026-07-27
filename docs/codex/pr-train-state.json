@@ -51541,7 +51541,7 @@
     ],
     "train_scope": "mbti_full_55_url_read_only_index_release_gate",
     "title": "MBTI-INDEX-52: revalidate all 55 Chinese MBTI URLs",
-    "commit_sha": "1e592eb7bd748a29ad9acc8d5f04292453fa246f",
+    "commit_sha": "b4f701cf7fc92792fe55b3b6ccf2bece97c9f0fe",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1816",
     "checks": {
       "authorization": {
@@ -51566,7 +51566,7 @@
       },
       "github_required_checks": {
         "status": "passed_implementation_head_ledger_recheck_pending",
-        "evidence": "PR #1816 exact head 97dc1fc2244dbf8e5c5caeb933b947265e953dd8 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified two remaining concurrency P2 gaps. Exact implementation head da1d2a9b7b15e67bb2197de9b82f292868a9b0d3 closes them by acquiring the same exclusive lock for run 1 and run 2 and by writing the existing fail-closed terminal artifacts before signal cleanup and exit. The final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
+        "evidence": "PR #1816 exact head e81933b1e9ab7b7a05743ff52f18bdc7708791d5 passed build, contracts, both personality freeze checks, CodeQL analysis, CodeQL, and no-new-code-scanning-alerts before exact-head review identified two remaining P2 gaps. Exact implementation head b4f701cf7fc92792fe55b3b6ccf2bece97c9f0fe closes them by requiring every populated AboutPage identity field to agree with the canonical and by serializing stale-lock recovery with an independently stale-recoverable PID/inode-guarded claim file. The final ledger head must retain all seven checks. INDEX-52 remains production_readback_blocked regardless."
       }
     },
     "scope_validation": {
@@ -51706,8 +51706,13 @@
         "at": "2026-07-27T08:42:00Z",
         "status": "production_readback_blocked",
         "summary": "Exact head bac1a4f9ff0b7db5d581654c8e43d97040f36bf0 passed all seven required/security checks and received exact-head review. Implementation head 1e592eb7bd748a29ad9acc8d5f04292453fa246f closes all three findings: FAQ q/a aliases now match the runtime normalizer, linkless answer blocks require text but no anchor, and stale-lock reclamation uses one atomic hard-link claim so only the claimant can unlink the verified inode. Focused contracts pass 30/30, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
+      },
+      {
+        "at": "2026-07-27T08:48:19Z",
+        "status": "production_readback_blocked",
+        "summary": "Exact head e81933b1e9ab7b7a05743ff52f18bdc7708791d5 passed all seven required/security checks and received exact-head review. Implementation head b4f701cf7fc92792fe55b3b6ccf2bece97c9f0fe closes both findings: all populated AboutPage identity fields must independently match the canonical, and stale-lock reclamation now uses an exclusive PID/inode-guarded claim file whose abandoned or expired corrupt owner can be recovered without unlinking a replacement inode. Focused contracts pass 31/31, scoped ESLint and git diff --check pass. Production remains held solely on the separately authorized backend authority repair."
       }
     ],
-    "updated_at": "2026-07-27T08:42:00Z"
+    "updated_at": "2026-07-27T08:48:19Z"
 }
 }
