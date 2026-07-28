@@ -235,6 +235,33 @@ Minimum production release wiring:
 - `CONTENT_RELEASE_REVALIDATE_REDIS_URL=<protected Redis REST endpoint>`
 - `CONTENT_RELEASE_REVALIDATE_REDIS_TOKEN=<protected Redis REST token>`
 
+### Controlled frontend revalidation runtime configuration
+
+The three frontend settings above must be converged through the protected
+`Content Release Revalidation Runtime Config` workflow. Do not edit the
+production environment file over an interactive SSH session.
+
+The workflow has two modes:
+
+- `preflight` is read-only. It binds the currently active frontend revision,
+  current runtime environment SHA-256, PM2 state, a read-only Redis REST probe,
+  and a SHA-256 of the three protected credential values. It never emits the
+  values themselves.
+- `apply` requires the immutable successful preflight artifact and its exact
+  authorization phrase. It atomically replaces only
+  `CONTENT_RELEASE_REVALIDATE_SECRET`,
+  `CONTENT_RELEASE_REVALIDATE_REDIS_URL`, and
+  `CONTENT_RELEASE_REVALIDATE_REDIS_TOKEN`, then performs a rolling reload of
+  only the `fap-web` PM2 application and persists the PM2 state.
+
+The protected `production` environment must provide all three values as
+GitHub Actions secrets, along with the existing Node1 SSH secrets. The workflow
+does not support Actions variables or plaintext fallbacks. It does not deploy
+application code, invoke the revalidation endpoint, mutate CMS/backend data, or
+automatically roll back. A failed apply receipt distinguishes zero-write
+failures from a configuration write that occurred before PM2 convergence
+failed.
+
 Sitemap note: `sitemap.xml` is a generated static artifact, not a path that this revalidation consumer can rewrite. Daily publishing still needs a sitemap regeneration/deploy step, or a future dynamic sitemap rollout, before sitemap freshness can be treated as automatic.
 
 Expected release behavior:
