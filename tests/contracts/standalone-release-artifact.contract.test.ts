@@ -151,7 +151,9 @@ describe("immutable standalone release artifact", () => {
     expect(ci).not.toContain("secrets.WEB_NEXT_PUBLIC_ANALYTICS");
     expect(ci).toContain("--require-production-config");
     expect(ci).toContain("--sort=name --mtime='UTC 1970-01-01'");
-    expect(ci).toContain("subject-path: .next/release/fap-web-${{ github.sha }}.tar.gz");
+    expect(ci).toContain("id: upload-release");
+    expect(ci).toContain("subject-name: fap-web-standalone-${{ github.sha }}.zip");
+    expect(ci).toContain("subject-digest: sha256:${{ steps.upload-release.outputs.artifact-digest }}");
     expect(ci).not.toContain("deploy_web_pm2.sh");
     expect(ci).not.toContain("ssh ");
   });

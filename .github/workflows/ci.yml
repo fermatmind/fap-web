@@ -78,6 +78,7 @@ jobs:
 
       - name: Upload exact-SHA standalone release
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        id: upload-release
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: fap-web-standalone-${{ github.sha }}
@@ -90,7 +91,8 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: actions/attest@f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6 # v4
         with:
-          subject-path: .next/release/fap-web-${{ github.sha }}.tar.gz
+          subject-name: fap-web-standalone-${{ github.sha }}.zip
+          subject-digest: sha256:${{ steps.upload-release.outputs.artifact-digest }}
 
       - run: pnpm test:a11y
 
