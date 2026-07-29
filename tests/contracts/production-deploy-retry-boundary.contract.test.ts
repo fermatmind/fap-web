@@ -65,14 +65,14 @@ describe("production deploy retry boundary", () => {
   );
 
   it("invokes the production business deploy at most once", () => {
-    const deployStart = workflow.indexOf("- name: Deploy production with PM2");
+    const deployStart = workflow.indexOf("- name: Promote receipt-bound immutable release");
     const revisionStart = workflow.indexOf("- name: Poll deployed revision endpoint");
     const deployStep = workflow.slice(deployStart, revisionStart);
 
     expect(deployStart).toBeGreaterThan(0);
     expect(revisionStart).toBeGreaterThan(deployStart);
-    expect(deployStep.match(/bash '\$APP_DIR\/scripts\/deploy_web_pm2\.sh'/g)).toHaveLength(1);
-    expect(deployStep).toContain("Business deploy is intentionally single-shot");
+    expect(deployStep.match(/bash '\$REMOTE_CONTROL_DIR\/install_standalone_release\.sh'/g)).toHaveLength(1);
+    expect(deployStep).toContain("Business promotion is intentionally single-shot");
     expect(deployStep).not.toContain("retry_ssh_transport");
     expect(deployStep).not.toContain("for attempt in");
     expect(workflow).not.toContain("ssh_retry()");

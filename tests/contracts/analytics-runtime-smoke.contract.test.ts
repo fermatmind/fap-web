@@ -62,13 +62,13 @@ describe("analytics runtime smoke contract", () => {
     );
   });
 
-  it("wires the reusable write-aborting probe only after an authorized production deployment", () => {
+  it("keeps production deployment fast and delegates the browser probe to the async monitor", () => {
     expect(workflow).toContain('workflow_run:');
     expect(workflow).toContain('workflow_dispatch:');
-    expect(workflow).toContain('name: Probe CSP-safe analytics collection without telemetry writes');
-    expect(workflow).toContain('pnpm analytics:runtime-smoke --');
-    expect(workflow).toContain('--base-url "$PUBLIC_BASE_URL"');
-    expect(workflow).toContain('name: Upload analytics runtime smoke report');
-    expect(workflow).toContain('if: always()');
+    expect(workflow).not.toContain('name: Probe CSP-safe analytics collection without telemetry writes');
+    expect(workflow).not.toContain('pnpm analytics:runtime-smoke --');
+    expect(workflow).not.toContain("pnpm install --frozen-lockfile");
+    expect(workflow).toContain('telemetry_probe: "deferred_to_analytics_runtime_monitor"');
+    expect(workflow).toContain("name: Upload analytics deployment provenance");
   });
 });
