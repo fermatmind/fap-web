@@ -54,7 +54,7 @@ describe("AUDIT-PRR2-WEB-01 production recovery lane", () => {
   });
 
   it("keeps revision verification and smoke mandatory after deployment", () => {
-    const deploy = workflow.indexOf("- name: Deploy production with PM2");
+    const deploy = workflow.indexOf("- name: Promote receipt-bound immutable release");
     const revision = workflow.indexOf("- name: Poll deployed revision endpoint");
     const smoke = workflow.indexOf("- name: Smoke production public surfaces");
     expect(deploy).toBeGreaterThan(0);

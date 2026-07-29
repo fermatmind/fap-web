@@ -17,11 +17,6 @@ describe("production deploy workflow environment contract", () => {
       "WEB_NODE1_APP_MANAGER",
       "WEB_NODE1_SYSTEMD_SERVICE",
       "WEB_PUBLIC_BASE_URL",
-      "WEB_NEXT_PUBLIC_API_URL",
-      "WEB_NEXT_PUBLIC_SITE_URL",
-      "WEB_NEXT_PUBLIC_ANALYTICS_ENABLED",
-      "WEB_NEXT_PUBLIC_GA_MEASUREMENT_ID",
-      "WEB_NEXT_PUBLIC_BAIDU_TONGJI_ID",
       "WEB_PRODUCTION_CORE_PUBLIC_PATH",
       "WEB_PRODUCTION_RUN_SITEMAP_HEALTH",
     ]) {
@@ -30,9 +25,9 @@ describe("production deploy workflow environment contract", () => {
 
     expect(workflow).toContain("test -n \"$DEPLOY_HOST\"");
     expect(workflow).toContain("test -n \"$DEPLOY_USER\"");
-    expect(workflow).toContain("analytics_enabled=PASS");
-    expect(workflow).toContain("ga_measurement_id=PASS");
-    expect(workflow).toContain("baidu_tongji_id=PASS");
+    expect(workflow).not.toContain("secrets.WEB_NEXT_PUBLIC_");
+    expect(workflow).toContain("--require-production-config");
+    expect(workflow).toContain("Receipt-bound artifact digest does not match");
   });
 
   it("keeps manual risky deploys SHA-bound, check-gated, and protected-environment gated", () => {
@@ -60,5 +55,6 @@ describe("production deploy workflow environment contract", () => {
     expect(workflow).toContain("protected production GitHub Environment");
     expect(workflow).toContain("fm-analytics-bootstrap");
     expect(workflow).toContain("private analytics smoke failed");
+    expect(workflow).toContain("environment:\n      name: production");
   });
 });
