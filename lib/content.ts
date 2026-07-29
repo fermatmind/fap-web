@@ -46,6 +46,16 @@ export type TestListItem = {
 export type Test = TestListItem;
 
 export type TestLookup = {
+  ok: true;
+  primary_slug: string;
+  slug: string;
+  requested_slug: string;
+  resolved_from_alias: boolean;
+  scale_code: string;
+  scale_code_legacy?: string | null;
+  scale_code_v2?: string | null;
+  locale: string;
+  is_public: true;
   seo_title?: string | null;
   seo_description?: string | null;
   og_image_url?: string | null;
@@ -92,6 +102,86 @@ function toStringRecord(value: unknown): Record<string, string> | undefined {
     }
   }
   return Object.keys(out).length > 0 ? out : undefined;
+}
+
+function toNullableString(value: unknown): string | null {
+  const normalized = toString(value);
+  return normalized || null;
+}
+
+function normalizeLookupPayload(payload: unknown, requestedSlug: string, locale: Locale): TestLookup {
+  const row = toRecord(payload);
+  const primarySlug = resolveCanonicalSlug(toString(row.primary_slug ?? row.slug));
+  const normalizedRequestedSlug = resolveCanonicalSlug(requestedSlug);
+  const scaleCode = normalizeSupportedScaleCode(toString(row.scale_code))
+    ?? normalizeSupportedScaleCode(toString(row.scale_code_legacy))
+    ?? toString(row.scale_code);
+  const responseLocale = toString(row.locale);
+  const forms = Array.isArray(row.forms) ? row.forms : [];
+  const landingSurface = toRecord(row.landing_surface_v1);
+  const localeMatches =
+    locale === "zh"
+      ? responseLocale === "zh" || responseLocale.toLowerCase() === "zh-cn"
+      : responseLocale.toLowerCase() === "en";
+
+  if (
+    row.ok !== true
+    || row.is_public !== true
+    || !primarySlug
+    || primarySlug !== normalizedRequestedSlug
+    || !scaleCode
+    || !localeMatches
+    || !toString(row.requested_slug)
+    || typeof row.is_indexable !== "boolean"
+    || forms.length === 0
+    || forms.some((form) => {
+      const node = toRecord(form);
+      return !toString(node.form_code) || toNumber(node.question_count) <= 0;
+    })
+    || Object.keys(landingSurface).length === 0
+    || !row.content_i18n_json
+    || typeof row.content_i18n_json !== "object"
+    || Array.isArray(row.content_i18n_json)
+  ) {
+    throw new PublicReadError({ kind: "contract", cause: payload });
+  }
+
+  return {
+    ok: true,
+    primary_slug: primarySlug,
+    slug: primarySlug,
+    requested_slug: toString(row.requested_slug),
+    resolved_from_alias: row.resolved_from_alias === true,
+    scale_code: scaleCode,
+    scale_code_legacy: toNullableString(row.scale_code_legacy),
+    scale_code_v2: toNullableString(row.scale_code_v2),
+    locale: responseLocale,
+    is_public: true,
+    seo_title: toNullableString(row.seo_title),
+    seo_description: toNullableString(row.seo_description),
+    og_image_url: toNullableString(row.og_image_url),
+    is_indexable: typeof row.is_indexable === "boolean" ? row.is_indexable : undefined,
+    pack_id: toNullableString(row.pack_id),
+    dir_version: toNullableString(row.dir_version),
+    content_package_version: toNullableString(row.content_package_version),
+    manifest_hash: toNullableString(row.manifest_hash),
+    norms_version: toNullableString(row.norms_version),
+    quality_level: toNullableString(row.quality_level),
+    capabilities: Object.keys(toRecord(row.capabilities)).length > 0 ? toRecord(row.capabilities) : null,
+    commercial: Object.keys(toRecord(row.commercial)).length > 0 ? toRecord(row.commercial) : null,
+    price_tier: toNullableString(row.price_tier),
+    report_unlock_sku: toNullableString(row.report_unlock_sku),
+    upgrade_sku: toNullableString(row.upgrade_sku),
+    upgrade_sku_anchor: toNullableString(row.upgrade_sku_anchor),
+    offers: row.offers,
+    forms,
+    content_i18n_json: toRecord(row.content_i18n_json),
+    report_summary_i18n_json:
+      Object.keys(toRecord(row.report_summary_i18n_json)).length > 0
+        ? toRecord(row.report_summary_i18n_json)
+        : null,
+    landing_surface_v1: landingSurface as LandingSurfaceRaw,
+  };
 }
 
 function normalizeCatalogItem(item: unknown): TestListItem | null {
@@ -204,37 +294,11 @@ export async function getTestLookup(slug: string, locale: Locale = "en"): Promis
       }
     );
 
-    if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
-      throw new PublicReadError({ kind: "contract", cause: payload });
-    }
-    if (payload.ok === false) {
+    if (payload?.ok === false) {
       return null;
     }
 
-    return {
-      seo_title: payload.seo_title as string | null | undefined,
-      seo_description: payload.seo_description as string | null | undefined,
-      og_image_url: payload.og_image_url as string | null | undefined,
-      is_indexable: typeof payload.is_indexable === "boolean" ? payload.is_indexable : undefined,
-      pack_id: (payload.pack_id as string | null | undefined) ?? null,
-      dir_version: (payload.dir_version as string | null | undefined) ?? null,
-      content_package_version: (payload.content_package_version as string | null | undefined) ?? null,
-      manifest_hash: (payload.manifest_hash as string | null | undefined) ?? null,
-      norms_version: (payload.norms_version as string | null | undefined) ?? null,
-      quality_level: (payload.quality_level as string | null | undefined) ?? null,
-      capabilities: (payload.capabilities as Record<string, unknown> | null | undefined) ?? null,
-      commercial: (payload.commercial as Record<string, unknown> | null | undefined) ?? null,
-      price_tier: (payload.price_tier as string | null | undefined) ?? null,
-      report_unlock_sku: (payload.report_unlock_sku as string | null | undefined) ?? null,
-      upgrade_sku: (payload.upgrade_sku as string | null | undefined) ?? null,
-      upgrade_sku_anchor: (payload.upgrade_sku_anchor as string | null | undefined) ?? null,
-      offers: payload.offers,
-      forms: Array.isArray(payload.forms) ? payload.forms : null,
-      content_i18n_json: (payload.content_i18n_json as Record<string, unknown> | null | undefined) ?? null,
-      report_summary_i18n_json:
-        (payload.report_summary_i18n_json as Record<string, unknown> | null | undefined) ?? null,
-      landing_surface_v1: (payload.landing_surface_v1 as LandingSurfaceRaw | null | undefined) ?? null,
-    };
+    return normalizeLookupPayload(payload, normalizedSlug, locale);
   } catch (error) {
     if (isAuthoritativePublicAbsence(error)) {
       return null;

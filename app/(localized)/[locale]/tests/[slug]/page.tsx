@@ -21,13 +21,7 @@ import { SCALE_CANONICAL_SLUG_MAP, resolveCanonicalSlug } from "@/lib/assessment
 import { computeManifestHash } from "@/lib/big5/manifest";
 import { getCmsArticlesWithLastKnownGood, type CmsArticle } from "@/lib/cms/articles";
 import {
-  getCmsLandingSurfaceWithLastKnownGood,
-  type CmsLandingSurface,
-} from "@/lib/cms/landing-surfaces";
-import {
   getAllTests,
-  getTestBySlug,
-  getTestLookup,
   resolveTestTitleByLocale,
 } from "@/lib/content";
 import { resolveCardSpec } from "@/lib/design/card-resolver";
@@ -96,6 +90,13 @@ import {
 } from "@/lib/rollout/scaleRollout";
 import { findLandingCta, normalizeLandingSurface } from "@/lib/landing/landingSurface";
 import { getFreeTestStartLabel } from "@/lib/tests/freeTestLabels";
+import {
+  loadTestLandingData,
+} from "@/lib/tests/testLandingData";
+import type {
+  TestDetailCmsLandingSurfacePayload,
+} from "@/lib/tests/testLandingCmsEnrichment";
+import type { CmsLandingSurface } from "@/lib/cms/landing-surfaces";
 import { isRetryablePublicReadError } from "@/lib/public-content/readError";
 import {
   buildBreadcrumbJsonLd,
@@ -112,23 +113,6 @@ import {
 } from "@/lib/seo/testDetailAuthority";
 import { getIqSeoRampAuthorityForLocale } from "@/lib/seo/iqSeoRampAuthority";
 import { formatCardTitleForUi } from "@/lib/ui/testTitleDisplay";
-
-type TestDetailCmsLandingSurfacePayload = {
-  seo_title?: string | null;
-  seo_description?: string | null;
-  h1_or_hero_title?: string | null;
-  hero_copy?: string | null;
-  primary_cta_label?: string | null;
-  aeo_answer_block?: string | null;
-  methodology_boundary_note?: string | null;
-  approved_internal_link_targets?: unknown;
-  claim_risk_notes?: unknown;
-};
-
-const TEST_DETAIL_CMS_LANDING_SURFACE_KEYS: Partial<Record<string, string>> = {
-  [SCALE_CANONICAL_SLUG_MAP.MBTI]: "test_detail_mbti_personality_test_16_personality_types",
-  [SCALE_CANONICAL_SLUG_MAP.RIASEC]: "test_detail_holland_career_interest_test_riasec",
-};
 
 async function fetchRelatedArticles(testSlug: string, locale: "en" | "zh"): Promise<CmsArticle[]> {
   try {
@@ -258,23 +242,6 @@ function isSoftwareApplicationSchemaScaleEligible({
     "ENNEAGRAM",
     "RIASEC",
   ].includes(normalizedScaleCode);
-}
-
-async function getTestDetailCmsLandingSurface(
-  slug: string,
-  locale: "en" | "zh"
-): Promise<CmsLandingSurface<TestDetailCmsLandingSurfacePayload> | null> {
-  const surfaceKey = TEST_DETAIL_CMS_LANDING_SURFACE_KEYS[slug];
-  if (!surfaceKey) {
-    return null;
-  }
-
-  try {
-    const surface = await getCmsLandingSurfaceWithLastKnownGood<TestDetailCmsLandingSurfacePayload>(surfaceKey, locale);
-    return surface.value;
-  } catch {
-    return null;
-  }
 }
 
 function resolveTestDetailCmsLandingSurfaceContent(
@@ -812,25 +779,16 @@ export async function generateMetadata({
   const { locale: localeParam, slug: requestedSlug } = await params;
   const slug = resolveCanonicalSlug(requestedSlug);
   const locale = resolveLocale(localeParam);
-  const test = await getTestBySlug(slug, locale);
+  const landingData = await loadTestLandingData(locale, slug);
 
-  if (!test) {
+  if (!landingData) {
     return {
       title: "Not Found",
       robots: { index: false, follow: false },
     };
   }
 
-  const [lookup, cmsLandingSurface] = await Promise.all([
-    getTestLookup(slug, locale),
-    getTestDetailCmsLandingSurface(slug, locale),
-  ]);
-  if (!lookup) {
-    return {
-      title: "Not Found",
-      robots: { index: false, follow: false },
-    };
-  }
+  const { test, lookup, cmsLandingSurface } = landingData;
   const alternates = alternatesForSlug(test.slug);
   const canonical = localizedPath(`/tests/${test.slug}`, locale);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
@@ -913,15 +871,10 @@ export default async function TestLandingPage({
     permanentRedirect(appendQuery(withLocale(`/tests/${slug}`), query));
   }
 
-  const test = await getTestBySlug(slug, locale);
-  if (!test) return notFound();
-
   const dict = getDictSync(locale);
-  const [lookup, cmsLandingSurface] = await Promise.all([
-    getTestLookup(slug, locale),
-    getTestDetailCmsLandingSurface(slug, locale),
-  ]);
-  if (!lookup) return notFound();
+  const landingData = await loadTestLandingData(locale, slug);
+  if (!landingData) return notFound();
+  const { test, lookup, cmsLandingSurface } = landingData;
   const cmsLandingSurfaceContent = resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface);
   const landingSurface = normalizeLandingSurface(lookup?.landing_surface_v1 ?? null);
   const localizedTestTitle = resolveTestTitleByLocale(test, locale);
@@ -1428,6 +1381,8 @@ export default async function TestLandingPage({
   return (
     <main
       className="mx-auto w-full max-w-6xl px-[var(--fm-container-gutter)] pb-[var(--fm-space-30)] pt-12 lg:pb-12"
+      data-test-landing-read-source={landingData.source}
+      data-test-landing-cms-source={landingData.cmsSource}
       {...(isSelfUnderstanding ? {
         "data-domain-id": "self_understanding",
         "data-domain-role": domainRole,

@@ -3,15 +3,20 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 
 const PAGE_PATH = path.join(process.cwd(), "app/(localized)/[locale]/tests/[slug]/page.tsx");
+const CMS_ENRICHMENT_PATH = path.join(
+  process.cwd(),
+  "lib/tests/testLandingCmsEnrichment.ts",
+);
 
 describe("SEO-FREE-TEST-FLAGSHIP-LANDING-03 contract", () => {
   it("prioritizes published CMS landing-surface seo and hero fields before zh flagship fallback copy", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
+    const cmsEnrichmentSource = fs.readFileSync(CMS_ENRICHMENT_PATH, "utf8");
 
     expect(source).toContain("getFlagshipFreeTestCopy(test.scale_code, locale)");
-    expect(source).toContain("getTestDetailCmsLandingSurface(slug, locale)");
-    expect(source).toContain('"test_detail_mbti_personality_test_16_personality_types"');
-    expect(source).toContain('"test_detail_holland_career_interest_test_riasec"');
+    expect(source).toContain("loadTestLandingData(locale, slug)");
+    expect(cmsEnrichmentSource).toContain('"test_detail_mbti_personality_test_16_personality_types"');
+    expect(cmsEnrichmentSource).toContain('"test_detail_holland_career_interest_test_riasec"');
     expect(source).toContain("MBTI免费测试｜16型人格测试");
     expect(source).toContain("大五人格免费测试｜Big Five人格测试");
     expect(source).toContain("九型人格免费测试｜九型人格测试");

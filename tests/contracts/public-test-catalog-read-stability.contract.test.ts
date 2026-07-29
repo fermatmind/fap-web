@@ -104,9 +104,29 @@ describe("public test lookup read stability", () => {
   it("returns backend lookup authority for a published slug", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => jsonResponse({
       ok: true,
+      primary_slug: SCALE_CANONICAL_SLUG_MAP.MBTI,
+      slug: SCALE_CANONICAL_SLUG_MAP.MBTI,
+      requested_slug: SCALE_CANONICAL_SLUG_MAP.MBTI,
+      resolved_from_alias: false,
+      scale_code: "MBTI",
+      locale: "zh-CN",
+      is_public: true,
       seo_title: "Backend title",
       is_indexable: true,
-      forms: [{ form_code: "mbti_93" }],
+      forms: [{ form_code: "mbti_93", question_count: 93 }],
+      content_i18n_json: {
+        zh: {
+          title: "Backend title",
+          description: "Backend description",
+          catalog: { questions_count: 93, time_minutes: 12 },
+        },
+      },
+      landing_surface_v1: {
+        version: "landing.surface.v1",
+        entry_surface: "test_detail",
+        start_test_target: `/zh/tests/${SCALE_CANONICAL_SLUG_MAP.MBTI}/take`,
+        cta_bundle: [],
+      },
     })));
 
     await expect(getTestLookup(SCALE_CANONICAL_SLUG_MAP.MBTI, "zh")).resolves.toMatchObject({
@@ -146,8 +166,8 @@ describe("public test lookup read stability", () => {
   it("routes lookup absence to not-found while allowing transient errors to reach the error boundary", () => {
     const source = read("app/(localized)/[locale]/tests/[slug]/page.tsx");
 
-    expect(source).toContain("getTestLookup(slug, locale)");
-    expect(source).toContain("if (!lookup) return notFound();");
+    expect(source).toContain("loadTestLandingData(locale, slug)");
+    expect(source).toContain("if (!landingData) return notFound();");
     expect(source).not.toContain("async function fetchLookup");
   });
 
