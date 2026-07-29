@@ -16,7 +16,6 @@ SITEMAP_URL="${SITEMAP_URL:-${PUBLIC_BASE_URL%/}${SITEMAP_PATH}}"
 REVISION_PATH="${REVISION_PATH:-/revision}"
 SITEMAP_CURL_TIMEOUT_SEC="${SITEMAP_CURL_TIMEOUT_SEC:-20}"
 RUN_SITEMAP_HEALTH="${RUN_SITEMAP_HEALTH:-1}"
-GIT_BRANCH="${GIT_BRANCH:-main}"
 DEPLOY_SHA="${DEPLOY_SHA:-}"
 EXPECTED_NODE_MAJOR="${EXPECTED_NODE_MAJOR:-24}"
 EXPECTED_NODE_BIN="${EXPECTED_NODE_BIN:-/usr/bin/node}"
@@ -32,8 +31,6 @@ CONTENT_RELEASE_REVALIDATE_SLUG="${CONTENT_RELEASE_REVALIDATE_SLUG:-help-privacy
 CONTENT_RELEASE_REVALIDATE_PATHS="${CONTENT_RELEASE_REVALIDATE_PATHS:-/help/privacy,/support}"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROLLING_RELOAD_SCRIPT="${ROLLING_RELOAD_SCRIPT:-${SCRIPT_DIR}/rolling_reload_pm2.sh}"
-SYNC_STANDALONE_ASSETS_SCRIPT="${SYNC_STANDALONE_ASSETS_SCRIPT:-${SCRIPT_DIR}/sync_standalone_assets.sh}"
-GENERATED_PUBLIC_ARTIFACTS="${GENERATED_PUBLIC_ARTIFACTS:-}"
 ANALYTICS_PUBLIC_PATHS="${ANALYTICS_PUBLIC_PATHS:-/zh /zh/personality /zh/articles}"
 ANALYTICS_PRIVATE_PATHS="${ANALYTICS_PRIVATE_PATHS:-/zh/result/SYNTHETIC_DO_NOT_USE /zh/orders/lookup /zh/pay/wait /zh/payment/stripe/cancel}"
 PRIVATE_SITEMAP_PATH_PATTERN='<loc>[[:space:]]*https?://[^/<]+(/(en|zh))?/(result|results|order|orders|share|pay|payment|payments|history)(/|[?#]|<)'
@@ -90,12 +87,7 @@ require_node_major() {
 }
 
 print_runtime_summary() {
-  local pnpm_bin
-  local pnpm_version
-
-  pnpm_bin="$(command -v pnpm)"
-  pnpm_version="$(pnpm -v)"
-  log "runtime summary: node=${PATH_NODE_BIN} (${PATH_NODE_VERSION}), ${EXPECTED_NODE_BIN} (${EXPECTED_NODE_VERSION}), pnpm=${pnpm_bin} (${pnpm_version})"
+  log "runtime summary: node=${PATH_NODE_BIN} (${PATH_NODE_VERSION}), ${EXPECTED_NODE_BIN} (${EXPECTED_NODE_VERSION})"
 }
 
 probe_headers() {
@@ -164,58 +156,6 @@ NODE
   fi
 
   log "deployed revision endpoint passed: ${url}"
-}
-
-require_analytics_build_config() {
-  local failed=0
-
-  if [[ "${NEXT_PUBLIC_ANALYTICS_ENABLED:-}" == "true" ]]; then
-    log "analytics_enabled=PASS"
-  else
-    log "analytics_enabled=FAIL"
-    failed=1
-  fi
-
-  if [[ "${NEXT_PUBLIC_GA_MEASUREMENT_ID:-}" =~ ^G-[A-Z0-9]{4,32}$ ]]; then
-    log "ga_measurement_id=PASS"
-  else
-    log "ga_measurement_id=FAIL"
-    failed=1
-  fi
-
-  if [[ "${NEXT_PUBLIC_BAIDU_TONGJI_ID:-}" =~ ^[a-f0-9]{16,64}$ ]]; then
-    log "baidu_tongji_id=PASS"
-  else
-    log "baidu_tongji_id=FAIL"
-    failed=1
-  fi
-
-  if [[ "$failed" != "0" ]]; then
-    log "analytics build configuration failed"
-    exit 1
-  fi
-}
-
-write_systemd_runtime_env() {
-  local runtime_env
-  local runtime_env_tmp
-
-  if [[ "$APP_MANAGER" != "systemd" ]]; then
-    return 0
-  fi
-
-  runtime_env="${APP_DIR}/.next/standalone/.env.production.local"
-  runtime_env_tmp="${runtime_env}.tmp"
-  umask 077
-  {
-    printf 'FERMATMIND_DEPLOYED_REVISION_FILE=%s\n' "${APP_DIR}/REVISION"
-    printf 'NEXT_PUBLIC_ANALYTICS_ENABLED=%s\n' "$NEXT_PUBLIC_ANALYTICS_ENABLED"
-    printf 'NEXT_PUBLIC_GA_MEASUREMENT_ID=%s\n' "$NEXT_PUBLIC_GA_MEASUREMENT_ID"
-    printf 'NEXT_PUBLIC_BAIDU_TONGJI_ID=%s\n' "$NEXT_PUBLIC_BAIDU_TONGJI_ID"
-  } > "$runtime_env_tmp"
-  mv "$runtime_env_tmp" "$runtime_env"
-  chmod 600 "$runtime_env"
-  log "systemd runtime environment prepared"
 }
 
 require_analytics_bootstrap_contract() {
@@ -341,27 +281,7 @@ require_sitemap_health() {
   trap - RETURN
 }
 
-restore_generated_public_artifacts() {
-  local artifact
-  local restored=0
-
-  for artifact in $GENERATED_PUBLIC_ARTIFACTS; do
-    if git ls-files --error-unmatch "$artifact" >/dev/null 2>&1 && ! git diff --quiet -- "$artifact"; then
-      git restore -- "$artifact"
-      log "restored generated public artifact after standalone sync: ${artifact}"
-      restored=1
-    fi
-  done
-
-  if [[ "$restored" == "0" ]]; then
-    log "no tracked generated public artifacts required restore"
-  fi
-}
-
 require_bin node
-require_bin git
-require_bin pnpm
-require_bin rsync
 if [[ "$APP_MANAGER" == "pm2" ]]; then
   require_bin pm2
 elif [[ "$APP_MANAGER" == "systemd" ]]; then
@@ -377,7 +297,6 @@ PATH_NODE_BIN="$(command -v node)"
 PATH_NODE_VERSION="$(require_node_major "shell node" "$PATH_NODE_BIN")"
 EXPECTED_NODE_VERSION="$(require_node_major "runtime node" "$EXPECTED_NODE_BIN")"
 print_runtime_summary
-require_analytics_build_config
 
 CURRENT_USER="$(id -un)"
 if [[ "$CURRENT_USER" != "$APP_USER" ]]; then
@@ -392,39 +311,24 @@ fi
 
 cd "$APP_DIR"
 
-log "sync code with origin/${GIT_BRANCH}"
-git fetch --prune origin
-git checkout -B "$GIT_BRANCH" "origin/${GIT_BRANCH}"
-if [[ -n "$DEPLOY_SHA" ]]; then
-  git reset --hard "$DEPLOY_SHA"
-else
-  git reset --hard "origin/${GIT_BRANCH}"
+if [[ ! "$DEPLOY_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+  log "DEPLOY_SHA must be an exact lowercase 40-character commit SHA"
+  exit 1
 fi
-DEPLOYED_REVISION="$(git rev-parse HEAD)"
+if [[ ! -f .next/standalone/server.js ]] || [[ ! -f .next/standalone/REVISION ]]; then
+  log "verified standalone release is not active"
+  exit 1
+fi
+DEPLOYED_REVISION="$(tr -d '[:space:]' < .next/standalone/REVISION)"
 if [[ ! "$DEPLOYED_REVISION" =~ ^[0-9a-f]{40}$ ]]; then
-  log "current deployed revision is invalid"
+  log "active artifact revision is invalid"
   exit 1
 fi
-if [[ -n "$DEPLOY_SHA" && "$DEPLOYED_REVISION" != "$DEPLOY_SHA" ]]; then
-  log "current deployed revision does not match DEPLOY_SHA"
+if [[ "$DEPLOYED_REVISION" != "$DEPLOY_SHA" ]]; then
+  log "active artifact revision does not match DEPLOY_SHA"
   exit 1
 fi
-log "current commit: ${DEPLOYED_REVISION:0:12}"
-
-log "install/build"
-rm -rf .next
-pnpm install --frozen-lockfile
-NODE_OPTIONS='' pnpm run build
-
-if [[ ! -f .next/standalone/server.js ]]; then
-  log "missing build artifact: .next/standalone/server.js"
-  exit 1
-fi
-
-log "sync standalone static assets"
-bash "$SYNC_STANDALONE_ASSETS_SCRIPT"
-restore_generated_public_artifacts
-write_systemd_runtime_env
+log "active immutable release: ${DEPLOYED_REVISION:0:12}"
 require_candidate_analytics_smoke
 
 if [[ "$APP_MANAGER" == "pm2" ]]; then

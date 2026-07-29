@@ -2,15 +2,17 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 const deployScript = readFileSync("scripts/deploy_web_pm2.sh", "utf8");
+const releaseScript = readFileSync("scripts/release/standalone-release.mjs", "utf8");
 
 describe("production analytics deploy contract", () => {
-  it("fails closed before build when the analytics configuration is missing or invalid", () => {
-    expect(deployScript).toContain("require_analytics_build_config");
-    expect(deployScript).toContain('analytics_enabled=PASS');
-    expect(deployScript).toContain('ga_measurement_id=PASS');
-    expect(deployScript).toContain('baidu_tongji_id=PASS');
-    expect(deployScript).toContain('^G-[A-Z0-9]{4,32}$');
-    expect(deployScript).toContain('^[a-f0-9]{16,64}$');
+  it("fails closed before activation when the artifact build configuration is missing or invalid", () => {
+    expect(releaseScript).toContain("validateProductionConfig(process.env, revision)");
+    expect(releaseScript).toContain("buildConfigSnapshot(process.env)");
+    expect(releaseScript).toContain("release build configuration is incompatible");
+    expect(releaseScript).toContain('NEXT_PUBLIC_ANALYTICS_ENABLED", "true"');
+    expect(releaseScript).toContain("/^G-[A-Z0-9]{4,32}$/");
+    expect(releaseScript).toContain("/^[a-f0-9]{16,64}$/");
+    expect(deployScript).not.toContain("pnpm run build");
   });
 
   it("checks a candidate server before reload and rechecks production afterwards", () => {
@@ -40,22 +42,15 @@ describe("production analytics deploy contract", () => {
     expect(productionSmokeIndex).toBeGreaterThan(reloadIndex);
   });
 
-  it("persists validated analytics settings for the systemd standalone runtime", () => {
-    expect(deployScript).toContain("write_systemd_runtime_env");
-    expect(deployScript).toContain(
-      'runtime_env="${APP_DIR}/.next/standalone/.env.production.local"',
-    );
-    expect(deployScript).toContain("FERMATMIND_DEPLOYED_REVISION_FILE=%s");
-    expect(deployScript).toContain("NEXT_PUBLIC_ANALYTICS_ENABLED=%s");
-    expect(deployScript).toContain("NEXT_PUBLIC_GA_MEASUREMENT_ID=%s");
-    expect(deployScript).toContain("NEXT_PUBLIC_BAIDU_TONGJI_ID=%s");
-    expect(deployScript).toContain('chmod 600 "$runtime_env"');
+  it("keeps the verified artifact immutable instead of writing runtime analytics env files", () => {
+    expect(deployScript).not.toContain("write_systemd_runtime_env");
+    expect(deployScript).not.toContain(".env.production.local");
+    expect(deployScript).not.toContain("NEXT_PUBLIC_ANALYTICS_ENABLED=%s");
+    expect(deployScript).toContain('[[ ! -f .next/standalone/server.js ]]');
 
-    const writeRuntimeEnvIndex = deployScript.lastIndexOf(
-      "write_systemd_runtime_env",
-    );
     const candidateIndex = deployScript.lastIndexOf("require_candidate_analytics_smoke");
-    expect(writeRuntimeEnvIndex).toBeGreaterThan(-1);
-    expect(candidateIndex).toBeGreaterThan(writeRuntimeEnvIndex);
+    const activeReleaseIndex = deployScript.lastIndexOf("active immutable release");
+    expect(activeReleaseIndex).toBeGreaterThan(-1);
+    expect(candidateIndex).toBeGreaterThan(activeReleaseIndex);
   });
 });

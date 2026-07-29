@@ -83,7 +83,9 @@ describe("SECURITY-103-WEB-01 deploy workflow hardening", () => {
     expect(stagingWorkflow).toContain("git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main");
     expect(stagingWorkflow).toContain("if [ \"$DEPLOY_SHA\" != \"$LATEST_MAIN_SHA\" ]; then");
     expect(stagingWorkflow).toContain("Manual staging deploy failed closed: deploy_sha must equal latest origin/main.");
-    expect(stagingWorkflow).toContain("git reset --hard '$DEPLOY_SHA'");
+    expect(stagingWorkflow).toContain('--expected-git-sha="$DEPLOY_SHA"');
+    expect(stagingWorkflow).toContain('--source-digest "$DEPLOY_SHA"');
+    expect(stagingWorkflow).not.toContain("git reset --hard '$DEPLOY_SHA'");
     expect(stagingWorkflow).not.toContain("git reset --hard '$GITHUB_SHA'");
   });
 
@@ -115,9 +117,6 @@ describe("SECURITY-103-WEB-01 deploy workflow hardening", () => {
       "WEB_STAGING_APP_MANAGER",
       "WEB_STAGING_SYSTEMD_SERVICE",
       "WEB_STAGING_PUBLIC_BASE_URL",
-      "WEB_STAGING_NEXT_PUBLIC_API_URL",
-      "WEB_STAGING_NEXT_PUBLIC_SITE_URL",
-      "WEB_STAGING_GIT_BRANCH",
       "WEB_STAGING_RUN_SITEMAP_HEALTH",
       "WEB_STAGING_CORE_PUBLIC_PATH",
     ]) {

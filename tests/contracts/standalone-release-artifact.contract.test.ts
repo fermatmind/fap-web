@@ -55,9 +55,13 @@ function packageArtifact(source: string, output: string): void {
   );
 }
 
-function verifyArtifact(artifact: string) {
-  return spawnSync(process.execPath, [SCRIPT, "verify", `--artifact=${artifact}`], {
-    env: BUILD_ENV,
+function verifyArtifact(
+  artifact: string,
+  args: string[] = [],
+  env: NodeJS.ProcessEnv = BUILD_ENV,
+) {
+  return spawnSync(process.execPath, [SCRIPT, "verify", `--artifact=${artifact}`, ...args], {
+    env,
     encoding: "utf8",
   });
 }
@@ -115,6 +119,33 @@ describe("immutable standalone release artifact", () => {
     const uncovered = verifyArtifact(artifact);
     expect(uncovered.status).not.toBe(0);
     expect(uncovered.stderr).toContain("protected path set does not match");
+  });
+
+  it("fails closed on requested revision or build-configuration incompatibility", () => {
+    const root = tempDirectory();
+    const source = createStandalone(root);
+    const artifact = path.join(root, "artifact");
+    packageArtifact(source, artifact);
+
+    const revisionMismatch = verifyArtifact(artifact, [
+      "--expected-git-sha=ffffffffffffffffffffffffffffffffffffffff",
+    ]);
+    expect(revisionMismatch.status).not.toBe(0);
+    expect(revisionMismatch.stderr).toContain("does not match the requested exact git SHA");
+
+    const compatible = verifyArtifact(artifact, [
+      `--expected-git-sha=${SHA}`,
+      "--require-production-config",
+    ]);
+    expect(compatible.status).toBe(0);
+
+    const incompatible = verifyArtifact(
+      artifact,
+      [`--expected-git-sha=${SHA}`, "--require-production-config"],
+      { ...BUILD_ENV, NEXT_PUBLIC_API_URL: "https://staging-api.fermatmind.com" },
+    );
+    expect(incompatible.status).not.toBe(0);
+    expect(incompatible.stderr).toContain("production build configuration is unsafe");
   });
 
   it("rejects environment and private-key files before packaging", () => {
