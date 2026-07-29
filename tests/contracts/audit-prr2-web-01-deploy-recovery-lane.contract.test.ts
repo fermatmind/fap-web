@@ -55,12 +55,14 @@ describe("AUDIT-PRR2-WEB-01 production recovery lane", () => {
 
   it("keeps revision verification and smoke mandatory after deployment", () => {
     const deploy = workflow.indexOf("- name: Deploy production with PM2");
-    const revision = workflow.indexOf("- name: Verify deployed revision");
+    const revision = workflow.indexOf("- name: Poll deployed revision endpoint");
     const smoke = workflow.indexOf("- name: Smoke production public surfaces");
     expect(deploy).toBeGreaterThan(0);
     expect(revision).toBeGreaterThan(deploy);
     expect(smoke).toBeGreaterThan(revision);
-    expect(workflow.slice(revision, smoke)).toContain('test "$DEPLOYED_SHA" = "$DEPLOY_SHA"');
+    expect(workflow.slice(revision, smoke)).toContain(
+      'poll_deployed_revision "${PUBLIC_BASE_URL%/}/revision" "$DEPLOY_SHA"',
+    );
     expect(workflow.slice(deploy, smoke)).not.toContain("continue-on-error: true");
   });
 });
