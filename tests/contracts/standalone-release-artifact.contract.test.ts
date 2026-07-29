@@ -145,6 +145,10 @@ describe("immutable standalone release artifact", () => {
     const ci = fs.readFileSync(".github/workflows/ci.yml", "utf8");
 
     expect(ci.match(/(?:^|\s)pnpm build(?:\s|$)/gm)).toHaveLength(1);
+    expect(ci).toContain('NEXT_PUBLIC_ANALYTICS_ENABLED: "true"');
+    expect(ci).toMatch(/NEXT_PUBLIC_GA_MEASUREMENT_ID: G-[A-Z0-9]{4,32}/);
+    expect(ci).toMatch(/NEXT_PUBLIC_BAIDU_TONGJI_ID: [a-f0-9]{16,64}/);
+    expect(ci).not.toContain("secrets.WEB_NEXT_PUBLIC_ANALYTICS");
     expect(ci).toContain("--require-production-config");
     expect(ci).toContain("--sort=name --mtime='UTC 1970-01-01'");
     expect(ci).toContain("subject-path: .next/release/fap-web-${{ github.sha }}.tar.gz");
