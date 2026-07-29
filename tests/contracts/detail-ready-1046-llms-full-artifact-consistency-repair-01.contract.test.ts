@@ -343,7 +343,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
     process.env.FERMATMIND_LLMS_FULL_CACHE_DIR = cacheDir;
     process.env.FERMATMIND_LLMS_FULL_ENABLE_SHARED_CACHE = "true";
     process.env.FERMATMIND_LLMS_FULL_REQUIRE_CAREER_COHORT = "true";
-    const enArticles = Array.from({ length: 40 }, (_, index) => ({
+    const enArticles = Array.from({ length: 80 }, (_, index) => ({
       slug: `english-seo-article-${index + 1}`,
       locale: "en" as const,
       title: `English SEO Article ${index + 1}`,
@@ -374,6 +374,7 @@ describe("DETAIL_READY_1046_LLMS_FULL_ARTIFACT_CONSISTENCY_REPAIR-01", () => {
 
     expect(response.headers.get("X-FermatMind-LLMS-Full-Mode")).toBe("complete");
     expect(text).toContain(`${SITE_URL}/en/articles/english-seo-article-40`);
+    expect(text).not.toContain(`${SITE_URL}/en/articles/english-seo-article-41`);
     expect(text).toContain(`${SITE_URL}/zh/articles/college-major-choice-holland-mbti-career-test`);
   });
 });

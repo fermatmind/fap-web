@@ -113,7 +113,6 @@ const LLMS_FULL_REQUIRED_PERSONALITY_PATHS = [
   ...LLMS_FULL_REQUIRED_PERSONALITY_PILOT_PATHS,
   ...LLMS_FULL_REQUIRED_PERSONALITY_FRESH_AGENT_PATHS,
 ] as const;
-const LLMS_FULL_ARTICLE_ENTRY_LIMIT = LLMS_ROUTE_LIMITS.articles * 2;
 const LLMS_FULL_REQUIRED_CAREER_JOB_SLUGS = [
   "accountants-and-auditors",
   "actors",
@@ -1352,7 +1351,16 @@ export async function buildLlmsFullText(
 
   const canonicalEntrypoints = canonicalEntrypointEntries(siteUrl);
   const limitedTopicEntries = limitLlmsRouteEntries(topicEntries, LLMS_ROUTE_LIMITS.topics);
-  const limitedArticleEntries = limitLlmsRouteEntries(articles, LLMS_FULL_ARTICLE_ENTRY_LIMIT);
+  const limitedArticleEntries = [
+    ...limitLlmsRouteEntries(
+      articles.filter((article) => article.locale === "en"),
+      LLMS_ROUTE_LIMITS.articles
+    ),
+    ...limitLlmsRouteEntries(
+      articles.filter((article) => article.locale === "zh"),
+      LLMS_ROUTE_LIMITS.articles
+    ),
+  ];
   const limitedGuideEntries = limitLlmsRouteEntries(guideEntries, LLMS_ROUTE_LIMITS.careerGuides);
   const allowedCitationPaths = buildAllowedCitationPaths([
     ...canonicalEntrypoints,
