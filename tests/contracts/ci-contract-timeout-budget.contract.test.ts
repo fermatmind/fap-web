@@ -22,15 +22,17 @@ function jobBlock(start: string, end?: string): string {
 }
 
 describe("CI contract timeout budget", () => {
-  it("gives the complete contract suite enough time without changing its command", () => {
+  it("gives each contract matrix child enough time while keeping the aggregate small", () => {
+    const shards = jobBlock("contract-shards", "contracts");
     const contracts = jobBlock("contracts", "verify-big5-contract-freeze");
 
-    expect(contracts).toContain("timeout-minutes: 10");
-    expect(contracts).toContain("- run: pnpm test:contract");
+    expect(shards).toContain("timeout-minutes: 10");
+    expect(shards).toContain("run: pnpm test:contract -- --shards=4 --only-shard=${{ matrix.shard }}");
+    expect(contracts).toContain("timeout-minutes: 2");
   });
 
   it("does not broaden timeout budgets for the other required jobs", () => {
-    expect(jobBlock("build", "contracts")).toContain("timeout-minutes: 10");
+    expect(jobBlock("build", "contract-shards")).toContain("timeout-minutes: 10");
     expect(jobBlock("verify-big5-contract-freeze", "verify-enneagram-contract-freeze")).toContain(
       "timeout-minutes: 5"
     );

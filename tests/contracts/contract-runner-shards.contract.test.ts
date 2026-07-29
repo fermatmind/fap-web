@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 import {
@@ -50,6 +51,23 @@ describe("contract shard runner", () => {
 
     expect(() => parseArgs(["--shards=3"])).toThrow("--shards must be between 4 and 8");
     expect(() => parseArgs(["--shards=4", "--only-shard=5"])).toThrow("--only-shard must be between 1 and 4");
+  });
+
+  it("keeps one-shard execution deterministic and isolated", () => {
+    const files = Array.from({ length: 12 }, (_, index) => `tests/contracts/${index}.contract.test.ts`);
+    const plan = createShardPlan(files, 4);
+    const selected = plan.filter((shard: { index: number }) => shard.index === parseArgs(["--only-shard=3"]).onlyShard);
+
+    expect(selected).toHaveLength(1);
+    expect(selected[0]).toMatchObject({
+      index: 3,
+      total: 4,
+      files: [files[2], files[6], files[10]],
+    });
+
+    const runner = readFileSync("scripts/testing/run-contract-shards.mjs", "utf8");
+    expect(runner).toContain("const CONTRACT_SEQUENCE_SEED = 20260729");
+    expect(runner).toContain("`--sequence.seed=${CONTRACT_SEQUENCE_SEED}`");
   });
 
   it("loads contract groups and applies the default focused gate even when quarantine is empty", () => {
