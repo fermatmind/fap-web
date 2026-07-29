@@ -796,6 +796,41 @@ jobs:
             fi
           done
 
+      - name: Run read-only test landing regression smoke
+        id: test_landing_smoke
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          smoke_dir="$RUNNER_TEMP/test-landing-runtime-smoke"
+          mkdir -p "$smoke_dir"
+          node scripts/deploy/test-landing-runtime-smoke.mjs \
+            --base-url "$PUBLIC_BASE_URL" \
+            --api-base-url "https://api.fermatmind.com" \
+            --environment "production" \
+            --exact-sha "$DEPLOY_SHA" \
+            --workflow-run-id "$GITHUB_RUN_ID" \
+            --workflow-run-attempt "$GITHUB_RUN_ATTEMPT" \
+            --output "$smoke_dir/receipt.json" \
+            --summary "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload sanitized test landing smoke receipt
+        if: always() && steps.test_landing_smoke.outcome != 'skipped'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: test-landing-runtime-smoke-production-${{ env.DEPLOY_SHA }}
+          path: ${{ runner.temp }}/test-landing-runtime-smoke/receipt.json
+          compression-level: 0
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Enforce test landing smoke result
+        if: always() && steps.test_landing_smoke.outcome == 'failure'
+        shell: bash
+        run: |
+          echo "Read-only test landing regression smoke failed closed." >&2
+          exit 1
+
       - name: Write production promotion receipts
         shell: bash
         run: |
