@@ -62,6 +62,8 @@
     "verify-big5-contract-freeze": "pnpm exec vitest run tests/contracts/big5.contract.test.ts tests/contracts/big5-result-assembler.contract.test.ts tests/contracts/big5-secondary-surfaces.contract.test.tsx",
     "verify-enneagram-contract-freeze": "pnpm exec vitest run tests/contracts/enneagram-api.contract.test.ts tests/contracts/enneagram-take-flow.contract.test.tsx tests/contracts/enneagram-result-assembler.contract.test.ts tests/contracts/enneagram-rich-result-report.contract.test.tsx tests/contracts/enneagram-secondary-surfaces.contract.test.tsx",
     "release:gate": "bash scripts/release_gate.sh",
+    "release:package": "node scripts/release/standalone-release.mjs package",
+    "release:verify": "node scripts/release/standalone-release.mjs verify",
     "postbuild": "bash scripts/sync_standalone_assets.sh",
     "ops:mbti-pdf-print-asset-hash": "node scripts/ops/check-mbti-pdf-print-asset-hash.mjs --check",
     "perf:audit:public": "node scripts/performance/audit-public-performance.mjs"
