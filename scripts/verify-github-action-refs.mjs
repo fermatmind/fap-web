@@ -23,6 +23,11 @@ const BLESSED_ACTIONS = {
     sha: "ea165f8d65b6e75b540449e92b4886f43607fa02",
     tag: "v4",
   },
+  "actions/attest": {
+    repo: "actions/attest",
+    sha: "f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6",
+    tag: "v4",
+  },
   "actions/github-script": {
     repo: "actions/github-script",
     sha: "ed597411d8f924073f98dfc5c65a23a2325f34cd",
@@ -145,10 +150,11 @@ function verifyRemoteRefs() {
 
     const repoUrl = `https://github.com/${blessed.repo}.git`;
     const ref = blessed.tag ? `refs/tags/${blessed.tag}` : blessed.sha;
+    const refs = blessed.tag ? [ref, `${ref}^{}`] : [ref];
 
     let output = "";
     try {
-      output = execFileSync("git", ["ls-remote", repoUrl, ref], {
+      output = execFileSync("git", ["ls-remote", repoUrl, ...refs], {
         encoding: "utf8",
         stdio: ["ignore", "pipe", "pipe"],
         timeout: 20000,
@@ -158,7 +164,15 @@ function verifyRemoteRefs() {
       continue;
     }
 
-    const resolvedSha = output.trim().split(/\s+/)[0] || "";
+    const resolvedRefs = new Map(
+      output
+        .trim()
+        .split("\n")
+        .filter(Boolean)
+        .map((line) => line.split(/\s+/))
+        .map(([sha, resolvedRef]) => [resolvedRef, sha])
+    );
+    const resolvedSha = resolvedRefs.get(`${ref}^{}`) || resolvedRefs.get(ref) || "";
     if (resolvedSha !== blessed.sha) {
       violations.push(`${action}: ${ref} resolves to ${resolvedSha || "<missing>"} instead of ${blessed.sha}`);
     }

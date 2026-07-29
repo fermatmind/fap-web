@@ -30,4 +30,13 @@ describe("workflow action reference integrity", () => {
     expect(workflow).not.toContain("actions/upload-artifact@99df26d4f13ea111d4ec1a7dddef6063f76b97e9");
     expect(runnerWorkflow).not.toContain("actions/upload-artifact@99df26d4f13ea111d4ec1a7dddef6063f76b97e9");
   });
+
+  it("pins the CI attestation action and attests the exact archive uploaded under the commit SHA", () => {
+    const workflow = readFileSync(".github/workflows/ci.yml", "utf8");
+
+    expect(workflow).toContain("actions/attest@f7c74d28b9d84cb8768d0b8ca14a4bac6ef463e6 # v4");
+    expect(workflow).toContain("name: fap-web-standalone-${{ github.sha }}");
+    expect(workflow.match(/path: \.next\/release\/fap-web-\$\{\{ github\.sha \}\}\.tar\.gz/g)).toHaveLength(2);
+    expect(workflow).not.toContain("fap-web-standalone-latest");
+  });
 });
