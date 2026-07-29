@@ -34,7 +34,7 @@ describe("test detail landing contract", () => {
   it("consumes backend landing_surface_v1 instead of inventing test landing truth locally", () => {
     const source = fs.readFileSync(PAGE_PATH, "utf8");
 
-    expect(source).toContain("getTestDetailCmsLandingSurface(slug, locale)");
+    expect(source).toContain("loadTestLandingData(locale, slug)");
     expect(source).toContain("resolveTestDetailCmsLandingSurfaceContent(cmsLandingSurface)");
     expect(source).toContain('normalizeLandingSurface(lookup?.landing_surface_v1 ?? null)');
     expect(source).toContain('const testDetailAuthority = resolveTestDetailAuthority({');

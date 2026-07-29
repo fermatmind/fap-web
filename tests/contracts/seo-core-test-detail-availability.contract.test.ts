@@ -139,7 +139,18 @@ function testFor(slug: string, locale: "en" | "zh") {
 }
 
 function lookupFor(slug: string, locale: "en" | "zh") {
+  const test = testFor(slug, locale);
+  if (!test) return null;
+
   return {
+    ok: true,
+    primary_slug: slug,
+    slug,
+    requested_slug: slug,
+    resolved_from_alias: false,
+    scale_code: test.scale_code,
+    locale: locale === "zh" ? "zh-CN" : "en",
+    is_public: true,
     seo_title: locale === "zh" ? `${slug} 测评` : `${slug} test`,
     seo_description: locale === "zh" ? "后端权威 SEO 说明。" : "Backend-authoritative SEO description.",
     og_image_url: "https://api.fermatmind.com/storage/test-og.png",
@@ -147,6 +158,7 @@ function lookupFor(slug: string, locale: "en" | "zh") {
     capabilities: {
       enabled_in_prod: true,
       paywall_mode: "free_only",
+      default_form_code: `${test.scale_code.toLowerCase()}_default`,
     },
     commercial: {
       price_tier: "FREE",
@@ -154,8 +166,19 @@ function lookupFor(slug: string, locale: "en" | "zh") {
     },
     price_tier: "FREE",
     offers: [],
+    forms: [{
+      form_code: `${test.scale_code.toLowerCase()}_default`,
+      question_count: test.questions_count,
+    }],
     content_i18n_json: {
       [locale]: {
+        title: test.title_i18n[locale],
+        description: test.description,
+        catalog: {
+          cover_image: test.cover_image,
+          questions_count: test.questions_count,
+          time_minutes: test.time_minutes,
+        },
         landing_copy: locale === "zh" ? "后端权威可见正文。" : "Backend-authoritative visible body.",
         disclaimer: locale === "zh" ? "仅用于自我认知参考。" : "For self-understanding only.",
         faq: [
@@ -324,11 +347,10 @@ describe("SEO core test detail availability", () => {
       "utf8"
     );
 
-    expect(pageSource).toContain("const test = await getTestBySlug(slug, locale);");
-    expect(pageSource).toContain("getTestLookup(slug, locale)");
-    expect(pageSource).toContain("getTestDetailCmsLandingSurface(slug, locale)");
-    expect(pageSource).toContain("if (!test) return notFound();");
-    expect(pageSource).toContain("if (!lookup) return notFound();");
+    expect(pageSource).toContain("loadTestLandingData(locale, slug)");
+    expect(pageSource).not.toContain("getTestBySlug(slug, locale)");
+    expect(pageSource).toContain("if (!landingData) return notFound();");
+    expect(pageSource).toContain("const { test, lookup, cmsLandingSurface } = landingData;");
     expect(pageSource).toContain("const heroCopy = cmsLandingSurfaceContent.heroCopy || landingCopy || test.description;");
     expect(pageSource).toContain('data-evidence-page-family="test_detail"');
   });
