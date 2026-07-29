@@ -81,7 +81,9 @@ describe("same-origin deployed revision endpoint", () => {
       'require_deployed_revision_endpoint "http://${APP_HOST}:${APP_PORT}${REVISION_PATH}" "$DEPLOYED_REVISION"',
     );
 
-    expect(deployScript).toContain('DEPLOYED_REVISION="$(git rev-parse HEAD)"');
+    expect(deployScript).toContain(
+      'DEPLOYED_REVISION="$(tr -d \'[:space:]\' < .next/standalone/REVISION)"',
+    );
     expect(deployScript).toContain('REVISION_PATH="${REVISION_PATH:-/revision}"');
     expect(deployScript).not.toContain("/api/deployment/revision");
     expect(nginxConfig).toContain("location /api/");
@@ -90,10 +92,7 @@ describe("same-origin deployed revision endpoint", () => {
     expect(deployScript).not.toContain(
       'write_deployed_revision "$DEPLOYED_REVISION" "${APP_DIR}/.next/standalone/REVISION"',
     );
-    expect(deployScript).toContain(
-      "printf 'FERMATMIND_DEPLOYED_REVISION_FILE=%s\\n' \"${APP_DIR}/REVISION\"",
-    );
-    expect(deployScript).toContain("write_systemd_runtime_env");
+    expect(deployScript).not.toContain("write_systemd_runtime_env");
     expect(systemdUnit).toContain(
       "Environment=FERMATMIND_DEPLOYED_REVISION_FILE=/opt/apps/fap-web/REVISION",
     );

@@ -1,22 +1,21 @@
 import { readFileSync } from "node:fs";
 
 describe("frontend deploy generated artifact cleanup contract", () => {
-  it("does not treat public sitemap as a deploy-time generated artifact by default", () => {
+  it("deploys the already-synced immutable standalone tree without mutating generated public assets", () => {
     const deployScript = readFileSync("scripts/deploy_web_pm2.sh", "utf8");
 
-    expect(deployScript).toContain('GENERATED_PUBLIC_ARTIFACTS="${GENERATED_PUBLIC_ARTIFACTS:-}"');
-    expect(deployScript).toContain("restore_generated_public_artifacts()");
-    expect(deployScript).toContain('git ls-files --error-unmatch "$artifact"');
-    expect(deployScript).toContain('git diff --quiet -- "$artifact"');
-    expect(deployScript).toContain('git restore -- "$artifact"');
-    expect(deployScript).toContain("restored generated public artifact after standalone sync");
+    expect(deployScript).toContain('[[ ! -f .next/standalone/server.js ]]');
+    expect(deployScript).toContain('DEPLOYED_REVISION="$(tr -d \'[:space:]\' < .next/standalone/REVISION)"');
+    expect(deployScript).not.toContain("sync_standalone_assets.sh");
+    expect(deployScript).not.toContain("restore_generated_public_artifacts");
+    expect(deployScript).not.toContain("git restore");
+    expect(deployScript).not.toContain("pnpm install");
+    expect(deployScript).not.toContain("pnpm run build");
 
-    const syncIndex = deployScript.indexOf('bash "$SYNC_STANDALONE_ASSETS_SCRIPT"');
-    const restoreIndex = deployScript.lastIndexOf("restore_generated_public_artifacts");
+    const activeReleaseIndex = deployScript.indexOf("active immutable release");
     const reloadIndex = deployScript.indexOf("rolling reload pm2 app");
 
-    expect(syncIndex).toBeGreaterThan(-1);
-    expect(restoreIndex).toBeGreaterThan(syncIndex);
-    expect(reloadIndex).toBeGreaterThan(restoreIndex);
+    expect(activeReleaseIndex).toBeGreaterThan(-1);
+    expect(reloadIndex).toBeGreaterThan(activeReleaseIndex);
   });
 });

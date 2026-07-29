@@ -337,6 +337,12 @@ function verifyRelease(options) {
   if (!SHA_PATTERN.test(revision)) {
     fail("REVISION is not an exact lowercase 40-character commit SHA");
   }
+  if (options["expected-git-sha"] !== undefined) {
+    const expectedGitSha = requireOption(options, "expected-git-sha");
+    if (!SHA_PATTERN.test(expectedGitSha) || revision !== expectedGitSha) {
+      fail("release REVISION does not match the requested exact git SHA");
+    }
+  }
 
   const manifest = parseJsonFile(path.join(artifact, MANIFEST_FILE), MANIFEST_FILE);
   const metadata = parseJsonFile(path.join(artifact, REVISION_METADATA_FILE), REVISION_METADATA_FILE);
@@ -348,6 +354,13 @@ function verifyRelease(options) {
   }
   if (metadata.build_config_sha256 !== manifest.build_config?.sha256) {
     fail("revision metadata build configuration digest does not match the release manifest");
+  }
+  if (options["require-production-config"]) {
+    validateProductionConfig(process.env, revision);
+    const expectedBuildConfig = buildConfigSnapshot(process.env);
+    if (manifest.build_config?.sha256 !== expectedBuildConfig.sha256) {
+      fail("release build configuration is incompatible with the required production configuration");
+    }
   }
   if (metadata.release_manifest_sha256 !== sha256(readFileSync(path.join(artifact, MANIFEST_FILE)))) {
     fail("revision metadata release manifest digest does not match");
