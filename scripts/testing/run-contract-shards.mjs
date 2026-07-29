@@ -8,6 +8,7 @@ const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(SCRIPT_DIR, "../..");
 const DEFAULT_SHARDS = 4;
 const DEFAULT_TIMEOUT_MS = 10 * 60 * 1000;
+const CONTRACT_SEQUENCE_SEED = 20260729;
 const DIAGNOSTIC_DIR = path.join(ROOT, "generated/test-diagnostics");
 const LOG_DIR = path.join(DIAGNOSTIC_DIR, "contract-shards");
 const SUMMARY_PATH = path.join(DIAGNOSTIC_DIR, "contract-shards.json");
@@ -310,7 +311,14 @@ function runCommand(command, args, { cwd, timeoutMs, logPath }) {
 
 async function runShard(shard, options) {
   const logPath = path.join(LOG_DIR, `shard-${shard.index}-of-${shard.total}.log`);
-  const args = ["exec", "vitest", "run", ...shard.files, ...options.passthrough];
+  const args = [
+    "exec",
+    "vitest",
+    "run",
+    ...shard.files,
+    `--sequence.seed=${CONTRACT_SEQUENCE_SEED}`,
+    ...options.passthrough,
+  ];
   const result = await runCommand("pnpm", args, {
     cwd: ROOT,
     timeoutMs: options.timeoutMs,
@@ -375,6 +383,7 @@ async function main() {
     include_quarantine: execution.include_quarantine,
     groups_path: execution.groups_path,
     timeout_ms: options.timeoutMs,
+    sequence_seed: CONTRACT_SEQUENCE_SEED,
     passthrough_args: options.passthrough,
     diagnostics_path: path.relative(ROOT, SUMMARY_PATH).split(path.sep).join("/"),
     log_dir: path.relative(ROOT, LOG_DIR).split(path.sep).join("/"),
