@@ -75,7 +75,7 @@ function makeArticle(overrides: Partial<CmsArticle> = {}): CmsArticle {
     updatedAt: "2026-05-02T00:00:00Z",
     category: { id: 1, slug: "seo", name: "SEO" },
     tags: [],
-    seoMeta: null,
+    seoMeta: { schema_json: { hreflang_gate_v1: { enabled: true } } },
     landingSurface: null,
     answerSurface: null,
     ...overrides,
@@ -306,6 +306,15 @@ describe("article CMS metadata consumption gate", () => {
 
   it("holds article hreflang when the final authority projection is absent even if legacy meta alternates exist", async () => {
     const metadata = await loadArticleMetadata({ seo: makeSeo({}, null) });
+
+    expect(String(metadata.alternates?.canonical)).toBe("https://fermatmind.com/zh/articles/cms-metadata-gate");
+    expect(metadata.alternates?.languages).toBeUndefined();
+  });
+
+  it("holds projected article hreflang when CMS has not explicitly released the gate", async () => {
+    const metadata = await loadArticleMetadata({
+      article: makeArticle({ seoMeta: null }),
+    });
 
     expect(String(metadata.alternates?.canonical)).toBe("https://fermatmind.com/zh/articles/cms-metadata-gate");
     expect(metadata.alternates?.languages).toBeUndefined();
