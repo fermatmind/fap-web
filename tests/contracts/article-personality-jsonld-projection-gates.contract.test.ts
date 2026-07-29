@@ -285,6 +285,14 @@ describe("Article / Personality JSON-LD and projection gates", () => {
     });
     const projectedHreflangGate = resolveArticleHreflangGate({
       noindex: false,
+      article: {
+        slug: "schema-authority",
+        seoMeta: { schema_json: { hreflang_gate_v1: { enabled: true } } },
+      },
+      projectedAuthority,
+    });
+    const heldProjectedHreflangGate = resolveArticleHreflangGate({
+      noindex: false,
       article: { slug: "schema-authority", seoMeta: null },
       projectedAuthority,
     });
@@ -298,7 +306,10 @@ describe("Article / Personality JSON-LD and projection gates", () => {
     });
     const currentLocaleOnlyHreflangGate = resolveArticleHreflangGate({
       noindex: false,
-      article: { slug: "schema-authority", seoMeta: null },
+      article: {
+        slug: "schema-authority",
+        seoMeta: { schema_json: { hreflang_gate_v1: { enabled: true } } },
+      },
       projectedAuthority: {
         ...projectedAuthority,
         alternateEligibility: {
@@ -313,7 +324,10 @@ describe("Article / Personality JSON-LD and projection gates", () => {
     });
     const missingCurrentLocaleAlternateHreflangGate = resolveArticleHreflangGate({
       noindex: false,
-      article: { slug: "schema-authority", seoMeta: null },
+      article: {
+        slug: "schema-authority",
+        seoMeta: { schema_json: { hreflang_gate_v1: { enabled: true } } },
+      },
       projectedAuthority: {
         ...projectedAuthority,
         alternateEligibility: {
@@ -341,6 +355,10 @@ describe("Article / Personality JSON-LD and projection gates", () => {
     expect(projectedHreflangGate).toMatchObject({
       source: "backend_authority_projection",
       canRenderHreflang: true,
+    });
+    expect(heldProjectedHreflangGate).toMatchObject({
+      source: "backend_authority_projection",
+      canRenderHreflang: false,
     });
     expect(missingProjectionHreflangGate).toMatchObject({
       source: "backend_authority_projection",

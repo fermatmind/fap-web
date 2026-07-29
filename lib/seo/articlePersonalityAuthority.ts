@@ -319,6 +319,7 @@ export function resolveArticleHreflangGate(input: {
 
   if (Object.prototype.hasOwnProperty.call(input, "projectedAuthority")) {
     const projectedAuthority = input.projectedAuthority;
+    const explicitCmsHreflangAllowed = readHreflangGateValue(input.article.seoMeta);
     const currentLocale = projectedAuthority?.alternateEligibility.currentLocale ?? null;
     const hasCurrentLocaleAlternate = currentLocale !== null
       && Boolean(projectedAuthority?.alternateEligibility.alternates[currentLocale]);
@@ -328,7 +329,8 @@ export function resolveArticleHreflangGate(input: {
           && Boolean(projectedAuthority.alternateEligibility.alternates[locale]),
       );
     const canRenderHreflang = Boolean(
-      projectedAuthority?.publishedRevisionBacked
+      explicitCmsHreflangAllowed
+      && projectedAuthority?.publishedRevisionBacked
       && hasCurrentLocaleAlternate
       && hasEligibleLocaleSibling,
     );
@@ -336,8 +338,8 @@ export function resolveArticleHreflangGate(input: {
       "backend_authority_projection",
       canRenderHreflang,
       canRenderHreflang
-        ? "Backend Article SEO authority exposes published, indexable locale siblings."
-        : "Backend Article SEO authority exposes no eligible locale siblings.",
+        ? "CMS explicitly allows hreflang and Backend Article SEO authority exposes published, indexable locale siblings."
+        : "Article hreflang remains held unless CMS explicitly allows it and Backend Article SEO authority exposes eligible locale siblings.",
     );
   }
 
