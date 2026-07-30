@@ -52432,7 +52432,7 @@
     "depends_on": [
       "EN-PARITY-W3-ARTICLE-PACKAGE-FREEZE-01"
     ],
-    "commit_sha": null,
+    "commit_sha": "5a4ad5ae515bf18b739e4d13ab38d9d905d6c490",
     "pr_url": null,
     "checks": {
       "dependency": {
@@ -52482,8 +52482,13 @@
         "at": "2026-07-30T21:10:06Z",
         "status": "blocked",
         "summary": "Completed independent 17/17 W9 review of exact frozen package SHA 7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750. Package integrity and five required QA checks pass, but language_naturalness is BLOCKED on 12 reader-visible rows. The W9 report is BLOCKED, qa_pass is not authorized, and no producer payload, CONTROL master, CMS, publication, indexability, search, or deploy state was changed."
+      },
+      {
+        "at": "2026-07-30T21:14:36Z",
+        "status": "blocked",
+        "summary": "Committed the focused W9 BLOCKED evidence as 5a4ad5ae515bf18b739e4d13ab38d9d905d6c490 after strict report validation, 17/17 coverage, exact package/report SHA checks, JSON/YAML parsing, scope validation, and producer/master immutability checks passed."
       }
     ],
-    "updated_at": "2026-07-30T21:10:06Z"
+    "updated_at": "2026-07-30T21:14:36Z"
   }
 }
