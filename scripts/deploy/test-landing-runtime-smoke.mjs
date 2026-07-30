@@ -14,6 +14,7 @@ const DEFAULT_TIMEOUT_MS = 10_000;
 const MAX_RESPONSE_BYTES = 5 * 1024 * 1024;
 const RETRYABLE_HTTP_STATUSES = new Set([502, 503, 504]);
 const REDIRECT_HTTP_STATUSES = new Set([301, 302, 303, 307, 308]);
+const PUBLIC_API_V0_3_PREFIX = "/api/v0.3";
 
 const MBTI_SLUG = "mbti-personality-test-16-personality-types";
 const BIG5_SLUG = "big-five-personality-test-ocean-model";
@@ -62,7 +63,7 @@ const CHECKS = [
   {
     kind: "question-pack",
     checkName: "mbti_144_question_pack",
-    path: `/v0.3/scales/MBTI/questions?form_code=${MBTI_FORM}&locale=zh-CN`,
+    path: publicApiV0_3Path(`/scales/MBTI/questions?form_code=${MBTI_FORM}&locale=zh-CN`),
     lookupLocale: "zh",
     slug: MBTI_SLUG,
     scaleCode: "MBTI",
@@ -74,6 +75,7 @@ class SmokeFailure extends Error {
   constructor(code, {
     retryable = false,
     httpStatus = null,
+    requestSurface = null,
     authorityIdentityResult = "not_applicable",
     questionPackSemanticResult = "not_applicable",
   } = {}) {
@@ -82,13 +84,22 @@ class SmokeFailure extends Error {
     this.code = code;
     this.retryable = retryable;
     this.httpStatus = httpStatus;
+    this.requestSurface = requestSurface;
     this.authorityIdentityResult = authorityIdentityResult;
     this.questionPackSemanticResult = questionPackSemanticResult;
   }
 }
 
+function publicApiV0_3Path(pathname) {
+  const normalized = pathname.startsWith("/") ? pathname : `/${pathname}`;
+  return `${PUBLIC_API_V0_3_PREFIX}${normalized}`;
+}
+
 function asSmokeFailure(error, defaults = {}) {
   if (error instanceof SmokeFailure) {
+    if (!error.requestSurface && defaults.requestSurface) {
+      error.requestSurface = defaults.requestSurface;
+    }
     return error;
   }
   return new SmokeFailure("transport_error", {
@@ -176,6 +187,7 @@ async function fetchWithRedirectGuard(url, {
   accept,
   fetchImpl,
   timeoutMs,
+  requestSurface,
 }) {
   let current = new URL(url);
   const expectedUrl = new URL(expectedPath, allowedOrigin);
@@ -196,7 +208,7 @@ async function fetchWithRedirectGuard(url, {
         signal: AbortSignal.timeout(timeoutMs),
       });
     } catch (error) {
-      throw asSmokeFailure(error);
+      throw asSmokeFailure(error, { requestSurface });
     }
 
     if (REDIRECT_HTTP_STATUSES.has(response.status)) {
@@ -220,11 +232,13 @@ async function fetchWithRedirectGuard(url, {
       throw new SmokeFailure(`http_${response.status}`, {
         retryable: true,
         httpStatus: response.status,
+        requestSurface,
       });
     }
     if (response.status !== 200) {
       throw new SmokeFailure(`http_${response.status}`, {
         httpStatus: response.status,
+        requestSurface,
       });
     }
     if (normalizePathname(current.pathname) !== expectedPathname) {
@@ -278,7 +292,10 @@ async function readJson(url, options, resultDefaults) {
     accept: "application/json",
   });
   return {
-    payload: parseJson(response.body, response.status, resultDefaults),
+    payload: parseJson(response.body, response.status, {
+      ...resultDefaults,
+      requestSurface: options.requestSurface,
+    }),
     status: response.status,
   };
 }
@@ -424,7 +441,9 @@ function assertQuestionPack(payload, {
 }
 
 function lookupPath(slug, locale) {
-  return `/v0.3/scales/lookup?slug=${encodeURIComponent(slug)}&locale=${encodeURIComponent(locale)}`;
+  return publicApiV0_3Path(
+    `/scales/lookup?slug=${encodeURIComponent(slug)}&locale=${encodeURIComponent(locale)}`,
+  );
 }
 
 async function runLandingAttempt(check, context) {
@@ -438,33 +457,44 @@ async function runLandingAttempt(check, context) {
       accept: "text/html",
       fetchImpl: context.fetchImpl,
       timeoutMs: context.timeoutMs,
+      requestSurface: "landing_html",
     }),
     readJson(lookupUrl, {
       allowedOrigin: context.apiBaseUrl.origin,
       expectedPath: lookupRequestPath,
       fetchImpl: context.fetchImpl,
       timeoutMs: context.timeoutMs,
+      requestSurface: "lookup_api",
     }, {
       authorityIdentityResult: "fail",
     }),
   ]);
 
-  assertHealthyHtml(page.body, {
-    httpStatus: page.status,
-    requireLandingMarker: true,
-    ctaMarker: check.ctaMarker,
-  });
-  assertLookup(lookup.payload, {
-    slug: check.slug,
-    scaleCode: check.scaleCode,
-    formCode: check.formCode,
-    locale: check.apiLocale,
-    httpStatus: lookup.status,
-  });
+  try {
+    assertHealthyHtml(page.body, {
+      httpStatus: page.status,
+      requireLandingMarker: true,
+      ctaMarker: check.ctaMarker,
+    });
+  } catch (error) {
+    throw asSmokeFailure(error, { requestSurface: "landing_html" });
+  }
+  try {
+    assertLookup(lookup.payload, {
+      slug: check.slug,
+      scaleCode: check.scaleCode,
+      formCode: check.formCode,
+      locale: check.apiLocale,
+      httpStatus: lookup.status,
+    });
+  } catch (error) {
+    throw asSmokeFailure(error, { requestSurface: "lookup_api" });
+  }
   return {
     httpStatus: page.status,
     authorityIdentityResult: "pass",
     questionPackSemanticResult: "not_applicable",
+    requestSurface: "landing_html+lookup_api",
   };
 }
 
@@ -477,13 +507,19 @@ async function runTakeAttempt(check, context) {
       accept: "text/html",
       fetchImpl: context.fetchImpl,
       timeoutMs: context.timeoutMs,
+      requestSurface: "landing_html",
     },
   );
-  assertHealthyHtml(response.body, { httpStatus: response.status });
+  try {
+    assertHealthyHtml(response.body, { httpStatus: response.status });
+  } catch (error) {
+    throw asSmokeFailure(error, { requestSurface: "landing_html" });
+  }
   return {
     httpStatus: response.status,
     authorityIdentityResult: "not_applicable",
     questionPackSemanticResult: "not_applicable",
+    requestSurface: "landing_html",
   };
 }
 
@@ -495,6 +531,7 @@ async function runQuestionPackAttempt(check, context) {
       expectedPath: lookupRequestPath,
       fetchImpl: context.fetchImpl,
       timeoutMs: context.timeoutMs,
+      requestSurface: "lookup_api",
     }, {
       authorityIdentityResult: "fail",
       questionPackSemanticResult: "fail",
@@ -504,28 +541,39 @@ async function runQuestionPackAttempt(check, context) {
       expectedPath: check.path,
       fetchImpl: context.fetchImpl,
       timeoutMs: context.timeoutMs,
+      requestSurface: "question_pack_api",
     }, {
       authorityIdentityResult: "fail",
       questionPackSemanticResult: "fail",
     }),
   ]);
-  const lookupForm = assertLookup(lookup.payload, {
-    slug: check.slug,
-    scaleCode: check.scaleCode,
-    formCode: check.formCode,
-    locale: check.lookupLocale,
-    httpStatus: lookup.status,
-  });
-  assertQuestionPack(questions.payload, {
-    expectedQuestionCount: lookupForm.questionCount,
-    httpStatus: questions.status,
-    scaleCode: check.scaleCode,
-    formCode: check.formCode,
-  });
+  let lookupForm;
+  try {
+    lookupForm = assertLookup(lookup.payload, {
+      slug: check.slug,
+      scaleCode: check.scaleCode,
+      formCode: check.formCode,
+      locale: check.lookupLocale,
+      httpStatus: lookup.status,
+    });
+  } catch (error) {
+    throw asSmokeFailure(error, { requestSurface: "lookup_api" });
+  }
+  try {
+    assertQuestionPack(questions.payload, {
+      expectedQuestionCount: lookupForm.questionCount,
+      httpStatus: questions.status,
+      scaleCode: check.scaleCode,
+      formCode: check.formCode,
+    });
+  } catch (error) {
+    throw asSmokeFailure(error, { requestSurface: "question_pack_api" });
+  }
   return {
     httpStatus: questions.status,
     authorityIdentityResult: "pass",
     questionPackSemanticResult: "pass",
+    requestSurface: "lookup_api+question_pack_api",
   };
 }
 
@@ -544,17 +592,20 @@ function failureDefaults(check) {
     return {
       authorityIdentityResult: "fail",
       questionPackSemanticResult: "not_applicable",
+      requestSurface: "landing_html+lookup_api",
     };
   }
   if (check.kind === "question-pack") {
     return {
       authorityIdentityResult: "fail",
       questionPackSemanticResult: "fail",
+      requestSurface: "lookup_api+question_pack_api",
     };
   }
   return {
     authorityIdentityResult: "not_applicable",
     questionPackSemanticResult: "not_applicable",
+    requestSurface: "landing_html",
   };
 }
 
@@ -572,12 +623,14 @@ async function runCheck(check, context) {
         result: "pass",
         category: "semantic_assertions_passed",
         http_status: result.httpStatus,
+        request_surface: result.requestSurface,
       });
       return {
         check_name: check.checkName,
         path: check.path,
         result: "pass",
         http_status: result.httpStatus,
+        request_surface: result.requestSurface,
         duration_ms: Date.now() - startedAt,
         attempt_count: attemptCount,
         authority_identity_result: result.authorityIdentityResult,
@@ -592,6 +645,7 @@ async function runCheck(check, context) {
         category: failure.code,
         http_status: failure.httpStatus,
         retryable: failure.retryable,
+        request_surface: failure.requestSurface ?? failureDefaults(check).requestSurface,
       });
       if (failure.retryable && attempt < context.maxAttempts) {
         await context.sleep(context.retryDelayMs);
@@ -602,6 +656,7 @@ async function runCheck(check, context) {
         path: check.path,
         result: "fail",
         http_status: failure.httpStatus,
+        request_surface: failure.requestSurface ?? failureDefaults(check).requestSurface,
         duration_ms: Date.now() - startedAt,
         attempt_count: attemptCount,
         authority_identity_result:

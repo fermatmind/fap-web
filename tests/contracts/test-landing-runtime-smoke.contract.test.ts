@@ -13,7 +13,8 @@ const MBTI_ZH_PATH = `/zh/tests/${MBTI_SLUG}`;
 const MBTI_EN_PATH = `/en/tests/${MBTI_SLUG}`;
 const BIG5_ZH_PATH = `/zh/tests/${BIG5_SLUG}`;
 const MBTI_TAKE_PATH = `/zh/tests/${MBTI_SLUG}/take`;
-const QUESTION_PATH = "/v0.3/scales/MBTI/questions";
+const API_V0_3_PREFIX = "/api/v0.3";
+const QUESTION_PATH = `${API_V0_3_PREFIX}/scales/MBTI/questions`;
 const EXACT_SHA = "a".repeat(40);
 
 type FixtureReply = {
@@ -194,7 +195,7 @@ function routeKey(url: URL): keyof FixtureOverrides | null {
   if (url.pathname === BIG5_ZH_PATH) return "zh_big5_landing";
   if (url.pathname === MBTI_TAKE_PATH) return "zh_mbti_take";
   if (url.pathname === QUESTION_PATH) return "mbti_questions";
-  if (url.pathname !== "/v0.3/scales/lookup") return null;
+  if (url.pathname !== `${API_V0_3_PREFIX}/scales/lookup`) return null;
 
   const slug = url.searchParams.get("slug");
   const locale = url.searchParams.get("locale");
@@ -270,6 +271,7 @@ describe("test landing runtime smoke semantic gate", () => {
       result: "pass",
       http_status: 200,
       authority_identity_result: "pass",
+      request_surface: "landing_html+lookup_api",
     });
     expect(check(receipt, "en_mbti_landing")).toMatchObject({
       result: "pass",
@@ -287,6 +289,7 @@ describe("test landing runtime smoke semantic gate", () => {
       result: "pass",
       authority_identity_result: "pass",
       question_pack_semantic_result: "pass",
+      request_surface: "lookup_api+question_pack_api",
     });
   });
 
@@ -299,6 +302,41 @@ describe("test landing runtime smoke semantic gate", () => {
       result: "fail",
       http_status: 500,
       attempt_count: 1,
+    });
+  });
+
+  it("uses the canonical public /api/v0.3 prefix for lookup and question-pack reads", async () => {
+    const receipt = await runFixture();
+
+    expect(receipt.result).toBe("pass");
+    const source = readFileSync("scripts/deploy/test-landing-runtime-smoke.mjs", "utf8");
+    expect(source).toContain('const PUBLIC_API_V0_3_PREFIX = "/api/v0.3"');
+    expect(source).not.toMatch(/new URL\((?:`|'|")\/v0\.3\//);
+    expect(check(receipt, "zh_mbti_landing").diagnostic_summary[0]).toMatchObject({
+      request_surface: "landing_html+lookup_api",
+    });
+    expect(check(receipt, "mbti_144_question_pack").diagnostic_summary[0]).toMatchObject({
+      request_surface: "lookup_api+question_pack_api",
+    });
+  });
+
+  it("fails a lookup 404 immediately and identifies the lookup API surface", async () => {
+    const receipt = await runFixture({
+      zh_mbti_lookup: () => ({ status: 404, body: { ok: false } }),
+    });
+
+    expect(check(receipt, "zh_mbti_landing")).toMatchObject({
+      result: "fail",
+      http_status: 404,
+      attempt_count: 1,
+      request_surface: "lookup_api",
+      diagnostic_summary: [
+        expect.objectContaining({
+          category: "http_404",
+          retryable: false,
+          request_surface: "lookup_api",
+        }),
+      ],
     });
   });
 
