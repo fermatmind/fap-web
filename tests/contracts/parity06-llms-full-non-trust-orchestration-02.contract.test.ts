@@ -43,6 +43,10 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
       path.join(ROOT, "lib/cms/personality-public-content-assets.ts"),
       "utf8"
     );
+    const testSource = fs.readFileSync(
+      path.join(ROOT, "lib/seo/backendTestDiscoverabilitySource.ts"),
+      "utf8"
+    );
 
     expect(budgets).toContain("LLMS_FULL_ARTIFACT_BUILD_TIMEOUT_MS = 5 * 60_000");
     expect(budgets).toContain("LLMS_FULL_ARTIFACT_HARD_SOURCE_ATTEMPTS = 2");
@@ -57,6 +61,8 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
     expect(sitemapSource).toContain("backendSitemapSourceInFlight.timeoutMs < requestTimeoutMs");
     expect(enneagramSource).toContain("timeoutMs?: number");
     expect(personalityAssets).toContain("timeoutMs: options.timeoutMs");
+    expect(testSource).toContain("signal: options.signal");
+    expect(route).toContain("listBackendDiscoverabilityTestEntries({ signal })");
   });
 
   it("propagates a parent deadline to active budgeted work and returns the fail-closed fallback", async () => {

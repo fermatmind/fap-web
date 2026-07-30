@@ -1386,8 +1386,8 @@ async function buildLlmsFullTextInternal(
     scheduleSource(() => loadHardSource(
       buildProfile,
       () => withLlmsRouteBudget(
-        () =>
-          listBackendDiscoverabilityTestEntries().then((entries) =>
+        (signal) =>
+          listBackendDiscoverabilityTestEntries({ signal }).then((entries) =>
             limitLlmsRouteEntries(entries, LLMS_ROUTE_LIMITS.tests)
           ),
         [],

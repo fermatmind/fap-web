@@ -114,12 +114,16 @@ function normalizeCatalogItem(
   };
 }
 
-async function fetchBackendCatalogItems(apiLocale: string): Promise<BackendScaleCatalogItem[]> {
+async function fetchBackendCatalogItems(
+  apiLocale: string,
+  options: { signal?: AbortSignal } = {}
+): Promise<BackendScaleCatalogItem[]> {
   const response = await fetch(buildApiUrl(`/v0.3/scales/catalog?locale=${encodeURIComponent(apiLocale)}`), {
     headers: {
       Accept: "application/json",
       "X-FAP-Locale": apiLocale,
     },
+    signal: options.signal,
     ...PUBLIC_API_CACHE_OPTIONS,
   });
 
@@ -133,11 +137,13 @@ async function fetchBackendCatalogItems(apiLocale: string): Promise<BackendScale
   return items.filter((item): item is BackendScaleCatalogItem => Boolean(item && typeof item === "object"));
 }
 
-export async function listBackendDiscoverabilityTestEntries(): Promise<BackendDiscoverabilityTestEntry[]> {
+export async function listBackendDiscoverabilityTestEntries(
+  options: { signal?: AbortSignal } = {}
+): Promise<BackendDiscoverabilityTestEntry[]> {
   const entries = await Promise.all(
     TEST_CATALOG_LOCALES.map(async ({ locale, apiLocale }) => {
       const [items, iqSeoRampAuthority] = await Promise.all([
-        fetchBackendCatalogItems(apiLocale).catch(() => []),
+        fetchBackendCatalogItems(apiLocale, options).catch(() => []),
         getIqSeoRampAuthorityForLocale(locale).catch(() => null),
       ]);
 
