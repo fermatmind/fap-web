@@ -902,6 +902,7 @@ describe("English content parity control master", () => {
   it("accepts a CONTROL-only rework reset after exact-SHA W9 blocks a frozen package", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w9-rework-"));
     const invalidApprovalDirectory = makeControlApprovalDirectory();
+    const blockedManifestPath = path.join(tempDirectory, "blocked-master.json");
     const reworkManifestPath = path.join(tempDirectory, "rework-master.json");
     const reworkApprovalPath =
       "generated/en-content-parity/CONTROL-approvals/W3-ARTICLES/package-rework-reset-7bdbf91b.json";
@@ -909,7 +910,36 @@ describe("English content parity control master", () => {
       invalidApprovalDirectory,
       "invalid-package-rework-reset.json"
     );
-    const reworkManifest = structuredClone(manifest);
+    const blockedManifest = structuredClone(manifest);
+    const blockedW3 = blockedManifest.lanes.find((lane) => lane.lane_id === "W3");
+    const blockedArticles = blockedW3?.subscopes.find(
+      (subscope) => subscope.id === "W3-ARTICLES"
+    );
+    if (!blockedW3 || !blockedArticles) {
+      throw new Error("missing W3 blocked reset fixture");
+    }
+    blockedW3.status = "blocked";
+    blockedW3.blocked_from_status = "inventory_frozen";
+    blockedArticles.status = "blocked";
+    blockedArticles.blocked_from_status = "package_frozen";
+    blockedArticles.package_sha256 =
+      "7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750";
+    blockedArticles.gate_lineage = [
+      {
+        status: "package_frozen",
+        evidence_owner_lane_id: "W3",
+        report_ref:
+          "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
+        report_sha256:
+          "feb60cca6237c9c8113a31e510ffc38cad8828a3f639faab9674fec02ea0716b",
+        package_sha256:
+          "7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750",
+        accepted_at: "2026-07-30T20:50:31.000Z",
+      },
+    ];
+    fs.writeFileSync(blockedManifestPath, JSON.stringify(blockedManifest));
+
+    const reworkManifest = structuredClone(blockedManifest);
     const w3 = reworkManifest.lanes.find((lane) => lane.lane_id === "W3");
     const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
     const careerGuides = w3?.subscopes.find(
@@ -918,12 +948,9 @@ describe("English content parity control master", () => {
     if (!w3 || !articles || !careerGuides) {
       throw new Error("missing W3 rework reset fixture");
     }
-    expect(articles.status).toBe("blocked");
-    expect(articles.blocked_from_status).toBe("package_frozen");
-
     const approvalOutput = execFileSync(
       "node",
-      [VALIDATOR_PATH, "--manifest", MANIFEST_PATH, "--artifact", reworkApprovalPath],
+      [VALIDATOR_PATH, "--manifest", blockedManifestPath, "--artifact", reworkApprovalPath],
       { cwd: ROOT, encoding: "utf8" }
     );
     expect(JSON.parse(approvalOutput)).toMatchObject({ ok: true, errors: [] });
@@ -937,7 +964,7 @@ describe("English content parity control master", () => {
     try {
       execFileSync(
         "node",
-        [VALIDATOR_PATH, "--manifest", MANIFEST_PATH, "--artifact", invalidApprovalPath],
+        [VALIDATOR_PATH, "--manifest", blockedManifestPath, "--artifact", invalidApprovalPath],
         { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
       );
     } catch (error) {
