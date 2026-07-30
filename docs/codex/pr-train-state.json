@@ -52514,7 +52514,7 @@
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-career-guide-runtime-absence-01",
     "depends_on": [],
-    "commit_sha": "c12ee5e7665f341772c5f2a2711fa83c851ec105",
+    "commit_sha": "65f373d753520e70213237970789e5679323075c",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1861",
     "checks": {
       "dependency": {
@@ -52580,8 +52580,13 @@
         "at": "2026-07-30T22:48:00.000Z",
         "status": "review_fix_local_verified",
         "summary": "Inspected GitHub P1 review evidence showing that removing the English-to-Chinese redirect exposed an existing English MBTI CTA as a real 404. Suppressed only the unavailable English CareerGuide path across the actual MBTI entry and scene emitters, preserved Chinese links, and added direct negative contracts. The expanded same-scope repair passed 41/41 focused contracts, focused and full lint, Node 24 typecheck, Node 24 production build, YAML/JSON parsing, diff checks, and exact changed-file scope validation."
+      },
+      {
+        "at": "2026-07-30T22:49:00.000Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the same-scope P1 repair as 65f373d753520e70213237970789e5679323075c. This ledger tail binds the exact implementation SHA; fresh required checks and exact-head review remain mandatory before merge."
       }
     ],
-    "updated_at": "2026-07-30T22:48:00.000Z"
+    "updated_at": "2026-07-30T22:49:00.000Z"
   }
 }
