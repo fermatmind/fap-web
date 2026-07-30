@@ -52061,7 +52061,7 @@
     "updated_at": "2026-07-30T15:58:03Z"
   },
   "EN-PARITY-W3-ARTICLE-ASSETS-01": {
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-assets-01",
     "depends_on": [],
@@ -52099,6 +52099,14 @@
       "scope_validation": {
         "status": "pass",
         "evidence": "Changed and force-added ignored package paths are restricted to the declared Article package, its focused contract, and PR-train manifest/state; git diff --check passed."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1852 head 2f9506f92c1dcafd18326e1304d72d2089a072ee passed all 11 CI, contract, freeze, build, and CodeQL checks with zero failures."
+      },
+      "review_and_merge_policy": {
+        "status": "pass",
+        "evidence": "GitHub reports MERGEABLE/CLEAN, reviewDecision is empty, and the automated Codex review has no actionable suggestions."
       }
     },
     "failure_reason": null,
@@ -52125,8 +52133,13 @@
         "at": "2026-07-30T17:42:37Z",
         "status": "github_checks_pending",
         "summary": "Pushed implementation commit ce41054ebf8c74746faeeb9f02bba8ea4d0a258f and opened PR #1852. GitHub reports MERGEABLE with CI and CodeQL checks queued; no review decision is required."
+      },
+      {
+        "at": "2026-07-30T17:47:38Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1852 head 2f9506f92c1dcafd18326e1304d72d2089a072ee passed all 11 required CI/security checks. Exact changed-file scope and the package validator were revalidated; GitHub is MERGEABLE/CLEAN with no actionable review feedback."
       }
     ],
-    "updated_at": "2026-07-30T17:42:37Z"
+    "updated_at": "2026-07-30T17:47:38Z"
   }
 }
