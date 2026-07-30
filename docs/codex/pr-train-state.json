@@ -52061,12 +52061,12 @@
     "updated_at": "2026-07-30T15:58:03Z"
   },
   "EN-PARITY-W3-ARTICLE-ASSETS-01": {
-    "status": "local_verified",
+    "status": "github_checks_pending",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-assets-01",
     "depends_on": [],
-    "commit_sha": null,
-    "pr_url": null,
+    "commit_sha": "ce41054ebf8c74746faeeb9f02bba8ea4d0a258f",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1852",
     "checks": {
       "source_revision_drift": {
         "status": "pass",
@@ -52120,8 +52120,13 @@
         "at": "2026-07-30T17:41:29Z",
         "status": "local_verified",
         "summary": "Produced the exact 17-row candidate package and standard ten-file handoff at package SHA aca8156c24755a3603825ee8e7f6f21b6a0c0a8a62f7412c4b77400d6a5cc754. Validator, 29 focused contracts, SHA/identity checks, content anomaly preflight, lint, scope validation, and diff checks pass. Internal-link differences remain honestly pending independent review; package status stays package_in_progress and all write/release/deploy permissions remain false."
+      },
+      {
+        "at": "2026-07-30T17:42:37Z",
+        "status": "github_checks_pending",
+        "summary": "Pushed implementation commit ce41054ebf8c74746faeeb9f02bba8ea4d0a258f and opened PR #1852. GitHub reports MERGEABLE with CI and CodeQL checks queued; no review decision is required."
       }
     ],
-    "updated_at": "2026-07-30T17:41:29Z"
+    "updated_at": "2026-07-30T17:42:37Z"
   }
 }
