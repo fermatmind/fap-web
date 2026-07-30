@@ -27980,3 +27980,40 @@ prs:
     deploy_allowed: false
     content_authority: CMS/backend public APIs
     repository_rule_impact: no authority change; records independent W9 gate evidence only
+
+  - id: EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01
+    repo: fap-web
+    branch: codex/en-parity-w3-career-guide-runtime-absence-01
+    base: main
+    title: "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01: return real 404s for missing English CareerGuides"
+    depends_on: []
+    mode: execute
+    train_scope: w3_career_guide_missing_locale_runtime
+    status: in_progress
+    allowed_paths:
+      - next.config.mjs
+      - app/(localized)/[locale]/career/guides/[slug]/page.tsx
+      - tests/contracts/career-guides-cms.contract.test.tsx
+      - tests/contracts/career-guides-cleanup.contract.test.ts
+      - tests/contracts/redirects.contract.test.ts
+      - lib/cms/career-guides.ts
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    required_local_checks:
+      - focused contracts
+      - lint
+      - typecheck
+      - build
+      - git diff --check
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    production_write_execution: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    deploy_allowed: false
+    content_authority: CMS/backend public APIs
+    repository_rule_impact: strengthens fail-closed locale behavior without changing backend content authority

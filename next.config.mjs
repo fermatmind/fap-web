@@ -78,21 +78,6 @@ const gscLegacyRedirects = [
     permanent: true,
   },
   {
-    source: "/en/career/guides/from-mbti-to-job-fit",
-    destination: "/zh/career/guides/from-mbti-to-job-fit",
-    permanent: true,
-  },
-  {
-    source: "/en/career/guides/cross-industry-move-strategy",
-    destination: "/zh/career/guides/cross-industry-move-strategy",
-    permanent: true,
-  },
-  {
-    source: "/en/career/guides/networking-that-actually-works",
-    destination: "/zh/career/guides/networking-that-actually-works",
-    permanent: true,
-  },
-  {
     source: "/en/career/tests/riasec",
     destination: "/en/tests/holland-career-interest-test-riasec",
     permanent: true,
