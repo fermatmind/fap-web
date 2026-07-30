@@ -51991,9 +51991,9 @@
     "depends_on": [
       "EN-PARITY-W1-MBTI-INVENTORY-01"
     ],
-    "status": "local_verified",
-    "commit_sha": null,
-    "pr_url": null,
+    "status": "github_checks_pending",
+    "commit_sha": "878ff4ba633a8c43d88f4b38552b0796d3aa8337",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1850",
     "checks": {
       "authorization": {
         "status": "passed",
@@ -52030,6 +52030,10 @@
       "changed_file_scope": {
         "status": "passed",
         "evidence": "All changes are limited to docs/result-page-agents/mbti/**, the single result-content validator, its focused contract, and the two train metadata files. No renderer, API adapter, app route, final content, fap-api, CMS, SEO runtime, or future-PR file is changed."
+      },
+      "github_required_checks": {
+        "status": "pending",
+        "evidence": "PR #1850 is open from the exact scoped branch. Build, contracts, both freeze checks, and repository-required security checks are pending on the final ledger head."
       }
     },
     "failure_reason": null,
@@ -52059,8 +52063,13 @@
         "at": "2026-07-30T15:57:49Z",
         "status": "local_verified",
         "summary": "The exact frozen inventory validator passed with 46 result rows and no errors; the focused contract passed 6/6; focused ESLint, YAML/JSON parsing, diff check, and exact path scope validation passed."
+      },
+      {
+        "at": "2026-07-30T15:58:58Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the exact 8-file scope as 878ff4ba633a8c43d88f4b38552b0796d3aa8337, pushed the task branch, and opened PR #1850. Required GitHub checks are pending on the final ledger head."
       }
     ],
-    "updated_at": "2026-07-30T15:57:49Z"
+    "updated_at": "2026-07-30T15:58:58Z"
 }
 }
