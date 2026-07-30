@@ -64,6 +64,8 @@ type Lane = {
   package_sha256: string | null;
   qa_report_ref: string | null;
   gate_lineage: GateLineageEntry[];
+  blockers: string[];
+  next_action: string;
   subscopes: Array<{
     id: string;
     sequence: number;
