@@ -901,7 +901,14 @@ describe("English content parity control master", () => {
 
   it("accepts a CONTROL-only rework reset after exact-SHA W9 blocks a frozen package", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w9-rework-"));
+    const invalidApprovalDirectory = makeControlApprovalDirectory();
     const reworkManifestPath = path.join(tempDirectory, "rework-master.json");
+    const reworkApprovalPath =
+      "generated/en-content-parity/CONTROL-approvals/W3-ARTICLES/package-rework-reset-7bdbf91b.json";
+    const invalidApprovalPath = path.join(
+      invalidApprovalDirectory,
+      "invalid-package-rework-reset.json"
+    );
     const reworkManifest = structuredClone(manifest);
     const w3 = reworkManifest.lanes.find((lane) => lane.lane_id === "W3");
     const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
@@ -913,6 +920,32 @@ describe("English content parity control master", () => {
     }
     expect(articles.status).toBe("blocked");
     expect(articles.blocked_from_status).toBe("package_frozen");
+
+    const approvalOutput = execFileSync(
+      "node",
+      [VALIDATOR_PATH, "--manifest", MANIFEST_PATH, "--artifact", reworkApprovalPath],
+      { cwd: ROOT, encoding: "utf8" }
+    );
+    expect(JSON.parse(approvalOutput)).toMatchObject({ ok: true, errors: [] });
+
+    const invalidApproval = JSON.parse(
+      fs.readFileSync(reworkApprovalPath, "utf8")
+    ) as { w9_report_sha256: string };
+    invalidApproval.w9_report_sha256 = "f".repeat(64);
+    fs.writeFileSync(invalidApprovalPath, JSON.stringify(invalidApproval));
+    let invalidOutput = "";
+    try {
+      execFileSync(
+        "node",
+        [VALIDATOR_PATH, "--manifest", MANIFEST_PATH, "--artifact", invalidApprovalPath],
+        { cwd: ROOT, encoding: "utf8", stdio: ["ignore", "pipe", "pipe"] }
+      );
+    } catch (error) {
+      invalidOutput = (error as { stdout?: string }).stdout ?? "";
+    }
+    expect(JSON.parse(invalidOutput).errors.join("\n")).toContain(
+      "package rework reset W9 report SHA mismatch"
+    );
 
     w3.status = "inventory_frozen";
     w3.blocked_from_status = null;
@@ -943,6 +976,7 @@ describe("English content parity control master", () => {
       expect(Object.values(w3.permissions).every((value) => value === false)).toBe(true);
     } finally {
       fs.rmSync(tempDirectory, { recursive: true, force: true });
+      fs.rmSync(invalidApprovalDirectory, { recursive: true, force: true });
     }
   });
 

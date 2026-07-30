@@ -20,6 +20,9 @@
     },
     {
       "$ref": "#/$defs/controlled_transition_approval"
+    },
+    {
+      "$ref": "#/$defs/package_rework_reset"
     }
   ],
   "$defs": {
@@ -1243,6 +1246,85 @@
         },
         "verdict": {
           "const": "APPROVED"
+        },
+        "permissions": {
+          "$ref": "#/$defs/permissions"
+        }
+      }
+    },
+    "package_rework_reset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "artifact_kind",
+        "schema_version",
+        "control_id",
+        "control_owner",
+        "producer_lane_id",
+        "subscope_id",
+        "blocked_package_sha256",
+        "w9_report_ref",
+        "w9_report_sha256",
+        "proposed_status",
+        "clear_fields",
+        "permissions"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_kind": {
+          "const": "package_rework_reset"
+        },
+        "schema_version": {
+          "const": "fermatmind.en_content_parity_package_rework_reset.v1"
+        },
+        "control_id": {
+          "const": "EN-PARITY-CONTROL-BOOTSTRAP-01"
+        },
+        "control_owner": {
+          "const": "CONTROL"
+        },
+        "producer_lane_id": {
+          "type": "string",
+          "pattern": "^W[1-8]$"
+        },
+        "subscope_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "blocked_package_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "w9_report_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "w9_report_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "proposed_status": {
+          "const": "package_in_progress"
+        },
+        "clear_fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "package_sha256",
+              "qa_report_ref",
+              "gate_lineage"
+            ]
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "uniqueItems": true
         },
         "permissions": {
           "$ref": "#/$defs/permissions"
