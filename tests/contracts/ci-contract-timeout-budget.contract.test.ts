@@ -31,10 +31,10 @@ describe("CI contract timeout budget", () => {
     expect(contracts).toContain("timeout-minutes: 2");
   });
 
-  it("does not broaden timeout budgets for the other required jobs", () => {
+  it("keeps required jobs bounded while allowing Big Five install network headroom", () => {
     expect(jobBlock("build", "contract-shards")).toContain("timeout-minutes: 10");
     expect(jobBlock("verify-big5-contract-freeze", "verify-enneagram-contract-freeze")).toContain(
-      "timeout-minutes: 5"
+      "timeout-minutes: 10"
     );
     expect(jobBlock("verify-enneagram-contract-freeze")).toContain("timeout-minutes: 5");
   });
