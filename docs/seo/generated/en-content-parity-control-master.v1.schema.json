@@ -1,0 +1,1401 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/en-content-parity-control-master.v1.schema.json",
+  "title": "FermatMind English content parity control artifacts",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/master_manifest"
+    },
+    {
+      "$ref": "#/$defs/lane_package"
+    },
+    {
+      "$ref": "#/$defs/master_manifest_patch_candidate"
+    },
+    {
+      "$ref": "#/$defs/independent_qa_report"
+    },
+    {
+      "$ref": "#/$defs/transition_gate_report"
+    },
+    {
+      "$ref": "#/$defs/controlled_transition_approval"
+    }
+  ],
+  "$defs": {
+    "nullable_string": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "nullable_count": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "sha256_or_null": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "lane_id": {
+      "type": "string",
+      "pattern": "^W[1-9]$"
+    },
+    "evidence_owner_id": {
+      "type": "string",
+      "pattern": "^(?:W[1-9]|CONTROL)$"
+    },
+    "content_status": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "inventory_frozen",
+        "package_in_progress",
+        "package_frozen",
+        "qa_pass",
+        "dry_run_ready",
+        "draft_imported",
+        "editorial_approved",
+        "published",
+        "live_qa_pass",
+        "blocked"
+      ]
+    },
+    "gate_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "gate",
+        "report_path",
+        "report_sha256",
+        "report_in_package",
+        "owner_lane_id",
+        "verdict",
+        "asset_ids",
+        "row_count"
+      ],
+      "properties": {
+        "gate": {
+          "$ref": "#/$defs/content_status"
+        },
+        "report_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "report_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "report_in_package": {
+          "type": "boolean"
+        },
+        "owner_lane_id": {
+          "$ref": "#/$defs/evidence_owner_id"
+        },
+        "verdict": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "PASS",
+            "BLOCKED",
+            "APPROVED",
+            null
+          ]
+        },
+        "asset_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^ENPARITY-W[1-8]-[A-Z0-9-]+$"
+          }
+        },
+        "row_count": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "gate_lineage_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "evidence_owner_lane_id",
+        "report_ref",
+        "report_sha256",
+        "package_sha256",
+        "accepted_at"
+      ],
+      "properties": {
+        "status": {
+          "$ref": "#/$defs/content_status"
+        },
+        "evidence_owner_lane_id": {
+          "$ref": "#/$defs/evidence_owner_id"
+        },
+        "report_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "report_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "package_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "accepted_at": {
+          "type": "string",
+          "minLength": 20
+        }
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cms_write_authorized",
+        "staging_write_authorized",
+        "production_import_authorized",
+        "public_release_authorized",
+        "seo_runtime_release_authorized",
+        "search_submission_authorized",
+        "master_manifest_write_authorized"
+      ],
+      "properties": {
+        "cms_write_authorized": {
+          "const": false
+        },
+        "staging_write_authorized": {
+          "const": false
+        },
+        "production_import_authorized": {
+          "const": false
+        },
+        "public_release_authorized": {
+          "const": false
+        },
+        "seo_runtime_release_authorized": {
+          "const": false
+        },
+        "search_submission_authorized": {
+          "const": false
+        },
+        "master_manifest_write_authorized": {
+          "const": false
+        }
+      }
+    },
+    "count_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cohort_count",
+        "expected_en_assets",
+        "current_en_assets",
+        "remaining_en_assets",
+        "unknown_inventory_cohorts"
+      ],
+      "properties": {
+        "cohort_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "expected_en_assets": {
+          "$ref": "#/$defs/nullable_count"
+        },
+        "current_en_assets": {
+          "$ref": "#/$defs/nullable_count"
+        },
+        "remaining_en_assets": {
+          "$ref": "#/$defs/nullable_count"
+        },
+        "unknown_inventory_cohorts": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "subscope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "sequence",
+        "resource",
+        "output_subdirectory",
+        "asset_ids",
+        "status",
+        "blocked_from_status",
+        "package_sha256",
+        "qa_report_ref",
+        "gate_lineage",
+        "blockers",
+        "separate_package_required",
+        "same_pr_allowed"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "resource": {
+          "type": "string",
+          "minLength": 1
+        },
+        "output_subdirectory": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        },
+        "asset_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^ENPARITY-W3-[A-Z0-9-]+$"
+          }
+        },
+        "status": {
+          "$ref": "#/$defs/content_status"
+        },
+        "blocked_from_status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/content_status"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "package_sha256": {
+          "$ref": "#/$defs/sha256_or_null"
+        },
+        "qa_report_ref": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "gate_lineage": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/gate_lineage_entry"
+          }
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "separate_package_required": {
+          "const": true
+        },
+        "same_pr_allowed": {
+          "const": false
+        }
+      }
+    },
+    "lane": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lane_id",
+        "lane_kind",
+        "name",
+        "priority",
+        "wave",
+        "authority_owner",
+        "scope",
+        "do_not",
+        "dependencies",
+        "launch_state",
+        "status",
+        "blocked_from_status",
+        "output_directory",
+        "target_asset_types",
+        "subscopes",
+        "counts",
+        "source_inventory_refs",
+        "package_sha256",
+        "qa_report_ref",
+        "gate_lineage",
+        "blockers",
+        "next_action",
+        "permissions"
+      ],
+      "properties": {
+        "lane_id": {
+          "$ref": "#/$defs/lane_id"
+        },
+        "lane_kind": {
+          "type": "string",
+          "enum": [
+            "producer",
+            "independent_qa"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "priority": {
+          "type": "string",
+          "enum": [
+            "L1",
+            "L2",
+            "L3",
+            "QA"
+          ]
+        },
+        "wave": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 3
+        },
+        "authority_owner": {
+          "type": "string",
+          "enum": [
+            "backend_cms_personality",
+            "backend_assessment_result_content",
+            "backend_cms_editorial",
+            "backend_career_authority",
+            "independent_qa"
+          ]
+        },
+        "scope": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "do_not": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/lane_id"
+          }
+        },
+        "launch_state": {
+          "type": "string",
+          "enum": [
+            "launch_ready",
+            "registered",
+            "waiting_for_first_package"
+          ]
+        },
+        "status": {
+          "$ref": "#/$defs/content_status"
+        },
+        "blocked_from_status": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/content_status"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "output_directory": {
+          "type": "string",
+          "pattern": "^generated/en-content-parity/W[1-9]-[a-z0-9-]+/$"
+        },
+        "target_asset_types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "subscopes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/subscope"
+          }
+        },
+        "counts": {
+          "$ref": "#/$defs/count_summary"
+        },
+        "source_inventory_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "package_sha256": {
+          "$ref": "#/$defs/sha256_or_null"
+        },
+        "qa_report_ref": {
+          "$ref": "#/$defs/nullable_string"
+        },
+        "gate_lineage": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/gate_lineage_entry"
+          }
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "next_action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "permissions": {
+          "$ref": "#/$defs/permissions"
+        }
+      }
+    },
+    "asset_cohort": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_id",
+        "lane_id",
+        "asset_type",
+        "translation_group",
+        "locales",
+        "authority_source",
+        "expected_en_count",
+        "current_en_count",
+        "remaining_en_count",
+        "parity_state",
+        "evidence",
+        "notes"
+      ],
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "pattern": "^ENPARITY-W[1-8]-[A-Z0-9-]+$"
+        },
+        "lane_id": {
+          "type": "string",
+          "pattern": "^W[1-8]$"
+        },
+        "asset_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "translation_group": {
+          "type": "string",
+          "pattern": "^cohort:[a-z0-9][a-z0-9:_-]+$"
+        },
+        "locales": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "enum": [
+              "zh-CN",
+              "en"
+            ]
+          }
+        },
+        "authority_source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected_en_count": {
+          "$ref": "#/$defs/nullable_count"
+        },
+        "current_en_count": {
+          "$ref": "#/$defs/nullable_count"
+        },
+        "remaining_en_count": {
+          "$ref": "#/$defs/nullable_count"
+        },
+        "parity_state": {
+          "type": "string",
+          "enum": [
+            "paired_complete",
+            "en_missing",
+            "en_draft_requires_verification",
+            "inventory_required",
+            "locale_leakage_review_required"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "master_manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "artifact_kind",
+        "schema_version",
+        "control_id",
+        "is_master",
+        "generated_at",
+        "baseline",
+        "authority",
+        "state_machine",
+        "handoff_contract",
+        "existing_state_reference",
+        "lanes",
+        "assets",
+        "permissions",
+        "launch_policy",
+        "repository_rule_impact"
+      ],
+      "properties": {
+        "$schema": {
+          "const": "./en-content-parity-control-master.v1.schema.json"
+        },
+        "artifact_kind": {
+          "const": "master_manifest"
+        },
+        "schema_version": {
+          "const": "fermatmind.en_content_parity_control.v1"
+        },
+        "control_id": {
+          "const": "EN-PARITY-CONTROL-BOOTSTRAP-01"
+        },
+        "is_master": {
+          "const": true
+        },
+        "generated_at": {
+          "type": "string",
+          "minLength": 20
+        },
+        "baseline": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "observed_at",
+            "frontend",
+            "backend",
+            "live",
+            "known_backlog"
+          ],
+          "properties": {
+            "observed_at": {
+              "type": "string",
+              "minLength": 20
+            },
+            "frontend": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "repository",
+                "branch",
+                "commit_sha",
+                "worktree_clean"
+              ],
+              "properties": {
+                "repository": {
+                  "const": "fermatmind/fap-web"
+                },
+                "branch": {
+                  "const": "main"
+                },
+                "commit_sha": {
+                  "const": "c8b549636fcde1abbefe3aaddbd3635a7b4bcea6"
+                },
+                "worktree_clean": {
+                  "const": true
+                }
+              }
+            },
+            "backend": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "repository",
+                "branch",
+                "commit_sha",
+                "worktree_clean"
+              ],
+              "properties": {
+                "repository": {
+                  "const": "fermatmind/fap-api"
+                },
+                "branch": {
+                  "const": "main"
+                },
+                "commit_sha": {
+                  "const": "6cca48a754a3dc7ab52cf40851aeb1d6005e4ee8"
+                },
+                "worktree_clean": {
+                  "const": true
+                }
+              }
+            },
+            "live": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "site_base_url",
+                "api_base_url",
+                "sitemap",
+                "articles",
+                "career_guides",
+                "career_jobs"
+              ],
+              "properties": {
+                "site_base_url": {
+                  "const": "https://fermatmind.com"
+                },
+                "api_base_url": {
+                  "const": "https://api.fermatmind.com"
+                },
+                "sitemap": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "total_urls",
+                    "zh_urls",
+                    "en_urls",
+                    "paired_paths",
+                    "only_zh_paths",
+                    "only_en_paths"
+                  ],
+                  "properties": {
+                    "total_urls": {
+                      "const": 2645
+                    },
+                    "zh_urls": {
+                      "const": 1366
+                    },
+                    "en_urls": {
+                      "const": 1278
+                    },
+                    "paired_paths": {
+                      "const": 1268
+                    },
+                    "only_zh_paths": {
+                      "const": 98
+                    },
+                    "only_en_paths": {
+                      "const": 10
+                    }
+                  }
+                },
+                "articles": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "zh_public",
+                    "en_public"
+                  ],
+                  "properties": {
+                    "zh_public": {
+                      "const": 89
+                    },
+                    "en_public": {
+                      "const": 23
+                    }
+                  }
+                },
+                "career_guides": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "zh_public",
+                    "en_public"
+                  ],
+                  "properties": {
+                    "zh_public": {
+                      "const": 20
+                    },
+                    "en_public": {
+                      "const": 0
+                    }
+                  }
+                },
+                "career_jobs": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "zh_index_rows",
+                    "en_index_rows",
+                    "expected_bilingual_slugs"
+                  ],
+                  "properties": {
+                    "zh_index_rows": {
+                      "const": 1046
+                    },
+                    "en_index_rows": {
+                      "const": 1046
+                    },
+                    "expected_bilingual_slugs": {
+                      "const": 1046
+                    }
+                  }
+                }
+              }
+            },
+            "known_backlog": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "mbti_cross_comparisons",
+                "articles",
+                "career_guides",
+                "riasec_deep_asset_groups"
+              ],
+              "properties": {
+                "mbti_cross_comparisons": {
+                  "const": 7
+                },
+                "articles": {
+                  "const": 17
+                },
+                "career_guides": {
+                  "const": 20
+                },
+                "riasec_deep_asset_groups": {
+                  "const": 14
+                }
+              }
+            }
+          }
+        },
+        "authority": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "content_source_of_truth",
+            "frontend_role",
+            "empty_response_behavior",
+            "search_projection_policy",
+            "production_import_policy",
+            "controlled_transition_approval_directory"
+          ],
+          "properties": {
+            "content_source_of_truth": {
+              "const": "backend_cms_public_api"
+            },
+            "frontend_role": {
+              "const": "render_interact_and_adapt_only"
+            },
+            "empty_response_behavior": {
+              "const": "fail_closed_no_editorial_fallback"
+            },
+            "search_projection_policy": {
+              "const": "candidate_only_separate_release_gate"
+            },
+            "production_import_policy": {
+              "const": "explicit_human_approval_exact_artifact_sha_required"
+            },
+            "controlled_transition_approval_directory": {
+              "const": "generated/en-content-parity/CONTROL-approvals/"
+            }
+          }
+        },
+        "state_machine": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "ordered_states",
+            "blocked_state",
+            "skip_transitions_allowed"
+          ],
+          "properties": {
+            "ordered_states": {
+              "type": "array",
+              "minItems": 10,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/content_status"
+              }
+            },
+            "blocked_state": {
+              "const": "blocked"
+            },
+            "skip_transitions_allowed": {
+              "const": false
+            }
+          }
+        },
+        "handoff_contract": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "required_files",
+            "leaf_may_edit_master",
+            "leaf_submission_mode",
+            "large_artifact_policy"
+          ],
+          "properties": {
+            "required_files": {
+              "type": "array",
+              "minItems": 10,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "leaf_may_edit_master": {
+              "const": false
+            },
+            "leaf_submission_mode": {
+              "const": "master_manifest_patch_candidate_only"
+            },
+            "large_artifact_policy": {
+              "const": "generated_directory_sha_referenced_not_committed_by_default"
+            }
+          }
+        },
+        "existing_state_reference": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "path",
+            "usage",
+            "copy_or_reset_allowed"
+          ],
+          "properties": {
+            "path": {
+              "const": "generated/fermatmind-content-agent-state/"
+            },
+            "usage": {
+              "const": "reference_existing_career_state_without_duplication"
+            },
+            "copy_or_reset_allowed": {
+              "const": false
+            }
+          }
+        },
+        "lanes": {
+          "type": "array",
+          "minItems": 9,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/lane"
+          }
+        },
+        "assets": {
+          "type": "array",
+          "minItems": 8,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/asset_cohort"
+          }
+        },
+        "permissions": {
+          "$ref": "#/$defs/permissions"
+        },
+        "launch_policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "max_concurrent_producer_lanes",
+            "first_wave",
+            "first_wave_launch_gate",
+            "qa_start_gate",
+            "heavy_validation_limit"
+          ],
+          "properties": {
+            "max_concurrent_producer_lanes": {
+              "const": 3
+            },
+            "first_wave": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "uniqueItems": true,
+              "items": {
+                "$ref": "#/$defs/lane_id"
+              }
+            },
+            "first_wave_launch_gate": {
+              "const": "bootstrap_pr_merged_and_main_sha_re_read"
+            },
+            "qa_start_gate": {
+              "const": "first_producer_package_frozen"
+            },
+            "heavy_validation_limit": {
+              "const": "one_full_suite_at_a_time"
+            }
+          }
+        },
+        "repository_rule_impact": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "runtime_behavior_changed",
+            "content_authority_changed",
+            "public_exposure_changed",
+            "notes"
+          ],
+          "properties": {
+            "runtime_behavior_changed": {
+              "const": false
+            },
+            "content_authority_changed": {
+              "const": false
+            },
+            "public_exposure_changed": {
+              "const": false
+            },
+            "notes": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    },
+    "independent_qa_report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "artifact_kind",
+        "schema_version",
+        "control_id",
+        "qa_lane_id",
+        "output_directory",
+        "producer_lane_id",
+        "subscope_id",
+        "package_sha256",
+        "verdict",
+        "reviewed_asset_ids",
+        "reviewed_row_count",
+        "checks",
+        "permissions"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_kind": {
+          "const": "independent_qa_report"
+        },
+        "schema_version": {
+          "const": "fermatmind.en_content_parity_independent_qa_report.v1"
+        },
+        "control_id": {
+          "const": "EN-PARITY-CONTROL-BOOTSTRAP-01"
+        },
+        "qa_lane_id": {
+          "const": "W9"
+        },
+        "output_directory": {
+          "const": "generated/en-content-parity/W9-independent-qa/"
+        },
+        "producer_lane_id": {
+          "type": "string",
+          "pattern": "^W[1-8]$"
+        },
+        "subscope_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "package_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "BLOCKED"
+          ]
+        },
+        "reviewed_asset_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^ENPARITY-W[1-8]-[A-Z0-9-]+$"
+          }
+        },
+        "reviewed_row_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "checks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "language_naturalness",
+            "chinese_leakage",
+            "claim_boundary",
+            "asset_duplication",
+            "field_leakage",
+            "page_api_alignment"
+          ],
+          "properties": {
+            "language_naturalness": {
+              "type": "string",
+              "enum": [
+                "PASS",
+                "BLOCKED"
+              ]
+            },
+            "chinese_leakage": {
+              "type": "string",
+              "enum": [
+                "PASS",
+                "BLOCKED"
+              ]
+            },
+            "claim_boundary": {
+              "type": "string",
+              "enum": [
+                "PASS",
+                "BLOCKED"
+              ]
+            },
+            "asset_duplication": {
+              "type": "string",
+              "enum": [
+                "PASS",
+                "BLOCKED"
+              ]
+            },
+            "field_leakage": {
+              "type": "string",
+              "enum": [
+                "PASS",
+                "BLOCKED"
+              ]
+            },
+            "page_api_alignment": {
+              "type": "string",
+              "enum": [
+                "PASS",
+                "BLOCKED"
+              ]
+            }
+          }
+        },
+        "permissions": {
+          "$ref": "#/$defs/permissions"
+        }
+      }
+    },
+    "transition_gate_report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "artifact_kind",
+        "schema_version",
+        "control_id",
+        "owner_lane_id",
+        "producer_lane_id",
+        "subscope_id",
+        "package_sha256",
+        "gate",
+        "verdict",
+        "permissions"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_kind": {
+          "const": "transition_gate_report"
+        },
+        "schema_version": {
+          "const": "fermatmind.en_content_parity_transition_gate_report.v1"
+        },
+        "control_id": {
+          "const": "EN-PARITY-CONTROL-BOOTSTRAP-01"
+        },
+        "owner_lane_id": {
+          "type": "string",
+          "pattern": "^W[1-8]$"
+        },
+        "producer_lane_id": {
+          "type": "string",
+          "pattern": "^W[1-8]$"
+        },
+        "subscope_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "package_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "gate": {
+          "$ref": "#/$defs/content_status"
+        },
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "PASS",
+            "BLOCKED"
+          ]
+        },
+        "permissions": {
+          "$ref": "#/$defs/permissions"
+        }
+      }
+    },
+    "controlled_transition_approval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "artifact_kind",
+        "schema_version",
+        "control_id",
+        "approval_owner",
+        "approval_ref",
+        "producer_lane_id",
+        "subscope_id",
+        "package_sha256",
+        "gate",
+        "verdict",
+        "permissions"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_kind": {
+          "const": "controlled_transition_approval"
+        },
+        "schema_version": {
+          "const": "fermatmind.en_content_parity_controlled_transition_approval.v1"
+        },
+        "control_id": {
+          "const": "EN-PARITY-CONTROL-BOOTSTRAP-01"
+        },
+        "approval_owner": {
+          "const": "human_operator"
+        },
+        "approval_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "producer_lane_id": {
+          "type": "string",
+          "pattern": "^W[1-8]$"
+        },
+        "subscope_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "package_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "gate": {
+          "type": "string",
+          "enum": [
+            "draft_imported",
+            "published"
+          ]
+        },
+        "verdict": {
+          "const": "APPROVED"
+        },
+        "permissions": {
+          "$ref": "#/$defs/permissions"
+        }
+      }
+    },
+    "lane_package": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "artifact_kind",
+        "schema_version",
+        "control_id",
+        "lane_id",
+        "subscope_id",
+        "package_id",
+        "status",
+        "output_directory",
+        "artifact_files",
+        "assets",
+        "permissions"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_kind": {
+          "const": "lane_package"
+        },
+        "schema_version": {
+          "const": "fermatmind.en_content_parity_lane_package.v1"
+        },
+        "control_id": {
+          "const": "EN-PARITY-CONTROL-BOOTSTRAP-01"
+        },
+        "lane_id": {
+          "type": "string",
+          "pattern": "^W[1-8]$"
+        },
+        "subscope_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "package_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "$ref": "#/$defs/content_status"
+        },
+        "output_directory": {
+          "type": "string",
+          "pattern": "^generated/en-content-parity/W[1-8]-[a-z0-9-]+/(?:[a-z0-9][a-z0-9-]*/)?$"
+        },
+        "artifact_files": {
+          "type": "array",
+          "minItems": 10,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "assets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/asset_cohort"
+          }
+        },
+        "permissions": {
+          "$ref": "#/$defs/permissions"
+        }
+      }
+    },
+    "master_manifest_patch_candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "$schema",
+        "artifact_kind",
+        "schema_version",
+        "control_id",
+        "lane_id",
+        "subscope_id",
+        "package_id",
+        "base_manifest_sha256",
+        "sha256_manifest_path",
+        "package_sha256",
+        "proposed_status",
+        "gate_evidence",
+        "asset_updates",
+        "permissions"
+      ],
+      "properties": {
+        "$schema": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_kind": {
+          "const": "master_manifest_patch_candidate"
+        },
+        "schema_version": {
+          "const": "fermatmind.en_content_parity_master_patch_candidate.v1"
+        },
+        "control_id": {
+          "const": "EN-PARITY-CONTROL-BOOTSTRAP-01"
+        },
+        "lane_id": {
+          "type": "string",
+          "pattern": "^W[1-8]$"
+        },
+        "subscope_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "package_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "base_manifest_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "sha256_manifest_path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "package_sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "proposed_status": {
+          "$ref": "#/$defs/content_status"
+        },
+        "gate_evidence": {
+          "$ref": "#/$defs/gate_evidence"
+        },
+        "asset_updates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/asset_cohort"
+          }
+        },
+        "permissions": {
+          "$ref": "#/$defs/permissions"
+        }
+      }
+    }
+  }
+}

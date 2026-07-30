@@ -1,0 +1,890 @@
+{
+  "$schema": "./en-content-parity-control-master.v1.schema.json",
+  "artifact_kind": "master_manifest",
+  "schema_version": "fermatmind.en_content_parity_control.v1",
+  "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
+  "is_master": true,
+  "generated_at": "2026-07-30T11:31:43.611Z",
+  "baseline": {
+    "observed_at": "2026-07-30T11:31:43.611Z",
+    "frontend": {
+      "repository": "fermatmind/fap-web",
+      "branch": "main",
+      "commit_sha": "c8b549636fcde1abbefe3aaddbd3635a7b4bcea6",
+      "worktree_clean": true
+    },
+    "backend": {
+      "repository": "fermatmind/fap-api",
+      "branch": "main",
+      "commit_sha": "6cca48a754a3dc7ab52cf40851aeb1d6005e4ee8",
+      "worktree_clean": true
+    },
+    "live": {
+      "site_base_url": "https://fermatmind.com",
+      "api_base_url": "https://api.fermatmind.com",
+      "sitemap": {
+        "total_urls": 2645,
+        "zh_urls": 1366,
+        "en_urls": 1278,
+        "paired_paths": 1268,
+        "only_zh_paths": 98,
+        "only_en_paths": 10
+      },
+      "articles": {
+        "zh_public": 89,
+        "en_public": 23
+      },
+      "career_guides": {
+        "zh_public": 20,
+        "en_public": 0
+      },
+      "career_jobs": {
+        "zh_index_rows": 1046,
+        "en_index_rows": 1046,
+        "expected_bilingual_slugs": 1046
+      }
+    },
+    "known_backlog": {
+      "mbti_cross_comparisons": 7,
+      "articles": 17,
+      "career_guides": 20,
+      "riasec_deep_asset_groups": 14
+    }
+  },
+  "authority": {
+    "content_source_of_truth": "backend_cms_public_api",
+    "frontend_role": "render_interact_and_adapt_only",
+    "empty_response_behavior": "fail_closed_no_editorial_fallback",
+    "search_projection_policy": "candidate_only_separate_release_gate",
+    "production_import_policy": "explicit_human_approval_exact_artifact_sha_required",
+    "controlled_transition_approval_directory": "generated/en-content-parity/CONTROL-approvals/"
+  },
+  "state_machine": {
+    "ordered_states": [
+      "not_started",
+      "inventory_frozen",
+      "package_in_progress",
+      "package_frozen",
+      "qa_pass",
+      "dry_run_ready",
+      "draft_imported",
+      "editorial_approved",
+      "published",
+      "live_qa_pass"
+    ],
+    "blocked_state": "blocked",
+    "skip_transitions_allowed": false
+  },
+  "handoff_contract": {
+    "required_files": [
+      "scope_manifest.json",
+      "assets.jsonl",
+      "translation_map.json",
+      "source_ledger.json",
+      "claim_boundary_report.json",
+      "editorial_review.json",
+      "dry_run_readiness.json",
+      "sha256_manifest.json",
+      "master_manifest_patch.candidate.json",
+      "handoff.md"
+    ],
+    "leaf_may_edit_master": false,
+    "leaf_submission_mode": "master_manifest_patch_candidate_only",
+    "large_artifact_policy": "generated_directory_sha_referenced_not_committed_by_default"
+  },
+  "existing_state_reference": {
+    "path": "generated/fermatmind-content-agent-state/",
+    "usage": "reference_existing_career_state_without_duplication",
+    "copy_or_reset_allowed": false
+  },
+  "lanes": [
+    {
+      "lane_id": "W1",
+      "lane_kind": "producer",
+      "name": "MBTI English parity",
+      "priority": "L1",
+      "wave": 1,
+      "authority_owner": "backend_cms_personality",
+      "scope": [
+        "Freeze the seven known cross-type comparison gaps at row level.",
+        "Inventory private result, report, share, PDF, and history English content assets.",
+        "Generate local reader assets only after source and claim-boundary review."
+      ],
+      "do_not": [
+        "Do not edit the master manifest directly.",
+        "Do not write CMS, publish, change SEO runtime, or add frontend editorial fallback content."
+      ],
+      "dependencies": [],
+      "launch_state": "launch_ready",
+      "status": "not_started",
+      "blocked_from_status": null,
+      "output_directory": "generated/en-content-parity/W1-mbti/",
+      "target_asset_types": [
+        "mbti_cross_type_comparison",
+        "mbti_result_content"
+      ],
+      "subscopes": [],
+      "counts": {
+        "cohort_count": 2,
+        "expected_en_assets": null,
+        "current_en_assets": null,
+        "remaining_en_assets": null,
+        "unknown_inventory_cohorts": 1
+      },
+      "source_inventory_refs": [
+        "docs/seo/personality/mbti-full-audit-30-inventory-runtime-baseline-2026-07-13.json",
+        "docs/result-page-agents/mbti-result-page-agent-scaffold-scan-2026-06-22.md"
+      ],
+      "package_sha256": null,
+      "qa_report_ref": null,
+      "gate_lineage": [],
+      "blockers": [],
+      "next_action": "Run the W1 launch prompt after the bootstrap PR is merged and main SHA is re-read.",
+      "permissions": {
+        "cms_write_authorized": false,
+        "staging_write_authorized": false,
+        "production_import_authorized": false,
+        "public_release_authorized": false,
+        "seo_runtime_release_authorized": false,
+        "search_submission_authorized": false,
+        "master_manifest_write_authorized": false
+      }
+    },
+    {
+      "lane_id": "W2",
+      "lane_kind": "producer",
+      "name": "Big Five English parity",
+      "priority": "L2",
+      "wave": 1,
+      "authority_owner": "backend_cms_personality",
+      "scope": [
+        "Preserve the completed 52/52 public profile cohort without regeneration.",
+        "Verify the known 50 English draft records against published projection authority.",
+        "Inventory private result, report, share, PDF, and history English assets."
+      ],
+      "do_not": [
+        "Do not regenerate completed public profiles.",
+        "Do not edit the master manifest, CMS, public pointers, SEO runtime, or frontend editorial content."
+      ],
+      "dependencies": [],
+      "launch_state": "launch_ready",
+      "status": "not_started",
+      "blocked_from_status": null,
+      "output_directory": "generated/en-content-parity/W2-big-five/",
+      "target_asset_types": [
+        "big_five_public_profile",
+        "big_five_draft_projection",
+        "big_five_result_content"
+      ],
+      "subscopes": [],
+      "counts": {
+        "cohort_count": 3,
+        "expected_en_assets": null,
+        "current_en_assets": null,
+        "remaining_en_assets": null,
+        "unknown_inventory_cohorts": 1
+      },
+      "source_inventory_refs": [
+        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json",
+        "docs/seo/personality/big-five-public-profile-agent-qa-2026-06-24.json"
+      ],
+      "package_sha256": null,
+      "qa_report_ref": null,
+      "gate_lineage": [],
+      "blockers": [],
+      "next_action": "Run the W2 launch prompt after the bootstrap PR is merged and main SHA is re-read.",
+      "permissions": {
+        "cms_write_authorized": false,
+        "staging_write_authorized": false,
+        "production_import_authorized": false,
+        "public_release_authorized": false,
+        "seo_runtime_release_authorized": false,
+        "search_submission_authorized": false,
+        "master_manifest_write_authorized": false
+      }
+    },
+    {
+      "lane_id": "W3",
+      "lane_kind": "producer",
+      "name": "Editorial CMS English parity",
+      "priority": "L3",
+      "wave": 1,
+      "authority_owner": "backend_cms_editorial",
+      "scope": [
+        "Produce the 17 confirmed missing English Article assets as one isolated package.",
+        "After the Article package is frozen, produce the 20 missing English Career Guide assets as a second isolated package.",
+        "Preserve Article and Career Guide resource identities and import contracts."
+      ],
+      "do_not": [
+        "Do not combine Article and Career Guide assets in one PR or import package.",
+        "Do not edit the master manifest, CMS, publication state, SEO runtime, or frontend editorial content."
+      ],
+      "dependencies": [],
+      "launch_state": "launch_ready",
+      "status": "inventory_frozen",
+      "blocked_from_status": null,
+      "output_directory": "generated/en-content-parity/W3-editorial-cms/",
+      "target_asset_types": [
+        "article",
+        "career_guide"
+      ],
+      "subscopes": [
+        {
+          "id": "W3-ARTICLES",
+          "sequence": 1,
+          "resource": "Article",
+          "output_subdirectory": "articles",
+          "asset_ids": [
+            "ENPARITY-W3-ARTICLES"
+          ],
+          "status": "inventory_frozen",
+          "blocked_from_status": null,
+          "package_sha256": null,
+          "qa_report_ref": null,
+          "gate_lineage": [],
+          "blockers": [],
+          "separate_package_required": true,
+          "same_pr_allowed": false
+        },
+        {
+          "id": "W3-CAREER-GUIDES",
+          "sequence": 2,
+          "resource": "CareerGuide",
+          "output_subdirectory": "career-guides",
+          "asset_ids": [
+            "ENPARITY-W3-CAREER-GUIDES"
+          ],
+          "status": "inventory_frozen",
+          "blocked_from_status": null,
+          "package_sha256": null,
+          "qa_report_ref": null,
+          "gate_lineage": [],
+          "blockers": [],
+          "separate_package_required": true,
+          "same_pr_allowed": false
+        }
+      ],
+      "counts": {
+        "cohort_count": 2,
+        "expected_en_assets": 37,
+        "current_en_assets": 0,
+        "remaining_en_assets": 37,
+        "unknown_inventory_cohorts": 0
+      },
+      "source_inventory_refs": [
+        "https://api.fermatmind.com/api/v0.5/articles?locale=en",
+        "https://api.fermatmind.com/api/v0.5/articles?locale=zh-CN",
+        "https://api.fermatmind.com/api/v0.5/career-guides?locale=en",
+        "https://api.fermatmind.com/api/v0.5/career-guides?locale=zh-CN"
+      ],
+      "package_sha256": null,
+      "qa_report_ref": null,
+      "gate_lineage": [],
+      "blockers": [],
+      "next_action": "Run W3-ARTICLES first; W3-CAREER-GUIDES remains queued until the Article package is frozen.",
+      "permissions": {
+        "cms_write_authorized": false,
+        "staging_write_authorized": false,
+        "production_import_authorized": false,
+        "public_release_authorized": false,
+        "seo_runtime_release_authorized": false,
+        "search_submission_authorized": false,
+        "master_manifest_write_authorized": false
+      }
+    },
+    {
+      "lane_id": "W4",
+      "lane_kind": "producer",
+      "name": "RIASEC English parity",
+      "priority": "L3",
+      "wave": 2,
+      "authority_owner": "backend_assessment_result_content",
+      "scope": [
+        "Inventory and produce the 14 deep result-content groups.",
+        "Include pair blends and share, PDF, and history-safe variants.",
+        "Preserve the RIASEC interest-direction boundary and both 60Q/140Q forms."
+      ],
+      "do_not": [
+        "Do not infer precise career matching, job fit, or outcome guarantees.",
+        "Do not create a parallel RIASEC stack, CMS write, SEO release, or frontend editorial fallback."
+      ],
+      "dependencies": [],
+      "launch_state": "registered",
+      "status": "not_started",
+      "blocked_from_status": null,
+      "output_directory": "generated/en-content-parity/W4-riasec/",
+      "target_asset_types": [
+        "riasec_deep_result_content",
+        "riasec_pair_blend",
+        "riasec_share_pdf_history_variant"
+      ],
+      "subscopes": [],
+      "counts": {
+        "cohort_count": 1,
+        "expected_en_assets": 14,
+        "current_en_assets": 0,
+        "remaining_en_assets": 14,
+        "unknown_inventory_cohorts": 0
+      },
+      "source_inventory_refs": [
+        "docs/codex/riasec-full-content-pack-asset-inventory.md"
+      ],
+      "package_sha256": null,
+      "qa_report_ref": null,
+      "gate_lineage": [],
+      "blockers": [],
+      "next_action": "Hold until wave 1 packages are available for QA and capacity is free.",
+      "permissions": {
+        "cms_write_authorized": false,
+        "staging_write_authorized": false,
+        "production_import_authorized": false,
+        "public_release_authorized": false,
+        "seo_runtime_release_authorized": false,
+        "search_submission_authorized": false,
+        "master_manifest_write_authorized": false
+      }
+    },
+    {
+      "lane_id": "W5",
+      "lane_kind": "producer",
+      "name": "Enneagram English parity",
+      "priority": "L3",
+      "wave": 2,
+      "authority_owner": "backend_cms_personality",
+      "scope": [
+        "Preserve the completed 58/58 public profile cohort without regeneration.",
+        "Inventory and repair only result-registry and private result-surface English gaps."
+      ],
+      "do_not": [
+        "Do not regenerate the completed public cohort.",
+        "Do not edit CMS, working or published pointers, SEO runtime, master manifest, or frontend editorial content."
+      ],
+      "dependencies": [],
+      "launch_state": "registered",
+      "status": "not_started",
+      "blocked_from_status": null,
+      "output_directory": "generated/en-content-parity/W5-enneagram/",
+      "target_asset_types": [
+        "enneagram_public_profile",
+        "enneagram_result_content"
+      ],
+      "subscopes": [],
+      "counts": {
+        "cohort_count": 2,
+        "expected_en_assets": null,
+        "current_en_assets": null,
+        "remaining_en_assets": null,
+        "unknown_inventory_cohorts": 1
+      },
+      "source_inventory_refs": [
+        "docs/seo/personality/enneagram/full-content-asset-audit-source-of-truth-2026-07-09.json",
+        "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json"
+      ],
+      "package_sha256": null,
+      "qa_report_ref": null,
+      "gate_lineage": [],
+      "blockers": [],
+      "next_action": "Hold until wave 1 packages are available for QA and capacity is free.",
+      "permissions": {
+        "cms_write_authorized": false,
+        "staging_write_authorized": false,
+        "production_import_authorized": false,
+        "public_release_authorized": false,
+        "seo_runtime_release_authorized": false,
+        "search_submission_authorized": false,
+        "master_manifest_write_authorized": false
+      }
+    },
+    {
+      "lane_id": "W6",
+      "lane_kind": "producer",
+      "name": "IQ English parity",
+      "priority": "L3",
+      "wave": 2,
+      "authority_owner": "backend_assessment_result_content",
+      "scope": [
+        "Inventory English result and report copy at every entitlement level.",
+        "Reconcile CMS media authority and certificate or visualization slots.",
+        "Enforce answer-key and internal generator metadata non-disclosure."
+      ],
+      "do_not": [
+        "Do not expose answer keys, solution rules, asset hashes, or generator metadata.",
+        "Do not write CMS, publish, edit SEO runtime, master manifest, or frontend editorial fallbacks."
+      ],
+      "dependencies": [],
+      "launch_state": "registered",
+      "status": "not_started",
+      "blocked_from_status": null,
+      "output_directory": "generated/en-content-parity/W6-iq/",
+      "target_asset_types": [
+        "iq_result_content",
+        "iq_report_content",
+        "iq_media_authority"
+      ],
+      "subscopes": [],
+      "counts": {
+        "cohort_count": 1,
+        "expected_en_assets": null,
+        "current_en_assets": null,
+        "remaining_en_assets": null,
+        "unknown_inventory_cohorts": 1
+      },
+      "source_inventory_refs": [
+        "docs/audits/iq-result-assets/11_result_asset_scan_summary.md",
+        "docs/result-page-agents/iq-raven-result-page-agent-scaffold-scan-2026-06-22.md"
+      ],
+      "package_sha256": null,
+      "qa_report_ref": null,
+      "gate_lineage": [],
+      "blockers": [],
+      "next_action": "Hold until wave 1 packages are available for QA and capacity is free.",
+      "permissions": {
+        "cms_write_authorized": false,
+        "staging_write_authorized": false,
+        "production_import_authorized": false,
+        "public_release_authorized": false,
+        "seo_runtime_release_authorized": false,
+        "search_submission_authorized": false,
+        "master_manifest_write_authorized": false
+      }
+    },
+    {
+      "lane_id": "W7",
+      "lane_kind": "producer",
+      "name": "EQ English parity",
+      "priority": "L3",
+      "wave": 3,
+      "authority_owner": "backend_assessment_result_content",
+      "scope": [
+        "Inventory remaining English result and report content gaps.",
+        "Define public-summary-safe share projection assets.",
+        "Complete claim-boundary and entitlement-level parity checks."
+      ],
+      "do_not": [
+        "Do not imply clinical assessment, hiring suitability, certification, or job-performance prediction.",
+        "Do not enable share runtime, write CMS, publish, edit SEO runtime, master manifest, or frontend editorial fallbacks."
+      ],
+      "dependencies": [],
+      "launch_state": "registered",
+      "status": "not_started",
+      "blocked_from_status": null,
+      "output_directory": "generated/en-content-parity/W7-eq/",
+      "target_asset_types": [
+        "eq_result_content",
+        "eq_report_content",
+        "eq_share_projection"
+      ],
+      "subscopes": [],
+      "counts": {
+        "cohort_count": 1,
+        "expected_en_assets": null,
+        "current_en_assets": null,
+        "remaining_en_assets": null,
+        "unknown_inventory_cohorts": 1
+      },
+      "source_inventory_refs": [
+        "docs/result-page-agents/eq60-result-page-agent-scaffold-scan-2026-06-22.md"
+      ],
+      "package_sha256": null,
+      "qa_report_ref": null,
+      "gate_lineage": [],
+      "blockers": [],
+      "next_action": "Hold until wave 2 packages are available for QA and capacity is free.",
+      "permissions": {
+        "cms_write_authorized": false,
+        "staging_write_authorized": false,
+        "production_import_authorized": false,
+        "public_release_authorized": false,
+        "seo_runtime_release_authorized": false,
+        "search_submission_authorized": false,
+        "master_manifest_write_authorized": false
+      }
+    },
+    {
+      "lane_id": "W8",
+      "lane_kind": "producer",
+      "name": "CareerJob bilingual projection parity",
+      "priority": "L3",
+      "wave": 3,
+      "authority_owner": "backend_career_authority",
+      "scope": [
+        "Reference the existing 1046 by 2 frozen PASS baselines and current 1046/1046 public index rows.",
+        "Audit stable occupation UUID and slug pairing across locales.",
+        "Detect Chinese reader-facing leakage and projection-quality gaps in English API and pages.",
+        "Progress only as control_previous plus new_50 batches."
+      ],
+      "do_not": [
+        "Do not regenerate all 1046 careers or rewrite existing frozen control rows.",
+        "Do not write CMS, import, publish, edit SEO runtime, master manifest, or frontend editorial fallbacks."
+      ],
+      "dependencies": [],
+      "launch_state": "registered",
+      "status": "not_started",
+      "blocked_from_status": null,
+      "output_directory": "generated/en-content-parity/W8-career-job/",
+      "target_asset_types": [
+        "career_job_locale_mapping",
+        "career_job_reader_projection",
+        "career_job_locale_leakage_finding"
+      ],
+      "subscopes": [],
+      "counts": {
+        "cohort_count": 1,
+        "expected_en_assets": 1046,
+        "current_en_assets": 1046,
+        "remaining_en_assets": 0,
+        "unknown_inventory_cohorts": 0
+      },
+      "source_inventory_refs": [
+        "generated/fermatmind-content-agent-state/global_content_state.json",
+        "generated/fermatmind-content-agent-state/import_state.json",
+        "https://api.fermatmind.com/api/v0.5/career/jobs?locale=en&org_id=0",
+        "https://api.fermatmind.com/api/v0.5/career/jobs?locale=zh-CN&org_id=0"
+      ],
+      "package_sha256": null,
+      "qa_report_ref": null,
+      "gate_lineage": [],
+      "blockers": [],
+      "next_action": "Hold until wave 2 packages are available for QA, then create the first control_previous plus new_50 audit batch.",
+      "permissions": {
+        "cms_write_authorized": false,
+        "staging_write_authorized": false,
+        "production_import_authorized": false,
+        "public_release_authorized": false,
+        "seo_runtime_release_authorized": false,
+        "search_submission_authorized": false,
+        "master_manifest_write_authorized": false
+      }
+    },
+    {
+      "lane_id": "W9",
+      "lane_kind": "independent_qa",
+      "name": "Independent parity QA",
+      "priority": "QA",
+      "wave": 0,
+      "authority_owner": "independent_qa",
+      "scope": [
+        "Audit language naturalness, Chinese leakage, duplicate assets, claim boundaries, internal-field leakage, and API/page parity.",
+        "Verify package and protected-field SHA before recommending a master manifest transition."
+      ],
+      "do_not": [
+        "Do not repair producer assets in place or self-declare producer PASS.",
+        "Do not edit the master manifest, CMS, publication state, SEO runtime, or production data."
+      ],
+      "dependencies": [],
+      "launch_state": "waiting_for_first_package",
+      "status": "not_started",
+      "blocked_from_status": null,
+      "output_directory": "generated/en-content-parity/W9-independent-qa/",
+      "target_asset_types": [
+        "independent_qa_report",
+        "repair_batch_plan"
+      ],
+      "subscopes": [],
+      "counts": {
+        "cohort_count": 0,
+        "expected_en_assets": null,
+        "current_en_assets": null,
+        "remaining_en_assets": null,
+        "unknown_inventory_cohorts": 0
+      },
+      "source_inventory_refs": [
+        "docs/seo/generated/en-content-parity-control-master.v1.json"
+      ],
+      "package_sha256": null,
+      "qa_report_ref": null,
+      "gate_lineage": [],
+      "blockers": [
+        "No producer package has reached package_frozen."
+      ],
+      "next_action": "Start when the first producer package reaches package_frozen.",
+      "permissions": {
+        "cms_write_authorized": false,
+        "staging_write_authorized": false,
+        "production_import_authorized": false,
+        "public_release_authorized": false,
+        "seo_runtime_release_authorized": false,
+        "search_submission_authorized": false,
+        "master_manifest_write_authorized": false
+      }
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "ENPARITY-W1-MBTI-CROSS-COMPARISONS",
+      "lane_id": "W1",
+      "asset_type": "mbti_cross_type_comparison",
+      "translation_group": "cohort:mbti:cross-type-comparison",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend CMS PersonalityPublicContentAsset and public comparison API",
+      "expected_en_count": 7,
+      "current_en_count": 0,
+      "remaining_en_count": 7,
+      "parity_state": "en_missing",
+      "evidence": [
+        "Seven zh-CN cross-type comparison records were observed in the public comparison projection.",
+        "The prior deep scan classified the English content assets for this cohort as missing."
+      ],
+      "notes": "Route existence is not proof of English reader-content parity."
+    },
+    {
+      "asset_id": "ENPARITY-W1-MBTI-RESULT-CONTENT",
+      "lane_id": "W1",
+      "asset_type": "mbti_result_content",
+      "translation_group": "cohort:mbti:result-content",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend MBTI result and report content packs",
+      "expected_en_count": null,
+      "current_en_count": null,
+      "remaining_en_count": null,
+      "parity_state": "inventory_required",
+      "evidence": [
+        "docs/result-page-agents/mbti-result-page-agent-scaffold-scan-2026-06-22.md reports missing agent-stack readiness."
+      ],
+      "notes": "W1 must freeze row-level scope before generating content."
+    },
+    {
+      "asset_id": "ENPARITY-W2-BIG-FIVE-PUBLIC-PROFILES",
+      "lane_id": "W2",
+      "asset_type": "big_five_public_profile",
+      "translation_group": "cohort:big-five:public-profile",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend CMS PersonalityPublicContentAsset published projection",
+      "expected_en_count": 52,
+      "current_en_count": 52,
+      "remaining_en_count": 0,
+      "parity_state": "paired_complete",
+      "evidence": [
+        "The deep scan observed 52 zh-CN and 52 English public Big Five profile pages."
+      ],
+      "notes": "Completed public content must not be regenerated."
+    },
+    {
+      "asset_id": "ENPARITY-W2-BIG-FIVE-DRAFTS",
+      "lane_id": "W2",
+      "asset_type": "big_five_draft_projection",
+      "translation_group": "cohort:big-five:english-draft-verification",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend CMS working revision and published projection",
+      "expected_en_count": 50,
+      "current_en_count": 0,
+      "remaining_en_count": 50,
+      "parity_state": "en_draft_requires_verification",
+      "evidence": [
+        "The CMS scan observed 50 English Big Five draft records outside the published public count."
+      ],
+      "notes": "A draft or working revision is not a published public projection."
+    },
+    {
+      "asset_id": "ENPARITY-W2-BIG-FIVE-RESULT-CONTENT",
+      "lane_id": "W2",
+      "asset_type": "big_five_result_content",
+      "translation_group": "cohort:big-five:result-content",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend Big Five v2 result and report content",
+      "expected_en_count": null,
+      "current_en_count": null,
+      "remaining_en_count": null,
+      "parity_state": "inventory_required",
+      "evidence": [
+        "docs/result-page-agents/big-five-result-page-agent-readonly-cleared-handoff.v1.json"
+      ],
+      "notes": "Private result parity is independent from public profile completeness."
+    },
+    {
+      "asset_id": "ENPARITY-W3-ARTICLES",
+      "lane_id": "W3",
+      "asset_type": "article",
+      "translation_group": "cohort:editorial:article-english-backlog",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend CMS Article resources",
+      "expected_en_count": 17,
+      "current_en_count": 0,
+      "remaining_en_count": 17,
+      "parity_state": "en_missing",
+      "evidence": [
+        "The deep CMS scan identified 17 Article resources without an English content asset.",
+        "The live public Article index returned 89 zh-CN and 23 English records at baseline time."
+      ],
+      "notes": "The 17-record backlog is a reviewed translation cohort, not the arithmetic difference between locale totals."
+    },
+    {
+      "asset_id": "ENPARITY-W3-CAREER-GUIDES",
+      "lane_id": "W3",
+      "asset_type": "career_guide",
+      "translation_group": "cohort:editorial:career-guide-english-backlog",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend CMS CareerGuide resources",
+      "expected_en_count": 20,
+      "current_en_count": 0,
+      "remaining_en_count": 20,
+      "parity_state": "en_missing",
+      "evidence": [
+        "The live public CareerGuide index returned 20 zh-CN and zero English records at baseline time."
+      ],
+      "notes": "This cohort is a separate package and PR from Article assets."
+    },
+    {
+      "asset_id": "ENPARITY-W4-RIASEC-DEEP-ASSETS",
+      "lane_id": "W4",
+      "asset_type": "riasec_deep_result_content",
+      "translation_group": "cohort:riasec:deep-result-content",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend RIASEC result content authority",
+      "expected_en_count": 14,
+      "current_en_count": 0,
+      "remaining_en_count": 14,
+      "parity_state": "en_missing",
+      "evidence": [
+        "docs/codex/riasec-full-content-pack-asset-inventory.md defines the 14-group deep asset target."
+      ],
+      "notes": "The reader boundary is career-interest direction, not precise career matching."
+    },
+    {
+      "asset_id": "ENPARITY-W5-ENNEAGRAM-PUBLIC-PROFILES",
+      "lane_id": "W5",
+      "asset_type": "enneagram_public_profile",
+      "translation_group": "cohort:enneagram:public-profile",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend CMS PersonalityPublicContentAsset published projection",
+      "expected_en_count": 58,
+      "current_en_count": 58,
+      "remaining_en_count": 0,
+      "parity_state": "paired_complete",
+      "evidence": [
+        "The deep scan observed 58 zh-CN and 58 English public Enneagram profile pages."
+      ],
+      "notes": "Completed public content must not be regenerated."
+    },
+    {
+      "asset_id": "ENPARITY-W5-ENNEAGRAM-RESULT-CONTENT",
+      "lane_id": "W5",
+      "asset_type": "enneagram_result_content",
+      "translation_group": "cohort:enneagram:result-content",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend Enneagram result and report content",
+      "expected_en_count": null,
+      "current_en_count": null,
+      "remaining_en_count": null,
+      "parity_state": "inventory_required",
+      "evidence": [
+        "docs/result-page-agents/enneagram-result-page-agent-readiness.proposal.json"
+      ],
+      "notes": "Private result parity is independent from public profile completeness."
+    },
+    {
+      "asset_id": "ENPARITY-W6-IQ-RESULT-CONTENT",
+      "lane_id": "W6",
+      "asset_type": "iq_result_content",
+      "translation_group": "cohort:iq:result-report-content",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend IQ result/report content and CMS Media Library",
+      "expected_en_count": null,
+      "current_en_count": null,
+      "remaining_en_count": null,
+      "parity_state": "inventory_required",
+      "evidence": [
+        "docs/audits/iq-result-assets/11_result_asset_scan_summary.md reports partial result/report and missing CMS media authority."
+      ],
+      "notes": "No answer keys or generator metadata may enter reader assets."
+    },
+    {
+      "asset_id": "ENPARITY-W7-EQ-RESULT-CONTENT",
+      "lane_id": "W7",
+      "asset_type": "eq_result_content",
+      "translation_group": "cohort:eq:result-report-share-content",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend EQ result/report content and public-summary share projection",
+      "expected_en_count": null,
+      "current_en_count": null,
+      "remaining_en_count": null,
+      "parity_state": "inventory_required",
+      "evidence": [
+        "docs/result-page-agents/eq60-result-page-agent-scaffold-scan-2026-06-22.md reports missing agent-stack and share-boundary readiness."
+      ],
+      "notes": "No clinical, hiring, certification, or job-performance claim is allowed."
+    },
+    {
+      "asset_id": "ENPARITY-W8-CAREER-JOB-PROJECTION",
+      "lane_id": "W8",
+      "asset_type": "career_job_reader_projection",
+      "translation_group": "cohort:career-job:bilingual-reader-projection",
+      "locales": [
+        "zh-CN",
+        "en"
+      ],
+      "authority_source": "backend career authority, frozen 1046 by 2 baselines, and public job index API",
+      "expected_en_count": 1046,
+      "current_en_count": 1046,
+      "remaining_en_count": 0,
+      "parity_state": "locale_leakage_review_required",
+      "evidence": [
+        "Both live locale index endpoints returned 1046 rows at baseline time.",
+        "The first English row exposed an empty canonical_zh and English search_h1_zh, requiring projection-quality and locale-leakage review."
+      ],
+      "notes": "Count parity does not prove locale quality; use control_previous plus new_50."
+    }
+  ],
+  "permissions": {
+    "cms_write_authorized": false,
+    "staging_write_authorized": false,
+    "production_import_authorized": false,
+    "public_release_authorized": false,
+    "seo_runtime_release_authorized": false,
+    "search_submission_authorized": false,
+    "master_manifest_write_authorized": false
+  },
+  "launch_policy": {
+    "max_concurrent_producer_lanes": 3,
+    "first_wave": [
+      "W1",
+      "W2",
+      "W3"
+    ],
+    "first_wave_launch_gate": "bootstrap_pr_merged_and_main_sha_re_read",
+    "qa_start_gate": "first_producer_package_frozen",
+    "heavy_validation_limit": "one_full_suite_at_a_time"
+  },
+  "repository_rule_impact": {
+    "runtime_behavior_changed": false,
+    "content_authority_changed": false,
+    "public_exposure_changed": false,
+    "notes": "This bootstrap records orchestration contracts only. Backend/CMS remains authoritative, and no runtime, CMS, sitemap, llms, canonical, indexability, or publication behavior changes."
+  }
+}

@@ -182,6 +182,16 @@
 - DailyGiving proof media is backend-authoritative. The frontend may render the operator-approved original charity donation proof image only through the public `proof_public_url`/evidence URL returned by the backend public API; it must not store proof files, hardcode proof URLs, infer proof status, expose private proof paths, or override backend proof decisions.
 - DailyGiving pages must stay `noindex` and out of sitemap/llms until the backend indexability gate explicitly allows inclusion. Frontend changes must not introduce trust badges, official partnership/endorsement implications, guaranteed-impact claims, or social/search amplification for DailyGiving.
 
+## English content parity control
+- The only sitewide English content parity master is `docs/seo/generated/en-content-parity-control-master.v1.json`. Producer and QA windows must not edit it directly; they submit validated `master_manifest_patch.candidate.json` artifacts for the control window to accept.
+- Producer windows must not write CMS, production data, SEO runtime, sitemap, llms, indexability, or public release state. Every write and release permission remains false until a separately controlled exact-SHA approval authorizes that action.
+- W3 Articles and Career Guides are sequential, independent scopes. They require separate output directories, packages, SHAs, candidate patches, imports, and PRs.
+- `package_frozen` fixes the complete target asset set and package SHA. Every later transition must retain that exact SHA and append external gate lineage; rebuilding or swapping the package requires returning to package production and repeating independent QA.
+- `qa_pass` requires a W9 report physically stored under the registered W9 authority directory that reviews every registered target asset and row, records all required checks as PASS, and names the exact frozen package SHA. Producer self-QA or a producer-co-located file declaring itself as W9 is not accepted.
+- Entering `blocked` must retain `blocked_from_status`; recovery may return only to that retained state and must clear `blocked_from_status` before normal forward transitions resume.
+- `draft_imported` and `published` require separately hashed human-operator approval evidence tied to the exact frozen package SHA. Producer-authored package reports cannot authorize CMS import or public release.
+- Draft import, editorial approval, publication, live QA, sitemap/llms/indexability, and search submission are separate gates. Draft import never implies public release.
+
 ## Final V4 upgrade protocols
 - Baseline content may exist only for new environment initialization, DB recovery, baseline imports, disaster recovery, and dry-run validation. Baseline content must not become runtime page-rendering authority.
 - Local development must support local API, test/staging API, or mock API workflows. CMS migration must not require frontend UI development against production CMS.
