@@ -52508,5 +52508,110 @@
       }
     ],
     "updated_at": "2026-07-30T21:19:45Z"
+  },
+  "EN-PARITY-W3-CAREER-GUIDE-RUNTIME-ABSENCE-01": {
+    "status": "ready_to_merge",
+    "repo": "fap-web",
+    "branch": "codex/en-parity-w3-career-guide-runtime-absence-01",
+    "depends_on": [],
+    "commit_sha": "55855baa3103de1a9d01ef410819117beb2297ec",
+    "pr_url": "https://github.com/fermatmind/fap-web/pull/1861",
+    "checks": {
+      "dependency": {
+        "status": "pass",
+        "evidence": "This CareerGuide runtime-absence item declares no PR dependency. CONTROL has accepted W3-ARTICLES package_frozen at exact SHA 37f9bf4576085b04076db031582d09fef86d71229d596f77df6f73334dd44669, so the CareerGuide sequential production gate is also open."
+      },
+      "scope": {
+        "status": "pass",
+        "evidence": "All seven runtime, CMS adapter, direct-contract, and train files are inside the current-item allowed_paths. The final implementation removes cross-locale redirects, fails missing English detail/metadata closed, and omits hreflang alternates whose locale projection is absent from the CMS/public API. Legacy MBTI content packs were proven not to feed the public personality or recommendation routes and were restored unchanged; authority-provided links can therefore appear automatically when the backend projection publishes them. No replacement content, CareerGuide package, backend, sitemap, llms, indexability, search, or deploy file changed."
+      },
+      "focused_contracts": {
+        "status": "pass",
+        "evidence": "Node 24.14.0 focused CareerGuide CMS, CareerGuide cleanup, and redirect contracts passed 19/19 tests on the final seven-file scope. Missing English detail and metadata both invoke notFound without a zh-CN or SEO fallback; the three retired cross-locale redirects are absent; and zh-only guides omit missing English hreflang."
+      },
+      "lint": {
+        "status": "pass",
+        "evidence": "Focused ESLint passed with zero warnings. Full pnpm lint under Node 24.14.0 passed after temporarily isolating and restoring ignored local .playwright-cli traces; only two unrelated pre-existing generated-script warnings remained and exit status was zero."
+      },
+      "typecheck": {
+        "status": "pass",
+        "evidence": "pnpm typecheck passed under Node 24.14.0 and pnpm 10.28.1."
+      },
+      "build": {
+        "status": "pass",
+        "evidence": "NEXT_PUBLIC_API_URL=https://api.fermatmind.com pnpm build passed under Node 24.14.0; Next.js compiled, generated 206/206 static pages, and completed postbuild asset sync."
+      },
+      "serialization": {
+        "status": "pass",
+        "evidence": "PR-train YAML and state JSON parse successfully; git diff --check passes."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "production_write_execution": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-30T22:31:19.000Z",
+        "status": "in_progress",
+        "summary": "Started the exact CareerGuide runtime-absence scope from current fap-web main after CONTROL accepted Article package_frozen. This PR removes only three cross-locale redirects and locks authoritative missing-English metadata/page behavior to real notFound; it creates no CareerGuide content and changes no CMS, discoverability, search, or deploy state."
+      },
+      {
+        "at": "2026-07-30T22:36:17.000Z",
+        "status": "local_verified",
+        "summary": "Focused contracts passed 19/19; focused and full lint, Node 24 typecheck, Node 24 production build, YAML/JSON parsing, diff checks, and exact changed-file scope validation passed. Ignored local Playwright traces were temporarily isolated for full lint and restored unchanged."
+      },
+      {
+        "at": "2026-07-30T22:36:58.000Z",
+        "status": "local_verified",
+        "summary": "Committed the locally verified runtime implementation and current train metadata as c12ee5e7665f341772c5f2a2711fa83c851ec105. All production, CMS, publication, search, and deploy execution flags remain false."
+      },
+      {
+        "at": "2026-07-30T22:37:41.000Z",
+        "status": "github_checks_pending",
+        "summary": "Opened ready PR #1861 from the locally verified branch. Required build, contract shards/aggregate, freeze checks, and CodeQL are pending; no staging or deploy wait is included."
+      },
+      {
+        "at": "2026-07-30T22:48:00.000Z",
+        "status": "review_fix_local_verified",
+        "summary": "Inspected GitHub P1 review evidence showing that removing the English-to-Chinese redirect exposed an existing English MBTI CTA as a real 404. Suppressed only the unavailable English CareerGuide path across the actual MBTI entry and scene emitters, preserved Chinese links, and added direct negative contracts. The expanded same-scope repair passed 41/41 focused contracts, focused and full lint, Node 24 typecheck, Node 24 production build, YAML/JSON parsing, diff checks, and exact changed-file scope validation."
+      },
+      {
+        "at": "2026-07-30T22:49:00.000Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the same-scope P1 repair as 65f373d753520e70213237970789e5679323075c. This ledger tail binds the exact implementation SHA; fresh required checks and exact-head review remain mandatory before merge."
+      },
+      {
+        "at": "2026-07-30T22:58:00.000Z",
+        "status": "review_fix_local_verified",
+        "summary": "Exact-head review found a P2 where the zh-only guide could still advertise a known-missing English hreflang. The same-scope repair now reads alternate-locale availability from the CMS/public detail API, keeps only available locale alternates, and adds direct adapter and metadata contracts. Focused contracts pass 41/41; focused/full lint, Node 24 typecheck, production build 206/206, YAML/JSON parsing, diff checks, and exact 13-file scope validation pass."
+      },
+      {
+        "at": "2026-07-30T22:59:00.000Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the same-scope P2 locale-availability repair as 7f18da4a21b5cd309b08288b1501de4bc90a1311. This ledger tail binds the exact implementation SHA; fresh required checks and exact-head review remain mandatory before merge."
+      },
+      {
+        "at": "2026-07-30T23:10:00.000Z",
+        "status": "review_fix_local_verified",
+        "summary": "Final exact-head review correctly rejected a permanent frontend filter because it would keep hiding the guide after CMS publication. Verified from route source contracts and a local production-server read that public personality/recommendation routes do not consume the legacy MBTI packs, then restored all six legacy pack/test paths unchanged. The final seven-file scope passed 19/19 focused contracts, focused/full lint, Node 24 typecheck, the already completed post-P2 production build at 206/206, YAML/JSON parsing, diff checks, and exact scope validation. The remaining runtime behavior is authority-driven: current routes emit no broken guide link, while future backend-provided links can appear without another frontend release."
+      },
+      {
+        "at": "2026-07-30T23:12:00.000Z",
+        "status": "github_checks_pending",
+        "summary": "Committed the authority-preserving final implementation as 55855baa3103de1a9d01ef410819117beb2297ec. This ledger tail binds the exact implementation SHA; fresh required checks and exact-head review remain mandatory before merge."
+      },
+      {
+        "at": "2026-07-30T23:21:00.000Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1861 exact head 8f268fd6ad15278876192aef8202d0adf53516ef passed all 11 CI/security checks. GitHub reports CLEAN/MERGEABLE, the exact changed-file set is the seven authorized paths, all three prior review threads are resolved, zero unresolved threads remain, and repository policy requires no approving review. A final Codex review request was accepted and remains asynchronous; it is not a required check or review gate."
+      }
+    ],
+    "updated_at": "2026-07-30T23:21:00.000Z"
   }
 }

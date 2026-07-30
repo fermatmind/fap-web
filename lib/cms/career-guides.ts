@@ -198,6 +198,11 @@ export type CareerGuideSeoViewModel = {
   surface: SeoSurfaceViewModel | null;
 };
 
+export type CareerGuideLocaleAvailability = {
+  en: boolean;
+  zh: boolean;
+};
+
 function buildQuery(params: Record<string, string | number | undefined>): string {
   const query = new URLSearchParams();
 
@@ -536,11 +541,16 @@ function normalizeCareerGuideJsonLd(
 export function normalizeCareerGuideSeoPayload(
   seo: CareerGuideSeoViewModel | null,
   guide: CareerGuideDetailViewModel,
-  locale: Locale | string
+  locale: Locale | string,
+  localeAvailability: Partial<CareerGuideLocaleAvailability> = {}
 ): CareerGuideSeoViewModel {
   const normalizedLocale = normalizeLocale(locale);
   const canonicalPath = buildCareerGuideFrontendUrl(normalizedLocale, guide.slug);
   const normalizedCanonical = canonicalUrl(canonicalPath);
+  const hasEnglishProjection =
+    normalizedLocale === "en" || localeAvailability.en === true;
+  const hasChineseProjection =
+    normalizedLocale === "zh" || localeAvailability.zh === true;
   const fallbackDescription =
     fallbackText(
       guide.summary,
@@ -559,8 +569,12 @@ export function normalizeCareerGuideSeoPayload(
       ),
       canonical: normalizedCanonical,
       alternates: {
-        en: canonicalUrl(buildCareerGuideFrontendUrl("en", guide.slug)),
-        "zh-CN": canonicalUrl(buildCareerGuideFrontendUrl("zh", guide.slug)),
+        en: hasEnglishProjection
+          ? canonicalUrl(buildCareerGuideFrontendUrl("en", guide.slug))
+          : null,
+        "zh-CN": hasChineseProjection
+          ? canonicalUrl(buildCareerGuideFrontendUrl("zh", guide.slug))
+          : null,
       },
       og: {
         title: fallbackText(seo?.meta.og.title, guide.seoMeta?.ogTitle, seo?.meta.title, guide.title),

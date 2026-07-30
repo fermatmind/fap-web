@@ -287,7 +287,8 @@ describe("career guides cms adapter contract", () => {
         },
       },
       guide!,
-      "zh"
+      "zh",
+      { en: true, zh: true }
     );
 
     const jsonld = normalized.jsonld as Record<string, unknown>;
@@ -307,6 +308,18 @@ describe("career guides cms adapter contract", () => {
       "http://localhost:3000/zh/career/guides/from-mbti-to-job-fit#webpage"
     );
     expect(jsonld.mainEntityOfPage).toBe(
+      "http://localhost:3000/zh/career/guides/from-mbti-to-job-fit"
+    );
+
+    const withoutEnglishProjection = normalizeCareerGuideSeoPayload(
+      null,
+      guide!,
+      "zh",
+      { en: false, zh: true }
+    );
+
+    expect(withoutEnglishProjection.meta.alternates.en).toBeNull();
+    expect(withoutEnglishProjection.meta.alternates["zh-CN"]).toBe(
       "http://localhost:3000/zh/career/guides/from-mbti-to-job-fit"
     );
   });
@@ -395,6 +408,41 @@ describe("career guides frontend boundary contract", () => {
     expect(notFound).toHaveBeenCalled();
   });
 
+  it("fails metadata closed when the requested locale has no CareerGuide projection", async () => {
+    const notFound = vi.fn(() => {
+      throw new Error("not-found");
+    });
+    const getCareerGuideFromCmsBySlugMock = vi.fn(async () => null);
+    const getCareerGuideSeoFromCmsBySlugMock = vi.fn(async () => null);
+
+    vi.doMock("next/navigation", () => ({
+      notFound,
+    }));
+    vi.doMock("@/lib/cms/career-guides", () => ({
+      buildCareerGuideFrontendUrl: vi.fn((locale: string, slug: string) => `/${locale}/career/guides/${slug}`),
+      getCareerGuideFromCmsBySlug: getCareerGuideFromCmsBySlugMock,
+      getCareerGuideSeoFromCmsBySlug: getCareerGuideSeoFromCmsBySlugMock,
+      normalizeCareerGuideSeoPayload: vi.fn(),
+    }));
+    vi.doMock("@/lib/i18n/getDict", () => ({
+      resolveLocale: vi.fn(() => "en"),
+    }));
+
+    const { generateMetadata } = await import(
+      "@/app/(localized)/[locale]/career/guides/[slug]/page"
+    );
+
+    await expect(
+      generateMetadata({
+        params: Promise.resolve({ locale: "en", slug: "missing-guide" }),
+      })
+    ).rejects.toThrow("not-found");
+
+    expect(getCareerGuideFromCmsBySlugMock).toHaveBeenCalledWith("missing-guide", "en");
+    expect(getCareerGuideSeoFromCmsBySlugMock).not.toHaveBeenCalled();
+    expect(notFound).toHaveBeenCalled();
+  });
+
   it("builds detail metadata from adapter-normalized seo payload", async () => {
     const guide = {
       slug: "from-mbti-to-job-fit",
@@ -416,7 +464,7 @@ describe("career guides frontend boundary contract", () => {
         description: "Translate personality insights into practical career decisions.",
         canonical: "http://localhost:3000/zh/career/guides/from-mbti-to-job-fit",
         alternates: {
-          en: "http://localhost:3000/en/career/guides/from-mbti-to-job-fit",
+          en: null,
           "zh-CN": "http://localhost:3000/zh/career/guides/from-mbti-to-job-fit",
         },
         og: {
@@ -437,7 +485,9 @@ describe("career guides frontend boundary contract", () => {
         "@type": "WebPage",
       },
     };
-    const getCareerGuideFromCmsBySlugMock = vi.fn(async () => guide);
+    const getCareerGuideFromCmsBySlugMock = vi.fn(async (_slug: string, locale: string) =>
+      locale === "zh" ? guide : null
+    );
     const getCareerGuideSeoFromCmsBySlugMock = vi.fn(async () => ({
       meta: {
         title: "ignored",
@@ -486,12 +536,26 @@ describe("career guides frontend boundary contract", () => {
       "from-mbti-to-job-fit",
       "zh"
     );
+    expect(getCareerGuideFromCmsBySlugMock).toHaveBeenCalledWith(
+      "from-mbti-to-job-fit",
+      "en"
+    );
     expect(getCareerGuideSeoFromCmsBySlugMock).toHaveBeenCalledWith(
       "from-mbti-to-job-fit",
       "zh"
     );
     expect(normalizeCareerGuideSeoPayloadMock).toHaveBeenCalled();
+    expect(normalizeCareerGuideSeoPayloadMock).toHaveBeenCalledWith(
+      expect.anything(),
+      guide,
+      "zh",
+      { en: false, zh: true }
+    );
     expect(String(metadata.alternates?.canonical)).toBe(
+      "http://localhost:3000/zh/career/guides/from-mbti-to-job-fit"
+    );
+    expect(metadata.alternates?.languages?.en).toBeUndefined();
+    expect(metadata.alternates?.languages?.["zh-CN"]).toBe(
       "http://localhost:3000/zh/career/guides/from-mbti-to-job-fit"
     );
     expect(metadata.openGraph?.title).toBe("From MBTI to Job Fit");
