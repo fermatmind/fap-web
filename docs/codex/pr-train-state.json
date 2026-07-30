@@ -52523,11 +52523,11 @@
       },
       "scope": {
         "status": "pass",
-        "evidence": "All six changed files are inside this item allowed_paths. The redirects contract is included because it directly asserted the three redirects removed here; no CareerGuide content package, adapter, backend, sitemap, llms, indexability, search, or deploy file changed."
+        "evidence": "The original six runtime/train files plus six MBTI link-emission and direct-test files are inside the expanded current-item allowed_paths. GitHub P1 evidence proved the redirect removal otherwise introduced known English CTA links to a 404, so the same runtime hygiene scope suppresses only that unavailable English guide link. No replacement content, CareerGuide package, adapter, backend, sitemap, llms, indexability, search, or deploy file changed."
       },
       "focused_contracts": {
         "status": "pass",
-        "evidence": "Node 24.14.0 focused CareerGuide CMS, CareerGuide cleanup, and redirect contracts passed 19/19 tests. Missing English detail and metadata both invoke notFound without a zh-CN or SEO fallback, and the three retired cross-locale redirects are absent."
+        "evidence": "Node 24.14.0 focused CareerGuide CMS, CareerGuide cleanup, redirect, MBTI entry-surface, and MBTI scene-depth contracts passed 41/41 tests. Missing English detail and metadata both invoke notFound without a zh-CN or SEO fallback; the three retired cross-locale redirects are absent; and English MBTI entry/scene payloads no longer emit the unavailable CareerGuide path."
       },
       "lint": {
         "status": "pass",
@@ -52575,8 +52575,13 @@
         "at": "2026-07-30T22:37:41.000Z",
         "status": "github_checks_pending",
         "summary": "Opened ready PR #1861 from the locally verified branch. Required build, contract shards/aggregate, freeze checks, and CodeQL are pending; no staging or deploy wait is included."
+      },
+      {
+        "at": "2026-07-30T22:48:00.000Z",
+        "status": "review_fix_local_verified",
+        "summary": "Inspected GitHub P1 review evidence showing that removing the English-to-Chinese redirect exposed an existing English MBTI CTA as a real 404. Suppressed only the unavailable English CareerGuide path across the actual MBTI entry and scene emitters, preserved Chinese links, and added direct negative contracts. The expanded same-scope repair passed 41/41 focused contracts, focused and full lint, Node 24 typecheck, Node 24 production build, YAML/JSON parsing, diff checks, and exact changed-file scope validation."
       }
     ],
-    "updated_at": "2026-07-30T22:37:41.000Z"
+    "updated_at": "2026-07-30T22:48:00.000Z"
   }
 }

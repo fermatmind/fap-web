@@ -27944,6 +27944,12 @@ prs:
       - tests/contracts/career-guides-cms.contract.test.tsx
       - tests/contracts/career-guides-cleanup.contract.test.ts
       - tests/contracts/redirects.contract.test.ts
+      - lib/mbti/mbtiTypeContentPack.ts
+      - lib/mbti/intpContentPack.ts
+      - lib/mbti/sceneDeepContent.ts
+      - tests/contracts/mbti-entry-surface.contract.test.ts
+      - tests/contracts/mbti-scene-depth.contract.test.ts
+      - tests/e2e/career-routing.spec.ts
       - docs/codex/pr-train.yaml
       - docs/codex/pr-train-state.json
     required_local_checks:

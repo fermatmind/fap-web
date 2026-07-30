@@ -753,7 +753,7 @@ test("mbti career recommendation route exposes answer-first, table, faq, and pub
   expect(html).toContain('"@type":"FAQPage"');
   expect(html).toContain("/en/personality/intj-a");
   expect(html).toContain("/en/topics/mbti");
-  expect(html).toContain("/en/career/guides/from-mbti-to-job-fit");
+  expect(html).not.toContain("/en/career/guides/from-mbti-to-job-fit");
 });
 
 test("INTJ personality pages render CMS projection sections and keep source entry anchors", async ({ request }) => {

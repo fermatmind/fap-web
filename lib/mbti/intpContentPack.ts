@@ -116,7 +116,9 @@ function localizeLink(locale: Locale, link: LocalizedLink): { key: string; label
 }
 
 function localizeLinks(locale: Locale, links: readonly LocalizedLink[]): { key: string; label: string; href: string }[] {
-  return links.map((link) => localizeLink(locale, link));
+  return links
+    .filter((link) => locale === "zh" || link.href !== "/career/guides/from-mbti-to-job-fit")
+    .map((link) => localizeLink(locale, link));
 }
 
 const INTP_SCENARIO_LINKS = {

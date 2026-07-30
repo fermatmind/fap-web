@@ -59,6 +59,22 @@ function withLocale(locale: Locale, path: string): string {
   return `/${locale}${path}`;
 }
 
+const UNAVAILABLE_ENGLISH_CAREER_GUIDE_PATH = "/en/career/guides/from-mbti-to-job-fit";
+
+function suppressUnavailableEnglishCareerGuideLinks(
+  locale: Locale,
+  modules: MbtiSceneDeepModule[],
+): MbtiSceneDeepModule[] {
+  if (locale === "zh") {
+    return modules;
+  }
+
+  return modules.map((sceneModule) => ({
+    ...sceneModule,
+    links: sceneModule.links.filter((link) => link.href !== UNAVAILABLE_ENGLISH_CAREER_GUIDE_PATH),
+  }));
+}
+
 function normalizeTypeCode(typeCode: string): string {
   return String(typeCode ?? "").trim().toUpperCase().slice(0, 4);
 }
@@ -113,7 +129,7 @@ export function buildMbtiTopicScenarioDeepModules(locale: Locale): MbtiSceneDeep
   const growthGuidePath = withLocale(locale, "/articles/mbti-growth-guide");
   const testPath = withLocale(locale, "/tests/mbti-personality-test-16-personality-types");
 
-  return [
+  const modules: MbtiSceneDeepModule[] = [
     {
       sceneKey: "career_direction",
       title: isZh ? "职业方向：先建立匹配框架，再看岗位细节" : "Career direction: frame fit first, then evaluate roles",
@@ -229,6 +245,8 @@ export function buildMbtiTopicScenarioDeepModules(locale: Locale): MbtiSceneDeep
       ],
     },
   ];
+
+  return suppressUnavailableEnglishCareerGuideLinks(locale, modules);
 }
 
 function buildPriorityTypeFocus(typeCode: MbtiSceneDeepPriorityType, locale: Locale): {
@@ -467,7 +485,7 @@ export function buildMbtiPersonalityScenarioDeepModules(input: {
     });
   }
 
-  return modules;
+  return suppressUnavailableEnglishCareerGuideLinks(input.locale, modules);
 }
 
 export function buildMbtiRecommendationScenarioDeepModules(input: {
@@ -571,7 +589,7 @@ export function buildMbtiRecommendationScenarioDeepModules(input: {
     });
   }
 
-  return modules;
+  return suppressUnavailableEnglishCareerGuideLinks(input.locale, modules);
 }
 
 export function buildMbtiTestLandingContinuityItems(locale: Locale): MbtiTestLandingContinuityItem[] {
