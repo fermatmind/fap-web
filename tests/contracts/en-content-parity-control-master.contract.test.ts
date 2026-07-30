@@ -528,7 +528,9 @@ describe("English content parity control master", () => {
   it("accepts only the two registered W3 package subdirectories", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w3-"));
     const articleAsset = manifest.assets.find((entry) => entry.asset_id === "ENPARITY-W3-ARTICLES");
-    expect(articleAsset).toBeDefined();
+    if (!articleAsset) {
+      throw new Error("missing W3 Article asset fixture");
+    }
     const permissions: Permissions = {
       cms_write_authorized: false,
       staging_write_authorized: false,
@@ -584,7 +586,9 @@ describe("English content parity control master", () => {
   it("rejects stale, skipping, colliding, duplicate, and unreconciled leaf submissions", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-invalid-"));
     const asset = manifest.assets.find((entry) => entry.lane_id === "W1");
-    expect(asset).toBeDefined();
+    if (!asset) {
+      throw new Error("missing W1 asset fixture");
+    }
     const permissions: Permissions = {
       cms_write_authorized: false,
       staging_write_authorized: false,
@@ -745,7 +749,9 @@ describe("English content parity control master", () => {
   it("rejects a package SHA manifest when a covered payload file changes", () => {
     const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-tamper-"));
     const asset = manifest.assets.find((entry) => entry.lane_id === "W1");
-    expect(asset).toBeDefined();
+    if (!asset) {
+      throw new Error("missing W1 asset fixture");
+    }
     const permissions: Permissions = {
       cms_write_authorized: false,
       staging_write_authorized: false,
