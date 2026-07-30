@@ -294,7 +294,7 @@
       "blockers": [
         "W3-ARTICLES is blocked at package_frozen by the independent W9 report stored under generated/en-content-parity/W9-independent-qa/articles/w3-articles-7bdbf91b/."
       ],
-      "next_action": "Repair only the 12 W9-blocked Article rows in a producer scope, rebuild and re-freeze the complete exact package, then repeat fresh independent W9 QA; keep W3-CAREER-GUIDES queued.",
+      "next_action": "CONTROL must first accept a separate W9-evidence-bound reset of W3-ARTICLES to package_in_progress and clear the failed frozen SHA/lineage; only then may the producer rebuild all 17 rows and repeat fresh independent W9 QA. Keep W3-CAREER-GUIDES queued.",
       "permissions": {
         "cms_write_authorized": false,
         "staging_write_authorized": false,

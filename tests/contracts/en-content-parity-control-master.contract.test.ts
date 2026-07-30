@@ -824,7 +824,8 @@ describe("English content parity control master", () => {
       (asset) => assets.find((frozenAsset) => frozenAsset.asset_id === asset.asset_id) ?? asset
     );
     const expectedRows = assets.reduce((total, asset) => total + (asset.expected_en_count ?? 0), 0);
-    w1.status = "package_frozen";
+    w1.status = "blocked";
+    w1.blocked_from_status = "package_frozen";
     w1.package_sha256 = "a".repeat(64);
     w1.counts = {
       cohort_count: assets.length,
@@ -865,11 +866,11 @@ describe("English content parity control master", () => {
         producer_lane_id: "W1",
         subscope_id: null,
         package_sha256: "a".repeat(64),
-        verdict: "PASS",
+        verdict: "BLOCKED",
         reviewed_asset_ids: assets.map((asset) => asset.asset_id),
         reviewed_row_count: expectedRows,
         checks: {
-          language_naturalness: "PASS",
+          language_naturalness: "BLOCKED",
           chinese_leakage: "PASS",
           claim_boundary: "PASS",
           asset_duplication: "PASS",
@@ -893,6 +894,53 @@ describe("English content parity control master", () => {
     } finally {
       fs.rmSync(tempDirectory, { recursive: true, force: true });
       fs.rmSync(qaAuthorityDirectory, { recursive: true, force: true });
+    }
+  });
+
+  it("accepts a CONTROL-only rework reset after exact-SHA W9 blocks a frozen package", () => {
+    const tempDirectory = fs.mkdtempSync(path.join(os.tmpdir(), "en-parity-control-w9-rework-"));
+    const reworkManifestPath = path.join(tempDirectory, "rework-master.json");
+    const reworkManifest = structuredClone(manifest);
+    const w3 = reworkManifest.lanes.find((lane) => lane.lane_id === "W3");
+    const articles = w3?.subscopes.find((subscope) => subscope.id === "W3-ARTICLES");
+    const careerGuides = w3?.subscopes.find(
+      (subscope) => subscope.id === "W3-CAREER-GUIDES"
+    );
+    if (!w3 || !articles || !careerGuides) {
+      throw new Error("missing W3 rework reset fixture");
+    }
+    expect(articles.status).toBe("blocked");
+    expect(articles.blocked_from_status).toBe("package_frozen");
+
+    w3.status = "inventory_frozen";
+    w3.blocked_from_status = null;
+    w3.blockers = [];
+    articles.status = "package_in_progress";
+    articles.blocked_from_status = null;
+    articles.package_sha256 = null;
+    articles.qa_report_ref = null;
+    articles.gate_lineage = [];
+    articles.blockers = [];
+    w3.next_action =
+      "Rebuild the complete W3-ARTICLES package, re-freeze it, and repeat fresh independent W9 QA.";
+    fs.writeFileSync(reworkManifestPath, JSON.stringify(reworkManifest));
+
+    try {
+      const output = execFileSync(
+        "node",
+        [VALIDATOR_PATH, "--manifest", reworkManifestPath],
+        { cwd: ROOT, encoding: "utf8" }
+      );
+      expect(JSON.parse(output)).toMatchObject({ ok: true, errors: [] });
+      expect(careerGuides).toMatchObject({
+        status: "inventory_frozen",
+        package_sha256: null,
+        qa_report_ref: null,
+        gate_lineage: [],
+      });
+      expect(Object.values(w3.permissions).every((value) => value === false)).toBe(true);
+    } finally {
+      fs.rmSync(tempDirectory, { recursive: true, force: true });
     }
   });
 

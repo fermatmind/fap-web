@@ -1352,7 +1352,7 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
     const reviewedTarget = registeredPackageTarget(producerLane, artifact.subscope_id);
     assert(Boolean(reviewedTarget), `${artifact.producer_lane_id}: QA subscope is not registered`, errors);
     assert(
-      stateIndex(reviewedTarget?.status) >= stateIndex("package_frozen"),
+      stateIndex(progressionStatus(reviewedTarget)) >= stateIndex("package_frozen"),
       `${artifact.producer_lane_id}: W9 cannot review a target before package_frozen`,
       errors
     );
