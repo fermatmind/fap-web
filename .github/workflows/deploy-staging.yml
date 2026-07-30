@@ -39,6 +39,7 @@ jobs:
       CORE_PUBLIC_PATH: ${{ secrets.WEB_STAGING_CORE_PUBLIC_PATH || vars.WEB_STAGING_CORE_PUBLIC_PATH }}
       SSH_RETRY_ATTEMPTS: "3"
       SSH_RETRY_DELAY_SECONDS: "10"
+      STAGING_DEPLOY_SKIP: "false"
 
     steps:
       - name: Checkout deployment controller
@@ -77,6 +78,7 @@ jobs:
             if [ "$GITHUB_EVENT_NAME" = "push" ]; then
               echo "Skip stale staging deploy: deploy_sha=$DEPLOY_SHA latest=$LATEST_MAIN_SHA"
               echo "skip_deploy=true" >> "$GITHUB_OUTPUT"
+              echo "STAGING_DEPLOY_SKIP=true" >> "$GITHUB_ENV"
               exit 0
             fi
             echo "Manual staging deploy failed closed: deploy_sha must equal latest origin/main." >&2
@@ -219,14 +221,155 @@ jobs:
             echo "REMOTE_CONTROL_DIR=${APP_DIR%/}/.deploy-incoming/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
           } >> "$GITHUB_ENV"
 
+      - name: Reconfirm latest-main immediately before SSH
+        id: pre_ssh_latest
+        if: env.STAGING_DEPLOY_SKIP != 'true'
+        shell: bash
+        env:
+          DISPATCH_DEPLOY_SHA: ${{ inputs.deploy_sha }}
+        run: |
+          set -euo pipefail
+          echo "skip_deploy=false" >> "$GITHUB_OUTPUT"
+          git fetch --no-tags --depth=1 origin main:refs/remotes/origin/main
+          LATEST_MAIN_SHA="$(git rev-parse origin/main)"
+          echo "pre_ssh_deploy_sha=$DEPLOY_SHA"
+          echo "pre_ssh_latest_main_sha=$LATEST_MAIN_SHA"
+
+          if [ "$DEPLOY_SHA" != "$LATEST_MAIN_SHA" ]; then
+            if [ "$GITHUB_EVENT_NAME" = "push" ]; then
+              echo "Skip stale staging deploy before SSH: deploy_sha=$DEPLOY_SHA latest=$LATEST_MAIN_SHA"
+              echo "skip_deploy=true" >> "$GITHUB_OUTPUT"
+              echo "STAGING_DEPLOY_SKIP=true" >> "$GITHUB_ENV"
+              exit 0
+            fi
+            echo "Manual staging deploy failed closed before SSH: deploy_sha must equal latest origin/main." >&2
+            exit 1
+          fi
+
+      - name: Deduplicate exact-SHA staging deployment before SSH
+        id: staging_dedupe
+        if: env.STAGING_DEPLOY_SKIP != 'true'
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd # v8
+        env:
+          CURRENT_RUN_ID: ${{ github.run_id }}
+          CURRENT_RUN_ATTEMPT: ${{ github.run_attempt }}
+        with:
+          script: |
+            const sha = process.env.DEPLOY_SHA;
+            const currentRunId = Number(process.env.CURRENT_RUN_ID);
+            const currentRunAttempt = Number(process.env.CURRENT_RUN_ATTEMPT);
+            const isManual = process.env.GITHUB_EVENT_NAME === "workflow_dispatch";
+            const expectedReceiptName = `fap-web-staging-receipt-${sha}`;
+            const dedupeKey = `${context.repo.owner}/${context.repo.repo}:staging:${sha}`;
+            const activeStatuses = new Set(["queued", "in_progress", "waiting", "requested", "pending"]);
+            const skip = (state, message, details = {}) => {
+              core.notice(message);
+              core.setOutput("skip_deploy", "true");
+              core.setOutput("dedupe_state", state);
+              core.setOutput("dedupe_key", dedupeKey);
+              for (const [key, value] of Object.entries(details)) {
+                core.setOutput(key, String(value));
+              }
+              core.exportVariable("STAGING_DEPLOY_SKIP", "true");
+            };
+
+            core.setOutput("skip_deploy", "false");
+            core.setOutput("dedupe_state", "deploy");
+            core.setOutput("dedupe_key", dedupeKey);
+            core.info(`staging_dedupe_key=${dedupeKey}`);
+
+            const response = await github.rest.actions.listWorkflowRuns({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: "deploy-staging.yml",
+              branch: "main",
+              head_sha: sha,
+              per_page: 100,
+            });
+            const candidates = response.data.workflow_runs
+              .filter((run) => run.id !== currentRunId && run.head_sha === sha && run.head_branch === "main")
+              .sort((left, right) => String(right.created_at).localeCompare(String(left.created_at)));
+
+            for (const run of candidates) {
+              if (run.status !== "completed" || run.conclusion !== "success") {
+                continue;
+              }
+              const artifacts = await github.rest.actions.listWorkflowRunArtifacts({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                run_id: run.id,
+                per_page: 100,
+              });
+              const receipts = artifacts.data.artifacts.filter(
+                (artifact) => artifact.name === expectedReceiptName && !artifact.expired,
+              );
+              if (receipts.length === 0) {
+                continue;
+              }
+              if (receipts.length !== 1) {
+                core.setFailed(`Successful staging run ${run.id} has ${receipts.length} exact-SHA receipts; expected one.`);
+                return;
+              }
+              const receipt = receipts[0];
+              if (!/^sha256:[0-9a-f]{64}$/.test(String(receipt.digest || ""))) {
+                core.setFailed(`Existing staging receipt ${receipt.id} is missing its immutable SHA-256 digest.`);
+                return;
+              }
+              skip(
+                "success_receipt_exists",
+                `Skip duplicate staging deploy; exact-SHA success receipt already exists in run ${run.id}.`,
+                {
+                  existing_run_id: run.id,
+                  existing_run_attempt: run.run_attempt,
+                  existing_receipt_artifact_id: receipt.id,
+                  existing_receipt_artifact_digest: receipt.digest,
+                },
+              );
+              return;
+            }
+
+            const active = candidates.find((run) => activeStatuses.has(run.status));
+            if (active) {
+              skip(
+                "deployment_running",
+                `Skip duplicate staging deploy; exact-SHA run ${active.id} is already ${active.status}.`,
+                {
+                  existing_run_id: active.id,
+                  existing_run_attempt: active.run_attempt,
+                },
+              );
+              return;
+            }
+
+            const failed = candidates.find(
+              (run) => run.status === "completed" && run.conclusion !== "success",
+            );
+            if (!isManual && (failed || currentRunAttempt > 1)) {
+              skip(
+                "failed_requires_manual_retry",
+                "Skip automatic staging retry; a failed exact-SHA deployment requires explicit workflow_dispatch.",
+                failed
+                  ? {
+                      existing_run_id: failed.id,
+                      existing_run_attempt: failed.run_attempt,
+                    }
+                  : {},
+              );
+              return;
+            }
+
+            if (isManual && failed) {
+              core.notice(`Explicit manual retry allowed after failed exact-SHA run ${failed.id}.`);
+            }
+
       - name: Set up SSH
-        if: steps.deploy_ref.outputs.skip_deploy != 'true'
+        if: env.STAGING_DEPLOY_SKIP != 'true'
         uses: webfactory/ssh-agent@e83874834305fe9a4a2997156cb26c5de65a8555
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Install pinned SSH known_hosts
-        if: steps.deploy_ref.outputs.skip_deploy != 'true'
+        if: env.STAGING_DEPLOY_SKIP != 'true'
         shell: bash
         env:
           SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
@@ -238,7 +381,7 @@ jobs:
           chmod 600 ~/.ssh/known_hosts
 
       - name: SSH preflight
-        if: steps.deploy_ref.outputs.skip_deploy != 'true'
+        if: env.STAGING_DEPLOY_SKIP != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -273,7 +416,7 @@ jobs:
             "whoami; hostname; test -d '$APP_DIR' && mkdir -p '$REMOTE_CONTROL_DIR' && chmod 700 '$REMOTE_CONTROL_DIR'"
 
       - name: Transfer and activate verified immutable release
-        if: steps.deploy_ref.outputs.skip_deploy != 'true'
+        if: env.STAGING_DEPLOY_SKIP != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -306,7 +449,7 @@ jobs:
             "chmod 700 '$REMOTE_CONTROL_DIR/'*.sh && APP_DIR='$APP_DIR' APP_USER='$DEPLOY_USER' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' APP_MANAGER='$APP_MANAGER' SYSTEMD_SERVICE='$SYSTEMD_SERVICE' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' DEPLOY_SHA='$DEPLOY_SHA' ARTIFACT_DIGEST='$ARTIFACT_DIGEST' ARCHIVE_SHA256='$RELEASE_ARCHIVE_SHA256' RELEASE_MANIFEST_DIGEST='$RELEASE_MANIFEST_DIGEST' RELEASE_ARCHIVE='$REMOTE_CONTROL_DIR/fap-web-$DEPLOY_SHA.tar.gz' DEPLOY_SCRIPT='$REMOTE_CONTROL_DIR/deploy_web_pm2.sh' ROLLING_RELOAD_SCRIPT='$REMOTE_CONTROL_DIR/rolling_reload_pm2.sh' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' bash '$REMOTE_CONTROL_DIR/install_standalone_release.sh'"
 
       - name: Verify deployed revision
-        if: steps.deploy_ref.outputs.skip_deploy != 'true'
+        if: env.STAGING_DEPLOY_SKIP != 'true'
         shell: bash
         run: |
           set -euo pipefail
@@ -331,14 +474,14 @@ jobs:
           test "$DEPLOYED_SHA" = "$DEPLOY_SHA"
 
       - name: Smoke staging career page
-        if: steps.deploy_ref.outputs.skip_deploy != 'true'
+        if: env.STAGING_DEPLOY_SKIP != 'true'
         shell: bash
         run: |
           set -euo pipefail
           curl -fsSI "${PUBLIC_BASE_URL}${CORE_PUBLIC_PATH}" | sed -n '1,20p'
 
       - name: Run read-only test landing regression smoke
-        if: steps.deploy_ref.outputs.skip_deploy != 'true'
+        if: env.STAGING_DEPLOY_SKIP != 'true'
         id: test_landing_smoke
         continue-on-error: true
         shell: bash
@@ -357,7 +500,7 @@ jobs:
             --summary "$GITHUB_STEP_SUMMARY"
 
       - name: Upload sanitized test landing smoke receipt
-        if: always() && steps.deploy_ref.outputs.skip_deploy != 'true' && steps.test_landing_smoke.outcome != 'skipped'
+        if: always() && env.STAGING_DEPLOY_SKIP != 'true' && steps.test_landing_smoke.outcome != 'skipped'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: test-landing-runtime-smoke-staging-${{ env.DEPLOY_SHA }}
@@ -367,14 +510,14 @@ jobs:
           retention-days: 14
 
       - name: Enforce test landing smoke result
-        if: always() && steps.deploy_ref.outputs.skip_deploy != 'true' && steps.test_landing_smoke.outcome == 'failure'
+        if: always() && env.STAGING_DEPLOY_SKIP != 'true' && steps.test_landing_smoke.outcome == 'failure'
         shell: bash
         run: |
           echo "Read-only test landing regression smoke failed closed." >&2
           exit 1
 
       - name: Write staging success receipt
-        if: steps.deploy_ref.outputs.skip_deploy != 'true'
+        if: env.STAGING_DEPLOY_SKIP != 'true'
         shell: bash
         env:
           CI_RUN_ID: ${{ steps.release.outputs.ci-run-id }}
@@ -403,7 +546,7 @@ jobs:
           echo "STAGING_RECEIPT_PATH=$receipt_path" >> "$GITHUB_ENV"
 
       - name: Upload exact-SHA staging success receipt
-        if: steps.deploy_ref.outputs.skip_deploy != 'true'
+        if: env.STAGING_DEPLOY_SKIP != 'true'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: fap-web-staging-receipt-${{ env.DEPLOY_SHA }}
