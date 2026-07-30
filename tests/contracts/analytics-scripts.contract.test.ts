@@ -29,19 +29,18 @@ describe("analytics scripts contract", () => {
   }
 
   function renderAnalyticsScripts(env: Record<string, string | undefined>, nonce?: string) {
-    process.env = {
-      ...originalEnv,
-      NEXT_PUBLIC_ANALYTICS_ENABLED: env.NEXT_PUBLIC_ANALYTICS_ENABLED,
-      NEXT_PUBLIC_GA_MEASUREMENT_ID: env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
-      NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID,
-      NEXT_PUBLIC_BAIDU_TONGJI_ID: env.NEXT_PUBLIC_BAIDU_TONGJI_ID,
-    };
-
-    try {
-      return renderToStaticMarkup(AnalyticsScripts({ nonce }));
-    } finally {
-      process.env = originalEnv;
-    }
+    return renderToStaticMarkup(AnalyticsScripts({
+      nonce,
+      env: {
+        ...originalEnv,
+        NEXT_PUBLIC_ANALYTICS_ENV: env.NEXT_PUBLIC_ANALYTICS_ENV,
+        NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS: env.NEXT_PUBLIC_ANALYTICS_ALLOWED_HOSTS,
+        NEXT_PUBLIC_ANALYTICS_ENABLED: env.NEXT_PUBLIC_ANALYTICS_ENABLED,
+        NEXT_PUBLIC_GA_MEASUREMENT_ID: env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
+        NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID: env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID,
+        NEXT_PUBLIC_BAIDU_TONGJI_ID: env.NEXT_PUBLIC_BAIDU_TONGJI_ID,
+      },
+    }));
   }
 
   function buildTestBootstrapScript(config: {
