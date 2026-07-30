@@ -3,11 +3,11 @@
   "control_id": "EN-PARITY-CONTROL-BOOTSTRAP-01",
   "lane_id": "W3",
   "subscope_id": "W3-ARTICLES",
-  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-2026-07-31",
+  "package_id": "EN-PARITY-W3-ARTICLE-ASSETS-W9-REWORK-2026-07-31",
   "ready": false,
   "status": "package_frozen_qa_pending",
   "blockers": [
-    "Independent W9 QA has not reviewed every registered row and field.",
+    "Fresh independent W9 QA has not reviewed every registered row and field in the rebuilt package.",
     "The draft-only importer contract and Media Library authority remain pending independent review.",
     "No separately controlled dry-run importer execution is authorized in this scope.",
     "No exact-SHA human approval exists for CMS draft import or public release."
