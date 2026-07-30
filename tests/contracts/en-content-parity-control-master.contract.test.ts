@@ -25,6 +25,7 @@ const ARTIFACT_FILES = [
 const IMMUTABLE_PACKAGE_PAYLOAD_FILES = ARTIFACT_FILES.filter(
   (file) => file !== "sha256_manifest.json" && file !== "master_manifest_patch.candidate.json"
 );
+const REGISTERED_PACKAGE_BACKUPS = new Map<string, string>();
 
 type Permissions = {
   cms_write_authorized: false;
@@ -177,9 +178,32 @@ function makeControlApprovalDirectory(): string {
 function makeRegisteredPackageDirectory(outputDirectory: string): string {
   const packageDirectory = path.join(ROOT, outputDirectory);
   fs.mkdirSync(packageDirectory, { recursive: true });
-  for (const fileName of ARTIFACT_FILES) {
-    if (fs.existsSync(path.join(packageDirectory, fileName))) {
-      throw new Error(`refusing to overwrite existing package artifact: ${outputDirectory}${fileName}`);
+  const existingArtifacts = ARTIFACT_FILES.filter((fileName) =>
+    fs.existsSync(path.join(packageDirectory, fileName))
+  );
+  if (existingArtifacts.length > 0) {
+    const backupDirectory = fs.mkdtempSync(
+      path.join(os.tmpdir(), "en-content-parity-contract-package-")
+    );
+    const movedArtifacts: string[] = [];
+    try {
+      for (const fileName of existingArtifacts) {
+        fs.renameSync(
+          path.join(packageDirectory, fileName),
+          path.join(backupDirectory, fileName)
+        );
+        movedArtifacts.push(fileName);
+      }
+      REGISTERED_PACKAGE_BACKUPS.set(packageDirectory, backupDirectory);
+    } catch (error) {
+      for (const fileName of movedArtifacts.reverse()) {
+        fs.renameSync(
+          path.join(backupDirectory, fileName),
+          path.join(packageDirectory, fileName)
+        );
+      }
+      fs.rmdirSync(backupDirectory);
+      throw error;
     }
   }
   return packageDirectory;
@@ -191,6 +215,18 @@ function cleanupRegisteredPackageDirectory(
 ): void {
   for (const fileName of [...ARTIFACT_FILES, ...extraFileNames]) {
     fs.rmSync(path.join(packageDirectory, fileName), { force: true });
+  }
+  const backupDirectory = REGISTERED_PACKAGE_BACKUPS.get(packageDirectory);
+  if (backupDirectory) {
+    for (const fileName of fs.readdirSync(backupDirectory)) {
+      fs.renameSync(
+        path.join(backupDirectory, fileName),
+        path.join(packageDirectory, fileName)
+      );
+    }
+    fs.rmdirSync(backupDirectory);
+    REGISTERED_PACKAGE_BACKUPS.delete(packageDirectory);
+    return;
   }
   try {
     fs.rmdirSync(packageDirectory);
