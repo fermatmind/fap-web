@@ -52089,7 +52089,7 @@
     "branch": "codex/saep-proposed-web-parity06-llms-full-non-trust-orchestration-02",
     "title": "SAEP-PROPOSED-WEB-PARITY06-LLMS-FULL-NON-TRUST-ORCHESTRATION-02: stabilize complete artifact source orchestration",
     "depends_on": [],
-    "commit_sha": "8a7f6b7ef61e5e1a6ff56af7544c9e215a7aefc9",
+    "commit_sha": "9df7bc236bf19927f602085376382859a1ce56b8",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1851",
     "checks": {
       "r2_diagnosis": {
@@ -52106,7 +52106,7 @@
       },
       "exact_head_review": {
         "status": "pass_after_scoped_fixes",
-        "evidence": "Exact-head review found two in-scope issues: artifact hard-source budgets were not propagated into the backend sitemap request, and the five-minute operator deadline did not abort queued/retry work. The current scoped fix propagates timeout/abort authority, cancels queued/retry/enrichment waits, and adds positive/negative contracts."
+        "evidence": "Exact-head review findings were repaired in scope: request budgets reach supported backend loaders, queued/retry/enrichment work observes the build abort, the operator process terminates fail-closed for legacy loaders, the enabled IQ cohort participates in hard-source retry completeness, and unrelated train metadata drift was removed."
       }
     },
     "failure_reason": null,
@@ -52155,9 +52155,14 @@
         "at": "2026-07-30T18:04:00Z",
         "status": "review_fix_in_progress",
         "summary": "The latest P2 showed that legacy zero-argument loaders cannot consume AbortSignal. Added the operator-only generator to the same llms-full orchestration scope so any fail-closed build error terminates the process and cannot leave legacy fetches alive; no runtime or cache-write authority changes."
+      },
+      {
+        "at": "2026-07-30T18:16:25Z",
+        "status": "review_fixes_local_verified",
+        "summary": "Removed an unrelated IQ train status drift and aligned the hard test-source retry predicate with the existing conditional IQ completeness gate. Focused tests, scoped lint, typecheck, and the complete four-shard contract suite pass; prior full lint, spacing, freeze suites, and production build remain valid for the same implementation."
       }
     ],
-    "updated_at": "2026-07-30T18:04:00Z"
+    "updated_at": "2026-07-30T18:16:25Z"
   },
   "EN-PARITY-W3-ARTICLE-RUNTIME-ABSENCE-01": {
     "status": "merged",
