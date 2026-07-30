@@ -51869,5 +51869,84 @@
     }
   ],
   "updated_at": "2026-07-27T18:17:43Z"
+  },
+  "EN-PARITY-W1-MBTI-INVENTORY-01": {
+    "id": "EN-PARITY-W1-MBTI-INVENTORY-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W1-MBTI-INVENTORY-01: freeze MBTI English parity inventory",
+    "base": "main",
+    "branch": "codex/en-parity-w1-mbti-inventory-01",
+    "depends_on": [],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {
+        "status": "passed",
+        "evidence": "The operator supplied a concrete end-to-end /goal with the exact PR id, title, repository, scope, dependency graph, lifecycle authorization, and controlled-action boundaries."
+      },
+      "dependency": {
+        "status": "passed",
+        "evidence": "This inventory freeze item has no dependency."
+      },
+      "preflight": {
+        "status": "passed",
+        "evidence": "fap-web started clean from exact latest main 8078c9bf587560727969883dc13c81eb5e5a7365; no existing matching PR or local/remote task branch was found. fap-api was read-only preflighted clean at latest main 2284f5d9f0528722c7a58486f86c0716e526ed5c."
+      },
+      "artifact_validation": {
+        "status": "passed",
+        "evidence": "Both parity-control validator invocations passed with errors=[] after artifact restoration. The scope and candidate package SHA both equal 8079465c6ec26820c99ca2be3f08346674e90509dee6d84fd610d5c6bbac2b85; the source ledger retains exactly 53 unique rows split 7 comparison and 46 result-content rows."
+      },
+      "focused_contract": {
+        "status": "passed",
+        "evidence": "The direct focused Vitest run passed 21 tests and failed four fixture setup cases solely because the contract intentionally refuses to overwrite the real W1 package. Following the declared procedure, the ten package artifacts were temporarily isolated, the identical command passed 25/25, the artifacts were restored, and both validators passed again. No contract source was changed."
+      },
+      "manifest_state_syntax": {
+        "status": "passed",
+        "evidence": "Ruby YAML safe-load and Python JSON parsing passed for the train manifest and state ledger."
+      },
+      "diff_check": {
+        "status": "passed",
+        "evidence": "git diff --check completed without errors before staging."
+      },
+      "cached_diff_check": {
+        "status": "passed_with_documented_markdown_hard_break",
+        "evidence": "The default staged check identified only the three intentional Markdown two-space hard breaks at handoff.md lines 3-5. Removing them would mutate the exact frozen package SHA, so the complete 12-file staged diff was checked with blank-at-eol temporarily disabled; no other whitespace errors were present. Repository-local Git configuration was restored immediately."
+      },
+      "changed_file_scope": {
+        "status": "passed",
+        "evidence": "The staged inventory contains exactly 12 allowed files: ten immutable/candidate W1 package handoff files and the two fap-web train manifest/state files. No master manifest, runtime, CMS, publication, discoverability, or future-PR file is staged."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-30T15:22:28Z",
+        "status": "in_progress",
+        "summary": "Started PR 01 from clean latest fap-web main. Scope is limited to the exact 53-row W1 inventory package plus fap-web train manifest/state registration; master manifest, runtime, CMS, publication, and discoverability remain untouched."
+      },
+      {
+        "at": "2026-07-30T15:24:14Z",
+        "status": "local_verified",
+        "summary": "Both artifact validators passed with the exact locked package SHA; the focused contract passed 25/25 under the declared package-isolation procedure; YAML/JSON parsing and diff checks passed. The initial direct contract collision is recorded as a fixture setup limitation, not hidden."
+      }
+    ],
+    "updated_at": "2026-07-30T15:24:14Z"
   }
 }

@@ -27631,3 +27631,55 @@ prs:
     content_authority: CMS/backend public APIs
     repository_rule_impact: existing_backend_authority_frontend_no_fallback_and_search_read_only_rules_preserved
     next_task: null
+
+  - id: EN-PARITY-W1-MBTI-INVENTORY-01
+    repo: fap-web
+    repo_path: <workspace>/fap-web
+    branch: codex/en-parity-w1-mbti-inventory-01
+    base: main
+    title: "EN-PARITY-W1-MBTI-INVENTORY-01: freeze MBTI English parity inventory"
+    depends_on: []
+    mode: execute
+    train_scope: en_parity_w1_mbti_inventory_freeze
+    risk_level: L1
+    status: local_verified
+    goal: "Commit the exact validated W1 MBTI English parity inventory package and candidate-only control handoff without producing English copy or changing runtime, CMS, publication, or discoverability state."
+    allowed_paths:
+      - generated/en-content-parity/W1-mbti/**
+      - docs/codex/pr-train.yaml
+      - docs/codex/pr-train-state.json
+    out_of_scope:
+      - docs/seo/generated/en-content-parity-control-master.v1.json
+      - app/**
+      - components/**
+      - lib/**
+      - final English reader copy or result/report content
+      - CMS, staging, production import, publication, or database mutation
+      - sitemap, llms, llms-full, canonical, robots, JSON-LD, indexability, or search submission
+      - fap-api changes
+    required_local_checks:
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W1-mbti/scope_manifest.json
+      - node scripts/seo/validate-en-content-parity-control.mjs --artifact generated/en-content-parity/W1-mbti/master_manifest_patch.candidate.json
+      - pnpm exec vitest run tests/contracts/en-content-parity-control-master.contract.test.ts --reporter=dot
+      - ruby -e "require 'yaml'; YAML.safe_load(File.read('docs/codex/pr-train.yaml'), aliases: true); puts 'yaml ok'"
+      - python3 -m json.tool docs/codex/pr-train-state.json >/dev/null
+      - git diff --check
+      - git diff --cached --check
+      - exact changed-file scope validation including ignored package files
+    stop_if_changed_files_outside_scope: true
+    merge_policy:
+      github_checks_required: true
+      squash: true
+      auto_merge: true
+    runtime_change: false
+    workflow_policy_change: false
+    production_write_execution: false
+    database_mutation: false
+    cms_mutation: false
+    publish_allowed: false
+    search_channel_action: false
+    url_submission: false
+    deploy_allowed: false
+    content_authority: backend CMS and public APIs; W1 package is candidate-only producer evidence
+    repository_rule_impact: existing_candidate_only_backend_authority_and_no_frontend_fallback_rules_preserved
+    next_task: EN-PARITY-W1-MBTI-RESULT-AGENT-01
