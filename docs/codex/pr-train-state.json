@@ -51878,7 +51878,7 @@
     "branch": "codex/en-parity-w1-mbti-inventory-01",
     "depends_on": [],
     "status": "github_checks_pending",
-    "commit_sha": "20a462bae0947d84ee988f9e97a5a61282c6d76e",
+    "commit_sha": "3c7a34015ee4ad9592e268dcc780c0f85009fae7",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1847",
     "checks": {
       "authorization": {
@@ -51918,8 +51918,12 @@
         "evidence": "The staged inventory contains exactly 12 allowed files: ten immutable/candidate W1 package handoff files and the two fap-web train manifest/state files. No master manifest, runtime, CMS, publication, discoverability, or future-PR file is staged."
       },
       "github_required_checks": {
-        "status": "pending",
-        "evidence": "PR #1847 is open from exact implementation commit 20a462bae0947d84ee988f9e97a5a61282c6d76e; exact-head required checks must pass before merge."
+        "status": "retry_pending",
+        "evidence": "The first PR #1847 CI run failed only contract-shard-1 because the pre-existing contract fixture refused to coexist with the newly committed real W1 package. The failure was inspected at its exact job and step. Isolated baseline-repair PR #1848 changed only the fixture, passed all 11 CI/security checks, and merged as 4cefabf0a188500c2d4dbc6392c48dbad30f7afb. PR #1847 now includes that repair at 3c7a34015ee4ad9592e268dcc780c0f85009fae7 and requires a fresh exact-head run."
+      },
+      "baseline_repair": {
+        "status": "passed",
+        "evidence": "Ad-hoc PR #1848 proved the fixture defect on the intended durable-package state, preserved all ten real package files byte-for-byte, passed the focused contract 25/25 with and without a pre-existing package, passed every GitHub check, merged into origin/main, and had its local/remote branch plus isolated worktree cleaned."
       }
     },
     "failure_reason": null,
@@ -51954,8 +51958,18 @@
         "at": "2026-07-30T15:27:00Z",
         "status": "github_checks_pending",
         "summary": "Committed the exact 12-file scope as 20a462bae0947d84ee988f9e97a5a61282c6d76e, pushed the scoped branch, and opened PR #1847. Required GitHub checks are pending on the final ledger head."
+      },
+      {
+        "at": "2026-07-30T15:29:32Z",
+        "status": "github_checks_failed_inspected",
+        "summary": "Inspected failed run 30556784204 job 90919169132. Exactly four en-content-parity contract cases failed during fixture setup because the real W1 package now occupies its registered directory; 196 other shard files and 1251 tests passed. The aggregate contracts check failed from that shard, while three shards and both freeze checks passed."
+      },
+      {
+        "at": "2026-07-30T15:38:50Z",
+        "status": "github_checks_retry_pending",
+        "summary": "Completed isolated baseline-repair PR #1848, verified its merge commit 4cefabf0a188500c2d4dbc6392c48dbad30f7afb in origin/main, cleaned its branches/worktree, merged origin/main into PR #1847, and revalidated both artifact validators plus the focused contract 25/25 with the real package present. A fresh exact-head CI run is required."
       }
     ],
-    "updated_at": "2026-07-30T15:27:00Z"
+    "updated_at": "2026-07-30T15:38:50Z"
   }
 }
