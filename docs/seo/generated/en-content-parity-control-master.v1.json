@@ -237,11 +237,20 @@
           "asset_ids": [
             "ENPARITY-W3-ARTICLES"
           ],
-          "status": "package_in_progress",
+          "status": "package_frozen",
           "blocked_from_status": null,
-          "package_sha256": null,
+          "package_sha256": "7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750",
           "qa_report_ref": null,
-          "gate_lineage": [],
+          "gate_lineage": [
+            {
+              "status": "package_frozen",
+              "evidence_owner_lane_id": "W3",
+              "report_ref": "generated/en-content-parity/W3-editorial-cms/articles/editorial_review.json",
+              "report_sha256": "feb60cca6237c9c8113a31e510ffc38cad8828a3f639faab9674fec02ea0716b",
+              "package_sha256": "7bdbf91b767fdb9a5acbb3faa9d96eaddc10cf6eaf6ca331c0a6ff72d8434750",
+              "accepted_at": "2026-07-30T20:50:31.000Z"
+            }
+          ],
           "blockers": [],
           "separate_package_required": true,
           "same_pr_allowed": false
