@@ -1,9 +1,13 @@
 #!/usr/bin/env node
 
+import { pathToFileURL } from "node:url";
+
 const DEFAULT_API_ORIGIN = "https://api.fermatmind.com";
 const DEFAULT_LOCALE = "zh-CN";
 const DEFAULT_REPORT_TIMEOUT_MS = 90000;
-const DEFAULT_REPORT_POLL_MS = 5000;
+const DEFAULT_POLL_BACKOFF_MS = [2000, 5000, 10000];
+const MAX_TRANSIENT_RETRIES = 3;
+const POLL_REQUEST_TIMEOUT_MS = 15000;
 
 const SMOKE_SCALES = [
   {
@@ -56,7 +60,7 @@ function parseArgs(argv) {
     execute: false,
     json: false,
     reportTimeoutMs: Number.parseInt(process.env.RESULT_SMOKE_REPORT_TIMEOUT_MS || "", 10) || DEFAULT_REPORT_TIMEOUT_MS,
-    reportPollMs: Number.parseInt(process.env.RESULT_SMOKE_REPORT_POLL_MS || "", 10) || DEFAULT_REPORT_POLL_MS,
+    reportPollMs: Number.parseInt(process.env.RESULT_SMOKE_REPORT_POLL_MS || "", 10) || null,
   };
 
   for (let index = 0; index < argv.length; index += 1) {
@@ -94,7 +98,7 @@ function parseArgs(argv) {
   if (!Number.isFinite(options.reportTimeoutMs) || options.reportTimeoutMs < 1000) {
     throw new Error("--report-timeout-ms must be >= 1000");
   }
-  if (!Number.isFinite(options.reportPollMs) || options.reportPollMs < 500) {
+  if (options.reportPollMs !== null && (!Number.isFinite(options.reportPollMs) || options.reportPollMs < 500)) {
     throw new Error("--report-poll-ms must be >= 500");
   }
 
@@ -110,7 +114,7 @@ Options:
   --api-origin <origin>      Defaults to ${DEFAULT_API_ORIGIN}.
   --locale <locale>          Defaults to ${DEFAULT_LOCALE}.
   --report-timeout-ms <ms>   Defaults to ${DEFAULT_REPORT_TIMEOUT_MS}.
-  --report-poll-ms <ms>      Defaults to ${DEFAULT_REPORT_POLL_MS}.
+  --report-poll-ms <ms>      Optional fixed polling delay; otherwise uses 2s, 5s, 10s backoff.
   --json                     Print machine-readable JSON.
 
 Without --execute, the script validates question endpoints only and does not submit attempts.`);
@@ -131,7 +135,7 @@ function buildUrl(apiOrigin, path) {
   return `${apiOrigin}/api/v0.3${path.startsWith("/") ? path : `/${path}`}`;
 }
 
-async function requestJson({ apiOrigin, path, method = "GET", body, token, anonId }) {
+async function requestJson({ apiOrigin, path, method = "GET", body, token, anonId, timeoutMs = null }) {
   const headers = {
     accept: "application/json",
     "content-type": "application/json",
@@ -144,18 +148,28 @@ async function requestJson({ apiOrigin, path, method = "GET", body, token, anonI
     headers["x-fm-anon-id"] = anonId;
   }
 
-  const response = await fetch(buildUrl(apiOrigin, path), {
-    method,
-    headers,
-    body: body ? JSON.stringify(body) : undefined,
-  });
-  const payload = await response.json().catch(() => null);
+  const controller = Number.isFinite(timeoutMs) && timeoutMs > 0 ? new AbortController() : null;
+  const timeout = controller ? setTimeout(() => controller.abort(), timeoutMs) : null;
 
-  return {
-    ok: response.ok,
-    status: response.status,
-    payload,
-  };
+  try {
+    const response = await fetch(buildUrl(apiOrigin, path), {
+      method,
+      headers,
+      body: body ? JSON.stringify(body) : undefined,
+      signal: controller?.signal,
+    });
+    const payload = await response.json().catch(() => null);
+
+    return {
+      ok: response.ok,
+      status: response.status,
+      payload,
+    };
+  } finally {
+    if (timeout) {
+      clearTimeout(timeout);
+    }
+  }
 }
 
 async function createGuestSession(apiOrigin) {
@@ -280,33 +294,207 @@ async function submitAttempt({ apiOrigin, token, anonId, attemptId, questions, o
   }
 }
 
-async function waitForResult({ apiOrigin, token, anonId, attemptId, scale, reportTimeoutMs, reportPollMs }) {
-  const startedAt = Date.now();
-  let lastResult = null;
-  let lastReport = null;
+function responseErrorCode(response) {
+  return String(response?.payload?.error_code ?? response?.payload?.error ?? "").trim();
+}
 
-  while (Date.now() - startedAt <= reportTimeoutMs) {
-    const [result, report] = await Promise.all([
-      requestJson({ apiOrigin, path: `/attempts/${attemptId}/result`, token, anonId }),
-      requestJson({ apiOrigin, path: `/attempts/${attemptId}/report`, token, anonId }),
-    ]);
+function responseRetryAfterMs(response) {
+  const seconds = Number(response?.payload?.retry_after_seconds ?? response?.payload?.meta?.retry_after_seconds);
+  if (!Number.isFinite(seconds) || seconds <= 0) {
+    return null;
+  }
 
-    lastResult = result;
-    lastReport = report;
+  return Math.ceil(seconds * 1000);
+}
 
-    if (result.status === 200 && report.status === 200) {
+function pollBackoffMs(reportPollMs) {
+  return reportPollMs === null ? DEFAULT_POLL_BACKOFF_MS : [reportPollMs];
+}
+
+function stageFailure({ scale, stage, status, errorCode, diagnostics, reason }) {
+  const summary = [
+    `stage=${stage}`,
+    `status=${status ?? "transport_error"}`,
+    `polls=${diagnostics.polls}`,
+    `transient_retries=${diagnostics.transient_retries}`,
+    ...(errorCode ? [`error_code=${errorCode}`] : []),
+  ].join(" ");
+
+  return new Error(`${scale.label} ${reason}: ${summary}`);
+}
+
+async function pollReadStage({
+  apiOrigin,
+  token,
+  anonId,
+  attemptId,
+  scale,
+  stage,
+  deadlineAt,
+  backoffMs,
+  request,
+  pause,
+  now,
+}) {
+  const diagnostics = {
+    polls: 0,
+    transient_retries: 0,
+    last_status: null,
+    last_error_code: "",
+  };
+  let backoffIndex = 0;
+
+  const waitForNextPoll = async (requestedDelayMs = null) => {
+    const remainingMs = deadlineAt - now();
+    if (remainingMs <= 0) {
+      throw stageFailure({
+        scale,
+        stage,
+        status: diagnostics.last_status,
+        errorCode: diagnostics.last_error_code,
+        diagnostics,
+        reason: "polling timed out",
+      });
+    }
+
+    const fallbackDelayMs = backoffMs[Math.min(backoffIndex, backoffMs.length - 1)];
+    if (requestedDelayMs === null) {
+      backoffIndex += 1;
+    }
+    await pause(Math.min(requestedDelayMs ?? fallbackDelayMs, remainingMs));
+  };
+
+  while (now() < deadlineAt) {
+    let response;
+    try {
+      response = await request({
+        apiOrigin,
+        path: `/attempts/${attemptId}/${stage}`,
+        token,
+        anonId,
+        timeoutMs: Math.max(1, Math.min(POLL_REQUEST_TIMEOUT_MS, deadlineAt - now())),
+      });
+    } catch (error) {
+      diagnostics.polls += 1;
+      diagnostics.last_status = null;
+      diagnostics.last_error_code = error instanceof Error ? error.message : String(error);
+      if (diagnostics.transient_retries >= MAX_TRANSIENT_RETRIES) {
+        throw stageFailure({
+          scale,
+          stage,
+          status: null,
+          errorCode: diagnostics.last_error_code,
+          diagnostics,
+          reason: "transport retries exhausted",
+        });
+      }
+
+      diagnostics.transient_retries += 1;
+      await waitForNextPoll();
+      continue;
+    }
+
+    diagnostics.polls += 1;
+    diagnostics.last_status = response.status;
+    diagnostics.last_error_code = responseErrorCode(response);
+
+    if (response.status === 200) {
       return {
-        resultStatus: result.status,
-        reportStatus: report.status,
+        status: response.status,
+        diagnostics,
       };
     }
 
-    await sleep(reportPollMs);
+    if (response.status === 202) {
+      await waitForNextPoll(responseRetryAfterMs(response));
+      continue;
+    }
+
+    if (
+      response.status === 404 ||
+      response.status === 401 ||
+      response.status === 403 ||
+      diagnostics.last_error_code === "REPORT_SNAPSHOT_FAILED"
+    ) {
+      throw stageFailure({
+        scale,
+        stage,
+        status: response.status,
+        errorCode: diagnostics.last_error_code,
+        diagnostics,
+        reason: "failed without retry",
+      });
+    }
+
+    if ([502, 503, 504].includes(response.status)) {
+      if (diagnostics.transient_retries >= MAX_TRANSIENT_RETRIES) {
+        throw stageFailure({
+          scale,
+          stage,
+          status: response.status,
+          errorCode: diagnostics.last_error_code,
+          diagnostics,
+          reason: "transient retries exhausted",
+        });
+      }
+
+      diagnostics.transient_retries += 1;
+      await waitForNextPoll();
+      continue;
+    }
+
+    throw stageFailure({
+      scale,
+      stage,
+      status: response.status,
+      errorCode: diagnostics.last_error_code,
+      diagnostics,
+      reason: "unexpected response",
+    });
   }
 
-  throw new Error(
-    `${scale.label} result/report not ready: result=${lastResult?.status ?? "unknown"}, report=${lastReport?.status ?? "unknown"}`
-  );
+  throw stageFailure({
+    scale,
+    stage,
+    status: diagnostics.last_status,
+    errorCode: diagnostics.last_error_code,
+    diagnostics,
+    reason: "polling timed out",
+  });
+}
+
+export async function waitForResult(
+  { apiOrigin, token, anonId, attemptId, scale, reportTimeoutMs, reportPollMs = null },
+  dependencies = {}
+) {
+  const now = dependencies.now ?? Date.now;
+  const startedAt = now();
+  const deadlineAt = now() + reportTimeoutMs;
+  const pollOptions = {
+    apiOrigin,
+    token,
+    anonId,
+    attemptId,
+    scale,
+    deadlineAt,
+    backoffMs: pollBackoffMs(reportPollMs),
+    request: dependencies.requestJson ?? requestJson,
+    pause: dependencies.sleep ?? sleep,
+    now,
+  };
+
+  const result = await pollReadStage({ ...pollOptions, stage: "result" });
+  const report = await pollReadStage({ ...pollOptions, stage: "report" });
+
+  return {
+    resultStatus: result.status,
+    reportStatus: report.status,
+    elapsedMs: now() - startedAt,
+    diagnostics: {
+      result: result.diagnostics,
+      report: report.diagnostics,
+    },
+  };
 }
 
 async function runScale(options, scale) {
@@ -327,6 +515,7 @@ async function runScale(options, scale) {
     attempt_id: null,
     result_status: null,
     report_status: null,
+    poll_diagnostics: null,
   };
 
   if (!options.execute) {
@@ -365,6 +554,7 @@ async function runScale(options, scale) {
 
   result.result_status = ready.resultStatus;
   result.report_status = ready.reportStatus;
+  result.poll_diagnostics = ready.diagnostics;
   return result;
 }
 
@@ -389,7 +579,10 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error(`[result-smoke] ${error instanceof Error ? error.message : String(error)}`);
-  process.exit(1);
-});
+const invokedPath = process.argv[1] ? pathToFileURL(process.argv[1]).href : "";
+if (invokedPath === import.meta.url) {
+  main().catch((error) => {
+    console.error(`[result-smoke] ${error instanceof Error ? error.message : String(error)}`);
+    process.exit(1);
+  });
+}
