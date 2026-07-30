@@ -27640,7 +27640,7 @@ prs:
     depends_on: []
     mode: execute
     train_scope: w3_article_missing_locale_runtime
-    status: github_checks_pending
+    status: ready_to_merge
     allowed_paths:
       - next.config.mjs
       - app/(localized)/[locale]/articles/[slug]/page.tsx

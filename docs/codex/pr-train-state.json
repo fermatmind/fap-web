@@ -51871,7 +51871,7 @@
   "updated_at": "2026-07-27T18:17:43Z"
   },
   "EN-PARITY-W3-ARTICLE-RUNTIME-ABSENCE-01": {
-    "status": "github_checks_pending",
+    "status": "ready_to_merge",
     "repo": "fap-web",
     "branch": "codex/en-parity-w3-article-runtime-absence-01",
     "depends_on": [],
@@ -51905,6 +51905,14 @@
       "scope_validation": {
         "status": "pass",
         "evidence": "All six changed files are within the declared current scope; YAML, JSON, and git diff checks passed. redirects.contract.test.ts was included because it directly asserted the three redirects removed by this PR."
+      },
+      "github_required_checks": {
+        "status": "pass",
+        "evidence": "PR #1849 exact head 0fd95904f592db6c188733bb3674891873bce737 passed build, all four contract shards and aggregate contracts, Big Five freeze, Enneagram freeze, CodeQL analysis, CodeQL gate, and no-new-code-scanning-alerts."
+      },
+      "review": {
+        "status": "pass",
+        "evidence": "GitHub reports no review requirement and no blocking review. Automated Codex review on the implementation head recorded no actionable findings; the later exact-head delta is ledger-only."
       }
     },
     "failure_reason": null,
@@ -51931,8 +51939,13 @@
         "at": "2026-07-30T15:39:15Z",
         "status": "github_checks_pending",
         "summary": "Opened ready PR #1849 at pushed head 45bdb61c73c5a5cd4e886d20c4cc29e3c0f1ba48. Build, four contract shards, Big Five freeze, Enneagram freeze, and CodeQL checks are running."
+      },
+      {
+        "at": "2026-07-30T15:45:08Z",
+        "status": "ready_to_merge",
+        "summary": "PR #1849 is MERGEABLE/CLEAN with exact-head scope revalidated and all 11 CI/security checks green. No review is required and no blocking feedback exists; squash merge is permitted after the final ledger head retains required checks."
       }
     ],
-    "updated_at": "2026-07-30T15:39:15Z"
+    "updated_at": "2026-07-30T15:45:08Z"
   }
 }
