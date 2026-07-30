@@ -52103,6 +52103,10 @@
       "github_required_checks": {
         "status": "pending",
         "evidence": null
+      },
+      "exact_head_review": {
+        "status": "pass_after_scoped_fixes",
+        "evidence": "Exact-head review found two in-scope issues: artifact hard-source budgets were not propagated into the backend sitemap request, and the five-minute operator deadline did not abort queued/retry work. The current scoped fix propagates timeout/abort authority, cancels queued/retry/enrichment waits, and adds positive/negative contracts."
       }
     },
     "failure_reason": null,
@@ -52131,9 +52135,14 @@
         "at": "2026-07-30T17:39:00Z",
         "status": "github_checks_pending",
         "summary": "Pushed implementation commit b246ac2c509ee03ca56c09edc8b12dfc3a05eb1f and opened PR #1851. Required checks and exact-head review are pending; no production action is authorized."
+      },
+      {
+        "at": "2026-07-30T17:55:03Z",
+        "status": "review_fixes_local_verified",
+        "summary": "Resolved the P1 timeout propagation and P2 deadline cancellation findings within the declared six-file scope. Focused current/prior/fanout/personality contracts, complete contract suite, lint, spacing, typecheck, both freeze suites, and production-API build pass."
       }
     ],
-    "updated_at": "2026-07-30T17:39:00Z"
+    "updated_at": "2026-07-30T17:55:03Z"
   },
   "EN-PARITY-W3-ARTICLE-RUNTIME-ABSENCE-01": {
     "status": "ready_to_merge",

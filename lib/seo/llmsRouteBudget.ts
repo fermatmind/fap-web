@@ -44,19 +44,30 @@ export function limitLlmsRouteEntries<T>(items: readonly T[], limit: number): T[
 export async function withLlmsRouteBudget<T>(
   load: (signal: AbortSignal) => Promise<T>,
   fallback: T,
-  options: { timeoutMs?: number } = {}
+  options: { timeoutMs?: number; signal?: AbortSignal } = {}
 ): Promise<T> {
   const timeoutMs = options.timeoutMs ?? LLMS_ROUTE_SOURCE_TIMEOUT_MS;
   const controller = new AbortController();
   let timeout: ReturnType<typeof setTimeout> | undefined;
+  let resolveBudget: ((value: T) => void) | undefined;
+  const abort = () => {
+    resolveBudget?.(fallback);
+    controller.abort();
+  };
 
   try {
+    if (options.signal?.aborted) {
+      abort();
+      return fallback;
+    }
+    options.signal?.addEventListener("abort", abort, { once: true });
+
     return await Promise.race([
       load(controller.signal),
       new Promise<T>((resolve) => {
+        resolveBudget = resolve;
         timeout = setTimeout(() => {
-          resolve(fallback);
-          controller.abort();
+          abort();
         }, timeoutMs);
       }),
     ]);
@@ -66,5 +77,6 @@ export async function withLlmsRouteBudget<T>(
     if (timeout) {
       clearTimeout(timeout);
     }
+    options.signal?.removeEventListener("abort", abort);
   }
 }

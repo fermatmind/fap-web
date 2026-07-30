@@ -34,14 +34,41 @@ describe("PARITY-06 llms-full non-Trust orchestration", () => {
   it("uses a five-minute fail-closed operator deadline without changing the public response deadline", () => {
     const route = fs.readFileSync(path.join(ROOT, "app/llms-full.txt/route.ts"), "utf8");
     const budgets = fs.readFileSync(path.join(ROOT, "lib/seo/llmsRouteBudget.ts"), "utf8");
+    const sitemapSource = fs.readFileSync(path.join(ROOT, "lib/seo/backendSitemapSource.ts"), "utf8");
 
     expect(budgets).toContain("LLMS_FULL_ARTIFACT_BUILD_TIMEOUT_MS = 5 * 60_000");
     expect(budgets).toContain("LLMS_FULL_ARTIFACT_HARD_SOURCE_ATTEMPTS = 2");
     expect(budgets).toContain("LLMS_FULL_RESPONSE_DEADLINE_MS = 12_000");
     expect(route).toContain("LLMS_FULL_ARTIFACT_BUILD_TIMEOUT");
-    expect(route).toContain("createSourceScheduler(llmsFullSourceConcurrency(buildProfile))");
+    expect(route).toContain("controller.abort();");
+    expect(route).toContain("abortSignal: controller.signal");
+    expect(route).toContain("createSourceScheduler(llmsFullSourceConcurrency(buildProfile), abortSignal)");
     expect(route).toContain("scheduleSource(() => withLlmsRouteBudget(");
     expect(route).toContain("scheduleSource(() => loadHardSource(");
+    expect(sitemapSource).toContain("requestTimeoutMs?: number");
+    expect(sitemapSource).toContain("backendSitemapSourceInFlight.timeoutMs < requestTimeoutMs");
+  });
+
+  it("propagates a parent deadline to active budgeted work and returns the fail-closed fallback", async () => {
+    const { withLlmsRouteBudget } = await import("@/lib/seo/llmsRouteBudget");
+    const parent = new AbortController();
+    let childAborted = false;
+
+    const resultPromise = withLlmsRouteBudget(
+      (signal) => new Promise<string>((resolve) => {
+        signal.addEventListener("abort", () => {
+          childAborted = true;
+          resolve("late");
+        }, { once: true });
+      }),
+      "fallback",
+      { timeoutMs: 60_000, signal: parent.signal }
+    );
+
+    parent.abort();
+
+    await expect(resultPromise).resolves.toBe("fallback");
+    expect(childAborted).toBe(true);
   });
 
   it("shares one backend sitemap request across concurrent cohort consumers", async () => {

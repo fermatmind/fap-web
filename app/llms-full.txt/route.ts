@@ -165,6 +165,7 @@ export type LlmsFullBuildProfile = "runtime" | "artifact";
 
 type LlmsFullBuildOptions = {
   buildProfile?: LlmsFullBuildProfile;
+  abortSignal?: AbortSignal;
 };
 
 export function llmsFullContentPageTimeoutMs(buildProfile: LlmsFullBuildProfile = "runtime"): number {
@@ -196,7 +197,7 @@ export function llmsFullSourceConcurrency(buildProfile: LlmsFullBuildProfile): n
   return buildProfile === "artifact" ? LLMS_FULL_ARTIFACT_SOURCE_CONCURRENCY : Number.MAX_SAFE_INTEGER;
 }
 
-function createSourceScheduler(concurrency: number) {
+function createSourceScheduler(concurrency: number, signal?: AbortSignal) {
   let active = 0;
   const waiting: Array<() => void> = [];
 
@@ -206,8 +207,28 @@ function createSourceScheduler(concurrency: number) {
   };
 
   return async function schedule<T>(load: () => Promise<T>): Promise<T> {
+    if (signal?.aborted) {
+      throw new DOMException("The operation was aborted.", "AbortError");
+    }
     if (active >= concurrency) {
-      await new Promise<void>((resolve) => waiting.push(resolve));
+      await new Promise<void>((resolve, reject) => {
+        const ready = () => {
+          signal?.removeEventListener("abort", abort);
+          resolve();
+        };
+        const abort = () => {
+          const index = waiting.indexOf(ready);
+          if (index >= 0) {
+            waiting.splice(index, 1);
+          }
+          reject(new DOMException("The operation was aborted.", "AbortError"));
+        };
+        signal?.addEventListener("abort", abort, { once: true });
+        waiting.push(ready);
+      });
+    }
+    if (signal?.aborted) {
+      throw new DOMException("The operation was aborted.", "AbortError");
     }
     active += 1;
     try {
@@ -221,11 +242,15 @@ function createSourceScheduler(concurrency: number) {
 async function loadHardSource<T>(
   buildProfile: LlmsFullBuildProfile,
   load: () => Promise<T>,
-  isComplete: (value: T) => boolean
+  isComplete: (value: T) => boolean,
+  signal?: AbortSignal
 ): Promise<T> {
   const attempts = buildProfile === "artifact" ? LLMS_FULL_ARTIFACT_HARD_SOURCE_ATTEMPTS : 1;
   let value = await load();
   for (let attempt = 1; attempt < attempts && !isComplete(value); attempt += 1) {
+    if (signal?.aborted) {
+      throw new DOMException("The operation was aborted.", "AbortError");
+    }
     value = await load();
   }
   return value;
@@ -982,7 +1007,8 @@ export async function buildDegradedLlmsFullText(siteUrl: string): Promise<string
 async function mapWithConcurrency<T, U>(
   items: T[],
   concurrency: number,
-  mapper: (item: T) => Promise<U>
+  mapper: (item: T) => Promise<U>,
+  signal?: AbortSignal
 ): Promise<U[]> {
   const results = new Array<U>(items.length);
   let nextIndex = 0;
@@ -991,6 +1017,9 @@ async function mapWithConcurrency<T, U>(
   await Promise.all(
     Array.from({ length: workerCount }, async () => {
       while (nextIndex < items.length) {
+        if (signal?.aborted) {
+          throw new DOMException("The operation was aborted.", "AbortError");
+        }
         const currentIndex = nextIndex;
         nextIndex += 1;
         results[currentIndex] = await mapper(items[currentIndex]);
@@ -1088,22 +1117,33 @@ function buildMbtiPersonalityAuthorityEntry(path: string): LlmsFullEntry | null 
   };
 }
 
-async function listPersonalityEntries(): Promise<LlmsFullEntry[]> {
-  const mbtiEntriesPromise = listBackendSitemapMbtiPersonalityPaths()
+async function listPersonalityEntries(): Promise<LlmsFullEntry[]>;
+async function listPersonalityEntries(options: {
+  signal?: AbortSignal;
+  requestTimeoutMs?: number;
+}): Promise<LlmsFullEntry[]>;
+async function listPersonalityEntries(options: {
+  signal?: AbortSignal;
+  requestTimeoutMs?: number;
+} = {}): Promise<LlmsFullEntry[]> {
+  const mbtiEntriesPromise = listBackendSitemapMbtiPersonalityPaths(options)
     .then((paths) =>
       paths
         .map((path) => buildMbtiPersonalityAuthorityEntry(path))
         .filter((entry): entry is LlmsFullEntry => Boolean(entry))
     )
     .catch(() => []);
-  const bigFiveZhEntriesPromise = listBackendSitemapBigFiveZhPaths({ limit: LLMS_FULL_BIG_FIVE_CANONICAL_ENTRY_LIMIT })
+  const bigFiveZhEntriesPromise = listBackendSitemapBigFiveZhPaths({
+    ...options,
+    limit: LLMS_FULL_BIG_FIVE_CANONICAL_ENTRY_LIMIT,
+  })
     .then((paths) =>
       paths
         .map((path) => buildBigFivePublicAssetEntry(path))
         .filter((entry): entry is LlmsFullEntry => Boolean(entry))
     )
     .catch(() => []);
-  const enneagramEntriesPromise = listEnneagramLlmsFullEntries().catch(() => []);
+  const enneagramEntriesPromise = listEnneagramLlmsFullEntries({ signal: options.signal }).catch(() => []);
 
   const [mbtiEntries, bigFiveZhEntries, enneagramEntries] = await Promise.all([
     mbtiEntriesPromise,
@@ -1222,16 +1262,19 @@ async function buildLlmsFullTextInternal(
   options: LlmsFullBuildOptions = {}
 ): Promise<string> {
   const buildProfile = options.buildProfile ?? "runtime";
+  const abortSignal = options.abortSignal;
   const contentPageBudget = options.buildProfile === "artifact"
     ? { timeoutMs: LLMS_FULL_ARTIFACT_CONTENT_PAGE_TIMEOUT_MS }
     : { timeoutMs: LLMS_ROUTE_CONTENT_PAGE_TIMEOUT_MS };
   const hardSourceBudget = (runtimeTimeoutMs: number) => ({
     timeoutMs: llmsFullSourceTimeoutMs(buildProfile, "hard", runtimeTimeoutMs),
+    signal: abortSignal,
   });
   const optionalSourceBudget = (runtimeTimeoutMs: number) => ({
     timeoutMs: llmsFullSourceTimeoutMs(buildProfile, "optional", runtimeTimeoutMs),
+    signal: abortSignal,
   });
-  const scheduleSource = createSourceScheduler(llmsFullSourceConcurrency(buildProfile));
+  const scheduleSource = createSourceScheduler(llmsFullSourceConcurrency(buildProfile), abortSignal);
   const [
     enCareerGuides,
     zhCareerGuides,
@@ -1283,11 +1326,19 @@ async function buildLlmsFullTextInternal(
     scheduleSource(() => loadHardSource(
       buildProfile,
       () => withLlmsRouteBudget(
-        () => listPersonalityEntries(),
+        (signal) => listPersonalityEntries({
+          signal,
+          requestTimeoutMs: llmsFullSourceTimeoutMs(
+            buildProfile,
+            "hard",
+            LLMS_FULL_PERSONALITY_SOURCE_TIMEOUT_MS
+          ),
+        }),
         [],
         hardSourceBudget(LLMS_FULL_PERSONALITY_SOURCE_TIMEOUT_MS)
       ),
-      hasCompletePersonalitySource
+      hasCompletePersonalitySource,
+      abortSignal
     )),
     scheduleSource(() => withLlmsRouteBudget(
       () => listTopicEntries(),
@@ -1325,10 +1376,11 @@ async function buildLlmsFullTextInternal(
           ),
         [],
         buildProfile === "artifact"
-          ? { timeoutMs: LLMS_FULL_ARTIFACT_HARD_SOURCE_TIMEOUT_MS }
+          ? { timeoutMs: LLMS_FULL_ARTIFACT_HARD_SOURCE_TIMEOUT_MS, signal: abortSignal }
           : { timeoutMs: LLMS_FULL_TEST_SOURCE_TIMEOUT_MS }
       ),
-      hasRequiredCoreTests
+      hasRequiredCoreTests,
+      abortSignal
     )),
     scheduleSource(() => loadHardSource(
       buildProfile,
@@ -1338,9 +1390,10 @@ async function buildLlmsFullTextInternal(
             limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
           ),
         [],
-        contentPageBudget
+        { ...contentPageBudget, signal: abortSignal }
       ),
-      (pages) => hasRequiredTrustContentPages(pages, "en")
+      (pages) => hasRequiredTrustContentPages(pages, "en"),
+      abortSignal
     )),
     scheduleSource(() => loadHardSource(
       buildProfile,
@@ -1350,18 +1403,28 @@ async function buildLlmsFullTextInternal(
             limitLlmsRouteEntries(result.value, LLMS_ROUTE_LIMITS.helpPages)
           ),
         [],
-        contentPageBudget
+        { ...contentPageBudget, signal: abortSignal }
       ),
-      (pages) => hasRequiredTrustContentPages(pages, "zh")
+      (pages) => hasRequiredTrustContentPages(pages, "zh"),
+      abortSignal
     )),
     scheduleSource(() => loadHardSource(
       buildProfile,
       () => withLlmsRouteBudget(
-        (signal) => listBackendSitemapCareerJobPaths({ limit: LLMS_ROUTE_LIMITS.careerJobs, signal }),
+        (signal) => listBackendSitemapCareerJobPaths({
+          limit: LLMS_ROUTE_LIMITS.careerJobs,
+          signal,
+          requestTimeoutMs: llmsFullSourceTimeoutMs(
+            buildProfile,
+            "hard",
+            LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS
+          ),
+        }),
         [],
         hardSourceBudget(LLMS_ROUTE_CAREER_JOB_TIMEOUT_MS)
       ),
-      hasCompleteCareerJobs
+      hasCompleteCareerJobs,
+      abortSignal
     )),
     scheduleSource(() => withLlmsRouteBudget(
       () => listDailyGivingDiscoverabilityEntries("en"),
@@ -1540,9 +1603,10 @@ async function buildLlmsFullTextInternal(
         ? withLlmsRouteBudget(
           () => enrichPersonalityEntry(entry, siteUrl),
           entry,
-          { timeoutMs: LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS }
+          { timeoutMs: LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS, signal: abortSignal }
         )
-        : withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
+        : withLlmsRouteBudget(() => enrichPersonalityEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS }),
+      abortSignal
     ),
     mapWithConcurrency(
       limitedTopicEntries,
@@ -1551,9 +1615,10 @@ async function buildLlmsFullTextInternal(
         ? withLlmsRouteBudget(
           () => enrichTopicEntry(entry, siteUrl),
           entry,
-          { timeoutMs: LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS }
+          { timeoutMs: LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS, signal: abortSignal }
         )
-        : withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
+        : withLlmsRouteBudget(() => enrichTopicEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS }),
+      abortSignal
     ),
     mapWithConcurrency(
       limitedArticleEntries,
@@ -1562,9 +1627,10 @@ async function buildLlmsFullTextInternal(
         ? withLlmsRouteBudget(
           () => enrichArticleEntry(entry, siteUrl),
           entry,
-          { timeoutMs: LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS }
+          { timeoutMs: LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS, signal: abortSignal }
         )
-        : withLlmsRouteBudget(() => enrichArticleEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
+        : withLlmsRouteBudget(() => enrichArticleEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS }),
+      abortSignal
     ),
     mapWithConcurrency(
       limitedGuideEntries,
@@ -1573,9 +1639,10 @@ async function buildLlmsFullTextInternal(
         ? withLlmsRouteBudget(
           () => enrichCareerGuideEntry(entry, siteUrl),
           entry,
-          { timeoutMs: LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS }
+          { timeoutMs: LLMS_FULL_ARTIFACT_ENRICHMENT_TIMEOUT_MS, signal: abortSignal }
         )
-        : withLlmsRouteBudget(() => enrichCareerGuideEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS })
+        : withLlmsRouteBudget(() => enrichCareerGuideEntry(entry, siteUrl), entry, { timeoutMs: LLMS_FULL_ENRICHMENT_TIMEOUT_MS }),
+      abortSignal
     ),
   ]);
 
@@ -1634,13 +1701,20 @@ export async function buildLlmsFullText(
     return buildLlmsFullTextInternal(siteUrl, options);
   }
 
+  const controller = new AbortController();
   let timeout: ReturnType<typeof setTimeout> | undefined;
   try {
     return await Promise.race([
-      buildLlmsFullTextInternal(siteUrl, options),
+      buildLlmsFullTextInternal(siteUrl, {
+        ...options,
+        abortSignal: controller.signal,
+      }),
       new Promise<never>((_, reject) => {
         timeout = setTimeout(
-          () => reject(new Error("LLMS_FULL_ARTIFACT_BUILD_TIMEOUT")),
+          () => {
+            controller.abort();
+            reject(new Error("LLMS_FULL_ARTIFACT_BUILD_TIMEOUT"));
+          },
           LLMS_FULL_ARTIFACT_BUILD_TIMEOUT_MS
         );
       }),
