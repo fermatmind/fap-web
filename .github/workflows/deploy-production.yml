@@ -370,7 +370,7 @@ jobs:
     name: Deploy fap-web production Node1
     needs: policy-guard
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 75
     if: >-
       ${{
         needs.policy-guard.outputs.auto_deploy_allowed == 'true' &&
@@ -401,6 +401,9 @@ jobs:
       AUTHORIZATION_MODE: ${{ needs.policy-guard.outputs.authorization_mode }}
       SSH_RETRY_ATTEMPTS: "3"
       SSH_RETRY_DELAY_SECONDS: "10"
+      ARTIFACT_TRANSFER_ATTEMPTS: "3"
+      ARTIFACT_TRANSFER_DELAY_SECONDS: "10"
+      ARTIFACT_TRANSFER_IO_TIMEOUT_SECONDS: "120"
 
     steps:
       - name: Checkout approved revision
@@ -712,10 +715,16 @@ jobs:
           actual_manifest_digest="sha256:$(sha256sum "$release_directory/RELEASE_MANIFEST.json" | awk '{print $1}')"
           test "$actual_manifest_digest" = "$RELEASE_MANIFEST_DIGEST"
 
+          release_archive_sha256="$(sha256sum "$release_archive" | awk '{print $1}')"
+          remote_artifact_dir="${APP_DIR%/}/.deploy-artifacts/${DEPLOY_SHA}-${release_archive_sha256}"
+
           {
             echo "RELEASE_ARCHIVE=$release_archive"
-            echo "RELEASE_ARCHIVE_SHA256=$(sha256sum "$release_archive" | awk '{print $1}')"
+            echo "RELEASE_ARCHIVE_SHA256=$release_archive_sha256"
             echo "REMOTE_CONTROL_DIR=${APP_DIR%/}/.deploy-incoming/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+            echo "REMOTE_ARTIFACT_DIR=$remote_artifact_dir"
+            echo "REMOTE_RELEASE_ARCHIVE=$remote_artifact_dir/fap-web-${DEPLOY_SHA}.tar.gz"
+            echo "REMOTE_RELEASE_ARCHIVE_PART=$remote_artifact_dir/fap-web-${DEPLOY_SHA}.tar.gz.part"
           } >> "$GITHUB_ENV"
 
       - name: Set up SSH
@@ -738,29 +747,109 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          command -v rsync >/dev/null
           source scripts/production_deploy_retry.sh
           retry_ssh_transport preflight \
             ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+            -o ServerAliveInterval=15 -o ServerAliveCountMax=4 \
             -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
-            "whoami; hostname; test -d '$APP_DIR' && mkdir -p '$REMOTE_CONTROL_DIR' && chmod 700 '$REMOTE_CONTROL_DIR'"
+            "whoami; hostname; command -v rsync >/dev/null; test -d '$APP_DIR' && mkdir -p '$REMOTE_CONTROL_DIR' '$REMOTE_ARTIFACT_DIR' && chmod 700 '$REMOTE_CONTROL_DIR' '$REMOTE_ARTIFACT_DIR'"
 
-      - name: Promote receipt-bound immutable release
+      - name: Transfer production control scripts
         shell: bash
         run: |
           set -euo pipefail
-          scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+          source scripts/production_deploy_retry.sh
+          retry_ssh_transport control-files \
+            scp -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+            -o ServerAliveInterval=15 -o ServerAliveCountMax=4 \
             -P "$DEPLOY_PORT" \
-            "$RELEASE_ARCHIVE" \
             scripts/install_standalone_release.sh \
             scripts/deploy_web_pm2.sh \
             scripts/rolling_reload_pm2.sh \
             "$DEPLOY_USER@$DEPLOY_HOST:$REMOTE_CONTROL_DIR/"
 
+      - name: Resume and verify receipt-bound release archive
+        shell: bash
+        run: |
+          set -euo pipefail
+          source scripts/production_deploy_retry.sh
+
+          [[ "$DEPLOY_SHA" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$RELEASE_ARCHIVE_SHA256" =~ ^[0-9a-f]{64}$ ]]
+          for value in \
+            "$ARTIFACT_TRANSFER_ATTEMPTS" \
+            "$ARTIFACT_TRANSFER_DELAY_SECONDS" \
+            "$ARTIFACT_TRANSFER_IO_TIMEOUT_SECONDS"
+          do
+            [[ "$value" =~ ^[1-9][0-9]*$ ]]
+          done
+
+          cache_state="$(
+            retry_ssh_transport artifact-cache-check \
+              ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+              -o ServerAliveInterval=15 -o ServerAliveCountMax=4 \
+              -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+              "set -e; if [ -f '$REMOTE_RELEASE_ARCHIVE' ]; then actual=\$(sha256sum '$REMOTE_RELEASE_ARCHIVE' | awk '{print \$1}'); test \"\$actual\" = '$RELEASE_ARCHIVE_SHA256'; echo verified; else echo missing; fi"
+          )"
+
+          if [[ "$cache_state" != "verified" ]]; then
+            [[ "$cache_state" == "missing" ]]
+            transfer_complete="false"
+            for ((attempt = 1; attempt <= ARTIFACT_TRANSFER_ATTEMPTS; attempt += 1)); do
+              set +e
+              rsync \
+                --partial \
+                --append-verify \
+                --protect-args \
+                --timeout="$ARTIFACT_TRANSFER_IO_TIMEOUT_SECONDS" \
+                -e "ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 -o ServerAliveInterval=15 -o ServerAliveCountMax=4 -p $DEPLOY_PORT" \
+                -- \
+                "$RELEASE_ARCHIVE" \
+                "$DEPLOY_USER@$DEPLOY_HOST:$REMOTE_RELEASE_ARCHIVE_PART"
+              rsync_rc=$?
+              set -e
+
+              if [[ "$rsync_rc" -eq 0 ]]; then
+                transfer_complete="true"
+                break
+              fi
+
+              case "$rsync_rc" in
+                10|12|30|35|255) ;;
+                *)
+                  echo "Artifact transfer failed with non-transport rsync exit ${rsync_rc}; refusing to retry" >&2
+                  exit "$rsync_rc"
+                  ;;
+              esac
+
+              if [[ "$attempt" -eq "$ARTIFACT_TRANSFER_ATTEMPTS" ]]; then
+                echo "Artifact transport failure persisted after ${ARTIFACT_TRANSFER_ATTEMPTS} attempts" >&2
+                exit "$rsync_rc"
+              fi
+
+              echo "Artifact transport failed on attempt ${attempt}; resuming in ${ARTIFACT_TRANSFER_DELAY_SECONDS}s" >&2
+              sleep "$ARTIFACT_TRANSFER_DELAY_SECONDS"
+            done
+            [[ "$transfer_complete" == "true" ]]
+
+            retry_ssh_transport artifact-finalize \
+              ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+              -o ServerAliveInterval=15 -o ServerAliveCountMax=4 \
+              -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
+              "set -e; if [ -f '$REMOTE_RELEASE_ARCHIVE' ]; then actual=\$(sha256sum '$REMOTE_RELEASE_ARCHIVE' | awk '{print \$1}'); test \"\$actual\" = '$RELEASE_ARCHIVE_SHA256'; exit 0; fi; test -f '$REMOTE_RELEASE_ARCHIVE_PART'; actual=\$(sha256sum '$REMOTE_RELEASE_ARCHIVE_PART' | awk '{print \$1}'); test \"\$actual\" = '$RELEASE_ARCHIVE_SHA256'; mv -f '$REMOTE_RELEASE_ARCHIVE_PART' '$REMOTE_RELEASE_ARCHIVE'; test \"\$(sha256sum '$REMOTE_RELEASE_ARCHIVE' | awk '{print \$1}')\" = '$RELEASE_ARCHIVE_SHA256'"
+          fi
+
+      - name: Promote receipt-bound immutable release
+        shell: bash
+        run: |
+          set -euo pipefail
           # Business promotion is intentionally single-shot. Retrying after an
           # ambiguous disconnect could replay the atomic release switch.
           ssh -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10 \
+            -o ServerAliveInterval=15 -o ServerAliveCountMax=4 \
             -p "$DEPLOY_PORT" "$DEPLOY_USER@$DEPLOY_HOST" \
-            "chmod 700 '$REMOTE_CONTROL_DIR/'*.sh && APP_DIR='$APP_DIR' APP_USER='$DEPLOY_USER' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' APP_MANAGER='$APP_MANAGER' SYSTEMD_SERVICE='$SYSTEMD_SERVICE' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' DEPLOY_SHA='$DEPLOY_SHA' ARTIFACT_DIGEST='$ARTIFACT_DIGEST' ARCHIVE_SHA256='$RELEASE_ARCHIVE_SHA256' RELEASE_MANIFEST_DIGEST='$RELEASE_MANIFEST_DIGEST' RELEASE_ARCHIVE='$REMOTE_CONTROL_DIR/fap-web-$DEPLOY_SHA.tar.gz' DEPLOY_SCRIPT='$REMOTE_CONTROL_DIR/deploy_web_pm2.sh' ROLLING_RELOAD_SCRIPT='$REMOTE_CONTROL_DIR/rolling_reload_pm2.sh' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' RUN_CMS_BASELINE_STAGING_SMOKE='0' RUN_CONTENT_RELEASE_REVALIDATE_SMOKE='0' bash '$REMOTE_CONTROL_DIR/install_standalone_release.sh'"
+            "chmod 700 '$REMOTE_CONTROL_DIR/'*.sh && APP_DIR='$APP_DIR' APP_USER='$DEPLOY_USER' APP_NAME='$APP_NAME' APP_PORT='$APP_PORT' APP_MANAGER='$APP_MANAGER' SYSTEMD_SERVICE='$SYSTEMD_SERVICE' PUBLIC_BASE_URL='$PUBLIC_BASE_URL' DEPLOY_SHA='$DEPLOY_SHA' ARTIFACT_DIGEST='$ARTIFACT_DIGEST' ARCHIVE_SHA256='$RELEASE_ARCHIVE_SHA256' RELEASE_MANIFEST_DIGEST='$RELEASE_MANIFEST_DIGEST' RELEASE_ARCHIVE='$REMOTE_RELEASE_ARCHIVE' DEPLOY_SCRIPT='$REMOTE_CONTROL_DIR/deploy_web_pm2.sh' ROLLING_RELOAD_SCRIPT='$REMOTE_CONTROL_DIR/rolling_reload_pm2.sh' RUN_SITEMAP_HEALTH='$RUN_SITEMAP_HEALTH' CORE_PUBLIC_PATH='$CORE_PUBLIC_PATH' RUN_CMS_BASELINE_STAGING_SMOKE='0' RUN_CONTENT_RELEASE_REVALIDATE_SMOKE='0' bash '$REMOTE_CONTROL_DIR/install_standalone_release.sh'"
 
       - name: Poll deployed revision endpoint
         shell: bash

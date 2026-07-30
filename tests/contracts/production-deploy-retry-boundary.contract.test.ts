@@ -64,6 +64,52 @@ describe("production deploy retry boundary", () => {
     },
   );
 
+  it("separates resumable artifact preparation from single-shot promotion", () => {
+    const controlStart = workflow.indexOf("- name: Transfer production control scripts");
+    const resumeStart = workflow.indexOf("- name: Resume and verify receipt-bound release archive");
+    const deployStart = workflow.indexOf("- name: Promote receipt-bound immutable release");
+    const revisionStart = workflow.indexOf("- name: Poll deployed revision endpoint");
+    const controlStep = workflow.slice(controlStart, resumeStart);
+    const resumeStep = workflow.slice(resumeStart, deployStart);
+    const deployStep = workflow.slice(deployStart, revisionStart);
+
+    expect(controlStart).toBeGreaterThan(0);
+    expect(resumeStart).toBeGreaterThan(controlStart);
+    expect(deployStart).toBeGreaterThan(resumeStart);
+    expect(revisionStart).toBeGreaterThan(deployStart);
+
+    expect(workflow).toContain("timeout-minutes: 75");
+    expect(workflow).toContain(
+      'remote_artifact_dir="${APP_DIR%/}/.deploy-artifacts/${DEPLOY_SHA}-${release_archive_sha256}"',
+    );
+    expect(workflow).toContain(
+      'echo "REMOTE_CONTROL_DIR=${APP_DIR%/}/.deploy-incoming/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"',
+    );
+    expect(workflow).toContain(
+      'echo "REMOTE_RELEASE_ARCHIVE_PART=$remote_artifact_dir/fap-web-${DEPLOY_SHA}.tar.gz.part"',
+    );
+
+    expect(controlStep).toContain("retry_ssh_transport control-files");
+    expect(controlStep).toContain("scripts/install_standalone_release.sh");
+    expect(controlStep).not.toContain('"$RELEASE_ARCHIVE"');
+
+    expect(resumeStep).toContain("--partial");
+    expect(resumeStep).toContain("--append-verify");
+    expect(resumeStep).toContain('--timeout="$ARTIFACT_TRANSFER_IO_TIMEOUT_SECONDS"');
+    expect(resumeStep).toContain("10|12|30|35|255");
+    expect(resumeStep).toContain("artifact-cache-check");
+    expect(resumeStep).toContain("artifact-finalize");
+    expect(resumeStep).toContain("sha256sum '$REMOTE_RELEASE_ARCHIVE_PART'");
+    expect(resumeStep).toContain("mv -f '$REMOTE_RELEASE_ARCHIVE_PART' '$REMOTE_RELEASE_ARCHIVE'");
+
+    expect(deployStep).toContain("Business promotion is intentionally single-shot");
+    expect(deployStep).toContain("RELEASE_ARCHIVE='$REMOTE_RELEASE_ARCHIVE'");
+    expect(deployStep).not.toContain("scp ");
+    expect(deployStep).not.toContain("rsync");
+    expect(deployStep).not.toContain("retry_ssh_transport");
+    expect(deployStep).not.toContain("for ((attempt");
+  });
+
   it("invokes the production business deploy at most once", () => {
     const deployStart = workflow.indexOf("- name: Promote receipt-bound immutable release");
     const revisionStart = workflow.indexOf("- name: Poll deployed revision endpoint");
@@ -73,8 +119,11 @@ describe("production deploy retry boundary", () => {
     expect(revisionStart).toBeGreaterThan(deployStart);
     expect(deployStep.match(/bash '\$REMOTE_CONTROL_DIR\/install_standalone_release\.sh'/g)).toHaveLength(1);
     expect(deployStep).toContain("Business promotion is intentionally single-shot");
+    expect(deployStep).not.toContain("scp ");
+    expect(deployStep).not.toContain("rsync");
     expect(deployStep).not.toContain("retry_ssh_transport");
     expect(deployStep).not.toContain("for attempt in");
+    expect(deployStep).not.toContain("for ((attempt");
     expect(workflow).not.toContain("ssh_retry()");
     expect(workflow).not.toContain("SSH deploy attempt");
   });
