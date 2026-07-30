@@ -1,0 +1,122 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermatmind.com/schemas/mbti-result-content-inventory.v1.json",
+  "title": "FermatMind MBTI English result-content frozen inventory",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "control_id",
+    "lane_id",
+    "package_id",
+    "reconciliation",
+    "rows"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "fermatmind.en_content_parity_source_ledger.v1"
+    },
+    "control_id": {
+      "const": "EN-PARITY-CONTROL-BOOTSTRAP-01"
+    },
+    "lane_id": {
+      "const": "W1"
+    },
+    "package_id": {
+      "const": "EN-PARITY-W1-MBTI-INVENTORY-2026-07-30"
+    },
+    "reconciliation": {
+      "type": "object",
+      "required": [
+        "total_rows",
+        "comparison_rows",
+        "result_content_rows",
+        "result_expected_equals_current_plus_remaining",
+        "result_verdict_counts"
+      ]
+    },
+    "rows": {
+      "type": "array",
+      "contains": {
+        "$ref": "#/$defs/resultRow"
+      },
+      "minContains": 46,
+      "maxContains": 46
+    }
+  },
+  "$defs": {
+    "resultRow": {
+      "type": "object",
+      "required": [
+        "row_id",
+        "asset_id",
+        "stable_asset_identity",
+        "surface",
+        "entitlement_level",
+        "source_locale",
+        "target_locale",
+        "asset_classification",
+        "authority_owner",
+        "backend_field_path",
+        "api_projection_field_path",
+        "frontend_consumer_path",
+        "zh_presence",
+        "en_presence",
+        "parity_verdict",
+        "reader_visible_chinese_leakage",
+        "claim_boundary_verdict",
+        "source_evidence",
+        "proposed_owning_repository",
+        "mobile_desktop_consumption",
+        "blocker",
+        "excluded_private_fields"
+      ],
+      "properties": {
+        "asset_id": {
+          "const": "ENPARITY-W1-MBTI-RESULT-CONTENT"
+        },
+        "source_locale": {
+          "const": "zh-CN"
+        },
+        "target_locale": {
+          "const": "en"
+        },
+        "proposed_owning_repository": {
+          "enum": [
+            "fap-api",
+            "fap-web"
+          ]
+        },
+        "parity_verdict": {
+          "enum": [
+            "complete_control",
+            "structurally_incomplete",
+            "missing",
+            "unable_to_confirm"
+          ]
+        },
+        "claim_boundary_verdict": {
+          "enum": [
+            "PASS_with_MBTI_preference_boundary",
+            "UNKNOWN_requires_independent_private-safe_QA"
+          ]
+        },
+        "source_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "excluded_private_fields": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 9,
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

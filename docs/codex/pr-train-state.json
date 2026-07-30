@@ -51877,8 +51877,8 @@
     "base": "main",
     "branch": "codex/en-parity-w1-mbti-inventory-01",
     "depends_on": [],
-  "status": "ready_to_merge",
-  "commit_sha": "d62c8c3a5e965a6f7913930cccf054ec6ee7e6aa",
+  "status": "merged_cleanup_complete",
+  "commit_sha": "fc985df4ff5192b7e92b38cd2a0d11117f393968",
     "pr_url": "https://github.com/fermatmind/fap-web/pull/1847",
     "checks": {
       "authorization": {
@@ -51927,14 +51927,14 @@
       }
     },
     "failure_reason": null,
-    "merged_at": null,
-    "remote_branch_deleted": false,
-    "local_cleanup_executed": false,
+  "merged_at": "2026-07-30T15:50:28Z",
+  "remote_branch_deleted": true,
+  "local_cleanup_executed": true,
     "scope_validation": {
       "allowed_paths_only": true,
       "local_validation_passed": true,
     "github_checks_green": true,
-      "post_merge_revalidated": false
+    "post_merge_revalidated": true
     },
     "production_write_execution": false,
     "database_mutation": false,
@@ -51973,8 +51973,94 @@
       "at": "2026-07-30T15:45:18Z",
       "status": "ready_to_merge",
       "summary": "All 11 checks passed on exact head d62c8c3a5e965a6f7913930cccf054ec6ee7e6aa. GitHub reports the PR mergeable with no review decision block, and the final changed-file list remains the exact 12-file inventory/ledger scope. The ledger transition itself requires one final exact-head check cycle before merge."
+    },
+    {
+      "at": "2026-07-30T15:56:27Z",
+      "status": "merged_cleanup_complete",
+      "summary": "PR #1847 passed all 11 checks again on final head 5f115efd92209bc1d9aa3986b429a71bdb3bc4f5 and squash-merged as fc985df4ff5192b7e92b38cd2a0d11117f393968 at 2026-07-30T15:50:28Z. origin/main contains the merge, local main equals origin/main, the worktree was clean, both task branches were absent, and both frozen parity validators passed post-merge."
     }
   ],
-  "updated_at": "2026-07-30T15:45:18Z"
+  "updated_at": "2026-07-30T15:56:27Z"
+},
+  "EN-PARITY-W1-MBTI-RESULT-AGENT-01": {
+    "id": "EN-PARITY-W1-MBTI-RESULT-AGENT-01",
+    "repo": "fap-web",
+    "title": "EN-PARITY-W1-MBTI-RESULT-AGENT-01: add MBTI result-page content agent gate",
+    "base": "main",
+    "branch": "codex/en-parity-w1-mbti-result-agent-01",
+    "depends_on": [
+      "EN-PARITY-W1-MBTI-INVENTORY-01"
+    ],
+    "status": "local_verified",
+    "commit_sha": null,
+    "pr_url": null,
+    "checks": {
+      "authorization": {
+        "status": "passed",
+        "evidence": "The operator supplied a continuous execution /goal with this exact PR id, title, repository, dependency, path scope, local checks, and controlled-action boundaries."
+      },
+      "dependency": {
+        "status": "passed",
+        "evidence": "Dependency PR #1847 is MERGED as fc985df4ff5192b7e92b38cd2a0d11117f393968, origin/main contains that merge, and the frozen W1 package validators pass post-merge."
+      },
+      "preflight": {
+        "status": "passed",
+        "evidence": "Started from clean latest fap-web main fc985df4ff5192b7e92b38cd2a0d11117f393968 after PR 01 post-merge cleanup. No matching local/remote task branch or open PR existed."
+      },
+      "inventory_validator": {
+        "status": "passed",
+        "evidence": "The read-only validator accepted the exact frozen W1 package SHA 8079465c6ec26820c99ca2be3f08346674e90509dee6d84fd610d5c6bbac2b85, reconciled 46 result rows as 24 controls plus 22 producer targets, preserved the single lawful-private-fixture PDF hold, and returned errors=[]."
+      },
+      "focused_contract": {
+        "status": "passed",
+        "evidence": "pnpm exec vitest run tests/contracts/mbti-result-content-agent.contract.test.ts --reporter=dot passed 6/6 tests, including exact package acceptance and fail-closed digest, privacy-property, claim-boundary, permission, and authority checks."
+      },
+      "focused_lint": {
+        "status": "passed",
+        "evidence": "pnpm exec eslint scripts/result-page-agents/validate-mbti-result-content.mjs tests/contracts/mbti-result-content-agent.contract.test.ts completed without findings."
+      },
+      "manifest_state_syntax": {
+        "status": "passed",
+        "evidence": "Ruby YAML safe-load and Python JSON parsing passed for docs/codex/pr-train.yaml and docs/codex/pr-train-state.json."
+      },
+      "diff_check": {
+        "status": "passed",
+        "evidence": "git diff --check completed without errors."
+      },
+      "changed_file_scope": {
+        "status": "passed",
+        "evidence": "All changes are limited to docs/result-page-agents/mbti/**, the single result-content validator, its focused contract, and the two train metadata files. No renderer, API adapter, app route, final content, fap-api, CMS, SEO runtime, or future-PR file is changed."
+      }
+    },
+    "failure_reason": null,
+    "merged_at": null,
+    "remote_branch_deleted": false,
+    "local_cleanup_executed": false,
+    "scope_validation": {
+      "allowed_paths_only": true,
+      "local_validation_passed": true,
+      "github_checks_green": false,
+      "post_merge_revalidated": false
+    },
+    "production_write_execution": false,
+    "database_mutation": false,
+    "cms_mutation": false,
+    "publish_allowed": false,
+    "search_channel_action": false,
+    "url_submission": false,
+    "deploy_allowed": false,
+    "history": [
+      {
+        "at": "2026-07-30T15:56:27Z",
+        "status": "in_progress",
+        "summary": "Created the scoped PR 02 branch from latest main. Implementation is limited to read-only W1 inventory schema/gates, MBTI result-content runbook, validator, focused contract, and train metadata; final English content, runtime, CMS, SEO, and fap-api changes remain excluded."
+      },
+      {
+        "at": "2026-07-30T15:57:49Z",
+        "status": "local_verified",
+        "summary": "The exact frozen inventory validator passed with 46 result rows and no errors; the focused contract passed 6/6; focused ESLint, YAML/JSON parsing, diff check, and exact path scope validation passed."
+      }
+    ],
+    "updated_at": "2026-07-30T15:57:49Z"
 }
 }
