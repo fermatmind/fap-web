@@ -52523,7 +52523,7 @@
       },
       "scope": {
         "status": "pass",
-        "evidence": "The original six runtime/train files plus six MBTI link-emission and direct-test files are inside the expanded current-item allowed_paths. GitHub P1 evidence proved the redirect removal otherwise introduced known English CTA links to a 404, so the same runtime hygiene scope suppresses only that unavailable English guide link. No replacement content, CareerGuide package, adapter, backend, sitemap, llms, indexability, search, or deploy file changed."
+        "evidence": "All 13 runtime, CMS adapter, train, MBTI link-emission, and direct-test files are inside the expanded current-item allowed_paths. GitHub P1 evidence required suppressing the single unavailable English CTA, while exact-head P2 evidence required omitting hreflang alternates whose locale projection is absent from the CMS/public API. No replacement content, CareerGuide package, backend, sitemap, llms, indexability, search, or deploy file changed."
       },
       "focused_contracts": {
         "status": "pass",
@@ -52585,8 +52585,13 @@
         "at": "2026-07-30T22:49:00.000Z",
         "status": "github_checks_pending",
         "summary": "Committed the same-scope P1 repair as 65f373d753520e70213237970789e5679323075c. This ledger tail binds the exact implementation SHA; fresh required checks and exact-head review remain mandatory before merge."
+      },
+      {
+        "at": "2026-07-30T22:58:00.000Z",
+        "status": "review_fix_local_verified",
+        "summary": "Exact-head review found a P2 where the zh-only guide could still advertise a known-missing English hreflang. The same-scope repair now reads alternate-locale availability from the CMS/public detail API, keeps only available locale alternates, and adds direct adapter and metadata contracts. Focused contracts pass 41/41; focused/full lint, Node 24 typecheck, production build 206/206, YAML/JSON parsing, diff checks, and exact 13-file scope validation pass."
       }
     ],
-    "updated_at": "2026-07-30T22:49:00.000Z"
+    "updated_at": "2026-07-30T22:58:00.000Z"
   }
 }

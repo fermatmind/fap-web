@@ -95,8 +95,19 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     notFound();
   }
 
+  const alternateLocale: Locale = locale === "en" ? "zh" : "en";
+  const alternateGuide = await getCareerGuideFromCmsBySlug(guide.slug, alternateLocale);
+  const localeAvailability = {
+    en: locale === "en" || Boolean(alternateGuide),
+    zh: locale === "zh" || Boolean(alternateGuide),
+  };
   const canonicalPath = buildCanonicalPath(guide.slug, locale);
-  const normalizedSeo = normalizeCareerGuideSeoPayload(seo, guide, locale);
+  const normalizedSeo = normalizeCareerGuideSeoPayload(
+    seo,
+    guide,
+    locale,
+    localeAvailability,
+  );
   const noindex = !guide.isIndexable || shouldNoindex(normalizedSeo.meta.robots);
   const metadata = buildPageMetadata({
     locale,
@@ -127,11 +138,15 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       ...metadata.alternates,
       canonical,
       languages: {
-        ...metadata.alternates?.languages,
-        en: normalizedSeo.meta.alternates.en ?? metadata.alternates?.languages?.en,
-        "zh-CN":
-          normalizedSeo.meta.alternates["zh-CN"] ??
-          metadata.alternates?.languages?.["zh-CN"],
+        ...(normalizedSeo.meta.alternates.en
+          ? { en: normalizedSeo.meta.alternates.en }
+          : {}),
+        ...(normalizedSeo.meta.alternates["zh-CN"]
+          ? { "zh-CN": normalizedSeo.meta.alternates["zh-CN"] }
+          : {}),
+        ...(metadata.alternates?.languages?.["x-default"]
+          ? { "x-default": metadata.alternates.languages["x-default"] }
+          : {}),
       },
     },
     openGraph: {

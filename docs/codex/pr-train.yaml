@@ -27944,6 +27944,7 @@ prs:
       - tests/contracts/career-guides-cms.contract.test.tsx
       - tests/contracts/career-guides-cleanup.contract.test.ts
       - tests/contracts/redirects.contract.test.ts
+      - lib/cms/career-guides.ts
       - lib/mbti/mbtiTypeContentPack.ts
       - lib/mbti/intpContentPack.ts
       - lib/mbti/sceneDeepContent.ts
