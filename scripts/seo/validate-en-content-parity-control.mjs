@@ -1340,7 +1340,9 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
       ? artifact.qa_lane_id
       : artifact.artifact_kind === "transition_gate_report"
         ? artifact.owner_lane_id
-        : artifact.artifact_kind === "controlled_transition_approval"
+      : artifact.artifact_kind === "controlled_transition_approval"
+          ? artifact.producer_lane_id
+        : artifact.artifact_kind === "package_rework_reset"
           ? artifact.producer_lane_id
         : artifact.lane_id;
   const registeredLane = manifest.lanes.find((lane) => lane.lane_id === artifactLaneId);
@@ -1352,7 +1354,7 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
     const reviewedTarget = registeredPackageTarget(producerLane, artifact.subscope_id);
     assert(Boolean(reviewedTarget), `${artifact.producer_lane_id}: QA subscope is not registered`, errors);
     assert(
-      stateIndex(reviewedTarget?.status) >= stateIndex("package_frozen"),
+      stateIndex(progressionStatus(reviewedTarget)) >= stateIndex("package_frozen"),
       `${artifact.producer_lane_id}: W9 cannot review a target before package_frozen`,
       errors
     );
@@ -1410,6 +1412,102 @@ function validateLeafInvariants(artifact, manifest, manifestSha256, artifactPath
         EXPECTED_QA_CHECKS.every((check) => artifact.checks[check] === "PASS"),
         `${artifact.producer_lane_id}: QA PASS requires every check to PASS`,
         errors
+      );
+    }
+  }
+
+  if (artifact.artifact_kind === "package_rework_reset") {
+    const producerLane = manifest.lanes.find((lane) => lane.lane_id === artifact.producer_lane_id);
+    const resetTarget = registeredPackageTarget(producerLane, artifact.subscope_id);
+    assert(Boolean(resetTarget), `${artifact.producer_lane_id}: rework target is not registered`, errors);
+    assert(
+      resetTarget?.status === "blocked" && resetTarget?.blockedFromStatus === "package_frozen",
+      `${artifact.producer_lane_id}: package rework reset requires a target blocked from package_frozen`,
+      errors
+    );
+    assert(
+      resetTarget?.packageSha256 === artifact.blocked_package_sha256,
+      `${artifact.producer_lane_id}: package rework reset must name the blocked frozen package SHA`,
+      errors
+    );
+    assert(
+      resetTarget?.gateLineage?.some(
+        (entry) =>
+          entry.status === "package_frozen" &&
+          entry.package_sha256 === artifact.blocked_package_sha256
+      ),
+      `${artifact.producer_lane_id}: package rework reset requires retained package_frozen lineage`,
+      errors
+    );
+    assert(
+      sameValue(
+        [...(artifact.clear_fields ?? [])].sort(),
+        ["gate_lineage", "package_sha256", "qa_report_ref"]
+      ),
+      `${artifact.producer_lane_id}: package rework reset must clear the failed frozen fields`,
+      errors
+    );
+
+    const approvalDirectory = manifest.authority?.controlled_transition_approval_directory ?? "";
+    try {
+      const realApprovalDirectory = fs.realpathSync(path.join(ROOT, approvalDirectory));
+      const realArtifactPath = fs.realpathSync(
+        path.isAbsolute(artifactPath) ? artifactPath : path.join(ROOT, artifactPath)
+      );
+      assert(
+        isPathInside(realArtifactPath, realApprovalDirectory),
+        `${artifact.producer_lane_id}: package rework reset must reside inside CONTROL authority`,
+        errors
+      );
+    } catch (error) {
+      errors.push(
+        `${artifact.producer_lane_id}: cannot verify package rework CONTROL authority (${error instanceof Error ? error.message : String(error)})`
+      );
+    }
+
+    try {
+      const reportPath = path.isAbsolute(artifact.w9_report_ref)
+        ? artifact.w9_report_ref
+        : path.join(ROOT, artifact.w9_report_ref);
+      const w9Lane = manifest.lanes.find((lane) => lane.lane_id === "W9");
+      const realQaAuthorityDirectory = fs.realpathSync(
+        path.join(ROOT, w9Lane?.output_directory ?? "")
+      );
+      const realReportPath = fs.realpathSync(reportPath);
+      assert(
+        isPathInside(realReportPath, realQaAuthorityDirectory),
+        `${artifact.producer_lane_id}: package rework reset W9 report must remain in W9 authority`,
+        errors
+      );
+      assert(
+        sha256File(reportPath) === artifact.w9_report_sha256,
+        `${artifact.producer_lane_id}: package rework reset W9 report SHA mismatch`,
+        errors
+      );
+      const report = JSON.parse(fs.readFileSync(reportPath, "utf8"));
+      errors.push(
+        ...schemaErrors(report, schema).map(
+          (error) => `${artifact.producer_lane_id}: package rework W9 Schema error: ${error}`
+        )
+      );
+      errors.push(
+        ...validateLeafInvariants(report, manifest, manifestSha256, reportPath, schema).map(
+          (error) => `${artifact.producer_lane_id}: package rework W9 invariant error: ${error}`
+        )
+      );
+      assert(
+        report.artifact_kind === "independent_qa_report" &&
+          report.qa_lane_id === "W9" &&
+          report.producer_lane_id === artifact.producer_lane_id &&
+          report.subscope_id === artifact.subscope_id &&
+          report.package_sha256 === artifact.blocked_package_sha256 &&
+          report.verdict === "BLOCKED",
+        `${artifact.producer_lane_id}: package rework reset requires an exact-SHA W9 BLOCKED report`,
+        errors
+      );
+    } catch (error) {
+      errors.push(
+        `${artifact.producer_lane_id}: cannot verify package rework W9 evidence (${error instanceof Error ? error.message : String(error)})`
       );
     }
   }
